@@ -6,16 +6,12 @@ on:
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
-  AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID_PROD}}
-  AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY_PROD}}
-  AWS_REGION: ${{secrets.AWS_REGION}}
   CI: true
   IS_RELEASE: true
   APP_STAGE: 'production'
-  GH_PAT: ${{ secrets.GH_PAT }}
 
 permissions:
-  contents: read
+  contents: write
   id-token: write
 
 jobs:
@@ -23,6 +19,13 @@ jobs:
     name: Release
     runs-on: ubuntu-latest
     steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: ${{ secrets.AWS_OIDC_ARN_PROD }}
+          role-session-name: AWS_OIDC_ARN_PROD
+          aws-region: ${{ secrets.AWS_REGION }}
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -66,6 +69,16 @@ jobs:
       - name: Build Storybook
         run: |
           yarn build:storybook
+
+      - name: Package Version Bump
+        run: |
+          yarn version ${{ steps.tagName.outputs.version }}
+
+      - name: Commit
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: 'chore: bump version to ${{ steps.tagName.outputs.version }}'
+          branch: main
 
       - name: Deploy
         run: |
