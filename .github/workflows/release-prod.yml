@@ -79,6 +79,7 @@ jobs:
           commit_message: 'chore: bump version to ${{ steps.tagName.outputs.version }}'
           branch: main
           token: ${{ secrets.GH_PAT }}
+          push_options: '--force'
 
       - name: Deploy
         run: |
