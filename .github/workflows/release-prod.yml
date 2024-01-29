@@ -81,7 +81,7 @@ jobs:
           title: 'chore: bump version to ${{ steps.tagName.outputs.version }}'
           body: Update to version in package.json
           base: main
-          branch: chore/update-version
+          branch: chore/update-version-${{ steps.tagName.outputs.version }}
 
       - name: Deploy
         run: |
