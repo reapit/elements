@@ -87,6 +87,10 @@ jobs:
         run: |
           yarn deploy
 
+      - name: Set Publish Version
+        run: |
+          yarn version ${{ steps.tagName.outputs.version }}
+
       - name: Publish
         run: |
           yarn publish --tag latest
