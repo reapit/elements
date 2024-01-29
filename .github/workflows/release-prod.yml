@@ -30,7 +30,6 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          token: ${{ secrets.GH_PAT }}
 
       - name: Get Tag
         uses: olegtarasov/get-tag@v2.1
