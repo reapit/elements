@@ -7,7 +7,7 @@
     "url": "https://github.com/reapit/foundations/issues"
   },
   "bin": {
-    "rpt-cdk": "./scripts/cdk/bin/rpt-cdk.js"
+    "elements-deploy": "./scripts/cdk/bin/rpt-cdk.js"
   },
   "repository": {
     "type": "git",
@@ -35,7 +35,7 @@
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit --skipLibCheck",
     "publish": "yarn npm publish --access public",
-    "deploy": "rpt-cdk deploy",
+    "deploy": "elements-deploy deploy",
     "start": "start-storybook -p 6006",
     "test": "cross-env TZ=UTC jest --watch --colors --silent"
   },

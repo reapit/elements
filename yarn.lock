@@ -2835,7 +2835,7 @@ __metadata:
     react: ">=18.0.2"
     react-dom: ">=18.0.2"
   bin:
-    rpt-cdk: ./scripts/cdk/bin/rpt-cdk.js
+    elements-deploy: ./scripts/cdk/bin/rpt-cdk.js
   languageName: unknown
   linkType: soft
 
