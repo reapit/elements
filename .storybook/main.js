@@ -2,11 +2,12 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+
   addons: [
     '@storybook/addon-links',
     '@reapit/storybook-addon-html',
     '@storybook/addon-essentials',
-    '@storybook/addon-storysource/register',
+    '@storybook/addon-storysource',
     {
       name: '@storybook/addon-postcss',
       options: {
@@ -15,6 +16,7 @@ module.exports = {
         },
       },
     },
+    '@storybook/addon-mdx-gfm'
   ],
   core: {
     builder: 'webpack5',
@@ -72,4 +74,27 @@ module.exports = {
     // Return the altered config
     return config
   },
+
+  // async viteFinal(config, { configType }) {
+  //   if (configType === "DEVELOPMENT") {
+  //     config.optimizeDeps.include = [
+  //       ...config?.optimizeDeps?.include,
+  //       "jest-mock",
+  //     ];
+  //   }
+
+  //   config.define = {
+  //     ...config.define,
+  //     global: "window",
+  //   };
+
+  //   return config;
+  // },
+  framework: {
+    name: '@storybook/react-webpack5',
+    options: {}
+  },
+  docs: {
+    autodocs: true
+  }
 }
