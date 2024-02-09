@@ -1,7 +1,7 @@
 import { toId } from '@storybook/csf'
 import React, { useState, useRef, useEffect } from 'react'
 import { Canvas } from '@storybook/addon-docs'
-import prettier from 'prettier/standalone'
+import { format } from 'prettier'
 import htmlParser from 'prettier/parser-html'
 
 type RenderHtmlMarkupProps = {
@@ -48,7 +48,7 @@ export const RenderHtmlMarkup = ({ component, story, label }: RenderHtmlMarkupPr
   }
 
   useEffect(() => {
-    findAndSetDoms()
+    setTimeout(() => findAndSetDoms(), 1000)
   }, [component, story])
 
   const getLabel = () => {
@@ -60,14 +60,14 @@ export const RenderHtmlMarkup = ({ component, story, label }: RenderHtmlMarkupPr
   const getMdxSource = () => {
     if (!domElements) return ''
     if (domElements.length === 1)
-      return prettier.format(domElements[0]?.innerHTML as string, {
+      return format(domElements[0]?.innerHTML as string, {
         parser: 'html',
         plugins: [htmlParser],
       })
 
     if (domElements.length > 1) {
       const rawSource = domElements.reduce((acc, el) => `${acc}${el?.innerHTML}`, '')
-      return prettier.format(rawSource, {
+      return format(rawSource, {
         parser: 'html',
         plugins: [htmlParser],
       })
