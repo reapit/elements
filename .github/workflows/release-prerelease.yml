@@ -1,8 +1,8 @@
-name: Release Prod
+name: Prelease Prod
 
 on:
   release:
-    types: [released]
+    types: [prereleased]
 
 env:
   NPM_TOKEN: ${{secrets.NPM_TOKEN}}
@@ -31,6 +31,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          ref: beta
 
       - name: Get Tag
         uses: olegtarasov/get-tag@v2.1
@@ -62,15 +63,6 @@ jobs:
         run: |
           yarn test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests
 
-      - name: Create Pull Request For Beta Channel
-        uses: peter-evans/create-pull-request@v5
-        with:
-          commit_message: 'chore: update beta channel ${{ steps.tagName.outputs.version }}'
-          title: 'chore: update beta channel ${{ steps.tagName.outputs.version }}'
-          body: Update beta channel
-          base: beta
-          branch: chore/update-beta-${{ steps.tagName.outputs.version }}
-
       - name: Package Version Bump
         run: |
           yarn version ${{ steps.tagName.outputs.version }}
@@ -89,7 +81,7 @@ jobs:
           commit_message: 'chore: bump version to ${{ steps.tagName.outputs.version }}'
           title: 'chore: bump version to ${{ steps.tagName.outputs.version }}'
           body: Update to version in package.json
-          base: main
+          base: beta
           branch: chore/update-version-${{ steps.tagName.outputs.version }}
 
       - name: Deploy
@@ -102,4 +94,4 @@ jobs:
 
       - name: Publish
         run: |
-          yarn publish --tag latest
+          yarn publish --tag beta

@@ -16,7 +16,7 @@ env:
 
 jobs:
   release-beta:
-    name: Release
+    name: Release Beta
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
@@ -46,24 +46,3 @@ jobs:
       - name: Deploy
         run: |
           yarn deploy
-
-      - name: Bump Beta Version
-        run: |
-          npm version prerelease --preid=beta
-
-      - name: Create Pull Request For Beta Version
-        uses: peter-evans/create-pull-request@v5
-        with:
-          commit_message: 'chore: bump beta version to ${{ npm pkg get version }}'
-          title: 'chore: bump beta version to ${{ npm pkg get version }}'
-          body: Update to version in package.json
-          base: beta
-          branch: chore/update-version-${{ npm pkg get version }}
-
-      - name: Set Publish Beta Version
-        run: |
-          npm version prerelease --preid=beta
-
-      - name: Publish
-        run: |
-          yarn publish --tag beta
