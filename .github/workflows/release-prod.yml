@@ -70,11 +70,20 @@ jobs:
         run: |
           yarn build:storybook
 
+      - name: Create Pull Request For Beta Channel
+        uses: peter-evans/create-pull-request@v5
+        with:
+          commit_message: 'chore: update beta channel ${{ steps.tagName.outputs.version }}'
+          title: 'chore: update beta channel ${{ steps.tagName.outputs.version }}'
+          body: Update beta channel
+          base: beta
+          branch: chore/update-beta-${{ steps.tagName.outputs.version }}
+
       - name: Package Version Bump
         run: |
           yarn version ${{ steps.tagName.outputs.version }}
 
-      - name: Create Pull Request
+      - name: Create Pull Request For Version
         uses: peter-evans/create-pull-request@v5
         with:
           commit_message: 'chore: bump version to ${{ steps.tagName.outputs.version }}'
