@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "5.0.0-beta.0",
+  "version": "5.0.0-beta.1",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/foundations#readme",
   "bugs": {
@@ -141,5 +141,6 @@
     "prettier": "2.2.1"
   },
   "snyk": true,
-  "packageManager": "yarn@4.0.2"
+  "packageManager": "yarn@4.0.2",
+  "stableVersion": "5.0.0-beta.0"
 }
