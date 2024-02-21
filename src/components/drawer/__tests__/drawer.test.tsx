@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from '@testing-library/react'
 import { Drawer, DrawerBg, DrawerBody, DrawerContainer, DrawerHeader, DrawerSubtitle, DrawerTitle } from '..'
 

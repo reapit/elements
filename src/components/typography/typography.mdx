@@ -1,0 +1,117 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs'
+import {
+  Title,
+  Subtitle,
+  BodyText,
+  SmallText,
+  Text3XL,
+  Text2XL,
+  TextXL,
+  TextL,
+  TextBase,
+  TextSM,
+  TextXS,
+  Text2XS,
+} from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as TypographyStories from './typography.stories'
+
+<Meta title="Typography" component={Title} />
+
+# Typography
+
+The base type scale and wrappers for defining typography and type pairings.
+
+## Base Scale
+
+<Canvas>
+  <Story of={TypographyStories.BaseScale} />
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Base Scale" />
+
+## Modifiers
+
+We support a number of modifier to override the default typography, specifically bold, italic, grey coloured and centered text. Also, removing the bottom margin when you want to manually group your text items and adding a bottom margin for denoting the end of a page section.
+
+See the table below for details of these modifiers - these all map to css modifier classes you can add to your HTML markup.
+
+<ArgsTable of={TextBase} />
+
+In all cases they map to css classes you can see in the rendered markup. Below you can see each of the modiifiers applied to a title and a body text component. They are available also for small text and subtitle.
+
+<Canvas>
+  <Story of={TypographyStories.TypographyModifiers} />
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Typography Modifiers" />
+
+## Intent
+
+As with numerous other components, we support the concept of intent. This is a modifier that allows you to set the colour of the text to match the intent of the content.
+
+<Canvas>
+  <Story of={TypographyStories.Intent} />
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Intent" />
+
+## Helpers
+
+In addtion to the base scale, we have defined the below components that have base line default margins set semantic names and tags set for ease of use.
+
+### Titles
+
+<Canvas>
+  <Story of={TypographyStories.TitleStory} />
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Title" />
+
+### SubTitle
+
+<Canvas>
+  <Story of={TypographyStories.SubtitleStory} />
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Subtitle" />
+
+### Body Text
+
+<Canvas>
+  <Story of={TypographyStories.BodyTextStory} />
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Body Text" />
+
+### Small Text
+
+<Canvas>
+  <Story of={TypographyStories.SmallTextStory} />
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Small Text" />
+
+### Title and Subtitle
+
+<Canvas>
+  <Story of={TypographyStories.TitleAndSubtitle} />
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Title and Subtitle" />
+
+### Subtitle and Body text
+
+<Canvas>
+  <Story of={TypographyStories.SubtitleAndBodyText} />
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Subtitle and Body text" />
+
+### Body text and Small text
+
+<Canvas>
+  <Story of={TypographyStories.BodyTextAndSmallText} />
+</Canvas>
+
+<RenderHtmlMarkup component="Typography" story="Body text and Small text" />

@@ -34,4 +34,6 @@ export const AllBreakPointExample = () => {
   if (is4KScreen) {
     return <h1>Is Tablet</h1>
   }
+
+  return null
 }

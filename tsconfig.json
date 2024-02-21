@@ -3,7 +3,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react",
+    "jsx": "react-jsx",
     "noEmit": false,
     "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,

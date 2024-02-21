@@ -1,4 +1,4 @@
-import React from 'react'
+import { createRef } from 'react'
 import { render, fireEvent, waitFor } from '@testing-library/react'
 import { screen } from '@testing-library/dom'
 import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from '../searchable-dropdown'
@@ -88,7 +88,7 @@ describe('ControlledSearchableDropdown component', () => {
   })
 
   it('should display the selected value in the ref input when present', () => {
-    const ref = React.createRef<HTMLInputElement>()
+    const ref = createRef<HTMLInputElement>()
     render(
       <ControlledSearchableDropdown
         resultsList={[]}

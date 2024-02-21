@@ -1,0 +1,56 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { InputGroup } from '../input-group'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall, FormSectionDivider } from './form-layout'
+import { Toggle, ToggleRadio, ElToggleItem } from '../toggle'
+import { Subtitle, BodyText, SmallText } from '../typography'
+import { TextArea } from '../textarea'
+import { MultiSelectInput } from '../multi-select'
+import { Button, ButtonGroup } from '../button'
+import { Label } from '../label'
+import * as FormLayoutStories from './form-layout.stories';
+
+<Meta of={FormLayoutStories} />
+
+# FormLayout
+
+`FormLayout` provides a grid to group `InputGroup` and other form elements like `MultiSelect` and `Toggle` to work nicely on the same page. Using the CSS grid, will ensure form inputs are correctly spaced vertically and horizontally and are mobile responsive.
+
+**To allow maximium flexibility handling submit events and having mulitiple forms on the same page, the form is not an actual `form` element.**
+
+## Form Layout Options
+
+There are four breakpoints and four form layout options depending on how many columns you wish your component to span at each resolution. See the table below for explanations;
+
+| Component        | Up to 1024px | Between 1024px and 1440px | Between 1440px and 1920px | 1920px and above |
+| ---------------- | ------------ | ------------------------- | ------------------------- | ---------------- |
+| `InputWrapSmall` | 50% width    | 25% width                 | 16.65% width              | 12.5% width      |
+| `InputWrap`      | 100% width   | 50% width                 | 33.33% width              | 25% width        |
+| `InputWrapMed`   | 100% width   | 100% width                | 66.667% width             | 50% width        |
+| `InputWrapFull`  | 100% width   | 100% width                | 100% width                | 100% width       |
+
+The `InputWrap` is purely presentational and so accept no props. The rendered markup has the same behaviour for non-React users as the React components.
+
+The `FormLayout` accepts an optional `hasMargin` prop to add spacing vertically between forms as per the styleguide.
+
+<ArgsTable of={FormLayout} />
+
+## Basic Form
+
+In the example below, you can see a wide range of our input types and input wraps applied to create a basic responsive form.
+
+<Canvas>
+  <Story of={FormLayoutStories.BasicForm} />
+</Canvas>
+
+<RenderHtmlMarkup component="FormLayout" story="Basic Form" />
+
+## Complex Form
+
+In the example below, the basic form has been explanded, with two levels and a block of helper text between them.
+
+<Canvas>
+  <Story of={FormLayoutStories.ComplexForm} />
+</Canvas>
+
+<RenderHtmlMarkup component="FormLayout" story="Complex Form" />
