@@ -1,22 +1,15 @@
 const linaria = require('@linaria/vite').default
-const svgrPlugin = require('vite-plugin-svgr').default
+const svgrPlugin = require('@svgr/rollup')
+// import svgr from '@svgr/rollup'
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-
   addons: [
     '@storybook/addon-links',
-    '@reapit/storybook-addon-html',
+    '@whitespace/storybook-addon-html',
     '@storybook/addon-essentials',
     '@storybook/addon-storysource',
-    {
-      name: '@storybook/addon-postcss',
-      options: {
-        postcssLoaderOptions: {
-          implementation: require('postcss'),
-        },
-      },
-    },
+    '@storybook/addon-a11y',
     '@storybook/addon-mdx-gfm',
   ],
   async viteFinal(config, { configType }) {
@@ -24,27 +17,7 @@ module.exports = {
       config.optimizeDeps.include = [...config?.optimizeDeps?.include, 'jest-mock']
     }
 
-    config.plugins.push(
-      linaria({
-        // babelOptions: {
-        //   presets: ['@babel/preset-typescript', ['@babel/preset-react', { runtime: 'automatic' }]],
-        //   plugins: [
-        //     [
-        //       'module-resolver',
-        //       {
-        //         alias: {
-        //           '@': './src',
-        //         },
-        //       },
-        //     ],
-        //   ],
-        // },
-      }),
-      svgrPlugin(),
-    )
-
-    // config.assetsInclude = ['**/*.svg']
-    config.include = '**/*.svg?react'
+    config.plugins.push(linaria(), svgrPlugin({ icon: true }))
 
     config.define = {
       ...config.define,
