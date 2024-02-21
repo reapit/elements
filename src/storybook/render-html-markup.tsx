@@ -48,7 +48,9 @@ export const RenderHtmlMarkup = ({ component, story, label }: RenderHtmlMarkupPr
   }
 
   useEffect(() => {
-    findAndSetDoms()
+    const timeout = setTimeout(() => findAndSetDoms(), 1000)
+
+    return () => window.clearTimeout(timeout)
   }, [component, story])
 
   const getLabel = () => {
