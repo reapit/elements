@@ -4,7 +4,7 @@
 
 declare module '*.jpg'
 
-declare module '*.svg' {
+declare module '*.svg?react' {
   const content: any
   export const ReactComponent: FC
 

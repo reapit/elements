@@ -1,4 +1,5 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const linaria = require('@linaria/vite').default
+const svgrPlugin = require('vite-plugin-svgr').default
 
 module.exports = {
   stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -16,85 +17,44 @@ module.exports = {
         },
       },
     },
-    '@storybook/addon-mdx-gfm'
+    '@storybook/addon-mdx-gfm',
   ],
-  core: {
-    builder: 'webpack5',
-  },
-  webpackFinal: async (config, { configType }) => {
-    const fileLoaderRule = config.module.rules.find((rule) => !Array.isArray(rule.test) && rule.test?.test('.svg'))
-    fileLoaderRule.exclude = /\.svg$/
-
-    config.module.rules.unshift({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            icon: true,
-          },
-        },
-        'url-loader',
-      ],
-    })
-
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      use: [
-        {
-          loader: 'esbuild-loader',
-          options: {
-            loader: 'tsx',
-            target: 'es2019',
-          },
-        },
-        {
-          loader: '@linaria/webpack-loader',
-          options: {
-            sourceMap: configType !== 'PRODUCTION',
-          },
-        },
-      ],
-    })
+  async viteFinal(config, { configType }) {
+    if (configType === 'DEVELOPMENT') {
+      config.optimizeDeps.include = [...config?.optimizeDeps?.include, 'jest-mock']
+    }
 
     config.plugins.push(
-      new MiniCssExtractPlugin({
-        filename: 'styles.css',
+      linaria({
+        // babelOptions: {
+        //   presets: ['@babel/preset-typescript', ['@babel/preset-react', { runtime: 'automatic' }]],
+        //   plugins: [
+        //     [
+        //       'module-resolver',
+        //       {
+        //         alias: {
+        //           '@': './src',
+        //         },
+        //       },
+        //     ],
+        //   ],
+        // },
       }),
+      svgrPlugin(),
     )
 
-    config.stats = {
-      cached: false,
-      cachedAssets: false,
-      chunks: false,
-      chunkModules: false,
-      chunkOrigins: false,
-      modules: false,
+    // config.assetsInclude = ['**/*.svg']
+    config.include = '**/*.svg?react'
+
+    config.define = {
+      ...config.define,
+      global: 'window',
     }
-    // Return the altered config
+
     return config
   },
-
-  // async viteFinal(config, { configType }) {
-  //   if (configType === "DEVELOPMENT") {
-  //     config.optimizeDeps.include = [
-  //       ...config?.optimizeDeps?.include,
-  //       "jest-mock",
-  //     ];
-  //   }
-
-  //   config.define = {
-  //     ...config.define,
-  //     global: "window",
-  //   };
-
-  //   return config;
-  // },
   framework: {
-    name: '@storybook/react-webpack5',
-    options: {}
+    name: '@storybook/react-vite',
+    options: {},
   },
-  docs: {
-    autodocs: true
-  }
 }
