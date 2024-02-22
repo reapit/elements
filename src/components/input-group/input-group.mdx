@@ -6,7 +6,7 @@ import { Label } from '../label'
 import { InputAddOn } from '../input-add-on'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { InputError } from '../input-error'
-import * as InputGroupStories from './input-group.stories';
+import * as InputGroupStories from './input-group.stories'
 
 <Meta of={InputGroupStories} />
 
@@ -18,13 +18,13 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
 
 ## Usage with HTML & CSS only
 
-*   The order of the child components matters, in order to make the focus state work (i.e. the different styling applied when you click into the component)
-*   The `<input>` component must come first in the DOM, before the `<label>`, and the `<span>` for the icon and InputAddOn, as is shown in the HTML docs
+- The order of the child components matters, in order to make the focus state work (i.e. the different styling applied when you click into the component)
+- The `<input>` component must come first in the DOM, before the `<label>`, and the `<span>` for the icon and InputAddOn, as is shown in the HTML docs
 
 ## Usage with React
 
-*   You can supply the child components individually (ensure the `Input` component is included as the first child). When using like this, any additional props on the `InputGroup` component are added to the underlying `div`.
-*   Or, there is also a shorthand for React where you can supply props. This only works if *no children* are supplied
+- You can supply the child components individually (ensure the `Input` component is included as the first child). When using like this, any additional props on the `InputGroup` component are added to the underlying `div`.
+- Or, there is also a shorthand for React where you can supply props. This only works if _no children_ are supplied
 
 ## Complete example, with Icon, Label, and InputAddOn
 
@@ -56,7 +56,7 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
   <Story of={InputGroupStories.WithInputAddOnOnly} />
 </Canvas>
 
-<RenderHtmlMarkup component="InputGroup" story="With InputAddOn only" />
+<RenderHtmlMarkup component="InputGroup" story="With Input Add On Only" />
 
 ## Shorthand usage for React users
 
@@ -84,29 +84,27 @@ React shorthand with `icon` and `label` props
 
 <Canvas>
   <Story of={InputGroupStories.InputCheckbox} />
-
   <Story of={InputGroupStories.InputCheckboxWithIntent} />
-
   <Story of={InputGroupStories.InputCheckboxNoIcon} />
-
   <Story of={InputGroupStories.InputCheckboxNoLabel} />
 </Canvas>
 
-<RenderHtmlMarkup component="InputGroup" story={['Input checkbox', 'Input checkbox - with intent', 'Input checkbox - no icon', 'Input checkbox - no label']} />
+<RenderHtmlMarkup
+  component="InputGroup"
+  story={['Input checkbox', 'Input checkbox with intent', 'Input checkbox no icon', 'Input checkbox no label']}
+/>
 
 ## Radio
 
 <Canvas>
   <Story of={InputGroupStories.InputRadio} />
-
   <Story of={InputGroupStories.InputRadioWithIntent} />
 </Canvas>
 
-<RenderHtmlMarkup component="InputGroup" story={['Input radio', 'Input radio - with intent', 'Input radio - no icon']} />
-
+<RenderHtmlMarkup component="InputGroup" story={['Input radio', 'Input radio with intent']} />
 ## Use with radio input and InputAddOn
 
-The `inputAddOn` prop (and use of the `InputAddOn` component within `InputGroup` in general) *is* supported with radio buttons, however with radio buttons the `Label` does most of the work.
+The `inputAddOn` prop (and use of the `InputAddOn` component within `InputGroup` in general) _is_ supported with radio buttons, however with radio buttons the `Label` does most of the work.
 
 `inputAddOn` can be used but won't add that much value, and it's reccomended to use just `Label` on it's own. See an example below:
 

@@ -13,7 +13,7 @@ export default {
 }
 
 export const BasicForm = {
-  render: () => (
+  render: ({}) => (
     <form>
       <BodyText hasBoldText>Basic Form</BodyText>
       <SmallText hasGreyText hasSectionMargin>
@@ -88,7 +88,7 @@ export const BasicForm = {
 }
 
 export const ComplexForm = {
-  render: () => (
+  render: ({}) => (
     <form>
       <BodyText hasBoldText>Main Form</BodyText>
       <SmallText hasGreyText hasSectionMargin>

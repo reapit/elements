@@ -13,7 +13,7 @@ export default {
 }
 
 export const BasicExample = {
-  render: () => (
+  render: ({}) => (
     <Nav>
       <NavItem>
         <Icon height="24px" width="100px" icon="reapitLogo" />
@@ -34,7 +34,7 @@ export const BasicExample = {
 }
 
 export const BasicExampleMobileMenuOpen = {
-  render: () => (
+  render: ({}) => (
     <Nav>
       <NavItem>
         <Icon height="24px" width="100px" icon="reapitLogo" />
@@ -62,7 +62,7 @@ export const BasicExampleMobileMenuOpen = {
 }
 
 export const ReactUsage = {
-  render: () => (
+  render: ({}) => (
     <NavStateProvider>
       <MediaStateProvider>
         <NavResponsive
@@ -71,12 +71,10 @@ export const ReactUsage = {
             {
               text: 'AppMarket',
               callback: () => console.log('Navigating'),
-              iconUrl: <Icon icon="reapitLogoSmall" />,
             },
             {
               text: 'DevPortal',
               callback: () => console.log('Navigating'),
-              iconUrl: <Icon icon="reapitLogoSmall" />,
             },
           ]}
           avatarText="JD"
@@ -153,7 +151,7 @@ export const ReactUsage = {
 }
 
 export const ReactUsageWithCustomBrand = {
-  render: () => (
+  render: ({}) => (
     <NavStateProvider>
       <MediaStateProvider>
         <NavResponsive
@@ -166,12 +164,10 @@ export const ReactUsageWithCustomBrand = {
             {
               text: 'AppMarket',
               callback: () => console.log('Navigating'),
-              iconUrl: <Icon icon="reapitLogoSmall" />,
             },
             {
               text: 'DevPortal',
               callback: () => console.log('Navigating'),
-              iconUrl: <Icon icon="reapitLogoSmall" />,
             },
           ]}
           avatarText="JD"

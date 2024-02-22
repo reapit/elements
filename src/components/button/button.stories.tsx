@@ -7,7 +7,7 @@ export default {
 }
 
 export const DefaultUsage = {
-  render: () => <Button>Text within button</Button>,
+  render: ({}) => <Button>Text within button</Button>,
 }
 
 export const Intent = {
@@ -42,7 +42,7 @@ export const StandardAttributes = {
 }
 
 export const Group = {
-  render: () => (
+  render: ({}) => (
     <ButtonGroup>
       <Button intent="primary">Primary</Button>
       <Button intent="neutral">Default</Button>
@@ -54,7 +54,7 @@ export const Group = {
 }
 
 export const ButtonSize = {
-  render: () => (
+  render: ({}) => (
     <ButtonGroup>
       <Button buttonSize="small">Small Button</Button>
       <Button buttonSize="medium">Medium Button</Button>
@@ -64,7 +64,7 @@ export const ButtonSize = {
 }
 
 export const ButtonIcons = {
-  render: () => (
+  render: ({}) => (
     <ButtonGroup>
       <Button
         intent="primary"
@@ -96,7 +96,7 @@ export const ButtonIcons = {
 }
 
 export const Floating = {
-  render: () => <FloatingButton intent="primary" icon="add" />,
+  render: ({}) => <FloatingButton intent="primary" icon="add" />,
   name: 'Floating Button',
   component: FloatingButton,
 }

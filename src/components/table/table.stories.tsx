@@ -9,7 +9,6 @@ import {
   TableExpandableRow,
   TableRowContainer,
   TableCtaTriggerCell,
-  TableSortHeader,
   TableCellSplit,
 } from './molecules'
 import { Icon } from '../icon'
@@ -30,7 +29,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <Table>
       <TableHeadersRow>
         <TableHeader>Checkbox Header</TableHeader>
@@ -74,7 +73,7 @@ export const BasicUsage = {
 }
 
 export const ColumnWidths = {
-  render: () => (
+  render: ({}) => (
     <Table data-num-columns-excl-action-col="8">
       <TableHeadersRow>
         <TableHeader>Checkbox Header</TableHeader>
@@ -120,7 +119,7 @@ export const ColumnWidths = {
 }
 
 export const BasicCustomisationTableCells = {
-  render: () => (
+  render: ({}) => (
     <Table>
       <TableHeadersRow>
         <TableHeader>Selected</TableHeader>
@@ -166,7 +165,7 @@ export const BasicCustomisationTableCells = {
 }
 
 export const ExpandingTableCellSpace = {
-  render: () => (
+  render: ({}) => (
     <Table data-force-narrow-table="true">
       <TableHeadersRow>
         <TableHeader>Is Active</TableHeader>
@@ -204,7 +203,7 @@ export const ExpandingTableCellSpace = {
 }
 
 export const ExpandableContent = {
-  render: () => (
+  render: ({}) => (
     <Table data-num-columns-excl-action-col="7" data-has-expandable-action>
       <TableHeadersRow>
         <TableHeader>Is Active</TableHeader>
@@ -265,7 +264,7 @@ export const ExpandableContent = {
 }
 
 export const CallToActionContent = {
-  render: () => (
+  render: ({}) => (
     <Table data-num-columns-excl-action-col="7" data-has-call-to-action>
       <TableHeadersRow>
         <TableHeader>Is Active</TableHeader>
@@ -305,122 +304,119 @@ export const CallToActionContent = {
 }
 
 export const ReactShorthandUsage = {
-  render: () => (
-    <Table
-      rows={[
-        {
-          cells: [
-            {
-              label: 'Is Active',
-              value: <Input type="checkbox" />,
-            },
-            {
-              label: 'Property Image',
-              value: <Avatar type="image" src="https://picsum.photos/200/300" />,
-            },
-            {
-              label: 'Property',
-              value: 'Mt Ash Jacket, Brassey Road',
-              icon: 'property',
-              cellHasDarkText: true,
-
-              narrowTable: {
-                showLabel: true,
-              },
-            },
-            {
-              label: 'Customer',
-              value: 'Mr Johnny Corrigan',
-              icon: 'contact',
-
-              narrowTable: {
-                showLabel: true,
-              },
-            },
-            {
-              label: 'Description',
-              value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
-            },
-            {
-              label: 'Amount',
-              value: '£50.00',
-              cellHasDarkText: true,
-            },
-            {
-              label: 'Payment Status',
-              value: 'Not Requested',
-              statusCircleIntent: 'danger',
-            },
-          ],
-
-          expandableContent: {
-            content: <p>I am the content that is only visible when expanded</p>,
+  render: ({ rows }) => <Table rows={rows} />,
+  args: {
+    rows: [
+      {
+        cells: [
+          {
+            label: 'Is Active',
+            value: <Input type="checkbox" />,
           },
-        },
-        {
-          cells: [
-            {
-              label: 'Is Active',
-              value: <Input type="checkbox" />,
-            },
-            {
-              label: 'Property Image',
-              value: <Avatar type="image" src="https://picsum.photos/200/300" />,
-            },
-            {
-              label: 'Property',
-              value: 'Property Name, Road Name',
-              icon: 'property',
-              cellHasDarkText: true,
-
-              narrowTable: {
-                showLabel: true,
-              },
-            },
-            {
-              label: 'Customer',
-              value: 'Mrs Davina Corrigan',
-              icon: 'contact',
-
-              narrowTable: {
-                showLabel: true,
-              },
-            },
-            {
-              label: 'Description',
-              value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
-            },
-            {
-              label: 'Amount',
-              value: '£665.21',
-              cellHasDarkText: true,
-            },
-            {
-              label: 'Payment Status',
-              value: 'Pending',
-
-              children: (
-                <>
-                  <StatusIndicator intent="pending" />
-                  Pending
-                </>
-              ),
-            },
-          ],
-
-          expandableContent: {
-            content: <p>I am more content that is only visible when the 2nd row is expanded</p>,
+          {
+            label: 'Property Image',
+            value: <Avatar type="image" src="https://picsum.photos/200/300" />,
           },
-        },
-      ]}
-    />
-  ),
+          {
+            label: 'Property',
+            value: 'Mt Ash Jacket, Brassey Road',
+            icon: 'property',
+            cellHasDarkText: true,
 
-  name: 'React shorthand usage',
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Customer',
+            value: 'Mr Johnny Corrigan',
+            icon: 'contact',
+
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Description',
+            value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
+          },
+          {
+            label: 'Amount',
+            value: '£50.00',
+            cellHasDarkText: true,
+          },
+          {
+            label: 'Payment Status',
+            value: 'Not Requested',
+            statusCircleIntent: 'danger',
+          },
+        ],
+
+        expandableContent: {
+          content: <p>I am the content that is only visible when expanded</p>,
+        },
+      },
+      {
+        cells: [
+          {
+            label: 'Is Active',
+            value: <Input type="checkbox" />,
+          },
+          {
+            label: 'Property Image',
+            value: <Avatar type="image" src="https://picsum.photos/200/300" />,
+          },
+          {
+            label: 'Property',
+            value: 'Property Name, Road Name',
+            icon: 'property',
+            cellHasDarkText: true,
+
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Customer',
+            value: 'Mrs Davina Corrigan',
+            icon: 'contact',
+
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Description',
+            value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
+          },
+          {
+            label: 'Amount',
+            value: '£665.21',
+            cellHasDarkText: true,
+          },
+          {
+            label: 'Payment Status',
+            value: 'Pending',
+
+            children: (
+              <>
+                <StatusIndicator intent="pending" />
+                Pending
+              </>
+            ),
+          },
+        ],
+
+        expandableContent: {
+          content: <p>I am more content that is only visible when the 2nd row is expanded</p>,
+        },
+      },
+    ],
+  },
 }
 
 export const AdvancedCustomisationReact = {
-  render: () => {
+  render: ({ rows }) => {
     const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(0)
 
     return (
@@ -428,243 +424,126 @@ export const AdvancedCustomisationReact = {
         numberColumns={9}
         indexExpandedRow={indexExpandedRow}
         setIndexExpandedRow={setIndexExpandedRow}
-        rows={[
-          {
-            cells: [
-              {
-                label: 'Is Active',
-                value: <Input type="checkbox" />,
-              },
-              {
-                label: 'Property',
-                value: 'Mt Ash Jacket, Brassey Road',
-                className: elSpan2,
-                icon: 'property',
-                cellHasDarkText: true,
-
-                narrowTable: {
-                  showLabel: true,
-                },
-              },
-              {
-                label: 'Customer',
-                value: 'Mr Johnny Corrigan',
-                icon: 'contact',
-
-                narrowTable: {
-                  showLabel: true,
-                },
-              },
-              {
-                label: 'Description',
-                value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
-              },
-              {
-                label: 'Request Date',
-                value: '19 Apr 2021',
-
-                narrowTable: {
-                  showLabel: true,
-                },
-              },
-              {
-                label: 'Amount',
-                value: '£50.00',
-                cellHasDarkText: true,
-              },
-              {
-                label: 'Payment Status',
-                value: 'Not Requested',
-                statusCircleIntent: 'danger',
-              },
-            ],
-
-            expandableContent: {
-              content: <p>I am the content that is only visible when expanded</p>,
-            },
-          },
-          {
-            cells: [
-              {
-                label: 'Is Active',
-                value: <Input type="checkbox" />,
-              },
-              {
-                label: 'Property',
-                value: 'Property Name, Road Name',
-                className: elSpan2,
-                icon: 'property',
-                cellHasDarkText: true,
-
-                narrowTable: {
-                  showLabel: true,
-                },
-              },
-              {
-                label: 'Customer',
-                value: 'Mrs Davina Corrigan',
-                icon: 'contact',
-
-                narrowTable: {
-                  showLabel: true,
-                },
-              },
-              {
-                label: 'Description',
-                value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
-              },
-              {
-                label: 'Request Date',
-                value: '23rd Apr 2021',
-
-                narrowTable: {
-                  showLabel: true,
-                },
-              },
-              {
-                label: 'Amount',
-                value: '£665.21',
-                cellHasDarkText: true,
-              },
-              {
-                label: 'Payment Status',
-                value: 'Pending',
-
-                children: (
-                  <>
-                    <StatusIndicator intent="pending" />
-                    Pending
-                  </>
-                ),
-              },
-            ],
-
-            expandableContent: {
-              content: <p>I am more content that is only visible when the 2nd row is expanded</p>,
-            },
-          },
-        ]}
+        rows={rows}
       />
     )
   },
-
-  name: 'Advanced Customisation - React',
-}
-
-export const TableSortingReact = {
-  render: () => {
-    const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(0)
-    const [propertySort, setPropertySort] = useState('up')
-
-    const [data] = useState([
+  args: {
+    rows: [
       {
-        property: 'Mt Ash Jacket, Brassey Road',
-
-        customer: {
-          name: 'Mr Johnny Corrigan',
-        },
-
-        client: {
-          name: 'Alternate Lettings Client Acc',
-        },
-
-        description: 'Tenant Payment Request',
-        requestDate: '19 Apr 2021',
-        amount: '50.00',
-        paymentStatus: 'Not Requested',
-      },
-      {
-        property: 'Property Name, Road Name',
-
-        customer: {
-          name: 'Mrs Davina Corrigan',
-        },
-
-        client: {
-          name: 'Alternate Lettings Client Acc',
-        },
-
-        description: 'Another Descriptions',
-        requestDate: '23 Apr 2021',
-        amount: '665.21',
-        paymentStatus: 'Pending',
-      },
-    ])
-
-    return (
-      <Table
-        numberColumns={9}
-        indexExpandedRow={indexExpandedRow}
-        setIndexExpandedRow={setIndexExpandedRow}
-        rows={data.map((info) => ({
-          cells: [
-            {
-              label: 'Name',
-              value: info.client.name,
-            },
-            {
-              label: 'Property',
-              labelChild: <TableSortHeader direction={propertySort as 'up'}>Property</TableSortHeader>,
-
-              onLabelClick: () => {
-                setPropertySort(propertySort === 'up' ? 'down' : 'up')
-              },
-
-              value: info.property,
-              className: elSpan2,
-              icon: 'property',
-              cellHasDarkText: true,
-
-              narrowTable: {
-                showLabel: true,
-              },
-            },
-            {
-              label: 'Customer',
-              value: info.customer.name,
-              icon: 'contact',
-
-              narrowTable: {
-                showLabel: true,
-              },
-            },
-            {
-              label: 'Description',
-              value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
-            },
-            {
-              label: 'Request Date',
-              value: info.requestDate,
-
-              narrowTable: {
-                showLabel: true,
-              },
-            },
-            {
-              label: 'Amount',
-              value: `£${info.amount}`,
-              cellHasDarkText: true,
-            },
-            {
-              label: 'Payment Status',
-              value: info.paymentStatus,
-
-              children: (
-                <>
-                  <StatusIndicator intent="pending" />
-                  Pending
-                </>
-              ),
-            },
-          ],
-
-          expandableContent: {
-            content: <p>I am more content that is only visible when the 2nd row is expanded</p>,
+        cells: [
+          {
+            label: 'Is Active',
+            value: <Input type="checkbox" />,
           },
-        }))}
-      />
-    )
-  },
+          {
+            label: 'Property',
+            value: 'Mt Ash Jacket, Brassey Road',
+            className: elSpan2,
+            icon: 'property',
+            cellHasDarkText: true,
 
-  name: 'Table Sorting - React',
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Customer',
+            value: 'Mr Johnny Corrigan',
+            icon: 'contact',
+
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Description',
+            value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
+          },
+          {
+            label: 'Request Date',
+            value: '19 Apr 2021',
+
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Amount',
+            value: '£50.00',
+            cellHasDarkText: true,
+          },
+          {
+            label: 'Payment Status',
+            value: 'Not Requested',
+            statusCircleIntent: 'danger',
+          },
+        ],
+
+        expandableContent: {
+          content: <p>I am the content that is only visible when expanded</p>,
+        },
+      },
+      {
+        cells: [
+          {
+            label: 'Is Active',
+            value: <Input type="checkbox" />,
+          },
+          {
+            label: 'Property',
+            value: 'Property Name, Road Name',
+            className: elSpan2,
+            icon: 'property',
+            cellHasDarkText: true,
+
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Customer',
+            value: 'Mrs Davina Corrigan',
+            icon: 'contact',
+
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Description',
+            value: <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />,
+          },
+          {
+            label: 'Request Date',
+            value: '23rd Apr 2021',
+
+            narrowTable: {
+              showLabel: true,
+            },
+          },
+          {
+            label: 'Amount',
+            value: '£665.21',
+            cellHasDarkText: true,
+          },
+          {
+            label: 'Payment Status',
+            value: 'Pending',
+
+            children: (
+              <>
+                <StatusIndicator intent="pending" />
+                Pending
+              </>
+            ),
+          },
+        ],
+
+        expandableContent: {
+          content: <p>I am more content that is only visible when the 2nd row is expanded</p>,
+        },
+      },
+    ],
+  },
 }

@@ -6,21 +6,19 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <ChipGroup>
       <Chip>Content</Chip>
     </ChipGroup>
   ),
 }
 
-export const Group = {
-  render: () => (
+export const ChipGroupUsage = {
+  render: ({}) => (
     <ChipGroup>
       <Chip>Content</Chip>
       <Chip>Content</Chip>
       <Chip>Content</Chip>
     </ChipGroup>
   ),
-
-  name: 'Chip Group',
 }

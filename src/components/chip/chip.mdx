@@ -1,5 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
-import { Chip, ChipGroup } from '.'
+import { Meta, Story, Canvas } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as ChipStories from './chip.stories'
 
@@ -24,7 +23,7 @@ They are used to toggle filters and the state of pages on click or on form submi
 A group of Chips has it's own wrapper to display responsively in a CSS grid.
 
 <Canvas>
-  <Story of={ChipStories.Group} />
+  <Story of={ChipStories.ChipGroupUsage} />
 </Canvas>
 
-<RenderHtmlMarkup component="ChipGroup" story="Chip Group" />
+<RenderHtmlMarkup component="Chip" story="Chip Group Usage" />

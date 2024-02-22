@@ -10,14 +10,14 @@ export default {
 }
 
 export const DefaultUsage = {
-  render: () => <FileInput label="Some Label" onFileUpload={Promise.resolve} fileName="some-file-name" />,
+  render: ({}) => <FileInput label="Some Label" onFileUpload={Promise.resolve} fileName="some-file-name" />,
 }
 
 export const AdvancedUsage = {
-  render: () => {
+  render: ({}) => {
     const [fileUrl, setFileUrl] = useState('https://via.placeholder.com/150')
 
-    const { Modal, openModal, closeModal } = useModal('docs-root')
+    const { Modal, openModal, closeModal } = useModal('storybook-docs')
 
     return (
       <div>

@@ -19,7 +19,7 @@ export default {
 }
 
 export const BaseScale = {
-  render: () => (
+  render: ({}) => (
     <>
       <Text3XL>I am a Text3XL</Text3XL>
       <Text2XL>I am a Text2XL</Text2XL>
@@ -34,7 +34,7 @@ export const BaseScale = {
 }
 
 export const TypographyModifiers = {
-  render: () => (
+  render: ({}) => (
     <>
       <TextBase hasGreyText>I am a TextBase with the hasGreyText modifier</TextBase>
       <TextBase hasItalicText>I am a TextBase with the hasItalicText modifier</TextBase>
@@ -53,7 +53,7 @@ export const TypographyModifiers = {
 }
 
 export const Intent = {
-  render: () => (
+  render: ({}) => (
     <>
       <TextBase intent="primary">I am a TextBase primary</TextBase>
       <TextBase intent="neutral">I am a TextBase neutral</TextBase>
@@ -66,24 +66,24 @@ export const Intent = {
   ),
 }
 
-export const TitleStory = {
-  render: () => <Title>I am a Title</Title>,
+export const TitleUsage = {
+  render: ({}) => <Title>I am a Title</Title>,
 }
 
-export const SubtitleStory = {
-  render: () => <Subtitle>I am a Subtitle</Subtitle>,
+export const SubtitleUsage = {
+  render: ({}) => <Subtitle>I am a Subtitle</Subtitle>,
 }
 
-export const BodyTextStory = {
-  render: () => <BodyText>I am a BodyText</BodyText>,
+export const BodyTextUsage = {
+  render: ({}) => <BodyText>I am a BodyText</BodyText>,
 }
 
-export const SmallTextStory = {
-  render: () => <SmallText>I am a SmallText</SmallText>,
+export const SmallTextUsage = {
+  render: ({}) => <SmallText>I am a SmallText</SmallText>,
 }
 
 export const TitleAndSubtitle = {
-  render: () => (
+  render: ({}) => (
     <>
       <Title>Why register for Foundations?</Title>
       <Subtitle>Why would you not want to register for Foundations?</Subtitle>
@@ -92,7 +92,7 @@ export const TitleAndSubtitle = {
 }
 
 export const SubtitleAndBodyText = {
-  render: () => (
+  render: ({}) => (
     <>
       <Subtitle>Why register for Foundations?</Subtitle>
       <BodyText>
@@ -105,7 +105,7 @@ export const SubtitleAndBodyText = {
 }
 
 export const BodyTextAndSmallText = {
-  render: () => (
+  render: ({}) => (
     <>
       <BodyText>Have you had a look at the documentation?</BodyText>
       <SmallText>

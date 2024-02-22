@@ -5,7 +5,7 @@ export default {
 }
 
 export const Flex = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex">
       <GridDemoBlockWithMargin>First Element</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>Second Element</GridDemoBlockWithMargin>
@@ -16,7 +16,7 @@ export const Flex = {
 }
 
 export const IsFlexColumn = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-is-flex-column">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -29,7 +29,7 @@ export const IsFlexColumn = {
 }
 
 export const FlexRow = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -42,7 +42,7 @@ export const FlexRow = {
 }
 
 export const FlexRowReverse = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row-reverse">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -55,7 +55,7 @@ export const FlexRowReverse = {
 }
 
 export const FlexColumn = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-column">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -68,7 +68,7 @@ export const FlexColumn = {
 }
 
 export const FlexColumnReverse = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-column-reverse">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -81,7 +81,7 @@ export const FlexColumnReverse = {
 }
 
 export const FlexWrap = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row el-flex-wrap">
       <GridDemoBlockWithMargin
         style={{
@@ -118,7 +118,7 @@ export const FlexWrap = {
 }
 
 export const FlexNoWrap = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row el-flex-no-wrap">
       <GridDemoBlockWithMargin
         style={{
@@ -155,7 +155,7 @@ export const FlexNoWrap = {
 }
 
 export const FlexWrapReverse = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row el-flex-wrap-reverse">
       <GridDemoBlockWithMargin
         style={{
@@ -192,7 +192,7 @@ export const FlexWrapReverse = {
 }
 
 export const Flex1 = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row">
       <GridDemoBlockWithMargin className="el-flex1">1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -205,7 +205,7 @@ export const Flex1 = {
 }
 
 export const FlexAuto = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row">
       <GridDemoBlockWithMargin className="el-flex-auto">1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -218,7 +218,7 @@ export const FlexAuto = {
 }
 
 export const FlexInitial = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row el-flex-initial">
       <GridDemoBlockWithMargin className="el-flex-initial">1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -231,7 +231,7 @@ export const FlexInitial = {
 }
 
 export const FlexGrow = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row">
       <GridDemoBlockWithMargin className="el-flex-grow">1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -242,7 +242,7 @@ export const FlexGrow = {
 }
 
 export const FlexGrow0 = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row">
       <GridDemoBlockWithMargin className="">1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin className="el-flex-grow0">2</GridDemoBlockWithMargin>
@@ -253,7 +253,7 @@ export const FlexGrow0 = {
 }
 
 export const FlexShrink = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row">
       <GridDemoBlockWithMargin className="el-flex-shrink">1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin className="el-flex-grow">2</GridDemoBlockWithMargin>
@@ -266,7 +266,7 @@ export const FlexShrink = {
 }
 
 export const FlexShrink0 = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row">
       <GridDemoBlockWithMargin className="el-flex-shrink0">1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin className="el-flex-grow">2</GridDemoBlockWithMargin>
@@ -279,7 +279,7 @@ export const FlexShrink0 = {
 }
 
 export const FlexJustifyCenter = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row el-flex-justify-center">
       <GridDemoBlockWithMargin className="">1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin className="">2</GridDemoBlockWithMargin>
@@ -290,7 +290,7 @@ export const FlexJustifyCenter = {
 }
 
 export const FlexJustifyStart = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row el-flex-justify-start">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -303,7 +303,7 @@ export const FlexJustifyStart = {
 }
 
 export const FlexJustifyEnd = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row el-flex-justify-end">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -316,7 +316,7 @@ export const FlexJustifyEnd = {
 }
 
 export const FlexJustifyBetween = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row el-flex-justify-between">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -329,7 +329,7 @@ export const FlexJustifyBetween = {
 }
 
 export const FlexJustifyAround = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row el-flex-justify-around">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -342,7 +342,7 @@ export const FlexJustifyAround = {
 }
 
 export const FlexJustifyEvenly = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-row el-flex-justify-evenly">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -355,7 +355,7 @@ export const FlexJustifyEvenly = {
 }
 
 export const FlexAlignCenter = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-column el-flex-align-center">
       <GridDemoBlockWithMargin
         style={{
@@ -378,7 +378,7 @@ export const FlexAlignCenter = {
 }
 
 export const FlexAlignStart = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-column el-flex-align-start">
       <GridDemoBlockWithMargin
         style={{
@@ -401,7 +401,7 @@ export const FlexAlignStart = {
 }
 
 export const FlexAlignEnd = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-column el-flex-align-end">
       <GridDemoBlockWithMargin
         style={{
@@ -424,7 +424,7 @@ export const FlexAlignEnd = {
 }
 
 export const FlexAlignSelfCenter = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-column el-flex-align-end">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -437,7 +437,7 @@ export const FlexAlignSelfCenter = {
 }
 
 export const FlexAlignSelfStart = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-column el-flex-align-end">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
@@ -450,7 +450,7 @@ export const FlexAlignSelfStart = {
 }
 
 export const FlexAlignSelfEnd = {
-  render: () => (
+  render: ({}) => (
     <div className="el-flex el-flex-column el-flex-align-start">
       <GridDemoBlockWithMargin>1</GridDemoBlockWithMargin>
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>

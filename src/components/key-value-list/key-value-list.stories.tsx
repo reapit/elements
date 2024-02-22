@@ -6,7 +6,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <KeyValueList
       items={[
         {
@@ -54,7 +54,7 @@ export const BasicUsage = {
 }
 
 export const UsageLargeGrid = {
-  render: () => (
+  render: ({}) => (
     <KeyValueList
       hasGrid
       items={[

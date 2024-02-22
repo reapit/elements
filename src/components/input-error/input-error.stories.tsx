@@ -7,7 +7,7 @@ export default {
 }
 
 export const ErrorMessage = {
-  render: () => (
+  render: ({}) => (
     <InputGroup
       hasError
       name="email address"

@@ -7,7 +7,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <Select>
       <option value="1">Option 1</option>
       <option value="2">Option 2</option>
@@ -17,6 +17,6 @@ export const BasicUsage = {
 }
 
 export const UseWithALabel = {
-  render: () => <Label>Select an option</Label>,
+  render: ({}) => <Label>Select an option</Label>,
   name: 'Use with a label',
 }

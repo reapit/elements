@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import { Steps, StepsVertical } from './index'
-import { BodyText, Subtitle } from '../typography'
 import { Button, ButtonGroup } from '../button'
+// import { BodyText, Subtitle } from '../typography'
+// import { Button, ButtonGroup } from '../button'
 
 export default {
   title: 'Steps',
@@ -9,21 +10,21 @@ export default {
 }
 
 export const BasicStepsUsage = {
-  render: () => <Steps steps={['1', '2', '3', '4', '5']} />,
+  render: ({}) => <Steps steps={['1', '2', '3', '4', '5']} />,
 }
 
 export const MiddleItemSelected = {
-  render: () => <Steps steps={['1', '2', '3', '4', '5']} selectedStep="3" />,
+  render: ({}) => <Steps steps={['1', '2', '3', '4', '5']} selectedStep="3" />,
   name: 'Middle item selected',
 }
 
 export const LastItemSelected = {
-  render: () => <Steps steps={['A', 'B', 'C', 'D']} selectedStep="D" />,
+  render: ({}) => <Steps steps={['A', 'B', 'C', 'D']} selectedStep="D" />,
   name: 'Last item selected',
 }
 
 export const ReactExample = {
-  render: () => {
+  render: ({}) => {
     const [selectedStep, setSelectedStep] = useState('1')
 
     return <Steps steps={['1', '2', '3', '4', '5']} selectedStep={selectedStep} onStepClick={setSelectedStep} />
@@ -32,108 +33,51 @@ export const ReactExample = {
   name: 'React example',
 }
 
-export const StepsVerticalStory = {
-  render: () => {
+export const StepsVerticalUsage = {
+  render: ({}) => {
     const [selectedStep, setSelectedStep] = useState('1')
 
     const steps = [
       {
         item: '1',
-
-        content: (
-          <>
-            <Subtitle>Step 1</Subtitle>
-            <BodyText hasGreyText>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab dolorem, asperiores ipsam odio perferendis,
-              explicabo veritatis voluptatibus iusto quo amet, similique ad! Excepturi impedit culpa repellat cupiditate
-              quam. Aut, enim?
-            </BodyText>
-            <ButtonGroup alignment="right">
-              <Button intent="primary" type="submit" onClick={() => setSelectedStep('2')}>
-                Complete Step 1
-              </Button>
-            </ButtonGroup>
-          </>
-        ),
+        content: 'Any React Node Content Step 1',
       },
       {
         item: '2',
-
-        content: (
-          <>
-            <Subtitle>Step 2</Subtitle>
-            <BodyText hasGreyText>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab dolorem, asperiores ipsam odio perferendis,
-              explicabo veritatis voluptatibus iusto quo amet, similique ad! Excepturi impedit culpa repellat cupiditate
-              quam. Aut, enim?
-            </BodyText>
-            <ButtonGroup alignment="right">
-              <Button intent="primary" type="submit" onClick={() => setSelectedStep('3')}>
-                Complete Step 2
-              </Button>
-            </ButtonGroup>
-          </>
-        ),
+        content: 'Any React Node Content Step 2',
       },
       {
         item: '3',
-
-        content: (
-          <>
-            <Subtitle>Step 3</Subtitle>
-            <BodyText hasGreyText>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab dolorem, asperiores ipsam odio perferendis,
-              explicabo veritatis voluptatibus iusto quo amet, similique ad! Excepturi impedit culpa repellat cupiditate
-              quam. Aut, enim?
-            </BodyText>
-            <ButtonGroup alignment="right">
-              <Button intent="primary" type="submit" onClick={() => setSelectedStep('4')}>
-                Complete Step 3
-              </Button>
-            </ButtonGroup>
-          </>
-        ),
+        content: 'Any React Node Content Step 3',
       },
       {
         item: '4',
-
-        content: (
-          <>
-            <Subtitle>Step 4</Subtitle>
-            <BodyText hasGreyText>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab dolorem, asperiores ipsam odio perferendis,
-              explicabo veritatis voluptatibus iusto quo amet, similique ad! Excepturi impedit culpa repellat cupiditate
-              quam. Aut, enim?
-            </BodyText>
-            <ButtonGroup alignment="right">
-              <Button intent="primary" type="submit" onClick={() => setSelectedStep('5')}>
-                Complete Step 4
-              </Button>
-            </ButtonGroup>
-          </>
-        ),
+        content: 'Any React Node Content Step 4',
       },
       {
         item: '5',
-
-        content: (
-          <>
-            <Subtitle>Step 5</Subtitle>
-            <BodyText hasGreyText>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab dolorem, asperiores ipsam odio perferendis,
-              explicabo veritatis voluptatibus iusto quo amet, similique ad! Excepturi impedit culpa repellat cupiditate
-              quam. Aut, enim?
-            </BodyText>
-            <ButtonGroup alignment="right">
-              <Button intent="primary" type="submit" onClick={() => setSelectedStep('1')}>
-                Restart Steps
-              </Button>
-            </ButtonGroup>
-          </>
-        ),
+        content: 'Any React Node Content Step 5',
       },
     ]
 
-    return <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
+    return (
+      <>
+        <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
+        <ButtonGroup>
+          <Button
+            intent="primary"
+            onClick={() =>
+              setSelectedStep((currentStep) => {
+                const numericStep = Number(currentStep)
+                const nextStep = numericStep + 1
+                return nextStep > 5 ? '1' : String(nextStep)
+              })
+            }
+          >
+            Next
+          </Button>
+        </ButtonGroup>
+      </>
+    )
   },
 }

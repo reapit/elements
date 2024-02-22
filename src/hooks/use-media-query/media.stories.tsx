@@ -7,7 +7,7 @@ export default {
 }
 
 export const MediaStateProviderUsage = {
-  render: () => (
+  render: ({}) => (
     <MediaStateProvider>
       <MediaMobileExample />
     </MediaStateProvider>
@@ -17,7 +17,7 @@ export const MediaStateProviderUsage = {
 }
 
 export const MediaStateProviderBreakpoints = {
-  render: () => (
+  render: ({}) => (
     <MediaStateProvider>
       <AllBreakPointExample />
     </MediaStateProvider>

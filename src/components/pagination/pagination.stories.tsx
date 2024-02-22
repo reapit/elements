@@ -8,7 +8,7 @@ export default {
 }
 
 export const BasicExample = {
-  render: () => (
+  render: ({}) => (
     <PaginationWrap>
       <PaginationText>
         <strong>1</strong>of 4
@@ -24,14 +24,14 @@ export const BasicExample = {
 }
 
 export const ReactExample = {
-  render: () => {
+  render: ({}) => {
     const [currentPage, setCurrentPage] = useState(1)
     return <Pagination callback={setCurrentPage} currentPage={currentPage} numberPages={4} />
   },
 }
 
 export const ReactExampleWithStartEndButtons = {
-  render: () => {
+  render: ({}) => {
     const [currentPage, setCurrentPage] = useState(1)
 
     return (

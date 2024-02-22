@@ -6,7 +6,7 @@ export default {
 }
 
 export const PortalUsage = {
-  render: () => (
+  render: ({}) => (
     <Portal id="docs-root">
       <div>I am a Portal Example!</div>
     </Portal>

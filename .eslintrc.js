@@ -6,7 +6,13 @@ module.exports = {
     amd: true,
     jest: true,
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:@typescript-eslint/eslint-recommended', 'prettier', 'plugin:storybook/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    'plugin:@typescript-eslint/eslint-recommended',
+    'prettier',
+    'plugin:storybook/recommended',
+  ],
   globals: {
     Atomics: 'readonly',
     SharedArrayBuffer: 'readonly',
@@ -68,6 +74,10 @@ module.exports = {
     'react-hooks/rules-of-hooks': 0,
     'react-hooks/exhaustive-deps': 0,
     'react/display-name': 0,
+    // Disabling this rule as storybook has a rendering issue bug which requires us to pass an
+    // object to the render func in stories.tsx files
+    // See workaround https://github.com/storybookjs/storybook/issues/22281#issuecomment-1932843183
+    'no-empty-pattern': 0,
   },
   settings: {
     react: {

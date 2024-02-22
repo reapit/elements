@@ -10,12 +10,12 @@ export default {
 }
 
 export const BasicUsageClosed = {
-  render: () => <ModalBg />,
+  render: ({}) => <ModalBg />,
   name: 'Basic Usage - Closed',
 }
 
 export const ReactModal = {
-  render: () => {
+  render: ({}) => {
     const [modalIsOpen, setModalIsOpen] = useState(false)
 
     return (
@@ -32,8 +32,8 @@ export const ReactModal = {
 }
 
 export const UseModalExample = {
-  render: () => {
-    const { Modal: ModalComponent, openModal, closeModal } = useModal('docs-root')
+  render: ({}) => {
+    const { Modal: ModalComponent, openModal, closeModal } = useModal('storybook-docs')
 
     return (
       <>
@@ -59,10 +59,10 @@ export const UseModalExample = {
 }
 
 export const UseModalExampleMultipleModals = {
-  render: () => {
-    const { Modal: ModalA, openModal: openModalA } = useModal('docs-root')
+  render: ({}) => {
+    const { Modal: ModalA, openModal: openModalA } = useModal('storybook-docs')
 
-    const { Modal: ModalB, openModal: openModalB } = useModal('docs-root')
+    const { Modal: ModalB, openModal: openModalB } = useModal('storybook-docs')
 
     return (
       <>

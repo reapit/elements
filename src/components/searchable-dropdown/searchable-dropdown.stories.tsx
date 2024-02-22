@@ -6,7 +6,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <SearchableDropdown
       getResults={async () => {
         return new Promise<any>((resolve) => {
@@ -37,12 +37,12 @@ export const BasicUsage = {
 }
 
 export const UseWithALabel = {
-  render: () => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
+  render: ({}) => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
   name: 'Use with a label',
 }
 
 export const UseWithAnIcon = {
-  render: () => (
+  render: ({}) => (
     <SearchableDropdown
       getResults={async () => {
         return new Promise<any>((resolve) => {
@@ -75,7 +75,7 @@ export const UseWithAnIcon = {
 }
 
 export const ControlledUsage = {
-  render: () => (
+  render: ({}) => (
     <ControlledSearchableDropdown
       isResultsListVisible={true}
       isClearVisible={true}
@@ -103,5 +103,5 @@ export const ControlledUsage = {
 }
 
 export const DefaultValue = {
-  render: () => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
+  render: ({}) => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
 }

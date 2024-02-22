@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
-import { Table, Cell, Row } from './index'
+import { Table } from './index'
 import { TableCell } from './molecules'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as TableStories from './table.stories'
@@ -189,13 +189,4 @@ We also specify that the first row is expanded by passing an `indexExpandedRow` 
 
 <Canvas>
   <Story of={TableStories.AdvancedCustomisationReact} />
-</Canvas>
-
-## Table Sorting
-
-To set up sorting on tables, you can add a `onLabelClick` function to the cells to trigger a sort of your data.
-We've also added a `TableSortHeader` element which has a arrow indicator for your direction of sorting.
-
-<Canvas>
-  <Story of={TableStories.TableSortingReact} />
 </Canvas>

@@ -9,7 +9,7 @@ export default {
 }
 
 export const TabsDefault = {
-  render: () => (
+  render: ({}) => (
     <Tabs
       name="my-cool-tabs-default"
       options={[
@@ -39,7 +39,7 @@ export const TabsDefault = {
 }
 
 export const TabsFullWidth = {
-  render: () => (
+  render: ({}) => (
     <Tabs
       name="my-cool-tabs-full-width"
       isFullWidth
@@ -70,7 +70,7 @@ export const TabsFullWidth = {
 }
 
 export const TabsReactExampleUncontrolled = {
-  render: () => {
+  render: ({}) => {
     const [tab, setTab] = useState('1')
 
     return (
@@ -121,7 +121,7 @@ export const TabsReactExampleUncontrolled = {
 }
 
 export const TabsReactExampleControlled = {
-  render: () => {
+  render: ({}) => {
     const [tab, setTab] = useState('1')
 
     return (

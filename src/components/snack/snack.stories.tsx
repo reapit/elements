@@ -8,16 +8,16 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => <Snack>Message goes here</Snack>,
+  render: ({}) => <Snack>Message goes here</Snack>,
 }
 
 export const WithAnIcon = {
-  render: () => <Snack icon="info">Message goes here</Snack>,
+  render: ({}) => <Snack icon="info">Message goes here</Snack>,
   name: 'With an icon',
 }
 
 export const IntentPrimary = {
-  render: () => (
+  render: ({}) => (
     <Snack icon="info" intent="primary">
       Primary message goes here
     </Snack>
@@ -26,7 +26,7 @@ export const IntentPrimary = {
 }
 
 export const IntentNeutral = {
-  render: () => (
+  render: ({}) => (
     <Snack intent="neutral" icon="info">
       Neutral message goes here
     </Snack>
@@ -35,7 +35,7 @@ export const IntentNeutral = {
 }
 
 export const IntentSuccess = {
-  render: () => (
+  render: ({}) => (
     <Snack intent="success" icon="statusGood">
       Success message goes here
     </Snack>
@@ -44,7 +44,7 @@ export const IntentSuccess = {
 }
 
 export const IntentPending = {
-  render: () => (
+  render: ({}) => (
     <Snack intent="pending" icon="statusUnknown">
       Pending message goes here
     </Snack>
@@ -53,7 +53,7 @@ export const IntentPending = {
 }
 
 export const IntentWarning = {
-  render: () => (
+  render: ({}) => (
     <Snack intent="warning" icon="warning">
       Warning message goes here
     </Snack>
@@ -62,7 +62,7 @@ export const IntentWarning = {
 }
 
 export const IntentDanger = {
-  render: () => (
+  render: ({}) => (
     <Snack intent="danger" icon="warning">
       Danger message goes here
     </Snack>
@@ -71,7 +71,7 @@ export const IntentDanger = {
 }
 
 export const IntentDefault = {
-  render: () => (
+  render: ({}) => (
     <Snack intent="default" icon="info">
       Default message goes here
     </Snack>
@@ -80,7 +80,7 @@ export const IntentDefault = {
 }
 
 export const UseSnackHookExample = {
-  render: () => (
+  render: ({}) => (
     <SnackProvider>
       <UseSnackHookStory />
     </SnackProvider>

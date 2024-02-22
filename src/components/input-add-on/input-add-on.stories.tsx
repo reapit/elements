@@ -7,11 +7,11 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => <InputAddOn>Short text message</InputAddOn>,
+  render: ({}) => <InputAddOn>Short text message</InputAddOn>,
 }
 
 export const WithIcon = {
-  render: () => (
+  render: ({}) => (
     <InputAddOn>
       <Icon icon="asterisk" />
     </InputAddOn>
@@ -19,5 +19,5 @@ export const WithIcon = {
 }
 
 export const WithIntent = {
-  render: () => <InputAddOn intent="danger">Warning Message</InputAddOn>,
+  render: ({}) => <InputAddOn intent="danger">Warning Message</InputAddOn>,
 }

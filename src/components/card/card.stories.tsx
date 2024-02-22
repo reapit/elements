@@ -28,7 +28,7 @@ export default {
 }
 
 export const CardWithAvatar = {
-  render: () => (
+  render: ({}) => (
     <CardWrap>
       <CardMainWrap>
         <Avatar src="https://picsum.photos/200" />
@@ -43,7 +43,7 @@ export const CardWithAvatar = {
 }
 
 export const CardWithImage = {
-  render: () => (
+  render: ({}) => (
     <CardWrap>
       <CardMainWrap>
         <Avatar type="image" src="https://picsum.photos/200/300" />
@@ -58,7 +58,7 @@ export const CardWithImage = {
 }
 
 export const CardWithBody = {
-  render: () => (
+  render: ({}) => (
     <CardWrap>
       <CardMainWrap>
         <CardHeadingWrap>
@@ -78,7 +78,7 @@ export const CardWithBody = {
 }
 
 export const CardFocussed = {
-  render: () => (
+  render: ({}) => (
     <CardWrap className={elCardFocussed}>
       <CardMainWrap>
         <Avatar type="image" src="https://picsum.photos/200/300" />
@@ -99,7 +99,7 @@ export const CardFocussed = {
 }
 
 export const CardWithList = {
-  render: () => (
+  render: ({}) => (
     <CardWrap>
       <CardListMainWrap>
         <CardListHeading>Secondary Heading</CardListHeading>
@@ -128,7 +128,7 @@ export const CardWithList = {
 }
 
 export const CardCompleteExample = {
-  render: () => (
+  render: ({}) => (
     <CardWrap>
       <CardMainWrap>
         <Avatar type="image" src="https://picsum.photos/200/300" />
@@ -171,7 +171,7 @@ export const CardCompleteExample = {
 }
 
 export const ReactShorthandAvatarBody = {
-  render: () => (
+  render: ({}) => (
     <MediaStateProvider>
       <Card
         hasMainCard
@@ -189,7 +189,7 @@ export const ReactShorthandAvatarBody = {
 }
 
 export const ReactShorthandList = {
-  render: () => (
+  render: ({}) => (
     <MediaStateProvider>
       <Card
         hasListCard
@@ -215,7 +215,7 @@ export const ReactShorthandList = {
 }
 
 export const ReactShorthandComplete = {
-  render: () => (
+  render: ({}) => (
     <MediaStateProvider>
       <Card
         hasMainCard

@@ -9,13 +9,13 @@ export default {
 }
 
 export const BasicUsageClosed = {
-  render: () => <DrawerBg />,
+  render: ({}) => <DrawerBg />,
   name: 'Basic Usage - Closed',
 }
 
 export const ReactUsage = {
-  render: () => {
-    const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('docs-root')
+  render: ({}) => {
+    const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('storybook-docs')
 
     return (
       <>
@@ -41,8 +41,8 @@ export const ReactUsage = {
 }
 
 export const ReactUsageCanDismiss = {
-  render: () => {
-    const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('docs-root')
+  render: ({}) => {
+    const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('storybook-docs')
 
     return (
       <>

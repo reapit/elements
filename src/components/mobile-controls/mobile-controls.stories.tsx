@@ -6,7 +6,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <MobileControls
       isVisible
       mobileControlItems={[

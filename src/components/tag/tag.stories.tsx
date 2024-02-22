@@ -6,7 +6,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <div>
       <Tag>Some Content</Tag>
     </div>
@@ -14,7 +14,7 @@ export const BasicUsage = {
 }
 
 export const IntentPrimary = {
-  render: () => (
+  render: ({}) => (
     <div>
       <Tag intent="primary">Primary</Tag>
     </div>
@@ -24,7 +24,7 @@ export const IntentPrimary = {
 }
 
 export const IntentNeutral = {
-  render: () => (
+  render: ({}) => (
     <div>
       <Tag intent="neutral">Neutral</Tag>
     </div>
@@ -34,7 +34,7 @@ export const IntentNeutral = {
 }
 
 export const IntentSuccess = {
-  render: () => (
+  render: ({}) => (
     <div>
       <Tag intent="success">Success</Tag>
     </div>
@@ -44,7 +44,7 @@ export const IntentSuccess = {
 }
 
 export const IntentPending = {
-  render: () => (
+  render: ({}) => (
     <div>
       <Tag intent="pending">Pending</Tag>
     </div>
@@ -54,7 +54,7 @@ export const IntentPending = {
 }
 
 export const IntentWarning = {
-  render: () => (
+  render: ({}) => (
     <div>
       <Tag intent="warning">Warning</Tag>
     </div>
@@ -64,7 +64,7 @@ export const IntentWarning = {
 }
 
 export const IntentDanger = {
-  render: () => (
+  render: ({}) => (
     <div>
       <Tag intent="danger">Danger</Tag>
     </div>
@@ -74,7 +74,7 @@ export const IntentDanger = {
 }
 
 export const IntentDefault = {
-  render: () => (
+  render: ({}) => (
     <div>
       <Tag intent="default">Default</Tag>
     </div>
@@ -83,13 +83,11 @@ export const IntentDefault = {
   name: 'Intent: Default',
 }
 
-export const TagGroupStory = {
-  render: () => (
+export const TagGroupUsage = {
+  render: ({}) => (
     <TagGroup>
       <Tag intent="primary">Some Content</Tag>
       <Tag intent="default">Some Content</Tag>
     </TagGroup>
   ),
-
-  name: 'Tag Group',
 }

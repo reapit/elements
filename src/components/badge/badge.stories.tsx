@@ -6,7 +6,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <BadgeGroup>
       <Badge>100</Badge>
     </BadgeGroup>
@@ -14,7 +14,7 @@ export const BasicUsage = {
 }
 
 export const WithIntent = {
-  render: () => (
+  render: ({}) => (
     <BadgeGroup>
       <Badge intent="primary">primary</Badge>
       <Badge intent="neutral">neutral</Badge>

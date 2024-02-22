@@ -6,7 +6,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <div>
       <StatusIndicator />
       Something is happening
@@ -17,7 +17,7 @@ export const BasicUsage = {
 }
 
 export const IntentPrimary = {
-  render: () => (
+  render: ({}) => (
     <div>
       <StatusIndicator intent="primary" />
       Primary
@@ -28,7 +28,7 @@ export const IntentPrimary = {
 }
 
 export const IntentNeutral = {
-  render: () => (
+  render: ({}) => (
     <div>
       <StatusIndicator intent="neutral" />
       Neutral
@@ -39,7 +39,7 @@ export const IntentNeutral = {
 }
 
 export const IntentSuccess = {
-  render: () => (
+  render: ({}) => (
     <div>
       <StatusIndicator intent="success" />
       Success
@@ -50,7 +50,7 @@ export const IntentSuccess = {
 }
 
 export const IntentPending = {
-  render: () => (
+  render: ({}) => (
     <div>
       <StatusIndicator intent="pending" />
       Pending
@@ -61,7 +61,7 @@ export const IntentPending = {
 }
 
 export const IntentWarning = {
-  render: () => (
+  render: ({}) => (
     <div>
       <StatusIndicator intent="warning" />
       Warning
@@ -72,7 +72,7 @@ export const IntentWarning = {
 }
 
 export const IntentDanger = {
-  render: () => (
+  render: ({}) => (
     <div>
       <StatusIndicator intent="danger" />
       Danger
@@ -83,7 +83,7 @@ export const IntentDanger = {
 }
 
 export const IntentDefault = {
-  render: () => (
+  render: ({}) => (
     <div>
       <StatusIndicator intent="default" />
       Default

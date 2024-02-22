@@ -10,7 +10,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <Grid>
       <Col>
         <GridDemoBlock />
@@ -32,7 +32,7 @@ export const BasicUsage = {
 }
 
 export const BasicUsageQuarterAndHalves = {
-  render: () => (
+  render: ({}) => (
     <Grid>
       <ColHalf>
         <GridDemoBlock />
@@ -71,7 +71,7 @@ export const BasicUsageQuarterAndHalves = {
 }
 
 export const BasicUsageSplitScreenGrid = {
-  render: () => (
+  render: ({}) => (
     <Grid>
       <ColSplit>
         <GridDemoBlock />
@@ -86,7 +86,7 @@ export const BasicUsageSplitScreenGrid = {
 }
 
 export const BasicUsageSplitScreenGridThirds = {
-  render: () => (
+  render: ({}) => (
     <GridThirds>
       <ColSplitThird>
         <GridDemoBlock />
@@ -101,7 +101,7 @@ export const BasicUsageSplitScreenGridThirds = {
 }
 
 export const CustomUsage = {
-  render: () => (
+  render: ({}) => (
     <Grid className={cx(elColGap2, elRowGap3)}>
       <Col className={cx(elSpan12)}>
         <GridDemoBlock />
@@ -120,7 +120,7 @@ export const CustomUsage = {
 }
 
 export const ReactExampleResponsiveCustomisation = {
-  render: () => (
+  render: ({}) => (
     <MediaStateProvider>
       <GridResponsive
         colGapMobile={1}

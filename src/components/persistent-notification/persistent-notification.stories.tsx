@@ -7,7 +7,7 @@ export default {
 }
 
 export const FullReactExampleFixedPosition = {
-  render: () => {
+  render: ({}) => {
     const [isExpanded, setIsExpanded] = useState(false)
 
     return (
@@ -24,7 +24,7 @@ export const FullReactExampleFixedPosition = {
 }
 
 export const DefaultUsageInline = {
-  render: () => (
+  render: ({}) => (
     <PersistentNotification isExpanded isInline>
       Here is a persistent notification
     </PersistentNotification>
@@ -32,7 +32,7 @@ export const DefaultUsageInline = {
 }
 
 export const WithADifferentIcon = {
-  render: () => (
+  render: ({}) => (
     <PersistentNotification isExpanded isInline icon="warning" intent="warning">
       Here&apos;s some infomation about the thing you should be warned about, so bad things don&apos;t happen.
     </PersistentNotification>
@@ -41,7 +41,7 @@ export const WithADifferentIcon = {
 }
 
 export const InlineNotifcationIntentPrimary = {
-  render: () => (
+  render: ({}) => (
     <PersistentNotification isExpanded intent="primary" isInline isFullWidth>
       Here&apos;s an inline full width notification with a primary intent.
     </PersistentNotification>
@@ -50,7 +50,7 @@ export const InlineNotifcationIntentPrimary = {
 }
 
 export const InlineNotifcationIntentNeutral = {
-  render: () => (
+  render: ({}) => (
     <PersistentNotification isExpanded intent="neutral" isInline isFullWidth>
       Here&apos;s an inline full width notification with a neutral intent.
     </PersistentNotification>
@@ -59,7 +59,7 @@ export const InlineNotifcationIntentNeutral = {
 }
 
 export const InlineNotifcationIntentSuccess = {
-  render: () => (
+  render: ({}) => (
     <PersistentNotification isExpanded intent="success" isInline isFullWidth>
       Here&apos;s an inline full width notification with a success intent.
     </PersistentNotification>
@@ -68,7 +68,7 @@ export const InlineNotifcationIntentSuccess = {
 }
 
 export const InlineNotifcationIntentPending = {
-  render: () => (
+  render: ({}) => (
     <PersistentNotification isExpanded intent="pending" isInline isFullWidth>
       Here&apos;s an inline full width notification with a pending intent.
     </PersistentNotification>
@@ -77,7 +77,7 @@ export const InlineNotifcationIntentPending = {
 }
 
 export const InlineNotifcationIntentWarning = {
-  render: () => (
+  render: ({}) => (
     <PersistentNotification isExpanded intent="warning" isInline isFullWidth>
       Here&apos;s an inline full width notification with a warning intent.
     </PersistentNotification>
@@ -86,7 +86,7 @@ export const InlineNotifcationIntentWarning = {
 }
 
 export const InlineNotifcationIntentDanger = {
-  render: () => (
+  render: ({}) => (
     <PersistentNotification isExpanded intent="danger" isInline isFullWidth>
       Here&apos;s an inline full width notification with a danger intent.
     </PersistentNotification>
@@ -95,7 +95,7 @@ export const InlineNotifcationIntentDanger = {
 }
 
 export const InlineNotifcationIntentDefault = {
-  render: () => (
+  render: ({}) => (
     <PersistentNotification isExpanded intent="default" isInline isFullWidth>
       Here&apos;s an inline full width notification with a default intent.
     </PersistentNotification>

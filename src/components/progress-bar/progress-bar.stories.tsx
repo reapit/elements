@@ -13,7 +13,7 @@ export default {
 }
 
 export const BasicExampleProgressBarPercentage = {
-  render: () => (
+  render: ({}) => (
     <ProgressBarContainer>
       <ProgressBarInner
         style={{
@@ -31,7 +31,7 @@ export const BasicExampleProgressBarPercentage = {
 }
 
 export const BasicExampleProgressBarSteps = {
-  render: () => (
+  render: ({}) => (
     <ProgressBarContainer>
       <ProgressBarInner
         style={{
@@ -49,11 +49,11 @@ export const BasicExampleProgressBarSteps = {
 }
 
 export const ReactExampleProgressBarPercentage = {
-  render: () => <ProgressBarPercentage duration={20} />,
+  render: ({}) => <ProgressBarPercentage duration={20} />,
   name: 'React Example - ProgressBarPercentage',
 }
 
 export const ReactExampleProgressBarSteps = {
-  render: () => <ProgressBarSteps currentStep={7} numberSteps={7} />,
+  render: ({}) => <ProgressBarSteps currentStep={7} numberSteps={7} />,
   name: 'React Example - ProgressBarSteps',
 }

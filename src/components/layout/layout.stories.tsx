@@ -7,15 +7,14 @@ import { SecondaryNav, SecondaryNavItem } from '../secondary-nav'
 import { PageHeader } from '../page-header'
 import { NavResponsive } from '../nav'
 import { Grid, Col, ColSplitThird, ColSplitTwoThirds, GridThirds } from '../grid'
-import { Icon } from '../icon'
 
 export default {
   title: 'Layouts',
   component: MainContainer,
 }
 
-export const MainContainerStory = {
-  render: () => (
+export const MainContainerUsage = {
+  render: ({}) => (
     <MainContainer>
       <FlexContainer isFlexGrow1>
         <PageContainer>
@@ -24,22 +23,18 @@ export const MainContainerStory = {
       </FlexContainer>
     </MainContainer>
   ),
-
-  name: 'Main Container',
 }
 
-export const SecondaryNavContainerStory = {
-  render: () => (
+export const SecondaryNavContainerUsage = {
+  render: ({}) => (
     <SecondaryNavContainer>
       <GridDemoBlock />
     </SecondaryNavContainer>
   ),
-
-  name: 'Secondary Nav Container',
 }
 
-export const PageContainerStory = {
-  render: () => (
+export const PageContainerUsage = {
+  render: ({}) => (
     <PageContainer>
       <Grid>
         <Col>
@@ -69,12 +64,10 @@ export const PageContainerStory = {
       </Grid>
     </PageContainer>
   ),
-
-  name: 'Page Container',
 }
 
 export const PageContainerMaxWidth = {
-  render: () => (
+  render: ({}) => (
     <PageContainer hasMaxWidth>
       <GridDemoBlock />
     </PageContainer>
@@ -82,15 +75,15 @@ export const PageContainerMaxWidth = {
 }
 
 export const HasGreyBackground = {
-  render: () => (
+  render: ({}) => (
     <PageContainer hasGreyBackground>
       <GridDemoBlock />
     </PageContainer>
   ),
 }
 
-export const FlexContainerStory = {
-  render: () => (
+export const FlexContainerUsage = {
+  render: ({}) => (
     <FlexContainer isFlexColumn>
       <GridDemoBlock />
       <GridDemoBlock />
@@ -99,7 +92,7 @@ export const FlexContainerStory = {
 }
 
 export const CombinedContainerComponents = {
-  render: () => (
+  render: ({}) => (
     <MainContainer>
       <FlexContainer isFlexGrow1>
         <SecondaryNavContainer>
@@ -118,7 +111,7 @@ export const CombinedContainerComponents = {
 }
 
 export const CompleteCombinedExample = {
-  render: () => {
+  render: ({}) => {
     const [selectedItem, setSelectedItem] = useState(1)
 
     return (
@@ -131,12 +124,10 @@ export const CompleteCombinedExample = {
                 {
                   text: 'AppMarket',
                   callback: () => console.log('Navigating'),
-                  iconUrl: <Icon icon="reapitLogoSmall" />,
                 },
                 {
                   text: 'DevPortal',
                   callback: () => console.log('Navigating'),
-                  iconUrl: <Icon icon="reapitLogoSmall" />,
                 },
               ]}
               avatarText="JD"
@@ -343,7 +334,7 @@ export const CompleteCombinedExample = {
 }
 
 export const CompleteCombinedExampleMaxWidth = {
-  render: () => {
+  render: ({}) => {
     return (
       <NavStateProvider>
         <MediaStateProvider>
@@ -354,12 +345,10 @@ export const CompleteCombinedExampleMaxWidth = {
                 {
                   text: 'AppMarket',
                   callback: () => console.log('Navigating'),
-                  iconUrl: <Icon icon="reapitLogoSmall" />,
                 },
                 {
                   text: 'DevPortal',
                   callback: () => console.log('Navigating'),
-                  iconUrl: <Icon icon="reapitLogoSmall" />,
                 },
               ]}
               avatarText="JD"

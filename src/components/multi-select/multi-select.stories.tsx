@@ -5,7 +5,7 @@ export default {
 }
 
 export const BasicExample = {
-  render: () => (
+  render: ({}) => (
     <MultiSelect>
       <MultiSelectChip id="item-1">Item One</MultiSelectChip>
       <MultiSelectChip id="item-2">Item Two</MultiSelectChip>
@@ -18,7 +18,7 @@ export const BasicExample = {
 }
 
 export const GreyChips = {
-  render: () => (
+  render: ({}) => (
     <MultiSelect>
       <MultiSelectChip className={elHasGreyChips} id="item-grey-1">
         Item One
@@ -43,7 +43,7 @@ export const GreyChips = {
 }
 
 export const ReactExample = {
-  render: () => (
+  render: ({}) => (
     <MultiSelectInput
       id="react-example"
       options={[

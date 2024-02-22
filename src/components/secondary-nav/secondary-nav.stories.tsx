@@ -8,7 +8,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <SecondaryNavContainer>
       <SecondaryNav>
         <SecondaryNavItem>App List</SecondaryNavItem>
@@ -19,7 +19,7 @@ export const BasicUsage = {
 }
 
 export const ReactExample = {
-  render: () => {
+  render: ({}) => {
     const [selectedItem, setSelectedItem] = useState(1)
 
     return (

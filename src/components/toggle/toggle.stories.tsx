@@ -7,7 +7,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <Toggle id="my-cool-toggle">
       <ElToggleItem>On</ElToggleItem>
       <ElToggleItem>Off</ElToggleItem>
@@ -16,7 +16,7 @@ export const BasicUsage = {
 }
 
 export const ToggleSwitch = {
-  render: () => (
+  render: ({}) => (
     <Toggle id="my-cool-toggle-variants-switch">
       <ElToggleItem />
       <ElToggleItem />
@@ -27,7 +27,7 @@ export const ToggleSwitch = {
 }
 
 export const ToggleGreyBg = {
-  render: () => (
+  render: ({}) => (
     <Toggle id="my-cool-toggle-variants-grey" hasGreyBg>
       <ElToggleItem>On</ElToggleItem>
       <ElToggleItem>Off</ElToggleItem>
@@ -38,7 +38,7 @@ export const ToggleGreyBg = {
 }
 
 export const ToggleRadioDefault = {
-  render: () => (
+  render: ({}) => (
     <ToggleRadio
       name="my-cool-toggle-radio"
       options={[
@@ -68,7 +68,7 @@ export const ToggleRadioDefault = {
 }
 
 export const ToggleRadioSelectPropsGreyBg = {
-  render: () => (
+  render: ({}) => (
     <ToggleRadio
       name="my-cool-toggle-radio-grey"
       hasGreyBg
@@ -99,7 +99,7 @@ export const ToggleRadioSelectPropsGreyBg = {
 }
 
 export const ToggleRadioDisabled = {
-  render: () => (
+  render: ({}) => (
     <ToggleRadio
       name="my-cool-toggle-radio"
       disabled={true}

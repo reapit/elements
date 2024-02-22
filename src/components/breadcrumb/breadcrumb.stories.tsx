@@ -6,7 +6,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <BreadCrumb
       items={[
         {
@@ -31,7 +31,7 @@ export const BasicUsage = {
 }
 
 export const DefaultIndex = {
-  render: () => (
+  render: ({}) => (
     <BreadCrumb
       defaultActiveIndex={3}
       items={[

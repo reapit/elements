@@ -17,7 +17,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: () => (
+  render: ({}) => (
     <AccordionContainer>
       <AccordionItem onClick={console.log}>
         <AccordionTitle>Accordion Item 1</AccordionTitle>
@@ -69,7 +69,7 @@ export const BasicUsage = {
 }
 
 export const ReactUsage = {
-  render: () => (
+  render: ({}) => (
     <Accordion
       items={[
         {

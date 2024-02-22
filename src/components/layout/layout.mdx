@@ -16,30 +16,30 @@ The components themsleves are really around laying out a page so you may want to
 In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
 
 <Canvas>
-  <Story of={LayoutStories.MainContainerStory} />
+  <Story of={LayoutStories.MainContainerUsage} />
 </Canvas>
 
-<RenderHtmlMarkup component="Layouts" story="Main Container" />
+<RenderHtmlMarkup component="Layouts" story="Main Container Usage" />
 
 ## SecondaryNavContainer
 
 The `SecondaryNavContainer` is fixed width and used to contain secondary navigation as well as controls like filters.
 
 <Canvas>
-  <Story of={LayoutStories.SecondaryNavContainerStory} />
+  <Story of={LayoutStories.SecondaryNavContainerUsage} />
 </Canvas>
 
-<RenderHtmlMarkup component="Layouts" story="Secondary Nav Container" />
+<RenderHtmlMarkup component="Layouts" story="Secondary Nav Container Usage" />
 
 ## PageContainer
 
 The `PageContainer` should be the body of your content, it will typically contain a `Grid` component.
 
 <Canvas>
-  <Story of={LayoutStories.PageContainerStory} />
+  <Story of={LayoutStories.PageContainerUsage} />
 </Canvas>
 
-<RenderHtmlMarkup component="Layouts" story="Page Container" />
+<RenderHtmlMarkup component="Layouts" story="Page Container Usage" />
 
 ## Page Container Max Width
 
@@ -68,10 +68,10 @@ The previous two containers are postioned using the `FlexContainer` component. T
 <ArgsTable of={FlexContainer} />
 
 <Canvas>
-  <Story of={LayoutStories.FlexContainerStory} />
+  <Story of={LayoutStories.FlexContainerUsage} />
 </Canvas>
 
-<RenderHtmlMarkup component="Layouts" story="Flex Container" />
+<RenderHtmlMarkup component="Layouts" story="Flex Container Usage" />
 
 ## Combined Container Components
 
@@ -99,13 +99,12 @@ For a complete example of how to lay out a page, see below where we have combine
   <Story of={LayoutStories.CompleteCombinedExample} />
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Layouts"
-  story={['Complete Combined Example']}
-  label="Complete Combined Example Rendered HTML markup"
-/>
+{/* // <RenderHtmlMarkup
+//   component="Layouts"
+//   story="Complete Combined Example"
+// />  */}
 
-## Combined Layout Max Width
+{/* ## Combined Layout Max Width
 
 Variant on the complete layout but using a max width container in desktop, a side column and no secondary nav.
 
@@ -117,4 +116,4 @@ Variant on the complete layout but using a max width container in desktop, a sid
   component="Layouts"
   story={['Complete Combined Example Max Width']}
   label="Complete Combined Example Rendered HTML markup"
-/>
+/> */}
