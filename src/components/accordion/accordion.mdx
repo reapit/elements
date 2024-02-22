@@ -1,0 +1,40 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Accordion } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as AccordionStories from './accordion.stories'
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+An accordion component allows collapsable content where space is at a premium, for example mobile views. It is often used in conjunction with the `Drawer` component for small edits and quick views to avoid navigating and losing context in your app.
+
+To open the accordion for vanilla usage, you will need to both toggle the `elIsActive` class on the content div and switch the `down` icon for `upSystem` - see the different states below.
+
+## Basic Usage
+
+<Canvas>
+  <Story of={AccordionStories.BasicUsage} />
+</Canvas>
+
+<RenderHtmlMarkup component="Accordion" story="Basic Usage" />
+
+## React Usage
+
+The React shorthand version of the Accordion handles the toggling of active classes for you. The props accepted by the `AccordionItem` are below along with the `AccordionItemProps` interface.
+
+<ArgsTable of={Accordion} />
+
+```ts
+export interface AccordionItemProps {
+  title: string
+  titleItems?: ReactNode[]
+  content: ReactNode
+}
+```
+
+<Canvas>
+  <Story of={AccordionStories.ReactUsage} />
+</Canvas>
+
+<RenderHtmlMarkup component="Accordion" story="React Usage" />

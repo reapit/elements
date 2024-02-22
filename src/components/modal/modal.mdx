@@ -1,0 +1,75 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Modal } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as ModalStories from './modal.stories'
+
+<Meta of={ModalStories} />
+
+# Modal
+
+The modal component renders a dialog box that overlays the main screen. It is typically used for displaying confirmation or error notifications to users that require an addtional call to action or step.
+
+## Basic Usage
+
+The Modal component can be used for UI purposes only, but won't have the functionality of the React implementation (i.e. managing the state of whether it is open or closed)
+
+If using the Modal component like this, you will need to toggle the `elIsActive` / `el-is-active` class to show/hide the modal.
+
+This class must be applied on two elements, `div.el-modal-bg` and also `div.el-modal`, when you want the modal to be shown.
+
+By default, the modal fills it's current container so you will likely wish to place it as high as possible up the DOM tree to achive an overlay effect.
+
+Click "Show code" below to see JSX / HTML code for a closed modal, along with the corresponding rendered markup. To see how an opened one behaves and the markup, move to the React examples below.
+
+<Canvas>
+  <Story of={ModalStories.BasicUsageClosed} />
+</Canvas>
+
+<RenderHtmlMarkup component="Modal" story="Basic Usage - Closed" />
+
+## React usage
+
+The React component accepts props to toggle the classes that control whether the modal is opened or not.
+
+In React world, you will likely want to trigger the modal using a portal (see our `Portal` component), so it can be rendered at the top level of your app and provide an overlay effect. Probably you will `useState` to toggle the hide and show behaviour.
+
+This example gives maxmum flexibility but for the 'batteries included' approach, you should look at the `useModal` hook below.
+
+Props available for the React version of the component;
+
+<ArgsTable component={Modal} />
+
+<Canvas>
+  <Story of={ModalStories.ReactModal} />
+</Canvas>
+
+## React usage - Complete example with `useModal` hook
+
+The use modal hook exports both a modal component and state helpers for toggling the component open.
+
+It also leverages our `Portal` component to render the modal at the top level of your app. The default container is `#root` so if you need your portal to render on another element, pass a different id to the `useModal` hook when you instantiate it - in the example below, we use Storybook's `#docs-root`.
+
+<Canvas>
+  <Story of={ModalStories.UseModalExample} />
+</Canvas>
+
+## React usage - With multiple `useModal` hooks
+
+Props available for the React version of the component;
+
+<ArgsTable component={Modal} />
+
+If using multiple modals within a component, ensure you rename the exports from `useModal` to avoid conflicts, e.g. `const { Modal: ModalA, openModal: openModalA } = useModal()`
+
+<Canvas>
+  <Story of={ModalStories.UseModalExampleMultipleModals} />
+</Canvas>
+
+## `useModal` API
+
+Exports the following properties as an object:
+
+- `Modal`: `FC<Partial<ModalProps>>` - a React component that should be placed somewhere with the component that you want to use the modal. Will pass props to the underlying modal.
+- `openModal`: `() => void` - a method that will open the Modal.
+- `closeModal`: `() => void` - a method that will close the Modal. The Modal can also be closed by default from within the Modal, or by clicking on the background
+- `modalIsOpen`: `boolean` - convenience boolean to check if the modal is open currently.

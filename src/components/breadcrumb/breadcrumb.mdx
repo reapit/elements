@@ -1,0 +1,30 @@
+import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { BreadCrumb } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as BreadcrumbStories from './breadcrumb.stories'
+
+<Meta of={BreadcrumbStories} />
+
+# BreadCrumb
+
+## Basic Usage
+
+<ArgsTable of={BreadCrumb} />
+
+Breadcrumbs are used to indicate to the user their flow in the application and provide a navigation back step to previous pages.
+
+<Canvas>
+  <Story of={BreadcrumbStories.BasicUsage} />
+</Canvas>
+
+<RenderHtmlMarkup component="BreadCrumb" story="Basic Usage" />
+
+## Default Index
+
+By setting the `defaultActiveIndex` prop, you can open the Bread crumb at the correct level when you navigate.
+
+<Canvas>
+  <Story of={BreadcrumbStories.DefaultIndex} />
+</Canvas>
+
+<RenderHtmlMarkup component="BreadCrumb" story="Default Index" />

@@ -1,0 +1,100 @@
+import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import { Card } from './card-components'
+import * as CardStories from './card.stories'
+
+<Meta of={CardStories} />
+
+# Card
+
+The Card is intended to be a general purpose tile for rendering lists of data. We supply two core types - with an image and with a list of items.
+
+All of the markup is intended to fallback gracefully if not supplied so for example, if you want to omit the image or the list items, this can be done and the Card will still look fine.
+
+If you wish to combine a list and an image card, this can be done too - see the complete examples below.
+
+For non-React users, the following examples show how applying and removing classes will toggle various pieces of the UI.
+
+React users, may wish to use the shorthand component to reduce markup.
+
+## Card With Avatar
+
+<Canvas>
+  <Story of={CardStories.CardWithAvatar} />
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Card With Avatar" />
+
+## Card With Image
+
+<Canvas>
+  <Story of={CardStories.CardWithImage} />
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Card With Image" />
+
+## Card With Body
+
+<Canvas>
+  <Story of={CardStories.CardWithBody} />
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Card With Body" />
+
+## Card Focussed
+
+Adding the `elCardFocussed` class to the `CardWrap` will draw the contact's attention.
+
+<Canvas>
+  <Story of={CardStories.CardFocussed} />
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Card Focussed" />
+
+## Card With List
+
+<Canvas>
+  <Story of={CardStories.CardWithList} />
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Card With List" />
+
+## Card Complete Example
+
+<Canvas>
+  <Story of={CardStories.CardCompleteExample} />
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="Card Complete Example" />
+
+## React Shorthand
+
+In the React Shorthand, you can compose your card by applying props as appropriate following the `CardProps` interface:
+
+<ArgsTable component={Card} />
+
+All of the props are optional - you can have Avatar, Image, List and Complete versions depending on how you mix and match the props.
+
+## React Shorthand Avatar & Body
+
+<Canvas>
+  <Story of={CardStories.ReactShorthandAvatarBody} />
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="React Shorthand Avatar & Body" />
+
+## React Shorthand List
+
+<Canvas>
+  <Story of={CardStories.ReactShorthandList} />
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="React Shorthand List" />
+
+## React Shorthand Complete
+
+<Canvas>
+  <Story of={CardStories.ReactShorthandComplete} />
+</Canvas>
+
+<RenderHtmlMarkup component="Card" story="React Shorthand Complete" />

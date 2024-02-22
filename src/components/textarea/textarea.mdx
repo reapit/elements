@@ -1,0 +1,36 @@
+import { Meta, ArgsTable, Story, Canvas } from '@storybook/blocks'
+import { TextArea } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as TextareaStories from './textarea.stories'
+
+<Meta of={TextareaStories} />
+
+# TextArea
+
+A standard HTMl / JSX text area component for use in forms.
+
+<ArgsTable of={TextArea} />
+
+## Basic Usage
+
+<Canvas>
+  <Story of={TextareaStories.BasicUsage} />
+</Canvas>
+
+<RenderHtmlMarkup component="TextArea" story="Basic Usage" />
+
+## Placeholder
+
+<Canvas>
+  <Story of={TextareaStories.TextAreaPlaceholder} />
+</Canvas>
+
+<RenderHtmlMarkup component="TextArea" story="Text Area placeholder" />
+
+## Has Error
+
+<Canvas>
+  <Story of={TextareaStories.TextAreaError} />
+</Canvas>
+
+<RenderHtmlMarkup component="TextArea" story="Text Area Error" />

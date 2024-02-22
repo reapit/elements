@@ -1,75 +1,45 @@
-const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const linaria = require('@linaria/vite').default
+const svgrPlugin = require('@svgr/rollup')
+const path = require('path')
 
 module.exports = {
-  stories: ['../src/**/*.stories.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
     '@storybook/addon-links',
-    '@reapit/storybook-addon-html',
+    '@whitespace/storybook-addon-html',
     '@storybook/addon-essentials',
-    '@storybook/addon-storysource/register',
+    '@storybook/addon-a11y',
+    '@storybook/addon-mdx-gfm',
     {
-      name: '@storybook/addon-postcss',
+      name: '@storybook/addon-storysource',
       options: {
-        postcssLoaderOptions: {
-          implementation: require('postcss'),
+        rule: {
+          test: [/\.stories\.tsx?$/],
+          include: [path.resolve(__dirname, '../src')], // You can specify directories
+        },
+        loaderOptions: {
+          prettierConfig: { printWidth: 80, singleQuote: false },
         },
       },
     },
   ],
-  core: {
-    builder: 'webpack5',
-  },
-  webpackFinal: async (config, { configType }) => {
-    const fileLoaderRule = config.module.rules.find((rule) => !Array.isArray(rule.test) && rule.test?.test('.svg'))
-    fileLoaderRule.exclude = /\.svg$/
-
-    config.module.rules.unshift({
-      test: /\.svg$/,
-      use: [
-        {
-          loader: '@svgr/webpack',
-          options: {
-            icon: true,
-          },
-        },
-        'url-loader',
-      ],
-    })
-
-    config.module.rules.push({
-      test: /\.(ts|tsx)$/,
-      use: [
-        {
-          loader: 'esbuild-loader',
-          options: {
-            loader: 'tsx',
-            target: 'es2019',
-          },
-        },
-        {
-          loader: '@linaria/webpack-loader',
-          options: {
-            sourceMap: configType !== 'PRODUCTION',
-          },
-        },
-      ],
-    })
-
-    config.plugins.push(
-      new MiniCssExtractPlugin({
-        filename: 'styles.css',
-      }),
-    )
-
-    config.stats = {
-      cached: false,
-      cachedAssets: false,
-      chunks: false,
-      chunkModules: false,
-      chunkOrigins: false,
-      modules: false,
+  loader: { '.js': 'jsx' },
+  async viteFinal(config, { configType }) {
+    if (configType === 'DEVELOPMENT') {
+      config.optimizeDeps.include = [...config?.optimizeDeps?.include, 'jest-mock']
     }
-    // Return the altered config
+
+    config.plugins.push(linaria(), svgrPlugin({ icon: true }))
+
+    config.define = {
+      ...config.define,
+      global: 'window',
+    }
+
     return config
+  },
+  framework: {
+    name: '@storybook/react-vite',
+    options: {},
   },
 }

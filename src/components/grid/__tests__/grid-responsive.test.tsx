@@ -1,4 +1,3 @@
-import React from 'react'
 import { render } from '@testing-library/react'
 import { ColResponsive, GridResponsive } from '../grid-responsive'
 import { MediaStateProvider } from '../../../hooks/use-media-query'

@@ -1,0 +1,71 @@
+import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { Tabs } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as TabsStories from './tabs.stories'
+
+<Meta of={TabsStories} />
+
+## Multi Tabs - Tabs
+
+The `Tabs` component uses an underlying radio button to manage toggling without JavaScript. As such, you can manage state using any Form library or by referencing the `onChange` input event.
+
+For react users, the component does not render children, rather it accepts a list of options and maps through them on render.
+
+As always, for non React users, you can just apply the classes in the rendered markup to your input and label elements.
+
+Typically you will use this component as a tertiary in-page navigation.
+
+Props available for the React version of the component;
+
+<ArgsTable of={Tabs} />
+
+Where `TabsOption` is defined as;
+
+```tsx
+export interface TabsOption {
+  id: string
+  value: string
+  text: string
+  isChecked: boolean
+}
+```
+
+<Canvas>
+  <Story of={TabsStories.TabsDefault} />
+</Canvas>
+
+<RenderHtmlMarkup component="Tabs" story="Tabs - Default" />
+
+## Tabs - Full Width
+
+Slight variation on the above where the Tabs spans the full width of it's container.
+
+<Canvas>
+  <Story of={TabsStories.TabsFullWidth} />
+</Canvas>
+
+<RenderHtmlMarkup component="Tabs" story="Tabs - Full Width" />
+
+## Tabs - React Example uncontrolled
+
+Simple example demonstrating how to transition content using tabs. In practice, you may want to dispatch to a router or similar.
+
+The underlying radio buttons are uncontrolled by default so the `isChecked` is used to set the `defaultChecked` in this example. This is to allow the radio to behave nativele i.e. it will update the state using the `onChange` event but not vice versa.
+
+<Canvas>
+  <Story of={TabsStories.TabsReactExampleUncontrolled} />
+</Canvas>
+
+<RenderHtmlMarkup component="Tabs" story="Tabs - React Example uncontrolled" />
+
+## Tabs - React Example controlled
+
+Simple example demonstrating how to transition content using tabs. In practice, you may want to dispatch to a router or similar.
+
+The underlying radio buttons are uncontrolled by default so the `isChecked` is used to set the `defaultChecked` in this example. This is to allow the radio to behave nativele i.e. it will update the state using the `onChange` event but not vice versa.
+
+<Canvas>
+  <Story of={TabsStories.TabsReactExampleControlled} />
+</Canvas>
+
+<RenderHtmlMarkup component="Tabs" story="Tabs - React Example controlled" />

@@ -1,0 +1,119 @@
+import { Story, Canvas, Meta, ArgsTable } from '@storybook/blocks'
+import { FlexContainer } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as LayoutStories from './layout.stories'
+
+<Meta of={LayoutStories} />
+
+# Layouts
+
+When thinking about laying out your page, you will need to wrap your content in a series of Containers. To support out common patterns, will first introduce some new container components.
+
+The components themsleves are really around laying out a page so you may want to skip forward to the full examples below.
+
+## MainContainer
+
+In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
+
+<Canvas>
+  <Story of={LayoutStories.MainContainerUsage} />
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story="Main Container Usage" />
+
+## SecondaryNavContainer
+
+The `SecondaryNavContainer` is fixed width and used to contain secondary navigation as well as controls like filters.
+
+<Canvas>
+  <Story of={LayoutStories.SecondaryNavContainerUsage} />
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story="Secondary Nav Container Usage" />
+
+## PageContainer
+
+The `PageContainer` should be the body of your content, it will typically contain a `Grid` component.
+
+<Canvas>
+  <Story of={LayoutStories.PageContainerUsage} />
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story="Page Container Usage" />
+
+## Page Container Max Width
+
+The `PageContainer` should be the body of your content but maxes out at 1200px width when the `hasMaxWidth` prop is applied in Desktop and is centered on the page.
+
+<Canvas>
+  <Story of={LayoutStories.PageContainerMaxWidth} />
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story="Page Container Max Width" />
+
+## Has Grey Background
+
+All containers accept a `hasGreyBackground` prop which will add a grey background to the container to support white tile on grey background layouts
+
+<Canvas>
+  <Story of={LayoutStories.HasGreyBackground} />
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story="Has Grey Background" />
+
+## FlexContainer
+
+The previous two containers are postioned using the `FlexContainer` component. This component has a number of optional props to perform most flexbox operations - see the below inteface for React users:
+
+<ArgsTable of={FlexContainer} />
+
+<Canvas>
+  <Story of={LayoutStories.FlexContainerUsage} />
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story="Flex Container Usage" />
+
+## Combined Container Components
+
+In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
+
+The `SecondaryNavContainer` is fixed width and used to contain secondary navigation as well as controls like filters.
+
+The `PageContainer` should be the body of your content, it will typically contain a `Grid` component.
+
+The previous two containers are postioned using the `FlexContainer` component. This component has a number of optional props to perform most flexbox operations - see the below inteface for React users:
+
+These booleans map 1:1 to the flexbox helpers you can see here on [Github](https://github.com/reapit/foundations/blob/master/packages/elements/src/styles-v3/base/flexbox.ts). For the output helper classes, see the HTML Markup Component below.
+
+<Canvas>
+  <Story of={LayoutStories.CombinedContainerComponents} />
+</Canvas>
+
+<RenderHtmlMarkup component="Layouts" story={['Combined Container Components']} />
+
+## Combined Layout
+
+For a complete example of how to lay out a page, see below where we have combined a number of other stories including `Nav`, `PageHeader`, `SecondaryNav` and `Grid` to give a full page layout.
+
+<Canvas>
+  <Story of={LayoutStories.CompleteCombinedExample} />
+</Canvas>
+
+{/* // <RenderHtmlMarkup
+//   component="Layouts"
+//   story="Complete Combined Example"
+// />  */}
+
+{/* ## Combined Layout Max Width
+
+Variant on the complete layout but using a max width container in desktop, a side column and no secondary nav.
+
+<Canvas>
+  <Story of={LayoutStories.CompleteCombinedExampleMaxWidth} />
+</Canvas>
+
+<RenderHtmlMarkup
+  component="Layouts"
+  story={['Complete Combined Example Max Width']}
+  label="Complete Combined Example Rendered HTML markup"
+/> */}

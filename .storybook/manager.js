@@ -1,39 +1,41 @@
-import addons from '@storybook/addons'
+import { addons } from '@storybook/addons'
 import { create } from '@storybook/theming'
 import { version } from '../package.json'
+import logo from './public/reapitLogo.svg'
 
 addons.setConfig({
   theme: create({
     base: 'light',
 
-    colorPrimary: '#262f69',
-    colorSecondary: '#0061a8',
+    colorPrimary: '#4e56ea',
+    colorSecondary: '#4e56ea',
 
     // UI
     appBg: '#fff',
     appContentBg: '#fff',
-    appBorderColor: '#95aac9',
+    appBorderColor: '#4e56ea',
     appBorderRadius: 0,
 
     // Typography
     fontBase: "'Inter', sans-serif",
-    fontCode: 'monospace',
+    fontCode: "'Source Code Pro', monospace",
 
     // Text colors
-    textColor: '#12263f',
+    textColor: '#222b33',
     textInverseColor: '#fff',
 
     // Toolbar default and active colors
-    barTextColor: '#556986',
-    barSelectedColor: '#12263f',
-    barBg: '#f9fbfd',
+    barTextColor: '#222b33',
+    barSelectedColor: '#4e56ea',
+    barBg: '#fff',
 
     // Form colors
     inputBg: '#fff',
-    inputBorder: '#556986',
-    inputTextColor: '#12263f',
+    inputBorder: '#4e56ea',
+    inputTextColor: '#222b33',
     inputBorderRadius: 0,
 
     brandTitle: `Elements ${version}`,
+    brandImage: logo,
   }),
 })
