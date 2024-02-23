@@ -4,7 +4,6 @@ import { Canvas } from '@storybook/addon-docs'
 import prettier from 'prettier/standalone'
 import htmlPraser from 'prettier/plugins/html'
 
-
 type RenderHtmlMarkupProps = {
   component: string
   story: string | string[]
