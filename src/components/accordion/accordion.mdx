@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas } from '@storybook/blocks'
 import { Accordion } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as AccordionStories from './accordion.stories'
@@ -13,17 +13,13 @@ To open the accordion for vanilla usage, you will need to both toggle the `elIsA
 
 ## Basic Usage
 
-<Canvas>
-  <Story of={AccordionStories.BasicUsage} />
-</Canvas>
+<Canvas of={AccordionStories.BasicUsage} />
 
 <RenderHtmlMarkup component="Accordion" story="Basic Usage" />
 
 ## React Usage
 
 The React shorthand version of the Accordion handles the toggling of active classes for you. The props accepted by the `AccordionItem` are below along with the `AccordionItemProps` interface.
-
-<ArgsTable of={Accordion} />
 
 ```ts
 export interface AccordionItemProps {
@@ -33,8 +29,6 @@ export interface AccordionItemProps {
 }
 ```
 
-<Canvas>
-  <Story of={AccordionStories.ReactUsage} />
-</Canvas>
+<Canvas of={AccordionStories.ReactUsage} />
 
 <RenderHtmlMarkup component="Accordion" story="React Usage" />

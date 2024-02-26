@@ -50,12 +50,12 @@ export const AccordionContent: FC<AccordionBaseProps> = ({ children, ...rest }) 
 }
 
 export const handleSetOpenItem = (openItem: number, setOpenItem: Dispatch<SetStateAction<number | null>>) => () => {
-  setOpenItem((currentItem) => {
-    if (currentItem === openItem) {
-      return null
-    }
-    return openItem
-  })
+  // setOpenItem((currentItem) => {
+  //   if (currentItem === openItem) {
+  //     return null
+  //   }
+  //   return openItem
+  // })
 }
 
 export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => {
@@ -63,7 +63,7 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
   return (
     <ElAccordionContainer className={className} {...rest}>
       {items.map((item, index) => (
-        <Fragment key={index}>
+        <Fragment key={JSON.stringify(item)}>
           <ElAccordionItem onClick={handleSetOpenItem(index, setOpenItem)}>
             <ElAccordionTitle>{item.title}</ElAccordionTitle>
             <ElAccordionTitleContentWrapper>
