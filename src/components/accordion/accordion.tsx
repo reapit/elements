@@ -63,7 +63,7 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
   return (
     <ElAccordionContainer className={className} {...rest}>
       {items.map((item, index) => (
-        <Fragment key={JSON.stringify(item)}>
+        <Fragment key={index}>
           <ElAccordionItem onClick={handleSetOpenItem(index, setOpenItem)}>
             <ElAccordionTitle>{item.title}</ElAccordionTitle>
             <ElAccordionTitleContentWrapper>
