@@ -53,60 +53,60 @@ export interface ImageUploadModel {
   Url: string
 }
 
-export const handleFileChange = (
-  setFileName: Dispatch<SetStateAction<string>>,
-  fileName: string,
-  onFileUpload?: (uploadImageModel: CreateImageUploadModel) => Promise<string | ImageUploadModel>,
-) => (event: ChangeEvent<HTMLInputElement>) => {
-  if (event.target && event.target.files && event.target.files[0]) {
-    const file = event.target.files[0]
+export const handleFileChange =
+  (
+    setFileName: Dispatch<SetStateAction<string>>,
+    fileName: string,
+    onFileUpload?: (uploadImageModel: CreateImageUploadModel) => Promise<string | ImageUploadModel>,
+  ) =>
+  (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target && event.target.files && event.target.files[0]) {
+      const file = event.target.files[0]
 
-    const fileUrl = URL.createObjectURL(file)
+      const fileUrl = URL.createObjectURL(file)
 
-    if (typeof fileUrl === 'string') {
-      setFileName(fileUrl)
-    }
+      if (typeof fileUrl === 'string') {
+        setFileName(fileUrl)
+      }
 
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = async () => {
-      const base64 = reader.result
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = async () => {
+        const base64 = reader.result
 
-      if (onFileUpload && typeof base64 === 'string') {
-        const uploaded = await onFileUpload({
-          imageData: base64,
-          name: `${fileName ? fileName : file.name}`,
-        })
+        if (onFileUpload && typeof base64 === 'string') {
+          const uploaded = await onFileUpload({
+            imageData: base64,
+            name: `${fileName ? fileName : file.name}`,
+          })
 
-        if (uploaded && (uploaded as ImageUploadModel).Url) {
-          setFileName((uploaded as ImageUploadModel).Url)
+          if (uploaded && (uploaded as ImageUploadModel).Url) {
+            setFileName((uploaded as ImageUploadModel).Url)
+          }
         }
       }
-    }
-    reader.onerror = (error) => {
-      console.error(`file upload error: ${error}`)
-    }
+      reader.onerror = (error) => {
+        console.error(`file upload error: ${error}`)
+      }
 
-    return reader
+      return reader
+    }
   }
-}
 
-export const handleFileClear = (setFileName: Dispatch<SetStateAction<string>>) => (
-  event: MouseEvent<HTMLSpanElement>,
-) => {
-  event.stopPropagation()
-  event.preventDefault()
+export const handleFileClear =
+  (setFileName: Dispatch<SetStateAction<string>>) => (event: MouseEvent<HTMLSpanElement>) => {
+    event.stopPropagation()
+    event.preventDefault()
 
-  setFileName('')
-}
+    setFileName('')
+  }
 
-export const handleFileView = (onFileView: (fileUrl: string) => void, fileUrl: string) => (
-  event: MouseEvent<HTMLSpanElement>,
-) => {
-  event.stopPropagation()
-  event.preventDefault()
-  onFileView(fileUrl)
-}
+export const handleFileView =
+  (onFileView: (fileUrl: string) => void, fileUrl: string) => (event: MouseEvent<HTMLSpanElement>) => {
+    event.stopPropagation()
+    event.preventDefault()
+    onFileView(fileUrl)
+  }
 
 export const FilePreviewImage: FC<FilePreviewImageProps> = ({ src }) => {
   if (!src) return <PlaceholderImage placeholder="placeholderSmall" size={120} fillAvailable />
@@ -151,7 +151,7 @@ export const FileInput: FileInputWrapped = forwardRef(
             id={inputId}
             {...rest}
             defaultValue={defaultValue}
-            ref={(ref as unknown) as LegacyRef<HTMLInputElement>}
+            ref={ref as unknown as LegacyRef<HTMLInputElement>}
           />
           {fileUrl ? (
             <ElFileInputIconContainer>

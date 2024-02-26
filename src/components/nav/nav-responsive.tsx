@@ -89,25 +89,23 @@ export const handleToggleLogo = (logoState: LogoIcon, setLogoState: Dispatch<Set
   setLogoState(newState)
 }
 
-export const handleToggleMenu = (setState: Dispatch<SetStateAction<boolean>>, callback?: () => void) => (
-  event: MouseEvent<HTMLDivElement>,
-) => {
-  event.preventDefault()
-  event.stopPropagation()
-  setState((state) => !state)
-  if (callback) {
-    callback()
+export const handleToggleMenu =
+  (setState: Dispatch<SetStateAction<boolean>>, callback?: () => void) => (event: MouseEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    event.stopPropagation()
+    setState((state) => !state)
+    if (callback) {
+      callback()
+    }
   }
-}
 
-export const clickNavEventHandler = (setActive: Dispatch<SetStateAction<boolean>>) => (
-  event: MouseEvent<HTMLAnchorElement | HTMLDivElement>,
-) => {
-  event?.preventDefault()
-  event?.stopPropagation()
+export const clickNavEventHandler =
+  (setActive: Dispatch<SetStateAction<boolean>>) => (event: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
+    event?.preventDefault()
+    event?.stopPropagation()
 
-  setActive((active) => !active)
-}
+    setActive((active) => !active)
+  }
 
 export const NavResponsiveAvatar: FC<NavResponsiveAvatarProps> = ({ options, isHidden, text }) => {
   const [avatarOpen, setAvatarOpen] = useState<boolean>(false)

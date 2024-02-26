@@ -2,7 +2,7 @@ import { toId } from '@storybook/csf'
 import React, { useState, useRef, useEffect } from 'react'
 import { Canvas } from '@storybook/addon-docs'
 import prettier from 'prettier/standalone'
-import htmlParser from 'prettier/parser-html'
+import htmlPraser from 'prettier/plugins/html'
 
 type RenderHtmlMarkupProps = {
   component: string
@@ -16,6 +16,7 @@ export const RenderHtmlMarkup = ({ component, story, label }: RenderHtmlMarkupPr
   const MAX_ATTEMPTS = 10
   const [domElements, setDomElements] = useState<(Element | null)[]>([])
   const [attempts, setAttempts] = useState<number>(0)
+  const [mdxSource, setMdxSource] = useState<string | undefined>()
 
   // also use a ref so that inside the setTimeout callback, `attempts` is the
   // current value, not the value at time the setTimeout closure was invoked
@@ -53,30 +54,38 @@ export const RenderHtmlMarkup = ({ component, story, label }: RenderHtmlMarkupPr
     return () => window.clearTimeout(timeout)
   }, [component, story])
 
+  useEffect(() => {
+    getMdxSource()
+  }, [domElements])
+
   const getLabel = () => {
     if (!domElements) return `Cannot render HTML code for ${component}-${story}`
     if (label) return label
     return `HTML of ${stories.join(', ')}`
   }
 
-  const getMdxSource = () => {
+  const getMdxSource = async () => {
+    let source
     if (!domElements) return ''
     if (domElements.length === 1)
-      return prettier.format(domElements[0]?.innerHTML as string, {
+      source = await prettier.format(domElements[0]?.innerHTML as string, {
         parser: 'html',
-        plugins: [htmlParser],
+        plugins: [htmlPraser],
       })
 
     if (domElements.length > 1) {
       const rawSource = domElements.reduce((acc, el) => `${acc}${el?.innerHTML}`, '')
-      return prettier.format(rawSource, {
+      source = await prettier.format(rawSource, {
         parser: 'html',
-        plugins: [htmlParser],
+        plugins: [htmlPraser],
       })
     }
+
+    setMdxSource(source)
   }
+
   return (
-    <CanvasWithChildren mdxSource={String(getMdxSource())}>
+    <CanvasWithChildren mdxSource={String(mdxSource)}>
       <p>{getLabel()}</p>
     </CanvasWithChildren>
   )
