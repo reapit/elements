@@ -5,10 +5,10 @@ const path = require('path')
 module.exports = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
-    '@storybook/addon-links',
+    // '@storybook/addon-links',
     '@whitespace/storybook-addon-html',
     '@storybook/addon-essentials',
-    '@storybook/addon-a11y',
+    // '@storybook/addon-a11y',
     '@storybook/addon-mdx-gfm',
     {
       name: '@storybook/addon-storysource',
@@ -42,4 +42,13 @@ module.exports = {
     name: '@storybook/react-vite',
     options: {},
   },
+  typescript: {
+    check: false,
+    checkOptions: {},
+    reactDocgen: false,
+    reactDocgenTypescriptOptions: {
+       shouldExtractLiteralValuesFromEnum: true,
+       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+    },
+  }
 }
