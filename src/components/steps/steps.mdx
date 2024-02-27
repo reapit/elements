@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/blocks'
 import { Steps, StepsVertical } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as StepsStories from './steps.stories'
@@ -55,12 +55,12 @@ The available React props are;
 
 Were `StepsVerticalStep` is defined below;
 
-```ts
+<Source code={`
 export interface StepsVerticalStep {
   item: string
   content?: ReactNode
 }
-```
+`} language="typescript" />
 
 <Canvas of={StepsStories.StepsVerticalUsage} />
 

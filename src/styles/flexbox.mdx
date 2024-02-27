@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/blocks'
 import * as styles from './flexbox'
 import { RenderHtmlMarkup } from '../storybook/render-html-markup'
 import { GridDemoBlockWithMargin } from '../storybook/demo-block'
@@ -86,11 +86,11 @@ A reverse wrap will reverse the elements and wrap them
 
 Flex1 is used to set the flex grow, flex shrink and flex basis values. Flex 1 sets the following
 
-```
+<Source code={`
 flex-grow: 1;
 flex-shrink: 1;
 flex-basis: 0%;
-```
+`} />
 
 <Canvas of={FlexboxStories.Flex1} />
 

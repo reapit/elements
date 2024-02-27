@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/blocks'
+import { Meta, Source } from '@storybook/blocks'
 
 <Meta title="Concepts" />
 
@@ -18,17 +18,17 @@ By convention **all** classes are prefixed by the `el-` modifier, to avoid confl
 
 Take the contrived example below;
 
-```tsx
+<Source code={`
 import { FooBar, elFooMod } from '@reapit/elements'
 
 const MyComponent = () => <FooBar className={elFooMod}>My cool content</FooBar>
-```
+`} language="tsx" />
 
 This will render your cool content like this:
 
-```html
+<Source code={`
 <div class="el-foo-bar el-foo-mod">My cool content</div>
-```
+`} language="html" />
 
 The styled component base has provided you the `.el-foo-bar` class and the modifier has applied `.el-foo-mod` as an additional style.
 
@@ -44,11 +44,11 @@ All of our components inherit via props their underlying HTML properties - we ap
 
 For example, if I were to import an `Input` from elements, I can apply via props, all of the native props of a react `input`, contrived example below;
 
-```tsx
+<Source code={`
 import { Input } from '@reapit/elements'
 
 const MyComponent = () => <Input type="text" onChange={(e) => console.log('Pass me to your form library!', e)} />
-```
+`} language="tsx" />
 
 This is a very importand concept when working with Elements as it means you can integrate our components with any additional libraries or custom behaviours you wish, using the native React API.
 
@@ -60,12 +60,12 @@ Intent is another concept we use widely in the library.
 
 For elements like buttons, icons and notifications, it is common for them to come in "flavours" like "warning" or "success". We have normalised this across our components so where relevant, you can apply an `intent` prop and it will style the component appropriate to that intent eg;
 
-```tsx
+<Source code={`
 import { Icon } from '@reapit/elements'
 
 // Will render a "danger" icon in red
 const MyComponent = () => <Icon intent="danger" icon="systemAdd" />
-```
+`} language="tsx" />
 
 The various intent types are below and are consistent across the library.
 

@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/blocks'
 import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from './index'
 import { Label } from '../label'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -38,7 +38,7 @@ A searchable dropdown list.
 
 You can add types to the dropdown by passing a type argument:
 
-```tsx
+<Source code={`
 type ObjectType = {
   id: string
   name: string
@@ -68,7 +68,7 @@ type ObjectType = {
   getResultValue={(result) => result.id}
   onChange={(e) => console.log(e.target.value)}
 />
-```
+`} language="typescript" />
 
 ### Controlled Usage
 

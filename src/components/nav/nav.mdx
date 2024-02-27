@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta, ArgsTable } from '@storybook/blocks'
+import { Story, Canvas, Meta, ArgsTable, Source } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { NavResponsive } from './nav-responsive'
 import * as NavStories from './nav.stories'
@@ -41,7 +41,8 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
 
 The `useNavState` hook will track the currrent state of the Nav and return both, the `navState` and a `setNavState` function. See the below inteface for `NavResponsiveOption` for an explanation of the code.
 
-```ts
+
+<Source code={`
 export interface NavResponsiveOption {
   itemIndex: number
   callback?: () => void
@@ -49,7 +50,7 @@ export interface NavResponsiveOption {
   href?: string
   subItems?: NavResponsiveOption[]
 }
-```
+`} language="tsx" />
 
 Practically the callback will be a dispatch to React Router, an update to `window.history` object or similar client side routing function. You may also wish to bind the callback to an application action for example below, we pass a `logout` function to the logout nav item.
 
@@ -61,7 +62,7 @@ For the simple use case, the sub items are not required however, if you use a `S
 
 Finally, you can add avatar and app switcher options to the Nav by passing them as props to the `NavResponsive` component. See below for the accompanying interfaces.
 
-```ts
+<Source code={`
 export interface NavResponsiveAvatarOption {
   text?: string
   callback?: () => void
@@ -72,7 +73,7 @@ export interface NavResponsiveAppSwitcherOption {
   callback?: () => void
   iconUrl?: ReactNode
 }
-```
+`} language="tsx" />
 
 <Canvas of={NavStories.ReactUsage} />
 

@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/blocks'
 import { KeyValueList } from '.'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as KeyValueListStories from './key-value-list.stories'
@@ -17,7 +17,7 @@ Adding the `textElipsis` prop will add a text overflow ellipsis to the value, tr
 
 <ArgsTable of={KeyValueList} />
 
-```ts
+<Source code={`
 export interface KeyValueItem {
   key: string
   value: ReactNode
@@ -27,7 +27,7 @@ export interface KeyValueItem {
   colSize?: 'half' | 'full'
   textEllipsis?: boolean
 }
-```
+`} language="typescript" />
 
 ## Basic Usage
 

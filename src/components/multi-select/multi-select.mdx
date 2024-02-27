@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { Story, Canvas, ArgsTable, Meta, Source } from '@storybook/blocks'
 import { MultiSelectInput } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as MultiSelectStories from './multi-select.stories'
@@ -43,12 +43,12 @@ On selection of a chip, the chips are sorted so that selected items render in a 
 
 In the above table, `MultiSelectOption` is defined as:
 
-```ts
+<Source code={`
 export interface MultiSelectOption {
   value: string
   name: string
 }
-```
+`} language="typescript" />
 
 <Canvas of={MultiSelectStories.ReactExample} />
 

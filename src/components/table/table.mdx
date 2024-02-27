@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/blocks'
 import { Table } from './index'
 import { TableCell } from './molecules'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -120,7 +120,7 @@ The `rows` prop consists of a list of cells as well as optional `expandableConte
 
 Options for a cell are shown below and map to the keys in the cells array.
 
-```ts
+<Source code={`
 export interface CellProps {
   label: string // The header label
   value: string // The cell content
@@ -137,13 +137,13 @@ export type NarrowOptionsType = {
   isFullWidth?: boolean // Should the cell be full width in narrow mode
   order?: 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 // The grid order of the cell when in narrow  mode
 }
-```
+`} language="tsx" />
 
 For `expandableContent` and `ctaContent` the interface is the same;
 
 **Only one of `expandableContent` and `ctaContent` should be used - the table will only expect one to be supplied**
 
-```ts
+<Source code={`
 export interface RowActionProps {
   content?: ReactNode // The main content for an expandable cell, not relevant to a CTA
   cellContent?: ReactNode // The trigger cell's content - defaults to an icon
@@ -152,7 +152,7 @@ export interface RowActionProps {
   className?: string // Any custom css class for the cell
   icon?: IconNames // An icon to render in the cell if no cell content supplied
 }
-```
+`} language="tsx" />
 
 <Canvas of={TableStories.ReactShorthandUsage} />
 

@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { Story, Canvas, ArgsTable, Meta, Source } from '@storybook/blocks'
 import { Tabs } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as TabsStories from './tabs.stories'
@@ -21,14 +21,14 @@ Props available for the React version of the component;
 
 Where `TabsOption` is defined as;
 
-```tsx
+<Source code={`
 export interface TabsOption {
   id: string
   value: string
   text: string
   isChecked: boolean
 }
-```
+`} language="tsx" />
 
 <Canvas of={TabsStories.TabsDefault} />
 
