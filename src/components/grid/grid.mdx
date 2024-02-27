@@ -28,9 +28,7 @@ The table below details breakpoints from styleguide against ther respective scre
 
 Row and column gaps are standardised in line with our style guide.
 
-<Canvas>
-  <Story of={GridStories.BasicUsage} />
-</Canvas>
+<Canvas of={GridStories.BasicUsage} />
 
 <RenderHtmlMarkup component="Grid" story={['Basic Usage']} />
 
@@ -38,9 +36,7 @@ Row and column gaps are standardised in line with our style guide.
 
 Using the basic grid you can also use smaller columns for more granular control over your layout with `ColHalfy` and `ColQuarter` components.
 
-<Canvas>
-  <Story of={GridStories.BasicUsageQuarterAndHalves} />
-</Canvas>
+<Canvas of={GridStories.BasicUsageQuarterAndHalves} />
 
 <RenderHtmlMarkup component="Grid" story={['Basic Usage Quarter and Halves']} />
 
@@ -50,9 +46,7 @@ For more simple layouts, you will likely need a split screen, two column layout.
 
 Below 1024px the grid will have a single item per column, above, the screen will split into two columns.
 
-<Canvas>
-  <Story of={GridStories.BasicUsageSplitScreenGrid} />
-</Canvas>
+<Canvas of={GridStories.BasicUsageSplitScreenGrid} />
 
 <RenderHtmlMarkup component="Grid" story={['Basic Usage - Split Screen Grid']} />
 
@@ -62,9 +56,7 @@ For a sidebar and main colum view, you can use a `GridThirds` grid, with `ColSpl
 
 In mobile and tablet, these columns stack then break at destop view and above.
 
-<Canvas>
-  <Story of={GridStories.BasicUsageSplitScreenGridThirds} />
-</Canvas>
+<Canvas of={GridStories.BasicUsageSplitScreenGridThirds} />
 
 <RenderHtmlMarkup component="Grid" story={['Basic Usage - Split Screen Grid Thirds']} />
 
@@ -102,9 +94,7 @@ The below contrived example we have overridden base behaviour by adding a custom
 
 Obviously to make classes responsive, you will need some JavaScript to toggle classes as appropriate.
 
-<Canvas>
-  <Story of={GridStories.CustomUsage} />
-</Canvas>
+<Canvas of={GridStories.CustomUsage} />
 
 <RenderHtmlMarkup component="Grid" story={['Custom Usage']} />
 
@@ -130,8 +120,6 @@ Full example below creates a grid that doubles the number of columns versus the 
 
 <ArgsTable of={ColResponsive} />
 
-<Canvas>
-  <Story of={GridStories.ReactExampleResponsiveCustomisation} />
-</Canvas>
+<Canvas of={GridStories.ReactExampleResponsiveCustomisation} />
 
 <RenderHtmlMarkup component="Grid" story={['React Example - Responsive Customisation']} />

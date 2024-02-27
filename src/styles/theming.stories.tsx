@@ -5,5 +5,5 @@ export default {
 }
 
 export const BasicExample = {
-  render: ({}) => <Button intent="primary">Button Text</Button>,
+  render: ({}) => (<Button intent="primary">Button Text</Button>),
 }

@@ -21,9 +21,7 @@ In this example, the menu will not expand in mobile - to enable this behaviour y
 
 If you use a `SecondaryNav` component, you will need to add these options as `NavItem`s and toggle their visibilty with a simple media query in Mobile.
 
-<Canvas>
-  <Story of={NavStories.BasicExample} />
-</Canvas>
+<Canvas of={NavStories.BasicExample} />
 
 <RenderHtmlMarkup component="Nav" story={['Basic Example']} />
 
@@ -33,9 +31,7 @@ In this example, changing the browser width to mobile will show the expanded mob
 
 As per above if you use a `SecondaryNav` component, you will need to add these options as `NavItem`s and toggle their visibilty with the `elNavItemHideDesktop` class.
 
-<Canvas>
-  <Story of={NavStories.BasicExampleMobileMenuOpen} />
-</Canvas>
+<Canvas of={NavStories.BasicExampleMobileMenuOpen} />
 
 <RenderHtmlMarkup component="Nav" story={['Basic Example Mobile Menu Open']} />
 
@@ -78,9 +74,7 @@ export interface NavResponsiveAppSwitcherOption {
 }
 ```
 
-<Canvas>
-  <Story of={NavStories.ReactUsage} />
-</Canvas>
+<Canvas of={NavStories.ReactUsage} />
 
 <RenderHtmlMarkup component="Nav" story={['React Usage']} />
 
@@ -90,8 +84,6 @@ export interface NavResponsiveAppSwitcherOption {
 
 We also support for the React Version, adding a custom brand and / or a callback on the logo for example, if you wish the logo to navigate back to the homepage.
 
-<Canvas>
-  <Story of={NavStories.ReactUsageWithCustomBrand} />
-</Canvas>
+<Canvas of={NavStories.ReactUsageWithCustomBrand} />
 
 <RenderHtmlMarkup component="Nav" story={['React Usage With Custom Brand']} />

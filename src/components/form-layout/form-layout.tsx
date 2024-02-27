@@ -36,13 +36,13 @@ export const InputWrap: React.ForwardRefExoticComponent<FormLayoutProps & React.
   })
 
 export const InputWrapSmall: FC<FormLayoutProps> = ({ children, ...rest }) => {
-  return <ElInputWrapSmall {...rest}>{children}</ElInputWrapSmall>
+  return (<ElInputWrapSmall {...rest}>{children}</ElInputWrapSmall>)
 }
 
 export const InputWrapMed: FC<FormLayoutProps> = ({ children, ...rest }) => {
-  return <ElInputWrapMed {...rest}>{children}</ElInputWrapMed>
+  return (<ElInputWrapMed {...rest}>{children}</ElInputWrapMed>)
 }
 
 export const InputWrapFull: FC<FormLayoutProps> = ({ children, ...rest }) => {
-  return <ElInputWrapFull {...rest}>{children}</ElInputWrapFull>
+  return (<ElInputWrapFull {...rest}>{children}</ElInputWrapFull>)
 }

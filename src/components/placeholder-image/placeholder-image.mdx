@@ -19,9 +19,7 @@ For a basic icon, just select a placholder name from one of the tables below and
 
 For non-react users, rather than passing a prop, you should either use an inline style (as we set using React), to set the height, width and font size, or your own modifer class if you prefer.
 
-<Canvas>
-  <Story of={PlaceholderImageStories.BasicUsage} />
-</Canvas>
+<Canvas of={PlaceholderImageStories.BasicUsage} />
 
 <RenderHtmlMarkup component="PlaceholderImage" story={['Basic Usage']} />
 
@@ -29,9 +27,7 @@ For non-react users, rather than passing a prop, you should either use an inline
 
 If you need a placholder that fills a given div responsively, pass the `fillAvailable` prop and an addtional wrapper is added with the placeholder centered vertically and horizontally.
 
-<Canvas>
-  <Story of={PlaceholderImageStories.FillAvailableSpace} />
-</Canvas>
+<Canvas of={PlaceholderImageStories.FillAvailableSpace} />
 
 <RenderHtmlMarkup component="PlaceholderImage" story={['Fill Available Space']} />
 

@@ -15,9 +15,7 @@ The components themsleves are really around laying out a page so you may want to
 
 In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
 
-<Canvas>
-  <Story of={LayoutStories.MainContainerUsage} />
-</Canvas>
+<Canvas of={LayoutStories.MainContainerUsage} />
 
 <RenderHtmlMarkup component="Layouts" story="Main Container Usage" />
 
@@ -25,9 +23,7 @@ In this example you can see the `MainContainer` component - used to wrap the who
 
 The `SecondaryNavContainer` is fixed width and used to contain secondary navigation as well as controls like filters.
 
-<Canvas>
-  <Story of={LayoutStories.SecondaryNavContainerUsage} />
-</Canvas>
+<Canvas of={LayoutStories.SecondaryNavContainerUsage} />
 
 <RenderHtmlMarkup component="Layouts" story="Secondary Nav Container Usage" />
 
@@ -35,9 +31,7 @@ The `SecondaryNavContainer` is fixed width and used to contain secondary navigat
 
 The `PageContainer` should be the body of your content, it will typically contain a `Grid` component.
 
-<Canvas>
-  <Story of={LayoutStories.PageContainerUsage} />
-</Canvas>
+<Canvas of={LayoutStories.PageContainerUsage} />
 
 <RenderHtmlMarkup component="Layouts" story="Page Container Usage" />
 
@@ -45,9 +39,7 @@ The `PageContainer` should be the body of your content, it will typically contai
 
 The `PageContainer` should be the body of your content but maxes out at 1200px width when the `hasMaxWidth` prop is applied in Desktop and is centered on the page.
 
-<Canvas>
-  <Story of={LayoutStories.PageContainerMaxWidth} />
-</Canvas>
+<Canvas of={LayoutStories.PageContainerMaxWidth} />
 
 <RenderHtmlMarkup component="Layouts" story="Page Container Max Width" />
 
@@ -55,9 +47,7 @@ The `PageContainer` should be the body of your content but maxes out at 1200px w
 
 All containers accept a `hasGreyBackground` prop which will add a grey background to the container to support white tile on grey background layouts
 
-<Canvas>
-  <Story of={LayoutStories.HasGreyBackground} />
-</Canvas>
+<Canvas of={LayoutStories.HasGreyBackground} />
 
 <RenderHtmlMarkup component="Layouts" story="Has Grey Background" />
 
@@ -67,9 +57,7 @@ The previous two containers are postioned using the `FlexContainer` component. T
 
 <ArgsTable of={FlexContainer} />
 
-<Canvas>
-  <Story of={LayoutStories.FlexContainerUsage} />
-</Canvas>
+<Canvas of={LayoutStories.FlexContainerUsage} />
 
 <RenderHtmlMarkup component="Layouts" story="Flex Container Usage" />
 
@@ -85,9 +73,7 @@ The previous two containers are postioned using the `FlexContainer` component. T
 
 These booleans map 1:1 to the flexbox helpers you can see here on [Github](https://github.com/reapit/foundations/blob/master/packages/elements/src/styles-v3/base/flexbox.ts). For the output helper classes, see the HTML Markup Component below.
 
-<Canvas>
-  <Story of={LayoutStories.CombinedContainerComponents} />
-</Canvas>
+<Canvas of={LayoutStories.CombinedContainerComponents} />
 
 <RenderHtmlMarkup component="Layouts" story={['Combined Container Components']} />
 
@@ -95,9 +81,7 @@ These booleans map 1:1 to the flexbox helpers you can see here on [Github](https
 
 For a complete example of how to lay out a page, see below where we have combined a number of other stories including `Nav`, `PageHeader`, `SecondaryNav` and `Grid` to give a full page layout.
 
-<Canvas>
-  <Story of={LayoutStories.CompleteCombinedExample} />
-</Canvas>
+<Canvas of={LayoutStories.CompleteCombinedExample} />
 
 {/* // <RenderHtmlMarkup
 //   component="Layouts"
@@ -108,9 +92,7 @@ For a complete example of how to lay out a page, see below where we have combine
 
 Variant on the complete layout but using a max width container in desktop, a side column and no secondary nav.
 
-<Canvas>
-  <Story of={LayoutStories.CompleteCombinedExampleMaxWidth} />
-</Canvas>
+<Canvas of={LayoutStories.CompleteCombinedExampleMaxWidth} />
 
 <RenderHtmlMarkup
   component="Layouts"

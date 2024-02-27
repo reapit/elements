@@ -6,9 +6,9 @@ export default {
 }
 
 export const BasicUsage = {
-  render: ({}) => <PlaceholderImage placeholder="placeholderSmall" size={120} />,
+  render: ({}) => (<PlaceholderImage placeholder="placeholderSmall" size={120} />),
 }
 
 export const FillAvailableSpace = {
-  render: ({}) => <PlaceholderImage placeholder="placeholderSmall" size={120} fillAvailable />,
+  render: ({}) => (<PlaceholderImage placeholder="placeholderSmall" size={120} fillAvailable />),
 }

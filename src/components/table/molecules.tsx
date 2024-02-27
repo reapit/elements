@@ -103,15 +103,15 @@ export const resolveNarrowOrderClass = (order: number): string | undefined => {
 }
 
 export const TableHeadersRow: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
-  return <ElTableHeadersRow {...rest}>{children}</ElTableHeadersRow>
+  return (<ElTableHeadersRow {...rest}>{children}</ElTableHeadersRow>)
 }
 
 export const TableHeader: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
-  return <ElTableHeader {...rest}>{children}</ElTableHeader>
+  return (<ElTableHeader {...rest}>{children}</ElTableHeader>)
 }
 
 export const TableRow: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
-  return <ElTableRow {...rest}>{children}</ElTableRow>
+  return (<ElTableRow {...rest}>{children}</ElTableRow>)
 }
 
 export const TableCellSplit: FC<TableCellSplitProps> = ({ data, subData, ...rest }) => {

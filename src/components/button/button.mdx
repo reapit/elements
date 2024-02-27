@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas } from '@storybook/blocks'
 import { Button } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as ButtonStories from './button.stories'
@@ -11,15 +11,11 @@ Styled button component with multiple flavours depending on use case.
 
 Props available for the React version of the component;
 
-<ArgsTable of={Button} />
-
 ## Default Usage
 
 A button with no addtional props / classes applied.
 
-<Canvas>
-  <Story of={ButtonStories.DefaultUsage} />
-</Canvas>
+<Canvas of={ButtonStories.DefaultUsage} />
 
 <RenderHtmlMarkup component="Button" story="Default Usage" />
 
@@ -29,9 +25,7 @@ Different intents are supported, to enable buttons to be used in different conte
 
 Whereas most components support the full range of intents, `Buttons` only support `primary`, `danger` and `default`, the latter being the default.
 
-<Canvas>
-  <Story of={ButtonStories.Intent} />
-</Canvas>
+<Canvas of={ButtonStories.Intent} />
 
 <RenderHtmlMarkup component="Button" story={['Intent']} label="HTML of intent" />
 
@@ -39,9 +33,7 @@ Whereas most components support the full range of intents, `Buttons` only suppor
 
 Add a loading spinner to indicate progress of a background activity after the button was clicked.
 
-<Canvas>
-  <Story of={ButtonStories.Loading} />
-</Canvas>
+<Canvas of={ButtonStories.Loading} />
 
 <RenderHtmlMarkup component="Button" story={['Loading']} label="HTML of the above" />
 
@@ -49,9 +41,7 @@ Add a loading spinner to indicate progress of a background activity after the bu
 
 Indicate that a button is disabled for whatever reason.
 
-<Canvas>
-  <Story of={ButtonStories.Disabled} />
-</Canvas>
+<Canvas of={ButtonStories.Disabled} />
 
 <RenderHtmlMarkup component="Button" story={['Disabled']} />
 
@@ -59,9 +49,7 @@ Indicate that a button is disabled for whatever reason.
 
 All other standard HTML attributes for `<button>` are supported and are passed through to the React component, e.g. type and onClick
 
-<Canvas>
-  <Story of={ButtonStories.StandardAttributes} />
-</Canvas>
+<Canvas of={ButtonStories.StandardAttributes} />
 
 <RenderHtmlMarkup component="Button" story={['Standard attributes']} />
 
@@ -69,9 +57,7 @@ All other standard HTML attributes for `<button>` are supported and are passed t
 
 An element to collectively group several buttons
 
-<Canvas>
-  <Story of={ButtonStories.Group} />
-</Canvas>
+<Canvas of={ButtonStories.Group} />
 
 <RenderHtmlMarkup component="Button" story="Button Group" />
 
@@ -81,9 +67,7 @@ If you wish to size up or down a button, you can use the `buttonSize` prop.
 
 By default all of our buttons are sized to `small` in mobile and `medium` in desktop so this option is solely if you wish to force the size.
 
-<Canvas>
-  <Story of={ButtonStories.ButtonSize} />
-</Canvas>
+<Canvas of={ButtonStories.ButtonSize}/>
 
 <RenderHtmlMarkup component="Button" story={['Button Size']} />
 
@@ -93,9 +77,7 @@ If you wish to add a system icon from the `IconList`, you can do this by passing
 
 You have the option to specify a position of `left`, `right` or `only` as a postion for your icon.
 
-<Canvas>
-  <Story of={ButtonStories.ButtonIcons} />
-</Canvas>
+<Canvas of={ButtonStories.ButtonIcons}/>
 
 <RenderHtmlMarkup component="Button" story={['Button Icons']} />
 
@@ -105,8 +87,6 @@ A circular floating icon button - supports any icon from the icon list.
 
 Props available for the React version of the component are the same as the main button.
 
-<Canvas>
-  <Story of={ButtonStories.Floating} />
-</Canvas>
+<Canvas of={ButtonStories.Floating}/>
 
 <RenderHtmlMarkup component="Button" story="Floating Button" />

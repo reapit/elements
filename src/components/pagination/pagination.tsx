@@ -65,7 +65,7 @@ export const PaginationText: FC<PaginationTextProps> = ({ children, ...rest }) =
   <ElPaginationText {...rest}>{children}</ElPaginationText>
 )
 
-export const PaginationInput: FC<PaginationInputProps> = ({ ...rest }) => <ElPaginationInput {...rest} />
+export const PaginationInput: FC<PaginationInputProps> = ({ ...rest }) => (<ElPaginationInput {...rest} />)
 
 export const PaginationButton: FC<PaginationButtonProps> = ({ children, ...rest }) => (
   <ElPaginationButton type="button" {...rest}>

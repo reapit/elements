@@ -6,5 +6,5 @@ export default {
 }
 
 export const BasicUsage = {
-  render: ({}) => <Label>I&apos;m a label for a form input or something else</Label>,
+  render: ({}) => (<Label>I&apos;m a label for a form input or something else</Label>),
 }

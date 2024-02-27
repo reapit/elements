@@ -189,5 +189,5 @@ export const SearchableDropdown = forwardRef(SearchableDropdownInner) as <T>(
 ) => ReturnType<typeof SearchableDropdownInner>
 
 export const SearchableDropdownSearchLabel: FC<HTMLAttributes<HTMLLabelElement>> = ({ children, ...rest }) => {
-  return <ElSearchableDropdownSearchLabel {...rest}>{children}</ElSearchableDropdownSearchLabel>
+  return (<ElSearchableDropdownSearchLabel {...rest}>{children}</ElSearchableDropdownSearchLabel>)
 }

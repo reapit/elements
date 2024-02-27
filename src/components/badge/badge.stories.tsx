@@ -1,4 +1,9 @@
 import { Badge, BadgeGroup } from '.'
+import type { Meta, StoryObj } from '@storybook/react';
+
+const meta: Meta<typeof Badge> = {
+  component: Badge,
+};
 
 export default {
   title: 'Badge',

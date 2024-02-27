@@ -20,9 +20,7 @@ For a basic icon, just select an icon name from one of the tables below. They ar
 
 > In v4 we recomment using icons with a `fontSize` prop of 24px or 1.5rem - previously the default was 16px. In version v5 24px will become the new default however in v4, we do not wish to break any existing UI using the legacy icons set so we have added a convenience `elIconNew` class to the new icon set by default. This will be removed in v5 when the default size will be 24px.
 
-<Canvas>
-  <Story of={IconStories.BasicUsage} />
-</Canvas>
+<Canvas of={IconStories.BasicUsage} />
 
 <RenderHtmlMarkup component="Icon" story={['Basic Usage']} />
 
@@ -158,9 +156,7 @@ The icon set below is a re-vamped and extended version of the original icons in 
 
 Set the `fontSize` prop to scale the icon up or down on a granular level. Note the `el-mb-5` class is purely presentational for this story.
 
-<Canvas>
-  <Story of={IconStories.IconFontSize} />
-</Canvas>
+<Canvas of={IconStories.IconFontSize} />
 
 <RenderHtmlMarkup component="Icon" story={['Icon Font Size']} />
 
@@ -168,9 +164,7 @@ Set the `fontSize` prop to scale the icon up or down on a granular level. Note t
 
 By setting a custom height and width prop, you can scale the icon to custom requirements e.g. non-square svgs.
 
-<Canvas>
-  <Story of={IconStories.IconCustomSizes} />
-</Canvas>
+<Canvas of={IconStories.IconCustomSizes} />
 
 <RenderHtmlMarkup component="Icon" story={['Icon Custom Sizes']} />
 
@@ -180,9 +174,7 @@ Set the `intent` prop to enable Icons to be used in different contexts by assign
 
 Again, non React users can apply the relevant classes to achieve the same behaviour.
 
-<Canvas>
-  <Story of={IconStories.IconIntent} />
-</Canvas>
+<Canvas of={IconStories.IconIntent} />
 
 <RenderHtmlMarkup component="Icon" story={['Icon Intent']} />
 
@@ -190,9 +182,7 @@ Again, non React users can apply the relevant classes to achieve the same behavi
 
 Other icons exported by the project with no specific category like placeholders and logos.
 
-<Canvas>
-  <Story of={IconStories.OtherIcons} />
-</Canvas>
+<Canvas of={IconStories.OtherIcons} />
 
 | Misc Icon Name   | Displayed Size - Various                                                 |
 | ---------------- | ------------------------------------------------------------------------ |
@@ -205,9 +195,7 @@ Other icons exported by the project with no specific category like placeholders 
 
 Legacy icons have been retained in the documentation for reference only and to allow you to find suitable alternatives as required. They are displayed at their suggested resolution. Will be removed in v5.
 
-<Canvas>
-  <Story of={IconStories.LegacyIcons} />
-</Canvas>
+<Canvas of={IconStories.LegacyIcons} />
 
 | Info Graphic Icon Name                      | Recommended Size                                                             |
 | ------------------------------------------- | ---------------------------------------------------------------------------- |

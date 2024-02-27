@@ -6,7 +6,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: ({}) => <ToolTip tip="Some Data">Hover here</ToolTip>,
+  render: ({}) => (<ToolTip tip="Some Data">Hover here</ToolTip>),
 }
 
 export const DefaultActive = {

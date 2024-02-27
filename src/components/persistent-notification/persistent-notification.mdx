@@ -15,9 +15,7 @@ A notification component to render helpers inline.
 
 The element uses CSS position fixed by default, which means the component "floats" on top of all other content. This example can be seen in the top right corner of the screen. Only one PersistentNotification per page is supported.
 
-<Canvas>
-  <Story of={PersistentNotificationStories.FullReactExampleFixedPosition} />
-</Canvas>
+<Canvas of={PersistentNotificationStories.FullReactExampleFixedPosition} />
 
 ## Inline examples
 
@@ -27,17 +25,13 @@ This makes it easier to preview these examples, but if the isFixed property is s
 
 ## Default usage Inline
 
-<Canvas>
-  <Story of={PersistentNotificationStories.DefaultUsageInline} />
-</Canvas>
+<Canvas of={PersistentNotificationStories.DefaultUsageInline} />
 
 <RenderHtmlMarkup component="PersistentNotification" story="Default Usage Inline" />
 
 ## With a different icon
 
-<Canvas>
-  <Story of={PersistentNotificationStories.WithADifferentIcon} />
-</Canvas>
+<Canvas of={PersistentNotificationStories.WithADifferentIcon} />
 
 <RenderHtmlMarkup component="PersistentNotification" story="With a different icon" />
 
@@ -52,25 +46,25 @@ Below you can see examples of inline helpers, full width, in each of the differe
 <Canvas>
   <Story of={PersistentNotificationStories.InlineNotifcationIntentPrimary} />
 
-{' '}
+  {' '}
 
-<Story of={PersistentNotificationStories.InlineNotifcationIntentNeutral} />
+  <Story of={PersistentNotificationStories.InlineNotifcationIntentNeutral} />
 
-{' '}
+  {' '}
 
-<Story of={PersistentNotificationStories.InlineNotifcationIntentSuccess} />
+  <Story of={PersistentNotificationStories.InlineNotifcationIntentSuccess} />
 
-{' '}
+  {' '}
 
-<Story of={PersistentNotificationStories.InlineNotifcationIntentPending} />
+  <Story of={PersistentNotificationStories.InlineNotifcationIntentPending} />
 
-{' '}
+  {' '}
 
-<Story of={PersistentNotificationStories.InlineNotifcationIntentWarning} />
+  <Story of={PersistentNotificationStories.InlineNotifcationIntentWarning} />
 
-{' '}
+  {' '}
 
-<Story of={PersistentNotificationStories.InlineNotifcationIntentDanger} />
+  <Story of={PersistentNotificationStories.InlineNotifcationIntentDanger} />
 
   <Story of={PersistentNotificationStories.InlineNotifcationIntentDefault} />
 </Canvas>

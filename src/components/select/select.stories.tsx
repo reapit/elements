@@ -17,6 +17,6 @@ export const BasicUsage = {
 }
 
 export const UseWithALabel = {
-  render: ({}) => <Label>Select an option</Label>,
+  render: ({}) => (<Label>Select an option</Label>),
   name: 'Use with a label',
 }

@@ -10,16 +10,16 @@ export default {
 }
 
 export const BasicStepsUsage = {
-  render: ({}) => <Steps steps={['1', '2', '3', '4', '5']} />,
+  render: ({}) => (<Steps steps={['1', '2', '3', '4', '5']} />),
 }
 
 export const MiddleItemSelected = {
-  render: ({}) => <Steps steps={['1', '2', '3', '4', '5']} selectedStep="3" />,
+  render: ({}) => (<Steps steps={['1', '2', '3', '4', '5']} selectedStep="3" />),
   name: 'Middle item selected',
 }
 
 export const LastItemSelected = {
-  render: ({}) => <Steps steps={['A', 'B', 'C', 'D']} selectedStep="D" />,
+  render: ({}) => (<Steps steps={['A', 'B', 'C', 'D']} selectedStep="D" />),
   name: 'Last item selected',
 }
 
@@ -27,9 +27,8 @@ export const ReactExample = {
   render: ({}) => {
     const [selectedStep, setSelectedStep] = useState('1')
 
-    return <Steps steps={['1', '2', '3', '4', '5']} selectedStep={selectedStep} onStepClick={setSelectedStep} />
+    return (<Steps steps={['1', '2', '3', '4', '5']} selectedStep={selectedStep} onStepClick={setSelectedStep} />)
   },
-
   name: 'React example',
 }
 

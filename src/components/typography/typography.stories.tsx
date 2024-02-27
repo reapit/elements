@@ -67,19 +67,19 @@ export const Intent = {
 }
 
 export const TitleUsage = {
-  render: ({}) => <Title>I am a Title</Title>,
+  render: ({}) => (<Title>I am a Title</Title>),
 }
 
 export const SubtitleUsage = {
-  render: ({}) => <Subtitle>I am a Subtitle</Subtitle>,
+  render: ({}) => (<Subtitle>I am a Subtitle</Subtitle>),
 }
 
 export const BodyTextUsage = {
-  render: ({}) => <BodyText>I am a BodyText</BodyText>,
+  render: ({}) => (<BodyText>I am a BodyText</BodyText>),
 }
 
 export const SmallTextUsage = {
-  render: ({}) => <SmallText>I am a SmallText</SmallText>,
+  render: ({}) => (<SmallText>I am a SmallText</SmallText>),
 }
 
 export const TitleAndSubtitle = {

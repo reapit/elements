@@ -18,7 +18,6 @@ export const CompleteExample = {
       <InputAddOn>Required</InputAddOn>
     </InputGroup>
   ),
-
   name: 'Complete example',
 }
 
@@ -29,7 +28,6 @@ export const WithIconOnly = {
       <Icon fontSize="1rem" icon="phone" />
     </InputGroup>
   ),
-
   name: 'With Icon only',
 }
 
@@ -40,7 +38,6 @@ export const WithLabelOnly = {
       <Label htmlFor="myId3">Email address</Label>
     </InputGroup>
   ),
-
   name: 'With Label only',
 }
 
@@ -51,7 +48,6 @@ export const WithInputAddOnOnly = {
       <InputAddOn>Required</InputAddOn>
     </InputGroup>
   ),
-
   name: 'With InputAddOn Only',
 }
 
@@ -74,31 +70,31 @@ export const ReactShorthandAllProps = {
 }
 
 export const InputCheckbox = {
-  render: ({}) => <InputGroup type="checkbox" icon="phone" label="Status" inputAddOnText="Listed" />,
+  render: ({}) => (<InputGroup type="checkbox" icon="phone" label="Status" inputAddOnText="Listed" />),
 }
 
 export const InputCheckboxWithIntent = {
-  render: ({}) => <InputGroup type="checkbox" icon="info" intent="danger" label="Status" inputAddOnText="Listed" />,
+  render: ({}) => (<InputGroup type="checkbox" icon="info" intent="danger" label="Status" inputAddOnText="Listed" />),
 }
 
 export const InputCheckboxNoIcon = {
-  render: ({}) => <InputGroup type="checkbox" label="Status" inputAddOnText="Listed" />,
+  render: ({}) => (<InputGroup type="checkbox" label="Status" inputAddOnText="Listed" />),
 }
 
 export const InputCheckboxNoLabel = {
-  render: ({}) => <InputGroup type="checkbox" inputAddOnText="Listed" />,
+  render: ({}) => (<InputGroup type="checkbox" inputAddOnText="Listed" />),
 }
 
 export const InputRadio = {
-  render: ({}) => <Label className="el-mb2 el-flex">Preferred contact</Label>,
+  render: ({}) => (<Label className="el-mb2 el-flex">Preferred contact</Label>),
 }
 
 export const InputRadioWithIntent = {
-  render: ({}) => <Label className="el-mb2 el-flex">Preferred contact</Label>,
+  render: ({}) => (<Label className="el-mb2 el-flex">Preferred contact</Label>),
 }
 
 export const InputRadioWithInputAddOn = {
-  render: ({}) => <Label className="el-mb2 el-flex">Preferred contact</Label>,
+  render: ({}) => (<Label className="el-mb2 el-flex">Preferred contact</Label>),
 }
 
 export const ErrorMessage = {
@@ -111,6 +107,5 @@ export const ErrorMessage = {
       errorMessage="Email address is not valid"
     />
   ),
-
   name: 'Error message',
 }

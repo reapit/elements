@@ -30,9 +30,7 @@ export interface TabsOption {
 }
 ```
 
-<Canvas>
-  <Story of={TabsStories.TabsDefault} />
-</Canvas>
+<Canvas of={TabsStories.TabsDefault} />
 
 <RenderHtmlMarkup component="Tabs" story="Tabs - Default" />
 
@@ -40,9 +38,7 @@ export interface TabsOption {
 
 Slight variation on the above where the Tabs spans the full width of it's container.
 
-<Canvas>
-  <Story of={TabsStories.TabsFullWidth} />
-</Canvas>
+<Canvas of={TabsStories.TabsFullWidth} />
 
 <RenderHtmlMarkup component="Tabs" story="Tabs - Full Width" />
 
@@ -52,9 +48,7 @@ Simple example demonstrating how to transition content using tabs. In practice, 
 
 The underlying radio buttons are uncontrolled by default so the `isChecked` is used to set the `defaultChecked` in this example. This is to allow the radio to behave nativele i.e. it will update the state using the `onChange` event but not vice versa.
 
-<Canvas>
-  <Story of={TabsStories.TabsReactExampleUncontrolled} />
-</Canvas>
+<Canvas of={TabsStories.TabsReactExampleUncontrolled} />
 
 <RenderHtmlMarkup component="Tabs" story="Tabs - React Example uncontrolled" />
 
@@ -64,8 +58,6 @@ Simple example demonstrating how to transition content using tabs. In practice, 
 
 The underlying radio buttons are uncontrolled by default so the `isChecked` is used to set the `defaultChecked` in this example. This is to allow the radio to behave nativele i.e. it will update the state using the `onChange` event but not vice versa.
 
-<Canvas>
-  <Story of={TabsStories.TabsReactExampleControlled} />
-</Canvas>
+<Canvas of={TabsStories.TabsReactExampleControlled} />
 
 <RenderHtmlMarkup component="Tabs" story="Tabs - React Example controlled" />

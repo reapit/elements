@@ -15,9 +15,7 @@ In this example you can see the raw React Components you need to build a styled 
 
 For non-React users, just use the rendered markup and use your own JS to trigger fetch actions.
 
-<Canvas>
-  <Story of={PaginationStories.BasicExample} />
-</Canvas>
+<Canvas of={PaginationStories.BasicExample} />
 
 <RenderHtmlMarkup component="Pagination" story="Basic Example" />
 
@@ -31,9 +29,7 @@ The callback can be any action and will return you the next current page on butt
 
 In addtion, the React component uses an input to allow quick switching between pages. You can use the markup as normal for non React usage however, you will need to write more JavaScript to make this behaviour work in your app.
 
-<Canvas>
-  <Story of={PaginationStories.ReactExample} />
-</Canvas>
+<Canvas of={PaginationStories.ReactExample} />
 
 <RenderHtmlMarkup component="Pagination" story="React Example" />
 
@@ -41,8 +37,6 @@ In addtion, the React component uses an input to allow quick switching between p
 
 Extending the previous example, we provide two additional optional props `hasStartButton` and `hasEndButton` which allow the user to either re-set the pagination to `1` or to fast forward to the last available page. Useful for very long data sets.
 
-<Canvas>
-  <Story of={PaginationStories.ReactExampleWithStartEndButtons} />
-</Canvas>
+<Canvas of={PaginationStories.ReactExampleWithStartEndButtons} />
 
 <RenderHtmlMarkup component="Pagination" story="React Example With Start End Buttons" />

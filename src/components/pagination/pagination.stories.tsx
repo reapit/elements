@@ -26,7 +26,7 @@ export const BasicExample = {
 export const ReactExample = {
   render: ({}) => {
     const [currentPage, setCurrentPage] = useState(1)
-    return <Pagination callback={setCurrentPage} currentPage={currentPage} numberPages={4} />
+    return (<Pagination callback={setCurrentPage} currentPage={currentPage} numberPages={4} />)
   },
 }
 

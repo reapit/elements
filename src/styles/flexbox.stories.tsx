@@ -11,7 +11,6 @@ export const Flex = {
       <GridDemoBlockWithMargin>Second Element</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex',
 }
 
@@ -24,7 +23,6 @@ export const IsFlexColumn = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'is-flex-column',
 }
 
@@ -37,7 +35,6 @@ export const FlexRow = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-row',
 }
 
@@ -50,7 +47,6 @@ export const FlexRowReverse = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-row-reverse',
 }
 
@@ -63,7 +59,6 @@ export const FlexColumn = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-column',
 }
 
@@ -76,7 +71,6 @@ export const FlexColumnReverse = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-column-reverse',
 }
 
@@ -113,7 +107,6 @@ export const FlexWrap = {
       </GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-wrap',
 }
 
@@ -150,7 +143,6 @@ export const FlexNoWrap = {
       </GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-no-wrap',
 }
 
@@ -187,7 +179,6 @@ export const FlexWrapReverse = {
       </GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-wrap-reverse',
 }
 
@@ -200,7 +191,6 @@ export const Flex1 = {
       <GridDemoBlockWithMargin className="el-flex1">4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex1',
 }
 
@@ -213,7 +203,6 @@ export const FlexAuto = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-auto',
 }
 
@@ -226,7 +215,6 @@ export const FlexInitial = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-initial',
 }
 
@@ -237,7 +225,6 @@ export const FlexGrow = {
       <GridDemoBlockWithMargin>2</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-grow',
 }
 
@@ -248,7 +235,6 @@ export const FlexGrow0 = {
       <GridDemoBlockWithMargin className="el-flex-grow0">2</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-grow0',
 }
 
@@ -261,7 +247,6 @@ export const FlexShrink = {
       <GridDemoBlockWithMargin className="el-flex-grow">4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-shrink',
 }
 
@@ -274,7 +259,6 @@ export const FlexShrink0 = {
       <GridDemoBlockWithMargin className="el-flex-grow">4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-shrink0',
 }
 
@@ -285,7 +269,6 @@ export const FlexJustifyCenter = {
       <GridDemoBlockWithMargin className="">2</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-justify-center',
 }
 
@@ -298,7 +281,6 @@ export const FlexJustifyStart = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-justify-start',
 }
 
@@ -311,7 +293,6 @@ export const FlexJustifyEnd = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-justify-end',
 }
 
@@ -324,7 +305,6 @@ export const FlexJustifyBetween = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-justify-between',
 }
 
@@ -337,7 +317,6 @@ export const FlexJustifyAround = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-justify-around',
 }
 
@@ -350,7 +329,6 @@ export const FlexJustifyEvenly = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-justify-evenly',
 }
 
@@ -373,7 +351,6 @@ export const FlexAlignCenter = {
       </GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-align-center',
 }
 
@@ -396,7 +373,6 @@ export const FlexAlignStart = {
       </GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-align-start',
 }
 
@@ -419,7 +395,6 @@ export const FlexAlignEnd = {
       </GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-align-end',
 }
 
@@ -432,7 +407,6 @@ export const FlexAlignSelfCenter = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-align-self-center',
 }
 
@@ -445,7 +419,6 @@ export const FlexAlignSelfStart = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-align-self-start',
 }
 
@@ -458,6 +431,5 @@ export const FlexAlignSelfEnd = {
       <GridDemoBlockWithMargin>4</GridDemoBlockWithMargin>
     </div>
   ),
-
   name: 'flex-align-self-end',
 }

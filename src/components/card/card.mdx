@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { Story, Canvas, Meta } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { Card } from './card-components'
 import * as CardStories from './card.stories'
@@ -19,25 +19,19 @@ React users, may wish to use the shorthand component to reduce markup.
 
 ## Card With Avatar
 
-<Canvas>
-  <Story of={CardStories.CardWithAvatar} />
-</Canvas>
+<Canvas of={CardStories.CardWithAvatar} />
 
 <RenderHtmlMarkup component="Card" story="Card With Avatar" />
 
 ## Card With Image
 
-<Canvas>
-  <Story of={CardStories.CardWithImage} />
-</Canvas>
+<Canvas of={CardStories.CardWithImage} />
 
 <RenderHtmlMarkup component="Card" story="Card With Image" />
 
 ## Card With Body
 
-<Canvas>
-  <Story of={CardStories.CardWithBody} />
-</Canvas>
+<Canvas of={CardStories.CardWithBody} />
 
 <RenderHtmlMarkup component="Card" story="Card With Body" />
 
@@ -45,25 +39,19 @@ React users, may wish to use the shorthand component to reduce markup.
 
 Adding the `elCardFocussed` class to the `CardWrap` will draw the contact's attention.
 
-<Canvas>
-  <Story of={CardStories.CardFocussed} />
-</Canvas>
+<Canvas of={CardStories.CardFocussed} />
 
 <RenderHtmlMarkup component="Card" story="Card Focussed" />
 
 ## Card With List
 
-<Canvas>
-  <Story of={CardStories.CardWithList} />
-</Canvas>
+<Canvas of={CardStories.CardWithList} />
 
 <RenderHtmlMarkup component="Card" story="Card With List" />
 
 ## Card Complete Example
 
-<Canvas>
-  <Story of={CardStories.CardCompleteExample} />
-</Canvas>
+<Canvas of={CardStories.CardCompleteExample} />
 
 <RenderHtmlMarkup component="Card" story="Card Complete Example" />
 
@@ -71,30 +59,22 @@ Adding the `elCardFocussed` class to the `CardWrap` will draw the contact's atte
 
 In the React Shorthand, you can compose your card by applying props as appropriate following the `CardProps` interface:
 
-<ArgsTable component={Card} />
-
 All of the props are optional - you can have Avatar, Image, List and Complete versions depending on how you mix and match the props.
 
 ## React Shorthand Avatar & Body
 
-<Canvas>
-  <Story of={CardStories.ReactShorthandAvatarBody} />
-</Canvas>
+<Canvas of={CardStories.ReactShorthandAvatarBody} />
 
 <RenderHtmlMarkup component="Card" story="React Shorthand Avatar & Body" />
 
 ## React Shorthand List
 
-<Canvas>
-  <Story of={CardStories.ReactShorthandList} />
-</Canvas>
+<Canvas of={CardStories.ReactShorthandList} />
 
 <RenderHtmlMarkup component="Card" story="React Shorthand List" />
 
 ## React Shorthand Complete
 
-<Canvas>
-  <Story of={CardStories.ReactShorthandComplete} />
-</Canvas>
+<Canvas of={CardStories.ReactShorthandComplete} />
 
 <RenderHtmlMarkup component="Card" story="React Shorthand Complete" />

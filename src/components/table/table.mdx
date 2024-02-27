@@ -31,9 +31,7 @@ In addtion, you can split the space available vertically with the `TableCellSpli
 
 For React users, the table has a number of freatures that you may find useful to present your data, like an expandable call to action container. These do fall under the banner of "Advanced usage", so in most cases, just use the basic table component classes and render children to get the desired functionality for your application.
 
-<Canvas>
-  <Story of={TableStories.BasicUsage} />
-</Canvas>
+<Canvas of={TableStories.BasicUsage} />
 
 <RenderHtmlMarkup component="Table" story="Basic Usage" />
 
@@ -41,9 +39,7 @@ For React users, the table has a number of freatures that you may find useful to
 
 The `Table` is a CSS Grid to support proper resposiveness. By default the number of columms is set to the number of Cells in the first row and all columns are the same width. If you want to override this, set the `data-num-columns-excl-action-col="8"` property on the `Table` element to a desired number of columns, then add an appropriate `elSpan2` `elSpan3` etc class to the relevant `TableCell` elements as per below.
 
-<Canvas>
-  <Story of={TableStories.ColumnWidths} />
-</Canvas>
+<Canvas of={TableStories.ColumnWidths} />
 
 <RenderHtmlMarkup component="Table" story="Column widths" />
 
@@ -69,9 +65,7 @@ As always, these modifiers map to CSS classes for non React users.
 
 In the example below, you can see examples of all the different flavours of `TableCell` and modifier. It is worth re-sizing the screen to see the 'narrow' behaviour.
 
-<Canvas>
-  <Story of={TableStories.BasicCustomisationTableCells} />
-</Canvas>
+<Canvas of={TableStories.BasicCustomisationTableCells} />
 
 <RenderHtmlMarkup component="Table" story="Basic Customisation - Table Cells" />
 
@@ -81,9 +75,7 @@ It is quite common that you will find table data taking up much more than the av
 
 This is done by adding the `data-force-narrow-table='true'` attribute to the main wrapping `Table` (`.el-table`) element.
 
-<Canvas>
-  <Story of={TableStories.ExpandingTableCellSpace} />
-</Canvas>
+<Canvas of={TableStories.ExpandingTableCellSpace} />
 
 <RenderHtmlMarkup component="Table" story="Expanding Table Cell Space" />
 
@@ -106,9 +98,7 @@ For all users note the data attributes applied to the table.
 
 For this version the `data-has-expandable-action` attribute should additionally be applied to show the call to action column.
 
-<Canvas>
-  <Story of={TableStories.ExpandableContent} />
-</Canvas>
+<Canvas of={TableStories.ExpandableContent} />
 
 <RenderHtmlMarkup component="Table" story="Expandable Content" />
 
@@ -116,9 +106,7 @@ For this version the `data-has-expandable-action` attribute should additionally 
 
 For this version the `data-has-call-to-action` attribute should additionally be applied to show the call to action column.
 
-<Canvas>
-  <Story of={TableStories.CallToActionContent} />
-</Canvas>
+<Canvas of={TableStories.CallToActionContent} />
 
 <RenderHtmlMarkup component="Table" story="Call To Action Content" />
 
@@ -166,9 +154,7 @@ export interface RowActionProps {
 }
 ```
 
-<Canvas>
-  <Story of={TableStories.ReactShorthandUsage} />
-</Canvas>
+<Canvas of={TableStories.ReactShorthandUsage} />
 
 ## Advanced Customisation - React
 
@@ -187,6 +173,4 @@ In the below example we pull this behaviour together by adding an extra column t
 
 We also specify that the first row is expanded by passing an `indexExpandedRow` prop and control this using `useState`, passing the setter as a `setIndexExpandedRow` prop. As per above explanation, this is useful if you want to expand and collapse your expandable rows, depending on some condition rather than a simple `onClick`.
 
-<Canvas>
-  <Story of={TableStories.AdvancedCustomisationReact} />
-</Canvas>
+<Canvas of={TableStories.AdvancedCustomisationReact} />

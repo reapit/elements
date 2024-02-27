@@ -19,9 +19,7 @@ Props available for the React version of the component are just those of a stand
 
 <ArgsTable of={Toggle} />
 
-<Canvas>
-  <Story of={ToggleStories.BasicUsage} />
-</Canvas>
+<Canvas of={ToggleStories.BasicUsage} />
 
 <RenderHtmlMarkup component="Toggle" story="Basic Usage" />
 
@@ -29,9 +27,7 @@ Props available for the React version of the component are just those of a stand
 
 If you just want your toggle to behave like a switch without text, simply leave the toggle items empty.
 
-<Canvas>
-  <Story of={ToggleStories.ToggleSwitch} />
-</Canvas>
+<Canvas of={ToggleStories.ToggleSwitch} />
 
 <RenderHtmlMarkup component="Toggle" story="Toggle - Switch" />
 
@@ -39,9 +35,7 @@ If you just want your toggle to behave like a switch without text, simply leave 
 
 Where rendering a toggle on a white background, you should apply the hasGreyBg prop to give better contrast. The white background standard toggle is intended for use on a grey background.
 
-<Canvas>
-  <Story of={ToggleStories.ToggleGreyBg} />
-</Canvas>
+<Canvas of={ToggleStories.ToggleGreyBg} />
 
 <RenderHtmlMarkup component="Toggle" story="Toggle - Grey Bg" />
 
@@ -70,9 +64,7 @@ export interface ToggleRadioOption {
 }
 ```
 
-<Canvas>
-  <Story of={ToggleStories.ToggleRadioDefault} />
-</Canvas>
+<Canvas of={ToggleStories.ToggleRadioDefault} />
 
 <RenderHtmlMarkup component="Toggle" story="Toggle Radio - Default" />
 
@@ -80,16 +72,12 @@ export interface ToggleRadioOption {
 
 Where rendering a toggle on a white background, you should apply the hasGreyBg prop to give better contrast. The white background standard toggle is intended for use on a grey background.
 
-<Canvas>
-  <Story of={ToggleStories.ToggleRadioSelectPropsGreyBg} />
-</Canvas>
+<Canvas of={ToggleStories.ToggleRadioSelectPropsGreyBg} />
 
 <RenderHtmlMarkup component="Toggle" story="Toggle Radio Select Props Grey Bg" />
 
 ## Toggle Disabled
 
-<Canvas>
-  <Story of={ToggleStories.ToggleRadioDisabled} />
-</Canvas>
+<Canvas of={ToggleStories.ToggleRadioDisabled} />
 
 <RenderHtmlMarkup component="Toggle" story="Toggle Radio - Disabled" />

@@ -1,3 +1,4 @@
+import { StoryObj } from '@storybook/react'
 import { Input } from './index'
 
 export default {
@@ -5,9 +6,12 @@ export default {
   component: Input,
 }
 
-export const InputText = {
-  render: ({}) => <Input type="text" placeholder="A placeholder" />,
+export const InputText: StoryObj<typeof Input> = {
   name: 'Input text',
+  args: {
+    type: 'text',
+    placeholder: 'A Placeholder',
+  },
 }
 
 export const InputWithError = {

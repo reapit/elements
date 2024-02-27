@@ -6,14 +6,14 @@ export default {
 }
 
 export const BasicUsage = {
-  render: ({}) => <TextArea type="text" placeholder="A placeholder" />,
+  render: ({}) => (<TextArea type="text" placeholder="A placeholder" />),
 }
 
 export const TextAreaPlaceholder = {
-  render: ({}) => <TextArea type="text" placeholder="Hello" />,
+  render: ({}) => (<TextArea type="text" placeholder="Hello" />),
   name: 'Text Area placeholder',
 }
 
 export const TextAreaError = {
-  render: ({}) => <TextArea type="text" hasError />,
+  render: ({}) => (<TextArea type="text" hasError />),
 }

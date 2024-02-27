@@ -6,15 +6,15 @@ export default {
 }
 
 export const Inline = {
-  render: ({}) => <Loader />,
+  render: ({}) => (<Loader />),
 }
 
 export const WithALabel = {
-  render: ({}) => <Loader label="Loading" />,
+  render: ({}) => (<Loader label="Loading" />),
   name: 'With a label',
 }
 
 export const FullPageLoader = {
-  render: ({}) => <p>This loader is fixed to the center of the screen</p>,
+  render: ({}) => (<p>This loader is fixed to the center of the screen</p>),
   name: 'Full page loader',
 }

@@ -17,9 +17,7 @@ For non React users, you can just apply the classes in the rendered markup to yo
 
 Typically you will use this component when you want the user to select multiple options from a large data list.
 
-<Canvas>
-  <Story of={MultiSelectStories.BasicExample} />
-</Canvas>
+<Canvas of={MultiSelectStories.BasicExample} />
 
 <RenderHtmlMarkup component="MultiSelect" story="Basic Example" />
 
@@ -27,9 +25,7 @@ Typically you will use this component when you want the user to select multiple 
 
 For placing on a white background, we offer a modifier to the chips that turn the background grey.
 
-<Canvas>
-  <Story of={MultiSelectStories.GreyChips} />
-</Canvas>
+<Canvas of={MultiSelectStories.GreyChips} />
 
 <RenderHtmlMarkup component="MultiSelect" story="Grey Chips" />
 
@@ -54,8 +50,6 @@ export interface MultiSelectOption {
 }
 ```
 
-<Canvas>
-  <Story of={MultiSelectStories.ReactExample} />
-</Canvas>
+<Canvas of={MultiSelectStories.ReactExample} />
 
 <RenderHtmlMarkup component="MultiSelect" story="React Example" />

@@ -17,17 +17,13 @@ Props available for the React version of the component;
 
 The Snack component can be used for UI purposes only, but won't have the functionality of the React implementation (i.e. the timeouts, appearing at the top of the screen, etc)
 
-<Canvas>
-  <Story of={SnackStories.BasicUsage} />
-</Canvas>
+<Canvas of={SnackStories.BasicUsage} />
 
 <RenderHtmlMarkup component="Snack" story="Basic Usage" />
 
 ## With an icon
 
-<Canvas>
-  <Story of={SnackStories.WithAnIcon} />
-</Canvas>
+<Canvas of={SnackStories.WithAnIcon} />
 
 <RenderHtmlMarkup component="Snack" story="With an icon" />
 
@@ -86,9 +82,7 @@ If you are using this library without react, you may find is useful for putting 
 
 A context and a hook is provided to use the Snack component out of the box called `SnackProvider`.
 
-<Canvas>
-  <Story of={SnackStories.UseSnackHookExample} />
-</Canvas>
+<Canvas of={SnackStories.UseSnackHookExample} />
 
 You must wrap your whole application in the `SnackProvider` component. Thereafter you can use the `useSnack` hook in any component to trigger a hook.
 

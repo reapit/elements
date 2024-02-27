@@ -6,7 +6,7 @@ import { elIsActive } from '../../styles/states'
 export interface SecondaryNavProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const SecondaryNav: FC<SecondaryNavProps> = ({ children, ...rest }) => {
-  return <ElSecondaryNav {...rest}>{children}</ElSecondaryNav>
+  return (<ElSecondaryNav {...rest}>{children}</ElSecondaryNav>)
 }
 
 export interface SecondaryNavItemProps extends HTMLAttributes<HTMLDivElement> {

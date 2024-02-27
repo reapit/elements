@@ -18,9 +18,7 @@ It makes sense largely when used in conjunction with an `InputGroup` component -
 
 On a basic level, it renders a text block at the end of an input.
 
-<Canvas>
-  <Story of={InputAddOnStories.BasicUsage} />
-</Canvas>
+<Canvas of={InputAddOnStories.BasicUsage} />
 
 <RenderHtmlMarkup component="InputAddOn" story="Basic Usage" />
 
@@ -28,9 +26,7 @@ On a basic level, it renders a text block at the end of an input.
 
 It may also be useful to render an icon after your input - for example to render an error indicator.
 
-<Canvas>
-  <Story of={InputAddOnStories.WithIcon} />
-</Canvas>
+<Canvas of={InputAddOnStories.WithIcon} />
 
 <RenderHtmlMarkup component="InputAddOn" story="With Icon" />
 
@@ -40,8 +36,6 @@ If you want add an intent from the intent list, this will add color, for example
 
 Can be combined with an icon to color the icon.
 
-<Canvas>
-  <Story of={InputAddOnStories.WithIntent} />
-</Canvas>
+<Canvas of={InputAddOnStories.WithIntent} />
 
 <RenderHtmlMarkup component="InputAddOn" story={['With Intent']} />
