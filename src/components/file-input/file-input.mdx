@@ -21,7 +21,7 @@ Props available for the React version of the component;
   <Story of={FileInputStories.DefaultUsage} />
 </Canvas>
 
-<RenderHtmlMarkup component="FileInput" story="Default Usage" />
+<RenderHtmlMarkup of={FileInputStories.DefaultUsage} />
 
 ## Advanced Usage
 
@@ -33,4 +33,5 @@ Adds a placeholder, a Modal preview window and a setState callback to store your
   <Story of={FileInputStories.AdvancedUsage} />
 </Canvas>
 
-<RenderHtmlMarkup component="FileInput" story="Advanced Usage" />
+{/* Cannot use because of portals error? */}
+{/* <RenderHtmlMarkup component="FileInput" story="Advanced Usage" /> */}

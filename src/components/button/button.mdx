@@ -17,7 +17,7 @@ A button with no addtional props / classes applied.
 
 <Canvas of={ButtonStories.DefaultUsage} />
 
-<RenderHtmlMarkup component="Button" story="Default Usage" />
+<RenderHtmlMarkup of={ButtonStories.DefaultUsage} />
 
 ## With Intent
 
@@ -27,7 +27,7 @@ Whereas most components support the full range of intents, `Buttons` only suppor
 
 <Canvas of={ButtonStories.Intent} />
 
-<RenderHtmlMarkup component="Button" story={['Intent']} label="HTML of intent" />
+<RenderHtmlMarkup of={ButtonStories.Intent} />
 
 ## Is Loading
 
@@ -35,7 +35,7 @@ Add a loading spinner to indicate progress of a background activity after the bu
 
 <Canvas of={ButtonStories.Loading} />
 
-<RenderHtmlMarkup component="Button" story={['Loading']} label="HTML of the above" />
+<RenderHtmlMarkup of={ButtonStories.Loading} />
 
 ## Is Disabled
 
@@ -43,7 +43,7 @@ Indicate that a button is disabled for whatever reason.
 
 <Canvas of={ButtonStories.Disabled} />
 
-<RenderHtmlMarkup component="Button" story={['Disabled']} />
+<RenderHtmlMarkup of={ButtonStories.Disabled}/>
 
 ## Other attributes
 
@@ -51,7 +51,7 @@ All other standard HTML attributes for `<button>` are supported and are passed t
 
 <Canvas of={ButtonStories.StandardAttributes} />
 
-<RenderHtmlMarkup component="Button" story={['Standard attributes']} />
+<RenderHtmlMarkup of={ButtonStories.StandardAttributes} />
 
 ## Button Group
 
@@ -59,7 +59,7 @@ An element to collectively group several buttons
 
 <Canvas of={ButtonStories.Group} />
 
-<RenderHtmlMarkup component="Button" story="Button Group" />
+<RenderHtmlMarkup of={ButtonStories.Group} />
 
 ## Button Size
 
@@ -69,7 +69,7 @@ By default all of our buttons are sized to `small` in mobile and `medium` in des
 
 <Canvas of={ButtonStories.ButtonSize}/>
 
-<RenderHtmlMarkup component="Button" story={['Button Size']} />
+<RenderHtmlMarkup of={ButtonStories.ButtonSize}/>
 
 ## Button Icons
 
@@ -79,7 +79,7 @@ You have the option to specify a position of `left`, `right` or `only` as a post
 
 <Canvas of={ButtonStories.ButtonIcons}/>
 
-<RenderHtmlMarkup component="Button" story={['Button Icons']} />
+<RenderHtmlMarkup of={ButtonStories.ButtonIcons} />
 
 ## Floating Button
 
@@ -89,4 +89,4 @@ Props available for the React version of the component are the same as the main 
 
 <Canvas of={ButtonStories.Floating}/>
 
-<RenderHtmlMarkup component="Button" story="Floating Button" />
+<RenderHtmlMarkup of={ButtonStories.Floating} />

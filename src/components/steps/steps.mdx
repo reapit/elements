@@ -17,7 +17,7 @@ Props available for the React version of the basic inline `Steps` component.
 
 <Canvas of={StepsStories.BasicStepsUsage} />
 
-<RenderHtmlMarkup component="Steps" story="Basic Steps Usage" />
+<RenderHtmlMarkup of={StepsStories.BasicStepsUsage} />
 
 <ArgsTable of={Steps} />
 
@@ -29,7 +29,7 @@ A CSS transition occurs when moving between steps.
 
 <Canvas of={StepsStories.MiddleItemSelected} />
 
-<RenderHtmlMarkup component="Steps" story="Middle item selected" />
+<RenderHtmlMarkup of={StepsStories.MiddleItemSelected} />
 
 You can use any number of steps and you can also use letters instead of numbers. You can use any string as the content really.
 
@@ -37,7 +37,7 @@ Be aware though, steps with long text **aren't supported** and will not render v
 
 <Canvas of={StepsStories.LastItemSelected} />
 
-<RenderHtmlMarkup component="Steps" story="Last item selected" />
+<RenderHtmlMarkup of={StepsStories.LastItemSelected} />
 
 ## React example with `useState`
 
@@ -64,4 +64,4 @@ export interface StepsVerticalStep {
 
 <Canvas of={StepsStories.StepsVerticalUsage} />
 
-<RenderHtmlMarkup component="Steps" story="Steps Vertical Usage" />
+<RenderHtmlMarkup of={StepsStories.StepsVerticalUsage} />

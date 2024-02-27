@@ -19,13 +19,13 @@ The Snack component can be used for UI purposes only, but won't have the functio
 
 <Canvas of={SnackStories.BasicUsage} />
 
-<RenderHtmlMarkup component="Snack" story="Basic Usage" />
+<RenderHtmlMarkup of={SnackStories.BasicUsage} />
 
 ## With an icon
 
 <Canvas of={SnackStories.WithAnIcon} />
 
-<RenderHtmlMarkup component="Snack" story="With an icon" />
+<RenderHtmlMarkup of={SnackStories.WithAnIcon} />
 
 ## With intents
 
@@ -55,18 +55,13 @@ The Snack component can be used for UI purposes only, but won't have the functio
   <Story of={SnackStories.IntentDefault} />
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Snack"
-  story={[
-    'Intent: Primary',
-    'Intent: Neutral',
-    'Intent: Success',
-    'Intent: Pending',
-    'Intent: Warning',
-    'Intent: Danger',
-    'Intent: Default',
-  ]}
-/>
+<RenderHtmlMarkup of={SnackStories.IntentPrimary} />
+<RenderHtmlMarkup of={SnackStories.IntentNeutral} />
+<RenderHtmlMarkup of={SnackStories.IntentSuccess} />
+<RenderHtmlMarkup of={SnackStories.IntentPending} />
+<RenderHtmlMarkup of={SnackStories.IntentWarning} />
+<RenderHtmlMarkup of={SnackStories.IntentDanger} />
+<RenderHtmlMarkup of={SnackStories.IntentDefault} />
 
 ## SnackHolder
 

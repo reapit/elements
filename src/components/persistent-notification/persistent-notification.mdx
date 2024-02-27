@@ -27,13 +27,13 @@ This makes it easier to preview these examples, but if the isFixed property is s
 
 <Canvas of={PersistentNotificationStories.DefaultUsageInline} />
 
-<RenderHtmlMarkup component="PersistentNotification" story="Default Usage Inline" />
+<RenderHtmlMarkup of={PersistentNotificationStories.DefaultUsageInline} />
 
 ## With a different icon
 
 <Canvas of={PersistentNotificationStories.WithADifferentIcon} />
 
-<RenderHtmlMarkup component="PersistentNotification" story="With a different icon" />
+<RenderHtmlMarkup of={PersistentNotificationStories.WithADifferentIcon} />
 
 ## Inline helpers, full width with different intents
 
@@ -69,18 +69,14 @@ Below you can see examples of inline helpers, full width, in each of the differe
   <Story of={PersistentNotificationStories.InlineNotifcationIntentDefault} />
 </Canvas>
 
-<RenderHtmlMarkup
-  component="PersistentNotification"
-  story={[
-    'Inline notifcation, intent: primary',
-    'Inline notifcation, intent: neutral',
-    'Inline notifcation, intent: success',
-    'Inline notifcation, intent: pending',
-    'Inline notifcation, intent: warning',
-    'Inline notifcation, intent: danger',
-    'Inline notifcation, intent: default',
-  ]}
-/>
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentPrimary} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentNeutral} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentSuccess} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentPending} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentWarning} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentDanger} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentDefault} />
+
 
 ## Collapsed/Expanded state
 

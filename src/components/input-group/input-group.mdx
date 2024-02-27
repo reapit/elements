@@ -30,25 +30,25 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
 
 <Canvas of={InputGroupStories.CompleteExample} />
 
-<RenderHtmlMarkup component="InputGroup" story="Complete example" />
+<RenderHtmlMarkup of={InputGroupStories.CompleteExample} />
 
 ## With Icon only
 
 <Canvas of={InputGroupStories.WithIconOnly} />
 
-<RenderHtmlMarkup component="InputGroup" story="With Icon only" />
+<RenderHtmlMarkup of={InputGroupStories.WithIconOnly} />
 
 ## With Label only
 
 <Canvas of={InputGroupStories.WithLabelOnly} />
 
-<RenderHtmlMarkup component="InputGroup" story="With Label only" />
+<RenderHtmlMarkup of={InputGroupStories.WithLabelOnly} />
 
 ## With InputAddOn only
 
 <Canvas of={InputGroupStories.WithInputAddOnOnly} />
 
-<RenderHtmlMarkup component="InputGroup" story="With Input Add On Only" />
+<RenderHtmlMarkup of={InputGroupStories.WithInputAddOnOnly} />
 
 ## Shorthand usage for React users
 
@@ -75,10 +75,10 @@ React shorthand with `icon` and `label` props
   <Story of={InputGroupStories.InputCheckboxNoLabel} />
 </Canvas>
 
-<RenderHtmlMarkup
-  component="InputGroup"
-  story={['Input checkbox', 'Input checkbox with intent', 'Input checkbox no icon', 'Input checkbox no label']}
-/>
+<RenderHtmlMarkup of={InputGroupStories.InputCheckbox} />
+<RenderHtmlMarkup of={InputGroupStories.InputCheckboxWithIntent} />
+<RenderHtmlMarkup of={InputGroupStories.InputCheckboxNoIcon} />
+<RenderHtmlMarkup of={InputGroupStories.InputCheckboxNoLabel} />
 
 ## Radio
 
@@ -87,7 +87,8 @@ React shorthand with `icon` and `label` props
   <Story of={InputGroupStories.InputRadioWithIntent} />
 </Canvas>
 
-<RenderHtmlMarkup component="InputGroup" story={['Input radio', 'Input radio with intent']} />
+<RenderHtmlMarkup of={InputGroupStories.InputRadio} />
+<RenderHtmlMarkup of={InputGroupStories.InputRadioWithIntent} />
 ## Use with radio input and InputAddOn
 
 The `inputAddOn` prop (and use of the `InputAddOn` component within `InputGroup` in general) _is_ supported with radio buttons, however with radio buttons the `Label` does most of the work.
