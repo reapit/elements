@@ -48,8 +48,6 @@ module.exports = {
   },
   framework: {
     name: '@storybook/react-vite',
-    options: {
-      legacyRootApi: true,
-    },
+    options: {},
   },
 }
