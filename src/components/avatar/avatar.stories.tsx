@@ -15,9 +15,9 @@ export const BasicUsage = {
 }
 
 export const WithSrc = {
-  render: ({}) => (<Avatar src="https://picsum.photos/200" />),
+  render: ({}) => <Avatar src="https://picsum.photos/200" />,
 }
 
 export const WithImage = {
-  render: ({}) => (<Avatar type="image" src="https://picsum.photos/200/300" />),
+  render: ({}) => <Avatar type="image" src="https://picsum.photos/200/300" />,
 }

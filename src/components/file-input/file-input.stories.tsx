@@ -10,7 +10,7 @@ export default {
 }
 
 export const DefaultUsage = {
-  render: ({}) => (<FileInput label="Some Label" onFileUpload={Promise.resolve} fileName="some-file-name" />),
+  render: ({}) => <FileInput label="Some Label" onFileUpload={Promise.resolve} fileName="some-file-name" />,
 }
 
 export const AdvancedUsage = {

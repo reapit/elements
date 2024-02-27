@@ -5,5 +5,5 @@ export interface InputErrorInterface {
 }
 
 export const InputError = ({ message }: InputErrorInterface) => {
-  return (<ElInputError>{message}</ElInputError>)
+  return <ElInputError>{message}</ElInputError>
 }

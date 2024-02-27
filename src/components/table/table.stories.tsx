@@ -302,7 +302,7 @@ export const CallToActionContent = {
 }
 
 export const ReactShorthandUsage = {
-  render: ({ rows }) => (<Table rows={rows} />),
+  render: ({ rows }) => <Table rows={rows} />,
   args: {
     rows: [
       {

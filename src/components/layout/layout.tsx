@@ -101,7 +101,7 @@ export const SecondaryNavContainer: FC<ContainerProps> = ({
 
 export const Molecule: FC<ContainerProps> = ({ children, ...rest }) => {
   useDeprecateComponent('Molecule')
-  return (<ElMolecule {...rest}>{children}</ElMolecule>)
+  return <ElMolecule {...rest}>{children}</ElMolecule>
 }
 
 export const FlexContainer: FC<ContainerFlexProps> = ({

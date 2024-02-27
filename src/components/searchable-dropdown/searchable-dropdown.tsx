@@ -136,12 +136,12 @@ export const SearchableDropdownInner = <T extends unknown>(
     setSelectedValue(value)
     setResultsVisible(false)
     if (onChange) {
-      onChange({
+      onChange(({
         target: {
           ...inputProps,
           value,
         },
-      } as unknown as React.ChangeEvent<HTMLInputElement>)
+      } as unknown) as React.ChangeEvent<HTMLInputElement>)
     }
   }
 
@@ -189,5 +189,5 @@ export const SearchableDropdown = forwardRef(SearchableDropdownInner) as <T>(
 ) => ReturnType<typeof SearchableDropdownInner>
 
 export const SearchableDropdownSearchLabel: FC<HTMLAttributes<HTMLLabelElement>> = ({ children, ...rest }) => {
-  return (<ElSearchableDropdownSearchLabel {...rest}>{children}</ElSearchableDropdownSearchLabel>)
+  return <ElSearchableDropdownSearchLabel {...rest}>{children}</ElSearchableDropdownSearchLabel>
 }

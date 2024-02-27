@@ -12,17 +12,19 @@ export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
     <>
       <h4>Html of {storyContext?.name || '...'}</h4>
       <Source
-
         transform={(code, context) => {
           if (storyContext === undefined) setStoryContext(context)
 
-          return prettier.format(renderToStaticMarkup(context.originalStoryFn(context.args as any, context as any) as any), {
-            parser: 'html',
-            plugins: [htmlParser],
-          })
+          return prettier.format(
+            renderToStaticMarkup(context.originalStoryFn(context.args as any, context as any) as any),
+            {
+              parser: 'html',
+              plugins: [htmlParser],
+            },
+          )
         }}
         dark={true}
-        language='html'
+        language="html"
         {...props}
       />
     </>

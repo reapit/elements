@@ -37,7 +37,7 @@ export const BasicUsage = {
 }
 
 export const UseWithALabel = {
-  render: ({}) => (<SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>),
+  render: ({}) => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
   name: 'Use with a label',
 }
 
@@ -103,5 +103,5 @@ export const ControlledUsage = {
 }
 
 export const DefaultValue = {
-  render: ({}) => (<SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>),
+  render: ({}) => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
 }

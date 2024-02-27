@@ -34,28 +34,35 @@ export interface PaginationInputProps extends InputHTMLAttributes<HTMLInputEleme
 
 export interface PaginationButtonProps extends HTMLAttributes<HTMLButtonElement> {}
 
-export const handlePageChange =
-  (nextPage: number | null, callback: (page: number) => void, setInputValue: Dispatch<SetStateAction<string>>) =>
-  () => {
-    if (nextPage) {
-      setInputValue(String(nextPage))
-      callback(nextPage)
-    }
+export const handlePageChange = (
+  nextPage: number | null,
+  callback: (page: number) => void,
+  setInputValue: Dispatch<SetStateAction<string>>,
+) => () => {
+  if (nextPage) {
+    setInputValue(String(nextPage))
+    callback(nextPage)
   }
+}
 
-export const handlePageInputChange =
-  (numberPages: number, currentPage: number, inputValue: string, callback: (page: number) => void) => () => {
-    const nextPage = Number(inputValue)
-    if (nextPage && nextPage <= numberPages && nextPage !== currentPage) {
-      callback(nextPage)
-    }
+export const handlePageInputChange = (
+  numberPages: number,
+  currentPage: number,
+  inputValue: string,
+  callback: (page: number) => void,
+) => () => {
+  const nextPage = Number(inputValue)
+  if (nextPage && nextPage <= numberPages && nextPage !== currentPage) {
+    callback(nextPage)
   }
+}
 
-export const handlePageInput =
-  (setInputValue: Dispatch<SetStateAction<string>>) => (event: ChangeEvent<HTMLInputElement>) => {
-    const nextPage = event.target.value
-    setInputValue(nextPage)
-  }
+export const handlePageInput = (setInputValue: Dispatch<SetStateAction<string>>) => (
+  event: ChangeEvent<HTMLInputElement>,
+) => {
+  const nextPage = event.target.value
+  setInputValue(nextPage)
+}
 
 export const PaginationWrap: FC<PaginationWrapProps> = ({ children, ...rest }) => (
   <ElPaginationWrap {...rest}>{children}</ElPaginationWrap>
@@ -65,7 +72,7 @@ export const PaginationText: FC<PaginationTextProps> = ({ children, ...rest }) =
   <ElPaginationText {...rest}>{children}</ElPaginationText>
 )
 
-export const PaginationInput: FC<PaginationInputProps> = ({ ...rest }) => (<ElPaginationInput {...rest} />)
+export const PaginationInput: FC<PaginationInputProps> = ({ ...rest }) => <ElPaginationInput {...rest} />
 
 export const PaginationButton: FC<PaginationButtonProps> = ({ children, ...rest }) => (
   <ElPaginationButton type="button" {...rest}>

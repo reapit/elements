@@ -70,31 +70,31 @@ export const ReactShorthandAllProps = {
 }
 
 export const InputCheckbox = {
-  render: ({}) => (<InputGroup type="checkbox" icon="phone" label="Status" inputAddOnText="Listed" />),
+  render: ({}) => <InputGroup type="checkbox" icon="phone" label="Status" inputAddOnText="Listed" />,
 }
 
 export const InputCheckboxWithIntent = {
-  render: ({}) => (<InputGroup type="checkbox" icon="info" intent="danger" label="Status" inputAddOnText="Listed" />),
+  render: ({}) => <InputGroup type="checkbox" icon="info" intent="danger" label="Status" inputAddOnText="Listed" />,
 }
 
 export const InputCheckboxNoIcon = {
-  render: ({}) => (<InputGroup type="checkbox" label="Status" inputAddOnText="Listed" />),
+  render: ({}) => <InputGroup type="checkbox" label="Status" inputAddOnText="Listed" />,
 }
 
 export const InputCheckboxNoLabel = {
-  render: ({}) => (<InputGroup type="checkbox" inputAddOnText="Listed" />),
+  render: ({}) => <InputGroup type="checkbox" inputAddOnText="Listed" />,
 }
 
 export const InputRadio = {
-  render: ({}) => (<Label className="el-mb2 el-flex">Preferred contact</Label>),
+  render: ({}) => <Label className="el-mb2 el-flex">Preferred contact</Label>,
 }
 
 export const InputRadioWithIntent = {
-  render: ({}) => (<Label className="el-mb2 el-flex">Preferred contact</Label>),
+  render: ({}) => <Label className="el-mb2 el-flex">Preferred contact</Label>,
 }
 
 export const InputRadioWithInputAddOn = {
-  render: ({}) => (<Label className="el-mb2 el-flex">Preferred contact</Label>),
+  render: ({}) => <Label className="el-mb2 el-flex">Preferred contact</Label>,
 }
 
 export const ErrorMessage = {

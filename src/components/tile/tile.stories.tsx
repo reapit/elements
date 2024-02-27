@@ -9,11 +9,11 @@ export default {
 }
 
 export const BasicUsage = {
-  render: ({}) => (<Tile>Some Content</Tile>),
+  render: ({}) => <Tile>Some Content</Tile>,
 }
 
 export const PaddingVariants = {
-  render: ({}) => (<Tile paddingSize="small">Some Content Here</Tile>),
+  render: ({}) => <Tile paddingSize="small">Some Content Here</Tile>,
 }
 
 export const TileLayouts = {

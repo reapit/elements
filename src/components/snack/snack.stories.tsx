@@ -8,11 +8,11 @@ export default {
 }
 
 export const BasicUsage = {
-  render: ({}) => (<Snack>Message goes here</Snack>),
+  render: ({}) => <Snack>Message goes here</Snack>,
 }
 
 export const WithAnIcon = {
-  render: ({}) => (<Snack icon="info">Message goes here</Snack>),
+  render: ({}) => <Snack icon="info">Message goes here</Snack>,
   name: 'With an icon',
 }
 

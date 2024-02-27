@@ -24,5 +24,5 @@ export const ToolTip: FC<ToolTipProps> = ({ children, defaultActive = false, tip
 }
 
 export const ToolTipChild: FC<ToolTipChildProps> = ({ children, active }) => {
-  return (<ElToolTipChild className={cx(active && elToolTipActive)}>{children}</ElToolTipChild>)
+  return <ElToolTipChild className={cx(active && elToolTipActive)}>{children}</ElToolTipChild>
 }
