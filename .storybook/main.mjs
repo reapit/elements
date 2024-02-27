@@ -42,13 +42,4 @@ module.exports = {
     name: '@storybook/react-vite',
     options: {},
   },
-  typescript: {
-    check: false,
-    checkOptions: {},
-    reactDocgen: false,
-    reactDocgenTypescriptOptions: {
-       shouldExtractLiteralValuesFromEnum: true,
-       propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-    },
-  }
 }

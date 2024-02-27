@@ -50,12 +50,12 @@ export const AccordionContent: FC<AccordionBaseProps> = ({ children, ...rest }) 
 }
 
 export const handleSetOpenItem = (openItem: number, setOpenItem: Dispatch<SetStateAction<number | null>>) => () => {
-  // setOpenItem((currentItem) => {
-  //   if (currentItem === openItem) {
-  //     return null
-  //   }
-  //   return openItem
-  // })
+  setOpenItem((currentItem) => {
+    if (currentItem === openItem) {
+      return null
+    }
+    return openItem
+  })
 }
 
 export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => {
