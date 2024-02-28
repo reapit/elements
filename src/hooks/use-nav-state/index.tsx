@@ -66,20 +66,21 @@ export const useNavState = (
     }))
   }, [])
 
-  const handleSetNavState =
-    (newState: Partial<NavState>) => (event: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
-      event.preventDefault()
-      event.stopPropagation()
+  const handleSetNavState = (newState: Partial<NavState>) => (
+    event: MouseEvent<HTMLAnchorElement | HTMLDivElement>,
+  ) => {
+    event.preventDefault()
+    event.stopPropagation()
 
-      setNavState((currentState: NavState) => ({
-        ...currentState,
-        ...newState,
-      }))
+    setNavState((currentState: NavState) => ({
+      ...currentState,
+      ...newState,
+    }))
 
-      if (newState.callback) {
-        newState.callback()
-      }
+    if (newState.callback) {
+      newState.callback()
     }
+  }
 
   return {
     navState,

@@ -70,44 +70,50 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   isSelected?: boolean // Does the card have the blue selected border
 }
 
-export const handleToggleContextMenu =
-  (contextMenuOpen: boolean, setContextMenuOpen: Dispatch<SetStateAction<boolean>>) => (event: MouseEvent) => {
-    event.stopPropagation()
-    setContextMenuOpen(!contextMenuOpen)
-  }
+export const handleToggleContextMenu = (
+  contextMenuOpen: boolean,
+  setContextMenuOpen: Dispatch<SetStateAction<boolean>>,
+) => (event: MouseEvent) => {
+  event.stopPropagation()
+  setContextMenuOpen(!contextMenuOpen)
+}
 
-export const handleToggleMainMobileOpen =
-  (mainMobileOpen: boolean, setMainMobileOpen: Dispatch<SetStateAction<boolean>>) => (event: MouseEvent) => {
-    event.stopPropagation()
-    deprecateFunction('handleToggleMainMobileOpen')
-    setMainMobileOpen(!mainMobileOpen)
-  }
+export const handleToggleMainMobileOpen = (
+  mainMobileOpen: boolean,
+  setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
+) => (event: MouseEvent) => {
+  event.stopPropagation()
+  deprecateFunction('handleToggleMainMobileOpen')
+  setMainMobileOpen(!mainMobileOpen)
+}
 
-export const handleToggleListMobileOpen =
-  (listMobileOpen: boolean, setListMobileOpen: Dispatch<SetStateAction<boolean>>) => (event: MouseEvent) => {
-    event.stopPropagation()
-    deprecateFunction('handleToggleListMobileOpen')
-    setListMobileOpen(!listMobileOpen)
-  }
+export const handleToggleListMobileOpen = (
+  listMobileOpen: boolean,
+  setListMobileOpen: Dispatch<SetStateAction<boolean>>,
+) => (event: MouseEvent) => {
+  event.stopPropagation()
+  deprecateFunction('handleToggleListMobileOpen')
+  setListMobileOpen(!listMobileOpen)
+}
 
-export const handleToggleBothMobileOpen =
-  (
-    mainMobileOpen: boolean,
-    setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
-    listMobileOpen: boolean,
-    setListMobileOpen: Dispatch<SetStateAction<boolean>>,
-  ) =>
-  (event: MouseEvent) => {
-    event.stopPropagation()
-    deprecateFunction('handleToggleBothMobileOpen')
-    setMainMobileOpen(!mainMobileOpen)
-    setListMobileOpen(!listMobileOpen)
-  }
+export const handleToggleBothMobileOpen = (
+  mainMobileOpen: boolean,
+  setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
+  listMobileOpen: boolean,
+  setListMobileOpen: Dispatch<SetStateAction<boolean>>,
+) => (event: MouseEvent) => {
+  event.stopPropagation()
+  deprecateFunction('handleToggleBothMobileOpen')
+  setMainMobileOpen(!mainMobileOpen)
+  setListMobileOpen(!listMobileOpen)
+}
 
-export const handleMouseHover =
-  (hoverIndex: number | null, setHoverIndex: Dispatch<SetStateAction<number | null>>) => () => {
-    setHoverIndex(hoverIndex)
-  }
+export const handleMouseHover = (
+  hoverIndex: number | null,
+  setHoverIndex: Dispatch<SetStateAction<number | null>>,
+) => () => {
+  setHoverIndex(hoverIndex)
+}
 
 export const CardContextMenu: FC<CardContextMenuProps> = ({ className, contextMenuItems, ...rest }) => {
   const [contextMenuOpen, setContextMenuOpen] = useState<boolean>(false)
