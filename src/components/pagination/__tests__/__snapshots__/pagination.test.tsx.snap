@@ -7,7 +7,9 @@ exports[`Pagination should match a snapshot 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.button
+          aria-label="Previous"
           data-testid="back-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
@@ -32,7 +34,9 @@ exports[`Pagination should match a snapshot 1`] = `
           4
         </mock-styled.div>
         <mock-styled.button
+          aria-label="Next"
           data-testid="forward-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
@@ -55,7 +59,9 @@ exports[`Pagination should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.button
+        aria-label="Previous"
         data-testid="back-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
@@ -80,7 +86,9 @@ exports[`Pagination should match a snapshot 1`] = `
         4
       </mock-styled.div>
       <mock-styled.button
+        aria-label="Next"
         data-testid="forward-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
@@ -160,7 +168,9 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.button
+          aria-label="Previous"
           data-testid="back-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
@@ -178,7 +188,9 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
           </mock-styled.span>
         </mock-styled.button>
         <mock-styled.button
+          aria-label="Previous"
           data-testid="back-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
@@ -216,7 +228,9 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
           4
         </mock-styled.div>
         <mock-styled.button
+          aria-label="Next"
           data-testid="back-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
@@ -247,7 +261,9 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
           </mock-styled.span>
         </mock-styled.button>
         <mock-styled.button
+          aria-label="Next"
           data-testid="forward-button"
+          role="button"
           type="button"
         >
           <mock-styled.span
@@ -270,7 +286,9 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.button
+        aria-label="Previous"
         data-testid="back-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
@@ -288,7 +306,9 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
         </mock-styled.span>
       </mock-styled.button>
       <mock-styled.button
+        aria-label="Previous"
         data-testid="back-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
@@ -326,7 +346,9 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
         4
       </mock-styled.div>
       <mock-styled.button
+        aria-label="Next"
         data-testid="back-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
@@ -357,7 +379,9 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
         </mock-styled.span>
       </mock-styled.button>
       <mock-styled.button
+        aria-label="Next"
         data-testid="forward-button"
+        role="button"
         type="button"
       >
         <mock-styled.span
