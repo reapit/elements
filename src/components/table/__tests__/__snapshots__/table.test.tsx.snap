@@ -73,9 +73,14 @@ exports[`Table Component should match a snapshot for cta content alternate setti
       <mock-styled.div
         data-has-call-to-action="true"
         data-has-expandable-action="false"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            role="columnheader"
+          >
             <mock-styled.span
               classname="mock-css. mock-css.
   font-size: 1.5rem;
@@ -88,10 +93,12 @@ exports[`Table Component should match a snapshot for cta content alternate setti
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="foo-bar"
+              role="cell"
             >
               <mock-styled.div>
                 <mock-styled.span
@@ -111,9 +118,14 @@ exports[`Table Component should match a snapshot for cta content alternate setti
     <mock-styled.div
       data-has-call-to-action="true"
       data-has-expandable-action="false"
+      role="table"
     >
-      <mock-styled.div>
-        <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
+        <mock-styled.div
+          role="columnheader"
+        >
           <mock-styled.span
             classname="mock-css. mock-css.
   font-size: 1.5rem;
@@ -126,10 +138,12 @@ exports[`Table Component should match a snapshot for cta content alternate setti
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="foo-bar"
+            role="cell"
           >
             <mock-styled.div>
               <mock-styled.span
@@ -207,18 +221,25 @@ exports[`Table Component should match a snapshot for expandable content alternat
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="0"
+        role="table"
       >
-        <mock-styled.div>
-          <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
+          <mock-styled.div
+            role="columnheader"
+          >
             Some Content
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="foo-bar"
+              role="cell"
             >
               <mock-styled.span
                 classname="mock-css. mock-css.
@@ -231,6 +252,7 @@ exports[`Table Component should match a snapshot for expandable content alternat
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
@@ -248,18 +270,25 @@ exports[`Table Component should match a snapshot for expandable content alternat
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="0"
+      role="table"
     >
-      <mock-styled.div>
-        <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
+        <mock-styled.div
+          role="columnheader"
+        >
           Some Content
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="foo-bar"
+            role="cell"
           >
             <mock-styled.span
               classname="mock-css. mock-css.
@@ -272,6 +301,7 @@ exports[`Table Component should match a snapshot for expandable content alternat
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
+          aria-hidden="false"
           classname=""
         >
           <mock-styled.div>
@@ -346,45 +376,72 @@ exports[`Table Component should match a snapshot with full props and cta content
         data-has-call-to-action="true"
         data-has-expandable-action="false"
         data-num-columns-excl-action-col="8"
+        role="table"
       >
-        <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
           <mock-styled.div
+            aria-label="Property"
             classname="mock-css.
   grid-column-end: span 2;
 "
+            role="columnheader"
           >
             Property
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Customer"
+            role="columnheader"
+          >
             Customer
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Client A/C"
+            role="columnheader"
+          >
             Client A/C
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Description"
+            role="columnheader"
+          >
             Description
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Request Date"
+            role="columnheader"
+          >
             Request Date
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Amount"
+            role="columnheader"
+          >
             Amount
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Payment Status"
+            role="columnheader"
+          >
             Payment Status
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             Some Action
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
           classname="mock-css."
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="mock-css.
   grid-column-end: span 2;
  mock-css."
+              role="cell"
             >
               <mock-styled.span
                 classname="mock-css."
@@ -403,6 +460,7 @@ exports[`Table Component should match a snapshot with full props and cta content
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.span
                 classname="mock-css."
@@ -421,6 +479,7 @@ exports[`Table Component should match a snapshot with full props and cta content
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.div>
                 Alternate Lettings Client Acc
@@ -428,6 +487,7 @@ exports[`Table Component should match a snapshot with full props and cta content
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.div>
                 Tenant Payment Request
@@ -435,6 +495,7 @@ exports[`Table Component should match a snapshot with full props and cta content
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Request Date"
@@ -444,6 +505,7 @@ exports[`Table Component should match a snapshot with full props and cta content
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.div>
                 £50.00
@@ -451,6 +513,7 @@ exports[`Table Component should match a snapshot with full props and cta content
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.div>
                 Not Requested
@@ -458,6 +521,7 @@ exports[`Table Component should match a snapshot with full props and cta content
             </mock-styled.div>
             <mock-styled.div
               classname="foo-bar"
+              role="cell"
             >
               <mock-styled.div>
                 <mock-styled.span
@@ -478,45 +542,72 @@ exports[`Table Component should match a snapshot with full props and cta content
       data-has-call-to-action="true"
       data-has-expandable-action="false"
       data-num-columns-excl-action-col="8"
+      role="table"
     >
-      <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
         <mock-styled.div
+          aria-label="Property"
           classname="mock-css.
   grid-column-end: span 2;
 "
+          role="columnheader"
         >
           Property
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Customer"
+          role="columnheader"
+        >
           Customer
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Client A/C"
+          role="columnheader"
+        >
           Client A/C
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Description"
+          role="columnheader"
+        >
           Description
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Request Date"
+          role="columnheader"
+        >
           Request Date
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Amount"
+          role="columnheader"
+        >
           Amount
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Payment Status"
+          role="columnheader"
+        >
           Payment Status
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          role="columnheader"
+        >
           Some Action
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css."
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="mock-css.
   grid-column-end: span 2;
  mock-css."
+            role="cell"
           >
             <mock-styled.span
               classname="mock-css."
@@ -535,6 +626,7 @@ exports[`Table Component should match a snapshot with full props and cta content
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.span
               classname="mock-css."
@@ -553,6 +645,7 @@ exports[`Table Component should match a snapshot with full props and cta content
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.div>
               Alternate Lettings Client Acc
@@ -560,6 +653,7 @@ exports[`Table Component should match a snapshot with full props and cta content
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.div>
               Tenant Payment Request
@@ -567,6 +661,7 @@ exports[`Table Component should match a snapshot with full props and cta content
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Request Date"
@@ -576,6 +671,7 @@ exports[`Table Component should match a snapshot with full props and cta content
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.div>
               £50.00
@@ -583,6 +679,7 @@ exports[`Table Component should match a snapshot with full props and cta content
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.div>
               Not Requested
@@ -590,6 +687,7 @@ exports[`Table Component should match a snapshot with full props and cta content
           </mock-styled.div>
           <mock-styled.div
             classname="foo-bar"
+            role="cell"
           >
             <mock-styled.div>
               <mock-styled.span
@@ -667,34 +765,59 @@ exports[`Table Component should match a snapshot with full props and expandable 
         data-has-call-to-action="false"
         data-has-expandable-action="true"
         data-num-columns-excl-action-col="8"
+        role="table"
       >
-        <mock-styled.div>
+        <mock-styled.div
+          role="row"
+        >
           <mock-styled.div
+            aria-label="Property"
             classname="mock-css.
   grid-column-end: span 2;
 "
+            role="columnheader"
           >
             Property
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Customer"
+            role="columnheader"
+          >
             Customer
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Client A/C"
+            role="columnheader"
+          >
             Client A/C
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Description"
+            role="columnheader"
+          >
             Description
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Request Date"
+            role="columnheader"
+          >
             Request Date
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Amount"
+            role="columnheader"
+          >
             Amount
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-label="Payment Status"
+            role="columnheader"
+          >
             Payment Status
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            role="columnheader"
+          >
             <mock-styled.span
               classname="mock-css. mock-css.
   font-size: 1.5rem;
@@ -707,12 +830,14 @@ exports[`Table Component should match a snapshot with full props and expandable 
         </mock-styled.div>
         <mock-styled.div
           classname="mock-css."
+          role="row"
         >
           <mock-styled.div>
             <mock-styled.div
               classname="mock-css.
   grid-column-end: span 2;
  mock-css."
+              role="cell"
             >
               <mock-styled.span
                 classname="mock-css."
@@ -731,6 +856,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.span
                 classname="mock-css."
@@ -749,6 +875,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.div>
                 Alternate Lettings Client Acc
@@ -756,6 +883,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.div>
                 Tenant Payment Request
@@ -763,6 +891,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.div
                 data-narrow-label="Request Date"
@@ -772,6 +901,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.div>
                 £50.00
@@ -779,6 +909,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css."
+              role="cell"
             >
               <mock-styled.div>
                 Not Requested
@@ -786,6 +917,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
             <mock-styled.div
               classname=""
+              role="cell"
             >
               <mock-styled.span
                 classname="mock-css. mock-css.
@@ -798,6 +930,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
+            aria-hidden="true"
             classname="mock-css."
           >
             <mock-styled.div>
@@ -815,34 +948,59 @@ exports[`Table Component should match a snapshot with full props and expandable 
       data-has-call-to-action="false"
       data-has-expandable-action="true"
       data-num-columns-excl-action-col="8"
+      role="table"
     >
-      <mock-styled.div>
+      <mock-styled.div
+        role="row"
+      >
         <mock-styled.div
+          aria-label="Property"
           classname="mock-css.
   grid-column-end: span 2;
 "
+          role="columnheader"
         >
           Property
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Customer"
+          role="columnheader"
+        >
           Customer
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Client A/C"
+          role="columnheader"
+        >
           Client A/C
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Description"
+          role="columnheader"
+        >
           Description
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Request Date"
+          role="columnheader"
+        >
           Request Date
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Amount"
+          role="columnheader"
+        >
           Amount
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-label="Payment Status"
+          role="columnheader"
+        >
           Payment Status
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          role="columnheader"
+        >
           <mock-styled.span
             classname="mock-css. mock-css.
   font-size: 1.5rem;
@@ -855,12 +1013,14 @@ exports[`Table Component should match a snapshot with full props and expandable 
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css."
+        role="row"
       >
         <mock-styled.div>
           <mock-styled.div
             classname="mock-css.
   grid-column-end: span 2;
  mock-css."
+            role="cell"
           >
             <mock-styled.span
               classname="mock-css."
@@ -879,6 +1039,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.span
               classname="mock-css."
@@ -897,6 +1058,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.div>
               Alternate Lettings Client Acc
@@ -904,6 +1066,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.div>
               Tenant Payment Request
@@ -911,6 +1074,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.div
               data-narrow-label="Request Date"
@@ -920,6 +1084,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.div>
               £50.00
@@ -927,6 +1092,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css."
+            role="cell"
           >
             <mock-styled.div>
               Not Requested
@@ -934,6 +1100,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
           </mock-styled.div>
           <mock-styled.div
             classname=""
+            role="cell"
           >
             <mock-styled.span
               classname="mock-css. mock-css.
@@ -946,6 +1113,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
+          aria-hidden="true"
           classname="mock-css."
         >
           <mock-styled.div>
