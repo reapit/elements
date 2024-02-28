@@ -200,11 +200,13 @@ exports[`PageHeader component should match a snapshot 1`] = `
   width: 100%;
   justify-content: space-evenly;
 "
+            role="tablist"
           >
             <mock-styled.div>
               <mock-styled.input
                 id="tab-1-fw"
                 name="my-cool-tabs-full-width"
+                role="tab"
                 type="radio"
                 value="tab-1-fw"
               />
@@ -233,6 +235,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.input
                 id="tab-2-fw"
                 name="my-cool-tabs-full-width"
+                role="tab"
                 type="radio"
                 value="tab-2-fw"
               />
@@ -261,6 +264,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.input
                 id="tab-3-fw"
                 name="my-cool-tabs-full-width"
+                role="tab"
                 type="radio"
                 value="tab-3-fw"
               />
@@ -494,11 +498,13 @@ exports[`PageHeader component should match a snapshot 1`] = `
   width: 100%;
   justify-content: space-evenly;
 "
+          role="tablist"
         >
           <mock-styled.div>
             <mock-styled.input
               id="tab-1-fw"
               name="my-cool-tabs-full-width"
+              role="tab"
               type="radio"
               value="tab-1-fw"
             />
@@ -527,6 +533,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             <mock-styled.input
               id="tab-2-fw"
               name="my-cool-tabs-full-width"
+              role="tab"
               type="radio"
               value="tab-2-fw"
             />
@@ -555,6 +562,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             <mock-styled.input
               id="tab-3-fw"
               name="my-cool-tabs-full-width"
+              role="tab"
               type="radio"
               value="tab-3-fw"
             />
