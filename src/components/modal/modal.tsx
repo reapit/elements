@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, useEffect } from 'react'
+import React, { FC, HTMLAttributes, useEffect, useId } from 'react'
 import { cx } from '@linaria/core'
 import { ElModalBg, ElModal, ElModalHeader, ElModalBody } from './__styles__'
 import { elIsActive } from '../../styles/states'
@@ -37,6 +37,7 @@ export const ModalBody: FC<ModalBaseProps> = ({ className, children, ...rest }: 
 )
 
 export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, children, ...rest }) => {
+  const id = rest.id || useId()
   useEffect(() => {
     const onKeyUp = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -57,9 +58,9 @@ export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, 
   return (
     <>
       <ElModalBg className={elIsActive} onClick={onModalClose} />
-      <ElModal className={modalCombinedClassname} {...rest}>
+      <ElModal role="dialog" aria-modal="true" aria-describedby={id} className={modalCombinedClassname} {...rest}>
         {title && <ElModalHeader>{title}</ElModalHeader>}
-        <ElModalBody>{children}</ElModalBody>
+        <ElModalBody id={id}>{children}</ElModalBody>
       </ElModal>
     </>
   )
