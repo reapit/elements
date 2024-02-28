@@ -11,6 +11,7 @@ exports[`ToolTip should match a snapshot and render children 1`] = `
           classname="mock-css.
   display: block;
 "
+          role="tooltip"
         >
           hello there
         </mock-styled.div>
@@ -24,6 +25,7 @@ exports[`ToolTip should match a snapshot and render children 1`] = `
         classname="mock-css.
   display: block;
 "
+        role="tooltip"
       >
         hello there
       </mock-styled.div>

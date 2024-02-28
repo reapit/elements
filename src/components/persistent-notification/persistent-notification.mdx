@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { PersistentNotification } from './index'
 import * as PersistentNotificationStories from './persistent-notification.stories'
@@ -9,15 +9,13 @@ import * as PersistentNotificationStories from './persistent-notification.storie
 
 A notification component to render helpers inline.
 
-<ArgsTable of={PersistentNotification} />
+<Controls />
 
 ## Full React example using `useState` and the default CSS position: fixed
 
 The element uses CSS position fixed by default, which means the component "floats" on top of all other content. This example can be seen in the top right corner of the screen. Only one PersistentNotification per page is supported.
 
-<Canvas>
-  <Story of={PersistentNotificationStories.FullReactExampleFixedPosition} />
-</Canvas>
+<Canvas of={PersistentNotificationStories.FullReactExampleFixedPosition} />
 
 ## Inline examples
 
@@ -27,19 +25,15 @@ This makes it easier to preview these examples, but if the isFixed property is s
 
 ## Default usage Inline
 
-<Canvas>
-  <Story of={PersistentNotificationStories.DefaultUsageInline} />
-</Canvas>
+<Canvas of={PersistentNotificationStories.DefaultUsageInline} />
 
-<RenderHtmlMarkup component="PersistentNotification" story="Default Usage Inline" />
+<RenderHtmlMarkup of={PersistentNotificationStories.DefaultUsageInline} />
 
 ## With a different icon
 
-<Canvas>
-  <Story of={PersistentNotificationStories.WithADifferentIcon} />
-</Canvas>
+<Canvas of={PersistentNotificationStories.WithADifferentIcon} />
 
-<RenderHtmlMarkup component="PersistentNotification" story="With a different icon" />
+<RenderHtmlMarkup of={PersistentNotificationStories.WithADifferentIcon} />
 
 ## Inline helpers, full width with different intents
 
@@ -52,41 +46,37 @@ Below you can see examples of inline helpers, full width, in each of the differe
 <Canvas>
   <Story of={PersistentNotificationStories.InlineNotifcationIntentPrimary} />
 
-{' '}
+  {' '}
 
-<Story of={PersistentNotificationStories.InlineNotifcationIntentNeutral} />
+  <Story of={PersistentNotificationStories.InlineNotifcationIntentNeutral} />
 
-{' '}
+  {' '}
 
-<Story of={PersistentNotificationStories.InlineNotifcationIntentSuccess} />
+  <Story of={PersistentNotificationStories.InlineNotifcationIntentSuccess} />
 
-{' '}
+  {' '}
 
-<Story of={PersistentNotificationStories.InlineNotifcationIntentPending} />
+  <Story of={PersistentNotificationStories.InlineNotifcationIntentPending} />
 
-{' '}
+  {' '}
 
-<Story of={PersistentNotificationStories.InlineNotifcationIntentWarning} />
+  <Story of={PersistentNotificationStories.InlineNotifcationIntentWarning} />
 
-{' '}
+  {' '}
 
-<Story of={PersistentNotificationStories.InlineNotifcationIntentDanger} />
+  <Story of={PersistentNotificationStories.InlineNotifcationIntentDanger} />
 
   <Story of={PersistentNotificationStories.InlineNotifcationIntentDefault} />
 </Canvas>
 
-<RenderHtmlMarkup
-  component="PersistentNotification"
-  story={[
-    'Inline notifcation, intent: primary',
-    'Inline notifcation, intent: neutral',
-    'Inline notifcation, intent: success',
-    'Inline notifcation, intent: pending',
-    'Inline notifcation, intent: warning',
-    'Inline notifcation, intent: danger',
-    'Inline notifcation, intent: default',
-  ]}
-/>
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentPrimary} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentNeutral} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentSuccess} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentPending} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentWarning} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentDanger} />
+<RenderHtmlMarkup of={PersistentNotificationStories.InlineNotifcationIntentDefault} />
+
 
 ## Collapsed/Expanded state
 

@@ -15,7 +15,7 @@ export const TextArea: TextAreaWrapped = forwardRef(({ hasError, ...rest }, ref)
     <ElTextArea
       className={cx(hasError && elTextAreaHasError)}
       {...rest}
-      ref={ref as unknown as LegacyRef<HTMLTextAreaElement>}
+      ref={(ref as unknown) as LegacyRef<HTMLTextAreaElement>}
     />
   )
 })

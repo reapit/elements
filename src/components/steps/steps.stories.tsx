@@ -29,7 +29,6 @@ export const ReactExample = {
 
     return <Steps steps={['1', '2', '3', '4', '5']} selectedStep={selectedStep} onStepClick={setSelectedStep} />
   },
-
   name: 'React example',
 }
 

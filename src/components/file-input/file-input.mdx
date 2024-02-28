@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { FileInput } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as FileInputStories from './file-input.stories'
@@ -15,13 +15,13 @@ If you prefer not to use this component, especially if you are a non-React user,
 
 Props available for the React version of the component;
 
-<ArgsTable of={FileInput} />
+<Controls />
 
 <Canvas>
   <Story of={FileInputStories.DefaultUsage} />
 </Canvas>
 
-<RenderHtmlMarkup component="FileInput" story="Default Usage" />
+<RenderHtmlMarkup of={FileInputStories.DefaultUsage} />
 
 ## Advanced Usage
 
@@ -33,4 +33,5 @@ Adds a placeholder, a Modal preview window and a setState callback to store your
   <Story of={FileInputStories.AdvancedUsage} />
 </Canvas>
 
-<RenderHtmlMarkup component="FileInput" story="Advanced Usage" />
+{/* Cannot use because of portals error? */}
+{/* <RenderHtmlMarkup component="FileInput" story="Advanced Usage" /> */}

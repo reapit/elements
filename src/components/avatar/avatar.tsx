@@ -9,11 +9,11 @@ export interface AvatarProps extends HTMLAttributes<HTMLSpanElement> {
 
 export const Avatar: FC<AvatarProps> = ({ children, src, type, className, ...rest }) => {
   return type === 'image' ? (
-    <ElAvatarImage className={cx(className)} {...rest}>
+    <ElAvatarImage role="img" className={cx(className)} {...rest}>
       {src ? <img src={src} alt={src} /> : children}
     </ElAvatarImage>
   ) : (
-    <ElAvatar className={cx(className)} {...rest}>
+    <ElAvatar role="img" className={cx(className)} {...rest}>
       {src ? <img src={src} /> : children}
     </ElAvatar>
   )

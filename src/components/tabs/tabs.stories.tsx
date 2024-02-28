@@ -34,7 +34,6 @@ export const TabsDefault = {
       ]}
     />
   ),
-
   name: 'Tabs - Default',
 }
 
@@ -65,7 +64,6 @@ export const TabsFullWidth = {
       ]}
     />
   ),
-
   name: 'Tabs - Full Width',
 }
 
@@ -116,7 +114,6 @@ export const TabsReactExampleUncontrolled = {
       </>
     )
   },
-
   name: 'Tabs - React Example uncontrolled',
 }
 
@@ -168,6 +165,5 @@ export const TabsReactExampleControlled = {
       </>
     )
   },
-
   name: 'Tabs - React Example controlled',
 }

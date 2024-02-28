@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState } from 'react'
+import React, { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState, useId } from 'react'
 import { cx } from '@linaria/core'
 import {
   ElAccordionContainer,
@@ -60,11 +60,17 @@ export const handleSetOpenItem = (openItem: number, setOpenItem: Dispatch<SetSta
 
 export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => {
   const [openItem, setOpenItem] = useState<number | null>(null)
+  const itemContentId = useId()
+  const itemButtonId = useId()
   return (
     <ElAccordionContainer className={className} {...rest}>
       {items.map((item, index) => (
         <Fragment key={index}>
-          <ElAccordionItem onClick={handleSetOpenItem(index, setOpenItem)}>
+          <ElAccordionItem
+            id={[itemButtonId, index].join('-')}
+            aria-controls={[itemContentId, index].join('-')}
+            onClick={handleSetOpenItem(index, setOpenItem)}
+          >
             <ElAccordionTitle>{item.title}</ElAccordionTitle>
             <ElAccordionTitleContentWrapper>
               {item.titleItems &&
@@ -76,7 +82,15 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
               </ElAccordionTitleContent>
             </ElAccordionTitleContentWrapper>
           </ElAccordionItem>
-          <ElAccordionContent className={cx(openItem === index && elIsActive)}>{item.content}</ElAccordionContent>
+          <ElAccordionContent
+            role="region"
+            aria-labelledby={[itemButtonId, index].join('-')}
+            id={[itemContentId, index].join('-')}
+            aria-expanded={openItem === index}
+            className={cx(openItem === index && elIsActive)}
+          >
+            {item.content}
+          </ElAccordionContent>
         </Fragment>
       ))}
     </ElAccordionContainer>

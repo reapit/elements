@@ -26,14 +26,15 @@ export const FormSectionDivider: FC<FormLayoutProps> = ({ children, ...rest }) =
   return <ElFormSectionDivider {...rest}>{children}</ElFormSectionDivider>
 }
 
-export const InputWrap: React.ForwardRefExoticComponent<FormLayoutProps & React.RefAttributes<HTMLDivElement>> =
-  forwardRef(({ children, ...rest }, ref) => {
-    return (
-      <ElInputWrap {...rest} ref={ref as LegacyRef<HTMLDivElement>}>
-        {children}
-      </ElInputWrap>
-    )
-  })
+export const InputWrap: React.ForwardRefExoticComponent<
+  FormLayoutProps & React.RefAttributes<HTMLDivElement>
+> = forwardRef(({ children, ...rest }, ref) => {
+  return (
+    <ElInputWrap {...rest} ref={ref as LegacyRef<HTMLDivElement>}>
+      {children}
+    </ElInputWrap>
+  )
+})
 
 export const InputWrapSmall: FC<FormLayoutProps> = ({ children, ...rest }) => {
   return <ElInputWrapSmall {...rest}>{children}</ElInputWrapSmall>

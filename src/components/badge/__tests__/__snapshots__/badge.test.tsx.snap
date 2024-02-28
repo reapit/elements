@@ -7,6 +7,7 @@ exports[`Badge component should match a snapshot 1`] = `
     <div>
       <mock-styled.span
         classname=""
+        role="status"
       >
         50%
       </mock-styled.span>
@@ -15,6 +16,7 @@ exports[`Badge component should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.span
       classname=""
+      role="status"
     >
       50%
     </mock-styled.span>
@@ -80,6 +82,7 @@ exports[`Badge component should match a snapshot for intent 1`] = `
     <div>
       <mock-styled.span
         classname="mock-css."
+        role="status"
       >
         Some Content
       </mock-styled.span>
@@ -88,6 +91,7 @@ exports[`Badge component should match a snapshot for intent 1`] = `
   "container": <div>
     <mock-styled.span
       classname="mock-css."
+      role="status"
     >
       Some Content
     </mock-styled.span>
@@ -153,6 +157,7 @@ exports[`Badge component should match a snapshot for intent 2`] = `
     <div>
       <mock-styled.span
         classname="mock-css."
+        role="status"
       >
         Some Content
       </mock-styled.span>
@@ -161,6 +166,7 @@ exports[`Badge component should match a snapshot for intent 2`] = `
   "container": <div>
     <mock-styled.span
       classname="mock-css."
+      role="status"
     >
       Some Content
     </mock-styled.span>
@@ -226,6 +232,7 @@ exports[`Badge component should match a snapshot for intent 3`] = `
     <div>
       <mock-styled.span
         classname="mock-css."
+        role="status"
       >
         Some Content
       </mock-styled.span>
@@ -234,6 +241,7 @@ exports[`Badge component should match a snapshot for intent 3`] = `
   "container": <div>
     <mock-styled.span
       classname="mock-css."
+      role="status"
     >
       Some Content
     </mock-styled.span>
@@ -299,6 +307,7 @@ exports[`Badge component should match a snapshot for intent 4`] = `
     <div>
       <mock-styled.span
         classname="mock-css."
+        role="status"
       >
         Some Content
       </mock-styled.span>
@@ -307,6 +316,7 @@ exports[`Badge component should match a snapshot for intent 4`] = `
   "container": <div>
     <mock-styled.span
       classname="mock-css."
+      role="status"
     >
       Some Content
     </mock-styled.span>
@@ -372,6 +382,7 @@ exports[`Badge component should match a snapshot for intent 5`] = `
     <div>
       <mock-styled.span
         classname="mock-css."
+        role="status"
       >
         Some Content
       </mock-styled.span>
@@ -380,6 +391,7 @@ exports[`Badge component should match a snapshot for intent 5`] = `
   "container": <div>
     <mock-styled.span
       classname="mock-css."
+      role="status"
     >
       Some Content
     </mock-styled.span>
@@ -445,6 +457,7 @@ exports[`Badge component should match a snapshot for intent 6`] = `
     <div>
       <mock-styled.span
         classname="mock-css."
+        role="status"
       >
         Some Content
       </mock-styled.span>
@@ -453,6 +466,7 @@ exports[`Badge component should match a snapshot for intent 6`] = `
   "container": <div>
     <mock-styled.span
       classname="mock-css."
+      role="status"
     >
       Some Content
     </mock-styled.span>
@@ -518,6 +532,7 @@ exports[`Badge component should match a snapshot for intent 7`] = `
     <div>
       <mock-styled.span
         classname="mock-css."
+        role="status"
       >
         Some Content
       </mock-styled.span>
@@ -526,6 +541,7 @@ exports[`Badge component should match a snapshot for intent 7`] = `
   "container": <div>
     <mock-styled.span
       classname="mock-css."
+      role="status"
     >
       Some Content
     </mock-styled.span>
@@ -595,11 +611,13 @@ exports[`BadgeGroup component should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css."
+            role="status"
           >
             Some Content
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css."
+            role="status"
           >
             Some Content
           </mock-styled.span>
@@ -614,11 +632,13 @@ exports[`BadgeGroup component should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.span
           classname="mock-css."
+          role="status"
         >
           Some Content
         </mock-styled.span>
         <mock-styled.span
           classname="mock-css."
+          role="status"
         >
           Some Content
         </mock-styled.span>

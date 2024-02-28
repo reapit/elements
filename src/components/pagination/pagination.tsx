@@ -34,28 +34,35 @@ export interface PaginationInputProps extends InputHTMLAttributes<HTMLInputEleme
 
 export interface PaginationButtonProps extends HTMLAttributes<HTMLButtonElement> {}
 
-export const handlePageChange =
-  (nextPage: number | null, callback: (page: number) => void, setInputValue: Dispatch<SetStateAction<string>>) =>
-  () => {
-    if (nextPage) {
-      setInputValue(String(nextPage))
-      callback(nextPage)
-    }
+export const handlePageChange = (
+  nextPage: number | null,
+  callback: (page: number) => void,
+  setInputValue: Dispatch<SetStateAction<string>>,
+) => () => {
+  if (nextPage) {
+    setInputValue(String(nextPage))
+    callback(nextPage)
   }
+}
 
-export const handlePageInputChange =
-  (numberPages: number, currentPage: number, inputValue: string, callback: (page: number) => void) => () => {
-    const nextPage = Number(inputValue)
-    if (nextPage && nextPage <= numberPages && nextPage !== currentPage) {
-      callback(nextPage)
-    }
+export const handlePageInputChange = (
+  numberPages: number,
+  currentPage: number,
+  inputValue: string,
+  callback: (page: number) => void,
+) => () => {
+  const nextPage = Number(inputValue)
+  if (nextPage && nextPage <= numberPages && nextPage !== currentPage) {
+    callback(nextPage)
   }
+}
 
-export const handlePageInput =
-  (setInputValue: Dispatch<SetStateAction<string>>) => (event: ChangeEvent<HTMLInputElement>) => {
-    const nextPage = event.target.value
-    setInputValue(nextPage)
-  }
+export const handlePageInput = (setInputValue: Dispatch<SetStateAction<string>>) => (
+  event: ChangeEvent<HTMLInputElement>,
+) => {
+  const nextPage = event.target.value
+  setInputValue(nextPage)
+}
 
 export const PaginationWrap: FC<PaginationWrapProps> = ({ children, ...rest }) => (
   <ElPaginationWrap {...rest}>{children}</ElPaginationWrap>
@@ -93,11 +100,21 @@ export const Pagination: FC<PaginationProps> = ({
   const prevPage = currentPage > 1 ? currentPage - 1 : null
   return (
     <PaginationWrap {...rest}>
-      <PaginationButton data-testid="back-button" onClick={handlePageChange(prevPage, callback, setInputValue)}>
+      <PaginationButton
+        role="button"
+        aria-label="Previous"
+        data-testid="back-button"
+        onClick={handlePageChange(prevPage, callback, setInputValue)}
+      >
         <Icon icon="chevronLeft" className={cx(prevPage && elPaginationPrimary)} />
       </PaginationButton>
       {hasStartButton && (
-        <PaginationButton data-testid="back-button" onClick={handlePageChange(1, callback, setInputValue)}>
+        <PaginationButton
+          role="button"
+          aria-label="Previous"
+          data-testid="back-button"
+          onClick={handlePageChange(1, callback, setInputValue)}
+        >
           <Icon icon="chevronLeft" className={cx(currentPage !== 1 && elPaginationPrimary)} />
           <Icon icon="chevronLeft" className={cx(currentPage !== 1 && elPaginationPrimary)} />
         </PaginationButton>
@@ -106,12 +123,22 @@ export const Pagination: FC<PaginationProps> = ({
         <PaginationInput onChange={handlePageInput(setInputValue)} value={inputValue} /> of {numberPages}
       </PaginationText>
       {hasEndButton && (
-        <PaginationButton data-testid="back-button" onClick={handlePageChange(numberPages, callback, setInputValue)}>
+        <PaginationButton
+          role="button"
+          aria-label="Next"
+          data-testid="back-button"
+          onClick={handlePageChange(numberPages, callback, setInputValue)}
+        >
           <Icon icon="chevronRight" className={cx(currentPage !== numberPages && elPaginationPrimary)} />
           <Icon icon="chevronRight" className={cx(currentPage !== numberPages && elPaginationPrimary)} />
         </PaginationButton>
       )}
-      <PaginationButton data-testid="forward-button" onClick={handlePageChange(nextPage, callback, setInputValue)}>
+      <PaginationButton
+        role="button"
+        aria-label="Next"
+        data-testid="forward-button"
+        onClick={handlePageChange(nextPage, callback, setInputValue)}
+      >
         <Icon icon="chevronRight" className={cx(nextPage && elPaginationPrimary)} />
       </PaginationButton>
     </PaginationWrap>

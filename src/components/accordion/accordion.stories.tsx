@@ -10,16 +10,19 @@ import {
 import { Icon } from '../icon'
 import { elMr1 } from '../../styles/spacing'
 import { elIsActive } from '../../styles/states'
+import { Meta, StoryObj } from '@storybook/react'
 
-export default {
+const meta: Meta<typeof Accordion> = {
   title: 'Accordion',
   component: Accordion,
 }
 
+export default meta
+
 export const BasicUsage = {
   render: ({}) => (
     <AccordionContainer>
-      <AccordionItem onClick={console.log}>
+      <AccordionItem onClick={console.log} id="item-title-1" aria-controls="item-content-1">
         <AccordionTitle>Accordion Item 1</AccordionTitle>
         <AccordionTitleContentWrapper>
           <AccordionTitleContent>
@@ -33,8 +36,16 @@ export const BasicUsage = {
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
-      <AccordionContent className={elIsActive}>Accordion Content 1</AccordionContent>
-      <AccordionItem onClick={console.log}>
+      <AccordionContent
+        id="item-content-1"
+        role="region"
+        aria-expanded="true"
+        aria-labelledby="item-title-1"
+        className={elIsActive}
+      >
+        Accordion Content 1
+      </AccordionContent>
+      <AccordionItem onClick={console.log} id="item-title-2" aria-controls="item-content-2">
         <AccordionTitle>Accordion Item 2</AccordionTitle>
         <AccordionTitleContentWrapper>
           <AccordionTitleContent>
@@ -48,8 +59,10 @@ export const BasicUsage = {
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
-      <AccordionContent>Accordion Content 2</AccordionContent>
-      <AccordionItem onClick={console.log}>
+      <AccordionContent id="item-content-2" role="region" aria-expanded="false" aria-labelledby="item-title-2">
+        Accordion Content 2
+      </AccordionContent>
+      <AccordionItem onClick={console.log} id="item-title-3" aria-controls="item-content-3">
         <AccordionTitle>Accordion Item 3</AccordionTitle>
         <AccordionTitleContentWrapper>
           <AccordionTitleContent>
@@ -63,54 +76,54 @@ export const BasicUsage = {
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
-      <AccordionContent>Accordion Content 3</AccordionContent>
+      <AccordionContent id="item-content-3" role="region" aria-expanded="false" aria-labelledby="item-title-3">
+        Accordion Content 3
+      </AccordionContent>
     </AccordionContainer>
   ),
 }
 
-export const ReactUsage = {
-  render: ({}) => (
-    <Accordion
-      items={[
-        {
-          title: 'Accordion Item 1',
-          content: 'Accordion Content 1',
+export const ReactUsage: StoryObj<typeof Accordion> = {
+  args: {
+    items: [
+      {
+        title: 'Accordion Item 1',
+        content: 'Accordion Content 1',
 
-          titleItems: [
-            <>
-              <Icon className={elMr1} icon="car" />2
-            </>,
-            <>
-              <Icon className={elMr1} icon="bed" />5
-            </>,
-          ],
-        },
-        {
-          title: 'Accordion Item 2',
-          content: 'Accordion Content 2',
+        titleItems: [
+          <>
+            <Icon className={elMr1} icon="car" />2
+          </>,
+          <>
+            <Icon className={elMr1} icon="bed" />5
+          </>,
+        ],
+      },
+      {
+        title: 'Accordion Item 2',
+        content: 'Accordion Content 2',
 
-          titleItems: [
-            <>
-              <Icon className={elMr1} icon="car" />2
-            </>,
-            <>
-              <Icon className={elMr1} icon="bed" />5
-            </>,
-          ],
-        },
-        {
-          title: 'Accordion Item 3',
-          content: 'Accordion Content 3',
-          titleItems: [
-            <>
-              <Icon className={elMr1} icon="car" />2
-            </>,
-            <>
-              <Icon className={elMr1} icon="bed" />5
-            </>,
-          ],
-        },
-      ]}
-    />
-  ),
+        titleItems: [
+          <>
+            <Icon className={elMr1} icon="car" />2
+          </>,
+          <>
+            <Icon className={elMr1} icon="bed" />5
+          </>,
+        ],
+      },
+      {
+        title: 'Accordion Item 3',
+        content: 'Accordion Content 3',
+        titleItems: [
+          <>
+            <Icon className={elMr1} icon="car" />2
+          </>,
+          <>
+            <Icon className={elMr1} icon="bed" />5
+          </>,
+        ],
+      },
+    ],
+  },
 }

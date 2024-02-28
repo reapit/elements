@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { PageHeader } from '.'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as PageHeaderStories from './page-header.stories'
@@ -13,12 +13,10 @@ If you want the page header to have a max width and center on the page in deskto
 
 All props are optional, with the exception of `pageTitle` - see the individual component docs for more information on the available options however, we advise sticking largely to the template below.
 
-<ArgsTable of={PageHeader} />
+<Controls />
 
 ## Basic Usage
 
-<Canvas>
-  <Story of={PageHeaderStories.BasicUsage} />
-</Canvas>
+<Canvas of={PageHeaderStories.BasicUsage} />
 
-<RenderHtmlMarkup component="PageHeader" story="Basic Usage" />
+<RenderHtmlMarkup of={PageHeaderStories.BasicUsage} />

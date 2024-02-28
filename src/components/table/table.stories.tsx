@@ -114,7 +114,6 @@ export const ColumnWidths = {
       </TableRowContainer>
     </Table>
   ),
-
   name: 'Column widths',
 }
 
@@ -160,7 +159,6 @@ export const BasicCustomisationTableCells = {
       </TableRowContainer>
     </Table>
   ),
-
   name: 'Basic Customisation - Table Cells',
 }
 
@@ -406,7 +404,6 @@ export const ReactShorthandUsage = {
             ),
           },
         ],
-
         expandableContent: {
           content: <p>I am more content that is only visible when the 2nd row is expanded</p>,
         },

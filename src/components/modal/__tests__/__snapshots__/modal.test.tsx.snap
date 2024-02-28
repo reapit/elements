@@ -70,12 +70,17 @@ exports[`Modal component should match a snapshot when open 1`] = `
         classname="mock-css."
       />
       <mock-styled.div
+        aria-describedby=":r1:"
+        aria-modal="true"
         classname="mock-css."
+        role="dialog"
       >
         <mock-styled.div>
           test
         </mock-styled.div>
-        <mock-styled.div>
+        <mock-styled.div
+          id=":r1:"
+        >
           Content within modal
         </mock-styled.div>
       </mock-styled.div>
@@ -86,12 +91,17 @@ exports[`Modal component should match a snapshot when open 1`] = `
       classname="mock-css."
     />
     <mock-styled.div
+      aria-describedby=":r1:"
+      aria-modal="true"
       classname="mock-css."
+      role="dialog"
     >
       <mock-styled.div>
         test
       </mock-styled.div>
-      <mock-styled.div>
+      <mock-styled.div
+        id=":r1:"
+      >
         Content within modal
       </mock-styled.div>
     </mock-styled.div>

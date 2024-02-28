@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { Story, Canvas, Controls, Meta } from '@storybook/blocks'
 import { GridResponsive, ColResponsive } from './grid-responsive'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as GridStories from './grid.stories'
@@ -28,21 +28,17 @@ The table below details breakpoints from styleguide against ther respective scre
 
 Row and column gaps are standardised in line with our style guide.
 
-<Canvas>
-  <Story of={GridStories.BasicUsage} />
-</Canvas>
+<Canvas of={GridStories.BasicUsage} />
 
-<RenderHtmlMarkup component="Grid" story={['Basic Usage']} />
+<RenderHtmlMarkup of={GridStories.BasicUsage} />
 
 ## Basic Usage Quarter and Halves
 
 Using the basic grid you can also use smaller columns for more granular control over your layout with `ColHalfy` and `ColQuarter` components.
 
-<Canvas>
-  <Story of={GridStories.BasicUsageQuarterAndHalves} />
-</Canvas>
+<Canvas of={GridStories.BasicUsageQuarterAndHalves} />
 
-<RenderHtmlMarkup component="Grid" story={['Basic Usage Quarter and Halves']} />
+<RenderHtmlMarkup of={GridStories.BasicUsageQuarterAndHalves} />
 
 ## Basic Usage - Split Screen Grid
 
@@ -50,11 +46,9 @@ For more simple layouts, you will likely need a split screen, two column layout.
 
 Below 1024px the grid will have a single item per column, above, the screen will split into two columns.
 
-<Canvas>
-  <Story of={GridStories.BasicUsageSplitScreenGrid} />
-</Canvas>
+<Canvas of={GridStories.BasicUsageSplitScreenGrid} />
 
-<RenderHtmlMarkup component="Grid" story={['Basic Usage - Split Screen Grid']} />
+<RenderHtmlMarkup of={GridStories.BasicUsageSplitScreenGrid} />
 
 ## Basic Usage - Split Screen Grid Thirds
 
@@ -62,11 +56,9 @@ For a sidebar and main colum view, you can use a `GridThirds` grid, with `ColSpl
 
 In mobile and tablet, these columns stack then break at destop view and above.
 
-<Canvas>
-  <Story of={GridStories.BasicUsageSplitScreenGridThirds} />
-</Canvas>
+<Canvas of={GridStories.BasicUsageSplitScreenGridThirds} />
 
-<RenderHtmlMarkup component="Grid" story={['Basic Usage - Split Screen Grid Thirds']} />
+<RenderHtmlMarkup of={GridStories.BasicUsageSplitScreenGridThirds} />
 
 ## Custom Usage
 
@@ -102,11 +94,9 @@ The below contrived example we have overridden base behaviour by adding a custom
 
 Obviously to make classes responsive, you will need some JavaScript to toggle classes as appropriate.
 
-<Canvas>
-  <Story of={GridStories.CustomUsage} />
-</Canvas>
+<Canvas of={GridStories.CustomUsage} />
 
-<RenderHtmlMarkup component="Grid" story={['Custom Usage']} />
+<RenderHtmlMarkup of={GridStories.CustomUsage} />
 
 ## React Example - Responsive Customisation
 
@@ -116,7 +106,7 @@ For React users, we have an addional `GridResponsive` component that under hood 
 
 Both `GridResponsive` and `ColResponsive` components accept props in following interface, mapping to the breakpoint variables we saw in the main grid component table.
 
-<ArgsTable of={GridResponsive} />
+<Controls component={GridResponsive} />
 
 Essentially for `GridResponsive` we can set `grid-column-gap` and `grid-row-gap` for each of mobile, tablet, desktop and widescreen based on relevant prop.
 
@@ -128,10 +118,8 @@ Full example below creates a grid that doubles the number of columns versus the 
 
 ## ColResponsive
 
-<ArgsTable of={ColResponsive} />
+<Controls component={ColResponsive} />
 
-<Canvas>
-  <Story of={GridStories.ReactExampleResponsiveCustomisation} />
-</Canvas>
+<Canvas of={GridStories.ReactExampleResponsiveCustomisation} />
 
-<RenderHtmlMarkup component="Grid" story={['React Example - Responsive Customisation']} />
+<RenderHtmlMarkup of={GridStories.ReactExampleResponsiveCustomisation} />

@@ -10,6 +10,7 @@ import { elProgressBarLabelRight, elProgressBarLabelLeft } from './__styles__'
 
 export default {
   title: 'ProgressBar',
+  component: ProgressBarSteps,
 }
 
 export const BasicExampleProgressBarPercentage = {

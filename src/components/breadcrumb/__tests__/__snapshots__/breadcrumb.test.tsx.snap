@@ -5,13 +5,17 @@ exports[`BreadCrumb should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <mock-styled.div
+        aria-label="Breadcrumb"
+      >
         <mock-styled.div
           classname="mock-css.
   align-items: center;
 "
         >
-          <mock-styled.div>
+          <mock-styled.div
+            aria-current="false"
+          >
             Home
           </mock-styled.div>
         </mock-styled.div>
@@ -26,13 +30,16 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem;
 "
+            role="img"
             style="font-size: 12px;"
           >
             <svg
               style="font-size: 12px;"
             />
           </mock-styled.span>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-current="false"
+          >
             Level 1
           </mock-styled.div>
         </mock-styled.div>
@@ -47,13 +54,16 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem;
 "
+            role="img"
             style="font-size: 12px;"
           >
             <svg
               style="font-size: 12px;"
             />
           </mock-styled.span>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-current="false"
+          >
             Level 2
           </mock-styled.div>
         </mock-styled.div>
@@ -68,13 +78,16 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem;
 "
+            role="img"
             style="font-size: 12px;"
           >
             <svg
               style="font-size: 12px;"
             />
           </mock-styled.span>
-          <mock-styled.div>
+          <mock-styled.div
+            aria-current="page"
+          >
             Level 3
           </mock-styled.div>
         </mock-styled.div>
@@ -82,13 +95,17 @@ exports[`BreadCrumb should match a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <mock-styled.div
+      aria-label="Breadcrumb"
+    >
       <mock-styled.div
         classname="mock-css.
   align-items: center;
 "
       >
-        <mock-styled.div>
+        <mock-styled.div
+          aria-current="false"
+        >
           Home
         </mock-styled.div>
       </mock-styled.div>
@@ -103,13 +120,16 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem;
 "
+          role="img"
           style="font-size: 12px;"
         >
           <svg
             style="font-size: 12px;"
           />
         </mock-styled.span>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-current="false"
+        >
           Level 1
         </mock-styled.div>
       </mock-styled.div>
@@ -124,13 +144,16 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem;
 "
+          role="img"
           style="font-size: 12px;"
         >
           <svg
             style="font-size: 12px;"
           />
         </mock-styled.span>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-current="false"
+        >
           Level 2
         </mock-styled.div>
       </mock-styled.div>
@@ -145,13 +168,16 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem;
 "
+          role="img"
           style="font-size: 12px;"
         >
           <svg
             style="font-size: 12px;"
           />
         </mock-styled.span>
-        <mock-styled.div>
+        <mock-styled.div
+          aria-current="page"
+        >
           Level 3
         </mock-styled.div>
       </mock-styled.div>

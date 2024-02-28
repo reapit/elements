@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { InputGroup } from './index'
 import { Input } from '../input'
 import { Icon } from '../icon'
@@ -14,7 +14,7 @@ import * as InputGroupStories from './input-group.stories'
 
 InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and `InputAddOn` components, so that they can work nicely together.
 
-<ArgsTable of={InputGroup} />
+<Controls />
 
 ## Usage with HTML & CSS only
 
@@ -28,35 +28,27 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
 
 ## Complete example, with Icon, Label, and InputAddOn
 
-<Canvas>
-  <Story of={InputGroupStories.CompleteExample} />
-</Canvas>
+<Canvas of={InputGroupStories.CompleteExample} />
 
-<RenderHtmlMarkup component="InputGroup" story="Complete example" />
+<RenderHtmlMarkup of={InputGroupStories.CompleteExample} />
 
 ## With Icon only
 
-<Canvas>
-  <Story of={InputGroupStories.WithIconOnly} />
-</Canvas>
+<Canvas of={InputGroupStories.WithIconOnly} />
 
-<RenderHtmlMarkup component="InputGroup" story="With Icon only" />
+<RenderHtmlMarkup of={InputGroupStories.WithIconOnly} />
 
 ## With Label only
 
-<Canvas>
-  <Story of={InputGroupStories.WithLabelOnly} />
-</Canvas>
+<Canvas of={InputGroupStories.WithLabelOnly} />
 
-<RenderHtmlMarkup component="InputGroup" story="With Label only" />
+<RenderHtmlMarkup of={InputGroupStories.WithLabelOnly} />
 
 ## With InputAddOn only
 
-<Canvas>
-  <Story of={InputGroupStories.WithInputAddOnOnly} />
-</Canvas>
+<Canvas of={InputGroupStories.WithInputAddOnOnly} />
 
-<RenderHtmlMarkup component="InputGroup" story="With Input Add On Only" />
+<RenderHtmlMarkup of={InputGroupStories.WithInputAddOnOnly} />
 
 ## Shorthand usage for React users
 
@@ -64,21 +56,15 @@ Any additional props not listed here are added to the `Input` component that is 
 
 React shorthand with `icon` and `label` props
 
-<Canvas>
-  <Story of={InputGroupStories.ReactShorthand} />
-</Canvas>
+<Canvas of={InputGroupStories.ReactShorthand} />
 
 ## With a custom ID
 
-<Canvas>
-  <Story of={InputGroupStories.ReactShorthandCustomId} />
-</Canvas>
+<Canvas of={InputGroupStories.ReactShorthandCustomId} />
 
 ## With `icon`, `label`, `InputAddOn` and `intent` props
 
-<Canvas>
-  <Story of={InputGroupStories.ReactShorthandAllProps} />
-</Canvas>
+<Canvas of={InputGroupStories.ReactShorthandAllProps} />
 
 ## Checkbox
 
@@ -89,10 +75,10 @@ React shorthand with `icon` and `label` props
   <Story of={InputGroupStories.InputCheckboxNoLabel} />
 </Canvas>
 
-<RenderHtmlMarkup
-  component="InputGroup"
-  story={['Input checkbox', 'Input checkbox with intent', 'Input checkbox no icon', 'Input checkbox no label']}
-/>
+<RenderHtmlMarkup of={InputGroupStories.InputCheckbox} />
+<RenderHtmlMarkup of={InputGroupStories.InputCheckboxWithIntent} />
+<RenderHtmlMarkup of={InputGroupStories.InputCheckboxNoIcon} />
+<RenderHtmlMarkup of={InputGroupStories.InputCheckboxNoLabel} />
 
 ## Radio
 
@@ -101,21 +87,18 @@ React shorthand with `icon` and `label` props
   <Story of={InputGroupStories.InputRadioWithIntent} />
 </Canvas>
 
-<RenderHtmlMarkup component="InputGroup" story={['Input radio', 'Input radio with intent']} />
+<RenderHtmlMarkup of={InputGroupStories.InputRadio} />
+<RenderHtmlMarkup of={InputGroupStories.InputRadioWithIntent} />
 ## Use with radio input and InputAddOn
 
 The `inputAddOn` prop (and use of the `InputAddOn` component within `InputGroup` in general) _is_ supported with radio buttons, however with radio buttons the `Label` does most of the work.
 
 `inputAddOn` can be used but won't add that much value, and it's reccomended to use just `Label` on it's own. See an example below:
 
-<Canvas>
-  <Story of={InputGroupStories.InputRadioWithInputAddOn} />
-</Canvas>
+<Canvas of={InputGroupStories.InputRadioWithInputAddOn} />
 
 ## Error messages
 
 Below are some examples of error messages with input groups. The error message prop on input group can be used for simple types such as text and email. For groups of radios or checkboxes you can use the `InputError` component instead.
 
-<Canvas>
-  <Story of={InputGroupStories.ErrorMessage} />
-</Canvas>
+<Canvas of={InputGroupStories.ErrorMessage} />

@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { Tile } from '.'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as TileStories from './tile.stories'
@@ -9,32 +9,23 @@ import * as TileStories from './tile.stories'
 
 A layout component for rendering generic content. It is typically used with a `hasGreyBackground` container (see layout) and a `Grid` to space tiles with desired effect.
 
-<ArgsTable for={Tile} />
+<Controls />
 
 ## Basic Usage
 
-<Canvas>
-  <Story of={TileStories.BasicUsage} />
-</Canvas>
-
-<RenderHtmlMarkup component="Tile" story="Basic Usage" />
+<Canvas of={TileStories.BasicUsage} />
+<RenderHtmlMarkup of={TileStories.BasicUsage} />
 
 ## Padding Variants
 
 For smaller tiles with more to a grid row, you may wish to consider setting the `paddingSize` prop to `small` or even `none` for self sizing components.
 
-<Canvas>
-  <Story of={TileStories.PaddingVariants} />
-</Canvas>
-
-<RenderHtmlMarkup component="Tile" story="Padding Variants" />
+<Canvas of={TileStories.PaddingVariants} />
+<RenderHtmlMarkup of={TileStories.PaddingVariants} />
 
 ## Complete Example With Layout
 
 The below illustration shows two kinds of tile layouts with different grids to give a responsive full width and split column tile view.
 
-<Canvas>
-  <Story of={TileStories.TileLayouts} />
-</Canvas>
-
-<RenderHtmlMarkup component="Tile" story="Tile Layouts" />
+<Canvas of={TileStories.TileLayouts} />
+<RenderHtmlMarkup of={TileStories.TileLayouts} />

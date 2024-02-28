@@ -85,6 +85,5 @@ export const UseSnackHookExample = {
       <UseSnackHookStory />
     </SnackProvider>
   ),
-
   name: 'useSnack hook example',
 }

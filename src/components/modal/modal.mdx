@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { Modal } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as ModalStories from './modal.stories'
@@ -21,11 +21,9 @@ By default, the modal fills it's current container so you will likely wish to pl
 
 Click "Show code" below to see JSX / HTML code for a closed modal, along with the corresponding rendered markup. To see how an opened one behaves and the markup, move to the React examples below.
 
-<Canvas>
-  <Story of={ModalStories.BasicUsageClosed} />
-</Canvas>
+<Canvas of={ModalStories.BasicUsageClosed} />
 
-<RenderHtmlMarkup component="Modal" story="Basic Usage - Closed" />
+<RenderHtmlMarkup of={ModalStories.BasicUsageClosed} />
 
 ## React usage
 
@@ -37,11 +35,9 @@ This example gives maxmum flexibility but for the 'batteries included' approach,
 
 Props available for the React version of the component;
 
-<ArgsTable component={Modal} />
+<Controls />
 
-<Canvas>
-  <Story of={ModalStories.ReactModal} />
-</Canvas>
+<Canvas of={ModalStories.ReactModal} story={{height: '300px'}} />
 
 ## React usage - Complete example with `useModal` hook
 
@@ -49,21 +45,15 @@ The use modal hook exports both a modal component and state helpers for toggling
 
 It also leverages our `Portal` component to render the modal at the top level of your app. The default container is `#root` so if you need your portal to render on another element, pass a different id to the `useModal` hook when you instantiate it - in the example below, we use Storybook's `#docs-root`.
 
-<Canvas>
-  <Story of={ModalStories.UseModalExample} />
-</Canvas>
+<Canvas of={ModalStories.UseModalExample} />
 
 ## React usage - With multiple `useModal` hooks
 
 Props available for the React version of the component;
 
-<ArgsTable component={Modal} />
-
 If using multiple modals within a component, ensure you rename the exports from `useModal` to avoid conflicts, e.g. `const { Modal: ModalA, openModal: openModalA } = useModal()`
 
-<Canvas>
-  <Story of={ModalStories.UseModalExampleMultipleModals} />
-</Canvas>
+<Canvas of={ModalStories.UseModalExampleMultipleModals} />
 
 ## `useModal` API
 

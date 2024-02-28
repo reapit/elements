@@ -11,6 +11,5 @@ export const PortalUsage = {
       <div>I am a Portal Example!</div>
     </Portal>
   ),
-
   name: 'Portal usage',
 }

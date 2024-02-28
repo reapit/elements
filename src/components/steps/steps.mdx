@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/blocks'
 import { Steps, StepsVertical } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as StepsStories from './steps.stories'
@@ -11,17 +11,15 @@ Used to indicate position in a process. There are two flavours of steps - the ba
 
 Props available for the React version of the basic inline `Steps` component.
 
-<ArgsTable component={ArgsTable} />
+<Controls />
 
 ## Basic Steps Usage
 
-<Canvas>
-  <Story of={StepsStories.BasicStepsUsage} />
-</Canvas>
+<Canvas of={StepsStories.BasicStepsUsage} />
 
-<RenderHtmlMarkup component="Steps" story="Basic Steps Usage" />
+<RenderHtmlMarkup of={StepsStories.BasicStepsUsage} />
 
-<ArgsTable of={Steps} />
+{/* <ArgsTable of={Steps} /> */}
 
 Set the `selectedStep` prop to control the Steps component.
 
@@ -29,29 +27,23 @@ Steps that exist before the currently selected step are given an additional clas
 
 A CSS transition occurs when moving between steps.
 
-<Canvas>
-  <Story of={StepsStories.MiddleItemSelected} />
-</Canvas>
+<Canvas of={StepsStories.MiddleItemSelected} />
 
-<RenderHtmlMarkup component="Steps" story="Middle item selected" />
+<RenderHtmlMarkup of={StepsStories.MiddleItemSelected} />
 
 You can use any number of steps and you can also use letters instead of numbers. You can use any string as the content really.
 
 Be aware though, steps with long text **aren't supported** and will not render very well at all.
 
-<Canvas>
-  <Story of={StepsStories.LastItemSelected} />
-</Canvas>
+<Canvas of={StepsStories.LastItemSelected} />
 
-<RenderHtmlMarkup component="Steps" story="Last item selected" />
+<RenderHtmlMarkup of={StepsStories.LastItemSelected} />
 
 ## React example with `useState`
 
 In the react example we have used the `useState` hook to keep track of the current selected step, passing the setter to the component so that the transition can be managed onClick.
 
-<Canvas>
-  <Story of={StepsStories.ReactExample} />
-</Canvas>
+<Canvas of={StepsStories.ReactExample} />
 
 ## Steps Vertical
 
@@ -59,19 +51,17 @@ The vertical steps component lays the steps to the right of content containers. 
 
 The available React props are;
 
-<ArgsTable of={StepsVertical} />
+{/* <ArgsTable of={StepsVertical} /> */}
 
 Were `StepsVerticalStep` is defined below;
 
-```ts
+<Source code={`
 export interface StepsVerticalStep {
   item: string
   content?: ReactNode
 }
-```
+`} language="typescript" />
 
-<Canvas>
-  <Story of={StepsStories.StepsVerticalUsage} />
-</Canvas>
+<Canvas of={StepsStories.StepsVerticalUsage} />
 
-<RenderHtmlMarkup component="Steps" story="Steps Vertical Usage" />
+<RenderHtmlMarkup of={StepsStories.StepsVerticalUsage} />

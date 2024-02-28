@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/blocks'
+import { Meta, Story, Canvas, Source } from '@storybook/blocks'
 import * as MediaStories from './media.stories'
 
 <Meta of={MediaStories} />
@@ -15,17 +15,15 @@ This example shows how the `useMediaQuery` hook when wrapped in the provider wil
 
 The underlying code in the `MediaMobileExample` component is shown below:
 
-```tsx
+<Source code={`
 export const MediaMobileExample = () => {
   const { isMobile } = useMediaQuery()
 
   return isMobile ? <h1>Is Mobile</h1> : <h1>Not Mobile</h1>
 }
-```
+`} language="tsx" />
 
-<Canvas>
-  <Story of={MediaStories.MediaStateProviderUsage} />
-</Canvas>
+<Canvas of={MediaStories.MediaStateProviderUsage} />
 
 ## Available break points
 
@@ -35,7 +33,7 @@ This example shows how the `useMediaQuery` will return the relevant code dependi
 
 The underlying code in the `AllBreakPointExample` component is shown below:
 
-```tsx
+<Source code={`
 export const AllBreakPointExample = () => {
   const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen, is4KScreen } = useMediaQuery()
 
@@ -63,11 +61,9 @@ export const AllBreakPointExample = () => {
     return <h1>Is Tablet</h1>
   }
 }
-```
+`} language="tsx" />
 
-<Canvas>
-  <Story of={MediaStories.MediaStateProviderBreakpoints} />
-</Canvas>
+<Canvas of={MediaStories.MediaStateProviderBreakpoints} />
 
 | Variable            | breakpoint sum     |
 | ------------------- | ------------------ |

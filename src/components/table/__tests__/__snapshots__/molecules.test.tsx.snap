@@ -19,6 +19,7 @@ exports[`TableCell Component should match a snapshot with full props 1`] = `
       >
         <mock-styled.span
           classname="mock-css."
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -46,6 +47,7 @@ exports[`TableCell Component should match a snapshot with full props 1`] = `
     >
       <mock-styled.span
         classname="mock-css."
+        role="img"
         style="font-size: 1.25rem;"
       >
         <svg
@@ -345,6 +347,7 @@ exports[`TableCtaTriggerCell Component should match a snapshot with no children 
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css."
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -357,6 +360,7 @@ exports[`TableCtaTriggerCell Component should match a snapshot with no children 
       <mock-styled.div>
         <mock-styled.span
           classname="mock-css."
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -717,6 +721,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
           classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -731,6 +736,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
         classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+        role="img"
       >
         <svg />
       </mock-styled.span>
@@ -807,6 +813,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
           classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -826,6 +833,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
         classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+        role="img"
       >
         <svg />
       </mock-styled.span>

@@ -23,13 +23,21 @@ module.exports = {
       },
     },
   ],
+  core: {
+    builder: '@storybook/builder-vite',
+  },
   loader: { '.js': 'jsx' },
   async viteFinal(config, { configType }) {
     if (configType === 'DEVELOPMENT') {
       config.optimizeDeps.include = [...config?.optimizeDeps?.include, 'jest-mock']
     }
 
-    config.plugins.push(linaria(), svgrPlugin({ icon: true }))
+    config.plugins.push(
+      linaria(),
+      svgrPlugin({
+        icon: true,
+      }),
+    )
 
     config.define = {
       ...config.define,

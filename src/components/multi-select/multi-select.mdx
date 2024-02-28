@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { Story, Canvas, Controls, Meta, Source } from '@storybook/blocks'
 import { MultiSelectInput } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as MultiSelectStories from './multi-select.stories'
@@ -17,21 +17,17 @@ For non React users, you can just apply the classes in the rendered markup to yo
 
 Typically you will use this component when you want the user to select multiple options from a large data list.
 
-<Canvas>
-  <Story of={MultiSelectStories.BasicExample} />
-</Canvas>
+<Canvas of={MultiSelectStories.BasicExample} />
 
-<RenderHtmlMarkup component="MultiSelect" story="Basic Example" />
+<RenderHtmlMarkup of={MultiSelectStories.BasicExample} />
 
 ## Grey Chips
 
 For placing on a white background, we offer a modifier to the chips that turn the background grey.
 
-<Canvas>
-  <Story of={MultiSelectStories.GreyChips} />
-</Canvas>
+<Canvas of={MultiSelectStories.GreyChips} />
 
-<RenderHtmlMarkup component="MultiSelect" story="Grey Chips" />
+<RenderHtmlMarkup of={MultiSelectStories.GreyChips} />
 
 ## React Example
 
@@ -43,19 +39,17 @@ To pre-select some options, you can pass in an array of values to be selected as
 
 On selection of a chip, the chips are sorted so that selected items render in a row above the de-selected items. In the example, we have pre-selected item one by setting the `defaultValues` prop to illustrate this behaviour.
 
-<ArgsTable of={MultiSelectInput} />
+<Controls />
 
 In the above table, `MultiSelectOption` is defined as:
 
-```ts
+<Source code={`
 export interface MultiSelectOption {
   value: string
   name: string
 }
-```
+`} language="typescript" />
 
-<Canvas>
-  <Story of={MultiSelectStories.ReactExample} />
-</Canvas>
+<Canvas of={MultiSelectStories.ReactExample} />
 
-<RenderHtmlMarkup component="MultiSelect" story="React Example" />
+<RenderHtmlMarkup of={MultiSelectStories.ReactExample} />

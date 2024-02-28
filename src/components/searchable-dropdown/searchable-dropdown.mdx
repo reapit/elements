@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/blocks'
 import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from './index'
 import { Label } from '../label'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -10,13 +10,11 @@ import * as SearchableDropdownStories from './searchable-dropdown.stories'
 
 A searchable dropdown list.
 
-<ArgsTable of={SearchableDropdown} />
+<Controls />
 
 ## Basic Usage
 
-<Canvas>
-  <Story of={SearchableDropdownStories.BasicUsage} />
-</Canvas>
+<Canvas of={SearchableDropdownStories.BasicUsage} />
 
 `getResults` is used to get the results, and must return a promise that resolves to an array of results.
 
@@ -30,21 +28,17 @@ A searchable dropdown list.
 
 ## Use with a label
 
-<Canvas>
-  <Story of={SearchableDropdownStories.UseWithALabel} />
-</Canvas>
+<Canvas of={SearchableDropdownStories.UseWithALabel} />
 
 ## Use with a different icon
 
-<Canvas>
-  <Story of={SearchableDropdownStories.UseWithAnIcon} />
-</Canvas>
+<Canvas of={SearchableDropdownStories.UseWithAnIcon} />
 
 ### Use with Types
 
 You can add types to the dropdown by passing a type argument:
 
-```tsx
+<Source code={`
 type ObjectType = {
   id: string
   name: string
@@ -74,20 +68,14 @@ type ObjectType = {
   getResultValue={(result) => result.id}
   onChange={(e) => console.log(e.target.value)}
 />
-```
+`} language="typescript" />
 
 ### Controlled Usage
 
-<ArgsTable of={ControlledSearchableDropdown} />
-
-<Canvas>
-  <Story of={SearchableDropdownStories.ControlledUsage} />
-</Canvas>
+<Canvas of={SearchableDropdownStories.ControlledUsage} />
 
 ### Default Value
 
-<Canvas>
-  <Story of={SearchableDropdownStories.DefaultValue} />
-</Canvas>
+<Canvas of={SearchableDropdownStories.DefaultValue} />
 
-<RenderHtmlMarkup component="SearchableDropdown" story="Controlled Usage" />
+<RenderHtmlMarkup of={SearchableDropdownStories.DefaultValue} />

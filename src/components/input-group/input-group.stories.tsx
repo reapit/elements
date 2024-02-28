@@ -18,7 +18,6 @@ export const CompleteExample = {
       <InputAddOn>Required</InputAddOn>
     </InputGroup>
   ),
-
   name: 'Complete example',
 }
 
@@ -29,7 +28,6 @@ export const WithIconOnly = {
       <Icon fontSize="1rem" icon="phone" />
     </InputGroup>
   ),
-
   name: 'With Icon only',
 }
 
@@ -40,7 +38,6 @@ export const WithLabelOnly = {
       <Label htmlFor="myId3">Email address</Label>
     </InputGroup>
   ),
-
   name: 'With Label only',
 }
 
@@ -51,7 +48,6 @@ export const WithInputAddOnOnly = {
       <InputAddOn>Required</InputAddOn>
     </InputGroup>
   ),
-
   name: 'With InputAddOn Only',
 }
 
@@ -111,6 +107,5 @@ export const ErrorMessage = {
       errorMessage="Email address is not valid"
     />
   ),
-
   name: 'Error message',
 }

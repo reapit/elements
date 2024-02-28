@@ -331,6 +331,7 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
  mock-css. mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -389,6 +390,7 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
  mock-css. mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>

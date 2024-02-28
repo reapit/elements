@@ -66,6 +66,5 @@ export const ReactUsageCanDismiss = {
       </>
     )
   },
-
   name: 'React Usage canDismiss',
 }

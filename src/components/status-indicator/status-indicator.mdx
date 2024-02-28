@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { StatusIndicator } from '.'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as StatusIndicatorStories from './status-indicator.stories'
@@ -11,15 +11,13 @@ A small coloured circle indicator to provide quick visual reference to the statu
 
 Props available for the React version of the component;
 
-<ArgsTable of={StatusIndicator} />
+<Controls />
 
 ## Basic usage
 
-<Canvas>
-  <Story of={StatusIndicatorStories.BasicUsage} />
-</Canvas>
+<Canvas of={StatusIndicatorStories.BasicUsage} />
 
-<RenderHtmlMarkup component="StatusIndicator" story="Basic Usage" />
+<RenderHtmlMarkup of={StatusIndicatorStories.BasicUsage} />
 
 ## Intent
 
@@ -35,15 +33,10 @@ Different intents are supported, to enable buttons to be used in different conte
   <Story of={StatusIndicatorStories.IntentDefault} />
 </Canvas>
 
-<RenderHtmlMarkup
-  component="StatusIndicator"
-  story={[
-    'Intent: Primary',
-    'Intent: Neutral',
-    'Intent: Success',
-    'Intent: Pending',
-    'Intent: Warning',
-    'Intent: Danger',
-    'Intent: Default',
-  ]}
-/>
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentPrimary} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentNeutral} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentSuccess} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentPending} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentWarning} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentDanger} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentDefault} />

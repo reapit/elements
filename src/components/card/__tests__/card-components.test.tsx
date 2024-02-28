@@ -96,7 +96,7 @@ describe('handleToggleContextMenu', () => {
       stopPropagation: jest.fn(),
     }
 
-    curried(event as unknown as MouseEvent)
+    curried((event as unknown) as MouseEvent)
 
     expect(mockSetValue).toHaveBeenCalledTimes(1)
     expect(mockSetValue).toHaveBeenCalledWith(true)
@@ -113,7 +113,7 @@ describe('handleToggleMainMobileOpen', () => {
       stopPropagation: jest.fn(),
     }
 
-    curried(event as unknown as MouseEvent)
+    curried((event as unknown) as MouseEvent)
 
     expect(mockSetValue).toHaveBeenCalledTimes(1)
     expect(mockSetValue).toHaveBeenCalledWith(true)
@@ -130,7 +130,7 @@ describe('handleToggleListMobileOpen', () => {
       stopPropagation: jest.fn(),
     }
 
-    curried(event as unknown as MouseEvent)
+    curried((event as unknown) as MouseEvent)
 
     expect(mockSetValue).toHaveBeenCalledTimes(1)
     expect(mockSetValue).toHaveBeenCalledWith(true)
@@ -149,7 +149,7 @@ describe('handleToggleBothMobileOpen', () => {
       stopPropagation: jest.fn(),
     }
 
-    curried(event as unknown as MouseEvent)
+    curried((event as unknown) as MouseEvent)
 
     expect(mockSetValue).toHaveBeenCalledTimes(1)
     expect(mockSetValue).toHaveBeenCalledWith(true)

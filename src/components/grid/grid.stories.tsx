@@ -66,7 +66,6 @@ export const BasicUsageQuarterAndHalves = {
       </ColQuarter>
     </Grid>
   ),
-
   name: 'Basic Usage Quarter and Halves',
 }
 
@@ -81,7 +80,6 @@ export const BasicUsageSplitScreenGrid = {
       </ColSplit>
     </Grid>
   ),
-
   name: 'Basic Usage - Split Screen Grid',
 }
 
@@ -96,7 +94,6 @@ export const BasicUsageSplitScreenGridThirds = {
       </ColSplitTwoThirds>
     </GridThirds>
   ),
-
   name: 'Basic Usage - Split Screen Grid Thirds',
 }
 
@@ -239,6 +236,5 @@ export const ReactExampleResponsiveCustomisation = {
       </GridResponsive>
     </MediaStateProvider>
   ),
-
   name: 'React Example - Responsive Customisation',
 }

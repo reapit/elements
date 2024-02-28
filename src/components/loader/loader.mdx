@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { Loader } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as LoaderStories from './loader.stories'
@@ -9,33 +9,27 @@ import * as LoaderStories from './loader.stories'
 
 A simple loader component to give a visual indicator of progress. It ships with an optional label prop as per below and can be shown inline or centered.
 
-<ArgsTable of={Loader} />
+<Controls />
 
 ## Inline
 
-<Canvas>
-  <Story of={LoaderStories.Inline} />
-</Canvas>
+<Canvas of={LoaderStories.Inline} />
 
-<RenderHtmlMarkup component="Loader" story="Inline" />
+<RenderHtmlMarkup of={LoaderStories.Inline} />
 
 ## With a label
 
-<Canvas>
-  <Story of={LoaderStories.WithALabel} />
-</Canvas>
+<Canvas of={LoaderStories.WithALabel} />
 
-<RenderHtmlMarkup component="Loader" story="With a label" />
+<RenderHtmlMarkup of={LoaderStories.WithALabel} />
 
 ## Full page
 
 The full page loader overlays any content and centers on the page - suitable for use when loading entire pages of content.
 
-<Canvas>
-  <Story of={LoaderStories.FullPageLoader} />
-</Canvas>
+<Canvas of={LoaderStories.FullPageLoader} />
 
-<RenderHtmlMarkup component="Loader" story="Full page loader" />
+<RenderHtmlMarkup of={LoaderStories.FullPageLoader} />
 
 # Other attributes
 

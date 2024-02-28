@@ -5,6 +5,7 @@ import { Icon } from '../icon'
 
 export default {
   title: 'Pagination',
+  component: Pagination,
 }
 
 export const BasicExample = {

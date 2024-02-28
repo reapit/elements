@@ -14,26 +14,31 @@ export interface BreadCrumbProps extends HTMLAttributes<HTMLDivElement> {
   defaultActiveIndex?: number
 }
 
-export const handleNext =
-  (setActive: Dispatch<SetStateAction<number>>, onClick: () => void, index: number) =>
-  (e: MouseEvent<HTMLDivElement>) => {
-    e.preventDefault()
-    setActive(index)
-    onClick()
-  }
+export const handleNext = (setActive: Dispatch<SetStateAction<number>>, onClick: () => void, index: number) => (
+  e: MouseEvent<HTMLDivElement>,
+) => {
+  e.preventDefault()
+  setActive(index)
+  onClick()
+}
 
 export const BreadCrumb: FC<BreadCrumbProps> = ({ items, defaultActiveIndex = 0, ...rest }) => {
   const [active, setActive] = useState<number>(defaultActiveIndex)
 
   return (
-    <ElBreadCrumbContainer {...rest}>
+    <ElBreadCrumbContainer {...rest} aria-label="Breadcrumb">
       {items.map(({ onClick, text }, index) => {
         if (index > active) return null
 
         return (
           <FlexContainer isFlexAlignCenter key={index}>
             {Boolean(index) && <Icon className={elMr2} icon="chevronRight" intent="default" fontSize="12px" />}
-            <ElBreadCrumbItem onClick={handleNext(setActive, onClick, index)}>{text}</ElBreadCrumbItem>
+            <ElBreadCrumbItem
+              aria-current={active === index ? 'page' : 'false'}
+              onClick={handleNext(setActive, onClick, index)}
+            >
+              {text}
+            </ElBreadCrumbItem>
           </FlexContainer>
         )
       })}

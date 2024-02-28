@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { Drawer } from './drawer'
 import * as DrawerStories from './drawer.stories'
@@ -9,7 +9,7 @@ import * as DrawerStories from './drawer.stories'
 
 The drawer component renders a slide in from the right hand side of the page. It is typically used for displaying forms, tabs, and other "quick view" or "quick edit" content and is dismissable without losing page context. In mobile, it fills the screen.
 
-<ArgsTable of={Drawer} />
+<Controls />
 
 ## Basic Usage
 
@@ -23,11 +23,9 @@ By default, the drawer fills it's current container so you will likely wish to p
 
 Click "Show code" below to see JSX / HTML code for a closed drawer, along with the corresponding rendered markup. To see how an opened one behaves and the markup, move to the React examples below.
 
-<Canvas>
-  <Story of={DrawerStories.BasicUsageClosed} />
-</Canvas>
+<Canvas of={DrawerStories.BasicUsageClosed} />
 
-<RenderHtmlMarkup component="Drawer" story="Basic Usage - Closed" />
+<RenderHtmlMarkup of={DrawerStories.BasicUsageClosed} />
 
 ## React usage with `useDrawer` hook
 
@@ -35,9 +33,7 @@ The `useDrawer` hook exports both a `Drawer` component and state helpers for tog
 
 It also leverages our `Portal` component to render the `Drawer` at the top level of your app. The default container is `#root` so if you need your portal to render on another element, pass a different id to the `useDrawer` hook when you instantiate it - in the example below, we use Storybook's `#docs-root`.
 
-<Canvas>
-  <Story of={DrawerStories.ReactUsage} />
-</Canvas>
+<Canvas of={DrawerStories.ReactUsage} />
 
 ## `useDrawer` API
 
@@ -52,6 +48,4 @@ Exports the following properties as an array - `[Drawer, openDrawer, closeDrawer
 
 Variant in on the above however, the user can dismiss the drawer by clicking on the background or using the icon in the header.
 
-<Canvas>
-  <Story of={DrawerStories.ReactUsageCanDismiss} />
-</Canvas>
+<Canvas of={DrawerStories.ReactUsageCanDismiss} />

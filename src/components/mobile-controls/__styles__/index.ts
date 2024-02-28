@@ -58,12 +58,12 @@ export const ElMobileControlItem = styled.a`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-medium);
   color: var(--color-grey-400);
-  margin: 0 0.5rem 1.25rem 0;
+  margin: 0 0.5rem 0.25rem 0;
   display: none;
   opacity: 1;
 
   &:last-of-type {
-    margin: 0 0.5rem 0.75rem 0;
+    margin: 0 0.5rem 0rem 0;
   }
 
   &.${elIsActive} {

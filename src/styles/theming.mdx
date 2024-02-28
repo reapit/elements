@@ -18,11 +18,9 @@ Here we are overriding the `--intent-primary` variable by wrapping the component
 
 In both examples the markup is identical however, the demo wrapper component has overridden the default `--intent-primary` value by simply setting `--intent-primary: #a0c862;`
 
-<Canvas>
-  <Story of={ThemingStories.BasicExample} />
-</Canvas>
+<Canvas of={ThemingStories.BasicExample} />
 
-<RenderHtmlMarkup component="Theming" story="Basic Example" />
+<RenderHtmlMarkup of={ThemingStories.BasicExample} />
 
 ## Available Variables
 

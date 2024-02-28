@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta, ArgsTable } from '@storybook/blocks'
+import { Story, Canvas, Meta, Controls, Source } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { NavResponsive } from './nav-responsive'
 import * as NavStories from './nav.stories'
@@ -21,11 +21,9 @@ In this example, the menu will not expand in mobile - to enable this behaviour y
 
 If you use a `SecondaryNav` component, you will need to add these options as `NavItem`s and toggle their visibilty with a simple media query in Mobile.
 
-<Canvas>
-  <Story of={NavStories.BasicExample} />
-</Canvas>
+<Canvas of={NavStories.BasicExample} />
 
-<RenderHtmlMarkup component="Nav" story={['Basic Example']} />
+<RenderHtmlMarkup of={NavStories.BasicExample} />
 
 ## Basic Example Mobile Menu Open
 
@@ -33,19 +31,18 @@ In this example, changing the browser width to mobile will show the expanded mob
 
 As per above if you use a `SecondaryNav` component, you will need to add these options as `NavItem`s and toggle their visibilty with the `elNavItemHideDesktop` class.
 
-<Canvas>
-  <Story of={NavStories.BasicExampleMobileMenuOpen} />
-</Canvas>
+<Canvas of={NavStories.BasicExampleMobileMenuOpen} />
 
-<RenderHtmlMarkup component="Nav" story={['Basic Example Mobile Menu Open']} />
+<RenderHtmlMarkup of={NavStories.BasicExampleMobileMenuOpen} />
 
 ## React Usage
 
-<ArgsTable component={NavResponsive} />
+<Controls />
 
 The `useNavState` hook will track the currrent state of the Nav and return both, the `navState` and a `setNavState` function. See the below inteface for `NavResponsiveOption` for an explanation of the code.
 
-```ts
+
+<Source code={`
 export interface NavResponsiveOption {
   itemIndex: number
   callback?: () => void
@@ -53,7 +50,7 @@ export interface NavResponsiveOption {
   href?: string
   subItems?: NavResponsiveOption[]
 }
-```
+`} language="tsx" />
 
 Practically the callback will be a dispatch to React Router, an update to `window.history` object or similar client side routing function. You may also wish to bind the callback to an application action for example below, we pass a `logout` function to the logout nav item.
 
@@ -65,7 +62,7 @@ For the simple use case, the sub items are not required however, if you use a `S
 
 Finally, you can add avatar and app switcher options to the Nav by passing them as props to the `NavResponsive` component. See below for the accompanying interfaces.
 
-```ts
+<Source code={`
 export interface NavResponsiveAvatarOption {
   text?: string
   callback?: () => void
@@ -76,22 +73,16 @@ export interface NavResponsiveAppSwitcherOption {
   callback?: () => void
   iconUrl?: ReactNode
 }
-```
+`} language="tsx" />
 
-<Canvas>
-  <Story of={NavStories.ReactUsage} />
-</Canvas>
+<Canvas of={NavStories.ReactUsage} />
 
-<RenderHtmlMarkup component="Nav" story={['React Usage']} />
+<RenderHtmlMarkup of={NavStories.ReactUsage} />
 
 ## React Usage With Custom Brand
 
-<ArgsTable component={NavResponsive} />
-
 We also support for the React Version, adding a custom brand and / or a callback on the logo for example, if you wish the logo to navigate back to the homepage.
 
-<Canvas>
-  <Story of={NavStories.ReactUsageWithCustomBrand} />
-</Canvas>
+<Canvas of={NavStories.ReactUsageWithCustomBrand} />
 
-<RenderHtmlMarkup component="Nav" story={['React Usage With Custom Brand']} />
+<RenderHtmlMarkup of={NavStories.ReactUsageWithCustomBrand} />

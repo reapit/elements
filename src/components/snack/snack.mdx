@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { Snack, SnackHolder } from './snack'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as SnackStories from './snack.stories'
@@ -11,25 +11,21 @@ A multi purpose notification component to inform users of updates and events wit
 
 Props available for the React version of the component;
 
-<ArgsTable of={Snack} />
+<Controls />
 
 ## Basic Usage
 
 The Snack component can be used for UI purposes only, but won't have the functionality of the React implementation (i.e. the timeouts, appearing at the top of the screen, etc)
 
-<Canvas>
-  <Story of={SnackStories.BasicUsage} />
-</Canvas>
+<Canvas of={SnackStories.BasicUsage} />
 
-<RenderHtmlMarkup component="Snack" story="Basic Usage" />
+<RenderHtmlMarkup of={SnackStories.BasicUsage} />
 
 ## With an icon
 
-<Canvas>
-  <Story of={SnackStories.WithAnIcon} />
-</Canvas>
+<Canvas of={SnackStories.WithAnIcon} />
 
-<RenderHtmlMarkup component="Snack" story="With an icon" />
+<RenderHtmlMarkup of={SnackStories.WithAnIcon} />
 
 ## With intents
 
@@ -59,18 +55,13 @@ The Snack component can be used for UI purposes only, but won't have the functio
   <Story of={SnackStories.IntentDefault} />
 </Canvas>
 
-<RenderHtmlMarkup
-  component="Snack"
-  story={[
-    'Intent: Primary',
-    'Intent: Neutral',
-    'Intent: Success',
-    'Intent: Pending',
-    'Intent: Warning',
-    'Intent: Danger',
-    'Intent: Default',
-  ]}
-/>
+<RenderHtmlMarkup of={SnackStories.IntentPrimary} />
+<RenderHtmlMarkup of={SnackStories.IntentNeutral} />
+<RenderHtmlMarkup of={SnackStories.IntentSuccess} />
+<RenderHtmlMarkup of={SnackStories.IntentPending} />
+<RenderHtmlMarkup of={SnackStories.IntentWarning} />
+<RenderHtmlMarkup of={SnackStories.IntentDanger} />
+<RenderHtmlMarkup of={SnackStories.IntentDefault} />
 
 ## SnackHolder
 
@@ -80,15 +71,13 @@ This component is essentially invisible. It is used automatically as part of the
 
 If you are using this library without react, you may find is useful for putting `Snack`s inside of.
 
-<ArgsTable of={SnackHolder} />
+{/* <ArgsTable of={SnackHolder} /> */}
 
 ## React usage with `SnackProvider` and `useSnack` hook
 
 A context and a hook is provided to use the Snack component out of the box called `SnackProvider`.
 
-<Canvas>
-  <Story of={SnackStories.UseSnackHookExample} />
-</Canvas>
+<Canvas of={SnackStories.UseSnackHookExample} />
 
 You must wrap your whole application in the `SnackProvider` component. Thereafter you can use the `useSnack` hook in any component to trigger a hook.
 

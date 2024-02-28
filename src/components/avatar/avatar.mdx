@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { Avatar } from '.'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as AvatarStories from './avatar.stories'
@@ -11,28 +11,22 @@ An avatar component to be used typically with a `Card`, `Nav`, or `Table` compon
 
 Passing an `src` will render it as an image tag and passing the `type` prop as `image` will render a rectangular image, suitable for property thumbnails or similar.
 
-<ArgsTable for={Avatar} />
+<Controls />
 
 ## Basic Usage
 
-<Canvas>
-  <Story of={AvatarStories.BasicUsage} />
-</Canvas>
+<Canvas of={AvatarStories.BasicUsage} />
 
-<RenderHtmlMarkup component="Avatar" story="Basic Usage" />
+<RenderHtmlMarkup of={AvatarStories.BasicUsage} />
 
 ## With Src
 
-<Canvas>
-  <Story of={AvatarStories.WithSrc} />
-</Canvas>
+<Canvas of={AvatarStories.WithSrc} />
 
-<RenderHtmlMarkup component="Avatar" story="With Src" />
+<RenderHtmlMarkup of={AvatarStories.WithSrc} />
 
 ## With Image
 
-<Canvas>
-  <Story of={AvatarStories.WithImage} />
-</Canvas>
+<Canvas of={AvatarStories.WithImage} />
 
-<RenderHtmlMarkup component="Avatar" story="With Image" />
+<RenderHtmlMarkup of={AvatarStories.WithImage} />

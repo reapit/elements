@@ -12,7 +12,6 @@ export const MediaStateProviderUsage = {
       <MediaMobileExample />
     </MediaStateProvider>
   ),
-
   name: 'MediaStateProvider usage',
 }
 
@@ -22,6 +21,5 @@ export const MediaStateProviderBreakpoints = {
       <AllBreakPointExample />
     </MediaStateProvider>
   ),
-
   name: 'MediaStateProvider breakpoints',
 }

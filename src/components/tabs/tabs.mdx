@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { Story, Canvas, Controls, Meta, Source } from '@storybook/blocks'
 import { Tabs } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as TabsStories from './tabs.stories'
@@ -17,34 +17,31 @@ Typically you will use this component as a tertiary in-page navigation.
 
 Props available for the React version of the component;
 
-<ArgsTable of={Tabs} />
+<Controls />
 
 Where `TabsOption` is defined as;
 
-```tsx
+<Source code={`
 export interface TabsOption {
   id: string
   value: string
   text: string
   isChecked: boolean
 }
-```
+`} language="tsx" />
 
-<Canvas>
-  <Story of={TabsStories.TabsDefault} />
-</Canvas>
+<Canvas of={TabsStories.TabsDefault} />
 
-<RenderHtmlMarkup component="Tabs" story="Tabs - Default" />
+<RenderHtmlMarkup of={TabsStories.TabsDefault} />
 
 ## Tabs - Full Width
 
 Slight variation on the above where the Tabs spans the full width of it's container.
 
-<Canvas>
-  <Story of={TabsStories.TabsFullWidth} />
-</Canvas>
+<Canvas of={TabsStories.TabsFullWidth} />
 
-<RenderHtmlMarkup component="Tabs" story="Tabs - Full Width" />
+<RenderHtmlMarkup of={TabsStories.TabsFullWidth} />
+
 
 ## Tabs - React Example uncontrolled
 
@@ -52,11 +49,8 @@ Simple example demonstrating how to transition content using tabs. In practice, 
 
 The underlying radio buttons are uncontrolled by default so the `isChecked` is used to set the `defaultChecked` in this example. This is to allow the radio to behave nativele i.e. it will update the state using the `onChange` event but not vice versa.
 
-<Canvas>
-  <Story of={TabsStories.TabsReactExampleUncontrolled} />
-</Canvas>
-
-<RenderHtmlMarkup component="Tabs" story="Tabs - React Example uncontrolled" />
+<Canvas of={TabsStories.TabsReactExampleUncontrolled} />
+<RenderHtmlMarkup of={TabsStories.TabsReactExampleUncontrolled} />
 
 ## Tabs - React Example controlled
 
@@ -64,8 +58,5 @@ Simple example demonstrating how to transition content using tabs. In practice, 
 
 The underlying radio buttons are uncontrolled by default so the `isChecked` is used to set the `defaultChecked` in this example. This is to allow the radio to behave nativele i.e. it will update the state using the `onChange` event but not vice versa.
 
-<Canvas>
-  <Story of={TabsStories.TabsReactExampleControlled} />
-</Canvas>
-
-<RenderHtmlMarkup component="Tabs" story="Tabs - React Example controlled" />
+<Canvas of={TabsStories.TabsReactExampleControlled} />
+<RenderHtmlMarkup of={TabsStories.TabsReactExampleControlled} />

@@ -19,7 +19,7 @@ export const PlaceholderImage: FC<PlacholderImageProps> = ({ placeholder, size, 
   if (fillAvailable) {
     return (
       <ElPlaceholderImageWrapper>
-        <ElPlaceholderImage {...rest} style={{ fontSize }}>
+        <ElPlaceholderImage role="img" {...rest} style={{ fontSize }}>
           <Svg />
         </ElPlaceholderImage>
       </ElPlaceholderImageWrapper>
@@ -27,7 +27,7 @@ export const PlaceholderImage: FC<PlacholderImageProps> = ({ placeholder, size, 
   }
 
   return (
-    <ElPlaceholderImage {...rest} style={{ fontSize, width, height }}>
+    <ElPlaceholderImage role="img" {...rest} style={{ fontSize, width, height }}>
       <Svg />
     </ElPlaceholderImage>
   )

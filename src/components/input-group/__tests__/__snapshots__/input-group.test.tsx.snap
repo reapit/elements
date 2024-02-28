@@ -13,6 +13,7 @@ exports[`InputGroup component should match a snapshot when used in explicit mode
           classname="mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -31,6 +32,7 @@ exports[`InputGroup component should match a snapshot when used in explicit mode
         classname="mock-css.
   font-size: 1.5rem;
 "
+        role="img"
       >
         <svg />
       </mock-styled.span>
@@ -267,6 +269,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
           classname="mock-css.
   font-size: 1.5rem;
 "
+          role="img"
           style="font-size: 1rem;"
         >
           <svg
@@ -286,6 +289,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
         classname="mock-css.
   font-size: 1.5rem;
 "
+        role="img"
         style="font-size: 1rem;"
       >
         <svg
@@ -362,6 +366,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
           classname="mock-css.
   font-size: 1.5rem;
 "
+          role="img"
           style="font-size: 1rem;"
         >
           <svg
@@ -386,6 +391,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
         classname="mock-css.
   font-size: 1.5rem;
 "
+        role="img"
         style="font-size: 1rem;"
       >
         <svg

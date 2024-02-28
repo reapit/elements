@@ -40,7 +40,7 @@ describe('handleFileView', () => {
 
     const curried = handleFileView(onFileView, fileUrl)
 
-    curried(event as unknown as MouseEvent<HTMLSpanElement>)
+    curried((event as unknown) as MouseEvent<HTMLSpanElement>)
 
     expect(onFileView).toHaveBeenCalledWith(fileUrl)
     expect(event.stopPropagation).toHaveBeenCalledTimes(1)
@@ -58,7 +58,7 @@ describe('handleFileClear', () => {
 
     const curried = handleFileClear(setFileName)
 
-    curried(event as unknown as MouseEvent<HTMLSpanElement>)
+    curried((event as unknown) as MouseEvent<HTMLSpanElement>)
 
     expect(setFileName).toHaveBeenCalledWith('')
     expect(event.stopPropagation).toHaveBeenCalledTimes(1)
@@ -79,7 +79,7 @@ describe('handleFileChange', () => {
 
     const curried = handleFileChange(setFileName, fileName, onFileUpload)
 
-    const reader = curried(event as unknown as ChangeEvent<HTMLInputElement>)
+    const reader = curried((event as unknown) as ChangeEvent<HTMLInputElement>)
 
     expect(reader instanceof FileReader).toBe(true)
   })

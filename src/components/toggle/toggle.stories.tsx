@@ -22,7 +22,6 @@ export const ToggleSwitch = {
       <ElToggleItem />
     </Toggle>
   ),
-
   name: 'Toggle - Switch',
 }
 
@@ -33,7 +32,6 @@ export const ToggleGreyBg = {
       <ElToggleItem>Off</ElToggleItem>
     </Toggle>
   ),
-
   name: 'Toggle - Grey Bg',
 }
 
@@ -63,7 +61,6 @@ export const ToggleRadioDefault = {
       ]}
     />
   ),
-
   name: 'Toggle Radio - Default',
 }
 
@@ -94,7 +91,6 @@ export const ToggleRadioSelectPropsGreyBg = {
       ]}
     />
   ),
-
   name: 'Toggle RadioSelectProps - Grey Bg',
 }
 
@@ -125,6 +121,5 @@ export const ToggleRadioDisabled = {
       ]}
     />
   ),
-
   name: 'Toggle Radio - Disabled',
 }
