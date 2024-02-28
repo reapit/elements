@@ -10,6 +10,7 @@ import {
 } from './progress-bar'
 import { elProgressBarLabelRight, elProgressBarLabelLeft } from './__styles__'
 import * as ProgressBarStories from './progress-bar.stories'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 <Meta of={ProgressBarStories} />
 
@@ -39,6 +40,9 @@ In the React Example, we do the calculations of width and timing for you - simpl
 
 <Canvas of={ProgressBarStories.ReactExampleProgressBarPercentage} />
 
+<RenderHtmlMarkup of={ProgressBarStories.ReactExampleProgressBarPercentage} />
+
+
 ## React Example - ProgressBarSteps
 
 <Controls />
@@ -46,3 +50,5 @@ In the React Example, we do the calculations of width and timing for you - simpl
 Similarly for steps in the React component, you just need to specify the total number of steps and the current step you have completed.
 
 <Canvas of={ProgressBarStories.ReactExampleProgressBarSteps} />
+
+<RenderHtmlMarkup of={ProgressBarStories.ReactExampleProgressBarSteps} />

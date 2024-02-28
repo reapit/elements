@@ -60,7 +60,13 @@ export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration
 
   return (
     <ProgressBarContainer {...rest}>
-      <ProgressBarInner style={{ width: `${percentageComplete}%`, transitionDuration: `${transitionDuration}s` }}>
+      <ProgressBarInner 
+        aria-valuenow={percentageComplete}
+        aria-valuemax={100}
+        aria-valuemin={0}
+        role="meter"
+        style={{ width: `${percentageComplete}%`, transitionDuration: `${transitionDuration}s` }}
+      >
         <ProgressBarItem />
       </ProgressBarInner>
       {showLabel && <ProgressBarLabel className={elProgressBarLabelRight}>{percentageComplete}%</ProgressBarLabel>}
@@ -80,7 +86,12 @@ export const ProgressBarSteps: FC<ProgressBarStepProps> = ({ numberSteps, curren
 
   return (
     <ProgressBarContainer {...rest}>
-      <ProgressBarInner style={{ width: `${percentageComplete}%` }}>
+      <ProgressBarInner 
+        aria-valuenow={currentStep}
+        aria-valuemax={numberSteps}
+        aria-valuemin={0}
+        style={{ width: `${percentageComplete}%` }}
+      >
         <ProgressBarItem />
       </ProgressBarInner>
       {showLabel && (
