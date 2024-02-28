@@ -9,6 +9,7 @@ exports[`Icon component should match a snapshot 1`] = `
         classname="mock-css.
   font-size: 1.5rem;
 "
+        role="img"
       >
         <svg />
       </mock-styled.span>
@@ -19,6 +20,7 @@ exports[`Icon component should match a snapshot 1`] = `
       classname="mock-css.
   font-size: 1.5rem;
 "
+      role="img"
     >
       <svg />
     </mock-styled.span>
@@ -86,6 +88,7 @@ exports[`Icon component should match a snapshot when intent prop is supplied 1`]
         classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+        role="img"
       >
         <svg />
       </mock-styled.span>
@@ -96,6 +99,7 @@ exports[`Icon component should match a snapshot when intent prop is supplied 1`]
       classname="mock-css. mock-css.
   font-size: 1.5rem;
 "
+      role="img"
     >
       <svg />
     </mock-styled.span>

@@ -26,6 +26,7 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
             classname="mock-css.
   font-size: 1.5rem;
 "
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -69,6 +70,7 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
           classname="mock-css.
   font-size: 1.5rem;
 "
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -169,6 +171,7 @@ exports[`PersistentNotification component should match a snapshot for an inline 
             classname="mock-css.
   font-size: 1.5rem;
 "
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -212,6 +215,7 @@ exports[`PersistentNotification component should match a snapshot for an inline 
           classname="mock-css.
   font-size: 1.5rem;
 "
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -312,6 +316,7 @@ exports[`PersistentNotification component should match a snapshot when expanded 
             classname="mock-css.
   font-size: 1.5rem;
 "
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -355,6 +360,7 @@ exports[`PersistentNotification component should match a snapshot when expanded 
           classname="mock-css.
   font-size: 1.5rem;
 "
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -455,6 +461,7 @@ exports[`PersistentNotification component should match a snapshot when given an 
             classname="mock-css.
   font-size: 1.5rem;
 "
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -498,6 +505,7 @@ exports[`PersistentNotification component should match a snapshot when given an 
           classname="mock-css.
   font-size: 1.5rem;
 "
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg

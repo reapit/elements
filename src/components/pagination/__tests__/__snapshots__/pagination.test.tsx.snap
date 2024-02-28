@@ -19,6 +19,7 @@ exports[`Pagination should match a snapshot 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -43,6 +44,7 @@ exports[`Pagination should match a snapshot 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -65,6 +67,7 @@ exports[`Pagination should match a snapshot 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -89,6 +92,7 @@ exports[`Pagination should match a snapshot 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -168,6 +172,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -185,6 +190,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -197,6 +203,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -221,6 +228,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -233,6 +241,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -250,6 +259,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -272,6 +282,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -289,6 +300,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -301,6 +313,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -325,6 +338,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -337,6 +351,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -354,6 +369,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>

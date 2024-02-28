@@ -14,6 +14,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               classname="mock-css.
   font-size: 1.5rem;
 "
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -26,6 +27,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
                 classname="mock-css.
   font-size: 1.5rem;
 "
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -33,6 +35,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -40,6 +43,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -49,6 +53,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
         <mock-styled.div>
           <mock-styled.mock-styled.div
             classname=""
+            role="img"
           >
             <img
               alt="https://via.placeholder.com/72x72.svg"
@@ -87,6 +92,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
                 classname="mock-css.
   font-size: 1.5rem;
 "
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -99,6 +105,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
                   classname="mock-css.
   font-size: 1.5rem;
 "
+                  role="img"
                 >
                   <svg />
                 </mock-styled.span>
@@ -106,6 +113,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               <mock-styled.div>
                 <mock-styled.span
                   classname=""
+                  role="img"
                 >
                   <svg />
                 </mock-styled.span>
@@ -113,6 +121,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               <mock-styled.div>
                 <mock-styled.span
                   classname=""
+                  role="img"
                 >
                   <svg />
                 </mock-styled.span>
@@ -130,6 +139,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css."
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -147,6 +157,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css."
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -173,6 +184,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             classname="mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -185,6 +197,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               classname="mock-css.
   font-size: 1.5rem;
 "
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -192,6 +205,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname=""
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -199,6 +213,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname=""
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -208,6 +223,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
       <mock-styled.div>
         <mock-styled.mock-styled.div
           classname=""
+          role="img"
         >
           <img
             alt="https://via.placeholder.com/72x72.svg"
@@ -246,6 +262,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               classname="mock-css.
   font-size: 1.5rem;
 "
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -258,6 +275,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
                 classname="mock-css.
   font-size: 1.5rem;
 "
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -265,6 +283,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -272,6 +291,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname=""
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -289,6 +309,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css."
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -306,6 +327,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css."
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -455,6 +477,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
             classname="mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -467,6 +490,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
               classname="mock-css.
   font-size: 1.5rem;
 "
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -474,6 +498,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
           <mock-styled.div>
             <mock-styled.span
               classname=""
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -481,6 +506,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
           <mock-styled.div>
             <mock-styled.span
               classname=""
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -496,6 +522,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
           classname="mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -508,6 +535,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
             classname="mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -515,6 +543,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
         <mock-styled.div>
           <mock-styled.span
             classname=""
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -522,6 +551,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
         <mock-styled.div>
           <mock-styled.span
             classname=""
+            role="img"
           >
             <svg />
           </mock-styled.span>

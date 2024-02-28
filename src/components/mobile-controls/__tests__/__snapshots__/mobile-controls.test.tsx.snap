@@ -6,12 +6,15 @@ exports[`MobileControls component should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname=""
+        id=":r0:"
       >
         <mock-styled.button
+          aria-controls=":r0:"
           classname="mock-css. mock-css."
         >
           <mock-styled.div />
@@ -19,6 +22,7 @@ exports[`MobileControls component should match a snapshot 1`] = `
             classname="mock-css.
   font-size: 1.5rem;
 "
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -28,12 +32,15 @@ exports[`MobileControls component should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname=""
+      id=":r0:"
     >
       <mock-styled.button
+        aria-controls=":r0:"
         classname="mock-css. mock-css."
       >
         <mock-styled.div />
@@ -41,6 +48,7 @@ exports[`MobileControls component should match a snapshot 1`] = `
           classname="mock-css.
   font-size: 1.5rem;
 "
+          role="img"
         >
           <svg />
         </mock-styled.span>
@@ -107,34 +115,44 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
   "baseElement": <body>
     <div>
       <mock-styled.div
+        aria-hidden="true"
         classname=""
       />
       <mock-styled.div
         classname="mock-css.
   display: flex;
 "
+        id=":r1:"
       >
         <mock-styled.a
+          aria-hidden="true"
           classname=""
+          role="button"
         >
           Item One
         </mock-styled.a>
         <mock-styled.a
+          aria-hidden="true"
           classname=""
+          role="button"
         >
           Item Two
         </mock-styled.a>
         <mock-styled.a
+          aria-hidden="true"
           classname=""
+          role="button"
         >
           Item Three
         </mock-styled.a>
         <mock-styled.button
+          aria-controls=":r1:"
           classname="mock-css. mock-css."
         >
           <mock-styled.div />
           <mock-styled.span
             classname=""
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -144,34 +162,44 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
   </body>,
   "container": <div>
     <mock-styled.div
+      aria-hidden="true"
       classname=""
     />
     <mock-styled.div
       classname="mock-css.
   display: flex;
 "
+      id=":r1:"
     >
       <mock-styled.a
+        aria-hidden="true"
         classname=""
+        role="button"
       >
         Item One
       </mock-styled.a>
       <mock-styled.a
+        aria-hidden="true"
         classname=""
+        role="button"
       >
         Item Two
       </mock-styled.a>
       <mock-styled.a
+        aria-hidden="true"
         classname=""
+        role="button"
       >
         Item Three
       </mock-styled.a>
       <mock-styled.button
+        aria-controls=":r1:"
         classname="mock-css. mock-css."
       >
         <mock-styled.div />
         <mock-styled.span
           classname=""
+          role="img"
         >
           <svg />
         </mock-styled.span>
