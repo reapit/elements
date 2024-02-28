@@ -36,20 +36,22 @@ export const ProgressBarLabel: FC<ProgressBarBaseProps> = ({ children, ...rest }
   <ElProgressBarLabel {...rest}>{children}</ElProgressBarLabel>
 )
 
-export const handleSetPercentageComplete =
-  (setPercentageComplete: Dispatch<SetStateAction<number>>, intervalTime: number) => () => {
-    const interval = window.setInterval(() => {
-      setPercentageComplete((prev) => {
-        if (prev < 100) {
-          return ++prev
-        }
+export const handleSetPercentageComplete = (
+  setPercentageComplete: Dispatch<SetStateAction<number>>,
+  intervalTime: number,
+) => () => {
+  const interval = window.setInterval(() => {
+    setPercentageComplete((prev) => {
+      if (prev < 100) {
+        return ++prev
+      }
 
-        return prev
-      })
-    }, intervalTime)
+      return prev
+    })
+  }, intervalTime)
 
-    return () => window.clearInterval(interval)
-  }
+  return () => window.clearInterval(interval)
+}
 
 export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration, showLabel = true, ...rest }) => {
   const [percentageComplete, setPercentageComplete] = useState<number>(0)
@@ -60,7 +62,7 @@ export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration
 
   return (
     <ProgressBarContainer {...rest}>
-      <ProgressBarInner 
+      <ProgressBarInner
         aria-valuenow={percentageComplete}
         aria-valuemax={100}
         aria-valuemin={0}
@@ -74,10 +76,13 @@ export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration
   )
 }
 
-export const handleSetPercentageCompleteSteps =
-  (setPercentageComplete: Dispatch<SetStateAction<number>>, currentStep: number, numberSteps: number) => () => {
-    setPercentageComplete((currentStep / numberSteps) * 100)
-  }
+export const handleSetPercentageCompleteSteps = (
+  setPercentageComplete: Dispatch<SetStateAction<number>>,
+  currentStep: number,
+  numberSteps: number,
+) => () => {
+  setPercentageComplete((currentStep / numberSteps) * 100)
+}
 
 export const ProgressBarSteps: FC<ProgressBarStepProps> = ({ numberSteps, currentStep, showLabel = true, ...rest }) => {
   const [percentageComplete, setPercentageComplete] = useState<number>((currentStep / numberSteps) * 100)
@@ -86,7 +91,7 @@ export const ProgressBarSteps: FC<ProgressBarStepProps> = ({ numberSteps, curren
 
   return (
     <ProgressBarContainer {...rest}>
-      <ProgressBarInner 
+      <ProgressBarInner
         aria-valuenow={currentStep}
         aria-valuemax={numberSteps}
         aria-valuemin={0}
