@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { Modal } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as ModalStories from './modal.stories'
@@ -35,7 +35,7 @@ This example gives maxmum flexibility but for the 'batteries included' approach,
 
 Props available for the React version of the component;
 
-<ArgsTable component={Modal} />
+<Controls />
 
 <Canvas of={ModalStories.ReactModal} />
 
@@ -50,8 +50,6 @@ It also leverages our `Portal` component to render the modal at the top level of
 ## React usage - With multiple `useModal` hooks
 
 Props available for the React version of the component;
-
-<ArgsTable component={Modal} />
 
 If using multiple modals within a component, ensure you rename the exports from `useModal` to avoid conflicts, e.g. `const { Modal: ModalA, openModal: openModalA } = useModal()`
 

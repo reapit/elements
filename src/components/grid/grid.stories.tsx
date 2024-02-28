@@ -4,6 +4,7 @@ import { GridResponsive, ColResponsive } from './grid-responsive'
 import { MediaStateProvider } from '../../hooks/use-media-query'
 import { cx } from '@linaria/core'
 import { elColGap2, elRowGap3, elSpan12, elSpan8, elSpan4, elOffset4, elOffset8 } from './__styles__/units'
+import { StoryObj } from '@storybook/react'
 
 export default {
   title: 'Grid',

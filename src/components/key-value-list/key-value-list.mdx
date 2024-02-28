@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/blocks'
 import { KeyValueList } from '.'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as KeyValueListStories from './key-value-list.stories'
@@ -15,7 +15,7 @@ The basic usage variant will display the pairs in a list and can be used in a `D
 
 Adding the `textElipsis` prop will add a text overflow ellipsis to the value, trimming the text to a single line.
 
-<ArgsTable of={KeyValueList} />
+<Controls />
 
 <Source code={`
 export interface KeyValueItem {

@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta, ArgsTable, Source } from '@storybook/blocks'
+import { Story, Canvas, Meta, Controls, Source } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { NavResponsive } from './nav-responsive'
 import * as NavStories from './nav.stories'
@@ -37,7 +37,7 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
 
 ## React Usage
 
-<ArgsTable component={NavResponsive} />
+<Controls />
 
 The `useNavState` hook will track the currrent state of the Nav and return both, the `navState` and a `setNavState` function. See the below inteface for `NavResponsiveOption` for an explanation of the code.
 
@@ -80,8 +80,6 @@ export interface NavResponsiveAppSwitcherOption {
 <RenderHtmlMarkup of={NavStories.ReactUsage} />
 
 ## React Usage With Custom Brand
-
-<ArgsTable component={NavResponsive} />
 
 We also support for the React Version, adding a custom brand and / or a callback on the logo for example, if you wish the logo to navigate back to the homepage.
 

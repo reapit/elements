@@ -2,6 +2,7 @@ import { MultiSelect, MultiSelectChip, MultiSelectInput, elHasGreyChips } from '
 
 export default {
   title: 'MultiSelect',
+  component: MultiSelect,
 }
 
 export const BasicExample = {

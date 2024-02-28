@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { Story, Canvas, Controls, Meta } from '@storybook/blocks'
 import { ToolTip } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as TooltipStories from './tooltip.stories'
@@ -9,7 +9,7 @@ import * as TooltipStories from './tooltip.stories'
 
 ## Basic Usage
 
-<ArgsTable of={ToolTip} />
+<Controls />
 
 A tool tip is used for hovering over text and displaying additional info. Below is an example of what the tool tip looks like.
 
@@ -18,8 +18,6 @@ A tool tip is used for hovering over text and displaying additional info. Below 
 <RenderHtmlMarkup of={TooltipStories.BasicUsage} />
 
 ## Default Active
-
-<ArgsTable of={ToolTip} />
 
 If you want the initial state of the tooltip to be active, you can pass the `defaultActive` prop.
 

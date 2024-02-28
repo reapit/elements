@@ -1,4 +1,4 @@
-import { Story, Canvas, Meta, ArgsTable } from '@storybook/blocks'
+import { Story, Canvas, Meta, Controls } from '@storybook/blocks'
 import { FlexContainer } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as LayoutStories from './layout.stories'
@@ -55,7 +55,7 @@ All containers accept a `hasGreyBackground` prop which will add a grey backgroun
 
 The previous two containers are postioned using the `FlexContainer` component. This component has a number of optional props to perform most flexbox operations - see the below inteface for React users:
 
-<ArgsTable of={FlexContainer} />
+<Controls />
 
 <Canvas of={LayoutStories.FlexContainerUsage} />
 

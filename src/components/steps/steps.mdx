@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/blocks'
 import { Steps, StepsVertical } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as StepsStories from './steps.stories'
@@ -11,7 +11,7 @@ Used to indicate position in a process. There are two flavours of steps - the ba
 
 Props available for the React version of the basic inline `Steps` component.
 
-<ArgsTable component={ArgsTable} />
+<Controls />
 
 ## Basic Steps Usage
 
@@ -19,7 +19,7 @@ Props available for the React version of the basic inline `Steps` component.
 
 <RenderHtmlMarkup of={StepsStories.BasicStepsUsage} />
 
-<ArgsTable of={Steps} />
+{/* <ArgsTable of={Steps} /> */}
 
 Set the `selectedStep` prop to control the Steps component.
 
@@ -51,7 +51,7 @@ The vertical steps component lays the steps to the right of content containers. 
 
 The available React props are;
 
-<ArgsTable of={StepsVertical} />
+{/* <ArgsTable of={StepsVertical} /> */}
 
 Were `StepsVerticalStep` is defined below;
 

@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { Snack, SnackHolder } from './snack'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as SnackStories from './snack.stories'
@@ -11,7 +11,7 @@ A multi purpose notification component to inform users of updates and events wit
 
 Props available for the React version of the component;
 
-<ArgsTable of={Snack} />
+<Controls />
 
 ## Basic Usage
 
@@ -71,7 +71,7 @@ This component is essentially invisible. It is used automatically as part of the
 
 If you are using this library without react, you may find is useful for putting `Snack`s inside of.
 
-<ArgsTable of={SnackHolder} />
+{/* <ArgsTable of={SnackHolder} /> */}
 
 ## React usage with `SnackProvider` and `useSnack` hook
 

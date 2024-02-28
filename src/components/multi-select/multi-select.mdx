@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta, Source } from '@storybook/blocks'
+import { Story, Canvas, Controls, Meta, Source } from '@storybook/blocks'
 import { MultiSelectInput } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as MultiSelectStories from './multi-select.stories'
@@ -39,7 +39,7 @@ To pre-select some options, you can pass in an array of values to be selected as
 
 On selection of a chip, the chips are sorted so that selected items render in a row above the de-selected items. In the example, we have pre-selected item one by setting the `defaultValues` prop to illustrate this behaviour.
 
-<ArgsTable of={MultiSelectInput} />
+<Controls />
 
 In the above table, `MultiSelectOption` is defined as:
 

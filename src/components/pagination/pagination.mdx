@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { Story, Canvas, Controls, Meta } from '@storybook/blocks'
 import { Pagination } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as PaginationStories from './pagination.stories'
@@ -23,7 +23,7 @@ For non-React users, just use the rendered markup and use your own JS to trigger
 
 For React users, we export a `Pagination` component that handles the pagination behaviour. Props are in the following defintion:
 
-<ArgsTable of={Pagination} />
+<Controls />
 
 The callback can be any action and will return you the next current page on button click forward or back. The below example uses `useState`.
 

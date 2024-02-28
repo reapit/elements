@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import {
   ProgressBarPercentage,
   ProgressBarSteps,
@@ -18,8 +18,6 @@ import * as ProgressBarStories from './progress-bar.stories'
 Where progress or steps for a process need to be indicated to a user.
 
 There are two flavors of `ProgressBar` - one showing percentage complete of an action, the other showing steps completed.
-
-<ArgsTable of={ProgressBarPercentage} />
 
 ## Basic Example - ProgressBarPercentage
 
@@ -43,8 +41,8 @@ In the React Example, we do the calculations of width and timing for you - simpl
 
 ## React Example - ProgressBarSteps
 
-Similarly for steps in the React component, you just need to specify the total number of steps and the current step you have completed.
+<Controls />
 
-<ArgsTable of={ProgressBarSteps} />
+Similarly for steps in the React component, you just need to specify the total number of steps and the current step you have completed.
 
 <Canvas of={ProgressBarStories.ReactExampleProgressBarSteps} />

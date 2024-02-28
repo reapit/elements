@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta } from '@storybook/blocks'
+import { Story, Canvas, Controls, Meta } from '@storybook/blocks'
 import { GridResponsive, ColResponsive } from './grid-responsive'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as GridStories from './grid.stories'
@@ -106,7 +106,7 @@ For React users, we have an addional `GridResponsive` component that under hood 
 
 Both `GridResponsive` and `ColResponsive` components accept props in following interface, mapping to the breakpoint variables we saw in the main grid component table.
 
-<ArgsTable of={GridResponsive} />
+<Controls component={GridResponsive} />
 
 Essentially for `GridResponsive` we can set `grid-column-gap` and `grid-row-gap` for each of mobile, tablet, desktop and widescreen based on relevant prop.
 
@@ -118,7 +118,7 @@ Full example below creates a grid that doubles the number of columns versus the 
 
 ## ColResponsive
 
-<ArgsTable of={ColResponsive} />
+<Controls component={ColResponsive} />
 
 <Canvas of={GridStories.ReactExampleResponsiveCustomisation} />
 

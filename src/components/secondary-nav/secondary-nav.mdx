@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { SecondaryNav, SecondaryNavItem } from './index'
 import { SecondaryNavContainer } from '../layout'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -29,6 +29,6 @@ Use `SecondaryNavItem` as a child of `SecondaryNav`. It accepts the following pr
 
 The props accepted by the `SecondaryNavItem` are below - the `SecondaryNav` itself only accepts standard HTML attributes.
 
-<ArgsTable of={SecondaryNavItem} />
+<Controls />
 
 <Canvas of={SecondaryNavStories.ReactExample} />

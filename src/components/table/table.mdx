@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable, Source } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls, Source } from '@storybook/blocks'
 import { Table } from './index'
 import { TableCell } from './molecules'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
@@ -51,7 +51,7 @@ The `Table` is a CSS Grid to support proper resposiveness. By default the number
 
 Props available for the React version of the component;
 
-<ArgsTable of={TableCell} />
+{/* <ArgsTable of={TableCell} /> */}
 
 To explain these props;
 
@@ -160,7 +160,7 @@ export interface RowActionProps {
 
 For React users, we also expose some advanced customisation options via prop modifiers. These allow us both to control the number and span of columns as well as override the default toggle behaviour for expandable content. See below for the available options;
 
-<ArgsTable of={Table} />
+<Controls />
 
 To explain these props;
 

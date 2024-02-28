@@ -1,4 +1,4 @@
-import { Story, Canvas, ArgsTable, Meta, Source } from '@storybook/blocks'
+import { Story, Canvas, Controls, Meta, Source } from '@storybook/blocks'
 import { Toggle, ToggleRadio } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as ToggleStories from './toggle.stories'
@@ -17,7 +17,7 @@ Typically you will use this component when you want the user to select binary op
 
 Props available for the React version of the component are just those of a standard React checkbox with some variant props as per below.
 
-<ArgsTable of={Toggle} />
+<Controls />
 
 <Canvas of={ToggleStories.BasicUsage} />
 
@@ -51,7 +51,7 @@ Typically you will use this component when you want the user to select from a nu
 
 Props available for the React version of the component;
 
-<ArgsTable of={ToggleRadio} />
+{/* <ArgsTable of={ToggleRadio} /> */}
 
 Where `ToggleRadioOption` is defined as;
 
