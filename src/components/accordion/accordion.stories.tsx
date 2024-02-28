@@ -36,7 +36,15 @@ export const BasicUsage = {
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
-      <AccordionContent id="item-content-1" role="region" aria-expanded="true" aria-labelledby="item-title-1" className={elIsActive}>Accordion Content 1</AccordionContent>
+      <AccordionContent
+        id="item-content-1"
+        role="region"
+        aria-expanded="true"
+        aria-labelledby="item-title-1"
+        className={elIsActive}
+      >
+        Accordion Content 1
+      </AccordionContent>
       <AccordionItem onClick={console.log} id="item-title-2" aria-controls="item-content-2">
         <AccordionTitle>Accordion Item 2</AccordionTitle>
         <AccordionTitleContentWrapper>
@@ -51,7 +59,9 @@ export const BasicUsage = {
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
-      <AccordionContent id="item-content-2" role="region" aria-expanded="false" aria-labelledby="item-title-2">Accordion Content 2</AccordionContent>
+      <AccordionContent id="item-content-2" role="region" aria-expanded="false" aria-labelledby="item-title-2">
+        Accordion Content 2
+      </AccordionContent>
       <AccordionItem onClick={console.log} id="item-title-3" aria-controls="item-content-3">
         <AccordionTitle>Accordion Item 3</AccordionTitle>
         <AccordionTitleContentWrapper>
@@ -66,7 +76,9 @@ export const BasicUsage = {
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
-      <AccordionContent id="item-content-3" role="region" aria-expanded="false" aria-labelledby="item-title-3">Accordion Content 3</AccordionContent>
+      <AccordionContent id="item-content-3" role="region" aria-expanded="false" aria-labelledby="item-title-3">
+        Accordion Content 3
+      </AccordionContent>
     </AccordionContainer>
   ),
 }
