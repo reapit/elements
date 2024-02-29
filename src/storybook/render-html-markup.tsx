@@ -1,8 +1,8 @@
-import { FC, useState } from 'react'
+import { FC, useEffect, useState } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { Source, SourceProps } from '@storybook/blocks'
 import prettier from 'prettier'
-import htmlParser from 'prettier/parser-html'
+import htmlParser from 'prettier/plugins/html'
 import { Args, Renderer, StoryContextForLoaders } from '@storybook/types'
 import { Accordion } from '../components/accordion'
 import { Tile } from '../components/tile'
@@ -11,6 +11,24 @@ import { elMb6, elMt6 } from '..'
 
 export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
   const [storyContext, setStoryContext] = useState<StoryContextForLoaders<Renderer, Args> | undefined>()
+  const [html, setHtml] = useState<string>('')
+
+  useEffect(() => {
+    const format = async () => {
+      if (!storyContext) return
+      const formatted = await prettier.format(
+        renderToStaticMarkup(storyContext.originalStoryFn(storyContext.args as any, storyContext as any) as any),
+        {
+          parser: 'html',
+          plugins: [htmlParser],
+        },
+      )
+
+      setHtml(formatted)
+    }
+
+    format()
+  }, [storyContext])
 
   return (
     <Tile className={cx(elMb6, elMt6)}>
@@ -22,13 +40,7 @@ export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
                 transform={(code, context) => {
                   if (storyContext === undefined) setStoryContext(context)
 
-                  return prettier.format(
-                    renderToStaticMarkup(context.originalStoryFn(context.args as any, context as any) as any),
-                    {
-                      parser: 'html',
-                      plugins: [htmlParser],
-                    },
-                  )
+                  return html || code
                 }}
                 dark={true}
                 language="html"
