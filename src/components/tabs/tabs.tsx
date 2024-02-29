@@ -38,6 +38,7 @@ export const Tabs: FC<TabsProps> = ({ className, isFullWidth, hasNoBorder, isCon
               value={value}
               type="radio"
               role="tab"
+              aria-selected={isChecked}
               {...rest}
               checked={isControlled ? isChecked : undefined}
               defaultChecked={isControlled ? undefined : isChecked}
