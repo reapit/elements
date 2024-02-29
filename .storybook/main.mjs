@@ -9,7 +9,6 @@ module.exports = {
     '@whitespace/storybook-addon-html',
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
-    '@storybook/addon-mdx-gfm',
     {
       name: '@storybook/addon-storysource',
       options: {

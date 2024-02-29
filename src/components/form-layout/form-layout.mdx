@@ -21,14 +21,43 @@ import * as FormLayoutStories from './form-layout.stories';
 ## Form Layout Options
 
 There are four breakpoints and four form layout options depending on how many columns you wish your component to span at each resolution. See the table below for explanations;
-
-| Component        | Up to 1024px | Between 1024px and 1440px | Between 1440px and 1920px | 1920px and above |
-| ---------------- | ------------ | ------------------------- | ------------------------- | ---------------- |
-| `InputWrapSmall` | 50% width    | 25% width                 | 16.65% width              | 12.5% width      |
-| `InputWrap`      | 100% width   | 50% width                 | 33.33% width              | 25% width        |
-| `InputWrapMed`   | 100% width   | 100% width                | 66.667% width             | 50% width        |
-| `InputWrapFull`  | 100% width   | 100% width                | 100% width                | 100% width       |
-
+<table>
+    <tr>
+        <td>Component</td>
+        <td>Up to 1024px</td>
+        <td>Between 1024px and 1440px</td>
+        <td>Between 1440px and 1920px</td>
+        <td>1920px and above</td>
+    </tr>
+    <tr>
+        <td>`InputWrapSmall`</td>
+        <td>50% width</td>
+        <td>25% width</td>
+        <td>16.65% width</td>
+        <td>12.5% width</td>
+    </tr>
+    <tr>
+        <td>`InputWrap`</td>
+        <td>100% width</td>
+        <td>50% width</td>
+        <td>33.33% width</td>
+        <td>25% width</td>
+    </tr>
+    <tr>
+        <td>`InputWrapMed`</td>
+        <td>100% width</td>
+        <td>100% width</td>
+        <td>66.667% width</td>
+        <td>50% width</td>
+    </tr>
+    <tr>
+        <td>`InputWrapFull`</td>
+        <td>100% width</td>
+        <td>100% width</td>
+        <td>100% width</td>
+        <td>100% width</td>
+    </tr>
+</table>
 The `InputWrap` is purely presentational and so accept no props. The rendered markup has the same behaviour for non-React users as the React components.
 
 The `FormLayout` accepts an optional `hasMargin` prop to add spacing vertically between forms as per the styleguide.

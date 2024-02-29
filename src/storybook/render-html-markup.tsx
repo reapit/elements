@@ -6,12 +6,14 @@ import htmlParser from 'prettier/parser-html'
 import { Args, Renderer, StoryContextForLoaders } from '@storybook/types'
 import { Accordion } from '../components/accordion'
 import { Tile } from '../components/tile'
+import { cx } from '@linaria/core'
+import { elMb6, elMt6 } from '..'
 
 export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
   const [storyContext, setStoryContext] = useState<StoryContextForLoaders<Renderer, Args> | undefined>()
 
   return (
-    <Tile>
+    <Tile className={cx(elMb6, elMt6)}>
       <Accordion
         items={[
           {
