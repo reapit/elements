@@ -14,6 +14,7 @@ exports[`Tabs should match a snapshot and render children 1`] = `
       >
         <mock-styled.div>
           <mock-styled.input
+            aria-selected="true"
             checked="true"
             id="option-1"
             name="my-cool-toggle-radio"
@@ -44,6 +45,7 @@ exports[`Tabs should match a snapshot and render children 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             checked="false"
             id="option-2"
             name="my-cool-toggle-radio"
@@ -74,6 +76,7 @@ exports[`Tabs should match a snapshot and render children 1`] = `
             </span>
           </mock-styled.label>
           <mock-styled.input
+            aria-selected="false"
             checked="false"
             id="option-3"
             name="my-cool-toggle-radio"
@@ -123,6 +126,7 @@ exports[`Tabs should match a snapshot and render children 1`] = `
     >
       <mock-styled.div>
         <mock-styled.input
+          aria-selected="true"
           checked="true"
           id="option-1"
           name="my-cool-toggle-radio"
@@ -153,6 +157,7 @@ exports[`Tabs should match a snapshot and render children 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           checked="false"
           id="option-2"
           name="my-cool-toggle-radio"
@@ -183,6 +188,7 @@ exports[`Tabs should match a snapshot and render children 1`] = `
           </span>
         </mock-styled.label>
         <mock-styled.input
+          aria-selected="false"
           checked="false"
           id="option-3"
           name="my-cool-toggle-radio"

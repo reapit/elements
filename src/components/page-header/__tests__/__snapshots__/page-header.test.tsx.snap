@@ -204,6 +204,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
           >
             <mock-styled.div>
               <mock-styled.input
+                aria-selected="true"
                 id="tab-1-fw"
                 name="my-cool-tabs-full-width"
                 role="tab"
@@ -233,6 +234,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 </span>
               </mock-styled.label>
               <mock-styled.input
+                aria-selected="false"
                 id="tab-2-fw"
                 name="my-cool-tabs-full-width"
                 role="tab"
@@ -262,6 +264,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 </span>
               </mock-styled.label>
               <mock-styled.input
+                aria-selected="false"
                 id="tab-3-fw"
                 name="my-cool-tabs-full-width"
                 role="tab"
@@ -502,6 +505,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
         >
           <mock-styled.div>
             <mock-styled.input
+              aria-selected="true"
               id="tab-1-fw"
               name="my-cool-tabs-full-width"
               role="tab"
@@ -531,6 +535,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               </span>
             </mock-styled.label>
             <mock-styled.input
+              aria-selected="false"
               id="tab-2-fw"
               name="my-cool-tabs-full-width"
               role="tab"
@@ -560,6 +565,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               </span>
             </mock-styled.label>
             <mock-styled.input
+              aria-selected="false"
               id="tab-3-fw"
               name="my-cool-tabs-full-width"
               role="tab"
