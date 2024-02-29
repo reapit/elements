@@ -1,7 +1,7 @@
-// import { addons } from '@storybook/addons'
+// import { addons } from '@storybook/addon-essentials'
 import { create } from '@storybook/theming'
 import { version } from '../package.json'
-import logo from './public/reapitLogo.svg'
+// import logo from './public/reapitLogo.svg'
 
 // addons.setConfig({
 //   theme: create({

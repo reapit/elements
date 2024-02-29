@@ -19,6 +19,7 @@ export interface AccordionItemProps {
   title: string
   titleItems?: ReactNode[]
   content: ReactNode
+  onClick?: () => void
 }
 
 export interface AccordionProps extends AccordionBaseProps {
@@ -49,8 +50,16 @@ export const AccordionContent: FC<AccordionBaseProps> = ({ children, ...rest }) 
   return <ElAccordionContent {...rest}>{children}</ElAccordionContent>
 }
 
-export const handleSetOpenItem = (openItem: number, setOpenItem: Dispatch<SetStateAction<number | null>>) => () => {
+export const handleSetOpenItem = (
+  openItem: number,
+  setOpenItem: Dispatch<SetStateAction<number | null>>,
+  onClick?: () => void,
+) => () => {
   setOpenItem((currentItem) => {
+    if (onClick) {
+      onClick()
+    }
+
     if (currentItem === openItem) {
       return null
     }
@@ -69,7 +78,7 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
           <ElAccordionItem
             id={[itemButtonId, index].join('-')}
             aria-controls={[itemContentId, index].join('-')}
-            onClick={handleSetOpenItem(index, setOpenItem)}
+            onClick={handleSetOpenItem(index, setOpenItem, item.onClick)}
           >
             <ElAccordionTitle>{item.title}</ElAccordionTitle>
             <ElAccordionTitleContentWrapper>
