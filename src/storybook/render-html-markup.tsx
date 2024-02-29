@@ -40,6 +40,20 @@ const handleFormatHTML = (raw: string | null, setHtml: Dispatch<SetStateAction<s
   format()
 }
 
+export const handleTransform = (
+  setStoryContext: Dispatch<SetStateAction<StoryContextForLoaders<Renderer, Args> | null>>,
+  storyContext: StoryContextForLoaders<Renderer, Args> | null,
+  html: string,
+) => (code: string, context: StoryContextForLoaders<Renderer, Args>) => {
+  if (!storyContext) {
+    setTimeout(() => {
+      setStoryContext(context)
+    }, 100)
+  }
+
+  return html || code
+}
+
 export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
   const [storyContext, setStoryContext] = useState<StoryContextForLoaders<Renderer, Args> | null>(null)
   const [html, setHtml] = useState<string>('')
@@ -54,15 +68,7 @@ export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
           {
             content: (
               <Source
-                transform={(code, context) => {
-                  if (!storyContext) {
-                    setTimeout(() => {
-                      setStoryContext(context)
-                    }, 100)
-                  }
-
-                  return html || code
-                }}
+                transform={handleTransform(setStoryContext, storyContext, html)}
                 dark={true}
                 language="html"
                 {...props}
