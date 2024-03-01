@@ -33,5 +33,6 @@ create({
   inputBorderRadius: 0,
 
   brandTitle: `Elements ${version}`,
+  // Can't seem to get custom image to work regardless of string or element
   // brandImage: './public/reapitLogo.svg',
 })
