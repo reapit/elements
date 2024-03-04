@@ -1,12 +1,11 @@
-import { addons } from '@storybook/addons'
+import { addons } from '@storybook/manager-api'
 import { create } from '@storybook/theming'
-import { version } from '../package.json'
-import logo from './public/reapitLogo.svg'
+// @ts-ignore
+import brandImage from './public/reapitLogo.svg'
 
 addons.setConfig({
   theme: create({
     base: 'light',
-
     colorPrimary: '#4e56ea',
     colorSecondary: '#4e56ea',
 
@@ -34,8 +33,6 @@ addons.setConfig({
     inputBorder: '#4e56ea',
     inputTextColor: '#222b33',
     inputBorderRadius: 0,
-
-    brandTitle: `Elements ${version}`,
-    brandImage: logo,
+    brandImage,
   }),
 })

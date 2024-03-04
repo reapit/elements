@@ -19,7 +19,7 @@ exports[`Pagination should match a snapshot 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -46,7 +46,7 @@ exports[`Pagination should match a snapshot 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -71,7 +71,7 @@ exports[`Pagination should match a snapshot 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
         >
@@ -98,7 +98,7 @@ exports[`Pagination should match a snapshot 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
         >
@@ -180,7 +180,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -200,7 +200,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -213,7 +213,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -240,7 +240,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -253,7 +253,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -273,7 +273,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -298,7 +298,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
         >
@@ -318,7 +318,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
         >
@@ -331,7 +331,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
         >
@@ -358,7 +358,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
         >
@@ -371,7 +371,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
         >
@@ -391,7 +391,7 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
     color: var(--intent-primary);
   }
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
         >

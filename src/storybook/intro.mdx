@@ -14,35 +14,48 @@ Within this Storybook, there are all the basic components and classes you will n
 
 Elements is distributed via NPM as a CommonJS or ESM module. Your first step is, with NodeJS installed, to run;
 
-<Source code={`
+<Source
+  code={`
 npm install @reapit/elements
-`} />
+`}
+/>
 
 #### Or for yarn users
 
-<Source code={`
+<Source
+  code={`
 yarn add @reapit/elements
-`} />
+`}
+/>
 
 You can then import the modules into your project in the normal way;
 
-<Source code={`
+<Source
+  code={`
 import { Input } from '@reapit/elements'
-`} language="typescript" />
+`}
+  language="typescript"
+/>
 
 #### Or for CommonJS users
 
-<Source code={`
+<Source
+  code={`
 const { Input } = require('@reapit/elements')
-`} language="typescript" />
+`}
+  language="typescript"
+/>
 
 You will also need to add the exported stylesheet from the dist folder of the library, to the entry point of your application eg;
 
 or in a css file
 
-<Source code={`
+<Source
+  code={`
 @import '~@reapit/elements/dist/index.css';
-`} language="css" />
+`}
+  language="css"
+/>
 
 And that's it - the stylesheet will include the Inter Google Font and some basic defaults, with the component CSS classes providng the majority of the styles.
 
@@ -110,25 +123,37 @@ If you are on version 2 of Elements and this is working for your application the
 
 We understand that because v3 is a re-write, migration will be some work so to make this easy to manage incrementally, we export the whole of Elements v3 from the v3 directory of Elements 2 e.g. to get a v3 button in the v2 library;
 
-<Source code={`
+<Source
+  code={`
 import { Button } from '@reapit/elements/v3'
-`} language="tsx" />
+`}
+  language="tsx"
+/>
 
 You will also need to import the v3 stylesheet **in addtion** to the v2 stylesheet already in your project. Exporting the v3 stylesheet from v2 is done like this;
 
-<Source code={`
+<Source
+  code={`
 import '@reapit/elements/v3/index.css'
-`} language="typescript" />
+`}
+  language="typescript"
+/>
 
 #### CommonJS
-<Source code={`
+
+<Source
+  code={`
 require('@reapit/elements/v3/index.css')
-`} language="typescript" />
+`}
+  language="typescript"
+/>
 
-
-<Source code={`
+<Source
+  code={`
 @import '~@reapit/elements/v3/index.css';
-`} language="css" />
+`}
+  language="css"
+/>
 
 This will mean you can update from v2 to v3 at your own pace.
 

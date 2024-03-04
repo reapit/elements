@@ -1,3 +1,4 @@
+import { CSSProperties } from 'react'
 import { Button } from '../components/button'
 
 export default {
@@ -5,5 +6,9 @@ export default {
 }
 
 export const BasicExample = {
-  render: ({}) => <Button intent="primary">Button Text</Button>,
+  render: ({}) => (
+    <div style={{ '--intent-primary': '#a0c862' } as CSSProperties}>
+      <Button intent="primary">Button Text</Button>
+    </div>
+  ),
 }
