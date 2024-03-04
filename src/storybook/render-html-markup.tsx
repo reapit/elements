@@ -10,20 +10,18 @@ import { elMb6, elMt6 } from '..'
 import { createRoot } from 'react-dom/client'
 import { flushSync } from 'react-dom'
 
-const handleGetRawHTML = (
-  storyContext: StoryContextForLoaders<Renderer, Args> | null,
-  setRaw: Dispatch<SetStateAction<string>>,
-) => () => {
-  if (storyContext) {
-    const component = storyContext.originalStoryFn(storyContext.args as any, storyContext as any) as JSX.Element
-    const div = document.createElement('div')
-    const root = createRoot(div)
-    flushSync(() => {
-      root.render(component)
-    })
-    setRaw(div.innerHTML)
+const handleGetRawHTML =
+  (storyContext: StoryContextForLoaders<Renderer, Args> | null, setRaw: Dispatch<SetStateAction<string>>) => () => {
+    if (storyContext) {
+      const component = storyContext.originalStoryFn(storyContext.args as any, storyContext as any) as JSX.Element
+      const div = document.createElement('div')
+      const root = createRoot(div)
+      flushSync(() => {
+        root.render(component)
+      })
+      setRaw(div.innerHTML)
+    }
   }
-}
 
 const handleFormatHTML = (raw: string | null, setHtml: Dispatch<SetStateAction<string>>) => () => {
   const format = async () => {
@@ -40,19 +38,21 @@ const handleFormatHTML = (raw: string | null, setHtml: Dispatch<SetStateAction<s
   format()
 }
 
-export const handleTransform = (
-  setStoryContext: Dispatch<SetStateAction<StoryContextForLoaders<Renderer, Args> | null>>,
-  storyContext: StoryContextForLoaders<Renderer, Args> | null,
-  html: string,
-) => (code: string, context: StoryContextForLoaders<Renderer, Args>) => {
-  if (!storyContext) {
-    setTimeout(() => {
-      setStoryContext(context)
-    }, 100)
-  }
+export const handleTransform =
+  (
+    setStoryContext: Dispatch<SetStateAction<StoryContextForLoaders<Renderer, Args> | null>>,
+    storyContext: StoryContextForLoaders<Renderer, Args> | null,
+    html: string,
+  ) =>
+  (code: string, context: StoryContextForLoaders<Renderer, Args>) => {
+    if (!storyContext) {
+      setTimeout(() => {
+        setStoryContext(context)
+      }, 100)
+    }
 
-  return html || code
-}
+    return html || code
+  }
 
 export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
   const [storyContext, setStoryContext] = useState<StoryContextForLoaders<Renderer, Args> | null>(null)

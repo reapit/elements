@@ -50,22 +50,19 @@ export const AccordionContent: FC<AccordionBaseProps> = ({ children, ...rest }) 
   return <ElAccordionContent {...rest}>{children}</ElAccordionContent>
 }
 
-export const handleSetOpenItem = (
-  openItem: number,
-  setOpenItem: Dispatch<SetStateAction<number | null>>,
-  onClick?: () => void,
-) => () => {
-  setOpenItem((currentItem) => {
-    if (onClick) {
-      onClick()
-    }
+export const handleSetOpenItem =
+  (openItem: number, setOpenItem: Dispatch<SetStateAction<number | null>>, onClick?: () => void) => () => {
+    setOpenItem((currentItem) => {
+      if (onClick) {
+        onClick()
+      }
 
-    if (currentItem === openItem) {
-      return null
-    }
-    return openItem
-  })
-}
+      if (currentItem === openItem) {
+        return null
+      }
+      return openItem
+    })
+  }
 
 export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => {
   const [openItem, setOpenItem] = useState<number | null>(null)

@@ -16,7 +16,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
             style="height: 24px; width: 100px;"
@@ -39,7 +39,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
     margin: 0 !important;
   }
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -132,7 +132,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
       >
         <mock-styled.span
           classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
           style="height: 24px; width: 100px;"
@@ -155,7 +155,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
     margin: 0 !important;
   }
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
         >

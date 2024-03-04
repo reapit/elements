@@ -19,7 +19,7 @@ The underlying code in the `MediaMobileExample` component is shown below:
 export const MediaMobileExample = () => {
   const { isMobile } = useMediaQuery()
 
-  return isMobile ? <h1>Is Mobile</h1> : <h1>Not Mobile</h1>
+return isMobile ? <h1>Is Mobile</h1> : <h1>Not Mobile</h1>
 }
 `} language="tsx" />
 
@@ -37,61 +37,65 @@ The underlying code in the `AllBreakPointExample` component is shown below:
 export const AllBreakPointExample = () => {
   const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen, is4KScreen } = useMediaQuery()
 
-  if (isMobile) {
-    return <h1>Is Mobile</h1>
-  }
+if (isMobile) {
+return <h1>Is Mobile</h1>
+}
 
-  if (isTablet) {
-    return <h1>Is Tablet</h1>
-  }
+if (isTablet) {
+return <h1>Is Tablet</h1>
+}
 
-  if (isDesktop) {
-    return <h1>Is Tablet</h1>
-  }
+if (isDesktop) {
+return <h1>Is Tablet</h1>
+}
 
-  if (isWideScreen) {
-    return <h1>Is Tablet</h1>
-  }
+if (isWideScreen) {
+return <h1>Is Tablet</h1>
+}
 
-  if (isSuperWideScreen) {
-    return <h1>Is Tablet</h1>
-  }
+if (isSuperWideScreen) {
+return <h1>Is Tablet</h1>
+}
 
-  if (is4KScreen) {
-    return <h1>Is Tablet</h1>
-  }
+if (is4KScreen) {
+return <h1>Is Tablet</h1>
+}
 }
 `} language="tsx" />
 
 <Canvas of={MediaStories.MediaStateProviderBreakpoints} />
 
 <table>
+  <thead>
     <tr>
-        <td>Variable</td>
-        <td>breakpoint sum</td>
+      <td>Variable</td>
+      <td>breakpoint sum</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`isMobile`</td>
+      <td>\&lt; 768</td>
     </tr>
     <tr>
-        <td>`isMobile`</td>
-        <td>\&lt; 768</td>
+      <td>`isTable`</td>
+      <td>&gt;= 768 &amp;&amp; \&lt; 1024</td>
     </tr>
     <tr>
-        <td>`isTable`</td>
-        <td>&gt;= 768 &amp;&amp; \&lt; 1024</td>
+      <td>`isDesktop`</td>
+      <td>&gt;= 1024 &amp;&amp; \&lt; 1440</td>
     </tr>
     <tr>
-        <td>`isDesktop`</td>
-        <td>&gt;= 1024 &amp;&amp; \&lt; 1440</td>
+      <td>`isWideScreen`</td>
+      <td>&gt;= 1440 &amp;&amp; \&lt; 1920</td>
     </tr>
     <tr>
-        <td>`isWideScreen`</td>
-        <td>&gt;= 1440 &amp;&amp; \&lt; 1920</td>
+      <td>`isSuperWideScreen`</td>
+      <td>&gt;= 1920 &amp;&amp; \&lt; 2560</td>
     </tr>
     <tr>
-        <td>`isSuperWideScreen`</td>
-        <td>&gt;= 1920 &amp;&amp; \&lt; 2560</td>
+      <td>`is4KScreen`</td>
+      <td>&gt;= 2560</td>
     </tr>
-    <tr>
-        <td>`is4KScreen`</td>
-        <td>&gt;= 2560</td>
-    </tr>
+  </tbody>
 </table>

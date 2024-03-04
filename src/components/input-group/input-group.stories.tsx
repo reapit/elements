@@ -63,7 +63,7 @@ export const ReactShorthandCustomId = {
 
 export const ReactShorthandAllProps = {
   render: ({}) => (
-    <InputGroup icon="asteriskSystem" label="Email address" inputAddOnText="Required" intent="danger" type="text" />
+    <InputGroup icon="asterisk" label="Email address" inputAddOnText="Required" intent="danger" type="text" />
   ),
 
   name: 'React shorthand - all props',

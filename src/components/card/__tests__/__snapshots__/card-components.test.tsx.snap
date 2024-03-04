@@ -12,7 +12,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
             >
@@ -25,7 +25,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
                 role="img"
               >
@@ -90,7 +90,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
                 role="img"
               >
@@ -103,7 +103,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               <mock-styled.div>
                 <mock-styled.span
                   classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
                   role="img"
                 >
@@ -182,7 +182,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -195,7 +195,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
             >
@@ -260,7 +260,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
             >
@@ -273,7 +273,7 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
                 role="img"
               >
@@ -475,7 +475,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -488,7 +488,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
             >
@@ -520,7 +520,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
       <mock-styled.div>
         <mock-styled.span
           classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           role="img"
         >
@@ -533,7 +533,7 @@ exports[`CardContextMenu should match a snapshot and render children with full p
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >

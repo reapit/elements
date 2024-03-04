@@ -8,7 +8,7 @@ import { TextArea } from '../textarea'
 import { MultiSelectInput } from '../multi-select'
 import { Button, ButtonGroup } from '../button'
 import { Label } from '../label'
-import * as FormLayoutStories from './form-layout.stories';
+import * as FormLayoutStories from './form-layout.stories'
 
 <Meta of={FormLayoutStories} />
 
@@ -21,44 +21,50 @@ import * as FormLayoutStories from './form-layout.stories';
 ## Form Layout Options
 
 There are four breakpoints and four form layout options depending on how many columns you wish your component to span at each resolution. See the table below for explanations;
+
 <table>
+  <thead>
     <tr>
-        <td>Component</td>
-        <td>Up to 1024px</td>
-        <td>Between 1024px and 1440px</td>
-        <td>Between 1440px and 1920px</td>
-        <td>1920px and above</td>
+      <td>Component</td>
+      <td>Up to 1024px</td>
+      <td>Between 1024px and 1440px</td>
+      <td>Between 1440px and 1920px</td>
+      <td>1920px and above</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`InputWrapSmall`</td>
+      <td>50% width</td>
+      <td>25% width</td>
+      <td>16.65% width</td>
+      <td>12.5% width</td>
     </tr>
     <tr>
-        <td>`InputWrapSmall`</td>
-        <td>50% width</td>
-        <td>25% width</td>
-        <td>16.65% width</td>
-        <td>12.5% width</td>
+      <td>`InputWrap`</td>
+      <td>100% width</td>
+      <td>50% width</td>
+      <td>33.33% width</td>
+      <td>25% width</td>
     </tr>
     <tr>
-        <td>`InputWrap`</td>
-        <td>100% width</td>
-        <td>50% width</td>
-        <td>33.33% width</td>
-        <td>25% width</td>
+      <td>`InputWrapMed`</td>
+      <td>100% width</td>
+      <td>100% width</td>
+      <td>66.667% width</td>
+      <td>50% width</td>
     </tr>
     <tr>
-        <td>`InputWrapMed`</td>
-        <td>100% width</td>
-        <td>100% width</td>
-        <td>66.667% width</td>
-        <td>50% width</td>
+      <td>`InputWrapFull`</td>
+      <td>100% width</td>
+      <td>100% width</td>
+      <td>100% width</td>
+      <td>100% width</td>
     </tr>
-    <tr>
-        <td>`InputWrapFull`</td>
-        <td>100% width</td>
-        <td>100% width</td>
-        <td>100% width</td>
-        <td>100% width</td>
-    </tr>
+  </tbody>
 </table>
-The `InputWrap` is purely presentational and so accept no props. The rendered markup has the same behaviour for non-React users as the React components.
+The `InputWrap` is purely presentational and so accept no props. The rendered markup has the same behaviour for non-React
+users as the React components.
 
 The `FormLayout` accepts an optional `hasMargin` prop to add spacing vertically between forms as per the styleguide.
 

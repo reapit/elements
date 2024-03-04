@@ -1,5 +1,7 @@
 import { Meta, Source } from '@storybook/blocks'
 
+<Meta title="Concepts" />
+
 # Basic Concepts and Patterns
 
 We have tried to make Elements as flexible and friendly to use as possible, with an intuitive API. This brief guide gives you an intro to some core concepts we have used across the library.
@@ -24,9 +26,12 @@ const MyComponent = () => <FooBar className={elFooMod}>My cool content</FooBar>
 
 This will render your cool content like this:
 
-<Source code={`
+<Source
+  code={`
 <div class="el-foo-bar el-foo-mod">My cool content</div>
-`} language="html" />
+`}
+  language="html"
+/>
 
 The styled component base has provided you the `.el-foo-bar` class and the modifier has applied `.el-foo-mod` as an additional style.
 
@@ -67,15 +72,44 @@ const MyComponent = () => <Icon intent="danger" icon="systemAdd" />
 
 The various intent types are below and are consistent across the library.
 
-| Intent  | Usage                                                                                       |
-| ------- | ------------------------------------------------------------------------------------------- |
-| primary | The main/most likely action a user might want to take                                       |
-| neutral | An action that has no specific meaning - essentially no intent is inferred from             |
-| pending | An action that is pending resolution based on a further action                              |
-| success | An action that would lead to a good or pleasant outcome                                     |
-| warning | An action that you may wish to perform but requires thought e.g. editing a sensitive record |
-| danger  | An action that would lead to a potentially bad or dangerous outcome, e.g a delete button    |
-| default | An intent applied if no other intent specified                                              |
+<table>
+  <thead>
+    <tr>
+      <th>Intent</th>
+      <th>Usage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>primary</td>
+      <td>The main/most likely action a user might want to take</td>
+    </tr>
+    <tr>
+      <td>neutral</td>
+      <td>An action that has no specific meaning - essentially no intent is inferred from</td>
+    </tr>
+    <tr>
+      <td>pending</td>
+      <td>An action that is pending resolution based on a further action</td>
+    </tr>
+    <tr>
+      <td>success</td>
+      <td>An action that would lead to a good or pleasant outcome</td>
+    </tr>
+    <tr>
+      <td>warning</td>
+      <td>An action that you may wish to perform but requires thought e.g. editing a sensitive record</td>
+    </tr>
+    <tr>
+      <td>danger</td>
+      <td>An action that would lead to a potentially bad or dangerous outcome, e.g a delete button</td>
+    </tr>
+    <tr>
+      <td>default</td>
+      <td>An intent applied if no other intent specified</td>
+    </tr>
+  </tbody>
+</table>
 
 ## Theming
 

@@ -21,16 +21,16 @@ export const BasicForm = {
       </SmallText>
       <FormLayout hasMargin>
         <InputWrap>
-          <InputGroup icon="homeSystem" label="Address" type="text" />
+          <InputGroup icon="property" label="Address" type="text" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="phoneSystem" label="Phone" type="number" />
+          <InputGroup icon="phone" label="Phone" type="number" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="calendarSystem" label="Date of Birth" type="date" />
+          <InputGroup icon="calendar" label="Date of Birth" type="date" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="emailSystem" label="Email" type="text" />
+          <InputGroup icon="email" label="Email" type="text" />
         </InputWrap>
         <InputWrapSmall>
           <InputGroup type="checkbox" label="Status" />
@@ -96,16 +96,16 @@ export const ComplexForm = {
       </SmallText>
       <FormLayout hasMargin>
         <InputWrap>
-          <InputGroup icon="homeSystem" label="Address" type="text" />
+          <InputGroup icon="property" label="Address" type="text" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="phoneSystem" label="Phone" type="number" />
+          <InputGroup icon="phone" label="Phone" type="number" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="calendarSystem" label="Date of Birth" type="date" />
+          <InputGroup icon="calendar" label="Date of Birth" type="date" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="emailSystem" label="Email" type="text" />
+          <InputGroup icon="email" label="Email" type="text" />
         </InputWrap>
         <InputWrapSmall>
           <InputGroup type="checkbox" label="Status" />
@@ -161,7 +161,7 @@ export const ComplexForm = {
       </SmallText>
       <FormLayout hasMargin>
         <InputWrapMed>
-          <InputGroup icon="homeSystem" label="Really Long Address" type="text" />
+          <InputGroup icon="property" label="Really Long Address" type="text" />
         </InputWrapMed>
         <InputWrapFull>
           <InputGroup>

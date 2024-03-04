@@ -1,21 +1,9 @@
 import { Meta, Story, Canvas, Source } from '@storybook/addon-docs'
-import * as styles from './spacing'
 import { cx } from '@linaria/core'
 import { RenderHtmlMarkup } from '../storybook/render-html-markup'
-import {
-  elBorderGrey,
-  elBorderBlue,
-  elBorderGreyL,
-  elBorderBlueB,
-  elBorderRadius,
-  elBorderRadiusR,
-  elBorderRadiusT,
-  elBoxShadow,
-} from './borders'
-import { elM6, elP6, elPb6, elMb6 } from './spacing'
-import { elWScreen, elHScreen, elW6, elH6 } from './sizing'
-import { elFlex } from './flexbox'
-import { GridDemoBlock, GridDemoBlockFeatured, GridDemoBlockSizing, GridDemoBorders } from './../storybook/demo-block'
+import * as UtilitiesStories from './utilities.stories'
+
+<Meta of={UtilitiesStories} />
 
 # Utilities
 
@@ -33,76 +21,80 @@ For both padding and margin, the helper classes are generated based on the follo
 `N`, a numeric value from the table below. For margin only, as well as a numeric value `Auto` is also accepted.
 
 <table>
+  <thead>
     <tr>
-        <td>CSS Class Value</td>
-        <td>Value rems</td>
-        <td>value px</td>
+      <td>CSS Class Value</td>
+      <td>Value rems</td>
+      <td>value px</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`0`</td>
+      <td>`0`</td>
+      <td>`0px`</td>
     </tr>
     <tr>
-        <td>`0`</td>
-        <td>`0`</td>
-        <td>`0px`</td>
+      <td>`1`</td>
+      <td>`0.25rem`</td>
+      <td>`4px`</td>
     </tr>
     <tr>
-        <td>`1`</td>
-        <td>`0.25rem`</td>
-        <td>`4px`</td>
+      <td>`2`</td>
+      <td>`0.375rem`</td>
+      <td>`6px`</td>
     </tr>
     <tr>
-        <td>`2`</td>
-        <td>`0.375rem`</td>
-        <td>`6px`</td>
+      <td>`3`</td>
+      <td>`0.5rem`</td>
+      <td>`8px`</td>
     </tr>
     <tr>
-        <td>`3`</td>
-        <td>`0.5rem`</td>
-        <td>`8px`</td>
+      <td>`4`</td>
+      <td>`0.625rem`</td>
+      <td>`10px`</td>
     </tr>
     <tr>
-        <td>`4`</td>
-        <td>`0.625rem`</td>
-        <td>`10px`</td>
+      <td>`5`</td>
+      <td>`0.75rem`</td>
+      <td>`12px`</td>
     </tr>
     <tr>
-        <td>`5`</td>
-        <td>`0.75rem`</td>
-        <td>`12px`</td>
+      <td>`6`</td>
+      <td>`1rem`</td>
+      <td>`16px`</td>
     </tr>
     <tr>
-        <td>`6`</td>
-        <td>`1rem`</td>
-        <td>`16px`</td>
+      <td>`7`</td>
+      <td>`1.25rem`</td>
+      <td>`20px`</td>
     </tr>
     <tr>
-        <td>`7`</td>
-        <td>`1.25rem`</td>
-        <td>`20px`</td>
+      <td>`8`</td>
+      <td>`1.5rem`</td>
+      <td>`24px`</td>
     </tr>
     <tr>
-        <td>`8`</td>
-        <td>`1.5rem`</td>
-        <td>`24px`</td>
+      <td>`9`</td>
+      <td>`2rem`</td>
+      <td>`32px`</td>
     </tr>
     <tr>
-        <td>`9`</td>
-        <td>`2rem`</td>
-        <td>`32px`</td>
+      <td>`10`</td>
+      <td>`2.25rem`</td>
+      <td>`36px`</td>
     </tr>
     <tr>
-        <td>`10`</td>
-        <td>`2.25rem`</td>
-        <td>`36px`</td>
+      <td>`11`</td>
+      <td>`2.5rem`</td>
+      <td>`40px`</td>
     </tr>
     <tr>
-        <td>`11`</td>
-        <td>`2.5rem`</td>
-        <td>`40px`</td>
+      <td>`12`</td>
+      <td>`3rem`</td>
+      <td>`48px`</td>
     </tr>
-    <tr>
-        <td>`12`</td>
-        <td>`3rem`</td>
-        <td>`48px`</td>
-    </tr>
+  </tbody>
 </table>
 
 So if I want an element to have, for example a margin right of 2 rems, I would construct it as a React class of `elMR9` which would give me a CSS class of `el-mr9`
@@ -112,121 +104,113 @@ This is best explained with some examples and varaible values below;
 #### Margin
 
 <table>
+  <thead>
     <tr>
-        <td>React Liaria Class</td>
-        <td>Generated CSS Class</td>
-        <td>CSS Property</td>
+      <td>React Liaria Classes</td>
+      <td>Generated CSS Classes</td>
+      <td>CSS Properties</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`elM6`</td>
+      <td>`el-m6`</td>
+      <td>`margin: 1rem;`</td>
     </tr>
     <tr>
-        <td>`elM6`</td>
-        <td>`el-m6`</td>
-        <td>`margin: 1rem;`</td>
+      <td>`elMl3`</td>
+      <td>`el-ml3`</td>
+      <td>`margin-left: 0.5rem;`</td>
     </tr>
     <tr>
-        <td>`elMl3`</td>
-        <td>`el-ml3`</td>
-        <td>`margin-left: 0.5rem;`</td>
+      <td>`elMr8`</td>
+      <td>`el-mr8`</td>
+      <td>`margin-right: 1.5rem;`</td>
     </tr>
     <tr>
-        <td>`elMr8`</td>
-        <td>`el-mr8`</td>
-        <td>`margin-right: 1.5rem;`</td>
+      <td>`elMt6`</td>
+      <td>`el-mt6`</td>
+      <td>`margin-top: 1rem;`</td>
     </tr>
     <tr>
-        <td>`elMt6`</td>
-        <td>`el-mt6`</td>
-        <td>`margin-top: 1rem;`</td>
+      <td>`elMb4`</td>
+      <td>`el-mb4`</td>
+      <td>`margin-bottom: 0.625rem;`</td>
     </tr>
     <tr>
-        <td>`elMb4`</td>
-        <td>`el-mb4`</td>
-        <td>`margin-bottom: 0.625rem;`</td>
+      <td>`elMx5`</td>
+      <td>`el-mx5`</td>
+      <td>`margin: 0 0.75rem;`</td>
     </tr>
     <tr>
-        <td>`elMx5`</td>
-        <td>`el-mx5`</td>
-        <td>`margin: 0 0.75rem;`</td>
+      <td>`elMy7`</td>
+      <td>`el-my7`</td>
+      <td>`margin: 1.25rem 0;`</td>
     </tr>
     <tr>
-        <td>`elMy7`</td>
-        <td>`el-my7`</td>
-        <td>`margin: 1.25rem 0;`</td>
+      <td>`elMxAuto`</td>
+      <td>`el-mx-auto`</td>
+      <td>`margin: 0 auto;`</td>
     </tr>
-    <tr>
-        <td>`elMxAuto`</td>
-        <td>`el-mx-auto`</td>
-        <td>`margin: 0 auto;`</td>
-    </tr>
+  </tbody>
 </table>
 
-<Canvas>
-  <Story name="Margin">
-    <GridDemoBlockFeatured className={cx(elMb6)}>elM6, el-mb6</GridDemoBlockFeatured>
-    <GridDemoBlockFeatured className={cx(elM6)}>elM6, el-m6</GridDemoBlockFeatured>
-  </Story>
-</Canvas>
+<Canvas of={UtilitiesStories.Margin} />
 
-<Source language="html" dark={true} code={`
-<div class="el-mb6">elMb6, el-mb6</div>
-<div class="el-m6">elM6, el-mb6</div>
-`} />
+<RenderHtmlMarkup of={UtilitiesStories.Margin} />
 
 #### Padding
 
 <table>
+  <thead>
     <tr>
-        <td>React Liaria Class</td>
-        <td>Generated CSS Class</td>
-        <td>CSS Property</td>
+      <td>React Liaria Classes</td>
+      <td>Generated CSS Classes</td>
+      <td>CSS Properties</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`elP6`</td>
+      <td>`el-p6`</td>
+      <td>`padding: 1rem;`</td>
     </tr>
     <tr>
-        <td>`elP6`</td>
-        <td>`el-p6`</td>
-        <td>`padding: 1rem;`</td>
+      <td>`elPl3`</td>
+      <td>`el-pl3`</td>
+      <td>`padding-left: 0.5rem;`</td>
     </tr>
     <tr>
-        <td>`elPl3`</td>
-        <td>`el-pl3`</td>
-        <td>`padding-left: 0.5rem;`</td>
+      <td>`elPr8`</td>
+      <td>`el-pr8`</td>
+      <td>`padding-right: 1.5rem;`</td>
     </tr>
     <tr>
-        <td>`elPr8`</td>
-        <td>`el-pr8`</td>
-        <td>`padding-right: 1.5rem;`</td>
+      <td>`elPt6`</td>
+      <td>`el-pt6`</td>
+      <td>`padding-top: 1rem;`</td>
     </tr>
     <tr>
-        <td>`elPt6`</td>
-        <td>`el-pt6`</td>
-        <td>`padding-top: 1rem;`</td>
+      <td>`elPb4`</td>
+      <td>`el-pb4`</td>
+      <td>`padding-bottom: 0.625rem;`</td>
     </tr>
     <tr>
-        <td>`elPb4`</td>
-        <td>`el-pb4`</td>
-        <td>`padding-bottom: 0.625rem;`</td>
+      <td>`elPx5`</td>
+      <td>`el-px5`</td>
+      <td>`padding: 0 0.75rem;`</td>
     </tr>
     <tr>
-        <td>`elPx5`</td>
-        <td>`el-px5`</td>
-        <td>`padding: 0 0.75rem;`</td>
+      <td>`elPy7`</td>
+      <td>`el-py7`</td>
+      <td>`padding: 1.25rem 0;`</td>
     </tr>
-    <tr>
-        <td>`elPy7`</td>
-        <td>`el-py7`</td>
-        <td>`padding: 1.25rem 0;`</td>
-    </tr>
+  </tbody>
 </table>
 
-<Canvas>
-  <Story name="Padding">
-    <GridDemoBlockFeatured className={cx(elPb6)}>elPb6, el-pb6</GridDemoBlockFeatured>
-    <GridDemoBlockFeatured className={cx(elP6)}>elP6, el-p6</GridDemoBlockFeatured>
-  </Story>
-</Canvas>
+<Canvas of={UtilitiesStories.Padding} />
 
-<Source language="html" dark={true} code={`
-<div class="el-pb6">elP6, el-pb6</div>
-<div class="el-p6">elP6, el-pb6</div>
-`} />
+<RenderHtmlMarkup of={UtilitiesStories.Padding} />
 
 ### Height and Width
 
@@ -239,179 +223,177 @@ The helper classes are generated based on the following pattern:
 `N`, a numeric value from the table below based on a percentage of a 12 column layout. We also accept the values `Full`, `Screen` and `Auto`.
 
 <table>
+  <thead>
     <tr>
-        <td>CSS Class Value</td>
-        <td>Value %</td>
+      <td>CSS Class Value</td>
+      <td>Value %</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`0`</td>
+      <td>`0`</td>
     </tr>
     <tr>
-        <td>`0`</td>
-        <td>`0`</td>
+      <td>`1`</td>
+      <td>`8.3333%`</td>
     </tr>
     <tr>
-        <td>`1`</td>
-        <td>`8.3333%`</td>
+      <td>`2`</td>
+      <td>`16.6667%`</td>
     </tr>
     <tr>
-        <td>`2`</td>
-        <td>`16.6667%`</td>
+      <td>`3`</td>
+      <td>`25%`</td>
     </tr>
     <tr>
-        <td>`3`</td>
-        <td>`25%`</td>
+      <td>`4`</td>
+      <td>`33.3333%`</td>
     </tr>
     <tr>
-        <td>`4`</td>
-        <td>`33.3333%`</td>
+      <td>`5`</td>
+      <td>`41.6667%`</td>
     </tr>
     <tr>
-        <td>`5`</td>
-        <td>`41.6667%`</td>
+      <td>`6`</td>
+      <td>`50%`</td>
     </tr>
     <tr>
-        <td>`6`</td>
-        <td>`50%`</td>
+      <td>`7`</td>
+      <td>`58.3333%`</td>
     </tr>
     <tr>
-        <td>`7`</td>
-        <td>`58.3333%`</td>
+      <td>`8`</td>
+      <td>`66.6667%`</td>
     </tr>
     <tr>
-        <td>`8`</td>
-        <td>`66.6667%`</td>
+      <td>`9`</td>
+      <td>`75%`</td>
     </tr>
     <tr>
-        <td>`9`</td>
-        <td>`75%`</td>
+      <td>`10`</td>
+      <td>`83.3333%`</td>
     </tr>
     <tr>
-        <td>`10`</td>
-        <td>`83.3333%`</td>
+      <td>`11`</td>
+      <td>`91.6667%`</td>
     </tr>
     <tr>
-        <td>`11`</td>
-        <td>`91.6667%`</td>
+      <td>`12`</td>
+      <td>`100%`</td>
     </tr>
     <tr>
-        <td>`12`</td>
-        <td>`100%`</td>
+      <td>`Full`</td>
+      <td>`100%`</td>
     </tr>
     <tr>
-        <td>`Full`</td>
-        <td>`100%`</td>
+      <td>`Auto`</td>
+      <td>`auto`</td>
     </tr>
     <tr>
-        <td>`Auto`</td>
-        <td>`auto`</td>
+      <td>`Screen`</td>
+      <td>`100vh` or `100vw`</td>
     </tr>
-    <tr>
-        <td>`Screen`</td>
-        <td>`100vh` or `100vw`</td>
-    </tr>
+  </tbody>
 </table>
 
 As per above, this is best demonstrated with some examples - in each case the height and width values are incremented by class and the underlying percentage value;
 
 <table>
+  <thead>
     <tr>
-        <td>React Liaria Classes</td>
-        <td>Generated CSS Classes</td>
-        <td>CSS Properties</td>
+      <td>React Liaria Classes</td>
+      <td>Generated CSS Classes</td>
+      <td>CSS Properties</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>`elWAuto elHAuto`</td>
+      <td>`el-w-auto el-h-auto`</td>
+      <td>`width: auto; height: auto;`</td>
     </tr>
     <tr>
-        <td>`elWAuto elHAuto`</td>
-        <td>`el-w-auto el-h-auto`</td>
-        <td>`width: auto; height: auto;`</td>
+      <td>`elW0 elH0`</td>
+      <td>`el-w0 el-h0`</td>
+      <td>`width: 0; height: 0;`</td>
     </tr>
     <tr>
-        <td>`elW0 elH0`</td>
-        <td>`el-w0 el-h0`</td>
-        <td>`width: 0; height: 0;`</td>
+      <td>`elW1 elH1`</td>
+      <td>`el-w1 el-h1`</td>
+      <td>`width: 8.3333%; height: 8.3333%;`</td>
     </tr>
     <tr>
-        <td>`elW1 elH1`</td>
-        <td>`el-w1 el-h1`</td>
-        <td>`width: 8.3333%; height: 8.3333%;`</td>
+      <td>`elW2 elH2`</td>
+      <td>`el-w2 el-h2`</td>
+      <td>`width: 16.6667%; height: 16.6667%;`</td>
     </tr>
     <tr>
-        <td>`elW2 elH2`</td>
-        <td>`el-w2 el-h2`</td>
-        <td>`width: 16.6667%; height: 16.6667%;`</td>
+      <td>`elW3 elH3`</td>
+      <td>`el-w3 el-h3`</td>
+      <td>`width: 25%; height: 25%;`</td>
     </tr>
     <tr>
-        <td>`elW3 elH3`</td>
-        <td>`el-w3 el-h3`</td>
-        <td>`width: 25%; height: 25%;`</td>
+      <td>`elW4 elH4`</td>
+      <td>`el-w4 el-h4`</td>
+      <td>`width: 33.3333%; height: 33.3333%;`</td>
     </tr>
     <tr>
-        <td>`elW4 elH4`</td>
-        <td>`el-w4 el-h4`</td>
-        <td>`width: 33.3333%; height: 33.3333%;`</td>
+      <td>`elW5 elH5`</td>
+      <td>`el-w5 el-h5`</td>
+      <td>`width: 41.6667%; height: 41.6667%;`</td>
     </tr>
     <tr>
-        <td>`elW5 elH5`</td>
-        <td>`el-w5 el-h5`</td>
-        <td>`width: 41.6667%; height: 41.6667%;`</td>
+      <td>`elW6 elH6`</td>
+      <td>`el-w6 el-h6`</td>
+      <td>`width: 50%; height: 50%;`</td>
     </tr>
     <tr>
-        <td>`elW6 elH6`</td>
-        <td>`el-w6 el-h6`</td>
-        <td>`width: 50%; height: 50%;`</td>
+      <td>`elW7 elH7`</td>
+      <td>`el-w7 el-h7`</td>
+      <td>`width: 58.3333%; height: 58.3333%;`</td>
     </tr>
     <tr>
-        <td>`elW7 elH7`</td>
-        <td>`el-w7 el-h7`</td>
-        <td>`width: 58.3333%; height: 58.3333%;`</td>
+      <td>`elW8 elH8`</td>
+      <td>`el-w8 el-h8`</td>
+      <td>`width: 66.6667%; height: 66.6667%;`</td>
     </tr>
     <tr>
-        <td>`elW8 elH8`</td>
-        <td>`el-w8 el-h8`</td>
-        <td>`width: 66.6667%; height: 66.6667%;`</td>
+      <td>`elW9 elH9`</td>
+      <td>`el-w9 el-h9`</td>
+      <td>`width: 75%; height: 75%;`</td>
     </tr>
     <tr>
-        <td>`elW9 elH9`</td>
-        <td>`el-w9 el-h9`</td>
-        <td>`width: 75%; height: 75%;`</td>
+      <td>`elW10 elH10`</td>
+      <td>`el-w10 el-h10`</td>
+      <td>`width: 83.3333%; height: 83.3333%;`</td>
     </tr>
     <tr>
-        <td>`elW10 elH10`</td>
-        <td>`el-w10 el-h10`</td>
-        <td>`width: 83.3333%; height: 83.3333%;`</td>
+      <td>`elW11 elH11`</td>
+      <td>`el-w11 el-h11`</td>
+      <td>`width: 91.6667%; height: 91.6667%;`</td>
     </tr>
     <tr>
-        <td>`elW11 elH11`</td>
-        <td>`el-w11 el-h11`</td>
-        <td>`width: 91.6667%; height: 91.6667%;`</td>
+      <td>`elW12 elH12`</td>
+      <td>`el-w12 el-h12`</td>
+      <td>`width: 100%; height: 100%;`</td>
     </tr>
     <tr>
-        <td>`elW12 elH12`</td>
-        <td>`el-w12 el-h12`</td>
-        <td>`width: 100%; height: 100%;`</td>
+      <td>`elWFull elHFull`</td>
+      <td>`el-w-full el-h-full`</td>
+      <td>`width: 100%; height: 100%;`</td>
     </tr>
     <tr>
-        <td>`elWFull elHFull`</td>
-        <td>`el-w-full el-h-full`</td>
-        <td>`width: 100%; height: 100%;`</td>
+      <td>`elWScreen elHScreen`</td>
+      <td>`el-w-screen el-h-screen`</td>
+      <td>`width: 100vw; height: 100vh;`</td>
     </tr>
-    <tr>
-        <td>`elWScreen elHScreen`</td>
-        <td>`el-w-screen el-h-screen`</td>
-        <td>`width: 100vw; height: 100vh;`</td>
-    </tr>
+  </tbody>
 </table>
 
-<Canvas>
-  <Story name="Height and Width">
-    <GridDemoBlockSizing className={cx(elW6, elH6)}>elW6 elH6, el-w6 el-h6</GridDemoBlockSizing>
-    <GridDemoBlockSizing className={cx(elWScreen, elHScreen)}>
-      elWScreen elHScreen, el-w-screen el-h-screen
-    </GridDemoBlockSizing>
-  </Story>
-</Canvas>
+<Canvas of={UtilitiesStories.HeightAndWidth} />
 
-<Source language="html" dark={true} code={`
-<div class="el-w6 el-h6">elW6 elH6, el-w6 el-h6</div>
-<div class="el-w-screen el-h-screen">elWScreen elHScreen, el-w-screen el-h-screen</div>
-`} />
+<RenderHtmlMarkup of={UtilitiesStories.HeightAndWidth} />
 
 ### Border, Border Radius and Box Shadow
 
@@ -425,26 +407,6 @@ Box shadow has no modifiers and is a standardised helper.
 
 As per above some examples;
 
-<Canvas>
-  <Story name="Border Border Radius and Box Shadow">
-    <GridDemoBorders className={elBorderGrey}>elBorderGrey, el-border-grey</GridDemoBorders>
-    <GridDemoBorders className={elBorderBlue}>elBorderBlue, el-border-blue</GridDemoBorders>
-    <GridDemoBorders className={elBorderGreyL}>elBorderGreyL, el-border-grey-l</GridDemoBorders>
-    <GridDemoBorders className={cx(elBorderRadius, elBorderBlue)}>
-      elBorderRadius elBorderBlue, el-border-radius el-border-blue
-    </GridDemoBorders>
-    <GridDemoBorders className={cx(elBorderRadiusR, elBorderGrey)}>
-      elBorderRadiusR elBorderGrey, el-border-radius-r el-border-grey
-    </GridDemoBorders>
-    <GridDemoBorders className={elBoxShadow}>elBoxShadow, el-box-shadow</GridDemoBorders>
-  </Story>
-</Canvas>
+<Canvas of={UtilitiesStories.BorderRadiusAndBoxShadow} />
 
-<Source language="html" dark={true} code={`
-<div class="el-border-grey">elBorderGrey, el-border-grey</div>
-<div class="el-border-blue">elBorderBlue, el-border-blue</div>
-<div class="el-border-grey-l">elBorderGreyL, el-border-grey-l</div>
-<div class="el-border-blue el-border-radius">elBorderRadius elBorderBlue, el-border-radius el-border-blue</div>
-<div class="el-border-grey el-border-radius-r">elBorderRadiusR elBorderGrey, el-border-radius-r el-border-grey</div>
-<div class="el-box-shadow">elBoxShadow, el-box-shadow</div>
-`} />
+<RenderHtmlMarkup of={UtilitiesStories.BorderRadiusAndBoxShadow} />

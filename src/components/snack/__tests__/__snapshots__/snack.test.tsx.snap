@@ -189,7 +189,7 @@ exports[`SnackHolder component should match a snapshot 1`] = `
   padding-left: 0.5rem;
   color: var(--color-black);
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             data-testid="close-icon"
             role="img"
@@ -226,7 +226,7 @@ exports[`SnackHolder component should match a snapshot 1`] = `
   padding-left: 0.5rem;
   color: var(--color-black);
  mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
           data-testid="close-icon"
           role="img"
