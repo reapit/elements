@@ -1,0 +1,142 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { Input } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as InputStories from './input.stories';
+
+<Meta of={InputStories} />
+
+# Input
+
+The input component is by design just a styled html / react component to allow developers maximum flexibility to use whatever form library they choose, or simply by listening on the native `onChange` event, accessing the `value` property of the input.
+
+> For all users, we recommend combining with the `InputGroup` and `FormLayout` components to ensure a consistent responsive layout, spacing and combining with labels, error messages and icons. See separate stories for more information.
+
+You may also wish to add your own custom elements eg a JS Datepicker - in this case, just target the default input with your own custom component or use the CSS classes provided.
+
+<Controls />
+
+## Input text
+
+<Canvas of={InputStories.InputText} />
+
+<RenderHtmlMarkup of={InputStories.InputText} />
+
+## Input With Error
+
+<Canvas>
+  <Story of={InputStories.InputWithError} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputWithError} />
+
+## Input email
+
+<Canvas>
+  <Story of={InputStories.InputEmail} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputEmail} />
+
+## Input password
+
+<Canvas>
+  <Story of={InputStories.InputPassword} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputPassword} />
+
+## Input number
+
+<Canvas>
+  <Story of={InputStories.InputNumber} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputNumber} />
+
+## Input tel (for telephone numbers)
+
+<Canvas>
+  <Story of={InputStories.InputTel} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputTel} />
+
+## Input url
+
+<Canvas>
+  <Story of={InputStories.InputUrl} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputUrl} />
+
+## Input search
+
+<Canvas>
+  <Story of={InputStories.InputSearch} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputSearch} />
+
+## Input date
+
+<Canvas>
+  <Story of={InputStories.InputDate} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputDate} />
+
+## Input time
+
+<Canvas>
+  <Story of={InputStories.InputTime} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputTime} />
+
+## Input datetime-local
+
+<Canvas>
+  <Story of={InputStories.InputDatetimeLocal} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputDatetimeLocal} />
+
+## Input week
+
+<Canvas>
+  <Story of={InputStories.InputWeek} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputWeek} />
+
+## Input month
+
+<Canvas>
+  <Story of={InputStories.InputMonth} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputMonth} />
+
+## Input file
+
+<Canvas>
+  <Story of={InputStories.InputFile} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputFile} />
+
+## Checkbox
+
+<Canvas>
+  <Story of={InputStories.InputCheckbox} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputCheckbox} />
+
+## Radio
+
+<Canvas>
+  <Story of={InputStories.InputRadio} />
+</Canvas>
+
+<RenderHtmlMarkup of={InputStories.InputRadio} />

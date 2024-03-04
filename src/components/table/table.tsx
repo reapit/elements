@@ -87,6 +87,7 @@ export const Table: FC<TableProps> = ({
 
   return (
     <ElTable
+      role="table"
       {...rest}
       data-num-columns-excl-action-col={
         (hasExpandableRows || hasCallToAction) && numberColumns
@@ -100,9 +101,11 @@ export const Table: FC<TableProps> = ({
       data-has-expandable-action={hasExpandableRows}
       data-has-call-to-action={hasCallToAction}
     >
-      <TableHeadersRow>
+      <TableHeadersRow role="row">
         {firstRow.cells.map((cell) => (
           <TableHeader
+            role="columnheader"
+            aria-label={`${cell.labelChild || cell.label}`}
             className={cell.className}
             key={cell.label?.toString()}
             onClick={(event) => {
@@ -115,7 +118,7 @@ export const Table: FC<TableProps> = ({
           </TableHeader>
         ))}
         {hasExpandableRows && (
-          <TableHeader>
+          <TableHeader role="columnheader">
             {firstRow.expandableContent?.headerContent ? (
               <>{firstRow.expandableContent?.headerContent}</>
             ) : (
@@ -124,7 +127,7 @@ export const Table: FC<TableProps> = ({
           </TableHeader>
         )}
         {hasCallToAction && (
-          <TableHeader>
+          <TableHeader role="columnheader">
             {firstRow.ctaContent?.headerContent ? (
               <>{firstRow.ctaContent?.headerContent}</>
             ) : (
@@ -136,13 +139,14 @@ export const Table: FC<TableProps> = ({
       {rows.map((row, index) => {
         const expandableRowIsOpen = indexExpandedRow !== undefined ? indexExpandedRow === index : expandedRow === index
         return (
-          <TableRowContainer key={index} isOpen={expandableRowIsOpen}>
+          <TableRowContainer role="row" key={index} isOpen={expandableRowIsOpen}>
             <TableRow>
               {row.cells.map((cell, cellIndex) => {
                 if (!cell) return <TableCell key={`${cellIndex}-${index}`} />
 
                 return (
                   <TableCell
+                    role="cell"
                     className={cell.className}
                     key={`${cellIndex}-${index}`}
                     icon={cell.icon}
@@ -157,6 +161,7 @@ export const Table: FC<TableProps> = ({
               })}
               {row.expandableContent && (
                 <TableExpandableRowTriggerCell
+                  role="cell"
                   className={row.expandableContent.className}
                   isOpen={expandableRowIsOpen}
                   onClick={
@@ -176,6 +181,7 @@ export const Table: FC<TableProps> = ({
               )}
               {row.ctaContent && (
                 <TableCtaTriggerCell
+                  role="cell"
                   className={row.ctaContent.className}
                   icon={row.ctaContent.icon}
                   onClick={row.ctaContent.onClick}
@@ -185,7 +191,9 @@ export const Table: FC<TableProps> = ({
               )}
             </TableRow>
             {row.expandableContent && row.expandableContent.content && (
-              <TableExpandableRow isOpen={expandableRowIsOpen}>{row.expandableContent.content}</TableExpandableRow>
+              <TableExpandableRow aria-hidden={expandableRowIsOpen} isOpen={expandableRowIsOpen}>
+                {row.expandableContent.content}
+              </TableExpandableRow>
             )}
           </TableRowContainer>
         )

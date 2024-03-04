@@ -1,0 +1,83 @@
+import { Story, Canvas, Controls, Meta, Source } from '@storybook/blocks'
+import { Toggle, ToggleRadio } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as ToggleStories from './toggle.stories'
+
+<Meta of={ToggleStories} />
+
+# Toggle
+
+## Basic Usage
+
+The toggle component is mask for a checkbox and for React users can be used as a drop in for this input type. You therefore manage state using any Form library or by referencing the `onChange` input event.
+
+For non React users, you can just apply the classes in the rendered markup to your input and label elements.
+
+Typically you will use this component when you want the user to select binary options like off/on or active/inactive.
+
+Props available for the React version of the component are just those of a standard React checkbox with some variant props as per below.
+
+<Controls />
+
+<Canvas of={ToggleStories.BasicUsage} />
+
+<RenderHtmlMarkup of={ToggleStories.BasicUsage} />
+
+## Toggle - Switch
+
+If you just want your toggle to behave like a switch without text, simply leave the toggle items empty.
+
+<Canvas of={ToggleStories.ToggleSwitch} />
+
+<RenderHtmlMarkup of={ToggleStories.ToggleSwitch} />
+
+## Toggle - Grey Bg
+
+Where rendering a toggle on a white background, you should apply the hasGreyBg prop to give better contrast. The white background standard toggle is intended for use on a grey background.
+
+<Canvas of={ToggleStories.ToggleGreyBg} />
+
+<RenderHtmlMarkup of={ToggleStories.ToggleGreyBg} />
+
+## Multi Toggle - ToggleRadio
+
+The `ToggleRadio` component uses very similar markup as the binary toggle but expands it to allow radio options. As before, you can manage state using any Form library or by referencing the `onChange` input event.
+
+For react users, the component does not render children, rather it accepts a list of options in the following interface and maps through them on render.
+
+As per the previous example, for non React users, you can just apply the classes in the rendered markup to your input and label elements.
+
+Typically you will use this component when you want the user to select from a number of options, possibly filters or similar select options where a dropdown is not appropriate.
+
+Props available for the React version of the component;
+
+{/* <ArgsTable of={ToggleRadio} /> */}
+
+Where `ToggleRadioOption` is defined as;
+
+<Source code={`
+export interface ToggleRadioOption {
+  id: string
+  value: string
+  text: string
+  isChecked: boolean
+}
+`} language="tsx" />
+
+<Canvas of={ToggleStories.ToggleRadioDefault} />
+
+<RenderHtmlMarkup of={ToggleStories.ToggleRadioDefault} />
+
+## Toggle RadioSelectProps - Grey Bg
+
+Where rendering a toggle on a white background, you should apply the hasGreyBg prop to give better contrast. The white background standard toggle is intended for use on a grey background.
+
+<Canvas of={ToggleStories.ToggleRadioSelectPropsGreyBg} />
+
+<RenderHtmlMarkup of={ToggleStories.ToggleRadioSelectPropsGreyBg} />
+
+## Toggle Disabled
+
+<Canvas of={ToggleStories.ToggleRadioDisabled} />
+
+<RenderHtmlMarkup of={ToggleStories.ToggleRadioDisabled} />

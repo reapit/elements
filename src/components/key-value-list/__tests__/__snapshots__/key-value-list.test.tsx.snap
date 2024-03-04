@@ -5,14 +5,220 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <div
+        role="list"
+      >
+        <mock-styled.div
+          classname=""
+          role="listitem"
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+              role="img"
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
+          >
+            <mock-styled.mock-styled.div
+              classname="mock-css."
+            >
+              Name
+            </mock-styled.mock-styled.div>
+            <mock-styled.mock-styled.div
+              classname=""
+            >
+              John Doe
+            </mock-styled.mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+          role="listitem"
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+              role="img"
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
+          >
+            <mock-styled.mock-styled.div
+              classname="mock-css."
+            >
+              Email
+            </mock-styled.mock-styled.div>
+            <mock-styled.mock-styled.div
+              classname=""
+            >
+              email@example.com
+            </mock-styled.mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+          role="listitem"
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+              role="img"
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
+          >
+            <mock-styled.mock-styled.div
+              classname="mock-css."
+            >
+              Parking Spaces
+            </mock-styled.mock-styled.div>
+            <mock-styled.mock-styled.div
+              classname=""
+            >
+              2
+            </mock-styled.mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+          role="listitem"
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+              role="img"
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
+          >
+            <mock-styled.mock-styled.div
+              classname="mock-css."
+            >
+              Date Signed Up
+            </mock-styled.mock-styled.div>
+            <mock-styled.mock-styled.div
+              classname=""
+            >
+              20th September 2023
+            </mock-styled.mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+          role="listitem"
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+              role="img"
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
+          >
+            <mock-styled.mock-styled.div
+              classname="mock-css.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ mock-css."
+            >
+              Address
+            </mock-styled.mock-styled.div>
+            <mock-styled.mock-styled.div
+              classname="mock-css.
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+"
+            >
+              I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
+            </mock-styled.mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+        <mock-styled.div
+          classname=""
+          role="listitem"
+        >
+          <mock-styled.div
+            classname=""
+          >
+            <mock-styled.span
+              classname="mock-css."
+              role="img"
+            >
+              <svg />
+            </mock-styled.span>
+          </mock-styled.div>
+          <mock-styled.div
+            classname="mock-css.
+  flex-direction: column;
+"
+          >
+            <mock-styled.mock-styled.div
+              classname="mock-css."
+            >
+              Description
+            </mock-styled.mock-styled.div>
+            <mock-styled.mock-styled.div
+              classname=""
+            >
+              This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
+            </mock-styled.mock-styled.div>
+          </mock-styled.div>
+        </mock-styled.div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      role="list"
+    >
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.span
             classname="mock-css."
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -36,12 +242,14 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.span
             classname="mock-css."
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -65,12 +273,14 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.span
             classname="mock-css."
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -94,12 +304,14 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.span
             classname="mock-css."
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -123,12 +335,14 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.span
             classname="mock-css."
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -160,12 +374,14 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
         >
           <mock-styled.span
             classname="mock-css."
+            role="img"
           >
             <svg />
           </mock-styled.span>
@@ -188,190 +404,6 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         </mock-styled.div>
       </mock-styled.div>
     </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.span
-          classname="mock-css."
-        >
-          <svg />
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
-"
-      >
-        <mock-styled.mock-styled.div
-          classname="mock-css."
-        >
-          Name
-        </mock-styled.mock-styled.div>
-        <mock-styled.mock-styled.div
-          classname=""
-        >
-          John Doe
-        </mock-styled.mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.span
-          classname="mock-css."
-        >
-          <svg />
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
-"
-      >
-        <mock-styled.mock-styled.div
-          classname="mock-css."
-        >
-          Email
-        </mock-styled.mock-styled.div>
-        <mock-styled.mock-styled.div
-          classname=""
-        >
-          email@example.com
-        </mock-styled.mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.span
-          classname="mock-css."
-        >
-          <svg />
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
-"
-      >
-        <mock-styled.mock-styled.div
-          classname="mock-css."
-        >
-          Parking Spaces
-        </mock-styled.mock-styled.div>
-        <mock-styled.mock-styled.div
-          classname=""
-        >
-          2
-        </mock-styled.mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.span
-          classname="mock-css."
-        >
-          <svg />
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
-"
-      >
-        <mock-styled.mock-styled.div
-          classname="mock-css."
-        >
-          Date Signed Up
-        </mock-styled.mock-styled.div>
-        <mock-styled.mock-styled.div
-          classname=""
-        >
-          20th September 2023
-        </mock-styled.mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.span
-          classname="mock-css."
-        >
-          <svg />
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
-"
-      >
-        <mock-styled.mock-styled.div
-          classname="mock-css.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
- mock-css."
-        >
-          Address
-        </mock-styled.mock-styled.div>
-        <mock-styled.mock-styled.div
-          classname="mock-css.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-"
-        >
-          I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
-        </mock-styled.mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.span
-          classname="mock-css."
-        >
-          <svg />
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  flex-direction: column;
-"
-      >
-        <mock-styled.mock-styled.div
-          classname="mock-css."
-        >
-          Description
-        </mock-styled.mock-styled.div>
-        <mock-styled.mock-styled.div
-          classname=""
-        >
-          This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
-        </mock-styled.mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -434,9 +466,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
     <div>
       <mock-styled.div
         classname=""
+        role="listbox"
       >
         <mock-styled.div
           classname=""
+          role="listitem"
         >
           <mock-styled.div
             classname=""
@@ -446,6 +480,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -470,6 +505,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="listitem"
         >
           <mock-styled.div
             classname=""
@@ -479,6 +515,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -503,6 +540,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="listitem"
         >
           <mock-styled.div
             classname=""
@@ -512,6 +550,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -536,6 +575,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="listitem"
         >
           <mock-styled.div
             classname=""
@@ -545,6 +585,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -569,6 +610,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="listitem"
         >
           <mock-styled.div
             classname=""
@@ -578,6 +620,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -610,6 +653,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
+          role="listitem"
         >
           <mock-styled.div
             classname=""
@@ -619,6 +663,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
+                role="img"
               >
                 <svg />
               </mock-styled.span>
@@ -647,9 +692,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   "container": <div>
     <mock-styled.div
       classname=""
+      role="listbox"
     >
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
@@ -659,6 +706,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -683,6 +731,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
@@ -692,6 +741,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -716,6 +766,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
@@ -725,6 +776,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -749,6 +801,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
@@ -758,6 +811,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -782,6 +836,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
@@ -791,6 +846,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              role="img"
             >
               <svg />
             </mock-styled.span>
@@ -823,6 +879,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
+        role="listitem"
       >
         <mock-styled.div
           classname=""
@@ -832,6 +889,7 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
+              role="img"
             >
               <svg />
             </mock-styled.span>

@@ -1,0 +1,88 @@
+import { Story, Canvas, Meta, Controls, Source } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import { NavResponsive } from './nav-responsive'
+import * as NavStories from './nav.stories'
+
+<Meta of={NavStories} />
+
+# Nav
+
+The primary navigation all Reapit Marketplace applications should have.
+
+## Basic Example
+
+> If using React, we strongly recommend using the React Shorthand `NavResponsive` component as it will handle the mobile menu and sub items for you and give a better user experience.
+
+In this basic example, no additional JS is added to the React generatated markup (see rendered markup section for the underlying elements).
+
+Routing can be handled by way of an `href` attribute, an additional `el-nav-item-active` class can be toggled to display the currently selected menu item and an `el-nav-item-secondary` class can be added to align menu items with the right of the page rather than the center.
+
+In this example, the menu will not expand in mobile - to enable this behaviour you will need to use some JavaScript - see below for the expanded classes you will need to toggle.
+
+If you use a `SecondaryNav` component, you will need to add these options as `NavItem`s and toggle their visibilty with a simple media query in Mobile.
+
+<Canvas of={NavStories.BasicExample} />
+
+<RenderHtmlMarkup of={NavStories.BasicExample} />
+
+## Basic Example Mobile Menu Open
+
+In this example, changing the browser width to mobile will show the expanded mobile menu. You will need to use some JavaScript to toggle the `el-nav-item-expanded` class on the `NavItem` components on cllick of the more icon.
+
+As per above if you use a `SecondaryNav` component, you will need to add these options as `NavItem`s and toggle their visibilty with the `elNavItemHideDesktop` class.
+
+<Canvas of={NavStories.BasicExampleMobileMenuOpen} />
+
+<RenderHtmlMarkup of={NavStories.BasicExampleMobileMenuOpen} />
+
+## React Usage
+
+<Controls />
+
+The `useNavState` hook will track the currrent state of the Nav and return both, the `navState` and a `setNavState` function. See the below inteface for `NavResponsiveOption` for an explanation of the code.
+
+
+<Source code={`
+export interface NavResponsiveOption {
+  itemIndex: number
+  callback?: () => void
+  text?: string
+  href?: string
+  subItems?: NavResponsiveOption[]
+}
+`} language="tsx" />
+
+Practically the callback will be a dispatch to React Router, an update to `window.history` object or similar client side routing function. You may also wish to bind the callback to an application action for example below, we pass a `logout` function to the logout nav item.
+
+You can override this behaviour by simply setting a `href` attribute to route to any url or path, for maximum flexibility.
+
+We also introduce a second hook `useMediaQuery` which supplies an `isMobile` value - this enables to switch out elements based on a media query..
+
+For the simple use case, the sub items are not required however, if you use a `SecondaryNav` component, you will need to add these as the `SecondaryNav` is hidden in mobile. The toggling of sub nav items in mobile is handled for you.
+
+Finally, you can add avatar and app switcher options to the Nav by passing them as props to the `NavResponsive` component. See below for the accompanying interfaces.
+
+<Source code={`
+export interface NavResponsiveAvatarOption {
+  text?: string
+  callback?: () => void
+}
+
+export interface NavResponsiveAppSwitcherOption {
+  text?: string
+  callback?: () => void
+  iconUrl?: ReactNode
+}
+`} language="tsx" />
+
+<Canvas of={NavStories.ReactUsage} />
+
+<RenderHtmlMarkup of={NavStories.ReactUsage} />
+
+## React Usage With Custom Brand
+
+We also support for the React Version, adding a custom brand and / or a callback on the logo for example, if you wish the logo to navigate back to the homepage.
+
+<Canvas of={NavStories.ReactUsageWithCustomBrand} />
+
+<RenderHtmlMarkup of={NavStories.ReactUsageWithCustomBrand} />

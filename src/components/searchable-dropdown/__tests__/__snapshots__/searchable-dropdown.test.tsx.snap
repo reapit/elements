@@ -15,8 +15,9 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -45,8 +46,9 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
       <mock-styled.div>
         <mock-styled.span
           classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+          role="img"
           style="font-size: 1rem;"
         >
           <svg
@@ -132,8 +134,9 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -158,8 +161,9 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.span
           classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+          role="img"
           style="font-size: 1rem;"
         >
           <svg
@@ -241,8 +245,9 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+            role="img"
             style="font-size: 1rem;"
           >
             <svg
@@ -268,8 +273,9 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.span
           classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+          role="img"
           style="font-size: 1rem;"
         >
           <svg

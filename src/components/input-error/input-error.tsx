@@ -1,4 +1,3 @@
-import React from 'react'
 import { ElInputError } from './__styles__'
 
 export interface InputErrorInterface {

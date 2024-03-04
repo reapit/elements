@@ -1,0 +1,15 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as InputErrorStories from './input-error.stories'
+
+<Meta of={InputErrorStories} />
+
+# Input Error
+
+A simple component used to display an error message under an input component
+
+## Example
+
+<Canvas of={InputErrorStories.ErrorMessage} />
+
+<RenderHtmlMarkup of={InputErrorStories.ErrorMessage} />

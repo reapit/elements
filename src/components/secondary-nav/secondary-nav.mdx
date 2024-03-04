@@ -1,0 +1,34 @@
+import { useState } from 'react'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { SecondaryNav, SecondaryNavItem } from './index'
+import { SecondaryNavContainer } from '../layout'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as SecondaryNavStories from './secondary-nav.stories'
+
+<Meta of={SecondaryNavStories} />
+
+# SecondaryNav
+
+A secondary navigation component for rendering sub-pages.
+
+> When using the `SecondaryNav` ensure you add your nav options (or sub-options) to the main `Nav` component in mobile view, since this component will be hidden below tablet resolution. See main `Nav` docs for more.
+
+## Basic Usage
+
+<Canvas of={SecondaryNavStories.BasicUsage} />
+
+<RenderHtmlMarkup of={SecondaryNavStories.BasicUsage} />
+
+Supply as children, as many `<SecondaryNavItem>` tags as required.
+
+## SecondaryNavItem
+
+Use `SecondaryNavItem` as a child of `SecondaryNav`. It accepts the following props, as well as any other standard HTML or React attribute for `<div>`, e.g. `onClick`
+
+## React example with `useState`
+
+The props accepted by the `SecondaryNavItem` are below - the `SecondaryNav` itself only accepts standard HTML attributes.
+
+<Controls />
+
+<Canvas of={SecondaryNavStories.ReactExample} />

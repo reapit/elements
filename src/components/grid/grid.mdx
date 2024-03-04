@@ -1,0 +1,165 @@
+import { Story, Canvas, Controls, Meta } from '@storybook/blocks'
+import { GridResponsive, ColResponsive } from './grid-responsive'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as GridStories from './grid.stories'
+
+<Meta of={GridStories} />
+
+# Grid
+
+The Grid leverages CSS Grid to provide a responsive layout for your applications.
+
+## Basic Usage
+
+The basic grid should fulil majority of requirements for most users and is based on Foundations Styleguide responsive breakpoints.
+
+There are two core components `Grid` and `Col`. In all cases `Col` will span 4 columns of grid, whilst number of grid columns increases as screen size increases.
+
+The table below details breakpoints from styleguide against ther respective screen size and column counts when using grid.
+
+<table>
+  <thead>
+    <tr>
+      <td>Breakpoint Variable</td>
+      <td>Window Width</td>
+      <td>Column count</td>
+      <td>Items Per Row</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>isMobile</td>
+      <td>&lt; 767px</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>isTablet</td>
+      <td>&gt;= 768 and &lt; 1024</td>
+      <td>4</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <td>isDesktop</td>
+      <td>&gt;= 1024 and &lt; 1440</td>
+      <td>8</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <td>isWideScreen</td>
+      <td>&gt;= 1440 and &lt; 1920</td>
+      <td>12</td>
+      <td>3</td>
+    </tr>
+    <tr>
+      <td>isSuperWideScreen</td>
+      <td>&gt;= 1920 and &lt; 2560</td>
+      <td>16</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <td>is4KScreen</td>
+      <td>&gt;= 2560</td>
+      <td>20</td>
+      <td>5</td>
+    </tr>
+  </tbody>
+</table>
+
+Row and column gaps are standardised in line with our style guide.
+
+<Canvas of={GridStories.BasicUsage} />
+
+<RenderHtmlMarkup of={GridStories.BasicUsage} />
+
+## Basic Usage Quarter and Halves
+
+Using the basic grid you can also use smaller columns for more granular control over your layout with `ColHalfy` and `ColQuarter` components.
+
+<Canvas of={GridStories.BasicUsageQuarterAndHalves} />
+
+<RenderHtmlMarkup of={GridStories.BasicUsageQuarterAndHalves} />
+
+## Basic Usage - Split Screen Grid
+
+For more simple layouts, you will likely need a split screen, two column layout. This can be achieved by substituting `Col` component with a `ColSplit` grid item.
+
+Below 1024px the grid will have a single item per column, above, the screen will split into two columns.
+
+<Canvas of={GridStories.BasicUsageSplitScreenGrid} />
+
+<RenderHtmlMarkup of={GridStories.BasicUsageSplitScreenGrid} />
+
+## Basic Usage - Split Screen Grid Thirds
+
+For a sidebar and main colum view, you can use a `GridThirds` grid, with `ColSplitThird` and `ColSplitTwoThirds` grid items - this is best combined with a `hasMaxWidth` Container - see layouts for more on this.
+
+In mobile and tablet, these columns stack then break at destop view and above.
+
+<Canvas of={GridStories.BasicUsageSplitScreenGridThirds} />
+
+<RenderHtmlMarkup of={GridStories.BasicUsageSplitScreenGridThirds} />
+
+## Custom Usage
+
+If you need more granular control over your grid, you can override base with utility classes we expose.
+
+The grid class / component can have both it's `grid-column-gap` and `grid-row-gap` properties with modifiers classes that follow pattern below:
+
+- `.e-col-gap{unit}`
+- `.el-row-gap{unit}`
+
+Where `{unit}` value is one of
+
+- `0`: 0rem
+- `1`: 0.25rem
+- `2`: 0.5rem
+- `3`: 0.75rem
+- `4`: 1rem
+- `6`: 1.5rem
+- `8`: 2rem
+- `10`: 2.5rem
+- `12`: 3rem
+
+So a class `.el-col-gap-4` will give a `grid-column-gap` property of 1rem. Note if importing TypeScript components, classes are `camelCased` eg `elColGap4`
+
+Similarly, for `Col` component / class, you can override both `grid-column-end` and `grid-column-start` properties with following options;
+
+- `.e-span{unit}`
+- `.el-offset{unit}`
+
+Where `{unit}` value a number `1 - 12`, mapping to number of columns `Col` should span and column it should start at on grid respectively.
+
+The below contrived example we have overridden base behaviour by adding a custom column and row gap to grid and start and span properties to columns.
+
+Obviously to make classes responsive, you will need some JavaScript to toggle classes as appropriate.
+
+<Canvas of={GridStories.CustomUsage} />
+
+<RenderHtmlMarkup of={GridStories.CustomUsage} />
+
+## React Example - Responsive Customisation
+
+In previous example, we saw that customisation required some JS logic to toggle classes based on media widths.
+
+For React users, we have an addional `GridResponsive` component that under hood uses `useMediaQuery` hook to allow maximum customisation based on our 4 media query breakpoints.
+
+Both `GridResponsive` and `ColResponsive` components accept props in following interface, mapping to the breakpoint variables we saw in the main grid component table.
+
+<Controls component={GridResponsive} />
+
+Essentially for `GridResponsive` we can set `grid-column-gap` and `grid-row-gap` for each of mobile, tablet, desktop and widescreen based on relevant prop.
+
+For `ColResponsive` same applies, but for `grid-column-end` and `grid-column-start` properties.
+
+In all cases, class is toggled as screen size changes, defaulting to base grid values if no additional class is applied.
+
+Full example below creates a grid that doubles the number of columns versus the standard grid and increases both row and column gap incrementally.
+
+## ColResponsive
+
+<Controls component={ColResponsive} />
+
+<Canvas of={GridStories.ReactExampleResponsiveCustomisation} />
+
+<RenderHtmlMarkup of={GridStories.ReactExampleResponsiveCustomisation} />

@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { FileInput } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as FileInputStories from './file-input.stories'
+
+<Meta of={FileInputStories} />
+
+# FileInput
+
+The file input component, like the regular input is by design just a styled html / react component to allow developers maximum flexibility to use whatever form library they choose, or simply by listening on the native `onChange` event, accessing the `value` property of the input.
+
+If you prefer not to use this component, especially if you are a non-React user, you can just add `type="file"` to one of our regular inputs.
+
+## Default Usage
+
+Props available for the React version of the component;
+
+<Controls />
+
+<Canvas>
+  <Story of={FileInputStories.DefaultUsage} />
+</Canvas>
+
+<RenderHtmlMarkup of={FileInputStories.DefaultUsage} />
+
+## Advanced Usage
+
+Adds a placeholder, a Modal preview window and a setState callback to store your image.
+
+> Note: Safari does not support base64 encoded images over ~2mb and will throw if you either attempt to decode the base64 or render it. If you need to support previewing in Safari, we suggest passing the base64 passed to `onChange` to a third party libary to decode before rendering. The `FilePreviewImage` component will show a warning to the user if Safari is detected in the user agent.
+
+<Canvas>
+  <Story of={FileInputStories.AdvancedUsage} />
+</Canvas>
+
+{/* Cannot use because of portals error? */}
+{/* <RenderHtmlMarkup component="FileInput" story="Advanced Usage" /> */}

@@ -1,0 +1,36 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { Loader } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as LoaderStories from './loader.stories'
+
+<Meta of={LoaderStories} />
+
+# Loader
+
+A simple loader component to give a visual indicator of progress. It ships with an optional label prop as per below and can be shown inline or centered.
+
+<Controls />
+
+## Inline
+
+<Canvas of={LoaderStories.Inline} />
+
+<RenderHtmlMarkup of={LoaderStories.Inline} />
+
+## With a label
+
+<Canvas of={LoaderStories.WithALabel} />
+
+<RenderHtmlMarkup of={LoaderStories.WithALabel} />
+
+## Full page
+
+The full page loader overlays any content and centers on the page - suitable for use when loading entire pages of content.
+
+<Canvas of={LoaderStories.FullPageLoader} />
+
+<RenderHtmlMarkup of={LoaderStories.FullPageLoader} />
+
+# Other attributes
+
+`Loader` takes no custom props but all other standard HTML attributes for `<div>` are supported and are passed through to the React component, e.g. `className`

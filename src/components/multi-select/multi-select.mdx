@@ -1,0 +1,55 @@
+import { Story, Canvas, Controls, Meta, Source } from '@storybook/blocks'
+import { MultiSelectInput } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as MultiSelectStories from './multi-select.stories'
+
+<Meta of={MultiSelectStories} />
+
+# Multi Select
+
+A multi select component used similar to a select but for many options. Can also be used for navigation or toggling data.
+
+## Basic Example
+
+Like the toggle component, the `MultiSelectChip` is mask for a checkbox and for React users can be used as a drop in for this input type. You therefore manage state using any Form library or by referencing the `onChange` or `onClick` input events.
+
+For non React users, you can just apply the classes in the rendered markup to your input and label elements.
+
+Typically you will use this component when you want the user to select multiple options from a large data list.
+
+<Canvas of={MultiSelectStories.BasicExample} />
+
+<RenderHtmlMarkup of={MultiSelectStories.BasicExample} />
+
+## Grey Chips
+
+For placing on a white background, we offer a modifier to the chips that turn the background grey.
+
+<Canvas of={MultiSelectStories.GreyChips} />
+
+<RenderHtmlMarkup of={MultiSelectStories.GreyChips} />
+
+## React Example
+
+For React users, we supply a shorthand component `MultiSelectInput` which behaves like a normal input. As such you can listen to the `onChange` event as normal and will return the value of the selected chips.
+
+The value property returned is a string of the selected values of the chips, where value is defined in the `MultiSelectOption` interface below.
+
+To pre-select some options, you can pass in an array of values to be selected as a prop.
+
+On selection of a chip, the chips are sorted so that selected items render in a row above the de-selected items. In the example, we have pre-selected item one by setting the `defaultValues` prop to illustrate this behaviour.
+
+<Controls />
+
+In the above table, `MultiSelectOption` is defined as:
+
+<Source code={`
+export interface MultiSelectOption {
+  value: string
+  name: string
+}
+`} language="typescript" />
+
+<Canvas of={MultiSelectStories.ReactExample} />
+
+<RenderHtmlMarkup of={MultiSelectStories.ReactExample} />

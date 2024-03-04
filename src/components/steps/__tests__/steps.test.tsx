@@ -1,4 +1,3 @@
-import React from 'react'
 import { render, fireEvent } from '@testing-library/react'
 import { Steps, StepsProps, StepsVertical, StepsVerticalProps } from '../index'
 

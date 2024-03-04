@@ -148,6 +148,7 @@ export const FileInput: FileInputWrapped = forwardRef(
             onChange={handleFileChange(setFileName, fileName, onFileUpload)}
           />
           <ElFileInputHidden
+            aria-hidden="true"
             id={inputId}
             {...rest}
             defaultValue={defaultValue}
@@ -157,6 +158,7 @@ export const FileInput: FileInputWrapped = forwardRef(
             <ElFileInputIconContainer>
               {onFileView && (
                 <Icon
+                  role="button"
                   onClick={handleFileView(onFileView, fileUrl)}
                   className={elMr4}
                   intent="primary"
@@ -165,6 +167,7 @@ export const FileInput: FileInputWrapped = forwardRef(
                 />
               )}
               <Icon
+                role="button"
                 onClick={handleFileClear(setFileName)}
                 className={elMr4}
                 intent="primary"

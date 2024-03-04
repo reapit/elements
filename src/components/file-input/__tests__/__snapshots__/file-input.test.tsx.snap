@@ -25,6 +25,7 @@ exports[`FileInput component should match a snapshot 1`] = `
             type="file"
           />
           <mock-styled.input
+            aria-hidden="true"
             id="test-static-id"
           />
           <mock-styled.p
@@ -57,6 +58,7 @@ exports[`FileInput component should match a snapshot 1`] = `
           type="file"
         />
         <mock-styled.input
+          aria-hidden="true"
           id="test-static-id"
         />
         <mock-styled.p
@@ -218,6 +220,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             type="file"
           />
           <mock-styled.input
+            aria-hidden="true"
             id="test-static-id"
           />
           <mock-styled.div>
@@ -225,8 +228,9 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
               classname="mock-css.
   margin-right: 0.625rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+              role="button"
               style="font-size: 1rem;"
             >
               <svg
@@ -237,8 +241,9 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
               classname="mock-css.
   margin-right: 0.625rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+              role="button"
               style="font-size: 1rem;"
             >
               <svg
@@ -274,6 +279,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
           type="file"
         />
         <mock-styled.input
+          aria-hidden="true"
           id="test-static-id"
         />
         <mock-styled.div>
@@ -281,8 +287,9 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             classname="mock-css.
   margin-right: 0.625rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+            role="button"
             style="font-size: 1rem;"
           >
             <svg
@@ -293,8 +300,9 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             classname="mock-css.
   margin-right: 0.625rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+            role="button"
             style="font-size: 1rem;"
           >
             <svg

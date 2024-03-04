@@ -7,6 +7,7 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
     <div>
       <mock-styled.div
         classname="mock-css."
+        role="alertdialog"
       >
         <div
           class="mock-css.
@@ -24,8 +25,9 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -50,6 +52,7 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div
       classname="mock-css."
+      role="alertdialog"
     >
       <div
         class="mock-css.
@@ -67,8 +70,9 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
       >
         <mock-styled.span
           classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -150,6 +154,7 @@ exports[`PersistentNotification component should match a snapshot for an inline 
     <div>
       <mock-styled.div
         classname="mock-css. mock-css. mock-css. mock-css."
+        role="alertdialog"
       >
         <div
           class="mock-css.
@@ -167,8 +172,9 @@ exports[`PersistentNotification component should match a snapshot for an inline 
         >
           <mock-styled.span
             classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -193,6 +199,7 @@ exports[`PersistentNotification component should match a snapshot for an inline 
   "container": <div>
     <mock-styled.div
       classname="mock-css. mock-css. mock-css. mock-css."
+      role="alertdialog"
     >
       <div
         class="mock-css.
@@ -210,8 +217,9 @@ exports[`PersistentNotification component should match a snapshot for an inline 
       >
         <mock-styled.span
           classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -293,6 +301,7 @@ exports[`PersistentNotification component should match a snapshot when expanded 
     <div>
       <mock-styled.div
         classname="mock-css. mock-css."
+        role="alertdialog"
       >
         <div
           class="mock-css.
@@ -310,8 +319,9 @@ exports[`PersistentNotification component should match a snapshot when expanded 
         >
           <mock-styled.span
             classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -336,6 +346,7 @@ exports[`PersistentNotification component should match a snapshot when expanded 
   "container": <div>
     <mock-styled.div
       classname="mock-css. mock-css."
+      role="alertdialog"
     >
       <div
         class="mock-css.
@@ -353,8 +364,9 @@ exports[`PersistentNotification component should match a snapshot when expanded 
       >
         <mock-styled.span
           classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
@@ -436,6 +448,7 @@ exports[`PersistentNotification component should match a snapshot when given an 
     <div>
       <mock-styled.div
         classname="mock-css."
+        role="alertdialog"
       >
         <div
           class="mock-css.
@@ -453,8 +466,9 @@ exports[`PersistentNotification component should match a snapshot when given an 
         >
           <mock-styled.span
             classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -479,6 +493,7 @@ exports[`PersistentNotification component should match a snapshot when given an 
   "container": <div>
     <mock-styled.div
       classname="mock-css."
+      role="alertdialog"
     >
       <div
         class="mock-css.
@@ -496,8 +511,9 @@ exports[`PersistentNotification component should match a snapshot when given an 
       >
         <mock-styled.span
           classname="mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+          role="img"
           style="font-size: 1.25rem;"
         >
           <svg

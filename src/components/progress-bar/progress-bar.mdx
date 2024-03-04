@@ -1,0 +1,54 @@
+import { useState } from 'react'
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import {
+  ProgressBarPercentage,
+  ProgressBarSteps,
+  ProgressBarContainer,
+  ProgressBarInner,
+  ProgressBarItem,
+  ProgressBarLabel,
+} from './progress-bar'
+import { elProgressBarLabelRight, elProgressBarLabelLeft } from './__styles__'
+import * as ProgressBarStories from './progress-bar.stories'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta of={ProgressBarStories} />
+
+# Progress Bar
+
+Where progress or steps for a process need to be indicated to a user.
+
+There are two flavors of `ProgressBar` - one showing percentage complete of an action, the other showing steps completed.
+
+## Basic Example - ProgressBarPercentage
+
+In the percentage progress bar, if not using the React component, you will need to render both the percentage completed within the label class and add a percentage width to the progress bar inner.
+
+In this example we add the width as an inline style so we can control progress based on an asynchronous action with JavaScript. Depending on the speed of completion, of your task, you may also wish to adjust the transition duration (defaults to 0.5s), to make the progress smooth.
+
+<Canvas of={ProgressBarStories.BasicExampleProgressBarPercentage} />
+
+## Basic Example - ProgressBarSteps
+
+The progress bar steps example is very similar in terms of markup with the exception that the steps are rendered right and the percentage complete value should be determined by the number of steps completed against the total number.
+
+<Canvas of={ProgressBarStories.BasicExampleProgressBarSteps} />
+
+## React Example - ProgressBarPercentage
+
+In the React Example, we do the calculations of width and timing for you - simply specify a duration prop for the expected time in seconds of your event or action and we do the rest.
+
+<Canvas of={ProgressBarStories.ReactExampleProgressBarPercentage} />
+
+<RenderHtmlMarkup of={ProgressBarStories.ReactExampleProgressBarPercentage} />
+
+
+## React Example - ProgressBarSteps
+
+<Controls />
+
+Similarly for steps in the React component, you just need to specify the total number of steps and the current step you have completed.
+
+<Canvas of={ProgressBarStories.ReactExampleProgressBarSteps} />
+
+<RenderHtmlMarkup of={ProgressBarStories.ReactExampleProgressBarSteps} />

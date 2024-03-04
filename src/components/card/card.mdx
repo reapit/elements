@@ -1,0 +1,82 @@
+import { Story, Canvas, Meta, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import { Card } from './card-components'
+import * as CardStories from './card.stories'
+
+<Meta of={CardStories} />
+
+# Card
+
+The Card is intended to be a general purpose tile for rendering lists of data. We supply two core types - with an image and with a list of items.
+
+All of the markup is intended to fallback gracefully if not supplied so for example, if you want to omit the image or the list items, this can be done and the Card will still look fine.
+
+If you wish to combine a list and an image card, this can be done too - see the complete examples below.
+
+For non-React users, the following examples show how applying and removing classes will toggle various pieces of the UI.
+
+React users, may wish to use the shorthand component to reduce markup.
+
+<Controls />
+
+## Card With Avatar
+
+<Canvas of={CardStories.CardWithAvatar} />
+
+<RenderHtmlMarkup of={CardStories.CardWithAvatar} />
+
+## Card With Image
+
+<Canvas of={CardStories.CardWithImage} />
+
+<RenderHtmlMarkup of={CardStories.CardWithImage} />
+
+## Card With Body
+
+<Canvas of={CardStories.CardWithBody} />
+
+<RenderHtmlMarkup of={CardStories.CardWithBody} />
+
+## Card Focussed
+
+Adding the `elCardFocussed` class to the `CardWrap` will draw the contact's attention.
+
+<Canvas of={CardStories.CardFocussed} />
+
+<RenderHtmlMarkup of={CardStories.CardFocussed} />
+
+## Card With List
+
+<Canvas of={CardStories.CardWithList} />
+
+<RenderHtmlMarkup of={CardStories.CardWithList} />
+
+## Card Complete Example
+
+<Canvas of={CardStories.CardCompleteExample} />
+
+<RenderHtmlMarkup of={CardStories.CardCompleteExample} />
+
+## React Shorthand
+
+In the React Shorthand, you can compose your card by applying props as appropriate following the `CardProps` interface:
+
+All of the props are optional - you can have Avatar, Image, List and Complete versions depending on how you mix and match the props.
+
+## React Shorthand Avatar & Body
+
+<Canvas of={CardStories.ReactShorthandAvatarBody} />
+
+<RenderHtmlMarkup of={CardStories.ReactShorthandAvatarBody} />
+
+## React Shorthand List
+
+<Canvas of={CardStories.ReactShorthandList} />
+
+<RenderHtmlMarkup of={CardStories.ReactShorthandList} />
+
+## React Shorthand Complete
+
+<Canvas of={CardStories.ReactShorthandComplete} />
+
+<RenderHtmlMarkup of={CardStories.ReactShorthandComplete} />

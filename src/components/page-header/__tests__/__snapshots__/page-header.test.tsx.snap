@@ -12,6 +12,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.div
+            aria-label="Breadcrumb"
             classname="mock-css.
   margin-bottom: 1rem;
 "
@@ -21,7 +22,9 @@ exports[`PageHeader component should match a snapshot 1`] = `
   align-items: center;
 "
             >
-              <mock-styled.div>
+              <mock-styled.div
+                aria-current="false"
+              >
                 Home
               </mock-styled.div>
             </mock-styled.div>
@@ -34,15 +37,18 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+                role="img"
                 style="font-size: 12px;"
               >
                 <svg
                   style="font-size: 12px;"
                 />
               </mock-styled.span>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-current="false"
+              >
                 Level 1
               </mock-styled.div>
             </mock-styled.div>
@@ -55,15 +61,18 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+                role="img"
                 style="font-size: 12px;"
               >
                 <svg
                   style="font-size: 12px;"
                 />
               </mock-styled.span>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-current="false"
+              >
                 Level 2
               </mock-styled.div>
             </mock-styled.div>
@@ -76,15 +85,18 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+                role="img"
                 style="font-size: 12px;"
               >
                 <svg
                   style="font-size: 12px;"
                 />
               </mock-styled.span>
-              <mock-styled.div>
+              <mock-styled.div
+                aria-current="page"
+              >
                 Level 3
               </mock-styled.div>
             </mock-styled.div>
@@ -97,6 +109,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             >
               <mock-styled.mock-styled.div
                 classname=""
+                role="img"
               >
                 <img
                   alt="https://picsum.photos/200/300"
@@ -187,11 +200,14 @@ exports[`PageHeader component should match a snapshot 1`] = `
   width: 100%;
   justify-content: space-evenly;
 "
+            role="tablist"
           >
             <mock-styled.div>
               <mock-styled.input
+                aria-selected="true"
                 id="tab-1-fw"
                 name="my-cool-tabs-full-width"
+                role="tab"
                 type="radio"
                 value="tab-1-fw"
               />
@@ -218,8 +234,10 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 </span>
               </mock-styled.label>
               <mock-styled.input
+                aria-selected="false"
                 id="tab-2-fw"
                 name="my-cool-tabs-full-width"
+                role="tab"
                 type="radio"
                 value="tab-2-fw"
               />
@@ -246,8 +264,10 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 </span>
               </mock-styled.label>
               <mock-styled.input
+                aria-selected="false"
                 id="tab-3-fw"
                 name="my-cool-tabs-full-width"
+                role="tab"
                 type="radio"
                 value="tab-3-fw"
               />
@@ -293,6 +313,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.div
+          aria-label="Breadcrumb"
           classname="mock-css.
   margin-bottom: 1rem;
 "
@@ -302,7 +323,9 @@ exports[`PageHeader component should match a snapshot 1`] = `
   align-items: center;
 "
           >
-            <mock-styled.div>
+            <mock-styled.div
+              aria-current="false"
+            >
               Home
             </mock-styled.div>
           </mock-styled.div>
@@ -315,15 +338,18 @@ exports[`PageHeader component should match a snapshot 1`] = `
               classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+              role="img"
               style="font-size: 12px;"
             >
               <svg
                 style="font-size: 12px;"
               />
             </mock-styled.span>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-current="false"
+            >
               Level 1
             </mock-styled.div>
           </mock-styled.div>
@@ -336,15 +362,18 @@ exports[`PageHeader component should match a snapshot 1`] = `
               classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+              role="img"
               style="font-size: 12px;"
             >
               <svg
                 style="font-size: 12px;"
               />
             </mock-styled.span>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-current="false"
+            >
               Level 2
             </mock-styled.div>
           </mock-styled.div>
@@ -357,15 +386,18 @@ exports[`PageHeader component should match a snapshot 1`] = `
               classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
+              role="img"
               style="font-size: 12px;"
             >
               <svg
                 style="font-size: 12px;"
               />
             </mock-styled.span>
-            <mock-styled.div>
+            <mock-styled.div
+              aria-current="page"
+            >
               Level 3
             </mock-styled.div>
           </mock-styled.div>
@@ -378,6 +410,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
           >
             <mock-styled.mock-styled.div
               classname=""
+              role="img"
             >
               <img
                 alt="https://picsum.photos/200/300"
@@ -468,11 +501,14 @@ exports[`PageHeader component should match a snapshot 1`] = `
   width: 100%;
   justify-content: space-evenly;
 "
+          role="tablist"
         >
           <mock-styled.div>
             <mock-styled.input
+              aria-selected="true"
               id="tab-1-fw"
               name="my-cool-tabs-full-width"
+              role="tab"
               type="radio"
               value="tab-1-fw"
             />
@@ -499,8 +535,10 @@ exports[`PageHeader component should match a snapshot 1`] = `
               </span>
             </mock-styled.label>
             <mock-styled.input
+              aria-selected="false"
               id="tab-2-fw"
               name="my-cool-tabs-full-width"
+              role="tab"
               type="radio"
               value="tab-2-fw"
             />
@@ -527,8 +565,10 @@ exports[`PageHeader component should match a snapshot 1`] = `
               </span>
             </mock-styled.label>
             <mock-styled.input
+              aria-selected="false"
               id="tab-3-fw"
               name="my-cool-tabs-full-width"
+              role="tab"
               type="radio"
               value="tab-3-fw"
             />

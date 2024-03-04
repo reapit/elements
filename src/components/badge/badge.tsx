@@ -8,7 +8,7 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 export const Badge: FC<BadgeProps> = ({ children, intent, className, ...rest }) => (
-  <ElBadge className={cx(className, intent && getIntentClassName(intent))} {...rest}>
+  <ElBadge role="status" className={cx(className, intent && getIntentClassName(intent))} {...rest}>
     {children}
   </ElBadge>
 )

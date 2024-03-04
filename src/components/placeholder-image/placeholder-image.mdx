@@ -1,0 +1,59 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { PlaceholderImage } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as PlaceholderImageStories from './placeholder-image.stories'
+
+<Meta of={PlaceholderImageStories} />
+
+# PlaceholderImage
+
+The placeholder image component works very similarly to the Icon component. You can specify from a choice of placeholders by name and specify a size as a numeric value (of pixels), for the image to be scaled to within the placholder container.
+
+For non-React users, we export all the icons from `@reapit/elements/assets` where they are grouped in the `placholder-images` folder eg `import placeholderSmall from "@reapit/elements/assets/placholder-images/placeholderSmall.svg"`. You can then wrap your SVG in the appropriate classes you see in the rendered markup with each story in these docs.
+
+<Controls />
+
+## Basic Usage
+
+For a basic icon, just select a placholder name from one of the tables below and set a size in pixels. The size should be the dimensions of the desired icon - we will set the inner SVG scaled to the height and width.
+
+For non-react users, rather than passing a prop, you should either use an inline style (as we set using React), to set the height, width and font size, or your own modifer class if you prefer.
+
+<Canvas of={PlaceholderImageStories.BasicUsage} />
+
+<RenderHtmlMarkup of={PlaceholderImageStories.BasicUsage} />
+
+## Fill Available Space
+
+If you need a placholder that fills a given div responsively, pass the `fillAvailable` prop and an addtional wrapper is added with the placeholder centered vertically and horizontally.
+
+<Canvas of={PlaceholderImageStories.FillAvailableSpace} />
+
+<RenderHtmlMarkup of={PlaceholderImageStories.FillAvailableSpace} />
+
+## Placeholder Images
+
+See below for the images we currently export from the project.
+
+<table>
+  <thead>
+    <tr>
+      <td>Icon Name</td>
+      <td>Largest Icon</td>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>placeholderSmall</td>
+      <td>
+        <PlaceholderImage placeholder="placeholderSmall" size={120} />
+      </td>
+    </tr>
+    <tr>
+      <td>placeholderLarge</td>
+      <td>
+        <PlaceholderImage placeholder="placeholderLarge" size={320} />
+      </td>
+    </tr>
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as SelectStories from './select.stories'
+
+<Meta of={SelectStories} />
+
+# Select
+
+A simple HTML Select component. Can be used with a vanilla JSX / HTML option tag.
+
+## Basic Usage
+
+<Canvas of={SelectStories.BasicUsage} />
+
+Supply as children, as many `<option>` tags as required.
+
+<RenderHtmlMarkup of={SelectStories.BasicUsage} />
+
+## Use with a label
+
+<Canvas of={SelectStories.UseWithALabel} />
+
+<RenderHtmlMarkup of={SelectStories.UseWithALabel} />

@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { StatusIndicator } from '.'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as StatusIndicatorStories from './status-indicator.stories'
+
+<Meta of={StatusIndicatorStories} />
+
+# Status Indicator
+
+A small coloured circle indicator to provide quick visual reference to the status of something; be it an action, response or anything else.
+
+Props available for the React version of the component;
+
+<Controls />
+
+## Basic usage
+
+<Canvas of={StatusIndicatorStories.BasicUsage} />
+
+<RenderHtmlMarkup of={StatusIndicatorStories.BasicUsage} />
+
+## Intent
+
+Different intents are supported, to enable buttons to be used in different contexts
+
+<Canvas>
+  <Story of={StatusIndicatorStories.IntentPrimary} />
+  <Story of={StatusIndicatorStories.IntentNeutral} />
+  <Story of={StatusIndicatorStories.IntentSuccess} />
+  <Story of={StatusIndicatorStories.IntentPending} />
+  <Story of={StatusIndicatorStories.IntentWarning} />
+  <Story of={StatusIndicatorStories.IntentDanger} />
+  <Story of={StatusIndicatorStories.IntentDefault} />
+</Canvas>
+
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentPrimary} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentNeutral} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentSuccess} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentPending} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentWarning} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentDanger} />
+<RenderHtmlMarkup of={StatusIndicatorStories.IntentDefault} />
