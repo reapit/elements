@@ -33,6 +33,21 @@ export const BaseScale = {
   ),
 }
 
+export const TaggedTypography = {
+  render: ({}) => (
+    <>
+      <Text3XL tag="h1">I am a Text3XL with an h1 tag</Text3XL>
+      <Text2XL tag="h2">I am a Text2XL with an h2 tag</Text2XL>
+      <TextXL tag="h4">I am a TextXL with an h4 tag</TextXL>
+      <TextL tag="h6">I am a TextL with an h6 tag</TextL>
+      <TextBase tag="p">I am a TextBase with a p tag</TextBase>
+      <TextSM tag="small">I am a TextSM with a small tag</TextSM>
+      <TextXS tag="div">I am a TextXS with a div tag</TextXS>
+      <Text2XS tag="span">I am a Text2XS with a span tag</Text2XS>
+    </>
+  ),
+}
+
 export const TypographyModifiers = {
   render: ({}) => (
     <>

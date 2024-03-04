@@ -29,7 +29,93 @@ exports[`FileInput component should match a snapshot 1`] = `
             id="test-static-id"
           />
           <mock-styled.p
-            classname="mock-css. mock-css."
+            classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css."
           >
             Upload File
           </mock-styled.p>
@@ -62,7 +148,93 @@ exports[`FileInput component should match a snapshot 1`] = `
           id="test-static-id"
         />
         <mock-styled.p
-          classname="mock-css. mock-css."
+          classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css."
         >
           Upload File
         </mock-styled.p>

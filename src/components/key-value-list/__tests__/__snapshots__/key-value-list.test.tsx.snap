@@ -27,16 +27,194 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
             >
               Name
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
             >
               John Doe
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
@@ -58,16 +236,194 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
             >
               Email
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
             >
               email@example.com
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
@@ -89,16 +445,194 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
             >
               Parking Spaces
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
             >
               2
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
@@ -120,16 +654,194 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
             >
               Date Signed Up
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
             >
               20th September 2023
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
@@ -151,24 +863,202 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css. mock-css.
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- mock-css."
+"
             >
               Address
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname="mock-css.
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css.
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 "
             >
               I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
@@ -190,16 +1080,194 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
             >
               Description
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
             >
               This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </div>
@@ -228,16 +1296,194 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
         >
-          <mock-styled.mock-styled.div
-            classname="mock-css."
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
           >
             Name
-          </mock-styled.mock-styled.div>
-          <mock-styled.mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
           >
             John Doe
-          </mock-styled.mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
@@ -259,16 +1505,194 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
         >
-          <mock-styled.mock-styled.div
-            classname="mock-css."
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
           >
             Email
-          </mock-styled.mock-styled.div>
-          <mock-styled.mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
           >
             email@example.com
-          </mock-styled.mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
@@ -290,16 +1714,194 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
         >
-          <mock-styled.mock-styled.div
-            classname="mock-css."
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
           >
             Parking Spaces
-          </mock-styled.mock-styled.div>
-          <mock-styled.mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
           >
             2
-          </mock-styled.mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
@@ -321,16 +1923,194 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
         >
-          <mock-styled.mock-styled.div
-            classname="mock-css."
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
           >
             Date Signed Up
-          </mock-styled.mock-styled.div>
-          <mock-styled.mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
           >
             20th September 2023
-          </mock-styled.mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
@@ -352,24 +2132,202 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
         >
-          <mock-styled.mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css. mock-css.
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- mock-css."
+"
           >
             Address
-          </mock-styled.mock-styled.div>
-          <mock-styled.mock-styled.div
-            classname="mock-css.
+          </div>
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css.
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 "
           >
             I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
-          </mock-styled.mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
       <mock-styled.div
@@ -391,16 +2349,194 @@ exports[`KeyValueList component should match a snapshot 1`] = `
   flex-direction: column;
 "
         >
-          <mock-styled.mock-styled.div
-            classname="mock-css."
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
           >
             Description
-          </mock-styled.mock-styled.div>
-          <mock-styled.mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
           >
             This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
-          </mock-styled.mock-styled.div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
     </div>
@@ -490,16 +2626,194 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
             >
-              <mock-styled.mock-styled.div
-                classname="mock-css."
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
               >
                 Name
-              </mock-styled.mock-styled.div>
-              <mock-styled.mock-styled.div
-                classname=""
+              </div>
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
               >
                 John Doe
-              </mock-styled.mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -525,16 +2839,194 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
             >
-              <mock-styled.mock-styled.div
-                classname="mock-css."
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
               >
                 Email
-              </mock-styled.mock-styled.div>
-              <mock-styled.mock-styled.div
-                classname=""
+              </div>
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
               >
                 email@example.com
-              </mock-styled.mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -560,16 +3052,194 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
             >
-              <mock-styled.mock-styled.div
-                classname="mock-css."
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
               >
                 Parking Spaces
-              </mock-styled.mock-styled.div>
-              <mock-styled.mock-styled.div
-                classname=""
+              </div>
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
               >
                 2
-              </mock-styled.mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -595,16 +3265,194 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
             >
-              <mock-styled.mock-styled.div
-                classname="mock-css."
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
               >
                 Date Signed Up
-              </mock-styled.mock-styled.div>
-              <mock-styled.mock-styled.div
-                classname=""
+              </div>
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
               >
                 20th September 2023
-              </mock-styled.mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -630,24 +3478,202 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
             >
-              <mock-styled.mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css. mock-css.
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- mock-css."
+"
               >
                 Address
-              </mock-styled.mock-styled.div>
-              <mock-styled.mock-styled.div
-                classname="mock-css.
+              </div>
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css.
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 "
               >
                 I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
-              </mock-styled.mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -673,16 +3699,194 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
             >
-              <mock-styled.mock-styled.div
-                classname="mock-css."
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
               >
                 Description
-              </mock-styled.mock-styled.div>
-              <mock-styled.mock-styled.div
-                classname=""
+              </div>
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
               >
                 This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
-              </mock-styled.mock-styled.div>
+              </div>
             </mock-styled.div>
           </mock-styled.div>
         </mock-styled.div>
@@ -716,16 +3920,194 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
             >
               Name
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
             >
               John Doe
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -751,16 +4133,194 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
             >
               Email
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
             >
               email@example.com
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -786,16 +4346,194 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
             >
               Parking Spaces
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
             >
               2
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -821,16 +4559,194 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
             >
               Date Signed Up
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
             >
               20th September 2023
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -856,24 +4772,202 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css. mock-css.
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
- mock-css."
+"
             >
               Address
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname="mock-css.
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css.
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 "
             >
               I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>
@@ -899,16 +4993,194 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   flex-direction: column;
 "
           >
-            <mock-styled.mock-styled.div
-              classname="mock-css."
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css."
             >
               Description
-            </mock-styled.mock-styled.div>
-            <mock-styled.mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
             >
               This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
-            </mock-styled.mock-styled.div>
+            </div>
           </mock-styled.div>
         </mock-styled.div>
       </mock-styled.div>

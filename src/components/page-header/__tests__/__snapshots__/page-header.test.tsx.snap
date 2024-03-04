@@ -124,13 +124,102 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 <mock-styled.div
                   classname=""
                 >
-                  <mock-styled.mock-styled.div
-                    classname="mock-css.
+                  <div
+                    class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 24px;
+  line-height: 32px;
+ mock-css. mock-css.
   margin-right: 0.5rem;
- mock-css."
+"
                   >
                     Page Title
-                  </mock-styled.mock-styled.div>
+                  </div>
                   <mock-styled.div
                     classname=""
                   >
@@ -148,31 +237,378 @@ exports[`PageHeader component should match a snapshot 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                 </mock-styled.div>
-                <mock-styled.mock-styled.div
-                  classname="mock-css."
+                <div
+                  class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 18px;
+  line-height: 24px;
+ mock-css."
                 >
                   Page Sub Title
-                </mock-styled.mock-styled.div>
+                </div>
                 <mock-styled.div
                   classname=""
                 >
-                  <mock-styled.div
-                    classname=""
+                  <div
+                    class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
                   >
                     Page Info 1
-                  </mock-styled.div>
+                  </div>
                   <mock-styled.span />
-                  <mock-styled.div
-                    classname=""
+                  <div
+                    class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
                   >
                     Page Info 2
-                  </mock-styled.div>
+                  </div>
                   <mock-styled.span />
-                  <mock-styled.div
-                    classname=""
+                  <div
+                    class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
                   >
                     Page Info 3
-                  </mock-styled.div>
+                  </div>
                 </mock-styled.div>
               </mock-styled.div>
             </mock-styled.div>
@@ -425,13 +861,102 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.div
                 classname=""
               >
-                <mock-styled.mock-styled.div
-                  classname="mock-css.
+                <div
+                  class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 24px;
+  line-height: 32px;
+ mock-css. mock-css.
   margin-right: 0.5rem;
- mock-css."
+"
                 >
                   Page Title
-                </mock-styled.mock-styled.div>
+                </div>
                 <mock-styled.div
                   classname=""
                 >
@@ -449,31 +974,378 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
-              <mock-styled.mock-styled.div
-                classname="mock-css."
+              <div
+                class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 18px;
+  line-height: 24px;
+ mock-css."
               >
                 Page Sub Title
-              </mock-styled.mock-styled.div>
+              </div>
               <mock-styled.div
                 classname=""
               >
-                <mock-styled.div
-                  classname=""
+                <div
+                  class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
                 >
                   Page Info 1
-                </mock-styled.div>
+                </div>
                 <mock-styled.span />
-                <mock-styled.div
-                  classname=""
+                <div
+                  class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
                 >
                   Page Info 2
-                </mock-styled.div>
+                </div>
                 <mock-styled.span />
-                <mock-styled.div
-                  classname=""
+                <div
+                  class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
                 >
                   Page Info 3
-                </mock-styled.div>
+                </div>
               </mock-styled.div>
             </mock-styled.div>
           </mock-styled.div>

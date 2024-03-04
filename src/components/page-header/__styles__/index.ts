@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 import { isTablet } from '../../../styles/media'
 import { ElAvatar, ElAvatarImage } from '../../avatar'
-import { ElTextL, ElTextBase } from '../../typography'
+import { elTextL, elTextBase } from '../../typography'
 import { css } from '@linaria/core'
 
 const dot = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -16,7 +16,7 @@ export const ElPageHeaderContainer = styled.div`
   flex-direction: column;
   justify-content: flex-start;
 
-  ${ElTextBase} {
+  .${elTextBase} {
     margin-bottom: 0.5rem;
   }
 
@@ -25,11 +25,11 @@ export const ElPageHeaderContainer = styled.div`
     justify-content: space-between;
     margin-bottom: 1.25rem;
 
-    ${ElTextBase} {
+    .${elTextBase} {
       margin-bottom: 0;
     }
 
-    ${ElTextL} {
+    .${elTextL} {
       margin-bottom: 0.5rem;
     }
   }

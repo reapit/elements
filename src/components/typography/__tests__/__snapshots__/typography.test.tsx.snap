@@ -5,19 +5,197 @@ exports[`Typography Base Text2XL should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname=""
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 24px;
+  line-height: 32px;
+"
       >
         I am a Text2XL
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname=""
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 24px;
+  line-height: 32px;
+"
     >
       I am a Text2XL
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -78,19 +256,197 @@ exports[`Typography Base Text2XL should match a snapshot with all modifiers 1`] 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 24px;
+  line-height: 32px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a Text2XL
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 24px;
+  line-height: 32px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a Text2XL
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -151,19 +507,197 @@ exports[`Typography Base Text2XS should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname=""
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 12px;
+  line-height: 16px;
+"
       >
         I am a Text2XS
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname=""
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 12px;
+  line-height: 16px;
+"
     >
       I am a Text2XS
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -224,19 +758,197 @@ exports[`Typography Base Text2XS should match a snapshot with all modifiers 1`] 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 12px;
+  line-height: 16px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a Text2XS
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 12px;
+  line-height: 16px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a Text2XS
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -297,19 +1009,197 @@ exports[`Typography Base Text3XL should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname=""
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 32px;
+  line-height: 40px;
+"
       >
         I am a Text3XL
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname=""
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 32px;
+  line-height: 40px;
+"
     >
       I am a Text3XL
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -370,19 +1260,197 @@ exports[`Typography Base Text3XL should match a snapshot with all modifiers 1`] 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 32px;
+  line-height: 40px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a Text3XL
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 32px;
+  line-height: 40px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a Text3XL
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -443,19 +1511,191 @@ exports[`Typography Base TextBase should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
       >
         I am a TextBase
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
     >
       I am a TextBase
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -516,19 +1756,191 @@ exports[`Typography Base TextBase should match a snapshot with all modifiers 1`]
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a TextBase
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a TextBase
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -589,19 +2001,197 @@ exports[`Typography Base TextL should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname=""
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 18px;
+  line-height: 24px;
+"
       >
         I am a TextL
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname=""
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 18px;
+  line-height: 24px;
+"
     >
       I am a TextL
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -662,19 +2252,197 @@ exports[`Typography Base TextL should match a snapshot with all modifiers 1`] = 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 18px;
+  line-height: 24px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a TextL
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 18px;
+  line-height: 24px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a TextL
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -735,19 +2503,197 @@ exports[`Typography Base TextSM should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname=""
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
       >
         I am a TextSM
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname=""
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+"
     >
       I am a TextSM
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -808,19 +2754,197 @@ exports[`Typography Base TextSM should match a snapshot with all modifiers 1`] =
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a TextSM
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a TextSM
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -881,19 +3005,197 @@ exports[`Typography Base TextXL should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname=""
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 20px;
+  line-height: 28px;
+"
       >
         I am a TextXL
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname=""
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 20px;
+  line-height: 28px;
+"
     >
       I am a TextXL
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -954,19 +3256,197 @@ exports[`Typography Base TextXL should match a snapshot with all modifiers 1`] =
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 20px;
+  line-height: 28px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a TextXL
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 20px;
+  line-height: 28px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a TextXL
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1027,19 +3507,197 @@ exports[`Typography Base TextXS should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname=""
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+"
       >
         I am a TextXS
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname=""
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+"
     >
       I am a TextXS
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1100,19 +3758,197 @@ exports[`Typography Base TextXS should match a snapshot with all modifiers 1`] =
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a TextXS
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+    <div
+      class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 13px;
+  line-height: 16px;
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a TextXS
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -1174,7 +4010,93 @@ exports[`Typography Helpers BodyText should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.p
-        classname=""
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
       >
         I am body text
       </mock-styled.p>
@@ -1182,7 +4104,93 @@ exports[`Typography Helpers BodyText should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.p
-      classname=""
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
     >
       I am body text
     </mock-styled.p>
@@ -1247,7 +4255,93 @@ exports[`Typography Helpers BodyText should match a snapshot with all modifiers 
   "baseElement": <body>
     <div>
       <mock-styled.p
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am body text
       </mock-styled.p>
@@ -1255,7 +4349,93 @@ exports[`Typography Helpers BodyText should match a snapshot with all modifiers 
   </body>,
   "container": <div>
     <mock-styled.p
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am body text
     </mock-styled.p>
@@ -1320,7 +4500,93 @@ exports[`Typography Helpers SmallText should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.p
-        classname=""
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
       >
         I am small text
       </mock-styled.p>
@@ -1328,7 +4594,93 @@ exports[`Typography Helpers SmallText should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.p
-      classname=""
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
     >
       I am small text
     </mock-styled.p>
@@ -1393,7 +4745,93 @@ exports[`Typography Helpers SmallText should match a snapshot 2`] = `
   "baseElement": <body>
     <div>
       <mock-styled.p
-        classname=""
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
       >
         I am small text
       </mock-styled.p>
@@ -1401,7 +4839,93 @@ exports[`Typography Helpers SmallText should match a snapshot 2`] = `
   </body>,
   "container": <div>
     <mock-styled.p
-      classname=""
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
     >
       I am small text
     </mock-styled.p>
@@ -1466,7 +4990,93 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   "baseElement": <body>
     <div>
       <mock-styled.p
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am small text
       </mock-styled.p>
@@ -1474,7 +5084,93 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   </body>,
   "container": <div>
     <mock-styled.p
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am small text
     </mock-styled.p>
@@ -1539,7 +5235,93 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   "baseElement": <body>
     <div>
       <mock-styled.p
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am small text
       </mock-styled.p>
@@ -1547,7 +5329,93 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   </body>,
   "container": <div>
     <mock-styled.p
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am small text
     </mock-styled.p>
@@ -1612,7 +5480,93 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   "baseElement": <body>
     <div>
       <mock-styled.p
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         i am some text
       </mock-styled.p>
@@ -1620,7 +5574,93 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   </body>,
   "container": <div>
     <mock-styled.p
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       i am some text
     </mock-styled.p>
@@ -1685,7 +5725,93 @@ exports[`Typography Helpers SubTitle should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.h2
-        classname=""
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
       >
         I am a subtitle
       </mock-styled.h2>
@@ -1693,7 +5819,93 @@ exports[`Typography Helpers SubTitle should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.h2
-      classname=""
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
     >
       I am a subtitle
     </mock-styled.h2>
@@ -1758,7 +5970,93 @@ exports[`Typography Helpers SubTitle should match a snapshot with all modifiers 
   "baseElement": <body>
     <div>
       <mock-styled.h2
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a subtitle
       </mock-styled.h2>
@@ -1766,7 +6064,93 @@ exports[`Typography Helpers SubTitle should match a snapshot with all modifiers 
   </body>,
   "container": <div>
     <mock-styled.h2
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a subtitle
     </mock-styled.h2>
@@ -1831,7 +6215,93 @@ exports[`Typography Helpers Title should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.h1
-        classname=""
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
       >
         I am a title
       </mock-styled.h1>
@@ -1839,7 +6309,93 @@ exports[`Typography Helpers Title should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.h1
-      classname=""
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+"
     >
       I am a title
     </mock-styled.h1>
@@ -1904,7 +6460,93 @@ exports[`Typography Helpers Title should match a snapshot with all modifiers 1`]
   "baseElement": <body>
     <div>
       <mock-styled.h1
-        classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+        classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a title
       </mock-styled.h1>
@@ -1912,7 +6554,93 @@ exports[`Typography Helpers Title should match a snapshot with all modifiers 1`]
   </body>,
   "container": <div>
     <mock-styled.h1
-      classname="mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
+      classname="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a title
     </mock-styled.h1>
