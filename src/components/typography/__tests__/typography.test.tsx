@@ -490,5 +490,12 @@ describe('Typography Helpers', () => {
       expect(element).toMatchSnapshot()
       expect(element.container.querySelector('h6')).not.toBe(null)
     })
+
+    it('Can set a tag', () => {
+      const element = render(<BodyText tag="a">anything</BodyText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('a')).not.toBe(null)
+    })
   })
 })
