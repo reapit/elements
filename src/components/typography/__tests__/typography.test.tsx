@@ -403,4 +403,92 @@ describe('Typography Helpers', () => {
     )
     expect(wrapper).toMatchSnapshot()
   })
+
+  describe('Use semantic property', () => {
+    it('Can use p tag', () => {
+      const element = render(<BodyText semantic={true}>anything</BodyText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('p')).not.toBe(null)
+    })
+
+    it('Can use small tag', () => {
+      const element = render(<SmallText semantic={true}>anything</SmallText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('small')).not.toBe(null)
+    })
+
+    it('Can use h1 tag', () => {
+      const element = render(<Text3XL semantic={true}>anything</Text3XL>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('h1')).not.toBe(null)
+    })
+
+    it('Can use h2 tag', () => {
+      const element = render(<Text2XL semantic={true}>anything</Text2XL>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('h2')).not.toBe(null)
+    })
+  })
+
+  describe('Can set tag property', () => {
+    it('Can set p tag', () => {
+      const element = render(<BodyText tag="p">anything</BodyText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('p')).not.toBe(null)
+    })
+
+    it('Can set h1 tag', () => {
+      const element = render(<BodyText tag="h1">anything</BodyText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('h1')).not.toBe(null)
+    })
+
+    it('Can set small tag', () => {
+      const element = render(<BodyText tag="small">anything</BodyText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('small')).not.toBe(null)
+    })
+
+    it('Can set h2 tag', () => {
+      const element = render(<BodyText tag="h2">anything</BodyText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('h2')).not.toBe(null)
+    })
+
+    it('Can set h3 tag', () => {
+      const element = render(<BodyText tag="h3">anything</BodyText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('h3')).not.toBe(null)
+    })
+
+    it('Can set h4 tag', () => {
+      const element = render(<BodyText tag="h4">anything</BodyText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('h4')).not.toBe(null)
+    })
+
+    it('Can set h5 tag', () => {
+      const element = render(<BodyText tag="h5">anything</BodyText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('h5')).not.toBe(null)
+    })
+
+    it('Can set h6 tag', () => {
+      const element = render(<BodyText tag="h6">anything</BodyText>)
+
+      expect(element).toMatchSnapshot()
+      expect(element.container.querySelector('h6')).not.toBe(null)
+    })
+  })
 })
