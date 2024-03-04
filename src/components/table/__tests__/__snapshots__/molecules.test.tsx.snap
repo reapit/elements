@@ -718,9 +718,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
         classname=""
       >
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+          classname="mock-css."
           role="img"
         >
           <svg />
@@ -733,9 +731,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
       classname=""
     >
       <mock-styled.span
-        classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+        classname="mock-css."
         role="img"
       >
         <svg />
@@ -810,9 +806,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
 "
       >
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+          classname="mock-css."
           role="img"
         >
           <svg />
@@ -830,9 +824,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
 "
     >
       <mock-styled.span
-        classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+        classname="mock-css."
         role="img"
       >
         <svg />

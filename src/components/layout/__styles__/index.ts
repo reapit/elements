@@ -72,13 +72,6 @@ export const ElSecondaryNavContainer = styled.aside`
   }
 `
 
-export const ElMolecule = styled.div`
-  display: block;
-  padding: 0.75rem;
-  margin-bottom: 1.25rem;
-  width: 100%;
-`
-
 export const ElFlexContainer = styled.div`
   display: flex;
   min-height: 0;

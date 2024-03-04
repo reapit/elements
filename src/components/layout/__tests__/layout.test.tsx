@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { MainContainer, PageContainer, SecondaryNavContainer, Molecule, FlexContainer } from '../index'
+import { MainContainer, PageContainer, SecondaryNavContainer, FlexContainer } from '../index'
 
 describe('MainContainer', () => {
   it('should match a snapshot and render children', () => {
@@ -29,17 +29,6 @@ describe('SecondaryNavContainer', () => {
       <SecondaryNavContainer>
         <p>I am child</p>
       </SecondaryNavContainer>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-})
-
-describe('Molecule', () => {
-  it('should match a snapshot and render children', () => {
-    const wrapper = render(
-      <Molecule>
-        <p>I am child</p>
-      </Molecule>,
     )
     expect(wrapper).toMatchSnapshot()
   })

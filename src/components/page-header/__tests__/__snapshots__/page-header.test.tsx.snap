@@ -36,9 +36,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-right: 0.375rem;
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
                 role="img"
                 style="font-size: 12px;"
               >
@@ -60,9 +58,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-right: 0.375rem;
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
                 role="img"
                 style="font-size: 12px;"
               >
@@ -84,9 +80,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-right: 0.375rem;
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
                 role="img"
                 style="font-size: 12px;"
               >
@@ -337,9 +331,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.375rem;
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
               role="img"
               style="font-size: 12px;"
             >
@@ -361,9 +353,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.375rem;
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
               role="img"
               style="font-size: 12px;"
             >
@@ -385,9 +375,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: 0.375rem;
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
               role="img"
               style="font-size: 12px;"
             >

@@ -31,7 +31,7 @@ export const UseSnackHookStory = () => {
         onClick={() =>
           custom({
             text: 'I can have anything in the interface ISnack applied as a parameter here',
-            icon: 'homeSystem',
+            icon: 'property',
             intent: 'success',
           })
         }

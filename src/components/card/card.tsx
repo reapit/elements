@@ -1,12 +1,8 @@
-import React, { FC, HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import {
   ElCardWrap,
   ElCardBodyWrap,
   ElCardHeadingWrap,
-  ElCardContextMenuItem,
-  ElCardContextMenuItems,
-  ElCardContextMenuToggle,
-  ElCardContextMenuWrapper,
   ElCardHeading,
   ElCardImageWrap,
   ElCardList,
@@ -20,11 +16,9 @@ import {
   ElCardListItemTextPrimary,
   ElCardListItemTextSecondary,
   ElCardMainWrap,
-  ElMobileToggle,
   ElCardListMainWrap,
   ElCardAvatarWrap,
 } from './__styles__'
-import { useDeprecateComponent } from '../../storybook/deprecate-var'
 
 export interface CardBaseProps extends HTMLAttributes<HTMLDivElement> {}
 export interface CardButtonProps extends HTMLAttributes<HTMLButtonElement> {}
@@ -63,11 +57,6 @@ export const CardAvatarWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
   <ElCardAvatarWrap {...rest}>{children}</ElCardAvatarWrap>
 )
 
-export const CardMobileToggle: FC<CardButtonProps> = ({ children, ...rest }) => {
-  useDeprecateComponent('CardMobileToggle')
-  return <ElMobileToggle {...rest}>{children}</ElMobileToggle>
-}
-
 export const CardList: FC<CardBaseProps> = ({ children, ...rest }) => <ElCardList {...rest}>{children}</ElCardList>
 
 export const CardListMainWrap: FC<CardBaseProps> = ({ children, ...rest }) => (
@@ -101,23 +90,3 @@ export const CardListItemTextSecondary: FC<CardBaseProps> = ({ children, ...rest
 export const CardListIcon: FC<CardBaseProps> = ({ children, ...rest }) => (
   <ElCardListIcon {...rest}>{children}</ElCardListIcon>
 )
-
-export const CardContextMenuWrapper: FC<CardBaseProps> = ({ children, ...rest }) => {
-  useDeprecateComponent('CardContextMenuWrapper')
-  return <ElCardContextMenuWrapper {...rest}>{children}</ElCardContextMenuWrapper>
-}
-
-export const CardContextMenuItems: FC<CardBaseProps> = ({ children, ...rest }) => {
-  useDeprecateComponent('CardContextMenuItems')
-  return <ElCardContextMenuItems {...rest}>{children}</ElCardContextMenuItems>
-}
-
-export const CardContextMenuItem: FC<CardBaseProps> = ({ children, ...rest }) => {
-  useDeprecateComponent('CardContextMenuItem')
-  return <ElCardContextMenuItem {...rest}>{children}</ElCardContextMenuItem>
-}
-
-export const CardContextMenuToggle: FC<CardBaseProps> = ({ children, ...rest }) => {
-  useDeprecateComponent('CardContextMenuToggle')
-  return <ElCardContextMenuToggle {...rest}>{children}</ElCardContextMenuToggle>
-}

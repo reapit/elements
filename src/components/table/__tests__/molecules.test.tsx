@@ -49,7 +49,7 @@ describe('TableCell Component', () => {
 
   it('should match a snapshot with full props', () => {
     const wrapper = render(
-      <TableCell className="foo-bar" icon="addSystem" darkText narrowLabel="Label" narrowIsFullWidth narrowOrder={1} />,
+      <TableCell className="foo-bar" icon="add" darkText narrowLabel="Label" narrowIsFullWidth narrowOrder={1} />,
     )
     expect(wrapper).toMatchSnapshot()
   })
@@ -78,7 +78,7 @@ describe('TableExpandableRowTriggerCell Component', () => {
 
 describe('TableCtaTriggerCell Component', () => {
   it('should match a snapshot with no children and an icon', () => {
-    const wrapper = render(<TableCtaTriggerCell icon="addSystem" />)
+    const wrapper = render(<TableCtaTriggerCell icon="add" />)
     expect(wrapper).toMatchSnapshot()
   })
 

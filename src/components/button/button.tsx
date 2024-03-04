@@ -18,7 +18,6 @@ import {
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIntentDanger, elIntentNeutral, elIntentPrimary } from '../../styles/intent'
-import { deprecateFunction, useDeprecateVar } from '../../storybook/deprecate-var'
 import { elMl1, elMr1 } from '../../styles/spacing'
 
 export type ButtonSizeType = 2 | 3 | 4
@@ -36,16 +35,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   buttonSize?: ButtonSize
   buttonIcon?: ButtonIcon
-  /** Deprecated - will be removed at v5 release */
-  chevronLeft?: boolean
-  /** Deprecated - will be removed at v5 release */
-  chevronRight?: boolean
-  /** Deprecated - will be removed at v5 release */
-  fullWidth?: boolean
-  /** Deprecated - will be removed at v5 release */
-  fixedWidth?: boolean
-  /** Deprecated - will be removed at v5 release */
-  size?: ButtonSizeType
 }
 
 export interface FloatingButtonProps extends ButtonProps {
@@ -54,11 +43,6 @@ export interface FloatingButtonProps extends ButtonProps {
 
 export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   alignment?: ButtonGroupAlignment
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const resolveButtonSize = (size: ButtonSizeType): void => {
-  deprecateFunction('resolveButtonSize')
 }
 
 export const resolveButtonClassName = (intent?: Intent): string => {
@@ -85,15 +69,10 @@ export const resolveButtonClassName = (intent?: Intent): string => {
 export const Button: FC<ButtonProps> = ({
   intent,
   loading = false,
-  chevronLeft,
-  chevronRight,
-  fullWidth,
-  fixedWidth,
   buttonSize,
   buttonIcon,
   className = '',
   children,
-  size,
   ...rest
 }) => {
   const intentClassname = resolveButtonClassName(intent)
@@ -105,8 +84,6 @@ export const Button: FC<ButtonProps> = ({
     buttonSize === 'medium' && elButtonSizeMedium,
   )
   const combinedClassName = cx(className, sizeClass, intentClassname, loading && elIsLoading)
-
-  useDeprecateVar({ chevronLeft, chevronRight, fullWidth, fixedWidth, size }, 'Button')
 
   return (
     <ElButton className={combinedClassName} {...rest}>

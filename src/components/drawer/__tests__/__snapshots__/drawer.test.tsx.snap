@@ -79,9 +79,7 @@ exports[`Drawer component should match a snapshot when open 1`] = `
             </mock-styled.div>
           </div>
           <mock-styled.span
-            classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+            classname="mock-css."
             role="img"
           >
             <svg />
@@ -107,9 +105,7 @@ exports[`Drawer component should match a snapshot when open 1`] = `
           </mock-styled.div>
         </div>
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+          classname="mock-css."
           role="img"
         >
           <svg />

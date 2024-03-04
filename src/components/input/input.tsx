@@ -16,7 +16,7 @@ export const Input: InputWrapped = forwardRef(
       <ElInput
         className={cx(hasError && elHasInputError)}
         {...rest}
-        ref={(ref as unknown) as LegacyRef<HTMLInputElement>}
+        ref={ref as unknown as LegacyRef<HTMLInputElement>}
       />
     )
   },
