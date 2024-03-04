@@ -25,6 +25,16 @@ import {
   ElTextBase,
   elHasMargin,
   elHasUpperCasedText,
+  BodyTextStyles,
+  SmallTextStyles,
+  SubtitleStyles,
+  TitleStyles,
+  Text2XSStyles,
+  TextXSStyles,
+  TextSMStyles,
+  TextLStyles,
+  TextXLStyles,
+  Text3XLStyles,
 } from './__styles__'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 
@@ -47,84 +57,129 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   semantic?: boolean
 }
 
-const propsToClass =
-  ({
-    className,
-    hasGreyText,
-    hasItalicText,
-    hasBoldText,
-    hasRegularText,
-    hasMediumText,
-    hasNoMargin,
-    hasMargin,
-    hasSectionMargin,
-    hasCenteredText,
-    hasDisabledText,
-    hasCapitalisedText,
-    hasUpperCasedText,
-    intent,
+const propsToClass = ({
+  className,
+  hasGreyText,
+  hasItalicText,
+  hasBoldText,
+  hasRegularText,
+  hasMediumText,
+  hasNoMargin,
+  hasMargin,
+  hasSectionMargin,
+  hasCenteredText,
+  hasDisabledText,
+  hasCapitalisedText,
+  hasUpperCasedText,
+  intent,
+  children,
+  ...rest
+}: TypographyProps) => () => {
+  const intentClass = intent ? getIntentClassName(intent) : null
+
+  return {
+    className: cx(
+      className,
+      hasGreyText && elHasGreyText,
+      hasRegularText && elHasRegularText,
+      hasBoldText && elHasBoldText,
+      hasItalicText && elHasItalicText,
+      hasMediumText && elHasMediumText,
+      hasMargin && elHasMargin,
+      hasNoMargin && elHasNoMargin,
+      hasSectionMargin && elHasSectionMargin,
+      hasCenteredText && elHasCenteredText,
+      hasDisabledText && elHasDisabledText,
+      hasCapitalisedText && elHasCapitalisedText,
+      hasUpperCasedText && elHasUpperCasedText,
+      intentClass,
+    ),
     children,
-    ...rest
-  }: TypographyProps) =>
-  () => {
-    const intentClass = intent ? getIntentClassName(intent) : null
-
-    return {
-      className: cx(
-        className,
-        hasGreyText && elHasGreyText,
-        hasRegularText && elHasRegularText,
-        hasBoldText && elHasBoldText,
-        hasItalicText && elHasItalicText,
-        hasMediumText && elHasMediumText,
-        hasMargin && elHasMargin,
-        hasNoMargin && elHasNoMargin,
-        hasSectionMargin && elHasSectionMargin,
-        hasCenteredText && elHasCenteredText,
-        hasDisabledText && elHasDisabledText,
-        hasCapitalisedText && elHasCapitalisedText,
-        hasUpperCasedText && elHasUpperCasedText,
-        intentClass,
-      ),
-      children,
-      rest,
-    }
+    rest,
   }
+}
 
-const TaggedElement: FC<{ tag: TypographyTag; children: any }> = ({ tag, children, ...props }) => {
+const TaggedElement: FC<{ tag: TypographyTag; children: any; className: any }> = ({
+  tag,
+  children,
+  className,
+  ...props
+}) => {
   switch (tag) {
     case 'p':
-      return <p {...props}>{children}</p>
+      return (
+        <p className={className} {...props}>
+          {children}
+        </p>
+      )
     case 'a':
-      return <a {...props}>{children}</a>
+      return (
+        <a className={className} {...props}>
+          {children}
+        </a>
+      )
     case 'h1':
-      return <h1 {...props}>{children}</h1>
+      return (
+        <h1 className={className} {...props}>
+          {children}
+        </h1>
+      )
     case 'h2':
-      return <h2 {...props}>{children}</h2>
+      return (
+        <h2 className={className} {...props}>
+          {children}
+        </h2>
+      )
     case 'h3':
-      return <h3 {...props}>{children}</h3>
+      return (
+        <h3 className={className} {...props}>
+          {children}
+        </h3>
+      )
     case 'h4':
-      return <h4 {...props}>{children}</h4>
+      return (
+        <h4 className={className} {...props}>
+          {children}
+        </h4>
+      )
     case 'h5':
-      return <h5 {...props}>{children}</h5>
+      return (
+        <h5 className={className} {...props}>
+          {children}
+        </h5>
+      )
     case 'h6':
-      return <h6 {...props}>{children}</h6>
+      return (
+        <h6 className={className} {...props}>
+          {children}
+        </h6>
+      )
     case 'small':
-      return <small {...props}>{children}</small>
+      return (
+        <small className={className} {...props}>
+          {children}
+        </small>
+      )
   }
 }
 
 export const Text3XL: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(BodyTextStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'h1'} {...rest}>
+      <TaggedElement className={className} tag={'h1'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -137,16 +192,22 @@ export const Text3XL: FC<TypographyProps> = (props) => {
 }
 
 export const Text2XL: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(Text3XLStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'h2'} {...rest}>
+      <TaggedElement className={className} tag={'h2'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -159,16 +220,22 @@ export const Text2XL: FC<TypographyProps> = (props) => {
 }
 
 export const TextXL: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(TextXLStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'h3'} {...rest}>
+      <TaggedElement className={className} tag={'h3'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -181,16 +248,22 @@ export const TextXL: FC<TypographyProps> = (props) => {
 }
 
 export const TextL: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(TextLStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'h4'} {...rest}>
+      <TaggedElement className={className} tag={'h4'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -203,16 +276,22 @@ export const TextL: FC<TypographyProps> = (props) => {
 }
 
 export const TextBase: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(BodyTextStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'p'} {...rest}>
+      <TaggedElement className={className} tag={'p'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -225,16 +304,22 @@ export const TextBase: FC<TypographyProps> = (props) => {
 }
 
 export const TextSM: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(TextSMStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'small'} {...rest}>
+      <TaggedElement className={className} tag={'small'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -247,16 +332,22 @@ export const TextSM: FC<TypographyProps> = (props) => {
 }
 
 export const TextXS: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(TextXSStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'small'} {...rest}>
+      <TaggedElement className={className} tag={'small'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -269,16 +360,22 @@ export const TextXS: FC<TypographyProps> = (props) => {
 }
 
 export const Text2XS: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(Text2XSStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'small'} {...rest}>
+      <TaggedElement className={className} tag={'small'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -291,16 +388,22 @@ export const Text2XS: FC<TypographyProps> = (props) => {
 }
 
 export const Title: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(TitleStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'h2'} {...rest}>
+      <TaggedElement className={className} tag={'h2'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -313,16 +416,22 @@ export const Title: FC<TypographyProps> = (props) => {
 }
 
 export const Subtitle: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(SubtitleStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'h4'} {...rest}>
+      <TaggedElement className={className} tag={'h4'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -335,16 +444,22 @@ export const Subtitle: FC<TypographyProps> = (props) => {
 }
 
 export const BodyText: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(BodyTextStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'p'} {...rest}>
+      <TaggedElement className={className} tag={'p'} {...rest}>
         {children}
       </TaggedElement>
     )
@@ -357,16 +472,22 @@ export const BodyText: FC<TypographyProps> = (props) => {
 }
 
 export const SmallText: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, rest } = useMemo(
+    propsToClass({
+      ...props,
+      className: cx(SmallTextStyles, props.className),
+    }),
+    [props],
+  )
   if (props.tag !== undefined) {
     return (
-      <TaggedElement tag={props.tag} {...rest}>
+      <TaggedElement className={className} tag={props.tag} {...rest}>
         {children}
       </TaggedElement>
     )
   } else if (props.semantic) {
     return (
-      <TaggedElement tag={'small'} {...rest}>
+      <TaggedElement className={className} tag={'small'} {...rest}>
         {children}
       </TaggedElement>
     )

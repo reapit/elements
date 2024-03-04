@@ -115,3 +115,21 @@ export const BodyTextAndSmallText = {
     </>
   ),
 }
+
+export const SemanticBodyText = {
+  render: ({}) => <BodyText semantic={true}>This is the text within the p tag when using semantic = true</BodyText>,
+}
+
+export const SemanticSmall = {
+  render: ({}) => (
+    <SmallText semantic={true}>This is the text within the small tag when using semantic = true</SmallText>
+  ),
+}
+
+export const SemanticTitle = {
+  render: ({}) => <Title semantic={true}>This is the text within the h2 tag when using semantic = true</Title>,
+}
+
+export const TagP = {
+  render: ({}) => <Title tag="p">This is a title with a P tag</Title>,
+}

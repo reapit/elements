@@ -111,9 +111,187 @@ export const ElTextBase = styled.div`
   }
 `
 
+export const Text3XLStyles = css`
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-weight: 400;
+
+  &.${elHasGreyText} {
+    color: var(--color-grey-500);
+  }
+
+  &.${elHasDisabledText} {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &.${elHasRegularText} {
+    font-weight: var(--font-weight-default);
+  }
+
+  &.${elHasMediumText} {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &.${elHasBoldText} {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
+
+  &.${elHasUpperCasedText} {
+    text-transform: uppercase;
+  }
+
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasMargin} {
+    margin-bottom: 0.5rem;
+  }
+
+  &.${elHasSectionMargin} {
+    margin-bottom: 1.5rem;
+  }
+
+  &.${elIntentPrimary} {
+    color: var(--intent-primary);
+  }
+
+  &.${elIntentNeutral} {
+    color: var(--intent-neutral);
+  }
+
+  &.${elIntentSuccess} {
+    color: var(--intent-success);
+  }
+
+  &.${elIntentPending} {
+    color: var(--intent-pending);
+  }
+
+  &.${elIntentWarning} {
+    color: var(--intent-warning);
+  }
+
+  &.${elIntentDanger} {
+    color: var(--intent-danger);
+  }
+
+  &.${elIntentDefault} {
+    color: var(--intent-default);
+  }
+
+  font-size: 32px;
+  line-height: 40px;
+`
+
 export const ElText3XL = styled(ElTextBase)`
   font-size: 32px;
   line-height: 40px;
+`
+
+export const Text2XLStyles = css`
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-weight: 400;
+
+  &.${elHasGreyText} {
+    color: var(--color-grey-500);
+  }
+
+  &.${elHasDisabledText} {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &.${elHasRegularText} {
+    font-weight: var(--font-weight-default);
+  }
+
+  &.${elHasMediumText} {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &.${elHasBoldText} {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
+
+  &.${elHasUpperCasedText} {
+    text-transform: uppercase;
+  }
+
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasMargin} {
+    margin-bottom: 0.5rem;
+  }
+
+  &.${elHasSectionMargin} {
+    margin-bottom: 1.5rem;
+  }
+
+  &.${elIntentPrimary} {
+    color: var(--intent-primary);
+  }
+
+  &.${elIntentNeutral} {
+    color: var(--intent-neutral);
+  }
+
+  &.${elIntentSuccess} {
+    color: var(--intent-success);
+  }
+
+  &.${elIntentPending} {
+    color: var(--intent-pending);
+  }
+
+  &.${elIntentWarning} {
+    color: var(--intent-warning);
+  }
+
+  &.${elIntentDanger} {
+    color: var(--intent-danger);
+  }
+
+  &.${elIntentDefault} {
+    color: var(--intent-default);
+  }
+
+  font-size: 24px;
+  line-height: 32px;
 `
 
 export const ElText2XL = styled(ElTextBase)`
@@ -121,9 +299,187 @@ export const ElText2XL = styled(ElTextBase)`
   line-height: 32px;
 `
 
+export const TextXLStyles = css`
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-weight: 400;
+
+  &.${elHasGreyText} {
+    color: var(--color-grey-500);
+  }
+
+  &.${elHasDisabledText} {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &.${elHasRegularText} {
+    font-weight: var(--font-weight-default);
+  }
+
+  &.${elHasMediumText} {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &.${elHasBoldText} {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
+
+  &.${elHasUpperCasedText} {
+    text-transform: uppercase;
+  }
+
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasMargin} {
+    margin-bottom: 0.5rem;
+  }
+
+  &.${elHasSectionMargin} {
+    margin-bottom: 1.5rem;
+  }
+
+  &.${elIntentPrimary} {
+    color: var(--intent-primary);
+  }
+
+  &.${elIntentNeutral} {
+    color: var(--intent-neutral);
+  }
+
+  &.${elIntentSuccess} {
+    color: var(--intent-success);
+  }
+
+  &.${elIntentPending} {
+    color: var(--intent-pending);
+  }
+
+  &.${elIntentWarning} {
+    color: var(--intent-warning);
+  }
+
+  &.${elIntentDanger} {
+    color: var(--intent-danger);
+  }
+
+  &.${elIntentDefault} {
+    color: var(--intent-default);
+  }
+
+  font-size: 20px;
+  line-height: 28px;
+`
+
 export const ElTextXL = styled(ElTextBase)`
   font-size: 20px;
   line-height: 28px;
+`
+
+export const TextLStyles = css`
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-weight: 400;
+
+  &.${elHasGreyText} {
+    color: var(--color-grey-500);
+  }
+
+  &.${elHasDisabledText} {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &.${elHasRegularText} {
+    font-weight: var(--font-weight-default);
+  }
+
+  &.${elHasMediumText} {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &.${elHasBoldText} {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
+
+  &.${elHasUpperCasedText} {
+    text-transform: uppercase;
+  }
+
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasMargin} {
+    margin-bottom: 0.5rem;
+  }
+
+  &.${elHasSectionMargin} {
+    margin-bottom: 1.5rem;
+  }
+
+  &.${elIntentPrimary} {
+    color: var(--intent-primary);
+  }
+
+  &.${elIntentNeutral} {
+    color: var(--intent-neutral);
+  }
+
+  &.${elIntentSuccess} {
+    color: var(--intent-success);
+  }
+
+  &.${elIntentPending} {
+    color: var(--intent-pending);
+  }
+
+  &.${elIntentWarning} {
+    color: var(--intent-warning);
+  }
+
+  &.${elIntentDanger} {
+    color: var(--intent-danger);
+  }
+
+  &.${elIntentDefault} {
+    color: var(--intent-default);
+  }
+
+  font-size: 18px;
+  line-height: 24px;
 `
 
 export const ElTextL = styled(ElTextBase)`
@@ -131,13 +487,280 @@ export const ElTextL = styled(ElTextBase)`
   line-height: 24px;
 `
 
+export const TextSMStyles = css`
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-weight: 400;
+
+  &.${elHasGreyText} {
+    color: var(--color-grey-500);
+  }
+
+  &.${elHasDisabledText} {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &.${elHasRegularText} {
+    font-weight: var(--font-weight-default);
+  }
+
+  &.${elHasMediumText} {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &.${elHasBoldText} {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
+
+  &.${elHasUpperCasedText} {
+    text-transform: uppercase;
+  }
+
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasMargin} {
+    margin-bottom: 0.5rem;
+  }
+
+  &.${elHasSectionMargin} {
+    margin-bottom: 1.5rem;
+  }
+
+  &.${elIntentPrimary} {
+    color: var(--intent-primary);
+  }
+
+  &.${elIntentNeutral} {
+    color: var(--intent-neutral);
+  }
+
+  &.${elIntentSuccess} {
+    color: var(--intent-success);
+  }
+
+  &.${elIntentPending} {
+    color: var(--intent-pending);
+  }
+
+  &.${elIntentWarning} {
+    color: var(--intent-warning);
+  }
+
+  &.${elIntentDanger} {
+    color: var(--intent-danger);
+  }
+
+  &.${elIntentDefault} {
+    color: var(--intent-default);
+  }
+
+  font-size: 14px;
+  line-height: 20px;
+`
+
 export const ElTextSM = styled(ElTextBase)`
   font-size: 14px;
   line-height: 20px;
 `
 
+export const TextXSStyles = css`
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-weight: 400;
+
+  &.${elHasGreyText} {
+    color: var(--color-grey-500);
+  }
+
+  &.${elHasDisabledText} {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &.${elHasRegularText} {
+    font-weight: var(--font-weight-default);
+  }
+
+  &.${elHasMediumText} {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &.${elHasBoldText} {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
+
+  &.${elHasUpperCasedText} {
+    text-transform: uppercase;
+  }
+
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasMargin} {
+    margin-bottom: 0.5rem;
+  }
+
+  &.${elHasSectionMargin} {
+    margin-bottom: 1.5rem;
+  }
+
+  &.${elIntentPrimary} {
+    color: var(--intent-primary);
+  }
+
+  &.${elIntentNeutral} {
+    color: var(--intent-neutral);
+  }
+
+  &.${elIntentSuccess} {
+    color: var(--intent-success);
+  }
+
+  &.${elIntentPending} {
+    color: var(--intent-pending);
+  }
+
+  &.${elIntentWarning} {
+    color: var(--intent-warning);
+  }
+
+  &.${elIntentDanger} {
+    color: var(--intent-danger);
+  }
+
+  &.${elIntentDefault} {
+    color: var(--intent-default);
+  }
+
+  font-size: 13px;
+  line-height: 16px;
+`
+
 export const ElTextXS = styled(ElTextBase)`
   font-size: 13px;
+  line-height: 16px;
+`
+
+export const Text2XSStyles = css`
+  font-family: var(--font-sans-serif);
+  color: var(--color-black);
+  font-weight: 400;
+
+  &.${elHasGreyText} {
+    color: var(--color-grey-500);
+  }
+
+  &.${elHasDisabledText} {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &.${elHasRegularText} {
+    font-weight: var(--font-weight-default);
+  }
+
+  &.${elHasMediumText} {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &.${elHasBoldText} {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &.${elHasCenteredText} {
+    text-align: center;
+  }
+
+  &.${elHasCapitalisedText} {
+    text-transform: capitalize;
+  }
+
+  &.${elHasUpperCasedText} {
+    text-transform: uppercase;
+  }
+
+  &.${elHasItalicText} {
+    font-style: italic;
+  }
+
+  &.${elHasNoMargin} {
+    margin-bottom: 0;
+  }
+
+  &.${elHasMargin} {
+    margin-bottom: 0.5rem;
+  }
+
+  &.${elHasSectionMargin} {
+    margin-bottom: 1.5rem;
+  }
+
+  &.${elIntentPrimary} {
+    color: var(--intent-primary);
+  }
+
+  &.${elIntentNeutral} {
+    color: var(--intent-neutral);
+  }
+
+  &.${elIntentSuccess} {
+    color: var(--intent-success);
+  }
+
+  &.${elIntentPending} {
+    color: var(--intent-pending);
+  }
+
+  &.${elIntentWarning} {
+    color: var(--intent-warning);
+  }
+
+  &.${elIntentDanger} {
+    color: var(--intent-danger);
+  }
+
+  &.${elIntentDefault} {
+    color: var(--intent-default);
+  }
+
+  font-size: 12px;
   line-height: 16px;
 `
 
@@ -146,7 +769,7 @@ export const ElText2XS = styled(ElTextBase)`
   line-height: 16px;
 `
 
-export const ElTitle = styled.h1`
+export const TitleStyles = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-bold);
   color: var(--color-black);
@@ -228,7 +851,9 @@ export const ElTitle = styled.h1`
   }
 `
 
-export const ElSubtitle = styled.h2`
+export const ElTitle = styled.h1``
+
+export const SubtitleStyles = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
   color: var(--color-black);
@@ -310,7 +935,9 @@ export const ElSubtitle = styled.h2`
   }
 `
 
-export const ElBodyText = styled.p`
+export const ElSubtitle = styled.h2``
+
+export const BodyTextStyles = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
   color: var(--color-black);
@@ -392,7 +1019,9 @@ export const ElBodyText = styled.p`
   }
 `
 
-export const ElSmallText = styled.p`
+export const ElBodyText = styled.p``
+
+export const SmallTextStyles = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
   color: var(--color-black);
@@ -473,3 +1102,5 @@ export const ElSmallText = styled.p`
     color: var(--intent-default);
   }
 `
+
+export const ElSmallText = styled.p``
