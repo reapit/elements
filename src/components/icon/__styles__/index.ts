@@ -36,13 +36,10 @@ export const elIconMenu = css`
   }
 `
 
-export const elIconNew = css`
-  font-size: 1.5rem !important;
-`
-
 export const ElIcon = styled.span`
   display: flex;
   color: var(--color-black);
+  font-size: 1.5rem;
 
   svg {
     width: 1em;

@@ -3,16 +3,15 @@ import { cx } from '@linaria/core'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 import {
   ElIcon,
-  elIconNew,
   elIconSizeLarge,
   elIconSizeLargest,
   elIconSizeMedium,
   elIconSizeSmall,
   elIconSizeSmallest,
 } from './__styles__'
-import { iconSet, iconSetLegacy } from '../../icons'
+import { iconSet } from '../../icons'
 import { useDeprecateIcon, useDeprecateVar } from '../../storybook/deprecate-var'
-export type IconNames = keyof typeof iconSet | keyof typeof iconSetLegacy
+export type IconNames = keyof typeof iconSet
 
 export type IconSize = 'smallest' | 'small' | 'medium' | 'large' | 'largest'
 
@@ -45,13 +44,10 @@ export const getIconSize = (iconSize?: IconSize): string | null => {
 }
 
 export const Icon: FC<IconProps> = memo(({ icon, intent, fontSize, iconSize, className, height, width, ...rest }) => {
-  const newIcon = iconSet[icon]
-  const legacyIcon = iconSetLegacy[icon]
+  const Svg = iconSet[icon]
   const intentClassname = intent && getIntentClassName(intent)
   const sizeClassname = getIconSize(iconSize)
-  const combinedClassName = cx(className, intentClassname, newIcon && elIconNew, sizeClassname)
-
-  const Svg = newIcon || legacyIcon
+  const combinedClassName = cx(className, intentClassname, sizeClassname)
 
   useDeprecateIcon(icon)
   useDeprecateVar({ iconSize }, 'Icon')
