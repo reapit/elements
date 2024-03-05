@@ -4,18 +4,18 @@ import { Icon } from '../icon'
 import { elMr2 } from '../../styles/spacing'
 import { FlexContainer } from '../layout'
 
-export interface BreadCrumbItem extends HTMLAttributes<HTMLDivElement> {
+export interface BreadCrumbItem extends HTMLAttributes<HTMLAnchorElement> {
   text: string
   onClick: () => void
 }
 
-export interface BreadCrumbProps extends HTMLAttributes<HTMLDivElement> {
+export interface BreadCrumbProps extends HTMLAttributes<HTMLElement> {
   items: BreadCrumbItem[]
   defaultActiveIndex?: number
 }
 
 export const handleNext = (setActive: Dispatch<SetStateAction<number>>, onClick: () => void, index: number) => (
-  e: MouseEvent<HTMLDivElement>,
+  e: MouseEvent<HTMLAnchorElement>,
 ) => {
   e.preventDefault()
   setActive(index)
