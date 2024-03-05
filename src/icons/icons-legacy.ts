@@ -462,19 +462,34 @@ export const iconSetLegacy = {
   webhooksMenu,
 
   // Deprecated Icons
+  /** @deprecated */
   docsAnimated1,
+  /** @deprecated */
   docsAnimated2,
+  /** @deprecated */
   webhooksAnimated1,
+  /** @deprecated */
   webhooksAnimated2,
+  /** @deprecated */
   webhooksDocsAnimated1,
+  /** @deprecated */
   webhooksDocsAnimated2,
+  /** @deprecated */
   welcomeAnimated1,
+  /** @deprecated */
   welcomeAnimated2,
+  /** @deprecated */
   saveSystem,
+  /** @deprecated */
   tickSolidSystem,
+  /** @deprecated */
   tickSystem,
+  /** @deprecated */
   previewSystem,
+  /** @deprecated */
   authenticatedInfographic,
+  /** @deprecated */
   platformApiInfographic,
+  /** @deprecated */
   sharedEntitiesInfographic,
 }

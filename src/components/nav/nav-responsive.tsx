@@ -67,7 +67,8 @@ export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
   avatarOptions?: NavResponsiveAvatarOption[]
   avatarText?: string
   defaultNavIndex?: number
-  defaultNavSubIndex?: number // deprecated
+  /** @deprecated */
+  defaultNavSubIndex?: number
 }
 
 export interface NavResponsiveAvatarProps {
@@ -83,7 +84,7 @@ export interface NavResponsiveAppSwitcherProps {
 export type LogoIcon = 'reapitLogoSelectedMenu' | 'reapitLogoMenu'
 
 export const handleToggleLogo = (logoState: LogoIcon, setLogoState: Dispatch<SetStateAction<LogoIcon>>) => () => {
-  // Deprecated - to be removed in v5
+  /** @deprecated - to be removed in v5 */
   deprecateFunction('handleToggleLogo')
   const newState = logoState === 'reapitLogoSelectedMenu' ? 'reapitLogoMenu' : 'reapitLogoSelectedMenu'
   setLogoState(newState)

@@ -9,7 +9,7 @@ export const intentWarning = '#ff6000'
 export const intentDanger = '#f01830'
 export const intentDefault = '#607890'
 
-// Deprecated - to remove in v5.
+/** @peprecated - to remove in v5. */
 export const intentCritical = '##4e56ea'
 export const intentSecondary = '#4e56ea'
 
