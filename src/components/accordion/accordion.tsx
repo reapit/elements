@@ -34,7 +34,7 @@ export const AccordionItem: FC<AccordionBaseProps> = ({ children, ...rest }) => 
   return <ElAccordionItem {...rest}>{children}</ElAccordionItem>
 }
 
-export const AccordionTitle: FC<AccordionBaseProps> = ({ children, ...rest }) => {
+export const AccordionTitle: FC<HTMLAttributes<HTMLAnchorElement>> = ({ children, ...rest }) => {
   return <ElAccordionTitle {...rest}>{children}</ElAccordionTitle>
 }
 
