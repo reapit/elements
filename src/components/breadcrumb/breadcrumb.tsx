@@ -14,13 +14,13 @@ export interface BreadCrumbProps extends HTMLAttributes<HTMLElement> {
   defaultActiveIndex?: number
 }
 
-export const handleNext = (setActive: Dispatch<SetStateAction<number>>, onClick: () => void, index: number) => (
-  e: MouseEvent<HTMLAnchorElement>,
-) => {
-  e.preventDefault()
-  setActive(index)
-  onClick()
-}
+export const handleNext =
+  (setActive: Dispatch<SetStateAction<number>>, onClick: () => void, index: number) =>
+  (e: MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    setActive(index)
+    onClick()
+  }
 
 export const BreadCrumb: FC<BreadCrumbProps> = ({ items, defaultActiveIndex = 0, ...rest }) => {
   const [active, setActive] = useState<number>(defaultActiveIndex)
