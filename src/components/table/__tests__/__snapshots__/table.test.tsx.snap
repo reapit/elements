@@ -83,7 +83,7 @@ exports[`Table Component should match a snapshot for cta content alternate setti
           >
             <mock-styled.span
               classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
             >
@@ -128,7 +128,7 @@ exports[`Table Component should match a snapshot for cta content alternate setti
         >
           <mock-styled.span
             classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -243,7 +243,7 @@ exports[`Table Component should match a snapshot for expandable content alternat
             >
               <mock-styled.span
                 classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
                 role="img"
               >
@@ -292,7 +292,7 @@ exports[`Table Component should match a snapshot for expandable content alternat
           >
             <mock-styled.span
               classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
             >
@@ -820,7 +820,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
           >
             <mock-styled.span
               classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
             >
@@ -921,7 +921,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
             >
               <mock-styled.span
                 classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
                 role="img"
               >
@@ -1003,7 +1003,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
         >
           <mock-styled.span
             classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
             role="img"
           >
@@ -1104,7 +1104,7 @@ exports[`Table Component should match a snapshot with full props and expandable 
           >
             <mock-styled.span
               classname="mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
             >

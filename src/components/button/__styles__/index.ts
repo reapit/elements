@@ -10,7 +10,7 @@ const buttonXPaddingMobile = 0.875
 const buttonYPadding = 0.5
 const buttonXYPaddingMobile = 0.375
 
-// Deprecated - to remove at v5
+/** @deprecated - to remove at v5 */
 export const elButtonSize2 = css``
 export const elButtonSize3 = css``
 export const elButtonSize4 = css``

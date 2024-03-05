@@ -37,7 +37,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
                 role="img"
                 style="font-size: 12px;"
@@ -61,7 +61,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
                 role="img"
                 style="font-size: 12px;"
@@ -85,7 +85,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
                 role="img"
                 style="font-size: 12px;"
@@ -338,7 +338,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
               style="font-size: 12px;"
@@ -362,7 +362,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
               style="font-size: 12px;"
@@ -386,7 +386,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               classname="mock-css.
   margin-right: 0.375rem;
  mock-css. mock-css.
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 "
               role="img"
               style="font-size: 12px;"

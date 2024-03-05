@@ -57,7 +57,7 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   mainCardBody?: ReactNode
   mainCardImgUrl?: ReactNode
   mainCardAvatarUrl?: ReactNode
-  /** Deprecated -  will be removed at v5 release*/
+  /** @peprecated -  will be removed at v5 release*/
   mainContextMenuItems?: ContextMenuItem[]
   // Should we render a bottom list section. If supplied without hasMainCard, will just render a list
   hasListCard?: boolean
@@ -65,7 +65,7 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   listCardHeading?: ReactNode
   listCardSubHeading?: ReactNode
   listCardItems?: CardListItemProps[] // A list of options for the list - see CardList item above
-  /** Deprecated -  will be removed at v5 release*/
+  /** @deprecated -  will be removed at v5 release*/
   listContextMenuItems?: ContextMenuItem[]
   isSelected?: boolean // Does the card have the blue selected border
 }

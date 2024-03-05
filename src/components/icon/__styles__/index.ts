@@ -37,7 +37,7 @@ export const elIconMenu = css`
 `
 
 export const elIconNew = css`
-  font-size: 1.5rem;
+  font-size: 1.5rem !important;
 `
 
 export const ElIcon = styled.span`
