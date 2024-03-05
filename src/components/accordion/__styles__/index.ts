@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react'
 import { elIsActive } from '../../../styles/states'
+import { unstyledAnchor } from '../../../styles/unstyled.anchor'
 
 export const ElAccordionContainer = styled.div`
   background-color: var(--color-white);
@@ -12,7 +13,6 @@ export const ElAccordionItem = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
   padding: 0.875rem 0;
   border-bottom: 1px solid var(--color-grey-100);
 
@@ -20,7 +20,7 @@ export const ElAccordionItem = styled.div`
     border-bottom: none;
   }
 `
-export const ElAccordionTitle = styled.div`
+export const ElAccordionTitle = styled(unstyledAnchor)`
   color: var(--color-black);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
