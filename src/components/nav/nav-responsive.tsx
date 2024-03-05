@@ -36,11 +36,11 @@ export interface NavResponsiveOption {
   text?: string
   href?: string
   subItems?: NavResponsiveOption[]
-  /* Deprecated - to be removed in v5 */
+  /** @deprecated - to be removed in v5 */
   isSecondary?: boolean
-  /* Deprecated - to be removed in v5 */
+  /** @deprecated - to be removed in v5 */
   icon?: ReactNode
-  /* Deprecated - to be removed in v5 */
+  /** @deprecated to be removed in v5 */
   iconId?: IconNames
 }
 
