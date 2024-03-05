@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { IconNames } from '../components/icon'
-import { iconSetLegacy } from '../icons'
+import { iconSet } from '../icons'
 
 export const deprecateVar = (variables: Object, component: string) => {
   Object.keys(variables).forEach((key) => {
@@ -24,7 +24,7 @@ export const useDeprecateComponent = (component: string) => {
 
 export const useDeprecateIcon = (icon: IconNames) => {
   useEffect(() => {
-    if (iconSetLegacy[icon]) {
+    if (!iconSet[icon]) {
       console.info(`Icon ${icon} no longer supported and will be removed at v5 release.`)
     }
   }, [])

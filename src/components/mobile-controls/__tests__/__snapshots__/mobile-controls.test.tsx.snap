@@ -19,9 +19,7 @@ exports[`MobileControls component should match a snapshot 1`] = `
         >
           <mock-styled.div />
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem !important;
-"
+            classname=""
             role="img"
           >
             <svg />
@@ -45,9 +43,7 @@ exports[`MobileControls component should match a snapshot 1`] = `
       >
         <mock-styled.div />
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem !important;
-"
+          classname=""
           role="img"
         >
           <svg />

@@ -1,5 +1,5 @@
 import { cx } from '@linaria/core'
-import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useState, MouseEvent, ReactNode } from 'react'
+import { Dispatch, FC, HTMLAttributes, SetStateAction, MouseEvent, ReactNode } from 'react'
 import {
   CardWrap,
   CardHeading,
@@ -14,18 +14,13 @@ import {
   CardListItemTextWrap,
   CardListItemTextPrimary,
   CardListItemTextSecondary,
-  CardContextMenuWrapper,
-  CardContextMenuToggle,
-  CardContextMenuItems,
-  CardContextMenuItem,
   CardMainWrap,
   CardListMainWrap,
 } from './card'
-import { elCardContextMenuOpen, elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
+import { elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elMb5, elMt5 } from '../../styles/spacing'
 import { Intent } from '../../helpers/intent'
-import { deprecateFunction, useDeprecateComponent } from '../../storybook/deprecate-var'
 import { Avatar } from '../avatar'
 
 export interface CardListItemProps {
@@ -57,100 +52,30 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   mainCardBody?: ReactNode
   mainCardImgUrl?: ReactNode
   mainCardAvatarUrl?: ReactNode
-  /** Deprecated -  will be removed at v5 release*/
-  mainContextMenuItems?: ContextMenuItem[]
   // Should we render a bottom list section. If supplied without hasMainCard, will just render a list
   hasListCard?: boolean
   // Heading strings for the list
   listCardHeading?: ReactNode
   listCardSubHeading?: ReactNode
   listCardItems?: CardListItemProps[] // A list of options for the list - see CardList item above
-  /** Deprecated -  will be removed at v5 release*/
-  listContextMenuItems?: ContextMenuItem[]
   isSelected?: boolean // Does the card have the blue selected border
 }
 
-export const handleToggleContextMenu = (
-  contextMenuOpen: boolean,
-  setContextMenuOpen: Dispatch<SetStateAction<boolean>>,
-) => (event: MouseEvent) => {
-  event.stopPropagation()
-  setContextMenuOpen(!contextMenuOpen)
-}
+export const handleToggleContextMenu =
+  (contextMenuOpen: boolean, setContextMenuOpen: Dispatch<SetStateAction<boolean>>) => (event: MouseEvent) => {
+    event.stopPropagation()
+    setContextMenuOpen(!contextMenuOpen)
+  }
 
-export const handleToggleMainMobileOpen = (
-  mainMobileOpen: boolean,
-  setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
-) => (event: MouseEvent) => {
-  event.stopPropagation()
-  deprecateFunction('handleToggleMainMobileOpen')
-  setMainMobileOpen(!mainMobileOpen)
-}
-
-export const handleToggleListMobileOpen = (
-  listMobileOpen: boolean,
-  setListMobileOpen: Dispatch<SetStateAction<boolean>>,
-) => (event: MouseEvent) => {
-  event.stopPropagation()
-  deprecateFunction('handleToggleListMobileOpen')
-  setListMobileOpen(!listMobileOpen)
-}
-
-export const handleToggleBothMobileOpen = (
-  mainMobileOpen: boolean,
-  setMainMobileOpen: Dispatch<SetStateAction<boolean>>,
-  listMobileOpen: boolean,
-  setListMobileOpen: Dispatch<SetStateAction<boolean>>,
-) => (event: MouseEvent) => {
-  event.stopPropagation()
-  deprecateFunction('handleToggleBothMobileOpen')
-  setMainMobileOpen(!mainMobileOpen)
-  setListMobileOpen(!listMobileOpen)
-}
-
-export const handleMouseHover = (
-  hoverIndex: number | null,
-  setHoverIndex: Dispatch<SetStateAction<number | null>>,
-) => () => {
-  setHoverIndex(hoverIndex)
-}
-
-export const CardContextMenu: FC<CardContextMenuProps> = ({ className, contextMenuItems, ...rest }) => {
-  const [contextMenuOpen, setContextMenuOpen] = useState<boolean>(false)
-  const [hoverIndex, setHoverIndex] = useState<number | null>(null)
-
-  useDeprecateComponent('CardContextMenu')
-
-  if (!contextMenuItems) return null
-  return (
-    <CardContextMenuWrapper className={className} {...rest}>
-      <CardContextMenuToggle onClick={handleToggleContextMenu(contextMenuOpen, setContextMenuOpen)}>
-        <Icon icon="more" />
-      </CardContextMenuToggle>
-      <CardContextMenuItems className={cx(contextMenuOpen && elCardContextMenuOpen)}>
-        <CardContextMenuItem onClick={handleToggleContextMenu(contextMenuOpen, setContextMenuOpen)}>
-          <Icon icon="close" />
-        </CardContextMenuItem>
-        {contextMenuItems.map(({ icon, intent, onClick }, index) => (
-          <CardContextMenuItem key={index} onClick={onClick}>
-            <Icon
-              icon={icon}
-              onMouseEnter={handleMouseHover(index, setHoverIndex)}
-              onMouseLeave={handleMouseHover(null, setHoverIndex)}
-              intent={hoverIndex === index ? intent : undefined}
-            />
-          </CardContextMenuItem>
-        ))}
-      </CardContextMenuItems>
-    </CardContextMenuWrapper>
-  )
-}
+export const handleMouseHover =
+  (hoverIndex: number | null, setHoverIndex: Dispatch<SetStateAction<number | null>>) => () => {
+    setHoverIndex(hoverIndex)
+  }
 
 export const Card: FC<CardProps> = ({
   className,
   hasMainCard,
   hasListCard,
-  mainContextMenuItems,
   mainCardHeading,
   mainCardSubHeading,
   mainCardSubHeadingAdditional,
@@ -158,7 +83,6 @@ export const Card: FC<CardProps> = ({
   mainCardImgUrl,
   mainCardAvatarUrl,
   listCardItems,
-  listContextMenuItems,
   listCardHeading,
   listCardSubHeading,
   isSelected,
@@ -168,7 +92,6 @@ export const Card: FC<CardProps> = ({
     <CardWrap className={cx(className, isSelected && elCardFocussed)} {...rest}>
       {hasMainCard && (
         <>
-          {mainContextMenuItems && <CardContextMenu contextMenuItems={mainContextMenuItems} />}
           <CardMainWrap>
             {mainCardAvatarUrl ? (
               <Avatar src={typeof mainCardAvatarUrl === 'string' ? mainCardAvatarUrl : undefined}>
@@ -191,7 +114,6 @@ export const Card: FC<CardProps> = ({
       {hasListCard && (
         <>
           <CardListMainWrap className={cx(hasMainCard && elMt5)}>
-            {listContextMenuItems && <CardContextMenu contextMenuItems={listContextMenuItems} />}
             <CardListHeading>{listCardHeading}</CardListHeading>
             <CardListSubHeading>{listCardSubHeading}</CardListSubHeading>
           </CardListMainWrap>

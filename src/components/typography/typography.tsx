@@ -44,47 +44,49 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   intent?: Intent
 }
 
-const propsToClass = ({
-  className,
-  hasGreyText,
-  hasItalicText,
-  hasBoldText,
-  hasRegularText,
-  hasMediumText,
-  hasNoMargin,
-  hasMargin,
-  hasSectionMargin,
-  hasCenteredText,
-  hasDisabledText,
-  hasCapitalisedText,
-  hasUpperCasedText,
-  intent,
-  children,
-  ...rest
-}: TypographyProps) => () => {
-  const intentClass = intent ? getIntentClassName(intent) : null
-
-  return {
-    className: cx(
-      className,
-      hasGreyText && elHasGreyText,
-      hasRegularText && elHasRegularText,
-      hasBoldText && elHasBoldText,
-      hasItalicText && elHasItalicText,
-      hasMediumText && elHasMediumText,
-      hasMargin && elHasMargin,
-      hasNoMargin && elHasNoMargin,
-      hasSectionMargin && elHasSectionMargin,
-      hasCenteredText && elHasCenteredText,
-      hasDisabledText && elHasDisabledText,
-      hasCapitalisedText && elHasCapitalisedText,
-      hasUpperCasedText && elHasUpperCasedText,
-      intentClass,
-    ),
+const propsToClass =
+  ({
+    className,
+    hasGreyText,
+    hasItalicText,
+    hasBoldText,
+    hasRegularText,
+    hasMediumText,
+    hasNoMargin,
+    hasMargin,
+    hasSectionMargin,
+    hasCenteredText,
+    hasDisabledText,
+    hasCapitalisedText,
+    hasUpperCasedText,
+    intent,
     children,
-    rest,
+    ...rest
+  }: TypographyProps) =>
+  () => {
+    const intentClass = intent ? getIntentClassName(intent) : null
+
+    return {
+      className: cx(
+        className,
+        hasGreyText && elHasGreyText,
+        hasRegularText && elHasRegularText,
+        hasBoldText && elHasBoldText,
+        hasItalicText && elHasItalicText,
+        hasMediumText && elHasMediumText,
+        hasMargin && elHasMargin,
+        hasNoMargin && elHasNoMargin,
+        hasSectionMargin && elHasSectionMargin,
+        hasCenteredText && elHasCenteredText,
+        hasDisabledText && elHasDisabledText,
+        hasCapitalisedText && elHasCapitalisedText,
+        hasUpperCasedText && elHasUpperCasedText,
+        intentClass,
+      ),
+      children,
+      rest,
+    }
   }
-}
 
 export const Text3XL: FC<TypographyProps> = (props) => {
   const { className, children, rest } = useMemo(propsToClass(props), [props])

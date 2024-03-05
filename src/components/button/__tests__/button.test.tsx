@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
-import { Button, ButtonProps, FloatingButton, ButtonGroup, resolveButtonSize, ButtonSize, ButtonIcon } from '../index'
+import { Button, ButtonProps, FloatingButton, ButtonGroup, ButtonSize, ButtonIcon } from '../index'
 
 const props: ButtonProps = {
   type: 'submit',
@@ -21,7 +21,7 @@ describe('Button', () => {
       disabled: true,
       buttonSize: 'small' as ButtonSize,
       buttonIcon: {
-        icon: 'addSystem',
+        icon: 'add',
         position: 'left',
       } as ButtonIcon,
       className: 'some-class',
@@ -32,7 +32,7 @@ describe('Button', () => {
   it('should match a snapshot', () => {
     expect(
       render(
-        <FloatingButton icon="addSystem" {...props}>
+        <FloatingButton icon="add" {...props}>
           button text
         </FloatingButton>,
       ),
@@ -45,10 +45,6 @@ describe('Button', () => {
     fireEvent.click(wrapper.getByText('button text'))
 
     expect(props.onClick).toHaveBeenCalledTimes(1)
-  })
-
-  it('should not return button size class', () => {
-    expect(resolveButtonSize(2)).toBe(undefined)
   })
 
   afterEach(() => {

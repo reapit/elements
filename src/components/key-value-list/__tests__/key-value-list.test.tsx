@@ -9,32 +9,32 @@ describe('KeyValueList component', () => {
           {
             key: 'Name',
             value: 'John Doe',
-            iconName: 'usernameSystem',
+            iconName: 'user',
             intent: 'primary',
           },
           {
             key: 'Email',
             value: 'email@example.com',
-            iconName: 'emailSystem',
+            iconName: 'email',
             intent: 'primary',
           },
           {
             key: 'Parking Spaces',
             value: '2',
-            iconName: 'carSystem',
+            iconName: 'car',
             intent: 'primary',
           },
           {
             key: 'Date Signed Up',
             value: '20th September 2023',
-            iconName: 'calendarSystem',
+            iconName: 'calendar',
             intent: 'primary',
           },
           {
             key: 'Address',
             value:
               'I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
-            iconName: 'homeSystem',
+            iconName: 'property',
             intent: 'primary',
             textEllipsis: true,
           },
@@ -42,7 +42,7 @@ describe('KeyValueList component', () => {
             key: 'Description',
             value:
               'This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
-            iconName: 'bulletListSystem',
+            iconName: 'menu',
             intent: 'primary',
           },
         ]}
@@ -59,28 +59,28 @@ describe('KeyValueList component', () => {
           {
             key: 'Name',
             value: 'John Doe',
-            iconName: 'usernameSystem',
+            iconName: 'user',
             intent: 'primary',
             colSize: 'half',
           },
           {
             key: 'Email',
             value: 'email@example.com',
-            iconName: 'emailSystem',
+            iconName: 'email',
             intent: 'primary',
             colSize: 'half',
           },
           {
             key: 'Parking Spaces',
             value: '2',
-            iconName: 'carSystem',
+            iconName: 'car',
             intent: 'primary',
             colSize: 'half',
           },
           {
             key: 'Date Signed Up',
             value: '20th September 2023',
-            iconName: 'calendarSystem',
+            iconName: 'calendar',
             intent: 'primary',
             colSize: 'half',
           },
@@ -88,7 +88,7 @@ describe('KeyValueList component', () => {
             key: 'Address',
             value:
               'I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
-            iconName: 'homeSystem',
+            iconName: 'property',
             intent: 'primary',
             colSize: 'full',
             textEllipsis: true,
@@ -97,7 +97,7 @@ describe('KeyValueList component', () => {
             key: 'Description',
             value:
               'This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.',
-            iconName: 'bulletListSystem',
+            iconName: 'menu',
             intent: 'primary',
             colSize: 'full',
           },

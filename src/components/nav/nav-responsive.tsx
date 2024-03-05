@@ -2,7 +2,7 @@ import { cx } from '@linaria/core'
 import { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState, MouseEvent } from 'react'
 import { useNavState } from '../../hooks/use-nav-state'
 import { useMediaQuery } from '../../hooks/use-media-query'
-import { Icon, IconNames } from '../icon'
+import { Icon } from '../icon'
 import { Nav, NavItem, NavSubNav, NavSubNavItem } from './nav'
 import {
   ElNavBg,
@@ -23,7 +23,6 @@ import {
 } from './__styles__'
 import { elMlAuto, elMr2, elMr4 } from '../../styles/spacing'
 import { generateRandomId } from '../../storybook/random-id'
-import { deprecateFunction, deprecateVar } from '../../storybook/deprecate-var'
 import { Avatar } from '../avatar'
 import { Text2XS } from '../typography'
 import { elIsActive } from '../../styles/states'
@@ -36,12 +35,6 @@ export interface NavResponsiveOption {
   text?: string
   href?: string
   subItems?: NavResponsiveOption[]
-  /* Deprecated - to be removed in v5 */
-  isSecondary?: boolean
-  /* Deprecated - to be removed in v5 */
-  icon?: ReactNode
-  /* Deprecated - to be removed in v5 */
-  iconId?: IconNames
 }
 
 export interface NavResponsiveAvatarOption {
@@ -82,32 +75,23 @@ export interface NavResponsiveAppSwitcherProps {
 
 export type LogoIcon = 'reapitLogoSelectedMenu' | 'reapitLogoMenu'
 
-export const handleToggleLogo = (logoState: LogoIcon, setLogoState: Dispatch<SetStateAction<LogoIcon>>) => () => {
-  // Deprecated - to be removed in v5
-  deprecateFunction('handleToggleLogo')
-  const newState = logoState === 'reapitLogoSelectedMenu' ? 'reapitLogoMenu' : 'reapitLogoSelectedMenu'
-  setLogoState(newState)
-}
-
-export const handleToggleMenu = (setState: Dispatch<SetStateAction<boolean>>, callback?: () => void) => (
-  event: MouseEvent<HTMLDivElement>,
-) => {
-  event.preventDefault()
-  event.stopPropagation()
-  setState((state) => !state)
-  if (callback) {
-    callback()
+export const handleToggleMenu =
+  (setState: Dispatch<SetStateAction<boolean>>, callback?: () => void) => (event: MouseEvent<HTMLDivElement>) => {
+    event.preventDefault()
+    event.stopPropagation()
+    setState((state) => !state)
+    if (callback) {
+      callback()
+    }
   }
-}
 
-export const clickNavEventHandler = (setActive: Dispatch<SetStateAction<boolean>>) => (
-  event: MouseEvent<HTMLAnchorElement | HTMLDivElement>,
-) => {
-  event?.preventDefault()
-  event?.stopPropagation()
+export const clickNavEventHandler =
+  (setActive: Dispatch<SetStateAction<boolean>>) => (event: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
+    event?.preventDefault()
+    event?.stopPropagation()
 
-  setActive((active) => !active)
-}
+    setActive((active) => !active)
+  }
 
 export const NavResponsiveAvatar: FC<NavResponsiveAvatarProps> = ({ options, isHidden, text }) => {
   const [avatarOpen, setAvatarOpen] = useState<boolean>(false)
@@ -209,97 +193,90 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
         })}
       />
       <Nav className={cx(className)} {...rest}>
-        {options.map(
-          (
-            { href, callback, text, subItems, itemIndex, isSecondary, icon, iconId }: NavResponsiveOption,
-            index: number,
-          ) => {
-            const hasSubItems = subItems && subItems.length > 0
+        {options.map(({ href, callback, text, subItems, itemIndex }: NavResponsiveOption, index: number) => {
+          const hasSubItems = subItems && subItems.length > 0
 
-            deprecateVar({ isSecondary, icon, iconId }, 'NavResponsive')
-
-            if (!index) {
-              return (
-                <NavItem className={cx(navItemIndex === itemIndex && elNavItemActive)} key={itemIndex} href={href}>
-                  {appSwitcherOptions && <NavResponsiveAppSwitcher options={appSwitcherOptions} />}
-                  {brandOptions?.logoUrl ? (
-                    <img src={brandOptions.logoUrl} height="24px" onClick={brandOptions?.callback} />
-                  ) : (
-                    <Icon onClick={brandOptions?.callback} height="24px" width="100px" icon="reapitLogo" />
-                  )}
-                  <Icon
-                    className={cx(elMlAuto, elMr4, elNavItemHideDesktop)}
-                    icon="more"
-                    intent={navMenuOpen ? 'primary' : 'default'}
-                    onClick={setNavState({
-                      navMenuOpen: !navMenuOpen,
-                    })}
-                  />
-                  {(avatarOptions || avatarText) && (
-                    <NavResponsiveAvatar isHidden={!isMobile} options={avatarOptions ?? []} text={avatarText} />
-                  )}
-                </NavItem>
-              )
-            }
-
+          if (!index) {
             return (
-              <Fragment key={itemIndex}>
-                <NavItem
-                  className={cx(navItemIndex === itemIndex && elNavItemActive, navMenuOpen && elNavItemExpanded)}
-                  href={href}
-                  onClick={
-                    hasSubItems
-                      ? setNavState({
-                          navItemIndex: itemIndex,
-                          navSubItemIndex: navItemIndex === itemIndex && navSubItemIndex ? navSubItemIndex : 0,
-                          callback,
-                        })
-                      : setNavState({ navItemIndex: itemIndex, callback, navMenuOpen: !navMenuOpen })
-                  }
-                >
-                  {text}
-                  {hasSubItems && isMobile && (
-                    <Icon
-                      className={elMlAuto}
-                      intent="default"
-                      icon={navMenuOpen && navItemIndex === itemIndex ? 'chevronUp' : 'chevronDown'}
-                    />
-                  )}
-                </NavItem>
-                {hasSubItems && (
-                  <NavSubNav key={generateRandomId()}>
-                    {subItems.map(
-                      ({
-                        callback: innerCallback,
-                        text: innerText,
-                        href: innerHref,
-                        itemIndex: innerItemIndex,
-                      }: NavResponsiveOption) => {
-                        return (
-                          <NavSubNavItem
-                            className={cx(
-                              navSubItemIndex === innerItemIndex && elNavSubItemActive,
-                              navMenuOpen && navItemIndex === itemIndex && elNavSubItemExpanded,
-                            )}
-                            href={innerHref}
-                            key={innerItemIndex}
-                            onClick={setNavState({
-                              navSubItemIndex: innerItemIndex,
-                              callback: innerCallback,
-                              navMenuOpen: !navMenuOpen,
-                            })}
-                          >
-                            <span>{innerText}</span>
-                          </NavSubNavItem>
-                        )
-                      },
-                    )}
-                  </NavSubNav>
+              <NavItem className={cx(navItemIndex === itemIndex && elNavItemActive)} key={itemIndex} href={href}>
+                {appSwitcherOptions && <NavResponsiveAppSwitcher options={appSwitcherOptions} />}
+                {brandOptions?.logoUrl ? (
+                  <img src={brandOptions.logoUrl} height="24px" onClick={brandOptions?.callback} />
+                ) : (
+                  <Icon onClick={brandOptions?.callback} height="24px" width="100px" icon="reapitLogo" />
                 )}
-              </Fragment>
+                <Icon
+                  className={cx(elMlAuto, elMr4, elNavItemHideDesktop)}
+                  icon="more"
+                  intent={navMenuOpen ? 'primary' : 'default'}
+                  onClick={setNavState({
+                    navMenuOpen: !navMenuOpen,
+                  })}
+                />
+                {(avatarOptions || avatarText) && (
+                  <NavResponsiveAvatar isHidden={!isMobile} options={avatarOptions ?? []} text={avatarText} />
+                )}
+              </NavItem>
             )
-          },
-        )}
+          }
+
+          return (
+            <Fragment key={itemIndex}>
+              <NavItem
+                className={cx(navItemIndex === itemIndex && elNavItemActive, navMenuOpen && elNavItemExpanded)}
+                href={href}
+                onClick={
+                  hasSubItems
+                    ? setNavState({
+                        navItemIndex: itemIndex,
+                        navSubItemIndex: navItemIndex === itemIndex && navSubItemIndex ? navSubItemIndex : 0,
+                        callback,
+                      })
+                    : setNavState({ navItemIndex: itemIndex, callback, navMenuOpen: !navMenuOpen })
+                }
+              >
+                {text}
+                {hasSubItems && isMobile && (
+                  <Icon
+                    className={elMlAuto}
+                    intent="default"
+                    icon={navMenuOpen && navItemIndex === itemIndex ? 'chevronUp' : 'chevronDown'}
+                  />
+                )}
+              </NavItem>
+              {hasSubItems && (
+                <NavSubNav key={generateRandomId()}>
+                  {subItems.map(
+                    ({
+                      callback: innerCallback,
+                      text: innerText,
+                      href: innerHref,
+                      itemIndex: innerItemIndex,
+                    }: NavResponsiveOption) => {
+                      return (
+                        <NavSubNavItem
+                          className={cx(
+                            navSubItemIndex === innerItemIndex && elNavSubItemActive,
+                            navMenuOpen && navItemIndex === itemIndex && elNavSubItemExpanded,
+                          )}
+                          href={innerHref}
+                          key={innerItemIndex}
+                          onClick={setNavState({
+                            navSubItemIndex: innerItemIndex,
+                            callback: innerCallback,
+                            navMenuOpen: !navMenuOpen,
+                          })}
+                        >
+                          <span>{innerText}</span>
+                        </NavSubNavItem>
+                      )
+                    },
+                  )}
+                </NavSubNav>
+              )}
+            </Fragment>
+          )
+        })}
         {(avatarOptions || avatarText) && (
           <NavResponsiveAvatar isHidden={isMobile} options={avatarOptions ?? []} text={avatarText} />
         )}

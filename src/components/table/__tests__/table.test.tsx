@@ -26,14 +26,14 @@ describe('Table Component', () => {
                 label: 'Property',
                 value: 'Mt Ash Jacket, Brassey Road',
                 className: elSpan2,
-                icon: 'homeSystem',
+                icon: 'property',
                 cellHasDarkText: true,
                 narrowTable: { showLabel: true },
               },
               {
                 label: 'Customer',
                 value: 'Mr Johnny Corrigan',
-                icon: 'usernameSystem',
+                icon: 'user',
                 narrowTable: { showLabel: true },
               },
               {
@@ -81,7 +81,7 @@ describe('Table Component', () => {
               headerContent: 'Some Content',
               onClick: jest.fn(),
               className: 'foo-bar',
-              icon: 'homeSystem',
+              icon: 'property',
             },
           },
         ]}
@@ -103,14 +103,14 @@ describe('Table Component', () => {
                 label: 'Property',
                 value: 'Mt Ash Jacket, Brassey Road',
                 className: elSpan2,
-                icon: 'homeSystem',
+                icon: 'property',
                 cellHasDarkText: true,
                 narrowTable: { showLabel: true },
               },
               {
                 label: 'Customer',
                 value: 'Mr Johnny Corrigan',
-                icon: 'usernameSystem',
+                icon: 'user',
                 narrowTable: { showLabel: true },
               },
               {
@@ -141,7 +141,7 @@ describe('Table Component', () => {
               headerContent: 'Some Action',
               onClick: jest.fn(),
               className: 'foo-bar',
-              icon: 'homeSystem',
+              icon: 'property',
             },
           },
         ]}
@@ -159,7 +159,7 @@ describe('Table Component', () => {
             ctaContent: {
               onClick: jest.fn(),
               className: 'foo-bar',
-              icon: 'homeSystem',
+              icon: 'property',
             },
           },
         ]}

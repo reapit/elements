@@ -13,7 +13,7 @@ describe('MobileControls component', () => {
       <MobileControls
         isVisible
         buttonOnClick={() => console.log('Clicked Item One')}
-        buttonIcon="saveSystem"
+        buttonIcon="menu"
         mobileControlItems={[
           {
             label: 'Item One',
@@ -38,10 +38,10 @@ describe('clickEventHandler', () => {
   it('should handle a click event', () => {
     const setActive = jest.fn()
     const onClick = jest.fn()
-    const event = ({
+    const event = {
       preventDefault: jest.fn(),
       stopPropagation: jest.fn(),
-    } as unknown) as MouseEvent<HTMLAnchorElement | HTMLDivElement>
+    } as unknown as MouseEvent<HTMLAnchorElement | HTMLDivElement>
 
     const curried = clickEventHandler(setActive, onClick)
 
