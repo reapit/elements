@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, HTMLAttributes, useEffect } from 'react'
+import React, { FC, forwardRef, HTMLAttributes, useEffect, useId } from 'react'
 import {
   ElSearchableDropdownCloseButton,
   ElSearchableDropdownContainer,
@@ -55,6 +55,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
   }: ControlledSearchableDropdownProps<T>,
   ref: React.ForwardedRef<HTMLInputElement>,
 ) => {
+  const listId = useId()
   return (
     <>
       {label && (
@@ -62,14 +63,19 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
           {label}
         </Label>
       )}
-      <ElSearchableDropdownContainer>
+      <ElSearchableDropdownContainer
+        role="combobox"
+        aria-expanded={isResultsListVisible}
+        aria-controls={listId}
+        aria-haspopup="listbox"
+      >
         <input id={id} style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
         <ElSearchableDropdownSearchInputAddOn>
           <Icon icon={icon} fontSize="1rem" intent="default" />
         </ElSearchableDropdownSearchInputAddOn>
         <ElSearchableDropdownSearchInput data-testid="search-input" value={value} {...inputProps} />
         {isResultsListVisible && (
-          <ElSearchableDropdownResultsContainer>
+          <ElSearchableDropdownResultsContainer role="listbox" id={listId}>
             {resultsList.map((result, index) => (
               <ElSearchableDropdownResult
                 data-testid={`dropdown-result-${index}`}
@@ -136,12 +142,12 @@ export const SearchableDropdownInner = <T extends unknown>(
     setSelectedValue(value)
     setResultsVisible(false)
     if (onChange) {
-      onChange(({
+      onChange({
         target: {
           ...inputProps,
           value,
         },
-      } as unknown) as React.ChangeEvent<HTMLInputElement>)
+      } as unknown as React.ChangeEvent<HTMLInputElement>)
     }
   }
 
