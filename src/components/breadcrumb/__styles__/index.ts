@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react'
 
-export const ElBreadCrumbItem = styled.div`
+export const ElBreadCrumbItem = styled.a`
+  font-weight: inherit;
   border-radius: 0.5rem;
   font-size: var(--font-size-small);
   color: var(--intent-default);
