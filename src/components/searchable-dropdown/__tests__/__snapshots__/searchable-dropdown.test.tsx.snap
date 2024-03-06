@@ -5,7 +5,12 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <mock-styled.div
+        aria-controls=":r3:"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        role="combobox"
+      >
         <input
           id="some-id"
           readonly=""
@@ -36,7 +41,12 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <mock-styled.div
+      aria-controls=":r3:"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      role="combobox"
+    >
       <input
         id="some-id"
         readonly=""
@@ -124,7 +134,12 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <mock-styled.div
+        aria-controls=":r1:"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        role="combobox"
+      >
         <input
           id="some-id"
           readonly=""
@@ -151,7 +166,12 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <mock-styled.div
+      aria-controls=":r1:"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      role="combobox"
+    >
       <input
         id="some-id"
         readonly=""
@@ -235,7 +255,12 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <mock-styled.div
+        aria-controls=":r0:"
+        aria-expanded="false"
+        aria-haspopup="listbox"
+        role="combobox"
+      >
         <input
           id="some-id"
           readonly=""
@@ -263,7 +288,12 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <mock-styled.div
+      aria-controls=":r0:"
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      role="combobox"
+    >
       <input
         id="some-id"
         readonly=""
