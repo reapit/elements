@@ -28,8 +28,7 @@ export const BreadCrumb: FC<BreadCrumbProps> = ({ items, defaultActiveIndex = 0,
   return (
     <ElBreadCrumbContainer {...rest} aria-label="Breadcrumb">
       {items.map(({ onClick, text }, index) => {
-        // Why is this line here and why is it causing a problem now?
-        // if (index > active) return null
+        if (index > active) return null
 
         return (
           <FlexContainer isFlexAlignCenter key={index}>
