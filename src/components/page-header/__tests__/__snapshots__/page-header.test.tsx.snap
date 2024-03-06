@@ -22,11 +22,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
   align-items: center;
 "
             >
-              <mock-styled.mock-styled.a
+              <mock-styled.a
                 aria-current="false"
               >
                 Home
-              </mock-styled.mock-styled.a>
+              </mock-styled.a>
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css.
@@ -46,11 +46,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   style="font-size: 12px;"
                 />
               </mock-styled.span>
-              <mock-styled.mock-styled.a
+              <mock-styled.a
                 aria-current="false"
               >
                 Level 1
-              </mock-styled.mock-styled.a>
+              </mock-styled.a>
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css.
@@ -70,11 +70,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   style="font-size: 12px;"
                 />
               </mock-styled.span>
-              <mock-styled.mock-styled.a
+              <mock-styled.a
                 aria-current="false"
               >
                 Level 2
-              </mock-styled.mock-styled.a>
+              </mock-styled.a>
             </mock-styled.div>
             <mock-styled.div
               classname="mock-css.
@@ -94,11 +94,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   style="font-size: 12px;"
                 />
               </mock-styled.span>
-              <mock-styled.mock-styled.a
+              <mock-styled.a
                 aria-current="page"
               >
                 Level 3
-              </mock-styled.mock-styled.a>
+              </mock-styled.a>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
@@ -323,11 +323,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
   align-items: center;
 "
           >
-            <mock-styled.mock-styled.a
+            <mock-styled.a
               aria-current="false"
             >
               Home
-            </mock-styled.mock-styled.a>
+            </mock-styled.a>
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css.
@@ -347,11 +347,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 style="font-size: 12px;"
               />
             </mock-styled.span>
-            <mock-styled.mock-styled.a
+            <mock-styled.a
               aria-current="false"
             >
               Level 1
-            </mock-styled.mock-styled.a>
+            </mock-styled.a>
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css.
@@ -371,11 +371,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 style="font-size: 12px;"
               />
             </mock-styled.span>
-            <mock-styled.mock-styled.a
+            <mock-styled.a
               aria-current="false"
             >
               Level 2
-            </mock-styled.mock-styled.a>
+            </mock-styled.a>
           </mock-styled.div>
           <mock-styled.div
             classname="mock-css.
@@ -395,11 +395,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 style="font-size: 12px;"
               />
             </mock-styled.span>
-            <mock-styled.mock-styled.a
+            <mock-styled.a
               aria-current="page"
             >
               Level 3
-            </mock-styled.mock-styled.a>
+            </mock-styled.a>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
