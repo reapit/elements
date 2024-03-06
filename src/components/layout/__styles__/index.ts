@@ -1,4 +1,3 @@
-import { styled } from '@linaria/react'
 import { isMobile, isTablet } from '../../../styles/media'
 import { elHFull } from '../../../styles/sizing'
 import { css } from '@linaria/core'
