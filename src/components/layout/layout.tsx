@@ -68,11 +68,8 @@ export interface ContainerFlexProps extends ContainerProps {
   hasGreyBackground?: boolean
 }
 
-interface TaggedElementProps extends HTMLAttributes<HTMLElement> {
-  tag: LayoutTags
+interface TaggedElementProps extends ContainerProps {
   baseClass: string
-  hasGreyBackground?: boolean
-  hasMaxWidth?: boolean
 }
 
 export const TaggedElement: FC<TaggedElementProps> = ({
