@@ -8,7 +8,20 @@ export const ElAccordionContainer = styled.div`
   flex-direction: column;
 `
 
-export const ElAccordionItem = styled.div`
+export const ElAccordionItem = styled.a`
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+
+  &:hover,
+  &:link,
+  &:active,
+  &:focus {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +32,7 @@ export const ElAccordionItem = styled.div`
     border-bottom: none;
   }
 `
-export const ElAccordionTitle = styled.a`
+export const ElAccordionTitle = styled.div`
   color: var(--color-black);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);

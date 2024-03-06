@@ -12,6 +12,7 @@ import { elIsActive } from '../../styles/states'
 import { Icon } from '../icon'
 
 export interface AccordionBaseProps extends HTMLAttributes<HTMLDivElement> {}
+export interface AccordionBaseItemProps extends HTMLAttributes<HTMLAnchorElement> {}
 
 export interface AccordionTitleItemProps {}
 
@@ -30,11 +31,11 @@ export const AccordionContainer: FC<AccordionBaseProps> = ({ children, ...rest }
   return <ElAccordionContainer {...rest}>{children}</ElAccordionContainer>
 }
 
-export const AccordionItem: FC<AccordionBaseProps> = ({ children, ...rest }) => {
+export const AccordionItem: FC<AccordionBaseItemProps> = ({ children, ...rest }) => {
   return <ElAccordionItem {...rest}>{children}</ElAccordionItem>
 }
 
-export const AccordionTitle: FC<HTMLAttributes<HTMLAnchorElement>> = ({ children, ...rest }) => {
+export const AccordionTitle: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
   return <ElAccordionTitle {...rest}>{children}</ElAccordionTitle>
 }
 

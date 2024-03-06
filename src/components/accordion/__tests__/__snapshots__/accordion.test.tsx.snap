@@ -6,10 +6,10 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.a>
+        <mock-styled.a>
+          <mock-styled.div>
             Accordion Item 1
-          </mock-styled.a>
+          </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
@@ -42,16 +42,16 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.div>
+        </mock-styled.a>
         <mock-styled.div
           classname="mock-css."
         >
           Accordion Content 1
         </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.a>
+        <mock-styled.a>
+          <mock-styled.div>
             Accordion Item 2
-          </mock-styled.a>
+          </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
@@ -84,7 +84,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.div>
+        </mock-styled.a>
         <mock-styled.div>
           Accordion Content 2
         </mock-styled.div>
@@ -93,10 +93,10 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.a>
+      <mock-styled.a>
+        <mock-styled.div>
           Accordion Item 1
-        </mock-styled.a>
+        </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
@@ -129,16 +129,16 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </mock-styled.a>
       <mock-styled.div
         classname="mock-css."
       >
         Accordion Content 1
       </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.a>
+      <mock-styled.a>
+        <mock-styled.div>
           Accordion Item 2
-        </mock-styled.a>
+        </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
@@ -171,7 +171,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </mock-styled.a>
       <mock-styled.div>
         Accordion Content 2
       </mock-styled.div>
@@ -237,13 +237,13 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div>
-        <mock-styled.div
+        <mock-styled.a
           aria-controls=":r0:-0"
           id=":r1:-0"
         >
-          <mock-styled.a>
+          <mock-styled.div>
             Accordion Item 1
-          </mock-styled.a>
+          </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
@@ -281,7 +281,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.div>
+        </mock-styled.a>
         <mock-styled.div
           aria-expanded="false"
           aria-labelledby=":r1:-0"
@@ -291,13 +291,13 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
         >
           Accordion Content 1
         </mock-styled.div>
-        <mock-styled.div
+        <mock-styled.a
           aria-controls=":r0:-1"
           id=":r1:-1"
         >
-          <mock-styled.a>
+          <mock-styled.div>
             Accordion Item 2
-          </mock-styled.a>
+          </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
@@ -335,7 +335,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
-        </mock-styled.div>
+        </mock-styled.a>
         <mock-styled.div
           aria-expanded="false"
           aria-labelledby=":r1:-1"
@@ -350,13 +350,13 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div>
-      <mock-styled.div
+      <mock-styled.a
         aria-controls=":r0:-0"
         id=":r1:-0"
       >
-        <mock-styled.a>
+        <mock-styled.div>
           Accordion Item 1
-        </mock-styled.a>
+        </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
@@ -394,7 +394,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </mock-styled.a>
       <mock-styled.div
         aria-expanded="false"
         aria-labelledby=":r1:-0"
@@ -404,13 +404,13 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
       >
         Accordion Content 1
       </mock-styled.div>
-      <mock-styled.div
+      <mock-styled.a
         aria-controls=":r0:-1"
         id=":r1:-1"
       >
-        <mock-styled.a>
+        <mock-styled.div>
           Accordion Item 2
-        </mock-styled.a>
+        </mock-styled.div>
         <mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
@@ -448,7 +448,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
-      </mock-styled.div>
+      </mock-styled.a>
       <mock-styled.div
         aria-expanded="false"
         aria-labelledby=":r1:-1"
