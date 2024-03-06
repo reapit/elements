@@ -6,8 +6,21 @@ exports[`FileInput component should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
         >
@@ -119,14 +132,27 @@ exports[`FileInput component should match a snapshot 1`] = `
           >
             Upload File
           </mock-styled.p>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
     <mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
+      <div
+        class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
       >
@@ -238,7 +264,7 @@ exports[`FileInput component should match a snapshot 1`] = `
         >
           Upload File
         </mock-styled.p>
-      </mock-styled.div>
+      </div>
     </mock-styled.div>
   </div>,
   "debug": [Function],
@@ -373,8 +399,21 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
         <mock-styled.label>
           Some Label
         </mock-styled.label>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
         >
@@ -423,7 +462,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
               />
             </mock-styled.span>
           </mock-styled.div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
     </div>
   </body>,
@@ -432,8 +471,21 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
       <mock-styled.label>
         Some Label
       </mock-styled.label>
-      <mock-styled.div
-        classname="mock-css.
+      <div
+        class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
       >
@@ -482,7 +534,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             />
           </mock-styled.span>
         </mock-styled.div>
-      </mock-styled.div>
+      </div>
     </mock-styled.div>
   </div>,
   "debug": [Function],

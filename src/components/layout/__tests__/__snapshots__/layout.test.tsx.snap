@@ -5,23 +5,49 @@ exports[`FlexContainer should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -82,8 +108,21 @@ exports[`FlexContainer should match a snapshot and render children with all prop
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css.
+      <div
+        class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: row;
  mock-css.
   flex-direction: row-reverse;
@@ -130,12 +169,25 @@ exports[`FlexContainer should match a snapshot and render children with all prop
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css.
+    <div
+      class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: row;
  mock-css.
   flex-direction: row-reverse;
@@ -182,7 +234,7 @@ exports[`FlexContainer should match a snapshot and render children with all prop
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -243,23 +295,57 @@ exports[`MainContainer should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.main
-        classname="mock-css."
+      <main
+        class="mock-css.
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: visible;
+  overflow-x: hidden;
+  background: var(--color-white);
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css."
       >
         <p>
           I am child
         </p>
-      </mock-styled.main>
+      </main>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.main
-      classname="mock-css."
+    <main
+      class="mock-css.
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  overflow-y: visible;
+  overflow-x: hidden;
+  background: var(--color-white);
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css."
     >
       <p>
         I am child
       </p>
-    </mock-styled.main>
+    </main>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -393,23 +479,73 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.section
-        classname="mock-css."
+      <section
+        class="mock-css.
+  display: block;
+  padding: 0.5rem 1.25rem;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: var(--color-white);
+
+  , {
+    padding: 2.5rem 1.5rem;
+  }
+
+  &., {
+    height: 100%;
+  }
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css."
       >
         <p>
           I am child
         </p>
-      </mock-styled.section>
+      </section>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.section
-      classname="mock-css."
+    <section
+      class="mock-css.
+  display: block;
+  padding: 0.5rem 1.25rem;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: var(--color-white);
+
+  , {
+    padding: 2.5rem 1.5rem;
+  }
+
+  &., {
+    height: 100%;
+  }
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css."
     >
       <p>
         I am child
       </p>
-    </mock-styled.section>
+    </section>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -470,23 +606,59 @@ exports[`SecondaryNavContainer should match a snapshot and render children 1`] =
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.aside
-        classname=""
+      <aside
+        class="mock-css.
+  display: block;
+  width: 14rem;
+  flex: 0 0 14rem;
+  padding: 1.5rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  background: var(--color-white);
+  border-right: 1px solid var(--color-grey-50);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  , {
+    display: none;
+  }
+"
       >
         <p>
           I am child
         </p>
-      </mock-styled.aside>
+      </aside>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.aside
-      classname=""
+    <aside
+      class="mock-css.
+  display: block;
+  width: 14rem;
+  flex: 0 0 14rem;
+  padding: 1.5rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: none;
+  background: var(--color-white);
+  border-right: 1px solid var(--color-grey-50);
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+
+  , {
+    display: none;
+  }
+"
     >
       <p>
         I am child
       </p>
-    </mock-styled.aside>
+    </aside>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

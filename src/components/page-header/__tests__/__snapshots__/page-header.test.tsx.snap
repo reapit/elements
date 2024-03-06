@@ -17,8 +17,21 @@ exports[`PageHeader component should match a snapshot 1`] = `
   margin-bottom: 1rem;
 "
           >
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
             >
@@ -27,9 +40,22 @@ exports[`PageHeader component should match a snapshot 1`] = `
               >
                 Home
               </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            </div>
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
             >
@@ -51,9 +77,22 @@ exports[`PageHeader component should match a snapshot 1`] = `
               >
                 Level 1
               </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            </div>
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
             >
@@ -75,9 +114,22 @@ exports[`PageHeader component should match a snapshot 1`] = `
               >
                 Level 2
               </mock-styled.div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            </div>
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
             >
@@ -99,7 +151,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               >
                 Level 3
               </mock-styled.div>
-            </mock-styled.div>
+            </div>
           </mock-styled.div>
           <mock-styled.div
             classname=""
@@ -116,8 +168,21 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   src="https://picsum.photos/200/300"
                 />
               </mock-styled.mock-styled.div>
-              <mock-styled.div
-                classname="mock-css.
+              <div
+                class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
               >
@@ -331,8 +396,21 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 >
                   Page Sub Title
                 </div>
-                <mock-styled.div
-                  classname=""
+                <div
+                  class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
                 >
                   <div
                     class="mock-css.
@@ -609,8 +687,8 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   >
                     Page Info 3
                   </div>
-                </mock-styled.div>
-              </mock-styled.div>
+                </div>
+              </div>
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.div
@@ -754,8 +832,21 @@ exports[`PageHeader component should match a snapshot 1`] = `
   margin-bottom: 1rem;
 "
         >
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
           >
@@ -764,9 +855,22 @@ exports[`PageHeader component should match a snapshot 1`] = `
             >
               Home
             </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          </div>
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
           >
@@ -788,9 +892,22 @@ exports[`PageHeader component should match a snapshot 1`] = `
             >
               Level 1
             </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          </div>
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
           >
@@ -812,9 +929,22 @@ exports[`PageHeader component should match a snapshot 1`] = `
             >
               Level 2
             </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          </div>
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
           >
@@ -836,7 +966,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             >
               Level 3
             </mock-styled.div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
@@ -853,8 +983,21 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 src="https://picsum.photos/200/300"
               />
             </mock-styled.mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
             >
@@ -1068,8 +1211,21 @@ exports[`PageHeader component should match a snapshot 1`] = `
               >
                 Page Sub Title
               </div>
-              <mock-styled.div
-                classname=""
+              <div
+                class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
               >
                 <div
                   class="mock-css.
@@ -1346,8 +1502,8 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 >
                   Page Info 3
                 </div>
-              </mock-styled.div>
-            </mock-styled.div>
+              </div>
+            </div>
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.div

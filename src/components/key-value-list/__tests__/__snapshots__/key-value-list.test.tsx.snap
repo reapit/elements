@@ -22,8 +22,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -215,7 +228,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             >
               John Doe
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
@@ -231,8 +244,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -424,7 +450,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             >
               email@example.com
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
@@ -440,8 +466,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -633,7 +672,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             >
               2
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
@@ -649,8 +688,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -842,7 +894,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             >
               20th September 2023
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
@@ -858,8 +910,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -1059,7 +1124,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             >
               I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
@@ -1075,8 +1140,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -1268,7 +1346,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             >
               This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
             </div>
-          </mock-styled.div>
+          </div>
         </mock-styled.div>
       </div>
     </div>
@@ -1291,8 +1369,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
         >
@@ -1484,7 +1575,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             John Doe
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
@@ -1500,8 +1591,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
         >
@@ -1693,7 +1797,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             email@example.com
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
@@ -1709,8 +1813,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
         >
@@ -1902,7 +2019,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             2
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
@@ -1918,8 +2035,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
         >
@@ -2111,7 +2241,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             20th September 2023
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
@@ -2127,8 +2257,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
         >
@@ -2328,7 +2471,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
@@ -2344,8 +2487,21 @@ exports[`KeyValueList component should match a snapshot 1`] = `
             <svg />
           </mock-styled.span>
         </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
         >
@@ -2537,7 +2693,7 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
           </div>
-        </mock-styled.div>
+        </div>
       </mock-styled.div>
     </div>
   </div>,
@@ -2608,8 +2764,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           classname=""
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
           >
             <mock-styled.div
               classname=""
@@ -2621,8 +2790,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
                 <svg />
               </mock-styled.span>
             </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
             >
@@ -2814,15 +2996,28 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               >
                 John Doe
               </div>
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
           >
             <mock-styled.div
               classname=""
@@ -2834,8 +3029,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
                 <svg />
               </mock-styled.span>
             </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
             >
@@ -3027,15 +3235,28 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               >
                 email@example.com
               </div>
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
           >
             <mock-styled.div
               classname=""
@@ -3047,8 +3268,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
                 <svg />
               </mock-styled.span>
             </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
             >
@@ -3240,15 +3474,28 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               >
                 2
               </div>
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
           >
             <mock-styled.div
               classname=""
@@ -3260,8 +3507,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
                 <svg />
               </mock-styled.span>
             </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
             >
@@ -3453,15 +3713,28 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               >
                 20th September 2023
               </div>
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
           >
             <mock-styled.div
               classname=""
@@ -3473,8 +3746,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
                 <svg />
               </mock-styled.span>
             </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
             >
@@ -3674,15 +3960,28 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               >
                 I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
               </div>
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </mock-styled.div>
         <mock-styled.div
           classname=""
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
           >
             <mock-styled.div
               classname=""
@@ -3694,8 +3993,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
                 <svg />
               </mock-styled.span>
             </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
+            <div
+              class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
             >
@@ -3887,8 +4199,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               >
                 This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
               </div>
-            </mock-styled.div>
-          </mock-styled.div>
+            </div>
+          </div>
         </mock-styled.div>
       </mock-styled.div>
     </div>
@@ -3902,8 +4214,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         classname=""
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
         >
           <mock-styled.div
             classname=""
@@ -3915,8 +4240,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -4108,15 +4446,28 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               John Doe
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
         >
           <mock-styled.div
             classname=""
@@ -4128,8 +4479,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -4321,15 +4685,28 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               email@example.com
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
         >
           <mock-styled.div
             classname=""
@@ -4341,8 +4718,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -4534,15 +4924,28 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               2
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
         >
           <mock-styled.div
             classname=""
@@ -4554,8 +4957,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -4747,15 +5163,28 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               20th September 2023
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
         >
           <mock-styled.div
             classname=""
@@ -4767,8 +5196,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -4968,15 +5410,28 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </mock-styled.div>
       <mock-styled.div
         classname=""
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+"
         >
           <mock-styled.div
             classname=""
@@ -4988,8 +5443,21 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
               <svg />
             </mock-styled.span>
           </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
+          <div
+            class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   flex-direction: column;
 "
           >
@@ -5181,8 +5649,8 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
             </div>
-          </mock-styled.div>
-        </mock-styled.div>
+          </div>
+        </div>
       </mock-styled.div>
     </mock-styled.div>
   </div>,
