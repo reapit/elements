@@ -55,19 +55,21 @@ export interface TableProps extends HTMLAttributes<HTMLDivElement> {
   setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>
 }
 
-export const handleToggleExpandedRow = (
-  index: number | null,
-  expandedRow: number | null,
-  setExpandedRow: Dispatch<SetStateAction<number | null>>,
-  indexExpandedRow?: number | null,
-  setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>,
-) => () => {
-  if (indexExpandedRow !== undefined && setIndexExpandedRow) {
-    indexExpandedRow === index ? setIndexExpandedRow(null) : setIndexExpandedRow(index)
-  } else {
-    expandedRow === index ? setExpandedRow(null) : setExpandedRow(index)
+export const handleToggleExpandedRow =
+  (
+    index: number | null,
+    expandedRow: number | null,
+    setExpandedRow: Dispatch<SetStateAction<number | null>>,
+    indexExpandedRow?: number | null,
+    setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>,
+  ) =>
+  () => {
+    if (indexExpandedRow !== undefined && setIndexExpandedRow) {
+      indexExpandedRow === index ? setIndexExpandedRow(null) : setIndexExpandedRow(index)
+    } else {
+      expandedRow === index ? setExpandedRow(null) : setExpandedRow(index)
+    }
   }
-}
 
 export const Table: FC<TableProps> = ({
   rows,
@@ -93,10 +95,10 @@ export const Table: FC<TableProps> = ({
         (hasExpandableRows || hasCallToAction) && numberColumns
           ? numberColumns - 1
           : numberColumns
-          ? numberColumns - 1
-          : hasExpandableRows
-          ? firstRow.cells.length
-          : undefined
+            ? numberColumns - 1
+            : hasExpandableRows
+              ? firstRow.cells.length
+              : undefined
       }
       data-has-expandable-action={hasExpandableRows}
       data-has-call-to-action={hasCallToAction}

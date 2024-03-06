@@ -17,18 +17,18 @@ export interface MobileControlsProps extends HTMLAttributes<HTMLDivElement> {
   isVisible?: boolean
 }
 
-export const clickEventHandler = (setActive: Dispatch<SetStateAction<boolean>>, onClick?: () => void) => (
-  event: MouseEvent<HTMLAnchorElement | HTMLDivElement>,
-) => {
-  event?.preventDefault()
-  event?.stopPropagation()
+export const clickEventHandler =
+  (setActive: Dispatch<SetStateAction<boolean>>, onClick?: () => void) =>
+  (event: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
+    event?.preventDefault()
+    event?.stopPropagation()
 
-  setActive((active) => !active)
+    setActive((active) => !active)
 
-  if (onClick) {
-    onClick()
+    if (onClick) {
+      onClick()
+    }
   }
-}
 
 export const MobileControls: FC<MobileControlsProps> = ({
   mobileControlItems,

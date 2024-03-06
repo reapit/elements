@@ -89,10 +89,10 @@ describe('handleToggleLogo', () => {
 describe('clickNavEventHandler', () => {
   it('should handle a click event', () => {
     const setActive = jest.fn()
-    const event = ({
+    const event = {
       preventDefault: jest.fn(),
       stopPropagation: jest.fn(),
-    } as unknown) as MouseEvent<HTMLAnchorElement | HTMLDivElement>
+    } as unknown as MouseEvent<HTMLAnchorElement | HTMLDivElement>
 
     const curried = clickNavEventHandler(setActive)
 
