@@ -1,5 +1,14 @@
 import { render } from '@testing-library/react'
-import { MainContainer, PageContainer, SecondaryNavContainer, Molecule, FlexContainer } from '../index'
+import {
+  MainContainer,
+  PageContainer,
+  SecondaryNavContainer,
+  Molecule,
+  FlexContainer,
+  TaggedElement,
+  elMainContainer,
+} from '../index'
+import { cx } from '@linaria/core'
 
 describe('MainContainer', () => {
   it('should match a snapshot and render children', () => {
@@ -85,5 +94,31 @@ describe('FlexContainer', () => {
       </FlexContainer>,
     )
     expect(wrapper).toMatchSnapshot()
+  })
+
+  describe('TaggedElements', () => {
+    describe('TaggedElement', () => {
+      ;['div', 'main', 'aside', 'section'].forEach((tag) => {
+        it(`Can return element with tag [${tag}]`, () => {
+          const component = render(<TaggedElement baseClass={cx(elMainContainer)} tag={tag as any}></TaggedElement>)
+          expect(component.baseElement.querySelector(tag)?.tagName.toLowerCase()).toBe(tag)
+        })
+      })
+    })
+
+    describe('Layout elements can use tag', () => {
+      ;['div', 'main', 'aside', 'section'].forEach((tag) => {
+        Object.entries({
+          main: <MainContainer tag={tag as any}></MainContainer>,
+          page: <PageContainer tag={tag as any}></PageContainer>,
+          secondaryNav: <SecondaryNavContainer tag={tag as any}></SecondaryNavContainer>,
+        }).forEach(([name, element]) => {
+          it(`${tag} can be used for element ${name}`, () => {
+            const component = render(element)
+            expect(component.baseElement.querySelector(tag)?.tagName.toLowerCase()).toBe(tag)
+          })
+        })
+      })
+    })
   })
 })
