@@ -36,15 +36,15 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   buttonSize?: ButtonSize
   buttonIcon?: ButtonIcon
-  /** Deprecated - will be removed at v5 release */
+  /** @deprecated - will be removed at v5 release */
   chevronLeft?: boolean
-  /** Deprecated - will be removed at v5 release */
+  /** @deprecated - will be removed at v5 release */
   chevronRight?: boolean
-  /** Deprecated - will be removed at v5 release */
+  /** @deprecated - will be removed at v5 release */
   fullWidth?: boolean
-  /** Deprecated - will be removed at v5 release */
+  /** @deprecated - will be removed at v5 release */
   fixedWidth?: boolean
-  /** Deprecated - will be removed at v5 release */
+  /** @deprecated - will be removed at v5 release */
   size?: ButtonSizeType
 }
 
