@@ -95,10 +95,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname=""
       >
         <mock-styled.input
           id="option-1"
@@ -107,10 +104,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
           value="option-1"
         />
         <mock-styled.label
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+          classname=""
           htmlfor="option-1"
         >
           <mock-styled.span>
@@ -124,10 +118,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
           value="option-2"
         />
         <mock-styled.label
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+          classname=""
           htmlfor="option-2"
         >
           <mock-styled.span>
@@ -141,10 +132,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
           value="option-3"
         />
         <mock-styled.label
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+          classname=""
           htmlfor="option-3"
         >
           <mock-styled.span>
@@ -156,10 +144,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+      classname=""
     >
       <mock-styled.input
         id="option-1"
@@ -168,10 +153,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
         value="option-1"
       />
       <mock-styled.label
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname=""
         htmlfor="option-1"
       >
         <mock-styled.span>
@@ -185,10 +167,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
         value="option-2"
       />
       <mock-styled.label
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname=""
         htmlfor="option-2"
       >
         <mock-styled.span>
@@ -202,10 +181,7 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
         value="option-3"
       />
       <mock-styled.label
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+        classname=""
         htmlfor="option-3"
       >
         <mock-styled.span>

@@ -60,7 +60,7 @@ export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
   avatarOptions?: NavResponsiveAvatarOption[]
   avatarText?: string
   defaultNavIndex?: number
-  defaultNavSubIndex?: number // deprecated
+  defaultNavSubIndex?: number
 }
 
 export interface NavResponsiveAvatarProps {

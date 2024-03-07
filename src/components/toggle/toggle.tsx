@@ -20,7 +20,6 @@ import {
 } from './__styles__/index'
 
 export interface ToggleProps extends HTMLAttributes<HTMLInputElement> {
-  isFullWidth?: boolean
   hasGreyBg?: boolean
 }
 
@@ -35,7 +34,6 @@ export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
   options: ToggleRadioOption[]
   name: string
   disabled?: boolean
-  isFullWidth?: boolean
   hasGreyBg?: boolean
 }
 
@@ -48,20 +46,11 @@ export type ToggleRadioWrapped = React.ForwardRefExoticComponent<
 >
 
 export const Toggle: ToggleWrapped = forwardRef(
-  (
-    { className, children, isFullWidth, hasGreyBg, id, ...rest },
-    ref: ForwardedRef<InputHTMLAttributes<HTMLInputElement>>,
-  ) => {
-    if (isFullWidth) {
-      console.warn(`The "${isFullWidth}" prop is deprecated and will be removed in the next major release.`)
-    }
+  ({ className, children, hasGreyBg, id, ...rest }, ref: ForwardedRef<InputHTMLAttributes<HTMLInputElement>>) => {
     return (
       <>
         <ElToggleCheckbox id={id} type="checkbox" {...rest} ref={ref as unknown as LegacyRef<HTMLInputElement>} />
-        <ElToggleLabel
-          htmlFor={id}
-          className={cx(className, isFullWidth && elToggleFullWidth, hasGreyBg && elHasGreyBg)}
-        >
+        <ElToggleLabel htmlFor={id} className={cx(className && elToggleFullWidth, hasGreyBg && elHasGreyBg)}>
           {children}
         </ElToggleLabel>
       </>
@@ -71,14 +60,11 @@ export const Toggle: ToggleWrapped = forwardRef(
 
 export const ToggleRadio: ToggleRadioWrapped = forwardRef(
   (
-    { className, isFullWidth, hasGreyBg, name, options, disabled, ...rest },
+    { className, hasGreyBg, name, options, disabled, ...rest },
     ref: ForwardedRef<InputHTMLAttributes<HTMLInputElement>>,
   ) => {
-    if (isFullWidth) {
-      console.warn(`The "${isFullWidth}" prop is deprecated and will be removed in the next major release.`)
-    }
     return (
-      <ElToggleRadioWrap className={cx(className, isFullWidth && elToggleFullWidth, hasGreyBg && elHasGreyBg)}>
+      <ElToggleRadioWrap className={cx(className, hasGreyBg && elHasGreyBg)}>
         {options.map(({ id, value, text, isChecked }) => (
           <Fragment key={id}>
             <ElToggleRadio
@@ -91,10 +77,7 @@ export const ToggleRadio: ToggleRadioWrapped = forwardRef(
               defaultChecked={isChecked}
               ref={ref as unknown as LegacyRef<HTMLInputElement>}
             />
-            <ElToggleRadioLabel
-              htmlFor={!disabled ? id : undefined}
-              className={cx(hasGreyBg && elHasGreyBg, isFullWidth && elToggleFullWidth)}
-            >
+            <ElToggleRadioLabel htmlFor={!disabled ? id : undefined} className={cx(hasGreyBg && elHasGreyBg)}>
               <ElToggleRadioItem>{text}</ElToggleRadioItem>
             </ElToggleRadioLabel>
           </Fragment>

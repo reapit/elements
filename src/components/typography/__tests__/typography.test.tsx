@@ -12,6 +12,8 @@ import {
   TextL,
   TextSM,
   TextXL,
+  TaggedTypography,
+  TypeographyTag,
 } from '..'
 
 describe('Typography Base', () => {
@@ -402,5 +404,38 @@ describe('Typography Helpers', () => {
       </SmallText>,
     )
     expect(wrapper).toMatchSnapshot()
+  })
+
+  describe('TaggedTypography', () => {
+    ;[...Array.from({ length: 5 }, (_, i) => i + 1).map((index) => `h${index}`), 'p', 'small', 'span', 'div'].forEach(
+      (tag) => {
+        it(`${tag}`, () => {
+          const component = render(<TaggedTypography tag={tag as TypeographyTag}></TaggedTypography>)
+          expect(component.baseElement.querySelector(tag)?.tagName.toString().toLowerCase()).toBe(tag)
+        })
+      },
+    )
+
+    describe('Typography Components', () => {
+      ;[...Array.from({ length: 5 }, (_, i) => i + 1).map((index) => `h${index}`), 'p', 'small', 'span', 'div'].forEach(
+        (tag) => {
+          Object.entries({
+            text3xl: <Text3XL tag={tag as TypeographyTag}></Text3XL>,
+            text2xl: <Text2XL tag={tag as TypeographyTag}></Text2XL>,
+            textxl: <TextXL tag={tag as TypeographyTag}></TextXL>,
+            textl: <TextL tag={tag as TypeographyTag}></TextL>,
+            textBase: <TextBase tag={tag as TypeographyTag}></TextBase>,
+            textSm: <TextSM tag={tag as TypeographyTag}></TextSM>,
+            textXs: <TextXS tag={tag as TypeographyTag}></TextXS>,
+            text2Xs: <Text2XS tag={tag as TypeographyTag}></Text2XS>,
+          }).forEach(([name, element]) => {
+            it(`Element ${name} can return ${tag}`, () => {
+              const component = render(element)
+              expect(component.baseElement.querySelector(tag)?.tagName.toString().toLowerCase()).toBe(tag)
+            })
+          })
+        },
+      )
+    })
   })
 })

@@ -2,16 +2,16 @@
   "name": "@reapit/elements",
   "version": "5.0.0-beta.3",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
-  "homepage": "https://github.com/reapit/foundations#readme",
+  "homepage": "https://github.com/reapit/elements#readme",
   "bugs": {
-    "url": "https://github.com/reapit/foundations/issues"
+    "url": "https://github.com/reapit/elements/issues"
   },
   "bin": {
     "elements-deploy": "./scripts/cdk/bin/rpt-cdk.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reapit/foundations.git"
+    "url": "git+https://github.com/reapit/elements.git"
   },
   "license": "MIT",
   "author": "Will McVay <wmcvay@reapit.com>",

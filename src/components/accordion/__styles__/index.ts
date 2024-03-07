@@ -8,11 +8,23 @@ export const ElAccordionContainer = styled.div`
   flex-direction: column;
 `
 
-export const ElAccordionItem = styled.div`
+export const ElAccordionItem = styled.a`
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+
+  &:hover,
+  &:link,
+  &:active,
+  &:focus {
+    color: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+  }
+
   display: flex;
   justify-content: space-between;
   align-items: center;
-  cursor: pointer;
   padding: 0.875rem 0;
   border-bottom: 1px solid var(--color-grey-100);
 
