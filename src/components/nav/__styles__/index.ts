@@ -236,7 +236,7 @@ export const elNavItemHideDesktop = css`
   }
 `
 
-// Deprecated, we use the same interface for desktop and web - left class in to avoid breaking changes
+/** @deprecated, we use the same interface for desktop and web - left class in to avoid breaking changes */
 export const elNavIsDesktop = css``
 
 export const elNavIsHidden = css`

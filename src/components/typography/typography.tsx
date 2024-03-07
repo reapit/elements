@@ -15,18 +15,20 @@ import {
   elHasDisabledText,
   elHasCapitalisedText,
   elHasMediumText,
-  ElText2XL,
-  ElText3XL,
-  ElTextXL,
-  ElTextL,
-  ElTextSM,
-  ElTextXS,
-  ElText2XS,
-  ElTextBase,
+  elText2XL,
+  elText3XL,
+  elTextXL,
+  elTextL,
+  elTextSM,
+  elTextXS,
+  elText2XS,
+  elTextBase,
   elHasMargin,
   elHasUpperCasedText,
 } from './__styles__'
 import { Intent, getIntentClassName } from '../../helpers/intent'
+
+export type TypeographyTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'small' | 'div' | 'span'
 
 export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   hasGreyText?: boolean
@@ -42,10 +44,16 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   hasCapitalisedText?: boolean
   hasUpperCasedText?: boolean
   intent?: Intent
+  tag?: TypeographyTag
+}
+
+export interface TaggedTypographyProps extends TypographyProps {
+  baseClass?: string
 }
 
 const propsToClass =
   ({
+    baseClass,
     className,
     hasGreyText,
     hasItalicText,
@@ -62,13 +70,14 @@ const propsToClass =
     intent,
     children,
     ...rest
-  }: TypographyProps) =>
+  }: TaggedTypographyProps) =>
   () => {
     const intentClass = intent ? getIntentClassName(intent) : null
 
     return {
       className: cx(
-        className,
+        elTextBase,
+        baseClass,
         hasGreyText && elHasGreyText,
         hasRegularText && elHasRegularText,
         hasBoldText && elHasBoldText,
@@ -82,86 +91,98 @@ const propsToClass =
         hasCapitalisedText && elHasCapitalisedText,
         hasUpperCasedText && elHasUpperCasedText,
         intentClass,
+        className,
       ),
       children,
-      rest,
+      ...rest,
     }
   }
 
-export const Text3XL: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElText3XL className={className} {...rest}>
-      {children}
-    </ElText3XL>
-  )
+export const TaggedTypography: FC<TaggedTypographyProps> = (props) => {
+  const { className, children, tag, ...rest } = useMemo(propsToClass(props), [props])
+  switch (tag) {
+    case 'h1':
+      return (
+        <h1 className={className} {...rest}>
+          {children}
+        </h1>
+      )
+    case 'h2':
+      return (
+        <h2 className={className} {...rest}>
+          {children}
+        </h2>
+      )
+    case 'h3':
+      return (
+        <h3 className={className} {...rest}>
+          {children}
+        </h3>
+      )
+    case 'h4':
+      return (
+        <h4 className={className} {...rest}>
+          {children}
+        </h4>
+      )
+    case 'h5':
+      return (
+        <h5 className={className} {...rest}>
+          {children}
+        </h5>
+      )
+    case 'h6':
+      return (
+        <h6 className={className} {...rest}>
+          {children}
+        </h6>
+      )
+    case 'p':
+      return (
+        <p className={className} {...rest}>
+          {children}
+        </p>
+      )
+    case 'small':
+      return (
+        <small className={className} {...rest}>
+          {children}
+        </small>
+      )
+    case 'span':
+      return (
+        <span className={className} {...rest}>
+          {children}
+        </span>
+      )
+    case 'div':
+    default:
+      return (
+        <div className={className} {...rest}>
+          {children}
+        </div>
+      )
+  }
 }
 
-export const Text2XL: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElText2XL className={className} {...rest}>
-      {children}
-    </ElText2XL>
-  )
-}
+export const Text3XL: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elText3XL} {...props} />
 
-export const TextXL: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElTextXL className={className} {...rest}>
-      {children}
-    </ElTextXL>
-  )
-}
+export const Text2XL: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elText2XL} {...props} />
 
-export const TextL: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElTextL className={className} {...rest}>
-      {children}
-    </ElTextL>
-  )
-}
+export const TextXL: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTextXL} {...props} />
 
-export const TextBase: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElTextBase className={className} {...rest}>
-      {children}
-    </ElTextBase>
-  )
-}
+export const TextL: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTextL} {...props} />
 
-export const TextSM: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElTextSM className={className} {...rest}>
-      {children}
-    </ElTextSM>
-  )
-}
+export const TextBase: FC<TypographyProps> = (props) => <TaggedTypography {...props} />
 
-export const TextXS: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElTextXS className={className} {...rest}>
-      {children}
-    </ElTextXS>
-  )
-}
+export const TextSM: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTextSM} {...props} />
 
-export const Text2XS: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElText2XS className={className} {...rest}>
-      {children}
-    </ElText2XS>
-  )
-}
+export const TextXS: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTextXS} {...props} />
+
+export const Text2XS: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elText2XS} {...props} />
 
 export const Title: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, ...rest } = useMemo(propsToClass(props), [props])
   return (
     <ElTitle className={className} {...rest}>
       {children}
@@ -170,7 +191,7 @@ export const Title: FC<TypographyProps> = (props) => {
 }
 
 export const Subtitle: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, ...rest } = useMemo(propsToClass(props), [props])
   return (
     <ElSubtitle className={className} {...rest}>
       {children}
@@ -179,7 +200,7 @@ export const Subtitle: FC<TypographyProps> = (props) => {
 }
 
 export const BodyText: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, ...rest } = useMemo(propsToClass(props), [props])
   return (
     <ElBodyText className={className} {...rest}>
       {children}
@@ -188,7 +209,7 @@ export const BodyText: FC<TypographyProps> = (props) => {
 }
 
 export const SmallText: FC<TypographyProps> = (props) => {
-  const { className, children, rest } = useMemo(propsToClass(props), [props])
+  const { className, children, ...rest } = useMemo(propsToClass(props), [props])
   return (
     <ElSmallText className={className} {...rest}>
       {children}

@@ -9,6 +9,7 @@ import React, {
   RefAttributes,
   SetStateAction,
   useEffect,
+  useId,
   useMemo,
   useState,
 } from 'react'
@@ -153,8 +154,10 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
       [defaultValues],
     )
 
+    const listId = useId()
+
     return (
-      <ElMultiSelectInputWrapper>
+      <ElMultiSelectInputWrapper role="combobox" aria-controls={listId} aria-haspopup="listbox">
         <ElMultiSelectInput id={id} {...rest} ref={ref as unknown as LegacyRef<HTMLInputElement>} />
         <MultiSelectSelected className={className}>
           {selectedOptionValues.length ? (

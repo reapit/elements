@@ -169,7 +169,11 @@ exports[`MultiSelectInput should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <mock-styled.div
+        aria-controls=":r0:"
+        aria-haspopup="listbox"
+        role="combobox"
+      >
         <mock-styled.input
           id="react-example"
         />
@@ -215,7 +219,11 @@ exports[`MultiSelectInput should match a snapshot and render children 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <mock-styled.div
+      aria-controls=":r0:"
+      aria-haspopup="listbox"
+      role="combobox"
+    >
       <mock-styled.input
         id="react-example"
       />
@@ -318,7 +326,11 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <mock-styled.div
+        aria-controls=":r1:"
+        aria-haspopup="listbox"
+        role="combobox"
+      >
         <mock-styled.input
           id="react-example"
         />
@@ -375,7 +387,11 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <mock-styled.div
+      aria-controls=":r1:"
+      aria-haspopup="listbox"
+      role="combobox"
+    >
       <mock-styled.input
         id="react-example"
       />

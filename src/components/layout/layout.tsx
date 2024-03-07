@@ -1,12 +1,12 @@
-import React, { HTMLAttributes, FC } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import { cx } from '@linaria/core'
 import {
-  ElMainContainer,
-  ElPageContainer,
-  ElSecondaryNavContainer,
-  ElFlexContainer,
   elHasGreyBackground,
   elHasMaxWidth,
+  elMainContainer,
+  elPageContainer,
+  elSecondaryNavContainer,
+  elFlexContainer,
 } from './__styles__'
 import {
   elFlexRow,
@@ -33,9 +33,11 @@ import {
   elFlexAlignEnd,
 } from '../../styles/flexbox'
 
+type LayoutTags = 'main' | 'aside' | 'section' | 'div'
 export interface ContainerProps extends HTMLAttributes<HTMLElement> {
   hasGreyBackground?: boolean
   hasMaxWidth?: boolean
+  tag?: LayoutTags
 }
 
 export interface ContainerFlexProps extends ContainerProps {
@@ -64,40 +66,69 @@ export interface ContainerFlexProps extends ContainerProps {
   hasGreyBackground?: boolean
 }
 
-export const MainContainer: FC<ContainerProps> = ({ children, className, hasGreyBackground, hasMaxWidth, ...rest }) => (
-  <ElMainContainer
-    className={cx(hasGreyBackground && elHasGreyBackground, hasMaxWidth && elHasMaxWidth, className)}
-    {...rest}
-  >
-    {children}
-  </ElMainContainer>
-)
+interface TaggedElementProps extends ContainerProps {
+  baseClass: string
+}
 
-export const PageContainer: FC<ContainerProps> = ({ children, className, hasGreyBackground, hasMaxWidth, ...rest }) => (
-  <ElPageContainer
-    className={cx(hasGreyBackground && elHasGreyBackground, hasMaxWidth && elHasMaxWidth, className)}
-    {...rest}
-  >
-    {children}
-  </ElPageContainer>
-)
-
-export const SecondaryNavContainer: FC<ContainerProps> = ({
+export const TaggedElement: FC<TaggedElementProps> = ({
+  tag,
   children,
   className,
+  baseClass,
   hasGreyBackground,
   hasMaxWidth,
   ...rest
-}) => (
-  <ElSecondaryNavContainer
-    className={cx(hasGreyBackground && elHasGreyBackground, hasMaxWidth && elHasMaxWidth, className)}
-    {...rest}
-  >
+}) => {
+  const classes = cx(baseClass, hasGreyBackground && elHasGreyBackground, hasMaxWidth && elHasMaxWidth, className)
+  switch (tag) {
+    case 'main':
+      return (
+        <main className={classes} {...rest}>
+          {children}
+        </main>
+      )
+    case 'aside':
+      return (
+        <aside className={classes} {...rest}>
+          {children}
+        </aside>
+      )
+    case 'section':
+      return (
+        <section className={classes} {...rest}>
+          {children}
+        </section>
+      )
+    default:
+    case 'div':
+      return (
+        <div className={classes} {...rest}>
+          {children}
+        </div>
+      )
+  }
+}
+
+export const MainContainer: FC<ContainerProps> = ({ tag = 'main', children, ...rest }) => (
+  <TaggedElement tag={tag} baseClass={elMainContainer} {...rest}>
     {children}
-  </ElSecondaryNavContainer>
+  </TaggedElement>
+)
+
+export const PageContainer: FC<ContainerProps> = ({ tag = 'section', children, ...rest }) => (
+  <TaggedElement tag={tag} baseClass={elPageContainer} {...rest}>
+    {children}
+  </TaggedElement>
+)
+
+export const SecondaryNavContainer: FC<ContainerProps> = ({ children, tag = 'aside', ...rest }) => (
+  <TaggedElement tag={tag} baseClass={elSecondaryNavContainer} {...rest}>
+    {children}
+  </TaggedElement>
 )
 
 export const FlexContainer: FC<ContainerFlexProps> = ({
+  tag = 'div',
   children,
   isFlexRow,
   isFlexRowReverse,
@@ -155,8 +186,8 @@ export const FlexContainer: FC<ContainerFlexProps> = ({
   )
 
   return (
-    <ElFlexContainer className={combinedClasses} {...rest}>
+    <TaggedElement tag={tag} baseClass={elFlexContainer} className={combinedClasses} {...rest}>
       {children}
-    </ElFlexContainer>
+    </TaggedElement>
   )
 }

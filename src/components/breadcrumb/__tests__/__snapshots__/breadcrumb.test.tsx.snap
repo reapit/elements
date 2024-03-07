@@ -8,19 +8,45 @@ exports[`BreadCrumb should match a snapshot 1`] = `
       <mock-styled.div
         aria-label="Breadcrumb"
       >
-        <mock-styled.div
-          classname="mock-css.
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
         >
-          <mock-styled.div
+          <mock-styled.a
             aria-current="false"
           >
             Home
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+          </mock-styled.a>
+        </div>
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
         >
@@ -35,14 +61,27 @@ exports[`BreadCrumb should match a snapshot 1`] = `
               style="font-size: 12px;"
             />
           </mock-styled.span>
-          <mock-styled.div
+          <mock-styled.a
             aria-current="false"
           >
             Level 1
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+          </mock-styled.a>
+        </div>
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
         >
@@ -57,14 +96,27 @@ exports[`BreadCrumb should match a snapshot 1`] = `
               style="font-size: 12px;"
             />
           </mock-styled.span>
-          <mock-styled.div
+          <mock-styled.a
             aria-current="false"
           >
             Level 2
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
+          </mock-styled.a>
+        </div>
+        <div
+          class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
         >
@@ -79,12 +131,12 @@ exports[`BreadCrumb should match a snapshot 1`] = `
               style="font-size: 12px;"
             />
           </mock-styled.span>
-          <mock-styled.div
+          <mock-styled.a
             aria-current="page"
           >
             Level 3
-          </mock-styled.div>
-        </mock-styled.div>
+          </mock-styled.a>
+        </div>
       </mock-styled.div>
     </div>
   </body>,
@@ -92,19 +144,45 @@ exports[`BreadCrumb should match a snapshot 1`] = `
     <mock-styled.div
       aria-label="Breadcrumb"
     >
-      <mock-styled.div
-        classname="mock-css.
+      <div
+        class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
       >
-        <mock-styled.div
+        <mock-styled.a
           aria-current="false"
         >
           Home
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
+        </mock-styled.a>
+      </div>
+      <div
+        class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
       >
@@ -119,14 +197,27 @@ exports[`BreadCrumb should match a snapshot 1`] = `
             style="font-size: 12px;"
           />
         </mock-styled.span>
-        <mock-styled.div
+        <mock-styled.a
           aria-current="false"
         >
           Level 1
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
+        </mock-styled.a>
+      </div>
+      <div
+        class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
       >
@@ -141,14 +232,27 @@ exports[`BreadCrumb should match a snapshot 1`] = `
             style="font-size: 12px;"
           />
         </mock-styled.span>
-        <mock-styled.div
+        <mock-styled.a
           aria-current="false"
         >
           Level 2
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
+        </mock-styled.a>
+      </div>
+      <div
+        class="mock-css.
+  display: flex;
+  min-height: 0;
+  min-width: 0;
+
+  &., {
+    background: var(--color-grey-50);
+  }
+
+  &., {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+ mock-css.
   align-items: center;
 "
       >
@@ -163,12 +267,12 @@ exports[`BreadCrumb should match a snapshot 1`] = `
             style="font-size: 12px;"
           />
         </mock-styled.span>
-        <mock-styled.div
+        <mock-styled.a
           aria-current="page"
         >
           Level 3
-        </mock-styled.div>
-      </mock-styled.div>
+        </mock-styled.a>
+      </div>
     </mock-styled.div>
   </div>,
   "debug": [Function],

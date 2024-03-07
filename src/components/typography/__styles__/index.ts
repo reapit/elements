@@ -23,7 +23,7 @@ export const elHasDisabledText = css``
 export const elHasCapitalisedText = css``
 export const elHasUpperCasedText = css``
 
-export const ElTextBase = styled.div`
+export const elTextBase = css`
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -111,37 +111,37 @@ export const ElTextBase = styled.div`
   }
 `
 
-export const ElText3XL = styled(ElTextBase)`
+export const elText3XL = css`
   font-size: 32px;
   line-height: 40px;
 `
 
-export const ElText2XL = styled(ElTextBase)`
+export const elText2XL = css`
   font-size: 24px;
   line-height: 32px;
 `
 
-export const ElTextXL = styled(ElTextBase)`
+export const elTextXL = css`
   font-size: 20px;
   line-height: 28px;
 `
 
-export const ElTextL = styled(ElTextBase)`
+export const elTextL = css`
   font-size: 18px;
   line-height: 24px;
 `
 
-export const ElTextSM = styled(ElTextBase)`
+export const elTextSM = css`
   font-size: 14px;
   line-height: 20px;
 `
 
-export const ElTextXS = styled(ElTextBase)`
+export const elTextXS = css`
   font-size: 13px;
   line-height: 16px;
 `
 
-export const ElText2XS = styled(ElTextBase)`
+export const elText2XS = css`
   font-size: 12px;
   line-height: 16px;
 `

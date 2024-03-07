@@ -1,7 +1,7 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
-// Deprecated - to be removed at v5.0.0
+/** @deprecated - to be removed at v5.0.0 */
 export const elProgressBarItemPurple = css``
 export const elProgressBarItemDarkBlue = css``
 export const elProgressBarItemMediumBlue = css``

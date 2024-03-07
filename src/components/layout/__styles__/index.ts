@@ -1,4 +1,3 @@
-import { styled } from '@linaria/react'
 import { isMobile, isTablet } from '../../../styles/media'
 import { elHFull } from '../../../styles/sizing'
 import { css } from '@linaria/core'
@@ -6,7 +5,7 @@ import { css } from '@linaria/core'
 export const elHasGreyBackground = css``
 export const elHasMaxWidth = css``
 
-export const ElMainContainer = styled.main`
+export const elMainContainer = css`
   display: flex;
   flex-direction: column;
   width: 100%;
@@ -25,7 +24,7 @@ export const ElMainContainer = styled.main`
   }
 `
 
-export const ElPageContainer = styled.section`
+export const elPageContainer = css`
   display: block;
   padding: 0.5rem 1.25rem;
   width: 100%;
@@ -52,7 +51,7 @@ export const ElPageContainer = styled.section`
   }
 `
 
-export const ElSecondaryNavContainer = styled.aside`
+export const elSecondaryNavContainer = css`
   display: block;
   width: 14rem;
   flex: 0 0 14rem;
@@ -72,7 +71,7 @@ export const ElSecondaryNavContainer = styled.aside`
   }
 `
 
-export const ElFlexContainer = styled.div`
+export const elFlexContainer = css`
   display: flex;
   min-height: 0;
   min-width: 0;

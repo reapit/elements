@@ -8,6 +8,7 @@ export default {
 export const BasicUsage = {
   render: ({}) => (
     <BreadCrumb
+      defaultActiveIndex={3}
       items={[
         {
           text: 'Home',
