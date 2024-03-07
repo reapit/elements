@@ -61,6 +61,14 @@ The previous two containers are postioned using the `FlexContainer` component. T
 
 <RenderHtmlMarkup of={LayoutStories.FlexContainerUsage} />
 
+## Semantic Layout
+
+Layout elements with semantic tags passed via the tag prop.
+
+<Canvas of={LayoutStories.TaggedLayouts} />
+
+<RenderHtmlMarkup of={LayoutStories.TaggedLayouts} />
+
 ## Combined Container Components
 
 In this example you can see the `MainContainer` component - used to wrap the whole application and will handle the `Nav` and main content positioning.
@@ -83,17 +91,12 @@ For a complete example of how to lay out a page, see below where we have combine
 
 <Canvas of={LayoutStories.CompleteCombinedExample} />
 
-{/* // <RenderHtmlMarkup
-//   component="Layouts"
-//   story="Complete Combined Example"
-// />  */}
+<RenderHtmlMarkup of={LayoutStories.CompleteCombinedExample} />
 
-{/* ## Combined Layout Max Width
+## Combined Layout Max Width
 
 Variant on the complete layout but using a max width container in desktop, a side column and no secondary nav.
 
 <Canvas of={LayoutStories.CompleteCombinedExampleMaxWidth} />
 
-<RenderHtmlMarkup
-  of={LayoutStories.CompleteCombinedExampleMaxWidth}
-/> */}
+<RenderHtmlMarkup of={LayoutStories.CompleteCombinedExampleMaxWidth} />
