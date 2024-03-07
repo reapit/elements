@@ -359,31 +359,6 @@ export const elGlobals = css`
       --nav-menu-text-hover: var(--color-grey-dark);
       --nav-menu-icon-primary-accent: var(--color-grey-600);
       --nav-menu-icon-secondary-accent: var(--color-grey-400);
-
-      /** To deprecated, left in to avoid breaking changes, some duplication */
-      --color-blue-light: var(--color-purple-300);
-      --color-blue-light2: var(--color-purple-300);
-      --color-blue-dark: var(--color-purple-700);
-      --color-blue-dark2: var(--color-purple-700);
-      --intent-low: var(--color-grey-light);
-      --intent-secondary: var(--color-purple-500);
-      --intent-secondary-light: var(--color-purple-300);
-      --intent-secondary-dark: var(--color-purple-700);
-      --intent-critical: var(--color-purple-500);
-      --intent-critical-text: var(--color-white);
-      --intent-critical-light: var(--color-purple-300);
-      --intent-critical-light-text: var(--color-black);
-      --intent-critical-dark: var(--color-purple-700);
-      --intent-critical-dark-text: var(--color-white);
-      --layout-size-1_2: 0.5rem;
-      --layout-size-1_4: 0.25rem;
-      --layout-size-3_4: 0.75rem;
-      --layout-size-1_3: calc(1rem / 3);
-      --layout-size-2_3: calc(2rem / 3);
-      --layout-size-2: 2rem;
-      --layout-size-3: 3rem;
-      --component-input-border-bottom: 1px solid var(--color-grey-150);
-      --component-input-border-bottom-focus: 1px solid #000000;
     }
   }
 `

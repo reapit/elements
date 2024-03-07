@@ -91,6 +91,18 @@ export const FlexContainerUsage = {
   ),
 }
 
+export const TaggedLayouts = {
+  render: ({}) => (
+    <>
+      <MainContainer tag="main">
+        <FlexContainer tag="section" isFlexGrow1>
+          <PageContainer tag="aside">These containers all have semanitic tags I passed as a prop</PageContainer>
+        </FlexContainer>
+      </MainContainer>
+    </>
+  ),
+}
+
 export const CombinedContainerComponents = {
   render: ({}) => (
     <MainContainer>

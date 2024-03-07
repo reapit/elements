@@ -19,7 +19,6 @@ describe('ToggleRadio', () => {
     const wrapper = render(
       <ToggleRadio
         name="my-cool-toggle-radio"
-        isFullWidth
         options={[
           {
             id: 'option-1',
