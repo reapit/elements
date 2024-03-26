@@ -15,7 +15,7 @@ module.exports = {
     'index.ts',
     'src/styles',
   ],
-  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist)[/\\\\]'],
+  modulePathIgnorePatterns: ['<rootDir>[/\\\\](node_modules|public|dist|visual-tests)[/\\\\]'],
   moduleNameMapper: {
     '^.+\\.svg$': join(__dirname, './scripts/jest/svg-transform.js'),
     '@/(.*)': '<rootDir>/src/$1',

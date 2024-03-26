@@ -14,20 +14,21 @@ jobs:
     timeout-minutes: 60
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-node@v4
+      - name: Checkout
+        uses: actions/checkout@v4
         with:
-          node-version: lts/*
+          fetch-depth: 0
+
+      - name: Set Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18.x'
 
       - name: Install dependencies
-        run: npm install -g yarn && yarn
+        run: yarn
 
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
-
-      - name: Build Storybook
-        run: yarn build:storybook
 
       - name: Run Playwright tests
         run: yarn playwright test
