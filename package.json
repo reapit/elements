@@ -54,6 +54,7 @@
     "@linaria/vite": "^5.0.4",
     "@linaria/webpack-loader": "^5.0.4",
     "@mdx-js/react": "^1.6.22",
+    "@playwright/test": "^1.42.1",
     "@rollup/plugin-babel": "^6.0.4",
     "@rollup/plugin-commonjs": "^24.1.0",
     "@rollup/plugin-node-resolve": "^15.2.3",
