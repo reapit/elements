@@ -37,7 +37,8 @@
     "publish": "yarn npm publish --access public",
     "deploy": "elements-deploy deploy",
     "start": "storybook dev -p 6006",
-    "test": "cross-env TZ=UTC jest --watch --colors --silent"
+    "test": "cross-env TZ=UTC jest --watch --colors --silent",
+    "visual-test": "yarn build:storybook && yarn playwright test"
   },
   "dependencies": {
     "@linaria/core": "^5.0.2",
