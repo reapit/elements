@@ -9,6 +9,7 @@ const storyNames = Object.keys(buildManifest.entries).filter(
 )
 
 test.beforeEach(async ({ page }, meta) => {
+  meta.snapshotSuffix = ''
   /**
    * Set the viewport size and other global level browser settings here.
    * await page.setViewportSize({ width: 1920, height: 1080 })
