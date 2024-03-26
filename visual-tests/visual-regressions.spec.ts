@@ -16,17 +16,17 @@ test.beforeEach(async ({ page }, meta) => {
 
   await navigate(page, 'https://elements.reapit.cloud', meta.title)
   await page.screenshot({
-    path: `tests/visual.spec.ts-snapshots/${meta.title}-upstream-${process.platform}.png`,
+    path: `tests/visual.spec.ts-snapshots/${meta.title}-upstream.png`,
   })
 })
 
 storyNames.forEach((story) => {
   test(story, async ({ page }, meta) => {
     await navigate(page, 'https://elements.dev.paas.reapit.cloud', meta.title)
-    const upstreamScreenshot = `${meta.title}-upstream-${process.platform}.png`
+    const upstreamScreenshot = `${meta.title}-upstream.png`
 
     const screenshot = await page.screenshot({
-      path: `tests/${meta.title}-current-${process.platform}.png`,
+      path: `tests/${meta.title}-current.png`,
     })
 
     expect(screenshot).toMatchSnapshot(upstreamScreenshot, { maxDiffPixels: 10 })
