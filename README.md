@@ -7,6 +7,7 @@ A React UI toolkit, with cross platform support for building web applications in
 [![Test PR](https://github.com/reapit/elements/actions/workflows/test-pr.yml/badge.svg)](https://github.com/reapit/elements/actions/workflows/test-pr.yml)
 [![Release Dev](https://github.com/reapit/elements/actions/workflows/release-dev.yml/badge.svg)](https://github.com/reapit/elements/actions/workflows/release-dev.yml)
 [![Release Prod](https://github.com/reapit/elements/actions/workflows/release-prod.yml/badge.svg)](https://github.com/reapit/elements/actions/workflows/release-prod.yml)
+[![Visual Regression Tests](https://github.com/reapit/elements/actions/workflows/playwright.yml/badge.svg)](https://github.com/reapit/elements/actions/workflows/playwright.yml)
 
 ## Documentation
 
