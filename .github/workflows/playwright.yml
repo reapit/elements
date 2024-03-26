@@ -30,6 +30,10 @@ jobs:
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
 
+      - name: Build Storybook
+        run: |
+          yarn build:storybook
+
       - name: Run Playwright tests
         run: yarn playwright test
 

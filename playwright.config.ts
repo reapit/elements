@@ -73,7 +73,9 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   // In our case I want to build the storybook before running the tests
-  webServer: {
-    command: 'yarn build:storybook',
-  },
+  webServer: !process.env.CI
+    ? {
+        command: 'yarn build:storybook',
+      }
+    : undefined,
 })
