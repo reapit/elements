@@ -10,7 +10,7 @@ export class InvalidateCloudfrontDistribution extends Construct {
   constructor(
     scope: Construct,
     id: string,
-    { distribution, items = ['/index.html'] }: { distribution: CloudFrontWebDistribution; items?: string[] },
+    { distribution, items = ['/*'] }: { distribution: CloudFrontWebDistribution; items?: string[] },
   ) {
     super(scope, id)
 
