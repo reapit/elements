@@ -24,15 +24,15 @@ export default defineConfig({
     [
       'html',
       {
-        outputFolder: '.visual-test/spec/results',
+        outputFolder: '.visual-test/results',
         open: 'never',
       },
     ],
     process.env.CI ? ['github'] : ['line'],
   ],
 
-  outputDir: '.visual-test/spec/output',
-  snapshotPathTemplate: '.visual-test/spec/snaps/{projectName}/{testFilePath}/{arg}{ext}',
+  outputDir: '.visual-test/output',
+  snapshotPathTemplate: '.visual-test/snaps/{projectName}/{testFilePath}/{arg}{ext}',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
     /* Base URL to use in actions like `await page.goto('/')`. */
