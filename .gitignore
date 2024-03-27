@@ -104,3 +104,4 @@ packages/cognito-custom-mail-lambda/**/*.html
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+.visual-test/**

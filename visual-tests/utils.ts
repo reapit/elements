@@ -17,6 +17,6 @@ export const navigate = async (page: Page, storybookUrl: string, id: string): Pr
     await page.waitForLoadState('networkidle')
     await page.waitForSelector('#storybook-root')
   } catch (error) {
-    // Handle error here in cases where the above times out due to 404's and other factors.
+    console.error('Error navigating to storybook', error)
   }
 }

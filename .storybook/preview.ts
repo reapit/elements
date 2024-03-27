@@ -3,7 +3,6 @@ import '../src/styles/globals'
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     viewMode: 'docs',
     options: {
       storySort: {
