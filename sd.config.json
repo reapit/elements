@@ -1,0 +1,25 @@
+{
+  "source": ["src/tokens/**/*.json", "src/**/tokens.json"],
+  "platforms": {
+    "css": {
+      "transformGroup": "css",
+      "buildPath": "src/styles/",
+      "files": [{
+        "destination": "tokens.css",
+        "format": "css/variables",
+        "options": {
+          "outputReferences": true
+        }
+      }]
+    },
+    "ts": {
+      "transformGroup": "js",
+      "buildPath": "src/styles/",
+      "files": [{
+        "destination": "tokens.ts",
+        "format": "javascript/es6"
+      }],
+      "transforms": ["name/cti/camel"]
+    }
+  }
+}

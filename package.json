@@ -28,7 +28,7 @@
     "src/tests/badges"
   ],
   "scripts": {
-    "build": "yarn build:dist && yarn build:storybook",
+    "build": "style-dictionary build --config ./sd.config.json && yarn build:dist && yarn build:storybook",
     "build:storybook": "cross-env NODE_ENV=production && storybook build -o public/dist",
     "build:dist": "cross-env NODE_ENV=production && rimraf public/dist && rimraf dist && rollup -c",
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check",
@@ -122,6 +122,7 @@
     "rollup-plugin-css-only": "^4.5.2",
     "snyk": "^1.1259.0",
     "storybook": "^8.0.0-rc.0",
+    "style-dictionary": "^3.9.2",
     "ts-jest": "^29.1.1",
     "ts-node": "^10.9.1",
     "tslib": "^2.6.2",

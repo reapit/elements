@@ -1,4 +1,6 @@
 export * from './styles/font'
+import        './styles/tokens.css'
+export * from './styles/tokens'
 export * from './styles/globals'
 export * from './styles/spacing'
 export * from './styles/flexbox'
