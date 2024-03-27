@@ -6,13 +6,6 @@ on:
   pull_request:
     branches: [main]
 
-# Allow updating snapshots during manual runs
-workflow_call:
-  inputs:
-    update-snapshots:
-      description: 'Update snapshots?'
-      type: boolean
-
 # Allow updating snapshots during automatic runs
 workflow_dispatch:
   inputs:
