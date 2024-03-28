@@ -65,6 +65,7 @@ export const ElPersistentNotification = styled.div`
   }
 
   &.${elPnIsInline} {
+    z-index: auto;
     position: relative;
     background: var(--color-white);
     .${elPnContent} {
