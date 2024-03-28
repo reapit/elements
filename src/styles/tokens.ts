@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Wed, 27 Mar 2024 22:12:03 GMT
+ * Generated on Wed, 27 Mar 2024 22:22:43 GMT
  */
 
 export const colorGrey50 = "#f2f4f6";
@@ -138,3 +138,8 @@ export const navMenuText = "#798da1";
 export const navMenuTextHover = "#607890";
 export const navMenuIconPrimaryAccent = "#506478";
 export const navMenuIconSecondaryAccent = "#798da1";
+export const breadcrumbItemBorderRadius = "0.5rem";
+export const breadcrumbItemFontSize = "0.875rem";
+export const breadcrumbItemFontColor = "#607890";
+export const breadcrumbItemFontWeight = "inherit";
+export const breadcrumbItemSpacing = "0.375rem";
