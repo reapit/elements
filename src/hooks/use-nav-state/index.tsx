@@ -25,7 +25,9 @@ export interface NavStateContextProps {
 
 export interface UseNavState {
   navState: NavState
-  setNavState: (newState: Partial<NavState>) => (event: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => void
+  setNavState: (
+    newState: Partial<NavState>,
+  ) => (event?: MouseEvent<HTMLAnchorElement | HTMLDivElement | HTMLSpanElement>) => void
 }
 
 export const NavStateContext = createContext<NavStateContextProps>({} as NavStateContextProps)
@@ -67,9 +69,9 @@ export const useNavState = (
   }, [])
 
   const handleSetNavState =
-    (newState: Partial<NavState>) => (event: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
-      event.preventDefault()
-      event.stopPropagation()
+    (newState: Partial<NavState>) => (event?: MouseEvent<HTMLAnchorElement | HTMLDivElement | HTMLSpanElement>) => {
+      event?.preventDefault()
+      event?.stopPropagation()
 
       setNavState((currentState: NavState) => ({
         ...currentState,

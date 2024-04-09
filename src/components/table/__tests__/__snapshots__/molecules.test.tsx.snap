@@ -19,11 +19,12 @@ exports[`TableCell Component should match a snapshot with full props 1`] = `
       >
         <mock-styled.span
           classname="mock-css."
-          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name addSystem"
           />
         </mock-styled.span>
         <mock-styled.div
@@ -47,11 +48,12 @@ exports[`TableCell Component should match a snapshot with full props 1`] = `
     >
       <mock-styled.span
         classname="mock-css."
-        role="img"
         style="font-size: 1.25rem;"
       >
         <svg
+          role="img"
           style="font-size: 1.25rem;"
+          title="Icon image with name addSystem"
         />
       </mock-styled.span>
       <mock-styled.div
@@ -270,7 +272,10 @@ exports[`TableCtaTriggerCell Component should match a snapshot with children and
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <mock-styled.div
+        role="button"
+        tabindex="0"
+      >
         <div>
           I am a child
         </div>
@@ -278,7 +283,10 @@ exports[`TableCtaTriggerCell Component should match a snapshot with children and
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <mock-styled.div
+      role="button"
+      tabindex="0"
+    >
       <div>
         I am a child
       </div>
@@ -343,26 +351,36 @@ exports[`TableCtaTriggerCell Component should match a snapshot with no children 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <mock-styled.div
+        role="button"
+        tabindex="0"
+      >
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css."
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name addSystem"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <mock-styled.div
+      role="button"
+      tabindex="0"
+    >
       <mock-styled.div>
         <mock-styled.span
           classname="mock-css."
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name addSystem"
+          />
         </mock-styled.span>
       </mock-styled.div>
     </mock-styled.div>
@@ -426,11 +444,17 @@ exports[`TableCtaTriggerCell Component should match a snapshot with no children 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <mock-styled.div
+        role="button"
+        tabindex="0"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <mock-styled.div
+      role="button"
+      tabindex="0"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -639,6 +663,8 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with ch
     <div>
       <mock-styled.div
         classname=""
+        role="button"
+        tabindex="0"
       >
         <div>
           I am a child
@@ -649,6 +675,8 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with ch
   "container": <div>
     <mock-styled.div
       classname=""
+      role="button"
+      tabindex="0"
     >
       <div>
         I am a child
@@ -716,14 +744,18 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
     <div>
       <mock-styled.div
         classname=""
+        role="button"
+        tabindex="0"
       >
         <mock-styled.span
           classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name more"
+          />
         </mock-styled.span>
       </mock-styled.div>
     </div>
@@ -731,14 +763,18 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
   "container": <div>
     <mock-styled.div
       classname=""
+      role="button"
+      tabindex="0"
     >
       <mock-styled.span
         classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-        role="img"
       >
-        <svg />
+        <svg
+          role="img"
+          title="Icon image with name more"
+        />
       </mock-styled.span>
     </mock-styled.div>
   </div>,
@@ -808,14 +844,18 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
     text-align: center;
   }
 "
+        role="button"
+        tabindex="0"
       >
         <mock-styled.span
           classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name more"
+          />
         </mock-styled.span>
       </mock-styled.div>
     </div>
@@ -828,14 +868,18 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
     text-align: center;
   }
 "
+      role="button"
+      tabindex="0"
     >
       <mock-styled.span
         classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-        role="img"
       >
-        <svg />
+        <svg
+          role="img"
+          title="Icon image with name more"
+        />
       </mock-styled.span>
     </mock-styled.div>
   </div>,

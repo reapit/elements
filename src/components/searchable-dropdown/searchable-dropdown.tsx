@@ -79,6 +79,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
             {resultsList.map((result, index) => (
               <ElSearchableDropdownResult
                 data-testid={`dropdown-result-${index}`}
+                role="option"
                 key={generateRandomId()}
                 onClick={() => onResultClick(result)}
               >

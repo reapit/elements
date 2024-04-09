@@ -10,7 +10,11 @@ export type SelectWrapped = React.ForwardRefExoticComponent<
 export const Select: SelectWrapped = forwardRef(
   ({ children, ...rest }, ref: React.ForwardedRef<React.SelectHTMLAttributes<HTMLSelectElement>>) => {
     return (
-      <ElSelect {...rest} ref={ref as unknown as LegacyRef<HTMLSelectElement>}>
+      <ElSelect
+        aria-label="Select an item from the dropdown list"
+        {...rest}
+        ref={ref as unknown as LegacyRef<HTMLSelectElement>}
+      >
         {children}
       </ElSelect>
     )

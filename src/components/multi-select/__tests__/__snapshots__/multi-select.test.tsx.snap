@@ -83,12 +83,14 @@ exports[`MultiSelectChip should match a snapshot and render children 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.input
+        aria-hidden="true"
         id="test-id"
         type="checkbox"
       />
       <mock-styled.label
         classname=""
         htmlfor="test-id"
+        role="option"
       >
         <span>
           Some Value
@@ -98,12 +100,14 @@ exports[`MultiSelectChip should match a snapshot and render children 1`] = `
   </body>,
   "container": <div>
     <mock-styled.input
+      aria-hidden="true"
       id="test-id"
       type="checkbox"
     />
     <mock-styled.label
       classname=""
       htmlfor="test-id"
+      role="option"
     >
       <span>
         Some Value
@@ -169,48 +173,63 @@ exports[`MultiSelectInput should match a snapshot and render children 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        aria-controls=":r0:"
-        aria-haspopup="listbox"
-        role="combobox"
-      >
+      <mock-styled.div>
         <mock-styled.input
           id="react-example"
         />
         <mock-styled.div
+          aria-label="Multi selected options"
           classname=""
+          role="listbox"
         >
           <mock-styled.input
-            id="test-static-id"
+            aria-checked="true"
+            aria-hidden="true"
+            id="multi-select-chip-item-one"
+            role="option"
             type="checkbox"
           />
           <mock-styled.label
             classname=""
-            htmlfor="test-static-id"
+            htmlfor="multi-select-chip-item-one"
+            role="option"
+            tabindex="0"
           >
             Item one
           </mock-styled.label>
         </mock-styled.div>
         <mock-styled.div
+          aria-label="Multi unselected options"
           classname=""
+          role="listbox"
         >
           <mock-styled.input
+            aria-checked="false"
+            aria-hidden="true"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
           <mock-styled.label
             classname="mock-css."
             htmlfor="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Item two
           </mock-styled.label>
           <mock-styled.input
+            aria-checked="false"
+            aria-hidden="true"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
           <mock-styled.label
             classname="mock-css."
             htmlfor="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Item three
           </mock-styled.label>
@@ -219,48 +238,63 @@ exports[`MultiSelectInput should match a snapshot and render children 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      aria-controls=":r0:"
-      aria-haspopup="listbox"
-      role="combobox"
-    >
+    <mock-styled.div>
       <mock-styled.input
         id="react-example"
       />
       <mock-styled.div
+        aria-label="Multi selected options"
         classname=""
+        role="listbox"
       >
         <mock-styled.input
-          id="test-static-id"
+          aria-checked="true"
+          aria-hidden="true"
+          id="multi-select-chip-item-one"
+          role="option"
           type="checkbox"
         />
         <mock-styled.label
           classname=""
-          htmlfor="test-static-id"
+          htmlfor="multi-select-chip-item-one"
+          role="option"
+          tabindex="0"
         >
           Item one
         </mock-styled.label>
       </mock-styled.div>
       <mock-styled.div
+        aria-label="Multi unselected options"
         classname=""
+        role="listbox"
       >
         <mock-styled.input
+          aria-checked="false"
+          aria-hidden="true"
           id="test-static-id"
+          role="option"
           type="checkbox"
         />
         <mock-styled.label
           classname="mock-css."
           htmlfor="test-static-id"
+          role="option"
+          tabindex="0"
         >
           Item two
         </mock-styled.label>
         <mock-styled.input
+          aria-checked="false"
+          aria-hidden="true"
           id="test-static-id"
+          role="option"
           type="checkbox"
         />
         <mock-styled.label
           classname="mock-css."
           htmlfor="test-static-id"
+          role="option"
+          tabindex="0"
         >
           Item three
         </mock-styled.label>
@@ -326,16 +360,14 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        aria-controls=":r1:"
-        aria-haspopup="listbox"
-        role="combobox"
-      >
+      <mock-styled.div>
         <mock-styled.input
           id="react-example"
         />
         <mock-styled.div
+          aria-label="Multi selected options"
           classname=""
+          role="listbox"
         >
           <mock-styled.span
             classname="mock-css.
@@ -343,44 +375,63 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name task"
+            />
           </mock-styled.span>
           <p>
             No items selected
           </p>
         </mock-styled.div>
         <mock-styled.div
+          aria-label="Multi unselected options"
           classname=""
+          role="listbox"
         >
           <mock-styled.input
+            aria-checked="false"
+            aria-hidden="true"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
           <mock-styled.label
             classname="mock-css."
             htmlfor="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Item one
           </mock-styled.label>
           <mock-styled.input
+            aria-checked="false"
+            aria-hidden="true"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
           <mock-styled.label
             classname="mock-css."
             htmlfor="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Item two
           </mock-styled.label>
           <mock-styled.input
+            aria-checked="false"
+            aria-hidden="true"
             id="test-static-id"
+            role="option"
             type="checkbox"
           />
           <mock-styled.label
             classname="mock-css."
             htmlfor="test-static-id"
+            role="option"
+            tabindex="0"
           >
             Item three
           </mock-styled.label>
@@ -389,16 +440,14 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      aria-controls=":r1:"
-      aria-haspopup="listbox"
-      role="combobox"
-    >
+    <mock-styled.div>
       <mock-styled.input
         id="react-example"
       />
       <mock-styled.div
+        aria-label="Multi selected options"
         classname=""
+        role="listbox"
       >
         <mock-styled.span
           classname="mock-css.
@@ -406,44 +455,63 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name task"
+          />
         </mock-styled.span>
         <p>
           No items selected
         </p>
       </mock-styled.div>
       <mock-styled.div
+        aria-label="Multi unselected options"
         classname=""
+        role="listbox"
       >
         <mock-styled.input
+          aria-checked="false"
+          aria-hidden="true"
           id="test-static-id"
+          role="option"
           type="checkbox"
         />
         <mock-styled.label
           classname="mock-css."
           htmlfor="test-static-id"
+          role="option"
+          tabindex="0"
         >
           Item one
         </mock-styled.label>
         <mock-styled.input
+          aria-checked="false"
+          aria-hidden="true"
           id="test-static-id"
+          role="option"
           type="checkbox"
         />
         <mock-styled.label
           classname="mock-css."
           htmlfor="test-static-id"
+          role="option"
+          tabindex="0"
         >
           Item two
         </mock-styled.label>
         <mock-styled.input
+          aria-checked="false"
+          aria-hidden="true"
           id="test-static-id"
+          role="option"
           type="checkbox"
         />
         <mock-styled.label
           classname="mock-css."
           htmlfor="test-static-id"
+          role="option"
+          tabindex="0"
         >
           Item three
         </mock-styled.label>

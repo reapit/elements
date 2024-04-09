@@ -31,7 +31,7 @@ Click "Show code" below to see JSX / HTML code for a closed drawer, along with t
 
 The `useDrawer` hook exports both a `Drawer` component and state helpers for toggling the component open.
 
-It also leverages our `Portal` component to render the `Drawer` at the top level of your app. The default container is `#root` so if you need your portal to render on another element, pass a different id to the `useDrawer` hook when you instantiate it - in the example below, we use Storybook's `#docs-root`.
+It also leverages our `Portal` component to render the `Drawer` at the top level of your app. The default container is `#root` so if you need your portal to render on another element, pass a different id to the `useDrawer` hook when you instantiate it - in the example below, we use `#portal-root`.
 
 <Canvas of={DrawerStories.ReactUsage} />
 

@@ -15,7 +15,7 @@ export const BasicUsageClosed = {
 
 export const ReactUsage = {
   render: ({}) => {
-    const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('storybook-docs')
+    const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('portal-root')
 
     return (
       <>
@@ -42,7 +42,7 @@ export const ReactUsage = {
 
 export const ReactUsageCanDismiss = {
   render: ({}) => {
-    const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('storybook-docs')
+    const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('portal-root')
 
     return (
       <>

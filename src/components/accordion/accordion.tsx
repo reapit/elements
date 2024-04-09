@@ -10,6 +10,7 @@ import {
 } from './__styles__'
 import { elIsActive } from '../../styles/states'
 import { Icon } from '../icon'
+import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
 export interface AccordionBaseProps extends HTMLAttributes<HTMLDivElement> {}
 export interface AccordionBaseItemProps extends HTMLAttributes<HTMLAnchorElement> {}
@@ -69,6 +70,7 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
   const [openItem, setOpenItem] = useState<number | null>(null)
   const itemContentId = useId()
   const itemButtonId = useId()
+
   return (
     <ElAccordionContainer className={className} {...rest}>
       {items.map((item, index) => (
@@ -76,7 +78,11 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
           <ElAccordionItem
             id={[itemButtonId, index].join('-')}
             aria-controls={[itemContentId, index].join('-')}
+            aria-label="Accordion item, hit return to expand content"
+            role="button"
+            tabIndex={0}
             onClick={handleSetOpenItem(index, setOpenItem, item.onClick)}
+            onKeyDown={handleKeyboardEvent('Enter', handleSetOpenItem(index, setOpenItem, item.onClick))}
           >
             <ElAccordionTitle>{item.title}</ElAccordionTitle>
             <ElAccordionTitleContentWrapper>

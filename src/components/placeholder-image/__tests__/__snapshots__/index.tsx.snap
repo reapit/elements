@@ -6,6 +6,7 @@ exports[`PlaceholderImage component should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
+        aria-label="A generic placeholder image"
         role="img"
         style="font-size: 3.90625em; width: 100px; height: 100px;"
       >
@@ -26,6 +27,7 @@ exports[`PlaceholderImage component should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div
+      aria-label="A generic placeholder image"
       role="img"
       style="font-size: 3.90625em; width: 100px; height: 100px;"
     >
@@ -348,6 +350,7 @@ exports[`PlaceholderImage component should match a snapshot where fillAvailable 
     <div>
       <mock-styled.div>
         <mock-styled.div
+          aria-label="A generic placeholder image"
           role="img"
           style="font-size: 3.90625em;"
         >
@@ -370,6 +373,7 @@ exports[`PlaceholderImage component should match a snapshot where fillAvailable 
   "container": <div>
     <mock-styled.div>
       <mock-styled.div
+        aria-label="A generic placeholder image"
         role="img"
         style="font-size: 3.90625em;"
       >

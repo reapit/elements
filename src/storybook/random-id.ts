@@ -1,3 +1,5 @@
+import { useMemo } from 'react'
+
 export const generateRandomId = (): string => {
   try {
     const randomId = `random-${Math.random().toString(36).substring(7)}`
@@ -6,4 +8,13 @@ export const generateRandomId = (): string => {
   } catch (e) {
     return ''
   }
+}
+
+export const useId = (id?: string): string => {
+  const randomId = useMemo(() => {
+    if (id) return id
+    return generateRandomId()
+  }, [id])
+
+  return randomId
 }

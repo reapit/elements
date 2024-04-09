@@ -37,13 +37,13 @@ Props available for the React version of the component;
 
 <Controls />
 
-<Canvas of={ModalStories.ReactModal} story={{height: '300px'}} />
+<Canvas of={ModalStories.ReactModal} story={{ height: '300px' }} />
 
 ## React usage - Complete example with `useModal` hook
 
 The use modal hook exports both a modal component and state helpers for toggling the component open.
 
-It also leverages our `Portal` component to render the modal at the top level of your app. The default container is `#root` so if you need your portal to render on another element, pass a different id to the `useModal` hook when you instantiate it - in the example below, we use Storybook's `#docs-root`.
+It also leverages our `Portal` component to render the modal at the top level of your app. The default container is `#root` so if you need your portal to render on another element, pass a different id to the `useModal` hook when you instantiate it - in the example below, we use `#portal-root`.
 
 <Canvas of={ModalStories.UseModalExample} />
 

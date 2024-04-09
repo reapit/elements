@@ -46,7 +46,7 @@ export const PersistentNotification: FC<PersistentNotificationProps> = ({
   )
 
   return (
-    <ElPersistentNotification role="alertdialog" className={combinedClassName} {...rest}>
+    <ElPersistentNotification role="status" className={combinedClassName} {...rest}>
       <div
         className={elPnIcon}
         data-testid="close-icon"
@@ -54,7 +54,9 @@ export const PersistentNotification: FC<PersistentNotificationProps> = ({
       >
         <Icon fontSize="1.25rem" icon={icon} />
       </div>
-      <div className={elPnContent}>{children}</div>
+      <div aria-live="polite" className={elPnContent}>
+        {children}
+      </div>
     </ElPersistentNotification>
   )
 }

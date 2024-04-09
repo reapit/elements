@@ -193,9 +193,7 @@ export const Table: FC<TableProps> = ({
               )}
             </TableRow>
             {row.expandableContent && row.expandableContent.content && (
-              <TableExpandableRow aria-hidden={expandableRowIsOpen} isOpen={expandableRowIsOpen}>
-                {row.expandableContent.content}
-              </TableExpandableRow>
+              <TableExpandableRow isOpen={expandableRowIsOpen}>{row.expandableContent.content}</TableExpandableRow>
             )}
           </TableRowContainer>
         )

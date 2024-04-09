@@ -7,7 +7,7 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
     <div>
       <mock-styled.div
         classname="mock-css."
-        role="alertdialog"
+        role="status"
       >
         <div
           class="mock-css.
@@ -27,15 +27,17 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
             />
           </mock-styled.span>
         </div>
         <div
+          aria-live="polite"
           class="mock-css.
   padding: 0.75rem;
   transition: 0.5s;
@@ -52,7 +54,7 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div
       classname="mock-css."
-      role="alertdialog"
+      role="status"
     >
       <div
         class="mock-css.
@@ -72,15 +74,17 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
           />
         </mock-styled.span>
       </div>
       <div
+        aria-live="polite"
         class="mock-css.
   padding: 0.75rem;
   transition: 0.5s;
@@ -154,7 +158,7 @@ exports[`PersistentNotification component should match a snapshot for an inline 
     <div>
       <mock-styled.div
         classname="mock-css. mock-css. mock-css. mock-css."
-        role="alertdialog"
+        role="status"
       >
         <div
           class="mock-css.
@@ -174,15 +178,17 @@ exports[`PersistentNotification component should match a snapshot for an inline 
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
             />
           </mock-styled.span>
         </div>
         <div
+          aria-live="polite"
           class="mock-css.
   padding: 0.75rem;
   transition: 0.5s;
@@ -199,7 +205,7 @@ exports[`PersistentNotification component should match a snapshot for an inline 
   "container": <div>
     <mock-styled.div
       classname="mock-css. mock-css. mock-css. mock-css."
-      role="alertdialog"
+      role="status"
     >
       <div
         class="mock-css.
@@ -219,15 +225,17 @@ exports[`PersistentNotification component should match a snapshot for an inline 
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
           />
         </mock-styled.span>
       </div>
       <div
+        aria-live="polite"
         class="mock-css.
   padding: 0.75rem;
   transition: 0.5s;
@@ -301,7 +309,7 @@ exports[`PersistentNotification component should match a snapshot when expanded 
     <div>
       <mock-styled.div
         classname="mock-css. mock-css."
-        role="alertdialog"
+        role="status"
       >
         <div
           class="mock-css.
@@ -321,15 +329,17 @@ exports[`PersistentNotification component should match a snapshot when expanded 
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
             />
           </mock-styled.span>
         </div>
         <div
+          aria-live="polite"
           class="mock-css.
   padding: 0.75rem;
   transition: 0.5s;
@@ -346,7 +356,7 @@ exports[`PersistentNotification component should match a snapshot when expanded 
   "container": <div>
     <mock-styled.div
       classname="mock-css. mock-css."
-      role="alertdialog"
+      role="status"
     >
       <div
         class="mock-css.
@@ -366,15 +376,17 @@ exports[`PersistentNotification component should match a snapshot when expanded 
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
           />
         </mock-styled.span>
       </div>
       <div
+        aria-live="polite"
         class="mock-css.
   padding: 0.75rem;
   transition: 0.5s;
@@ -448,7 +460,7 @@ exports[`PersistentNotification component should match a snapshot when given an 
     <div>
       <mock-styled.div
         classname="mock-css."
-        role="alertdialog"
+        role="status"
       >
         <div
           class="mock-css.
@@ -468,15 +480,17 @@ exports[`PersistentNotification component should match a snapshot when given an 
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name info"
             />
           </mock-styled.span>
         </div>
         <div
+          aria-live="polite"
           class="mock-css.
   padding: 0.75rem;
   transition: 0.5s;
@@ -493,7 +507,7 @@ exports[`PersistentNotification component should match a snapshot when given an 
   "container": <div>
     <mock-styled.div
       classname="mock-css."
-      role="alertdialog"
+      role="status"
     >
       <div
         class="mock-css.
@@ -513,15 +527,17 @@ exports[`PersistentNotification component should match a snapshot when given an 
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name info"
           />
         </mock-styled.span>
       </div>
       <div
+        aria-live="polite"
         class="mock-css.
   padding: 0.75rem;
   transition: 0.5s;

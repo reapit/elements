@@ -59,8 +59,8 @@ export const Icon: FC<IconProps> = memo(({ icon, intent, fontSize, iconSize, cla
   if (!Svg) return <ElIcon className={combinedClassName} {...rest} />
 
   return (
-    <ElIcon role="img" className={combinedClassName} {...rest} style={{ fontSize, height, width }}>
-      <Svg style={{ fontSize, height, width }} />
+    <ElIcon className={combinedClassName} {...rest} style={{ fontSize, height, width }}>
+      <Svg role="img" title={`Icon image with name ${icon}`} style={{ fontSize, height, width }} />
     </ElIcon>
   )
 })

@@ -1,5 +1,6 @@
+import { MouseEvent } from 'react'
 import { render } from '@testing-library/react'
-import { BreadCrumb } from '../breadcrumb'
+import { BreadCrumb, handleNext } from '../breadcrumb'
 
 describe('BreadCrumb', () => {
   it('should match a snapshot', () => {
@@ -29,5 +30,38 @@ describe('BreadCrumb', () => {
       </BreadCrumb>,
     )
     expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('handleNext', () => {
+  it('should set active index and call onClick', () => {
+    const setActive = jest.fn()
+    const onClick = jest.fn()
+    const index = 2
+
+    const curried = handleNext(setActive, onClick, index)
+
+    const mockEvent = {
+      preventDefault: jest.fn(),
+    } as unknown as MouseEvent<HTMLAnchorElement>
+
+    curried(mockEvent)
+
+    expect(setActive).toHaveBeenCalledWith(index)
+    expect(onClick).toHaveBeenCalled()
+    expect(mockEvent.preventDefault).toHaveBeenCalled()
+  })
+
+  it('should handle when event is not provided', () => {
+    const setActive = jest.fn()
+    const onClick = jest.fn()
+    const index = 2
+
+    const curried = handleNext(setActive, onClick, index)
+
+    curried()
+
+    expect(setActive).toHaveBeenCalledWith(index)
+    expect(onClick).toHaveBeenCalled()
   })
 })

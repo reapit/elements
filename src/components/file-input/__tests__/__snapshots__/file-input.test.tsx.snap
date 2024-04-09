@@ -34,6 +34,7 @@ exports[`FileInput component should match a snapshot 1`] = `
             Upload
           </mock-styled.button>
           <mock-styled.input
+            aria-label="File upload input undefined"
             data-testid="el-file-input"
             type="file"
           />
@@ -166,6 +167,7 @@ exports[`FileInput component should match a snapshot 1`] = `
           Upload
         </mock-styled.button>
         <mock-styled.input
+          aria-label="File upload input undefined"
           data-testid="el-file-input"
           type="file"
         />
@@ -427,6 +429,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             Change
           </mock-styled.button>
           <mock-styled.input
+            aria-label="File upload input Some Text"
             data-testid="el-file-input"
             type="file"
           />
@@ -445,7 +448,9 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
               style="font-size: 1rem;"
             >
               <svg
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name view"
               />
             </mock-styled.span>
             <mock-styled.span
@@ -458,7 +463,9 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
               style="font-size: 1rem;"
             >
               <svg
+                role="img"
                 style="font-size: 1rem;"
+                title="Icon image with name close"
               />
             </mock-styled.span>
           </mock-styled.div>
@@ -499,6 +506,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
           Change
         </mock-styled.button>
         <mock-styled.input
+          aria-label="File upload input Some Text"
           data-testid="el-file-input"
           type="file"
         />
@@ -517,7 +525,9 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             style="font-size: 1rem;"
           >
             <svg
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name view"
             />
           </mock-styled.span>
           <mock-styled.span
@@ -530,7 +540,9 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             style="font-size: 1rem;"
           >
             <svg
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name close"
             />
           </mock-styled.span>
         </mock-styled.div>

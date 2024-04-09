@@ -8,11 +8,15 @@ exports[`SecondaryNav component should match a snapshot 1`] = `
       <mock-styled.div>
         <mock-styled.div
           classname=""
+          role="button"
+          tabindex="0"
         >
           App List
         </mock-styled.div>
         <mock-styled.div
           classname="mock-css."
+          role="button"
+          tabindex="0"
         >
           Create App
         </mock-styled.div>
@@ -23,11 +27,15 @@ exports[`SecondaryNav component should match a snapshot 1`] = `
     <mock-styled.div>
       <mock-styled.div
         classname=""
+        role="button"
+        tabindex="0"
       >
         App List
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css."
+        role="button"
+        tabindex="0"
       >
         Create App
       </mock-styled.div>

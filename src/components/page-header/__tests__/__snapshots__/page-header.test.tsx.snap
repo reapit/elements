@@ -12,7 +12,6 @@ exports[`PageHeader component should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.div
-            aria-label="Breadcrumb"
             classname="mock-css.
   margin-bottom: 1rem;
 "
@@ -37,6 +36,9 @@ exports[`PageHeader component should match a snapshot 1`] = `
             >
               <mock-styled.a
                 aria-current="false"
+                aria-label="Breadcrumb item hit return to navigate to Home"
+                role="button"
+                tabindex="0"
               >
                 Home
               </mock-styled.a>
@@ -65,15 +67,19 @@ exports[`PageHeader component should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-                role="img"
                 style="font-size: 12px;"
               >
                 <svg
+                  role="img"
                   style="font-size: 12px;"
+                  title="Icon image with name chevronRight"
                 />
               </mock-styled.span>
               <mock-styled.a
                 aria-current="false"
+                aria-label="Breadcrumb item hit return to navigate to Level 1"
+                role="button"
+                tabindex="0"
               >
                 Level 1
               </mock-styled.a>
@@ -102,15 +108,19 @@ exports[`PageHeader component should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-                role="img"
                 style="font-size: 12px;"
               >
                 <svg
+                  role="img"
                   style="font-size: 12px;"
+                  title="Icon image with name chevronRight"
                 />
               </mock-styled.span>
               <mock-styled.a
                 aria-current="false"
+                aria-label="Breadcrumb item hit return to navigate to Level 2"
+                role="button"
+                tabindex="0"
               >
                 Level 2
               </mock-styled.a>
@@ -139,15 +149,19 @@ exports[`PageHeader component should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-                role="img"
                 style="font-size: 12px;"
               >
                 <svg
+                  role="img"
                   style="font-size: 12px;"
+                  title="Icon image with name chevronRight"
                 />
               </mock-styled.span>
               <mock-styled.a
                 aria-current="page"
+                aria-label="Breadcrumb item hit return to navigate to Level 3"
+                role="button"
+                tabindex="0"
               >
                 Level 3
               </mock-styled.a>
@@ -162,9 +176,10 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.mock-styled.div
                 classname=""
                 role="img"
+                title="An avatar image"
               >
                 <img
-                  alt="https://picsum.photos/200/300"
+                  alt="An image with source https://picsum.photos/200/300"
                   src="https://picsum.photos/200/300"
                 />
               </mock-styled.mock-styled.div>
@@ -714,19 +729,21 @@ exports[`PageHeader component should match a snapshot 1`] = `
   width: 100%;
   justify-content: space-evenly;
 "
-            role="tablist"
           >
-            <mock-styled.div>
+            <mock-styled.div
+              role="tablist"
+            >
               <mock-styled.input
                 aria-selected="true"
                 id="tab-1-fw"
                 name="my-cool-tabs-full-width"
-                role="tab"
                 type="radio"
                 value="tab-1-fw"
               />
               <mock-styled.label
                 htmlfor="tab-1-fw"
+                role="tab"
+                tabindex="0"
               >
                 <span
                   class="mock-css.
@@ -751,12 +768,13 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 aria-selected="false"
                 id="tab-2-fw"
                 name="my-cool-tabs-full-width"
-                role="tab"
                 type="radio"
                 value="tab-2-fw"
               />
               <mock-styled.label
                 htmlfor="tab-2-fw"
+                role="tab"
+                tabindex="0"
               >
                 <span
                   class="mock-css.
@@ -781,12 +799,13 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 aria-selected="false"
                 id="tab-3-fw"
                 name="my-cool-tabs-full-width"
-                role="tab"
                 type="radio"
                 value="tab-3-fw"
               />
               <mock-styled.label
                 htmlfor="tab-3-fw"
+                role="tab"
+                tabindex="0"
               >
                 <span
                   class="mock-css.
@@ -827,7 +846,6 @@ exports[`PageHeader component should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.div
-          aria-label="Breadcrumb"
           classname="mock-css.
   margin-bottom: 1rem;
 "
@@ -852,6 +870,9 @@ exports[`PageHeader component should match a snapshot 1`] = `
           >
             <mock-styled.a
               aria-current="false"
+              aria-label="Breadcrumb item hit return to navigate to Home"
+              role="button"
+              tabindex="0"
             >
               Home
             </mock-styled.a>
@@ -880,15 +901,19 @@ exports[`PageHeader component should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
               style="font-size: 12px;"
             >
               <svg
+                role="img"
                 style="font-size: 12px;"
+                title="Icon image with name chevronRight"
               />
             </mock-styled.span>
             <mock-styled.a
               aria-current="false"
+              aria-label="Breadcrumb item hit return to navigate to Level 1"
+              role="button"
+              tabindex="0"
             >
               Level 1
             </mock-styled.a>
@@ -917,15 +942,19 @@ exports[`PageHeader component should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
               style="font-size: 12px;"
             >
               <svg
+                role="img"
                 style="font-size: 12px;"
+                title="Icon image with name chevronRight"
               />
             </mock-styled.span>
             <mock-styled.a
               aria-current="false"
+              aria-label="Breadcrumb item hit return to navigate to Level 2"
+              role="button"
+              tabindex="0"
             >
               Level 2
             </mock-styled.a>
@@ -954,15 +983,19 @@ exports[`PageHeader component should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
               style="font-size: 12px;"
             >
               <svg
+                role="img"
                 style="font-size: 12px;"
+                title="Icon image with name chevronRight"
               />
             </mock-styled.span>
             <mock-styled.a
               aria-current="page"
+              aria-label="Breadcrumb item hit return to navigate to Level 3"
+              role="button"
+              tabindex="0"
             >
               Level 3
             </mock-styled.a>
@@ -977,9 +1010,10 @@ exports[`PageHeader component should match a snapshot 1`] = `
             <mock-styled.mock-styled.div
               classname=""
               role="img"
+              title="An avatar image"
             >
               <img
-                alt="https://picsum.photos/200/300"
+                alt="An image with source https://picsum.photos/200/300"
                 src="https://picsum.photos/200/300"
               />
             </mock-styled.mock-styled.div>
@@ -1529,19 +1563,21 @@ exports[`PageHeader component should match a snapshot 1`] = `
   width: 100%;
   justify-content: space-evenly;
 "
-          role="tablist"
         >
-          <mock-styled.div>
+          <mock-styled.div
+            role="tablist"
+          >
             <mock-styled.input
               aria-selected="true"
               id="tab-1-fw"
               name="my-cool-tabs-full-width"
-              role="tab"
               type="radio"
               value="tab-1-fw"
             />
             <mock-styled.label
               htmlfor="tab-1-fw"
+              role="tab"
+              tabindex="0"
             >
               <span
                 class="mock-css.
@@ -1566,12 +1602,13 @@ exports[`PageHeader component should match a snapshot 1`] = `
               aria-selected="false"
               id="tab-2-fw"
               name="my-cool-tabs-full-width"
-              role="tab"
               type="radio"
               value="tab-2-fw"
             />
             <mock-styled.label
               htmlfor="tab-2-fw"
+              role="tab"
+              tabindex="0"
             >
               <span
                 class="mock-css.
@@ -1596,12 +1633,13 @@ exports[`PageHeader component should match a snapshot 1`] = `
               aria-selected="false"
               id="tab-3-fw"
               name="my-cool-tabs-full-width"
-              role="tab"
               type="radio"
               value="tab-3-fw"
             />
             <mock-styled.label
               htmlfor="tab-3-fw"
+              role="tab"
+              tabindex="0"
             >
               <span
                 class="mock-css.

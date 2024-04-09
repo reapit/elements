@@ -85,9 +85,11 @@ exports[`Table Component should match a snapshot for cta content alternate setti
               classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name settings"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -99,13 +101,16 @@ exports[`Table Component should match a snapshot for cta content alternate setti
             <mock-styled.div
               classname="foo-bar"
               role="cell"
+              tabindex="0"
             >
               <mock-styled.div>
                 <mock-styled.span
                   classname="mock-css."
-                  role="img"
                 >
-                  <svg />
+                  <svg
+                    role="img"
+                    title="Icon image with name homeSystem"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -130,9 +135,11 @@ exports[`Table Component should match a snapshot for cta content alternate setti
             classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name settings"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -144,13 +151,16 @@ exports[`Table Component should match a snapshot for cta content alternate setti
           <mock-styled.div
             classname="foo-bar"
             role="cell"
+            tabindex="0"
           >
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css."
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name homeSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -240,19 +250,21 @@ exports[`Table Component should match a snapshot for expandable content alternat
             <mock-styled.div
               classname="foo-bar"
               role="cell"
+              tabindex="0"
             >
               <mock-styled.span
                 classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name more"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            aria-hidden="false"
             classname=""
           >
             <mock-styled.div>
@@ -289,19 +301,21 @@ exports[`Table Component should match a snapshot for expandable content alternat
           <mock-styled.div
             classname="foo-bar"
             role="cell"
+            tabindex="0"
           >
             <mock-styled.span
               classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name more"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          aria-hidden="false"
           classname=""
         >
           <mock-styled.div>
@@ -445,11 +459,12 @@ exports[`Table Component should match a snapshot with full props and cta content
             >
               <mock-styled.span
                 classname="mock-css."
-                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name homeSystem"
                 />
               </mock-styled.span>
               <mock-styled.div
@@ -464,11 +479,12 @@ exports[`Table Component should match a snapshot with full props and cta content
             >
               <mock-styled.span
                 classname="mock-css."
-                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name usernameSystem"
                 />
               </mock-styled.span>
               <mock-styled.div
@@ -522,13 +538,16 @@ exports[`Table Component should match a snapshot with full props and cta content
             <mock-styled.div
               classname="foo-bar"
               role="cell"
+              tabindex="0"
             >
               <mock-styled.div>
                 <mock-styled.span
                   classname="mock-css."
-                  role="img"
                 >
-                  <svg />
+                  <svg
+                    role="img"
+                    title="Icon image with name homeSystem"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -611,11 +630,12 @@ exports[`Table Component should match a snapshot with full props and cta content
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name homeSystem"
               />
             </mock-styled.span>
             <mock-styled.div
@@ -630,11 +650,12 @@ exports[`Table Component should match a snapshot with full props and cta content
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name usernameSystem"
               />
             </mock-styled.span>
             <mock-styled.div
@@ -688,13 +709,16 @@ exports[`Table Component should match a snapshot with full props and cta content
           <mock-styled.div
             classname="foo-bar"
             role="cell"
+            tabindex="0"
           >
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css."
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name homeSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -822,9 +846,11 @@ exports[`Table Component should match a snapshot with full props and expandable 
               classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name settings"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -841,11 +867,12 @@ exports[`Table Component should match a snapshot with full props and expandable 
             >
               <mock-styled.span
                 classname="mock-css."
-                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name homeSystem"
                 />
               </mock-styled.span>
               <mock-styled.div
@@ -860,11 +887,12 @@ exports[`Table Component should match a snapshot with full props and expandable 
             >
               <mock-styled.span
                 classname="mock-css."
-                role="img"
                 style="font-size: 1.25rem;"
               >
                 <svg
+                  role="img"
                   style="font-size: 1.25rem;"
+                  title="Icon image with name usernameSystem"
                 />
               </mock-styled.span>
               <mock-styled.div
@@ -918,19 +946,21 @@ exports[`Table Component should match a snapshot with full props and expandable 
             <mock-styled.div
               classname=""
               role="cell"
+              tabindex="0"
             >
               <mock-styled.span
                 classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name more"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
           <mock-styled.div
-            aria-hidden="true"
             classname="mock-css."
           >
             <mock-styled.div>
@@ -1005,9 +1035,11 @@ exports[`Table Component should match a snapshot with full props and expandable 
             classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name settings"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>
@@ -1024,11 +1056,12 @@ exports[`Table Component should match a snapshot with full props and expandable 
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name homeSystem"
               />
             </mock-styled.span>
             <mock-styled.div
@@ -1043,11 +1076,12 @@ exports[`Table Component should match a snapshot with full props and expandable 
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
               style="font-size: 1.25rem;"
             >
               <svg
+                role="img"
                 style="font-size: 1.25rem;"
+                title="Icon image with name usernameSystem"
               />
             </mock-styled.span>
             <mock-styled.div
@@ -1101,19 +1135,21 @@ exports[`Table Component should match a snapshot with full props and expandable 
           <mock-styled.div
             classname=""
             role="cell"
+            tabindex="0"
           >
             <mock-styled.span
               classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name more"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
         <mock-styled.div
-          aria-hidden="true"
           classname="mock-css."
         >
           <mock-styled.div>

@@ -5,9 +5,7 @@ exports[`BreadCrumb should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        aria-label="Breadcrumb"
-      >
+      <mock-styled.div>
         <div
           class="mock-css.
   display: flex;
@@ -28,6 +26,9 @@ exports[`BreadCrumb should match a snapshot 1`] = `
         >
           <mock-styled.a
             aria-current="false"
+            aria-label="Breadcrumb item hit return to navigate to Home"
+            role="button"
+            tabindex="0"
           >
             Home
           </mock-styled.a>
@@ -56,15 +57,19 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
             style="font-size: 12px;"
           >
             <svg
+              role="img"
               style="font-size: 12px;"
+              title="Icon image with name chevronRight"
             />
           </mock-styled.span>
           <mock-styled.a
             aria-current="false"
+            aria-label="Breadcrumb item hit return to navigate to Level 1"
+            role="button"
+            tabindex="0"
           >
             Level 1
           </mock-styled.a>
@@ -93,15 +98,19 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
             style="font-size: 12px;"
           >
             <svg
+              role="img"
               style="font-size: 12px;"
+              title="Icon image with name chevronRight"
             />
           </mock-styled.span>
           <mock-styled.a
             aria-current="false"
+            aria-label="Breadcrumb item hit return to navigate to Level 2"
+            role="button"
+            tabindex="0"
           >
             Level 2
           </mock-styled.a>
@@ -130,15 +139,19 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
             style="font-size: 12px;"
           >
             <svg
+              role="img"
               style="font-size: 12px;"
+              title="Icon image with name chevronRight"
             />
           </mock-styled.span>
           <mock-styled.a
             aria-current="page"
+            aria-label="Breadcrumb item hit return to navigate to Level 3"
+            role="button"
+            tabindex="0"
           >
             Level 3
           </mock-styled.a>
@@ -147,9 +160,7 @@ exports[`BreadCrumb should match a snapshot 1`] = `
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      aria-label="Breadcrumb"
-    >
+    <mock-styled.div>
       <div
         class="mock-css.
   display: flex;
@@ -170,6 +181,9 @@ exports[`BreadCrumb should match a snapshot 1`] = `
       >
         <mock-styled.a
           aria-current="false"
+          aria-label="Breadcrumb item hit return to navigate to Home"
+          role="button"
+          tabindex="0"
         >
           Home
         </mock-styled.a>
@@ -198,15 +212,19 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 12px;"
         >
           <svg
+            role="img"
             style="font-size: 12px;"
+            title="Icon image with name chevronRight"
           />
         </mock-styled.span>
         <mock-styled.a
           aria-current="false"
+          aria-label="Breadcrumb item hit return to navigate to Level 1"
+          role="button"
+          tabindex="0"
         >
           Level 1
         </mock-styled.a>
@@ -235,15 +253,19 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 12px;"
         >
           <svg
+            role="img"
             style="font-size: 12px;"
+            title="Icon image with name chevronRight"
           />
         </mock-styled.span>
         <mock-styled.a
           aria-current="false"
+          aria-label="Breadcrumb item hit return to navigate to Level 2"
+          role="button"
+          tabindex="0"
         >
           Level 2
         </mock-styled.a>
@@ -272,15 +294,19 @@ exports[`BreadCrumb should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 12px;"
         >
           <svg
+            role="img"
             style="font-size: 12px;"
+            title="Icon image with name chevronRight"
           />
         </mock-styled.span>
         <mock-styled.a
           aria-current="page"
+          aria-label="Breadcrumb item hit return to navigate to Level 3"
+          role="button"
+          tabindex="0"
         >
           Level 3
         </mock-styled.a>

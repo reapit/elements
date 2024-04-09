@@ -10,6 +10,7 @@ import {
   TableCtaTriggerCell,
   resolveNarrowOrderClass,
   TableCellSplit,
+  handleTableCtaClick,
 } from '../molecules'
 import * as styles from '../__styles__'
 
@@ -128,5 +129,17 @@ describe('resolveNarrowOrderClass', () => {
     it(`should return the correct class for order ${order}`, () => {
       expect(resolveNarrowOrderClass(order)).toEqual(styles[`ElTableCellNarrowOrder${order}`])
     })
+  })
+})
+
+describe('handleTableCtaClick', () => {
+  it('should call onClick with the correct argument', () => {
+    const onClick = jest.fn()
+
+    const curried = handleTableCtaClick(onClick)
+
+    curried()
+
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 })

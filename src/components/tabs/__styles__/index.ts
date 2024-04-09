@@ -53,7 +53,6 @@ export const ElTabsLabel = styled.label`
   align-items: center;
   margin: 0 auto;
   height: 100%;
-  border-radius: 1.5rem;
 
   &:last-child {
     margin-right: 0;

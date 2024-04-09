@@ -8,6 +8,7 @@ exports[`Avatar component should match a snapshot 1`] = `
       <mock-styled.div
         classname=""
         role="img"
+        title="A profile image"
       >
         Some Content
       </mock-styled.div>
@@ -17,6 +18,7 @@ exports[`Avatar component should match a snapshot 1`] = `
     <mock-styled.div
       classname=""
       role="img"
+      title="A profile image"
     >
       Some Content
     </mock-styled.div>
@@ -83,8 +85,10 @@ exports[`Avatar component should match a snapshot for an image src 1`] = `
       <mock-styled.div
         classname=""
         role="img"
+        title="A profile image"
       >
         <img
+          alt="An image with source https://picsum.photos/200"
           src="https://picsum.photos/200"
         />
       </mock-styled.div>
@@ -94,8 +98,10 @@ exports[`Avatar component should match a snapshot for an image src 1`] = `
     <mock-styled.div
       classname=""
       role="img"
+      title="A profile image"
     >
       <img
+        alt="An image with source https://picsum.photos/200"
         src="https://picsum.photos/200"
       />
     </mock-styled.div>
@@ -162,9 +168,10 @@ exports[`Avatar component should match a snapshot for an image type 1`] = `
       <mock-styled.mock-styled.div
         classname=""
         role="img"
+        title="An avatar image"
       >
         <img
-          alt="https://picsum.photos/200"
+          alt="An image with source https://picsum.photos/200"
           src="https://picsum.photos/200"
         />
       </mock-styled.mock-styled.div>
@@ -174,9 +181,10 @@ exports[`Avatar component should match a snapshot for an image type 1`] = `
     <mock-styled.mock-styled.div
       classname=""
       role="img"
+      title="An avatar image"
     >
       <img
-        alt="https://picsum.photos/200"
+        alt="An image with source https://picsum.photos/200"
         src="https://picsum.photos/200"
       />
     </mock-styled.mock-styled.div>

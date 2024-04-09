@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, useEffect, useId } from 'react'
+import React, { FC, HTMLAttributes, createRef, useEffect, useId } from 'react'
 import { cx } from '@linaria/core'
 import { ElModalBg, ElModal, ElModalHeader, ElModalBody } from './__styles__'
 import { elIsActive } from '../../styles/states'
@@ -36,8 +36,16 @@ export const ModalBody: FC<ModalBaseProps> = ({ className, children, ...rest }: 
   </ElModalBg>
 )
 
+export const handleModalFocus = (modalRef: React.RefObject<HTMLDivElement>, isOpen: boolean) => () => {
+  if (isOpen && modalRef.current) {
+    modalRef.current.focus()
+  }
+}
+
 export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, children, ...rest }) => {
   const id = rest.id || useId()
+  const modalRef = createRef<HTMLDivElement>()
+
   useEffect(() => {
     const onKeyUp = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
@@ -53,12 +61,22 @@ export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, 
 
   const modalCombinedClassname = cx(className, elIsActive)
 
+  useEffect(handleModalFocus(modalRef, isOpen), [modalRef, isOpen])
+
   if (!isOpen) return null
 
   return (
     <>
       <ElModalBg className={elIsActive} onClick={onModalClose} />
-      <ElModal role="dialog" aria-modal="true" aria-describedby={id} className={modalCombinedClassname} {...rest}>
+      <ElModal
+        role="dialog"
+        aria-modal="true"
+        aria-describedby={id}
+        className={modalCombinedClassname}
+        ref={modalRef}
+        autoFocus
+        {...rest}
+      >
         {title && <ElModalHeader>{title}</ElModalHeader>}
         <ElModalBody id={id}>{children}</ElModalBody>
       </ElModal>

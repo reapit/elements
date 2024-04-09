@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, ReactNode } from 'react'
+import React, { FC, HTMLAttributes, ReactNode, createRef, useEffect } from 'react'
 import { cx } from '@linaria/core'
 import {
   ElDrawerBg,
@@ -66,6 +66,12 @@ export const DrawerFooter: FC<DrawerBaseProps> = ({ className, children, ...rest
   </ElDrawerFooter>
 )
 
+export const handleDrawerFocus = (drawerRef: React.RefObject<HTMLDivElement>, isOpen: boolean) => () => {
+  if (isOpen && drawerRef.current) {
+    drawerRef.current.focus()
+  }
+}
+
 export const Drawer: FC<DrawerProps> = ({
   isOpen,
   onDrawerClose,
@@ -78,13 +84,16 @@ export const Drawer: FC<DrawerProps> = ({
   ...rest
 }) => {
   const drawerCombinedClassname = cx(className, elIsActive)
+  const drawerRef = createRef<HTMLDivElement>()
+
+  useEffect(handleDrawerFocus(drawerRef, isOpen), [drawerRef, isOpen])
 
   if (!isOpen) return null
 
   return (
     <>
       <ElDrawerBg className={elIsActive} onClick={canDismiss ? onDrawerClose : undefined} />
-      <ElDrawer className={drawerCombinedClassname} {...rest}>
+      <ElDrawer className={drawerCombinedClassname} ref={drawerRef} autoFocus {...rest}>
         <ElDrawerHeader>
           <div>
             {title && <ElDrawerTitle>{title}</ElDrawerTitle>}

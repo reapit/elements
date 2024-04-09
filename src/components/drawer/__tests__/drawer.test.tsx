@@ -1,5 +1,15 @@
 import { render } from '@testing-library/react'
-import { Drawer, DrawerBg, DrawerBody, DrawerContainer, DrawerHeader, DrawerSubtitle, DrawerTitle } from '..'
+import {
+  Drawer,
+  DrawerBg,
+  DrawerBody,
+  DrawerContainer,
+  DrawerHeader,
+  DrawerSubtitle,
+  DrawerTitle,
+  handleDrawerFocus,
+} from '..'
+import { createRef } from 'react'
 
 describe('Drawer component', () => {
   it('should match a snapshot when closed', () => {
@@ -60,5 +70,39 @@ describe('DrawerBody', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<DrawerBody>Content within Drawer</DrawerBody>)
     expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('handleDrawerFocus', () => {
+  it('should focus on the drawer if it is open', () => {
+    const drawerRef = createRef<HTMLDivElement>()
+    const mockElement = document.createElement('div')
+    const focusSpy = jest.spyOn(mockElement, 'focus')
+
+    Object.defineProperty(drawerRef, 'current', {
+      value: mockElement,
+    })
+
+    const curried = handleDrawerFocus(drawerRef, true)
+
+    curried()
+
+    expect(focusSpy).toHaveBeenCalled()
+  })
+
+  it('should not focus on the drawer if it is not open', () => {
+    const drawerRef = createRef<HTMLDivElement>()
+    const mockElement = document.createElement('div')
+    const focusSpy = jest.spyOn(mockElement, 'focus')
+
+    Object.defineProperty(drawerRef, 'current', {
+      value: mockElement,
+    })
+
+    const curried = handleDrawerFocus(drawerRef, false)
+
+    curried()
+
+    expect(focusSpy).not.toHaveBeenCalled()
   })
 })

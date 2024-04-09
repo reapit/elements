@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { ElLabel } from '../../label/__styles__'
-import { ElInput } from '../../input/__styles__'
+import { ElInput, elHasInputError } from '../../input/__styles__'
 import { ElTextArea } from '../../textarea/__styles__'
 import { ElSelect } from '../../select/__styles__'
 import { ElInputAddOn } from '../../input-add-on/__styles__'
@@ -69,6 +69,13 @@ export const ElInputGroup = styled.div`
     &:focus {
       ~ ${ElIcon}, ~ ${ElInputAddOn} {
         border-color: var(--intent-primary);
+      }
+    }
+
+    &.${elHasInputError} {
+      ~ ${ElIcon}, ~ ${ElInputAddOn} {
+        border-color: var(--intent-danger);
+        background-color: var(--color-red-100);
       }
     }
 

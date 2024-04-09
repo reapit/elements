@@ -17,9 +17,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name usernameSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -239,9 +241,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name emailSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -461,9 +465,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name carSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -683,9 +689,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name calendarSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -905,9 +913,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name homeSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -1135,9 +1145,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name bulletListSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -1364,9 +1376,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name usernameSystem"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <div
@@ -1586,9 +1600,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name emailSystem"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <div
@@ -1808,9 +1824,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name carSystem"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <div
@@ -2030,9 +2048,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name calendarSystem"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <div
@@ -2252,9 +2272,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name homeSystem"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <div
@@ -2482,9 +2504,11 @@ exports[`KeyValueList component should match a snapshot 1`] = `
         >
           <mock-styled.span
             classname="mock-css."
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name bulletListSystem"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <div
@@ -2758,11 +2782,9 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
     <div>
       <mock-styled.div
         classname=""
-        role="listbox"
       >
         <mock-styled.div
           classname=""
-          role="listitem"
         >
           <div
             class="mock-css.
@@ -2785,9 +2807,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name usernameSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <div
@@ -3001,7 +3025,6 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
-          role="listitem"
         >
           <div
             class="mock-css.
@@ -3024,9 +3047,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name emailSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <div
@@ -3240,7 +3265,6 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
-          role="listitem"
         >
           <div
             class="mock-css.
@@ -3263,9 +3287,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name carSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <div
@@ -3479,7 +3505,6 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
-          role="listitem"
         >
           <div
             class="mock-css.
@@ -3502,9 +3527,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name calendarSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <div
@@ -3718,7 +3745,6 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
-          role="listitem"
         >
           <div
             class="mock-css.
@@ -3741,9 +3767,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name homeSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <div
@@ -3965,7 +3993,6 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
         </mock-styled.div>
         <mock-styled.div
           classname=""
-          role="listitem"
         >
           <div
             class="mock-css.
@@ -3988,9 +4015,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
             >
               <mock-styled.span
                 classname="mock-css."
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name bulletListSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <div
@@ -4208,11 +4237,9 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
   "container": <div>
     <mock-styled.div
       classname=""
-      role="listbox"
     >
       <mock-styled.div
         classname=""
-        role="listitem"
       >
         <div
           class="mock-css.
@@ -4235,9 +4262,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name usernameSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -4451,7 +4480,6 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
-        role="listitem"
       >
         <div
           class="mock-css.
@@ -4474,9 +4502,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name emailSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -4690,7 +4720,6 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
-        role="listitem"
       >
         <div
           class="mock-css.
@@ -4713,9 +4742,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name carSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -4929,7 +4960,6 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
-        role="listitem"
       >
         <div
           class="mock-css.
@@ -4952,9 +4982,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name calendarSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -5168,7 +5200,6 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
-        role="listitem"
       >
         <div
           class="mock-css.
@@ -5191,9 +5222,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name homeSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div
@@ -5415,7 +5448,6 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
       </mock-styled.div>
       <mock-styled.div
         classname=""
-        role="listitem"
       >
         <div
           class="mock-css.
@@ -5438,9 +5470,11 @@ exports[`KeyValueList component should match a snapshot for a grid 1`] = `
           >
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name bulletListSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <div

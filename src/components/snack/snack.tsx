@@ -36,7 +36,7 @@ export const Snack: FC<SnackProps> = ({ icon, intent = 'primary', className, onR
   const combinedClassName = cx(className, intentClassName)
 
   return (
-    <ElSnack className={combinedClassName} {...rest}>
+    <ElSnack className={combinedClassName} role="status" aria-live="polite" {...rest}>
       {icon && <Icon fontSize="1.25rem" className={elSnackIcon} intent={intent} icon={icon} />}
       {children}
       {onRemove && (

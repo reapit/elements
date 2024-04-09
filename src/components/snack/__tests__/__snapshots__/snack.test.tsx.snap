@@ -6,13 +6,17 @@ exports[`Snack component should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
+        aria-live="polite"
         classname="mock-css."
+        role="status"
       />
     </div>
   </body>,
   "container": <div>
     <mock-styled.div
+      aria-live="polite"
       classname="mock-css."
+      role="status"
     />
   </div>,
   "debug": [Function],
@@ -75,17 +79,20 @@ exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
+        aria-live="polite"
         classname="mock-css."
+        role="status"
       >
         <mock-styled.span
           classname="mock-css.
   margin-right: 1rem;
  mock-css."
-          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name emailSystem"
           />
         </mock-styled.span>
       </mock-styled.div>
@@ -93,17 +100,20 @@ exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div
+      aria-live="polite"
       classname="mock-css."
+      role="status"
     >
       <mock-styled.span
         classname="mock-css.
   margin-right: 1rem;
  mock-css."
-        role="img"
         style="font-size: 1.25rem;"
       >
         <svg
+          role="img"
           style="font-size: 1.25rem;"
+          title="Icon image with name emailSystem"
         />
       </mock-styled.span>
     </mock-styled.div>
@@ -169,17 +179,20 @@ exports[`SnackHolder component should match a snapshot 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.div
+          aria-live="polite"
           classname="mock-css."
+          role="status"
         >
           <mock-styled.span
             classname="mock-css.
   margin-right: 1rem;
  mock-css."
-            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name infoSolidSystem"
             />
           </mock-styled.span>
           i am a snack
@@ -192,11 +205,12 @@ exports[`SnackHolder component should match a snapshot 1`] = `
   font-size: 1.5rem !important;
 "
             data-testid="close-icon"
-            role="img"
             style="font-size: 1.25rem;"
           >
             <svg
+              role="img"
               style="font-size: 1.25rem;"
+              title="Icon image with name close"
             />
           </mock-styled.span>
         </mock-styled.div>
@@ -206,17 +220,20 @@ exports[`SnackHolder component should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.div
+        aria-live="polite"
         classname="mock-css."
+        role="status"
       >
         <mock-styled.span
           classname="mock-css.
   margin-right: 1rem;
  mock-css."
-          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name infoSolidSystem"
           />
         </mock-styled.span>
         i am a snack
@@ -229,11 +246,12 @@ exports[`SnackHolder component should match a snapshot 1`] = `
   font-size: 1.5rem !important;
 "
           data-testid="close-icon"
-          role="img"
           style="font-size: 1.25rem;"
         >
           <svg
+            role="img"
             style="font-size: 1.25rem;"
+            title="Icon image with name close"
           />
         </mock-styled.span>
       </mock-styled.div>

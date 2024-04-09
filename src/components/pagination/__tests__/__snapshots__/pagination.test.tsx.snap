@@ -21,16 +21,20 @@ exports[`Pagination should match a snapshot 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name chevronLeft"
+            />
           </mock-styled.span>
         </mock-styled.button>
         <mock-styled.div>
           <mock-styled.input
+            aria-label="Current page number, edit to select page of 4 available"
             value="2"
           />
-           of 
+           
+          of 
           4
         </mock-styled.div>
         <mock-styled.button
@@ -48,9 +52,11 @@ exports[`Pagination should match a snapshot 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name chevronRight"
+            />
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -73,16 +79,20 @@ exports[`Pagination should match a snapshot 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name chevronLeft"
+          />
         </mock-styled.span>
       </mock-styled.button>
       <mock-styled.div>
         <mock-styled.input
+          aria-label="Current page number, edit to select page of 4 available"
           value="2"
         />
-         of 
+         
+        of 
         4
       </mock-styled.div>
       <mock-styled.button
@@ -100,9 +110,11 @@ exports[`Pagination should match a snapshot 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name chevronRight"
+          />
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
@@ -182,9 +194,11 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name chevronLeft"
+            />
           </mock-styled.span>
         </mock-styled.button>
         <mock-styled.button
@@ -202,9 +216,11 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name chevronLeft"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -215,16 +231,20 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name chevronLeft"
+            />
           </mock-styled.span>
         </mock-styled.button>
         <mock-styled.div>
           <mock-styled.input
+            aria-label="Current page number, edit to select page of 4 available"
             value="2"
           />
-           of 
+           
+          of 
           4
         </mock-styled.div>
         <mock-styled.button
@@ -242,9 +262,11 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name chevronRight"
+            />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
@@ -255,9 +277,11 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name chevronRight"
+            />
           </mock-styled.span>
         </mock-styled.button>
         <mock-styled.button
@@ -275,9 +299,11 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name chevronRight"
+            />
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -300,9 +326,11 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name chevronLeft"
+          />
         </mock-styled.span>
       </mock-styled.button>
       <mock-styled.button
@@ -320,9 +348,11 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name chevronLeft"
+          />
         </mock-styled.span>
         <mock-styled.span
           classname="mock-css.
@@ -333,16 +363,20 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name chevronLeft"
+          />
         </mock-styled.span>
       </mock-styled.button>
       <mock-styled.div>
         <mock-styled.input
+          aria-label="Current page number, edit to select page of 4 available"
           value="2"
         />
-         of 
+         
+        of 
         4
       </mock-styled.div>
       <mock-styled.button
@@ -360,9 +394,11 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name chevronRight"
+          />
         </mock-styled.span>
         <mock-styled.span
           classname="mock-css.
@@ -373,9 +409,11 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name chevronRight"
+          />
         </mock-styled.span>
       </mock-styled.button>
       <mock-styled.button
@@ -393,9 +431,11 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
  mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name chevronRight"
+          />
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>

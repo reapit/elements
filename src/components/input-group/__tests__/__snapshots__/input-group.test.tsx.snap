@@ -7,15 +7,18 @@ exports[`InputGroup component should match a snapshot when used in explicit mode
     <div>
       <mock-styled.div>
         <mock-styled.input
+          aria-label="Input type undefined"
           classname=""
         />
         <mock-styled.span
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name email"
+          />
         </mock-styled.span>
         <mock-styled.label>
           Please enter a username
@@ -26,15 +29,18 @@ exports[`InputGroup component should match a snapshot when used in explicit mode
   "container": <div>
     <mock-styled.div>
       <mock-styled.input
+        aria-label="Input type undefined"
         classname=""
       />
       <mock-styled.span
         classname="mock-css.
   font-size: 1.5rem !important;
 "
-        role="img"
       >
-        <svg />
+        <svg
+          role="img"
+          title="Icon image with name email"
+        />
       </mock-styled.span>
       <mock-styled.label>
         Please enter a username
@@ -102,6 +108,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
     <div>
       <mock-styled.div>
         <mock-styled.input
+          aria-label="Input type undefined"
           classname=""
           id="myId"
         />
@@ -111,6 +118,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
   "container": <div>
     <mock-styled.div>
       <mock-styled.input
+        aria-label="Input type undefined"
         classname=""
         id="myId"
       />
@@ -177,6 +185,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
     <div>
       <mock-styled.div>
         <mock-styled.input
+          aria-label="Input type undefined"
           classname=""
           id="myId"
         />
@@ -191,6 +200,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
   "container": <div>
     <mock-styled.div>
       <mock-styled.input
+        aria-label="Input type undefined"
         classname=""
         id="myId"
       />
@@ -262,6 +272,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
     <div>
       <mock-styled.div>
         <mock-styled.input
+          aria-label="Input type undefined"
           classname=""
           id="myId"
         />
@@ -269,11 +280,12 @@ exports[`InputGroup component should match a snapshot when used in react shortha
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 1rem;"
         >
           <svg
+            role="img"
             style="font-size: 1rem;"
+            title="Icon image with name email"
           />
         </mock-styled.span>
       </mock-styled.div>
@@ -282,6 +294,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
   "container": <div>
     <mock-styled.div>
       <mock-styled.input
+        aria-label="Input type undefined"
         classname=""
         id="myId"
       />
@@ -289,11 +302,12 @@ exports[`InputGroup component should match a snapshot when used in react shortha
         classname="mock-css.
   font-size: 1.5rem !important;
 "
-        role="img"
         style="font-size: 1rem;"
       >
         <svg
+          role="img"
           style="font-size: 1rem;"
+          title="Icon image with name email"
         />
       </mock-styled.span>
     </mock-styled.div>
@@ -359,6 +373,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
     <div>
       <mock-styled.div>
         <mock-styled.input
+          aria-label="Input type undefined"
           classname=""
           id="myId"
         />
@@ -366,11 +381,12 @@ exports[`InputGroup component should match a snapshot when used in react shortha
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 1rem;"
         >
           <svg
+            role="img"
             style="font-size: 1rem;"
+            title="Icon image with name email"
           />
         </mock-styled.span>
         <mock-styled.label
@@ -384,6 +400,7 @@ exports[`InputGroup component should match a snapshot when used in react shortha
   "container": <div>
     <mock-styled.div>
       <mock-styled.input
+        aria-label="Input type undefined"
         classname=""
         id="myId"
       />
@@ -391,11 +408,12 @@ exports[`InputGroup component should match a snapshot when used in react shortha
         classname="mock-css.
   font-size: 1.5rem !important;
 "
-        role="img"
         style="font-size: 1rem;"
       >
         <svg
+          role="img"
           style="font-size: 1rem;"
+          title="Icon image with name email"
         />
       </mock-styled.span>
       <mock-styled.label

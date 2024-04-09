@@ -113,7 +113,12 @@ export const Pagination: FC<PaginationProps> = ({
         </PaginationButton>
       )}
       <PaginationText>
-        <PaginationInput onChange={handlePageInput(setInputValue)} value={inputValue} /> of {numberPages}
+        <PaginationInput
+          onChange={handlePageInput(setInputValue)}
+          aria-label={`Current page number, edit to select page of ${numberPages} available`}
+          value={inputValue}
+        />{' '}
+        of {numberPages}
       </PaginationText>
       {hasEndButton && (
         <PaginationButton

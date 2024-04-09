@@ -14,9 +14,11 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               classname="mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name more"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div
@@ -27,25 +29,31 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
                 classname="mock-css.
   font-size: 1.5rem !important;
 "
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name close"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name trashSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name shareSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -54,9 +62,10 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.mock-styled.div
             classname=""
             role="img"
+            title="An avatar image"
           >
             <img
-              alt="https://via.placeholder.com/72x72.svg"
+              alt="An image with source https://via.placeholder.com/72x72.svg"
               src="https://via.placeholder.com/72x72.svg"
             />
           </mock-styled.mock-styled.div>
@@ -92,9 +101,11 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
                 classname="mock-css.
   font-size: 1.5rem !important;
 "
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name more"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div
@@ -105,25 +116,31 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
                   classname="mock-css.
   font-size: 1.5rem !important;
 "
-                  role="img"
                 >
-                  <svg />
+                  <svg
+                    role="img"
+                    title="Icon image with name close"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
                   classname=""
-                  role="img"
                 >
-                  <svg />
+                  <svg
+                    role="img"
+                    title="Icon image with name trashSystem"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
               <mock-styled.div>
                 <mock-styled.span
                   classname=""
-                  role="img"
                 >
-                  <svg />
+                  <svg
+                    role="img"
+                    title="Icon image with name shareSystem"
+                  />
                 </mock-styled.span>
               </mock-styled.div>
             </mock-styled.div>
@@ -139,9 +156,11 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name applicantInfographic"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div>
@@ -157,9 +176,11 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css."
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name houseInfographic"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div>
@@ -184,9 +205,11 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name more"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
@@ -197,25 +220,31 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               classname="mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name close"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name trashSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name shareSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -224,9 +253,10 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
         <mock-styled.mock-styled.div
           classname=""
           role="img"
+          title="An avatar image"
         >
           <img
-            alt="https://via.placeholder.com/72x72.svg"
+            alt="An image with source https://via.placeholder.com/72x72.svg"
             src="https://via.placeholder.com/72x72.svg"
           />
         </mock-styled.mock-styled.div>
@@ -262,9 +292,11 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               classname="mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name more"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div
@@ -275,25 +307,31 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
                 classname="mock-css.
   font-size: 1.5rem !important;
 "
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name close"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name trashSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
                 classname=""
-                role="img"
               >
-                <svg />
+                <svg
+                  role="img"
+                  title="Icon image with name shareSystem"
+                />
               </mock-styled.span>
             </mock-styled.div>
           </mock-styled.div>
@@ -309,9 +347,11 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css."
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name applicantInfographic"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div>
@@ -327,9 +367,11 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css."
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name houseInfographic"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div>
@@ -477,9 +519,11 @@ exports[`CardContextMenu should match a snapshot and render children with full p
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name more"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div
@@ -490,25 +534,31 @@ exports[`CardContextMenu should match a snapshot and render children with full p
               classname="mock-css.
   font-size: 1.5rem !important;
 "
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name close"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name trashSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
               classname=""
-              role="img"
             >
-              <svg />
+              <svg
+                role="img"
+                title="Icon image with name shareSystem"
+              />
             </mock-styled.span>
           </mock-styled.div>
         </mock-styled.div>
@@ -522,9 +572,11 @@ exports[`CardContextMenu should match a snapshot and render children with full p
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name more"
+          />
         </mock-styled.span>
       </mock-styled.div>
       <mock-styled.div
@@ -535,25 +587,31 @@ exports[`CardContextMenu should match a snapshot and render children with full p
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name close"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
             classname=""
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name trashSystem"
+            />
           </mock-styled.span>
         </mock-styled.div>
         <mock-styled.div>
           <mock-styled.span
             classname=""
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name shareSystem"
+            />
           </mock-styled.span>
         </mock-styled.div>
       </mock-styled.div>

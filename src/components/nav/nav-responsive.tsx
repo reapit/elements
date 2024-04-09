@@ -27,6 +27,7 @@ import { deprecateFunction, deprecateVar } from '../../storybook/deprecate-var'
 import { Avatar } from '../avatar'
 import { Text2XS } from '../typography'
 import { elIsActive } from '../../styles/states'
+import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
 export type NavResponsiveItemType = 'ICON' | 'ITEM' | 'SECONDARY'
 
@@ -91,9 +92,9 @@ export const handleToggleLogo = (logoState: LogoIcon, setLogoState: Dispatch<Set
 }
 
 export const handleToggleMenu =
-  (setState: Dispatch<SetStateAction<boolean>>, callback?: () => void) => (event: MouseEvent<HTMLDivElement>) => {
-    event.preventDefault()
-    event.stopPropagation()
+  (setState: Dispatch<SetStateAction<boolean>>, callback?: () => void) => (event?: MouseEvent<HTMLDivElement>) => {
+    event?.preventDefault()
+    event?.stopPropagation()
     setState((state) => !state)
     if (callback) {
       callback()
@@ -101,7 +102,7 @@ export const handleToggleMenu =
   }
 
 export const clickNavEventHandler =
-  (setActive: Dispatch<SetStateAction<boolean>>) => (event: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
+  (setActive: Dispatch<SetStateAction<boolean>>) => (event?: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
     event?.preventDefault()
     event?.stopPropagation()
 
@@ -113,8 +114,18 @@ export const NavResponsiveAvatar: FC<NavResponsiveAvatarProps> = ({ options, isH
 
   return (
     <>
-      <ElNavControlsBg className={cx(avatarOpen && elIsActive)} onClick={clickNavEventHandler(setAvatarOpen)} />
-      <ElNavResponsiveAvatarWrap onClick={handleToggleMenu(setAvatarOpen)} className={cx(isHidden && elNavIsHidden)}>
+      <ElNavControlsBg
+        className={cx(avatarOpen && elIsActive)}
+        onClick={clickNavEventHandler(setAvatarOpen)}
+        onKeyDown={handleKeyboardEvent('Enter', clickNavEventHandler(setAvatarOpen))}
+      />
+      <ElNavResponsiveAvatarWrap
+        onClick={handleToggleMenu(setAvatarOpen)}
+        onKeyDown={handleKeyboardEvent('Enter', handleToggleMenu(setAvatarOpen))}
+        className={cx(isHidden && elNavIsHidden)}
+        role="button"
+        tabIndex={0}
+      >
         <Avatar className={cx(elMr2)} type="profile">
           {text}
         </Avatar>
@@ -126,7 +137,14 @@ export const NavResponsiveAvatar: FC<NavResponsiveAvatarProps> = ({ options, isH
                 {options.map(({ callback, text }, index) => (
                   <Fragment key={index}>
                     {Boolean(index) && index === options.length - 1 && <ElNavMenuOptionDivider />}
-                    <ElNavMenuOption onClick={handleToggleMenu(setAvatarOpen, callback)}>{text}</ElNavMenuOption>
+                    <ElNavMenuOption
+                      onClick={handleToggleMenu(setAvatarOpen, callback)}
+                      onKeyDown={handleKeyboardEvent('Enter', handleToggleMenu(setAvatarOpen, callback))}
+                      role="button"
+                      tabIndex={0}
+                    >
+                      {text}
+                    </ElNavMenuOption>
                   </Fragment>
                 ))}
               </ElNavMenu>
@@ -154,8 +172,14 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
       <ElNavControlsBg
         className={cx(appSwitcherOpen && elIsActive)}
         onClick={clickNavEventHandler(setAppSwitcherOpen)}
+        onKeyDown={handleKeyboardEvent('Enter', clickNavEventHandler(setAppSwitcherOpen))}
       />
-      <ElNavResponsiveAppSwitcherWrap onClick={handleToggleMenu(setAppSwitcherOpen)}>
+      <ElNavResponsiveAppSwitcherWrap
+        onClick={handleToggleMenu(setAppSwitcherOpen)}
+        onKeyDown={handleKeyboardEvent('Enter', handleToggleMenu(setAppSwitcherOpen))}
+        role="button"
+        tabIndex={0}
+      >
         <ElNavResponsiveAppSwitcherIconWrap className={cx(appSwitcherOpen && elAppSwitcherOpen)}>
           <Icon intent="default" icon="appLauncher" />
         </ElNavResponsiveAppSwitcherIconWrap>
@@ -167,13 +191,28 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
               </Text2XS>
             </ElNavMenuOption>
             {options.map(({ callback, text, iconUrl }, index) => (
-              <ElNavMenuOption onClick={handleToggleMenu(setAppSwitcherOpen, callback)} key={index}>
-                {iconUrl && typeof iconUrl === 'string' ? <img src={iconUrl} /> : iconUrl}
+              <ElNavMenuOption
+                onClick={handleToggleMenu(setAppSwitcherOpen, callback)}
+                onKeyDown={handleKeyboardEvent('Enter', handleToggleMenu(setAppSwitcherOpen, callback))}
+                key={index}
+                role="button"
+                tabIndex={0}
+              >
+                {iconUrl && typeof iconUrl === 'string' ? (
+                  <img src={iconUrl} alt={`Product icon with url ${iconUrl}`} />
+                ) : (
+                  iconUrl
+                )}
                 {text}
               </ElNavMenuOption>
             ))}
             <ElNavMenuOptionDivider />
-            <ElNavMenuOption onClick={handleToggleMenu(setAppSwitcherOpen, marketplaceCallback)}>
+            <ElNavMenuOption
+              onClick={handleToggleMenu(setAppSwitcherOpen, marketplaceCallback)}
+              onKeyDown={handleKeyboardEvent('Enter', handleToggleMenu(setAppSwitcherOpen, marketplaceCallback))}
+              role="button"
+              tabIndex={0}
+            >
               My Installed Apps
             </ElNavMenuOption>
           </ElNavMenu>
@@ -206,6 +245,12 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
         onClick={setNavState({
           navMenuOpen: !navMenuOpen,
         })}
+        onKeyDown={handleKeyboardEvent(
+          'Enter',
+          setNavState({
+            navMenuOpen: !navMenuOpen,
+          }),
+        )}
       />
       <Nav className={cx(className)} {...rest}>
         {options.map(
@@ -222,9 +267,25 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 <NavItem className={cx(navItemIndex === itemIndex && elNavItemActive)} key={itemIndex} href={href}>
                   {appSwitcherOptions && <NavResponsiveAppSwitcher options={appSwitcherOptions} />}
                   {brandOptions?.logoUrl ? (
-                    <img src={brandOptions.logoUrl} height="24px" onClick={brandOptions?.callback} />
+                    <img
+                      src={brandOptions.logoUrl}
+                      alt={`Brand icon with url ${brandOptions.logoUrl}`}
+                      height="24px"
+                      onClick={brandOptions?.callback}
+                      onKeyDown={handleKeyboardEvent('Enter', brandOptions?.callback as () => void)}
+                      role="button"
+                      tabIndex={0}
+                    />
                   ) : (
-                    <Icon onClick={brandOptions?.callback} height="24px" width="100px" icon="reapitLogo" />
+                    <Icon
+                      onClick={brandOptions?.callback}
+                      onKeyDown={handleKeyboardEvent('Enter', brandOptions?.callback as () => void)}
+                      height="24px"
+                      width="100px"
+                      icon="reapitLogo"
+                      role="button"
+                      tabIndex={0}
+                    />
                   )}
                   <Icon
                     className={cx(elMlAuto, elMr4, elNavItemHideDesktop)}
@@ -233,6 +294,14 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                     onClick={setNavState({
                       navMenuOpen: !navMenuOpen,
                     })}
+                    onKeyDown={handleKeyboardEvent(
+                      'Enter',
+                      setNavState({
+                        navMenuOpen: !navMenuOpen,
+                      }),
+                    )}
+                    role="button"
+                    tabIndex={0}
                   />
                   {(avatarOptions || avatarText) && (
                     <NavResponsiveAvatar isHidden={!isMobile} options={avatarOptions ?? []} text={avatarText} />
@@ -246,6 +315,8 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                 <NavItem
                   className={cx(navItemIndex === itemIndex && elNavItemActive, navMenuOpen && elNavItemExpanded)}
                   href={href}
+                  role="button"
+                  tabIndex={0}
                   onClick={
                     hasSubItems
                       ? setNavState({
@@ -255,6 +326,16 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                         })
                       : setNavState({ navItemIndex: itemIndex, callback, navMenuOpen: !navMenuOpen })
                   }
+                  onKeyDown={handleKeyboardEvent(
+                    'Enter',
+                    hasSubItems
+                      ? setNavState({
+                          navItemIndex: itemIndex,
+                          navSubItemIndex: navItemIndex === itemIndex && navSubItemIndex ? navSubItemIndex : 0,
+                          callback,
+                        })
+                      : setNavState({ navItemIndex: itemIndex, callback, navMenuOpen: !navMenuOpen }),
+                  )}
                 >
                   {text}
                   {hasSubItems && isMobile && (
@@ -287,6 +368,14 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                               callback: innerCallback,
                               navMenuOpen: !navMenuOpen,
                             })}
+                            onKeyDown={handleKeyboardEvent(
+                              'Enter',
+                              setNavState({
+                                navSubItemIndex: innerItemIndex,
+                                callback: innerCallback,
+                                navMenuOpen: !navMenuOpen,
+                              }),
+                            )}
                           >
                             <span>{innerText}</span>
                           </NavSubNavItem>

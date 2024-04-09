@@ -1,16 +1,12 @@
-import React, { FC, HTMLAttributes, InputHTMLAttributes, useMemo } from 'react'
+import { FC, HTMLAttributes, InputHTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
 import { ElChipCheckbox, ElChipLabel, ElChipGroup, ElChipGroupInner } from './__styles__'
-import { generateRandomId } from '../../storybook/random-id'
+import { useId } from '../../storybook/random-id'
 
 export interface ChipProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 export const Chip: FC<ChipProps> = ({ children, className, id, ...rest }) => {
-  const chipId = useMemo(() => {
-    if (id) return id
-    return generateRandomId()
-  }, [id])
-
+  const chipId = useId(id)
   return (
     <>
       <ElChipCheckbox id={id ?? chipId} type="checkbox" {...rest} />

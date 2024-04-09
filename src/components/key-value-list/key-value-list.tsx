@@ -63,16 +63,16 @@ export const KeyValueContent: FC<KeyValueContentProps> = ({
 
 export const KeyValueList: FC<KeyValueListProps> = ({ className, items, hasGrid, ...rest }) => {
   return hasGrid ? (
-    <Grid className={cx(className)} role="listbox" {...rest}>
+    <Grid className={cx(className)} {...rest}>
       {items.map((item) => {
         return item.colSize === 'half' ? (
-          <ColHalf role="listitem" key={item.key}>
+          <ColHalf key={item.key}>
             <FlexContainer>
               <KeyValueContent item={item} />
             </FlexContainer>
           </ColHalf>
         ) : (
-          <Col role="listitem" key={item.key}>
+          <Col key={item.key}>
             <FlexContainer>
               <KeyValueContent item={item} />
             </FlexContainer>

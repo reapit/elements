@@ -5,11 +5,15 @@ exports[`Select component should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.select />
+      <mock-styled.select
+        aria-label="Select an item from the dropdown list"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.select />
+    <mock-styled.select
+      aria-label="Select an item from the dropdown list"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -202,6 +202,7 @@ exports[`ProgressBarPercentage should match a snapshot 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.div
+          aria-label="Progress bar indicator for this task"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="0"
@@ -224,6 +225,7 @@ exports[`ProgressBarPercentage should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.div
+        aria-label="Progress bar indicator for this task"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="0"
@@ -303,9 +305,11 @@ exports[`ProgressBarSteps should match a snapshot 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.div
+          aria-label="Progress bar indicator for this task"
           aria-valuemax="10"
           aria-valuemin="0"
           aria-valuenow="5"
+          role="meter"
           style="width: 50%;"
         >
           <mock-styled.div />
@@ -326,9 +330,11 @@ exports[`ProgressBarSteps should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.div
+        aria-label="Progress bar indicator for this task"
         aria-valuemax="10"
         aria-valuemin="0"
         aria-valuenow="5"
+        role="meter"
         style="width: 50%;"
       >
         <mock-styled.div />

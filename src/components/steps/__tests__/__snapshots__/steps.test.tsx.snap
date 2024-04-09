@@ -11,30 +11,40 @@ exports[`Steps should match a snapshot 1`] = `
         <mock-styled.div
           classname=""
           data-testid="step-0"
+          role="button"
+          tabindex="0"
         >
           1
         </mock-styled.div>
         <mock-styled.div
           classname=""
           data-testid="step-1"
+          role="button"
+          tabindex="0"
         >
           2
         </mock-styled.div>
         <mock-styled.div
           classname=""
           data-testid="step-2"
+          role="button"
+          tabindex="0"
         >
           3
         </mock-styled.div>
         <mock-styled.div
           classname=""
           data-testid="step-3"
+          role="button"
+          tabindex="0"
         >
           4
         </mock-styled.div>
         <mock-styled.div
           classname=""
           data-testid="step-4"
+          role="button"
+          tabindex="0"
         >
           5
         </mock-styled.div>
@@ -48,30 +58,40 @@ exports[`Steps should match a snapshot 1`] = `
       <mock-styled.div
         classname=""
         data-testid="step-0"
+        role="button"
+        tabindex="0"
       >
         1
       </mock-styled.div>
       <mock-styled.div
         classname=""
         data-testid="step-1"
+        role="button"
+        tabindex="0"
       >
         2
       </mock-styled.div>
       <mock-styled.div
         classname=""
         data-testid="step-2"
+        role="button"
+        tabindex="0"
       >
         3
       </mock-styled.div>
       <mock-styled.div
         classname=""
         data-testid="step-3"
+        role="button"
+        tabindex="0"
       >
         4
       </mock-styled.div>
       <mock-styled.div
         classname=""
         data-testid="step-4"
+        role="button"
+        tabindex="0"
       >
         5
       </mock-styled.div>
@@ -142,30 +162,40 @@ exports[`Steps should match a snapshot when selectedStep is different 1`] = `
         <mock-styled.div
           classname="mock-css."
           data-testid="step-0"
+          role="button"
+          tabindex="0"
         >
           1
         </mock-styled.div>
         <mock-styled.div
           classname="mock-css."
           data-testid="step-1"
+          role="button"
+          tabindex="0"
         >
           2
         </mock-styled.div>
         <mock-styled.div
           classname=""
           data-testid="step-2"
+          role="button"
+          tabindex="0"
         >
           3
         </mock-styled.div>
         <mock-styled.div
           classname=""
           data-testid="step-3"
+          role="button"
+          tabindex="0"
         >
           4
         </mock-styled.div>
         <mock-styled.div
           classname=""
           data-testid="step-4"
+          role="button"
+          tabindex="0"
         >
           5
         </mock-styled.div>
@@ -179,30 +209,40 @@ exports[`Steps should match a snapshot when selectedStep is different 1`] = `
       <mock-styled.div
         classname="mock-css."
         data-testid="step-0"
+        role="button"
+        tabindex="0"
       >
         1
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css."
         data-testid="step-1"
+        role="button"
+        tabindex="0"
       >
         2
       </mock-styled.div>
       <mock-styled.div
         classname=""
         data-testid="step-2"
+        role="button"
+        tabindex="0"
       >
         3
       </mock-styled.div>
       <mock-styled.div
         classname=""
         data-testid="step-3"
+        role="button"
+        tabindex="0"
       >
         4
       </mock-styled.div>
       <mock-styled.div
         classname=""
         data-testid="step-4"
+        role="button"
+        tabindex="0"
       >
         5
       </mock-styled.div>
@@ -275,6 +315,8 @@ exports[`StepsVertical should match a snapshot 1`] = `
             <mock-styled.div
               classname=""
               data-testid="step-0"
+              role="button"
+              tabindex="0"
             >
               1
             </mock-styled.div>
@@ -288,6 +330,8 @@ exports[`StepsVertical should match a snapshot 1`] = `
             <mock-styled.div
               classname=""
               data-testid="step-1"
+              role="button"
+              tabindex="0"
             >
               2
             </mock-styled.div>
@@ -301,6 +345,8 @@ exports[`StepsVertical should match a snapshot 1`] = `
             <mock-styled.div
               classname=""
               data-testid="step-2"
+              role="button"
+              tabindex="0"
             >
               3
             </mock-styled.div>
@@ -314,6 +360,8 @@ exports[`StepsVertical should match a snapshot 1`] = `
             <mock-styled.div
               classname=""
               data-testid="step-3"
+              role="button"
+              tabindex="0"
             >
               4
             </mock-styled.div>
@@ -327,6 +375,8 @@ exports[`StepsVertical should match a snapshot 1`] = `
             <mock-styled.div
               classname="mock-css."
               data-testid="step-4"
+              role="button"
+              tabindex="0"
             >
               5
             </mock-styled.div>
@@ -347,6 +397,8 @@ exports[`StepsVertical should match a snapshot 1`] = `
           <mock-styled.div
             classname=""
             data-testid="step-0"
+            role="button"
+            tabindex="0"
           >
             1
           </mock-styled.div>
@@ -360,6 +412,8 @@ exports[`StepsVertical should match a snapshot 1`] = `
           <mock-styled.div
             classname=""
             data-testid="step-1"
+            role="button"
+            tabindex="0"
           >
             2
           </mock-styled.div>
@@ -373,6 +427,8 @@ exports[`StepsVertical should match a snapshot 1`] = `
           <mock-styled.div
             classname=""
             data-testid="step-2"
+            role="button"
+            tabindex="0"
           >
             3
           </mock-styled.div>
@@ -386,6 +442,8 @@ exports[`StepsVertical should match a snapshot 1`] = `
           <mock-styled.div
             classname=""
             data-testid="step-3"
+            role="button"
+            tabindex="0"
           >
             4
           </mock-styled.div>
@@ -399,6 +457,8 @@ exports[`StepsVertical should match a snapshot 1`] = `
           <mock-styled.div
             classname="mock-css."
             data-testid="step-4"
+            role="button"
+            tabindex="0"
           >
             5
           </mock-styled.div>
@@ -476,6 +536,8 @@ exports[`StepsVertical should match a snapshot when selectedStep is different 1`
             <mock-styled.div
               classname=""
               data-testid="step-0"
+              role="button"
+              tabindex="0"
             >
               1
             </mock-styled.div>
@@ -489,6 +551,8 @@ exports[`StepsVertical should match a snapshot when selectedStep is different 1`
             <mock-styled.div
               classname="mock-css."
               data-testid="step-1"
+              role="button"
+              tabindex="0"
             >
               2
             </mock-styled.div>
@@ -509,6 +573,8 @@ exports[`StepsVertical should match a snapshot when selectedStep is different 1`
           <mock-styled.div
             classname=""
             data-testid="step-0"
+            role="button"
+            tabindex="0"
           >
             1
           </mock-styled.div>
@@ -522,6 +588,8 @@ exports[`StepsVertical should match a snapshot when selectedStep is different 1`
           <mock-styled.div
             classname="mock-css."
             data-testid="step-1"
+            role="button"
+            tabindex="0"
           >
             2
           </mock-styled.div>

@@ -7,10 +7,9 @@ import React, {
   useState,
   MouseEvent,
   useEffect,
-  useMemo,
   FC,
 } from 'react'
-import { generateRandomId } from '../../storybook/random-id'
+import { useId } from '../../storybook/random-id'
 import { elMr4 } from '../../styles/spacing'
 import { Button } from '../button'
 import { Icon } from '../icon'
@@ -121,10 +120,7 @@ export const FileInput: FileInputWrapped = forwardRef(
   ) => {
     const [fileUrl, setFileName] = useState<string>(defaultValue ?? '')
 
-    const inputId = useMemo(() => {
-      if (id) return id
-      return generateRandomId()
-    }, [id])
+    const inputId = useId(id)
 
     useEffect(handleSetNativeInput(inputId, [fileUrl]), [fileUrl])
 
@@ -143,6 +139,7 @@ export const FileInput: FileInputWrapped = forwardRef(
           </Button>
           <ElFileInput
             data-testid="el-file-input"
+            aria-label={`File upload input ${placeholderText}`}
             accept={accept}
             type="file"
             onChange={handleFileChange(setFileName, fileName, onFileUpload)}
@@ -177,7 +174,7 @@ export const FileInput: FileInputWrapped = forwardRef(
             </ElFileInputIconContainer>
           ) : (
             <SmallText hasGreyText hasNoMargin>
-              {placeholderText ?? 'Upload File'}
+              {placeholderText || 'Upload File'}
             </SmallText>
           )}
         </FlexContainer>

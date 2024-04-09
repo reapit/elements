@@ -38,6 +38,7 @@ export const StandardAttributes = {
     onClick: action('Button was clicked'),
     type: 'submit',
     children: 'Button Text',
+    'aria-label': 'Button aria label',
   },
 }
 

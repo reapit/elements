@@ -22,9 +22,11 @@ exports[`MobileControls component should match a snapshot 1`] = `
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name menu"
+            />
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -48,9 +50,11 @@ exports[`MobileControls component should match a snapshot 1`] = `
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name menu"
+          />
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
@@ -152,9 +156,11 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
           <mock-styled.div />
           <mock-styled.span
             classname=""
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name saveSystem"
+            />
           </mock-styled.span>
         </mock-styled.button>
       </mock-styled.div>
@@ -199,9 +205,11 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
         <mock-styled.div />
         <mock-styled.span
           classname=""
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name saveSystem"
+          />
         </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>

@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react'
+import { FC, useMemo, useState } from 'react'
 import { Drawer, DrawerProps } from '../../components/drawer'
 import { Portal } from '../use-portal'
 

@@ -14,6 +14,7 @@ export const TextArea: TextAreaWrapped = forwardRef(({ hasError, ...rest }, ref)
   return (
     <ElTextArea
       className={cx(hasError && elTextAreaHasError)}
+      aria-label="Text area input field"
       {...rest}
       ref={ref as unknown as LegacyRef<HTMLTextAreaElement>}
     />

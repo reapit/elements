@@ -1,4 +1,4 @@
-import React, { FC, HTMLAttributes, ReactNode } from 'react'
+import { FC, HTMLAttributes, ReactNode } from 'react'
 import { cx } from '@linaria/core'
 import {
   ElTableHeadersRow,
@@ -34,6 +34,7 @@ import {
 import { Icon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
 import { FlexContainer } from '../layout'
+import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
 export type NarrowOrderType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
@@ -147,15 +148,24 @@ export const TableCell: FC<TableCellProps> = ({
   )
 }
 
+export const handleTableCtaClick = (onClick?: (event?: any) => void) => () => {
+  onClick && onClick()
+}
+
 export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProps> = ({
   isOpen,
   narrowIsFullWidth,
   className,
   children,
+  onClick,
   ...rest
 }) => {
   return (
     <ElTableExpandableRowTriggerCell
+      role="button"
+      tabIndex={0}
+      onClick={handleTableCtaClick(onClick)}
+      onKeyDown={handleKeyboardEvent('Enter', handleTableCtaClick(onClick))}
       className={cx(className, narrowIsFullWidth && elTableNarrowCellIsFullWidth)}
       {...rest}
     >
@@ -164,9 +174,15 @@ export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProp
   )
 }
 
-export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, children, ...rest }) => {
+export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, children, onClick, ...rest }) => {
   return (
-    <ElTableCtaCell {...rest}>
+    <ElTableCtaCell
+      role="button"
+      tabIndex={0}
+      onClick={handleTableCtaClick(onClick)}
+      onKeyDown={handleKeyboardEvent('Enter', handleTableCtaClick(onClick))}
+      {...rest}
+    >
       {children ? (
         children
       ) : icon ? (

@@ -1,4 +1,4 @@
-import React, { ButtonHTMLAttributes, FC, HTMLAttributes } from 'react'
+import { ButtonHTMLAttributes, FC, HTMLAttributes, MouseEvent, MouseEventHandler } from 'react'
 import { cx } from '@linaria/core'
 import { Intent } from '../../helpers/intent'
 import { elIsLoading } from '../../styles/states'
@@ -20,6 +20,7 @@ import { Icon, IconNames } from '../icon'
 import { elIntentDanger, elIntentNeutral, elIntentPrimary } from '../../styles/intent'
 import { deprecateFunction, useDeprecateVar } from '../../storybook/deprecate-var'
 import { elMl1, elMr1 } from '../../styles/spacing'
+import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
 export type ButtonSizeType = 2 | 3 | 4
 export type ButtonSize = 'small' | 'medium' | 'large'
@@ -36,6 +37,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string
   buttonSize?: ButtonSize
   buttonIcon?: ButtonIcon
+  onClick?: MouseEventHandler<HTMLButtonElement>
   /** @deprecated - will be removed at v5 release */
   chevronLeft?: boolean
   /** @deprecated - will be removed at v5 release */
@@ -82,6 +84,11 @@ export const resolveButtonClassName = (intent?: Intent): string => {
   }
 }
 
+export const handleButtonClick =
+  (onClick?: MouseEventHandler<HTMLButtonElement>) => (e: MouseEvent<HTMLButtonElement>) => {
+    if (onClick) onClick(e)
+  }
+
 export const Button: FC<ButtonProps> = ({
   intent,
   loading = false,
@@ -93,6 +100,7 @@ export const Button: FC<ButtonProps> = ({
   buttonIcon,
   className = '',
   children,
+  onClick,
   size,
   ...rest
 }) => {
@@ -109,7 +117,12 @@ export const Button: FC<ButtonProps> = ({
   useDeprecateVar({ chevronLeft, chevronRight, fullWidth, fixedWidth, size }, 'Button')
 
   return (
-    <ElButton className={combinedClassName} {...rest}>
+    <ElButton
+      className={combinedClassName}
+      onKeyDown={handleKeyboardEvent('Enter', () => handleButtonClick(onClick))}
+      onClick={handleButtonClick(onClick)}
+      {...rest}
+    >
       <ElButtonLoader />
       {isIconOnly ? (
         <Icon intent="default" icon={buttonIcon.icon} fontSize="1rem" />

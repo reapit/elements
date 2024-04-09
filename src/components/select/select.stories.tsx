@@ -1,5 +1,4 @@
 import { Select } from './index'
-import { Label } from '../label'
 
 export default {
   title: 'Select',
@@ -14,9 +13,4 @@ export const BasicUsage = {
       <option value="3">Option 3</option>
     </Select>
   ),
-}
-
-export const UseWithALabel = {
-  render: ({}) => <Label>Select an option</Label>,
-  name: 'Use with a label',
 }

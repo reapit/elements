@@ -10,20 +10,22 @@ exports[`Tabs should match a snapshot and render children 1`] = `
   width: 100%;
   justify-content: space-evenly;
 "
-        role="tablist"
       >
-        <mock-styled.div>
+        <mock-styled.div
+          role="tablist"
+        >
           <mock-styled.input
             aria-selected="true"
             checked="true"
             id="option-1"
             name="my-cool-toggle-radio"
-            role="tab"
             type="radio"
             value="option-1"
           />
           <mock-styled.label
             htmlfor="option-1"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="mock-css.
@@ -49,12 +51,13 @@ exports[`Tabs should match a snapshot and render children 1`] = `
             checked="false"
             id="option-2"
             name="my-cool-toggle-radio"
-            role="tab"
             type="radio"
             value="option-2"
           />
           <mock-styled.label
             htmlfor="option-2"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="mock-css.
@@ -80,12 +83,13 @@ exports[`Tabs should match a snapshot and render children 1`] = `
             checked="false"
             id="option-3"
             name="my-cool-toggle-radio"
-            role="tab"
             type="radio"
             value="option-3"
           />
           <mock-styled.label
             htmlfor="option-3"
+            role="tab"
+            tabindex="0"
           >
             <span
               class="mock-css.
@@ -122,20 +126,22 @@ exports[`Tabs should match a snapshot and render children 1`] = `
   width: 100%;
   justify-content: space-evenly;
 "
-      role="tablist"
     >
-      <mock-styled.div>
+      <mock-styled.div
+        role="tablist"
+      >
         <mock-styled.input
           aria-selected="true"
           checked="true"
           id="option-1"
           name="my-cool-toggle-radio"
-          role="tab"
           type="radio"
           value="option-1"
         />
         <mock-styled.label
           htmlfor="option-1"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="mock-css.
@@ -161,12 +167,13 @@ exports[`Tabs should match a snapshot and render children 1`] = `
           checked="false"
           id="option-2"
           name="my-cool-toggle-radio"
-          role="tab"
           type="radio"
           value="option-2"
         />
         <mock-styled.label
           htmlfor="option-2"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="mock-css.
@@ -192,12 +199,13 @@ exports[`Tabs should match a snapshot and render children 1`] = `
           checked="false"
           id="option-3"
           name="my-cool-toggle-radio"
-          role="tab"
           type="radio"
           value="option-3"
         />
         <mock-styled.label
           htmlfor="option-3"
+          role="tab"
+          tabindex="0"
         >
           <span
             class="mock-css.

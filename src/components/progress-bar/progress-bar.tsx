@@ -65,6 +65,7 @@ export const ProgressBarPercentage: FC<ProgressBarPercentageProps> = ({ duration
         aria-valuemax={100}
         aria-valuemin={0}
         role="meter"
+        aria-label="Progress bar indicator for this task"
         style={{ width: `${percentageComplete}%`, transitionDuration: `${transitionDuration}s` }}
       >
         <ProgressBarItem />
@@ -90,6 +91,8 @@ export const ProgressBarSteps: FC<ProgressBarStepProps> = ({ numberSteps, curren
         aria-valuenow={currentStep}
         aria-valuemax={numberSteps}
         aria-valuemin={0}
+        role="meter"
+        aria-label="Progress bar indicator for this task"
         style={{ width: `${percentageComplete}%` }}
       >
         <ProgressBarItem />

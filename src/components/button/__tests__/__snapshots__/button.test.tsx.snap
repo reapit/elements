@@ -92,9 +92,11 @@ exports[`Button should match a snapshot 2`] = `
         <mock-styled.div />
         <mock-styled.span
           classname=""
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name addSystem"
+          />
         </mock-styled.span>
       </mock-styled.button>
     </div>
@@ -108,9 +110,11 @@ exports[`Button should match a snapshot 2`] = `
       <mock-styled.div />
       <mock-styled.span
         classname=""
-        role="img"
       >
-        <svg />
+        <svg
+          role="img"
+          title="Icon image with name addSystem"
+        />
       </mock-styled.span>
     </mock-styled.button>
   </div>,
@@ -183,11 +187,12 @@ exports[`Button should match a snapshot with all modifiers 1`] = `
           classname="mock-css.
   margin-right: 0.25rem;
  mock-css."
-          role="img"
           style="font-size: 1rem;"
         >
           <svg
+            role="img"
             style="font-size: 1rem;"
+            title="Icon image with name addSystem"
           />
         </mock-styled.span>
         button text
@@ -205,11 +210,12 @@ exports[`Button should match a snapshot with all modifiers 1`] = `
         classname="mock-css.
   margin-right: 0.25rem;
  mock-css."
-        role="img"
         style="font-size: 1rem;"
       >
         <svg
+          role="img"
           style="font-size: 1rem;"
+          title="Icon image with name addSystem"
         />
       </mock-styled.span>
       button text

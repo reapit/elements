@@ -6,10 +6,14 @@ exports[`Toggle should match a snapshot and render children 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.input
+        id="test-static-id"
         type="checkbox"
       />
       <mock-styled.label
         classname=""
+        htmlfor="test-static-id"
+        role="button"
+        tabindex="0"
       >
         <mock-styled.span>
           On
@@ -22,10 +26,14 @@ exports[`Toggle should match a snapshot and render children 1`] = `
   </body>,
   "container": <div>
     <mock-styled.input
+      id="test-static-id"
       type="checkbox"
     />
     <mock-styled.label
       classname=""
+      htmlfor="test-static-id"
+      role="button"
+      tabindex="0"
     >
       <mock-styled.span>
         On
@@ -112,6 +120,8 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
   justify-content: space-evenly;
 "
           htmlfor="option-1"
+          role="button"
+          tabindex="0"
         >
           <mock-styled.span>
             Option 1
@@ -129,6 +139,8 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
   justify-content: space-evenly;
 "
           htmlfor="option-2"
+          role="button"
+          tabindex="0"
         >
           <mock-styled.span>
             Option 2
@@ -146,6 +158,8 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
   justify-content: space-evenly;
 "
           htmlfor="option-3"
+          role="button"
+          tabindex="0"
         >
           <mock-styled.span>
             Option 3
@@ -173,6 +187,8 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
   justify-content: space-evenly;
 "
         htmlfor="option-1"
+        role="button"
+        tabindex="0"
       >
         <mock-styled.span>
           Option 1
@@ -190,6 +206,8 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
   justify-content: space-evenly;
 "
         htmlfor="option-2"
+        role="button"
+        tabindex="0"
       >
         <mock-styled.span>
           Option 2
@@ -207,6 +225,8 @@ exports[`ToggleRadio should match a snapshot and render children 1`] = `
   justify-content: space-evenly;
 "
         htmlfor="option-3"
+        role="button"
+        tabindex="0"
       >
         <mock-styled.span>
           Option 3

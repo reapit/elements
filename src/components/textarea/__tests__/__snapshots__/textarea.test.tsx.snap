@@ -6,12 +6,14 @@ exports[`TextArea component should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.textarea
+        aria-label="Text area input field"
         classname=""
       />
     </div>
   </body>,
   "container": <div>
     <mock-styled.textarea
+      aria-label="Text area input field"
       classname=""
     />
   </div>,

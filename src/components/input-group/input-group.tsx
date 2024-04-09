@@ -1,11 +1,11 @@
-import React, { forwardRef, useMemo } from 'react'
+import React, { forwardRef } from 'react'
 import { ElInputGroup } from './__styles__'
 import { Input } from '../input'
 import { Icon, IconNames } from '../icon'
 import { Label } from '../label'
 import { InputAddOn } from '../input-add-on'
 import { Intent } from '../../helpers/intent'
-import { generateRandomId } from '../../storybook/random-id'
+import { useId } from '../../storybook/random-id'
 import { InputError } from '../input-error'
 
 export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -40,10 +40,7 @@ export const InputGroup: InputGroupWrapped = forwardRef(
     { icon, label, className, id, intent, inputAddOnText, children, errorMessage, hasError, ...rest }: InputGroupProps,
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
-    const groupId = useMemo(() => {
-      if (id) return id
-      return generateRandomId()
-    }, [id])
+    const groupId = useId(id)
 
     if (!children)
       return (

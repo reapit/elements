@@ -26,9 +26,11 @@ exports[`PersistantNotification component should match a snapshot 1`] = `
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name info"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -67,9 +69,11 @@ exports[`PersistantNotification component should match a snapshot 1`] = `
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name info"
+          />
         </mock-styled.span>
       </div>
       <div
@@ -165,9 +169,11 @@ exports[`PersistantNotification component should match a snapshot for an inline 
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name info"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -206,9 +212,11 @@ exports[`PersistantNotification component should match a snapshot for an inline 
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name info"
+          />
         </mock-styled.span>
       </div>
       <div
@@ -304,9 +312,11 @@ exports[`PersistantNotification component should match a snapshot when expanded 
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name info"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -345,9 +355,11 @@ exports[`PersistantNotification component should match a snapshot when expanded 
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name info"
+          />
         </mock-styled.span>
       </div>
       <div
@@ -443,9 +455,11 @@ exports[`PersistantNotification component should match a snapshot when given an 
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name info"
+            />
           </mock-styled.span>
         </div>
         <div
@@ -484,9 +498,11 @@ exports[`PersistantNotification component should match a snapshot when given an 
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name info"
+          />
         </mock-styled.span>
       </div>
       <div

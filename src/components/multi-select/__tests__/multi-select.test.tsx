@@ -9,6 +9,7 @@ import {
   MultiSelectSelected,
   MultiSelectUnSelected,
   handleResetDefaultValues,
+  handleSelectedKeyboardOptions,
 } from '../index'
 
 describe('MultiSelectChip', () => {
@@ -174,6 +175,34 @@ describe('handleSelectedOptions', () => {
     const curried = handleSelectedOptions(value, selectedOptionValues, setSelectedOptionValues)
 
     curried(event)
+
+    expect(setSelectedOptionValues).toHaveBeenCalledWith(['some-value'])
+  })
+})
+
+describe('handleSelectedKeoardOptions', () => {
+  it('should deselect an option', () => {
+    const value = 'some-value'
+    const selectedOptionValues = ['some-value']
+    const setSelectedOptionValues = jest.fn()
+    const isChecked = true
+
+    const curried = handleSelectedKeyboardOptions(value, selectedOptionValues, setSelectedOptionValues, isChecked)
+
+    curried()
+
+    expect(setSelectedOptionValues).toHaveBeenCalledWith([])
+  })
+
+  it('should select an option', () => {
+    const value = 'some-value'
+    const selectedOptionValues = []
+    const setSelectedOptionValues = jest.fn()
+    const isChecked = false
+
+    const curried = handleSelectedKeyboardOptions(value, selectedOptionValues, setSelectedOptionValues, isChecked)
+
+    curried()
 
     expect(setSelectedOptionValues).toHaveBeenCalledWith(['some-value'])
   })

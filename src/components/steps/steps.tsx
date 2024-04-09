@@ -9,6 +9,7 @@ import {
   ElStepVerticalItem,
   ElStepVerticalContent,
 } from './__styles__'
+import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
 export interface StepsProps extends HTMLAttributes<HTMLDivElement> {
   steps: string[]
@@ -29,6 +30,10 @@ export interface StepsVerticalProps extends HTMLAttributes<HTMLDivElement> {
   className?: string
 }
 
+export const handleStepClick = (step: string, onStepClick?: (step: string) => void) => () => {
+  onStepClick && onStepClick(step)
+}
+
 export const Steps: FC<StepsProps> = ({ steps = [], selectedStep, onStepClick, className = '', ...rest }) => {
   const selectedStepIndex = steps.findIndex((step) => step === selectedStep)
 
@@ -40,8 +45,11 @@ export const Steps: FC<StepsProps> = ({ steps = [], selectedStep, onStepClick, c
         return (
           <ElStep
             key={step}
+            role="button"
+            tabIndex={0}
             data-testid={`step-${index}`}
-            onClick={() => onStepClick && onStepClick(step)}
+            onClick={handleStepClick(step, onStepClick)}
+            onKeyDown={handleKeyboardEvent('Enter', handleStepClick(step, onStepClick))}
             className={stepClassName}
           >
             {step}
@@ -72,7 +80,10 @@ export const StepsVertical: FC<StepsVerticalProps> = ({
             <ElStepVerticalItem>
               <ElStep
                 data-testid={`step-${index}`}
-                onClick={() => onStepClick && onStepClick(item)}
+                role="button"
+                tabIndex={0}
+                onClick={handleStepClick(item, onStepClick)}
+                onKeyDown={handleKeyboardEvent('Enter', handleStepClick(item, onStepClick))}
                 className={stepClassName}
               >
                 {item}

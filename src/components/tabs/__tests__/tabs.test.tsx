@@ -1,5 +1,6 @@
 import { render } from '@testing-library/react'
-import { Tabs } from '../index'
+import { Tabs, handleKeyboardTabChange } from '../index'
+import { MutableRefObject } from 'react'
 
 describe('Tabs', () => {
   it('should match a snapshot and render children', () => {
@@ -31,5 +32,30 @@ describe('Tabs', () => {
       />,
     )
     expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('handleKeyboardTabChange', () => {
+  it('should trigger click event on the correct tab', () => {
+    const tabsRefs: MutableRefObject<(HTMLInputElement | null)[]> = {
+      current: [
+        { click: jest.fn() } as unknown as HTMLInputElement,
+        { click: jest.fn() } as unknown as HTMLInputElement,
+        { click: jest.fn() } as unknown as HTMLInputElement,
+      ],
+    }
+    const index = 1
+
+    const curried = handleKeyboardTabChange(tabsRefs, index)
+
+    curried()
+
+    expect(tabsRefs.current[index]?.click).toHaveBeenCalled()
+
+    tabsRefs.current.forEach((tab, tabIndex) => {
+      if (tabIndex !== index) {
+        expect(tab?.click).not.toHaveBeenCalled()
+      }
+    })
   })
 })

@@ -9,8 +9,6 @@ import React, {
   RefAttributes,
   SetStateAction,
   useEffect,
-  useId,
-  useMemo,
   useState,
 } from 'react'
 import { cx } from '@linaria/core'
@@ -24,9 +22,10 @@ import {
   ElMultiSelectUnSelected,
   ElMultiSelectInputWrapper,
 } from './__styles__/index'
-import { generateRandomId } from '../../storybook/random-id'
+import { useId } from '../../storybook/random-id'
 import { Icon } from '../icon'
 import { elMl2 } from '../../styles/spacing'
+import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
 export interface MultiSelectProps extends HTMLAttributes<HTMLDivElement> {}
 
@@ -64,6 +63,7 @@ const setNativeInputValue = (element: HTMLElement, value: string[], testFunc?: (
 export const handleSetNativeInput =
   (id: string, selectedOptionValues: string[], testFunc?: (value: string[]) => void) => () => {
     const input = document.getElementById(id)
+
     if (input) {
       setNativeInputValue(input, selectedOptionValues, testFunc)
       const changeEvent = new Event('change', { bubbles: true })
@@ -97,16 +97,40 @@ export const handleSelectedOptions =
     setSelectedOptionValues(newSelected)
   }
 
-export const MultiSelectChip: FC<MultiSelectChipProps> = ({ className, children, id, ...rest }) => {
-  const chipId = useMemo(() => {
-    if (id) return id
-    return generateRandomId()
-  }, [id])
+export const handleSelectedKeyboardOptions =
+  (
+    value: string,
+    selectedOptionValues: string[],
+    setSelectedOptionValues: Dispatch<SetStateAction<string[]>>,
+    isChecked: boolean,
+  ) =>
+  () => {
+    const newSelected = !isChecked
+      ? [...selectedOptionValues, value]
+      : selectedOptionValues.filter((option) => option !== value)
 
+    setSelectedOptionValues(newSelected)
+  }
+
+export const MultiSelectChip: FC<MultiSelectChipProps> = ({
+  className,
+  children,
+  onKeyDown,
+  tabIndex,
+  id,
+  ...rest
+}) => {
+  const chipId = useId(id)
   return (
     <>
-      <ElMultiSelectCheckbox id={id ?? chipId} type="checkbox" {...rest} />
-      <ElMultiSelectLabel htmlFor={id ?? chipId} className={cx(className)}>
+      <ElMultiSelectCheckbox id={id ?? chipId} type="checkbox" aria-hidden={true} {...rest} />
+      <ElMultiSelectLabel
+        htmlFor={id ?? chipId}
+        role="option"
+        tabIndex={tabIndex}
+        className={cx(className)}
+        onKeyDown={onKeyDown as () => void}
+      >
         {children}
       </ElMultiSelectLabel>
     </>
@@ -154,17 +178,23 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
       [defaultValues],
     )
 
-    const listId = useId()
-
     return (
-      <ElMultiSelectInputWrapper role="combobox" aria-controls={listId} aria-haspopup="listbox">
+      <ElMultiSelectInputWrapper>
         <ElMultiSelectInput id={id} {...rest} ref={ref as unknown as LegacyRef<HTMLInputElement>} />
-        <MultiSelectSelected className={className}>
+        <MultiSelectSelected className={className} role="listbox" aria-label="Multi selected options">
           {selectedOptionValues.length ? (
             options.map((option) => {
               return selectedOptionValues.includes(option.value) ? (
                 <MultiSelectChip
+                  id={`multi-select-chip-${option.value}`}
+                  role="option"
+                  tabIndex={0}
+                  aria-checked={true}
                   onChange={handleSelectedOptions(option.value, selectedOptionValues, setSelectedOptionValues)}
+                  onKeyDown={handleKeyboardEvent(
+                    'Enter',
+                    handleSelectedKeyboardOptions(option.value, selectedOptionValues, setSelectedOptionValues, true),
+                  )}
                   key={option.value}
                   defaultChecked
                 >
@@ -180,12 +210,19 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
           )}
         </MultiSelectSelected>
         {selectedOptionValues.length < options.length && (
-          <MultiSelectUnSelected className={className}>
+          <MultiSelectUnSelected className={className} role="listbox" aria-label="Multi unselected options">
             {options.map((option) => {
               return !selectedOptionValues.includes(option.value) ? (
                 <MultiSelectChip
+                  role="option"
+                  tabIndex={0}
+                  aria-checked={false}
                   className={elHasGreyChips}
                   onChange={handleSelectedOptions(option.value, selectedOptionValues, setSelectedOptionValues)}
+                  onKeyDown={handleKeyboardEvent(
+                    'Enter',
+                    handleSelectedKeyboardOptions(option.value, selectedOptionValues, setSelectedOptionValues, false),
+                  )}
                   key={option.value}
                   defaultChecked={false}
                 >

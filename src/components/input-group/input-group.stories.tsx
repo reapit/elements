@@ -86,15 +86,12 @@ export const InputCheckboxNoLabel = {
 }
 
 export const InputRadio = {
-  render: ({}) => <Label className="el-mb2 el-flex">Preferred contact</Label>,
-}
-
-export const InputRadioWithIntent = {
-  render: ({}) => <Label className="el-mb2 el-flex">Preferred contact</Label>,
-}
-
-export const InputRadioWithInputAddOn = {
-  render: ({}) => <Label className="el-mb2 el-flex">Preferred contact</Label>,
+  render: ({}) => (
+    <>
+      <InputGroup className="el-mb2" name="status" type="radio" label="On" />
+      <InputGroup className="el-mb2" name="status" type="radio" label="Off" />
+    </>
+  ),
 }
 
 export const ErrorMessage = {
@@ -105,6 +102,7 @@ export const ErrorMessage = {
       name="phone"
       label="Email Address"
       errorMessage="Email address is not valid"
+      icon="email"
     />
   ),
   name: 'Error message',

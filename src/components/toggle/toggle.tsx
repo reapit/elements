@@ -18,6 +18,8 @@ import {
   ElToggleRadioLabel,
   ElToggleRadioWrap,
 } from './__styles__/index'
+import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
+import { useId } from '../../storybook/random-id'
 
 export interface ToggleProps extends HTMLAttributes<HTMLInputElement> {
   isFullWidth?: boolean
@@ -47,6 +49,13 @@ export type ToggleRadioWrapped = React.ForwardRefExoticComponent<
   ToggleRadioProps & RefAttributes<InputHTMLAttributes<HTMLInputElement>>
 >
 
+export const handleKeyboardToggleChange = (id: string) => () => {
+  const radio = document.getElementById(id)
+  if (radio) {
+    radio.click()
+  }
+}
+
 export const Toggle: ToggleWrapped = forwardRef(
   (
     { className, children, isFullWidth, hasGreyBg, id, ...rest },
@@ -55,11 +64,17 @@ export const Toggle: ToggleWrapped = forwardRef(
     if (isFullWidth) {
       console.warn(`The "${isFullWidth}" prop is deprecated and will be removed in the next major release.`)
     }
+
+    const toggleId = useId(id)
+
     return (
       <>
-        <ElToggleCheckbox id={id} type="checkbox" {...rest} ref={ref as unknown as LegacyRef<HTMLInputElement>} />
+        <ElToggleCheckbox id={toggleId} type="checkbox" {...rest} ref={ref as unknown as LegacyRef<HTMLInputElement>} />
         <ElToggleLabel
-          htmlFor={id}
+          htmlFor={toggleId}
+          role="button"
+          tabIndex={0}
+          onKeyDown={handleKeyboardEvent('Enter', handleKeyboardToggleChange(toggleId))}
           className={cx(className, isFullWidth && elToggleFullWidth, hasGreyBg && elHasGreyBg)}
         >
           {children}
@@ -93,6 +108,9 @@ export const ToggleRadio: ToggleRadioWrapped = forwardRef(
             />
             <ElToggleRadioLabel
               htmlFor={!disabled ? id : undefined}
+              role="button"
+              tabIndex={0}
+              onKeyDown={handleKeyboardEvent('Enter', handleKeyboardToggleChange(id))}
               className={cx(hasGreyBg && elHasGreyBg, isFullWidth && elToggleFullWidth)}
             >
               <ElToggleRadioItem>{text}</ElToggleRadioItem>

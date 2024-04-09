@@ -22,11 +22,12 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
             classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
             style="font-size: 1rem;"
           >
             <svg
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name search"
             />
           </mock-styled.span>
         </mock-styled.div>
@@ -58,11 +59,12 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
           classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 1rem;"
         >
           <svg
+            role="img"
             style="font-size: 1rem;"
+            title="Icon image with name search"
           />
         </mock-styled.span>
       </mock-styled.div>
@@ -151,11 +153,12 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
             classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
             style="font-size: 1rem;"
           >
             <svg
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name search"
             />
           </mock-styled.span>
         </mock-styled.div>
@@ -183,11 +186,12 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
           classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 1rem;"
         >
           <svg
+            role="img"
             style="font-size: 1rem;"
+            title="Icon image with name search"
           />
         </mock-styled.span>
       </mock-styled.div>
@@ -272,11 +276,12 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
             classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
             style="font-size: 1rem;"
           >
             <svg
+              role="img"
               style="font-size: 1rem;"
+              title="Icon image with name search"
             />
           </mock-styled.span>
         </mock-styled.div>
@@ -305,11 +310,12 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
           classname="mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
           style="font-size: 1rem;"
         >
           <svg
+            role="img"
             style="font-size: 1rem;"
+            title="Icon image with name search"
           />
         </mock-styled.span>
       </mock-styled.div>

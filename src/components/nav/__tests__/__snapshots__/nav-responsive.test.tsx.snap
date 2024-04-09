@@ -18,11 +18,14 @@ exports[`NavResponsive component should match a snapshot 1`] = `
             classname="mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
+            role="button"
             style="height: 24px; width: 100px;"
+            tabindex="0"
           >
             <svg
+              role="img"
               style="height: 24px; width: 100px;"
+              title="Icon image with name reapitLogo"
             />
           </mock-styled.span>
           <mock-styled.span
@@ -41,9 +44,13 @@ exports[`NavResponsive component should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-            role="img"
+            role="button"
+            tabindex="0"
           >
-            <svg />
+            <svg
+              role="img"
+              title="Icon image with name more"
+            />
           </mock-styled.span>
         </mock-styled.a>
         <mock-styled.a
@@ -66,6 +73,8 @@ exports[`NavResponsive component should match a snapshot 1`] = `
     }
   }
 "
+          role="button"
+          tabindex="0"
         >
           Apps
         </mock-styled.a>
@@ -87,6 +96,8 @@ exports[`NavResponsive component should match a snapshot 1`] = `
         </mock-styled.div>
         <mock-styled.a
           classname=""
+          role="button"
+          tabindex="0"
         >
           Analytics
         </mock-styled.a>
@@ -109,11 +120,15 @@ exports[`NavResponsive component should match a snapshot 1`] = `
         <mock-styled.a
           classname=""
           href="https://marketplace.reapit.cloud"
+          role="button"
+          tabindex="0"
         >
           Marketplace
         </mock-styled.a>
         <mock-styled.a
           classname=""
+          role="button"
+          tabindex="0"
         >
           Logout
         </mock-styled.a>
@@ -134,11 +149,14 @@ exports[`NavResponsive component should match a snapshot 1`] = `
           classname="mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
+          role="button"
           style="height: 24px; width: 100px;"
+          tabindex="0"
         >
           <svg
+            role="img"
             style="height: 24px; width: 100px;"
+            title="Icon image with name reapitLogo"
           />
         </mock-styled.span>
         <mock-styled.span
@@ -157,9 +175,13 @@ exports[`NavResponsive component should match a snapshot 1`] = `
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
-          role="img"
+          role="button"
+          tabindex="0"
         >
-          <svg />
+          <svg
+            role="img"
+            title="Icon image with name more"
+          />
         </mock-styled.span>
       </mock-styled.a>
       <mock-styled.a
@@ -182,6 +204,8 @@ exports[`NavResponsive component should match a snapshot 1`] = `
     }
   }
 "
+        role="button"
+        tabindex="0"
       >
         Apps
       </mock-styled.a>
@@ -203,6 +227,8 @@ exports[`NavResponsive component should match a snapshot 1`] = `
       </mock-styled.div>
       <mock-styled.a
         classname=""
+        role="button"
+        tabindex="0"
       >
         Analytics
       </mock-styled.a>
@@ -225,11 +251,15 @@ exports[`NavResponsive component should match a snapshot 1`] = `
       <mock-styled.a
         classname=""
         href="https://marketplace.reapit.cloud"
+        role="button"
+        tabindex="0"
       >
         Marketplace
       </mock-styled.a>
       <mock-styled.a
         classname=""
+        role="button"
+        tabindex="0"
       >
         Logout
       </mock-styled.a>

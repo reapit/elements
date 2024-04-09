@@ -15,6 +15,7 @@ export const Input: InputWrapped = forwardRef(
     return (
       <ElInput
         className={cx(hasError && elHasInputError)}
+        aria-label={`Input type ${rest.type}${rest.type === 'date' ? ' format dd/mm/yyy' : ''}${rest.max ? ` max date of ${rest.max}` : ''}${rest.min ? ` min date of ${rest.min}` : ''}`}
         {...rest}
         ref={ref as unknown as LegacyRef<HTMLInputElement>}
       />

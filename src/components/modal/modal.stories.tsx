@@ -33,7 +33,7 @@ export const ReactModal = {
 
 export const UseModalExample = {
   render: ({}) => {
-    const { Modal: ModalComponent, openModal, closeModal } = useModal('storybook-docs')
+    const { Modal: ModalComponent, openModal, closeModal } = useModal('portal-root')
 
     return (
       <>
@@ -60,9 +60,9 @@ export const UseModalExample = {
 
 export const UseModalExampleMultipleModals = {
   render: ({}) => {
-    const { Modal: ModalA, openModal: openModalA } = useModal('storybook-docs')
+    const { Modal: ModalA, openModal: openModalA } = useModal('portal-root')
 
-    const { Modal: ModalB, openModal: openModalB } = useModal('storybook-docs')
+    const { Modal: ModalB, openModal: openModalB } = useModal('portal-root')
 
     return (
       <>

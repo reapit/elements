@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
-import { Steps, StepsProps, StepsVertical, StepsVerticalProps } from '../index'
+import { Steps, StepsProps, StepsVertical, StepsVerticalProps, handleStepClick } from '../index'
 
 describe('Steps', () => {
   const props: StepsProps = {
@@ -72,5 +72,18 @@ describe('StepsVertical', () => {
 
   afterEach(() => {
     jest.resetAllMocks()
+  })
+})
+
+describe('handleStepClick', () => {
+  it('should call onStepClick with the correct argument', () => {
+    const onStepClick = jest.fn()
+    const step = 'step1'
+
+    const curried = handleStepClick(step, onStepClick)
+
+    curried()
+
+    expect(onStepClick).toHaveBeenCalledWith(step)
   })
 })
