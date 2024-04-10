@@ -140,7 +140,7 @@ export const createSite = async (
 
   new InvalidateCloudfrontDistribution(stack, 'invalidation', {
     distribution,
-    items: ['/index.html'],
+    items: ['/*'],
   })
 
   return {
