@@ -76,3 +76,19 @@ export const ElInputWrapFull = styled.div`
     grid-column-end: span 16;
   }
 `
+
+export const ElInputWrapHalf = styled.div`
+  grid-column-end: span 2;
+
+  ${isDesktop} {
+    grid-column-end: span 4;
+  }
+
+  ${isWideScreen} {
+    grid-column-end: span 6;
+  }
+
+  ${isSuperWideScreen} {
+    grid-column-end: span 8;
+  }
+`

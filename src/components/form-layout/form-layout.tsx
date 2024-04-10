@@ -8,6 +8,7 @@ import {
   elFormLayoutHasMargin,
   ElInputWrapSmall,
   ElFormSectionDivider,
+  ElInputWrapHalf,
 } from './__styles__'
 
 export type FormLayoutProps = HTMLAttributes<HTMLDivElement> & {
@@ -45,4 +46,8 @@ export const InputWrapMed: FC<FormLayoutProps> = ({ children, ...rest }) => {
 
 export const InputWrapFull: FC<FormLayoutProps> = ({ children, ...rest }) => {
   return <ElInputWrapFull {...rest}>{children}</ElInputWrapFull>
+}
+
+export const InputWrapHalf: FC<FormLayoutProps> = ({ children, ...rest }) => {
+  return <ElInputWrapHalf {...rest}>{children}</ElInputWrapHalf>
 }

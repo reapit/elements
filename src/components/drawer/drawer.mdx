@@ -49,3 +49,9 @@ Exports the following properties as an array - `[Drawer, openDrawer, closeDrawer
 Variant in on the above however, the user can dismiss the drawer by clicking on the background or using the icon in the header.
 
 <Canvas of={DrawerStories.ReactUsageCanDismiss} />
+
+## React usage with form
+
+Example of rendering form content within the drawer. Leverages an `InputWrapHalf` component in conjuction with the `FormLayout` to ensure inputs are at a consistent width across all resolutions, since the Drawer is fixed width.
+
+<Canvas of={DrawerStories.ReactUsageWithForm} />

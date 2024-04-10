@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { FormLayout } from '..'
-import { InputWrapMed, InputWrap, InputWrapFull } from '../form-layout'
+import { InputWrapMed, InputWrap, InputWrapFull, InputWrapHalf } from '../form-layout'
 
 describe('FormLayout component', () => {
   it('should match a snapshot', () => {
@@ -26,6 +26,13 @@ describe('InputWrapMed component', () => {
 describe('InputWrapFull component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<InputWrapFull />)
+    expect(wrapper).toMatchSnapshot()
+  })
+})
+
+describe('InputWrapHalf component', () => {
+  it('should match a snapshot', () => {
+    const wrapper = render(<InputWrapHalf />)
     expect(wrapper).toMatchSnapshot()
   })
 })
