@@ -6,6 +6,7 @@ import { TextArea } from '../textarea'
 import { MultiSelectInput } from '../multi-select'
 import { Button, ButtonGroup } from '../button'
 import { Label } from '../label'
+import { Select } from '../select'
 
 export default {
   title: 'FormLayout',
@@ -105,7 +106,14 @@ export const ComplexForm = {
           <InputGroup icon="calendar" label="Date of Birth" type="date" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="email" label="Email" type="text" />
+          <InputGroup>
+            <Label>Select Option</Label>
+            <Select>
+              <option value="1">Option 1</option>
+              <option value="2">Option 2</option>
+              <option value="3">Option 3</option>
+            </Select>
+          </InputGroup>
         </InputWrap>
         <InputWrapSmall>
           <InputGroup type="checkbox" label="Status" />

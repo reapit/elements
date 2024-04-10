@@ -6,7 +6,7 @@ export const ElSelect = styled.select`
   background-color: var(--component-input-bg);
   padding: 0 0.6875rem;
   padding-right: 2rem;
-  height: 2rem;
+  height: 2.25rem;
   appearance: none;
   border: var(--component-input-border);
   position: relative;
