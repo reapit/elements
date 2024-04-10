@@ -20,7 +20,7 @@ export const ElModalBg = styled.div`
 
 export const ElModal = styled.div`
   display: none;
-  top: 40%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
@@ -30,6 +30,8 @@ export const ElModal = styled.div`
   width: 65%;
   min-width: 300px;
   max-width: 800px;
+  max-height: 80vh;
+  overflow: auto;
   padding: 1.25rem 1.5rem;
 
   &.${elIsActive} {
