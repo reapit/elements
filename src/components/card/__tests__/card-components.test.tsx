@@ -26,8 +26,8 @@ describe('Card', () => {
         hasMainCard
         hasListCard
         mainContextMenuItems={[
-          { icon: 'trashSystem', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'shareSystem', onClick: () => console.log('Clicking') },
+          { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
+          { icon: 'share', onClick: () => console.log('Clicking') },
         ]}
         mainCardHeading="Main Heading"
         mainCardSubHeading="Main Subheading"
@@ -40,19 +40,15 @@ describe('Card', () => {
           {
             listCardItemHeading: 'Applicant',
             listCardItemSubHeading: 'Bob Smith',
-            listCardItemIcon: 'applicantInfographic',
+            listCardItemIcon: 'user',
             onClick: () => console.log('Clicking'),
           },
           {
             listCardItemHeading: 'Property',
             listCardItemSubHeading: 'Some Address',
-            listCardItemIcon: 'houseInfographic',
+            listCardItemIcon: 'property',
             onClick: () => console.log('Clicking'),
           },
-        ]}
-        listContextMenuItems={[
-          { icon: 'trashSystem', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'shareSystem', onClick: () => console.log('Clicking') },
         ]}
       >
         <div>I am a child</div>
@@ -76,8 +72,8 @@ describe('CardContextMenu', () => {
     const wrapper = render(
       <CardContextMenu
         contextMenuItems={[
-          { icon: 'trashSystem', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'shareSystem', onClick: () => console.log('Clicking') },
+          { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
+          { icon: 'share', onClick: () => console.log('Clicking') },
         ]}
       >
         <div>I am a child</div>

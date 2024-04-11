@@ -21,13 +21,13 @@ describe('Accordion basic usage', () => {
           <AccordionTitle>Accordion Item 1</AccordionTitle>
           <AccordionTitleContentWrapper>
             <AccordionTitleContent>
-              <Icon className={elMr1} icon="carSolidSystem" />2
+              <Icon className={elMr1} icon="car" />2
             </AccordionTitleContent>
             <AccordionTitleContent>
-              <Icon className={elMr1} icon="usernameSolidSystem" />5
+              <Icon className={elMr1} icon="user" />5
             </AccordionTitleContent>
             <AccordionTitleContent>
-              <Icon icon="upSystem" />
+              <Icon icon="chevronUp" />
             </AccordionTitleContent>
           </AccordionTitleContentWrapper>
         </AccordionItem>
@@ -36,13 +36,13 @@ describe('Accordion basic usage', () => {
           <AccordionTitle>Accordion Item 2</AccordionTitle>
           <AccordionTitleContentWrapper>
             <AccordionTitleContent>
-              <Icon className={elMr1} icon="carSolidSystem" />2
+              <Icon className={elMr1} icon="car" />2
             </AccordionTitleContent>
             <AccordionTitleContent>
-              <Icon className={elMr1} icon="usernameSolidSystem" />5
+              <Icon className={elMr1} icon="user" />5
             </AccordionTitleContent>
             <AccordionTitleContent>
-              <Icon icon="downSystem" />
+              <Icon icon="chevronDown" />
             </AccordionTitleContent>
           </AccordionTitleContentWrapper>
         </AccordionItem>
@@ -63,10 +63,10 @@ describe('Accordion react shorthand', () => {
             content: 'Accordion Content 1',
             titleItems: [
               <>
-                <Icon className={elMr1} icon="carSolidSystem" />2
+                <Icon className={elMr1} icon="car" />2
               </>,
               <>
-                <Icon className={elMr1} icon="usernameSolidSystem" />5
+                <Icon className={elMr1} icon="user" />5
               </>,
             ],
           },
@@ -75,10 +75,10 @@ describe('Accordion react shorthand', () => {
             content: 'Accordion Content 2',
             titleItems: [
               <>
-                <Icon className={elMr1} icon="carSolidSystem" />2
+                <Icon className={elMr1} icon="car" />2
               </>,
               <>
-                <Icon className={elMr1} icon="usernameSolidSystem" />5
+                <Icon className={elMr1} icon="user" />5
               </>,
             ],
           },

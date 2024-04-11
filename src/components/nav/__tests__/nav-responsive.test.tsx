@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react'
 import { render } from '@testing-library/react'
-import { clickNavEventHandler, handleToggleLogo, NavResponsive } from '../nav-responsive'
+import { clickNavEventHandler, NavResponsive } from '../nav-responsive'
 import { NavStateProvider } from '../../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../../hooks/use-media-query'
 
@@ -19,7 +19,6 @@ describe('NavResponsive component', () => {
               {
                 itemIndex: 1,
                 callback: () => console.log('Navigating'),
-                iconId: 'appsMenu',
                 text: 'Apps',
                 subItems: [
                   {
@@ -37,7 +36,6 @@ describe('NavResponsive component', () => {
               {
                 itemIndex: 2,
                 callback: () => console.log('Navigating'),
-                iconId: 'analyticsMenu',
                 text: 'Analytics',
                 subItems: [
                   {
@@ -55,14 +53,11 @@ describe('NavResponsive component', () => {
               {
                 itemIndex: 3,
                 href: 'https://marketplace.reapit.cloud',
-                iconId: 'marketplaceMenu',
                 text: 'Marketplace',
               },
               {
                 itemIndex: 4,
                 callback: () => console.log('Logging out'),
-                isSecondary: true,
-                iconId: 'logoutMenu',
                 text: 'Logout',
               },
             ]}
@@ -71,18 +66,6 @@ describe('NavResponsive component', () => {
       </NavStateProvider>,
     )
     expect(wrapper).toMatchSnapshot()
-  })
-})
-
-describe('handleToggleLogo', () => {
-  it('should set logo state', () => {
-    const logoState = 'reapitLogoSelectedMenu'
-    const setLogoState = jest.fn()
-    const curried = handleToggleLogo(logoState, setLogoState)
-
-    curried()
-
-    expect(setLogoState).toHaveBeenCalledWith('reapitLogoMenu')
   })
 })
 

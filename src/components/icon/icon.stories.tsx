@@ -15,7 +15,7 @@ export const IconFontSize = {
 }
 
 export const IconCustomSizes = {
-  render: ({}) => <Icon height="20px" width="100px" icon="reapitLogoMenu" />,
+  render: ({}) => <Icon height="20px" width="100px" icon="reapitLogo" />,
 }
 
 export const IconIntent = {
@@ -24,8 +24,4 @@ export const IconIntent = {
 
 export const OtherIcons = {
   render: ({}) => <Icon height="20px" width="100px" icon="reapitLogo" />,
-}
-
-export const LegacyIcons = {
-  render: ({}) => <Icon className={elMb5} iconSize="large" icon="agencyCloudInfographic" />,
 }

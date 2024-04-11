@@ -1,4 +1,4 @@
-import React, { MouseEvent } from 'react'
+import { MouseEvent } from 'react'
 import { render } from '@testing-library/react'
 import { MobileControls, clickEventHandler } from '..'
 
@@ -13,7 +13,7 @@ describe('MobileControls component', () => {
       <MobileControls
         isVisible
         buttonOnClick={() => console.log('Clicked Item One')}
-        buttonIcon="saveSystem"
+        buttonIcon="add"
         mobileControlItems={[
           {
             label: 'Item One',

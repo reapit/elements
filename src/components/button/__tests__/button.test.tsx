@@ -21,7 +21,7 @@ describe('Button', () => {
       disabled: true,
       buttonSize: 'small' as ButtonSize,
       buttonIcon: {
-        icon: 'addSystem',
+        icon: 'add',
         position: 'left',
       } as ButtonIcon,
       className: 'some-class',
@@ -32,7 +32,7 @@ describe('Button', () => {
   it('should match a snapshot', () => {
     expect(
       render(
-        <FloatingButton icon="addSystem" {...props}>
+        <FloatingButton icon="add" {...props}>
           button text
         </FloatingButton>,
       ),
