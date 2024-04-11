@@ -66,11 +66,11 @@ export const ElPageHeaderWrap = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  background-color: var(--color-white);
+  background-color: var(--page-header-bg);
   width: calc(100% + 2.5rem);
   translate: -1.25rem -0.5rem;
   padding: 0 1.25rem;
-  border-bottom: 1px solid var(--color-grey-100);
+  border-bottom: var(--page-header-border);
   margin-bottom: 0.5rem;
 
   ${ElAvatarImage} {

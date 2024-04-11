@@ -52,9 +52,16 @@ export const handlePageInputChange =
   }
 
 export const handlePageInput =
-  (setInputValue: Dispatch<SetStateAction<string>>) => (event: ChangeEvent<HTMLInputElement>) => {
-    const nextPage = event.target.value
-    setInputValue(nextPage)
+  (setInputValue: Dispatch<SetStateAction<string>>, numberPages: number) => (event: ChangeEvent<HTMLInputElement>) => {
+    const nextPage = Number(event.target.value)
+
+    if (nextPage > numberPages) {
+      setInputValue(String(numberPages))
+    } else if (nextPage < 1) {
+      setInputValue('')
+    } else {
+      setInputValue(event.target.value)
+    }
   }
 
 export const PaginationWrap: FC<PaginationWrapProps> = ({ children, ...rest }) => (
@@ -114,7 +121,7 @@ export const Pagination: FC<PaginationProps> = ({
       )}
       <PaginationText>
         <PaginationInput
-          onChange={handlePageInput(setInputValue)}
+          onChange={handlePageInput(setInputValue, numberPages)}
           aria-label={`Current page number, edit to select page of ${numberPages} available`}
           value={inputValue}
         />{' '}

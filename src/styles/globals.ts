@@ -1,5 +1,4 @@
 import { css } from '@linaria/core'
-
 // export javascript colours for the SVG background in the button
 export const intentPrimary = '#4e56ea'
 export const intentNeutral = '#0080ff'
@@ -359,6 +358,52 @@ export const elGlobals = css`
       --nav-menu-text-hover: var(--color-grey-dark);
       --nav-menu-icon-primary-accent: var(--color-grey-600);
       --nav-menu-icon-secondary-accent: var(--color-grey-400);
+      --nav-brand-height: 1.5rem;
+
+      /* Component specific variables */
+      --page-header-bg: var(--color-white);
+      --page-header-border: 1px solid var(--color-grey-100);
+      --pagination-bg: var(--color-white);
+
+      /* Utility Decorative variables */
+
+      --util-border-grey: 1px solid var(--color-grey-100, '#dbdbdb');
+      --util-border-purple: 1px solid var(--color-purple-300, '#9faebc');
+      --util-border-radius: 0.25rem;
+      --util-box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
+
+      /* Utility Responsive variables */
+      --util-screen-width: 100vw;
+      --util-screen-height: 100vh;
+
+      --util-0: 0;
+      --util-auto: auto;
+
+      --util-percentage-1: 8.3333%;
+      --util-percentage-2: 16.6667%;
+      --util-percentage-3: 25%;
+      --util-percentage-4: 33.3333%;
+      --util-percentage-5: 41.6667%;
+      --util-percentage-6: 50%;
+      --util-percentage-7: 58.3333%;
+      --util-percentage-8: 66.6667%;
+      --util-percentage-9: 75%;
+      --util-percentage-10: 83.3333%;
+      --util-percentage-11: 91.6667%;
+      --util-percentage-12: 100%;
+
+      --util-rems-1: 0.25rem;
+      --util-rems-2: 0.375rem;
+      --util-rems-3: 0.5rem;
+      --util-rems-4: 0.625rem;
+      --util-rems-5: 0.75rem;
+      --util-rems-6: 1rem;
+      --util-rems-7: 1.25rem;
+      --util-rems-8: 1.5rem;
+      --util-rems-9: 2rem;
+      --util-rems-10: 2.25rem;
+      --util-rems-11: 2.5rem;
+      --util-rems-12: 3rem;
 
       /** To deprecated, left in to avoid breaking changes, some duplication */
       --color-blue-light: var(--color-purple-300);

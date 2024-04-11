@@ -1,125 +1,125 @@
 import { css } from '@linaria/core'
 
 export const elW0 = css`
-  width: 0;
+  width: var(--util-0);
 `
 
 export const elW1 = css`
-  width: 8.3333%;
+  width: var(--util-percentage-1);
 `
 
 export const elW2 = css`
-  width: 16.6667%;
+  width: var(--util-percentage-2);
 `
 
 export const elW3 = css`
-  width: 25%;
+  width: var(--util-percentage-3);
 `
 
 export const elW4 = css`
-  width: 33.3333%;
+  width: var(--util-percentage-4);
 `
 
 export const elW5 = css`
-  width: 41.6667%;
+  width: var(--util-percentage-5);
 `
 
 export const elW6 = css`
-  width: 50%;
+  width: var(--util-percentage-6);
 `
 
 export const elW7 = css`
-  width: 58.3333%;
+  width: var(--util-percentage-7);
 `
 
 export const elW8 = css`
-  width: 66.6667%;
+  width: var(--util-percentage-8);
 `
 
 export const elW9 = css`
-  width: 75%;
+  width: var(--util-percentage-9);
 `
 
 export const elW10 = css`
-  width: 83.3333%;
+  width: var(--util-percentage-10);
 `
 
 export const elW11 = css`
-  width: 91.6667%;
+  width: var(--util-percentage-11);
 `
 
 export const elW12 = css`
-  width: 100%;
+  width: var(--util-percentage-12);
 `
 
 export const elWFull = css`
-  width: 100%;
+  width: var(--util-percentage-12);
 `
 
 export const elWAuto = css`
-  width: auto;
+  width: var(--util-auto);
 `
 
 export const elWScreen = css`
-  width: 100vw;
+  width: var(--util-screen-width);
 `
 
 export const elH0 = css`
-  height: 0;
+  height: var(--util-0);
 `
 
 export const elH1 = css`
-  height: 8.3333%;
+  height: var(--util-percentage-1);
 `
 
 export const elH2 = css`
-  height: 16.6667%;
+  height: var(--util-percentage-2);
 `
 
 export const elH3 = css`
-  height: 25%;
+  height: var(--util-percentage-3);
 `
 
 export const elH4 = css`
-  height: 33.3333%;
+  height: var(--util-percentage-4);
 `
 
 export const elH5 = css`
-  height: 41.6667%;
+  height: var(--util-percentage-5);
 `
 
 export const elH6 = css`
-  height: 50%;
+  height: var(--util-percentage-6);
 `
 
 export const elH7 = css`
-  height: 58.3333%;
+  height: var(--util-percentage-7);
 `
 
 export const elH8 = css`
-  height: 66.6667%;
+  height: var(--util-percentage-8);
 `
 
 export const elH10 = css`
-  height: 75%;
+  height: var(--util-percentage-9);
 `
 
 export const elH11 = css`
-  height: 83.3333%;
+  height: var(--util-percentage-10);
 `
 
 export const elH12 = css`
-  height: 91.6667%;
+  height: var(--util-percentage-11);
 `
 
 export const elHFull = css`
-  height: 100%;
+  height: var(--util-percentage-12);
 `
 
 export const elHAuto = css`
-  height: auto;
+  height: var(--util-auto);
 `
 
 export const elHScreen = css`
-  height: 100vh;
+  height: var(--util-screen-height);
 `

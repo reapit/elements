@@ -84,18 +84,9 @@ React shorthand with `icon` and `label` props
 
 <Canvas>
   <Story of={InputGroupStories.InputRadio} />
-  <Story of={InputGroupStories.InputRadioWithIntent} />
 </Canvas>
 
 <RenderHtmlMarkup of={InputGroupStories.InputRadio} />
-<RenderHtmlMarkup of={InputGroupStories.InputRadioWithIntent} />
-## Use with radio input and InputAddOn
-
-The `inputAddOn` prop (and use of the `InputAddOn` component within `InputGroup` in general) _is_ supported with radio buttons, however with radio buttons the `Label` does most of the work.
-
-`inputAddOn` can be used but won't add that much value, and it's reccomended to use just `Label` on it's own. See an example below:
-
-<Canvas of={InputGroupStories.InputRadioWithInputAddOn} />
 
 ## Error messages
 

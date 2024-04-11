@@ -11,12 +11,12 @@ export default {
 export const BasicExample = {
   render: ({}) => (
     <PaginationWrap>
-      <PaginationText>
-        <strong>1</strong>of 4
-      </PaginationText>
       <PaginationButton>
         <Icon icon="chevronLeft" />
       </PaginationButton>
+      <PaginationText>
+        <strong>1</strong> of 4
+      </PaginationText>
       <PaginationButton>
         <Icon icon="chevronRight" className={elPaginationPrimary} />
       </PaginationButton>

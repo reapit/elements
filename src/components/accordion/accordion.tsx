@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState, useId } from 'react'
+import { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState, useId } from 'react'
 import { cx } from '@linaria/core'
 import {
   ElAccordionContainer,

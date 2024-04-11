@@ -9,7 +9,7 @@ export const ElPaginationWrap = styled.div`
 `
 
 export const ElPaginationText = styled.div`
-  margin-right: 1rem;
+  margin: 0 0.5rem;
   font-size: var(--font-size-small);
 `
 
@@ -17,16 +17,15 @@ export const ElPaginationInput = styled.input`
   font-size: var(--font-size-small);
   text-align: center;
   font-weight: var(--font-weight-bold);
-  padding: 0 0.5rem;
   margin: 0;
   font-family: var(--font-sans-serif);
   border-radius: 0.2rem;
   width: 2rem;
   height: 2rem;
-  border: none;
+  border: var(--component-input-border);
 
   &:focus {
-    outline: none;
+    border: var(--component-input-border-focus);
   }
 `
 
@@ -34,12 +33,12 @@ export const ElPaginationButton = styled.button`
   width: 2rem;
   height: 2rem;
   border: none;
-  background: var(--color-white);
+  background: var(--pagination-bg);
   border-radius: 0.2rem;
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 0.25rem;
+  margin: 0 0.25rem;
 
   svg {
     color: var(--color-grey-500);

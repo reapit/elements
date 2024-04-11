@@ -74,7 +74,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
             {avatar && <Avatar {...avatar} />}
             <FlexContainer isFlexColumn>
               <PageHeaderTitleContainer>
-                {pageTitle && <Text2XL className={elMr3} {...pageTitle} />}
+                {pageTitle && <Text2XL className={elMr3} tag="h1" hasBoldText {...pageTitle} />}
                 {tags && (
                   <TagGroup>
                     {tags.map(({ children, ...rest }, index) => (
@@ -85,7 +85,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
                   </TagGroup>
                 )}
               </PageHeaderTitleContainer>
-              {pageSubtitle && <TextL {...pageSubtitle} />}
+              {pageSubtitle && <TextL tag="h2" hasBoldText {...pageSubtitle} />}
               {pageInfo && (
                 <FlexContainer>
                   {pageInfo.map(({ ...rest }, index) => (

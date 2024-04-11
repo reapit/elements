@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas } from '@storybook/blocks'
+import { Meta, Story, Canvas, Source } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../storybook/render-html-markup'
 import * as ThemingStories from './theming.stories'
 
@@ -6,22 +6,51 @@ import * as ThemingStories from './theming.stories'
 
 # Theming
 
-One of the core objectives for the v3 re-write of Elements was to support Global theming. We have achieved this by using CSS Variables throughout the project that are loaded globally on the `:root` selector when importing the Elements stylesheet into your code (see getting started).
+We have achieved global and local theming on the project by using CSS Variables throughout that are loaded globally on the `:root` selector when importing the Elements stylesheet into your code (see getting started).
 
 CSS Variables rely on the same rules of specificity as all CSS selectors, so you are able to theme your project globally, by adding a more specific class or id to the root selector of your project and in a CSS file, just override the pre-defined variables.
 
-If you want your theming to be localised to an individual component and leave the globals alone, just apply a custom class to your Reapit Element component that re-defines the variable you wish to change.
+We are adding to the variable list all the time and the aim is to make the project fully themable in v5. For now, we should have a good base to get you started - see [here](https://github.com/reapit/elements/blob/main/src/styles/globals.ts#L189) for the full variable list.
 
-## Basic Example
+There are two methods for theming - the compile time, `linaria` method we use when bundling the library and the provider method, that sets variables at runtime which is less efficient but more granular.
 
-Here we are overriding the `--intent-primary` variable by wrapping the component in a class to make both a primary `Icon` and a `Button` go green rather than the standard primary blue.
+## Global Themes
 
-In both examples the markup is identical however, the demo wrapper component has overridden the default `--intent-primary` value by simply setting `--intent-primary: #a0c862;`
+Here we are overriding the `--intent-primary`, `--intent-primary-dark` and `--font-size-small` variables by wrapping the component in a provider that uses the `css` function from `linaria` to set the global variables. This changes the default primary button globally from blue to green (along with anything else using those variables), and increases the text size.
 
-<Canvas of={ThemingStories.BasicExample} />
+Because the transformation is happening at compile time, we can't supply a component that performs this action so you will need to maintain your own version of the source code below, wrapping your react app in the provider as per the `show code` block.
 
-<RenderHtmlMarkup of={ThemingStories.BasicExample} />
+> You can also just import a plain old CSS file at the root of your project with the declared root variable list.
 
-## Available Variables
+<Source
+  code={`
+export const GlobalThemeProvider: FC<PropsWithChildren> = ({ children }) => {
+  const globalTheme = css'
+    :global() {
+      :root {
+        --intent-primary: #a0c862;
+        --intent-primary-dark: #7f9c4b;
+        --font-size-small: 24px;
+      }
+    }
+  '
 
-The variable usage is project wide - literally every component uses some of the variables - so it would be impossible to document all of the places they are used however, you can view a list of the available variables on [Github here](https://github.com/reapit/foundations/blob/master/packages/elements/src/styles/globals.ts#L171).
+return <div className={globalTheme}>{children}</div>
+}
+`}
+language="typescript"
+/>
+
+<Canvas of={ThemingStories.GlobalThemes} />
+
+<RenderHtmlMarkup of={ThemingStories.GlobalThemes} />
+
+## Scoped Themes
+
+We also support an in-house provider that inlines the variables, overriding the root selector. This is useful when you want more granular control over the area of the app you wish to theme - you can use it either globally or at an indivudual component level.
+
+In the below example, we wrap our button in the `ElementsThemeProvider` which accepts an object of CSS variables to set. This overrides the theme set in the previous example.
+
+<Canvas of={ThemingStories.ScopedThemes} />
+
+<RenderHtmlMarkup of={ThemingStories.ScopedThemes} />

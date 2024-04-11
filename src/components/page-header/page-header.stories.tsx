@@ -10,7 +10,6 @@ export const BasicUsage = {
     <PageHeader
       breadcrumb={{
         defaultActiveIndex: 3,
-
         items: [
           {
             text: 'Home',
@@ -36,7 +35,6 @@ export const BasicUsage = {
       }}
       pageTitle={{
         children: 'Page Title',
-        hasBoldText: true,
       }}
       tags={[
         {
@@ -50,7 +48,6 @@ export const BasicUsage = {
       ]}
       pageSubtitle={{
         children: 'Page Sub Title',
-        hasBoldText: true,
       }}
       pageInfo={[
         {

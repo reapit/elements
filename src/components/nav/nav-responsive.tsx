@@ -270,7 +270,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                     <img
                       src={brandOptions.logoUrl}
                       alt={`Brand icon with url ${brandOptions.logoUrl}`}
-                      height="24px"
+                      style={{ maxHeight: 'var(--nav-brand-height)' }}
                       onClick={brandOptions?.callback}
                       onKeyDown={handleKeyboardEvent('Enter', brandOptions?.callback as () => void)}
                       role="button"
@@ -280,7 +280,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                     <Icon
                       onClick={brandOptions?.callback}
                       onKeyDown={handleKeyboardEvent('Enter', brandOptions?.callback as () => void)}
-                      height="24px"
+                      style={{ maxHeight: 'var(--nav-brand-height)' }}
                       width="100px"
                       icon="reapitLogo"
                       role="button"

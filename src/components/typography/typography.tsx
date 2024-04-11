@@ -1,10 +1,10 @@
 import React, { FC, HTMLAttributes, useMemo } from 'react'
 import { cx } from '@linaria/core'
 import {
-  ElTitle,
-  ElSubtitle,
-  ElBodyText,
-  ElSmallText,
+  elTitle,
+  elSubtitle,
+  elBodyText,
+  elSmallText,
   elHasGreyText,
   elHasBoldText,
   elHasItalicText,
@@ -181,38 +181,16 @@ export const TextXS: FC<TypographyProps> = (props) => <TaggedTypography baseClas
 
 export const Text2XS: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elText2XS} {...props} />
 
-export const Title: FC<TypographyProps> = (props) => {
-  const { className, children, ...rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElTitle className={className} {...rest}>
-      {children}
-    </ElTitle>
-  )
-}
+/** @deprecated - will be removed in v5 */
+export const Title: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTitle} tag="h1" {...props} />
 
-export const Subtitle: FC<TypographyProps> = (props) => {
-  const { className, children, ...rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElSubtitle className={className} {...rest}>
-      {children}
-    </ElSubtitle>
-  )
-}
+/** @deprecated - will be removed in v5 */
+export const Subtitle: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elSubtitle} tag="h2" {...props} />
 
-export const BodyText: FC<TypographyProps> = (props) => {
-  const { className, children, ...rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElBodyText className={className} {...rest}>
-      {children}
-    </ElBodyText>
-  )
-}
+/** @deprecated - will be removed in v5 */
+export const BodyText: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elBodyText} tag="p" {...props} />
 
-export const SmallText: FC<TypographyProps> = (props) => {
-  const { className, children, ...rest } = useMemo(propsToClass(props), [props])
-  return (
-    <ElSmallText className={className} {...rest}>
-      {children}
-    </ElSmallText>
-  )
-}
+/** @deprecated - will be removed in v5 */
+export const SmallText: FC<TypographyProps> = (props) => (
+  <TaggedTypography baseClass={elSmallText} tag="small" {...props} />
+)

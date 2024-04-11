@@ -1,5 +1,4 @@
 import { css } from '@linaria/core'
-import { styled } from '@linaria/react'
 import {
   elIntentDanger,
   elIntentDefault,
@@ -146,7 +145,7 @@ export const elText2XS = css`
   line-height: 16px;
 `
 
-export const ElTitle = styled.h1`
+export const elTitle = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-bold);
   color: var(--color-black);
@@ -228,7 +227,7 @@ export const ElTitle = styled.h1`
   }
 `
 
-export const ElSubtitle = styled.h2`
+export const elSubtitle = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
   color: var(--color-black);
@@ -310,7 +309,7 @@ export const ElSubtitle = styled.h2`
   }
 `
 
-export const ElBodyText = styled.p`
+export const elBodyText = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
   color: var(--color-black);
@@ -392,7 +391,7 @@ export const ElBodyText = styled.p`
   }
 `
 
-export const ElSmallText = styled.p`
+export const elSmallText = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
   color: var(--color-black);

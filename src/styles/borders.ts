@@ -1,105 +1,142 @@
 import { css } from '@linaria/core'
 
 export const elBorderGrey = css`
-  border: 1px solid var(--color-grey-100, '#dbdbdb');
+  border: var(--util-border-grey);
 `
 
 export const elBorderGreyT = css`
-  border-top: 1px solid var(--color-grey-100, '#dbdbdb');
+  border-top: var(--util-border-grey);
 `
 
 export const elBorderGreyB = css`
-  border-bottom: 1px solid var(--color-grey-100, '#dbdbdb');
+  border-bottom: var(--util-border-grey);
 `
 
 export const elBorderGreyL = css`
-  border-left: 1px solid var(--color-grey-100, '#dbdbdb');
+  border-left: var(--util-border-grey);
 `
 
 export const elBorderGreyR = css`
-  border-right: 1px solid var(--color-grey-100, '#dbdbdb');
+  border-right: var(--util-border-grey);
 `
 
 export const elBorderGreyX = css`
-  border-left: 1px solid var(--color-grey-100, '#dbdbdb');
-  border-right: 1px solid var(--color-grey-100, '#dbdbdb');
+  border-left: var(--util-border-grey);
+  border-right: var(--util-border-grey);
 `
 
 export const elBorderGreyY = css`
-  border-top: 1px solid var(--color-grey-100, '#dbdbdb');
-  border-bottom: 1px solid var(--color-grey-100, '#dbdbdb');
+  border-top: var(--util-border-grey);
+  border-bottom: var(--util-border-grey);
 `
 
+/** @deprecated - to be removed in v5 **/
 export const elBorderBlue = css`
-  border: 1px solid var(--color-blue-light2, '#7bc9eb');
+  border: var(--util-border-purple);
 `
 
+/** @deprecated - to be removed in v5 **/
 export const elBorderBlueT = css`
-  border-top: 1px solid var(--color-blue-light2, '#7bc9eb');
+  border-top: var(--util-border-purple);
 `
 
+/** @deprecated - to be removed in v5 **/
 export const elBorderBlueB = css`
-  border-bottom: 1px solid var(--color-blue-light2, '#7bc9eb');
+  border-bottom: var(--util-border-purple);
 `
 
+/** @deprecated - to be removed in v5 **/
 export const elBorderBlueL = css`
-  border-left: 1px solid var(--color-blue-light2, '#7bc9eb');
+  border-left: var(--util-border-purple);
 `
 
+/** @deprecated - to be removed in v5 **/
 export const elBorderBlueR = css`
-  border-right: 1px solid var(--color-blue-light2, '#7bc9eb');
+  border-right: var(--util-border-purple);
 `
 
+/** @deprecated - to be removed in v5 **/
 export const elBorderBlueX = css`
-  border-left: 1px solid var(--color-blue-light2, '#7bc9eb');
-  border-right: 1px solid var(--color-blue-light2, '#7bc9eb');
+  border-left: var(--util-border-purple);
+  border-right: var(--util-border-purple);
 `
 
+/** @deprecated - to be removed in v5 **/
 export const elBorderBlueY = css`
-  border-top: 1px solid var(--color-blue-light2, '#7bc9eb');
-  border-bottom: 1px solid var(--color-blue-light2, '#7bc9eb');
+  border-top: var(--util-border-purple);
+  border-bottom: var(--util-border-purple);
+`
+
+export const elBorderPurple = css`
+  border: var(--util-border-purple);
+`
+
+export const elBorderPurpleT = css`
+  border-top: var(--util-border-purple);
+`
+
+export const elBorderPurpleB = css`
+  border-bottom: var(--util-border-purple);
+`
+
+export const elBorderPurpleL = css`
+  border-left: var(--util-border-purple);
+`
+
+export const elBorderPurpleR = css`
+  border-right: var(--util-border-purple);
+`
+
+export const elBorderPurpleX = css`
+  border-left: var(--util-border-purple);
+  border-right: var(--util-border-purple);
+`
+
+export const elBorderPurpleY = css`
+  border-top: var(--util-border-purple);
+  border-bottom: var(--util-border-purple);
 `
 
 export const elBorderRadius = css`
-  border-radius: 0.25rem;
+  border-radius: var(--util-border-radius);
 `
 
 export const elBorderRadiusTL = css`
-  border-top-left-radius: 0.25rem;
+  border-top-left-radius: var(--util-border-radius);
 `
 
 export const elBorderRadiusTR = css`
-  border-top-right-radius: 0.25rem;
+  border-top-right-radius: var(--util-border-radius);
 `
 
 export const elBorderRadiusBL = css`
-  border-bottom-left-radius: 0.25rem;
+  border-bottom-left-radius: var(--util-border-radius);
 `
 
 export const elBorderRadiusBR = css`
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-right-radius: var(--util-border-radius);
 `
 
 export const elBorderRadiusB = css`
-  border-bottom-left-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-bottom-left-radius: var(--util-border-radius);
+  border-bottom-right-radius: var(--util-border-radius);
 `
 
 export const elBorderRadiusT = css`
-  border-top-left-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-top-left-radius: var(--util-border-radius);
+  border-top-right-radius: var(--util-border-radius);
 `
 
 export const elBorderRadiusL = css`
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
+  border-top-left-radius: var(--util-border-radius);
+  border-bottom-left-radius: var(--util-border-radius);
 `
 
 export const elBorderRadiusR = css`
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
+  border-top-right-radius: var(--util-border-radius);
+  border-bottom-right-radius: var(--util-border-radius);
 `
 
 export const elBoxShadow = css`
-  box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
+  box-shadow: var(--util-box-shadow);
 `
