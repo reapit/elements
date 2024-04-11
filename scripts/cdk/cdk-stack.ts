@@ -6,7 +6,7 @@ const createStack = async () => {
 
   const stack = createBaseStack({
     namespace: 'cloud',
-    appName: 'elements',
+    appName: 'elements-beta',
     component: 'site',
     accountId,
     region: 'eu-west-2',
