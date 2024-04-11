@@ -1,4 +1,4 @@
-const linaria = require('@linaria/vite').default
+const linaria = require('@wyw-in-js/vite').default
 const svgrPlugin = require('@svgr/rollup')
 const path = require('path')
 const react = require('@vitejs/plugin-react')
@@ -52,6 +52,6 @@ module.exports = {
   },
 
   docs: {
-    autodocs: true
-  }
+    autodocs: true,
+  },
 }

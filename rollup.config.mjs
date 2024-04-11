@@ -1,4 +1,4 @@
-import linaria from '@linaria/rollup'
+import linaria from '@wyw-in-js/rollup'
 import css from 'rollup-plugin-css-only'
 import babel from '@rollup/plugin-babel'
 import typescript from '@rollup/plugin-typescript'
