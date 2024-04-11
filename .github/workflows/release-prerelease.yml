@@ -16,8 +16,8 @@ permissions:
   pull-requests: write
 
 jobs:
-  release-prod:
-    name: Release
+  prerelease-prod:
+    name: Prerelease
     runs-on: ubuntu-latest
     steps:
       - name: Configure AWS Credentials
@@ -31,7 +31,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
-          ref: beta
+          ref: main
 
       - name: Get Tag
         uses: olegtarasov/get-tag@v2.1
@@ -81,7 +81,7 @@ jobs:
           commit_message: 'chore: bump version to ${{ steps.tagName.outputs.version }}'
           title: 'chore: bump version to ${{ steps.tagName.outputs.version }}'
           body: Update to version in package.json
-          base: beta
+          base: main
           branch: chore/update-version-${{ steps.tagName.outputs.version }}
 
       - name: Deploy

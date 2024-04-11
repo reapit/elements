@@ -3,7 +3,7 @@ name: Release Dev
 on:
   push:
     branches:
-      - main
+      - lts
 
 permissions:
   contents: read
