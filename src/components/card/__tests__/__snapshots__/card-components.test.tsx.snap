@@ -85,14 +85,14 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
         </mock-styled.div>
         <mock-styled.div
           classname="mock-css.
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--util-rems-5);
 "
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
         </mock-styled.div>
         <mock-styled.div
           classname="mock-css.
-  margin-top: 0.75rem;
+  margin-top: var(--util-rems-5);
 "
         >
           <mock-styled.div>
@@ -276,14 +276,14 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css.
-  margin-bottom: 0.75rem;
+  margin-bottom: var(--util-rems-5);
 "
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
       </mock-styled.div>
       <mock-styled.div
         classname="mock-css.
-  margin-top: 0.75rem;
+  margin-top: var(--util-rems-5);
 "
       >
         <mock-styled.div>

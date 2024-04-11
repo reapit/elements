@@ -23,6 +23,13 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 - Fixes `Select` component height so it matches that of an input.
 - Adds new `InputWrapHalf` component to allow `FormLayout` to work better in a `Drawer`.
 - `Inputs` are now 100% width of container by default to avoid flexbox rendering issues.
+- `Pagination` - some tidy up of markup, improves validation and background colour can be customised with a variable.
+- `PageHeader` titles now default to `h1` and `h2` respectively.
+- `Title`, `SubTitle`, `BodyText` and `SmallText` now have a `tag` prop to allow for customisation of the tag used. Deprecation notices applied ahead of v5.
+- Clarified docs on `Grid` `ColQuarter` and `ColHalf` usage.
+- Allowed a variable to control `Nav` branding size.
+- `Utils` classes now all variablised so can be customised.
+- New `ThemeProvider` component added to allow for custom theming of Elements components as well as directions on how to do this in linaria.
 
 ### **4.2.0 - 10/04/24**
 
@@ -481,4 +488,4 @@ We hope the migration process will be relatively smooth in virtually all cases h
 
 - Initial 3.x.x full ground up re-build with zero compat from v2.x.x
 - For migration information see aboveimport { InputWrapHalf } from '../components/form-layout'
-  import { FormLayout } from '../components/form-layout'
+  import { FormLayout } from '../components/form-layout'import { BodyText } from '../components/typography'

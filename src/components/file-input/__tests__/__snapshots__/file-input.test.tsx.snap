@@ -26,7 +26,7 @@ exports[`FileInput component should match a snapshot 1`] = `
         >
           <mock-styled.button
             classname="mock-css.
-  margin-right: 0.625rem;
+  margin-right: var(-util-rems-4);
  mock-css."
             type="button"
           >
@@ -42,8 +42,8 @@ exports[`FileInput component should match a snapshot 1`] = `
             aria-hidden="true"
             id="test-static-id"
           />
-          <mock-styled.p
-            classname="mock-css.
+          <small
+            class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -100,6 +100,86 @@ exports[`FileInput component should match a snapshot 1`] = `
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
   }
 
   &., {
@@ -132,7 +212,7 @@ exports[`FileInput component should match a snapshot 1`] = `
  mock-css. mock-css."
           >
             Upload File
-          </mock-styled.p>
+          </small>
         </div>
       </mock-styled.div>
     </div>
@@ -159,7 +239,7 @@ exports[`FileInput component should match a snapshot 1`] = `
       >
         <mock-styled.button
           classname="mock-css.
-  margin-right: 0.625rem;
+  margin-right: var(-util-rems-4);
  mock-css."
           type="button"
         >
@@ -175,8 +255,8 @@ exports[`FileInput component should match a snapshot 1`] = `
           aria-hidden="true"
           id="test-static-id"
         />
-        <mock-styled.p
-          classname="mock-css.
+        <small
+          class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -262,10 +342,90 @@ exports[`FileInput component should match a snapshot 1`] = `
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
  mock-css. mock-css."
         >
           Upload File
-        </mock-styled.p>
+        </small>
       </div>
     </mock-styled.div>
   </div>,
@@ -421,7 +581,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
         >
           <mock-styled.button
             classname="mock-css.
-  margin-right: 0.625rem;
+  margin-right: var(-util-rems-4);
  mock-css."
             type="button"
           >
@@ -440,7 +600,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.625rem;
+  margin-right: var(-util-rems-4);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -455,7 +615,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.625rem;
+  margin-right: var(-util-rems-4);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -498,7 +658,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
       >
         <mock-styled.button
           classname="mock-css.
-  margin-right: 0.625rem;
+  margin-right: var(-util-rems-4);
  mock-css."
           type="button"
         >
@@ -517,7 +677,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css.
-  margin-right: 0.625rem;
+  margin-right: var(-util-rems-4);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -532,7 +692,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
-  margin-right: 0.625rem;
+  margin-right: var(-util-rems-4);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "

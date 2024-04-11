@@ -371,7 +371,7 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
         >
           <mock-styled.span
             classname="mock-css.
-  margin-left: 0.375rem;
+  margin-left: var(--util-rems-2);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -451,7 +451,7 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
       >
         <mock-styled.span
           classname="mock-css.
-  margin-left: 0.375rem;
+  margin-left: var(--util-rems-2);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "

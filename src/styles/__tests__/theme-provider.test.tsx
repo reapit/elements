@@ -32,9 +32,9 @@ describe('toKebabCase', () => {
   })
 
   it('should insert hyphen before group of numbers', () => {
-    const input = 'group123ofNumbers'
+    const input = 'group123OfNumbers'
     const output = toKebabCase(input)
-    expect(output).toBe('group-123of-numbers')
+    expect(output).toBe('group-123-of-numbers')
   })
 
   it('should handle empty strings', () => {

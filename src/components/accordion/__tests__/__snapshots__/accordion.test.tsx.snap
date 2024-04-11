@@ -14,7 +14,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
               >
                 <svg
@@ -27,7 +27,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
               >
                 <svg
@@ -62,7 +62,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
               >
                 <svg
@@ -75,7 +75,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
               >
                 <svg
@@ -113,7 +113,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
             >
               <svg
@@ -126,7 +126,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
             >
               <svg
@@ -161,7 +161,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
             >
               <svg
@@ -174,7 +174,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
             >
               <svg
@@ -275,7 +275,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
               >
                 <svg
@@ -288,7 +288,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
               >
                 <svg
@@ -337,7 +337,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
               >
                 <svg
@@ -350,7 +350,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
             <mock-styled.div>
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
               >
                 <svg
@@ -404,7 +404,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
             >
               <svg
@@ -417,7 +417,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
             >
               <svg
@@ -466,7 +466,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
             >
               <svg
@@ -479,7 +479,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.25rem;
+  margin-right: var(--util-rems-1);
 "
             >
               <svg

@@ -4009,8 +4009,8 @@ exports[`Typography Helpers BodyText should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.p
-        classname="mock-css.
+      <p
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -4067,6 +4067,86 @@ exports[`Typography Helpers BodyText should match a snapshot 1`] = `
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-default);
+  line-height: 1.25rem;
+  letter-spacing: -1%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
   }
 
   &., {
@@ -4099,12 +4179,12 @@ exports[`Typography Helpers BodyText should match a snapshot 1`] = `
 "
       >
         I am body text
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.p
-      classname="mock-css.
+    <p
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -4190,10 +4270,90 @@ exports[`Typography Helpers BodyText should match a snapshot 1`] = `
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-default);
+  line-height: 1.25rem;
+  letter-spacing: -1%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
 "
     >
       I am body text
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -4254,8 +4414,8 @@ exports[`Typography Helpers BodyText should match a snapshot with all modifiers 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.p
-        classname="mock-css.
+      <p
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -4312,6 +4472,86 @@ exports[`Typography Helpers BodyText should match a snapshot with all modifiers 
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-default);
+  line-height: 1.25rem;
+  letter-spacing: -1%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
   }
 
   &., {
@@ -4344,12 +4584,12 @@ exports[`Typography Helpers BodyText should match a snapshot with all modifiers 
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am body text
-      </mock-styled.p>
+      </p>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.p
-      classname="mock-css.
+    <p
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -4435,10 +4675,90 @@ exports[`Typography Helpers BodyText should match a snapshot with all modifiers 
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-default);
+  line-height: 1.25rem;
+  letter-spacing: -1%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am body text
-    </mock-styled.p>
+    </p>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -4499,8 +4819,8 @@ exports[`Typography Helpers SmallText should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.p
-        classname="mock-css.
+      <small
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -4557,6 +4877,86 @@ exports[`Typography Helpers SmallText should match a snapshot 1`] = `
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
   }
 
   &., {
@@ -4589,12 +4989,12 @@ exports[`Typography Helpers SmallText should match a snapshot 1`] = `
 "
       >
         I am small text
-      </mock-styled.p>
+      </small>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.p
-      classname="mock-css.
+    <small
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -4680,10 +5080,90 @@ exports[`Typography Helpers SmallText should match a snapshot 1`] = `
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
 "
     >
       I am small text
-    </mock-styled.p>
+    </small>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -4744,8 +5224,8 @@ exports[`Typography Helpers SmallText should match a snapshot 2`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.p
-        classname="mock-css.
+      <small
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -4802,6 +5282,86 @@ exports[`Typography Helpers SmallText should match a snapshot 2`] = `
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
   }
 
   &., {
@@ -4834,12 +5394,12 @@ exports[`Typography Helpers SmallText should match a snapshot 2`] = `
 "
       >
         I am small text
-      </mock-styled.p>
+      </small>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.p
-      classname="mock-css.
+    <small
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -4925,10 +5485,90 @@ exports[`Typography Helpers SmallText should match a snapshot 2`] = `
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
 "
     >
       I am small text
-    </mock-styled.p>
+    </small>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -4989,8 +5629,8 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.p
-        classname="mock-css.
+      <small
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -5047,6 +5687,86 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
   }
 
   &., {
@@ -5079,12 +5799,12 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am small text
-      </mock-styled.p>
+      </small>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.p
-      classname="mock-css.
+    <small
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -5170,10 +5890,90 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am small text
-    </mock-styled.p>
+    </small>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -5234,8 +6034,8 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.p
-        classname="mock-css.
+      <small
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -5292,6 +6092,86 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
   }
 
   &., {
@@ -5324,12 +6204,12 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am small text
-      </mock-styled.p>
+      </small>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.p
-      classname="mock-css.
+    <small
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -5415,10 +6295,90 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am small text
-    </mock-styled.p>
+    </small>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -5479,8 +6439,8 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.p
-        classname="mock-css.
+      <small
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -5537,6 +6497,86 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
   }
 
   &., {
@@ -5569,12 +6609,12 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         i am some text
-      </mock-styled.p>
+      </small>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.p
-      classname="mock-css.
+    <small
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -5660,10 +6700,90 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+  line-height: 1.125rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.5rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       i am some text
-    </mock-styled.p>
+    </small>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -5724,8 +6844,8 @@ exports[`Typography Helpers SubTitle should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.h2
-        classname="mock-css.
+      <h2
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -5782,6 +6902,86 @@ exports[`Typography Helpers SubTitle should match a snapshot 1`] = `
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-subheading);
+  line-height: 1.5rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.75rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
   }
 
   &., {
@@ -5814,12 +7014,12 @@ exports[`Typography Helpers SubTitle should match a snapshot 1`] = `
 "
       >
         I am a subtitle
-      </mock-styled.h2>
+      </h2>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.h2
-      classname="mock-css.
+    <h2
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -5905,10 +7105,90 @@ exports[`Typography Helpers SubTitle should match a snapshot 1`] = `
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-subheading);
+  line-height: 1.5rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.75rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
 "
     >
       I am a subtitle
-    </mock-styled.h2>
+    </h2>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -5969,8 +7249,8 @@ exports[`Typography Helpers SubTitle should match a snapshot with all modifiers 
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.h2
-        classname="mock-css.
+      <h2
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -6027,6 +7307,86 @@ exports[`Typography Helpers SubTitle should match a snapshot with all modifiers 
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-subheading);
+  line-height: 1.5rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.75rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
   }
 
   &., {
@@ -6059,12 +7419,12 @@ exports[`Typography Helpers SubTitle should match a snapshot with all modifiers 
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a subtitle
-      </mock-styled.h2>
+      </h2>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.h2
-      classname="mock-css.
+    <h2
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -6150,10 +7510,90 @@ exports[`Typography Helpers SubTitle should match a snapshot with all modifiers 
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-default);
+  color: var(--color-black);
+  font-size: var(--font-size-subheading);
+  line-height: 1.5rem;
+  letter-spacing: 0%;
+  margin-bottom: 0.75rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1rem;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a subtitle
-    </mock-styled.h2>
+    </h2>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -6214,8 +7654,8 @@ exports[`Typography Helpers Title should match a snapshot 1`] = `
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.h1
-        classname="mock-css.
+      <h1
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -6272,6 +7712,86 @@ exports[`Typography Helpers Title should match a snapshot 1`] = `
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  font-size: var(--font-size-heading);
+  line-height: 2.25rem;
+  letter-spacing: 0%;
+  margin-bottom: 1rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
   }
 
   &., {
@@ -6304,12 +7824,12 @@ exports[`Typography Helpers Title should match a snapshot 1`] = `
 "
       >
         I am a title
-      </mock-styled.h1>
+      </h1>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.h1
-      classname="mock-css.
+    <h1
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -6395,10 +7915,90 @@ exports[`Typography Helpers Title should match a snapshot 1`] = `
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  font-size: var(--font-size-heading);
+  line-height: 2.25rem;
+  letter-spacing: 0%;
+  margin-bottom: 1rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
 "
     >
       I am a title
-    </mock-styled.h1>
+    </h1>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -6459,8 +8059,8 @@ exports[`Typography Helpers Title should match a snapshot with all modifiers 1`]
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.h1
-        classname="mock-css.
+      <h1
+        class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -6517,6 +8117,86 @@ exports[`Typography Helpers Title should match a snapshot with all modifiers 1`]
 
   &., {
     margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  font-size: var(--font-size-heading);
+  line-height: 2.25rem;
+  letter-spacing: 0%;
+  margin-bottom: 1rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
   }
 
   &., {
@@ -6549,12 +8229,12 @@ exports[`Typography Helpers Title should match a snapshot with all modifiers 1`]
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
       >
         I am a title
-      </mock-styled.h1>
+      </h1>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.h1
-      classname="mock-css.
+    <h1
+      class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
   font-size: 15px;
@@ -6640,10 +8320,90 @@ exports[`Typography Helpers Title should match a snapshot with all modifiers 1`]
   &., {
     color: var(--intent-default);
   }
+ mock-css.
+  font-family: var(--font-sans-serif);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-black);
+  font-size: var(--font-size-heading);
+  line-height: 2.25rem;
+  letter-spacing: 0%;
+  margin-bottom: 1rem;
+
+  &., {
+    color: var(--color-grey-500);
+  }
+
+  &., {
+    color: var(--color-grey-400);
+
+    a {
+      color: var(--color-grey-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
  mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css. mock-css."
     >
       I am a title
-    </mock-styled.h1>
+    </h1>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

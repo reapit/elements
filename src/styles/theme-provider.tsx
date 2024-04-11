@@ -6,7 +6,11 @@ export interface ElementsThemeProviderProps extends PropsWithChildren {
   }
 }
 
-export const toKebabCase = (theme: string) => theme.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+export const toKebabCase = (theme: string) =>
+  theme
+    .replace(/([a-z0-9])([A-Z])/g, '$1-$2')
+    .replace(/([a-z])(\d+)/g, '$1-$2')
+    .toLowerCase()
 
 export const ElementsThemeProvider: FC<ElementsThemeProviderProps> = ({ children, theme }) => {
   const scopedTheme = useMemo(() => {

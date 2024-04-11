@@ -13,7 +13,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
         >
           <mock-styled.div
             classname="mock-css.
-  margin-bottom: 1rem;
+  margin-bottom: var(--util-rems-6);
 "
           >
             <div
@@ -63,7 +63,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.375rem;
+  margin-right: var(--util-rems-2);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -104,7 +104,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.375rem;
+  margin-right: var(--util-rems-2);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -145,7 +145,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             >
               <mock-styled.span
                 classname="mock-css.
-  margin-right: 0.375rem;
+  margin-right: var(--util-rems-2);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -204,7 +204,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 <mock-styled.div
                   classname=""
                 >
-                  <div
+                  <h1
                     class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
@@ -295,11 +295,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
   font-size: 24px;
   line-height: 32px;
  mock-css. mock-css.
-  margin-right: 0.5rem;
+  margin-right: var(--util-rems-3);
 "
                   >
                     Page Title
-                  </div>
+                  </h1>
                   <mock-styled.div
                     classname=""
                   >
@@ -317,7 +317,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
                     </mock-styled.div>
                   </mock-styled.div>
                 </mock-styled.div>
-                <div
+                <h2
                   class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
@@ -410,7 +410,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
  mock-css."
                 >
                   Page Sub Title
-                </div>
+                </h2>
                 <div
                   class="mock-css.
   display: flex;
@@ -847,7 +847,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
       >
         <mock-styled.div
           classname="mock-css.
-  margin-bottom: 1rem;
+  margin-bottom: var(--util-rems-6);
 "
         >
           <div
@@ -897,7 +897,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.375rem;
+  margin-right: var(--util-rems-2);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -938,7 +938,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.375rem;
+  margin-right: var(--util-rems-2);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -979,7 +979,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
           >
             <mock-styled.span
               classname="mock-css.
-  margin-right: 0.375rem;
+  margin-right: var(--util-rems-2);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -1038,7 +1038,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.div
                 classname=""
               >
-                <div
+                <h1
                   class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
@@ -1129,11 +1129,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
   font-size: 24px;
   line-height: 32px;
  mock-css. mock-css.
-  margin-right: 0.5rem;
+  margin-right: var(--util-rems-3);
 "
                 >
                   Page Title
-                </div>
+                </h1>
                 <mock-styled.div
                   classname=""
                 >
@@ -1151,7 +1151,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   </mock-styled.div>
                 </mock-styled.div>
               </mock-styled.div>
-              <div
+              <h2
                 class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--color-black);
@@ -1244,7 +1244,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
  mock-css."
               >
                 Page Sub Title
-              </div>
+              </h2>
               <div
                 class="mock-css.
   display: flex;

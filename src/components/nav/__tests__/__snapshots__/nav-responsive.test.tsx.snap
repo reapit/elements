@@ -19,20 +19,20 @@ exports[`NavResponsive component should match a snapshot 1`] = `
   font-size: 1.5rem !important;
 "
             role="button"
-            style="height: 24px; width: 100px;"
+            style="width: 100px;"
             tabindex="0"
           >
             <svg
               role="img"
-              style="height: 24px; width: 100px;"
+              style="width: 100px;"
               title="Icon image with name reapitLogo"
             />
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
-  margin-left: auto;
+  margin-left: var(--util-auto);
  mock-css.
-  margin-right: 0.625rem;
+  margin-right: var(-util-rems-4);
  mock-css.
   @media screen and (min-width: 768px) {
     height: 0;
@@ -150,20 +150,20 @@ exports[`NavResponsive component should match a snapshot 1`] = `
   font-size: 1.5rem !important;
 "
           role="button"
-          style="height: 24px; width: 100px;"
+          style="width: 100px;"
           tabindex="0"
         >
           <svg
             role="img"
-            style="height: 24px; width: 100px;"
+            style="width: 100px;"
             title="Icon image with name reapitLogo"
           />
         </mock-styled.span>
         <mock-styled.span
           classname="mock-css.
-  margin-left: auto;
+  margin-left: var(--util-auto);
  mock-css.
-  margin-right: 0.625rem;
+  margin-right: var(-util-rems-4);
  mock-css.
   @media screen and (min-width: 768px) {
     height: 0;
