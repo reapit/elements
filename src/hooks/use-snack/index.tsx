@@ -1,4 +1,4 @@
-import React, { createContext, useState, useRef, useContext, PropsWithChildren, FC } from 'react'
+import { createContext, useState, useRef, useContext, FC } from 'react'
 import { SnackProps, SnackHolder } from '../../components/snack'
 import { generateRandomId } from '../../storybook/random-id'
 
@@ -8,7 +8,7 @@ export interface SnackContextProps {
 
 export const SnackContext = createContext<SnackContextProps>({} as SnackContextProps)
 
-export const SnackProvider: FC<PropsWithChildren> = ({ children }) => {
+export const SnackProvider: FC = ({ children }) => {
   const [snacks, setSnacks] = useState<SnackProps[]>([])
 
   // must also use a ref so that inside the callback to setTimeout, `snacks` is the

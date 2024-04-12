@@ -132,7 +132,9 @@ exports[`FileInput component should match a snapshot 1`] = `
  mock-css.
   font-size: 14px;
   line-height: 20px;
- mock-css. mock-css."
+ mock-css. mock-css. mock-css.
+  margin-left: var(--util-rems-3);
+"
           >
             Upload File
           </div>
@@ -268,7 +270,9 @@ exports[`FileInput component should match a snapshot 1`] = `
  mock-css.
   font-size: 14px;
   line-height: 20px;
- mock-css. mock-css."
+ mock-css. mock-css. mock-css.
+  margin-left: var(--util-rems-3);
+"
         >
           Upload File
         </div>

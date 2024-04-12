@@ -1,6 +1,6 @@
-import { FC, PropsWithChildren, useMemo } from 'react'
+import { FC, useMemo } from 'react'
 
-export interface ElementsThemeProviderProps extends PropsWithChildren {
+export interface ElementsThemeProviderProps {
   theme: {
     [key: string]: string
   }

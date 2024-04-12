@@ -1,4 +1,4 @@
-import React, { FC, forwardRef, HTMLAttributes, useEffect, useId } from 'react'
+import React, { FC, forwardRef, HTMLAttributes, useEffect } from 'react'
 import {
   ElSearchableDropdownCloseButton,
   ElSearchableDropdownContainer,
@@ -11,7 +11,7 @@ import {
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { handleSetNativeInput } from '../multi-select'
-import { generateRandomId } from '../../storybook/random-id'
+import { generateRandomId, useId } from '../../storybook/random-id'
 import { Label } from '../label'
 import { elMb3 } from '../../styles/spacing'
 import { elFlex } from '../../styles/flexbox'

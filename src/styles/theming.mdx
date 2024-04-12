@@ -18,7 +18,7 @@ There are two methods for theming - the compile time, `linaria` method we use wh
 
 Here we are overriding the `--intent-primary`, `--intent-primary-dark` and `--font-size-small` variables by wrapping the component in a provider that uses the `css` function from `linaria` to set the global variables. This changes the default primary button globally from blue to green (along with anything else using those variables), and increases the text size.
 
-Because the transformation is happening at compile time, we can't supply a component that performs this action so you will need to maintain your own version of the source code below, wrapping your react app in the provider as per the `show code` block.
+Because the transformation is happening at compile time, we can't supply a component that performs this action so you will need to maintain your own version of the source code below, wrapping your react app in the provider.
 
 > You can also just import a plain old CSS file at the root of your project with the declared root variable list.
 
@@ -37,20 +37,20 @@ export const GlobalThemeProvider: FC<PropsWithChildren> = ({ children }) => {
 
 return <div className={globalTheme}>{children}</div>
 }
-`}
-language="typescript"
-/>
 
-<Canvas of={ThemingStories.GlobalThemes} />
+// Usage
 
-<RenderHtmlMarkup of={ThemingStories.GlobalThemes} />
+<GlobalThemeProvider>
+  <Button intent="primary">Button Text</Button>
+</GlobalThemeProvider>
+`} language="typescript" />
 
-## Scoped Themes
+## Theming Provider
 
 We also support an in-house provider that inlines the variables, overriding the root selector. This is useful when you want more granular control over the area of the app you wish to theme - you can use it either globally or at an indivudual component level.
 
 In the below example, we wrap our button in the `ElementsThemeProvider` which accepts an object of CSS variables to set. This overrides the theme set in the previous example.
 
-<Canvas of={ThemingStories.ScopedThemes} />
+<Canvas of={ThemingStories.ThemingProvider} />
 
-<RenderHtmlMarkup of={ThemingStories.ScopedThemes} />
+<RenderHtmlMarkup of={ThemingStories.ThemingProvider} />

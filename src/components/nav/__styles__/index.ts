@@ -105,7 +105,7 @@ export const ElNavItem = styled.a`
     border-bottom: 1px solid var(--color-grey-100);
   }
 
-  :not(:first-child) {
+  &:not(:first-child) {
     height: 0;
     overflow: hidden;
   }
@@ -119,7 +119,7 @@ export const ElNavItem = styled.a`
     width: auto;
     border-left: none;
 
-    :not(:first-child) {
+    &:not(:first-child) {
       overflow: visible;
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
@@ -166,7 +166,7 @@ export const elNavItemActive = css`
 `
 
 export const elNavItemExpanded = css`
-  :not(:first-child) {
+  &:not(:first-child) {
     height: 2rem;
   }
 

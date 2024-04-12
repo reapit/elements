@@ -48,6 +48,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
               title="Icon image with name more"
             />
           </mock-styled.span>
+          
         </mock-styled.a>
         <mock-styled.a
           classname="mock-css.
@@ -128,6 +129,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
         >
           Logout
         </mock-styled.a>
+        
       </mock-styled.nav>
     </div>
   </body>,
@@ -175,6 +177,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
             title="Icon image with name more"
           />
         </mock-styled.span>
+        
       </mock-styled.a>
       <mock-styled.a
         classname="mock-css.
@@ -255,6 +258,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
       >
         Logout
       </mock-styled.a>
+      
     </mock-styled.nav>
   </div>,
   "debug": [Function],

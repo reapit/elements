@@ -11,10 +11,10 @@ exports[`MobileControls component should match a snapshot 1`] = `
       />
       <mock-styled.div
         classname=""
-        id=":r0:"
+        id="test-static-id"
       >
         <mock-styled.button
-          aria-controls=":r0:"
+          aria-controls="test-static-id"
           classname="mock-css. mock-css."
         >
           <mock-styled.div />
@@ -37,10 +37,10 @@ exports[`MobileControls component should match a snapshot 1`] = `
     />
     <mock-styled.div
       classname=""
-      id=":r0:"
+      id="test-static-id"
     >
       <mock-styled.button
-        aria-controls=":r0:"
+        aria-controls="test-static-id"
         classname="mock-css. mock-css."
       >
         <mock-styled.div />
@@ -122,7 +122,7 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
         classname="mock-css.
   display: flex;
 "
-        id=":r1:"
+        id="test-static-id"
       >
         <mock-styled.a
           aria-hidden="true"
@@ -146,7 +146,7 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
           Item Three
         </mock-styled.a>
         <mock-styled.button
-          aria-controls=":r1:"
+          aria-controls="test-static-id"
           classname="mock-css. mock-css."
         >
           <mock-styled.div />
@@ -171,7 +171,7 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
       classname="mock-css.
   display: flex;
 "
-      id=":r1:"
+      id="test-static-id"
     >
       <mock-styled.a
         aria-hidden="true"
@@ -195,7 +195,7 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
         Item Three
       </mock-styled.a>
       <mock-styled.button
-        aria-controls=":r1:"
+        aria-controls="test-static-id"
         classname="mock-css. mock-css."
       >
         <mock-styled.div />

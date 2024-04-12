@@ -1,7 +1,8 @@
-import React, { FC, HTMLAttributes, createRef, useEffect, useId } from 'react'
+import React, { FC, HTMLAttributes, createRef, useEffect } from 'react'
 import { cx } from '@linaria/core'
 import { ElModalBg, ElModal, ElModalHeader, ElModalBody } from './__styles__'
 import { elIsActive } from '../../styles/states'
+import { useId } from '../../storybook/random-id'
 
 export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
@@ -43,7 +44,7 @@ export const handleModalFocus = (modalRef: React.RefObject<HTMLDivElement>, isOp
 }
 
 export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, children, ...rest }) => {
-  const id = rest.id || useId()
+  const id = useId(rest.id)
   const modalRef = createRef<HTMLDivElement>()
 
   useEffect(() => {

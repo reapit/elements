@@ -97,24 +97,24 @@ export const ToggleRadioSelectPropsGreyBg = {
 export const ToggleRadioDisabled = {
   render: ({}) => (
     <ToggleRadio
-      name="my-cool-toggle-radio"
+      name="my-cool-toggle-radio-disabled"
       disabled={true}
       options={[
         {
-          id: 'option-1',
-          value: 'option-1',
+          id: 'option-1-disabled',
+          value: 'option-1-disabled',
           text: 'Opt 1',
           isChecked: true,
         },
         {
-          id: 'option-2',
-          value: 'option-2',
+          id: 'option-2-disabled',
+          value: 'option-2-disabled',
           text: 'Opt 2',
           isChecked: false,
         },
         {
-          id: 'option-3',
-          value: 'option-3',
+          id: 'option-3-disabled',
+          value: 'option-3-disabled',
           text: 'Opt 3',
           isChecked: false,
         },

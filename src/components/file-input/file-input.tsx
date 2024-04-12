@@ -10,7 +10,7 @@ import React, {
   FC,
 } from 'react'
 import { useId } from '../../storybook/random-id'
-import { elMr4 } from '../../styles/spacing'
+import { elMl3, elMr4 } from '../../styles/spacing'
 import { Button } from '../button'
 import { Icon } from '../icon'
 import { Label } from '../label'
@@ -173,7 +173,7 @@ export const FileInput: FileInputWrapped = forwardRef(
               />
             </ElFileInputIconContainer>
           ) : (
-            <TextSM hasGreyText hasNoMargin>
+            <TextSM className={elMl3} hasGreyText hasNoMargin>
               {placeholderText || 'Upload File'}
             </TextSM>
           )}

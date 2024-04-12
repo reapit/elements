@@ -1,9 +1,10 @@
-import React, { Dispatch, FC, HTMLAttributes, MouseEvent, SetStateAction, useState, useId } from 'react'
+import React, { Dispatch, FC, HTMLAttributes, MouseEvent, SetStateAction, useState } from 'react'
 import { ElMobileControlItem, ElMobileControls, ElMobileControlsBg, elMobileControlsVisible } from './__styles__'
 import { IconNames } from '../icon'
 import { FloatingButton } from '../button'
 import { cx } from '@linaria/core'
 import { elIsActive } from '../../styles/states'
+import { useId } from '../../storybook/random-id'
 
 export interface MobileControlItem extends HTMLAttributes<HTMLAnchorElement> {
   onClick?: () => void
@@ -38,7 +39,7 @@ export const MobileControls: FC<MobileControlsProps> = ({
   ...rest
 }) => {
   const [active, setActive] = useState<boolean>(false)
-  const id = rest.id || useId()
+  const id = useId(rest.id)
 
   return (
     <>

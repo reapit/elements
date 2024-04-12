@@ -43,20 +43,20 @@ export const ElToggleCheckbox = styled.input`
   + label ${ElToggleItem} {
     transition: all 0.2s linear;
 
-    :first-child {
+    &:first-child {
       margin-right: 0.375rem;
     }
   }
 
   &:not(:checked) + label ${ElToggleItem} {
-    :last-child {
+    &:last-child {
       background: var(--intent-primary);
       color: var(--color-white);
     }
   }
 
   &:checked + label ${ElToggleItem} {
-    :first-child {
+    &:first-child {
       background: var(--intent-primary);
       color: var(--color-white);
     }

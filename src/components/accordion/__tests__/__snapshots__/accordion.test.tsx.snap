@@ -262,9 +262,9 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
     <div>
       <mock-styled.div>
         <mock-styled.a
-          aria-controls=":r0:-0"
+          aria-controls="test-static-id-0"
           aria-label="Accordion item, hit return to expand content"
-          id=":r1:-0"
+          id="test-static-id-0"
           role="button"
           tabindex="0"
         >
@@ -314,17 +314,17 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
         </mock-styled.a>
         <mock-styled.div
           aria-expanded="false"
-          aria-labelledby=":r1:-0"
+          aria-labelledby="test-static-id-0"
           classname=""
-          id=":r0:-0"
+          id="test-static-id-0"
           role="region"
         >
           Accordion Content 1
         </mock-styled.div>
         <mock-styled.a
-          aria-controls=":r0:-1"
+          aria-controls="test-static-id-1"
           aria-label="Accordion item, hit return to expand content"
-          id=":r1:-1"
+          id="test-static-id-1"
           role="button"
           tabindex="0"
         >
@@ -374,9 +374,9 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
         </mock-styled.a>
         <mock-styled.div
           aria-expanded="false"
-          aria-labelledby=":r1:-1"
+          aria-labelledby="test-static-id-1"
           classname=""
-          id=":r0:-1"
+          id="test-static-id-1"
           role="region"
         >
           Accordion Content 2
@@ -387,9 +387,9 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
   "container": <div>
     <mock-styled.div>
       <mock-styled.a
-        aria-controls=":r0:-0"
+        aria-controls="test-static-id-0"
         aria-label="Accordion item, hit return to expand content"
-        id=":r1:-0"
+        id="test-static-id-0"
         role="button"
         tabindex="0"
       >
@@ -439,17 +439,17 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
       </mock-styled.a>
       <mock-styled.div
         aria-expanded="false"
-        aria-labelledby=":r1:-0"
+        aria-labelledby="test-static-id-0"
         classname=""
-        id=":r0:-0"
+        id="test-static-id-0"
         role="region"
       >
         Accordion Content 1
       </mock-styled.div>
       <mock-styled.a
-        aria-controls=":r0:-1"
+        aria-controls="test-static-id-1"
         aria-label="Accordion item, hit return to expand content"
-        id=":r1:-1"
+        id="test-static-id-1"
         role="button"
         tabindex="0"
       >
@@ -499,9 +499,9 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
       </mock-styled.a>
       <mock-styled.div
         aria-expanded="false"
-        aria-labelledby=":r1:-1"
+        aria-labelledby="test-static-id-1"
         classname=""
-        id=":r0:-1"
+        id="test-static-id-1"
         role="region"
       >
         Accordion Content 2

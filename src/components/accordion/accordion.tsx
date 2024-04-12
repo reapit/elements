@@ -1,4 +1,4 @@
-import { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState, useId } from 'react'
+import { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState } from 'react'
 import { cx } from '@linaria/core'
 import {
   ElAccordionContainer,
@@ -11,6 +11,7 @@ import {
 import { elIsActive } from '../../styles/states'
 import { Icon } from '../icon'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
+import { useId } from '../../storybook/random-id'
 
 export interface AccordionBaseProps extends HTMLAttributes<HTMLDivElement> {}
 export interface AccordionBaseItemProps extends HTMLAttributes<HTMLAnchorElement> {}

@@ -6,7 +6,7 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
   "baseElement": <body>
     <div>
       <mock-styled.div
-        aria-controls=":r3:"
+        aria-controls="test-static-id"
         aria-expanded="false"
         aria-haspopup="listbox"
         role="combobox"
@@ -41,7 +41,7 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
   </body>,
   "container": <div>
     <mock-styled.div
-      aria-controls=":r3:"
+      aria-controls="test-static-id"
       aria-expanded="false"
       aria-haspopup="listbox"
       role="combobox"
@@ -133,7 +133,7 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        aria-controls=":r1:"
+        aria-controls="test-static-id"
         aria-expanded="false"
         aria-haspopup="listbox"
         role="combobox"
@@ -164,7 +164,7 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      aria-controls=":r1:"
+      aria-controls="test-static-id"
       aria-expanded="false"
       aria-haspopup="listbox"
       role="combobox"
@@ -252,7 +252,7 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
   "baseElement": <body>
     <div>
       <mock-styled.div
-        aria-controls=":r0:"
+        aria-controls="test-static-id"
         aria-expanded="false"
         aria-haspopup="listbox"
         role="combobox"
@@ -284,7 +284,7 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
   </body>,
   "container": <div>
     <mock-styled.div
-      aria-controls=":r0:"
+      aria-controls="test-static-id"
       aria-expanded="false"
       aria-haspopup="listbox"
       role="combobox"
