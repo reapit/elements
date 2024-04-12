@@ -20,7 +20,7 @@ export const ElSearchableDropdownResult = styled.div`
   height: 2rem;
   font-size: var(--font-size-small);
 
-  :hover {
+  &:hover {
     background-color: var(--intent-primary);
     color: var(--color-white);
     cursor: pointer;
