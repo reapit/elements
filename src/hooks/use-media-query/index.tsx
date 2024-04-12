@@ -1,4 +1,5 @@
 import { FC, createContext, useContext, useEffect, useState } from 'react'
+import { PropsWithChildren } from '../../types/core'
 
 export interface MediaType {
   isMobile: boolean
@@ -19,7 +20,7 @@ export const MediaStateContext = createContext<MediaType>({} as MediaType)
 
 const { Provider } = MediaStateContext
 
-export const MediaStateProvider: FC = ({ children }) => {
+export const MediaStateProvider: FC<PropsWithChildren> = ({ children }) => {
   const initialWindowWidth = window.innerWidth
   const [mediaType, setMediaType] = useState<MediaType>({
     isMobile: initialWindowWidth < MOBILE_BREAKPOINT,
