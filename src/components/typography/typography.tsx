@@ -181,16 +181,12 @@ export const TextXS: FC<TypographyProps> = (props) => <TaggedTypography baseClas
 
 export const Text2XS: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elText2XS} {...props} />
 
-/** @deprecated - will be removed in v5 */
 export const Title: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTitle} tag="h1" {...props} />
 
-/** @deprecated - will be removed in v5 */
 export const Subtitle: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elSubtitle} tag="h2" {...props} />
 
-/** @deprecated - will be removed in v5 */
 export const BodyText: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elBodyText} tag="p" {...props} />
 
-/** @deprecated - will be removed in v5 */
 export const SmallText: FC<TypographyProps> = (props) => (
   <TaggedTypography baseClass={elSmallText} tag="small" {...props} />
 )
