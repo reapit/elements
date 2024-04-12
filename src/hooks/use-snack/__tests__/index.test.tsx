@@ -1,11 +1,12 @@
 import { render } from '@testing-library/react'
 import { SnackProvider, UseSnack, useSnack } from '../index'
 import { renderHook } from '@testing-library/react-hooks'
+import { PropsWithChildren } from '../../../types/core'
 
 describe('useSnack', () => {
   it('should return UseSnack state', async () => {
     const { result } = renderHook<{}, UseSnack>(() => useSnack(), {
-      wrapper: (props) => <SnackProvider>{props.children}</SnackProvider>,
+      wrapper: (props: PropsWithChildren) => <SnackProvider>{props.children}</SnackProvider>,
     })
 
     expect(typeof result.current.custom).toBe('function')
