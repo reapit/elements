@@ -1,7 +1,7 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { TableRow, TableCell } from '../components/table'
 import { colord } from 'colord'
-import { SmallText } from '@/components/typography'
+import { TextSM } from '../components/typography'
 
 export const ThemingColourBlock: FC<{
   hex: string
@@ -22,10 +22,10 @@ export const ThemingColourBlock: FC<{
         />
       </TableCell>
       <TableCell>
-        <SmallText>{varName}</SmallText>
+        <TextSM>{varName}</TextSM>
       </TableCell>
       <TableCell>
-        <SmallText>{defaultValue}</SmallText>
+        <TextSM>{defaultValue}</TextSM>
       </TableCell>
     </TableRow>
   )

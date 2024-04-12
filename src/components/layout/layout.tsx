@@ -1,7 +1,6 @@
-import React, { HTMLAttributes, FC } from 'react'
+import { HTMLAttributes, FC } from 'react'
 import { cx } from '@linaria/core'
 import {
-  ElMolecule,
   elHasGreyBackground,
   elHasMaxWidth,
   elMainContainer,
@@ -33,7 +32,6 @@ import {
   elFlexAlignStart,
   elFlexAlignEnd,
 } from '../../styles/flexbox'
-import { useDeprecateComponent } from '../../storybook/deprecate-var'
 
 type LayoutTags = 'main' | 'aside' | 'section' | 'div'
 export interface ContainerProps extends HTMLAttributes<HTMLElement> {
@@ -128,11 +126,6 @@ export const SecondaryNavContainer: FC<ContainerProps> = ({ children, tag = 'asi
     {children}
   </TaggedElement>
 )
-
-export const Molecule: FC<ContainerProps> = ({ children, ...rest }) => {
-  useDeprecateComponent('Molecule')
-  return <ElMolecule {...rest}>{children}</ElMolecule>
-}
 
 export const FlexContainer: FC<ContainerFlexProps> = ({
   tag = 'div',

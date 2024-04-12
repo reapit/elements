@@ -1,7 +1,7 @@
 import { Tabs } from './index'
 import { useState } from 'react'
-import { Subtitle } from '../typography'
 import { InputGroup } from '../input-group'
+import { TextBase } from '../typography'
 
 export default {
   title: 'Tabs',
@@ -98,9 +98,9 @@ export const TabsReactExampleUncontrolled = {
             },
           ]}
         />
-        {tab === '1' && <Subtitle hasGreyText>Tab 1 Content</Subtitle>}
-        {tab === '2' && <Subtitle hasGreyText>Tab 2 Content</Subtitle>}
-        {tab === '3' && <Subtitle hasGreyText>Tab 3 Content</Subtitle>}
+        {tab === '1' && <TextBase hasGreyText>Tab 1 Content</TextBase>}
+        {tab === '2' && <TextBase hasGreyText>Tab 2 Content</TextBase>}
+        {tab === '3' && <TextBase hasGreyText>Tab 3 Content</TextBase>}
         <InputGroup
           value={tab}
           label="The value of this input will change with the state, but updating the state of the input will not change the tab."
@@ -149,9 +149,9 @@ export const TabsReactExampleControlled = {
             },
           ]}
         />
-        {tab === '1' && <Subtitle hasGreyText>Tab 1 Content</Subtitle>}
-        {tab === '2' && <Subtitle hasGreyText>Tab 2 Content</Subtitle>}
-        {tab === '3' && <Subtitle hasGreyText>Tab 3 Content</Subtitle>}
+        {tab === '1' && <TextBase hasGreyText>Tab 1 Content</TextBase>}
+        {tab === '2' && <TextBase hasGreyText>Tab 2 Content</TextBase>}
+        {tab === '3' && <TextBase hasGreyText>Tab 3 Content</TextBase>}
         <InputGroup
           value={tab}
           label="The value of this input will change with the state and updating the input will change the tab"

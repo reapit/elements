@@ -1,15 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
-/** @deprecated - to be removed at v5.0.0 */
-export const elProgressBarItemPurple = css``
-export const elProgressBarItemDarkBlue = css``
-export const elProgressBarItemMediumBlue = css``
-export const elProgressBarItemLightBlue = css``
-export const elProgressBarItemLightestBlue = css``
-export const elProgressBarItemYellow = css``
-export const elProgressBarItemOrange = css``
-
 export const ElProgressBarContainer = styled.div`
   display: flex;
   flex-direction: column;

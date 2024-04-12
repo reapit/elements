@@ -1,12 +1,12 @@
 import { useDrawer } from '../../hooks/use-drawer'
 import { Drawer, DrawerBg } from './index'
 import { Button, ButtonGroup } from '../button'
-import { BodyText } from '../typography'
 import { FormLayout, InputWrapFull, InputWrapHalf } from '../form-layout'
 import { InputGroup } from '../input-group'
 import { Label } from '../label'
 import { Select } from '../select'
 import { TextArea } from '../textarea'
+import { TextBase } from '../typography'
 
 export default {
   title: 'Drawer',
@@ -38,7 +38,7 @@ export const ReactUsage = {
             </ButtonGroup>
           }
         >
-          <BodyText>Here&apos;s some nice content for the inside of the drawer.</BodyText>
+          <TextBase>Here&apos;s some nice content for the inside of the drawer.</TextBase>
         </ExampleDrawer>
       </>
     )
@@ -118,7 +118,7 @@ export const ReactUsageCanDismiss = {
             </ButtonGroup>
           }
         >
-          <BodyText>Here&apos;s some nice content for the inside of the drawer.</BodyText>
+          <TextBase>Here&apos;s some nice content for the inside of the drawer.</TextBase>
         </ExampleDrawer>
       </>
     )

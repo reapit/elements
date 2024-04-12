@@ -24,7 +24,7 @@ exports[`TableCell Component should match a snapshot with full props 1`] = `
           <svg
             role="img"
             style="font-size: 1.25rem;"
-            title="Icon image with name addSystem"
+            title="Icon image with name add"
           />
         </mock-styled.span>
         <mock-styled.div
@@ -53,7 +53,7 @@ exports[`TableCell Component should match a snapshot with full props 1`] = `
         <svg
           role="img"
           style="font-size: 1.25rem;"
-          title="Icon image with name addSystem"
+          title="Icon image with name add"
         />
       </mock-styled.span>
       <mock-styled.div
@@ -361,7 +361,7 @@ exports[`TableCtaTriggerCell Component should match a snapshot with no children 
           >
             <svg
               role="img"
-              title="Icon image with name addSystem"
+              title="Icon image with name add"
             />
           </mock-styled.span>
         </mock-styled.div>
@@ -379,7 +379,7 @@ exports[`TableCtaTriggerCell Component should match a snapshot with no children 
         >
           <svg
             role="img"
-            title="Icon image with name addSystem"
+            title="Icon image with name add"
           />
         </mock-styled.span>
       </mock-styled.div>
@@ -748,9 +748,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
         tabindex="0"
       >
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+          classname="mock-css."
         >
           <svg
             role="img"
@@ -767,9 +765,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
       tabindex="0"
     >
       <mock-styled.span
-        classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+        classname="mock-css."
       >
         <svg
           role="img"
@@ -848,9 +844,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
         tabindex="0"
       >
         <mock-styled.span
-          classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+          classname="mock-css."
         >
           <svg
             role="img"
@@ -872,9 +866,7 @@ exports[`TableExpandableRowTriggerCell Component should match a snapshot with no
       tabindex="0"
     >
       <mock-styled.span
-        classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+        classname="mock-css."
       >
         <svg
           role="img"

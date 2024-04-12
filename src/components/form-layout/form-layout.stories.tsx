@@ -1,12 +1,12 @@
 import { InputGroup } from '../input-group'
 import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall, FormSectionDivider } from './form-layout'
 import { Toggle, ToggleRadio, ElToggleItem } from '../toggle'
-import { BodyText, SmallText } from '../typography'
 import { TextArea } from '../textarea'
 import { MultiSelectInput } from '../multi-select'
 import { Button, ButtonGroup } from '../button'
 import { Label } from '../label'
 import { Select } from '../select'
+import { TextBase, TextSM } from '../typography'
 
 export default {
   title: 'FormLayout',
@@ -16,10 +16,12 @@ export default {
 export const BasicForm = {
   render: ({}) => (
     <form>
-      <BodyText hasBoldText>Basic Form</BodyText>
-      <SmallText hasGreyText hasSectionMargin>
+      <TextBase hasMargin hasBoldText>
+        Basic Form
+      </TextBase>
+      <TextSM hasGreyText hasMargin>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </SmallText>
+      </TextSM>
       <FormLayout hasMargin>
         <InputWrap>
           <InputGroup icon="property" label="Address" type="text" />
@@ -91,10 +93,12 @@ export const BasicForm = {
 export const ComplexForm = {
   render: ({}) => (
     <form>
-      <BodyText hasBoldText>Main Form</BodyText>
-      <SmallText hasGreyText hasSectionMargin>
+      <TextBase hasMargin hasBoldText>
+        Complex Form
+      </TextBase>
+      <TextSM hasGreyText hasMargin>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </SmallText>
+      </TextSM>
       <FormLayout hasMargin>
         <InputWrap>
           <InputGroup icon="property" label="Address" type="text" />
@@ -163,10 +167,12 @@ export const ComplexForm = {
         </InputWrapFull>
       </FormLayout>
       <FormSectionDivider />
-      <BodyText hasBoldText>Sub Form</BodyText>
-      <SmallText hasGreyText hasSectionMargin>
+      <TextBase hasMargin hasBoldText>
+        Sub Form
+      </TextBase>
+      <TextSM hasGreyText hasMargin>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      </SmallText>
+      </TextSM>
       <FormLayout hasMargin>
         <InputWrapMed>
           <InputGroup icon="property" label="Really Long Address" type="text" />

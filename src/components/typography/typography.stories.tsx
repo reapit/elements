@@ -1,17 +1,4 @@
-import {
-  BodyText,
-  SmallText,
-  Subtitle,
-  Text2XL,
-  Text2XS,
-  Text3XL,
-  TextBase,
-  TextL,
-  TextSM,
-  TextXL,
-  TextXS,
-  Title,
-} from './typography'
+import { Text2XL, Text2XS, Text3XL, TextBase, TextL, TextSM, TextXL, TextXS } from './typography'
 
 export default {
   title: 'Typography',
@@ -77,56 +64,6 @@ export const Intent = {
       <TextBase intent="warning">I am a TextBase warning</TextBase>
       <TextBase intent="danger">I am a TextBase danger</TextBase>
       <TextBase intent="default">I am a TextBase default</TextBase>
-    </>
-  ),
-}
-
-export const TitleUsage = {
-  render: ({}) => <Title>I am a Title</Title>,
-}
-
-export const SubtitleUsage = {
-  render: ({}) => <Subtitle>I am a Subtitle</Subtitle>,
-}
-
-export const BodyTextUsage = {
-  render: ({}) => <BodyText>I am a BodyText</BodyText>,
-}
-
-export const SmallTextUsage = {
-  render: ({}) => <SmallText>I am a SmallText</SmallText>,
-}
-
-export const TitleAndSubtitle = {
-  render: ({}) => (
-    <>
-      <Title>Why register for Foundations?</Title>
-      <Subtitle>Why would you not want to register for Foundations?</Subtitle>
-    </>
-  ),
-}
-
-export const SubtitleAndBodyText = {
-  render: ({}) => (
-    <>
-      <Subtitle>Why register for Foundations?</Subtitle>
-      <BodyText>
-        By registering for the Foundations platform, you will get access to the Reapit developer portal and sandbox
-        data. You will also get the opportunity to list apps in the Reapit Marketplace. We look forward to seeing what
-        you build!
-      </BodyText>
-    </>
-  ),
-}
-
-export const BodyTextAndSmallText = {
-  render: ({}) => (
-    <>
-      <BodyText>Have you had a look at the documentation?</BodyText>
-      <SmallText>
-        Before continuing with registering your first app, we strongly advise that you read the guide on how best to
-        complete the following form.
-      </SmallText>
     </>
   ),
 }

@@ -16,7 +16,6 @@ import { Icon } from '../icon'
 import { Label } from '../label'
 import { FlexContainer } from '../layout'
 import { handleSetNativeInput } from '../multi-select'
-import { SmallText } from '../typography'
 import {
   ElFileInput,
   ElFileInputHidden,
@@ -25,6 +24,7 @@ import {
   ElFilePreviewImage,
 } from './__styles__'
 import { PlaceholderImage } from '../placeholder-image'
+import { TextSM } from '../typography'
 
 export interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   onFileUpload?: (uploadImageModel: CreateImageUploadModel) => Promise<any | ImageUploadModel>
@@ -173,9 +173,9 @@ export const FileInput: FileInputWrapped = forwardRef(
               />
             </ElFileInputIconContainer>
           ) : (
-            <SmallText hasGreyText hasNoMargin>
+            <TextSM hasGreyText hasNoMargin>
               {placeholderText || 'Upload File'}
-            </SmallText>
+            </TextSM>
           )}
         </FlexContainer>
       </ElFileInputWrap>

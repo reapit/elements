@@ -30,43 +30,6 @@ export const elBorderGreyY = css`
   border-bottom: var(--util-border-grey);
 `
 
-/** @deprecated - to be removed in v5 **/
-export const elBorderBlue = css`
-  border: var(--util-border-purple);
-`
-
-/** @deprecated - to be removed in v5 **/
-export const elBorderBlueT = css`
-  border-top: var(--util-border-purple);
-`
-
-/** @deprecated - to be removed in v5 **/
-export const elBorderBlueB = css`
-  border-bottom: var(--util-border-purple);
-`
-
-/** @deprecated - to be removed in v5 **/
-export const elBorderBlueL = css`
-  border-left: var(--util-border-purple);
-`
-
-/** @deprecated - to be removed in v5 **/
-export const elBorderBlueR = css`
-  border-right: var(--util-border-purple);
-`
-
-/** @deprecated - to be removed in v5 **/
-export const elBorderBlueX = css`
-  border-left: var(--util-border-purple);
-  border-right: var(--util-border-purple);
-`
-
-/** @deprecated - to be removed in v5 **/
-export const elBorderBlueY = css`
-  border-top: var(--util-border-purple);
-  border-bottom: var(--util-border-purple);
-`
-
 export const elBorderPurple = css`
   border: var(--util-border-purple);
 `

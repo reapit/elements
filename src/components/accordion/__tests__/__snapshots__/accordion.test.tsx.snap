@@ -19,7 +19,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
               >
                 <svg
                   role="img"
-                  title="Icon image with name carSolidSystem"
+                  title="Icon image with name car"
                 />
               </mock-styled.span>
               2
@@ -32,7 +32,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
               >
                 <svg
                   role="img"
-                  title="Icon image with name usernameSolidSystem"
+                  title="Icon image with name user"
                 />
               </mock-styled.span>
               5
@@ -43,7 +43,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
               >
                 <svg
                   role="img"
-                  title="Icon image with name upSystem"
+                  title="Icon image with name chevronUp"
                 />
               </mock-styled.span>
             </mock-styled.div>
@@ -67,7 +67,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
               >
                 <svg
                   role="img"
-                  title="Icon image with name carSolidSystem"
+                  title="Icon image with name car"
                 />
               </mock-styled.span>
               2
@@ -80,7 +80,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
               >
                 <svg
                   role="img"
-                  title="Icon image with name usernameSolidSystem"
+                  title="Icon image with name user"
                 />
               </mock-styled.span>
               5
@@ -91,7 +91,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
               >
                 <svg
                   role="img"
-                  title="Icon image with name downSystem"
+                  title="Icon image with name chevronDown"
                 />
               </mock-styled.span>
             </mock-styled.div>
@@ -118,7 +118,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             >
               <svg
                 role="img"
-                title="Icon image with name carSolidSystem"
+                title="Icon image with name car"
               />
             </mock-styled.span>
             2
@@ -131,7 +131,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             >
               <svg
                 role="img"
-                title="Icon image with name usernameSolidSystem"
+                title="Icon image with name user"
               />
             </mock-styled.span>
             5
@@ -142,7 +142,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             >
               <svg
                 role="img"
-                title="Icon image with name upSystem"
+                title="Icon image with name chevronUp"
               />
             </mock-styled.span>
           </mock-styled.div>
@@ -166,7 +166,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             >
               <svg
                 role="img"
-                title="Icon image with name carSolidSystem"
+                title="Icon image with name car"
               />
             </mock-styled.span>
             2
@@ -179,7 +179,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             >
               <svg
                 role="img"
-                title="Icon image with name usernameSolidSystem"
+                title="Icon image with name user"
               />
             </mock-styled.span>
             5
@@ -190,7 +190,7 @@ exports[`Accordion basic usage should match a snapshot 1`] = `
             >
               <svg
                 role="img"
-                title="Icon image with name downSystem"
+                title="Icon image with name chevronDown"
               />
             </mock-styled.span>
           </mock-styled.div>
@@ -280,7 +280,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
               >
                 <svg
                   role="img"
-                  title="Icon image with name carSolidSystem"
+                  title="Icon image with name car"
                 />
               </mock-styled.span>
               2
@@ -293,16 +293,14 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
               >
                 <svg
                   role="img"
-                  title="Icon image with name usernameSolidSystem"
+                  title="Icon image with name user"
                 />
               </mock-styled.span>
               5
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+                classname="mock-css."
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -342,7 +340,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
               >
                 <svg
                   role="img"
-                  title="Icon image with name carSolidSystem"
+                  title="Icon image with name car"
                 />
               </mock-styled.span>
               2
@@ -355,16 +353,14 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
               >
                 <svg
                   role="img"
-                  title="Icon image with name usernameSolidSystem"
+                  title="Icon image with name user"
                 />
               </mock-styled.span>
               5
             </mock-styled.div>
             <mock-styled.div>
               <mock-styled.span
-                classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+                classname="mock-css."
                 style="font-size: 1.25rem;"
               >
                 <svg
@@ -409,7 +405,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
             >
               <svg
                 role="img"
-                title="Icon image with name carSolidSystem"
+                title="Icon image with name car"
               />
             </mock-styled.span>
             2
@@ -422,16 +418,14 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
             >
               <svg
                 role="img"
-                title="Icon image with name usernameSolidSystem"
+                title="Icon image with name user"
               />
             </mock-styled.span>
             5
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+              classname="mock-css."
               style="font-size: 1.25rem;"
             >
               <svg
@@ -471,7 +465,7 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
             >
               <svg
                 role="img"
-                title="Icon image with name carSolidSystem"
+                title="Icon image with name car"
               />
             </mock-styled.span>
             2
@@ -484,16 +478,14 @@ exports[`Accordion react shorthand should match a snapshot 1`] = `
             >
               <svg
                 role="img"
-                title="Icon image with name usernameSolidSystem"
+                title="Icon image with name user"
               />
             </mock-styled.span>
             5
           </mock-styled.div>
           <mock-styled.div>
             <mock-styled.span
-              classname="mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+              classname="mock-css."
               style="font-size: 1.25rem;"
             >
               <svg

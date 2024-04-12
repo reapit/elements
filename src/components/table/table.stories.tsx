@@ -13,7 +13,6 @@ import {
 } from './molecules'
 import { Icon } from '../icon'
 import { elSpan2, elSpan3 } from '../grid'
-import { Subtitle } from '../typography'
 import { InputGroup } from '../input-group'
 import { Button, ButtonGroup } from '../button'
 import { StatusIndicator } from '../status-indicator'
@@ -22,6 +21,7 @@ import { FormLayout, InputWrap } from '../form-layout'
 import { elIsActive } from '../../styles/states'
 import { Avatar } from '../avatar'
 import { Input } from '../input'
+import { TextBase } from '../typography'
 
 export default {
   title: 'Table',
@@ -240,7 +240,9 @@ export const ExpandableContent = {
           <TableExpandableRowTriggerCell isOpen />
         </TableRow>
         <TableExpandableRow isOpen>
-          <Subtitle>Form Example</Subtitle>
+          <TextBase hasBoldText hasMargin>
+            Form Example
+          </TextBase>
           <FormLayout>
             <InputWrap>
               <InputGroup label="Please enter an address" type="text" />

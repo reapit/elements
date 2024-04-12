@@ -1,14 +1,5 @@
-import React, { MouseEvent } from 'react'
 import { render } from '@testing-library/react'
-import {
-  Card,
-  CardContextMenu,
-  handleMouseHover,
-  handleToggleBothMobileOpen,
-  handleToggleContextMenu,
-  handleToggleListMobileOpen,
-  handleToggleMainMobileOpen,
-} from '../card-components'
+import { Card, handleMouseHover } from '../card-components'
 
 describe('Card', () => {
   it('should match a snapshot and render children with no props', () => {
@@ -25,10 +16,6 @@ describe('Card', () => {
       <Card
         hasMainCard
         hasListCard
-        mainContextMenuItems={[
-          { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'share', onClick: () => console.log('Clicking') },
-        ]}
         mainCardHeading="Main Heading"
         mainCardSubHeading="Main Subheading"
         mainCardSubHeadingAdditional="Main Subheading Additional"
@@ -55,103 +42,6 @@ describe('Card', () => {
       </Card>,
     )
     expect(wrapper).toMatchSnapshot()
-  })
-})
-
-describe('CardContextMenu', () => {
-  it('should match a snapshot and render children with no props', () => {
-    const wrapper = render(
-      <CardContextMenu>
-        <div>I am a child</div>
-      </CardContextMenu>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-
-  it('should match a snapshot and render children with full props', () => {
-    const wrapper = render(
-      <CardContextMenu
-        contextMenuItems={[
-          { icon: 'trash', onClick: () => console.log('Clicking'), intent: 'danger' },
-          { icon: 'share', onClick: () => console.log('Clicking') },
-        ]}
-      >
-        <div>I am a child</div>
-      </CardContextMenu>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-})
-
-describe('handleToggleContextMenu', () => {
-  it('should correctly toggle the context menu', () => {
-    const mockValue = false
-    const mockSetValue = jest.fn()
-    const curried = handleToggleContextMenu(mockValue, mockSetValue)
-    const event = {
-      stopPropagation: jest.fn(),
-    }
-
-    curried(event as unknown as MouseEvent)
-
-    expect(mockSetValue).toHaveBeenCalledTimes(1)
-    expect(mockSetValue).toHaveBeenCalledWith(true)
-    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
-  })
-})
-
-describe('handleToggleMainMobileOpen', () => {
-  it('should correctly toggle the context menu', () => {
-    const mockValue = false
-    const mockSetValue = jest.fn()
-    const curried = handleToggleMainMobileOpen(mockValue, mockSetValue)
-    const event = {
-      stopPropagation: jest.fn(),
-    }
-
-    curried(event as unknown as MouseEvent)
-
-    expect(mockSetValue).toHaveBeenCalledTimes(1)
-    expect(mockSetValue).toHaveBeenCalledWith(true)
-    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
-  })
-})
-
-describe('handleToggleListMobileOpen', () => {
-  it('should correctly toggle the context menu', () => {
-    const mockValue = false
-    const mockSetValue = jest.fn()
-    const curried = handleToggleListMobileOpen(mockValue, mockSetValue)
-    const event = {
-      stopPropagation: jest.fn(),
-    }
-
-    curried(event as unknown as MouseEvent)
-
-    expect(mockSetValue).toHaveBeenCalledTimes(1)
-    expect(mockSetValue).toHaveBeenCalledWith(true)
-    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
-  })
-})
-
-describe('handleToggleBothMobileOpen', () => {
-  it('should correctly toggle the context menu', () => {
-    const mockValue = false
-    const mockSecondValue = false
-    const mockSetValue = jest.fn()
-    const mockSetSecondValue = jest.fn()
-    const curried = handleToggleBothMobileOpen(mockValue, mockSetValue, mockSecondValue, mockSetSecondValue)
-    const event = {
-      stopPropagation: jest.fn(),
-    }
-
-    curried(event as unknown as MouseEvent)
-
-    expect(mockSetValue).toHaveBeenCalledTimes(1)
-    expect(mockSetValue).toHaveBeenCalledWith(true)
-    expect(mockSetSecondValue).toHaveBeenCalledTimes(1)
-    expect(mockSetSecondValue).toHaveBeenCalledWith(true)
-    expect(event.stopPropagation).toHaveBeenCalledTimes(1)
   })
 })
 

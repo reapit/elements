@@ -18,7 +18,6 @@ import {
 } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elIntentDanger, elIntentNeutral, elIntentPrimary } from '../../styles/intent'
-import { deprecateFunction, useDeprecateVar } from '../../storybook/deprecate-var'
 import { elMl1, elMr1 } from '../../styles/spacing'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
@@ -38,16 +37,6 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   buttonSize?: ButtonSize
   buttonIcon?: ButtonIcon
   onClick?: MouseEventHandler<HTMLButtonElement>
-  /** @deprecated - will be removed at v5 release */
-  chevronLeft?: boolean
-  /** @deprecated - will be removed at v5 release */
-  chevronRight?: boolean
-  /** @deprecated - will be removed at v5 release */
-  fullWidth?: boolean
-  /** @deprecated - will be removed at v5 release */
-  fixedWidth?: boolean
-  /** @deprecated - will be removed at v5 release */
-  size?: ButtonSizeType
 }
 
 export interface FloatingButtonProps extends ButtonProps {
@@ -56,11 +45,6 @@ export interface FloatingButtonProps extends ButtonProps {
 
 export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   alignment?: ButtonGroupAlignment
-}
-
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export const resolveButtonSize = (size: ButtonSizeType): void => {
-  deprecateFunction('resolveButtonSize')
 }
 
 export const resolveButtonClassName = (intent?: Intent): string => {
@@ -92,16 +76,11 @@ export const handleButtonClick =
 export const Button: FC<ButtonProps> = ({
   intent,
   loading = false,
-  chevronLeft,
-  chevronRight,
-  fullWidth,
-  fixedWidth,
   buttonSize,
   buttonIcon,
   className = '',
   children,
   onClick,
-  size,
   ...rest
 }) => {
   const intentClassname = resolveButtonClassName(intent)
@@ -113,8 +92,6 @@ export const Button: FC<ButtonProps> = ({
     buttonSize === 'medium' && elButtonSizeMedium,
   )
   const combinedClassName = cx(className, sizeClass, intentClassname, loading && elIsLoading)
-
-  useDeprecateVar({ chevronLeft, chevronRight, fullWidth, fixedWidth, size }, 'Button')
 
   return (
     <ElButton

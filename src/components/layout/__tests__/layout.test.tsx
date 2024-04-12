@@ -3,7 +3,6 @@ import {
   MainContainer,
   PageContainer,
   SecondaryNavContainer,
-  Molecule,
   FlexContainer,
   TaggedElement,
   elMainContainer,
@@ -38,17 +37,6 @@ describe('SecondaryNavContainer', () => {
       <SecondaryNavContainer>
         <p>I am child</p>
       </SecondaryNavContainer>,
-    )
-    expect(wrapper).toMatchSnapshot()
-  })
-})
-
-describe('Molecule', () => {
-  it('should match a snapshot and render children', () => {
-    const wrapper = render(
-      <Molecule>
-        <p>I am child</p>
-      </Molecule>,
     )
     expect(wrapper).toMatchSnapshot()
   })

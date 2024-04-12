@@ -10,11 +10,6 @@ const buttonXPaddingMobile = 0.875
 const buttonYPadding = 0.5
 const buttonXYPaddingMobile = 0.375
 
-/** @deprecated - to remove at v5 */
-export const elButtonSize2 = css``
-export const elButtonSize3 = css``
-export const elButtonSize4 = css``
-
 export const elButtonSizeSmall = css``
 export const elButtonSizeLarge = css``
 export const elButtonSizeMedium = css``
@@ -212,10 +207,6 @@ export const ElButton = styled.button`
     }
   }
 `
-
-export const elButtonHasLeftChevron = css``
-
-export const elButtonHasRightChevron = css``
 
 export const ElButtonGroup = styled.div`
   display: grid;

@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
-import { Button, ButtonProps, FloatingButton, ButtonGroup, resolveButtonSize, ButtonSize, ButtonIcon } from '../index'
+import { Button, ButtonProps, FloatingButton, ButtonGroup, ButtonSize, ButtonIcon } from '../index'
 
 const props: ButtonProps = {
   type: 'submit',
@@ -45,10 +45,6 @@ describe('Button', () => {
     fireEvent.click(wrapper.getByText('button text'))
 
     expect(props.onClick).toHaveBeenCalledTimes(1)
-  })
-
-  it('should not return button size class', () => {
-    expect(resolveButtonSize(2)).toBe(undefined)
   })
 
   afterEach(() => {

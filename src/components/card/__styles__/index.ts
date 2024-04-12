@@ -3,10 +3,6 @@ import { css } from '@linaria/core'
 import { isTablet } from '../../../styles/media'
 import { ElAvatar } from '../../avatar'
 
-export const elCardContextMenuOpen = css`
-  display: flex;
-`
-
 export const elCardFocussed = css`
   background-color: var(--color-purple-50);
 `
@@ -113,33 +109,6 @@ export const ElCardBodyWrap = styled.div`
 export const elMobileListToggle = css`
   top: 1.5rem;
   right: 0;
-`
-
-export const ElMobileToggle = styled.button`
-  border: none;
-  width: 1.25rem;
-  height: 1.25rem;
-  border-radius: 0;
-  border-radius: 0.25rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-left: auto;
-  position: absolute;
-  top: 4.25rem;
-  right: 0.5rem;
-
-  svg {
-    font-size: 0.75rem;
-  }
-
-  ${isTablet} {
-    display: none;
-  }
-
-  &.${elMobileListToggle} {
-    top: 0;
-  }
 `
 
 export const ElCardAvatarWrap = styled.div`
@@ -251,52 +220,4 @@ export const ElCardListIcon = styled.div`
   width: 2em;
   margin-right: 0.5rem;
   flex-shrink: 0;
-`
-
-export const ElCardContextMenuWrapper = styled.div`
-  position: relative;
-  display: flex;
-  justify-content: flex-end;
-  width: 100%;
-`
-
-export const ElCardContextMenuItems = styled.div`
-  display: none;
-
-  &.${elCardContextMenuOpen} {
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    z-index: 2;
-    box-shadow: 2px 4px 14px rgba(0, 0, 0, 0.07);
-    background: #fff;
-    right: -0.75rem;
-    top: -0.75rem;
-  }
-
-  ${isTablet} {
-    &.${elCardContextMenuOpen} {
-      right: -1.25rem;
-      top: -1.25rem;
-    }
-  }
-`
-
-export const ElCardContextMenuItem = styled.div`
-  padding: 0.75rem;
-  cursor: pointer;
-
-  &:first-child {
-    margin-bottom: 1rem;
-  }
-`
-
-export const ElCardContextMenuToggle = styled.div`
-  position: absolute;
-  padding-right: 0.25rem;
-  cursor: pointer;
-
-  svg {
-    font-weight: var(--font-weight-bold);
-  }
 `

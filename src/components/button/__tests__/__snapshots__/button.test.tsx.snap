@@ -95,7 +95,7 @@ exports[`Button should match a snapshot 2`] = `
         >
           <svg
             role="img"
-            title="Icon image with name addSystem"
+            title="Icon image with name add"
           />
         </mock-styled.span>
       </mock-styled.button>
@@ -113,7 +113,7 @@ exports[`Button should match a snapshot 2`] = `
       >
         <svg
           role="img"
-          title="Icon image with name addSystem"
+          title="Icon image with name add"
         />
       </mock-styled.span>
     </mock-styled.button>
@@ -192,7 +192,7 @@ exports[`Button should match a snapshot with all modifiers 1`] = `
           <svg
             role="img"
             style="font-size: 1rem;"
-            title="Icon image with name addSystem"
+            title="Icon image with name add"
           />
         </mock-styled.span>
         button text
@@ -215,7 +215,7 @@ exports[`Button should match a snapshot with all modifiers 1`] = `
         <svg
           role="img"
           style="font-size: 1rem;"
-          title="Icon image with name addSystem"
+          title="Icon image with name add"
         />
       </mock-styled.span>
       button text

@@ -15,9 +15,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
           classname=""
         >
           <mock-styled.span
-            classname="mock-css.
-  font-size: 1.5rem !important;
-"
+            classname=""
             role="button"
             style="width: 100px;"
             tabindex="0"
@@ -41,9 +39,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
     padding: 0 !important;
     margin: 0 !important;
   }
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
             role="button"
             tabindex="0"
           >
@@ -146,9 +142,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
         classname=""
       >
         <mock-styled.span
-          classname="mock-css.
-  font-size: 1.5rem !important;
-"
+          classname=""
           role="button"
           style="width: 100px;"
           tabindex="0"
@@ -172,9 +166,7 @@ exports[`NavResponsive component should match a snapshot 1`] = `
     padding: 0 !important;
     margin: 0 !important;
   }
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
           role="button"
           tabindex="0"
         >

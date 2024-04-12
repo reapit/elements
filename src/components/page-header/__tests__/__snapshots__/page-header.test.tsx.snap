@@ -64,9 +64,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-right: var(--util-rems-2);
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
                 style="font-size: 12px;"
               >
                 <svg
@@ -105,9 +103,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-right: var(--util-rems-2);
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
                 style="font-size: 12px;"
               >
                 <svg
@@ -146,9 +142,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.span
                 classname="mock-css.
   margin-right: var(--util-rems-2);
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
                 style="font-size: 12px;"
               >
                 <svg
@@ -898,9 +892,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: var(--util-rems-2);
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
               style="font-size: 12px;"
             >
               <svg
@@ -939,9 +931,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: var(--util-rems-2);
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
               style="font-size: 12px;"
             >
               <svg
@@ -980,9 +970,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
             <mock-styled.span
               classname="mock-css.
   margin-right: var(--util-rems-2);
- mock-css. mock-css.
-  font-size: 1.5rem !important;
-"
+ mock-css."
               style="font-size: 12px;"
             >
               <svg

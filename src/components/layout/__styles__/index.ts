@@ -1,4 +1,3 @@
-import { styled } from '@linaria/react'
 import { isMobile, isTablet } from '../../../styles/media'
 import { elHFull } from '../../../styles/sizing'
 import { css } from '@linaria/core'
@@ -70,13 +69,6 @@ export const elSecondaryNavContainer = css`
   ${isMobile} {
     display: none;
   }
-`
-
-export const ElMolecule = styled.div`
-  display: block;
-  padding: 0.75rem;
-  margin-bottom: 1.25rem;
-  width: 100%;
 `
 
 export const elFlexContainer = css`

@@ -2,7 +2,7 @@ import { cx } from '@linaria/core'
 import { GridDemoBlockFeatured, GridDemoBlockSizing, GridDemoBorders } from '../storybook/demo-block'
 import { elM6, elMb6, elP6, elPb6 } from './spacing'
 import { elH6, elHScreen, elW6, elWScreen } from './sizing'
-import { elBorderBlue, elBorderGrey, elBorderGreyL, elBorderRadius, elBorderRadiusR, elBoxShadow } from './borders'
+import { elBorderPurple, elBorderGrey, elBorderGreyL, elBorderRadius, elBorderRadiusR, elBoxShadow } from './borders'
 
 export default {
   title: 'Utilities',
@@ -41,10 +41,10 @@ export const BorderRadiusAndBoxShadow = {
   render: ({}) => (
     <>
       <GridDemoBorders className={elBorderGrey}>elBorderGrey, el-border-grey</GridDemoBorders>
-      <GridDemoBorders className={elBorderBlue}>elBorderBlue, el-border-blue</GridDemoBorders>
+      <GridDemoBorders className={elBorderPurple}>elBorderPurple, el-border-blue</GridDemoBorders>
       <GridDemoBorders className={elBorderGreyL}>elBorderGreyL, el-border-grey-l</GridDemoBorders>
-      <GridDemoBorders className={cx(elBorderRadius, elBorderBlue)}>
-        elBorderRadius elBorderBlue, el-border-radius el-border-blue
+      <GridDemoBorders className={cx(elBorderRadius, elBorderPurple)}>
+        elBorderRadius elBorderPurple, el-border-radius el-border-blue
       </GridDemoBorders>
       <GridDemoBorders className={cx(elBorderRadiusR, elBorderGrey)}>
         elBorderRadiusR elBorderGrey, el-border-radius-r el-border-grey

@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { useModal } from '../../hooks/use-modal'
 import { Modal, ModalBg } from './index'
 import { Button, ButtonGroup } from '../button'
-import { BodyText } from '../typography'
+import { TextBase } from '../typography'
 
 export default {
   title: 'Modal',
@@ -24,7 +24,7 @@ export const ReactModal = {
           Open Modal
         </Button>
         <Modal isOpen={modalIsOpen} onModalClose={() => setModalIsOpen(!modalIsOpen)} title="Welcome to the demo modal">
-          <BodyText>Here&apos;s some nice content for the inside of the modal.</BodyText>
+          <TextBase>Here&apos;s some nice content for the inside of the modal.</TextBase>
         </Modal>
       </>
     )
@@ -41,7 +41,7 @@ export const UseModalExample = {
           Open Modal
         </Button>
         <ModalComponent title="Welcome to the demo modal">
-          <BodyText>Here&apos;s some nice content for the inside of the modal.</BodyText>
+          <TextBase>Here&apos;s some nice content for the inside of the modal.</TextBase>
           <ButtonGroup alignment="right">
             <Button intent="default" onClick={closeModal}>
               Close

@@ -92,7 +92,7 @@ exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
           <svg
             role="img"
             style="font-size: 1.25rem;"
-            title="Icon image with name emailSystem"
+            title="Icon image with name email"
           />
         </mock-styled.span>
       </mock-styled.div>
@@ -113,7 +113,7 @@ exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
         <svg
           role="img"
           style="font-size: 1.25rem;"
-          title="Icon image with name emailSystem"
+          title="Icon image with name email"
         />
       </mock-styled.span>
     </mock-styled.div>
@@ -192,7 +192,7 @@ exports[`SnackHolder component should match a snapshot 1`] = `
             <svg
               role="img"
               style="font-size: 1.25rem;"
-              title="Icon image with name infoSolidSystem"
+              title="Icon image with name info"
             />
           </mock-styled.span>
           i am a snack
@@ -201,8 +201,6 @@ exports[`SnackHolder component should match a snapshot 1`] = `
   cursor: pointer;
   padding-left: 0.5rem;
   color: var(--color-black);
- mock-css.
-  font-size: 1.5rem !important;
 "
             data-testid="close-icon"
             style="font-size: 1.25rem;"
@@ -233,7 +231,7 @@ exports[`SnackHolder component should match a snapshot 1`] = `
           <svg
             role="img"
             style="font-size: 1.25rem;"
-            title="Icon image with name infoSolidSystem"
+            title="Icon image with name info"
           />
         </mock-styled.span>
         i am a snack
@@ -242,8 +240,6 @@ exports[`SnackHolder component should match a snapshot 1`] = `
   cursor: pointer;
   padding-left: 0.5rem;
   color: var(--color-black);
- mock-css.
-  font-size: 1.5rem !important;
 "
           data-testid="close-icon"
           style="font-size: 1.25rem;"

@@ -1,4 +1,4 @@
-import React, { Dispatch, FC, HTMLAttributes, SetStateAction, useEffect, useState } from 'react'
+import { Dispatch, FC, HTMLAttributes, SetStateAction, useEffect, useState } from 'react'
 import {
   ElProgressBarContainer,
   ElProgressBarLabel,
