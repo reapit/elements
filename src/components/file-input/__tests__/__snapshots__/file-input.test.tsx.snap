@@ -209,7 +209,9 @@ exports[`FileInput component should match a snapshot 1`] = `
   &., {
     color: var(--intent-default);
   }
- mock-css. mock-css."
+ mock-css. mock-css. mock-css.
+  margin-left: var(--util-rems-3);
+"
           >
             Upload File
           </small>
@@ -422,7 +424,9 @@ exports[`FileInput component should match a snapshot 1`] = `
   &., {
     color: var(--intent-default);
   }
- mock-css. mock-css."
+ mock-css. mock-css. mock-css.
+  margin-left: var(--util-rems-3);
+"
         >
           Upload File
         </small>

@@ -20,7 +20,7 @@ export const ElMultiSelectCheckbox = styled.input`
   visibility: hidden;
   position: absolute;
 
-  :checked + label {
+  &:checked + label {
     background: var(--color-white);
     padding: 0.2rem 2rem 0.2rem 1rem;
     color: var(--color-black);
@@ -48,7 +48,7 @@ export const ElMultiSelectCheckbox = styled.input`
     }
   }
 
-  :not(:checked) + label {
+  &:not(:checked) + label {
     &:hover {
       padding: 0.2rem 2rem 0.2rem 1rem;
       &:before {

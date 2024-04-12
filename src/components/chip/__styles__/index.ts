@@ -11,8 +11,8 @@ export const ElChipCheckbox = styled.input`
   visibility: hidden;
   position: absolute;
 
-  :checked + label,
-  :hover + label {
+  &:checked + label,
+  &:hover + label {
     background: var(--color-purple-50);
     padding: 0.2rem 2rem 0.2rem 1rem;
     color: var(--color-black);
