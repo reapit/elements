@@ -14,7 +14,7 @@ import { Avatar, AvatarProps } from '../avatar'
 import { Tag, TagGroup, TagProps } from '../tag'
 import { Button, ButtonGroup, ButtonProps } from '../button'
 import { BreadCrumb, BreadCrumbProps } from '../breadcrumb'
-import { elMb6, elMr3 } from '../../styles/spacing'
+import { elMb3, elMb6, elMr3 } from '../../styles/spacing'
 import { Tabs, TabsProps } from '../tabs'
 
 export interface PageHeaderProps extends HTMLAttributes<HTMLDivElement> {
@@ -99,7 +99,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
             </FlexContainer>
           </PageHeaderContainer>
           {buttons && (
-            <ButtonGroup>
+            <ButtonGroup className={cx(!tabs && elMb3)}>
               {buttons.map(({ children, ...rest }, index) => (
                 <Button buttonSize="small" key={index} {...rest}>
                   {children}

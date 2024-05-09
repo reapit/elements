@@ -699,7 +699,9 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 </div>
               </div>
             </mock-styled.div>
-            <mock-styled.div>
+            <mock-styled.div
+              classname=""
+            >
               <mock-styled.div
                 classname=""
               >
@@ -1527,7 +1529,9 @@ exports[`PageHeader component should match a snapshot 1`] = `
               </div>
             </div>
           </mock-styled.div>
-          <mock-styled.div>
+          <mock-styled.div
+            classname=""
+          >
             <mock-styled.div
               classname=""
             >

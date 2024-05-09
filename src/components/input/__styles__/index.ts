@@ -40,10 +40,12 @@ export const ElInput = styled.input`
   }
 
   &:disabled {
-    color: rgba(100, 100, 100, 0.35);
+    background-color: var(--color-grey-100);
+    color: var(--color-grey-300);
+    cursor: not-allowed;
 
     ::placeholder {
-      color: rgba(100, 100, 100, 0.35);
+      color: var(--color-grey-300);
     }
   }
 
@@ -72,11 +74,17 @@ export const ElInput = styled.input`
       background-color: var(--intent-primary);
       border: 1px solid var(--intent-primary);
     }
+
+    &:disabled {
+      background-color: var(--color-grey-100);
+      border: var(--component-input-border);
+      cursor: not-allowed;
+    }
   }
 
   &[type='radio'] {
     appearance: none;
-    border: 1px solid var(--color-grey-medium);
+    border: var(--component-input-border);
     background-color: var(--color-white);
     border-radius: 100%;
     width: 1.5rem;
@@ -87,6 +95,12 @@ export const ElInput = styled.input`
 
     &:focus {
       border: var(--component-input-border-focus);
+    }
+
+    &:disabled {
+      background-color: var(--color-white);
+      border: var(--component-input-border);
+      cursor: not-allowed;
     }
 
     &:checked {
@@ -102,6 +116,14 @@ export const ElInput = styled.input`
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
+      }
+
+      &:disabled {
+        background-color: var(--color-white);
+        &:after {
+          background-color: var(--color-grey-300);
+          border: var(--component-input-border);
+        }
       }
     }
   }

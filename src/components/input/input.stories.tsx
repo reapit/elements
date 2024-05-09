@@ -14,6 +14,15 @@ export const InputText: StoryObj<typeof Input> = {
   },
 }
 
+export const InputDisabled: StoryObj<typeof Input> = {
+  name: 'Input disabled',
+  args: {
+    type: 'text',
+    placeholder: 'A Placeholder',
+    disabled: true,
+  },
+}
+
 export const InputWithError = {
   render: ({}) => <Input type="text" placeholder="A placeholder" hasError />,
 }
@@ -83,7 +92,27 @@ export const InputCheckbox = {
   name: 'Input checkbox',
 }
 
+export const InputCheckboxDisabled = {
+  render: ({}) => <Input type="checkbox" name="property" value="xyz" disabled checked />,
+  name: 'Input checkbox disabled',
+}
+
 export const InputRadio = {
-  render: ({}) => <Input type="radio" name="property" value="abc" />,
+  render: ({}) => (
+    <>
+      <Input type="radio" name="foo" value="abc" checked />
+      <Input type="radio" name="foo" value="def" />
+    </>
+  ),
   name: 'Input radio',
+}
+
+export const InputRadioDisabled = {
+  render: ({}) => (
+    <>
+      <Input type="radio" name="bar" value="abc" disabled checked />
+      <Input type="radio" name="bar" value="def" disabled />
+    </>
+  ),
+  name: 'Input radio disabled',
 }

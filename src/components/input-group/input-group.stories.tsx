@@ -70,15 +70,15 @@ export const ReactShorthandAllProps = {
 }
 
 export const InputCheckbox = {
-  render: ({}) => <InputGroup type="checkbox" icon="phone" label="Status" inputAddOnText="Listed" />,
+  render: ({}) => <InputGroup type="checkbox" label="Status" inputAddOnText="Listed" />,
 }
 
 export const InputCheckboxWithIntent = {
-  render: ({}) => <InputGroup type="checkbox" icon="info" intent="danger" label="Status" inputAddOnText="Listed" />,
+  render: ({}) => <InputGroup type="checkbox" intent="danger" label="Status" inputAddOnText="Listed" />,
 }
 
-export const InputCheckboxNoIcon = {
-  render: ({}) => <InputGroup type="checkbox" label="Status" inputAddOnText="Listed" />,
+export const InputCheckboxIcon = {
+  render: ({}) => <InputGroup type="checkbox" icon="phone" label="Status" inputAddOnText="Listed" />,
 }
 
 export const InputCheckboxNoLabel = {
@@ -103,6 +103,7 @@ export const ErrorMessage = {
       label="Email Address"
       errorMessage="Email address is not valid"
       icon="email"
+      inputAddOnText="Required"
     />
   ),
   name: 'Error message',

@@ -35,7 +35,7 @@ export const ElInputGroup = styled.div`
     padding-right: 0.5rem;
     align-items: center;
     display: flex;
-    order: 5;
+    order: 4;
   }
 
   ${ElMultiSelectInputWrapper} ${ElIcon} {
@@ -49,7 +49,7 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElInputError} {
-    order: 4;
+    order: 5;
     width: 100%;
   }
 

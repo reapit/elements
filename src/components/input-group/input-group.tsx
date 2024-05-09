@@ -41,14 +41,15 @@ export const InputGroup: InputGroupWrapped = forwardRef(
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
     const groupId = useId(id)
+    const errorState = Boolean(hasError || errorMessage)
 
     if (!children)
       return (
         <ElInputGroup className={className}>
-          <Input hasError={Boolean(hasError || errorMessage)} id={groupId} {...rest} ref={ref} />
-          {icon && <Icon fontSize="1rem" intent={intent} icon={icon} />}
+          <Input hasError={errorState} id={groupId} {...rest} ref={ref} />
+          {icon && <Icon fontSize="1rem" intent={errorState ? 'danger' : intent} icon={icon} />}
           {label && <Label htmlFor={groupId}>{label}</Label>}
-          {inputAddOnText && <InputAddOn intent={intent}>{inputAddOnText}</InputAddOn>}
+          {inputAddOnText && <InputAddOn intent={errorState ? 'danger' : intent}>{inputAddOnText}</InputAddOn>}
           {errorMessage && <InputError message={errorMessage} />}
         </ElInputGroup>
       )
