@@ -1,5 +1,4 @@
 import StyleDictionaryPackage from 'style-dictionary'
-// const { fileHeader, formattedVariables } = StyleDictionaryPackage.formatHelpers
 
 const themes = ['Reapit', 'PayProp']
 
