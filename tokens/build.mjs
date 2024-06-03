@@ -12,6 +12,7 @@ const getStyleDictionaryConfig = (theme) => {
         const { outputReferences } = options
         const lineSeparator = '\n'
 
+        // Gives us a template literal of CSS variables we can import into linaria
         return (
           fileHeader({ file }) +
           `export const tokens${theme} = ` +
@@ -39,7 +40,10 @@ const getStyleDictionaryConfig = (theme) => {
         parse: ({ contents }) => {
           try {
             const object = JSON.parse(contents)
+            // Bit fragile but I only want the primitives, semantic and component variables for each theme
+            // Figma exports a "mode 1" that we don't need - confirmed with Andrei
             const primitives = object['_Primitives/Value']
+            // The PayProp theme isn't yet defined but when it is...
             const components = object[`Semantic variables/${theme}`] || object['Semantic variables/Reapit']
             const semantics = object[`_Component variables/${theme}`] || object['_Component variables/Reapit']
             return { ...primitives, ...semantics, ...components }
