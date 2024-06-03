@@ -39,9 +39,10 @@ const getStyleDictionaryConfig = (theme) => {
         parse: ({ contents }) => {
           try {
             const object = JSON.parse(contents)
-            const primitives = object['Primitives/Value']
-            const semantics = object[`Semantic variables/${theme}`]
-            return { ...primitives, ...semantics }
+            const primitives = object['_Primitives/Value']
+            const components = object[`Semantic variables/${theme}`] || object['Semantic variables/Reapit']
+            const semantics = object[`_Component variables/${theme}`] || object['_Component variables/Reapit']
+            return { ...primitives, ...semantics, ...components }
           } catch (error) {
             console.log(error)
           }
