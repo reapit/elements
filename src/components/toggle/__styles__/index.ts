@@ -13,7 +13,7 @@ export const ElToggleItem = styled.span`
   justify-content: center;
   align-items: center;
   padding: 0.25rem 0.75rem;
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 `
 
 export const ElToggleRadioItem = styled.span`
@@ -38,7 +38,7 @@ export const ElToggleCheckbox = styled.input`
   width: 0;
   visibility: hidden;
   position: absolute;
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 
   + label ${ElToggleItem} {
     transition: all 0.2s linear;
@@ -51,14 +51,14 @@ export const ElToggleCheckbox = styled.input`
   &:not(:checked) + label ${ElToggleItem} {
     &:last-child {
       background: var(--intent-primary);
-      color: var(--color-white);
+      color: var(--white);
     }
   }
 
   &:checked + label ${ElToggleItem} {
     &:first-child {
       background: var(--intent-primary);
-      color: var(--color-white);
+      color: var(--white);
     }
   }
 `
@@ -67,7 +67,7 @@ export const ElToggleLabel = styled.label`
   cursor: pointer;
   width: fit-content;
   height: 2rem;
-  background: var(--color-white);
+  background: var(--white);
   border-radius: 1.5rem;
   border: var(--component-input-border);
   display: flex;
@@ -76,8 +76,8 @@ export const ElToggleLabel = styled.label`
   padding: 0.25rem;
 
   &.${elHasGreyBg} {
-    background: var(--color-purple-50);
-    border: 1px solid var(--color-purple-50);
+    background: var(--purple-50);
+    border: 1px solid var(--purple-50);
   }
 
   &.${elToggleFullWidth} {
@@ -90,7 +90,7 @@ export const ElToggleRadio = styled.input`
   width: 0;
   visibility: hidden;
   position: absolute;
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 
   + label ${ElToggleRadioItem} {
     transition: all 0.2s linear;
@@ -98,7 +98,7 @@ export const ElToggleRadio = styled.input`
 
   &:checked + label ${ElToggleRadioItem} {
     background: var(--intent-primary);
-    color: var(--color-white);
+    color: var(--white);
   }
 
   &:disabled + label ${ElToggleRadioItem} {
@@ -109,7 +109,7 @@ export const ElToggleRadio = styled.input`
 export const ElToggleRadioLabel = styled.label`
   cursor: pointer;
   width: fit-content;
-  background: var(--color-white);
+  background: var(--white);
   display: flex;
   align-items: center;
   height: 100%;
@@ -117,14 +117,14 @@ export const ElToggleRadioLabel = styled.label`
   margin-right: 0.375rem;
 
   &.${elHasGreyBg} {
-    background: var(--color-purple-50);
+    background: var(--purple-50);
   }
 `
 
 export const ElToggleRadioWrap = styled.div`
   display: flex;
   border: var(--component-input-border);
-  background: var(--color-white);
+  background: var(--white);
   border-radius: 1rem;
   overflow: hidden;
   padding: 0.25rem 0 0.25rem 0.25rem;
@@ -138,7 +138,7 @@ export const ElToggleRadioWrap = styled.div`
   }
 
   &.${elHasGreyBg} {
-    background: var(--color-purple-50);
-    border: 1px solid var(--color-purple-50);
+    background: var(--purple-50);
+    border: 1px solid var(--purple-50);
   }
 `

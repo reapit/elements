@@ -40,7 +40,7 @@ export const ElFileInputIconContainer = styled.div`
   height: 34px;
 
   ${ElIcon} {
-    background: var(--color-white);
+    background: var(--white);
     border: 1px solid var(--component-input-focus-bg);
     border-radius: 0.25rem;
     height: 100%;

@@ -9,7 +9,7 @@ export const ElAvatar = styled.div`
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-grey-100);
+  background-color: var(--neutral-100);
   border-radius: 50%;
   overflow: hidden;
   width: 2.5rem;

@@ -53,18 +53,18 @@ exports[`NavResponsive component should match a snapshot 1`] = `
         <mock-styled.a
           classname="mock-css.
   &:not(:first-child) {
-    background-color: var(--color-purple-50);
-    border-left: 3px solid var(--color-purple-500);
-    color: var(--color-purple-500);
+    background-color: var(--purple-50);
+    border-left: 3px solid var(--purple-500);
+    color: var(--purple-500);
   }
 
   @media screen and (min-width: 768px) {
     &:not(:first-child) {
-      --nav-menu-icon-primary-accent: var(--color-purple-500);
-      --nav-menu-icon-secondary-accent: var(--color-purple-300);
+      --nav-menu-icon-primary-accent: var(--purple-500);
+      --nav-menu-icon-secondary-accent: var(--purple-300);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
-      background-color: var(--color-grey-50);
+      background-color: var(--neutral-50);
       border-left: none;
       height: 2rem;
     }
@@ -182,18 +182,18 @@ exports[`NavResponsive component should match a snapshot 1`] = `
       <mock-styled.a
         classname="mock-css.
   &:not(:first-child) {
-    background-color: var(--color-purple-50);
-    border-left: 3px solid var(--color-purple-500);
-    color: var(--color-purple-500);
+    background-color: var(--purple-50);
+    border-left: 3px solid var(--purple-500);
+    color: var(--purple-500);
   }
 
   @media screen and (min-width: 768px) {
     &:not(:first-child) {
-      --nav-menu-icon-primary-accent: var(--color-purple-500);
-      --nav-menu-icon-secondary-accent: var(--color-purple-300);
+      --nav-menu-icon-primary-accent: var(--purple-500);
+      --nav-menu-icon-secondary-accent: var(--purple-300);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
-      background-color: var(--color-grey-50);
+      background-color: var(--neutral-50);
       border-left: none;
       height: 2rem;
     }

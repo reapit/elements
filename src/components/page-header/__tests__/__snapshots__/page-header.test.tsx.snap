@@ -23,7 +23,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -50,7 +50,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -89,7 +89,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -128,7 +128,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -184,7 +184,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -201,20 +201,20 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   <h1
                     class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -314,20 +314,20 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 <h2
                   class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -412,7 +412,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -424,20 +424,20 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   <div
                     class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -516,20 +516,20 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   <div
                     class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -608,20 +608,20 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   <div
                     class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -750,11 +750,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
                 >
                   Tab Content 1
@@ -781,11 +781,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
                 >
                   Tab Content 2
@@ -812,11 +812,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
                 >
                   Tab Content 3
@@ -853,7 +853,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -880,7 +880,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -919,7 +919,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -958,7 +958,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -1014,7 +1014,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -1031,20 +1031,20 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 <h1
                   class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1144,20 +1144,20 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <h2
                 class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1242,7 +1242,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -1254,20 +1254,20 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 <div
                   class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1346,20 +1346,20 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 <div
                   class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1438,20 +1438,20 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 <div
                   class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1580,11 +1580,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
               >
                 Tab Content 1
@@ -1611,11 +1611,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
               >
                 Tab Content 2
@@ -1642,11 +1642,11 @@ exports[`PageHeader component should match a snapshot 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
               >
                 Tab Content 3

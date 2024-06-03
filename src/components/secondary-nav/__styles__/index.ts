@@ -8,20 +8,20 @@ export const ElSecondaryNav = styled.div`
 
 export const ElSecondaryNavItem = styled.div`
   padding: 0.625rem 1.5rem;
-  color: var(--color-grey-400);
+  color: var(--neutral-400);
   font-size: var(--font-size-small);
   cursor: pointer;
   position: relative;
-  border-left: 3px solid var(--color-white);
+  border-left: 3px solid var(--white);
 
   &.${elIsActive} {
-    border-left: 3px solid var(--color-purple-500);
-    background-color: var(--color-purple-50);
-    color: var(--color-purple-500);
+    border-left: 3px solid var(--purple-500);
+    background-color: var(--purple-50);
+    color: var(--purple-500);
   }
 
   &:hover {
-    border-left: 3px solid var(--color-purple-500);
-    background-color: var(--color-purple-50);
+    border-left: 3px solid var(--purple-500);
+    background-color: var(--purple-50);
   }
 `

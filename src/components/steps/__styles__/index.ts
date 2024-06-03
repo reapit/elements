@@ -6,8 +6,8 @@ export const ElSteps = styled.div`
   display: flex;
 `
 export const ElStep = styled.div`
-  background-color: var(--color-grey-100);
-  color: var(--color-grey-500);
+  background-color: var(--neutral-100);
+  color: var(--neutral-500);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-default);
   border-radius: 100%;
@@ -26,12 +26,12 @@ export const ElStep = styled.div`
   &.${elIsUsed} {
     &:before,
     &:after {
-      background: var(--color-grey-100);
+      background: var(--neutral-100);
     }
   }
 
   &.${elIsActive} {
-    color: var(--color-white);
+    color: var(--white);
     background-color: var(--intent-primary);
   }
 
@@ -43,7 +43,7 @@ export const ElStep = styled.div`
     top: 50%;
     width: var(--component-steps-gutter-width);
     height: 1.5px;
-    background: var(--color-grey-100);
+    background: var(--neutral-100);
   }
 
   &:before {

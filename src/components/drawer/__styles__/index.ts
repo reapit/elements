@@ -9,7 +9,7 @@ export const ElDrawerBg = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: var(--color-grey-500);
+  background: var(--neutral-500);
   opacity: 0.2;
 
   &.${elIsActive} {
@@ -46,19 +46,19 @@ export const ElDrawer = styled.div`
 
 export const ElDrawerHeader = styled.div`
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid var(--color-grey-100);
+  border-bottom: 1px solid var(--neutral-100);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
 `
 
 export const ElDrawerSubtitle = styled.div`
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
   font-size: var(--font-size-default);
 `
 
 export const ElDrawerTitle = styled.div`
-  color: var(--color-black);
+  color: var(--black);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-small-subheading);
 
@@ -73,6 +73,6 @@ export const ElDrawerBody = styled.div`
 `
 
 export const ElDrawerFooter = styled.div`
-  border-top: 1px solid var(--color-grey-100);
+  border-top: 1px solid var(--neutral-100);
   padding: 0.875rem 2rem;
 `

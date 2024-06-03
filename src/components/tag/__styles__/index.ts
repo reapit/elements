@@ -14,8 +14,8 @@ export const ElTag = styled.span`
   display: inline-block;
   font-size: var(--font-size-smallest);
   padding: 0.25rem 1rem;
-  background: var(--color-grey-400);
-  color: var(--color-white);
+  background: var(--neutral-400);
+  color: var(--white);
 
   &.${elIntentPrimary} {
     background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));

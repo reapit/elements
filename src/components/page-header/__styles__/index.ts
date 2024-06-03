@@ -113,7 +113,7 @@ export const ElPageHeaderSeparator = styled.span`
   height: 1.5rem;
   width: 1.5rem;
   position: relative;
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 
   &::before {
     content: '';

@@ -4,14 +4,14 @@ import { isTablet } from '../../../styles/media'
 import { ElAvatar } from '../../avatar'
 
 export const elCardFocussed = css`
-  background-color: var(--color-purple-50);
+  background-color: var(--purple-50);
 `
 
 export const ElCardWrap = styled.div`
   padding: 1rem;
   border-radius: 0.25rem;
   box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.03);
-  background: var(--color-white);
+  background: var(--white);
   position: relative;
 
   ${isTablet} {
@@ -20,7 +20,7 @@ export const ElCardWrap = styled.div`
   }
 
   &.${elCardFocussed} {
-    background-color: var(--color-purple-50);
+    background-color: var(--purple-50);
   }
 `
 
@@ -64,7 +64,7 @@ export const ElCardHeading = styled.h5`
 `
 
 export const ElCardSubHeading = styled.h6`
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -74,7 +74,7 @@ export const ElCardSubHeading = styled.h6`
 export const elCardSubHeadingAdditionalExpanded = css``
 
 export const ElCardSubHeadingAdditional = styled.h6`
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
   font-size: var(--font-size-smallest);
   font-weight: var(--font-weight-medium);
   text-overflow: ellipsis;
@@ -88,7 +88,7 @@ export const elCardBodyWrapExpanded = css``
 
 export const ElCardBodyWrap = styled.div`
   width: 100%;
-  color: var(--color-black);
+  color: var(--black);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
@@ -117,7 +117,7 @@ export const ElCardAvatarWrap = styled.div`
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-grey-100);
+  background-color: var(--neutral-100);
   margin-right: 0.5rem;
   border-radius: 50%;
   width: 2.5rem;
@@ -164,7 +164,7 @@ export const ElCardListHeading = styled.h5`
 
 export const ElCardListSubHeading = styled.h6`
   font-size: var(--font-size-smallest);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -200,7 +200,7 @@ export const ElCardListItemTextWrap = styled.div`
 `
 
 export const ElCardListItemTextPrimary = styled.div`
-  color: var(--color-black);
+  color: var(--black);
 `
 
 export const ElCardListItemTextSecondary = styled.div`

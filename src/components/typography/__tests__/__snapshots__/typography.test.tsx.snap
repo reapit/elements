@@ -8,20 +8,20 @@ exports[`Typography Base Text2XL should match a snapshot 1`] = `
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -105,20 +105,20 @@ exports[`Typography Base Text2XL should match a snapshot 1`] = `
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -259,20 +259,20 @@ exports[`Typography Base Text2XL should match a snapshot with all modifiers 1`] 
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -356,20 +356,20 @@ exports[`Typography Base Text2XL should match a snapshot with all modifiers 1`] 
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -510,20 +510,20 @@ exports[`Typography Base Text2XS should match a snapshot 1`] = `
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -607,20 +607,20 @@ exports[`Typography Base Text2XS should match a snapshot 1`] = `
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -761,20 +761,20 @@ exports[`Typography Base Text2XS should match a snapshot with all modifiers 1`] 
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -858,20 +858,20 @@ exports[`Typography Base Text2XS should match a snapshot with all modifiers 1`] 
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1012,20 +1012,20 @@ exports[`Typography Base Text3XL should match a snapshot 1`] = `
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1109,20 +1109,20 @@ exports[`Typography Base Text3XL should match a snapshot 1`] = `
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1263,20 +1263,20 @@ exports[`Typography Base Text3XL should match a snapshot with all modifiers 1`] 
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1360,20 +1360,20 @@ exports[`Typography Base Text3XL should match a snapshot with all modifiers 1`] 
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1514,20 +1514,20 @@ exports[`Typography Base TextBase should match a snapshot 1`] = `
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1608,20 +1608,20 @@ exports[`Typography Base TextBase should match a snapshot 1`] = `
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1759,20 +1759,20 @@ exports[`Typography Base TextBase should match a snapshot with all modifiers 1`]
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -1853,20 +1853,20 @@ exports[`Typography Base TextBase should match a snapshot with all modifiers 1`]
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -2004,20 +2004,20 @@ exports[`Typography Base TextL should match a snapshot 1`] = `
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -2101,20 +2101,20 @@ exports[`Typography Base TextL should match a snapshot 1`] = `
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -2255,20 +2255,20 @@ exports[`Typography Base TextL should match a snapshot with all modifiers 1`] = 
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -2352,20 +2352,20 @@ exports[`Typography Base TextL should match a snapshot with all modifiers 1`] = 
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -2506,20 +2506,20 @@ exports[`Typography Base TextSM should match a snapshot 1`] = `
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -2603,20 +2603,20 @@ exports[`Typography Base TextSM should match a snapshot 1`] = `
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -2757,20 +2757,20 @@ exports[`Typography Base TextSM should match a snapshot with all modifiers 1`] =
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -2854,20 +2854,20 @@ exports[`Typography Base TextSM should match a snapshot with all modifiers 1`] =
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -3008,20 +3008,20 @@ exports[`Typography Base TextXL should match a snapshot 1`] = `
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -3105,20 +3105,20 @@ exports[`Typography Base TextXL should match a snapshot 1`] = `
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -3259,20 +3259,20 @@ exports[`Typography Base TextXL should match a snapshot with all modifiers 1`] =
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -3356,20 +3356,20 @@ exports[`Typography Base TextXL should match a snapshot with all modifiers 1`] =
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -3510,20 +3510,20 @@ exports[`Typography Base TextXS should match a snapshot 1`] = `
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -3607,20 +3607,20 @@ exports[`Typography Base TextXS should match a snapshot 1`] = `
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -3761,20 +3761,20 @@ exports[`Typography Base TextXS should match a snapshot with all modifiers 1`] =
       <div
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -3858,20 +3858,20 @@ exports[`Typography Base TextXS should match a snapshot with all modifiers 1`] =
     <div
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4012,20 +4012,20 @@ exports[`Typography Helpers BodyText should match a snapshot 1`] = `
       <p
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4099,21 +4099,21 @@ exports[`Typography Helpers BodyText should match a snapshot 1`] = `
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
   line-height: 1.25rem;
   letter-spacing: -1%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4186,20 +4186,20 @@ exports[`Typography Helpers BodyText should match a snapshot 1`] = `
     <p
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4273,21 +4273,21 @@ exports[`Typography Helpers BodyText should match a snapshot 1`] = `
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
   line-height: 1.25rem;
   letter-spacing: -1%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4417,20 +4417,20 @@ exports[`Typography Helpers BodyText should match a snapshot with all modifiers 
       <p
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4504,21 +4504,21 @@ exports[`Typography Helpers BodyText should match a snapshot with all modifiers 
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
   line-height: 1.25rem;
   letter-spacing: -1%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4591,20 +4591,20 @@ exports[`Typography Helpers BodyText should match a snapshot with all modifiers 
     <p
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4678,21 +4678,21 @@ exports[`Typography Helpers BodyText should match a snapshot with all modifiers 
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
   line-height: 1.25rem;
   letter-spacing: -1%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4822,20 +4822,20 @@ exports[`Typography Helpers SmallText should match a snapshot 1`] = `
       <small
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4909,21 +4909,21 @@ exports[`Typography Helpers SmallText should match a snapshot 1`] = `
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -4996,20 +4996,20 @@ exports[`Typography Helpers SmallText should match a snapshot 1`] = `
     <small
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -5083,21 +5083,21 @@ exports[`Typography Helpers SmallText should match a snapshot 1`] = `
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -5227,20 +5227,20 @@ exports[`Typography Helpers SmallText should match a snapshot 2`] = `
       <small
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -5314,21 +5314,21 @@ exports[`Typography Helpers SmallText should match a snapshot 2`] = `
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -5401,20 +5401,20 @@ exports[`Typography Helpers SmallText should match a snapshot 2`] = `
     <small
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -5488,21 +5488,21 @@ exports[`Typography Helpers SmallText should match a snapshot 2`] = `
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -5632,20 +5632,20 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
       <small
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -5719,21 +5719,21 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -5806,20 +5806,20 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
     <small
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -5893,21 +5893,21 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -6037,20 +6037,20 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
       <small
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -6124,21 +6124,21 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -6211,20 +6211,20 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
     <small
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -6298,21 +6298,21 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -6442,20 +6442,20 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
       <small
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -6529,21 +6529,21 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -6616,20 +6616,20 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
     <small
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -6703,21 +6703,21 @@ exports[`Typography Helpers SmallText should match a snapshot with all modifiers
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -6847,20 +6847,20 @@ exports[`Typography Helpers SubTitle should match a snapshot 1`] = `
       <h2
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -6934,21 +6934,21 @@ exports[`Typography Helpers SubTitle should match a snapshot 1`] = `
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-subheading);
   line-height: 1.5rem;
   letter-spacing: 0%;
   margin-bottom: 0.75rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -7021,20 +7021,20 @@ exports[`Typography Helpers SubTitle should match a snapshot 1`] = `
     <h2
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -7108,21 +7108,21 @@ exports[`Typography Helpers SubTitle should match a snapshot 1`] = `
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-subheading);
   line-height: 1.5rem;
   letter-spacing: 0%;
   margin-bottom: 0.75rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -7252,20 +7252,20 @@ exports[`Typography Helpers SubTitle should match a snapshot with all modifiers 
       <h2
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -7339,21 +7339,21 @@ exports[`Typography Helpers SubTitle should match a snapshot with all modifiers 
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-subheading);
   line-height: 1.5rem;
   letter-spacing: 0%;
   margin-bottom: 0.75rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -7426,20 +7426,20 @@ exports[`Typography Helpers SubTitle should match a snapshot with all modifiers 
     <h2
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -7513,21 +7513,21 @@ exports[`Typography Helpers SubTitle should match a snapshot with all modifiers 
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-subheading);
   line-height: 1.5rem;
   letter-spacing: 0%;
   margin-bottom: 0.75rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -7657,20 +7657,20 @@ exports[`Typography Helpers Title should match a snapshot 1`] = `
       <h1
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -7744,21 +7744,21 @@ exports[`Typography Helpers Title should match a snapshot 1`] = `
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-bold);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-heading);
   line-height: 2.25rem;
   letter-spacing: 0%;
   margin-bottom: 1rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -7831,20 +7831,20 @@ exports[`Typography Helpers Title should match a snapshot 1`] = `
     <h1
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -7918,21 +7918,21 @@ exports[`Typography Helpers Title should match a snapshot 1`] = `
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-bold);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-heading);
   line-height: 2.25rem;
   letter-spacing: 0%;
   margin-bottom: 1rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -8062,20 +8062,20 @@ exports[`Typography Helpers Title should match a snapshot with all modifiers 1`]
       <h1
         class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -8149,21 +8149,21 @@ exports[`Typography Helpers Title should match a snapshot with all modifiers 1`]
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-bold);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-heading);
   line-height: 2.25rem;
   letter-spacing: 0%;
   margin-bottom: 1rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -8236,20 +8236,20 @@ exports[`Typography Helpers Title should match a snapshot with all modifiers 1`]
     <h1
       class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -8323,21 +8323,21 @@ exports[`Typography Helpers Title should match a snapshot with all modifiers 1`]
  mock-css.
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-bold);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-heading);
   line-height: 2.25rem;
   letter-spacing: 0%;
   margin-bottom: 1rem;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 

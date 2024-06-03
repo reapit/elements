@@ -15,8 +15,8 @@ export const ElSnack = styled.div`
   border-radius: var(--default-border-radius);
   padding: 0.75rem 0.75rem;
   align-items: center;
-  background: var(--color-grey-100);
-  color: var(--color-black);
+  background: var(--neutral-100);
+  color: var(--black);
   font-size: var(--font-size-default);
 
   &.${elIntentPrimary} {
@@ -55,7 +55,7 @@ export const elSnackIcon = css`
 export const elSnackCloseIcon = css`
   cursor: pointer;
   padding-left: 0.5rem;
-  color: var(--color-black);
+  color: var(--black);
 `
 
 export const ElSnackHolder = styled.div`
@@ -70,6 +70,6 @@ export const ElSnackHolder = styled.div`
   ${ElSnack} {
     display: flex;
     margin-bottom: 1rem;
-    /* box-shadow: 3px 3px 5px var(--color-grey-400); */
+    /* box-shadow: 3px 3px 5px var(--neutral-400); */
   }
 `

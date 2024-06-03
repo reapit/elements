@@ -24,20 +24,20 @@ export const elHasUpperCasedText = css``
 
 export const elTextBase = css`
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -148,21 +148,21 @@ export const elText2XS = css`
 export const elTitle = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-bold);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-heading);
   line-height: 2.25rem;
   letter-spacing: 0%;
   margin-bottom: 1rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -230,21 +230,21 @@ export const elTitle = css`
 export const elSubtitle = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-subheading);
   line-height: 1.5rem;
   letter-spacing: 0%;
   margin-bottom: 0.75rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -312,21 +312,21 @@ export const elSubtitle = css`
 export const elBodyText = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
   line-height: 1.25rem;
   letter-spacing: -1%;
   margin-bottom: 0.5rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -394,21 +394,21 @@ export const elBodyText = css`
 export const elSmallText = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
 
   &.${elHasGreyText} {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &.${elHasDisabledText} {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 

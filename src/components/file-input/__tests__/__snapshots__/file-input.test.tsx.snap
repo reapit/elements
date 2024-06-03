@@ -13,7 +13,7 @@ exports[`FileInput component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -45,20 +45,20 @@ exports[`FileInput component should match a snapshot 1`] = `
           <div
             class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -151,7 +151,7 @@ exports[`FileInput component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -183,20 +183,20 @@ exports[`FileInput component should match a snapshot 1`] = `
         <div
           class="mock-css.
   font-family: var(--font-sans-serif);
-  color: var(--color-black);
+  color: var(--black);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
 
   &., {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 
   &., {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
 
     a {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
     }
   }
 
@@ -418,7 +418,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -491,7 +491,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {

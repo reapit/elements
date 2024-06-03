@@ -144,7 +144,7 @@ export const elTableNarrowCellIsFullWidth = css`
 export const elTableCellHasDarkText = css``
 
 export const elTableRowFocused = css`
-  background: var(--color-purple-50);
+  background: var(--purple-50);
 `
 
 // molecules
@@ -180,7 +180,7 @@ export const ElTableHeadersRow = styled.div`
   grid-template-columns:
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
-  border-bottom: 1px solid var(--color-grey-100);
+  border-bottom: 1px solid var(--neutral-100);
 
   ${isNarrow} {
     display: none;
@@ -188,7 +188,7 @@ export const ElTableHeadersRow = styled.div`
 `
 
 export const ElTableHeader = styled.div`
-  color: var(--color-grey-400);
+  color: var(--neutral-400);
   padding: 1rem 0.5rem;
   display: flex;
   align-items: center;
@@ -208,8 +208,8 @@ export const ElTableRow = styled.div`
   grid-template-columns:
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
-  background: var(--color-white);
-  border-bottom: 1px solid var(--color-grey-100);
+  background: var(--white);
+  border-bottom: 1px solid var(--neutral-100);
 
   ${isNarrow} {
     grid-template-columns: 1fr 1fr;
@@ -217,7 +217,7 @@ export const ElTableRow = styled.div`
 `
 
 export const ElTableCtaCell = styled.div`
-  background: var(--color-white);
+  background: var(--white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -240,7 +240,7 @@ export const ElTableCell = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
   /* margin-right: 2px; */
   word-break: break-word;
   font-size: var(--font-size-small);
@@ -256,7 +256,7 @@ export const ElTableCell = styled.div`
   }
 
   &.${elTableCellHasDarkText} {
-    color: var(--color-black);
+    color: var(--black);
   }
 `
 
@@ -267,7 +267,7 @@ export const ElTableCellSplitWrap = styled.div`
 
 export const ElTableCellSplitData = styled.div`
   font-size: var(--font-size-small);
-  color: var(--color-black);
+  color: var(--black);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -275,7 +275,7 @@ export const ElTableCellSplitData = styled.div`
 
 export const ElTableCellSplitSubData = styled.div`
   font-size: var(--font-size-smallest);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -299,27 +299,27 @@ export const ElTableExpandableRowTriggerCell = styled.div`
 
 export const ElTableRowContainer = styled.div`
   &:hover:not(.${elIsActive}) {
-    background-color: var(--color-grey-100);
+    background-color: var(--neutral-100);
 
     ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
-      background-color: var(--color-grey-100);
+      background-color: var(--neutral-100);
     }
   }
 
   &:focus,
   &.${elIsActive}, .${elTableRowFocused} {
-    background: var(--color-purple-50);
+    background: var(--purple-50);
 
     ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
-      background: var(--color-purple-50);
+      background: var(--purple-50);
     }
   }
 
   &:not(.${elIsActive}) {
-    background: var(--color-white);
+    background: var(--white);
 
     ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
-      background: var(--color-white);
+      background: var(--white);
     }
   }
 `
@@ -339,7 +339,7 @@ export const ElTableCellContent = styled.div`
       display: block;
       content: attr(data-narrow-label);
       width: 100%;
-      color: var(--color-black);
+      color: var(--black);
     }
   }
 `
@@ -352,7 +352,7 @@ export const ElTableCtaIconContainer = styled.div`
 
 export const ElTableExpandableRow = styled.div`
   height: 0;
-  background: var(--color-white);
+  background: var(--white);
   opacity: 0;
   border: none;
   overflow-y: scroll;
@@ -366,7 +366,7 @@ export const ElTableExpandableRow = styled.div`
 
 export const ElTableExpandableContainer = styled.div`
   padding: 1rem 0.5rem;
-  border-bottom: 1px solid var(--color-grey-100);
+  border-bottom: 1px solid var(--neutral-100);
 `
 
 export const ElTable = styled.div`
@@ -396,7 +396,7 @@ export const ElTable = styled.div`
         display: block;
         content: attr(data-narrow-label);
         width: 100%;
-        color: var(--color-black);
+        color: var(--black);
       }
     }
 

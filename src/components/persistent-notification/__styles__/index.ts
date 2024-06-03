@@ -26,7 +26,7 @@ export const elPnIcon = css`
   cursor: pointer;
 
   ${ElIcon} {
-    color: var(--color-white);
+    color: var(--white);
   }
 `
 
@@ -34,7 +34,7 @@ export const elPnContent = css`
   padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
 `
 
@@ -67,7 +67,7 @@ export const ElPersistentNotification = styled.div`
   &.${elPnIsInline} {
     z-index: auto;
     position: relative;
-    background: var(--color-white);
+    background: var(--white);
     .${elPnContent} {
       border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
     }

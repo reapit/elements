@@ -28,10 +28,10 @@ export const ElButtonLoader = styled.div`
   color: transparent !important;
   pointer-events: none;
   animation: spinAround 500ms infinite linear;
-  border: 2px solid var(--color-grey-400);
+  border: 2px solid var(--neutral-400);
   margin-right: 0.5rem;
   border-radius: 290486px;
-  border-color: transparent transparent var(--color-grey-400) var(--color-grey-400);
+  border-color: transparent transparent var(--neutral-400) var(--neutral-400);
   display: none;
   height: 0.75rem;
   width: 0.75rem;
@@ -53,45 +53,45 @@ export const ElButton = styled.button`
   white-space: nowrap;
   cursor: pointer;
   border-radius: var(--default-border-radius);
-  border: 1px solid var(--color-grey-100);
+  border: 1px solid var(--neutral-100);
   font-size: var(--font-size-small);
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-400);
+  color: var(--neutral-400);
   background-color: unset;
-  background-image: linear-gradient(to right, var(--color-white), var(--color-white));
+  background-image: linear-gradient(to right, var(--white), var(--white));
   outline-color: var(--intent-primary);
   background-repeat: no-repeat;
   height: 2.25rem;
 
   &:hover {
-    border: 1px solid var(--color-grey-400);
-    color: var(--color-grey-700);
+    border: 1px solid var(--neutral-400);
+    color: var(--neutral-700);
   }
 
   &.${elIntentPrimary} {
     background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
-    color: var(--color-white);
+    color: var(--white);
     outline-color: var(--intent-primary-dark);
     border: 1px solid var(--intent-primary);
 
     &:hover {
       background-image: linear-gradient(to right, var(--intent-primary-dark), var(--intent-primary-dark));
       border: 1px solid var(--intent-primary-dark);
-      color: var(--color-white);
+      color: var(--white);
     }
   }
 
   &.${elIntentDanger} {
     background-image: linear-gradient(to right, var(--intent-danger), var(--intent-danger));
-    color: var(--color-white);
+    color: var(--white);
     outline-color: var(--intent-danger-dark);
     border: 1px solid var(--intent-danger);
 
     &:hover {
       background-image: linear-gradient(to right, var(--intent-danger-dark), var(--intent-danger-dark));
       border: 1px solid var(--intent-danger-dark);
-      color: var(--color-white);
+      color: var(--white);
     }
   }
 
@@ -132,7 +132,7 @@ export const ElButton = styled.button`
 
   &.${elIntentDanger}, &.${elIntentPrimary} {
     ${ElIcon} {
-      color: var(--color-white);
+      color: var(--white);
     }
   }
 
@@ -147,9 +147,9 @@ export const ElButton = styled.button`
     .${elIntentPrimary},
     &.${elIsLoading}
     .${elIntentDefault} {
-    border: 1px solid var(--color-grey-100);
-    color: var(--color-grey-400);
-    background-image: linear-gradient(to right, var(--color-grey-100), var(--color-grey-100));
+    border: 1px solid var(--neutral-100);
+    color: var(--neutral-400);
+    background-image: linear-gradient(to right, var(--neutral-100), var(--neutral-100));
     cursor: disabled;
   }
 
@@ -182,16 +182,16 @@ export const ElButton = styled.button`
     }
 
     ${ElIcon} {
-      color: var(--color-grey-400);
+      color: var(--neutral-400);
 
       &:hover {
-        color: var(--color-grey-700);
+        color: var(--neutral-700);
       }
     }
 
     &.${elIntentDanger}, &.${elIntentPrimary} {
       ${ElIcon} {
-        color: var(--color-white);
+        color: var(--white);
       }
     }
 

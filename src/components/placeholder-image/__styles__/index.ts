@@ -4,8 +4,8 @@ export const ElPlaceholderImage = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-black);
-  background-color: var(--color-white);
+  color: var(--black);
+  background-color: var(--white);
   border-radius: 0.25rem;
   flex-shrink: 0;
 `
@@ -17,5 +17,5 @@ export const ElPlaceholderImageWrapper = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 0.25rem;
-  background-color: var(--color-white);
+  background-color: var(--white);
 `

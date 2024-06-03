@@ -12,10 +12,10 @@ export const elMainContainer = css`
   height: 100%;
   overflow-y: visible;
   overflow-x: hidden;
-  background: var(--color-white);
+  background: var(--white);
 
   &.${elHasGreyBackground} {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &.${elHasMaxWidth} {
@@ -31,7 +31,7 @@ export const elPageContainer = css`
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: var(--color-white);
+  background-color: var(--white);
 
   ${isTablet} {
     padding: 2.5rem 1.5rem;
@@ -42,7 +42,7 @@ export const elPageContainer = css`
   }
 
   &.${elHasGreyBackground} {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &.${elHasMaxWidth} {
@@ -59,8 +59,8 @@ export const elSecondaryNavContainer = css`
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none;
-  background: var(--color-white);
-  border-right: 1px solid var(--color-grey-50);
+  background: var(--white);
+  border-right: 1px solid var(--neutral-50);
 
   &::-webkit-scrollbar {
     display: none;
@@ -77,7 +77,7 @@ export const elFlexContainer = css`
   min-width: 0;
 
   &.${elHasGreyBackground} {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &.${elHasMaxWidth} {

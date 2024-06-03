@@ -12,7 +12,7 @@ exports[`FlexContainer should match a snapshot and render children 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -35,7 +35,7 @@ exports[`FlexContainer should match a snapshot and render children 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -115,7 +115,7 @@ exports[`FlexContainer should match a snapshot and render children with all prop
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -180,7 +180,7 @@ exports[`FlexContainer should match a snapshot and render children with all prop
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -303,10 +303,10 @@ exports[`MainContainer should match a snapshot and render children 1`] = `
   height: 100%;
   overflow-y: visible;
   overflow-x: hidden;
-  background: var(--color-white);
+  background: var(--white);
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -330,10 +330,10 @@ exports[`MainContainer should match a snapshot and render children 1`] = `
   height: 100%;
   overflow-y: visible;
   overflow-x: hidden;
-  background: var(--color-white);
+  background: var(--white);
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -414,7 +414,7 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: var(--color-white);
+  background-color: var(--white);
 
   , {
     padding: 2.5rem 1.5rem;
@@ -425,7 +425,7 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
   }
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -449,7 +449,7 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
   height: 100%;
   overflow-y: scroll;
   overflow-x: hidden;
-  background-color: var(--color-white);
+  background-color: var(--white);
 
   , {
     padding: 2.5rem 1.5rem;
@@ -460,7 +460,7 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
   }
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -542,8 +542,8 @@ exports[`SecondaryNavContainer should match a snapshot and render children 1`] =
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none;
-  background: var(--color-white);
-  border-right: 1px solid var(--color-grey-50);
+  background: var(--white);
+  border-right: 1px solid var(--neutral-50);
 
   &::-webkit-scrollbar {
     display: none;
@@ -570,8 +570,8 @@ exports[`SecondaryNavContainer should match a snapshot and render children 1`] =
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: none;
-  background: var(--color-white);
-  border-right: 1px solid var(--color-grey-50);
+  background: var(--white);
+  border-right: 1px solid var(--neutral-50);
 
   &::-webkit-scrollbar {
     display: none;

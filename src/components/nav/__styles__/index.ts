@@ -10,7 +10,7 @@ export const ElNavBg = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: var(--color-grey-500);
+  background: var(--neutral-500);
   opacity: 0.2;
 
   &.${elIsActive} {
@@ -37,7 +37,7 @@ export const ElNavContainer = styled.nav`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  background-color: var(--color-white);
+  background-color: var(--white);
   height: auto;
   width: 100%;
   position: sticky;
@@ -53,7 +53,7 @@ export const ElNavContainer = styled.nav`
     flex: 0 0 3.5rem;
     flex-wrap: nowrap;
     justify-content: space-between;
-    border-bottom: 1px solid var(--color-grey-100);
+    border-bottom: 1px solid var(--neutral-100);
   }
 `
 
@@ -72,7 +72,7 @@ export const ElNavItem = styled.a`
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-400);
+  color: var(--neutral-400);
   display: flex;
   text-align: center;
   justify-content: flex-start;
@@ -84,25 +84,25 @@ export const ElNavItem = styled.a`
   opacity: 1;
   flex: 1 0 100%;
   width: 100%;
-  border-left: 3px solid var(--color-white);
+  border-left: 3px solid var(--white);
 
   &:hover {
-    color: var(--color-grey-500);
-    background-color: var(--color-grey-50);
+    color: var(--neutral-500);
+    background-color: var(--neutral-50);
   }
 
   &:hover:not(:first-child) {
-    border-left: 3px solid var(--color-purple-300);
+    border-left: 3px solid var(--purple-300);
   }
 
   &:first-child {
     opacity: 1;
     padding: 0;
-    background-color: var(--color-white);
+    background-color: var(--white);
     margin-right: auto;
     width: 100%;
     padding: 0rem 1.25rem;
-    border-bottom: 1px solid var(--color-grey-100);
+    border-bottom: 1px solid var(--neutral-100);
   }
 
   &:not(:first-child) {
@@ -129,7 +129,7 @@ export const ElNavItem = styled.a`
     }
 
     &:hover:not(:first-child) {
-      background-color: var(--color-grey-50);
+      background-color: var(--neutral-50);
       border-left: none;
     }
 
@@ -147,18 +147,18 @@ export const ElNavItem = styled.a`
 
 export const elNavItemActive = css`
   &:not(:first-child) {
-    background-color: var(--color-purple-50);
-    border-left: 3px solid var(--color-purple-500);
-    color: var(--color-purple-500);
+    background-color: var(--purple-50);
+    border-left: 3px solid var(--purple-500);
+    color: var(--purple-500);
   }
 
   @media screen and (min-width: 768px) {
     &:not(:first-child) {
-      --nav-menu-icon-primary-accent: var(--color-purple-500);
-      --nav-menu-icon-secondary-accent: var(--color-purple-300);
+      --nav-menu-icon-primary-accent: var(--purple-500);
+      --nav-menu-icon-secondary-accent: var(--purple-300);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
-      background-color: var(--color-grey-50);
+      background-color: var(--neutral-50);
       border-left: none;
       height: 2rem;
     }
@@ -177,7 +177,7 @@ export const elNavItemExpanded = css`
     height: auto;
 
     &:last-child {
-      border-bottom: 1px solid var(--color-grey-100);
+      border-bottom: 1px solid var(--neutral-100);
     }
   }
 `
@@ -192,14 +192,14 @@ export const ElNavSubItem = styled.a`
   height: 0;
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
-  color: var(--color-grey-400);
+  color: var(--neutral-400);
   opacity: 0;
   display: flex;
   text-align: flex-start;
   justify-content: flex-start;
   align-items: center;
   transition: all 0.3s linear;
-  border-left: 3px solid var(--color-white);
+  border-left: 3px solid var(--white);
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -216,13 +216,13 @@ export const elNavSubItemExpanded = css`
     margin-left: 1rem;
 
     &:hover {
-      color: var(--color-purple-300);
+      color: var(--purple-300);
     }
   }
 `
 
 export const elNavSubItemActive = css`
-  color: var(--color-purple-500);
+  color: var(--purple-500);
   margin-left: 1rem;
 `
 
@@ -244,8 +244,8 @@ export const ElNavMenu = styled.div`
   position: absolute;
   top: 44px;
   right: 0;
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: var(--white);
+  color: var(--black);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -280,7 +280,7 @@ export const ElNavMenuOption = styled.div`
 export const ElNavMenuOptionDivider = styled.div`
   height: 0;
   width: 100%;
-  border-bottom: 1px solid var(--color-grey-100);
+  border-bottom: 1px solid var(--neutral-100);
   margin: 0.5rem 0;
 `
 
@@ -302,7 +302,7 @@ export const ElNavResponsiveAvatarWrap = styled.div`
 
   &:hover {
     ${ElAvatar} {
-      background-color: var(--color-purple-100);
+      background-color: var(--purple-100);
     }
   }
 

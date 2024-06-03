@@ -9,7 +9,7 @@ export const ElModalBg = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: var(--color-grey-500);
+  background: var(--neutral-500);
   opacity: 0.2;
 
   &.${elIsActive} {
@@ -41,7 +41,7 @@ export const ElModal = styled.div`
 `
 
 export const ElModalHeader = styled.div`
-  color: var(--color-black);
+  color: var(--black);
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
   font-size: var(--font-size-subheading);

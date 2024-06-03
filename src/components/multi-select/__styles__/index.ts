@@ -21,9 +21,9 @@ export const ElMultiSelectCheckbox = styled.input`
   position: absolute;
 
   &:checked + label {
-    background: var(--color-white);
+    background: var(--white);
     padding: 0.2rem 2rem 0.2rem 1rem;
-    color: var(--color-black);
+    color: var(--black);
 
     &::before {
       content: '';
@@ -44,7 +44,7 @@ export const ElMultiSelectCheckbox = styled.input`
     }
 
     &.${elHasGreyChips} {
-      background: var(--color-purple-50);
+      background: var(--purple-50);
     }
   }
 
@@ -72,9 +72,9 @@ export const ElMultiSelectLabel = styled.label`
   width: auto;
   margin: 0.25rem 0.375rem;
   height: 28px;
-  background: var(--color-white);
+  background: var(--white);
   border-radius: 1rem;
-  border: 1px solid var(--color-grey-150);
+  border: 1px solid var(--neutral-150);
   padding: 0.2rem 1.5rem;
   position: relative;
   font-size: var(--font-size-small);
@@ -82,22 +82,22 @@ export const ElMultiSelectLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 
   &.${elHasGreyChips} {
-    background: var(--color-purple-50);
-    border: 1px solid var(--color-purple-50);
+    background: var(--purple-50);
+    border: 1px solid var(--purple-50);
   }
 
   &:hover {
-    color: var(--color-black);
+    color: var(--black);
   }
 `
 
 export const ElMultiSelect = styled.div`
   display: flex;
   flex-wrap: wrap;
-  background-color: var(--color-white);
+  background-color: var(--white);
   padding: 0.25rem 0.5rem;
   position: relative;
 `
@@ -107,8 +107,8 @@ export const ElMultiSelectSelected = styled.div`
   align-items: center;
   flex-wrap: wrap;
   padding: 0.25rem 0.5rem;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-grey-150);
+  background-color: var(--white);
+  border: 1px solid var(--neutral-150);
   border-radius: 2px 2px 0 0;
   min-height: 3rem;
   padding: 0.25rem 0.5rem;
@@ -117,7 +117,7 @@ export const ElMultiSelectSelected = styled.div`
   p {
     margin-left: 0.375rem;
     font-size: var(--font-size-small);
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
   }
 `
 
@@ -125,8 +125,8 @@ export const ElMultiSelectUnSelected = styled.div`
   display: flex;
   flex-wrap: wrap;
   padding: 0.25rem 0.5rem;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-grey-150);
+  background-color: var(--white);
+  border: 1px solid var(--neutral-150);
   border-top: none;
   border-radius: 0 0 4px 4px;
   padding: 0.25rem 0.5rem;

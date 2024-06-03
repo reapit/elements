@@ -13,7 +13,7 @@ exports[`BreadCrumb should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -40,7 +40,7 @@ exports[`BreadCrumb should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -79,7 +79,7 @@ exports[`BreadCrumb should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -118,7 +118,7 @@ exports[`BreadCrumb should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -162,7 +162,7 @@ exports[`BreadCrumb should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -189,7 +189,7 @@ exports[`BreadCrumb should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -228,7 +228,7 @@ exports[`BreadCrumb should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {
@@ -267,7 +267,7 @@ exports[`BreadCrumb should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--color-grey-50);
+    background: var(--neutral-50);
   }
 
   &., {

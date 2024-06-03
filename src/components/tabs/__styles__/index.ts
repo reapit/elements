@@ -9,11 +9,11 @@ export const elTabsItem = css`
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 `
 
 export const elTabsFullWidth = css`
@@ -48,7 +48,7 @@ export const ElTabs = styled.input`
 
 export const ElTabsLabel = styled.label`
   cursor: pointer;
-  background: var(--color-white);
+  background: var(--white);
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -62,7 +62,7 @@ export const ElTabsLabel = styled.label`
 export const ElTabsWrap = styled.div`
   display: flex;
   flex-direction: column;
-  background: var(--color-white);
+  background: var(--white);
   overflow: hidden;
   width: fit-content;
   align-items: flex-start;
@@ -87,7 +87,7 @@ export const ElTabsOptionsWrap = styled.div`
 export const ElTabsFooter = styled.div`
   width: 100%;
   height: 1.125rem;
-  border-top: 1px solid var(--color-grey-100);
+  border-top: 1px solid var(--neutral-100);
 
   &.${elTabsFullWidth} {
     width: 100%;
