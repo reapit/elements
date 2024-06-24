@@ -15,7 +15,7 @@ export const elMainContainer = css`
   background: var(--white);
 
   &.${elHasGreyBackground} {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &.${elHasMaxWidth} {
@@ -42,7 +42,7 @@ export const elPageContainer = css`
   }
 
   &.${elHasGreyBackground} {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &.${elHasMaxWidth} {
@@ -60,7 +60,7 @@ export const elSecondaryNavContainer = css`
   overflow-x: hidden;
   scrollbar-width: none;
   background: var(--white);
-  border-right: 1px solid var(--neutral-50);
+  border-right: 1px solid var(--neutral-050);
 
   &::-webkit-scrollbar {
     display: none;
@@ -77,7 +77,7 @@ export const elFlexContainer = css`
   min-width: 0;
 
   &.${elHasGreyBackground} {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &.${elHasMaxWidth} {

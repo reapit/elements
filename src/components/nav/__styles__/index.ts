@@ -88,7 +88,7 @@ export const ElNavItem = styled.a`
 
   &:hover {
     color: var(--neutral-500);
-    background-color: var(--neutral-50);
+    background-color: var(--neutral-050);
   }
 
   &:hover:not(:first-child) {
@@ -129,7 +129,7 @@ export const ElNavItem = styled.a`
     }
 
     &:hover:not(:first-child) {
-      background-color: var(--neutral-50);
+      background-color: var(--neutral-050);
       border-left: none;
     }
 
@@ -147,7 +147,7 @@ export const ElNavItem = styled.a`
 
 export const elNavItemActive = css`
   &:not(:first-child) {
-    background-color: var(--purple-50);
+    background-color: var(--purple-050);
     border-left: 3px solid var(--purple-500);
     color: var(--purple-500);
   }
@@ -158,7 +158,7 @@ export const elNavItemActive = css`
       --nav-menu-icon-secondary-accent: var(--purple-300);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
-      background-color: var(--neutral-50);
+      background-color: var(--neutral-050);
       border-left: none;
       height: 2rem;
     }

@@ -199,7 +199,7 @@ export const elGlobals = css`
       --neutral-medium: var(--neutral-400);
       --neutral-medium-light: var(--neutral-300);
       --neutral-light: var(--neutral-100);
-      --neutral-lightest: var(--neutral-50);
+      --neutral-lightest: var(--neutral-050);
 
       /** intent color variables */
       --intent-primary: var(--purple-500);
@@ -220,13 +220,13 @@ export const elGlobals = css`
       --intent-default-light: var(--neutral-300);
 
       /* intent lightest colors */
-      --intent-primary-lightest: var(--purple-50);
-      --intent-neutral-lightest: var(--blue-50);
-      --intent-success-lightest: var(--green-50);
-      --intent-pending-lightest: var(--yellow-50);
-      --intent-warning-lightest: var(--orange-50);
-      --intent-danger-lightest: var(--red-50);
-      --intent-default-lightest: var(--neutral-50);
+      --intent-primary-lightest: var(--purple-050);
+      --intent-neutral-lightest: var(--blue-050);
+      --intent-success-lightest: var(--green-050);
+      --intent-pending-lightest: var(--yellow-050);
+      --intent-warning-lightest: var(--orange-050);
+      --intent-danger-lightest: var(--red-050);
+      --intent-default-lightest: var(--neutral-050);
 
       /** intent dark colors */
       --intent-primary-dark: var(--purple-700);

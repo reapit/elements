@@ -13,7 +13,7 @@ export const ElChipCheckbox = styled.input`
 
   &:checked + label,
   &:hover + label {
-    background: var(--purple-50);
+    background: var(--purple-050);
     padding: 0.2rem 2rem 0.2rem 1rem;
     color: var(--black);
 
@@ -35,8 +35,8 @@ export const ElChipLabel = styled.label`
   cursor: pointer;
   width: auto;
   height: 28px;
-  background: var(--purple-50);
-  border: 1px solid var(--purple-50);
+  background: var(--purple-050);
+  border: 1px solid var(--purple-050);
   border-radius: 1rem;
   padding: 0.2rem 1.5rem;
   position: relative;

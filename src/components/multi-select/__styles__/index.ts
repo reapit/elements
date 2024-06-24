@@ -44,7 +44,7 @@ export const ElMultiSelectCheckbox = styled.input`
     }
 
     &.${elHasGreyChips} {
-      background: var(--purple-50);
+      background: var(--purple-050);
     }
   }
 
@@ -85,8 +85,8 @@ export const ElMultiSelectLabel = styled.label`
   color: var(--neutral-500);
 
   &.${elHasGreyChips} {
-    background: var(--purple-50);
-    border: 1px solid var(--purple-50);
+    background: var(--purple-050);
+    border: 1px solid var(--purple-050);
   }
 
   &:hover {

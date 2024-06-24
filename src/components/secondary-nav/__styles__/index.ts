@@ -16,12 +16,12 @@ export const ElSecondaryNavItem = styled.div`
 
   &.${elIsActive} {
     border-left: 3px solid var(--purple-500);
-    background-color: var(--purple-50);
+    background-color: var(--purple-050);
     color: var(--purple-500);
   }
 
   &:hover {
     border-left: 3px solid var(--purple-500);
-    background-color: var(--purple-50);
+    background-color: var(--purple-050);
   }
 `

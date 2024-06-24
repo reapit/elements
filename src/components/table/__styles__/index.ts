@@ -144,7 +144,7 @@ export const elTableNarrowCellIsFullWidth = css`
 export const elTableCellHasDarkText = css``
 
 export const elTableRowFocused = css`
-  background: var(--purple-50);
+  background: var(--purple-050);
 `
 
 // molecules
@@ -308,10 +308,10 @@ export const ElTableRowContainer = styled.div`
 
   &:focus,
   &.${elIsActive}, .${elTableRowFocused} {
-    background: var(--purple-50);
+    background: var(--purple-050);
 
     ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
-      background: var(--purple-50);
+      background: var(--purple-050);
     }
   }
 

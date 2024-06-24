@@ -4,7 +4,7 @@ import { isTablet } from '../../../styles/media'
 import { ElAvatar } from '../../avatar'
 
 export const elCardFocussed = css`
-  background-color: var(--purple-50);
+  background-color: var(--purple-050);
 `
 
 export const ElCardWrap = styled.div`
@@ -20,7 +20,7 @@ export const ElCardWrap = styled.div`
   }
 
   &.${elCardFocussed} {
-    background-color: var(--purple-50);
+    background-color: var(--purple-050);
   }
 `
 

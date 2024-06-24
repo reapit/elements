@@ -23,7 +23,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -50,7 +50,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -89,7 +89,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -128,7 +128,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -184,7 +184,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -412,7 +412,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -853,7 +853,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -880,7 +880,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -919,7 +919,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -958,7 +958,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -1014,7 +1014,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
@@ -1242,7 +1242,7 @@ exports[`PageHeader component should match a snapshot 1`] = `
   min-width: 0;
 
   &., {
-    background: var(--neutral-50);
+    background: var(--neutral-050);
   }
 
   &., {
