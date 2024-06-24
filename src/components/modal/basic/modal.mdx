@@ -1,0 +1,24 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { Modal } from '../index'
+import { RenderHtmlMarkup } from '../../../storybook/render-html-markup'
+import * as ModalStories from './modal.stories'
+
+<Meta of={ModalStories} />
+
+# Modal
+
+The modal component renders a dialog box that overlays the main screen. It is typically used for displaying confirmation or error notifications to users that require an addtional call to action or step.
+
+## Basic Usage
+
+The Modal component can be used for UI purposes only, but won't have the functionality of the React implementation (i.e. managing the state of whether it is open or closed)
+
+If using the Modal component like this, you will need to toggle the `elIsActive` / `el-is-active` class to show/hide the modal.
+
+This class must be applied on two elements, `div.el-modal-bg` and also `div.el-modal`, when you want the modal to be shown.
+
+By default, the modal fills it's current container so you will likely wish to place it as high as possible up the DOM tree to achive an overlay effect.
+
+<Canvas of={ModalStories.BasicUsage} story={{ height: '300px' }} />
+
+<RenderHtmlMarkup of={ModalStories.BasicUsage} />

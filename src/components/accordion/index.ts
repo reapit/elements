@@ -1,2 +1,4 @@
 export * from './__styles__'
-export * from './accordion'
+export * from './types'
+export * from './basic/accordion'
+export * from './composed/accordion'

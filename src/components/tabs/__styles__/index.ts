@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
-export const elTabsItem = css`
+export const ElTabsItem = styled.span`
   width: 100%;
   height: 100%;
   text-align: center;
@@ -23,24 +23,24 @@ export const elTabsFullWidth = css`
 
 export const elTabsHasNoBorder = css``
 
-export const ElTabs = styled.input`
+export const ElTab = styled.input`
   height: 0;
   width: 0;
   visibility: hidden;
   margin: 0;
   position: absolute;
 
-  + label .${elTabsItem} {
+  + label ${ElTabsItem} {
     transition: all 0.1s linear;
   }
 
-  &:not(:checked) + label .${elTabsItem} {
+  &:not(:checked) + label ${ElTabsItem} {
     &:hover {
       color: var(--intent-primary);
     }
   }
 
-  &:checked + label .${elTabsItem} {
+  &:checked + label ${ElTabsItem} {
     color: var(--intent-primary);
     border-bottom: 2px solid var(--intent-primary);
   }
