@@ -34,7 +34,7 @@
     "build:sd": "node ./tokens/build.mjs && eslint --cache --ext=ts tokens --fix",
     "commit": "yarn test --coverage --no-cache --silent --forceExit --detectOpenHandles --runInBand --watch=false && jest-coverage-badges --input src/tests/coverage/coverage-summary.json --output src/tests/badges && yarn lint --fix && yarn check",
     "lint": "eslint --cache --ext=ts,tsx,js src",
-    "check": "tsc --noEmit --skipLibCheck",
+    "check": "tsc --noEmit --skipLibCheck ",
     "publish": "yarn npm publish --access public",
     "deploy": "elements-deploy deploy",
     "start": "storybook dev -p 6006",
