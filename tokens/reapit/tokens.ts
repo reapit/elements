@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 24 Jun 2024 09:08:02 GMT
+ * Generated on Tue, 02 Jul 2024 10:36:54 GMT
  */
 
 export const neutral900 = '#222b33'

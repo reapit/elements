@@ -1,9 +1,9 @@
 /**
  * Do not edit directly
- * Generated on Mon, 24 Jun 2024 09:08:02 GMT
+ * Generated on Tue, 02 Jul 2024 10:36:54 GMT
  */
 
-export const tokensPayProp = `
+:root {
   --neutral-900: #222b33;
   --neutral-800: #323e4b;
   --neutral-700: #415161;
@@ -298,4 +298,4 @@ export const tokensPayProp = `
   --icon-sm: 1rem;
   --icon-md: 1.25rem;
   --icon-default: 1.5rem;
-`
+}

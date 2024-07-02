@@ -1,5 +1,5 @@
 import StyleDictionaryPackage from 'style-dictionary'
-const { fileHeader, formattedVariables } = StyleDictionaryPackage.formatHelpers
+// const { fileHeader, formattedVariables } = StyleDictionaryPackage.formatHelpers
 
 const themes = ['Reapit', 'PayProp']
 
@@ -7,33 +7,6 @@ const getStyleDictionaryConfig = (theme) => {
   const lowerCasedTheme = theme.toLowerCase()
   return {
     source: ['./tokens/tokens.json'],
-    format: {
-      linariaFormat: ({ dictionary, options, file }) => {
-        const { outputReferences } = options
-        const lineSeparator = '\n'
-
-        // Gives us a template literal of CSS variables we can import into linaria
-        return (
-          fileHeader({ file }) +
-          `export const tokens${theme} = ` +
-          '`' +
-          lineSeparator +
-          formattedVariables({
-            dictionary,
-            outputReferences,
-            format: 'css',
-            formatting: {
-              prefix: '--',
-              separator: ':',
-              suffix: ';',
-            },
-          }) +
-          lineSeparator +
-          '`' +
-          lineSeparator
-        )
-      },
-    },
     parsers: [
       {
         pattern: /\.json$/,
@@ -54,12 +27,12 @@ const getStyleDictionaryConfig = (theme) => {
       },
     ],
     platforms: {
-      linaria: {
+      css: {
         buildPath: `tokens/${lowerCasedTheme}/`,
         files: [
           {
-            destination: 'linaria-tokens.ts',
-            format: 'linariaFormat',
+            destination: 'tokens.css',
+            format: 'css/variables',
           },
         ],
       },
@@ -67,7 +40,7 @@ const getStyleDictionaryConfig = (theme) => {
         buildPath: `tokens/${lowerCasedTheme}/`,
         files: [
           {
-            destination: 'typescript-tokens.ts',
+            destination: 'tokens.ts',
             format: 'javascript/es6',
           },
         ],
