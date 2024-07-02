@@ -5,7 +5,7 @@ export const elHasInputError = css``
 
 export const ElInput = styled.input`
   display: flex;
-  color: var(--color-black);
+  color: var(--black);
   background: var(--component-input-bg);
   padding: 0.5rem 0.6875rem;
   margin: 0;
@@ -25,7 +25,7 @@ export const ElInput = styled.input`
 
     &.${elHasInputError} {
       border: 1px solid var(--intent-danger);
-      background-color: var(--color-red-100);
+      background-color: var(--red-100);
     }
   }
 
@@ -34,18 +34,18 @@ export const ElInput = styled.input`
   }
 
   &::placeholder {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
     font-family: var(--font-sans-serif);
     font-size: var(--font-size-small);
   }
 
   &:disabled {
-    background-color: var(--color-grey-100);
-    color: var(--color-grey-300);
+    background-color: var(--neutral-100);
+    color: var(--neutral-300);
     cursor: not-allowed;
 
     ::placeholder {
-      color: var(--color-grey-300);
+      color: var(--neutral-300);
     }
   }
 
@@ -56,7 +56,7 @@ export const ElInput = styled.input`
   &[type='checkbox'] {
     appearance: none;
     border: var(--component-input-border);
-    background-color: var(--color-white);
+    background-color: var(--white);
     border-radius: 0.125rem;
     width: 1.5rem;
     height: 1.5rem;
@@ -70,13 +70,13 @@ export const ElInput = styled.input`
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 0.75rem;
-      border: 1px solid var(--color-grey-400);
+      border: 1px solid var(--neutral-400);
       background-color: var(--intent-primary);
       border: 1px solid var(--intent-primary);
     }
 
     &:disabled {
-      background-color: var(--color-grey-100);
+      background-color: var(--neutral-100);
       border: var(--component-input-border);
       cursor: not-allowed;
     }
@@ -85,7 +85,7 @@ export const ElInput = styled.input`
   &[type='radio'] {
     appearance: none;
     border: var(--component-input-border);
-    background-color: var(--color-white);
+    background-color: var(--white);
     border-radius: 100%;
     width: 1.5rem;
     height: 1.5rem;
@@ -98,7 +98,7 @@ export const ElInput = styled.input`
     }
 
     &:disabled {
-      background-color: var(--color-white);
+      background-color: var(--white);
       border: var(--component-input-border);
       cursor: not-allowed;
     }
@@ -119,9 +119,9 @@ export const ElInput = styled.input`
       }
 
       &:disabled {
-        background-color: var(--color-white);
+        background-color: var(--white);
         &:after {
-          background-color: var(--color-grey-300);
+          background-color: var(--neutral-300);
           border: var(--component-input-border);
         }
       }

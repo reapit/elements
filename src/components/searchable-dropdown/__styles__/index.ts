@@ -9,7 +9,7 @@ export const ElSearchableDropdownContainer = styled.div`
   display: flex;
   position: relative;
   flex-grow: 1;
-  color: var(--color-black);
+  color: var(--black);
 `
 
 export const ElSearchableDropdownResult = styled.div`
@@ -22,7 +22,7 @@ export const ElSearchableDropdownResult = styled.div`
 
   &:hover {
     background-color: var(--intent-primary);
-    color: var(--color-white);
+    color: var(--white);
     cursor: pointer;
   }
 `
@@ -39,7 +39,7 @@ export const ElSearchableDropdownResultsContainer = styled.div`
   border: 1px solid #ccc;
   border-top: none;
   border-radius: 4px;
-  background: var(--color-white);
+  background: var(--white);
   box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
 `
 

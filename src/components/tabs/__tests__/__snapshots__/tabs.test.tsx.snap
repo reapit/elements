@@ -36,11 +36,11 @@ exports[`Tabs should match a snapshot and render children 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
             >
               Option 1
@@ -68,11 +68,11 @@ exports[`Tabs should match a snapshot and render children 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
             >
               Option 2
@@ -100,11 +100,11 @@ exports[`Tabs should match a snapshot and render children 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
             >
               Option 3
@@ -152,11 +152,11 @@ exports[`Tabs should match a snapshot and render children 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
           >
             Option 1
@@ -184,11 +184,11 @@ exports[`Tabs should match a snapshot and render children 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
           >
             Option 2
@@ -216,11 +216,11 @@ exports[`Tabs should match a snapshot and render children 1`] = `
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom: 2px solid var(--color-white);
+  border-bottom: 2px solid var(--white);
   white-space: nowrap;
   font-size: var(--font-size-default);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-500);
+  color: var(--neutral-500);
 "
           >
             Option 3

@@ -5,7 +5,7 @@ export const elTextAreaHasError = css``
 
 export const ElTextArea = styled.textarea`
   display: flex;
-  color: var(--color-black);
+  color: var(--black);
   flex-grow: 1;
   background: var(--component-input-bg);
   padding: 0.5rem 0.6875rem;
@@ -22,11 +22,11 @@ export const ElTextArea = styled.textarea`
 
   &.${elTextAreaHasError} {
     border: 1px solid var(--intent-danger);
-    background-color: var(--color-red-100);
+    background-color: var(--red-100);
   }
 
   &::placeholder {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
     font-family: var(--font-sans-serif);
     font-size: var(--font-size-small);
   }

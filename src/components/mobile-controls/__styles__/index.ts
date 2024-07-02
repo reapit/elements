@@ -16,7 +16,7 @@ export const ElMobileControlsBg = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: var(--color-grey-500);
+  background: var(--neutral-500);
   opacity: 0.2;
 
   &.${elIsActive} {
@@ -36,7 +36,7 @@ export const ElMobileControls = styled.div`
   z-index: 99;
 
   ${ElIcon}.${elIntentDefault} {
-    color: var(--color-white);
+    color: var(--white);
   }
 
   ${isTablet} {
@@ -50,14 +50,14 @@ export const ElMobileControls = styled.div`
 
 export const ElMobileControlItem = styled.a`
   padding: 0.5rem 1rem;
-  background: var(--color-white);
+  background: var(--white);
   text-decoration: none;
   border-radius: var(--default-border-radius);
-  border: 1px solid var(--color-grey-100);
+  border: 1px solid var(--neutral-100);
   font-size: var(--font-size-small);
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-medium);
-  color: var(--color-grey-400);
+  color: var(--neutral-400);
   margin: 0 0.5rem 0.25rem 0;
   display: none;
   opacity: 1;
@@ -71,7 +71,7 @@ export const ElMobileControlItem = styled.a`
   }
 
   &:hover {
-    border: 1px solid var(--color-grey-400);
-    color: var(--color-grey-700);
+    border: 1px solid var(--neutral-400);
+    color: var(--neutral-700);
   }
 `

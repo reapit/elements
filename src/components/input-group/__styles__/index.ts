@@ -20,7 +20,7 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElIcon} {
-    color: var(--color-grey-400);
+    color: var(--neutral-400);
     border: var(--component-input-border);
     border-right: none;
     border-radius: 0.125rem 0 0 0.125rem;
@@ -75,7 +75,7 @@ export const ElInputGroup = styled.div`
     &.${elHasInputError} {
       ~ ${ElIcon}, ~ ${ElInputAddOn} {
         border-color: var(--intent-danger);
-        background-color: var(--color-red-100);
+        background-color: var(--red-100);
       }
     }
 
@@ -102,11 +102,11 @@ export const ElInputGroup = styled.div`
 
     &:checked {
       ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElInputAddOn} {
-        background: var(--color-white);
+        background: var(--white);
       }
 
       ~ ${ElInputAddOn} {
-        color: var(--color-black);
+        color: var(--black);
       }
     }
   }

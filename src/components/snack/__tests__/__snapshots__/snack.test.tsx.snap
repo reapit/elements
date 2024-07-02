@@ -200,7 +200,7 @@ exports[`SnackHolder component should match a snapshot 1`] = `
             classname="mock-css.
   cursor: pointer;
   padding-left: 0.5rem;
-  color: var(--color-black);
+  color: var(--black);
 "
             data-testid="close-icon"
             style="font-size: 1.25rem;"
@@ -239,7 +239,7 @@ exports[`SnackHolder component should match a snapshot 1`] = `
           classname="mock-css.
   cursor: pointer;
   padding-left: 0.5rem;
-  color: var(--color-black);
+  color: var(--black);
 "
           data-testid="close-icon"
           style="font-size: 1.25rem;"

@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 import { elIsActive } from '../../../styles/states'
 
 export const ElAccordionContainer = styled.div`
-  background-color: var(--color-white);
+  background-color: var(--white);
   height: auto;
   display: flex;
   flex-direction: column;
@@ -26,14 +26,14 @@ export const ElAccordionItem = styled.a`
   justify-content: space-between;
   align-items: center;
   padding: 0.875rem 0;
-  border-bottom: 1px solid var(--color-grey-100);
+  border-bottom: 1px solid var(--neutral-100);
 
   &:has(+ .${elIsActive}) {
     border-bottom: none;
   }
 `
 export const ElAccordionTitle = styled.div`
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
 `
@@ -50,7 +50,7 @@ export const ElAccordionTitleContent = styled.div`
 
   svg {
     font-size: 1rem;
-    color: var(--color-grey-300);
+    color: var(--neutral-300);
   }
 
   &:last-child {
@@ -66,6 +66,6 @@ export const ElAccordionContent = styled.div`
   &.${elIsActive} {
     height: auto;
     padding: 1.5rem 0;
-    border-bottom: 1px solid var(--color-grey-100);
+    border-bottom: 1px solid var(--neutral-100);
   }
 `

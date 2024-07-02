@@ -7,7 +7,7 @@ export const ElProgressBarContainer = styled.div`
   justify-content: flex-start;
   width: 100%;
   height: 3px;
-  background-color: var(--color-grey-100);
+  background-color: var(--neutral-100);
 `
 
 export const ElProgressBarLabel = styled.div`
@@ -26,7 +26,7 @@ export const ElProgressBarInner = styled.div`
 export const ElProgressBarItem = styled.div`
   width: 100%;
   height: 3px;
-  background-color: var(--color-purple-500);
+  background-color: var(--purple-500);
 `
 
 export const elProgressBarLabelRight = css`

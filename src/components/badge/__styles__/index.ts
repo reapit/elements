@@ -29,17 +29,17 @@ export const ElBadge = styled.span`
   }
 
   &.${elIntentSuccess} {
-    color: var(--color-green-600);
+    color: var(--green-600);
     background: var(--intent-success-lightest);
   }
 
   &.${elIntentPending} {
-    color: var(--color-yellow-600);
+    color: var(--yellow-600);
     background: var(--intent-pending-lightest);
   }
 
   &.${elIntentWarning} {
-    color: var(--color-orange-600);
+    color: var(--orange-600);
     background: var(--intent-warning-lightest);
   }
 

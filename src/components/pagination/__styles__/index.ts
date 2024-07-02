@@ -41,7 +41,7 @@ export const ElPaginationButton = styled.button`
   margin: 0 0.25rem;
 
   svg {
-    color: var(--color-grey-500);
+    color: var(--neutral-500);
     font-size: 1rem;
   }
 

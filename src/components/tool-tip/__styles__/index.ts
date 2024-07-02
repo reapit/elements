@@ -4,10 +4,10 @@ import { css } from '@linaria/core'
 export const ElToolTipChild = styled.div`
   position: absolute;
   padding: 0.5rem;
-  background: var(--color-black);
+  background: var(--black);
   border-radius: 0.5rem;
   font-size: var(--font-size-small);
-  color: var(--color-white);
+  color: var(--white);
   top: calc(-35px + -0.25rem);
   display: none;
   left: auto;
@@ -18,7 +18,7 @@ export const ElToolTipChild = styled.div`
     bottom: -0.5rem;
     left: calc(50% - 0.25rem);
     border: 0.25rem solid transparent;
-    border-top-color: var(--color-black);
+    border-top-color: var(--black);
     content: '';
   }
 `

@@ -18,7 +18,7 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
   cursor: pointer;
 
   , {
-    color: var(--color-white);
+    color: var(--white);
   }
 "
           data-testid="close-icon"
@@ -40,7 +40,7 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
   padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
 "
         >
@@ -63,7 +63,7 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
   cursor: pointer;
 
   , {
-    color: var(--color-white);
+    color: var(--white);
   }
 "
         data-testid="close-icon"
@@ -85,7 +85,7 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
   padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
 "
       >
@@ -165,7 +165,7 @@ exports[`PersistentNotification component should match a snapshot for an inline 
   cursor: pointer;
 
   , {
-    color: var(--color-white);
+    color: var(--white);
   }
 "
           data-testid="close-icon"
@@ -187,7 +187,7 @@ exports[`PersistentNotification component should match a snapshot for an inline 
   padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
 "
         >
@@ -210,7 +210,7 @@ exports[`PersistentNotification component should match a snapshot for an inline 
   cursor: pointer;
 
   , {
-    color: var(--color-white);
+    color: var(--white);
   }
 "
         data-testid="close-icon"
@@ -232,7 +232,7 @@ exports[`PersistentNotification component should match a snapshot for an inline 
   padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
 "
       >
@@ -312,7 +312,7 @@ exports[`PersistentNotification component should match a snapshot when expanded 
   cursor: pointer;
 
   , {
-    color: var(--color-white);
+    color: var(--white);
   }
 "
           data-testid="close-icon"
@@ -334,7 +334,7 @@ exports[`PersistentNotification component should match a snapshot when expanded 
   padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
 "
         >
@@ -357,7 +357,7 @@ exports[`PersistentNotification component should match a snapshot when expanded 
   cursor: pointer;
 
   , {
-    color: var(--color-white);
+    color: var(--white);
   }
 "
         data-testid="close-icon"
@@ -379,7 +379,7 @@ exports[`PersistentNotification component should match a snapshot when expanded 
   padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
 "
       >
@@ -459,7 +459,7 @@ exports[`PersistentNotification component should match a snapshot when given an 
   cursor: pointer;
 
   , {
-    color: var(--color-white);
+    color: var(--white);
   }
 "
           data-testid="close-icon"
@@ -481,7 +481,7 @@ exports[`PersistentNotification component should match a snapshot when given an 
   padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
 "
         >
@@ -504,7 +504,7 @@ exports[`PersistentNotification component should match a snapshot when given an 
   cursor: pointer;
 
   , {
-    color: var(--color-white);
+    color: var(--white);
   }
 "
         data-testid="close-icon"
@@ -526,7 +526,7 @@ exports[`PersistentNotification component should match a snapshot when given an 
   padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
-  color: var(--color-black);
+  color: var(--black);
   font-size: var(--font-size-default);
 "
       >

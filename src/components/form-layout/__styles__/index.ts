@@ -34,7 +34,7 @@ export const ElFormLayout = styled.div`
 
 export const ElFormSectionDivider = styled.div`
   margin: 1.5rem 0;
-  border-bottom: 1px solid var(--color-grey-100);
+  border-bottom: 1px solid var(--neutral-100);
 `
 
 export const ElInputWrapSmall = styled.div`
