@@ -1,4 +1,4 @@
 export * from './__styles__'
 export * from './types'
-export * from './basic/tabs'
-export * from './composed/tabs'
+export * from './tabs.atoms'
+export * from './tabs'

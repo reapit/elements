@@ -1,3 +1,3 @@
 export * from './types'
-export * from './basic/layout'
+export * from './layout'
 export * from './__styles__'

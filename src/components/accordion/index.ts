@@ -1,4 +1,4 @@
 export * from './__styles__'
 export * from './types'
-export * from './basic/accordion'
-export * from './composed/accordion'
+export * from './accordion.atoms'
+export * from './accordion'

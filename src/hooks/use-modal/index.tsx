@@ -1,4 +1,4 @@
-import React, { FC, useMemo, useState } from 'react'
+import { FC, useMemo, useState } from 'react'
 import { Modal, ModalProps } from '../../components/modal'
 import { Portal } from '../use-portal'
 
