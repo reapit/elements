@@ -9,7 +9,7 @@ import * as ModalStories from './modal.stories'
 
 The modal component renders a dialog box that overlays the main screen. It is typically used for displaying confirmation or error notifications to users that require an addtional call to action or step.
 
-## Basic Usage
+## Styles Only Usage
 
 The Modal component can be used for UI purposes only, but won't have the functionality of the React implementation (i.e. managing the state of whether it is open or closed)
 
@@ -19,9 +19,9 @@ This class must be applied on two elements, `div.el-modal-bg` and also `div.el-m
 
 By default, the modal fills it's current container so you will likely wish to place it as high as possible up the DOM tree to achive an overlay effect.
 
-<Canvas of={ModalStories.BasicUsage} story={{ height: '300px' }} />
+<Canvas of={ModalStories.StylesOnlyUsage} story={{ height: '300px' }} />
 
-<RenderHtmlMarkup of={ModalStories.BasicUsage} />
+<RenderHtmlMarkup of={ModalStories.StylesOnlyUsage} />
 
 ## React usage
 

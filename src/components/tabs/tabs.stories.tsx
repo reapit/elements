@@ -17,7 +17,7 @@ export default {
   title: 'Components/Tabs',
 }
 
-export const BasicUsage = {
+export const StylesOnlyUsage = {
   render: ({}) => (
     <TabsWrap>
       <TabsOptionsWrap role="tablist">

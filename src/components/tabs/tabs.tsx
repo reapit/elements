@@ -9,7 +9,7 @@ import {
   ElTabsWrap,
   ElTabsFooter,
   ElTabsOptionsWrap,
-} from './__styles__/index'
+} from './styles'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 import { TabsProps } from './types'
 

@@ -9,7 +9,7 @@ export default {
   component: Modal,
 }
 
-export const BasicUsage = {
+export const StylesOnlyUsage = {
   render: ({}) => (
     <>
       <ModalBg className={elIsActive} />

@@ -7,7 +7,7 @@ import {
   elPageContainer,
   elSecondaryNavContainer,
   elFlexContainer,
-} from './__styles__'
+} from './styles'
 import {
   elFlexRow,
   elFlexColumn,

@@ -6,7 +6,7 @@ import {
   ElAccordionTitle,
   ElAccordionTitleContent,
   ElAccordionTitleContentWrapper,
-} from './__styles__'
+} from './styles'
 import { AccordionBaseItemProps, AccordionBaseProps } from './types'
 
 export const AccordionContainer: FC<AccordionBaseProps> = ({ children, ...rest }) => {

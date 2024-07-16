@@ -1,6 +1,6 @@
 import { FC, RefObject, createRef, useEffect } from 'react'
 import { cx } from '@linaria/core'
-import { ElModalBg, ElModal, ElModalHeader, ElModalBody } from './__styles__'
+import { ElModalBg, ElModal, ElModalHeader, ElModalBody } from './styles'
 import { elIsActive } from '../../styles/states'
 import { useId } from '../../storybook/random-id'
 import { ModalProps } from './types'

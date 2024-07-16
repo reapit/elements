@@ -12,7 +12,7 @@ import {
   ElAccordionTitle,
   ElAccordionTitleContent,
   ElAccordionTitleContentWrapper,
-} from './__styles__'
+} from './styles'
 
 export const handleSetOpenItem =
   (openItem: number, setOpenItem: Dispatch<SetStateAction<number | null>>, onClick?: () => void) => () => {
