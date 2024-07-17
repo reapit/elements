@@ -1,6 +1,6 @@
-import { FC, RefObject, createRef, useEffect } from 'react'
+import { FC, HTMLAttributes, Ref, RefObject, createRef, useEffect } from 'react'
 import { cx } from '@linaria/core'
-import { ElModalBg, ElModal, ElModalHeader, ElModalBody } from './styles'
+import { ModalBg, ModalContainer, ModalHeader, ModalBody } from './modal.atoms'
 import { elIsActive } from '../../styles/states'
 import { useId } from '../../storybook/random-id'
 import { ModalProps } from './types'
@@ -36,19 +36,19 @@ export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, 
 
   return (
     <>
-      <ElModalBg className={elIsActive} onClick={onModalClose} />
-      <ElModal
+      <ModalBg className={elIsActive} onClick={onModalClose} />
+      <ModalContainer
         role="dialog"
         aria-modal="true"
         aria-describedby={id}
         className={modalCombinedClassname}
-        ref={modalRef}
+        ref={modalRef as unknown as Ref<HTMLAttributes<HTMLElement>>}
         autoFocus
         {...rest}
       >
-        {title && <ElModalHeader>{title}</ElModalHeader>}
-        <ElModalBody id={id}>{children}</ElModalBody>
-      </ElModal>
+        {title && <ModalHeader>{title}</ModalHeader>}
+        <ModalBody id={id}>{children}</ModalBody>
+      </ModalContainer>
     </>
   )
 }

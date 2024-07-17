@@ -727,53 +727,66 @@ exports[`PageHeader component should match a snapshot 1`] = `
 "
           >
             <mock-styled.div
+              classname=""
               role="tablist"
             >
               <mock-styled.input
                 aria-selected="true"
+                classname=""
                 id="tab-1-fw"
                 name="my-cool-tabs-full-width"
                 type="radio"
                 value="tab-1-fw"
               />
               <mock-styled.label
+                classname=""
                 htmlfor="tab-1-fw"
                 role="tab"
                 tabindex="0"
               >
-                <mock-styled.span>
+                <mock-styled.span
+                  classname=""
+                >
                   Tab Content 1
                 </mock-styled.span>
               </mock-styled.label>
               <mock-styled.input
                 aria-selected="false"
+                classname=""
                 id="tab-2-fw"
                 name="my-cool-tabs-full-width"
                 type="radio"
                 value="tab-2-fw"
               />
               <mock-styled.label
+                classname=""
                 htmlfor="tab-2-fw"
                 role="tab"
                 tabindex="0"
               >
-                <mock-styled.span>
+                <mock-styled.span
+                  classname=""
+                >
                   Tab Content 2
                 </mock-styled.span>
               </mock-styled.label>
               <mock-styled.input
                 aria-selected="false"
+                classname=""
                 id="tab-3-fw"
                 name="my-cool-tabs-full-width"
                 type="radio"
                 value="tab-3-fw"
               />
               <mock-styled.label
+                classname=""
                 htmlfor="tab-3-fw"
                 role="tab"
                 tabindex="0"
               >
-                <mock-styled.span>
+                <mock-styled.span
+                  classname=""
+                >
                   Tab Content 3
                 </mock-styled.span>
               </mock-styled.label>
@@ -1512,53 +1525,66 @@ exports[`PageHeader component should match a snapshot 1`] = `
 "
         >
           <mock-styled.div
+            classname=""
             role="tablist"
           >
             <mock-styled.input
               aria-selected="true"
+              classname=""
               id="tab-1-fw"
               name="my-cool-tabs-full-width"
               type="radio"
               value="tab-1-fw"
             />
             <mock-styled.label
+              classname=""
               htmlfor="tab-1-fw"
               role="tab"
               tabindex="0"
             >
-              <mock-styled.span>
+              <mock-styled.span
+                classname=""
+              >
                 Tab Content 1
               </mock-styled.span>
             </mock-styled.label>
             <mock-styled.input
               aria-selected="false"
+              classname=""
               id="tab-2-fw"
               name="my-cool-tabs-full-width"
               type="radio"
               value="tab-2-fw"
             />
             <mock-styled.label
+              classname=""
               htmlfor="tab-2-fw"
               role="tab"
               tabindex="0"
             >
-              <mock-styled.span>
+              <mock-styled.span
+                classname=""
+              >
                 Tab Content 2
               </mock-styled.span>
             </mock-styled.label>
             <mock-styled.input
               aria-selected="false"
+              classname=""
               id="tab-3-fw"
               name="my-cool-tabs-full-width"
               type="radio"
               value="tab-3-fw"
             />
             <mock-styled.label
+              classname=""
               htmlfor="tab-3-fw"
               role="tab"
               tabindex="0"
             >
-              <mock-styled.span>
+              <mock-styled.span
+                classname=""
+              >
                 Tab Content 3
               </mock-styled.span>
             </mock-styled.label>

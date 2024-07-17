@@ -12,56 +12,69 @@ exports[`Tabs should match a snapshot and render children 1`] = `
 "
       >
         <mock-styled.div
+          classname=""
           role="tablist"
         >
           <mock-styled.input
             aria-selected="true"
             checked="true"
+            classname=""
             id="option-1"
             name="my-cool-toggle-radio"
             type="radio"
             value="option-1"
           />
           <mock-styled.label
+            classname=""
             htmlfor="option-1"
             role="tab"
             tabindex="0"
           >
-            <mock-styled.span>
+            <mock-styled.span
+              classname=""
+            >
               Option 1
             </mock-styled.span>
           </mock-styled.label>
           <mock-styled.input
             aria-selected="false"
             checked="false"
+            classname=""
             id="option-2"
             name="my-cool-toggle-radio"
             type="radio"
             value="option-2"
           />
           <mock-styled.label
+            classname=""
             htmlfor="option-2"
             role="tab"
             tabindex="0"
           >
-            <mock-styled.span>
+            <mock-styled.span
+              classname=""
+            >
               Option 2
             </mock-styled.span>
           </mock-styled.label>
           <mock-styled.input
             aria-selected="false"
             checked="false"
+            classname=""
             id="option-3"
             name="my-cool-toggle-radio"
             type="radio"
             value="option-3"
           />
           <mock-styled.label
+            classname=""
             htmlfor="option-3"
             role="tab"
             tabindex="0"
           >
-            <mock-styled.span>
+            <mock-styled.span
+              classname=""
+            >
               Option 3
             </mock-styled.span>
           </mock-styled.label>
@@ -83,56 +96,69 @@ exports[`Tabs should match a snapshot and render children 1`] = `
 "
     >
       <mock-styled.div
+        classname=""
         role="tablist"
       >
         <mock-styled.input
           aria-selected="true"
           checked="true"
+          classname=""
           id="option-1"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-1"
         />
         <mock-styled.label
+          classname=""
           htmlfor="option-1"
           role="tab"
           tabindex="0"
         >
-          <mock-styled.span>
+          <mock-styled.span
+            classname=""
+          >
             Option 1
           </mock-styled.span>
         </mock-styled.label>
         <mock-styled.input
           aria-selected="false"
           checked="false"
+          classname=""
           id="option-2"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-2"
         />
         <mock-styled.label
+          classname=""
           htmlfor="option-2"
           role="tab"
           tabindex="0"
         >
-          <mock-styled.span>
+          <mock-styled.span
+            classname=""
+          >
             Option 2
           </mock-styled.span>
         </mock-styled.label>
         <mock-styled.input
           aria-selected="false"
           checked="false"
+          classname=""
           id="option-3"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-3"
         />
         <mock-styled.label
+          classname=""
           htmlfor="option-3"
           role="tab"
           tabindex="0"
         >
-          <mock-styled.span>
+          <mock-styled.span
+            classname=""
+          >
             Option 3
           </mock-styled.span>
         </mock-styled.label>

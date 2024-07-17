@@ -1,8 +1,16 @@
-import { HTMLAttributes, InputHTMLAttributes, LabelHTMLAttributes } from 'react'
+import {
+  ForwardRefExoticComponent,
+  HTMLAttributes,
+  InputHTMLAttributes,
+  LabelHTMLAttributes,
+  RefAttributes,
+} from 'react'
 
 export interface TabsBaseProps extends HTMLAttributes<HTMLDivElement | HTMLLabelElement | HTMLSpanElement> {}
 
-export interface TabsInputProps extends InputHTMLAttributes<HTMLInputElement> {}
+export type TabsInputProps = ForwardRefExoticComponent<
+  InputHTMLAttributes<HTMLInputElement> & RefAttributes<InputHTMLAttributes<HTMLInputElement>>
+>
 
 export interface TabsLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {}
 

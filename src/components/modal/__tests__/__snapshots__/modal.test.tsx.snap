@@ -75,10 +75,13 @@ exports[`Modal component should match a snapshot when open 1`] = `
         classname="mock-css."
         role="dialog"
       >
-        <mock-styled.div>
+        <mock-styled.div
+          classname=""
+        >
           test
         </mock-styled.div>
         <mock-styled.div
+          classname=""
           id="test-static-id"
         >
           Content within modal
@@ -96,10 +99,13 @@ exports[`Modal component should match a snapshot when open 1`] = `
       classname="mock-css."
       role="dialog"
     >
-      <mock-styled.div>
+      <mock-styled.div
+        classname=""
+      >
         test
       </mock-styled.div>
       <mock-styled.div
+        classname=""
         id="test-static-id"
       >
         Content within modal

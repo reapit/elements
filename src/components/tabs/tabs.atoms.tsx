@@ -1,12 +1,14 @@
-import { FC } from 'react'
+import { FC, ForwardedRef, forwardRef, InputHTMLAttributes, LegacyRef } from 'react'
 import { cx } from '@linaria/core'
 import { ElTab, ElTabsLabel, ElTabsWrap, ElTabsFooter, ElTabsOptionsWrap, ElTabsItem } from './styles'
 import { TabsBaseProps, TabsInputProps, TabsLabelProps } from './types'
 
-export const Tab: FC<TabsInputProps> = ({ children, className, ...rest }) => (
-  <ElTab className={cx(className)} {...rest}>
-    {children}
-  </ElTab>
+export const Tab: TabsInputProps = forwardRef(
+  ({ children, className, ...rest }, ref: ForwardedRef<InputHTMLAttributes<HTMLInputElement>>) => (
+    <ElTab className={cx(className)} {...rest} ref={ref as unknown as LegacyRef<HTMLInputElement>}>
+      {children}
+    </ElTab>
+  ),
 )
 
 export const TabsWrap: FC<TabsBaseProps> = ({ children, className, ...rest }) => (

@@ -1,4 +1,4 @@
-import { HTMLAttributes } from 'react'
+import { ForwardRefExoticComponent, HTMLAttributes, RefAttributes } from 'react'
 
 export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
@@ -8,3 +8,5 @@ export interface ModalProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 export interface ModalBaseProps extends HTMLAttributes<HTMLElement> {}
+
+export type ModalContainerProps = ForwardRefExoticComponent<ModalBaseProps & RefAttributes<HTMLAttributes<HTMLElement>>>

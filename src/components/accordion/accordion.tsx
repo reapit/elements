@@ -6,13 +6,13 @@ import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 import { useId } from '../../storybook/random-id'
 import { AccordionProps } from './types'
 import {
-  ElAccordionContainer,
-  ElAccordionContent,
-  ElAccordionItem,
-  ElAccordionTitle,
-  ElAccordionTitleContent,
-  ElAccordionTitleContentWrapper,
-} from './styles'
+  AccordionContainer,
+  AccordionContent,
+  AccordionItem,
+  AccordionTitle,
+  AccordionTitleContent,
+  AccordionTitleContentWrapper,
+} from './accordion.atoms'
 
 export const handleSetOpenItem =
   (openItem: number, setOpenItem: Dispatch<SetStateAction<number | null>>, onClick?: () => void) => () => {
@@ -34,10 +34,10 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
   const itemButtonId = useId()
 
   return (
-    <ElAccordionContainer className={className} {...rest}>
+    <AccordionContainer className={className} {...rest}>
       {items.map((item, index) => (
         <Fragment key={index}>
-          <ElAccordionItem
+          <AccordionItem
             id={[itemButtonId, index].join('-')}
             aria-controls={[itemContentId, index].join('-')}
             aria-label="Accordion item, hit return to expand content"
@@ -46,18 +46,18 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
             onClick={handleSetOpenItem(index, setOpenItem, item.onClick)}
             onKeyDown={handleKeyboardEvent('Enter', handleSetOpenItem(index, setOpenItem, item.onClick))}
           >
-            <ElAccordionTitle>{item.title}</ElAccordionTitle>
-            <ElAccordionTitleContentWrapper>
+            <AccordionTitle>{item.title}</AccordionTitle>
+            <AccordionTitleContentWrapper>
               {item.titleItems &&
                 item.titleItems.map((titleItem, innerIndex) => (
-                  <ElAccordionTitleContent key={innerIndex}>{titleItem}</ElAccordionTitleContent>
+                  <AccordionTitleContent key={innerIndex}>{titleItem}</AccordionTitleContent>
                 ))}
-              <ElAccordionTitleContent>
+              <AccordionTitleContent>
                 <Icon fontSize="1.25rem" intent="default" icon={openItem === index ? 'chevronUp' : 'chevronDown'} />
-              </ElAccordionTitleContent>
-            </ElAccordionTitleContentWrapper>
-          </ElAccordionItem>
-          <ElAccordionContent
+              </AccordionTitleContent>
+            </AccordionTitleContentWrapper>
+          </AccordionItem>
+          <AccordionContent
             role="region"
             aria-labelledby={[itemButtonId, index].join('-')}
             id={[itemContentId, index].join('-')}
@@ -65,9 +65,9 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
             className={cx(openItem === index && elIsActive)}
           >
             {item.content}
-          </ElAccordionContent>
+          </AccordionContent>
         </Fragment>
       ))}
-    </ElAccordionContainer>
+    </AccordionContainer>
   )
 }
