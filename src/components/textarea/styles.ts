@@ -78,3 +78,13 @@ export const ElTextArea = styled.textarea`
     font-size: var(--font-size-small);
   }
 `
+
+export const ElShadowTextArea = styled(ElTextArea)`
+  position: absolute;
+  height: 0;
+  left: 0;
+  overflow: hidden;
+  top: 0;
+  transform: translateZ(0);
+  visibility: hidden;
+`

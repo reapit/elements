@@ -1,6 +1,10 @@
 import { cx } from '@linaria/core'
-import { ElTextArea, elTextAreaHasError, type TextAreaCSSProperties } from './styles'
-import { forwardRef } from 'react'
+import { ElShadowTextArea, ElTextArea, elTextAreaHasError, type TextAreaCSSProperties } from './styles'
+import { forwardRef, useRef } from 'react'
+import isCSSFieldSizingSupported from './isCSSFieldSizingSupported'
+import mergeRefs from '../../helpers/mergeRefs'
+import useResizeTextAreaOnChange from './useResizeTextAreaOnChange'
+import useResizeTextAreaEffect from './useResizeTextAreaEffect'
 
 import type { CSSProperties, TextareaHTMLAttributes } from 'react'
 
@@ -47,24 +51,66 @@ export interface TextAreaProps extends RestrictedTextareaHTMLAttributes {
  */
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(
   ({ className, defaultValue, hasError, maxRows = Infinity, minRows = 2, onChange, rows, value, ...rest }, ref) => {
+    const textAreaRef = useRef<HTMLTextAreaElement>(null)
+    const shadowTextAreaRef = useRef<HTMLTextAreaElement>(null)
+
+    // NOTE: We should only use the JS resizing logic if the CSS field-sizing property is not supported
+    const shouldResizeViaJS = !isCSSFieldSizingSupported() && rows === undefined
+
+    useResizeTextAreaEffect({
+      isEnabled: shouldResizeViaJS,
+      shadowTextAreaRef,
+      textAreaRef,
+      value,
+    })
+
+    const decorateOnChange = useResizeTextAreaOnChange({
+      // NOTE: We only want the resizing behaviour to occur on change if the text area should resize AND its
+      // value is uncontrolled.
+      isEnabled: shouldResizeViaJS && value === undefined,
+      shadowTextAreaRef,
+      textAreaRef,
+    })
+
     return (
-      <ElTextArea
-        {...rest}
-        className={cx(hasError && elTextAreaHasError, className)}
-        defaultValue={defaultValue}
-        style={
-          {
-            // NOTE: `rows` takes precedence. If it's defined, the text area is effectively fixed-height.
-            // If it's not defined, we allow resizing to occur between the min and max rows.
-            '--textarea-max-rows': rows ?? maxRows,
-            '--textarea-min-rows': rows ?? minRows,
-          } satisfies TextAreaCSSProperties as CSSProperties
-        }
-        onChange={onChange}
-        ref={ref}
-        rows={rows}
-        value={value}
-      />
+      <>
+        <ElTextArea
+          {...rest}
+          className={cx(hasError && elTextAreaHasError, className)}
+          defaultValue={defaultValue}
+          style={
+            {
+              // NOTE: `rows` takes precedence. If it's defined, the text area is effectively fixed-height.
+              // If it's not defined, we allow resizing to occur between the min and max rows.
+              '--textarea-max-rows': rows ?? maxRows,
+              '--textarea-min-rows': rows ?? minRows,
+            } satisfies TextAreaCSSProperties as CSSProperties
+          }
+          onChange={decorateOnChange(onChange)}
+          ref={mergeRefs(textAreaRef, ref)}
+          rows={rows}
+          value={value}
+        />
+        {shouldResizeViaJS && (
+          // NOTE: This "shadow" text area is used to help size the visible text area above. Once the
+          // CSS [field-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing)
+          // property becomes more widely available, we won't need this at all.
+          <ElShadowTextArea
+            aria-hidden
+            defaultValue={defaultValue}
+            ref={shadowTextAreaRef}
+            style={
+              {
+                // NOTE: `rows` takes precedence. If it's defined, the text area is effectively fixed-height.
+                // If it's not defined, we allow resizing to occur between the min and max rows.
+                '--textarea-max-rows': rows ?? maxRows,
+                '--textarea-min-rows': rows ?? minRows,
+              } satisfies TextAreaCSSProperties as CSSProperties
+            }
+            value={value}
+          />
+        )}
+      </>
     )
   },
 )

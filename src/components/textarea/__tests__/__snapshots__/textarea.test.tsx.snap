@@ -1,5 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`a shadow text area is present when the CSS \`field-sizing\` property is not supported 1`] = `
+<DocumentFragment>
+  <mock-styled.textarea
+    classname=""
+    style="--textarea-max-rows: Infinity; --textarea-min-rows: 2; block-size: 0px;"
+  />
+  <mock-styled.mock-styled.textarea
+    aria-hidden="true"
+    style="--textarea-max-rows: Infinity; --textarea-min-rows: 2;"
+  />
+</DocumentFragment>
+`;
+
 exports[`can set custom min/max rows 1`] = `
 <DocumentFragment>
   <mock-styled.textarea
