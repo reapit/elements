@@ -1,7 +1,14 @@
+import isCSSContentFieldSizingSupported from '../is-css-content-fieldsizing-supported'
 import { render, screen } from '@testing-library/react'
 import { TextArea } from '../textarea'
 
+jest.mock('../is-css-content-fieldsizing-supported', () => jest.fn())
+
 describe('content field-sizing', () => {
+  beforeEach(() => {
+    jest.mocked(isCSSContentFieldSizingSupported).mockReturnValue(true)
+  })
+
   test('default min/max rows are 3 -> Infinity', () => {
     const { asFragment } = render(<TextArea fieldSizing="content" />)
     expect(asFragment()).toMatchSnapshot()
@@ -9,6 +16,13 @@ describe('content field-sizing', () => {
 
   test('can set custom min/max rows', () => {
     const { asFragment } = render(<TextArea fieldSizing="content" maxRows={10} minRows={3} />)
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  test('a shadow text area is present when the CSS `field-sizing` property is not supported', () => {
+    jest.mocked(isCSSContentFieldSizingSupported).mockReturnValue(false)
+
+    const { asFragment } = render(<TextArea fieldSizing="content" />)
     expect(asFragment()).toMatchSnapshot()
   })
 })
@@ -39,7 +53,14 @@ describe('manual field-sizing', () => {
 
 // TODO: This test is currently skipped because our Linaria styled global mock
 // is changing the tag name.
-test.skip('is accessible via the textbox role', () => {
-  render(<TextArea fieldSizing="content" maxRows={10} minRows={3} />)
+test.skip('is always accessible via the textbox role', () => {
+  jest.mocked(isCSSContentFieldSizingSupported).mockReturnValue(true)
+
+  const { rerender } = render(<TextArea fieldSizing="content" maxRows={10} minRows={3} />)
+  expect(screen.getByRole('textbox')).toBeDefined()
+
+  jest.mocked(isCSSContentFieldSizingSupported).mockReturnValue(false)
+
+  rerender(<TextArea fieldSizing="content" maxRows={10} minRows={3} />)
   expect(screen.getByRole('textbox')).toBeDefined()
 })

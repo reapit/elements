@@ -100,8 +100,11 @@ export const FixedSize: StoryObj<typeof TextArea> = {
 }
 
 /**
- * Importantly, when an explicit row count is specified, no resizing will occur, whether the text area's
- * value is controlled or not. This allows text areas to have a fixed size when necessary.
+ * To continue using the Elements v4 `TextArea` behaviour where manual resizing was permitted, consumers can
+ * use `fieldSizing="manual"`.
+ *
+ * **This option is deprecated and will be removed in a future version.** Prefer either `content` or `fixed`
+ * field sizing.
  *
  * @deprecated
  */

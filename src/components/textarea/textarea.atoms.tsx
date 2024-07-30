@@ -1,13 +1,18 @@
-import { cx } from '@linaria/core'
 import {
   ContentFieldSizing,
+  ElShadowTextArea,
   ElTextArea,
   elTextAreaHasError,
   FixedFieldSizing,
   ManualFieldSizing,
   type ElTextAreaProps,
 } from './styles'
-import { forwardRef } from 'react'
+import { cx } from '@linaria/core'
+import { forwardRef, useRef } from 'react'
+import isCSSContentFieldSizingSupported from './is-css-content-fieldsizing-supported'
+import mergeRefs from '../../helpers/mergeRefs'
+import useResizeTextAreaOnChange from './use-resize-textarea-onchange'
+import useResizeTextAreaEffect from './use-resize-textarea-effect'
 
 interface BaseTextAreaProps extends Omit<ElTextAreaProps, 'data-field-sizing'> {}
 
@@ -53,20 +58,59 @@ export const ContentFieldSizingTextArea = forwardRef<HTMLTextAreaElement, Conten
     },
     ref,
   ) => {
+    const textAreaRef = useRef<HTMLTextAreaElement>(null)
+    const shadowTextAreaRef = useRef<HTMLTextAreaElement>(null)
+
+    // NOTE: We should only use the JS resizing logic if the CSS field-sizing property is not supported
+    const shouldResizeViaJS = !isCSSContentFieldSizingSupported()
+
+    useResizeTextAreaEffect({
+      isEnabled: shouldResizeViaJS,
+      shadowTextAreaRef,
+      textAreaRef,
+      value,
+    })
+
+    const decorateOnChange = useResizeTextAreaOnChange({
+      // NOTE: We only want the resizing behaviour to occur on change if the text area should resize AND its
+      // value is uncontrolled.
+      isEnabled: shouldResizeViaJS && value === undefined,
+      shadowTextAreaRef,
+      textAreaRef,
+    })
+
     return (
-      <ElTextArea
-        {...rest}
-        className={cx(hasError && elTextAreaHasError, className)}
-        data-field-sizing={fieldSizing}
-        defaultValue={defaultValue}
-        style={{
-          '--textarea-max-rows': maxRows,
-          '--textarea-min-rows': minRows,
-        }}
-        onChange={onChange}
-        ref={ref}
-        value={value}
-      />
+      <>
+        <ElTextArea
+          {...rest}
+          className={cx(hasError && elTextAreaHasError, className)}
+          data-field-sizing={fieldSizing}
+          defaultValue={defaultValue}
+          style={{
+            '--textarea-max-rows': maxRows,
+            '--textarea-min-rows': minRows,
+          }}
+          onChange={decorateOnChange(onChange)}
+          ref={mergeRefs(textAreaRef, ref)}
+          value={value}
+        />
+        {shouldResizeViaJS && (
+          // NOTE: This "shadow" text area is used to help size the visible text area above. Once the
+          // CSS [field-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing)
+          // property becomes more widely available, we won't need this at all.
+          <ElShadowTextArea
+            aria-hidden
+            data-field-sizing={fieldSizing}
+            defaultValue={defaultValue}
+            ref={shadowTextAreaRef}
+            style={{
+              '--textarea-max-rows': maxRows,
+              '--textarea-min-rows': minRows,
+            }}
+            value={value}
+          />
+        )}
+      </>
     )
   },
 )

@@ -78,6 +78,15 @@ export const ElTextArea = styled.textarea<ElTextAreaProps>`
     }
   }
 
+  &[data-field-sizing='fixed'] {
+    // NOTE: field-sizing property is currently experimental
+    // @see https://drafts.csswg.org/css-ui/#field-sizing
+    // @see https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing
+    @supports (field-sizing: fixed) {
+      field-sizing: fixed;
+    }
+  }
+
   &[data-field-sizing='manual'] {
     resize: both;
   }
@@ -116,4 +125,14 @@ export const ElTextArea = styled.textarea<ElTextAreaProps>`
     font-family: var(--font-sans-serif);
     font-size: var(--font-size-small);
   }
+`
+
+export const ElShadowTextArea = styled(ElTextArea)`
+  position: absolute;
+  height: 0;
+  left: 0;
+  overflow: hidden;
+  top: 0;
+  transform: translateZ(0);
+  visibility: hidden;
 `
