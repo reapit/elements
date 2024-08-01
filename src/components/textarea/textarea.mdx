@@ -1,4 +1,4 @@
-import { Meta, Controls, Story, Canvas } from '@storybook/blocks'
+import { Meta, Controls, Description, Story, Canvas } from '@storybook/blocks'
 import { TextArea } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as TextareaStories from './textarea.stories'
@@ -7,24 +7,37 @@ import * as TextareaStories from './textarea.stories'
 
 # TextArea
 
-A standard HTMl / JSX text area component for use in forms.
-
-<Controls />
-
-## Basic Usage
-
+<Description of={TextArea} />
 <Canvas of={TextareaStories.BasicUsage} />
+<Controls of={TextareaStories.BasicUsage} />
 
 <RenderHtmlMarkup of={TextareaStories.BasicUsage} />
 
-## Placeholder
+<br />
+## Invalid
 
-<Canvas of={TextareaStories.TextAreaPlaceholder} />
+<Description of={TextareaStories.Invalid} />
+<Canvas of={TextareaStories.Invalid} />
 
-<RenderHtmlMarkup of={TextareaStories.TextAreaPlaceholder} />
+## Disabled
 
-## Has Error
+<Description of={TextareaStories.Disabled} />
+<Canvas of={TextareaStories.Disabled} />
 
-<Canvas of={TextareaStories.TextAreaError} />
+## Read-only
 
-<RenderHtmlMarkup of={TextareaStories.TextAreaError} />
+<Description of={TextareaStories.ReadOnly} />
+<Canvas of={TextareaStories.ReadOnly} />
+
+## Automatic resizing
+
+<Description of={TextareaStories.UncontrolledResizing} />
+<Canvas of={TextareaStories.UncontrolledResizing} />
+
+<Description of={TextareaStories.ControlledResizing} />
+<Canvas of={TextareaStories.ControlledResizing} />
+
+## Fixed size
+
+<Description of={TextareaStories.FixedSize} />
+<Canvas of={TextareaStories.FixedSize} />
