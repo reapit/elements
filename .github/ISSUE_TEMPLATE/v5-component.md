@@ -21,6 +21,7 @@ _As part of the v5 Elements release, each component will be reviewed and refacto
 - [Link to Elements Audit in Figma]()
 - [Additional behavioural specification]()
 - [Accessibility requirements]()
+- [Link to Design Guidelines]()
 
 **Developer Checklist**
 
