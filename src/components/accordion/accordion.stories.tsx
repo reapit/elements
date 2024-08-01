@@ -11,6 +11,7 @@ import { Icon } from '../icon'
 import { elMr1 } from '../../styles/spacing'
 import { elIsActive } from '../../styles/states'
 import { Meta, StoryObj } from '@storybook/react'
+import { figmaDesignUrls } from '../../storybook/figma'
 
 const meta: Meta<typeof Accordion> = {
   title: 'Components/Accordion',
@@ -81,6 +82,12 @@ export const StylesOnlyUsage = {
       </AccordionContent>
     </AccordionContainer>
   ),
+  parameters: {
+    design: {
+      type: 'figma',
+      url: figmaDesignUrls.accordion,
+    },
+  },
 }
 
 export const ReactUsage: StoryObj<typeof Accordion> = {
@@ -125,5 +132,12 @@ export const ReactUsage: StoryObj<typeof Accordion> = {
         ],
       },
     ],
+  },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: figmaDesignUrls.accordion,
+      allowFullscreen: true,
+    },
   },
 }
