@@ -1,9 +1,19 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { TextArea } from '..'
 
-describe('TextArea component', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(<TextArea />)
-    expect(wrapper).toMatchSnapshot()
-  })
+test('default min/max rows are 2 -> Infinity', () => {
+  const { asFragment } = render(<TextArea />)
+  expect(asFragment()).toMatchSnapshot()
+})
+
+test('can set custom min/max rows', () => {
+  const { asFragment } = render(<TextArea maxRows={10} minRows={3} />)
+  expect(asFragment()).toMatchSnapshot()
+})
+
+// TODO: This test is currently skipped because our Linaria styled global mock
+// is changing the tag name.
+test.skip('is accessible via the textbox role', () => {
+  render(<TextArea maxRows={10} minRows={3} />)
+  expect(screen.getByRole('textbox')).toBeDefined()
 })
