@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react'
 import { TextArea } from './index'
 
 export default {
-  title: 'TextArea',
+  title: 'Components/TextArea',
   component: TextArea,
 } as Meta<typeof TextArea>
 
