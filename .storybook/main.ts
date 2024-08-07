@@ -21,6 +21,7 @@ module.exports = {
         },
       },
     },
+    '@storybook/addon-designs',
   ],
 
   loader: { '.js': 'jsx' },
