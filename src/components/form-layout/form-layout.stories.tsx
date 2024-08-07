@@ -77,7 +77,7 @@ export const BasicForm = {
         </InputWrap>
         <InputWrapFull>
           <InputGroup>
-            <TextArea type="text" placeholder="A placeholder" />
+            <TextArea placeholder="A placeholder" />
             <Label>Long Description</Label>
           </InputGroup>
         </InputWrapFull>
@@ -161,7 +161,7 @@ export const ComplexForm = {
         </InputWrap>
         <InputWrapFull>
           <InputGroup>
-            <TextArea type="text" placeholder="A placeholder" />
+            <TextArea placeholder="A placeholder" />
             <Label>Long Description</Label>
           </InputGroup>
         </InputWrapFull>
