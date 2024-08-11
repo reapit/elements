@@ -87,7 +87,7 @@ export const ReactUsageWithForm = {
             <InputWrapFull>
               <InputGroup>
                 <Label>Notes</Label>
-                <TextArea />
+                <TextArea fieldSizing="content" />
               </InputGroup>
             </InputWrapFull>
           </FormLayout>

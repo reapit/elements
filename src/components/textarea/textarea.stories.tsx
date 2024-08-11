@@ -8,6 +8,7 @@ export default {
 
 export const BasicUsage: StoryObj<typeof TextArea> = {
   args: {
+    fieldSizing: 'content',
     name: 'description',
     placeholder: 'Description',
   },
@@ -92,7 +93,21 @@ export const ControlledResizing: StoryObj<typeof TextArea> = {
  */
 export const FixedSize: StoryObj<typeof TextArea> = {
   args: {
+    fieldSizing: 'fixed',
     placeholder: 'Type here...',
     rows: 10,
+  },
+}
+
+/**
+ * Importantly, when an explicit row count is specified, no resizing will occur, whether the text area's
+ * value is controlled or not. This allows text areas to have a fixed size when necessary.
+ *
+ * @deprecated
+ */
+export const ManualSizing: StoryObj<typeof TextArea> = {
+  args: {
+    fieldSizing: 'manual',
+    placeholder: 'Type here...',
   },
 }

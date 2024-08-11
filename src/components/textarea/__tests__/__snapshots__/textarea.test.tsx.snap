@@ -1,19 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`can set custom min/max rows 1`] = `
+exports[`content field-sizing can set custom min/max rows 1`] = `
 <DocumentFragment>
   <mock-styled.textarea
     classname=""
+    data-field-sizing="content"
     style="--textarea-max-rows: 10; --textarea-min-rows: 3;"
   />
 </DocumentFragment>
 `;
 
-exports[`default min/max rows are 2 -> Infinity 1`] = `
+exports[`content field-sizing default min/max rows are 3 -> Infinity 1`] = `
 <DocumentFragment>
   <mock-styled.textarea
     classname=""
-    style="--textarea-max-rows: Infinity; --textarea-min-rows: 2;"
+    data-field-sizing="content"
+    style="--textarea-max-rows: Infinity; --textarea-min-rows: 3;"
+  />
+</DocumentFragment>
+`;
+
+exports[`fixed field-sizing can set custom number of rows 1`] = `
+<DocumentFragment>
+  <mock-styled.textarea
+    classname=""
+    data-field-sizing="fixed"
+    rows="10"
+  />
+</DocumentFragment>
+`;
+
+exports[`fixed field-sizing default rows is 3 1`] = `
+<DocumentFragment>
+  <mock-styled.textarea
+    classname=""
+    data-field-sizing="fixed"
+    rows="3"
+  />
+</DocumentFragment>
+`;
+
+exports[`manual field-sizing can set custom number of initial rows 1`] = `
+<DocumentFragment>
+  <mock-styled.textarea
+    classname=""
+    data-field-sizing="manual"
+    rows="7"
+  />
+</DocumentFragment>
+`;
+
+exports[`manual field-sizing default rows is 3 1`] = `
+<DocumentFragment>
+  <mock-styled.textarea
+    classname=""
+    data-field-sizing="manual"
+    rows="3"
   />
 </DocumentFragment>
 `;
