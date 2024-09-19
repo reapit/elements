@@ -55,7 +55,7 @@ export const ElMenuItemButton = styled.button`
   padding: var(--spacing-none) var(--spacing-4);
   gap: var(--spacing-4);
 
-  /* customize html button */
+  /* customize html default button */
   background-color: transparent;
   border: none;
   cursor: pointer;
