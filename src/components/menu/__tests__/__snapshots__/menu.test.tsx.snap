@@ -1,0 +1,1095 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu and MenuItem components render correctly Menu with react shorthand renders a menu with multiple groups and custom top position correctly 1`] = `
+<DocumentFragment>
+  <mock-styled.div
+    style="top: 50px;"
+  >
+    <div>
+      <mock-styled.ul
+        classname="mock-css."
+      >
+        <li>
+          <mock-styled.div>
+            Group 1
+          </mock-styled.div>
+        </li>
+        <mock-styled.li>
+          <mock-styled.a
+            href="/item1"
+            label="Item 1"
+          >
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--neutral-500);
+  }
+
+  &., {
+    color: var(--neutral-400);
+
+    a {
+      color: var(--neutral-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css."
+            />
+          </mock-styled.a>
+        </mock-styled.li>
+        <mock-styled.li>
+          <mock-styled.a
+            href="/item2"
+            label="Item 2"
+          >
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--neutral-500);
+  }
+
+  &., {
+    color: var(--neutral-400);
+
+    a {
+      color: var(--neutral-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css."
+            />
+          </mock-styled.a>
+        </mock-styled.li>
+      </mock-styled.ul>
+    </div>
+    <div>
+      <mock-styled.div />
+      <mock-styled.ul
+        classname="mock-css."
+      >
+        <mock-styled.li>
+          <mock-styled.a
+            href="/item3"
+            label="Item 3"
+          >
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--neutral-500);
+  }
+
+  &., {
+    color: var(--neutral-400);
+
+    a {
+      color: var(--neutral-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css."
+            />
+          </mock-styled.a>
+        </mock-styled.li>
+        <mock-styled.li>
+          <mock-styled.a
+            href="/item4"
+            label="Item 4"
+          >
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--neutral-500);
+  }
+
+  &., {
+    color: var(--neutral-400);
+
+    a {
+      color: var(--neutral-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css."
+            />
+          </mock-styled.a>
+        </mock-styled.li>
+      </mock-styled.ul>
+    </div>
+  </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`Menu and MenuItem components render correctly Menu with react shorthand renders a menu without a custom top position correctly 1`] = `
+<DocumentFragment>
+  <mock-styled.div>
+    <div>
+      <mock-styled.ul
+        classname="mock-css."
+      >
+        <li>
+          <mock-styled.div>
+            Group 1
+          </mock-styled.div>
+        </li>
+        <mock-styled.li>
+          <mock-styled.a
+            href="/item1"
+            label="Item 1"
+          >
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--neutral-500);
+  }
+
+  &., {
+    color: var(--neutral-400);
+
+    a {
+      color: var(--neutral-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css."
+            />
+          </mock-styled.a>
+        </mock-styled.li>
+        <mock-styled.li>
+          <mock-styled.a
+            href="/item2"
+            label="Item 2"
+          >
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--neutral-500);
+  }
+
+  &., {
+    color: var(--neutral-400);
+
+    a {
+      color: var(--neutral-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css."
+            />
+          </mock-styled.a>
+        </mock-styled.li>
+      </mock-styled.ul>
+    </div>
+    <div>
+      <mock-styled.div />
+      <mock-styled.ul
+        classname="mock-css."
+      >
+        <mock-styled.li>
+          <mock-styled.a
+            href="/item3"
+            label="Item 3"
+          >
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--neutral-500);
+  }
+
+  &., {
+    color: var(--neutral-400);
+
+    a {
+      color: var(--neutral-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css."
+            />
+          </mock-styled.a>
+        </mock-styled.li>
+        <mock-styled.li>
+          <mock-styled.a
+            href="/item4"
+            label="Item 4"
+          >
+            <div
+              class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--neutral-500);
+  }
+
+  &., {
+    color: var(--neutral-400);
+
+    a {
+      color: var(--neutral-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css."
+            />
+          </mock-styled.a>
+        </mock-styled.li>
+      </mock-styled.ul>
+    </div>
+  </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`Menu and MenuItem components render correctly renders Menu correctly 1`] = `
+<DocumentFragment>
+  <mock-styled.div>
+    Menu content
+  </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`Menu and MenuItem components render correctly renders MenuItemGroup with center alignment correctly 1`] = `
+<DocumentFragment>
+  <mock-styled.ul
+    classname="mock-css."
+  />
+</DocumentFragment>
+`;
+
+exports[`Menu and MenuItem components render correctly renders MenuItemGroup with center alignment correctly 2`] = `
+<DocumentFragment>
+  <mock-styled.ul
+    classname="mock-css."
+  />
+</DocumentFragment>
+`;
+
+exports[`Menu and MenuItem components render correctly renders MenuItemGroup with left alignment correctly 1`] = `
+<DocumentFragment>
+  <mock-styled.ul
+    classname="mock-css."
+  />
+</DocumentFragment>
+`;
+
+exports[`Menu and MenuItem components render correctly renders MenuItemGroupTitle correctly 1`] = `
+<DocumentFragment>
+  <li>
+    <mock-styled.div>
+      Group title content
+    </mock-styled.div>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`MenuItem renders a button correctly 1`] = `
+<DocumentFragment>
+  <mock-styled.li>
+    <mock-styled.button>
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--neutral-500);
+  }
+
+  &., {
+    color: var(--neutral-400);
+
+    a {
+      color: var(--neutral-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css. mock-css."
+      >
+        Click Me
+      </div>
+    </mock-styled.button>
+  </mock-styled.li>
+</DocumentFragment>
+`;
+
+exports[`MenuItem renders a regular link correctly 1`] = `
+<DocumentFragment>
+  <mock-styled.li>
+    <mock-styled.a
+      href="https://example.com"
+    >
+      <div
+        class="mock-css.
+  font-family: var(--font-sans-serif);
+  color: var(--black);
+  font-size: 15px;
+  line-height: 24px;
+  font-weight: 400;
+
+  &., {
+    color: var(--neutral-500);
+  }
+
+  &., {
+    color: var(--neutral-400);
+
+    a {
+      color: var(--neutral-400);
+    }
+  }
+
+  &., {
+    font-weight: var(--font-weight-default);
+  }
+
+  &., {
+    font-weight: var(--font-weight-medium);
+  }
+
+  &., {
+    font-weight: var(--font-weight-bold);
+  }
+
+  &., {
+    text-align: center;
+  }
+
+  &., {
+    text-transform: capitalize;
+  }
+
+  &., {
+    text-transform: uppercase;
+  }
+
+  &., {
+    font-style: italic;
+  }
+
+  &., {
+    margin-bottom: 0;
+  }
+
+  &., {
+    margin-bottom: 0.5rem;
+  }
+
+  &., {
+    margin-bottom: 1.5rem;
+  }
+
+  &., {
+    color: var(--intent-primary);
+  }
+
+  &., {
+    color: var(--intent-neutral);
+  }
+
+  &., {
+    color: var(--intent-success);
+  }
+
+  &., {
+    color: var(--intent-pending);
+  }
+
+  &., {
+    color: var(--intent-warning);
+  }
+
+  &., {
+    color: var(--intent-danger);
+  }
+
+  &., {
+    color: var(--intent-default);
+  }
+ mock-css.
+  font-size: 14px;
+  line-height: 20px;
+ mock-css. mock-css."
+      >
+        External Link
+      </div>
+    </mock-styled.a>
+  </mock-styled.li>
+</DocumentFragment>
+`;

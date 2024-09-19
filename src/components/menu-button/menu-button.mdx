@@ -1,0 +1,33 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import * as MenuButtonStories from './menu-button.stories'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta of={MenuButtonStories} />
+
+# MenuButton
+
+## Styles Only Usage
+
+The Menu Button is a button that toggles the visibility of a `Menu. Menu button typically used to group multiple buttons links, or mix of both inside a dropdown in smaller screen (eg. usage at top navbar).
+
+<Canvas of={MenuButtonStories.StylesOnlyUsage} />
+
+<RenderHtmlMarkup of={MenuButtonStories.StylesOnlyUsage} />
+
+## React Shorthand
+
+<Controls />
+
+In the React Shorthand, you can compose your Menu Button by applying props as appropriate following the `MenuButton` interface:
+
+<Canvas of={MenuButtonStories.ReactShorthand} />
+
+<RenderHtmlMarkup of={MenuButtonStories.ReactShorthand} />
+
+## With Intent
+
+By setting the `intent` prop, you can specify the intent for the button.
+
+<Canvas of={MenuButtonStories.WithIntent} />
+
+<RenderHtmlMarkup of={MenuButtonStories.WithIntent} />

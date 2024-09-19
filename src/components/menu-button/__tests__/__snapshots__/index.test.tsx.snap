@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuButton suite Basic should render properly using optional icon, intent and hasBorder props 1`] = `
+<DocumentFragment>
+  <mock-styled.div>
+    <mock-styled.div
+      buttonicon="[object Object]"
+      classname="mock-css. mock-css."
+      id="menu-button-toggler"
+      intent="primary"
+      type="button"
+    >
+      MenuButton label
+    </mock-styled.div>
+  </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`MenuButton suite Basic should render the button with the correct label 1`] = `
+<DocumentFragment>
+  <mock-styled.div>
+    <mock-styled.div
+      buttonicon="[object Object]"
+      classname=""
+      id="menu-button-toggler"
+      type="button"
+    >
+      MenuButton label
+    </mock-styled.div>
+  </mock-styled.div>
+</DocumentFragment>
+`;
