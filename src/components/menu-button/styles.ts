@@ -36,10 +36,10 @@ export const ElMenuButtonToggler = styled(Button)`
   }
 
   &.${elHasBorder} {
-    border: 1px solid var() !important;
+    border: 1px solid var(--neutral-100) !important;
     &:hover {
       background-color: var(--fill-white);
-      border: 1px solid var() !important;
+      border: 1px solid var(--neutral-400) !important;
     }
   }
 
