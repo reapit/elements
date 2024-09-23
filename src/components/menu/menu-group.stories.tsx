@@ -14,7 +14,6 @@ const meta: Meta<typeof MenuItemGroup> = {
   title: 'Components/Menu/Menu Item Group',
   component: MenuItemGroup,
   argTypes: {
-    alignment: { control: 'inline-radio', options: ['left', 'center', 'right'] },
     title: {
       type: 'string',
     },
@@ -55,10 +54,10 @@ export const ReactVersion: Story = {
   args: {
     title: 'Group Title',
   },
-  render: ({ alignment, title }) => (
-    <MenuItemGroup title={title} alignment={alignment}>
-      <MenuItem href="#">This is a a Link</MenuItem>
-      <MenuItem onClick={() => 0}>This is a a Button</MenuItem>
+  render: ({ title }) => (
+    <MenuItemGroup title={title}>
+      <MenuItem href="#">This is a Link</MenuItem>
+      <MenuItem onClick={() => 0}>This is a Button</MenuItem>
     </MenuItemGroup>
   ),
 }

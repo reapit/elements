@@ -1,9 +1,6 @@
 import { HTMLAttributes, HtmlHTMLAttributes } from 'react'
 import { Intent } from '../../helpers/intent'
 
-export interface MenuBaseProps extends HTMLAttributes<HTMLDivElement> {
-  top?: number
-}
 export interface MenuGroupContainerProps extends HTMLAttributes<HTMLUListElement> {
   title?: string
 }
@@ -24,8 +21,7 @@ export type MenuItemGroupProps = {
   intent?: Intent
 }
 
-export interface MenuProps extends MenuBaseProps {
-  top?: number
+export interface MenuProps extends HTMLAttributes<HTMLDivElement> {
   groups?: MenuItemGroupProps[]
   intent?: Intent
 }

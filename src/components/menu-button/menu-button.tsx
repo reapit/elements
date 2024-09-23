@@ -1,7 +1,7 @@
 import { cx } from '@linaria/core'
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Menu, MenuItemProps } from '../menu'
-import { MenuButtonContainer, MenuButtonTogglerBase } from './menu-button.atoms'
+import { MenuButtonContainer, MenuButtonMenuContainer, MenuButtonTogglerBase } from './menu-button.atoms'
 import { elHasBorder, elHasIntent, elHasRightAlignedMenu } from './styles'
 import { MenuButtonContainerBaseProps, type MenuButtonProps, MenuTogglerButtonProps } from './types'
 
@@ -81,23 +81,24 @@ export const MenuButton: React.FC<MenuButtonProps & MenuButtonContainerBaseProps
         onClick={toggleIsExpanded}
       />
       {isExpanded && (
-        <Menu
-          id="menu-button-menu"
-          top={top}
-          intent={intent}
-          data-testid="menu"
-          groups={menuGroups.map((group) => {
-            return {
-              ...group,
-              items: group.items.map((item) => {
-                return {
-                  ...item,
-                  onClick: handleItemClick(setIsExpanded, item),
-                }
-              }),
-            }
-          })}
-        />
+        <MenuButtonMenuContainer top={top}>
+          <Menu
+            id="menu-button-menu"
+            intent={intent}
+            data-testid="menu"
+            groups={menuGroups.map((group) => {
+              return {
+                ...group,
+                items: group.items.map((item) => {
+                  return {
+                    ...item,
+                    onClick: handleItemClick(setIsExpanded, item),
+                  }
+                }),
+              }
+            })}
+          />
+        </MenuButtonMenuContainer>
       )}
     </MenuButtonContainer>
   )

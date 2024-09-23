@@ -8,7 +8,11 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 ## Styles Only Usage
 
-The Menu Button is a button that toggles the visibility of a `Menu. Menu button typically used to group multiple buttons links, or mix of both inside a dropdown in smaller screen (eg. usage at top navbar).
+The MenuButton is toggles the visibility of a Menu containing a list of buttons and/or links.
+
+The 'top' property allows the Y position of the Menu below the button to be changed from 36px so that it can match styling of a parent component
+
+The menu can be aligned to the left or right of the button
 
 <Canvas of={MenuButtonStories.StylesOnlyUsage} />
 
@@ -18,7 +22,7 @@ The Menu Button is a button that toggles the visibility of a `Menu. Menu button 
 
 <Controls />
 
-In the React Shorthand, you can compose your Menu Button by applying props as appropriate following the `MenuButton` interface:
+In the React Shorthand, you can compose your MenuButton by applying props as appropriate following the `MenuButton` interface:
 
 <Canvas of={MenuButtonStories.ReactShorthand} />
 

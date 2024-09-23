@@ -24,9 +24,9 @@ export const MenuItem: React.FC<PropsWithChildren<MenuItemProps>> = ({ href, onC
   )
 }
 
-export const Menu: React.FC<MenuProps> = ({ groups, top, intent, children, ...props }) => {
+export const Menu: React.FC<MenuProps> = ({ groups, intent, children, ...props }) => {
   return (
-    <MenuContainer top={top} {...props}>
+    <MenuContainer {...props}>
       {groups?.length
         ? groups!.map(({ items, ...props }, key) => (
             <div key={key}>

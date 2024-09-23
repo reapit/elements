@@ -1,21 +1,9 @@
 import { FC } from 'react'
-import {
-  ElMenu,
-  ElMenuItemButton,
-  ElMenuItemContainer,
-  ElMenuItemGroup,
-  ElMenuItemGroupTitle,
-  ElMenuItemLink,
-} from '.'
+import { ElMenu, ElMenuItemButton, ElMenuItemContainer, ElMenuItemGroup, ElMenuItemGroupTitle, ElMenuItemLink } from '.'
 import { MenuBaseProps, MenuGroupContainerProps, MenuItemButtonProps, MenuItemLinkProps } from './types'
-import { cx } from '@linaria/core'
 
-export const MenuContainer: FC<MenuBaseProps> = ({ children, top, ...rest }) => {
-  return (
-    <ElMenu {...rest} style={{ top }}>
-      {children}
-    </ElMenu>
-  )
+export const MenuContainer: FC<MenuBaseProps> = ({ children, ...rest }) => {
+  return <ElMenu {...rest}>{children}</ElMenu>
 }
 
 export const MenuItemLink: FC<MenuItemLinkProps> = ({ children, ...rest }) => {

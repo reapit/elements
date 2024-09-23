@@ -3,7 +3,6 @@ import { elTextSM, Text2XS } from '../typography'
 
 export const ElMenu = styled.div`
   overflow: hidden;
-
   display: flex;
   width: fit-content;
   padding: var(--spacing-2) var(--spacing-none);
@@ -72,13 +71,11 @@ export const ElMenuItemGroup = styled.ul`
 export const ElMenuItemGroupTitle = styled(Text2XS)`
   display: flex;
   align-items: center;
-
   height: 32px;
   padding: var(--spacing-none) var(--spacing-4) var(--spacing-none) var(--spacing-4);
   margin-bottom: 0;
   color: var(--text-placeholder);
   font-weight: 600;
   text-align: left;
-
   text-transform: uppercase;
 `

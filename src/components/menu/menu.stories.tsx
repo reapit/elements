@@ -8,6 +8,8 @@ import {
   ElMenuItemGroupTitle,
   ElMenuItemLink,
   Menu,
+  MenuItem,
+  MenuItemGroup,
 } from '.'
 import { TextSM } from '../typography'
 import { ElNavMenuOptionDivider } from '../nav'
@@ -16,10 +18,6 @@ const meta: Meta<typeof Menu> = {
   title: 'Components/Menu',
   component: Menu,
   argTypes: {
-    top: {
-      type: 'number',
-      description: 'i.e Y-offset',
-    },
     intent: {
       type: 'string',
     },
@@ -69,27 +67,34 @@ export const StylesOnlyUsage: StoryObj = {
   },
 }
 
-export const ReactShorthand: Story = {
+export const ReactShorthandWithProps: Story = {
+  render: (props) => <Menu {...props} />,
   args: {
     groups: [
       {
         title: 'group title',
         items: [
           {
-            children: 'This is a really long text for a link',
-            href: '/',
-          },
-          {
             children: 'This is a link',
             href: '/',
           },
           {
-            children: 'This is a really long text for a button',
+            children: 'This is a button',
             onClick: () => 0,
           },
         ],
       },
     ],
-    top: undefined,
   },
+}
+
+export const ReactShorthandWithComponents: Story = {
+  render: (props) => (
+    <Menu {...props}>
+      <MenuItemGroup title="Group Title">
+        <MenuItem href="/">This is a link</MenuItem>
+        <MenuItem onClick={() => alert('button')}>This is a button</MenuItem>
+      </MenuItemGroup>
+    </Menu>
+  ),
 }

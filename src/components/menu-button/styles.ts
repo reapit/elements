@@ -10,16 +10,16 @@ export const elHasRightAlignedMenu = css``
 export const ElMenuButtonContainer = styled.div`
   position: relative;
 
-  & > button + div {
-    position: absolute;
-    white-space: nowrap;
-    top: 35px;
-    z-index: 99;
-  }
-
   &.${elHasRightAlignedMenu} > button + div {
     right: 0;
   }
+`
+
+export const ElMenuButtonMenuContainer = styled.div`
+  position: absolute;
+  white-space: nowrap;
+  top: 36px;
+  z-index: 99;
 `
 
 export const ElMenuButtonToggler = styled(Button)`

@@ -1,4 +1,3 @@
-import { css } from '@linaria/core'
 import { TextSM } from '../typography'
 import type { Meta, StoryObj } from '@storybook/react'
 import { ElMenuButtonContainer, ElMenuButtonToggler, MenuButton } from '.'
@@ -64,11 +63,16 @@ export const StylesOnlyUsage: Story = {
 }
 
 export const ReactShorthand: StoryObj<typeof MenuButton> = {
-  render: (props) => (
-    <div style={{ display: 'flex', justifyContent: props.alignment }}>
-      <MenuButton {...props} />
-    </div>
-  ),
+  render: (props) => {
+    if (props.alignment === 'right') {
+      return (
+        <div style={{ display: 'flex', justifyContent: 'right' }}>
+          <MenuButton {...props} />
+        </div>
+      )
+    }
+    return <MenuButton {...props} />
+  },
   args: {
     label: 'More',
     intent: undefined,
@@ -95,11 +99,16 @@ export const ReactShorthand: StoryObj<typeof MenuButton> = {
 }
 
 export const MultipleGroupExample: StoryObj<typeof MenuButton> = {
-  render: (props) => (
-    <div style={{ display: 'flex', justifyContent: props.alignment }}>
-      <MenuButton {...props} />
-    </div>
-  ),
+  render: (props) => {
+    if (props.alignment === 'right') {
+      return (
+        <div style={{ display: 'flex', justifyContent: 'right' }}>
+          <MenuButton {...props} />
+        </div>
+      )
+    }
+    return <MenuButton {...props} />
+  },
   args: {
     label: 'More',
     intent: undefined,
@@ -109,7 +118,7 @@ export const MultipleGroupExample: StoryObj<typeof MenuButton> = {
         title: 'Group title',
         items: [
           {
-            children: 'This is really long text for a line of Link',
+            children: 'This is very long line of text for a Link',
             href: '/',
           },
           {

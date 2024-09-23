@@ -6,7 +6,6 @@ import { MenuItemProps } from '../menu/types'
 
 export interface MenuButtonContainerBaseProps extends HTMLAttributes<HTMLDivElement> {}
 export interface MenuButtonBaseProps extends HTMLAttributes<HTMLDivElement> {}
-export interface MenuLinkBaseProps extends HTMLAttributes<HTMLAnchorElement> {}
 
 export interface MenuTogglerButtonProps extends ButtonProps {
   label: string
@@ -25,4 +24,8 @@ export interface MenuButtonProps extends Pick<MenuTogglerButtonProps, 'label' | 
   }[]
   top?: number
   alignment?: 'left' | 'right'
+}
+
+export interface MenuButtonMenuProps extends HTMLAttributes<HTMLDivElement> {
+  top?: number
 }
