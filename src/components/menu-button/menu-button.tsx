@@ -55,7 +55,7 @@ export const MenuButton: React.FC<MenuButtonProps & MenuButtonContainerBaseProps
   icon,
   hasBorder,
   top,
-  alignment,
+  alignment = 'left',
   ...props
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)

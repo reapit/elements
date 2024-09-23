@@ -64,11 +64,16 @@ export const StylesOnlyUsage: Story = {
 }
 
 export const ReactShorthand: StoryObj<typeof MenuButton> = {
-  render: (props) => <MenuButton {...props} />,
+  render: (props) => (
+    <div style={{ display: 'flex', justifyContent: props.alignment }}>
+      <MenuButton {...props} />
+    </div>
+  ),
   args: {
     label: 'More',
     intent: undefined,
     hasBorder: false,
+    alignment: 'left',
     menuGroups: [
       {
         items: [
@@ -90,30 +95,15 @@ export const ReactShorthand: StoryObj<typeof MenuButton> = {
 }
 
 export const MultipleGroupExample: StoryObj<typeof MenuButton> = {
-  render: (props) => {
-    return (
-      <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-between',
-          flexDirection: 'row',
-        }}
-      >
-        <div
-          style={{
-            display: 'inline-flex',
-            gap: 25,
-          }}
-        >
-          <MenuButton {...props} menuGroups={[props.menuGroups[0], props.menuGroups[0]]} />
-        </div>
-        <MenuButton id="rightSideMenuButton" {...props} alignment="right" />
-      </div>
-    )
-  },
+  render: (props) => (
+    <div style={{ display: 'flex', justifyContent: props.alignment }}>
+      <MenuButton {...props} />
+    </div>
+  ),
   args: {
     label: 'More',
     intent: undefined,
+    alignment: 'left',
     menuGroups: [
       {
         title: 'Group title',

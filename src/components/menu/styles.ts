@@ -1,10 +1,5 @@
-import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { elTextSM, Text2XS } from '../typography'
-
-export const elMenuItemAlignLeft = css``
-export const elMenuItemAlignRight = css``
-export const elMenuItemAlignCenter = css``
 
 export const ElMenu = styled.div`
   overflow: hidden;
@@ -72,24 +67,6 @@ export const ElMenuItemGroup = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-
-  /* for group title */
-  &.${elMenuItemAlignCenter} {
-    align-items: center;
-  }
-  &.${elMenuItemAlignRight} {
-    align-items: end;
-  }
-
-  /* for group item */
-  &.${elMenuItemAlignCenter} button,
-  &.${elMenuItemAlignCenter} a {
-    justify-content: center;
-  }
-  &.${elMenuItemAlignRight} button,
-  &.${elMenuItemAlignRight} a {
-    justify-content: end;
-  }
 `
 
 export const ElMenuItemGroupTitle = styled(Text2XS)`

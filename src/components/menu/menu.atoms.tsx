@@ -1,9 +1,6 @@
 import { FC } from 'react'
 import {
   ElMenu,
-  elMenuItemAlignCenter,
-  elMenuItemAlignLeft,
-  elMenuItemAlignRight,
   ElMenuItemButton,
   ElMenuItemContainer,
   ElMenuItemGroup,
@@ -45,11 +42,9 @@ export const MenuItemGroupTitle: FC<MenuBaseProps> = ({ children, ...rest }) => 
   )
 }
 
-export const MenuItemGroup: FC<MenuGroupContainerProps> = ({ children, alignment, title, ...rest }) => {
-  const alignmentClass =
-    alignment == 'center' ? elMenuItemAlignCenter : alignment == 'right' ? elMenuItemAlignRight : elMenuItemAlignLeft
+export const MenuItemGroup: FC<MenuGroupContainerProps> = ({ children, title, ...rest }) => {
   return (
-    <ElMenuItemGroup {...rest} className={cx(alignmentClass, rest.className)}>
+    <ElMenuItemGroup {...rest}>
       {!!title && <MenuItemGroupTitle>{title}</MenuItemGroupTitle>}
       {children}
     </ElMenuItemGroup>

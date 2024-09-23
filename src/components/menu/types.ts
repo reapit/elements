@@ -1,15 +1,12 @@
 import { HTMLAttributes, HtmlHTMLAttributes } from 'react'
 import { Intent } from '../../helpers/intent'
-import { ButtonGroupAlignment } from '../button'
 
 export interface MenuBaseProps extends HTMLAttributes<HTMLDivElement> {
   top?: number
 }
 export interface MenuGroupContainerProps extends HTMLAttributes<HTMLUListElement> {
-  alignment?: ButtonGroupAlignment
   title?: string
 }
-export interface MenuItemContainerProps extends HTMLAttributes<HTMLLIElement> {}
 export interface MenuItemLinkProps extends HTMLAttributes<HTMLAnchorElement> {
   href: string
 }
@@ -24,7 +21,6 @@ export interface MenuItemProps extends HtmlHTMLAttributes<HTMLAnchorElement | HT
 export type MenuItemGroupProps = {
   title?: string
   items: MenuItemProps[]
-  alignment?: ButtonGroupAlignment
   intent?: Intent
 }
 
