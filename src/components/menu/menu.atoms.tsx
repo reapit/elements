@@ -1,8 +1,8 @@
 import { FC } from 'react'
 import { ElMenu, ElMenuItemButton, ElMenuItemContainer, ElMenuItemGroup, ElMenuItemGroupTitle, ElMenuItemLink } from '.'
-import { MenuBaseProps, MenuGroupContainerProps, MenuItemButtonProps, MenuItemLinkProps } from './types'
+import { MenuProps, MenuGroupContainerProps, MenuItemButtonProps, MenuItemLinkProps } from './types'
 
-export const MenuContainer: FC<MenuBaseProps> = ({ children, ...rest }) => {
+export const MenuContainer: FC<MenuProps> = ({ children, ...rest }) => {
   return <ElMenu {...rest}>{children}</ElMenu>
 }
 
@@ -22,7 +22,7 @@ export const MenuItemButton: FC<MenuItemButtonProps> = ({ children, ...rest }) =
   )
 }
 
-export const MenuItemGroupTitle: FC<MenuBaseProps> = ({ children, ...rest }) => {
+export const MenuItemGroupTitle: FC<MenuProps> = ({ children, ...rest }) => {
   return (
     <li>
       <ElMenuItemGroupTitle {...rest}>{children}</ElMenuItemGroupTitle>

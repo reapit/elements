@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { Menu, MenuItem, MenuItemGroup, MenuItemGroupTitle } from '..'
+import { Menu, MenuItem, MenuItemGroupTitle } from '..'
 
 describe('MenuItem', () => {
   it('renders a regular link correctly', () => {
@@ -40,12 +40,7 @@ describe('Menu and MenuItem components render correctly', () => {
       },
     ]
 
-    it('renders a menu with multiple groups and custom top position correctly', () => {
-      const { asFragment } = render(<Menu groups={groups} top={50} />)
-      expect(asFragment()).toMatchSnapshot()
-    })
-
-    it('renders a menu without a custom top position correctly', () => {
+    it('renders a menu with multiple groups correctly', () => {
       const { asFragment } = render(<Menu groups={groups} />)
       expect(asFragment()).toMatchSnapshot()
     })
@@ -58,21 +53,6 @@ describe('Menu and MenuItem components render correctly', () => {
 
   it('renders MenuItemGroupTitle correctly', () => {
     const { asFragment } = render(<MenuItemGroupTitle>Group title content</MenuItemGroupTitle>)
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('renders MenuItemGroup with left alignment correctly', () => {
-    const { asFragment } = render(<MenuItemGroup alignment="left"></MenuItemGroup>)
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('renders MenuItemGroup with center alignment correctly', () => {
-    const { asFragment } = render(<MenuItemGroup alignment="center"></MenuItemGroup>)
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  it('renders MenuItemGroup with center alignment correctly', () => {
-    const { asFragment } = render(<MenuItemGroup alignment="right"></MenuItemGroup>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -14,25 +14,24 @@ exports[`MenuButton should render properly using menuGroups, optional icon, alig
     >
       MenuButton label
     </mock-styled.div>
-    <mock-styled.div
-      data-testid="menu"
-      id="menu-button-menu"
-    >
-      <div>
-        <mock-styled.ul
-          classname="mock-css."
-        >
-          <li>
-            <mock-styled.div>
-              Group title
-            </mock-styled.div>
-          </li>
-          <mock-styled.li>
-            <mock-styled.a
-              href="/"
-            >
-              <div
-                class="mock-css.
+    <mock-styled.div>
+      <mock-styled.div
+        data-testid="menu"
+        id="menu-button-menu"
+      >
+        <div>
+          <mock-styled.ul>
+            <li>
+              <mock-styled.div>
+                Group title
+              </mock-styled.div>
+            </li>
+            <mock-styled.li>
+              <mock-styled.a
+                href="/"
+              >
+                <div
+                  class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--black);
   font-size: 15px;
@@ -122,27 +121,25 @@ exports[`MenuButton should render properly using menuGroups, optional icon, alig
   font-size: 14px;
   line-height: 20px;
  mock-css. mock-css."
-              >
-                This is a Link 1
-              </div>
-            </mock-styled.a>
-          </mock-styled.li>
-        </mock-styled.ul>
-      </div>
-      <div>
-        <mock-styled.div />
-        <mock-styled.ul
-          classname="mock-css."
-        >
-          <li>
-            <mock-styled.div>
-              Group title
-            </mock-styled.div>
-          </li>
-          <mock-styled.li>
-            <mock-styled.button>
-              <div
-                class="mock-css.
+                >
+                  This is a Link 1
+                </div>
+              </mock-styled.a>
+            </mock-styled.li>
+          </mock-styled.ul>
+        </div>
+        <div>
+          <mock-styled.div />
+          <mock-styled.ul>
+            <li>
+              <mock-styled.div>
+                Group title
+              </mock-styled.div>
+            </li>
+            <mock-styled.li>
+              <mock-styled.button>
+                <div
+                  class="mock-css.
   font-family: var(--font-sans-serif);
   color: var(--black);
   font-size: 15px;
@@ -232,13 +229,14 @@ exports[`MenuButton should render properly using menuGroups, optional icon, alig
   font-size: 14px;
   line-height: 20px;
  mock-css. mock-css."
-              >
-                This is a Button 1
-              </div>
-            </mock-styled.button>
-          </mock-styled.li>
-        </mock-styled.ul>
-      </div>
+                >
+                  This is a Button 1
+                </div>
+              </mock-styled.button>
+            </mock-styled.li>
+          </mock-styled.ul>
+        </div>
+      </mock-styled.div>
     </mock-styled.div>
   </mock-styled.div>
 </DocumentFragment>
