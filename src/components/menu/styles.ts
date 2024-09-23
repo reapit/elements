@@ -19,9 +19,7 @@ export const ElMenu = styled.div`
   box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
 `
 
-export const ElMenuItemContainer = styled.li`
-  width: 100%;
-`
+export const ElMenuItemContainer = styled.li``
 
 export const ElMenuItemLink = styled.a`
   display: flex;
@@ -40,7 +38,6 @@ export const ElMenuItemLink = styled.a`
 `
 
 export const ElMenuItemButton = styled.button`
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -67,6 +64,11 @@ export const ElMenuItemButton = styled.button`
 
 export const ElMenuItemGroup = styled.ul`
   width: 100%;
+  li,
+  a,
+  button {
+    width: 100%;
+  }
   display: flex;
   flex-direction: column;
   align-items: flex-start;

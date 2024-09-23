@@ -1,6 +1,6 @@
 import { cx } from '@linaria/core'
-import React, { useEffect, useState } from 'react'
-import { Menu } from '../menu'
+import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
+import { Menu, MenuItemProps } from '../menu'
 import { MenuButtonContainer, MenuButtonTogglerBase } from './menu-button.atoms'
 import { elHasBorder, elHasIntent } from './styles'
 import { MenuButtonContainerBaseProps, type MenuButtonProps, MenuTogglerButtonProps } from './types'
@@ -31,6 +31,23 @@ export const MenuButtonToggler: React.FC<MenuTogglerButtonProps> = ({
   )
 }
 
+export const handleOutsideClick = (setIsExpanded: Dispatch<SetStateAction<boolean>>) => (event: MouseEvent) => {
+  const target = event.target as HTMLElement
+  const isMenuButtonToggler = target.closest('#menu-button-toggler')
+  const isMenuButtonMenu = target.closest('#menu-button-menu')
+
+  if (!isMenuButtonToggler && !isMenuButtonMenu) {
+    setIsExpanded(false)
+  }
+}
+
+export const handleItemClick = (setIsExpanded: Dispatch<SetStateAction<boolean>>, item: MenuItemProps) => () => {
+  setIsExpanded(false)
+  if (item.onClick) {
+    item.onClick()
+  }
+}
+
 export const MenuButton: React.FC<MenuButtonProps & MenuButtonContainerBaseProps> = ({
   label,
   menuGroups,
@@ -42,20 +59,10 @@ export const MenuButton: React.FC<MenuButtonProps & MenuButtonContainerBaseProps
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
 
-  const handleOutsideClick = (event: MouseEvent) => {
-    const target = event.target as HTMLElement
-    const isMenuButtonToggler = target.closest('#menu-button-toggler')
-    const isMenuButtonMenu = target.closest('#menu-button-menu')
-
-    if (!isMenuButtonToggler && !isMenuButtonMenu) {
-      setIsExpanded(false)
-    }
-  }
-
   useEffect(() => {
-    document.addEventListener('click', handleOutsideClick)
+    document.addEventListener('click', handleOutsideClick(setIsExpanded))
     return () => {
-      document.removeEventListener('click', handleOutsideClick)
+      document.removeEventListener('click', handleOutsideClick(setIsExpanded))
     }
   }, [])
 
@@ -84,12 +91,7 @@ export const MenuButton: React.FC<MenuButtonProps & MenuButtonContainerBaseProps
               items: group.items.map((item) => {
                 return {
                   ...item,
-                  onClick: () => {
-                    setIsExpanded(false)
-                    if (item.onClick) {
-                      item.onClick()
-                    }
-                  },
+                  onClick: handleItemClick(setIsExpanded, item),
                 }
               }),
             }
