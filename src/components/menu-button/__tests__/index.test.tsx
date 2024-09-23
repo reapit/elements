@@ -22,9 +22,16 @@ describe('MenuButton', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should render properly using menuGroups, optional icon, intent and hasBorder props', () => {
+  it('should render properly using menuGroups, optional icon, alignment, intent and hasBorder props', () => {
     const { asFragment } = render(
-      <MenuButton menuGroups={menuGroups} icon="add" intent="primary" hasBorder label="MenuButton label" />,
+      <MenuButton
+        menuGroups={menuGroups}
+        icon="add"
+        intent="primary"
+        hasBorder
+        alignment="right"
+        label="MenuButton label"
+      />,
     )
 
     const button = screen.getByText('MenuButton label')

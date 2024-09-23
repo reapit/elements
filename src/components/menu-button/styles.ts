@@ -5,6 +5,7 @@ import { ElIcon } from '../icon'
 
 export const elHasIntent = css``
 export const elHasBorder = css``
+export const elHasRightAlignedMenu = css``
 
 export const ElMenuButtonContainer = styled.div`
   position: relative;
@@ -14,6 +15,10 @@ export const ElMenuButtonContainer = styled.div`
     white-space: nowrap;
     top: 35px;
     z-index: 99;
+  }
+
+  &.${elHasRightAlignedMenu} > button + div {
+    right: 0;
   }
 `
 

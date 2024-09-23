@@ -1,8 +1,8 @@
 import { HTMLAttributes } from 'react'
-import { MenuItemProps } from '../menu/types'
-import { ButtonGroupAlignment, ButtonProps } from '../button'
 import { Intent } from '../../helpers/intent'
+import { ButtonProps } from '../button'
 import { IconNames } from '../icon'
+import { MenuItemProps } from '../menu/types'
 
 export interface MenuButtonContainerBaseProps extends HTMLAttributes<HTMLDivElement> {}
 export interface MenuButtonBaseProps extends HTMLAttributes<HTMLDivElement> {}
@@ -21,8 +21,8 @@ export interface MenuButtonProps extends Pick<MenuTogglerButtonProps, 'label' | 
   menuGroups: {
     items: MenuItemProps[]
     title?: string
-    alignment?: ButtonGroupAlignment
     intent?: Intent
   }[]
   top?: number
+  alignment?: 'left' | 'right'
 }

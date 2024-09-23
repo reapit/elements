@@ -2,7 +2,7 @@ import { cx } from '@linaria/core'
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react'
 import { Menu, MenuItemProps } from '../menu'
 import { MenuButtonContainer, MenuButtonTogglerBase } from './menu-button.atoms'
-import { elHasBorder, elHasIntent } from './styles'
+import { elHasBorder, elHasIntent, elHasRightAlignedMenu } from './styles'
 import { MenuButtonContainerBaseProps, type MenuButtonProps, MenuTogglerButtonProps } from './types'
 
 export const MenuButtonToggler: React.FC<MenuTogglerButtonProps> = ({
@@ -55,6 +55,7 @@ export const MenuButton: React.FC<MenuButtonProps & MenuButtonContainerBaseProps
   icon,
   hasBorder,
   top,
+  alignment,
   ...props
 }) => {
   const [isExpanded, setIsExpanded] = useState(false)
@@ -69,7 +70,7 @@ export const MenuButton: React.FC<MenuButtonProps & MenuButtonContainerBaseProps
   const toggleIsExpanded = () => setIsExpanded((prev) => !prev)
 
   return (
-    <MenuButtonContainer {...props}>
+    <MenuButtonContainer {...props} className={cx(props.className, alignment === 'right' && elHasRightAlignedMenu)}>
       <MenuButtonToggler
         id="menu-button-toggler"
         icon={icon}

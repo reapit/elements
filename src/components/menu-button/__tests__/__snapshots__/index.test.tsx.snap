@@ -1,8 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MenuButton should render properly using menuGroups, optional icon, intent and hasBorder props 1`] = `
+exports[`MenuButton should render properly using menuGroups, optional icon, alignment, intent and hasBorder props 1`] = `
 <DocumentFragment>
-  <mock-styled.div>
+  <mock-styled.div
+    classname="mock-css."
+  >
     <mock-styled.div
       buttonicon="[object Object]"
       classname="mock-css. mock-css."
@@ -244,7 +246,9 @@ exports[`MenuButton should render properly using menuGroups, optional icon, inte
 
 exports[`MenuButton should render the button with the correct label 1`] = `
 <DocumentFragment>
-  <mock-styled.div>
+  <mock-styled.div
+    classname=""
+  >
     <mock-styled.div
       buttonicon="[object Object]"
       classname=""

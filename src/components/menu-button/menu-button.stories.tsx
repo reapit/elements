@@ -22,6 +22,9 @@ const meta: Meta<typeof MenuButton> = {
     hasBorder: {
       type: 'boolean',
     },
+    alignment: {
+      control: 'inline-radio',
+    },
   },
 }
 
@@ -95,11 +98,6 @@ export const MultipleGroupExample: StoryObj<typeof MenuButton> = {
           justifyContent: 'space-between',
           flexDirection: 'row',
         }}
-        className={css`
-          #rightSideMenuButton button + div {
-            right: 0;
-          }
-        `}
       >
         <div
           style={{
@@ -109,7 +107,7 @@ export const MultipleGroupExample: StoryObj<typeof MenuButton> = {
         >
           <MenuButton {...props} menuGroups={[props.menuGroups[0], props.menuGroups[0]]} />
         </div>
-        <MenuButton id="rightSideMenuButton" {...props} />
+        <MenuButton id="rightSideMenuButton" {...props} alignment="right" />
       </div>
     )
   },
