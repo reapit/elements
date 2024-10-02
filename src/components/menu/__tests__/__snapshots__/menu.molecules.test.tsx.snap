@@ -8,7 +8,7 @@ exports[`Menu Item component should render Menu Item and match snapshot 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Menu Popover component should close the Popover when button clicked 1`] = `
+exports[`Menu Popover component should close the Popover when button inside popover clicked and match snapshot 1`] = `
 <DocumentFragment>
   <button
     aria-expanded="false"
