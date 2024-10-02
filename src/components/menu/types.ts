@@ -1,19 +1,12 @@
-import { HTMLAttributes, HtmlHTMLAttributes } from 'react'
+import { HTMLAttributes } from 'react'
 import { Intent } from '../../helpers/intent'
+
+export interface BaseContainerProps extends HTMLAttributes<HTMLDivElement> {}
 
 export interface MenuGroupContainerProps extends HTMLAttributes<HTMLUListElement> {
   title?: string
 }
-export interface MenuItemLinkProps extends HTMLAttributes<HTMLAnchorElement> {
-  href: string
-}
-export interface MenuItemButtonProps extends HTMLAttributes<HTMLButtonElement> {}
-
-export interface MenuItemProps extends HtmlHTMLAttributes<HTMLAnchorElement | HTMLButtonElement> {
-  href?: string
-  onClick?: VoidFunction
-  intent?: Intent
-}
+export interface MenuItemProps extends HTMLAttributes<HTMLLIElement> {}
 
 export type MenuItemGroupProps = {
   title?: string
@@ -22,6 +15,5 @@ export type MenuItemGroupProps = {
 }
 
 export interface MenuProps extends HTMLAttributes<HTMLDivElement> {
-  groups?: MenuItemGroupProps[]
-  intent?: Intent
+  groups: MenuItemGroupProps[]
 }

@@ -1,27 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import {
-  ElMenu,
-  ElMenuItemButton,
-  ElMenuItemContainer,
-  ElMenuItemGroup,
-  ElMenuItemGroupTitle,
-  ElMenuItemLink,
-  Menu,
-  MenuItem,
-  MenuItemGroup,
-} from '.'
-import { TextSM } from '../typography'
+import { ElMenu, ElMenuItemContainer, ElMenuItemGroup, ElMenuItemGroupTitle, Menu } from '.'
+
+import { Menu as MenuMolecules } from './menu.molecules'
+import { Button } from '../button'
 import { ElNavMenuOptionDivider } from '../nav'
 
 const meta: Meta<typeof Menu> = {
   title: 'Components/Menu',
   component: Menu,
-  argTypes: {
-    intent: {
-      type: 'string',
-    },
-  },
 }
 
 export default meta
@@ -36,19 +23,15 @@ export const StylesOnlyUsage: StoryObj = {
             <ElMenuItemGroupTitle>Group Title</ElMenuItemGroupTitle>
           </li>
           <ElMenuItemContainer>
-            <ElMenuItemLink href="/#">
-              <TextSM hasNoMargin>This is a Link</TextSM>
-            </ElMenuItemLink>
+            <a href="/#">This is a Link</a>
           </ElMenuItemContainer>
           <ElMenuItemContainer>
-            <ElMenuItemLink href="/#">
-              <TextSM hasNoMargin>This is a Link</TextSM>
-            </ElMenuItemLink>
+            <a href="/#">This is a Link</a>
           </ElMenuItemContainer>
           <ElMenuItemContainer>
-            <ElMenuItemButton onClick={() => 0}>
-              <TextSM hasNoMargin>This is a Button</TextSM>
-            </ElMenuItemButton>
+            <Button type="button" onClick={() => 1}>
+              This is a Button
+            </Button>
           </ElMenuItemContainer>
         </ElMenuItemGroup>
         <ElNavMenuOptionDivider />
@@ -57,9 +40,7 @@ export const StylesOnlyUsage: StoryObj = {
             <ElMenuItemGroupTitle>Another Group Title</ElMenuItemGroupTitle>
           </li>
           <ElMenuItemContainer>
-            <ElMenuItemLink href="/#">
-              <TextSM hasNoMargin>This is a Link</TextSM>
-            </ElMenuItemLink>
+            <a href="/#">This is a Link</a>
           </ElMenuItemContainer>
         </ElMenuItemGroup>
       </ElMenu>
@@ -75,11 +56,14 @@ export const ReactShorthandWithProps: Story = {
         title: 'group title',
         items: [
           {
-            children: 'This is a link',
-            href: '/',
+            children: <a href="/1">This is a Link</a>,
           },
           {
-            children: 'This is a button',
+            children: (
+              <Button type="button" onClick={() => 1}>
+                This is a Button
+              </Button>
+            ),
             onClick: () => 0,
           },
         ],
@@ -90,11 +74,17 @@ export const ReactShorthandWithProps: Story = {
 
 export const ReactShorthandWithComponents: Story = {
   render: (props) => (
-    <Menu {...props}>
-      <MenuItemGroup title="Group Title">
-        <MenuItem href="/">This is a link</MenuItem>
-        <MenuItem onClick={() => alert('button')}>This is a button</MenuItem>
-      </MenuItemGroup>
-    </Menu>
+    <MenuMolecules.List {...props}>
+      <MenuMolecules.Group title="Group Title">
+        <MenuMolecules.Item>
+          <a href="/1">This is a Link</a>
+        </MenuMolecules.Item>
+        <MenuMolecules.Item>
+          <Button type="button" onClick={() => 1}>
+            This is a Button
+          </Button>
+        </MenuMolecules.Item>
+      </MenuMolecules.Group>
+    </MenuMolecules.List>
   ),
 }

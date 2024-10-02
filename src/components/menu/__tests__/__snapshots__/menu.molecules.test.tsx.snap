@@ -1,0 +1,74 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu Item component should render Menu Item and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.li>
+    Menu Item
+  </mock-styled.li>
+</DocumentFragment>
+`;
+
+exports[`Menu Popover component should close the Popover when button clicked 1`] = `
+<DocumentFragment>
+  <button
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="menu-trigger"
+  >
+    Trigger
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Menu Popover component should render Popover when open and match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    aria-expanded="true"
+    aria-haspopup="true"
+    class="menu-trigger"
+  >
+    Trigger
+  </button>
+  <div
+    aria-labelledby="menu-header"
+    class="menu-popover"
+    role="menu"
+  >
+    <div>
+      Popover Content
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Menu Trigger component should render Trigger and match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    aria-expanded="false"
+    aria-haspopup="true"
+    class="menu-trigger"
+  >
+    Trigger
+  </button>
+</DocumentFragment>
+`;
+
+exports[`Menu component should render Menu and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.div>
+    <mock-styled.ul>
+      <li>
+        <mock-styled.div>
+          Group Title
+        </mock-styled.div>
+      </li>
+      <mock-styled.li>
+        Item 1
+      </mock-styled.li>
+      <mock-styled.li>
+        Item 2
+      </mock-styled.li>
+    </mock-styled.ul>
+  </mock-styled.div>
+</DocumentFragment>
+`;

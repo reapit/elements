@@ -1,0 +1,46 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuContainer component should render MenuContainer and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.div>
+    <div>
+      Menu Content
+    </div>
+  </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`MenuItemGroup component should render MenuItemGroup with title and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.ul>
+    <li>
+      <mock-styled.div>
+        Group Title
+      </mock-styled.div>
+    </li>
+    <div>
+      Group Item 1
+    </div>
+  </mock-styled.ul>
+</DocumentFragment>
+`;
+
+exports[`MenuItemGroup component should render MenuItemGroup without title and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.ul>
+    <div>
+      Group Item 1
+    </div>
+  </mock-styled.ul>
+</DocumentFragment>
+`;
+
+exports[`MenuItemGroupTitle component should render MenuItemGroupTitle and match snapshot 1`] = `
+<DocumentFragment>
+  <li>
+    <mock-styled.div>
+      Group Title
+    </mock-styled.div>
+  </li>
+</DocumentFragment>
+`;

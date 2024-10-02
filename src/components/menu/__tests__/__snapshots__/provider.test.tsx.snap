@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuProvider and useMenu should render MenuProvider and match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="menu-trigger"
+    >
+      Trigger
+    </button>
+    <div
+      aria-labelledby="menu-header"
+      class="menu-popover"
+      hidden=""
+      role="menu"
+    />
+  </div>
+</DocumentFragment>
+`;
