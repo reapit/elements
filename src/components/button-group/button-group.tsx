@@ -28,6 +28,9 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({ children, ...rest }) => {
     console.warn('Button Group can contain up to 5 Buttons only.')
   }
 
+  // Initialize counters for primary and icon-only buttons
+  let primaryButtonCount = 0
+  let iconOnlyButtonCount = 0
   let iconOnlyButton: ReactElement | null = null
   let primaryButton: ReactElement | null = null
   // For tracking button size for comparision
@@ -47,11 +50,13 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({ children, ...rest }) => {
       // Identify if it's an icon-only button (has icon but no children)
       if (buttonIcon && !children) {
         iconOnlyButton = child
+        iconOnlyButtonCount++
       }
 
       // Identify if it's a primary button
       if (variant === 'primary') {
         primaryButton = child
+        primaryButtonCount++
       }
 
       // Identify and store the buttonSize of the first button
@@ -76,6 +81,17 @@ export const ButtonGroup: FC<ButtonGroupProps> = ({ children, ...rest }) => {
   if (hasInconsistentSizeOrVariant) {
     console.error('All buttons in a ButtonGroup must have the same buttonSize and a valid variant.')
     return null // Prevent rendering to avoid invalid state
+  }
+
+  // Check if there's more than one primary button or icon-only button
+  if (primaryButtonCount > 1) {
+    console.error('Only one primary button is allowed in a ButtonGroup.')
+    return null // Prevent rendering invalid state
+  }
+
+  if (iconOnlyButtonCount > 1) {
+    console.error('Only one icon-only button is allowed in a ButtonGroup.')
+    return null // Prevent rendering invalid state
   }
 
   // Warn and prevent rendering ButtonGroup if both primary and icon-only buttons are present
