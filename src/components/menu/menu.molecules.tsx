@@ -1,4 +1,5 @@
-import React, { forwardRef, MutableRefObject, PropsWithChildren, useEffect } from 'react'
+import React, { forwardRef, MutableRefObject, PropsWithChildren } from 'react'
+import { useClickOutside } from '../../hooks/use-click-outside'
 import { MenuContainer, MenuItemGroup } from './menu.atoms'
 import { MenuProvider, useMenu } from './provider'
 import { ElMenuItemContainer } from './styles'
@@ -7,20 +8,6 @@ const Trigger = ({ children }) => {
   const { getTriggerProps, isOpen } = useMenu()
 
   return children({ getTriggerProps, isOpen })
-}
-
-export const useClickOutside = (ref: MutableRefObject<HTMLDivElement>, onClickOutside: VoidFunction) => {
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (ref?.current && !ref.current.contains(event?.target)) {
-        onClickOutside()
-      }
-    }
-    document.addEventListener('mousedown', handleClickOutside)
-    return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
-    }
-  }, [ref, onClickOutside])
 }
 
 const Popover = forwardRef<HTMLDivElement, PropsWithChildren<any>>(({ children }, ref) => {

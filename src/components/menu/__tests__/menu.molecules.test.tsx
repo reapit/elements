@@ -1,6 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { Menu, useClickOutside } from '../menu.molecules'
-import { useRef } from 'react'
+import { Menu } from '../menu.molecules'
 
 describe('Menu component', () => {
   it('should render Menu and match snapshot', () => {
@@ -65,44 +64,5 @@ describe('Menu Item component', () => {
   it('should render Menu Item and match snapshot', () => {
     const { asFragment } = render(<Menu.Item>Menu Item</Menu.Item>)
     expect(asFragment()).toMatchSnapshot()
-  })
-})
-
-const TestComponent = ({ onClickOutside }: { onClickOutside: VoidFunction }) => {
-  const ref = useRef<HTMLDivElement>(null)
-  useClickOutside(ref as any, onClickOutside)
-
-  return <div ref={ref}>Inside Element</div>
-}
-
-describe('useClickOutside', () => {
-  it('should call onClickOutside when clicking outside the element', () => {
-    const onClickOutside = jest.fn()
-
-    const { getByText } = render(
-      <>
-        <TestComponent onClickOutside={onClickOutside} />
-        <div>Outside Element</div>
-      </>,
-    )
-
-    fireEvent.mouseDown(getByText('Outside Element'))
-
-    expect(onClickOutside).toHaveBeenCalledTimes(1)
-  })
-
-  it('should not call onClickOutside when clicking inside the element', () => {
-    const onClickOutside = jest.fn()
-
-    const { getByText } = render(
-      <>
-        <TestComponent onClickOutside={onClickOutside} />
-        <div>Outside Element</div>
-      </>,
-    )
-
-    fireEvent.mouseDown(getByText('Inside Element'))
-
-    expect(onClickOutside).not.toHaveBeenCalled()
   })
 })
