@@ -5,7 +5,6 @@ import { elIsLoading } from '../../styles/states'
 import * as styles from './__styles__'
 import {
   ElButton,
-  ElButtonGroup,
   elButtonGroupAlignCenter,
   elButtonGroupAlignLeft,
   elButtonGroupAlignRight,
@@ -16,6 +15,7 @@ import {
   elButtonSizeMedium,
   elButtonSizeSmall,
 } from './__styles__'
+import { ElButtonGroup } from '../button-group'
 import { Icon, IconNames } from '../icon'
 import { elIntentDanger, elIntentNeutral, elIntentPrimary } from '../../styles/intent'
 import { elMl1, elMr1 } from '../../styles/spacing'
@@ -43,11 +43,19 @@ export interface FloatingButtonProps extends ButtonProps {
   icon: IconNames
 }
 
+/**
+ * A subset of button, button group should not be used.
+ * @deprecated Will be removed in future major version. Use `button-group` as parent component.
+ */
 export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   alignment?: ButtonGroupAlignment
 }
 
 export const resolveButtonClassName = (intent?: Intent): string => {
+  // -- For Devs --
+  // Please update the new Button Group component with replaced prop
+  // Files to update button-group.tsx, button-group.stories.tsx and button-group.text.tsx
+  //
   switch (intent) {
     case 'primary':
       return elIntentPrimary
