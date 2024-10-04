@@ -272,7 +272,7 @@ exports[`ButtonGroup should match a snapshot for Button Group with Primary butto
 }
 `;
 
-exports[`ButtonGroup should match a snapshot for align default Button Group 1`] = `
+exports[`ButtonGroup should match a snapshot for default Button Group 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>

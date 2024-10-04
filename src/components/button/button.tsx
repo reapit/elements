@@ -54,7 +54,7 @@ export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
 export const resolveButtonClassName = (intent?: Intent): string => {
   // -- For Devs --
   // Please update the new Button Group component with replaced prop
-  // Files to update button-group.tsx, button-group.stories.tsx and button-group.text.tsx
+  // Files to update button-group.stories.tsx and button-group.text.tsx
   //
   switch (intent) {
     case 'primary':
