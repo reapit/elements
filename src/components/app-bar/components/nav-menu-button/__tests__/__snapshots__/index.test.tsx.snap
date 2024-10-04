@@ -1,0 +1,155 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavMenuButton should render properly using menuGroups, optional icon, top, and alignment props and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.div
+    data-alignment="right"
+  >
+    <mock-styled.button
+      aria-expanded="true"
+      aria-haspopup="true"
+      classname="menu-trigger"
+      type="button"
+    >
+      NavMenuButton label
+      <mock-styled.span
+        classname="mock-css."
+        style="font-size: 1rem;"
+      >
+        <svg
+          role="img"
+          style="font-size: 1rem;"
+          title="Icon image with name add"
+        />
+      </mock-styled.span>
+    </mock-styled.button>
+    <mock-styled.div>
+      <div
+        aria-labelledby="menu-header"
+        class="menu-popover"
+        role="menu"
+      >
+        <mock-styled.div
+          data-testid="menu"
+        >
+          <div>
+            <mock-styled.ul>
+              <li>
+                <mock-styled.div>
+                  Group title
+                </mock-styled.div>
+              </li>
+              <mock-styled.li
+                href="/"
+              >
+                This is a Link 1
+              </mock-styled.li>
+            </mock-styled.ul>
+          </div>
+          <div>
+            <mock-styled.div />
+            <mock-styled.ul>
+              <li>
+                <mock-styled.div>
+                  Group title
+                </mock-styled.div>
+              </li>
+              <mock-styled.li>
+                This is a Button 1
+              </mock-styled.li>
+            </mock-styled.ul>
+          </div>
+        </mock-styled.div>
+      </div>
+    </mock-styled.div>
+  </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`NavMenuButton should render the button with the correct label and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.div
+    data-alignment="left"
+  >
+    <mock-styled.button
+      aria-expanded="false"
+      aria-haspopup="true"
+      classname="menu-trigger"
+      type="button"
+    >
+      NavMenuButton label
+      <mock-styled.span
+        classname="mock-css."
+        style="font-size: 1rem;"
+      >
+        <svg
+          role="img"
+          style="font-size: 1rem;"
+          title="Icon image with name chevronDown"
+        />
+      </mock-styled.span>
+    </mock-styled.button>
+    <mock-styled.div />
+  </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`NavMenuButtonToggler should display "chevronUp" and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.button
+    type="button"
+  >
+    Menu
+    <mock-styled.span
+      classname="mock-css."
+      style="font-size: 1rem;"
+    >
+      <svg
+        role="img"
+        style="font-size: 1rem;"
+        title="Icon image with name chevronUp"
+      />
+    </mock-styled.span>
+  </mock-styled.button>
+</DocumentFragment>
+`;
+
+exports[`NavMenuButtonToggler should display a custom icon if provided and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.button
+    type="button"
+  >
+    Menu
+    <mock-styled.span
+      classname="mock-css."
+      style="font-size: 1rem;"
+    >
+      <svg
+        role="img"
+        style="font-size: 1rem;"
+        title="Icon image with name add"
+      />
+    </mock-styled.span>
+  </mock-styled.button>
+</DocumentFragment>
+`;
+
+exports[`NavMenuButtonToggler should render the label and icon correctly and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.button
+    type="button"
+  >
+    Menu
+    <mock-styled.span
+      classname="mock-css."
+      style="font-size: 1rem;"
+    >
+      <svg
+        role="img"
+        style="font-size: 1rem;"
+        title="Icon image with name chevronDown"
+      />
+    </mock-styled.span>
+  </mock-styled.button>
+</DocumentFragment>
+`;
