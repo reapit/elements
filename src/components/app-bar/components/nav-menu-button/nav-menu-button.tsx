@@ -34,14 +34,7 @@ export const NavMenuButton: React.FC<NavMenuButtonProps & NavMenuButtonContainer
 
         <NavMenuButtonMenuContainer top={top}>
           <Menu.Popover ref={ref}>
-            <MenuComposed
-              data-testid="menu"
-              groups={menuGroups.map((group) => {
-                return {
-                  ...group,
-                }
-              })}
-            />
+            <MenuComposed data-testid="menu" groups={menuGroups} />
           </Menu.Popover>
         </NavMenuButtonMenuContainer>
       </Menu>

@@ -11,21 +11,6 @@ export const ElNavMenuButtonMenuContainer = styled.div`
 export const ElNavMenuButtonContainer = styled.div`
   position: relative;
 
-  &[data-direction='below'] {
-    > ${ElNavMenuButtonMenuContainer} {
-      top: unset;
-      bottom: unset;
-    }
-  }
-  &[data-direction='above'] {
-    > ${ElNavMenuButtonMenuContainer} {
-      // this number is coming form the height of NavIconButton with label
-      transform: translateY(-54px);
-      bottom: 0;
-      top: unset;
-    }
-  }
-
   &[data-alignment='left'] {
     > ${ElNavMenuButtonMenuContainer} {
       left: 0;

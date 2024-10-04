@@ -6,7 +6,7 @@ import { ElNavMenuOptionDivider } from '../nav'
 const MenuComposed: React.FC<MenuProps> = ({ groups, ...props }) => {
   return (
     <Menu.List {...props}>
-      {groups!.map(({ items, ...props }, key) => (
+      {groups.map(({ items, ...props }, key) => (
         <div key={key}>
           {!!groups[key - 1] && <ElNavMenuOptionDivider />}
           <Menu.Group {...props}>

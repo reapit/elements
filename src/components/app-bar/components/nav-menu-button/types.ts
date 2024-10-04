@@ -1,7 +1,7 @@
 import { HTMLAttributes } from 'react'
-import { MenuItemProps } from '../../../menu/types'
 import { IconNames } from '../../../icon'
 import { ButtonProps } from '../../../button'
+import { MenuItemProps } from '../../../menu'
 
 export interface NavMenuButtonContainerBaseProps extends HTMLAttributes<HTMLDivElement> {}
 export interface NavMenuButtonBaseProps extends HTMLAttributes<HTMLDivElement> {}
