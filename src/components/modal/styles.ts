@@ -2,7 +2,12 @@ import { styled } from '@linaria/react'
 import { elIsActive } from '../../styles/states'
 import { css } from '@linaria/core'
 
+// NOTE: The `elModalSmallVariant` class is used to indicate that the modal
+// is a small variant. This class is used to apply the appropriate styles to
+// the modal when it is a small variant, and is applied to the `className`
+// prop of the `ElModal` component
 export const elModalSmallVariant = css``
+
 export const ElModalBg = styled.div`
   display: none;
   z-index: 98;
@@ -12,6 +17,7 @@ export const ElModalBg = styled.div`
   left: 0;
   background: var(--neutral-500);
   opacity: 0.2;
+
   &.${elIsActive} {
     display: block;
     position: fixed;
