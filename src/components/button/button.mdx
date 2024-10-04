@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls, Description } from '@storybook/blocks'
 import { Button } from './index'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as ButtonStories from './button.stories'
@@ -58,6 +58,8 @@ All other standard HTML attributes for `<button>` are supported and are passed t
 ## Button Group
 
 An element to collectively group several buttons
+
+<Description of={ButtonStories.Group} />
 
 <Canvas of={ButtonStories.Group} />
 

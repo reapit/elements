@@ -42,6 +42,13 @@ export const StandardAttributes = {
   },
 }
 
+/**
+ *
+ * **This option will be removed from `Button` in a future version.**
+ * And it will sever as a new component `ButtonGroup`.
+ *
+ */
+
 export const Group = {
   render: ({}) => (
     <ButtonGroup>
