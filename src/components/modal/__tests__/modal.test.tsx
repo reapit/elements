@@ -1,24 +1,25 @@
 import { render } from '@testing-library/react'
-import { Modal, handleModalFocus } from '../modal'
+import { Modal, getModalVariantClass, handleModalFocus } from '../modal'
 import { createRef } from 'react'
+import { elModalSmallVariant } from '../styles'
 
 describe('Modal component', () => {
   it('should match a snapshot when closed', () => {
-    const wrapper = render(
-      <Modal isOpen={false} onModalClose={() => {}} title="test">
+    const { asFragment } = render(
+      <Modal isOpen={false} onModalClose={() => {}} title="Title" footer="Footer">
         Content within modal
       </Modal>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot when open', () => {
-    const wrapper = render(
-      <Modal isOpen={true} onModalClose={() => {}} title="test">
+    const { asFragment } = render(
+      <Modal isOpen={true} onModalClose={() => {}} title="Title" footer="Footer">
         Content within modal
       </Modal>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })
 
@@ -53,5 +54,24 @@ describe('handleModalFocus', () => {
     curried()
 
     expect(focusSpy).not.toHaveBeenCalled()
+  })
+})
+
+describe('getModalVariantClass', () => {
+  it('should return undefined for an unknown variant', () => {
+    const result = getModalVariantClass()
+    expect(result).toBeUndefined()
+  })
+
+  it('should return the elModalSmallVariant class for the small variant', () => {
+    const variant = 'small'
+    const result = getModalVariantClass(variant)
+    expect(result).toBe(elModalSmallVariant)
+  })
+
+  it('should return the undefined for the medium variant', () => {
+    const variant = 'medium'
+    const result = getModalVariantClass(variant)
+    expect(result).toBeUndefined()
   })
 })

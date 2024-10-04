@@ -1,3 +1,4 @@
+import React from 'react'
 import { useModal } from '.'
 import { Button, ButtonGroup } from '../../components/button'
 import { TextBase } from '../../components/typography'
@@ -7,37 +8,41 @@ export default {
 }
 
 export const BasicUsage = {
-  render: ({}) => {
+  render: (args) => {
     const { Modal: ModalComponent, openModal, closeModal } = useModal('portal-root')
 
     return (
-      <>
+      <React.Fragment {...args}>
         <Button intent="primary" onClick={openModal}>
           Open Modal
         </Button>
-        <ModalComponent title="Welcome to the demo modal">
+        <ModalComponent
+          title="Welcome to the demo modal"
+          footer={
+            <ButtonGroup alignment="right">
+              <Button intent="default" onClick={closeModal}>
+                Close
+              </Button>
+              <Button intent="primary" onClick={console.log}>
+                Do Something
+              </Button>
+            </ButtonGroup>
+          }
+        >
           <TextBase>Here&apos;s some nice content for the inside of the modal.</TextBase>
-          <ButtonGroup alignment="right">
-            <Button intent="default" onClick={closeModal}>
-              Close
-            </Button>
-            <Button intent="primary" onClick={console.log}>
-              Do Something
-            </Button>
-          </ButtonGroup>
         </ModalComponent>
-      </>
+      </React.Fragment>
     )
   },
 }
 
 export const MultipleModals = {
-  render: ({}) => {
+  render: (args) => {
     const { Modal: ModalA, openModal: openModalA } = useModal('portal-root')
     const { Modal: ModalB, openModal: openModalB } = useModal('portal-root')
 
     return (
-      <>
+      <React.Fragment {...args}>
         <ButtonGroup>
           <Button intent="primary" onClick={openModalA}>
             Open Modal A
@@ -48,7 +53,7 @@ export const MultipleModals = {
         </ButtonGroup>
         <ModalA title="Modal A">I&apos;m the modal A&apos;s content</ModalA>
         <ModalB title="Modal B">I&apos;m the modal B&apos;s content</ModalB>
-      </>
+      </React.Fragment>
     )
   },
 }

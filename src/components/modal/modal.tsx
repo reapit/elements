@@ -1,9 +1,10 @@
 import { FC, HTMLAttributes, Ref, RefObject, createRef, useEffect } from 'react'
 import { cx } from '@linaria/core'
-import { ModalBg, ModalContainer, ModalHeader, ModalBody } from './modal.atoms'
+import { ModalBg, ModalContainer, ModalHeader, ModalBody, ModalFooter } from './modal.atoms'
 import { elIsActive } from '../../styles/states'
 import { useId } from '../../storybook/random-id'
-import { ModalProps } from './types'
+import { ModalProps, ModalVariant } from './types'
+import { elModalSmallVariant } from './styles'
 
 export const handleModalFocus = (modalRef: RefObject<HTMLDivElement>, isOpen: boolean) => () => {
   if (isOpen && modalRef.current) {
@@ -11,7 +12,25 @@ export const handleModalFocus = (modalRef: RefObject<HTMLDivElement>, isOpen: bo
   }
 }
 
-export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, children, ...rest }) => {
+export const getModalVariantClass = (variant?: ModalVariant) => {
+  switch (variant) {
+    case 'small':
+      return elModalSmallVariant
+    default:
+      return undefined
+  }
+}
+
+export const Modal: FC<ModalProps> = ({
+  isOpen,
+  onModalClose,
+  title,
+  className,
+  children,
+  footer,
+  variant,
+  ...rest
+}) => {
   const id = useId(rest.id)
   const modalRef = createRef<HTMLDivElement>()
 
@@ -28,7 +47,7 @@ export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, 
     }
   }, [onModalClose])
 
-  const modalCombinedClassname = cx(className, elIsActive)
+  const modalCombinedClassname = cx(className, elIsActive, getModalVariantClass(variant))
 
   useEffect(handleModalFocus(modalRef, isOpen), [modalRef, isOpen])
 
@@ -44,10 +63,12 @@ export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, 
         className={modalCombinedClassname}
         ref={modalRef as unknown as Ref<HTMLAttributes<HTMLElement>>}
         autoFocus
+        title={title}
         {...rest}
       >
         {title && <ModalHeader>{title}</ModalHeader>}
         <ModalBody id={id}>{children}</ModalBody>
+        {footer && <ModalFooter>{footer}</ModalFooter>}
       </ModalContainer>
     </>
   )

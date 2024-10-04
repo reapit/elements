@@ -9,7 +9,7 @@ import * as ModalStories from './modal.stories'
 
 The modal component renders a dialog box that overlays the main screen. It is typically used for displaying confirmation or error notifications to users that require an addtional call to action or step.
 
-## Styles Only Usage
+## Basic Usage
 
 The Modal component can be used for UI purposes only, but won't have the functionality of the React implementation (i.e. managing the state of whether it is open or closed)
 
@@ -19,9 +19,41 @@ This class must be applied on two elements, `div.el-modal-bg` and also `div.el-m
 
 By default, the modal fills it's current container so you will likely wish to place it as high as possible up the DOM tree to achive an overlay effect.
 
-<Canvas of={ModalStories.StylesOnlyUsage} story={{ height: '300px' }} />
+Modal has two variants, small and medium, which are applied to the `div.el-modal` element. The medium is used by default.
 
-<RenderHtmlMarkup of={ModalStories.StylesOnlyUsage} />
+To use the small modal, you can apply the `elModalSmallVariant` / `el-modal-small-variant` class to the `div.el-modal` element.
+
+<Canvas of={ModalStories.BasicUsage} story={{ height: '300px' }} />
+
+<RenderHtmlMarkup of={ModalStories.BasicUsage} />
+
+## Small variant
+
+The small variant is suitable for displaying brief messages or simple forms. It has a compact size and is ideal for non-critical information.
+
+<Canvas of={ModalStories.SmallVariant} story={{ height: '300px' }} />
+
+<RenderHtmlMarkup of={ModalStories.SmallVariant} />
+
+## Small variant without title
+
+<Canvas of={ModalStories.SmallVariantWithoutTitle} story={{ height: '300px' }} />
+
+<RenderHtmlMarkup of={ModalStories.SmallVariantWithoutTitle} />
+
+## Medium variant
+
+The medium variant is the default size and is suitable for displaying more complex content. It offers a larger viewing area compared to the small variant.
+
+<Canvas of={ModalStories.MediumVariant} story={{ height: '300px' }} />
+
+<RenderHtmlMarkup of={ModalStories.MediumVariant} />
+
+## Medium variant without title
+
+<Canvas of={ModalStories.MediumVariantWithoutTitle} story={{ height: '300px' }} />
+
+<RenderHtmlMarkup of={ModalStories.MediumVariantWithoutTitle} />
 
 ## React usage
 
@@ -33,6 +65,6 @@ This example gives maxmum flexibility but for the 'batteries included' approach,
 
 Props available for the React version of the component;
 
-<Controls />
+<Controls of={ModalStories.ReactUsage} />
 
 <Canvas of={ModalStories.ReactUsage} story={{ height: '300px' }} />
