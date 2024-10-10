@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`useDialog should able to toggle the internal state 1`] = `
+<DocumentFragment>
+  <mock-styled.dialog>
+    <mock-styled.h2 />
+    <mock-styled.div />
+    <mock-styled.div>
+      <p>
+        dialog footer
+      </p>
+    </mock-styled.div>
+  </mock-styled.dialog>
+</DocumentFragment>
+`;

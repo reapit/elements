@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog.Body should match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.div />
+</DocumentFragment>
+`;
+
+exports[`Dialog.Container should match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.dialog />
+</DocumentFragment>
+`;
+
+exports[`Dialog.Footer should match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.div />
+</DocumentFragment>
+`;
+
+exports[`Dialog.Title should match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.h2 />
+</DocumentFragment>
+`;

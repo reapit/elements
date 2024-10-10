@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog should match a snapshot when have a title 1`] = `
+<DocumentFragment>
+  <mock-styled.dialog>
+    <mock-styled.h2
+      title="dialog title"
+    >
+      dialog title
+    </mock-styled.h2>
+    <mock-styled.div />
+    <mock-styled.div>
+      <p>
+        dialog footer
+      </p>
+    </mock-styled.div>
+  </mock-styled.dialog>
+</DocumentFragment>
+`;
+
+exports[`Dialog should match a snapshot when have no title 1`] = `
+<DocumentFragment>
+  <mock-styled.dialog>
+    <mock-styled.h2 />
+    <mock-styled.div />
+    <mock-styled.div>
+      <p>
+        dialog footer
+      </p>
+    </mock-styled.div>
+  </mock-styled.dialog>
+</DocumentFragment>
+`;
+
+exports[`Dialog should render the dialog when isOpen is false 1`] = `
+<DocumentFragment>
+  <mock-styled.dialog>
+    <mock-styled.h2 />
+    <mock-styled.div />
+    <mock-styled.div>
+      <p>
+        dialog footer
+      </p>
+    </mock-styled.div>
+  </mock-styled.dialog>
+</DocumentFragment>
+`;
