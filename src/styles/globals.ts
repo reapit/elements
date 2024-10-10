@@ -249,9 +249,6 @@ export const elGlobals = css`
       --font-weight-medium: 500;
       --font-weight-bold: 600;
 
-      /* elevation variables */
-      --elevation-xl: 0px 4px 16px 0px rgba(96, 120, 144, 0.16);
-
       /** layout size */
       --layout-size-base: 1rem;
       --layout-size-molecule: 1.25rem;

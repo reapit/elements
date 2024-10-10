@@ -1,10 +1,9 @@
 import { FC, HTMLAttributes, Ref, RefObject, createRef, useEffect } from 'react'
 import { cx } from '@linaria/core'
-import { ModalBg, ModalContainer, ModalHeader, ModalBody, ModalFooter } from './modal.atoms'
+import { ModalBg, ModalContainer, ModalHeader, ModalBody } from './modal.atoms'
 import { elIsActive } from '../../styles/states'
 import { useId } from '../../storybook/random-id'
-import { ModalProps, ModalVariant } from './types'
-import { elModalSmallVariant } from './styles'
+import { ModalProps } from './types'
 
 export const handleModalFocus = (modalRef: RefObject<HTMLDivElement>, isOpen: boolean) => () => {
   if (isOpen && modalRef.current) {
@@ -12,25 +11,7 @@ export const handleModalFocus = (modalRef: RefObject<HTMLDivElement>, isOpen: bo
   }
 }
 
-export const getModalVariantClass = (variant?: ModalVariant) => {
-  switch (variant) {
-    case 'small':
-      return elModalSmallVariant
-    default:
-      return undefined
-  }
-}
-
-export const Modal: FC<ModalProps> = ({
-  isOpen,
-  onModalClose,
-  title,
-  className,
-  children,
-  footer,
-  variant,
-  ...rest
-}) => {
+export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, children, ...rest }) => {
   const id = useId(rest.id)
   const modalRef = createRef<HTMLDivElement>()
 
@@ -47,7 +28,7 @@ export const Modal: FC<ModalProps> = ({
     }
   }, [onModalClose])
 
-  const modalCombinedClassname = cx(className, elIsActive, getModalVariantClass(variant))
+  const modalCombinedClassname = cx(className, elIsActive)
 
   useEffect(handleModalFocus(modalRef, isOpen), [modalRef, isOpen])
 
@@ -63,12 +44,10 @@ export const Modal: FC<ModalProps> = ({
         className={modalCombinedClassname}
         ref={modalRef as unknown as Ref<HTMLAttributes<HTMLElement>>}
         autoFocus
-        title={title}
         {...rest}
       >
         {title && <ModalHeader>{title}</ModalHeader>}
         <ModalBody id={id}>{children}</ModalBody>
-        {footer && <ModalFooter>{footer}</ModalFooter>}
       </ModalContainer>
     </>
   )
