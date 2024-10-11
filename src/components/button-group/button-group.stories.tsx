@@ -36,7 +36,6 @@ export const WithPrimaryButton = {
       <Button>Button 2</Button>
       <Button>Button 3</Button>
       <Button>Button 4</Button>
-      {/* -- Dev -- to replace intent with new available prop from Button Component */}
       <Button intent="primary">Button 5</Button>
     </ButtonGroup>
   ),
