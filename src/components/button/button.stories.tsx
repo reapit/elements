@@ -44,7 +44,7 @@ export const StandardAttributes = {
 
 /**
  *
- * @deprecated `alignment` prop in ButtonGroup will be removed in future version
+ * @deprecated This ButtonGroup is deprecated. Use the new ButtonGroup component instead.
  *
  */
 export const DeprecatedGroup = {
