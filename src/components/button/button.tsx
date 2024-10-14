@@ -5,6 +5,7 @@ import { elIsLoading } from '../../styles/states'
 import * as styles from './__styles__'
 import {
   ElButton,
+  DeprecatedElButtonGroup,
   elButtonGroupAlignCenter,
   elButtonGroupAlignLeft,
   elButtonGroupAlignRight,
@@ -15,7 +16,6 @@ import {
   elButtonSizeMedium,
   elButtonSizeSmall,
 } from './__styles__'
-import { ElButtonGroup } from '../button-group'
 import { Icon, IconNames } from '../icon'
 import { elIntentDanger, elIntentNeutral, elIntentPrimary } from '../../styles/intent'
 import { elMl1, elMr1 } from '../../styles/spacing'
@@ -126,16 +126,16 @@ export const Button: FC<ButtonProps> = ({
   )
 }
 
-export const ButtonGroup: FC<ButtonGroupProps> = ({ children, alignment, ...rest }) => {
+export const DeprecatedButtonGroup: FC<ButtonGroupProps> = ({ children, alignment, ...rest }) => {
   const alignmentClass = cx(
     alignment === 'left' && elButtonGroupAlignLeft,
     alignment === 'right' && elButtonGroupAlignRight,
     alignment === 'center' && elButtonGroupAlignCenter,
   )
   return (
-    <ElButtonGroup {...rest}>
+    <DeprecatedElButtonGroup {...rest}>
       <ElButtonGroupInner className={alignmentClass}>{children}</ElButtonGroupInner>
-    </ElButtonGroup>
+    </DeprecatedElButtonGroup>
   )
 }
 

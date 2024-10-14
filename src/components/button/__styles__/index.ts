@@ -208,6 +208,10 @@ export const ElButton = styled.button`
   }
 `
 
+export const DeprecatedElButtonGroup = styled.div`
+  display: grid;
+`
+
 export const ElButtonGroupInner = styled.div`
   display: flex;
   flex-wrap: wrap;

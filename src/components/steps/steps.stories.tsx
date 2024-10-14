@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import { Steps, StepsVertical } from './index'
-import { Button, ButtonGroup } from '../button'
+import { Button, DeprecatedButtonGroup } from '../button'
 // import { BodyText, Subtitle } from '../typography'
-// import { Button, ButtonGroup } from '../button'
+// import { Button, DeprecatedButtonGroup } from '../button'
 
 export default {
   title: 'Steps',
@@ -62,7 +62,7 @@ export const StepsVerticalUsage = {
     return (
       <>
         <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
-        <ButtonGroup>
+        <DeprecatedButtonGroup>
           <Button
             intent="primary"
             onClick={() =>
@@ -75,7 +75,7 @@ export const StepsVerticalUsage = {
           >
             Next
           </Button>
-        </ButtonGroup>
+        </DeprecatedButtonGroup>
       </>
     )
   },

@@ -1,6 +1,6 @@
 import { useDrawer } from '../../hooks/use-drawer'
 import { Drawer, DrawerBg } from './index'
-import { Button, ButtonGroup } from '../button'
+import { Button, DeprecatedButtonGroup } from '../button'
 import { FormLayout, InputWrapFull, InputWrapHalf } from '../form-layout'
 import { InputGroup } from '../input-group'
 import { Label } from '../label'
@@ -31,11 +31,11 @@ export const ReactUsage = {
           title="Demo Drawer Title"
           subtitle="Demo Drawer Subtitle"
           footerItems={
-            <ButtonGroup alignment="right">
+            <DeprecatedButtonGroup alignment="right">
               <Button intent="default" onClick={closeDrawer}>
                 Close the Drawer
               </Button>
-            </ButtonGroup>
+            </DeprecatedButtonGroup>
           }
         >
           <TextBase>Here&apos;s some nice content for the inside of the drawer.</TextBase>
@@ -58,11 +58,11 @@ export const ReactUsageWithForm = {
           title="Demo Drawer Title"
           subtitle="Demo Drawer Subtitle"
           footerItems={
-            <ButtonGroup alignment="right">
+            <DeprecatedButtonGroup alignment="right">
               <Button intent="default" onClick={closeDrawer}>
                 Close the Drawer
               </Button>
-            </ButtonGroup>
+            </DeprecatedButtonGroup>
           }
         >
           <FormLayout>
@@ -111,11 +111,11 @@ export const ReactUsageCanDismiss = {
           subtitle="Demo Drawer Subtitle"
           canDismiss
           footerItems={
-            <ButtonGroup alignment="right">
+            <DeprecatedButtonGroup alignment="right">
               <Button intent="default" onClick={closeDrawer}>
                 Close the Drawer
               </Button>
-            </ButtonGroup>
+            </DeprecatedButtonGroup>
           }
         >
           <TextBase>Here&apos;s some nice content for the inside of the drawer.</TextBase>
