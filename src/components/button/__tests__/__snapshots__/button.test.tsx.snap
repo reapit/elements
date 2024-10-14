@@ -275,7 +275,7 @@ exports[`Button should match a snapshot with all modifiers 1`] = `
 }
 `;
 
-exports[`ButtonGroup should match a snapshot for align center 1`] = `
+exports[`DeprecatedButtonGroup should match a snapshot for align center 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -386,7 +386,7 @@ exports[`ButtonGroup should match a snapshot for align center 1`] = `
 }
 `;
 
-exports[`ButtonGroup should match a snapshot for align left 1`] = `
+exports[`DeprecatedButtonGroup should match a snapshot for align left 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -497,7 +497,7 @@ exports[`ButtonGroup should match a snapshot for align left 1`] = `
 }
 `;
 
-exports[`ButtonGroup should match a snapshot for align right 1`] = `
+exports[`DeprecatedButtonGroup should match a snapshot for align right 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>

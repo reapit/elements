@@ -1,5 +1,5 @@
 import { render, fireEvent } from '@testing-library/react'
-import { Button, ButtonProps, FloatingButton, ButtonGroup, ButtonSize, ButtonIcon } from '../index'
+import { Button, ButtonProps, FloatingButton, DeprecatedButtonGroup, ButtonSize, ButtonIcon } from '../index'
 
 const props: ButtonProps = {
   type: 'submit',
@@ -52,15 +52,15 @@ describe('Button', () => {
   })
 })
 
-describe('ButtonGroup', () => {
+describe('DeprecatedButtonGroup', () => {
   it('should match a snapshot for align left', () => {
     expect(
       render(
-        <ButtonGroup alignment="left">
+        <DeprecatedButtonGroup alignment="left">
           <Button>1</Button>
           <Button>2</Button>
           <Button>3</Button>
-        </ButtonGroup>,
+        </DeprecatedButtonGroup>,
       ),
     ).toMatchSnapshot()
   })
@@ -68,11 +68,11 @@ describe('ButtonGroup', () => {
   it('should match a snapshot for align right', () => {
     expect(
       render(
-        <ButtonGroup alignment="right">
+        <DeprecatedButtonGroup alignment="right">
           <Button>1</Button>
           <Button>2</Button>
           <Button>3</Button>
-        </ButtonGroup>,
+        </DeprecatedButtonGroup>,
       ),
     ).toMatchSnapshot()
   })
@@ -80,11 +80,11 @@ describe('ButtonGroup', () => {
   it('should match a snapshot for align center', () => {
     expect(
       render(
-        <ButtonGroup alignment="center">
+        <DeprecatedButtonGroup alignment="center">
           <Button>1</Button>
           <Button>2</Button>
           <Button>3</Button>
-        </ButtonGroup>,
+        </DeprecatedButtonGroup>,
       ),
     ).toMatchSnapshot()
   })
