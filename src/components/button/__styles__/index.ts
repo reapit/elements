@@ -208,6 +208,7 @@ export const ElButton = styled.button`
   }
 `
 
+/** @deprecated **/
 export const DeprecatedElButtonGroup = styled.div`
   display: grid;
 `

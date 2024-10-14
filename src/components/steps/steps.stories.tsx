@@ -1,8 +1,6 @@
 import { useState } from 'react'
 import { Steps, StepsVertical } from './index'
 import { Button, DeprecatedButtonGroup } from '../button'
-// import { BodyText, Subtitle } from '../typography'
-// import { Button, DeprecatedButtonGroup } from '../button'
 
 export default {
   title: 'Steps',

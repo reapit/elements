@@ -126,6 +126,10 @@ export const Button: FC<ButtonProps> = ({
   )
 }
 
+/**
+ * Moved to its own component `ButtonGroup`.
+ * @deprecated `alignment` prop will not be supported in new ButtonGroup component.
+ */
 export const DeprecatedButtonGroup: FC<ButtonGroupProps> = ({ children, alignment, ...rest }) => {
   const alignmentClass = cx(
     alignment === 'left' && elButtonGroupAlignLeft,
