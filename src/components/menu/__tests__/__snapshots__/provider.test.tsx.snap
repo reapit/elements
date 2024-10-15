@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuProvider and useMenu should render MenuProvider and match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="menu-trigger"
+    >
+      Trigger
+    </button>
+    <div
+      aria-labelledby="menu-header"
+      class="menu-popover"
+      hidden=""
+      role="menu"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MenuProvider and useMenu should toggle isOpen state when trigger button is clicked and match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <button
+      aria-expanded="true"
+      aria-haspopup="true"
+      class="menu-trigger"
+    >
+      Trigger
+    </button>
+    <div
+      aria-labelledby="menu-header"
+      class="menu-popover"
+      role="menu"
+    >
+      <span>
+        Popover Content
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
+`;

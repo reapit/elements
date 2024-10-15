@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavMenuButton components should render MenuButtonContainer and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.div>
+    <span>
+      Menu Button
+    </span>
+  </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`NavMenuButton components should render MenuButtonMenuContainer and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.div
+    style="top: 50px;"
+  >
+    <span>
+      Menu Item
+    </span>
+  </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`NavMenuButton components should render MenuButtonTogglerBase and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.button>
+    <span>
+      Toggle Menu
+    </span>
+  </mock-styled.button>
+</DocumentFragment>
+`;
