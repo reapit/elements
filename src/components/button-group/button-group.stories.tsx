@@ -11,7 +11,7 @@ const meta: Meta<typeof ButtonGroup> = {
 export default meta
 
 export const Default = {
-  render: () => (
+  render: ({}) => (
     <ButtonGroup>
       <Button>Button 1</Button>
       <Button>Button 2</Button>
@@ -30,7 +30,7 @@ export const Default = {
 }
 
 export const WithPrimaryButton = {
-  render: () => (
+  render: ({}) => (
     <ButtonGroup>
       <Button>Button 1</Button>
       <Button>Button 2</Button>
@@ -49,7 +49,7 @@ export const WithPrimaryButton = {
 }
 
 export const WithIconOnlyButton = {
-  render: () => (
+  render: ({}) => (
     <ButtonGroup>
       <Button>Button 1</Button>
       <Button>Button 2</Button>
