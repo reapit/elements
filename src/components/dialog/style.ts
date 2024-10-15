@@ -106,7 +106,6 @@ export const ElDialogTitle = styled.h2`
 /**
  * HTML element that renders the header of the dialog
  */
-
 export const ElDialogHeader = styled.div`
   padding-bottom: var(--spacing-4, 12px);
   word-wrap: break-word;

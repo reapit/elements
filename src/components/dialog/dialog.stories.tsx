@@ -21,6 +21,12 @@ const meta = {
     isOpen: {
       control: false,
     },
+    size: {
+      control: {
+        type: 'select',
+      },
+      options: ['small', 'medium'],
+    },
   },
 } satisfies Meta<typeof Dialog>
 
