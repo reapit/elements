@@ -37,12 +37,8 @@ type DialogFC = FC<PropsWithChildren<DialogProps>> & {
 }
 
 /**
- * The `Dialog` component is a wrapper around the `Dialog` atoms that provides
- * a more convenient way to render the dialog content.
- *
- * This component is intended to be used as a controlled component, meaning that it should be
- * used in conjunction with the `useDialog` hook to manage the state of the dialog
- * and ensure that it is properly rendered and styled.
+ * The `Dialog` component is a wrapper around the prefixed `ELDialog*` that provides
+ * a more convenient way to render the dialog content for React users.
  */
 const Dialog: DialogFC = ({ children, isOpen = false, onClose, size, ...props }) => {
   const ref = useRef<HTMLDialogElement>(null)

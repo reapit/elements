@@ -7,7 +7,7 @@ export type MediumDialogSize = 'medium'
 
 // Extended version of the `DialogHTMLAttributes` interface, which includes
 // the 'data-size' attribute that used as the controller of the dialog size.
-export type ElDialogContainerProps = DialogHTMLAttributes<HTMLDialogElement> & {
+type ElDialogContainerProps = DialogHTMLAttributes<HTMLDialogElement> & {
   /**
    * The size of the dialog. The small size is used by default.
    * - 'small' will render the dialog in a small size
@@ -52,7 +52,6 @@ export const ElDialog = styled.dialog<ElDialogContainerProps>`
     }
   }
 
-  // NOTE: The animations are used to fade in the dialog when it is opened
   @keyframes dialogFadeIn {
     from {
       opacity: 0;
@@ -65,7 +64,6 @@ export const ElDialog = styled.dialog<ElDialogContainerProps>`
     }
   }
 
-  // NOTE: The animations are used to fade out the dialog when it is closed
   @keyframes dialogFadeOut {
     from {
       opacity: 1;
@@ -78,7 +76,6 @@ export const ElDialog = styled.dialog<ElDialogContainerProps>`
     }
   }
 
-  // NOTE: The animations are used to fade in the backdrop when the dialog is opened
   @keyframes dialogBackdropFadeIn {
     0% {
       background-color: var(--black);
@@ -94,7 +91,7 @@ export const ElDialog = styled.dialog<ElDialogContainerProps>`
 
 /**
  * HTML element that renders the title of the dialog
- * It is intended to be used as a child of the `Dialog` component.
+ * It is intended to be used as a child of the `ElDialogHeader` component.
  * it doesn't have the maximum lines or truncation.
  */
 export const ElDialogTitle = styled.h2`
@@ -106,6 +103,9 @@ export const ElDialogTitle = styled.h2`
   line-height: var(--line-height-lg, 24px);
   letter-spacing: var(--letter-spacing-lg, -0.18px);
 `
+/**
+ * HTML element that renders the header of the dialog
+ */
 
 export const ElDialogHeader = styled.div`
   padding-bottom: var(--spacing-4, 12px);

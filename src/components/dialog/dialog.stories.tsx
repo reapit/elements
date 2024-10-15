@@ -3,9 +3,10 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
-import { Button, ButtonGroup } from '../button'
+import { Button } from '../button'
 import { Dialog } from './dialog'
 import { ElDialog, ElDialogBody, ElDialogFooter, ElDialogHeader, ElDialogTitle } from './style'
+import { ButtonGroup } from '../button-group'
 
 const meta = {
   title: 'Components/Dialog',
@@ -88,7 +89,7 @@ export const ReactUsage: Story = {
           </Dialog.Header>
           <Dialog.Body>{children}</Dialog.Body>
           <Dialog.Footer>
-            <ButtonGroup alignment="right">
+            <ButtonGroup>
               <Button intent="secondary" onClick={() => setIsOpen(false)}>
                 Cancel
               </Button>
