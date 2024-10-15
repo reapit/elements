@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { FileInput, FilePreviewImage } from './index'
 import { useModal } from '../../hooks/use-modal'
 import { FlexContainer } from '../layout'
-import { Button, ButtonGroup } from '../button'
+import { Button, DeprecatedButtonGroup } from '../button'
 
 export default {
   title: 'FileInput',
@@ -32,11 +32,11 @@ export const AdvancedUsage = {
           <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
             <FilePreviewImage src={fileUrl} />
           </FlexContainer>
-          <ButtonGroup alignment="right">
+          <DeprecatedButtonGroup alignment="right">
             <Button intent="neutral" onClick={closeModal}>
               Close
             </Button>
-          </ButtonGroup>
+          </DeprecatedButtonGroup>
         </Modal>
       </div>
     )
