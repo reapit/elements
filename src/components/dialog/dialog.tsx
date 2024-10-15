@@ -1,36 +1,39 @@
-import { FC, ReactNode } from 'react'
+import { DialogHTMLAttributes, FC, PropsWithChildren, useRef } from 'react'
 
-import { DialogContainerProps, DialogFooterItems } from './types'
-import { Dialog } from './dialog.atoms'
-import { useDialogAppearance } from './use-dialog-appearance'
+import {
+  ElDialog,
+  ElDialogBody,
+  ElDialogFooter,
+  ElDialogHeader,
+  ElDialogTitle,
+  MediumDialogSize,
+  SmallDialogSize,
+} from './style'
+import { useToggleDialogVisibilityEffect } from './use-toggle-dialog-visibility-effect'
 
-export interface DialogProps extends DialogContainerProps {
+interface DialogAttributes extends Omit<DialogHTMLAttributes<HTMLDialogElement>, 'open'> {}
+
+export interface DialogProps extends DialogAttributes {
   /**
-   * Whether the dialog is open or not.
+   * Whether the dialog is open or not
    *
    * @default false
    */
   isOpen: boolean
 
   /**
-   * Function that has the responsibility to close the dialog.
+   * Invoked function when the dialog is closed
    */
-  handleCloseDialog: () => void
+  onClose?: () => void
 
-  /**
-   * Renders the title of the dialog. It must be a string, and is optional
-   */
-  title?: string
+  size?: SmallDialogSize | MediumDialogSize
+}
 
-  /**
-   * The content of the dialog, which will be placed within the `Dialog.Body`.
-   */
-  children?: ReactNode
-
-  /**
-   * The footer JSX content of the dialog, which will be placed within the `Dialog.Footer`.
-   */
-  footerItems: DialogFooterItems
+type DialogFC = FC<PropsWithChildren<DialogProps>> & {
+  Header: typeof ElDialogHeader
+  Title: typeof ElDialogTitle
+  Body: typeof ElDialogBody
+  Footer: typeof ElDialogFooter
 }
 
 /**
@@ -41,23 +44,21 @@ export interface DialogProps extends DialogContainerProps {
  * used in conjunction with the `useDialog` hook to manage the state of the dialog
  * and ensure that it is properly rendered and styled.
  */
-const DialogComposed: FC<DialogProps> = ({
-  title,
-  footerItems,
-  children,
-  isOpen = false,
-  handleCloseDialog,
-  ...props
-}) => {
-  const ref = useDialogAppearance({ isOpen, onClose: handleCloseDialog })
+const Dialog: DialogFC = ({ children, isOpen = false, onClose, size, ...props }) => {
+  const ref = useRef<HTMLDialogElement>(null)
+
+  useToggleDialogVisibilityEffect({ ref, isOpen, onClose })
 
   return (
-    <Dialog {...props} ref={ref}>
-      <Dialog.Title title={title} />
-      <Dialog.Body>{children}</Dialog.Body>
-      <Dialog.Footer>{footerItems({ closeDialog: handleCloseDialog })}</Dialog.Footer>
-    </Dialog>
+    <ElDialog {...props} ref={ref} data-size={size}>
+      {children}
+    </ElDialog>
   )
 }
 
-export { DialogComposed as Dialog }
+Dialog.Header = ElDialogHeader
+Dialog.Title = ElDialogTitle
+Dialog.Body = ElDialogBody
+Dialog.Footer = ElDialogFooter
+
+export { Dialog }

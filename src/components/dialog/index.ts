@@ -1,3 +1,3 @@
 export * from './dialog'
-export * from './types'
-export * from './use-dialog-appearance'
+export * from './style'
+export * from './use-toggle-dialog-visibility-effect'

@@ -4,109 +4,75 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 
 import { Button, ButtonGroup } from '../button'
-
-import { Dialog as DialogReactUsage } from './dialog'
-import { Dialog as DialogBasicUsage } from './dialog.atoms'
+import { Dialog } from './dialog'
+import { ElDialog, ElDialogBody, ElDialogFooter, ElDialogHeader, ElDialogTitle } from './style'
 
 const meta = {
   title: 'Components/Dialog',
-  component: DialogReactUsage,
+  component: Dialog,
   parameters: {
     layout: 'padded',
   },
+  args: {
+    isOpen: true,
+  },
   argTypes: {
-    title: {
-      control: {
-        type: 'text',
-      },
-    },
-    'data-size': {
-      control: {
-        type: 'select',
-        options: ['small', 'medium'],
-      },
-    },
     isOpen: {
       control: false,
-      description: 'Whether the dialog is open or not',
-      type: 'boolean',
     },
-    children: {
-      control: false,
-      description: 'JSX content that will placed within the dialog body',
-      name: 'content',
-      type: 'function',
-    },
-    footerItems: {
-      control: false,
-      description: 'The JSX footer content for dialog footer',
-      type: 'function',
-    },
-    handleCloseDialog: action('handleCloseDialog'),
   },
-  args: {
-    title: 'Welcome to the demo dialog',
-    children: "Here's some nice content for the inside of the basic dialog",
-    'data-size': undefined,
-    isOpen: true,
-    handleCloseDialog: action('handleCloseDialog'),
-    footerItems: ({ closeDialog }) => (
-      <ButtonGroup>
-        <Button intent="secondary" onClick={closeDialog}>
-          Cancel
-        </Button>
-        <Button intent="primary" onClick={closeDialog}>
-          Save
-        </Button>
-      </ButtonGroup>
-    ),
-  },
-} satisfies Meta<typeof DialogReactUsage>
+} satisfies Meta<typeof Dialog>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const BasicUsageSmall: Story = {
-  args: {
-    isOpen: true,
-    title: 'Hello from Small Dialog',
-    'data-size': 'small',
-  },
-  render: ({ title, children, footerItems, isOpen, ...rest }) => {
+  render: (args) => {
     return (
-      <DialogBasicUsage {...rest} data-size={rest['data-size']} open={isOpen}>
-        <DialogBasicUsage.Title title={title} />
-        <DialogBasicUsage.Body>{children}</DialogBasicUsage.Body>
-        <DialogBasicUsage.Footer>{footerItems({ closeDialog: action('closeDialog') })}</DialogBasicUsage.Footer>
-      </DialogBasicUsage>
+      <ElDialog {...args} data-size="small" open>
+        <ElDialogHeader>
+          <ElDialogTitle>Small Dialog Title</ElDialogTitle>
+        </ElDialogHeader>
+        <ElDialogBody>Content</ElDialogBody>
+        <ElDialogFooter>
+          <ButtonGroup>
+            <Button intent="secondary">Cancel</Button>
+            <Button intent="primary">Close</Button>
+          </ButtonGroup>
+        </ElDialogFooter>
+      </ElDialog>
     )
   },
 }
 
 export const BasicUsageMedium: Story = {
-  args: {
-    isOpen: true,
-    title: 'Hello from Medium Dialog',
-    'data-size': 'medium',
-  },
-  render: ({ title, children, footerItems, isOpen, ...rest }) => {
+  render: (args) => {
     return (
-      <DialogBasicUsage {...rest} data-size={rest['data-size']} open={isOpen}>
-        <DialogBasicUsage.Title title={title} />
-        <DialogBasicUsage.Body>{children}</DialogBasicUsage.Body>
-        <DialogBasicUsage.Footer>{footerItems({ closeDialog: action('closeDialog') })}</DialogBasicUsage.Footer>
-      </DialogBasicUsage>
+      <ElDialog {...args} data-size="medium" open>
+        <ElDialogHeader>
+          <ElDialogTitle>Medium Dialog Title</ElDialogTitle>
+        </ElDialogHeader>
+        <ElDialogBody>Content</ElDialogBody>
+        <ElDialogFooter>
+          <ButtonGroup>
+            <Button intent="secondary">Cancel</Button>
+            <Button intent="primary">Close</Button>
+          </ButtonGroup>
+        </ElDialogFooter>
+      </ElDialog>
     )
   },
 }
 
 export const ReactUsage: Story = {
   args: {
-    title: 'Hello from React Usage Dialog',
+    title: 'Hello from React Usage Dialog!',
+    size: 'small',
     children: "Here's some nice content for the inside of the React dialog",
-    handleCloseDialog: action('handleCloseDialog'),
+    onClose: action('handleCloseDialog'),
+    isOpen: false,
   },
-  render: ({ title, children, ...rest }) => {
+  render: ({ title, children, size, ...rest }) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -116,24 +82,22 @@ export const ReactUsage: Story = {
             Open Dialog
           </Button>
         </ButtonGroup>
-        <DialogReactUsage
-          {...rest}
-          isOpen={isOpen}
-          title={title}
-          handleCloseDialog={() => setIsOpen(false)}
-          footerItems={({ closeDialog }) => (
+        <Dialog {...rest} isOpen={isOpen} size={size} title={title} onClose={() => setIsOpen(false)}>
+          <Dialog.Header>
+            <Dialog.Title>{title}</Dialog.Title>
+          </Dialog.Header>
+          <Dialog.Body>{children}</Dialog.Body>
+          <Dialog.Footer>
             <ButtonGroup alignment="right">
-              <Button intent="secondary" onClick={closeDialog}>
+              <Button intent="secondary" onClick={() => setIsOpen(false)}>
                 Cancel
               </Button>
-              <Button intent="primary" onClick={closeDialog}>
+              <Button intent="primary" onClick={() => setIsOpen(false)}>
                 Close
               </Button>
             </ButtonGroup>
-          )}
-        >
-          <p>{children}. Try to change the size of the dialog</p>
-        </DialogReactUsage>
+          </Dialog.Footer>
+        </Dialog>
       </>
     )
   },

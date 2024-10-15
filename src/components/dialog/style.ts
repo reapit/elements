@@ -18,7 +18,7 @@ export type ElDialogContainerProps = DialogHTMLAttributes<HTMLDialogElement> & {
   'data-size'?: SmallDialogSize | MediumDialogSize
 }
 
-export const ElDialogContainer = styled.dialog<ElDialogContainerProps>`
+export const ElDialog = styled.dialog<ElDialogContainerProps>`
   // NOTE: private CSS variables that deliberated used by the dialog component
   --__dialog-box-shadow: 0px 4px 16px 0px rgba(96, 120, 144, 0.16);
 
@@ -35,35 +35,58 @@ export const ElDialogContainer = styled.dialog<ElDialogContainerProps>`
   width: calc(100% - var(--unit-16, 64px));
   max-width: 20rem;
 
+  animation: dialogFadeOut 0.2s ease-out;
+
   &[data-size='medium'] {
     width: calc(100% - var(--unit-8, 32px));
     max-width: 30rem;
   }
 
-  &::backdrop {
-    opacity: 0.5;
-    animation: dialogBackdropFadeIn 225ms cubic-bezier(0.4, 0, 0.2, 1);
-    background: var(--black);
-  }
-
   &[open] {
-    animation: dialogContainerFadeIn 225ms ease-in forwards;
+    animation: dialogFadeIn 0.2s ease-out forwards;
+
+    &::backdrop {
+      background-color: var(--black);
+      opacity: 0.5;
+      animation: dialogBackdropFadeIn 225ms cubic-bezier(0.4, 0, 0.2, 1);
+    }
   }
 
-  @keyframes dialogContainerFadeIn {
+  // NOTE: The animations are used to fade in the dialog when it is opened
+  @keyframes dialogFadeIn {
     from {
       opacity: 0;
+      display: none;
     }
+
     to {
       opacity: 1;
+      display: block;
     }
   }
 
-  @keyframes dialogBackdropFadeIn {
+  // NOTE: The animations are used to fade out the dialog when it is closed
+  @keyframes dialogFadeOut {
     from {
+      opacity: 1;
+      display: block;
+    }
+
+    to {
+      opacity: 0;
+      display: none;
+    }
+  }
+
+  // NOTE: The animations are used to fade in the backdrop when the dialog is opened
+  @keyframes dialogBackdropFadeIn {
+    0% {
+      background-color: var(--black);
       opacity: 0;
     }
-    to {
+
+    100% {
+      background-color: var(--black);
       opacity: 0.5;
     }
   }
@@ -82,6 +105,9 @@ export const ElDialogTitle = styled.h2`
   font-weight: 600;
   line-height: var(--line-height-lg, 24px);
   letter-spacing: var(--letter-spacing-lg, -0.18px);
+`
+
+export const ElDialogHeader = styled.div`
   padding-bottom: var(--spacing-4, 12px);
   word-wrap: break-word;
 `
