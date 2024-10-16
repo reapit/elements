@@ -1,4 +1,4 @@
-import { Button, ButtonGroup, FloatingButton } from './index'
+import { Button, DeprecatedButtonGroup, FloatingButton } from './index'
 import { action } from '@storybook/addon-actions'
 
 export default {
@@ -42,13 +42,18 @@ export const StandardAttributes = {
   },
 }
 
-export const Group = {
+/**
+ *
+ * @deprecated This ButtonGroup is deprecated. Use the new ButtonGroup component instead.
+ *
+ */
+export const DeprecatedGroup = {
   render: ({}) => (
-    <ButtonGroup>
+    <DeprecatedButtonGroup>
       <Button intent="primary">Primary</Button>
       <Button intent="neutral">Default</Button>
       <Button intent="danger">Danger</Button>
-    </ButtonGroup>
+    </DeprecatedButtonGroup>
   ),
 
   name: 'Button Group',
@@ -56,17 +61,17 @@ export const Group = {
 
 export const ButtonSize = {
   render: ({}) => (
-    <ButtonGroup>
+    <DeprecatedButtonGroup>
       <Button buttonSize="small">Small Button</Button>
       <Button buttonSize="medium">Medium Button</Button>
       <Button buttonSize="large">Large Button</Button>
-    </ButtonGroup>
+    </DeprecatedButtonGroup>
   ),
 }
 
 export const ButtonIcons = {
   render: ({}) => (
-    <ButtonGroup>
+    <DeprecatedButtonGroup>
       <Button
         intent="primary"
         buttonIcon={{
@@ -92,7 +97,7 @@ export const ButtonIcons = {
       >
         Only Icon
       </Button>
-    </ButtonGroup>
+    </DeprecatedButtonGroup>
   ),
 }
 

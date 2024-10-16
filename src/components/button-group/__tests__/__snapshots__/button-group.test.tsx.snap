@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ButtonGroup renders its children horizontally with a gap of --spacing-2 1`] = `
+<DocumentFragment>
+  <mock-styled.div>
+    <mock-styled.button
+      classname="mock-css."
+    >
+      <mock-styled.div />
+      Button 1
+    </mock-styled.button>
+    <mock-styled.button
+      classname="mock-css."
+    >
+      <mock-styled.div />
+      Button 2
+    </mock-styled.button>
+    <mock-styled.button
+      classname="mock-css."
+    >
+      <mock-styled.div />
+      Button 3
+    </mock-styled.button>
+  </mock-styled.div>
+</DocumentFragment>
+`;

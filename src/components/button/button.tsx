@@ -5,7 +5,7 @@ import { elIsLoading } from '../../styles/states'
 import * as styles from './__styles__'
 import {
   ElButton,
-  ElButtonGroup,
+  DeprecatedElButtonGroup,
   elButtonGroupAlignCenter,
   elButtonGroupAlignLeft,
   elButtonGroupAlignRight,
@@ -43,11 +43,19 @@ export interface FloatingButtonProps extends ButtonProps {
   icon: IconNames
 }
 
+/**
+ * A subset of button, button group should not be used.
+ * @deprecated Will be removed in future major version. Use `button-group` as parent component.
+ */
 export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   alignment?: ButtonGroupAlignment
 }
 
 export const resolveButtonClassName = (intent?: Intent): string => {
+  // -- For Devs --
+  // Please update the new Button Group component with replaced prop
+  // Files to update button-group.stories.tsx and button-group.text.tsx
+  //
   switch (intent) {
     case 'primary':
       return elIntentPrimary
@@ -118,16 +126,20 @@ export const Button: FC<ButtonProps> = ({
   )
 }
 
-export const ButtonGroup: FC<ButtonGroupProps> = ({ children, alignment, ...rest }) => {
+/**
+ * Moved to its own component `ButtonGroup`.
+ * @deprecated `alignment` prop will not be supported in new ButtonGroup component.
+ */
+export const DeprecatedButtonGroup: FC<ButtonGroupProps> = ({ children, alignment, ...rest }) => {
   const alignmentClass = cx(
     alignment === 'left' && elButtonGroupAlignLeft,
     alignment === 'right' && elButtonGroupAlignRight,
     alignment === 'center' && elButtonGroupAlignCenter,
   )
   return (
-    <ElButtonGroup {...rest}>
+    <DeprecatedElButtonGroup {...rest}>
       <ElButtonGroupInner className={alignmentClass}>{children}</ElButtonGroupInner>
-    </ElButtonGroup>
+    </DeprecatedElButtonGroup>
   )
 }
 

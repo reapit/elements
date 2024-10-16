@@ -14,7 +14,7 @@ import {
 import { Icon } from '../icon'
 import { elSpan2, elSpan3 } from '../grid'
 import { InputGroup } from '../input-group'
-import { Button, ButtonGroup } from '../button'
+import { Button, DeprecatedButtonGroup } from '../button'
 import { StatusIndicator } from '../status-indicator'
 import { elMlAuto } from '../../styles/spacing'
 import { FormLayout, InputWrap } from '../form-layout'
@@ -252,9 +252,9 @@ export const ExpandableContent = {
             </InputWrap>
             <InputWrap />
             <InputWrap>
-              <ButtonGroup className={elMlAuto}>
+              <DeprecatedButtonGroup className={elMlAuto}>
                 <Button intent="primary">Send</Button>
-              </ButtonGroup>
+              </DeprecatedButtonGroup>
             </InputWrap>
           </FormLayout>
         </TableExpandableRow>
