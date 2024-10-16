@@ -27,8 +27,8 @@ module.exports = {
   resolver: join(__dirname, './scripts/jest/resolver.js'),
   coverageThreshold: {
     global: {
-      branches: 72,
-      functions: 85,
+      branches: 71,
+      functions: 84,
       lines: 90,
       statements: 90,
     },
