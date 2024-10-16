@@ -20,18 +20,18 @@ const Popover: FC<PropsWithChildren<{ containerRef: MutableRefObject<HTMLDivElem
     setIsOpen(false)
   })
 
-  if (isOpen)
+  if (isOpen) {
+    const onClick = (e) => {
+      const button = e.target.closest('button')
+      if (button) setIsOpen(false)
+    }
+
     return (
-      <ElMenuPopover
-        {...popoverProps}
-        onClick={(e) => {
-          const button = (e.target as HTMLElement).closest('button')
-          if (button) setIsOpen(false)
-        }}
-      >
+      <ElMenuPopover {...popoverProps} onClick={onClick}>
         {children}
       </ElMenuPopover>
     )
+  }
 
   return null
 }
