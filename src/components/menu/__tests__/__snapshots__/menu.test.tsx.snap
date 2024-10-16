@@ -1,58 +1,61 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`MenuComposed component should render MenuComposed with groups and match snapshot 1`] = `
+exports[`Menu Popover component should render and close Popover based on button clicks and match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    <button>
+      Trigger
+    </button>
+    <mock-styled.div
+      hidden="false"
+    >
+      <div>
+        Popover Content
+      </div>
+      <button
+        type="button"
+      >
+        Close
+      </button>
+    </mock-styled.div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Menu Popover component should render and close Popover based on button clicks and match snapshot 2`] = `
+<DocumentFragment>
+  <div>
+    <button>
+      Trigger
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Menu components should render Menu and Trigger components and match snapshots 1`] = `
 <DocumentFragment>
   <mock-styled.div>
-    <div>
-      <mock-styled.ul
-        type="radio"
-      >
-        <li>
-          <mock-styled.div>
-            Group 1
-          </mock-styled.div>
-        </li>
-        <mock-styled.li
-          aria-selected="true"
-          data-selected="true"
-          role="option"
-        >
-          <mock-styled.span
-            aria-hidden="true"
-            classname="mock-css."
-          >
-            <svg
-              role="img"
-              title="Icon image with name check"
-            />
-          </mock-styled.span>
-          Item 1
-        </mock-styled.li>
-        <mock-styled.li
-          aria-selected="false"
-          data-selected="false"
-          role="option"
-        >
-          Item 2
-        </mock-styled.li>
-      </mock-styled.ul>
-    </div>
-    <div>
-      <mock-styled.div />
-      <mock-styled.ul>
-        <li>
-          <mock-styled.div>
-            Group 2
-          </mock-styled.div>
-        </li>
-        <mock-styled.li>
-          Item 3
-        </mock-styled.li>
-        <mock-styled.li>
-          Item 4
-        </mock-styled.li>
-      </mock-styled.ul>
-    </div>
+    <mock-styled.ul>
+      <li>
+        <mock-styled.div>
+          Group Title
+        </mock-styled.div>
+      </li>
+      <mock-styled.li>
+        Item 1
+      </mock-styled.li>
+      <mock-styled.li>
+        Item 2
+      </mock-styled.li>
+    </mock-styled.ul>
   </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`Menu components should render Menu and Trigger components and match snapshots 2`] = `
+<DocumentFragment>
+  <button>
+    Trigger
+  </button>
 </DocumentFragment>
 `;

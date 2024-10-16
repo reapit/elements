@@ -1,8 +1,8 @@
 import React, { createContext, Dispatch, FC, HTMLAttributes, SetStateAction, useState } from 'react'
 
 interface MenuContextValue {
-  getTriggerProps: () => HTMLAttributes<HTMLButtonElement>
-  getPopoverProps: () => HTMLAttributes<HTMLDivElement>
+  triggerProps: HTMLAttributes<HTMLButtonElement>
+  popoverProps: HTMLAttributes<HTMLDivElement>
   isOpen: boolean
   setIsOpen: Dispatch<SetStateAction<boolean>>
 }
@@ -12,30 +12,18 @@ const MenuContext = createContext<MenuContextValue | null>(null)
 const MenuProvider: FC = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const getTriggerProps = () => {
-    return {
-      onClick: () => {
-        setIsOpen((prev) => !prev)
-      },
-      'aria-haspopup': 'true',
-      'aria-expanded': isOpen,
-      className: 'menu-trigger',
-    } as ReturnType<MenuContextValue['getTriggerProps']>
+  const triggerProps = {
+    onClick: () => {
+      setIsOpen((prev) => !prev)
+    },
   }
 
-  const getPopoverProps = () => {
-    return {
-      'aria-labelledby': 'menu-header',
-      role: 'menu',
-      hidden: !isOpen,
-      className: 'menu-popover',
-    }
+  const popoverProps = {
+    hidden: !isOpen,
   }
 
   return (
-    <MenuContext.Provider value={{ getTriggerProps, getPopoverProps, isOpen, setIsOpen }}>
-      {children}
-    </MenuContext.Provider>
+    <MenuContext.Provider value={{ triggerProps, popoverProps, isOpen, setIsOpen }}>{children}</MenuContext.Provider>
   )
 }
 

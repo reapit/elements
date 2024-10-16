@@ -1,4 +1,4 @@
-import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { Canvas, Meta } from '@storybook/blocks'
 import * as MenuStories from './menu.stories'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
@@ -18,30 +18,10 @@ More features will be added to Menu in the future
 
 <RenderHtmlMarkup of={MenuStories.StylesOnlyUsage} />
 
-## React Shorthand With Props
+## React Usage
 
-<Controls />
+In the React Usage, you can compose your component using `Menu` compnent as example here
 
-In the React Shorthand With Props, you can compose your menu by applying props as appropriate following the `Menu` interface
+<Canvas of={MenuStories.ReactUsage} />
 
-<Canvas of={MenuStories.ReactShorthandWithProps} />
-
-<RenderHtmlMarkup of={MenuStories.ReactShorthandWithProps} />
-
-## React Shorthand With Props (Radio Version)
-
-<Controls />
-
-In the React Shorthand With Props, you can also set the `type` props to `"radio"` to a group to make a list of radio button item
-
-<Canvas of={MenuStories.ReactShorthandRadioVersion} />
-
-<RenderHtmlMarkup of={MenuStories.ReactShorthandRadioVersion} />
-
-## React Shorthand With Components
-
-In the React Shorthand With Components, you can compose your menu with components
-
-<Canvas of={MenuStories.ReactShorthandWithComponents} />
-
-<RenderHtmlMarkup of={MenuStories.ReactShorthandWithComponents} />
+<RenderHtmlMarkup of={MenuStories.ReactUsage} />

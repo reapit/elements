@@ -1,60 +1,53 @@
-import React, { useState } from 'react'
-import { Menu } from './menu.molecules'
-import { MenuItemGroupProps, MenuProps } from './types'
-import { ElNavMenuOptionDivider } from '../nav'
+import React, { FC, MutableRefObject, PropsWithChildren } from 'react'
+import { useClickOutside } from '../../hooks/use-click-outside'
+import { MenuItemGroup } from './menu.atoms'
+import { MenuProvider, useMenu } from './provider'
+import { ElMenu, ElMenuItemContainer, ElMenuPopover } from './styles'
 
-const MenuRadioGroup: React.FC<MenuItemGroupProps<'radio'>> = ({ items, onChange, ...props }) => {
-  const [selectedValue, setSelectedValue] = useState<string | undefined>(
-    items.find((item) => item.defaultChecked)?.label,
-  )
+const Trigger = ({ children }) => {
+  const { triggerProps, isOpen } = useMenu()
 
-  const handleOptionChange = (value) => {
-    setSelectedValue(value)
-    onChange(value)
-  }
-  return (
-    <Menu.Group {...props}>
-      {items.map(({ label, ...rest }, index) => {
-        return (
-          <Menu.RadioItem
-            onClick={() => handleOptionChange(label)}
-            checked={!!selectedValue?.includes(label)}
-            key={index}
-            {...rest}
-          >
-            {label}
-          </Menu.RadioItem>
-        )
-      })}
-    </Menu.Group>
-  )
+  return children({ triggerProps, isOpen })
 }
 
-const MenuGroup: React.FC<MenuItemGroupProps<'default'>> = ({ items, ...props }) => {
-  return (
-    <Menu.Group {...props}>
-      {items.map(({ children, ...rest }, index) => {
-        return (
-          <Menu.Item key={index} {...rest}>
-            {children}
-          </Menu.Item>
-        )
-      })}
-    </Menu.Group>
-  )
+const Popover: FC<PropsWithChildren<{ containerRef: MutableRefObject<HTMLDivElement | null> }>> = ({
+  children,
+  containerRef,
+}) => {
+  const { isOpen, setIsOpen, popoverProps } = useMenu()
+
+  useClickOutside(containerRef as MutableRefObject<HTMLDivElement>, () => {
+    setIsOpen(false)
+  })
+
+  if (isOpen)
+    return (
+      <ElMenuPopover
+        {...popoverProps}
+        onClick={(e) => {
+          const button = (e.target as HTMLElement).closest('button')
+          if (button) setIsOpen(false)
+        }}
+      >
+        {children}
+      </ElMenuPopover>
+    )
+
+  return null
 }
 
-const MenuComposed: React.FC<MenuProps> = ({ groups, ...props }) => {
-  return (
-    <Menu.List {...props}>
-      {groups.map((props, key) => (
-        <div key={key}>
-          {!!groups[key - 1] && <ElNavMenuOptionDivider />}
-          {props.type === 'radio' ? <MenuRadioGroup {...props} /> : <MenuGroup {...props} />}
-        </div>
-      ))}
-    </Menu.List>
-  )
+const Menu = MenuProvider as React.FC & {
+  Item: typeof ElMenuItemContainer
+  Trigger: typeof Trigger
+  Group: typeof MenuItemGroup
+  Popover: typeof Popover
+  List: typeof ElMenu
 }
 
-export { MenuComposed as Menu }
+Menu.Item = ElMenuItemContainer
+Menu.Trigger = Trigger
+Menu.Group = MenuItemGroup
+Menu.Popover = Popover
+Menu.List = ElMenu
+
+export { Menu }

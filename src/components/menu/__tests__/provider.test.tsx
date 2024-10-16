@@ -2,12 +2,12 @@ import { fireEvent, render } from '@testing-library/react'
 import { MenuProvider, useMenu } from '../provider'
 
 const TestComponent = () => {
-  const { getTriggerProps, getPopoverProps, isOpen } = useMenu()
+  const { triggerProps, popoverProps, isOpen } = useMenu()
 
   return (
     <div>
-      <button {...getTriggerProps()}>Trigger</button>
-      <div {...getPopoverProps()}>{isOpen && <span>Popover Content</span>}</div>
+      <button {...triggerProps}>Trigger</button>
+      <div {...popoverProps}>{isOpen && <span>Content</span>}</div>
     </div>
   )
 }
@@ -23,13 +23,11 @@ describe('MenuProvider and useMenu', () => {
   })
 
   it('should toggle isOpen state when trigger button is clicked and match snapshot', () => {
-    const { getByText, queryByText, asFragment } = render(
+    const { getByText, asFragment } = render(
       <MenuProvider>
         <TestComponent />
       </MenuProvider>,
     )
-
-    expect(queryByText('Popover Content')).toBeNull()
 
     fireEvent.click(getByText('Trigger'))
 
