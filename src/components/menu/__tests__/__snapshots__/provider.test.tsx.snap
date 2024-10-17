@@ -3,11 +3,15 @@
 exports[`MenuProvider and useMenu should render MenuProvider and match snapshot 1`] = `
 <DocumentFragment>
   <div>
-    <button>
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+    >
       Trigger
     </button>
     <div
       hidden=""
+      role="menu"
     />
   </div>
 </DocumentFragment>
@@ -16,10 +20,15 @@ exports[`MenuProvider and useMenu should render MenuProvider and match snapshot 
 exports[`MenuProvider and useMenu should toggle isOpen state when trigger button is clicked and match snapshot 1`] = `
 <DocumentFragment>
   <div>
-    <button>
+    <button
+      aria-expanded="true"
+      aria-haspopup="true"
+    >
       Trigger
     </button>
-    <div>
+    <div
+      role="menu"
+    >
       <span>
         Content
       </span>

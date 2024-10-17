@@ -37,7 +37,10 @@ export const ReactUsage: Story = {
           <a href="/1">This is a Link</a>
         </Menu.Item>
         <Menu.Item>
-          <Button type="button">This is a Button</Button>
+          <Button type="button">This is element&apos;s Button</Button>
+        </Menu.Item>
+        <Menu.Item>
+          <button type="button">This is html Button</button>
         </Menu.Item>
       </Menu.Group>
     </Menu.List>

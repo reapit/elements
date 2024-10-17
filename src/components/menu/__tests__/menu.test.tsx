@@ -13,20 +13,13 @@ const renderMenu = (content) =>
 
 describe('Menu components', () => {
   it('should render Menu and Trigger components and match snapshots', () => {
-    const menuSnapshot = renderMenu(
+    const { asFragment } = renderMenu(
       <>
         <Menu.Item>Item 1</Menu.Item>
         <Menu.Item>Item 2</Menu.Item>
       </>,
     )
-    expect(menuSnapshot.asFragment()).toMatchSnapshot()
-
-    const triggerSnapshot = render(
-      <Menu>
-        <Menu.Trigger>{({ triggerProps }) => <button {...triggerProps}>Trigger</button>}</Menu.Trigger>
-      </Menu>,
-    )
-    expect(triggerSnapshot.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
   })
 })
 

@@ -13,12 +13,15 @@ const MenuProvider: FC = ({ children }) => {
   const [isOpen, setIsOpen] = useState(false)
 
   const triggerProps = {
+    'aria-haspopup': true,
+    'aria-expanded': isOpen,
     onClick: () => {
       setIsOpen((prev) => !prev)
     },
   }
 
   const popoverProps = {
+    role: 'menu',
     hidden: !isOpen,
   }
 

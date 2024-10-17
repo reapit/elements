@@ -21,6 +21,12 @@ export const ElMenu = styled.div`
 export const ElMenuItemContainer = styled.li`
   a,
   button {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    height: var(--size-7);
+    padding: var(--spacing-none) var(--spacing-4);
+    gap: var(--spacing-4);
     font-family: var(--font-family);
     font-size: var(--font-size-sm);
     font-weight: 400;
@@ -29,20 +35,14 @@ export const ElMenuItemContainer = styled.li`
     text-align: left;
     color: var(--text-primary);
 
-    display: flex;
-    align-items: center;
-    justify-content: start;
     &:hover {
       color: var(--text-white);
       background: var(--fill-action-dark);
     }
-    height: var(--size-7);
-    padding: var(--spacing-none) var(--spacing-4);
-    gap: var(--spacing-4);
   }
 
+  /* customize html default button */
   button {
-    /* customize html default button */
     background-color: transparent;
     cursor: pointer;
     border: none;
@@ -51,15 +51,10 @@ export const ElMenuItemContainer = styled.li`
 `
 
 export const ElMenuItemGroup = styled.ul`
-  width: 100%;
-  li,
-  a,
-  button {
+  &,
+  & li > * {
     width: 100%;
   }
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
 `
 
 export const ElMenuItemGroupTitle = styled(Text2XS)`

@@ -3,11 +3,15 @@
 exports[`Menu Popover component should render and close Popover based on button clicks and match snapshot 1`] = `
 <DocumentFragment>
   <div>
-    <button>
+    <button
+      aria-expanded="true"
+      aria-haspopup="true"
+    >
       Trigger
     </button>
     <mock-styled.div
       hidden="false"
+      role="menu"
     >
       <div>
         Popover Content
@@ -25,7 +29,10 @@ exports[`Menu Popover component should render and close Popover based on button 
 exports[`Menu Popover component should render and close Popover based on button clicks and match snapshot 2`] = `
 <DocumentFragment>
   <div>
-    <button>
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+    >
       Trigger
     </button>
   </div>
@@ -49,13 +56,5 @@ exports[`Menu components should render Menu and Trigger components and match sna
       </mock-styled.li>
     </mock-styled.ul>
   </mock-styled.div>
-</DocumentFragment>
-`;
-
-exports[`Menu components should render Menu and Trigger components and match snapshots 2`] = `
-<DocumentFragment>
-  <button>
-    Trigger
-  </button>
 </DocumentFragment>
 `;
