@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Dialog should render with the correct structure 1`] = `
+<DocumentFragment>
+  <mock-styled.dialog>
+    <mock-styled.div>
+      <mock-styled.h2>
+        Title
+      </mock-styled.h2>
+    </mock-styled.div>
+    <mock-styled.div>
+      Body
+    </mock-styled.div>
+    <mock-styled.div>
+      Footer
+    </mock-styled.div>
+  </mock-styled.dialog>
+</DocumentFragment>
+`;
