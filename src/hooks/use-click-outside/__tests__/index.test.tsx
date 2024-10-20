@@ -4,9 +4,13 @@ import { fireEvent, render } from '@testing-library/react'
 
 const TestComponent = ({ onClickOutside }: { onClickOutside: VoidFunction }) => {
   const ref = useRef<HTMLDivElement>(null)
-  useClickOutside(ref as any, onClickOutside)
+  useClickOutside(ref, onClickOutside)
 
-  return <div ref={ref}>Inside Element</div>
+  return (
+    <div>
+      <div ref={ref}>Inside Element</div>
+    </div>
+  )
 }
 
 describe('useClickOutside', () => {

@@ -1,15 +1,18 @@
 import { MutableRefObject, useEffect } from 'react'
 
-export const useClickOutside = (ref: MutableRefObject<HTMLDivElement>, onClickOutside: VoidFunction) => {
+export const useClickOutside = (ref: MutableRefObject<HTMLDivElement | null>, onClickOutside: VoidFunction) => {
   useEffect(() => {
+    const controller = new AbortController()
     const handleClickOutside = (event) => {
-      if (ref?.current && !ref.current.contains(event?.target)) {
+      if (ref?.current && !ref.current.parentElement!.contains(event?.target)) {
         onClickOutside()
       }
     }
-    document.addEventListener('mousedown', handleClickOutside)
+    document.addEventListener('mousedown', handleClickOutside, {
+      signal: controller.signal,
+    })
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside)
+      controller.abort()
     }
   }, [ref, onClickOutside])
 }
