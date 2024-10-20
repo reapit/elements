@@ -1,4 +1,3 @@
-import { cx } from '@linaria/core'
 import { HTMLAttributes, useState } from 'react'
 
 type HtmlButtonAttr = HTMLAttributes<HTMLButtonElement>
