@@ -1,7 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`MenuProvider and useMenuContext should render MenuProvider and match snapshot 1`] = `
-<DocumentFragment>
-  Foo
-</DocumentFragment>
-`;
