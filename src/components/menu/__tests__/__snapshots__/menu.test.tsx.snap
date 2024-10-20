@@ -1,60 +1,11 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu Popover component should render and close Popover based on button clicks and match snapshot 1`] = `
-<DocumentFragment>
-  <div>
-    <button
-      aria-expanded="true"
-      aria-haspopup="true"
-    >
-      Trigger
-    </button>
-    <mock-styled.div
-      hidden="false"
-      role="menu"
-    >
-      <div>
-        Popover Content
-      </div>
-      <button
-        type="button"
-      >
-        Close
-      </button>
-    </mock-styled.div>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Menu Popover component should render and close Popover based on button clicks and match snapshot 2`] = `
-<DocumentFragment>
-  <div>
-    <button
-      aria-expanded="false"
-      aria-haspopup="true"
-    >
-      Trigger
-    </button>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`Menu components should render Menu and Trigger components and match snapshots 1`] = `
+exports[`Menu list component should render menu with list components and match snapshots 1`] = `
 <DocumentFragment>
   <mock-styled.div>
-    <mock-styled.ul>
-      <li>
-        <mock-styled.div>
-          Group Title
-        </mock-styled.div>
-      </li>
-      <mock-styled.li>
-        Item 1
-      </mock-styled.li>
-      <mock-styled.li>
-        Item 2
-      </mock-styled.li>
-    </mock-styled.ul>
+    <mock-styled.div>
+      Menu conten
+    </mock-styled.div>
   </mock-styled.div>
 </DocumentFragment>
 `;
