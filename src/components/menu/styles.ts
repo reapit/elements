@@ -2,6 +2,7 @@ import { styled } from '@linaria/react'
 
 export const ElMenu = styled.div`
   position: relative;
+  width: fit-content;
 `
 
 export const ElMenuPopover = styled.div`

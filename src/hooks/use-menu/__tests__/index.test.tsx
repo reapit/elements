@@ -3,6 +3,33 @@ import { useMenu } from '..'
 import { act } from '@testing-library/react'
 
 describe('useMenu', () => {
+  it('getTriggerProps should apply aria and class attributes correctly', () => {
+    const { result } = renderHook(() => useMenu())
+
+    const triggerProps = result.current.getTriggerProps({
+      className: 'custom-class',
+    })
+
+    expect(triggerProps['aria-haspopup']).toBe(true)
+    expect(triggerProps['aria-expanded']).toBe(false)
+  })
+
+  it('getPopoverProps should apply data-open attribute correctly', () => {
+    const { result } = renderHook(() => useMenu())
+
+    const popoverProps = result.current.getPopoverProps()
+
+    expect(popoverProps['data-open']).toBe(false)
+
+    act(() => {
+      result.current.openMenu()
+    })
+
+    const updatedPopoverProps = result.current.getPopoverProps()
+
+    expect(updatedPopoverProps['data-open']).toBe(true)
+  })
+
   it('should toggle isOpen state when trigger is clicked', () => {
     const { result } = renderHook(() => useMenu())
 
@@ -43,32 +70,5 @@ describe('useMenu', () => {
     })
 
     expect(result.current.isOpen).toBe(false)
-  })
-
-  it('getTriggerProps should apply aria and class attributes correctly', () => {
-    const { result } = renderHook(() => useMenu())
-
-    const triggerProps = result.current.getTriggerProps({
-      className: 'custom-class',
-    })
-
-    expect(triggerProps['aria-haspopup']).toBe(true)
-    expect(triggerProps['aria-expanded']).toBe(false)
-  })
-
-  it('getPopoverProps should apply data-open attribute correctly', () => {
-    const { result } = renderHook(() => useMenu())
-
-    const popoverProps = result.current.getPopoverProps()
-
-    expect(popoverProps['data-open']).toBe(false)
-
-    act(() => {
-      result.current.openMenu()
-    })
-
-    const updatedPopoverProps = result.current.getPopoverProps()
-
-    expect(updatedPopoverProps['data-open']).toBe(true)
   })
 })
