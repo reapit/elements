@@ -4,10 +4,12 @@ export const useClickOutside = (ref: MutableRefObject<HTMLDivElement | null>, on
   useEffect(() => {
     const controller = new AbortController()
     const handleClickOutside = (event) => {
-      if (ref?.current && !ref.current.parentElement!.contains(event?.target)) {
+      const outside = ref.current?.parentElement ?? ref.current
+      if (outside && !outside.contains(event?.target)) {
         onClickOutside()
       }
     }
+
     document.addEventListener('mousedown', handleClickOutside, {
       signal: controller.signal,
     })

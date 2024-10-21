@@ -2,45 +2,64 @@ import { useRef } from 'react'
 import { useClickOutside } from '..'
 import { fireEvent, render } from '@testing-library/react'
 
-const TestComponent = ({ onClickOutside }: { onClickOutside: VoidFunction }) => {
+const TestComponent = ({ onClickOutside, isUsingParent = true }) => {
   const ref = useRef<HTMLDivElement>(null)
   useClickOutside(ref, onClickOutside)
 
-  return (
-    <div>
-      <div ref={ref}>Inside Element</div>
-    </div>
-  )
+  if (isUsingParent) {
+    return (
+      <div>
+        <div ref={ref}>Inside Element</div>
+      </div>
+    )
+  } else {
+    return <div ref={ref}>Inside Element</div>
+  }
 }
 
 describe('useClickOutside', () => {
-  it('should call onClickOutside when clicking outside the element', () => {
-    const onClickOutside = jest.fn()
-
-    const { getByText } = render(
-      <>
-        <TestComponent onClickOutside={onClickOutside} />
-        <div>Outside Element</div>
-      </>,
-    )
-
-    fireEvent.mouseDown(getByText('Outside Element'))
-
-    expect(onClickOutside).toHaveBeenCalledTimes(1)
+  const onClickOutside = jest.fn()
+  afterEach(() => {
+    jest.clearAllMocks()
   })
 
-  it('should not call onClickOutside when clicking inside the element', () => {
-    const onClickOutside = jest.fn()
-
-    const { getByText } = render(
+  const renderElement = () =>
+    render(
       <>
         <TestComponent onClickOutside={onClickOutside} />
         <div>Outside Element</div>
       </>,
     )
 
-    fireEvent.mouseDown(getByText('Inside Element'))
+  describe('has parent ', () => {
+    it('should call onClickOutside when clicking outside the element', () => {
+      const { getByText } = renderElement()
 
-    expect(onClickOutside).not.toHaveBeenCalled()
+      fireEvent.mouseDown(getByText('Outside Element'))
+      expect(onClickOutside).toHaveBeenCalledTimes(1)
+    })
+
+    it('should not call onClickOutside when clicking inside the element', () => {
+      const { getByText } = renderElement()
+
+      fireEvent.mouseDown(getByText('Inside Element'))
+      expect(onClickOutside).not.toHaveBeenCalled()
+    })
+  })
+
+  describe("doesn't have parent", () => {
+    it('should call onClickOutside when clicking outside the element', () => {
+      const { getByText } = renderElement()
+
+      fireEvent.mouseDown(getByText('Outside Element'))
+      expect(onClickOutside).toHaveBeenCalledTimes(1)
+    })
+
+    it('should not call onClickOutside when clicking inside the element', () => {
+      const { getByText } = renderElement()
+
+      fireEvent.mouseDown(getByText('Inside Element'))
+      expect(onClickOutside).not.toHaveBeenCalled()
+    })
   })
 })
