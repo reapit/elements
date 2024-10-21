@@ -6,11 +6,13 @@ exports[`Menu Popover component should render and close Popover based on button 
     <button
       aria-expanded="true"
       aria-haspopup="true"
+      role="button"
     >
       Trigger
     </button>
     <mock-styled.div
       data-open="true"
+      role="menu"
     >
       <div>
         Popover Content
@@ -31,6 +33,7 @@ exports[`Menu Popover component should render and close Popover based on button 
     <button
       aria-expanded="false"
       aria-haspopup="true"
+      role="button"
     >
       Trigger
     </button>

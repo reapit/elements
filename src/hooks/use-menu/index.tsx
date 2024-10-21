@@ -19,6 +19,7 @@ export const useMenu = (): useMenu => {
       ...props,
       'aria-haspopup': true,
       'aria-expanded': isOpen,
+      role: 'button',
       onClick: (e) => {
         setIsOpen((prev) => !prev)
         if (props?.onClick) {
@@ -32,6 +33,7 @@ export const useMenu = (): useMenu => {
     return {
       ...props,
       'data-open': isOpen,
+      role: 'menu',
     }
   }
 
