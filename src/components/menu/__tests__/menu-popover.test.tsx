@@ -1,7 +1,7 @@
 import { fireEvent, render } from '@testing-library/react'
 import { Menu } from '../menu'
 
-describe.skip('Menu Popover component', () => {
+describe('Menu Popover component', () => {
   const MockMenuPopoverComponent = () => {
     return (
       <Menu>

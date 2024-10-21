@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { MenuProvider, useMenuContext } from '../menu-context'
 
-describe.skip('MenuProvider and useMenuContext', () => {
+describe('MenuProvider and useMenuContext', () => {
   it('should render MenuProvider and match snapshot', () => {
     const { asFragment } = render(<MenuProvider>Foo</MenuProvider>)
     expect(asFragment()).toMatchSnapshot()
