@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Menu list component should render menu with list components and match snapshots 1`] = `
+<DocumentFragment>
+  <mock-styled.div>
+    <mock-styled.div>
+      Menu content
+    </mock-styled.div>
+  </mock-styled.div>
+</DocumentFragment>
+`;
