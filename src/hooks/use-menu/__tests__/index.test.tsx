@@ -8,6 +8,7 @@ describe('useMenu', () => {
       className: 'custom-class',
     })
 
+    expect(triggerProps['className']).toBe('custom-class')
     expect(triggerProps['aria-haspopup']).toBe(true)
     expect(triggerProps['aria-expanded']).toBe(false)
   })
@@ -16,11 +17,15 @@ describe('useMenu', () => {
     const { result } = renderHook(() => useMenu())
 
     const popoverProps = result.current.getPopoverProps()
+    const triggerProps = result.current.getTriggerProps()
     expect(popoverProps['data-open']).toBe(false)
+    expect(triggerProps['aria-expanded']).toBe(false)
 
     result.current.openMenu()
     const updatedPopoverProps = result.current.getPopoverProps()
+    const updatedTriggerProps = result.current.getTriggerProps()
     expect(updatedPopoverProps['data-open']).toBe(true)
+    expect(updatedTriggerProps['aria-expanded']).toBe(true)
   })
 
   it('should toggle isOpen state when trigger is clicked', () => {
