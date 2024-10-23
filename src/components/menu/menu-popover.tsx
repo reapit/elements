@@ -11,8 +11,8 @@ export const MenuPopover: FC = ({ children }) => {
 
   if (isOpen) {
     const onClick = (e) => {
-      // close menu if button or any other element inside e.g icon is clicked
-      const button = e.target.closest('button')
+      // close menu if button or any other element inside e.g icon button is clicked
+      const button = e.target.closest('button, [role="button"]')
       if (button) closeMenu()
     }
 

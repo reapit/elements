@@ -1,12 +1,12 @@
 import React from 'react'
-import { MenuPopover, MenuTrigger } from './menu-popover'
 import { MenuProvider } from './menu-context'
-import { ElMenu, ElMenuList } from './styles'
+import { MenuPopover, MenuTrigger } from './menu-popover'
+import { MenuItemGroup } from './menu.atoms'
+import { ElMenu, ElMenuItem, ElMenuList } from './styles'
 
 type MenuFC = React.FC & {
-  // will be addded in next pr
-  Item?: undefined
-  Group?: undefined
+  Item: typeof ElMenuItem
+  Group: typeof MenuItemGroup
 
   Trigger: typeof MenuTrigger
   Popover: typeof MenuPopover
@@ -20,6 +20,8 @@ const Menu: MenuFC = ({ children }) => {
     </MenuProvider>
   )
 }
+Menu.Item = ElMenuItem
+Menu.Group = MenuItemGroup
 Menu.Trigger = MenuTrigger
 Menu.Popover = MenuPopover
 Menu.List = ElMenuList
