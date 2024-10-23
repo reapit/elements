@@ -1,34 +1,87 @@
-import { Button, DeprecatedButtonGroup, FloatingButton } from './index'
+import { Meta } from '@storybook/react'
+import { Button } from './button'
+import { ButtonGroup } from '../button-group'
 import { action } from '@storybook/addon-actions'
 
-export default {
-  title: 'Button',
+const meta: Meta<typeof Button> = {
+  title: 'Components/Button',
   component: Button,
 }
 
-export const DefaultUsage = {
-  render: ({}) => <Button>Text within button</Button>,
+export default meta
+
+export const Default = {
+  render: ({}) => <Button>Button</Button>,
 }
 
-export const Intent = {
+export const ButtonVariants = {
+  render: ({}) => (
+    <ButtonGroup>
+      <Button isPrimary iconLeft="star" iconRight="star">
+        Button
+      </Button>
+      <Button isSecondary iconLeft="star" iconRight="star">
+        Button
+      </Button>
+      <Button isTertiary iconLeft="star" iconRight="star">
+        Button
+      </Button>
+      <Button isDestructive iconLeft="star" iconRight="star">
+        Button
+      </Button>
+    </ButtonGroup>
+  ),
+}
+
+export const ButtonBusy = {
+  render: ({}) => (
+    <ButtonGroup>
+      <Button isBusy>Submit</Button>
+      <Button isBusy />
+    </ButtonGroup>
+  ),
+}
+
+export const ButtonWithIcon = {
+  render: ({}) => (
+    <ButtonGroup>
+      <Button iconLeft="star" iconRight="star">
+        Button
+      </Button>
+      <Button iconOnly="star" />
+    </ButtonGroup>
+  ),
+}
+
+export const ButtonSize = {
+  render: ({}) => (
+    <Button size="large" iconLeft="star" iconRight="star">
+      Button
+    </Button>
+  ),
+}
+
+// export const ButtonDisabled = {
+//   render: ({}) => (
+//     <Button iconLeft="star" iconRight="star" disabled aria-disabled="true">
+//       Button
+//     </Button>
+//   ),
+// }
+
+export const ButtonDisabled = {
   args: {
-    intent: 'primary',
+    isDisabled: true,
     children: 'Button Text',
   },
 }
 
-export const Loading = {
-  args: {
-    loading: true,
-    children: 'Button Text',
-  },
-}
-
-export const Disabled = {
-  args: {
-    disabled: true,
-    children: 'Button Text',
-  },
+export const ButtonWithHref = {
+  render: ({}) => (
+    <Button iconLeft="add" href="./?path=/story/components-button--button-with-href">
+      Add Item
+    </Button>
+  ),
 }
 
 export const StandardAttributes = {
@@ -40,69 +93,4 @@ export const StandardAttributes = {
     children: 'Button Text',
     'aria-label': 'Button aria label',
   },
-}
-
-/**
- *
- * @deprecated This ButtonGroup is deprecated. Use the new ButtonGroup component instead.
- *
- */
-export const DeprecatedGroup = {
-  render: ({}) => (
-    <DeprecatedButtonGroup>
-      <Button intent="primary">Primary</Button>
-      <Button intent="neutral">Default</Button>
-      <Button intent="danger">Danger</Button>
-    </DeprecatedButtonGroup>
-  ),
-
-  name: 'Button Group',
-}
-
-export const ButtonSize = {
-  render: ({}) => (
-    <DeprecatedButtonGroup>
-      <Button buttonSize="small">Small Button</Button>
-      <Button buttonSize="medium">Medium Button</Button>
-      <Button buttonSize="large">Large Button</Button>
-    </DeprecatedButtonGroup>
-  ),
-}
-
-export const ButtonIcons = {
-  render: ({}) => (
-    <DeprecatedButtonGroup>
-      <Button
-        intent="primary"
-        buttonIcon={{
-          icon: 'add',
-          position: 'left',
-        }}
-      >
-        Left Icon Primary
-      </Button>
-      <Button
-        buttonIcon={{
-          icon: 'add',
-          position: 'right',
-        }}
-      >
-        Right Icon Default
-      </Button>
-      <Button
-        buttonIcon={{
-          icon: 'add',
-          position: 'only',
-        }}
-      >
-        Only Icon
-      </Button>
-    </DeprecatedButtonGroup>
-  ),
-}
-
-export const Floating = {
-  render: ({}) => <FloatingButton intent="primary" icon="add" />,
-  name: 'Floating Button',
-  component: FloatingButton,
 }

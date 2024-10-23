@@ -1,47 +1,71 @@
-import { ButtonHTMLAttributes, FC, HTMLAttributes, MouseEvent, MouseEventHandler } from 'react'
-import { cx } from '@linaria/core'
-import { Intent } from '../../helpers/intent'
-import { elIsLoading } from '../../styles/states'
-import * as styles from './__styles__'
+import { HTMLAttributes, AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEvent, MouseEventHandler } from 'react'
 import {
+  elButtonDestructive,
+  elButtonBusy,
   ElButton,
-  DeprecatedElButtonGroup,
-  elButtonGroupAlignCenter,
-  elButtonGroupAlignLeft,
-  elButtonGroupAlignRight,
-  ElButtonGroupInner,
-  elButtonIconOnly,
-  ElButtonLoader,
+  elButtonPrimary,
+  elButtonSecondary,
   elButtonSizeLarge,
   elButtonSizeMedium,
   elButtonSizeSmall,
-} from './__styles__'
-import { Icon, IconNames } from '../icon'
-import { elIntentDanger, elIntentNeutral, elIntentPrimary } from '../../styles/intent'
-import { elMl1, elMr1 } from '../../styles/spacing'
-import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
+  elButtonTertiary,
+  elButtonIconOnly,
+  ElButtonIcon,
+  ElButtonSpinner,
+  ElAnchorButton,
+  elButtonDisabled,
+  elFloatingButton,
+  DeprecatedElButtonGroup,
+  ElButtonGroupInner,
+  elButtonGroupAlignLeft,
+  elButtonGroupAlignRight,
+  elButtonGroupAlignCenter,
+} from './styles'
+import { IconNames } from '../icon'
+import { cx } from '@linaria/core'
 
-export type ButtonSizeType = 2 | 3 | 4
-export type ButtonSize = 'small' | 'medium' | 'large'
-export interface ButtonIcon {
-  icon: IconNames
-  position: 'left' | 'right' | 'only'
-}
+type ButtonSize = 'small' | 'medium' | 'large'
 
-export type ButtonGroupAlignment = 'left' | 'right' | 'center'
-
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  intent?: Intent
-  loading?: boolean
-  className?: string
-  buttonSize?: ButtonSize
-  buttonIcon?: ButtonIcon
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
+  isPrimary?: boolean
+  isSecondary?: boolean
+  isTertiary?: boolean
+  isDestructive?: boolean
+  isBusy?: boolean
+  isToggle?: boolean
+  isPressed?: boolean
+  size?: ButtonSize
+  iconOnly?: IconNames
+  iconLeft?: IconNames
+  iconRight?: IconNames
   onClick?: MouseEventHandler<HTMLButtonElement>
+  /** The lable for button. It must be supplied for buttons with no `children` */
+  ariaLabel?: string
+  isDisabled?: boolean
+  href?: string
+  target?: AnchorHTMLAttributes<HTMLAnchorElement>['target']
+  rel?: AnchorHTMLAttributes<HTMLAnchorElement>['rel']
+  className?: string
 }
 
+const fontSizeMap: Record<ButtonSize, string> = {
+  small: '1rem',
+  medium: '1rem',
+  large: '1.25rem',
+}
+
+export const handleButtonClick =
+  (onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>) =>
+  (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+    if (onClick) onClick(e)
+  }
+
+/** @deprecated */
 export interface FloatingButtonProps extends ButtonProps {
   icon: IconNames
 }
+
+export type ButtonGroupAlignment = 'left' | 'right' | 'center'
 
 /**
  * A subset of button, button group should not be used.
@@ -51,75 +75,107 @@ export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   alignment?: ButtonGroupAlignment
 }
 
-export const resolveButtonClassName = (intent?: Intent): string => {
-  // -- For Devs --
-  // Please update the new Button Group component with replaced prop
-  // Files to update button-group.stories.tsx and button-group.text.tsx
-  //
-  switch (intent) {
-    case 'primary':
-      return elIntentPrimary
-    case 'danger':
-      return elIntentDanger
-    case 'neutral':
-      return elIntentNeutral
-    case 'pending':
-    case 'success':
-    case 'warning':
-    case 'critical':
-    case 'low':
-    case 'secondary':
-      console.warn(`${intent} intent is no longer supported for buttons and will be removed at v5 release.`)
-      return elIntentNeutral
-    default:
-      return elIntentNeutral
-  }
-}
-
-export const handleButtonClick =
-  (onClick?: MouseEventHandler<HTMLButtonElement>) => (e: MouseEvent<HTMLButtonElement>) => {
-    if (onClick) onClick(e)
-  }
-
 export const Button: FC<ButtonProps> = ({
-  intent,
-  loading = false,
-  buttonSize,
-  buttonIcon,
-  className = '',
   children,
+  isPrimary,
+  isSecondary,
+  isTertiary,
+  isDestructive,
+  isBusy = false,
+  isToggle = false,
+  isPressed,
+  size = 'medium',
+  iconOnly,
+  iconLeft,
+  iconRight,
   onClick,
+  ariaLabel,
+  isDisabled = false,
+  href,
+  target,
+  rel,
+  className,
   ...rest
 }) => {
-  const intentClassname = resolveButtonClassName(intent)
-  const isIconOnly = buttonIcon?.icon && buttonIcon.position === 'only'
-  const sizeClass = cx(
-    isIconOnly && elButtonIconOnly,
-    buttonSize === 'small' && elButtonSizeSmall,
-    buttonSize === 'large' && elButtonSizeLarge,
-    buttonSize === 'medium' && elButtonSizeMedium,
-  )
-  const combinedClassName = cx(className, sizeClass, intentClassname, loading && elIsLoading)
+  const variant =
+    (isPrimary && elButtonPrimary) ||
+    (isSecondary && elButtonSecondary) ||
+    (isTertiary && elButtonTertiary) ||
+    (isDestructive && elButtonDestructive) ||
+    '' // Default to empty - secondary Button style applied to default
 
+  const sizeClass = cx(
+    iconOnly && elButtonIconOnly,
+    size === 'small' && elButtonSizeSmall,
+    size === 'medium' && elButtonSizeMedium,
+    size === 'large' && elButtonSizeLarge,
+  )
+
+  const miscellaneousClass = cx(
+    isBusy && elButtonBusy,
+    isDisabled && elButtonDisabled, // UI for disabled Anchor element
+    !children && isBusy && elButtonIconOnly, // if no children(label) and is busy then add el-button-icon-only class
+  )
+
+  // Determine the icon font size based on the button size
+  const iconFontSize = fontSizeMap[size]
+
+  const combinedClassName = cx(className, sizeClass, variant, miscellaneousClass)
+
+  console.log('c', combinedClassName)
+
+  if (href) {
+    return (
+      <ElAnchorButton
+        href={isDisabled || isBusy ? undefined : href}
+        className={combinedClassName}
+        onClick={(e) => {
+          if (isDisabled) {
+            e.preventDefault() // Prevent default action if disabled
+          } else {
+            handleButtonClick(onClick)(e)
+          }
+        }}
+        aria-label={ariaLabel || (iconOnly ? iconOnly : undefined)}
+        aria-pressed={isToggle ? isPressed : undefined}
+        aria-disabled={isDisabled ? 'true' : undefined}
+        role="button"
+        target={target}
+        rel={rel}
+        {...rest}
+      >
+        <ElButtonSpinner />
+        {iconOnly && !isBusy ? (
+          <ElButtonIcon icon={iconOnly} fontSize={iconFontSize} />
+        ) : (
+          <>
+            {!isBusy && <>{iconLeft && <ElButtonIcon icon={iconLeft} fontSize={iconFontSize} />}</>}
+            {children}
+            {!isBusy && <>{iconRight && <ElButtonIcon icon={iconRight} fontSize={iconFontSize} />}</>}
+          </>
+        )}
+      </ElAnchorButton>
+    )
+  }
   return (
     <ElButton
       className={combinedClassName}
-      onKeyDown={handleKeyboardEvent('Enter', () => handleButtonClick(onClick))}
       onClick={handleButtonClick(onClick)}
+      aria-label={ariaLabel || (iconOnly ? iconOnly : undefined)}
+      aria-pressed={isToggle ? isPressed : undefined}
+      aria-disabled={isDisabled}
+      disabled={isDisabled}
+      role="button"
       {...rest}
     >
-      <ElButtonLoader />
-      {isIconOnly ? (
-        <Icon intent="default" icon={buttonIcon.icon} fontSize="1rem" />
+      <ElButtonSpinner />
+      {iconOnly && !isBusy ? (
+        <ElButtonIcon icon={iconOnly} fontSize={iconFontSize} />
       ) : (
         <>
-          {buttonIcon?.icon && buttonIcon.position === 'left' && (
-            <Icon className={elMr1} intent="default" fontSize="1rem" icon={buttonIcon.icon} />
-          )}
+          {!isBusy && <>{iconLeft && <ElButtonIcon icon={iconLeft} fontSize={iconFontSize} />}</>}
           {children}
-          {buttonIcon?.icon && buttonIcon.position === 'right' && (
-            <Icon className={elMl1} intent="default" fontSize="1rem" icon={buttonIcon.icon} />
-          )}
+          {!isBusy && <>{iconRight && <ElButtonIcon icon={iconRight} fontSize={iconFontSize} />}</>}
         </>
       )}
     </ElButton>
@@ -143,10 +199,8 @@ export const DeprecatedButtonGroup: FC<ButtonGroupProps> = ({ children, alignmen
   )
 }
 
-export const FloatingButton: FC<FloatingButtonProps> = ({ icon, intent, ...rest }) => {
-  return (
-    <Button className={styles.elFloatingButton} intent={intent} {...rest}>
-      <Icon icon={icon} />
-    </Button>
-  )
+/** @deprecated */
+// Removing ClassName fixes the issue with different UI, lets look into this
+export const FloatingButton: FC<FloatingButtonProps> = ({ className, icon, ...rest }) => {
+  return <Button className={cx(className, elFloatingButton)} iconOnly={icon} {...rest} />
 }
