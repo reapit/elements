@@ -8,7 +8,7 @@ import {
   ElDialogTitle,
   MediumDialogSize,
   SmallDialogSize,
-} from './style'
+} from './styles'
 import { useToggleDialogVisibilityEffect } from './use-toggle-dialog-visibility-effect'
 
 interface DialogAttributes extends Omit<DialogHTMLAttributes<HTMLDialogElement>, 'open'> {}

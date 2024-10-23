@@ -1,3 +1,3 @@
 export * from './dialog'
-export * from './style'
+export * from './styles'
 export * from './use-toggle-dialog-visibility-effect'
