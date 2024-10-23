@@ -1,6 +1,6 @@
 import { RefObject, useEffect } from 'react'
 
-export interface UseDialogAppearanceInput {
+export interface UseToggleDialogVisibilityInput {
   // Ref object that will be used to access the dialog element
   ref: RefObject<HTMLDialogElement>
   // Whether the dialog is open or not
@@ -11,7 +11,7 @@ export interface UseDialogAppearanceInput {
 
 // NOTE: a side effect that will be triggered when the `isOpen` state changes
 // and will handle the dialog visibility by invoking `showModal` and `close` methods
-export const useToggleDialogVisibilityEffect = ({ isOpen, onClose, ref }: UseDialogAppearanceInput) => {
+export const useToggleDialogVisibilityEffect = ({ isOpen, onClose, ref }: UseToggleDialogVisibilityInput) => {
   // a fallback function to ensure the function is still exist, whether the `onClose` prop is not provided
   const handleOnClose = () => onClose?.()
 
@@ -24,7 +24,7 @@ export const useToggleDialogVisibilityEffect = ({ isOpen, onClose, ref }: UseDia
         ref.current.showModal()
         ref.current.addEventListener('close', handleOnClose, { signal: abortController.signal })
       } else {
-        ref.current.removeEventListener('close', handleOnClose)
+        abortController.abort()
         ref.current.close()
       }
 
