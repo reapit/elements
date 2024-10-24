@@ -253,7 +253,7 @@ export const ExpandableContent = {
             <InputWrap />
             <InputWrap>
               <DeprecatedButtonGroup className={elMlAuto}>
-                <Button intent="primary">Send</Button>
+                <Button isPrimary>Send</Button>
               </DeprecatedButtonGroup>
             </InputWrap>
           </FormLayout>

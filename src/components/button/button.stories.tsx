@@ -61,14 +61,6 @@ export const ButtonSize = {
   ),
 }
 
-// export const ButtonDisabled = {
-//   render: ({}) => (
-//     <Button iconLeft="star" iconRight="star" disabled aria-disabled="true">
-//       Button
-//     </Button>
-//   ),
-// }
-
 export const ButtonDisabled = {
   args: {
     isDisabled: true,

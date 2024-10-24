@@ -36,7 +36,7 @@ export const WithPrimaryButton = {
       <Button>Button 2</Button>
       <Button>Button 3</Button>
       <Button>Button 4</Button>
-      <Button intent="primary">Button 5</Button>
+      <Button isPrimary>Button 5</Button>
     </ButtonGroup>
   ),
   parameters: {
@@ -55,12 +55,7 @@ export const WithIconOnlyButton = {
       <Button>Button 2</Button>
       <Button>Button 3</Button>
       <Button>Button 4</Button>
-      <Button
-        buttonIcon={{
-          icon: 'more',
-          position: 'only',
-        }}
-      ></Button>
+      <Button iconOnly="more"></Button>
     </ButtonGroup>
   ),
   parameters: {
