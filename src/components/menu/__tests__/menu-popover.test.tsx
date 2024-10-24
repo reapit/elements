@@ -7,20 +7,28 @@ describe('Menu Popover component', () => {
       <Menu>
         <Menu.Trigger>{({ getTriggerProps }) => <button {...getTriggerProps()}>Trigger</button>}</Menu.Trigger>
         <Menu.Popover>
-          <div>Popover Content</div>
-          <button type="button">Close</button>
+          <Menu.List>
+            <Menu.Item>Menu Item</Menu.Item>
+            <Menu.Item closeMenu={false}>Non closing Menu Item</Menu.Item>
+          </Menu.List>
         </Menu.Popover>
       </Menu>
     )
   }
 
-  it('should render and close Popover based on button clicks and match snapshot', () => {
+  it('should render and close Popover based on any element with data-close-menu="true" click and match snapshot', () => {
     const { asFragment, getByText } = render(<MockMenuPopoverComponent />)
 
     fireEvent.click(getByText('Trigger'))
-    expect(asFragment()).toMatchSnapshot()
+    const openedMenu = asFragment()
+    expect(openedMenu).toMatchSnapshot()
 
-    fireEvent.click(getByText('Close'))
-    expect(asFragment()).toMatchSnapshot()
+    fireEvent.click(getByText('Menu Item'))
+    const closedMenu = asFragment()
+    expect(closedMenu).toMatchSnapshot()
+
+    fireEvent.click(getByText('Trigger'))
+    fireEvent.click(getByText('Non closing Menu Item'))
+    expect(asFragment()).toEqual(openedMenu)
   })
 })

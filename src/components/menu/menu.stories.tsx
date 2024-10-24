@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ElMenuList, Menu } from '.'
+import { ElMenuItem, ElMenuItemGroup, ElMenuItemGroupTitle, ElMenuList, Menu } from '.'
 import { Button } from '../button'
 
 const meta: Meta<typeof Menu> = {
@@ -11,7 +11,16 @@ type Story = StoryObj<typeof Menu>
 
 export const StylesOnlyUsage: StoryObj = {
   render: () => {
-    return <ElMenuList>Menu content</ElMenuList>
+    return (
+      <ElMenuList>
+        <ElMenuItemGroup role="group">
+          <ElMenuItemGroupTitle>Group Title</ElMenuItemGroupTitle>
+          <ElMenuItem role="menuitem">Menu Item</ElMenuItem>
+          <ElMenuItem role="menuitem">Menu Item</ElMenuItem>
+          <ElMenuItem role="menuitem">Menu Item</ElMenuItem>
+        </ElMenuItemGroup>
+      </ElMenuList>
+    )
   },
 }
 
@@ -31,7 +40,13 @@ export const ReactUsage: Story = {
           )}
         </Menu.Trigger>
         <Menu.Popover>
-          <Menu.List>Menu content</Menu.List>
+          <Menu.List>
+            <Menu.Group label="Group Title">
+              <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
+              <Menu.Item>Menu Item</Menu.Item>
+              <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
+            </Menu.Group>
+          </Menu.List>
         </Menu.Popover>
       </Menu>
     )
