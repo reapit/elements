@@ -12,4 +12,5 @@ export const GuidelinesImage: FC<GuidelinesImageProps> = ({ name }) => (
 export const figmaDesignUrls = {
   accordion: 'https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=141-4180&t=k8kHuB2wp3KZoKMw-4',
   buttonGroup: 'https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=428-7408&t=8GcgX59FmafMRAda-4',
+  dialog: 'https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=428-7715&t=U8yeEYz3jfjoTEWH-0',
 }
