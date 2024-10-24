@@ -9,7 +9,7 @@ export * from './styles/helpers'
 export * from './styles/media'
 export * from './styles/states'
 
-export { Button, FloatingButton } from './components/button'
+export * from './components/button'
 export * from './components/button-group'
 export * from './components/card'
 export * from './components/grid'

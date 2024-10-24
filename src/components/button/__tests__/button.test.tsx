@@ -1,91 +1,74 @@
 import { render, fireEvent } from '@testing-library/react'
-import { Button, ButtonProps, FloatingButton, DeprecatedButtonGroup, ButtonSize, ButtonIcon } from '../index'
+import { Button, ButtonProps, DeprecatedButtonGroup } from '../index'
 
-const props: ButtonProps = {
-  type: 'submit',
-  intent: 'primary',
-  disabled: false,
-  loading: false,
-  onClick: jest.fn(),
+const renderButton = (props: Partial<ButtonProps> = {}) => {
+  const defaultProps: ButtonProps = {
+    children: 'Button',
+    onClick: jest.fn(),
+    disabled: false,
+    ...props,
+  }
+  return render(<Button {...defaultProps} />)
 }
 
 describe('Button', () => {
-  it('should match a snapshot', () => {
-    expect(render(<Button {...props}>button text</Button>)).toMatchSnapshot()
+  test('should match a snapshot', () => {
+    const { asFragment } = renderButton()
+    expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should match a snapshot with all modifiers', () => {
-    const fullProps = {
-      ...props,
-      loading: true,
-      disabled: true,
-      buttonSize: 'small' as ButtonSize,
-      buttonIcon: {
-        icon: 'add',
-        position: 'left',
-      } as ButtonIcon,
-      className: 'some-class',
-    }
-    expect(render(<Button {...fullProps}>button text</Button>)).toMatchSnapshot()
+  test('should match variant with snapshot', () => {
+    const { asFragment } = renderButton({ isPrimary: true, iconRight: 'star', iconLeft: 'star' })
+    expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should match a snapshot', () => {
-    expect(
-      render(
-        <FloatingButton icon="add" {...props}>
-          button text
-        </FloatingButton>,
-      ),
-    ).toMatchSnapshot()
+  test('should match icon only button with snapshot', () => {
+    const { asFragment } = renderButton({ iconOnly: 'star' })
+    expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should fire a click event correctly', async () => {
-    const wrapper = render(<Button {...props}>button text</Button>)
+  test('should fire a native click event correctly', async () => {
+    const onClickMock = jest.fn()
+    const wrapper = renderButton({ onClick: onClickMock })
 
-    fireEvent.click(wrapper.getByText('button text'))
+    fireEvent.click(wrapper.getByText('Button'))
 
-    expect(props.onClick).toHaveBeenCalledTimes(1)
-  })
-
-  afterEach(() => {
-    jest.resetAllMocks()
+    expect(onClickMock).toHaveBeenCalledTimes(1)
   })
 })
 
+/** @deprecated */
 describe('DeprecatedButtonGroup', () => {
-  it('should match a snapshot for align left', () => {
-    expect(
-      render(
-        <DeprecatedButtonGroup alignment="left">
-          <Button>1</Button>
-          <Button>2</Button>
-          <Button>3</Button>
-        </DeprecatedButtonGroup>,
-      ),
-    ).toMatchSnapshot()
+  test('should match a snapshot for align left', () => {
+    const { asFragment } = render(
+      <DeprecatedButtonGroup alignment="left">
+        <Button>1</Button>
+        <Button>2</Button>
+        <Button>3</Button>
+      </DeprecatedButtonGroup>,
+    )
+    expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should match a snapshot for align right', () => {
-    expect(
-      render(
-        <DeprecatedButtonGroup alignment="right">
-          <Button>1</Button>
-          <Button>2</Button>
-          <Button>3</Button>
-        </DeprecatedButtonGroup>,
-      ),
-    ).toMatchSnapshot()
+  test('should match a snapshot for align right', () => {
+    const { asFragment } = render(
+      <DeprecatedButtonGroup alignment="right">
+        <Button>1</Button>
+        <Button>2</Button>
+        <Button>3</Button>
+      </DeprecatedButtonGroup>,
+    )
+    expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should match a snapshot for align center', () => {
-    expect(
-      render(
-        <DeprecatedButtonGroup alignment="center">
-          <Button>1</Button>
-          <Button>2</Button>
-          <Button>3</Button>
-        </DeprecatedButtonGroup>,
-      ),
-    ).toMatchSnapshot()
+  test('should match a snapshot for align center', () => {
+    const { asFragment } = render(
+      <DeprecatedButtonGroup alignment="center">
+        <Button>1</Button>
+        <Button>2</Button>
+        <Button>3</Button>
+      </DeprecatedButtonGroup>,
+    )
+    expect(asFragment()).toMatchSnapshot()
   })
 })
