@@ -15,17 +15,22 @@ exports[`MobileControls component should match a snapshot 1`] = `
       >
         <mock-styled.button
           aria-controls="test-static-id"
-          classname="mock-css. mock-css."
+          aria-disabled="false"
+          aria-label="menu"
+          classname="mock-css. mock-css.
+  padding: var(--spacing-2);
+  , {
+    margin: 0 0.125rem;
+  }
+ mock-css. mock-css."
+          disabled="false"
+          role="button"
         >
           <mock-styled.div />
-          <mock-styled.span
-            classname=""
-          >
-            <svg
-              role="img"
-              title="Icon image with name menu"
-            />
-          </mock-styled.span>
+          <mock-styled.div
+            fontsize="1rem"
+            icon="menu"
+          />
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -41,17 +46,22 @@ exports[`MobileControls component should match a snapshot 1`] = `
     >
       <mock-styled.button
         aria-controls="test-static-id"
-        classname="mock-css. mock-css."
+        aria-disabled="false"
+        aria-label="menu"
+        classname="mock-css. mock-css.
+  padding: var(--spacing-2);
+  , {
+    margin: 0 0.125rem;
+  }
+ mock-css. mock-css."
+        disabled="false"
+        role="button"
       >
         <mock-styled.div />
-        <mock-styled.span
-          classname=""
-        >
-          <svg
-            role="img"
-            title="Icon image with name menu"
-          />
-        </mock-styled.span>
+        <mock-styled.div
+          fontsize="1rem"
+          icon="menu"
+        />
       </mock-styled.button>
     </mock-styled.div>
   </div>,
@@ -147,17 +157,22 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
         </mock-styled.a>
         <mock-styled.button
           aria-controls="test-static-id"
-          classname="mock-css. mock-css."
+          aria-disabled="false"
+          aria-label="add"
+          classname="mock-css. mock-css.
+  padding: var(--spacing-2);
+  , {
+    margin: 0 0.125rem;
+  }
+ mock-css. mock-css."
+          disabled="false"
+          role="button"
         >
           <mock-styled.div />
-          <mock-styled.span
-            classname=""
-          >
-            <svg
-              role="img"
-              title="Icon image with name add"
-            />
-          </mock-styled.span>
+          <mock-styled.div
+            fontsize="1rem"
+            icon="add"
+          />
         </mock-styled.button>
       </mock-styled.div>
     </div>
@@ -196,17 +211,22 @@ exports[`MobileControls component should match a snapshot with full props 1`] = 
       </mock-styled.a>
       <mock-styled.button
         aria-controls="test-static-id"
-        classname="mock-css. mock-css."
+        aria-disabled="false"
+        aria-label="add"
+        classname="mock-css. mock-css.
+  padding: var(--spacing-2);
+  , {
+    margin: 0 0.125rem;
+  }
+ mock-css. mock-css."
+        disabled="false"
+        role="button"
       >
         <mock-styled.div />
-        <mock-styled.span
-          classname=""
-        >
-          <svg
-            role="img"
-            title="Icon image with name add"
-          />
-        </mock-styled.span>
+        <mock-styled.div
+          fontsize="1rem"
+          icon="add"
+        />
       </mock-styled.button>
     </mock-styled.div>
   </div>,
