@@ -24,7 +24,7 @@ export const ReactUsage = {
 
     return (
       <>
-        <Button intent="primary" onClick={openDrawer}>
+        <Button isPrimary onClick={openDrawer}>
           Open Drawer
         </Button>
         <ExampleDrawer
@@ -32,9 +32,7 @@ export const ReactUsage = {
           subtitle="Demo Drawer Subtitle"
           footerItems={
             <DeprecatedButtonGroup alignment="right">
-              <Button intent="default" onClick={closeDrawer}>
-                Close the Drawer
-              </Button>
+              <Button onClick={closeDrawer}>Close the Drawer</Button>
             </DeprecatedButtonGroup>
           }
         >
@@ -51,7 +49,7 @@ export const ReactUsageWithForm = {
 
     return (
       <>
-        <Button intent="primary" onClick={openDrawer}>
+        <Button isPrimary onClick={openDrawer}>
           Open Drawer
         </Button>
         <ExampleDrawer
@@ -59,9 +57,7 @@ export const ReactUsageWithForm = {
           subtitle="Demo Drawer Subtitle"
           footerItems={
             <DeprecatedButtonGroup alignment="right">
-              <Button intent="default" onClick={closeDrawer}>
-                Close the Drawer
-              </Button>
+              <Button onClick={closeDrawer}>Close the Drawer</Button>
             </DeprecatedButtonGroup>
           }
         >
@@ -103,7 +99,7 @@ export const ReactUsageCanDismiss = {
 
     return (
       <>
-        <Button intent="primary" onClick={openDrawer}>
+        <Button isPrimary onClick={openDrawer}>
           Open Drawer
         </Button>
         <ExampleDrawer
@@ -112,9 +108,7 @@ export const ReactUsageCanDismiss = {
           canDismiss
           footerItems={
             <DeprecatedButtonGroup alignment="right">
-              <Button intent="default" onClick={closeDrawer}>
-                Close the Drawer
-              </Button>
+              <Button onClick={closeDrawer}>Close the Drawer</Button>
             </DeprecatedButtonGroup>
           }
         >

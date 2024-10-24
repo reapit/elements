@@ -37,6 +37,73 @@ exports[`Button should match icon only button with snapshot 1`] = `
 </DocumentFragment>
 `;
 
+exports[`Button should match snapshot for <ElAnchorButton> as a link button 1`] = `
+<DocumentFragment>
+  <mock-styled.a
+    classname="mock-css."
+    disabled="false"
+    href="https://example.com"
+    rel="noopener noreferrer"
+    role="button"
+    target="_blank"
+  >
+    <mock-styled.div />
+    <mock-styled.div
+      fontsize="1rem"
+      icon="add"
+    />
+    Button
+  </mock-styled.a>
+</DocumentFragment>
+`;
+
+exports[`Button should match snapshot for <ElAnchorButton> when busy 1`] = `
+<DocumentFragment>
+  <mock-styled.a
+    classname="mock-css. mock-css."
+    disabled="false"
+    role="button"
+  >
+    <mock-styled.div />
+    Button
+  </mock-styled.a>
+</DocumentFragment>
+`;
+
+exports[`Button should match snapshot for <ElAnchorButton> when disabled 1`] = `
+<DocumentFragment>
+  <mock-styled.a
+    aria-disabled="true"
+    aria-label="Add Button"
+    classname="mock-css. mock-css."
+    disabled="false"
+    role="button"
+  >
+    <mock-styled.div />
+    Button
+  </mock-styled.a>
+</DocumentFragment>
+`;
+
+exports[`Button should match snapshot for <ElAnchorButton> with icon only when busy 1`] = `
+<DocumentFragment>
+  <mock-styled.a
+    aria-label="settings"
+    classname="mock-css.
+  padding: var(--spacing-2);
+  , {
+    margin: 0 0.125rem;
+  }
+ mock-css. mock-css."
+    disabled="false"
+    role="button"
+  >
+    <mock-styled.div />
+    Button
+  </mock-styled.a>
+</DocumentFragment>
+`;
+
 exports[`Button should match variant with snapshot 1`] = `
 <DocumentFragment>
   <mock-styled.button

@@ -43,8 +43,8 @@ export const BasicUsageSmall: Story = {
         <ElDialogBody>Content</ElDialogBody>
         <ElDialogFooter>
           <ButtonGroup>
-            <Button intent="secondary">Cancel</Button>
-            <Button intent="primary">Close</Button>
+            <Button>Cancel</Button>
+            <Button isPrimary>Close</Button>
           </ButtonGroup>
         </ElDialogFooter>
       </ElDialog>
@@ -62,8 +62,8 @@ export const BasicUsageMedium: Story = {
         <ElDialogBody>Content</ElDialogBody>
         <ElDialogFooter>
           <ButtonGroup>
-            <Button intent="secondary">Cancel</Button>
-            <Button intent="primary">Close</Button>
+            <Button>Cancel</Button>
+            <Button isPrimary>Close</Button>
           </ButtonGroup>
         </ElDialogFooter>
       </ElDialog>
@@ -85,9 +85,7 @@ export const ReactUsage: Story = {
     return (
       <>
         <ButtonGroup>
-          <Button intent="secondary" onClick={() => setIsOpen(true)}>
-            Open Dialog
-          </Button>
+          <Button onClick={() => setIsOpen(true)}>Open Dialog</Button>
         </ButtonGroup>
         <Dialog {...rest} isOpen={isOpen} size={size} title={title} onClose={() => setIsOpen(false)}>
           <Dialog.Header>
@@ -96,10 +94,8 @@ export const ReactUsage: Story = {
           <Dialog.Body>{children}</Dialog.Body>
           <Dialog.Footer>
             <ButtonGroup>
-              <Button intent="secondary" onClick={() => setIsOpen(false)}>
-                Cancel
-              </Button>
-              <Button intent="primary" onClick={() => setIsOpen(false)}>
+              <Button onClick={() => setIsOpen(false)}>Cancel</Button>
+              <Button isPrimary onClick={() => setIsOpen(false)}>
                 Close
               </Button>
             </ButtonGroup>

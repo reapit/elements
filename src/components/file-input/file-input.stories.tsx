@@ -33,9 +33,7 @@ export const AdvancedUsage = {
             <FilePreviewImage src={fileUrl} />
           </FlexContainer>
           <DeprecatedButtonGroup alignment="right">
-            <Button intent="neutral" onClick={closeModal}>
-              Close
-            </Button>
+            <Button onClick={closeModal}>Close</Button>
           </DeprecatedButtonGroup>
         </Modal>
       </div>

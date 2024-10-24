@@ -166,11 +166,9 @@ export const CompleteCombinedExample = {
                   buttons={[
                     {
                       children: 'Button 1',
-                      intent: 'default',
                     },
                     {
                       children: 'Button 2',
-                      intent: 'default',
                     },
                   ]}
                   tabs={{
@@ -377,11 +375,9 @@ export const CompleteCombinedExampleMaxWidth = {
                 buttons={[
                   {
                     children: 'Button 1',
-                    intent: 'default',
                   },
                   {
                     children: 'Button 2',
-                    intent: 'default',
                   },
                 ]}
                 tabs={{

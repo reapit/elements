@@ -101,7 +101,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
           {buttons && (
             <DeprecatedButtonGroup className={cx(!tabs && elMb3)}>
               {buttons.map(({ children, ...rest }, index) => (
-                <Button buttonSize="small" key={index} {...rest}>
+                <Button size="small" key={index} {...rest}>
                   {children}
                 </Button>
               ))}
