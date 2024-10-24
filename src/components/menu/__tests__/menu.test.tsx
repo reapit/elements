@@ -6,7 +6,7 @@ describe('Menu list component', () => {
     const { asFragment } = render(
       <Menu>
         <Menu.List>
-          <Menu.Group title="Group Title">
+          <Menu.Group label="Group Title">
             <Menu.Item>Menu item</Menu.Item>
           </Menu.Group>
         </Menu.List>

@@ -13,19 +13,11 @@ export const StylesOnlyUsage: StoryObj = {
   render: () => {
     return (
       <ElMenuList>
-        <ElMenuItemGroup>
-          <li>
-            <ElMenuItemGroupTitle>Group Title</ElMenuItemGroupTitle>
-          </li>
-          <ElMenuItem>
-            <a href="/#">This is a Link</a>
-          </ElMenuItem>
-          <ElMenuItem>
-            <Button type="button">This is a Button</Button>
-          </ElMenuItem>
-          <ElMenuItem>
-            <div role="button">This is button a div</div>
-          </ElMenuItem>
+        <ElMenuItemGroup role="group">
+          <ElMenuItemGroupTitle>Group Title</ElMenuItemGroupTitle>
+          <ElMenuItem role="menuitem">Menu Item</ElMenuItem>
+          <ElMenuItem role="menuitem">Menu Item</ElMenuItem>
+          <ElMenuItem role="menuitem">Menu Item</ElMenuItem>
         </ElMenuItemGroup>
       </ElMenuList>
     )
@@ -49,16 +41,10 @@ export const ReactUsage: Story = {
         </Menu.Trigger>
         <Menu.Popover>
           <Menu.List>
-            <Menu.Group title="Group Title">
-              <Menu.Item>
-                <a href="/1">This is a Link</a>
-              </Menu.Item>
-              <Menu.Item>
-                <button type="button">This is html Button</button>
-              </Menu.Item>
-              <Menu.Item>
-                <div role="button">This is a button div</div>
-              </Menu.Item>
+            <Menu.Group label="Group Title">
+              <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
+              <Menu.Item>Menu Item</Menu.Item>
+              <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
             </Menu.Group>
           </Menu.List>
         </Menu.Popover>

@@ -4,16 +4,19 @@ exports[`Menu list component should render menu with list components and match s
 <DocumentFragment>
   <mock-styled.div>
     <mock-styled.div>
-      <mock-styled.ul>
-        <li>
-          <mock-styled.span>
-            Group Title
-          </mock-styled.span>
-        </li>
-        <mock-styled.li>
+      <mock-styled.div
+        role="group"
+      >
+        <mock-styled.span>
+          Group Title
+        </mock-styled.span>
+        <mock-styled.div
+          data-close-menu="true"
+          role="menuitem"
+        >
           Menu item
-        </mock-styled.li>
-      </mock-styled.ul>
+        </mock-styled.div>
+      </mock-styled.div>
     </mock-styled.div>
   </mock-styled.div>
 </DocumentFragment>
