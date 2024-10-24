@@ -1,4 +1,6 @@
 import { css } from '@linaria/core'
+import '../../tokens/reapit/tokens.css'
+
 // export javascript colours for the SVG background in the button
 export const intentPrimary = '#4e56ea'
 export const intentNeutral = '#0080ff'
@@ -15,8 +17,6 @@ export const intentSecondary = '#4e56ea'
 export const elGlobals = css`
   :global() {
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap');
-    /* Root color pallet */
-    @import url('./../../tokens/reapit/tokens.css');
     /* Reset CSS */
     html,
     body,
