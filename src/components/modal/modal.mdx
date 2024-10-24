@@ -5,9 +5,25 @@ import * as ModalStories from './modal.stories'
 
 <Meta of={ModalStories} />
 
-# Modal
+# Modal (Deprecated)
 
 The modal component renders a dialog box that overlays the main screen. It is typically used for displaying confirmation or error notifications to users that require an addtional call to action or step.
+
+## Deprecation Notice
+
+The `Modal` component is deprecated and will be removed in the next major release. We strongly recommend transitioning to the more versatile and feature-rich [Dialog](/docs/components-dialog--docs) component for creating dialogs in your applications
+
+**Why is `Modal` being deprecated?**
+
+- The `Dialog` component offers a more comprehensive set of features, including customization options, and accessibility enhancements
+- Using the `Dialog` component aligns with our commitment to providing a consistent and modern user experience across our product line
+
+**Migration Guidance:**
+
+- Identify `Modal` Usage: Thoroughly review your codebase to locate all instances of the `Modal` component
+- Evaluate `Dialog` Suitability: Assess whether the `Dialog` component's features and capabilities meet your specific requirements
+- Transition Gradually: If feasible, gradually replace `Modal` components with `Dialog` components in a phased approach to minimize disruption
+- Leverage `Dialog` Features: Explore the `Dialog` component's extensive documentation and examples to effectively utilize its functionalities, such as custom titles, content, actions, and full-screen mode
 
 ## Styles Only Usage
 
