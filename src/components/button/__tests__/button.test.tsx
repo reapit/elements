@@ -35,6 +35,42 @@ describe('Button', () => {
 
     expect(onClickMock).toHaveBeenCalledTimes(1)
   })
+
+  test('should match snapshot for <ElAnchorButton> as a link button', () => {
+    const { asFragment } = renderButton({
+      href: 'https://example.com',
+      iconLeft: 'add',
+      target: '_blank',
+      rel: 'noopener noreferrer',
+    })
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  test('should match snapshot for <ElAnchorButton> when busy', () => {
+    const { asFragment } = renderButton({
+      href: 'https://example.com',
+      isBusy: true,
+    })
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  test('should match snapshot for <ElAnchorButton> when disabled', () => {
+    const { asFragment } = renderButton({
+      href: 'https://example.com',
+      isDisabled: true,
+      ariaLabel: 'Add Button',
+    })
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  test('should match snapshot for <ElAnchorButton> with icon only when busy', () => {
+    const { asFragment } = renderButton({
+      href: 'https://example.com',
+      isBusy: true,
+      iconOnly: 'settings',
+    })
+    expect(asFragment()).toMatchSnapshot()
+  })
 })
 
 /** @deprecated */
