@@ -38,9 +38,11 @@ export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, 
 
   useEffect(handleModalFocus(modalRef, isOpen), [modalRef, isOpen])
 
-  if (!isOpen) return null
+  useEffect(() => {
+    console.warn('Modal component will be removed in future major version. Use `Dialog` component instead')
+  }, [])
 
-  console.warn('Modal component will be removed in future major version. Use `Dialog` component instead')
+  if (!isOpen) return null
 
   return (
     <>

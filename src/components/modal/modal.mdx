@@ -13,17 +13,95 @@ The modal component renders a dialog box that overlays the main screen. It is ty
 
 The `Modal` component is deprecated and will be removed in the next major release. We strongly recommend transitioning to the more versatile and feature-rich [Dialog](/docs/components-dialog--docs) component for creating dialogs in your applications
 
-**Why is `Modal` being deprecated?**
+### Why is `Modal` being deprecated?
 
 - The `Dialog` component offers a more comprehensive set of features, including customization options, and accessibility enhancements
 - Using the `Dialog` component aligns with our commitment to providing a consistent and modern user experience across our product line
 
-**Migration Guidance:**
+### Key Differences and Considerations:
 
-- Identify `Modal` Usage: Thoroughly review your codebase to locate all instances of the `Modal` component
-- Evaluate `Dialog` Suitability: Assess whether the `Dialog` component's features and capabilities meet your specific requirements
-- Transition Gradually: If feasible, gradually replace `Modal` components with `Dialog` components in a phased approach to minimize disruption
-- Leverage `Dialog` Features: Explore the `Dialog` component's extensive documentation and examples to effectively utilize its functionalities, such as custom titles, content, actions, and full-screen mode
+While both `Modal` and `Dialog` components are used to display overlay content, the `Dialog` component offers a more flexible and customizable approach
+
+**Structure:**
+
+- Modal: A simpler structure with a single container for content and actions
+- Dialog: A more structured approach with separate components for header, body, and footer, allowing for more flexibility and customization
+
+**Props:**
+
+- Modal: Typically uses props like `isOpen`, `onClose`, `title`, and `children`
+- Dialog: Passes the `isOpen` prop to control visibility and utilizes `Dialog` structure components (`Header`, `Body`, and `Footer`) for content and actions
+
+## React Code Example: Migration from `Modal` to `Dialog`
+
+### Before (Modal)
+
+```tsx
+import { Modal } from '@reapit/elements'
+
+const MyModal = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <>
+      <ButtonGroup>
+        <Button intent="secondary" onClick={() => setIsOpen(true)}>
+          Open Modal
+        </Button>
+      </ButtonGroup>
+      <Modal isOpen={modalIsOpen} onModalClose={() => setModalIsOpen(!modalIsOpen)} title="Welcome to the demo modal">
+        <TextBase>Here's some nice content for the inside of the modal.</TextBase>
+        <ButtonGroup>
+          <Button intent="secondary" onClick={() => setIsOpen(false)}>
+            Cancel
+          </Button>
+          <Button intent="primary" onClick={() => setIsOpen(false)}>
+            Close
+          </Button>
+        </ButtonGroup>
+      </Modal>
+    </>
+  )
+}
+```
+
+### After (Dialog)
+
+```tsx
+import { Dialog } from '@reapit/elements'
+
+const MyDialog = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <>
+      <ButtonGroup>
+        <Button intent="secondary" onClick={() => setIsOpen(true)}>
+          Open Dialog
+        </Button>
+      </ButtonGroup>
+      <Dialog isOpen={isOpen} title="Welcome to the demo dialog" onClose={() => setIsOpen(false)}>
+        <Dialog.Header>
+          <Dialog.Title>Welcome to the demo dialog</Dialog.Title>
+        </Dialog.Header>
+        <Dialog.Body>
+          <TextBase>Here's some nice content for the inside of the dialog.</TextBase>
+        </Dialog.Body>
+        <Dialog.Footer>
+          <ButtonGroup>
+            <Button intent="secondary" onClick={() => setIsOpen(false)}>
+              Cancel
+            </Button>
+            <Button intent="primary" onClick={() => setIsOpen(false)}>
+              Close
+            </Button>
+          </ButtonGroup>
+        </Dialog.Footer>
+      </Dialog>
+    </>
+  )
+}
+```
 
 ## Styles Only Usage
 
