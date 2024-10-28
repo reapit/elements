@@ -1,4 +1,12 @@
-import { HTMLAttributes, AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEventHandler, ReactNode } from 'react'
+import {
+  HTMLAttributes,
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  FC,
+  MouseEvent,
+  MouseEventHandler,
+  ReactNode,
+} from 'react'
 import {
   ElButton,
   elButtonSizeLarge,
@@ -49,7 +57,7 @@ interface ButtonAsAnchorElementProps extends CommonButtonProps, AnchorHTMLAttrib
   rel?: string
   /** Anchor elements cannot be disabled. Use a button element if the component needs to be in a disabled state */
   disabled?: never
-  onClick?: never
+  onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
 type ButtonProps = ButtonAsButtonElementProps | ButtonAsAnchorElementProps
@@ -57,6 +65,12 @@ type ButtonProps = ButtonAsButtonElementProps | ButtonAsAnchorElementProps
 function isButtonAsButtonElement(props: ButtonProps): props is ButtonAsButtonElementProps {
   return !props.href
 }
+
+export const handleButtonClick =
+  (onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>) =>
+  (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
+    if (onClick) onClick(e)
+  }
 
 /** @deprecated */
 export interface FloatingButtonProps extends ButtonAsButtonElementProps {
@@ -107,6 +121,10 @@ export const Button: FC<ButtonProps> = ({
         href={href}
         data-variant={variant}
         className={combinedClassName}
+        onClick={(e) => {
+          e.preventDefault()
+          handleButtonClick(onClick)
+        }}
         aria-label={ariaLabel}
         role="button"
         target={target}
@@ -124,7 +142,7 @@ export const Button: FC<ButtonProps> = ({
       <ElButton
         data-variant={variant}
         className={combinedClassName}
-        onClick={(e) => onClick?.(e)}
+        onClick={handleButtonClick(onClick)}
         aria-label={ariaLabel}
         aria-disabled={disabled}
         role="button"
