@@ -1,45 +1,50 @@
 import { render, fireEvent } from '@testing-library/react'
-import { Button, ButtonProps, DeprecatedButtonGroup } from '../index'
-
-const renderButton = (props: Partial<ButtonProps> = {}) => {
-  const defaultProps: ButtonProps = {
-    children: 'Button',
-    onClick: jest.fn(),
-    disabled: false,
-    ...props,
-  }
-  return render(<Button {...defaultProps} />)
-}
+import { Button, DeprecatedButtonGroup, FloatingButton } from '../index'
+import { Icon } from '@/components/icon'
 
 describe('Button', () => {
-  test('should match a snapshot', () => {
-    const { asFragment } = renderButton()
+  test('should match snapshot', () => {
+    const { asFragment } = render(<Button>Button</Button>)
     expect(asFragment()).toMatchSnapshot()
   })
 
-  test('should match variant with snapshot', () => {
-    const { asFragment } = renderButton({ isPrimary: true, iconRight: 'star', iconLeft: 'star' })
+  test('should match snapshot with variant and icons', () => {
+    const { asFragment } = render(
+      <Button variant="primary" iconLeft={<Icon icon="star" />} iconRight={<Icon icon="star" />}>
+        Button
+      </Button>,
+    )
     expect(asFragment()).toMatchSnapshot()
   })
 
-  test('should match icon only button with snapshot', () => {
-    const { asFragment } = renderButton({ iconOnly: 'star' })
+  test('should match snapshot for icon-only button', () => {
+    const { asFragment } = render(<Button variant="primary" iconLeft={<Icon icon="star" />} />)
     expect(asFragment()).toMatchSnapshot()
   })
 
-  test('should fire a native click event correctly', async () => {
+  test('should fire click event on button element', () => {
     const onClickMock = jest.fn()
-    const wrapper = renderButton({ onClick: onClickMock })
+    const { asFragment, getByText } = render(<Button onClick={onClickMock}>Button</Button>)
 
-    fireEvent.click(wrapper.getByText('Button'))
+    // Capture the initial render as a snapshot
+    expect(asFragment()).toMatchSnapshot()
 
+    // Capture click event
+    fireEvent.click(getByText('Button'))
     expect(onClickMock).toHaveBeenCalledTimes(1)
+  })
+})
+
+describe('FloatingButton', () => {
+  test('should render FloatingButton with icon', () => {
+    const { asFragment } = render(<FloatingButton icon="star" />)
+    expect(asFragment()).toMatchSnapshot()
   })
 })
 
 /** @deprecated */
 describe('DeprecatedButtonGroup', () => {
-  test('should match a snapshot for align left', () => {
+  test('should match snapshot for align left', () => {
     const { asFragment } = render(
       <DeprecatedButtonGroup alignment="left">
         <Button>1</Button>
@@ -50,7 +55,7 @@ describe('DeprecatedButtonGroup', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  test('should match a snapshot for align right', () => {
+  test('should match snapshot for align right', () => {
     const { asFragment } = render(
       <DeprecatedButtonGroup alignment="right">
         <Button>1</Button>
@@ -61,7 +66,7 @@ describe('DeprecatedButtonGroup', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  test('should match a snapshot for align center', () => {
+  test('should match snapshot for align center', () => {
     const { asFragment } = render(
       <DeprecatedButtonGroup alignment="center">
         <Button>1</Button>

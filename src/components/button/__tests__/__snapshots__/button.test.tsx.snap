@@ -1,11 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button should match a snapshot 1`] = `
+exports[`Button should fire click event on button element 1`] = `
 <DocumentFragment>
   <mock-styled.button
     aria-disabled="false"
     classname="mock-css."
-    disabled="false"
     role="button"
   >
     <mock-styled.div />
@@ -14,52 +13,76 @@ exports[`Button should match a snapshot 1`] = `
 </DocumentFragment>
 `;
 
-exports[`Button should match icon only button with snapshot 1`] = `
+exports[`Button should match snapshot 1`] = `
 <DocumentFragment>
   <mock-styled.button
     aria-disabled="false"
-    aria-label="star"
-    classname="mock-css.
+    classname="mock-css."
+    role="button"
+  >
+    <mock-styled.div />
+    Button
+  </mock-styled.button>
+</DocumentFragment>
+`;
+
+exports[`Button should match snapshot for icon-only button 1`] = `
+<DocumentFragment>
+  <mock-styled.button
+    aria-disabled="false"
+    classname="mock-css. mock-css.
   padding: var(--spacing-2);
   , {
     margin: 0 0.125rem;
   }
- mock-css."
-    disabled="false"
+"
+    data-variant="primary"
     role="button"
   >
     <mock-styled.div />
-    <mock-styled.div
-      fontsize="1rem"
-      icon="star"
-    />
+    <mock-styled.span
+      classname=""
+    >
+      <svg
+        role="img"
+        title="Icon image with name star"
+      />
+    </mock-styled.span>
   </mock-styled.button>
 </DocumentFragment>
 `;
 
-exports[`Button should match variant with snapshot 1`] = `
+exports[`Button should match snapshot with variant and icons 1`] = `
 <DocumentFragment>
   <mock-styled.button
     aria-disabled="false"
-    classname="mock-css. mock-css."
-    disabled="false"
+    classname="mock-css."
+    data-variant="primary"
     role="button"
   >
     <mock-styled.div />
-    <mock-styled.div
-      fontsize="1rem"
-      icon="star"
-    />
+    <mock-styled.span
+      classname=""
+    >
+      <svg
+        role="img"
+        title="Icon image with name star"
+      />
+    </mock-styled.span>
     Button
-    <mock-styled.div
-      fontsize="1rem"
-      icon="star"
-    />
+    <mock-styled.span
+      classname=""
+    >
+      <svg
+        role="img"
+        title="Icon image with name star"
+      />
+    </mock-styled.span>
   </mock-styled.button>
 </DocumentFragment>
 `;
 
-exports[`DeprecatedButtonGroup should match a snapshot for align center 1`] = `
+exports[`DeprecatedButtonGroup should match snapshot for align center 1`] = `
 <DocumentFragment>
   <mock-styled.div>
     <mock-styled.div
@@ -68,7 +91,6 @@ exports[`DeprecatedButtonGroup should match a snapshot for align center 1`] = `
       <mock-styled.button
         aria-disabled="false"
         classname="mock-css."
-        disabled="false"
         role="button"
       >
         <mock-styled.div />
@@ -77,7 +99,6 @@ exports[`DeprecatedButtonGroup should match a snapshot for align center 1`] = `
       <mock-styled.button
         aria-disabled="false"
         classname="mock-css."
-        disabled="false"
         role="button"
       >
         <mock-styled.div />
@@ -86,7 +107,6 @@ exports[`DeprecatedButtonGroup should match a snapshot for align center 1`] = `
       <mock-styled.button
         aria-disabled="false"
         classname="mock-css."
-        disabled="false"
         role="button"
       >
         <mock-styled.div />
@@ -97,7 +117,7 @@ exports[`DeprecatedButtonGroup should match a snapshot for align center 1`] = `
 </DocumentFragment>
 `;
 
-exports[`DeprecatedButtonGroup should match a snapshot for align left 1`] = `
+exports[`DeprecatedButtonGroup should match snapshot for align left 1`] = `
 <DocumentFragment>
   <mock-styled.div>
     <mock-styled.div
@@ -106,7 +126,6 @@ exports[`DeprecatedButtonGroup should match a snapshot for align left 1`] = `
       <mock-styled.button
         aria-disabled="false"
         classname="mock-css."
-        disabled="false"
         role="button"
       >
         <mock-styled.div />
@@ -115,7 +134,6 @@ exports[`DeprecatedButtonGroup should match a snapshot for align left 1`] = `
       <mock-styled.button
         aria-disabled="false"
         classname="mock-css."
-        disabled="false"
         role="button"
       >
         <mock-styled.div />
@@ -124,7 +142,6 @@ exports[`DeprecatedButtonGroup should match a snapshot for align left 1`] = `
       <mock-styled.button
         aria-disabled="false"
         classname="mock-css."
-        disabled="false"
         role="button"
       >
         <mock-styled.div />
@@ -135,7 +152,7 @@ exports[`DeprecatedButtonGroup should match a snapshot for align left 1`] = `
 </DocumentFragment>
 `;
 
-exports[`DeprecatedButtonGroup should match a snapshot for align right 1`] = `
+exports[`DeprecatedButtonGroup should match snapshot for align right 1`] = `
 <DocumentFragment>
   <mock-styled.div>
     <mock-styled.div
@@ -144,7 +161,6 @@ exports[`DeprecatedButtonGroup should match a snapshot for align right 1`] = `
       <mock-styled.button
         aria-disabled="false"
         classname="mock-css."
-        disabled="false"
         role="button"
       >
         <mock-styled.div />
@@ -153,7 +169,6 @@ exports[`DeprecatedButtonGroup should match a snapshot for align right 1`] = `
       <mock-styled.button
         aria-disabled="false"
         classname="mock-css."
-        disabled="false"
         role="button"
       >
         <mock-styled.div />
@@ -162,7 +177,6 @@ exports[`DeprecatedButtonGroup should match a snapshot for align right 1`] = `
       <mock-styled.button
         aria-disabled="false"
         classname="mock-css."
-        disabled="false"
         role="button"
       >
         <mock-styled.div />
@@ -170,5 +184,30 @@ exports[`DeprecatedButtonGroup should match a snapshot for align right 1`] = `
       </mock-styled.button>
     </mock-styled.div>
   </mock-styled.div>
+</DocumentFragment>
+`;
+
+exports[`FloatingButton should render FloatingButton with icon 1`] = `
+<DocumentFragment>
+  <mock-styled.button
+    aria-disabled="false"
+    classname="mock-css. mock-css. mock-css.
+  padding: var(--spacing-2);
+  , {
+    margin: 0 0.125rem;
+  }
+"
+    role="button"
+  >
+    <mock-styled.div />
+    <mock-styled.span
+      classname=""
+    >
+      <svg
+        role="img"
+        title="Icon image with name star"
+      />
+    </mock-styled.span>
+  </mock-styled.button>
 </DocumentFragment>
 `;
