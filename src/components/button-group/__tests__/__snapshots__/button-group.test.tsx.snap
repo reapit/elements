@@ -6,7 +6,6 @@ exports[`ButtonGroup renders its children horizontally with a gap of --spacing-2
     <mock-styled.button
       aria-disabled="false"
       classname="mock-css."
-      disabled="false"
       role="button"
     >
       <mock-styled.div />
@@ -15,7 +14,6 @@ exports[`ButtonGroup renders its children horizontally with a gap of --spacing-2
     <mock-styled.button
       aria-disabled="false"
       classname="mock-css."
-      disabled="false"
       role="button"
     >
       <mock-styled.div />
@@ -24,7 +22,6 @@ exports[`ButtonGroup renders its children horizontally with a gap of --spacing-2
     <mock-styled.button
       aria-disabled="false"
       classname="mock-css."
-      disabled="false"
       role="button"
     >
       <mock-styled.div />

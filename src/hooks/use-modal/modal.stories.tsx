@@ -12,14 +12,14 @@ export const BasicUsage = {
 
     return (
       <>
-        <Button isPrimary onClick={openModal}>
+        <Button variant="primary" onClick={openModal}>
           Open Modal
         </Button>
         <ModalComponent title="Welcome to the demo modal">
           <TextBase>Here&apos;s some nice content for the inside of the modal.</TextBase>
           <DeprecatedButtonGroup alignment="right">
             <Button onClick={closeModal}>Close</Button>
-            <Button isPrimary onClick={console.log}>
+            <Button variant="primary" onClick={console.log}>
               Do Something
             </Button>
           </DeprecatedButtonGroup>
@@ -37,10 +37,10 @@ export const MultipleModals = {
     return (
       <>
         <DeprecatedButtonGroup>
-          <Button isPrimary onClick={openModalA}>
+          <Button variant="primary" onClick={openModalA}>
             Open Modal A
           </Button>
-          <Button isPrimary onClick={openModalB}>
+          <Button variant="primary" onClick={openModalB}>
             Open Modal B
           </Button>
         </DeprecatedButtonGroup>

@@ -24,7 +24,7 @@ export const ReactUsage = {
 
     return (
       <>
-        <Button isPrimary onClick={openDrawer}>
+        <Button variant="primary" onClick={openDrawer}>
           Open Drawer
         </Button>
         <ExampleDrawer
@@ -49,7 +49,7 @@ export const ReactUsageWithForm = {
 
     return (
       <>
-        <Button isPrimary onClick={openDrawer}>
+        <Button variant="primary" onClick={openDrawer}>
           Open Drawer
         </Button>
         <ExampleDrawer
@@ -99,7 +99,7 @@ export const ReactUsageCanDismiss = {
 
     return (
       <>
-        <Button isPrimary onClick={openDrawer}>
+        <Button variant="primary" onClick={openDrawer}>
           Open Drawer
         </Button>
         <ExampleDrawer

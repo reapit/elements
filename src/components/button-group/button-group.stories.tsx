@@ -2,6 +2,7 @@ import { ButtonGroup } from './button-group'
 import { Button } from '../button'
 import { Meta } from '@storybook/react'
 import { figmaDesignUrls } from '../../storybook/figma'
+import { Icon } from '../icon'
 
 const meta: Meta<typeof ButtonGroup> = {
   title: 'Components/ButtonGroup',
@@ -36,7 +37,7 @@ export const WithPrimaryButton = {
       <Button>Button 2</Button>
       <Button>Button 3</Button>
       <Button>Button 4</Button>
-      <Button isPrimary>Button 5</Button>
+      <Button variant="primary">Button 5</Button>
     </ButtonGroup>
   ),
   parameters: {
@@ -55,7 +56,7 @@ export const WithIconOnlyButton = {
       <Button>Button 2</Button>
       <Button>Button 3</Button>
       <Button>Button 4</Button>
-      <Button iconOnly="more"></Button>
+      <Button iconLeft={<Icon icon="more" fontSize="1rem" />} />
     </ButtonGroup>
   ),
   parameters: {

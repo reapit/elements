@@ -62,7 +62,7 @@ export const StepsVerticalUsage = {
         <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
         <DeprecatedButtonGroup>
           <Button
-            isPrimary
+            variant="primary"
             onClick={() =>
               setSelectedStep((currentStep) => {
                 const numericStep = Number(currentStep)

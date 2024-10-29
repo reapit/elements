@@ -60,7 +60,7 @@ interface ButtonAsAnchorElementProps extends CommonButtonProps, AnchorHTMLAttrib
   onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
-type ButtonProps = ButtonAsButtonElementProps | ButtonAsAnchorElementProps
+export type ButtonProps = ButtonAsButtonElementProps | ButtonAsAnchorElementProps
 
 function isButtonAsButtonElement(props: ButtonProps): props is ButtonAsButtonElementProps {
   return !props.href

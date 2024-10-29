@@ -707,8 +707,8 @@ exports[`PageHeader component should match a snapshot 1`] = `
               >
                 <mock-styled.button
                   aria-disabled="false"
-                  classname="mock-css. mock-css."
-                  disabled="false"
+                  classname="mock-css."
+                  data-variant="primary"
                   role="button"
                 >
                   <mock-styled.div />
@@ -717,7 +717,6 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 <mock-styled.button
                   aria-disabled="false"
                   classname="mock-css."
-                  disabled="false"
                   role="button"
                 >
                   <mock-styled.div />
@@ -1511,8 +1510,8 @@ exports[`PageHeader component should match a snapshot 1`] = `
             >
               <mock-styled.button
                 aria-disabled="false"
-                classname="mock-css. mock-css."
-                disabled="false"
+                classname="mock-css."
+                data-variant="primary"
                 role="button"
               >
                 <mock-styled.div />
@@ -1521,7 +1520,6 @@ exports[`PageHeader component should match a snapshot 1`] = `
               <mock-styled.button
                 aria-disabled="false"
                 classname="mock-css."
-                disabled="false"
                 role="button"
               >
                 <mock-styled.div />

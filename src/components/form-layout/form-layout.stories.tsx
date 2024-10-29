@@ -84,7 +84,7 @@ export const BasicForm = {
       </FormLayout>
       <DeprecatedButtonGroup alignment="left">
         <Button>Cancel</Button>
-        <Button isPrimary>Submit</Button>
+        <Button variant="primary">Submit</Button>
       </DeprecatedButtonGroup>
     </form>
   ),
@@ -203,7 +203,7 @@ export const ComplexForm = {
       </FormLayout>
       <DeprecatedButtonGroup alignment="left">
         <Button>Cancel</Button>
-        <Button isPrimary>Submit</Button>
+        <Button variant="primary">Submit</Button>
       </DeprecatedButtonGroup>
     </form>
   ),

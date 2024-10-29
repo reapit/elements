@@ -66,7 +66,7 @@ export const MobileControls: FC<MobileControlsProps> = ({
             {label}
           </ElMobileControlItem>
         ))}
-        <FloatingButton aria-controls={id} isPrimary icon={buttonIcon ? buttonIcon : 'menu'} />
+        <FloatingButton aria-controls={id} variant="primary" icon={buttonIcon ? buttonIcon : 'menu'} />
       </ElMobileControls>
     </>
   )

@@ -62,7 +62,7 @@ describe('PageHeader component', () => {
         buttons={[
           {
             children: 'Button 1',
-            isPrimary: true,
+            variant: 'primary',
           },
           {
             children: 'Button 2',

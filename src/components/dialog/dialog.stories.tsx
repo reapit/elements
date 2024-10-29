@@ -44,7 +44,7 @@ export const BasicUsageSmall: Story = {
         <ElDialogFooter>
           <ButtonGroup>
             <Button>Cancel</Button>
-            <Button isPrimary>Close</Button>
+            <Button variant="primary">Close</Button>
           </ButtonGroup>
         </ElDialogFooter>
       </ElDialog>
@@ -63,7 +63,7 @@ export const BasicUsageMedium: Story = {
         <ElDialogFooter>
           <ButtonGroup>
             <Button>Cancel</Button>
-            <Button isPrimary>Close</Button>
+            <Button variant="primary">Close</Button>
           </ButtonGroup>
         </ElDialogFooter>
       </ElDialog>
@@ -95,7 +95,7 @@ export const ReactUsage: Story = {
           <Dialog.Footer>
             <ButtonGroup>
               <Button onClick={() => setIsOpen(false)}>Cancel</Button>
-              <Button isPrimary onClick={() => setIsOpen(false)}>
+              <Button variant="primary" onClick={() => setIsOpen(false)}>
                 Close
               </Button>
             </ButtonGroup>
