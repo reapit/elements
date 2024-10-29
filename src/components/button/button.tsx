@@ -1,16 +1,18 @@
-import { HTMLAttributes, AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEvent, MouseEventHandler } from 'react'
 import {
-  elButtonDestructive,
-  elButtonBusy,
+  HTMLAttributes,
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  FC,
+  MouseEvent,
+  MouseEventHandler,
+  ReactNode,
+} from 'react'
+import {
   ElButton,
-  elButtonPrimary,
-  elButtonSecondary,
   elButtonSizeLarge,
   elButtonSizeMedium,
   elButtonSizeSmall,
-  elButtonTertiary,
   elButtonIconOnly,
-  ElButtonIcon,
   ElButtonSpinner,
   ElAnchorButton,
   elButtonDisabled,
@@ -21,37 +23,47 @@ import {
   elButtonGroupAlignRight,
   elButtonGroupAlignCenter,
 } from './styles'
-import { IconNames } from '../icon'
+import { Icon, IconNames } from '../icon'
 import { cx } from '@linaria/core'
 
 type ButtonSize = 'small' | 'medium' | 'large'
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement | HTMLAnchorElement> {
-  isPrimary?: boolean
-  isSecondary?: boolean
-  isTertiary?: boolean
-  isDestructive?: boolean
-  isBusy?: boolean
-  isToggle?: boolean
-  isPressed?: boolean
+type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'destructive' | 'busy'
+type NonBusyButtonVariant = Exclude<ButtonVariant, 'busy'>
+
+interface CommonButtonProps {
+  children?: ReactNode
+  variant?: ButtonVariant
   size?: ButtonSize
-  iconOnly?: IconNames
-  iconLeft?: IconNames
-  iconRight?: IconNames
-  onClick?: MouseEventHandler<HTMLButtonElement>
-  /** The lable for button. It must be supplied for buttons with no `children` */
+  iconLeft?: ReactNode
+  iconRight?: ReactNode
+  /** The label for button. It must be supplied for buttons with no `children` */
   ariaLabel?: string
-  isDisabled?: boolean
-  href?: string
-  target?: AnchorHTMLAttributes<HTMLAnchorElement>['target']
-  rel?: AnchorHTMLAttributes<HTMLAnchorElement>['rel']
   className?: string
 }
 
-const fontSizeMap: Record<ButtonSize, string> = {
-  small: '1rem',
-  medium: '1rem',
-  large: '1.25rem',
+interface ButtonAsButtonElementProps extends CommonButtonProps, ButtonHTMLAttributes<HTMLButtonElement> {
+  href?: never
+  target?: never
+  disabled?: boolean
+  onClick?: MouseEventHandler<HTMLButtonElement>
+}
+
+interface ButtonAsAnchorElementProps extends CommonButtonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+  variant?: NonBusyButtonVariant
+  /** Button styled <a> element should always have href */
+  href: string
+  target?: string
+  rel?: string
+  /** Anchor elements cannot be disabled. Use a button element if the component needs to be in a disabled state */
+  disabled?: never
+  onClick?: MouseEventHandler<HTMLAnchorElement>
+}
+
+type ButtonProps = ButtonAsButtonElementProps | ButtonAsAnchorElementProps
+
+function isButtonAsButtonElement(props: ButtonProps): props is ButtonAsButtonElementProps {
+  return !props.href
 }
 
 export const handleButtonClick =
@@ -61,7 +73,7 @@ export const handleButtonClick =
   }
 
 /** @deprecated */
-export interface FloatingButtonProps extends ButtonProps {
+export interface FloatingButtonProps extends ButtonAsButtonElementProps {
   icon: IconNames
 }
 
@@ -77,109 +89,72 @@ export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
 
 export const Button: FC<ButtonProps> = ({
   children,
-  isPrimary,
-  isSecondary,
-  isTertiary,
-  isDestructive,
-  isBusy = false,
-  isToggle = false,
-  isPressed,
+  variant,
   size = 'medium',
-  iconOnly,
   iconLeft,
   iconRight,
   onClick,
   ariaLabel,
-  isDisabled = false,
+  disabled = false,
   href,
   target,
   rel,
   className,
   ...rest
 }) => {
-  const variant =
-    (isPrimary && elButtonPrimary) ||
-    (isSecondary && elButtonSecondary) ||
-    (isTertiary && elButtonTertiary) ||
-    (isDestructive && elButtonDestructive) ||
-    '' // Default to empty - secondary Button style applied to default
-
   const sizeClass = cx(
-    iconOnly && elButtonIconOnly,
     size === 'small' && elButtonSizeSmall,
     size === 'medium' && elButtonSizeMedium,
     size === 'large' && elButtonSizeLarge,
   )
 
   const miscellaneousClass = cx(
-    isBusy && elButtonBusy,
-    isDisabled && elButtonDisabled, // UI for disabled Anchor element
-    !children && isBusy && elButtonIconOnly, // if no children(label) and is busy then add el-button-icon-only class
+    disabled && elButtonDisabled, // UI for disabled Anchor element // Need to remove this.
+    !children && elButtonIconOnly, // if no children(label) then add el-button-icon-only class
   )
 
-  // Determine the icon font size based on the button size
-  const iconFontSize = fontSizeMap[size]
+  const combinedClassName = cx(className, sizeClass, miscellaneousClass)
 
-  const combinedClassName = cx(className, sizeClass, variant, miscellaneousClass)
-
-  console.log('c', combinedClassName)
-
-  if (href) {
+  if (!isButtonAsButtonElement({ href })) {
     return (
       <ElAnchorButton
-        href={isDisabled || isBusy ? undefined : href}
+        href={href}
+        data-variant={variant}
         className={combinedClassName}
         onClick={(e) => {
-          if (isDisabled) {
-            e.preventDefault() // Prevent default action if disabled
-          } else {
-            handleButtonClick(onClick)(e)
-          }
+          e.preventDefault()
+          handleButtonClick(onClick)
         }}
-        aria-label={ariaLabel || (iconOnly ? iconOnly : undefined)}
-        aria-pressed={isToggle ? isPressed : undefined}
-        aria-disabled={isDisabled ? 'true' : undefined}
+        aria-label={ariaLabel}
         role="button"
         target={target}
         rel={rel}
-        {...rest}
+        {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         <ElButtonSpinner />
-        {iconOnly && !isBusy ? (
-          <ElButtonIcon icon={iconOnly} fontSize={iconFontSize} />
-        ) : (
-          <>
-            {!isBusy && <>{iconLeft && <ElButtonIcon icon={iconLeft} fontSize={iconFontSize} />}</>}
-            {children}
-            {!isBusy && <>{iconRight && <ElButtonIcon icon={iconRight} fontSize={iconFontSize} />}</>}
-          </>
-        )}
+        {variant !== 'busy' && iconLeft}
+        {children}
+        {variant !== 'busy' && iconRight}
       </ElAnchorButton>
     )
+  } else {
+    return (
+      <ElButton
+        data-variant={variant}
+        className={combinedClassName}
+        onClick={handleButtonClick(onClick)}
+        aria-label={ariaLabel}
+        aria-disabled={disabled}
+        role="button"
+        {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
+      >
+        <ElButtonSpinner />
+        {variant !== 'busy' && iconLeft}
+        {children}
+        {variant !== 'busy' && iconRight}
+      </ElButton>
+    )
   }
-  return (
-    <ElButton
-      className={combinedClassName}
-      onClick={handleButtonClick(onClick)}
-      aria-label={ariaLabel || (iconOnly ? iconOnly : undefined)}
-      aria-pressed={isToggle ? isPressed : undefined}
-      aria-disabled={isDisabled}
-      disabled={isDisabled}
-      role="button"
-      {...rest}
-    >
-      <ElButtonSpinner />
-      {iconOnly && !isBusy ? (
-        <ElButtonIcon icon={iconOnly} fontSize={iconFontSize} />
-      ) : (
-        <>
-          {!isBusy && <>{iconLeft && <ElButtonIcon icon={iconLeft} fontSize={iconFontSize} />}</>}
-          {children}
-          {!isBusy && <>{iconRight && <ElButtonIcon icon={iconRight} fontSize={iconFontSize} />}</>}
-        </>
-      )}
-    </ElButton>
-  )
 }
 
 /**
@@ -202,5 +177,5 @@ export const DeprecatedButtonGroup: FC<ButtonGroupProps> = ({ children, alignmen
 /** @deprecated */
 // Removing ClassName fixes the issue with different UI, lets look into this
 export const FloatingButton: FC<FloatingButtonProps> = ({ className, icon, ...rest }) => {
-  return <Button className={cx(className, elFloatingButton)} iconOnly={icon} {...rest} />
+  return <Button className={cx(className, elFloatingButton)} iconLeft={<Icon icon={icon} />} {...rest} />
 }

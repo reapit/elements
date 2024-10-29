@@ -1,20 +1,14 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { Icon } from '../icon'
 import { isMobile } from '@/styles/media'
 
 export const elButtonSizeSmall = css``
 export const elButtonSizeMedium = css``
 export const elButtonSizeLarge = css``
 
-export const elButtonPrimary = css``
-export const elButtonSecondary = css``
-export const elButtonTertiary = css``
-export const elButtonDestructive = css``
-export const elButtonBusy = css``
 export const elButtonDisabled = css``
 
-export const elButtonIcon = css``
+export const elIcon = css``
 export const elButtonSpinner = css``
 
 /** @deprecated - Will be removed from future version */
@@ -68,11 +62,16 @@ const baseButtonStyles = `
   border-radius: var(--corner-default);
   border: 1px solid var(--outline-default);
   text-decoration: none; /* For anchors */
+  
+  .${elIcon} {
+    padding: var(--spacing-half);
+    color: var(--icon-primary);
+  }
 
   &:hover {
     color: var(--text-tertiary);
     border: 1px solid var(--outline-button-secondary-hover);
-    .${elButtonIcon} {
+    .${elIcon} {
       color: var(--icon-secondary);
     }
   }
@@ -89,53 +88,53 @@ const baseButtonStyles = `
     }
   }
 
-  &.${elButtonPrimary} {
+  &[data-variant='primary'] {
     background: var(--fill-action-dark);
     color: var(--text-white);
     border: unset;
 
-    .${elButtonIcon} {
+    .${elIcon} {
       color: var(--icon-button_primary-default);
     }
 
     &:hover {
       background: var(--fill-button-primary-hover);
-      .${elButtonIcon} {
+      .${elIcon} {
         color: var(--icon-button_primary-hover);
       }
     }
   }
 
-  &.${elButtonSecondary} {
+  &[data-variant='seconday'] {
     &:hover {
       color: var(--text-tertiary);
       border: 1px solid var(--outline-button-secondary-hover);
-      .${elButtonIcon} {
+      .${elIcon} {
         color: var(--icon-secondary);
       }
     }
   }
 
-  &.${elButtonTertiary} {
+  &[data-variant='tertiary'] {
     border: unset;
     &:hover {
       color: var(--text-tertiary);
-      .${elButtonIcon} {
+      .${elIcon} {
         color: var(--icon-secondary);
       }
     }
   }
 
-  &.${elButtonDestructive} {
+  &[data-variant='destructive'] {
     background: var(--fill-error-dark);
     color: var(--text-white);
     border: unset;
-    .${elButtonIcon} {
+    .${elIcon} {
       color: var(--icon-button_danger-default);
     }
     &:hover {
       background: var(--fill-button-danger-hover);
-      .${elButtonIcon} {
+      .${elIcon} {
         color: var(--icon-button_danger-hover);
       }
     }
@@ -143,35 +142,28 @@ const baseButtonStyles = `
 
   &[disabled],
   &.${elButtonDisabled},
-  &.${elButtonBusy},
-  &[disabled].${elButtonPrimary},
-  &[disabled].${elButtonSecondary},
-  &[disabled].${elButtonTertiary},
-  &[disabled].${elButtonDestructive},
-  &.${elButtonBusy}
-    .${elButtonPrimary},
-  &.${elButtonBusy}
-    .${elButtonSecondary},
-  &.${elButtonBusy}
-    .${elButtonTertiary},
-  &.${elButtonBusy}
-    .${elButtonDestructive} {
+  &[data-variant='busy'],
+  &[disabled][data-variant='primary'],
+  &[disabled][data-variant='secondary'],
+  &[disabled][data-variant='tertiary'],
+  &[disabled][data-variant='destructive'] {
     color: var(--text-placeholder);
     background-image: linear-gradient(to right, var(--neutral-100), var(--neutral-100));
     cursor: not-allowed;
     border: unset;
 
     &:hover {
-      .${elButtonIcon} {
+      .${elIcon} {
         color: var(--text-placeholder);
       }
     }
   }
 
-  &:focus {
+  &:focus-visible {
     box-shadow:
       0 0 0 1px white,
       0px 0px 0px 4px var(--blue-300);
+    outline: 0;
   }
   
   &.${elFloatingButton} {
@@ -189,9 +181,12 @@ const baseButtonStyles = `
       width: 2.5rem;
       height: 2.5rem;
       margin: 0.5rem;
+      .${elIcon} {
+        font-size: 1rem;
+      }
     }
 
-    ${elButtonIcon} {
+    ${elIcon} {
       color: var(--neutral-400);
 
       &:hover {
@@ -199,19 +194,19 @@ const baseButtonStyles = `
       }
     }
 
-    &.${elButtonDestructive}, &.${elButtonPrimary} {
-      > .${elButtonIcon} {
+    &[data-variant='destructive'], &[data-variant='primary'] {
+      > .${elIcon} {
         color: var(--white);
       }
     }
 
-    &.${elButtonBusy} {
+    &[data-variant='busy'] {
       & ${elButtonSpinner} {
         left: inherit;
         top: inherit;
       }
 
-      > .${elButtonIcon} {
+      > .${elIcon} {
         visibility: hidden;
       }
     }
@@ -221,7 +216,7 @@ const baseButtonStyles = `
 // Apply shared styles to button component
 export const ElButton = styled.button`
   ${baseButtonStyles}
-  &.${elButtonBusy} {
+  &[data-variant='busy'] {
     ${ElButtonSpinner} {
       display: block;
     }
@@ -231,17 +226,6 @@ export const ElButton = styled.button`
 // Apply shared styles to anchor component
 export const ElAnchorButton = styled.a`
   ${baseButtonStyles}
-  &.${elButtonBusy} {
-    ${ElButtonSpinner} {
-      display: block;
-    }
-  }
-`
-
-// Button icon styling
-export const ElButtonIcon = styled(Icon)`
-  padding: var(--spacing-half);
-  color: var(--icon-primary);
 `
 
 export const elButtonIconOnly = css`

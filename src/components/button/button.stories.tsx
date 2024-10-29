@@ -2,10 +2,39 @@ import { Meta } from '@storybook/react'
 import { Button } from './button'
 import { ButtonGroup } from '../button-group'
 import { action } from '@storybook/addon-actions'
+import { Icon } from '../icon'
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
   component: Button,
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['primary', 'secondary', 'tertiary', 'destructive', 'busy'],
+      description: 'Defines the button style variant.',
+    },
+    iconLeft: { control: 'text', description: 'The icon displayed on the left side of the button.' },
+    iconRight: { control: 'text', description: 'The icon displayed on the right side of the button.' },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+      description: 'Sets the button size.',
+    },
+    disabled: { control: 'boolean', description: 'Disables the button if set to true.' },
+    href: { control: 'text', description: 'Specifies the URL for anchor-style button' },
+    onClick: {
+      action: 'clicked',
+      description: 'Click handler for button',
+    },
+    ariaLabel: {
+      control: 'text',
+      description: 'Accessible label for button',
+    },
+    className: {
+      control: 'text',
+      description: 'CSS class for additional styling',
+    },
+  },
 }
 
 export default meta
@@ -17,16 +46,32 @@ export const Default = {
 export const ButtonVariants = {
   render: ({}) => (
     <ButtonGroup>
-      <Button isPrimary iconLeft="star" iconRight="star">
+      <Button
+        variant="primary"
+        iconLeft={<Icon icon="star" fontSize="1rem" />}
+        iconRight={<Icon icon="star" fontSize="1rem" />}
+      >
         Button
       </Button>
-      <Button isSecondary iconLeft="star" iconRight="star">
+      <Button
+        variant="secondary"
+        iconLeft={<Icon icon="star" fontSize="1rem" />}
+        iconRight={<Icon icon="star" fontSize="1rem" />}
+      >
         Button
       </Button>
-      <Button isTertiary iconLeft="star" iconRight="star">
+      <Button
+        variant="tertiary"
+        iconLeft={<Icon icon="star" fontSize="1rem" />}
+        iconRight={<Icon icon="star" fontSize="1rem" />}
+      >
         Button
       </Button>
-      <Button isDestructive iconLeft="star" iconRight="star">
+      <Button
+        variant="destructive"
+        iconLeft={<Icon icon="star" fontSize="1rem" />}
+        iconRight={<Icon icon="star" fontSize="1rem" />}
+      >
         Button
       </Button>
     </ButtonGroup>
@@ -36,8 +81,8 @@ export const ButtonVariants = {
 export const ButtonBusy = {
   render: ({}) => (
     <ButtonGroup>
-      <Button isBusy>Submit</Button>
-      <Button isBusy />
+      <Button variant="busy">Submit</Button>
+      <Button variant="busy" />
     </ButtonGroup>
   ),
 }
@@ -45,17 +90,21 @@ export const ButtonBusy = {
 export const ButtonWithIcon = {
   render: ({}) => (
     <ButtonGroup>
-      <Button iconLeft="star" iconRight="star">
+      <Button iconLeft={<Icon icon="star" fontSize="1rem" />} iconRight={<Icon icon="star" fontSize="1rem" />}>
         Button
       </Button>
-      <Button iconOnly="star" />
+      <Button iconLeft={<Icon icon="star" fontSize="1rem" />} />
     </ButtonGroup>
   ),
 }
 
 export const ButtonSize = {
   render: ({}) => (
-    <Button size="large" iconLeft="star" iconRight="star">
+    <Button
+      size="large"
+      iconLeft={<Icon icon="star" fontSize="1.25rem" />}
+      iconRight={<Icon icon="star" fontSize="1.25rem" />}
+    >
       Button
     </Button>
   ),
@@ -63,14 +112,14 @@ export const ButtonSize = {
 
 export const ButtonDisabled = {
   args: {
-    isDisabled: true,
+    disabled: true,
     children: 'Button Text',
   },
 }
 
 export const ButtonWithHref = {
   render: ({}) => (
-    <Button iconLeft="add" href="./?path=/story/components-button--button-with-href">
+    <Button iconLeft={<Icon icon="star" fontSize="1rem" />} href="./?path=/story/components-button--button-with-href">
       Add Item
     </Button>
   ),
