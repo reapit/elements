@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions'
 
 import { Button } from '../button'
 import { Dialog } from './dialog'
-import { ElDialog, ElDialogBody, ElDialogFooter, ElDialogHeader, ElDialogTitle } from './style'
+import { ElDialog, ElDialogBody, ElDialogFooter, ElDialogHeader, ElDialogTitle } from './styles'
 import { ButtonGroup } from '../button-group'
 
 const meta = {

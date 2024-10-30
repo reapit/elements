@@ -1,0 +1,27 @@
+import { Canvas, Meta } from '@storybook/blocks'
+import * as MenuStories from './menu.stories'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+<Meta of={MenuStories} />
+
+# Menu
+
+## Styles Only Usage
+
+The Menu component is a panel used to display a list of buttons and/or links which can be ordered in Menu Groups
+
+Each Menu Group can have a title shown above the list
+
+More features will be added to Menu in the future
+
+<Canvas of={MenuStories.StylesOnlyUsage} />
+
+<RenderHtmlMarkup of={MenuStories.StylesOnlyUsage} />
+
+## React Usage
+
+In the React Usage, you can compose your component using `Menu` component as example here
+
+<Canvas of={MenuStories.ReactUsage} />
+
+<RenderHtmlMarkup of={MenuStories.ReactUsage} />
