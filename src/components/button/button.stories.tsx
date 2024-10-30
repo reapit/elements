@@ -26,7 +26,7 @@ const meta: Meta<typeof Button> = {
       action: 'clicked',
       description: 'Click handler for button',
     },
-    ariaLabel: {
+    'aria-label': {
       control: 'text',
       description: 'Accessible label for button',
     },
