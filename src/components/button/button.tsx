@@ -15,7 +15,6 @@ import {
   elButtonIconOnly,
   ElButtonSpinner,
   ElAnchorButton,
-  elButtonDisabled,
   elFloatingButton,
   DeprecatedElButtonGroup,
   ElButtonGroupInner,
@@ -28,17 +27,17 @@ import { cx } from '@linaria/core'
 
 type ButtonSize = 'small' | 'medium' | 'large'
 
-type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'destructive' | 'busy'
-type NonBusyButtonVariant = Exclude<ButtonVariant, 'busy'>
+type ButtonAsButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'destructive' | 'busy'
+type ButtonAsAnchorVariant = Exclude<ButtonAsButtonVariant, 'busy'>
 
 interface CommonButtonProps {
   children?: ReactNode
-  variant?: ButtonVariant
+  variant?: ButtonAsButtonVariant
   size?: ButtonSize
   iconLeft?: ReactNode
   iconRight?: ReactNode
   /** The label for button. It must be supplied for buttons with no `children` */
-  ariaLabel?: string
+  'aria-label'?: string
   className?: string
 }
 
@@ -50,7 +49,7 @@ interface ButtonAsButtonElementProps extends CommonButtonProps, ButtonHTMLAttrib
 }
 
 interface ButtonAsAnchorElementProps extends CommonButtonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-  variant?: NonBusyButtonVariant
+  variant?: ButtonAsAnchorVariant
   /** Button styled <a> element should always have href */
   href: string
   target?: string
@@ -60,7 +59,7 @@ interface ButtonAsAnchorElementProps extends CommonButtonProps, AnchorHTMLAttrib
   onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
-type ButtonProps = ButtonAsButtonElementProps | ButtonAsAnchorElementProps
+export type ButtonProps = ButtonAsButtonElementProps | ButtonAsAnchorElementProps
 
 function isButtonAsButtonElement(props: ButtonProps): props is ButtonAsButtonElementProps {
   return !props.href
@@ -94,7 +93,7 @@ export const Button: FC<ButtonProps> = ({
   iconLeft,
   iconRight,
   onClick,
-  ariaLabel,
+  'aria-label': ariaLabel,
   disabled = false,
   href,
   target,
@@ -109,7 +108,6 @@ export const Button: FC<ButtonProps> = ({
   )
 
   const miscellaneousClass = cx(
-    disabled && elButtonDisabled, // UI for disabled Anchor element // Need to remove this.
     !children && elButtonIconOnly, // if no children(label) then add el-button-icon-only class
   )
 

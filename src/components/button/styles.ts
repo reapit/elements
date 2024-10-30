@@ -6,8 +6,6 @@ export const elButtonSizeSmall = css``
 export const elButtonSizeMedium = css``
 export const elButtonSizeLarge = css``
 
-export const elButtonDisabled = css``
-
 export const elIcon = css``
 export const elButtonSpinner = css``
 
@@ -141,20 +139,26 @@ const baseButtonStyles = `
   }
 
   &[disabled],
-  &.${elButtonDisabled},
+  &[aria-disabled="true"],
   &[data-variant='busy'],
   &[disabled][data-variant='primary'],
   &[disabled][data-variant='secondary'],
   &[disabled][data-variant='tertiary'],
   &[disabled][data-variant='destructive'] {
     color: var(--text-placeholder);
-    background-image: linear-gradient(to right, var(--neutral-100), var(--neutral-100));
+    background: var(--fill-default-light);
     cursor: not-allowed;
     border: unset;
 
+    .${elIcon} {
+      color: var(--icon-primary);
+    }
+
     &:hover {
+      background: var(--fill-default-light);
+      color: var(--text-placeholder);
       .${elIcon} {
-        color: var(--text-placeholder);
+        color: var(--icon-primary);
       }
     }
   }
