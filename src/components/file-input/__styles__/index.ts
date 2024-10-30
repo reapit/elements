@@ -1,6 +1,6 @@
 import { ElLabel } from '../../label/__styles__/index'
 import { ElIcon } from '../../icon/__styles__/index'
-import { ElButton } from '../../button/__styles__/index'
+import { ElButton } from '../../button/styles'
 import { styled } from '@linaria/react'
 
 export const ElFileInput = styled.input`

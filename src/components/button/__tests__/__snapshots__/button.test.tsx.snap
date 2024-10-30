@@ -26,6 +26,33 @@ exports[`Button should match snapshot 1`] = `
 </DocumentFragment>
 `;
 
+exports[`Button should match snapshot for <ElAnchorButton> as a link button 1`] = `
+<DocumentFragment>
+  <mock-styled.a
+    classname="mock-css. mock-css.
+  padding: var(--spacing-2);
+  , {
+    margin: 0 0.125rem;
+  }
+"
+    href="https://example.com"
+    rel="noOpener noReferrer"
+    role="button"
+    target="_blank"
+  >
+    <mock-styled.div />
+    <mock-styled.span
+      classname=""
+    >
+      <svg
+        role="img"
+        title="Icon image with name add"
+      />
+    </mock-styled.span>
+  </mock-styled.a>
+</DocumentFragment>
+`;
+
 exports[`Button should match snapshot for icon-only button 1`] = `
 <DocumentFragment>
   <mock-styled.button

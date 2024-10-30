@@ -62,11 +62,10 @@ describe('PageHeader component', () => {
         buttons={[
           {
             children: 'Button 1',
-            intent: 'default',
+            variant: 'primary',
           },
           {
             children: 'Button 2',
-            intent: 'default',
           },
         ]}
         tabs={{

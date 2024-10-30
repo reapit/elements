@@ -25,9 +25,11 @@ exports[`FileInput component should match a snapshot 1`] = `
 "
         >
           <mock-styled.button
+            aria-disabled="false"
             classname="mock-css.
   margin-right: var(--util-rems-4);
  mock-css."
+            role="button"
             type="button"
           >
             <mock-styled.div />
@@ -163,9 +165,11 @@ exports[`FileInput component should match a snapshot 1`] = `
 "
       >
         <mock-styled.button
+          aria-disabled="false"
           classname="mock-css.
   margin-right: var(--util-rems-4);
  mock-css."
+          role="button"
           type="button"
         >
           <mock-styled.div />
@@ -430,9 +434,11 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
 "
         >
           <mock-styled.button
+            aria-disabled="false"
             classname="mock-css.
   margin-right: var(--util-rems-4);
  mock-css."
+            role="button"
             type="button"
           >
             <mock-styled.div />
@@ -503,9 +509,11 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
 "
       >
         <mock-styled.button
+          aria-disabled="false"
           classname="mock-css.
   margin-right: var(--util-rems-4);
  mock-css."
+          role="button"
           type="button"
         >
           <mock-styled.div />

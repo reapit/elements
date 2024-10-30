@@ -33,6 +33,13 @@ describe('Button', () => {
     fireEvent.click(getByText('Button'))
     expect(onClickMock).toHaveBeenCalledTimes(1)
   })
+
+  test('should match snapshot for <ElAnchorButton> as a link button', () => {
+    const { asFragment } = render(
+      <Button href="https://example.com" iconLeft={<Icon icon="add" />} target="_blank" rel="noOpener noReferrer" />,
+    )
+    expect(asFragment()).toMatchSnapshot()
+  })
 })
 
 describe('FloatingButton', () => {
