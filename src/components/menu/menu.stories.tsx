@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ElMenuList, Menu } from '.'
 import { Button } from '../button'
+import { Icon } from '../icon'
 
 const meta: Meta<typeof Menu> = {
   title: 'Components/Menu',
@@ -20,15 +21,7 @@ export const ReactUsage: Story = {
     return (
       <Menu>
         <Menu.Trigger>
-          {({ getTriggerProps }) => (
-            <Button
-              {...getTriggerProps()}
-              buttonIcon={{
-                icon: 'more',
-                position: 'only',
-              }}
-            />
-          )}
+          {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
         </Menu.Trigger>
         <Menu.Popover>
           <Menu.List>Menu content</Menu.List>
