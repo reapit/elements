@@ -18,7 +18,8 @@ export const ElMenuList = styled.div`
   background-color: var(--fill-white);
   box-shadow: 0px 4px 16px 0px #222b3329;
 `
-export const ElMenuItem = styled.div`
+
+const baseMenuItemStyles = `
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -37,6 +38,20 @@ export const ElMenuItem = styled.div`
     color: var(--text-white);
     background: var(--fill-action-dark);
   }
+`
+
+export const ElMenuItemButton = styled.button`
+  ${baseMenuItemStyles}
+
+  /* customize html button */
+  width: 100%;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+`
+
+export const ElMenuItemAnchor = styled.a`
+  ${baseMenuItemStyles}
 `
 
 export const ElMenuItemGroupTitle = styled.span`

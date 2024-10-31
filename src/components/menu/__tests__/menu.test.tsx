@@ -7,7 +7,8 @@ describe('Menu list component', () => {
       <Menu>
         <Menu.List>
           <Menu.Group label="Group Title">
-            <Menu.Item>Menu item</Menu.Item>
+            <Menu.Item href="/#">Menu item as anchor</Menu.Item>
+            <Menu.Item>Menu item as button</Menu.Item>
           </Menu.Group>
         </Menu.List>
       </Menu>,

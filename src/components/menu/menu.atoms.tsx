@@ -1,5 +1,31 @@
-import { FC, HTMLAttributes } from 'react'
-import { ElMenuItem, ElMenuItemGroup, ElMenuItemGroupTitle } from './styles'
+import { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import { ElMenuItemAnchor, ElMenuItemButton, ElMenuItemGroup, ElMenuItemGroupTitle, ElMenuList } from './styles'
+
+interface CommonMenuItemProps {
+  children?: ReactNode
+  /**
+   * Whether the menu is closed when clicking this item
+   *
+   * @example
+   * <MenuItem closeMenu={false}>This won't close the menu</MenuItem>
+   *
+   * @default true
+   */
+  closeMenu?: boolean
+}
+
+interface MenuItemAsButtonElementProps extends CommonMenuItemProps, ButtonHTMLAttributes<HTMLButtonElement> {
+  href?: never
+  disabled?: boolean
+  onClick?: MouseEventHandler<HTMLButtonElement>
+}
+
+interface MenuItemAsAnchorElementProps extends CommonMenuItemProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+  /** MenuItemAsAnchor currently doesn't support disabled state */
+  disabled?: never
+}
+
+export type MenuItemProps = MenuItemAsButtonElementProps | MenuItemAsAnchorElementProps
 
 /**
  * The `MenuItemGroup` component is a wrapper for `MenuItem` which has optional label
@@ -18,23 +44,28 @@ export const MenuItemGroup: FC<
   )
 }
 
-export const MenuItem: FC<
-  HTMLAttributes<HTMLDivElement> & {
-    disabled?: boolean
-    /**
-     * Whether the menu is closed when clicking this item
-     *
-     * @example
-     * <MenuItem closeMenu={false}>This won't close the menu</MenuItem>
-     *
-     * @default true
-     */
-    closeMenu?: boolean
+export const MenuItem: FC<MenuItemProps> = ({ children, disabled, closeMenu = true, ...rest }) => {
+  if (!isItemAsButtonElement(rest)) {
+    return (
+      <ElMenuItemAnchor role="menuitem" data-close-menu={closeMenu} {...(rest as MenuItemAsAnchorElementProps)}>
+        {children}
+      </ElMenuItemAnchor>
+    )
   }
-> = ({ children, disabled, closeMenu = true, ...rest }) => {
+
   return (
-    <ElMenuItem role="menuitem" data-close-menu={closeMenu} aria-disabled={disabled} {...rest}>
+    <ElMenuItemButton role="menuitem" data-close-menu={closeMenu} aria-disabled={disabled} {...rest}>
       {children}
-    </ElMenuItem>
+    </ElMenuItemButton>
   )
+}
+
+export const MenuList: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => (
+  <ElMenuList role="menu" {...rest}>
+    {children}
+  </ElMenuList>
+)
+
+function isItemAsButtonElement(props: MenuItemProps): props is MenuItemAsButtonElementProps {
+  return !props.href
 }

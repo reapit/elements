@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ElMenuItem, ElMenuItemGroup, ElMenuItemGroupTitle, ElMenuList, Menu } from '.'
+import { ElMenuItemAnchor, ElMenuItemButton, ElMenuItemGroup, ElMenuItemGroupTitle, ElMenuList, Menu } from '.'
 import { Button } from '../button'
 
 const meta: Meta<typeof Menu> = {
@@ -12,12 +12,14 @@ type Story = StoryObj<typeof Menu>
 export const StylesOnlyUsage: StoryObj = {
   render: () => {
     return (
-      <ElMenuList>
+      <ElMenuList role="menu">
         <ElMenuItemGroup role="group">
           <ElMenuItemGroupTitle>Group Title</ElMenuItemGroupTitle>
-          <ElMenuItem role="menuitem">Menu Item</ElMenuItem>
-          <ElMenuItem role="menuitem">Menu Item</ElMenuItem>
-          <ElMenuItem role="menuitem">Menu Item</ElMenuItem>
+          <ElMenuItemButton role="menuitem">Menu Item</ElMenuItemButton>
+          <ElMenuItemButton role="menuitem">Menu Item</ElMenuItemButton>
+          <ElMenuItemAnchor href="/#" role="menuitem">
+            Menu Item as anchor
+          </ElMenuItemAnchor>
         </ElMenuItemGroup>
       </ElMenuList>
     )
@@ -43,7 +45,7 @@ export const ReactUsage: Story = {
           <Menu.List>
             <Menu.Group label="Group Title">
               <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
-              <Menu.Item>Menu Item</Menu.Item>
+              <Menu.Item href="/#">Menu Item as anchor</Menu.Item>
               <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
             </Menu.Group>
           </Menu.List>
