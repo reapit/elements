@@ -54,7 +54,7 @@ export const ElMenuItemAnchor = styled.a`
   ${baseMenuItemStyles}
 `
 
-export const ElMenuItemGroupTitle = styled.span`
+export const ElMenuItemGroupTitle = styled.div`
   font-family: var(--font-family);
   font-size: var(--font-size-2xs);
   font-style: normal;

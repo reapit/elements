@@ -9,9 +9,9 @@ exports[`Menu list component should render menu with list components and match s
       <mock-styled.div
         role="group"
       >
-        <mock-styled.span>
+        <mock-styled.div>
           Group Title
-        </mock-styled.span>
+        </mock-styled.div>
         <mock-styled.a
           data-close-menu="true"
           href="/#"
