@@ -9,7 +9,9 @@ exports[`ButtonGroup renders its children horizontally with a gap of --spacing-2
       role="button"
     >
       <mock-styled.div />
-      Button 1
+      <mock-styled.span>
+        Button 1
+      </mock-styled.span>
     </mock-styled.button>
     <mock-styled.button
       aria-disabled="false"
@@ -17,7 +19,9 @@ exports[`ButtonGroup renders its children horizontally with a gap of --spacing-2
       role="button"
     >
       <mock-styled.div />
-      Button 2
+      <mock-styled.span>
+        Button 2
+      </mock-styled.span>
     </mock-styled.button>
     <mock-styled.button
       aria-disabled="false"
@@ -25,7 +29,9 @@ exports[`ButtonGroup renders its children horizontally with a gap of --spacing-2
       role="button"
     >
       <mock-styled.div />
-      Button 3
+      <mock-styled.span>
+        Button 3
+      </mock-styled.span>
     </mock-styled.button>
   </mock-styled.div>
 </DocumentFragment>

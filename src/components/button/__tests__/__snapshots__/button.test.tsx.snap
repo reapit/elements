@@ -8,7 +8,9 @@ exports[`Button should fire click event on button element 1`] = `
     role="button"
   >
     <mock-styled.div />
-    Button
+    <mock-styled.span>
+      Button
+    </mock-styled.span>
   </mock-styled.button>
 </DocumentFragment>
 `;
@@ -21,7 +23,9 @@ exports[`Button should match snapshot 1`] = `
     role="button"
   >
     <mock-styled.div />
-    Button
+    <mock-styled.span>
+      Button
+    </mock-styled.span>
   </mock-styled.button>
 </DocumentFragment>
 `;
@@ -96,7 +100,9 @@ exports[`Button should match snapshot with variant and icons 1`] = `
         title="Icon image with name star"
       />
     </mock-styled.span>
-    Button
+    <mock-styled.span>
+      Button
+    </mock-styled.span>
     <mock-styled.span
       classname=""
     >
@@ -121,7 +127,9 @@ exports[`DeprecatedButtonGroup should match snapshot for align center 1`] = `
         role="button"
       >
         <mock-styled.div />
-        1
+        <mock-styled.span>
+          1
+        </mock-styled.span>
       </mock-styled.button>
       <mock-styled.button
         aria-disabled="false"
@@ -129,7 +137,9 @@ exports[`DeprecatedButtonGroup should match snapshot for align center 1`] = `
         role="button"
       >
         <mock-styled.div />
-        2
+        <mock-styled.span>
+          2
+        </mock-styled.span>
       </mock-styled.button>
       <mock-styled.button
         aria-disabled="false"
@@ -137,7 +147,9 @@ exports[`DeprecatedButtonGroup should match snapshot for align center 1`] = `
         role="button"
       >
         <mock-styled.div />
-        3
+        <mock-styled.span>
+          3
+        </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
   </mock-styled.div>
@@ -156,7 +168,9 @@ exports[`DeprecatedButtonGroup should match snapshot for align left 1`] = `
         role="button"
       >
         <mock-styled.div />
-        1
+        <mock-styled.span>
+          1
+        </mock-styled.span>
       </mock-styled.button>
       <mock-styled.button
         aria-disabled="false"
@@ -164,7 +178,9 @@ exports[`DeprecatedButtonGroup should match snapshot for align left 1`] = `
         role="button"
       >
         <mock-styled.div />
-        2
+        <mock-styled.span>
+          2
+        </mock-styled.span>
       </mock-styled.button>
       <mock-styled.button
         aria-disabled="false"
@@ -172,7 +188,9 @@ exports[`DeprecatedButtonGroup should match snapshot for align left 1`] = `
         role="button"
       >
         <mock-styled.div />
-        3
+        <mock-styled.span>
+          3
+        </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
   </mock-styled.div>
@@ -191,7 +209,9 @@ exports[`DeprecatedButtonGroup should match snapshot for align right 1`] = `
         role="button"
       >
         <mock-styled.div />
-        1
+        <mock-styled.span>
+          1
+        </mock-styled.span>
       </mock-styled.button>
       <mock-styled.button
         aria-disabled="false"
@@ -199,7 +219,9 @@ exports[`DeprecatedButtonGroup should match snapshot for align right 1`] = `
         role="button"
       >
         <mock-styled.div />
-        2
+        <mock-styled.span>
+          2
+        </mock-styled.span>
       </mock-styled.button>
       <mock-styled.button
         aria-disabled="false"
@@ -207,7 +229,9 @@ exports[`DeprecatedButtonGroup should match snapshot for align right 1`] = `
         role="button"
       >
         <mock-styled.div />
-        3
+        <mock-styled.span>
+          3
+        </mock-styled.span>
       </mock-styled.button>
     </mock-styled.div>
   </mock-styled.div>

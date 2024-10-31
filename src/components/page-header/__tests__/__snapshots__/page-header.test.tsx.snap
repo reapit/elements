@@ -712,7 +712,9 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   role="button"
                 >
                   <mock-styled.div />
-                  Button 1
+                  <mock-styled.span>
+                    Button 1
+                  </mock-styled.span>
                 </mock-styled.button>
                 <mock-styled.button
                   aria-disabled="false"
@@ -720,7 +722,9 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   role="button"
                 >
                   <mock-styled.div />
-                  Button 2
+                  <mock-styled.span>
+                    Button 2
+                  </mock-styled.span>
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -1515,7 +1519,9 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 role="button"
               >
                 <mock-styled.div />
-                Button 1
+                <mock-styled.span>
+                  Button 1
+                </mock-styled.span>
               </mock-styled.button>
               <mock-styled.button
                 aria-disabled="false"
@@ -1523,7 +1529,9 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 role="button"
               >
                 <mock-styled.div />
-                Button 2
+                <mock-styled.span>
+                  Button 2
+                </mock-styled.span>
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
