@@ -33,7 +33,6 @@ export const useMenu = (): useMenu => {
     return {
       ...props,
       'data-open': isOpen,
-      role: 'menu',
     }
   }
 

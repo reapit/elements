@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Menu Popover component should render and close Popover based on button clicks and match snapshot 1`] = `
+exports[`Menu Popover component should render and close Popover based on any element with data-close-menu="true" click and match snapshot 1`] = `
 <DocumentFragment>
   <mock-styled.div>
     <button
@@ -12,22 +12,29 @@ exports[`Menu Popover component should render and close Popover based on button 
     </button>
     <mock-styled.div
       data-open="true"
-      role="menu"
     >
-      <div>
-        Popover Content
-      </div>
-      <button
-        type="button"
+      <mock-styled.div
+        role="menu"
       >
-        Close
-      </button>
+        <mock-styled.button
+          data-close-menu="true"
+          role="menuitem"
+        >
+          Menu Item
+        </mock-styled.button>
+        <mock-styled.button
+          data-close-menu="false"
+          role="menuitem"
+        >
+          Non closing Menu Item
+        </mock-styled.button>
+      </mock-styled.div>
     </mock-styled.div>
   </mock-styled.div>
 </DocumentFragment>
 `;
 
-exports[`Menu Popover component should render and close Popover based on button clicks and match snapshot 2`] = `
+exports[`Menu Popover component should render and close Popover based on any element with data-close-menu="true" click and match snapshot 2`] = `
 <DocumentFragment>
   <mock-styled.div>
     <button
