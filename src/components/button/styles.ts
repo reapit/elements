@@ -6,6 +6,7 @@ export const elButtonSizeSmall = css``
 export const elButtonSizeMedium = css``
 export const elButtonSizeLarge = css``
 
+export const elButtonLabel = css``
 export const elIcon = css``
 export const elButtonSpinner = css``
 
@@ -47,11 +48,6 @@ const baseButtonStyles = `
   justify-content: center;
   display: inline-flex;
   position: relative;
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
   text-align: left;
   color: var(--text-secondary);
   background: var(--fill-white);
@@ -76,10 +72,17 @@ const baseButtonStyles = `
 
   &.${elButtonSizeSmall} {
     padding: var(--spacing-1) var(--spacing-3);
+    .${elButtonLabel} {
+      padding: var(--spacing-half)
+    }
   }
 
   &.${elButtonSizeLarge} {
-    font-size: var(--font-size-base);
+    .${elButtonLabel} {
+      font-size: var(--font-size-base);
+      line-height: var(--line-height-base);
+      letter-spacing: var(--letter-spacing-base);
+    }
     .${elButtonSpinner} {
       height: 1.125rem;
       width: 1.125rem;
@@ -166,7 +169,7 @@ const baseButtonStyles = `
   &:focus-visible {
     box-shadow:
       0 0 0 1px white,
-      0px 0px 0px 4px var(--blue-300);
+      0px 0px 0px 4px var(--purple-300);
     outline: 0;
   }
   
@@ -215,6 +218,16 @@ const baseButtonStyles = `
       }
     }
   }
+`
+
+// Button Label style
+export const ElButtonLabel = styled.span`
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-sm);
+  letter-spacing: var(--letter-spacing-sm);
+  padding: 0 var(--spacing-half);
 `
 
 // Apply shared styles to button component

@@ -21,6 +21,7 @@ import {
   elButtonGroupAlignLeft,
   elButtonGroupAlignRight,
   elButtonGroupAlignCenter,
+  ElButtonLabel,
 } from './styles'
 import { Icon, IconNames } from '../icon'
 import { cx } from '@linaria/core'
@@ -131,7 +132,7 @@ export const Button: FC<ButtonProps> = ({
       >
         <ElButtonSpinner />
         {variant !== 'busy' && iconLeft}
-        {children}
+        {children && <ElButtonLabel>{children}</ElButtonLabel>}
         {variant !== 'busy' && iconRight}
       </ElAnchorButton>
     )
@@ -148,7 +149,7 @@ export const Button: FC<ButtonProps> = ({
       >
         <ElButtonSpinner />
         {variant !== 'busy' && iconLeft}
-        {children}
+        {children && <ElButtonLabel>{children}</ElButtonLabel>}
         {variant !== 'busy' && iconRight}
       </ElButton>
     )
