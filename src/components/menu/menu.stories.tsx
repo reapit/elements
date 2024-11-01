@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { ElMenuList, Menu } from '.'
+import { ElMenuItemAnchor, ElMenuItemButton, ElMenuItemGroup, ElMenuItemGroupTitle, ElMenuList, Menu } from '.'
 import { Button } from '../button'
 import { Icon } from '../icon'
 
@@ -12,7 +12,18 @@ type Story = StoryObj<typeof Menu>
 
 export const StylesOnlyUsage: StoryObj = {
   render: () => {
-    return <ElMenuList>Menu content</ElMenuList>
+    return (
+      <ElMenuList role="menu">
+        <ElMenuItemGroup role="group">
+          <ElMenuItemGroupTitle>Group Title</ElMenuItemGroupTitle>
+          <ElMenuItemButton role="menuitem">Menu Item</ElMenuItemButton>
+          <ElMenuItemButton role="menuitem">Menu Item</ElMenuItemButton>
+          <ElMenuItemAnchor href="/#" role="menuitem">
+            Menu Item as anchor
+          </ElMenuItemAnchor>
+        </ElMenuItemGroup>
+      </ElMenuList>
+    )
   },
 }
 
@@ -24,7 +35,13 @@ export const ReactUsage: Story = {
           {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
         </Menu.Trigger>
         <Menu.Popover>
-          <Menu.List>Menu content</Menu.List>
+          <Menu.List>
+            <Menu.Group label="Group Title">
+              <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
+              <Menu.Item href="/#">Menu Item as anchor</Menu.Item>
+              <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
+            </Menu.Group>
+          </Menu.List>
         </Menu.Popover>
       </Menu>
     )

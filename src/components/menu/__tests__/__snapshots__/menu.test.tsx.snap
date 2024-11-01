@@ -3,8 +3,29 @@
 exports[`Menu list component should render menu with list components and match snapshots 1`] = `
 <DocumentFragment>
   <mock-styled.div>
-    <mock-styled.div>
-      Menu content
+    <mock-styled.div
+      role="menu"
+    >
+      <mock-styled.div
+        role="group"
+      >
+        <mock-styled.div>
+          Group Title
+        </mock-styled.div>
+        <mock-styled.a
+          data-close-menu="true"
+          href="/#"
+          role="menuitem"
+        >
+          Menu item as anchor
+        </mock-styled.a>
+        <mock-styled.button
+          data-close-menu="true"
+          role="menuitem"
+        >
+          Menu item as button
+        </mock-styled.button>
+      </mock-styled.div>
     </mock-styled.div>
   </mock-styled.div>
 </DocumentFragment>
