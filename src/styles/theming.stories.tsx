@@ -14,7 +14,7 @@ export const ThemingProvider = {
         fontSizeSmall: '0.875rem',
       }}
     >
-      <Button intent="primary">Button Text</Button>
+      <Button variant="primary">Button Text</Button>
     </ElementsThemeProvider>
   ),
 }

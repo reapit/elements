@@ -25,13 +25,17 @@ exports[`FileInput component should match a snapshot 1`] = `
 "
         >
           <mock-styled.button
+            aria-disabled="false"
             classname="mock-css.
   margin-right: var(--util-rems-4);
  mock-css."
+            role="button"
             type="button"
           >
             <mock-styled.div />
-            Upload
+            <mock-styled.span>
+              Upload
+            </mock-styled.span>
           </mock-styled.button>
           <mock-styled.input
             aria-label="File upload input undefined"
@@ -163,13 +167,17 @@ exports[`FileInput component should match a snapshot 1`] = `
 "
       >
         <mock-styled.button
+          aria-disabled="false"
           classname="mock-css.
   margin-right: var(--util-rems-4);
  mock-css."
+          role="button"
           type="button"
         >
           <mock-styled.div />
-          Upload
+          <mock-styled.span>
+            Upload
+          </mock-styled.span>
         </mock-styled.button>
         <mock-styled.input
           aria-label="File upload input undefined"
@@ -430,13 +438,17 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
 "
         >
           <mock-styled.button
+            aria-disabled="false"
             classname="mock-css.
   margin-right: var(--util-rems-4);
  mock-css."
+            role="button"
             type="button"
           >
             <mock-styled.div />
-            Change
+            <mock-styled.span>
+              Change
+            </mock-styled.span>
           </mock-styled.button>
           <mock-styled.input
             aria-label="File upload input Some Text"
@@ -503,13 +515,17 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
 "
       >
         <mock-styled.button
+          aria-disabled="false"
           classname="mock-css.
   margin-right: var(--util-rems-4);
  mock-css."
+          role="button"
           type="button"
         >
           <mock-styled.div />
-          Change
+          <mock-styled.span>
+            Change
+          </mock-styled.span>
         </mock-styled.button>
         <mock-styled.input
           aria-label="File upload input Some Text"

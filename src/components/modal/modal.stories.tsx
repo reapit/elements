@@ -29,7 +29,7 @@ export const ReactUsage = {
 
     return (
       <>
-        <Button intent="primary" onClick={() => setModalIsOpen(!modalIsOpen)}>
+        <Button variant="primary" onClick={() => setModalIsOpen(!modalIsOpen)}>
           Open Modal
         </Button>
         <Modal isOpen={modalIsOpen} onModalClose={() => setModalIsOpen(!modalIsOpen)} title="Welcome to the demo modal">

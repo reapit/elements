@@ -706,16 +706,25 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 classname=""
               >
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  aria-disabled="false"
+                  classname="mock-css."
+                  data-variant="primary"
+                  role="button"
                 >
                   <mock-styled.div />
-                  Button 1
+                  <mock-styled.span>
+                    Button 1
+                  </mock-styled.span>
                 </mock-styled.button>
                 <mock-styled.button
-                  classname="mock-css. mock-css."
+                  aria-disabled="false"
+                  classname="mock-css."
+                  role="button"
                 >
                   <mock-styled.div />
-                  Button 2
+                  <mock-styled.span>
+                    Button 2
+                  </mock-styled.span>
                 </mock-styled.button>
               </mock-styled.div>
             </mock-styled.div>
@@ -1504,16 +1513,25 @@ exports[`PageHeader component should match a snapshot 1`] = `
               classname=""
             >
               <mock-styled.button
-                classname="mock-css. mock-css."
+                aria-disabled="false"
+                classname="mock-css."
+                data-variant="primary"
+                role="button"
               >
                 <mock-styled.div />
-                Button 1
+                <mock-styled.span>
+                  Button 1
+                </mock-styled.span>
               </mock-styled.button>
               <mock-styled.button
-                classname="mock-css. mock-css."
+                aria-disabled="false"
+                classname="mock-css."
+                role="button"
               >
                 <mock-styled.div />
-                Button 2
+                <mock-styled.span>
+                  Button 2
+                </mock-styled.span>
               </mock-styled.button>
             </mock-styled.div>
           </mock-styled.div>
