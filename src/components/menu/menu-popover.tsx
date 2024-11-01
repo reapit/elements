@@ -10,10 +10,10 @@ export const MenuPopover: FC = ({ children }) => {
   useClickOutside(popoverRef, closeMenu)
 
   if (isOpen) {
-    const onClick = (e) => {
-      // close menu if button or any other element inside e.g icon is clicked
-      const button = e.target.closest('button')
-      if (button) closeMenu()
+    const onClick = (event) => {
+      // close menu if clicked target has parent with below selector
+      const menuItem = event.target.closest('[data-close-menu="true"]')
+      if (menuItem) closeMenu()
     }
 
     return (

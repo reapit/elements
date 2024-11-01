@@ -1,5 +1,4 @@
-import { Meta, Story, Canvas, Controls, Description } from '@storybook/blocks'
-import { Button } from './index'
+import { Meta, Canvas, Controls } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as ButtonStories from './button.stories'
 
@@ -9,43 +8,55 @@ import * as ButtonStories from './button.stories'
 
 <Controls />
 
-Styled button component with multiple flavours depending on use case.
-
-Props available for the React version of the component;
+Styled button component with multiple flavours depending on use case is used to trigger an action or event.
 
 ## Default Usage
 
-A button with no addtional props / classes applied.
+A button with no additional props / classes applied
 
-<Canvas of={ButtonStories.DefaultUsage} />
+<Canvas of={ButtonStories.Default} />
 
-<RenderHtmlMarkup of={ButtonStories.DefaultUsage} />
+<RenderHtmlMarkup of={ButtonStories.Default} />
 
-## With Intent
+## Button Variants
 
-Different intents are supported, to enable buttons to be used in different contexts. Typcially you will always choose an intent for your button. The intent prop maps directly to the intent helper classes for non React users.
+Different variants are supported, to enable buttons to be used in different contexts. The variant maps directly to the helper classes for non React users.
 
-Whereas most components support the full range of intents, `Buttons` only support `primary`, `danger` and `default`, the latter being the default.
+`Buttons` only support `primary`, `secondary`, `tertiary`, `destructive` and `busy`, the `secondary` being the default.
 
-<Canvas of={ButtonStories.Intent} />
+<Canvas of={ButtonStories.ButtonVariants} />
+<RenderHtmlMarkup of={ButtonStories.ButtonVariants} />
 
-<RenderHtmlMarkup of={ButtonStories.Intent} />
+## Busy
 
-## Is Loading
+<Canvas of={ButtonStories.ButtonBusy} />
+<RenderHtmlMarkup of={ButtonStories.ButtonBusy} />
 
-Add a loading spinner to indicate progress of a background activity after the button was clicked.
+## Button with Icon
 
-<Canvas of={ButtonStories.Loading} />
+<Canvas of={ButtonStories.ButtonWithIcon} />
+<RenderHtmlMarkup of={ButtonStories.ButtonWithIcon} />
 
-<RenderHtmlMarkup of={ButtonStories.Loading} />
+## Button Size
 
-## Is Disabled
+If you wish to size up or down a button, you can use the `size` prop. Available sizes are `small`, `medium` and `large`
 
-Indicate that a button is disabled for whatever reason.
+By default all of our buttons are sized to `medium`.
 
-<Canvas of={ButtonStories.Disabled} />
+<Canvas of={ButtonStories.ButtonSize} />
+<RenderHtmlMarkup of={ButtonStories.ButtonSize} />
 
-<RenderHtmlMarkup of={ButtonStories.Disabled}/>
+## Button Disabled
+
+<Canvas of={ButtonStories.ButtonDisabled} />
+<RenderHtmlMarkup of={ButtonStories.ButtonDisabled} />
+
+## Button With href
+
+With href prop, link can be displayed as button. Anchor attributes such as `target` and `rel` are supported and can be passed as button props, provided that the `href` prop is also included.
+
+<Canvas of={ButtonStories.ButtonWithHref} />
+<RenderHtmlMarkup of={ButtonStories.ButtonWithHref} />
 
 ## Other attributes
 
@@ -54,43 +65,3 @@ All other standard HTML attributes for `<button>` are supported and are passed t
 <Canvas of={ButtonStories.StandardAttributes} />
 
 <RenderHtmlMarkup of={ButtonStories.StandardAttributes} />
-
-## Button Group
-
-An element to collectively group several buttons
-
-<Description of={ButtonStories.DeprecatedGroup} />
-
-<Canvas of={ButtonStories.DeprecatedGroup} />
-
-<RenderHtmlMarkup of={ButtonStories.DeprecatedGroup} />
-
-## Button Size
-
-If you wish to size up or down a button, you can use the `buttonSize` prop.
-
-By default all of our buttons are sized to `small` in mobile and `medium` in desktop so this option is solely if you wish to force the size.
-
-<Canvas of={ButtonStories.ButtonSize}/>
-
-<RenderHtmlMarkup of={ButtonStories.ButtonSize}/>
-
-## Button Icons
-
-If you wish to add a system icon from the `IconList`, you can do this by passing the `buttonIcon` prop.
-
-You have the option to specify a position of `left`, `right` or `only` as a postion for your icon.
-
-<Canvas of={ButtonStories.ButtonIcons}/>
-
-<RenderHtmlMarkup of={ButtonStories.ButtonIcons} />
-
-## Floating Button
-
-A circular floating icon button - supports any icon from the icon list.
-
-Props available for the React version of the component are the same as the main button.
-
-<Canvas of={ButtonStories.Floating}/>
-
-<RenderHtmlMarkup of={ButtonStories.Floating} />
