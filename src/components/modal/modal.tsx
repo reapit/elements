@@ -11,6 +11,12 @@ export const handleModalFocus = (modalRef: RefObject<HTMLDivElement>, isOpen: bo
   }
 }
 
+/**
+ * This component will be replaced by the `Dialog` component in a future major version
+ *
+ * @deprecated The `Modal` component is deprecated and will be removed in a future major version.
+ * Use the `Dialog` component instead
+ */
 export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, children, ...rest }) => {
   const id = useId(rest.id)
   const modalRef = createRef<HTMLDivElement>()
@@ -31,6 +37,10 @@ export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, 
   const modalCombinedClassname = cx(className, elIsActive)
 
   useEffect(handleModalFocus(modalRef, isOpen), [modalRef, isOpen])
+
+  useEffect(() => {
+    console.warn('Modal component will be removed in future major version. Use `Dialog` component instead')
+  }, [])
 
   if (!isOpen) return null
 

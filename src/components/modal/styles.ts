@@ -2,6 +2,9 @@ import { styled } from '@linaria/react'
 import { elIsActive } from '../../styles/states'
 import { ElIcon } from '../icon/__styles__'
 
+/**
+ * @deprecated
+ */
 export const ElModalBg = styled.div`
   display: none;
   z-index: 98;
@@ -18,6 +21,9 @@ export const ElModalBg = styled.div`
   }
 `
 
+/**
+ * @deprecated
+ */
 export const ElModal = styled.div`
   display: none;
   top: 50%;
@@ -40,6 +46,9 @@ export const ElModal = styled.div`
   }
 `
 
+/**
+ * @deprecated
+ */
 export const ElModalHeader = styled.div`
   color: var(--black);
   font-family: var(--font-sans-serif);
@@ -57,6 +66,9 @@ export const ElModalHeader = styled.div`
   }
 `
 
+/**
+ * @deprecated
+ */
 export const ElModalBody = styled.div`
   font-size: var(--font-size-default);
 `
