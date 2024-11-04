@@ -38,6 +38,9 @@ const baseMenuItemStyles = `
     color: var(--text-white);
     background: var(--fill-action-dark);
   }
+  &:focus-visible {
+    outline: none;
+  }
 `
 
 export const ElMenuItemButton = styled.button`
