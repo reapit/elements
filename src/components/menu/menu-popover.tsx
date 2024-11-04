@@ -48,21 +48,21 @@ export const MenuPopover: FC = ({ children }) => {
       const menuContainer = popoverRef.current?.parentElement
       const menuItems = menuContainer!.querySelectorAll('[role="menuitem"]') as NodeListOf<HTMLElement>
       const menuButton = menuContainer!.querySelector('[role="button"][aria-expanded="true"]') as HTMLButtonElement
+      const menuList = menuContainer?.querySelector('[role="menu"]')
 
       const controller = new AbortController()
       const { signal } = controller
 
-      menuContainer?.querySelector('[role="menu"]')?.addEventListener(
+      menuList?.addEventListener(
         'focusout',
         (event) => {
-          if (!menuContainer.contains((event as FocusEvent).relatedTarget as Node)) {
+          if (!menuList.contains((event as FocusEvent).relatedTarget as Node)) {
             closeMenu()
           }
         },
         { signal },
       )
       menuButton.addEventListener('keydown', menuButtonHandler(menuItems), { signal })
-
       menuItems.forEach((menuItem, index) => {
         menuItem.addEventListener('keydown', menuItemHandler(menuButton, menuItems, index, closeMenu), {
           signal,
