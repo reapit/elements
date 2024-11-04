@@ -3,6 +3,40 @@ import { useClickOutside } from '../../hooks/use-click-outside'
 import { useMenuContext } from './menu-context'
 import { ElMenuPopover } from './styles'
 
+export const menuButtonHandler = (menuItems: NodeListOf<HTMLElement>) => (event) => {
+  if (event.key === 'ArrowDown') {
+    if (menuItems.length) menuItems[0].focus()
+  }
+}
+
+export const menuItemHandler =
+  (menuButton: HTMLButtonElement, menuItems: NodeListOf<HTMLElement>, index: number, closeMenu: VoidFunction) =>
+  (event) => {
+    switch (event.key) {
+      case 'ArrowDown': {
+        const nextItem = menuItems[(index + 1) % menuItems.length]
+        nextItem.focus()
+        break
+      }
+      case 'ArrowUp': {
+        event.preventDefault()
+        const prevItem = menuItems[(index - 1 + menuItems.length) % menuItems.length]
+        prevItem.focus()
+        break
+      }
+      case 'Escape':
+        closeMenu()
+        menuButton.focus()
+        break
+      case 'Enter':
+      case ' ': {
+        const menuItem = menuItems[index]
+        menuItem.click()
+        break
+      }
+    }
+  }
+
 export const MenuPopover: FC = ({ children }) => {
   const { isOpen, closeMenu, getPopoverProps } = useMenuContext()
   const popoverRef = useRef<HTMLDivElement>(null)
@@ -11,49 +45,19 @@ export const MenuPopover: FC = ({ children }) => {
 
   useEffect(() => {
     if (isOpen) {
-      const menuItems = document.querySelectorAll('[role="menuitem"]') as NodeListOf<HTMLElement>
       const menuContainer = popoverRef.current?.parentElement
-      const menuButton = menuContainer?.querySelector('[role="button"][aria-expanded="true"]') as HTMLButtonElement
+      const menuItems = menuContainer!.querySelectorAll('[role="menuitem"]') as NodeListOf<HTMLElement>
+      const menuButton = menuContainer!.querySelector('[role="button"][aria-expanded="true"]') as HTMLButtonElement
 
       const controller = new AbortController()
       const { signal } = controller
 
-      menuButton.addEventListener(
-        'keydown',
-        (e) => {
-          if (e.key === 'ArrowDown') {
-            e.preventDefault()
-            menuItems[0].focus()
-          }
-        },
-        { signal },
-      )
+      menuButton.addEventListener('keydown', menuButtonHandler(menuItems), { signal })
 
       menuItems.forEach((menuItem, index) => {
-        menuItem.addEventListener(
-          'keydown',
-          (e) => {
-            switch (e.key) {
-              case 'ArrowDown':
-                e.preventDefault()
-                menuItems[(index + 1) % menuItems.length].focus()
-                break
-              case 'ArrowUp':
-                e.preventDefault()
-                menuItems[(index - 1 + menuItems.length) % menuItems.length].focus()
-                break
-              case 'Escape':
-                closeMenu()
-                menuButton.focus()
-                break
-              case 'Enter':
-              case ' ':
-                menuItem.click()
-                break
-            }
-          },
-          { signal },
-        )
+        menuItem.addEventListener('keydown', menuItemHandler(menuButton, menuItems, index, closeMenu), {
+          signal,
+        })
       })
 
       return () => controller.abort()
