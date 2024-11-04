@@ -16,7 +16,7 @@ describe('Menu Popover component', () => {
       </Menu>
     )
   }
-  
+
   it('should render and close Popover based on any element with data-close-menu="true" click and match snapshot', () => {
     const { asFragment, getByText } = render(<MockMenuPopoverComponent />)
 
