@@ -52,6 +52,15 @@ export const MenuPopover: FC = ({ children }) => {
       const controller = new AbortController()
       const { signal } = controller
 
+      menuContainer?.querySelector('[role="menu"]')?.addEventListener(
+        'focusout',
+        (event) => {
+          if (!menuContainer.contains((event as FocusEvent).relatedTarget as Node)) {
+            closeMenu()
+          }
+        },
+        { signal },
+      )
       menuButton.addEventListener('keydown', menuButtonHandler(menuItems), { signal })
 
       menuItems.forEach((menuItem, index) => {
