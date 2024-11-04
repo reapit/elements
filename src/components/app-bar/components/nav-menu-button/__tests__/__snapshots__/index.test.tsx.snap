@@ -1,0 +1,222 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`NavMenuButton > should render properly using menuGroups, optional icon, top, and alignment props and match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-35"
+    data-alignment="right"
+  >
+    <button
+      aria-expanded="true"
+      aria-haspopup="true"
+      class="menu-trigger"
+      type="button"
+    >
+      NavMenuButton label
+      <span
+        class="el-intent-default el-icon"
+        style="font-size: 1rem;"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          role="img"
+          style="font-size: 1rem;"
+          title="Icon image with name add"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 11h-7V4a1 1 0 1 0-2 0v7H4a1 1 0 1 0 0 2h7v7a1 1 0 1 0 2 0v-7h7a1 1 0 1 0 0-2"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+    <div
+      aria-labelledby="menu-header"
+      class="menu-popover"
+      role="menu"
+      style="top: 3px;"
+    >
+      <div
+        class="mocked-styled-29"
+        data-testid="menu"
+      >
+        <div>
+          <ul
+            class="mocked-styled-32"
+          >
+            <li>
+              <div
+                class="el-text-base el-text2xs mocked-styled-33"
+              >
+                Group title
+              </div>
+            </li>
+            <li
+              class="mocked-styled-31"
+              href="/"
+            >
+              This is a Link 1
+            </li>
+          </ul>
+        </div>
+        <div>
+          <div
+            class="mocked-styled-61 el-nav-menu-option-divider"
+          />
+          <ul
+            class="mocked-styled-32"
+          >
+            <li>
+              <div
+                class="el-text-base el-text2xs mocked-styled-33"
+              >
+                Group title
+              </div>
+            </li>
+            <li
+              class="mocked-styled-31"
+            >
+              This is a Button 1
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`NavMenuButton > should render the button with the correct label and match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-35"
+    data-alignment="left"
+  >
+    <button
+      aria-expanded="false"
+      aria-haspopup="true"
+      class="menu-trigger"
+      type="button"
+    >
+      NavMenuButton label
+      <span
+        class="el-intent-default el-icon"
+        style="font-size: 1rem;"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          role="img"
+          style="font-size: 1rem;"
+          title="Icon image with name chevronDown"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 16.504a1 1 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a1 1 0 0 1-.71.29"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`NavMenuButtonToggler > should display "chevronUp" and match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="mocked-styled-36"
+    type="button"
+  >
+    Menu
+    <span
+      class="el-intent-default el-icon"
+      style="font-size: 1rem;"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        role="img"
+        style="font-size: 1rem;"
+        title="Icon image with name chevronUp"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M18.995 16.496a1 1 0 0 1-.71-.29L12 9.913l-6.286 6.293a1.004 1.004 0 0 1-1.42-1.418l6.997-6.993a1 1 0 0 1 1.419 0l6.995 6.993a.999.999 0 0 1-.71 1.708"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`NavMenuButtonToggler > should display a custom icon if provided and match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="mocked-styled-36"
+    type="button"
+  >
+    Menu
+    <span
+      class="el-intent-default el-icon"
+      style="font-size: 1rem;"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        role="img"
+        style="font-size: 1rem;"
+        title="Icon image with name add"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 11h-7V4a1 1 0 1 0-2 0v7H4a1 1 0 1 0 0 2h7v7a1 1 0 1 0 2 0v-7h7a1 1 0 1 0 0-2"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`NavMenuButtonToggler > should render the label and icon correctly and match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="mocked-styled-36"
+    type="button"
+  >
+    Menu
+    <span
+      class="el-intent-default el-icon"
+      style="font-size: 1rem;"
+    >
+      <svg
+        fill="none"
+        height="1em"
+        role="img"
+        style="font-size: 1rem;"
+        title="Icon image with name chevronDown"
+        viewBox="0 0 24 24"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M12 16.504a1 1 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a1 1 0 0 1-.71.29"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </button>
+</DocumentFragment>
+`;
