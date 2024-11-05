@@ -3,17 +3,21 @@ import { useClickOutside } from '../../hooks/use-click-outside'
 import { useMenuContext } from './menu-context'
 import { ElMenuPopover } from './styles'
 
-export const setPopoverPosition = (container, popover, setPopoverStyle) => {
+export const setPopoverPosition = (
+  container: HTMLElement,
+  popover: HTMLDivElement,
+  setPopoverStyle: React.Dispatch<React.SetStateAction<React.CSSProperties>>,
+) => {
   const triggerBtn = container.querySelector('[role="button"]')
-  if (triggerBtn && popover) {
+  if (triggerBtn) {
     const buttonRect = triggerBtn.getBoundingClientRect()
     const viewportHeight = window.innerHeight
     const popoverHeight = popover?.getBoundingClientRect().height
 
-    const spaceBelowButton = viewportHeight - buttonRect.bottom
     const gap = 3 // the shadow width or .etc
     let top = buttonRect.height + gap
 
+    const spaceBelowButton = viewportHeight - buttonRect.bottom
     if (popoverHeight > spaceBelowButton) {
       top = 0 - popoverHeight - gap
     }
@@ -36,7 +40,7 @@ export const MenuPopover: FC = ({ children }) => {
 
   useLayoutEffect(() => {
     const container = popoverRef.current?.parentElement
-    if (container && isOpen) {
+    if (container && isOpen && popoverRef.current) {
       setPopoverPosition(container, popoverRef.current, setPopoverStyle)
     }
   }, [isOpen, popoverRef.current, setPopoverStyle])

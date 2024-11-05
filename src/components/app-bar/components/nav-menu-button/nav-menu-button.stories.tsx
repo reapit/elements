@@ -89,36 +89,35 @@ export const ReactUsage: StoryObj<{ children: string; 'data-alignment': 'left' |
   },
 }
 
-const NavMenuButtonUsageExample = (props: ComponentProps<typeof Menu>) => {
-  return (
-    <Menu {...props}>
-      <Menu.Trigger>
-        {({ getTriggerProps, isOpen }) => (
-          <NavMenuButton
-            {...getTriggerProps()}
-            {...props}
-            isOpen={isOpen}
-            iconLeft={<Icon icon="more" fontSize="1rem" />}
-          >
-            {props.children ?? 'More'}
-          </NavMenuButton>
-        )}
-      </Menu.Trigger>
-      <Menu.Popover>
-        <Menu.List>
-          <Menu.Group label="Group Title">
-            <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
-            <Menu.Item href="/#">Menu Item as anchor</Menu.Item>
-            <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
-          </Menu.Group>
-        </Menu.List>
-      </Menu.Popover>
-    </Menu>
-  )
-}
-
 export const MoreComplexUsageExample: StoryObj<ComponentProps<typeof Menu>> = {
   render: (props) => {
+    const NavMenuButtonUsageExample = (props: ComponentProps<typeof Menu>) => {
+      return (
+        <Menu {...props}>
+          <Menu.Trigger>
+            {({ getTriggerProps, isOpen }) => (
+              <NavMenuButton
+                {...getTriggerProps()}
+                {...props}
+                isOpen={isOpen}
+                iconLeft={<Icon icon="more" fontSize="1rem" />}
+              >
+                More
+              </NavMenuButton>
+            )}
+          </Menu.Trigger>
+          <Menu.Popover>
+            <Menu.List>
+              <Menu.Group label="Group Title">
+                <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
+                <Menu.Item href="/#">Menu Item as anchor</Menu.Item>
+                <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
+              </Menu.Group>
+            </Menu.List>
+          </Menu.Popover>
+        </Menu>
+      )
+    }
     return (
       <FlexContainer
         isFlexColumn
