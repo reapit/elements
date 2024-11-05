@@ -3,13 +3,22 @@ import { useClickOutside } from '../../hooks/use-click-outside'
 import { useMenuContext } from './menu-context'
 import { ElMenuPopover } from './styles'
 
-export const menuButtonHandler = (menuItems: NodeListOf<HTMLElement>) => (event) => {
+// close menu when focus move out of menu
+export const menuListFocusOutHandler = (menuList: HTMLDivElement, closeMenu: VoidFunction) => (event) => {
+  if (!menuList.contains((event as FocusEvent).relatedTarget as Node)) {
+    closeMenu()
+  }
+}
+
+// focus to the first menuitems when "arrowDown" pressed while `Menu` open
+export const menuButtonKeyDownHandler = (menuItems: NodeListOf<HTMLElement>) => (event) => {
   if (event.key === 'ArrowDown') {
     if (menuItems.length) menuItems[0].focus()
   }
 }
 
-export const menuItemHandler =
+// handle basic navigation key refer to https://www.w3.org/WAI/ARIA/apg/patterns/menubar
+export const menuItemKeyDownHandler =
   (menuButton: HTMLButtonElement, menuItems: NodeListOf<HTMLElement>, index: number, closeMenu: VoidFunction) =>
   (event) => {
     switch (event.key) {
@@ -48,23 +57,15 @@ export const MenuPopover: FC = ({ children }) => {
       const menuContainer = popoverRef.current?.parentElement
       const menuItems = menuContainer!.querySelectorAll('[role="menuitem"]') as NodeListOf<HTMLElement>
       const menuButton = menuContainer!.querySelector('[role="button"][aria-expanded="true"]') as HTMLButtonElement
-      const menuList = menuContainer?.querySelector('[role="menu"]')
+      const menuList = menuContainer?.querySelector('[role="menu"]') as HTMLDivElement
 
       const controller = new AbortController()
       const { signal } = controller
 
-      menuList?.addEventListener(
-        'focusout',
-        (event) => {
-          if (!menuList.contains((event as FocusEvent).relatedTarget as Node)) {
-            closeMenu()
-          }
-        },
-        { signal },
-      )
-      menuButton.addEventListener('keydown', menuButtonHandler(menuItems), { signal })
+      menuList.addEventListener('focusout', menuListFocusOutHandler(menuList, closeMenu), { signal })
+      menuButton.addEventListener('keydown', menuButtonKeyDownHandler(menuItems), { signal })
       menuItems.forEach((menuItem, index) => {
-        menuItem.addEventListener('keydown', menuItemHandler(menuButton, menuItems, index, closeMenu), {
+        menuItem.addEventListener('keydown', menuItemKeyDownHandler(menuButton, menuItems, index, closeMenu), {
           signal,
         })
       })

@@ -1,6 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 import { Menu } from '../menu'
-import { menuButtonHandler, menuItemHandler } from '../menu-popover'
+import { menuButtonKeyDownHandler, menuItemKeyDownHandler, menuListFocusOutHandler } from '../menu-popover'
 
 describe('Menu Popover component', () => {
   const MockMenuPopoverComponent = () => {
@@ -53,20 +53,20 @@ describe('Menu Popover component', () => {
       jest.clearAllMocks()
     })
 
-    describe('menuButtonHandler', () => {
+    describe('menuButtonKeyDownHandler', () => {
       it('should focus the first menu item when ArrowDown is pressed', () => {
-        menuButtonHandler(menuItems)(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+        menuButtonKeyDownHandler(menuItems)(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
         expect(menuItems[0].focus).toHaveBeenCalled()
       })
 
       it('should not focus any item if there are no menu items', () => {
         const emptyMenuItems = []
-        menuButtonHandler(emptyMenuItems as any)(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
+        menuButtonKeyDownHandler(emptyMenuItems as any)(new KeyboardEvent('keydown', { key: 'ArrowDown' }))
         expect(menuItems[0].focus).not.toHaveBeenCalled()
       })
     })
 
-    describe('menuItemHandler', () => {
+    describe('menuItemKeyDownHandler', () => {
       const closeMenu = jest.fn()
       const menuButton = {
         focus: jest.fn(),
@@ -74,31 +74,31 @@ describe('Menu Popover component', () => {
 
       it('should focus the next item or 1st item if the last item reached on ArrowDown key press', () => {
         const event = new KeyboardEvent('keydown', { key: 'ArrowDown' })
-        menuItemHandler(menuButton, menuItems, 0, closeMenu)(event)
+        menuItemKeyDownHandler(menuButton, menuItems, 0, closeMenu)(event)
         expect(menuItems[1].focus).toHaveBeenCalled()
-        menuItemHandler(menuButton, menuItems, 2, closeMenu)(event)
+        menuItemKeyDownHandler(menuButton, menuItems, 2, closeMenu)(event)
         // focus back to first item
         expect(menuItems[0].focus).toHaveBeenCalled()
       })
 
       it('should focus the previous item or last item if at first item on ArrowUp key press', () => {
         const event = new KeyboardEvent('keydown', { key: 'ArrowUp' })
-        menuItemHandler(menuButton, menuItems, 1, closeMenu)(event)
+        menuItemKeyDownHandler(menuButton, menuItems, 1, closeMenu)(event)
         expect(menuItems[0].focus).toHaveBeenCalled()
         // focus to last item
-        menuItemHandler(menuButton, menuItems, 0, closeMenu)(event)
+        menuItemKeyDownHandler(menuButton, menuItems, 0, closeMenu)(event)
         expect(menuItems[2].focus).toHaveBeenCalled()
       })
 
       it('should close the menu on Escape key press', () => {
-        menuItemHandler(menuButton, menuItems, 0, closeMenu)(new KeyboardEvent('keydown', { key: 'Escape' }))
+        menuItemKeyDownHandler(menuButton, menuItems, 0, closeMenu)(new KeyboardEvent('keydown', { key: 'Escape' }))
         expect(closeMenu).toHaveBeenCalled()
         expect(menuButton.focus).toHaveBeenCalled()
       })
 
       it('should click the item on Enter or Space key press', () => {
         let event = new KeyboardEvent('keydown', { key: 'Enter' })
-        const handler = menuItemHandler(menuButton, menuItems, 0, closeMenu)
+        const handler = menuItemKeyDownHandler(menuButton, menuItems, 0, closeMenu)
         handler(event)
         expect(menuItems[0].click).toHaveBeenCalled()
 
@@ -106,24 +106,28 @@ describe('Menu Popover component', () => {
         handler(event)
         expect(menuItems[0].click).toHaveBeenCalled()
       })
+    })
 
-      it('should closeMenu when focus of menu items move out to outside', () => {
-        const { asFragment, getByText } = render(
-          <div>
-            <button>outside button</button>
-            <MockMenuPopoverComponent />
-          </div>,
-        )
-        const closedMenu = asFragment()
-        // focus in and out menu
-        fireEvent.click(getByText('Trigger'))
-        fireEvent.keyDown(getByText('Trigger'), {
-          key: 'arrowDown',
-        })
+    describe('menuListFocusOutHandler', () => {
+      let menuList, closeMenu
 
-        fireEvent.focusOut(document.querySelector('[role="menu"]')!)
+      beforeEach(() => {
+        menuList = document.createElement('div')
+        closeMenu = jest.fn()
+      })
 
-        expect(asFragment()).toEqual(closedMenu)
+      it('calls closeMenu if focus moves out of menuList', () => {
+        const event = { relatedTarget: document.createElement('div') }
+        menuListFocusOutHandler(menuList, closeMenu)(event)
+        expect(closeMenu).toHaveBeenCalled()
+      })
+
+      it('does not call closeMenu if focus stays within menuList', () => {
+        const internalElement = document.createElement('button')
+        menuList.appendChild(internalElement)
+        const event = { relatedTarget: internalElement }
+        menuListFocusOutHandler(menuList, closeMenu)(event)
+        expect(closeMenu).not.toHaveBeenCalled()
       })
     })
   })
