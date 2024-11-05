@@ -4,7 +4,7 @@ import { MenuPopover, MenuTrigger } from './menu-popover'
 import { MenuItem, MenuItemGroup, MenuList } from './menu.atoms'
 import { ElMenu } from './styles'
 
-type MenuFC = React.FC<HTMLAttributes<HTMLDivElement>> & {
+type MenuFC = React.FC<HTMLAttributes<HTMLDivElement> & { 'data-alignment'?: 'left' | 'right' }> & {
   Item: typeof MenuItem
   Group: typeof MenuItemGroup
   Trigger: typeof MenuTrigger

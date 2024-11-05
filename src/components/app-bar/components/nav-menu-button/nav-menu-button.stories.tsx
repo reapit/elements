@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { elNavMenuContainer, ElNavMenuButtonToggler, NavMenuButtonToggler } from '.'
+import { ComponentProps } from 'react'
+import { ElNavMenuButton, NavMenuButton } from '.'
 import { Icon } from '../../../icon'
+import { FlexContainer } from '../../../layout'
 import {
   ElMenu,
   ElMenuItemAnchor,
@@ -12,22 +14,22 @@ import {
   Menu,
 } from '../../../menu'
 
-const meta: Meta<typeof NavMenuButtonToggler> = {
-  title: 'Components/App Bar/Menu Button Toggler',
-  component: NavMenuButtonToggler,
+const meta: Meta<typeof NavMenuButton> = {
+  title: 'Components/App Bar/Menu Button',
+  component: NavMenuButton,
 }
 
 export default meta
-type Story = StoryObj<typeof NavMenuButtonToggler>
+type Story = StoryObj<typeof NavMenuButton>
 
 export const StylesOnlyUsage: Story = {
   render: () => {
     return (
-      <ElMenu>
-        <ElNavMenuButtonToggler aria-haspopup="true" aria-expanded="true" role="button" type="button">
+      <ElMenu data-alignment="left">
+        <ElNavMenuButton aria-haspopup="true" aria-expanded="true" role="button" type="button">
           More
           <Icon icon={'chevronUp'} intent="default" fontSize="1rem" />
-        </ElNavMenuButtonToggler>
+        </ElNavMenuButton>
         <ElMenuPopover>
           <ElMenuList>
             <ElMenuItemGroup role="group">
@@ -45,19 +47,21 @@ export const StylesOnlyUsage: Story = {
   },
 }
 
-export const MoreComplexUsageExample: StoryObj<typeof NavMenuButtonToggler> = {
+export const ReactUsage: StoryObj<{ children: string; 'data-alignment': 'left' | 'right' }> = {
   render: (props) => {
-    const NavMenuButton = () => {
-      return (
-        <Menu className={elNavMenuContainer}>
+    return (
+      <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+        <Menu {...props}>
           <Menu.Trigger>
             {({ getTriggerProps, isOpen }) => (
-              <NavMenuButtonToggler
+              <NavMenuButton
                 {...getTriggerProps()}
                 {...props}
-                isExpanded={isOpen}
+                isOpen={isOpen}
                 iconLeft={<Icon icon="more" fontSize="1rem" />}
-              />
+              >
+                {props.children}
+              </NavMenuButton>
             )}
           </Menu.Trigger>
           <Menu.Popover>
@@ -70,28 +74,70 @@ export const MoreComplexUsageExample: StoryObj<typeof NavMenuButtonToggler> = {
             </Menu.List>
           </Menu.Popover>
         </Menu>
-      )
-    }
+      </FlexContainer>
+    )
+  },
+  args: {
+    children: 'More',
+    'data-alignment': 'left',
+  },
+  argTypes: {
+    'data-alignment': {
+      control: { type: 'radio' },
+      options: ['left', 'right'],
+    },
+  },
+}
+
+const NavMenuButtonUsageExample = (props: ComponentProps<typeof Menu>) => {
+  return (
+    <Menu {...props}>
+      <Menu.Trigger>
+        {({ getTriggerProps, isOpen }) => (
+          <NavMenuButton
+            {...getTriggerProps()}
+            {...props}
+            isOpen={isOpen}
+            iconLeft={<Icon icon="more" fontSize="1rem" />}
+          >
+            {props.children ?? 'More'}
+          </NavMenuButton>
+        )}
+      </Menu.Trigger>
+      <Menu.Popover>
+        <Menu.List>
+          <Menu.Group label="Group Title">
+            <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
+            <Menu.Item href="/#">Menu Item as anchor</Menu.Item>
+            <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
+          </Menu.Group>
+        </Menu.List>
+      </Menu.Popover>
+    </Menu>
+  )
+}
+
+export const MoreComplexUsageExample: StoryObj<ComponentProps<typeof Menu>> = {
+  render: (props) => {
     return (
-      <div
+      <FlexContainer
+        isFlexColumn
+        isFlexJustifyBetween
         style={{
           height: '95vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'space-between',
-          // alignItems: props.alignment === 'left' ? 'flex-start' : 'flex-end',
           overflow: 'hidden',
           padding: 5,
         }}
       >
-        <NavMenuButton {...props} />
-
-        <NavMenuButton {...props} />
-      </div>
+        <FlexContainer isFlexJustifyBetween>
+          <NavMenuButtonUsageExample {...props} />
+          <NavMenuButtonUsageExample {...props} data-alignment="right" />
+        </FlexContainer>
+        <FlexContainer isFlexJustifyBetween>
+          <NavMenuButtonUsageExample {...props} />
+          <NavMenuButtonUsageExample {...props} data-alignment="right" />
+        </FlexContainer>
+      </FlexContainer>
     )
-  },
-  args: {
-    label: 'More',
-    // alignment: 'left',
   },
 }

@@ -8,10 +8,18 @@ import { RenderHtmlMarkup } from '../../../../storybook/render-html-markup'
 
 ## Styles Only Usage
 
-The NavMenuButton is toggles the visibility of a Menu containing a list of buttons and/or links.
+The NavMenuButton can be used toggle visibility of the `Menu` component.
 
-The menu can be aligned to the left or right of the button
+The menu alignment can be set by setting `data-alignment="left | right"` to the `Menu` component
 
 <Canvas of={NavMenuButtonStories.StylesOnlyUsage} />
 
 <RenderHtmlMarkup of={NavMenuButtonStories.StylesOnlyUsage} />
+
+## React Usage
+
+Here you can use the `isOpen` prop to toggle the `chevron` icon, but it is recommended to compose it with `Menu` component as example here
+
+<Canvas of={NavMenuButtonStories.ReactUsage} />
+
+<RenderHtmlMarkup of={NavMenuButtonStories.ReactUsage} />

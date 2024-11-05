@@ -1,22 +1,7 @@
 import { styled } from '@linaria/react'
 import { ElIcon } from '../../../icon'
-import { ElMenuPopover } from '../../../menu'
-import { css } from '@linaria/core'
 
-export const elNavMenuContainer = css`
-  &[data-alignment='left'] {
-    > ${ElMenuPopover} {
-      left: 0;
-    }
-  }
-  &[data-alignment='right'] {
-    > ${ElMenuPopover} {
-      right: 0;
-    }
-  }
-`
-
-export const ElNavMenuButtonToggler = styled.button`
+export const ElNavMenuButton = styled.button`
   cursor: pointer;
   border: none !important;
   height: 32px;
@@ -32,7 +17,6 @@ export const ElNavMenuButtonToggler = styled.button`
   font-weight: 500;
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-sm);
-  text-align: left;
 
   ${ElIcon} {
     pointer-events: none;
@@ -42,17 +26,12 @@ export const ElNavMenuButtonToggler = styled.button`
   &:focus {
     justify-content: center;
     color: var(--text-secondary);
-    border-radius: var(--corner-default);
     background-color: var(--fill-white);
     box-shadow:
       0px 0px 0px 1px #fff,
       0px 0px 0px 4px #66b2ff;
   }
   &:hover {
-    border-radius: var(--corner-default);
     background-color: var(--fill-default-lightest);
-    & > span {
-      color: var(--color-grey-700);
-    }
   }
 `

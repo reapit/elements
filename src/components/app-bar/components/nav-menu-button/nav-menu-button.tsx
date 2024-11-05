@@ -1,13 +1,16 @@
-import React from 'react'
+import React, { HTMLAttributes } from 'react'
 import { Icon } from '../../../icon'
-import { ElNavMenuButtonToggler } from './styles'
-import { NavMenuTogglerButtonProps } from './types'
+import { ElNavMenuButton } from './styles'
 
-export const NavMenuButtonToggler: React.FC<NavMenuTogglerButtonProps> = ({ label, isExpanded, icon, ...props }) => {
+export interface NavMenuButtonProps extends HTMLAttributes<HTMLButtonElement> {
+  isOpen: boolean
+}
+
+export const NavMenuButton: React.FC<NavMenuButtonProps> = ({ children, isOpen, ...props }) => {
   return (
-    <ElNavMenuButtonToggler type="button" {...props}>
-      {label}
-      <Icon intent="default" icon={icon ? icon : isExpanded ? 'chevronUp' : 'chevronDown'} fontSize="1rem" />
-    </ElNavMenuButtonToggler>
+    <ElNavMenuButton type="button" {...props}>
+      {children}
+      <Icon intent="default" icon={isOpen ? 'chevronUp' : 'chevronDown'} fontSize="1rem" />
+    </ElNavMenuButton>
   )
 }
