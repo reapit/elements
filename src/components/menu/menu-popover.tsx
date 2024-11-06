@@ -1,4 +1,4 @@
-import { FC, MutableRefObject, useLayoutEffect, useRef, useState } from 'react'
+import { type FC, type MutableRefObject, useLayoutEffect, useRef, useState } from 'react'
 import { useClickOutside } from '../../hooks/use-click-outside'
 import { useMenuContext } from './menu-context'
 import { ElMenuPopover } from './styles'
