@@ -14,31 +14,21 @@ A versatile component designed to render navigation icon items within an AppBar
 
 ## Default State
 
-The default appearance of the NavIconItem
+The default appearance of the `NavIconItem`
 
 <Canvas of={NavIconItemStories.Default} />
 
-## Hover State
-
-The visual state of the NavIconItem when the mouse hovers over it
-
-<Canvas of={NavIconItemStories.HoverState} />
-
-## Focus State
-
-The visual state of the NavIconItem when it receives keyboard focus
-
-<Canvas of={NavIconItemStories.FocusState} />
-
 ## Active State
 
-The visual state of the NavIconItem when it's currently selected or active
+The visual state of the `NavIconItem` when it's currently selected or active
 
 <Canvas of={NavIconItemStories.ActiveState} />
 
 ## Style Anchor Usage
 
-Demonstrates how to use the NavIconItem using a standard `HTMLAnchorElement`
+Demonstrates how to use the `NavIconItem` using a standard `HTMLAnchorElement`
+
+**note:** to make the `NavIconItem` have an "active" state, you must pass the `aria-current` attribute with a value of `page`
 
 <Canvas of={NavIconItemStories.StyleAnchorUsage} />
 
@@ -46,7 +36,9 @@ Demonstrates how to use the NavIconItem using a standard `HTMLAnchorElement`
 
 ## Style Button Usage
 
-Demonstrates how to use the NavIconItem using a standard `HTMLButtonElement`
+Demonstrates how to use the `NavIconItem` using a standard `HTMLButtonElement`
+
+**note:** to make the `NavIconItem` have an "active" state, you must pass the `aria-current` attribute with a value of `true`
 
 <Canvas of={NavIconItemStories.StyleButtonUsage} />
 
@@ -54,7 +46,7 @@ Demonstrates how to use the NavIconItem using a standard `HTMLButtonElement`
 
 ## React Anchor Usage
 
-Demonstrates how to render the NavIconItem using a anchor version
+Demonstrates how to render the `NavIconItem` using a anchor version
 
 <Canvas of={NavIconItemStories.ReactAnchorUsage} />
 
@@ -62,7 +54,7 @@ Demonstrates how to render the NavIconItem using a anchor version
 
 ## React Button Usage
 
-Demonstrates how to render the NavIconItem using a button version
+Demonstrates how to render the `NavIconItem` using a button version
 
 <Canvas of={NavIconItemStories.ReactButtonUsage} />
 

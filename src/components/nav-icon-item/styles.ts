@@ -1,61 +1,52 @@
-import { styled } from '@linaria/react'
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
-
-type CommonNavIconItemProps = {
-  /**
-   * NOTE: data attribute to indicate the state of the nav item
-   * by default the styles is already applied with pseudo-class selector
-   * but to make it more flexible, consumer could use this attribute to
-   * change the styles
-   */
-  'data-state'?: 'focus' | 'hover' | 'active'
-}
+import { styled } from '@linaria/react'
+import { ElIcon } from '../icon'
 
 const baseStyles = `
   display: inline-flex;
-  padding: var(--spacing-2, 8px);
+  padding: var(--space-2, 8px);
   justify-content: center;
   align-items: center;
-  gap: var(--spacing-none, 0px);
-  border-radius: var(--corner-default, 0.25rem);
-  background: var(--white, #ffffff);
-  border: none;
+  gap: var(--space-none, 0px);
+  border-radius: var(--corner-default, 4px);
+  background: var(--fill-white, #ffffff);
+  border: var(--border-none, 0px);
+  color: var(--icon-app_bar-default, #798da1);
   outline: none;
 
-  /* change children color by default */
-  > * {
-    color: var(--neutral-400, #798da1) !important;
-  }
-
-  &:focus, &[data-state='focus'] {
-    border-radius: var(--corner-default, 0.25rem);
-    background: var(--white, #ffffff);
+  &:focus-visible {
+    border-radius: var(--corner-default, 4px);
+    background: var(--fill-white, #ffffff);
     box-shadow:
       0px 0px 0px 1px #fff,
       0px 0px 0px 4px var(--icon-button_primary-hover, #7e9bfa);
   }
 
-  &:hover, &[data-state='hover'] {
+  &:hover {
     cursor: pointer;
-    border-radius: var(--corner-default, 0.25rem);
-    background: var(--neutral-050, #f2f4f6);
+    border-radius: var(--corner-default, 4px);
+    background: var(--fill-default-lightest, #f2f4f6);
   }
 
-  &:active, &[data-state='active'] {
-    > * {
-      color: var(--intent-primary, #4e56ea) !important;
-    }
-    border-radius: var(--corner-default, 0.25rem);
-    background: var(--neutral-050, #f2f4f6);
+  &:active, &[aria-current="page"], &[aria-current="true"] {
+    color: var(--fill-action-dark, #4e56ea);
+    border-radius: var(--corner-default, 4px);
+    background: var(--fill-default-lightest, #f2f4f6);
   }
 `
 
-type ElButtonNavIconItemProps = ButtonHTMLAttributes<HTMLButtonElement> & CommonNavIconItemProps
-export const ElButtonNavIconItem = styled.button<ElButtonNavIconItemProps>`
+export const ElButtonNavIconItem = styled.button<ButtonHTMLAttributes<HTMLButtonElement>>`
   ${baseStyles}
+
+  ${ElIcon} {
+    color: inherit;
+  }
 `
 
-type ElAnchorNavIconItemProps = AnchorHTMLAttributes<HTMLAnchorElement> & CommonNavIconItemProps
-export const ElAnchorNavIconItem = styled.a<ElAnchorNavIconItemProps>`
+export const ElAnchorNavIconItem = styled.a<AnchorHTMLAttributes<HTMLAnchorElement>>`
   ${baseStyles}
+
+  ${ElIcon} {
+    color: inherit;
+  }
 `

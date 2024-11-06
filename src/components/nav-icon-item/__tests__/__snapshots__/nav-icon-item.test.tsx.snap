@@ -3,8 +3,8 @@
 exports[`NavIconItem should render the component as HTMLAnchorElement 1`] = `
 <DocumentFragment>
   <mock-styled.a
+    aria-label="test icon"
     href="#"
-    role="button"
   >
     <span>
       test
@@ -16,7 +16,7 @@ exports[`NavIconItem should render the component as HTMLAnchorElement 1`] = `
 exports[`NavIconItem should render the component as HTMLButtonElement 1`] = `
 <DocumentFragment>
   <mock-styled.button
-    role="button"
+    aria-label="test icon"
   >
     <span>
       test

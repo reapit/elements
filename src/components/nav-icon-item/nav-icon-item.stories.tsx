@@ -37,6 +37,9 @@ const meta = {
       description: 'CSS class for additional styling',
     },
   },
+  args: {
+    'aria-label': 'Star Icon',
+  },
 } satisfies Meta<typeof NavIconItem>
 
 export default meta
@@ -44,40 +47,12 @@ type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
   args: {
-    icon: <Icon icon="star" />,
+    icon: <Icon icon="star" style={{ color: 'inherit' }} />,
     onClick: action('handleOnClick'),
   },
   render: (args) => {
     return (
       <ElButtonNavIconItem onClick={action('handleClick')} data-state={undefined}>
-        {args?.icon}
-      </ElButtonNavIconItem>
-    )
-  },
-}
-
-export const HoverState: Story = {
-  args: {
-    icon: <Icon icon="star" />,
-    onClick: action('handleOnClick'),
-  },
-  render: (args) => {
-    return (
-      <ElButtonNavIconItem onClick={action('handleClick')} data-state="hover">
-        {args?.icon}
-      </ElButtonNavIconItem>
-    )
-  },
-}
-
-export const FocusState: Story = {
-  args: {
-    icon: <Icon icon="star" />,
-    onClick: action('handleOnClick'),
-  },
-  render: (args) => {
-    return (
-      <ElButtonNavIconItem onClick={action('handleClick')} data-state="focus">
         {args?.icon}
       </ElButtonNavIconItem>
     )
@@ -91,7 +66,7 @@ export const ActiveState: Story = {
   },
   render: (args) => {
     return (
-      <ElButtonNavIconItem onClick={action('handleClick')} data-state="active">
+      <ElButtonNavIconItem onClick={action('handleClick')} aria-current="true">
         {args?.icon}
       </ElButtonNavIconItem>
     )
@@ -106,10 +81,10 @@ export const StyleAnchorUsage: Story = {
   render: (args) => {
     return (
       <FlexContainer>
-        <ElAnchorNavIconItem href={args.href!} data-state={undefined} className="el-mx5">
+        <ElAnchorNavIconItem href={args.href!} aria-current={undefined} className="el-mx5">
           {args?.icon}
         </ElAnchorNavIconItem>
-        <ElAnchorNavIconItem href={args.href!} data-state="active" className="el-mx5">
+        <ElAnchorNavIconItem href={args.href!} aria-current="page" className="el-mx5">
           {args?.icon}
         </ElAnchorNavIconItem>
       </FlexContainer>
@@ -125,10 +100,10 @@ export const StyleButtonUsage: Story = {
   render: (args) => {
     return (
       <FlexContainer>
-        <ElButtonNavIconItem onClick={action('handleClick')} data-state={undefined} className="el-mx5">
+        <ElButtonNavIconItem onClick={action('handleClick')} aria-current={undefined} className="el-mx5">
           {args?.icon}
         </ElButtonNavIconItem>
-        <ElButtonNavIconItem onClick={action('handleClick')} data-state="active" className="el-mx5">
+        <ElButtonNavIconItem onClick={action('handleClick')} aria-current="true" className="el-mx5">
           {args?.icon}
         </ElButtonNavIconItem>
       </FlexContainer>

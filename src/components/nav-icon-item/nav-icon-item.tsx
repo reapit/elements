@@ -8,20 +8,29 @@ interface CommonNavIconItemProps {
   icon: ReactNode
 
   /**
+   * Defines a string value that labels the current element
+   */
+  'aria-label': string
+
+  /**
    * Whether the nav item is active
    * @default false
    **/
   isActive?: boolean
 }
 
-interface NavIconItemAsButtonElementProps extends CommonNavIconItemProps, ButtonHTMLAttributes<HTMLButtonElement> {
+interface NavIconItemAsButtonElementProps
+  extends CommonNavIconItemProps,
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'aria-label'> {
   href?: never
   target?: never
-  ref?: never
+  rel?: never
   onClick: MouseEventHandler<HTMLButtonElement>
 }
 
-interface NavIconItemAsAnchorElementProps extends CommonNavIconItemProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+interface NavIconItemAsAnchorElementProps
+  extends CommonNavIconItemProps,
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'aria-label'> {
   href?: string
   target?: string
   rel?: string
@@ -35,29 +44,21 @@ const isButtonElement = (props: NavIconItemProps): props is NavIconItemAsButtonE
 }
 
 export const NavIconItem: FC<NavIconItemProps> = (props) => {
-  if (!isButtonElement(props)) {
-    const { isActive, onClick, icon, ...rest } = props ?? {}
+  if (isButtonElement(props)) {
+    const { isActive, icon, ...rest } = props ?? {}
 
     return (
-      <ElAnchorNavIconItem
-        {...rest}
-        role="button"
-        data-state={isActive ? 'active' : undefined}
-        onClick={(e) => {
-          e.preventDefault()
-          onClick?.(e)
-        }}
-      >
+      <ElButtonNavIconItem {...rest} aria-current={isActive ? 'true' : undefined}>
         {icon}
-      </ElAnchorNavIconItem>
+      </ElButtonNavIconItem>
     )
   } else {
     const { isActive, icon, ...rest } = props ?? {}
 
     return (
-      <ElButtonNavIconItem {...rest} role="button" data-state={isActive ? 'active' : undefined}>
+      <ElAnchorNavIconItem {...rest} aria-current={isActive ? 'page' : undefined}>
         {icon}
-      </ElButtonNavIconItem>
+      </ElAnchorNavIconItem>
     )
   }
 }
