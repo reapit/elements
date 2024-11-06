@@ -29,9 +29,7 @@ export const useMenu = (): useMenu => {
           if (menuItems.length) menuItems[0].focus()
         }
 
-        if (props?.onKeyDown) {
-          props.onKeyDown(e)
-        }
+        props?.onKeyDown?.(e)
       },
       onClick: (e) => {
         setIsOpen((prev) => !prev)
