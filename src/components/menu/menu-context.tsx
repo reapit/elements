@@ -1,4 +1,4 @@
-import React, { createContext, FC } from 'react'
+import { createContext, useContext, type FC } from 'react'
 import { useMenu } from '../../hooks/use-menu'
 
 const MenuContext = createContext<useMenu | null>(null)
@@ -12,7 +12,7 @@ const MenuProvider: FC = ({ children }) => {
 export { MenuContext, MenuProvider }
 
 export const useMenuContext = () => {
-  const context = React.useContext(MenuContext)
+  const context = useContext(MenuContext)
   if (!context) {
     throw new Error('useMenuContext must be used within a MenuProvider')
   }

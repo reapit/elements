@@ -1,4 +1,4 @@
-import { FC, MutableRefObject, useRef } from 'react'
+import { type FC, type MutableRefObject, useRef } from 'react'
 import { useClickOutside } from '../../hooks/use-click-outside'
 import { useMenuContext } from './menu-context'
 import { ElMenuPopover } from './styles'
