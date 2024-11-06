@@ -1,4 +1,11 @@
-import { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import type {
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  FC,
+  HTMLAttributes,
+  MouseEventHandler,
+  ReactNode,
+} from 'react'
 import { ElMenuItemAnchor, ElMenuItemButton, ElMenuItemGroup, ElMenuItemGroupTitle, ElMenuList } from './styles'
 
 interface CommonMenuItemProps {
