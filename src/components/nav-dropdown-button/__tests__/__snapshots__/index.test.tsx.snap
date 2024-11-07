@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`NavMenuButton matches snapshot when collapsed 1`] = `
+exports[`NavDropdownButton matches snapshot when collapsed 1`] = `
 <DocumentFragment>
   <mock-styled.button
     type="button"
@@ -13,7 +13,7 @@ exports[`NavMenuButton matches snapshot when collapsed 1`] = `
 </DocumentFragment>
 `;
 
-exports[`NavMenuButton matches snapshot when expanded 1`] = `
+exports[`NavDropdownButton matches snapshot when expanded 1`] = `
 <DocumentFragment>
   <mock-styled.button
     type="button"

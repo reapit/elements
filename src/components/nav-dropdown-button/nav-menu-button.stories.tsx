@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
-import { ElNavMenuButton, NavMenuButton } from '.'
+import { ElNavDropdownButton, NavDropdownButton } from '.'
 import { Icon } from '../icon'
 import { FlexContainer } from '../layout'
 import {
@@ -14,22 +14,22 @@ import {
   Menu,
 } from '../menu'
 
-const meta: Meta<typeof NavMenuButton> = {
-  title: 'Components/Nav Menu Button',
-  component: NavMenuButton,
+const meta: Meta<typeof NavDropdownButton> = {
+  title: 'Components/Nav Dropdown Button',
+  component: NavDropdownButton,
 }
 
 export default meta
-type Story = StoryObj<typeof NavMenuButton>
+type Story = StoryObj<typeof NavDropdownButton>
 
 export const StylesOnlyUsage: Story = {
   render: () => {
     return (
       <ElMenu data-alignment="left">
-        <ElNavMenuButton aria-haspopup="true" aria-expanded="true" role="button" type="button">
+        <ElNavDropdownButton aria-haspopup="true" aria-expanded="true" role="button" type="button">
           More
           <Icon icon={'chevronUp'} intent="default" fontSize="1rem" />
-        </ElNavMenuButton>
+        </ElNavDropdownButton>
         <ElMenuPopover>
           <ElMenuList>
             <ElMenuItemGroup role="group">
@@ -54,14 +54,14 @@ export const ReactUsage: StoryObj<{ children: string; 'data-alignment': 'left' |
         <Menu {...props}>
           <Menu.Trigger>
             {({ getTriggerProps, isOpen }) => (
-              <NavMenuButton
+              <NavDropdownButton
                 {...getTriggerProps()}
                 {...props}
                 isOpen={isOpen}
                 iconLeft={<Icon icon="more" fontSize="1rem" />}
               >
                 {props.children}
-              </NavMenuButton>
+              </NavDropdownButton>
             )}
           </Menu.Trigger>
           <Menu.Popover>
@@ -91,19 +91,19 @@ export const ReactUsage: StoryObj<{ children: string; 'data-alignment': 'left' |
 
 export const MoreComplexUsageExample: StoryObj<ComponentProps<typeof Menu>> = {
   render: (props) => {
-    const NavMenuButtonUsageExample = (props: ComponentProps<typeof Menu>) => {
+    const NavDropdownButtonUsageExample = (props: ComponentProps<typeof Menu>) => {
       return (
         <Menu {...props}>
           <Menu.Trigger>
             {({ getTriggerProps, isOpen }) => (
-              <NavMenuButton
+              <NavDropdownButton
                 {...getTriggerProps()}
                 {...props}
                 isOpen={isOpen}
                 iconLeft={<Icon icon="more" fontSize="1rem" />}
               >
                 More
-              </NavMenuButton>
+              </NavDropdownButton>
             )}
           </Menu.Trigger>
           <Menu.Popover>
@@ -129,12 +129,12 @@ export const MoreComplexUsageExample: StoryObj<ComponentProps<typeof Menu>> = {
         }}
       >
         <FlexContainer isFlexJustifyBetween>
-          <NavMenuButtonUsageExample {...props} />
-          <NavMenuButtonUsageExample {...props} data-alignment="right" />
+          <NavDropdownButtonUsageExample {...props} />
+          <NavDropdownButtonUsageExample {...props} data-alignment="right" />
         </FlexContainer>
         <FlexContainer isFlexJustifyBetween>
-          <NavMenuButtonUsageExample {...props} />
-          <NavMenuButtonUsageExample {...props} data-alignment="right" />
+          <NavDropdownButtonUsageExample {...props} />
+          <NavDropdownButtonUsageExample {...props} data-alignment="right" />
         </FlexContainer>
       </FlexContainer>
     )

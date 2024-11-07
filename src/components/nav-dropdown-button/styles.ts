@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 import { ElIcon } from '../icon'
 
-export const ElNavMenuButton = styled.button`
+export const ElNavDropdownButton = styled.button`
   cursor: pointer;
   border: none !important;
   height: 32px;

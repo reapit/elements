@@ -1,26 +1,26 @@
 import { render } from '@testing-library/react'
-import { NavMenuButton, NavMenuButtonProps } from '../nav-menu-button'
+import { NavDropdownButton, NavDropdownButtonProps } from '../nav-dropdown-button'
 
 jest.mock('../../icon', () => ({
   Icon: jest.fn(() => <div data-testid="icon" />),
 }))
 
-describe('NavMenuButton', () => {
-  const defaultProps: NavMenuButtonProps = {
+describe('NavDropdownButton', () => {
+  const defaultProps: NavDropdownButtonProps = {
     isOpen: false,
     onClick: jest.fn(),
   }
 
   it('matches snapshot when collapsed', () => {
-    const { asFragment } = render(<NavMenuButton {...defaultProps}>Test Button</NavMenuButton>)
+    const { asFragment } = render(<NavDropdownButton {...defaultProps}>Test Button</NavDropdownButton>)
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('matches snapshot when expanded', () => {
     const { asFragment } = render(
-      <NavMenuButton {...defaultProps} isOpen={true}>
+      <NavDropdownButton {...defaultProps} isOpen={true}>
         Test Button
-      </NavMenuButton>,
+      </NavDropdownButton>,
     )
     expect(asFragment()).toMatchSnapshot()
   })
