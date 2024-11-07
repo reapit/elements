@@ -23,8 +23,6 @@ interface NavIconItemAsButtonElementProps
   extends CommonNavIconItemProps,
     Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'aria-label'> {
   href?: never
-  target?: never
-  rel?: never
   onClick: MouseEventHandler<HTMLButtonElement>
 }
 
@@ -32,8 +30,6 @@ interface NavIconItemAsAnchorElementProps
   extends CommonNavIconItemProps,
     Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'aria-label'> {
   href?: string
-  target?: string
-  rel?: string
   onClick?: MouseEventHandler<HTMLAnchorElement>
 }
 
@@ -43,6 +39,12 @@ const isButtonElement = (props: NavIconItemProps): props is NavIconItemAsButtonE
   return !props.href
 }
 
+/**
+ * The `NavIconItem` component is a small part of `AppBar` component
+ * It's used to render a nav item with an icon
+ *
+ * To ensure it's aligned with the design, the children component should have a CSS color property with 'inherit' value
+ */
 export const NavIconItem: FC<NavIconItemProps> = (props) => {
   if (isButtonElement(props)) {
     const { isActive, icon, ...rest } = props ?? {}

@@ -2,6 +2,8 @@ import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import { styled } from '@linaria/react'
 import { ElIcon } from '../icon'
 
+// TODO: add red dot integration
+// TODO: add tooltip integration on hover state
 const baseStyles = `
   display: inline-flex;
   padding: var(--space-2, 8px);
