@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { NavSearchButton } from '../search-button'
+import { NavSearchButton } from '../app-bar.atoms'
 
 describe('NavSearchButton', () => {
   it('should match snapshot', () => {
