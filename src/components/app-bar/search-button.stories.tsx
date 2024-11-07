@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react'
-import { NavSearchButton } from './search-button'
+import { NavSearchButton } from './app-bar.atoms'
 
 export default {
   title: 'Components/App bar/Search button',
