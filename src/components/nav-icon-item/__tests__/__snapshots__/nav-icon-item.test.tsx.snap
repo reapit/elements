@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavIconItem should render the component as HTMLAnchorElement 1`] = `
+<DocumentFragment>
+  <mock-styled.a
+    aria-label="test icon"
+    href="#"
+  >
+    <span>
+      test
+    </span>
+  </mock-styled.a>
+</DocumentFragment>
+`;
+
+exports[`NavIconItem should render the component as HTMLButtonElement 1`] = `
+<DocumentFragment>
+  <mock-styled.button
+    aria-label="test icon"
+  >
+    <span>
+      test
+    </span>
+  </mock-styled.button>
+</DocumentFragment>
+`;
