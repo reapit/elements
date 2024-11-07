@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElIcon } from '../../../icon'
+import { ElIcon } from '../icon'
 
 export const ElNavMenuButton = styled.button`
   cursor: pointer;

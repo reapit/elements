@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { NavMenuButton, NavMenuButtonProps } from '../nav-menu-button'
 
-jest.mock('../../../../icon', () => ({
+jest.mock('../../icon', () => ({
   Icon: jest.fn(() => <div data-testid="icon" />),
 }))
 

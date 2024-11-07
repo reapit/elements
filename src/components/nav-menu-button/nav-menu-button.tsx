@@ -1,5 +1,5 @@
 import React, { type HTMLAttributes } from 'react'
-import { Icon } from '../../../icon'
+import { Icon } from '../icon'
 import { ElNavMenuButton } from './styles'
 
 export interface NavMenuButtonProps extends HTMLAttributes<HTMLButtonElement> {

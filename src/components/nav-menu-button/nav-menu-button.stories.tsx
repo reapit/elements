@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import type { ComponentProps } from 'react'
 import { ElNavMenuButton, NavMenuButton } from '.'
-import { Icon } from '../../../icon'
-import { FlexContainer } from '../../../layout'
+import { Icon } from '../icon'
+import { FlexContainer } from '../layout'
 import {
   ElMenu,
   ElMenuItemAnchor,
@@ -12,10 +12,10 @@ import {
   ElMenuList,
   ElMenuPopover,
   Menu,
-} from '../../../menu'
+} from '../menu'
 
 const meta: Meta<typeof NavMenuButton> = {
-  title: 'Components/App Bar/Menu Button',
+  title: 'Components/Nav Menu Button',
   component: NavMenuButton,
 }
 
