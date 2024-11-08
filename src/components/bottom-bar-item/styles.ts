@@ -5,9 +5,11 @@ import { ElIcon } from '../icon'
 export const ElBottomBarItemIcon = styled.div`
   width: var(--icon-default, 24px);
   height: var(--icon-default, 24px);
+  color: inherit;
 `
 
 export const ElBottomBarItemLabel = styled.span`
+  color: inherit;
   text-align: center;
   font-family: var(--font-family, Inter);
   font-size: var(--font-size-2xs, 12px);
@@ -30,22 +32,10 @@ const baseStyles = `
   gap: var(--space-half, 2px);
   position: relative;
 
-  .el-bottom-bar-item-icon {
-    color: var(--icon-secondary, #607890);
-  }
+  color: var(--icon-secondary, #607890);
 
-  .el-bottom-bar-item-label {
-    color: var(--text-secondary, #607890);
-  }
-  
   &:active, &[aria-current="true"], &[aria-current="page"] {
-    .el-bottom-bar-item-icon {
-      color: var(--icon-action, #4e56ea)
-    }
-
-    .el-bottom-bar-item-label {
-      color: var(--text-action, #4e56ea);
-    }
+    color: var(--icon-action, #4e56ea)
   }
 
 `

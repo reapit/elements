@@ -9,17 +9,21 @@ import {
 interface CommonBottomBarItemProps {
   /**
    * The JSX element to render as the icon
+   *
+   * NOTE: the CSS color property is set to 'inherit' to ensure the icon is aligned with the design
    */
   icon: ReactNode
 
   /**
-   * Defines a string value that labels the current element
-   * While it's improve the accessibility, this will also used as a label part
+   * Render a label for the bottom bar item
+   *
+   * NOTE: the CSS color property is set to 'inherit' to ensure the label is aligned with the design
    */
-  'aria-label': string
+  children: ReactNode
 
   /**
    * Whether the nav item is active
+   *
    * @default false
    **/
   isActive?: boolean
@@ -27,14 +31,14 @@ interface CommonBottomBarItemProps {
 
 interface BottomBarItemAsButtonElementProps
   extends CommonBottomBarItemProps,
-    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'aria-label'> {
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
   href?: never
   onClick: MouseEventHandler<HTMLButtonElement>
 }
 
 interface BottomBarItemAsAnchorElementProps
   extends CommonBottomBarItemProps,
-    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'aria-label'> {
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
   href?: string
   onClick?: MouseEventHandler<HTMLAnchorElement>
 }
@@ -52,21 +56,21 @@ const isButtonElement = (props: BottomBarItemProps): props is BottomBarItemAsBut
  */
 export const BottomBarItem: FC<BottomBarItemProps> = (props) => {
   if (isButtonElement(props)) {
-    const { isActive, icon, 'aria-label': ariaLabel, ...rest } = props ?? {}
+    const { isActive, icon, children, ...rest } = props ?? {}
 
     return (
       <ElButtonBottomBarItemContainer {...rest} aria-current={isActive ? 'true' : undefined}>
-        <ElBottomBarItemIcon>{icon}</ElBottomBarItemIcon>
-        <ElBottomBarItemLabel>{ariaLabel}</ElBottomBarItemLabel>
+        <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
+        <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
       </ElButtonBottomBarItemContainer>
     )
   } else {
-    const { isActive, icon, 'aria-label': ariaLabel, ...rest } = props ?? {}
+    const { isActive, icon, children, ...rest } = props ?? {}
 
     return (
       <ElAnchorBottomBarItemContainer {...rest} aria-current={isActive ? 'page' : undefined}>
-        <ElBottomBarItemIcon>{icon}</ElBottomBarItemIcon>
-        <ElBottomBarItemLabel>{ariaLabel}</ElBottomBarItemLabel>
+        <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
+        <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
       </ElAnchorBottomBarItemContainer>
     )
   }

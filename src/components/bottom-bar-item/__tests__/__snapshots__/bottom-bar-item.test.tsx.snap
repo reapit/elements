@@ -6,7 +6,9 @@ exports[`BottomBarItem should render the component as HTMLAnchorElement with act
     aria-current="page"
     href="#"
   >
-    <mock-styled.div>
+    <mock-styled.div
+      role="presentation"
+    >
       <span>
         icon
       </span>
@@ -23,7 +25,9 @@ exports[`BottomBarItem should render the component as HTMLAnchorElement with def
   <mock-styled.a
     href="#"
   >
-    <mock-styled.div>
+    <mock-styled.div
+      role="presentation"
+    >
       <span>
         icon
       </span>
@@ -40,7 +44,9 @@ exports[`BottomBarItem should render the component as HTMLButtonElement with act
   <mock-styled.button
     aria-current="true"
   >
-    <mock-styled.div>
+    <mock-styled.div
+      role="presentation"
+    >
       <span>
         icon
       </span>
@@ -57,7 +63,9 @@ exports[`BottomBarItem should render the component as HTMLButtonElement with def
   <mock-styled.button
     aria-current="true"
   >
-    <mock-styled.div>
+    <mock-styled.div
+      role="presentation"
+    >
       <span>
         icon
       </span>

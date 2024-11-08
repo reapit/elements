@@ -34,7 +34,7 @@ const meta = {
       control: false,
       description: 'Click handler for bottom bar item',
     },
-    'aria-label': {
+    children: {
       control: false,
       description: 'Accessible label for button',
     },
@@ -51,7 +51,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   args: {
     isActive: false,
-    'aria-label': 'Label',
+    children: 'Label',
     icon: <Icon icon="star" />,
   },
 }
@@ -59,7 +59,7 @@ export const Default: Story = {
 export const ActiveState: Story = {
   args: {
     isActive: true,
-    'aria-label': 'Label',
+    children: 'Label',
     icon: <Icon icon="star" />,
   },
 }
@@ -67,20 +67,20 @@ export const ActiveState: Story = {
 export const StyleAnchorUsage: Story = {
   args: {
     href: '#',
-    'aria-label': 'Label',
+    children: 'Label',
     icon: <Icon icon="star" />,
   },
   render: (args) => {
     return (
       <FlexContainer>
-        <ElAnchorBottomBarItemContainer href={args.href!} aria-current={undefined} className="el-mx5">
+        <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mx5">
           <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          <ElBottomBarItemLabel>{args?.['aria-label']}</ElBottomBarItemLabel>
+          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElAnchorBottomBarItemContainer>
 
-        <ElAnchorBottomBarItemContainer href={args.href!} aria-current="page" className="el-mx5">
+        <ElAnchorBottomBarItemContainer href={args.href} aria-current="page" className="el-mx5">
           <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          <ElBottomBarItemLabel>{args?.['aria-label']}</ElBottomBarItemLabel>
+          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElAnchorBottomBarItemContainer>
       </FlexContainer>
     )
@@ -89,7 +89,7 @@ export const StyleAnchorUsage: Story = {
 
 export const StyleButtonUsage: Story = {
   args: {
-    'aria-label': 'Label',
+    children: 'Label',
     icon: <Icon icon="star" />,
   },
   render: (args) => {
@@ -97,12 +97,12 @@ export const StyleButtonUsage: Story = {
       <FlexContainer>
         <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mx5">
           <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          <ElBottomBarItemLabel>{args?.['aria-label']}</ElBottomBarItemLabel>
+          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElButtonBottomBarItemContainer>
 
         <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current="true" className="el-mx5">
           <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          <ElBottomBarItemLabel>{args?.['aria-label']}</ElBottomBarItemLabel>
+          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElButtonBottomBarItemContainer>
       </FlexContainer>
     )
@@ -113,7 +113,7 @@ export const ReactAnchorUsage: Story = {
   args: {
     href: '#',
     icon: <Icon icon="star" />,
-    'aria-label': 'Label',
+    children: 'Label',
   },
   render: (args) => {
     return (
@@ -129,7 +129,7 @@ export const ReactButtonUsage: Story = {
   args: {
     onClick: action('handleClick'),
     icon: <Icon icon="star" />,
-    'aria-label': 'Label',
+    children: 'Label',
   },
   render: (args) => {
     return (
