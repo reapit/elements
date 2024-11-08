@@ -1,0 +1,57 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as BottomBarItemStories from './bottom-bar-item.stories'
+
+<Meta of={BottomBarItemStories} />
+
+# Bottom Bar Item
+
+A versatile component designed to render navigation icon items within a `BottomBar`
+
+`BottomBarItem` is backed by `HTMLAnchorElement` and `HTMLButtonElement` to allow for flexibility in rendering the component
+
+<Controls />
+
+## Default State
+
+The default appearance of the `BottomBarItem`
+
+<Canvas of={BottomBarItemStories.Default} />
+
+## Active State
+
+The visual state of the `BottomBarItem` when it's currently selected or active
+
+<Canvas of={BottomBarItemStories.ActiveState} />
+
+## Style Anchor Usage
+
+Demonstrates how to use the `BottomBarItem` using a standard `HTMLAnchorElement`
+
+<Canvas of={BottomBarItemStories.StyleAnchorUsage} />
+
+<RenderHtmlMarkup of={BottomBarItemStories.StyleAnchorUsage} />
+
+## Style Button Usage
+
+Demonstrates how to use the `BottomBarItem` using a standard `HTMLButtonElement`
+
+<Canvas of={BottomBarItemStories.StyleButtonUsage} />
+
+<RenderHtmlMarkup of={BottomBarItemStories.StyleButtonUsage} />
+
+## React Anchor Usage
+
+Demonstrates how to render the `BottomBarItem` using a anchor version
+
+<Canvas of={BottomBarItemStories.ReactAnchorUsage} />
+
+<RenderHtmlMarkup of={BottomBarItemStories.ReactAnchorUsage} />
+
+## React Button Usage
+
+Demonstrates how to render the `BottomBarItem` using a button version
+
+<Canvas of={BottomBarItemStories.ReactButtonUsage} />
+
+<RenderHtmlMarkup of={BottomBarItemStories.ReactButtonUsage} />
