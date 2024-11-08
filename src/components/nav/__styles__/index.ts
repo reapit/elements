@@ -102,7 +102,8 @@ export const ElNavItem = styled.a`
     margin-right: auto;
     width: 100%;
     padding: 0rem 1.25rem;
-    border-bottom: 1px solid var(--neutral-100);
+    /* border-bottom: 1px solid var(--neutral-100); */
+    border-bottom: 1px solid red;
   }
 
   &:not(:first-child) {
