@@ -34,7 +34,7 @@ export const Default: StoryObj<typeof NavItem> = {
   render: () => (
     <FlexContainer>
       <ElNavItemButton className="el-mr5">
-        <ElNavItemLabelContainer>Button</ElNavItemLabelContainer>
+        <ElNavItemLabelContainer onClick={console.log}>Button</ElNavItemLabelContainer>
       </ElNavItemButton>
       <ElNavItemAnchor href="#">
         <ElNavItemLabelContainer>Link</ElNavItemLabelContainer>
@@ -61,5 +61,6 @@ export const ReactUsageAnchor: StoryObj<typeof NavItem> = {
 export const ReactUsageButton: StoryObj<typeof NavItem> = {
   args: {
     children: 'Button',
+    onClick: console.log,
   },
 }
