@@ -6,6 +6,7 @@ import { FlexContainer } from '../layout'
 import { Icon } from '../icon'
 import {
   ElAnchorBottomBarItemContainer,
+  ElBottomBarItemBadge,
   ElBottomBarItemIcon,
   ElBottomBarItemLabel,
   ElButtonBottomBarItemContainer,
@@ -25,6 +26,10 @@ const meta = {
     isActive: {
       control: false,
       description: 'Whether the bottom bar item is active or not',
+    },
+    hasBadge: {
+      control: false,
+      description: 'Whether the bottom bar item has a badge or not',
     },
     href: {
       control: false,
@@ -64,6 +69,13 @@ export const ActiveState: Story = {
   },
 }
 
+export const BadgeState: Story = {
+  args: {
+    children: 'Label',
+    icon: <Icon icon="star" />,
+    hasBadge: true,
+  },
+}
 export const StyleAnchorUsage: Story = {
   args: {
     href: '#',
@@ -73,7 +85,7 @@ export const StyleAnchorUsage: Story = {
   render: (args) => {
     return (
       <FlexContainer>
-        <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mx5">
+        <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mr5">
           <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElAnchorBottomBarItemContainer>
@@ -81,6 +93,12 @@ export const StyleAnchorUsage: Story = {
         <ElAnchorBottomBarItemContainer href={args.href} aria-current="page" className="el-mx5">
           <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
+        </ElAnchorBottomBarItemContainer>
+
+        <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mx5">
+          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
+          <ElBottomBarItemBadge role="status" />
         </ElAnchorBottomBarItemContainer>
       </FlexContainer>
     )
@@ -95,7 +113,7 @@ export const StyleButtonUsage: Story = {
   render: (args) => {
     return (
       <FlexContainer>
-        <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mx5">
+        <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mr5">
           <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElButtonBottomBarItemContainer>
@@ -103,6 +121,12 @@ export const StyleButtonUsage: Story = {
         <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current="true" className="el-mx5">
           <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
+        </ElButtonBottomBarItemContainer>
+
+        <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mx5">
+          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
+          <ElBottomBarItemBadge role="status" />
         </ElButtonBottomBarItemContainer>
       </FlexContainer>
     )
@@ -118,8 +142,9 @@ export const ReactAnchorUsage: Story = {
   render: (args) => {
     return (
       <FlexContainer>
-        <BottomBarItem {...args} isActive={false} className="el-mx5" />
+        <BottomBarItem {...args} isActive={false} className="el-mr5" />
         <BottomBarItem {...args} isActive className="el-mx5" />
+        <BottomBarItem {...args} hasBadge className="el-mx5" />
       </FlexContainer>
     )
   },
@@ -134,8 +159,9 @@ export const ReactButtonUsage: Story = {
   render: (args) => {
     return (
       <FlexContainer>
-        <BottomBarItem {...args} isActive={false} className="el-mx5" />
+        <BottomBarItem {...args} isActive={false} className="el-mr5" />
         <BottomBarItem {...args} isActive className="el-mx5" />
+        <BottomBarItem {...args} hasBadge className="el-mx5" />
       </FlexContainer>
     )
   },

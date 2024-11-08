@@ -1,6 +1,7 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEventHandler, ReactNode } from 'react'
 import {
   ElAnchorBottomBarItemContainer,
+  ElBottomBarItemBadge,
   ElBottomBarItemIcon,
   ElBottomBarItemLabel,
   ElButtonBottomBarItemContainer,
@@ -27,6 +28,13 @@ interface CommonBottomBarItemProps {
    * @default false
    **/
   isActive?: boolean
+
+  /**
+   * Optional badge to be displayed on the bottom bar item
+   *
+   * @default false
+   */
+  hasBadge?: boolean
 }
 
 interface BottomBarItemAsButtonElementProps
@@ -56,21 +64,23 @@ const isButtonElement = (props: BottomBarItemProps): props is BottomBarItemAsBut
  */
 export const BottomBarItem: FC<BottomBarItemProps> = (props) => {
   if (isButtonElement(props)) {
-    const { isActive, icon, children, ...rest } = props ?? {}
+    const { isActive, icon, hasBadge, children, ...rest } = props ?? {}
 
     return (
       <ElButtonBottomBarItemContainer {...rest} aria-current={isActive ? 'true' : undefined}>
         <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
         <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
+        {hasBadge && <ElBottomBarItemBadge role="status" />}
       </ElButtonBottomBarItemContainer>
     )
   } else {
-    const { isActive, icon, children, ...rest } = props ?? {}
+    const { isActive, icon, hasBadge, children, ...rest } = props ?? {}
 
     return (
       <ElAnchorBottomBarItemContainer {...rest} aria-current={isActive ? 'page' : undefined}>
         <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
         <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
+        {hasBadge && <ElBottomBarItemBadge role="status" />}
       </ElAnchorBottomBarItemContainer>
     )
   }

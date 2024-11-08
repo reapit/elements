@@ -41,4 +41,14 @@ describe('BottomBarItem', () => {
       ).asFragment(),
     ).toMatchSnapshot()
   })
+
+  it('should render the component as HTMLButtonElement with badge state', () => {
+    expect(
+      render(
+        <BottomBarItem onClick={jest.fn()} isActive icon={<span>icon</span>} hasBadge>
+          Label
+        </BottomBarItem>,
+      ).asFragment(),
+    ).toMatchSnapshot()
+  })
 })
