@@ -24,3 +24,18 @@ exports[`NavIconItem should render the component as HTMLButtonElement 1`] = `
   </mock-styled.button>
 </DocumentFragment>
 `;
+
+exports[`NavIconItem should render the component with a badge 1`] = `
+<DocumentFragment>
+  <mock-styled.button
+    aria-label="test icon"
+  >
+    <span>
+      test
+    </span>
+    <mock-styled.span
+      role="status"
+    />
+  </mock-styled.button>
+</DocumentFragment>
+`;
