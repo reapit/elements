@@ -9,7 +9,7 @@ describe('NavSearchButton', () => {
   })
 
   it('render without shortcut and match snapshot', () => {
-    const { asFragment } = render(<NavSearchButton useShortcut={false} />)
+    const { asFragment } = render(<NavSearchButton isShortcutVisible={false} />)
 
     expect(asFragment()).toMatchSnapshot()
   })

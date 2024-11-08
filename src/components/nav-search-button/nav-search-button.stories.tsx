@@ -2,10 +2,10 @@ import { Meta, StoryObj } from '@storybook/react'
 import { NavSearchButton } from './nav-search-button'
 
 export default {
-  title: 'Components/Nav Search button',
+  title: 'Components/Nav Search Button',
   component: NavSearchButton,
   argTypes: {
-    useShortcut: {
+    isShortcutVisible: {
       type: 'boolean',
       control: {
         type: 'radio',
@@ -20,6 +20,6 @@ export const StylesOnlyUsage: StoryObj<typeof NavSearchButton> = {}
 export const ReactUsage: StoryObj<typeof NavSearchButton> = {}
 export const WithoutShortcut: StoryObj<typeof NavSearchButton> = {
   args: {
-    useShortcut: false,
+    isShortcutVisible: false,
   },
 }

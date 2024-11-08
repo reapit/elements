@@ -7,15 +7,15 @@ import {
 } from './styles'
 
 export interface NavSearchButton extends HTMLAttributes<HTMLButtonElement> {
-  useShortcut?: boolean
+  isShortcutVisible?: boolean
 }
 
-export const NavSearchButton: React.FC<NavSearchButton> = ({ useShortcut = true, ...props }) => {
+export const NavSearchButton: React.FC<NavSearchButton> = ({ isShortcutVisible = true, ...props }) => {
   return (
     <ElNavSearchButton {...props}>
       <ElNavSearchButtonIcon aria-hidden="true" />
       <ElNavSearchButtonPlaceholder>Search</ElNavSearchButtonPlaceholder>
-      {useShortcut && <ElNavSearchButtonShortcutText>Ctrl + K</ElNavSearchButtonShortcutText>}
+      {isShortcutVisible && <ElNavSearchButtonShortcutText>Ctrl + K</ElNavSearchButtonShortcutText>}
     </ElNavSearchButton>
   )
 }
