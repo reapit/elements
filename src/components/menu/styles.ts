@@ -1,24 +1,13 @@
 import { styled } from '@linaria/react'
 
-export const ElMenuPopover = styled.div`
-  position: absolute;
-  z-index: 100;
-`
-
 export const ElMenu = styled.div`
   position: relative;
   width: fit-content;
+`
 
-  &[data-alignment='left'] {
-    > ${ElMenuPopover} {
-      left: 0;
-    }
-  }
-  &[data-alignment='right'] {
-    > ${ElMenuPopover} {
-      right: 0;
-    }
-  }
+export const ElMenuPopover = styled.div`
+  position: absolute;
+  z-index: 100;
 `
 
 export const ElMenuList = styled.div`

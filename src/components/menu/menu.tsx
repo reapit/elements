@@ -1,10 +1,10 @@
-import React, { type HTMLAttributes } from 'react'
+import React from 'react'
 import { MenuProvider } from './menu-context'
 import { MenuPopover, MenuTrigger } from './menu-popover'
 import { MenuItem, MenuItemGroup, MenuList } from './menu.atoms'
 import { ElMenu } from './styles'
 
-type MenuFC = React.FC<HTMLAttributes<HTMLDivElement> & { 'data-alignment'?: 'left' | 'right' }> & {
+type MenuFC = React.FC & {
   Item: typeof MenuItem
   Group: typeof MenuItemGroup
   Trigger: typeof MenuTrigger
@@ -12,10 +12,10 @@ type MenuFC = React.FC<HTMLAttributes<HTMLDivElement> & { 'data-alignment'?: 'le
   List: typeof MenuList
 }
 
-const Menu: MenuFC = ({ children, ...props }) => {
+const Menu: MenuFC = ({ children }) => {
   return (
     <MenuProvider>
-      <ElMenu {...props}>{children}</ElMenu>
+      <ElMenu>{children}</ElMenu>
     </MenuProvider>
   )
 }

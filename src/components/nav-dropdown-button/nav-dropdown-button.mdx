@@ -1,5 +1,5 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import * as NavDropdownButtonStories from './nav-menu-button.stories'
+import * as NavDropdownButtonStories from './nav-dropdown-button.stories'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 <Meta of={NavDropdownButtonStories} />
@@ -10,15 +10,13 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 The NavDropdownButton can be used toggle visibility of the `Menu` component.
 
-The menu alignment can be set by setting `data-alignment="left | right"` to the `Menu` component
-
 <Canvas of={NavDropdownButtonStories.StylesOnlyUsage} />
 
 <RenderHtmlMarkup of={NavDropdownButtonStories.StylesOnlyUsage} />
 
 ## React Usage
 
-Here you can use the `isOpen` prop to toggle the `chevron` icon, but it is recommended to compose it with `Menu` component as example here
+Here you can use the `isOpen` prop to toggle the `chevron` icon, but it is recommended to compose it with `Menu` component as the example here
 
 <Canvas of={NavDropdownButtonStories.ReactUsage} />
 
