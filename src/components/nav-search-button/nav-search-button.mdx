@@ -1,10 +1,10 @@
 import { Canvas, Controls, Meta } from '@storybook/blocks'
-import * as NavSearchButtonStories from './search-button.stories'
+import * as NavSearchButtonStories from './nav-search-button.stories'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 <Meta of={NavSearchButtonStories} />
 
-# NavSearchButtoStories
+# NavSearchButtonStories
 
 This component renders a search button that will only be used in the app bar.
 
@@ -15,6 +15,10 @@ This component renders a search button that will only be used in the app bar.
 <RenderHtmlMarkup of={NavSearchButtonStories.StylesOnlyUsage} />
 
 ## React Usage
+
+in React usage, the present of `shortcut` is true by default, it can be controlled by utilizing `useShortcut` props
+
+<Controls of={NavSearchButtonStories.ReactUsage} />
 
 <Canvas of={NavSearchButtonStories.ReactUsage} />
 
