@@ -1,5 +1,5 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEventHandler, ReactNode } from 'react'
-import { ElAnchorNavIconItem, ElButtonNavIconItem } from './styles'
+import { ElAnchorNavIconItem, ElButtonNavIconItem, ElNavIconItemBadge } from './styles'
 
 interface CommonNavIconItemProps {
   /**
@@ -17,6 +17,12 @@ interface CommonNavIconItemProps {
    * @default false
    **/
   isActive?: boolean
+
+  /**
+   * Optional badge to be displayed on the nav item
+   * @default false
+   */
+  hasBadge?: boolean
 }
 
 interface NavIconItemAsButtonElementProps
@@ -47,19 +53,21 @@ const isButtonElement = (props: NavIconItemProps): props is NavIconItemAsButtonE
  */
 export const NavIconItem: FC<NavIconItemProps> = (props) => {
   if (isButtonElement(props)) {
-    const { isActive, icon, ...rest } = props ?? {}
+    const { isActive, icon, hasBadge, ...rest } = props ?? {}
 
     return (
       <ElButtonNavIconItem {...rest} aria-current={isActive ? 'true' : undefined}>
         {icon}
+        {hasBadge && <ElNavIconItemBadge />}
       </ElButtonNavIconItem>
     )
   } else {
-    const { isActive, icon, ...rest } = props ?? {}
+    const { isActive, icon, hasBadge, ...rest } = props ?? {}
 
     return (
       <ElAnchorNavIconItem {...rest} aria-current={isActive ? 'page' : undefined}>
         {icon}
+        {hasBadge && <ElNavIconItemBadge />}
       </ElAnchorNavIconItem>
     )
   }
