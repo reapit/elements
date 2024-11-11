@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`NavSearchButton render without shortcut and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.button>
+    <mock-styled.svg
+      aria-hidden="true"
+    />
+    <mock-styled.span>
+      Search
+    </mock-styled.span>
+  </mock-styled.button>
+</DocumentFragment>
+`;
+
+exports[`NavSearchButton should match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.button>
+    <mock-styled.svg
+      aria-hidden="true"
+    />
+    <mock-styled.span>
+      Search
+    </mock-styled.span>
+    <mock-styled.span>
+      Ctrl + K
+    </mock-styled.span>
+  </mock-styled.button>
+</DocumentFragment>
+`;
