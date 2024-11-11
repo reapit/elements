@@ -58,7 +58,7 @@ export const NavIconItem: FC<NavIconItemProps> = (props) => {
     return (
       <ElButtonNavIconItem {...rest} aria-current={isActive ? 'true' : undefined}>
         {icon}
-        {hasBadge && <ElNavIconItemBadge role="status" />}
+        {hasBadge && <ElNavIconItemBadge />}
       </ElButtonNavIconItem>
     )
   } else {
@@ -67,7 +67,7 @@ export const NavIconItem: FC<NavIconItemProps> = (props) => {
     return (
       <ElAnchorNavIconItem {...rest} aria-current={isActive ? 'page' : undefined}>
         {icon}
-        {hasBadge && <ElNavIconItemBadge role="status" />}
+        {hasBadge && <ElNavIconItemBadge />}
       </ElAnchorNavIconItem>
     )
   }

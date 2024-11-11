@@ -33,9 +33,7 @@ exports[`NavIconItem should render the component with a badge 1`] = `
     <span>
       test
     </span>
-    <mock-styled.span
-      role="status"
-    />
+    <mock-styled.span />
   </mock-styled.button>
 </DocumentFragment>
 `;
