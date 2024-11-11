@@ -24,7 +24,7 @@ interface NavItemAsAnchorElementProps extends CommonNavItemProps, AnchorHTMLAttr
 export type NavItemProps = NavItemAsButtonElementProps | NavItemAsAnchorElementProps
 
 export const NavItem: FC<NavItemProps> = ({ children, disabled, isActive, ...props }) => {
-  if (isItemAsButtonElement(props)) {
+  if (isButtonElement(props)) {
     return (
       <ElNavItemButton {...props} aria-current={isActive ? 'true' : undefined}>
         <ElNavItemLabelContainer aria-disabled={disabled}>{children}</ElNavItemLabelContainer>
@@ -39,6 +39,6 @@ export const NavItem: FC<NavItemProps> = ({ children, disabled, isActive, ...pro
   )
 }
 
-function isItemAsButtonElement(props: NavItemProps): props is NavItemAsButtonElementProps {
+function isButtonElement(props: NavItemProps): props is NavItemAsButtonElementProps {
   return !props.href
 }
