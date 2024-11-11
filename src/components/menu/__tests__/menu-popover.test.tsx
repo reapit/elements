@@ -1,5 +1,6 @@
 import { fireEvent, render } from '@testing-library/react'
 import { Menu } from '../menu'
+import { calculatePopoverPosition } from '../menu-popover'
 
 describe('Menu Popover component', () => {
   const MockMenuPopoverComponent = () => {
@@ -30,5 +31,51 @@ describe('Menu Popover component', () => {
     fireEvent.click(getByText('Trigger'))
     fireEvent.click(getByText('Non closing Menu Item'))
     expect(asFragment()).toEqual(openedMenu)
+  })
+
+  describe('calculatePopoverPosition', () => {
+    let container
+    let popover
+    let mockSetPopoverStyle
+
+    beforeEach(() => {
+      container = document.createElement('div')
+      container.innerHTML = '<button role="button">Trigger</button>'
+      popover = document.createElement('div')
+      popover.getBoundingClientRect = jest.fn(() => ({ height: 100 }))
+      mockSetPopoverStyle = jest.fn()
+    })
+
+    it('should set popover position below the button if there is enough space', () => {
+      const triggerBtn = container.querySelector('[role="button"]')
+      triggerBtn.getBoundingClientRect = jest.fn(() => ({
+        height: 50,
+        bottom: 200,
+      }))
+
+      window.innerHeight = 400
+      calculatePopoverPosition(container, popover, mockSetPopoverStyle)
+
+      expect(mockSetPopoverStyle).toHaveBeenCalledWith({ top: 53 })
+    })
+
+    it('should set popover position above the button if there is not enough space below', () => {
+      const triggerBtn = container.querySelector('[role="button"]')
+      triggerBtn.getBoundingClientRect = jest.fn(() => ({
+        height: 50,
+        bottom: 380,
+      }))
+
+      window.innerHeight = 400
+      calculatePopoverPosition(container, popover, mockSetPopoverStyle)
+
+      expect(mockSetPopoverStyle).toHaveBeenCalledWith({ top: -103 })
+    })
+
+    it('should not set position if trigger button is not found', () => {
+      container.innerHTML = ''
+      calculatePopoverPosition(container, popover, mockSetPopoverStyle)
+      expect(mockSetPopoverStyle).not.toHaveBeenCalled()
+    })
   })
 })
