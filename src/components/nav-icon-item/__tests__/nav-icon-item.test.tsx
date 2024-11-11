@@ -13,4 +13,10 @@ describe('NavIconItem', () => {
       render(<NavIconItem aria-label="test icon" onClick={() => {}} icon={<span>test</span>} />).asFragment(),
     ).toMatchSnapshot()
   })
+
+  it('should render the component with a badge', () => {
+    expect(
+      render(<NavIconItem aria-label="test icon" onClick={() => {}} icon={<span>test</span>} hasBadge />).asFragment(),
+    ).toMatchSnapshot()
+  })
 })
