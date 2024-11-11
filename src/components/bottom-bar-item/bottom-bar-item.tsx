@@ -70,7 +70,7 @@ export const BottomBarItem: FC<BottomBarItemProps> = (props) => {
       <ElButtonBottomBarItemContainer {...rest} aria-current={isActive ? 'true' : undefined}>
         <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
         <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
-        {hasBadge && <ElBottomBarItemBadge role="status" />}
+        {hasBadge && <ElBottomBarItemBadge />}
       </ElButtonBottomBarItemContainer>
     )
   } else {
@@ -80,7 +80,7 @@ export const BottomBarItem: FC<BottomBarItemProps> = (props) => {
       <ElAnchorBottomBarItemContainer {...rest} aria-current={isActive ? 'page' : undefined}>
         <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
         <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
-        {hasBadge && <ElBottomBarItemBadge role="status" />}
+        {hasBadge && <ElBottomBarItemBadge />}
       </ElAnchorBottomBarItemContainer>
     )
   }

@@ -73,9 +73,7 @@ exports[`BottomBarItem should render the component as HTMLButtonElement with bad
     <mock-styled.span>
       Label
     </mock-styled.span>
-    <mock-styled.span
-      role="status"
-    />
+    <mock-styled.span />
   </mock-styled.button>
 </DocumentFragment>
 `;
