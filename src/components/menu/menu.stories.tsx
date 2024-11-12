@@ -103,7 +103,7 @@ export const MoreComplexUsageExample: StoryObj<ComponentProps<typeof Menu>> = {
         isFlexColumn
         isFlexJustifyBetween
         style={{
-          height: '95vh',
+          height: '170vh',
           overflow: 'hidden',
           padding: 5,
         }}
@@ -111,6 +111,10 @@ export const MoreComplexUsageExample: StoryObj<ComponentProps<typeof Menu>> = {
         <FlexContainer isFlexJustifyBetween>
           <NavDropdownButtonUsageExample {...props} />
           <NavDropdownButtonUsageExample {...props} data-alignment="right" title="Custom y-offset" additionalGap={50} />
+        </FlexContainer>
+        <FlexContainer isFlexJustifyBetween>
+          <NavDropdownButtonUsageExample {...props} />
+          <NavDropdownButtonUsageExample {...props} data-alignment="right" />
         </FlexContainer>
         <FlexContainer isFlexJustifyBetween>
           <NavDropdownButtonUsageExample {...props} />
