@@ -2,9 +2,9 @@ import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import { styled } from '@linaria/react'
 import { ElIcon } from '../icon'
 
-// TODO: add red dot integration
 // TODO: add tooltip integration on hover state
 const baseStyles = `
+  position: relative;
   display: inline-flex;
   padding: var(--space-2, 8px);
   justify-content: center;
@@ -35,6 +35,16 @@ const baseStyles = `
     border-radius: var(--corner-default, 4px);
     background: var(--fill-default-lightest, #f2f4f6);
   }
+`
+
+export const ElNavIconItemBadge = styled.span`
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: var(--size-2, 8px);
+  height: var(--size-2, 8px);
+  background-color: var(--icon-error, #f01830);
+  border-radius: 100%;
 `
 
 export const ElButtonNavIconItem = styled.button<ButtonHTMLAttributes<HTMLButtonElement>>`
