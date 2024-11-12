@@ -46,7 +46,8 @@ export const useMenu = (): useMenu => {
       'data-open': isOpen,
       // close menu when "focus" move out of menu
       onBlur: (e) => {
-        if (!e.currentTarget.contains(e.relatedTarget)) {
+        const triggerButton = e.currentTarget.parentElement?.querySelector('[role="button"]')
+        if (!e.currentTarget.contains(e.relatedTarget) && e.relatedTarget !== triggerButton) {
           closeMenu()
         }
       },

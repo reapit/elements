@@ -217,6 +217,23 @@ describe('useMenu', () => {
         } as any)
         expect(result.current.isOpen).toBe(false)
       })
+
+      it('should not close menu if focus moves outside by clicking trigger button', () => {
+        const { result } = renderHook(() => useMenu())
+        result.current.openMenu()
+        expect(result.current.isOpen).toBe(true)
+
+        result.current.getPopoverProps().onBlur!({
+          currentTarget: {
+            contains: () => false,
+            parentElement: {
+              querySelector: () => 'trigger button',
+            },
+          },
+          relatedTarget: 'trigger button',
+        } as any)
+        expect(result.current.isOpen).toBe(true)
+      })
     })
   })
 })
