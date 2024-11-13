@@ -218,7 +218,7 @@ describe('useMenu', () => {
         expect(result.current.isOpen).toBe(false)
       })
 
-      it('should not close menu if focus moves outside by clicking trigger button', () => {
+      it('should not close the menu on blur if focus is moving to the trigger button.', () => {
         const { result } = renderHook(() => useMenu())
         result.current.openMenu()
         expect(result.current.isOpen).toBe(true)
