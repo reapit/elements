@@ -19,10 +19,10 @@ export const ElBottomBarItemLabel = styled.span`
   letter-spacing: var(--letter-spacing-2xs, 0px);
 `
 
-// TODO: add red dot integration
 const baseStyles = `
   background-color: var(--fill-white, white);
   outline: none;
+  width: 44px; 
   border: var(--border-none, 0);
   display: flex;
   cursor: pointer;
@@ -37,7 +37,16 @@ const baseStyles = `
   &:active, &[aria-current="true"], &[aria-current="page"] {
     color: var(--icon-action, #4e56ea)
   }
+`
 
+export const ElBottomBarItemBadge = styled.span`
+  position: absolute;
+  top: 1px;
+  right: 6px;
+  width: var(--size-2, 8px);
+  height: var(--size-2, 8px);
+  background-color: var(--icon-error, #f01830);
+  border-radius: 100%;
 `
 
 export const ElAnchorBottomBarItemContainer = styled.a<AnchorHTMLAttributes<HTMLAnchorElement>>`
