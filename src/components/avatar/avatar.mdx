@@ -1,5 +1,4 @@
 import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
-import { Avatar } from '.'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as AvatarStories from './avatar.stories'
 
@@ -9,24 +8,40 @@ import * as AvatarStories from './avatar.stories'
 
 An avatar component to be used typically with a `Card`, `Nav`, or `Table` component. The default variant renders a circle with children.
 
-Passing an `src` will render it as an image tag and passing the `type` prop as `image` will render a rectangular image, suitable for property thumbnails or similar.
+there is multiple variant that can be used by utilizing `data` props such as size, intent, and shape. beside a text it also accept `Icon` as children.
+
+## Style Only Usage
+
+<Canvas of={AvatarStories.StyleOnlyUsage} />
+
+<RenderHtmlMarkup of={AvatarStories.StyleOnlyUsage} />
+
+<Canvas of={AvatarStories.WithIconUsage} />
+
+<RenderHtmlMarkup of={AvatarStories.WithIconUsage} />
+
+## With Intent
+
+<Canvas of={AvatarStories.WithIntent} />
+
+<RenderHtmlMarkup of={AvatarStories.WithIntent} />
+
+## With Square Shape
+
+<Canvas of={AvatarStories.WithSquareShape} />
+
+<RenderHtmlMarkup of={AvatarStories.WithSquareShape} />
+
+## With Small Size
+
+<Canvas of={AvatarStories.WithSmallSize} />
+
+<RenderHtmlMarkup of={AvatarStories.WithSmallSize} />
+
+## React Usage
 
 <Controls />
 
-## Basic Usage
+<Canvas of={AvatarStories.ReactUsage} />
 
-<Canvas of={AvatarStories.BasicUsage} />
-
-<RenderHtmlMarkup of={AvatarStories.BasicUsage} />
-
-## With Src
-
-<Canvas of={AvatarStories.WithSrc} />
-
-<RenderHtmlMarkup of={AvatarStories.WithSrc} />
-
-## With Image
-
-<Canvas of={AvatarStories.WithImage} />
-
-<RenderHtmlMarkup of={AvatarStories.WithImage} />
+<RenderHtmlMarkup of={AvatarStories.ReactUsage} />

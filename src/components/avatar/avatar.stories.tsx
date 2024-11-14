@@ -1,23 +1,50 @@
+import type { StoryObj } from '@storybook/react'
 import { Avatar } from '.'
 import { Icon } from '../icon'
+import { ElAvatar } from './styles'
 
 export default {
   title: 'Avatar',
   component: Avatar,
 }
 
-export const BasicUsage = {
+export const StyleOnlyUsage = {
+  render: ({}) => <ElAvatar>AD</ElAvatar>,
+}
+
+export const WithIconUsage = {
   render: ({}) => (
-    <Avatar>
-      <Icon icon="placeholderSmall" />
-    </Avatar>
+    <ElAvatar>
+      <Icon icon="contact" />
+    </ElAvatar>
   ),
 }
 
-export const WithSrc = {
-  render: ({}) => <Avatar alt="A stock image randomly generated" src="https://picsum.photos/200" />,
+export const WithIntent = {
+  render: ({}) => <ElAvatar data-intent="primary">AD</ElAvatar>,
+  name: 'Intent: Primary',
 }
 
-export const WithImage = {
-  render: ({}) => <Avatar type="image" alt="A stock image randomly generated" src="https://picsum.photos/200/300" />,
+export const WithSquareShape = {
+  render: ({}) => <ElAvatar data-shape="square">AD</ElAvatar>,
+  name: 'Shape: Square',
+}
+
+export const WithSmallSize = {
+  render: ({}) => (
+    <ElAvatar data-size="small">
+      <Icon icon="contact" />
+    </ElAvatar>
+  ),
+  name: 'Size: Small',
+}
+
+export const ReactUsage: StoryObj<typeof Avatar> = {
+  args: {
+    shape: 'circle',
+    size: 'medium',
+    intent: 'default',
+    children: 'AD',
+  },
+  render: (props) => <Avatar {...props}>{props.children}</Avatar>,
 }

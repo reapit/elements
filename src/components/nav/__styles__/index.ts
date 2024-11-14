@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElAvatar } from '../../avatar'
+import { ElDeprecatedAvatar } from '../../avatar'
 import { elIsActive } from '../../../styles/states'
 
 export const ElNavBg = styled.div`
@@ -294,14 +294,14 @@ export const ElNavResponsiveAvatarWrap = styled.div`
   margin-right: 0.25rem;
   cursor: pointer;
 
-  ${ElAvatar} {
+  ${ElDeprecatedAvatar} {
     height: 2rem;
     width: 2rem;
     background-color: var(--intent-primary-lightest);
   }
 
   &:hover {
-    ${ElAvatar} {
+    ${ElDeprecatedAvatar} {
       background-color: var(--purple-100);
     }
   }

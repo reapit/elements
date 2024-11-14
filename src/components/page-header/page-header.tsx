@@ -10,7 +10,7 @@ import {
 } from './__styles__'
 import { Text2XL, TextL, TextBase, TypographyProps } from '../typography'
 import { FlexContainer } from '../layout'
-import { Avatar, AvatarProps } from '../avatar'
+import { DeprecatedAvatar, DeprecatedAvatarProps } from '../avatar'
 import { Tag, TagGroup, TagProps } from '../tag'
 import { Button, DeprecatedButtonGroup, ButtonProps } from '../button'
 import { BreadCrumb, BreadCrumbProps } from '../breadcrumb'
@@ -18,7 +18,7 @@ import { elMb3, elMb6, elMr3 } from '../../styles/spacing'
 import { Tabs, TabsProps } from '../tabs'
 
 export interface PageHeaderProps extends HTMLAttributes<HTMLDivElement> {
-  avatar?: AvatarProps
+  avatar?: DeprecatedAvatarProps
   pageTitle: TypographyProps
   pageSubtitle?: TypographyProps
   pageInfo?: TypographyProps[]
@@ -71,7 +71,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
         {breadcrumb && <BreadCrumb className={elMb6} {...breadcrumb} />}
         <PageHeaderContainer>
           <PageHeaderContainer>
-            {avatar && <Avatar {...avatar} />}
+            {avatar && <DeprecatedAvatar {...avatar} />}
             <FlexContainer isFlexColumn>
               <PageHeaderTitleContainer>
                 {pageTitle && <Text2XL className={elMr3} tag="h1" hasBoldText {...pageTitle} />}
