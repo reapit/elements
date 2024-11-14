@@ -23,7 +23,7 @@ import {
 } from './__styles__'
 import { elMlAuto, elMr2, elMr4 } from '../../styles/spacing'
 import { generateRandomId } from '../../storybook/random-id'
-import { DeprecatedAvatar } from '../avatar'
+import { DeprecatedAvatar } from '../deprecated-avatar'
 import { Text2XS } from '../typography'
 import { elIsActive } from '../../styles/states'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'

@@ -19,7 +19,7 @@ import { StatusIndicator } from '../status-indicator'
 import { elMlAuto } from '../../styles/spacing'
 import { FormLayout, InputWrap } from '../form-layout'
 import { elIsActive } from '../../styles/states'
-import { DeprecatedAvatar } from '../avatar'
+import { DeprecatedAvatar } from '../deprecated-avatar'
 import { Input } from '../input'
 import { TextBase } from '../typography'
 
