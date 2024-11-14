@@ -1,9 +1,11 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
+/** @deprecated */
 export const elAvatarSmall = css``
 
-export const ElAvatar = styled.div`
+/** @deprecated will be replaced by new v5 ElAvatarRectangle */
+export const ElDeprecatedAvatar = styled.div`
   display: flex;
   flex-direction: column;
   flex-shrink: 0;
@@ -29,7 +31,8 @@ export const ElAvatar = styled.div`
   }
 `
 
-export const ElAvatarImage = styled(ElAvatar)`
+/** @deprecated will be removed in future version */
+export const ElDeprecatedAvatarImage = styled(ElDeprecatedAvatar)`
   border-radius: 0;
   width: 4.5rem;
   height: 3.25rem;
