@@ -1,23 +1,28 @@
-import { Avatar } from '.'
+import { DeprecatedAvatar } from '.'
 import { Icon } from '../icon'
 
+{
+  /* TODO: update the stories once the new v5 Avatar ready */
+}
 export default {
   title: 'Avatar',
-  component: Avatar,
+  component: DeprecatedAvatar,
 }
 
 export const BasicUsage = {
   render: ({}) => (
-    <Avatar>
+    <DeprecatedAvatar>
       <Icon icon="placeholderSmall" />
-    </Avatar>
+    </DeprecatedAvatar>
   ),
 }
 
 export const WithSrc = {
-  render: ({}) => <Avatar alt="A stock image randomly generated" src="https://picsum.photos/200" />,
+  render: ({}) => <DeprecatedAvatar alt="A stock image randomly generated" src="https://picsum.photos/200" />,
 }
 
 export const WithImage = {
-  render: ({}) => <Avatar type="image" alt="A stock image randomly generated" src="https://picsum.photos/200/300" />,
+  render: ({}) => (
+    <DeprecatedAvatar type="image" alt="A stock image randomly generated" src="https://picsum.photos/200/300" />
+  ),
 }

@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 import { isTablet } from '../../../styles/media'
-import { ElAvatar } from '../../avatar'
+import { ElDeprecatedAvatar } from '../../avatar'
 
 export const elCardFocussed = css`
   background-color: var(--purple-050);
@@ -43,7 +43,7 @@ export const ElCardMainWrap = styled.div`
   display: flex;
   flex-wrap: nowrap;
 
-  ${ElAvatar} {
+  ${ElDeprecatedAvatar} {
     margin-right: 1rem;
 
     ${isTablet} {

@@ -21,7 +21,7 @@ import { elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elMb5, elMt5 } from '../../styles/spacing'
 import { Intent } from '../../helpers/intent'
-import { Avatar } from '../avatar'
+import { DeprecatedAvatar } from '../avatar'
 
 export interface CardListItemProps {
   // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
@@ -88,13 +88,13 @@ export const Card: FC<CardProps> = ({
         <>
           <CardMainWrap>
             {mainCardAvatarUrl ? (
-              <Avatar src={typeof mainCardAvatarUrl === 'string' ? mainCardAvatarUrl : undefined}>
+              <DeprecatedAvatar src={typeof mainCardAvatarUrl === 'string' ? mainCardAvatarUrl : undefined}>
                 {mainCardAvatarUrl}
-              </Avatar>
+              </DeprecatedAvatar>
             ) : mainCardImgUrl ? (
-              <Avatar src={typeof mainCardImgUrl === 'string' ? mainCardImgUrl : undefined} type="image">
+              <DeprecatedAvatar src={typeof mainCardImgUrl === 'string' ? mainCardImgUrl : undefined} type="image">
                 {mainCardImgUrl}
-              </Avatar>
+              </DeprecatedAvatar>
             ) : null}
             <CardHeadingWrap className={cx(mainCardAvatarUrl && elCardSubHeadingWrapAvatar)}>
               <CardHeading>{mainCardHeading}</CardHeading>

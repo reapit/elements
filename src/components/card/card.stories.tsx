@@ -20,7 +20,7 @@ import { Icon } from '../icon'
 import { elMb5 } from '../../styles/spacing'
 import { Card } from './card-components'
 import { MediaStateProvider } from '../../hooks/use-media-query'
-import { Avatar } from '../avatar'
+import { DeprecatedAvatar } from '../avatar'
 
 export default {
   title: 'Card',
@@ -31,7 +31,7 @@ export const CardWithAvatar = {
   render: ({}) => (
     <CardWrap>
       <CardMainWrap>
-        <Avatar src="https://picsum.photos/200" />
+        <DeprecatedAvatar src="https://picsum.photos/200" />
         <CardHeadingWrap className={elCardSubHeadingWrapAvatar}>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
@@ -46,7 +46,7 @@ export const CardWithImage = {
   render: ({}) => (
     <CardWrap>
       <CardMainWrap>
-        <Avatar type="image" src="https://picsum.photos/200/300" />
+        <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
@@ -81,7 +81,7 @@ export const CardFocussed = {
   render: ({}) => (
     <CardWrap className={elCardFocussed}>
       <CardMainWrap>
-        <Avatar type="image" src="https://picsum.photos/200/300" />
+        <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>
@@ -131,7 +131,7 @@ export const CardCompleteExample = {
   render: ({}) => (
     <CardWrap>
       <CardMainWrap>
-        <Avatar type="image" src="https://picsum.photos/200/300" />
+        <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
         <CardHeadingWrap>
           <CardHeading>Main Heading</CardHeading>
           <CardSubHeading>Sub Heading</CardSubHeading>

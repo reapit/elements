@@ -23,7 +23,7 @@ import {
 } from './__styles__'
 import { elMlAuto, elMr2, elMr4 } from '../../styles/spacing'
 import { generateRandomId } from '../../storybook/random-id'
-import { Avatar } from '../avatar'
+import { DeprecatedAvatar } from '../avatar'
 import { Text2XS } from '../typography'
 import { elIsActive } from '../../styles/states'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
@@ -111,9 +111,9 @@ export const NavResponsiveAvatar: FC<NavResponsiveAvatarProps> = ({ options, isH
         role="button"
         tabIndex={0}
       >
-        <Avatar className={cx(elMr2)} type="profile">
+        <DeprecatedAvatar className={cx(elMr2)} type="profile">
           {text}
-        </Avatar>
+        </DeprecatedAvatar>
         {Boolean(options.length) && (
           <>
             <Icon intent="default" icon={avatarOpen ? 'chevronUp' : 'chevronDown'} />
