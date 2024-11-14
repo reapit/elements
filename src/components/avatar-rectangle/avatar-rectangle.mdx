@@ -1,0 +1,21 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as AvatarRectangleStories from './avatar-rectangle.stories'
+
+<Meta of={AvatarRectangleStories} />
+
+# Avatar Rectangle
+
+A versatile component designed to render Property image.
+
+<Controls exclude={['description']} />
+
+## Style Only Usage
+
+<Canvas of={AvatarRectangleStories.StyleOnlyUsage} />
+
+## React Usage
+
+<Canvas of={AvatarRectangleStories.ReactUsage} />
+
+<RenderHtmlMarkup of={AvatarRectangleStories.ReactUsage} />
