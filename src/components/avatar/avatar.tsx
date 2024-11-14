@@ -4,12 +4,12 @@ import { ElAvatar } from './styles'
 export interface AvatarProps extends HTMLAttributes<HTMLSpanElement> {
   shape?: 'circle' | 'square'
   size?: 'medium' | 'small'
-  intent?: 'default' | 'primary'
+  colour?: 'default' | 'purple'
 }
 
-export const Avatar: FC<AvatarProps> = ({ shape, size, intent, children, ...props }) => {
+export const Avatar: FC<AvatarProps> = ({ shape, size, colour, children, ...props }) => {
   return (
-    <ElAvatar role="presentation" data-shape={shape} data-size={size} data-intent={intent} {...props}>
+    <ElAvatar role="presentation" data-shape={shape} data-size={size} data-colour={colour} {...props}>
       {children}
     </ElAvatar>
   )

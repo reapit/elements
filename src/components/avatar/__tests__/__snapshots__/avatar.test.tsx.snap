@@ -13,12 +13,12 @@ exports[`Avatar should render properly with default props and match snapshot 1`]
 exports[`Avatar should render properly with specified props and match snapshot 1`] = `
 <DocumentFragment>
   <mock-styled.span
-    data-intent="primary"
+    data-colour="purple"
     data-shape="square"
     data-size="small"
     role="presentation"
   >
-    Circle Avatar
+    Square Avatar
   </mock-styled.span>
 </DocumentFragment>
 `;

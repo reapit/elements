@@ -26,7 +26,7 @@ export const ElAvatar = styled.span`
     border-radius: var(--corner-lg, 8px);
   }
 
-  &[data-intent='primary'] {
+  &[data-colour='purple'] {
     background: var(--fill-action-lightest, #ecf3ff);
     color: var(--text-action, #4e56ea);
     svg {

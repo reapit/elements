@@ -3,7 +3,7 @@ import { Avatar, ElAvatar } from '.'
 import { Icon } from '../icon'
 
 export default {
-  title: 'Avatar',
+  title: 'Components/Avatar',
   component: Avatar,
 }
 
@@ -19,9 +19,9 @@ export const WithIconUsage = {
   ),
 }
 
-export const WithIntent = {
-  render: ({}) => <ElAvatar data-intent="primary">AD</ElAvatar>,
-  name: 'Intent: Primary',
+export const WithColour = {
+  render: ({}) => <ElAvatar data-colour="purple">AD</ElAvatar>,
+  name: 'Colour: Purple',
 }
 
 export const WithSquareShape = {
@@ -42,7 +42,7 @@ export const ReactUsage: StoryObj<typeof Avatar> = {
   args: {
     shape: 'circle',
     size: 'medium',
-    intent: 'default',
+    colour: 'default',
     children: 'AD',
   },
   render: (props) => <Avatar {...props}>{props.children}</Avatar>,
