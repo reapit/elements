@@ -1,7 +1,6 @@
 import type { StoryObj } from '@storybook/react'
-import { Avatar } from '.'
+import { Avatar, ElAvatar } from '.'
 import { Icon } from '../icon'
-import { ElAvatar } from './styles'
 
 export default {
   title: 'Avatar',

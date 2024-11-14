@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 import { isTablet } from '../../../styles/media'
-import { ElDeprecatedAvatar } from '../../avatar'
+import { ElDeprecatedAvatar } from '../../deprecated-avatar'
 
 export const elCardFocussed = css`
   background-color: var(--purple-050);

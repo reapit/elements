@@ -10,7 +10,7 @@ import {
 } from './__styles__'
 import { Text2XL, TextL, TextBase, TypographyProps } from '../typography'
 import { FlexContainer } from '../layout'
-import { DeprecatedAvatar, DeprecatedAvatarProps } from '../avatar'
+import { DeprecatedAvatar, DeprecatedAvatarProps } from '../deprecated-avatar'
 import { Tag, TagGroup, TagProps } from '../tag'
 import { Button, DeprecatedButtonGroup, ButtonProps } from '../button'
 import { BreadCrumb, BreadCrumbProps } from '../breadcrumb'

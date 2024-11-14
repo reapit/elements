@@ -21,7 +21,7 @@ import { elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import { elMb5, elMt5 } from '../../styles/spacing'
 import { Intent } from '../../helpers/intent'
-import { DeprecatedAvatar } from '../avatar'
+import { DeprecatedAvatar } from '../deprecated-avatar'
 
 export interface CardListItemProps {
   // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action

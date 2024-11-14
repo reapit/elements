@@ -20,7 +20,7 @@ import { Icon } from '../icon'
 import { elMb5 } from '../../styles/spacing'
 import { Card } from './card-components'
 import { MediaStateProvider } from '../../hooks/use-media-query'
-import { DeprecatedAvatar } from '../avatar'
+import { DeprecatedAvatar } from '../deprecated-avatar'
 
 export default {
   title: 'Card',
