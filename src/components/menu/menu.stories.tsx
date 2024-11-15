@@ -19,6 +19,7 @@ const meta: Meta<typeof Menu> = {
   argTypes: {
     'data-alignment': {
       control: 'inline-radio',
+      options: ['left', 'right'],
       description:
         'to control the alignment of Menu container, will default to left if not provided (please see `More Complex Usage Example` for interactive example)',
     },
