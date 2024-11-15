@@ -15,8 +15,9 @@ export const calculatePopoverPosition = (
     const popoverHeight = popover.getBoundingClientRect().height
     const { bottom: triggerBottomPos, height: triggerheight } = triggerBtn.getBoundingClientRect()
     const spaceBelowButton = viewportHeight - triggerBottomPos
+    const gap = 4 // confirmed by design team to use var(--spacing-1) initially
 
-    const top = popoverHeight > spaceBelowButton ? 0 - popoverHeight : triggerheight
+    const top = popoverHeight > spaceBelowButton ? 0 - popoverHeight - gap : triggerheight + gap
 
     setPopoverStyle({ top: top + yOffset })
   }

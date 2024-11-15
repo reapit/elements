@@ -56,7 +56,7 @@ describe('Menu Popover component', () => {
       window.innerHeight = 400
       calculatePopoverPosition(container, popover, mockSetPopoverStyle)
 
-      expect(mockSetPopoverStyle).toHaveBeenCalledWith({ top: 50 })
+      expect(mockSetPopoverStyle).toHaveBeenCalledWith({ top: 54 })
     })
 
     it('should set popover position above the button if there is not enough space below', () => {
@@ -69,7 +69,7 @@ describe('Menu Popover component', () => {
       window.innerHeight = 400
       calculatePopoverPosition(container, popover, mockSetPopoverStyle)
 
-      expect(mockSetPopoverStyle).toHaveBeenCalledWith({ top: -100 })
+      expect(mockSetPopoverStyle).toHaveBeenCalledWith({ top: -104 })
     })
 
     it('should not set position if trigger button is not found', () => {
