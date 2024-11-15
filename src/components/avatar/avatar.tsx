@@ -7,7 +7,13 @@ export interface AvatarProps extends HTMLAttributes<HTMLSpanElement> {
   colour?: 'default' | 'purple'
 }
 
-export const Avatar: FC<AvatarProps> = ({ shape, size, colour, children, ...props }) => {
+export const Avatar: FC<AvatarProps> = ({
+  shape = 'circle',
+  size = 'medium',
+  colour = 'default',
+  children,
+  ...props
+}) => {
   return (
     <ElAvatar role="presentation" data-shape={shape} data-size={size} data-colour={colour} {...props}>
       {children}

@@ -3,6 +3,9 @@
 exports[`Avatar should render properly with default props and match snapshot 1`] = `
 <DocumentFragment>
   <mock-styled.span
+    data-colour="default"
+    data-shape="circle"
+    data-size="medium"
     role="presentation"
   >
     Default Avatar
