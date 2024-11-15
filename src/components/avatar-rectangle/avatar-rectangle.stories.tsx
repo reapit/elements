@@ -11,7 +11,7 @@ export default {
   title: 'Components/Avatar Rectangle',
   component: AvatarRectangle,
   args: {
-    variant: 'commercial',
+    variant: 'residential',
     size: 'medium',
   },
   argTypes: {
