@@ -1,9 +1,14 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { AvatarRectangle } from '.'
-import { ElAvatarRectangle } from './styles'
+import {
+  ElAvatarRectangleWrapper,
+  ElAvatarRectangleResidentialPlaceholder,
+  ElAvatarRectBottomPlaceholder,
+  ElAvatarRectCommercialPlaceholder,
+} from './styles'
 
 export default {
-  title: 'AvatarRectangle',
+  title: 'Components/Avatar Rectangle',
   component: AvatarRectangle,
   args: {
     variant: 'commercial',
@@ -23,22 +28,43 @@ export default {
 
 const exampleImageUrl = 'https://picsum.photos/id/206/100/100'
 
-export const StyleOnlyUsage = {
+export const DefaultUsage = {
   render: ({}) => (
-    <ElAvatarRectangle>
+    <ElAvatarRectangleWrapper>
       <img src={exampleImageUrl} alt="example" />
-    </ElAvatarRectangle>
+    </ElAvatarRectangleWrapper>
+  ),
+}
+
+export const UsingResidentialPlaceholder = {
+  render: ({}) => (
+    <ElAvatarRectangleWrapper data-variant="residential" data-placeholder="true">
+      <ElAvatarRectangleResidentialPlaceholder />
+    </ElAvatarRectangleWrapper>
+  ),
+}
+
+export const UsingCommercialVariant = {
+  render: ({}) => (
+    <ElAvatarRectangleWrapper data-variant="commercial">
+      <img src={exampleImageUrl} alt="example" />
+      <ElAvatarRectBottomPlaceholder aria-hidden="true" />
+    </ElAvatarRectangleWrapper>
+  ),
+}
+
+export const UsingCommercialPlaceholder = {
+  render: ({}) => (
+    <ElAvatarRectangleWrapper data-variant="commercial" data-placeholder="true">
+      <ElAvatarRectCommercialPlaceholder />
+      <ElAvatarRectBottomPlaceholder aria-hidden="true" />
+    </ElAvatarRectangleWrapper>
   ),
 }
 
 export const ReactUsage: StoryObj<typeof AvatarRectangle> = {
-  render: (props) => (
-    <AvatarRectangle {...props}>
-      <img src={exampleImageUrl} alt="example" />
-    </AvatarRectangle>
-  ),
-}
-
-export const ReactUsagePlaceholder: StoryObj<typeof AvatarRectangle> = {
+  args: {
+    src: exampleImageUrl,
+  },
   render: (props) => <AvatarRectangle {...props}></AvatarRectangle>,
 }

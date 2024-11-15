@@ -1,6 +1,6 @@
-import type { FC, HTMLAttributes } from 'react'
+import { useState, type FC, type HTMLAttributes } from 'react'
 import {
-  ElAvatarRectangle,
+  ElAvatarRectangleWrapper,
   ElAvatarRectCommercialPlaceholder,
   ElAvatarRectangleResidentialPlaceholder,
   ElAvatarRectBottomPlaceholder,
@@ -14,17 +14,25 @@ export interface AvatarRectangle extends HTMLAttributes<HTMLSpanElement> {
   alt?: string
 }
 
-export const AvatarRectangle: FC<AvatarRectangle> = ({ size, variant, src, alt, ...props }) => {
+export const AvatarRectangle: FC<AvatarRectangle> = ({
+  size = 'medium',
+  variant = 'residential',
+  src,
+  alt,
+  ...props
+}) => {
+  const [isError, setIsError] = useState(false)
+
+  const handleError = () => {
+    setIsError(true)
+  }
+
+  const imageValid = !!src && !isError
+
   return (
-    <ElAvatarRectangle
-      role="img"
-      {...props}
-      data-size={size}
-      data-variant={variant}
-      data-placeholder={Boolean(src) == false}
-    >
-      {src ? (
-        <img src={src} alt={alt} />
+    <ElAvatarRectangleWrapper {...props} data-size={size} data-variant={variant} data-placeholder={!imageValid}>
+      {imageValid ? (
+        <img src={src} alt={alt} onError={handleError} />
       ) : variant === 'commercial' ? (
         <ElAvatarRectCommercialPlaceholder />
       ) : (
@@ -36,6 +44,6 @@ export const AvatarRectangle: FC<AvatarRectangle> = ({ size, variant, src, alt, 
         ) : (
           <ElAvatarRectBottomPlaceholder aria-hidden="true" />
         ))}
-    </ElAvatarRectangle>
+    </ElAvatarRectangleWrapper>
   )
 }

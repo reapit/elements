@@ -1,0 +1,76 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarRectangle renders correctly when image fails to load 1`] = `
+<DocumentFragment>
+  <mock-styled.span
+    data-placeholder="true"
+    data-size="medium"
+    data-variant="commercial"
+  >
+    <mock-styled.div />
+    <mock-styled.svg
+      aria-hidden="true"
+    />
+  </mock-styled.span>
+</DocumentFragment>
+`;
+
+exports[`AvatarRectangle renders correctly with commercial variant and medium size without src 1`] = `
+<DocumentFragment>
+  <mock-styled.span
+    data-placeholder="true"
+    data-size="medium"
+    data-variant="commercial"
+  >
+    <mock-styled.div />
+    <mock-styled.svg
+      aria-hidden="true"
+    />
+  </mock-styled.span>
+</DocumentFragment>
+`;
+
+exports[`AvatarRectangle renders correctly with commercial variant and small size 1`] = `
+<DocumentFragment>
+  <mock-styled.span
+    data-placeholder="false"
+    data-size="small"
+    data-variant="commercial"
+  >
+    <img
+      alt="Test Image"
+      src="test-image.jpg"
+    />
+    <mock-styled.svg
+      aria-hidden="true"
+    />
+  </mock-styled.span>
+</DocumentFragment>
+`;
+
+exports[`AvatarRectangle renders correctly with residential variant and medium size 1`] = `
+<DocumentFragment>
+  <mock-styled.span
+    data-placeholder="false"
+    data-size="medium"
+    data-variant="residential"
+  >
+    <img
+      alt="Test Image"
+      src="test-image.jpg"
+    />
+  </mock-styled.span>
+</DocumentFragment>
+`;
+
+exports[`AvatarRectangle renders correctly with residential variant and small size without src 1`] = `
+<DocumentFragment>
+  <mock-styled.span
+    data-placeholder="true"
+    data-size="small"
+    data-variant="residential"
+  >
+    <mock-styled.svg />
+  </mock-styled.span>
+</DocumentFragment>
+`;

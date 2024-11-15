@@ -3,7 +3,7 @@ import { ReactComponent as ResidentialPlaceholderIcon } from './icons/residentia
 import { ReactComponent as CommercialBottomPlaceholderIcon } from './icons/bottom-commercial-placeholder.svg'
 import { ReactComponent as CommercialSmallBottomPlaceholderIcon } from './icons/bottom-commercial-placeholder-small.svg'
 
-const baseCommercialImagesStyle = `
+const baseCommercialMediumImagesStyle = `
   width: 54px;
   height: var(--size-size-8, 40px);
   flex-shrink: 0;
@@ -16,23 +16,23 @@ const baseCommercialBottomPlaceholderStyle = `
 `
 
 export const ElAvatarRectBottomPlaceholder = styled(CommercialBottomPlaceholderIcon)`
-  ${baseCommercialImagesStyle}
+  ${baseCommercialMediumImagesStyle}
   ${baseCommercialBottomPlaceholderStyle}
 `
 export const ElAvatarRectBottomPlaceholderSmall = styled(CommercialSmallBottomPlaceholderIcon)`
-  ${baseCommercialImagesStyle}
+  ${baseCommercialMediumImagesStyle}
   ${baseCommercialBottomPlaceholderStyle}
 `
 
 export const ElAvatarRectCommercialPlaceholder = styled.div`
-  ${baseCommercialImagesStyle}
+  ${baseCommercialMediumImagesStyle}
   position: absolute;
   top: 0;
   left: 0;
   background: var(--fill-colour-fill-default-light, #e5e9ed);
 `
 
-export const ElAvatarRectangle = styled.span`
+export const ElAvatarRectangleWrapper = styled.span`
   display: flex;
   width: var(--size-size-12, 72px);
   height: 54px;
@@ -53,7 +53,7 @@ export const ElAvatarRectangle = styled.span`
     position: relative;
 
     img {
-      ${baseCommercialImagesStyle}
+      ${baseCommercialMediumImagesStyle}
       position: absolute;
       top: 0;
       left: 0;
