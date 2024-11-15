@@ -19,7 +19,7 @@ import { StatusIndicator } from '../status-indicator'
 import { elMlAuto } from '../../styles/spacing'
 import { FormLayout, InputWrap } from '../form-layout'
 import { elIsActive } from '../../styles/states'
-import { Avatar } from '../avatar'
+import { DeprecatedAvatar } from '../deprecated-avatar'
 import { Input } from '../input'
 import { TextBase } from '../typography'
 
@@ -45,7 +45,7 @@ export const BasicUsage = {
           </TableCell>
           <TableCell>First Column</TableCell>
           <TableCell narrowLabel="Image">
-            <Avatar type="image" src="https://picsum.photos/200/300" />
+            <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
           </TableCell>
           <TableCell>Second Column</TableCell>
           <TableCell>
@@ -60,7 +60,7 @@ export const BasicUsage = {
           </TableCell>
           <TableCell>First Column</TableCell>
           <TableCell narrowLabel="Image">
-            <Avatar type="image" src="https://picsum.photos/200/300" />
+            <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
           </TableCell>
           <TableCell>Second Column</TableCell>
           <TableCell>
@@ -89,7 +89,7 @@ export const ColumnWidths = {
           </TableCell>
           <TableCell>First Column</TableCell>
           <TableCell narrowLabel="Image">
-            <Avatar type="image" src="https://picsum.photos/200/300" />
+            <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
           </TableCell>
           <TableCell className={elSpan2}>Second Column with more data</TableCell>
           <TableCell className={elSpan3}>
@@ -104,7 +104,7 @@ export const ColumnWidths = {
           </TableCell>
           <TableCell>First Column</TableCell>
           <TableCell narrowLabel="Image">
-            <Avatar type="image" src="https://picsum.photos/200/300" />
+            <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
           </TableCell>
           <TableCell className={elSpan2}>Second Column with more data</TableCell>
           <TableCell className={elSpan3}>
@@ -136,7 +136,7 @@ export const BasicCustomisationTableCells = {
             <Input type="checkbox" />
           </TableCell>
           <TableCell narrowLabel="Image">
-            <Avatar type="image" src="https://picsum.photos/200/300" />
+            <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
           </TableCell>
           <TableCell darkText narrowIsFullWidth>
             1 King Road, London, UK, S1 1AA
@@ -315,7 +315,7 @@ export const ReactShorthandUsage = {
           },
           {
             label: 'Property Image',
-            value: <Avatar type="image" src="https://picsum.photos/200/300" />,
+            value: <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />,
           },
           {
             label: 'Property',
@@ -364,7 +364,7 @@ export const ReactShorthandUsage = {
           },
           {
             label: 'Property Image',
-            value: <Avatar type="image" src="https://picsum.photos/200/300" />,
+            value: <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />,
           },
           {
             label: 'Property',

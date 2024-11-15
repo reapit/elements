@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 import { isTablet } from '../../../styles/media'
-import { ElAvatar, ElAvatarImage } from '../../avatar'
+import { ElDeprecatedAvatar, ElDeprecatedAvatarImage } from '../../deprecated-avatar'
 import { elTextL, elTextBase } from '../../typography'
 import { css } from '@linaria/core'
 
@@ -73,11 +73,11 @@ export const ElPageHeaderWrap = styled.div`
   border-bottom: var(--page-header-border);
   margin-bottom: 0.5rem;
 
-  ${ElAvatarImage} {
+  ${ElDeprecatedAvatarImage} {
     border-radius: 0.25rem;
   }
 
-  ${ElAvatar} {
+  ${ElDeprecatedAvatar} {
     margin-bottom: 0.5rem;
   }
 
@@ -87,7 +87,7 @@ export const ElPageHeaderWrap = styled.div`
     width: calc(100% + 3rem);
     translate: -1.5rem -2.5rem;
 
-    ${ElAvatar} {
+    ${ElDeprecatedAvatar} {
       width: 48px;
       height: 48px;
       margin-right: 1rem;
@@ -97,7 +97,7 @@ export const ElPageHeaderWrap = styled.div`
       }
     }
 
-    ${ElAvatarImage} {
+    ${ElDeprecatedAvatarImage} {
       width: 100px;
       height: 80px;
       border-radius: 0.5rem;
