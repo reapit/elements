@@ -16,7 +16,7 @@ More features will be added to Menu in the future
 
 ## Styles Only Usage
 
-Default style of the `Menu`, can set `data-alignment` to "right" (see html of `More Complex Usage Example`) to move the x-position to the right of the button
+Default style of the `Menu`, can set `data-alignment` to "right" to move the x-position to the right of the button
 
 <Canvas of={MenuStories.StylesOnlyUsage} />
 
@@ -26,15 +26,10 @@ Default style of the `Menu`, can set `data-alignment` to "right" (see html of `M
 
 In the React Usage, you can compose your component using `Menu` component as example here
 
-you can set `closeMenu={false} or data-close-menu="false" (note: only for react user)` to keep the menu open when it clicked.
+And the y-position of the menu will be automatically adjusted based on the available space below the trigger and `window` each time the menu is opened
+
+`closeMenu`={false} or `data-close-menu`="false" (note: this is only for React users) can be set to keep the menu open when it is clicked."
 
 <Canvas of={MenuStories.ReactUsage} />
 
 <RenderHtmlMarkup of={MenuStories.ReactUsage} />
-
-## More Complex Usage Example
-
-<Canvas of={MenuStories.MoreComplexUsageExample} />
-
-<RenderHtmlMarkup of={MenuStories.MoreComplexUsageExample} />
-

@@ -1,4 +1,4 @@
-import { type FC, type MutableRefObject, useLayoutEffect, useRef, useState } from 'react'
+import { type FC, useLayoutEffect, useRef, useState } from 'react'
 import { useClickOutside } from '../../hooks/use-click-outside'
 import { useMenuContext } from './menu-context'
 import { ElMenuPopover } from './styles'
@@ -7,19 +7,18 @@ export const calculatePopoverPosition = (
   container: HTMLElement,
   popover: HTMLDivElement,
   setPopoverStyle: React.Dispatch<React.SetStateAction<React.CSSProperties>>,
-  additionalGap = 0,
+  yOffset = 0,
 ) => {
   const triggerBtn = container.querySelector('[role="button"]')
   if (triggerBtn) {
     const viewportHeight = window.innerHeight
     const popoverHeight = popover.getBoundingClientRect().height
     const { bottom: triggerBottomPos, height: triggerheight } = triggerBtn.getBoundingClientRect()
-    const gap = 3 // the shadow width or .etc
     const spaceBelowButton = viewportHeight - triggerBottomPos
 
-    const top = popoverHeight > spaceBelowButton ? 0 - popoverHeight - gap : triggerheight + gap
+    const top = popoverHeight > spaceBelowButton ? 0 - popoverHeight : triggerheight
 
-    setPopoverStyle({ top: top + additionalGap })
+    setPopoverStyle({ top: top + yOffset })
   }
 }
 
@@ -29,8 +28,8 @@ export const MenuPopover: FC<{
    *
    * @default 0
    */
-  additionalGap?: number
-}> = ({ children, additionalGap }) => {
+  yOffset?: number
+}> = ({ children, yOffset }) => {
   const { isOpen, closeMenu, getPopoverProps } = useMenuContext()
   const popoverRef = useRef<HTMLDivElement>(null)
 
@@ -43,7 +42,7 @@ export const MenuPopover: FC<{
   useLayoutEffect(() => {
     const container = popoverRef.current?.parentElement
     if (container && isOpen && popoverRef.current) {
-      calculatePopoverPosition(container, popoverRef.current, setPopoverStyle, additionalGap)
+      calculatePopoverPosition(container, popoverRef.current, setPopoverStyle, yOffset)
     }
   }, [isOpen])
 
@@ -56,12 +55,7 @@ export const MenuPopover: FC<{
   }
 
   return (
-    <ElMenuPopover
-      style={popoverStyle}
-      ref={popoverRef as MutableRefObject<HTMLDivElement>}
-      {...getPopoverProps()}
-      onClick={handleClick}
-    >
+    <ElMenuPopover style={popoverStyle} ref={popoverRef} {...getPopoverProps()} onClick={handleClick}>
       {children}
     </ElMenuPopover>
   )

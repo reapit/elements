@@ -18,7 +18,7 @@ const meta: Meta<typeof Menu> = {
   title: 'Components/Menu',
   argTypes: {
     'data-alignment': {
-      control: false,
+      control: 'inline-radio',
       description:
         'to control the alignment of Menu container, will default to left if not provided (please see `More Complex Usage Example` for interactive example)',
     },
@@ -50,9 +50,9 @@ export const StylesOnlyUsage: StoryObj = {
 }
 
 export const ReactUsage: Story = {
-  render: () => {
+  render: (props) => {
     return (
-      <Menu>
+      <Menu {...props}>
         <Menu.Trigger>
           {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
         </Menu.Trigger>
@@ -74,9 +74,9 @@ export const MoreComplexUsageExample: StoryObj<ComponentProps<typeof Menu>> = {
   render: (props) => {
     const NavDropdownButtonUsageExample = ({
       title,
-      additionalGap,
+      yOffset,
       ...props
-    }: ComponentProps<typeof Menu> & { title?: string; additionalGap?: number }) => {
+    }: ComponentProps<typeof Menu> & { title?: string; yOffset?: number }) => {
       return (
         <Menu {...props}>
           <Menu.Trigger>
@@ -86,7 +86,7 @@ export const MoreComplexUsageExample: StoryObj<ComponentProps<typeof Menu>> = {
               </Button>
             )}
           </Menu.Trigger>
-          <Menu.Popover additionalGap={additionalGap}>
+          <Menu.Popover yOffset={yOffset}>
             <Menu.List>
               <Menu.Group label={title ?? 'Group Title'}>
                 <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
@@ -103,14 +103,14 @@ export const MoreComplexUsageExample: StoryObj<ComponentProps<typeof Menu>> = {
         isFlexColumn
         isFlexJustifyBetween
         style={{
-          height: '170vh',
+          height: '150vh',
           overflow: 'hidden',
           padding: 5,
         }}
       >
         <FlexContainer isFlexJustifyBetween>
           <NavDropdownButtonUsageExample {...props} />
-          <NavDropdownButtonUsageExample {...props} data-alignment="right" title="Custom y-offset" additionalGap={50} />
+          <NavDropdownButtonUsageExample {...props} data-alignment="right" title="Custom y-offset" yOffset={50} />
         </FlexContainer>
         <FlexContainer isFlexJustifyBetween>
           <NavDropdownButtonUsageExample {...props} />
