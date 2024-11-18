@@ -50,7 +50,7 @@ export const ReactUsage: Story = {
   render: (props) => {
     return (
       <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
-        <Menu {...props}>
+        <Menu>
           <Menu.Trigger>
             {({ getTriggerProps, isOpen }) => (
               <NavDropdownButton

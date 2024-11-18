@@ -12,6 +12,7 @@ exports[`Menu Popover component should render and close Popover based on any ele
     </button>
     <mock-styled.div
       data-open="true"
+      style="top: 4px;"
     >
       <mock-styled.div
         role="menu"

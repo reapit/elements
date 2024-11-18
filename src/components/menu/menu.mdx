@@ -1,4 +1,4 @@
-import { Canvas, Meta } from '@storybook/blocks'
+import { Canvas, Meta, Controls } from '@storybook/blocks'
 import * as MenuStories from './menu.stories'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
@@ -6,13 +6,17 @@ import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 
 # Menu
 
-## Styles Only Usage
-
 The Menu component is a panel used to display a list of buttons and/or anchors which can be ordered in Menu Groups
 
 Each Menu Group can have a title shown above the list
 
 More features will be added to Menu in the future
+
+<Controls />
+
+## Styles Only Usage
+
+Default style of the `Menu`, can set `data-alignment` to "right" to move the x-position to the right of the button
 
 <Canvas of={MenuStories.StylesOnlyUsage} />
 
@@ -22,7 +26,9 @@ More features will be added to Menu in the future
 
 In the React Usage, you can compose your component using `Menu` component as example here
 
-you can set `closeMenu={false} or data-close-menu="false" (note: only for react user)` to keep the menu open when it clicked.
+And the y-position of the menu will be automatically adjusted based on the available space below the trigger and `window` each time the menu is opened
+
+`closeMenu`={false} or `data-close-menu`="false" (note: this is only for React users) can be set to keep the menu open when it is clicked."
 
 <Canvas of={MenuStories.ReactUsage} />
 
