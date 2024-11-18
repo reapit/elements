@@ -15,9 +15,8 @@ export const calculatePopoverPosition = (
     const popoverHeight = popover.getBoundingClientRect().height
     const { bottom: triggerBottomPos, height: triggerheight } = triggerBtn.getBoundingClientRect()
     const spaceBelowButton = viewportHeight - triggerBottomPos
-    const gap = 4 // confirmed by design team to use var(--spacing-1) initially
 
-    const top = popoverHeight > spaceBelowButton ? 0 - popoverHeight - gap : triggerheight + gap
+    const top = popoverHeight > spaceBelowButton ? 0 - popoverHeight : triggerheight
 
     setPopoverStyle({ top: top + yOffset })
   }
@@ -27,10 +26,10 @@ export const MenuPopover: FC<{
   /**
    * Optional parameter to adjust the vertical position of the popover
    *
-   * @default 0
+   * @default 4 // confirmed by design team to use var(--spacing-1) initially
    */
   yOffset?: number
-}> = ({ children, yOffset }) => {
+}> = ({ children, yOffset = 4 }) => {
   const { isOpen, closeMenu, getPopoverProps } = useMenuContext()
   const popoverRef = useRef<HTMLDivElement>(null)
 

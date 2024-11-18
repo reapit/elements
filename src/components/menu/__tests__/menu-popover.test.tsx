@@ -46,7 +46,7 @@ describe('Menu Popover component', () => {
       mockSetPopoverStyle = jest.fn()
     })
 
-    it('should set popover position below the button if there is enough space', () => {
+    it('should set popover position below the button if there is enough space with additional yOffset', () => {
       const triggerBtn = container.querySelector('[role="button"]')
       triggerBtn.getBoundingClientRect = jest.fn(() => ({
         height: 50,
@@ -54,9 +54,9 @@ describe('Menu Popover component', () => {
       }))
 
       window.innerHeight = 400
-      calculatePopoverPosition(container, popover, mockSetPopoverStyle)
+      calculatePopoverPosition(container, popover, mockSetPopoverStyle, 50)
 
-      expect(mockSetPopoverStyle).toHaveBeenCalledWith({ top: 54 })
+      expect(mockSetPopoverStyle).toHaveBeenCalledWith({ top: 100 })
     })
 
     it('should set popover position above the button if there is not enough space below', () => {
@@ -69,7 +69,7 @@ describe('Menu Popover component', () => {
       window.innerHeight = 400
       calculatePopoverPosition(container, popover, mockSetPopoverStyle)
 
-      expect(mockSetPopoverStyle).toHaveBeenCalledWith({ top: -104 })
+      expect(mockSetPopoverStyle).toHaveBeenCalledWith({ top: -100 })
     })
 
     it('should not set position if trigger button is not found', () => {
