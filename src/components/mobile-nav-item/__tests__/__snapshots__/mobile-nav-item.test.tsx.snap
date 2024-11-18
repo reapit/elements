@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MobileNavItem should render Expandable MobileNavItem 1`] = `
+<DocumentFragment>
+  <mock-styled.ul
+    aria-label="Item 2"
+    data-is-expanded="false"
+    role="menubar"
+  >
+    <mock-styled.li
+      role="none"
+    >
+      <mock-styled.button
+        aria-controls="test-static-id"
+        aria-current="true"
+        aria-expanded="false"
+        role="menuitem"
+        type="button"
+      >
+        <mock-styled.span>
+          Item 2
+          <mock-styled.span />
+        </mock-styled.span>
+        <mock-styled.span
+          classname=""
+          style="font-size: 16px;"
+        >
+          <svg
+            role="img"
+            style="font-size: 16px;"
+            title="Icon image with name chevronDown"
+          />
+        </mock-styled.span>
+      </mock-styled.button>
+      <mock-styled.ul
+        aria-hidden="true"
+        id="test-static-id"
+        role="menu"
+      >
+        <mock-styled.li
+          role="none"
+        >
+          <mock-styled.a
+            aria-current="page"
+            href="#item-2.1"
+            role="menuitem"
+          >
+            <mock-styled.span>
+              Sub Item 2.1
+            </mock-styled.span>
+          </mock-styled.a>
+        </mock-styled.li>
+        <mock-styled.li
+          role="none"
+        >
+          <mock-styled.a
+            href="#item-2.2"
+            role="menuitem"
+          >
+            <mock-styled.span>
+              Sub Item 2.2
+              <mock-styled.span />
+            </mock-styled.span>
+          </mock-styled.a>
+        </mock-styled.li>
+        <mock-styled.li
+          role="none"
+        >
+          <mock-styled.a
+            href="#item-2.3"
+            role="menuitem"
+          >
+            <mock-styled.span>
+              Sub Item 2.3
+            </mock-styled.span>
+          </mock-styled.a>
+        </mock-styled.li>
+      </mock-styled.ul>
+    </mock-styled.li>
+  </mock-styled.ul>
+</DocumentFragment>
+`;
+
+exports[`MobileNavItem should render Simple MobileNavItem 1`] = `
+<DocumentFragment>
+  <mock-styled.ul
+    aria-label="Item 1"
+    role="menubar"
+  >
+    <mock-styled.li
+      role="none"
+    >
+      <mock-styled.a
+        href="#item-1"
+        role="menuitem"
+      >
+        <mock-styled.span>
+          Item 1
+        </mock-styled.span>
+      </mock-styled.a>
+    </mock-styled.li>
+  </mock-styled.ul>
+</DocumentFragment>
+`;
+
+exports[`MobileNavItem should render Simple MobileNavItem with badge 1`] = `
+<DocumentFragment>
+  <mock-styled.ul
+    aria-label="Item 1"
+    role="menubar"
+  >
+    <mock-styled.li
+      role="none"
+    >
+      <mock-styled.a
+        href="#item-1"
+        role="menuitem"
+      >
+        <mock-styled.span>
+          Item 1
+          <mock-styled.span />
+        </mock-styled.span>
+      </mock-styled.a>
+    </mock-styled.li>
+  </mock-styled.ul>
+</DocumentFragment>
+`;
