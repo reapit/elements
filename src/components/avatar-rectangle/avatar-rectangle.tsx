@@ -2,7 +2,7 @@ import { useState, type FC, type HTMLAttributes } from 'react'
 import {
   ElAvatarRectangleWrapper,
   ElAvatarRectCommercialPlaceholder,
-  ElAvatarRectangleResidentialPlaceholder,
+  ElAvatarRectResidentialPlaceholder,
   ElAvatarRectBottomPlaceholder,
   ElAvatarRectBottomPlaceholderSmall,
 } from './styles'
@@ -36,7 +36,7 @@ export const AvatarRectangle: FC<AvatarRectangle> = ({
       ) : variant === 'commercial' ? (
         <ElAvatarRectCommercialPlaceholder />
       ) : (
-        <ElAvatarRectangleResidentialPlaceholder />
+        <ElAvatarRectResidentialPlaceholder />
       )}
       {variant === 'commercial' &&
         (size === 'small' ? (

@@ -32,7 +32,7 @@ export const ElAvatarRectCommercialPlaceholder = styled.div`
   background: var(--fill-colour-fill-default-light, #e5e9ed);
 `
 
-export const ElAvatarRectangleWrapper = styled.span`
+export const ElAvatarRectangleWrapper = styled.div`
   display: flex;
   width: var(--size-size-12, 72px);
   height: 54px;
@@ -74,4 +74,4 @@ export const ElAvatarRectangleWrapper = styled.span`
   }
 `
 
-export const ElAvatarRectangleResidentialPlaceholder = styled(ResidentialPlaceholderIcon)``
+export const ElAvatarRectResidentialPlaceholder = styled(ResidentialPlaceholderIcon)``

@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { AvatarRectangle } from '.'
 import {
   ElAvatarRectangleWrapper,
-  ElAvatarRectangleResidentialPlaceholder,
+  ElAvatarRectResidentialPlaceholder,
   ElAvatarRectBottomPlaceholder,
   ElAvatarRectCommercialPlaceholder,
 } from './styles'
@@ -39,7 +39,7 @@ export const DefaultUsage = {
 export const UsingResidentialPlaceholder = {
   render: ({}) => (
     <ElAvatarRectangleWrapper data-variant="residential" data-placeholder="true">
-      <ElAvatarRectangleResidentialPlaceholder />
+      <ElAvatarRectResidentialPlaceholder />
     </ElAvatarRectangleWrapper>
   ),
 }
