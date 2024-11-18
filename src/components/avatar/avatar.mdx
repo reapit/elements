@@ -1,0 +1,47 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as AvatarStories from './avatar.stories'
+
+<Meta of={AvatarStories} />
+
+# Avatar
+
+An avatar component to be used typically with a `Card` or `Nav` component. The default variant renders a circle with children.
+
+There are multiple variants that can be used by utilizing the data props, such as size, colour, and shape (see the HTML version of React usage). In addition to text, it also accepts an Icon as a child.
+
+## Style Only Usage
+
+<Canvas of={AvatarStories.StyleOnlyUsage} />
+
+<RenderHtmlMarkup of={AvatarStories.StyleOnlyUsage} />
+
+<Canvas of={AvatarStories.WithIconUsage} />
+
+<RenderHtmlMarkup of={AvatarStories.WithIconUsage} />
+
+## With Colour
+
+<Canvas of={AvatarStories.WithColour} />
+
+<RenderHtmlMarkup of={AvatarStories.WithColour} />
+
+## With Square Shape
+
+<Canvas of={AvatarStories.WithSquareShape} />
+
+<RenderHtmlMarkup of={AvatarStories.WithSquareShape} />
+
+## With Small Size
+
+<Canvas of={AvatarStories.WithSmallSize} />
+
+<RenderHtmlMarkup of={AvatarStories.WithSmallSize} />
+
+## React Usage
+
+<Controls />
+
+<Canvas of={AvatarStories.ReactUsage} />
+
+<RenderHtmlMarkup of={AvatarStories.ReactUsage} />WithColourWithColour
