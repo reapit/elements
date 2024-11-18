@@ -1,29 +1,64 @@
-import { type FC, type MutableRefObject, useRef } from 'react'
+import { type FC, useLayoutEffect, useRef, useState } from 'react'
 import { useClickOutside } from '../../hooks/use-click-outside'
 import { useMenuContext } from './menu-context'
 import { ElMenuPopover } from './styles'
 
-export const MenuPopover: FC = ({ children }) => {
+export const calculatePopoverPosition = (
+  container: HTMLElement,
+  popover: HTMLDivElement,
+  setPopoverStyle: React.Dispatch<React.SetStateAction<React.CSSProperties>>,
+  yOffset = 0,
+) => {
+  const triggerBtn = container.querySelector('[role="button"]')
+  if (triggerBtn) {
+    const viewportHeight = window.innerHeight
+    const popoverHeight = popover.getBoundingClientRect().height
+    const { bottom: triggerBottomPos, height: triggerheight } = triggerBtn.getBoundingClientRect()
+    const spaceBelowButton = viewportHeight - triggerBottomPos
+
+    const top = popoverHeight > spaceBelowButton ? 0 - popoverHeight : triggerheight
+
+    setPopoverStyle({ top: top + yOffset })
+  }
+}
+
+export const MenuPopover: FC<{
+  /**
+   * Optional parameter to adjust the vertical position of the popover
+   *
+   * @default 4 // confirmed by design team to use var(--spacing-1) initially
+   */
+  yOffset?: number
+}> = ({ children, yOffset = 4 }) => {
   const { isOpen, closeMenu, getPopoverProps } = useMenuContext()
   const popoverRef = useRef<HTMLDivElement>(null)
 
+  const [popoverStyle, setPopoverStyle] = useState<React.CSSProperties>({
+    position: 'absolute',
+  })
+
   useClickOutside(popoverRef, closeMenu)
 
-  if (isOpen) {
-    const onClick = (event) => {
-      // close menu if clicked target has parent with below selector
-      const menuItem = event.target.closest('[data-close-menu="true"]')
-      if (menuItem) closeMenu()
+  useLayoutEffect(() => {
+    const container = popoverRef.current?.parentElement
+    if (container && isOpen && popoverRef.current) {
+      calculatePopoverPosition(container, popoverRef.current, setPopoverStyle, yOffset)
     }
+  }, [isOpen])
 
-    return (
-      <ElMenuPopover ref={popoverRef as MutableRefObject<HTMLDivElement>} {...getPopoverProps()} onClick={onClick}>
-        {children}
-      </ElMenuPopover>
-    )
+  if (!isOpen) return null
+
+  const handleClick = (event) => {
+    // close menu if clicked target has parent with below selector
+    const menuItem = event.target.closest('[data-close-menu="true"]')
+    if (menuItem) closeMenu()
   }
 
-  return null
+  return (
+    <ElMenuPopover style={popoverStyle} ref={popoverRef} {...getPopoverProps()} onClick={handleClick}>
+      {children}
+    </ElMenuPopover>
+  )
 }
 
 export const MenuTrigger = ({ children }) => {
