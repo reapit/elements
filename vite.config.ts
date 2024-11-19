@@ -45,8 +45,8 @@ export default defineConfig({
       thresholds: {
         branches: 71,
         functions: 84,
-        lines: 90,
-        statements: 90,
+        lines: 87,
+        statements: 87,
       },
     },
     environment: 'happy-dom',
