@@ -2838,6 +2838,7 @@ __metadata:
     colord: "npm:^2.9.3"
     concurrently: "npm:^8.2.2"
     constructs: "npm:^10.3.0"
+    coverage-badges-cli: "npm:^2.1.0"
     cross-env: "npm:^7.0.3"
     dashify: "npm:2.0.0"
     eslint: "npm:8.56.0"
@@ -4325,6 +4326,16 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/fs-extra@npm:~11.0.0":
+  version: 11.0.4
+  resolution: "@types/fs-extra@npm:11.0.4"
+  dependencies:
+    "@types/jsonfile": "npm:*"
+    "@types/node": "npm:*"
+  checksum: 10/acc4c1eb0cde7b1f23f3fe6eb080a14832d8fa9dc1761aa444c5e2f0f6b6fa657ed46ebae32fb580a6700fc921b6165ce8ac3e3ba030c3dd15f10ad4dd4cae98
+  languageName: node
+  linkType: hard
+
 "@types/glob@npm:^7.1.3":
   version: 7.2.0
   resolution: "@types/glob@npm:7.2.0"
@@ -4367,6 +4378,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/jsonfile@npm:*":
+  version: 6.1.4
+  resolution: "@types/jsonfile@npm:6.1.4"
+  dependencies:
+    "@types/node": "npm:*"
+  checksum: 10/309fda20eb5f1cf68f2df28931afdf189c5e7e6bec64ac783ce737bb98908d57f6f58757ad5da9be37b815645a6f914e2d4f3ac66c574b8fe1ba6616284d0e97
+  languageName: node
+  linkType: hard
+
 "@types/lodash@npm:^4.14.167":
   version: 4.14.202
   resolution: "@types/lodash@npm:4.14.202"
@@ -4402,7 +4422,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/minimist@npm:^1.2.2":
+"@types/minimist@npm:^1.2.2, @types/minimist@npm:~1.2.2":
   version: 1.2.5
   resolution: "@types/minimist@npm:1.2.5"
   checksum: 10/477047b606005058ab0263c4f58097136268007f320003c348794f74adedc3166ffc47c80ec3e94687787f2ab7f4e72c468223946e79892cf0fd9e25e9970a90
@@ -5573,6 +5593,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"badgen@npm:~3.2.3":
+  version: 3.2.3
+  resolution: "badgen@npm:3.2.3"
+  checksum: 10/bf14ca72183500b80f3e48c5a06019143206b385adad3b7ebfff0f9d00529705638056e5d36d04fd2b925c64c6fccb2a1c47644469c873368c1a8fe45f05581c
+  languageName: node
+  linkType: hard
+
 "balanced-match@npm:^1.0.0":
   version: 1.0.2
   resolution: "balanced-match@npm:1.0.2"
@@ -6296,6 +6323,24 @@ __metadata:
     typescript:
       optional: true
   checksum: 10/91d082baca0f33b1c085bf010f9ded4af43cbedacba8821da0fb5667184d0a848addc52c31fadd080007f904a555319c238cf5f4c03e6d58ece2e4876b2e73d6
+  languageName: node
+  linkType: hard
+
+"coverage-badges-cli@npm:^2.1.0":
+  version: 2.1.0
+  resolution: "coverage-badges-cli@npm:2.1.0"
+  dependencies:
+    "@types/fs-extra": "npm:~11.0.0"
+    "@types/minimist": "npm:~1.2.2"
+    badgen: "npm:~3.2.3"
+    fs-extra: "npm:~11.2.0"
+    lodash.get: "npm:^4.4.2"
+    mini-svg-data-uri: "npm:^1.4.4"
+    minimist: "npm:~1.2.5"
+  bin:
+    coverage-badges: bin/cli
+    coverage-badges-cli: bin/cli
+  checksum: 10/919b2e3dc3153aa7b5e97db5a565c492f080e3ffe5dc6241ae615f22488797bb063f45e951839a8dfd5105691a1bddc563caba22c7074e49186d9b3c8dfe459d
   languageName: node
   linkType: hard
 
@@ -7929,7 +7974,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fs-extra@npm:^11.2.0":
+"fs-extra@npm:^11.2.0, fs-extra@npm:~11.2.0":
   version: 11.2.0
   resolution: "fs-extra@npm:11.2.0"
   dependencies:
@@ -9656,6 +9701,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"lodash.get@npm:^4.4.2":
+  version: 4.4.2
+  resolution: "lodash.get@npm:4.4.2"
+  checksum: 10/2a4925f6e89bc2c010a77a802d1ba357e17ed1ea03c2ddf6a146429f2856a216663e694a6aa3549a318cbbba3fd8b7decb392db457e6ac0b83dc745ed0a17380
+  languageName: node
+  linkType: hard
+
 "lodash.merge@npm:^4.6.2":
   version: 4.6.2
   resolution: "lodash.merge@npm:4.6.2"
@@ -10021,6 +10073,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"mini-svg-data-uri@npm:^1.4.4":
+  version: 1.4.4
+  resolution: "mini-svg-data-uri@npm:1.4.4"
+  bin:
+    mini-svg-data-uri: cli.js
+  checksum: 10/1336c2b00b6a72b0ce3cf942f7ab074faf463b941042fbe51d7a70be119c5d4223880aaa29584d5a804496ca1dda9b6fff7dd5aa284721907519b646192d8aaa
+  languageName: node
+  linkType: hard
+
 "minimatch@npm:^3.0.2, minimatch@npm:^3.0.5, minimatch@npm:^3.1.1, minimatch@npm:^3.1.2":
   version: 3.1.2
   resolution: "minimatch@npm:3.1.2"
@@ -10068,7 +10129,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"minimist@npm:^1.2.0, minimist@npm:^1.2.5, minimist@npm:^1.2.6":
+"minimist@npm:^1.2.0, minimist@npm:^1.2.5, minimist@npm:^1.2.6, minimist@npm:~1.2.5":
   version: 1.2.8
   resolution: "minimist@npm:1.2.8"
   checksum: 10/908491b6cc15a6c440ba5b22780a0ba89b9810e1aea684e253e43c4e3b8d56ec1dcdd7ea96dde119c29df59c936cde16062159eae4225c691e19c70b432b6e6f

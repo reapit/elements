@@ -28,7 +28,17 @@ export default defineConfig({
   ],
   test: {
     coverage: {
+      exclude: ['src/styles', 'src/storybook', 'src/tests', 'src/types', '**/*.test.*', '**/*.stories.*', '**/*.d.ts'],
+      include: ['src/**/*.ts', 'src/**/*.tsx'],
       provider: 'v8',
+      reporter: ['json-summary', 'text', 'lcov'],
+      reportsDirectory: 'coverage/report',
+      thresholds: {
+        branches: 71,
+        functions: 84,
+        lines: 90,
+        statements: 90,
+      },
     },
     environment: 'happy-dom',
     globals: true,

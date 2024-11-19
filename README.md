@@ -2,7 +2,7 @@
 
 A React UI toolkit, with cross platform support for building web applications in the Reapit Foundations ecosystem. Written in TypeScript the library exports both React Components and a CSS Stylesheet. The package is distubuted via NPM and is available [here](https://www.npmjs.com/package/@reapit/elements).
 
-![lines](/src/tests/badges/badge-lines.svg) ![functions](/src/tests/badges/badge-functions.svg) ![branches](/src/tests/badges/badge-branches.svg) ![statements](/src/tests/badges/badge-statements.svg)
+![lines](/coverage/badges/badge-lines.svg) ![functions](/coverage/badges/badge-functions.svg) ![branches](/coverage/badges/badge-branches.svg) ![statements](/coverage/badges/badge-statements.svg)
 
 [![Test PR](https://github.com/reapit/elements/actions/workflows/test-pr.yml/badge.svg)](https://github.com/reapit/elements/actions/workflows/test-pr.yml)
 [![Release Dev](https://github.com/reapit/elements/actions/workflows/release-dev.yml/badge.svg)](https://github.com/reapit/elements/actions/workflows/release-dev.yml)
