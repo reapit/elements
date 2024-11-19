@@ -8,7 +8,7 @@
   },
   "type": "module",
   "bin": {
-    "elements-deploy": "./scripts/cdk/bin/rpt-cdk.js"
+    "elements-deploy": "./scripts/cdk/bin/rpt-cdk.cjs"
   },
   "repository": {
     "type": "git",
@@ -132,6 +132,7 @@
     "snyk": "^1.1288.0",
     "storybook": "^8.0.7",
     "style-dictionary": "^3.9.2",
+    "ts-node": "^10.9.2",
     "typescript": "5.6.3",
     "vite": "^5.4.10",
     "vite-plugin-svgr": "^4.2.0",

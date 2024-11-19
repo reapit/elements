@@ -2,7 +2,7 @@ import process from 'process'
 import { execSync } from 'child_process'
 import path from 'path'
 
-const [command, scriptName = 'cdk-stack.ts'] = process.argv.slice(2)
+const [command, scriptName = 'cdk-stack.cts'] = process.argv.slice(2)
 const cwd = process.cwd()
 const templatesDir = path.join(cwd, 'cdk.out')
 
@@ -13,7 +13,7 @@ if (command) {
         cwd,
         'scripts',
         'cdk',
-      )} && yarn dlx ts-node ${scriptName.split('--')[0]}"`,
+      )} && yarn node -r ts-node/register --loader ts-node/esm ${scriptName.split('--')[0]}"`,
       {
         stdio: 'inherit',
         cwd: __dirname,
