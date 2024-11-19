@@ -5,5 +5,5 @@
     "noCheck": true
   },
   "include": ["src"],
-  "exclude": ["*.test.*", "*.stories.*", ".yarn", "public", "dist", "node_modules", "coverage", "archive"]
+  "exclude": ["*.test.*", "*.stories.*", ".yarn", "archive", "dist", "node_modules", "public"]
 }
