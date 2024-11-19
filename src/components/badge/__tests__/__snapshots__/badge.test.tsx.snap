@@ -1,25 +1,25 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Badge component should match a snapshot 1`] = `
+exports[`Badge component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname=""
+      <span
+        class="mocked-styled-0 el-badge"
         role="status"
       >
         50%
-      </mock-styled.span>
+      </span>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname=""
+    <span
+      class="mocked-styled-0 el-badge"
       role="status"
     >
       50%
-    </mock-styled.span>
+    </span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -75,26 +75,26 @@ exports[`Badge component should match a snapshot 1`] = `
 }
 `;
 
-exports[`Badge component should match a snapshot for intent 1`] = `
+exports[`Badge component > should match a snapshot for intent 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-primary el-badge"
         role="status"
       >
         Some Content
-      </mock-styled.span>
+      </span>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-primary el-badge"
       role="status"
     >
       Some Content
-    </mock-styled.span>
+    </span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -150,26 +150,26 @@ exports[`Badge component should match a snapshot for intent 1`] = `
 }
 `;
 
-exports[`Badge component should match a snapshot for intent 2`] = `
+exports[`Badge component > should match a snapshot for intent 2`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-neutral el-badge"
         role="status"
       >
         Some Content
-      </mock-styled.span>
+      </span>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-neutral el-badge"
       role="status"
     >
       Some Content
-    </mock-styled.span>
+    </span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -225,26 +225,26 @@ exports[`Badge component should match a snapshot for intent 2`] = `
 }
 `;
 
-exports[`Badge component should match a snapshot for intent 3`] = `
+exports[`Badge component > should match a snapshot for intent 3`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-danger el-badge"
         role="status"
       >
         Some Content
-      </mock-styled.span>
+      </span>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-danger el-badge"
       role="status"
     >
       Some Content
-    </mock-styled.span>
+    </span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -300,26 +300,26 @@ exports[`Badge component should match a snapshot for intent 3`] = `
 }
 `;
 
-exports[`Badge component should match a snapshot for intent 4`] = `
+exports[`Badge component > should match a snapshot for intent 4`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-success el-badge"
         role="status"
       >
         Some Content
-      </mock-styled.span>
+      </span>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-success el-badge"
       role="status"
     >
       Some Content
-    </mock-styled.span>
+    </span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -375,26 +375,26 @@ exports[`Badge component should match a snapshot for intent 4`] = `
 }
 `;
 
-exports[`Badge component should match a snapshot for intent 5`] = `
+exports[`Badge component > should match a snapshot for intent 5`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-warning el-badge"
         role="status"
       >
         Some Content
-      </mock-styled.span>
+      </span>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-warning el-badge"
       role="status"
     >
       Some Content
-    </mock-styled.span>
+    </span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -450,26 +450,26 @@ exports[`Badge component should match a snapshot for intent 5`] = `
 }
 `;
 
-exports[`Badge component should match a snapshot for intent 6`] = `
+exports[`Badge component > should match a snapshot for intent 6`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-pending el-badge"
         role="status"
       >
         Some Content
-      </mock-styled.span>
+      </span>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-pending el-badge"
       role="status"
     >
       Some Content
-    </mock-styled.span>
+    </span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -525,26 +525,26 @@ exports[`Badge component should match a snapshot for intent 6`] = `
 }
 `;
 
-exports[`Badge component should match a snapshot for intent 7`] = `
+exports[`Badge component > should match a snapshot for intent 7`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-default el-badge"
         role="status"
       >
         Some Content
-      </mock-styled.span>
+      </span>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-default el-badge"
       role="status"
     >
       Some Content
-    </mock-styled.span>
+    </span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -600,50 +600,54 @@ exports[`Badge component should match a snapshot for intent 7`] = `
 }
 `;
 
-exports[`BadgeGroup component should match a snapshot 1`] = `
+exports[`BadgeGroup component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-1 el-badge-group"
       >
-        <mock-styled.div>
-          <mock-styled.span
-            classname="mock-css."
+        <div
+          class="mocked-styled-2 el-badge-group-inner"
+        >
+          <span
+            class="el-intent-default el-badge"
             role="status"
           >
             Some Content
-          </mock-styled.span>
-          <mock-styled.span
-            classname="mock-css."
+          </span>
+          <span
+            class="el-intent-primary el-badge"
             role="status"
           >
             Some Content
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.div>
+          </span>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-1 el-badge-group"
     >
-      <mock-styled.div>
-        <mock-styled.span
-          classname="mock-css."
+      <div
+        class="mocked-styled-2 el-badge-group-inner"
+      >
+        <span
+          class="el-intent-default el-badge"
           role="status"
         >
           Some Content
-        </mock-styled.span>
-        <mock-styled.span
-          classname="mock-css."
+        </span>
+        <span
+          class="el-intent-primary el-badge"
           role="status"
         >
           Some Content
-        </mock-styled.span>
-      </mock-styled.div>
-    </mock-styled.div>
+        </span>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

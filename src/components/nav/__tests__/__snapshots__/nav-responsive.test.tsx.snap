@@ -1,265 +1,191 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`NavResponsive component should match a snapshot 1`] = `
+exports[`NavResponsive component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-1 el-nav-bg"
       />
-      <mock-styled.nav
-        classname=""
+      <nav
+        class="mocked-styled-3 el-nav-container"
       >
-        <mock-styled.a
-          classname=""
+        <a
+          class="mocked-styled-5 el-nav-item"
         >
-          <mock-styled.span
-            classname=""
+          <span
+            class="mocked-styled-0 el-icon"
             role="button"
-            style="width: 100px;"
+            style="max-height: var(--nav-brand-height);"
             tabindex="0"
-          >
-            <svg
-              role="img"
-              style="width: 100px;"
-              title="Icon image with name reapitLogo"
-            />
-          </mock-styled.span>
-          <mock-styled.span
-            classname="mock-css.
-  margin-left: var(--util-auto);
- mock-css.
-  margin-right: var(--util-rems-4);
- mock-css.
-  @media screen and (min-width: 768px) {
-    height: 0;
-    width: 0;
-    visibility: hidden;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
- mock-css."
+          />
+          <span
+            class="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon"
             role="button"
             tabindex="0"
-          >
-            <svg
-              role="img"
-              title="Icon image with name more"
-            />
-          </mock-styled.span>
+          />
           
-        </mock-styled.a>
-        <mock-styled.a
-          classname="mock-css.
-  &:not(:first-child) {
-    background-color: var(--purple-050);
-    border-left: 3px solid var(--purple-500);
-    color: var(--purple-500);
-  }
-
-  @media screen and (min-width: 768px) {
-    &:not(:first-child) {
-      --nav-menu-icon-primary-accent: var(--purple-500);
-      --nav-menu-icon-secondary-accent: var(--purple-300);
-      padding: 0.375rem 0.75rem;
-      border-radius: 0.25rem;
-      background-color: var(--neutral-050);
-      border-left: none;
-      height: 2rem;
-    }
-  }
-"
+        </a>
+        <a
+          class="el-nav-item-active el-nav-item"
           role="button"
           tabindex="0"
         >
           Apps
-        </mock-styled.a>
-        <mock-styled.div>
-          <mock-styled.a
-            classname=""
+        </a>
+        <div
+          class="mocked-styled-4 el-nav-sub-container"
+        >
+          <a
+            class="mocked-styled-6 el-nav-sub-item"
           >
             <span>
               App List
             </span>
-          </mock-styled.a>
-          <mock-styled.a
-            classname=""
+          </a>
+          <a
+            class="mocked-styled-6 el-nav-sub-item"
           >
             <span>
               Create App
             </span>
-          </mock-styled.a>
-        </mock-styled.div>
-        <mock-styled.a
-          classname=""
+          </a>
+        </div>
+        <a
+          class="mocked-styled-5 el-nav-item"
           role="button"
           tabindex="0"
         >
           Analytics
-        </mock-styled.a>
-        <mock-styled.div>
-          <mock-styled.a
-            classname=""
+        </a>
+        <div
+          class="mocked-styled-4 el-nav-sub-container"
+        >
+          <a
+            class="mocked-styled-6 el-nav-sub-item"
           >
             <span>
               Hits Per Day
             </span>
-          </mock-styled.a>
-          <mock-styled.a
-            classname=""
+          </a>
+          <a
+            class="mocked-styled-6 el-nav-sub-item"
           >
             <span>
               Weekly Hits
             </span>
-          </mock-styled.a>
-        </mock-styled.div>
-        <mock-styled.a
-          classname=""
+          </a>
+        </div>
+        <a
+          class="mocked-styled-5 el-nav-item"
           href="https://marketplace.reapit.cloud"
           role="button"
           tabindex="0"
         >
           Marketplace
-        </mock-styled.a>
-        <mock-styled.a
-          classname=""
+        </a>
+        <a
+          class="mocked-styled-5 el-nav-item"
           role="button"
           tabindex="0"
         >
           Logout
-        </mock-styled.a>
+        </a>
         
-      </mock-styled.nav>
+      </nav>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-1 el-nav-bg"
     />
-    <mock-styled.nav
-      classname=""
+    <nav
+      class="mocked-styled-3 el-nav-container"
     >
-      <mock-styled.a
-        classname=""
+      <a
+        class="mocked-styled-5 el-nav-item"
       >
-        <mock-styled.span
-          classname=""
+        <span
+          class="mocked-styled-0 el-icon"
           role="button"
-          style="width: 100px;"
+          style="max-height: var(--nav-brand-height);"
           tabindex="0"
-        >
-          <svg
-            role="img"
-            style="width: 100px;"
-            title="Icon image with name reapitLogo"
-          />
-        </mock-styled.span>
-        <mock-styled.span
-          classname="mock-css.
-  margin-left: var(--util-auto);
- mock-css.
-  margin-right: var(--util-rems-4);
- mock-css.
-  @media screen and (min-width: 768px) {
-    height: 0;
-    width: 0;
-    visibility: hidden;
-    padding: 0 !important;
-    margin: 0 !important;
-  }
- mock-css."
+        />
+        <span
+          class="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon"
           role="button"
           tabindex="0"
-        >
-          <svg
-            role="img"
-            title="Icon image with name more"
-          />
-        </mock-styled.span>
+        />
         
-      </mock-styled.a>
-      <mock-styled.a
-        classname="mock-css.
-  &:not(:first-child) {
-    background-color: var(--purple-050);
-    border-left: 3px solid var(--purple-500);
-    color: var(--purple-500);
-  }
-
-  @media screen and (min-width: 768px) {
-    &:not(:first-child) {
-      --nav-menu-icon-primary-accent: var(--purple-500);
-      --nav-menu-icon-secondary-accent: var(--purple-300);
-      padding: 0.375rem 0.75rem;
-      border-radius: 0.25rem;
-      background-color: var(--neutral-050);
-      border-left: none;
-      height: 2rem;
-    }
-  }
-"
+      </a>
+      <a
+        class="el-nav-item-active el-nav-item"
         role="button"
         tabindex="0"
       >
         Apps
-      </mock-styled.a>
-      <mock-styled.div>
-        <mock-styled.a
-          classname=""
+      </a>
+      <div
+        class="mocked-styled-4 el-nav-sub-container"
+      >
+        <a
+          class="mocked-styled-6 el-nav-sub-item"
         >
           <span>
             App List
           </span>
-        </mock-styled.a>
-        <mock-styled.a
-          classname=""
+        </a>
+        <a
+          class="mocked-styled-6 el-nav-sub-item"
         >
           <span>
             Create App
           </span>
-        </mock-styled.a>
-      </mock-styled.div>
-      <mock-styled.a
-        classname=""
+        </a>
+      </div>
+      <a
+        class="mocked-styled-5 el-nav-item"
         role="button"
         tabindex="0"
       >
         Analytics
-      </mock-styled.a>
-      <mock-styled.div>
-        <mock-styled.a
-          classname=""
+      </a>
+      <div
+        class="mocked-styled-4 el-nav-sub-container"
+      >
+        <a
+          class="mocked-styled-6 el-nav-sub-item"
         >
           <span>
             Hits Per Day
           </span>
-        </mock-styled.a>
-        <mock-styled.a
-          classname=""
+        </a>
+        <a
+          class="mocked-styled-6 el-nav-sub-item"
         >
           <span>
             Weekly Hits
           </span>
-        </mock-styled.a>
-      </mock-styled.div>
-      <mock-styled.a
-        classname=""
+        </a>
+      </div>
+      <a
+        class="mocked-styled-5 el-nav-item"
         href="https://marketplace.reapit.cloud"
         role="button"
         tabindex="0"
       >
         Marketplace
-      </mock-styled.a>
-      <mock-styled.a
-        classname=""
+      </a>
+      <a
+        class="mocked-styled-5 el-nav-item"
         role="button"
         tabindex="0"
       >
         Logout
-      </mock-styled.a>
+      </a>
       
-    </mock-styled.nav>
+    </nav>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,291 +1,93 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`FileInput component should match a snapshot 1`] = `
+exports[`FileInput component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <div
+        class="mocked-styled-1 el-file-input-wrap"
+      >
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+          class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.button
+          <button
             aria-disabled="false"
-            classname="mock-css.
-  margin-right: var(--util-rems-4);
- mock-css."
+            class="el-mr4 el-button-size-medium el-button"
             role="button"
             type="button"
           >
-            <mock-styled.div />
-            <mock-styled.span>
+            <div
+              class="mocked-styled-5 el-button-spinner"
+            />
+            <span
+              class="mocked-styled-6 el-button-label"
+            >
               Upload
-            </mock-styled.span>
-          </mock-styled.button>
-          <mock-styled.input
+            </span>
+          </button>
+          <input
             aria-label="File upload input undefined"
+            class="mocked-styled-0 el-file-input"
             data-testid="el-file-input"
             type="file"
           />
-          <mock-styled.input
+          <input
             aria-hidden="true"
+            class="mocked-styled-3 el-file-input-hidden"
             id="test-static-id"
+            value=""
           />
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
- mock-css. mock-css. mock-css.
-  margin-left: var(--util-rems-3);
-"
+            class="el-text-base el-text-sm el-has-grey-text el-has-no-margin el-ml3"
           >
             Upload File
           </div>
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <div
+      class="mocked-styled-1 el-file-input-wrap"
+    >
       <div
-        class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+        class="el-flex-container el-flex-align-center"
       >
-        <mock-styled.button
+        <button
           aria-disabled="false"
-          classname="mock-css.
-  margin-right: var(--util-rems-4);
- mock-css."
+          class="el-mr4 el-button-size-medium el-button"
           role="button"
           type="button"
         >
-          <mock-styled.div />
-          <mock-styled.span>
+          <div
+            class="mocked-styled-5 el-button-spinner"
+          />
+          <span
+            class="mocked-styled-6 el-button-label"
+          >
             Upload
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.input
+          </span>
+        </button>
+        <input
           aria-label="File upload input undefined"
+          class="mocked-styled-0 el-file-input"
           data-testid="el-file-input"
           type="file"
         />
-        <mock-styled.input
+        <input
           aria-hidden="true"
+          class="mocked-styled-3 el-file-input-hidden"
           id="test-static-id"
+          value=""
         />
         <div
-          class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
- mock-css. mock-css. mock-css.
-  margin-left: var(--util-rems-3);
-"
+          class="el-text-base el-text-sm el-has-grey-text el-has-no-margin el-ml3"
         >
           Upload File
         </div>
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -341,18 +143,20 @@ exports[`FileInput component should match a snapshot 1`] = `
 }
 `;
 
-exports[`FileInput component should match a snapshot for the FilePreviewImage component 1`] = `
+exports[`FileInput component > should match a snapshot for the FilePreviewImage component 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.img
+      <img
+        class="mocked-styled-4 el-file-preview-image"
         src="https://mock-image.com"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.img
+    <img
+      class="mocked-styled-4 el-file-preview-image"
       src="https://mock-image.com"
     />
   </div>,
@@ -410,162 +214,118 @@ exports[`FileInput component should match a snapshot for the FilePreviewImage co
 }
 `;
 
-exports[`FileInput component should match a snapshot with full props 1`] = `
+exports[`FileInput component > should match a snapshot with full props 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.label>
-          Some Label
-        </mock-styled.label>
-        <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+      <div
+        class="mocked-styled-1 el-file-input-wrap"
+      >
+        <label
+          class="mocked-styled-12 el-label"
         >
-          <mock-styled.button
+          Some Label
+        </label>
+        <div
+          class="el-flex-container el-flex-align-center"
+        >
+          <button
             aria-disabled="false"
-            classname="mock-css.
-  margin-right: var(--util-rems-4);
- mock-css."
+            class="el-mr4 el-button-size-medium el-button"
             role="button"
             type="button"
           >
-            <mock-styled.div />
-            <mock-styled.span>
+            <div
+              class="mocked-styled-5 el-button-spinner"
+            />
+            <span
+              class="mocked-styled-6 el-button-label"
+            >
               Change
-            </mock-styled.span>
-          </mock-styled.button>
-          <mock-styled.input
+            </span>
+          </button>
+          <input
             aria-label="File upload input Some Text"
+            class="mocked-styled-0 el-file-input"
             data-testid="el-file-input"
             type="file"
           />
-          <mock-styled.input
+          <input
             aria-hidden="true"
+            class="mocked-styled-3 el-file-input-hidden"
             id="test-static-id"
+            value="https://mock.com"
           />
-          <mock-styled.div>
-            <mock-styled.span
-              classname="mock-css.
-  margin-right: var(--util-rems-4);
- mock-css."
+          <div
+            class="mocked-styled-2 el-file-input-icon-container"
+          >
+            <span
+              class="el-mr4 el-intent-primary el-icon"
               role="button"
-              style="font-size: 1rem;"
-            >
-              <svg
-                role="img"
-                style="font-size: 1rem;"
-                title="Icon image with name view"
-              />
-            </mock-styled.span>
-            <mock-styled.span
-              classname="mock-css.
-  margin-right: var(--util-rems-4);
- mock-css."
+            />
+            <span
+              class="el-mr4 el-intent-primary el-icon"
               role="button"
-              style="font-size: 1rem;"
-            >
-              <svg
-                role="img"
-                style="font-size: 1rem;"
-                title="Icon image with name close"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
+            />
+          </div>
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.label>
-        Some Label
-      </mock-styled.label>
-      <div
-        class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+    <div
+      class="mocked-styled-1 el-file-input-wrap"
+    >
+      <label
+        class="mocked-styled-12 el-label"
       >
-        <mock-styled.button
+        Some Label
+      </label>
+      <div
+        class="el-flex-container el-flex-align-center"
+      >
+        <button
           aria-disabled="false"
-          classname="mock-css.
-  margin-right: var(--util-rems-4);
- mock-css."
+          class="el-mr4 el-button-size-medium el-button"
           role="button"
           type="button"
         >
-          <mock-styled.div />
-          <mock-styled.span>
+          <div
+            class="mocked-styled-5 el-button-spinner"
+          />
+          <span
+            class="mocked-styled-6 el-button-label"
+          >
             Change
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.input
+          </span>
+        </button>
+        <input
           aria-label="File upload input Some Text"
+          class="mocked-styled-0 el-file-input"
           data-testid="el-file-input"
           type="file"
         />
-        <mock-styled.input
+        <input
           aria-hidden="true"
+          class="mocked-styled-3 el-file-input-hidden"
           id="test-static-id"
+          value="https://mock.com"
         />
-        <mock-styled.div>
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: var(--util-rems-4);
- mock-css."
+        <div
+          class="mocked-styled-2 el-file-input-icon-container"
+        >
+          <span
+            class="el-mr4 el-intent-primary el-icon"
             role="button"
-            style="font-size: 1rem;"
-          >
-            <svg
-              role="img"
-              style="font-size: 1rem;"
-              title="Icon image with name view"
-            />
-          </mock-styled.span>
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: var(--util-rems-4);
- mock-css."
+          />
+          <span
+            class="el-mr4 el-intent-primary el-icon"
             role="button"
-            style="font-size: 1rem;"
-          >
-            <svg
-              role="img"
-              style="font-size: 1rem;"
-              title="Icon image with name close"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
+          />
+        </div>
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

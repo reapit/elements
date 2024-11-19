@@ -1,23 +1,23 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tile component should match a snapshot 1`] = `
+exports[`Tile component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css."
+      <div
+        class="el-tile-padding-small el-tile"
       >
         Some Content
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css."
+    <div
+      class="el-tile-padding-small el-tile"
     >
       Some Content
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

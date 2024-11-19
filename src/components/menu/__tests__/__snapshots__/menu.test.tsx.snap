@@ -1,32 +1,40 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Menu list component should render menu with list components and match snapshots 1`] = `
+exports[`Menu list component > should render menu with list components and match snapshots 1`] = `
 <DocumentFragment>
-  <mock-styled.div>
-    <mock-styled.div
+  <div
+    class="mocked-styled-1 el-menu"
+  >
+    <div
+      class="mocked-styled-2 el-menu-list"
       role="menu"
     >
-      <mock-styled.div
+      <div
+        class="mocked-styled-6 el-menu-item-group"
         role="group"
       >
-        <mock-styled.div>
+        <div
+          class="mocked-styled-5 el-menu-item-group-title"
+        >
           Group Title
-        </mock-styled.div>
-        <mock-styled.a
+        </div>
+        <a
+          class="mocked-styled-4 el-menu-item-anchor"
           data-close-menu="true"
           href="/#"
           role="menuitem"
         >
           Menu item as anchor
-        </mock-styled.a>
-        <mock-styled.button
+        </a>
+        <button
+          class="mocked-styled-3 el-menu-item-button"
           data-close-menu="true"
           role="menuitem"
         >
           Menu item as button
-        </mock-styled.button>
-      </mock-styled.div>
-    </mock-styled.div>
-  </mock-styled.div>
+        </button>
+      </div>
+    </div>
+  </div>
 </DocumentFragment>
 `;

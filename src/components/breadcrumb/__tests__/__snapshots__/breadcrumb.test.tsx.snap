@@ -1,305 +1,143 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`BreadCrumb should match a snapshot 1`] = `
+exports[`BreadCrumb > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <div
+        class="mocked-styled-1 el-bread-crumb-container"
+      >
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+          class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.a
+          <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Home"
+            class="mocked-styled-0 el-bread-crumb-item"
             role="button"
             tabindex="0"
           >
             Home
-          </mock-styled.a>
+          </a>
         </div>
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+          class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-            style="font-size: 12px;"
-          >
-            <svg
-              role="img"
-              style="font-size: 12px;"
-              title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-          <mock-styled.a
+          <span
+            class="el-mr2 el-intent-default el-icon"
+          />
+          <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Level 1"
+            class="mocked-styled-0 el-bread-crumb-item"
             role="button"
             tabindex="0"
           >
             Level 1
-          </mock-styled.a>
+          </a>
         </div>
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+          class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-            style="font-size: 12px;"
-          >
-            <svg
-              role="img"
-              style="font-size: 12px;"
-              title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-          <mock-styled.a
+          <span
+            class="el-mr2 el-intent-default el-icon"
+          />
+          <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Level 2"
+            class="mocked-styled-0 el-bread-crumb-item"
             role="button"
             tabindex="0"
           >
             Level 2
-          </mock-styled.a>
+          </a>
         </div>
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+          class="el-flex-container el-flex-align-center"
         >
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-            style="font-size: 12px;"
-          >
-            <svg
-              role="img"
-              style="font-size: 12px;"
-              title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-          <mock-styled.a
+          <span
+            class="el-mr2 el-intent-default el-icon"
+          />
+          <a
             aria-current="page"
             aria-label="Breadcrumb item hit return to navigate to Level 3"
+            class="mocked-styled-0 el-bread-crumb-item"
             role="button"
             tabindex="0"
           >
             Level 3
-          </mock-styled.a>
+          </a>
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <div
+      class="mocked-styled-1 el-bread-crumb-container"
+    >
       <div
-        class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+        class="el-flex-container el-flex-align-center"
       >
-        <mock-styled.a
+        <a
           aria-current="false"
           aria-label="Breadcrumb item hit return to navigate to Home"
+          class="mocked-styled-0 el-bread-crumb-item"
           role="button"
           tabindex="0"
         >
           Home
-        </mock-styled.a>
+        </a>
       </div>
       <div
-        class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+        class="el-flex-container el-flex-align-center"
       >
-        <mock-styled.span
-          classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-          style="font-size: 12px;"
-        >
-          <svg
-            role="img"
-            style="font-size: 12px;"
-            title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-        <mock-styled.a
+        <span
+          class="el-mr2 el-intent-default el-icon"
+        />
+        <a
           aria-current="false"
           aria-label="Breadcrumb item hit return to navigate to Level 1"
+          class="mocked-styled-0 el-bread-crumb-item"
           role="button"
           tabindex="0"
         >
           Level 1
-        </mock-styled.a>
+        </a>
       </div>
       <div
-        class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+        class="el-flex-container el-flex-align-center"
       >
-        <mock-styled.span
-          classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-          style="font-size: 12px;"
-        >
-          <svg
-            role="img"
-            style="font-size: 12px;"
-            title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-        <mock-styled.a
+        <span
+          class="el-mr2 el-intent-default el-icon"
+        />
+        <a
           aria-current="false"
           aria-label="Breadcrumb item hit return to navigate to Level 2"
+          class="mocked-styled-0 el-bread-crumb-item"
           role="button"
           tabindex="0"
         >
           Level 2
-        </mock-styled.a>
+        </a>
       </div>
       <div
-        class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+        class="el-flex-container el-flex-align-center"
       >
-        <mock-styled.span
-          classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-          style="font-size: 12px;"
-        >
-          <svg
-            role="img"
-            style="font-size: 12px;"
-            title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-        <mock-styled.a
+        <span
+          class="el-mr2 el-intent-default el-icon"
+        />
+        <a
           aria-current="page"
           aria-label="Breadcrumb item hit return to navigate to Level 3"
+          class="mocked-styled-0 el-bread-crumb-item"
           role="button"
           tabindex="0"
         >
           Level 3
-        </mock-styled.a>
+        </a>
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

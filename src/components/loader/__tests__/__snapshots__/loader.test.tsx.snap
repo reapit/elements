@@ -1,27 +1,35 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Loader component should match a snapshot 1`] = `
+exports[`Loader component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-loader-container"
       >
-        <mock-styled.div>
-          <mock-styled.div />
-        </mock-styled.div>
-      </mock-styled.div>
+        <div
+          class="mocked-styled-2 el-loader"
+        >
+          <div
+            class="mocked-styled-3 el-loader-moving-bar"
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-loader-container"
     >
-      <mock-styled.div>
-        <mock-styled.div />
-      </mock-styled.div>
-    </mock-styled.div>
+      <div
+        class="mocked-styled-2 el-loader"
+      >
+        <div
+          class="mocked-styled-3 el-loader-moving-bar"
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

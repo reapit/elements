@@ -1,18 +1,18 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InputAddOn component should match a snapshot 1`] = `
+exports[`InputAddOn component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname=""
+      <span
+        class="mocked-styled-0 el-input-add-on"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname=""
+    <span
+      class="mocked-styled-0 el-input-add-on"
     />
   </div>,
   "debug": [Function],

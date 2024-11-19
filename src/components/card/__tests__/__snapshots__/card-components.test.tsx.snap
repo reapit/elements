@@ -1,16 +1,18 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Card should match a snapshot and render children with full props 1`] = `
+exports[`Card > should match a snapshot and render children with full props 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-card-wrap"
       >
-        <mock-styled.div>
-          <mock-styled.mock-styled.div
-            classname=""
+        <div
+          class="mocked-styled-2 el-card-main-wrap"
+        >
+          <div
+            class="mocked-styled-20 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
             role="img"
             title="An avatar image"
           >
@@ -18,90 +20,108 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
               alt="An image with source https://via.placeholder.com/72x72.svg"
               src="https://via.placeholder.com/72x72.svg"
             />
-          </mock-styled.mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-1 el-card-heading-wrap"
           >
-            <mock-styled.h5>
+            <h5
+              class="mocked-styled-3 el-card-heading"
+            >
               Main Heading
-            </mock-styled.h5>
-            <mock-styled.h6>
+            </h5>
+            <h6
+              class="mocked-styled-4 el-card-sub-heading"
+            >
               Main Subheading
-            </mock-styled.h6>
-            <mock-styled.h6>
+            </h6>
+            <h6
+              class="mocked-styled-5 el-card-sub-heading-additional"
+            >
               Main Subheading Additional
-            </mock-styled.h6>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
-  margin-bottom: var(--util-rems-5);
-"
+            </h6>
+          </div>
+        </div>
+        <div
+          class="el-mb5 el-card-body-wrap"
         >
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
-  margin-top: var(--util-rems-5);
-"
+        </div>
+        <div
+          class="el-mt5 el-card-list-main-wrap"
         >
-          <mock-styled.h5>
+          <h5
+            class="mocked-styled-11 el-card-list-heading"
+          >
             List Card Heading
-          </mock-styled.h5>
-          <mock-styled.h6>
+          </h5>
+          <h6
+            class="mocked-styled-12 el-card-list-sub-heading"
+          >
             List Card Sub Heading
-          </mock-styled.h6>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="mock-css."
+          </h6>
+        </div>
+        <div
+          class="mocked-styled-13 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-17 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="mocked-styled-14 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-15 el-card-list-item-text-primary"
             >
-              <svg
-                role="img"
-                title="Icon image with name user"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
               Applicant
-            </mock-styled.div>
-            <mock-styled.div>
-              Bob Smith
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="mock-css."
+            </div>
+            <div
+              class="mocked-styled-16 el-card-list-item-text-secondary"
             >
-              <svg
-                role="img"
-                title="Icon image with name property"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
+              Bob Smith
+            </div>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-13 el-card-list-item"
+        >
+          <div
+            class="mocked-styled-17 el-card-list-icon"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="mocked-styled-14 el-card-list-item-text-wrap"
+          >
+            <div
+              class="mocked-styled-15 el-card-list-item-text-primary"
+            >
               Property
-            </mock-styled.div>
-            <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-16 el-card-list-item-text-secondary"
+            >
               Some Address
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-card-wrap"
     >
-      <mock-styled.div>
-        <mock-styled.mock-styled.div
-          classname=""
+      <div
+        class="mocked-styled-2 el-card-main-wrap"
+      >
+        <div
+          class="mocked-styled-20 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
           role="img"
           title="An avatar image"
         >
@@ -109,81 +129,97 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
             alt="An image with source https://via.placeholder.com/72x72.svg"
             src="https://via.placeholder.com/72x72.svg"
           />
-        </mock-styled.mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-1 el-card-heading-wrap"
         >
-          <mock-styled.h5>
+          <h5
+            class="mocked-styled-3 el-card-heading"
+          >
             Main Heading
-          </mock-styled.h5>
-          <mock-styled.h6>
+          </h5>
+          <h6
+            class="mocked-styled-4 el-card-sub-heading"
+          >
             Main Subheading
-          </mock-styled.h6>
-          <mock-styled.h6>
+          </h6>
+          <h6
+            class="mocked-styled-5 el-card-sub-heading-additional"
+          >
             Main Subheading Additional
-          </mock-styled.h6>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  margin-bottom: var(--util-rems-5);
-"
+          </h6>
+        </div>
+      </div>
+      <div
+        class="el-mb5 el-card-body-wrap"
       >
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  margin-top: var(--util-rems-5);
-"
+      </div>
+      <div
+        class="el-mt5 el-card-list-main-wrap"
       >
-        <mock-styled.h5>
+        <h5
+          class="mocked-styled-11 el-card-list-heading"
+        >
           List Card Heading
-        </mock-styled.h5>
-        <mock-styled.h6>
+        </h5>
+        <h6
+          class="mocked-styled-12 el-card-list-sub-heading"
+        >
           List Card Sub Heading
-        </mock-styled.h6>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="mock-css."
+        </h6>
+      </div>
+      <div
+        class="mocked-styled-13 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-17 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
+          />
+        </div>
+        <div
+          class="mocked-styled-14 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-15 el-card-list-item-text-primary"
           >
-            <svg
-              role="img"
-              title="Icon image with name user"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
             Applicant
-          </mock-styled.div>
-          <mock-styled.div>
-            Bob Smith
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.span
-            classname="mock-css."
+          </div>
+          <div
+            class="mocked-styled-16 el-card-list-item-text-secondary"
           >
-            <svg
-              role="img"
-              title="Icon image with name property"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
+            Bob Smith
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-13 el-card-list-item"
+      >
+        <div
+          class="mocked-styled-17 el-card-list-icon"
+        >
+          <span
+            class="el-intent-primary el-icon"
+          />
+        </div>
+        <div
+          class="mocked-styled-14 el-card-list-item-text-wrap"
+        >
+          <div
+            class="mocked-styled-15 el-card-list-item-text-primary"
+          >
             Property
-          </mock-styled.div>
-          <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-16 el-card-list-item-text-secondary"
+          >
             Some Address
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -239,19 +275,19 @@ exports[`Card should match a snapshot and render children with full props 1`] = 
 }
 `;
 
-exports[`Card should match a snapshot and render children with no props 1`] = `
+exports[`Card > should match a snapshot and render children with no props 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-card-wrap"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-card-wrap"
     />
   </div>,
   "debug": [Function],

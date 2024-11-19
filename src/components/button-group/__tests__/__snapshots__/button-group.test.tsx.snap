@@ -1,38 +1,52 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ButtonGroup renders its children horizontally with a gap of --spacing-2 1`] = `
+exports[`ButtonGroup > renders its children horizontally with a gap of --spacing-2 1`] = `
 <DocumentFragment>
-  <mock-styled.div>
-    <mock-styled.button
+  <div
+    class="mocked-styled-0 el-button-group"
+  >
+    <button
       aria-disabled="false"
-      classname="mock-css."
+      class="el-button-size-medium el-button"
       role="button"
     >
-      <mock-styled.div />
-      <mock-styled.span>
+      <div
+        class="mocked-styled-1 el-button-spinner"
+      />
+      <span
+        class="mocked-styled-2 el-button-label"
+      >
         Button 1
-      </mock-styled.span>
-    </mock-styled.button>
-    <mock-styled.button
+      </span>
+    </button>
+    <button
       aria-disabled="false"
-      classname="mock-css."
+      class="el-button-size-medium el-button"
       role="button"
     >
-      <mock-styled.div />
-      <mock-styled.span>
+      <div
+        class="mocked-styled-1 el-button-spinner"
+      />
+      <span
+        class="mocked-styled-2 el-button-label"
+      >
         Button 2
-      </mock-styled.span>
-    </mock-styled.button>
-    <mock-styled.button
+      </span>
+    </button>
+    <button
       aria-disabled="false"
-      classname="mock-css."
+      class="el-button-size-medium el-button"
       role="button"
     >
-      <mock-styled.div />
-      <mock-styled.span>
+      <div
+        class="mocked-styled-1 el-button-spinner"
+      />
+      <span
+        class="mocked-styled-2 el-button-label"
+      >
         Button 3
-      </mock-styled.span>
-    </mock-styled.button>
-  </mock-styled.div>
+      </span>
+    </button>
+  </div>
 </DocumentFragment>
 `;

@@ -1,19 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Select component should match a snapshot 1`] = `
+exports[`Select component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.select
-        aria-label="Select an item from the dropdown list"
-      />
+      bound HTMLSelectElement {}
     </div>
   </body>,
   "container": <div>
-    <mock-styled.select
-      aria-label="Select an item from the dropdown list"
-    />
+    bound HTMLSelectElement {}
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

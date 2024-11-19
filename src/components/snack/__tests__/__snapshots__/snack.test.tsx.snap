@@ -1,21 +1,21 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Snack component should match a snapshot 1`] = `
+exports[`Snack component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
+      <div
         aria-live="polite"
-        classname="mock-css."
+        class="el-intent-primary el-snack"
         role="status"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
+    <div
       aria-live="polite"
-      classname="mock-css."
+      class="el-intent-primary el-snack"
       role="status"
     />
   </div>,
@@ -73,50 +73,32 @@ exports[`Snack component should match a snapshot 1`] = `
 }
 `;
 
-exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
+exports[`Snack component > should match a snapshot if an icon is supplied 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
+      <div
         aria-live="polite"
-        classname="mock-css."
+        class="el-intent-primary el-snack"
         role="status"
       >
-        <mock-styled.span
-          classname="mock-css.
-  margin-right: 1rem;
- mock-css."
-          style="font-size: 1.25rem;"
-        >
-          <svg
-            role="img"
-            style="font-size: 1.25rem;"
-            title="Icon image with name email"
-          />
-        </mock-styled.span>
-      </mock-styled.div>
+        <span
+          class="el-snack-icon el-intent-primary el-icon"
+        />
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
+    <div
       aria-live="polite"
-      classname="mock-css."
+      class="el-intent-primary el-snack"
       role="status"
     >
-      <mock-styled.span
-        classname="mock-css.
-  margin-right: 1rem;
- mock-css."
-        style="font-size: 1.25rem;"
-      >
-        <svg
-          role="img"
-          style="font-size: 1.25rem;"
-          title="Icon image with name email"
-        />
-      </mock-styled.span>
-    </mock-styled.div>
+      <span
+        class="el-snack-icon el-intent-primary el-icon"
+      />
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -172,86 +154,50 @@ exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
 }
 `;
 
-exports[`SnackHolder component should match a snapshot 1`] = `
+exports[`SnackHolder component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.div
+      <div
+        class="mocked-styled-1 el-snack-holder"
+      >
+        <div
           aria-live="polite"
-          classname="mock-css."
+          class="el-intent-primary el-snack"
           role="status"
         >
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: 1rem;
- mock-css."
-            style="font-size: 1.25rem;"
-          >
-            <svg
-              role="img"
-              style="font-size: 1.25rem;"
-              title="Icon image with name info"
-            />
-          </mock-styled.span>
+          <span
+            class="el-snack-icon el-intent-primary el-icon"
+          />
           i am a snack
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  padding-left: 0.5rem;
-  color: var(--black);
-"
+          <span
+            class="el-snack-close-icon el-icon"
             data-testid="close-icon"
-            style="font-size: 1.25rem;"
-          >
-            <svg
-              role="img"
-              style="font-size: 1.25rem;"
-              title="Icon image with name close"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.div>
+          />
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.div
+    <div
+      class="mocked-styled-1 el-snack-holder"
+    >
+      <div
         aria-live="polite"
-        classname="mock-css."
+        class="el-intent-primary el-snack"
         role="status"
       >
-        <mock-styled.span
-          classname="mock-css.
-  margin-right: 1rem;
- mock-css."
-          style="font-size: 1.25rem;"
-        >
-          <svg
-            role="img"
-            style="font-size: 1.25rem;"
-            title="Icon image with name info"
-          />
-        </mock-styled.span>
+        <span
+          class="el-snack-icon el-intent-primary el-icon"
+        />
         i am a snack
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  padding-left: 0.5rem;
-  color: var(--black);
-"
+        <span
+          class="el-snack-close-icon el-icon"
           data-testid="close-icon"
-          style="font-size: 1.25rem;"
-        >
-          <svg
-            role="img"
-            style="font-size: 1.25rem;"
-            title="Icon image with name close"
-          />
-        </mock-styled.span>
-      </mock-styled.div>
-    </mock-styled.div>
+        />
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

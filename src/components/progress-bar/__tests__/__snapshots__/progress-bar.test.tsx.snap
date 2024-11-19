@@ -1,15 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ProgressBarContainer should match a snapshot 1`] = `
+exports[`ProgressBarContainer > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-0 el-progress-bar-container"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-0 el-progress-bar-container"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -65,16 +69,20 @@ exports[`ProgressBarContainer should match a snapshot 1`] = `
 }
 `;
 
-exports[`ProgressBarInner should match a snapshot 1`] = `
+exports[`ProgressBarInner > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-2 el-progress-bar-inner"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-2 el-progress-bar-inner"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -130,16 +138,20 @@ exports[`ProgressBarInner should match a snapshot 1`] = `
 }
 `;
 
-exports[`ProgressBarItem should match a snapshot 1`] = `
+exports[`ProgressBarItem > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-3 el-progress-bar-item"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-3 el-progress-bar-item"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -195,54 +207,60 @@ exports[`ProgressBarItem should match a snapshot 1`] = `
 }
 `;
 
-exports[`ProgressBarPercentage should match a snapshot 1`] = `
+exports[`ProgressBarPercentage > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.div
+      <div
+        class="mocked-styled-0 el-progress-bar-container"
+      >
+        <div
           aria-label="Progress bar indicator for this task"
           aria-valuemax="100"
           aria-valuemin="0"
           aria-valuenow="0"
+          class="mocked-styled-2 el-progress-bar-inner"
           role="meter"
           style="width: 0%; transition-duration: 0.3333333333333333s;"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
-  margin-right: auto;
-"
+          <div
+            class="mocked-styled-3 el-progress-bar-item"
+          />
+        </div>
+        <div
+          class="el-progress-bar-label-right el-progress-bar-label"
         >
           0
           %
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.div
+    <div
+      class="mocked-styled-0 el-progress-bar-container"
+    >
+      <div
         aria-label="Progress bar indicator for this task"
         aria-valuemax="100"
         aria-valuemin="0"
         aria-valuenow="0"
+        class="mocked-styled-2 el-progress-bar-inner"
         role="meter"
         style="width: 0%; transition-duration: 0.3333333333333333s;"
       >
-        <mock-styled.div />
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  margin-right: auto;
-"
+        <div
+          class="mocked-styled-3 el-progress-bar-item"
+        />
+      </div>
+      <div
+        class="el-progress-bar-label-right el-progress-bar-label"
       >
         0
         %
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -298,58 +316,64 @@ exports[`ProgressBarPercentage should match a snapshot 1`] = `
 }
 `;
 
-exports[`ProgressBarSteps should match a snapshot 1`] = `
+exports[`ProgressBarSteps > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.div
+      <div
+        class="mocked-styled-0 el-progress-bar-container"
+      >
+        <div
           aria-label="Progress bar indicator for this task"
           aria-valuemax="10"
           aria-valuemin="0"
           aria-valuenow="5"
+          class="mocked-styled-2 el-progress-bar-inner"
           role="meter"
           style="width: 50%;"
         >
-          <mock-styled.div />
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
-  margin-right: auto;
-"
+          <div
+            class="mocked-styled-3 el-progress-bar-item"
+          />
+        </div>
+        <div
+          class="el-progress-bar-label-right el-progress-bar-label"
         >
           5
           /
           10
            Completed
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.div
+    <div
+      class="mocked-styled-0 el-progress-bar-container"
+    >
+      <div
         aria-label="Progress bar indicator for this task"
         aria-valuemax="10"
         aria-valuemin="0"
         aria-valuenow="5"
+        class="mocked-styled-2 el-progress-bar-inner"
         role="meter"
         style="width: 50%;"
       >
-        <mock-styled.div />
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  margin-right: auto;
-"
+        <div
+          class="mocked-styled-3 el-progress-bar-item"
+        />
+      </div>
+      <div
+        class="el-progress-bar-label-right el-progress-bar-label"
       >
         5
         /
         10
          Completed
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

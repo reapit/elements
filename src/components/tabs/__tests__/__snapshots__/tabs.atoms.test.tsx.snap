@@ -1,27 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tab should match a snapshot and render children 1`] = `
+exports[`Tab > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.input
-        classname="foo"
-      >
-        <div>
-          Child
-        </div>
-      </mock-styled.input>
+      <input
+        class="foo el-tab"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.input
-      classname="foo"
-    >
-      <div>
-        Child
-      </div>
-    </mock-styled.input>
+    <input
+      class="foo el-tab"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -77,28 +69,20 @@ exports[`Tab should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`Tab should match a snapshot and render children 2`] = `
+exports[`Tab > should match a snapshot and render children 2`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.input
-        classname="foo"
-      >
-        <div>
-          Child
-        </div>
-      </mock-styled.input>
+      <input
+        class="foo el-tab"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.input
-      classname="foo"
-    >
-      <div>
-        Child
-      </div>
-    </mock-styled.input>
+    <input
+      class="foo el-tab"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -154,28 +138,28 @@ exports[`Tab should match a snapshot and render children 2`] = `
 }
 `;
 
-exports[`TabsFooter should match a snapshot and render children 1`] = `
+exports[`TabsFooter > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="foo"
+      <div
+        class="foo el-tabs-footer"
       >
         <div>
           Child
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="foo"
+    <div
+      class="foo el-tabs-footer"
     >
       <div>
         Child
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -231,28 +215,28 @@ exports[`TabsFooter should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`TabsItem should match a snapshot and render children 1`] = `
+exports[`TabsItem > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="foo"
+      <span
+        class="foo el-tabs-item"
       >
         <div>
           Child
         </div>
-      </mock-styled.span>
+      </span>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="foo"
+    <span
+      class="foo el-tabs-item"
     >
       <div>
         Child
       </div>
-    </mock-styled.span>
+    </span>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -308,28 +292,28 @@ exports[`TabsItem should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`TabsLabel should match a snapshot and render children 1`] = `
+exports[`TabsLabel > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.label
-        classname="foo"
+      <label
+        class="foo el-tabs-label"
       >
         <div>
           Child
         </div>
-      </mock-styled.label>
+      </label>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.label
-      classname="foo"
+    <label
+      class="foo el-tabs-label"
     >
       <div>
         Child
       </div>
-    </mock-styled.label>
+    </label>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -385,28 +369,28 @@ exports[`TabsLabel should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`TabsOptionsWrap should match a snapshot and render children 1`] = `
+exports[`TabsOptionsWrap > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="foo"
+      <div
+        class="foo el-tabs-options-wrap"
       >
         <div>
           Child
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="foo"
+    <div
+      class="foo el-tabs-options-wrap"
     >
       <div>
         Child
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -462,28 +446,28 @@ exports[`TabsOptionsWrap should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`TabsWrap should match a snapshot and render children 1`] = `
+exports[`TabsWrap > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="foo"
+      <div
+        class="foo el-tabs-wrap"
       >
         <div>
           Child
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="foo"
+    <div
+      class="foo el-tabs-wrap"
     >
       <div>
         Child
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

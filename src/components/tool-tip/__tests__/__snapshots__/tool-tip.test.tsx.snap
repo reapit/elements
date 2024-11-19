@@ -1,35 +1,35 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ToolTip should match a snapshot and render children 1`] = `
+exports[`ToolTip > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <div
+        class="mocked-styled-1 el-tool-tip-container"
+      >
         Hover here
-        <mock-styled.div
-          classname="mock-css.
-  display: block;
-"
+        <div
+          class="el-tool-tip-active el-tool-tip-child"
           role="tooltip"
         >
           hello there
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <div
+      class="mocked-styled-1 el-tool-tip-container"
+    >
       Hover here
-      <mock-styled.div
-        classname="mock-css.
-  display: block;
-"
+      <div
+        class="el-tool-tip-active el-tool-tip-child"
         role="tooltip"
       >
         hello there
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

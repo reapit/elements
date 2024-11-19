@@ -1,27 +1,27 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MultiSelect should match a snapshot and render children 1`] = `
+exports[`MultiSelect > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-2 el-multi-select"
       >
         <span>
           Some Value
         </span>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-2 el-multi-select"
     >
       <span>
         Some Value
       </span>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -77,42 +77,44 @@ exports[`MultiSelect should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`MultiSelectChip should match a snapshot and render children 1`] = `
+exports[`MultiSelectChip > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.input
+      <input
         aria-hidden="true"
+        class="mocked-styled-0 el-multi-select-checkbox"
         id="test-id"
         type="checkbox"
       />
-      <mock-styled.label
-        classname=""
-        htmlfor="test-id"
+      <label
+        class="mocked-styled-1 el-multi-select-label"
+        for="test-id"
         role="option"
       >
         <span>
           Some Value
         </span>
-      </mock-styled.label>
+      </label>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.input
+    <input
       aria-hidden="true"
+      class="mocked-styled-0 el-multi-select-checkbox"
       id="test-id"
       type="checkbox"
     />
-    <mock-styled.label
-      classname=""
-      htmlfor="test-id"
+    <label
+      class="mocked-styled-1 el-multi-select-label"
+      for="test-id"
       role="option"
     >
       <span>
         Some Value
       </span>
-    </mock-styled.label>
+    </label>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -168,138 +170,150 @@ exports[`MultiSelectChip should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`MultiSelectInput should match a snapshot and render children 1`] = `
+exports[`MultiSelectInput > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-6 el-multi-select-input-wrapper"
+      >
+        <input
+          class="mocked-styled-5 el-multi-select-input"
           id="react-example"
         />
-        <mock-styled.div
+        <div
           aria-label="Multi selected options"
-          classname=""
+          class="mocked-styled-3 el-multi-select-selected"
           role="listbox"
         >
-          <mock-styled.input
+          <input
             aria-checked="true"
             aria-hidden="true"
+            class="mocked-styled-0 el-multi-select-checkbox"
             id="multi-select-chip-item-one"
             role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="multi-select-chip-item-one"
+          <label
+            class="mocked-styled-1 el-multi-select-label"
+            for="multi-select-chip-item-one"
             role="option"
             tabindex="0"
           >
             Item one
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
+          </label>
+        </div>
+        <div
           aria-label="Multi unselected options"
-          classname=""
+          class="mocked-styled-4 el-multi-select-un-selected"
           role="listbox"
         >
-          <mock-styled.input
+          <input
             aria-checked="false"
             aria-hidden="true"
+            class="mocked-styled-0 el-multi-select-checkbox"
             id="test-static-id"
             role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="mock-css."
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
             role="option"
             tabindex="0"
           >
             Item two
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-checked="false"
             aria-hidden="true"
+            class="mocked-styled-0 el-multi-select-checkbox"
             id="test-static-id"
             role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="mock-css."
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
             role="option"
             tabindex="0"
           >
             Item three
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
+          </label>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
+    <div
+      class="mocked-styled-6 el-multi-select-input-wrapper"
+    >
+      <input
+        class="mocked-styled-5 el-multi-select-input"
         id="react-example"
       />
-      <mock-styled.div
+      <div
         aria-label="Multi selected options"
-        classname=""
+        class="mocked-styled-3 el-multi-select-selected"
         role="listbox"
       >
-        <mock-styled.input
+        <input
           aria-checked="true"
           aria-hidden="true"
+          class="mocked-styled-0 el-multi-select-checkbox"
           id="multi-select-chip-item-one"
           role="option"
           type="checkbox"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="multi-select-chip-item-one"
+        <label
+          class="mocked-styled-1 el-multi-select-label"
+          for="multi-select-chip-item-one"
           role="option"
           tabindex="0"
         >
           Item one
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
+        </label>
+      </div>
+      <div
         aria-label="Multi unselected options"
-        classname=""
+        class="mocked-styled-4 el-multi-select-un-selected"
         role="listbox"
       >
-        <mock-styled.input
+        <input
           aria-checked="false"
           aria-hidden="true"
+          class="mocked-styled-0 el-multi-select-checkbox"
           id="test-static-id"
           role="option"
           type="checkbox"
         />
-        <mock-styled.label
-          classname="mock-css."
-          htmlfor="test-static-id"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="test-static-id"
           role="option"
           tabindex="0"
         >
           Item two
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-checked="false"
           aria-hidden="true"
+          class="mocked-styled-0 el-multi-select-checkbox"
           id="test-static-id"
           role="option"
           type="checkbox"
         />
-        <mock-styled.label
-          classname="mock-css."
-          htmlfor="test-static-id"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="test-static-id"
           role="option"
           tabindex="0"
         >
           Item three
-        </mock-styled.label>
-      </mock-styled.div>
-    </mock-styled.div>
+        </label>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -355,164 +369,162 @@ exports[`MultiSelectInput should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`MultiSelectInput should match a snapshot and render non selected message where there are no selected items 1`] = `
+exports[`MultiSelectInput > should match a snapshot and render non selected message where there are no selected items 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-6 el-multi-select-input-wrapper"
+      >
+        <input
+          class="mocked-styled-5 el-multi-select-input"
           id="react-example"
         />
-        <mock-styled.div
+        <div
           aria-label="Multi selected options"
-          classname=""
+          class="mocked-styled-3 el-multi-select-selected"
           role="listbox"
         >
-          <mock-styled.span
-            classname="mock-css.
-  margin-left: var(--util-rems-2);
- mock-css."
-          >
-            <svg
-              role="img"
-              title="Icon image with name task"
-            />
-          </mock-styled.span>
+          <span
+            class="el-ml2 el-intent-default el-icon"
+          />
           <p>
             No items selected
           </p>
-        </mock-styled.div>
-        <mock-styled.div
+        </div>
+        <div
           aria-label="Multi unselected options"
-          classname=""
+          class="mocked-styled-4 el-multi-select-un-selected"
           role="listbox"
         >
-          <mock-styled.input
+          <input
             aria-checked="false"
             aria-hidden="true"
+            class="mocked-styled-0 el-multi-select-checkbox"
             id="test-static-id"
             role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="mock-css."
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
             role="option"
             tabindex="0"
           >
             Item one
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-checked="false"
             aria-hidden="true"
+            class="mocked-styled-0 el-multi-select-checkbox"
             id="test-static-id"
             role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="mock-css."
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
             role="option"
             tabindex="0"
           >
             Item two
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
             aria-checked="false"
             aria-hidden="true"
+            class="mocked-styled-0 el-multi-select-checkbox"
             id="test-static-id"
             role="option"
             type="checkbox"
           />
-          <mock-styled.label
-            classname="mock-css."
-            htmlfor="test-static-id"
+          <label
+            class="el-has-grey-chips el-multi-select-label"
+            for="test-static-id"
             role="option"
             tabindex="0"
           >
             Item three
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
+          </label>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
+    <div
+      class="mocked-styled-6 el-multi-select-input-wrapper"
+    >
+      <input
+        class="mocked-styled-5 el-multi-select-input"
         id="react-example"
       />
-      <mock-styled.div
+      <div
         aria-label="Multi selected options"
-        classname=""
+        class="mocked-styled-3 el-multi-select-selected"
         role="listbox"
       >
-        <mock-styled.span
-          classname="mock-css.
-  margin-left: var(--util-rems-2);
- mock-css."
-        >
-          <svg
-            role="img"
-            title="Icon image with name task"
-          />
-        </mock-styled.span>
+        <span
+          class="el-ml2 el-intent-default el-icon"
+        />
         <p>
           No items selected
         </p>
-      </mock-styled.div>
-      <mock-styled.div
+      </div>
+      <div
         aria-label="Multi unselected options"
-        classname=""
+        class="mocked-styled-4 el-multi-select-un-selected"
         role="listbox"
       >
-        <mock-styled.input
+        <input
           aria-checked="false"
           aria-hidden="true"
+          class="mocked-styled-0 el-multi-select-checkbox"
           id="test-static-id"
           role="option"
           type="checkbox"
         />
-        <mock-styled.label
-          classname="mock-css."
-          htmlfor="test-static-id"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="test-static-id"
           role="option"
           tabindex="0"
         >
           Item one
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-checked="false"
           aria-hidden="true"
+          class="mocked-styled-0 el-multi-select-checkbox"
           id="test-static-id"
           role="option"
           type="checkbox"
         />
-        <mock-styled.label
-          classname="mock-css."
-          htmlfor="test-static-id"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="test-static-id"
           role="option"
           tabindex="0"
         >
           Item two
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
           aria-checked="false"
           aria-hidden="true"
+          class="mocked-styled-0 el-multi-select-checkbox"
           id="test-static-id"
           role="option"
           type="checkbox"
         />
-        <mock-styled.label
-          classname="mock-css."
-          htmlfor="test-static-id"
+        <label
+          class="el-has-grey-chips el-multi-select-label"
+          for="test-static-id"
           role="option"
           tabindex="0"
         >
           Item three
-        </mock-styled.label>
-      </mock-styled.div>
-    </mock-styled.div>
+        </label>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -568,28 +580,28 @@ exports[`MultiSelectInput should match a snapshot and render non selected messag
 }
 `;
 
-exports[`MultiSelectSelected should match a snapshot and render children 1`] = `
+exports[`MultiSelectSelected > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-3 el-multi-select-selected"
       >
         <span>
           Some Value
         </span>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-3 el-multi-select-selected"
     >
       <span>
         Some Value
       </span>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -645,28 +657,28 @@ exports[`MultiSelectSelected should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`MultiSelectUnSelected should match a snapshot and render children 1`] = `
+exports[`MultiSelectUnSelected > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-4 el-multi-select-un-selected"
       >
         <span>
           Some Value
         </span>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-4 el-multi-select-un-selected"
     >
       <span>
         Some Value
       </span>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

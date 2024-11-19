@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`KeyValueList component should match a snapshot 1`] = `
+exports[`KeyValueList component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -8,1358 +8,162 @@ exports[`KeyValueList component should match a snapshot 1`] = `
       <div
         role="list"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-1 el-key-value-list-wrap"
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name user"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+              class="el-text-base el-text-xs el-has-grey-text"
             >
               Name
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+              class="el-text-base el-text-sm"
             >
               John Doe
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-1 el-key-value-list-wrap"
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name email"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+              class="el-text-base el-text-xs el-has-grey-text"
             >
               Email
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+              class="el-text-base el-text-sm"
             >
               email@example.com
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-1 el-key-value-list-wrap"
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name car"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+              class="el-text-base el-text-xs el-has-grey-text"
             >
               Parking Spaces
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+              class="el-text-base el-text-sm"
             >
               2
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-1 el-key-value-list-wrap"
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name calendar"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+              class="el-text-base el-text-xs el-has-grey-text"
             >
               Date Signed Up
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+              class="el-text-base el-text-sm"
             >
               20th September 2023
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-1 el-key-value-list-wrap"
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name property"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css. mock-css.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-"
+              class="el-text-base el-text-xs el-has-grey-text el-text-ellipsis"
             >
               Address
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
- mock-css.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-"
+              class="el-text-base el-text-sm el-text-ellipsis"
             >
               I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-1 el-key-value-list-wrap"
           role="listitem"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name edit"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+              class="el-text-base el-text-xs el-has-grey-text"
             >
               Description
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+              class="el-text-base el-text-sm"
             >
               This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
             </div>
           </div>
-        </mock-styled.div>
+        </div>
       </div>
     </div>
   </body>,
@@ -1367,1358 +171,162 @@ exports[`KeyValueList component should match a snapshot 1`] = `
     <div
       role="list"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-1 el-key-value-list-wrap"
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.span
-            classname="mock-css."
-          >
-            <svg
-              role="img"
-              title="Icon image with name user"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+          class="mocked-styled-0 el-key-value-icon-wrap"
+        >
+          <span
+            class="el-intent-primary el-icon"
+          />
+        </div>
+        <div
+          class="el-flex-container el-flex-column"
         >
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+            class="el-text-base el-text-xs el-has-grey-text"
           >
             Name
           </div>
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+            class="el-text-base el-text-sm"
           >
             John Doe
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-1 el-key-value-list-wrap"
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.span
-            classname="mock-css."
-          >
-            <svg
-              role="img"
-              title="Icon image with name email"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+          class="mocked-styled-0 el-key-value-icon-wrap"
+        >
+          <span
+            class="el-intent-primary el-icon"
+          />
+        </div>
+        <div
+          class="el-flex-container el-flex-column"
         >
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+            class="el-text-base el-text-xs el-has-grey-text"
           >
             Email
           </div>
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+            class="el-text-base el-text-sm"
           >
             email@example.com
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-1 el-key-value-list-wrap"
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.span
-            classname="mock-css."
-          >
-            <svg
-              role="img"
-              title="Icon image with name car"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+          class="mocked-styled-0 el-key-value-icon-wrap"
+        >
+          <span
+            class="el-intent-primary el-icon"
+          />
+        </div>
+        <div
+          class="el-flex-container el-flex-column"
         >
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+            class="el-text-base el-text-xs el-has-grey-text"
           >
             Parking Spaces
           </div>
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+            class="el-text-base el-text-sm"
           >
             2
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-1 el-key-value-list-wrap"
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.span
-            classname="mock-css."
-          >
-            <svg
-              role="img"
-              title="Icon image with name calendar"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+          class="mocked-styled-0 el-key-value-icon-wrap"
+        >
+          <span
+            class="el-intent-primary el-icon"
+          />
+        </div>
+        <div
+          class="el-flex-container el-flex-column"
         >
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+            class="el-text-base el-text-xs el-has-grey-text"
           >
             Date Signed Up
           </div>
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+            class="el-text-base el-text-sm"
           >
             20th September 2023
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-1 el-key-value-list-wrap"
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.span
-            classname="mock-css."
-          >
-            <svg
-              role="img"
-              title="Icon image with name property"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+          class="mocked-styled-0 el-key-value-icon-wrap"
+        >
+          <span
+            class="el-intent-primary el-icon"
+          />
+        </div>
+        <div
+          class="el-flex-container el-flex-column"
         >
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css. mock-css.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-"
+            class="el-text-base el-text-xs el-has-grey-text el-text-ellipsis"
           >
             Address
           </div>
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
- mock-css.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-"
+            class="el-text-base el-text-sm el-text-ellipsis"
           >
             I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-1 el-key-value-list-wrap"
         role="listitem"
       >
-        <mock-styled.div
-          classname=""
-        >
-          <mock-styled.span
-            classname="mock-css."
-          >
-            <svg
-              role="img"
-              title="Icon image with name edit"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+          class="mocked-styled-0 el-key-value-icon-wrap"
+        >
+          <span
+            class="el-intent-primary el-icon"
+          />
+        </div>
+        <div
+          class="el-flex-container el-flex-column"
         >
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+            class="el-text-base el-text-xs el-has-grey-text"
           >
             Description
           </div>
           <div
-            class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+            class="el-text-base el-text-sm"
           >
             This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
           </div>
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </div>,
   "debug": [Function],
@@ -2775,2918 +383,370 @@ exports[`KeyValueList component should match a snapshot 1`] = `
 }
 `;
 
-exports[`KeyValueList component should match a snapshot for a grid 1`] = `
+exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-3 el-grid"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-5 el-col-half"
         >
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+            class="el-flex-container"
           >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css."
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name user"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+              class="mocked-styled-0 el-key-value-icon-wrap"
+            >
+              <span
+                class="el-intent-primary el-icon"
+              />
+            </div>
+            <div
+              class="el-flex-container el-flex-column"
             >
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+                class="el-text-base el-text-xs el-has-grey-text"
               >
                 Name
               </div>
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+                class="el-text-base el-text-sm"
               >
                 John Doe
               </div>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-5 el-col-half"
         >
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+            class="el-flex-container"
           >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css."
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name email"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+              class="mocked-styled-0 el-key-value-icon-wrap"
+            >
+              <span
+                class="el-intent-primary el-icon"
+              />
+            </div>
+            <div
+              class="el-flex-container el-flex-column"
             >
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+                class="el-text-base el-text-xs el-has-grey-text"
               >
                 Email
               </div>
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+                class="el-text-base el-text-sm"
               >
                 email@example.com
               </div>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-5 el-col-half"
         >
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+            class="el-flex-container"
           >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css."
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name car"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+              class="mocked-styled-0 el-key-value-icon-wrap"
+            >
+              <span
+                class="el-intent-primary el-icon"
+              />
+            </div>
+            <div
+              class="el-flex-container el-flex-column"
             >
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+                class="el-text-base el-text-xs el-has-grey-text"
               >
                 Parking Spaces
               </div>
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+                class="el-text-base el-text-sm"
               >
                 2
               </div>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-5 el-col-half"
         >
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+            class="el-flex-container"
           >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css."
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name calendar"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+              class="mocked-styled-0 el-key-value-icon-wrap"
+            >
+              <span
+                class="el-intent-primary el-icon"
+              />
+            </div>
+            <div
+              class="el-flex-container el-flex-column"
             >
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+                class="el-text-base el-text-xs el-has-grey-text"
               >
                 Date Signed Up
               </div>
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+                class="el-text-base el-text-sm"
               >
                 20th September 2023
               </div>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-4 el-col"
         >
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+            class="el-flex-container"
           >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css."
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name property"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+              class="mocked-styled-0 el-key-value-icon-wrap"
+            >
+              <span
+                class="el-intent-primary el-icon"
+              />
+            </div>
+            <div
+              class="el-flex-container el-flex-column"
             >
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css. mock-css.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-"
+                class="el-text-base el-text-xs el-has-grey-text el-text-ellipsis"
               >
                 Address
               </div>
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
- mock-css.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-"
+                class="el-text-base el-text-sm el-text-ellipsis"
               >
                 I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
               </div>
             </div>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-4 el-col"
         >
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+            class="el-flex-container"
           >
-            <mock-styled.div
-              classname=""
-            >
-              <mock-styled.span
-                classname="mock-css."
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name edit"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+              class="mocked-styled-0 el-key-value-icon-wrap"
+            >
+              <span
+                class="el-intent-primary el-icon"
+              />
+            </div>
+            <div
+              class="el-flex-container el-flex-column"
             >
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+                class="el-text-base el-text-xs el-has-grey-text"
               >
                 Description
               </div>
               <div
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+                class="el-text-base el-text-sm"
               >
                 This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
               </div>
             </div>
           </div>
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-3 el-grid"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-5 el-col-half"
       >
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+          class="el-flex-container"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name user"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+              class="el-text-base el-text-xs el-has-grey-text"
             >
               Name
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+              class="el-text-base el-text-sm"
             >
               John Doe
             </div>
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-5 el-col-half"
       >
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+          class="el-flex-container"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name email"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+              class="el-text-base el-text-xs el-has-grey-text"
             >
               Email
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+              class="el-text-base el-text-sm"
             >
               email@example.com
             </div>
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-5 el-col-half"
       >
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+          class="el-flex-container"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name car"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+              class="el-text-base el-text-xs el-has-grey-text"
             >
               Parking Spaces
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+              class="el-text-base el-text-sm"
             >
               2
             </div>
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-5 el-col-half"
       >
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+          class="el-flex-container"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name calendar"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+              class="el-text-base el-text-xs el-has-grey-text"
             >
               Date Signed Up
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+              class="el-text-base el-text-sm"
             >
               20th September 2023
             </div>
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-4 el-col"
       >
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+          class="el-flex-container"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name property"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css. mock-css.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-"
+              class="el-text-base el-text-xs el-has-grey-text el-text-ellipsis"
             >
               Address
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
- mock-css.
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-"
+              class="el-text-base el-text-sm el-text-ellipsis"
             >
               I added a textEllipsis prop to this one to show how it works. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
             </div>
           </div>
         </div>
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-4 el-col"
       >
         <div
-          class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+          class="el-flex-container"
         >
-          <mock-styled.div
-            classname=""
-          >
-            <mock-styled.span
-              classname="mock-css."
-            >
-              <svg
-                role="img"
-                title="Icon image with name edit"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+            class="mocked-styled-0 el-key-value-icon-wrap"
+          >
+            <span
+              class="el-intent-primary el-icon"
+            />
+          </div>
+          <div
+            class="el-flex-container el-flex-column"
           >
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 13px;
-  line-height: 16px;
- mock-css."
+              class="el-text-base el-text-xs el-has-grey-text"
             >
               Description
             </div>
             <div
-              class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 14px;
-  line-height: 20px;
-"
+              class="el-text-base el-text-sm"
             >
               This one I just allowed the text to wrap. Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia dolorem laudantium, repellat, aut tenetur enim veritatis debitis nostrum iste fugit quas delectus repellendus iusto ratione esse. Ab rem voluptate veritatis.
             </div>
           </div>
         </div>
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,115 +1,89 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Pagination should match a snapshot 1`] = `
+exports[`Pagination > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.button
+      <div
+        class="mocked-styled-1 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg
-              role="img"
-              title="Icon image with name chevronLeft"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+          <span
+            class="el-pagination-primary el-icon"
+          />
+        </button>
+        <div
+          class="mocked-styled-2 el-pagination-text"
+        >
+          <input
             aria-label="Current page number, edit to select page of 4 available"
+            class="mocked-styled-3 el-pagination-input"
             value="2"
           />
            
           of 
           4
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg
-              role="img"
-              title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          <span
+            class="el-pagination-primary el-icon"
+          />
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.button
+    <div
+      class="mocked-styled-1 el-pagination-wrap"
+    >
+      <button
         aria-label="Previous"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg
-            role="img"
-            title="Icon image with name chevronLeft"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.div>
-        <mock-styled.input
+        <span
+          class="el-pagination-primary el-icon"
+        />
+      </button>
+      <div
+        class="mocked-styled-2 el-pagination-text"
+      >
+        <input
           aria-label="Current page number, edit to select page of 4 available"
+          class="mocked-styled-3 el-pagination-input"
           value="2"
         />
          
         of 
         4
-      </mock-styled.div>
-      <mock-styled.button
+      </div>
+      <button
         aria-label="Next"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="forward-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg
-            role="img"
-            title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        <span
+          class="el-pagination-primary el-icon"
+        />
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -165,248 +139,146 @@ exports[`Pagination should match a snapshot 1`] = `
 }
 `;
 
-exports[`Pagination should match a snapshot with start end buttons 1`] = `
+exports[`Pagination > should match a snapshot with start end buttons 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.button
+      <div
+        class="mocked-styled-1 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg
-              role="img"
-              title="Icon image with name chevronLeft"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.button
+          <span
+            class="el-pagination-primary el-icon"
+          />
+        </button>
+        <button
           aria-label="Previous"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg
-              role="img"
-              title="Icon image with name chevronLeft"
-            />
-          </mock-styled.span>
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg
-              role="img"
-              title="Icon image with name chevronLeft"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+          <span
+            class="el-pagination-primary el-icon"
+          />
+          <span
+            class="el-pagination-primary el-icon"
+          />
+        </button>
+        <div
+          class="mocked-styled-2 el-pagination-text"
+        >
+          <input
             aria-label="Current page number, edit to select page of 4 available"
+            class="mocked-styled-3 el-pagination-input"
             value="2"
           />
            
           of 
           4
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg
-              role="img"
-              title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg
-              role="img"
-              title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.button
+          <span
+            class="el-pagination-primary el-icon"
+          />
+          <span
+            class="el-pagination-primary el-icon"
+          />
+        </button>
+        <button
           aria-label="Next"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-          >
-            <svg
-              role="img"
-              title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+          <span
+            class="el-pagination-primary el-icon"
+          />
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.button
+    <div
+      class="mocked-styled-1 el-pagination-wrap"
+    >
+      <button
         aria-label="Previous"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg
-            role="img"
-            title="Icon image with name chevronLeft"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
+        <span
+          class="el-pagination-primary el-icon"
+        />
+      </button>
+      <button
         aria-label="Previous"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg
-            role="img"
-            title="Icon image with name chevronLeft"
-          />
-        </mock-styled.span>
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg
-            role="img"
-            title="Icon image with name chevronLeft"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.div>
-        <mock-styled.input
+        <span
+          class="el-pagination-primary el-icon"
+        />
+        <span
+          class="el-pagination-primary el-icon"
+        />
+      </button>
+      <div
+        class="mocked-styled-2 el-pagination-text"
+      >
+        <input
           aria-label="Current page number, edit to select page of 4 available"
+          class="mocked-styled-3 el-pagination-input"
           value="2"
         />
          
         of 
         4
-      </mock-styled.div>
-      <mock-styled.button
+      </div>
+      <button
         aria-label="Next"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg
-            role="img"
-            title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg
-            role="img"
-            title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
+        <span
+          class="el-pagination-primary el-icon"
+        />
+        <span
+          class="el-pagination-primary el-icon"
+        />
+      </button>
+      <button
         aria-label="Next"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="forward-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
-        >
-          <svg
-            role="img"
-            title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+        <span
+          class="el-pagination-primary el-icon"
+        />
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -462,28 +334,30 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
 }
 `;
 
-exports[`PaginationButton should match a snapshot and render children 1`] = `
+exports[`PaginationButton > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.button
+      <button
+        class="mocked-styled-4 el-pagination-button"
         type="button"
       >
         <div>
           I am a child
         </div>
-      </mock-styled.button>
+      </button>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.button
+    <button
+      class="mocked-styled-4 el-pagination-button"
       type="button"
     >
       <div>
         I am a child
       </div>
-    </mock-styled.button>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -539,24 +413,28 @@ exports[`PaginationButton should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`PaginationText should match a snapshot and render children 1`] = `
+exports[`PaginationText > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <div
+        class="mocked-styled-2 el-pagination-text"
+      >
         <div>
           I am a child
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <div
+      class="mocked-styled-2 el-pagination-text"
+    >
       <div>
         I am a child
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -612,24 +490,28 @@ exports[`PaginationText should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`PaginationWrap should match a snapshot and render children 1`] = `
+exports[`PaginationWrap > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <div
+        class="mocked-styled-1 el-pagination-wrap"
+      >
         <div>
           I am a child
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <div
+      class="mocked-styled-1 el-pagination-wrap"
+    >
       <div>
         I am a child
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

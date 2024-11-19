@@ -1,174 +1,89 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageHeader component should match a snapshot 1`] = `
+exports[`PageHeader component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-3 el-page-header-wrap"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-2 el-page-header-wrap-inner"
         >
-          <mock-styled.div
-            classname="mock-css.
-  margin-bottom: var(--util-rems-6);
-"
+          <div
+            class="el-mb6 el-bread-crumb-container"
           >
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+              class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.a
+              <a
                 aria-current="false"
                 aria-label="Breadcrumb item hit return to navigate to Home"
+                class="mocked-styled-17 el-bread-crumb-item"
                 role="button"
                 tabindex="0"
               >
                 Home
-              </mock-styled.a>
+              </a>
             </div>
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+              class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.span
-                classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-                style="font-size: 12px;"
-              >
-                <svg
-                  role="img"
-                  style="font-size: 12px;"
-                  title="Icon image with name chevronRight"
-                />
-              </mock-styled.span>
-              <mock-styled.a
+              <span
+                class="el-mr2 el-intent-default el-icon"
+              />
+              <a
                 aria-current="false"
                 aria-label="Breadcrumb item hit return to navigate to Level 1"
+                class="mocked-styled-17 el-bread-crumb-item"
                 role="button"
                 tabindex="0"
               >
                 Level 1
-              </mock-styled.a>
+              </a>
             </div>
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+              class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.span
-                classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-                style="font-size: 12px;"
-              >
-                <svg
-                  role="img"
-                  style="font-size: 12px;"
-                  title="Icon image with name chevronRight"
-                />
-              </mock-styled.span>
-              <mock-styled.a
+              <span
+                class="el-mr2 el-intent-default el-icon"
+              />
+              <a
                 aria-current="false"
                 aria-label="Breadcrumb item hit return to navigate to Level 2"
+                class="mocked-styled-17 el-bread-crumb-item"
                 role="button"
                 tabindex="0"
               >
                 Level 2
-              </mock-styled.a>
+              </a>
             </div>
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+              class="el-flex-container el-flex-align-center"
             >
-              <mock-styled.span
-                classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-                style="font-size: 12px;"
-              >
-                <svg
-                  role="img"
-                  style="font-size: 12px;"
-                  title="Icon image with name chevronRight"
-                />
-              </mock-styled.span>
-              <mock-styled.a
+              <span
+                class="el-mr2 el-intent-default el-icon"
+              />
+              <a
                 aria-current="page"
                 aria-label="Breadcrumb item hit return to navigate to Level 3"
+                class="mocked-styled-17 el-bread-crumb-item"
                 role="button"
                 tabindex="0"
               >
                 Level 3
-              </mock-styled.a>
+              </a>
             </div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-0 el-page-header-container"
           >
-            <mock-styled.div
-              classname=""
+            <div
+              class="mocked-styled-0 el-page-header-container"
             >
-              <mock-styled.mock-styled.div
-                classname=""
+              <div
+                class="mocked-styled-6 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
                 role="img"
                 title="An avatar image"
               >
@@ -176,806 +91,263 @@ exports[`PageHeader component should match a snapshot 1`] = `
                   alt="An image with source https://picsum.photos/200/300"
                   src="https://picsum.photos/200/300"
                 />
-              </mock-styled.mock-styled.div>
+              </div>
               <div
-                class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+                class="el-flex-container el-flex-column"
               >
-                <mock-styled.div
-                  classname=""
+                <div
+                  class="mocked-styled-1 el-page-header-title-container"
                 >
                   <h1
-                    class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 24px;
-  line-height: 32px;
- mock-css. mock-css.
-  margin-right: var(--util-rems-3);
-"
+                    class="el-text-base el-text2xl el-has-bold-text el-mr3"
                   >
                     Page Title
                   </h1>
-                  <mock-styled.div
-                    classname=""
+                  <div
+                    class="mocked-styled-8 el-tag-group"
                   >
-                    <mock-styled.div>
-                      <mock-styled.span
-                        classname="mock-css."
+                    <div
+                      class="mocked-styled-9 el-tag-group-inner"
+                    >
+                      <span
+                        class="el-intent-primary el-tag"
                       >
                         Tag 1
-                      </mock-styled.span>
-                      <mock-styled.span
-                        classname="mock-css."
+                      </span>
+                      <span
+                        class="el-intent-primary el-tag"
                       >
                         Tag 2
-                      </mock-styled.span>
-                    </mock-styled.div>
-                  </mock-styled.div>
-                </mock-styled.div>
+                      </span>
+                    </div>
+                  </div>
+                </div>
                 <h2
-                  class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 18px;
-  line-height: 24px;
- mock-css."
+                  class="el-text-base el-text-l el-has-bold-text"
                 >
                   Page Sub Title
                 </h2>
                 <div
-                  class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+                  class="el-flex-container"
                 >
                   <div
-                    class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
-"
+                    class="el-text-base"
                   >
                     Page Info 1
                   </div>
-                  <mock-styled.span />
+                  <span
+                    class="mocked-styled-4 el-page-header-separator"
+                  />
                   <div
-                    class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
-"
+                    class="el-text-base"
                   >
                     Page Info 2
                   </div>
-                  <mock-styled.span />
+                  <span
+                    class="mocked-styled-4 el-page-header-separator"
+                  />
                   <div
-                    class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
-"
+                    class="el-text-base"
                   >
                     Page Info 3
                   </div>
                 </div>
               </div>
-            </mock-styled.div>
-            <mock-styled.div
-              classname=""
+            </div>
+            <div
+              class="mocked-styled-14 deprecated-el-button-group"
             >
-              <mock-styled.div
-                classname=""
+              <div
+                class="mocked-styled-15 el-button-group-inner"
               >
-                <mock-styled.button
+                <button
                   aria-disabled="false"
-                  classname="mock-css."
+                  class="el-button-size-small el-button"
                   data-variant="primary"
                   role="button"
                 >
-                  <mock-styled.div />
-                  <mock-styled.span>
+                  <div
+                    class="mocked-styled-10 el-button-spinner"
+                  />
+                  <span
+                    class="mocked-styled-11 el-button-label"
+                  >
                     Button 1
-                  </mock-styled.span>
-                </mock-styled.button>
-                <mock-styled.button
+                  </span>
+                </button>
+                <button
                   aria-disabled="false"
-                  classname="mock-css."
+                  class="el-button-size-small el-button"
                   role="button"
                 >
-                  <mock-styled.div />
-                  <mock-styled.span>
+                  <div
+                    class="mocked-styled-10 el-button-spinner"
+                  />
+                  <span
+                    class="mocked-styled-11 el-button-label"
+                  >
                     Button 2
-                  </mock-styled.span>
-                </mock-styled.button>
-              </mock-styled.div>
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+                  </span>
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            class="el-tabs-full-width el-tabs-wrap"
           >
-            <mock-styled.div
-              classname=""
+            <div
+              class="mocked-styled-23 el-tabs-options-wrap"
               role="tablist"
             >
-              <mock-styled.input
+              <input
                 aria-selected="true"
-                classname=""
+                class="mocked-styled-20 el-tab"
                 id="tab-1-fw"
                 name="my-cool-tabs-full-width"
                 type="radio"
                 value="tab-1-fw"
               />
-              <mock-styled.label
-                classname=""
-                htmlfor="tab-1-fw"
+              <label
+                class="mocked-styled-21 el-tabs-label"
+                for="tab-1-fw"
                 role="tab"
                 tabindex="0"
               >
-                <mock-styled.span
-                  classname=""
+                <span
+                  class="mocked-styled-19 el-tabs-item"
                 >
                   Tab Content 1
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
                 aria-selected="false"
-                classname=""
+                class="mocked-styled-20 el-tab"
                 id="tab-2-fw"
                 name="my-cool-tabs-full-width"
                 type="radio"
                 value="tab-2-fw"
               />
-              <mock-styled.label
-                classname=""
-                htmlfor="tab-2-fw"
+              <label
+                class="mocked-styled-21 el-tabs-label"
+                for="tab-2-fw"
                 role="tab"
                 tabindex="0"
               >
-                <mock-styled.span
-                  classname=""
+                <span
+                  class="mocked-styled-19 el-tabs-item"
                 >
                   Tab Content 2
-                </mock-styled.span>
-              </mock-styled.label>
-              <mock-styled.input
+                </span>
+              </label>
+              <input
                 aria-selected="false"
-                classname=""
+                class="mocked-styled-20 el-tab"
                 id="tab-3-fw"
                 name="my-cool-tabs-full-width"
                 type="radio"
                 value="tab-3-fw"
               />
-              <mock-styled.label
-                classname=""
-                htmlfor="tab-3-fw"
+              <label
+                class="mocked-styled-21 el-tabs-label"
+                for="tab-3-fw"
                 role="tab"
                 tabindex="0"
               >
-                <mock-styled.span
-                  classname=""
+                <span
+                  class="mocked-styled-19 el-tabs-item"
                 >
                   Tab Content 3
-                </mock-styled.span>
-              </mock-styled.label>
-            </mock-styled.div>
-            <mock-styled.div
-              classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
- mock-css."
+                </span>
+              </label>
+            </div>
+            <div
+              class="el-tabs-full-width el-tabs-has-no-border el-tabs-footer"
             />
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
+          </div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-3 el-page-header-wrap"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-2 el-page-header-wrap-inner"
       >
-        <mock-styled.div
-          classname="mock-css.
-  margin-bottom: var(--util-rems-6);
-"
+        <div
+          class="el-mb6 el-bread-crumb-container"
         >
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+            class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.a
+            <a
               aria-current="false"
               aria-label="Breadcrumb item hit return to navigate to Home"
+              class="mocked-styled-17 el-bread-crumb-item"
               role="button"
               tabindex="0"
             >
               Home
-            </mock-styled.a>
+            </a>
           </div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+            class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.span
-              classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-              style="font-size: 12px;"
-            >
-              <svg
-                role="img"
-                style="font-size: 12px;"
-                title="Icon image with name chevronRight"
-              />
-            </mock-styled.span>
-            <mock-styled.a
+            <span
+              class="el-mr2 el-intent-default el-icon"
+            />
+            <a
               aria-current="false"
               aria-label="Breadcrumb item hit return to navigate to Level 1"
+              class="mocked-styled-17 el-bread-crumb-item"
               role="button"
               tabindex="0"
             >
               Level 1
-            </mock-styled.a>
+            </a>
           </div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+            class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.span
-              classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-              style="font-size: 12px;"
-            >
-              <svg
-                role="img"
-                style="font-size: 12px;"
-                title="Icon image with name chevronRight"
-              />
-            </mock-styled.span>
-            <mock-styled.a
+            <span
+              class="el-mr2 el-intent-default el-icon"
+            />
+            <a
               aria-current="false"
               aria-label="Breadcrumb item hit return to navigate to Level 2"
+              class="mocked-styled-17 el-bread-crumb-item"
               role="button"
               tabindex="0"
             >
               Level 2
-            </mock-styled.a>
+            </a>
           </div>
           <div
-            class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  align-items: center;
-"
+            class="el-flex-container el-flex-align-center"
           >
-            <mock-styled.span
-              classname="mock-css.
-  margin-right: var(--util-rems-2);
- mock-css."
-              style="font-size: 12px;"
-            >
-              <svg
-                role="img"
-                style="font-size: 12px;"
-                title="Icon image with name chevronRight"
-              />
-            </mock-styled.span>
-            <mock-styled.a
+            <span
+              class="el-mr2 el-intent-default el-icon"
+            />
+            <a
               aria-current="page"
               aria-label="Breadcrumb item hit return to navigate to Level 3"
+              class="mocked-styled-17 el-bread-crumb-item"
               role="button"
               tabindex="0"
             >
               Level 3
-            </mock-styled.a>
+            </a>
           </div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-0 el-page-header-container"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-0 el-page-header-container"
           >
-            <mock-styled.mock-styled.div
-              classname=""
+            <div
+              class="mocked-styled-6 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
               role="img"
               title="An avatar image"
             >
@@ -983,639 +355,181 @@ exports[`PageHeader component should match a snapshot 1`] = `
                 alt="An image with source https://picsum.photos/200/300"
                 src="https://picsum.photos/200/300"
               />
-            </mock-styled.mock-styled.div>
+            </div>
             <div
-              class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: column;
-"
+              class="el-flex-container el-flex-column"
             >
-              <mock-styled.div
-                classname=""
+              <div
+                class="mocked-styled-1 el-page-header-title-container"
               >
                 <h1
-                  class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 24px;
-  line-height: 32px;
- mock-css. mock-css.
-  margin-right: var(--util-rems-3);
-"
+                  class="el-text-base el-text2xl el-has-bold-text el-mr3"
                 >
                   Page Title
                 </h1>
-                <mock-styled.div
-                  classname=""
+                <div
+                  class="mocked-styled-8 el-tag-group"
                 >
-                  <mock-styled.div>
-                    <mock-styled.span
-                      classname="mock-css."
+                  <div
+                    class="mocked-styled-9 el-tag-group-inner"
+                  >
+                    <span
+                      class="el-intent-primary el-tag"
                     >
                       Tag 1
-                    </mock-styled.span>
-                    <mock-styled.span
-                      classname="mock-css."
+                    </span>
+                    <span
+                      class="el-intent-primary el-tag"
                     >
                       Tag 2
-                    </mock-styled.span>
-                  </mock-styled.div>
-                </mock-styled.div>
-              </mock-styled.div>
+                    </span>
+                  </div>
+                </div>
+              </div>
               <h2
-                class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
- mock-css.
-  font-size: 18px;
-  line-height: 24px;
- mock-css."
+                class="el-text-base el-text-l el-has-bold-text"
               >
                 Page Sub Title
               </h2>
               <div
-                class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+                class="el-flex-container"
               >
                 <div
-                  class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
-"
+                  class="el-text-base"
                 >
                   Page Info 1
                 </div>
-                <mock-styled.span />
+                <span
+                  class="mocked-styled-4 el-page-header-separator"
+                />
                 <div
-                  class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
-"
+                  class="el-text-base"
                 >
                   Page Info 2
                 </div>
-                <mock-styled.span />
+                <span
+                  class="mocked-styled-4 el-page-header-separator"
+                />
                 <div
-                  class="mock-css.
-  font-family: var(--font-sans-serif);
-  color: var(--black);
-  font-size: 15px;
-  line-height: 24px;
-  font-weight: 400;
-
-  &., {
-    color: var(--neutral-500);
-  }
-
-  &., {
-    color: var(--neutral-400);
-
-    a {
-      color: var(--neutral-400);
-    }
-  }
-
-  &., {
-    font-weight: var(--font-weight-default);
-  }
-
-  &., {
-    font-weight: var(--font-weight-medium);
-  }
-
-  &., {
-    font-weight: var(--font-weight-bold);
-  }
-
-  &., {
-    text-align: center;
-  }
-
-  &., {
-    text-transform: capitalize;
-  }
-
-  &., {
-    text-transform: uppercase;
-  }
-
-  &., {
-    font-style: italic;
-  }
-
-  &., {
-    margin-bottom: 0;
-  }
-
-  &., {
-    margin-bottom: 0.5rem;
-  }
-
-  &., {
-    margin-bottom: 1.5rem;
-  }
-
-  &., {
-    color: var(--intent-primary);
-  }
-
-  &., {
-    color: var(--intent-neutral);
-  }
-
-  &., {
-    color: var(--intent-success);
-  }
-
-  &., {
-    color: var(--intent-pending);
-  }
-
-  &., {
-    color: var(--intent-warning);
-  }
-
-  &., {
-    color: var(--intent-danger);
-  }
-
-  &., {
-    color: var(--intent-default);
-  }
-"
+                  class="el-text-base"
                 >
                   Page Info 3
                 </div>
               </div>
             </div>
-          </mock-styled.div>
-          <mock-styled.div
-            classname=""
+          </div>
+          <div
+            class="mocked-styled-14 deprecated-el-button-group"
           >
-            <mock-styled.div
-              classname=""
+            <div
+              class="mocked-styled-15 el-button-group-inner"
             >
-              <mock-styled.button
+              <button
                 aria-disabled="false"
-                classname="mock-css."
+                class="el-button-size-small el-button"
                 data-variant="primary"
                 role="button"
               >
-                <mock-styled.div />
-                <mock-styled.span>
+                <div
+                  class="mocked-styled-10 el-button-spinner"
+                />
+                <span
+                  class="mocked-styled-11 el-button-label"
+                >
                   Button 1
-                </mock-styled.span>
-              </mock-styled.button>
-              <mock-styled.button
+                </span>
+              </button>
+              <button
                 aria-disabled="false"
-                classname="mock-css."
+                class="el-button-size-small el-button"
                 role="button"
               >
-                <mock-styled.div />
-                <mock-styled.span>
+                <div
+                  class="mocked-styled-10 el-button-spinner"
+                />
+                <span
+                  class="mocked-styled-11 el-button-label"
+                >
                   Button 2
-                </mock-styled.span>
-              </mock-styled.button>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-wrap"
         >
-          <mock-styled.div
-            classname=""
+          <div
+            class="mocked-styled-23 el-tabs-options-wrap"
             role="tablist"
           >
-            <mock-styled.input
+            <input
               aria-selected="true"
-              classname=""
+              class="mocked-styled-20 el-tab"
               id="tab-1-fw"
               name="my-cool-tabs-full-width"
               type="radio"
               value="tab-1-fw"
             />
-            <mock-styled.label
-              classname=""
-              htmlfor="tab-1-fw"
+            <label
+              class="mocked-styled-21 el-tabs-label"
+              for="tab-1-fw"
               role="tab"
               tabindex="0"
             >
-              <mock-styled.span
-                classname=""
+              <span
+                class="mocked-styled-19 el-tabs-item"
               >
                 Tab Content 1
-              </mock-styled.span>
-            </mock-styled.label>
-            <mock-styled.input
+              </span>
+            </label>
+            <input
               aria-selected="false"
-              classname=""
+              class="mocked-styled-20 el-tab"
               id="tab-2-fw"
               name="my-cool-tabs-full-width"
               type="radio"
               value="tab-2-fw"
             />
-            <mock-styled.label
-              classname=""
-              htmlfor="tab-2-fw"
+            <label
+              class="mocked-styled-21 el-tabs-label"
+              for="tab-2-fw"
               role="tab"
               tabindex="0"
             >
-              <mock-styled.span
-                classname=""
+              <span
+                class="mocked-styled-19 el-tabs-item"
               >
                 Tab Content 2
-              </mock-styled.span>
-            </mock-styled.label>
-            <mock-styled.input
+              </span>
+            </label>
+            <input
               aria-selected="false"
-              classname=""
+              class="mocked-styled-20 el-tab"
               id="tab-3-fw"
               name="my-cool-tabs-full-width"
               type="radio"
               value="tab-3-fw"
             />
-            <mock-styled.label
-              classname=""
-              htmlfor="tab-3-fw"
+            <label
+              class="mocked-styled-21 el-tabs-label"
+              for="tab-3-fw"
               role="tab"
               tabindex="0"
             >
-              <mock-styled.span
-                classname=""
+              <span
+                class="mocked-styled-19 el-tabs-item"
               >
                 Tab Content 3
-              </mock-styled.span>
-            </mock-styled.label>
-          </mock-styled.div>
-          <mock-styled.div
-            classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
- mock-css."
+              </span>
+            </label>
+          </div>
+          <div
+            class="el-tabs-full-width el-tabs-has-no-border el-tabs-footer"
           />
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
+        </div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

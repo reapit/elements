@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Portal should match a snapshot and render children 1`] = `
+exports[`Portal > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -61,4 +61,4 @@ exports[`Portal should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`usePortal should return a target  div correctly 1`] = `<div />`;
+exports[`usePortal > should return a target  div correctly 1`] = `<div />`;

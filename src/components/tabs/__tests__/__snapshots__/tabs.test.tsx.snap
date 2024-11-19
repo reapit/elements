@@ -1,175 +1,157 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tabs should match a snapshot and render children 1`] = `
+exports[`Tabs > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+      <div
+        class="el-tabs-full-width el-tabs-wrap"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-4 el-tabs-options-wrap"
           role="tablist"
         >
-          <mock-styled.input
+          <input
             aria-selected="true"
-            checked="true"
-            classname=""
+            class="mocked-styled-1 el-tab"
             id="option-1"
             name="my-cool-toggle-radio"
             type="radio"
             value="option-1"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="option-1"
+          <label
+            class="mocked-styled-2 el-tabs-label"
+            for="option-1"
             role="tab"
             tabindex="0"
           >
-            <mock-styled.span
-              classname=""
+            <span
+              class="mocked-styled-0 el-tabs-item"
             >
               Option 1
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.input
+            </span>
+          </label>
+          <input
             aria-selected="false"
-            checked="false"
-            classname=""
+            class="mocked-styled-1 el-tab"
             id="option-2"
             name="my-cool-toggle-radio"
             type="radio"
             value="option-2"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="option-2"
+          <label
+            class="mocked-styled-2 el-tabs-label"
+            for="option-2"
             role="tab"
             tabindex="0"
           >
-            <mock-styled.span
-              classname=""
+            <span
+              class="mocked-styled-0 el-tabs-item"
             >
               Option 2
-            </mock-styled.span>
-          </mock-styled.label>
-          <mock-styled.input
+            </span>
+          </label>
+          <input
             aria-selected="false"
-            checked="false"
-            classname=""
+            class="mocked-styled-1 el-tab"
             id="option-3"
             name="my-cool-toggle-radio"
             type="radio"
             value="option-3"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="option-3"
+          <label
+            class="mocked-styled-2 el-tabs-label"
+            for="option-3"
             role="tab"
             tabindex="0"
           >
-            <mock-styled.span
-              classname=""
+            <span
+              class="mocked-styled-0 el-tabs-item"
             >
               Option 3
-            </mock-styled.span>
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+            </span>
+          </label>
+        </div>
+        <div
+          class="el-tabs-full-width el-tabs-footer"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+    <div
+      class="el-tabs-full-width el-tabs-wrap"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-4 el-tabs-options-wrap"
         role="tablist"
       >
-        <mock-styled.input
+        <input
           aria-selected="true"
-          checked="true"
-          classname=""
+          class="mocked-styled-1 el-tab"
           id="option-1"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-1"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="option-1"
+        <label
+          class="mocked-styled-2 el-tabs-label"
+          for="option-1"
           role="tab"
           tabindex="0"
         >
-          <mock-styled.span
-            classname=""
+          <span
+            class="mocked-styled-0 el-tabs-item"
           >
             Option 1
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
           aria-selected="false"
-          checked="false"
-          classname=""
+          class="mocked-styled-1 el-tab"
           id="option-2"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-2"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="option-2"
+        <label
+          class="mocked-styled-2 el-tabs-label"
+          for="option-2"
           role="tab"
           tabindex="0"
         >
-          <mock-styled.span
-            classname=""
+          <span
+            class="mocked-styled-0 el-tabs-item"
           >
             Option 2
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
           aria-selected="false"
-          checked="false"
-          classname=""
+          class="mocked-styled-1 el-tab"
           id="option-3"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-3"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="option-3"
+        <label
+          class="mocked-styled-2 el-tabs-label"
+          for="option-3"
           role="tab"
           tabindex="0"
         >
-          <mock-styled.span
-            classname=""
+          <span
+            class="mocked-styled-0 el-tabs-item"
           >
             Option 3
-          </mock-styled.span>
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+          </span>
+        </label>
+      </div>
+      <div
+        class="el-tabs-full-width el-tabs-footer"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -1,205 +1,185 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Accordion basic usage should match a snapshot 1`] = `
+exports[`Accordion basic usage > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.a>
-          <mock-styled.div>
+      <div
+        class="mocked-styled-0 el-accordion-container"
+      >
+        <a
+          class="mocked-styled-1 el-accordion-item"
+        >
+          <div
+            class="mocked-styled-2 el-accordion-title"
+          >
             Accordion Item 1
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname="mock-css.
-  margin-right: var(--util-rems-1);
-"
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name car"
-                />
-              </mock-styled.span>
+          </div>
+          <div
+            class="mocked-styled-3 el-accordion-title-content-wrapper"
+          >
+            <div
+              class="mocked-styled-4 el-accordion-title-content"
+            >
+              <span
+                class="el-mr1 el-icon"
+              />
               2
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname="mock-css.
-  margin-right: var(--util-rems-1);
-"
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name user"
-                />
-              </mock-styled.span>
+            </div>
+            <div
+              class="mocked-styled-4 el-accordion-title-content"
+            >
+              <span
+                class="el-mr1 el-icon"
+              />
               5
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name chevronUp"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.a>
-        <mock-styled.div
-          classname="mock-css."
+            </div>
+            <div
+              class="mocked-styled-4 el-accordion-title-content"
+            >
+              <span
+                class="mocked-styled-6 el-icon"
+              />
+            </div>
+          </div>
+        </a>
+        <div
+          class="el-is-active el-accordion-content"
         >
           Accordion Content 1
-        </mock-styled.div>
-        <mock-styled.a>
-          <mock-styled.div>
+        </div>
+        <a
+          class="mocked-styled-1 el-accordion-item"
+        >
+          <div
+            class="mocked-styled-2 el-accordion-title"
+          >
             Accordion Item 2
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname="mock-css.
-  margin-right: var(--util-rems-1);
-"
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name car"
-                />
-              </mock-styled.span>
+          </div>
+          <div
+            class="mocked-styled-3 el-accordion-title-content-wrapper"
+          >
+            <div
+              class="mocked-styled-4 el-accordion-title-content"
+            >
+              <span
+                class="el-mr1 el-icon"
+              />
               2
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname="mock-css.
-  margin-right: var(--util-rems-1);
-"
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name user"
-                />
-              </mock-styled.span>
+            </div>
+            <div
+              class="mocked-styled-4 el-accordion-title-content"
+            >
+              <span
+                class="el-mr1 el-icon"
+              />
               5
-            </mock-styled.div>
-            <mock-styled.div>
-              <mock-styled.span
-                classname=""
-              >
-                <svg
-                  role="img"
-                  title="Icon image with name chevronDown"
-                />
-              </mock-styled.span>
-            </mock-styled.div>
-          </mock-styled.div>
-        </mock-styled.a>
-        <mock-styled.div>
+            </div>
+            <div
+              class="mocked-styled-4 el-accordion-title-content"
+            >
+              <span
+                class="mocked-styled-6 el-icon"
+              />
+            </div>
+          </div>
+        </a>
+        <div
+          class="mocked-styled-5 el-accordion-content"
+        >
           Accordion Content 2
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.a>
-        <mock-styled.div>
+    <div
+      class="mocked-styled-0 el-accordion-container"
+    >
+      <a
+        class="mocked-styled-1 el-accordion-item"
+      >
+        <div
+          class="mocked-styled-2 el-accordion-title"
+        >
           Accordion Item 1
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="mock-css.
-  margin-right: var(--util-rems-1);
-"
-            >
-              <svg
-                role="img"
-                title="Icon image with name car"
-              />
-            </mock-styled.span>
+        </div>
+        <div
+          class="mocked-styled-3 el-accordion-title-content-wrapper"
+        >
+          <div
+            class="mocked-styled-4 el-accordion-title-content"
+          >
+            <span
+              class="el-mr1 el-icon"
+            />
             2
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="mock-css.
-  margin-right: var(--util-rems-1);
-"
-            >
-              <svg
-                role="img"
-                title="Icon image with name user"
-              />
-            </mock-styled.span>
+          </div>
+          <div
+            class="mocked-styled-4 el-accordion-title-content"
+          >
+            <span
+              class="el-mr1 el-icon"
+            />
             5
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-            >
-              <svg
-                role="img"
-                title="Icon image with name chevronUp"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.a>
-      <mock-styled.div
-        classname="mock-css."
+          </div>
+          <div
+            class="mocked-styled-4 el-accordion-title-content"
+          >
+            <span
+              class="mocked-styled-6 el-icon"
+            />
+          </div>
+        </div>
+      </a>
+      <div
+        class="el-is-active el-accordion-content"
       >
         Accordion Content 1
-      </mock-styled.div>
-      <mock-styled.a>
-        <mock-styled.div>
+      </div>
+      <a
+        class="mocked-styled-1 el-accordion-item"
+      >
+        <div
+          class="mocked-styled-2 el-accordion-title"
+        >
           Accordion Item 2
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="mock-css.
-  margin-right: var(--util-rems-1);
-"
-            >
-              <svg
-                role="img"
-                title="Icon image with name car"
-              />
-            </mock-styled.span>
+        </div>
+        <div
+          class="mocked-styled-3 el-accordion-title-content-wrapper"
+        >
+          <div
+            class="mocked-styled-4 el-accordion-title-content"
+          >
+            <span
+              class="el-mr1 el-icon"
+            />
             2
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname="mock-css.
-  margin-right: var(--util-rems-1);
-"
-            >
-              <svg
-                role="img"
-                title="Icon image with name user"
-              />
-            </mock-styled.span>
+          </div>
+          <div
+            class="mocked-styled-4 el-accordion-title-content"
+          >
+            <span
+              class="el-mr1 el-icon"
+            />
             5
-          </mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.span
-              classname=""
-            >
-              <svg
-                role="img"
-                title="Icon image with name chevronDown"
-              />
-            </mock-styled.span>
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.a>
-      <mock-styled.div>
+          </div>
+          <div
+            class="mocked-styled-4 el-accordion-title-content"
+          >
+            <span
+              class="mocked-styled-6 el-icon"
+            />
+          </div>
+        </div>
+      </a>
+      <div
+        class="mocked-styled-5 el-accordion-content"
+      >
         Accordion Content 2
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

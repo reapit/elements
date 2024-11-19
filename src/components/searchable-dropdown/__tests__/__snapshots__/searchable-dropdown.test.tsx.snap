@@ -1,14 +1,15 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ControlledSearchableDropdown component should display default value 1`] = `
+exports[`ControlledSearchableDropdown component > should display default value 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
+      <div
         aria-controls="test-static-id"
         aria-expanded="false"
         aria-haspopup="listbox"
+        class="mocked-styled-8 el-searchable-dropdown-container"
         role="combobox"
       >
         <input
@@ -17,33 +18,31 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
           style="display: none;"
           value="4"
         />
-        <mock-styled.div>
-          <mock-styled.span
-            classname="mock-css."
-            style="font-size: 1rem;"
-          >
-            <svg
-              role="img"
-              style="font-size: 1rem;"
-              title="Icon image with name search"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div
+        <span
+          class="mocked-styled-11 el-searchable-dropdown-search-input-add-on el-input-add-on"
+        >
+          <span
+            class="el-intent-default el-icon"
+          />
+        </span>
+        <input
+          aria-label="Input type undefined"
+          class="mocked-styled-13 el-searchable-dropdown-search-input el-input"
           data-testid="search-input"
           value="Forth"
         />
-        <mock-styled.div
-          icon="close"
+        <span
+          class="mocked-styled-12 el-searchable-dropdown-close-button el-icon"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
+    <div
       aria-controls="test-static-id"
       aria-expanded="false"
       aria-haspopup="listbox"
+      class="mocked-styled-8 el-searchable-dropdown-container"
       role="combobox"
     >
       <input
@@ -52,26 +51,23 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
         style="display: none;"
         value="4"
       />
-      <mock-styled.div>
-        <mock-styled.span
-          classname="mock-css."
-          style="font-size: 1rem;"
-        >
-          <svg
-            role="img"
-            style="font-size: 1rem;"
-            title="Icon image with name search"
-          />
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div
+      <span
+        class="mocked-styled-11 el-searchable-dropdown-search-input-add-on el-input-add-on"
+      >
+        <span
+          class="el-intent-default el-icon"
+        />
+      </span>
+      <input
+        aria-label="Input type undefined"
+        class="mocked-styled-13 el-searchable-dropdown-search-input el-input"
         data-testid="search-input"
         value="Forth"
       />
-      <mock-styled.div
-        icon="close"
+      <span
+        class="mocked-styled-12 el-searchable-dropdown-close-button el-icon"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -127,15 +123,16 @@ exports[`ControlledSearchableDropdown component should display default value 1`]
 }
 `;
 
-exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
+exports[`ControlledSearchableDropdown component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
+      <div
         aria-controls="test-static-id"
         aria-expanded="false"
         aria-haspopup="listbox"
+        class="mocked-styled-8 el-searchable-dropdown-container"
         role="combobox"
       >
         <input
@@ -144,29 +141,28 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
           style="display: none;"
           value=""
         />
-        <mock-styled.div>
-          <mock-styled.span
-            classname="mock-css."
-            style="font-size: 1rem;"
-          >
-            <svg
-              role="img"
-              style="font-size: 1rem;"
-              title="Icon image with name search"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div
+        <span
+          class="mocked-styled-11 el-searchable-dropdown-search-input-add-on el-input-add-on"
+        >
+          <span
+            class="el-intent-default el-icon"
+          />
+        </span>
+        <input
+          aria-label="Input type undefined"
+          class="mocked-styled-13 el-searchable-dropdown-search-input el-input"
           data-testid="search-input"
+          value=""
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
+    <div
       aria-controls="test-static-id"
       aria-expanded="false"
       aria-haspopup="listbox"
+      class="mocked-styled-8 el-searchable-dropdown-container"
       role="combobox"
     >
       <input
@@ -175,22 +171,20 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
         style="display: none;"
         value=""
       />
-      <mock-styled.div>
-        <mock-styled.span
-          classname="mock-css."
-          style="font-size: 1rem;"
-        >
-          <svg
-            role="img"
-            style="font-size: 1rem;"
-            title="Icon image with name search"
-          />
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div
+      <span
+        class="mocked-styled-11 el-searchable-dropdown-search-input-add-on el-input-add-on"
+      >
+        <span
+          class="el-intent-default el-icon"
+        />
+      </span>
+      <input
+        aria-label="Input type undefined"
+        class="mocked-styled-13 el-searchable-dropdown-search-input el-input"
         data-testid="search-input"
+        value=""
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -246,15 +240,16 @@ exports[`ControlledSearchableDropdown component should match a snapshot 1`] = `
 }
 `;
 
-exports[`SearchableDropdown component should match a snapshot 1`] = `
+exports[`SearchableDropdown component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
+      <div
         aria-controls="test-static-id"
         aria-expanded="false"
         aria-haspopup="listbox"
+        class="mocked-styled-8 el-searchable-dropdown-container"
         role="combobox"
       >
         <input
@@ -263,30 +258,28 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
           style="display: none;"
           value=""
         />
-        <mock-styled.div>
-          <mock-styled.span
-            classname="mock-css."
-            style="font-size: 1rem;"
-          >
-            <svg
-              role="img"
-              style="font-size: 1rem;"
-              title="Icon image with name search"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div
+        <span
+          class="mocked-styled-11 el-searchable-dropdown-search-input-add-on el-input-add-on"
+        >
+          <span
+            class="el-intent-default el-icon"
+          />
+        </span>
+        <input
+          aria-label="Input type undefined"
+          class="mocked-styled-13 el-searchable-dropdown-search-input el-input"
           data-testid="search-input"
           value=""
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
+    <div
       aria-controls="test-static-id"
       aria-expanded="false"
       aria-haspopup="listbox"
+      class="mocked-styled-8 el-searchable-dropdown-container"
       role="combobox"
     >
       <input
@@ -295,23 +288,20 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
         style="display: none;"
         value=""
       />
-      <mock-styled.div>
-        <mock-styled.span
-          classname="mock-css."
-          style="font-size: 1rem;"
-        >
-          <svg
-            role="img"
-            style="font-size: 1rem;"
-            title="Icon image with name search"
-          />
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div
+      <span
+        class="mocked-styled-11 el-searchable-dropdown-search-input-add-on el-input-add-on"
+      >
+        <span
+          class="el-intent-default el-icon"
+        />
+      </span>
+      <input
+        aria-label="Input type undefined"
+        class="mocked-styled-13 el-searchable-dropdown-search-input el-input"
         data-testid="search-input"
         value=""
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -367,20 +357,24 @@ exports[`SearchableDropdown component should match a snapshot 1`] = `
 }
 `;
 
-exports[`SearchableDropdownSearchLabel component should match a snapshot 1`] = `
+exports[`SearchableDropdownSearchLabel component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <label
+        class="mocked-styled-14 el-searchable-dropdown-search-label el-label"
+      >
         I am a label
-      </mock-styled.div>
+      </label>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <label
+      class="mocked-styled-14 el-searchable-dropdown-search-label el-label"
+    >
       I am a label
-    </mock-styled.div>
+    </label>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

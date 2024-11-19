@@ -1,27 +1,27 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Col should match a snapshot and render children 1`] = `
+exports[`Col > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-1 el-col"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-1 el-col"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -77,28 +77,28 @@ exports[`Col should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`ColHalf should match a snapshot and render children 1`] = `
+exports[`ColHalf > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-2 el-col-half"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-2 el-col-half"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -154,28 +154,28 @@ exports[`ColHalf should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`ColQuarter should match a snapshot and render children 1`] = `
+exports[`ColQuarter > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-3 el-col-quarter"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-3 el-col-quarter"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -231,28 +231,28 @@ exports[`ColQuarter should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`ColSplit should match a snapshot and render children 1`] = `
+exports[`ColSplit > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-4 el-col-split"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-4 el-col-split"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -308,28 +308,28 @@ exports[`ColSplit should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`ColSplitThird should match a snapshot and render children 1`] = `
+exports[`ColSplitThird > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-6 el-col-split-third"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-6 el-col-split-third"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -385,28 +385,28 @@ exports[`ColSplitThird should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`ColSplitTwoThirds should match a snapshot and render children 1`] = `
+exports[`ColSplitTwoThirds > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-7 el-col-split-two-thirds"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-7 el-col-split-two-thirds"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -462,28 +462,28 @@ exports[`ColSplitTwoThirds should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`Grid should match a snapshot and render children 1`] = `
+exports[`Grid > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-grid"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-grid"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -539,28 +539,28 @@ exports[`Grid should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`GridThirds should match a snapshot and render children 1`] = `
+exports[`GridThirds > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-5 el-grid-thirds"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-5 el-grid-thirds"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
