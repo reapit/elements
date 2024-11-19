@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { AvatarRectangle } from '.'
 import {
-  ElAvatarRectangleWrapper,
+  ElAvatarRectangle,
   ElAvatarRectResidentialPlaceholder,
   ElAvatarRectBottomPlaceholder,
   ElAvatarRectCommercialPlaceholder,
@@ -30,36 +30,27 @@ const exampleImageUrl = 'https://picsum.photos/id/206/100/100'
 
 export const DefaultUsage = {
   render: ({}) => (
-    <ElAvatarRectangleWrapper>
+    <ElAvatarRectangle>
       <img src={exampleImageUrl} alt="example" />
-    </ElAvatarRectangleWrapper>
+    </ElAvatarRectangle>
   ),
 }
 
 export const UsingResidentialPlaceholder = {
-  render: ({}) => (
-    <ElAvatarRectangleWrapper data-variant="residential" data-placeholder="true">
-      <ElAvatarRectResidentialPlaceholder />
-    </ElAvatarRectangleWrapper>
-  ),
+  render: ({}) => <ElAvatarRectResidentialPlaceholder aria-label="Image placeholder" />,
 }
 
 export const UsingCommercialVariant = {
   render: ({}) => (
-    <ElAvatarRectangleWrapper data-variant="commercial">
+    <ElAvatarRectangle data-variant="commercial">
       <img src={exampleImageUrl} alt="example" />
       <ElAvatarRectBottomPlaceholder aria-hidden="true" />
-    </ElAvatarRectangleWrapper>
+    </ElAvatarRectangle>
   ),
 }
 
 export const UsingCommercialPlaceholder = {
-  render: ({}) => (
-    <ElAvatarRectangleWrapper data-variant="commercial" data-placeholder="true">
-      <ElAvatarRectCommercialPlaceholder />
-      <ElAvatarRectBottomPlaceholder aria-hidden="true" />
-    </ElAvatarRectangleWrapper>
-  ),
+  render: ({}) => <ElAvatarRectCommercialPlaceholder aria-label="Image placeholder" />,
 }
 
 export const ReactUsage: StoryObj<typeof AvatarRectangle> = {

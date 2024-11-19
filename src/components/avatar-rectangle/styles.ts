@@ -1,41 +1,50 @@
 import { styled } from '@linaria/react'
-import { ReactComponent as ResidentialPlaceholderIcon } from './icons/residential-placeholder-icon.svg'
+import { ReactComponent as ResidentialPlaceholderIcon } from './icons/residential-placeholder.svg'
+import { ReactComponent as ResidentialSmallPlaceholderIcon } from './icons/residential-placeholder-small.svg'
+import { ReactComponent as CommercialPlaceholderIcon } from './icons/commercial-placeholder.svg'
+import { ReactComponent as CommercialSmallPlaceholderIcon } from './icons/commercial-placeholder-small.svg'
 import { ReactComponent as CommercialBottomPlaceholderIcon } from './icons/bottom-commercial-placeholder.svg'
 import { ReactComponent as CommercialSmallBottomPlaceholderIcon } from './icons/bottom-commercial-placeholder-small.svg'
 
-const baseCommercialMediumImagesStyle = `
-  width: 54px;
-  height: var(--size-size-8, 40px);
-  flex-shrink: 0;
+const baseAvatarRectMediumSize = `
+  width: var(--size-size-12, 72px);
+  height: 54px;
 `
 
-const baseCommercialBottomPlaceholderStyle = `
+const baseAvatarRectSmallSize = `
+  width: var(--size-size-11, 64px);
+  height: var(--size-size-9, 48px);
+`
+
+// The commercial consists of two sections: the commercial image and the bottom placeholder.
+const baseCommercialMediumImagesSize = `
+  width: 54px;
+  height: var(--size-size-8, 40px);
+`
+
+const baseCommercialBottomSmallPlaceholderSize = `
+  width: var(--size-size-9, 48px);
+  height: 36px;
+`
+
+const baseCommercialBottomPlaceholderPosition = `
   position: absolute;
   bottom: 0;
   right: 0;
 `
 
 export const ElAvatarRectBottomPlaceholder = styled(CommercialBottomPlaceholderIcon)`
-  ${baseCommercialMediumImagesStyle}
-  ${baseCommercialBottomPlaceholderStyle}
+  ${baseCommercialMediumImagesSize}
+  ${baseCommercialBottomPlaceholderPosition}
 `
-export const ElAvatarRectBottomPlaceholderSmall = styled(CommercialSmallBottomPlaceholderIcon)`
-  ${baseCommercialMediumImagesStyle}
-  ${baseCommercialBottomPlaceholderStyle}
-`
-
-export const ElAvatarRectCommercialPlaceholder = styled.div`
-  ${baseCommercialMediumImagesStyle}
-  position: absolute;
-  top: 0;
-  left: 0;
-  background: var(--fill-colour-fill-default-light, #e5e9ed);
+export const ElAvatarRectBottomSmallPlaceholder = styled(CommercialSmallBottomPlaceholderIcon)`
+  ${baseCommercialMediumImagesSize}
+  ${baseCommercialBottomPlaceholderPosition}
 `
 
-export const ElAvatarRectangleWrapper = styled.div`
+export const ElAvatarRectangle = styled.div`
+  ${baseAvatarRectMediumSize}
   display: flex;
-  width: var(--size-size-12, 72px);
-  height: 54px;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -45,15 +54,11 @@ export const ElAvatarRectangleWrapper = styled.div`
     height: 100%;
   }
 
-  &[data-placeholder='true'][data-variant='residential'] {
-    background: var(--fill-colour-fill-default-light, #e5e9ed);
-  }
-
   &[data-variant='commercial'] {
     position: relative;
 
     img {
-      ${baseCommercialMediumImagesStyle}
+      ${baseCommercialMediumImagesSize}
       position: absolute;
       top: 0;
       left: 0;
@@ -61,17 +66,29 @@ export const ElAvatarRectangleWrapper = styled.div`
   }
 
   &[data-size='small'] {
-    width: var(--size-size-11, 64px);
-    height: var(--size-size-9, 48px);
+    ${baseAvatarRectSmallSize}
 
     &[data-variant='commercial'] {
       img,
-      ${ElAvatarRectCommercialPlaceholder}, ${ElAvatarRectBottomPlaceholder}, ${ElAvatarRectBottomPlaceholderSmall} {
-        width: var(--size-size-9, 48px);
-        height: 36px;
+      ${ElAvatarRectBottomPlaceholder}, ${ElAvatarRectBottomSmallPlaceholder} {
+        ${baseCommercialBottomSmallPlaceholderSize}
       }
     }
   }
 `
 
-export const ElAvatarRectResidentialPlaceholder = styled(ResidentialPlaceholderIcon)``
+export const ElAvatarRectResidentialPlaceholder = styled(ResidentialPlaceholderIcon)`
+  ${baseAvatarRectMediumSize}
+`
+
+export const ElAvatarRectResidentialSmallPlaceholder = styled(ResidentialSmallPlaceholderIcon)`
+  ${baseAvatarRectSmallSize}
+`
+
+export const ElAvatarRectCommercialPlaceholder = styled(CommercialPlaceholderIcon)`
+  ${baseAvatarRectMediumSize}
+`
+
+export const ElAvatarRectCommercialSmallPlaceholder = styled(CommercialSmallPlaceholderIcon)`
+  ${baseAvatarRectSmallSize}
+`

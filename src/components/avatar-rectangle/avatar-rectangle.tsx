@@ -1,13 +1,15 @@
-import { useState, type FC, type HTMLAttributes } from 'react'
+import { useEffect, useState, type FC, type HTMLAttributes } from 'react'
 import {
-  ElAvatarRectangleWrapper,
-  ElAvatarRectCommercialPlaceholder,
-  ElAvatarRectResidentialPlaceholder,
+  ElAvatarRectangle,
   ElAvatarRectBottomPlaceholder,
-  ElAvatarRectBottomPlaceholderSmall,
+  ElAvatarRectBottomSmallPlaceholder,
+  ElAvatarRectCommercialPlaceholder,
+  ElAvatarRectCommercialSmallPlaceholder,
+  ElAvatarRectResidentialPlaceholder,
+  ElAvatarRectResidentialSmallPlaceholder,
 } from './styles'
 
-export interface AvatarRectangle extends HTMLAttributes<HTMLSpanElement> {
+export interface AvatarRectangle extends HTMLAttributes<HTMLDivElement> {
   variant: 'residential' | 'commercial'
   size: 'medium' | 'small'
   src?: string
@@ -27,23 +29,32 @@ export const AvatarRectangle: FC<AvatarRectangle> = ({
     setIsError(true)
   }
 
-  const imageValid = !!src && !isError
+  useEffect(() => {
+    if (src) {
+      setIsError(false)
+    }
+  }, [src])
 
-  return (
-    <ElAvatarRectangleWrapper {...props} data-size={size} data-variant={variant} data-placeholder={!imageValid}>
-      {imageValid ? (
-        <img src={src} alt={alt} onError={handleError} />
-      ) : variant === 'commercial' ? (
-        <ElAvatarRectCommercialPlaceholder />
-      ) : (
-        <ElAvatarRectResidentialPlaceholder />
-      )}
-      {variant === 'commercial' &&
-        (size === 'small' ? (
-          <ElAvatarRectBottomPlaceholderSmall aria-hidden="true" />
-        ) : (
-          <ElAvatarRectBottomPlaceholder aria-hidden="true" />
-        ))}
-    </ElAvatarRectangleWrapper>
+  const hasImageError = !src || isError
+
+  const PlaceholderComponent =
+    variant == 'residential'
+      ? size === 'medium'
+        ? ElAvatarRectResidentialPlaceholder
+        : ElAvatarRectResidentialSmallPlaceholder
+      : size === 'medium'
+        ? ElAvatarRectCommercialPlaceholder
+        : ElAvatarRectCommercialSmallPlaceholder
+
+  const CommercialBottomPlaceholder =
+    size === 'medium' ? ElAvatarRectBottomPlaceholder : ElAvatarRectBottomSmallPlaceholder
+
+  return hasImageError ? (
+    <PlaceholderComponent {...props} aria-label="Image placeholder" />
+  ) : (
+    <ElAvatarRectangle {...props} data-size={size} data-variant={variant} data-placeholder={!hasImageError}>
+      <img src={src} alt={alt} onError={handleError} />
+      {variant === 'commercial' && <CommercialBottomPlaceholder aria-hidden="true" />}
+    </ElAvatarRectangle>
   )
 }
