@@ -28,7 +28,16 @@ export default defineConfig({
   ],
   test: {
     coverage: {
-      exclude: ['src/styles', 'src/storybook', 'src/tests', 'src/types', '**/*.test.*', '**/*.stories.*', '**/*.d.ts'],
+      exclude: [
+        'src/styles',
+        'src/storybook',
+        'src/tests',
+        'src/tokens',
+        'src/types',
+        '**/*.test.*',
+        '**/*.stories.*',
+        '**/*.d.ts',
+      ],
       include: ['src/**/*.ts', 'src/**/*.tsx'],
       provider: 'v8',
       reporter: ['json-summary', 'text', 'lcov'],
@@ -42,7 +51,7 @@ export default defineConfig({
     },
     environment: 'happy-dom',
     globals: true,
-    include: ["src/**/*.test.ts?(x)"],
+    include: ['src/**/*.test.ts?(x)'],
     setupFiles: ['vitest.setup.ts'],
   },
 })
