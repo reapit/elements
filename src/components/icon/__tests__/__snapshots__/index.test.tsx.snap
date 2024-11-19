@@ -1,29 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Icon component should match a snapshot 1`] = `
+exports[`Icon component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname=""
-      >
-        <svg
-          role="img"
-          title="Icon image with name add"
-        />
-      </mock-styled.span>
+      <span
+        class="mocked-styled-0 el-icon"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname=""
-    >
-      <svg
-        role="img"
-        title="Icon image with name add"
-      />
-    </mock-styled.span>
+    <span
+      class="mocked-styled-0 el-icon"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -79,30 +69,20 @@ exports[`Icon component should match a snapshot 1`] = `
 }
 `;
 
-exports[`Icon component should match a snapshot when intent prop is supplied 1`] = `
+exports[`Icon component > should match a snapshot when intent prop is supplied 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
-      >
-        <svg
-          role="img"
-          title="Icon image with name add"
-        />
-      </mock-styled.span>
+      <span
+        class="el-intent-primary el-icon"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
-    >
-      <svg
-        role="img"
-        title="Icon image with name add"
-      />
-    </mock-styled.span>
+    <span
+      class="el-intent-primary el-icon"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
