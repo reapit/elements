@@ -7,4 +7,4 @@ const tsConfigLocation = path.resolve(__dirname, '../tsconfig.json')
 const config = JSON.parse(fs.readFileSync(tsConfigLocation, 'utf-8'))
 
 require('ts-node').register(config)
-require('../src/bin/rpt-cdk.ts')
+require('../src/bin/rpt-cdk.cts')

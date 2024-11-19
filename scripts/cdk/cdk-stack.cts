@@ -1,4 +1,4 @@
-import { createBaseStack, createSite, getAccountId } from './src'
+import { createBaseStack, createSite, getAccountId } from './src/index.cts'
 import { join } from 'path'
 
 const createStack = async () => {

@@ -1,5 +1,5 @@
-import { createCloudfront } from './cloudfront'
-import { createRoute } from './r53'
+import { createCloudfront } from './cloudfront.cts'
+import { createRoute } from './r53.cts'
 import {
   Stack,
   aws_route53 as route53,
@@ -13,7 +13,7 @@ import { OriginAccessIdentity } from 'aws-cdk-lib/aws-cloudfront'
 import { CanonicalUserPrincipal, PolicyStatement } from 'aws-cdk-lib/aws-iam'
 import { BlockPublicAccess, BucketAccessControl, BucketEncryption, ObjectOwnership } from 'aws-cdk-lib/aws-s3'
 import { ACM } from 'aws-sdk'
-import { InvalidateCloudfrontDistribution } from '../utils/cf-innvalidate'
+import { InvalidateCloudfrontDistribution } from '../utils/cf-innvalidate.cts'
 
 export interface CreateSiteInterface {
   env?: 'dev' | 'prod'
