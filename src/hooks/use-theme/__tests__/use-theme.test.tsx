@@ -1,6 +1,5 @@
-import React from 'react'
 import { renderHook, act } from '@testing-library/react-hooks'
-import { THEME_LOCAL_STOREAGE_KEY, useTheme, UseThemeInterface } from '..'
+import { THEME_LOCAL_STOREAGE_KEY, useTheme } from '..'
 
 describe('use-theme', () => {
   it('can load use-theme', () => {
