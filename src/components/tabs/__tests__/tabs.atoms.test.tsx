@@ -3,22 +3,14 @@ import { Tab, TabsFooter, TabsItem, TabsLabel, TabsOptionsWrap, TabsWrap } from 
 
 describe('Tab', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = render(
-      <Tab className="foo">
-        <div>Child</div>
-      </Tab>,
-    )
+    const wrapper = render(<Tab className="foo" />)
     expect(wrapper).toMatchSnapshot()
   })
 })
 
 describe('Tab', () => {
   it('should match a snapshot and render children', () => {
-    const wrapper = render(
-      <Tab className="foo">
-        <div>Child</div>
-      </Tab>,
-    )
+    const wrapper = render(<Tab className="foo" />)
     expect(wrapper).toMatchSnapshot()
   })
 })

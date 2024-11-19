@@ -1,25 +1,12 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`FlexContainer should match a snapshot and render children 1`] = `
+exports[`FlexContainer > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+        class="el-flex-container"
       >
         <p>
           I am child
@@ -29,20 +16,7 @@ exports[`FlexContainer should match a snapshot and render children 1`] = `
   </body>,
   "container": <div>
     <div
-      class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-"
+      class="el-flex-container"
     >
       <p>
         I am child
@@ -103,68 +77,13 @@ exports[`FlexContainer should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`FlexContainer should match a snapshot and render children with all props applied 1`] = `
+exports[`FlexContainer > should match a snapshot and render children with all props applied 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <div
-        class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: row;
- mock-css.
-  flex-direction: row-reverse;
- mock-css.
-  flex-direction: column;
- mock-css.
-  flex-direction: column-reverse;
- mock-css.
-  flex-wrap: wrap;
- mock-css.
-  flex-wrap: nowrap;
- mock-css.
-  flex-wrap: wrap-reverse;
- mock-css.
-  flex: 1 1 auto;
- mock-css.
-  flex: 0 1 auto;
- mock-css.
-  flex-grow: 0;
- mock-css.
-  flex-grow: 1;
- mock-css.
-  flex-shrink: 0;
- mock-css.
-  flex-shrink: 1;
- mock-css.
-  justify-content: center;
- mock-css.
-  justify-content: flex-end;
- mock-css.
-  justify-content: space-between;
- mock-css.
-  justify-content: space-around;
- mock-css.
-  justify-content: space-evenly;
- mock-css.
-  align-items: center;
- mock-css.
-  align-items: flex-start;
- mock-css.
-  align-items: flex-end;
- mock-css."
+        class="el-flex-container el-flex-row el-flex-row-reverse el-flex-column el-flex-column-reverse el-flex-wrap el-flex-no-wrap el-flex-wrap-reverse el-flex-auto el-flex-initial el-flex-grow0 el-flex-grow el-flex-shrink0 el-flex-shrink el-flex-justify-center el-flex-justify-end el-flex-justify-between el-flex-justify-around el-flex-justify-evenly el-flex-align-center el-flex-align-start el-flex-align-end el-has-grey-background"
       >
         <p>
           I am child
@@ -174,62 +93,7 @@ exports[`FlexContainer should match a snapshot and render children with all prop
   </body>,
   "container": <div>
     <div
-      class="mock-css.
-  display: flex;
-  min-height: 0;
-  min-width: 0;
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css.
-  flex-direction: row;
- mock-css.
-  flex-direction: row-reverse;
- mock-css.
-  flex-direction: column;
- mock-css.
-  flex-direction: column-reverse;
- mock-css.
-  flex-wrap: wrap;
- mock-css.
-  flex-wrap: nowrap;
- mock-css.
-  flex-wrap: wrap-reverse;
- mock-css.
-  flex: 1 1 auto;
- mock-css.
-  flex: 0 1 auto;
- mock-css.
-  flex-grow: 0;
- mock-css.
-  flex-grow: 1;
- mock-css.
-  flex-shrink: 0;
- mock-css.
-  flex-shrink: 1;
- mock-css.
-  justify-content: center;
- mock-css.
-  justify-content: flex-end;
- mock-css.
-  justify-content: space-between;
- mock-css.
-  justify-content: space-around;
- mock-css.
-  justify-content: space-evenly;
- mock-css.
-  align-items: center;
- mock-css.
-  align-items: flex-start;
- mock-css.
-  align-items: flex-end;
- mock-css."
+      class="el-flex-container el-flex-row el-flex-row-reverse el-flex-column el-flex-column-reverse el-flex-wrap el-flex-no-wrap el-flex-wrap-reverse el-flex-auto el-flex-initial el-flex-grow0 el-flex-grow el-flex-shrink0 el-flex-shrink el-flex-justify-center el-flex-justify-end el-flex-justify-between el-flex-justify-around el-flex-justify-evenly el-flex-align-center el-flex-align-start el-flex-align-end el-has-grey-background"
     >
       <p>
         I am child
@@ -290,30 +154,13 @@ exports[`FlexContainer should match a snapshot and render children with all prop
 }
 `;
 
-exports[`MainContainer should match a snapshot and render children 1`] = `
+exports[`MainContainer > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <main
-        class="mock-css.
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  overflow-y: visible;
-  overflow-x: hidden;
-  background: var(--white);
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css."
+        class="el-main-container el-has-grey-background"
       >
         <p>
           I am child
@@ -323,24 +170,7 @@ exports[`MainContainer should match a snapshot and render children 1`] = `
   </body>,
   "container": <div>
     <main
-      class="mock-css.
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
-  overflow-y: visible;
-  overflow-x: hidden;
-  background: var(--white);
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css."
+      class="el-main-container el-has-grey-background"
     >
       <p>
         I am child
@@ -401,38 +231,13 @@ exports[`MainContainer should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`PageContainer should match a snapshot and render children 1`] = `
+exports[`PageContainer > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <section
-        class="mock-css.
-  display: block;
-  padding: 0.5rem 1.25rem;
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  background-color: var(--white);
-
-  , {
-    padding: 2.5rem 1.5rem;
-  }
-
-  &., {
-    height: 100%;
-  }
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css."
+        class="el-page-container el-has-grey-background"
       >
         <p>
           I am child
@@ -442,32 +247,7 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
   </body>,
   "container": <div>
     <section
-      class="mock-css.
-  display: block;
-  padding: 0.5rem 1.25rem;
-  width: 100%;
-  height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  background-color: var(--white);
-
-  , {
-    padding: 2.5rem 1.5rem;
-  }
-
-  &., {
-    height: 100%;
-  }
-
-  &., {
-    background: var(--neutral-050);
-  }
-
-  &., {
-    max-width: 1200px;
-    margin: 0 auto;
-  }
- mock-css."
+      class="el-page-container el-has-grey-background"
     >
       <p>
         I am child
@@ -528,31 +308,13 @@ exports[`PageContainer should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`SecondaryNavContainer should match a snapshot and render children 1`] = `
+exports[`SecondaryNavContainer > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
       <aside
-        class="mock-css.
-  display: block;
-  width: 14rem;
-  flex: 0 0 14rem;
-  padding: 1.5rem;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  background: var(--white);
-  border-right: 1px solid var(--neutral-050);
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  , {
-    display: none;
-  }
-"
+        class="el-secondary-nav-container"
       >
         <p>
           I am child
@@ -562,25 +324,7 @@ exports[`SecondaryNavContainer should match a snapshot and render children 1`] =
   </body>,
   "container": <div>
     <aside
-      class="mock-css.
-  display: block;
-  width: 14rem;
-  flex: 0 0 14rem;
-  padding: 1.5rem;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  background: var(--white);
-  border-right: 1px solid var(--neutral-050);
-
-  &::-webkit-scrollbar {
-    display: none;
-  }
-
-  , {
-    display: none;
-  }
-"
+      class="el-secondary-nav-container"
     >
       <p>
         I am child

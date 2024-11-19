@@ -19,7 +19,7 @@ describe('NavItem', () => {
   it('should render the component as HTMLButtonElement with default state', () => {
     expect(
       render(
-        <NavItem onClick={jest.fn()} isActive>
+        <NavItem onClick={vi.fn()} isActive>
           Label
         </NavItem>,
       ).asFragment(),
@@ -29,7 +29,7 @@ describe('NavItem', () => {
   it('should render the component as HTMLButtonElement with active state', () => {
     expect(
       render(
-        <NavItem onClick={jest.fn()} isActive>
+        <NavItem onClick={vi.fn()} isActive>
           Label
         </NavItem>,
       ).asFragment(),

@@ -18,7 +18,7 @@ describe('PersistentNotification component', () => {
   })
 
   it('should fire the onStepClick event correctly', async () => {
-    const spy = jest.fn()
+    const spy = vi.fn()
     const wrapper = render(
       <PersistentNotification intent="primary" onExpansionToggle={spy}>
         I am notification

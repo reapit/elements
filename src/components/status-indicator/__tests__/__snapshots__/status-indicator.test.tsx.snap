@@ -1,18 +1,18 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`StatusIndicator component should match a snapshot 1`] = `
+exports[`StatusIndicator component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-primary el-status-indicator"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-primary el-status-indicator"
     />
   </div>,
   "debug": [Function],
@@ -69,19 +69,19 @@ exports[`StatusIndicator component should match a snapshot 1`] = `
 }
 `;
 
-exports[`StatusIndicator component should match a snapshot 2`] = `
+exports[`StatusIndicator component > should match a snapshot 2`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-primary el-status-indicator"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-primary el-status-indicator"
     />
   </div>,
   "debug": [Function],
@@ -138,19 +138,19 @@ exports[`StatusIndicator component should match a snapshot 2`] = `
 }
 `;
 
-exports[`StatusIndicator component should match a snapshot 3`] = `
+exports[`StatusIndicator component > should match a snapshot 3`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-pending el-status-indicator"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-pending el-status-indicator"
     />
   </div>,
   "debug": [Function],
@@ -207,19 +207,19 @@ exports[`StatusIndicator component should match a snapshot 3`] = `
 }
 `;
 
-exports[`StatusIndicator component should match a snapshot 4`] = `
+exports[`StatusIndicator component > should match a snapshot 4`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-danger el-status-indicator"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-danger el-status-indicator"
     />
   </div>,
   "debug": [Function],
@@ -276,19 +276,19 @@ exports[`StatusIndicator component should match a snapshot 4`] = `
 }
 `;
 
-exports[`StatusIndicator component should match a snapshot 5`] = `
+exports[`StatusIndicator component > should match a snapshot 5`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-success el-status-indicator"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-success el-status-indicator"
     />
   </div>,
   "debug": [Function],
@@ -345,19 +345,19 @@ exports[`StatusIndicator component should match a snapshot 5`] = `
 }
 `;
 
-exports[`StatusIndicator component should match a snapshot 6`] = `
+exports[`StatusIndicator component > should match a snapshot 6`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-warning el-status-indicator"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-warning el-status-indicator"
     />
   </div>,
   "debug": [Function],
@@ -414,19 +414,19 @@ exports[`StatusIndicator component should match a snapshot 6`] = `
 }
 `;
 
-exports[`StatusIndicator component should match a snapshot 7`] = `
+exports[`StatusIndicator component > should match a snapshot 7`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-neutral el-status-indicator"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-neutral el-status-indicator"
     />
   </div>,
   "debug": [Function],
@@ -483,19 +483,19 @@ exports[`StatusIndicator component should match a snapshot 7`] = `
 }
 `;
 
-exports[`StatusIndicator component should match a snapshot 8`] = `
+exports[`StatusIndicator component > should match a snapshot 8`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.span
-        classname="mock-css."
+      <span
+        class="el-intent-default el-status-indicator"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.span
-      classname="mock-css."
+    <span
+      class="el-intent-default el-status-indicator"
     />
   </div>,
   "debug": [Function],

@@ -1,115 +1,149 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Pagination should match a snapshot 1`] = `
+exports[`Pagination > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.button
+      <div
+        class="mocked-styled-1 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+          <span
+            class="el-pagination-primary el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name chevronLeft"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="mocked-styled-2 el-pagination-text"
+        >
+          <input
             aria-label="Current page number, edit to select page of 4 available"
+            class="mocked-styled-3 el-pagination-input"
             value="2"
           />
            
           of 
           4
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+          <span
+            class="el-pagination-primary el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.button
+    <div
+      class="mocked-styled-1 el-pagination-wrap"
+    >
+      <button
         aria-label="Previous"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+        <span
+          class="el-pagination-primary el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name chevronLeft"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.div>
-        <mock-styled.input
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="mocked-styled-2 el-pagination-text"
+      >
+        <input
           aria-label="Current page number, edit to select page of 4 available"
+          class="mocked-styled-3 el-pagination-input"
           value="2"
         />
          
         of 
         4
-      </mock-styled.div>
-      <mock-styled.button
+      </div>
+      <button
         aria-label="Next"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="forward-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+        <span
+          class="el-pagination-primary el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -165,248 +199,326 @@ exports[`Pagination should match a snapshot 1`] = `
 }
 `;
 
-exports[`Pagination should match a snapshot with start end buttons 1`] = `
+exports[`Pagination > should match a snapshot with start end buttons 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.button
+      <div
+        class="mocked-styled-1 el-pagination-wrap"
+      >
+        <button
           aria-label="Previous"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+          <span
+            class="el-pagination-primary el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name chevronLeft"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.button
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
           aria-label="Previous"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+          <span
+            class="el-pagination-primary el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name chevronLeft"
-            />
-          </mock-styled.span>
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span
+            class="el-pagination-primary el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name chevronLeft"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.div>
-          <mock-styled.input
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+        <div
+          class="mocked-styled-2 el-pagination-text"
+        >
+          <input
             aria-label="Current page number, edit to select page of 4 available"
+            class="mocked-styled-3 el-pagination-input"
             value="2"
           />
            
           of 
           4
-        </mock-styled.div>
-        <mock-styled.button
+        </div>
+        <button
           aria-label="Next"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="back-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+          <span
+            class="el-pagination-primary el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+          <span
+            class="el-pagination-primary el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-        <mock-styled.button
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+        <button
           aria-label="Next"
+          class="mocked-styled-4 el-pagination-button"
           data-testid="forward-button"
           role="button"
           type="button"
         >
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+          <span
+            class="el-pagination-primary el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name chevronRight"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.button
+    <div
+      class="mocked-styled-1 el-pagination-wrap"
+    >
+      <button
         aria-label="Previous"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+        <span
+          class="el-pagination-primary el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name chevronLeft"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
         aria-label="Previous"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+        <span
+          class="el-pagination-primary el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name chevronLeft"
-          />
-        </mock-styled.span>
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <span
+          class="el-pagination-primary el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name chevronLeft"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.div>
-        <mock-styled.input
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+      <div
+        class="mocked-styled-2 el-pagination-text"
+      >
+        <input
           aria-label="Current page number, edit to select page of 4 available"
+          class="mocked-styled-3 el-pagination-input"
           value="2"
         />
          
         of 
         4
-      </mock-styled.div>
-      <mock-styled.button
+      </div>
+      <button
         aria-label="Next"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="back-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+        <span
+          class="el-pagination-primary el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <span
+          class="el-pagination-primary el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+      <button
         aria-label="Next"
+        class="mocked-styled-4 el-pagination-button"
         data-testid="forward-button"
         role="button"
         type="button"
       >
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  svg {
-    color: var(--intent-primary);
-  }
-"
+        <span
+          class="el-pagination-primary el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name chevronRight"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -462,28 +574,30 @@ exports[`Pagination should match a snapshot with start end buttons 1`] = `
 }
 `;
 
-exports[`PaginationButton should match a snapshot and render children 1`] = `
+exports[`PaginationButton > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.button
+      <button
+        class="mocked-styled-4 el-pagination-button"
         type="button"
       >
         <div>
           I am a child
         </div>
-      </mock-styled.button>
+      </button>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.button
+    <button
+      class="mocked-styled-4 el-pagination-button"
       type="button"
     >
       <div>
         I am a child
       </div>
-    </mock-styled.button>
+    </button>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -539,24 +653,28 @@ exports[`PaginationButton should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`PaginationText should match a snapshot and render children 1`] = `
+exports[`PaginationText > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <div
+        class="mocked-styled-2 el-pagination-text"
+      >
         <div>
           I am a child
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <div
+      class="mocked-styled-2 el-pagination-text"
+    >
       <div>
         I am a child
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -612,24 +730,28 @@ exports[`PaginationText should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`PaginationWrap should match a snapshot and render children 1`] = `
+exports[`PaginationWrap > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
+      <div
+        class="mocked-styled-1 el-pagination-wrap"
+      >
         <div>
           I am a child
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
+    <div
+      class="mocked-styled-1 el-pagination-wrap"
+    >
       <div>
         I am a child
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

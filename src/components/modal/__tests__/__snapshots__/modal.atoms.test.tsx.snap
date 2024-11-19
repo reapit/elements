@@ -1,23 +1,23 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ModalBg should match a snapshot 1`] = `
+exports[`ModalBg > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-modal-bg"
       >
         Content within modal
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-modal-bg"
     >
       Content within modal
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -73,24 +73,24 @@ exports[`ModalBg should match a snapshot 1`] = `
 }
 `;
 
-exports[`ModalBody should match a snapshot 1`] = `
+exports[`ModalBody > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-modal-bg"
       >
         Content within modal
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-modal-bg"
     >
       Content within modal
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -146,24 +146,24 @@ exports[`ModalBody should match a snapshot 1`] = `
 }
 `;
 
-exports[`ModalContainer should match a snapshot 1`] = `
+exports[`ModalContainer > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-1 el-modal"
       >
         Content within modal
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-1 el-modal"
     >
       Content within modal
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -219,24 +219,24 @@ exports[`ModalContainer should match a snapshot 1`] = `
 }
 `;
 
-exports[`ModalHeader should match a snapshot 1`] = `
+exports[`ModalHeader > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-2 el-modal-header"
       >
         Content within modal
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-2 el-modal-header"
     >
       Content within modal
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

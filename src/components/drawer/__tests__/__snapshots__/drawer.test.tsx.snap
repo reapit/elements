@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Drawer component should match a snapshot when closed 1`] = `
+exports[`Drawer component > should match a snapshot when closed 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -61,64 +61,96 @@ exports[`Drawer component should match a snapshot when closed 1`] = `
 }
 `;
 
-exports[`Drawer component should match a snapshot when open 1`] = `
+exports[`Drawer component > should match a snapshot when open 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css."
+      <div
+        class="el-is-active el-drawer-bg"
       />
-      <mock-styled.div
-        classname="mock-css."
+      <div
+        class="el-is-active el-drawer"
       >
-        <mock-styled.div>
+        <div
+          class="mocked-styled-2 el-drawer-header"
+        >
           <div>
-            <mock-styled.div>
+            <div
+              class="mocked-styled-4 el-drawer-title"
+            >
               test
-            </mock-styled.div>
+            </div>
           </div>
-          <mock-styled.span
-            classname="mock-css."
+          <span
+            class="el-intent-default el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name close"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
-        <mock-styled.div>
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12.3608 13.8296L18.0208 19.4896C18.2652 19.775 18.6489 19.8993 19.0142 19.8114C19.3795 19.7235 19.6647 19.4383 19.7526 19.073C19.8405 18.7077 19.7162 18.324 19.4308 18.0796L13.7708 12.4196L19.4308 6.75958C19.7162 6.51519 19.8405 6.13146 19.7526 5.76616C19.6647 5.40086 19.3795 5.11564 19.0142 5.02777C18.6489 4.93989 18.2652 5.0642 18.0208 5.34958L12.3608 11.0096L6.70079 5.34958C6.31076 4.96185 5.68083 4.96185 5.29079 5.34958C4.90307 5.73961 4.90307 6.36954 5.29079 6.75958L10.9508 12.4196L5.29079 18.0796C4.90307 18.4696 4.90307 19.0995 5.29079 19.4896C5.68083 19.8773 6.31076 19.8773 6.70079 19.4896L12.3608 13.8296Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </div>
+        <div
+          class="mocked-styled-5 el-drawer-body"
+        >
           Content within Drawer
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css."
+    <div
+      class="el-is-active el-drawer-bg"
     />
-    <mock-styled.div
-      classname="mock-css."
+    <div
+      class="el-is-active el-drawer"
     >
-      <mock-styled.div>
+      <div
+        class="mocked-styled-2 el-drawer-header"
+      >
         <div>
-          <mock-styled.div>
+          <div
+            class="mocked-styled-4 el-drawer-title"
+          >
             test
-          </mock-styled.div>
+          </div>
         </div>
-        <mock-styled.span
-          classname="mock-css."
+        <span
+          class="el-intent-default el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name close"
-          />
-        </mock-styled.span>
-      </mock-styled.div>
-      <mock-styled.div>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.3608 13.8296L18.0208 19.4896C18.2652 19.775 18.6489 19.8993 19.0142 19.8114C19.3795 19.7235 19.6647 19.4383 19.7526 19.073C19.8405 18.7077 19.7162 18.324 19.4308 18.0796L13.7708 12.4196L19.4308 6.75958C19.7162 6.51519 19.8405 6.13146 19.7526 5.76616C19.6647 5.40086 19.3795 5.11564 19.0142 5.02777C18.6489 4.93989 18.2652 5.0642 18.0208 5.34958L12.3608 11.0096L6.70079 5.34958C6.31076 4.96185 5.68083 4.96185 5.29079 5.34958C4.90307 5.73961 4.90307 6.36954 5.29079 6.75958L10.9508 12.4196L5.29079 18.0796C4.90307 18.4696 4.90307 19.0995 5.29079 19.4896C5.68083 19.8773 6.31076 19.8773 6.70079 19.4896L12.3608 13.8296Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
+      <div
+        class="mocked-styled-5 el-drawer-body"
+      >
         Content within Drawer
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -174,24 +206,24 @@ exports[`Drawer component should match a snapshot when open 1`] = `
 }
 `;
 
-exports[`DrawerBg should match a snapshot 1`] = `
+exports[`DrawerBg > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-drawer-bg"
       >
         Content within Drawer
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-drawer-bg"
     >
       Content within Drawer
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -247,24 +279,24 @@ exports[`DrawerBg should match a snapshot 1`] = `
 }
 `;
 
-exports[`DrawerBody should match a snapshot 1`] = `
+exports[`DrawerBody > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-5 el-drawer-body"
       >
         Content within Drawer
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-5 el-drawer-body"
     >
       Content within Drawer
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -320,24 +352,24 @@ exports[`DrawerBody should match a snapshot 1`] = `
 }
 `;
 
-exports[`DrawerContainer should match a snapshot 1`] = `
+exports[`DrawerContainer > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-1 el-drawer"
       >
         Content within Drawer
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-1 el-drawer"
     >
       Content within Drawer
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -393,24 +425,24 @@ exports[`DrawerContainer should match a snapshot 1`] = `
 }
 `;
 
-exports[`DrawerHeader should match a snapshot 1`] = `
+exports[`DrawerHeader > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-2 el-drawer-header"
       >
         Content within Drawer
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-2 el-drawer-header"
     >
       Content within Drawer
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -466,24 +498,24 @@ exports[`DrawerHeader should match a snapshot 1`] = `
 }
 `;
 
-exports[`DrawerSubtitle should match a snapshot 1`] = `
+exports[`DrawerSubtitle > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-3 el-drawer-subtitle"
       >
         Content within Drawer
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-3 el-drawer-subtitle"
     >
       Content within Drawer
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -539,24 +571,24 @@ exports[`DrawerSubtitle should match a snapshot 1`] = `
 }
 `;
 
-exports[`DrawerTitle should match a snapshot 1`] = `
+exports[`DrawerTitle > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-4 el-drawer-title"
       >
         Content within Drawer
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-4 el-drawer-title"
     >
       Content within Drawer
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

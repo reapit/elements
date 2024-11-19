@@ -1,45 +1,49 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SecondaryNav component should match a snapshot 1`] = `
+exports[`SecondaryNav component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.div
-          classname=""
+      <div
+        class="mocked-styled-0 el-secondary-nav"
+      >
+        <div
+          class="mocked-styled-1 el-secondary-nav-item"
           role="button"
           tabindex="0"
         >
           App List
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css."
+        </div>
+        <div
+          class="el-is-active el-secondary-nav-item"
           role="button"
           tabindex="0"
         >
           Create App
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.div
-        classname=""
+    <div
+      class="mocked-styled-0 el-secondary-nav"
+    >
+      <div
+        class="mocked-styled-1 el-secondary-nav-item"
         role="button"
         tabindex="0"
       >
         App List
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css."
+      </div>
+      <div
+        class="el-is-active el-secondary-nav-item"
         role="button"
         tabindex="0"
       >
         Create App
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

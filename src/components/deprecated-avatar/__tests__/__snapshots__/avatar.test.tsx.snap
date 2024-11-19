@@ -1,27 +1,27 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Avatar component should match a snapshot 1`] = `
+exports[`Avatar component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-deprecated-avatar"
         role="img"
         title="A profile image"
       >
         Some Content
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-deprecated-avatar"
       role="img"
       title="A profile image"
     >
       Some Content
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -77,13 +77,13 @@ exports[`Avatar component should match a snapshot 1`] = `
 }
 `;
 
-exports[`Avatar component should match a snapshot for an image src 1`] = `
+exports[`Avatar component > should match a snapshot for an image src 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-deprecated-avatar"
         role="img"
         title="A profile image"
       >
@@ -91,12 +91,12 @@ exports[`Avatar component should match a snapshot for an image src 1`] = `
           alt="An image with source https://picsum.photos/200"
           src="https://picsum.photos/200"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-deprecated-avatar"
       role="img"
       title="A profile image"
     >
@@ -104,7 +104,7 @@ exports[`Avatar component should match a snapshot for an image src 1`] = `
         alt="An image with source https://picsum.photos/200"
         src="https://picsum.photos/200"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -160,13 +160,13 @@ exports[`Avatar component should match a snapshot for an image src 1`] = `
 }
 `;
 
-exports[`Avatar component should match a snapshot for an image type 1`] = `
+exports[`Avatar component > should match a snapshot for an image type 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-1 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
         role="img"
         title="An avatar image"
       >
@@ -174,12 +174,12 @@ exports[`Avatar component should match a snapshot for an image type 1`] = `
           alt="An image with source https://picsum.photos/200"
           src="https://picsum.photos/200"
         />
-      </mock-styled.mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-1 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
       role="img"
       title="An avatar image"
     >
@@ -187,7 +187,7 @@ exports[`Avatar component should match a snapshot for an image type 1`] = `
         alt="An image with source https://picsum.photos/200"
         src="https://picsum.photos/200"
       />
-    </mock-styled.mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

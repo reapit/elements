@@ -1,20 +1,20 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Input component should match a snapshot 1`] = `
+exports[`Input component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.input
+      <input
         aria-label="Input type undefined"
-        classname=""
+        class="mocked-styled-0 el-input"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.input
+    <input
       aria-label="Input type undefined"
-      classname=""
+      class="mocked-styled-0 el-input"
     />
   </div>,
   "debug": [Function],

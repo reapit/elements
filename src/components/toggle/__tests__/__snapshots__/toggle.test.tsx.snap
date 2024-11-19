@@ -1,47 +1,57 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Toggle should match a snapshot and render children 1`] = `
+exports[`Toggle > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.input
+      <input
+        class="mocked-styled-2 el-toggle-checkbox"
         id="test-static-id"
         type="checkbox"
       />
-      <mock-styled.label
-        classname=""
-        htmlfor="test-static-id"
+      <label
+        class="mocked-styled-3 el-toggle-label"
+        for="test-static-id"
         role="button"
         tabindex="0"
       >
-        <mock-styled.span>
+        <span
+          class="mocked-styled-0 el-toggle-item"
+        >
           On
-        </mock-styled.span>
-        <mock-styled.span>
+        </span>
+        <span
+          class="mocked-styled-0 el-toggle-item"
+        >
           Off
-        </mock-styled.span>
-      </mock-styled.label>
+        </span>
+      </label>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.input
+    <input
+      class="mocked-styled-2 el-toggle-checkbox"
       id="test-static-id"
       type="checkbox"
     />
-    <mock-styled.label
-      classname=""
-      htmlfor="test-static-id"
+    <label
+      class="mocked-styled-3 el-toggle-label"
+      for="test-static-id"
       role="button"
       tabindex="0"
     >
-      <mock-styled.span>
+      <span
+        class="mocked-styled-0 el-toggle-item"
+      >
         On
-      </mock-styled.span>
-      <mock-styled.span>
+      </span>
+      <span
+        class="mocked-styled-0 el-toggle-item"
+      >
         Off
-      </mock-styled.span>
-    </mock-styled.label>
+      </span>
+    </label>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -97,142 +107,136 @@ exports[`Toggle should match a snapshot and render children 1`] = `
 }
 `;
 
-exports[`ToggleRadio should match a snapshot and render children 1`] = `
+exports[`ToggleRadio > should match a snapshot and render children 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+      <div
+        class="el-toggle-full-width el-toggle-radio-wrap"
       >
-        <mock-styled.input
+        <input
+          class="mocked-styled-4 el-toggle-radio"
           id="option-1"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-1"
         />
-        <mock-styled.label
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
-          htmlfor="option-1"
+        <label
+          class="el-toggle-full-width el-toggle-radio-label"
+          for="option-1"
           role="button"
           tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-1 el-toggle-radio-item"
+          >
             Option 1
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-4 el-toggle-radio"
           id="option-2"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-2"
         />
-        <mock-styled.label
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
-          htmlfor="option-2"
+        <label
+          class="el-toggle-full-width el-toggle-radio-label"
+          for="option-2"
           role="button"
           tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-1 el-toggle-radio-item"
+          >
             Option 2
-          </mock-styled.span>
-        </mock-styled.label>
-        <mock-styled.input
+          </span>
+        </label>
+        <input
+          class="mocked-styled-4 el-toggle-radio"
           id="option-3"
           name="my-cool-toggle-radio"
           type="radio"
           value="option-3"
         />
-        <mock-styled.label
-          classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
-          htmlfor="option-3"
+        <label
+          class="el-toggle-full-width el-toggle-radio-label"
+          for="option-3"
           role="button"
           tabindex="0"
         >
-          <mock-styled.span>
+          <span
+            class="mocked-styled-1 el-toggle-radio-item"
+          >
             Option 3
-          </mock-styled.span>
-        </mock-styled.label>
-      </mock-styled.div>
+          </span>
+        </label>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
+    <div
+      class="el-toggle-full-width el-toggle-radio-wrap"
     >
-      <mock-styled.input
+      <input
+        class="mocked-styled-4 el-toggle-radio"
         id="option-1"
         name="my-cool-toggle-radio"
         type="radio"
         value="option-1"
       />
-      <mock-styled.label
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
-        htmlfor="option-1"
+      <label
+        class="el-toggle-full-width el-toggle-radio-label"
+        for="option-1"
         role="button"
         tabindex="0"
       >
-        <mock-styled.span>
+        <span
+          class="mocked-styled-1 el-toggle-radio-item"
+        >
           Option 1
-        </mock-styled.span>
-      </mock-styled.label>
-      <mock-styled.input
+        </span>
+      </label>
+      <input
+        class="mocked-styled-4 el-toggle-radio"
         id="option-2"
         name="my-cool-toggle-radio"
         type="radio"
         value="option-2"
       />
-      <mock-styled.label
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
-        htmlfor="option-2"
+      <label
+        class="el-toggle-full-width el-toggle-radio-label"
+        for="option-2"
         role="button"
         tabindex="0"
       >
-        <mock-styled.span>
+        <span
+          class="mocked-styled-1 el-toggle-radio-item"
+        >
           Option 2
-        </mock-styled.span>
-      </mock-styled.label>
-      <mock-styled.input
+        </span>
+      </label>
+      <input
+        class="mocked-styled-4 el-toggle-radio"
         id="option-3"
         name="my-cool-toggle-radio"
         type="radio"
         value="option-3"
       />
-      <mock-styled.label
-        classname="mock-css.
-  width: 100%;
-  justify-content: space-evenly;
-"
-        htmlfor="option-3"
+      <label
+        class="el-toggle-full-width el-toggle-radio-label"
+        for="option-3"
         role="button"
         tabindex="0"
       >
-        <mock-styled.span>
+        <span
+          class="mocked-styled-1 el-toggle-radio-item"
+        >
           Option 3
-        </mock-styled.span>
-      </mock-styled.label>
-    </mock-styled.div>
+        </span>
+      </label>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

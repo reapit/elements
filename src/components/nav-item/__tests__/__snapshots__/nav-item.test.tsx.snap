@@ -1,50 +1,62 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`NavItem should render the component as HTMLAnchorElement with active state 1`] = `
+exports[`NavItem > should render the component as HTMLAnchorElement with active state 1`] = `
 <DocumentFragment>
-  <mock-styled.a
+  <a
     aria-current="true"
+    class="mocked-styled-2 el-nav-item-anchor"
     href="#"
   >
-    <mock-styled.span>
+    <span
+      class="mocked-styled-0 el-nav-item-label-container"
+    >
       Label
-    </mock-styled.span>
-  </mock-styled.a>
+    </span>
+  </a>
 </DocumentFragment>
 `;
 
-exports[`NavItem should render the component as HTMLAnchorElement with default state 1`] = `
+exports[`NavItem > should render the component as HTMLAnchorElement with default state 1`] = `
 <DocumentFragment>
-  <mock-styled.a
+  <a
+    class="mocked-styled-2 el-nav-item-anchor"
     href="#"
   >
-    <mock-styled.span>
+    <span
+      class="mocked-styled-0 el-nav-item-label-container"
+    >
       Label
-    </mock-styled.span>
-  </mock-styled.a>
+    </span>
+  </a>
 </DocumentFragment>
 `;
 
-exports[`NavItem should render the component as HTMLButtonElement with active state 1`] = `
+exports[`NavItem > should render the component as HTMLButtonElement with active state 1`] = `
 <DocumentFragment>
-  <mock-styled.button
+  <button
     aria-current="true"
+    class="mocked-styled-1 el-nav-item-button"
   >
-    <mock-styled.span>
+    <span
+      class="mocked-styled-0 el-nav-item-label-container"
+    >
       Label
-    </mock-styled.span>
-  </mock-styled.button>
+    </span>
+  </button>
 </DocumentFragment>
 `;
 
-exports[`NavItem should render the component as HTMLButtonElement with default state 1`] = `
+exports[`NavItem > should render the component as HTMLButtonElement with default state 1`] = `
 <DocumentFragment>
-  <mock-styled.button
+  <button
     aria-current="true"
+    class="mocked-styled-1 el-nav-item-button"
   >
-    <mock-styled.span>
+    <span
+      class="mocked-styled-0 el-nav-item-label-container"
+    >
       Label
-    </mock-styled.span>
-  </mock-styled.button>
+    </span>
+  </button>
 </DocumentFragment>
 `;

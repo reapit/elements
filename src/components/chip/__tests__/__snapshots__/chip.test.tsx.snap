@@ -1,33 +1,35 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Chip component should match a snapshot 1`] = `
+exports[`Chip component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.input
+      <input
+        class="mocked-styled-0 el-chip-checkbox"
         id="test-static-id"
         type="checkbox"
       />
-      <mock-styled.label
-        classname=""
-        htmlfor="test-static-id"
+      <label
+        class="mocked-styled-1 el-chip-label"
+        for="test-static-id"
       >
         Some Content
-      </mock-styled.label>
+      </label>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.input
+    <input
+      class="mocked-styled-0 el-chip-checkbox"
       id="test-static-id"
       type="checkbox"
     />
-    <mock-styled.label
-      classname=""
-      htmlfor="test-static-id"
+    <label
+      class="mocked-styled-1 el-chip-label"
+      for="test-static-id"
     >
       Some Content
-    </mock-styled.label>
+    </label>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -83,66 +85,74 @@ exports[`Chip component should match a snapshot 1`] = `
 }
 `;
 
-exports[`ChipGroup component should match a snapshot 1`] = `
+exports[`ChipGroup component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-2 el-chip-group"
       >
-        <mock-styled.div>
-          <mock-styled.input
+        <div
+          class="mocked-styled-3 el-chip-group-inner"
+        >
+          <input
+            class="mocked-styled-0 el-chip-checkbox"
             id="test-static-id"
             type="checkbox"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-1 el-chip-label"
+            for="test-static-id"
           >
             Some Content
-          </mock-styled.label>
-          <mock-styled.input
+          </label>
+          <input
+            class="mocked-styled-0 el-chip-checkbox"
             id="test-static-id"
             type="checkbox"
           />
-          <mock-styled.label
-            classname=""
-            htmlfor="test-static-id"
+          <label
+            class="mocked-styled-1 el-chip-label"
+            for="test-static-id"
           >
             Some Content
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
+          </label>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-2 el-chip-group"
     >
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-3 el-chip-group-inner"
+      >
+        <input
+          class="mocked-styled-0 el-chip-checkbox"
           id="test-static-id"
           type="checkbox"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="test-static-id"
+        <label
+          class="mocked-styled-1 el-chip-label"
+          for="test-static-id"
         >
           Some Content
-        </mock-styled.label>
-        <mock-styled.input
+        </label>
+        <input
+          class="mocked-styled-0 el-chip-checkbox"
           id="test-static-id"
           type="checkbox"
         />
-        <mock-styled.label
-          classname=""
-          htmlfor="test-static-id"
+        <label
+          class="mocked-styled-1 el-chip-label"
+          for="test-static-id"
         >
           Some Content
-        </mock-styled.label>
-      </mock-styled.div>
-    </mock-styled.div>
+        </label>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

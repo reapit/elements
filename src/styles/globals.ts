@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import '../../tokens/reapit/tokens.css'
+import '#src/tokens/reapit/tokens.css'
 
 // export javascript colours for the SVG background in the button
 export const intentPrimary = '#4e56ea'

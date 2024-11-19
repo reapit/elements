@@ -1,74 +1,75 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`content field-sizing a shadow text area is present when the CSS \`field-sizing\` property is not supported 1`] = `
+exports[`content field-sizing > a shadow text area is present when the CSS \`field-sizing\` property is not supported 1`] = `
 <DocumentFragment>
-  <mock-styled.textarea
-    classname=""
+  <textarea
+    class="mocked-styled-0 el-text-area"
     data-field-sizing="content"
     style="--textarea-max-rows: Infinity; --textarea-min-rows: 3; block-size: 0px;"
   />
-  <mock-styled.mock-styled.textarea
+  <textarea
     aria-hidden="true"
+    class="mocked-styled-1 el-text-area el-shadow-text-area el-text-area"
     data-field-sizing="content"
     style="--textarea-max-rows: Infinity; --textarea-min-rows: 3;"
   />
 </DocumentFragment>
 `;
 
-exports[`content field-sizing can set custom min/max rows 1`] = `
+exports[`content field-sizing > can set custom min/max rows 1`] = `
 <DocumentFragment>
-  <mock-styled.textarea
-    classname=""
+  <textarea
+    class="mocked-styled-0 el-text-area"
     data-field-sizing="content"
     style="--textarea-max-rows: 10; --textarea-min-rows: 3;"
   />
 </DocumentFragment>
 `;
 
-exports[`content field-sizing default min/max rows are 3 -> Infinity 1`] = `
+exports[`content field-sizing > default min/max rows are 3 -> Infinity 1`] = `
 <DocumentFragment>
-  <mock-styled.textarea
-    classname=""
+  <textarea
+    class="mocked-styled-0 el-text-area"
     data-field-sizing="content"
     style="--textarea-max-rows: Infinity; --textarea-min-rows: 3;"
   />
 </DocumentFragment>
 `;
 
-exports[`fixed field-sizing can set custom number of rows 1`] = `
+exports[`fixed field-sizing > can set custom number of rows 1`] = `
 <DocumentFragment>
-  <mock-styled.textarea
-    classname=""
+  <textarea
+    class="mocked-styled-0 el-text-area"
     data-field-sizing="fixed"
     rows="10"
   />
 </DocumentFragment>
 `;
 
-exports[`fixed field-sizing default rows is 3 1`] = `
+exports[`fixed field-sizing > default rows is 3 1`] = `
 <DocumentFragment>
-  <mock-styled.textarea
-    classname=""
+  <textarea
+    class="mocked-styled-0 el-text-area"
     data-field-sizing="fixed"
     rows="3"
   />
 </DocumentFragment>
 `;
 
-exports[`manual field-sizing can set custom number of initial rows 1`] = `
+exports[`manual field-sizing > can set custom number of initial rows 1`] = `
 <DocumentFragment>
-  <mock-styled.textarea
-    classname=""
+  <textarea
+    class="mocked-styled-0 el-text-area"
     data-field-sizing="manual"
     rows="7"
   />
 </DocumentFragment>
 `;
 
-exports[`manual field-sizing default rows is 3 1`] = `
+exports[`manual field-sizing > default rows is 3 1`] = `
 <DocumentFragment>
-  <mock-styled.textarea
-    classname=""
+  <textarea
+    class="mocked-styled-0 el-text-area"
     data-field-sizing="manual"
     rows="3"
   />

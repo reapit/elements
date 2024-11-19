@@ -57,12 +57,12 @@ describe('useMenu', () => {
     })
 
     it('should focus the first menu item on ArrowDown key press', () => {
-      const mockCustomOnKeyDown = jest.fn()
+      const mockCustomOnKeyDown = vi.fn()
       const { result } = renderHook(() => useMenu())
       const triggerProps = result.current.getTriggerProps({
         onKeyDown: mockCustomOnKeyDown,
       })
-      const mockFocusFn = jest.fn()
+      const mockFocusFn = vi.fn()
       const event = {
         key: 'ArrowDown',
         currentTarget: {
@@ -114,16 +114,16 @@ describe('useMenu', () => {
       beforeEach(() => {
         mockMenuItems = [
           {
-            focus: jest.fn(),
-            click: jest.fn(),
+            focus: vi.fn(),
+            click: vi.fn(),
           },
           {
-            focus: jest.fn(),
-            click: jest.fn(),
+            focus: vi.fn(),
+            click: vi.fn(),
           },
         ]
         mockTriggerButton = {
-          focus: jest.fn(),
+          focus: vi.fn(),
         }
         mockEvent = {
           currentTarget: {

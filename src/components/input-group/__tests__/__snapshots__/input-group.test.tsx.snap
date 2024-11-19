@@ -1,47 +1,75 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InputGroup component should match a snapshot when used in explicit mode 1`] = `
+exports[`InputGroup component > should match a snapshot when used in explicit mode 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-0 el-input-group"
+      >
+        <input
           aria-label="Input type undefined"
-          classname=""
+          class="mocked-styled-1 el-input"
         />
-        <mock-styled.span
-          classname=""
+        <span
+          class="mocked-styled-2 el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name email"
-          />
-        </mock-styled.span>
-        <mock-styled.label>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <label
+          class="mocked-styled-3 el-label"
+        >
           Please enter a username
-        </mock-styled.label>
-      </mock-styled.div>
+        </label>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
+    <div
+      class="mocked-styled-0 el-input-group"
+    >
+      <input
         aria-label="Input type undefined"
-        classname=""
+        class="mocked-styled-1 el-input"
       />
-      <mock-styled.span
-        classname=""
+      <span
+        class="mocked-styled-2 el-icon"
       >
         <svg
+          fill="none"
+          height="24"
           role="img"
           title="Icon image with name email"
-        />
-      </mock-styled.span>
-      <mock-styled.label>
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <label
+        class="mocked-styled-3 el-label"
+      >
         Please enter a username
-      </mock-styled.label>
-    </mock-styled.div>
+      </label>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -97,28 +125,32 @@ exports[`InputGroup component should match a snapshot when used in explicit mode
 }
 `;
 
-exports[`InputGroup component should match a snapshot when used in react shorthand mode 1`] = `
+exports[`InputGroup component > should match a snapshot when used in react shorthand mode 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-0 el-input-group"
+      >
+        <input
           aria-label="Input type undefined"
-          classname=""
+          class="mocked-styled-1 el-input"
           id="myId"
         />
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
+    <div
+      class="mocked-styled-0 el-input-group"
+    >
+      <input
         aria-label="Input type undefined"
-        classname=""
+        class="mocked-styled-1 el-input"
         id="myId"
       />
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -174,38 +206,44 @@ exports[`InputGroup component should match a snapshot when used in react shortha
 }
 `;
 
-exports[`InputGroup component should match a snapshot when used in react shorthand mode, with a label 1`] = `
+exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with a label 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-0 el-input-group"
+      >
+        <input
           aria-label="Input type undefined"
-          classname=""
+          class="mocked-styled-1 el-input"
           id="myId"
         />
-        <mock-styled.label
-          htmlfor="myId"
+        <label
+          class="mocked-styled-3 el-label"
+          for="myId"
         >
           Enter your username
-        </mock-styled.label>
-      </mock-styled.div>
+        </label>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
+    <div
+      class="mocked-styled-0 el-input-group"
+    >
+      <input
         aria-label="Input type undefined"
-        classname=""
+        class="mocked-styled-1 el-input"
         id="myId"
       />
-      <mock-styled.label
-        htmlfor="myId"
+      <label
+        class="mocked-styled-3 el-label"
+        for="myId"
       >
         Enter your username
-      </mock-styled.label>
-    </mock-styled.div>
+      </label>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -261,48 +299,72 @@ exports[`InputGroup component should match a snapshot when used in react shortha
 }
 `;
 
-exports[`InputGroup component should match a snapshot when used in react shorthand mode, with an icon 1`] = `
+exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with an icon 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-0 el-input-group"
+      >
+        <input
           aria-label="Input type undefined"
-          classname=""
+          class="mocked-styled-1 el-input"
           id="myId"
         />
-        <mock-styled.span
-          classname=""
+        <span
+          class="mocked-styled-2 el-icon"
           style="font-size: 1rem;"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             style="font-size: 1rem;"
             title="Icon image with name email"
-          />
-        </mock-styled.span>
-      </mock-styled.div>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
+    <div
+      class="mocked-styled-0 el-input-group"
+    >
+      <input
         aria-label="Input type undefined"
-        classname=""
+        class="mocked-styled-1 el-input"
         id="myId"
       />
-      <mock-styled.span
-        classname=""
+      <span
+        class="mocked-styled-2 el-icon"
         style="font-size: 1rem;"
       >
         <svg
+          fill="none"
+          height="24"
           role="img"
           style="font-size: 1rem;"
           title="Icon image with name email"
-        />
-      </mock-styled.span>
-    </mock-styled.div>
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -358,58 +420,84 @@ exports[`InputGroup component should match a snapshot when used in react shortha
 }
 `;
 
-exports[`InputGroup component should match a snapshot when used in react shorthand mode, with an icon and a label 1`] = `
+exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with an icon and a label 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div>
-        <mock-styled.input
+      <div
+        class="mocked-styled-0 el-input-group"
+      >
+        <input
           aria-label="Input type undefined"
-          classname=""
+          class="mocked-styled-1 el-input"
           id="myId"
         />
-        <mock-styled.span
-          classname=""
+        <span
+          class="mocked-styled-2 el-icon"
           style="font-size: 1rem;"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             style="font-size: 1rem;"
             title="Icon image with name email"
-          />
-        </mock-styled.span>
-        <mock-styled.label
-          htmlfor="myId"
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+        <label
+          class="mocked-styled-3 el-label"
+          for="myId"
         >
           Enter your username
-        </mock-styled.label>
-      </mock-styled.div>
+        </label>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
+    <div
+      class="mocked-styled-0 el-input-group"
+    >
+      <input
         aria-label="Input type undefined"
-        classname=""
+        class="mocked-styled-1 el-input"
         id="myId"
       />
-      <mock-styled.span
-        classname=""
+      <span
+        class="mocked-styled-2 el-icon"
         style="font-size: 1rem;"
       >
         <svg
+          fill="none"
+          height="24"
           role="img"
           style="font-size: 1rem;"
           title="Icon image with name email"
-        />
-      </mock-styled.span>
-      <mock-styled.label
-        htmlfor="myId"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <label
+        class="mocked-styled-3 el-label"
+        for="myId"
       >
         Enter your username
-      </mock-styled.label>
-    </mock-styled.div>
+      </label>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

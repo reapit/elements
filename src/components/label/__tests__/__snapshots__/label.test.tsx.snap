@@ -1,15 +1,19 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Label component should match a snapshot 1`] = `
+exports[`Label component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.label />
+      <label
+        class="mocked-styled-0 el-label"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.label />
+    <label
+      class="mocked-styled-0 el-label"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

@@ -16,8 +16,8 @@ describe('SearchableDropdown component', () => {
     expect(wrapper).toMatchSnapshot()
   })
 
-  xit('should get results from the given function, passing the value of the search box', () => {
-    const getResults = jest.fn().mockResolvedValue([{ id: '1', name: 'one' }])
+  it('should get results from the given function, passing the value of the search box', () => {
+    const getResults = vi.fn().mockResolvedValue([{ id: '1', name: 'one' }])
 
     render(
       <SearchableDropdown
@@ -33,7 +33,7 @@ describe('SearchableDropdown component', () => {
 
     expect(getResults).toHaveBeenCalledWith('test')
   })
-  xit('should display results returned from the given function', async () => {
+  it('should display results returned from the given function', async () => {
     render(
       <SearchableDropdown
         getResults={async () => [{ id: '1', name: 'one' }]}
@@ -48,8 +48,8 @@ describe('SearchableDropdown component', () => {
       expect(screen.getByTestId('dropdown-result-0').innerHTML).toEqual('one')
     })
   })
-  xit('should call onChange when a result is chosen from the list', async () => {
-    const onChange = jest.fn()
+  it('should call onChange when a result is chosen from the list', async () => {
+    const onChange = vi.fn()
     render(
       <SearchableDropdown
         getResults={async () => [{ id: '1', name: 'one' }]}

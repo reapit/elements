@@ -1,27 +1,27 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`ColResponsive should match a snapshot and render children with no props 1`] = `
+exports[`ColResponsive > should match a snapshot and render children with no props 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-1 el-col"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-1 el-col"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -77,60 +77,28 @@ exports[`ColResponsive should match a snapshot and render children with no props
 }
 `;
 
-exports[`ColResponsive should render with the correct classNames when supplied all props 1`] = `
+exports[`ColResponsive > should render with the correct classNames when supplied all props 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css.
-  grid-column-end: span 1;
- mock-css.
-  grid-column-start: 1;
-"
-        offset4kscreen="1"
-        offsetdesktop="1"
-        offsetmobile="1"
-        offsetsuperwidescreen="1"
-        offsettablet="1"
-        offsetwidescreen="1"
-        span4kscreen="1"
-        spandesktop="1"
-        spanmobile="1"
-        spansuperwidescreen="1"
-        spantablet="1"
-        spanwidescreen="1"
+      <div
+        class="el-span1 el-offset1 el-col"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css.
-  grid-column-end: span 1;
- mock-css.
-  grid-column-start: 1;
-"
-      offset4kscreen="1"
-      offsetdesktop="1"
-      offsetmobile="1"
-      offsetsuperwidescreen="1"
-      offsettablet="1"
-      offsetwidescreen="1"
-      span4kscreen="1"
-      spandesktop="1"
-      spanmobile="1"
-      spansuperwidescreen="1"
-      spantablet="1"
-      spanwidescreen="1"
+    <div
+      class="el-span1 el-offset1 el-col"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -186,60 +154,28 @@ exports[`ColResponsive should render with the correct classNames when supplied a
 }
 `;
 
-exports[`GridResponsive hould render with the correct classNames when supplied all props 1`] = `
+exports[`GridResponsive > hould render with the correct classNames when supplied all props 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css.
-  grid-column-gap: 0.75rem;
- mock-css.
-  grid-row-gap: 0.75rem;
-"
-        colgap4kscreen="8"
-        colgapdesktop="3"
-        colgapmobile="1"
-        colgapsuperwidescreen="6"
-        colgaptablet="2"
-        colgapwidescreen="4"
-        rowgap4kscreen="8"
-        rowgapdesktop="3"
-        rowgapmobile="1"
-        rowgapsuperwidescreen="6"
-        rowgaptablet="2"
-        rowgapwidescreen="4"
+      <div
+        class="el-col-gap3 el-row-gap3 el-grid"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css.
-  grid-column-gap: 0.75rem;
- mock-css.
-  grid-row-gap: 0.75rem;
-"
-      colgap4kscreen="8"
-      colgapdesktop="3"
-      colgapmobile="1"
-      colgapsuperwidescreen="6"
-      colgaptablet="2"
-      colgapwidescreen="4"
-      rowgap4kscreen="8"
-      rowgapdesktop="3"
-      rowgapmobile="1"
-      rowgapsuperwidescreen="6"
-      rowgaptablet="2"
-      rowgapwidescreen="4"
+    <div
+      class="el-col-gap3 el-row-gap3 el-grid"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -295,28 +231,28 @@ exports[`GridResponsive hould render with the correct classNames when supplied a
 }
 `;
 
-exports[`GridResponsive should match a snapshot and render children with no props 1`] = `
+exports[`GridResponsive > should match a snapshot and render children with no props 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-grid"
       >
         <p>
           I am child
         </p>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-grid"
     >
       <p>
         I am child
       </p>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

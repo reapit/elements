@@ -1,97 +1,85 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PersistentNotification component should match a snapshot 1`] = `
+exports[`PersistentNotification component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css."
+      <div
+        class="el-intent-primary el-persistent-notification"
         role="status"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname=""
+          <span
+            class="mocked-styled-1 el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               style="font-size: 1.25rem;"
               title="Icon image with name info"
-            />
-          </mock-styled.span>
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM13.1429 17.7143H10.8571V11.7143H13.1429V17.7143ZM12 9.71429C11.3066 9.71429 10.6815 9.29661 10.4162 8.65603C10.1509 8.01544 10.2975 7.2781 10.7878 6.78782C11.2781 6.29753 12.0154 6.15087 12.656 6.41621C13.2966 6.68155 13.7143 7.30664 13.7143 8C13.7143 8.94677 12.9468 9.71429 12 9.71429Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
         </div>
         <div
           aria-live="polite"
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           I am notification
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css."
+    <div
+      class="el-intent-primary el-persistent-notification"
       role="status"
     >
       <div
-        class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--white);
-  }
-"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname=""
+        <span
+          class="mocked-styled-1 el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             style="font-size: 1.25rem;"
             title="Icon image with name info"
-          />
-        </mock-styled.span>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM13.1429 17.7143H10.8571V11.7143H13.1429V17.7143ZM12 9.71429C11.3066 9.71429 10.6815 9.29661 10.4162 8.65603C10.1509 8.01544 10.2975 7.2781 10.7878 6.78782C11.2781 6.29753 12.0154 6.15087 12.656 6.41621C13.2966 6.68155 13.7143 7.30664 13.7143 8C13.7143 8.94677 12.9468 9.71429 12 9.71429Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
       </div>
       <div
         aria-live="polite"
-        class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--black);
-  font-size: var(--font-size-default);
-"
+        class="el-pn-content"
       >
         I am notification
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -147,98 +135,86 @@ exports[`PersistentNotification component should match a snapshot 1`] = `
 }
 `;
 
-exports[`PersistentNotification component should match a snapshot for an inline notification 1`] = `
+exports[`PersistentNotification component > should match a snapshot for an inline notification 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css. mock-css. mock-css. mock-css."
+      <div
+        class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
         role="status"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname=""
+          <span
+            class="mocked-styled-1 el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               style="font-size: 1.25rem;"
               title="Icon image with name info"
-            />
-          </mock-styled.span>
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM13.1429 17.7143H10.8571V11.7143H13.1429V17.7143ZM12 9.71429C11.3066 9.71429 10.6815 9.29661 10.4162 8.65603C10.1509 8.01544 10.2975 7.2781 10.7878 6.78782C11.2781 6.29753 12.0154 6.15087 12.656 6.41621C13.2966 6.68155 13.7143 7.30664 13.7143 8C13.7143 8.94677 12.9468 9.71429 12 9.71429Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
         </div>
         <div
           aria-live="polite"
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           I am notification
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css. mock-css. mock-css. mock-css."
+    <div
+      class="el-intent-primary el-is-active el-pn-is-full-width el-pn-is-inline el-persistent-notification"
       role="status"
     >
       <div
-        class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--white);
-  }
-"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname=""
+        <span
+          class="mocked-styled-1 el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             style="font-size: 1.25rem;"
             title="Icon image with name info"
-          />
-        </mock-styled.span>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM13.1429 17.7143H10.8571V11.7143H13.1429V17.7143ZM12 9.71429C11.3066 9.71429 10.6815 9.29661 10.4162 8.65603C10.1509 8.01544 10.2975 7.2781 10.7878 6.78782C11.2781 6.29753 12.0154 6.15087 12.656 6.41621C13.2966 6.68155 13.7143 7.30664 13.7143 8C13.7143 8.94677 12.9468 9.71429 12 9.71429Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
       </div>
       <div
         aria-live="polite"
-        class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--black);
-  font-size: var(--font-size-default);
-"
+        class="el-pn-content"
       >
         I am notification
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -294,98 +270,86 @@ exports[`PersistentNotification component should match a snapshot for an inline 
 }
 `;
 
-exports[`PersistentNotification component should match a snapshot when expanded 1`] = `
+exports[`PersistentNotification component > should match a snapshot when expanded 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css. mock-css."
+      <div
+        class="el-intent-primary el-is-active el-persistent-notification"
         role="status"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname=""
+          <span
+            class="mocked-styled-1 el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               style="font-size: 1.25rem;"
               title="Icon image with name info"
-            />
-          </mock-styled.span>
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM13.1429 17.7143H10.8571V11.7143H13.1429V17.7143ZM12 9.71429C11.3066 9.71429 10.6815 9.29661 10.4162 8.65603C10.1509 8.01544 10.2975 7.2781 10.7878 6.78782C11.2781 6.29753 12.0154 6.15087 12.656 6.41621C13.2966 6.68155 13.7143 7.30664 13.7143 8C13.7143 8.94677 12.9468 9.71429 12 9.71429Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
         </div>
         <div
           aria-live="polite"
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           I am notification
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css. mock-css."
+    <div
+      class="el-intent-primary el-is-active el-persistent-notification"
       role="status"
     >
       <div
-        class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--white);
-  }
-"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname=""
+        <span
+          class="mocked-styled-1 el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             style="font-size: 1.25rem;"
             title="Icon image with name info"
-          />
-        </mock-styled.span>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM13.1429 17.7143H10.8571V11.7143H13.1429V17.7143ZM12 9.71429C11.3066 9.71429 10.6815 9.29661 10.4162 8.65603C10.1509 8.01544 10.2975 7.2781 10.7878 6.78782C11.2781 6.29753 12.0154 6.15087 12.656 6.41621C13.2966 6.68155 13.7143 7.30664 13.7143 8C13.7143 8.94677 12.9468 9.71429 12 9.71429Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
       </div>
       <div
         aria-live="polite"
-        class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--black);
-  font-size: var(--font-size-default);
-"
+        class="el-pn-content"
       >
         I am notification
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -441,98 +405,86 @@ exports[`PersistentNotification component should match a snapshot when expanded 
 }
 `;
 
-exports[`PersistentNotification component should match a snapshot when given an intent 1`] = `
+exports[`PersistentNotification component > should match a snapshot when given an intent 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css."
+      <div
+        class="el-intent-primary el-persistent-notification"
         role="status"
       >
         <div
-          class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--white);
-  }
-"
+          class="el-pn-icon"
           data-testid="close-icon"
         >
-          <mock-styled.span
-            classname=""
+          <span
+            class="mocked-styled-1 el-icon"
             style="font-size: 1.25rem;"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               style="font-size: 1.25rem;"
               title="Icon image with name info"
-            />
-          </mock-styled.span>
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM13.1429 17.7143H10.8571V11.7143H13.1429V17.7143ZM12 9.71429C11.3066 9.71429 10.6815 9.29661 10.4162 8.65603C10.1509 8.01544 10.2975 7.2781 10.7878 6.78782C11.2781 6.29753 12.0154 6.15087 12.656 6.41621C13.2966 6.68155 13.7143 7.30664 13.7143 8C13.7143 8.94677 12.9468 9.71429 12 9.71429Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
         </div>
         <div
           aria-live="polite"
-          class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--black);
-  font-size: var(--font-size-default);
-"
+          class="el-pn-content"
         >
           I am notification
         </div>
-      </mock-styled.div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css."
+    <div
+      class="el-intent-primary el-persistent-notification"
       role="status"
     >
       <div
-        class="mock-css.
-  padding-left: 0.75rem;
-  display: flex;
-  align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
-  cursor: pointer;
-
-  , {
-    color: var(--white);
-  }
-"
+        class="el-pn-icon"
         data-testid="close-icon"
       >
-        <mock-styled.span
-          classname=""
+        <span
+          class="mocked-styled-1 el-icon"
           style="font-size: 1.25rem;"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             style="font-size: 1.25rem;"
             title="Icon image with name info"
-          />
-        </mock-styled.span>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM13.1429 17.7143H10.8571V11.7143H13.1429V17.7143ZM12 9.71429C11.3066 9.71429 10.6815 9.29661 10.4162 8.65603C10.1509 8.01544 10.2975 7.2781 10.7878 6.78782C11.2781 6.29753 12.0154 6.15087 12.656 6.41621C13.2966 6.68155 13.7143 7.30664 13.7143 8C13.7143 8.94677 12.9468 9.71429 12 9.71429Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
       </div>
       <div
         aria-live="polite"
-        class="mock-css.
-  padding: 0.75rem;
-  transition: 0.5s;
-  width: 100%;
-  color: var(--black);
-  font-size: var(--font-size-default);
-"
+        class="el-pn-content"
       >
         I am notification
       </div>
-    </mock-styled.div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

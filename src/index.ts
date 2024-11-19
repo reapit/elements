@@ -68,4 +68,4 @@ export * from './hooks/use-drawer'
 
 export * from './helpers/intent'
 export * from './icons'
-export * from '../tokens'
+export * from './tokens'

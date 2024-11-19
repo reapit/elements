@@ -1,19 +1,29 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Dialog should render with the correct structure 1`] = `
+exports[`Dialog > should render with the correct structure 1`] = `
 <DocumentFragment>
-  <mock-styled.dialog>
-    <mock-styled.div>
-      <mock-styled.h2>
+  <dialog
+    class="mocked-styled-0 el-dialog"
+  >
+    <div
+      class="mocked-styled-2 el-dialog-header"
+    >
+      <h2
+        class="mocked-styled-1 el-dialog-title"
+      >
         Title
-      </mock-styled.h2>
-    </mock-styled.div>
-    <mock-styled.div>
+      </h2>
+    </div>
+    <div
+      class="mocked-styled-3 el-dialog-body"
+    >
       Body
-    </mock-styled.div>
-    <mock-styled.div>
+    </div>
+    <div
+      class="mocked-styled-4 el-dialog-footer"
+    >
       Footer
-    </mock-styled.div>
-  </mock-styled.dialog>
+    </div>
+  </dialog>
 </DocumentFragment>
 `;

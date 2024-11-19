@@ -48,7 +48,7 @@ describe('Card', () => {
 describe('handleMouseHover', () => {
   it('should set the hover index', () => {
     const hoverIndex = 1
-    const setHoverIndex = jest.fn()
+    const setHoverIndex = vi.fn()
 
     const curried = handleMouseHover(hoverIndex, setHoverIndex)
 

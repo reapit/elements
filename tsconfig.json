@@ -2,37 +2,27 @@
   "compilerOptions": {
     "allowJs": true,
     "esModuleInterop": true,
+    "emitDeclarationOnly": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "noEmit": false,
     "noImplicitAny": false,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
-    "typeRoots": ["./node_modules/@types"],
     "sourceMap": true,
     "inlineSources": true,
     "resolveJsonModule": true,
     "skipLibCheck": true,
-    "module": "ESNext",
+    "module": "Preserve",
     "target": "ES2022",
     "declaration": true,
-    "moduleResolution": "node",
-    "types": ["jest", "node", "react"],
-    "baseUrl": "./",
-    "paths": {
-      "@/*": ["src/*"]
-    },
-    "lib": ["es2015", "es2017", "dom", "es5", "es6", "esnext"],
-    "outDir": "dist",
+    "declarationMap": true,
+    "types": ["vite/client", "vitest/globals", "vite-plugin-svgr/client"],
+    "lib": ["ES2022", "dom"],
+    "outDir": "dist/types",
+    "rootDir": "src",
     "sourceRoot": "/"
   },
-  "include": ["src", "public"],
-  "exclude": [
-    "**/public/**/*",
-    "**/dist/**/*",
-    ".yarn/**/*",
-    "**/node_modules/**/*",
-    "**/coverage/**/*",
-    "archive/**/*"
-  ]
+  "include": ["src"],
+  "exclude": [".yarn", "archive", "dist", "node_modules", "public"]
 }

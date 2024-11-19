@@ -1,75 +1,89 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MobileControls component should match a snapshot 1`] = `
+exports[`MobileControls component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-0 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-1 el-mobile-controls"
         id="test-static-id"
       >
-        <mock-styled.button
+        <button
           aria-controls="test-static-id"
           aria-disabled="false"
-          classname="mock-css. mock-css. mock-css.
-  padding: var(--spacing-2);
-  , {
-    margin: 0 0.125rem;
-  }
-"
+          class="el-floating-button el-button-size-medium el-button-icon-only el-button"
           data-variant="primary"
           role="button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname=""
+          <div
+            class="mocked-styled-3 el-button-spinner"
+          />
+          <span
+            class="mocked-styled-9 el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name menu"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11ZM4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7ZM20 17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-0 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-1 el-mobile-controls"
       id="test-static-id"
     >
-      <mock-styled.button
+      <button
         aria-controls="test-static-id"
         aria-disabled="false"
-        classname="mock-css. mock-css. mock-css.
-  padding: var(--spacing-2);
-  , {
-    margin: 0 0.125rem;
-  }
-"
+        class="el-floating-button el-button-size-medium el-button-icon-only el-button"
         data-variant="primary"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname=""
+        <div
+          class="mocked-styled-3 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-9 el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name menu"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11ZM4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7ZM20 17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -125,122 +139,132 @@ exports[`MobileControls component should match a snapshot 1`] = `
 }
 `;
 
-exports[`MobileControls component should match a snapshot with full props 1`] = `
+exports[`MobileControls component > should match a snapshot with full props 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
+      <div
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-0 el-mobile-controls-bg"
       />
-      <mock-styled.div
-        classname="mock-css.
-  display: flex;
-"
+      <div
+        class="el-mobile-controls-visible el-mobile-controls"
         id="test-static-id"
       >
-        <mock-styled.a
+        <a
           aria-hidden="true"
-          classname=""
+          class="mocked-styled-2 el-mobile-control-item"
           role="button"
         >
           Item One
-        </mock-styled.a>
-        <mock-styled.a
+        </a>
+        <a
           aria-hidden="true"
-          classname=""
+          class="mocked-styled-2 el-mobile-control-item"
           role="button"
         >
           Item Two
-        </mock-styled.a>
-        <mock-styled.a
+        </a>
+        <a
           aria-hidden="true"
-          classname=""
+          class="mocked-styled-2 el-mobile-control-item"
           role="button"
         >
           Item Three
-        </mock-styled.a>
-        <mock-styled.button
+        </a>
+        <button
           aria-controls="test-static-id"
           aria-disabled="false"
-          classname="mock-css. mock-css. mock-css.
-  padding: var(--spacing-2);
-  , {
-    margin: 0 0.125rem;
-  }
-"
+          class="el-floating-button el-button-size-medium el-button-icon-only el-button"
           data-variant="primary"
           role="button"
         >
-          <mock-styled.div />
-          <mock-styled.span
-            classname=""
+          <div
+            class="mocked-styled-3 el-button-spinner"
+          />
+          <span
+            class="mocked-styled-9 el-icon"
           >
             <svg
+              fill="none"
+              height="24"
               role="img"
               title="Icon image with name add"
-            />
-          </mock-styled.span>
-        </mock-styled.button>
-      </mock-styled.div>
+              viewBox="0 0 24 24"
+              width="24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M20 11H13V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
+    <div
       aria-hidden="true"
-      classname=""
+      class="mocked-styled-0 el-mobile-controls-bg"
     />
-    <mock-styled.div
-      classname="mock-css.
-  display: flex;
-"
+    <div
+      class="el-mobile-controls-visible el-mobile-controls"
       id="test-static-id"
     >
-      <mock-styled.a
+      <a
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-2 el-mobile-control-item"
         role="button"
       >
         Item One
-      </mock-styled.a>
-      <mock-styled.a
+      </a>
+      <a
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-2 el-mobile-control-item"
         role="button"
       >
         Item Two
-      </mock-styled.a>
-      <mock-styled.a
+      </a>
+      <a
         aria-hidden="true"
-        classname=""
+        class="mocked-styled-2 el-mobile-control-item"
         role="button"
       >
         Item Three
-      </mock-styled.a>
-      <mock-styled.button
+      </a>
+      <button
         aria-controls="test-static-id"
         aria-disabled="false"
-        classname="mock-css. mock-css. mock-css.
-  padding: var(--spacing-2);
-  , {
-    margin: 0 0.125rem;
-  }
-"
+        class="el-floating-button el-button-size-medium el-button-icon-only el-button"
         data-variant="primary"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span
-          classname=""
+        <div
+          class="mocked-styled-3 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-9 el-icon"
         >
           <svg
+            fill="none"
+            height="24"
             role="img"
             title="Icon image with name add"
-          />
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
+            viewBox="0 0 24 24"
+            width="24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M20 11H13V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

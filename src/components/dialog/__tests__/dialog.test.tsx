@@ -3,7 +3,7 @@ import { Dialog } from '../dialog'
 
 // NOTE: have to mock the `useToggleDialogVisibilityEffect` hook with a fallback values for temporary
 // TODO: find a way to mock with the prototype of the `HTMLDialogElement` interface
-jest.mock('../use-toggle-dialog-visibility-effect')
+vi.mock('../use-toggle-dialog-visibility-effect')
 
 describe('Dialog', () => {
   it('should render with the correct structure', () => {

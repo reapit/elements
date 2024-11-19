@@ -1,18 +1,18 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`FormLayout component should match a snapshot 1`] = `
+exports[`FormLayout component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-0 el-form-layout"
       />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname=""
+    <div
+      class="mocked-styled-0 el-form-layout"
     />
   </div>,
   "debug": [Function],
@@ -69,16 +69,20 @@ exports[`FormLayout component should match a snapshot 1`] = `
 }
 `;
 
-exports[`InputWrap component should match a snapshot 1`] = `
+exports[`InputWrap component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-3 el-input-wrap"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-3 el-input-wrap"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -134,16 +138,20 @@ exports[`InputWrap component should match a snapshot 1`] = `
 }
 `;
 
-exports[`InputWrapFull component should match a snapshot 1`] = `
+exports[`InputWrapFull component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-5 el-input-wrap-full"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-5 el-input-wrap-full"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -199,16 +207,20 @@ exports[`InputWrapFull component should match a snapshot 1`] = `
 }
 `;
 
-exports[`InputWrapHalf component should match a snapshot 1`] = `
+exports[`InputWrapHalf component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-6 el-input-wrap-half"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-6 el-input-wrap-half"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
@@ -264,16 +276,20 @@ exports[`InputWrapHalf component should match a snapshot 1`] = `
 }
 `;
 
-exports[`InputWrapMed component should match a snapshot 1`] = `
+exports[`InputWrapMed component > should match a snapshot 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div />
+      <div
+        class="mocked-styled-4 el-input-wrap-med"
+      />
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div />
+    <div
+      class="mocked-styled-4 el-input-wrap-med"
+    />
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

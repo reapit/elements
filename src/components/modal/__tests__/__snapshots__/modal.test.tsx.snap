@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Modal component should match a snapshot when closed 1`] = `
+exports[`Modal component > should match a snapshot when closed 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
@@ -61,56 +61,56 @@ exports[`Modal component should match a snapshot when closed 1`] = `
 }
 `;
 
-exports[`Modal component should match a snapshot when open 1`] = `
+exports[`Modal component > should match a snapshot when open 1`] = `
 {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <mock-styled.div
-        classname="mock-css."
+      <div
+        class="el-is-active el-modal-bg"
       />
-      <mock-styled.div
+      <div
         aria-describedby="test-static-id"
         aria-modal="true"
-        classname="mock-css."
+        class="el-is-active el-modal"
         role="dialog"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-2 el-modal-header"
         >
           test
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+        <div
+          class="mocked-styled-0 el-modal-bg"
           id="test-static-id"
         >
           Content within modal
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <mock-styled.div
-      classname="mock-css."
+    <div
+      class="el-is-active el-modal-bg"
     />
-    <mock-styled.div
+    <div
       aria-describedby="test-static-id"
       aria-modal="true"
-      classname="mock-css."
+      class="el-is-active el-modal"
       role="dialog"
     >
-      <mock-styled.div
-        classname=""
+      <div
+        class="mocked-styled-2 el-modal-header"
       >
         test
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
+      </div>
+      <div
+        class="mocked-styled-0 el-modal-bg"
         id="test-static-id"
       >
         Content within modal
-      </mock-styled.div>
-    </mock-styled.div>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

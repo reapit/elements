@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { ButtonGroup } from '../button-group'
-import { Button } from '@/components/button/button'
+import { Button } from '#src/components/button'
 
 describe('ButtonGroup', () => {
   test('renders its children horizontally with a gap of --spacing-2', () => {
