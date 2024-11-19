@@ -4,6 +4,6 @@ import { InputAddOn } from '..'
 describe('InputAddOn component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<InputAddOn />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

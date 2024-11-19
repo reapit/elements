@@ -15,7 +15,7 @@ describe('PaginationWrap', () => {
         <div>I am a child</div>
       </PaginationWrap>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -26,7 +26,7 @@ describe('PaginationText', () => {
         <div>I am a child</div>
       </PaginationText>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -37,21 +37,21 @@ describe('PaginationButton', () => {
         <div>I am a child</div>
       </PaginationButton>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('Pagination', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<Pagination callback={vi.fn()} currentPage={2} numberPages={4} />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with start end buttons', () => {
     const wrapper = render(
       <Pagination callback={vi.fn()} currentPage={2} numberPages={4} hasStartButton hasEndButton />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should callback onClick correctly', async () => {

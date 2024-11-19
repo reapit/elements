@@ -5,7 +5,7 @@ import { MobileControls, clickEventHandler } from '..'
 describe('MobileControls component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<MobileControls />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props', () => {
@@ -30,7 +30,7 @@ describe('MobileControls component', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 

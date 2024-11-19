@@ -10,7 +10,7 @@ describe('Card', () => {
           <div>I am a child</div>
         </Component>,
       )
-      expect(wrapper).toMatchSnapshot()
+      expect(wrapper.asFragment()).toMatchSnapshot()
     })
   })
 })

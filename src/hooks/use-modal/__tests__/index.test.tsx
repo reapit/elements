@@ -7,7 +7,7 @@ describe('useModal', () => {
   it('should return UseModal type correctly', async () => {
     const { result } = renderHook<{}, UseModal>(() => useModal('some-div'))
 
-    expect(render(<result.current.Modal />)).toMatchSnapshot()
+    expect(render(<result.current.Modal />).asFragment()).toMatchSnapshot()
 
     act(() => {
       result.current.openModal()

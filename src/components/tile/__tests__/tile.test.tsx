@@ -4,6 +4,6 @@ import { Tile } from '..'
 describe('Tile component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<Tile paddingSize="small">Some Content</Tile>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

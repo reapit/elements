@@ -35,7 +35,7 @@ describe('Accordion react shorthand', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 

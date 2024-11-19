@@ -29,7 +29,7 @@ describe('BreadCrumb', () => {
         Hover here
       </BreadCrumb>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 

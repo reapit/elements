@@ -8,11 +8,11 @@ describe('Steps', () => {
   }
 
   it('should match a snapshot', () => {
-    expect(render(<Steps {...props} />)).toMatchSnapshot()
+    expect(render(<Steps {...props} />).asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot when selectedStep is different', () => {
-    expect(render(<Steps {...props} selectedStep="2" />)).toMatchSnapshot()
+    expect(render(<Steps {...props} selectedStep="2" />).asFragment()).toMatchSnapshot()
   })
 
   it('should fire the onStepClick event correctly', async () => {
@@ -55,11 +55,11 @@ describe('StepsVertical', () => {
   }
 
   it('should match a snapshot', () => {
-    expect(render(<StepsVertical {...props} />)).toMatchSnapshot()
+    expect(render(<StepsVertical {...props} />).asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot when selectedStep is different', () => {
-    expect(render(<StepsVertical {...props} selectedStep="2" />)).toMatchSnapshot()
+    expect(render(<StepsVertical {...props} selectedStep="2" />).asFragment()).toMatchSnapshot()
   })
 
   it('should fire the onStepClick event correctly', async () => {

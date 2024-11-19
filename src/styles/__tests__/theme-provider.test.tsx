@@ -14,7 +14,7 @@ describe('ElementsThemeProvider component', () => {
         <div>Children</div>
       </ElementsThemeProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 

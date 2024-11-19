@@ -1,321 +1,108 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`MobileControls component > should match a snapshot 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        aria-hidden="true"
-        class="mocked-styled-0 el-mobile-controls-bg"
-      />
-      <div
-        class="mocked-styled-1 el-mobile-controls"
-        id="test-static-id"
-      >
-        <button
-          aria-controls="test-static-id"
-          aria-disabled="false"
-          class="el-floating-button el-button-size-medium el-button-icon-only el-button"
-          data-variant="primary"
-          role="button"
-        >
-          <div
-            class="mocked-styled-3 el-button-spinner"
-          />
-          <span
-            class="mocked-styled-9 el-icon"
-          >
-            <svg
-              fill="none"
-              height="24"
-              role="img"
-              title="Icon image with name menu"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11ZM4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7ZM20 17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      aria-hidden="true"
-      class="mocked-styled-0 el-mobile-controls-bg"
-    />
-    <div
-      class="mocked-styled-1 el-mobile-controls"
-      id="test-static-id"
+<DocumentFragment>
+  <div
+    aria-hidden="true"
+    class="mocked-styled-0 el-mobile-controls-bg"
+  />
+  <div
+    class="mocked-styled-1 el-mobile-controls"
+    id="test-static-id"
+  >
+    <button
+      aria-controls="test-static-id"
+      aria-disabled="false"
+      class="el-floating-button el-button-size-medium el-button-icon-only el-button"
+      data-variant="primary"
+      role="button"
     >
-      <button
-        aria-controls="test-static-id"
-        aria-disabled="false"
-        class="el-floating-button el-button-size-medium el-button-icon-only el-button"
-        data-variant="primary"
-        role="button"
+      <div
+        class="mocked-styled-3 el-button-spinner"
+      />
+      <span
+        class="mocked-styled-9 el-icon"
       >
-        <div
-          class="mocked-styled-3 el-button-spinner"
-        />
-        <span
-          class="mocked-styled-9 el-icon"
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name menu"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name menu"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11ZM4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7ZM20 17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+          <path
+            d="M20 11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11ZM4 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H4C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7ZM20 17H4C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`MobileControls component > should match a snapshot with full props 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        aria-hidden="true"
-        class="mocked-styled-0 el-mobile-controls-bg"
-      />
-      <div
-        class="el-mobile-controls-visible el-mobile-controls"
-        id="test-static-id"
-      >
-        <a
-          aria-hidden="true"
-          class="mocked-styled-2 el-mobile-control-item"
-          role="button"
-        >
-          Item One
-        </a>
-        <a
-          aria-hidden="true"
-          class="mocked-styled-2 el-mobile-control-item"
-          role="button"
-        >
-          Item Two
-        </a>
-        <a
-          aria-hidden="true"
-          class="mocked-styled-2 el-mobile-control-item"
-          role="button"
-        >
-          Item Three
-        </a>
-        <button
-          aria-controls="test-static-id"
-          aria-disabled="false"
-          class="el-floating-button el-button-size-medium el-button-icon-only el-button"
-          data-variant="primary"
-          role="button"
-        >
-          <div
-            class="mocked-styled-3 el-button-spinner"
-          />
-          <span
-            class="mocked-styled-9 el-icon"
-          >
-            <svg
-              fill="none"
-              height="24"
-              role="img"
-              title="Icon image with name add"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M20 11H13V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
+<DocumentFragment>
+  <div
+    aria-hidden="true"
+    class="mocked-styled-0 el-mobile-controls-bg"
+  />
+  <div
+    class="el-mobile-controls-visible el-mobile-controls"
+    id="test-static-id"
+  >
+    <a
       aria-hidden="true"
-      class="mocked-styled-0 el-mobile-controls-bg"
-    />
-    <div
-      class="el-mobile-controls-visible el-mobile-controls"
-      id="test-static-id"
+      class="mocked-styled-2 el-mobile-control-item"
+      role="button"
     >
-      <a
-        aria-hidden="true"
-        class="mocked-styled-2 el-mobile-control-item"
-        role="button"
+      Item One
+    </a>
+    <a
+      aria-hidden="true"
+      class="mocked-styled-2 el-mobile-control-item"
+      role="button"
+    >
+      Item Two
+    </a>
+    <a
+      aria-hidden="true"
+      class="mocked-styled-2 el-mobile-control-item"
+      role="button"
+    >
+      Item Three
+    </a>
+    <button
+      aria-controls="test-static-id"
+      aria-disabled="false"
+      class="el-floating-button el-button-size-medium el-button-icon-only el-button"
+      data-variant="primary"
+      role="button"
+    >
+      <div
+        class="mocked-styled-3 el-button-spinner"
+      />
+      <span
+        class="mocked-styled-9 el-icon"
       >
-        Item One
-      </a>
-      <a
-        aria-hidden="true"
-        class="mocked-styled-2 el-mobile-control-item"
-        role="button"
-      >
-        Item Two
-      </a>
-      <a
-        aria-hidden="true"
-        class="mocked-styled-2 el-mobile-control-item"
-        role="button"
-      >
-        Item Three
-      </a>
-      <button
-        aria-controls="test-static-id"
-        aria-disabled="false"
-        class="el-floating-button el-button-size-medium el-button-icon-only el-button"
-        data-variant="primary"
-        role="button"
-      >
-        <div
-          class="mocked-styled-3 el-button-spinner"
-        />
-        <span
-          class="mocked-styled-9 el-icon"
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name add"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name add"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20 11H13V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+          <path
+            d="M20 11H13V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
 `;

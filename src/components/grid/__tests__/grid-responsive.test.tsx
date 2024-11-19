@@ -11,7 +11,7 @@ describe('GridResponsive', () => {
         </GridResponsive>
       </MediaStateProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('hould render with the correct classNames when supplied all props', () => {
@@ -35,7 +35,7 @@ describe('GridResponsive', () => {
         </GridResponsive>
       </MediaStateProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -48,7 +48,7 @@ describe('ColResponsive', () => {
         </ColResponsive>
       </MediaStateProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should render with the correct classNames when supplied all props', () => {
@@ -72,6 +72,6 @@ describe('ColResponsive', () => {
         </ColResponsive>
       </MediaStateProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

@@ -31,7 +31,7 @@ describe('Tabs', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 

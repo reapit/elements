@@ -12,35 +12,35 @@ import {
 describe('ProgressBarContainer', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<ProgressBarContainer />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarInner', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<ProgressBarInner />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarItem', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<ProgressBarItem />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarPercentage', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<ProgressBarPercentage duration={20} />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarSteps', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<ProgressBarSteps numberSteps={10} currentStep={5} />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
