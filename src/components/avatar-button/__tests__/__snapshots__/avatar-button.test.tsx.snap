@@ -3,7 +3,7 @@
 exports[`AvatarButton should render the component and match snapshot 1`] = `
 <DocumentFragment>
   <mock-styled.button
-    aria-label="User Avatar"
+    aria-label="Open user navigation menu"
     data-custom="custom props"
   >
     <mock-styled.span

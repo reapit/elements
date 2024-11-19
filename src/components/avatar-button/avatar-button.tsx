@@ -4,11 +4,16 @@ import { ElAvatarButton } from './styles'
 
 export interface AvatarButtonProps extends HTMLAttributes<HTMLButtonElement> {
   label: string
+  ariaLabel?: string
 }
 
-export const AvatarButton: FC<AvatarButtonProps> = ({ label, ...props }) => {
+export const AvatarButton: FC<AvatarButtonProps> = ({
+  label,
+  'aria-label': ariaLabel = 'Open user navigation menu',
+  ...props
+}) => {
   return (
-    <ElAvatarButton aria-label="User Avatar" {...props}>
+    <ElAvatarButton aria-label={ariaLabel} {...props}>
       <Avatar size="small" shape="circle" colour="purple">
         {label}
       </Avatar>
