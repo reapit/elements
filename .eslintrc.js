@@ -29,7 +29,6 @@ module.exports = {
   ignorePatterns: [
     'node_modules/',
     'setup-tests.ts',
-    'jest.config.js',
     '.prettierrc.js',
     'react-app-scaffolder/',
     'marketplace-api-schema.ts',

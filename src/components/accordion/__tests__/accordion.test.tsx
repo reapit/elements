@@ -41,8 +41,8 @@ describe('Accordion react shorthand', () => {
 
 describe('handleSetOpenItem', () => {
   it('should set the open item to the provided index if it is not currently open', () => {
-    const setOpenItem = jest.fn()
-    const onClick = jest.fn()
+    const setOpenItem = vi.fn()
+    const onClick = vi.fn()
     const openItem = 1
 
     const curried = handleSetOpenItem(openItem, setOpenItem, onClick)

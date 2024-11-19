@@ -47,7 +47,7 @@ jobs:
 
       - name: Test
         run: |
-          yarn test --watch=false --ci --forceExit --detectOpenHandles --runInBand --passWithNoTests --coverage
+          yarn test run --passWithNoTests --coverage --silent
 
       - name: Codacy Checks
         run: |

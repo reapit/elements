@@ -77,7 +77,7 @@ describe('handleDrawerFocus', () => {
   it('should focus on the drawer if it is open', () => {
     const drawerRef = createRef<HTMLDivElement>()
     const mockElement = document.createElement('div')
-    const focusSpy = jest.spyOn(mockElement, 'focus')
+    const focusSpy = vi.spyOn(mockElement, 'focus')
 
     Object.defineProperty(drawerRef, 'current', {
       value: mockElement,
@@ -93,7 +93,7 @@ describe('handleDrawerFocus', () => {
   it('should not focus on the drawer if it is not open', () => {
     const drawerRef = createRef<HTMLDivElement>()
     const mockElement = document.createElement('div')
-    const focusSpy = jest.spyOn(mockElement, 'focus')
+    const focusSpy = vi.spyOn(mockElement, 'focus')
 
     Object.defineProperty(drawerRef, 'current', {
       value: mockElement,

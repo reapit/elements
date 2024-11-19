@@ -1,6 +1,6 @@
 import { render, fireEvent } from '@testing-library/react'
 import { Button, DeprecatedButtonGroup, FloatingButton } from '../index'
-import { Icon } from '@/components/icon'
+import { Icon } from '#src/components/icon'
 
 describe('Button', () => {
   test('should match snapshot', () => {
@@ -23,7 +23,7 @@ describe('Button', () => {
   })
 
   test('should fire click event on button element', () => {
-    const onClickMock = jest.fn()
+    const onClickMock = vi.fn()
     const { asFragment, getByText } = render(<Button onClick={onClickMock}>Button</Button>)
 
     // Capture the initial render as a snapshot

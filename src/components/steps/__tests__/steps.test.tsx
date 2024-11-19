@@ -4,7 +4,7 @@ import { Steps, StepsProps, StepsVertical, StepsVerticalProps, handleStepClick }
 describe('Steps', () => {
   const props: StepsProps = {
     steps: ['1', '2', '3', '4', '5'],
-    onStepClick: jest.fn(),
+    onStepClick: vi.fn(),
   }
 
   it('should match a snapshot', () => {
@@ -22,7 +22,7 @@ describe('Steps', () => {
   })
 
   afterEach(() => {
-    jest.resetAllMocks()
+    vi.resetAllMocks()
   })
 })
 
@@ -50,7 +50,7 @@ describe('StepsVertical', () => {
         content: 'Lorem, ipsum dolor',
       },
     ],
-    onStepClick: jest.fn(),
+    onStepClick: vi.fn(),
     selectedStep: '5',
   }
 
@@ -71,13 +71,13 @@ describe('StepsVertical', () => {
   })
 
   afterEach(() => {
-    jest.resetAllMocks()
+    vi.resetAllMocks()
   })
 })
 
 describe('handleStepClick', () => {
   it('should call onStepClick with the correct argument', () => {
-    const onStepClick = jest.fn()
+    const onStepClick = vi.fn()
     const step = 'step1'
 
     const curried = handleStepClick(step, onStepClick)

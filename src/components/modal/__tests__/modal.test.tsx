@@ -26,7 +26,7 @@ describe('handleModalFocus', () => {
   it('should focus on the modal if it is open', () => {
     const modalRef = createRef<HTMLDivElement>()
     const mockElement = document.createElement('div')
-    const focusSpy = jest.spyOn(mockElement, 'focus')
+    const focusSpy = vi.spyOn(mockElement, 'focus')
 
     Object.defineProperty(modalRef, 'current', {
       value: mockElement,
@@ -42,7 +42,7 @@ describe('handleModalFocus', () => {
   it('should not focus on the modal if it is not open', () => {
     const modalRef = createRef<HTMLDivElement>()
     const mockElement = document.createElement('div')
-    const focusSpy = jest.spyOn(mockElement, 'focus')
+    const focusSpy = vi.spyOn(mockElement, 'focus')
 
     Object.defineProperty(modalRef, 'current', {
       value: mockElement,

@@ -1,14 +1,14 @@
 import { render } from '@testing-library/react'
 import { NavDropdownButton, NavDropdownButtonProps } from '../nav-dropdown-button'
 
-jest.mock('../../icon', () => ({
-  Icon: jest.fn(() => <div data-testid="icon" />),
+vi.mock('../../icon', () => ({
+  Icon: vi.fn(() => <div data-testid="icon" />),
 }))
 
 describe('NavDropdownButton', () => {
   const defaultProps: NavDropdownButtonProps = {
     isOpen: false,
-    onClick: jest.fn(),
+    onClick: vi.fn(),
   }
 
   it('matches snapshot when collapsed', () => {

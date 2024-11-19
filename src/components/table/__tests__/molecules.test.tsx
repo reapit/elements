@@ -134,7 +134,7 @@ describe('resolveNarrowOrderClass', () => {
 
 describe('handleTableCtaClick', () => {
   it('should call onClick with the correct argument', () => {
-    const onClick = jest.fn()
+    const onClick = vi.fn()
 
     const curried = handleTableCtaClick(onClick)
 

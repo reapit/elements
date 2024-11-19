@@ -13,7 +13,7 @@ describe('Snack component', () => {
   })
 
   it('should trigger the onRemove prop if supplied', async () => {
-    const onRemove = jest.fn()
+    const onRemove = vi.fn()
     const wrapper = render(<Snack icon="email" onRemove={onRemove} />)
     fireEvent.click(wrapper.getByTestId('close-icon'))
     expect(onRemove).toHaveBeenCalledTimes(1)

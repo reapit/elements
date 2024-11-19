@@ -42,13 +42,13 @@ describe('Menu Popover component', () => {
       container = document.createElement('div')
       container.innerHTML = '<button role="button">Trigger</button>'
       popover = document.createElement('div')
-      popover.getBoundingClientRect = jest.fn(() => ({ height: 100 }))
-      mockSetPopoverStyle = jest.fn()
+      popover.getBoundingClientRect = vi.fn(() => ({ height: 100 }))
+      mockSetPopoverStyle = vi.fn()
     })
 
     it('should set popover position below the button if there is enough space with additional yOffset', () => {
       const triggerBtn = container.querySelector('[role="button"]')
-      triggerBtn.getBoundingClientRect = jest.fn(() => ({
+      triggerBtn.getBoundingClientRect = vi.fn(() => ({
         height: 50,
         bottom: 200,
       }))
@@ -61,7 +61,7 @@ describe('Menu Popover component', () => {
 
     it('should set popover position above the button if there is not enough space below', () => {
       const triggerBtn = container.querySelector('[role="button"]')
-      triggerBtn.getBoundingClientRect = jest.fn(() => ({
+      triggerBtn.getBoundingClientRect = vi.fn(() => ({
         height: 50,
         bottom: 380,
       }))

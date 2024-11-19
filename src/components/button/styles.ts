@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { isMobile } from '@/styles/media'
+import { isMobile } from '#src/styles/media'
 
 export const elButtonSizeSmall = css``
 export const elButtonSizeMedium = css``

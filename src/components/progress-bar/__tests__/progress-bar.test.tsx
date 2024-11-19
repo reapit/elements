@@ -46,9 +46,9 @@ describe('ProgressBarSteps', () => {
 
 describe('handleSetPercentageComplete', () => {
   it('should call window set interval and clear interval', () => {
-    const intervalSpy = jest.spyOn(window, 'setInterval')
-    const clearSpy = jest.spyOn(window, 'clearInterval')
-    const mockSetPercentComplete = jest.fn()
+    const intervalSpy = vi.spyOn(window, 'setInterval')
+    const clearSpy = vi.spyOn(window, 'clearInterval')
+    const mockSetPercentComplete = vi.fn()
     const mockIntervalTime = 20
 
     const curried = handleSetPercentageComplete(mockSetPercentComplete, mockIntervalTime)
@@ -64,7 +64,7 @@ describe('handleSetPercentageComplete', () => {
 
 describe('handleSetPercentageCompleteSteps', () => {
   it('should call setPercentageComplete with correct time', () => {
-    const mockSetPercentComplete = jest.fn()
+    const mockSetPercentComplete = vi.fn()
     const mockNumberSteps = 20
     const mockCurrentStep = 20
 

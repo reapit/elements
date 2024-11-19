@@ -1,0 +1,9 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    // We do not need to spend time checking types when we're emitting declaration types
+    "noCheck": true
+  },
+  "include": ["src"],
+  "exclude": ["*.test.*", "*.stories.*", ".yarn", "public", "dist", "node_modules", "coverage", "archive"]
+}
