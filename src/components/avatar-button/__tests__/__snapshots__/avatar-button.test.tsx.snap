@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AvatarButton should render the component and match snapshot 1`] = `
+<DocumentFragment>
+  <mock-styled.button
+    aria-label="Open user navigation menu"
+    data-custom="custom props"
+  >
+    <mock-styled.span
+      data-colour="purple"
+      data-shape="circle"
+      data-size="small"
+      role="presentation"
+    >
+      Test label
+    </mock-styled.span>
+  </mock-styled.button>
+</DocumentFragment>
+`;
