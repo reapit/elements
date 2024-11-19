@@ -1,554 +1,145 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`InputGroup component > should match a snapshot when used in explicit mode 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="mocked-styled-0 el-input-group"
-      >
-        <input
-          aria-label="Input type undefined"
-          class="mocked-styled-1 el-input"
-        />
-        <span
-          class="mocked-styled-2 el-icon"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name email"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-        <label
-          class="mocked-styled-3 el-label"
-        >
-          Please enter a username
-        </label>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="mocked-styled-0 el-input-group"
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-input-group"
+  >
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input"
+    />
+    <span
+      class="mocked-styled-2 el-icon"
     >
-      <input
-        aria-label="Input type undefined"
-        class="mocked-styled-1 el-input"
-      />
-      <span
-        class="mocked-styled-2 el-icon"
+      <svg
+        fill="none"
+        height="24"
+        role="img"
+        title="Icon image with name email"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          fill="none"
-          height="24"
-          role="img"
-          title="Icon image with name email"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <label
-        class="mocked-styled-3 el-label"
-      >
-        Please enter a username
-      </label>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+        <path
+          d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <label
+      class="mocked-styled-3 el-label"
+    >
+      Please enter a username
+    </label>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`InputGroup component > should match a snapshot when used in react shorthand mode 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="mocked-styled-0 el-input-group"
-      >
-        <input
-          aria-label="Input type undefined"
-          class="mocked-styled-1 el-input"
-          id="myId"
-        />
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="mocked-styled-0 el-input-group"
-    >
-      <input
-        aria-label="Input type undefined"
-        class="mocked-styled-1 el-input"
-        id="myId"
-      />
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-input-group"
+  >
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input"
+      id="myId"
+    />
+  </div>
+</DocumentFragment>
 `;
 
 exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with a label 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="mocked-styled-0 el-input-group"
-      >
-        <input
-          aria-label="Input type undefined"
-          class="mocked-styled-1 el-input"
-          id="myId"
-        />
-        <label
-          class="mocked-styled-3 el-label"
-          for="myId"
-        >
-          Enter your username
-        </label>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="mocked-styled-0 el-input-group"
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-input-group"
+  >
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input"
+      id="myId"
+    />
+    <label
+      class="mocked-styled-3 el-label"
+      for="myId"
     >
-      <input
-        aria-label="Input type undefined"
-        class="mocked-styled-1 el-input"
-        id="myId"
-      />
-      <label
-        class="mocked-styled-3 el-label"
-        for="myId"
-      >
-        Enter your username
-      </label>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+      Enter your username
+    </label>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with an icon 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="mocked-styled-0 el-input-group"
-      >
-        <input
-          aria-label="Input type undefined"
-          class="mocked-styled-1 el-input"
-          id="myId"
-        />
-        <span
-          class="mocked-styled-2 el-icon"
-          style="font-size: 1rem;"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            style="font-size: 1rem;"
-            title="Icon image with name email"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="mocked-styled-0 el-input-group"
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-input-group"
+  >
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input"
+      id="myId"
+    />
+    <span
+      class="mocked-styled-2 el-icon"
+      style="font-size: 1rem;"
     >
-      <input
-        aria-label="Input type undefined"
-        class="mocked-styled-1 el-input"
-        id="myId"
-      />
-      <span
-        class="mocked-styled-2 el-icon"
+      <svg
+        fill="none"
+        height="24"
+        role="img"
         style="font-size: 1rem;"
+        title="Icon image with name email"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          fill="none"
-          height="24"
-          role="img"
-          style="font-size: 1rem;"
-          title="Icon image with name email"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+        <path
+          d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with an icon and a label 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="mocked-styled-0 el-input-group"
-      >
-        <input
-          aria-label="Input type undefined"
-          class="mocked-styled-1 el-input"
-          id="myId"
-        />
-        <span
-          class="mocked-styled-2 el-icon"
-          style="font-size: 1rem;"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            style="font-size: 1rem;"
-            title="Icon image with name email"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-        <label
-          class="mocked-styled-3 el-label"
-          for="myId"
-        >
-          Enter your username
-        </label>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="mocked-styled-0 el-input-group"
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-input-group"
+  >
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input"
+      id="myId"
+    />
+    <span
+      class="mocked-styled-2 el-icon"
+      style="font-size: 1rem;"
     >
-      <input
-        aria-label="Input type undefined"
-        class="mocked-styled-1 el-input"
-        id="myId"
-      />
-      <span
-        class="mocked-styled-2 el-icon"
+      <svg
+        fill="none"
+        height="24"
+        role="img"
         style="font-size: 1rem;"
+        title="Icon image with name email"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          fill="none"
-          height="24"
-          role="img"
-          style="font-size: 1rem;"
-          title="Icon image with name email"
-          viewBox="0 0 24 24"
-          width="24"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
-      <label
-        class="mocked-styled-3 el-label"
-        for="myId"
-      >
-        Enter your username
-      </label>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+        <path
+          d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <label
+      class="mocked-styled-3 el-label"
+      for="myId"
+    >
+      Enter your username
+    </label>
+  </div>
+</DocumentFragment>
 `;

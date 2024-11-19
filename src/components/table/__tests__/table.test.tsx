@@ -5,12 +5,12 @@ import { elSpan2 } from '../../grid'
 describe('Table Component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<Table />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with varied number columns', () => {
     const wrapper = render(<Table numberColumns={4} />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props and expandable content', () => {
@@ -67,7 +67,7 @@ describe('Table Component', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for expandable content alternate settings', () => {
@@ -87,7 +87,7 @@ describe('Table Component', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props and cta content', () => {
@@ -147,7 +147,7 @@ describe('Table Component', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for cta content alternate settings', () => {
@@ -165,7 +165,7 @@ describe('Table Component', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should handleToggleExpandedRow to close a row with the default behaviour', () => {

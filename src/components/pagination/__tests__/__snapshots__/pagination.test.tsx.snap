@@ -1,808 +1,268 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
 exports[`Pagination > should match a snapshot 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="mocked-styled-1 el-pagination-wrap"
-      >
-        <button
-          aria-label="Previous"
-          class="mocked-styled-4 el-pagination-button"
-          data-testid="back-button"
-          role="button"
-          type="button"
-        >
-          <span
-            class="el-pagination-primary el-icon"
-          >
-            <svg
-              fill="none"
-              height="24"
-              role="img"
-              title="Icon image with name chevronLeft"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-        <div
-          class="mocked-styled-2 el-pagination-text"
-        >
-          <input
-            aria-label="Current page number, edit to select page of 4 available"
-            class="mocked-styled-3 el-pagination-input"
-            value="2"
-          />
-           
-          of 
-          4
-        </div>
-        <button
-          aria-label="Next"
-          class="mocked-styled-4 el-pagination-button"
-          data-testid="forward-button"
-          role="button"
-          type="button"
-        >
-          <span
-            class="el-pagination-primary el-icon"
-          >
-            <svg
-              fill="none"
-              height="24"
-              role="img"
-              title="Icon image with name chevronRight"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="mocked-styled-1 el-pagination-wrap"
-    >
-      <button
-        aria-label="Previous"
-        class="mocked-styled-4 el-pagination-button"
-        data-testid="back-button"
-        role="button"
-        type="button"
-      >
-        <span
-          class="el-pagination-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name chevronLeft"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </button>
-      <div
-        class="mocked-styled-2 el-pagination-text"
-      >
-        <input
-          aria-label="Current page number, edit to select page of 4 available"
-          class="mocked-styled-3 el-pagination-input"
-          value="2"
-        />
-         
-        of 
-        4
-      </div>
-      <button
-        aria-label="Next"
-        class="mocked-styled-4 el-pagination-button"
-        data-testid="forward-button"
-        role="button"
-        type="button"
-      >
-        <span
-          class="el-pagination-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name chevronRight"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`Pagination > should match a snapshot with start end buttons 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="mocked-styled-1 el-pagination-wrap"
-      >
-        <button
-          aria-label="Previous"
-          class="mocked-styled-4 el-pagination-button"
-          data-testid="back-button"
-          role="button"
-          type="button"
-        >
-          <span
-            class="el-pagination-primary el-icon"
-          >
-            <svg
-              fill="none"
-              height="24"
-              role="img"
-              title="Icon image with name chevronLeft"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-        <button
-          aria-label="Previous"
-          class="mocked-styled-4 el-pagination-button"
-          data-testid="back-button"
-          role="button"
-          type="button"
-        >
-          <span
-            class="el-pagination-primary el-icon"
-          >
-            <svg
-              fill="none"
-              height="24"
-              role="img"
-              title="Icon image with name chevronLeft"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-          <span
-            class="el-pagination-primary el-icon"
-          >
-            <svg
-              fill="none"
-              height="24"
-              role="img"
-              title="Icon image with name chevronLeft"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-        <div
-          class="mocked-styled-2 el-pagination-text"
-        >
-          <input
-            aria-label="Current page number, edit to select page of 4 available"
-            class="mocked-styled-3 el-pagination-input"
-            value="2"
-          />
-           
-          of 
-          4
-        </div>
-        <button
-          aria-label="Next"
-          class="mocked-styled-4 el-pagination-button"
-          data-testid="back-button"
-          role="button"
-          type="button"
-        >
-          <span
-            class="el-pagination-primary el-icon"
-          >
-            <svg
-              fill="none"
-              height="24"
-              role="img"
-              title="Icon image with name chevronRight"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-          <span
-            class="el-pagination-primary el-icon"
-          >
-            <svg
-              fill="none"
-              height="24"
-              role="img"
-              title="Icon image with name chevronRight"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-        <button
-          aria-label="Next"
-          class="mocked-styled-4 el-pagination-button"
-          data-testid="forward-button"
-          role="button"
-          type="button"
-        >
-          <span
-            class="el-pagination-primary el-icon"
-          >
-            <svg
-              fill="none"
-              height="24"
-              role="img"
-              title="Icon image with name chevronRight"
-              viewBox="0 0 24 24"
-              width="24"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-        </button>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      class="mocked-styled-1 el-pagination-wrap"
-    >
-      <button
-        aria-label="Previous"
-        class="mocked-styled-4 el-pagination-button"
-        data-testid="back-button"
-        role="button"
-        type="button"
-      >
-        <span
-          class="el-pagination-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name chevronLeft"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        aria-label="Previous"
-        class="mocked-styled-4 el-pagination-button"
-        data-testid="back-button"
-        role="button"
-        type="button"
-      >
-        <span
-          class="el-pagination-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name chevronLeft"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-        <span
-          class="el-pagination-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name chevronLeft"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </button>
-      <div
-        class="mocked-styled-2 el-pagination-text"
-      >
-        <input
-          aria-label="Current page number, edit to select page of 4 available"
-          class="mocked-styled-3 el-pagination-input"
-          value="2"
-        />
-         
-        of 
-        4
-      </div>
-      <button
-        aria-label="Next"
-        class="mocked-styled-4 el-pagination-button"
-        data-testid="back-button"
-        role="button"
-        type="button"
-      >
-        <span
-          class="el-pagination-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name chevronRight"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-        <span
-          class="el-pagination-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name chevronRight"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </button>
-      <button
-        aria-label="Next"
-        class="mocked-styled-4 el-pagination-button"
-        data-testid="forward-button"
-        role="button"
-        type="button"
-      >
-        <span
-          class="el-pagination-primary el-icon"
-        >
-          <svg
-            fill="none"
-            height="24"
-            role="img"
-            title="Icon image with name chevronRight"
-            viewBox="0 0 24 24"
-            width="24"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
-      </button>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`PaginationButton > should match a snapshot and render children 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <button
-        class="mocked-styled-4 el-pagination-button"
-        type="button"
-      >
-        <div>
-          I am a child
-        </div>
-      </button>
-    </div>
-  </body>,
-  "container": <div>
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-pagination-wrap"
+  >
     <button
+      aria-label="Previous"
       class="mocked-styled-4 el-pagination-button"
+      data-testid="back-button"
+      role="button"
       type="button"
     >
-      <div>
-        I am a child
-      </div>
-    </button>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`PaginationText > should match a snapshot and render children 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <div
-        class="mocked-styled-2 el-pagination-text"
+      <span
+        class="el-pagination-primary el-icon"
       >
-        <div>
-          I am a child
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name chevronLeft"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
     <div
       class="mocked-styled-2 el-pagination-text"
     >
-      <div>
-        I am a child
-      </div>
+      <input
+        aria-label="Current page number, edit to select page of 4 available"
+        class="mocked-styled-3 el-pagination-input"
+        value="2"
+      />
+       of 4
     </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+    <button
+      aria-label="Next"
+      class="mocked-styled-4 el-pagination-button"
+      data-testid="forward-button"
+      role="button"
+      type="button"
+    >
+      <span
+        class="el-pagination-primary el-icon"
+      >
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name chevronRight"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Pagination > should match a snapshot with start end buttons 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-pagination-wrap"
+  >
+    <button
+      aria-label="Previous"
+      class="mocked-styled-4 el-pagination-button"
+      data-testid="back-button"
+      role="button"
+      type="button"
+    >
+      <span
+        class="el-pagination-primary el-icon"
+      >
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name chevronLeft"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      aria-label="Previous"
+      class="mocked-styled-4 el-pagination-button"
+      data-testid="back-button"
+      role="button"
+      type="button"
+    >
+      <span
+        class="el-pagination-primary el-icon"
+      >
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name chevronLeft"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        class="el-pagination-primary el-icon"
+      >
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name chevronLeft"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+    <div
+      class="mocked-styled-2 el-pagination-text"
+    >
+      <input
+        aria-label="Current page number, edit to select page of 4 available"
+        class="mocked-styled-3 el-pagination-input"
+        value="2"
+      />
+       of 4
+    </div>
+    <button
+      aria-label="Next"
+      class="mocked-styled-4 el-pagination-button"
+      data-testid="back-button"
+      role="button"
+      type="button"
+    >
+      <span
+        class="el-pagination-primary el-icon"
+      >
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name chevronRight"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span
+        class="el-pagination-primary el-icon"
+      >
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name chevronRight"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      aria-label="Next"
+      class="mocked-styled-4 el-pagination-button"
+      data-testid="forward-button"
+      role="button"
+      type="button"
+    >
+      <span
+        class="el-pagination-primary el-icon"
+      >
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name chevronRight"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`PaginationButton > should match a snapshot and render children 1`] = `
+<DocumentFragment>
+  <button
+    class="mocked-styled-4 el-pagination-button"
+    type="button"
+  >
+    <div>
+      I am a child
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
+exports[`PaginationText > should match a snapshot and render children 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-2 el-pagination-text"
+  >
+    <div>
+      I am a child
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
 exports[`PaginationWrap > should match a snapshot and render children 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-pagination-wrap"
+  >
     <div>
-      <div
-        class="mocked-styled-1 el-pagination-wrap"
-      >
-        <div>
-          I am a child
-        </div>
-      </div>
+      I am a child
     </div>
-  </body>,
-  "container": <div>
-    <div
-      class="mocked-styled-1 el-pagination-wrap"
-    >
-      <div>
-        I am a child
-      </div>
-    </div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;

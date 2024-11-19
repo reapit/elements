@@ -4,17 +4,17 @@ import { PersistentNotification } from '..'
 describe('PersistentNotification component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<PersistentNotification>I am notification</PersistentNotification>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot when given an intent', () => {
     const wrapper = render(<PersistentNotification intent="primary">I am notification</PersistentNotification>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot when expanded', () => {
     const wrapper = render(<PersistentNotification isExpanded={true}>I am notification</PersistentNotification>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should fire the onStepClick event correctly', async () => {
@@ -34,6 +34,6 @@ describe('PersistentNotification component', () => {
         I am notification
       </PersistentNotification>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

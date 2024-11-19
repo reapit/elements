@@ -8,7 +8,7 @@ describe('useDrawer', () => {
     const { result } = renderHook<{}, UseDrawer>(() => useDrawer('some-div'))
     const Drawer = result.current[0]
 
-    expect(render(<Drawer />)).toMatchSnapshot()
+    expect(render(<Drawer />).asFragment()).toMatchSnapshot()
 
     act(() => {
       result.current[1]()

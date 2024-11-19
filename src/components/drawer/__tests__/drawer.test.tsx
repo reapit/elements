@@ -18,7 +18,7 @@ describe('Drawer component', () => {
         Content within Drawer
       </Drawer>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot when open', () => {
@@ -27,49 +27,49 @@ describe('Drawer component', () => {
         Content within Drawer
       </Drawer>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('DrawerBg', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<DrawerBg>Content within Drawer</DrawerBg>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('DrawerContainer', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<DrawerContainer>Content within Drawer</DrawerContainer>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('DrawerHeader', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<DrawerHeader>Content within Drawer</DrawerHeader>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('DrawerTitle', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<DrawerTitle>Content within Drawer</DrawerTitle>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('DrawerSubtitle', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<DrawerSubtitle>Content within Drawer</DrawerSubtitle>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('DrawerBody', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<DrawerBody>Content within Drawer</DrawerBody>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 

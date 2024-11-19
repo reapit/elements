@@ -19,7 +19,7 @@ describe('MultiSelectChip', () => {
         <span>Some Value</span>
       </MultiSelectChip>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -30,7 +30,7 @@ describe('MultiSelect', () => {
         <span>Some Value</span>
       </MultiSelect>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -41,7 +41,7 @@ describe('MultiSelectSelected', () => {
         <span>Some Value</span>
       </MultiSelectSelected>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -52,7 +52,7 @@ describe('MultiSelectUnSelected', () => {
         <span>Some Value</span>
       </MultiSelectUnSelected>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -69,7 +69,7 @@ describe('MultiSelectInput', () => {
         defaultValues={['item-one']}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot and render non selected message where there are no selected items', () => {
@@ -84,7 +84,7 @@ describe('MultiSelectInput', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 

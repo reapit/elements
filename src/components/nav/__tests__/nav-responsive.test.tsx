@@ -65,7 +65,7 @@ describe('NavResponsive component', () => {
         </MediaStateProvider>
       </NavStateProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 

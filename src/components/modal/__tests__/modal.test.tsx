@@ -9,7 +9,7 @@ describe('Modal component', () => {
         Content within modal
       </Modal>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot when open', () => {
@@ -18,7 +18,7 @@ describe('Modal component', () => {
         Content within modal
       </Modal>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 

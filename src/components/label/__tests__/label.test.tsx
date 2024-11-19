@@ -4,6 +4,6 @@ import { Label } from '..'
 describe('Label component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<Label />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

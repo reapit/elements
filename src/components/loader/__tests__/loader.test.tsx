@@ -4,6 +4,6 @@ import { Loader } from '..'
 describe('Loader component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<Loader />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

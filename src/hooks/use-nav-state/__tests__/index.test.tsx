@@ -6,7 +6,7 @@ import { PropsWithChildren } from '../../../types/core'
 
 describe('NavStateProvider', () => {
   it('should match snapshot', () => {
-    expect(render(<NavStateProvider />)).toMatchSnapshot()
+    expect(render(<NavStateProvider />).asFragment()).toMatchSnapshot()
   })
 })
 

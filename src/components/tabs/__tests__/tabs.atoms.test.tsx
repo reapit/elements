@@ -4,14 +4,14 @@ import { Tab, TabsFooter, TabsItem, TabsLabel, TabsOptionsWrap, TabsWrap } from 
 describe('Tab', () => {
   it('should match a snapshot and render children', () => {
     const wrapper = render(<Tab className="foo" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('Tab', () => {
   it('should match a snapshot and render children', () => {
     const wrapper = render(<Tab className="foo" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -22,7 +22,7 @@ describe('TabsWrap', () => {
         <div>Child</div>
       </TabsWrap>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -33,7 +33,7 @@ describe('TabsLabel', () => {
         <div>Child</div>
       </TabsLabel>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -44,7 +44,7 @@ describe('TabsFooter', () => {
         <div>Child</div>
       </TabsFooter>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -55,7 +55,7 @@ describe('TabsOptionsWrap', () => {
         <div>Child</div>
       </TabsOptionsWrap>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -66,6 +66,6 @@ describe('TabsItem', () => {
         <div>Child</div>
       </TabsItem>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

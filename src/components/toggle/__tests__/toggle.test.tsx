@@ -10,7 +10,7 @@ describe('Toggle', () => {
         <ElToggleItem>Off</ElToggleItem>
       </Toggle>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -42,6 +42,6 @@ describe('ToggleRadio', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

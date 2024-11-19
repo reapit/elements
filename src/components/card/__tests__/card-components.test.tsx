@@ -8,7 +8,7 @@ describe('Card', () => {
         <div>I am a child</div>
       </Card>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot and render children with full props', () => {
@@ -41,7 +41,7 @@ describe('Card', () => {
         <div>I am a child</div>
       </Card>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 

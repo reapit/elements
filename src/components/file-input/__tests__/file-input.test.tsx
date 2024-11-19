@@ -5,7 +5,7 @@ import { FileInput, handleFileChange, handleFileClear, handleFileView, FilePrevi
 describe('FileInput component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<FileInput />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props', () => {
@@ -20,12 +20,12 @@ describe('FileInput component', () => {
         fileName="some-file-name"
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for the FilePreviewImage component', () => {
     const wrapper = render(<FilePreviewImage src="https://mock-image.com" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
