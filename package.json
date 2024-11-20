@@ -48,8 +48,8 @@
   ],
   "scripts": {
     "build": "yarn build:storybook & yarn build:types & yarn build:dist",
-    "build:storybook": "cross-env NODE_ENV=production && rimraf public/dist && storybook build -o public/dist",
-    "build:dist": "cross-env NODE_ENV=production && vite build",
+    "build:storybook": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
+    "build:dist": "vite build",
     "build:sd": "node ./src/tokens/build.mjs && eslint --cache --ext=ts tokens --fix",
     "build:types": "tsc --project tsconfig.build.json",
     "commit": "yarn test run --coverage --silent && yarn coverage:badges && yarn lint --fix && yarn check",
@@ -111,7 +111,6 @@
     "concurrently": "^8.2.2",
     "constructs": "^10.3.0",
     "coverage-badges-cli": "^2.1.0",
-    "cross-env": "^7.0.3",
     "dashify": "2.0.0",
     "eslint": "8.56.0",
     "eslint-config-prettier": "^9.1.0",
