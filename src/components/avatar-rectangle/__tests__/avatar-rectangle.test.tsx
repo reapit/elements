@@ -26,11 +26,11 @@ describe('AvatarRectangle', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('renders correctly when image fails to load', () => {
+  it('simulate error and renders correctly when image fails to load', () => {
     const { asFragment } = render(
       <AvatarRectangle variant="commercial" size="medium" src="invalid-image.jpg" alt="Test Image" />,
     )
-    // Simulate image error
+    // Simulate image error because the asFragment doesn't care if the image is invalid
     const img = document.querySelector('img')
     if (img) {
       img.dispatchEvent(new Event('error'))

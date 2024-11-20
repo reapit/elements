@@ -3,7 +3,7 @@ import { AvatarRectangle } from '.'
 import {
   ElAvatarRectangle,
   ElAvatarRectResidentialPlaceholder,
-  ElAvatarRectBottomPlaceholder,
+  ElAvatarRectBottomImage,
   ElAvatarRectCommercialPlaceholder,
 } from './styles'
 
@@ -44,7 +44,7 @@ export const UsingCommercialVariant = {
   render: ({}) => (
     <ElAvatarRectangle data-variant="commercial">
       <img src={exampleImageUrl} alt="example" />
-      <ElAvatarRectBottomPlaceholder aria-hidden="true" />
+      <ElAvatarRectBottomImage aria-hidden="true" />
     </ElAvatarRectangle>
   ),
 }

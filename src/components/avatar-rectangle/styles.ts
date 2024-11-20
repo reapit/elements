@@ -1,10 +1,10 @@
 import { styled } from '@linaria/react'
-import { ReactComponent as ResidentialPlaceholderIcon } from './icons/residential-placeholder.svg'
-import { ReactComponent as ResidentialSmallPlaceholderIcon } from './icons/residential-placeholder-small.svg'
-import { ReactComponent as CommercialPlaceholderIcon } from './icons/commercial-placeholder.svg'
-import { ReactComponent as CommercialSmallPlaceholderIcon } from './icons/commercial-placeholder-small.svg'
-import { ReactComponent as CommercialBottomPlaceholderIcon } from './icons/bottom-commercial-placeholder.svg'
-import { ReactComponent as CommercialSmallBottomPlaceholderIcon } from './icons/bottom-commercial-placeholder-small.svg'
+import ResidentialPlaceholderIcon from './icons/residential-placeholder.svg?react'
+import ResidentialSmallPlaceholderIcon from './icons/residential-placeholder-small.svg?react'
+import CommercialPlaceholderIcon from './icons/commercial-placeholder.svg?react'
+import CommercialSmallPlaceholderIcon from './icons/commercial-placeholder-small.svg?react'
+import CommercialBottomImage from './icons/bottom-commercial-image.svg?react'
+import CommercialSmallBottomImage from './icons/bottom-commercial-image-small.svg?react'
 
 const baseAvatarRectMediumSize = `
   width: var(--size-size-12, 72px);
@@ -27,19 +27,19 @@ const baseCommercialBottomSmallPlaceholderSize = `
   height: 36px;
 `
 
-const baseCommercialBottomPlaceholderPosition = `
+const baseCommercialBottomImagePosition = `
   position: absolute;
   bottom: 0;
   right: 0;
 `
 
-export const ElAvatarRectBottomPlaceholder = styled(CommercialBottomPlaceholderIcon)`
+export const ElAvatarRectBottomImage = styled(CommercialBottomImage)`
   ${baseCommercialMediumImagesSize}
-  ${baseCommercialBottomPlaceholderPosition}
+  ${baseCommercialBottomImagePosition}
 `
-export const ElAvatarRectBottomSmallPlaceholder = styled(CommercialSmallBottomPlaceholderIcon)`
+export const ElAvatarRectBottomSmallPlaceholder = styled(CommercialSmallBottomImage)`
   ${baseCommercialMediumImagesSize}
-  ${baseCommercialBottomPlaceholderPosition}
+  ${baseCommercialBottomImagePosition}
 `
 
 export const ElAvatarRectangle = styled.div`
@@ -70,7 +70,7 @@ export const ElAvatarRectangle = styled.div`
 
     &[data-variant='commercial'] {
       img,
-      ${ElAvatarRectBottomPlaceholder}, ${ElAvatarRectBottomSmallPlaceholder} {
+      ${ElAvatarRectBottomImage}, ${ElAvatarRectBottomSmallPlaceholder} {
         ${baseCommercialBottomSmallPlaceholderSize}
       }
     }

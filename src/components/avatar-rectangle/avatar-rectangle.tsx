@@ -1,7 +1,7 @@
 import { useEffect, useState, type FC, type HTMLAttributes } from 'react'
 import {
   ElAvatarRectangle,
-  ElAvatarRectBottomPlaceholder,
+  ElAvatarRectBottomImage,
   ElAvatarRectBottomSmallPlaceholder,
   ElAvatarRectCommercialPlaceholder,
   ElAvatarRectCommercialSmallPlaceholder,
@@ -46,15 +46,17 @@ export const AvatarRectangle: FC<AvatarRectangle> = ({
         ? ElAvatarRectCommercialPlaceholder
         : ElAvatarRectCommercialSmallPlaceholder
 
-  const CommercialBottomPlaceholder =
-    size === 'medium' ? ElAvatarRectBottomPlaceholder : ElAvatarRectBottomSmallPlaceholder
+  const CommercialBottomImage =
+    size === 'medium' ? ElAvatarRectBottomImage : ElAvatarRectBottomSmallPlaceholder
 
   return hasImageError ? (
-    <PlaceholderComponent {...props} aria-label="Image placeholder" />
+    <PlaceholderComponent {...props as HTMLAttributes<HTMLOrSVGElement>} aria-label="Image placeholder" />
   ) : (
     <ElAvatarRectangle {...props} data-size={size} data-variant={variant} data-placeholder={!hasImageError}>
       <img src={src} alt={alt} onError={handleError} />
-      {variant === 'commercial' && <CommercialBottomPlaceholder aria-hidden="true" />}
+      {/* commercial image have additional bottom image placeholder,
+          see https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=383-10175&t=KuONuvNexPnMttGy-4 */}
+      {variant === 'commercial' && <CommercialBottomImage aria-hidden="true" />}
     </ElAvatarRectangle>
   )
 }
