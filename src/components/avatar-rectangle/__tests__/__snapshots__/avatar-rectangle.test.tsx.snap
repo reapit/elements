@@ -2,13 +2,17 @@
 
 exports[`AvatarRectangle renders correctly when image fails to load 1`] = `
 <DocumentFragment>
-  <mock-styled.svg />
+  <mock-styled.svg
+    aria-label="Image placeholder"
+  />
 </DocumentFragment>
 `;
 
 exports[`AvatarRectangle renders correctly with commercial variant and medium size without src 1`] = `
 <DocumentFragment>
-  <mock-styled.svg />
+  <mock-styled.svg
+    aria-label="Image placeholder"
+  />
 </DocumentFragment>
 `;
 
@@ -47,6 +51,8 @@ exports[`AvatarRectangle renders correctly with residential variant and medium s
 
 exports[`AvatarRectangle renders correctly with residential variant and small size without src 1`] = `
 <DocumentFragment>
-  <mock-styled.svg />
+  <mock-styled.svg
+    aria-label="Image placeholder"
+  />
 </DocumentFragment>
 `;
