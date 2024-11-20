@@ -1,19 +1,21 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`AvatarButton should render the component and match snapshot 1`] = `
+exports[`AvatarButton > should render the component and match snapshot 1`] = `
 <DocumentFragment>
-  <mock-styled.button
+  <button
     aria-label="Open user navigation menu"
+    class="mocked-styled-1 el-avatar-button"
     data-custom="custom props"
   >
-    <mock-styled.span
+    <span
+      class="mocked-styled-0 el-avatar"
       data-colour="purple"
       data-shape="circle"
       data-size="small"
       role="presentation"
     >
       Test label
-    </mock-styled.span>
-  </mock-styled.button>
+    </span>
+  </button>
 </DocumentFragment>
 `;

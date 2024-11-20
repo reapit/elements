@@ -3,10 +3,10 @@ import syncTextAreaHeight from '../sync-textarea-height'
 import { useRef } from 'react'
 import useResizeTextAreaEffect from '../use-resize-textarea-effect'
 
-jest.mock('../sync-textarea-height')
+vi.mock('../sync-textarea-height')
 
 beforeEach(() => {
-  jest.mocked(syncTextAreaHeight).mockClear()
+  vi.mocked(syncTextAreaHeight).mockClear()
 })
 
 test('does NOT sync height when `isEnabled` is false', async () => {

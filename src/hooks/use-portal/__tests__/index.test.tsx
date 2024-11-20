@@ -13,6 +13,6 @@ describe('usePortal', () => {
 
 describe('Portal', () => {
   it('should match a snapshot and render children', async () => {
-    expect(render(<Portal id="some-id">I am some content</Portal>)).toMatchSnapshot()
+    expect(render(<Portal id="some-id">I am some content</Portal>).asFragment()).toMatchSnapshot()
   })
 })

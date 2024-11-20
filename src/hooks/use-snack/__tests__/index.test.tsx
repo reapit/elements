@@ -19,6 +19,6 @@ describe('useSnack', () => {
 
 describe('SnackProvider', () => {
   it('should match snapshot', () => {
-    expect(render(<SnackProvider />)).toMatchSnapshot()
+    expect(render(<SnackProvider />).asFragment()).toMatchSnapshot()
   })
 })

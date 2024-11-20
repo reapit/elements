@@ -5,12 +5,12 @@ import { elSpan2 } from '../../grid'
 describe('Table Component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<Table />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with varied number columns', () => {
     const wrapper = render(<Table numberColumns={4} />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props and expandable content', () => {
@@ -18,7 +18,7 @@ describe('Table Component', () => {
       <Table
         numberColumns={9}
         indexExpandedRow={0}
-        setIndexExpandedRow={jest.fn()}
+        setIndexExpandedRow={vi.fn()}
         rows={[
           {
             cells: [
@@ -67,7 +67,7 @@ describe('Table Component', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for expandable content alternate settings', () => {
@@ -79,7 +79,7 @@ describe('Table Component', () => {
             expandableContent: {
               content: <p>I am the content that is only visible when expanded</p>,
               headerContent: 'Some Content',
-              onClick: jest.fn(),
+              onClick: vi.fn(),
               className: 'foo-bar',
               icon: 'property',
             },
@@ -87,7 +87,7 @@ describe('Table Component', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props and cta content', () => {
@@ -95,7 +95,7 @@ describe('Table Component', () => {
       <Table
         numberColumns={9}
         indexExpandedRow={0}
-        setIndexExpandedRow={jest.fn()}
+        setIndexExpandedRow={vi.fn()}
         rows={[
           {
             cells: [
@@ -139,7 +139,7 @@ describe('Table Component', () => {
             ],
             ctaContent: {
               headerContent: 'Some Action',
-              onClick: jest.fn(),
+              onClick: vi.fn(),
               className: 'foo-bar',
               icon: 'property',
             },
@@ -147,7 +147,7 @@ describe('Table Component', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for cta content alternate settings', () => {
@@ -157,7 +157,7 @@ describe('Table Component', () => {
           {
             cells: [],
             ctaContent: {
-              onClick: jest.fn(),
+              onClick: vi.fn(),
               className: 'foo-bar',
               icon: 'property',
             },
@@ -165,26 +165,26 @@ describe('Table Component', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should handleToggleExpandedRow to close a row with the default behaviour', () => {
-    const setExpandedRow = jest.fn()
+    const setExpandedRow = vi.fn()
     const curried = handleToggleExpandedRow(1, 1, setExpandedRow)
     curried()
     expect(setExpandedRow).toHaveBeenCalledWith(null)
   })
 
   it('should handleToggleExpandedRow to open a row with the default behaviour', () => {
-    const setExpandedRow = jest.fn()
+    const setExpandedRow = vi.fn()
     const curried = handleToggleExpandedRow(null, 1, setExpandedRow)
     curried()
     expect(setExpandedRow).toHaveBeenCalledWith(null)
   })
 
   it('should handleToggleExpandedRow to close a row with the override behaviour', () => {
-    const setIndexExpandedRow = jest.fn()
-    const setExpandedRow = jest.fn()
+    const setIndexExpandedRow = vi.fn()
+    const setExpandedRow = vi.fn()
     const curried = handleToggleExpandedRow(1, 1, setExpandedRow, 1, setIndexExpandedRow)
     curried()
     expect(setExpandedRow).not.toHaveBeenCalled()
@@ -192,8 +192,8 @@ describe('Table Component', () => {
   })
 
   it('should handleToggleExpandedRow to open a row with the override behaviour', () => {
-    const setIndexExpandedRow = jest.fn()
-    const setExpandedRow = jest.fn()
+    const setIndexExpandedRow = vi.fn()
+    const setExpandedRow = vi.fn()
     const curried = handleToggleExpandedRow(1, 1, setExpandedRow, null, setIndexExpandedRow)
     curried()
     expect(setExpandedRow).not.toHaveBeenCalled()

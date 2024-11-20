@@ -19,7 +19,7 @@ describe('MultiSelectChip', () => {
         <span>Some Value</span>
       </MultiSelectChip>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -30,7 +30,7 @@ describe('MultiSelect', () => {
         <span>Some Value</span>
       </MultiSelect>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -41,7 +41,7 @@ describe('MultiSelectSelected', () => {
         <span>Some Value</span>
       </MultiSelectSelected>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -52,7 +52,7 @@ describe('MultiSelectUnSelected', () => {
         <span>Some Value</span>
       </MultiSelectUnSelected>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -69,7 +69,7 @@ describe('MultiSelectInput', () => {
         defaultValues={['item-one']}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot and render non selected message where there are no selected items', () => {
@@ -84,7 +84,7 @@ describe('MultiSelectInput', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -93,7 +93,7 @@ describe('handleSetNativeInput', () => {
     const id = 'some-id'
     const selectedOptionValues = ['some-value']
     const input = document.createElement('input')
-    const testFunc = jest.fn()
+    const testFunc = vi.fn()
 
     input.id = id
     document.body.appendChild(input)
@@ -108,8 +108,8 @@ describe('handleSetNativeInput', () => {
 
 describe('handleResetDefaultValues', () => {
   it('should allow the resetting of default values if they do not match', () => {
-    const setSelectedOptionValues = jest.fn()
-    const setSelectedDefaultValues = jest.fn()
+    const setSelectedOptionValues = vi.fn()
+    const setSelectedDefaultValues = vi.fn()
     const defaultValues = ['someValue', 'someValue']
     const selectedDefaultValues = ['someValue', 'someOtherValue']
 
@@ -127,8 +127,8 @@ describe('handleResetDefaultValues', () => {
   })
 
   it('should not allow the resetting of default values if they match', () => {
-    const setSelectedOptionValues = jest.fn()
-    const setSelectedDefaultValues = jest.fn()
+    const setSelectedOptionValues = vi.fn()
+    const setSelectedDefaultValues = vi.fn()
     const defaultValues = ['someValue', 'someValue']
     const selectedDefaultValues = ['someValue', 'someValue']
 
@@ -150,7 +150,7 @@ describe('handleSelectedOptions', () => {
   it('should deselect an option', () => {
     const value = 'some-value'
     const selectedOptionValues = ['some-value']
-    const setSelectedOptionValues = jest.fn()
+    const setSelectedOptionValues = vi.fn()
     const event = {
       target: {
         checked: false,
@@ -166,7 +166,7 @@ describe('handleSelectedOptions', () => {
   it('should select an option', () => {
     const value = 'some-value'
     const selectedOptionValues = []
-    const setSelectedOptionValues = jest.fn()
+    const setSelectedOptionValues = vi.fn()
     const event = {
       target: {
         checked: true,
@@ -184,7 +184,7 @@ describe('handleSelectedKeoardOptions', () => {
   it('should deselect an option', () => {
     const value = 'some-value'
     const selectedOptionValues = ['some-value']
-    const setSelectedOptionValues = jest.fn()
+    const setSelectedOptionValues = vi.fn()
     const isChecked = true
 
     const curried = handleSelectedKeyboardOptions(value, selectedOptionValues, setSelectedOptionValues, isChecked)
@@ -197,7 +197,7 @@ describe('handleSelectedKeoardOptions', () => {
   it('should select an option', () => {
     const value = 'some-value'
     const selectedOptionValues = []
-    const setSelectedOptionValues = jest.fn()
+    const setSelectedOptionValues = vi.fn()
     const isChecked = false
 
     const curried = handleSelectedKeyboardOptions(value, selectedOptionValues, setSelectedOptionValues, isChecked)

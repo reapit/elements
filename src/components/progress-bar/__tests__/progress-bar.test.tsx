@@ -12,43 +12,43 @@ import {
 describe('ProgressBarContainer', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<ProgressBarContainer />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarInner', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<ProgressBarInner />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarItem', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<ProgressBarItem />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarPercentage', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<ProgressBarPercentage duration={20} />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('ProgressBarSteps', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<ProgressBarSteps numberSteps={10} currentStep={5} />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('handleSetPercentageComplete', () => {
   it('should call window set interval and clear interval', () => {
-    const intervalSpy = jest.spyOn(window, 'setInterval')
-    const clearSpy = jest.spyOn(window, 'clearInterval')
-    const mockSetPercentComplete = jest.fn()
+    const intervalSpy = vi.spyOn(window, 'setInterval')
+    const clearSpy = vi.spyOn(window, 'clearInterval')
+    const mockSetPercentComplete = vi.fn()
     const mockIntervalTime = 20
 
     const curried = handleSetPercentageComplete(mockSetPercentComplete, mockIntervalTime)
@@ -64,7 +64,7 @@ describe('handleSetPercentageComplete', () => {
 
 describe('handleSetPercentageCompleteSteps', () => {
   it('should call setPercentageComplete with correct time', () => {
-    const mockSetPercentComplete = jest.fn()
+    const mockSetPercentComplete = vi.fn()
     const mockNumberSteps = 20
     const mockCurrentStep = 20
 

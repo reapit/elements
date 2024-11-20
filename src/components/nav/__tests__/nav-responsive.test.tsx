@@ -65,16 +65,16 @@ describe('NavResponsive component', () => {
         </MediaStateProvider>
       </NavStateProvider>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('clickNavEventHandler', () => {
   it('should handle a click event', () => {
-    const setActive = jest.fn()
+    const setActive = vi.fn()
     const event = {
-      preventDefault: jest.fn(),
-      stopPropagation: jest.fn(),
+      preventDefault: vi.fn(),
+      stopPropagation: vi.fn(),
     } as unknown as MouseEvent<HTMLAnchorElement | HTMLDivElement>
 
     const curried = clickNavEventHandler(setActive)

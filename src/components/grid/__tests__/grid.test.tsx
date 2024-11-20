@@ -8,7 +8,7 @@ describe('Grid', () => {
         <p>I am child</p>
       </Grid>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -19,7 +19,7 @@ describe('Col', () => {
         <p>I am child</p>
       </Col>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -30,7 +30,7 @@ describe('ColHalf', () => {
         <p>I am child</p>
       </ColHalf>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -41,7 +41,7 @@ describe('ColQuarter', () => {
         <p>I am child</p>
       </ColQuarter>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -52,7 +52,7 @@ describe('ColSplit', () => {
         <p>I am child</p>
       </ColSplit>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -63,7 +63,7 @@ describe('GridThirds', () => {
         <p>I am child</p>
       </GridThirds>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -74,7 +74,7 @@ describe('ColSplitThird', () => {
         <p>I am child</p>
       </ColSplitThird>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -85,6 +85,6 @@ describe('ColSplitTwoThirds', () => {
         <p>I am child</p>
       </ColSplitTwoThirds>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

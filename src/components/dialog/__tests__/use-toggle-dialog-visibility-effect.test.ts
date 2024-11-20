@@ -5,23 +5,23 @@ import { RefObject } from 'react'
 import { act } from '@testing-library/react'
 
 describe('useToggleDialogVisibilityEffect', () => {
-  const mockOnClose = jest.fn()
-  const abort = jest.fn()
+  const mockOnClose = vi.fn()
+  const abort = vi.fn()
 
   const mockUseRef = {
     current: {
-      showModal: jest.fn(),
-      addEventListener: jest.fn(),
-      close: jest.fn(),
+      showModal: vi.fn(),
+      addEventListener: vi.fn(),
+      close: vi.fn(),
     },
   } as unknown as RefObject<HTMLDialogElement>
 
   beforeAll(() => {
-    jest.spyOn(AbortController.prototype, 'abort').mockImplementation(abort) as any
+    vi.spyOn(AbortController.prototype, 'abort').mockImplementation(abort) as any
   })
 
   afterEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   it('should trigger the some methods when isOpen is true', () => {

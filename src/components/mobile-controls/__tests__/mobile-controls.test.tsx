@@ -5,7 +5,7 @@ import { MobileControls, clickEventHandler } from '..'
 describe('MobileControls component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<MobileControls />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props', () => {
@@ -30,17 +30,17 @@ describe('MobileControls component', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('clickEventHandler', () => {
   it('should handle a click event', () => {
-    const setActive = jest.fn()
-    const onClick = jest.fn()
+    const setActive = vi.fn()
+    const onClick = vi.fn()
     const event = {
-      preventDefault: jest.fn(),
-      stopPropagation: jest.fn(),
+      preventDefault: vi.fn(),
+      stopPropagation: vi.fn(),
     } as unknown as MouseEvent<HTMLAnchorElement | HTMLDivElement>
 
     const curried = clickEventHandler(setActive, onClick)

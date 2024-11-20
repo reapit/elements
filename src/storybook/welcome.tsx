@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { styled } from '@linaria/react'
 import { isTablet } from '../styles/media'
-import { ReactComponent as ReapitLogoInfographic } from '../../assets/icons/reapitLogo.svg'
+import ReapitLogoInfographic from '../../assets/icons/reapitLogo.svg?react'
 
 const WelcomeWrapper = styled.div`
   background-color: var(--white);

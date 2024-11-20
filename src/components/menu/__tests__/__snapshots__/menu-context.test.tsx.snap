@@ -1,6 +1,6 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MenuProvider and useMenuContext should render MenuProvider and match snapshot 1`] = `
+exports[`MenuProvider and useMenuContext > should render MenuProvider and match snapshot 1`] = `
 <DocumentFragment>
   Foo
 </DocumentFragment>

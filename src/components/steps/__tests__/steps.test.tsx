@@ -4,15 +4,15 @@ import { Steps, StepsProps, StepsVertical, StepsVerticalProps, handleStepClick }
 describe('Steps', () => {
   const props: StepsProps = {
     steps: ['1', '2', '3', '4', '5'],
-    onStepClick: jest.fn(),
+    onStepClick: vi.fn(),
   }
 
   it('should match a snapshot', () => {
-    expect(render(<Steps {...props} />)).toMatchSnapshot()
+    expect(render(<Steps {...props} />).asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot when selectedStep is different', () => {
-    expect(render(<Steps {...props} selectedStep="2" />)).toMatchSnapshot()
+    expect(render(<Steps {...props} selectedStep="2" />).asFragment()).toMatchSnapshot()
   })
 
   it('should fire the onStepClick event correctly', async () => {
@@ -22,7 +22,7 @@ describe('Steps', () => {
   })
 
   afterEach(() => {
-    jest.resetAllMocks()
+    vi.resetAllMocks()
   })
 })
 
@@ -50,16 +50,16 @@ describe('StepsVertical', () => {
         content: 'Lorem, ipsum dolor',
       },
     ],
-    onStepClick: jest.fn(),
+    onStepClick: vi.fn(),
     selectedStep: '5',
   }
 
   it('should match a snapshot', () => {
-    expect(render(<StepsVertical {...props} />)).toMatchSnapshot()
+    expect(render(<StepsVertical {...props} />).asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot when selectedStep is different', () => {
-    expect(render(<StepsVertical {...props} selectedStep="2" />)).toMatchSnapshot()
+    expect(render(<StepsVertical {...props} selectedStep="2" />).asFragment()).toMatchSnapshot()
   })
 
   it('should fire the onStepClick event correctly', async () => {
@@ -71,13 +71,13 @@ describe('StepsVertical', () => {
   })
 
   afterEach(() => {
-    jest.resetAllMocks()
+    vi.resetAllMocks()
   })
 })
 
 describe('handleStepClick', () => {
   it('should call onStepClick with the correct argument', () => {
-    const onStepClick = jest.fn()
+    const onStepClick = vi.fn()
     const step = 'step1'
 
     const curried = handleStepClick(step, onStepClick)

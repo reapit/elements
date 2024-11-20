@@ -5,14 +5,14 @@ import useResizeTextAreaOnChange from '../use-resize-textarea-onchange'
 
 import type { ChangeEventHandler } from 'react'
 
-jest.mock('../sync-textarea-height')
+vi.mock('../sync-textarea-height')
 
 beforeEach(() => {
-  jest.mocked(syncTextAreaHeight).mockClear()
+  vi.mocked(syncTextAreaHeight).mockClear()
 })
 
 test('always calls `onChange`', async () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
 
   const { rerender } = render(<TestComponent isEnabled={false} onChange={onChange} />)
   fireEvent.change(screen.getByRole('textbox'), { target: { value: 'foo' } })
@@ -26,7 +26,7 @@ test('always calls `onChange`', async () => {
 })
 
 test('syncs height when `isEnabled` is true', async () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
 
   render(<TestComponent isEnabled onChange={onChange} />)
   fireEvent.change(screen.getByRole('textbox'), { target: { value: 'foo' } })
@@ -35,7 +35,7 @@ test('syncs height when `isEnabled` is true', async () => {
 })
 
 test('syncs value when `isEnabled` is true', async () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
 
   render(<TestComponent isEnabled onChange={onChange} />)
 
@@ -47,7 +47,7 @@ test('syncs value when `isEnabled` is true', async () => {
 })
 
 test('does NOT sync height when `isEnabled` is false', async () => {
-  const onChange = jest.fn()
+  const onChange = vi.fn()
 
   render(<TestComponent isEnabled={false} onChange={onChange} />)
   fireEvent.change(screen.getByRole('textbox'), { target: { value: 'foo' } })
@@ -56,7 +56,7 @@ test('does NOT sync height when `isEnabled` is false', async () => {
 })
 
 test('does NOT sync height when change event default is prevented', async () => {
-  const onChange = jest.fn().mockImplementation(((event) => event.preventDefault()) as ChangeEventHandler)
+  const onChange = vi.fn().mockImplementation(((event) => event.preventDefault()) as ChangeEventHandler)
 
   render(<TestComponent isEnabled onChange={onChange} />)
   fireEvent.change(screen.getByRole('textbox'), { target: { value: 'foo' } })

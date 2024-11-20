@@ -1,264 +1,359 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Button should fire click event on button element 1`] = `
+exports[`Button > should fire click event on button element 1`] = `
 <DocumentFragment>
-  <mock-styled.button
+  <button
     aria-disabled="false"
-    classname="mock-css."
+    class="el-button-size-medium el-button"
     role="button"
   >
-    <mock-styled.div />
-    <mock-styled.span>
+    <div
+      class="mocked-styled-0 el-button-spinner"
+    />
+    <span
+      class="mocked-styled-1 el-button-label"
+    >
       Button
-    </mock-styled.span>
-  </mock-styled.button>
+    </span>
+  </button>
 </DocumentFragment>
 `;
 
-exports[`Button should match snapshot 1`] = `
+exports[`Button > should match snapshot 1`] = `
 <DocumentFragment>
-  <mock-styled.button
+  <button
     aria-disabled="false"
-    classname="mock-css."
+    class="el-button-size-medium el-button"
     role="button"
   >
-    <mock-styled.div />
-    <mock-styled.span>
+    <div
+      class="mocked-styled-0 el-button-spinner"
+    />
+    <span
+      class="mocked-styled-1 el-button-label"
+    >
       Button
-    </mock-styled.span>
-  </mock-styled.button>
+    </span>
+  </button>
 </DocumentFragment>
 `;
 
-exports[`Button should match snapshot for <ElAnchorButton> as a link button 1`] = `
+exports[`Button > should match snapshot for <ElAnchorButton> as a link button 1`] = `
 <DocumentFragment>
-  <mock-styled.a
-    classname="mock-css. mock-css.
-  padding: var(--spacing-2);
-  , {
-    margin: 0 0.125rem;
-  }
-"
+  <a
+    class="el-button-size-medium el-button-icon-only el-anchor-button"
     href="https://example.com"
     rel="noOpener noReferrer"
     role="button"
     target="_blank"
   >
-    <mock-styled.div />
-    <mock-styled.span
-      classname=""
+    <div
+      class="mocked-styled-0 el-button-spinner"
+    />
+    <span
+      class="mocked-styled-6 el-icon"
     >
       <svg
+        fill="none"
+        height="24"
         role="img"
         title="Icon image with name add"
-      />
-    </mock-styled.span>
-  </mock-styled.a>
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 11H13V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </a>
 </DocumentFragment>
 `;
 
-exports[`Button should match snapshot for icon-only button 1`] = `
+exports[`Button > should match snapshot for icon-only button 1`] = `
 <DocumentFragment>
-  <mock-styled.button
+  <button
     aria-disabled="false"
-    classname="mock-css. mock-css.
-  padding: var(--spacing-2);
-  , {
-    margin: 0 0.125rem;
-  }
-"
+    class="el-button-size-medium el-button-icon-only el-button"
     data-variant="primary"
     role="button"
   >
-    <mock-styled.div />
-    <mock-styled.span
-      classname=""
+    <div
+      class="mocked-styled-0 el-button-spinner"
+    />
+    <span
+      class="mocked-styled-6 el-icon"
     >
       <svg
+        fill="none"
+        height="24"
         role="img"
         title="Icon image with name star"
-      />
-    </mock-styled.span>
-  </mock-styled.button>
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16.2341 13.9495L21.8141 9.8795C22.0176 9.76139 22.1112 9.51746 22.0389 9.2936C21.9667 9.06973 21.7482 8.92648 21.5141 8.9495H14.6241L12.4941 2.4095C12.4463 2.17134 12.2371 2 11.9941 2C11.7512 2 11.542 2.17134 11.4941 2.4095L9.40414 8.9495H2.51414C2.2932 8.94327 2.09438 9.08284 2.02518 9.29275C1.95597 9.50267 2.03281 9.73312 2.21414 9.8595L7.79414 13.9495L5.66414 20.4895C5.59621 20.6958 5.66929 20.9224 5.84498 21.0502C6.02067 21.178 6.25876 21.1777 6.43414 21.0495L12.0141 16.9495L17.5941 21.0095C17.7695 21.1377 18.0076 21.138 18.1833 21.0102C18.359 20.8824 18.4321 20.6558 18.3641 20.4495L16.2341 13.9495Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </button>
 </DocumentFragment>
 `;
 
-exports[`Button should match snapshot with variant and icons 1`] = `
+exports[`Button > should match snapshot with variant and icons 1`] = `
 <DocumentFragment>
-  <mock-styled.button
+  <button
     aria-disabled="false"
-    classname="mock-css."
+    class="el-button-size-medium el-button"
     data-variant="primary"
     role="button"
   >
-    <mock-styled.div />
-    <mock-styled.span
-      classname=""
+    <div
+      class="mocked-styled-0 el-button-spinner"
+    />
+    <span
+      class="mocked-styled-6 el-icon"
     >
       <svg
+        fill="none"
+        height="24"
         role="img"
         title="Icon image with name star"
-      />
-    </mock-styled.span>
-    <mock-styled.span>
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16.2341 13.9495L21.8141 9.8795C22.0176 9.76139 22.1112 9.51746 22.0389 9.2936C21.9667 9.06973 21.7482 8.92648 21.5141 8.9495H14.6241L12.4941 2.4095C12.4463 2.17134 12.2371 2 11.9941 2C11.7512 2 11.542 2.17134 11.4941 2.4095L9.40414 8.9495H2.51414C2.2932 8.94327 2.09438 9.08284 2.02518 9.29275C1.95597 9.50267 2.03281 9.73312 2.21414 9.8595L7.79414 13.9495L5.66414 20.4895C5.59621 20.6958 5.66929 20.9224 5.84498 21.0502C6.02067 21.178 6.25876 21.1777 6.43414 21.0495L12.0141 16.9495L17.5941 21.0095C17.7695 21.1377 18.0076 21.138 18.1833 21.0102C18.359 20.8824 18.4321 20.6558 18.3641 20.4495L16.2341 13.9495Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+    <span
+      class="mocked-styled-1 el-button-label"
+    >
       Button
-    </mock-styled.span>
-    <mock-styled.span
-      classname=""
+    </span>
+    <span
+      class="mocked-styled-6 el-icon"
     >
       <svg
+        fill="none"
+        height="24"
         role="img"
         title="Icon image with name star"
-      />
-    </mock-styled.span>
-  </mock-styled.button>
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16.2341 13.9495L21.8141 9.8795C22.0176 9.76139 22.1112 9.51746 22.0389 9.2936C21.9667 9.06973 21.7482 8.92648 21.5141 8.9495H14.6241L12.4941 2.4095C12.4463 2.17134 12.2371 2 11.9941 2C11.7512 2 11.542 2.17134 11.4941 2.4095L9.40414 8.9495H2.51414C2.2932 8.94327 2.09438 9.08284 2.02518 9.29275C1.95597 9.50267 2.03281 9.73312 2.21414 9.8595L7.79414 13.9495L5.66414 20.4895C5.59621 20.6958 5.66929 20.9224 5.84498 21.0502C6.02067 21.178 6.25876 21.1777 6.43414 21.0495L12.0141 16.9495L17.5941 21.0095C17.7695 21.1377 18.0076 21.138 18.1833 21.0102C18.359 20.8824 18.4321 20.6558 18.3641 20.4495L16.2341 13.9495Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </button>
 </DocumentFragment>
 `;
 
-exports[`DeprecatedButtonGroup should match snapshot for align center 1`] = `
+exports[`DeprecatedButtonGroup > should match snapshot for align center 1`] = `
 <DocumentFragment>
-  <mock-styled.div>
-    <mock-styled.div
-      classname="mock-css."
+  <div
+    class="mocked-styled-4 deprecated-el-button-group"
+  >
+    <div
+      class="el-button-group-align-center el-button-group-inner"
     >
-      <mock-styled.button
+      <button
         aria-disabled="false"
-        classname="mock-css."
+        class="el-button-size-medium el-button"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span>
+        <div
+          class="mocked-styled-0 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-1 el-button-label"
+        >
           1
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
+        </span>
+      </button>
+      <button
         aria-disabled="false"
-        classname="mock-css."
+        class="el-button-size-medium el-button"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span>
+        <div
+          class="mocked-styled-0 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-1 el-button-label"
+        >
           2
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
+        </span>
+      </button>
+      <button
         aria-disabled="false"
-        classname="mock-css."
+        class="el-button-size-medium el-button"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span>
+        <div
+          class="mocked-styled-0 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-1 el-button-label"
+        >
           3
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
-  </mock-styled.div>
+        </span>
+      </button>
+    </div>
+  </div>
 </DocumentFragment>
 `;
 
-exports[`DeprecatedButtonGroup should match snapshot for align left 1`] = `
+exports[`DeprecatedButtonGroup > should match snapshot for align left 1`] = `
 <DocumentFragment>
-  <mock-styled.div>
-    <mock-styled.div
-      classname="mock-css."
+  <div
+    class="mocked-styled-4 deprecated-el-button-group"
+  >
+    <div
+      class="el-button-group-align-left el-button-group-inner"
     >
-      <mock-styled.button
+      <button
         aria-disabled="false"
-        classname="mock-css."
+        class="el-button-size-medium el-button"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span>
+        <div
+          class="mocked-styled-0 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-1 el-button-label"
+        >
           1
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
+        </span>
+      </button>
+      <button
         aria-disabled="false"
-        classname="mock-css."
+        class="el-button-size-medium el-button"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span>
+        <div
+          class="mocked-styled-0 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-1 el-button-label"
+        >
           2
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
+        </span>
+      </button>
+      <button
         aria-disabled="false"
-        classname="mock-css."
+        class="el-button-size-medium el-button"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span>
+        <div
+          class="mocked-styled-0 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-1 el-button-label"
+        >
           3
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
-  </mock-styled.div>
+        </span>
+      </button>
+    </div>
+  </div>
 </DocumentFragment>
 `;
 
-exports[`DeprecatedButtonGroup should match snapshot for align right 1`] = `
+exports[`DeprecatedButtonGroup > should match snapshot for align right 1`] = `
 <DocumentFragment>
-  <mock-styled.div>
-    <mock-styled.div
-      classname="mock-css."
+  <div
+    class="mocked-styled-4 deprecated-el-button-group"
+  >
+    <div
+      class="el-button-group-align-right el-button-group-inner"
     >
-      <mock-styled.button
+      <button
         aria-disabled="false"
-        classname="mock-css."
+        class="el-button-size-medium el-button"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span>
+        <div
+          class="mocked-styled-0 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-1 el-button-label"
+        >
           1
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
+        </span>
+      </button>
+      <button
         aria-disabled="false"
-        classname="mock-css."
+        class="el-button-size-medium el-button"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span>
+        <div
+          class="mocked-styled-0 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-1 el-button-label"
+        >
           2
-        </mock-styled.span>
-      </mock-styled.button>
-      <mock-styled.button
+        </span>
+      </button>
+      <button
         aria-disabled="false"
-        classname="mock-css."
+        class="el-button-size-medium el-button"
         role="button"
       >
-        <mock-styled.div />
-        <mock-styled.span>
+        <div
+          class="mocked-styled-0 el-button-spinner"
+        />
+        <span
+          class="mocked-styled-1 el-button-label"
+        >
           3
-        </mock-styled.span>
-      </mock-styled.button>
-    </mock-styled.div>
-  </mock-styled.div>
+        </span>
+      </button>
+    </div>
+  </div>
 </DocumentFragment>
 `;
 
-exports[`FloatingButton should render FloatingButton with icon 1`] = `
+exports[`FloatingButton > should render FloatingButton with icon 1`] = `
 <DocumentFragment>
-  <mock-styled.button
+  <button
     aria-disabled="false"
-    classname="mock-css. mock-css. mock-css.
-  padding: var(--spacing-2);
-  , {
-    margin: 0 0.125rem;
-  }
-"
+    class="el-floating-button el-button-size-medium el-button-icon-only el-button"
     role="button"
   >
-    <mock-styled.div />
-    <mock-styled.span
-      classname=""
+    <div
+      class="mocked-styled-0 el-button-spinner"
+    />
+    <span
+      class="mocked-styled-6 el-icon"
     >
       <svg
+        fill="none"
+        height="24"
         role="img"
         title="Icon image with name star"
-      />
-    </mock-styled.span>
-  </mock-styled.button>
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16.2341 13.9495L21.8141 9.8795C22.0176 9.76139 22.1112 9.51746 22.0389 9.2936C21.9667 9.06973 21.7482 8.92648 21.5141 8.9495H14.6241L12.4941 2.4095C12.4463 2.17134 12.2371 2 11.9941 2C11.7512 2 11.542 2.17134 11.4941 2.4095L9.40414 8.9495H2.51414C2.2932 8.94327 2.09438 9.08284 2.02518 9.29275C1.95597 9.50267 2.03281 9.73312 2.21414 9.8595L7.79414 13.9495L5.66414 20.4895C5.59621 20.6958 5.66929 20.9224 5.84498 21.0502C6.02067 21.178 6.25876 21.1777 6.43414 21.0495L12.0141 16.9495L17.5941 21.0095C17.7695 21.1377 18.0076 21.138 18.1833 21.0102C18.359 20.8824 18.4321 20.6558 18.3641 20.4495L16.2341 13.9495Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </button>
 </DocumentFragment>
 `;

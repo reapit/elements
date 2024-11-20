@@ -4,16 +4,16 @@ import { Snack, SnackHolder } from '..'
 describe('Snack component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<Snack />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot if an icon is supplied', () => {
     const wrapper = render(<Snack icon="email" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should trigger the onRemove prop if supplied', async () => {
-    const onRemove = jest.fn()
+    const onRemove = vi.fn()
     const wrapper = render(<Snack icon="email" onRemove={onRemove} />)
     fireEvent.click(wrapper.getByTestId('close-icon'))
     expect(onRemove).toHaveBeenCalledTimes(1)
@@ -23,6 +23,6 @@ describe('Snack component', () => {
 describe('SnackHolder component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<SnackHolder snacks={[{ text: 'i am a snack', intent: 'primary', icon: 'info' }]} />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

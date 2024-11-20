@@ -18,6 +18,6 @@ describe('useMediaQuery', () => {
 
 describe('MediaStateProvider', () => {
   it('should match snapshot', () => {
-    expect(render(<MediaStateProvider />)).toMatchSnapshot()
+    expect(render(<MediaStateProvider />).asFragment()).toMatchSnapshot()
   })
 })

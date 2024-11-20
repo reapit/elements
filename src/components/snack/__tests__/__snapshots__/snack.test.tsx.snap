@@ -1,308 +1,99 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Snack component should match a snapshot 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div
-        aria-live="polite"
-        classname="mock-css."
-        role="status"
-      />
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      aria-live="polite"
-      classname="mock-css."
-      role="status"
-    />
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+exports[`Snack component > should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    aria-live="polite"
+    class="el-intent-primary el-snack"
+    role="status"
+  />
+</DocumentFragment>
 `;
 
-exports[`Snack component should match a snapshot if an icon is supplied 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div
-        aria-live="polite"
-        classname="mock-css."
-        role="status"
+exports[`Snack component > should match a snapshot if an icon is supplied 1`] = `
+<DocumentFragment>
+  <div
+    aria-live="polite"
+    class="el-intent-primary el-snack"
+    role="status"
+  >
+    <span
+      class="el-snack-icon el-intent-primary el-icon"
+      style="font-size: 1.25rem;"
+    >
+      <svg
+        fill="none"
+        height="24"
+        role="img"
+        style="font-size: 1.25rem;"
+        title="Icon image with name email"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <mock-styled.span
-          classname="mock-css.
-  margin-right: 1rem;
- mock-css."
-          style="font-size: 1.25rem;"
-        >
-          <svg
-            role="img"
-            style="font-size: 1.25rem;"
-            title="Icon image with name email"
-          />
-        </mock-styled.span>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
+        <path
+          d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+          fill="currentColor"
+        />
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`SnackHolder component > should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-snack-holder"
+  >
+    <div
       aria-live="polite"
-      classname="mock-css."
+      class="el-intent-primary el-snack"
       role="status"
     >
-      <mock-styled.span
-        classname="mock-css.
-  margin-right: 1rem;
- mock-css."
+      <span
+        class="el-snack-icon el-intent-primary el-icon"
         style="font-size: 1.25rem;"
       >
         <svg
+          fill="none"
+          height="24"
           role="img"
           style="font-size: 1.25rem;"
-          title="Icon image with name email"
-        />
-      </mock-styled.span>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`SnackHolder component should match a snapshot 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div>
-        <mock-styled.div
-          aria-live="polite"
-          classname="mock-css."
-          role="status"
+          title="Icon image with name info"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <mock-styled.span
-            classname="mock-css.
-  margin-right: 1rem;
- mock-css."
-            style="font-size: 1.25rem;"
-          >
-            <svg
-              role="img"
-              style="font-size: 1.25rem;"
-              title="Icon image with name info"
-            />
-          </mock-styled.span>
-          i am a snack
-          <mock-styled.span
-            classname="mock-css.
-  cursor: pointer;
-  padding-left: 0.5rem;
-  color: var(--black);
-"
-            data-testid="close-icon"
-            style="font-size: 1.25rem;"
-          >
-            <svg
-              role="img"
-              style="font-size: 1.25rem;"
-              title="Icon image with name close"
-            />
-          </mock-styled.span>
-        </mock-styled.div>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div>
-      <mock-styled.div
-        aria-live="polite"
-        classname="mock-css."
-        role="status"
+          <path
+            d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 9.34784 20.9464 6.8043 19.0711 4.92893C17.1957 3.05357 14.6522 2 12 2ZM13.1429 17.7143H10.8571V11.7143H13.1429V17.7143ZM12 9.71429C11.3066 9.71429 10.6815 9.29661 10.4162 8.65603C10.1509 8.01544 10.2975 7.2781 10.7878 6.78782C11.2781 6.29753 12.0154 6.15087 12.656 6.41621C13.2966 6.68155 13.7143 7.30664 13.7143 8C13.7143 8.94677 12.9468 9.71429 12 9.71429Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      i am a snack
+      <span
+        class="el-snack-close-icon el-icon"
+        data-testid="close-icon"
+        style="font-size: 1.25rem;"
       >
-        <mock-styled.span
-          classname="mock-css.
-  margin-right: 1rem;
- mock-css."
+        <svg
+          fill="none"
+          height="24"
+          role="img"
           style="font-size: 1.25rem;"
+          title="Icon image with name close"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            role="img"
-            style="font-size: 1.25rem;"
-            title="Icon image with name info"
+          <path
+            d="M12.3608 13.8296L18.0208 19.4896C18.2652 19.775 18.6489 19.8993 19.0142 19.8114C19.3795 19.7235 19.6647 19.4383 19.7526 19.073C19.8405 18.7077 19.7162 18.324 19.4308 18.0796L13.7708 12.4196L19.4308 6.75958C19.7162 6.51519 19.8405 6.13146 19.7526 5.76616C19.6647 5.40086 19.3795 5.11564 19.0142 5.02777C18.6489 4.93989 18.2652 5.0642 18.0208 5.34958L12.3608 11.0096L6.70079 5.34958C6.31076 4.96185 5.68083 4.96185 5.29079 5.34958C4.90307 5.73961 4.90307 6.36954 5.29079 6.75958L10.9508 12.4196L5.29079 18.0796C4.90307 18.4696 4.90307 19.0995 5.29079 19.4896C5.68083 19.8773 6.31076 19.8773 6.70079 19.4896L12.3608 13.8296Z"
+            fill="currentColor"
           />
-        </mock-styled.span>
-        i am a snack
-        <mock-styled.span
-          classname="mock-css.
-  cursor: pointer;
-  padding-left: 0.5rem;
-  color: var(--black);
-"
-          data-testid="close-icon"
-          style="font-size: 1.25rem;"
-        >
-          <svg
-            role="img"
-            style="font-size: 1.25rem;"
-            title="Icon image with name close"
-          />
-        </mock-styled.span>
-      </mock-styled.div>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+        </svg>
+      </span>
+    </div>
+  </div>
+</DocumentFragment>
 `;

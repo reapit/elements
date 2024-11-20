@@ -95,6 +95,6 @@ describe('PageHeader component', () => {
         }}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

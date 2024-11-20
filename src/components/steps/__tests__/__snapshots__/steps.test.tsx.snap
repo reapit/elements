@@ -1,655 +1,264 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Steps should match a snapshot 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div
-        classname=""
+exports[`Steps > should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-steps"
+  >
+    <div
+      class="mocked-styled-1 el-step"
+      data-testid="step-0"
+      role="button"
+      tabindex="0"
+    >
+      1
+    </div>
+    <div
+      class="mocked-styled-1 el-step"
+      data-testid="step-1"
+      role="button"
+      tabindex="0"
+    >
+      2
+    </div>
+    <div
+      class="mocked-styled-1 el-step"
+      data-testid="step-2"
+      role="button"
+      tabindex="0"
+    >
+      3
+    </div>
+    <div
+      class="mocked-styled-1 el-step"
+      data-testid="step-3"
+      role="button"
+      tabindex="0"
+    >
+      4
+    </div>
+    <div
+      class="mocked-styled-1 el-step"
+      data-testid="step-4"
+      role="button"
+      tabindex="0"
+    >
+      5
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Steps > should match a snapshot when selectedStep is different 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-steps"
+  >
+    <div
+      class="el-is-used el-step"
+      data-testid="step-0"
+      role="button"
+      tabindex="0"
+    >
+      1
+    </div>
+    <div
+      class="el-is-active el-step"
+      data-testid="step-1"
+      role="button"
+      tabindex="0"
+    >
+      2
+    </div>
+    <div
+      class="mocked-styled-1 el-step"
+      data-testid="step-2"
+      role="button"
+      tabindex="0"
+    >
+      3
+    </div>
+    <div
+      class="mocked-styled-1 el-step"
+      data-testid="step-3"
+      role="button"
+      tabindex="0"
+    >
+      4
+    </div>
+    <div
+      class="mocked-styled-1 el-step"
+      data-testid="step-4"
+      role="button"
+      tabindex="0"
+    >
+      5
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StepsVertical > should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-2 el-steps-vertical"
+  >
+    <div
+      class="mocked-styled-3 el-step-vertical"
+    >
+      <div
+        class="mocked-styled-4 el-step-vertical-item"
       >
-        <mock-styled.div
-          classname=""
+        <div
+          class="mocked-styled-1 el-step"
           data-testid="step-0"
           role="button"
           tabindex="0"
         >
           1
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+      </div>
+      <div
+        class="mocked-styled-5 el-step-vertical-content"
+      >
+        Lorem, ipsum dolor
+      </div>
+    </div>
+    <div
+      class="mocked-styled-3 el-step-vertical"
+    >
+      <div
+        class="mocked-styled-4 el-step-vertical-item"
+      >
+        <div
+          class="mocked-styled-1 el-step"
           data-testid="step-1"
           role="button"
           tabindex="0"
         >
           2
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+      </div>
+      <div
+        class="mocked-styled-5 el-step-vertical-content"
+      >
+        Lorem, ipsum dolor
+      </div>
+    </div>
+    <div
+      class="mocked-styled-3 el-step-vertical"
+    >
+      <div
+        class="mocked-styled-4 el-step-vertical-item"
+      >
+        <div
+          class="mocked-styled-1 el-step"
           data-testid="step-2"
           role="button"
           tabindex="0"
         >
           3
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+      </div>
+      <div
+        class="mocked-styled-5 el-step-vertical-content"
+      >
+        Lorem, ipsum dolor
+      </div>
+    </div>
+    <div
+      class="mocked-styled-3 el-step-vertical"
+    >
+      <div
+        class="mocked-styled-4 el-step-vertical-item"
+      >
+        <div
+          class="mocked-styled-1 el-step"
           data-testid="step-3"
           role="button"
           tabindex="0"
         >
           4
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
+        </div>
+      </div>
+      <div
+        class="mocked-styled-5 el-step-vertical-content"
+      >
+        Lorem, ipsum dolor
+      </div>
+    </div>
+    <div
+      class="mocked-styled-3 el-step-vertical"
+    >
+      <div
+        class="mocked-styled-4 el-step-vertical-item"
+      >
+        <div
+          class="el-is-active el-step"
           data-testid="step-4"
           role="button"
           tabindex="0"
         >
           5
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-5 el-step-vertical-content"
+      >
+        Lorem, ipsum dolor
+      </div>
     </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname=""
-        data-testid="step-0"
-        role="button"
-        tabindex="0"
-      >
-        1
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-        data-testid="step-1"
-        role="button"
-        tabindex="0"
-      >
-        2
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-        data-testid="step-2"
-        role="button"
-        tabindex="0"
-      >
-        3
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-        data-testid="step-3"
-        role="button"
-        tabindex="0"
-      >
-        4
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-        data-testid="step-4"
-        role="button"
-        tabindex="0"
-      >
-        5
-      </mock-styled.div>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;
 
-exports[`Steps should match a snapshot when selectedStep is different 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div
-        classname=""
+exports[`StepsVertical > should match a snapshot when selectedStep is different 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-2 el-steps-vertical"
+  >
+    <div
+      class="mocked-styled-3 el-step-vertical"
+    >
+      <div
+        class="mocked-styled-4 el-step-vertical-item"
       >
-        <mock-styled.div
-          classname="mock-css."
+        <div
+          class="mocked-styled-1 el-step"
           data-testid="step-0"
           role="button"
           tabindex="0"
         >
           1
-        </mock-styled.div>
-        <mock-styled.div
-          classname="mock-css."
+        </div>
+      </div>
+      <div
+        class="mocked-styled-5 el-step-vertical-content"
+      >
+        Lorem, ipsum dolor
+      </div>
+    </div>
+    <div
+      class="mocked-styled-3 el-step-vertical"
+    >
+      <div
+        class="mocked-styled-4 el-step-vertical-item"
+      >
+        <div
+          class="el-is-active el-step"
           data-testid="step-1"
           role="button"
           tabindex="0"
         >
           2
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
-          data-testid="step-2"
-          role="button"
-          tabindex="0"
-        >
-          3
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
-          data-testid="step-3"
-          role="button"
-          tabindex="0"
-        >
-          4
-        </mock-styled.div>
-        <mock-styled.div
-          classname=""
-          data-testid="step-4"
-          role="button"
-          tabindex="0"
-        >
-          5
-        </mock-styled.div>
-      </mock-styled.div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-5 el-step-vertical-content"
+      >
+        Lorem, ipsum dolor
+      </div>
     </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div
-        classname="mock-css."
-        data-testid="step-0"
-        role="button"
-        tabindex="0"
-      >
-        1
-      </mock-styled.div>
-      <mock-styled.div
-        classname="mock-css."
-        data-testid="step-1"
-        role="button"
-        tabindex="0"
-      >
-        2
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-        data-testid="step-2"
-        role="button"
-        tabindex="0"
-      >
-        3
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-        data-testid="step-3"
-        role="button"
-        tabindex="0"
-      >
-        4
-      </mock-styled.div>
-      <mock-styled.div
-        classname=""
-        data-testid="step-4"
-        role="button"
-        tabindex="0"
-      >
-        5
-      </mock-styled.div>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`StepsVertical should match a snapshot 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
-              data-testid="step-0"
-              role="button"
-              tabindex="0"
-            >
-              1
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            Lorem, ipsum dolor
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
-              data-testid="step-1"
-              role="button"
-              tabindex="0"
-            >
-              2
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            Lorem, ipsum dolor
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
-              data-testid="step-2"
-              role="button"
-              tabindex="0"
-            >
-              3
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            Lorem, ipsum dolor
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
-              data-testid="step-3"
-              role="button"
-              tabindex="0"
-            >
-              4
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            Lorem, ipsum dolor
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css."
-              data-testid="step-4"
-              role="button"
-              tabindex="0"
-            >
-              5
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            Lorem, ipsum dolor
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
-            data-testid="step-0"
-            role="button"
-            tabindex="0"
-          >
-            1
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          Lorem, ipsum dolor
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
-            data-testid="step-1"
-            role="button"
-            tabindex="0"
-          >
-            2
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          Lorem, ipsum dolor
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
-            data-testid="step-2"
-            role="button"
-            tabindex="0"
-          >
-            3
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          Lorem, ipsum dolor
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
-            data-testid="step-3"
-            role="button"
-            tabindex="0"
-          >
-            4
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          Lorem, ipsum dolor
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css."
-            data-testid="step-4"
-            role="button"
-            tabindex="0"
-          >
-            5
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          Lorem, ipsum dolor
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`StepsVertical should match a snapshot when selectedStep is different 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div
-        classname=""
-      >
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname=""
-              data-testid="step-0"
-              role="button"
-              tabindex="0"
-            >
-              1
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            Lorem, ipsum dolor
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div>
-            <mock-styled.div
-              classname="mock-css."
-              data-testid="step-1"
-              role="button"
-              tabindex="0"
-            >
-              2
-            </mock-styled.div>
-          </mock-styled.div>
-          <mock-styled.div>
-            Lorem, ipsum dolor
-          </mock-styled.div>
-        </mock-styled.div>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      classname=""
-    >
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname=""
-            data-testid="step-0"
-            role="button"
-            tabindex="0"
-          >
-            1
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          Lorem, ipsum dolor
-        </mock-styled.div>
-      </mock-styled.div>
-      <mock-styled.div>
-        <mock-styled.div>
-          <mock-styled.div
-            classname="mock-css."
-            data-testid="step-1"
-            role="button"
-            tabindex="0"
-          >
-            2
-          </mock-styled.div>
-        </mock-styled.div>
-        <mock-styled.div>
-          Lorem, ipsum dolor
-        </mock-styled.div>
-      </mock-styled.div>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+  </div>
+</DocumentFragment>
 `;

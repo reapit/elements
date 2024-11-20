@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ReactComponent as SearchIcon } from './icons/search-icon.svg'
+import SearchIcon from './icons/search-icon.svg?react'
 
 export const ElNavSearchButton = styled.button`
   cursor: pointer;

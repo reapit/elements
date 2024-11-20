@@ -1,466 +1,145 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`InputGroup component should match a snapshot when used in explicit mode 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div>
-        <mock-styled.input
-          aria-label="Input type undefined"
-          classname=""
-        />
-        <mock-styled.span
-          classname=""
-        >
-          <svg
-            role="img"
-            title="Icon image with name email"
-          />
-        </mock-styled.span>
-        <mock-styled.label>
-          Please enter a username
-        </mock-styled.label>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
-        aria-label="Input type undefined"
-        classname=""
-      />
-      <mock-styled.span
-        classname=""
+exports[`InputGroup component > should match a snapshot when used in explicit mode 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-input-group"
+  >
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input"
+    />
+    <span
+      class="mocked-styled-2 el-icon"
+    >
+      <svg
+        fill="none"
+        height="24"
+        role="img"
+        title="Icon image with name email"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          role="img"
-          title="Icon image with name email"
+        <path
+          d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+          fill="currentColor"
         />
-      </mock-styled.span>
-      <mock-styled.label>
-        Please enter a username
-      </mock-styled.label>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+      </svg>
+    </span>
+    <label
+      class="mocked-styled-3 el-label"
+    >
+      Please enter a username
+    </label>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`InputGroup component should match a snapshot when used in react shorthand mode 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div>
-        <mock-styled.input
-          aria-label="Input type undefined"
-          classname=""
-          id="myId"
-        />
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
-        aria-label="Input type undefined"
-        classname=""
-        id="myId"
-      />
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+exports[`InputGroup component > should match a snapshot when used in react shorthand mode 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-input-group"
+  >
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input"
+      id="myId"
+    />
+  </div>
+</DocumentFragment>
 `;
 
-exports[`InputGroup component should match a snapshot when used in react shorthand mode, with a label 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div>
-        <mock-styled.input
-          aria-label="Input type undefined"
-          classname=""
-          id="myId"
-        />
-        <mock-styled.label
-          htmlfor="myId"
-        >
-          Enter your username
-        </mock-styled.label>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
-        aria-label="Input type undefined"
-        classname=""
-        id="myId"
-      />
-      <mock-styled.label
-        htmlfor="myId"
-      >
-        Enter your username
-      </mock-styled.label>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with a label 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-input-group"
+  >
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input"
+      id="myId"
+    />
+    <label
+      class="mocked-styled-3 el-label"
+      for="myId"
+    >
+      Enter your username
+    </label>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`InputGroup component should match a snapshot when used in react shorthand mode, with an icon 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div>
-        <mock-styled.input
-          aria-label="Input type undefined"
-          classname=""
-          id="myId"
-        />
-        <mock-styled.span
-          classname=""
-          style="font-size: 1rem;"
-        >
-          <svg
-            role="img"
-            style="font-size: 1rem;"
-            title="Icon image with name email"
-          />
-        </mock-styled.span>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
-        aria-label="Input type undefined"
-        classname=""
-        id="myId"
-      />
-      <mock-styled.span
-        classname=""
+exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with an icon 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-input-group"
+  >
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input"
+      id="myId"
+    />
+    <span
+      class="mocked-styled-2 el-icon"
+      style="font-size: 1rem;"
+    >
+      <svg
+        fill="none"
+        height="24"
+        role="img"
         style="font-size: 1rem;"
+        title="Icon image with name email"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          role="img"
-          style="font-size: 1rem;"
-          title="Icon image with name email"
+        <path
+          d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+          fill="currentColor"
         />
-      </mock-styled.span>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+      </svg>
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`InputGroup component should match a snapshot when used in react shorthand mode, with an icon and a label 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div>
-        <mock-styled.input
-          aria-label="Input type undefined"
-          classname=""
-          id="myId"
-        />
-        <mock-styled.span
-          classname=""
-          style="font-size: 1rem;"
-        >
-          <svg
-            role="img"
-            style="font-size: 1rem;"
-            title="Icon image with name email"
-          />
-        </mock-styled.span>
-        <mock-styled.label
-          htmlfor="myId"
-        >
-          Enter your username
-        </mock-styled.label>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
-        aria-label="Input type undefined"
-        classname=""
-        id="myId"
-      />
-      <mock-styled.span
-        classname=""
+exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with an icon and a label 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-input-group"
+  >
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input"
+      id="myId"
+    />
+    <span
+      class="mocked-styled-2 el-icon"
+      style="font-size: 1rem;"
+    >
+      <svg
+        fill="none"
+        height="24"
+        role="img"
         style="font-size: 1rem;"
+        title="Icon image with name email"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          role="img"
-          style="font-size: 1rem;"
-          title="Icon image with name email"
+        <path
+          d="M20 4H4C2.89543 4 2 4.89543 2 6V18C2 19.1046 2.89543 20 4 20H20C21.1046 20 22 19.1046 22 18V6C22 4.89543 21.1046 4 20 4ZM18.59 6L12 12.59L5.41 6H18.59ZM4 18V7.41L10.59 14C11.3701 14.7754 12.6299 14.7754 13.41 14L20 7.41V18H4Z"
+          fill="currentColor"
         />
-      </mock-styled.span>
-      <mock-styled.label
-        htmlfor="myId"
-      >
-        Enter your username
-      </mock-styled.label>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+      </svg>
+    </span>
+    <label
+      class="mocked-styled-3 el-label"
+      for="myId"
+    >
+      Enter your username
+    </label>
+  </div>
+</DocumentFragment>
 `;

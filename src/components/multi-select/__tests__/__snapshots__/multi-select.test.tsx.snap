@@ -1,723 +1,224 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`MultiSelect should match a snapshot and render children 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div
-        classname=""
-      >
-        <span>
-          Some Value
-        </span>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      classname=""
-    >
-      <span>
-        Some Value
-      </span>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+exports[`MultiSelect > should match a snapshot and render children 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-2 el-multi-select"
+  >
+    <span>
+      Some Value
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`MultiSelectChip should match a snapshot and render children 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.input
+exports[`MultiSelectChip > should match a snapshot and render children 1`] = `
+<DocumentFragment>
+  <input
+    aria-hidden="true"
+    class="mocked-styled-0 el-multi-select-checkbox"
+    id="test-id"
+    type="checkbox"
+  />
+  <label
+    class="mocked-styled-1 el-multi-select-label"
+    for="test-id"
+    role="option"
+  >
+    <span>
+      Some Value
+    </span>
+  </label>
+</DocumentFragment>
+`;
+
+exports[`MultiSelectInput > should match a snapshot and render children 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-6 el-multi-select-input-wrapper"
+  >
+    <input
+      class="mocked-styled-5 el-multi-select-input"
+      id="react-example"
+    />
+    <div
+      aria-label="Multi selected options"
+      class="mocked-styled-3 el-multi-select-selected"
+      role="listbox"
+    >
+      <input
+        aria-checked="true"
         aria-hidden="true"
-        id="test-id"
+        class="mocked-styled-0 el-multi-select-checkbox"
+        id="multi-select-chip-item-one"
+        role="option"
         type="checkbox"
       />
-      <mock-styled.label
-        classname=""
-        htmlfor="test-id"
+      <label
+        class="mocked-styled-1 el-multi-select-label"
+        for="multi-select-chip-item-one"
         role="option"
+        tabindex="0"
       >
-        <span>
-          Some Value
-        </span>
-      </mock-styled.label>
+        Item one
+      </label>
     </div>
-  </body>,
-  "container": <div>
-    <mock-styled.input
-      aria-hidden="true"
-      id="test-id"
-      type="checkbox"
+    <div
+      aria-label="Multi unselected options"
+      class="mocked-styled-4 el-multi-select-un-selected"
+      role="listbox"
+    >
+      <input
+        aria-checked="false"
+        aria-hidden="true"
+        class="mocked-styled-0 el-multi-select-checkbox"
+        id="test-static-id"
+        role="option"
+        type="checkbox"
+      />
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="test-static-id"
+        role="option"
+        tabindex="0"
+      >
+        Item two
+      </label>
+      <input
+        aria-checked="false"
+        aria-hidden="true"
+        class="mocked-styled-0 el-multi-select-checkbox"
+        id="test-static-id"
+        role="option"
+        type="checkbox"
+      />
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="test-static-id"
+        role="option"
+        tabindex="0"
+      >
+        Item three
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`MultiSelectInput > should match a snapshot and render non selected message where there are no selected items 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-6 el-multi-select-input-wrapper"
+  >
+    <input
+      class="mocked-styled-5 el-multi-select-input"
+      id="react-example"
     />
-    <mock-styled.label
-      classname=""
-      htmlfor="test-id"
-      role="option"
+    <div
+      aria-label="Multi selected options"
+      class="mocked-styled-3 el-multi-select-selected"
+      role="listbox"
     >
-      <span>
-        Some Value
+      <span
+        class="el-ml2 el-intent-default el-icon"
+      >
+        <svg
+          fill="none"
+          height="24"
+          role="img"
+          title="Icon image with name task"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M4 11C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13C4.55228 13 5 12.5523 5 12C5 11.4477 4.55228 11 4 11ZM4 7C4.55228 7 5 6.55228 5 6C5 5.44772 4.55228 5 4 5C3.44772 5 3 5.44772 3 6C3 6.55228 3.44772 7 4 7ZM4 17C3.44772 17 3 17.4477 3 18C3 18.5523 3.44772 19 4 19C4.55228 19 5 18.5523 5 18C5 17.4477 4.55228 17 4 17ZM20 11H8C7.44772 11 7 11.4477 7 12C7 12.5523 7.44772 13 8 13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11ZM8 7H20C20.5523 7 21 6.55228 21 6C21 5.44772 20.5523 5 20 5H8C7.44772 5 7 5.44772 7 6C7 6.55228 7.44772 7 8 7ZM20 17H8C7.44772 17 7 17.4477 7 18C7 18.5523 7.44772 19 8 19H20C20.5523 19 21 18.5523 21 18C21 17.4477 20.5523 17 20 17Z"
+            fill="currentColor"
+          />
+        </svg>
       </span>
-    </mock-styled.label>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`MultiSelectInput should match a snapshot and render children 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div>
-        <mock-styled.input
-          id="react-example"
-        />
-        <mock-styled.div
-          aria-label="Multi selected options"
-          classname=""
-          role="listbox"
-        >
-          <mock-styled.input
-            aria-checked="true"
-            aria-hidden="true"
-            id="multi-select-chip-item-one"
-            role="option"
-            type="checkbox"
-          />
-          <mock-styled.label
-            classname=""
-            htmlfor="multi-select-chip-item-one"
-            role="option"
-            tabindex="0"
-          >
-            Item one
-          </mock-styled.label>
-        </mock-styled.div>
-        <mock-styled.div
-          aria-label="Multi unselected options"
-          classname=""
-          role="listbox"
-        >
-          <mock-styled.input
-            aria-checked="false"
-            aria-hidden="true"
-            id="test-static-id"
-            role="option"
-            type="checkbox"
-          />
-          <mock-styled.label
-            classname="mock-css."
-            htmlfor="test-static-id"
-            role="option"
-            tabindex="0"
-          >
-            Item two
-          </mock-styled.label>
-          <mock-styled.input
-            aria-checked="false"
-            aria-hidden="true"
-            id="test-static-id"
-            role="option"
-            type="checkbox"
-          />
-          <mock-styled.label
-            classname="mock-css."
-            htmlfor="test-static-id"
-            role="option"
-            tabindex="0"
-          >
-            Item three
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
+      <p>
+        No items selected
+      </p>
     </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
-        id="react-example"
+    <div
+      aria-label="Multi unselected options"
+      class="mocked-styled-4 el-multi-select-un-selected"
+      role="listbox"
+    >
+      <input
+        aria-checked="false"
+        aria-hidden="true"
+        class="mocked-styled-0 el-multi-select-checkbox"
+        id="test-static-id"
+        role="option"
+        type="checkbox"
       />
-      <mock-styled.div
-        aria-label="Multi selected options"
-        classname=""
-        role="listbox"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="test-static-id"
+        role="option"
+        tabindex="0"
       >
-        <mock-styled.input
-          aria-checked="true"
-          aria-hidden="true"
-          id="multi-select-chip-item-one"
-          role="option"
-          type="checkbox"
-        />
-        <mock-styled.label
-          classname=""
-          htmlfor="multi-select-chip-item-one"
-          role="option"
-          tabindex="0"
-        >
-          Item one
-        </mock-styled.label>
-      </mock-styled.div>
-      <mock-styled.div
-        aria-label="Multi unselected options"
-        classname=""
-        role="listbox"
-      >
-        <mock-styled.input
-          aria-checked="false"
-          aria-hidden="true"
-          id="test-static-id"
-          role="option"
-          type="checkbox"
-        />
-        <mock-styled.label
-          classname="mock-css."
-          htmlfor="test-static-id"
-          role="option"
-          tabindex="0"
-        >
-          Item two
-        </mock-styled.label>
-        <mock-styled.input
-          aria-checked="false"
-          aria-hidden="true"
-          id="test-static-id"
-          role="option"
-          type="checkbox"
-        />
-        <mock-styled.label
-          classname="mock-css."
-          htmlfor="test-static-id"
-          role="option"
-          tabindex="0"
-        >
-          Item three
-        </mock-styled.label>
-      </mock-styled.div>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
-`;
-
-exports[`MultiSelectInput should match a snapshot and render non selected message where there are no selected items 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div>
-        <mock-styled.input
-          id="react-example"
-        />
-        <mock-styled.div
-          aria-label="Multi selected options"
-          classname=""
-          role="listbox"
-        >
-          <mock-styled.span
-            classname="mock-css.
-  margin-left: var(--util-rems-2);
- mock-css."
-          >
-            <svg
-              role="img"
-              title="Icon image with name task"
-            />
-          </mock-styled.span>
-          <p>
-            No items selected
-          </p>
-        </mock-styled.div>
-        <mock-styled.div
-          aria-label="Multi unselected options"
-          classname=""
-          role="listbox"
-        >
-          <mock-styled.input
-            aria-checked="false"
-            aria-hidden="true"
-            id="test-static-id"
-            role="option"
-            type="checkbox"
-          />
-          <mock-styled.label
-            classname="mock-css."
-            htmlfor="test-static-id"
-            role="option"
-            tabindex="0"
-          >
-            Item one
-          </mock-styled.label>
-          <mock-styled.input
-            aria-checked="false"
-            aria-hidden="true"
-            id="test-static-id"
-            role="option"
-            type="checkbox"
-          />
-          <mock-styled.label
-            classname="mock-css."
-            htmlfor="test-static-id"
-            role="option"
-            tabindex="0"
-          >
-            Item two
-          </mock-styled.label>
-          <mock-styled.input
-            aria-checked="false"
-            aria-hidden="true"
-            id="test-static-id"
-            role="option"
-            type="checkbox"
-          />
-          <mock-styled.label
-            classname="mock-css."
-            htmlfor="test-static-id"
-            role="option"
-            tabindex="0"
-          >
-            Item three
-          </mock-styled.label>
-        </mock-styled.div>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div>
-      <mock-styled.input
-        id="react-example"
+        Item one
+      </label>
+      <input
+        aria-checked="false"
+        aria-hidden="true"
+        class="mocked-styled-0 el-multi-select-checkbox"
+        id="test-static-id"
+        role="option"
+        type="checkbox"
       />
-      <mock-styled.div
-        aria-label="Multi selected options"
-        classname=""
-        role="listbox"
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="test-static-id"
+        role="option"
+        tabindex="0"
       >
-        <mock-styled.span
-          classname="mock-css.
-  margin-left: var(--util-rems-2);
- mock-css."
-        >
-          <svg
-            role="img"
-            title="Icon image with name task"
-          />
-        </mock-styled.span>
-        <p>
-          No items selected
-        </p>
-      </mock-styled.div>
-      <mock-styled.div
-        aria-label="Multi unselected options"
-        classname=""
-        role="listbox"
+        Item two
+      </label>
+      <input
+        aria-checked="false"
+        aria-hidden="true"
+        class="mocked-styled-0 el-multi-select-checkbox"
+        id="test-static-id"
+        role="option"
+        type="checkbox"
+      />
+      <label
+        class="el-has-grey-chips el-multi-select-label"
+        for="test-static-id"
+        role="option"
+        tabindex="0"
       >
-        <mock-styled.input
-          aria-checked="false"
-          aria-hidden="true"
-          id="test-static-id"
-          role="option"
-          type="checkbox"
-        />
-        <mock-styled.label
-          classname="mock-css."
-          htmlfor="test-static-id"
-          role="option"
-          tabindex="0"
-        >
-          Item one
-        </mock-styled.label>
-        <mock-styled.input
-          aria-checked="false"
-          aria-hidden="true"
-          id="test-static-id"
-          role="option"
-          type="checkbox"
-        />
-        <mock-styled.label
-          classname="mock-css."
-          htmlfor="test-static-id"
-          role="option"
-          tabindex="0"
-        >
-          Item two
-        </mock-styled.label>
-        <mock-styled.input
-          aria-checked="false"
-          aria-hidden="true"
-          id="test-static-id"
-          role="option"
-          type="checkbox"
-        />
-        <mock-styled.label
-          classname="mock-css."
-          htmlfor="test-static-id"
-          role="option"
-          tabindex="0"
-        >
-          Item three
-        </mock-styled.label>
-      </mock-styled.div>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+        Item three
+      </label>
+    </div>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`MultiSelectSelected should match a snapshot and render children 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div
-        classname=""
-      >
-        <span>
-          Some Value
-        </span>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      classname=""
-    >
-      <span>
-        Some Value
-      </span>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+exports[`MultiSelectSelected > should match a snapshot and render children 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-3 el-multi-select-selected"
+  >
+    <span>
+      Some Value
+    </span>
+  </div>
+</DocumentFragment>
 `;
 
-exports[`MultiSelectUnSelected should match a snapshot and render children 1`] = `
-{
-  "asFragment": [Function],
-  "baseElement": <body>
-    <div>
-      <mock-styled.div
-        classname=""
-      >
-        <span>
-          Some Value
-        </span>
-      </mock-styled.div>
-    </div>
-  </body>,
-  "container": <div>
-    <mock-styled.div
-      classname=""
-    >
-      <span>
-        Some Value
-      </span>
-    </mock-styled.div>
-  </div>,
-  "debug": [Function],
-  "findAllByAltText": [Function],
-  "findAllByDisplayValue": [Function],
-  "findAllByLabelText": [Function],
-  "findAllByPlaceholderText": [Function],
-  "findAllByRole": [Function],
-  "findAllByTestId": [Function],
-  "findAllByText": [Function],
-  "findAllByTitle": [Function],
-  "findByAltText": [Function],
-  "findByDisplayValue": [Function],
-  "findByLabelText": [Function],
-  "findByPlaceholderText": [Function],
-  "findByRole": [Function],
-  "findByTestId": [Function],
-  "findByText": [Function],
-  "findByTitle": [Function],
-  "getAllByAltText": [Function],
-  "getAllByDisplayValue": [Function],
-  "getAllByLabelText": [Function],
-  "getAllByPlaceholderText": [Function],
-  "getAllByRole": [Function],
-  "getAllByTestId": [Function],
-  "getAllByText": [Function],
-  "getAllByTitle": [Function],
-  "getByAltText": [Function],
-  "getByDisplayValue": [Function],
-  "getByLabelText": [Function],
-  "getByPlaceholderText": [Function],
-  "getByRole": [Function],
-  "getByTestId": [Function],
-  "getByText": [Function],
-  "getByTitle": [Function],
-  "queryAllByAltText": [Function],
-  "queryAllByDisplayValue": [Function],
-  "queryAllByLabelText": [Function],
-  "queryAllByPlaceholderText": [Function],
-  "queryAllByRole": [Function],
-  "queryAllByTestId": [Function],
-  "queryAllByText": [Function],
-  "queryAllByTitle": [Function],
-  "queryByAltText": [Function],
-  "queryByDisplayValue": [Function],
-  "queryByLabelText": [Function],
-  "queryByPlaceholderText": [Function],
-  "queryByRole": [Function],
-  "queryByTestId": [Function],
-  "queryByText": [Function],
-  "queryByTitle": [Function],
-  "rerender": [Function],
-  "unmount": [Function],
-}
+exports[`MultiSelectUnSelected > should match a snapshot and render children 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-4 el-multi-select-un-selected"
+  >
+    <span>
+      Some Value
+    </span>
+  </div>
+</DocumentFragment>
 `;

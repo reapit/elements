@@ -1,27 +1,29 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`NavDropdownButton matches snapshot when collapsed 1`] = `
+exports[`NavDropdownButton > matches snapshot when collapsed 1`] = `
 <DocumentFragment>
-  <mock-styled.button
+  <button
+    class="mocked-styled-0 el-nav-dropdown-button"
     type="button"
   >
     Test Button
     <div
       data-testid="icon"
     />
-  </mock-styled.button>
+  </button>
 </DocumentFragment>
 `;
 
-exports[`NavDropdownButton matches snapshot when expanded 1`] = `
+exports[`NavDropdownButton > matches snapshot when expanded 1`] = `
 <DocumentFragment>
-  <mock-styled.button
+  <button
+    class="mocked-styled-0 el-nav-dropdown-button"
     type="button"
   >
     Test Button
     <div
       data-testid="icon"
     />
-  </mock-styled.button>
+  </button>
 </DocumentFragment>
 `;

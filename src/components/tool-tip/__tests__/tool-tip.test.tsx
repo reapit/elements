@@ -8,6 +8,6 @@ describe('ToolTip', () => {
         Hover here
       </ToolTip>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
