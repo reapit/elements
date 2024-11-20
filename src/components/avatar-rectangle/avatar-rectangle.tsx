@@ -46,11 +46,10 @@ export const AvatarRectangle: FC<AvatarRectangle> = ({
         ? ElAvatarRectCommercialPlaceholder
         : ElAvatarRectCommercialSmallPlaceholder
 
-  const CommercialBottomImage =
-    size === 'medium' ? ElAvatarRectBottomImage : ElAvatarRectBottomSmallPlaceholder
+  const CommercialBottomImage = size === 'medium' ? ElAvatarRectBottomImage : ElAvatarRectBottomSmallPlaceholder
 
   return hasImageError ? (
-    <PlaceholderComponent {...props as HTMLAttributes<HTMLOrSVGElement>} aria-label="Image placeholder" />
+    <PlaceholderComponent {...(props as HTMLAttributes<HTMLOrSVGElement>)} aria-label="Image placeholder" />
   ) : (
     <ElAvatarRectangle {...props} data-size={size} data-variant={variant} data-placeholder={!hasImageError}>
       <img src={src} alt={alt} onError={handleError} />
