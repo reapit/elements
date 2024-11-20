@@ -1,11 +1,14 @@
 import type { StoryObj } from '@storybook/react'
+import { AvatarButton } from '.'
 import { ElAvatar } from '../avatar'
 import { ElAvatarButton } from './styles'
-import { AvatarButton } from '.'
 
 export default {
   title: 'Components/Avatar Button',
   component: AvatarButton,
+  args: {
+    ariaLabel: 'Open user navigation menu',
+  },
   argTypes: {
     label: {
       control: 'text',
@@ -14,6 +17,8 @@ export default {
       action: 'clicked',
       description: 'Callback function for click events',
     },
+    // hide duplicate since there is ariaLabel already
+    'aria-label': { table: { disable: true } },
   },
 }
 
