@@ -7,7 +7,7 @@ export default {
   title: 'Components/Avatar Button',
   component: AvatarButton,
   args: {
-    ariaLabel: 'Open user navigation menu',
+    'aria-label': 'Open user navigation menu',
   },
   argTypes: {
     label: {
@@ -17,8 +17,6 @@ export default {
       action: 'clicked',
       description: 'Callback function for click events',
     },
-    // hide duplicate since there is ariaLabel already
-    'aria-label': { table: { disable: true } },
   },
 }
 

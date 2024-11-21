@@ -4,7 +4,6 @@ import { ElAvatarButton } from './styles'
 
 export interface AvatarButtonProps extends HTMLAttributes<HTMLButtonElement> {
   label: string
-  ariaLabel?: string
 }
 
 export const AvatarButton: FC<AvatarButtonProps> = ({
