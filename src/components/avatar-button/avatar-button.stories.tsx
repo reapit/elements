@@ -1,11 +1,14 @@
 import type { StoryObj } from '@storybook/react'
+import { AvatarButton } from '.'
 import { ElAvatar } from '../avatar'
 import { ElAvatarButton } from './styles'
-import { AvatarButton } from '.'
 
 export default {
   title: 'Components/Avatar Button',
   component: AvatarButton,
+  args: {
+    'aria-label': 'Open user navigation menu',
+  },
   argTypes: {
     label: {
       control: 'text',
