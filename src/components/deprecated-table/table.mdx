@@ -1,18 +1,18 @@
 import { Meta, Story, Canvas, Controls, Source } from '@storybook/blocks'
-import { Table } from './index'
-import { TableCell } from './molecules'
+import { DeprecatedTable } from './index'
+import { DeprecatedTableCell } from './molecules'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as TableStories from './table.stories'
 
 <Meta of={TableStories} />
 
-# Table
+# DeprecatedTable
 
 ## Summary
 
-The Table component can be used in 2 main ways within
+The DeprecatedTable component can be used in 2 main ways within
 
-1.  Building a table from the Table molecule components, e.g. `TableRow`, `TableCell`, etc
+1.  Building a table from the DeprecatedTable molecule components, e.g. `DeprecatedTableRow`, `DeprecatedTableCell`, etc
 2.  Using the React shorthand and supplying a `rows` prop with data. This way offers advantages such as not needing to manage the state for the expandable rows.
 
 There are two visual styles for the table, dependant on screen width.
@@ -25,7 +25,7 @@ applied to cells when it's in narrow mode, e.g. showing the header within the ce
 
 ## Basic Usage
 
-For Non React users and React users with basic requirements, you can just use `Table`, `TableHeadersRow`, `TableHeader`, `TableRow` and `TableCell` components as presentational components to render your content. See the rendered Markup for non-React users as always.
+For Non React users and React users with basic requirements, you can just use `DeprecatedTable`, `DeprecatedTableHeadersRow`, `DeprecatedTableHeader`, `DeprecatedTableRow` and `DeprecatedTableCell` components as presentational components to render your content. See the rendered Markup for non-React users as always.
 
 In addtion, you can split the space available vertically with the `TableCellSplit` component. We also support images and form controls like checkboxes being inserted into cells.
 
@@ -37,21 +37,21 @@ For React users, the table has a number of freatures that you may find useful to
 
 ## Column widths
 
-The `Table` is a CSS Grid to support proper resposiveness. By default the number of columms is set to the number of Cells in the first row and all columns are the same width. If you want to override this, set the `data-num-columns-excl-action-col="8"` property on the `Table` element to a desired number of columns, then add an appropriate `elSpan2` `elSpan3` etc class to the relevant `TableCell` elements as per below.
+The `DeprecatedTable` is a CSS Grid to support proper resposiveness. By default the number of columms is set to the number of Cells in the first row and all columns are the same width. If you want to override this, set the `data-num-columns-excl-action-col="8"` property on the `DeprecatedTable` element to a desired number of columns, then add an appropriate `elSpan2` `elSpan3` etc class to the relevant `DeprecatedTableCell` elements as per below.
 
 <Canvas of={TableStories.ColumnWidths} />
 
 <RenderHtmlMarkup of={TableStories.ColumnWidths} />
 
-`Table` only renders children, unless the `rows` prop is supplied as a React shorthand.
+`DeprecatedTable` only renders children, unless the `rows` prop is supplied as a React shorthand.
 
-## Basic Customisation - Table Cells
+## Basic Customisation - DeprecatedTable Cells
 
-`TableCell` renders children, but also accepts some other props. Any other props given that aren't listed below are are applied to the underlying `div` element.
+`DeprecatedTableCell` renders children, but also accepts some other props. Any other props given that aren't listed below are are applied to the underlying `div` element.
 
 Props available for the React version of the component;
 
-{/* <ArgsTable of={TableCell} /> */}
+{/* <ArgsTable of={DeprecatedTableCell} /> */}
 
 To explain these props;
 
@@ -63,17 +63,17 @@ To explain these props;
 
 As always, these modifiers map to CSS classes for non React users.
 
-In the example below, you can see examples of all the different flavours of `TableCell` and modifier. It is worth re-sizing the screen to see the 'narrow' behaviour.
+In the example below, you can see examples of all the different flavours of `DeprecatedTableCell` and modifier. It is worth re-sizing the screen to see the 'narrow' behaviour.
 
 <Canvas of={TableStories.BasicCustomisationTableCells} />
 
 <RenderHtmlMarkup of={TableStories.BasicCustomisationTableCells} />
 
-## Expanding Table Cell Space
+## Expanding DeprecatedTable Cell Space
 
 It is quite common that you will find table data taking up much more than the available space than your table has available. In this instance, you can force the table into "mobile mode" to allow multi-line rows for the table.
 
-This is done by adding the `data-force-narrow-table='true'` attribute to the main wrapping `Table` (`.el-table`) element.
+This is done by adding the `data-force-narrow-table='true'` attribute to the main wrapping `DeprecatedTable` (`.el-table`) element.
 
 <Canvas of={TableStories.ExpandingTableCellSpace} />
 
@@ -121,7 +121,7 @@ The `rows` prop consists of a list of cells as well as optional `expandableConte
 Options for a cell are shown below and map to the keys in the cells array.
 
 <Source code={`
-export interface CellProps {
+export interface DeprecatedCellProps {
   label: string // The header label
   value: string // The cell content
   children?: ReactNode // Children to render if required

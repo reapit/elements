@@ -1,21 +1,21 @@
 import { render } from '@testing-library/react'
-import { Table, handleToggleExpandedRow } from '..'
+import { DeprecatedTable, handleToggleExpandedRow } from '..'
 import { elSpan2 } from '../../grid'
 
-describe('Table Component', () => {
+describe('DeprecatedTable Component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<Table />)
+    const wrapper = render(<DeprecatedTable />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with varied number columns', () => {
-    const wrapper = render(<Table numberColumns={4} />)
+    const wrapper = render(<DeprecatedTable numberColumns={4} />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props and expandable content', () => {
     const wrapper = render(
-      <Table
+      <DeprecatedTable
         numberColumns={9}
         indexExpandedRow={0}
         setIndexExpandedRow={vi.fn()}
@@ -72,7 +72,7 @@ describe('Table Component', () => {
 
   it('should match a snapshot for expandable content alternate settings', () => {
     const wrapper = render(
-      <Table
+      <DeprecatedTable
         rows={[
           {
             cells: [],
@@ -92,7 +92,7 @@ describe('Table Component', () => {
 
   it('should match a snapshot with full props and cta content', () => {
     const wrapper = render(
-      <Table
+      <DeprecatedTable
         numberColumns={9}
         indexExpandedRow={0}
         setIndexExpandedRow={vi.fn()}
@@ -152,7 +152,7 @@ describe('Table Component', () => {
 
   it('should match a snapshot for cta content alternate settings', () => {
     const wrapper = render(
-      <Table
+      <DeprecatedTable
         rows={[
           {
             cells: [],

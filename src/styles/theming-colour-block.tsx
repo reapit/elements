@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { TableRow, TableCell } from '../components/table'
+import { DeprecatedTableRow, DeprecatedTableCell } from '../components/deprecated-table'
 import { colord } from 'colord'
 import { TextSM } from '../components/typography'
 
@@ -9,8 +9,8 @@ export const ThemingColourBlock: FC<{
   defaultValue?: string
 }> = ({ hex, varName, defaultValue }) => {
   return (
-    <TableRow>
-      <TableCell>
+    <DeprecatedTableRow>
+      <DeprecatedTableCell>
         <div
           style={{
             borderRadius: '.5rem',
@@ -20,13 +20,13 @@ export const ThemingColourBlock: FC<{
             border: `1px solid ${colord(hex).darken(0.1).toHex()}`,
           }}
         />
-      </TableCell>
-      <TableCell>
+      </DeprecatedTableCell>
+      <DeprecatedTableCell>
         <TextSM>{varName}</TextSM>
-      </TableCell>
-      <TableCell>
+      </DeprecatedTableCell>
+      <DeprecatedTableCell>
         <TextSM>{defaultValue}</TextSM>
-      </TableCell>
-    </TableRow>
+      </DeprecatedTableCell>
+    </DeprecatedTableRow>
   )
 }

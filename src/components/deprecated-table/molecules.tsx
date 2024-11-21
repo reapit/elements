@@ -1,16 +1,16 @@
 import { FC, HTMLAttributes, ReactNode } from 'react'
 import { cx } from '@linaria/core'
 import {
-  ElTableHeadersRow,
-  ElTableHeader,
-  ElTableRow,
-  ElTableCell,
-  ElTableCellContent,
+  ElDeprecatedTableHeadersRow,
+  ElDeprecatedTableHeader,
+  ElDeprecatedTableRow,
+  ElDeprecatedTableCell,
+  ElDeprecatedTableCellContent,
   ElTableExpandableRowTriggerCell,
   ElTableExpandableRow,
   elTableCellHasDarkText,
   elTableNarrowCellIsFullWidth,
-  ElTableRowContainer,
+  ElDeprecatedTableRowContainer,
   ElTableExpandableContainer,
   ElTableCellNarrowOrder1,
   ElTableCellNarrowOrder2,
@@ -26,7 +26,7 @@ import {
   ElTableCellNarrowOrder12,
   ElTableCtaIconContainer,
   ElTableCtaCell,
-  ElTableSortHeader,
+  ElDeprecatedTableSortHeader,
   ElTableCellSplitWrap,
   ElTableCellSplitData,
   ElTableCellSplitSubData,
@@ -38,7 +38,8 @@ import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
 export type NarrowOrderType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
-export interface TableCellProps extends HTMLAttributes<HTMLDivElement> {
+/** @deprecated */
+export interface DeprecatedTableCellProps extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
   darkText?: boolean
   narrowLabel?: string
@@ -62,7 +63,8 @@ export interface TableExpandableRowProps extends HTMLAttributes<HTMLDivElement> 
   className?: string
 }
 
-export interface TableRowContainerProps extends HTMLAttributes<HTMLDivElement> {
+/** @deprecated */
+export interface DeprecatedTableRowContainerProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean
 }
 
@@ -70,7 +72,8 @@ export interface TableCtaTriggerCellProps extends HTMLAttributes<HTMLDivElement>
   icon?: IconNames
 }
 
-export interface TableSortHeaderProps extends HTMLAttributes<HTMLDivElement> {
+/** @deprecated */
+export interface DeprecatedTableSortHeaderProps extends HTMLAttributes<HTMLDivElement> {
   direction: 'up' | 'down'
 }
 
@@ -103,16 +106,19 @@ export const resolveNarrowOrderClass = (order: number): string | undefined => {
   }
 }
 
-export const TableHeadersRow: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
-  return <ElTableHeadersRow {...rest}>{children}</ElTableHeadersRow>
+/** @deprecated */
+export const DeprecatedTableHeadersRow: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
+  return <ElDeprecatedTableHeadersRow {...rest}>{children}</ElDeprecatedTableHeadersRow>
 }
 
-export const TableHeader: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
-  return <ElTableHeader {...rest}>{children}</ElTableHeader>
+/** @deprecated */
+export const DeprecatedTableHeader: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
+  return <ElDeprecatedTableHeader {...rest}>{children}</ElDeprecatedTableHeader>
 }
 
-export const TableRow: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
-  return <ElTableRow {...rest}>{children}</ElTableRow>
+/** @deprecated */
+export const DeprecatedTableRow: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => {
+  return <ElDeprecatedTableRow {...rest}>{children}</ElDeprecatedTableRow>
 }
 
 export const TableCellSplit: FC<TableCellSplitProps> = ({ data, subData, ...rest }) => {
@@ -124,7 +130,8 @@ export const TableCellSplit: FC<TableCellSplitProps> = ({ data, subData, ...rest
   )
 }
 
-export const TableCell: FC<TableCellProps> = ({
+/** @deprecated */
+export const DeprecatedTableCell: FC<DeprecatedTableCellProps> = ({
   icon,
   darkText,
   narrowLabel,
@@ -141,10 +148,10 @@ export const TableCell: FC<TableCellProps> = ({
     narrowOrder && resolveNarrowOrderClass(narrowOrder),
   )
   return (
-    <ElTableCell className={combinedClassname} {...rest}>
+    <ElDeprecatedTableCell className={combinedClassname} {...rest}>
       {icon && <Icon intent="default" icon={icon} fontSize="1.25rem" />}
-      <ElTableCellContent data-narrow-label={narrowLabel}>{children}</ElTableCellContent>
-    </ElTableCell>
+      <ElDeprecatedTableCellContent data-narrow-label={narrowLabel}>{children}</ElDeprecatedTableCellContent>
+    </ElDeprecatedTableCell>
   )
 }
 
@@ -205,17 +212,24 @@ export const TableExpandableRow: FC<TableExpandableRowProps> = ({ isOpen, classN
   )
 }
 
-export const TableRowContainer: FC<TableRowContainerProps> = ({ isOpen, className, children, ...rest }) => {
+/** @deprecated */
+export const DeprecatedTableRowContainer: FC<DeprecatedTableRowContainerProps> = ({
+  isOpen,
+  className,
+  children,
+  ...rest
+}) => {
   return (
-    <ElTableRowContainer className={cx(className, isOpen && elIsActive)} {...rest}>
+    <ElDeprecatedTableRowContainer className={cx(className, isOpen && elIsActive)} {...rest}>
       {children}
-    </ElTableRowContainer>
+    </ElDeprecatedTableRowContainer>
   )
 }
 
-export const TableSortHeader: FC<TableSortHeaderProps> = ({ children, ...rest }) => {
+/** @deprecated */
+export const DeprecatedTableSortHeader: FC<DeprecatedTableSortHeaderProps> = ({ children, ...rest }) => {
   return (
-    <ElTableSortHeader {...rest}>
+    <ElDeprecatedTableSortHeader {...rest}>
       <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
         {children}
         <FlexContainer>
@@ -223,6 +237,6 @@ export const TableSortHeader: FC<TableSortHeaderProps> = ({ children, ...rest })
           <Icon icon="sortDescend" intent="default" />
         </FlexContainer>
       </FlexContainer>
-    </ElTableSortHeader>
+    </ElDeprecatedTableSortHeader>
   )
 }
