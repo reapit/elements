@@ -1,0 +1,130 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`AvatarRectangle > renders correctly with commercial variant and medium size without src 1`] = `
+<DocumentFragment>
+  <svg
+    aria-label="Image placeholder"
+    class="mocked-styled-5 el-avatar-rect-commercial-placeholder"
+    fill="currentColor"
+    height="54"
+    viewBox="0 0 72 54"
+    width="72"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      id="Shapes"
+    >
+      <path
+        d="M18 54V42H56V14H72V54H18Z"
+        fill="#E5E9ED"
+        id="Bottom image"
+      />
+      <path
+        d="M54 0H0V40H54V0Z"
+        fill="#E5E9ED"
+        id="Top image"
+      />
+    </g>
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`AvatarRectangle > renders correctly with commercial variant and small size 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-2 el-avatar-rectangle"
+    data-placeholder="true"
+    data-size="small"
+    data-variant="commercial"
+  >
+    <img
+      alt="Test Image"
+      src="test-image.jpg"
+    />
+    <svg
+      aria-hidden="true"
+      class="mocked-styled-1 el-avatar-rect-bottom-small-placeholder"
+      fill="none"
+      height="36"
+      viewBox="0 0 48 36"
+      width="48"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M0 36V26H34V0H48V36H0Z"
+        fill="#E5E9ED"
+        id="Bottom image"
+      />
+    </svg>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`AvatarRectangle > renders correctly with residential variant and medium size 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-2 el-avatar-rectangle"
+    data-placeholder="true"
+    data-size="medium"
+    data-variant="residential"
+  >
+    <img
+      alt="Test Image"
+      src="test-image.jpg"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`AvatarRectangle > renders correctly with residential variant and small size without src 1`] = `
+<DocumentFragment>
+  <svg
+    aria-label="Image placeholder"
+    class="mocked-styled-4 el-avatar-rect-residential-small-placeholder"
+    fill="none"
+    height="48"
+    viewBox="0 0 64 48"
+    width="64"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <rect
+      fill="#E5E9ED"
+      height="48"
+      width="64"
+    />
+    <path
+      d="M39.2819 22.1101L32.2819 17.4434C32.0594 17.2969 31.771 17.2969 31.5485 17.4434L24.5819 22.1101C24.3138 22.326 24.2542 22.7105 24.4443 22.9975C24.6345 23.2844 25.0119 23.3794 25.3152 23.2167L25.9152 22.7967V30.3301C25.9152 30.6982 26.2137 30.9967 26.5819 30.9967H37.2485C37.6167 30.9967 37.9152 30.6982 37.9152 30.3301V22.7967L38.5485 23.2167C38.6559 23.2919 38.7841 23.3316 38.9152 23.3301C39.2076 23.3278 39.4644 23.1353 39.5485 22.8553C39.6327 22.5753 39.5246 22.2731 39.2819 22.1101ZM36.5819 29.6634H27.2485V21.9101L31.9152 18.7967L36.5819 21.9101V29.6634Z"
+      fill="#9FAEBC"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`AvatarRectangle > simulate error and renders correctly when image fails to load 1`] = `
+<DocumentFragment>
+  <svg
+    aria-label="Image placeholder"
+    class="mocked-styled-5 el-avatar-rect-commercial-placeholder"
+    fill="currentColor"
+    height="54"
+    viewBox="0 0 72 54"
+    width="72"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      id="Shapes"
+    >
+      <path
+        d="M18 54V42H56V14H72V54H18Z"
+        fill="#E5E9ED"
+        id="Bottom image"
+      />
+      <path
+        d="M54 0H0V40H54V0Z"
+        fill="#E5E9ED"
+        id="Top image"
+      />
+    </g>
+  </svg>
+</DocumentFragment>
+`;
