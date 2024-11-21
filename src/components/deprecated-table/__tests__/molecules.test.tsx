@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react'
 import {
-  TableHeadersRow,
-  TableHeader,
-  TableRow,
-  TableRowContainer,
-  TableCell,
+  DeprecatedTableHeadersRow,
+  DeprecatedTableHeader,
+  DeprecatedTableRow,
+  DeprecatedTableRowContainer,
+  DeprecatedTableCell,
   TableExpandableRowTriggerCell,
   TableExpandableRow,
   TableCtaTriggerCell,
@@ -14,23 +14,23 @@ import {
 } from '../molecules'
 import * as styles from '../__styles__'
 
-describe('TableHeadersRow Component', () => {
+describe('DeprecatedTableHeadersRow Component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<TableHeadersRow />)
+    const wrapper = render(<DeprecatedTableHeadersRow />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
-describe('TableHeader Component', () => {
+describe('DeprecatedTableHeader Component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<TableHeader />)
+    const wrapper = render(<DeprecatedTableHeader />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
-describe('TableRow Component', () => {
+describe('DeprecatedTableRow Component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<TableRow />)
+    const wrapper = render(<DeprecatedTableRow />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
@@ -42,15 +42,22 @@ describe('TableCellSplit Component', () => {
   })
 })
 
-describe('TableCell Component', () => {
+describe('DeprecatedTableCell Component', () => {
   it('should match a snapshot with no props', () => {
-    const wrapper = render(<TableCell />)
+    const wrapper = render(<DeprecatedTableCell />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props', () => {
     const wrapper = render(
-      <TableCell className="foo-bar" icon="add" darkText narrowLabel="Label" narrowIsFullWidth narrowOrder={1} />,
+      <DeprecatedTableCell
+        className="foo-bar"
+        icon="add"
+        darkText
+        narrowLabel="Label"
+        narrowIsFullWidth
+        narrowOrder={1}
+      />,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
@@ -110,14 +117,14 @@ describe('TableExpandableRow Component', () => {
   })
 })
 
-describe('TableRowContainer Component', () => {
+describe('DeprecatedTableRowContainer Component', () => {
   it('should match a snapshot when open', () => {
-    const wrapper = render(<TableRowContainer isOpen />)
+    const wrapper = render(<DeprecatedTableRowContainer isOpen />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot when not open', () => {
-    const wrapper = render(<TableRowContainer isOpen />)
+    const wrapper = render(<DeprecatedTableRowContainer isOpen />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

@@ -1,27 +1,27 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Table Component > should match a snapshot 1`] = `
+exports[`DeprecatedTable Component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-14 el-table"
+    class="mocked-styled-14 el-deprecated-table"
   />
 </DocumentFragment>
 `;
 
-exports[`Table Component > should match a snapshot for cta content alternate settings 1`] = `
+exports[`DeprecatedTable Component > should match a snapshot for cta content alternate settings 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-14 el-table"
+    class="mocked-styled-14 el-deprecated-table"
     data-has-call-to-action="true"
     data-has-expandable-action="false"
     role="table"
   >
     <div
-      class="mocked-styled-0 el-table-headers-row"
+      class="mocked-styled-0 el-deprecated-table-headers-row"
       role="row"
     >
       <div
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         <span
@@ -45,11 +45,11 @@ exports[`Table Component > should match a snapshot for cta content alternate set
       </div>
     </div>
     <div
-      class="mocked-styled-9 el-table-row-container"
+      class="mocked-styled-9 el-deprecated-table-row-container"
       role="row"
     >
       <div
-        class="mocked-styled-2 el-table-row"
+        class="mocked-styled-2 el-deprecated-table-row"
       >
         <div
           class="foo-bar el-table-cta-cell"
@@ -85,32 +85,32 @@ exports[`Table Component > should match a snapshot for cta content alternate set
 </DocumentFragment>
 `;
 
-exports[`Table Component > should match a snapshot for expandable content alternate settings 1`] = `
+exports[`DeprecatedTable Component > should match a snapshot for expandable content alternate settings 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-14 el-table"
+    class="mocked-styled-14 el-deprecated-table"
     data-has-call-to-action="false"
     data-has-expandable-action="true"
     data-num-columns-excl-action-col="0"
     role="table"
   >
     <div
-      class="mocked-styled-0 el-table-headers-row"
+      class="mocked-styled-0 el-deprecated-table-headers-row"
       role="row"
     >
       <div
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Some Content
       </div>
     </div>
     <div
-      class="mocked-styled-9 el-table-row-container"
+      class="mocked-styled-9 el-deprecated-table-row-container"
       role="row"
     >
       <div
-        class="mocked-styled-2 el-table-row"
+        class="mocked-styled-2 el-deprecated-table-row"
       >
         <div
           class="foo-bar el-table-expandable-row-trigger-cell"
@@ -161,84 +161,84 @@ exports[`Table Component > should match a snapshot for expandable content altern
 </DocumentFragment>
 `;
 
-exports[`Table Component > should match a snapshot with full props and cta content 1`] = `
+exports[`DeprecatedTable Component > should match a snapshot with full props and cta content 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-14 el-table"
+    class="mocked-styled-14 el-deprecated-table"
     data-has-call-to-action="true"
     data-has-expandable-action="false"
     data-num-columns-excl-action-col="8"
     role="table"
   >
     <div
-      class="mocked-styled-0 el-table-headers-row"
+      class="mocked-styled-0 el-deprecated-table-headers-row"
       role="row"
     >
       <div
         aria-label="Property"
-        class="el-span2 el-table-header"
+        class="el-span2 el-deprecated-table-header"
         role="columnheader"
       >
         Property
       </div>
       <div
         aria-label="Customer"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Customer
       </div>
       <div
         aria-label="Client A/C"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Client A/C
       </div>
       <div
         aria-label="Description"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Description
       </div>
       <div
         aria-label="Request Date"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Request Date
       </div>
       <div
         aria-label="Amount"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Amount
       </div>
       <div
         aria-label="Payment Status"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Payment Status
       </div>
       <div
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Some Action
       </div>
     </div>
     <div
-      class="el-is-active el-table-row-container"
+      class="el-is-active el-deprecated-table-row-container"
       role="row"
     >
       <div
-        class="mocked-styled-2 el-table-row"
+        class="mocked-styled-2 el-deprecated-table-row"
       >
         <div
-          class="el-span2 el-table-cell-has-dark-text el-table-cell"
+          class="el-span2 el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <span
@@ -262,14 +262,14 @@ exports[`Table Component > should match a snapshot with full props and cta conte
             </svg>
           </span>
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
             data-narrow-label="Property"
           >
             Mt Ash Jacket, Brassey Road
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <span
@@ -301,59 +301,59 @@ exports[`Table Component > should match a snapshot with full props and cta conte
             </svg>
           </span>
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
             data-narrow-label="Customer"
           >
             Mr Johnny Corrigan
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
           >
             Alternate Lettings Client Acc
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
           >
             Tenant Payment Request
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
             data-narrow-label="Request Date"
           >
             19 Apr 2021
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
           >
             £50.00
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
           >
             Not Requested
           </div>
@@ -392,70 +392,70 @@ exports[`Table Component > should match a snapshot with full props and cta conte
 </DocumentFragment>
 `;
 
-exports[`Table Component > should match a snapshot with full props and expandable content 1`] = `
+exports[`DeprecatedTable Component > should match a snapshot with full props and expandable content 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-14 el-table"
+    class="mocked-styled-14 el-deprecated-table"
     data-has-call-to-action="false"
     data-has-expandable-action="true"
     data-num-columns-excl-action-col="8"
     role="table"
   >
     <div
-      class="mocked-styled-0 el-table-headers-row"
+      class="mocked-styled-0 el-deprecated-table-headers-row"
       role="row"
     >
       <div
         aria-label="Property"
-        class="el-span2 el-table-header"
+        class="el-span2 el-deprecated-table-header"
         role="columnheader"
       >
         Property
       </div>
       <div
         aria-label="Customer"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Customer
       </div>
       <div
         aria-label="Client A/C"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Client A/C
       </div>
       <div
         aria-label="Description"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Description
       </div>
       <div
         aria-label="Request Date"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Request Date
       </div>
       <div
         aria-label="Amount"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Amount
       </div>
       <div
         aria-label="Payment Status"
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         Payment Status
       </div>
       <div
-        class="mocked-styled-1 el-table-header"
+        class="mocked-styled-1 el-deprecated-table-header"
         role="columnheader"
       >
         <span
@@ -479,14 +479,14 @@ exports[`Table Component > should match a snapshot with full props and expandabl
       </div>
     </div>
     <div
-      class="el-is-active el-table-row-container"
+      class="el-is-active el-deprecated-table-row-container"
       role="row"
     >
       <div
-        class="mocked-styled-2 el-table-row"
+        class="mocked-styled-2 el-deprecated-table-row"
       >
         <div
-          class="el-span2 el-table-cell-has-dark-text el-table-cell"
+          class="el-span2 el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <span
@@ -510,14 +510,14 @@ exports[`Table Component > should match a snapshot with full props and expandabl
             </svg>
           </span>
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
             data-narrow-label="Property"
           >
             Mt Ash Jacket, Brassey Road
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <span
@@ -549,59 +549,59 @@ exports[`Table Component > should match a snapshot with full props and expandabl
             </svg>
           </span>
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
             data-narrow-label="Customer"
           >
             Mr Johnny Corrigan
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
           >
             Alternate Lettings Client Acc
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
           >
             Tenant Payment Request
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
             data-narrow-label="Request Date"
           >
             19 Apr 2021
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
           >
             £50.00
           </div>
         </div>
         <div
-          class="el-table-cell-has-dark-text el-table-cell"
+          class="el-table-cell-has-dark-text el-deprecated-table-cell"
           role="cell"
         >
           <div
-            class="mocked-styled-10 el-table-cell-content"
+            class="mocked-styled-10 el-deprecated-table-cell-content"
           >
             Not Requested
           </div>
@@ -655,10 +655,10 @@ exports[`Table Component > should match a snapshot with full props and expandabl
 </DocumentFragment>
 `;
 
-exports[`Table Component > should match a snapshot with varied number columns 1`] = `
+exports[`DeprecatedTable Component > should match a snapshot with varied number columns 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-14 el-table"
+    class="mocked-styled-14 el-deprecated-table"
   />
 </DocumentFragment>
 `;
