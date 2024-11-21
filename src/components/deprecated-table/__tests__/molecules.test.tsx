@@ -50,7 +50,14 @@ describe('DeprecatedTableCell Component', () => {
 
   it('should match a snapshot with full props', () => {
     const wrapper = render(
-      <DeprecatedTableCell className="foo-bar" icon="add" darkText narrowLabel="Label" narrowIsFullWidth narrowOrder={1} />,
+      <DeprecatedTableCell
+        className="foo-bar"
+        icon="add"
+        darkText
+        narrowLabel="Label"
+        narrowIsFullWidth
+        narrowOrder={1}
+      />,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
