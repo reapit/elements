@@ -8,7 +8,6 @@ export default function ContainerQuery({ children, conditions, not = false }) {
     <>
       <style>
         {`
-
          .el-container-query-${id.current} {
           display: contents;
 
