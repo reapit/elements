@@ -1,0 +1,280 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TopBar Snapshot > should match snapshot 1`] = `
+<DocumentFragment>
+  <nav>
+    <div
+      class="mocked-styled-22 el-top-bar-container"
+      style="container-type: inline-size; container-name: top-bar;"
+    >
+      <div
+        class="mocked-styled-23 el-top-bar-left-content-container"
+      >
+        <div
+          class="el-main-nav-container el-button-group"
+          style="container-type: inline-size; container-name: main-nav;"
+        >
+          <a
+            aria-label="Button 1"
+            class="mocked-styled-16 el-nav-item-anchor"
+            href="/"
+          >
+            <span
+              class="mocked-styled-14 el-nav-item-label-container"
+            >
+              Button 1
+            </span>
+          </a>
+          <a
+            aria-label="Button 2"
+            class="mocked-styled-16 el-nav-item-anchor"
+            href="/"
+          >
+            <span
+              class="mocked-styled-14 el-nav-item-label-container"
+            >
+              Button 2
+            </span>
+          </a>
+          <a
+            aria-label="Button 3"
+            class="mocked-styled-16 el-nav-item-anchor"
+            href="/"
+          >
+            <span
+              class="mocked-styled-14 el-nav-item-label-container"
+            >
+              Button 3
+            </span>
+          </a>
+          <a
+            aria-label="Button 4"
+            class="mocked-styled-16 el-nav-item-anchor"
+            href="/"
+          >
+            <span
+              class="mocked-styled-14 el-nav-item-label-container"
+            >
+              Button 4
+            </span>
+          </a>
+          <style>
+            
+
+         .el-container-query-1 {
+          display: contents;
+
+          @container top-bar (width &lt; 1440px)  {
+            display: none;
+          }
+        // @container top-bar (width &lt; 1440px) {
+        //   .el-container-query-1 {
+        //   display: contents;
+
+        //   @container main-nav (width &lt; 1440px)  {
+        //     display: none;
+        //   }
+        // }
+      }
+          </style>
+          <div
+            class="el-container-query-1"
+          >
+            <a
+              aria-label="Button 5"
+              class="mocked-styled-16 el-nav-item-anchor"
+              href="/"
+            >
+              <span
+                class="mocked-styled-14 el-nav-item-label-container"
+              >
+                Button 5
+              </span>
+            </a>
+            <a
+              aria-label="Button 6"
+              class="mocked-styled-16 el-nav-item-anchor"
+              href="/"
+            >
+              <span
+                class="mocked-styled-14 el-nav-item-label-container"
+              >
+                Button 6
+              </span>
+            </a>
+            <a
+              aria-label="Button 7"
+              class="mocked-styled-16 el-nav-item-anchor"
+              href="/"
+            >
+              <span
+                class="mocked-styled-14 el-nav-item-label-container"
+              >
+                Button 7
+              </span>
+            </a>
+          </div>
+          <style>
+            
+
+         .el-container-query-2 {
+          display: contents;
+
+          @container top-bar not (width &lt; 1440px)  {
+            display: none;
+          }
+        // @container top-bar (width &lt; 1440px) {
+        //   .el-container-query-2 {
+        //   display: contents;
+
+        //   @container main-nav not (width &lt; 1440px)  {
+        //     display: none;
+        //   }
+        // }
+      }
+          </style>
+          <div
+            class="el-container-query-2"
+          >
+            <div
+              class="mocked-styled-4 el-menu"
+            >
+              <button
+                aria-expanded="false"
+                aria-haspopup="true"
+                class="mocked-styled-10 el-nav-dropdown-button"
+                role="button"
+                type="button"
+              >
+                More
+                <div
+                  data-testid="icon"
+                />
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        class="mocked-styled-25 el-top-bar-right-content-container"
+      >
+        <div
+          class="mocked-styled-24 el-search-container"
+        >
+          <div
+            class="mocked-styled-18 el-nav-search-button-container"
+          >
+            <button
+              aria-label="nav-icon-item-example"
+              class="mocked-styled-12 el-button-nav-icon-item"
+            >
+              <div
+                data-testid="icon"
+              />
+            </button>
+            <button
+              class="mocked-styled-17 el-nav-search-button"
+            >
+              <svg
+                aria-hidden="true"
+                class="mocked-styled-19 el-nav-search-button-icon"
+                fill="none"
+                height="16"
+                viewBox="0 0 16 16"
+                width="16"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M14.4733 13.5266L10.8733 9.93331C11.6055 9.00212 12.0024 7.85126 11.9999 6.66665C11.9999 3.72113 9.6121 1.33331 6.66659 1.33331C3.72107 1.33331 1.33325 3.72113 1.33325 6.66665C1.33325 9.61217 3.72107 12 6.66659 12C7.8512 12.0025 9.00206 11.6056 9.93325 10.8733L13.5266 14.4733C13.6518 14.5995 13.8222 14.6705 13.9999 14.6705C14.1777 14.6705 14.3481 14.5995 14.4733 14.4733C14.5995 14.3481 14.6705 14.1777 14.6705 14C14.6705 13.8222 14.5995 13.6518 14.4733 13.5266ZM2.66659 6.66665C2.66659 4.45751 4.45745 2.66665 6.66659 2.66665C8.87572 2.66665 10.6666 4.45751 10.6666 6.66665C10.6666 8.87579 8.87572 10.6666 6.66659 10.6666C4.45745 10.6666 2.66659 8.87579 2.66659 6.66665Z"
+                  fill="currentColor"
+                />
+              </svg>
+              <span
+                class="mocked-styled-20 el-nav-search-button-placeholder"
+              >
+                Search
+              </span>
+              <span
+                class="mocked-styled-21 el-nav-search-button-shortcut-text"
+              >
+                Ctrl + K
+              </span>
+            </button>
+          </div>
+        </div>
+        <div
+          class="mocked-styled-2 el-button-group"
+        >
+          <button
+            aria-label="example 1"
+            class="mocked-styled-12 el-button-nav-icon-item"
+          >
+            <div
+              data-testid="icon"
+            />
+          </button>
+          <button
+            aria-label="example 2"
+            class="mocked-styled-12 el-button-nav-icon-item"
+          >
+            <div
+              data-testid="icon"
+            />
+          </button>
+          <button
+            aria-label="example 3"
+            class="mocked-styled-12 el-button-nav-icon-item"
+          >
+            <div
+              data-testid="icon"
+            />
+          </button>
+        </div>
+        <div
+          class="mocked-styled-29 el-top-bar-menu-button-container"
+        >
+          <button
+            aria-label="nav-icon-item-example"
+            class="mocked-styled-12 el-button-nav-icon-item"
+          >
+            <svg
+              fill="none"
+              height="10"
+              viewBox="0 0 20 10"
+              width="20"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g
+                id="Vector"
+              >
+                <path
+                  d="M1 0C0.447715 0 0 0.447715 0 1C0 1.55229 0.447716 2 1 2H19C19.5523 2 20 1.55229 20 1C20 0.447715 19.5523 0 19 0H1Z"
+                  fill="#798DA1"
+                />
+                <path
+                  d="M1 8C0.447715 8 0 8.44771 0 9C0 9.55228 0.447716 10 1 10H19C19.5523 10 20 9.55228 20 9C20 8.44771 19.5523 8 19 8H1Z"
+                  fill="#798DA1"
+                />
+              </g>
+            </svg>
+          </button>
+        </div>
+        <button
+          aria-label="Open user navigation menu"
+          class="el-avatar-container el-avatar-button"
+        >
+          <span
+            class="mocked-styled-1 el-avatar"
+            data-colour="purple"
+            data-shape="circle"
+            data-size="small"
+            role="presentation"
+          >
+            AD
+          </span>
+        </button>
+      </div>
+    </div>
+  </nav>
+</DocumentFragment>
+`;
