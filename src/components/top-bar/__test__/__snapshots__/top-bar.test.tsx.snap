@@ -4,77 +4,67 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
 <DocumentFragment>
   <nav>
     <div
-      class="mocked-styled-22 el-top-bar-container"
+      class="mocked-styled-10 el-top-bar-container"
       style="container-type: inline-size; container-name: top-bar;"
     >
       <div
-        class="mocked-styled-23 el-top-bar-left-content-container"
+        class="mocked-styled-11 el-top-bar-left-content-container"
       >
         <div
           class="el-main-nav-container el-button-group"
-          style="container-type: inline-size; container-name: main-nav;"
         >
           <a
             aria-label="Button 1"
-            class="mocked-styled-16 el-nav-item-anchor"
+            class="mocked-styled-29 el-nav-item-anchor"
             href="/"
           >
             <span
-              class="mocked-styled-14 el-nav-item-label-container"
+              class="mocked-styled-27 el-nav-item-label-container"
             >
               Button 1
             </span>
           </a>
           <a
             aria-label="Button 2"
-            class="mocked-styled-16 el-nav-item-anchor"
+            class="mocked-styled-29 el-nav-item-anchor"
             href="/"
           >
             <span
-              class="mocked-styled-14 el-nav-item-label-container"
+              class="mocked-styled-27 el-nav-item-label-container"
             >
               Button 2
             </span>
           </a>
           <a
             aria-label="Button 3"
-            class="mocked-styled-16 el-nav-item-anchor"
+            class="mocked-styled-29 el-nav-item-anchor"
             href="/"
           >
             <span
-              class="mocked-styled-14 el-nav-item-label-container"
+              class="mocked-styled-27 el-nav-item-label-container"
             >
               Button 3
             </span>
           </a>
           <a
             aria-label="Button 4"
-            class="mocked-styled-16 el-nav-item-anchor"
+            class="mocked-styled-29 el-nav-item-anchor"
             href="/"
           >
             <span
-              class="mocked-styled-14 el-nav-item-label-container"
+              class="mocked-styled-27 el-nav-item-label-container"
             >
               Button 4
             </span>
           </a>
           <style>
             
-
          .el-container-query-1 {
           display: contents;
 
           @container top-bar (width &lt; 1440px)  {
             display: none;
           }
-        // @container top-bar (width &lt; 1440px) {
-        //   .el-container-query-1 {
-        //   display: contents;
-
-        //   @container main-nav (width &lt; 1440px)  {
-        //     display: none;
-        //   }
-        // }
       }
           </style>
           <div
@@ -82,33 +72,33 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
           >
             <a
               aria-label="Button 5"
-              class="mocked-styled-16 el-nav-item-anchor"
+              class="mocked-styled-29 el-nav-item-anchor"
               href="/"
             >
               <span
-                class="mocked-styled-14 el-nav-item-label-container"
+                class="mocked-styled-27 el-nav-item-label-container"
               >
                 Button 5
               </span>
             </a>
             <a
               aria-label="Button 6"
-              class="mocked-styled-16 el-nav-item-anchor"
+              class="mocked-styled-29 el-nav-item-anchor"
               href="/"
             >
               <span
-                class="mocked-styled-14 el-nav-item-label-container"
+                class="mocked-styled-27 el-nav-item-label-container"
               >
                 Button 6
               </span>
             </a>
             <a
               aria-label="Button 7"
-              class="mocked-styled-16 el-nav-item-anchor"
+              class="mocked-styled-29 el-nav-item-anchor"
               href="/"
             >
               <span
-                class="mocked-styled-14 el-nav-item-label-container"
+                class="mocked-styled-27 el-nav-item-label-container"
               >
                 Button 7
               </span>
@@ -116,33 +106,24 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
           </div>
           <style>
             
-
          .el-container-query-2 {
           display: contents;
 
           @container top-bar not (width &lt; 1440px)  {
             display: none;
           }
-        // @container top-bar (width &lt; 1440px) {
-        //   .el-container-query-2 {
-        //   display: contents;
-
-        //   @container main-nav not (width &lt; 1440px)  {
-        //     display: none;
-        //   }
-        // }
       }
           </style>
           <div
             class="el-container-query-2"
           >
             <div
-              class="mocked-styled-4 el-menu"
+              class="mocked-styled-20 el-menu"
             >
               <button
                 aria-expanded="false"
                 aria-haspopup="true"
-                class="mocked-styled-10 el-nav-dropdown-button"
+                class="mocked-styled-26 el-nav-dropdown-button"
                 role="button"
                 type="button"
               >
@@ -156,28 +137,28 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-25 el-top-bar-right-content-container"
+        class="mocked-styled-13 el-top-bar-right-content-container"
       >
         <div
-          class="mocked-styled-24 el-search-container"
+          class="mocked-styled-12 el-search-container"
         >
           <div
-            class="mocked-styled-18 el-nav-search-button-container"
+            class="mocked-styled-6 el-nav-search-button-container"
           >
             <button
               aria-label="nav-icon-item-example"
-              class="mocked-styled-12 el-button-nav-icon-item"
+              class="mocked-styled-3 el-button-nav-icon-item"
             >
               <div
                 data-testid="icon"
               />
             </button>
             <button
-              class="mocked-styled-17 el-nav-search-button"
+              class="mocked-styled-5 el-nav-search-button"
             >
               <svg
                 aria-hidden="true"
-                class="mocked-styled-19 el-nav-search-button-icon"
+                class="mocked-styled-7 el-nav-search-button-icon"
                 fill="none"
                 height="16"
                 viewBox="0 0 16 16"
@@ -190,12 +171,12 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
                 />
               </svg>
               <span
-                class="mocked-styled-20 el-nav-search-button-placeholder"
+                class="mocked-styled-8 el-nav-search-button-placeholder"
               >
                 Search
               </span>
               <span
-                class="mocked-styled-21 el-nav-search-button-shortcut-text"
+                class="mocked-styled-9 el-nav-search-button-shortcut-text"
               >
                 Ctrl + K
               </span>
@@ -203,11 +184,11 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-2 el-button-group"
+          class="mocked-styled-18 el-button-group"
         >
           <button
             aria-label="example 1"
-            class="mocked-styled-12 el-button-nav-icon-item"
+            class="mocked-styled-3 el-button-nav-icon-item"
           >
             <div
               data-testid="icon"
@@ -215,7 +196,7 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
           </button>
           <button
             aria-label="example 2"
-            class="mocked-styled-12 el-button-nav-icon-item"
+            class="mocked-styled-3 el-button-nav-icon-item"
           >
             <div
               data-testid="icon"
@@ -223,7 +204,7 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
           </button>
           <button
             aria-label="example 3"
-            class="mocked-styled-12 el-button-nav-icon-item"
+            class="mocked-styled-3 el-button-nav-icon-item"
           >
             <div
               data-testid="icon"
@@ -231,11 +212,11 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
           </button>
         </div>
         <div
-          class="mocked-styled-29 el-top-bar-menu-button-container"
+          class="mocked-styled-17 el-top-bar-menu-button-container"
         >
           <button
             aria-label="nav-icon-item-example"
-            class="mocked-styled-12 el-button-nav-icon-item"
+            class="mocked-styled-3 el-button-nav-icon-item"
           >
             <svg
               fill="none"
