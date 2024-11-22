@@ -148,7 +148,8 @@ export const elTableRowFocused = css`
 `
 
 // molecules
-export const ElTableHeadersRow = styled.div`
+/** @deprecated */
+export const ElDeprecatedTableHeadersRow = styled.div`
   display: grid;
 
   // the below "grid-template-columns" is a bit mad, so I'll explain the constituent parts...
@@ -158,7 +159,7 @@ export const ElTableHeadersRow = styled.div`
 
   // - "var(--component-table-num-columns, auto-fit)" - this is saying that if the
   // number of columns is known through our variable (set by the data-columns attribute)
-  // on the ElTable element, then use that. Otherwise use CSS auto-fit, which will
+  // on the ElDeprecatedTable element, then use that. Otherwise use CSS auto-fit, which will
   // work out the number of columns based on what's in the DOM. This is required as
   // people using this table could put any number of columns in. Unless the CSS is
   // explicitly told the number of columns, it doesn't know.
@@ -187,7 +188,8 @@ export const ElTableHeadersRow = styled.div`
   }
 `
 
-export const ElTableHeader = styled.div`
+/** @deprecated */
+export const ElDeprecatedTableHeader = styled.div`
   color: var(--neutral-400);
   padding: 1rem 0.5rem;
   display: flex;
@@ -202,7 +204,8 @@ export const ElTableHeader = styled.div`
   ${cellOrders}
 `
 
-export const ElTableRow = styled.div`
+/** @deprecated */
+export const ElDeprecatedTableRow = styled.div`
   display: grid;
   // see above for the explanation of this line
   grid-template-columns:
@@ -235,7 +238,8 @@ export const ElTableCtaCell = styled.div`
   }
 `
 
-export const ElTableCell = styled.div`
+/** @deprecated */
+export const ElDeprecatedTableCell = styled.div`
   padding: 0.75rem;
   display: flex;
   align-items: center;
@@ -297,11 +301,12 @@ export const ElTableExpandableRowTriggerCell = styled.div`
   }
 `
 
-export const ElTableRowContainer = styled.div`
+/** @deprecated */
+export const ElDeprecatedTableRowContainer = styled.div`
   &:hover:not(.${elIsActive}) {
     background-color: var(--neutral-100);
 
-    ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
+    ${ElDeprecatedTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElDeprecatedTableRow}, ${ElTableCtaCell} {
       background-color: var(--neutral-100);
     }
   }
@@ -310,7 +315,7 @@ export const ElTableRowContainer = styled.div`
   &.${elIsActive}, .${elTableRowFocused} {
     background: var(--purple-050);
 
-    ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
+    ${ElDeprecatedTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElDeprecatedTableRow}, ${ElTableCtaCell} {
       background: var(--purple-050);
     }
   }
@@ -318,13 +323,14 @@ export const ElTableRowContainer = styled.div`
   &:not(.${elIsActive}) {
     background: var(--white);
 
-    ${ElTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElTableRow}, ${ElTableCtaCell} {
+    ${ElDeprecatedTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElDeprecatedTableRow}, ${ElTableCtaCell} {
       background: var(--white);
     }
   }
 `
 
-export const ElTableCellContent = styled.div`
+/** @deprecated */
+export const ElDeprecatedTableCellContent = styled.div`
   flex: 1;
   display: -webkit-box;
   -webkit-line-clamp: ${MAX_LINE_LENGTH};
@@ -369,7 +375,8 @@ export const ElTableExpandableContainer = styled.div`
   border-bottom: 1px solid var(--neutral-100);
 `
 
-export const ElTable = styled.div`
+/** @deprecated */
+export const ElDeprecatedTable = styled.div`
   &[data-force-narrow-table='true'] {
     ${ElTableExpandableRowTriggerCell} {
       grid-column-end: span 2;
@@ -391,7 +398,7 @@ export const ElTable = styled.div`
       padding: 0.75rem;
     }
 
-    ${ElTableCellContent} {
+    ${ElDeprecatedTableCellContent} {
       &::before {
         display: block;
         content: attr(data-narrow-label);
@@ -400,11 +407,11 @@ export const ElTable = styled.div`
       }
     }
 
-    ${ElTableRow} {
+    ${ElDeprecatedTableRow} {
       grid-template-columns: 1fr 1fr;
     }
 
-    ${ElTableHeadersRow} {
+    ${ElDeprecatedTableHeadersRow} {
       display: none;
     }
 
@@ -505,7 +512,8 @@ export const ElTable = styled.div`
   }
 `
 
-export const ElTableSortHeader = styled.div`
+/** @deprecated */
+export const ElDeprecatedTableSortHeader = styled.div`
   width: 100%;
   cursor: pointer;
 `

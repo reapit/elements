@@ -1,14 +1,14 @@
 import React, { Dispatch, FC, HTMLAttributes, ReactNode, SetStateAction, useState } from 'react'
-import { ElTable } from './__styles__'
+import { ElDeprecatedTable } from './__styles__'
 import { Icon, IconNames } from '../icon'
 import {
-  TableHeadersRow,
-  TableHeader,
-  TableRow,
-  TableCell,
+  DeprecatedTableHeadersRow,
+  DeprecatedTableHeader,
+  DeprecatedTableRow,
+  DeprecatedTableCell,
   TableExpandableRow,
   TableExpandableRowTriggerCell,
-  TableRowContainer,
+  DeprecatedTableRowContainer,
   NarrowOrderType,
   TableCtaTriggerCell,
 } from './molecules'
@@ -20,7 +20,8 @@ export type NarrowOptionsType = {
   order?: NarrowOrderType
 }
 
-export interface CellProps {
+/** @deprecated */
+export interface DeprecatedCellProps {
   label: string
   labelChild?: ReactNode
   onLabelClick?: (event: React.MouseEvent) => void
@@ -42,14 +43,16 @@ export interface RowActionProps {
   icon?: IconNames
 }
 
-export interface RowProps {
-  cells: CellProps[]
+/** @deprecated */
+export interface DeprecatedRowProps {
+  cells: DeprecatedCellProps[]
   expandableContent?: RowActionProps
   ctaContent?: RowActionProps
 }
 
-export interface TableProps extends HTMLAttributes<HTMLDivElement> {
-  rows?: RowProps[]
+/** @deprecated */
+export interface DeprecatedTableProps extends HTMLAttributes<HTMLDivElement> {
+  rows?: DeprecatedRowProps[]
   numberColumns?: number
   indexExpandedRow?: number | null
   setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>
@@ -71,7 +74,8 @@ export const handleToggleExpandedRow =
     }
   }
 
-export const Table: FC<TableProps> = ({
+/** @deprecated */
+export const DeprecatedTable: FC<DeprecatedTableProps> = ({
   rows,
   children,
   numberColumns,
@@ -82,13 +86,13 @@ export const Table: FC<TableProps> = ({
   const firstRow = rows?.[0]
   const [expandedRow, setExpandedRow] = useState<null | number>(null)
 
-  if (!rows || !firstRow) return <ElTable {...rest}>{children}</ElTable>
+  if (!rows || !firstRow) return <ElDeprecatedTable {...rest}>{children}</ElDeprecatedTable>
 
   const hasExpandableRows = rows.some((row) => Boolean(row.expandableContent))
   const hasCallToAction = rows.some((row) => Boolean(row.ctaContent))
 
   return (
-    <ElTable
+    <ElDeprecatedTable
       role="table"
       {...rest}
       data-num-columns-excl-action-col={
@@ -103,9 +107,9 @@ export const Table: FC<TableProps> = ({
       data-has-expandable-action={hasExpandableRows}
       data-has-call-to-action={hasCallToAction}
     >
-      <TableHeadersRow role="row">
+      <DeprecatedTableHeadersRow role="row">
         {firstRow.cells.map((cell) => (
-          <TableHeader
+          <DeprecatedTableHeader
             role="columnheader"
             aria-label={`${cell.labelChild || cell.label}`}
             className={cell.className}
@@ -117,37 +121,37 @@ export const Table: FC<TableProps> = ({
             }}
           >
             {cell.labelChild || cell.label}
-          </TableHeader>
+          </DeprecatedTableHeader>
         ))}
         {hasExpandableRows && (
-          <TableHeader role="columnheader">
+          <DeprecatedTableHeader role="columnheader">
             {firstRow.expandableContent?.headerContent ? (
               <>{firstRow.expandableContent?.headerContent}</>
             ) : (
               <Icon icon="settings" intent="default" />
             )}
-          </TableHeader>
+          </DeprecatedTableHeader>
         )}
         {hasCallToAction && (
-          <TableHeader role="columnheader">
+          <DeprecatedTableHeader role="columnheader">
             {firstRow.ctaContent?.headerContent ? (
               <>{firstRow.ctaContent?.headerContent}</>
             ) : (
               <Icon icon="settings" intent="default" />
             )}
-          </TableHeader>
+          </DeprecatedTableHeader>
         )}
-      </TableHeadersRow>
+      </DeprecatedTableHeadersRow>
       {rows.map((row, index) => {
         const expandableRowIsOpen = indexExpandedRow !== undefined ? indexExpandedRow === index : expandedRow === index
         return (
-          <TableRowContainer role="row" key={index} isOpen={expandableRowIsOpen}>
-            <TableRow>
+          <DeprecatedTableRowContainer role="row" key={index} isOpen={expandableRowIsOpen}>
+            <DeprecatedTableRow>
               {row.cells.map((cell, cellIndex) => {
-                if (!cell) return <TableCell key={`${cellIndex}-${index}`} />
+                if (!cell) return <DeprecatedTableCell key={`${cellIndex}-${index}`} />
 
                 return (
-                  <TableCell
+                  <DeprecatedTableCell
                     role="cell"
                     className={cell.className}
                     key={`${cellIndex}-${index}`}
@@ -158,7 +162,7 @@ export const Table: FC<TableProps> = ({
                     narrowOrder={cell.narrowTable?.order}
                   >
                     {cell.children || cell.value}
-                  </TableCell>
+                  </DeprecatedTableCell>
                 )
               })}
               {row.expandableContent && (
@@ -191,13 +195,13 @@ export const Table: FC<TableProps> = ({
                   {row.ctaContent.cellContent}
                 </TableCtaTriggerCell>
               )}
-            </TableRow>
+            </DeprecatedTableRow>
             {row.expandableContent && row.expandableContent.content && (
               <TableExpandableRow isOpen={expandableRowIsOpen}>{row.expandableContent.content}</TableExpandableRow>
             )}
-          </TableRowContainer>
+          </DeprecatedTableRowContainer>
         )
       })}
-    </ElTable>
+    </ElDeprecatedTable>
   )
 }

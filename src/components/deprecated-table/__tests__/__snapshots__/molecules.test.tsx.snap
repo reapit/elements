@@ -1,9 +1,9 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TableCell Component > should match a snapshot with full props 1`] = `
+exports[`DeprecatedTableCell Component > should match a snapshot with full props 1`] = `
 <DocumentFragment>
   <div
-    class="foo-bar el-table-cell-has-dark-text el-table-narrow-cell-is-full-width el-table-cell-narrow-order1 el-table-cell"
+    class="foo-bar el-table-cell-has-dark-text el-table-narrow-cell-is-full-width el-table-cell-narrow-order1 el-deprecated-table-cell"
   >
     <span
       class="el-intent-default el-icon"
@@ -26,22 +26,62 @@ exports[`TableCell Component > should match a snapshot with full props 1`] = `
       </svg>
     </span>
     <div
-      class="mocked-styled-10 el-table-cell-content"
+      class="mocked-styled-10 el-deprecated-table-cell-content"
       data-narrow-label="Label"
     />
   </div>
 </DocumentFragment>
 `;
 
-exports[`TableCell Component > should match a snapshot with no props 1`] = `
+exports[`DeprecatedTableCell Component > should match a snapshot with no props 1`] = `
 <DocumentFragment>
   <div
-    class="el-table-cell-has-dark-text el-table-cell"
+    class="el-table-cell-has-dark-text el-deprecated-table-cell"
   >
     <div
-      class="mocked-styled-10 el-table-cell-content"
+      class="mocked-styled-10 el-deprecated-table-cell-content"
     />
   </div>
+</DocumentFragment>
+`;
+
+exports[`DeprecatedTableHeader Component > should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-deprecated-table-header"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedTableHeadersRow Component > should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-deprecated-table-headers-row"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedTableRow Component > should match a snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-2 el-deprecated-table-row"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedTableRowContainer Component > should match a snapshot when not open 1`] = `
+<DocumentFragment>
+  <div
+    class="el-is-active el-deprecated-table-row-container"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedTableRowContainer Component > should match a snapshot when open 1`] = `
+<DocumentFragment>
+  <div
+    class="el-is-active el-deprecated-table-row-container"
+  />
 </DocumentFragment>
 `;
 
@@ -230,45 +270,5 @@ exports[`TableExpandableRowTriggerCell Component > should match a snapshot with 
       </svg>
     </span>
   </div>
-</DocumentFragment>
-`;
-
-exports[`TableHeader Component > should match a snapshot 1`] = `
-<DocumentFragment>
-  <div
-    class="mocked-styled-1 el-table-header"
-  />
-</DocumentFragment>
-`;
-
-exports[`TableHeadersRow Component > should match a snapshot 1`] = `
-<DocumentFragment>
-  <div
-    class="mocked-styled-0 el-table-headers-row"
-  />
-</DocumentFragment>
-`;
-
-exports[`TableRow Component > should match a snapshot 1`] = `
-<DocumentFragment>
-  <div
-    class="mocked-styled-2 el-table-row"
-  />
-</DocumentFragment>
-`;
-
-exports[`TableRowContainer Component > should match a snapshot when not open 1`] = `
-<DocumentFragment>
-  <div
-    class="el-is-active el-table-row-container"
-  />
-</DocumentFragment>
-`;
-
-exports[`TableRowContainer Component > should match a snapshot when open 1`] = `
-<DocumentFragment>
-  <div
-    class="el-is-active el-table-row-container"
-  />
 </DocumentFragment>
 `;

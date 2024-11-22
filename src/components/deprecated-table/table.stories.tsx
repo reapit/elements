@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { Table } from './index'
+import { DeprecatedTable } from './index'
 import {
-  TableHeadersRow,
-  TableHeader,
-  TableRow,
-  TableCell,
+  DeprecatedTableHeadersRow,
+  DeprecatedTableHeader,
+  DeprecatedTableRow,
+  DeprecatedTableCell,
   TableExpandableRowTriggerCell,
   TableExpandableRow,
-  TableRowContainer,
+  DeprecatedTableRowContainer,
   TableCtaTriggerCell,
   TableCellSplit,
 } from './molecules'
@@ -24,221 +24,221 @@ import { Input } from '../input'
 import { TextBase } from '../typography'
 
 export default {
-  title: 'Table',
-  component: Table,
+  title: 'DeprecatedTable',
+  component: DeprecatedTable,
 }
 
 export const BasicUsage = {
   render: ({}) => (
-    <Table>
-      <TableHeadersRow>
-        <TableHeader>Checkbox Header</TableHeader>
-        <TableHeader>First Header</TableHeader>
-        <TableHeader>Image Header</TableHeader>
-        <TableHeader>Second Header</TableHeader>
-        <TableHeader>Third Header</TableHeader>
-      </TableHeadersRow>
-      <TableRowContainer>
-        <TableRow>
-          <TableCell narrowLabel="Selected">
+    <DeprecatedTable>
+      <DeprecatedTableHeadersRow>
+        <DeprecatedTableHeader>Checkbox Header</DeprecatedTableHeader>
+        <DeprecatedTableHeader>First Header</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Image Header</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Second Header</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Third Header</DeprecatedTableHeader>
+      </DeprecatedTableHeadersRow>
+      <DeprecatedTableRowContainer>
+        <DeprecatedTableRow>
+          <DeprecatedTableCell narrowLabel="Selected">
             <Input type="checkbox" />
-          </TableCell>
-          <TableCell>First Column</TableCell>
-          <TableCell narrowLabel="Image">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell>First Column</DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Image">
             <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
-          </TableCell>
-          <TableCell>Second Column</TableCell>
-          <TableCell>
+          </DeprecatedTableCell>
+          <DeprecatedTableCell>Second Column</DeprecatedTableCell>
+          <DeprecatedTableCell>
             <TableCellSplit data="Third Data" subData="Some Longer Sub Data" />
-          </TableCell>
-        </TableRow>
-      </TableRowContainer>
-      <TableRowContainer>
-        <TableRow>
-          <TableCell narrowLabel="Selected">
+          </DeprecatedTableCell>
+        </DeprecatedTableRow>
+      </DeprecatedTableRowContainer>
+      <DeprecatedTableRowContainer>
+        <DeprecatedTableRow>
+          <DeprecatedTableCell narrowLabel="Selected">
             <Input type="checkbox" />
-          </TableCell>
-          <TableCell>First Column</TableCell>
-          <TableCell narrowLabel="Image">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell>First Column</DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Image">
             <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
-          </TableCell>
-          <TableCell>Second Column</TableCell>
-          <TableCell>
+          </DeprecatedTableCell>
+          <DeprecatedTableCell>Second Column</DeprecatedTableCell>
+          <DeprecatedTableCell>
             <TableCellSplit data="Third Data" subData="Some Longer Sub Data" />
-          </TableCell>
-        </TableRow>
-      </TableRowContainer>
-    </Table>
+          </DeprecatedTableCell>
+        </DeprecatedTableRow>
+      </DeprecatedTableRowContainer>
+    </DeprecatedTable>
   ),
 }
 
 export const ColumnWidths = {
   render: ({}) => (
-    <Table data-num-columns-excl-action-col="8">
-      <TableHeadersRow>
-        <TableHeader>Checkbox Header</TableHeader>
-        <TableHeader>First Header</TableHeader>
-        <TableHeader>Image Header</TableHeader>
-        <TableHeader className={elSpan2}>Second Header</TableHeader>
-        <TableHeader className={elSpan3}>Third Header</TableHeader>
-      </TableHeadersRow>
-      <TableRowContainer>
-        <TableRow>
-          <TableCell narrowLabel="Selected">
+    <DeprecatedTable data-num-columns-excl-action-col="8">
+      <DeprecatedTableHeadersRow>
+        <DeprecatedTableHeader>Checkbox Header</DeprecatedTableHeader>
+        <DeprecatedTableHeader>First Header</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Image Header</DeprecatedTableHeader>
+        <DeprecatedTableHeader className={elSpan2}>Second Header</DeprecatedTableHeader>
+        <DeprecatedTableHeader className={elSpan3}>Third Header</DeprecatedTableHeader>
+      </DeprecatedTableHeadersRow>
+      <DeprecatedTableRowContainer>
+        <DeprecatedTableRow>
+          <DeprecatedTableCell narrowLabel="Selected">
             <Input type="checkbox" />
-          </TableCell>
-          <TableCell>First Column</TableCell>
-          <TableCell narrowLabel="Image">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell>First Column</DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Image">
             <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
-          </TableCell>
-          <TableCell className={elSpan2}>Second Column with more data</TableCell>
-          <TableCell className={elSpan3}>
+          </DeprecatedTableCell>
+          <DeprecatedTableCell className={elSpan2}>Second Column with more data</DeprecatedTableCell>
+          <DeprecatedTableCell className={elSpan3}>
             <TableCellSplit data="Third Data" subData="Some much much much Longer Sub Data" />
-          </TableCell>
-        </TableRow>
-      </TableRowContainer>
-      <TableRowContainer>
-        <TableRow>
-          <TableCell narrowLabel="Selected">
+          </DeprecatedTableCell>
+        </DeprecatedTableRow>
+      </DeprecatedTableRowContainer>
+      <DeprecatedTableRowContainer>
+        <DeprecatedTableRow>
+          <DeprecatedTableCell narrowLabel="Selected">
             <Input type="checkbox" />
-          </TableCell>
-          <TableCell>First Column</TableCell>
-          <TableCell narrowLabel="Image">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell>First Column</DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Image">
             <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
-          </TableCell>
-          <TableCell className={elSpan2}>Second Column with more data</TableCell>
-          <TableCell className={elSpan3}>
+          </DeprecatedTableCell>
+          <DeprecatedTableCell className={elSpan2}>Second Column with more data</DeprecatedTableCell>
+          <DeprecatedTableCell className={elSpan3}>
             <TableCellSplit data="Third Data" subData="Some much much much Longer Sub Data" />
-          </TableCell>
-        </TableRow>
-      </TableRowContainer>
-    </Table>
+          </DeprecatedTableCell>
+        </DeprecatedTableRow>
+      </DeprecatedTableRowContainer>
+    </DeprecatedTable>
   ),
   name: 'Column widths',
 }
 
 export const BasicCustomisationTableCells = {
   render: ({}) => (
-    <Table>
-      <TableHeadersRow>
-        <TableHeader>Selected</TableHeader>
-        <TableHeader>Property Image</TableHeader>
-        <TableHeader>Property</TableHeader>
-        <TableHeader>Customer</TableHeader>
-        <TableHeader>Description</TableHeader>
-        <TableHeader>Request Date</TableHeader>
-        <TableHeader>Amount</TableHeader>
-        <TableHeader>Payment Status</TableHeader>
-      </TableHeadersRow>
-      <TableRowContainer>
-        <TableRow>
-          <TableCell narrowLabel="Selected">
+    <DeprecatedTable>
+      <DeprecatedTableHeadersRow>
+        <DeprecatedTableHeader>Selected</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Property Image</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Property</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Customer</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Description</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Request Date</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Amount</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Payment Status</DeprecatedTableHeader>
+      </DeprecatedTableHeadersRow>
+      <DeprecatedTableRowContainer>
+        <DeprecatedTableRow>
+          <DeprecatedTableCell narrowLabel="Selected">
             <Input type="checkbox" />
-          </TableCell>
-          <TableCell narrowLabel="Image">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Image">
             <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
-          </TableCell>
-          <TableCell darkText narrowIsFullWidth>
+          </DeprecatedTableCell>
+          <DeprecatedTableCell darkText narrowIsFullWidth>
             1 King Road, London, UK, S1 1AA
-          </TableCell>
-          <TableCell narrowLabel="Name Customer" icon="contact">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Name Customer" icon="contact">
             Mr Johnny Corrigan
-          </TableCell>
-          <TableCell narrowLabel="Type">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Type">
             <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />
-          </TableCell>
-          <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
-          <TableCell darkText narrowLabel="Amount">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Request Date">19 Apr 2021</DeprecatedTableCell>
+          <DeprecatedTableCell darkText narrowLabel="Amount">
             £50.00
-          </TableCell>
-          <TableCell narrowLabel="Status">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Status">
             <StatusIndicator intent="pending" />
             Pending
-          </TableCell>
-        </TableRow>
-      </TableRowContainer>
-    </Table>
+          </DeprecatedTableCell>
+        </DeprecatedTableRow>
+      </DeprecatedTableRowContainer>
+    </DeprecatedTable>
   ),
-  name: 'Basic Customisation - Table Cells',
+  name: 'Basic Customisation - DeprecatedTable Cells',
 }
 
 export const ExpandingTableCellSpace = {
   render: ({}) => (
-    <Table data-force-narrow-table="true">
-      <TableHeadersRow>
-        <TableHeader>Is Active</TableHeader>
-        <TableHeader>Property</TableHeader>
-        <TableHeader>Customer</TableHeader>
-        <TableHeader>Description</TableHeader>
-        <TableHeader>Request Date</TableHeader>
-        <TableHeader>Amount</TableHeader>
-        <TableHeader>Payment Status</TableHeader>
-      </TableHeadersRow>
-      <TableRowContainer>
-        <TableRow>
-          <TableCell narrowLabel="Active">
+    <DeprecatedTable data-force-narrow-table="true">
+      <DeprecatedTableHeadersRow>
+        <DeprecatedTableHeader>Is Active</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Property</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Customer</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Description</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Request Date</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Amount</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Payment Status</DeprecatedTableHeader>
+      </DeprecatedTableHeadersRow>
+      <DeprecatedTableRowContainer>
+        <DeprecatedTableRow>
+          <DeprecatedTableCell narrowLabel="Active">
             <Input type="checkbox" />
-          </TableCell>
-          <TableCell darkText>Mt Ash Jacket Brassey Road</TableCell>
-          <TableCell narrowLabel="Name Customer" icon="contact">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell darkText>Mt Ash Jacket Brassey Road</DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Name Customer" icon="contact">
             Mr Johnny Corrigan
-          </TableCell>
-          <TableCell narrowLabel="Type">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Type">
             <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />
-          </TableCell>
-          <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
-          <TableCell darkText narrowLabel="Amount">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Request Date">19 Apr 2021</DeprecatedTableCell>
+          <DeprecatedTableCell darkText narrowLabel="Amount">
             £50.00
-          </TableCell>
-          <TableCell narrowLabel="Status">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Status">
             <StatusIndicator intent="pending" />
             Pending
-          </TableCell>
-        </TableRow>
-      </TableRowContainer>
-    </Table>
+          </DeprecatedTableCell>
+        </DeprecatedTableRow>
+      </DeprecatedTableRowContainer>
+    </DeprecatedTable>
   ),
 }
 
 export const ExpandableContent = {
   render: ({}) => (
-    <Table data-num-columns-excl-action-col="7" data-has-expandable-action>
-      <TableHeadersRow>
-        <TableHeader>Is Active</TableHeader>
-        <TableHeader>Property</TableHeader>
-        <TableHeader>Customer</TableHeader>
-        <TableHeader>Description</TableHeader>
-        <TableHeader>Request Date</TableHeader>
-        <TableHeader>Amount</TableHeader>
-        <TableHeader>Payment Status</TableHeader>
-        <TableHeader>
+    <DeprecatedTable data-num-columns-excl-action-col="7" data-has-expandable-action>
+      <DeprecatedTableHeadersRow>
+        <DeprecatedTableHeader>Is Active</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Property</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Customer</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Description</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Request Date</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Amount</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Payment Status</DeprecatedTableHeader>
+        <DeprecatedTableHeader>
           <Icon icon="edit" intent="default" />
-        </TableHeader>
-      </TableHeadersRow>
-      <TableRowContainer className={elIsActive}>
-        <TableRow>
-          <TableCell narrowLabel="Active">
+        </DeprecatedTableHeader>
+      </DeprecatedTableHeadersRow>
+      <DeprecatedTableRowContainer className={elIsActive}>
+        <DeprecatedTableRow>
+          <DeprecatedTableCell narrowLabel="Active">
             <Input type="checkbox" />
-          </TableCell>
-          <TableCell darkText narrowIsFullWidth>
+          </DeprecatedTableCell>
+          <DeprecatedTableCell darkText narrowIsFullWidth>
             Mt Ash Jacket Brassey Road
-          </TableCell>
-          <TableCell narrowLabel="Name Customer" icon="contact">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Name Customer" icon="contact">
             Mr Johnny Corrigan
-          </TableCell>
-          <TableCell narrowLabel="Type">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Type">
             <TableCellSplit data="Some Data" subData="Some Longer Sub Data" />
-          </TableCell>
-          <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
-          <TableCell darkText narrowLabel="Amount">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Request Date">19 Apr 2021</DeprecatedTableCell>
+          <DeprecatedTableCell darkText narrowLabel="Amount">
             £50.00
-          </TableCell>
-          <TableCell narrowLabel="Status">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Status">
             <StatusIndicator intent="pending" />
             Pending
-          </TableCell>
+          </DeprecatedTableCell>
           <TableExpandableRowTriggerCell isOpen />
-        </TableRow>
+        </DeprecatedTableRow>
         <TableExpandableRow isOpen>
           <TextBase hasBoldText hasMargin>
             Form Example
@@ -258,53 +258,53 @@ export const ExpandableContent = {
             </InputWrap>
           </FormLayout>
         </TableExpandableRow>
-      </TableRowContainer>
-    </Table>
+      </DeprecatedTableRowContainer>
+    </DeprecatedTable>
   ),
 }
 
 export const CallToActionContent = {
   render: ({}) => (
-    <Table data-num-columns-excl-action-col="7" data-has-call-to-action>
-      <TableHeadersRow>
-        <TableHeader>Is Active</TableHeader>
-        <TableHeader>Property</TableHeader>
-        <TableHeader>Customer</TableHeader>
-        <TableHeader>Description</TableHeader>
-        <TableHeader>Request Date</TableHeader>
-        <TableHeader>Amount</TableHeader>
-        <TableHeader>Payment Status</TableHeader>
-        <TableHeader>Download Content</TableHeader>
-      </TableHeadersRow>
-      <TableRowContainer>
-        <TableRow>
-          <TableCell narrowLabel="Active">
+    <DeprecatedTable data-num-columns-excl-action-col="7" data-has-call-to-action>
+      <DeprecatedTableHeadersRow>
+        <DeprecatedTableHeader>Is Active</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Property</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Customer</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Description</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Request Date</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Amount</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Payment Status</DeprecatedTableHeader>
+        <DeprecatedTableHeader>Download Content</DeprecatedTableHeader>
+      </DeprecatedTableHeadersRow>
+      <DeprecatedTableRowContainer>
+        <DeprecatedTableRow>
+          <DeprecatedTableCell narrowLabel="Active">
             <Input type="checkbox" />
-          </TableCell>
-          <TableCell darkText narrowIsFullWidth>
+          </DeprecatedTableCell>
+          <DeprecatedTableCell darkText narrowIsFullWidth>
             Mt Ash Jacket Brassey Road
-          </TableCell>
-          <TableCell narrowLabel="Name Customer" icon="contact">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Name Customer" icon="contact">
             Mr Johnny Corrigan
-          </TableCell>
-          <TableCell narrowLabel="Type">Tenant Payment Request</TableCell>
-          <TableCell narrowLabel="Request Date">19 Apr 2021</TableCell>
-          <TableCell darkText narrowLabel="Amount">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Type">Tenant Payment Request</DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Request Date">19 Apr 2021</DeprecatedTableCell>
+          <DeprecatedTableCell darkText narrowLabel="Amount">
             £50.00
-          </TableCell>
-          <TableCell narrowLabel="Status">
+          </DeprecatedTableCell>
+          <DeprecatedTableCell narrowLabel="Status">
             <StatusIndicator intent="pending" />
             Pending
-          </TableCell>
+          </DeprecatedTableCell>
           <TableCtaTriggerCell icon="fileDownload" />
-        </TableRow>
-      </TableRowContainer>
-    </Table>
+        </DeprecatedTableRow>
+      </DeprecatedTableRowContainer>
+    </DeprecatedTable>
   ),
 }
 
 export const ReactShorthandUsage = {
-  render: ({ rows }) => <Table rows={rows} />,
+  render: ({ rows }) => <DeprecatedTable rows={rows} />,
   args: {
     rows: [
       {
@@ -419,7 +419,7 @@ export const AdvancedCustomisationReact = {
     const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(0)
 
     return (
-      <Table
+      <DeprecatedTable
         numberColumns={9}
         indexExpandedRow={indexExpandedRow}
         setIndexExpandedRow={setIndexExpandedRow}
