@@ -4,7 +4,7 @@ import { Chip, ChipGroup } from '..'
 describe('Chip component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<Chip>Some Content</Chip>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -16,6 +16,6 @@ describe('ChipGroup component', () => {
         <Chip>Some Content</Chip>
       </ChipGroup>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

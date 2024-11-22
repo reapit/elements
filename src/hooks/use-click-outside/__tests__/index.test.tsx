@@ -3,9 +3,9 @@ import { useRef } from 'react'
 import { useClickOutside } from '..'
 
 describe('useClickOutside', () => {
-  const onClickOutside = jest.fn()
+  const onClickOutside = vi.fn()
   afterEach(() => {
-    jest.clearAllMocks()
+    vi.clearAllMocks()
   })
 
   const TestComponent = () => {

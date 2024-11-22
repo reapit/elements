@@ -9,6 +9,6 @@ describe('SecondaryNav component', () => {
         <SecondaryNavItem active>Create App</SecondaryNavItem>
       </SecondaryNav>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

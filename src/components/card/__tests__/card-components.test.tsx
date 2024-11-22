@@ -8,7 +8,7 @@ describe('Card', () => {
         <div>I am a child</div>
       </Card>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot and render children with full props', () => {
@@ -41,14 +41,14 @@ describe('Card', () => {
         <div>I am a child</div>
       </Card>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('handleMouseHover', () => {
   it('should set the hover index', () => {
     const hoverIndex = 1
-    const setHoverIndex = jest.fn()
+    const setHoverIndex = vi.fn()
 
     const curried = handleMouseHover(hoverIndex, setHoverIndex)
 

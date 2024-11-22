@@ -29,20 +29,20 @@ describe('BreadCrumb', () => {
         Hover here
       </BreadCrumb>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('handleNext', () => {
   it('should set active index and call onClick', () => {
-    const setActive = jest.fn()
-    const onClick = jest.fn()
+    const setActive = vi.fn()
+    const onClick = vi.fn()
     const index = 2
 
     const curried = handleNext(setActive, onClick, index)
 
     const mockEvent = {
-      preventDefault: jest.fn(),
+      preventDefault: vi.fn(),
     } as unknown as MouseEvent<HTMLAnchorElement>
 
     curried(mockEvent)
@@ -53,8 +53,8 @@ describe('handleNext', () => {
   })
 
   it('should handle when event is not provided', () => {
-    const setActive = jest.fn()
-    const onClick = jest.fn()
+    const setActive = vi.fn()
+    const onClick = vi.fn()
     const index = 2
 
     const curried = handleNext(setActive, onClick, index)

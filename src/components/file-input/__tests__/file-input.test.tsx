@@ -5,7 +5,7 @@ import { FileInput, handleFileChange, handleFileClear, handleFileView, FilePrevi
 describe('FileInput component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<FileInput />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with full props', () => {
@@ -13,29 +13,29 @@ describe('FileInput component', () => {
       <FileInput
         label="Some Label"
         defaultValue="https://mock.com"
-        onChange={jest.fn()}
-        onFileView={jest.fn()}
-        onFileUpload={jest.fn()}
+        onChange={vi.fn()}
+        onFileView={vi.fn()}
+        onFileUpload={vi.fn()}
         placeholderText="Some Text"
         fileName="some-file-name"
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for the FilePreviewImage component', () => {
     const wrapper = render(<FilePreviewImage src="https://mock-image.com" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('handleFileView', () => {
   it('should handle viewing a file', () => {
-    const onFileView = jest.fn()
+    const onFileView = vi.fn()
     const fileUrl = 'https://mock.com'
     const event = {
-      stopPropagation: jest.fn(),
-      preventDefault: jest.fn(),
+      stopPropagation: vi.fn(),
+      preventDefault: vi.fn(),
     }
 
     const curried = handleFileView(onFileView, fileUrl)
@@ -50,10 +50,10 @@ describe('handleFileView', () => {
 
 describe('handleFileClear', () => {
   it('should handle clearing a file', () => {
-    const setFileName = jest.fn()
+    const setFileName = vi.fn()
     const event = {
-      stopPropagation: jest.fn(),
-      preventDefault: jest.fn(),
+      stopPropagation: vi.fn(),
+      preventDefault: vi.fn(),
     }
 
     const curried = handleFileClear(setFileName)
@@ -68,9 +68,9 @@ describe('handleFileClear', () => {
 
 describe('handleFileChange', () => {
   it('should handle uploading a file', async () => {
-    const setFileName = jest.fn()
+    const setFileName = vi.fn()
     const fileName = 'MOCK_FILE_NAME'
-    const onFileUpload = jest.fn()
+    const onFileUpload = vi.fn()
     const event = {
       target: {
         files: [new Blob(['1', '1', '1'])],

@@ -4,41 +4,41 @@ import { StatusIndicator } from '..'
 describe('StatusIndicator component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<StatusIndicator />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
     const wrapper = render(<StatusIndicator intent="primary" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
     const wrapper = render(<StatusIndicator intent="pending" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
     const wrapper = render(<StatusIndicator intent="danger" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
     const wrapper = render(<StatusIndicator intent="success" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
     const wrapper = render(<StatusIndicator intent="warning" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
     const wrapper = render(<StatusIndicator intent="neutral" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
     const wrapper = render(<StatusIndicator intent="default" />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

@@ -47,6 +47,6 @@ describe('Accordion basic usage', () => {
         <AccordionContent>Accordion Content 2</AccordionContent>
       </AccordionContainer>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

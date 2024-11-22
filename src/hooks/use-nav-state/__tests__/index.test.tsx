@@ -6,7 +6,7 @@ import { PropsWithChildren } from '../../../types/core'
 
 describe('NavStateProvider', () => {
   it('should match snapshot', () => {
-    expect(render(<NavStateProvider />)).toMatchSnapshot()
+    expect(render(<NavStateProvider />).asFragment()).toMatchSnapshot()
   })
 })
 
@@ -21,12 +21,12 @@ describe('useNavState', () => {
       navMenuOpen: true,
       navSubMenuIndex: 1,
       navSubItemIndex: 1,
-      callback: jest.fn(),
+      callback: vi.fn(),
     }
 
     const event = {
-      preventDefault: jest.fn(),
-      stopPropagation: jest.fn(),
+      preventDefault: vi.fn(),
+      stopPropagation: vi.fn(),
     } as unknown as MouseEvent<HTMLAnchorElement>
 
     expect(result.current.navState).toEqual({

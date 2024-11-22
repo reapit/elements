@@ -5,34 +5,34 @@ import { InputWrapMed, InputWrap, InputWrapFull, InputWrapHalf } from '../form-l
 describe('FormLayout component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<FormLayout />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('InputWrap component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<InputWrap />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('InputWrapMed component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<InputWrapMed />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('InputWrapFull component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<InputWrapFull />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('InputWrapHalf component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<InputWrapHalf />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

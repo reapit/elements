@@ -15,7 +15,7 @@ describe('PaginationWrap', () => {
         <div>I am a child</div>
       </PaginationWrap>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -26,7 +26,7 @@ describe('PaginationText', () => {
         <div>I am a child</div>
       </PaginationText>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -37,25 +37,25 @@ describe('PaginationButton', () => {
         <div>I am a child</div>
       </PaginationButton>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('Pagination', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<Pagination callback={jest.fn()} currentPage={2} numberPages={4} />)
-    expect(wrapper).toMatchSnapshot()
+    const wrapper = render(<Pagination callback={vi.fn()} currentPage={2} numberPages={4} />)
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with start end buttons', () => {
     const wrapper = render(
-      <Pagination callback={jest.fn()} currentPage={2} numberPages={4} hasStartButton hasEndButton />,
+      <Pagination callback={vi.fn()} currentPage={2} numberPages={4} hasStartButton hasEndButton />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should callback onClick correctly', async () => {
-    const mockCallback = jest.fn()
+    const mockCallback = vi.fn()
 
     const wrapper = render(<Pagination callback={mockCallback} currentPage={2} numberPages={4} />)
 
@@ -74,8 +74,8 @@ describe('Pagination', () => {
 describe('handlePageChange', () => {
   it('should correctly call the callback on change', () => {
     const nextPage = 2
-    const callback = jest.fn()
-    const setInputValue = jest.fn()
+    const callback = vi.fn()
+    const setInputValue = vi.fn()
     const curried = handlePageChange(nextPage, callback, setInputValue)
 
     curried()
@@ -90,7 +90,7 @@ describe('handlePageInputChange', () => {
     const numberPages = 3
     const currentPage = 2
     const inputValue = '3'
-    const callback = jest.fn()
+    const callback = vi.fn()
     const curried = handlePageInputChange(numberPages, currentPage, inputValue, callback)
 
     curried()

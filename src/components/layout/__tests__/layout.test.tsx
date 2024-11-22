@@ -16,7 +16,7 @@ describe('MainContainer', () => {
         <p>I am child</p>
       </MainContainer>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -27,7 +27,7 @@ describe('PageContainer', () => {
         <p>I am child</p>
       </PageContainer>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -38,7 +38,7 @@ describe('SecondaryNavContainer', () => {
         <p>I am child</p>
       </SecondaryNavContainer>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -49,7 +49,7 @@ describe('FlexContainer', () => {
         <p>I am child</p>
       </FlexContainer>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot and render children with all props applied', () => {
@@ -81,7 +81,7 @@ describe('FlexContainer', () => {
         <p>I am child</p>
       </FlexContainer>,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   describe('TaggedElements', () => {

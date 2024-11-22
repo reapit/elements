@@ -13,11 +13,11 @@ describe('SearchableDropdown component', () => {
         getResultValue={() => ''}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
-  xit('should get results from the given function, passing the value of the search box', () => {
-    const getResults = jest.fn().mockResolvedValue([{ id: '1', name: 'one' }])
+  it('should get results from the given function, passing the value of the search box', () => {
+    const getResults = vi.fn().mockResolvedValue([{ id: '1', name: 'one' }])
 
     render(
       <SearchableDropdown
@@ -33,7 +33,7 @@ describe('SearchableDropdown component', () => {
 
     expect(getResults).toHaveBeenCalledWith('test')
   })
-  xit('should display results returned from the given function', async () => {
+  it('should display results returned from the given function', async () => {
     render(
       <SearchableDropdown
         getResults={async () => [{ id: '1', name: 'one' }]}
@@ -48,8 +48,8 @@ describe('SearchableDropdown component', () => {
       expect(screen.getByTestId('dropdown-result-0').innerHTML).toEqual('one')
     })
   })
-  xit('should call onChange when a result is chosen from the list', async () => {
-    const onChange = jest.fn()
+  it('should call onChange when a result is chosen from the list', async () => {
+    const onChange = vi.fn()
     render(
       <SearchableDropdown
         getResults={async () => [{ id: '1', name: 'one' }]}
@@ -84,7 +84,7 @@ describe('ControlledSearchableDropdown component', () => {
         selectedValue={''}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should display the selected value in the ref input when present', () => {
@@ -135,13 +135,13 @@ describe('ControlledSearchableDropdown component', () => {
         defaultVal={{ id: '4', name: 'Forth' }}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('SearchableDropdownSearchLabel component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<SearchableDropdownSearchLabel>I am a label</SearchableDropdownSearchLabel>)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

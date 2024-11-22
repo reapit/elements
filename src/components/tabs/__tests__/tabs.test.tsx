@@ -31,7 +31,7 @@ describe('Tabs', () => {
         ]}
       />,
     )
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
@@ -39,9 +39,9 @@ describe('handleKeyboardTabChange', () => {
   it('should trigger click event on the correct tab', () => {
     const tabsRefs: MutableRefObject<(HTMLInputElement | null)[]> = {
       current: [
-        { click: jest.fn() } as unknown as HTMLInputElement,
-        { click: jest.fn() } as unknown as HTMLInputElement,
-        { click: jest.fn() } as unknown as HTMLInputElement,
+        { click: vi.fn() } as unknown as HTMLInputElement,
+        { click: vi.fn() } as unknown as HTMLInputElement,
+        { click: vi.fn() } as unknown as HTMLInputElement,
       ],
     }
     const index = 1

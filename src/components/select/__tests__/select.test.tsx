@@ -4,6 +4,6 @@ import { Select } from '..'
 describe('Select component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<Select />)
-    expect(wrapper).toMatchSnapshot()
+    expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

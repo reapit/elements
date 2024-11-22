@@ -1,7 +1,4 @@
-const linaria = require('@wyw-in-js/vite').default
-const svgrPlugin = require('@svgr/rollup')
-const path = require('path')
-const react = require('@vitejs/plugin-react')
+import path from 'path'
 
 module.exports = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -25,27 +22,6 @@ module.exports = {
   ],
 
   loader: { '.js': 'jsx' },
-
-  async viteFinal(config, { configType }) {
-    if (configType === 'DEVELOPMENT') {
-      config.optimizeDeps.include = [...config?.optimizeDeps?.include, 'jest-mock']
-    }
-
-    config.plugins.push(
-      react(),
-      linaria(),
-      svgrPlugin({
-        icon: true,
-      }),
-    )
-
-    config.define = {
-      ...config.define,
-      global: 'window',
-    }
-
-    return config
-  },
 
   framework: {
     name: '@storybook/react-vite',
