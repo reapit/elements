@@ -131,6 +131,17 @@ export const ReactUsage: StoryObj<typeof TopBar> = {
           icon: <Icon icon="star" />,
           'aria-label': 'example 3',
         },
+        {
+          onClick: console.log,
+          icon: <Icon icon="star" />,
+          'aria-label': 'example 4',
+        },
+        {
+          onClick: console.log,
+          icon: <Icon icon="star" />,
+          'aria-label': 'example 5',
+          hasBadge: true,
+        },
       ],
       searchButtonProps: {
         isShortcutVisible: true,
