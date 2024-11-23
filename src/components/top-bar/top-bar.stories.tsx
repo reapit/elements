@@ -12,7 +12,7 @@ import {
   ElNavSearchButtonPlaceholder,
   ElNavSearchButtonShortcutText,
 } from '../nav-search-button/styles'
-import MenuIcon from './icons/menu.svg?react'
+import MenuIcon from './icons/menu-icon.svg?react'
 import {
   elAvatarContainer,
   ElSearchContainer,

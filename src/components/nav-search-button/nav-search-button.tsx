@@ -16,11 +16,7 @@ export interface NavSearchButton extends HTMLAttributes<HTMLButtonElement> {
 export const NavSearchButton: React.FC<NavSearchButton> = ({ isShortcutVisible = true, ...props }) => {
   return (
     <ElNavSearchButtonContainer>
-      <NavIconItem
-        {...(props as NavIconItemProps)}
-        icon={<Icon icon="search" fontSize="1rem" />}
-        aria-label="nav-icon-item-example"
-      />
+      <NavIconItem {...(props as NavIconItemProps)} icon={<Icon icon="search" />} aria-label="nav-icon-item-example" />
       <ElNavSearchButton {...props}>
         <ElNavSearchButtonIcon aria-hidden="true" />
         <ElNavSearchButtonPlaceholder>Search</ElNavSearchButtonPlaceholder>

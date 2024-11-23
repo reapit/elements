@@ -29,17 +29,21 @@ export const ElNavSearchButton = styled.button`
 `
 
 export const ElNavSearchButtonContainer = styled.div`
-  ${ElButtonNavIconItem} {
-    display: none;
+  ${isMobile} {
+    padding-right: var(--spacing-spacing-2, 8px);
   }
 
-  ${isMobile} {
-    ${ElNavSearchButton} {
-      display: none;
-    }
+  ${ElButtonNavIconItem} {
+    display: none;
 
-    ${ElButtonNavIconItem} {
+    ${isMobile} {
       display: inline-block;
+    }
+  }
+
+  ${ElNavSearchButton} {
+    ${isMobile} {
+      display: none;
     }
   }
 `

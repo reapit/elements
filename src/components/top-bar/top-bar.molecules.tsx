@@ -7,28 +7,8 @@ import { NavIconItem, NavIconItemProps } from '../nav-icon-item'
 import type { NavItemProps } from '../nav-item'
 import { NavItem } from '../nav-item'
 import ContainerQuery from './container-query'
-import MenuIcon from './icons/menu.svg?react'
+import MenuIcon from './icons/menu-icon.svg?react'
 import { elMainNavContainer, ElTopBarMenuButtonContainer } from './styles'
-
-interface TopBarSecondaryNavigationsProps {
-  secondaryNavigationsProps: NavIconItemProps[]
-}
-
-export const SecondaryNavigations: FC<TopBarSecondaryNavigationsProps> = ({ secondaryNavigationsProps }) => {
-  return (
-    <>
-      <ButtonGroup>
-        {secondaryNavigationsProps?.map((secondaryNavItemProps) => {
-          return <NavIconItem key={secondaryNavItemProps['aria-label']} {...secondaryNavItemProps} />
-        })}
-      </ButtonGroup>
-
-      <ElTopBarMenuButtonContainer>
-        <NavIconItem aria-label="nav-icon-item-example" icon={<MenuIcon />} />
-      </ElTopBarMenuButtonContainer>
-    </>
-  )
-}
 
 interface MainNavigationsProps {
   mainNavigationsProps: NavItemProps[]
@@ -66,5 +46,25 @@ export const MainNavigations: FC<MainNavigationsProps> = ({ mainNavigationsProps
         </Menu>
       </ContainerQuery>
     </ButtonGroup>
+  )
+}
+
+interface TopBarSecondaryNavigationsProps {
+  secondaryNavigationsProps: NavIconItemProps[]
+}
+
+export const SecondaryNavigations: FC<TopBarSecondaryNavigationsProps> = ({ secondaryNavigationsProps }) => {
+  return (
+    <>
+      <ButtonGroup>
+        {secondaryNavigationsProps?.map((secondaryNavItemProps) => {
+          return <NavIconItem key={secondaryNavItemProps['aria-label']} {...secondaryNavItemProps} />
+        })}
+      </ButtonGroup>
+
+      <ElTopBarMenuButtonContainer>
+        <NavIconItem aria-label="Open Navigation Menu" icon={<MenuIcon />} />
+      </ElTopBarMenuButtonContainer>
+    </>
   )
 }
