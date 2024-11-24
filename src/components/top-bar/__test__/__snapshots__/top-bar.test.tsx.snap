@@ -4,55 +4,55 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
 <DocumentFragment>
   <nav>
     <div
-      class="mocked-styled-10 el-top-bar-container"
+      class="mocked-styled-10 el-top-bar"
       style="container-type: inline-size; container-name: top-bar;"
     >
       <div
-        class="mocked-styled-11 el-top-bar-left-content-container"
+        class="mocked-styled-11 el-top-bar-left-content"
       >
         <div
           class="el-main-nav-container el-button-group"
         >
           <a
             aria-label="Button 1"
-            class="mocked-styled-29 el-nav-item-anchor"
+            class="mocked-styled-26 el-nav-item-anchor"
             href="/"
           >
             <span
-              class="mocked-styled-27 el-nav-item-label-container"
+              class="mocked-styled-24 el-nav-item-label-container"
             >
               Button 1
             </span>
           </a>
           <a
             aria-label="Button 2"
-            class="mocked-styled-29 el-nav-item-anchor"
+            class="mocked-styled-26 el-nav-item-anchor"
             href="/"
           >
             <span
-              class="mocked-styled-27 el-nav-item-label-container"
+              class="mocked-styled-24 el-nav-item-label-container"
             >
               Button 2
             </span>
           </a>
           <a
             aria-label="Button 3"
-            class="mocked-styled-29 el-nav-item-anchor"
+            class="mocked-styled-26 el-nav-item-anchor"
             href="/"
           >
             <span
-              class="mocked-styled-27 el-nav-item-label-container"
+              class="mocked-styled-24 el-nav-item-label-container"
             >
               Button 3
             </span>
           </a>
           <a
             aria-label="Button 4"
-            class="mocked-styled-29 el-nav-item-anchor"
+            class="mocked-styled-26 el-nav-item-anchor"
             href="/"
           >
             <span
-              class="mocked-styled-27 el-nav-item-label-container"
+              class="mocked-styled-24 el-nav-item-label-container"
             >
               Button 4
             </span>
@@ -72,33 +72,33 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
           >
             <a
               aria-label="Button 5"
-              class="mocked-styled-29 el-nav-item-anchor"
+              class="mocked-styled-26 el-nav-item-anchor"
               href="/"
             >
               <span
-                class="mocked-styled-27 el-nav-item-label-container"
+                class="mocked-styled-24 el-nav-item-label-container"
               >
                 Button 5
               </span>
             </a>
             <a
               aria-label="Button 6"
-              class="mocked-styled-29 el-nav-item-anchor"
+              class="mocked-styled-26 el-nav-item-anchor"
               href="/"
             >
               <span
-                class="mocked-styled-27 el-nav-item-label-container"
+                class="mocked-styled-24 el-nav-item-label-container"
               >
                 Button 6
               </span>
             </a>
             <a
               aria-label="Button 7"
-              class="mocked-styled-29 el-nav-item-anchor"
+              class="mocked-styled-26 el-nav-item-anchor"
               href="/"
             >
               <span
-                class="mocked-styled-27 el-nav-item-label-container"
+                class="mocked-styled-24 el-nav-item-label-container"
               >
                 Button 7
               </span>
@@ -118,12 +118,12 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
             class="el-container-query-2"
           >
             <div
-              class="mocked-styled-20 el-menu"
+              class="mocked-styled-17 el-menu"
             >
               <button
                 aria-expanded="false"
                 aria-haspopup="true"
-                class="mocked-styled-26 el-nav-dropdown-button"
+                class="mocked-styled-23 el-nav-dropdown-button"
                 role="button"
                 type="button"
               >
@@ -137,10 +137,10 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-13 el-top-bar-right-content-container"
+        class="mocked-styled-12 el-top-bar-right-content"
       >
         <div
-          class="mocked-styled-12 el-search-container"
+          class="mocked-styled-13 el-search-container"
         >
           <div
             class="mocked-styled-6 el-nav-search-button-container"
@@ -182,9 +182,10 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
               </span>
             </button>
           </div>
+           
         </div>
         <div
-          class="mocked-styled-18 el-button-group"
+          class="mocked-styled-15 el-button-group"
         >
           <button
             aria-label="example 1"
@@ -212,37 +213,33 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
           </button>
         </div>
         <div
-          class="mocked-styled-17 el-top-bar-menu-button-container"
+          class="mocked-styled-14 el-top-bar-menu-button-container"
         >
           <button
-            aria-label="nav-icon-item-example"
+            aria-label="Open Navigation Menu"
             class="mocked-styled-3 el-button-nav-icon-item"
           >
             <svg
               fill="none"
-              height="10"
-              viewBox="0 0 20 10"
-              width="20"
+              height="24"
+              viewBox="0 0 24 24"
+              width="24"
               xmlns="http://www.w3.org/2000/svg"
             >
-              <g
-                id="Vector"
-              >
-                <path
-                  d="M1 0C0.447715 0 0 0.447715 0 1C0 1.55229 0.447716 2 1 2H19C19.5523 2 20 1.55229 20 1C20 0.447715 19.5523 0 19 0H1Z"
-                  fill="#798DA1"
-                />
-                <path
-                  d="M1 8C0.447715 8 0 8.44771 0 9C0 9.55228 0.447716 10 1 10H19C19.5523 10 20 9.55228 20 9C20 8.44771 19.5523 8 19 8H1Z"
-                  fill="#798DA1"
-                />
-              </g>
+              <path
+                d="M3 7C2.44772 7 2 7.44772 2 8C2 8.55229 2.44772 9 3 9H21C21.5523 9 22 8.55229 22 8C22 7.44772 21.5523 7 21 7H3Z"
+                fill="#798DA1"
+              />
+              <path
+                d="M3 15C2.44772 15 2 15.4477 2 16C2 16.5523 2.44772 17 3 17H21C21.5523 17 22 16.5523 22 16C22 15.4477 21.5523 15 21 15H3Z"
+                fill="#798DA1"
+              />
             </svg>
           </button>
         </div>
         <button
           aria-label="Open user navigation menu"
-          class="el-avatar-container el-avatar-button"
+          class="el-top-bar-avatar el-avatar-button"
         >
           <span
             class="mocked-styled-1 el-avatar"

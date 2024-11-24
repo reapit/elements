@@ -14,12 +14,12 @@ import {
 } from '../nav-search-button/styles'
 import MenuIcon from './icons/menu-icon.svg?react'
 import {
-  elAvatarContainer,
+  elTopBarAvatar,
   ElSearchContainer,
-  ElTopBarContainer,
-  ElTopBarLeftContentContainer,
+  ElTopBar,
+  ElTopBarLeftContent,
   ElTopBarMenuButtonContainer,
-  ElTopBarRightContentContainer,
+  ElTopBarRightContent,
 } from './styles'
 import { TopBar } from './top-bar'
 
@@ -32,13 +32,13 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
   render: () => {
     return (
       <nav>
-        <ElTopBarContainer
+        <ElTopBar
           style={{
             containerType: 'inline-size',
             containerName: 'top-bar',
           }}
         >
-          <ElTopBarLeftContentContainer>
+          <ElTopBarLeftContent>
             <ElNavItemAnchor href="#">
               <ElNavItemLabelContainer>Button 1</ElNavItemLabelContainer>
             </ElNavItemAnchor>
@@ -54,8 +54,8 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
             <ElNavItemAnchor href="#">
               <ElNavItemLabelContainer>Button 5</ElNavItemLabelContainer>
             </ElNavItemAnchor>
-          </ElTopBarLeftContentContainer>
-          <ElTopBarRightContentContainer>
+          </ElTopBarLeftContent>
+          <ElTopBarRightContent>
             <ElSearchContainer>
               <ElNavSearchButtonContainer>
                 <NavIconItem icon={<Icon icon="search" fontSize="1rem" />} aria-label="nav-icon-item-example" />
@@ -85,13 +85,13 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
               </ElButtonNavIconItem>
             </ElTopBarMenuButtonContainer>
 
-            <ElAvatarButton className={elAvatarContainer} aria-label="user navigation menu">
+            <ElAvatarButton className={elTopBarAvatar} aria-label="user navigation menu">
               <ElAvatar data-size="small" data-shape="circle" data-colour="purple">
                 AD
               </ElAvatar>
             </ElAvatarButton>
-          </ElTopBarRightContentContainer>
-        </ElTopBarContainer>
+          </ElTopBarRightContent>
+        </ElTopBar>
       </nav>
     )
   },

@@ -5,7 +5,7 @@ import { ElAvatarButton } from '../avatar-button'
 import { ElButtonGroup } from '../button-group'
 import { ElNavSearchButton } from '../nav-search-button/styles'
 
-export const ElTopBarContainer = styled.div`
+export const ElTopBar = styled.div`
   display: flex;
   height: var(--size-10, 56px);
   padding: var(--spacing-2, 8px) var(--spacing-5, 20px);
@@ -20,7 +20,7 @@ export const ElTopBarContainer = styled.div`
   }
 `
 
-export const ElTopBarLeftContentContainer = styled.div`
+export const ElTopBarLeftContent = styled.div`
   display: flex;
   align-items: center;
   flex-grow: 1;
@@ -41,7 +41,7 @@ export const elMainNavContainer = css`
   width: 100%;
 `
 
-export const ElTopBarRightContentContainer = styled.div`
+export const ElTopBarRightContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-end;
@@ -75,7 +75,7 @@ export const ElSearchContainer = styled.div`
   }
 `
 
-export const elAvatarContainer = css`
+export const elTopBarAvatar = css`
   display: flex;
   padding: var(--spacing-1, 4px) var(--spacing-none, 0px);
   padding-left: var(--spacing-2, 8px);
