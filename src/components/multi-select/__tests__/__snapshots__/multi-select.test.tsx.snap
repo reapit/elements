@@ -124,11 +124,11 @@ exports[`MultiSelectInput > should match a snapshot and render non selected mess
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name task"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

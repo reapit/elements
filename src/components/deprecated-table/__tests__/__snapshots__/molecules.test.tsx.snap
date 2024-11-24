@@ -11,12 +11,12 @@ exports[`DeprecatedTableCell Component > should match a snapshot with full props
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         style="font-size: 1.25rem;"
         title="Icon image with name add"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -133,11 +133,11 @@ exports[`TableCtaTriggerCell Component > should match a snapshot with no childre
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name add"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -211,11 +211,11 @@ exports[`TableExpandableRowTriggerCell Component > should match a snapshot with 
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         title="Icon image with name more"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -248,11 +248,11 @@ exports[`TableExpandableRowTriggerCell Component > should match a snapshot with 
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         title="Icon image with name more"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

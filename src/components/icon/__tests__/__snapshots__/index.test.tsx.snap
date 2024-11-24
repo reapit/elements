@@ -7,11 +7,11 @@ exports[`Icon component > should match a snapshot 1`] = `
   >
     <svg
       fill="none"
-      height="24"
+      height="1em"
       role="img"
       title="Icon image with name add"
       viewBox="0 0 24 24"
-      width="24"
+      width="1em"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -30,11 +30,11 @@ exports[`Icon component > should match a snapshot when intent prop is supplied 1
   >
     <svg
       fill="none"
-      height="24"
+      height="1em"
       role="img"
       title="Icon image with name add"
       viewBox="0 0 24 24"
-      width="24"
+      width="1em"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

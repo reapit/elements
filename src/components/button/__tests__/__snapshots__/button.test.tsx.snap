@@ -55,11 +55,11 @@ exports[`Button > should match snapshot for <ElAnchorButton> as a link button 1`
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         title="Icon image with name add"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -88,11 +88,11 @@ exports[`Button > should match snapshot for icon-only button 1`] = `
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         title="Icon image with name star"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -121,11 +121,11 @@ exports[`Button > should match snapshot with variant and icons 1`] = `
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         title="Icon image with name star"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -144,11 +144,11 @@ exports[`Button > should match snapshot with variant and icons 1`] = `
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         title="Icon image with name star"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -341,11 +341,11 @@ exports[`FloatingButton > should render FloatingButton with icon 1`] = `
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         title="Icon image with name star"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
