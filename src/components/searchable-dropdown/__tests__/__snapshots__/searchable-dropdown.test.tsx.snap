@@ -24,12 +24,12 @@ exports[`ControlledSearchableDropdown component > should display default value 1
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           style="font-size: 1rem;"
           title="Icon image with name search"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -50,11 +50,11 @@ exports[`ControlledSearchableDropdown component > should display default value 1
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         title="Icon image with name close"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -91,12 +91,12 @@ exports[`ControlledSearchableDropdown component > should match a snapshot 1`] = 
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           style="font-size: 1rem;"
           title="Icon image with name search"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -140,12 +140,12 @@ exports[`SearchableDropdown component > should match a snapshot 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           style="font-size: 1rem;"
           title="Icon image with name search"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

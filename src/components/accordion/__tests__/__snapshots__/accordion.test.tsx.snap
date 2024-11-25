@@ -29,11 +29,11 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name car"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -62,11 +62,11 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name user"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -94,12 +94,12 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               style="font-size: 1.25rem;"
               title="Icon image with name chevronDown"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -144,11 +144,11 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name car"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -177,11 +177,11 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name user"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -209,12 +209,12 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               style="font-size: 1.25rem;"
               title="Icon image with name chevronDown"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path

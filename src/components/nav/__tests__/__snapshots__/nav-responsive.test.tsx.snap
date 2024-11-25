@@ -19,7 +19,7 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       >
         <svg
           fill="none"
-          height="0.2em"
+          height="1em"
           role="img"
           style="width: 100px;"
           title="Icon image with name reapitLogo"
@@ -76,11 +76,11 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name more"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
