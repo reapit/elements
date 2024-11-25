@@ -15,9 +15,9 @@ describe('MobileNavItem', () => {
     expect(
       render(
         <MobileNavItem label="Item 2" hasBadge isActive>
-          <MobileNavItem.SubItem label="Sub Item 2.1" href="#item-2.1" isActive />
-          <MobileNavItem.SubItem label="Sub Item 2.2" href="#item-2.2" hasBadge />
-          <MobileNavItem.SubItem label="Sub Item 2.3" href="#item-2.3" />
+          <MobileNavItem label="Sub Item 2.1" href="#item-2.1" isActive />
+          <MobileNavItem label="Sub Item 2.2" onClick={() => {}} hasBadge />
+          <MobileNavItem label="Sub Item 2.3" href="#item-2.3" />
         </MobileNavItem>,
       ).asFragment(),
     ).toMatchSnapshot()

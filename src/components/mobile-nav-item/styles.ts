@@ -1,15 +1,5 @@
 import { styled } from '@linaria/react'
 
-export const ElMobileNavItemListItem = styled.li`
-  border-radius: inherit;
-`
-
-export const ElMobileNavSubItemUnorderedList = styled.ul`
-  &[aria-hidden='true'] {
-    display: none;
-  }
-`
-
 const baseStyles = `
   cursor: pointer;
   color: inherit;
@@ -49,6 +39,10 @@ export const ElMobileNavItemAnchor = styled.a`
   ${baseStyles}
 `
 
+export const ElMobileNavItemButton = styled.button`
+  ${baseStyles}
+`
+
 export const ElMobileNavItemExpanderButton = styled.button`
   ${baseStyles}
 `
@@ -70,7 +64,13 @@ export const ElMobileNavItemBadge = styled.span`
   border-radius: 100%;
 `
 
-export const ElMobileNavItemUnorderedList = styled.ul`
+export const ElMobileNavSubItemUnorderedList = styled.ul`
+  &[aria-hidden='true'] {
+    display: none;
+  }
+`
+
+export const ElMobileNavItemListItem = styled.li`
   display: flex;
   flex-direction: column;
   background: var(--fill-white, #fff);
@@ -79,11 +79,16 @@ export const ElMobileNavItemUnorderedList = styled.ul`
   &[data-is-expanded='true'] {
     background: var(--fill-default-lightest, #f2f4f6);
 
-    ${ElMobileNavItemListItem} > ${ElMobileNavItemExpanderButton} {
+    > ${ElMobileNavItemExpanderButton} {
       border-radius: var(--corner-lg, 8px) var(--corner-lg, 8px) var(--corner-none, 0) var(--corner-none, 0);
     }
 
-    ${ElMobileNavSubItemUnorderedList} > ${ElMobileNavItemListItem}:last-child {
+    ${ElMobileNavSubItemUnorderedList} > * {
+      background: var(--fill-default-lightest, #f2f4f6);
+      border-radius: var(--corner-none, 0px);
+    }
+
+    ${ElMobileNavSubItemUnorderedList} > :last-child {
       border-radius: var(--corner-none, 0) var(--corner-none, 0) var(--corner-lg, 8px) var(--corner-lg, 8px);
     }
 
