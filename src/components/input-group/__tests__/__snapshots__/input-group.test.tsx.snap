@@ -14,11 +14,11 @@ exports[`InputGroup component > should match a snapshot when used in explicit mo
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         title="Icon image with name email"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -86,12 +86,12 @@ exports[`InputGroup component > should match a snapshot when used in react short
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         style="font-size: 1rem;"
         title="Icon image with name email"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -120,12 +120,12 @@ exports[`InputGroup component > should match a snapshot when used in react short
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         style="font-size: 1rem;"
         title="Icon image with name email"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

@@ -17,11 +17,11 @@ exports[`Pagination > should match a snapshot 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name chevronLeft"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -53,11 +53,11 @@ exports[`Pagination > should match a snapshot 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name chevronRight"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -88,11 +88,11 @@ exports[`Pagination > should match a snapshot with start end buttons 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name chevronLeft"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -114,11 +114,11 @@ exports[`Pagination > should match a snapshot with start end buttons 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name chevronLeft"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -132,11 +132,11 @@ exports[`Pagination > should match a snapshot with start end buttons 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name chevronLeft"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -168,11 +168,11 @@ exports[`Pagination > should match a snapshot with start end buttons 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name chevronRight"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -186,11 +186,11 @@ exports[`Pagination > should match a snapshot with start end buttons 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name chevronRight"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -212,11 +212,11 @@ exports[`Pagination > should match a snapshot with start end buttons 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           title="Icon image with name chevronRight"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path

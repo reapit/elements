@@ -23,12 +23,12 @@ exports[`Snack component > should match a snapshot if an icon is supplied 1`] = 
     >
       <svg
         fill="none"
-        height="24"
+        height="1em"
         role="img"
         style="font-size: 1.25rem;"
         title="Icon image with name email"
         viewBox="0 0 24 24"
-        width="24"
+        width="1em"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -57,12 +57,12 @@ exports[`SnackHolder component > should match a snapshot 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           style="font-size: 1.25rem;"
           title="Icon image with name info"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
@@ -79,12 +79,12 @@ exports[`SnackHolder component > should match a snapshot 1`] = `
       >
         <svg
           fill="none"
-          height="24"
+          height="1em"
           role="img"
           style="font-size: 1.25rem;"
           title="Icon image with name close"
           viewBox="0 0 24 24"
-          width="24"
+          width="1em"
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
