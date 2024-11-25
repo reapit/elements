@@ -7,12 +7,10 @@ const baseStyles = `
   border: none;
   outline: none;
   width: 100%;
-
   border-radius: inherit;
   border: 4px solid transparent;
   background: inherit;
   padding: var(--space-2, 8px) var(--space-4, 16px);
-
   font-family: var(--font-family, Inter);
   font-size: var(--font-size-base, 15px);
   font-style: normal;
@@ -52,7 +50,6 @@ export const ElMobileNavItemContent = styled.span`
   align-items: center;
   justify-content: flex-start;
   gap: var(--space-2, 8px);
-
   flex-grow: 1;
 `
 
@@ -82,16 +79,13 @@ export const ElMobileNavItemListItem = styled.li`
     > ${ElMobileNavItemExpanderButton} {
       border-radius: var(--corner-lg, 8px) var(--corner-lg, 8px) var(--corner-none, 0) var(--corner-none, 0);
     }
-
     ${ElMobileNavSubItemUnorderedList} > * {
       background: var(--fill-default-lightest, #f2f4f6);
       border-radius: var(--corner-none, 0px);
     }
-
     ${ElMobileNavSubItemUnorderedList} > :last-child {
       border-radius: var(--corner-none, 0) var(--corner-none, 0) var(--corner-lg, 8px) var(--corner-lg, 8px);
     }
-
     ${ElMobileNavItemAnchor}, ${ElMobileNavItemExpanderButton} {
       &:hover {
         background: var(--fill-default-light, #e5e9ed);
