@@ -17,11 +17,11 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         >
           <svg
             fill="none"
-            height="24"
+            height="1em"
             role="img"
             title="Icon image with name user"
             viewBox="0 0 24 24"
-            width="24"
+            width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -66,11 +66,11 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         >
           <svg
             fill="none"
-            height="24"
+            height="1em"
             role="img"
             title="Icon image with name email"
             viewBox="0 0 24 24"
-            width="24"
+            width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -107,11 +107,11 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         >
           <svg
             fill="none"
-            height="24"
+            height="1em"
             role="img"
             title="Icon image with name car"
             viewBox="0 0 24 24"
-            width="24"
+            width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -158,11 +158,11 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         >
           <svg
             fill="none"
-            height="24"
+            height="1em"
             role="img"
             title="Icon image with name calendar"
             viewBox="0 0 24 24"
-            width="24"
+            width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -199,11 +199,11 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         >
           <svg
             fill="none"
-            height="24"
+            height="1em"
             role="img"
             title="Icon image with name property"
             viewBox="0 0 24 24"
-            width="24"
+            width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -240,11 +240,11 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         >
           <svg
             fill="none"
-            height="24"
+            height="1em"
             role="img"
             title="Icon image with name edit"
             viewBox="0 0 24 24"
-            width="24"
+            width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -292,11 +292,11 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name user"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -344,11 +344,11 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name email"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -388,11 +388,11 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name car"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -442,11 +442,11 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name calendar"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -486,11 +486,11 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name property"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -530,11 +530,11 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name edit"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path

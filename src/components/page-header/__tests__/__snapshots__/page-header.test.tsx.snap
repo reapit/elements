@@ -33,12 +33,12 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               style="font-size: 12px;"
               title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -66,12 +66,12 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               style="font-size: 12px;"
               title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -99,12 +99,12 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               style="font-size: 12px;"
               title="Icon image with name chevronRight"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path

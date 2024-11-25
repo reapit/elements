@@ -19,7 +19,11 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    svgr(),
+    svgr({
+      svgrOptions: {
+        icon: true,
+      },
+    }),
     wyw({
       babelOptions: {
         presets: ['@babel/preset-typescript', '@babel/preset-react'],

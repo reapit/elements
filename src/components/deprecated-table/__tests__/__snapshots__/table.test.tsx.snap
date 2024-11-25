@@ -29,11 +29,11 @@ exports[`DeprecatedTable Component > should match a snapshot for cta content alt
         >
           <svg
             fill="none"
-            height="24"
+            height="1em"
             role="img"
             title="Icon image with name settings"
             viewBox="0 0 24 24"
-            width="24"
+            width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -64,11 +64,11 @@ exports[`DeprecatedTable Component > should match a snapshot for cta content alt
             >
               <svg
                 fill="none"
-                height="24"
+                height="1em"
                 role="img"
                 title="Icon image with name property"
                 viewBox="0 0 24 24"
-                width="24"
+                width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -122,11 +122,11 @@ exports[`DeprecatedTable Component > should match a snapshot for expandable cont
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name more"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -247,12 +247,12 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               style="font-size: 1.25rem;"
               title="Icon image with name property"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -278,12 +278,12 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               style="font-size: 1.25rem;"
               title="Icon image with name user"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -371,11 +371,11 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
             >
               <svg
                 fill="none"
-                height="24"
+                height="1em"
                 role="img"
                 title="Icon image with name property"
                 viewBox="0 0 24 24"
-                width="24"
+                width="1em"
                 xmlns="http://www.w3.org/2000/svg"
               >
                 <path
@@ -463,11 +463,11 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
         >
           <svg
             fill="none"
-            height="24"
+            height="1em"
             role="img"
             title="Icon image with name settings"
             viewBox="0 0 24 24"
-            width="24"
+            width="1em"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
@@ -495,12 +495,12 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               style="font-size: 1.25rem;"
               title="Icon image with name property"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -526,12 +526,12 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               style="font-size: 1.25rem;"
               title="Icon image with name user"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
@@ -616,11 +616,11 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           >
             <svg
               fill="none"
-              height="24"
+              height="1em"
               role="img"
               title="Icon image with name more"
               viewBox="0 0 24 24"
-              width="24"
+              width="1em"
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
