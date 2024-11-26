@@ -7,7 +7,7 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
       class="mocked-styled-3 el-top-bar"
     >
       <div
-        class="mocked-styled-1 el-button-group el-main-nav-container el-button-group"
+        class="mocked-styled-1 el-button-group el-top-bar-main-nav el-button-group"
         style="container-name: main-nav; container-type: inline-size;"
       >
         <a
@@ -68,7 +68,7 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-4 el-search-container"
+        class="mocked-styled-4 el-top-bar-search-container"
       >
         <button
           aria-label="nav-icon-item-example"
@@ -108,7 +108,7 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
         </button>
       </div>
       <div
-        class="mocked-styled-2 el-button-group el-top-bar-secondary-nav-container el-button-group"
+        class="mocked-styled-2 el-button-group el-top-bar-secondary-nav el-button-group"
       >
         <button
           aria-label="example"

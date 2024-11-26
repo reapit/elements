@@ -1,16 +1,16 @@
 import type { FC, HTMLAttributes } from 'react'
 import {
-  ElMainNavContainer,
-  ElSearchContainer,
+  ElTopBarMainNav,
+  ElTopBarSearchContainer,
   ElTopBar,
   ElTopBarMenuButtonContainer,
-  ElTopBarSecondaryNavContainer,
+  ElTopBarSecondaryNav,
 } from './styles'
 
 const TopBar: FC<HTMLAttributes<HTMLDivElement>> & {
-  MainNavigations: typeof ElMainNavContainer
-  SecondaryNavigations: typeof ElTopBarSecondaryNavContainer
-  SearchContainer: typeof ElSearchContainer
+  MainNavigations: typeof ElTopBarMainNav
+  SecondaryNavigations: typeof ElTopBarSecondaryNav
+  SearchContainer: typeof ElTopBarSearchContainer
   MenuButtonContainer: typeof ElTopBarMenuButtonContainer
 } = ({ children, ...props }) => {
   return (
@@ -20,9 +20,9 @@ const TopBar: FC<HTMLAttributes<HTMLDivElement>> & {
   )
 }
 
-TopBar.MainNavigations = ElMainNavContainer
-TopBar.SecondaryNavigations = ElTopBarSecondaryNavContainer
-TopBar.SearchContainer = ElSearchContainer
+TopBar.MainNavigations = ElTopBarMainNav
+TopBar.SecondaryNavigations = ElTopBarSecondaryNav
+TopBar.SearchContainer = ElTopBarSearchContainer
 TopBar.MenuButtonContainer = ElTopBarMenuButtonContainer
 
 export { TopBar }

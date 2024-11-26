@@ -17,12 +17,12 @@ import {
 } from '../nav-search-button/styles'
 import MenuIcon from './icons/menu-icon.svg?react'
 import {
-  ElMainNavContainer,
-  ElSearchContainer,
+  ElTopBarMainNav,
+  ElTopBarSearchContainer,
   ElTopBar,
   elTopBarAvatar,
   ElTopBarMenuButtonContainer,
-  ElTopBarSecondaryNavContainer,
+  ElTopBarSecondaryNav,
 } from './styles'
 import { TopBar } from './top-bar'
 
@@ -37,7 +37,7 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
     return (
       <nav>
         <ElTopBar>
-          <ElMainNavContainer>
+          <ElTopBarMainNav>
             <ElNavItemAnchor href="#">
               <ElNavItemLabelContainer>Button 1</ElNavItemLabelContainer>
             </ElNavItemAnchor>
@@ -53,9 +53,9 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
             <ElNavItemAnchor href="#">
               <ElNavItemLabelContainer>Button 5</ElNavItemLabelContainer>
             </ElNavItemAnchor>
-          </ElMainNavContainer>
+          </ElTopBarMainNav>
 
-          <ElSearchContainer>
+          <ElTopBarSearchContainer>
             <NavIconItem icon={<Icon icon="search" />} aria-label="nav-icon-item-example" />
             <ElButtonNavIconItem>
               <Icon icon="search" />
@@ -65,9 +65,9 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
               <ElNavSearchButtonPlaceholder>Search</ElNavSearchButtonPlaceholder>
               <ElNavSearchButtonShortcutText>Ctrl + K</ElNavSearchButtonShortcutText>
             </ElNavSearchButton>
-          </ElSearchContainer>
+          </ElTopBarSearchContainer>
 
-          <ElTopBarSecondaryNavContainer>
+          <ElTopBarSecondaryNav>
             <ElButtonNavIconItem>
               <Icon icon="star" />
             </ElButtonNavIconItem>
@@ -77,7 +77,7 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
             <ElButtonNavIconItem>
               <Icon icon="star" />
             </ElButtonNavIconItem>
-          </ElTopBarSecondaryNavContainer>
+          </ElTopBarSecondaryNav>
 
           <ElTopBarMenuButtonContainer>
             <ElButtonNavIconItem>

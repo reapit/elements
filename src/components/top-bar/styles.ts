@@ -13,14 +13,14 @@ export const elTopBarAvatar = css`
   gap: 10px;
 `
 
-export const ElMainNavContainer = styled(ElButtonGroup)`
+export const ElTopBarMainNav = styled(ElButtonGroup)`
   display: flex;
   padding: var(--spacing-1, 4px) var(--spacing-none, 0px) var(--spacing-1, 4px) var(--spacing-6, 24px);
   align-items: flex-start;
   flex-grow: 1;
 `
 
-export const ElTopBarSecondaryNavContainer = styled(ElButtonGroup)`
+export const ElTopBarSecondaryNav = styled(ElButtonGroup)`
   flex-wrap: nowrap;
 `
 
@@ -40,7 +40,7 @@ export const ElTopBar = styled.div`
     // TODO: need to be adjusted once AppSwitcher and Brand/Logo included
     justify-content: flex-end;
 
-    ${ElMainNavContainer}, ${ElTopBarSecondaryNavContainer} {
+    ${ElTopBarMainNav}, ${ElTopBarSecondaryNav} {
       display: none;
     }
   }
@@ -52,7 +52,7 @@ export const ElTopBar = styled.div`
   }
 `
 
-export const ElSearchContainer = styled.div`
+export const ElTopBarSearchContainer = styled.div`
   padding: var(--spacing-1, 4px) var(--spacing-4, 16px) var(--spacing-1, 4px) var(--spacing-none, 0px);
   ${ElNavSearchButton} {
     width: 216px;
