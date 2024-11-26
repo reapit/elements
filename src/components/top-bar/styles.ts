@@ -46,7 +46,7 @@ export const ElTopBar = styled.div`
   }
 
   ${isTabletOrBelow} {
-    ${elTopBarAvatar} {
+    .${elTopBarAvatar} {
       display: none;
     }
   }
