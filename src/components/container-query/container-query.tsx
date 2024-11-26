@@ -2,7 +2,7 @@ import { useRef } from 'react'
 
 let baseId = 1
 
-export default function ContainerQuery({ children, conditions, not = false }) {
+export function ContainerQuery({ children, conditions, not = false, containerName = 'container' }) {
   const id = useRef(baseId++)
   return (
     <>
@@ -11,7 +11,7 @@ export default function ContainerQuery({ children, conditions, not = false }) {
          .el-container-query-${id.current} {
           display: contents;
 
-          @container top-bar ${not ? `not ${conditions}` : conditions}  {
+          @container ${containerName} ${not ? `not ${conditions}` : conditions}  {
             display: none;
           }
       }`}

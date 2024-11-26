@@ -1,9 +1,28 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { isDesktopOrBelow, isMobile, isTabletOrBelow } from '../../styles/media'
-import { ElAvatarButton } from '../avatar-button'
 import { ElButtonGroup } from '../button-group'
 import { ElNavSearchButton } from '../nav-search-button/styles'
+import { ElButtonNavIconItem } from '../nav-icon-item'
+
+export const elTopBarAvatar = css`
+  display: flex;
+  padding: var(--spacing-1, 4px) var(--spacing-none, 0px);
+  padding-left: var(--spacing-2, 8px);
+  align-items: center;
+  gap: 10px;
+`
+
+export const ElMainNavContainer = styled(ElButtonGroup)`
+  display: flex;
+  padding: var(--spacing-1, 4px) var(--spacing-none, 0px) var(--spacing-1, 4px) var(--spacing-6, 24px);
+  align-items: flex-start;
+  flex-grow: 1;
+`
+
+export const ElTopBarSecondaryNavContainer = styled(ElButtonGroup)`
+  flex-wrap: nowrap;
+`
 
 export const ElTopBar = styled.div`
   display: flex;
@@ -17,47 +36,17 @@ export const ElTopBar = styled.div`
 
   ${isDesktopOrBelow} {
     padding: var(--spacing-2, 8px) var(--spacing-4, 16px);
-  }
-`
 
-export const ElTopBarLeftContent = styled.div`
-  display: flex;
-  align-items: center;
-  flex-grow: 1;
+    // TODO: need to be adjusted once AppSwitcher and Brand/Logo included
+    justify-content: flex-end;
 
-  ${isDesktopOrBelow} {
-    ${ElButtonGroup} {
-      display: none;
-    }
-  }
-`
-
-export const elMainNavContainer = css`
-  display: flex;
-  padding: var(--spacing-1, 4px) var(--spacing-none, 0px) var(--spacing-1, 4px) var(--spacing-6, 24px);
-  align-items: flex-start;
-
-  /* for container query */
-  width: 100%;
-`
-
-export const ElTopBarRightContent = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-
-  ${ElButtonGroup} {
-    flex-wrap: nowrap;
-  }
-
-  ${isDesktopOrBelow} {
-    ${ElButtonGroup} {
+    ${ElMainNavContainer}, ${ElTopBarSecondaryNavContainer} {
       display: none;
     }
   }
 
   ${isTabletOrBelow} {
-    ${ElAvatarButton} {
+    ${elTopBarAvatar} {
       display: none;
     }
   }
@@ -70,17 +59,20 @@ export const ElSearchContainer = styled.div`
   }
 
   ${isMobile} {
-    padding: unset;
-    gap: var(--spacing-none, 0px);
-  }
-`
+    padding-right: var(--spacing-spacing-2, 8px);
 
-export const elTopBarAvatar = css`
-  display: flex;
-  padding: var(--spacing-1, 4px) var(--spacing-none, 0px);
-  padding-left: var(--spacing-2, 8px);
-  align-items: center;
-  gap: 10px;
+    ${ElNavSearchButton} {
+      display: none;
+    }
+  }
+
+  ${ElButtonNavIconItem} {
+    display: none;
+
+    ${isMobile} {
+      display: inline-block;
+    }
+  }
 `
 
 export const ElTopBarMenuButtonContainer = styled.div`

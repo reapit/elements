@@ -1,9 +1,6 @@
 import type { HTMLAttributes } from 'react'
-import { Icon } from '../icon'
-import { NavIconItem, NavIconItemProps } from '../nav-icon-item'
 import {
   ElNavSearchButton,
-  ElNavSearchButtonContainer,
   ElNavSearchButtonIcon,
   ElNavSearchButtonPlaceholder,
   ElNavSearchButtonShortcutText,
@@ -15,13 +12,10 @@ export interface NavSearchButton extends HTMLAttributes<HTMLButtonElement> {
 
 export const NavSearchButton: React.FC<NavSearchButton> = ({ isShortcutVisible = true, ...props }) => {
   return (
-    <ElNavSearchButtonContainer>
-      <NavIconItem {...(props as NavIconItemProps)} icon={<Icon icon="search" />} aria-label="nav-icon-item-example" />
-      <ElNavSearchButton {...props}>
-        <ElNavSearchButtonIcon aria-hidden="true" />
-        <ElNavSearchButtonPlaceholder>Search</ElNavSearchButtonPlaceholder>
-        {isShortcutVisible && <ElNavSearchButtonShortcutText>Ctrl + K</ElNavSearchButtonShortcutText>}
-      </ElNavSearchButton>
-    </ElNavSearchButtonContainer>
+    <ElNavSearchButton {...props}>
+      <ElNavSearchButtonIcon aria-hidden="true" />
+      <ElNavSearchButtonPlaceholder>Search</ElNavSearchButtonPlaceholder>
+      {isShortcutVisible && <ElNavSearchButtonShortcutText>Ctrl + K</ElNavSearchButtonShortcutText>}
+    </ElNavSearchButton>
   )
 }

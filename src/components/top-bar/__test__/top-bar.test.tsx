@@ -1,55 +1,62 @@
 import { render } from '@testing-library/react'
-import { TopBar, TopBarProps } from '../top-bar'
+import { TopBar } from '../top-bar'
 import { Icon } from '../../icon'
+import { NavItem } from '../../nav'
+import { ContainerQuery } from '../../container-query/container-query'
+import { Menu } from '../../menu'
+import { NavDropdownButton } from '../../nav-dropdown-button'
+import { NavIconItem } from '../../nav-icon-item'
+import { NavSearchButton } from '../../nav-search-button/nav-search-button'
+import { AvatarButton } from '../../avatar-button'
+import { elTopBarAvatar } from '../styles'
 
 vi.mock('../../icon', () => ({
   Icon: vi.fn(() => <div data-testid="icon" />),
 }))
 
 describe('TopBar Snapshot', () => {
-  const mockProps: TopBarProps = {
-    leftContent: {
-      appSwitcherProps: 'app-switcher-props',
-      mainNavigationsProps: [
-        { href: '/', 'aria-label': 'Button 1', children: 'Button 1' },
-        { href: '/', 'aria-label': 'Button 2', children: 'Button 2' },
-        { href: '/', 'aria-label': 'Button 3', children: 'Button 3' },
-        { href: '/', 'aria-label': 'Button 4', children: 'Button 4' },
-        { href: '/', 'aria-label': 'Button 5', children: 'Button 5' },
-        { href: '/', 'aria-label': 'Button 6', children: 'Button 6' },
-        { href: '/', 'aria-label': 'Button 7', children: 'Button 7' },
-      ],
-    },
-    rightContent: {
-      avatarProps: {
-        label: 'AD',
-        onClick: vi.fn(),
-      },
-      secondaryNavigationsProps: [
-        {
-          onClick: vi.fn(),
-          icon: <Icon icon="star" />,
-          'aria-label': 'example 1',
-        },
-        {
-          onClick: vi.fn(),
-          icon: <Icon icon="star" />,
-          'aria-label': 'example 2',
-        },
-        {
-          onClick: vi.fn(),
-          icon: <Icon icon="star" />,
-          'aria-label': 'example 3',
-        },
-      ],
-      searchButtonProps: {
-        isShortcutVisible: true,
-      },
-    },
-  }
-
   it('should match snapshot', () => {
-    const { asFragment } = render(<TopBar {...mockProps} />)
+    const { asFragment } = render(
+      <TopBar>
+        <TopBar.MainNavigations
+          style={{
+            containerName: 'main-nav',
+            containerType: 'inline-size',
+          }}
+        >
+          <NavItem href="/">Button 1</NavItem>
+
+          <ContainerQuery conditions={'(width < 1000px)'} containerName="main-nav">
+            <NavItem href="/">Button 2</NavItem>
+          </ContainerQuery>
+          <ContainerQuery not conditions={'(width < 1000px)'} containerName="main-nav">
+            <Menu>
+              <Menu.Trigger>
+                {({ getTriggerProps }) => <NavDropdownButton {...getTriggerProps()}>More</NavDropdownButton>}
+              </Menu.Trigger>
+              <Menu.Popover>
+                <Menu.List>
+                  <Menu.Item href="/">Button 2</Menu.Item>
+                </Menu.List>
+              </Menu.Popover>
+            </Menu>
+          </ContainerQuery>
+        </TopBar.MainNavigations>
+        <TopBar.SearchContainer>
+          <NavIconItem icon={<Icon icon="search" />} aria-label="nav-icon-item-example" />
+          <NavSearchButton />
+        </TopBar.SearchContainer>
+
+        <TopBar.SecondaryNavigations>
+          <NavIconItem aria-label="example" icon={<Icon icon="star" />} />
+        </TopBar.SecondaryNavigations>
+        <TopBar.MenuButtonContainer>
+          <NavIconItem aria-label="mobile secondary nav trigger" icon={<Icon icon="menu" />} />
+        </TopBar.MenuButtonContainer>
+
+        <AvatarButton className={elTopBarAvatar} label="AD" />
+      </TopBar>,
+    )
     expect(asFragment()).toMatchSnapshot()
   })
 })

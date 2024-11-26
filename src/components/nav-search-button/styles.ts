@@ -1,6 +1,4 @@
 import { styled } from '@linaria/react'
-import { isMobile } from '../../styles/media'
-import { ElButtonNavIconItem } from '../nav-icon-item'
 import SearchIcon from './icons/search-icon.svg?react'
 
 export const ElNavSearchButton = styled.button`
@@ -26,26 +24,6 @@ export const ElNavSearchButton = styled.button`
 
   border: none;
   outline: none;
-`
-
-export const ElNavSearchButtonContainer = styled.div`
-  ${isMobile} {
-    padding-right: var(--spacing-spacing-2, 8px);
-  }
-
-  ${ElButtonNavIconItem} {
-    display: none;
-
-    ${isMobile} {
-      display: inline-block;
-    }
-  }
-
-  ${ElNavSearchButton} {
-    ${isMobile} {
-      display: none;
-    }
-  }
 `
 
 export const ElNavSearchButtonIcon = styled(SearchIcon)`
