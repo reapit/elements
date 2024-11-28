@@ -1,0 +1,23 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../../storybook/render-html-markup'
+import * as TableToolbarStories from './tableToolbar.stories'
+
+<Meta of={TableToolbarStories} />
+
+# Table Toolbar
+
+## Style Only Usage
+
+<Canvas of={TableToolbarStories.StylesOnlyUsage} />
+
+<RenderHtmlMarkup of={TableToolbarStories.StylesOnlyUsage} />
+
+## With Bulk Actions
+
+<Canvas of={TableToolbarStories.WithBulkActions} />
+
+<RenderHtmlMarkup of={TableToolbarStories.WithBulkActions} />
+
+## Skeleton
+
+<Canvas of={TableToolbarStories.SkeletonDummy} />
