@@ -70,14 +70,6 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
       <div
         class="mocked-styled-7 el-top-bar-search"
       >
-        <button
-          aria-label="nav-icon-item-example"
-          class="mocked-styled-32 el-button-nav-icon-item"
-        >
-          <div
-            data-testid="icon"
-          />
-        </button>
         <div
           class="mocked-styled-35 el-nav-search-button-container"
         >
@@ -145,7 +137,7 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
       </div>
       <button
         aria-label="Open user navigation menu"
-        class="mocked-styled-1 el-avatar-button"
+        class="mocked-styled-3 el-top-bar-profile el-avatar-button"
       >
         <span
           class="mocked-styled-2 el-avatar"
