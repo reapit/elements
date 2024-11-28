@@ -1,11 +1,9 @@
-import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { isDesktopOrBelow, isMobile, isTabletOrBelow } from '../../styles/media'
+import { isDesktop, isDesktopOrBelow, isTablet, isTabletOrBelow } from '../../styles/media'
 import { ElButtonGroup } from '../button-group'
-import { ElNavSearchButton } from '../nav-search-button/styles'
-import { ElButtonNavIconItem } from '../nav-icon-item'
+import { AvatarButton } from '../avatar-button'
 
-export const elTopBarAvatar = css`
+export const ElTopBarProfile = styled(AvatarButton)`
   padding: var(--spacing-1, 4px) var(--spacing-none, 0px);
   padding-left: var(--spacing-2, 8px);
 `
@@ -40,38 +38,23 @@ export const ElTopBar = styled.div`
   }
 
   ${isTabletOrBelow} {
-    .${elTopBarAvatar} {
+    ${ElTopBarProfile} {
       display: none;
     }
   }
 `
 
 export const ElTopBarSearch = styled.div`
-  padding: var(--spacing-1, 4px) var(--spacing-4, 16px) var(--spacing-1, 4px) var(--spacing-none, 0px);
-  width: 216px;
-
-  ${isMobile} {
-    width: auto;
-    padding-right: var(--spacing-spacing-2, 8px);
-
-    ${ElNavSearchButton} {
-      display: none;
-    }
-  }
-
-  ${ElButtonNavIconItem} {
-    display: none;
-
-    ${isMobile} {
-      display: inline-block;
-    }
+  padding-right: var(--spacing-spacing-2, 8px);
+  ${isTablet} {
+    width: 216px;
+    padding: var(--spacing-1, 4px) var(--spacing-4, 16px) var(--spacing-1, 4px) var(--spacing-none, 0px);
   }
 `
 
 export const ElTopBarMobileNav = styled.div`
-  display: none;
-
-  ${isDesktopOrBelow} {
-    display: inline-block;
+  display: inline-block;
+  ${isDesktop} {
+    display: none;
   }
 `

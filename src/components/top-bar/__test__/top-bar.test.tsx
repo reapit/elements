@@ -18,12 +18,7 @@ describe('TopBar Snapshot', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <TopBar>
-        <TopBar.MainNav
-          style={{
-            containerName: 'main-nav',
-            containerType: 'inline-size',
-          }}
-        >
+        <TopBar.MainNav>
           <NavItem href="/">Button 1</NavItem>
 
           <CSSContainerQuery condition={'(width < 1000px)'}>
