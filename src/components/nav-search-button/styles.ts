@@ -6,7 +6,7 @@ export const ElNavSearchButton = styled.button`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 400px;
+  width: 100%;
   padding: var(--spacing-2);
   gap: var(--spacing-2);
   border-radius: var(--corner-default);

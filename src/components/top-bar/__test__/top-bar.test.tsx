@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { TopBar } from '../top-bar'
 import { Icon } from '../../icon'
 import { NavItem } from '../../nav'
-import { ContainerQuery } from '../../container-query/container-query'
+import { CSSContainerQuery } from '../../container-query/container-query'
 import { Menu } from '../../menu'
 import { NavDropdownButton } from '../../nav-dropdown-button'
 import { NavIconItem } from '../../nav-icon-item'
@@ -18,7 +18,7 @@ describe('TopBar Snapshot', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <TopBar>
-        <TopBar.MainNavigations
+        <TopBar.MainNav
           style={{
             containerName: 'main-nav',
             containerType: 'inline-size',
@@ -26,10 +26,10 @@ describe('TopBar Snapshot', () => {
         >
           <NavItem href="/">Button 1</NavItem>
 
-          <ContainerQuery conditions={'(width < 1000px)'} containerName="main-nav">
+          <CSSContainerQuery conditions={'(width < 1000px)'} containerName="main-nav">
             <NavItem href="/">Button 2</NavItem>
-          </ContainerQuery>
-          <ContainerQuery not conditions={'(width < 1000px)'} containerName="main-nav">
+          </CSSContainerQuery>
+          <CSSContainerQuery not conditions={'(width < 1000px)'} containerName="main-nav">
             <Menu>
               <Menu.Trigger>
                 {({ getTriggerProps }) => <NavDropdownButton {...getTriggerProps()}>More</NavDropdownButton>}
@@ -40,19 +40,19 @@ describe('TopBar Snapshot', () => {
                 </Menu.List>
               </Menu.Popover>
             </Menu>
-          </ContainerQuery>
-        </TopBar.MainNavigations>
-        <TopBar.SearchContainer>
+          </CSSContainerQuery>
+        </TopBar.MainNav>
+        <TopBar.Search>
           <NavIconItem icon={<Icon icon="search" />} aria-label="nav-icon-item-example" />
           <NavSearchButton />
-        </TopBar.SearchContainer>
+        </TopBar.Search>
 
-        <TopBar.SecondaryNavigations>
+        <TopBar.SecondaryNav>
           <NavIconItem aria-label="example" icon={<Icon icon="star" />} />
-        </TopBar.SecondaryNavigations>
-        <TopBar.MenuButtonContainer>
+        </TopBar.SecondaryNav>
+        <TopBar.MobileNav>
           <NavIconItem aria-label="mobile secondary nav trigger" icon={<Icon icon="menu" />} />
-        </TopBar.MenuButtonContainer>
+        </TopBar.MobileNav>
 
         <AvatarButton className={elTopBarAvatar} label="AD" />
       </TopBar>,

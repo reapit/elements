@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { ElAvatar } from '../avatar'
 import { AvatarButton, ElAvatarButton } from '../avatar-button'
 import { elIcon } from '../button'
-import { ContainerQuery } from '../container-query/container-query'
+import { CSSContainerQuery } from '../container-query/container-query'
 import { Icon } from '../icon'
 import { Menu } from '../menu'
 import { NavDropdownButton } from '../nav-dropdown-button'
@@ -18,10 +18,10 @@ import {
 import MenuIcon from './icons/menu-icon.svg?react'
 import {
   ElTopBarMainNav,
-  ElTopBarSearchContainer,
+  ElTopBarSearch,
   ElTopBar,
   elTopBarAvatar,
-  ElTopBarMenuButtonContainer,
+  ElTopBarMobileNav,
   ElTopBarSecondaryNav,
 } from './styles'
 import { TopBar } from './top-bar'
@@ -55,7 +55,7 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
             </ElNavItemAnchor>
           </ElTopBarMainNav>
 
-          <ElTopBarSearchContainer>
+          <ElTopBarSearch>
             <NavIconItem icon={<Icon icon="search" />} aria-label="nav-icon-item-example" />
             <ElButtonNavIconItem>
               <Icon icon="search" />
@@ -65,7 +65,7 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
               <ElNavSearchButtonPlaceholder>Search</ElNavSearchButtonPlaceholder>
               <ElNavSearchButtonShortcutText>Ctrl + K</ElNavSearchButtonShortcutText>
             </ElNavSearchButton>
-          </ElTopBarSearchContainer>
+          </ElTopBarSearch>
 
           <ElTopBarSecondaryNav>
             <ElButtonNavIconItem>
@@ -79,11 +79,11 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
             </ElButtonNavIconItem>
           </ElTopBarSecondaryNav>
 
-          <ElTopBarMenuButtonContainer>
+          <ElTopBarMobileNav>
             <ElButtonNavIconItem>
               <MenuIcon className={elIcon} />
             </ElButtonNavIconItem>
-          </ElTopBarMenuButtonContainer>
+          </ElTopBarMobileNav>
 
           <ElAvatarButton className={elTopBarAvatar} aria-label="user navigation menu">
             <ElAvatar data-size="small" data-shape="circle" data-colour="purple">
@@ -99,7 +99,7 @@ export const ReactUsage: StoryObj<typeof TopBar> = {
   render: () => {
     return (
       <TopBar>
-        <TopBar.MainNavigations
+        <TopBar.MainNav
           style={{
             containerName: 'main-nav',
             containerType: 'inline-size',
@@ -109,12 +109,12 @@ export const ReactUsage: StoryObj<typeof TopBar> = {
           <NavItem href="/">Button 2</NavItem>
           <NavItem href="/">Button 3</NavItem>
           <NavItem href="/">Button 4</NavItem>
-          <ContainerQuery conditions={'(width < 1000px)'} containerName="main-nav">
+          <CSSContainerQuery condition={'(width < 1004px)'}>
             <NavItem href="/">Button 5</NavItem>
             <NavItem href="/">Button 6</NavItem>
             <NavItem href="/">Button 7</NavItem>
-          </ContainerQuery>
-          <ContainerQuery not conditions={'(width < 1000px)'} containerName="main-nav">
+          </CSSContainerQuery>
+          <CSSContainerQuery condition={'not (width < 1005px)'}>
             <Menu>
               <Menu.Trigger>
                 {({ getTriggerProps }) => <NavDropdownButton {...getTriggerProps()}>More</NavDropdownButton>}
@@ -127,21 +127,21 @@ export const ReactUsage: StoryObj<typeof TopBar> = {
                 </Menu.List>
               </Menu.Popover>
             </Menu>
-          </ContainerQuery>
-        </TopBar.MainNavigations>
-        <TopBar.SearchContainer>
+          </CSSContainerQuery>
+        </TopBar.MainNav>
+        <TopBar.Search>
           <NavIconItem icon={<Icon icon="search" />} aria-label="nav-icon-item-example" />
           <NavSearchButton />
-        </TopBar.SearchContainer>
+        </TopBar.Search>
 
-        <TopBar.SecondaryNavigations>
+        <TopBar.SecondaryNav>
           <NavIconItem aria-label="example" icon={<Icon icon="star" />} />
           <NavIconItem aria-label="example" icon={<Icon icon="star" />} />
           <NavIconItem aria-label="example" icon={<Icon icon="star" />} />
-        </TopBar.SecondaryNavigations>
-        <TopBar.MenuButtonContainer>
+        </TopBar.SecondaryNav>
+        <TopBar.MobileNav>
           <NavIconItem aria-label="mobile secondary nav trigger" icon={<MenuIcon className={elIcon} />} />
-        </TopBar.MenuButtonContainer>
+        </TopBar.MobileNav>
 
         <AvatarButton className={elTopBarAvatar} label="AD" />
       </TopBar>

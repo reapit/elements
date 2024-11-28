@@ -6,17 +6,15 @@ import { ElNavSearchButton } from '../nav-search-button/styles'
 import { ElButtonNavIconItem } from '../nav-icon-item'
 
 export const elTopBarAvatar = css`
-  display: flex;
   padding: var(--spacing-1, 4px) var(--spacing-none, 0px);
   padding-left: var(--spacing-2, 8px);
-  align-items: center;
-  gap: 10px;
 `
 
 export const ElTopBarMainNav = styled(ElButtonGroup)`
   display: flex;
-  padding: var(--spacing-1, 4px) var(--spacing-none, 0px) var(--spacing-1, 4px) var(--spacing-6, 24px);
-  align-items: flex-start;
+  flex-direction: row;
+  align-items: center;
+  padding-left: var(--spacing-6, 24px);
   flex-grow: 1;
 `
 
@@ -26,19 +24,15 @@ export const ElTopBarSecondaryNav = styled(ElButtonGroup)`
 
 export const ElTopBar = styled.div`
   display: flex;
+  justify-content: flex-end; /* can remove this once brand/logo added */
+  align-items: center;
   height: var(--size-10, 56px);
   padding: var(--spacing-2, 8px) var(--spacing-5, 20px);
-  justify-content: space-between;
-  align-items: center;
-  flex-shrink: 0;
   border-bottom: var(--border-default, 1px) solid var(--outline-default, #e5e9ed);
   background: var(--fill-white, #fff);
 
   ${isDesktopOrBelow} {
     padding: var(--spacing-2, 8px) var(--spacing-4, 16px);
-
-    // TODO: need to be adjusted once AppSwitcher and Brand/Logo included
-    justify-content: flex-end;
 
     ${ElTopBarMainNav}, ${ElTopBarSecondaryNav} {
       display: none;
@@ -52,13 +46,12 @@ export const ElTopBar = styled.div`
   }
 `
 
-export const ElTopBarSearchContainer = styled.div`
+export const ElTopBarSearch = styled.div`
   padding: var(--spacing-1, 4px) var(--spacing-4, 16px) var(--spacing-1, 4px) var(--spacing-none, 0px);
-  ${ElNavSearchButton} {
-    width: 216px;
-  }
+  width: 216px;
 
   ${isMobile} {
+    width: auto;
     padding-right: var(--spacing-spacing-2, 8px);
 
     ${ElNavSearchButton} {
@@ -75,13 +68,10 @@ export const ElTopBarSearchContainer = styled.div`
   }
 `
 
-export const ElTopBarMenuButtonContainer = styled.div`
+export const ElTopBarMobileNav = styled.div`
   display: none;
 
   ${isDesktopOrBelow} {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: var(--spacing-none, 0px);
+    display: inline-block;
   }
 `

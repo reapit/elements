@@ -7,7 +7,7 @@ exports[`ContainerQuery > renders correctly and matches snapshot 1`] = `
          .el-container-query-1 {
           display: contents;
 
-          @container main-container not (max-width: 600px)  {
+          @container (max-width: 600px)  {
             display: none;
           }
       }
