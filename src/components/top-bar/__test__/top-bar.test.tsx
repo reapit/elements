@@ -26,10 +26,10 @@ describe('TopBar Snapshot', () => {
         >
           <NavItem href="/">Button 1</NavItem>
 
-          <CSSContainerQuery conditions={'(width < 1000px)'} containerName="main-nav">
+          <CSSContainerQuery condition={'(width < 1000px)'}>
             <NavItem href="/">Button 2</NavItem>
           </CSSContainerQuery>
-          <CSSContainerQuery not conditions={'(width < 1000px)'} containerName="main-nav">
+          <CSSContainerQuery condition={'not (width < 1000px)'}>
             <Menu>
               <Menu.Trigger>
                 {({ getTriggerProps }) => <NavDropdownButton {...getTriggerProps()}>More</NavDropdownButton>}

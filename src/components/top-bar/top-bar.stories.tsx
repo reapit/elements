@@ -31,6 +31,7 @@ export default {
   component: TopBar,
 } as Meta<typeof TopBar>
 
+// TODO: create mdx file once all settled
 // TODO: add example for main nav with menu usage
 export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
   render: () => {
