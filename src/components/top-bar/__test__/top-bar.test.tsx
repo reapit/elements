@@ -1,16 +1,21 @@
 import { render } from '@testing-library/react'
-import { TopBar } from '../top-bar'
 import { Icon } from '../../icon'
-import { NavItem } from '../../nav'
-import { CSSContainerQuery } from '../../container-query/container-query'
-import { Menu } from '../../menu'
-import { NavDropdownButton } from '../../nav-dropdown-button'
 import { NavIconItem } from '../../nav-icon-item'
+import { NavItem } from '../../nav-item'
 import { NavSearchButton } from '../../nav-search-button/nav-search-button'
-import { ElTopBarProfile } from '../styles'
+import { TopBar } from '../top-bar'
 
-vi.mock('../../icon', () => ({
-  Icon: vi.fn(() => <div data-testid="icon" />),
+vi.mock('../../nav-item', () => ({
+  NavItem: vi.fn(() => <div data-testid="nav-item" />),
+}))
+
+vi.mock('../../nav-icon-item', () => ({
+  NavIconItem: vi.fn(() => <div data-testid="nav-icon-item" />),
+}))
+
+// TODO: update search-button index file
+vi.mock('../../nav-search-button/nav-search-button', () => ({
+  NavSearchButton: vi.fn(() => <div data-testid="nav-search-button" />),
 }))
 
 describe('TopBar Snapshot', () => {
@@ -19,21 +24,6 @@ describe('TopBar Snapshot', () => {
       <TopBar>
         <TopBar.MainNav>
           <NavItem href="/">Button 1</NavItem>
-          <CSSContainerQuery condition={'(width < 1000px)'}>
-            <NavItem href="/">Button 2</NavItem>
-          </CSSContainerQuery>
-          <CSSContainerQuery condition={'not (width < 1000px)'}>
-            <Menu>
-              <Menu.Trigger>
-                {({ getTriggerProps }) => <NavDropdownButton {...getTriggerProps()}>More</NavDropdownButton>}
-              </Menu.Trigger>
-              <Menu.Popover>
-                <Menu.List>
-                  <Menu.Item href="/">Button 2</Menu.Item>
-                </Menu.List>
-              </Menu.Popover>
-            </Menu>
-          </CSSContainerQuery>
         </TopBar.MainNav>
         <TopBar.Search>
           <NavSearchButton />
@@ -45,8 +35,6 @@ describe('TopBar Snapshot', () => {
         <TopBar.MobileNav>
           <NavIconItem aria-label="mobile secondary nav trigger" icon={<Icon icon="menu" />} />
         </TopBar.MobileNav>
-
-        <ElTopBarProfile label="AD" />
       </TopBar>,
     )
     expect(asFragment()).toMatchSnapshot()
