@@ -42,7 +42,6 @@ export default meta
 export const Default = {
   args: {
     children: 'Button',
-    'aria-label': 'Button aria label',
   },
 }
 
