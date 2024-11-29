@@ -1,11 +1,9 @@
 import { styled } from '@linaria/react'
 import { isDesktop, isDesktopOrBelow, isTablet, isTabletOrBelow } from '../../styles/media'
 import { ElButtonGroup } from '../button-group'
-import { AvatarButton } from '../avatar-button'
 
-export const ElTopBarProfile = styled(AvatarButton)`
+export const ElTopBarProfile = styled.div`
   padding: var(--spacing-1, 4px) var(--spacing-none, 0px);
-  padding-left: var(--spacing-2, 8px);
 `
 
 export const ElTopBarMainNav = styled(ElButtonGroup)`
@@ -18,6 +16,7 @@ export const ElTopBarMainNav = styled(ElButtonGroup)`
 
 export const ElTopBarSecondaryNav = styled(ElButtonGroup)`
   flex-wrap: nowrap;
+  padding-right: var(--spacing-spacing-2, 8px);
 `
 
 export const ElTopBar = styled.div`
@@ -46,6 +45,7 @@ export const ElTopBar = styled.div`
 
 export const ElTopBarSearch = styled.div`
   padding-right: var(--spacing-spacing-2, 8px);
+
   ${isTablet} {
     width: 216px;
     padding: var(--spacing-1, 4px) var(--spacing-4, 16px) var(--spacing-1, 4px) var(--spacing-none, 0px);
@@ -54,6 +54,8 @@ export const ElTopBarSearch = styled.div`
 
 export const ElTopBarMobileNav = styled.div`
   display: inline-block;
+  padding-right: var(--spacing-spacing-2, 8px);
+
   ${isDesktop} {
     display: none;
   }

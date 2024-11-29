@@ -1,5 +1,5 @@
 import type { FC, HTMLAttributes } from 'react'
-import { ElTopBarSearch, ElTopBar, ElTopBarMobileNav, ElTopBarSecondaryNav } from './styles'
+import { ElTopBarSearch, ElTopBar, ElTopBarMobileNav, ElTopBarSecondaryNav, ElTopBarProfile } from './styles'
 import { TopBarMainNav } from './top-bar.atoms'
 
 const TopBar: FC<HTMLAttributes<HTMLDivElement>> & {
@@ -7,6 +7,7 @@ const TopBar: FC<HTMLAttributes<HTMLDivElement>> & {
   SecondaryNav: typeof ElTopBarSecondaryNav
   Search: typeof ElTopBarSearch
   MobileNav: typeof ElTopBarMobileNav
+  Profile: typeof ElTopBarProfile
 } = ({ children, ...props }) => {
   return (
     <nav>
@@ -19,5 +20,6 @@ TopBar.MainNav = TopBarMainNav
 TopBar.SecondaryNav = ElTopBarSecondaryNav
 TopBar.Search = ElTopBarSearch
 TopBar.MobileNav = ElTopBarMobileNav
+TopBar.Profile = ElTopBarProfile
 
 export { TopBar }

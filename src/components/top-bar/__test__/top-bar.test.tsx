@@ -4,6 +4,11 @@ import { NavIconItem } from '../../nav-icon-item'
 import { NavItem } from '../../nav-item'
 import { NavSearchButton } from '../../nav-search-button/nav-search-button'
 import { TopBar } from '../top-bar'
+import { AvatarButton } from '../../avatar-button'
+
+vi.mock('../../avatar-button', () => ({
+  AvatarButton: vi.fn(() => <div data-testid="avatar-button" />),
+}))
 
 vi.mock('../../nav-item', () => ({
   NavItem: vi.fn(() => <div data-testid="nav-item" />),
@@ -35,6 +40,9 @@ describe('TopBar Snapshot', () => {
         <TopBar.MobileNav>
           <NavIconItem aria-label="mobile secondary nav trigger" icon={<Icon icon="menu" />} />
         </TopBar.MobileNav>
+        <TopBar.Profile>
+          <AvatarButton label="AD" />
+        </TopBar.Profile>
       </TopBar>,
     )
     expect(asFragment()).toMatchSnapshot()

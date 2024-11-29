@@ -4,10 +4,10 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
 <DocumentFragment>
   <nav>
     <div
-      class="mocked-styled-7 el-top-bar"
+      class="mocked-styled-5 el-top-bar"
     >
       <div
-        class="mocked-styled-5 el-button-group el-top-bar-main-nav el-button-group"
+        class="mocked-styled-3 el-button-group el-top-bar-main-nav el-button-group"
         style="container-type: inline-size;"
       >
         <div
@@ -15,24 +15,31 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
         />
       </div>
       <div
-        class="mocked-styled-8 el-top-bar-search"
+        class="mocked-styled-6 el-top-bar-search"
       >
         <div
           data-testid="nav-search-button"
         />
       </div>
       <div
-        class="mocked-styled-6 el-button-group el-top-bar-secondary-nav el-button-group"
+        class="mocked-styled-4 el-button-group el-top-bar-secondary-nav el-button-group"
       >
         <div
           data-testid="nav-icon-item"
         />
       </div>
       <div
-        class="mocked-styled-9 el-top-bar-mobile-nav"
+        class="mocked-styled-7 el-top-bar-mobile-nav"
       >
         <div
           data-testid="nav-icon-item"
+        />
+      </div>
+      <div
+        class="mocked-styled-2 el-top-bar-profile"
+      >
+        <div
+          data-testid="avatar-button"
         />
       </div>
     </div>

@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { ElAvatar } from '../avatar'
-import { ElAvatarButton } from '../avatar-button'
+import { AvatarButton, ElAvatarButton } from '../avatar-button'
 import { elIcon } from '../button'
 import { CSSContainerQuery } from '../container-query/container-query'
 import { Icon } from '../icon'
@@ -26,6 +26,7 @@ import {
   ElTopBarProfile,
 } from './styles'
 import { TopBar } from './top-bar'
+import AvatarButtonStories from '../avatar-button/avatar-button.stories'
 
 export default {
   title: 'Components/Top bar',
@@ -89,11 +90,13 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
             </ElButtonNavIconItem>
           </ElTopBarMobileNav>
 
-          <ElAvatarButton className="el-top-bar-profile" aria-label="user navigation menu">
-            <ElAvatar data-size="small" data-shape="circle" data-colour="purple">
-              AD
-            </ElAvatar>
-          </ElAvatarButton>
+          <ElTopBarProfile>
+            <ElAvatarButton aria-label="user navigation menu">
+              <ElAvatar data-size="small" data-shape="circle" data-colour="purple">
+                AD
+              </ElAvatar>
+            </ElAvatarButton>
+          </ElTopBarProfile>
         </ElTopBar>
       </nav>
     )
@@ -141,7 +144,9 @@ export const ReactUsage: StoryObj<typeof TopBar> = {
           <NavIconItem aria-label="mobile secondary nav trigger" icon={<MenuIcon className={elIcon} />} />
         </TopBar.MobileNav>
 
-        <ElTopBarProfile label="AD" />
+        <TopBar.Profile>
+          <AvatarButton label="AD" />
+        </TopBar.Profile>
       </TopBar>
     )
   },
