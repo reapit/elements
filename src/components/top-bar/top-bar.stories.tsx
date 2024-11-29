@@ -26,7 +26,6 @@ import {
   ElTopBarProfile,
 } from './styles'
 import { TopBar } from './top-bar'
-import AvatarButtonStories from '../avatar-button/avatar-button.stories'
 
 export default {
   title: 'Components/Top bar',
