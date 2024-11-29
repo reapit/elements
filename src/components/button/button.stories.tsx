@@ -40,7 +40,10 @@ const meta: Meta<typeof Button> = {
 export default meta
 
 export const Default = {
-  render: ({}) => <Button>Button</Button>,
+  args: {
+    children: 'Button',
+    'aria-label': 'Button aria label',
+  },
 }
 
 export const ButtonVariants = {
