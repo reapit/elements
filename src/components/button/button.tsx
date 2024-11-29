@@ -121,8 +121,7 @@ export const Button: FC<ButtonProps> = ({
         data-variant={variant}
         className={combinedClassName}
         onClick={(e) => {
-          e.preventDefault()
-          handleButtonClick(onClick)
+          handleButtonClick(onClick)(e)
         }}
         aria-label={ariaLabel}
         role="button"
@@ -141,7 +140,13 @@ export const Button: FC<ButtonProps> = ({
       <ElButton
         data-variant={variant}
         className={combinedClassName}
-        onClick={handleButtonClick(onClick)}
+        onClick={(e) => {
+          if (!disabled) {
+            handleButtonClick(onClick)(e)
+          } else {
+            e.preventDefault() // Explicitly prevent default if disabled
+          }
+        }}
         aria-label={ariaLabel}
         aria-disabled={disabled}
         role="button"

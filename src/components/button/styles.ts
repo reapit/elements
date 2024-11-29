@@ -8,6 +8,7 @@ export const elButtonSizeLarge = css``
 
 export const elButtonLabel = css``
 export const elIcon = css``
+export const elButtonIconOnly = css``
 export const elButtonSpinner = css``
 
 /** @deprecated - Will be removed from future version */
@@ -70,10 +71,23 @@ const baseButtonStyles = `
     }
   }
 
+  &.${elButtonIconOnly} {
+    padding: var(--spacing-2);
+    .${elButtonSpinner} {
+      margin: 0 0.125rem;
+    }
+  }
+
   &.${elButtonSizeSmall} {
     padding: var(--spacing-1) var(--spacing-3);
     .${elButtonLabel} {
       padding: var(--spacing-half)
+    }
+    &.${elButtonIconOnly} {
+      padding: var(--spacing-1);
+      .${elIcon} {
+          padding: var(--spacing-1);
+      }
     }
   }
 
@@ -243,13 +257,6 @@ export const ElButton = styled.button`
 // Apply shared styles to anchor component
 export const ElAnchorButton = styled.a`
   ${baseButtonStyles}
-`
-
-export const elButtonIconOnly = css`
-  padding: var(--spacing-2);
-  ${ElButtonSpinner} {
-    margin: 0 0.125rem;
-  }
 `
 
 /** @deprecated **/
