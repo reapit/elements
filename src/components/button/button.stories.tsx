@@ -40,7 +40,9 @@ const meta: Meta<typeof Button> = {
 export default meta
 
 export const Default = {
-  render: ({}) => <Button>Button</Button>,
+  args: {
+    children: 'Button',
+  },
 }
 
 export const ButtonVariants = {
