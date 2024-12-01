@@ -6,7 +6,6 @@ exports[`NavSearchButton > render without shortcut and match snapshot 1`] = `
     class="mocked-styled-1 el-nav-search-button-container"
   >
     <button
-      aria-label="nav-icon-item-example"
       class="mocked-styled-6 el-button-nav-icon-item"
     >
       <span
@@ -61,7 +60,6 @@ exports[`NavSearchButton > should match snapshot 1`] = `
     class="mocked-styled-1 el-nav-search-button-container"
   >
     <button
-      aria-label="nav-icon-item-example"
       class="mocked-styled-6 el-button-nav-icon-item"
     >
       <span
