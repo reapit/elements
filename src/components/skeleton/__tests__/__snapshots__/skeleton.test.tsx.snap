@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Skeleton > should match snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="mocked-styled-0 el-skeleton"
+    style="height: 1rem; width: 10rem;"
+  />
+</DocumentFragment>
+`;
+
+exports[`Skeleton > should match snapshot with height, width and borderRadius 1`] = `
+<DocumentFragment>
+  <span
+    class="mocked-styled-0 el-skeleton"
+    style="height: 3rem; width: 3rem; border-radius: 100%;"
+  />
+</DocumentFragment>
+`;
