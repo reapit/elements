@@ -29,7 +29,6 @@ describe('TopBar Snapshot', () => {
         <TopBar.Logo>
           <ReapitLogo />
         </TopBar.Logo>
-        ,
         <TopBar.MainNav>
           <NavItem href="/">Button 1</NavItem>
         </TopBar.MainNav>

@@ -59,7 +59,6 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
           />
         </svg>
       </a>
-      ,
       <div
         class="mocked-styled-4 el-button-group el-top-bar-main-nav el-button-group"
       >
