@@ -4,16 +4,20 @@ exports[`BottomBarItem > should render the component as HTMLAnchorElement with a
 <DocumentFragment>
   <a
     aria-current="page"
-    class="mocked-styled-3 el-anchor-bottom-bar-item-container"
+    class="mocked-styled-4 el-anchor-bottom-bar-item-container"
     href="#"
   >
     <div
-      class="mocked-styled-0 el-bottom-bar-item-icon"
-      role="presentation"
+      class="mocked-styled-2 el-bottom-bar-item-icon-content"
     >
-      <span>
-        icon
-      </span>
+      <div
+        class="mocked-styled-0 el-bottom-bar-item-icon"
+        role="presentation"
+      >
+        <span>
+          icon
+        </span>
+      </div>
     </div>
     <span
       class="mocked-styled-1 el-bottom-bar-item-label"
@@ -27,16 +31,20 @@ exports[`BottomBarItem > should render the component as HTMLAnchorElement with a
 exports[`BottomBarItem > should render the component as HTMLAnchorElement with default state 1`] = `
 <DocumentFragment>
   <a
-    class="mocked-styled-3 el-anchor-bottom-bar-item-container"
+    class="mocked-styled-4 el-anchor-bottom-bar-item-container"
     href="#"
   >
     <div
-      class="mocked-styled-0 el-bottom-bar-item-icon"
-      role="presentation"
+      class="mocked-styled-2 el-bottom-bar-item-icon-content"
     >
-      <span>
-        icon
-      </span>
+      <div
+        class="mocked-styled-0 el-bottom-bar-item-icon"
+        role="presentation"
+      >
+        <span>
+          icon
+        </span>
+      </div>
     </div>
     <span
       class="mocked-styled-1 el-bottom-bar-item-label"
@@ -51,15 +59,19 @@ exports[`BottomBarItem > should render the component as HTMLButtonElement with a
 <DocumentFragment>
   <button
     aria-current="true"
-    class="mocked-styled-4 el-button-bottom-bar-item-container"
+    class="mocked-styled-5 el-button-bottom-bar-item-container"
   >
     <div
-      class="mocked-styled-0 el-bottom-bar-item-icon"
-      role="presentation"
+      class="mocked-styled-2 el-bottom-bar-item-icon-content"
     >
-      <span>
-        icon
-      </span>
+      <div
+        class="mocked-styled-0 el-bottom-bar-item-icon"
+        role="presentation"
+      >
+        <span>
+          icon
+        </span>
+      </div>
     </div>
     <span
       class="mocked-styled-1 el-bottom-bar-item-label"
@@ -74,24 +86,28 @@ exports[`BottomBarItem > should render the component as HTMLButtonElement with b
 <DocumentFragment>
   <button
     aria-current="true"
-    class="mocked-styled-4 el-button-bottom-bar-item-container"
+    class="mocked-styled-5 el-button-bottom-bar-item-container"
   >
     <div
-      class="mocked-styled-0 el-bottom-bar-item-icon"
-      role="presentation"
+      class="mocked-styled-2 el-bottom-bar-item-icon-content"
     >
-      <span>
-        icon
-      </span>
+      <div
+        class="mocked-styled-0 el-bottom-bar-item-icon"
+        role="presentation"
+      >
+        <span>
+          icon
+        </span>
+      </div>
+      <span
+        class="mocked-styled-3 el-bottom-bar-item-badge"
+      />
     </div>
     <span
       class="mocked-styled-1 el-bottom-bar-item-label"
     >
       Label
     </span>
-    <span
-      class="mocked-styled-2 el-bottom-bar-item-badge"
-    />
   </button>
 </DocumentFragment>
 `;
@@ -100,15 +116,19 @@ exports[`BottomBarItem > should render the component as HTMLButtonElement with d
 <DocumentFragment>
   <button
     aria-current="true"
-    class="mocked-styled-4 el-button-bottom-bar-item-container"
+    class="mocked-styled-5 el-button-bottom-bar-item-container"
   >
     <div
-      class="mocked-styled-0 el-bottom-bar-item-icon"
-      role="presentation"
+      class="mocked-styled-2 el-bottom-bar-item-icon-content"
     >
-      <span>
-        icon
-      </span>
+      <div
+        class="mocked-styled-0 el-bottom-bar-item-icon"
+        role="presentation"
+      >
+        <span>
+          icon
+        </span>
+      </div>
     </div>
     <span
       class="mocked-styled-1 el-bottom-bar-item-label"

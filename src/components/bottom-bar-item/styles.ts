@@ -12,7 +12,7 @@ export const ElBottomBarItemLabel = styled.span`
   color: inherit;
   text-align: center;
   font-family: var(--font-family, Inter);
-  font-size: var(--font-size-2xs, 12px);
+  font-size: var(--font-size-3xs, 10px);
   font-style: normal;
   font-weight: var(--font-weight-regular, Regular);
   line-height: var(--line-height-3xs, 12px);
@@ -31,6 +31,7 @@ const baseStyles = `
   align-items: center;
   gap: var(--space-half, 2px);
   position: relative;
+   flex: 1 0 0;
 
   color: var(--icon-secondary, #607890);
 
@@ -39,10 +40,14 @@ const baseStyles = `
   }
 `
 
+export const ElBottomBarItemIconContent = styled.div`
+  position: relative;
+`
+
 export const ElBottomBarItemBadge = styled.span`
   position: absolute;
-  top: 1px;
-  right: 6px;
+  top: 0px;
+  right: 0px;
   width: var(--size-2, 8px);
   height: var(--size-2, 8px);
   background-color: var(--icon-error, #f01830);

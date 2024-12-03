@@ -8,6 +8,7 @@ import {
   ElAnchorBottomBarItemContainer,
   ElBottomBarItemBadge,
   ElBottomBarItemIcon,
+  ElBottomBarItemIconContent,
   ElBottomBarItemLabel,
   ElButtonBottomBarItemContainer,
 } from './styles'
@@ -86,17 +87,23 @@ export const StyleAnchorUsage: Story = {
     return (
       <FlexContainer>
         <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mr5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          <ElBottomBarItemIconContent>
+            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          </ElBottomBarItemIconContent>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElAnchorBottomBarItemContainer>
 
         <ElAnchorBottomBarItemContainer href={args.href} aria-current="page" className="el-mx5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          <ElBottomBarItemIconContent>
+            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          </ElBottomBarItemIconContent>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElAnchorBottomBarItemContainer>
 
         <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mx5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          <ElBottomBarItemIconContent>
+            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          </ElBottomBarItemIconContent>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
           <ElBottomBarItemBadge role="status" />
         </ElAnchorBottomBarItemContainer>
@@ -114,19 +121,25 @@ export const StyleButtonUsage: Story = {
     return (
       <FlexContainer>
         <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mr5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          <ElBottomBarItemIconContent>
+            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          </ElBottomBarItemIconContent>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElButtonBottomBarItemContainer>
 
         <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current="true" className="el-mx5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          <ElBottomBarItemIconContent>
+            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          </ElBottomBarItemIconContent>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElButtonBottomBarItemContainer>
 
         <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mx5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          <ElBottomBarItemIconContent>
+            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+            <ElBottomBarItemBadge role="status" />
+          </ElBottomBarItemIconContent>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
-          <ElBottomBarItemBadge role="status" />
         </ElButtonBottomBarItemContainer>
       </FlexContainer>
     )

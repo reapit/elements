@@ -3,6 +3,7 @@ import {
   ElAnchorBottomBarItemContainer,
   ElBottomBarItemBadge,
   ElBottomBarItemIcon,
+  ElBottomBarItemIconContent,
   ElBottomBarItemLabel,
   ElButtonBottomBarItemContainer,
 } from './styles'
@@ -68,9 +69,11 @@ export const BottomBarItem: FC<BottomBarItemProps> = (props) => {
 
     return (
       <ElButtonBottomBarItemContainer {...rest} aria-current={isActive ? 'true' : undefined}>
-        <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
+        <ElBottomBarItemIconContent>
+          <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
+          {hasBadge && <ElBottomBarItemBadge />}
+        </ElBottomBarItemIconContent>
         <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
-        {hasBadge && <ElBottomBarItemBadge />}
       </ElButtonBottomBarItemContainer>
     )
   } else {
@@ -78,9 +81,11 @@ export const BottomBarItem: FC<BottomBarItemProps> = (props) => {
 
     return (
       <ElAnchorBottomBarItemContainer {...rest} aria-current={isActive ? 'page' : undefined}>
-        <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
+        <ElBottomBarItemIconContent>
+          <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
+          {hasBadge && <ElBottomBarItemBadge />}
+        </ElBottomBarItemIconContent>
         <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
-        {hasBadge && <ElBottomBarItemBadge />}
       </ElAnchorBottomBarItemContainer>
     )
   }
