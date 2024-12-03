@@ -1,4 +1,4 @@
-import { type FC, useLayoutEffect, useRef, useState } from 'react'
+import { type FC, type HTMLAttributes, useLayoutEffect, useRef, useState } from 'react'
 import { useClickOutside } from '../../hooks/use-click-outside'
 import { useMenuContext } from './menu-context'
 import { ElMenuPopover } from './styles'
@@ -22,14 +22,16 @@ export const calculatePopoverPosition = (
   }
 }
 
-export const MenuPopover: FC<{
-  /**
-   * Optional parameter to adjust the vertical position of the popover
-   *
-   * @default 4 // confirmed by design team to use var(--spacing-1) initially
-   */
-  yOffset?: number
-}> = ({ children, yOffset = 4 }) => {
+export const MenuPopover: FC<
+  {
+    /**
+     * Optional parameter to adjust the vertical position of the popover
+     *
+     * @default 4 // confirmed by design team to use var(--spacing-1) initially
+     */
+    yOffset?: number
+  } & HTMLAttributes<HTMLDivElement>
+> = ({ children, yOffset = 4, ...props }) => {
   const { isOpen, closeMenu, getPopoverProps } = useMenuContext()
   const popoverRef = useRef<HTMLDivElement>(null)
 
@@ -55,7 +57,7 @@ export const MenuPopover: FC<{
   }
 
   return (
-    <ElMenuPopover style={popoverStyle} ref={popoverRef} {...getPopoverProps()} onClick={handleClick}>
+    <ElMenuPopover style={popoverStyle} ref={popoverRef} {...getPopoverProps()} onClick={handleClick} {...props}>
       {children}
     </ElMenuPopover>
   )

@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react'
 import { isDesktop, isDesktopOrBelow, isTablet, isTabletOrBelow } from '../../styles/media'
 import { ElButtonGroup } from '../button-group'
+import { css } from '@linaria/core'
 
 export const ElTopBarProfile = styled.div`
   padding: var(--spacing-1, 4px) var(--spacing-none, 0px);
@@ -21,7 +22,7 @@ export const ElTopBarSecondaryNav = styled(ElButtonGroup)`
 
 export const ElTopBar = styled.div`
   display: flex;
-  justify-content: flex-end; /* can remove this once brand/logo added */
+  justify-content: flex-end;
   align-items: center;
   height: var(--size-10, 56px);
   padding: var(--spacing-2, 8px) var(--spacing-5, 20px);
@@ -59,4 +60,10 @@ export const ElTopBarMobileNav = styled.div`
   ${isDesktop} {
     display: none;
   }
+`
+
+export const elTopBarMenuPopover = css`
+  // To adjust the menu popover's Y offset so it appears below the top bar instead of directly below the button.
+  // The "important" rule is used to override the Menu's auto-anchor yOffset.
+  top: 44px !important;
 `

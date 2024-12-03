@@ -4,8 +4,8 @@ import { AvatarButton, ElAvatarButton } from '../avatar-button'
 import { elIcon } from '../button'
 import { CSSContainerQuery } from '../container-query/container-query'
 import { Icon } from '../icon'
-import { Menu } from '../menu'
-import { NavDropdownButton } from '../nav-dropdown-button'
+import { ElMenu, ElMenuItemAnchor, ElMenuItemButton, ElMenuList, ElMenuPopover, Menu } from '../menu'
+import { ElNavDropdownButton, NavDropdownButton } from '../nav-dropdown-button'
 import { ElButtonNavIconItem, NavIconItem } from '../nav-icon-item'
 import { ElNavItemAnchor, ElNavItemLabelContainer, NavItem } from '../nav-item'
 import { NavSearchButton } from '../nav-search-button/nav-search-button'
@@ -24,16 +24,16 @@ import {
   ElTopBarMobileNav,
   ElTopBarSecondaryNav,
   ElTopBarProfile,
+  elTopBarMenuPopover,
 } from './styles'
 import { TopBar } from './top-bar'
+import { figmaDesignUrls } from '#src/storybook/figma/index'
 
 export default {
   title: 'Components/Top bar',
   component: TopBar,
 } as Meta<typeof TopBar>
 
-// TODO: create mdx file once all settled
-// TODO: add example for main nav with menu usage
 export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
   render: () => {
     return (
@@ -52,9 +52,21 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
             <ElNavItemAnchor href="#">
               <ElNavItemLabelContainer>Button 4</ElNavItemLabelContainer>
             </ElNavItemAnchor>
-            <ElNavItemAnchor href="#">
-              <ElNavItemLabelContainer>Button 5</ElNavItemLabelContainer>
-            </ElNavItemAnchor>
+            <ElMenu>
+              <ElNavDropdownButton aria-haspopup="true" aria-expanded="true" role="button" type="button">
+                More
+                <Icon icon={'chevronUp'} intent="default" fontSize="1rem" />
+              </ElNavDropdownButton>
+              <ElMenuPopover className={elTopBarMenuPopover}>
+                <ElMenuList>
+                  <ElMenuItemButton role="menuitem">Button 5</ElMenuItemButton>
+                  <ElMenuItemButton role="menuitem">Button 6</ElMenuItemButton>
+                  <ElMenuItemAnchor href="/#" role="menuitem">
+                    Button 7
+                  </ElMenuItemAnchor>
+                </ElMenuList>
+              </ElMenuPopover>
+            </ElMenu>
           </ElTopBarMainNav>
 
           <ElTopBarSearch>
@@ -74,7 +86,6 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
             <ElButtonNavIconItem>
               <Icon icon="star" aria-label="secondary nav item example" />
             </ElButtonNavIconItem>
-
             <ElButtonNavIconItem>
               <Icon icon="star" aria-label="secondary nav item example" />
             </ElButtonNavIconItem>
@@ -100,6 +111,12 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
       </nav>
     )
   },
+  parameters: {
+    design: {
+      type: 'figma',
+      url: figmaDesignUrls.appBar,
+    },
+  },
 }
 export const ReactUsage: StoryObj<typeof TopBar> = {
   render: () => {
@@ -118,9 +135,13 @@ export const ReactUsage: StoryObj<typeof TopBar> = {
           <CSSContainerQuery condition={'not (width < 1005px)'}>
             <Menu>
               <Menu.Trigger>
-                {({ getTriggerProps }) => <NavDropdownButton {...getTriggerProps()}>More</NavDropdownButton>}
+                {({ getTriggerProps, isOpen }) => (
+                  <NavDropdownButton {...getTriggerProps()} isOpen={isOpen}>
+                    More
+                  </NavDropdownButton>
+                )}
               </Menu.Trigger>
-              <Menu.Popover>
+              <Menu.Popover className={elTopBarMenuPopover}>
                 <Menu.List>
                   <Menu.Item href="/">Button 5</Menu.Item>
                   <Menu.Item href="/">Button 6</Menu.Item>
@@ -148,5 +169,13 @@ export const ReactUsage: StoryObj<typeof TopBar> = {
         </TopBar.Profile>
       </TopBar>
     )
+  },
+
+  parameters: {
+    design: {
+      type: 'figma',
+      url: figmaDesignUrls.appBar,
+      allowFullscreen: true,
+    },
   },
 }

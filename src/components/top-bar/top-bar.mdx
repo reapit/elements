@@ -1,0 +1,26 @@
+import { Canvas, Controls, Meta } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as TopBarStories from './top-bar.stories'
+import { GuidelinesImage } from '../../storybook/figma'
+
+<Meta of={TopBarStories} />
+
+<GuidelinesImage name="TopBar" />
+
+# TopBar
+
+## Styles Only Usage
+
+To display `TopBar` with vanilla usage, you will need to compose your component using `.el-top-bar, .el-top-bar-main-nav, .el-top-bar-search, .el-top-bar-secondary-nav, and .el-top-bar-profile` classes as the example below.
+
+<Canvas of={TopBarStories.StylesOnlyUsage} />
+
+<RenderHtmlMarkup of={TopBarStories.StylesOnlyUsage} />
+
+## React Usage
+
+In React version, you will need to use `TopBar` compound component to compose the `TopBar` as shown below.
+
+<Canvas of={TopBarStories.ReactUsage} />
+
+<RenderHtmlMarkup of={TopBarStories.ReactUsage} />
