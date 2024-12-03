@@ -57,7 +57,7 @@ export const MenuPopover: FC<
   }
 
   return (
-    <ElMenuPopover style={popoverStyle} ref={popoverRef} {...getPopoverProps()} onClick={handleClick} {...props}>
+    <ElMenuPopover style={popoverStyle} ref={popoverRef} {...props} {...getPopoverProps()} onClick={handleClick}>
       {children}
     </ElMenuPopover>
   )

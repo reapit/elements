@@ -8,7 +8,6 @@ exports[`TopBar Snapshot > should match snapshot 1`] = `
     >
       <div
         class="mocked-styled-3 el-button-group el-top-bar-main-nav el-button-group"
-        style="container-type: inline-size;"
       >
         <div
           data-testid="nav-item"

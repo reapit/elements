@@ -13,11 +13,12 @@ export const ElTopBarMainNav = styled(ElButtonGroup)`
   align-items: center;
   padding-left: var(--spacing-6, 24px);
   flex-grow: 1;
+  container-type: inline-size;
 `
 
 export const ElTopBarSecondaryNav = styled(ElButtonGroup)`
   flex-wrap: nowrap;
-  padding-right: var(--spacing-spacing-2, 8px);
+  padding-right: var(--spacing-2, 8px);
 `
 
 export const ElTopBar = styled.div`
@@ -45,7 +46,7 @@ export const ElTopBar = styled.div`
 `
 
 export const ElTopBarSearch = styled.div`
-  padding-right: var(--spacing-spacing-2, 8px);
+  padding-right: var(--spacing-2, 8px);
 
   ${isTablet} {
     width: 216px;
@@ -55,7 +56,7 @@ export const ElTopBarSearch = styled.div`
 
 export const ElTopBarMobileNav = styled.div`
   display: inline-block;
-  padding-right: var(--spacing-spacing-2, 8px);
+  padding-right: var(--spacing-2, 8px);
 
   ${isDesktop} {
     display: none;
