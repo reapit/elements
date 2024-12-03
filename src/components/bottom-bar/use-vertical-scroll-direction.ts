@@ -8,16 +8,15 @@ type VerticalScrollDirection = {
 
 export const handleChangeScrollDirection = (
   element: HTMLElement,
-  scrollStates: VerticalScrollDirection,
   setScrollStates: Dispatch<SetStateAction<VerticalScrollDirection>>,
 ) => {
   const { scrollTop } = element ?? {}
 
-  setScrollStates({
-    isScrollTop: scrollStates.previousTopPosition > scrollTop,
-    isScrollBottom: scrollStates.previousTopPosition < scrollTop,
+  setScrollStates((state) => ({
+    isScrollTop: state.previousTopPosition > scrollTop,
+    isScrollBottom: state.previousTopPosition < scrollTop,
     previousTopPosition: scrollTop,
-  })
+  }))
 }
 
 /**
@@ -36,7 +35,7 @@ export const useVerticalScrollDirection = (ref: RefObject<HTMLElement> | null): 
       if (!element) return
       const abortController = new AbortController()
 
-      element.addEventListener('scroll', () => handleChangeScrollDirection(element, scrollStates, setScrollStates), {
+      element.addEventListener('scroll', () => handleChangeScrollDirection(element, setScrollStates), {
         signal: abortController.signal,
       })
 

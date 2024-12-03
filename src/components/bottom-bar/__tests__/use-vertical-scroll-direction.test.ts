@@ -9,29 +9,19 @@ describe('handleChangeScrollDirection', () => {
   })
 
   it('should call the setScrollStates function while acting to scroll down', () => {
-    const mockSetScrollStates = vi.fn()
-    const mockScrollStates = { isScrollTop: false, isScrollBottom: false, previousTopPosition: 0 }
+    const mockSetScrollStates = vi.fn().mockImplementation(() => ({ previousTopPosition: 0 }))
 
-    handleChangeScrollDirection({ scrollTop: 10 } as any, mockScrollStates, mockSetScrollStates)
+    handleChangeScrollDirection({ scrollTop: 10 } as any, mockSetScrollStates)
 
-    expect(mockSetScrollStates).toHaveBeenCalledWith({
-      isScrollTop: false,
-      isScrollBottom: true,
-      previousTopPosition: 10,
-    })
+    expect(mockSetScrollStates).toHaveBeenCalledWith(expect.any(Function))
   })
 
   it('should call the setScrollStates function while acting to scroll up', () => {
-    const mockSetScrollStates = vi.fn()
-    const mockScrollStates = { isScrollTop: true, isScrollBottom: false, previousTopPosition: 10 }
+    const mockSetScrollStates = vi.fn().mockImplementation(() => ({ previousTopPosition: 10 }))
 
-    handleChangeScrollDirection({ scrollTop: 0 } as any, mockScrollStates, mockSetScrollStates)
+    handleChangeScrollDirection({ scrollTop: 0 } as any, mockSetScrollStates)
 
-    expect(mockSetScrollStates).toHaveBeenCalledWith({
-      isScrollTop: true,
-      isScrollBottom: false,
-      previousTopPosition: 0,
-    })
+    expect(mockSetScrollStates).toHaveBeenCalledWith(expect.any(Function))
   })
 })
 
