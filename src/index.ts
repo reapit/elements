@@ -56,8 +56,10 @@ export * from './components/breadcrumb'
 export * from './components/menu'
 export * from './components/dialog'
 export * from './components/avatar'
+export * from './components/skeleton'
 export * from './components/table/tableContainer'
 export * from './components/table/tableToolbar'
+
 
 export * from './hooks/use-portal'
 export * from './hooks/use-snack'

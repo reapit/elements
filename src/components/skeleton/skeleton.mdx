@@ -1,0 +1,29 @@
+import { Meta, Canvas, Controls, Description } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as SkeletonStories from './skeleton.stories'
+
+<Meta of={SkeletonStories} />
+
+# Skeleton
+
+<Description of={SkeletonStories.Default} />
+
+<Controls />
+
+## Default
+
+<Canvas of={SkeletonStories.Default} />
+
+<RenderHtmlMarkup of={SkeletonStories.Default} />
+
+## Square Skeleton
+
+<Canvas of={SkeletonStories.SquareSkeleton} />
+
+<RenderHtmlMarkup of={SkeletonStories.SquareSkeleton} />
+
+## Circle Skeleton
+
+<Canvas of={SkeletonStories.CircleSkeleton} />
+
+<RenderHtmlMarkup of={SkeletonStories.CircleSkeleton} />
