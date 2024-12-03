@@ -7,8 +7,8 @@ export const ElBottomBar = styled.div`
   justify-content: center;
   align-items: center;
   align-self: stretch;
-  border-top: var(--border-width-border-default, 1px) solid var(--outline-colour-outline-default, #e5e9ed);
-  background: var(--fill-colour-fill-white, #fff);
+  border-top: var(--border-default, 1px) solid var(--outline-default, #e5e9ed);
+  background: var(--fill-white, #fff);
 
   position: absolute;
   bottom: 0;
