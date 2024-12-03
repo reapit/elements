@@ -40,6 +40,8 @@ const baseNavItemStyle = `
   &:active, &[aria-current="true"], &[aria-current="page"] {
     color: var(--text-colour-text-action, #4e56ea);
   }
+
+  white-space: nowrap
 `
 
 export const ElNavItemButton = styled.button`

@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ContainerQuery > renders correctly and matches snapshot 1`] = `
+<DocumentFragment>
+  <style>
+    
+         .el-container-query-1 {
+          display: contents;
+
+          @container (max-width: 600px)  {
+            display: none;
+          }
+      }
+  </style>
+  <div
+    class="el-container-query-1"
+  >
+    <p>
+      Snapshot Test Content
+    </p>
+  </div>
+</DocumentFragment>
+`;

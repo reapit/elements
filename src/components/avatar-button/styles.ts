@@ -5,6 +5,7 @@ export const ElAvatarButton = styled.button`
   cursor: pointer;
   background: none;
   border: none;
+  padding: 0;
 
   &:focus-visible {
     background: #fff;
