@@ -1,11 +1,3 @@
-import { ElTopBarLogo } from './styles'
-
-const TopBar: {
-  Logo: typeof ElTopBarLogo
-} = {
-  Logo: ElTopBarLogo,
-}
-
 import type { FC, HTMLAttributes } from 'react'
 import {
   ElTopBarSearch,
@@ -14,9 +6,11 @@ import {
   ElTopBarSecondaryNav,
   ElTopBarProfile,
   ElTopBarMainNav,
+  ElTopBarLogo,
 } from './styles'
 
 const TopBar: FC<HTMLAttributes<HTMLDivElement>> & {
+  Logo: typeof ElTopBarLogo
   MainNav: typeof ElTopBarMainNav
   SecondaryNav: typeof ElTopBarSecondaryNav
   Search: typeof ElTopBarSearch
@@ -30,6 +24,7 @@ const TopBar: FC<HTMLAttributes<HTMLDivElement>> & {
   )
 }
 
+TopBar.Logo = ElTopBarLogo
 TopBar.MainNav = ElTopBarMainNav
 TopBar.SecondaryNav = ElTopBarSecondaryNav
 TopBar.Search = ElTopBarSearch

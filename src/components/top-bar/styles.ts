@@ -1,10 +1,18 @@
 import { styled } from '@linaria/react'
-
-export const ElTopBarLogo = styled.a`
-  padding: var(--spacing-spacing-2, 8px) var(--spacing-spacing-2, 8px) var(--spacing-spacing-2, 8px) 0px;
 import { isDesktop, isDesktopOrBelow, isTablet, isTabletOrBelow } from '../../styles/media'
 import { ElButtonGroup } from '../button-group'
 import { css } from '@linaria/core'
+
+export const elReapitLogo = css`
+  // need to copy width and height here otherwise it will automatically set to 1em
+  width: 96px;
+  height: 24px;
+`
+
+export const ElTopBarLogo = styled.a`
+  padding-right: var(--spacing-2, 8px);
+  display: inline-flex;
+`
 
 export const ElTopBarProfile = styled.div`
   padding: var(--spacing-1, 4px) var(--spacing-none, 0px);
@@ -26,7 +34,6 @@ export const ElTopBarSecondaryNav = styled(ElButtonGroup)`
 
 export const ElTopBar = styled.div`
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   height: var(--size-10, 56px);
   padding: var(--spacing-2, 8px) var(--spacing-5, 20px);
@@ -35,6 +42,10 @@ export const ElTopBar = styled.div`
 
   ${isDesktopOrBelow} {
     padding: var(--spacing-2, 8px) var(--spacing-4, 16px);
+
+    ${ElTopBarLogo} {
+      margin-right: auto;
+    }
 
     ${ElTopBarMainNav}, ${ElTopBarSecondaryNav} {
       display: none;
