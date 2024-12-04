@@ -21,12 +21,13 @@ export const DeprecatedToolTip: FC<DeprecatedToolTipProps> = ({ children, defaul
   return (
     <ElDeprecatedToolTipContainer onMouseOver={() => setActive(true)} onMouseOut={() => setActive(false)}>
       {children}
-      <ToolTipChild active={active}>{tip}</ToolTipChild>
+      <DeprecatedToolTipChild active={active}>{tip}</DeprecatedToolTipChild>
     </ElDeprecatedToolTipContainer>
   )
 }
 
-export const ToolTipChild: FC<DeprecatedToolTipChildProps> = ({ children, active }) => {
+/** @deprecated */
+export const DeprecatedToolTipChild: FC<DeprecatedToolTipChildProps> = ({ children, active }) => {
   return (
     <ElDeprecatedToolTipChild role="tooltip" className={cx(active && elToolTipActive)}>
       {children}
