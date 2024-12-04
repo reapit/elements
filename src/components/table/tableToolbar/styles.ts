@@ -22,27 +22,3 @@ export const ElTableToolbarDescription = styled.div`
 `
 
 export const ElTableToolbarActions = styled.div``
-
-// Skeleton styles
-export const ElSkeleton = styled.div`
-  display: inline-block;
-  background-color: var(--skeleton-bg, #e0e0e0);
-  border-radius: 4px;
-  animation: blink 1.5s infinite;
-
-  // Default size
-  width: 100%;
-  height: 100%;
-
-  @keyframes blink {
-    0% {
-      background-color: var(--skeleton-bg, #e0e0e0);
-    }
-    50% {
-      background-color: var(--skeleton-highlight-bg, #f0f0f0);
-    }
-    100% {
-      background-color: var(--skeleton-bg, #e0e0e0);
-    }
-  }
-`

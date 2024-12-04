@@ -1,0 +1,64 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Table Container > should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-0 el-table-container"
+  >
+    <div
+      class="mocked-styled-1 el-table-toolbar"
+    >
+      <div
+        class="mocked-styled-2 el-table-toolbar-description"
+      >
+        125 Properties
+      </div>
+      <div
+        class="mocked-styled-3 el-table-toolbar-actions"
+      >
+        <div
+          class="mocked-styled-5 el-menu"
+        >
+          <button
+            aria-disabled="false"
+            aria-expanded="false"
+            aria-haspopup="true"
+            class="el-button-size-small el-button"
+            data-variant="tertiary"
+            role="button"
+          >
+            <div
+              class="mocked-styled-11 el-button-spinner"
+            />
+            <span
+              class="mocked-styled-12 el-button-label"
+            >
+              Page size: 25
+            </span>
+            <span
+              class="mocked-styled-17 el-icon"
+              style="font-size: 1rem;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 1rem;"
+                title="Icon image with name chevronDown"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 16.5041C11.7343 16.5057 11.479 16.4013 11.2904 16.2141L4.29396 9.21411C4.04044 8.96046 3.94142 8.59074 4.03422 8.24424C4.12702 7.89773 4.39753 7.62708 4.74385 7.53424C5.09018 7.44139 5.45971 7.54046 5.71324 7.79411L12 14.0941L18.2868 7.79411C18.6787 7.40199 19.3141 7.40199 19.7061 7.79411C20.098 8.18624 20.098 8.82199 19.7061 9.21411L12.7096 16.2141C12.521 16.4013 12.2657 16.5057 12 16.5041Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

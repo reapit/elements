@@ -1,12 +1,13 @@
 import { Meta } from '@storybook/react'
 // import { figmaDesignUrls } from '../../storybook/figma'
-import { Skeleton, TableToolbar } from './tableToolbar.js'
+import { TableToolbar } from './tableToolbar.js'
 import { Button } from '#src/components/button/button'
 import { Icon } from '#src/components/icon/icon-component'
 import { Menu } from '#src/components/menu/menu'
 import { MenuPopover, MenuTrigger } from '#src/components/menu/menu-popover'
 import { MenuItem, MenuItemGroup, MenuList } from '#src/components/menu/menu.atoms'
 import { ButtonGroup } from '#src/components/button-group/button-group'
+import { Skeleton } from '#src/components/skeleton/skeleton'
 
 const meta: Meta<typeof TableToolbar> = {
   title: 'Components/TableToolbar',
@@ -15,17 +16,19 @@ const meta: Meta<typeof TableToolbar> = {
 
 export default meta
 
-export const StylesOnlyUsage = {
+/** A simple toolbar for tables.
+ * When no items are selected, it displays the total item count and default actions.
+ */
+
+export const BasicUsage = {
   render: ({}) => (
     <TableToolbar
       description="125 Properties"
       actions={
-        // <Button variant="tertiary" iconRight={<Icon icon="chevronDown" fontSize="1rem" />}>
-        //   Page size: 25
-        // </Button>
         <Menu>
           <MenuTrigger>
             {({ getTriggerProps }) => (
+              // To do: Once Button component is update with more props for no-padding, please make updates here
               <Button
                 variant="tertiary"
                 size="small"
@@ -58,6 +61,10 @@ export const StylesOnlyUsage = {
   },
 }
 
+/**
+ * In tables with batch actions, when one or more items have been selected,
+ * the toolbar changes to display the number of selected items and the available actions
+ */
 export const WithBulkActions = {
   render: ({}) => (
     <TableToolbar
@@ -89,15 +96,39 @@ export const WithBulkActions = {
   ),
 }
 
-export const SkeletonDummy = {
+/** Skeleton state for the table toolbar
+ * To display until the data is retrieved and rendered in tabel
+ */
+
+export const ToolbarSkeleton = {
   render: ({}) => (
     <TableToolbar
-      description={<Skeleton height="34px" width="200px" />}
+      description={<Skeleton height="1rem" width="10rem" />}
       actions={
-        <ButtonGroup>
-          <Skeleton height="34px" width="90px" />
-          <Skeleton height="34px" width="90px" />
-        </ButtonGroup>
+        <Menu>
+          <MenuTrigger>
+            {({ getTriggerProps }) => (
+              // To do: Once Button component is update with more props for no-padding, please make updates here
+              <Button
+                variant="tertiary"
+                size="small"
+                {...getTriggerProps()}
+                iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
+              >
+                Page size: 25
+              </Button>
+            )}
+          </MenuTrigger>
+          <MenuPopover>
+            <MenuList>
+              <MenuItemGroup>
+                <MenuItem>25</MenuItem>
+                <MenuItem>50</MenuItem>
+                <MenuItem>100</MenuItem>
+              </MenuItemGroup>
+            </MenuList>
+          </MenuPopover>
+        </Menu>
       }
     />
   ),
