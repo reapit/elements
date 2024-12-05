@@ -22,15 +22,16 @@ export const ElBottomBarItemLabel = styled.span`
 const baseStyles = `
   background-color: var(--fill-white, white);
   outline: none;
-  width: 44px; 
+  width: 44px;
   border: var(--border-none, 0);
   display: flex;
   cursor: pointer;
-  padding: var(--space-half, 2px) var(--space-none, 0px); 
+  padding: var(--space-half, 2px) var(--space-none, 0px);
   flex-direction: column;
   align-items: center;
   gap: var(--space-half, 2px);
   position: relative;
+  flex: 0 0 1;
 
   color: var(--icon-secondary, #607890);
 
@@ -39,10 +40,14 @@ const baseStyles = `
   }
 `
 
+export const ElBottomBarItemContent = styled.div`
+  position: relative;
+`
+
 export const ElBottomBarItemBadge = styled.span`
   position: absolute;
-  top: 1px;
-  right: 6px;
+  top: -3px;
+  right: -3px;
   width: var(--size-2, 8px);
   height: var(--size-2, 8px);
   background-color: var(--icon-error, #f01830);
