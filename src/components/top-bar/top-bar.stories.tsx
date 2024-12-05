@@ -30,8 +30,8 @@ import {
 } from './styles'
 import { TopBar } from './top-bar'
 import { figmaDesignUrls } from '#src/storybook/figma/index'
-import ReapitLogoIcon from './icons/brand-reapit.svg?react'
-import { ReapitLogo } from './top-bar.atoms'
+import reapitLogoIconUrl from '../reapit-logo/icons/brand-reapit.svg'
+import { ReapitLogo } from '../reapit-logo'
 
 export default {
   title: 'Components/Top bar',
@@ -43,8 +43,8 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
     return (
       <nav>
         <ElTopBar>
-          <ElTopBarLogo>
-            <ReapitLogoIcon className={elReapitLogo} />
+          <ElTopBarLogo href="/">
+            <img src={reapitLogoIconUrl} />
           </ElTopBarLogo>
           <ElTopBarMainNav>
             <ElNavItemAnchor href="#">

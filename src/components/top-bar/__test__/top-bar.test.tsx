@@ -3,7 +3,7 @@ import { Icon } from '../../icon'
 import { NavIconItem } from '../../nav-icon-item'
 import { NavItem } from '../../nav-item'
 import { NavSearchButton } from '../../nav-search-button'
-import { TopBar, ReapitLogo } from '..'
+import { TopBar } from '..'
 import { AvatarButton } from '../../avatar-button'
 
 vi.mock('../../avatar-button', () => ({
@@ -27,7 +27,7 @@ describe('TopBar Snapshot', () => {
     const { asFragment } = render(
       <TopBar>
         <TopBar.Logo>
-          <ReapitLogo />
+          <img data-testid="logo-img" />
         </TopBar.Logo>
         <TopBar.MainNav>
           <NavItem href="/">Button 1</NavItem>

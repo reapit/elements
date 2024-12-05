@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Reapit logo > should match snapshot 1`] = `
+<DocumentFragment>
+  <img
+    src="/src/components/reapit-logo/icons/brand-reapit.svg"
+  />
+</DocumentFragment>
+`;

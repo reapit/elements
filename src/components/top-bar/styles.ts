@@ -3,12 +3,6 @@ import { isDesktop, isDesktopOrBelow, isTablet, isTabletOrBelow } from '../../st
 import { ElButtonGroup } from '../button-group'
 import { css } from '@linaria/core'
 
-export const elReapitLogo = css`
-  // need to copy width and height here otherwise it will automatically set to 1em
-  width: 96px;
-  height: 24px;
-`
-
 export const ElTopBarLogo = styled.a`
   padding-right: var(--spacing-2, 8px);
   display: inline-flex;
