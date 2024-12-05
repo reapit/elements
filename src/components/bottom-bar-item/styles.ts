@@ -31,7 +31,7 @@ const baseStyles = `
   align-items: center;
   gap: var(--space-half, 2px);
   position: relative;
-  flex: 0 0 1;
+  flex: 1 0 0;
 
   color: var(--icon-secondary, #607890);
 
