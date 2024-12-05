@@ -1,3 +1,4 @@
+import { figmaDesignUrls } from '#src/storybook/figma/index'
 import type { Meta, StoryObj } from '@storybook/react'
 import { ElAvatar } from '../avatar'
 import { AvatarButton, ElAvatarButton } from '../avatar-button'
@@ -16,22 +17,20 @@ import {
   ElNavSearchButtonPlaceholder,
   ElNavSearchButtonShortcutText,
 } from '../nav-search-button/styles'
+import { ReapitLogo } from '../reapit-logo'
+import reapitLogoIconUrl from '../reapit-logo/icons/brand-reapit.svg'
 import MenuIcon from './icons/menu-icon.svg?react'
 import {
-  ElTopBarMainNav,
-  ElTopBarSearch,
   ElTopBar,
-  ElTopBarMobileNav,
-  ElTopBarSecondaryNav,
-  ElTopBarProfile,
-  elTopBarMenuPopover,
   ElTopBarLogo,
-  elReapitLogo,
+  ElTopBarMainNav,
+  ElTopBarMobileNav,
+  ElTopBarProfile,
+  ElTopBarSearch,
+  ElTopBarSecondaryNav,
+  elTopBarMenuPopover,
 } from './styles'
 import { TopBar } from './top-bar'
-import { figmaDesignUrls } from '#src/storybook/figma/index'
-import reapitLogoIconUrl from '../reapit-logo/icons/brand-reapit.svg'
-import { ReapitLogo } from '../reapit-logo'
 
 export default {
   title: 'Components/Top bar',
