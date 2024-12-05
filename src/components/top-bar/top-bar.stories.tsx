@@ -1,3 +1,4 @@
+import { figmaDesignUrls } from '#src/storybook/figma/index'
 import type { Meta, StoryObj } from '@storybook/react'
 import { ElAvatar } from '../avatar'
 import { AvatarButton, ElAvatarButton } from '../avatar-button'
@@ -16,18 +17,20 @@ import {
   ElNavSearchButtonPlaceholder,
   ElNavSearchButtonShortcutText,
 } from '../nav-search-button/styles'
+import { ReapitLogo } from '../reapit-logo'
+import reapitLogoIconUrl from '../reapit-logo/icons/brand-reapit.svg'
 import MenuIcon from './icons/menu-icon.svg?react'
 import {
-  ElTopBarMainNav,
-  ElTopBarSearch,
   ElTopBar,
+  ElTopBarLogo,
+  ElTopBarMainNav,
   ElTopBarMobileNav,
-  ElTopBarSecondaryNav,
   ElTopBarProfile,
+  ElTopBarSearch,
+  ElTopBarSecondaryNav,
   elTopBarMenuPopover,
 } from './styles'
 import { TopBar } from './top-bar'
-import { figmaDesignUrls } from '#src/storybook/figma/index'
 
 export default {
   title: 'Components/Top bar',
@@ -39,18 +42,15 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
     return (
       <nav>
         <ElTopBar>
+          <ElTopBarLogo href="/">
+            <img src={reapitLogoIconUrl} />
+          </ElTopBarLogo>
           <ElTopBarMainNav>
             <ElNavItemAnchor href="#">
               <ElNavItemLabelContainer>Button 1</ElNavItemLabelContainer>
             </ElNavItemAnchor>
             <ElNavItemAnchor href="#">
               <ElNavItemLabelContainer>Button 2</ElNavItemLabelContainer>
-            </ElNavItemAnchor>
-            <ElNavItemAnchor href="#">
-              <ElNavItemLabelContainer>Button 3</ElNavItemLabelContainer>
-            </ElNavItemAnchor>
-            <ElNavItemAnchor href="#">
-              <ElNavItemLabelContainer>Button 4</ElNavItemLabelContainer>
             </ElNavItemAnchor>
             <ElMenu>
               <ElNavDropdownButton aria-haspopup="true" aria-expanded="true" role="button" type="button">
@@ -59,10 +59,10 @@ export const StylesOnlyUsage: StoryObj<typeof TopBar> = {
               </ElNavDropdownButton>
               <ElMenuPopover className={elTopBarMenuPopover}>
                 <ElMenuList>
-                  <ElMenuItemButton role="menuitem">Button 5</ElMenuItemButton>
-                  <ElMenuItemButton role="menuitem">Button 6</ElMenuItemButton>
+                  <ElMenuItemButton role="menuitem">Button 3</ElMenuItemButton>
+                  <ElMenuItemButton role="menuitem">Button 4</ElMenuItemButton>
                   <ElMenuItemAnchor href="/#" role="menuitem">
-                    Button 7
+                    Button 5
                   </ElMenuItemAnchor>
                 </ElMenuList>
               </ElMenuPopover>
@@ -122,15 +122,16 @@ export const ReactUsage: StoryObj<typeof TopBar> = {
   render: () => {
     return (
       <TopBar>
+        <TopBar.Logo href="/">
+          <ReapitLogo />
+        </TopBar.Logo>
         <TopBar.MainNav>
           <NavItem href="/">Button 1</NavItem>
           <NavItem href="/">Button 2</NavItem>
-          <NavItem href="/">Button 3</NavItem>
-          <NavItem href="/">Button 4</NavItem>
           <CSSContainerQuery condition={'(width < 1004px)'}>
+            <NavItem href="/">Button 3</NavItem>
+            <NavItem href="/">Button 4</NavItem>
             <NavItem href="/">Button 5</NavItem>
-            <NavItem href="/">Button 6</NavItem>
-            <NavItem href="/">Button 7</NavItem>
           </CSSContainerQuery>
           <CSSContainerQuery condition={'not (width < 1005px)'}>
             <Menu>
@@ -143,9 +144,9 @@ export const ReactUsage: StoryObj<typeof TopBar> = {
               </Menu.Trigger>
               <Menu.Popover className={elTopBarMenuPopover}>
                 <Menu.List>
+                  <Menu.Item href="/">Button 3</Menu.Item>
+                  <Menu.Item href="/">Button 4</Menu.Item>
                   <Menu.Item href="/">Button 5</Menu.Item>
-                  <Menu.Item href="/">Button 6</Menu.Item>
-                  <Menu.Item href="/">Button 7</Menu.Item>
                 </Menu.List>
               </Menu.Popover>
             </Menu>
