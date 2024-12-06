@@ -2,6 +2,7 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEventHandler,
 import {
   ElAnchorBottomBarItemContainer,
   ElBottomBarItemBadge,
+  ElBottomBarItemContent,
   ElBottomBarItemIcon,
   ElBottomBarItemLabel,
   ElButtonBottomBarItemContainer,
@@ -68,9 +69,11 @@ export const BottomBarItem: FC<BottomBarItemProps> = (props) => {
 
     return (
       <ElButtonBottomBarItemContainer {...rest} aria-current={isActive ? 'true' : undefined}>
-        <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
+        <ElBottomBarItemContent>
+          <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
+          {hasBadge && <ElBottomBarItemBadge />}
+        </ElBottomBarItemContent>
         <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
-        {hasBadge && <ElBottomBarItemBadge />}
       </ElButtonBottomBarItemContainer>
     )
   } else {
@@ -78,9 +81,11 @@ export const BottomBarItem: FC<BottomBarItemProps> = (props) => {
 
     return (
       <ElAnchorBottomBarItemContainer {...rest} aria-current={isActive ? 'page' : undefined}>
-        <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
+        <ElBottomBarItemContent>
+          <ElBottomBarItemIcon role="presentation">{icon}</ElBottomBarItemIcon>
+          {hasBadge && <ElBottomBarItemBadge />}
+        </ElBottomBarItemContent>
         <ElBottomBarItemLabel>{children}</ElBottomBarItemLabel>
-        {hasBadge && <ElBottomBarItemBadge />}
       </ElAnchorBottomBarItemContainer>
     )
   }
