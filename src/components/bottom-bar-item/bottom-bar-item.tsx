@@ -4,7 +4,6 @@ import {
   ElBottomBarItemBadge,
   ElBottomBarItemContent,
   ElBottomBarItemIcon,
-  ElBottomBarItemIconContent,
   ElBottomBarItemLabel,
   ElButtonBottomBarItemContainer,
 } from './styles'

@@ -9,7 +9,6 @@ import {
   ElBottomBarItemBadge,
   ElBottomBarItemContent,
   ElBottomBarItemIcon,
-  ElBottomBarItemIconContent,
   ElBottomBarItemLabel,
   ElButtonBottomBarItemContainer,
 } from './styles'
@@ -88,16 +87,12 @@ export const StyleAnchorUsage: Story = {
     return (
       <FlexContainer>
         <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mr5">
-          <ElBottomBarItemIconContent>
-            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          </ElBottomBarItemIconContent>
+          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElAnchorBottomBarItemContainer>
 
         <ElAnchorBottomBarItemContainer href={args.href} aria-current="page" className="el-mx5">
-          <ElBottomBarItemIconContent>
-            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          </ElBottomBarItemIconContent>
+          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElAnchorBottomBarItemContainer>
 
@@ -122,16 +117,12 @@ export const StyleButtonUsage: Story = {
     return (
       <FlexContainer>
         <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mr5">
-          <ElBottomBarItemIconContent>
-            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          </ElBottomBarItemIconContent>
+          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElButtonBottomBarItemContainer>
 
         <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current="true" className="el-mx5">
-          <ElBottomBarItemIconContent>
-            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          </ElBottomBarItemIconContent>
+          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElButtonBottomBarItemContainer>
 
