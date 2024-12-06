@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ToolTip > should match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    aria-describedby="test-static-id"
+    class="mocked-styled-0 el-tool-tip-container"
+  >
+    Test
+  </div>
+</DocumentFragment>
+`;
