@@ -1,7 +1,8 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
-export const ElToolTipChild = styled.div`
+/** @deprecated */
+export const ElDeprecatedToolTipChild = styled.div`
   position: absolute;
   padding: 0.5rem;
   background: var(--black);
@@ -27,7 +28,8 @@ export const elToolTipActive = css`
   display: block;
 `
 
-export const ElToolTipContainer = styled.div`
+/** @deprecated */
+export const ElDeprecatedToolTipContainer = styled.div`
   position: relative;
   padding: 0.25rem;
 `

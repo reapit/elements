@@ -8,7 +8,7 @@ exports[`BottomBarItem > should render the component as HTMLAnchorElement with a
     href="#"
   >
     <div
-      class="mocked-styled-2 el-bottom-bar-item-icon-content"
+      class="mocked-styled-2 el-bottom-bar-item-content"
     >
       <div
         class="mocked-styled-0 el-bottom-bar-item-icon"
@@ -35,7 +35,7 @@ exports[`BottomBarItem > should render the component as HTMLAnchorElement with d
     href="#"
   >
     <div
-      class="mocked-styled-2 el-bottom-bar-item-icon-content"
+      class="mocked-styled-2 el-bottom-bar-item-content"
     >
       <div
         class="mocked-styled-0 el-bottom-bar-item-icon"
@@ -62,7 +62,7 @@ exports[`BottomBarItem > should render the component as HTMLButtonElement with a
     class="mocked-styled-5 el-button-bottom-bar-item-container"
   >
     <div
-      class="mocked-styled-2 el-bottom-bar-item-icon-content"
+      class="mocked-styled-2 el-bottom-bar-item-content"
     >
       <div
         class="mocked-styled-0 el-bottom-bar-item-icon"
@@ -89,7 +89,7 @@ exports[`BottomBarItem > should render the component as HTMLButtonElement with b
     class="mocked-styled-5 el-button-bottom-bar-item-container"
   >
     <div
-      class="mocked-styled-2 el-bottom-bar-item-icon-content"
+      class="mocked-styled-2 el-bottom-bar-item-content"
     >
       <div
         class="mocked-styled-0 el-bottom-bar-item-icon"
@@ -119,7 +119,7 @@ exports[`BottomBarItem > should render the component as HTMLButtonElement with d
     class="mocked-styled-5 el-button-bottom-bar-item-container"
   >
     <div
-      class="mocked-styled-2 el-bottom-bar-item-icon-content"
+      class="mocked-styled-2 el-bottom-bar-item-content"
     >
       <div
         class="mocked-styled-0 el-bottom-bar-item-icon"

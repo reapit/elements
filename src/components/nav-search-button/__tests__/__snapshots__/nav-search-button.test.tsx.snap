@@ -2,61 +2,113 @@
 
 exports[`NavSearchButton > render without shortcut and match snapshot 1`] = `
 <DocumentFragment>
-  <button
-    class="mocked-styled-0 el-nav-search-button"
+  <div
+    class="mocked-styled-1 el-nav-search-button-container"
   >
-    <svg
-      aria-hidden="true"
-      class="mocked-styled-1 el-nav-search-button-icon"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+    <button
+      class="mocked-styled-6 el-button-nav-icon-item"
     >
-      <path
-        d="M14.4733 13.5266L10.8733 9.93331C11.6055 9.00212 12.0024 7.85126 11.9999 6.66665C11.9999 3.72113 9.6121 1.33331 6.66659 1.33331C3.72107 1.33331 1.33325 3.72113 1.33325 6.66665C1.33325 9.61217 3.72107 12 6.66659 12C7.8512 12.0025 9.00206 11.6056 9.93325 10.8733L13.5266 14.4733C13.6518 14.5995 13.8222 14.6705 13.9999 14.6705C14.1777 14.6705 14.3481 14.5995 14.4733 14.4733C14.5995 14.3481 14.6705 14.1777 14.6705 14C14.6705 13.8222 14.5995 13.6518 14.4733 13.5266ZM2.66659 6.66665C2.66659 4.45751 4.45745 2.66665 6.66659 2.66665C8.87572 2.66665 10.6666 4.45751 10.6666 6.66665C10.6666 8.87579 8.87572 10.6666 6.66659 10.6666C4.45745 10.6666 2.66659 8.87579 2.66659 6.66665Z"
-        fill="currentColor"
-      />
-    </svg>
-    <span
-      class="mocked-styled-2 el-nav-search-button-placeholder"
+      <span
+        class="mocked-styled-8 el-icon"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          role="img"
+          title="Icon image with name search"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21.71 20.29L16.31 14.9C17.4084 13.5032 18.0038 11.7769 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18C11.7769 18.0038 13.5032 17.4084 14.9 16.31L20.29 21.71C20.4778 21.8993 20.7334 22.0058 21 22.0058C21.2666 22.0058 21.5222 21.8993 21.71 21.71C21.8993 21.5222 22.0058 21.2666 22.0058 21C22.0058 20.7334 21.8993 20.4778 21.71 20.29ZM4 10C4 6.68629 6.68629 4 10 4C13.3137 4 16 6.68629 16 10C16 13.3137 13.3137 16 10 16C6.68629 16 4 13.3137 4 10Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      class="mocked-styled-0 el-nav-search-button"
     >
-      Search
-    </span>
-  </button>
+      <svg
+        aria-hidden="true"
+        class="mocked-styled-2 el-nav-search-button-icon"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.4733 13.5266L10.8733 9.93331C11.6055 9.00212 12.0024 7.85126 11.9999 6.66665C11.9999 3.72113 9.6121 1.33331 6.66659 1.33331C3.72107 1.33331 1.33325 3.72113 1.33325 6.66665C1.33325 9.61217 3.72107 12 6.66659 12C7.8512 12.0025 9.00206 11.6056 9.93325 10.8733L13.5266 14.4733C13.6518 14.5995 13.8222 14.6705 13.9999 14.6705C14.1777 14.6705 14.3481 14.5995 14.4733 14.4733C14.5995 14.3481 14.6705 14.1777 14.6705 14C14.6705 13.8222 14.5995 13.6518 14.4733 13.5266ZM2.66659 6.66665C2.66659 4.45751 4.45745 2.66665 6.66659 2.66665C8.87572 2.66665 10.6666 4.45751 10.6666 6.66665C10.6666 8.87579 8.87572 10.6666 6.66659 10.6666C4.45745 10.6666 2.66659 8.87579 2.66659 6.66665Z"
+          fill="currentColor"
+        />
+      </svg>
+      <span
+        class="mocked-styled-3 el-nav-search-button-placeholder"
+      >
+        Search
+      </span>
+    </button>
+  </div>
 </DocumentFragment>
 `;
 
 exports[`NavSearchButton > should match snapshot 1`] = `
 <DocumentFragment>
-  <button
-    class="mocked-styled-0 el-nav-search-button"
+  <div
+    class="mocked-styled-1 el-nav-search-button-container"
   >
-    <svg
-      aria-hidden="true"
-      class="mocked-styled-1 el-nav-search-button-icon"
-      fill="none"
-      height="1em"
-      viewBox="0 0 16 16"
-      width="1em"
-      xmlns="http://www.w3.org/2000/svg"
+    <button
+      class="mocked-styled-6 el-button-nav-icon-item"
     >
-      <path
-        d="M14.4733 13.5266L10.8733 9.93331C11.6055 9.00212 12.0024 7.85126 11.9999 6.66665C11.9999 3.72113 9.6121 1.33331 6.66659 1.33331C3.72107 1.33331 1.33325 3.72113 1.33325 6.66665C1.33325 9.61217 3.72107 12 6.66659 12C7.8512 12.0025 9.00206 11.6056 9.93325 10.8733L13.5266 14.4733C13.6518 14.5995 13.8222 14.6705 13.9999 14.6705C14.1777 14.6705 14.3481 14.5995 14.4733 14.4733C14.5995 14.3481 14.6705 14.1777 14.6705 14C14.6705 13.8222 14.5995 13.6518 14.4733 13.5266ZM2.66659 6.66665C2.66659 4.45751 4.45745 2.66665 6.66659 2.66665C8.87572 2.66665 10.6666 4.45751 10.6666 6.66665C10.6666 8.87579 8.87572 10.6666 6.66659 10.6666C4.45745 10.6666 2.66659 8.87579 2.66659 6.66665Z"
-        fill="currentColor"
-      />
-    </svg>
-    <span
-      class="mocked-styled-2 el-nav-search-button-placeholder"
+      <span
+        class="mocked-styled-8 el-icon"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          role="img"
+          title="Icon image with name search"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M21.71 20.29L16.31 14.9C17.4084 13.5032 18.0038 11.7769 18 10C18 5.58172 14.4183 2 10 2C5.58172 2 2 5.58172 2 10C2 14.4183 5.58172 18 10 18C11.7769 18.0038 13.5032 17.4084 14.9 16.31L20.29 21.71C20.4778 21.8993 20.7334 22.0058 21 22.0058C21.2666 22.0058 21.5222 21.8993 21.71 21.71C21.8993 21.5222 22.0058 21.2666 22.0058 21C22.0058 20.7334 21.8993 20.4778 21.71 20.29ZM4 10C4 6.68629 6.68629 4 10 4C13.3137 4 16 6.68629 16 10C16 13.3137 13.3137 16 10 16C6.68629 16 4 13.3137 4 10Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+    <button
+      class="mocked-styled-0 el-nav-search-button"
     >
-      Search
-    </span>
-    <span
-      class="mocked-styled-3 el-nav-search-button-shortcut-text"
-    >
-      Ctrl + K
-    </span>
-  </button>
+      <svg
+        aria-hidden="true"
+        class="mocked-styled-2 el-nav-search-button-icon"
+        fill="none"
+        height="1em"
+        viewBox="0 0 16 16"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M14.4733 13.5266L10.8733 9.93331C11.6055 9.00212 12.0024 7.85126 11.9999 6.66665C11.9999 3.72113 9.6121 1.33331 6.66659 1.33331C3.72107 1.33331 1.33325 3.72113 1.33325 6.66665C1.33325 9.61217 3.72107 12 6.66659 12C7.8512 12.0025 9.00206 11.6056 9.93325 10.8733L13.5266 14.4733C13.6518 14.5995 13.8222 14.6705 13.9999 14.6705C14.1777 14.6705 14.3481 14.5995 14.4733 14.4733C14.5995 14.3481 14.6705 14.1777 14.6705 14C14.6705 13.8222 14.5995 13.6518 14.4733 13.5266ZM2.66659 6.66665C2.66659 4.45751 4.45745 2.66665 6.66659 2.66665C8.87572 2.66665 10.6666 4.45751 10.6666 6.66665C10.6666 8.87579 8.87572 10.6666 6.66659 10.6666C4.45745 10.6666 2.66659 8.87579 2.66659 6.66665Z"
+          fill="currentColor"
+        />
+      </svg>
+      <span
+        class="mocked-styled-3 el-nav-search-button-placeholder"
+      >
+        Search
+      </span>
+      <span
+        class="mocked-styled-4 el-nav-search-button-shortcut-text"
+      >
+        Ctrl + K
+      </span>
+    </button>
+  </div>
 </DocumentFragment>
 `;
