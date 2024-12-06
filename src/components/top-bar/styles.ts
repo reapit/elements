@@ -73,6 +73,6 @@ export const ElTopBarMobileNav = styled.div`
 
 export const elTopBarMenuPopover = css`
   // To adjust the menu popover's Y offset so it appears below the top bar instead of directly below the button.
-  // The "icmportant" rule is used to override the Menu's auto-anchor yOffset.
+  // The "important" rule is used to override the Menu's auto-anchor yOffset.
   top: var(--spacing-10) !important;
 `
