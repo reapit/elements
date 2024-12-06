@@ -1,5 +1,21 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`DeprecatedToolTip > should match a snapshot and render children 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-deprecated-tool-tip-container"
+  >
+    Hover here
+    <div
+      class="el-tool-tip-active el-deprecated-tool-tip-child"
+      role="tooltip"
+    >
+      hello there
+    </div>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`ToolTip > should match a snapshot and render children 1`] = `
 <DocumentFragment>
   <div
