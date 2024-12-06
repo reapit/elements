@@ -52,13 +52,6 @@ export const BasicUsage = {
       }
     />
   ),
-  parameters: {
-    docs: {
-      canvas: {
-        className: 'greyBackground',
-      },
-    },
-  },
 }
 
 /**
