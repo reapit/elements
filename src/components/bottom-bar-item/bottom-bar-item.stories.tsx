@@ -99,7 +99,7 @@ export const StyleAnchorUsage: Story = {
         <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mx5">
           <ElBottomBarItemContent>
             <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-            <ElBottomBarItemBadge role="status" />
+            <ElBottomBarItemBadge />
           </ElBottomBarItemContent>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
         </ElAnchorBottomBarItemContainer>
@@ -129,7 +129,7 @@ export const StyleButtonUsage: Story = {
         <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mx5">
           <ElBottomBarItemContent>
             <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-            <ElBottomBarItemBadge role="status" />
+            <ElBottomBarItemBadge />
           </ElBottomBarItemContent>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>{' '}
         </ElButtonBottomBarItemContainer>
