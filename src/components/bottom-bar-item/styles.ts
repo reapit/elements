@@ -12,7 +12,7 @@ export const ElBottomBarItemLabel = styled.span`
   color: inherit;
   text-align: center;
   font-family: var(--font-family, Inter);
-  font-size: var(--font-size-2xs, 12px);
+  font-size: var(--font-size-3xs, 10px);
   font-style: normal;
   font-weight: var(--font-weight-regular, Regular);
   line-height: var(--line-height-3xs, 12px);
