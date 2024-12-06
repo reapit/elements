@@ -7,6 +7,7 @@ import { Icon } from '../icon'
 import {
   ElAnchorBottomBarItemContainer,
   ElBottomBarItemBadge,
+  ElBottomBarItemContent,
   ElBottomBarItemIcon,
   ElBottomBarItemLabel,
   ElButtonBottomBarItemContainer,
@@ -96,9 +97,11 @@ export const StyleAnchorUsage: Story = {
         </ElAnchorBottomBarItemContainer>
 
         <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mx5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+          <ElBottomBarItemContent>
+            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+            <ElBottomBarItemBadge />
+          </ElBottomBarItemContent>
           <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
-          <ElBottomBarItemBadge role="status" />
         </ElAnchorBottomBarItemContainer>
       </FlexContainer>
     )
@@ -124,9 +127,11 @@ export const StyleButtonUsage: Story = {
         </ElButtonBottomBarItemContainer>
 
         <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mx5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
-          <ElBottomBarItemBadge role="status" />
+          <ElBottomBarItemContent>
+            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
+            <ElBottomBarItemBadge />
+          </ElBottomBarItemContent>
+          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>{' '}
         </ElButtonBottomBarItemContainer>
       </FlexContainer>
     )
