@@ -19,7 +19,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const FixedUsage: Story = {
+export const Standard: Story = {
   render: () => {
     const ref = useRef<HTMLElement>(null)
 
@@ -51,7 +51,7 @@ export const FixedUsage: Story = {
   },
 }
 
-export const ExpandableUsage: Story = {
+export const WithOverflowMenu: Story = {
   render: () => {
     const ref = useRef<HTMLElement>(null)
 

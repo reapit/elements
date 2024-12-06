@@ -30,7 +30,7 @@ const BottomBar: BottomBarFC = ({ children, parentRef, ...rest }) => {
   const { isScrollTop, isScrollBottom } = useVerticalScrollDirection(parentRef)
 
   return (
-    <ElBottomBar {...rest} data-slide-direction={isScrollTop ? 'up' : isScrollBottom ? 'down' : undefined}>
+    <ElBottomBar {...rest} data-is-open={isScrollTop ? 'up' : isScrollBottom ? 'down' : undefined}>
       {children}
     </ElBottomBar>
   )

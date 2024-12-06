@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { BottomBar } from '../bottom-bar'
 
 describe('BottomBar', () => {
-  it('should render fixed bottom bar items', () => {
+  it('can render 5 items', () => {
     expect(
       render(
         <BottomBar parentRef={null}>
@@ -16,7 +16,7 @@ describe('BottomBar', () => {
     ).toMatchSnapshot()
   })
 
-  it('should render expandable bottom bar items', () => {
+  it('can render 4 items and an overflow menu', () => {
     expect(
       render(
         <BottomBar parentRef={null}>

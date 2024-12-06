@@ -22,12 +22,12 @@ export const ElBottomBar = styled.div`
     transform 0.3s ease-in-out,
     visibility 0.3s ease-in-out;
 
-  &[data-slide-direction='up'] {
+  &[data-is-open='true'] {
     transform: translateY(0);
     visibility: visible;
   }
 
-  &[data-slide-direction='down'] {
+  &[data-is-open='false'] {
     transform: translateY(100%);
     visibility: hidden;
   }
