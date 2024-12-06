@@ -3,6 +3,11 @@ import { isDesktop, isDesktopOrBelow, isTablet, isTabletOrBelow } from '../../st
 import { ElButtonGroup } from '../button-group'
 import { css } from '@linaria/core'
 
+export const ElTopBarLogo = styled.a`
+  padding-right: var(--spacing-2, 8px);
+  display: inline-flex;
+`
+
 export const ElTopBarProfile = styled.div`
   padding: var(--spacing-1, 4px) var(--spacing-none, 0px);
 `
@@ -23,7 +28,6 @@ export const ElTopBarSecondaryNav = styled(ElButtonGroup)`
 
 export const ElTopBar = styled.div`
   display: flex;
-  justify-content: flex-end;
   align-items: center;
   height: var(--size-10, 56px);
   padding: var(--spacing-2, 8px) var(--spacing-5, 20px);
@@ -32,6 +36,10 @@ export const ElTopBar = styled.div`
 
   ${isDesktopOrBelow} {
     padding: var(--spacing-2, 8px) var(--spacing-4, 16px);
+
+    ${ElTopBarLogo} {
+      margin-right: auto;
+    }
 
     ${ElTopBarMainNav}, ${ElTopBarSecondaryNav} {
       display: none;
