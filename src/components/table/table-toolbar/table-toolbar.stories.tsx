@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react'
 // import { figmaDesignUrls } from '../../storybook/figma'
-import { TableToolbar } from './tableToolbar.js'
+import { TableToolbar } from './table-toolbar.js'
 import { Button } from '#src/components/button/button'
 import { Icon } from '#src/components/icon/icon-component'
 import { Menu } from '#src/components/menu/menu'
