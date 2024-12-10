@@ -5,7 +5,7 @@ const themes = ['Reapit', 'PayProp']
 const getStyleDictionaryConfig = (theme) => {
   const lowerCasedTheme = theme.toLowerCase()
   return {
-    source: ['./tokens/tokens.json'],
+    source: ['./src/tokens/tokens.json'],
     parsers: [
       {
         pattern: /\.json$/,
@@ -27,7 +27,7 @@ const getStyleDictionaryConfig = (theme) => {
     ],
     platforms: {
       css: {
-        buildPath: `tokens/${lowerCasedTheme}/`,
+        buildPath: `src/tokens/${lowerCasedTheme}/`,
         files: [
           {
             destination: 'tokens.css',
@@ -36,7 +36,7 @@ const getStyleDictionaryConfig = (theme) => {
         ],
       },
       ts: {
-        buildPath: `tokens/${lowerCasedTheme}/`,
+        buildPath: `src/tokens/${lowerCasedTheme}/`,
         files: [
           {
             destination: 'tokens.ts',
