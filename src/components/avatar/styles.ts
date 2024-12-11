@@ -5,8 +5,8 @@ const baseCircleStyle = `
 `
 
 const baseMediumSizeStyle = `
-  width: var(--size-8, 40px);
-  height: var(--size-8, 40px);
+  width: var(--size-10);
+  height: var(--size-10);
   font-size: var(--font-size-base, 15px);
   line-height: var(--line-height-base, 24px);
   letter-spacing: var(--letter-spacing-base, -0.15px);
@@ -50,8 +50,8 @@ export const ElAvatar = styled.span`
   }
 
   &[data-size='small'] {
-    width: var(--size-7, 32px);
-    height: var(--size-7, 32px);
+    width: var(--size-8);
+    height: var(--size-8);
     font-size: var(--font-size-2xs, 12px);
     line-height: var(--line-height-2xs, 16px);
     letter-spacing: var(--letter-spacing-2xs, -0.12px);
