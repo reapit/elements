@@ -1,8 +1,8 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
-import { BottomBar } from './bottom-bar'
-import { Icon } from '../icon'
+import type { Meta, StoryObj } from '@storybook/react'
 import { useRef } from 'react'
+import { Icon } from '../icon'
+import { BottomBar } from './bottom-bar'
 
 const meta = {
   title: 'Components/Bottom Bar',

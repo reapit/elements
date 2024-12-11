@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react'
-import { ElMenu, ElMenuList, ElMenuPopover } from '../menu'
 
 export const ElBottomBar = styled.div`
   display: flex;
@@ -30,19 +29,5 @@ export const ElBottomBar = styled.div`
   &[data-is-open='false'] {
     transform: translateY(100%);
     visibility: hidden;
-  }
-
-  ${ElMenu} {
-    display: flex;
-    flex: 1 1 0;
-    justify-content: center;
-  }
-
-  ${ElMenuList} {
-    min-width: 109px;
-  }
-
-  ${ElMenuPopover} {
-    right: 0;
   }
 `
