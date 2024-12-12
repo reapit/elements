@@ -14,7 +14,6 @@ import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
 import { TopBar } from './top-bar'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-console.log(INITIAL_VIEWPORTS)
 
 const viewports: typeof INITIAL_VIEWPORTS = {
   superWideScreen: {
@@ -41,7 +40,7 @@ const viewports: typeof INITIAL_VIEWPORTS = {
       height: '900px',
     },
   },
-  ipad14p: INITIAL_VIEWPORTS.ipad11p,
+  ipad11p: INITIAL_VIEWPORTS.ipad11p,
   iphone14: INITIAL_VIEWPORTS.iphone14,
 }
 
@@ -118,9 +117,6 @@ export const Default: Story = {
       type: 'figma',
       url: figmaDesignUrls.appBar,
       allowFullscreen: true,
-    },
-    viewport: {
-      disable: false,
     },
   },
 }
@@ -210,7 +206,7 @@ export const Tablet: Story = {
   render: ResponsiveMainNav.render,
   parameters: {
     ...ResponsiveMainNav.parameters,
-    viewport: { defaultViewport: 'ipad14p' },
+    viewport: { defaultViewport: 'ipad11p' },
   },
 }
 export const Desktop: Story = {
