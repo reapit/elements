@@ -1,24 +1,24 @@
 import { styled } from '@linaria/react'
 
 const baseCircleStyle = `
-  border-radius: var(--corner-3xl, 24px);
+  border-radius: var(--corner-3xl);
 `
 
 const baseMediumSizeStyle = `
   width: var(--size-10);
   height: var(--size-10);
-  font-size: var(--font-size-base, 15px);
-  line-height: var(--line-height-base, 24px);
-  letter-spacing: var(--letter-spacing-base, -0.15px);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-base);
 `
 
 const baseColourDefaultStyle = `
-  background: var(--fill-default-medium, #9faebc);
-  color: var(--text-white, #fff);
+  background: var(--fill-default-medium);
+  color: var(--text-white);
 
   /* override Icon element colour  */
   svg {
-    color: var(--text-white, #fff);
+    color: var(--text-white);
   }
 `
 
@@ -28,7 +28,7 @@ export const ElAvatar = styled.span`
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-family: var(--font-family, Inter);
+  font-family: var(--font-family);
   font-style: normal;
   font-weight: 600;
 
@@ -37,23 +37,23 @@ export const ElAvatar = styled.span`
   ${baseMediumSizeStyle}
 
   &[data-shape='square'] {
-    border-radius: var(--corner-lg, 8px);
+    border-radius: var(--corner-lg);
   }
 
   &[data-colour='purple'] {
-    background: var(--fill-action-lightest, #ecf3ff);
-    color: var(--text-action, #4e56ea);
+    background: var(--fill-action-lightest);
+    color: var(--text-action);
     /* override Icon element colour  */
     svg {
-      color: var(--text-action, #4e56ea);
+      color: var(--text-action);
     }
   }
 
   &[data-size='small'] {
     width: var(--size-8);
     height: var(--size-8);
-    font-size: var(--font-size-2xs, 12px);
-    line-height: var(--line-height-2xs, 16px);
-    letter-spacing: var(--letter-spacing-2xs, -0.12px);
+    font-size: var(--font-size-2xs);
+    line-height: var(--line-height-2xs);
+    letter-spacing: var(--letter-spacing-2xs);
   }
 `
