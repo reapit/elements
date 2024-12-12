@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { isDesktop, isDesktopOrBelow, isTablet, isTabletOrBelow } from '../../styles/media'
+import { isBelowWideScreen, isTablet, isBelowDesktop, isWideScreen } from '../../styles/media'
 import { ElButtonGroup } from '../button-group'
 import { css } from '@linaria/core'
 
@@ -34,7 +34,7 @@ export const ElTopBar = styled.div`
   border-bottom: var(--border-default, 1px) solid var(--outline-default, #e5e9ed);
   background: var(--fill-white, #fff);
 
-  ${isDesktopOrBelow} {
+  ${isBelowWideScreen} {
     padding: var(--spacing-2, 8px) var(--spacing-4, 16px);
 
     ${ElTopBarLogo} {
@@ -46,7 +46,7 @@ export const ElTopBar = styled.div`
     }
   }
 
-  ${isTabletOrBelow} {
+  ${isBelowDesktop} {
     ${ElTopBarProfile} {
       display: none;
     }
@@ -66,7 +66,7 @@ export const ElTopBarMobileNav = styled.div`
   display: inline-block;
   padding-right: var(--spacing-2, 8px);
 
-  ${isDesktop} {
+  ${isWideScreen} {
     display: none;
   }
 `

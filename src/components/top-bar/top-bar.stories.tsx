@@ -13,13 +13,50 @@ import { ReapitLogo } from '../reapit-logo'
 import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
 import { TopBar } from './top-bar'
+import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+console.log(INITIAL_VIEWPORTS)
+
+const viewports: typeof INITIAL_VIEWPORTS = {
+  superWideScreen: {
+    name: 'Super Wide Screen',
+    type: 'desktop',
+    styles: {
+      width: '1920px',
+      height: '1500px',
+    },
+  },
+  wideScreen: {
+    name: 'Wide Screen',
+    type: 'desktop',
+    styles: {
+      width: '1440px',
+      height: '900px',
+    },
+  },
+  desktop: {
+    name: 'Desktop',
+    type: 'desktop',
+    styles: {
+      width: '1024px',
+      height: '900px',
+    },
+  },
+  ipad14p: INITIAL_VIEWPORTS.ipad11p,
+  iphone14: INITIAL_VIEWPORTS.iphone14,
+}
 
 export default {
   title: 'Components/Top bar',
   component: TopBar,
+  parameters: {
+    viewport: { defaultViewport: 'responsive', viewports },
+  },
 } as Meta<typeof TopBar>
 
-export const Default: StoryObj<typeof TopBar> = {
+type Story = StoryObj<typeof TopBar>
+
+export const Default: Story = {
+  // NOTE: this version is without `CSSContainerQuery` so the non react user doesn't see it in the docs
   render: () => {
     return (
       <TopBar>
@@ -76,17 +113,19 @@ export const Default: StoryObj<typeof TopBar> = {
       </TopBar>
     )
   },
-
   parameters: {
     design: {
       type: 'figma',
       url: figmaDesignUrls.appBar,
       allowFullscreen: true,
     },
+    viewport: {
+      disable: false,
+    },
   },
 }
 
-export const ReactUsage: StoryObj<typeof TopBar> = {
+export const ResponsiveMainNav: Story = {
   render: () => {
     return (
       <TopBar>
@@ -150,12 +189,56 @@ export const ReactUsage: StoryObj<typeof TopBar> = {
       </TopBar>
     )
   },
-
   parameters: {
     design: {
       type: 'figma',
       url: figmaDesignUrls.appBar,
       allowFullscreen: true,
+    },
+  },
+}
+
+export const Mobile: Story = {
+  render: ResponsiveMainNav.render,
+  parameters: {
+    ...ResponsiveMainNav.parameters,
+    viewport: { defaultViewport: 'iphone14' },
+  },
+}
+
+export const Tablet: Story = {
+  render: ResponsiveMainNav.render,
+  parameters: {
+    ...ResponsiveMainNav.parameters,
+    viewport: { defaultViewport: 'ipad14p' },
+  },
+}
+export const Desktop: Story = {
+  render: ResponsiveMainNav.render,
+  parameters: {
+    ...ResponsiveMainNav.parameters,
+    viewport: {
+      defaultViewport: 'desktop',
+    },
+  },
+}
+
+export const WideScreen: Story = {
+  render: ResponsiveMainNav.render,
+  parameters: {
+    ...ResponsiveMainNav.parameters,
+    viewport: {
+      defaultViewport: 'wideScreen',
+    },
+  },
+}
+
+export const SuperWideScreen: Story = {
+  render: ResponsiveMainNav.render,
+  parameters: {
+    ...ResponsiveMainNav.parameters,
+    viewport: {
+      defaultViewport: 'superWideScreen',
     },
   },
 }
