@@ -7,23 +7,23 @@ import CommercialBottomImage from './icons/bottom-commercial-image.svg?react'
 import CommercialSmallBottomImage from './icons/bottom-commercial-image-small.svg?react'
 
 const baseAvatarRectMediumSize = `
-  width: var(--size-size-12, 72px);
+  width: var(--size-18);
   height: 54px;
 `
 
 const baseAvatarRectSmallSize = `
-  width: var(--size-size-11, 64px);
-  height: var(--size-size-9, 48px);
+  width: var(--size-16);
+  height: var(--size-12);
 `
 
 // The commercial consists of two sections: the commercial image and the bottom placeholder.
 const baseCommercialMediumImagesSize = `
   width: 54px;
-  height: var(--size-size-8, 40px);
+  height: var(--size-10);
 `
 
 const baseCommercialBottomSmallPlaceholderSize = `
-  width: var(--size-size-9, 48px);
+  width: var(--size-12);
   height: 36px;
 `
 

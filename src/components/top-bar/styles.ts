@@ -29,7 +29,7 @@ export const ElTopBarSecondaryNav = styled(ElButtonGroup)`
 export const ElTopBar = styled.div`
   display: flex;
   align-items: center;
-  height: var(--size-10, 56px);
+  height: var(--size-14);
   padding: var(--spacing-2, 8px) var(--spacing-5, 20px);
   border-bottom: var(--border-default, 1px) solid var(--outline-default, #e5e9ed);
   background: var(--fill-white, #fff);
