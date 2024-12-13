@@ -10,7 +10,7 @@ export interface BottomBarMoreMenuProps {
 
 export const BottomBarMoreMenu: FC<BottomBarMoreMenuProps> = ({ children }) => {
   return (
-    <Menu>
+    <Menu data-alignment="right">
       <Menu.Trigger>
         {({ getTriggerProps }) => (
           <BottomBarItem {...getTriggerProps()} icon={<Icon icon="more" />}>

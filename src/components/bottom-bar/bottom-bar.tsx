@@ -2,9 +2,9 @@ import type { FC, HTMLAttributes, ReactNode, RefObject } from 'react'
 
 import { BottomBarItem } from '../bottom-bar-item'
 
-import { ElBottomBar } from './styles'
-import { useVerticalScrollDirection } from './use-vertical-scroll-direction'
 import { BottomBarMoreMenu, BottomBarMoreMenuItem } from './bottom-bar.atoms'
+import { ElBottomBar } from './styles'
+import { useBottomBarVisibility } from './use-bottom-bar-visibility'
 
 export interface BottomBarProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -27,10 +27,10 @@ type BottomBarFC = FC<BottomBarProps> & {
 }
 
 const BottomBar: BottomBarFC = ({ children, parentRef, ...rest }) => {
-  const { isScrollTop, isScrollBottom } = useVerticalScrollDirection(parentRef)
+  const { isOpen } = useBottomBarVisibility(parentRef)
 
   return (
-    <ElBottomBar {...rest} data-is-open={isScrollTop ? 'up' : isScrollBottom ? 'down' : undefined}>
+    <ElBottomBar {...rest} data-is-open={isOpen}>
       {children}
     </ElBottomBar>
   )

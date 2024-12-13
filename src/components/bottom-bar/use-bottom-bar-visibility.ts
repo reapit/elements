@@ -1,20 +1,18 @@
 import { Dispatch, RefObject, SetStateAction, useEffect, useState } from 'react'
 
-type VerticalScrollDirection = {
-  isScrollTop: boolean
-  isScrollBottom: boolean
+type BottomBarVisibility = {
+  isOpen: boolean | undefined
   previousTopPosition: number
 }
 
-export const handleChangeScrollDirection = (
+export const handleChangeBottomBarVisibility = (
   element: HTMLElement,
-  setScrollStates: Dispatch<SetStateAction<VerticalScrollDirection>>,
+  setScrollStates: Dispatch<SetStateAction<BottomBarVisibility>>,
 ) => {
   const { scrollTop } = element ?? {}
 
   setScrollStates((state) => ({
-    isScrollTop: state.previousTopPosition > scrollTop,
-    isScrollBottom: state.previousTopPosition < scrollTop,
+    isOpen: state.previousTopPosition > scrollTop,
     previousTopPosition: scrollTop,
   }))
 }
@@ -22,10 +20,9 @@ export const handleChangeScrollDirection = (
 /**
  * Hook to get the vertical scroll direction of the parent element
  */
-export const useVerticalScrollDirection = (ref: RefObject<HTMLElement> | null): VerticalScrollDirection => {
-  const [scrollStates, setScrollStates] = useState<VerticalScrollDirection>({
-    isScrollTop: false,
-    isScrollBottom: false,
+export const useBottomBarVisibility = (ref: RefObject<HTMLElement> | null): BottomBarVisibility => {
+  const [scrollStates, setScrollStates] = useState<BottomBarVisibility>({
+    isOpen: undefined,
     previousTopPosition: 0,
   })
 
@@ -35,7 +32,7 @@ export const useVerticalScrollDirection = (ref: RefObject<HTMLElement> | null): 
       if (!element) return
       const abortController = new AbortController()
 
-      element.addEventListener('scroll', () => handleChangeScrollDirection(element, setScrollStates), {
+      element.addEventListener('scroll', () => handleChangeBottomBarVisibility(element, setScrollStates), {
         signal: abortController.signal,
       })
 

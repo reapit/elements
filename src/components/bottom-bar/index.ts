@@ -1,4 +1,4 @@
 export * from './bottom-bar'
 export * from './bottom-bar.atoms'
 export * from './styles'
-export * from './use-vertical-scroll-direction'
+export * from './use-bottom-bar-visibility'

@@ -1,9 +1,9 @@
 import { RefObject } from 'react'
-import { handleChangeScrollDirection, useVerticalScrollDirection } from '../use-vertical-scroll-direction'
+import { handleChangeBottomBarVisibility, useBottomBarVisibility } from '../use-bottom-bar-visibility'
 import { renderHook } from '@testing-library/react-hooks'
 import { act } from '@testing-library/react'
 
-describe('handleChangeScrollDirection', () => {
+describe('handleChangeBottomBarVisibility', () => {
   afterEach(() => {
     vi.clearAllMocks()
   })
@@ -11,7 +11,7 @@ describe('handleChangeScrollDirection', () => {
   it('should call the setScrollStates function while acting to scroll down', () => {
     const mockSetScrollStates = vi.fn().mockImplementation(() => ({ previousTopPosition: 0 }))
 
-    handleChangeScrollDirection({ scrollTop: 10 } as any, mockSetScrollStates)
+    handleChangeBottomBarVisibility({ scrollTop: 10 } as any, mockSetScrollStates)
 
     expect(mockSetScrollStates).toHaveBeenCalledWith(expect.any(Function))
   })
@@ -19,13 +19,13 @@ describe('handleChangeScrollDirection', () => {
   it('should call the setScrollStates function while acting to scroll up', () => {
     const mockSetScrollStates = vi.fn().mockImplementation(() => ({ previousTopPosition: 10 }))
 
-    handleChangeScrollDirection({ scrollTop: 0 } as any, mockSetScrollStates)
+    handleChangeBottomBarVisibility({ scrollTop: 0 } as any, mockSetScrollStates)
 
     expect(mockSetScrollStates).toHaveBeenCalledWith(expect.any(Function))
   })
 })
 
-describe('useVerticalScrollDirection', () => {
+describe('useBottomBarVisibility', () => {
   it('should trigger the scroll event listener', () => {
     const abort = vi.fn()
     vi.spyOn(AbortController.prototype, 'abort').mockImplementation(abort) as any
@@ -37,7 +37,7 @@ describe('useVerticalScrollDirection', () => {
       },
     } as unknown as RefObject<HTMLElement>
 
-    const render = renderHook(() => useVerticalScrollDirection(mockUseRef))
+    const render = renderHook(() => useBottomBarVisibility(mockUseRef))
 
     expect(mockUseRef.current?.addEventListener).toHaveBeenCalledWith('scroll', expect.any(Function), {
       signal: expect.any(AbortSignal),
