@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react'
-import { ToolTip } from '../index'
+import { Tooltip } from '../index'
 
-describe('ToolTip', () => {
+describe('Tooltip', () => {
   test('should match snapshot', () => {
-    const { asFragment } = render(<ToolTip tip="Tooltip Text">Test</ToolTip>)
+    const { asFragment } = render(<Tooltip description="Tooltip Text">Test</Tooltip>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

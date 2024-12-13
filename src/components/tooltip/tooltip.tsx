@@ -1,11 +1,11 @@
 import React, { FC, HTMLAttributes, useState, ReactNode } from 'react'
-import { ElToolTipChild, ElToolTipContainer, ElToolTipLabel } from './styles'
+import { ElTooltipChild, ElTooltipContainer, ElTooltipLabel } from './styles'
 import { useId } from '#src/storybook/random-id'
 
-export interface ToolTipProps extends HTMLAttributes<HTMLDivElement> {
+export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode
   label?: string
-  tip: string
+  description: string
   maxWidth?: string
   position?:
     | 'top'
@@ -22,17 +22,17 @@ export interface ToolTipProps extends HTMLAttributes<HTMLDivElement> {
     | 'leftEnd'
 }
 
-export interface ToolTipChildProps extends HTMLAttributes<HTMLDivElement> {
-  position: ToolTipProps['position']
+export interface TooltipChildProps extends HTMLAttributes<HTMLDivElement> {
+  position: TooltipProps['position']
   maxWidth?: string
 }
 
-export const ToolTip: FC<ToolTipProps> = ({ children, label, tip, maxWidth = '400px', position = 'top' }) => {
+export const Tooltip: FC<TooltipProps> = ({ children, label, description, maxWidth = '400px', position = 'top' }) => {
   const [visible, setVisible] = useState(false)
   const tooltipId = useId()
 
   return (
-    <ElToolTipContainer
+    <ElTooltipContainer
       onMouseEnter={() => setVisible(true)}
       onMouseLeave={() => setVisible(false)}
       onFocus={() => setVisible(true)}
@@ -41,18 +41,18 @@ export const ToolTip: FC<ToolTipProps> = ({ children, label, tip, maxWidth = '40
     >
       {children}
       {visible && (
-        <ToolTipChild id={tooltipId} position={position} maxWidth={maxWidth}>
-          {label && <ElToolTipLabel>{label}: </ElToolTipLabel>}
-          {tip}
-        </ToolTipChild>
+        <TooltipChild id={tooltipId} position={position} maxWidth={maxWidth}>
+          {label && <ElTooltipLabel>{label}: </ElTooltipLabel>}
+          {description}
+        </TooltipChild>
       )}
-    </ElToolTipContainer>
+    </ElTooltipContainer>
   )
 }
 
-export const ToolTipChild: FC<ToolTipChildProps> = ({ children, position, maxWidth, id }) => {
+export const TooltipChild: FC<TooltipChildProps> = ({ children, position, maxWidth, id }) => {
   return (
-    <ElToolTipChild
+    <ElTooltipChild
       id={id} // To support a11y for screen reader to pass to aria-describedby
       role="tooltip"
       data-position={position}
@@ -61,6 +61,6 @@ export const ToolTipChild: FC<ToolTipChildProps> = ({ children, position, maxWid
       aria-live="assertive" // Announce content dynamically
     >
       {children}
-    </ElToolTipChild>
+    </ElTooltipChild>
   )
 }

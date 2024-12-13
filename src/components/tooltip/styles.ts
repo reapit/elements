@@ -1,12 +1,12 @@
 import { styled } from '@linaria/react'
 
-export const ElToolTipContainer = styled.div`
+export const ElTooltipContainer = styled.div`
   position: relative;
   display: inline-block;
   overflow: visible;
 `
 
-export const ElToolTipChild = styled.div`
+export const ElTooltipChild = styled.div`
   width: max-content;
   background: var(--fill-default-darkest, #222b33);
   color: var(--text-white);
@@ -18,8 +18,6 @@ export const ElToolTipChild = styled.div`
   line-height: var(--line-height-xs);
   letter-spacing: var(--letter-spacing-xs);
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
   position: absolute;
   transition: opacity 0.2s;
   pointer-events: none;
@@ -120,13 +118,11 @@ export const ElToolTipChild = styled.div`
   }
 `
 
-export const ElToolTipLabel = styled.span`
+export const ElTooltipLabel = styled.span`
   font-family: var(--font-family);
   font-size: var(--font-size-xs);
   font-weight: 600; // To do : Need to replace with variable
   line-height: var(--line-height-xs);
   letter-spacing: var(--letter-spacing-xs);
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
 `

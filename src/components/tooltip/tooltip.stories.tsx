@@ -1,12 +1,12 @@
 import { Meta } from '@storybook/react'
-import { ToolTip } from './tooltip'
+import { Tooltip } from './tooltip'
 import { Button } from '../button'
 
-const meta: Meta<typeof ToolTip> = {
-  title: 'Components/ToolTip',
-  component: ToolTip,
+const meta: Meta<typeof Tooltip> = {
+  title: 'Components/Tooltip',
+  component: Tooltip,
   argTypes: {
-    tip: {
+    description: {
       control: 'text',
       description: 'Defines the tip of the tooltip.',
     },
@@ -41,7 +41,7 @@ export default meta
 
 export const BasicUsage = {
   args: {
-    tip: 'Tooltip text',
+    description: 'Tooltip text',
     children: <Button variant="primary">Hover me</Button>,
   },
 }
