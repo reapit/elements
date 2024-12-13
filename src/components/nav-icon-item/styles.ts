@@ -41,8 +41,8 @@ export const ElNavIconItemBadge = styled.span`
   position: absolute;
   right: 5px;
   top: 5px;
-  width: var(--size-2, 8px);
-  height: var(--size-2, 8px);
+  width: var(--size-2);
+  height: var(--size-2);
   background-color: var(--icon-error, #f01830);
   border-radius: 100%;
 `
