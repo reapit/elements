@@ -1,12 +1,12 @@
 import { render } from '@testing-library/react'
 import {
-  Drawer,
-  DrawerBg,
-  DrawerBody,
-  DrawerContainer,
-  DrawerHeader,
-  DrawerSubtitle,
-  DrawerTitle,
+  DeprecatedDrawer as Drawer,
+  DeprecatedDrawerBg as DrawerBg,
+  DeprecatedDrawerBody as DrawerBody,
+  DeprecatedDrawerContainer as DrawerContainer,
+  DeprecatedDrawerHeader as DrawerHeader,
+  DeprecatedDrawerSubtitle as DrawerSubtitle,
+  DeprecatedDrawerTitle as DrawerTitle,
   handleDrawerFocus,
 } from '..'
 import { createRef } from 'react'

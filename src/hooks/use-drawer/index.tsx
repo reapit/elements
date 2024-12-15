@@ -1,5 +1,5 @@
 import { FC, useMemo, useState } from 'react'
-import { Drawer, DrawerProps } from '../../components/drawer'
+import { DeprecatedDrawer as Drawer, DrawerProps } from '../../components/deprecated-drawer'
 import { Portal } from '../use-portal'
 
 export type UseDrawer = [
