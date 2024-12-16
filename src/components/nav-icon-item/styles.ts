@@ -20,7 +20,7 @@ const baseStyles = `
     border-radius: var(--corner-default);
     background: var(--fill-white);
     box-shadow:
-      0px 0px 0px 1px var(--fill-white)
+      0px 0px 0px 1px var(--fill-white),
       0px 0px 0px 4px var(--icon-button_primary-hover);
   }
 
