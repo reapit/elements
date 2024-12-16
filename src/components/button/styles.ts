@@ -52,7 +52,8 @@ const baseButtonStyles = `
   text-align: left;
   color: var(--text-secondary);
   background: var(--fill-white);
-  padding: var(--spacing-2) var(--spacing-4);
+  height: var(--size-9);
+  padding: 0px var(--spacing-4);
   gap: var(--spacing-1);
   border-radius: var(--corner-default);
   border: 1px solid var(--outline-default);
@@ -72,19 +73,19 @@ const baseButtonStyles = `
   }
 
   &.${elButtonIconOnly} {
-    padding: var(--spacing-2);
+    padding: 0px;
+    width: var(--size-9);
     .${elButtonSpinner} {
       margin: 0 0.125rem;
     }
   }
 
   &.${elButtonSizeSmall} {
-    padding: var(--spacing-1) var(--spacing-3);
-    .${elButtonLabel} {
-      padding: var(--spacing-half)
-    }
+    padding: 0px var(--spacing-3);
+    height: var(--size-8);
     &.${elButtonIconOnly} {
-      padding: var(--spacing-1);
+      padding: 0px;
+      width: var(--size-8);
       .${elIcon} {
           padding: var(--spacing-1);
       }
@@ -92,6 +93,10 @@ const baseButtonStyles = `
   }
 
   &.${elButtonSizeLarge} {
+    height: var(--size-10);
+    &.${elButtonIconOnly} {
+      width: var(--size-10);
+    }
     .${elButtonLabel} {
       font-size: var(--font-size-base);
       line-height: var(--line-height-base);

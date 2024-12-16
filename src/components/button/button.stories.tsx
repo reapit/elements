@@ -2,7 +2,9 @@ import { Meta } from '@storybook/react'
 import { Button } from './button'
 import { ButtonGroup } from '../button-group'
 import { action } from '@storybook/addon-actions'
-import { Icon } from '../icon'
+import { Icon, IconNames } from '../icon'
+
+const ICON_OPTIONS: IconNames[] = ['star', 'check', 'add', 'arrowDown', 'email']
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -13,8 +15,24 @@ const meta: Meta<typeof Button> = {
       options: ['primary', 'secondary', 'tertiary', 'destructive', 'busy'],
       description: 'Defines the button style variant.',
     },
-    iconLeft: { control: 'text', description: 'The icon displayed on the left side of the button.' },
-    iconRight: { control: 'text', description: 'The icon displayed on the right side of the button.' },
+    iconLeft: {
+      control: 'select', // Changed to select control
+      options: ICON_OPTIONS,
+      description: 'The icon displayed on the left side of the button.',
+      mapping: ICON_OPTIONS.reduce((acc, iconName) => {
+        acc[iconName] = <Icon icon={iconName} fontSize="1rem" />
+        return acc
+      }, {}),
+    },
+    iconRight: {
+      control: 'select', // Changed to select control
+      options: ICON_OPTIONS,
+      description: 'The icon displayed on the right side of the button.',
+      mapping: ICON_OPTIONS.reduce((acc, iconName) => {
+        acc[iconName] = <Icon icon={iconName} fontSize="1rem" />
+        return acc
+      }, {}),
+    },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
