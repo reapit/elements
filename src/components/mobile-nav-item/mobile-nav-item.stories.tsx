@@ -19,19 +19,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Simple: Story = {
-  render: () => <MobileNavItem label="Item 1" href="#item-1" />,
+  render: ({}) => <MobileNavItem label="Item 1" href="#item-1" />,
 }
 
-export const SimpleWithBadge: Story = {
-  render: () => <MobileNavItem label="Item 1" href="#item-1" hasBadge />,
+export const WithBadge: Story = {
+  render: ({}) => <MobileNavItem label="Item 1" href="#item-1" hasBadge />,
 }
 
-export const SimpleWithActiveState: Story = {
-  render: () => <MobileNavItem label="Item 1" href="#item-1" isActive />,
+export const WithActiveState: Story = {
+  render: ({}) => <MobileNavItem label="Item 1" href="#item-1" isActive />,
 }
 
 export const Expandable: Story = {
-  render: () => (
+  render: ({}) => (
     <MobileNavItem label="Item 2" hasBadge>
       <MobileNavItem label="Sub Item 2.1" href="#item-2.1" />
       <MobileNavItem label="Sub Item 2.2" onClick={action('onClick')} hasBadge />
@@ -41,7 +41,7 @@ export const Expandable: Story = {
 }
 
 export const DefaultExpanded: Story = {
-  render: () => (
+  render: ({}) => (
     <MobileNavItem label="Item 3" isActive>
       <MobileNavItem label="Sub Item 3.1" href="#item-3.1" />
       <MobileNavItem label="Sub Item 3.2" onClick={action('onClick')} isActive />
