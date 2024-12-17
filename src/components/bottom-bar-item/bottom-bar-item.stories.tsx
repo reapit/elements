@@ -54,7 +54,7 @@ export const Default: Story = {
   },
 }
 
-export const WithActiveState: Story = {
+export const Active: Story = {
   args: {
     isActive: true,
     children: 'Label',
