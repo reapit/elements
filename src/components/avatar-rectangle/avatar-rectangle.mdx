@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { Meta, Canvas, Controls, Description } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as AvatarRectangleStories from './avatar-rectangle.stories'
 
@@ -12,8 +12,7 @@ A versatile component designed to render property image.
 
 ## Default Usage
 
-The default usage use the residential variant and medium size, each can be set using the `data-` attribute.
-
+<Description of={AvatarRectangleStories.DefaultUsage} />
 <Canvas of={AvatarRectangleStories.DefaultUsage} />
 <RenderHtmlMarkup of={AvatarRectangleStories.DefaultUsage} />
 
@@ -31,9 +30,3 @@ The default usage use the residential variant and medium size, each can be set u
 
 <Canvas of={AvatarRectangleStories.UsingCommercialPlaceholder} />
 <RenderHtmlMarkup of={AvatarRectangleStories.UsingCommercialPlaceholder} />
-
-## React Usage
-
-<Canvas of={AvatarRectangleStories.ReactUsage} />
-
-<RenderHtmlMarkup of={AvatarRectangleStories.ReactUsage} />

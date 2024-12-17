@@ -1,4 +1,5 @@
-import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { Meta, Story, Canvas, Controls, Description
+} from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as AvatarStories from './avatar.stories'
 
@@ -6,42 +7,37 @@ import * as AvatarStories from './avatar.stories'
 
 # Avatar
 
-An avatar component to be used typically with a `Card` or `Nav` component. The default variant renders a circle with children.
-
-There are multiple variants that can be used by utilizing the data props, such as size, colour, and shape (see the HTML version of React usage). In addition to text, it also accepts an Icon as a child.
-
-## Style Only Usage
-
-<Canvas of={AvatarStories.StyleOnlyUsage} />
-
-<RenderHtmlMarkup of={AvatarStories.StyleOnlyUsage} />
-
-<Canvas of={AvatarStories.WithIconUsage} />
-
-<RenderHtmlMarkup of={AvatarStories.WithIconUsage} />
-
-## With Colour
-
-<Canvas of={AvatarStories.WithColour} />
-
-<RenderHtmlMarkup of={AvatarStories.WithColour} />
-
-## With Square Shape
-
-<Canvas of={AvatarStories.WithSquareShape} />
-
-<RenderHtmlMarkup of={AvatarStories.WithSquareShape} />
-
-## With Small Size
-
-<Canvas of={AvatarStories.WithSmallSize} />
-
-<RenderHtmlMarkup of={AvatarStories.WithSmallSize} />
-
-## React Usage
+<Description of={AvatarStories.Default} />
 
 <Controls />
 
-<Canvas of={AvatarStories.ReactUsage} />
+## Default
 
-<RenderHtmlMarkup of={AvatarStories.ReactUsage} />WithColourWithColour
+<Canvas of={AvatarStories.Default} />
+
+<RenderHtmlMarkup of={AvatarStories.Default} />
+
+## With Icon
+
+<Canvas of={AvatarStories.AvatarWithIcon} />
+
+<RenderHtmlMarkup of={AvatarStories.AvatarWithIcon} />
+
+
+## With Purple Colour
+
+<Canvas of={AvatarStories.AvatarWithPurpleColour} />
+
+<RenderHtmlMarkup of={AvatarStories.AvatarWithPurpleColour} />
+
+## With Square Shape
+
+<Canvas of={AvatarStories.AvatarWithSquareShape} />
+
+<RenderHtmlMarkup of={AvatarStories.AvatarWithSquareShape} />
+
+## With Small Size
+
+<Canvas of={AvatarStories.AvatarWithSmallSize} />
+
+<RenderHtmlMarkup of={AvatarStories.AvatarWithSmallSize} />

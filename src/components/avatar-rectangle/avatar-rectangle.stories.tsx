@@ -1,11 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { AvatarRectangle } from '.'
-import {
-  ElAvatarRectangle,
-  ElAvatarRectResidentialPlaceholder,
-  ElAvatarRectBottomImage,
-  ElAvatarRectCommercialPlaceholder,
-} from './styles'
+import { ElAvatarRectResidentialPlaceholder, ElAvatarRectCommercialPlaceholder } from './styles'
 
 export default {
   title: 'Components/Avatar Rectangle',
@@ -13,6 +8,7 @@ export default {
   args: {
     variant: 'residential',
     size: 'medium',
+    src: 'https://picsum.photos/id/206/100/100',
   },
   argTypes: {
     variant: {
@@ -26,36 +22,23 @@ export default {
   },
 } as Meta<typeof AvatarRectangle>
 
-const exampleImageUrl = 'https://picsum.photos/id/206/100/100'
+type Story = StoryObj<typeof AvatarRectangle>
 
-export const DefaultUsage = {
-  render: ({}) => (
-    <ElAvatarRectangle>
-      <img src={exampleImageUrl} alt="example" />
-    </ElAvatarRectangle>
-  ),
-}
+/**
+ * The default usage use the residential variant and medium size, each can be set using the `data-` attribute.
+ */
+export const DefaultUsage: Story = {}
 
 export const UsingResidentialPlaceholder = {
-  render: ({}) => <ElAvatarRectResidentialPlaceholder aria-label="Image placeholder" />,
+  render: () => <ElAvatarRectResidentialPlaceholder aria-label="Image placeholder" />,
 }
 
-export const UsingCommercialVariant = {
-  render: ({}) => (
-    <ElAvatarRectangle data-variant="commercial">
-      <img src={exampleImageUrl} alt="example" />
-      <ElAvatarRectBottomImage aria-hidden="true" />
-    </ElAvatarRectangle>
-  ),
+export const UsingCommercialVariant: Story = {
+  args: {
+    variant: 'commercial',
+  },
 }
 
 export const UsingCommercialPlaceholder = {
-  render: ({}) => <ElAvatarRectCommercialPlaceholder aria-label="Image placeholder" />,
-}
-
-export const ReactUsage: StoryObj<typeof AvatarRectangle> = {
-  args: {
-    src: exampleImageUrl,
-  },
-  render: (props) => <AvatarRectangle {...props}></AvatarRectangle>,
+  render: () => <ElAvatarRectCommercialPlaceholder aria-label="Image placeholder" />,
 }
