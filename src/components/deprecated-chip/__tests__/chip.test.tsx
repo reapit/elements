@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { Chip, ChipGroup } from '..'
+import { DeprecatedChip as Chip, DeprecatedChipGroup as ChipGroup } from '..'
 
 describe('Chip component', () => {
   it('should match a snapshot', () => {
