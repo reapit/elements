@@ -1,11 +1,18 @@
 import { FC, HTMLAttributes, InputHTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
-import { ElChipCheckbox, ElChipLabel, ElChipGroup, ElChipGroupInner } from './__styles__'
+import {
+  ElDeprecatedChipCheckbox as ElChipCheckbox,
+  ElDeprecatedChipLabel as ElChipLabel,
+  ElDeprecatedChipGroup as ElChipGroup,
+  ElDeprecatedChipGroupInner as ElChipGroupInner,
+} from './__styles__'
 import { useId } from '../../storybook/random-id'
 
+/** @deprecated */
 export interface ChipProps extends InputHTMLAttributes<HTMLInputElement> {}
 
-export const Chip: FC<ChipProps> = ({ children, className, id, ...rest }) => {
+/** @deprecated */
+export const DeprecatedChip: FC<ChipProps> = ({ children, className, id, ...rest }) => {
   const chipId = useId(id)
   return (
     <>
@@ -17,7 +24,8 @@ export const Chip: FC<ChipProps> = ({ children, className, id, ...rest }) => {
   )
 }
 
-export const ChipGroup: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
+/** @deprecated */
+export const DeprecatedChipGroup: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
   <ElChipGroup className={cx(className)} {...rest}>
     <ElChipGroupInner>{children}</ElChipGroupInner>
   </ElChipGroup>

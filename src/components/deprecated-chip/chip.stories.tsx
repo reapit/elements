@@ -1,7 +1,7 @@
-import { Chip, ChipGroup } from '.'
+import { DeprecatedChip as Chip, DeprecatedChipGroup as ChipGroup } from '.'
 
 export default {
-  title: 'Chip',
+  title: 'DeprecatedChip',
   component: Chip,
 }
 
