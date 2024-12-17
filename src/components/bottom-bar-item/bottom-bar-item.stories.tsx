@@ -1,17 +1,9 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
+import type { Meta, StoryObj } from '@storybook/react'
 
-import { BottomBarItem } from './bottom-bar-item'
-import { FlexContainer } from '../layout'
 import { Icon } from '../icon'
-import {
-  ElAnchorBottomBarItemContainer,
-  ElBottomBarItemBadge,
-  ElBottomBarItemContent,
-  ElBottomBarItemIcon,
-  ElBottomBarItemLabel,
-  ElButtonBottomBarItemContainer,
-} from './styles'
+import { FlexContainer } from '../layout'
+import { BottomBarItem } from './bottom-bar-item'
 
 const meta = {
   title: 'Components/Bottom Bar Item',
@@ -62,7 +54,7 @@ export const Default: Story = {
   },
 }
 
-export const ActiveState: Story = {
+export const Active: Story = {
   args: {
     isActive: true,
     children: 'Label',
@@ -70,75 +62,15 @@ export const ActiveState: Story = {
   },
 }
 
-export const BadgeState: Story = {
+export const WithBadge: Story = {
   args: {
     children: 'Label',
     icon: <Icon icon="star" />,
     hasBadge: true,
   },
 }
-export const StyleAnchorUsage: Story = {
-  args: {
-    href: '#',
-    children: 'Label',
-    icon: <Icon icon="star" />,
-  },
-  render: (args) => {
-    return (
-      <FlexContainer>
-        <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mr5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
-        </ElAnchorBottomBarItemContainer>
 
-        <ElAnchorBottomBarItemContainer href={args.href} aria-current="page" className="el-mx5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
-        </ElAnchorBottomBarItemContainer>
-
-        <ElAnchorBottomBarItemContainer href={args.href} aria-current={undefined} className="el-mx5">
-          <ElBottomBarItemContent>
-            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-            <ElBottomBarItemBadge />
-          </ElBottomBarItemContent>
-          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
-        </ElAnchorBottomBarItemContainer>
-      </FlexContainer>
-    )
-  },
-}
-
-export const StyleButtonUsage: Story = {
-  args: {
-    children: 'Label',
-    icon: <Icon icon="star" />,
-  },
-  render: (args) => {
-    return (
-      <FlexContainer>
-        <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mr5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
-        </ElButtonBottomBarItemContainer>
-
-        <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current="true" className="el-mx5">
-          <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>
-        </ElButtonBottomBarItemContainer>
-
-        <ElButtonBottomBarItemContainer onClick={action('handleClick')} aria-current={undefined} className="el-mx5">
-          <ElBottomBarItemContent>
-            <ElBottomBarItemIcon>{args?.icon}</ElBottomBarItemIcon>
-            <ElBottomBarItemBadge />
-          </ElBottomBarItemContent>
-          <ElBottomBarItemLabel>{args?.children}</ElBottomBarItemLabel>{' '}
-        </ElButtonBottomBarItemContainer>
-      </FlexContainer>
-    )
-  },
-}
-
-export const ReactAnchorUsage: Story = {
+export const WithHref: Story = {
   args: {
     href: '#',
     icon: <Icon icon="star" />,
@@ -155,7 +87,8 @@ export const ReactAnchorUsage: Story = {
   },
 }
 
-export const ReactButtonUsage: Story = {
+export const WithOnClick: Story = {
+  name: 'With OnClick',
   args: {
     onClick: action('handleClick'),
     icon: <Icon icon="star" />,

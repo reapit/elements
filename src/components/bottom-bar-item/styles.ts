@@ -3,40 +3,40 @@ import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import { ElIcon } from '../icon'
 
 export const ElBottomBarItemIcon = styled.div`
-  width: var(--icon-default, 24px);
-  height: var(--icon-default, 24px);
+  width: var(--icon-default);
+  height: var(--icon-default);
   color: inherit;
 `
 
 export const ElBottomBarItemLabel = styled.span`
   color: inherit;
   text-align: center;
-  font-family: var(--font-family, Inter);
-  font-size: var(--font-size-2xs, 12px);
+  font-family: var(--font-family);
+  font-size: var(--font-size-3xs);
   font-style: normal;
-  font-weight: var(--font-weight-regular, Regular);
-  line-height: var(--line-height-3xs, 12px);
-  letter-spacing: var(--letter-spacing-2xs, 0px);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-3xs);
+  letter-spacing: var(--letter-spacing-2xs);
 `
 
 const baseStyles = `
-  background-color: var(--fill-white, white);
+  background-color: var(--fill-white);
   outline: none;
   width: 44px;
-  border: var(--border-none, 0);
+  border: var(--border-none);
   display: flex;
   cursor: pointer;
-  padding: var(--space-half, 2px) var(--space-none, 0px);
+  padding: var(--spacing-half) var(--spacing-none);
   flex-direction: column;
   align-items: center;
-  gap: var(--space-half, 2px);
+  gap: var(--spacing-half);
   position: relative;
   flex: 1 0 0;
 
-  color: var(--icon-secondary, #607890);
+  color: var(--icon-secondary);
 
   &:active, &[aria-current="true"], &[aria-current="page"] {
-    color: var(--icon-action, #4e56ea)
+    color: var(--icon-action)
   }
 `
 
@@ -50,7 +50,7 @@ export const ElBottomBarItemBadge = styled.span`
   right: -3px;
   width: var(--size-2);
   height: var(--size-2);
-  background-color: var(--icon-error, #f01830);
+  background-color: var(--icon-error);
   border-radius: 100%;
 `
 

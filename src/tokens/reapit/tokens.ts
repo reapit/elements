@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Tue, 10 Dec 2024 06:08:05 GMT
+ * Generated on Mon, 16 Dec 2024 06:57:57 GMT
  */
 
 export const neutral900 = '#222b33'
@@ -138,6 +138,7 @@ export const fontSizeBase = '0.9375rem'
 export const fontSizeSm = '0.875rem'
 export const fontSizeXs = '0.8125rem'
 export const fontSize2xs = '0.75rem'
+export const fontSize3xs = '0.625rem'
 export const lineHeight3xl = '2.5rem'
 export const lineHeight2xl = '2rem'
 export const lineHeightXl = '1.75rem'
