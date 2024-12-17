@@ -2,7 +2,6 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { NavIconItem } from './nav-icon-item'
 import { Icon } from '../icon'
 import { FlexContainer } from '../layout'
-import { ElAnchorNavIconItem, ElButtonNavIconItem, ElNavIconItemBadge } from './styles'
 import { action } from '@storybook/addon-actions'
 
 const meta = {
@@ -55,91 +54,33 @@ export const Default: Story = {
     onClick: action('handleOnClick'),
   },
   render: (args) => {
-    return (
-      <ElButtonNavIconItem onClick={action('handleClick')} data-state={undefined}>
-        {args?.icon}
-      </ElButtonNavIconItem>
-    )
+    return <NavIconItem {...args} />
   },
 }
 
-export const ActiveState: Story = {
+export const Active: Story = {
   args: {
     icon: <Icon icon="star" />,
     onClick: action('handleOnClick'),
+    isActive: true,
   },
   render: (args) => {
-    return (
-      <ElButtonNavIconItem onClick={action('handleClick')} aria-current="true">
-        {args?.icon}
-      </ElButtonNavIconItem>
-    )
+    return <NavIconItem {...args} />
   },
 }
 
-export const BadgeState: Story = {
+export const WithBadge: Story = {
   args: {
     icon: <Icon icon="star" />,
     onClick: action('handleOnClick'),
     hasBadge: true,
   },
   render: (args) => {
-    return (
-      <ElButtonNavIconItem onClick={action('handleClick')}>
-        {args?.icon}
-        <ElNavIconItemBadge role="status" />
-      </ElButtonNavIconItem>
-    )
+    return <NavIconItem {...args} />
   },
 }
 
-export const StyleAnchorUsage: Story = {
-  args: {
-    icon: <Icon icon="star" />,
-    href: '#',
-  },
-  render: (args) => {
-    return (
-      <FlexContainer>
-        <ElAnchorNavIconItem href={args.href!} aria-current={undefined} className="el-mr5">
-          {args?.icon}
-        </ElAnchorNavIconItem>
-        <ElAnchorNavIconItem href={args.href!} aria-current="page" className="el-mx5">
-          {args?.icon}
-        </ElAnchorNavIconItem>
-        <ElAnchorNavIconItem href={args.href!} aria-current={undefined} className="el-mx5">
-          {args?.icon}
-          <ElNavIconItemBadge role="status" />
-        </ElAnchorNavIconItem>
-      </FlexContainer>
-    )
-  },
-}
-
-export const StyleButtonUsage: Story = {
-  args: {
-    icon: <Icon icon="star" />,
-    onClick: action('handleClick'),
-  },
-  render: (args) => {
-    return (
-      <FlexContainer>
-        <ElButtonNavIconItem onClick={action('handleClick')} aria-current={undefined} className="el-mr5">
-          {args?.icon}
-        </ElButtonNavIconItem>
-        <ElButtonNavIconItem onClick={action('handleClick')} aria-current="true" className="el-mx5">
-          {args?.icon}
-        </ElButtonNavIconItem>
-        <ElButtonNavIconItem onClick={action('handleClick')} aria-current={undefined} className="el-mx5">
-          {args?.icon}
-          <ElNavIconItemBadge role="status" />
-        </ElButtonNavIconItem>
-      </FlexContainer>
-    )
-  },
-}
-
-export const ReactAnchorUsage: Story = {
+export const WithHref: Story = {
   args: {
     icon: <Icon icon="star" />,
     href: '#',
@@ -155,7 +96,8 @@ export const ReactAnchorUsage: Story = {
   },
 }
 
-export const ReactButtonUsage: Story = {
+export const WithOnClick: Story = {
+  name: 'With OnClick',
   args: {
     icon: <Icon icon="star" />,
     onClick: action('handleClick'),
