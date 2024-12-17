@@ -2,33 +2,33 @@ import { styled } from '@linaria/react'
 
 export const ElNavItemLabelContainer = styled.span`
   display: flex;
-  padding: var(--spacing-spacing-half, 2px);
+  padding: var(--spacing-half);
   align-items: flex-start;
 
-  font-family: var(--font-family, Inter);
-  font-size: var(--font-size-sm, 14px);
+  font-family: var(--font-family);
+  font-size: var(--font-size-sm);
   font-style: normal;
   font-weight: 500;
-  line-height: var(--line-height-sm, 20px);
-  letter-spacing: var(--letter-spacing-sm, -0.14px);
+  line-height: var(--line-height-sm);
+  letter-spacing: var(--letter-spacing-sm);
 `
 
 const baseNavItemStyle = `
   display: inline-flex;
-  padding: var(--spacing-spacing-1, 4px) var(--spacing-spacing-3, 12px);
+  padding: var(--spacing-1) var(--spacing-3);
   align-items: center;
-  border-radius: var(--corner-radius-corner-default, 4px);
-  background: var(--fill-colour-fill-white, #fff);
+  border-radius: var(--corner-default);
+  background: var(--fill-white);
   &:focus {
     box-shadow:
       0px 0px 0px 1px #fff,
-      0px 0px 0px 4px var(--Colours-Purple-purple-300, #7e9bfa);
+      0px 0px 0px 4px var(--purple-300);
   }
   &:hover {
-    background: var(--fill-colour-fill-default-lightest, #f2f4f6);
+    background: var(--fill-default-lightest);
   }
   &:active {
-    background: var(--fill-colour-fill-default-lightest, #f2f4f6);
+    background: var(--fill-default-lightest);
   }
   &:focus-visible {
     outline: none;
@@ -36,9 +36,9 @@ const baseNavItemStyle = `
   cursor: pointer;
   border: none;
 
-  color: var(--text-colour-text-secondary, #607890);
+  color: var(--text-secondary);
   &:active, &[aria-current="true"], &[aria-current="page"] {
-    color: var(--text-colour-text-action, #4e56ea);
+    color: var(--text-action);
   }
 
   white-space: nowrap
