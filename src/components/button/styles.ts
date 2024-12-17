@@ -10,6 +10,7 @@ export const elButtonLabel = css``
 export const elIcon = css``
 export const elButtonIconOnly = css``
 export const elButtonSpinner = css``
+export const elButtonRemovePadding = css``
 
 /** @deprecated - Will be removed from future version */
 export const elFloatingButton = css``
@@ -142,6 +143,11 @@ const baseButtonStyles = `
       .${elIcon} {
         color: var(--icon-secondary);
       }
+    }
+    &.${elButtonRemovePadding} {
+      height: unset;
+      width: unset; /* To unset width for iconOnly button */
+      padding: 0px;
     }
   }
 
