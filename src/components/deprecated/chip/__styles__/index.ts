@@ -5,7 +5,8 @@ const checked = `data:image/svg+xml;utf8,<svg width="12px" height="12px" viewBox
 </svg>
 `
 
-export const ElChipCheckbox = styled.input`
+/** @deprecated */
+export const ElDeprecatedChipCheckbox = styled.input`
   height: 0;
   width: 0;
   visibility: hidden;
@@ -31,7 +32,8 @@ export const ElChipCheckbox = styled.input`
   }
 `
 
-export const ElChipLabel = styled.label`
+/** @deprecated */
+export const ElDeprecatedChipLabel = styled.label`
   cursor: pointer;
   width: auto;
   height: 28px;
@@ -52,11 +54,13 @@ export const ElChipLabel = styled.label`
   }
 `
 
-export const ElChipGroup = styled.div`
+/** @deprecated */
+export const ElDeprecatedChipGroup = styled.div`
   display: grid;
 `
 
-export const ElChipGroupInner = styled.div`
+/** @deprecated */
+export const ElDeprecatedChipGroupInner = styled.div`
   display: flex;
   flex-wrap: wrap;
   grid-auto-flow: column;
