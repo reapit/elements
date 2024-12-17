@@ -22,12 +22,12 @@ export const Simple: Story = {
   render: ({}) => <MobileNavItem label="Item 1" href="#item-1" />,
 }
 
-export const WithBadge: Story = {
-  render: ({}) => <MobileNavItem label="Item 1" href="#item-1" hasBadge />,
+export const Active: Story = {
+  render: ({}) => <MobileNavItem label="Item 1" href="#item-1" isActive />,
 }
 
-export const WithActiveState: Story = {
-  render: ({}) => <MobileNavItem label="Item 1" href="#item-1" isActive />,
+export const WithBadge: Story = {
+  render: ({}) => <MobileNavItem label="Item 1" href="#item-1" hasBadge />,
 }
 
 export const Expandable: Story = {
