@@ -58,7 +58,7 @@ export const Default: Story = {
   },
 }
 
-export const WithActiveState: Story = {
+export const Active: Story = {
   args: {
     icon: <Icon icon="star" />,
     onClick: action('handleOnClick'),
