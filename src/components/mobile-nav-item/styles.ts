@@ -10,26 +10,26 @@ const baseStyles = `
   border-radius: inherit;
   border: 4px solid transparent;
   background: inherit;
-  padding: var(--space-2, 8px) var(--space-4, 16px);
-  font-family: var(--font-family, Inter);
-  font-size: var(--font-size-base, 15px);
+  padding: var(--spacing-2) var(--spacing-4);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
   font-style: normal;
-  font-weight: var(--font-weight-regular, Regular);
-  line-height: var(--line-height-base, 24px);
-  letter-spacing: var(--letter-spacing-base, -0.15px);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-base);
+  letter-spacing: var(--letter-spacing-base);
 
   &:hover {
-    background: var(--fill-default-light, #e5e9ed);
+    background: var(--fill-default-light);
   }
 
   &:focus-visible {
-    border: 4px solid var(--purple-300, #7e9bfa);
+    border: 4px solid var(--purple-300);
   }
 
   &:active,
   &[aria-current='true'],
   &[aria-current='page'] {
-    color: var(--text-action, #4e56ea);
+    color: var(--text-action);
   }
 `
 
@@ -49,7 +49,7 @@ export const ElMobileNavItemContent = styled.span`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  gap: var(--space-2, 8px);
+  gap: var(--spacing-2);
   flex-grow: 1;
 `
 
@@ -57,7 +57,7 @@ export const ElMobileNavItemBadge = styled.span`
   display: block;
   width: var(--size-2);
   height: var(--size-2);
-  background-color: var(--icon-error, #f01830);
+  background-color: var(--icon-error);
   border-radius: 100%;
 `
 
@@ -70,25 +70,25 @@ export const ElMobileNavSubItemUnorderedList = styled.ul`
 export const ElMobileNavItemListItem = styled.li`
   display: flex;
   flex-direction: column;
-  background: var(--fill-white, #fff);
-  border-radius: var(--corner-lg, 8px);
+  background: var(--fill-white);
+  border-radius: var(--corner-lg);
 
   &[data-is-expanded='true'] {
-    background: var(--fill-default-lightest, #f2f4f6);
+    background: var(--fill-default-lightest);
 
     > ${ElMobileNavItemExpanderButton} {
-      border-radius: var(--corner-lg, 8px) var(--corner-lg, 8px) var(--corner-none, 0) var(--corner-none, 0);
+      border-radius: var(--corner-lg) var(--corner-lg) var(--corner-none) var(--corner-none);
     }
     ${ElMobileNavSubItemUnorderedList} > * {
-      background: var(--fill-default-lightest, #f2f4f6);
-      border-radius: var(--corner-none, 0px);
+      background: var(--fill-default-lightest);
+      border-radius: var(--corner-none);
     }
     ${ElMobileNavSubItemUnorderedList} > :last-child {
-      border-radius: var(--corner-none, 0) var(--corner-none, 0) var(--corner-lg, 8px) var(--corner-lg, 8px);
+      border-radius: var(--corner-none) var(--corner-none) var(--corner-lg) var(--corner-lg);
     }
     ${ElMobileNavItemAnchor}, ${ElMobileNavItemExpanderButton} {
       &:hover {
-        background: var(--fill-default-light, #e5e9ed);
+        background: var(--fill-default-light);
       }
     }
   }
