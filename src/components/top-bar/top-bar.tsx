@@ -7,9 +7,11 @@ import {
   ElTopBarProfile,
   ElTopBarMainNav,
   ElTopBarLogo,
+  ElTopBarAppSwitcher,
 } from './styles'
 
 const TopBar: FC<HTMLAttributes<HTMLDivElement>> & {
+  AppSwitcher: typeof ElTopBarAppSwitcher
   Logo: typeof ElTopBarLogo
   MainNav: typeof ElTopBarMainNav
   SecondaryNav: typeof ElTopBarSecondaryNav
@@ -24,6 +26,7 @@ const TopBar: FC<HTMLAttributes<HTMLDivElement>> & {
   )
 }
 
+TopBar.AppSwitcher = ElTopBarAppSwitcher
 TopBar.Logo = ElTopBarLogo
 TopBar.MainNav = ElTopBarMainNav
 TopBar.SecondaryNav = ElTopBarSecondaryNav

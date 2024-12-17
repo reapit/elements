@@ -14,6 +14,7 @@ import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
 import { TopBar } from './top-bar'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
+import { NavResponsiveAppSwitcher } from '../nav'
 
 const viewports: typeof INITIAL_VIEWPORTS = {
   superWideScreen: {
@@ -59,6 +60,20 @@ export const Default: Story = {
   render: () => {
     return (
       <TopBar>
+        <TopBar.AppSwitcher>
+          <NavResponsiveAppSwitcher
+            options={[
+              {
+                text: 'AppMarket',
+                callback: console.log,
+              },
+              {
+                text: 'DevPortal',
+                callback: console.log,
+              },
+            ]}
+          />
+        </TopBar.AppSwitcher>
         <TopBar.Logo href="/">
           <ReapitLogo />
         </TopBar.Logo>
@@ -125,6 +140,20 @@ export const ResponsiveMainNav: Story = {
   render: () => {
     return (
       <TopBar>
+        <TopBar.AppSwitcher>
+          <NavResponsiveAppSwitcher
+            options={[
+              {
+                text: 'AppMarket',
+                callback: console.log,
+              },
+              {
+                text: 'DevPortal',
+                callback: console.log,
+              },
+            ]}
+          />
+        </TopBar.AppSwitcher>
         <TopBar.Logo href="/">
           <ReapitLogo />
         </TopBar.Logo>
