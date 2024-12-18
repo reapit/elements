@@ -3,6 +3,14 @@ import { isBelowWideScreen, isTablet, isBelowDesktop, isWideScreen } from '../..
 import { ElButtonGroup } from '../button-group'
 import { css } from '@linaria/core'
 
+export const ElTopBarAppSwitcher = styled.a`
+  padding-right: var(--spacing-4);
+
+  ${isWideScreen} {
+    padding-right: var(--spacing-5);
+  }
+`
+
 export const ElTopBarLogo = styled.a`
   padding-right: var(--spacing-2);
   display: inline-flex;
