@@ -14,7 +14,7 @@ import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
 import { TopBar } from './top-bar'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { NavResponsiveAppSwitcher } from '../nav'
+import { elNewTopBarAppSwitcher, NavResponsiveAppSwitcher } from '../nav'
 
 const viewports: typeof INITIAL_VIEWPORTS = {
   superWideScreen: {
@@ -62,6 +62,7 @@ export const Default: Story = {
       <TopBar>
         <TopBar.AppSwitcher>
           <NavResponsiveAppSwitcher
+            className={elNewTopBarAppSwitcher}
             options={[
               {
                 text: 'AppMarket',
@@ -142,6 +143,7 @@ export const ResponsiveMainNav: Story = {
       <TopBar>
         <TopBar.AppSwitcher>
           <NavResponsiveAppSwitcher
+            className={elNewTopBarAppSwitcher}
             options={[
               {
                 text: 'AppMarket',
