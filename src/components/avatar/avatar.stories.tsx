@@ -30,19 +30,19 @@ export const AvatarWithIcon: Story = {
   ),
 }
 
-export const AvatarWithPurpleColour: Story = {
+export const AvatarColour: Story = {
   args: {
     colour: 'purple',
   },
 }
 
-export const AvatarWithSquareShape: Story = {
+export const AvatarShape: Story = {
   args: {
     shape: 'square',
   },
 }
 
-export const AvatarWithSmallSize: Story = {
+export const AvatarSize: Story = {
   args: {
     size: 'small',
   },

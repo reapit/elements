@@ -29,14 +29,14 @@ type Story = StoryObj<typeof AvatarRectangle>
  */
 export const DefaultUsage: Story = {}
 
-export const UsingResidentialPlaceholder = {
-  render: () => <ElAvatarRectResidentialPlaceholder aria-label="Image placeholder" />,
-}
-
-export const UsingCommercialVariant: Story = {
+export const AvatarRectangleVariant: Story = {
   args: {
     variant: 'commercial',
   },
+}
+
+export const UsingResidentialPlaceholder = {
+  render: () => <ElAvatarRectResidentialPlaceholder aria-label="Image placeholder" />,
 }
 
 export const UsingCommercialPlaceholder = {
