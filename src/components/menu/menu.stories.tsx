@@ -1,59 +1,21 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import {
-  ElMenu,
-  ElMenuItemAnchor,
-  ElMenuItemButton,
-  ElMenuItemGroup,
-  ElMenuItemGroupTitle,
-  ElMenuList,
-  ElMenuPopover,
-  Menu,
-} from '.'
+import type { ComponentProps } from 'react'
+import { Menu } from '.'
 import { Button } from '../button'
 import { Icon } from '../icon'
-import type { ComponentProps } from 'react'
 import { FlexContainer } from '../layout'
 
 const meta: Meta<typeof Menu> = {
   title: 'Components/Menu',
-  argTypes: {
-    'data-alignment': {
-      control: 'inline-radio',
-      options: ['left', 'right'],
-      description:
-        'to control the alignment of Menu container, will default to left if not provided (please see `More Complex Usage Example` for interactive example)',
-    },
-  },
 }
 
 export default meta
 type Story = StoryObj<typeof Menu>
 
-export const StylesOnlyUsage: StoryObj = {
+export const Default: StoryObj = {
   render: () => {
     return (
-      <ElMenu data-alignment="left">
-        <ElMenuPopover>
-          <ElMenuList role="menu">
-            <ElMenuItemGroup role="group">
-              <ElMenuItemGroupTitle>Group Title</ElMenuItemGroupTitle>
-              <ElMenuItemButton role="menuitem">Menu Item</ElMenuItemButton>
-              <ElMenuItemButton role="menuitem">Menu Item</ElMenuItemButton>
-              <ElMenuItemAnchor href="/#" role="menuitem">
-                Menu Item as anchor
-              </ElMenuItemAnchor>
-            </ElMenuItemGroup>
-          </ElMenuList>
-        </ElMenuPopover>
-      </ElMenu>
-    )
-  },
-}
-
-export const ReactUsage: Story = {
-  render: (props) => {
-    return (
-      <Menu {...props}>
+      <Menu>
         <Menu.Trigger>
           {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
         </Menu.Trigger>
@@ -71,7 +33,30 @@ export const ReactUsage: Story = {
   },
 }
 
-export const MoreComplexUsageExample: StoryObj<ComponentProps<typeof Menu>> = {
+export const WithCustomAlignment: Story = {
+  render: () => {
+    return (
+      <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
+        <Menu data-alignment="right">
+          <Menu.Trigger>
+            {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
+          </Menu.Trigger>
+          <Menu.Popover yOffset={10}>
+            <Menu.List>
+              <Menu.Group label="Group Title">
+                <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
+                <Menu.Item href="/#">Menu Item as anchor</Menu.Item>
+                <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
+              </Menu.Group>
+            </Menu.List>
+          </Menu.Popover>
+        </Menu>
+      </FlexContainer>
+    )
+  },
+}
+
+export const MoreComplexUsageExample: Story = {
   render: (props) => {
     const NavDropdownButtonUsageExample = ({
       title,
