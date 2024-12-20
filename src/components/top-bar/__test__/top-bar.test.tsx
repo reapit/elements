@@ -26,6 +26,7 @@ describe('TopBar Snapshot', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <TopBar>
+        <TopBar.AppSwitcher>App-switcher</TopBar.AppSwitcher>
         <TopBar.Logo>
           <img data-testid="logo-img" />
         </TopBar.Logo>
