@@ -73,7 +73,7 @@ export const MobileNavItemSimple: FC<MobileNavItemSimpleProps> = (props) => {
 export interface MobileNavItemExpandableProps extends CommonMobileNavItemProps {
   children: ReactNode
   href?: never
-  onClick: MouseEventHandler<HTMLButtonElement>
+  onClick?: MouseEventHandler<HTMLButtonElement>
   isActive: boolean
 }
 
