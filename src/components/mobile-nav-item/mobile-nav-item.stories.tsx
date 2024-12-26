@@ -46,13 +46,11 @@ export const Expandable: Story = {
 }
 
 export const DefaultExpanded: Story = {
-  render: ({}) => {
-    return (
-      <MobileNavItem label="Item 3" isActive>
-        <MobileNavItem label="Sub Item 3.1" href="#item-3.1" />
-        <MobileNavItem label="Sub Item 3.2" onClick={action('onClick')} isActive />
-        <MobileNavItem label="Sub Item 3.3" href="#item-3.3" />
-      </MobileNavItem>
-    )
-  },
+  render: ({}) => (
+    <MobileNavItem label="Item 3" isActive>
+      <MobileNavItem label="Sub Item 3.1" href="#item-3.1" />
+      <MobileNavItem label="Sub Item 3.2" onClick={action('onClick')} isActive />
+      <MobileNavItem label="Sub Item 3.3" href="#item-3.3" />
+    </MobileNavItem>
+  ),
 }
