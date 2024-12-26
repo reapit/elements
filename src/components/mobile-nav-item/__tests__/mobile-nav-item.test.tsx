@@ -14,7 +14,7 @@ describe('MobileNavItem', () => {
   it('should render Expandable MobileNavItem', () => {
     expect(
       render(
-        <MobileNavItem label="Item 2" hasBadge isActive>
+        <MobileNavItem label="Item 2" hasBadge isActive onClick={vi.fn()}>
           <MobileNavItem label="Sub Item 2.1" href="#item-2.1" isActive />
           <MobileNavItem label="Sub Item 2.2" onClick={() => {}} hasBadge />
           <MobileNavItem label="Sub Item 2.3" href="#item-2.3" />

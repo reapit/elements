@@ -1,5 +1,4 @@
-import { useState } from 'react'
-import type { FC, ReactNode, MouseEventHandler } from 'react'
+import type { FC, MouseEventHandler, ReactNode } from 'react'
 
 import { useId } from '../../storybook/random-id'
 
@@ -74,33 +73,33 @@ export const MobileNavItemSimple: FC<MobileNavItemSimpleProps> = (props) => {
 export interface MobileNavItemExpandableProps extends CommonMobileNavItemProps {
   children: ReactNode
   href?: never
-  onClick?: never
+  onClick: MouseEventHandler<HTMLButtonElement>
+  isActive: boolean
 }
 
 export const MobileNavItemExpandable: FC<MobileNavItemExpandableProps> = (props) => {
-  const [isExpanded, setIsExpanded] = useState(Boolean(props?.isActive))
   const panelId = useId()
 
-  const { isActive, label, hasBadge, children, ...rest } = props ?? {}
+  const { isActive, label, hasBadge, children, onClick, ...rest } = props ?? {}
 
   return (
-    <ElMobileNavItemListItem {...rest} data-is-expanded={isExpanded} aria-label={label}>
+    <ElMobileNavItemListItem {...rest} data-is-expanded={isActive} aria-label={label}>
       <ElMobileNavItemExpanderButton
         type="button"
-        aria-expanded={isExpanded ?? isActive}
+        aria-expanded={isActive}
         aria-current={isActive ? 'true' : undefined}
         aria-controls={panelId}
-        onClick={() => setIsExpanded((prev) => !prev)}
+        onClick={onClick}
       >
         <ElMobileNavItemContent>
           {label}
           {hasBadge && <ElMobileNavItemBadge />}
         </ElMobileNavItemContent>
 
-        <Icon icon={isExpanded ? 'chevronUp' : 'chevronDown'} fontSize="16px" />
+        <Icon icon={isActive ? 'chevronUp' : 'chevronDown'} fontSize="16px" />
       </ElMobileNavItemExpanderButton>
 
-      <ElMobileNavSubItemUnorderedList id={panelId} aria-hidden={!isExpanded}>
+      <ElMobileNavSubItemUnorderedList id={panelId} aria-hidden={!isActive}>
         {children}
       </ElMobileNavSubItemUnorderedList>
     </ElMobileNavItemListItem>
