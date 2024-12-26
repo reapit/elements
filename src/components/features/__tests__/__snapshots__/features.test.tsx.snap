@@ -1,0 +1,36 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Features > should render the component 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-2 el-features"
+  >
+    <div
+      aria-label="Bathroom"
+      class="mocked-styled-1 el-features-item"
+    >
+      <span
+        class="mocked-styled-0 el-features-item-icon"
+      >
+        <span>
+          icon
+        </span>
+      </span>
+      1
+    </div>
+    <div
+      aria-label="Bedroom"
+      class="mocked-styled-1 el-features-item"
+    >
+      <span
+        class="mocked-styled-0 el-features-item-icon"
+      >
+        <span>
+          icon
+        </span>
+      </span>
+      2
+    </div>
+  </div>
+</DocumentFragment>
+`;
