@@ -152,18 +152,18 @@ exports[`PageHeader component > should match a snapshot 1`] = `
                 Page Title
               </h1>
               <div
-                class="mocked-styled-8 el-tag-group"
+                class="mocked-styled-8 el-deprecated-tag-group"
               >
                 <div
-                  class="mocked-styled-9 el-tag-group-inner"
+                  class="mocked-styled-9 el-deprecated-tag-group-inner"
                 >
                   <span
-                    class="el-intent-primary el-tag"
+                    class="el-intent-primary el-deprecated-tag"
                   >
                     Tag 1
                   </span>
                   <span
-                    class="el-intent-primary el-tag"
+                    class="el-intent-primary el-deprecated-tag"
                   >
                     Tag 2
                   </span>
