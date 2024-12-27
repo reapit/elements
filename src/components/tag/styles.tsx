@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 
-export const ElTag = styled.div`
+export const ElTag = styled.li`
   width: fit-content;
   padding: var(--spacing-half) var(--spacing-3);
   border-radius: var(--corner-xl);
@@ -13,7 +13,7 @@ export const ElTag = styled.div`
   letter-spacing: var(--letter-spacing-xs);
 `
 
-export const ElTagGroup = styled.div`
+export const ElTagGroup = styled.ul`
   display: inline-flex;
   align-items: flex-start;
   gap: var(--spacing-1);

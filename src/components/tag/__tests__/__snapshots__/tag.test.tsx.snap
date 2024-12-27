@@ -2,14 +2,14 @@
 
 exports[`Tag > should render properly and match snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <ul
     class="mocked-styled-1 el-tag-group"
   >
-    <div
+    <li
       class="mocked-styled-0 el-tag"
     >
       Tag
-    </div>
-  </div>
+    </li>
+  </ul>
 </DocumentFragment>
 `;
