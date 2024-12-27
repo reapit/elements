@@ -1,0 +1,23 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as StatusIndicatorStories from './status-indicator.stories'
+
+<Meta of={StatusIndicatorStories} />
+
+# Status Indicator
+
+A Status Indicator is a low-visibility component used to highlight important information.
+
+<Controls />
+
+## Default
+
+<Canvas of={StatusIndicatorStories.Default} />
+
+<RenderHtmlMarkup of={StatusIndicatorStories.Default} />
+
+## Variants
+
+<Canvas of={StatusIndicatorStories.Variants} />
+
+<RenderHtmlMarkup of={StatusIndicatorStories.Variants} />
