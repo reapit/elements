@@ -1,2 +1,2 @@
-export * from './empty-data.js'
-export * from './styles.js'
+export * from './empty-data'
+export * from './styles'
