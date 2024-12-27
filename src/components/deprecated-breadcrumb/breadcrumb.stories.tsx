@@ -1,13 +1,13 @@
-import { BreadCrumb } from './index'
+import { DeprecatedBreadCrumb } from './index'
 
 export default {
   title: 'BreadCrumb',
-  component: BreadCrumb,
+  component: DeprecatedBreadCrumb,
 }
 
 export const BasicUsage = {
   render: ({}) => (
-    <BreadCrumb
+    <DeprecatedBreadCrumb
       defaultActiveIndex={3}
       items={[
         {
@@ -33,7 +33,7 @@ export const BasicUsage = {
 
 export const DefaultIndex = {
   render: ({}) => (
-    <BreadCrumb
+    <DeprecatedBreadCrumb
       defaultActiveIndex={3}
       items={[
         {
