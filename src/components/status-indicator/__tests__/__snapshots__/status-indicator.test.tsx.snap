@@ -1,0 +1,113 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`StatusIndicator > should render as expected 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="neutral"
+    />
+    Neutral
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StatusIndicator > should render as expected 2`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="success"
+    />
+    Success
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StatusIndicator > should render as expected 3`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="warning"
+    />
+    Warning
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StatusIndicator > should render as expected 4`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="pending"
+    />
+    Pending
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StatusIndicator > should render as expected 5`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="danger"
+    />
+    Danger
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StatusIndicator > should render as expected 6`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="inactive"
+    />
+    Inactive
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StatusIndicator > should render as expected 7`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="accent1"
+    />
+    Accent 1
+  </div>
+</DocumentFragment>
+`;
+
+exports[`StatusIndicator > should render as expected 8`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="accent2"
+    />
+    Accent 2
+  </div>
+</DocumentFragment>
+`;
