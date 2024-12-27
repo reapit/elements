@@ -8,7 +8,7 @@ const meta = {
   argTypes: {
     variant: {
       control: 'select',
-      options: ['neutral', 'success', 'pending', 'warning', 'danger', 'accent1', 'accent2'],
+      options: ['neutral', 'success', 'pending', 'warning', 'danger', 'inactive', 'accent1', 'accent2'],
       description: 'Defines the status indicator style variant.',
     },
     className: {
@@ -34,6 +34,7 @@ export const Variants = {
       <StatusIndicator variant="pending">Pending</StatusIndicator>
       <StatusIndicator variant="warning">Warning</StatusIndicator>
       <StatusIndicator variant="danger">Danger</StatusIndicator>
+      <StatusIndicator variant="inactive">Neutral</StatusIndicator>
       <StatusIndicator variant="accent1">Accent 1</StatusIndicator>
       <StatusIndicator variant="accent2">Accent 2</StatusIndicator>
     </FlexContainer>
