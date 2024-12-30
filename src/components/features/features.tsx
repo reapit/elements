@@ -2,7 +2,7 @@ import { FC, HTMLAttributes, ReactNode } from 'react'
 import { FeaturesItem } from './features.atoms'
 import { ElFeatures } from './styles'
 
-export interface FeaturesProps extends HTMLAttributes<HTMLDivElement> {
+export interface FeaturesProps extends HTMLAttributes<HTMLUListElement> {
   children: ReactNode
 }
 

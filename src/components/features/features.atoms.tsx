@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes, ReactNode } from 'react'
 import { ElFeaturesItem, ElFeaturesItemIcon } from './styles'
 
-export interface FeaturesItemProps extends HTMLAttributes<HTMLDivElement> {
+export interface FeaturesItemProps extends HTMLAttributes<HTMLLIElement> {
   icon: ReactNode
   children: ReactNode
   'aria-label'?: string
