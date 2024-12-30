@@ -2,10 +2,10 @@
 
 exports[`Features > should render the component 1`] = `
 <DocumentFragment>
-  <div
+  <ul
     class="mocked-styled-2 el-features"
   >
-    <div
+    <li
       aria-label="Bathroom"
       class="mocked-styled-1 el-features-item"
     >
@@ -17,8 +17,8 @@ exports[`Features > should render the component 1`] = `
         </span>
       </span>
       1
-    </div>
-    <div
+    </li>
+    <li
       aria-label="Bedroom"
       class="mocked-styled-1 el-features-item"
     >
@@ -30,7 +30,7 @@ exports[`Features > should render the component 1`] = `
         </span>
       </span>
       2
-    </div>
-  </div>
+    </li>
+  </ul>
 </DocumentFragment>
 `;

@@ -8,7 +8,7 @@ export const ElFeaturesItemIcon = styled.span`
   font-size: var(--size-4);
 `
 
-export const ElFeaturesItem = styled.div`
+export const ElFeaturesItem = styled.li`
   display: inline-flex;
   align-items: flex-start;
   gap: var(--spacing-1);
@@ -27,7 +27,7 @@ export const ElFeaturesItem = styled.div`
   }
 `
 
-export const ElFeatures = styled.div`
+export const ElFeatures = styled.ul`
   display: inline-flex;
   align-items: flex-start;
   gap: var(--spacing-3);
