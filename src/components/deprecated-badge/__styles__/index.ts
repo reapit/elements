@@ -9,7 +9,8 @@ import {
   elIntentDefault,
 } from '../../../styles/intent'
 
-export const ElBadge = styled.span`
+/** @deprecated */
+export const ElDeprecatedBadge = styled.span`
   border-radius: 0.75rem;
   display: inline-block;
   font-size: var(--font-size-small);
@@ -54,11 +55,13 @@ export const ElBadge = styled.span`
   }
 `
 
-export const ElBadgeGroup = styled.div`
+/** @deprecated */
+export const ElDeprecatedBadgeGroup = styled.div`
   display: grid;
 `
 
-export const ElBadgeGroupInner = styled.div`
+/** @deprecated */
+export const ElDeprecatedBadgeGroupInner = styled.div`
   display: flex;
   flex-wrap: wrap;
   grid-auto-flow: column;
