@@ -11,7 +11,6 @@ type Story = StoryObj<typeof EmptyData>
 /**
  * The EmptyData component is designed to emphasize that current section of the page
  * has empty data, but could possibly have different content when there is data available.
- * The default variant renders a circle with children.
  *
  * There are three variants available for the EmptyData component:
  * Default (full version), Description Only, and Action Only.
