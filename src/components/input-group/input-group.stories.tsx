@@ -10,7 +10,7 @@ export default {
 }
 
 export const CompleteExample = {
-  render: ({ }) => (
+  render: ({}) => (
     <InputGroup>
       <Input id="myId" type="text" />
       <Icon fontSize="1rem" icon="user" />
@@ -22,7 +22,7 @@ export const CompleteExample = {
 }
 
 export const WithIconOnly = {
-  render: ({ }) => (
+  render: ({}) => (
     <InputGroup>
       <Input id="myId2" type="tel" placeholder="Enter your mobile number" />
       <Icon fontSize="1rem" icon="phone" />
@@ -32,7 +32,7 @@ export const WithIconOnly = {
 }
 
 export const WithLabelOnly = {
-  render: ({ }) => (
+  render: ({}) => (
     <InputGroup>
       <Input id="myId3" type="email" />
       <DeprecatedLabel htmlFor="myId3">Email address</DeprecatedLabel>
@@ -42,7 +42,7 @@ export const WithLabelOnly = {
 }
 
 export const WithInputAddOnOnly = {
-  render: ({ }) => (
+  render: ({}) => (
     <InputGroup>
       <Input id="myId3" type="email" />
       <InputAddOn>Required</InputAddOn>
@@ -52,17 +52,17 @@ export const WithInputAddOnOnly = {
 }
 
 export const ReactShorthand = {
-  render: ({ }) => <InputGroup icon="property" label="Please enter an address" type="text" />,
+  render: ({}) => <InputGroup icon="property" label="Please enter an address" type="text" />,
   name: 'React shorthand',
 }
 
 export const ReactShorthandCustomId = {
-  render: ({ }) => <InputGroup id="my-id" icon="property" label="Please enter an address" type="text" />,
+  render: ({}) => <InputGroup id="my-id" icon="property" label="Please enter an address" type="text" />,
   name: 'React shorthand - custom ID',
 }
 
 export const ReactShorthandAllProps = {
-  render: ({ }) => (
+  render: ({}) => (
     <InputGroup icon="asterisk" label="Email address" inputAddOnText="Required" intent="danger" type="text" />
   ),
 
@@ -70,23 +70,23 @@ export const ReactShorthandAllProps = {
 }
 
 export const InputCheckbox = {
-  render: ({ }) => <InputGroup type="checkbox" label="Status" inputAddOnText="Listed" />,
+  render: ({}) => <InputGroup type="checkbox" label="Status" inputAddOnText="Listed" />,
 }
 
 export const InputCheckboxWithIntent = {
-  render: ({ }) => <InputGroup type="checkbox" intent="danger" label="Status" inputAddOnText="Listed" />,
+  render: ({}) => <InputGroup type="checkbox" intent="danger" label="Status" inputAddOnText="Listed" />,
 }
 
 export const InputCheckboxIcon = {
-  render: ({ }) => <InputGroup type="checkbox" icon="phone" label="Status" inputAddOnText="Listed" />,
+  render: ({}) => <InputGroup type="checkbox" icon="phone" label="Status" inputAddOnText="Listed" />,
 }
 
 export const InputCheckboxNoLabel = {
-  render: ({ }) => <InputGroup type="checkbox" inputAddOnText="Listed" />,
+  render: ({}) => <InputGroup type="checkbox" inputAddOnText="Listed" />,
 }
 
 export const InputRadio = {
-  render: ({ }) => (
+  render: ({}) => (
     <>
       <InputGroup className="el-mb2" name="status" type="radio" label="On" />
       <InputGroup className="el-mb2" name="status" type="radio" label="Off" />
@@ -95,7 +95,7 @@ export const InputRadio = {
 }
 
 export const ErrorMessage = {
-  render: ({ }) => (
+  render: ({}) => (
     <InputGroup
       className="el-mb2"
       type="email"

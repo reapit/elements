@@ -6,5 +6,5 @@ export default {
 }
 
 export const BasicUsage = {
-  render: ({ }) => <ElDeprecatedLabel>I&apos;m a label for a form input or something else</ElDeprecatedLabel>,
+  render: ({}) => <ElDeprecatedLabel>I&apos;m a label for a form input or something else</ElDeprecatedLabel>,
 }

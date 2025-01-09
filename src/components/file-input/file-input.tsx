@@ -58,39 +58,39 @@ export const handleFileChange =
     fileName: string,
     onFileUpload?: (uploadImageModel: CreateImageUploadModel) => Promise<string | ImageUploadModel>,
   ) =>
-    (event: ChangeEvent<HTMLInputElement>) => {
-      if (event.target && event.target.files && event.target.files[0]) {
-        const file = event.target.files[0]
+  (event: ChangeEvent<HTMLInputElement>) => {
+    if (event.target && event.target.files && event.target.files[0]) {
+      const file = event.target.files[0]
 
-        const fileUrl = URL.createObjectURL(file)
+      const fileUrl = URL.createObjectURL(file)
 
-        if (typeof fileUrl === 'string') {
-          setFileName(fileUrl)
-        }
+      if (typeof fileUrl === 'string') {
+        setFileName(fileUrl)
+      }
 
-        const reader = new FileReader()
-        reader.readAsDataURL(file)
-        reader.onload = async () => {
-          const base64 = reader.result
+      const reader = new FileReader()
+      reader.readAsDataURL(file)
+      reader.onload = async () => {
+        const base64 = reader.result
 
-          if (onFileUpload && typeof base64 === 'string') {
-            const uploaded = await onFileUpload({
-              imageData: base64,
-              name: `${fileName ? fileName : file.name}`,
-            })
+        if (onFileUpload && typeof base64 === 'string') {
+          const uploaded = await onFileUpload({
+            imageData: base64,
+            name: `${fileName ? fileName : file.name}`,
+          })
 
-            if (uploaded && (uploaded as ImageUploadModel).Url) {
-              setFileName((uploaded as ImageUploadModel).Url)
-            }
+          if (uploaded && (uploaded as ImageUploadModel).Url) {
+            setFileName((uploaded as ImageUploadModel).Url)
           }
         }
-        reader.onerror = (error) => {
-          console.error(`file upload error: ${error}`)
-        }
-
-        return reader
       }
+      reader.onerror = (error) => {
+        console.error(`file upload error: ${error}`)
+      }
+
+      return reader
     }
+  }
 
 export const handleFileClear =
   (setFileName: Dispatch<SetStateAction<string>>) => (event: MouseEvent<HTMLSpanElement>) => {

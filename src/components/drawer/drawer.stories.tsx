@@ -14,12 +14,12 @@ export default {
 }
 
 export const BasicUsageClosed = {
-  render: ({ }) => <DrawerBg />,
+  render: ({}) => <DrawerBg />,
   name: 'Basic Usage - Closed',
 }
 
 export const ReactUsage = {
-  render: ({ }) => {
+  render: ({}) => {
     const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('portal-root')
 
     return (
@@ -44,7 +44,7 @@ export const ReactUsage = {
 }
 
 export const ReactUsageWithForm = {
-  render: ({ }) => {
+  render: ({}) => {
     const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('portal-root')
 
     return (
@@ -94,7 +94,7 @@ export const ReactUsageWithForm = {
 }
 
 export const ReactUsageCanDismiss = {
-  render: ({ }) => {
+  render: ({}) => {
     const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('portal-root')
 
     return (

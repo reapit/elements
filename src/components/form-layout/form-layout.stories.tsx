@@ -14,7 +14,7 @@ export default {
 }
 
 export const BasicForm = {
-  render: ({ }) => (
+  render: ({}) => (
     <form>
       <TextBase hasMargin hasBoldText>
         Basic Form
@@ -91,7 +91,7 @@ export const BasicForm = {
 }
 
 export const ComplexForm = {
-  render: ({ }) => (
+  render: ({}) => (
     <form>
       <TextBase hasMargin hasBoldText>
         Complex Form
