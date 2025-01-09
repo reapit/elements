@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react'
-import { Label } from '..'
+import { DeprecatedLabel } from '..'
 
-describe('Label component', () => {
+describe('DeprecatedLabel component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<Label />)
+    const wrapper = render(<DeprecatedLabel />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
