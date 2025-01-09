@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { Badge } from '../index'
+import { Badge } from '..'
 import { Icon } from '#src/components/icon'
 
 describe('Badge', () => {
@@ -20,24 +20,15 @@ describe('Badge', () => {
 
   test('should match snapshot with icons and label', () => {
     const { asFragment } = render(
-      <Badge
-        iconLeft={<Icon icon="add" fontSize="1rem" />}
-        iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-      >
+      <Badge iconLeft={<Icon icon="add" fontSize="1rem" />} iconRight={<Icon icon="chevronDown" fontSize="1rem" />}>
         Label
-      </Badge>
+      </Badge>,
     )
     expect(asFragment()).toMatchSnapshot()
   })
 
   test('should match snapshot with icon only', () => {
-    const { asFragment } = render(
-      <Badge
-        iconLeft={<Icon icon="add" fontSize="1rem" />}
-        aria-label="label"
-      >
-      </Badge>
-    )
+    const { asFragment } = render(<Badge iconLeft={<Icon icon="add" fontSize="1rem" />} aria-label="label"></Badge>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

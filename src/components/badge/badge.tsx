@@ -13,18 +13,18 @@ interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   className?: string
 }
 
-export const Badge: FC<BadgeProps> = ({ 
-  children, 
-  reversed = false, 
-  variant, 
-  iconLeft, 
-  iconRight, 
-  'aria-label': ariaLabel, 
-  className, 
+export const Badge: FC<BadgeProps> = ({
+  children,
+  reversed = false,
+  variant,
+  iconLeft,
+  iconRight,
+  'aria-label': ariaLabel,
+  className,
   ...rest
 }) => {
   return (
-    <ElBadge 
+    <ElBadge
       data-variant={variant}
       data-reversed={reversed}
       className={className}

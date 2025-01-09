@@ -1,7 +1,6 @@
 import { Meta } from '@storybook/react'
 import { Badge } from './badge'
 import { Icon, IconNames } from '../icon'
-import { render } from '@testing-library/react'
 
 const ICON_OPTIONS: IconNames[] = ['star', 'add', 'chevronDown', 'chevronLeft', 'chevronRight']
 
@@ -54,20 +53,14 @@ export const Default = {
 
 export const BadgeReversed = {
   render: ({}) => (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px'}}>
-      <Badge aria-label="label" reversed>Label</Badge>
-      <Badge
-        iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />}
-        aria-label="label"
-        reversed
-      >
+    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
+      <Badge aria-label="label" reversed>
         Label
       </Badge>
-      <Badge
-        iconRight={<Icon icon="chevronRight" fontSize="1rem" />}
-        aria-label="label"
-        reversed
-      >
+      <Badge iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />} aria-label="label" reversed>
+        Label
+      </Badge>
+      <Badge iconRight={<Icon icon="chevronRight" fontSize="1rem" />} aria-label="label" reversed>
         Label
       </Badge>
       <Badge
@@ -78,23 +71,22 @@ export const BadgeReversed = {
       >
         Label
       </Badge>
-      <Badge
-        iconLeft={<Icon icon="star" fontSize="1rem" />}
-        aria-label="label"
-        reversed
-      >
-      </Badge>
+      <Badge iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
     </div>
   ),
 }
 
 export const BadgeWithLabel = {
   render: ({}) => (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px'}}>
+    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
       <Badge iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />}>Label</Badge>
-      <Badge iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />} reversed>Label</Badge>
+      <Badge iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />} reversed>
+        Label
+      </Badge>
       <Badge iconRight={<Icon icon="chevronRight" fontSize="1rem" />}>Label</Badge>
-      <Badge iconRight={<Icon icon="chevronRight" fontSize="1rem" />} reversed>Label</Badge>
+      <Badge iconRight={<Icon icon="chevronRight" fontSize="1rem" />} reversed>
+        Label
+      </Badge>
       <Badge
         iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />}
         iconRight={<Icon icon="chevronRight" fontSize="1rem" />}
@@ -114,27 +106,18 @@ export const BadgeWithLabel = {
 
 export const BadgeWithoutLabel = {
   render: ({}) => (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px'}}>
-      <Badge
-        iconLeft={<Icon icon="star" fontSize="1rem" />}
-        aria-label="label"
-      >
-      </Badge>
-      <Badge
-        iconLeft={<Icon icon="star" fontSize="1rem" />}
-        aria-label="label"
-        reversed
-      >
-      </Badge>
+    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
+      <Badge iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
+      <Badge iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
     </div>
   ),
 }
 
 export const BadgeWithVariant = {
   render: ({}) => (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px'}}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="neutral"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -142,14 +125,9 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="neutral"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-          >
-          </Badge>
+          <Badge variant="neutral" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="neutral"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -158,17 +136,11 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="neutral"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-            reversed
-          >
-          </Badge>
+          <Badge variant="neutral" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="success"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -176,14 +148,9 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="success"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-          >
-          </Badge>
+          <Badge variant="success" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="success"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -192,17 +159,11 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="success"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-            reversed
-          >
-          </Badge>
+          <Badge variant="success" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="pending"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -210,14 +171,9 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="pending"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-          >
-          </Badge>
+          <Badge variant="pending" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="pending"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -226,17 +182,11 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="pending"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-            reversed
-          >
-          </Badge>
+          <Badge variant="pending" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="warning"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -244,14 +194,9 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="warning"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-          >
-          </Badge>
+          <Badge variant="warning" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="warning"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -260,17 +205,11 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="warning"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-            reversed
-          >
-          </Badge>
+          <Badge variant="warning" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="danger"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -278,14 +217,9 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="danger"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-          >
-          </Badge>
+          <Badge variant="danger" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="danger"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -294,17 +228,11 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="danger"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-            reversed
-          >
-          </Badge>
+          <Badge variant="danger" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="inactive"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -312,14 +240,9 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="inactive"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-          >
-          </Badge>
+          <Badge variant="inactive" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="inactive"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -328,17 +251,11 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="inactive"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-            reversed
-          >
-          </Badge>
+          <Badge variant="inactive" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="accent_1"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -346,14 +263,9 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="accent_1"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-          >
-          </Badge>
+          <Badge variant="accent_1" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="accent_1"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -362,17 +274,11 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="accent_1"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-            reversed
-          >
-          </Badge>
+          <Badge variant="accent_1" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
         </div>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px'}}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="accent_2"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -380,14 +286,9 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="accent_2"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-          >
-          </Badge>
+          <Badge variant="accent_2" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
           <Badge
             variant="accent_2"
             iconLeft={<Icon icon="add" fontSize="1rem" />}
@@ -396,13 +297,7 @@ export const BadgeWithVariant = {
           >
             Label
           </Badge>
-          <Badge
-            variant="accent_2"
-            iconLeft={<Icon icon="star" fontSize="1rem" />}
-            aria-label="label"
-            reversed
-          >
-          </Badge>
+          <Badge variant="accent_2" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
         </div>
       </div>
     </div>
