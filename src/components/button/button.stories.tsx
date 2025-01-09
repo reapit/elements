@@ -52,7 +52,7 @@ const meta: Meta<typeof Button> = {
       control: 'text',
       description: 'CSS class for additional styling',
     },
-    removePadding: {
+    hasNoPadding: {
       control: 'boolean',
       description:
         'Set this prop to true to remove the padding and height adjustments for the tertiary variant of the button. This will apply no padding and reset the height, giving a more compact button appearance. It is only applicable when the button variant is tertiary.',
@@ -150,12 +150,12 @@ export const ButtonWithHref = {
   ),
 }
 
-export const ButtonWithRemovePadding = {
-  name: 'Button With RemovePadding',
+export const ButtonWithHasNoPadding = {
+  name: 'Button With HasNoPadding',
   args: {
     children: 'Button Text',
     variant: 'tertiary',
-    removePadding: true,
+    hasNoPadding: true,
   },
 }
 

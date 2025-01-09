@@ -14,7 +14,6 @@ import {
   elButtonGroupAlignRight,
   elButtonGroupAlignCenter,
   ElButtonLabel,
-  elButtonRemovePadding,
 } from './styles'
 import { Icon, IconNames } from '../icon'
 import { cx } from '@linaria/core'
@@ -34,16 +33,16 @@ interface CommonButtonProps {
   className?: string
 }
 
-// Define a specialized type for tertiary variant for prop removePadding
+// Define a specialized type for tertiary variant for prop hasNoPadding
 type TertiaryButtonProps = {
   variant: 'tertiary'
-  removePadding?: boolean // Only tertiary buttons can use removePadding
+  hasNoPadding?: boolean // Only tertiary buttons can use hasNoPadding
 }
 
 // Define the general type for non-tertiary variants
 type NonTertiaryButtonProps = {
   variant?: Exclude<ButtonAsButtonVariant, 'tertiary'>
-  removePadding?: never // Disallow removePadding for other variants
+  hasNoPadding?: never // Disallow hasNoPadding for other variants
 }
 
 // Combine the above two into a Variant-specific prop type
@@ -105,7 +104,7 @@ export const Button: FC<ButtonProps> = (props) => {
     target,
     rel,
     className,
-    removePadding,
+    hasNoPadding,
     ...rest
   } = props
 
@@ -117,7 +116,6 @@ export const Button: FC<ButtonProps> = (props) => {
 
   const miscellaneousClass = cx(
     !children && elButtonIconOnly, // if no children(label) then add el-button-icon-only class
-    removePadding && elButtonRemovePadding, // To remove height and padding from the button component
   )
 
   const combinedClassName = cx(className, sizeClass, miscellaneousClass)
@@ -127,6 +125,7 @@ export const Button: FC<ButtonProps> = (props) => {
       <ElAnchorButton
         href={href}
         data-variant={variant}
+        data-has-no-padding={hasNoPadding}
         className={combinedClassName}
         onClick={(e) => {
           if (props.onClick) {
@@ -149,6 +148,7 @@ export const Button: FC<ButtonProps> = (props) => {
     return (
       <ElButton
         data-variant={variant}
+        data-has-no-padding={hasNoPadding}
         className={combinedClassName}
         onClick={(e) => {
           if (!disabled) {
