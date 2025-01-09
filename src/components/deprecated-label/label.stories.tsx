@@ -1,10 +1,10 @@
-import { ElDeprecatedLabel } from './index'
+import { DeprecatedLabel } from './index'
 
 export default {
   title: 'DeprecatedLabel',
-  component: ElDeprecatedLabel,
+  component: DeprecatedLabel,
 }
 
 export const BasicUsage = {
-  render: ({}) => <ElDeprecatedLabel>I&apos;m a label for a form input or something else</ElDeprecatedLabel>,
+  render: ({}) => <DeprecatedLabel>I&apos;m a label for a form input or something else</DeprecatedLabel>,
 }
