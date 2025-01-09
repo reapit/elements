@@ -59,7 +59,7 @@ const basePlaceholderStyle = `
 export const ElNavSearchButtonPlaceholder = styled.span`
   ${basePlaceholderStyle}
   font-size: var(--font-size-xs);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: var(--line-height-xs);
   letter-spacing: var(--letter-spacing-xs);
 
@@ -70,7 +70,7 @@ export const ElNavSearchButtonPlaceholder = styled.span`
 export const ElNavSearchButtonShortcutText = styled.span`
   ${basePlaceholderStyle}
   font-size: var(--font-size-2xs);
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   line-height: var(--line-height-2xs);
   letter-spacing: var(--letter-spacing-2xs);
 `
