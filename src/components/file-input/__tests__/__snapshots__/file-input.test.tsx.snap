@@ -60,7 +60,7 @@ exports[`FileInput component > should match a snapshot with full props 1`] = `
     class="mocked-styled-1 el-file-input-wrap"
   >
     <label
-      class="mocked-styled-12 el-label"
+      class="mocked-styled-12 el-deprecated-label"
     >
       Some Label
     </label>

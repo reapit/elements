@@ -168,7 +168,7 @@ exports[`SearchableDropdown component > should match a snapshot 1`] = `
 exports[`SearchableDropdownSearchLabel component > should match a snapshot 1`] = `
 <DocumentFragment>
   <label
-    class="mocked-styled-14 el-searchable-dropdown-search-label el-label"
+    class="mocked-styled-14 el-searchable-dropdown-search-label el-deprecated-label"
   >
     I am a label
   </label>

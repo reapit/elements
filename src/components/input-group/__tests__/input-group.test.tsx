@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { InputGroup } from '..'
 import { Input } from '../../input'
-import { Label } from '../../label'
+import { DeprecatedLabel } from '../../deprecated-label'
 import { Icon } from '../../icon'
 
 describe('InputGroup component', () => {
@@ -30,7 +30,7 @@ describe('InputGroup component', () => {
       <InputGroup>
         <Input />
         <Icon icon="email">Please enter an email</Icon>
-        <Label>Please enter a username</Label>
+        <DeprecatedLabel>Please enter a username</DeprecatedLabel>
       </InputGroup>,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
