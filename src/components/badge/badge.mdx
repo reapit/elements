@@ -1,0 +1,47 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as BadgeStories from './badge.stories'
+
+<Meta of={BadgeStories} />
+
+# Badge
+
+<Controls />
+
+Styled badge component with multiple flavours depending on use case.
+
+## Default Usage
+
+A button with no additional props / classes applied
+
+<Canvas of={BadgeStories.Default} />
+
+<RenderHtmlMarkup of={BadgeStories.Default} />
+
+## Badge Reversed
+
+<Canvas of={BadgeStories.BadgeReversed} />
+<RenderHtmlMarkup of={BadgeStories.BadgeReversed} />
+
+## Badge with Label
+
+Badge should always hava a label for accessibility and clear comprehension.
+
+<Canvas of={BadgeStories.BadgeWithLabel} />
+<RenderHtmlMarkup of={BadgeStories.BadgeWithLabel} />
+
+## Badge without Label
+
+A badge without label can be used when not enogh space is available. It should always include a tooltip on hover to provide more context for the icon meaning.
+
+<Canvas of={BadgeStories.BadgeWithoutLabel} />
+<RenderHtmlMarkup of={BadgeStories.BadgeWithoutLabel} />
+
+## Badge Variants
+
+Different variants are supported, to enable badge to be used in different contexts. 
+
+`Badge` only support `neutral`, `success`, `pending`, `warning`, `danger`, `inactive`, `accent_1` and `accent_2`, the `neutral` being the default.
+
+<Canvas of={BadgeStories.BadgeWithVariant} />
+<RenderHtmlMarkup of={BadgeStories.BadgeWithVariant} />
