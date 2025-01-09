@@ -72,6 +72,7 @@ export interface NavResponsiveAvatarProps {
 
 export interface NavResponsiveAppSwitcherProps {
   options: NavResponsiveAppSwitcherOption[]
+  className?: string // Note: probably only required for new AppBar
 }
 
 export type LogoIcon = 'reapitLogoSelectedMenu' | 'reapitLogoMenu'
@@ -141,7 +142,7 @@ export const NavResponsiveAvatar: FC<NavResponsiveAvatarProps> = ({ options, isH
   )
 }
 
-export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ options }) => {
+export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ options, className }) => {
   const [appSwitcherOpen, setAppSwitcherOpen] = useState<boolean>(false)
 
   const marketplaceCallback = () => {
@@ -164,6 +165,7 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
         onKeyDown={handleKeyboardEvent('Enter', handleToggleMenu(setAppSwitcherOpen))}
         role="button"
         tabIndex={0}
+        className={className}
       >
         <ElNavResponsiveAppSwitcherIconWrap className={cx(appSwitcherOpen && elAppSwitcherOpen)}>
           <Icon intent="default" icon="appLauncher" />

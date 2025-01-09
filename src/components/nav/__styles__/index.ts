@@ -350,3 +350,11 @@ export const ElNavResponsiveAppSwitcherIconWrap = styled.div`
     }
   }
 `
+
+export const elNewTopBarAppSwitcher = css`
+  ${ElNavResponsiveAppSwitcherIconWrap} {
+    margin-right: 0;
+    padding: var(--spacing-half);
+    box-sizing: content-box;
+  }
+`
