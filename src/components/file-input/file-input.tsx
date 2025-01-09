@@ -13,7 +13,7 @@ import { useId } from '../../storybook/random-id'
 import { elMl3, elMr4 } from '../../styles/spacing'
 import { Button } from '../button'
 import { Icon } from '../icon'
-import { DeprecatedLabel } from '../deprecated-label'
+import { Label } from '../label'
 import { FlexContainer } from '../layout'
 import { handleSetNativeInput } from '../multi-select'
 import {
@@ -132,7 +132,7 @@ export const FileInput: FileInputWrapped = forwardRef(
 
     return (
       <ElFileInputWrap>
-        {label && <DeprecatedLabel>{label}</DeprecatedLabel>}
+        {label && <Label>{label}</Label>}
         <FlexContainer isFlexAlignCenter>
           <Button className={elMr4} type="button">
             {fileUrl ? 'Change' : 'Upload'}

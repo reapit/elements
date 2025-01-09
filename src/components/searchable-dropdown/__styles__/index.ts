@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 import { InputAddOn } from '../../input-add-on'
 import { Input } from '../../input'
 import { Loader } from '../../loader'
-import { DeprecatedLabel } from '../../deprecated-label'
+import { Label } from '../../label'
 
 export const ElSearchableDropdownContainer = styled.div`
   display: flex;
@@ -62,7 +62,7 @@ export const ElSearchableDropdownSearchInput = styled(Input)`
   padding-left: 32px;
 `
 
-export const ElSearchableDropdownSearchLabel = styled(DeprecatedLabel)`
+export const ElSearchableDropdownSearchLabel = styled(Label)`
   margin-left: 0.25rem;
   margin-bottom: 0.125rem;
   display: inline-block;

@@ -12,7 +12,7 @@ import {
 import { Icon, IconNames } from '../icon'
 import { handleSetNativeInput } from '../multi-select'
 import { generateRandomId, useId } from '../../storybook/random-id'
-import { DeprecatedLabel } from '../deprecated-label'
+import { Label } from '../label'
 import { elMb3 } from '../../styles/spacing'
 import { elFlex } from '../../styles/flexbox'
 import { cx } from '@linaria/core'
@@ -59,9 +59,9 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
   return (
     <>
       {label && (
-        <DeprecatedLabel className={cx(elFlex, elMb3)} htmlFor={id}>
+        <Label className={cx(elFlex, elMb3)} htmlFor={id}>
           {label}
-        </DeprecatedLabel>
+        </Label>
       )}
       <ElSearchableDropdownContainer
         role="combobox"

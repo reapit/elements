@@ -1,7 +1,7 @@
 import { InputGroup } from './index'
 import { Input } from '../input'
 import { Icon } from '../icon'
-import { DeprecatedLabel } from '../deprecated-label'
+import { Label } from '../label'
 import { InputAddOn } from '../input-add-on'
 
 export default {
@@ -14,7 +14,7 @@ export const CompleteExample = {
     <InputGroup>
       <Input id="myId" type="text" />
       <Icon fontSize="1rem" icon="user" />
-      <DeprecatedLabel htmlFor="myId">Enter your username</DeprecatedLabel>
+      <Label htmlFor="myId">Enter your username</Label>
       <InputAddOn>Required</InputAddOn>
     </InputGroup>
   ),
@@ -35,7 +35,7 @@ export const WithLabelOnly = {
   render: ({}) => (
     <InputGroup>
       <Input id="myId3" type="email" />
-      <DeprecatedLabel htmlFor="myId3">Email address</DeprecatedLabel>
+      <Label htmlFor="myId3">Email address</Label>
     </InputGroup>
   ),
   name: 'With Label only',

@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon/__styles__'
-import { ElDeprecatedLabel } from '../../deprecated-label/__styles__'
+import { ElLabel } from '../../label/styles'
 import { ElInput, elHasInputError } from '../../input/__styles__'
 import { ElTextArea } from '../../textarea'
 import { ElSelect } from '../../select/__styles__'
@@ -13,7 +13,7 @@ export const ElInputGroup = styled.div`
   display: flex;
   flex-wrap: wrap;
 
-  ${ElDeprecatedLabel} {
+  ${ElLabel} {
     order: 1;
     flex-basis: 100%;
     padding: 0 0.5rem 0.5rem 0;
@@ -80,7 +80,7 @@ export const ElInputGroup = styled.div`
     }
 
     &:disabled {
-      ~ ${ElIcon}, ~ ${ElInputAddOn}, ~ ${ElDeprecatedLabel} {
+      ~ ${ElIcon}, ~ ${ElInputAddOn}, ~ ${ElLabel} {
         color: rgba(100, 100, 100, 0.35);
       }
     }
@@ -101,7 +101,7 @@ export const ElInputGroup = styled.div`
     }
 
     &:checked {
-      ~ ${ElIcon}, ~ ${ElDeprecatedLabel}, ~ ${ElInputAddOn} {
+      ~ ${ElIcon}, ~ ${ElLabel}, ~ ${ElInputAddOn} {
         background: var(--white);
       }
 
@@ -112,20 +112,20 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElInput}[type='checkbox'] {
-    ~ ${ElDeprecatedLabel} {
+    ~ ${ElLabel} {
       display: block;
     }
   }
 
   ${ElToggleRadioWrap}, ${ElToggleLabel}, ${ElMultiSelectInputWrapper} {
     order: 2;
-    ~ ${ElDeprecatedLabel} {
+    ~ ${ElLabel} {
       order: 1;
       padding: 0 0.5rem 0.5rem 0;
     }
   }
 
-  ${ElInput}[type='radio'] ~ ${ElDeprecatedLabel} {
+  ${ElInput}[type='radio'] ~ ${ElLabel} {
     order: 4;
     flex-basis: auto;
     flex-grow: 1;
