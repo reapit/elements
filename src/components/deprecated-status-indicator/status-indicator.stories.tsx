@@ -1,14 +1,14 @@
-import { StatusIndicator } from '.'
+import { DeprecatedStatusIndicator } from '.'
 
 export default {
-  title: 'StatusIndicator',
-  component: StatusIndicator,
+  title: 'DeprecatedStatusIndicator',
+  component: DeprecatedStatusIndicator,
 }
 
 export const BasicUsage = {
   render: ({}) => (
     <div>
-      <StatusIndicator />
+      <DeprecatedStatusIndicator />
       Something is happening
     </div>
   ),
@@ -19,7 +19,7 @@ export const BasicUsage = {
 export const IntentPrimary = {
   render: ({}) => (
     <div>
-      <StatusIndicator intent="primary" />
+      <DeprecatedStatusIndicator intent="primary" />
       Primary
     </div>
   ),
@@ -30,7 +30,7 @@ export const IntentPrimary = {
 export const IntentNeutral = {
   render: ({}) => (
     <div>
-      <StatusIndicator intent="neutral" />
+      <DeprecatedStatusIndicator intent="neutral" />
       Neutral
     </div>
   ),
@@ -41,7 +41,7 @@ export const IntentNeutral = {
 export const IntentSuccess = {
   render: ({}) => (
     <div>
-      <StatusIndicator intent="success" />
+      <DeprecatedStatusIndicator intent="success" />
       Success
     </div>
   ),
@@ -52,7 +52,7 @@ export const IntentSuccess = {
 export const IntentPending = {
   render: ({}) => (
     <div>
-      <StatusIndicator intent="pending" />
+      <DeprecatedStatusIndicator intent="pending" />
       Pending
     </div>
   ),
@@ -63,7 +63,7 @@ export const IntentPending = {
 export const IntentWarning = {
   render: ({}) => (
     <div>
-      <StatusIndicator intent="warning" />
+      <DeprecatedStatusIndicator intent="warning" />
       Warning
     </div>
   ),
@@ -74,7 +74,7 @@ export const IntentWarning = {
 export const IntentDanger = {
   render: ({}) => (
     <div>
-      <StatusIndicator intent="danger" />
+      <DeprecatedStatusIndicator intent="danger" />
       Danger
     </div>
   ),
@@ -85,7 +85,7 @@ export const IntentDanger = {
 export const IntentDefault = {
   render: ({}) => (
     <div>
-      <StatusIndicator intent="default" />
+      <DeprecatedStatusIndicator intent="default" />
       Default
     </div>
   ),

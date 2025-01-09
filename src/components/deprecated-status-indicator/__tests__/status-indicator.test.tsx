@@ -1,44 +1,44 @@
 import { render } from '@testing-library/react'
-import { StatusIndicator } from '..'
+import { DeprecatedStatusIndicator } from '..'
 
-describe('StatusIndicator component', () => {
+describe('DeprecatedStatusIndicator component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator />)
+    const wrapper = render(<DeprecatedStatusIndicator />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="primary" />)
+    const wrapper = render(<DeprecatedStatusIndicator intent="primary" />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="pending" />)
+    const wrapper = render(<DeprecatedStatusIndicator intent="pending" />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="danger" />)
+    const wrapper = render(<DeprecatedStatusIndicator intent="danger" />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="success" />)
+    const wrapper = render(<DeprecatedStatusIndicator intent="success" />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="warning" />)
+    const wrapper = render(<DeprecatedStatusIndicator intent="warning" />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="neutral" />)
+    const wrapper = render(<DeprecatedStatusIndicator intent="neutral" />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="default" />)
+    const wrapper = render(<DeprecatedStatusIndicator intent="default" />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

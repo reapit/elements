@@ -1,0 +1,45 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { DeprecatedStatusIndicator } from '.'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as DeprecatedStatusIndicatorStories from './status-indicator.stories'
+
+<Meta of={DeprecatedStatusIndicatorStories} />
+
+# Deprecated Status Indicator
+
+A small coloured circle indicator to provide quick visual reference to the status of something; be it an action, response or anything else.
+
+Props available for the React version of the component;
+
+<Controls />
+
+## Basic usage
+
+<Canvas of={DeprecatedStatusIndicatorStories.BasicUsage} />
+
+<RenderHtmlMarkup of={DeprecatedStatusIndicatorStories.BasicUsage} />
+
+## Intent
+
+Different intents are supported, to enable buttons to be used in different contexts
+
+<Canvas of={DeprecatedStatusIndicatorStories.IntentPrimary} />
+<RenderHtmlMarkup of={DeprecatedStatusIndicatorStories.IntentPrimary} />
+
+<Canvas of={DeprecatedStatusIndicatorStories.IntentNeutral} />
+<RenderHtmlMarkup of={DeprecatedStatusIndicatorStories.IntentNeutral} />
+
+<Canvas of={DeprecatedStatusIndicatorStories.IntentSuccess} />
+<RenderHtmlMarkup of={DeprecatedStatusIndicatorStories.IntentSuccess} />
+
+<Canvas of={DeprecatedStatusIndicatorStories.IntentPending} />
+<RenderHtmlMarkup of={DeprecatedStatusIndicatorStories.IntentPending} />
+
+<Canvas of={DeprecatedStatusIndicatorStories.IntentWarning} />
+<RenderHtmlMarkup of={DeprecatedStatusIndicatorStories.IntentWarning} />
+
+<Canvas of={DeprecatedStatusIndicatorStories.IntentDanger} />
+<RenderHtmlMarkup of={DeprecatedStatusIndicatorStories.IntentDanger} />
+
+<Canvas of={DeprecatedStatusIndicatorStories.IntentDefault} />
+<RenderHtmlMarkup of={DeprecatedStatusIndicatorStories.IntentDefault} />

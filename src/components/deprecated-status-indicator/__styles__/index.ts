@@ -10,9 +10,15 @@ import {
   elIntentNeutral,
 } from '../../../styles/intent'
 
-export const elShapeTag = css``
+/**
+ * @deprecated
+ */
+export const elDeprecatedShapeTag = css``
 
-export const ElStatusIndicator = styled.span`
+/**
+ * @deprecated
+ */
+export const ElDeprecatedStatusIndicator = styled.span`
   border-radius: 3rem;
   display: inline-block;
   width: 0.75rem;
@@ -56,7 +62,7 @@ export const ElStatusIndicator = styled.span`
     outline-color: var(--intent-default-dark);
   }
 
-  &.${elShapeTag} {
+  &.${elDeprecatedShapeTag} {
     border-radius: 1rem 0.2rem 0.2rem 1rem;
     height: 2rem;
     width: 0.5rem;

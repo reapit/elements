@@ -15,7 +15,7 @@ import { Icon } from '../icon'
 import { elSpan2, elSpan3 } from '../grid'
 import { InputGroup } from '../input-group'
 import { Button, DeprecatedButtonGroup } from '../button'
-import { StatusIndicator } from '../status-indicator'
+import { DeprecatedStatusIndicator } from '../deprecated-status-indicator'
 import { elMlAuto } from '../../styles/spacing'
 import { FormLayout, InputWrap } from '../form-layout'
 import { elIsActive } from '../../styles/states'
@@ -152,7 +152,7 @@ export const BasicCustomisationTableCells = {
             £50.00
           </DeprecatedTableCell>
           <DeprecatedTableCell narrowLabel="Status">
-            <StatusIndicator intent="pending" />
+            <DeprecatedStatusIndicator intent="pending" />
             Pending
           </DeprecatedTableCell>
         </DeprecatedTableRow>
@@ -191,7 +191,7 @@ export const ExpandingTableCellSpace = {
             £50.00
           </DeprecatedTableCell>
           <DeprecatedTableCell narrowLabel="Status">
-            <StatusIndicator intent="pending" />
+            <DeprecatedStatusIndicator intent="pending" />
             Pending
           </DeprecatedTableCell>
         </DeprecatedTableRow>
@@ -234,7 +234,7 @@ export const ExpandableContent = {
             £50.00
           </DeprecatedTableCell>
           <DeprecatedTableCell narrowLabel="Status">
-            <StatusIndicator intent="pending" />
+            <DeprecatedStatusIndicator intent="pending" />
             Pending
           </DeprecatedTableCell>
           <TableExpandableRowTriggerCell isOpen />
@@ -293,7 +293,7 @@ export const CallToActionContent = {
             £50.00
           </DeprecatedTableCell>
           <DeprecatedTableCell narrowLabel="Status">
-            <StatusIndicator intent="pending" />
+            <DeprecatedStatusIndicator intent="pending" />
             Pending
           </DeprecatedTableCell>
           <TableCtaTriggerCell icon="fileDownload" />
@@ -400,7 +400,7 @@ export const ReactShorthandUsage = {
 
             children: (
               <>
-                <StatusIndicator intent="pending" />
+                <DeprecatedStatusIndicator intent="pending" />
                 Pending
               </>
             ),
@@ -532,7 +532,7 @@ export const AdvancedCustomisationReact = {
 
             children: (
               <>
-                <StatusIndicator intent="pending" />
+                <DeprecatedStatusIndicator intent="pending" />
                 Pending
               </>
             ),

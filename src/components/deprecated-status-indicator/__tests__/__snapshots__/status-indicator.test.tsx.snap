@@ -1,0 +1,65 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`DeprecatedStatusIndicator component > should match a snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="el-intent-primary el-deprecated-status-indicator"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedStatusIndicator component > should match a snapshot 2`] = `
+<DocumentFragment>
+  <span
+    class="el-intent-primary el-deprecated-status-indicator"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedStatusIndicator component > should match a snapshot 3`] = `
+<DocumentFragment>
+  <span
+    class="el-intent-pending el-deprecated-status-indicator"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedStatusIndicator component > should match a snapshot 4`] = `
+<DocumentFragment>
+  <span
+    class="el-intent-danger el-deprecated-status-indicator"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedStatusIndicator component > should match a snapshot 5`] = `
+<DocumentFragment>
+  <span
+    class="el-intent-success el-deprecated-status-indicator"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedStatusIndicator component > should match a snapshot 6`] = `
+<DocumentFragment>
+  <span
+    class="el-intent-warning el-deprecated-status-indicator"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedStatusIndicator component > should match a snapshot 7`] = `
+<DocumentFragment>
+  <span
+    class="el-intent-neutral el-deprecated-status-indicator"
+  />
+</DocumentFragment>
+`;
+
+exports[`DeprecatedStatusIndicator component > should match a snapshot 8`] = `
+<DocumentFragment>
+  <span
+    class="el-intent-default el-deprecated-status-indicator"
+  />
+</DocumentFragment>
+`;
