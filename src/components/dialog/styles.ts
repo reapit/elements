@@ -99,7 +99,7 @@ export const ElDialogTitle = styled.h2`
   font-family: var(--font-family, Inter);
   font-size: var(--font-size-lg, 18px);
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-lg, 24px);
   letter-spacing: var(--letter-spacing-lg, -0.18px);
 `

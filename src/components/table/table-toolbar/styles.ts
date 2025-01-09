@@ -13,7 +13,7 @@ export const ElTableToolbar = styled.div`
 export const ElTableToolbarDescription = styled.div`
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   color: var(--text-colour-text-primary);
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-sm);
