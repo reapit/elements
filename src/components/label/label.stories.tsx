@@ -1,10 +1,28 @@
-import { ElLabel } from './index'
+import { Label } from './index'
 
 export default {
   title: 'Components/Label',
-  component: ElLabel,
+  component: Label,
 }
 
 export const BasicUsage = {
-  render: ({}) => <ElLabel>I&apos;m a label for a form input or something else</ElLabel>,
+  render: ({}) => (
+    <>
+      <Label>example label default</Label>
+      <br />
+      <Label size="small">example label strong small</Label>
+      <br />
+      <Label variant="strong" size="medium">
+        example label strong medium
+      </Label>
+      <br />
+      <Label variant="soft" size="small">
+        example label soft small
+      </Label>
+      <br />
+      <Label variant="soft" required>
+        example label soft required
+      </Label>
+    </>
+  ),
 }
