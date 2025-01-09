@@ -1,2 +1,2 @@
-export * from './styles'
 export * from './badge'
+export * from './styles'
