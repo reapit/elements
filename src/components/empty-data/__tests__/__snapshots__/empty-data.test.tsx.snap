@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`EmptyData > should render default component properly and match snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-3 el-empty-data"
+  >
+    <div
+      class="mocked-styled-0 el-empty-data-description"
+    >
+      Description
+    </div>
+    <div
+      class="mocked-styled-1 el-empty-data-secondary-description"
+    >
+      Secondary Description
+    </div>
+    <button
+      class="mocked-styled-2 el-empty-data-action-button"
+    >
+      Action Button Text
+    </button>
+  </div>
+</DocumentFragment>
+`;
