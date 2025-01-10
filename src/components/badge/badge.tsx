@@ -5,7 +5,7 @@ type BadgeVariant = 'neutral' | 'success' | 'pending' | 'warning' | 'danger' | '
 
 interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
-  reversed?: boolean
+  isReversed?: boolean
   variant?: BadgeVariant
   iconLeft?: ReactNode
   iconRight?: ReactNode
@@ -15,7 +15,7 @@ interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
 
 export const Badge: FC<BadgeProps> = ({
   children,
-  reversed = false,
+  isReversed = false,
   variant,
   iconLeft,
   iconRight,
@@ -26,7 +26,7 @@ export const Badge: FC<BadgeProps> = ({
   return (
     <ElBadge
       data-variant={variant}
-      data-reversed={reversed}
+      data-isReversed={isReversed}
       className={className}
       aria-label={ariaLabel}
       role="status"

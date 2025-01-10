@@ -25,7 +25,7 @@ export const ElBadge = styled.div`
     background: var(--fill-info-lightest);
   }
 
-  &[data-reversed='true'] {
+  &[data-isReversed='true'] {
     color: var(--text-white);
     background: var(--fill-info-dark);
 
@@ -42,7 +42,7 @@ export const ElBadge = styled.div`
       color: var(--icon-success);
     }
 
-    &[data-reversed='true'] {
+    &[data-isReversed='true'] {
       color: var(--text-white);
       background: var(--fill-success-dark);
 
@@ -60,7 +60,7 @@ export const ElBadge = styled.div`
       color: var(--icon-pending);
     }
 
-    &[data-reversed='true'] {
+    &[data-isReversed='true'] {
       color: var(--text-white);
       background: var(--fill-pending-dark);
 
@@ -78,7 +78,7 @@ export const ElBadge = styled.div`
       color: var(--icon-warning);
     }
 
-    &[data-reversed='true'] {
+    &[data-isReversed='true'] {
       color: var(--text-white);
       background: var(--fill-warning-dark);
 
@@ -96,7 +96,7 @@ export const ElBadge = styled.div`
       color: var(--icon-error);
     }
 
-    &[data-reversed='true'] {
+    &[data-isReversed='true'] {
       color: var(--text-white);
       background: var(--fill-error-dark);
 
@@ -114,7 +114,7 @@ export const ElBadge = styled.div`
       color: var(--icon-secondary);
     }
 
-    &[data-reversed='true'] {
+    &[data-isReversed='true'] {
       color: var(--text-white);
       background: var(--fill-default-medium);
 
@@ -132,7 +132,7 @@ export const ElBadge = styled.div`
       color: var(--icon-accent_1);
     }
 
-    &[data-reversed='true'] {
+    &[data-isReversed='true'] {
       color: var(--text-white);
       background: var(--fill-accent_1-dark);
 
@@ -150,7 +150,7 @@ export const ElBadge = styled.div`
       color: var(--icon-accent_2);
     }
 
-    &[data-reversed='true'] {
+    &[data-isReversed='true'] {
       color: var(--text-white);
       background: var(--fill-accent_2-dark);
 

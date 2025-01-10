@@ -9,7 +9,7 @@ describe('Badge', () => {
   })
 
   test('should match snapshot with reversed badge', () => {
-    const { asFragment } = render(<Badge reversed>Label</Badge>)
+    const { asFragment } = render(<Badge isReversed>Label</Badge>)
     expect(asFragment()).toMatchSnapshot()
   })
 

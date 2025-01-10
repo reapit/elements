@@ -1,6 +1,7 @@
 import { Meta } from '@storybook/react'
 import { Badge } from './badge'
 import { Icon, IconNames } from '../icon'
+import { DeprecatedToolTip } from './../deprecated-tool-tip' // To be updated to v5 tooltip once #235 is merged
 
 const ICON_OPTIONS: IconNames[] = ['star', 'add', 'chevronDown', 'chevronLeft', 'chevronRight']
 
@@ -31,7 +32,7 @@ const meta: Meta<typeof Badge> = {
         return acc
       }, {}),
     },
-    reversed: { control: 'boolean', description: 'Reverse the badge if set to true.' },
+    isReversed: { control: 'boolean', description: 'Reverse the badge if set to true.' },
     'aria-label': {
       control: 'text',
       description: 'Accessible label for badge',
@@ -52,254 +53,39 @@ export const Default = {
 }
 
 export const BadgeReversed = {
-  render: ({}) => (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
-      <Badge aria-label="label" reversed>
-        Label
-      </Badge>
-      <Badge iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />} aria-label="label" reversed>
-        Label
-      </Badge>
-      <Badge iconRight={<Icon icon="chevronRight" fontSize="1rem" />} aria-label="label" reversed>
-        Label
-      </Badge>
-      <Badge
-        iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />}
-        iconRight={<Icon icon="chevronRight" fontSize="1rem" />}
-        aria-label="label"
-        reversed
-      >
-        Label
-      </Badge>
-      <Badge iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
-    </div>
-  ),
+  args: {
+    children: 'Label',
+    isReversed: true,
+    iconLeft: <Icon icon="chevronLeft" fontSize="1rem" />,
+    iconRight: <Icon icon="chevronRight" fontSize="1rem" />,
+  },
 }
 
 export const BadgeWithLabel = {
-  render: ({}) => (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
-      <Badge iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />}>Label</Badge>
-      <Badge iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />} reversed>
-        Label
-      </Badge>
-      <Badge iconRight={<Icon icon="chevronRight" fontSize="1rem" />}>Label</Badge>
-      <Badge iconRight={<Icon icon="chevronRight" fontSize="1rem" />} reversed>
-        Label
-      </Badge>
-      <Badge
-        iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />}
-        iconRight={<Icon icon="chevronRight" fontSize="1rem" />}
-      >
-        Label
-      </Badge>
-      <Badge
-        iconLeft={<Icon icon="chevronLeft" fontSize="1rem" />}
-        iconRight={<Icon icon="chevronRight" fontSize="1rem" />}
-        reversed
-      >
-        Label
-      </Badge>
-    </div>
-  ),
+  args: {
+    children: 'Label',
+    iconLeft: <Icon icon="chevronLeft" fontSize="1rem" />,
+    iconRight: <Icon icon="chevronRight" fontSize="1rem" />,
+  },
 }
 
-export const BadgeWithoutLabel = {
-  render: ({}) => (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
-      <Badge iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
-      <Badge iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
-    </div>
-  ),
+export const BadgeWithIcon = {
+  args: {
+    'aria-label': 'Label',
+    iconLeft: <Icon icon="star" fontSize="1rem" />,
+  },
+  render: (props) => (
+    <DeprecatedToolTip tip="Star">
+      <Badge {...props}></Badge>
+    </DeprecatedToolTip>
+  ), // To be updated to v5 tooltip once #235 is merged
 }
 
-export const BadgeWithVariant = {
-  render: ({}) => (
-    <div style={{ display: 'flex', flexDirection: 'row', gap: '20px' }}>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="neutral"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-          >
-            Label
-          </Badge>
-          <Badge variant="neutral" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="neutral"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-            reversed
-          >
-            Label
-          </Badge>
-          <Badge variant="neutral" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
-        </div>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="success"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-          >
-            Label
-          </Badge>
-          <Badge variant="success" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="success"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-            reversed
-          >
-            Label
-          </Badge>
-          <Badge variant="success" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
-        </div>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="pending"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-          >
-            Label
-          </Badge>
-          <Badge variant="pending" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="pending"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-            reversed
-          >
-            Label
-          </Badge>
-          <Badge variant="pending" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
-        </div>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="warning"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-          >
-            Label
-          </Badge>
-          <Badge variant="warning" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="warning"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-            reversed
-          >
-            Label
-          </Badge>
-          <Badge variant="warning" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
-        </div>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="danger"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-          >
-            Label
-          </Badge>
-          <Badge variant="danger" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="danger"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-            reversed
-          >
-            Label
-          </Badge>
-          <Badge variant="danger" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
-        </div>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="inactive"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-          >
-            Label
-          </Badge>
-          <Badge variant="inactive" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="inactive"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-            reversed
-          >
-            Label
-          </Badge>
-          <Badge variant="inactive" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
-        </div>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="accent_1"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-          >
-            Label
-          </Badge>
-          <Badge variant="accent_1" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="accent_1"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-            reversed
-          >
-            Label
-          </Badge>
-          <Badge variant="accent_1" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
-        </div>
-      </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="accent_2"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-          >
-            Label
-          </Badge>
-          <Badge variant="accent_2" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label"></Badge>
-        </div>
-        <div style={{ display: 'flex', flexDirection: 'row', gap: '10px' }}>
-          <Badge
-            variant="accent_2"
-            iconLeft={<Icon icon="add" fontSize="1rem" />}
-            iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-            reversed
-          >
-            Label
-          </Badge>
-          <Badge variant="accent_2" iconLeft={<Icon icon="star" fontSize="1rem" />} aria-label="label" reversed></Badge>
-        </div>
-      </div>
-    </div>
-  ),
+export const BadgeVariant = {
+  args: {
+    children: 'Label',
+    variant: 'success',
+    iconLeft: <Icon icon="add" fontSize="1rem" />,
+    iconRight: <Icon icon="chevronDown" fontSize="1rem" />,
+  },
 }

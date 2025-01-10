@@ -4,7 +4,7 @@ exports[`Badge > should match snapshot 1`] = `
 <DocumentFragment>
   <div
     class="mocked-styled-0 el-badge"
-    data-reversed="false"
+    data-isreversed="false"
     role="status"
   >
     <span
@@ -21,7 +21,7 @@ exports[`Badge > should match snapshot with icon only 1`] = `
   <div
     aria-label="label"
     class="mocked-styled-0 el-badge"
-    data-reversed="false"
+    data-isreversed="false"
     role="status"
   >
     <span
@@ -52,7 +52,7 @@ exports[`Badge > should match snapshot with icons and label 1`] = `
 <DocumentFragment>
   <div
     class="mocked-styled-0 el-badge"
-    data-reversed="false"
+    data-isreversed="false"
     role="status"
   >
     <span
@@ -108,7 +108,7 @@ exports[`Badge > should match snapshot with reversed badge 1`] = `
 <DocumentFragment>
   <div
     class="mocked-styled-0 el-badge"
-    data-reversed="true"
+    data-isreversed="true"
     role="status"
   >
     <span
@@ -124,7 +124,7 @@ exports[`Badge > should match snapshot with success variant and label 1`] = `
 <DocumentFragment>
   <div
     class="mocked-styled-0 el-badge"
-    data-reversed="false"
+    data-isreversed="false"
     data-variant="success"
     role="status"
   >
