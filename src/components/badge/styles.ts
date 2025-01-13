@@ -1,7 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
-export const elBadgeLabel = css``
 export const elIcon = css``
 
 export const ElBadge = styled.div`
