@@ -8,7 +8,7 @@ describe('Label component', () => {
   })
 
   it('should match a snapshot if it required', () => {
-    const wrapper = render(<Label required />)
+    const wrapper = render(<Label isRequired />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

@@ -20,7 +20,7 @@ export const BasicUsage = {
         example label soft small
       </Label>
       <br />
-      <Label variant="soft" required>
+      <Label variant="soft" isRequired>
         example label soft required
       </Label>
     </>
