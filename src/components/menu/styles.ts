@@ -79,7 +79,7 @@ export const ElMenuItemGroupTitle = styled.div`
   text-transform: uppercase;
   display: flex;
   height: 32px;
-  padding: var(--spacing-none, 0px) var(--spacing-4, 16px);
+  padding: var(--spacing-none) var(--spacing-4);
   align-items: center;
   align-self: stretch;
 `

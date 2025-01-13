@@ -1,0 +1,34 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as BottomBarItemStories from './bottom-bar.stories'
+
+<Meta of={BottomBarItemStories} />
+
+# Bottom Bar
+
+A component designed to render a navigation bar at the bottom of the screen
+
+This component is also capable of sliding up and down as the user scrolls the parent element
+
+`BottomBar` have additional export that can be used to render the following components:
+
+- `Item`: Renders a single item
+- `MoreMenu`: Renders an expandable menu
+- `MoreMenuItem`: Renders an expandable menu item
+
+There are two variants of the `BottomBar` component:
+
+- Fixed: The `BottomBar` component that only contains less or equal to 5 items
+- Expandable: The `BottomBar` component is expandable and can contain more than 5 items
+
+## Fixed Usage
+
+Demonstrates how to render the fixed usage of the `BottomBar` component that contains 5 items
+
+<Canvas of={BottomBarItemStories.Standard} />
+
+## Expandable Usage
+
+Demonstrates how to render the expandable usage of the `BottomBar` component that contains more than 5 items
+
+<Canvas of={BottomBarItemStories.WithOverflowMenu} />
