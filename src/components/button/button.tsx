@@ -1,12 +1,4 @@
-import {
-  HTMLAttributes,
-  AnchorHTMLAttributes,
-  ButtonHTMLAttributes,
-  FC,
-  MouseEvent,
-  MouseEventHandler,
-  ReactNode,
-} from 'react'
+import { HTMLAttributes, AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEventHandler, ReactNode } from 'react'
 import {
   ElButton,
   elButtonSizeLarge,
@@ -33,7 +25,6 @@ type ButtonAsAnchorVariant = Exclude<ButtonAsButtonVariant, 'busy'>
 
 interface CommonButtonProps {
   children?: ReactNode
-  variant?: ButtonAsButtonVariant
   size?: ButtonSize
   iconLeft?: ReactNode
   iconRight?: ReactNode
@@ -42,23 +33,42 @@ interface CommonButtonProps {
   className?: string
 }
 
-interface ButtonAsButtonElementProps extends CommonButtonProps, ButtonHTMLAttributes<HTMLButtonElement> {
-  href?: never
-  target?: never
-  disabled?: boolean
-  onClick?: MouseEventHandler<HTMLButtonElement>
+// Define a specialized type for tertiary variant for prop hasNoPadding
+type TertiaryButtonProps = {
+  variant: 'tertiary'
+  hasNoPadding?: boolean // Only tertiary buttons can use hasNoPadding
 }
 
-interface ButtonAsAnchorElementProps extends CommonButtonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-  variant?: ButtonAsAnchorVariant
-  /** Button styled <a> element should always have href */
-  href: string
-  target?: string
-  rel?: string
-  /** Anchor elements cannot be disabled. Use a button element if the component needs to be in a disabled state */
-  disabled?: never
-  onClick?: MouseEventHandler<HTMLAnchorElement>
+// Define the general type for non-tertiary variants
+type NonTertiaryButtonProps = {
+  variant?: Exclude<ButtonAsButtonVariant, 'tertiary'>
+  hasNoPadding?: never // Disallow hasNoPadding for other variants
 }
+
+// Combine the above two into a Variant-specific prop type
+type VariantSpecificProps = TertiaryButtonProps | NonTertiaryButtonProps
+
+type ButtonAsButtonElementProps = CommonButtonProps &
+  VariantSpecificProps &
+  ButtonHTMLAttributes<HTMLButtonElement> & {
+    href?: never
+    target?: never
+    disabled?: boolean
+    onClick?: MouseEventHandler<HTMLButtonElement>
+  }
+
+type ButtonAsAnchorElementProps = CommonButtonProps &
+  VariantSpecificProps &
+  AnchorHTMLAttributes<HTMLAnchorElement> & {
+    variant?: ButtonAsAnchorVariant
+    /** Button styled <a> element should always have href */
+    href: string
+    target?: string
+    rel?: string
+    /** Anchor elements cannot be disabled. Use a button element if the component needs to be in a disabled state */
+    disabled?: never
+    onClick?: MouseEventHandler<HTMLAnchorElement>
+  }
 
 export type ButtonProps = ButtonAsButtonElementProps | ButtonAsAnchorElementProps
 
@@ -66,14 +76,8 @@ function isButtonAsButtonElement(props: ButtonProps): props is ButtonAsButtonEle
   return !props.href
 }
 
-export const handleButtonClick =
-  (onClick?: MouseEventHandler<HTMLButtonElement | HTMLAnchorElement>) =>
-  (e: MouseEvent<HTMLButtonElement | HTMLAnchorElement>) => {
-    if (onClick) onClick(e)
-  }
-
 /** @deprecated */
-export interface FloatingButtonProps extends ButtonAsButtonElementProps {
+export type FloatingButtonProps = ButtonAsButtonElementProps & {
   icon: IconNames
 }
 
@@ -87,21 +91,23 @@ export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
   alignment?: ButtonGroupAlignment
 }
 
-export const Button: FC<ButtonProps> = ({
-  children,
-  variant,
-  size = 'medium',
-  iconLeft,
-  iconRight,
-  onClick,
-  'aria-label': ariaLabel,
-  disabled = false,
-  href,
-  target,
-  rel,
-  className,
-  ...rest
-}) => {
+export const Button: FC<ButtonProps> = (props) => {
+  const {
+    children,
+    variant,
+    size = 'medium',
+    iconLeft,
+    iconRight,
+    'aria-label': ariaLabel,
+    disabled = false,
+    href,
+    target,
+    rel,
+    className,
+    hasNoPadding,
+    ...rest
+  } = props
+
   const sizeClass = cx(
     size === 'small' && elButtonSizeSmall,
     size === 'medium' && elButtonSizeMedium,
@@ -114,14 +120,17 @@ export const Button: FC<ButtonProps> = ({
 
   const combinedClassName = cx(className, sizeClass, miscellaneousClass)
 
-  if (!isButtonAsButtonElement({ href })) {
+  if (!isButtonAsButtonElement(props)) {
     return (
       <ElAnchorButton
         href={href}
         data-variant={variant}
+        data-has-no-padding={hasNoPadding}
         className={combinedClassName}
         onClick={(e) => {
-          handleButtonClick(onClick)(e)
+          if (props.onClick) {
+            props.onClick(e)
+          }
         }}
         aria-label={ariaLabel}
         role="button"
@@ -139,10 +148,13 @@ export const Button: FC<ButtonProps> = ({
     return (
       <ElButton
         data-variant={variant}
+        data-has-no-padding={hasNoPadding}
         className={combinedClassName}
         onClick={(e) => {
           if (!disabled) {
-            handleButtonClick(onClick)(e)
+            if (props.onClick) {
+              props.onClick(e)
+            }
           } else {
             e.preventDefault() // Explicitly prevent default if disabled
           }

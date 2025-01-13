@@ -14,11 +14,11 @@ export const ElAvatarButton = styled.button`
     ${ElAvatar} {
       box-shadow:
         0px 0px 0px 1px #fff,
-        0px 0px 0px 4px var(--Colours-Purple-purple-300, #7e9bfa);
+        0px 0px 0px 4px var(--purple-300);
     }
   }
 
   &:hover ${ElAvatar} {
-    background: var(--fill-colour-fill-action-light, #d6e1ff);
+    background: var(--fill-action-light);
   }
 `

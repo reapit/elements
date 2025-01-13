@@ -6,34 +6,34 @@ import { ElIcon } from '../icon'
 const baseStyles = `
   position: relative;
   display: inline-flex;
-  padding: var(--space-2, 8px);
+  padding: var(--spacing-2);
   justify-content: center;
   align-items: center;
-  gap: var(--space-none, 0px);
-  border-radius: var(--corner-default, 4px);
-  background: var(--fill-white, #ffffff);
-  border: var(--border-none, 0px);
-  color: var(--icon-app_bar-default, #798da1);
+  gap: var(--spacing-none);
+  border-radius: var(--corner-defaul);
+  background: var(--fill-white);
+  border: var(--border-none);
+  color: var(--icon-app_bar-default);
   outline: none;
 
   &:focus-visible {
-    border-radius: var(--corner-default, 4px);
-    background: var(--fill-white, #ffffff);
+    border-radius: var(--corner-default);
+    background: var(--fill-white);
     box-shadow:
-      0px 0px 0px 1px #fff,
-      0px 0px 0px 4px var(--icon-button_primary-hover, #7e9bfa);
+      0px 0px 0px 1px var(--fill-white),
+      0px 0px 0px 4px var(--icon-button_primary-hover);
   }
 
   &:hover {
     cursor: pointer;
-    border-radius: var(--corner-default, 4px);
-    background: var(--fill-default-lightest, #f2f4f6);
+    border-radius: var(--corner-default);
+    background: var(--fill-default-lightest);
   }
 
   &:active, &[aria-current="page"], &[aria-current="true"] {
-    color: var(--fill-action-dark, #4e56ea);
-    border-radius: var(--corner-default, 4px);
-    background: var(--fill-default-lightest, #f2f4f6);
+    color: var(--fill-action-dark);
+    border-radius: var(--corner-default);
+    background: var(--fill-default-lightest);
   }
 `
 
@@ -41,9 +41,9 @@ export const ElNavIconItemBadge = styled.span`
   position: absolute;
   right: 5px;
   top: 5px;
-  width: var(--size-2, 8px);
-  height: var(--size-2, 8px);
-  background-color: var(--icon-error, #f01830);
+  width: var(--size-2);
+  height: var(--size-2);
+  background-color: var(--icon-error);
   border-radius: 100%;
 `
 
