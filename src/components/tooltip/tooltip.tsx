@@ -1,66 +1,49 @@
-import React, { FC, HTMLAttributes, useState, ReactNode } from 'react'
-import { ElTooltipChild, ElTooltipContainer, ElTooltipLabel } from './styles'
-import { useId } from '#src/storybook/random-id'
+import React, { FC, HTMLAttributes } from 'react'
+import { ElTooltip, ElTooltipLabel } from './styles'
+import { createPortal } from 'react-dom'
 
 export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode
   label?: string
   description: string
+  isVisible?: boolean
   maxWidth?: string
   position?:
     | 'top'
     | 'bottom'
     | 'right'
     | 'left'
-    | 'topStart'
-    | 'topEnd'
-    | 'bottomStart'
-    | 'bottomEnd'
-    | 'rightStart'
-    | 'rightEnd'
-    | 'leftStart'
-    | 'leftEnd'
+    | 'top-start'
+    | 'top-end'
+    | 'bottom-start'
+    | 'bottom-end'
+    | 'right-start'
+    | 'right-end'
+    | 'left-start'
+    | 'left-end'
 }
 
-export interface TooltipChildProps extends HTMLAttributes<HTMLDivElement> {
-  position: TooltipProps['position']
-  maxWidth?: string
-}
-
-export const Tooltip: FC<TooltipProps> = ({ children, label, description, maxWidth = '400px', position = 'top' }) => {
-  const [visible, setVisible] = useState(false)
-  const tooltipId = useId()
-
-  return (
-    <ElTooltipContainer
-      onMouseEnter={() => setVisible(true)}
-      onMouseLeave={() => setVisible(false)}
-      onFocus={() => setVisible(true)}
-      onBlur={() => setVisible(false)}
-      aria-describedby={tooltipId}
-    >
-      {children}
-      {visible && (
-        <TooltipChild id={tooltipId} position={position} maxWidth={maxWidth}>
-          {label && <ElTooltipLabel>{label}: </ElTooltipLabel>}
-          {description}
-        </TooltipChild>
-      )}
-    </ElTooltipContainer>
-  )
-}
-
-export const TooltipChild: FC<TooltipChildProps> = ({ children, position, maxWidth, id }) => {
-  return (
-    <ElTooltipChild
-      id={id} // To support a11y for screen reader to pass to aria-describedby
+export const Tooltip: FC<TooltipProps> = ({
+  isVisible,
+  label,
+  description,
+  maxWidth = '400px',
+  position = 'top',
+  ...rest
+}) => {
+  const tooltip = (
+    <ElTooltip
       role="tooltip"
       data-position={position}
       style={{ maxWidth: maxWidth }}
-      aria-hidden={!id} // hidden if no id is present
       aria-live="assertive" // Announce content dynamically
+      {...rest}
     >
-      {children}
-    </ElTooltipChild>
+      {label && <ElTooltipLabel>{label}: </ElTooltipLabel>}
+      {description}
+    </ElTooltip>
   )
+  if (!isVisible) {
+    return null
+  }
+  return createPortal(tooltip, document.body)
 }
