@@ -34,8 +34,7 @@ export const ElEmptyData = styled.div`
   justify-content: center;
   align-items: center;
   width: 100%;
-  // TODO: ask design team to clarify
-  height: 186px;
+  height: var(--size-40);
   padding: var(--spacing-6);
   border-radius: var(--corner-lg);
   background: var(--fill-default-lightest);
