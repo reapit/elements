@@ -41,7 +41,6 @@ exports[`Tooltip with createPortal > should render the tooltip when visible 1`] 
   </button>
   <div
     aria-hidden="false"
-    aria-live="assertive"
     class="mocked-styled-7 el-tooltip"
     data-position="top"
     id="tooltip-id-test-static-id"

@@ -31,13 +31,7 @@ export const Tooltip: FC<TooltipProps> = ({
   ...rest
 }) => {
   const tooltip = (
-    <ElTooltip
-      role="tooltip"
-      data-position={position}
-      style={{ maxWidth: maxWidth }}
-      aria-live="assertive" // Announce content dynamically
-      {...rest}
-    >
+    <ElTooltip role="tooltip" data-position={position} style={{ maxWidth: maxWidth }} {...rest}>
       {label && <ElTooltipLabel>{label}: </ElTooltipLabel>}
       {description}
     </ElTooltip>
