@@ -1,7 +1,4 @@
-import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-
-export const elIcon = css``
 
 export const ElBadge = styled.div`
   display: inline-flex;
@@ -13,7 +10,7 @@ export const ElBadge = styled.div`
   color: var(--text-info);
   background: var(--fill-info-lightest);
 
-  .${elIcon} {
+  .el-icon {
     width: var(--icon-xs);
     height: var(--icon-xs);
     color: var(--icon-info);
@@ -24,11 +21,11 @@ export const ElBadge = styled.div`
     background: var(--fill-info-lightest);
   }
 
-  &[data-isReversed='true'] {
+  &[data-is-reversed='true'] {
     color: var(--text-white);
     background: var(--fill-info-dark);
 
-    .${elIcon} {
+    .el-icon {
       color: var(--icon-white);
     }
   }
@@ -37,15 +34,15 @@ export const ElBadge = styled.div`
     color: var(--text-success);
     background: var(--fill-success-lightest);
 
-    .${elIcon} {
+    .el-icon {
       color: var(--icon-success);
     }
 
-    &[data-isReversed='true'] {
+    &[data-is-reversed='true'] {
       color: var(--text-white);
       background: var(--fill-success-dark);
 
-      .${elIcon} {
+      .el-icon {
         color: var(--icon-white);
       }
     }
@@ -55,15 +52,15 @@ export const ElBadge = styled.div`
     color: var(--text-pending);
     background: var(--fill-pending-lightest);
 
-    .${elIcon} {
+    .el-icon {
       color: var(--icon-pending);
     }
 
-    &[data-isReversed='true'] {
+    &[data-is-reversed='true'] {
       color: var(--text-white);
       background: var(--fill-pending-dark);
 
-      .${elIcon} {
+      .el-icon {
         color: var(--icon-white);
       }
     }
@@ -73,15 +70,15 @@ export const ElBadge = styled.div`
     color: var(--text-warning);
     background: var(--fill-warning-lightest);
 
-    .${elIcon} {
+    .el-icon {
       color: var(--icon-warning);
     }
 
-    &[data-isReversed='true'] {
+    &[data-is-reversed='true'] {
       color: var(--text-white);
       background: var(--fill-warning-dark);
 
-      .${elIcon} {
+      .el-icon {
         color: var(--icon-white);
       }
     }
@@ -91,15 +88,15 @@ export const ElBadge = styled.div`
     color: var(--text-error);
     background: var(--fill-error-lightest);
 
-    .${elIcon} {
+    .el-icon {
       color: var(--icon-error);
     }
 
-    &[data-isReversed='true'] {
+    &[data-is-reversed='true'] {
       color: var(--text-white);
       background: var(--fill-error-dark);
 
-      .${elIcon} {
+      .el-icon {
         color: var(--icon-white);
       }
     }
@@ -109,15 +106,15 @@ export const ElBadge = styled.div`
     color: var(--text-secondary);
     background: var(--fill-default-lightest);
 
-    .${elIcon} {
+    .el-icon {
       color: var(--icon-secondary);
     }
 
-    &[data-isReversed='true'] {
+    &[data-is-reversed='true'] {
       color: var(--text-white);
       background: var(--fill-default-medium);
 
-      .${elIcon} {
+      .el-icon {
         color: var(--icon-white);
       }
     }
@@ -127,15 +124,15 @@ export const ElBadge = styled.div`
     color: var(--text-accent_1);
     background: var(--fill-accent_1-lightest);
 
-    .${elIcon} {
+    .el-icon {
       color: var(--icon-accent_1);
     }
 
-    &[data-isReversed='true'] {
+    &[data-is-reversed='true'] {
       color: var(--text-white);
       background: var(--fill-accent_1-dark);
 
-      .${elIcon} {
+      .el-icon {
         color: var(--icon-white);
       }
     }
@@ -145,15 +142,15 @@ export const ElBadge = styled.div`
     color: var(--text-accent_2);
     background: var(--fill-accent_2-lightest);
 
-    .${elIcon} {
+    .el-icon {
       color: var(--icon-accent_2);
     }
 
-    &[data-isReversed='true'] {
+    &[data-is-reversed='true'] {
       color: var(--text-white);
       background: var(--fill-accent_2-dark);
 
-      .${elIcon} {
+      .el-icon {
         color: var(--icon-white);
       }
     }

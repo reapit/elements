@@ -9,8 +9,6 @@ interface BadgeProps extends HTMLAttributes<HTMLDivElement> {
   variant?: BadgeVariant
   iconLeft?: ReactNode
   iconRight?: ReactNode
-  'aria-label'?: string
-  className?: string
 }
 
 export const Badge: FC<BadgeProps> = ({
@@ -26,7 +24,7 @@ export const Badge: FC<BadgeProps> = ({
   return (
     <ElBadge
       data-variant={variant}
-      data-isReversed={isReversed}
+      data-is-reversed={isReversed}
       className={className}
       aria-label={ariaLabel}
       role="status"
