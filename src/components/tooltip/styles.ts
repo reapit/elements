@@ -8,7 +8,7 @@ export const ElTooltip = styled.div`
   border-radius: var(--corner-default);
   font-family: var(--font-family);
   font-size: var(--font-size-xs);
-  font-weight: 400; // To do : Need to replace with variable
+  font-weight: var(--font-weight-regular);
   line-height: var(--line-height-xs);
   letter-spacing: var(--letter-spacing-xs);
   text-align: left;
@@ -27,7 +27,7 @@ export const ElTooltip = styled.div`
 export const ElTooltipLabel = styled.span`
   font-family: var(--font-family);
   font-size: var(--font-size-xs);
-  font-weight: 600; // To do : Need to replace with variable
+  font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-xs);
   letter-spacing: var(--letter-spacing-xs);
   text-align: left;
