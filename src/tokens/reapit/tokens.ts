@@ -1,6 +1,6 @@
 /**
  * Do not edit directly
- * Generated on Mon, 16 Dec 2024 06:57:57 GMT
+ * Generated on Thu, 09 Jan 2025 07:23:22 GMT
  */
 
 export const neutral900 = '#222b33'
@@ -102,9 +102,9 @@ export const plum300 = '#bd78cc'
 export const plum200 = '#d0a0da'
 export const plum100 = '#e6d2f0'
 export const plum050 = '#faf4ff'
-export const fontWeightRegular = 'Regular'
-export const fontWeightMedium = 'Medium'
-export const fontWeightSemibold = 'Semi Bold'
+export const fontWeightRegular = '400'
+export const fontWeightMedium = '500'
+export const fontWeightSemibold = '600'
 export const fontFamily = 'Inter'
 export const unit0 = '0rem'
 export const unitPx = '0.0625rem'

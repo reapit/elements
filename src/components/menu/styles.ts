@@ -40,7 +40,7 @@ const baseMenuItemStyles = `
   gap: var(--spacing-4);
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-sm);
   color: var(--text-primary);
@@ -72,7 +72,7 @@ export const ElMenuItemGroupTitle = styled.div`
   font-family: var(--font-family);
   font-size: var(--font-size-2xs);
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-2xs);
   letter-spacing: var(--letter-spacing-2xs);
   color: var(--text-placeholder);

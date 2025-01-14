@@ -2,7 +2,9 @@ import { Meta } from '@storybook/react'
 import { Button } from './button'
 import { ButtonGroup } from '../button-group'
 import { action } from '@storybook/addon-actions'
-import { Icon } from '../icon'
+import { Icon, IconNames } from '../icon'
+
+const ICON_OPTIONS: IconNames[] = ['star', 'check', 'add', 'chevronDown', 'email']
 
 const meta: Meta<typeof Button> = {
   title: 'Components/Button',
@@ -13,8 +15,24 @@ const meta: Meta<typeof Button> = {
       options: ['primary', 'secondary', 'tertiary', 'destructive', 'busy'],
       description: 'Defines the button style variant.',
     },
-    iconLeft: { control: 'text', description: 'The icon displayed on the left side of the button.' },
-    iconRight: { control: 'text', description: 'The icon displayed on the right side of the button.' },
+    iconLeft: {
+      control: 'select', // Changed to select control
+      options: ICON_OPTIONS,
+      description: 'The icon displayed on the left side of the button.',
+      mapping: ICON_OPTIONS.reduce((acc, iconName) => {
+        acc[iconName] = <Icon icon={iconName} fontSize="1rem" />
+        return acc
+      }, {}),
+    },
+    iconRight: {
+      control: 'select', // Changed to select control
+      options: ICON_OPTIONS,
+      description: 'The icon displayed on the right side of the button.',
+      mapping: ICON_OPTIONS.reduce((acc, iconName) => {
+        acc[iconName] = <Icon icon={iconName} fontSize="1rem" />
+        return acc
+      }, {}),
+    },
     size: {
       control: 'select',
       options: ['small', 'medium', 'large'],
@@ -33,6 +51,11 @@ const meta: Meta<typeof Button> = {
     className: {
       control: 'text',
       description: 'CSS class for additional styling',
+    },
+    hasNoPadding: {
+      control: 'boolean',
+      description:
+        'Set this prop to true to remove the padding and height adjustments for the tertiary variant of the button. This will apply no padding and reset the height, giving a more compact button appearance. It is only applicable when the button variant is tertiary.',
     },
   },
 }
@@ -125,6 +148,15 @@ export const ButtonWithHref = {
       Add Item
     </Button>
   ),
+}
+
+export const ButtonWithHasNoPadding = {
+  name: 'Button With HasNoPadding',
+  args: {
+    children: 'Button Text',
+    variant: 'tertiary',
+    hasNoPadding: true,
+  },
 }
 
 export const StandardAttributes = {
