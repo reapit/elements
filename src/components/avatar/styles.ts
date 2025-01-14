@@ -30,7 +30,7 @@ export const ElAvatar = styled.span`
   text-align: center;
   font-family: var(--font-family);
   font-style: normal;
-  font-weight: 600;
+  font-weight: var(--font-weight-semibold);
 
   ${baseColourDefaultStyle}
   ${baseCircleStyle}
