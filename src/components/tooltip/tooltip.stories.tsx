@@ -73,6 +73,21 @@ export const BasicUsage = {
     description: 'Tooltip text', // Default value for description
     label: 'Label', // Default value for label
   },
+  // This is to style the story, as the story parent container has overflow hidden.
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: '20vh',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
   render: (args: any) => {
     const tooltip = useTooltip()
 

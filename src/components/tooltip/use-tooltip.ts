@@ -84,21 +84,6 @@ export const useTooltip = () => {
         break
     }
 
-    /* The following calculations ensure proper positioning of the tooltip when it overflows the viewport.
-    // And the following adjustments aren't made to prevent the tooltip from overlapping the trigger.
-    // Additional refinements may be necessary to fully support this behavior.
-
-    // Adjust tooltip position to stay within the viewport
-    if (top < 0) top = Math.max(4, triggerRect.bottom + scrollTop + 4) // Adjust for top overflow
-    if (left < 0) left = 4 // Adjust for left overflow
-    if (top + tooltipRect.height > window.innerHeight + scrollTop) {
-      top = window.innerHeight + scrollTop - tooltipRect.height - 4 // Adjust for bottom overflow
-    }
-    if (left + tooltipRect.width > window.innerWidth + scrollLeft) {
-      left = window.innerWidth + scrollLeft - tooltipRect.width - 4 // Adjust for right overflow
-    }
-    */
-
     // Below are inline style applied to tooltip to position it relevant to respective trigger
     tooltip.style.position = 'absolute'
     tooltip.style.inset = '0px auto auto 0px'
