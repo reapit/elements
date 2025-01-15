@@ -1,7 +1,7 @@
-import React, { FC, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
-import { ElDeprecatedTag, ElDeprecatedTagGroup, ElDeprecatedTagGroupInner } from './__styles__'
+import { FC, HTMLAttributes } from 'react'
 import { Intent, getIntentClassName } from '../../helpers/intent'
+import { ElDeprecatedTag, ElDeprecatedTagGroup, ElDeprecatedTagGroupInner } from './__styles__'
 
 /** @deprecated will be replaced by new v5 TagProps */
 export interface DeprecatedTagProps extends HTMLAttributes<HTMLSpanElement> {
