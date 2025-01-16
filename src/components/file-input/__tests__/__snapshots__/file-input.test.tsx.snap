@@ -61,6 +61,8 @@ exports[`FileInput component > should match a snapshot with full props 1`] = `
   >
     <label
       class="mocked-styled-12 el-label"
+      data-size="medium"
+      data-variant="soft"
     >
       Some Label
     </label>

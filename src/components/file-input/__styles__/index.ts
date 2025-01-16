@@ -1,4 +1,4 @@
-import { ElLabel } from '../../label/__styles__/index'
+import { ElLabel } from '../../label/styles'
 import { ElIcon } from '../../icon/__styles__/index'
 import { ElButton } from '../../button/styles'
 import { styled } from '@linaria/react'

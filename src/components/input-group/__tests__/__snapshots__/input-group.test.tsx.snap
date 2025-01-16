@@ -29,6 +29,8 @@ exports[`InputGroup component > should match a snapshot when used in explicit mo
     </span>
     <label
       class="mocked-styled-3 el-label"
+      data-size="medium"
+      data-variant="soft"
     >
       Please enter a username
     </label>
@@ -62,6 +64,8 @@ exports[`InputGroup component > should match a snapshot when used in react short
     />
     <label
       class="mocked-styled-3 el-label"
+      data-size="medium"
+      data-variant="soft"
       for="myId"
     >
       Enter your username
@@ -136,6 +140,8 @@ exports[`InputGroup component > should match a snapshot when used in react short
     </span>
     <label
       class="mocked-styled-3 el-label"
+      data-size="medium"
+      data-variant="soft"
       for="myId"
     >
       Enter your username

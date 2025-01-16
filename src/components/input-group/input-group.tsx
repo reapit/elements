@@ -29,6 +29,11 @@ export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElem
    */
   className?: string
   errorMessage?: string
+
+  /**
+   * Added mark for the Label element
+   */
+  isRequired?: boolean
 }
 
 export type InputGroupWrapped = React.ForwardRefExoticComponent<
@@ -37,7 +42,19 @@ export type InputGroupWrapped = React.ForwardRefExoticComponent<
 
 export const InputGroup: InputGroupWrapped = forwardRef(
   (
-    { icon, label, className, id, intent, inputAddOnText, children, errorMessage, hasError, ...rest }: InputGroupProps,
+    {
+      icon,
+      label,
+      className,
+      id,
+      intent,
+      inputAddOnText,
+      children,
+      errorMessage,
+      hasError,
+      isRequired,
+      ...rest
+    }: InputGroupProps,
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
     const groupId = useId(id)
@@ -48,7 +65,11 @@ export const InputGroup: InputGroupWrapped = forwardRef(
         <ElInputGroup className={className}>
           <Input hasError={errorState} id={groupId} {...rest} ref={ref} />
           {icon && <Icon fontSize="1rem" intent={errorState ? 'danger' : intent} icon={icon} />}
-          {label && <Label htmlFor={groupId}>{label}</Label>}
+          {label && (
+            <Label isRequired={isRequired} htmlFor={groupId}>
+              {label}
+            </Label>
+          )}
           {inputAddOnText && <InputAddOn intent={errorState ? 'danger' : intent}>{inputAddOnText}</InputAddOn>}
           {errorMessage && <InputError message={errorMessage} />}
         </ElInputGroup>

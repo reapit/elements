@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon/__styles__'
-import { ElLabel } from '../../label/__styles__'
+import { ElLabel } from '../../label/styles'
 import { ElInput, elHasInputError } from '../../input/__styles__'
 import { ElTextArea } from '../../textarea'
 import { ElSelect } from '../../select/__styles__'

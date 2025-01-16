@@ -4,6 +4,20 @@ exports[`Label component > should match a snapshot 1`] = `
 <DocumentFragment>
   <label
     class="mocked-styled-0 el-label"
+    data-size="medium"
+    data-variant="soft"
   />
+</DocumentFragment>
+`;
+
+exports[`Label component > should match a snapshot if it required 1`] = `
+<DocumentFragment>
+  <label
+    class="mocked-styled-0 el-label"
+    data-size="medium"
+    data-variant="soft"
+  >
+     *
+  </label>
 </DocumentFragment>
 `;
