@@ -47,7 +47,7 @@ export const ElStatusIndicator = styled.div`
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
   font-style: normal;
-  font-weight: 400;
+  font-weight: var(--font-weight-regular);
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-sm);
 `
