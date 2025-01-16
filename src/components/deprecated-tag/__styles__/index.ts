@@ -9,7 +9,8 @@ import {
   elIntentNeutral,
 } from '../../../styles/intent'
 
-export const ElTag = styled.span`
+/** @deprecated */
+export const ElDeprecatedTag = styled.span`
   border-radius: 3rem;
   display: inline-block;
   font-size: var(--font-size-smallest);
@@ -53,11 +54,13 @@ export const ElTag = styled.span`
   }
 `
 
-export const ElTagGroup = styled.div`
+/** @deprecated */
+export const ElDeprecatedTagGroup = styled.div`
   display: grid;
 `
 
-export const ElTagGroupInner = styled.div`
+/** @deprecated */
+export const ElDeprecatedTagGroupInner = styled.div`
   display: flex;
   flex-wrap: wrap;
   grid-auto-flow: column;
