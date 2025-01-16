@@ -3,7 +3,7 @@ import { Drawer, DrawerBg } from './index'
 import { Button, DeprecatedButtonGroup } from '../button'
 import { FormLayout, InputWrapFull, InputWrapHalf } from '../form-layout'
 import { InputGroup } from '../input-group'
-import { Label } from '../label'
+import { DeprecatedLabel } from '../deprecated-label'
 import { Select } from '../select'
 import { TextArea } from '../textarea'
 import { TextBase } from '../typography'
@@ -73,7 +73,7 @@ export const ReactUsageWithForm = {
             </InputWrapHalf>
             <InputWrapHalf>
               <InputGroup>
-                <Label>Under 18?</Label>
+                <DeprecatedLabel>Under 18?</DeprecatedLabel>
                 <Select>
                   <option>Yes</option>
                   <option>No</option>
@@ -82,7 +82,7 @@ export const ReactUsageWithForm = {
             </InputWrapHalf>
             <InputWrapFull>
               <InputGroup>
-                <Label>Notes</Label>
+                <DeprecatedLabel>Notes</DeprecatedLabel>
                 <TextArea fieldSizing="content" />
               </InputGroup>
             </InputWrapFull>
