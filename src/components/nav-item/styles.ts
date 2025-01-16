@@ -8,7 +8,7 @@ export const ElNavItemLabelContainer = styled.span`
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
   font-style: normal;
-  font-weight: 500;
+  font-weight: var(--font-weight-medium);
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-sm);
 `

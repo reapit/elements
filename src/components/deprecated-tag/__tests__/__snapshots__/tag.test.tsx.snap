@@ -3,7 +3,7 @@
 exports[`Tag component > should match a snapshot 1`] = `
 <DocumentFragment>
   <span
-    class="el-intent-primary el-tag"
+    class="el-intent-primary el-deprecated-tag"
   >
     Some Content
   </span>
@@ -13,7 +13,7 @@ exports[`Tag component > should match a snapshot 1`] = `
 exports[`Tag component > should match a snapshot for intent 1`] = `
 <DocumentFragment>
   <span
-    class="el-intent-primary el-tag"
+    class="el-intent-primary el-deprecated-tag"
   >
     Some Content
   </span>
@@ -23,7 +23,7 @@ exports[`Tag component > should match a snapshot for intent 1`] = `
 exports[`Tag component > should match a snapshot for intent 2`] = `
 <DocumentFragment>
   <span
-    class="el-intent-neutral el-tag"
+    class="el-intent-neutral el-deprecated-tag"
   >
     Some Content
   </span>
@@ -33,7 +33,7 @@ exports[`Tag component > should match a snapshot for intent 2`] = `
 exports[`Tag component > should match a snapshot for intent 3`] = `
 <DocumentFragment>
   <span
-    class="el-intent-danger el-tag"
+    class="el-intent-danger el-deprecated-tag"
   >
     Some Content
   </span>
@@ -43,7 +43,7 @@ exports[`Tag component > should match a snapshot for intent 3`] = `
 exports[`Tag component > should match a snapshot for intent 4`] = `
 <DocumentFragment>
   <span
-    class="el-intent-success el-tag"
+    class="el-intent-success el-deprecated-tag"
   >
     Some Content
   </span>
@@ -53,7 +53,7 @@ exports[`Tag component > should match a snapshot for intent 4`] = `
 exports[`Tag component > should match a snapshot for intent 5`] = `
 <DocumentFragment>
   <span
-    class="el-intent-warning el-tag"
+    class="el-intent-warning el-deprecated-tag"
   >
     Some Content
   </span>
@@ -63,7 +63,7 @@ exports[`Tag component > should match a snapshot for intent 5`] = `
 exports[`Tag component > should match a snapshot for intent 6`] = `
 <DocumentFragment>
   <span
-    class="el-intent-pending el-tag"
+    class="el-intent-pending el-deprecated-tag"
   >
     Some Content
   </span>
@@ -73,7 +73,7 @@ exports[`Tag component > should match a snapshot for intent 6`] = `
 exports[`Tag component > should match a snapshot for intent 7`] = `
 <DocumentFragment>
   <span
-    class="el-intent-default el-tag"
+    class="el-intent-default el-deprecated-tag"
   >
     Some Content
   </span>
@@ -83,18 +83,18 @@ exports[`Tag component > should match a snapshot for intent 7`] = `
 exports[`TagGroup component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-1 el-tag-group"
+    class="mocked-styled-1 el-deprecated-tag-group"
   >
     <div
-      class="mocked-styled-2 el-tag-group-inner"
+      class="mocked-styled-2 el-deprecated-tag-group-inner"
     >
       <span
-        class="el-intent-default el-tag"
+        class="el-intent-default el-deprecated-tag"
       >
         Some Content
       </span>
       <span
-        class="el-intent-primary el-tag"
+        class="el-intent-primary el-deprecated-tag"
       >
         Some Content
       </span>

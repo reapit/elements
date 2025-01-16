@@ -1,5 +1,4 @@
-import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
-import { StatusIndicator } from '.'
+import { Meta, Canvas, Controls } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as StatusIndicatorStories from './status-indicator.stories'
 
@@ -7,39 +6,18 @@ import * as StatusIndicatorStories from './status-indicator.stories'
 
 # Status Indicator
 
-A small coloured circle indicator to provide quick visual reference to the status of something; be it an action, response or anything else.
-
-Props available for the React version of the component;
+A Status Indicator is a low-visibility component used to highlight important information.
 
 <Controls />
 
-## Basic usage
+## Default
 
-<Canvas of={StatusIndicatorStories.BasicUsage} />
+<Canvas of={StatusIndicatorStories.Default} />
 
-<RenderHtmlMarkup of={StatusIndicatorStories.BasicUsage} />
+<RenderHtmlMarkup of={StatusIndicatorStories.Default} />
 
-## Intent
+## Variants
 
-Different intents are supported, to enable buttons to be used in different contexts
+<Canvas of={StatusIndicatorStories.Variants} />
 
-<Canvas of={StatusIndicatorStories.IntentPrimary} />
-<RenderHtmlMarkup of={StatusIndicatorStories.IntentPrimary} />
-
-<Canvas of={StatusIndicatorStories.IntentNeutral} />
-<RenderHtmlMarkup of={StatusIndicatorStories.IntentNeutral} />
-
-<Canvas of={StatusIndicatorStories.IntentSuccess} />
-<RenderHtmlMarkup of={StatusIndicatorStories.IntentSuccess} />
-
-<Canvas of={StatusIndicatorStories.IntentPending} />
-<RenderHtmlMarkup of={StatusIndicatorStories.IntentPending} />
-
-<Canvas of={StatusIndicatorStories.IntentWarning} />
-<RenderHtmlMarkup of={StatusIndicatorStories.IntentWarning} />
-
-<Canvas of={StatusIndicatorStories.IntentDanger} />
-<RenderHtmlMarkup of={StatusIndicatorStories.IntentDanger} />
-
-<Canvas of={StatusIndicatorStories.IntentDefault} />
-<RenderHtmlMarkup of={StatusIndicatorStories.IntentDefault} />
+<RenderHtmlMarkup of={StatusIndicatorStories.Variants} />

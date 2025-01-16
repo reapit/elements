@@ -11,7 +11,7 @@ import {
 import { Text2XL, TextL, TextBase, TypographyProps } from '../typography'
 import { FlexContainer } from '../layout'
 import { DeprecatedAvatar, DeprecatedAvatarProps } from '../deprecated-avatar'
-import { Tag, TagGroup, TagProps } from '../tag'
+import { DeprecatedTag, DeprecatedTagGroup, DeprecatedTagProps } from '../deprecated-tag'
 import { Button, DeprecatedButtonGroup, ButtonProps } from '../button'
 import { BreadCrumb, BreadCrumbProps } from '../breadcrumb'
 import { elMb3, elMb6, elMr3 } from '../../styles/spacing'
@@ -23,7 +23,7 @@ export interface PageHeaderProps extends HTMLAttributes<HTMLDivElement> {
   pageSubtitle?: TypographyProps
   pageInfo?: TypographyProps[]
   breadcrumb?: BreadCrumbProps
-  tags?: TagProps[]
+  tags?: DeprecatedTagProps[]
   buttons?: ButtonProps[]
   tabs?: TabsProps
   hasMaxWidth?: boolean
@@ -76,13 +76,13 @@ export const PageHeader: FC<PageHeaderProps> = ({
               <PageHeaderTitleContainer>
                 {pageTitle && <Text2XL className={elMr3} tag="h1" hasBoldText {...pageTitle} />}
                 {tags && (
-                  <TagGroup>
+                  <DeprecatedTagGroup>
                     {tags.map(({ children, ...rest }, index) => (
-                      <Tag key={index} {...rest}>
+                      <DeprecatedTag key={index} {...rest}>
                         {children}
-                      </Tag>
+                      </DeprecatedTag>
                     ))}
-                  </TagGroup>
+                  </DeprecatedTagGroup>
                 )}
               </PageHeaderTitleContainer>
               {pageSubtitle && <TextL tag="h2" hasBoldText {...pageSubtitle} />}
