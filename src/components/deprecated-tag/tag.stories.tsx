@@ -1,14 +1,14 @@
-import { Tag, TagGroup } from '.'
+import { DeprecatedTag, DeprecatedTagGroup } from '.'
 
 export default {
   title: 'Tag',
-  component: Tag,
+  component: DeprecatedTag,
 }
 
 export const BasicUsage = {
   render: ({}) => (
     <div>
-      <Tag>Some Content</Tag>
+      <DeprecatedTag>Some Content</DeprecatedTag>
     </div>
   ),
 }
@@ -16,7 +16,7 @@ export const BasicUsage = {
 export const IntentPrimary = {
   render: ({}) => (
     <div>
-      <Tag intent="primary">Primary</Tag>
+      <DeprecatedTag intent="primary">Primary</DeprecatedTag>
     </div>
   ),
 
@@ -26,7 +26,7 @@ export const IntentPrimary = {
 export const IntentNeutral = {
   render: ({}) => (
     <div>
-      <Tag intent="neutral">Neutral</Tag>
+      <DeprecatedTag intent="neutral">Neutral</DeprecatedTag>
     </div>
   ),
 
@@ -36,7 +36,7 @@ export const IntentNeutral = {
 export const IntentSuccess = {
   render: ({}) => (
     <div>
-      <Tag intent="success">Success</Tag>
+      <DeprecatedTag intent="success">Success</DeprecatedTag>
     </div>
   ),
 
@@ -46,7 +46,7 @@ export const IntentSuccess = {
 export const IntentPending = {
   render: ({}) => (
     <div>
-      <Tag intent="pending">Pending</Tag>
+      <DeprecatedTag intent="pending">Pending</DeprecatedTag>
     </div>
   ),
 
@@ -56,7 +56,7 @@ export const IntentPending = {
 export const IntentWarning = {
   render: ({}) => (
     <div>
-      <Tag intent="warning">Warning</Tag>
+      <DeprecatedTag intent="warning">Warning</DeprecatedTag>
     </div>
   ),
 
@@ -66,7 +66,7 @@ export const IntentWarning = {
 export const IntentDanger = {
   render: ({}) => (
     <div>
-      <Tag intent="danger">Danger</Tag>
+      <DeprecatedTag intent="danger">Danger</DeprecatedTag>
     </div>
   ),
 
@@ -76,7 +76,7 @@ export const IntentDanger = {
 export const IntentDefault = {
   render: ({}) => (
     <div>
-      <Tag intent="default">Default</Tag>
+      <DeprecatedTag intent="default">Default</DeprecatedTag>
     </div>
   ),
 
@@ -85,9 +85,9 @@ export const IntentDefault = {
 
 export const TagGroupUsage = {
   render: ({}) => (
-    <TagGroup>
-      <Tag intent="primary">Some Content</Tag>
-      <Tag intent="default">Some Content</Tag>
-    </TagGroup>
+    <DeprecatedTagGroup>
+      <DeprecatedTag intent="primary">Some Content</DeprecatedTag>
+      <DeprecatedTag intent="default">Some Content</DeprecatedTag>
+    </DeprecatedTagGroup>
   ),
 }
