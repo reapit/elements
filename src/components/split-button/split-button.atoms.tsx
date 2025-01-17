@@ -1,5 +1,5 @@
 import type { FC, ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
-import { ElActionButton, ElActionButtonLabel, ElMenuButton, ElIconContainer } from './styles'
+import { ElActionButton, ElActionButtonLabel, ElMenuButton, ElSplitButtonIcon } from './styles'
 import { Icon } from '../icon'
 
 type ActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -47,9 +47,9 @@ export const MenuButton: FC<MenuButtonProps> = (props) => {
       }}
       {...rest}
     >
-      <ElIconContainer>
+      <ElSplitButtonIcon>
         <Icon icon="chevronDown" />
-      </ElIconContainer>
+      </ElSplitButtonIcon>
     </ElMenuButton>
   )
 }

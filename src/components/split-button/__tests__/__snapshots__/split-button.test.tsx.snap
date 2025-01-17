@@ -7,11 +7,11 @@ exports[`SplitButton > should match snapshot 1`] = `
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-1 el-action-button"
+      class="mocked-styled-2 el-action-button"
       role="button"
     >
       <span
-        class="mocked-styled-0 el-action-button-label"
+        class="mocked-styled-1 el-action-button-label"
       >
         Button
       </span>
@@ -21,7 +21,7 @@ exports[`SplitButton > should match snapshot 1`] = `
       role="button"
     >
       <span
-        class="mocked-styled-2 el-icon-container"
+        class="mocked-styled-0 el-split-button-icon"
       >
         <span
           class="mocked-styled-5 el-icon"
@@ -54,12 +54,12 @@ exports[`SplitButton > should match snapshot with action button disabled 1`] = `
   >
     <button
       aria-disabled="true"
-      class="mocked-styled-1 el-action-button"
+      class="mocked-styled-2 el-action-button"
       disabled=""
       role="button"
     >
       <span
-        class="mocked-styled-0 el-action-button-label"
+        class="mocked-styled-1 el-action-button-label"
       >
         Button
       </span>
@@ -69,7 +69,7 @@ exports[`SplitButton > should match snapshot with action button disabled 1`] = `
       role="button"
     >
       <span
-        class="mocked-styled-2 el-icon-container"
+        class="mocked-styled-0 el-split-button-icon"
       >
         <span
           class="mocked-styled-5 el-icon"
@@ -103,11 +103,11 @@ exports[`SplitButton > should match snapshot with large size 1`] = `
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-1 el-action-button"
+      class="mocked-styled-2 el-action-button"
       role="button"
     >
       <span
-        class="mocked-styled-0 el-action-button-label"
+        class="mocked-styled-1 el-action-button-label"
       >
         Button
       </span>
@@ -117,7 +117,7 @@ exports[`SplitButton > should match snapshot with large size 1`] = `
       role="button"
     >
       <span
-        class="mocked-styled-2 el-icon-container"
+        class="mocked-styled-0 el-split-button-icon"
       >
         <span
           class="mocked-styled-5 el-icon"
@@ -151,11 +151,11 @@ exports[`SplitButton > should match snapshot with secondary variant 1`] = `
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-1 el-action-button"
+      class="mocked-styled-2 el-action-button"
       role="button"
     >
       <span
-        class="mocked-styled-0 el-action-button-label"
+        class="mocked-styled-1 el-action-button-label"
       >
         Button
       </span>
@@ -165,7 +165,7 @@ exports[`SplitButton > should match snapshot with secondary variant 1`] = `
       role="button"
     >
       <span
-        class="mocked-styled-2 el-icon-container"
+        class="mocked-styled-0 el-split-button-icon"
       >
         <span
           class="mocked-styled-5 el-icon"

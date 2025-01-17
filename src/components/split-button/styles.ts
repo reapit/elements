@@ -1,17 +1,8 @@
 import { styled } from '@linaria/react'
 import { ElIcon } from '../icon'
 
-export const ElActionButtonLabel = styled.span`
-  display: flex;
-  padding: var(--spacing-none) var(--spacing-half);
-  align-items: flex-start;
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-style: normal;
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
-`
+export const ElSplitButtonIcon = styled.span``
+export const ElActionButtonLabel = styled.span``
 
 export const ElActionButton = styled.button`
   display: flex;
@@ -24,6 +15,18 @@ export const ElActionButton = styled.button`
   border: unset;
   background: var(--fill-action-dark);
   color: var(--text-white);
+
+  ${ElActionButtonLabel} {
+    display: flex;
+    padding: var(--spacing-none) var(--spacing-half);
+    align-items: flex-start;
+    font-family: var(--font-family);
+    font-size: var(--font-size-sm);
+    font-style: normal;
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-sm);
+    letter-spacing: var(--letter-spacing-sm);
+  }
 
   &[disabled] {
     border: var(--border-default) solid var(--fill-default-light);
@@ -41,16 +44,6 @@ export const ElActionButton = styled.button`
       0px 0px 0px 1px #fff,
       0px 0px 0px 4px var(--purple-300);
   }
-`
-
-export const ElIconContainer = styled.span`
-  display: flex;
-  padding: var(--spacing-1) var(--spacing-none);
-  justify-content: center;
-  align-items: center;
-  flex: 1 0 0;
-  color: var(--icon-white);
-  border-left: var(--border-default) solid var(--outline-split_button-primary, #7E9BFA); // Remove the fallback once variable is available
 `
 
 export const ElMenuButton = styled.button`
@@ -76,11 +69,21 @@ export const ElMenuButton = styled.button`
       0px 0px 0px 4px var(--purple-300);
   }
 
-  ${ElIcon} {
-    width: var(--icon-sm);
-    height: var(--icon-sm);
-    color: inherit;
+  ${ElSplitButtonIcon} {
+    display: flex;
+    padding: var(--spacing-1) var(--spacing-none);
+    justify-content: center;
     align-items: center;
+    flex: 1 0 0;
+    color: var(--icon-white);
+    border-left: var(--border-default) solid var(--outline-split_button-primary, #7e9bfa); // Remove the fallback once variable is available
+
+    ${ElIcon} {
+      width: var(--icon-sm);
+      height: var(--icon-sm);
+      color: inherit;
+      align-items: center;
+    }
   }
 `
 export const ElSplitButton = styled.div`
@@ -102,7 +105,7 @@ export const ElSplitButton = styled.div`
       background: var(--fill-white);
       color: var(--text-secondary);
 
-      ${ElIconContainer} {
+      ${ElSplitButtonIcon} {
         border-left: var(--border-default) solid var(--outline-default);
         color: var(--icon-secondary);
       }
