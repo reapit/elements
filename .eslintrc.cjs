@@ -43,7 +43,12 @@ module.exports = {
     '@typescript-eslint/no-unused-vars': 'error',
     'no-unused-vars': 'off',
     'no-debugger': 'off',
-    'prettier/prettier': 'off',
+    'prettier/prettier': [
+      'warn',
+      {
+        endOfLine: 'auto',
+      },
+    ],
     'max-len': ['error', { code: 120, ignoreUrls: true, ignoreTemplateLiterals: true, ignoreStrings: true }],
     'no-confusing-arrow': ['error', { allowParens: false }],
     'no-mixed-operators': [
