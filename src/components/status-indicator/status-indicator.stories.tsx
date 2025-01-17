@@ -1,94 +1,42 @@
-import { StatusIndicator } from '.'
+import { Meta } from '@storybook/react'
+import { StatusIndicator } from './status-indicator'
+import { FlexContainer } from '../layout'
 
-export default {
-  title: 'StatusIndicator',
+const meta = {
+  title: 'Components/Status Indicator',
   component: StatusIndicator,
+  argTypes: {
+    variant: {
+      control: 'select',
+      options: ['neutral', 'success', 'pending', 'warning', 'danger', 'inactive', 'accent1', 'accent2'],
+      description: 'Defines the status indicator style variant.',
+    },
+    className: {
+      control: 'text',
+      description: 'CSS class for additional styling',
+    },
+  },
+} satisfies Meta<typeof StatusIndicator>
+
+export default meta
+
+export const Default = {
+  args: {
+    children: 'Status Indicator',
+  },
 }
 
-export const BasicUsage = {
+export const Variants = {
   render: ({}) => (
-    <div>
-      <StatusIndicator />
-      Something is happening
-    </div>
+    <FlexContainer style={{ gap: 'var(--spacing-7)' }}>
+      <StatusIndicator variant="neutral">Neutral</StatusIndicator>
+      <StatusIndicator variant="success">Success</StatusIndicator>
+      <StatusIndicator variant="pending">Pending</StatusIndicator>
+      <StatusIndicator variant="warning">Warning</StatusIndicator>
+      <StatusIndicator variant="danger">Danger</StatusIndicator>
+      <StatusIndicator variant="inactive">Neutral</StatusIndicator>
+      <StatusIndicator variant="accent1">Accent 1</StatusIndicator>
+      <StatusIndicator variant="accent2">Accent 2</StatusIndicator>
+    </FlexContainer>
   ),
-
-  name: 'Basic usage',
-}
-
-export const IntentPrimary = {
-  render: ({}) => (
-    <div>
-      <StatusIndicator intent="primary" />
-      Primary
-    </div>
-  ),
-
-  name: 'Intent: Primary',
-}
-
-export const IntentNeutral = {
-  render: ({}) => (
-    <div>
-      <StatusIndicator intent="neutral" />
-      Neutral
-    </div>
-  ),
-
-  name: 'Intent: Neutral',
-}
-
-export const IntentSuccess = {
-  render: ({}) => (
-    <div>
-      <StatusIndicator intent="success" />
-      Success
-    </div>
-  ),
-
-  name: 'Intent: Success',
-}
-
-export const IntentPending = {
-  render: ({}) => (
-    <div>
-      <StatusIndicator intent="pending" />
-      Pending
-    </div>
-  ),
-
-  name: 'Intent: Pending',
-}
-
-export const IntentWarning = {
-  render: ({}) => (
-    <div>
-      <StatusIndicator intent="warning" />
-      Warning
-    </div>
-  ),
-
-  name: 'Intent: Warning',
-}
-
-export const IntentDanger = {
-  render: ({}) => (
-    <div>
-      <StatusIndicator intent="danger" />
-      Danger
-    </div>
-  ),
-
-  name: 'Intent: Danger',
-}
-
-export const IntentDefault = {
-  render: ({}) => (
-    <div>
-      <StatusIndicator intent="default" />
-      Default
-    </div>
-  ),
-
-  name: 'Intent: Default',
 }

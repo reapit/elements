@@ -1,44 +1,44 @@
 import { render } from '@testing-library/react'
-import { Tag, TagGroup } from '..'
+import { DeprecatedTag, DeprecatedTagGroup } from '..'
 
 describe('Tag component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<Tag>Some Content</Tag>)
+    const wrapper = render(<DeprecatedTag>Some Content</DeprecatedTag>)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for intent', () => {
-    const wrapper = render(<Tag intent="primary">Some Content</Tag>)
+    const wrapper = render(<DeprecatedTag intent="primary">Some Content</DeprecatedTag>)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for intent', () => {
-    const wrapper = render(<Tag intent="neutral">Some Content</Tag>)
+    const wrapper = render(<DeprecatedTag intent="neutral">Some Content</DeprecatedTag>)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for intent', () => {
-    const wrapper = render(<Tag intent="danger">Some Content</Tag>)
+    const wrapper = render(<DeprecatedTag intent="danger">Some Content</DeprecatedTag>)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for intent', () => {
-    const wrapper = render(<Tag intent="success">Some Content</Tag>)
+    const wrapper = render(<DeprecatedTag intent="success">Some Content</DeprecatedTag>)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for intent', () => {
-    const wrapper = render(<Tag intent="warning">Some Content</Tag>)
+    const wrapper = render(<DeprecatedTag intent="warning">Some Content</DeprecatedTag>)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for intent', () => {
-    const wrapper = render(<Tag intent="pending">Some Content</Tag>)
+    const wrapper = render(<DeprecatedTag intent="pending">Some Content</DeprecatedTag>)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for intent', () => {
-    const wrapper = render(<Tag intent="default">Some Content</Tag>)
+    const wrapper = render(<DeprecatedTag intent="default">Some Content</DeprecatedTag>)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
@@ -46,10 +46,10 @@ describe('Tag component', () => {
 describe('TagGroup component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(
-      <TagGroup>
-        <Tag intent="default">Some Content</Tag>
-        <Tag intent="primary">Some Content</Tag>
-      </TagGroup>,
+      <DeprecatedTagGroup>
+        <DeprecatedTag intent="default">Some Content</DeprecatedTag>
+        <DeprecatedTag intent="primary">Some Content</DeprecatedTag>
+      </DeprecatedTagGroup>,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
