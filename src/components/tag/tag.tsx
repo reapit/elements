@@ -1,6 +1,6 @@
 import { ElStandaloneTag, ElTag, ElTagGroup } from './styles'
 
-interface TagProps extends React.HTMLAttributes<HTMLLIElement | HTMLSpanElement> {
+export interface TagProps extends React.HTMLAttributes<HTMLLIElement | HTMLSpanElement> {
   isStandalone?: boolean
 }
 
