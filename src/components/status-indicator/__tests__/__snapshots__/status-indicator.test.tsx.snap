@@ -1,65 +1,113 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`StatusIndicator component > should match a snapshot 1`] = `
+exports[`StatusIndicator > should render as expected 1`] = `
 <DocumentFragment>
-  <span
-    class="el-intent-primary el-status-indicator"
-  />
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="neutral"
+    />
+    Neutral
+  </div>
 </DocumentFragment>
 `;
 
-exports[`StatusIndicator component > should match a snapshot 2`] = `
+exports[`StatusIndicator > should render as expected 2`] = `
 <DocumentFragment>
-  <span
-    class="el-intent-primary el-status-indicator"
-  />
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="success"
+    />
+    Success
+  </div>
 </DocumentFragment>
 `;
 
-exports[`StatusIndicator component > should match a snapshot 3`] = `
+exports[`StatusIndicator > should render as expected 3`] = `
 <DocumentFragment>
-  <span
-    class="el-intent-pending el-status-indicator"
-  />
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="warning"
+    />
+    Warning
+  </div>
 </DocumentFragment>
 `;
 
-exports[`StatusIndicator component > should match a snapshot 4`] = `
+exports[`StatusIndicator > should render as expected 4`] = `
 <DocumentFragment>
-  <span
-    class="el-intent-danger el-status-indicator"
-  />
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="pending"
+    />
+    Pending
+  </div>
 </DocumentFragment>
 `;
 
-exports[`StatusIndicator component > should match a snapshot 5`] = `
+exports[`StatusIndicator > should render as expected 5`] = `
 <DocumentFragment>
-  <span
-    class="el-intent-success el-status-indicator"
-  />
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="danger"
+    />
+    Danger
+  </div>
 </DocumentFragment>
 `;
 
-exports[`StatusIndicator component > should match a snapshot 6`] = `
+exports[`StatusIndicator > should render as expected 6`] = `
 <DocumentFragment>
-  <span
-    class="el-intent-warning el-status-indicator"
-  />
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="inactive"
+    />
+    Inactive
+  </div>
 </DocumentFragment>
 `;
 
-exports[`StatusIndicator component > should match a snapshot 7`] = `
+exports[`StatusIndicator > should render as expected 7`] = `
 <DocumentFragment>
-  <span
-    class="el-intent-neutral el-status-indicator"
-  />
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="accent1"
+    />
+    Accent 1
+  </div>
 </DocumentFragment>
 `;
 
-exports[`StatusIndicator component > should match a snapshot 8`] = `
+exports[`StatusIndicator > should render as expected 8`] = `
 <DocumentFragment>
-  <span
-    class="el-intent-default el-status-indicator"
-  />
+  <div
+    class="mocked-styled-1 el-status-indicator"
+  >
+    <span
+      class="mocked-styled-0 el-status-indicator-shape"
+      data-variant="accent2"
+    />
+    Accent 2
+  </div>
 </DocumentFragment>
 `;
