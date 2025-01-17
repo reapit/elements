@@ -20,9 +20,9 @@ export const Default: Story = {
   render() {
     return (
       <EmptyData>
-        <EmptyData.Description>No things found</EmptyData.Description>
+        <EmptyData.Description>No items found</EmptyData.Description>
         <EmptyData.SecondaryDescription>Secondary text</EmptyData.SecondaryDescription>
-        <EmptyData.ActionButton onClick={console.log}>Add Thing</EmptyData.ActionButton>
+        <EmptyData.ActionButton onClick={console.log}>Add Item</EmptyData.ActionButton>
       </EmptyData>
     )
   },
@@ -32,7 +32,7 @@ export const DescriptionOnly: Story = {
   render() {
     return (
       <EmptyData>
-        <EmptyData.Description>No things found</EmptyData.Description>
+        <EmptyData.Description>No items found</EmptyData.Description>
         <EmptyData.SecondaryDescription>Secondary text</EmptyData.SecondaryDescription>
       </EmptyData>
     )

@@ -1,19 +1,21 @@
 import { styled } from '@linaria/react'
 
-export const ElEmptyDataDescription = styled.div`
-  color: var(text-primary);
+export const ElEmptyDataHeading = styled.h4`
+  color: var(--text-primary);
   font-size: var(--font-size-base);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-base);
   letter-spacing: var(--letter-spacing-base);
+  text-align: center;
 `
 
-export const ElEmptyDataSecondaryDescription = styled.div`
+export const ElEmptyDataContent = styled.p`
   color: var(--text-secondary);
   font-size: var(--font-size-sm,);
   font-weight: var(--font-weight-regular,);
   line-height: var(--line-height-sm,);
   letter-spacing: var(--letter-spacing-sm);
+  text-align: center;
 `
 
 export const ElEmptyDataActionButton = styled.button`
@@ -23,6 +25,7 @@ export const ElEmptyDataActionButton = styled.button`
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-sm);
 
+  text-align: center;
   border: none;
   background: none;
   cursor: pointer;
@@ -39,7 +42,7 @@ export const ElEmptyData = styled.div`
   border-radius: var(--corner-lg);
   background: var(--fill-default-lightest);
 
-  ${ElEmptyDataSecondaryDescription} + ${ElEmptyDataActionButton} {
+  ${ElEmptyDataContent} + ${ElEmptyDataActionButton} {
     margin-top: var(--spacing-1);
   }
 

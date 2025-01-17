@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { EmptyData } from '../empty-data'
+import { EmptyData } from '..'
 
 describe('EmptyData', () => {
   it('should render default component properly and match snapshot', () => {
