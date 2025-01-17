@@ -6,8 +6,10 @@ exports[`Features > should render the component 1`] = `
     class="mocked-styled-2 el-features"
   >
     <li
-      aria-label="Bathroom"
+      aria-describedby="tooltip-id-test-static-id"
+      aria-label="Bathrooms"
       class="mocked-styled-1 el-features-item"
+      data-visible-id="tooltip-id-test-static-id"
     >
       <span
         class="mocked-styled-0 el-features-item-icon"
@@ -19,8 +21,10 @@ exports[`Features > should render the component 1`] = `
       1
     </li>
     <li
-      aria-label="Bedroom"
+      aria-describedby="tooltip-id-test-static-id"
+      aria-label="Bedrooms"
       class="mocked-styled-1 el-features-item"
+      data-visible-id="tooltip-id-test-static-id"
     >
       <span
         class="mocked-styled-0 el-features-item-icon"

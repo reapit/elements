@@ -6,10 +6,10 @@ describe('Features', () => {
     expect(
       render(
         <Features>
-          <Features.Item icon={<span>icon</span>} aria-label="Bathroom">
+          <Features.Item icon={<span>icon</span>} aria-label="Bathrooms">
             1
           </Features.Item>
-          <Features.Item icon={<span>icon</span>} aria-label="Bedroom">
+          <Features.Item icon={<span>icon</span>} aria-label="Bedrooms">
             2
           </Features.Item>
         </Features>,
