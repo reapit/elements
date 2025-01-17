@@ -58,6 +58,7 @@ export * from './components/menu'
 export * from './components/dialog'
 export * from './components/avatar'
 export * from './components/skeleton'
+export * from './components/tooltip'
 export * from './components/table/table-container'
 export * from './components/table/table-toolbar'
 
