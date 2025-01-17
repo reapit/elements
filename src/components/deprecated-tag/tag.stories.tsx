@@ -1,7 +1,7 @@
 import { DeprecatedTag, DeprecatedTagGroup } from '.'
 
 export default {
-  title: 'Tag',
+  title: 'DeprecatedTag',
   component: DeprecatedTag,
 }
 
