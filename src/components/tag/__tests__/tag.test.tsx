@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { Tag, TagGroup } from '../tag'
+import { Tag, TagGroup } from '..'
 
 describe('Tag', () => {
   it('should render tag group properly and match snapshot', () => {

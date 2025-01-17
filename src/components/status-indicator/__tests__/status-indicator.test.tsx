@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { StatusIndicator } from '../status-indicator'
+import { StatusIndicator } from '..'
 
 describe('StatusIndicator', () => {
   it('should render as expected', () => {
