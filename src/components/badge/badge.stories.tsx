@@ -84,8 +84,58 @@ export const BadgeWithIcon = {
 export const BadgeVariant = {
   args: {
     children: 'Label',
-    variant: 'success',
     iconLeft: <Icon icon="add" fontSize="1rem" />,
     iconRight: <Icon icon="chevronDown" fontSize="1rem" />,
+  },
+  // Adding decorator into the story to display multiple stories.
+  decorators: [
+    (Story: any) => (
+      <div
+        style={{
+          display: 'flex',
+          gap: '10px',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
+  render: (props: any) => (
+    <>
+      <Badge {...props}>{props.children}</Badge>
+      <Badge {...props} variant={props.variant ? props.variant : 'success'}>
+        {props.children}
+      </Badge>
+      <Badge {...props} variant={props.variant ? props.variant : 'pending'}>
+        {props.children}
+      </Badge>
+      <Badge {...props} variant={props.variant ? props.variant : 'warning'}>
+        {props.children}
+      </Badge>
+      <Badge {...props} variant={props.variant ? props.variant : 'danger'}>
+        {props.children}
+      </Badge>
+      <Badge {...props} variant={props.variant ? props.variant : 'inactive'}>
+        {props.children}
+      </Badge>
+      <Badge {...props} variant={props.variant ? props.variant : 'accent_1'}>
+        {props.children}
+      </Badge>
+      <Badge {...props} variant={props.variant ? props.variant : 'accent_2'}>
+        {props.children}
+      </Badge>
+    </>
+  ),
+  // Adding the parameters to display only one varient code in the source
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<Badge variant='success'>
+  Label
+</Badge>
+        `,
+      },
+    },
   },
 }
