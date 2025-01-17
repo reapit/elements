@@ -1,0 +1,16 @@
+import { Meta, Canvas, Controls, Description } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as TooltipStories from './tooltip.stories'
+
+<Meta of={TooltipStories} />
+
+# Tooltip
+
+<Description of={TooltipStories.DisplayTooltipWithoutTrigger} />
+<Canvas of={TooltipStories.DisplayTooltipWithoutTrigger} />
+<RenderHtmlMarkup of={TooltipStories.DisplayTooltipWithoutTrigger} />
+
+<Controls />
+
+<Description of={TooltipStories.BasicUsage} />
+<Canvas of={TooltipStories.BasicUsage} />
