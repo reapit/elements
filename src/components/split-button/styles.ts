@@ -97,6 +97,27 @@ export const ElSplitButton = styled.div`
       border-right: var(--border-none) solid var(--outline-default);
       background: var(--fill-white);
       color: var(--text-secondary);
+
+      &[disabled] {
+        border: var(--border-default) solid var(--fill-default-light);
+        border-right: var(--border-none) solid var(--fill-default-light);
+        background: var(--fill-default-light);
+        color: var(--text-placeholder);
+      }
+
+      &:hover:not([disabled]) {
+        border-radius: var(--corner-default) var(--corner-none) var(--corner-none) var(--corner-default);
+        border: var(--border-default) solid var(--outline-button-secondary-hover);
+      }
+
+      &:focus:not([disabled]) {
+        border-radius: var(--corner-default) var(--corner-none) var(--corner-none) var(--corner-default);
+        border: var(--border-default) solid var(--outline-button-secondary-hover);
+
+        box-shadow:
+          0px 0px 0px 1px #fff,
+          0px 0px 0px 4px var(--purple-300);
+      }
     }
 
     ${ElMenuButton} {
@@ -108,6 +129,19 @@ export const ElSplitButton = styled.div`
       ${ElSplitButtonIcon} {
         border-left: var(--border-default) solid var(--outline-default);
         color: var(--icon-secondary);
+      }
+
+      &:hover {
+        border-radius: var(--corner-none) var(--corner-default) var(--corner-default) var(--corner-none);
+        border: var(--border-default) solid var(--outline-button-secondary-hover);
+      }
+
+      &:focus {
+        border-radius: var(--corner-none) var(--corner-default) var(--corner-default) var(--corner-none);
+        border: var(--border-default) solid var(--outline-button-secondary-hover);
+        box-shadow:
+          0px 0px 0px 1px #fff,
+          0px 0px 0px 4px var(--purple-300);
       }
     }
   }

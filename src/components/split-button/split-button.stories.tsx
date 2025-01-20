@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta } from '@storybook/react'
 import { SplitButton } from './split-button'
 import { Menu } from '../menu'
 
@@ -29,22 +29,16 @@ const meta: Meta<typeof SplitButton> = {
 
 export default meta
 
-type Story = StoryObj<typeof SplitButton>
-
-const SplitButtonTemplate: Story = {
+export const Default = {
+  args: {
+    children: 'Button',
+  },
   render: (props: any) => (
     <SplitButton {...props}>
       <SplitButton.Action>{props.children}</SplitButton.Action>
       <SplitButton.Menu />
     </SplitButton>
   ),
-}
-
-export const Default = {
-  ...SplitButtonTemplate,
-  args: {
-    children: 'Button',
-  },
 }
 
 export const SplitButtonWithMenu = {
@@ -83,23 +77,61 @@ export const SplitButtonWithMenu = {
 }
 
 export const SplitButtonVariants = {
-  ...SplitButtonTemplate,
   args: {
     children: 'Button',
     'data-variant': 'secondary',
   },
+  render: (props: any) => (
+    <SplitButton {...props}>
+      <SplitButton.Action>{props.children}</SplitButton.Action>
+      <SplitButton.Menu />
+    </SplitButton>
+  ),
 }
 
 export const SplitButtonDisabled = {
   args: {
     children: 'Button',
+    'data-variant': 'primary',
   },
+  // Adding decorator into the story to display multiple components.
+  decorators: [
+    (Story: any) => (
+      <div
+        style={{
+          display: 'flex',
+          gap: '10px',
+        }}
+      >
+        <Story />
+      </div>
+    ),
+  ],
   render: (props: any) => (
-    <SplitButton {...props}>
-      <SplitButton.Action disabled>{props.children}</SplitButton.Action>
-      <SplitButton.Menu />
-    </SplitButton>
+    <>
+      <SplitButton {...props}>
+        <SplitButton.Action disabled>{props.children}</SplitButton.Action>
+        <SplitButton.Menu />
+      </SplitButton>
+      <SplitButton {...props} data-variant="secondary">
+        <SplitButton.Action disabled>{props.children}</SplitButton.Action>
+        <SplitButton.Menu />
+      </SplitButton>
+    </>
   ),
+  // Adding the parameters to display only one component in the source
+  parameters: {
+    docs: {
+      source: {
+        code: `
+<SplitButton>
+  <SplitButton.Action disabled>Button</SplitButton.Action>
+  <SplitButton.Menu />
+</SplitButton>
+        `,
+      },
+    },
+  },
 }
 
 export const SplitButtonDisabledWithMenu = {
@@ -142,9 +174,14 @@ export const SplitButtonDisabledWithMenu = {
 }
 
 export const SplitButtonSize = {
-  ...SplitButtonTemplate,
   args: {
     children: 'Button',
     'data-size': 'large',
   },
+  render: (props: any) => (
+    <SplitButton {...props}>
+      <SplitButton.Action>{props.children}</SplitButton.Action>
+      <SplitButton.Menu />
+    </SplitButton>
+  ),
 }
