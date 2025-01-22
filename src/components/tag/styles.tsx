@@ -18,10 +18,10 @@ const baseTagStyle = `
   }
 `
 
-export const ElStandaloneTag = styled.span`
+export const ElTag = styled.span`
   ${baseTagStyle}
 `
-export const ElTag = styled.li`
+export const ElTagGroupItem = styled.li`
   ${baseTagStyle}
 `
 

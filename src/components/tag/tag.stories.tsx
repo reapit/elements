@@ -6,12 +6,12 @@ export default {
   component: Tag,
   args: {
     children: 'Tag',
-    isStandalone: false,
   },
   argTypes: {
-    isStandalone: {
-      control: 'boolean',
+    as: {
+      control: 'inline-radio',
       description: 'whether the component will be rendered as `span` or `li`',
+      options: ['li', 'span'],
     },
   },
 } as Meta<typeof Tag>
@@ -23,7 +23,7 @@ type Story = StoryObj<typeof Tag>
  */
 export const Default: Story = {
   args: {
-    isStandalone: true,
+    as: 'span',
   },
 }
 

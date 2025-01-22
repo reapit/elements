@@ -1,11 +1,11 @@
-import { ElStandaloneTag, ElTag, ElTagGroup } from './styles'
+import { ElTag, ElTagGroupItem, ElTagGroup } from './styles'
 
 export interface TagProps extends React.HTMLAttributes<HTMLLIElement | HTMLSpanElement> {
-  isStandalone?: boolean
+  as?: 'span' | 'li'
 }
 
-export const Tag: React.FC<TagProps> = ({ children, isStandalone = false, ...props }) => {
-  return isStandalone ? <ElStandaloneTag {...props}>{children}</ElStandaloneTag> : <ElTag {...props}>{children}</ElTag>
+export const Tag: React.FC<TagProps> = ({ children, as = 'li', ...props }) => {
+  return as == 'span' ? <ElTag {...props}>{children}</ElTag> : <ElTagGroupItem {...props}>{children}</ElTagGroupItem>
 }
 
 export const TagGroup = ElTagGroup

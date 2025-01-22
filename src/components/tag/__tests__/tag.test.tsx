@@ -11,7 +11,7 @@ describe('Tag', () => {
     expect(asFragment()).toMatchSnapshot()
   })
   it('should render standalone tag properly and match snapshot', () => {
-    const { asFragment } = render(<Tag isStandalone>Tag</Tag>)
+    const { asFragment } = render(<Tag as="span">Tag</Tag>)
     expect(asFragment()).toMatchSnapshot()
   })
 })
