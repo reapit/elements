@@ -10,7 +10,8 @@ export default {
   argTypes: {
     as: {
       control: 'inline-radio',
-      description: 'whether the component will be rendered as `span` or `li`',
+      description:
+        'whether the component will be rendered as `li` or `span`, defaults to `li` for easier use with `TagGroup`',
       options: ['li', 'span'],
     },
   },
@@ -23,7 +24,7 @@ type Story = StoryObj<typeof Tag>
  */
 export const Default: Story = {
   args: {
-    as: 'span',
+    as: 'li',
   },
 }
 

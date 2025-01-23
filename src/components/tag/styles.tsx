@@ -1,6 +1,7 @@
+import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
-const baseTagStyle = `
+export const elTag = css`
   width: fit-content;
   padding: var(--spacing-half) var(--spacing-3);
   border-radius: var(--corner-xl);
@@ -16,13 +17,6 @@ const baseTagStyle = `
   &::marker {
     content: '';
   }
-`
-
-export const ElTag = styled.span`
-  ${baseTagStyle}
-`
-export const ElTagGroupItem = styled.li`
-  ${baseTagStyle}
 `
 
 export const ElTagGroup = styled.ul`
