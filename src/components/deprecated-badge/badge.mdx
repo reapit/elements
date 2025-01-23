@@ -1,0 +1,23 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as BadgeStories from './badge.stories'
+
+<Meta of={BadgeStories} />
+
+# DeprecatedBadge
+
+A simple low impact visual indicator label. The component simply renders children and does not have any additional props.
+
+<Controls />
+
+## Basic Usage
+
+<Canvas of={BadgeStories.BasicUsage} />
+
+<RenderHtmlMarkup of={BadgeStories.BasicUsage} />
+
+## With Intent
+
+<Canvas of={BadgeStories.WithIntent} />
+
+<RenderHtmlMarkup of={BadgeStories.WithIntent} />

@@ -1,20 +1,11 @@
-import React, { FC, HTMLAttributes } from 'react'
-import { cx } from '@linaria/core'
-import { ElTag, ElTagGroup, ElTagGroupInner } from './__styles__'
-import { Intent, getIntentClassName } from '../../helpers/intent'
+import { ElStandaloneTag, ElTag, ElTagGroup } from './styles'
 
-export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
-  intent?: Intent
+export interface TagProps extends React.HTMLAttributes<HTMLLIElement | HTMLSpanElement> {
+  isStandalone?: boolean
 }
 
-export const Tag: FC<TagProps> = ({ intent = 'primary', children, className, ...rest }) => (
-  <ElTag className={cx(intent && getIntentClassName(intent), className)} {...rest}>
-    {children}
-  </ElTag>
-)
+export const Tag: React.FC<TagProps> = ({ children, isStandalone = false, ...props }) => {
+  return isStandalone ? <ElStandaloneTag {...props}>{children}</ElStandaloneTag> : <ElTag {...props}>{children}</ElTag>
+}
 
-export const TagGroup: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
-  <ElTagGroup className={cx(className)} {...rest}>
-    <ElTagGroupInner>{children}</ElTagGroupInner>
-  </ElTagGroup>
-)
+export const TagGroup = ElTagGroup

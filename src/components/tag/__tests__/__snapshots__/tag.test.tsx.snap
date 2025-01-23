@@ -1,104 +1,25 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`Tag component > should match a snapshot 1`] = `
+exports[`Tag > should render standalone tag properly and match snapshot 1`] = `
 <DocumentFragment>
   <span
-    class="el-intent-primary el-tag"
+    class="mocked-styled-0 el-standalone-tag"
   >
-    Some Content
+    Tag
   </span>
 </DocumentFragment>
 `;
 
-exports[`Tag component > should match a snapshot for intent 1`] = `
+exports[`Tag > should render tag group properly and match snapshot 1`] = `
 <DocumentFragment>
-  <span
-    class="el-intent-primary el-tag"
+  <ul
+    class="mocked-styled-2 el-tag-group"
   >
-    Some Content
-  </span>
-</DocumentFragment>
-`;
-
-exports[`Tag component > should match a snapshot for intent 2`] = `
-<DocumentFragment>
-  <span
-    class="el-intent-neutral el-tag"
-  >
-    Some Content
-  </span>
-</DocumentFragment>
-`;
-
-exports[`Tag component > should match a snapshot for intent 3`] = `
-<DocumentFragment>
-  <span
-    class="el-intent-danger el-tag"
-  >
-    Some Content
-  </span>
-</DocumentFragment>
-`;
-
-exports[`Tag component > should match a snapshot for intent 4`] = `
-<DocumentFragment>
-  <span
-    class="el-intent-success el-tag"
-  >
-    Some Content
-  </span>
-</DocumentFragment>
-`;
-
-exports[`Tag component > should match a snapshot for intent 5`] = `
-<DocumentFragment>
-  <span
-    class="el-intent-warning el-tag"
-  >
-    Some Content
-  </span>
-</DocumentFragment>
-`;
-
-exports[`Tag component > should match a snapshot for intent 6`] = `
-<DocumentFragment>
-  <span
-    class="el-intent-pending el-tag"
-  >
-    Some Content
-  </span>
-</DocumentFragment>
-`;
-
-exports[`Tag component > should match a snapshot for intent 7`] = `
-<DocumentFragment>
-  <span
-    class="el-intent-default el-tag"
-  >
-    Some Content
-  </span>
-</DocumentFragment>
-`;
-
-exports[`TagGroup component > should match a snapshot 1`] = `
-<DocumentFragment>
-  <div
-    class="mocked-styled-1 el-tag-group"
-  >
-    <div
-      class="mocked-styled-2 el-tag-group-inner"
+    <li
+      class="mocked-styled-1 el-tag"
     >
-      <span
-        class="el-intent-default el-tag"
-      >
-        Some Content
-      </span>
-      <span
-        class="el-intent-primary el-tag"
-      >
-        Some Content
-      </span>
-    </div>
-  </div>
+      Tag
+    </li>
+  </ul>
 </DocumentFragment>
 `;
