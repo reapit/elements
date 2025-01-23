@@ -1,3 +1,4 @@
+import { cx } from '@linaria/core'
 import { elTag, ElTagGroup } from './styles'
 
 export interface TagProps extends React.HTMLAttributes<HTMLLIElement | HTMLSpanElement> {
@@ -6,7 +7,7 @@ export interface TagProps extends React.HTMLAttributes<HTMLLIElement | HTMLSpanE
 
 export const Tag: React.FC<TagProps> = ({ children, as: Element = 'li', ...props }) => {
   return (
-    <Element className={elTag} {...props}>
+    <Element {...props} className={cx(elTag, props.className)}>
       {children}
     </Element>
   )
