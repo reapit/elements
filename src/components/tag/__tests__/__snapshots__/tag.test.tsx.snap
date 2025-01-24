@@ -3,7 +3,7 @@
 exports[`Tag > should render standalone tag properly and match snapshot 1`] = `
 <DocumentFragment>
   <span
-    class="mocked-styled-0 el-standalone-tag"
+    class="el-tag"
   >
     Tag
   </span>
@@ -13,10 +13,10 @@ exports[`Tag > should render standalone tag properly and match snapshot 1`] = `
 exports[`Tag > should render tag group properly and match snapshot 1`] = `
 <DocumentFragment>
   <ul
-    class="mocked-styled-2 el-tag-group"
+    class="mocked-styled-0 el-tag-group"
   >
     <li
-      class="mocked-styled-1 el-tag"
+      class="el-tag"
     >
       Tag
     </li>

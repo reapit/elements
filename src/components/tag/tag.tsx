@@ -1,11 +1,23 @@
-import { ElStandaloneTag, ElTag, ElTagGroup } from './styles'
+import { cx } from '@linaria/core'
+import { elTag, ElTagGroup } from './styles'
+import type { HTMLAttributes } from 'react'
 
-export interface TagProps extends React.HTMLAttributes<HTMLLIElement | HTMLSpanElement> {
-  isStandalone?: boolean
+interface TagAsSpanProps extends HTMLAttributes<HTMLSpanElement> {
+  as: 'span'
 }
 
-export const Tag: React.FC<TagProps> = ({ children, isStandalone = false, ...props }) => {
-  return isStandalone ? <ElStandaloneTag {...props}>{children}</ElStandaloneTag> : <ElTag {...props}>{children}</ElTag>
+interface TagAsListItemProps extends HTMLAttributes<HTMLLIElement> {
+  as?: 'li'
+}
+
+export type TagProps = TagAsSpanProps | TagAsListItemProps
+
+export const Tag: React.FC<TagProps> = ({ children, as: Element = 'li', ...props }) => {
+  return (
+    <Element {...props} className={cx(elTag, props.className)}>
+      {children}
+    </Element>
+  )
 }
 
 export const TagGroup = ElTagGroup
