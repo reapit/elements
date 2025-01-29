@@ -118,7 +118,7 @@ render: () => {
 // Mock createPortal for this story
 const MockedTooltip = (props: TooltipProps) => {
   const content = (
-    <ElTooltip role="tooltip" data-position={props.position} style={{ maxWidth: props.maxWidth }} aria-live="assertive">
+    <ElTooltip role="tooltip" data-position={props.position} style={{ maxWidth: props.maxWidth }} data-visible={true}>
       {props.label && <ElTooltipLabel>{props.label}: </ElTooltipLabel>}
       {props.description}
     </ElTooltip>
