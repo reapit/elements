@@ -1,5 +1,5 @@
 import { FC, HTMLAttributes, ReactNode } from 'react'
-import { ElBadge, ElBadgeLabel, ElBadgeLabelContainer, ElBadgeIcon } from './styles'
+import { ElBadge, ElBadgeLabel, ElBadgeIcon } from './styles'
 
 type BadgeVariant = 'neutral' | 'success' | 'pending' | 'warning' | 'danger' | 'inactive' | 'accent_1' | 'accent_2'
 
@@ -31,11 +31,7 @@ export const Badge: FC<BadgeProps> = ({
       {...(rest as HTMLAttributes<HTMLDivElement>)}
     >
       {iconLeft && <ElBadgeIcon>{iconLeft}</ElBadgeIcon>}
-      {children && (
-        <ElBadgeLabelContainer>
-          <ElBadgeLabel>{children}</ElBadgeLabel>
-        </ElBadgeLabelContainer>
-      )}
+      {children && <ElBadgeLabel>{children}</ElBadgeLabel>}
       {iconRight && <ElBadgeIcon>{iconRight}</ElBadgeIcon>}
     </ElBadge>
   )
