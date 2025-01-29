@@ -7,11 +7,15 @@ exports[`Badge > should match snapshot 1`] = `
     data-is-reversed="false"
     role="status"
   >
-    <span
-      class="mocked-styled-2 el-badge-label"
+    <div
+      class="mocked-styled-2 el-badge-label-container"
     >
-      Label
-    </span>
+      <span
+        class="mocked-styled-3 el-badge-label"
+      >
+        Label
+      </span>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -28,7 +32,7 @@ exports[`Badge > should match snapshot with icon only 1`] = `
       class="mocked-styled-0 el-badge-icon"
     >
       <span
-        class="mocked-styled-3 el-icon"
+        class="mocked-styled-4 el-icon"
         style="font-size: 1rem;"
       >
         <svg
@@ -63,7 +67,7 @@ exports[`Badge > should match snapshot with icons and label 1`] = `
       class="mocked-styled-0 el-badge-icon"
     >
       <span
-        class="mocked-styled-3 el-icon"
+        class="mocked-styled-4 el-icon"
         style="font-size: 1rem;"
       >
         <svg
@@ -83,16 +87,20 @@ exports[`Badge > should match snapshot with icons and label 1`] = `
         </svg>
       </span>
     </span>
-    <span
-      class="mocked-styled-2 el-badge-label"
+    <div
+      class="mocked-styled-2 el-badge-label-container"
     >
-      Label
-    </span>
+      <span
+        class="mocked-styled-3 el-badge-label"
+      >
+        Label
+      </span>
+    </div>
     <span
       class="mocked-styled-0 el-badge-icon"
     >
       <span
-        class="mocked-styled-3 el-icon"
+        class="mocked-styled-4 el-icon"
         style="font-size: 1rem;"
       >
         <svg
@@ -123,11 +131,15 @@ exports[`Badge > should match snapshot with reversed badge 1`] = `
     data-is-reversed="true"
     role="status"
   >
-    <span
-      class="mocked-styled-2 el-badge-label"
+    <div
+      class="mocked-styled-2 el-badge-label-container"
     >
-      Label
-    </span>
+      <span
+        class="mocked-styled-3 el-badge-label"
+      >
+        Label
+      </span>
+    </div>
   </div>
 </DocumentFragment>
 `;
@@ -140,11 +152,15 @@ exports[`Badge > should match snapshot with success variant and label 1`] = `
     data-variant="success"
     role="status"
   >
-    <span
-      class="mocked-styled-2 el-badge-label"
+    <div
+      class="mocked-styled-2 el-badge-label-container"
     >
-      Label
-    </span>
+      <span
+        class="mocked-styled-3 el-badge-label"
+      >
+        Label
+      </span>
+    </div>
   </div>
 </DocumentFragment>
 `;
