@@ -168,6 +168,12 @@ export const ElBadge = styled.div`
   }
 `
 
+export const ElBadgeLabelContainer = styled.div`
+  display: flex;
+  padding: 0px var(--spacing-half);
+  align-items: center;
+`
+
 // Badge Label style
 export const ElBadgeLabel = styled.span`
   text-align: center;
