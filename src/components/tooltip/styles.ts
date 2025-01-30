@@ -19,6 +19,10 @@ export const ElTooltip = styled.div`
     }
   }
 
+  @starting-style {
+    opacity: 0;
+  }
+
   width: max-content;
   background: var(--fill-default-darkest, #222b33);
   color: var(--text-white);
@@ -40,7 +44,6 @@ export const ElTooltip = styled.div`
   animation-duration: 0.2s;
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
-  opacity: 0;
 
   &[data-is-visible='true'] {
     animation-name: fadeIn;
