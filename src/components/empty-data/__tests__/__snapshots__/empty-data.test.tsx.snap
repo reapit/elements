@@ -5,13 +5,13 @@ exports[`EmptyData > should render default component properly and match snapshot
   <div
     class="mocked-styled-3 el-empty-data"
   >
-    <h4
-      class="mocked-styled-0 el-empty-data-heading"
+    <p
+      class="mocked-styled-0 el-empty-data-description"
     >
       Description
-    </h4>
+    </p>
     <p
-      class="mocked-styled-1 el-empty-data-content"
+      class="mocked-styled-1 el-empty-data-secondary-description"
     >
       Secondary Description
     </p>
