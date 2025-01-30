@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tag > should render standalone tag properly and match snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="el-tag"
+  >
+    Tag
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Tag > should render tag group properly and match snapshot 1`] = `
+<DocumentFragment>
+  <ul
+    class="mocked-styled-0 el-tag-group"
+  >
+    <li
+      class="el-tag"
+    >
+      Tag
+    </li>
+  </ul>
+</DocumentFragment>
+`;
