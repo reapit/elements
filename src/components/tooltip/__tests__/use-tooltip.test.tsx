@@ -33,7 +33,7 @@ describe('useTooltip', () => {
     expect(tooltipProps).toHaveProperty('id')
     expect(tooltipProps).toHaveProperty('role', 'tooltip')
     expect(tooltipProps).toHaveProperty('aria-hidden', true)
-    expect(tooltipProps).toHaveProperty('data-visible', false)
+    expect(tooltipProps).toHaveProperty('data-is-visible', false)
   })
 
   test('should position the tooltip correctly', () => {

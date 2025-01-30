@@ -42,10 +42,10 @@ export const ElTooltip = styled.div`
   animation-timing-function: ease-in-out;
   opacity: 0;
 
-  &[data-visible='true'] {
+  &[data-is-visible='true'] {
     animation-name: fadeIn;
   }
-  &[data-visible='false'] {
+  &[data-is-visible='false'] {
     animation-name: fadeOut;
   }
 
