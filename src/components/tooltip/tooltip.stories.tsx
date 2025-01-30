@@ -139,7 +139,6 @@ export const DisplayTooltipWithoutTrigger = {
     isVisible: true,
   },
   render: (args) => {
-    console.log('args', args)
     // Pass args to MockedTooltip to make it reactive
     return <MockedTooltip {...args} />
   },
