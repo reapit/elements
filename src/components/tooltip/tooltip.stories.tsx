@@ -118,7 +118,12 @@ render: () => {
 // Mock createPortal for this story
 const MockedTooltip = (props: TooltipProps) => {
   const content = (
-    <ElTooltip role="tooltip" data-position={props.position} style={{ maxWidth: props.maxWidth }} aria-live="assertive">
+    <ElTooltip
+      role="tooltip"
+      data-position={props.position}
+      style={{ maxWidth: props.maxWidth }}
+      data-is-visible={true}
+    >
       {props.label && <ElTooltipLabel>{props.label}: </ElTooltipLabel>}
       {props.description}
     </ElTooltip>
@@ -139,7 +144,6 @@ export const DisplayTooltipWithoutTrigger = {
     isVisible: true,
   },
   render: (args) => {
-    console.log('args', args)
     // Pass args to MockedTooltip to make it reactive
     return <MockedTooltip {...args} />
   },

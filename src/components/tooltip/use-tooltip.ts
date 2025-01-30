@@ -130,6 +130,7 @@ export const useTooltip = () => {
     id: tooltipId,
     role: 'tooltip',
     'aria-hidden': !isVisible,
+    'data-is-visible': isVisible,
     isVisible,
   })
 
