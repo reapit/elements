@@ -2,12 +2,12 @@ import { styled } from '@linaria/react'
 
 export const ElBottomBar = styled.div`
   display: flex;
-  padding: var(--spacing-2, 8px);
-  justify-content: center;
+  padding: var(--spacing-2);
+  justify-content: space-evenly;
   align-items: center;
   align-self: stretch;
-  border-top: var(--border-default, 1px) solid var(--outline-default, #e5e9ed);
-  background: var(--fill-white, #fff);
+  border-top: var(--border-default) solid var(--outline-default);
+  background: var(--fill-white);
 
   position: absolute;
   bottom: 0;
@@ -16,6 +16,10 @@ export const ElBottomBar = styled.div`
   overflow: visible;
   margin-top: auto;
   width: 100%;
+
+  > * {
+    width: 100%;
+  }
 
   transition:
     transform 0.3s ease-in-out,
