@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react'
+import { ElIcon } from '../icon'
 
 const baseStyles = `
   cursor: pointer;
@@ -30,6 +31,7 @@ const baseStyles = `
   &[aria-current='true'],
   &[aria-current='page'] {
     color: var(--text-action);
+    font-weight: var(--font-weight-medium);
   }
 `
 
@@ -43,6 +45,10 @@ export const ElMobileNavItemButton = styled.button`
 
 export const ElMobileNavItemExpanderButton = styled.button`
   ${baseStyles}
+
+  ${ElIcon} {
+    color: var(--icon-primary);
+  }
 `
 
 export const ElMobileNavItemContent = styled.span`
