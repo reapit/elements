@@ -22,6 +22,7 @@ export const ElBottomBarItemLabel = styled.span`
 const baseStyles = `
   background-color: var(--fill-white);
   outline: none;
+  width: 100%;
   border: var(--border-none);
   display: flex;
   cursor: pointer;
@@ -30,7 +31,6 @@ const baseStyles = `
   align-items: center;
   gap: var(--spacing-half);
   position: relative;
-  width: 100%;
 
   color: var(--icon-secondary);
 

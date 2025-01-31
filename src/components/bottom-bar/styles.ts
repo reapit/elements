@@ -17,6 +17,7 @@ export const ElBottomBar = styled.div`
   margin-top: auto;
   width: 100%;
 
+  // NOTE: this selector will force the first level of child to have the same width
   > * {
     width: 100%;
   }
