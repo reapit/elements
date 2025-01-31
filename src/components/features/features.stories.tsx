@@ -25,7 +25,7 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: ({}) => (
+  render: ({ }) => (
     <Features>
       <Features.Item aria-label="Bedrooms" icon={<Icon icon="bed" />}>
         1
@@ -43,8 +43,9 @@ export const Default: Story = {
   ),
 }
 
+// NOTE: using `ElTooltip` instead of `Tooltip` is to provide an example of visually hidden content only to this story
 export const DisplayTooltip = {
-  render: ({}) => {
+  render: ({ }) => {
     return (
       <Features>
         <ElFeaturesItem aria-label="Bathrooms">
