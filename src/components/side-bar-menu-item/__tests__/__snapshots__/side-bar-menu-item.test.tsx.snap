@@ -1,0 +1,37 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SideBarMenuItem > should render anchor item and match snapshot 1`] = `
+<DocumentFragment>
+  <li>
+    <a
+      class="mocked-styled-2 el-side-bar-menu-item-anchor"
+      href="#"
+    >
+      <div />
+      <span
+        class="mocked-styled-0 el-side-bar-menu-item-text"
+      >
+        a link
+      </span>
+    </a>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`SideBarMenuItem > should render button item with isActive props and match snapshot 1`] = `
+<DocumentFragment>
+  <li>
+    <button
+      aria-current="page"
+      class="mocked-styled-1 el-side-bar-menu-item-button"
+    >
+      <div />
+      <span
+        class="mocked-styled-0 el-side-bar-menu-item-text"
+      >
+        a button
+      </span>
+    </button>
+  </li>
+</DocumentFragment>
+`;
