@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Label component > should match a snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="mocked-styled-0 el-label-text"
+    data-size="medium"
+    data-variant="soft"
+  />
+</DocumentFragment>
+`;
+
+exports[`Label component > should match a snapshot if it required 1`] = `
+<DocumentFragment>
+  <span
+    class="mocked-styled-0 el-label-text"
+    data-size="medium"
+    data-variant="soft"
+  >
+     *
+  </span>
+</DocumentFragment>
+`;

@@ -1,0 +1,17 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
+import { DeprecatedLabel } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as LabelTextStories from './label-text.stories'
+
+<Meta of={LabelTextStories} />
+
+# LabelText
+
+
+<Controls />
+
+## Basic Usage
+
+<Canvas of={LabelTextStories.BasicUsage} />
+
+<RenderHtmlMarkup of={LabelTextStories.BasicUsage} />
