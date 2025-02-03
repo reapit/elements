@@ -1,6 +1,8 @@
 import { figmaDesignUrls } from '#src/storybook/figma/index'
 import type { Meta, StoryObj } from '@storybook/react'
 import { SideBar } from './side-bar'
+import { SideBarMenuItem } from '../side-bar-menu-item'
+import { Icon } from '../icon'
 
 export default {
   title: 'Components/Side Bar',
@@ -27,7 +29,22 @@ export const Default: Story = {
             }
           `}
         </style>
-        <SideBar>Placeholder sidebar content</SideBar>
+
+        <SideBar>
+          <SideBar.List>
+            <SideBarMenuItem isActive icon={<Icon icon="property" />} onClick={console.log}>
+              Button Item (active)
+            </SideBarMenuItem>
+
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => {
+              return (
+                <SideBarMenuItem key={i} icon={<Icon icon="property" />} href="/#">
+                  Anchor Item
+                </SideBarMenuItem>
+              )
+            })}
+          </SideBar.List>
+        </SideBar>
         <main
           style={{
             width: '100%',
