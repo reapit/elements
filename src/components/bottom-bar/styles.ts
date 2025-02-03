@@ -16,12 +16,6 @@ export const ElBottomBar = styled.div`
   overflow: visible;
   margin-top: auto;
   width: 100%;
-
-  // NOTE: this selector will force the first level of child to have the same width
-  > * {
-    width: 100%;
-  }
-
   transition:
     transform 0.3s ease-in-out,
     visibility 0.3s ease-in-out;
