@@ -2,7 +2,7 @@ import type { FC, HTMLAttributes } from 'react'
 import { ElSideBar, ELSideBarMenuList } from './styles'
 
 type SideBarFC = FC<HTMLAttributes<HTMLElement>> & {
-  List: typeof ELSideBarMenuList
+  MenuList: typeof ELSideBarMenuList
 }
 
 const SideBar: SideBarFC = ({ children, ...props }) => (
@@ -11,6 +11,6 @@ const SideBar: SideBarFC = ({ children, ...props }) => (
   </ElSideBar>
 )
 
-SideBar.List = ELSideBarMenuList
+SideBar.MenuList = ELSideBarMenuList
 
 export { SideBar }

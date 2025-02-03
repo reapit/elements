@@ -5,7 +5,7 @@ describe('SideBar', () => {
   it('should match snapshot', () => {
     const { asFragment } = render(
       <SideBar>
-        <SideBar.List>SideBar list content</SideBar.List>
+        <SideBar.MenuList>SideBar list content</SideBar.MenuList>
       </SideBar>,
     )
     expect(asFragment()).toMatchSnapshot()

@@ -31,7 +31,7 @@ export const Default: Story = {
         </style>
 
         <SideBar>
-          <SideBar.List>
+          <SideBar.MenuList>
             <SideBarMenuItem isActive icon={<Icon icon="property" />} onClick={console.log}>
               Button Item (active)
             </SideBarMenuItem>
@@ -43,7 +43,7 @@ export const Default: Story = {
                 </SideBarMenuItem>
               )
             })}
-          </SideBar.List>
+          </SideBar.MenuList>
         </SideBar>
         <main
           style={{
