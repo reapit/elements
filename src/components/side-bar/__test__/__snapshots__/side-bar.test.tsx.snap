@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SideBar > should match snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="Sidebar Navigation"
+    class="mocked-styled-0 el-side-bar"
+  >
+    Sample content
+  </nav>
+</DocumentFragment>
+`;
