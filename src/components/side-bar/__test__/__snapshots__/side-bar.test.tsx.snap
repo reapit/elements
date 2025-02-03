@@ -3,7 +3,7 @@
 exports[`SideBar > should match snapshot 1`] = `
 <DocumentFragment>
   <nav
-    aria-label="Sidebar Navigations"
+    aria-label="Sidebar Navigation"
     class="mocked-styled-0 el-side-bar"
   >
     Sample content
