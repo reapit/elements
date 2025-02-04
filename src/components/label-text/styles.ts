@@ -1,6 +1,12 @@
 import { styled } from '@linaria/react'
 
 export const ElLabelText = styled.span`
+  font-family: var(--font-family);
+  font-style: normal;
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-sm); 
+  letter-spacing: var(--letter-spacing-sm);
+
   &[data-size='small'] {
     font-size: var(--font-size-xs);
   }
