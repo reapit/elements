@@ -1,0 +1,22 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../../storybook/render-html-markup'
+import * as TableStories from './table.stories'
+
+<Meta of={TableStories} />
+
+# Table
+
+## Basic Usage
+
+<Canvas of={TableStories.BasicUsage} />
+
+## Use with a WithDataTable
+
+<Canvas of={TableStories.WithDataTable} />
+
+## Use with a WithFloatingHeader
+
+<Canvas of={TableStories.WithFloatingHeader} />
+
+
+<RenderHtmlMarkup of={TableStories.BasicUsage} />
