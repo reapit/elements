@@ -10,7 +10,7 @@ const meta: Meta<typeof TableHead> = {
 export default meta
 
 export const BasicUsage = {
-  render: ({ }) => (
+  render: ({}) => (
     <Table>
       <TableHead>
         <tr>

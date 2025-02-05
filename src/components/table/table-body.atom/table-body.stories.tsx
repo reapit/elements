@@ -9,7 +9,7 @@ const meta: Meta<typeof TableBody> = {
 export default meta
 
 export const BasicUsage = {
-  render: ({ }) => (
+  render: ({}) => (
     <TableBody>
       <thead>
         <tr>

@@ -17,7 +17,7 @@ const meta: Meta<typeof Table> = {
 export default meta
 
 export const BasicUsage = {
-  render: ({ }) => (
+  render: ({}) => (
     <TableContainer>
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
@@ -27,8 +27,8 @@ export const BasicUsage = {
         </TableHead>
         <TableBody>
           <TableRow>
-            <TableCell narrowLabel='Head 1'>Row 1</TableCell>
-            <TableCell narrowLabel='Head 2'>Row 2</TableCell>
+            <TableCell narrowLabel="Head 1">Row 1</TableCell>
+            <TableCell narrowLabel="Head 2">Row 2</TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -37,21 +37,17 @@ export const BasicUsage = {
 }
 
 const DATA_TABLE: IData<string, string> = {
-  rows: ["Row 1", "Row 2", "Row 3", "Row 4"],
-  heads: ["Head 1", "Head 2"]
-};
+  rows: ['Row 1', 'Row 2', 'Row 3', 'Row 4'],
+  heads: ['Head 1', 'Head 2'],
+}
 export const WithDataTable = {
-  render: ({ }) => (
+  render: ({}) => (
     <TableContainer>
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table<string, string> data={DATA_TABLE}>
-        <TableHead<string>>
-          {({ row }) => (
-            <TableHeaderCell>{row}</TableHeaderCell>
-          )}
-        </TableHead>
+        <TableHead<string>>{({ row }) => <TableHeaderCell>{row}</TableHeaderCell>}</TableHead>
         <TableBody<string, string>>
-          {({ row, heads, index }) => (
+          {({ row, heads }) => (
             <TableRow>
               <TableCell narrowLabel={heads[0]}>{row}</TableCell>
               <TableCell narrowLabel={heads[1]}>{row} right side</TableCell>
@@ -62,12 +58,12 @@ export const WithDataTable = {
     </TableContainer>
   ),
   args: {
-    data: DATA_TABLE
+    data: DATA_TABLE,
   },
 }
 
 export const WithFloatingHeader = {
-  render: ({ }) => (
+  render: ({}) => (
     <TableContainer>
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
@@ -78,8 +74,8 @@ export const WithFloatingHeader = {
         <TableBody>
           {Array.from({ length: 50 }, (_, index) => (
             <TableRow key={index}>
-              <TableCell narrowLabel='Head 1'>Row {index}</TableCell>
-              <TableCell narrowLabel='Head 2'>Row {index} right side</TableCell>
+              <TableCell narrowLabel="Head 1">Row {index}</TableCell>
+              <TableCell narrowLabel="Head 2">Row {index} right side</TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -87,11 +83,3 @@ export const WithFloatingHeader = {
     </TableContainer>
   ),
 }
-
-// export const ReactUsage: StoryObj<typeof NavSearchButton> = {}
-// export const WithoutShortcut: StoryObj<typeof NavSearchButton> = {
-//   args: {
-//     isShortcutVisible: false,
-//   },
-// }
-

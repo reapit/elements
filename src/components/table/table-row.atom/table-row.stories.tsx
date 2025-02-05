@@ -15,7 +15,7 @@ const meta: Meta<typeof TableRow> = {
 export default meta
 
 export const BasicUsage = {
-  render: ({ }) => (
+  render: ({}) => (
     <TableRow>
       <TableToolbar
         description="125 Properties"
