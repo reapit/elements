@@ -90,7 +90,7 @@ exports[`BottomBar > can render 4 items and an overflow menu 1`] = `
       </span>
     </button>
     <div
-      class="el-wfull el-menu"
+      class="mocked-styled-15 el-bottom-bar-more-menu el-menu"
       data-alignment="right"
     >
       <button

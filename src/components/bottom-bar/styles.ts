@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react'
+import { Menu } from '../menu'
 
 export const ElBottomBar = styled.div`
   display: flex;
@@ -29,4 +30,8 @@ export const ElBottomBar = styled.div`
     transform: translateY(100%);
     visibility: hidden;
   }
+`
+
+export const ElBottomBarMoreMenu = styled(Menu)`
+  width: 100%;
 `

@@ -1,9 +1,9 @@
 import type { FC, ReactNode } from 'react'
 
-import { elWFull } from '../../styles/sizing'
 import { BottomBarItem } from '../bottom-bar-item'
 import { Icon } from '../icon'
 import { Menu, MenuItemProps } from '../menu'
+import { ElBottomBarMoreMenu } from './styles'
 
 export interface BottomBarMoreMenuProps {
   children: ReactNode
@@ -11,7 +11,7 @@ export interface BottomBarMoreMenuProps {
 
 export const BottomBarMoreMenu: FC<BottomBarMoreMenuProps> = ({ children }) => {
   return (
-    <Menu data-alignment="right" className={elWFull}>
+    <ElBottomBarMoreMenu data-alignment="right">
       <Menu.Trigger>
         {({ getTriggerProps }) => (
           <BottomBarItem {...getTriggerProps()} icon={<Icon icon="more" />}>
@@ -22,7 +22,7 @@ export const BottomBarMoreMenu: FC<BottomBarMoreMenuProps> = ({ children }) => {
       <Menu.Popover yOffset={-15}>
         <Menu.List>{children}</Menu.List>
       </Menu.Popover>
-    </Menu>
+    </ElBottomBarMoreMenu>
   )
 }
 
