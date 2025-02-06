@@ -1,5 +1,5 @@
 import React, { FC, LabelHTMLAttributes } from 'react'
-import { ElLabelText } from './styles'
+import { ElLabelRequiredMark, ElLabelText } from './styles'
 
 interface LabelTextProps extends LabelHTMLAttributes<HTMLSpanElement> {
   variant?: 'soft' | 'strong'
@@ -11,7 +11,9 @@ export const LabelText: FC<LabelTextProps> = ({ children, isRequired, size = 'me
   return (
     <ElLabelText {...rest} data-size={size} data-variant={variant}>
       {children}
-      {isRequired && ' *'}
+      {isRequired &&
+        <ElLabelRequiredMark>*</ElLabelRequiredMark>
+      }
     </ElLabelText>
   )
 }

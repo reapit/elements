@@ -6,24 +6,39 @@ export default {
 }
 
 export const BasicUsage = {
-  render: ({}) => (
+  render: (args) => (
     <>
-      <LabelText>I&apos;m a label for a form input or something else</LabelText>
-      <LabelText>example labeltext default</LabelText>
-      <br />
-      <LabelText size="small">example labeltext strong small</LabelText>
-      <br />
-      <LabelText variant="strong" size="medium">
-        example labeltext strong medium
-      </LabelText>
-      <br />
-      <LabelText variant="soft" size="small">
-        example labeltext soft small
-      </LabelText>
-      <br />
-      <LabelText variant="soft" isRequired>
-        example labeltext soft isRequired
-      </LabelText>
+      <LabelText {...args} >I&apos;m a label for a form input or something else</LabelText>
     </>
   ),
+  argTypes: {
+    size: {
+      control: 'select',
+      description: 'Defines label text render size',
+      options: [
+        'small',
+        'medium',
+      ],
+      table: {
+        type: { summary: 'enum' },
+        defaultValue: { summary: 'small' },
+      },
+    },
+    variant: {
+      control: 'select',
+      description: 'Rendering label text with the variant',
+      options: [
+        'soft',
+        'strong',
+      ],
+      table: {
+        type: { summary: 'enum' },
+        defaultValue: { summary: 'soft' },
+      },
+    },
+    isRequired: {
+      control: "boolean",
+      description: 'Rendering Required mark in the end children',
+    },
+  },
 }
