@@ -8,17 +8,14 @@ export default {
 export const BasicUsage = {
   render: (args) => (
     <>
-      <LabelText {...args} >I&apos;m a label for a form input or something else</LabelText>
+      <LabelText {...args}>I&apos;m a label for a form input or something else</LabelText>
     </>
   ),
   argTypes: {
     size: {
       control: 'select',
       description: 'Defines label text render size',
-      options: [
-        'small',
-        'medium',
-      ],
+      options: ['small', 'medium'],
       table: {
         type: { summary: 'enum' },
         defaultValue: { summary: 'small' },
@@ -27,17 +24,14 @@ export const BasicUsage = {
     variant: {
       control: 'select',
       description: 'Rendering label text with the variant',
-      options: [
-        'soft',
-        'strong',
-      ],
+      options: ['soft', 'strong'],
       table: {
         type: { summary: 'enum' },
         defaultValue: { summary: 'soft' },
       },
     },
     isRequired: {
-      control: "boolean",
+      control: 'boolean',
       description: 'Rendering Required mark in the end children',
     },
   },

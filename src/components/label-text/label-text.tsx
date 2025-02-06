@@ -11,9 +11,7 @@ export const LabelText: FC<LabelTextProps> = ({ children, isRequired, size = 'me
   return (
     <ElLabelText {...rest} data-size={size} data-variant={variant}>
       {children}
-      {isRequired &&
-        <ElLabelRequiredMark>*</ElLabelRequiredMark>
-      }
+      {isRequired && <ElLabelRequiredMark>*</ElLabelRequiredMark>}
     </ElLabelText>
   )
 }
