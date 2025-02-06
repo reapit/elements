@@ -11,12 +11,12 @@ const meta: Meta<typeof TableHeaderCell> = {
 export default meta
 
 export const BasicUsage = {
-  render: ({}) => (
+  render: (args) => (
     <TableContainer>
       <Table>
         <thead>
           <tr>
-            <TableHeaderCell>Test th</TableHeaderCell>
+            <TableHeaderCell {...args}>Test th</TableHeaderCell>
           </tr>
         </thead>
         <tbody>
@@ -27,4 +27,30 @@ export const BasicUsage = {
       </Table>
     </TableContainer>
   ),
+  args: {
+    alignment: 'left',
+  },
+  argTypes: {
+    alignment: {
+      control: 'select',
+      description: 'Defines label text alignment children',
+      options: ['left', 'center', 'right'],
+      table: {
+        type: { summary: 'enum' },
+        defaultValue: { summary: 'left' },
+      },
+    },
+    width: {
+      control: 'text',
+      description: 'Defines label text width for the children',
+    },
+    minWidth: {
+      control: 'text',
+      description: 'Defines label text minWidth for the children',
+    },
+    maxWidth: {
+      control: 'text',
+      description: 'Defines label text minWidth for the children',
+    },
+  },
 }

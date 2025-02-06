@@ -11,20 +11,54 @@ const meta: Meta<typeof TableCell> = {
 export default meta
 
 export const BasicUsage = {
-  render: ({}) => (
+  render: (args) => (
     <TableContainer>
       <Table>
         <thead>
           <tr>
-            <TableCell>Test th</TableCell>
+            <TableCell {...args}>Test th</TableCell>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <TableCell>Test td</TableCell>
+            <TableCell {...args}>Test td</TableCell>
           </tr>
         </tbody>
       </Table>
     </TableContainer>
   ),
+  args: {
+    alignment: 'left',
+  },
+  argTypes: {
+    alignment: {
+      control: 'select',
+      description: 'Defines label text alignment children',
+      options: ['left', 'center', 'right'],
+      table: {
+        type: { summary: 'enum' },
+        defaultValue: { summary: 'left' },
+      },
+    },
+    width: {
+      control: 'text',
+      description: 'Defines TableCell width for the children',
+    },
+    minWidth: {
+      control: 'text',
+      description: 'Defines TableCell minWidth for the children',
+    },
+    maxWidth: {
+      control: 'text',
+      description: 'Defines TableCell minWidth for the children',
+    },
+    narrowLabel: {
+      control: 'text',
+      description: 'Defines TableCell header when table is in mobile devices',
+    },
+    link: {
+      control: 'text',
+      description: 'Defines TableCell clickable link as <a> href',
+    },
+  },
 }

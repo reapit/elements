@@ -34,25 +34,3 @@ export const BasicUsage = {
     </TableContainer>
   ),
 }
-
-export const WithFloatingHeader = {
-  render: ({}) => (
-    <TableContainer>
-      <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
-      <Table>
-        <TableHead isSticky>
-          <TableHeaderCell>Head 1</TableHeaderCell>
-          <TableHeaderCell>Head 2</TableHeaderCell>
-        </TableHead>
-        <TableBody>
-          {Array.from({ length: 50 }, (_, index) => (
-            <TableRow key={index}>
-              <TableCell narrowLabel="Head 1">Row {index}</TableCell>
-              <TableCell narrowLabel="Head 2">Row {index} right side</TableCell>
-            </TableRow>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  ),
-}
