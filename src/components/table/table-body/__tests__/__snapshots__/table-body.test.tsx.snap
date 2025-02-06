@@ -7,6 +7,7 @@ exports[`TableBody > should match snapshot 1`] = `
   >
     <tbody
       class="mocked-styled-0 el-table-body"
+      role="rowgroup"
     >
       <div
         class="mocked-styled-1 el-table-toolbar"

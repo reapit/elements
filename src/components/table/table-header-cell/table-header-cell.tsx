@@ -11,7 +11,7 @@ export interface ITableHeaderProps extends ThHTMLAttributes<HTMLTableCellElement
 
 export const TableHeaderCell: FC<ITableHeaderProps> = ({ children, alignment = 'left', ...rest }) => {
   return (
-    <ElTableHeaderCell {...rest} data-alignment={alignment}>
+    <ElTableHeaderCell role="cell" {...rest} data-alignment={alignment}>
       <ElTableHeaderCellContent>{children}</ElTableHeaderCellContent>
     </ElTableHeaderCell>
   )

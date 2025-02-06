@@ -8,7 +8,7 @@ export interface ITableHeadProps extends Omit<TableHTMLAttributes<HTMLTableSecti
 
 export const TableHead: FC<ITableHeadProps> = ({ children, isSticky, ...rest }) => {
   return (
-    <ElTableHead {...rest} data-position={isSticky ? 'sticky' : 'relative'}>
+    <ElTableHead role="columnheader" {...rest} data-position={isSticky ? 'sticky' : 'relative'}>
       {children}
     </ElTableHead>
   )

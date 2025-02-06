@@ -13,7 +13,7 @@ export interface ITableCellProps extends TdHTMLAttributes<HTMLTableCellElement> 
 
 export const TableCell: FC<ITableCellProps> = ({ children, alignment = 'left', link, narrowLabel, ...rest }) => {
   return (
-    <ElTableCell {...rest} data-alignment={alignment}>
+    <ElTableCell role="cell" {...rest} data-alignment={alignment}>
       <ElTableCellContent data-narrow-label={narrowLabel}>
         {link && <ElTableCellLink>{children}</ElTableCellLink>}
         {!link && children}

@@ -7,7 +7,7 @@ export interface ITableRowProps extends TableHTMLAttributes<HTMLTableRowElement>
 
 export const TableRow: FC<ITableRowProps> = ({ children, isSelected, ...rest }) => {
   return (
-    <ElTableRow {...rest} data-selected={isSelected}>
+    <ElTableRow role="row" {...rest} data-selected={isSelected}>
       {children}
     </ElTableRow>
   )

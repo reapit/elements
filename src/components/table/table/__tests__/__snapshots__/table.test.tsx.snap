@@ -25,10 +25,12 @@ exports[`Table > should match snapshot 1`] = `
       <thead
         class="mocked-styled-5 el-table-head"
         data-position="relative"
+        role="columnheader"
       >
         <th
           class="mocked-styled-6 el-table-header-cell"
           data-alignment="left"
+          role="cell"
           style="--e13cdof9-0: auto; --e13cdof9-1: auto; --e13cdof9-2: auto;"
         >
           <div
@@ -40,13 +42,16 @@ exports[`Table > should match snapshot 1`] = `
       </thead>
       <tbody
         class="mocked-styled-8 el-table-body"
+        role="rowgroup"
       >
         <tr
           class="mocked-styled-9 el-table-row"
+          role="row"
         >
           <td
             class="mocked-styled-10 el-table-cell"
             data-alignment="left"
+            role="cell"
             style="--edd0gm5-0: auto; --edd0gm5-1: auto; --edd0gm5-2: auto;"
           >
             <div
