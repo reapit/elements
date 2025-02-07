@@ -7,7 +7,6 @@ export const ElLabelText = styled.span`
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-sm);
   display: inline-flex;
-  align-items: center;
   gap: var(--spacing-1);
   &[data-size='small'] {
     font-size: var(--font-size-xs);
