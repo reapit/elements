@@ -8,7 +8,7 @@ import { TableHead } from '../table-head'
 import { TableBody } from '../table-body'
 import { TableCell } from '../table-cell'
 import { Input } from '../../input'
-import { DeprecatedAvatar } from '../../deprecated-avatar'
+import { AvatarRectangle } from '../../avatar-rectangle'
 
 const meta: Meta<typeof TableRow> = {
   title: 'Components/TableRow',
@@ -32,12 +32,12 @@ export const BasicUsage = {
         <TableBody>
           {Array.from({ length: 3 }, (_, index) => (
             <TableRow key={index}>
-              <TableCell narrowLabel="Selected">
+              <TableCell>
                 <Input type="checkbox" />
               </TableCell>
               <TableCell>First Column</TableCell>
-              <TableCell narrowLabel="Image">
-                <DeprecatedAvatar type="image" src="https://picsum.photos/seed/picsum/200/300" />
+              <TableCell>
+                <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
               </TableCell>
               <TableCell>Second Column</TableCell>
               <TableCell>Last Column</TableCell>

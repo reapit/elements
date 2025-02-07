@@ -1,6 +1,4 @@
 import { styled } from '@linaria/react'
-import { isBelowDesktop } from '../../../styles/media'
-
 interface ITableCellConfiguration {
   width?: string
   minWidth?: string
@@ -42,14 +40,4 @@ export const ElTableCellContent = styled.div<ITableCellConfiguration>`
   justify-content: center;
   display: flex;
   flex-direction: column;
-  
-  ${isBelowDesktop}{
-    &:before{
-      content: attr(data-narrow-label);
-      color: var(--neutral-500);
-      font-size: var(--font-size-sm);}
-    }
-  }
 `
-
-export const ElTableCellLink = styled.a``

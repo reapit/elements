@@ -12,15 +12,15 @@ exports[`TableCell > should match snapshot 1`] = `
       class="mocked-styled-1 el-table-cell-content"
     >
       <div
-        class="mocked-styled-3 el-table-toolbar"
+        class="mocked-styled-2 el-table-toolbar"
       >
         <div
-          class="mocked-styled-4 el-table-toolbar-description"
+          class="mocked-styled-3 el-table-toolbar-description"
         >
           125 Properties
         </div>
         <div
-          class="mocked-styled-5 el-table-toolbar-actions"
+          class="mocked-styled-4 el-table-toolbar-actions"
         >
           Page Size menu component goes here
         </div>

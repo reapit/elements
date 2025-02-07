@@ -32,11 +32,11 @@ export const BasicUsage = {
         <TableBody>
           {Array.from({ length: 10 }, (_, index) => (
             <TableRow key={index}>
-              <TableCell narrowLabel="Selected">
+              <TableCell>
                 <Input type="checkbox" />
               </TableCell>
               <TableCell>First Column</TableCell>
-              <TableCell narrowLabel="Image">
+              <TableCell>
                 <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
               </TableCell>
               <TableCell>Second Column</TableCell>
@@ -64,11 +64,11 @@ export const DisplayWithStickyHeader = {
         <TableBody>
           {Array.from({ length: 10 }, (_, index) => (
             <TableRow key={index}>
-              <TableCell narrowLabel="Selected">
+              <TableCell>
                 <Input type="checkbox" />
               </TableCell>
               <TableCell>First Column</TableCell>
-              <TableCell narrowLabel="Image">
+              <TableCell>
                 <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
               </TableCell>
               <TableCell>Second Column</TableCell>
@@ -93,38 +93,3 @@ export const DisplayWithStickyHeader = {
     },
   },
 }
-
-// export const BasicUsage = {
-//   render: (args) => (
-//     <TableContainer>
-//       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
-//       <Table>
-//         <TableHead {...args}>
-//           <TableHeaderCell>Head 1</TableHeaderCell>
-//           <TableHeaderCell>Head 2</TableHeaderCell>
-//         </TableHead>
-//         <TableBody>
-//           {Array.from({ length: 50 }, (_, index) => (
-//             <TableRow key={index}>
-//               <TableCell narrowLabel="Head 1">Row {index}</TableCell>
-//               <TableCell narrowLabel="Head 2">Row {index} right side</TableCell>
-//             </TableRow>
-//           ))}
-//         </TableBody>
-//       </Table>
-//     </TableContainer>
-//   ),
-//   args: {
-//     isSticky: false
-//   },
-//   argTypes: {
-//     isSticky: {
-//       control: 'boolean',
-//       description: 'Defines TableHead to have sticky possition',
-//       table: {
-//         type: { summary: 'enum' },
-//         defaultValue: { summary: 'false' },
-//       },
-//     },
-//   },
-// }

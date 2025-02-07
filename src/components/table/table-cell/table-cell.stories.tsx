@@ -32,11 +32,11 @@ export const BasicUsage = {
         <TableBody>
           {Array.from({ length: 5 }, (_, index) => (
             <TableRow key={index}>
-              <TableCell {...args} narrowLabel="Selected">
+              <TableCell {...args}>
                 <Input type="checkbox" />
               </TableCell>
               <TableCell {...args}>First Column</TableCell>
-              <TableCell {...args} narrowLabel="Image">
+              <TableCell {...args}>
                 <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
               </TableCell>
               <TableCell {...args}>Second Column</TableCell>
@@ -71,14 +71,6 @@ export const BasicUsage = {
     maxWidth: {
       control: 'text',
       description: 'Defines TableCell minWidth for the children',
-    },
-    narrowLabel: {
-      control: 'text',
-      description: 'Defines TableCell header when table is in mobile devices',
-    },
-    link: {
-      control: 'text',
-      description: 'Defines TableCell clickable link as <a> href',
     },
   },
 }

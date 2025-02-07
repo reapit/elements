@@ -32,11 +32,11 @@ export const BasicUsage = {
         <TableBody>
           {Array.from({ length: 5 }, (_, index) => (
             <TableRow key={index}>
-              <TableCell narrowLabel="Selected">
+              <TableCell>
                 <Input type="checkbox" />
               </TableCell>
               <TableCell>First Column</TableCell>
-              <TableCell narrowLabel="Image">
+              <TableCell>
                 <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
               </TableCell>
               <TableCell>Second Column</TableCell>
