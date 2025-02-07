@@ -8,7 +8,7 @@ import { TableBody } from '../table-body'
 import { TableRow } from '../table-row'
 import { TableCell } from '../table-cell'
 import { Input } from '../../input'
-import { DeprecatedAvatar } from '../../deprecated-avatar'
+import { AvatarRectangle } from '../../avatar-rectangle'
 
 const meta: Meta<typeof TableHeaderCell> = {
   title: 'Components/TableHeaderCell',
@@ -23,7 +23,9 @@ export const BasicUsage = {
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
         <TableHead>
-          <TableHeaderCell {...args}>Checkbox Header</TableHeaderCell>
+          <TableHeaderCell {...args} maxWidth="30px">
+            Checkbox Header
+          </TableHeaderCell>
           <TableHeaderCell {...args}>First Header</TableHeaderCell>
           <TableHeaderCell {...args}>Image Header</TableHeaderCell>
           <TableHeaderCell {...args}>Second Header</TableHeaderCell>
@@ -37,7 +39,7 @@ export const BasicUsage = {
               </TableCell>
               <TableCell>First Column</TableCell>
               <TableCell narrowLabel="Image">
-                <DeprecatedAvatar type="image" src="https://picsum.photos/seed/picsum/200/300" />
+                <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
               </TableCell>
               <TableCell>Second Column</TableCell>
               <TableCell>Last Column</TableCell>

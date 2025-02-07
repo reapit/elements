@@ -2,6 +2,13 @@ import { Meta } from '@storybook/react'
 import { TableCell } from './table-cell'
 import { Table } from '../table/table'
 import { TableContainer } from '../table-container'
+import { TableToolbar } from '../table-toolbar'
+import { TableHead } from '../table-head'
+import { TableHeaderCell } from '../table-header-cell'
+import { TableBody } from '../table-body'
+import { TableRow } from '../table-row'
+import { Input } from '../../input'
+import { AvatarRectangle } from '../../avatar-rectangle'
 
 const meta: Meta<typeof TableCell> = {
   title: 'Components/TableCell',
@@ -13,17 +20,30 @@ export default meta
 export const BasicUsage = {
   render: (args) => (
     <TableContainer>
+      <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
-        <thead>
-          <tr>
-            <TableCell {...args}>Test th</TableCell>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <TableCell {...args}>Test td</TableCell>
-          </tr>
-        </tbody>
+        <TableHead>
+          <TableHeaderCell maxWidth="30px">Checkbox Header</TableHeaderCell>
+          <TableHeaderCell>First Header</TableHeaderCell>
+          <TableHeaderCell>Image Header</TableHeaderCell>
+          <TableHeaderCell>Second Header</TableHeaderCell>
+          <TableHeaderCell>Third Header</TableHeaderCell>
+        </TableHead>
+        <TableBody>
+          {Array.from({ length: 5 }, (_, index) => (
+            <TableRow key={index}>
+              <TableCell {...args} narrowLabel="Selected">
+                <Input type="checkbox" />
+              </TableCell>
+              <TableCell {...args}>First Column</TableCell>
+              <TableCell {...args} narrowLabel="Image">
+                <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
+              </TableCell>
+              <TableCell {...args}>Second Column</TableCell>
+              <TableCell {...args}>Last Column</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
       </Table>
     </TableContainer>
   ),

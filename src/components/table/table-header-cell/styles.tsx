@@ -7,8 +7,8 @@ interface ITableCellConfiguration {
 
 export const ElTableHeaderCell = styled.th<ITableCellConfiguration>`
   width: ${({ width }) => width || 'auto'};
-  minwidth: ${({ minWidth }) => minWidth || 'auto'};
-  maxwidth: ${({ maxWidth }) => maxWidth || 'auto'};
+  min-width: ${({ minWidth }) => minWidth || 'auto'};
+  max-width: ${({ maxWidth }) => maxWidth || 'auto'};
   gap: var(--spacing-spacing-1);
   flex: auto;
   align-items: center;

@@ -6,7 +6,22 @@ import * as TableStories from './table.stories'
 
 # Table
 
+
+The Table component can be used from the Table molecule components, e.g. `TableRow`, `TableCell`, etc
+There are two visual styles for the table, dependant on screen width.
+
+1.  Normal
+2.  Narrow - i.e. where the screen is too small for the content on a conventional screen - below 1024px.
+
+On the Narrow version, the table's grid switches to a 2 column layout. There are additional modifiers that can then be
+applied to cells when it's in narrow mode, e.g. showing the header within the cell and whether a cell should be full width.
+
 ## Basic Usage
+
+For Non React users and React users with basic requirements, you can just use `TableToolbar`, `TableContainer`, `Table`, `TableHead`, `TableHeaderCell`, `TableBody`, `TableRow` and `TableCell` components as presentational components to render your content. See the rendered Markup for non-React users as always.
+
+For React users, the table has a number of freatures that you may find useful to present your data, like an expandable call to action container. These do fall under the banner of "Advanced usage", so in most cases, just use the basic table component classes and render children to get the desired functionality for your application.
+
 
 <Canvas of={TableStories.BasicUsage} />
 <Controls />
