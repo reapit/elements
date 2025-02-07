@@ -7,12 +7,22 @@ export interface ITableCellProps extends TdHTMLAttributes<HTMLTableCellElement> 
   width?: string
   minWidth?: string
   maxWidth?: string
+  flexDirection?: 'column' | 'row'
+  isFlexWrap?: boolean
 }
 
-export const TableCell: FC<ITableCellProps> = ({ children, alignment = 'left', ...rest }) => {
+export const TableCell: FC<ITableCellProps> = ({
+  children,
+  alignment = 'left',
+  flexDirection = 'column',
+  isFlexWrap,
+  ...rest
+}) => {
   return (
     <ElTableCell role="cell" {...rest} data-alignment={alignment}>
-      <ElTableCellContent>{children}</ElTableCellContent>
+      <ElTableCellContent data-flex-direction={flexDirection} isFlexWrap={isFlexWrap}>
+        {children}
+      </ElTableCellContent>
     </ElTableCell>
   )
 }

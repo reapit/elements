@@ -35,6 +35,8 @@ exports[`Table > should match snapshot 1`] = `
         >
           <div
             class="mocked-styled-7 el-table-header-cell-content"
+            data-flex-direction="column"
+            style="--e1qe93km-0: nowrap;"
           >
             Head 1
           </div>
@@ -56,6 +58,8 @@ exports[`Table > should match snapshot 1`] = `
           >
             <div
               class="mocked-styled-11 el-table-cell-content"
+              data-flex-direction="column"
+              style="--e1i8lsm-0: nowrap;"
             >
               Row 1
             </div>

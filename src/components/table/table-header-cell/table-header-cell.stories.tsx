@@ -42,7 +42,10 @@ export const BasicUsage = {
                 <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
               </TableCell>
               <TableCell>Second Column</TableCell>
-              <TableCell>Last Column</TableCell>
+              <TableCell>
+                <span>Last Column</span>
+                <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
+              </TableCell>
             </TableRow>
           ))}
         </TableBody>
@@ -73,6 +76,20 @@ export const BasicUsage = {
     maxWidth: {
       control: 'text',
       description: 'Defines label text minWidth for the children',
+    },
+    flexDirection: {
+      control: 'select',
+      description: 'Defines TableCell flex direction to row or column without adding new wrapper on child content',
+      options: ['column', 'row'],
+      table: {
+        type: { summary: 'enum' },
+        defaultValue: { summary: 'column' },
+      },
+    },
+    isFlexWrap: {
+      control: 'boolean',
+      description:
+        'Defines TableCell wrap or nowrap for the children of we have custom child without adding new wrapper',
     },
   },
 }

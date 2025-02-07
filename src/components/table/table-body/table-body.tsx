@@ -2,7 +2,7 @@ import React, { FC, ReactNode, TableHTMLAttributes } from 'react'
 import { ElTableBody } from './styles'
 
 export interface ITableBodyProps extends TableHTMLAttributes<HTMLTableSectionElement> {
-  children?: ReactNode
+  children: ReactNode
 }
 
 export const TableBody: FC<ITableBodyProps> = ({ children, ...rest }) => {

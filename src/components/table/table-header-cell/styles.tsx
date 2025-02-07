@@ -5,11 +5,19 @@ interface ITableCellConfiguration {
   maxWidth?: string
 }
 
+interface IElTableHeaderCellContentConfiguration {
+  isFlexWrap?: boolean
+}
+
+const getFlexWrap = (isFlexWrap?: boolean): string => {
+  return isFlexWrap ? 'wrap' : 'nowrap'
+}
+
 export const ElTableHeaderCell = styled.th<ITableCellConfiguration>`
   width: ${({ width }) => width || 'auto'};
   min-width: ${({ minWidth }) => minWidth || 'auto'};
   max-width: ${({ maxWidth }) => maxWidth || 'auto'};
-  gap: var(--spacing-spacing-1);
+  gap: var(--spacing-1);
   flex: auto;
   align-items: center;
   &[data-alignment='left'] {
@@ -22,10 +30,10 @@ export const ElTableHeaderCell = styled.th<ITableCellConfiguration>`
     text-align: right;
   }
 `
-export const ElTableHeaderCellContent = styled.div`
+export const ElTableHeaderCellContent = styled.div<IElTableHeaderCellContentConfiguration>`
   width: 100%;
   padding: var(--spacing-2);
-  gap: var(--spacing-spacing-1);
+  gap: var(--spacing-1);
   color: var(--text-secondary);
   font-family: var(--font-family);
   font-size: var(--font-size-2xs);
@@ -35,8 +43,15 @@ export const ElTableHeaderCellContent = styled.div`
   letter-spacing: var(--letter-spacing-2xs);
   min-height: 40px;
   flex: 1 0 0;
-  justify-content: center;
   display: flex;
-  flex-direction: column;
-  display: flex;
+  flex-wrap: ${({ isFlexWrap }) => getFlexWrap(isFlexWrap)};
+
+  &[data-flex-direction='column'] {
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &[data-flex-direction='row'] {
+    flex-direction: row;
+  }
 `

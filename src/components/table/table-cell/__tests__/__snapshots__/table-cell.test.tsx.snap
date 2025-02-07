@@ -10,6 +10,8 @@ exports[`TableCell > should match snapshot 1`] = `
   >
     <div
       class="mocked-styled-1 el-table-cell-content"
+      data-flex-direction="column"
+      style="--e1i8lsm-0: nowrap;"
     >
       <div
         class="mocked-styled-2 el-table-toolbar"
