@@ -11,6 +11,7 @@ export const ElTableHeaderCell = styled.th<ITableCellConfiguration>`
   maxwidth: ${({ maxWidth }) => maxWidth || 'auto'};
   gap: var(--spacing-spacing-1);
   flex: auto;
+  align-items: center;
   &[data-alignment='left'] {
     text-align: left;
   }
@@ -33,8 +34,9 @@ export const ElTableHeaderCellContent = styled.div`
   line-height: var(--line-height-2xs);
   letter-spacing: var(--letter-spacing-2xs);
   min-height: 40px;
-  flex: 1;
+  flex: 1 0 0;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  display: flex;
 `

@@ -7,6 +7,8 @@ import { TableHeaderCell } from '../table-header-cell'
 import { TableBody } from '../table-body'
 import { TableRow } from '../table-row'
 import { TableCell } from '../table-cell'
+import { Input } from '../../input'
+import { DeprecatedAvatar } from '../../deprecated-avatar'
 
 const meta: Meta<typeof Table> = {
   title: 'Components/Table',
@@ -21,14 +23,26 @@ export const BasicUsage = {
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
         <TableHead>
-          <TableHeaderCell>Head 1</TableHeaderCell>
-          <TableHeaderCell>Head 2</TableHeaderCell>
+          <TableHeaderCell>Checkbox Header</TableHeaderCell>
+          <TableHeaderCell>First Header</TableHeaderCell>
+          <TableHeaderCell>Image Header</TableHeaderCell>
+          <TableHeaderCell>Second Header</TableHeaderCell>
+          <TableHeaderCell>Third Header</TableHeaderCell>
         </TableHead>
         <TableBody>
-          <TableRow>
-            <TableCell narrowLabel="Head 1">Row 1</TableCell>
-            <TableCell narrowLabel="Head 2">Row 2</TableCell>
-          </TableRow>
+          {Array.from({ length: 10 }, (_, index) => (
+            <TableRow key={index}>
+              <TableCell narrowLabel="Selected">
+                <Input type="checkbox" />
+              </TableCell>
+              <TableCell>First Column</TableCell>
+              <TableCell narrowLabel="Image">
+                <DeprecatedAvatar type="image" src="https://picsum.photos/seed/picsum/200/300" />
+              </TableCell>
+              <TableCell>Second Column</TableCell>
+              <TableCell>Last Column</TableCell>
+            </TableRow>
+          ))}
         </TableBody>
       </Table>
     </TableContainer>

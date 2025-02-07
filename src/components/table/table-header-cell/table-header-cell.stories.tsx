@@ -2,6 +2,13 @@ import { Meta } from '@storybook/react'
 import { TableHeaderCell } from './table-header-cell'
 import { Table } from '../table/table'
 import { TableContainer } from '../table-container'
+import { TableToolbar } from '../table-toolbar'
+import { TableHead } from '../table-head/table-head'
+import { TableBody } from '../table-body'
+import { TableRow } from '../table-row'
+import { TableCell } from '../table-cell'
+import { Input } from '../../input'
+import { DeprecatedAvatar } from '../../deprecated-avatar'
 
 const meta: Meta<typeof TableHeaderCell> = {
   title: 'Components/TableHeaderCell',
@@ -13,17 +20,30 @@ export default meta
 export const BasicUsage = {
   render: (args) => (
     <TableContainer>
+      <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
-        <thead>
-          <tr>
-            <TableHeaderCell {...args}>Test th</TableHeaderCell>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Test td</td>
-          </tr>
-        </tbody>
+        <TableHead>
+          <TableHeaderCell {...args}>Checkbox Header</TableHeaderCell>
+          <TableHeaderCell {...args}>First Header</TableHeaderCell>
+          <TableHeaderCell {...args}>Image Header</TableHeaderCell>
+          <TableHeaderCell {...args}>Second Header</TableHeaderCell>
+          <TableHeaderCell {...args}>Third Header</TableHeaderCell>
+        </TableHead>
+        <TableBody>
+          {Array.from({ length: 10 }, (_, index) => (
+            <TableRow key={index}>
+              <TableCell narrowLabel="Selected">
+                <Input type="checkbox" />
+              </TableCell>
+              <TableCell>First Column</TableCell>
+              <TableCell narrowLabel="Image">
+                <DeprecatedAvatar type="image" src="https://picsum.photos/seed/picsum/200/300" />
+              </TableCell>
+              <TableCell>Second Column</TableCell>
+              <TableCell>Last Column</TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
       </Table>
     </TableContainer>
   ),

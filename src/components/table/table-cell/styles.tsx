@@ -14,6 +14,7 @@ export const ElTableCell = styled.td<ITableCellConfiguration>`
   maxwidth: ${({ maxWidth }) => maxWidth || 'auto'};
   gap: var(--spacing-spacing-1);
   flex: auto;
+  vertical-align: middle;
 
   &[data-alignment='left'] {
     text-align: left;
