@@ -44,8 +44,10 @@ export const ElChip = styled.button<ElChipProps>`
   }
 
   &:focus-visible {
-    outline: 3px solid var(--purple-300);
-    outline-offset: var(--size-px);
+    box-shadow:
+      0px 0px 0px var(--size-px) var(--white),
+      0px 0px 0px var(--size-1) var(--purple-300);
+    outline: none;
   }
 `
 
