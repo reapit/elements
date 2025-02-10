@@ -40,7 +40,7 @@ export const Default: Story = {
         <SideBar>
           <SideBar.MenuList>
             <SideBarMenuItem isActive icon={<Icon icon="property" />} onClick={console.log}>
-              Button Item (active)
+              SideBar Item (active)
             </SideBarMenuItem>
 
             <SideBarMenuItem icon={<Customicon />} onClick={console.log}>
@@ -50,7 +50,7 @@ export const Default: Story = {
             {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => {
               return (
                 <SideBarMenuItem key={i} icon={<Icon icon="property" />} href="/#">
-                  Anchor Item
+                  SideBar Item
                 </SideBarMenuItem>
               )
             })}

@@ -1,12 +1,5 @@
 import { styled } from '@linaria/react'
 
-const baseButtonOverride = `
-  cursor: pointer;
-  background: none;
-  border: none;
-  width: 100%;
-`
-
 export const ElSideBarMenuItemText = styled.span`
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
@@ -29,15 +22,15 @@ export const ElSideBarMenuItemIcon = styled.span`
   padding: var(--spacing-half);
 `
 
-const ElSideBarMenuItemBase = `
-  ${baseButtonOverride}
-  cursor: pointer;
+export const ElSideBarMenuItemAnchor = styled.a`
+  width: 100%;
+
   display: flex;
+  align-self: stretch;
+  align-items: center;
   height: 40px;
   padding: var(--spacing-none) var(--spacing-2);
-  align-items: center;
   gap: var(--spacing-3);
-  align-self: stretch;
   color: var(--neutral-600);
   border-radius: var(--corner-lg);
 
@@ -46,21 +39,6 @@ const ElSideBarMenuItemBase = `
     background: var(--fill-default-lightest);
     font-weight: 500;
   }
-`
-
-export const ElSideBarMenuItemButton = styled.button`
-  ${ElSideBarMenuItemBase}
-
-  &[aria-current='page'] {
-    &,
-    ${ElSideBarMenuItemIcon} svg {
-      color: var(--text-action);
-      font-weight: 500;
-    }
-  }
-`
-export const ElSideBarMenuItemAnchor = styled.a`
-  ${ElSideBarMenuItemBase}
 
   &[aria-current='page'] {
     &,
