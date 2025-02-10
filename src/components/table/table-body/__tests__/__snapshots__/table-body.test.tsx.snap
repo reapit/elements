@@ -1,0 +1,25 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableBody > should match snapshot 1`] = `
+<DocumentFragment>
+  <table
+    class="mocked-styled-1 el-table"
+  >
+    <thead>
+      <th>
+        Head 1
+      </th>
+    </thead>
+    <tbody
+      class="mocked-styled-0 el-table-body"
+      role="rowgroup"
+    >
+      <tr>
+        <td>
+          Row 1
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</DocumentFragment>
+`;
