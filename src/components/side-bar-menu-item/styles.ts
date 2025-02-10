@@ -16,6 +16,19 @@ export const ElSideBarMenuItemText = styled.span`
   letter-spacing: var(--letter-spacing-sm);
 `
 
+export const ElSideBarMenuItemIcon = styled.span`
+  // override elIcon and custom icon
+  svg,
+  & {
+    width: var(--icon-md);
+    height: var(--icon-md);
+    color: var(--neutral-400);
+    box-sizing: content-box;
+  }
+
+  padding: var(--spacing-half);
+`
+
 const ElSideBarMenuItemBase = `
   ${baseButtonOverride}
   cursor: pointer;
@@ -33,28 +46,27 @@ const ElSideBarMenuItemBase = `
     background: var(--fill-default-lightest);
     font-weight: 500;
   }
-
-  &[aria-current='page'] {
-    &,
-    .el-icon {
-      color: var(--text-action);
-      font-weight: 500;
-    }
-  }
-
-
-  .el-icon {
-    width: var(--icon-md);
-    height: fit-content;
-    color: var(--neutral-400);
-    box-sizing: content-box;
-    padding: var(--spacing-half);
-  }
 `
 
 export const ElSideBarMenuItemButton = styled.button`
   ${ElSideBarMenuItemBase}
+
+  &[aria-current='page'] {
+    &,
+    ${ElSideBarMenuItemIcon} svg {
+      color: var(--text-action);
+      font-weight: 500;
+    }
+  }
 `
 export const ElSideBarMenuItemAnchor = styled.a`
   ${ElSideBarMenuItemBase}
+
+  &[aria-current='page'] {
+    &,
+    ${ElSideBarMenuItemIcon} svg {
+      color: var(--text-action);
+      font-weight: 500;
+    }
+  }
 `

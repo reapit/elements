@@ -1,5 +1,10 @@
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
-import { ElSideBarMenuItemAnchor, ElSideBarMenuItemButton, ElSideBarMenuItemText } from './styles'
+import {
+  ElSideBarMenuItemAnchor,
+  ElSideBarMenuItemButton,
+  ElSideBarMenuItemText,
+  ElSideBarMenuItemIcon,
+} from './styles'
 
 interface CommonSideBarMenuItemProps {
   children?: ReactNode
@@ -36,7 +41,7 @@ const SideBarMenuItem: React.FC<SideBarMenuItemProps> = ({ icon, isActive, child
         aria-current={isActive ? 'page' : undefined}
         {...(props as HTMLAttributes<HTMLButtonElement | HTMLAnchorElement>)}
       >
-        {icon}
+        <ElSideBarMenuItemIcon>{icon}</ElSideBarMenuItemIcon>
         <ElSideBarMenuItemText>{children}</ElSideBarMenuItemText>
       </ItemWrapper>
     </li>

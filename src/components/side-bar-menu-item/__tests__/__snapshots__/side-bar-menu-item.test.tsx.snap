@@ -4,10 +4,14 @@ exports[`SideBarMenuItem > should render anchor item and match snapshot 1`] = `
 <DocumentFragment>
   <li>
     <a
-      class="mocked-styled-2 el-side-bar-menu-item-anchor"
+      class="mocked-styled-3 el-side-bar-menu-item-anchor"
       href="#"
     >
-      <div />
+      <span
+        class="mocked-styled-1 el-side-bar-menu-item-icon"
+      >
+        <div />
+      </span>
       <span
         class="mocked-styled-0 el-side-bar-menu-item-text"
       >
@@ -23,9 +27,13 @@ exports[`SideBarMenuItem > should render button item with isActive props and mat
   <li>
     <button
       aria-current="page"
-      class="mocked-styled-1 el-side-bar-menu-item-button"
+      class="mocked-styled-2 el-side-bar-menu-item-button"
     >
-      <div />
+      <span
+        class="mocked-styled-1 el-side-bar-menu-item-icon"
+      >
+        <div />
+      </span>
       <span
         class="mocked-styled-0 el-side-bar-menu-item-text"
       >
