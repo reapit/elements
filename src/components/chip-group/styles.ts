@@ -14,7 +14,7 @@ interface ElChipGroupListProps {
 
 export const ElChipGroupList = styled.ul<ElChipGroupListProps>`
   display: flex;
-  gap: 8px;
+  gap: var(--spacing-2);
   list-style: none;
 
   &[data-overflow='scroll'] {

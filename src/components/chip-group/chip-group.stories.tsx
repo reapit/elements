@@ -12,26 +12,46 @@ const meta = {
       defaultValue: 'Filter Chips',
       options: ['Filter Chips', 'Selection Chips'],
       mapping: {
-        'Filter Chips': (
-          <>
-            <ChipGroup.Item {...ChipStories.FilterChip.args}>Apples</ChipGroup.Item>
-            <ChipGroup.Item {...ChipStories.FilterChip.args}>Bananas</ChipGroup.Item>
-            <ChipGroup.Item {...ChipStories.FilterChip.args}>Oranges</ChipGroup.Item>
-            <ChipGroup.Item {...ChipStories.FilterChip.args}>Peanuts</ChipGroup.Item>
-            <ChipGroup.Item {...ChipStories.FilterChip.args}>Strawberries</ChipGroup.Item>
-            <ChipGroup.Item {...ChipStories.FilterChip.args}>Watermelons</ChipGroup.Item>
-          </>
-        ),
-        'Selection Chips': (
-          <>
-            <ChipGroup.Item {...ChipStories.SelectionChip.args}>Red</ChipGroup.Item>
-            <ChipGroup.Item {...ChipStories.SelectionChip.args}>Blue</ChipGroup.Item>
-            <ChipGroup.Item {...ChipStories.SelectionChip.args}>Yellow</ChipGroup.Item>
-            <ChipGroup.Item {...ChipStories.SelectionChip.args}>Pink</ChipGroup.Item>
-            <ChipGroup.Item {...ChipStories.SelectionChip.args}>Black</ChipGroup.Item>
-            <ChipGroup.Item {...ChipStories.SelectionChip.args}>White</ChipGroup.Item>
-          </>
-        ),
+        'Filter Chips': [
+          <ChipGroup.Item key="1" {...ChipStories.FilterChip.args}>
+            Apples
+          </ChipGroup.Item>,
+          <ChipGroup.Item key="2" {...ChipStories.FilterChip.args}>
+            Bananas
+          </ChipGroup.Item>,
+          <ChipGroup.Item key="3" {...ChipStories.FilterChip.args}>
+            Oranges
+          </ChipGroup.Item>,
+          <ChipGroup.Item key="4" {...ChipStories.FilterChip.args}>
+            Peanuts
+          </ChipGroup.Item>,
+          <ChipGroup.Item key="5" {...ChipStories.FilterChip.args}>
+            Strawberries
+          </ChipGroup.Item>,
+          <ChipGroup.Item key="6" {...ChipStories.FilterChip.args}>
+            Watermelons
+          </ChipGroup.Item>,
+        ],
+        'Selection Chips': [
+          <ChipGroup.Item key="1" {...ChipStories.SelectionChip.args}>
+            Red
+          </ChipGroup.Item>,
+          <ChipGroup.Item key="2" {...ChipStories.SelectionChip.args}>
+            Blue
+          </ChipGroup.Item>,
+          <ChipGroup.Item key="3" {...ChipStories.SelectionChip.args}>
+            Yellow
+          </ChipGroup.Item>,
+          <ChipGroup.Item key="4" {...ChipStories.SelectionChip.args}>
+            Pink
+          </ChipGroup.Item>,
+          <ChipGroup.Item key="5" {...ChipStories.SelectionChip.args}>
+            Black
+          </ChipGroup.Item>,
+          <ChipGroup.Item key="6" {...ChipStories.SelectionChip.args}>
+            White
+          </ChipGroup.Item>,
+        ],
       },
     },
     overflow: {
@@ -96,22 +116,32 @@ export const ChipSizing: Story = {
     },
   },
   args: {
-    children: (
-      <>
-        <ChipGroup.Item {...ChipStories.FilterChip.args}>Chip 1</ChipGroup.Item>
-        <ChipGroup.Item {...ChipStories.Disabled.args}>Chip 2</ChipGroup.Item>
-        <ChipGroup.Item {...ChipStories.FilterChip.args}>Chip 3</ChipGroup.Item>
-        <ChipGroup.Item {...ChipStories.FilterChip.args}>Chip 4</ChipGroup.Item>
-        <ChipGroup.Item {...ChipStories.Truncation.args}>
-          Truncation can be applied to ensure a long chip label does not wrap to a second line
-        </ChipGroup.Item>
-        <ChipGroup.Item {...ChipStories.Disabled.args}>Chip 5</ChipGroup.Item>
-        <ChipGroup.Item {...ChipStories.FilterChip.args}>Chip 6</ChipGroup.Item>
-        <ChipGroup.Item {...ChipStories.Wrapping.args}>
-          Or, you can avoid truncation and allow a long chip label to wrap to multiple lines
-        </ChipGroup.Item>
-      </>
-    ),
+    children: [
+      <ChipGroup.Item key="1" {...ChipStories.FilterChip.args}>
+        Chip 1
+      </ChipGroup.Item>,
+      <ChipGroup.Item key="2" {...ChipStories.Disabled.args}>
+        Chip 2
+      </ChipGroup.Item>,
+      <ChipGroup.Item key="3" {...ChipStories.FilterChip.args}>
+        Chip 3
+      </ChipGroup.Item>,
+      <ChipGroup.Item key="4" {...ChipStories.FilterChip.args}>
+        Chip 4
+      </ChipGroup.Item>,
+      <ChipGroup.Item key="5" {...ChipStories.Truncation.args}>
+        Truncation can be applied to ensure a long chip label does not wrap to a second line
+      </ChipGroup.Item>,
+      <ChipGroup.Item key="6" {...ChipStories.Disabled.args}>
+        Chip 5
+      </ChipGroup.Item>,
+      <ChipGroup.Item key="7" {...ChipStories.FilterChip.args}>
+        Chip 6
+      </ChipGroup.Item>,
+      <ChipGroup.Item key="8" {...ChipStories.Wrapping.args}>
+        Or, you can avoid truncation and allow a long chip label to wrap to multiple lines
+      </ChipGroup.Item>,
+    ],
     overflow: 'wrap',
   },
   decorators: [useNarrowParentDecorator],
