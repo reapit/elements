@@ -45,10 +45,10 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const useNarrowParentDecorator: Decorator = (Story, args) => {
+const useNarrowParentDecorator: Decorator = (Story) => {
   return (
     <div style={{ border: '1px solid #FA00FF', width: '397px' }}>
-      <Story {...args} />
+      <Story />
     </div>
   )
 }
@@ -89,7 +89,7 @@ export const Scrolling: Story = {
  * Whether wrapping or scrolling is used, chips will size themselves appropriately based on the
  * length of their label.
  */
-export const ChipLabels: Story = {
+export const ChipSizing: Story = {
   argTypes: {
     children: {
       control: false,
@@ -102,10 +102,14 @@ export const ChipLabels: Story = {
         <ChipGroup.Item {...ChipStories.Disabled.args}>Chip 2</ChipGroup.Item>
         <ChipGroup.Item {...ChipStories.FilterChip.args}>Chip 3</ChipGroup.Item>
         <ChipGroup.Item {...ChipStories.FilterChip.args}>Chip 4</ChipGroup.Item>
-        <ChipGroup.Item {...ChipStories.Truncation.args} />
+        <ChipGroup.Item {...ChipStories.Truncation.args}>
+          Truncation can be applied to ensure a long chip label does not wrap to a second line
+        </ChipGroup.Item>
         <ChipGroup.Item {...ChipStories.Disabled.args}>Chip 5</ChipGroup.Item>
         <ChipGroup.Item {...ChipStories.FilterChip.args}>Chip 6</ChipGroup.Item>
-        <ChipGroup.Item {...ChipStories.Wrapping.args} />
+        <ChipGroup.Item {...ChipStories.Wrapping.args}>
+          Or, you can avoid truncation and allow a long chip label to wrap to multiple lines
+        </ChipGroup.Item>
       </>
     ),
     overflow: 'wrap',

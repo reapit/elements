@@ -70,10 +70,10 @@ export const Disabled: Story = {
   },
 }
 
-const useNarrowParentDecorator: Decorator = (Story, args) => {
+const useNarrowParentDecorator: Decorator = (Story) => {
   return (
     <div style={{ width: '300px' }}>
-      <Story {...args} />
+      <Story />
     </div>
   )
 }
