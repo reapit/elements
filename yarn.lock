@@ -2011,6 +2011,7 @@ __metadata:
     "@storybook/react-dom-shim": "npm:^8.0.7"
     "@storybook/react-vite": "npm:^8.0.7"
     "@storybook/theming": "npm:^8.0.7"
+    "@storybook/types": "npm:^8.0.7"
     "@testing-library/jest-dom": "npm:^6.6.3"
     "@testing-library/react": "npm:^15.0.0"
     "@testing-library/react-hooks": "npm:^8.0.1"
@@ -2781,6 +2782,15 @@ __metadata:
   peerDependencies:
     storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
   checksum: 10/b1c613c17394563865d1f572e32650e7775fba5f7fd83f7e0ae05a7b4fc52ac0696fcca45036f933773ff08108a9a7c899601feedba406a66f5d3cc2018040ab
+  languageName: node
+  linkType: hard
+
+"@storybook/types@npm:^8.0.7":
+  version: 8.5.4
+  resolution: "@storybook/types@npm:8.5.4"
+  peerDependencies:
+    storybook: ^8.2.0 || ^8.3.0-0 || ^8.4.0-0 || ^8.5.0-0 || ^8.6.0-0
+  checksum: 10/cef10f31612086ea6b620f0a6bdc32b730fa270e1f2142dfb934e93ccc4f7f09dc4cc9f71d8600a7980a5b6240e542f4bfb2979f3f8c72116f742d3df3024859
   languageName: node
   linkType: hard
 
