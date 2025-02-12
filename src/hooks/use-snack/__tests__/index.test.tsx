@@ -1,7 +1,7 @@
+import React, { PropsWithChildren } from 'react'
 import { render } from '@testing-library/react'
 import { SnackProvider, UseSnack, useSnack } from '../index'
 import { renderHook } from '@testing-library/react-hooks'
-import { PropsWithChildren } from '../../../types/core'
 
 describe('useSnack', () => {
   it('should return UseSnack state', async () => {

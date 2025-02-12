@@ -1,8 +1,9 @@
-import { useRef, type FC } from 'react'
+import { ReactNode, useRef, type FC } from 'react'
 
 let baseId = 1
 
 interface CSSContainerQueryProps {
+  children: ReactNode
   condition: string
 }
 

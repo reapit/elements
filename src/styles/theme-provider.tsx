@@ -1,5 +1,4 @@
-import { FC, useMemo } from 'react'
-import { PropsWithChildren } from '../types/core'
+import React, { FC, PropsWithChildren, useMemo } from 'react'
 
 export interface ElementsThemeProviderProps extends PropsWithChildren {
   theme: {
