@@ -9,21 +9,30 @@ import { AvatarRectangle } from '../../avatar-rectangle'
 const meta: Meta<typeof TableBody> = {
   title: 'Components/TableBody',
   component: TableBody,
+  parameters: {
+    docs: {
+      description: {
+        component: 'The `TableBody` component is used within a `Table` to render the main content of the table.',
+      },
+    },
+  },
 }
 
 export default meta
 
 export const BasicUsage = {
-  render: ({}) => (
+  render: () => (
     <TableContainer>
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
         <thead>
-          <th>Checkbox Header</th>
-          <th>First Header</th>
-          <th>Image Header</th>
-          <th>Second Header</th>
-          <th>Third Header</th>
+          <tr>
+            <th>Checkbox</th>
+            <th>First Name</th>
+            <th>Profile Picture</th>
+            <th>Last Name</th>
+            <th>Details</th>
+          </tr>
         </thead>
         <TableBody>
           {Array.from({ length: 5 }, (_, index) => (
@@ -31,16 +40,28 @@ export const BasicUsage = {
               <td>
                 <Input type="checkbox" />
               </td>
-              <td>First Column</td>
+              <td>John Doe</td>
               <td>
-                <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
+                <AvatarRectangle
+                  variant="residential"
+                  size="medium"
+                  src="https://picsum.photos/seed/picsum/200/300"
+                  alt="User avatar"
+                />
               </td>
-              <td>Second Column</td>
-              <td>Last Column</td>
+              <td>Doe</td>
+              <td>View Details</td>
             </tr>
           ))}
         </TableBody>
       </Table>
     </TableContainer>
   ),
+  parameters: {
+    docs: {
+      description: {
+        story: 'This example demonstrates the basic usage of the `TableBody` component inside a `Table`. It includes checkboxes, text columns, and images.',
+      },
+    },
+  },
 }

@@ -2,39 +2,10 @@
 
 exports[`Table > should match snapshot 1`] = `
 <DocumentFragment>
-  <div
-    class="mocked-styled-4 el-table-container"
+  <table
+    class="mocked-styled-0 el-table"
   >
-    <div
-      class="mocked-styled-1 el-table-toolbar"
-    >
-      <div
-        class="mocked-styled-2 el-table-toolbar-description"
-      >
-        125 Properties
-      </div>
-      <div
-        class="mocked-styled-3 el-table-toolbar-actions"
-      >
-        Page Size menu component goes here
-      </div>
-    </div>
-    <table
-      class="mocked-styled-0 el-table"
-    >
-      <thead>
-        <th>
-          Head 1
-        </th>
-      </thead>
-      <tbody>
-        <tr>
-          <td>
-            Row 1
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+    Mock Child
+  </table>
 </DocumentFragment>
 `;
