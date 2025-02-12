@@ -2,7 +2,7 @@ import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { Source, SourceProps } from '@storybook/blocks'
 import prettier from 'prettier'
 import htmlParser from 'prettier/plugins/html'
-import { Args, Renderer, StoryContext } from '@storybook/types'
+import { Args, Renderer, StoryContextForLoaders } from '@storybook/types'
 import { Accordion } from '../components/accordion'
 import { Tile } from '../components/tile'
 import { cx } from '@linaria/core'
@@ -11,7 +11,7 @@ import { createRoot } from 'react-dom/client'
 import { flushSync } from 'react-dom'
 
 const handleGetRawHTML =
-  (storyContext: StoryContext<Renderer, Args> | null, setRaw: Dispatch<SetStateAction<string>>) => () => {
+  (storyContext: StoryContextForLoaders<Renderer, Args> | null, setRaw: Dispatch<SetStateAction<string>>) => () => {
     if (storyContext) {
       const component = storyContext.originalStoryFn(storyContext.args as any, storyContext as any) as JSX.Element
       const div = document.createElement('div')
@@ -40,14 +40,14 @@ const handleFormatHTML = (raw: string | null, setHtml: Dispatch<SetStateAction<s
 
 export const handleTransform =
   (
-    setStoryContext: Dispatch<SetStateAction<StoryContext<Renderer, Args> | null>>,
-    storyContext: StoryContext<Renderer, Args> | null,
+    setStoryContext: Dispatch<SetStateAction<StoryContextForLoaders<Renderer, Args> | null>>,
+    storyContext: StoryContextForLoaders<Renderer, Args> | null,
     html: string,
   ) =>
-  (code: string, context: Omit<StoryContext<Renderer, Args>, 'step' | 'canvasElement' | 'abortSignal' | 'context'>) => {
+  (code: string, context: StoryContextForLoaders<Renderer, Args>) => {
     if (!storyContext) {
       setTimeout(() => {
-        setStoryContext(context as StoryContext<Renderer, Args>)
+        setStoryContext(context)
       }, 100)
     }
 
@@ -55,7 +55,7 @@ export const handleTransform =
   }
 
 export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
-  const [storyContext, setStoryContext] = useState<StoryContext<Renderer, Args> | null>(null)
+  const [storyContext, setStoryContext] = useState<StoryContextForLoaders<Renderer, Args> | null>(null)
   const [html, setHtml] = useState<string>('')
   const [raw, setRaw] = useState<string>('')
 
