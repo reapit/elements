@@ -5,4 +5,6 @@ test('should import all exports from index.ts', () => {
   expect(TableExports).toHaveProperty('TableContainer')
   expect(TableExports).toHaveProperty('TableToolbar')
   expect(TableExports).toHaveProperty('TableBody')
+  expect(TableExports).toHaveProperty('TableHead')
+  expect(TableExports).toHaveProperty('TableBody')
 })

@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react'
-import { isBelowDesktop } from '../../../styles/media'
 
 export const ElTableHead = styled.thead`
   width: 100%;
@@ -11,8 +10,5 @@ export const ElTableHead = styled.thead`
     top: -1rem;
     background: white;
     z-index: 100;
-  }
-  ${isBelowDesktop} {
-    display: none;
   }
 `

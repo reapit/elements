@@ -11,6 +11,19 @@ import { AvatarRectangle } from '../../avatar-rectangle'
 const meta: Meta<typeof TableHeaderCell> = {
   title: 'Components/TableHeaderCell',
   component: TableHeaderCell,
+  parameters: {
+    docs: {
+      description: {
+        component: `
+          The \`TableHeaderCell\` component represents a header cell in a table. 
+          It is typically used within the \`TableHead\` component to define column headers.
+          It allows customization of alignment, width, and other properties like flex direction and wrapping behavior.
+          
+          You can customize its content with a wide range of styles and options, making it flexible for various table use cases.
+        `,
+      },
+    },
+  },
 }
 
 export default meta
@@ -18,7 +31,7 @@ export default meta
 export const BasicUsage = {
   render: (args) => (
     <TableContainer>
-      <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
+      <TableToolbar description="125 Properties" actions="Page size menu component goes here" />
       <Table>
         <TableHead>
           <TableHeaderCell {...args} maxWidth="30px">
@@ -53,7 +66,7 @@ export const BasicUsage = {
   argTypes: {
     alignment: {
       control: 'select',
-      description: 'Defines label text alignment children',
+      description: 'Defines the alignment of the header text within the cell.',
       options: ['left', 'center', 'right'],
       table: {
         type: { summary: 'enum' },
@@ -62,19 +75,20 @@ export const BasicUsage = {
     },
     width: {
       control: 'text',
-      description: 'Defines label text width for the children',
+      description: 'Sets the width of the header cell. This value is a CSS width value (e.g., "100px").',
     },
     minWidth: {
       control: 'text',
-      description: 'Defines label text minWidth for the children',
+      description: 'Defines the minimum width for the header cell. The cell won’t shrink smaller than this value.',
     },
     maxWidth: {
       control: 'text',
-      description: 'Defines label text minWidth for the children',
+      description: 'Defines the maximum width for the header cell. The cell won’t expand beyond this value.',
     },
     flexDirection: {
       control: 'select',
-      description: 'Defines TableCell flex direction to row or column without adding new wrapper on child content',
+      description:
+        'Sets the flex direction for the content of the header cell. This can be set to "row" or "column" to arrange the content accordingly.',
       options: ['column', 'row'],
       table: {
         type: { summary: 'enum' },
@@ -84,7 +98,7 @@ export const BasicUsage = {
     isFlexWrap: {
       control: 'boolean',
       description:
-        'Defines TableCell wrap or nowrap for the children of we have custom child without adding new wrapper',
+        'Determines whether the content inside the header cell should wrap. If set to true, content will wrap; if false, content will not wrap.',
     },
   },
 }
