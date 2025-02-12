@@ -60,7 +60,8 @@ export const BasicUsage = {
   parameters: {
     docs: {
       description: {
-        story: 'This example demonstrates the basic usage of the `TableBody` component inside a `Table`. It includes checkboxes, text columns, and images.',
+        story:
+          'This example demonstrates the basic usage of the `TableBody` component inside a `Table`. It includes checkboxes, text columns, and images.',
       },
     },
   },
