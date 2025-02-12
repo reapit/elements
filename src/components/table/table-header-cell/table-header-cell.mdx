@@ -1,0 +1,15 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../../storybook/render-html-markup'
+import * as TableHeaderCellStories from './table-header-cell.stories'
+
+<Meta of={TableHeaderCellStories} />
+
+# TableHeaderCell
+Typically TableHeaderCell are used as TableHead children, and its will have `div` children as the wrapper content.
+
+## Basic Usage
+
+<Canvas of={TableHeaderCellStories.BasicUsage} />
+<Controls />
+
+<RenderHtmlMarkup of={TableHeaderCellStories.BasicUsage} />

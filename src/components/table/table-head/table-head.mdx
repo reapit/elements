@@ -1,0 +1,18 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../../storybook/render-html-markup'
+import * as TableHeadStories from './table-head.stories'
+
+<Meta of={TableHeadStories} />
+
+# TableHead
+  Typically TableHead are used as Row for header of table, and its will hidden if it in mobile devices.
+
+## Basic Usage
+<Canvas of={TableHeadStories.BasicUsage} />
+
+## Basic Display With Sticky Header
+<Canvas of={TableHeadStories.DisplayWithStickyHeader} />
+<Controls />
+
+
+<RenderHtmlMarkup of={TableHeadStories.BasicUsage} />

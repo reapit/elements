@@ -1,0 +1,24 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableHeaderCell > should match snapshot 1`] = `
+<DocumentFragment>
+  <table
+    class="mocked-styled-3 el-table"
+  >
+    <div
+      class="mocked-styled-0 el-table-toolbar"
+    >
+      <div
+        class="mocked-styled-1 el-table-toolbar-description"
+      >
+        125 Properties
+      </div>
+      <div
+        class="mocked-styled-2 el-table-toolbar-actions"
+      >
+        Page Size menu component goes here
+      </div>
+    </div>
+  </table>
+</DocumentFragment>
+`;
