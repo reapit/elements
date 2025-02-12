@@ -2,22 +2,11 @@
 
 exports[`TableRow > should match snapshot 1`] = `
 <DocumentFragment>
-  <table
-    class="mocked-styled-1 el-table"
+  <tr
+    class="mocked-styled-0 el-table-row"
+    role="row"
   >
-    <tbody
-      class="mocked-styled-2 el-table-body"
-      role="rowgroup"
-    >
-      <tr
-        class="mocked-styled-0 el-table-row"
-        role="row"
-      >
-        <td>
-          exampe row
-        </td>
-      </tr>
-    </tbody>
-  </table>
+    Mock Children
+  </tr>
 </DocumentFragment>
 `;
