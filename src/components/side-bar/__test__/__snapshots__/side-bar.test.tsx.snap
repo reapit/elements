@@ -6,7 +6,11 @@ exports[`SideBar > should match snapshot 1`] = `
     aria-label="Sidebar Navigation"
     class="mocked-styled-0 el-side-bar"
   >
-    Sample content
+    <ul
+      class="mocked-styled-1 elside-bar-menu-list"
+    >
+      SideBar list content
+    </ul>
   </nav>
 </DocumentFragment>
 `;
