@@ -90,6 +90,7 @@
     "@storybook/react-dom-shim": "^8.0.7",
     "@storybook/react-vite": "^8.0.7",
     "@storybook/theming": "^8.0.7",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^12.1.5",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/babel__core": "^7",
