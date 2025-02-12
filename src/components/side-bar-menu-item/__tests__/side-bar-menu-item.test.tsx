@@ -13,7 +13,7 @@ describe('SideBarMenuItem', () => {
 
   it('should render active item and match snapshot', () => {
     const { asFragment } = render(
-      <SideBarMenuItem icon={<div />} isActive>
+      <SideBarMenuItem icon={<div />} isActive href="/#">
         a link
       </SideBarMenuItem>,
     )

@@ -1,5 +1,5 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
-import { ElSideBarMenuItemAnchor, ElSideBarMenuItemIcon, ElSideBarMenuItemText } from './styles'
+import { ElSideBarMenuItem, ElSideBarMenuItemIcon, ElSideBarMenuItemText, elSideBarMenuItemAnchor } from './styles'
 
 export interface SideBarMenuItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children?: ReactNode
@@ -13,15 +13,16 @@ export interface SideBarMenuItemProps extends AnchorHTMLAttributes<HTMLAnchorEle
    */
   isActive?: boolean
   icon: ReactNode
+  href: string
 }
 
 const SideBarMenuItem: React.FC<SideBarMenuItemProps> = ({ icon, isActive, children, ...props }) => {
   return (
     <li>
-      <ElSideBarMenuItemAnchor aria-current={isActive ? 'page' : undefined} {...props}>
+      <ElSideBarMenuItem className={elSideBarMenuItemAnchor} aria-current={isActive ? 'page' : undefined} {...props}>
         <ElSideBarMenuItemIcon>{icon}</ElSideBarMenuItemIcon>
         <ElSideBarMenuItemText>{children}</ElSideBarMenuItemText>
-      </ElSideBarMenuItemAnchor>
+      </ElSideBarMenuItem>
     </li>
   )
 }

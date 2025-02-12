@@ -1,7 +1,12 @@
 import { figmaDesignUrls } from '#src/storybook/figma/index'
 import type { Meta, StoryObj } from '@storybook/react'
 import { SideBar } from './side-bar'
-import { SideBarMenuItem } from '../side-bar-menu-item'
+import {
+  elSideBarMenuItemAnchor,
+  ElSideBarMenuItemIcon,
+  ElSideBarMenuItemText,
+  SideBarMenuItem,
+} from '../side-bar-menu-item'
 import { Icon } from '../icon'
 
 export default {
@@ -39,11 +44,19 @@ export const Default: Story = {
 
         <SideBar>
           <SideBar.MenuList>
-            <SideBarMenuItem isActive icon={<Icon icon="property" />} onClick={console.log}>
+            <SideBarMenuItem isActive icon={<Icon icon="property" />} href="#">
               SideBar Item (active)
             </SideBarMenuItem>
 
-            <SideBarMenuItem icon={<Customicon />} onClick={console.log}>
+            <li>
+              <a href="#" className={elSideBarMenuItemAnchor}>
+                <ElSideBarMenuItemIcon>
+                  <Icon icon="property" />
+                </ElSideBarMenuItemIcon>
+                <ElSideBarMenuItemText>Custom Link</ElSideBarMenuItemText>
+              </a>
+            </li>
+            <SideBarMenuItem icon={<Customicon />} href="#">
               External Icon
             </SideBarMenuItem>
 

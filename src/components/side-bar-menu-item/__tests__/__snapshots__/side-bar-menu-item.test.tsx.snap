@@ -5,7 +5,8 @@ exports[`SideBarMenuItem > should render active item and match snapshot 1`] = `
   <li>
     <a
       aria-current="page"
-      class="mocked-styled-2 el-side-bar-menu-item-anchor"
+      class="el-side-bar-menu-item-anchor el-side-bar-menu-item"
+      href="/#"
     >
       <span
         class="mocked-styled-1 el-side-bar-menu-item-icon"
@@ -26,7 +27,7 @@ exports[`SideBarMenuItem > should render item and match snapshot 1`] = `
 <DocumentFragment>
   <li>
     <a
-      class="mocked-styled-2 el-side-bar-menu-item-anchor"
+      class="el-side-bar-menu-item-anchor el-side-bar-menu-item"
       href="#"
     >
       <span

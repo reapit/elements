@@ -1,3 +1,4 @@
+import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 export const ElSideBarMenuItemText = styled.span`
@@ -22,7 +23,7 @@ export const ElSideBarMenuItemIcon = styled.span`
   padding: var(--spacing-half);
 `
 
-export const ElSideBarMenuItemAnchor = styled.a`
+export const elSideBarMenuItemAnchor = css`
   width: 100%;
 
   display: flex;
@@ -48,3 +49,5 @@ export const ElSideBarMenuItemAnchor = styled.a`
     }
   }
 `
+
+export const ElSideBarMenuItem = styled.a``
