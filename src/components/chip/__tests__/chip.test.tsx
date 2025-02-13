@@ -7,6 +7,17 @@ test('renders as a <button> element', () => {
   expect(screen.getByRole('button', { name: 'Label' })).toBeVisible()
 })
 
+test('calls `onClick`', () => {
+  const handleClick = vi.fn()
+  render(
+    <Chip onClick={handleClick} variant="filter">
+      Label
+    </Chip>,
+  )
+  fireEvent.click(screen.getByRole('button', { name: 'Label' }))
+  expect(handleClick).toHaveBeenCalled()
+})
+
 test('filter chip has `data-variant="filter"` attribute', () => {
   render(<Chip variant="filter">Label</Chip>)
   expect(screen.getByRole('button', { name: 'Label' })).toHaveAttribute('data-variant', 'filter')

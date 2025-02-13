@@ -38,8 +38,14 @@ export default defineConfig({
         'src/tests',
         'src/tokens',
         'src/types',
+        // Note: We don't want to report coverage for:
+        // - barrel files
+        '**/index.ts',
+        // - our tests themselves
         '**/*.test.*',
+        // - our stories
         '**/*.stories.*',
+        // - any type declaration files
         '**/*.d.ts',
       ],
       include: ['src/**/*.ts', 'src/**/*.tsx'],
