@@ -1,8 +1,7 @@
-import { FC, HTMLAttributes, Ref, RefObject, createRef, useEffect } from 'react'
+import { FC, HTMLAttributes, Ref, RefObject, createRef, useEffect, useId } from 'react'
 import { cx } from '@linaria/core'
 import { ModalBg, ModalContainer, ModalHeader, ModalBody } from './modal.atoms'
 import { elIsActive } from '../../styles/states'
-import { useId } from '../../storybook/random-id'
 import { ModalProps } from './types'
 
 export const handleModalFocus = (modalRef: RefObject<HTMLDivElement>, isOpen: boolean) => () => {
@@ -18,7 +17,7 @@ export const handleModalFocus = (modalRef: RefObject<HTMLDivElement>, isOpen: bo
  * Use the `Dialog` component instead
  */
 export const Modal: FC<ModalProps> = ({ isOpen, onModalClose, title, className, children, ...rest }) => {
-  const id = useId(rest.id)
+  const id = rest.id || useId()
   const modalRef = createRef<HTMLDivElement>()
 
   useEffect(() => {

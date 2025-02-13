@@ -1,5 +1,14 @@
-import React, { createContext, Dispatch, SetStateAction, useContext, useState, MouseEvent, useEffect, FC } from 'react'
-import { PropsWithChildren } from '../../types/core'
+import React, {
+  createContext,
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useState,
+  MouseEvent,
+  useEffect,
+  PropsWithChildren,
+  FC,
+} from 'react'
 
 export interface NavState {
   navItemIndex: number | null

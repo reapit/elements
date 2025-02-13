@@ -1,7 +1,6 @@
-import { createContext, useState, useRef, useContext, FC } from 'react'
+import React, { createContext, useState, useRef, useContext, PropsWithChildren, FC } from 'react'
 import { SnackProps, SnackHolder } from '../../components/snack'
 import { generateRandomId } from '../../storybook/random-id'
-import { PropsWithChildren } from '../../types/core'
 
 export interface SnackContextProps {
   addSnackWithTimeout: (snack: SnackProps, timeout: number) => void

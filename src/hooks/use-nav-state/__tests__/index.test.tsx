@@ -1,8 +1,7 @@
-import { MouseEvent } from 'react'
+import React, { MouseEvent, PropsWithChildren } from 'react'
 import { render } from '@testing-library/react'
 import { UseNavState, NavStateProvider, useNavState } from '../index'
 import { renderHook, act } from '@testing-library/react-hooks'
-import { PropsWithChildren } from '../../../types/core'
 
 describe('NavStateProvider', () => {
   it('should match snapshot', () => {
