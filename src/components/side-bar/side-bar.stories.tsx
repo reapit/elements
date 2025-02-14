@@ -1,6 +1,13 @@
 import { figmaDesignUrls } from '#src/storybook/figma/index'
 import type { Meta, StoryObj } from '@storybook/react'
 import { SideBar } from './side-bar'
+import {
+  elSideBarMenuItemAnchor,
+  ElSideBarMenuItemIcon,
+  ElSideBarMenuItemText,
+  SideBarMenuItem,
+} from '../side-bar-menu-item'
+import { Icon } from '../icon'
 
 export default {
   title: 'Components/Side Bar',
@@ -8,6 +15,13 @@ export default {
 } as Meta<typeof SideBar>
 
 type Story = StoryObj<typeof SideBar>
+
+const Customicon = () => (
+  <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
+    <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+  </svg>
+)
 
 export const Default: Story = {
   render: () => {
@@ -27,7 +41,34 @@ export const Default: Story = {
             }
           `}
         </style>
-        <SideBar>Placeholder sidebar content</SideBar>
+
+        <SideBar>
+          <SideBar.MenuList>
+            <SideBarMenuItem isActive icon={<Icon icon="property" />} href="#">
+              SideBar Item (active)
+            </SideBarMenuItem>
+
+            <li>
+              <a href="#" className={elSideBarMenuItemAnchor}>
+                <ElSideBarMenuItemIcon>
+                  <Icon icon="property" />
+                </ElSideBarMenuItemIcon>
+                <ElSideBarMenuItemText>Custom Link</ElSideBarMenuItemText>
+              </a>
+            </li>
+            <SideBarMenuItem icon={<Customicon />} href="#">
+              External Icon
+            </SideBarMenuItem>
+
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => {
+              return (
+                <SideBarMenuItem key={i} icon={<Icon icon="property" />} href="/#">
+                  SideBar Item
+                </SideBarMenuItem>
+              )
+            })}
+          </SideBar.MenuList>
+        </SideBar>
         <main
           style={{
             width: '100%',
