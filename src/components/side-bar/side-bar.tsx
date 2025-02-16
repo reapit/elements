@@ -1,10 +1,16 @@
 import type { FC, HTMLAttributes } from 'react'
-import { ElSideBar } from './styles'
+import { ElSideBar, ELSideBarMenuList } from './styles'
 
-const SideBar: FC<HTMLAttributes<HTMLElement>> = ({ children, ...props }) => (
+type SideBarFC = FC<HTMLAttributes<HTMLElement>> & {
+  MenuList: typeof ELSideBarMenuList
+}
+
+const SideBar: SideBarFC = ({ children, ...props }) => (
   <ElSideBar aria-label="Sidebar Navigation" {...props}>
     {children}
   </ElSideBar>
 )
+
+SideBar.MenuList = ELSideBarMenuList
 
 export { SideBar }
