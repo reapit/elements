@@ -3,7 +3,7 @@
 exports[`ControlledSearchableDropdown component > should display default value 1`] = `
 <DocumentFragment>
   <div
-    aria-controls="test-static-id"
+    aria-controls=":r6:"
     aria-expanded="false"
     aria-haspopup="listbox"
     class="mocked-styled-8 el-searchable-dropdown-container"
@@ -70,7 +70,7 @@ exports[`ControlledSearchableDropdown component > should display default value 1
 exports[`ControlledSearchableDropdown component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    aria-controls="test-static-id"
+    aria-controls=":r4:"
     aria-expanded="false"
     aria-haspopup="listbox"
     class="mocked-styled-8 el-searchable-dropdown-container"
@@ -119,7 +119,7 @@ exports[`ControlledSearchableDropdown component > should match a snapshot 1`] = 
 exports[`SearchableDropdown component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    aria-controls="test-static-id"
+    aria-controls=":r0:"
     aria-expanded="false"
     aria-haspopup="listbox"
     class="mocked-styled-8 el-searchable-dropdown-container"

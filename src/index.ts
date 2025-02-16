@@ -65,6 +65,7 @@ export * from './components/table/table-toolbar'
 export * from './components/empty-data'
 export * from './components/label-text'
 export * from './components/features'
+export * from './components/badge'
 
 export * from './hooks/use-portal'
 export * from './hooks/use-snack'

@@ -7,16 +7,17 @@ import { Accordion } from '../components/accordion'
 import { Tile } from '../components/tile'
 import { cx } from '@linaria/core'
 import { elMb6, elMt6 } from '..'
-import { flushSync, render } from 'react-dom'
+import { createRoot } from 'react-dom/client'
+import { flushSync } from 'react-dom'
 
 const handleGetRawHTML =
   (storyContext: StoryContextForLoaders<Renderer, Args> | null, setRaw: Dispatch<SetStateAction<string>>) => () => {
     if (storyContext) {
       const component = storyContext.originalStoryFn(storyContext.args as any, storyContext as any) as JSX.Element
       const div = document.createElement('div')
-
+      const root = createRoot(div)
       flushSync(() => {
-        render(component, div)
+        root.render(component)
       })
       setRaw(div.innerHTML)
     }
