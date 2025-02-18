@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableRow > should match snapshot 1`] = `
+<DocumentFragment>
+  <tr
+    class="mocked-styled-0 el-table-row"
+    role="row"
+  >
+    Mock Children
+  </tr>
+</DocumentFragment>
+`;
