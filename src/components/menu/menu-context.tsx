@@ -1,9 +1,13 @@
-import { createContext, useContext, type FC } from 'react'
+import { createContext, ReactNode, useContext, type FC } from 'react'
 import { useMenu } from '../../hooks/use-menu'
+
+interface MenuProviderProps {
+  children: ReactNode
+}
 
 const MenuContext = createContext<useMenu | null>(null)
 
-const MenuProvider: FC = ({ children }) => {
+const MenuProvider: FC<MenuProviderProps> = ({ children }) => {
   const menu = useMenu()
 
   return <MenuContext.Provider value={menu}>{children}</MenuContext.Provider>
