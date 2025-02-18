@@ -1,11 +1,11 @@
 import { styled } from '@linaria/react'
-interface ITableCellConfiguration {
+interface TableCellProps {
   width?: string
   minWidth?: string
   maxWidth?: string
 }
 
-interface IElTableHeaderCellContentConfiguration {
+interface TableHeaderCellContentProps {
   isFlexWrap?: boolean
 }
 
@@ -13,12 +13,12 @@ const getFlexWrap = (isFlexWrap?: boolean): string => {
   return isFlexWrap ? 'wrap' : 'nowrap'
 }
 
-export const ElTableHeaderCell = styled.th<ITableCellConfiguration>`
+export const ElTableHeaderCell = styled.th<TableCellProps>`
   width: ${({ width }) => width || 'auto'};
   min-width: ${({ minWidth }) => minWidth || 'auto'};
   max-width: ${({ maxWidth }) => maxWidth || 'auto'};
   gap: var(--spacing-1);
-  // flex: auto;
+  flex: auto;
   align-items: center;
   &[data-alignment='left'] {
     text-align: left;
@@ -30,7 +30,7 @@ export const ElTableHeaderCell = styled.th<ITableCellConfiguration>`
     text-align: right;
   }
 `
-export const ElTableHeaderCellContent = styled.div<IElTableHeaderCellContentConfiguration>`
+export const ElTableHeaderCellContent = styled.div<TableHeaderCellContentProps>`
   width: 100%;
   padding: var(--spacing-2);
   gap: var(--spacing-1);
