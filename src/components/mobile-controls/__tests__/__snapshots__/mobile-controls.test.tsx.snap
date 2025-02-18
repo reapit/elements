@@ -8,10 +8,10 @@ exports[`MobileControls component > should match a snapshot 1`] = `
   />
   <div
     class="mocked-styled-1 el-mobile-controls"
-    id="test-static-id"
+    id=":r0:"
   >
     <button
-      aria-controls="test-static-id"
+      aria-controls=":r0:"
       aria-disabled="false"
       class="el-floating-button el-button-size-medium el-button-icon-only el-button"
       data-variant="primary"
@@ -51,7 +51,7 @@ exports[`MobileControls component > should match a snapshot with full props 1`] 
   />
   <div
     class="el-mobile-controls-visible el-mobile-controls"
-    id="test-static-id"
+    id=":r1:"
   >
     <a
       aria-hidden="true"
@@ -75,7 +75,7 @@ exports[`MobileControls component > should match a snapshot with full props 1`] 
       Item Three
     </a>
     <button
-      aria-controls="test-static-id"
+      aria-controls=":r1:"
       aria-disabled="false"
       class="el-floating-button el-button-size-medium el-button-icon-only el-button"
       data-variant="primary"
