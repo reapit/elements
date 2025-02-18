@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, ThHTMLAttributes } from 'react'
 import { ElTableHeaderCell, ElTableHeaderCellContent } from './styles'
 
-export interface ITableHeaderProps extends ThHTMLAttributes<HTMLTableCellElement> {
+export interface TableHeaderProps extends ThHTMLAttributes<HTMLTableCellElement> {
   children: ReactNode
   alignment?: 'left' | 'center' | 'right'
   width?: string
@@ -11,7 +11,7 @@ export interface ITableHeaderProps extends ThHTMLAttributes<HTMLTableCellElement
   isFlexWrap?: boolean
 }
 
-export const TableHeaderCell: FC<ITableHeaderProps> = ({
+export const TableHeaderCell: FC<TableHeaderProps> = ({
   children,
   alignment = 'left',
   flexDirection = 'column',
@@ -19,7 +19,7 @@ export const TableHeaderCell: FC<ITableHeaderProps> = ({
   ...rest
 }) => {
   return (
-    <ElTableHeaderCell role="cell" {...rest} data-alignment={alignment}>
+    <ElTableHeaderCell {...rest} data-alignment={alignment}>
       <ElTableHeaderCellContent data-flex-direction={flexDirection} isFlexWrap={isFlexWrap}>
         {children}
       </ElTableHeaderCellContent>

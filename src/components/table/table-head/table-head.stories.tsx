@@ -16,38 +16,6 @@ const meta: Meta<typeof TableHead> = {
 export default meta
 
 export const BasicUsage = {
-  render: ({}) => (
-    <TableContainer>
-      <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
-      <Table>
-        <TableHead>
-          <TableHeaderCell maxWidth="30px">Checkbox Header</TableHeaderCell>
-          <TableHeaderCell>First Header</TableHeaderCell>
-          <TableHeaderCell>Image Header</TableHeaderCell>
-          <TableHeaderCell>Second Header</TableHeaderCell>
-          <TableHeaderCell>Third Header</TableHeaderCell>
-        </TableHead>
-        <TableBody>
-          {Array.from({ length: 10 }, (_, index) => (
-            <tr key={index}>
-              <td>
-                <Input type="checkbox" />
-              </td>
-              <td>First Column</td>
-              <td>
-                <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
-              </td>
-              <td>Second Column</td>
-              <td>Last Column</td>
-            </tr>
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
-  ),
-}
-
-export const DisplayWithStickyHeader = {
   render: (args) => (
     <TableContainer>
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
@@ -79,15 +47,5 @@ export const DisplayWithStickyHeader = {
   ),
   args: {
     isSticky: true,
-  },
-  argTypes: {
-    isSticky: {
-      control: 'boolean',
-      description: 'Defines TableHead to have sticky possition',
-      table: {
-        type: { summary: 'enum' },
-        defaultValue: { summary: 'false' },
-      },
-    },
   },
 }

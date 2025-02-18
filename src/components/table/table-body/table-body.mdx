@@ -5,7 +5,35 @@ import * as TableBodyStories from './table-body.stories'
 <Meta of={TableBodyStories} />
 
 # TableBody
-  Typically TableBody are used as Table children, and its shoukd has children `TableRow` and `TableCell` in regular used.
+
+The `TableBody` component is a key part of a table structure, serving as a container for table rows (`TableRow`). Each row inside a `TableBody` typically consists of one or more `TableCell` components.
+
+## When to Use
+
+- To display structured data inside a table.
+- When working with dynamic data sets that require rows to be rendered programmatically.
+- As part of a table's body section, following the `TableHead` component.
+
+## Basic Structure
+
+A typical table implementation includes a `TableHead` for column headers and a `TableBody` for the main data rows.
+
+```tsx
+<Table>
+  <TableHead>
+    <TableRow>
+      <TableHeaderCell>Column 1</TableHeaderCell>
+      <TableHeaderCell>Column 2</TableHeaderCell>
+    </TableRow>
+  </TableHead>
+  <TableBody>
+    <TableRow>
+      <TableCell>Data 1</TableCell>
+      <TableCell>Data 2</TableCell>
+    </TableRow>
+  </TableBody>
+</Table> 
+```
 
 ## Basic Usage
 

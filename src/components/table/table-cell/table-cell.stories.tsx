@@ -57,41 +57,4 @@ export const BasicUsage = {
   args: {
     alignment: 'left',
   },
-  argTypes: {
-    alignment: {
-      control: 'select',
-      description: 'Defines label text alignment children',
-      options: ['left', 'center', 'right'],
-      table: {
-        type: { summary: 'enum' },
-        defaultValue: { summary: 'left' },
-      },
-    },
-    width: {
-      control: 'text',
-      description: 'Defines TableCell width for the children',
-    },
-    minWidth: {
-      control: 'text',
-      description: 'Defines TableCell minWidth for the children',
-    },
-    maxWidth: {
-      control: 'text',
-      description: 'Defines TableCell minWidth for the children',
-    },
-    flexDirection: {
-      control: 'select',
-      description: 'Defines TableCell flex direction to row or column without adding new wrapper on child content',
-      options: ['column', 'row'],
-      table: {
-        type: { summary: 'enum' },
-        defaultValue: { summary: 'column' },
-      },
-    },
-    isFlexWrap: {
-      control: 'boolean',
-      description:
-        'Defines TableCell wrap or nowrap for the children of we have custom child without adding new wrapper',
-    },
-  },
 }

@@ -1,7 +1,7 @@
 import React, { FC, ReactNode, TdHTMLAttributes } from 'react'
 import { ElTableCell, ElTableCellContent } from './styles'
 
-export interface ITableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
+export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   children?: ReactNode
   alignment?: 'left' | 'center' | 'right'
   width?: string
@@ -11,7 +11,7 @@ export interface ITableCellProps extends TdHTMLAttributes<HTMLTableCellElement> 
   isFlexWrap?: boolean
 }
 
-export const TableCell: FC<ITableCellProps> = ({
+export const TableCell: FC<TableCellProps> = ({
   children,
   alignment = 'left',
   flexDirection = 'column',
@@ -19,7 +19,7 @@ export const TableCell: FC<ITableCellProps> = ({
   ...rest
 }) => {
   return (
-    <ElTableCell role="cell" {...rest} data-alignment={alignment}>
+    <ElTableCell {...rest} data-alignment={alignment}>
       <ElTableCellContent data-flex-direction={flexDirection} isFlexWrap={isFlexWrap}>
         {children}
       </ElTableCellContent>

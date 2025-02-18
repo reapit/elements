@@ -5,7 +5,6 @@ exports[`TableCell > should match snapshot 1`] = `
   <td
     class="mocked-styled-0 el-table-cell"
     data-alignment="left"
-    role="cell"
     style="--edd0gm5-0: auto; --edd0gm5-1: auto; --edd0gm5-2: auto;"
   >
     <div

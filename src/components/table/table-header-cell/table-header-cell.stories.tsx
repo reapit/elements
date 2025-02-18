@@ -18,7 +18,7 @@ export default meta
 export const BasicUsage = {
   render: (args) => (
     <TableContainer>
-      <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
+      <TableToolbar description="125 Properties" actions="Page size menu component goes here" />
       <Table>
         <TableHead>
           <TableHeaderCell {...args} maxWidth="30px">
@@ -49,42 +49,5 @@ export const BasicUsage = {
   ),
   args: {
     alignment: 'left',
-  },
-  argTypes: {
-    alignment: {
-      control: 'select',
-      description: 'Defines label text alignment children',
-      options: ['left', 'center', 'right'],
-      table: {
-        type: { summary: 'enum' },
-        defaultValue: { summary: 'left' },
-      },
-    },
-    width: {
-      control: 'text',
-      description: 'Defines label text width for the children',
-    },
-    minWidth: {
-      control: 'text',
-      description: 'Defines label text minWidth for the children',
-    },
-    maxWidth: {
-      control: 'text',
-      description: 'Defines label text minWidth for the children',
-    },
-    flexDirection: {
-      control: 'select',
-      description: 'Defines TableCell flex direction to row or column without adding new wrapper on child content',
-      options: ['column', 'row'],
-      table: {
-        type: { summary: 'enum' },
-        defaultValue: { summary: 'column' },
-      },
-    },
-    isFlexWrap: {
-      control: 'boolean',
-      description:
-        'Defines TableCell wrap or nowrap for the children of we have custom child without adding new wrapper',
-    },
   },
 }

@@ -2,29 +2,18 @@
 
 exports[`TableHeaderCell > should match snapshot 1`] = `
 <DocumentFragment>
-  <table
-    class="mocked-styled-0 el-table"
+  <th
+    class="mocked-styled-0 el-table-header-cell"
+    data-alignment="left"
+    style="--e13cdof9-0: auto; --e13cdof9-1: auto; --e13cdof9-2: auto;"
   >
-    <thead
-      class="mocked-styled-1 el-table-head"
-      data-position="relative"
-      role="columnheader"
+    <div
+      class="mocked-styled-1 el-table-header-cell-content"
+      data-flex-direction="column"
+      style="--e1qe93km-0: nowrap;"
     >
-      <th
-        class="mocked-styled-2 el-table-header-cell"
-        data-alignment="left"
-        role="cell"
-        style="--e13cdof9-0: auto; --e13cdof9-1: auto; --e13cdof9-2: auto;"
-      >
-        <div
-          class="mocked-styled-3 el-table-header-cell-content"
-          data-flex-direction="column"
-          style="--e1qe93km-0: nowrap;"
-        >
-          Table Header Cell
-        </div>
-      </th>
-    </thead>
-  </table>
+      Mock Children
+    </div>
+  </th>
 </DocumentFragment>
 `;
