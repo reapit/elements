@@ -1,0 +1,19 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableHeaderCell > should match snapshot 1`] = `
+<DocumentFragment>
+  <th
+    class="mocked-styled-0 el-table-header-cell"
+    data-alignment="left"
+    style="--e13cdof9-0: auto; --e13cdof9-1: auto; --e13cdof9-2: auto;"
+  >
+    <div
+      class="mocked-styled-1 el-table-header-cell-content"
+      data-flex-direction="column"
+      style="--e1qe93km-0: nowrap;"
+    >
+      Mock Children
+    </div>
+  </th>
+</DocumentFragment>
+`;
