@@ -4,7 +4,6 @@ exports[`TableBody > should match snapshot 1`] = `
 <DocumentFragment>
   <tbody
     class="mocked-styled-0 el-table-body"
-    role="rowgroup"
   >
     Mock Children
   </tbody>

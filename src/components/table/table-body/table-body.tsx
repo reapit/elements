@@ -6,9 +6,5 @@ export interface TableBodyProps extends TableHTMLAttributes<HTMLTableSectionElem
 }
 
 export const TableBody: FC<TableBodyProps> = ({ children, ...rest }) => {
-  return (
-    <ElTableBody role="rowgroup" {...rest}>
-      {children}
-    </ElTableBody>
-  )
+  return <ElTableBody {...rest}>{children}</ElTableBody>
 }
