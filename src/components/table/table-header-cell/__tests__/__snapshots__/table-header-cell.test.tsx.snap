@@ -5,7 +5,6 @@ exports[`TableHeaderCell > should match snapshot 1`] = `
   <th
     class="mocked-styled-0 el-table-header-cell"
     data-alignment="left"
-    role="cell"
     style="--e13cdof9-0: auto; --e13cdof9-1: auto; --e13cdof9-2: auto;"
   >
     <div

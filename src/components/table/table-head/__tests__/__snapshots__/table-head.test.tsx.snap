@@ -5,7 +5,6 @@ exports[`TableHead > should match snapshot 1`] = `
   <thead
     class="mocked-styled-0 el-table-head"
     data-position="relative"
-    role="columnheader"
   >
     Mock Children
   </thead>

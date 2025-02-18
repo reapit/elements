@@ -8,7 +8,7 @@ exports[`Modal component > should match a snapshot when open 1`] = `
     class="el-is-active el-modal-bg"
   />
   <div
-    aria-describedby="test-static-id"
+    aria-describedby=":r1:"
     aria-modal="true"
     class="el-is-active el-modal"
     role="dialog"
@@ -20,7 +20,7 @@ exports[`Modal component > should match a snapshot when open 1`] = `
     </div>
     <div
       class="mocked-styled-0 el-modal-bg"
-      id="test-static-id"
+      id=":r1:"
     >
       Content within modal
     </div>

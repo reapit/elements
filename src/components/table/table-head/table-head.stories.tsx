@@ -11,17 +11,6 @@ import { AvatarRectangle } from '../../avatar-rectangle'
 const meta: Meta<typeof TableHead> = {
   title: 'Components/TableHead',
   component: TableHead,
-  parameters: {
-    docs: {
-      description: {
-        component: `
-          The \`TableHead\` component is used to define the header of the table.
-          It typically includes \`TableHeaderCell\` elements that represent the table column headers.
-          You can combine it with other components like \`Table\`, \`TableBody\`, and \`TableToolbar\` to create a fully functional table.
-        `,
-      },
-    },
-  },
 }
 
 export default meta
@@ -58,15 +47,5 @@ export const BasicUsage = {
   ),
   args: {
     isSticky: true,
-  },
-  argTypes: {
-    isSticky: {
-      control: 'boolean',
-      description: 'Defines TableHead to have sticky possition',
-      table: {
-        type: { summary: 'enum' },
-        defaultValue: { summary: 'false' },
-      },
-    },
   },
 }
