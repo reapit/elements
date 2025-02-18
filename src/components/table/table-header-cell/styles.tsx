@@ -18,7 +18,7 @@ export const ElTableHeaderCell = styled.th<ITableCellConfiguration>`
   min-width: ${({ minWidth }) => minWidth || 'auto'};
   max-width: ${({ maxWidth }) => maxWidth || 'auto'};
   gap: var(--spacing-1);
-  flex: auto;
+  // flex: auto;
   align-items: center;
   &[data-alignment='left'] {
     text-align: left;

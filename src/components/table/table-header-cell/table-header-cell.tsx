@@ -19,7 +19,7 @@ export const TableHeaderCell: FC<TableHeaderProps> = ({
   ...rest
 }) => {
   return (
-    <ElTableHeaderCell role="cell" {...rest} data-alignment={alignment}>
+    <ElTableHeaderCell {...rest} data-alignment={alignment}>
       <ElTableHeaderCellContent data-flex-direction={flexDirection} isFlexWrap={isFlexWrap}>
         {children}
       </ElTableHeaderCellContent>
