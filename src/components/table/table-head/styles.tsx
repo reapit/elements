@@ -8,7 +8,6 @@ export const ElTableHead = styled.thead`
   &[data-position='sticky'] {
     position: sticky;
     top: -1rem;
-    background: white;
     z-index: 100;
   }
 `
