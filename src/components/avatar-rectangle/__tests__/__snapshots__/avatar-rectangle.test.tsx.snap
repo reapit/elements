@@ -102,29 +102,31 @@ exports[`AvatarRectangle > renders correctly with residential variant and small 
 
 exports[`AvatarRectangle > simulate error and renders correctly when image fails to load 1`] = `
 <DocumentFragment>
-  <svg
-    aria-label="Image placeholder"
-    class="mocked-styled-5 el-avatar-rect-commercial-placeholder"
-    fill="currentColor"
-    height="1em"
-    viewBox="0 0 72 54"
-    width="1em"
-    xmlns="http://www.w3.org/2000/svg"
+  <div
+    class="mocked-styled-2 el-avatar-rectangle"
+    data-placeholder="true"
+    data-size="medium"
+    data-variant="commercial"
   >
-    <g
-      id="Shapes"
+    <img
+      alt="Test Image"
+      src="invalid-image.jpg"
+    />
+    <svg
+      aria-hidden="true"
+      class="mocked-styled-0 el-avatar-rect-bottom-image"
+      fill="none"
+      height="1em"
+      viewBox="0 0 54 40"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
     >
       <path
-        d="M18 54V42H56V14H72V54H18Z"
+        d="M0 40V28H38V0H54V40H0Z"
         fill="#E5E9ED"
         id="Bottom image"
       />
-      <path
-        d="M54 0H0V40H54V0Z"
-        fill="#E5E9ED"
-        id="Top image"
-      />
-    </g>
-  </svg>
+    </svg>
+  </div>
 </DocumentFragment>
 `;

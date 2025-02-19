@@ -1,44 +1,15 @@
 import { render } from '@testing-library/react'
 import { StatusIndicator } from '..'
 
-describe('StatusIndicator component', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="primary" />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="pending" />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="danger" />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="success" />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="warning" />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="neutral" />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot', () => {
-    const wrapper = render(<StatusIndicator intent="default" />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
+describe('StatusIndicator', () => {
+  it('should render as expected', () => {
+    expect(render(<StatusIndicator variant="neutral">Neutral</StatusIndicator>).asFragment()).toMatchSnapshot()
+    expect(render(<StatusIndicator variant="success">Success</StatusIndicator>).asFragment()).toMatchSnapshot()
+    expect(render(<StatusIndicator variant="warning">Warning</StatusIndicator>).asFragment()).toMatchSnapshot()
+    expect(render(<StatusIndicator variant="pending">Pending</StatusIndicator>).asFragment()).toMatchSnapshot()
+    expect(render(<StatusIndicator variant="danger">Danger</StatusIndicator>).asFragment()).toMatchSnapshot()
+    expect(render(<StatusIndicator variant="inactive">Inactive</StatusIndicator>).asFragment()).toMatchSnapshot()
+    expect(render(<StatusIndicator variant="accent1">Accent 1</StatusIndicator>).asFragment()).toMatchSnapshot()
+    expect(render(<StatusIndicator variant="accent2">Accent 2</StatusIndicator>).asFragment()).toMatchSnapshot()
   })
 })

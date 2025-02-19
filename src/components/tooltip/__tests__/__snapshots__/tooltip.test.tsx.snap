@@ -1,0 +1,60 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Tooltip with createPortal > should not render the tooltip when hidden 1`] = `
+<div>
+  <button
+    aria-describedby="tooltip-id-test-static-id"
+    aria-disabled="false"
+    class="el-button-size-medium el-button"
+    data-visible-id="tooltip-id-test-static-id"
+    role="button"
+  >
+    <div
+      class="mocked-styled-0 el-button-spinner"
+    />
+    <span
+      class="mocked-styled-1 el-button-label"
+    >
+      Hover me
+    </span>
+  </button>
+</div>
+`;
+
+exports[`Tooltip with createPortal > should render the tooltip when visible 1`] = `
+<div>
+  <button
+    aria-describedby="tooltip-id-test-static-id"
+    aria-disabled="false"
+    class="el-button-size-medium el-button"
+    data-visible-id="tooltip-id-test-static-id"
+    role="button"
+  >
+    <div
+      class="mocked-styled-0 el-button-spinner"
+    />
+    <span
+      class="mocked-styled-1 el-button-label"
+    >
+      Hover me
+    </span>
+  </button>
+  <div
+    aria-hidden="false"
+    class="mocked-styled-7 el-tooltip"
+    data-is-visible="true"
+    data-position="top"
+    id="tooltip-id-test-static-id"
+    role="tooltip"
+    style="max-width: 400px; position: absolute; transform: translate(0px, -4px); margin: 0px;"
+  >
+    <span
+      class="mocked-styled-8 el-tooltip-label"
+    >
+      Label
+      : 
+    </span>
+    This is a tooltip
+  </div>
+</div>
+`;

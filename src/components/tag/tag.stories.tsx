@@ -1,93 +1,44 @@
-import { Tag, TagGroup } from '.'
+import type { Meta, StoryObj } from '@storybook/react'
+import { Tag, TagGroup as TagGroupComponent } from './tag'
 
 export default {
-  title: 'Tag',
+  title: 'Components/Tag',
   component: Tag,
+  args: {
+    children: 'Tag',
+  },
+  argTypes: {
+    as: {
+      control: 'inline-radio',
+      description:
+        'whether the component will be rendered as `li` or `span`, defaults to `li` for easier use with `TagGroup`',
+      options: ['li', 'span'],
+    },
+  },
+} as Meta<typeof Tag>
+
+type Story = StoryObj<typeof Tag>
+
+/**
+ * The `Tag` component is used to label, categorise or organise items using keywords.
+ */
+export const Default: Story = {
+  args: {
+    as: 'li',
+  },
 }
 
-export const BasicUsage = {
-  render: ({}) => (
-    <div>
-      <Tag>Some Content</Tag>
-    </div>
-  ),
-}
-
-export const IntentPrimary = {
-  render: ({}) => (
-    <div>
-      <Tag intent="primary">Primary</Tag>
-    </div>
-  ),
-
-  name: 'Intent: Primary',
-}
-
-export const IntentNeutral = {
-  render: ({}) => (
-    <div>
-      <Tag intent="neutral">Neutral</Tag>
-    </div>
-  ),
-
-  name: 'Intent: Neutral',
-}
-
-export const IntentSuccess = {
-  render: ({}) => (
-    <div>
-      <Tag intent="success">Success</Tag>
-    </div>
-  ),
-
-  name: 'Intent: Success',
-}
-
-export const IntentPending = {
-  render: ({}) => (
-    <div>
-      <Tag intent="pending">Pending</Tag>
-    </div>
-  ),
-
-  name: 'Intent: Pending',
-}
-
-export const IntentWarning = {
-  render: ({}) => (
-    <div>
-      <Tag intent="warning">Warning</Tag>
-    </div>
-  ),
-
-  name: 'Intent: Warning',
-}
-
-export const IntentDanger = {
-  render: ({}) => (
-    <div>
-      <Tag intent="danger">Danger</Tag>
-    </div>
-  ),
-
-  name: 'Intent: Danger',
-}
-
-export const IntentDefault = {
-  render: ({}) => (
-    <div>
-      <Tag intent="default">Default</Tag>
-    </div>
-  ),
-
-  name: 'Intent: Default',
-}
-
-export const TagGroupUsage = {
-  render: ({}) => (
-    <TagGroup>
-      <Tag intent="primary">Some Content</Tag>
-      <Tag intent="default">Some Content</Tag>
-    </TagGroup>
+/**
+ * The `TagGroup` Component is useful to render multiple `Tag`
+ */
+export const TagGroup: Story = {
+  render: () => (
+    <TagGroupComponent>
+      <Tag>Tag</Tag>
+      <Tag>Tag</Tag>
+      <Tag>Tag</Tag>
+      <Tag>Tag</Tag>
+      <Tag>Tag</Tag>
+    </TagGroupComponent>
   ),
 }

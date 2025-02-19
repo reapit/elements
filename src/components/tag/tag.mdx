@@ -1,53 +1,25 @@
-import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
-import { Tag } from '.'
+import { Meta, Canvas, Controls, Description } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as TagStories from './tag.stories'
 
 <Meta of={TagStories} />
 
-# Tag
+# Tag / Tag Group
 
-A multi purpose visual indicator label to alert users to the status of an item or action.
-
-Props available for the React version of the component;
+<Description of={TagStories.Default} />
 
 <Controls />
 
-## Basic Usage
+## Default
 
-<Canvas of={TagStories.BasicUsage} />
+<Canvas of={TagStories.Default} />
 
-<RenderHtmlMarkup of={TagStories.BasicUsage} />
-
-## Intent
-
-Different intents are supported, to enable buttons to be used in different contexts
-
-<Canvas of={TagStories.IntentPrimary} />
-<RenderHtmlMarkup of={TagStories.IntentPrimary} />
-
-<Canvas of={TagStories.IntentNeutral} />
-<RenderHtmlMarkup of={TagStories.IntentNeutral} />
-
-<Canvas of={TagStories.IntentSuccess} />
-<RenderHtmlMarkup of={TagStories.IntentSuccess} />
-
-<Canvas of={TagStories.IntentPending} />
-<RenderHtmlMarkup of={TagStories.IntentPending} />
-
-<Canvas of={TagStories.IntentWarning} />
-<RenderHtmlMarkup of={TagStories.IntentWarning} />
-
-<Canvas of={TagStories.IntentDanger} />
-<RenderHtmlMarkup of={TagStories.IntentDanger} />
-
-<Canvas of={TagStories.IntentDefault} />
-<RenderHtmlMarkup of={TagStories.IntentDefault} />
+<RenderHtmlMarkup of={TagStories.Default} />
 
 ## Tag Group
 
-A group of tags has it's own wrapper to display responsively in a CSS grid.
+<Description of={TagStories.TagGroup} />
 
-<Canvas of={TagStories.TagGroupUsage} />
+<Canvas of={TagStories.TagGroup} />
 
-<RenderHtmlMarkup of={TagStories.TagGroupUsage} />
+<RenderHtmlMarkup of={TagStories.TagGroup} />

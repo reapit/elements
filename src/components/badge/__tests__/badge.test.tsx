@@ -1,56 +1,34 @@
 import { render } from '@testing-library/react'
-import { Badge, BadgeGroup } from '..'
+import { Badge } from '..'
+import { Icon } from '#src/components/icon'
 
-describe('Badge component', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(<Badge>50%</Badge>)
-    expect(wrapper.asFragment()).toMatchSnapshot()
+describe('Badge', () => {
+  test('should match snapshot', () => {
+    const { asFragment } = render(<Badge>Label</Badge>)
+    expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should match a snapshot for intent', () => {
-    const wrapper = render(<Badge intent="primary">Some Content</Badge>)
-    expect(wrapper.asFragment()).toMatchSnapshot()
+  test('should match snapshot with reversed badge', () => {
+    const { asFragment } = render(<Badge isReversed>Label</Badge>)
+    expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should match a snapshot for intent', () => {
-    const wrapper = render(<Badge intent="neutral">Some Content</Badge>)
-    expect(wrapper.asFragment()).toMatchSnapshot()
+  test('should match snapshot with success variant and label', () => {
+    const { asFragment } = render(<Badge variant="success">Label</Badge>)
+    expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should match a snapshot for intent', () => {
-    const wrapper = render(<Badge intent="danger">Some Content</Badge>)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot for intent', () => {
-    const wrapper = render(<Badge intent="success">Some Content</Badge>)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot for intent', () => {
-    const wrapper = render(<Badge intent="warning">Some Content</Badge>)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot for intent', () => {
-    const wrapper = render(<Badge intent="pending">Some Content</Badge>)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-
-  it('should match a snapshot for intent', () => {
-    const wrapper = render(<Badge intent="default">Some Content</Badge>)
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
-
-describe('BadgeGroup component', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(
-      <BadgeGroup>
-        <Badge intent="default">Some Content</Badge>
-        <Badge intent="primary">Some Content</Badge>
-      </BadgeGroup>,
+  test('should match snapshot with icons and label', () => {
+    const { asFragment } = render(
+      <Badge iconLeft={<Icon icon="add" fontSize="1rem" />} iconRight={<Icon icon="chevronDown" fontSize="1rem" />}>
+        Label
+      </Badge>,
     )
-    expect(wrapper.asFragment()).toMatchSnapshot()
+    expect(asFragment()).toMatchSnapshot()
+  })
+
+  test('should match snapshot with icon only', () => {
+    const { asFragment } = render(<Badge iconLeft={<Icon icon="add" fontSize="1rem" />} aria-label="label"></Badge>)
+    expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -1,5 +1,4 @@
-import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
-import { Badge } from '.'
+import { Meta, Canvas, Controls } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as BadgeStories from './badge.stories'
 
@@ -7,18 +6,46 @@ import * as BadgeStories from './badge.stories'
 
 # Badge
 
-A simple low impact visual indicator label. The component simply renders children and does not have any additional props.
-
 <Controls />
 
-## Basic Usage
+Styled badge component with multiple flavours depending on use case.
 
-<Canvas of={BadgeStories.BasicUsage} />
+## Default Usage
 
-<RenderHtmlMarkup of={BadgeStories.BasicUsage} />
+A badge with no additional props / classes applied
 
-## With Intent
+<Canvas of={BadgeStories.Default} />
 
-<Canvas of={BadgeStories.WithIntent} />
+<RenderHtmlMarkup of={BadgeStories.Default} />
 
-<RenderHtmlMarkup of={BadgeStories.WithIntent} />
+## Badge Reversed
+
+In order to reverse a badge you will just need to provide a prop called `isReversed`. If you have icon left and icon right with the badge it will be reversed as well.
+
+<Canvas of={BadgeStories.BadgeReversed} />
+<RenderHtmlMarkup of={BadgeStories.BadgeReversed} />
+
+## Badge with Label
+
+Badge can hava a label with icons for with icons.
+
+<Canvas of={BadgeStories.BadgeWithLabel} />
+<RenderHtmlMarkup of={BadgeStories.BadgeWithLabel} />
+
+## Badge with Icon
+
+A badge can be with just an icon for accessibility you will need to add an `aria-label` with it. It should be wrapped with a tooltip component to provide more context for the icon meaning.
+
+<Canvas of={BadgeStories.BadgeWithIcon} />
+<RenderHtmlMarkup of={BadgeStories.BadgeWithIcon} />
+
+## Badge Variants
+
+Different variants are supported, to enable badge to be used in different contexts. 
+
+`Badge` only support `neutral`, `success`, `pending`, `warning`, `danger`, `inactive`, `accent_1` and `accent_2`.
+
+The `neutral` is the default variant for the badge component.
+
+<Canvas of={BadgeStories.BadgeVariant} />
+<RenderHtmlMarkup of={BadgeStories.BadgeVariant} />

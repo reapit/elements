@@ -1,0 +1,27 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as FeaturesStories from './features.stories'
+
+<Meta of={FeaturesStories} />
+
+# Features
+
+The features component allows users to provide quick details about a property.
+
+The features component has at least one feature item. Each feature item has a representative icon and an alphanumeric value.
+
+<Controls />
+
+## Default
+
+<Canvas of={FeaturesStories.Default} />
+
+<RenderHtmlMarkup of={FeaturesStories.Default} />
+
+## Tooltip support
+
+Use a tooltip on hover to provide more context for the icon's meaning
+
+<Canvas of={FeaturesStories.DisplayTooltip} />
+
+<RenderHtmlMarkup of={FeaturesStories.DisplayTooltip} />

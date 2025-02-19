@@ -2,7 +2,7 @@ import { Meta, Story, Canvas, Controls } from '@storybook/blocks'
 import { InputGroup } from './index'
 import { Input } from '../input'
 import { Icon } from '../icon'
-import { Label } from '../label'
+import { DeprecatedLabel } from '../deprecated-label'
 import { InputAddOn } from '../input-add-on'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import { InputError } from '../input-error'
@@ -19,7 +19,7 @@ InputGroup provides a wrapper and styling for the `Input`, `Icon`, `Label`, and 
 ## Usage with HTML & CSS only
 
 - The order of the child components matters, in order to make the focus state work (i.e. the different styling applied when you click into the component)
-- The `<input>` component must come first in the DOM, before the `<label>`, and the `<span>` for the icon and InputAddOn, as is shown in the HTML docs
+- The `<input>` component must come first in the DOM, before the `<DeprecatedLabel>`, and the `<span>` for the icon and InputAddOn, as is shown in the HTML docs
 
 ## Usage with React
 
