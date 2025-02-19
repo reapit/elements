@@ -6,19 +6,10 @@ import { TableToolbar } from '../table-toolbar'
 import { Input } from '../../input'
 import { AvatarRectangle } from '../../avatar-rectangle'
 
-const meta: Meta<typeof TableBody> = {
+export default {
   title: 'Components/TableBody',
   component: TableBody,
-  parameters: {
-    docs: {
-      description: {
-        component: 'The `TableBody` component is used within a `Table` to render the main content of the table.',
-      },
-    },
-  },
-}
-
-export default meta
+} as Meta<typeof TableBody>
 
 export const BasicUsage = {
   render: () => (
@@ -57,12 +48,4 @@ export const BasicUsage = {
       </Table>
     </TableContainer>
   ),
-  parameters: {
-    docs: {
-      description: {
-        story:
-          'This example demonstrates the basic usage of the `TableBody` component inside a `Table`. It includes checkboxes, text columns, and images.',
-      },
-    },
-  },
 }
