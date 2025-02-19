@@ -11,11 +11,11 @@ import React, {
 } from 'react'
 import { Icon } from '../icon'
 import {
-  DeprecatedElPaginationButton,
-  deprecatedElPaginationPrimary,
-  DeprecatedElPaginationText,
-  DeprecatedElPaginationWrap,
-  DeprecatedElPaginationInput,
+  ElDeprecatedPaginationButton,
+  elDeprecatedPaginationPrimary,
+  ElDeprecatedPaginationText,
+  ElDeprecatedPaginationWrap,
+  ElDeprecatedPaginationInput,
 } from './__styles__'
 
 /** @deprecated */
@@ -74,24 +74,24 @@ export const deprecatedHandlePageInput =
 
 /** @deprecated */
 export const DeprecatedPaginationWrap: FC<DeprecatedPaginationWrapProps> = ({ children, ...rest }) => (
-  <DeprecatedElPaginationWrap {...rest}>{children}</DeprecatedElPaginationWrap>
+  <ElDeprecatedPaginationWrap {...rest}>{children}</ElDeprecatedPaginationWrap>
 )
 
 /** @deprecated */
 export const DeprecatedPaginationText: FC<DeprecatedPaginationTextProps> = ({ children, ...rest }) => (
-  <DeprecatedElPaginationText {...rest}>{children}</DeprecatedElPaginationText>
+  <ElDeprecatedPaginationText {...rest}>{children}</ElDeprecatedPaginationText>
 )
 
 /** @deprecated */
 export const DeprecatedPaginationInput: FC<DeprecatedPaginationInputProps> = ({ ...rest }) => (
-  <DeprecatedElPaginationInput {...rest} />
+  <ElDeprecatedPaginationInput {...rest} />
 )
 
 /** @deprecated */
 export const DeprecatedPaginationButton: FC<DeprecatedPaginationButtonProps> = ({ children, ...rest }) => (
-  <DeprecatedElPaginationButton type="button" {...rest}>
+  <ElDeprecatedPaginationButton type="button" {...rest}>
     {children}
-  </DeprecatedElPaginationButton>
+  </ElDeprecatedPaginationButton>
 )
 
 /** @deprecated */
@@ -121,7 +121,7 @@ export const DeprecatedPagination: FC<DeprecatedPaginationProps> = ({
         data-testid="back-button"
         onClick={deprecatedHandlePageChange(prevPage, callback, setInputValue)}
       >
-        <Icon icon="chevronLeft" className={cx(prevPage && deprecatedElPaginationPrimary)} />
+        <Icon icon="chevronLeft" className={cx(prevPage && elDeprecatedPaginationPrimary)} />
       </DeprecatedPaginationButton>
       {hasStartButton && (
         <DeprecatedPaginationButton
@@ -130,8 +130,8 @@ export const DeprecatedPagination: FC<DeprecatedPaginationProps> = ({
           data-testid="back-button"
           onClick={deprecatedHandlePageChange(1, callback, setInputValue)}
         >
-          <Icon icon="chevronLeft" className={cx(currentPage !== 1 && deprecatedElPaginationPrimary)} />
-          <Icon icon="chevronLeft" className={cx(currentPage !== 1 && deprecatedElPaginationPrimary)} />
+          <Icon icon="chevronLeft" className={cx(currentPage !== 1 && elDeprecatedPaginationPrimary)} />
+          <Icon icon="chevronLeft" className={cx(currentPage !== 1 && elDeprecatedPaginationPrimary)} />
         </DeprecatedPaginationButton>
       )}
       <DeprecatedPaginationText>
@@ -149,8 +149,8 @@ export const DeprecatedPagination: FC<DeprecatedPaginationProps> = ({
           data-testid="back-button"
           onClick={deprecatedHandlePageChange(numberPages, callback, setInputValue)}
         >
-          <Icon icon="chevronRight" className={cx(currentPage !== numberPages && deprecatedElPaginationPrimary)} />
-          <Icon icon="chevronRight" className={cx(currentPage !== numberPages && deprecatedElPaginationPrimary)} />
+          <Icon icon="chevronRight" className={cx(currentPage !== numberPages && elDeprecatedPaginationPrimary)} />
+          <Icon icon="chevronRight" className={cx(currentPage !== numberPages && elDeprecatedPaginationPrimary)} />
         </DeprecatedPaginationButton>
       )}
       <DeprecatedPaginationButton
@@ -159,7 +159,7 @@ export const DeprecatedPagination: FC<DeprecatedPaginationProps> = ({
         data-testid="forward-button"
         onClick={deprecatedHandlePageChange(nextPage, callback, setInputValue)}
       >
-        <Icon icon="chevronRight" className={cx(nextPage && deprecatedElPaginationPrimary)} />
+        <Icon icon="chevronRight" className={cx(nextPage && elDeprecatedPaginationPrimary)} />
       </DeprecatedPaginationButton>
     </DeprecatedPaginationWrap>
   )

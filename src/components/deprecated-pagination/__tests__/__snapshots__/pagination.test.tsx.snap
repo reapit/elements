@@ -3,17 +3,17 @@
 exports[`DeprecatedPagination > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-1 deprecated-el-pagination-wrap"
+    class="mocked-styled-1 el-deprecated-pagination-wrap"
   >
     <button
       aria-label="Previous"
-      class="mocked-styled-4 deprecated-el-pagination-button"
+      class="mocked-styled-4 el-deprecated-pagination-button"
       data-testid="back-button"
       role="button"
       type="button"
     >
       <span
-        class="deprecated-el-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-icon"
       >
         <svg
           fill="none"
@@ -32,24 +32,24 @@ exports[`DeprecatedPagination > should match a snapshot 1`] = `
       </span>
     </button>
     <div
-      class="mocked-styled-2 deprecated-el-pagination-text"
+      class="mocked-styled-2 el-deprecated-pagination-text"
     >
       <input
         aria-label="Current page number, edit to select page of 4 available"
-        class="mocked-styled-3 deprecated-el-pagination-input"
+        class="mocked-styled-3 el-deprecated-pagination-input"
         value="2"
       />
        of 4
     </div>
     <button
       aria-label="Next"
-      class="mocked-styled-4 deprecated-el-pagination-button"
+      class="mocked-styled-4 el-deprecated-pagination-button"
       data-testid="forward-button"
       role="button"
       type="button"
     >
       <span
-        class="deprecated-el-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-icon"
       >
         <svg
           fill="none"
@@ -74,17 +74,17 @@ exports[`DeprecatedPagination > should match a snapshot 1`] = `
 exports[`DeprecatedPagination > should match a snapshot with start end buttons 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-1 deprecated-el-pagination-wrap"
+    class="mocked-styled-1 el-deprecated-pagination-wrap"
   >
     <button
       aria-label="Previous"
-      class="mocked-styled-4 deprecated-el-pagination-button"
+      class="mocked-styled-4 el-deprecated-pagination-button"
       data-testid="back-button"
       role="button"
       type="button"
     >
       <span
-        class="deprecated-el-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-icon"
       >
         <svg
           fill="none"
@@ -104,13 +104,13 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
     </button>
     <button
       aria-label="Previous"
-      class="mocked-styled-4 deprecated-el-pagination-button"
+      class="mocked-styled-4 el-deprecated-pagination-button"
       data-testid="back-button"
       role="button"
       type="button"
     >
       <span
-        class="deprecated-el-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-icon"
       >
         <svg
           fill="none"
@@ -128,7 +128,7 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
         </svg>
       </span>
       <span
-        class="deprecated-el-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-icon"
       >
         <svg
           fill="none"
@@ -147,24 +147,24 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
       </span>
     </button>
     <div
-      class="mocked-styled-2 deprecated-el-pagination-text"
+      class="mocked-styled-2 el-deprecated-pagination-text"
     >
       <input
         aria-label="Current page number, edit to select page of 4 available"
-        class="mocked-styled-3 deprecated-el-pagination-input"
+        class="mocked-styled-3 el-deprecated-pagination-input"
         value="2"
       />
        of 4
     </div>
     <button
       aria-label="Next"
-      class="mocked-styled-4 deprecated-el-pagination-button"
+      class="mocked-styled-4 el-deprecated-pagination-button"
       data-testid="back-button"
       role="button"
       type="button"
     >
       <span
-        class="deprecated-el-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-icon"
       >
         <svg
           fill="none"
@@ -182,7 +182,7 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
         </svg>
       </span>
       <span
-        class="deprecated-el-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-icon"
       >
         <svg
           fill="none"
@@ -202,13 +202,13 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
     </button>
     <button
       aria-label="Next"
-      class="mocked-styled-4 deprecated-el-pagination-button"
+      class="mocked-styled-4 el-deprecated-pagination-button"
       data-testid="forward-button"
       role="button"
       type="button"
     >
       <span
-        class="deprecated-el-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-icon"
       >
         <svg
           fill="none"
@@ -233,7 +233,7 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
 exports[`DeprecatedPaginationButton > should match a snapshot and render children 1`] = `
 <DocumentFragment>
   <button
-    class="mocked-styled-4 deprecated-el-pagination-button"
+    class="mocked-styled-4 el-deprecated-pagination-button"
     type="button"
   >
     <div>
@@ -246,7 +246,7 @@ exports[`DeprecatedPaginationButton > should match a snapshot and render childre
 exports[`DeprecatedPaginationText > should match a snapshot and render children 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-2 deprecated-el-pagination-text"
+    class="mocked-styled-2 el-deprecated-pagination-text"
   >
     <div>
       I am a child
@@ -258,7 +258,7 @@ exports[`DeprecatedPaginationText > should match a snapshot and render children 
 exports[`DeprecatedPaginationWrap > should match a snapshot and render children 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-1 deprecated-el-pagination-wrap"
+    class="mocked-styled-1 el-deprecated-pagination-wrap"
   >
     <div>
       I am a child

@@ -1,19 +1,19 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 /** @deprecated */
-export const DeprecatedElPaginationWrap = styled.div`
+export const ElDeprecatedPaginationWrap = styled.div`
   width: fit-content;
   margin: 0 auto;
   display: flex;
   align-items: center;
 `
 /** @deprecated */
-export const DeprecatedElPaginationText = styled.div`
+export const ElDeprecatedPaginationText = styled.div`
   margin: 0 0.5rem;
   font-size: var(--font-size-small);
 `
 /** @deprecated */
-export const DeprecatedElPaginationInput = styled.input`
+export const ElDeprecatedPaginationInput = styled.input`
   font-size: var(--font-size-small);
   text-align: center;
   font-weight: var(--font-weight-bold);
@@ -29,7 +29,7 @@ export const DeprecatedElPaginationInput = styled.input`
   }
 `
 /** @deprecated */
-export const DeprecatedElPaginationButton = styled.button`
+export const ElDeprecatedPaginationButton = styled.button`
   width: 2rem;
   height: 2rem;
   border: none;
@@ -50,7 +50,7 @@ export const DeprecatedElPaginationButton = styled.button`
   }
 `
 /** @deprecated */
-export const deprecatedElPaginationPrimary = css`
+export const elDeprecatedPaginationPrimary = css`
   cursor: pointer;
   svg {
     color: var(--intent-primary);

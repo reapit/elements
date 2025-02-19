@@ -5,7 +5,7 @@ import {
   DeprecatedPaginationText,
   DeprecatedPaginationButton,
 } from './index'
-import { deprecatedElPaginationPrimary } from './__styles__'
+import { elDeprecatedPaginationPrimary } from './__styles__'
 import { Icon } from '../icon'
 
 export default {
@@ -23,7 +23,7 @@ export const BasicExample = {
         <strong>1</strong> of 4
       </DeprecatedPaginationText>
       <DeprecatedPaginationButton>
-        <Icon icon="chevronRight" className={deprecatedElPaginationPrimary} />
+        <Icon icon="chevronRight" className={elDeprecatedPaginationPrimary} />
       </DeprecatedPaginationButton>
     </DeprecatedPaginationWrap>
   ),
