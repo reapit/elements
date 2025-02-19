@@ -1,14 +1,6 @@
 import React, { FC, ReactNode, TdHTMLAttributes } from 'react'
-import { ElTableCell, ElTableCellContent, TableCellCSSProperties } from './styles'
+import { ElTableCell, ElTableCellContent, TableCellCSSProps } from './styles'
 
-/**
- * alignment: Defines label text alignment children
- * width: Defines TableCell width for the children
- * minWidth: Defines TableCell minWidth for the children
- * maxWidth: Defines TableCell minWidth for the children
- * flexDirection: Defines TableCell flex direction to row or column without adding new wrapper on child content
- * isFlexWrap: Defines TableCell wrap or nowrap for the children of we have custom child without adding new wrapper
- */
 export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   children?: ReactNode
   alignment?: 'left' | 'center' | 'right'
@@ -17,8 +9,26 @@ export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   maxWidth?: string
   flexDirection?: 'column' | 'row'
   isFlexWrap?: boolean
-  style?: TableCellCSSProperties
+  style?: TableCellCSSProps
 }
+
+/**
+ * `TableCell` is a standard HTML/JSX `<td>` component used in tables.
+ * It also includes a child container (`<div>`) for additional flexibility.
+ *
+ * Typically `TableCell` is used inside `TableBody` and `TableRow` to display data.
+ *
+ * This component supports customization of alignment, width, and layout properties,
+ * including flex direction and wrapping behavior, making it adaptable to various table structures.
+ *
+ * ### Props (`TableCellProps`):
+ * - `alignment`: Defines text alignment for the content.
+ * - `width`: Sets the width of the table cell.
+ * - `minWidth`: Sets the minimum width of the table cell.
+ * - `maxWidth`: Sets the maximum width of the table cell.
+ * - `flexDirection`: Controls the flex direction (`row` or `column`) without adding an extra wrapper around the child.
+ * - `isFlexWrap`: Determines whether child elements should wrap (`true`) or remain in a single line (`false`).
+ */
 
 export const TableCell: FC<TableCellProps> = ({
   children,

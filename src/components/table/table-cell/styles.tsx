@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 import { CSSProperties } from 'react'
 
-export interface TableCellCSSProperties extends CSSProperties {
+export interface TableCellCSSProps extends CSSProperties {
   // NOTE: These are public CSS variables that we use to allow CSS-only consumers
   // We do this ourselves instead of leveraging Linaria's dynamic styles because
   // that approach results in randomly-named CSS variables, which would not provide
@@ -14,12 +14,12 @@ export interface TableCellCSSProperties extends CSSProperties {
 }
 
 interface ElTableCellProps {
-  style?: TableCellCSSProperties
+  style?: TableCellCSSProps
   'data-alignment': string
 }
 
 interface TableCellContentProps {
-  style?: TableCellCSSProperties
+  style?: TableCellCSSProps
   'data-flex-direction': string
 }
 
@@ -30,7 +30,7 @@ export const ElTableCell = styled.td<ElTableCellProps>`
 
   width: var(--tablecell-width);
   min-width: var(--tablecell-min-width);
-  max-width: var(--tablecell-max-width: );
+  max-width: var(--tablecell-max-width);
   gap: var(--spacing-1);
   flex: auto;
   vertical-align: middle;
