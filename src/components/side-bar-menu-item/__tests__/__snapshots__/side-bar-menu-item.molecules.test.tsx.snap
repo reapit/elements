@@ -1,5 +1,23 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`SideBar > should match snapshot with collapsed state 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-3 el-side-bar-collapse-button-container"
+    data-is-expanded="false"
+  >
+    <button
+      aria-expanded="false"
+      class="el-side-bar-menu-item-anchor el-side-bar-collapse-button"
+    >
+      <span
+        data-testid="collapse-icon"
+      />
+    </button>
+  </div>
+</DocumentFragment>
+`;
+
 exports[`SideBar > should match snapshot with expanded state 1`] = `
 <DocumentFragment>
   <div
@@ -18,24 +36,6 @@ exports[`SideBar > should match snapshot with expanded state 1`] = `
       >
         Collapse
       </span>
-    </button>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`SideBar > should match snapshot with simple state 1`] = `
-<DocumentFragment>
-  <div
-    class="mocked-styled-3 el-side-bar-collapse-button-container"
-    data-is-expanded="false"
-  >
-    <button
-      aria-expanded="false"
-      class="el-side-bar-menu-item-anchor el-side-bar-collapse-button"
-    >
-      <span
-        data-testid="collapse-icon"
-      />
     </button>
   </div>
 </DocumentFragment>

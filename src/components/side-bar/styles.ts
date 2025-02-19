@@ -23,7 +23,7 @@ export const ELSideBarMenuList = styled.ul`
     width: 100%;
   }
 
-  &[data-state='simple'] {
+  &[data-is-expanded='false'] {
     width: fit-content;
     ${ElSideBarMenuItemText} {
       display: none;

@@ -16,7 +16,7 @@ describe('SideBar', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  it('should match snapshot with simple state', () => {
+  it('should match snapshot with collapsed state', () => {
     const { asFragment } = render(
       <SideBarProvider>
         <SideBarCollapse />

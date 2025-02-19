@@ -12,7 +12,7 @@ export const SideBarCollapse = () => {
   return (
     <ElSideBarCollapseButtonContainer data-is-expanded={isOpen}>
       <ElSideBarCollapseButton className={elSideBarMenuItemAnchor} {...getTriggerProps()}>
-        <ElCollapseIcon data-is-expanded={!isOpen} />
+        <ElCollapseIcon data-is-expanded={isOpen} />
         {isOpen && <ElSideBarCollapseText>Collapse</ElSideBarCollapseText>}
       </ElSideBarCollapseButton>
     </ElSideBarCollapseButtonContainer>

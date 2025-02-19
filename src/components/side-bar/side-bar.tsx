@@ -19,7 +19,7 @@ const SideBar: SideBarFC = ({ children, ...props }) => (
 SideBar.MenuList = ({ children }) => {
   const { isOpen } = useSideBarContext()
 
-  return <ELSideBarMenuList data-state={isOpen ? 'expanded' : 'simple'}>{children}</ELSideBarMenuList>
+  return <ELSideBarMenuList data-is-expanded={isOpen}>{children}</ELSideBarMenuList>
 }
 
 SideBar.CollapseButon = SideBarCollapse

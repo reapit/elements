@@ -79,7 +79,7 @@ export const ElCollapseIcon = styled(CollapseIcon)`
   height: var(--icon-md);
   padding: var(--spacing-half);
   box-sizing: content-box;
-  &[data-is-expanded='true'] {
+  &[data-is-expanded='false'] {
     transform: rotate(180deg);
   }
 `
