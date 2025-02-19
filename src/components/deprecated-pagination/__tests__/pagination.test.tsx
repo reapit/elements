@@ -1,55 +1,55 @@
 import { render, fireEvent } from '@testing-library/react'
 import {
-  PaginationWrap,
-  PaginationText,
-  PaginationButton,
-  Pagination,
-  handlePageChange,
-  handlePageInputChange,
+  DeprecatedPaginationWrap,
+  DeprecatedPaginationText,
+  DeprecatedPaginationButton,
+  DeprecatedPagination,
+  deprecatedHandlePageChange,
+  deprecatedHandlePageInputChange,
 } from '../index'
 
-describe('PaginationWrap', () => {
+describe('DeprecatedPaginationWrap', () => {
   it('should match a snapshot and render children', () => {
     const wrapper = render(
-      <PaginationWrap>
+      <DeprecatedPaginationWrap>
         <div>I am a child</div>
-      </PaginationWrap>,
+      </DeprecatedPaginationWrap>,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
-describe('PaginationText', () => {
+describe('DeprecatedPaginationText', () => {
   it('should match a snapshot and render children', () => {
     const wrapper = render(
-      <PaginationText>
+      <DeprecatedPaginationText>
         <div>I am a child</div>
-      </PaginationText>,
+      </DeprecatedPaginationText>,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
-describe('PaginationButton', () => {
+describe('DeprecatedPaginationButton', () => {
   it('should match a snapshot and render children', () => {
     const wrapper = render(
-      <PaginationButton>
+      <DeprecatedPaginationButton>
         <div>I am a child</div>
-      </PaginationButton>,
+      </DeprecatedPaginationButton>,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
-describe('Pagination', () => {
+describe('DeprecatedPagination', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<Pagination callback={vi.fn()} currentPage={2} numberPages={4} />)
+    const wrapper = render(<DeprecatedPagination callback={vi.fn()} currentPage={2} numberPages={4} />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot with start end buttons', () => {
     const wrapper = render(
-      <Pagination callback={vi.fn()} currentPage={2} numberPages={4} hasStartButton hasEndButton />,
+      <DeprecatedPagination callback={vi.fn()} currentPage={2} numberPages={4} hasStartButton hasEndButton />,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
@@ -57,7 +57,7 @@ describe('Pagination', () => {
   it('should callback onClick correctly', async () => {
     const mockCallback = vi.fn()
 
-    const wrapper = render(<Pagination callback={mockCallback} currentPage={2} numberPages={4} />)
+    const wrapper = render(<DeprecatedPagination callback={mockCallback} currentPage={2} numberPages={4} />)
 
     fireEvent.click(wrapper.getByTestId('back-button'))
 
@@ -71,12 +71,12 @@ describe('Pagination', () => {
   })
 })
 
-describe('handlePageChange', () => {
+describe('deprecatedHandlePageChange', () => {
   it('should correctly call the callback on change', () => {
     const nextPage = 2
     const callback = vi.fn()
     const setInputValue = vi.fn()
-    const curried = handlePageChange(nextPage, callback, setInputValue)
+    const curried = deprecatedHandlePageChange(nextPage, callback, setInputValue)
 
     curried()
 
@@ -85,13 +85,13 @@ describe('handlePageChange', () => {
   })
 })
 
-describe('handlePageInputChange', () => {
+describe('deprecatedHandlePageInputChange', () => {
   it('should correctly call the callback on change', () => {
     const numberPages = 3
     const currentPage = 2
     const inputValue = '3'
     const callback = vi.fn()
-    const curried = handlePageInputChange(numberPages, currentPage, inputValue, callback)
+    const curried = deprecatedHandlePageInputChange(numberPages, currentPage, inputValue, callback)
 
     curried()
 
