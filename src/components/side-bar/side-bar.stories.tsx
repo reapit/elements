@@ -68,6 +68,7 @@ export const Default: Story = {
               )
             })}
           </SideBar.MenuList>
+          <SideBar.CollapseButon />
         </SideBar>
         <main
           style={{

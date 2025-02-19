@@ -1,0 +1,7 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`SideBarProvider and useSideBarContext > should render SideBarProvider and match snapshot 1`] = `
+<DocumentFragment>
+  Foo
+</DocumentFragment>
+`;

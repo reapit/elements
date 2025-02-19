@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react'
+import { ElSideBarMenuItemText } from '../side-bar-menu-item'
 
 export const ElSideBar = styled.nav`
   display: flex;
@@ -20,5 +21,12 @@ export const ELSideBarMenuList = styled.ul`
 
   & li {
     width: 100%;
+  }
+
+  &[data-state='simple'] {
+    width: fit-content;
+    ${ElSideBarMenuItemText} {
+      display: none;
+    }
   }
 `
