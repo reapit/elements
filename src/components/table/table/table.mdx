@@ -1,42 +1,15 @@
-import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { Meta, Controls, Description, Story, Canvas } from '@storybook/blocks'
+import { Table } from './index'
 import { RenderHtmlMarkup } from '../../../storybook/render-html-markup'
 import * as TableStories from './table.stories'
 
 <Meta of={TableStories} />
 
 # Table
-
-The `Table` component is a flexible and structured way to display tabular data. It consists of multiple subcomponents, including `TableRow` and `TableCell`, allowing for fine-grained customization.
-
-## Usage
+<Description of={Table} />
 
 ### Basic Usage
 
-For **non-React users** and **React users with basic needs**, the table can be constructed using presentational components:
-- `TableContainer`
-- `TableToolbar`
-- `Table`
-- `TableHead`
-- `TableHeaderCell`
-- `TableBody`
-- `TableRow`
-- `TableCell`
-
-These components ensure a consistent and accessible table structure. Non-React users can refer to the rendered HTML markup for implementation details.
-
 <Canvas of={TableStories.BasicUsage} />
-<Controls />
-
 <RenderHtmlMarkup of={TableStories.BasicUsage} />
 
-### Advanced Usage (For React Users)
-
-For **React users**, additional features enhance the table’s functionality, such as:
-- Expandable **Call-to-Action (CTA)** containers
-- Interactive table behaviors
-
-While these advanced features offer more flexibility, the core `Table` component and its children are sufficient for most use cases.
-
----
-
-This version makes the documentation more **structured, clear, and readable** while fixing grammar errors and ensuring better guidance for users. Let me know if you need further refinements! 🚀
