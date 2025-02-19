@@ -2,11 +2,15 @@ import { act, fireEvent, render, screen } from '@testing-library/react'
 import { SideBarCollapse } from '..'
 import { SideBarProvider } from '#src/components/side-bar/side-bar-context'
 
+vi.mock('../icons/collapse.svg?react', () => ({
+  default: () => <span data-testid="collapse-icon" />,
+}))
+
 describe('SideBar', () => {
   it('should match snapshot with expanded state', () => {
     const { asFragment } = render(
       <SideBarProvider>
-        <SideBarCollapse />{' '}
+        <SideBarCollapse />
       </SideBarProvider>,
     )
     expect(asFragment()).toMatchSnapshot()
