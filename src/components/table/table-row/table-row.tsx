@@ -6,7 +6,6 @@ export interface TableRowProps extends TableHTMLAttributes<HTMLTableRowElement> 
   children: ReactNode
 }
 
-
 /**
  * A standard HTML/JSX `<tr>` component for use in tables.
  *

@@ -14,9 +14,8 @@ export default {
   component: TableRow,
 } as Meta<typeof TableRow>
 
-
 export const BasicUsage = {
-  render: ({ }) => (
+  render: ({}) => (
     <TableContainer>
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
