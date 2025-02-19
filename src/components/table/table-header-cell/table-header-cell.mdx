@@ -1,17 +1,12 @@
-import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { Meta, Canvas, Controls, Description } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../../storybook/render-html-markup'
 import * as TableHeaderCellStories from './table-header-cell.stories'
+import { TableHeaderCell } from './index'
 
 <Meta of={TableHeaderCellStories} />
 
 # TableHeaderCell
-Typically TableHeaderCell are used as TableHead children, and its will have `div` children as the wrapper content.
-
-The `TableHeaderCell` component represents a header cell in a table. 
-It is typically used within the `TableHead` component to define column headers.
-It allows customization of alignment, width, and other properties like flex direction and wrapping behavior.
-
-You can customize its content with a wide range of styles and options, making it flexible for various table use cases.
+<Description of={TableHeaderCell} />
 
 ## Basic Usage
 

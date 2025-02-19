@@ -6,12 +6,10 @@ import { TableToolbar } from '../table-toolbar'
 import { Input } from '../../input'
 import { AvatarRectangle } from '../../avatar-rectangle'
 
-const meta: Meta<typeof Table> = {
+export default {
   title: 'Components/Table',
   component: Table,
-}
-
-export default meta
+} as Meta<typeof Table>
 
 export const BasicUsage = {
   render: ({}) => (
@@ -29,6 +27,7 @@ export const BasicUsage = {
           {Array.from({ length: 5 }, (_, index) => (
             <tr key={index}>
               <td>
+                ITableProps
                 <Input type="checkbox" />
               </td>
               <td>First Column</td>

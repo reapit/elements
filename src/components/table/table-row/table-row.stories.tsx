@@ -9,12 +9,10 @@ import { TableBody } from '../table-body'
 import { Input } from '../../input'
 import { AvatarRectangle } from '../../avatar-rectangle'
 
-const meta: Meta<typeof TableRow> = {
+export default {
   title: 'Components/TableRow',
   component: TableRow,
-}
-
-export default meta
+} as Meta<typeof TableRow>
 
 export const BasicUsage = {
   render: ({}) => (

@@ -8,12 +8,10 @@ import { TableBody } from '../table-body'
 import { Input } from '../../input'
 import { AvatarRectangle } from '../../avatar-rectangle'
 
-const meta: Meta<typeof TableHead> = {
+export default {
   title: 'Components/TableHead',
   component: TableHead,
-}
-
-export default meta
+} as Meta<typeof TableHead>
 
 export const BasicUsage = {
   render: (args) => (
