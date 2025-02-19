@@ -9,15 +9,14 @@ import { TableBody } from '../table-body'
 import { Input } from '../../input'
 import { AvatarRectangle } from '../../avatar-rectangle'
 
-const meta: Meta<typeof TableRow> = {
+export default {
   title: 'Components/TableRow',
   component: TableRow,
-}
+} as Meta<typeof TableRow>
 
-export default meta
 
 export const BasicUsage = {
-  render: ({}) => (
+  render: ({ }) => (
     <TableContainer>
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
