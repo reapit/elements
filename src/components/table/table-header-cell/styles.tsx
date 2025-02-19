@@ -1,25 +1,40 @@
 import { styled } from '@linaria/react'
-interface TableCellProps {
-  width?: string
-  minWidth?: string
-  maxWidth?: string
+import { CSSProperties } from 'react'
+
+export interface TableCellCSSProperties extends CSSProperties {
+  // NOTE: These are public CSS variables that we use to allow CSS-only consumers
+  // We do this ourselves instead of leveraging Linaria's dynamic styles because
+  // that approach results in randomly-named CSS variables, which would not provide
+  // a friendly interface for CSS-only consumers.
+
+  '--tablecell-header-flex-wrap'?: 'wrap' | 'nowrap'
+  '--tablecell-header-width'?: string
+  '--tablecell-header-min-width'?: string
+  '--tablecell-header-max-width'?: string
 }
 
-interface TableHeaderCellContentProps {
-  isFlexWrap?: boolean
+interface ElTableHeaderCellProps {
+  style?: TableCellCSSProperties
+  'data-alignment': string
 }
 
-const getFlexWrap = (isFlexWrap?: boolean): string => {
-  return isFlexWrap ? 'wrap' : 'nowrap'
+interface ElTableHeaderCellContentProps {
+  style?: TableCellCSSProperties
+  'data-flex-direction': string
 }
 
-export const ElTableHeaderCell = styled.th<TableCellProps>`
-  width: ${({ width }) => width || 'auto'};
-  min-width: ${({ minWidth }) => minWidth || 'auto'};
-  max-width: ${({ maxWidth }) => maxWidth || 'auto'};
+export const ElTableHeaderCell = styled.td<ElTableHeaderCellProps>`
+  --tablecell-header-width: auto;
+  --tablecell-header-min-width: auto;
+  --tablecell-header-max-width: 100%;
+
+  width: var(--tablecell-header-width);
+  min-width: var(--tablecell-header-min-width);
+  max-width: var(--tablecell-header-max-width);
   gap: var(--spacing-1);
   flex: auto;
-  align-items: center;
+  vertical-align: middle;
+
   &[data-alignment='left'] {
     text-align: left;
   }
@@ -30,7 +45,9 @@ export const ElTableHeaderCell = styled.th<TableCellProps>`
     text-align: right;
   }
 `
-export const ElTableHeaderCellContent = styled.div<TableHeaderCellContentProps>`
+export const ElTableHeaderCellContent = styled.div<ElTableHeaderCellContentProps>`
+  --tablecell-header-flex-wrap: wrap;
+
   width: 100%;
   padding: var(--spacing-2);
   gap: var(--spacing-1);
@@ -44,7 +61,7 @@ export const ElTableHeaderCellContent = styled.div<TableHeaderCellContentProps>`
   min-height: 40px;
   flex: 1 0 0;
   display: flex;
-  flex-wrap: ${({ isFlexWrap }) => getFlexWrap(isFlexWrap)};
+  flex-wrap: var(--tablecell-header-flex-wrap);
 
   &[data-flex-direction='column'] {
     flex-direction: column;

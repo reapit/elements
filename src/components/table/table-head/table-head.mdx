@@ -1,13 +1,12 @@
-import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { Meta, Canvas, Controls, Description } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../../storybook/render-html-markup'
 import * as TableHeadStories from './table-head.stories'
+import { TableHead } from './index'
 
 <Meta of={TableHeadStories} />
 
 # TableHead
-This story demonstrates how to use the `TableHead` component in a basic table setup. It shows the table header with 5 columns, including a checkbox, text, and image headers.
-The `TableHead` component is used to define the header of the table. It typically includes `TableHeaderCell` elements that represent the table column headers.
-You can combine it with other components like `Table`, `TableBody`, and `TableToolbar` to create a fully functional table.
+<Description of={TableHead} />
 
 ## Basic Usage
 <Canvas of={TableHeadStories.BasicUsage} />
