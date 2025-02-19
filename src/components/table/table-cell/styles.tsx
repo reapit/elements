@@ -1,22 +1,36 @@
 import { styled } from '@linaria/react'
-interface TableCellConfiguration {
-  width?: string
-  minWidth?: string
-  maxWidth?: string
+import { CSSProperties } from 'react'
+
+export interface TableCellCSSProperties extends CSSProperties {
+  // NOTE: These are public CSS variables that we use to allow CSS-only consumers
+  // We do this ourselves instead of leveraging Linaria's dynamic styles because
+  // that approach results in randomly-named CSS variables, which would not provide
+  // a friendly interface for CSS-only consumers.
+
+  '--tablecell-flex-wrap'?: 'wrap' | 'nowrap'
+  '--tablecell-width'?: string
+  '--tablecell-min-width'?: string
+  '--tablecell-max-width'?: string
 }
 
-interface ElTableCellContentConfiguration {
-  isFlexWrap?: boolean
+interface ElTableCellProps {
+  style?: TableCellCSSProperties
+  'data-alignment': string
 }
 
-const getFlexWrap = (isFlexWrap?: boolean): string => {
-  return isFlexWrap ? 'wrap' : 'nowrap'
+interface TableCellContentProps {
+  style?: TableCellCSSProperties
+  'data-flex-direction': string
 }
 
-export const ElTableCell = styled.td<TableCellConfiguration>`
-  width: ${({ width }) => width || 'auto'};
-  min-width: ${({ minWidth }) => minWidth || 'auto'};
-  max-width: ${({ maxWidth }) => maxWidth || 'auto'};
+export const ElTableCell = styled.td<ElTableCellProps>`
+  --tablecell-width: auto;
+  --tablecell-min-width: auto;
+  --tablecell-max-width: 100%;
+
+  width: var(--tablecell-width);
+  min-width: var(--tablecell-min-width);
+  max-width: var(--tablecell-max-width: );
   gap: var(--spacing-1);
   flex: auto;
   vertical-align: middle;
@@ -31,7 +45,9 @@ export const ElTableCell = styled.td<TableCellConfiguration>`
     text-align: right;
   }
 `
-export const ElTableCellContent = styled.div<ElTableCellContentConfiguration>`
+export const ElTableCellContent = styled.div<TableCellContentProps>`
+  --tablecell-flex-wrap: wrap;
+
   width: 100%;
   padding: var(--spacing-2);
   gap: var(--spacing-1);
@@ -45,7 +61,7 @@ export const ElTableCellContent = styled.div<ElTableCellContentConfiguration>`
   min-height: 40px;
   flex: 1;
   display: flex;
-  flex-wrap: ${({ isFlexWrap }) => getFlexWrap(isFlexWrap)};
+  flex-wrap: var(--tablecell-flex-wrap);
 
   &[data-flex-direction='column'] {
     flex-direction: column;
