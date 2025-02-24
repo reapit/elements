@@ -133,6 +133,103 @@ const MockedTooltip = (props: TooltipProps) => {
 }
 
 /**
+ * The useTooltip hook provides an additional props:
+ *
+ * `getTruncationTargetProps()`: Applies a data-will-truncate attribute and a unique id to the target element.
+ * Which is utilized by the `getTriggerProps()` function to determine whether the text has been truncated.
+ * This enables conditional tooltip display only when truncation occurs, ensuring an optimal user experience.
+ *
+ * `getTriggerProps()` function applies general props to the trigger element.
+ * The first parameter allows passing additional properties,
+ * while setting the second parameter to true enables text truncation detection.
+ * This ensures that the tooltip is conditionally displayed only when the text is truncated.
+ *
+ * Usage example: `getTriggerProps({}, true)`
+ */
+export const ConditionalDisplay = {
+  render: () => {
+    const tooltipData = [
+      {
+        tooltip: useTooltip(),
+        text: 'Text is truncated here',
+      },
+      {
+        tooltip: useTooltip(),
+        text: 'Text not truncated',
+      },
+    ]
+
+    return (
+      <div style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%', height: '20vh' }}>
+        {tooltipData.map(({ tooltip, text }, index) => (
+          <div
+            key={index}
+            style={{
+              width: '138px',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              overflow: 'hidden',
+            }}
+          >
+            <span
+              style={{
+                display: 'block',
+                minWidth: 0,
+                maxWidth: '100%',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis',
+                whiteSpace: 'nowrap',
+                border: '1px solid #FA00FF',
+              }}
+              {...tooltip.getTriggerProps({}, true)}
+              {...tooltip.getTruncationTargetProps()}
+            >
+              {text}
+            </span>
+            <Tooltip {...tooltip.getTooltipProps()} description={text} />
+          </div>
+        ))}
+      </div>
+    )
+  },
+  parameters: {
+    docs: {
+      source: {
+        code: `
+render: () => {
+  const tooltipWithTruncatedText = useTooltip()
+  const tooltipWithoutTruncatedText = useTooltip()
+  return (
+    <>
+      <div style={{ width: '138px' }}>
+        <span
+          {...tooltipWithTruncatedText.getTriggerProps({}, true)}
+          {...tooltipWithTruncatedText.getTruncationTargetProps()}
+        >
+          This is truncated text
+        </span>
+        <Tooltip {...tooltipWithTruncatedText.getTooltipProps()} description="This is truncated text" />
+      </div>
+      <div style={{ width: '138px' }}>
+        <span
+          {...tooltipWithoutTruncatedText.getTriggerProps({}, true)}
+          {...tooltipWithoutTruncatedText.getTruncationTargetProps()}
+        >
+          Text not truncated
+        </span>
+        <Tooltip {...tooltipWithoutTruncatedText.getTooltipProps()} description="Text not truncated" />
+      </div>
+    </>
+  )
+}
+        `,
+      },
+    },
+  },
+}
+
+/**
  * Below is the UI representation for the tooltip component without the trigger.
  */
 export const DisplayTooltipWithoutTrigger = {

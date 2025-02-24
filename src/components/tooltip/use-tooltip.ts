@@ -1,12 +1,34 @@
-import { HTMLAttributes, useEffect, useState } from 'react'
+import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useId } from '#src/storybook/random-id'
 
 export const useTooltip = () => {
-  const tooltipId = `tooltip-id-${useId()}`
+  const tooltipId = useRef(`tooltip-id-${useId()}`).current
+  const truncatedElementTooltipId = useRef(`truncation-target-${useId()}`).current
   const [isVisible, setIsVisible] = useState(false)
 
-  const show = () => setIsVisible(true)
+  const show = (shouldCheckTruncation: boolean) => {
+    if (checkTextTruncation(shouldCheckTruncation)) {
+      setIsVisible(true)
+    }
+  }
   const hide = () => setIsVisible(false)
+
+  const checkTextTruncation = (shouldCheckTruncation: boolean) => {
+    const triggerElement = document.querySelector<HTMLElement>(`[data-visible-id="${tooltipId}"]`)
+
+    if (!shouldCheckTruncation) {
+      return true // Always show tooltip if truncation check is disabled
+    }
+
+    // Check if the trigger itself has `data-will-truncate="true"`
+    // OR if one of its descendants has it
+    const target = triggerElement?.matches('[data-will-truncate="true"]')
+      ? triggerElement
+      : triggerElement?.querySelector<HTMLElement>('[data-will-truncate="true"]')
+    if (!target) return false
+
+    return target.scrollWidth > target.clientWidth
+  }
 
   const positionTooltip = () => {
     // To do (In Future): Tooltip/Trigger selector to use useRef once project upgraded to React 19
@@ -97,19 +119,16 @@ export const useTooltip = () => {
       positionTooltip()
       window.addEventListener('resize', positionTooltip)
     }
-
-    return () => {
-      window.removeEventListener('resize', positionTooltip)
-    }
+    return () => window.removeEventListener('resize', positionTooltip)
   }, [isVisible])
 
-  const getTriggerProps = (props?: HTMLAttributes<HTMLElement>) => ({
+  const getTriggerProps = (props?: HTMLAttributes<HTMLElement>, shouldCheckTruncation = false) => ({
     ...props,
     'data-visible-id': tooltipId,
     'aria-describedby': tooltipId,
     onFocus: (e: React.FocusEvent<HTMLElement>) => {
       props?.onFocus?.(e)
-      show()
+      show(shouldCheckTruncation)
     },
     onBlur: (e: React.FocusEvent<HTMLElement>) => {
       props?.onBlur?.(e)
@@ -117,7 +136,7 @@ export const useTooltip = () => {
     },
     onMouseEnter: (e: React.MouseEvent<HTMLElement>) => {
       props?.onMouseEnter?.(e)
-      show()
+      show(shouldCheckTruncation)
     },
     onMouseLeave: (e: React.MouseEvent<HTMLElement>) => {
       props?.onMouseLeave?.(e)
@@ -134,5 +153,11 @@ export const useTooltip = () => {
     isVisible,
   })
 
-  return { getTriggerProps, getTooltipProps }
+  const getTruncationTargetProps = (props?: HTMLAttributes<HTMLElement>) => ({
+    ...props,
+    id: truncatedElementTooltipId,
+    'data-will-truncate': true, // boolean
+  })
+
+  return { getTriggerProps, getTooltipProps, getTruncationTargetProps }
 }
