@@ -105,8 +105,15 @@ export const ElInputField = styled.input<ElInputFieldProps>`
     font-family: var(--font-sans-serif);
     font-size: var(--font-size-small);
   }
+  &[type='number']::-webkit-outer-spin-button,
+  &[type='number']::-webkit-inner-spin-button,
+  &[type='number'] {
+    -webkit-appearance: none;
+    -moz-appearance: textfield;
+    appearance: none;
+    margin: 0;
+  }
 `
-
 export interface ElInputErrorTextProps {
   'data-size'?: ElInputSizesEnum
 }
