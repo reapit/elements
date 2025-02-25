@@ -1,7 +1,7 @@
 import { Icon } from '../../icon'
 import { styled } from '@linaria/react'
 import { InputAddOn } from '../../input-add-on'
-import { Input } from '../../input'
+import { Input } from '../../deprecated-input'
 import { Loader } from '../../loader'
 import { DeprecatedLabel } from '../../deprecated-label'
 

@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { Input } from '..'
 
-describe('Input component', () => {
+describe('Deprecated Input component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(<Input />)
     expect(wrapper.asFragment()).toMatchSnapshot()

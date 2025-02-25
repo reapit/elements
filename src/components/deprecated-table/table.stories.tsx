@@ -20,7 +20,7 @@ import { elMlAuto } from '../../styles/spacing'
 import { FormLayout, InputWrap } from '../form-layout'
 import { elIsActive } from '../../styles/states'
 import { DeprecatedAvatar } from '../deprecated-avatar'
-import { Input } from '../input'
+import { Input } from '../deprecated-input'
 import { TextBase } from '../typography'
 
 export default {
@@ -29,7 +29,7 @@ export default {
 }
 
 export const BasicUsage = {
-  render: ({}) => (
+  render: ({ }) => (
     <DeprecatedTable>
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Checkbox Header</DeprecatedTableHeader>
@@ -73,7 +73,7 @@ export const BasicUsage = {
 }
 
 export const ColumnWidths = {
-  render: ({}) => (
+  render: ({ }) => (
     <DeprecatedTable data-num-columns-excl-action-col="8">
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Checkbox Header</DeprecatedTableHeader>
@@ -118,7 +118,7 @@ export const ColumnWidths = {
 }
 
 export const BasicCustomisationTableCells = {
-  render: ({}) => (
+  render: ({ }) => (
     <DeprecatedTable>
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Selected</DeprecatedTableHeader>
@@ -163,7 +163,7 @@ export const BasicCustomisationTableCells = {
 }
 
 export const ExpandingTableCellSpace = {
-  render: ({}) => (
+  render: ({ }) => (
     <DeprecatedTable data-force-narrow-table="true">
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Is Active</DeprecatedTableHeader>
@@ -201,7 +201,7 @@ export const ExpandingTableCellSpace = {
 }
 
 export const ExpandableContent = {
-  render: ({}) => (
+  render: ({ }) => (
     <DeprecatedTable data-num-columns-excl-action-col="7" data-has-expandable-action>
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Is Active</DeprecatedTableHeader>
@@ -264,7 +264,7 @@ export const ExpandableContent = {
 }
 
 export const CallToActionContent = {
-  render: ({}) => (
+  render: ({ }) => (
     <DeprecatedTable data-num-columns-excl-action-col="7" data-has-call-to-action>
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Is Active</DeprecatedTableHeader>

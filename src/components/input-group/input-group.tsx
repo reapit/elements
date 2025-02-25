@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react'
 import { ElInputGroup } from './__styles__'
-import { Input } from '../input'
+import { Input } from '../deprecated-input'
 import { Icon, IconNames } from '../icon'
 import { DeprecatedLabel } from '../deprecated-label'
 import { InputAddOn } from '../input-add-on'

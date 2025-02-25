@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { InputGroup } from '..'
-import { Input } from '../../input'
+import { Input } from '../../deprecated-input'
 import { DeprecatedLabel } from '../../deprecated-label'
 import { Icon } from '../../icon'
 

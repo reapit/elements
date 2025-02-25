@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon/__styles__'
 import { ElDeprecatedLabel } from '../../deprecated-label/__styles__'
-import { ElInput, elHasInputError } from '../../input/__styles__'
+import { ElInput, elHasInputError } from '../../deprecated-input/__styles__'
 import { ElTextArea } from '../../textarea'
 import { ElSelect } from '../../select/__styles__'
 import { ElInputAddOn } from '../../input-add-on/__styles__'

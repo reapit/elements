@@ -1,8 +1,10 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
+/** @deprecated */
 export const elHasInputError = css``
 
+/** @deprecated */
 export const ElInput = styled.input`
   display: flex;
   color: var(--black);
