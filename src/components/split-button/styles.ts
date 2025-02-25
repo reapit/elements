@@ -28,21 +28,29 @@ export const ElActionButton = styled.button`
     letter-spacing: var(--letter-spacing-sm);
   }
 
-  &[disabled] {
+  &:hover:not([disabled]),
+  &:hover:not([aria-disabled='true']) {
+    background: var(--fill-button-primary-hover);
+  }
+
+  &:focus:not([disabled]),
+  &:focus:not([aria-disabled='true']) {
+    box-shadow:
+      0px 0px 0px 1px #fff,
+      0px 0px 0px 4px var(--purple-300);
+  }
+
+  &[disabled],
+  &[aria-disabled='true'] {
     border: var(--border-default) solid var(--fill-default-light);
     border-right: var(--border-none) solid var(--fill-default-light);
     background: var(--fill-default-light);
     color: var(--text-placeholder);
-  }
 
-  &:hover:not([disabled]) {
-    background: var(--fill-button-primary-hover);
-  }
-
-  &:focus:not([disabled]) {
-    box-shadow:
-      0px 0px 0px 1px #fff,
-      0px 0px 0px 4px var(--purple-300);
+    &:hover {
+      background: var(--fill-default-light);
+      color: var(--text-placeholder);
+    }
   }
 `
 
@@ -98,25 +106,33 @@ export const ElSplitButton = styled.div`
       background: var(--fill-white);
       color: var(--text-secondary);
 
-      &[disabled] {
-        border: var(--border-default) solid var(--fill-default-light);
-        border-right: var(--border-none) solid var(--fill-default-light);
-        background: var(--fill-default-light);
-        color: var(--text-placeholder);
-      }
-
-      &:hover:not([disabled]) {
+      &:hover:not([disabled]),
+      &:hover:not([aria-disabled='true']) {
         border-radius: var(--corner-default) var(--corner-none) var(--corner-none) var(--corner-default);
         border: var(--border-default) solid var(--outline-button-secondary-hover);
       }
 
-      &:focus:not([disabled]) {
+      &:focus:not([disabled]),
+      &:focus:not([aria-disabled='true']) {
         border-radius: var(--corner-default) var(--corner-none) var(--corner-none) var(--corner-default);
         border: var(--border-default) solid var(--outline-button-secondary-hover);
 
         box-shadow:
           0px 0px 0px 1px #fff,
           0px 0px 0px 4px var(--purple-300);
+      }
+
+      &[disabled],
+      &[aria-disabled='true'] {
+        border: var(--border-default) solid var(--fill-default-light);
+        border-right: var(--border-none) solid var(--fill-default-light);
+        background: var(--fill-default-light);
+        color: var(--text-placeholder);
+
+        &:hover {
+          background: var(--fill-default-light);
+          color: var(--text-placeholder);
+        }
       }
     }
 

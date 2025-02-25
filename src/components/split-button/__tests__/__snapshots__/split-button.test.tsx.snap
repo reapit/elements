@@ -55,7 +55,6 @@ exports[`SplitButton > should match snapshot with action button disabled 1`] = `
     <button
       aria-disabled="true"
       class="mocked-styled-2 el-action-button"
-      disabled=""
       role="button"
     >
       <span

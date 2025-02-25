@@ -19,10 +19,18 @@ export const ActionButton: FC<ActionButtonProps> = (props) => {
       role="button"
       aria-label={ariaLabel}
       aria-disabled={disabled}
-      disabled={disabled}
       className={className}
-      onClick={props.onClick}
       {...rest}
+      onClick={(e) => {
+        if (!disabled) {
+          if (props.onClick) {
+            props.onClick(e)
+          }
+        } else {
+          e.preventDefault() // Explicitly prevent default if disabled
+          e.stopPropagation() // Explicitly stoped propagation if disabled
+        }
+      }}
     >
       {children && <ElActionButtonLabel>{children}</ElActionButtonLabel>}
     </ElActionButton>
