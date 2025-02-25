@@ -90,13 +90,14 @@
     "@storybook/react-dom-shim": "^8.0.7",
     "@storybook/react-vite": "^8.0.7",
     "@storybook/theming": "^8.0.7",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^15.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/babel__core": "^7",
     "@types/node": "^18.19.31",
     "@types/postcss-flexbugs-fixes": "^5.0.3",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^18.2.75",
+    "@types/react-dom": "^18.2.24",
     "@types/react-syntax-highlighter": "^15.5.11",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",
@@ -121,9 +122,9 @@
     "happy-dom": "^15.11.6",
     "move-file-cli": "^3.0.0",
     "prettier": "^3.2.5",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.2.0",
     "react-syntax-highlighter": "^15.5.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.14.1",
@@ -138,10 +139,10 @@
     "vitest": "^2.1.5"
   },
   "peerDependencies": {
-    "react": ">=17.0.2",
-    "react-dom": ">=17.0.2"
+    "react": ">=18.0.2",
+    "react-dom": ">=18.0.2"
   },
   "snyk": true,
-  "packageManager": "yarn@4.3.1",
+  "packageManager": "yarn@4.6.0",
   "stableVersion": "5.0.0-beta.5"
 }

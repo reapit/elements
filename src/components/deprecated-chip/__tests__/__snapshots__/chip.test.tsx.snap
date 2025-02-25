@@ -3,12 +3,12 @@
 exports[`Chip component > should match a snapshot 1`] = `
 <DocumentFragment>
   <input
-    class="mocked-styled-0 el-chip-checkbox"
+    class="mocked-styled-0 el-deprecated-chip-checkbox"
     id="test-static-id"
     type="checkbox"
   />
   <label
-    class="mocked-styled-1 el-chip-label"
+    class="mocked-styled-1 el-deprecated-chip-label"
     for="test-static-id"
   >
     Some Content
@@ -19,29 +19,29 @@ exports[`Chip component > should match a snapshot 1`] = `
 exports[`ChipGroup component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-2 el-chip-group"
+    class="mocked-styled-2 el-deprecated-chip-group"
   >
     <div
-      class="mocked-styled-3 el-chip-group-inner"
+      class="mocked-styled-3 el-deprecated-chip-group-inner"
     >
       <input
-        class="mocked-styled-0 el-chip-checkbox"
+        class="mocked-styled-0 el-deprecated-chip-checkbox"
         id="test-static-id"
         type="checkbox"
       />
       <label
-        class="mocked-styled-1 el-chip-label"
+        class="mocked-styled-1 el-deprecated-chip-label"
         for="test-static-id"
       >
         Some Content
       </label>
       <input
-        class="mocked-styled-0 el-chip-checkbox"
+        class="mocked-styled-0 el-deprecated-chip-checkbox"
         id="test-static-id"
         type="checkbox"
       />
       <label
-        class="mocked-styled-1 el-chip-label"
+        class="mocked-styled-1 el-deprecated-chip-label"
         for="test-static-id"
       >
         Some Content
