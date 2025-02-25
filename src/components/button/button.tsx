@@ -53,7 +53,7 @@ type ButtonAsButtonElementProps = CommonButtonProps &
   ButtonHTMLAttributes<HTMLButtonElement> & {
     href?: never
     target?: never
-    disabled?: boolean
+    isDisabled?: boolean
     onClick?: MouseEventHandler<HTMLButtonElement>
   }
 
@@ -66,7 +66,7 @@ type ButtonAsAnchorElementProps = CommonButtonProps &
     target?: string
     rel?: string
     /** Anchor elements cannot be disabled. Use a button element if the component needs to be in a disabled state */
-    disabled?: never
+    isDisabled?: never
     onClick?: MouseEventHandler<HTMLAnchorElement>
   }
 
@@ -99,7 +99,7 @@ export const Button: FC<ButtonProps> = (props) => {
     iconLeft,
     iconRight,
     'aria-label': ariaLabel,
-    disabled = false,
+    isDisabled = false,
     href,
     target,
     rel,
@@ -123,6 +123,7 @@ export const Button: FC<ButtonProps> = (props) => {
   if (!isButtonAsButtonElement(props)) {
     return (
       <ElAnchorButton
+        {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
         href={href}
         data-variant={variant}
         data-has-no-padding={hasNoPadding}
@@ -136,7 +137,6 @@ export const Button: FC<ButtonProps> = (props) => {
         role="button"
         target={target}
         rel={rel}
-        {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
       >
         <ElButtonSpinner />
         {variant !== 'busy' && iconLeft}
@@ -147,22 +147,24 @@ export const Button: FC<ButtonProps> = (props) => {
   } else {
     return (
       <ElButton
+        {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
         data-variant={variant}
         data-has-no-padding={hasNoPadding}
         className={combinedClassName}
+        aria-label={ariaLabel}
+        aria-disabled={isDisabled}
+        role="button"
         onClick={(e) => {
-          if (!disabled) {
+          if (!isDisabled) {
             if (props.onClick) {
               props.onClick(e)
             }
           } else {
             e.preventDefault() // Explicitly prevent default if disabled
+            e.stopPropagation() // Explicitly prevent event from propogating
+            return
           }
         }}
-        aria-label={ariaLabel}
-        aria-disabled={disabled}
-        role="button"
-        {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
       >
         <ElButtonSpinner />
         {variant !== 'busy' && iconLeft}

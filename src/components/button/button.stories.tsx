@@ -38,7 +38,7 @@ const meta: Meta<typeof Button> = {
       options: ['small', 'medium', 'large'],
       description: 'Sets the button size.',
     },
-    disabled: { control: 'boolean', description: 'Disables the button if set to true.' },
+    isDisabled: { control: 'boolean', description: 'Disables the button if set to true.' },
     href: { control: 'text', description: 'Specifies the URL for anchor-style button' },
     onClick: {
       action: 'clicked',
@@ -137,7 +137,7 @@ export const ButtonSize = {
 
 export const ButtonDisabled = {
   args: {
-    disabled: true,
+    isDisabled: true,
     children: 'Button Text',
   },
 }
