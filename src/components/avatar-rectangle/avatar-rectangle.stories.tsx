@@ -61,7 +61,7 @@ const placeholderStoryOptions = {
 }
 
 /**
- * for the Avatar placeholder, there is separate component provided for each size
+ * for the placeholder, there will be separate component provided for each size
  */
 export const ResidentialPlaceholder: Story = {
   ...placeholderStoryOptions,
