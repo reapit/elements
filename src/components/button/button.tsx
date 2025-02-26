@@ -1,4 +1,13 @@
-import { HTMLAttributes, AnchorHTMLAttributes, ButtonHTMLAttributes, FC, MouseEventHandler, ReactNode } from 'react'
+import {
+  HTMLAttributes,
+  AnchorHTMLAttributes,
+  ButtonHTMLAttributes,
+  FC,
+  MouseEventHandler,
+  ReactNode,
+  useCallback,
+  MouseEvent,
+} from 'react'
 import {
   ElButton,
   elButtonSizeLarge,
@@ -105,6 +114,7 @@ export const Button: FC<ButtonProps> = (props) => {
     rel,
     className,
     hasNoPadding,
+    onClick,
     ...rest
   } = props
 
@@ -120,6 +130,24 @@ export const Button: FC<ButtonProps> = (props) => {
 
   const combinedClassName = cx(className, sizeClass, miscellaneousClass)
 
+  const handleClick = useCallback(
+    (event: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLAnchorElement>) => {
+      // We are not using <button>'s `disabled` attribute because disabled buttons are bad for a11y.
+      // Rather, we keep the <button> enabled and available in the a11y tree, but mark it as disabled using
+      // `aria-disabled`. This means click events will still be fired, so we need to prevent any default action
+      // for the button from occuring, stop it propagating to ancestors and avoid calling the consumer-supplied
+      // `onClick` callback.
+      if (isDisabled && isButtonAsButtonElement(props)) {
+        event.preventDefault()
+        event.stopPropagation()
+        return
+      }
+
+      onClick?.(event as any) // Safe because event type has been handled
+    },
+    [isDisabled, onClick],
+  )
+
   if (!isButtonAsButtonElement(props)) {
     return (
       <ElAnchorButton
@@ -128,11 +156,7 @@ export const Button: FC<ButtonProps> = (props) => {
         data-variant={variant}
         data-has-no-padding={hasNoPadding}
         className={combinedClassName}
-        onClick={(e) => {
-          if (props.onClick) {
-            props.onClick(e)
-          }
-        }}
+        onClick={handleClick}
         aria-label={ariaLabel}
         role="button"
         target={target}
@@ -154,17 +178,7 @@ export const Button: FC<ButtonProps> = (props) => {
         aria-label={ariaLabel}
         aria-disabled={isDisabled}
         role="button"
-        onClick={(e) => {
-          if (!isDisabled) {
-            if (props.onClick) {
-              props.onClick(e)
-            }
-          } else {
-            e.preventDefault() // Explicitly prevent default if disabled
-            e.stopPropagation() // Explicitly prevent event from propogating
-            return
-          }
-        }}
+        onClick={handleClick}
       >
         <ElButtonSpinner />
         {variant !== 'busy' && iconLeft}
