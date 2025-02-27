@@ -1,6 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { AvatarRectangle } from '.'
-import { ElAvatarRectResidentialPlaceholder, ElAvatarRectCommercialPlaceholder } from './styles'
+import {
+  ElAvatarRectResidentialPlaceholder,
+  ElAvatarRectCommercialPlaceholder,
+  ElAvatarRectResidentialSmallPlaceholder,
+  ElAvatarRectCommercialSmallPlaceholder,
+} from './styles'
 
 export default {
   title: 'Components/Avatar Rectangle',
@@ -35,10 +40,45 @@ export const AvatarRectangleVariant: Story = {
   },
 }
 
-export const UsingResidentialPlaceholder = {
+const placeholderStoryOptions = {
+  argTypes: {
+    variant: {
+      table: {
+        disable: true,
+      },
+    },
+    size: {
+      table: {
+        disable: true,
+      },
+    },
+    src: {
+      table: {
+        disable: true,
+      },
+    },
+  },
+}
+
+/**
+ * for the placeholder, there will be separate component provided for each size
+ */
+export const ResidentialPlaceholder: Story = {
+  ...placeholderStoryOptions,
   render: () => <ElAvatarRectResidentialPlaceholder aria-label="Image placeholder" />,
 }
 
-export const UsingCommercialPlaceholder = {
+export const ResidentialSmallPlaceholder = {
+  ...placeholderStoryOptions,
+  render: () => <ElAvatarRectResidentialSmallPlaceholder aria-label="Image placeholder" />,
+}
+
+export const CommercialPlaceholder = {
+  ...placeholderStoryOptions,
   render: () => <ElAvatarRectCommercialPlaceholder aria-label="Image placeholder" />,
+}
+
+export const CommercialSmallPlaceholder = {
+  ...placeholderStoryOptions,
+  render: () => <ElAvatarRectCommercialSmallPlaceholder aria-label="Image placeholder" />,
 }
