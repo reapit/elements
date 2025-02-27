@@ -9,7 +9,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
       class="mocked-styled-2 el-page-header-wrap-inner"
     >
       <div
-        class="el-mb6 el-bread-crumb-container"
+        class="el-mb6 el-deprecated-bread-crumb-container"
       >
         <div
           class="el-flex-container el-flex-align-center"
@@ -17,7 +17,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Home"
-            class="mocked-styled-17 el-bread-crumb-item"
+            class="mocked-styled-17 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -50,7 +50,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Level 1"
-            class="mocked-styled-17 el-bread-crumb-item"
+            class="mocked-styled-17 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -83,7 +83,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Level 2"
-            class="mocked-styled-17 el-bread-crumb-item"
+            class="mocked-styled-17 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -116,7 +116,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="page"
             aria-label="Breadcrumb item hit return to navigate to Level 3"
-            class="mocked-styled-17 el-bread-crumb-item"
+            class="mocked-styled-17 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
