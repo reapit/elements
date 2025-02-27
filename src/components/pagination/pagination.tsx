@@ -21,18 +21,12 @@ export interface PaginationProps {
 }
 
 export const Pagination: FC<PaginationProps> = ({ currentPage, pageCount, onPageChange }) => {
-  const handleOnNextClick = useCallback(() => {
-    const futurePage = Number(currentPage) + 1
-    if (futurePage > pageCount) return
+  const handleOnNextPageClick = useCallback(() => {
+    onPageChange(currentPage + 1)
+  }, [currentPage])
 
-    onPageChange(futurePage)
-  }, [currentPage, pageCount])
-
-  const handleOnBackClick = useCallback(() => {
-    const futurePage = Number(currentPage) - 1
-    if (futurePage < 1) return
-
-    onPageChange(futurePage)
+  const handleOnBackPageClick = useCallback(() => {
+    onPageChange(currentPage - 1)
   }, [currentPage])
 
   return (
@@ -41,8 +35,8 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, pageCount, onPage
         <ElPaginationItem>
           <Button
             aria-label="Go to previous page"
-            disabled={currentPage <= 1}
-            onClick={handleOnBackClick}
+            isDisabled={currentPage <= 1}
+            onClick={handleOnBackPageClick}
             iconLeft={<Icon icon="chevronLeft" />}
             variant="tertiary"
           />
@@ -53,8 +47,8 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, pageCount, onPage
         <ElPaginationItem>
           <Button
             aria-label="Go to next page"
-            disabled={currentPage >= pageCount}
-            onClick={handleOnNextClick}
+            isDisabled={currentPage >= pageCount}
+            onClick={handleOnNextPageClick}
             iconLeft={<Icon icon="chevronRight" />}
             variant="tertiary"
           />
