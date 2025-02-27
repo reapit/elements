@@ -1,36 +1,46 @@
-import type { FC, ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import { FC, ButtonHTMLAttributes, MouseEventHandler, ReactNode, useCallback } from 'react'
 import { ElActionButton, ElActionButtonLabel, ElMenuButton, ElSplitButtonIcon } from './styles'
 import { Icon } from '../icon'
 
 type ActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode
+  isDisabled?: boolean
   onClick?: MouseEventHandler
 }
 
 type MenuButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  disabled?: never
+  isDisabled?: never
   onClick?: MouseEventHandler
 }
 
 export const ActionButton: FC<ActionButtonProps> = (props) => {
-  const { children, disabled = false, 'aria-label': ariaLabel, className, ...rest } = props
+  const { children, isDisabled = false, 'aria-label': ariaLabel, className, onClick, ...rest } = props
+
+  const handleClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
+    (event) => {
+      // We are not using <button>'s `disabled` attribute because disabled buttons are bad for a11y.
+      // Rather, we keep the <button> enabled and available in the a11y tree, but mark it as disabled using
+      // `aria-disabled`. This means click events will still be fired, so we need to prevent any default action
+      // for the button from occuring, stop it propagating to ancestors and avoid calling the consumer-supplied
+      // `onClick` callback.
+      if (isDisabled) {
+        event.preventDefault()
+        event.stopPropagation()
+        return
+      }
+      onClick?.(event)
+    },
+    [isDisabled, onClick],
+  )
+
   return (
     <ElActionButton
       role="button"
       aria-label={ariaLabel}
-      aria-disabled={disabled}
+      aria-disabled={isDisabled}
       className={className}
       {...rest}
-      onClick={(e) => {
-        if (!disabled) {
-          if (props.onClick) {
-            props.onClick(e)
-          }
-        } else {
-          e.preventDefault() // Explicitly prevent default if disabled
-          e.stopPropagation() // Explicitly stoped propagation if disabled
-        }
-      }}
+      onClick={handleClick}
     >
       {children && <ElActionButtonLabel>{children}</ElActionButtonLabel>}
     </ElActionButton>

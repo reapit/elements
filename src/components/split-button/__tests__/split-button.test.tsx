@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { render, screen, fireEvent } from '@testing-library/react'
 import { SplitButton } from '..'
 
 describe('SplitButton', () => {
@@ -22,14 +22,36 @@ describe('SplitButton', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  test('should match snapshot with action button disabled', () => {
-    const { asFragment } = render(
+  test('should not call onClick when isDisabled is true', () => {
+    const onClick = vi.fn()
+    render(
       <SplitButton>
-        <SplitButton.Action disabled>Button</SplitButton.Action>
+        <SplitButton.Action onClick={onClick} isDisabled>
+          Button
+        </SplitButton.Action>
         <SplitButton.Menu />
       </SplitButton>,
     )
-    expect(asFragment()).toMatchSnapshot()
+    const button = screen.getByRole('button', { name: /button/i })
+    fireEvent.click(button)
+
+    expect(onClick).not.toHaveBeenCalled()
+  })
+
+  test('should call onClick when isDisabled is false', () => {
+    const onClick = vi.fn()
+    render(
+      <SplitButton>
+        <SplitButton.Action onClick={onClick} isDisabled={false}>
+          Button
+        </SplitButton.Action>
+        <SplitButton.Menu />
+      </SplitButton>,
+    )
+    const button = screen.getByRole('button', { name: /button/i })
+    fireEvent.click(button)
+
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 
   test('should match snapshot with large size', () => {
