@@ -8,7 +8,7 @@ export const ElBreadcrumbItem = styled.li`
   align-items: center;
   min-width: 0; /* Ensures flex children can shrink */
 
-  @media screen and (max-width: 767px) {
+  ${isMobile} {
     // dissalow shrink on mobile
     min-width: auto;
   }
@@ -44,7 +44,7 @@ export const elBreadcrumbLink = css`
   &:focus {
     box-shadow:
       0px 0px 0px 1px #fff,
-      0px 0px 0px 4px var(--purple-300, #7e9bfa);
+      0px 0px 0px 4px var(--purple-300);
   }
 
   &:hover {
@@ -53,17 +53,18 @@ export const elBreadcrumbLink = css`
 `
 
 export const ElBreadcrumbs = styled.ul`
-  display: flex; /* Makes the list horizontal */
-  list-style: none;
+  display: flex;
   overflow: visible !important;
 
   ${isMobile} {
     /* Enable horizontal scrolling in mobile */
     overflow-x: auto;
     flex-wrap: nowrap;
+
+    /* hide scrollbar */
     &::-webkit-scrollbar {
       display: none;
     }
-    scrollbar-width: none; // firefox
+    scrollbar-width: none; // for firefox
   }
 `
