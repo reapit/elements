@@ -52,13 +52,4 @@ export const ElTableHeaderCellContent = styled.div`
   flex: 1;
   display: flex;
   flex-wrap: wrap;
-
-  &[data-flex-direction='column'] {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  &[data-flex-direction='row'] {
-    flex-direction: row;
-  }
 `
