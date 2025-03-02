@@ -18,10 +18,11 @@ const TooltipTestComponent = () => {
 }
 
 const TooltipTruncatedTextComponent = () => {
-  const tooltip = useTooltip()
+  const mockId = 'mock-truncated-id'
+  const tooltip = useTooltip({ truncationTargetId: mockId })
   return (
     <>
-      <div {...tooltip.getTriggerProps({}, true)} {...tooltip.getTruncationTargetProps()}>
+      <div id={mockId} {...tooltip.getTriggerProps()}>
         Text is truncated here
       </div>
       <Tooltip {...tooltip.getTooltipProps()} description="Tooltip Text is truncated here" />
@@ -35,7 +36,6 @@ describe('useTooltip', () => {
 
     const triggerProps = result.current.getTriggerProps()
     const tooltipProps = result.current.getTooltipProps()
-    const truncationTargetProps = result.current.getTruncationTargetProps()
 
     expect(triggerProps).toHaveProperty('aria-describedby')
     expect(triggerProps).toHaveProperty('onFocus')
@@ -47,9 +47,6 @@ describe('useTooltip', () => {
     expect(tooltipProps).toHaveProperty('role', 'tooltip')
     expect(tooltipProps).toHaveProperty('aria-hidden', true)
     expect(tooltipProps).toHaveProperty('data-is-visible', false)
-
-    expect(truncationTargetProps).toHaveProperty('id')
-    expect(truncationTargetProps).toHaveProperty('data-will-truncate', true)
   })
 
   test('should position the tooltip correctly', () => {

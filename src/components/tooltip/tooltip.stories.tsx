@@ -3,6 +3,7 @@ import { Button } from '../button'
 import { useTooltip } from './use-tooltip'
 import { Tooltip, TooltipProps } from './tooltip'
 import { ElTooltip, ElTooltipLabel } from './styles'
+import { useId } from 'react'
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Components/Tooltip',
@@ -133,35 +134,56 @@ const MockedTooltip = (props: TooltipProps) => {
 }
 
 /**
- * The useTooltip hook provides an additional props:
+ * The useTooltip hook provides an optional parameter.
  *
- * `getTruncationTargetProps()`: Applies a data-will-truncate attribute and a unique id to the target element.
- * Which is utilized by the `getTriggerProps()` function to determine whether the text has been truncated.
- * This enables conditional tooltip display only when truncation occurs, ensuring an optimal user experience.
+ * `truncationTargetId` **(Optional)**
  *
- * `getTriggerProps()` function applies general props to the trigger element.
- * The first parameter allows passing additional properties,
- * while setting the second parameter to true enables text truncation detection.
- * This ensures that the tooltip is conditionally displayed only when the text is truncated.
+ * This optional parameter allows you to specify an ID for a target element that may have truncated text.
+ * If provided, the tooltip will only appear when the text within the target element is truncated
+ * (i.e., the content overflows the element's width).
+ * When the text in the element specified by truncationTargetId is truncated,
+ * the tooltip will be shown when the user interacts with the element (e.g., mouse hover, focus).
+ * If the element's text is not truncated, the tooltip will not be displayed.
  *
- * Usage example: `getTriggerProps({}, true)`
+ * Usage example:
+ *
+ * ```
+ * const truncatedId = 'test-id' // can use useId() from react to get unique Id
+ * const tooltip = useTooltip({ truncationTargetId: truncatedId })
+ * ```
+ *
+ * To ensure the tooltip triggers correctly, you need to pass the `truncationTargetId` to the element
+ * that will be responsible for showing the tooltip (trigger element).
+ * This allows the hook to correctly detect when the text is truncated and display the tooltip.
+ *
+ *
+
+ *
+ * ```
+ * 
+ * <div id={truncatedId}>Text will get truncated</div>
+ * ```
  */
 export const ConditionalDisplay = {
   render: () => {
+    const truncatedElementId1 = useId()
+    const truncatedElementId2 = useId()
     const tooltipData = [
       {
-        tooltip: useTooltip(),
+        tooltip: useTooltip({ truncationTargetId: truncatedElementId1 }),
         text: 'Text is truncated here',
+        id: truncatedElementId1,
       },
       {
-        tooltip: useTooltip(),
+        tooltip: useTooltip({ truncationTargetId: truncatedElementId2 }),
         text: 'Text not truncated',
+        id: truncatedElementId2,
       },
     ]
 
     return (
       <div style={{ display: 'flex', justifyContent: 'space-evenly', width: '100%', height: '20vh' }}>
-        {tooltipData.map(({ tooltip, text }, index) => (
+        {tooltipData.map(({ tooltip, text, id }, index) => (
           <div
             key={index}
             style={{
@@ -173,6 +195,7 @@ export const ConditionalDisplay = {
             }}
           >
             <span
+              id={id}
               style={{
                 display: 'block',
                 minWidth: 0,
@@ -182,8 +205,7 @@ export const ConditionalDisplay = {
                 whiteSpace: 'nowrap',
                 border: '1px solid #FA00FF',
               }}
-              {...tooltip.getTriggerProps({}, true)}
-              {...tooltip.getTruncationTargetProps()}
+              {...tooltip.getTriggerProps()}
             >
               {text}
             </span>
@@ -198,14 +220,17 @@ export const ConditionalDisplay = {
       source: {
         code: `
 render: () => {
-  const tooltipWithTruncatedText = useTooltip()
-  const tooltipWithoutTruncatedText = useTooltip()
+  const triggerElementIdforTruncatedText = 'trigger-id-for-truncated-text' // Can use useId() from react to get unique id
+  const triggerElementIdforNonTruncatedText = 'trigger-id-for-non-truncated-text' // Can use useId() from react to get unique id
+
+  const tooltipWithTruncatedText = useTooltip({ truncationTargetId : triggerElementIdforTruncatedText })
+  const tooltipWithoutTruncatedText = useTooltip({ truncationTargetId : triggerElementIdforNonTruncatedText })
   return (
     <>
       <div style={{ width: '138px' }}>
         <span
-          {...tooltipWithTruncatedText.getTriggerProps({}, true)}
-          {...tooltipWithTruncatedText.getTruncationTargetProps()}
+          id={triggerElementIdforTruncatedText}
+          {...tooltipWithTruncatedText.getTriggerProps()}
         >
           This is truncated text
         </span>
@@ -213,8 +238,8 @@ render: () => {
       </div>
       <div style={{ width: '138px' }}>
         <span
-          {...tooltipWithoutTruncatedText.getTriggerProps({}, true)}
-          {...tooltipWithoutTruncatedText.getTruncationTargetProps()}
+          id={triggerElementIdforNonTruncatedText}
+          {...tooltipWithoutTruncatedText.getTriggerProps()}
         >
           Text not truncated
         </span>
