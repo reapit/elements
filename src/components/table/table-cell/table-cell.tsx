@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, TdHTMLAttributes } from 'react'
-import { ElTableCell, ElTableCellContent, TableCellCSSProps } from './styles'
+import { ElTableCell, ElTableCellContent } from './styles'
 
 export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   children?: ReactNode
@@ -9,7 +9,6 @@ export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   maxWidth?: string
   flexDirection?: 'column' | 'row'
   isFlexWrap?: boolean
-  style?: TableCellCSSProps
 }
 
 /**
@@ -33,8 +32,6 @@ export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
 export const TableCell: FC<TableCellProps> = ({
   children,
   alignment = 'left',
-  flexDirection = 'column',
-  isFlexWrap,
   width = 'auto',
   maxWidth = '100%',
   minWidth = 'auto',
@@ -52,14 +49,7 @@ export const TableCell: FC<TableCellProps> = ({
         ...style,
       }}
     >
-      <ElTableCellContent
-        data-flex-direction={flexDirection}
-        style={{
-          '--tablecell-flex-wrap': isFlexWrap ? 'wrap' : 'wrap',
-        }}
-      >
-        {children}
-      </ElTableCellContent>
+      <ElTableCellContent>{children}</ElTableCellContent>
     </ElTableCell>
   )
 }

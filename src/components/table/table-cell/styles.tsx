@@ -1,13 +1,11 @@
 import { styled } from '@linaria/react'
 import { CSSProperties } from 'react'
 
-export interface TableCellCSSProps extends CSSProperties {
+interface TableCellCSSProps extends CSSProperties {
   // NOTE: These are public CSS variables that we use to allow CSS-only consumers
   // We do this ourselves instead of leveraging Linaria's dynamic styles because
   // that approach results in randomly-named CSS variables, which would not provide
   // a friendly interface for CSS-only consumers.
-
-  '--tablecell-flex-wrap'?: 'wrap' | 'nowrap'
   '--tablecell-width'?: string
   '--tablecell-min-width'?: string
   '--tablecell-max-width'?: string
@@ -16,11 +14,6 @@ export interface TableCellCSSProps extends CSSProperties {
 interface ElTableCellProps {
   style?: TableCellCSSProps
   'data-alignment': string
-}
-
-interface TableCellContentProps {
-  style?: TableCellCSSProps
-  'data-flex-direction': string
 }
 
 export const ElTableCell = styled.td<ElTableCellProps>`
@@ -32,7 +25,6 @@ export const ElTableCell = styled.td<ElTableCellProps>`
   min-width: var(--tablecell-min-width);
   max-width: var(--tablecell-max-width);
   gap: var(--spacing-1);
-  flex: auto;
   vertical-align: middle;
 
   &[data-alignment='left'] {
@@ -45,9 +37,7 @@ export const ElTableCell = styled.td<ElTableCellProps>`
     text-align: right;
   }
 `
-export const ElTableCellContent = styled.div<TableCellContentProps>`
-  --tablecell-flex-wrap: wrap;
-
+export const ElTableCellContent = styled.div`
   width: 100%;
   padding: var(--spacing-2);
   gap: var(--spacing-1);
@@ -61,14 +51,5 @@ export const ElTableCellContent = styled.div<TableCellContentProps>`
   min-height: 40px;
   flex: 1;
   display: flex;
-  flex-wrap: var(--tablecell-flex-wrap);
-
-  &[data-flex-direction='column'] {
-    flex-direction: column;
-    justify-content: center;
-  }
-
-  &[data-flex-direction='row'] {
-    flex-direction: row;
-  }
+  flex-wrap: wrap;
 `
