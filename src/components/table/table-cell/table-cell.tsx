@@ -7,8 +7,6 @@ export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   width?: string
   minWidth?: string
   maxWidth?: string
-  flexDirection?: 'column' | 'row'
-  isFlexWrap?: boolean
 }
 
 /**
@@ -25,8 +23,6 @@ export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
  * - `width`: Sets the width of the table cell.
  * - `minWidth`: Sets the minimum width of the table cell.
  * - `maxWidth`: Sets the maximum width of the table cell.
- * - `flexDirection`: Controls the flex direction (`row` or `column`) without adding an extra wrapper around the child.
- * - `isFlexWrap`: Determines whether child elements should wrap (`true`) or remain in a single line (`false`).
  */
 
 export const TableCell: FC<TableCellProps> = ({
