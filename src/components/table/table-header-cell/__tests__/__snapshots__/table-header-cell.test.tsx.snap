@@ -9,8 +9,6 @@ exports[`TableHeaderCell > should match snapshot 1`] = `
   >
     <div
       class="mocked-styled-1 el-table-header-cell-content"
-      data-flex-direction="column"
-      style="--tablecell-header-flex-wrap: wrap;"
     >
       Mock Children
     </div>
