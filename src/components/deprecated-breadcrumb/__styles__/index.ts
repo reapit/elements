@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react'
 
-export const ElBreadCrumbItem = styled.a`
+/** @deprecated */
+export const ElDeprecatedBreadCrumbItem = styled.a`
   font-weight: inherit;
   border-radius: 0.5rem;
   font-size: var(--font-size-small);
@@ -8,7 +9,8 @@ export const ElBreadCrumbItem = styled.a`
   margin-right: 0.375rem;
 `
 
-export const ElBreadCrumbContainer = styled.div`
+/** @deprecated */
+export const ElDeprecatedBreadCrumbContainer = styled.div`
   display: flex;
   width: 100%;
 `
