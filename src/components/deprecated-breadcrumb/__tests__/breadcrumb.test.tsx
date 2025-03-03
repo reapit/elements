@@ -1,11 +1,11 @@
 import { MouseEvent } from 'react'
 import { render } from '@testing-library/react'
-import { BreadCrumb, handleNext } from '../breadcrumb'
+import { DeprecatedBreadCrumb, handleNext } from '../breadcrumb'
 
 describe('BreadCrumb', () => {
   it('should match a snapshot', () => {
     const wrapper = render(
-      <BreadCrumb
+      <DeprecatedBreadCrumb
         defaultActiveIndex={3}
         items={[
           {
@@ -27,7 +27,7 @@ describe('BreadCrumb', () => {
         ]}
       >
         Hover here
-      </BreadCrumb>,
+      </DeprecatedBreadCrumb>,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
