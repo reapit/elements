@@ -8,7 +8,12 @@ import { TableHead } from '../table-head'
 import { TableBody } from '../table-body'
 import { Input } from '../../input'
 import { AvatarRectangle } from '../../avatar-rectangle'
+import { styled } from '@linaria/react'
 
+const ElTd = styled.td`
+  vertical-align: middle;
+  padding: var(--spacing-2);
+`
 export default {
   title: 'Components/TableRow',
   component: TableRow,
@@ -27,17 +32,17 @@ export const BasicUsage = {
           <TableHeaderCell>Third Header</TableHeaderCell>
         </TableHead>
         <TableBody>
-          {Array.from({ length: 3 }, (_, index) => (
-            <TableRow key={index}>
-              <td>
-                <Input type="checkbox" />
-              </td>
-              <td>First Column</td>
-              <td>
+          {Array.from({ length: 5 }, (_, index) => (
+            <TableRow key={index} isSelected={index == 0}>
+              <ElTd>
+                <Input type="checkbox" checked={index == 0} />
+              </ElTd>
+              <ElTd>First Column</ElTd>
+              <ElTd>
                 <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
-              </td>
-              <td>Second Column</td>
-              <td>Last Column</td>
+              </ElTd>
+              <ElTd>Second Column</ElTd>
+              <ElTd>Last Column</ElTd>
             </TableRow>
           ))}
         </TableBody>

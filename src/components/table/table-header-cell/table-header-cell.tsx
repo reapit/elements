@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, ThHTMLAttributes } from 'react'
-import { ElTableHeaderCell, ElTableHeaderCellContent, TableCellCSSProperties } from './styles'
+import { ElTableHeaderCell, ElTableHeaderCellContent } from './styles'
 
 export interface TableHeaderCellProps extends ThHTMLAttributes<HTMLTableCellElement> {
   children: ReactNode
@@ -7,9 +7,6 @@ export interface TableHeaderCellProps extends ThHTMLAttributes<HTMLTableCellElem
   width?: string
   minWidth?: string
   maxWidth?: string
-  flexDirection?: 'column' | 'row'
-  isFlexWrap?: boolean
-  style?: TableCellCSSProperties
 }
 
 /**
@@ -25,15 +22,11 @@ export interface TableHeaderCellProps extends ThHTMLAttributes<HTMLTableCellElem
  * - `width`: Sets the width of the table header cell.
  * - `minWidth`: Sets the minimum width of the table header cell.
  * - `maxWidth`: Sets the maximum width of the table header cell.
- * - `flexDirection`: Controls the flex direction (`row` or `column`) without adding an extra wrapper around child.
- * - `isFlexWrap`: Determines whether child elements should wrap (`true`) or remain in a single line (`false`).
  */
 
 export const TableHeaderCell: FC<TableHeaderCellProps> = ({
   children,
   alignment = 'left',
-  flexDirection = 'column',
-  isFlexWrap,
   width = 'auto',
   maxWidth = '100%',
   minWidth = 'auto',
@@ -51,14 +44,7 @@ export const TableHeaderCell: FC<TableHeaderCellProps> = ({
         ...style,
       }}
     >
-      <ElTableHeaderCellContent
-        data-flex-direction={flexDirection}
-        style={{
-          '--tablecell-header-flex-wrap': isFlexWrap ? 'wrap' : 'wrap',
-        }}
-      >
-        {children}
-      </ElTableHeaderCellContent>
+      <ElTableHeaderCellContent>{children}</ElTableHeaderCellContent>
     </ElTableHeaderCell>
   )
 }
