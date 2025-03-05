@@ -1,27 +1,30 @@
-import type { FC, HTMLAttributes } from 'react'
-import { SideBarCollapse } from '../side-bar-menu-item'
-import { SideBarProvider, useSideBarContext } from './side-bar-context'
+import { useState, type FC, type HTMLAttributes } from 'react'
+import { SideBarCollapseButton } from '../side-bar-collapse-button'
+import { IsSideBarExpandedContext, useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
 import { ElSideBar, ELSideBarMenuList } from './styles'
 
 type SideBarFC = FC<HTMLAttributes<HTMLElement>> & {
-  CollapseButon: typeof SideBarCollapse
+  CollapseButon: typeof SideBarCollapseButton
   MenuList: FC<HTMLAttributes<HTMLUListElement>>
 }
 
-const SideBar: SideBarFC = ({ children, ...props }) => (
-  <SideBarProvider>
-    <ElSideBar aria-label="Sidebar Navigation" {...props}>
-      {children}
-    </ElSideBar>
-  </SideBarProvider>
-)
-
-SideBar.MenuList = ({ children }) => {
-  const { isOpen } = useSideBarContext()
-
-  return <ELSideBarMenuList data-is-expanded={isOpen}>{children}</ELSideBarMenuList>
+const SideBar: SideBarFC = ({ children, ...props }) => {
+  const [isExpanded, setIsExpanded] = useState(true)
+  return (
+    <IsSideBarExpandedContext.Provider value={{ isExpanded, setIsExpanded }}>
+      <ElSideBar aria-label="Sidebar Navigation" {...props}>
+        {children}
+      </ElSideBar>
+    </IsSideBarExpandedContext.Provider>
+  )
 }
 
-SideBar.CollapseButon = SideBarCollapse
+SideBar.MenuList = ({ children }) => {
+  const { isExpanded } = useIsSideBarExpandedContext()
+
+  return <ELSideBarMenuList data-is-expanded={isExpanded}>{children}</ELSideBarMenuList>
+}
+
+SideBar.CollapseButon = SideBarCollapseButton
 
 export { SideBar }

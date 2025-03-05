@@ -8,6 +8,7 @@ import {
   SideBarMenuItem,
 } from '../side-bar-menu-item'
 import { Icon } from '../icon'
+import { useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
 
 export default {
   title: 'Components/Side Bar',
@@ -25,6 +26,18 @@ const Customicon = () => (
 
 export const Default: Story = {
   render: () => {
+    const CustomLink = () => {
+      const { isExpanded } = useIsSideBarExpandedContext()
+
+      return (
+        <a href="#" className={elSideBarMenuItemAnchor}>
+          <ElSideBarMenuItemIcon>
+            <Icon icon="property" />
+          </ElSideBarMenuItemIcon>
+          {isExpanded && <ElSideBarMenuItemText>Custom Link</ElSideBarMenuItemText>}
+        </a>
+      )
+    }
     return (
       <div
         style={{
@@ -49,12 +62,7 @@ export const Default: Story = {
             </SideBarMenuItem>
 
             <li>
-              <a href="#" className={elSideBarMenuItemAnchor}>
-                <ElSideBarMenuItemIcon>
-                  <Icon icon="property" />
-                </ElSideBarMenuItemIcon>
-                <ElSideBarMenuItemText>Custom Link</ElSideBarMenuItemText>
-              </a>
+              <CustomLink />
             </li>
             <SideBarMenuItem icon={<Customicon />} href="#">
               External Icon
