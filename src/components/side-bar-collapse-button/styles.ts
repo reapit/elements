@@ -3,7 +3,6 @@ import CollapseIcon from './icons/collapse.svg?react'
 
 export const ElSideBarCollapseButtonContainer = styled.div`
   padding-top: var(--spacing-3);
-  margin-top: auto;
   width: 100%;
 
   &[data-is-expanded='false'] {
