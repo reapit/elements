@@ -10,18 +10,35 @@ export const useTooltip = ({ truncationTargetId }: UseTooltipOptions = {}) => {
   const [isVisible, setIsVisible] = useState(false)
 
   const show = () => {
-    if (!truncationTargetId || checkTextTruncation()) {
+    if (shouldShowTooltip()) {
       setIsVisible(true)
     }
   }
   const hide = () => setIsVisible(false)
 
-  const checkTextTruncation = () => {
-    if (!truncationTargetId) return false // If no truncation ID is provided, assume no truncation
+  const shouldShowTooltip = () => {
+    // If no truncation ID is provided, assume a truncation check is not required.
+    // In this case, return `true` to ensure the Tooltip is displayed.
+    if (!truncationTargetId) return true
 
     const target = document.getElementById(truncationTargetId)
-    if (!target) return false // // If the target element is not found, no truncation
+    /**
+     * Fallback mechanism:
+     * If the target element is not found in the DOM, return `true` to ensure
+     * the Tooltip is displayed by default.
+     */
+    if (!target) return true
 
+    /**
+     * Determines whether the target element's content is truncated.
+     *
+     * This function returns a boolean indicating if the element's `scrollWidth`
+     * exceeds its `clientWidth`, which implies that the content overflows and
+     * requires scrolling. This check is useful for conditionally displaying a
+     * Tooltip when text truncation occurs.
+     *
+     * @returns {boolean} True if the content is truncated, otherwise false.
+     */
     return target.scrollWidth > target.clientWidth // Check if text is truncated
   }
 
