@@ -1,6 +1,6 @@
 import add from '../../assets/icons/add.svg?react'
 import announcement from '../../assets/icons/announcement.svg?react'
-import appLauncher from '../../assets/icons/appLauncher.svg?react'
+import appSwitcher from '../../assets/icons/appSwitcher.svg?react'
 import arrowDown from '../../assets/icons/arrowDown.svg?react'
 import arrowLeft from '../../assets/icons/arrowLeft.svg?react'
 import arrowRight from '../../assets/icons/arrowRight.svg?react'
@@ -127,7 +127,7 @@ import placeholderSmall from '../../assets/placeholder-images/placeholderSmall.s
 export const iconSet = {
   add,
   announcement,
-  appLauncher,
+  appSwitcher,
   arrowDown,
   arrowLeft,
   arrowRight,
