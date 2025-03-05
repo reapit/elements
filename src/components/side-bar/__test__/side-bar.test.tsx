@@ -1,7 +1,7 @@
 import { act, fireEvent, render, screen } from '@testing-library/react'
 import { SideBar } from '..'
 
-vi.mock('../../side-bar-menu-item/icons/collapse.svg?react', () => ({
+vi.mock('../../side-bar-collapse-button/icons/collapse.svg?react', () => ({
   default: vi.fn(() => <span data-testid="collapse-icon" />),
 }))
 

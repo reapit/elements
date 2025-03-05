@@ -18,7 +18,7 @@ export const ELSideBarMenuList = styled.ul`
   // TODO: remove default value once the token is available
   width: var(--size-64, 256px);
 
-  & > li {
+  & li {
     width: 100%;
   }
 
