@@ -11,7 +11,6 @@ import {
 
 export const ElIcon = styled.span`
   display: flex;
-  color: var(--black);
   font-size: 1.5rem;
 
   &.${elIntentPrimary} {
