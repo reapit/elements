@@ -15,7 +15,7 @@ export interface PaginationProps {
    */
   pageCount: number
   /**
-   * triggered when the  clicks on a button to change the current page
+   * Triggered when the clicks on a button to change the current page
    */
   onPageChange: (page: number) => void
 }
@@ -30,7 +30,7 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, pageCount, onPage
   }, [currentPage])
 
   return (
-    <ElPagination role="doc-pagelist" aria-label="Pagination">
+    <ElPagination aria-label="Pagination">
       <ElPaginationList>
         <ElPaginationItem>
           <Button

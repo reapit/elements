@@ -5,7 +5,6 @@ exports[`Pagination > should match a snapshot 1`] = `
   <nav
     aria-label="Pagination"
     class="mocked-styled-7 el-pagination"
-    role="doc-pagelist"
   >
     <ul
       class="mocked-styled-8 el-pagination-list"
