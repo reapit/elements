@@ -16,29 +16,29 @@ export const useTooltip = ({ truncationTargetId }: UseTooltipOptions = {}) => {
   }
   const hide = () => setIsVisible(false)
 
+  /**
+   * Determines whether the Tooltip should be displayed.
+   *
+   * This function checks if a truncation target ID is provided and whether the
+   * target element exists in the DOM. If no valid target is found, the Tooltip
+   * is displayed by default. If the target element exists, it evaluates whether
+   * its content is truncated by comparing `scrollWidth` and `clientWidth`.
+   *
+   * @returns {boolean} True if the Tooltip should be displayed, otherwise false.
+   */
   const shouldShowTooltip = () => {
     // If no truncation ID is provided, assume a truncation check is not required.
     // In this case, return `true` to ensure the Tooltip is displayed.
     if (!truncationTargetId) return true
 
     const target = document.getElementById(truncationTargetId)
-    /**
-     * Fallback mechanism:
-     * If the target element is not found in the DOM, return `true` to ensure
-     * the Tooltip is displayed by default.
-     */
+    // Fallback mechanism: If the target element is not found in the DOM, return `true` to ensure
+    // the Tooltip is displayed by default.
     if (!target) return true
 
-    /**
-     * Determines whether the target element's content is truncated.
-     *
-     * This function returns a boolean indicating if the element's `scrollWidth`
-     * exceeds its `clientWidth`, which implies that the content overflows and
-     * requires scrolling. This check is useful for conditionally displaying a
-     * Tooltip when text truncation occurs.
-     *
-     * @returns {boolean} True if the content is truncated, otherwise false.
-     */
+    // Determine if the target content is truncated by checking whether the element's scrollWidth
+    // exceeds its clientWidth. If scrollWidth is larger, the content overflows and requires scrolling.
+    // This check is useful for conditionally displaying a Tooltip when text truncation occurs.
     return target.scrollWidth > target.clientWidth // Check if text is truncated
   }
 
