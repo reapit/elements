@@ -1,4 +1,4 @@
-import { Meta, Canvas, Controls, Description } from '@storybook/blocks'
+import { Meta, Canvas, Controls, Description, Source } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
 import * as TooltipStories from './tooltip.stories'
 
@@ -12,5 +12,31 @@ import * as TooltipStories from './tooltip.stories'
 
 <Controls />
 
+# Basic Usage
+
 <Description of={TooltipStories.BasicUsage} />
 <Canvas of={TooltipStories.BasicUsage} />
+
+# Conditional Display
+
+<Description of={TooltipStories.ConditionalDisplay} />
+<Canvas of={TooltipStories.ConditionalDisplay} />
+
+The following example demonstrates how to truncate text using CSS.
+<Source code={`
+// HTML
+<div class="container">
+  <span class="truncate-text">Text is truncated here</span>
+</div>
+
+// CSS styles
+.container {
+  width: '136px';
+  display: 'flex'; // Can use grid
+}
+.truncate-text {
+  overflow: 'hidden';
+  text-overflow: 'ellipsis';
+  white-space: 'nowrap'
+}
+`} language="tsx" />
