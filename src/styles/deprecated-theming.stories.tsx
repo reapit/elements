@@ -1,13 +1,13 @@
 import { Button } from '../components/button'
-import { ElementsThemeProvider } from './theme-provider'
+import { DeprecatedElementsThemeProvider } from './deprecated-theme-provider'
 
 export default {
-  title: 'Theming',
+  title: 'DeprecatedTheming',
 }
 
-export const ThemingProvider = {
+export const DeprecatedThemingProvider = {
   render: ({}) => (
-    <ElementsThemeProvider
+    <DeprecatedElementsThemeProvider
       theme={{
         intentPrimary: '#ffa000',
         intentPrimaryDark: '#ad6c00',
@@ -15,6 +15,6 @@ export const ThemingProvider = {
       }}
     >
       <Button variant="primary">Button Text</Button>
-    </ElementsThemeProvider>
+    </DeprecatedElementsThemeProvider>
   ),
 }

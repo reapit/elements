@@ -1,10 +1,14 @@
 import { Meta, Story, Canvas, Source } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../storybook/render-html-markup'
-import * as ThemingStories from './theming.stories'
+import * as ThemingStories from './deprecated-theming.stories'
 
 <Meta of={ThemingStories} />
 
-# Theming
+# Deprecated Theming
+
+⚠️ The approach to theming described here is deprecated. See `ThemeProvider` instead.
+
+---
 
 We have achieved global and local theming on the project by using CSS Variables throughout that are loaded globally on the `:root` selector when importing the Elements stylesheet into your code (see getting started).
 
@@ -51,6 +55,6 @@ We also support an in-house provider that inlines the variables, overriding the 
 
 In the below example, we wrap our button in the `ElementsThemeProvider` which accepts an object of CSS variables to set. This overrides the theme set in the previous example.
 
-<Canvas of={ThemingStories.ThemingProvider} />
+<Canvas of={ThemingStories.DeprecatedThemingProvider} />
 
-<RenderHtmlMarkup of={ThemingStories.ThemingProvider} />
+<RenderHtmlMarkup of={ThemingStories.DeprecatedThemingProvider} />
