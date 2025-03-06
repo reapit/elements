@@ -1,6 +1,5 @@
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
 import { styled } from '@linaria/react'
-import { ElIcon } from '../icon'
 
 // TODO: add tooltip integration on hover state
 const baseStyles = `
@@ -49,16 +48,8 @@ export const ElNavIconItemBadge = styled.span`
 
 export const ElButtonNavIconItem = styled.button<ButtonHTMLAttributes<HTMLButtonElement>>`
   ${baseStyles}
-
-  ${ElIcon} {
-    color: inherit;
-  }
 `
 
 export const ElAnchorNavIconItem = styled.a<AnchorHTMLAttributes<HTMLAnchorElement>>`
   ${baseStyles}
-
-  ${ElIcon} {
-    color: inherit;
-  }
 `
