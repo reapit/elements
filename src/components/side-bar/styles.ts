@@ -21,4 +21,8 @@ export const ELSideBarMenuList = styled.ul`
   & li {
     width: 100%;
   }
+
+  &[data-is-expanded='false'] {
+    width: fit-content;
+  }
 `

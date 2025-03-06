@@ -1,6 +1,6 @@
-import React, { FC, PropsWithChildren, useMemo } from 'react'
+import { FC, PropsWithChildren, useMemo } from 'react'
 
-export interface ElementsThemeProviderProps extends PropsWithChildren {
+export interface DeprecatedElementsThemeProviderProps extends PropsWithChildren {
   theme: {
     [key: string]: string
   }
@@ -12,7 +12,8 @@ export const toKebabCase = (theme: string) =>
     .replace(/([a-z])(\d+)/g, '$1-$2')
     .toLowerCase()
 
-export const ElementsThemeProvider: FC<ElementsThemeProviderProps> = ({ children, theme }) => {
+/** @deprecated Use `ThemeProvider` instead */
+export const DeprecatedElementsThemeProvider: FC<DeprecatedElementsThemeProviderProps> = ({ children, theme }) => {
   const scopedTheme = useMemo(() => {
     const newScopedTheme = {}
 
