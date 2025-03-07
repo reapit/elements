@@ -11,6 +11,7 @@ export * from './styles/states'
 
 export * from './components/button'
 export * from './components/button-group'
+export * from './components/split-button'
 export * from './components/card'
 export * from './components/grid'
 export * from './components/icon'
