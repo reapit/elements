@@ -95,4 +95,7 @@ export default defineConfig({
     include: ['src/**/*.test.ts?(x)'],
     setupFiles: ['vitest.setup.ts'],
   },
+  server: {
+    hmr: false,
+  },
 })
