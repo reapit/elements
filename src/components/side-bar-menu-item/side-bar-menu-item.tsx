@@ -1,5 +1,6 @@
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 import { ElSideBarMenuItem, ElSideBarMenuItemIcon, ElSideBarMenuItemText, elSideBarMenuItemAnchor } from './styles'
+import { useIsSideBarExpandedContext } from '../side-bar'
 
 export interface SideBarMenuItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   children?: ReactNode
@@ -17,11 +18,12 @@ export interface SideBarMenuItemProps extends AnchorHTMLAttributes<HTMLAnchorEle
 }
 
 const SideBarMenuItem: React.FC<SideBarMenuItemProps> = ({ icon, isActive, children, ...props }) => {
+  const { isExpanded } = useIsSideBarExpandedContext()
   return (
     <li>
       <ElSideBarMenuItem className={elSideBarMenuItemAnchor} aria-current={isActive ? 'page' : undefined} {...props}>
         <ElSideBarMenuItemIcon>{icon}</ElSideBarMenuItemIcon>
-        <ElSideBarMenuItemText>{children}</ElSideBarMenuItemText>
+        {isExpanded && <ElSideBarMenuItemText>{children}</ElSideBarMenuItemText>}
       </ElSideBarMenuItem>
     </li>
   )
