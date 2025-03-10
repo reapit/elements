@@ -86,6 +86,7 @@ credentials.json
 
 .docz/
 dist
+!src/tokens/dist
 cdk.out
 dist.zip
 bundle.zip

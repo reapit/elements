@@ -1,5 +1,10 @@
 import { css } from '@linaria/core'
-import '#src/tokens/reapit/tokens.css'
+// TODO: These are the legacy tokens. We should remove them once all our V5 components are using the new ones
+import '#src/tokens/legacy-reapit/tokens.css'
+
+import '#src/tokens/dist/reapit.css'
+// TODO: Once we have the PayProp tokens, we can import them here
+// import '#src/tokens/dist/payprop.css'
 
 // export javascript colours for the SVG background in the button
 export const intentPrimary = '#4e56ea'

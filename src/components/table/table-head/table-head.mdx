@@ -1,0 +1,19 @@
+import { Meta, Canvas, Controls, Description } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../../storybook/render-html-markup'
+import * as TableHeadStories from './table-head.stories'
+import { TableHead } from './index'
+
+<Meta of={TableHeadStories} />
+
+# TableHead
+<Description of={TableHead} />
+
+## Basic Usage
+<Canvas of={TableHeadStories.BasicUsage} />
+
+## Basic Display With Sticky Header
+<Canvas of={TableHeadStories.BasicUsage} />
+<Controls />
+
+
+<RenderHtmlMarkup of={TableHeadStories.BasicUsage} />

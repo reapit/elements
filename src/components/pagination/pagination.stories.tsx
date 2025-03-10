@@ -1,42 +1,29 @@
+import type { Meta, StoryObj } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
+
+import { Pagination } from './pagination'
 import { useState } from 'react'
-import { Pagination, PaginationWrap, PaginationText, PaginationButton } from './index'
-import { elPaginationPrimary } from './__styles__'
-import { Icon } from '../icon'
 
-export default {
-  title: 'Pagination',
+const meta = {
+  title: 'Components/Pagination',
   component: Pagination,
-}
-
-export const BasicExample = {
-  render: ({}) => (
-    <PaginationWrap>
-      <PaginationButton>
-        <Icon icon="chevronLeft" />
-      </PaginationButton>
-      <PaginationText>
-        <strong>1</strong> of 4
-      </PaginationText>
-      <PaginationButton>
-        <Icon icon="chevronRight" className={elPaginationPrimary} />
-      </PaginationButton>
-    </PaginationWrap>
-  ),
-}
-
-export const ReactExample = {
-  render: ({}) => {
-    const [currentPage, setCurrentPage] = useState(1)
-    return <Pagination callback={setCurrentPage} currentPage={currentPage} numberPages={4} />
+  args: {
+    onPageChange: action('onPageChange'),
+    currentPage: 1,
+    pageCount: 5,
   },
-}
+} satisfies Meta<typeof Pagination>
 
-export const ReactExampleWithStartEndButtons = {
-  render: ({}) => {
-    const [currentPage, setCurrentPage] = useState(1)
+export default meta
+type Story = StoryObj<typeof meta>
 
-    return (
-      <Pagination callback={setCurrentPage} currentPage={currentPage} hasStartButton hasEndButton numberPages={4} />
-    )
+/**
+ * The pagination component is used to navigate between pages
+ * It displays the current page and the total number of pages available
+ */
+export const Default: Story = {
+  render: (args) => {
+    const [page, setPage] = useState(1)
+    return <Pagination {...args} onPageChange={setPage} currentPage={page} />
   },
 }
