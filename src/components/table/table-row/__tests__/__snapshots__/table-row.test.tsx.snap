@@ -4,7 +4,6 @@ exports[`TableRow > should match snapshot 1`] = `
 <DocumentFragment>
   <tr
     class="mocked-styled-0 el-table-row"
-    role="row"
   >
     Mock Children
   </tr>
