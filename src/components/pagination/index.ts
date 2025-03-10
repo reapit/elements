@@ -1,2 +1,2 @@
 export * from './pagination'
-export * from './__styles__'
+export * from './styles'
