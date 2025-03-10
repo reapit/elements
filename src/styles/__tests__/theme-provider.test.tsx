@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import { ElementsThemeProvider, toKebabCase } from '../theme-provider'
+import { DeprecatedElementsThemeProvider as ElementsThemeProvider, toKebabCase } from '../deprecated-theme-provider'
 
 describe('ElementsThemeProvider component', () => {
   it('should match a snapshot', () => {

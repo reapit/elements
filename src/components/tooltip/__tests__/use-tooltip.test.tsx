@@ -17,8 +17,21 @@ const TooltipTestComponent = () => {
   )
 }
 
+const TooltipTruncatedTextComponent = () => {
+  const mockId = 'mock-truncated-id'
+  const tooltip = useTooltip({ truncationTargetId: mockId })
+  return (
+    <>
+      <div id={mockId} {...tooltip.getTriggerProps()}>
+        Text is truncated here
+      </div>
+      <Tooltip {...tooltip.getTooltipProps()} description="Tooltip Text is truncated here" />
+    </>
+  )
+}
+
 describe('useTooltip', () => {
-  test('should return tooltip and trigger props', () => {
+  test('should return tooltip, trigger and truncation target props', () => {
     const { result } = renderHook(() => useTooltip())
 
     const triggerProps = result.current.getTriggerProps()
@@ -52,12 +65,41 @@ describe('useTooltip', () => {
     expect(tooltipStyle.transform).toMatch(/translate\(-?\d+px, -?\d+px\)/)
   })
 
-  test('should clean up event listeners on unmount', () => {
-    const { unmount } = render(<TooltipTestComponent />)
+  test('should only display tooltip if text is truncated', async () => {
+    render(<TooltipTruncatedTextComponent />)
+
+    const trigger = screen.getByText('Text is truncated here')
+
+    // Mock scrollWidth and clientWidth for truncated case
+    vi.spyOn(trigger, 'scrollWidth', 'get').mockReturnValue(150)
+    vi.spyOn(trigger, 'clientWidth', 'get').mockReturnValue(100)
+
+    fireEvent.mouseEnter(trigger)
+
+    // Ensure tooltip appears for truncated text
+    expect(screen.queryByText('Tooltip Text is truncated here')).toBeInTheDocument()
+
+    fireEvent.mouseLeave(trigger)
+
+    // Mock non-truncated case
+    vi.spyOn(trigger, 'scrollWidth', 'get').mockReturnValue(100)
+    vi.spyOn(trigger, 'clientWidth', 'get').mockReturnValue(100)
+
+    fireEvent.mouseEnter(trigger)
+
+    // Ensure tooltip does not appear for non-truncated text
+    expect(screen.queryByText('Tooltip Text is truncated here')).not.toBeInTheDocument()
+  })
+
+  test('should clean up event listeners on unmount for both components', () => {
+    const { unmount: unmountTooltipTestComponent } = render(<TooltipTestComponent />)
+    const { unmount: unmountTooltipTruncatedTextComponent } = render(<TooltipTruncatedTextComponent />)
 
     const removeEventListenerSpy = vi.spyOn(window, 'removeEventListener')
 
-    unmount()
+    // Unmount both components
+    unmountTooltipTestComponent()
+    unmountTooltipTruncatedTextComponent()
 
     expect(removeEventListenerSpy).toHaveBeenCalledWith('resize', expect.any(Function))
     removeEventListenerSpy.mockRestore()

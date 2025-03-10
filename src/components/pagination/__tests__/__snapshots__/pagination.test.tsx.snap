@@ -1,0 +1,90 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Pagination > should match a snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    aria-label="Pagination"
+    class="mocked-styled-7 el-pagination"
+  >
+    <ul
+      class="mocked-styled-8 el-pagination-list"
+    >
+      <li
+        class="mocked-styled-9 el-pagination-item"
+      >
+        <button
+          aria-disabled="true"
+          aria-label="Go to previous page"
+          class="el-button-size-medium el-button-icon-only el-button"
+          data-variant="tertiary"
+          role="button"
+        >
+          <div
+            class="mocked-styled-0 el-button-spinner"
+          />
+          <span
+            class="mocked-styled-6 el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              role="img"
+              title="Icon image with name chevronLeft"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M15.4955 20.0041C15.23 20.0057 14.9749 19.9013 14.7864 19.7141L7.79542 12.7141C7.60635 12.5263 7.5 12.2708 7.5 12.0041C7.5 11.7375 7.60635 11.4819 7.79542 11.2941L14.7864 4.29411C15.0397 4.04046 15.409 3.94139 15.755 4.03424C16.1011 4.12708 16.3714 4.39773 16.4641 4.74424C16.5569 5.09074 16.4579 5.46046 16.2046 5.71411L9.91269 12.0041L16.2046 18.2941C16.3937 18.4819 16.5 18.7375 16.5 19.0041C16.5 19.2708 16.3937 19.5263 16.2046 19.7141C16.0161 19.9013 15.761 20.0057 15.4955 20.0041Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </li>
+      <li
+        class="mocked-styled-9 el-pagination-item"
+      >
+        <span
+          class="mocked-styled-10 el-pagination-text"
+        >
+          1 of 3
+        </span>
+      </li>
+      <li
+        class="mocked-styled-9 el-pagination-item"
+      >
+        <button
+          aria-disabled="false"
+          aria-label="Go to next page"
+          class="el-button-size-medium el-button-icon-only el-button"
+          data-variant="tertiary"
+          role="button"
+        >
+          <div
+            class="mocked-styled-0 el-button-spinner"
+          />
+          <span
+            class="mocked-styled-6 el-icon"
+          >
+            <svg
+              fill="none"
+              height="1em"
+              role="img"
+              title="Icon image with name chevronRight"
+              viewBox="0 0 24 24"
+              width="1em"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M8.5045 20.0041C8.23904 20.0056 7.98389 19.9013 7.79542 19.7141C7.60635 19.5263 7.5 19.2707 7.5 19.0041C7.5 18.7375 7.60635 18.4819 7.79542 18.2941L14.0873 12.0041L7.79542 5.71409C7.4038 5.32197 7.4038 4.68621 7.79542 4.29409C8.18704 3.90197 8.82197 3.90197 9.21359 4.29409L16.2046 11.2941C16.3937 11.4819 16.5 11.7375 16.5 12.0041C16.5 12.2707 16.3937 12.5263 16.2046 12.7141L9.21359 19.7141C9.02511 19.9013 8.76996 20.0056 8.5045 20.0041Z"
+                fill="currentColor"
+              />
+            </svg>
+          </span>
+        </button>
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;
