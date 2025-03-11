@@ -41,7 +41,7 @@ describe('SideBarMenuGroup', () => {
     expect(screen.getByText('Trigger Label').parentElement).toHaveAttribute('aria-current', 'page')
   })
 
-  it('hide trigger label and show icon when SideBar is closed', () => {
+  it('hide trigger label and show only icon when SideBar is collapsed', () => {
     render(
       <SideBar>
         <SideBarMenuGroup label="Trigger Label" icon={<span>mocked icon</span>}>
@@ -55,7 +55,7 @@ describe('SideBarMenuGroup', () => {
     expect(screen.getByText('mocked icon')).toBeInTheDocument()
   })
 
-  it('expand menu group and trigger click while SideBar is closed', () => {
+  it('should expand SideBar and MenuGroup when trigger button is clicked while SideBar is collapsed ', () => {
     render(
       <SideBar>
         <SideBarMenuGroup label="Trigger Label" icon={<span>mocked icon</span>}>
@@ -70,6 +70,7 @@ describe('SideBarMenuGroup', () => {
 
     const triggerButton = screen.getByRole('button', { name: 'mocked icon' })
     fireEvent.click(triggerButton)
+    expect(screen.getByText('Trigger Label')).toBeInTheDocument()
     expect(screen.getByText('Child Item')).toBeInTheDocument()
   })
 

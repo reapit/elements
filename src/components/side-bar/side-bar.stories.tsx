@@ -59,7 +59,7 @@ export const Default: Story = {
         <SideBar>
           <SideBar.MenuList>
             <SideBarMenuItem isActive icon={<Icon icon="property" />} href="#">
-              SideBar Item (active) test
+              SideBar Item (active)
             </SideBarMenuItem>
             <SideBarMenuGroup isActive label="Menu item Expandable" icon={<Icon icon="property" />}>
               <SideBarMenuGroupItem isActive>Sub Menu Item 1</SideBarMenuGroupItem>
