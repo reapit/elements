@@ -9,6 +9,7 @@ import {
 } from '../side-bar-menu-item'
 import { Icon } from '../icon'
 import { useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
+import { SideBarMenuGroup, SideBarMenuGroupItem } from '../side-bar-menu-group'
 
 export default {
   title: 'Components/Side Bar',
@@ -58,8 +59,12 @@ export const Default: Story = {
         <SideBar>
           <SideBar.MenuList>
             <SideBarMenuItem isActive icon={<Icon icon="property" />} href="#">
-              SideBar Item (active)
+              SideBar Item (active) test
             </SideBarMenuItem>
+            <SideBarMenuGroup isActive label="Menu item Expandable" icon={<Icon icon="property" />}>
+              <SideBarMenuGroupItem isActive>Sub Menu Item 1</SideBarMenuGroupItem>
+              <SideBarMenuGroupItem>Sub Menu Item 2</SideBarMenuGroupItem>
+            </SideBarMenuGroup>
 
             <li>
               <CustomLink />
