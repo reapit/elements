@@ -7,11 +7,6 @@ import { BodyText } from '../typography'
 const meta = {
   title: 'Components/Breadcrumbs',
   component: Breadcrumbs,
-  argTypes: {
-    children: {
-      control: 'text',
-    },
-  },
 } satisfies Meta<typeof Breadcrumbs>
 
 export default meta
@@ -23,9 +18,6 @@ type Story = StoryObj<typeof meta>
  * i.e `React-router's` Link .etc
  */
 export const Default: Story = {
-  args: {
-    children: 'Label',
-  },
   render: () => {
     return (
       <>
@@ -53,9 +45,6 @@ export const Default: Story = {
  * in mobile screen the label will not shorten, and the breadcrumb become scrollable
  */
 export const WithManyItems: Story = {
-  args: {
-    children: 'Label',
-  },
   render: () => {
     return (
       <>
