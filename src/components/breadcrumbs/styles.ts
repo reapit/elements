@@ -54,7 +54,6 @@ export const elBreadcrumbLink = css`
 
 export const ElBreadcrumbs = styled.ul`
   display: flex;
-  overflow: visible !important;
 
   ${isMobile} {
     /* Enable horizontal scrolling in mobile */
