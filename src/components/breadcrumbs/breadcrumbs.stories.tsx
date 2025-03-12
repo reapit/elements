@@ -2,6 +2,7 @@ import { Breadcrumbs } from './breadcrumbs'
 
 import type { Meta, StoryObj } from '@storybook/react'
 import { elBreadcrumbLink } from './styles'
+import { BodyText } from '../typography'
 
 const meta = {
   title: 'Components/Breadcrumbs',
@@ -27,19 +28,22 @@ export const Default: Story = {
   },
   render: () => {
     return (
-      <Breadcrumbs>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level one</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level two</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <a href="#" className={elBreadcrumbLink}>
-            Level three (plain anchor)
-          </a>
-        </Breadcrumbs.Item>
-      </Breadcrumbs>
+      <>
+        <Breadcrumbs>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level one</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level two</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <a href="#" className={elBreadcrumbLink}>
+              Level three (plain anchor)
+            </a>
+          </Breadcrumbs.Item>
+        </Breadcrumbs>
+        <BodyText className="el-mt10">Example page content</BodyText>
+      </>
     )
   },
 }
@@ -54,38 +58,41 @@ export const WithManyItems: Story = {
   },
   render: () => {
     return (
-      <Breadcrumbs>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level one</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level two</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level three</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level four</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level five</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level six</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level seven</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level eight</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level nine</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-        <Breadcrumbs.Item>
-          <Breadcrumbs.Link href="#">Level ten</Breadcrumbs.Link>
-        </Breadcrumbs.Item>
-      </Breadcrumbs>
+      <>
+        <Breadcrumbs>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level one</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level two</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level three</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level four</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level five</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level six</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level seven</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level eight</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level nine</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level ten</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+        </Breadcrumbs>
+        <BodyText className="el-mt10">Example page content</BodyText>
+      </>
     )
   },
 }
