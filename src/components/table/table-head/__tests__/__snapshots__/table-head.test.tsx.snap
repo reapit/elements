@@ -1,0 +1,12 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableHead > should match snapshot 1`] = `
+<DocumentFragment>
+  <thead
+    class="mocked-styled-0 el-table-head"
+    data-position="relative"
+  >
+    Mock Children
+  </thead>
+</DocumentFragment>
+`;
