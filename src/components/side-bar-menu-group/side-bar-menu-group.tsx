@@ -1,13 +1,14 @@
-import type { AnchorHTMLAttributes, FC, HTMLAttributes, ReactNode } from 'react'
+import type { FC, HTMLAttributes, ReactNode } from 'react'
 import {
   SideBarMenuGroupContainer,
   SideBarMenuGroupItemTrigger,
   SideBarMenuGroupList,
 } from './side-bar-menu-group.molecules'
-import { elSideBarMenuGroupItemAnchor, ElSideBarMenuGroupItem, ElSideBarMenuGroupListItem } from './styles'
+import { ElSideBarMenuGroupItem, elSideBarMenuGroupItemAnchor, ElSideBarMenuGroupListItem } from './styles'
 
-export interface SideBarMenuGroupItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'onClick'> {
+export interface SideBarMenuGroupItemProps extends HTMLAttributes<HTMLLIElement> {
   children?: ReactNode
+  href?: string
   /**
    * Whether the page represented by this link is currently active.
    *
@@ -16,13 +17,13 @@ export interface SideBarMenuGroupItemProps extends Omit<AnchorHTMLAttributes<HTM
   isActive?: boolean
 }
 
-export const SideBarMenuGroupItem: FC<SideBarMenuGroupItemProps> = ({ children, isActive, ...props }) => {
+export const SideBarMenuGroupItem: FC<SideBarMenuGroupItemProps> = ({ children, isActive, href, ...props }) => {
   return (
-    <ElSideBarMenuGroupListItem>
+    <ElSideBarMenuGroupListItem {...props}>
       <ElSideBarMenuGroupItem
         className={elSideBarMenuGroupItemAnchor}
         aria-current={isActive ? 'page' : undefined}
-        {...props}
+        href={href}
       >
         {children}
       </ElSideBarMenuGroupItem>
@@ -30,7 +31,7 @@ export const SideBarMenuGroupItem: FC<SideBarMenuGroupItemProps> = ({ children, 
   )
 }
 
-export interface SideBarMenuGroupProps extends Omit<HTMLAttributes<HTMLButtonElement>, 'onClick'> {
+export interface SideBarMenuGroupProps extends HTMLAttributes<HTMLLIElement> {
   children?: ReactNode
   /**
    * Whether the page represented by this group contain active link.
@@ -42,9 +43,9 @@ export interface SideBarMenuGroupProps extends Omit<HTMLAttributes<HTMLButtonEle
   label: string
 }
 
-export const SideBarMenuGroup: FC<SideBarMenuGroupProps> = ({ label, icon, isActive, children }) => {
+export const SideBarMenuGroup: FC<SideBarMenuGroupProps> = ({ label, icon, isActive, children, ...props }) => {
   return (
-    <SideBarMenuGroupContainer isActive={isActive}>
+    <SideBarMenuGroupContainer isActive={isActive} {...props}>
       <SideBarMenuGroupItemTrigger isActive={isActive} icon={icon}>
         {label}
       </SideBarMenuGroupItemTrigger>
