@@ -5,9 +5,9 @@ export const ElSideBarMenuItemText = styled.span`
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
   font-style: normal;
-  font-weight: 400;
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-sm);
+  font-weight: var(--font-weight-regular);
 `
 
 export const ElSideBarMenuItemIcon = styled.span`
@@ -38,14 +38,12 @@ export const elSideBarMenuItemAnchor = css`
   &:hover,
   &[aria-current='page'] {
     background: var(--fill-default-lightest);
-    font-weight: 500;
   }
 
   &[aria-current='page'] {
-    &,
-    ${ElSideBarMenuItemIcon} svg {
+    & ${ElSideBarMenuItemText}, ${ElSideBarMenuItemIcon} svg {
       color: var(--text-action);
-      font-weight: 500;
+      font-weight: var(--font-weight-medium);
     }
   }
 `
