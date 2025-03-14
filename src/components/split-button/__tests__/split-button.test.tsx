@@ -22,11 +22,11 @@ describe('SplitButton', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  test('should not call onClick when isDisabled is true', () => {
+  test('should not call onClick when disabled is true', () => {
     const onClick = vi.fn()
     render(
       <SplitButton>
-        <SplitButton.Action onClick={onClick} isDisabled>
+        <SplitButton.Action onClick={onClick} disabled>
           Button
         </SplitButton.Action>
         <SplitButton.Menu />
@@ -38,13 +38,11 @@ describe('SplitButton', () => {
     expect(onClick).not.toHaveBeenCalled()
   })
 
-  test('should call onClick when isDisabled is false', () => {
+  test('should call onClick when disabled is false', () => {
     const onClick = vi.fn()
     render(
       <SplitButton>
-        <SplitButton.Action onClick={onClick} isDisabled={false}>
-          Button
-        </SplitButton.Action>
+        <SplitButton.Action onClick={onClick}>Button</SplitButton.Action>
         <SplitButton.Menu />
       </SplitButton>,
     )

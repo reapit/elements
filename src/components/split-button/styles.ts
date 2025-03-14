@@ -4,6 +4,27 @@ import { ElIcon } from '../icon'
 export const ElSplitButtonIcon = styled.span``
 export const ElActionButtonLabel = styled.span``
 
+export const ElButtonSpinner = styled.div`
+  @keyframes spinAround {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(359deg);
+    }
+  }
+
+  color: transparent !important;
+  pointer-events: none;
+  animation: spinAround 800ms infinite linear;
+  border: 1px solid var(--text-placeholder);
+  border-radius: 290486px;
+  border-color: transparent transparent var(--text-placeholder) var(--text-placeholder);
+  display: none;
+  height: 1rem;
+  width: 1rem;
+`
+
 export const ElActionButton = styled.button`
   display: flex;
   height: var(--size-9);
@@ -162,6 +183,53 @@ export const ElSplitButton = styled.div`
     }
   }
 
+  ${ElActionButton} {
+    &[aria-busy='true'] {
+      border: var(--border-default) solid var(--fill-default-light);
+      border-right: var(--border-none) solid var(--fill-default-light);
+      background: var(--fill-default-light);
+      color: var(--text-placeholder);
+
+      &:hover {
+        background: var(--fill-default-light);
+        color: var(--text-placeholder);
+      }
+
+      & ${ElButtonSpinner} {
+        display: block;
+        left: inherit;
+        top: inherit;
+      }
+    }
+  }
+
+  ${ElMenuButton} {
+    &[aria-busy='true'] {
+      border: var(--border-default) solid var(--fill-default-light);
+      border-right: var(--border-none) solid var(--fill-default-light);
+      background: var(--fill-default-light);
+      color: var(--text-placeholder);
+
+      &:hover {
+        background: var(--fill-default-light);
+        color: var(--text-placeholder);
+      }
+
+      & ${ElButtonSpinner} {
+        display: block;
+        left: inherit;
+        top: inherit;
+      }
+
+      ${ElSplitButtonIcon} {
+        border-left: var(--border-default) solid var(--outline-dashed);
+        ${ElIcon} {
+          display: none;
+        }
+      }
+    }
+  }
+
   &[data-size='small'] {
     height: var(--size-8);
 
@@ -181,6 +249,11 @@ export const ElSplitButton = styled.div`
 
     ${ElActionButton} {
       height: var(--size-10);
+
+      .${ElButtonSpinner} {
+        height: var(--icon-md);
+        width: var(--icon-md);
+      }
     }
 
     ${ElActionButtonLabel} {
@@ -192,6 +265,11 @@ export const ElSplitButton = styled.div`
     ${ElMenuButton} {
       width: var(--size-10);
       height: var(--size-10);
+
+      .${ElButtonSpinner} {
+        height: var(--icon-md);
+        width: var(--icon-md);
+      }
     }
 
     ${ElIcon} {

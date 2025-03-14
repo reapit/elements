@@ -1,20 +1,22 @@
 import { FC, ButtonHTMLAttributes, MouseEventHandler, ReactNode, useCallback } from 'react'
-import { ElActionButton, ElActionButtonLabel, ElMenuButton, ElSplitButtonIcon } from './styles'
+import { ElActionButton, ElActionButtonLabel, ElMenuButton, ElSplitButtonIcon, ElButtonSpinner } from './styles'
 import { Icon } from '../icon'
 
 type ActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
   children: ReactNode
-  isDisabled?: boolean
+  disabled?: boolean
+  isBusy?: boolean
   onClick?: MouseEventHandler
 }
 
 type MenuButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  isDisabled?: never
+  disabled?: never
+  isBusy?: boolean
   onClick?: MouseEventHandler
 }
 
 export const ActionButton: FC<ActionButtonProps> = (props) => {
-  const { children, isDisabled = false, 'aria-label': ariaLabel, className, onClick, ...rest } = props
+  const { children, disabled = false, 'aria-label': ariaLabel, isBusy = false, onClick, ...rest } = props
 
   const handleClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
     (event) => {
@@ -23,35 +25,37 @@ export const ActionButton: FC<ActionButtonProps> = (props) => {
       // `aria-disabled`. This means click events will still be fired, so we need to prevent any default action
       // for the button from occuring, stop it propagating to ancestors and avoid calling the consumer-supplied
       // `onClick` callback.
-      if (isDisabled) {
+      if (disabled) {
         event.preventDefault()
         event.stopPropagation()
         return
       }
       onClick?.(event)
     },
-    [isDisabled, onClick],
+    [disabled, onClick],
   )
 
   return (
     <ElActionButton
       role="button"
       aria-label={ariaLabel}
-      aria-disabled={isDisabled}
-      className={className}
+      aria-disabled={disabled}
+      aria-busy={isBusy}
       {...rest}
       onClick={handleClick}
     >
+      <ElButtonSpinner />
       {children && <ElActionButtonLabel>{children}</ElActionButtonLabel>}
     </ElActionButton>
   )
 }
 
 export const MenuButton: FC<MenuButtonProps> = (props) => {
-  const { 'aria-label': ariaLabel, className, ...rest } = props
+  const { 'aria-label': ariaLabel, isBusy = false, ...rest } = props
   return (
-    <ElMenuButton role="button" aria-label={ariaLabel} className={className} onClick={props.onClick} {...rest}>
+    <ElMenuButton role="button" aria-label={ariaLabel} aria-busy={isBusy} onClick={props.onClick} {...rest}>
       <ElSplitButtonIcon>
+        <ElButtonSpinner />
         <Icon icon="chevronDown" />
       </ElSplitButtonIcon>
     </ElMenuButton>
