@@ -27,8 +27,8 @@ export const Default = {
   },
   render: (props: any) => (
     <SplitButton {...props}>
-      <SplitButton.Action isBusy>{props.children}</SplitButton.Action>
-      <SplitButton.Menu isBusy />
+      <SplitButton.Action>{props.children}</SplitButton.Action>
+      <SplitButton.Menu />
     </SplitButton>
   ),
 }
