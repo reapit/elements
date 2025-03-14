@@ -4,9 +4,9 @@ import { ElIcon } from '../icon'
 
 export const ElSplitButtonIcon = styled.span``
 export const ElActionButtonLabel = styled.span``
-export const elButtonSpinner = css``
+export const elSplitButtonSpinner = css``
 
-export const ElButtonSpinner = styled.div`
+export const ElSplitButtonSpinner = styled.div`
   @keyframes spinAround {
     from {
       transform: rotate(0deg);
@@ -197,7 +197,7 @@ export const ElSplitButton = styled.div`
         color: var(--text-placeholder);
       }
 
-      & ${ElButtonSpinner} {
+      & ${ElSplitButtonSpinner} {
         display: block;
         left: inherit;
         top: inherit;
@@ -217,7 +217,7 @@ export const ElSplitButton = styled.div`
         color: var(--text-placeholder);
       }
 
-      & ${ElButtonSpinner} {
+      & ${ElSplitButtonSpinner} {
         display: block;
         left: inherit;
         top: inherit;
@@ -252,7 +252,7 @@ export const ElSplitButton = styled.div`
     ${ElActionButton} {
       height: var(--size-10);
 
-      .${elButtonSpinner} {
+      .${elSplitButtonSpinner} {
         height: var(--icon-md);
         width: var(--icon-md);
       }
@@ -268,7 +268,7 @@ export const ElSplitButton = styled.div`
       width: var(--size-10);
       height: var(--size-10);
 
-      .${elButtonSpinner} {
+      .${elSplitButtonSpinner} {
         height: var(--icon-md);
         width: var(--icon-md);
       }

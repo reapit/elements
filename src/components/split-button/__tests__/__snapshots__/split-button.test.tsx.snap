@@ -12,7 +12,7 @@ exports[`SplitButton > should match snapshot 1`] = `
       role="button"
     >
       <div
-        class="mocked-styled-2 el-button-spinner"
+        class="mocked-styled-2 el-split-button-spinner"
       />
       <span
         class="mocked-styled-1 el-action-button-label"
@@ -29,7 +29,7 @@ exports[`SplitButton > should match snapshot 1`] = `
         class="mocked-styled-0 el-split-button-icon"
       >
         <div
-          class="mocked-styled-2 el-button-spinner"
+          class="mocked-styled-2 el-split-button-spinner"
         />
         <span
           class="mocked-styled-6 el-icon"
@@ -68,7 +68,7 @@ exports[`SplitButton > should match snapshot with large size 1`] = `
       role="button"
     >
       <div
-        class="mocked-styled-2 el-button-spinner"
+        class="mocked-styled-2 el-split-button-spinner"
       />
       <span
         class="mocked-styled-1 el-action-button-label"
@@ -85,7 +85,7 @@ exports[`SplitButton > should match snapshot with large size 1`] = `
         class="mocked-styled-0 el-split-button-icon"
       >
         <div
-          class="mocked-styled-2 el-button-spinner"
+          class="mocked-styled-2 el-split-button-spinner"
         />
         <span
           class="mocked-styled-6 el-icon"
@@ -124,7 +124,7 @@ exports[`SplitButton > should match snapshot with secondary variant 1`] = `
       role="button"
     >
       <div
-        class="mocked-styled-2 el-button-spinner"
+        class="mocked-styled-2 el-split-button-spinner"
       />
       <span
         class="mocked-styled-1 el-action-button-label"
@@ -141,7 +141,7 @@ exports[`SplitButton > should match snapshot with secondary variant 1`] = `
         class="mocked-styled-0 el-split-button-icon"
       >
         <div
-          class="mocked-styled-2 el-button-spinner"
+          class="mocked-styled-2 el-split-button-spinner"
         />
         <span
           class="mocked-styled-6 el-icon"

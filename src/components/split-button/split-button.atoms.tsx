@@ -1,5 +1,5 @@
 import { FC, ButtonHTMLAttributes, MouseEventHandler, ReactNode, useCallback } from 'react'
-import { ElActionButton, ElActionButtonLabel, ElMenuButton, ElSplitButtonIcon, ElButtonSpinner } from './styles'
+import { ElActionButton, ElActionButtonLabel, ElMenuButton, ElSplitButtonIcon, ElSplitButtonSpinner } from './styles'
 import { Icon } from '../icon'
 
 type ActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
@@ -44,7 +44,7 @@ export const ActionButton: FC<ActionButtonProps> = (props) => {
       {...rest}
       onClick={handleClick}
     >
-      <ElButtonSpinner />
+      <ElSplitButtonSpinner />
       {children && <ElActionButtonLabel>{children}</ElActionButtonLabel>}
     </ElActionButton>
   )
@@ -55,7 +55,7 @@ export const MenuButton: FC<MenuButtonProps> = (props) => {
   return (
     <ElMenuButton role="button" aria-label={ariaLabel} aria-busy={isBusy} onClick={props.onClick} {...rest}>
       <ElSplitButtonIcon>
-        <ElButtonSpinner />
+        <ElSplitButtonSpinner />
         <Icon icon="chevronDown" />
       </ElSplitButtonIcon>
     </ElMenuButton>
