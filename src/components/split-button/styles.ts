@@ -1,8 +1,10 @@
 import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
 import { ElIcon } from '../icon'
 
 export const ElSplitButtonIcon = styled.span``
 export const ElActionButtonLabel = styled.span``
+export const elButtonSpinner = css``
 
 export const ElButtonSpinner = styled.div`
   @keyframes spinAround {
@@ -250,7 +252,7 @@ export const ElSplitButton = styled.div`
     ${ElActionButton} {
       height: var(--size-10);
 
-      .${ElButtonSpinner} {
+      .${elButtonSpinner} {
         height: var(--icon-md);
         width: var(--icon-md);
       }
@@ -266,7 +268,7 @@ export const ElSplitButton = styled.div`
       width: var(--size-10);
       height: var(--size-10);
 
-      .${ElButtonSpinner} {
+      .${elButtonSpinner} {
         height: var(--icon-md);
         width: var(--icon-md);
       }
