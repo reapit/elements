@@ -14,7 +14,7 @@ const themes = ['payprop', 'reapit']
 function getConfig(themeName) {
   return {
     log: {
-      verbosity: 'verbose'
+      verbosity: 'verbose',
     },
     source: [
       './src/tokens/Primitives.Value.tokens.json',
