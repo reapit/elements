@@ -1,5 +1,117 @@
 {
   "colour": {
+    "text": {
+      "white": {
+        "$type": "color",
+        "$value": "{white-900}"
+      },
+      "primary": {
+        "$type": "color",
+        "$value": "{neutral-900}"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{neutral-500}"
+      },
+      "tertiary": {
+        "$type": "color",
+        "$value": "{neutral-700}"
+      },
+      "placeholder": {
+        "$type": "color",
+        "$value": "{neutral-300}"
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{purple-500}"
+      },
+      "pending": {
+        "$type": "color",
+        "$value": "{yellow-600}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{orange-500}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{red-500}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{green-600}"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{blue-500}"
+      },
+      "accent_1": {
+        "$type": "color",
+        "$value": "{teal-600}"
+      },
+      "accent_2": {
+        "$type": "color",
+        "$value": "{plum-500}"
+      }
+    },
+    "icon": {
+      "primary": {
+        "$type": "color",
+        "$value": "{neutral-300}"
+      },
+      "secondary": {
+        "$type": "color",
+        "$value": "{neutral-500}"
+      },
+      "disabled": {
+        "$type": "color",
+        "$value": "{neutral-100}"
+      },
+      "action": {
+        "$type": "color",
+        "$value": "{purple-500}"
+      },
+      "hover": {
+        "$type": "color",
+        "$value": "{purple-700}"
+      },
+      "pending": {
+        "$type": "color",
+        "$value": "{yellow-600}"
+      },
+      "warning": {
+        "$type": "color",
+        "$value": "{orange-500}"
+      },
+      "error": {
+        "$type": "color",
+        "$value": "{red-500}"
+      },
+      "success": {
+        "$type": "color",
+        "$value": "{green-600}"
+      },
+      "info": {
+        "$type": "color",
+        "$value": "{blue-500}"
+      },
+      "white": {
+        "$type": "color",
+        "$value": "{white-900}"
+      },
+      "star": {
+        "$type": "color",
+        "$value": "{yellow-500}"
+      },
+      "accent_1": {
+        "$type": "color",
+        "$value": "{teal-600}"
+      },
+      "accent_2": {
+        "$type": "color",
+        "$value": "{plum-500}"
+      }
+    },
     "border": {
       "light_default": {
         "$type": "color",
@@ -193,118 +305,6 @@
           "$value": "{plum-500}"
         }
       }
-    },
-    "icon": {
-      "primary": {
-        "$type": "color",
-        "$value": "{neutral-300}"
-      },
-      "secondary": {
-        "$type": "color",
-        "$value": "{neutral-500}"
-      },
-      "disabled": {
-        "$type": "color",
-        "$value": "{neutral-100}"
-      },
-      "action": {
-        "$type": "color",
-        "$value": "{purple-500}"
-      },
-      "pending": {
-        "$type": "color",
-        "$value": "{yellow-600}"
-      },
-      "warning": {
-        "$type": "color",
-        "$value": "{orange-500}"
-      },
-      "error": {
-        "$type": "color",
-        "$value": "{red-500}"
-      },
-      "success": {
-        "$type": "color",
-        "$value": "{green-600}"
-      },
-      "info": {
-        "$type": "color",
-        "$value": "{blue-500}"
-      },
-      "white": {
-        "$type": "color",
-        "$value": "{white-900}"
-      },
-      "star": {
-        "$type": "color",
-        "$value": "{yellow-500}"
-      },
-      "accent_1": {
-        "$type": "color",
-        "$value": "{teal-600}"
-      },
-      "accent_2": {
-        "$type": "color",
-        "$value": "{plum-500}"
-      }
-    },
-    "text": {
-      "white": {
-        "$type": "color",
-        "$value": "{white-900}"
-      },
-      "primary": {
-        "$type": "color",
-        "$value": "{neutral-900}"
-      },
-      "secondary": {
-        "$type": "color",
-        "$value": "{neutral-500}"
-      },
-      "tertiary": {
-        "$type": "color",
-        "$value": "{neutral-700}"
-      },
-      "placeholder": {
-        "$type": "color",
-        "$value": "{neutral-300}"
-      },
-      "action": {
-        "$type": "color",
-        "$value": "{purple-500}"
-      },
-      "pending": {
-        "$type": "color",
-        "$value": "{yellow-600}"
-      },
-      "warning": {
-        "$type": "color",
-        "$value": "{orange-500}"
-      },
-      "error": {
-        "$type": "color",
-        "$value": "{red-500}"
-      },
-      "success": {
-        "$type": "color",
-        "$value": "{green-600}"
-      },
-      "info": {
-        "$type": "color",
-        "$value": "{blue-500}"
-      },
-      "accent_1": {
-        "$type": "color",
-        "$value": "{teal-600}"
-      },
-      "accent_2": {
-        "$type": "color",
-        "$value": "{plum-500}"
-      }
-    },
-    "focused_no_fill": {
-      "$type": "color",
-      "$value": "{no-fill}"
     }
   },
   "font": {
@@ -1312,6 +1312,14 @@
             "disabled": {
               "$type": "color",
               "$value": "{neutral-300}"
+            },
+            "link": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            },
+            "link_hover": {
+              "$type": "color",
+              "$value": "{purple-700}"
             }
           },
           "destructive": {
@@ -1418,7 +1426,7 @@
             "$type": "color",
             "$value": "{neutral-100}"
           },
-          "white": {
+          "split_button": {
             "$type": "color",
             "$value": "{white-900}"
           },
@@ -1448,6 +1456,14 @@
             "disabled": {
               "$type": "color",
               "$value": "{neutral-300}"
+            },
+            "link": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            },
+            "link_hover": {
+              "$type": "color",
+              "$value": "{purple-700}"
             }
           },
           "destructive": {
@@ -2147,7 +2163,7 @@
           "$type": "dimension",
           "$value": "{unit-px}"
         },
-        "adius": {
+        "radius": {
           "$type": "dimension",
           "$value": "{unit-half}"
         }
@@ -2872,10 +2888,6 @@
       }
     },
     "tab": {
-      "no_fill": {
-        "$type": "color",
-        "$value": "{no-fill}"
-      },
       "colour": {
         "text": {
           "primary": {
