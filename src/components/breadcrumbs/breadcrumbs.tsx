@@ -8,7 +8,6 @@ import {
 } from './styles'
 
 type BreadcrumbsFC = typeof ElBreadcrumbs & {
-  // type BreadcrumbsFC = FC<HTMLAttributes<HTMLElement>> & {
   Item: FC<HTMLAttributes<HTMLLIElement>>
   Link: FC<AnchorHTMLAttributes<HTMLAnchorElement>>
   List: FC<HTMLAttributes<HTMLUListElement>>
