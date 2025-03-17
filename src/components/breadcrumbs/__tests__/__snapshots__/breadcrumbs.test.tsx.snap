@@ -5,19 +5,23 @@ exports[`Breadcrumbs > should match the snapshot 1`] = `
   <nav
     class="mocked-styled-3 el-breadcrumbs"
   >
-    <li
-      class="mocked-styled-0 el-breadcrumbs-item"
+    <ul
+      class="mocked-styled-2 el-breadcrumbs-list"
     >
-      <a
-        class="el-breadcrumbs-link"
-        href="#"
+      <li
+        class="mocked-styled-0 el-breadcrumbs-item"
       >
-        Level one
-      </a>
-      <span
-        data-testid="chevron-icon"
-      />
-    </li>
+        <a
+          class="el-breadcrumbs-link"
+          href="#"
+        >
+          Level one
+        </a>
+        <span
+          data-testid="chevron-icon"
+        />
+      </li>
+    </ul>
   </nav>
 </DocumentFragment>
 `;
