@@ -224,7 +224,7 @@ export const ElSplitButton = styled.div`
       }
 
       ${ElSplitButtonIcon} {
-        border-left: var(--border-default) solid var(--outline-dashed);
+        border-left: var(--border-default) solid var(--outline-button-secondary-hover);
         ${ElIcon} {
           display: none;
         }
