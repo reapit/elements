@@ -2,24 +2,22 @@
 
 exports[`Breadcrumbs > should match the snapshot 1`] = `
 <DocumentFragment>
-  <nav>
-    <ul
-      class="mocked-styled-2 el-breadcrumbs"
+  <nav
+    class="mocked-styled-3 el-breadcrumbs"
+  >
+    <li
+      class="mocked-styled-0 el-breadcrumbs-item"
     >
-      <li
-        class="mocked-styled-0 el-breadcrumb-item"
+      <a
+        class="el-breadcrumbs-link"
+        href="#"
       >
-        <a
-          class="el-breadcrumb-link"
-          href="#"
-        >
-          Level one
-        </a>
-        <span
-          data-testid="chevron-icon"
-        />
-      </li>
-    </ul>
+        Level one
+      </a>
+      <span
+        data-testid="chevron-icon"
+      />
+    </li>
   </nav>
 </DocumentFragment>
 `;

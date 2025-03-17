@@ -1,35 +1,39 @@
 import type { AnchorHTMLAttributes, FC, HTMLAttributes } from 'react'
-import { ElBreadcrumbs, ElBreadcrumbItem, ElBreadcrumbItemChevron, elBreadcrumbLink } from './styles'
+import {
+  ElBreadcrumbs,
+  ElBreadcrumbsItem,
+  ElBreadcrumbsItemChevron,
+  elBreadcrumbsLink,
+  ElBreadcrumbsList,
+} from './styles'
 
-type BreadcrumbsFC = FC<HTMLAttributes<HTMLUListElement>> & {
+type BreadcrumbsFC = typeof ElBreadcrumbs & {
+  // type BreadcrumbsFC = FC<HTMLAttributes<HTMLElement>> & {
   Item: FC<HTMLAttributes<HTMLLIElement>>
   Link: FC<AnchorHTMLAttributes<HTMLAnchorElement>>
+  List: FC<HTMLAttributes<HTMLUListElement>>
 }
 
 /**
  * Breadcrumbs are used to indicate to the user their flow in the application
  * and provide a navigation back step to previous pages.
  */
-const Breadcrumbs: BreadcrumbsFC = ({ children, ...props }) => {
-  return (
-    <nav>
-      <ElBreadcrumbs {...props}>{children}</ElBreadcrumbs>
-    </nav>
-  )
-}
+const Breadcrumbs = ElBreadcrumbs as BreadcrumbsFC
+
+Breadcrumbs.List = ElBreadcrumbsList
 
 Breadcrumbs.Item = ({ children, ...props }) => {
   return (
-    <ElBreadcrumbItem {...props}>
+    <ElBreadcrumbsItem {...props}>
       {children}
-      <ElBreadcrumbItemChevron icon="chevronRight" />
-    </ElBreadcrumbItem>
+      <ElBreadcrumbsItemChevron icon="chevronRight" />
+    </ElBreadcrumbsItem>
   )
 }
 
 Breadcrumbs.Link = ({ children, ...props }) => {
   return (
-    <a className={elBreadcrumbLink} {...props}>
+    <a className={elBreadcrumbsLink} {...props}>
       {children}
     </a>
   )

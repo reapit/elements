@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 import { Icon } from '../icon'
 import { isMobile } from '#src/styles/media'
 
-export const ElBreadcrumbItem = styled.li`
+export const ElBreadcrumbsItem = styled.li`
   display: flex;
   align-items: center;
   min-width: 0; /* Ensures flex children can shrink */
@@ -14,7 +14,7 @@ export const ElBreadcrumbItem = styled.li`
   }
 `
 
-export const ElBreadcrumbItemChevron = styled(Icon)`
+export const ElBreadcrumbsItemChevron = styled(Icon)`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -26,7 +26,7 @@ export const ElBreadcrumbItemChevron = styled(Icon)`
   color: var(--icon-primary);
 `
 
-export const elBreadcrumbLink = css`
+export const elBreadcrumbsLink = css`
   color: var(--text-secondary);
 
   font-family: var(--font-family);
@@ -52,7 +52,7 @@ export const elBreadcrumbLink = css`
   }
 `
 
-export const ElBreadcrumbs = styled.ul`
+export const ElBreadcrumbsList = styled.ul`
   display: flex;
 
   ${isMobile} {
@@ -67,3 +67,5 @@ export const ElBreadcrumbs = styled.ul`
     scrollbar-width: none; // for firefox
   }
 `
+
+export const ElBreadcrumbs = styled.nav``
