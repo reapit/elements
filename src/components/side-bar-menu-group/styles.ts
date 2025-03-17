@@ -1,6 +1,5 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { Icon } from '../icon'
 
 export const elDropdownIcon = css`
   width: 24px;
@@ -89,8 +88,6 @@ export const ElSideBarMenuGroupList = styled.ul`
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 `
-
-export const ElSideBarIcon = styled(Icon)``
 
 export const elSideBarMenuGroupItemAnchor = css`
   display: flex;
