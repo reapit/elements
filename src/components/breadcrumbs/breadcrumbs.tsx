@@ -7,19 +7,22 @@ import {
   ElBreadcrumbsList,
 } from './styles'
 
-type BreadcrumbsFC = typeof ElBreadcrumbs & {
+type BreadcrumbsFC = FC<HTMLAttributes<HTMLElement>> & {
   Item: FC<HTMLAttributes<HTMLLIElement>>
   Link: FC<AnchorHTMLAttributes<HTMLAnchorElement>>
-  List: FC<HTMLAttributes<HTMLUListElement>>
 }
 
 /**
  * Breadcrumbs are used to indicate to the user their flow in the application
  * and provide a navigation back step to previous pages.
  */
-const Breadcrumbs = ElBreadcrumbs as BreadcrumbsFC
-
-Breadcrumbs.List = ElBreadcrumbsList
+const Breadcrumbs: BreadcrumbsFC = ({ children, ...props }) => {
+  return (
+    <ElBreadcrumbs {...props}>
+      <ElBreadcrumbsList>{children}</ElBreadcrumbsList>
+    </ElBreadcrumbs>
+  )
+}
 
 Breadcrumbs.Item = ({ children, ...props }) => {
   return (

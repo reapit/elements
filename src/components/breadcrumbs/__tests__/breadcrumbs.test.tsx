@@ -9,11 +9,9 @@ describe('Breadcrumbs', () => {
   it('should match the snapshot', () => {
     const { asFragment } = render(
       <Breadcrumbs>
-        <Breadcrumbs.List>
-          <Breadcrumbs.Item>
-            <Breadcrumbs.Link href="#">Level one</Breadcrumbs.Link>
-          </Breadcrumbs.Item>
-        </Breadcrumbs.List>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Link href="#">Level one</Breadcrumbs.Link>
+        </Breadcrumbs.Item>
       </Breadcrumbs>,
     )
 

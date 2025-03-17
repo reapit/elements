@@ -22,19 +22,17 @@ export const Default: Story = {
     return (
       <>
         <Breadcrumbs>
-          <Breadcrumbs.List>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level one</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level two</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <a href="#" className={elBreadcrumbsLink}>
-                Level three (plain anchor)
-              </a>
-            </Breadcrumbs.Item>
-          </Breadcrumbs.List>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level one</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level two</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <a href="#" className={elBreadcrumbsLink}>
+              Level three (plain anchor)
+            </a>
+          </Breadcrumbs.Item>
         </Breadcrumbs>
         <BodyText className="el-mt10">Example page content</BodyText>
       </>
@@ -51,38 +49,36 @@ export const WithManyItems: Story = {
     return (
       <>
         <Breadcrumbs>
-          <Breadcrumbs.List>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level one</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level two</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level three</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level four</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level five</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level six</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level seven</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level eight</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level nine</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-            <Breadcrumbs.Item>
-              <Breadcrumbs.Link href="#">Level ten</Breadcrumbs.Link>
-            </Breadcrumbs.Item>
-          </Breadcrumbs.List>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level one</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level two</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level three</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level four</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level five</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level six</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level seven</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level eight</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level nine</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
+          <Breadcrumbs.Item>
+            <Breadcrumbs.Link href="#">Level ten</Breadcrumbs.Link>
+          </Breadcrumbs.Item>
         </Breadcrumbs>
         <BodyText className="el-mt10">Example page content</BodyText>
       </>
