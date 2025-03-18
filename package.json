@@ -61,7 +61,8 @@
     "deploy": "elements-deploy deploy",
     "start": "storybook dev -p 6006",
     "test": "vitest",
-    "visual-test": "yarn build:storybook && yarn playwright test"
+    "visual-test": "yarn build:storybook && yarn playwright test",
+    "generate-icons": "node --loader ts-node/esm scripts/generate-icons.ts"
   },
   "dependencies": {
     "@linaria/core": "^6.2.0",
