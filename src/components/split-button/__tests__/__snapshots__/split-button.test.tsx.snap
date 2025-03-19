@@ -22,6 +22,7 @@ exports[`SplitButton > should match snapshot 1`] = `
     </button>
     <button
       aria-busy="false"
+      aria-disabled="false"
       class="mocked-styled-4 el-menu-button"
       role="button"
     >
@@ -78,6 +79,7 @@ exports[`SplitButton > should match snapshot with large size 1`] = `
     </button>
     <button
       aria-busy="false"
+      aria-disabled="false"
       class="mocked-styled-4 el-menu-button"
       role="button"
     >
@@ -134,6 +136,7 @@ exports[`SplitButton > should match snapshot with secondary variant 1`] = `
     </button>
     <button
       aria-busy="false"
+      aria-disabled="false"
       class="mocked-styled-4 el-menu-button"
       role="button"
     >
