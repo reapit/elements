@@ -51,24 +51,23 @@ export const ElActionButton = styled.button`
     letter-spacing: var(--letter-spacing-sm);
   }
 
-  &:hover:not([disabled]),
   &:hover:not([aria-disabled='true']) {
     background: var(--fill-button-primary-hover);
   }
 
-  &:focus:not([disabled]),
-  &:focus:not([aria-disabled='true']) {
+  &:focus-visible:not([aria-disabled='true']) {
+    outline: 0;
     box-shadow:
       0px 0px 0px 1px #fff,
       0px 0px 0px 4px var(--purple-300);
   }
 
-  &[disabled],
   &[aria-disabled='true'] {
     border: var(--border-default) solid var(--fill-default-light);
     border-right: var(--border-none) solid var(--fill-default-light);
     background: var(--fill-default-light);
     color: var(--text-placeholder);
+    cursor: not-allowed;
 
     &:hover {
       background: var(--fill-default-light);
@@ -81,7 +80,7 @@ export const ElMenuButton = styled.button`
   display: flex;
   width: var(--size-9);
   height: var(--size-9);
-  padding: var(--spacing-none);
+  padding: var(--spacing-none); 
   justify-content: center;
   align-items: center;
   gap: var(--spacing-none);
@@ -94,7 +93,8 @@ export const ElMenuButton = styled.button`
     background: var(--fill-button-primary-hover);
   }
 
-  &:focus {
+  &:focus-visible {
+    outline: 0;
     box-shadow:
       0px 0px 0px 1px #fff,
       0px 0px 0px 4px var(--purple-300);
@@ -116,6 +116,17 @@ export const ElMenuButton = styled.button`
       align-items: center;
     }
   }
+
+  &[disabled],
+  &[aria-disabled='true'] {
+    background: var(--fill-default-light);
+    cursor: not-allowed;
+
+    ${ElSplitButtonIcon} {
+      color: var(--icon-primary);
+      border-left: var(--border-default) solid var(--outline-button-secondary-hover);
+    }
+  }
 `
 export const ElSplitButton = styled.div`
   display: inline-flex;
@@ -135,27 +146,22 @@ export const ElSplitButton = styled.div`
         border: var(--border-default) solid var(--outline-button-secondary-hover);
       }
 
-      &:focus:not([disabled]),
-      &:focus:not([aria-disabled='true']) {
+      &:focus-visible:not([disabled]),
+      &:focus-visible:not([aria-disabled='true']) {
         border-radius: var(--corner-default) var(--corner-none) var(--corner-none) var(--corner-default);
         border: var(--border-default) solid var(--outline-button-secondary-hover);
+        outline: 0;
 
         box-shadow:
           0px 0px 0px 1px #fff,
           0px 0px 0px 4px var(--purple-300);
       }
 
-      &[disabled],
       &[aria-disabled='true'] {
         border: var(--border-default) solid var(--fill-default-light);
         border-right: var(--border-none) solid var(--fill-default-light);
         background: var(--fill-default-light);
         color: var(--text-placeholder);
-
-        &:hover {
-          background: var(--fill-default-light);
-          color: var(--text-placeholder);
-        }
       }
     }
 
@@ -170,17 +176,28 @@ export const ElSplitButton = styled.div`
         color: var(--icon-secondary);
       }
 
-      &:hover {
+      &:hover:not([aria-disabled='true']) {
         border-radius: var(--corner-none) var(--corner-default) var(--corner-default) var(--corner-none);
         border: var(--border-default) solid var(--outline-button-secondary-hover);
       }
 
-      &:focus {
+      &:focus-visible:not([aria-disabled='true']) {
         border-radius: var(--corner-none) var(--corner-default) var(--corner-default) var(--corner-none);
         border: var(--border-default) solid var(--outline-button-secondary-hover);
+        outline: 0;
         box-shadow:
           0px 0px 0px 1px #fff,
           0px 0px 0px 4px var(--purple-300);
+      }
+
+      &[aria-disabled='true'] {
+        background: var(--fill-default-light);
+        cursor: not-allowed;
+
+        ${ElSplitButtonIcon} {
+          color: var(--icon-primary);
+          border-left: var(--border-default) solid var(--outline-button-secondary-hover);
+        }
       }
     }
   }

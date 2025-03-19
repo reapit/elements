@@ -121,6 +121,14 @@ export const SplitButtonDisabled = {
         <SplitButton.Action disabled>{props.children}</SplitButton.Action>
         <SplitButton.Menu />
       </SplitButton>
+      <SplitButton {...props}>
+        <SplitButton.Action disabled>{props.children}</SplitButton.Action>
+        <SplitButton.Menu isBusy />
+      </SplitButton>
+      <SplitButton {...props} data-variant="secondary">
+        <SplitButton.Action isBusy>{props.children}</SplitButton.Action>
+        <SplitButton.Menu disabled />
+      </SplitButton>
     </>
   ),
   // Adding the parameters to display only one component in the source

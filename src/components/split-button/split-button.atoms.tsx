@@ -10,7 +10,7 @@ type ActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 type MenuButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  disabled?: never
+  disabled?: boolean
   isBusy?: boolean
   onClick?: MouseEventHandler
 }
@@ -18,7 +18,7 @@ type MenuButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 export const ActionButton: FC<ActionButtonProps> = (props) => {
   const { children, disabled = false, 'aria-label': ariaLabel, isBusy = false, onClick, ...rest } = props
 
-  const handleClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
+  const handleClick = useCallback<MouseEventHandler<HTMLButtonElement> | MouseEventHandler<HTMLAnchorElement>>(
     (event) => {
       // We are not using <button>'s `disabled` attribute because disabled buttons are bad for a11y.
       // Rather, we keep the <button> enabled and available in the a11y tree, but mark it as disabled using
@@ -51,9 +51,16 @@ export const ActionButton: FC<ActionButtonProps> = (props) => {
 }
 
 export const MenuButton: FC<MenuButtonProps> = (props) => {
-  const { 'aria-label': ariaLabel, isBusy = false, ...rest } = props
+  const { 'aria-label': ariaLabel, disabled = false, isBusy = false, ...rest } = props
   return (
-    <ElMenuButton role="button" aria-label={ariaLabel} aria-busy={isBusy} onClick={props.onClick} {...rest}>
+    <ElMenuButton
+      role="button"
+      aria-label={ariaLabel}
+      aria-disabled={disabled}
+      aria-busy={isBusy}
+      onClick={props.onClick}
+      {...rest}
+    >
       <ElSplitButtonIcon>
         <ElSplitButtonSpinner />
         <Icon icon="chevronDown" />
