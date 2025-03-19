@@ -13,6 +13,9 @@ const themes = ['payprop', 'reapit']
 /** @returns {Config} */
 function getConfig(themeName) {
   return {
+    log: {
+      verbosity: 'verbose',
+    },
     source: [
       './src/tokens/Primitives.Value.tokens.json',
       `./src/tokens/Semantics.${themeName.toUpperCase()}.tokens.json`,
