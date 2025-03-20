@@ -45,7 +45,6 @@ export const ElSideBarMenuGroupItemTrigger = styled.button`
 
   display: flex;
   width: 100%;
-  justify-content: flex-start;
   height: 40px;
   padding: var(--spacing-none) var(--spacing-2);
   align-items: center;
@@ -54,7 +53,7 @@ export const ElSideBarMenuGroupItemTrigger = styled.button`
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 
-  &[data-expanded='false'] {
+  &[aria-expanded='false'] {
     border-radius: inherit;
   }
 
@@ -83,7 +82,7 @@ export const ElSideBarMenuGroupItemTrigger = styled.button`
 
 export const ElSideBarMenuGroup = styled.li`
   border-radius: var(--corner-lg);
-  &[data-expanded='true'] {
+  &[data-is-expanded='true'] {
     background: var(--colour-fill-neutral-lightest);
   }
 `

@@ -40,9 +40,8 @@ export const SideBarMenuGroupItemTrigger: FC<SideBarMenuGroupItemProps> = ({ ico
   return (
     <ElSideBarMenuGroupItemTrigger
       aria-current={isActive ? 'page' : undefined}
-      data-expanded={isExpanded}
       onClick={handleClick}
-      data-expandable="true"
+      aria-expanded={isExpanded}
       {...props}
     >
       <ElSideBarMenuGroupTriggerIcon>{icon}</ElSideBarMenuGroupTriggerIcon>
@@ -69,7 +68,7 @@ export const SideBarMenuGroupContainer: FC<SideBarMenuGroupContainerProps> = ({ 
 
   return (
     <IsSideBarMenuGroupExpandedContext.Provider value={{ isExpanded, setIsExpanded }}>
-      <ElSideBarMenuGroup data-expanded={isExpanded}>{children}</ElSideBarMenuGroup>
+      <ElSideBarMenuGroup data-is-expanded={isExpanded}>{children}</ElSideBarMenuGroup>
     </IsSideBarMenuGroupExpandedContext.Provider>
   )
 }
