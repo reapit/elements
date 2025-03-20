@@ -61,7 +61,7 @@ jobs:
 
       - name: Test
         run: |
-          yarn vitest run --watch=false --passWithNoTests
+          yarn test run --passWithNoTests
 
       - name: Package Version Bump
         run: |
