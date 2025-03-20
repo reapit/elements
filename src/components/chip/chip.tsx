@@ -13,14 +13,15 @@ type ElementAttributesToOmit = Extract<keyof ElementAttributes, 'disabled' | 'ty
 interface ChipProps extends Omit<ElementAttributes, ElementAttributesToOmit> {
   children: ReactNode
   isDisabled?: boolean
-  willTruncateLabel?: boolean
+  maxWidth?: `--size-${string}`
   variant: 'filter' | 'selection'
+  willTruncateLabel?: boolean
 }
 
 /**
  * An interactive chip that should be cleared (or removed) when clicked. Typically used within a `ChipGroup`.
  */
-export function Chip({ children, isDisabled, onClick, variant, willTruncateLabel, ...rest }: ChipProps) {
+export function Chip({ children, isDisabled, onClick, maxWidth, variant, willTruncateLabel, ...rest }: ChipProps) {
   const handleClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
     (event) => {
       // We are not using <button>'s `disabled` attribute because disabled buttons are bad for a11y.
@@ -39,7 +40,16 @@ export function Chip({ children, isDisabled, onClick, variant, willTruncateLabel
   )
 
   return (
-    <ElChip {...rest} type="button" aria-disabled={isDisabled} data-variant={variant} onClick={handleClick}>
+    <ElChip
+      {...rest}
+      type="button"
+      aria-disabled={isDisabled}
+      data-variant={variant}
+      onClick={handleClick}
+      // NOTE: We'd prefer --chip-max-width to be a data attribute, but browsers do not support CSS' advanced
+      // attr() function syntax yet. Thus, we use a CSS variable instead.
+      style={maxWidth ? { '--chip-max-width': `var(${maxWidth})` } : undefined}
+    >
       <ElChipLabel data-will-truncate={willTruncateLabel}>{children}</ElChipLabel>
       <ElChipClearIcon icon="close" />
     </ElChip>
