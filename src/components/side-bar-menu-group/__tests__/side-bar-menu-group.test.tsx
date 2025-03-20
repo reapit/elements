@@ -89,4 +89,18 @@ describe('SideBarMenuGroup', () => {
     fireEvent.click(screen.getByRole('button'))
     expect(screen.queryByText('Child Item')).not.toBeInTheDocument()
   })
+
+  it('should handle onKeyDown event properly', () => {
+    render(
+      <SideBar>
+        <SideBarMenuGroup isActive label="Group" icon={null}>
+          <button data-testid="item-1">Item 1</button>
+        </SideBarMenuGroup>
+      </SideBar>,
+    )
+    screen.getByTestId('item-1').focus()
+
+    fireEvent.keyDown(document.activeElement!, { key: 'Escape' })
+    expect(screen.queryByText('Item 1')).not.toBeInTheDocument()
+  })
 })

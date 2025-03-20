@@ -1,4 +1,4 @@
-import type { FC, HTMLAttributes, ReactNode } from 'react'
+import { useId, type FC, type HTMLAttributes, type ReactNode } from 'react'
 import {
   SideBarMenuGroupContainer,
   SideBarMenuGroupItemTrigger,
@@ -44,12 +44,13 @@ export interface SideBarMenuGroupProps extends HTMLAttributes<HTMLLIElement> {
 }
 
 export const SideBarMenuGroup: FC<SideBarMenuGroupProps> = ({ label, icon, isActive, children, ...props }) => {
+  const groupId = useId()
   return (
     <SideBarMenuGroupContainer isActive={isActive} {...props}>
-      <SideBarMenuGroupItemTrigger isActive={isActive} icon={icon}>
+      <SideBarMenuGroupItemTrigger aria-controls={groupId} isActive={isActive} icon={icon}>
         {label}
       </SideBarMenuGroupItemTrigger>
-      <SideBarMenuGroupList>{children}</SideBarMenuGroupList>
+      <SideBarMenuGroupList id={groupId}>{children}</SideBarMenuGroupList>
     </SideBarMenuGroupContainer>
   )
 }

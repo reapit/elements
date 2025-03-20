@@ -36,6 +36,10 @@ export const elSideBarMenuItemAnchor = css`
   border-radius: var(--corner-lg);
 
   &:hover,
+  &:focus-visible {
+    background: var(--colour-fill-neutral-light);
+  }
+
   &[aria-current='page'] {
     background: var(--fill-default-lightest);
   }
@@ -45,6 +49,11 @@ export const elSideBarMenuItemAnchor = css`
       color: var(--text-action);
       font-weight: var(--font-weight-medium);
     }
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: var(--border-width-double) solid var(--colour-border-focus);
   }
 `
 

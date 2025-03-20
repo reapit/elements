@@ -61,9 +61,16 @@ export const Default: Story = {
             <SideBarMenuItem isActive icon={<Icon icon="property" />} href="#">
               SideBar Item (active)
             </SideBarMenuItem>
-            <SideBarMenuGroup isActive label="Menu item Expandable" icon={<Icon icon="property" />}>
-              <SideBarMenuGroupItem isActive>Sub Menu Item 1</SideBarMenuGroupItem>
-              <SideBarMenuGroupItem>Sub Menu Item 2</SideBarMenuGroupItem>
+            <SideBarMenuGroup isActive label="Menu Group 1" icon={<Icon icon="property" />}>
+              <SideBarMenuGroupItem isActive href="#">
+                Sub Menu Item 1
+              </SideBarMenuGroupItem>
+              <SideBarMenuGroupItem href="#">Sub Menu Item 2</SideBarMenuGroupItem>
+            </SideBarMenuGroup>
+
+            <SideBarMenuGroup label="Menu Group 2" icon={<Icon icon="property" />}>
+              <SideBarMenuGroupItem href="#">Sub Menu Item 3</SideBarMenuGroupItem>
+              <SideBarMenuGroupItem href="#">Sub Menu Item 4</SideBarMenuGroupItem>
             </SideBarMenuGroup>
 
             <li>
@@ -73,7 +80,7 @@ export const Default: Story = {
               External Icon
             </SideBarMenuItem>
 
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => {
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
               return (
                 <SideBarMenuItem key={i} icon={<Icon icon="property" />} href="/#">
                   SideBar Item
