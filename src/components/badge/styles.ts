@@ -19,7 +19,6 @@ export const ElBadge = styled.div`
     ${ElIcon} {
       width: var(--icon-xs);
       height: var(--icon-xs);
-      color: inherit;
     }
   }
 

@@ -168,7 +168,7 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
         className={className}
       >
         <ElNavResponsiveAppSwitcherIconWrap className={cx(appSwitcherOpen && elAppSwitcherOpen)}>
-          <Icon intent="default" icon="appLauncher" />
+          <Icon intent="default" icon="appSwitcher" />
         </ElNavResponsiveAppSwitcherIconWrap>
         {appSwitcherOpen && (
           <ElNavMenu>
