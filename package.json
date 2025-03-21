@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "5.0.0-beta.18",
+  "version": "5.0.0-beta.19",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/elements#readme",
   "bugs": {
@@ -30,7 +30,7 @@
       "require": "./dist/js/index.cjs"
     },
     "./styles.css": "./dist/js/style.css",
-    "./index.css": "./dist/js/style.css"
+    "./dist/index.css": "./dist/js/style.css"
   },
   "license": "MIT",
   "author": "Will McVay <wmcvay@reapit.com>",
