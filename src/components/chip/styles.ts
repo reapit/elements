@@ -1,14 +1,23 @@
 import { styled } from '@linaria/react'
 import { Icon } from '../icon'
+import type { CSSProperties } from 'react'
+
+interface ElChipCSSProperties extends CSSProperties {
+  /** Used to determine the maximum width of the chip because the browser does not support
+   * [CSS' advanced attr() syntax](https://developer.mozilla.org/en-US/docs/Web/CSS/attr) */
+  '--chip-max-width'?: `var(--size-${string})`
+}
 
 interface ElChipProps {
   'data-variant': 'filter' | 'selection'
+  style?: ElChipCSSProperties
 }
 
 export const ElChip = styled.button<ElChipProps>`
   align-items: center;
   border: none;
-  border-radius: var(--corner-2xl);
+  border-radius: var(--comp-chip-border-radius);
+  color: var(--comp-chip-colour-text-active);
   cursor: pointer;
   display: grid;
   gap: var(--spacing-2);
@@ -17,29 +26,36 @@ export const ElChip = styled.button<ElChipProps>`
   padding-block: var(--spacing-1);
   padding-inline: var(--spacing-4) var(--spacing-2);
   width: fit-content;
+  max-width: var(--chip-max-width, auto);
+
+  &[aria-disabled='true'] {
+    cursor: not-allowed;
+    color: var(--comp-chip-colour-text-disabled);
+  }
 
   &[data-variant='filter'] {
-    background: var(--fill-action-lightest);
+    background: var(--comp-chip-colour-fill-filter-default);
 
     &:hover {
-      background: var(--fill-action-light);
+      background: var(--comp-chip-colour-fill-filter-hover);
+    }
+
+    &[aria-disabled='true'],
+    &[aria-disabled='true']:hover {
+      background: var(--comp-chip-colour-fill-filter-disabled);
     }
   }
 
   &[data-variant='selection'] {
-    background: var(--fill-default-lightest);
+    background: var(--comp-chip-colour-fill-selection-default);
 
     &:hover {
-      background: var(--fill-default-light);
+      background: var(--comp-chip-colour-fill-selection-hover);
     }
-  }
 
-  &[aria-disabled='true'] {
-    cursor: not-allowed;
-    background: var(--fill-default-lightest);
-
-    &:hover {
-      background: var(--fill-default-lightest);
+    &[aria-disabled='true'],
+    &[aria-disabled='true']:hover {
+      background: var(--comp-chip-colour-fill-selection-disabled);
     }
   }
 
@@ -81,12 +97,12 @@ export const ElChipLabel = styled.span<ElChipLabelProps>`
 export const ElChipClearIcon = styled(Icon)`
   /* NOTE: We only use !important here because the current Icon component
    * does not allow consumer-supplied styles to have a higher specificity */
-  color: var(--icon-secondary) !important;
+  color: var(--comp-chip-colour-icon-active) !important;
   font-size: 1rem;
   height: var(--size-icon-sm) !important;
   width: var(--size-icon-sm) !important;
 
   [aria-disabled='true'] & {
-    color: var(--icon-disabled) !important;
+    color: var(--comp-chip-colour-icon-disabled) !important;
   }
 `
