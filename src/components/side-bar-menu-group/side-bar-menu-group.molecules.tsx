@@ -1,4 +1,11 @@
-import { useState, type FC, type ReactNode } from 'react'
+import {
+  useState,
+  type FC,
+  type HTMLAttributes,
+  type KeyboardEventHandler,
+  type PropsWithChildren,
+  type ReactNode,
+} from 'react'
 import { Icon } from '../icon'
 import { useIsSideBarExpandedContext } from '../side-bar/is-side-bar-expanded-context'
 import {
@@ -14,13 +21,13 @@ import {
   ElSideBarMenuGroupList,
 } from './styles'
 
-interface SideBarMenuGroupItemProps {
+interface SideBarMenuGroupItemProps extends HTMLAttributes<HTMLButtonElement> {
   icon: ReactNode
   isActive?: boolean
   children: ReactNode
 }
 
-export const SideBarMenuGroupItemTrigger: FC<SideBarMenuGroupItemProps> = ({ icon, isActive, children }) => {
+export const SideBarMenuGroupItemTrigger: FC<SideBarMenuGroupItemProps> = ({ icon, isActive, children, ...props }) => {
   const { isExpanded: isSideBarExpanded, setIsExpanded: setIsSideBarExpanded } = useIsSideBarExpandedContext()
   const { isExpanded, setIsExpanded } = useIsSideBarMenuGroupExpandedContext()
 
@@ -33,9 +40,9 @@ export const SideBarMenuGroupItemTrigger: FC<SideBarMenuGroupItemProps> = ({ ico
   return (
     <ElSideBarMenuGroupItemTrigger
       aria-current={isActive ? 'page' : undefined}
-      data-expanded={isExpanded}
       onClick={handleClick}
-      data-expandable="true"
+      aria-expanded={isExpanded}
+      {...props}
     >
       <ElSideBarMenuGroupTriggerIcon>{icon}</ElSideBarMenuGroupTriggerIcon>
       {isSideBarExpanded && (
@@ -61,15 +68,33 @@ export const SideBarMenuGroupContainer: FC<SideBarMenuGroupContainerProps> = ({ 
 
   return (
     <IsSideBarMenuGroupExpandedContext.Provider value={{ isExpanded, setIsExpanded }}>
-      <ElSideBarMenuGroup>{children}</ElSideBarMenuGroup>
+      <ElSideBarMenuGroup data-is-expanded={isExpanded}>{children}</ElSideBarMenuGroup>
     </IsSideBarMenuGroupExpandedContext.Provider>
   )
 }
 
-export const SideBarMenuGroupList: FC<{ children: ReactNode }> = ({ children }) => {
-  const { isExpanded } = useIsSideBarMenuGroupExpandedContext()
+export const SideBarMenuGroupList: FC<PropsWithChildren<HTMLAttributes<HTMLUListElement>>> = ({
+  children,
+  ...props
+}) => {
+  const { isExpanded, setIsExpanded } = useIsSideBarMenuGroupExpandedContext()
   const { isExpanded: isSideBarExpanded } = useIsSideBarExpandedContext()
 
   if (!isExpanded || !isSideBarExpanded) return null
-  return <ElSideBarMenuGroupList>{children}</ElSideBarMenuGroupList>
+
+  const handleOnKeyDown: KeyboardEventHandler<HTMLUListElement> = (e) => {
+    const menu = e.currentTarget
+    const menuButton = menu?.parentElement!.querySelector('button') as HTMLButtonElement
+
+    if (e.key === 'Escape') {
+      setIsExpanded(false)
+      menuButton.focus()
+    }
+  }
+
+  return (
+    <ElSideBarMenuGroupList {...props} onKeyDown={handleOnKeyDown}>
+      {children}
+    </ElSideBarMenuGroupList>
+  )
 }

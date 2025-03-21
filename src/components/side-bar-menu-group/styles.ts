@@ -18,6 +18,8 @@ export const ElSideBarMenuGroupItemText = styled.span`
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-sm);
+  flex: 1;
+  text-align: left;
 `
 
 export const ElSideBarMenuGroupTriggerIcon = styled.span`
@@ -42,6 +44,7 @@ export const ElSideBarMenuGroupItemTrigger = styled.button`
   border: none;
 
   display: flex;
+  width: 100%;
   height: 40px;
   padding: var(--spacing-none) var(--spacing-2);
   align-items: center;
@@ -50,7 +53,7 @@ export const ElSideBarMenuGroupItemTrigger = styled.button`
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 
-  &[data-expanded='false'] {
+  &[aria-expanded='false'] {
     border-radius: inherit;
   }
 
@@ -63,19 +66,25 @@ export const ElSideBarMenuGroupItemTrigger = styled.button`
     }
   }
 
-  &:hover {
+  &:hover,
+  &:focus-visible {
     &,
     ${ElSideBarMenuGroupTriggerIcon} svg {
-      background: var(--fill-default-light);
+      background: var(--colour-fill-neutral-light);
     }
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: var(--border-width-double) solid var(--colour-border-focus);
   }
 `
 
 export const ElSideBarMenuGroup = styled.li`
-  display: flex;
-  flex-direction: column;
   border-radius: var(--corner-lg);
-  background: var(--fill-default-lightest);
+  &[data-is-expanded='true'] {
+    background: var(--colour-fill-neutral-lightest);
+  }
 `
 
 export const ElSideBarMenuGroupList = styled.ul`
@@ -84,7 +93,6 @@ export const ElSideBarMenuGroupList = styled.ul`
   align-items: flex-start;
   gap: var(--spacing-1);
   padding-bottom: var(--spacing-2);
-  background: var(--fill-default-lightest);
   border-bottom-left-radius: inherit;
   border-bottom-right-radius: inherit;
 `
@@ -104,13 +112,19 @@ export const elSideBarMenuGroupItemAnchor = css`
   padding: var(--spacing-none) var(--spacing-3) var(--spacing-none) 44px;
   height: var(--size-8);
 
-  &:hover {
-    background: var(--fill-default-light);
+  &:hover,
+  &:focus-visible {
+    background: var(--colour-fill-neutral-light);
   }
 
   &[aria-current='page'] {
     color: var(--text-action);
     font-weight: var(--font-weight-medium);
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: var(--border-width-double) solid var(--colour-border-focus);
   }
 `
 
