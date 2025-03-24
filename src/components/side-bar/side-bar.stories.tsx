@@ -9,6 +9,7 @@ import {
 } from '../side-bar-menu-item'
 import { Icon } from '../icon'
 import { useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
+import { SideBarMenuGroup, SideBarMenuGroupItem } from '../side-bar-menu-group'
 
 export default {
   title: 'Components/Side Bar',
@@ -60,6 +61,17 @@ export const Default: Story = {
             <SideBarMenuItem isActive icon={<Icon icon="property" />} href="#">
               SideBar Item (active)
             </SideBarMenuItem>
+            <SideBarMenuGroup isActive label="Menu Group 1" icon={<Icon icon="property" />}>
+              <SideBarMenuGroupItem isActive href="#">
+                Sub Menu Item 1
+              </SideBarMenuGroupItem>
+              <SideBarMenuGroupItem href="#">Sub Menu Item 2</SideBarMenuGroupItem>
+            </SideBarMenuGroup>
+
+            <SideBarMenuGroup label="Menu Group 2" icon={<Icon icon="property" />}>
+              <SideBarMenuGroupItem href="#">Sub Menu Item 3</SideBarMenuGroupItem>
+              <SideBarMenuGroupItem href="#">Sub Menu Item 4</SideBarMenuGroupItem>
+            </SideBarMenuGroup>
 
             <li>
               <CustomLink />
@@ -68,7 +80,7 @@ export const Default: Story = {
               External Icon
             </SideBarMenuItem>
 
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((i) => {
+            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
               return (
                 <SideBarMenuItem key={i} icon={<Icon icon="property" />} href="/#">
                   SideBar Item
