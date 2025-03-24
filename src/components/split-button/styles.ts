@@ -80,7 +80,7 @@ export const ElMenuButton = styled.button`
   display: flex;
   width: var(--size-9);
   height: var(--size-9);
-  padding: var(--spacing-none); 
+  padding: var(--spacing-none);
   justify-content: center;
   align-items: center;
   gap: var(--spacing-none);

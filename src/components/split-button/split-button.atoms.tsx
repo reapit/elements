@@ -18,7 +18,7 @@ type MenuButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
 export const ActionButton: FC<ActionButtonProps> = (props) => {
   const { children, disabled = false, 'aria-label': ariaLabel, isBusy = false, onClick, ...rest } = props
 
-  const handleClick = useCallback<MouseEventHandler<HTMLButtonElement> | MouseEventHandler<HTMLAnchorElement>>(
+  const handleClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
     (event) => {
       // We are not using <button>'s `disabled` attribute because disabled buttons are bad for a11y.
       // Rather, we keep the <button> enabled and available in the a11y tree, but mark it as disabled using
