@@ -57,11 +57,11 @@ export const ElSideBarMenuGroupItemTrigger = styled.button`
     border-radius: inherit;
   }
 
-  color: var(--component-text-colour-text-side-bar-menu-item-default, #506478);
+  color: var(--neutral-600);
 
   &[aria-current='page'] {
     & ${ElSideBarMenuGroupItemText}, ${ElSideBarMenuGroupTriggerIcon} svg {
-      color: var(--text-action);
+      color: var(--colour-text-action);
       font-weight: var(--font-weight-medium);
     }
   }
@@ -81,7 +81,7 @@ export const ElSideBarMenuGroupItemTrigger = styled.button`
 `
 
 export const ElSideBarMenuGroup = styled.li`
-  border-radius: var(--corner-lg);
+  border-radius: var(--border-radius-l);
   &[data-is-expanded='true'] {
     background: var(--colour-fill-neutral-lightest);
   }
@@ -101,7 +101,7 @@ export const elSideBarMenuGroupItemAnchor = css`
   display: flex;
   align-items: center;
   text-align: start;
-  color: var(--component-text-colour-text-side-bar-menu-item-default, #506478);
+  color: var(--neutral-600);
 
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
@@ -118,7 +118,7 @@ export const elSideBarMenuGroupItemAnchor = css`
   }
 
   &[aria-current='page'] {
-    color: var(--text-action);
+    color: var(--colour-text-action);
     font-weight: var(--font-weight-medium);
   }
 
