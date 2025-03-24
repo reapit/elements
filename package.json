@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "5.0.0-beta.19",
+  "version": "5.0.0-beta.20",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/elements#readme",
   "bugs": {
@@ -25,7 +25,7 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/js/src/index.d.ts",
       "import": "./dist/js/index.js",
       "require": "./dist/js/index.cjs"
     },
@@ -34,7 +34,7 @@
   },
   "license": "MIT",
   "author": "Will McVay <wmcvay@reapit.com>",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/js/src/index.d.ts",
   "main": "index.ts",
   "module": "index.ts",
   "publishConfig": {
@@ -135,6 +135,7 @@
     "ts-node": "^10.9.2",
     "typescript": "5.6.3",
     "vite": "^5.4.10",
+    "vite-plugin-dts": "^4.5.3",
     "vite-plugin-svgr": "^4.2.0",
     "vitest": "^2.1.5"
   },
