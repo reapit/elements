@@ -25,7 +25,7 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/src/index.d.ts",
+      "types": "./dist/js/src/index.d.ts",
       "import": "./dist/js/index.js",
       "require": "./dist/js/index.cjs"
     },
@@ -34,7 +34,7 @@
   },
   "license": "MIT",
   "author": "Will McVay <wmcvay@reapit.com>",
-  "types": "./dist/src/index.d.ts",
+  "types": "./dist/js/src/index.d.ts",
   "main": "index.ts",
   "module": "index.ts",
   "publishConfig": {
