@@ -16,7 +16,7 @@ export const navigate = async (page: Page, storybookUrl: string, id: string): Pr
     console.log(`[Navigate] Loading ${url}`)
     await page.goto(url)
     await page.waitForLoadState('networkidle')
-    await page.waitForSelector('#storybook-root', { timeout: 10000 })
+    await page.waitForSelector('#storybook-root')
   } catch (error) {
     console.error(`[Navigate] Error navigating to story: ${id}`, error)
 
