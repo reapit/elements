@@ -40,9 +40,7 @@ jobs:
         run: yarn
 
       - name: Install FFmpeg and other dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libasound2t64 ffmpeg
+        run: apt-get install libgtk2.0-0t64 libgtk-3-0t64 libgbm-dev libnotify-dev libnss3 libxss1 libasound2t64 libxtst6 xauth xvfb
 
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
