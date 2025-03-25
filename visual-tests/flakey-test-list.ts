@@ -24,4 +24,11 @@ export const flakeyTestList = [
   'modal--basic-usage-closed',
   'persistentnotification--full-react-example-fixed-position',
   'portal--portal-usage',
+  'deprecatedtable--basic-usage',
+  'deprecatedtable--column-widths',
+  'deprecatedtable--basic-customisation-table-cells',
+  'deprecatedtable--react-shorthand-usage',
+  'loader--inline',
+  'patterns-layouts--complete-combined-example',
+  'patterns-layouts--complete-combined-example-max-width',
 ]

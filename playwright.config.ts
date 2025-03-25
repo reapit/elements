@@ -16,9 +16,9 @@ export default defineConfig({
   /* Fail the build on CI if you accidentally left test.only in the source code. */
   forbidOnly: !!process.env.CI,
   /* Retry on CI only */
-  retries: process.env.CI ? 3 : 1,
+  retries: process.env.CI ? 3 : 0,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 1 : undefined,
+  workers: process.env.CI ? 1 : 8,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     [
@@ -44,6 +44,9 @@ export default defineConfig({
 
   // 2 min a bit high but want to ensure we doesn't timeout on CI
   timeout: 120000,
+  expect: {
+    timeout: 3 * 1000, // Expect assertions timeout (3 seconds)
+  },
   /* Configure projects for major browsers */
   // Just adding Chrome for now, we can look at browser matrix later
   projects: [

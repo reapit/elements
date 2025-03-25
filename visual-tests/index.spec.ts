@@ -1,12 +1,17 @@
 import { test, expect } from '@playwright/test'
-import buildManifest from '../public/dist/index.json'
+// import buildManifest from '../public/dist/index.json'
 import { navigate } from './utils'
 import { flakeyTestList } from './flakey-test-list'
+import { createRequire } from 'module'
 /** Credit to
  * https://jamesiv.es/blog/frontend/testing/2024/03/11/visual-testing-storybook-with-playwright and
  * https://www.browsercat.com/post/ultimate-guide-visual-testing-playwright#visual-testing-in-cicd
  * for implementation
  */
+
+// load the JSON
+const require = createRequire(import.meta.url)
+const buildManifest = require('../public/dist/index.json')
 
 const storyNames = Object.keys(buildManifest.entries).filter(
   (entry) => buildManifest.entries[entry].tags.includes('story') && !flakeyTestList.includes(entry),
