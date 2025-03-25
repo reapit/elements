@@ -36,20 +36,19 @@ jobs:
         with:
           node-version: '18.x'
 
-      - name: Update system
-        run: sudo apt-get update && sudo apt-get upgrade -y
-            
-
       - name: Install dependencies
         run: yarn
 
-      - name: Add necessary repositories
+      - name: Enable universe repository
         run: |
+          sudo add-apt-repository universe
           sudo apt-get update
-          sudo apt-get install -y software-properties-common
-          sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+
+      - name: Install Playwright Browsers dependencies
+        run: |
+          sudo add-apt-repository ppa:jonathonf/ffmpeg-4
           sudo apt-get update
-          sudo apt-get install -y libasan2 libffmpeg-dev  
+          sudo apt-get install -y libasan2 libffmpeg4
 
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
