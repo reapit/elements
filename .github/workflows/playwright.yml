@@ -40,7 +40,9 @@ jobs:
         run: yarn
 
       - name: Install Playwright Browsers
-        run: yarn playwright install --with-deps
+        run: |
+          sudo apt-get update && sudo apt-get install -y libasan2 libffmpeg-dev
+          yarn playwright install --with-deps
 
       - name: Build Storybook
         run: |
