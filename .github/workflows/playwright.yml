@@ -44,7 +44,7 @@ jobs:
           sudo add-apt-repository universe
           sudo apt-get update
 
-      - name: Install Playwright Browsers dependencies
+      - name: Add FFmpeg PPA and Install Dependencies
         run: |
           sudo add-apt-repository ppa:jonathonf/ffmpeg-4
           sudo apt-get update
@@ -54,8 +54,7 @@ jobs:
         run: yarn playwright install --with-deps
 
       - name: Build Storybook
-        run: |
-          yarn build:storybook
+        run: yarn build:storybook
 
       - name: Set up cache
         id: cache
