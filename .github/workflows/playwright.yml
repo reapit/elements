@@ -24,7 +24,7 @@ env:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04  # Using Ubuntu 20.04 to avoid compatibility issues
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -37,7 +37,7 @@ jobs:
           node-version: '18.x'
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile  # Ensure the lockfile is not modified
 
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
