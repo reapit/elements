@@ -39,16 +39,10 @@ jobs:
       - name: Install dependencies
         run: yarn
 
-      - name: Enable universe repository
+      - name: Install FFmpeg and other dependencies
         run: |
-          sudo add-apt-repository universe
           sudo apt-get update
-
-      - name: Add FFmpeg PPA and Install Dependencies
-        run: |
-          sudo add-apt-repository ppa:jonathonf/ffmpeg-4
-          sudo apt-get update
-          sudo apt-get install -y libasan2 libffmpeg4
+          sudo apt-get install -y libasan2 ffmpeg
 
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
