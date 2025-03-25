@@ -24,7 +24,7 @@ env:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -43,7 +43,8 @@ jobs:
         run: yarn playwright install --with-deps
 
       - name: Build Storybook
-        run: yarn build:storybook
+        run: |
+          yarn build:storybook
 
       - name: Set up cache
         id: cache
