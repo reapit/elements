@@ -36,13 +36,23 @@ jobs:
         with:
           node-version: '18.x'
 
+      - name: Update system
+        run: sudo apt-get update && sudo apt-get upgrade -y
+            
+
       - name: Install dependencies
         run: yarn
 
-      - name: Install Playwright Browsers
+      - name: Add necessary repositories
         run: |
-          sudo apt-get update && sudo apt-get install -y libasan2 libffmpeg-dev
-          yarn playwright install --with-deps
+          sudo apt-get update
+          sudo apt-get install -y software-properties-common
+          sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+          sudo apt-get update
+          sudo apt-get install -y libasan2 libffmpeg-dev  
+
+      - name: Install Playwright Browsers
+        run: yarn playwright install --with-deps
 
       - name: Build Storybook
         run: |
