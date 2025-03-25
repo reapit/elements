@@ -24,7 +24,7 @@ env:
 jobs:
   test:
     timeout-minutes: 60
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-18.04
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,13 +38,6 @@ jobs:
 
       - name: Install dependencies
         run: yarn
-
-      - name: Install missing dependencies
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y libasound2t64
-          sudo apt-get install -y libffi8
-          sudo apt-get install -y ffmpeg libx264-dev
 
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
