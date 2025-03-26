@@ -43,7 +43,7 @@ export default defineConfig({
   },
 
   // 2 min a bit high but want to ensure we doesn't timeout on CI
-  timeout: 120000,
+  timeout: 60000,
   expect: {
     timeout: 3 * 1000, // Expect assertions timeout (3 seconds)
   },
