@@ -35,20 +35,17 @@ export const elSideBarMenuItemAnchor = css`
   color: var(--neutral-600);
   border-radius: var(--corner-lg);
 
+  &[aria-current='page'] {
+    background: var(--colour-fill-neutral-lightest);
+    & ${ElSideBarMenuItemText}, ${ElSideBarMenuItemIcon} svg {
+      color: var(--colour-text-action);
+      font-weight: var(--font-weight-medium);
+    }
+  }
+
   &:hover,
   &:focus-visible {
     background: var(--colour-fill-neutral-light);
-  }
-
-  &[aria-current='page'] {
-    background: var(--fill-default-lightest);
-  }
-
-  &[aria-current='page'] {
-    & ${ElSideBarMenuItemText}, ${ElSideBarMenuItemIcon} svg {
-      color: var(--text-action);
-      font-weight: var(--font-weight-medium);
-    }
   }
 
   &:focus-visible {
