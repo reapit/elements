@@ -22,7 +22,6 @@ export const ElFeaturesItem = styled.li`
   letter-spacing: var(--letter-spacing-2xs);
 
   ${ElIcon} {
-    color: inherit;
     font-size: inherit;
   }
 `
