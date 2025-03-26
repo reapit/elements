@@ -18,7 +18,7 @@ export default defineConfig({
   /* Retry on CI only */
   retries: process.env.CI ? 2 : 1,
   /* Opt out of parallel tests on CI. */
-  workers: process.env.CI ? 8 : 8,
+  workers: process.env.CI ? 6 : 8,
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     [
@@ -43,7 +43,7 @@ export default defineConfig({
   },
 
   // 2 min a bit high but want to ensure we doesn't timeout on CI
-  timeout: 60000,
+  timeout: 120000,
   expect: {
     timeout: 3 * 1000, // Expect assertions timeout (3 seconds)
   },
