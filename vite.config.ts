@@ -61,10 +61,7 @@ export default defineConfig({
         presets: ['@babel/preset-typescript', '@babel/preset-react'],
       },
     }),
-    dts({
-      outDir: 'dist/js/src',
-      copyDtsFiles: true,
-    }),
+    dts(),
   ],
   test: {
     coverage: {
