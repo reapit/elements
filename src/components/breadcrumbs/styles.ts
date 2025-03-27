@@ -21,8 +21,11 @@ export const ElBreadcrumbsItemChevron = styled(Icon)`
   padding: 0px var(--spacing-1);
 
   box-sizing: content-box;
-  width: var(--icon-xs);
-  height: var(--icon-xs);
+  &,
+  & svg {
+    width: var(--icon-size-xs);
+    height: var(--icon-size-xs);
+  }
   color: var(--icon-primary);
 `
 
@@ -44,7 +47,11 @@ export const elBreadcrumbsLink = css`
   &:focus {
     box-shadow:
       0px 0px 0px 1px #fff,
-      0px 0px 0px 4px var(--purple-300);
+      0px 0px 0px var(--vertical-shadow-size) var(--purple-300);
+  }
+
+  &:focus-visible {
+    outline: none;
   }
 
   &:hover {
@@ -55,10 +62,22 @@ export const elBreadcrumbsLink = css`
 export const ElBreadcrumbsList = styled.ul`
   display: flex;
 
+  /*
+  * to make the vertical shadow visible while in mobile/scrollable state
+  * we need to add a padding the same size as shadow size
+  */
+  --vertical-shadow-size: 4px;
+  --vertical-shadow-size-negative: calc(-1 * var(--vertical-shadow-size));
+
   ${isMobile} {
     /* Enable horizontal scrolling in mobile */
     overflow-x: auto;
     flex-wrap: nowrap;
+
+    /* workaround to make the vertical shadow visible while in mobile/scrollable state */
+    padding: var(--vertical-shadow-size) 0 var(--vertical-shadow-size) var(--vertical-shadow-size);
+    margin: var(--vertical-shadow-size-negative) 0 var(--vertical-shadow-size-negative)
+      var(--vertical-shadow-size-negative);
 
     /* hide scrollbar */
     &::-webkit-scrollbar {
