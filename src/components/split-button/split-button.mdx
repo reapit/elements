@@ -8,11 +8,9 @@ import * as SplitButtonStories from './split-button.stories'
 
 <Controls />
 
-Styled split button component with multiple flavours depending on use case.
-
 ## Default Usage
 
-A split button with no additional props / classes applied
+A Split Button with no additional props / classes applied
 
 <Canvas of={SplitButtonStories.Default} />
 
@@ -20,7 +18,7 @@ A split button with no additional props / classes applied
 
 ## With Menu
 
-A split menu button can be wrapped with `Menu` component.
+A Split Menu Button can be wrapped with `Menu` component.
 
 <Canvas of={SplitButtonStories.SplitButtonWithMenu} />
 
@@ -28,7 +26,7 @@ A split menu button can be wrapped with `Menu` component.
 
 ## Variants
 
-A split button can have only two variants `primary` and `secondary`, `primary` being default. The below component is set to `secondary` variant.
+A split button can support all the variants that a `Button` component have that is `primary` `secondary`, and `busy`, `secondary` being default. The below component is set to `primary` variant.
 
 <Canvas of={SplitButtonStories.SplitButtonVariants} />
 
@@ -36,7 +34,7 @@ A split button can have only two variants `primary` and `secondary`, `primary` b
 
 ## Split Button Busy
 
-Both action and menu button can have a busy state.
+Both action and menu button can have a busy variant.
 
 <Canvas of={SplitButtonStories.SplitButtonBusy} />
 
@@ -44,7 +42,7 @@ Both action and menu button can have a busy state.
 
 ## Split Button Disabled
 
-Both action and menu button can be disabled. Normally menu button will only be disabled if the action button is in busy state
+Both Action and Menu Button can be disabled.
 
 <Canvas of={SplitButtonStories.SplitButtonDisabled} />
 
@@ -52,7 +50,7 @@ Both action and menu button can be disabled. Normally menu button will only be d
 
 ## Split Button Disabled with Menu
 
-Only a split action button can be Disabled menu button will stay active only its childern can be disabled.
+A Split Action Button can be Disabled while menu button will stay active if its childern are enabled.
 
 <Canvas of={SplitButtonStories.SplitButtonDisabledWithMenu} />
 

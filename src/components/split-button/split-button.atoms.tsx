@@ -1,70 +1,29 @@
-import { FC, ButtonHTMLAttributes, MouseEventHandler, ReactNode, useCallback } from 'react'
-import { ElActionButton, ElActionButtonLabel, ElMenuButton, ElSplitButtonIcon, ElSplitButtonSpinner } from './styles'
+import { FC } from 'react'
 import { Icon } from '../icon'
+import { ButtonProps } from '../button'
+import { ElSplitButtonActionButton, ElSplitButtonMenuButton, ElSplitButtonIcon } from './styles'
+import { ElButtonSpinner } from '../button/styles'
 
-type ActionButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  children: ReactNode
-  disabled?: boolean
-  isBusy?: boolean
-  onClick?: MouseEventHandler
+type SplitButtonVariant = 'primary' | 'secondary' | 'busy'
+
+export type SplitButtonProps = ButtonProps & {
+  variant?: SplitButtonVariant
 }
 
-type MenuButtonProps = ButtonHTMLAttributes<HTMLButtonElement> & {
-  disabled?: boolean
-  isBusy?: boolean
-  onClick?: MouseEventHandler
+export const ActionButton: FC<SplitButtonProps> = (props) => {
+  const { children, ...rest } = props
+
+  return <ElSplitButtonActionButton {...rest}>{children}</ElSplitButtonActionButton>
 }
 
-export const ActionButton: FC<ActionButtonProps> = (props) => {
-  const { children, disabled = false, 'aria-label': ariaLabel, isBusy = false, onClick, ...rest } = props
-
-  const handleClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
-    (event) => {
-      // We are not using <button>'s `disabled` attribute because disabled buttons are bad for a11y.
-      // Rather, we keep the <button> enabled and available in the a11y tree, but mark it as disabled using
-      // `aria-disabled`. This means click events will still be fired, so we need to prevent any default action
-      // for the button from occuring, stop it propagating to ancestors and avoid calling the consumer-supplied
-      // `onClick` callback.
-      if (disabled) {
-        event.preventDefault()
-        event.stopPropagation()
-        return
-      }
-      onClick?.(event)
-    },
-    [disabled, onClick],
-  )
-
+export const MenuButton: FC<SplitButtonProps> = (props) => {
+  const { ...rest } = props
   return (
-    <ElActionButton
-      role="button"
-      aria-label={ariaLabel}
-      aria-disabled={disabled}
-      aria-busy={isBusy}
-      {...rest}
-      onClick={handleClick}
-    >
-      <ElSplitButtonSpinner />
-      {children && <ElActionButtonLabel>{children}</ElActionButtonLabel>}
-    </ElActionButton>
-  )
-}
-
-export const MenuButton: FC<MenuButtonProps> = (props) => {
-  const { 'aria-label': ariaLabel, disabled = false, isBusy = false, ...rest } = props
-  return (
-    <ElMenuButton
-      role="button"
-      aria-label={ariaLabel}
-      aria-disabled={disabled}
-      aria-busy={isBusy}
-      onClick={props.onClick}
-      {...rest}
-    >
+    <ElSplitButtonMenuButton {...rest}>
       <ElSplitButtonIcon>
-        <ElSplitButtonSpinner />
-        <Icon icon="chevronDown" />
+        <ElButtonSpinner />
+        <Icon icon="chevronDown" className="icon" />
       </ElSplitButtonIcon>
-    </ElMenuButton>
+    </ElSplitButtonMenuButton>
   )
 }

@@ -2,10 +2,7 @@ import { FC, HTMLAttributes } from 'react'
 import { ActionButton, MenuButton } from './split-button.atoms'
 import { ElSplitButton } from './styles'
 
-interface SplitButtonProps extends HTMLAttributes<HTMLDivElement> {
-  'data-variant'?: 'primary' | 'secondary'
-  'data-size'?: 'small' | 'medium' | 'large'
-}
+interface SplitButtonProps extends HTMLAttributes<HTMLDivElement> {}
 
 interface SplitButtonFC extends FC<SplitButtonProps> {
   Action: typeof ActionButton
