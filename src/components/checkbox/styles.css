@@ -1,0 +1,111 @@
+.el-checkbox-label {
+    color: black;
+    display: grid;
+    gap: 2px 8px;
+    grid-template-areas: "input label" ". supplementary-info";
+    grid-template-columns: 24px auto;
+    grid-template-rows: 24px auto;
+    align-items: center;
+  }
+  
+  .el-checkbox-input {
+    appearance: none;
+    box-sizing: border-box;
+    grid-area: input;
+    width: 100%;
+    padding: 0;
+    outline: none;
+    border-radius: 2px;
+  
+    &:focus-visible {
+      box-shadow: 0px 0px 0px 1px #ffffff, 0px 0px 0px 4px #7e9bfa;
+      width: auto;
+      padding: 11px;
+      margin-left: 1px;
+    }
+  }
+  
+  .el-checkbox-icon {
+    display: none;
+    grid-area: input;
+    width: 100%;
+    color: grey;
+  
+    &:hover {
+      color: #4e56ea;
+    }
+    .el-checkbox-input:not(:checked):not(:indeterminate) ~ & {
+      display: block;
+    }
+    .el-checkbox-input:disabled ~ & {
+      color: #e5e9ed;
+    }
+  }
+  
+  .el-checkbox-selected-icon {
+    display: none;
+    grid-area: input;
+    width: 100%;
+    /* height: 100%; */
+    color: blue;
+  
+    &:hover {
+      color: #4036c8;
+    }
+    .el-checkbox-input:checked:not(:indeterminate) ~ & {
+      display: block;
+    }
+    .el-checkbox-input:disabled ~ & {
+      color: #e5e9ed;
+    }
+  }
+  
+  .el-checkbox-indeterminate-icon {
+    display: none;
+    grid-area: input;
+    width: 100%;
+    /* height: 100%; */
+    color: blue;
+  
+    &:hover {
+      color: #4036c8;
+    }
+    .el-checkbox-input:indeterminate ~ & {
+      display: block;
+    }
+    .el-checkbox-input:disabled ~ & {
+      color: #e5e9ed;
+    }
+  }
+  
+  .el-checkbox-label-text {
+    grid-area: label;
+  
+    .el-checkbox-input:disabled ~ & {
+      color: #607890;
+    }
+  }
+  
+  .el-checkbox-supplementary-info {
+    grid-area: supplementary-info;
+  
+    .el-checkbox-input:disabled ~ & {
+      color: #9faebc;
+    }
+  }
+  
+  .el-label-text {
+    &[data-size="small"] {
+      font-size: var(--font-size-xs);
+    }
+    &[data-size="medium"] {
+      font-size: var(--font-size-sm);
+    }
+    &[data-variant="soft"] {
+      color: gray; /* var(--neutral-500); */
+    }
+    &[data-variant="strong"] {
+      color: black; /* var(--text-primary); */
+    }
+  }
+  
