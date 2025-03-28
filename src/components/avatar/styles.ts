@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 
 const baseCircleStyle = `
-  border-radius: var(--corner-3xl);
+  border-radius: var(--border-radius-3xl);
 `
 
 const baseMediumSizeStyle = `
@@ -13,12 +13,12 @@ const baseMediumSizeStyle = `
 `
 
 const baseColourDefaultStyle = `
-  background: var(--fill-default-medium);
-  color: var(--text-white);
+  background: var(--colour-fill-neutral-medium);
+  color: var(--colour-text-white);
 
   /* override Icon element colour  */
   svg {
-    color: var(--text-white);
+    color: var(--colour-text-white);
   }
 `
 
@@ -37,15 +37,15 @@ export const ElAvatar = styled.span`
   ${baseMediumSizeStyle}
 
   &[data-shape='square'] {
-    border-radius: var(--corner-lg);
+    border-radius: var(--border-radius-l);
   }
 
   &[data-colour='purple'] {
-    background: var(--fill-action-lightest);
-    color: var(--text-action);
+    background: var(--colour-fill-action-lightest);
+    color: var(--colour-text-action);
     /* override Icon element colour  */
     svg {
-      color: var(--text-action);
+      color: var(--colour-text-action);
     }
   }
 
