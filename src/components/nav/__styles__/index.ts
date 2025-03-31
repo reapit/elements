@@ -323,11 +323,6 @@ export const ElNavResponsiveAppSwitcherWrap = styled.div`
   font-size: var(--font-size-smallest);
   cursor: pointer;
 
-  svg {
-    height: 2rem;
-    width: 2rem;
-  }
-
   ${ElNavMenu} {
     left: 0;
     top: 46px;
