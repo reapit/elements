@@ -59,8 +59,8 @@ export const ElSplitButton = styled.div`
         padding: var(--spacing-none);
 
         svg {
-          width: var(--icon-size-s); // Need to update with latest token variable
-          height: var(--icon-size-s); // Need to update with latest token variable
+          width: var(--icon_size-s);
+          height: var(--icon_size-s);
         }
       }
     }
@@ -102,8 +102,8 @@ export const ElSplitButton = styled.div`
       height: var(--size-10);
 
       .el-button-spinner {
-        height: var(--icon-size-m); // Need to update with latest token variable
-        width: var(--icon-size-m); // Need to update with latest token variable
+        height: var(--icon_size-m);
+        width: var(--icon_size-m);
       }
     }
 
@@ -112,13 +112,13 @@ export const ElSplitButton = styled.div`
       height: var(--size-10);
 
       .el-button-spinner {
-        height: var(--icon-size-m); // Need to update with latest token variable
-        width: var(--icon-size-m); // Need to update with latest token variable
+        height: var(--icon_size-m);
+        width: var(--icon_size-m);
       }
 
       ${ElIcon} svg {
-        width: var(--icon-size-m); // Need to update with latest token variable
-        height: var(--icon-size-m); // Need to update with latest token variable
+        width: var(--icon_size-m);
+        height: var(--icon_size-m);
       }
     }
   }
