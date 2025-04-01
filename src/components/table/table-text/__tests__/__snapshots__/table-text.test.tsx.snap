@@ -5,15 +5,11 @@ exports[`TableText > should match snapshot 1`] = `
   <div
     class="mocked-styled-2 el-table-text"
   >
-    <div
-      class="mocked-styled-3 el-table-text-container"
+    <span
+      class="mocked-styled-1 el-table-text-content"
     >
-      <span
-        class="mocked-styled-1 el-table-text-content"
-      >
-        Value
-      </span>
-    </div>
+      Value
+    </span>
   </div>
 </DocumentFragment>
 `;
@@ -24,15 +20,11 @@ exports[`TableText > should match snapshot with extra small size and text 1`] = 
     class="mocked-styled-2 el-table-text"
     data-size="extra-small"
   >
-    <div
-      class="mocked-styled-3 el-table-text-container"
+    <span
+      class="mocked-styled-1 el-table-text-content"
     >
-      <span
-        class="mocked-styled-1 el-table-text-content"
-      >
-        Value
-      </span>
-    </div>
+      Value
+    </span>
   </div>
 </DocumentFragment>
 `;
@@ -46,7 +38,7 @@ exports[`TableText > should match snapshot with icon only 1`] = `
       class="mocked-styled-0 el-table-text-icon"
     >
       <span
-        class="mocked-styled-4 el-icon"
+        class="mocked-styled-3 el-icon"
         style="font-size: 1rem;"
       >
         <svg
@@ -79,7 +71,7 @@ exports[`TableText > should match snapshot with icons and label 1`] = `
       class="mocked-styled-0 el-table-text-icon"
     >
       <span
-        class="mocked-styled-4 el-icon"
+        class="mocked-styled-3 el-icon"
         style="font-size: 1rem;"
       >
         <svg
@@ -99,20 +91,16 @@ exports[`TableText > should match snapshot with icons and label 1`] = `
         </svg>
       </span>
     </span>
-    <div
-      class="mocked-styled-3 el-table-text-container"
+    <span
+      class="mocked-styled-1 el-table-text-content"
     >
-      <span
-        class="mocked-styled-1 el-table-text-content"
-      >
-        Value
-      </span>
-    </div>
+      Value
+    </span>
     <span
       class="mocked-styled-0 el-table-text-icon"
     >
       <span
-        class="mocked-styled-4 el-icon"
+        class="mocked-styled-3 el-icon"
         style="font-size: 1rem;"
       >
         <svg
@@ -142,15 +130,11 @@ exports[`TableText > should match snapshot with success variant and text 1`] = `
     class="mocked-styled-2 el-table-text"
     data-variant="success"
   >
-    <div
-      class="mocked-styled-3 el-table-text-container"
+    <span
+      class="mocked-styled-1 el-table-text-content"
     >
-      <span
-        class="mocked-styled-1 el-table-text-content"
-      >
-        Value
-      </span>
-    </div>
+      Value
+    </span>
   </div>
 </DocumentFragment>
 `;

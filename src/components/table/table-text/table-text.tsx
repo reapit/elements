@@ -1,5 +1,5 @@
 import React, { ReactNode, HTMLAttributes } from 'react'
-import { ElTableText, ElTableTextIcon, ElTableTextContainer, ElTableTextContent } from './styles'
+import { ElTableText, ElTableTextIcon, ElTableTextContent } from './styles'
 
 type TableTextVariant =
   | 'primary'
@@ -25,11 +25,7 @@ export const TableText: React.FC<TableTextProps> = ({ children, variant, size, i
   return (
     <ElTableText data-variant={variant} data-size={size} {...rest}>
       {iconLeft && <ElTableTextIcon>{iconLeft}</ElTableTextIcon>}
-      {children && (
-        <ElTableTextContainer>
-          <ElTableTextContent>{children}</ElTableTextContent>
-        </ElTableTextContainer>
-      )}
+      {children && <ElTableTextContent>{children}</ElTableTextContent>}
       {iconRight && <ElTableTextIcon>{iconRight}</ElTableTextIcon>}
     </ElTableText>
   )

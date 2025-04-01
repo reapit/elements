@@ -8,6 +8,9 @@ export const ElTableTextIcon = styled.span`
 `
 
 export const ElTableTextContent = styled.span`
+  display: flex;
+  align-items: center;
+  gap: 10px;
   color: var(--colour-text-primary);
   font-family: var(--font-sm-regular-family);
   font-style: normal;
@@ -155,10 +158,4 @@ export const ElTableText = styled.div`
       color: var(--icon-action);
     }
   }
-`
-
-export const ElTableTextContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 10px;
 `
