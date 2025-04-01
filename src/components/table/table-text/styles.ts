@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 
-export const ElTabelTextIcon = styled.span`
+export const ElTableTextIcon = styled.span`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,7 +21,7 @@ export const ElTableText = styled.div`
   align-items: center;
   gap: var(--spacing-2);
 
-  ${ElTabelTextIcon} {
+  ${ElTableTextIcon} {
     color: var(--colour-icon-primary);
     .icon {
       width: var(--icon_size-s);
@@ -41,15 +41,19 @@ export const ElTableText = styled.div`
   &[data-variant='primary'] {
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
+      line-height: var(--font-sm-medium-line_height);
+      letter-spacing: var(--font-sm-medium-letter_spacing);
     }
   }
 
   &[data-variant='secondary'] {
-    ${ElTabelTextIcon} {
+    ${ElTableTextIcon} {
       color: var(--icon-secondary);
     }
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
+      line-height: var(--font-sm-medium-line_height);
+      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-secondary);
     }
   }
@@ -57,9 +61,11 @@ export const ElTableText = styled.div`
   &[data-variant='info'] {
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
+      line-height: var(--font-sm-medium-line_height);
+      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-info);
     }
-    ${ElTabelTextIcon} {
+    ${ElTableTextIcon} {
       color: var(--icon-info);
     }
   }
@@ -67,9 +73,11 @@ export const ElTableText = styled.div`
   &[data-variant='success'] {
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
+      line-height: var(--font-sm-medium-line_height);
+      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-success);
     }
-    ${ElTabelTextIcon} {
+    ${ElTableTextIcon} {
       color: var(--icon-success);
     }
   }
@@ -77,9 +85,11 @@ export const ElTableText = styled.div`
   &[data-variant='pending'] {
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
+      line-height: var(--font-sm-medium-line_height);
+      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-pending);
     }
-    ${ElTabelTextIcon} {
+    ${ElTableTextIcon} {
       color: var(--icon-pending);
     }
   }
@@ -87,9 +97,11 @@ export const ElTableText = styled.div`
   &[data-variant='warning'] {
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
+      line-height: var(--font-sm-medium-line_height);
+      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-warning);
     }
-    ${ElTabelTextIcon} {
+    ${ElTableTextIcon} {
       color: var(--icon-warning);
     }
   }
@@ -97,9 +109,11 @@ export const ElTableText = styled.div`
   &[data-variant='error'] {
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
+      line-height: var(--font-sm-medium-line_height);
+      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-error);
     }
-    ${ElTabelTextIcon} {
+    ${ElTableTextIcon} {
       color: var(--icon-error);
     }
   }
@@ -107,9 +121,11 @@ export const ElTableText = styled.div`
   &[data-variant='accent_1'] {
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
+      line-height: var(--font-sm-medium-line_height);
+      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-accent_1);
     }
-    ${ElTabelTextIcon} {
+    ${ElTableTextIcon} {
       color: var(--icon-accent_1);
     }
   }
@@ -117,9 +133,11 @@ export const ElTableText = styled.div`
   &[data-variant='accent_2'] {
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
+      line-height: var(--font-sm-medium-line_height);
+      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-accent_2);
     }
-    ${ElTabelTextIcon} {
+    ${ElTableTextIcon} {
       color: var(--icon-accent_2);
     }
   }
@@ -127,9 +145,11 @@ export const ElTableText = styled.div`
   &[data-variant='action'] {
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
+      line-height: var(--font-sm-medium-line_height);
+      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-action);
     }
-    ${ElTabelTextIcon} {
+    ${ElTableTextIcon} {
       color: var(--icon-action);
     }
   }
