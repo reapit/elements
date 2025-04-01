@@ -2,7 +2,7 @@ import { Chip } from './chip'
 import { Tooltip } from '../tooltip'
 import { useTooltip } from '../tooltip/use-tooltip'
 
-import type { Decorator, Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/Chip',
@@ -70,21 +70,13 @@ export const Disabled: Story = {
   },
 }
 
-const useNarrowParentDecorator: Decorator = (Story) => {
-  return (
-    <div style={{ width: '300px' }}>
-      <Story />
-    </div>
-  )
-}
-
 /** By default, long labels will wrap if there is not enough space is available. */
 export const Wrapping: Story = {
   args: {
     ...FilterChip.args,
     children: "This very long label will wrap because it's parent is not wide enough",
+    maxWidth: '--size-80',
   },
-  decorators: [useNarrowParentDecorator],
 }
 
 /**
@@ -95,7 +87,7 @@ export const Truncation: Story = {
   args: {
     ...FilterChip.args,
     children: 'Truncation can be applied when necessary',
+    maxWidth: '--size-80',
     willTruncateLabel: true,
   },
-  decorators: [useNarrowParentDecorator],
 }

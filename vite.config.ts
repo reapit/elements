@@ -3,6 +3,7 @@ import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
+import dts from 'vite-plugin-dts'
 import wyw from '@wyw-in-js/vite'
 import packageManifest from './package.json'
 
@@ -60,6 +61,7 @@ export default defineConfig({
         presets: ['@babel/preset-typescript', '@babel/preset-react'],
       },
     }),
+    dts(),
   ],
   test: {
     coverage: {

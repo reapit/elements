@@ -1685,30 +1685,6 @@
         },
         "icon": {
           "default": {
-            "accent_2": {
-              "$type": "color",
-              "$value": "{plum-500}"
-            },
-            "accent_1": {
-              "$type": "color",
-              "$value": "{teal-600}"
-            },
-            "inactive": {
-              "$type": "color",
-              "$value": "{neutral-500}"
-            },
-            "danger": {
-              "$type": "color",
-              "$value": "{red-500}"
-            },
-            "warning": {
-              "$type": "color",
-              "$value": "{orange-500}"
-            },
-            "pending": {
-              "$type": "color",
-              "$value": "{yellow-600}"
-            },
             "neutral": {
               "$type": "color",
               "$value": "{blue-500}"
@@ -1716,26 +1692,38 @@
             "success": {
               "$type": "color",
               "$value": "{green-600}"
-            }
-          },
-          "reversed": {
-            "accent_2": {
-              "$type": "color",
-              "$value": "{white-900}"
             },
-            "accent_1": {
+            "pending": {
               "$type": "color",
-              "$value": "{white-900}"
+              "$value": "{yellow-600}"
             },
-            "inactive": {
+            "warning": {
               "$type": "color",
-              "$value": "{white-900}"
+              "$value": "{orange-500}"
             },
             "danger": {
               "$type": "color",
+              "$value": "{red-500}"
+            },
+            "inactive": {
+              "$type": "color",
+              "$value": "{neutral-500}"
+            },
+            "accent_1": {
+              "$type": "color",
+              "$value": "{teal-600}"
+            },
+            "accent_2": {
+              "$type": "color",
+              "$value": "{plum-500}"
+            }
+          },
+          "reversed": {
+            "neutral": {
+              "$type": "color",
               "$value": "{white-900}"
             },
-            "warning": {
+            "success": {
               "$type": "color",
               "$value": "{white-900}"
             },
@@ -1743,11 +1731,23 @@
               "$type": "color",
               "$value": "{white-900}"
             },
-            "neutral": {
+            "warning": {
               "$type": "color",
               "$value": "{white-900}"
             },
-            "success": {
+            "danger": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "inactive": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "accent_1": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "accent_2": {
               "$type": "color",
               "$value": "{white-900}"
             }
@@ -2285,6 +2285,10 @@
           "hover": {
             "$type": "color",
             "$value": "{neutral-100}"
+          },
+          "highlighted": {
+            "$type": "color",
+            "$value": "{neutral-050}"
           },
           "disabled": {
             "$type": "color",
