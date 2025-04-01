@@ -1,7 +1,6 @@
 import { render } from '@testing-library/react'
 import { CheckboxGroup } from '..'
 import { Checkbox } from '#src/components/checkbox/checkbox'
-import { Icon } from '#src/components/icon'
 
 describe('CheckboxGroup', () => {
   test('should match snapshot', () => {
