@@ -75,39 +75,7 @@ export const BasicUsage: Story = {
 export const TableTextSize: Story = {
   args: {
     ...BasicUsage.args,
-  },
-  // Adding decorator into the story to display multiple stories.
-  decorators: [
-    (Story: any) => (
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
-  render: (props: any) => (
-    <>
-      <TableText {...props}>{props.children}</TableText>
-      <TableText {...props} size={props.size ? props.size : 'extra-small'}>
-        {props.children}
-      </TableText>
-    </>
-  ),
-  // Adding the parameters to display only one varient code in the source
-  parameters: {
-    docs: {
-      source: {
-        code: `
-  <TableText size='extra-small'>
-  Value
-</TableText>
-          `,
-      },
-    },
+    size: 'extra-small',
   },
 }
 

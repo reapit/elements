@@ -36,6 +36,7 @@ export const ElTableText = styled.div`
       font-size: var(--font-xs-regular-size);
       line-height: var(--font-xs-regular-line_height);
       letter-spacing: var(--font-xs-regular-letter_spacing);
+      color: var(--colour-text-secondary);
     }
   }
 

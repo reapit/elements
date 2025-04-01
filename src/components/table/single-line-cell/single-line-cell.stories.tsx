@@ -28,8 +28,9 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * The table text component is designed to be used with in the table component.
- * It can have different color varients and can be of only two sizes 'small' or 'extra-small'
+ * The `SingleLineCell` component is designed to be used with in
+ * the `TableCell` or `TableHeaderCell` component.
+ * It can accept any components
  */
 export const BasicUsage: Story = {
   render: ({}) => (
