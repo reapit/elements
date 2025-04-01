@@ -84,81 +84,111 @@ export const BasicUsage: Story = {
         <TableBody>
           <TableRow>
             <TableCell>
-              <TableText>Alphanumeric</TableText>
+              <SingleLineCell>
+                <TableText>Alphanumeric</TableText>
+              </SingleLineCell>
             </TableCell>
             <TableCell>
-              <TableText>John Smith 356</TableText>
+              <SingleLineCell>
+                <TableText>John Smith 356</TableText>
+              </SingleLineCell>
             </TableCell>
             <TableCell>
-              <Skeleton />
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              <TableText>Address</TableText>
-            </TableCell>
-            <TableCell>
-              <TableText>10 Hay St, Melbourne 3100</TableText>
-            </TableCell>
-            <TableCell>
-              <Skeleton />
+              <SingleLineCell>
+                <Skeleton />
+              </SingleLineCell>
             </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>
-              <TableText>Badge</TableText>
+              <SingleLineCell>
+                <TableText>Address</TableText>
+              </SingleLineCell>
             </TableCell>
             <TableCell>
-              <Badge
-                iconLeft={<Icon icon="add" fontSize="1rem" />}
-                iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
-                variant="success"
-              >
-                Label
-              </Badge>
+              <SingleLineCell>
+                <TableText>10 Hay St, Melbourne 3100</TableText>
+              </SingleLineCell>
             </TableCell>
             <TableCell>
-              <Skeleton width="4rem" />
-            </TableCell>
-          </TableRow>
-          <TableRow>
-            <TableCell>
-              <TableText>Features</TableText>
-            </TableCell>
-            <TableCell>
-              <Features>
-                <FeaturesItem aria-label="Bedrooms" icon={<Icon icon="bed" />}>
-                  1
-                </FeaturesItem>
-                <FeaturesItem aria-label="Bathooms" icon={<Icon icon="bath" />}>
-                  2
-                </FeaturesItem>
-                <FeaturesItem aria-label="Cars" icon={<Icon icon="car" />}>
-                  5
-                </FeaturesItem>
-                <FeaturesItem aria-label="Areas" icon={<Icon icon="appLauncher" />}>
-                  850 sqm
-                </FeaturesItem>
-              </Features>
-            </TableCell>
-            <TableCell>
-              <Skeleton />
+              <SingleLineCell>
+                <Skeleton />
+              </SingleLineCell>
             </TableCell>
           </TableRow>
           <TableRow>
             <TableCell>
-              <TableText>Icon with Value</TableText>
+              <SingleLineCell>
+                <TableText>Badge</TableText>
+              </SingleLineCell>
             </TableCell>
             <TableCell>
-              <TableText
-                iconLeft={<Icon icon="star" fontSize="1rem" />}
-                iconRight={<Icon icon="star" fontSize="1rem" />}
-              >
-                Value
-              </TableText>
+              <SingleLineCell>
+                <Badge
+                  iconLeft={<Icon icon="add" fontSize="1rem" />}
+                  iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
+                  variant="success"
+                >
+                  Label
+                </Badge>
+              </SingleLineCell>
             </TableCell>
             <TableCell>
-              <Skeleton width="2rem" />
+              <SingleLineCell>
+                <Skeleton width="4rem" />
+              </SingleLineCell>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <SingleLineCell>
+                <TableText>Features</TableText>
+              </SingleLineCell>
+            </TableCell>
+            <TableCell>
+              <SingleLineCell>
+                <Features>
+                  <FeaturesItem aria-label="Bedrooms" icon={<Icon icon="bed" />}>
+                    1
+                  </FeaturesItem>
+                  <FeaturesItem aria-label="Bathooms" icon={<Icon icon="bath" />}>
+                    2
+                  </FeaturesItem>
+                  <FeaturesItem aria-label="Cars" icon={<Icon icon="car" />}>
+                    5
+                  </FeaturesItem>
+                  <FeaturesItem aria-label="Areas" icon={<Icon icon="appLauncher" />}>
+                    850 sqm
+                  </FeaturesItem>
+                </Features>
+              </SingleLineCell>
+            </TableCell>
+            <TableCell>
+              <SingleLineCell>
+                <Skeleton />
+              </SingleLineCell>
+            </TableCell>
+          </TableRow>
+          <TableRow>
+            <TableCell>
+              <SingleLineCell>
+                <TableText>Icon with Value</TableText>
+              </SingleLineCell>
+            </TableCell>
+            <TableCell>
+              <SingleLineCell>
+                <TableText
+                  iconLeft={<Icon icon="star" fontSize="1rem" />}
+                  iconRight={<Icon icon="star" fontSize="1rem" />}
+                >
+                  Value
+                </TableText>
+              </SingleLineCell>
+            </TableCell>
+            <TableCell>
+              <SingleLineCell>
+                <Skeleton width="2rem" />
+              </SingleLineCell>
             </TableCell>
           </TableRow>
         </TableBody>
