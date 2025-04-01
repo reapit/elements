@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react'
+import { ElIcon } from '../../icon'
 
 export const ElTableTextIcon = styled.span`
   display: flex;
@@ -23,7 +24,7 @@ export const ElTableText = styled.div`
 
   ${ElTableTextIcon} {
     color: var(--colour-icon-primary);
-    .icon {
+    ${ElIcon} {
       width: var(--icon_size-s);
       height: var(--icon_size-s);
       color: inherit;
