@@ -33,15 +33,11 @@ exports[`DoubleLineCell > should match snapshot with first and second line 1`] =
         <div
           class="mocked-styled-9 el-table-text"
         >
-          <div
-            class="mocked-styled-10 el-table-text-container"
+          <span
+            class="mocked-styled-8 el-table-text-content"
           >
-            <span
-              class="mocked-styled-8 el-table-text-content"
-            >
-              Alphanumeric value
-            </span>
-          </div>
+            Alphanumeric value
+          </span>
         </div>
       </div>
       <div
@@ -51,15 +47,11 @@ exports[`DoubleLineCell > should match snapshot with first and second line 1`] =
           class="mocked-styled-9 el-table-text"
           data-size="extra-small"
         >
-          <div
-            class="mocked-styled-10 el-table-text-container"
+          <span
+            class="mocked-styled-8 el-table-text-content"
           >
-            <span
-              class="mocked-styled-8 el-table-text-content"
-            >
-              Value 23 Jan 2025 4:30 pm Value
-            </span>
-          </div>
+            Value 23 Jan 2025 4:30 pm Value
+          </span>
         </div>
       </div>
     </div>
@@ -79,7 +71,7 @@ exports[`DoubleLineCell > should match snapshot with first and second line with 
         class="mocked-styled-5 el-first-line"
       >
         <span
-          class="mocked-styled-11 el-icon"
+          class="mocked-styled-10 el-icon"
           style="font-size: 1rem;"
         >
           <svg
@@ -101,18 +93,14 @@ exports[`DoubleLineCell > should match snapshot with first and second line with 
         <div
           class="mocked-styled-9 el-table-text"
         >
-          <div
-            class="mocked-styled-10 el-table-text-container"
+          <span
+            class="mocked-styled-8 el-table-text-content"
           >
-            <span
-              class="mocked-styled-8 el-table-text-content"
-            >
-              Alphanumeric value
-            </span>
-          </div>
+            Alphanumeric value
+          </span>
         </div>
         <span
-          class="mocked-styled-11 el-icon"
+          class="mocked-styled-10 el-icon"
           style="font-size: 1rem;"
         >
           <svg
@@ -139,15 +127,11 @@ exports[`DoubleLineCell > should match snapshot with first and second line with 
           class="mocked-styled-9 el-table-text"
           data-size="extra-small"
         >
-          <div
-            class="mocked-styled-10 el-table-text-container"
+          <span
+            class="mocked-styled-8 el-table-text-content"
           >
-            <span
-              class="mocked-styled-8 el-table-text-content"
-            >
-              Value 23 Jan 2025 4:30 pm Value
-            </span>
-          </div>
+            Value 23 Jan 2025 4:30 pm Value
+          </span>
         </div>
       </div>
     </div>
@@ -167,7 +151,7 @@ exports[`DoubleLineCell > should match snapshot with first and second line with 
         class="mocked-styled-3 el-media-item-content"
       >
         <span
-          class="mocked-styled-12 el-avatar"
+          class="mocked-styled-11 el-avatar"
           data-colour="default"
           data-shape="circle"
           data-size="medium"
@@ -185,15 +169,11 @@ exports[`DoubleLineCell > should match snapshot with first and second line with 
           <div
             class="mocked-styled-9 el-table-text"
           >
-            <div
-              class="mocked-styled-10 el-table-text-container"
+            <span
+              class="mocked-styled-8 el-table-text-content"
             >
-              <span
-                class="mocked-styled-8 el-table-text-content"
-              >
-                John Smith
-              </span>
-            </div>
+              John Smith
+            </span>
           </div>
         </div>
         <div
@@ -203,15 +183,11 @@ exports[`DoubleLineCell > should match snapshot with first and second line with 
             class="mocked-styled-9 el-table-text"
             data-size="extra-small"
           >
-            <div
-              class="mocked-styled-10 el-table-text-container"
+            <span
+              class="mocked-styled-8 el-table-text-content"
             >
-              <span
-                class="mocked-styled-8 el-table-text-content"
-              >
-                Plumber
-              </span>
-            </div>
+              Plumber
+            </span>
           </div>
         </div>
       </div>
