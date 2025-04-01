@@ -63,7 +63,7 @@ type Story = StoryObj<typeof meta>
  * The table text component is designed to be used with in the table component.
  * It can have different color varients and can be of only two sizes 'small' or 'extra-small'
  */
-export const DefaultTableText: Story = {
+export const BasicUsage: Story = {
   args: {
     children: 'Value',
   },
@@ -74,7 +74,7 @@ export const DefaultTableText: Story = {
  */
 export const TableTextSize: Story = {
   args: {
-    ...DefaultTableText.args,
+    ...BasicUsage.args,
   },
   // Adding decorator into the story to display multiple stories.
   decorators: [
@@ -117,7 +117,7 @@ export const TableTextSize: Story = {
  */
 export const TableTextVarients: Story = {
   args: {
-    ...DefaultTableText.args,
+    ...BasicUsage.args,
   },
   // Adding decorator into the story to display multiple stories.
   decorators: [
@@ -183,7 +183,7 @@ export const TableTextVarients: Story = {
  */
 export const TableTextWithIcon: Story = {
   args: {
-    ...DefaultTableText.args,
+    ...BasicUsage.args,
     iconLeft: 'star',
     iconRight: 'star',
   },
