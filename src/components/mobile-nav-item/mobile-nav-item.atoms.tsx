@@ -1,9 +1,10 @@
-import type { FC, MouseEventHandler, ReactNode } from 'react'
+import { useCallback, type FC, type MouseEventHandler, type ReactNode } from 'react'
 
 import { useId } from '../../storybook/random-id'
 
 import { Icon } from '../icon'
 
+import { useIsMobileNavItemExpanded } from './use-is-mobile-nav-item-expanded'
 import {
   ElMobileNavItemAnchor,
   ElMobileNavItemBadge,
@@ -72,34 +73,38 @@ export const MobileNavItemSimple: FC<MobileNavItemSimpleProps> = (props) => {
 
 export interface MobileNavItemExpandableProps extends CommonMobileNavItemProps {
   children: ReactNode
+  isActive?: boolean
   href?: never
-  onClick?: MouseEventHandler<HTMLButtonElement>
-  isActive: boolean
+  onClick?: never
 }
 
 export const MobileNavItemExpandable: FC<MobileNavItemExpandableProps> = (props) => {
+  const { isActive, label, hasBadge, children, ...rest } = props ?? {}
+
+  const [isExpanded, setIsExpanded] = useIsMobileNavItemExpanded(Boolean(isActive))
   const panelId = useId()
 
-  const { isActive, label, hasBadge, children, onClick, ...rest } = props ?? {}
+  const handleOnExpandButtonClick = useCallback(() => {
+    setIsExpanded((prev) => !prev)
+  }, [])
 
   return (
-    <ElMobileNavItemListItem {...rest} data-is-expanded={isActive} aria-label={label}>
+    <ElMobileNavItemListItem {...rest} data-is-expanded={isExpanded} aria-label={label}>
       <ElMobileNavItemExpanderButton
         type="button"
-        aria-expanded={isActive}
-        aria-current={isActive ? 'true' : undefined}
+        aria-expanded={isExpanded}
         aria-controls={panelId}
-        onClick={onClick}
+        onClick={handleOnExpandButtonClick}
       >
         <ElMobileNavItemContent>
           {label}
           {hasBadge && <ElMobileNavItemBadge />}
         </ElMobileNavItemContent>
 
-        <Icon icon={isActive ? 'chevronUp' : 'chevronDown'} fontSize="16px" />
+        <Icon icon={isExpanded ? 'chevronUp' : 'chevronDown'} fontSize="16px" />
       </ElMobileNavItemExpanderButton>
 
-      <ElMobileNavSubItemUnorderedList id={panelId} aria-hidden={!isActive}>
+      <ElMobileNavSubItemUnorderedList id={panelId} aria-hidden={!isExpanded}>
         {children}
       </ElMobileNavSubItemUnorderedList>
     </ElMobileNavItemListItem>
