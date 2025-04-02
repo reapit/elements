@@ -13,7 +13,6 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
     <svg
       aria-hidden="true"
       class="mocked-styled-2 el-checkbox-svg-icon"
-      role="checkbox"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -60,7 +59,6 @@ exports[`CheckboxGroup > should match snapshot with Checkbox with Label 1`] = `
     <svg
       aria-hidden="true"
       class="mocked-styled-2 el-checkbox-svg-icon"
-      role="checkbox"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -109,7 +107,6 @@ exports[`CheckboxGroup > should match snapshot with Checkbox with Label and Supp
     <svg
       aria-hidden="true"
       class="mocked-styled-2 el-checkbox-svg-icon"
-      role="checkbox"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -161,7 +158,6 @@ exports[`CheckboxGroup > should match snapshot with disabled Checkbox 1`] = `
     <svg
       aria-hidden="true"
       class="mocked-styled-2 el-checkbox-svg-icon"
-      role="checkbox"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -212,7 +208,6 @@ exports[`CheckboxGroup > should match snapshot with indeterminate Checkbox 1`] =
     <svg
       aria-hidden="true"
       class="mocked-styled-2 el-checkbox-svg-icon"
-      role="checkbox"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -278,7 +273,6 @@ exports[`CheckboxGroup > should match snapshot with required Checkbox 1`] = `
     <svg
       aria-hidden="true"
       class="mocked-styled-2 el-checkbox-svg-icon"
-      role="checkbox"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
