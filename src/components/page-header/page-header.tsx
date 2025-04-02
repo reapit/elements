@@ -13,7 +13,7 @@ import { FlexContainer } from '../layout'
 import { DeprecatedAvatar, DeprecatedAvatarProps } from '../deprecated-avatar'
 import { DeprecatedTag, DeprecatedTagGroup, DeprecatedTagProps } from '../deprecated-tag'
 import { Button, DeprecatedButtonGroup, ButtonProps } from '../button'
-import { BreadCrumb, BreadCrumbProps } from '../breadcrumb'
+import { DeprecatedBreadCrumb, DeprecatedBreadCrumbProps } from '../deprecated-breadcrumb'
 import { elMb3, elMb6, elMr3 } from '../../styles/spacing'
 import { Tabs, TabsProps } from '../tabs'
 
@@ -22,7 +22,7 @@ export interface PageHeaderProps extends HTMLAttributes<HTMLDivElement> {
   pageTitle: TypographyProps
   pageSubtitle?: TypographyProps
   pageInfo?: TypographyProps[]
-  breadcrumb?: BreadCrumbProps
+  breadcrumb?: DeprecatedBreadCrumbProps
   tags?: DeprecatedTagProps[]
   buttons?: ButtonProps[]
   tabs?: TabsProps
@@ -68,7 +68,7 @@ export const PageHeader: FC<PageHeaderProps> = ({
   return (
     <PageHeaderWrap {...rest}>
       <PageHeaderWrapInner className={cx(hasMaxWidth && elPageHeaderMaxWidth)}>
-        {breadcrumb && <BreadCrumb className={elMb6} {...breadcrumb} />}
+        {breadcrumb && <DeprecatedBreadCrumb className={elMb6} {...breadcrumb} />}
         <PageHeaderContainer>
           <PageHeaderContainer>
             {avatar && <DeprecatedAvatar {...avatar} />}

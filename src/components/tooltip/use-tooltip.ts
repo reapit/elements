@@ -1,12 +1,46 @@
-import { HTMLAttributes, useEffect, useState } from 'react'
+import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useId } from '#src/storybook/random-id'
 
-export const useTooltip = () => {
-  const tooltipId = `tooltip-id-${useId()}`
+type UseTooltipOptions = {
+  truncationTargetId?: string
+}
+
+export const useTooltip = ({ truncationTargetId }: UseTooltipOptions = {}) => {
+  const tooltipId = useRef(`tooltip-id-${useId()}`).current
   const [isVisible, setIsVisible] = useState(false)
 
-  const show = () => setIsVisible(true)
+  const show = () => {
+    if (shouldShowTooltip()) {
+      setIsVisible(true)
+    }
+  }
   const hide = () => setIsVisible(false)
+
+  /**
+   * Determines whether the Tooltip should be displayed.
+   *
+   * This function checks if a truncation target ID is provided and whether the
+   * target element exists in the DOM. If no valid target is found, the Tooltip
+   * is displayed by default. If the target element exists, it evaluates whether
+   * its content is truncated by comparing `scrollWidth` and `clientWidth`.
+   *
+   * @returns {boolean} True if the Tooltip should be displayed, otherwise false.
+   */
+  const shouldShowTooltip = () => {
+    // If no truncation ID is provided, assume a truncation check is not required.
+    // In this case, return `true` to ensure the Tooltip is displayed.
+    if (!truncationTargetId) return true
+
+    const target = document.getElementById(truncationTargetId)
+    // Fallback mechanism: If the target element is not found in the DOM, return `true` to ensure
+    // the Tooltip is displayed by default.
+    if (!target) return true
+
+    // Determine if the target content is truncated by checking whether the element's scrollWidth
+    // exceeds its clientWidth. If scrollWidth is larger, the content overflows and requires scrolling.
+    // This check is useful for conditionally displaying a Tooltip when text truncation occurs.
+    return target.scrollWidth > target.clientWidth // Check if text is truncated
+  }
 
   const positionTooltip = () => {
     // To do (In Future): Tooltip/Trigger selector to use useRef once project upgraded to React 19
@@ -97,10 +131,7 @@ export const useTooltip = () => {
       positionTooltip()
       window.addEventListener('resize', positionTooltip)
     }
-
-    return () => {
-      window.removeEventListener('resize', positionTooltip)
-    }
+    return () => window.removeEventListener('resize', positionTooltip)
   }, [isVisible])
 
   const getTriggerProps = (props?: HTMLAttributes<HTMLElement>) => ({
@@ -130,6 +161,7 @@ export const useTooltip = () => {
     id: tooltipId,
     role: 'tooltip',
     'aria-hidden': !isVisible,
+    'data-is-visible': isVisible,
     isVisible,
   })
 

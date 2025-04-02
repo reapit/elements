@@ -6,10 +6,10 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
     class="mocked-styled-1 el-accordion-container"
   >
     <a
-      aria-controls="test-static-id-0"
+      aria-controls=":r0:-0"
       aria-label="Accordion item, hit return to expand content"
       class="mocked-styled-2 el-accordion-item"
-      id="test-static-id-0"
+      id=":r1:-0"
       role="button"
       tabindex="0"
     >
@@ -113,18 +113,18 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
     </a>
     <div
       aria-expanded="false"
-      aria-labelledby="test-static-id-0"
+      aria-labelledby=":r1:-0"
       class="mocked-styled-6 el-accordion-content"
-      id="test-static-id-0"
+      id=":r0:-0"
       role="region"
     >
       Accordion Content 1
     </div>
     <a
-      aria-controls="test-static-id-1"
+      aria-controls=":r0:-1"
       aria-label="Accordion item, hit return to expand content"
       class="mocked-styled-2 el-accordion-item"
-      id="test-static-id-1"
+      id=":r1:-1"
       role="button"
       tabindex="0"
     >
@@ -228,9 +228,9 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
     </a>
     <div
       aria-expanded="false"
-      aria-labelledby="test-static-id-1"
+      aria-labelledby=":r1:-1"
       class="mocked-styled-6 el-accordion-content"
-      id="test-static-id-1"
+      id=":r0:-1"
       role="region"
     >
       Accordion Content 2
