@@ -1,30 +1,7 @@
-.el-checkbox-label {
-  display: grid;
-  gap: 2px 8px;
-  grid-template:
-    "input label" 24px
-    ". supplementary-info" auto / 24px auto;
-  align-items: center;
-}
+import { styled } from '@linaria/react'
+import { LabelText } from '../label-text'
 
-.el-checkbox-input {
-  appearance: none;
-  box-sizing: border-box;
-  grid-area: input;
-  width: 100%;
-  padding: 0;
-  outline: none;
-  border-radius: 2px;
-
-  &:focus-visible {
-    box-shadow: 0 0 0 1px var(--colour-border-white), 0 0 0 4px var(--colour-border-focus);
-    width: auto;
-    padding: 11px;
-    margin-left: 1px;
-  }
-}
-
-.el-checkbox-icon {
+export const ElCheckboxSvgIcon = styled.svg`
   display: none;
   grid-area: input;
   width: 100%;
@@ -37,13 +14,13 @@
   .el-checkbox-input:not(:checked, :indeterminate) ~ & {
     display: block;
   }
-  
+
   .el-checkbox-input:disabled ~ & {
     color: var(--comp-select-colour-icon-disabled-unchecked);
   }
-}
+`
 
-.el-checkbox-selected-icon {
+export const ElCheckboxSelectedSvgIcon = styled.svg`
   display: none;
   grid-area: input;
   width: 100%;
@@ -60,9 +37,9 @@
   .el-checkbox-input:disabled ~ & {
     color: var(--comp-select-colour-icon-disabled-checked);
   }
-}
+`
 
-.el-checkbox-indeterminate-icon {
+export const ElCheckboxIndeterminateSvgIcon = styled.svg`
   display: none;
   grid-area: input;
   width: 100%;
@@ -79,20 +56,48 @@
   .el-checkbox-input:disabled ~ & {
     color: var(--comp-select-colour-icon-disabled-checked);
   }
-}
+`
 
-.el-checkbox-label-text {
+export const ElCheckbox = styled.label`
+  display: grid;
+  gap: var(--spacing-half) var(--spacing-2);
+  grid-template:
+    'input label' var(--icon_size-l)
+    '. supplementary-info' auto / var(--icon_size-l) auto;
+  align-items: center;
+`
+
+export const ElCheckboxInput = styled.input`
+  appearance: none;
+  box-sizing: border-box;
+  grid-area: input;
+  width: 100%;
+  padding: var(--spacing-none);
+  outline: none;
+  border-radius: var(--border-radius-s);
+
+  &:focus-visible {
+    box-shadow:
+      0 0 0 var(--size-px) var(--colour-border-white),
+      0 0 0 var(--size-1) var(--colour-border-focus);
+    width: auto;
+    padding: calc(var(--spacing-3) - 1px);
+    margin-left: var(--size-px);
+  }
+`
+
+export const ElCheckboxLabelText = styled(LabelText)`
   grid-area: label;
 
-  .el-checkbox-input:disabled ~ & {
+  ${ElCheckboxInput}:disabled ~ & {
     color: var(--comp-select-colour-text-label-disabled);
   }
-}
+`
 
-.el-checkbox-supplementary-info {
+export const ElCheckboxSupplementaryInfo = styled(LabelText)`
   grid-area: supplementary-info;
 
-  .el-checkbox-input:disabled ~ & {
+  ${ElCheckboxInput}:disabled ~ & {
     color: var(--comp-select-colour-text-supp_info-disabled);
   }
-}
+`
