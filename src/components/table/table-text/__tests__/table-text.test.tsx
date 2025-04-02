@@ -1,4 +1,5 @@
-import { render } from '@testing-library/react'
+import { expect, test } from 'vitest'
+import { render, screen } from '@testing-library/react'
 import { TableText } from '..'
 import { Icon } from '#src/components/icon'
 
@@ -8,14 +9,16 @@ describe('TableText', () => {
     expect(asFragment()).toMatchSnapshot()
   })
 
-  test('should match snapshot with extra small size and text', () => {
-    const { asFragment } = render(<TableText size="extra-small">Value</TableText>)
-    expect(asFragment()).toMatchSnapshot()
+  test('extra-small TableText has `data-size="extra-small"` attribute on the container div', () => {
+    render(<TableText size="extra-small">Value</TableText>)
+    const containerDiv = screen.getByText('Value').parentElement
+    expect(containerDiv).toHaveAttribute('data-size', 'extra-small')
   })
 
-  test('should match snapshot with success variant and text', () => {
-    const { asFragment } = render(<TableText variant="success">Value</TableText>)
-    expect(asFragment()).toMatchSnapshot()
+  test('success TableText has `data-variant="success"` attribute on the container div', () => {
+    render(<TableText variant="success">Value</TableText>)
+    const containerDiv = screen.getByText('Value').parentElement
+    expect(containerDiv).toHaveAttribute('data-variant', 'success')
   })
 
   test('should match snapshot with icons and label', () => {
