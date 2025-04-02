@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react'
-import { Button } from '../button'
 
 export const ElPagination = styled.nav``
 
@@ -24,11 +23,4 @@ export const ElPaginationText = styled.span`
   font-weight: var(--font-base-regular-weight);
   line-height: var(--font-base-regular-line_height);
   letter-spacing: var(--font-base-regular-letter_spacing);
-`
-
-export const ElPaginationButton = styled(Button)`
-  border-radius: var(--comp-button-border-radius-default);
-  &[aria-disabled='true'] {
-    background: var(--comp-button-colour-fill-tertiary-disabled);
-  }
 `
