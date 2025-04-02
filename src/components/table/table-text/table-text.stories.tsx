@@ -70,7 +70,7 @@ export const BasicUsage: Story = {
 }
 
 /**
- * The table text component can be of only two sizes 'small' or 'extra-small'
+ * The table text component can be of only two sizes 'small' or 'extra-small'. Default varient will be 'secondary'
  */
 export const TableTextSize: Story = {
   args: {

@@ -1,2 +1,2 @@
-export * from './singe-line-cell'
+export * from './single-line-cell'
 export * from './styles'
