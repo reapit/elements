@@ -10,7 +10,6 @@ export const ElTableTextIcon = styled.span`
 export const ElTableTextContent = styled.span`
   display: flex;
   align-items: center;
-  gap: 10px;
   color: var(--colour-text-primary);
   font-family: var(--font-sm-regular-family);
   font-style: normal;
@@ -43,7 +42,16 @@ export const ElTableText = styled.div`
     }
   }
 
-  &[data-variant='primary'] {
+  &[data-variant='primary'],
+  &[data-variant='secondary'],
+  &[data-variant='info'],
+  &[data-variant='success'],
+  &[data-variant='pending'],
+  &[data-variant='warning'],
+  &[data-variant='error'],
+  &[data-variant='accent_1'],
+  &[data-variant='accent_2'],
+  &[data-variant='action'] {
     ${ElTableTextContent} {
       font-weight: var(--font-sm-medium-weight);
       line-height: var(--font-sm-medium-line_height);
@@ -56,18 +64,12 @@ export const ElTableText = styled.div`
       color: var(--icon-secondary);
     }
     ${ElTableTextContent} {
-      font-weight: var(--font-sm-medium-weight);
-      line-height: var(--font-sm-medium-line_height);
-      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-secondary);
     }
   }
 
   &[data-variant='info'] {
     ${ElTableTextContent} {
-      font-weight: var(--font-sm-medium-weight);
-      line-height: var(--font-sm-medium-line_height);
-      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-info);
     }
     ${ElTableTextIcon} {
@@ -77,9 +79,6 @@ export const ElTableText = styled.div`
 
   &[data-variant='success'] {
     ${ElTableTextContent} {
-      font-weight: var(--font-sm-medium-weight);
-      line-height: var(--font-sm-medium-line_height);
-      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-success);
     }
     ${ElTableTextIcon} {
@@ -89,9 +88,6 @@ export const ElTableText = styled.div`
 
   &[data-variant='pending'] {
     ${ElTableTextContent} {
-      font-weight: var(--font-sm-medium-weight);
-      line-height: var(--font-sm-medium-line_height);
-      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-pending);
     }
     ${ElTableTextIcon} {
@@ -101,9 +97,6 @@ export const ElTableText = styled.div`
 
   &[data-variant='warning'] {
     ${ElTableTextContent} {
-      font-weight: var(--font-sm-medium-weight);
-      line-height: var(--font-sm-medium-line_height);
-      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-warning);
     }
     ${ElTableTextIcon} {
@@ -113,9 +106,6 @@ export const ElTableText = styled.div`
 
   &[data-variant='error'] {
     ${ElTableTextContent} {
-      font-weight: var(--font-sm-medium-weight);
-      line-height: var(--font-sm-medium-line_height);
-      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-error);
     }
     ${ElTableTextIcon} {
@@ -125,9 +115,6 @@ export const ElTableText = styled.div`
 
   &[data-variant='accent_1'] {
     ${ElTableTextContent} {
-      font-weight: var(--font-sm-medium-weight);
-      line-height: var(--font-sm-medium-line_height);
-      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-accent_1);
     }
     ${ElTableTextIcon} {
@@ -137,9 +124,6 @@ export const ElTableText = styled.div`
 
   &[data-variant='accent_2'] {
     ${ElTableTextContent} {
-      font-weight: var(--font-sm-medium-weight);
-      line-height: var(--font-sm-medium-line_height);
-      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-accent_2);
     }
     ${ElTableTextIcon} {
@@ -149,9 +133,6 @@ export const ElTableText = styled.div`
 
   &[data-variant='action'] {
     ${ElTableTextContent} {
-      font-weight: var(--font-sm-medium-weight);
-      line-height: var(--font-sm-medium-line_height);
-      letter-spacing: var(--font-sm-medium-letter_spacing);
       color: var(--colour-text-action);
     }
     ${ElTableTextIcon} {
