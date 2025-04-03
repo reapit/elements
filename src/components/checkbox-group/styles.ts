@@ -17,7 +17,7 @@ export const ElCheckboxGroup = styled.fieldset`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  gap: 8px;
+  gap: var(--spacing-2);
   &[aria-orientation='horizontal'] {
     flex-wrap: wrap;
     flex-direction: row;
