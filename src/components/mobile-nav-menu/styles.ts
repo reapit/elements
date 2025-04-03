@@ -8,7 +8,7 @@ export const ElMobileNavMenuHeader = styled.div`
   align-items: center;
   align-self: stretch;
 
-  border-bottom: var(--border-width-default) solid var(--comp-navigation-colour-border-mobile_nav);
+  border-bottom: var(--border-width-default) solid var(--outline-default);
   background: var(--comp-navigation-colour-fill-top_bar);
 `
 
@@ -67,7 +67,7 @@ export const ElMobileNavMenu = styled.dialog`
   }
 
   ${ElMobileNavMenuItemGroup}:not(:first-child) {
-    border-top: var(--border-width-border-default) solid var(--outline-colour-outline-default);
+    border-top: var(--border-width-default) solid var(--outline-default);
   }
 
   @keyframes mobileNavMenuFadeIn {
