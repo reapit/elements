@@ -70,7 +70,7 @@ export const BasicUsage: Story = {
 }
 
 /**
- * The table text component can be of only two sizes 'small' or 'extra-small'. Default varient will be 'secondary'
+ * The table text component can be of only two sizes 'small' or 'extra-small'. Default variant will be 'secondary'
  */
 export const TableTextSize: Story = {
   args: {
@@ -80,7 +80,7 @@ export const TableTextSize: Story = {
 }
 
 /**
- * The table text component can have different color varients 'primary', 'secondary',
+ * The table text component can have different color variants 'primary', 'secondary',
  * 'info', 'success', 'pending', 'warning', 'error', 'accent_1', 'accent_2', 'action',
  */
 export const TableTextVarients: Story = {
