@@ -1,6 +1,5 @@
 import { fireEvent, render } from '@testing-library/react'
 import { MobileNavMenu } from '../mobile-nav-menu'
-import { Mobile } from '#src/components/top-bar/top-bar.stories'
 
 describe('MobileNavMenu', () => {
   it('should match a snapshot when isOpen state is true', () => {
