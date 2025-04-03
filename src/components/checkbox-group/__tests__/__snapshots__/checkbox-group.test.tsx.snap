@@ -18,17 +18,18 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
       </span>
     </legend>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option1"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -39,7 +40,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -49,30 +50,31 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 1
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
     </label>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option2"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -83,7 +85,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -93,30 +95,31 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 2
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
     </label>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option3"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -127,7 +130,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -137,14 +140,14 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 3
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
@@ -176,17 +179,18 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup Label UI is re
       </span>
     </legend>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option1"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -197,7 +201,7 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup Label UI is re
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -207,30 +211,31 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup Label UI is re
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 1
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
     </label>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option2"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -241,7 +246,7 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup Label UI is re
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -251,30 +256,31 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup Label UI is re
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 2
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
     </label>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option3"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -285,7 +291,7 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup Label UI is re
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -295,14 +301,14 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup Label UI is re
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 3
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
@@ -329,17 +335,18 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should not sho
       </span>
     </legend>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option1"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -350,7 +357,7 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should not sho
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -360,14 +367,14 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should not sho
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 1
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       >
@@ -375,17 +382,18 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should not sho
       </span>
     </label>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option2"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -396,7 +404,7 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should not sho
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -406,30 +414,31 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should not sho
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 2
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
     </label>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option3"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -440,7 +449,7 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should not sho
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -450,14 +459,14 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should not sho
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 3
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
@@ -484,17 +493,18 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should show su
       </span>
     </legend>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option1"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -505,7 +515,7 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should show su
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -515,14 +525,14 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should show su
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 1
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       >
@@ -530,17 +540,18 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should show su
       </span>
     </label>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option2"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -551,7 +562,7 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should show su
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -561,30 +572,31 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should show su
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 2
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
     </label>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option3"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -595,7 +607,7 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should show su
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -605,14 +617,14 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should show su
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 3
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
@@ -639,17 +651,18 @@ exports[`CheckboxGroup > should match snapshot with horizontal CheckboxGroup 1`]
       </span>
     </legend>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option1"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -660,7 +673,7 @@ exports[`CheckboxGroup > should match snapshot with horizontal CheckboxGroup 1`]
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -670,30 +683,31 @@ exports[`CheckboxGroup > should match snapshot with horizontal CheckboxGroup 1`]
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 1
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
     </label>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option2"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -704,7 +718,7 @@ exports[`CheckboxGroup > should match snapshot with horizontal CheckboxGroup 1`]
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -714,30 +728,31 @@ exports[`CheckboxGroup > should match snapshot with horizontal CheckboxGroup 1`]
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 2
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
     </label>
     <label
-      class="el-checkbox-label "
+      class="mocked-styled-7 el-checkbox"
     >
       <input
-        class="el-checkbox-input"
+        aria-hidden="true"
+        class="mocked-styled-8 el-checkbox-input"
         name="options"
         type="checkbox"
         value="option3"
       />
       <svg
         aria-hidden="true"
-        class="el-checkbox-icon"
+        class="mocked-styled-4 el-checkbox-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -748,7 +763,7 @@ exports[`CheckboxGroup > should match snapshot with horizontal CheckboxGroup 1`]
       </svg>
       <svg
         aria-hidden="true"
-        class="el-checkbox-selected-icon"
+        class="mocked-styled-5 el-checkbox-selected-svg-icon"
         viewBox="0 0 24 24"
         xmlns="http://www.w3.org/2000/svg"
       >
@@ -758,14 +773,14 @@ exports[`CheckboxGroup > should match snapshot with horizontal CheckboxGroup 1`]
         />
       </svg>
       <span
-        class="el-label-text el-checkbox-label-text el-label-text"
+        class="mocked-styled-9 el-checkbox-label-text el-label-text"
         data-size="medium"
         data-variant="strong"
       >
         Option 3
       </span>
       <span
-        class="el-label-text el-checkbox-supplementary-info el-label-text"
+        class="mocked-styled-10 el-checkbox-supplementary-info el-label-text"
         data-size="small"
         data-variant="soft"
       />
