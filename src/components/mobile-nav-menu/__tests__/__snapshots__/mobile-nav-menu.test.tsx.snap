@@ -1,0 +1,204 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`MobileNavMenu > should match a snapshot when isOpen state is true 1`] = `
+<DocumentFragment>
+  <dialog
+    class="mocked-styled-14 el-mobile-nav-menu"
+    open=""
+  >
+    <div
+      class="mocked-styled-11 el-mobile-nav-menu-header"
+    >
+      <button
+        aria-label="Close"
+        class="mocked-styled-9 el-button-nav-icon-item"
+      >
+        <span
+          class="mocked-styled-0 el-icon"
+          style="font-size: 24px;"
+        >
+          <svg
+            fill="none"
+            height="1em"
+            role="img"
+            style="font-size: 24px;"
+            title="Icon image with name close"
+            viewBox="0 0 24 24"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M12.3608 13.8296L18.0208 19.4896C18.2652 19.775 18.6489 19.8993 19.0142 19.8114C19.3795 19.7235 19.6647 19.4383 19.7526 19.073C19.8405 18.7077 19.7162 18.324 19.4308 18.0796L13.7708 12.4196L19.4308 6.75958C19.7162 6.51519 19.8405 6.13146 19.7526 5.76616C19.6647 5.40086 19.3795 5.11564 19.0142 5.02777C18.6489 4.93989 18.2652 5.0642 18.0208 5.34958L12.3608 11.0096L6.70079 5.34958C6.31076 4.96185 5.68083 4.96185 5.29079 5.34958C4.90307 5.73961 4.90307 6.36954 5.29079 6.75958L10.9508 12.4196L5.29079 18.0796C4.90307 18.4696 4.90307 19.0995 5.29079 19.4896C5.68083 19.8773 6.31076 19.8773 6.70079 19.4896L12.3608 13.8296Z"
+              fill="currentColor"
+            />
+          </svg>
+        </span>
+      </button>
+    </div>
+    <nav
+      class="mocked-styled-12 el-mobile-nav-menu-content"
+    >
+      <ul
+        class="mocked-styled-13 el-mobile-nav-menu-item-group"
+      >
+        <li
+          aria-label="Main Nav Item 1"
+          class="mocked-styled-7 el-mobile-nav-item-list-item"
+          data-is-expanded="false"
+        >
+          <button
+            aria-controls="test-static-id"
+            aria-expanded="false"
+            class="mocked-styled-3 el-mobile-nav-item-expander-button"
+            type="button"
+          >
+            <span
+              class="mocked-styled-4 el-mobile-nav-item-content"
+            >
+              Main Nav Item 1
+              <span
+                class="mocked-styled-5 el-mobile-nav-item-badge"
+              />
+            </span>
+            <span
+              class="mocked-styled-0 el-icon"
+              style="font-size: 16px;"
+            >
+              <svg
+                fill="none"
+                height="1em"
+                role="img"
+                style="font-size: 16px;"
+                title="Icon image with name chevronDown"
+                viewBox="0 0 24 24"
+                width="1em"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M12 16.5041C11.7343 16.5057 11.479 16.4013 11.2904 16.2141L4.29396 9.21411C4.04044 8.96046 3.94142 8.59074 4.03422 8.24424C4.12702 7.89773 4.39753 7.62708 4.74385 7.53424C5.09018 7.44139 5.45971 7.54046 5.71324 7.79411L12 14.0941L18.2868 7.79411C18.6787 7.40199 19.3141 7.40199 19.7061 7.79411C20.098 8.18624 20.098 8.82199 19.7061 9.21411L12.7096 16.2141C12.521 16.4013 12.2657 16.5057 12 16.5041Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+          </button>
+          <ul
+            aria-hidden="true"
+            class="mocked-styled-6 el-mobile-nav-sub-item-unordered-list"
+            id="test-static-id"
+          >
+            <li
+              aria-label="Label"
+              class="mocked-styled-7 el-mobile-nav-item-list-item"
+            >
+              <a
+                class="mocked-styled-1 el-mobile-nav-item-anchor"
+                href="#item-1.1"
+              >
+                <span
+                  class="mocked-styled-4 el-mobile-nav-item-content"
+                >
+                  Label
+                </span>
+              </a>
+            </li>
+            <li
+              aria-label="Label"
+              class="mocked-styled-7 el-mobile-nav-item-list-item"
+            >
+              <a
+                class="mocked-styled-1 el-mobile-nav-item-anchor"
+                href="#item-1.2"
+              >
+                <span
+                  class="mocked-styled-4 el-mobile-nav-item-content"
+                >
+                  Label
+                </span>
+              </a>
+            </li>
+            <li
+              aria-label="Label"
+              class="mocked-styled-7 el-mobile-nav-item-list-item"
+            >
+              <a
+                class="mocked-styled-1 el-mobile-nav-item-anchor"
+                href="#item-1.3"
+              >
+                <span
+                  class="mocked-styled-4 el-mobile-nav-item-content"
+                >
+                  Label
+                </span>
+              </a>
+            </li>
+            <li
+              aria-label="Label"
+              class="mocked-styled-7 el-mobile-nav-item-list-item"
+            >
+              <a
+                class="mocked-styled-1 el-mobile-nav-item-anchor"
+                href="#item-1.4"
+              >
+                <span
+                  class="mocked-styled-4 el-mobile-nav-item-content"
+                >
+                  Label
+                </span>
+              </a>
+            </li>
+            <li
+              aria-label="Label"
+              class="mocked-styled-7 el-mobile-nav-item-list-item"
+            >
+              <a
+                class="mocked-styled-1 el-mobile-nav-item-anchor"
+                href="#item-1.5"
+              >
+                <span
+                  class="mocked-styled-4 el-mobile-nav-item-content"
+                >
+                  Label
+                </span>
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <ul
+        class="mocked-styled-13 el-mobile-nav-menu-item-group"
+      >
+        <li
+          aria-label="User Item 1"
+          class="mocked-styled-7 el-mobile-nav-item-list-item"
+        >
+          <a
+            class="mocked-styled-1 el-mobile-nav-item-anchor"
+            href="#item-1.1"
+          >
+            <span
+              class="mocked-styled-4 el-mobile-nav-item-content"
+            >
+              User Item 1
+            </span>
+          </a>
+        </li>
+        <li
+          aria-label="User Item 2"
+          class="mocked-styled-7 el-mobile-nav-item-list-item"
+        >
+          <a
+            class="mocked-styled-1 el-mobile-nav-item-anchor"
+            href="#item-1.1"
+          >
+            <span
+              class="mocked-styled-4 el-mobile-nav-item-content"
+            >
+              User Item 2
+            </span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </dialog>
+</DocumentFragment>
+`;
