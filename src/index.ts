@@ -67,6 +67,7 @@ export * from './components/label-text'
 export * from './components/features'
 export * from './components/badge'
 export * from './components/checkbox'
+export * from './components/checkbox-group'
 
 export * from './hooks/use-portal'
 export * from './hooks/use-snack'
