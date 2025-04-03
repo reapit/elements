@@ -1,7 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 
-import { MobileNavItem } from './mobile-nav-item'
 import { action } from '@storybook/addon-actions'
+import { useState } from 'react'
+import { MobileNavItem } from './mobile-nav-item'
+import { Button } from '../button'
 
 const meta = {
   title: 'Components/Mobile Nav Item',
@@ -31,13 +33,19 @@ export const WithBadge: Story = {
 }
 
 export const Expandable: Story = {
-  render: ({}) => (
-    <MobileNavItem label="Item 2" hasBadge>
-      <MobileNavItem label="Sub Item 2.1" href="#item-2.1" />
-      <MobileNavItem label="Sub Item 2.2" onClick={action('onClick')} hasBadge />
-      <MobileNavItem label="Sub Item 2.3" href="#item-2.3" />
-    </MobileNavItem>
-  ),
+  render: ({}) => {
+    const [isOpen, setIsOpen] = useState(false)
+    return (
+      <>
+        <Button onClick={() => setIsOpen((prev) => !prev)}>{isOpen ? 'Close' : 'Open'}</Button>
+        <MobileNavItem label="Item 2" hasBadge isActive={isOpen}>
+          <MobileNavItem label="Sub Item 2.1" href="#item-2.1" />
+          <MobileNavItem label="Sub Item 2.2" onClick={action('onClick')} hasBadge />
+          <MobileNavItem label="Sub Item 2.3" href="#item-2.3" />
+        </MobileNavItem>
+      </>
+    )
+  },
 }
 
 export const DefaultExpanded: Story = {

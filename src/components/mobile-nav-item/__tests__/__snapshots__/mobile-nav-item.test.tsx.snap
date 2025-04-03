@@ -9,7 +9,6 @@ exports[`MobileNavItem > should render Expandable MobileNavItem 1`] = `
   >
     <button
       aria-controls="test-static-id"
-      aria-current="true"
       aria-expanded="true"
       class="mocked-styled-3 el-mobile-nav-item-expander-button"
       type="button"
