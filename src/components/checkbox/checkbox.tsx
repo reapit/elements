@@ -1,14 +1,6 @@
 import React, { InputHTMLAttributes, useEffect, useRef } from 'react'
-import {
-  ElCheckbox,
-  ElCheckboxInput,
-  ElCheckboxIcon,
-  ElCheckboxSelectedIcon,
-  ElCheckboxIndeterminateIcon,
-  ElCheckboxLabelText,
-  ElCheckboxSupplementaryInfo,
-} from './checkbox.atoms'
-import './styles.css'
+import { ElCheckboxIcon, ElCheckboxSelectedIcon, ElCheckboxIndeterminateIcon } from './checkbox.atoms'
+import { ElCheckbox, ElCheckboxInput, ElCheckboxLabelText, ElCheckboxSupplementaryInfo } from './styles'
 
 /**
  * Interface for the Checkbox component props.
@@ -20,6 +12,8 @@ import './styles.css'
  * Offers additional context or details related to the checkbox.
  *
  * Optional required to make input element required.
+ *
+ * Optional isIndeterminate to make input element as an indeterminate state.
  */
 export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
   label?: string
@@ -51,14 +45,14 @@ export const Checkbox: React.FC<CheckboxProps> = ({
   return (
     <ElCheckbox className={className}>
       {/* The actual checkbox input element. Forwards the ref and other input props. */}
-      <ElCheckboxInput ref={inputRef} {...rest} />
+      <ElCheckboxInput type="checkbox" ref={inputRef} {...rest} aria-hidden />
       {/* Icons for different checkbox states (unchecked, checked, indeterminate). */}
       {/* aria-hidden is used to prevent screen readers from announcing these decorative icons. */}
       <ElCheckboxIcon aria-hidden />
       <ElCheckboxSelectedIcon aria-hidden />
       {isIndeterminate && <ElCheckboxIndeterminateIcon aria-hidden />}
       {/* Label text for the checkbox. Styled using data attributes for variant and size. */}
-      <ElCheckboxLabelText variant="strong" size="medium" required={required}>
+      <ElCheckboxLabelText variant="strong" size="medium" isRequired={required}>
         {label}
       </ElCheckboxLabelText>
       {/* Supplementary information displayed below the label. Styled using data attributes. */}
