@@ -38,11 +38,13 @@ export const Expandable: Story = {
     return (
       <>
         <Button onClick={() => setIsOpen((prev) => !prev)}>{isOpen ? 'Close' : 'Open'}</Button>
-        <MobileNavItem label="Item 2" hasBadge isActive={isOpen}>
-          <MobileNavItem label="Sub Item 2.1" href="#item-2.1" />
-          <MobileNavItem label="Sub Item 2.2" onClick={action('onClick')} hasBadge />
-          <MobileNavItem label="Sub Item 2.3" href="#item-2.3" />
-        </MobileNavItem>
+        <ul>
+          <MobileNavItem label="Item 2" hasBadge isActive={isOpen}>
+            <MobileNavItem label="Sub Item 2.1" href="#item-2.1" />
+            <MobileNavItem label="Sub Item 2.2" onClick={action('onClick')} hasBadge />
+            <MobileNavItem label="Sub Item 2.3" href="#item-2.3" />
+          </MobileNavItem>
+        </ul>
       </>
     )
   },
@@ -50,10 +52,12 @@ export const Expandable: Story = {
 
 export const DefaultExpanded: Story = {
   render: ({}) => (
-    <MobileNavItem label="Item 3" isActive>
-      <MobileNavItem label="Sub Item 3.1" href="#item-3.1" />
-      <MobileNavItem label="Sub Item 3.2" onClick={action('onClick')} isActive />
-      <MobileNavItem label="Sub Item 3.3" href="#item-3.3" />
-    </MobileNavItem>
+    <ul>
+      <MobileNavItem label="Item 3" isActive>
+        <MobileNavItem label="Sub Item 3.1" href="#item-3.1" />
+        <MobileNavItem label="Sub Item 3.2" onClick={action('onClick')} isActive />
+        <MobileNavItem label="Sub Item 3.3" href="#item-3.3" />
+      </MobileNavItem>
+    </ul>
   ),
 }
