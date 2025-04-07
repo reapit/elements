@@ -1,11 +1,9 @@
 import { styled } from '@linaria/react'
 import { Button } from '../button'
 import { ElIcon } from '../icon'
-import { ElSplitButtonSpinner } from '../button'
 
 export const ElSplitButtonActionButton = styled(Button)``
 export const ElSplitButtonMenuButton = styled(Button)``
-export const ElSplitButtonIcon = styled.span``
 
 export const ElSplitButton = styled.div`
   display: inline-flex;
@@ -36,34 +34,32 @@ export const ElSplitButton = styled.div`
       var(--comp-button-border-radius-default) var(--comp-button-border-radius-none);
     border-left: var(--comp-button-border-width-none) solid var(--comp-button-colour-border-secondary-default);
 
-    // Added this style to hide the iconRight from split menu button
+    &:before {
+      content: '';
+      position: absolute;
+      top: 6px;
+      bottom: 6px;
+      left: 0;
+      width: var(--comp-button-border-width-default);
+      background-color: var(--comp-button-colour-border-secondary-default);
+      pointer-events: none;
+    }
+
     ${ElIcon} {
-      display: none;
-    }
-
-    ${ElSplitButtonSpinner} {
-      display: none;
-    }
-
-    ${ElSplitButtonIcon} {
-      display: flex;
-      padding: var(--spacing-1) var(--spacing-none);
-      justify-content: center;
+      display: contents;
+      color: inherit;
       align-items: center;
-      flex: 1 0 0;
-      border-left: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
+      padding: var(--spacing-none);
 
-      ${ElIcon} {
-        display: contents;
-        color: inherit;
-        align-items: center;
-        padding: var(--spacing-none);
-
-        svg {
-          width: var(--icon_size-s);
-          height: var(--icon_size-s);
-        }
+      svg {
+        width: var(--icon_size-s);
+        height: var(--icon_size-s);
       }
+    }
+
+    // Added this style to hide the iconRight from split menu button
+    & > .el-button-spinner + ${ElIcon} + ${ElIcon} {
+      display: none;
     }
 
     // Added this style to override the all the other button varients to default secondary
@@ -75,32 +71,16 @@ export const ElSplitButton = styled.div`
     }
 
     &[data-variant='primary'] {
-      ${ElSplitButtonIcon} {
-        border-left: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-primary-default);
+      &:before {
+        background-color: var(--comp-button-colour-border-primary-default);
       }
     }
 
     &[data-variant='busy'],
     &[disabled],
     &[aria-disabled='true'] {
-      ${ElSplitButtonIcon} {
-        border-left: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-disabled);
-      }
-    }
-
-    &[data-variant='busy'] {
-      ${ElSplitButtonSpinner} {
-        display: flex;
-        padding: var(--spacing-1) var(--spacing-none);
-        justify-content: center;
-        align-items: center;
-        flex: 1 0 0;
-        border-left: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-disabled);
-      }
-      ${ElSplitButtonIcon} {
-        ${ElIcon} {
-          display: none;
-        }
+      &:before {
+        background-color: var(--comp-button-colour-border-primary-disabled);
       }
     }
   }

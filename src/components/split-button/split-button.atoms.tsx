@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { Icon } from '../icon'
 import { ButtonProps } from '../button'
-import { ElSplitButtonActionButton, ElSplitButtonMenuButton, ElSplitButtonIcon } from './styles'
+import { ElSplitButtonActionButton, ElSplitButtonMenuButton } from './styles'
 
 type SplitButtonVariant = 'primary' | 'secondary' | 'busy'
 
@@ -36,15 +36,5 @@ export const ActionButton: FC<SplitButtonProps> = (props) => {
  */
 export const MenuButton: FC<SplitButtonProps> = (props) => {
   const { ...rest } = props
-  return (
-    <ElSplitButtonMenuButton
-      {...rest}
-      isMenuButton={true}
-      iconLeft={
-        <ElSplitButtonIcon>
-          <Icon icon="chevronDown" className="icon" />
-        </ElSplitButtonIcon>
-      }
-    ></ElSplitButtonMenuButton>
-  )
+  return <ElSplitButtonMenuButton {...rest} iconLeft={<Icon icon="chevronDown" />}></ElSplitButtonMenuButton>
 }

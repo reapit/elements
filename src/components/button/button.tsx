@@ -23,7 +23,6 @@ import {
   elButtonGroupAlignRight,
   elButtonGroupAlignCenter,
   ElButtonLabel,
-  ElSplitButtonSpinner,
 } from './styles'
 import { Icon, IconNames } from '../icon'
 import { cx } from '@linaria/core'
@@ -41,8 +40,6 @@ interface CommonButtonProps {
   /** The label for button. It must be supplied for buttons with no `children` */
   'aria-label'?: string
   className?: string
-  /** This additional props is added to support SplitButton busy varient style */
-  isMenuButton?: boolean
 }
 
 // Define a specialized type for tertiary variant for prop hasNoPadding
@@ -118,7 +115,6 @@ export const Button: FC<ButtonProps> = (props) => {
     className,
     hasNoPadding,
     onClick,
-    isMenuButton = false,
     ...rest
   } = props
 
@@ -166,13 +162,7 @@ export const Button: FC<ButtonProps> = (props) => {
         target={target}
         rel={rel}
       >
-        {isMenuButton ? (
-          <ElSplitButtonSpinner>
-            <ElButtonSpinner />
-          </ElSplitButtonSpinner>
-        ) : (
-          <ElButtonSpinner />
-        )}
+        <ElButtonSpinner />
         {variant !== 'busy' && iconLeft}
         {children && <ElButtonLabel>{children}</ElButtonLabel>}
         {variant !== 'busy' && iconRight}
@@ -190,13 +180,7 @@ export const Button: FC<ButtonProps> = (props) => {
         role="button"
         onClick={handleClick}
       >
-        {isMenuButton ? (
-          <ElSplitButtonSpinner>
-            <ElButtonSpinner />
-          </ElSplitButtonSpinner>
-        ) : (
-          <ElButtonSpinner />
-        )}
+        <ElButtonSpinner />
         {variant !== 'busy' && iconLeft}
         {children && <ElButtonLabel>{children}</ElButtonLabel>}
         {variant !== 'busy' && iconRight}

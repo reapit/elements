@@ -3,55 +3,47 @@
 exports[`SplitButton > should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-11 el-split-button"
+    class="mocked-styled-9 el-split-button"
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-8 el-split-button-action-button el-button-size-medium el-button"
+      class="mocked-styled-7 el-split-button-action-button el-button-size-medium el-button"
       role="button"
     >
       <div
-        class="mocked-styled-2 el-button-spinner"
+        class="mocked-styled-1 el-button-spinner"
       />
       <span
-        class="mocked-styled-3 el-button-label"
+        class="mocked-styled-2 el-button-label"
       >
         Button
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-9 el-split-button-menu-button el-button-size-medium el-button-icon-only el-button"
+      class="mocked-styled-8 el-split-button-menu-button el-button-size-medium el-button-icon-only el-button"
       role="button"
     >
+      <div
+        class="mocked-styled-1 el-button-spinner"
+      />
       <span
-        class="mocked-styled-1 el-split-button-spinner"
+        class="mocked-styled-0 el-icon"
       >
-        <div
-          class="mocked-styled-2 el-button-spinner"
-        />
-      </span>
-      <span
-        class="mocked-styled-10 el-split-button-icon"
-      >
-        <span
-          class="icon el-icon"
+        <svg
+          fill="none"
+          height="1em"
+          role="img"
+          title="Icon image with name chevronDown"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            fill="none"
-            height="1em"
-            role="img"
-            title="Icon image with name chevronDown"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 16.5041C11.7343 16.5057 11.479 16.4013 11.2904 16.2141L4.29396 9.21411C4.04044 8.96046 3.94142 8.59074 4.03422 8.24424C4.12702 7.89773 4.39753 7.62708 4.74385 7.53424C5.09018 7.44139 5.45971 7.54046 5.71324 7.79411L12 14.0941L18.2868 7.79411C18.6787 7.40199 19.3141 7.40199 19.7061 7.79411C20.098 8.18624 20.098 8.82199 19.7061 9.21411L12.7096 16.2141C12.521 16.4013 12.2657 16.5057 12 16.5041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
+          <path
+            d="M12 16.5041C11.7343 16.5057 11.479 16.4013 11.2904 16.2141L4.29396 9.21411C4.04044 8.96046 3.94142 8.59074 4.03422 8.24424C4.12702 7.89773 4.39753 7.62708 4.74385 7.53424C5.09018 7.44139 5.45971 7.54046 5.71324 7.79411L12 14.0941L18.2868 7.79411C18.6787 7.40199 19.3141 7.40199 19.7061 7.79411C20.098 8.18624 20.098 8.82199 19.7061 9.21411L12.7096 16.2141C12.521 16.4013 12.2657 16.5057 12 16.5041Z"
+            fill="currentColor"
+          />
+        </svg>
       </span>
     </button>
   </div>
@@ -61,56 +53,48 @@ exports[`SplitButton > should match snapshot 1`] = `
 exports[`SplitButton > should match snapshot with large size 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-11 el-split-button"
+    class="mocked-styled-9 el-split-button"
     data-size="large"
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-8 el-split-button-action-button el-button-size-medium el-button"
+      class="mocked-styled-7 el-split-button-action-button el-button-size-medium el-button"
       role="button"
     >
       <div
-        class="mocked-styled-2 el-button-spinner"
+        class="mocked-styled-1 el-button-spinner"
       />
       <span
-        class="mocked-styled-3 el-button-label"
+        class="mocked-styled-2 el-button-label"
       >
         Button
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-9 el-split-button-menu-button el-button-size-medium el-button-icon-only el-button"
+      class="mocked-styled-8 el-split-button-menu-button el-button-size-medium el-button-icon-only el-button"
       role="button"
     >
+      <div
+        class="mocked-styled-1 el-button-spinner"
+      />
       <span
-        class="mocked-styled-1 el-split-button-spinner"
+        class="mocked-styled-0 el-icon"
       >
-        <div
-          class="mocked-styled-2 el-button-spinner"
-        />
-      </span>
-      <span
-        class="mocked-styled-10 el-split-button-icon"
-      >
-        <span
-          class="icon el-icon"
+        <svg
+          fill="none"
+          height="1em"
+          role="img"
+          title="Icon image with name chevronDown"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            fill="none"
-            height="1em"
-            role="img"
-            title="Icon image with name chevronDown"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 16.5041C11.7343 16.5057 11.479 16.4013 11.2904 16.2141L4.29396 9.21411C4.04044 8.96046 3.94142 8.59074 4.03422 8.24424C4.12702 7.89773 4.39753 7.62708 4.74385 7.53424C5.09018 7.44139 5.45971 7.54046 5.71324 7.79411L12 14.0941L18.2868 7.79411C18.6787 7.40199 19.3141 7.40199 19.7061 7.79411C20.098 8.18624 20.098 8.82199 19.7061 9.21411L12.7096 16.2141C12.521 16.4013 12.2657 16.5057 12 16.5041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
+          <path
+            d="M12 16.5041C11.7343 16.5057 11.479 16.4013 11.2904 16.2141L4.29396 9.21411C4.04044 8.96046 3.94142 8.59074 4.03422 8.24424C4.12702 7.89773 4.39753 7.62708 4.74385 7.53424C5.09018 7.44139 5.45971 7.54046 5.71324 7.79411L12 14.0941L18.2868 7.79411C18.6787 7.40199 19.3141 7.40199 19.7061 7.79411C20.098 8.18624 20.098 8.82199 19.7061 9.21411L12.7096 16.2141C12.521 16.4013 12.2657 16.5057 12 16.5041Z"
+            fill="currentColor"
+          />
+        </svg>
       </span>
     </button>
   </div>
@@ -120,56 +104,48 @@ exports[`SplitButton > should match snapshot with large size 1`] = `
 exports[`SplitButton > should match snapshot with secondary variant 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-11 el-split-button"
+    class="mocked-styled-9 el-split-button"
     data-variant="secondary"
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-8 el-split-button-action-button el-button-size-medium el-button"
+      class="mocked-styled-7 el-split-button-action-button el-button-size-medium el-button"
       role="button"
     >
       <div
-        class="mocked-styled-2 el-button-spinner"
+        class="mocked-styled-1 el-button-spinner"
       />
       <span
-        class="mocked-styled-3 el-button-label"
+        class="mocked-styled-2 el-button-label"
       >
         Button
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-9 el-split-button-menu-button el-button-size-medium el-button-icon-only el-button"
+      class="mocked-styled-8 el-split-button-menu-button el-button-size-medium el-button-icon-only el-button"
       role="button"
     >
+      <div
+        class="mocked-styled-1 el-button-spinner"
+      />
       <span
-        class="mocked-styled-1 el-split-button-spinner"
+        class="mocked-styled-0 el-icon"
       >
-        <div
-          class="mocked-styled-2 el-button-spinner"
-        />
-      </span>
-      <span
-        class="mocked-styled-10 el-split-button-icon"
-      >
-        <span
-          class="icon el-icon"
+        <svg
+          fill="none"
+          height="1em"
+          role="img"
+          title="Icon image with name chevronDown"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
         >
-          <svg
-            fill="none"
-            height="1em"
-            role="img"
-            title="Icon image with name chevronDown"
-            viewBox="0 0 24 24"
-            width="1em"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M12 16.5041C11.7343 16.5057 11.479 16.4013 11.2904 16.2141L4.29396 9.21411C4.04044 8.96046 3.94142 8.59074 4.03422 8.24424C4.12702 7.89773 4.39753 7.62708 4.74385 7.53424C5.09018 7.44139 5.45971 7.54046 5.71324 7.79411L12 14.0941L18.2868 7.79411C18.6787 7.40199 19.3141 7.40199 19.7061 7.79411C20.098 8.18624 20.098 8.82199 19.7061 9.21411L12.7096 16.2141C12.521 16.4013 12.2657 16.5057 12 16.5041Z"
-              fill="currentColor"
-            />
-          </svg>
-        </span>
+          <path
+            d="M12 16.5041C11.7343 16.5057 11.479 16.4013 11.2904 16.2141L4.29396 9.21411C4.04044 8.96046 3.94142 8.59074 4.03422 8.24424C4.12702 7.89773 4.39753 7.62708 4.74385 7.53424C5.09018 7.44139 5.45971 7.54046 5.71324 7.79411L12 14.0941L18.2868 7.79411C18.6787 7.40199 19.3141 7.40199 19.7061 7.79411C20.098 8.18624 20.098 8.82199 19.7061 9.21411L12.7096 16.2141C12.521 16.4013 12.2657 16.5057 12 16.5041Z"
+            fill="currentColor"
+          />
+        </svg>
       </span>
     </button>
   </div>

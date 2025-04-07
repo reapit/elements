@@ -11,9 +11,6 @@ export const elIcon = css``
 export const elButtonIconOnly = css``
 export const elButtonSpinner = css``
 
-/** To be styled in the SplitButton component */
-export const ElSplitButtonSpinner = styled.span``
-
 /** @deprecated - Will be removed from future version */
 export const elFloatingButton = css``
 /** @deprecated */
