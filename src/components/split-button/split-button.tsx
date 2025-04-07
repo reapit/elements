@@ -9,6 +9,12 @@ interface SplitButtonFC extends FC<SplitButtonProps> {
   Menu: typeof MenuButton
 }
 
+/**
+ * SplitButton component:
+ * This component combines the two button components.
+ * 1- Action or Primary button.
+ * 2- Menu button.
+ */
 const SplitButton: SplitButtonFC = ({ children, ...props }) => {
   return <ElSplitButton {...props}>{children}</ElSplitButton>
 }

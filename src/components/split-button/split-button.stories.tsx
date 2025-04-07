@@ -86,8 +86,8 @@ export const SplitButtonDisabled = {
   },
   render: (props: any) => (
     <SplitButton>
-      <SplitButton.Action disabled>{props.children}</SplitButton.Action>
-      <SplitButton.Menu disabled />
+      <SplitButton.Action isDisabled>{props.children}</SplitButton.Action>
+      <SplitButton.Menu isDisabled />
     </SplitButton>
   ),
 }
@@ -113,7 +113,7 @@ export const SplitButtonDisabledWithMenu = {
   ],
   render: (props: any) => (
     <SplitButton>
-      <SplitButton.Action disabled onClick={console.log}>
+      <SplitButton.Action isDisabled onClick={console.log}>
         {props.children}
       </SplitButton.Action>
       <Menu data-alignment="right">
