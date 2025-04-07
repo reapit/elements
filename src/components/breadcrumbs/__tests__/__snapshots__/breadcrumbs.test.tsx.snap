@@ -1,0 +1,27 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Breadcrumbs > should match the snapshot 1`] = `
+<DocumentFragment>
+  <nav
+    class="mocked-styled-3 el-breadcrumbs"
+  >
+    <ul
+      class="mocked-styled-2 el-breadcrumbs-list"
+    >
+      <li
+        class="mocked-styled-0 el-breadcrumbs-item"
+      >
+        <a
+          class="el-breadcrumbs-link"
+          href="#"
+        >
+          Level one
+        </a>
+        <span
+          data-testid="chevron-icon"
+        />
+      </li>
+    </ul>
+  </nav>
+</DocumentFragment>
+`;

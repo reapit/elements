@@ -5,9 +5,9 @@ export const ElSideBarMenuItemText = styled.span`
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
   font-style: normal;
-  font-weight: 400;
   line-height: var(--line-height-sm);
   letter-spacing: var(--letter-spacing-sm);
+  font-weight: var(--font-weight-regular);
 `
 
 export const ElSideBarMenuItemIcon = styled.span`
@@ -36,17 +36,24 @@ export const elSideBarMenuItemAnchor = css`
   border-radius: var(--corner-lg);
 
   &:hover,
-  &[aria-current='page'] {
-    background: var(--fill-default-lightest);
-    font-weight: 500;
+  &:focus-visible {
+    background: var(--colour-fill-neutral-light);
   }
 
   &[aria-current='page'] {
-    &,
-    ${ElSideBarMenuItemIcon} svg {
+    background: var(--fill-default-lightest);
+  }
+
+  &[aria-current='page'] {
+    & ${ElSideBarMenuItemText}, ${ElSideBarMenuItemIcon} svg {
       color: var(--text-action);
-      font-weight: 500;
+      font-weight: var(--font-weight-medium);
     }
+  }
+
+  &:focus-visible {
+    outline: none;
+    border: var(--border-width-double) solid var(--colour-border-focus);
   }
 `
 

@@ -34,6 +34,12 @@ export const ElSideBarCollapseButton = styled.button`
     background: var(--fill-default-lightest);
     font-weight: 500;
   }
+
+  &:focus-visible {
+    outline: none;
+    border: var(--border-width-double) solid var(--colour-border-focus);
+    background: var(--color-fill-neutral-light);
+  }
 `
 
 export const ElCollapseIcon = styled(CollapseIcon)`

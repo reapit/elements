@@ -1,8 +1,8 @@
 import { FC, useCallback } from 'react'
 
-import { Button } from '../button'
 import { Icon } from '../icon'
 
+import { PaginationButton } from './pagination.atoms'
 import { ElPagination, ElPaginationItem, ElPaginationList, ElPaginationText } from './styles'
 
 export interface PaginationProps {
@@ -33,7 +33,8 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, pageCount, onPage
     <ElPagination aria-label="Pagination">
       <ElPaginationList>
         <ElPaginationItem>
-          <Button
+          <PaginationButton
+            size="small"
             aria-label="Go to previous page"
             isDisabled={currentPage <= 1}
             onClick={handleOnBackPageClick}
@@ -45,7 +46,8 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, pageCount, onPage
           <ElPaginationText>{`${currentPage} of ${pageCount}`}</ElPaginationText>
         </ElPaginationItem>
         <ElPaginationItem>
-          <Button
+          <PaginationButton
+            size="small"
             aria-label="Go to next page"
             isDisabled={currentPage >= pageCount}
             onClick={handleOnNextPageClick}

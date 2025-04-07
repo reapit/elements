@@ -83,10 +83,6 @@
     "$type": "color",
     "$value": "#ffffff1a"
   },
-  "no-fill": {
-    "$type": "color",
-    "$value": "#ffffff00"
-  },
   "purple-900": {
     "$type": "color",
     "$value": "#262884"
@@ -367,10 +363,6 @@
     "$type": "color",
     "$value": "#fdecee"
   },
-  "teal-900": {
-    "$type": "color",
-    "$value": "#00505a"
-  },
   "plum-900": {
     "$type": "color",
     "$value": "#5a0a82"
@@ -410,6 +402,10 @@
   "plum-050": {
     "$type": "color",
     "$value": "#faf4ff"
+  },
+  "teal-900": {
+    "$type": "color",
+    "$value": "#00505a"
   },
   "teal-800": {
     "$type": "color",
@@ -455,17 +451,9 @@
     "$type": "color",
     "$value": "#4e56ea"
   },
-  "text-secondary": {
-    "$type": "color",
-    "$value": "{neutral-500}"
-  },
   "brand-teal": {
     "$type": "color",
     "$value": "#98c1c2"
-  },
-  "secondary": {
-    "$type": "color",
-    "$value": "{neutral-500}"
   },
   "brand-orange": {
     "$type": "color",

@@ -10,9 +10,32 @@ import StyleDictionary from 'style-dictionary'
 /** @type {Theme[]} */
 const themes = ['payprop', 'reapit']
 
+StyleDictionary.registerTransform({
+  name: 'name/custom-format',
+  type: 'name',
+  transform: (token) => {
+    return (
+      token.path
+        .map((variable) => {
+          if (variable.includes('_')) {
+            // Preserve existing underscores (_)
+            return variable
+          }
+          // Convert camelCase to kebab-case
+          return variable.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+        })
+        // Use `-` as the separator between segments
+        .join('-')
+    )
+  },
+})
+
 /** @returns {Config} */
 function getConfig(themeName) {
   return {
+    log: {
+      verbosity: 'verbose',
+    },
     source: [
       './src/tokens/Primitives.Value.tokens.json',
       `./src/tokens/Semantics.${themeName.toUpperCase()}.tokens.json`,
@@ -37,6 +60,7 @@ function getConfig(themeName) {
           selector: themeName === 'reapit' ? ':root, :root[data-theme="reapit"]' : `:root[data-theme="${themeName}"]`,
         },
         transformGroup: 'web',
+        transforms: ['name/custom-format', 'attribute/cti'], // Apply custom transform
       },
     },
   }
