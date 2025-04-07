@@ -18,10 +18,10 @@ exports[`MobileControls component > should match a snapshot 1`] = `
       role="button"
     >
       <div
-        class="mocked-styled-3 el-button-spinner"
+        class="mocked-styled-4 el-button-spinner"
       />
       <span
-        class="mocked-styled-9 el-icon"
+        class="mocked-styled-10 el-icon"
       >
         <svg
           fill="none"
@@ -82,10 +82,10 @@ exports[`MobileControls component > should match a snapshot with full props 1`] 
       role="button"
     >
       <div
-        class="mocked-styled-3 el-button-spinner"
+        class="mocked-styled-4 el-button-spinner"
       />
       <span
-        class="mocked-styled-9 el-icon"
+        class="mocked-styled-10 el-icon"
       >
         <svg
           fill="none"

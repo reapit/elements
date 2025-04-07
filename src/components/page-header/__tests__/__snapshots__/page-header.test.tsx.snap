@@ -17,7 +17,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Home"
-            class="mocked-styled-17 el-deprecated-bread-crumb-item"
+            class="mocked-styled-18 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -50,7 +50,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Level 1"
-            class="mocked-styled-17 el-deprecated-bread-crumb-item"
+            class="mocked-styled-18 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -83,7 +83,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Level 2"
-            class="mocked-styled-17 el-deprecated-bread-crumb-item"
+            class="mocked-styled-18 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -116,7 +116,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="page"
             aria-label="Breadcrumb item hit return to navigate to Level 3"
-            class="mocked-styled-17 el-deprecated-bread-crumb-item"
+            class="mocked-styled-18 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -203,10 +203,10 @@ exports[`PageHeader component > should match a snapshot 1`] = `
           </div>
         </div>
         <div
-          class="mocked-styled-14 deprecated-el-button-group"
+          class="mocked-styled-15 deprecated-el-button-group"
         >
           <div
-            class="mocked-styled-15 el-button-group-inner"
+            class="mocked-styled-16 el-button-group-inner"
           >
             <button
               aria-disabled="false"
@@ -215,10 +215,10 @@ exports[`PageHeader component > should match a snapshot 1`] = `
               role="button"
             >
               <div
-                class="mocked-styled-10 el-button-spinner"
+                class="mocked-styled-11 el-button-spinner"
               />
               <span
-                class="mocked-styled-11 el-button-label"
+                class="mocked-styled-12 el-button-label"
               >
                 Button 1
               </span>
@@ -229,10 +229,10 @@ exports[`PageHeader component > should match a snapshot 1`] = `
               role="button"
             >
               <div
-                class="mocked-styled-10 el-button-spinner"
+                class="mocked-styled-11 el-button-spinner"
               />
               <span
-                class="mocked-styled-11 el-button-label"
+                class="mocked-styled-12 el-button-label"
               >
                 Button 2
               </span>
@@ -244,65 +244,65 @@ exports[`PageHeader component > should match a snapshot 1`] = `
         class="el-tabs-full-width el-tabs-wrap"
       >
         <div
-          class="mocked-styled-23 el-tabs-options-wrap"
+          class="mocked-styled-24 el-tabs-options-wrap"
           role="tablist"
         >
           <input
             aria-selected="true"
-            class="mocked-styled-20 el-tab"
+            class="mocked-styled-21 el-tab"
             id="tab-1-fw"
             name="my-cool-tabs-full-width"
             type="radio"
             value="tab-1-fw"
           />
           <label
-            class="mocked-styled-21 el-tabs-label"
+            class="mocked-styled-22 el-tabs-label"
             for="tab-1-fw"
             role="tab"
             tabindex="0"
           >
             <span
-              class="mocked-styled-19 el-tabs-item"
+              class="mocked-styled-20 el-tabs-item"
             >
               Tab Content 1
             </span>
           </label>
           <input
             aria-selected="false"
-            class="mocked-styled-20 el-tab"
+            class="mocked-styled-21 el-tab"
             id="tab-2-fw"
             name="my-cool-tabs-full-width"
             type="radio"
             value="tab-2-fw"
           />
           <label
-            class="mocked-styled-21 el-tabs-label"
+            class="mocked-styled-22 el-tabs-label"
             for="tab-2-fw"
             role="tab"
             tabindex="0"
           >
             <span
-              class="mocked-styled-19 el-tabs-item"
+              class="mocked-styled-20 el-tabs-item"
             >
               Tab Content 2
             </span>
           </label>
           <input
             aria-selected="false"
-            class="mocked-styled-20 el-tab"
+            class="mocked-styled-21 el-tab"
             id="tab-3-fw"
             name="my-cool-tabs-full-width"
             type="radio"
             value="tab-3-fw"
           />
           <label
-            class="mocked-styled-21 el-tabs-label"
+            class="mocked-styled-22 el-tabs-label"
             for="tab-3-fw"
             role="tab"
             tabindex="0"
           >
             <span
-              class="mocked-styled-19 el-tabs-item"
+              class="mocked-styled-20 el-tabs-item"
             >
               Tab Content 3
             </span>

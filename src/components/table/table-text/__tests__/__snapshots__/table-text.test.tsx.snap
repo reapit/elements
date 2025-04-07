@@ -14,21 +14,6 @@ exports[`TableText > should match snapshot 1`] = `
 </DocumentFragment>
 `;
 
-exports[`TableText > should match snapshot with extra small size and text 1`] = `
-<DocumentFragment>
-  <div
-    class="mocked-styled-2 el-table-text"
-    data-size="extra-small"
-  >
-    <span
-      class="mocked-styled-1 el-table-text-content"
-    >
-      Value
-    </span>
-  </div>
-</DocumentFragment>
-`;
-
 exports[`TableText > should match snapshot with icon only 1`] = `
 <DocumentFragment>
   <div
@@ -119,21 +104,6 @@ exports[`TableText > should match snapshot with icons and label 1`] = `
           />
         </svg>
       </span>
-    </span>
-  </div>
-</DocumentFragment>
-`;
-
-exports[`TableText > should match snapshot with success variant and text 1`] = `
-<DocumentFragment>
-  <div
-    class="mocked-styled-2 el-table-text"
-    data-variant="success"
-  >
-    <span
-      class="mocked-styled-1 el-table-text-content"
-    >
-      Value
     </span>
   </div>
 </DocumentFragment>
