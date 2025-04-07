@@ -3,13 +3,13 @@
 exports[`MobileNavItem > should render Expandable MobileNavItem 1`] = `
 <DocumentFragment>
   <li
-    aria-label="Item 2"
     class="mocked-styled-7 el-mobile-nav-item-list-item"
     data-is-expanded="true"
   >
     <button
       aria-controls="test-static-id"
       aria-expanded="true"
+      aria-label="Item 2"
       class="mocked-styled-3 el-mobile-nav-item-expander-button"
       type="button"
     >

@@ -1,4 +1,4 @@
-import { useCallback, type FC, type MouseEventHandler, type ReactNode } from 'react'
+import { type FC, type MouseEventHandler, type ReactNode } from 'react'
 
 import { useId } from '../../storybook/random-id'
 
@@ -84,15 +84,16 @@ export const MobileNavItemExpandable: FC<MobileNavItemExpandableProps> = (props)
   const [isExpanded, setIsExpanded] = useIsMobileNavItemExpanded(Boolean(isActive))
   const panelId = useId()
 
-  const handleOnExpandButtonClick = useCallback(() => {
+  const handleOnExpandButtonClick = () => {
     setIsExpanded((prev) => !prev)
-  }, [])
+  }
 
   return (
-    <ElMobileNavItemListItem {...rest} data-is-expanded={isExpanded} aria-label={label}>
+    <ElMobileNavItemListItem {...rest} data-is-expanded={isExpanded}>
       <ElMobileNavItemExpanderButton
         type="button"
         aria-expanded={isExpanded}
+        aria-label={label}
         aria-controls={panelId}
         onClick={handleOnExpandButtonClick}
       >
