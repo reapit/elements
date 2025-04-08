@@ -7,7 +7,6 @@ export const ElMobileNavMenuHeader = styled.div`
   justify-content: flex-end;
   align-items: center;
   align-self: stretch;
-
   border-bottom: var(--border-width-default) solid var(--outline-default);
   background: var(--comp-navigation-colour-fill-top_bar);
 `
@@ -17,6 +16,8 @@ export const ElMobileNavMenuContent = styled.nav`
   flex-direction: column;
   align-items: flex-start;
   align-self: stretch;
+  scrollbar-gutter: stable;
+  overflow-y: auto;
   padding: var(--spacing-3) var(--spacing-none);
   background: var(--comp-navigation-colour-fill-mobile_nav-default);
 `
@@ -38,9 +39,7 @@ export const ElMobileNavMenu = styled.dialog`
   height: 100%;
   z-index: 99;
   display: none;
-  overflow: auto;
   border: none;
-  scrollbar-gutter: stable;
   padding: var(--spacing-none);
   animation: mobileNavMenuSlideRight 0.2s ease-out;
 
@@ -53,7 +52,8 @@ export const ElMobileNavMenu = styled.dialog`
 
   &[open] {
     animation: mobileNavMenuSlideLeft 0.2s ease-out forwards;
-    display: block;
+    display: flex;
+    flex-direction: column;
 
     ${isMobile} {
       animation: mobileNavMenuFadeIn 0.2s ease-out forwards;
@@ -77,14 +77,14 @@ export const ElMobileNavMenu = styled.dialog`
     }
     to {
       opacity: 1;
-      display: block;
+      display: flex;
     }
   }
 
   @keyframes mobileNavMenuFadeOut {
     from {
       opacity: 1;
-      display: block;
+      display: flex;
     }
     to {
       opacity: 0;
@@ -99,14 +99,14 @@ export const ElMobileNavMenu = styled.dialog`
     }
     to {
       margin-right: 0px;
-      display: block;
+      display: flex;
     }
   }
 
   @keyframes mobileNavMenuSlideRight {
     from {
       margin-right: 0px;
-      display: block;
+      display: flex;
     }
     to {
       margin-right: -375px;
