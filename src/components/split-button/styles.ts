@@ -37,9 +37,9 @@ export const ElSplitButton = styled.div`
     &:before {
       content: '';
       position: absolute;
-      top: 6px;
-      bottom: 6px;
-      left: 0;
+      top: calc(var(--spacing-1) + var(--size-half));
+      bottom: calc(var(--spacing-1) + var(--size-half));
+      left: var(--spacing-none);
       width: var(--comp-button-border-width-default);
       background-color: var(--comp-button-colour-border-secondary-default);
       pointer-events: none;
