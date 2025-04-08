@@ -55,10 +55,22 @@ const MobileNavMenu: MobileNavMenuFC = ({ children, isOpen, onClose, ...rest }) 
         prevItem.focus()
         break
       }
+      case 'ArrowRight':
+      case 'ArrowLeft': {
+        e.preventDefault()
+        const currentItem = clickableItems[currentIndex]
+        if (!currentItem.hasAttribute('aria-expanded')) break
+
+        if (e.key === 'ArrowRight' && currentItem.getAttribute('aria-expanded') === 'true') break
+        else if (e.key === 'ArrowLeft' && currentItem.getAttribute('aria-expanded') === 'false') break
+
+        currentItem.click()
+        break
+      }
       case 'Enter':
       case ' ': {
         e.preventDefault()
-        const currentItem = clickableItems[currentIndex] as HTMLAnchorElement | HTMLButtonElement
+        const currentItem = clickableItems[currentIndex]
         currentItem.click()
         break
       }
