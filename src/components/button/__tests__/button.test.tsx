@@ -1,4 +1,4 @@
-import { render, fireEvent } from '@testing-library/react'
+import { render, fireEvent, screen } from '@testing-library/react'
 import { Button, DeprecatedButtonGroup, FloatingButton } from '../index'
 import { Icon } from '#src/components/icon'
 
@@ -39,6 +39,34 @@ describe('Button', () => {
       <Button href="https://example.com" iconLeft={<Icon icon="add" />} target="_blank" rel="noOpener noReferrer" />,
     )
     expect(asFragment()).toMatchSnapshot()
+  })
+
+  test('should not call onClick when isDisabled is true', () => {
+    const onClick = vi.fn()
+    render(
+      <Button isDisabled onClick={onClick}>
+        Click Me
+      </Button>,
+    )
+
+    const button = screen.getByRole('button', { name: /click me/i })
+    fireEvent.click(button)
+
+    expect(onClick).not.toHaveBeenCalled()
+  })
+
+  test('should call onClick when isDisabled is false', () => {
+    const onClick = vi.fn()
+    render(
+      <Button isDisabled={false} onClick={onClick}>
+        Click Me
+      </Button>,
+    )
+
+    const button = screen.getByRole('button', { name: /click me/i })
+    fireEvent.click(button)
+
+    expect(onClick).toHaveBeenCalledTimes(1)
   })
 })
 

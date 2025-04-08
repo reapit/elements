@@ -1,100 +1,65 @@
-import { render, fireEvent } from '@testing-library/react'
-import {
-  PaginationWrap,
-  PaginationText,
-  PaginationButton,
-  Pagination,
-  handlePageChange,
-  handlePageInputChange,
-} from '../index'
-
-describe('PaginationWrap', () => {
-  it('should match a snapshot and render children', () => {
-    const wrapper = render(
-      <PaginationWrap>
-        <div>I am a child</div>
-      </PaginationWrap>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
-
-describe('PaginationText', () => {
-  it('should match a snapshot and render children', () => {
-    const wrapper = render(
-      <PaginationText>
-        <div>I am a child</div>
-      </PaginationText>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
-
-describe('PaginationButton', () => {
-  it('should match a snapshot and render children', () => {
-    const wrapper = render(
-      <PaginationButton>
-        <div>I am a child</div>
-      </PaginationButton>,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
-})
+import { act, fireEvent, render } from '@testing-library/react'
+import { Pagination, PaginationProps } from '../pagination'
 
 describe('Pagination', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(<Pagination callback={vi.fn()} currentPage={2} numberPages={4} />)
-    expect(wrapper.asFragment()).toMatchSnapshot()
+  const mockOnPageChange = vi.fn()
+  afterEach(() => {
+    vi.clearAllMocks()
   })
 
-  it('should match a snapshot with start end buttons', () => {
-    const wrapper = render(
-      <Pagination callback={vi.fn()} currentPage={2} numberPages={4} hasStartButton hasEndButton />,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
+  it('should able to increment', () => {
+    const { getByRole } = renderComponent({ currentPage: 1, pageCount: 3 })
+
+    act(() => {
+      fireEvent.click(
+        getByRole('button', {
+          name: 'Go to next page',
+        }),
+      )
+    })
+    expect(mockOnPageChange).toHaveBeenCalledWith(2)
   })
 
-  it('should callback onClick correctly', async () => {
-    const mockCallback = vi.fn()
+  it('should able to decrement', () => {
+    const { getByRole } = renderComponent({ currentPage: 3, pageCount: 3 })
 
-    const wrapper = render(<Pagination callback={mockCallback} currentPage={2} numberPages={4} />)
-
-    fireEvent.click(wrapper.getByTestId('back-button'))
-
-    expect(mockCallback).toHaveBeenCalledTimes(2)
-    expect(mockCallback).toHaveBeenLastCalledWith(1)
-
-    fireEvent.click(wrapper.getByTestId('forward-button'))
-
-    expect(mockCallback).toHaveBeenCalledTimes(4)
-    expect(mockCallback).toHaveBeenLastCalledWith(3)
+    act(() => {
+      fireEvent.click(
+        getByRole('button', {
+          name: 'Go to previous page',
+        }),
+      )
+    })
+    expect(mockOnPageChange).toHaveBeenCalledWith(2)
   })
-})
 
-describe('handlePageChange', () => {
-  it('should correctly call the callback on change', () => {
-    const nextPage = 2
-    const callback = vi.fn()
-    const setInputValue = vi.fn()
-    const curried = handlePageChange(nextPage, callback, setInputValue)
+  it('should not decrement when current page is 1', () => {
+    const { getByRole } = renderComponent({ currentPage: 1, pageCount: 3 })
 
-    curried()
-
-    expect(callback).toHaveBeenCalledWith(nextPage)
-    expect(setInputValue).toHaveBeenCalledWith(String(nextPage))
+    act(() => {
+      fireEvent.click(
+        getByRole('button', {
+          name: 'Go to previous page',
+        }),
+      )
+    })
+    expect(mockOnPageChange).not.toHaveBeenCalled()
   })
-})
 
-describe('handlePageInputChange', () => {
-  it('should correctly call the callback on change', () => {
-    const numberPages = 3
-    const currentPage = 2
-    const inputValue = '3'
-    const callback = vi.fn()
-    const curried = handlePageInputChange(numberPages, currentPage, inputValue, callback)
+  it('should not increment when is a last page', () => {
+    const { getByRole } = renderComponent({ currentPage: 3, pageCount: 3 })
 
-    curried()
-
-    expect(callback).toHaveBeenCalledWith(Number(inputValue))
+    act(() => {
+      fireEvent.click(
+        getByRole('button', {
+          name: 'Go to next page',
+        }),
+      )
+    })
+    expect(mockOnPageChange).not.toHaveBeenCalled()
   })
+
+  const renderComponent = (props?: Partial<PaginationProps>) => {
+    return render(<Pagination currentPage={1} pageCount={3} {...props} onPageChange={mockOnPageChange} />)
+  }
 })

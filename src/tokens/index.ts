@@ -1,1 +1,1 @@
-export * as reapitDesignTokens from './reapit/tokens'
+export * from './types'

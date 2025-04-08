@@ -16,6 +16,9 @@ export interface AvatarRectangle extends HTMLAttributes<HTMLDivElement> {
   alt?: string
 }
 
+/**
+ * A versatile component designed to render property image.
+ */
 export const AvatarRectangle: FC<AvatarRectangle> = ({
   size = 'medium',
   variant = 'residential',

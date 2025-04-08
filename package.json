@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "5.0.0-beta.17",
+  "version": "5.0.0-beta.22",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/elements#readme",
   "bugs": {
@@ -25,16 +25,16 @@
   },
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
+      "types": "./dist/js/index.d.ts",
       "import": "./dist/js/index.js",
       "require": "./dist/js/index.cjs"
     },
     "./styles.css": "./dist/js/style.css",
-    "./index.css": "./dist/js/style.css"
+    "./dist/index.css": "./dist/js/style.css"
   },
   "license": "MIT",
   "author": "Will McVay <wmcvay@reapit.com>",
-  "types": "./dist/types/index.d.ts",
+  "types": "./dist/js/index.d.ts",
   "main": "index.ts",
   "module": "index.ts",
   "publishConfig": {
@@ -50,7 +50,7 @@
     "build": "yarn build:storybook & yarn build:types & yarn build:dist",
     "build:storybook": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
     "build:dist": "vite build",
-    "build:sd": "node ./src/tokens/build.mjs && eslint --cache --ext=ts tokens --fix",
+    "build:sd": "node ./src/tokens/build.mjs",
     "build:types": "tsc --project tsconfig.build.json",
     "commit": "yarn test run --coverage --silent && yarn coverage:badges && yarn lint --fix && yarn check",
     "coverage:badges": "yarn make-badge branches && yarn make-badge functions && yarn make-badge lines && yarn make-badge statements",
@@ -90,13 +90,14 @@
     "@storybook/react-dom-shim": "^8.0.7",
     "@storybook/react-vite": "^8.0.7",
     "@storybook/theming": "^8.0.7",
-    "@testing-library/react": "^12.1.5",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^15.0.0",
     "@testing-library/react-hooks": "^8.0.1",
     "@types/babel__core": "^7",
     "@types/node": "^18.19.31",
     "@types/postcss-flexbugs-fixes": "^5.0.3",
-    "@types/react": "^17.0.39",
-    "@types/react-dom": "^17.0.11",
+    "@types/react": "^18.2.75",
+    "@types/react-dom": "^18.2.24",
     "@types/react-syntax-highlighter": "^15.5.11",
     "@typescript-eslint/eslint-plugin": "^7.6.0",
     "@typescript-eslint/parser": "^7.6.0",
@@ -121,27 +122,28 @@
     "happy-dom": "^15.11.6",
     "move-file-cli": "^3.0.0",
     "prettier": "^3.2.5",
-    "react": "^17.0.2",
+    "react": "^18.2.0",
     "react-docgen-typescript-loader": "^3.7.2",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.2.0",
     "react-syntax-highlighter": "^15.5.0",
     "rimraf": "^5.0.5",
     "rollup": "^4.14.1",
     "rollup-plugin-css-only": "^4.5.2",
     "snyk": "^1.1288.0",
     "storybook": "^8.0.7",
-    "style-dictionary": "^3.9.2",
+    "style-dictionary": "^4.3.3",
     "ts-node": "^10.9.2",
     "typescript": "5.6.3",
     "vite": "^5.4.10",
+    "vite-plugin-dts": "^4.5.3",
     "vite-plugin-svgr": "^4.2.0",
     "vitest": "^2.1.5"
   },
   "peerDependencies": {
-    "react": ">=17.0.2",
-    "react-dom": ">=17.0.2"
+    "react": ">=18.0.2",
+    "react-dom": ">=18.0.2"
   },
   "snyk": true,
-  "packageManager": "yarn@4.3.1",
+  "packageManager": "yarn@4.6.0",
   "stableVersion": "5.0.0-beta.5"
 }

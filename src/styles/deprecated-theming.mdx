@@ -1,0 +1,60 @@
+import { Meta, Story, Canvas, Source } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../storybook/render-html-markup'
+import * as ThemingStories from './deprecated-theming.stories'
+
+<Meta of={ThemingStories} />
+
+# Deprecated Theming
+
+⚠️ The approach to theming described here is deprecated. See `ThemeProvider` instead.
+
+---
+
+We have achieved global and local theming on the project by using CSS Variables throughout that are loaded globally on the `:root` selector when importing the Elements stylesheet into your code (see getting started).
+
+CSS Variables rely on the same rules of specificity as all CSS selectors, so you are able to theme your project globally, by adding a more specific class or id to the root selector of your project and in a CSS file, just override the pre-defined variables.
+
+We are adding to the variable list all the time and the aim is to make the project fully themable in v5. For now, we should have a good base to get you started - see [here](https://github.com/reapit/elements/blob/main/src/styles/globals.ts#L189) for the full variable list.
+
+There are two methods for theming - the compile time, `linaria` method we use when bundling the library and the provider method, that sets variables at runtime which is less efficient but more granular.
+
+## Global Themes
+
+Here we are overriding the `--intent-primary`, `--intent-primary-dark` and `--font-size-small` variables by wrapping the component in a provider that uses the `css` function from `linaria` to set the global variables. This changes the default primary button globally from blue to green (along with anything else using those variables), and increases the text size.
+
+Because the transformation is happening at compile time, we can't supply a component that performs this action so you will need to maintain your own version of the source code below, wrapping your react app in the provider.
+
+> You can also just import a plain old CSS file at the root of your project with the declared root variable list.
+
+<Source
+  code={`
+export const GlobalThemeProvider: FC<PropsWithChildren> = ({ children }) => {
+  const globalTheme = css'
+    :global() {
+      :root {
+        --intent-primary: #a0c862;
+        --intent-primary-dark: #7f9c4b;
+        --font-size-small: 24px;
+      }
+    }
+  '
+
+return <div className={globalTheme}>{children}</div>
+}
+
+// Usage
+
+<GlobalThemeProvider>
+  <Button variant="primary">Button Text</Button>
+</GlobalThemeProvider>
+`} language="typescript" />
+
+## Theming Provider
+
+We also support an in-house provider that inlines the variables, overriding the root selector. This is useful when you want more granular control over the area of the app you wish to theme - you can use it either globally or at an indivudual component level.
+
+In the below example, we wrap our button in the `ElementsThemeProvider` which accepts an object of CSS variables to set. This overrides the theme set in the previous example.
+
+<Canvas of={ThemingStories.DeprecatedThemingProvider} />
+
+<RenderHtmlMarkup of={ThemingStories.DeprecatedThemingProvider} />

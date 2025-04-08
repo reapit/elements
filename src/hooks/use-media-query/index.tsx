@@ -1,5 +1,4 @@
-import { FC, createContext, useContext, useEffect, useState } from 'react'
-import { PropsWithChildren } from '../../types/core'
+import React, { FC, PropsWithChildren, createContext, useContext, useEffect, useState } from 'react'
 
 export interface MediaType {
   isMobile: boolean

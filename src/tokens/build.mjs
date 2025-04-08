@@ -1,56 +1,72 @@
-import StyleDictionaryPackage from 'style-dictionary'
+// @ts-check
 
-const themes = ['Reapit', 'PayProp']
+/**
+ * @typedef {import('./types.ts').Theme} Theme
+ * @typedef {import('style-dictionary').Config} Config
+ */
 
-const getStyleDictionaryConfig = (theme) => {
-  const lowerCasedTheme = theme.toLowerCase()
-  return {
-    source: ['./src/tokens/tokens.json'],
-    parsers: [
-      {
-        pattern: /\.json$/,
-        parse: ({ contents }) => {
-          try {
-            const object = JSON.parse(contents)
-            // Bit fragile but I only want the primitives, semantic and component variables for each theme
-            // Figma exports a "mode 1" that we don't need - confirmed with Andrei
-            const primitives = object['_Primitives/Value']
-            // The PayProp theme isn't yet defined but when it is...
-            const components = object[`Semantic variables/${theme}`] || object['Semantic variables/Reapit']
-            const semantics = object[`_Component variables/${theme}`] || object['_Component variables/Reapit']
-            return { ...primitives, ...semantics, ...components }
-          } catch (error) {
-            console.log(error)
+import StyleDictionary from 'style-dictionary'
+
+/** @type {Theme[]} */
+const themes = ['payprop', 'reapit']
+
+StyleDictionary.registerTransform({
+  name: 'name/custom-format',
+  type: 'name',
+  transform: (token) => {
+    return (
+      token.path
+        .map((variable) => {
+          if (variable.includes('_')) {
+            // Preserve existing underscores (_)
+            return variable
           }
-        },
-      },
+          // Convert camelCase to kebab-case
+          return variable.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase()
+        })
+        // Use `-` as the separator between segments
+        .join('-')
+    )
+  },
+})
+
+/** @returns {Config} */
+function getConfig(themeName) {
+  return {
+    log: {
+      verbosity: 'verbose',
+    },
+    source: [
+      './src/tokens/Primitives.Value.tokens.json',
+      `./src/tokens/Semantics.${themeName.toUpperCase()}.tokens.json`,
     ],
     platforms: {
       css: {
-        buildPath: `src/tokens/${lowerCasedTheme}/`,
+        buildPath: 'src/tokens/dist/',
         files: [
           {
-            destination: 'tokens.css',
+            destination: `${themeName}.css`,
+            filter(token) {
+              // We only want to include semantic tokens in our output because they are resolved to explicit values
+              // instead of referencing the primitives. This is important because we do not want to expose the
+              // primitives to consumers, (1) to prevent their misuse, and (2) to minimise the number of CSS variables
+              // at play.
+              return token.filePath.includes('Semantics')
+            },
             format: 'css/variables',
           },
         ],
-      },
-      ts: {
-        buildPath: `src/tokens/${lowerCasedTheme}/`,
-        files: [
-          {
-            destination: 'tokens.ts',
-            format: 'javascript/es6',
-          },
-        ],
-        transforms: ['name/cti/camel'],
+        options: {
+          selector: themeName === 'reapit' ? ':root, :root[data-theme="reapit"]' : `:root[data-theme="${themeName}"]`,
+        },
+        transformGroup: 'web',
+        transforms: ['name/custom-format', 'attribute/cti'], // Apply custom transform
       },
     },
   }
 }
 
-themes.map((theme) => {
-  const StyleDictionary = StyleDictionaryPackage.extend(getStyleDictionaryConfig(theme))
-
-  StyleDictionary.buildAllPlatforms()
+themes.map(async (theme) => {
+  const sd = new StyleDictionary(getConfig(theme))
+  sd.buildAllPlatforms()
 })
