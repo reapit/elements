@@ -42,13 +42,13 @@ exports[`MobileNavMenu > should match a snapshot when isOpen state is true 1`] =
         class="mocked-styled-13 el-mobile-nav-menu-item-group"
       >
         <li
-          aria-label="Main Nav Item 1"
           class="mocked-styled-7 el-mobile-nav-item-list-item"
           data-is-expanded="false"
         >
           <button
             aria-controls="test-static-id"
             aria-expanded="false"
+            aria-label="Main Nav Item 1"
             class="mocked-styled-3 el-mobile-nav-item-expander-button"
             type="button"
           >

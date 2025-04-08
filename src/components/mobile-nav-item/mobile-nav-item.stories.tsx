@@ -21,15 +21,15 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Simple: Story = {
-  render: ({}) => <MobileNavItem label="Item 1" href="#item-1" />,
+  render: ({}) => <MobileNavItem label="Contact" href="#item-1" />,
 }
 
 export const Active: Story = {
-  render: ({}) => <MobileNavItem label="Item 1" href="#item-1" isActive />,
+  render: ({}) => <MobileNavItem label="Contact" href="#item-1" isActive />,
 }
 
 export const WithBadge: Story = {
-  render: ({}) => <MobileNavItem label="Item 1" href="#item-1" hasBadge />,
+  render: ({}) => <MobileNavItem label="Contact" href="#item-1" hasBadge />,
 }
 
 export const Expandable: Story = {
@@ -38,11 +38,13 @@ export const Expandable: Story = {
     return (
       <>
         <Button onClick={() => setIsOpen((prev) => !prev)}>{isOpen ? 'Close' : 'Open'}</Button>
-        <MobileNavItem label="Item 2" hasBadge isActive={isOpen}>
-          <MobileNavItem label="Sub Item 2.1" href="#item-2.1" />
-          <MobileNavItem label="Sub Item 2.2" onClick={action('onClick')} hasBadge />
-          <MobileNavItem label="Sub Item 2.3" href="#item-2.3" />
-        </MobileNavItem>
+        <ul>
+          <MobileNavItem label="Contact" hasBadge isActive={isOpen}>
+            <MobileNavItem label="Create" href="#create" />
+            <MobileNavItem label="Report" onClick={action('onClick')} hasBadge />
+            <MobileNavItem label="Archive" href="#archive" />
+          </MobileNavItem>
+        </ul>
       </>
     )
   },
@@ -50,10 +52,12 @@ export const Expandable: Story = {
 
 export const DefaultExpanded: Story = {
   render: ({}) => (
-    <MobileNavItem label="Item 3" isActive>
-      <MobileNavItem label="Sub Item 3.1" href="#item-3.1" />
-      <MobileNavItem label="Sub Item 3.2" onClick={action('onClick')} isActive />
-      <MobileNavItem label="Sub Item 3.3" href="#item-3.3" />
-    </MobileNavItem>
+    <ul>
+      <MobileNavItem label="Contact" hasBadge isActive>
+        <MobileNavItem label="Create" href="#create" />
+        <MobileNavItem label="Report" onClick={action('onClick')} hasBadge />
+        <MobileNavItem label="Archive" href="#archive" />
+      </MobileNavItem>
+    </ul>
   ),
 }
