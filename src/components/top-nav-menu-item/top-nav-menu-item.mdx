@@ -1,0 +1,52 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+import * as TopNavMenuItemStories from './top-nav-menu-item.stories'
+
+<Meta of={TopNavMenuItemStories} />
+
+# Top Nav Menu Item
+
+**A Versatile Navigation Component**
+
+The `TopNavMenuItem` is a flexible component designed to render navigation items within a `TopNavMenu` context. It offers two primary variants:
+
+**1. Simple Variant**
+
+- Renders a basic navigation item using an `HTMLAnchorElement` or `HTMLButtonElement`
+
+**2. Expandable Variant**
+
+- Creates an expandable navigation item with a parent element (`HTMLButtonElement`) and a sub-menu (`HTMLUListElement`)
+- The sub-menu children is a simple variant of `TopNavMenuItem` components
+
+## Simple Variant
+
+**Default Appearance**
+
+A basic `TopNavMenuItem` without any special styling or interactions
+
+<Canvas of={TopNavMenuItemStories.Simple} />
+
+**Active**
+
+<Canvas of={TopNavMenuItemStories.Active} />
+
+**With Badge**
+
+<Canvas of={TopNavMenuItemStories.WithBadge} />
+
+## Expandable Variant
+
+**Basic Usage**
+
+<Canvas of={TopNavMenuItemStories.Expandable} />
+
+**Default Expanded**
+
+An expandable `TopNavMenuItem` that is initially open
+
+<Canvas of={TopNavMenuItemStories.DefaultExpanded} />
+
+<RenderHtmlMarkup of={TopNavMenuItemStories.DefaultExpanded} />

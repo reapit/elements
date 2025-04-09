@@ -1,0 +1,120 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TopNavMenuItem > should render Expandable TopNavMenuItem 1`] = `
+<DocumentFragment>
+  <li
+    class="mocked-styled-6 el-top-nav-menu-item-list-item"
+    data-is-expanded="true"
+  >
+    <button
+      aria-controls=":r0:"
+      aria-expanded="true"
+      aria-label="Item 2"
+      class="mocked-styled-3 el-top-nav-menu-item-expander-button"
+      type="button"
+    >
+      Item 2
+      <span
+        class="mocked-styled-4 el-top-nav-menu-item-badge"
+      />
+      <span
+        class="mocked-styled-0 el-icon"
+        style="font-size: 16px;"
+      >
+        <svg
+          fill="none"
+          height="1em"
+          role="img"
+          style="font-size: 16px;"
+          title="Icon image with name chevronUp"
+          viewBox="0 0 24 24"
+          width="1em"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M18.9948 16.4959C18.7292 16.4974 18.4739 16.3932 18.2853 16.2062L11.9991 9.91315L5.71303 16.2062C5.32115 16.5979 4.68579 16.5979 4.29391 16.2062C3.90203 15.8145 3.90203 15.1795 4.29391 14.7878L11.2896 7.79547C11.4772 7.60637 11.7327 7.5 11.9991 7.5C12.2656 7.5 12.5211 7.60637 12.7087 7.79547L19.7044 14.7878C19.8936 14.9754 20 15.2307 20 15.497C20 15.7634 19.8936 16.0187 19.7044 16.2062C19.5158 16.3932 19.2605 16.4974 18.9948 16.4959Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+    </button>
+    <ul
+      aria-hidden="false"
+      class="mocked-styled-5 el-top-nav-sub-item-unordered-list"
+      id=":r0:"
+    >
+      <li
+        class="mocked-styled-6 el-top-nav-menu-item-list-item"
+      >
+        <a
+          aria-current="page"
+          aria-label="Sub Item 2.1"
+          class="mocked-styled-1 el-top-nav-menu-item-anchor"
+          href="#item-2.1"
+        >
+          Sub Item 2.1
+        </a>
+      </li>
+      <li
+        class="mocked-styled-6 el-top-nav-menu-item-list-item"
+      >
+        <button
+          aria-label="Sub Item 2.2"
+          class="mocked-styled-2 el-top-nav-menu-item-button"
+        >
+          Sub Item 2.2
+          <span
+            class="mocked-styled-4 el-top-nav-menu-item-badge"
+          />
+        </button>
+      </li>
+      <li
+        class="mocked-styled-6 el-top-nav-menu-item-list-item"
+      >
+        <a
+          aria-label="Sub Item 2.3"
+          class="mocked-styled-1 el-top-nav-menu-item-anchor"
+          href="#item-2.3"
+        >
+          Sub Item 2.3
+        </a>
+      </li>
+    </ul>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`TopNavMenuItem > should render Simple TopNavMenuItem 1`] = `
+<DocumentFragment>
+  <li
+    class="mocked-styled-6 el-top-nav-menu-item-list-item"
+  >
+    <a
+      aria-label="Item 1"
+      class="mocked-styled-1 el-top-nav-menu-item-anchor"
+      href="#item-1"
+    >
+      Item 1
+    </a>
+  </li>
+</DocumentFragment>
+`;
+
+exports[`TopNavMenuItem > should render Simple TopNavMenuItem with badge 1`] = `
+<DocumentFragment>
+  <li
+    class="mocked-styled-6 el-top-nav-menu-item-list-item"
+  >
+    <a
+      aria-label="Item 1"
+      class="mocked-styled-1 el-top-nav-menu-item-anchor"
+      href="#item-1"
+    >
+      Item 1
+      <span
+        class="mocked-styled-4 el-top-nav-menu-item-badge"
+      />
+    </a>
+  </li>
+</DocumentFragment>
+`;
