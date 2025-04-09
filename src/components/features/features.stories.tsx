@@ -36,7 +36,7 @@ export const Default: Story = {
       <Features.Item aria-label="Cars" icon={<Icon icon="car" />}>
         5
       </Features.Item>
-      <Features.Item aria-label="Areas" icon={<Icon icon="appLauncher" />}>
+      <Features.Item aria-label="Areas" icon={<Icon icon="appSwitcher" />}>
         850 sqm
       </Features.Item>
     </Features>
