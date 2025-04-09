@@ -68,6 +68,10 @@ export const ElMobileNavItemBadge = styled.span`
 `
 
 export const ElMobileNavSubItemUnorderedList = styled.ul`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  align-self: stretch;
   &[aria-hidden='true'] {
     display: none;
   }
@@ -76,6 +80,8 @@ export const ElMobileNavSubItemUnorderedList = styled.ul`
 export const ElMobileNavItemListItem = styled.li`
   display: flex;
   flex-direction: column;
+  align-self: stretch;
+  align-items: flex-start;
   background: var(--fill-white);
   border-radius: var(--corner-lg);
 

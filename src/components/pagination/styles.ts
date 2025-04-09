@@ -13,14 +13,14 @@ export const ElPaginationList = styled.ul`
 export const ElPaginationItem = styled.li``
 
 export const ElPaginationText = styled.span`
-  color: var(--text-primary);
   text-align: center;
-  min-width: var(--size-14);
+  min-width: var(--size-12);
 
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
+  color: var(--colour-text-primary);
+  font-family: var(--font-base-regular-family);
+  font-size: var(--font-base-regular-size);
   font-style: normal;
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-base);
-  letter-spacing: var(--letter-spacing-base);
+  font-weight: var(--font-base-regular-weight);
+  line-height: var(--font-base-regular-line_height);
+  letter-spacing: var(--font-base-regular-letter_spacing);
 `
