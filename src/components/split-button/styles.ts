@@ -34,6 +34,7 @@ export const ElSplitButton = styled.div`
       var(--comp-button-border-radius-default) var(--comp-button-border-radius-none);
     border-left: var(--comp-button-border-width-none) solid var(--comp-button-colour-border-secondary-default);
 
+    // This is to add the border-left in the SplitMenuButton to support busy state
     &:before {
       content: '';
       position: absolute;
