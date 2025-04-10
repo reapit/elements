@@ -1,0 +1,65 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as SplitButtonStories from './split-button.stories'
+
+<Meta of={SplitButtonStories} />
+
+# Split Button
+
+<Controls />
+
+## Default Usage
+
+A Split Button with no additional props / classes applied
+
+<Canvas of={SplitButtonStories.Default} />
+
+<RenderHtmlMarkup of={SplitButtonStories.Default} />
+
+## With Menu
+
+A Split Menu Button can be wrapped with `Menu` component.
+
+<Canvas of={SplitButtonStories.SplitButtonWithMenu} />
+
+<RenderHtmlMarkup of={SplitButtonStories.SplitButtonWithMenu} />
+
+## Variants
+
+A split button can support all the variants that a `Button` component have that is `primary` `secondary`, and `busy`, `secondary` being default. The below component is set to `primary` variant.
+
+<Canvas of={SplitButtonStories.SplitButtonVariants} />
+
+<RenderHtmlMarkup of={SplitButtonStories.SplitButtonVariants} />
+
+## Split Button Busy
+
+Both action and menu button can have a busy variant.
+
+<Canvas of={SplitButtonStories.SplitButtonBusy} />
+
+<RenderHtmlMarkup of={SplitButtonStories.SplitButtonBusy} />
+
+## Split Button Disabled
+
+Both Action and Menu Button can be disabled.
+
+<Canvas of={SplitButtonStories.SplitButtonDisabled} />
+
+<RenderHtmlMarkup of={SplitButtonStories.SplitButtonDisabled} />
+
+## Split Button Disabled with Menu
+
+A Split Action Button can be Disabled while menu button will stay active if its childern are enabled.
+
+<Canvas of={SplitButtonStories.SplitButtonDisabledWithMenu} />
+
+<RenderHtmlMarkup of={SplitButtonStories.SplitButtonDisabledWithMenu} />
+
+## Sizes
+
+A split button can have three sizes `small`, `medium` and `large`, `medium` being default.
+
+<Canvas of={SplitButtonStories.SplitButtonSize} />
+
+<RenderHtmlMarkup of={SplitButtonStories.SplitButtonSize} />
