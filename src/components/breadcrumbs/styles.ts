@@ -44,10 +44,10 @@ export const elBreadcrumbsLink = css`
   text-overflow: ellipsis;
   overflow: hidden;
 
+  padding: 1px; // to imitate the link focus size
+  border: var(--border-width-double) solid transparent;
   &:focus {
-    box-shadow:
-      0px 0px 0px 1px #fff,
-      0px 0px 0px var(--vertical-shadow-size) var(--purple-300);
+    border-color: var(--colour-border-focus);
   }
 
   &:focus-visible {
@@ -62,22 +62,10 @@ export const elBreadcrumbsLink = css`
 export const ElBreadcrumbsList = styled.ul`
   display: flex;
 
-  /*
-  * to make the vertical shadow visible while in mobile/scrollable state
-  * we need to add a padding the same size as shadow size
-  */
-  --vertical-shadow-size: 4px;
-  --vertical-shadow-size-negative: calc(-1 * var(--vertical-shadow-size));
-
   ${isMobile} {
     /* Enable horizontal scrolling in mobile */
     overflow-x: auto;
     flex-wrap: nowrap;
-
-    /* workaround to make the vertical shadow visible while in mobile/scrollable state */
-    padding: var(--vertical-shadow-size) 0 var(--vertical-shadow-size) var(--vertical-shadow-size);
-    margin: var(--vertical-shadow-size-negative) 0 var(--vertical-shadow-size-negative)
-      var(--vertical-shadow-size-negative);
 
     /* hide scrollbar */
     &::-webkit-scrollbar {
