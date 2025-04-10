@@ -2,9 +2,9 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { SideBarMenuGroupItem, SideBarMenuGroup } from '..'
 import { SideBar } from '#src/components/side-bar/side-bar'
 import { SideBarCollapseButton } from '../../side-bar-collapse-button'
-import { useMediaQuery } from '#src/hooks/use-media-query/index'
+import { useMediaQuery } from '#src/hooks/use-media-query'
 
-vi.mock('#src/hooks/use-media-query/index', () => ({
+vi.mock('#src/hooks/use-media-query', () => ({
   useMediaQuery: vi.fn(),
 }))
 

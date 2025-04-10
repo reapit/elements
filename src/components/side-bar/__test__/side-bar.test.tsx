@@ -1,4 +1,4 @@
-import { useMediaQuery } from '#src/hooks/use-media-query/index'
+import { useMediaQuery } from '#src/hooks/use-media-query'
 import { fireEvent, render } from '@testing-library/react'
 import { SideBar } from '..'
 
@@ -6,7 +6,7 @@ vi.mock('../../side-bar-collapse-button/icons/collapse.svg?react', () => ({
   default: vi.fn(() => <span data-testid="collapse-icon" />),
 }))
 
-vi.mock('#src/hooks/use-media-query/index', () => ({
+vi.mock('#src/hooks/use-media-query', () => ({
   useMediaQuery: vi.fn(),
 }))
 

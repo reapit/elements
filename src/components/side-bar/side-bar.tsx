@@ -2,7 +2,7 @@ import { useState, type FC, type HTMLAttributes, type KeyboardEventHandler } fro
 import { SideBarCollapseButton } from '../side-bar-collapse-button'
 import { IsSideBarExpandedContext, useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
 import { ElSideBar, ELSideBarMenuList } from './styles'
-import { useMediaQuery } from '#src/hooks/use-media-query/index'
+import { useMediaQuery } from '#src/hooks/use-media-query'
 
 type SideBarFC = FC<HTMLAttributes<HTMLElement>> & {
   CollapseButon: typeof SideBarCollapseButton
