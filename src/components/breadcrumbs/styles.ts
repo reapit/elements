@@ -23,21 +23,21 @@ export const ElBreadcrumbsItemChevron = styled(Icon)`
   box-sizing: content-box;
   &,
   & svg {
-    width: var(--icon-size-xs);
-    height: var(--icon-size-xs);
+    width: var(--icon_size-xs);
+    height: var(--icon_size-xs);
   }
   color: var(--icon-primary);
 `
 
 export const elBreadcrumbsLink = css`
-  color: var(--text-secondary);
+  color: var(--colour-text-secondary);
 
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
+  font-family: var(--font-sm-regular-family);
+  font-size: var(--font-sm-regular-size);
   font-style: normal;
-  font-weight: 400;
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
+  font-weight: var(--font-sm-regular-weight);
+  line-height: var(--font-sm-regular-line_height);
+  letter-spacing: var(--font-sm-regular-letter_spacing);
 
   cursor: pointer;
   white-space: nowrap;
