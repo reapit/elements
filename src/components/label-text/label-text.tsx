@@ -1,7 +1,7 @@
 import React, { FC, LabelHTMLAttributes } from 'react'
 import { ElLabelRequiredMark, ElLabelText } from './styles'
 
-interface LabelTextProps extends LabelHTMLAttributes<HTMLSpanElement> {
+export interface LabelTextProps extends LabelHTMLAttributes<HTMLSpanElement> {
   variant?: 'soft' | 'strong'
   size?: 'small' | 'medium'
   isRequired?: boolean

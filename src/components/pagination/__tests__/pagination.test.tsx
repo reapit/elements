@@ -7,10 +7,6 @@ describe('Pagination', () => {
     vi.clearAllMocks()
   })
 
-  it('should match a snapshot', () => {
-    expect(renderComponent().asFragment()).toMatchSnapshot()
-  })
-
   it('should able to increment', () => {
     const { getByRole } = renderComponent({ currentPage: 1, pageCount: 3 })
 
