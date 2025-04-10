@@ -1,15 +1,16 @@
+import { MediaStateProvider } from '#src/hooks/use-media-query/index'
 import { figmaDesignUrls } from '#src/storybook/figma/index'
 import type { Meta, StoryObj } from '@storybook/react'
-import { SideBar } from './side-bar'
+import { Icon } from '../icon'
+import { SideBarMenuGroup, SideBarMenuGroupItem } from '../side-bar-menu-group'
 import {
   elSideBarMenuItemAnchor,
   ElSideBarMenuItemIcon,
   ElSideBarMenuItemText,
   SideBarMenuItem,
 } from '../side-bar-menu-item'
-import { Icon } from '../icon'
 import { useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
-import { SideBarMenuGroup, SideBarMenuGroupItem } from '../side-bar-menu-group'
+import { SideBar } from './side-bar'
 
 export default {
   title: 'Components/Side Bar',
@@ -40,75 +41,77 @@ export const Default: Story = {
       )
     }
     return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          height: '100%',
-          overflow: 'hidden',
-        }}
-      >
-        <style>
-          {`
+      <MediaStateProvider>
+        <div
+          style={{
+            display: 'flex',
+            flexDirection: 'row',
+            height: '100%',
+            overflow: 'hidden',
+          }}
+        >
+          <style>
+            {`
             #storybook-root {
               height: 100%;
             }
           `}
-        </style>
+          </style>
 
-        <SideBar>
-          <SideBar.MenuList>
-            <SideBarMenuItem isActive icon={<Icon icon="property" />} href="#">
-              SideBar Item (active)
-            </SideBarMenuItem>
-            <SideBarMenuGroup isActive label="Menu Group 1" icon={<Icon icon="property" />}>
-              <SideBarMenuGroupItem isActive href="#">
-                Sub Menu Item 1
-              </SideBarMenuGroupItem>
-              <SideBarMenuGroupItem href="#">Sub Menu Item 2</SideBarMenuGroupItem>
-            </SideBarMenuGroup>
+          <SideBar>
+            <SideBar.MenuList>
+              <SideBarMenuItem isActive icon={<Icon icon="property" />} href="#">
+                SideBar Item (active)
+              </SideBarMenuItem>
+              <SideBarMenuGroup isActive label="Menu Group 1" icon={<Icon icon="property" />}>
+                <SideBarMenuGroupItem isActive href="#">
+                  Sub Menu Item 1
+                </SideBarMenuGroupItem>
+                <SideBarMenuGroupItem href="#">Sub Menu Item 2</SideBarMenuGroupItem>
+              </SideBarMenuGroup>
 
-            <SideBarMenuGroup label="Menu Group 2" icon={<Icon icon="property" />}>
-              <SideBarMenuGroupItem href="#">Sub Menu Item 3</SideBarMenuGroupItem>
-              <SideBarMenuGroupItem href="#">Sub Menu Item 4</SideBarMenuGroupItem>
-            </SideBarMenuGroup>
+              <SideBarMenuGroup label="Menu Group 2" icon={<Icon icon="property" />}>
+                <SideBarMenuGroupItem href="#">Sub Menu Item 3</SideBarMenuGroupItem>
+                <SideBarMenuGroupItem href="#">Sub Menu Item 4</SideBarMenuGroupItem>
+              </SideBarMenuGroup>
 
-            <li>
-              <CustomLink />
-            </li>
-            <SideBarMenuItem icon={<Customicon />} href="#">
-              External Icon
-            </SideBarMenuItem>
+              <li>
+                <CustomLink />
+              </li>
+              <SideBarMenuItem icon={<Customicon />} href="#">
+                External Icon
+              </SideBarMenuItem>
 
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
-              return (
-                <SideBarMenuItem key={i} icon={<Icon icon="property" />} href="/#">
-                  SideBar Item
-                </SideBarMenuItem>
-              )
-            })}
-          </SideBar.MenuList>
-          <SideBar.CollapseButon />
-        </SideBar>
-        <main
-          style={{
-            width: '100%',
-            overflow: 'auto',
-          }}
-        >
-          <div
+              {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
+                return (
+                  <SideBarMenuItem key={i} icon={<Icon icon="property" />} href="/#">
+                    SideBar Item
+                  </SideBarMenuItem>
+                )
+              })}
+            </SideBar.MenuList>
+            <SideBar.CollapseButon />
+          </SideBar>
+          <main
             style={{
-              background: '#ffdaf5',
-              paddingTop: '13rem',
-              paddingLeft: '3rem',
-              fontSize: '1.25rem',
-              height: '115vh',
+              width: '100%',
+              overflow: 'auto',
             }}
           >
-            Placeholder main content
-          </div>
-        </main>
-      </div>
+            <div
+              style={{
+                background: '#ffdaf5',
+                paddingTop: '13rem',
+                paddingLeft: '3rem',
+                fontSize: '1.25rem',
+                height: '115vh',
+              }}
+            >
+              Placeholder main content
+            </div>
+          </main>
+        </div>
+      </MediaStateProvider>
     )
   },
   parameters: {

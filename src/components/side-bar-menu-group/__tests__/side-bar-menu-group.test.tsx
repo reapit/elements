@@ -2,8 +2,27 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { SideBarMenuGroupItem, SideBarMenuGroup } from '..'
 import { SideBar } from '#src/components/side-bar/side-bar'
 import { SideBarCollapseButton } from '../../side-bar-collapse-button'
+import { useMediaQuery } from '#src/hooks/use-media-query/index'
+
+vi.mock('#src/hooks/use-media-query/index', () => ({
+  useMediaQuery: vi.fn(),
+}))
+
+const mockUseMediaQuery = vi.mocked(useMediaQuery)
 
 describe('SideBarMenuGroupItem', () => {
+  beforeAll(() => {
+    // default expanded side-bar
+    mockUseMediaQuery.mockReturnValue({
+      isDesktop: false,
+      isWideScreen: true,
+      isSuperWideScreen: false,
+      is4KScreen: false,
+      isMobile: false,
+      isTablet: false,
+    })
+  })
+
   it('renders with available props correctly', () => {
     render(<SideBarMenuGroupItem href="/test">Test Child</SideBarMenuGroupItem>)
     expect(screen.getByText('Test Child')).toBeInTheDocument()

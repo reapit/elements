@@ -1,11 +1,30 @@
-import { act, fireEvent, render, screen } from '@testing-library/react'
+import { useMediaQuery } from '#src/hooks/use-media-query/index'
+import { fireEvent, render } from '@testing-library/react'
 import { SideBar } from '..'
 
 vi.mock('../../side-bar-collapse-button/icons/collapse.svg?react', () => ({
   default: vi.fn(() => <span data-testid="collapse-icon" />),
 }))
 
+vi.mock('#src/hooks/use-media-query/index', () => ({
+  useMediaQuery: vi.fn(),
+}))
+
+const mockUseMediaQuery = vi.mocked(useMediaQuery)
+
 describe('SideBar', () => {
+  beforeAll(() => {
+    // default expanded side-bar
+    mockUseMediaQuery.mockReturnValue({
+      isDesktop: false,
+      isWideScreen: true,
+      isSuperWideScreen: false,
+      is4KScreen: false,
+      isMobile: false,
+      isTablet: false,
+    })
+  })
+
   it('should match snapshot with expanded state', () => {
     const { asFragment } = render(
       <SideBar>
@@ -17,16 +36,15 @@ describe('SideBar', () => {
   })
 
   it('should match snapshot with collapsed state', () => {
+    mockUseMediaQuery.mockReturnValue({
+      isDesktop: true,
+    } as any)
     const { asFragment } = render(
       <SideBar>
         <SideBar.MenuList>SideBar list content</SideBar.MenuList>
         <SideBar.CollapseButon />
       </SideBar>,
     )
-    act(() => {
-      fireEvent.click(screen.getByRole('button'))
-    })
-    expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false')
     expect(asFragment()).toMatchSnapshot()
   })
 

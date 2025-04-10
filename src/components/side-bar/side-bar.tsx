@@ -2,6 +2,7 @@ import { useState, type FC, type HTMLAttributes, type KeyboardEventHandler } fro
 import { SideBarCollapseButton } from '../side-bar-collapse-button'
 import { IsSideBarExpandedContext, useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
 import { ElSideBar, ELSideBarMenuList } from './styles'
+import { useMediaQuery } from '#src/hooks/use-media-query/index'
 
 type SideBarFC = FC<HTMLAttributes<HTMLElement>> & {
   CollapseButon: typeof SideBarCollapseButton
@@ -9,7 +10,8 @@ type SideBarFC = FC<HTMLAttributes<HTMLElement>> & {
 }
 
 const SideBar: SideBarFC = ({ children, ...props }) => {
-  const [isExpanded, setIsExpanded] = useState(true)
+  const { isWideScreen, isSuperWideScreen, is4KScreen } = useMediaQuery()
+  const [isExpanded, setIsExpanded] = useState(!!(isWideScreen || isSuperWideScreen || is4KScreen))
 
   const handleOnKeyDown: KeyboardEventHandler<HTMLUListElement> = (e) => {
     const container = e.currentTarget
