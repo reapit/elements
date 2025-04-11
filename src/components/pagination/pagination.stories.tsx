@@ -12,6 +12,14 @@ const meta = {
     currentPage: 1,
     pageCount: 5,
   },
+  argTypes: {
+    currentPage: {
+      control: false,
+    },
+    pageCount: {
+      control: false,
+    },
+  },
 } satisfies Meta<typeof Pagination>
 
 export default meta
