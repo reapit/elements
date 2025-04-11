@@ -46,7 +46,7 @@ export const elM3 = css`
 `
 
 export const elM4 = css`
-  margin: var(-util-rems-4);
+  margin: var(--util-rems-4);
 `
 
 export const elM5 = css`
@@ -98,7 +98,7 @@ export const elMl3 = css`
 `
 
 export const elMl4 = css`
-  margin-left: var(-util-rems-4);
+  margin-left: var(--util-rems-4);
 `
 
 export const elMl5 = css`
@@ -150,7 +150,7 @@ export const elMr3 = css`
 `
 
 export const elMr4 = css`
-  margin-right: var(-util-rems-4);
+  margin-right: var(--util-rems-4);
 `
 
 export const elMr5 = css`
@@ -202,7 +202,7 @@ export const elMb3 = css`
 `
 
 export const elMb4 = css`
-  margin-bottom: var(-util-rems-4);
+  margin-bottom: var(--util-rems-4);
 `
 
 export const elMb5 = css`
@@ -254,7 +254,7 @@ export const elMt3 = css`
 `
 
 export const elMt4 = css`
-  margin-top: var(-util-rems-4);
+  margin-top: var(--util-rems-4);
 `
 
 export const elMt5 = css`
@@ -310,8 +310,8 @@ export const elMy3 = css`
 `
 
 export const elMy4 = css`
-  margin-top: var(-util-rems-4);
-  margin-bottom: var(-util-rems-4);
+  margin-top: var(--util-rems-4);
+  margin-bottom: var(--util-rems-4);
 `
 
 export const elMy5 = css`
@@ -375,8 +375,8 @@ export const elMx3 = css`
 `
 
 export const elMx4 = css`
-  margin-left: var(-util-rems-4);
-  margin-right: var(-util-rems-4);
+  margin-left: var(--util-rems-4);
+  margin-right: var(--util-rems-4);
 `
 
 export const elMx5 = css`
@@ -437,7 +437,7 @@ export const elP3 = css`
 `
 
 export const elP4 = css`
-  padding: var(-util-rems-4);
+  padding: var(--util-rems-4);
 `
 
 export const elP5 = css`
@@ -489,7 +489,7 @@ export const elPr3 = css`
 `
 
 export const elPr4 = css`
-  padding-right: var(-util-rems-4);
+  padding-right: var(--util-rems-4);
 `
 
 export const elPr5 = css`
@@ -541,7 +541,7 @@ export const elPl3 = css`
 `
 
 export const elPl4 = css`
-  padding-left: var(-util-rems-4);
+  padding-left: var(--util-rems-4);
 `
 
 export const elPl5 = css`
@@ -597,8 +597,8 @@ export const elPy3 = css`
 `
 
 export const elPy4 = css`
-  padding-top: var(-util-rems-4);
-  padding-bottom: var(-util-rems-4);
+  padding-top: var(--util-rems-4);
+  padding-bottom: var(--util-rems-4);
 `
 
 export const elPy5 = css`
@@ -662,8 +662,8 @@ export const elPx3 = css`
 `
 
 export const elPx4 = css`
-  padding-left: var(-util-rems-4);
-  padding-right: var(-util-rems-4);
+  padding-left: var(--util-rems-4);
+  padding-right: var(--util-rems-4);
 `
 
 export const elPx5 = css`
@@ -723,7 +723,7 @@ export const elPt3 = css`
 `
 
 export const elPt4 = css`
-  padding-top: var(-util-rems-4);
+  padding-top: var(--util-rems-4);
 `
 
 export const elPt5 = css`
@@ -775,7 +775,7 @@ export const elPb3 = css`
 `
 
 export const elPb4 = css`
-  padding-bottom: var(-util-rems-4);
+  padding-bottom: var(--util-rems-4);
 `
 
 export const elPb5 = css`

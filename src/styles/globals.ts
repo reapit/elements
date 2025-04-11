@@ -395,7 +395,7 @@ export const elGlobals = css`
       --util-rems-1: 0.25rem;
       --util-rems-2: 0.375rem;
       --util-rems-3: 0.5rem;
-      --util-rems-4: 0.625rem;
+      ---util-rems-4: 0.625rem;
       --util-rems-5: 0.75rem;
       --util-rems-6: 1rem;
       --util-rems-7: 1.25rem;
