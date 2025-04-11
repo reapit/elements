@@ -5,6 +5,10 @@ const baseStyles = `
   cursor: pointer;
   color: inherit;
   display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--spacing-2);
+  flex-grow: 1;
   border: none;
   outline: none;
   width: 100%;
@@ -35,31 +39,24 @@ const baseStyles = `
   }
 `
 
-export const ElMobileNavItemAnchor = styled.a`
+export const ElTopNavMenuItemAnchor = styled.a`
   ${baseStyles}
 `
 
-export const ElMobileNavItemButton = styled.button`
+export const ElTopNavMenuItemButton = styled.button`
   ${baseStyles}
 `
 
-export const ElMobileNavItemExpanderButton = styled.button`
+export const ElTopNavMenuItemExpanderButton = styled.button`
   ${baseStyles}
-
   ${ElIcon} {
+    width: 100%;
+    justify-content: end;
     color: var(--icon-primary);
   }
 `
 
-export const ElMobileNavItemContent = styled.span`
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: var(--spacing-2);
-  flex-grow: 1;
-`
-
-export const ElMobileNavItemBadge = styled.span`
+export const ElTopNavMenuItemBadge = styled.span`
   display: block;
   width: var(--size-2);
   height: var(--size-2);
@@ -67,7 +64,7 @@ export const ElMobileNavItemBadge = styled.span`
   border-radius: 100%;
 `
 
-export const ElMobileNavSubItemUnorderedList = styled.ul`
+export const ElTopNavSubItemUnorderedList = styled.ul`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -77,7 +74,7 @@ export const ElMobileNavSubItemUnorderedList = styled.ul`
   }
 `
 
-export const ElMobileNavItemListItem = styled.li`
+export const ElTopNavMenuItemListItem = styled.li`
   display: flex;
   flex-direction: column;
   align-self: stretch;
@@ -88,17 +85,17 @@ export const ElMobileNavItemListItem = styled.li`
   &[data-is-expanded='true'] {
     background: var(--fill-default-lightest);
 
-    > ${ElMobileNavItemExpanderButton} {
+    > ${ElTopNavMenuItemExpanderButton} {
       border-radius: var(--corner-lg) var(--corner-lg) var(--corner-none) var(--corner-none);
     }
-    ${ElMobileNavSubItemUnorderedList} > * {
+    ${ElTopNavSubItemUnorderedList} > * {
       background: var(--fill-default-lightest);
       border-radius: var(--corner-none);
     }
-    ${ElMobileNavSubItemUnorderedList} > :last-child {
+    ${ElTopNavSubItemUnorderedList} > :last-child {
       border-radius: var(--corner-none) var(--corner-none) var(--corner-lg) var(--corner-lg);
     }
-    ${ElMobileNavItemAnchor}, ${ElMobileNavItemExpanderButton} {
+    ${ElTopNavMenuItemAnchor}, ${ElTopNavMenuItemExpanderButton} {
       &:hover {
         background: var(--fill-default-light);
       }
