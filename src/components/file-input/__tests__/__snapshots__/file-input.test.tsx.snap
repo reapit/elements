@@ -26,7 +26,7 @@ exports[`FileInput component should match a snapshot 1`] = `
         >
           <mock-styled.button
             classname="mock-css.
-  margin-right: var(-util-rems-4);
+  margin-right: var(--util-rems-4);
  mock-css."
             type="button"
           >
@@ -241,7 +241,7 @@ exports[`FileInput component should match a snapshot 1`] = `
       >
         <mock-styled.button
           classname="mock-css.
-  margin-right: var(-util-rems-4);
+  margin-right: var(--util-rems-4);
  mock-css."
           type="button"
         >
@@ -585,7 +585,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
         >
           <mock-styled.button
             classname="mock-css.
-  margin-right: var(-util-rems-4);
+  margin-right: var(--util-rems-4);
  mock-css."
             type="button"
           >
@@ -604,7 +604,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
           <mock-styled.div>
             <mock-styled.span
               classname="mock-css.
-  margin-right: var(-util-rems-4);
+  margin-right: var(--util-rems-4);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -619,7 +619,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
             </mock-styled.span>
             <mock-styled.span
               classname="mock-css.
-  margin-right: var(-util-rems-4);
+  margin-right: var(--util-rems-4);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -662,7 +662,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
       >
         <mock-styled.button
           classname="mock-css.
-  margin-right: var(-util-rems-4);
+  margin-right: var(--util-rems-4);
  mock-css."
           type="button"
         >
@@ -681,7 +681,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
         <mock-styled.div>
           <mock-styled.span
             classname="mock-css.
-  margin-right: var(-util-rems-4);
+  margin-right: var(--util-rems-4);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
@@ -696,7 +696,7 @@ exports[`FileInput component should match a snapshot with full props 1`] = `
           </mock-styled.span>
           <mock-styled.span
             classname="mock-css.
-  margin-right: var(-util-rems-4);
+  margin-right: var(--util-rems-4);
  mock-css. mock-css.
   font-size: 1.5rem !important;
 "
