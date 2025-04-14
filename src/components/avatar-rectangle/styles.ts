@@ -15,8 +15,8 @@ const baseAvatarRectMediumSize = `
 `
 
 const baseAvatarRectSmallSize = `
-  width: var(--size-16);
-  height: var(--size-12);
+  width: var(--size-12);
+  height: var(--size-10);
 `
 
 // The commercial consists of two sections: the commercial image and the bottom placeholder.
@@ -26,8 +26,8 @@ const baseCommercialMediumImagesSize = `
 `
 
 const baseCommercialBottomSmallPlaceholderSize = `
-  width: var(--size-12);
-  height: 36px;
+  width: 40px;
+  height: 32px;
 `
 
 const baseCommercialBottomImagePosition = `
