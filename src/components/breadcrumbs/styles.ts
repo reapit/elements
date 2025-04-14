@@ -20,12 +20,7 @@ export const ElBreadcrumbsItemChevron = styled(Icon)`
   justify-content: center;
   padding: 0px var(--spacing-1);
 
-  box-sizing: content-box;
-  &,
-  & svg {
-    width: var(--icon_size-xs);
-    height: var(--icon_size-xs);
-  }
+  font-size: var(--icon_size-xs);
   color: var(--icon-primary);
 `
 
