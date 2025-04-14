@@ -5,14 +5,12 @@ exports[`TextInput component > should match a snapshot 1`] = `
   <div
     class="mocked-styled-0 el-text-input"
   >
-    <div
-      class="mocked-styled-1 el-input-field-wrapper"
-    >
-      <input
-        aria-label="Input type undefined"
-        class="mocked-styled-2 el-input-field"
-      />
-    </div>
+    <input
+      aria-label="Input type undefined"
+      class="mocked-styled-1 el-input-field"
+      data-size="medium"
+      data-variant="default"
+    />
   </div>
 </DocumentFragment>
 `;

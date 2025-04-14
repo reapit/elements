@@ -1,86 +1,82 @@
-import React, { forwardRef, LegacyRef } from 'react'
-import {
-  ElInputErrorText,
-  ElInputField,
-  ElInputFieldWrapper,
-  ElInputSizesEnum,
-  ElInputVariantEnum,
-  ElTextInput,
-  getIconSize,
-} from './styles'
-import { LabelText } from '../label-text'
-import { Icon, IconNames } from '../icon'
+import React, { forwardRef, LegacyRef, ReactNode } from 'react'
+import { ElInputField, ElInputSizesEnum, ElInputVariantEnum, ElTextInput } from './styles'
 
-export interface TextInputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
+export interface TextInputProps
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'suffix'> {
   isError?: boolean
   variant?: ElInputVariantEnum
   size?: ElInputSizesEnum
-  prefix?: IconNames
-  suffix?: IconNames
-  label?: string
   isRequired?: boolean
-  errorMessage?: string
-  helperText?: string
+  isBusy?: boolean
+  loadingIcon?: ReactNode
+  prefix?: ReactNode
+  suffix?: ReactNode
+  type:
+    | 'text'
+    | 'password'
+    | 'email'
+    | 'number'
+    | 'tel'
+    | 'url'
+    | 'hidden'
+    | 'time'
+    | 'date'
+    | 'datetime-local'
+    | 'week'
+    | 'month'
 }
 
 /**
- * A customizable `<input>` component for use in forms.
+ * `TextInput` is a customizable input component built on top of the native HTML `<input>`.
  *
- * Supports different visual variants, sizes, and optional prefix/suffix icons.
- * It also provides error handling, helper texts, and accessibility enhancements.
+ * ### Features
+ * - Supports multiple input types: `'text'`, `'email'`, `'date'`, etc.
+ * - Visual variants (`variant`):
+ *   - `'default'`: Plain input
+ *   - `'with-prefix'`: Input with content before the field
+ *   - `'with-suffix'`: Input with content after the field
+ * - Sizes (`size`):
+ *   - `'small'`: Compact input field
+ *   - `'medium'`: Default size
+ *   - `'large'`: Spacious input for emphasis
+ * - Optional `prefix` and `suffix` props for icons or elements
+ * - Error state styling with `isError`
+ * - Loading indicator support with `isBusy` and `loadingIcon`
+ * - Accessibility enhancements:
+ *   - Adds `aria-label` for screen readers
+ *   - `aria-required` when `isRequired` is true
  *
- * ## Features:
- * - Supports standard, prefix, and suffix variants.
- * - Configurable sizes (`small`, `medium`, `large`).
- * - Displays error messages and helper texts.
- * - Built-in accessibility attributes.
- *
- * ## Accessibility:
- * - Adds `aria-label` with contextual information for input types.
- * - Supports required fields with `isRequired` prop.
- *
- * ## Example Usage:
+ * ### Example
  * ```tsx
  * <TextInput
- *   label="Username"
- *   placeholder="Enter your username"
- *   prefix="user"
+ *   type="text"
+ *   placeholder="Enter your email"
+ *   prefix={<MailIcon />}
+ *   size="small"
  *   isRequired
- *   size="large"
- *   isError={false}
- *   helperText="Must be at least 6 characters."
+ *   variant="with-prefix"
  * />
  * ```
  */
 export const TextInput: React.ForwardRefExoticComponent<TextInputProps> = forwardRef(
   (
-    { isError, suffix, isRequired, label, prefix, size, errorMessage, helperText, variant, ...rest },
+    { isError, isRequired, size = 'medium', loadingIcon, variant = 'default', prefix, suffix, isBusy, ...rest },
     ref: React.ForwardedRef<React.InputHTMLAttributes<HTMLInputElement>>,
   ) => {
-    const textSize: ElInputSizesEnum = size == 'large' ? 'medium' : 'small'
-    const placeholder: string | undefined = isRequired && !label ? `${rest.placeholder} *` : rest.placeholder
     return (
-      <ElTextInput>
-        {label && (
-          <LabelText size={textSize} isRequired={isRequired}>
-            {label}
-          </LabelText>
-        )}
-        <ElInputFieldWrapper data-is-error={isError}>
-          {prefix && <Icon fontSize="1rem" intent={'default'} icon={prefix} {...getIconSize(size)} />}
-          <ElInputField
-            {...rest}
-            data-variant={variant}
-            data-size={size}
-            required={isRequired}
-            placeholder={placeholder}
-            aria-label={`Input type ${rest.type}`}
-            ref={ref as unknown as LegacyRef<HTMLInputElement>}
-          />
-          {suffix && <Icon fontSize="1rem" intent={'default'} icon={suffix} {...getIconSize(size)} />}
-        </ElInputFieldWrapper>
-        {isError && errorMessage && <ElInputErrorText data-size={textSize}>{errorMessage}</ElInputErrorText>}
-        {!isError && helperText && <LabelText size={textSize}>{helperText}</LabelText>}
+      <ElTextInput data-is-error={isError}>
+        {prefix && prefix}
+        <ElInputField
+          {...rest}
+          data-variant={variant}
+          data-size={size}
+          data-required={isRequired}
+          placeholder={rest.placeholder}
+          aria-label={`Input type ${rest.type}`}
+          ref={ref as unknown as LegacyRef<HTMLInputElement>}
+        />
+        {suffix && suffix}
+        {isBusy && loadingIcon && loadingIcon}
       </ElTextInput>
     )
   },
