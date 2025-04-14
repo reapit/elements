@@ -59,7 +59,6 @@ function getConfig(themeName) {
         options: {
           selector: themeName === 'reapit' ? ':root, :root[data-theme="reapit"]' : `:root[data-theme="${themeName}"]`,
         },
-        transformGroup: 'web',
         transforms: ['name/custom-format', 'attribute/cti'], // Apply custom transform
       },
     },
