@@ -1,0 +1,32 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+import * as TopBarMenuItemGroupStories from './top-bar-menu-item-group.stories'
+
+<Meta of={TopBarMenuItemGroupStories} />
+
+# Top Bar Menu Item Group
+
+**A Versatile Navigation Component**
+
+The `TopBarMenuItemGroup` is a wrapper component around the `TopBarMenuItem` component that provide the ability to group multiple `TopBarMenuItem` components together
+
+**Default Appearance**
+
+## Expandable Variant
+
+**Default**
+
+<Canvas of={TopBarMenuItemGroupStories.Default} />
+
+<RenderHtmlMarkup of={TopBarMenuItemGroupStories.Default} />
+
+**Expandable**
+
+An expandable `TopBarMenuItemGroup` that is initially closed.
+
+This component would prioritize the `isActive` prop over the internal state of the component
+
+<Canvas of={TopBarMenuItemGroupStories.Expandable} />
+
