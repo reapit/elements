@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+
 import { TopBarMenuItem } from '../top-bar-menu-item'
 
 it('should render as a link', () => {
