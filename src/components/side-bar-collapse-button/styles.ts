@@ -30,15 +30,14 @@ export const ElSideBarCollapseButton = styled.button`
   color: var(--neutral-600);
   border-radius: var(--corner-lg);
 
-  &:hover {
-    background: var(--fill-default-lightest);
-    font-weight: 500;
+  &:hover,
+  &:focus-visible {
+    background: var(--colour-fill-neutral-light);
   }
 
   &:focus-visible {
     outline: none;
     border: var(--border-width-double) solid var(--colour-border-focus);
-    background: var(--color-fill-neutral-light);
   }
 `
 
