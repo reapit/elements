@@ -9,9 +9,6 @@ import CommercialSmallBottomImage from './icons/bottom-commercial-image-small.sv
 const baseAvatarRectMediumSize = `
   width: var(--size-18);
   height: 54px;
-  img {
-    aspect-ratio: 4 / 3;
-  }
 `
 
 const baseAvatarRectSmallSize = `
