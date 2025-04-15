@@ -69,6 +69,7 @@ export * from './components/features'
 export * from './components/badge'
 export * from './components/checkbox'
 export * from './components/checkbox-group'
+export * from './components/top-bar-menu'
 
 export * from './hooks/use-portal'
 export * from './hooks/use-snack'

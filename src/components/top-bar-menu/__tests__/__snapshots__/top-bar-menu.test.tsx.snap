@@ -1,0 +1,120 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TopbarMenu > should match a snapshot when isOpen state is true 1`] = `
+<DocumentFragment>
+  <dialog
+    class="mocked-styled-19 el-top-bar-menu"
+    open=""
+  >
+    <div
+      class="mocked-styled-16 el-top-bar-menu-header"
+    >
+      <button
+        aria-label="Close"
+        class="mocked-styled-14 el-button-nav-icon-item"
+      >
+        <svg
+          data-name="mocked"
+        />
+      </button>
+    </div>
+    <nav
+      class="mocked-styled-17 el-top-bar-menu-body"
+    >
+      <ul
+        class="mocked-styled-18 el-top-bar-menu-list"
+      >
+        <li
+          class="mocked-styled-12 el-top-bar-menu-item-group-list-item"
+          data-is-expanded="false"
+        >
+          <button
+            aria-controls=":r0:"
+            aria-expanded="false"
+            aria-label="Main Nav Item 1"
+            class="mocked-styled-9 el-top-bar-menu-item-button el-top-bar-menu-item-group-button el-top-bar-menu-item-button"
+            type="button"
+          >
+            <div
+              class="mocked-styled-10 el-top-bar-menu-item-group-content"
+            >
+              Main Nav Item 1
+              <span
+                class="mocked-styled-7 el-top-bar-menu-item-badge"
+              />
+            </div>
+            <svg
+              data-name="mocked"
+            />
+          </button>
+          <ul
+            aria-hidden="true"
+            class="mocked-styled-11 el-top-bar-menu-item-group-list"
+            id=":r0:"
+          >
+            <li
+              class="mocked-styled-8 el-top-bar-menu-item-list-item"
+            >
+              <a
+                aria-label="Label"
+                class="mocked-styled-5 el-top-bar-menu-item-anchor"
+                href="#item-1.1"
+              >
+                Label
+              </a>
+            </li>
+            <li
+              class="mocked-styled-8 el-top-bar-menu-item-list-item"
+            >
+              <a
+                aria-label="Label"
+                class="mocked-styled-5 el-top-bar-menu-item-anchor"
+                href="#item-1.2"
+              >
+                Label
+              </a>
+            </li>
+          </ul>
+        </li>
+        <li
+          class="mocked-styled-8 el-top-bar-menu-item-list-item"
+        >
+          <a
+            aria-label="Main Nav Item 2"
+            class="mocked-styled-5 el-top-bar-menu-item-anchor"
+            href="#item-2"
+          >
+            Main Nav Item 2
+          </a>
+        </li>
+      </ul>
+      <ul
+        class="mocked-styled-18 el-top-bar-menu-list"
+      >
+        <li
+          class="mocked-styled-8 el-top-bar-menu-item-list-item"
+        >
+          <a
+            aria-label="User Item 1"
+            class="mocked-styled-5 el-top-bar-menu-item-anchor"
+            href="#item-1.1"
+          >
+            User Item 1
+          </a>
+        </li>
+        <li
+          class="mocked-styled-8 el-top-bar-menu-item-list-item"
+        >
+          <a
+            aria-label="User Item 2"
+            class="mocked-styled-5 el-top-bar-menu-item-anchor"
+            href="#item-1.1"
+          >
+            User Item 2
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </dialog>
+</DocumentFragment>
+`;
