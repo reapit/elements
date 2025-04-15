@@ -15,11 +15,6 @@ const baseMediumSizeStyle = `
 const baseColourDefaultStyle = `
   background: var(--fill-default-medium);
   color: var(--text-white);
-
-  /* override Icon element colour  */
-  svg {
-    color: var(--text-white);
-  }
 `
 
 export const ElAvatar = styled.span`
@@ -43,10 +38,6 @@ export const ElAvatar = styled.span`
   &[data-colour='purple'] {
     background: var(--fill-action-lightest);
     color: var(--text-action);
-    /* override Icon element colour  */
-    svg {
-      color: var(--text-action);
-    }
   }
 
   &[data-size='small'] {
