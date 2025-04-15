@@ -58,7 +58,7 @@ const meta = {
               <FeaturesItem aria-label="Cars" icon={<Icon icon="car" />}>
                 5
               </FeaturesItem>
-              <FeaturesItem aria-label="Areas" icon={<Icon icon="appLauncher" />}>
+              <FeaturesItem aria-label="Areas" icon={<Icon icon="appSwitcher" />}>
                 850 sqm
               </FeaturesItem>
             </Features>
