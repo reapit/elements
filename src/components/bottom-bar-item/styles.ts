@@ -1,11 +1,9 @@
 import { styled } from '@linaria/react'
 import { AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
-import { ElIcon } from '../icon'
 
 export const ElBottomBarItemIcon = styled.div`
   width: var(--icon-default);
   height: var(--icon-default);
-  color: inherit;
 `
 
 export const ElBottomBarItemLabel = styled.span`
@@ -55,16 +53,8 @@ export const ElBottomBarItemBadge = styled.span`
 
 export const ElAnchorBottomBarItemContainer = styled.a<AnchorHTMLAttributes<HTMLAnchorElement>>`
   ${baseStyles}
-
-  ${ElIcon} {
-    color: inherit;
-  }
 `
 
 export const ElButtonBottomBarItemContainer = styled.button<ButtonHTMLAttributes<HTMLButtonElement>>`
   ${baseStyles}
-
-  ${ElIcon} {
-    color: inherit;
-  }
 `
