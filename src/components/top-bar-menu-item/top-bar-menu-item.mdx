@@ -1,0 +1,29 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+import * as TopBarMenuItemStories from './top-bar-menu-item.stories'
+
+<Meta of={TopBarMenuItemStories} />
+
+# Top Bar Menu Item
+
+**A Versatile Navigation Component**
+
+The `TopBarMenuItem` is a flexible component designed to render navigation items within a `TopBarMenu` context using a `HTMLAnchorElement` or `HTMLButtonElement`
+
+**Default Appearance**
+
+A basic `TopBarMenuItem` without any special styling or interactions
+
+<Canvas of={TopBarMenuItemStories.Simple} />
+
+**Active**
+
+<Canvas of={TopBarMenuItemStories.Active} />
+
+**With Badge**
+
+<Canvas of={TopBarMenuItemStories.WithBadge} />
+
+
