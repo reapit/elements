@@ -3,23 +3,23 @@ import { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useS
 import { useNavState } from '../../hooks/use-nav-state'
 import { useMediaQuery } from '../../hooks/use-media-query'
 import { Icon } from '../icon'
-import { Nav, NavItem, NavSubNav, NavSubNavItem } from './nav'
+import { DeprecatedNav, DeprecatedNavItem, DeprecatedNavSubNav, DeprecatedNavSubNavItem } from './nav'
 import {
-  ElNavBg,
-  ElNavControlsBg,
-  ElNavMenu,
-  ElNavMenuOption,
-  ElNavMenuOptionDivider,
+  ElDeprecatedNavBg,
+  ElDeprecatedNavControlsBg,
+  ElDeprecatedNavMenu,
+  ElDeprecatedNavMenuOption,
+  ElDeprecatedNavMenuOptionDivider,
   ElNavResponsiveAppSwitcherIconWrap,
   ElNavResponsiveAppSwitcherWrap,
-  ElNavResponsiveAvatarWrap,
+  ElDeprecatedNavResponsiveAvatarWrap,
   elAppSwitcherOpen,
-  elNavIsHidden,
-  elNavItemActive,
-  elNavItemExpanded,
-  elNavItemHideDesktop,
-  elNavSubItemActive,
-  elNavSubItemExpanded,
+  elDeprecatedNavIsHidden,
+  elDeprecatedNavItemActive,
+  elDeprecatedNavItemExpanded,
+  elDeprecatedNavItemHideDesktop,
+  elDeprecatedNavSubItemActive,
+  elDeprecatedNavSubItemExpanded,
 } from './__styles__'
 import { elMlAuto, elMr2, elMr4 } from '../../styles/spacing'
 import { generateRandomId } from '../../storybook/random-id'
@@ -28,17 +28,17 @@ import { Text2XS } from '../typography'
 import { elIsActive } from '../../styles/states'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
-export type NavResponsiveItemType = 'ICON' | 'ITEM' | 'SECONDARY'
+export type DeprecatedNavResponsiveItemType = 'ICON' | 'ITEM' | 'SECONDARY'
 
-export interface NavResponsiveOption {
+export interface DeprecatedNavResponsiveOption {
   itemIndex: number
   callback?: () => void
   text?: string
   href?: string
-  subItems?: NavResponsiveOption[]
+  subItems?: DeprecatedNavResponsiveOption[]
 }
 
-export interface NavResponsiveAvatarOption {
+export interface DeprecatedNavResponsiveAvatarOption {
   text?: string
   callback?: () => void
 }
@@ -54,18 +54,20 @@ export interface BrandOptions {
   logoUrl?: string
 }
 
-export interface NavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
-  options: NavResponsiveOption[]
+/** @deprecated will be replaced by new v5 Navigation components props */
+export interface DeprecatedNavResponsiveProps extends HTMLAttributes<HTMLDivElement> {
+  options: DeprecatedNavResponsiveOption[]
   appSwitcherOptions?: NavResponsiveAppSwitcherOption[]
   brandOptions?: BrandOptions
-  avatarOptions?: NavResponsiveAvatarOption[]
+  avatarOptions?: DeprecatedNavResponsiveAvatarOption[]
   avatarText?: string
   defaultNavIndex?: number
   defaultNavSubIndex?: number
 }
 
-export interface NavResponsiveAvatarProps {
-  options: NavResponsiveAvatarOption[]
+/** @deprecated will be replaced by new v5 Navigation components props */
+export interface DeprecatedNavResponsiveAvatarProps {
+  options: DeprecatedNavResponsiveAvatarOption[]
   text: string
   isHidden: boolean
 }
@@ -75,7 +77,7 @@ export interface NavResponsiveAppSwitcherProps {
   className?: string // Note: probably only required for new AppBar
 }
 
-export type LogoIcon = 'reapitLogoSelectedMenu' | 'reapitLogoMenu'
+export type DeprecatedLogoIcon = 'reapitLogoSelectedMenu' | 'reapitLogoMenu'
 
 export const handleToggleMenu =
   (setState: Dispatch<SetStateAction<boolean>>, callback?: () => void) => (event?: MouseEvent<HTMLDivElement>) => {
@@ -95,20 +97,21 @@ export const clickNavEventHandler =
     setActive((active) => !active)
   }
 
-export const NavResponsiveAvatar: FC<NavResponsiveAvatarProps> = ({ options, isHidden, text }) => {
+/** @deprecated will be replaced by new v5 Navigation components */
+export const DeprecatedNavResponsiveAvatar: FC<DeprecatedNavResponsiveAvatarProps> = ({ options, isHidden, text }) => {
   const [avatarOpen, setAvatarOpen] = useState<boolean>(false)
 
   return (
     <>
-      <ElNavControlsBg
+      <ElDeprecatedNavControlsBg
         className={cx(avatarOpen && elIsActive)}
         onClick={clickNavEventHandler(setAvatarOpen)}
         onKeyDown={handleKeyboardEvent('Enter', clickNavEventHandler(setAvatarOpen))}
       />
-      <ElNavResponsiveAvatarWrap
+      <ElDeprecatedNavResponsiveAvatarWrap
         onClick={handleToggleMenu(setAvatarOpen)}
         onKeyDown={handleKeyboardEvent('Enter', handleToggleMenu(setAvatarOpen))}
-        className={cx(isHidden && elNavIsHidden)}
+        className={cx(isHidden && elDeprecatedNavIsHidden)}
         role="button"
         tabIndex={0}
       >
@@ -119,25 +122,25 @@ export const NavResponsiveAvatar: FC<NavResponsiveAvatarProps> = ({ options, isH
           <>
             <Icon intent="default" icon={avatarOpen ? 'chevronUp' : 'chevronDown'} />
             {avatarOpen && (
-              <ElNavMenu>
+              <ElDeprecatedNavMenu>
                 {options.map(({ callback, text }, index) => (
                   <Fragment key={index}>
-                    {Boolean(index) && index === options.length - 1 && <ElNavMenuOptionDivider />}
-                    <ElNavMenuOption
+                    {Boolean(index) && index === options.length - 1 && <ElDeprecatedNavMenuOptionDivider />}
+                    <ElDeprecatedNavMenuOption
                       onClick={handleToggleMenu(setAvatarOpen, callback)}
                       onKeyDown={handleKeyboardEvent('Enter', handleToggleMenu(setAvatarOpen, callback))}
                       role="button"
                       tabIndex={0}
                     >
                       {text}
-                    </ElNavMenuOption>
+                    </ElDeprecatedNavMenuOption>
                   </Fragment>
                 ))}
-              </ElNavMenu>
+              </ElDeprecatedNavMenu>
             )}
           </>
         )}
-      </ElNavResponsiveAvatarWrap>
+      </ElDeprecatedNavResponsiveAvatarWrap>
     </>
   )
 }
@@ -155,7 +158,7 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
 
   return (
     <>
-      <ElNavControlsBg
+      <ElDeprecatedNavControlsBg
         className={cx(appSwitcherOpen && elIsActive)}
         onClick={clickNavEventHandler(setAppSwitcherOpen)}
         onKeyDown={handleKeyboardEvent('Enter', clickNavEventHandler(setAppSwitcherOpen))}
@@ -171,14 +174,14 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
           <Icon intent="default" icon="appSwitcher" />
         </ElNavResponsiveAppSwitcherIconWrap>
         {appSwitcherOpen && (
-          <ElNavMenu>
-            <ElNavMenuOption>
+          <ElDeprecatedNavMenu>
+            <ElDeprecatedNavMenuOption>
               <Text2XS hasUpperCasedText hasDisabledText hasBoldText>
                 Your Apps
               </Text2XS>
-            </ElNavMenuOption>
+            </ElDeprecatedNavMenuOption>
             {options.map(({ callback, text, iconUrl }, index) => (
-              <ElNavMenuOption
+              <ElDeprecatedNavMenuOption
                 onClick={handleToggleMenu(setAppSwitcherOpen, callback)}
                 onKeyDown={handleKeyboardEvent('Enter', handleToggleMenu(setAppSwitcherOpen, callback))}
                 key={index}
@@ -191,25 +194,26 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
                   iconUrl
                 )}
                 {text}
-              </ElNavMenuOption>
+              </ElDeprecatedNavMenuOption>
             ))}
-            <ElNavMenuOptionDivider />
-            <ElNavMenuOption
+            <ElDeprecatedNavMenuOptionDivider />
+            <ElDeprecatedNavMenuOption
               onClick={handleToggleMenu(setAppSwitcherOpen, marketplaceCallback)}
               onKeyDown={handleKeyboardEvent('Enter', handleToggleMenu(setAppSwitcherOpen, marketplaceCallback))}
               role="button"
               tabIndex={0}
             >
               My Installed Apps
-            </ElNavMenuOption>
-          </ElNavMenu>
+            </ElDeprecatedNavMenuOption>
+          </ElDeprecatedNavMenu>
         )}
       </ElNavResponsiveAppSwitcherWrap>
     </>
   )
 }
 
-export const NavResponsive: FC<NavResponsiveProps> = ({
+/** @deprecated will be replaced by new v5 Navigation components */
+export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
   options,
   className,
   defaultNavIndex,
@@ -227,7 +231,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
 
   return (
     <>
-      <ElNavBg
+      <ElDeprecatedNavBg
         className={cx(isMobile && navMenuOpen && elIsActive)}
         onClick={setNavState({
           navMenuOpen: !navMenuOpen,
@@ -239,13 +243,17 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
           }),
         )}
       />
-      <Nav className={cx(className)} {...rest}>
-        {options.map(({ href, callback, text, subItems, itemIndex }: NavResponsiveOption, index: number) => {
+      <DeprecatedNav className={cx(className)} {...rest}>
+        {options.map(({ href, callback, text, subItems, itemIndex }: DeprecatedNavResponsiveOption, index: number) => {
           const hasSubItems = subItems && subItems.length > 0
 
           if (!index) {
             return (
-              <NavItem className={cx(navItemIndex === itemIndex && elNavItemActive)} key={itemIndex} href={href}>
+              <DeprecatedNavItem
+                className={cx(navItemIndex === itemIndex && elDeprecatedNavItemActive)}
+                key={itemIndex}
+                href={href}
+              >
                 {appSwitcherOptions && <NavResponsiveAppSwitcher options={appSwitcherOptions} />}
                 {brandOptions?.logoUrl ? (
                   <img
@@ -269,7 +277,7 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                   />
                 )}
                 <Icon
-                  className={cx(elMlAuto, elMr4, elNavItemHideDesktop)}
+                  className={cx(elMlAuto, elMr4, elDeprecatedNavItemHideDesktop)}
                   icon="more"
                   intent={navMenuOpen ? 'primary' : 'default'}
                   onClick={setNavState({
@@ -285,16 +293,19 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                   tabIndex={0}
                 />
                 {(avatarOptions || avatarText) && (
-                  <NavResponsiveAvatar isHidden={!isMobile} options={avatarOptions ?? []} text={avatarText} />
+                  <DeprecatedNavResponsiveAvatar isHidden={!isMobile} options={avatarOptions ?? []} text={avatarText} />
                 )}
-              </NavItem>
+              </DeprecatedNavItem>
             )
           }
 
           return (
             <Fragment key={itemIndex}>
-              <NavItem
-                className={cx(navItemIndex === itemIndex && elNavItemActive, navMenuOpen && elNavItemExpanded)}
+              <DeprecatedNavItem
+                className={cx(
+                  navItemIndex === itemIndex && elDeprecatedNavItemActive,
+                  navMenuOpen && elDeprecatedNavItemExpanded,
+                )}
                 href={href}
                 role="button"
                 tabIndex={0}
@@ -326,21 +337,21 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                     icon={navMenuOpen && navItemIndex === itemIndex ? 'chevronUp' : 'chevronDown'}
                   />
                 )}
-              </NavItem>
+              </DeprecatedNavItem>
               {hasSubItems && (
-                <NavSubNav key={generateRandomId()}>
+                <DeprecatedNavSubNav key={generateRandomId()}>
                   {subItems.map(
                     ({
                       callback: innerCallback,
                       text: innerText,
                       href: innerHref,
                       itemIndex: innerItemIndex,
-                    }: NavResponsiveOption) => {
+                    }: DeprecatedNavResponsiveOption) => {
                       return (
-                        <NavSubNavItem
+                        <DeprecatedNavSubNavItem
                           className={cx(
-                            navSubItemIndex === innerItemIndex && elNavSubItemActive,
-                            navMenuOpen && navItemIndex === itemIndex && elNavSubItemExpanded,
+                            navSubItemIndex === innerItemIndex && elDeprecatedNavSubItemActive,
+                            navMenuOpen && navItemIndex === itemIndex && elDeprecatedNavSubItemExpanded,
                           )}
                           href={innerHref}
                           key={innerItemIndex}
@@ -359,19 +370,19 @@ export const NavResponsive: FC<NavResponsiveProps> = ({
                           )}
                         >
                           <span>{innerText}</span>
-                        </NavSubNavItem>
+                        </DeprecatedNavSubNavItem>
                       )
                     },
                   )}
-                </NavSubNav>
+                </DeprecatedNavSubNav>
               )}
             </Fragment>
           )
         })}
         {(avatarOptions || avatarText) && (
-          <NavResponsiveAvatar isHidden={isMobile} options={avatarOptions ?? []} text={avatarText} />
+          <DeprecatedNavResponsiveAvatar isHidden={isMobile} options={avatarOptions ?? []} text={avatarText} />
         )}
-      </Nav>
+      </DeprecatedNav>
     </>
   )
 }

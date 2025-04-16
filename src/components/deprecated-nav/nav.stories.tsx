@@ -1,63 +1,69 @@
 import { cx } from '@linaria/core'
-import { Nav, NavItem } from './index'
-import { elNavItemActive, elNavItemHideDesktop, elNavItemExpanded } from './__styles__'
+import { DeprecatedNav, DeprecatedNavItem } from './index'
+import { elDeprecatedNavItemActive, elDeprecatedNavItemHideDesktop, elDeprecatedNavItemExpanded } from './__styles__'
 import { NavStateProvider } from '../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../hooks/use-media-query'
 import { Icon } from '../icon'
 import { elMlAuto, elMr2 } from '../../styles/spacing'
-import { NavResponsive } from './nav-responsive'
+import { DeprecatedNavResponsive } from './nav-responsive'
 
 export default {
-  title: 'Nav',
-  component: NavResponsive,
+  title: 'DeprecatedNav',
+  component: DeprecatedNavResponsive,
 }
 
 export const BasicExample = {
   render: ({}) => (
-    <Nav>
-      <NavItem>
+    <DeprecatedNav>
+      <DeprecatedNavItem>
         <Icon height="24px" width="100px" icon="reapitLogo" />
         <Icon
-          className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
+          className={cx(elMlAuto, elMr2, elDeprecatedNavItemHideDesktop)}
           icon="more"
           intent="default"
           onClick={() => console.log('Toggle Menu')}
         />
-      </NavItem>
-      <NavItem className={elNavItemActive} href="https://marketplace.reapit.cloud/apps">
+      </DeprecatedNavItem>
+      <DeprecatedNavItem className={elDeprecatedNavItemActive} href="https://marketplace.reapit.cloud/apps">
         Apps
-      </NavItem>
-      <NavItem href="https://developers.reapit.cloud/analytics">Analytics</NavItem>
-      <NavItem href="https://marketplace.reapit.cloud">Marketplace</NavItem>
-    </Nav>
+      </DeprecatedNavItem>
+      <DeprecatedNavItem href="https://developers.reapit.cloud/analytics">Analytics</DeprecatedNavItem>
+      <DeprecatedNavItem href="https://marketplace.reapit.cloud">Marketplace</DeprecatedNavItem>
+    </DeprecatedNav>
   ),
 }
 
 export const BasicExampleMobileMenuOpen = {
   render: ({}) => (
-    <Nav>
-      <NavItem>
+    <DeprecatedNav>
+      <DeprecatedNavItem>
         <Icon height="24px" width="100px" icon="reapitLogo" />
         <Icon
-          className={cx(elMlAuto, elMr2, elNavItemHideDesktop)}
+          className={cx(elMlAuto, elMr2, elDeprecatedNavItemHideDesktop)}
           icon="more"
           intent="default"
           onClick={() => console.log('Toggle Menu')}
         />
-      </NavItem>
-      <NavItem className={cx(elNavItemActive, elNavItemExpanded)} href="https://marketplace.reapit.cloud/apps">
+      </DeprecatedNavItem>
+      <DeprecatedNavItem
+        className={cx(elDeprecatedNavItemActive, elDeprecatedNavItemExpanded)}
+        href="https://marketplace.reapit.cloud/apps"
+      >
         Apps
-      </NavItem>
-      <NavItem className={cx(elNavItemExpanded, elNavItemHideDesktop)} href="https://marketplace.reapit.cloud">
+      </DeprecatedNavItem>
+      <DeprecatedNavItem
+        className={cx(elDeprecatedNavItemExpanded, elDeprecatedNavItemHideDesktop)}
+        href="https://marketplace.reapit.cloud"
+      >
         Option Hidden In Desktop
-      </NavItem>
-      <NavItem className={elNavItemExpanded} href="https://developers.reapit.cloud/analytics">
+      </DeprecatedNavItem>
+      <DeprecatedNavItem className={elDeprecatedNavItemExpanded} href="https://developers.reapit.cloud/analytics">
         Analytics
-      </NavItem>
-      <NavItem className={elNavItemExpanded} href="https://marketplace.reapit.cloud">
+      </DeprecatedNavItem>
+      <DeprecatedNavItem className={elDeprecatedNavItemExpanded} href="https://marketplace.reapit.cloud">
         Marketplace
-      </NavItem>
-    </Nav>
+      </DeprecatedNavItem>
+    </DeprecatedNav>
   ),
 }
 
@@ -65,7 +71,7 @@ export const ReactUsage = {
   render: ({}) => (
     <NavStateProvider>
       <MediaStateProvider>
-        <NavResponsive
+        <DeprecatedNavResponsive
           defaultNavIndex={1}
           appSwitcherOptions={[
             {
@@ -154,7 +160,7 @@ export const ReactUsageWithCustomBrand = {
   render: ({}) => (
     <NavStateProvider>
       <MediaStateProvider>
-        <NavResponsive
+        <DeprecatedNavResponsive
           defaultNavIndex={1}
           brandOptions={{
             logoUrl: 'https://uk.payprop.com/res/assets/img/pp_logo.svg',
