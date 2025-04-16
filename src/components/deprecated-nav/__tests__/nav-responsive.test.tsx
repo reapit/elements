@@ -1,6 +1,6 @@
 import React, { MouseEvent } from 'react'
 import { render } from '@testing-library/react'
-import { clickNavEventHandler, NavResponsive } from '../nav-responsive'
+import { clickNavEventHandler, DeprecatedNavResponsive } from '../nav-responsive'
 import { NavStateProvider } from '../../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../../hooks/use-media-query'
 
@@ -9,7 +9,7 @@ describe('NavResponsive component', () => {
     const wrapper = render(
       <NavStateProvider>
         <MediaStateProvider>
-          <NavResponsive
+          <DeprecatedNavResponsive
             defaultNavIndex={1}
             options={[
               {
