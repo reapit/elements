@@ -1,35 +1,35 @@
 import { render } from '@testing-library/react'
-import { Nav, NavItem, NavSubNavItem, NavSubNav } from '../nav'
+import { DeprecatedNav, DeprecatedNavItem, DeprecatedNavSubNavItem, DeprecatedNavSubNav } from '../nav'
 
 describe('Nav component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<Nav />)
+    const wrapper = render(<DeprecatedNav />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('NavItem component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<NavItem />)
+    const wrapper = render(<DeprecatedNavItem />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
   it('should match a snapshot for a secondary item', () => {
-    const wrapper = render(<NavItem isSecondary />)
+    const wrapper = render(<DeprecatedNavItem isSecondary />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('NavSubNav component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<NavSubNav />)
+    const wrapper = render(<DeprecatedNavSubNav />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })
 
 describe('NavSubNavItem component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<NavSubNavItem />)
+    const wrapper = render(<DeprecatedNavSubNavItem />)
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

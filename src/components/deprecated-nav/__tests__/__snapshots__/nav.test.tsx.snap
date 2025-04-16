@@ -3,7 +3,7 @@
 exports[`Nav component > should match a snapshot 1`] = `
 <DocumentFragment>
   <nav
-    class="mocked-styled-2 el-nav-container"
+    class="mocked-styled-2 el-deprecated-nav-container"
   />
 </DocumentFragment>
 `;
@@ -11,7 +11,7 @@ exports[`Nav component > should match a snapshot 1`] = `
 exports[`NavItem component > should match a snapshot 1`] = `
 <DocumentFragment>
   <a
-    class="mocked-styled-4 el-nav-item"
+    class="mocked-styled-4 el-deprecated-nav-item"
   />
 </DocumentFragment>
 `;
@@ -19,7 +19,7 @@ exports[`NavItem component > should match a snapshot 1`] = `
 exports[`NavItem component > should match a snapshot for a secondary item 1`] = `
 <DocumentFragment>
   <a
-    class="el-nav-item-secondary el-nav-item"
+    class="el-deprecated-nav-item-secondary el-deprecated-nav-item"
   />
 </DocumentFragment>
 `;
@@ -27,7 +27,7 @@ exports[`NavItem component > should match a snapshot for a secondary item 1`] = 
 exports[`NavSubNav component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-3 el-nav-sub-container"
+    class="mocked-styled-3 el-deprecated-nav-sub-container"
   />
 </DocumentFragment>
 `;
@@ -35,7 +35,7 @@ exports[`NavSubNav component > should match a snapshot 1`] = `
 exports[`NavSubNavItem component > should match a snapshot 1`] = `
 <DocumentFragment>
   <a
-    class="mocked-styled-5 el-nav-sub-item"
+    class="mocked-styled-5 el-deprecated-nav-sub-item"
   />
 </DocumentFragment>
 `;
