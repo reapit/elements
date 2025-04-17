@@ -20,31 +20,33 @@ export const ElBreadcrumbsItemChevron = styled(Icon)`
   justify-content: center;
   padding: 0px var(--spacing-1);
 
-  box-sizing: content-box;
-  width: var(--icon-xs);
-  height: var(--icon-xs);
+  font-size: var(--icon_size-xs);
   color: var(--icon-primary);
 `
 
 export const elBreadcrumbsLink = css`
-  color: var(--text-secondary);
+  color: var(--colour-text-secondary);
 
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
+  font-family: var(--font-sm-regular-family);
+  font-size: var(--font-sm-regular-size);
   font-style: normal;
-  font-weight: 400;
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
+  font-weight: var(--font-sm-regular-weight);
+  line-height: var(--font-sm-regular-line_height);
+  letter-spacing: var(--font-sm-regular-letter_spacing);
 
   cursor: pointer;
   white-space: nowrap;
   text-overflow: ellipsis;
   overflow: hidden;
 
+  padding: 1px; // to imitate the link focus size
+  border: var(--border-width-double) solid transparent;
   &:focus {
-    box-shadow:
-      0px 0px 0px 1px #fff,
-      0px 0px 0px 4px var(--purple-300);
+    border-color: var(--colour-border-focus);
+  }
+
+  &:focus-visible {
+    outline: none;
   }
 
   &:hover {

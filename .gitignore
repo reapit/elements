@@ -102,3 +102,6 @@ packages/cognito-custom-mail-lambda/**/*.html
 /blob-report/
 /playwright/.cache/
 .visual-test/**
+
+# webstorm
+.idea

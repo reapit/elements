@@ -1,17 +1,17 @@
 import { Story, Canvas, Meta, Controls, Source } from '@storybook/blocks'
 import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
-import { NavResponsive } from './nav-responsive'
+import { DeprecatedNavResponsive } from './nav-responsive'
 import * as NavStories from './nav.stories'
 
 <Meta of={NavStories} />
 
-# Nav
+# Deprecated Nav
 
 The primary navigation all Reapit Marketplace applications should have.
 
 ## Basic Example
 
-> If using React, we strongly recommend using the React Shorthand `NavResponsive` component as it will handle the mobile menu and sub items for you and give a better user experience.
+> If using React, we strongly recommend using the React Shorthand `DeprecatedNavResponsive` component as it will handle the mobile menu and sub items for you and give a better user experience.
 
 In this basic example, no additional JS is added to the React generatated markup (see rendered markup section for the underlying elements).
 
@@ -19,7 +19,7 @@ Routing can be handled by way of an `href` attribute, an additional `el-nav-item
 
 In this example, the menu will not expand in mobile - to enable this behaviour you will need to use some JavaScript - see below for the expanded classes you will need to toggle.
 
-If you use a `SecondaryNav` component, you will need to add these options as `NavItem`s and toggle their visibilty with a simple media query in Mobile.
+If you use a `SecondaryNav` component, you will need to add these options as `DeprecatedNavItem`s and toggle their visibilty with a simple media query in Mobile.
 
 <Canvas of={NavStories.BasicExample} />
 
@@ -27,9 +27,9 @@ If you use a `SecondaryNav` component, you will need to add these options as `Na
 
 ## Basic Example Mobile Menu Open
 
-In this example, changing the browser width to mobile will show the expanded mobile menu. You will need to use some JavaScript to toggle the `el-nav-item-expanded` class on the `NavItem` components on cllick of the more icon.
+In this example, changing the browser width to mobile will show the expanded mobile menu. You will need to use some JavaScript to toggle the `el-nav-item-expanded` class on the `DeprecatedNavItem` components on cllick of the more icon.
 
-As per above if you use a `SecondaryNav` component, you will need to add these options as `NavItem`s and toggle their visibilty with the `elNavItemHideDesktop` class.
+As per above if you use a `SecondaryNav` component, you will need to add these options as `DeprecatedNavItem`s and toggle their visibilty with the `elDeprecatedNavItemHideDesktop` class.
 
 <Canvas of={NavStories.BasicExampleMobileMenuOpen} />
 
@@ -39,16 +39,16 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
 
 <Controls />
 
-The `useNavState` hook will track the currrent state of the Nav and return both, the `navState` and a `setNavState` function. See the below inteface for `NavResponsiveOption` for an explanation of the code.
+The `useNavState` hook will track the currrent state of the Nav and return both, the `navState` and a `setNavState` function. See the below inteface for `DeprecatedNavResponsiveOption` for an explanation of the code.
 
 
 <Source code={`
-export interface NavResponsiveOption {
+export interface DeprecatedNavResponsiveOption {
   itemIndex: number
   callback?: () => void
   text?: string
   href?: string
-  subItems?: NavResponsiveOption[]
+  subItems?: DeprecatedNavResponsiveOption[]
 }
 `} language="tsx" />
 
@@ -60,15 +60,15 @@ We also introduce a second hook `useMediaQuery` which supplies an `isMobile` val
 
 For the simple use case, the sub items are not required however, if you use a `SecondaryNav` component, you will need to add these as the `SecondaryNav` is hidden in mobile. The toggling of sub nav items in mobile is handled for you.
 
-Finally, you can add avatar and app switcher options to the Nav by passing them as props to the `NavResponsive` component. See below for the accompanying interfaces.
+Finally, you can add avatar and app switcher options to the Nav by passing them as props to the `DeprecatedNavResponsive` component. See below for the accompanying interfaces.
 
 <Source code={`
-export interface NavResponsiveAvatarOption {
+export interface DeprecatedNavResponsiveAvatarOption {
   text?: string
   callback?: () => void
 }
 
-export interface NavResponsiveAppSwitcherOption {
+export interface DeprecatedNavResponsiveAppSwitcherOption {
   text?: string
   callback?: () => void
   iconUrl?: ReactNode

@@ -14,7 +14,7 @@ import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
 import { TopBar } from './top-bar'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { elNewTopBarAppSwitcher, NavResponsiveAppSwitcher } from '../nav'
+import { elNewTopBarAppSwitcher, NavResponsiveAppSwitcher } from '../deprecated-nav'
 
 const viewports: typeof INITIAL_VIEWPORTS = {
   superWideScreen: {

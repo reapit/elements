@@ -3,13 +3,13 @@
 exports[`NavResponsive component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-1 el-nav-bg"
+    class="mocked-styled-1 el-deprecated-nav-bg"
   />
   <nav
-    class="mocked-styled-3 el-nav-container"
+    class="mocked-styled-3 el-deprecated-nav-container"
   >
     <a
-      class="mocked-styled-5 el-nav-item"
+      class="mocked-styled-5 el-deprecated-nav-item"
     >
       <span
         class="mocked-styled-0 el-icon"
@@ -70,7 +70,7 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
         </svg>
       </span>
       <span
-        class="el-ml-auto el-mr4 el-nav-item-hide-desktop el-intent-default el-icon"
+        class="el-ml-auto el-mr4 el-deprecated-nav-item-hide-desktop el-intent-default el-icon"
         role="button"
         tabindex="0"
       >
@@ -99,24 +99,24 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       </span>
     </a>
     <a
-      class="el-nav-item-active el-nav-item"
+      class="el-deprecated-nav-item-active el-deprecated-nav-item"
       role="button"
       tabindex="0"
     >
       Apps
     </a>
     <div
-      class="mocked-styled-4 el-nav-sub-container"
+      class="mocked-styled-4 el-deprecated-nav-sub-container"
     >
       <a
-        class="mocked-styled-6 el-nav-sub-item"
+        class="mocked-styled-6 el-deprecated-nav-sub-item"
       >
         <span>
           App List
         </span>
       </a>
       <a
-        class="mocked-styled-6 el-nav-sub-item"
+        class="mocked-styled-6 el-deprecated-nav-sub-item"
       >
         <span>
           Create App
@@ -124,24 +124,24 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       </a>
     </div>
     <a
-      class="mocked-styled-5 el-nav-item"
+      class="mocked-styled-5 el-deprecated-nav-item"
       role="button"
       tabindex="0"
     >
       Analytics
     </a>
     <div
-      class="mocked-styled-4 el-nav-sub-container"
+      class="mocked-styled-4 el-deprecated-nav-sub-container"
     >
       <a
-        class="mocked-styled-6 el-nav-sub-item"
+        class="mocked-styled-6 el-deprecated-nav-sub-item"
       >
         <span>
           Hits Per Day
         </span>
       </a>
       <a
-        class="mocked-styled-6 el-nav-sub-item"
+        class="mocked-styled-6 el-deprecated-nav-sub-item"
       >
         <span>
           Weekly Hits
@@ -149,7 +149,7 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       </a>
     </div>
     <a
-      class="mocked-styled-5 el-nav-item"
+      class="mocked-styled-5 el-deprecated-nav-item"
       href="https://marketplace.reapit.cloud"
       role="button"
       tabindex="0"
@@ -157,7 +157,7 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       Marketplace
     </a>
     <a
-      class="mocked-styled-5 el-nav-item"
+      class="mocked-styled-5 el-deprecated-nav-item"
       role="button"
       tabindex="0"
     >

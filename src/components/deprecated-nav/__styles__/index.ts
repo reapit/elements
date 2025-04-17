@@ -3,7 +3,8 @@ import { styled } from '@linaria/react'
 import { ElDeprecatedAvatar } from '../../deprecated-avatar'
 import { elIsActive } from '../../../styles/states'
 
-export const ElNavBg = styled.div`
+/** @deprecated */
+export const ElDeprecatedNavBg = styled.div`
   display: none;
   z-index: 2;
   width: 100%;
@@ -19,7 +20,8 @@ export const ElNavBg = styled.div`
   }
 `
 
-export const ElNavControlsBg = styled.div`
+/** @deprecated */
+export const ElDeprecatedNavControlsBg = styled.div`
   display: none;
   width: 100%;
   height: 100%;
@@ -32,7 +34,8 @@ export const ElNavControlsBg = styled.div`
   }
 `
 
-export const ElNavContainer = styled.nav`
+/** @deprecated */
+export const ElDeprecatedNavContainer = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -57,7 +60,8 @@ export const ElNavContainer = styled.nav`
   }
 `
 
-export const ElNavSubContainer = styled.div`
+/** @deprecated */
+export const ElDeprecatedNavSubContainer = styled.div`
   background-color: var(--nav-menu-background-accent);
   width: 100%;
 
@@ -66,9 +70,11 @@ export const ElNavSubContainer = styled.div`
   }
 `
 
-export const elNavItemSecondary = css``
+/** @deprecated */
+export const elDeprecatedNavItemSecondary = css``
 
-export const ElNavItem = styled.a`
+/** @deprecated */
+export const ElDeprecatedNavItem = styled.a`
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
@@ -145,7 +151,8 @@ export const ElNavItem = styled.a`
   }
 `
 
-export const elNavItemActive = css`
+/** @deprecated */
+export const elDeprecatedNavItemActive = css`
   &:not(:first-child) {
     background-color: var(--purple-050);
     border-left: 3px solid var(--purple-500);
@@ -165,7 +172,8 @@ export const elNavItemActive = css`
   }
 `
 
-export const elNavItemExpanded = css`
+/** @deprecated */
+export const elDeprecatedNavItemExpanded = css`
   &:not(:first-child) {
     height: 2rem;
   }
@@ -182,13 +190,15 @@ export const elNavItemExpanded = css`
   }
 `
 
-export const elNavItemIcon = css`
+/** @deprecated */
+export const elDeprecatedNavItemIcon = css`
   @media screen and (max-width: 767px) {
     margin-left: 0.75rem;
   }
 `
 
-export const ElNavSubItem = styled.a`
+/** @deprecated */
+export const ElDeprecatedNavSubItem = styled.a`
   height: 0;
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
@@ -206,7 +216,8 @@ export const ElNavSubItem = styled.a`
   }
 `
 
-export const elNavSubItemExpanded = css`
+/** @deprecated */
+export const elDeprecatedNavSubItemExpanded = css`
   @media screen and (max-width: 767px) {
     height: auto;
     width: 100%;
@@ -221,12 +232,14 @@ export const elNavSubItemExpanded = css`
   }
 `
 
-export const elNavSubItemActive = css`
+/** @deprecated */
+export const elDeprecatedNavSubItemActive = css`
   color: var(--purple-500);
   margin-left: 1rem;
 `
 
-export const elNavItemHideDesktop = css`
+/** @deprecated */
+export const elDeprecatedNavItemHideDesktop = css`
   @media screen and (min-width: 768px) {
     height: 0;
     width: 0;
@@ -236,11 +249,13 @@ export const elNavItemHideDesktop = css`
   }
 `
 
-export const elNavIsHidden = css`
+/** @deprecated */
+export const elDeprecatedNavIsHidden = css`
   display: none;
 `
 
-export const ElNavMenu = styled.div`
+/** @deprecated */
+export const ElDeprecatedNavMenu = styled.div`
   position: absolute;
   top: 44px;
   right: 0;
@@ -255,7 +270,8 @@ export const ElNavMenu = styled.div`
   padding: 0.5rem 0;
 `
 
-export const ElNavMenuOption = styled.div`
+/** @deprecated */
+export const ElDeprecatedNavMenuOption = styled.div`
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -277,14 +293,16 @@ export const ElNavMenuOption = styled.div`
   }
 `
 
-export const ElNavMenuOptionDivider = styled.div`
+/** @deprecated */
+export const ElDeprecatedNavMenuOptionDivider = styled.div`
   height: 0;
   width: 100%;
   border-bottom: 1px solid var(--neutral-100);
   margin: 0.5rem 0;
 `
 
-export const ElNavResponsiveAvatarWrap = styled.div`
+/** @deprecated */
+export const ElDeprecatedNavResponsiveAvatarWrap = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -310,7 +328,7 @@ export const ElNavResponsiveAvatarWrap = styled.div`
     margin-right: 1.25rem;
   }
 
-  &.${elNavIsHidden} {
+  &.${elDeprecatedNavIsHidden} {
     display: none;
   }
 `
@@ -323,12 +341,7 @@ export const ElNavResponsiveAppSwitcherWrap = styled.div`
   font-size: var(--font-size-smallest);
   cursor: pointer;
 
-  svg {
-    height: 2rem;
-    width: 2rem;
-  }
-
-  ${ElNavMenu} {
+  ${ElDeprecatedNavMenu} {
     left: 0;
     top: 46px;
   }
