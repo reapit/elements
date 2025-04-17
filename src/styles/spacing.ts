@@ -66,7 +66,7 @@ export const elM8 = css`
 `
 
 export const elM9 = css`
-  margin: va(--util-rems-9);
+  margin: var(--util-rems-9);
 `
 
 export const elM10 = css`
@@ -170,7 +170,7 @@ export const elMr8 = css`
 `
 
 export const elMr9 = css`
-  margin-right: va(--util-rems-9);
+  margin-right: var(--util-rems-9);
 `
 
 export const elMr10 = css`
@@ -274,7 +274,7 @@ export const elMt8 = css`
 `
 
 export const elMt9 = css`
-  margin-top: va(--util-rems-9);
+  margin-top: var(--util-rems-9);
 `
 
 export const elMt10 = css`
@@ -335,7 +335,7 @@ export const elMy8 = css`
 `
 
 export const elMy9 = css`
-  margin-top: va(--util-rems-9);
+  margin-top: var(--util-rems-9);
   margin-bottom: var(--util-rems-9);
 `
 
@@ -401,7 +401,7 @@ export const elMx8 = css`
 
 export const elMx9 = css`
   margin-left: var(--util-rems-9);
-  margin-right: va(--util-rems-9);
+  margin-right: var(--util-rems-9);
 `
 
 export const elMx10 = css`
@@ -561,7 +561,7 @@ export const elPl8 = css`
 `
 
 export const elPl9 = css`
-  padding-left: va(--util-rems-9);
+  padding-left: var(--util-rems-9);
 `
 
 export const elPl10 = css`
@@ -623,7 +623,7 @@ export const elPy8 = css`
 
 export const elPy9 = css`
   padding-top: var(--util-rems-9);
-  padding-bottom: va(--util-rems-9);
+  padding-bottom: var(--util-rems-9);
 `
 
 export const elPy10 = css`
@@ -687,7 +687,7 @@ export const elPx8 = css`
 `
 
 export const elPx9 = css`
-  padding-left: va(--util-rems-9);
+  padding-left: var(--util-rems-9);
   padding-right: var(--util-rems-9);
 `
 
@@ -795,7 +795,7 @@ export const elPb8 = css`
 `
 
 export const elPb9 = css`
-  padding-bottom: va(--util-rems-9);
+  padding-bottom: var(--util-rems-9);
 `
 
 export const elPb10 = css`
