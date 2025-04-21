@@ -136,32 +136,50 @@ const calculatePopoverPosition = ({
     }
   }
 
+  const adjustWhenOverflowTop = () => {
+    if (top - scrollTop < parentRect.top) {
+      top = triggerRect.bottom + scrollTop + popoverOffset
+    }
+  }
+
+  const adjustWhenOverflowBottom = () => {
+    if (top + popoverRect.height - scrollTop > parentRect.bottom) {
+      top = triggerRect.top + scrollTop - popoverRect.height - popoverOffset
+    }
+  }
+
+  const adjustWhenOverflowLeft = () => {
+    if (left - scrollLeft < parentRect.left) {
+      left = triggerRect.right + scrollLeft + popoverOffset
+    }
+  }
+
+  const adjustWhenOverflowRight = () => {
+    if (left + popoverRect.width - scrollLeft > viewportWidth) {
+      left = triggerRect.left - popoverRect.width - popoverOffset + scrollLeft
+    }
+  }
+
   switch (safePosition) {
     case 'top':
       top = triggerRect.top + scrollTop - popoverRect.height - popoverOffset
       left = triggerRect.left + scrollLeft + (triggerRect.width - popoverRect.width) / 2
 
-      if (top - scrollTop < parentRect.top) {
-        top = triggerRect.bottom + scrollTop + popoverOffset
-      }
+      adjustWhenOverflowTop()
       adjustLeft()
       break
     case 'top-start':
       top = triggerRect.top + scrollTop - popoverRect.height - popoverOffset
       left = triggerRect.left + scrollLeft
 
-      if (top - scrollTop < parentRect.top) {
-        top = triggerRect.bottom + scrollTop + popoverOffset
-      }
+      adjustWhenOverflowTop()
       adjustLeft()
       break
     case 'top-end':
       top = triggerRect.top + scrollTop - popoverRect.height - popoverOffset
       left = triggerRect.right + scrollLeft - popoverRect.width
 
-      if (top - scrollTop < parentRect.top) {
-        top = triggerRect.bottom + scrollTop + popoverOffset
-      }
+      adjustWhenOverflowTop()
       adjustLeft()
       break
 
@@ -169,27 +187,21 @@ const calculatePopoverPosition = ({
       top = triggerRect.bottom + scrollTop + popoverOffset
       left = triggerRect.left + scrollLeft + (triggerRect.width - popoverRect.width) / 2
 
-      if (top + popoverRect.height - scrollTop > parentRect.bottom) {
-        top = triggerRect.top + scrollTop - popoverRect.height - popoverOffset
-      }
+      adjustWhenOverflowBottom()
       adjustLeft()
       break
     case 'bottom-start':
       top = triggerRect.bottom + scrollTop + popoverOffset
       left = triggerRect.left + scrollLeft
 
-      if (top + popoverRect.height - scrollTop > parentRect.height) {
-        top = triggerRect.top + scrollTop - popoverRect.height - popoverOffset
-      }
+      adjustWhenOverflowBottom()
       adjustLeft()
       break
     case 'bottom-end':
       top = triggerRect.bottom + scrollTop + popoverOffset
       left = triggerRect.right + scrollLeft - popoverRect.width
 
-      if (top + popoverRect.height - scrollTop > parentRect.height) {
-        top = triggerRect.top + scrollTop - popoverRect.height - popoverOffset
-      }
+      adjustWhenOverflowBottom()
       adjustLeft()
       break
 
@@ -197,54 +209,42 @@ const calculatePopoverPosition = ({
       top = triggerRect.top + scrollTop + (triggerRect.height - popoverRect.height) / 2
       left = triggerRect.left + scrollLeft - popoverRect.width - popoverOffset
 
-      if (left - scrollLeft < parentRect.left) {
-        left = triggerRect.right + scrollLeft + popoverOffset
-      }
+      adjustWhenOverflowLeft()
       adjustTop()
       break
     case 'left-start':
       top = triggerRect.top + scrollTop
       left = triggerRect.left + scrollLeft - popoverRect.width - popoverOffset
 
-      if (left - scrollLeft < parentRect.left) {
-        left = triggerRect.right + scrollLeft + popoverOffset
-      }
+      adjustWhenOverflowLeft()
       adjustTop()
       break
     case 'left-end':
       top = triggerRect.bottom + scrollTop - popoverRect.height
       left = triggerRect.left + scrollLeft - popoverRect.width - popoverOffset
 
-      if (left - scrollLeft < parentRect.left) {
-        left = triggerRect.right + scrollLeft + popoverOffset
-      }
+      adjustWhenOverflowLeft()
       adjustTop()
       break
     case 'right':
       top = triggerRect.top + scrollTop + (triggerRect.height - popoverRect.height) / 2
       left = triggerRect.right + scrollLeft + popoverOffset
 
-      if (left + popoverRect.width - scrollLeft > viewportWidth) {
-        left = triggerRect.left - popoverRect.width - popoverOffset + scrollLeft
-      }
+      adjustWhenOverflowRight()
       adjustTop()
       break
     case 'right-start':
       top = triggerRect.top + scrollTop
       left = triggerRect.right + scrollLeft + popoverOffset
 
-      if (left + popoverRect.width - scrollLeft > viewportWidth) {
-        left = triggerRect.left - popoverRect.width - popoverOffset + scrollLeft
-      }
+      adjustWhenOverflowRight()
       adjustTop()
       break
     case 'right-end':
       top = triggerRect.bottom + scrollTop - popoverRect.height
       left = triggerRect.right + scrollLeft + popoverOffset
 
-      if (left + popoverRect.width - scrollLeft > viewportWidth) {
-        left = triggerRect.left - popoverRect.width - popoverOffset + scrollLeft
-      }
+      adjustWhenOverflowRight()
       adjustTop()
       break
     default:
