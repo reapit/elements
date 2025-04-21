@@ -1,4 +1,4 @@
-import type { FC, MouseEventHandler, AnchorHTMLAttributes, ButtonHTMLAttributes } from 'react'
+import type { FC, MouseEventHandler, AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
 import {
   ElTopBarMenuItemAnchor,
@@ -8,25 +8,23 @@ import {
 } from './styles'
 
 type CommonTopBarMenuItemProps = {
-  label: string
+  children: ReactNode
   isActive?: boolean
   hasBadge?: boolean
 }
 
 interface TopBarMenuItemAsButtonElementProps
   extends CommonTopBarMenuItemProps,
-    ButtonHTMLAttributes<HTMLButtonElement> {
+    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
   onClick: MouseEventHandler<HTMLButtonElement>
   href?: never
-  children?: never
 }
 
 interface TopBarMenuItemAsAnchorElementProps
   extends CommonTopBarMenuItemProps,
-    AnchorHTMLAttributes<HTMLAnchorElement> {
+    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
   href: string
   onClick?: never
-  children?: never
 }
 
 export type TopBarMenuItemProps = TopBarMenuItemAsButtonElementProps | TopBarMenuItemAsAnchorElementProps
@@ -37,23 +35,23 @@ const isTopBarMenuItemButtonElement = (props: TopBarMenuItemProps): props is Top
 
 export const TopBarMenuItem: FC<TopBarMenuItemProps> = (props) => {
   if (isTopBarMenuItemButtonElement(props)) {
-    const { isActive, label, hasBadge, 'aria-label': ariaLabel, ...rest } = props ?? {}
+    const { isActive, children, hasBadge, ...rest } = props ?? {}
 
     return (
       <ElTopBarMenuItemListItem>
-        <ElTopBarMenuItemButton {...rest} aria-label={ariaLabel ?? label} aria-current={isActive ? 'true' : undefined}>
-          {label}
+        <ElTopBarMenuItemButton {...rest} aria-current={isActive ? 'true' : undefined}>
+          {children}
           {hasBadge && <ElTopBarMenuItemBadge />}
         </ElTopBarMenuItemButton>
       </ElTopBarMenuItemListItem>
     )
   } else {
-    const { isActive, label, hasBadge, 'aria-label': ariaLabel, ...rest } = props ?? {}
+    const { isActive, children, hasBadge, ...rest } = props ?? {}
 
     return (
       <ElTopBarMenuItemListItem>
-        <ElTopBarMenuItemAnchor {...rest} aria-label={ariaLabel ?? label} aria-current={isActive ? 'page' : undefined}>
-          {label}
+        <ElTopBarMenuItemAnchor {...rest} aria-current={isActive ? 'page' : undefined}>
+          {children}
           {hasBadge && <ElTopBarMenuItemBadge />}
         </ElTopBarMenuItemAnchor>
       </ElTopBarMenuItemListItem>
