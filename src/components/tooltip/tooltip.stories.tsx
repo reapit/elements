@@ -4,6 +4,7 @@ import { useTooltip } from './use-tooltip'
 import { Tooltip, TooltipProps } from './tooltip'
 import { ElTooltip, ElTooltipLabel } from './styles'
 import { useId } from 'react'
+import { FlexContainer } from '../layout'
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Components/Tooltip',
@@ -68,6 +69,12 @@ export default meta
  * to bind the necessary event handlers for displaying the tooltip.
  *
  * `getTooltipProps()`: Applied to the Tooltip component to manage its visibility, positioning, and accessibility.
+ *
+ *
+ * **Note**: The tooltip component ensures that the tooltip remains visible regardless of its initially declared position.
+ * If the tooltip overflows the viewport in any direction,
+ * it automatically adjusts to stay visible inside the viewport.
+ * This guarantees an optimal viewing experience without content being clipped or hidden.
  */
 export const BasicUsage = {
   args: {
@@ -268,6 +275,66 @@ export const DisplayTooltipWithoutTrigger = {
   render: (args) => {
     // Pass args to MockedTooltip to make it reactive
     return <MockedTooltip {...args} />
+  },
+  parameters: {
+    docs: {
+      canvas: {
+        sourceState: 'none',
+      },
+      story: {
+        inline: false,
+        iframeHeight: 60,
+      },
+    },
+  },
+}
+
+/**
+ * This tooltip component ensures that the tooltip remains visible regardless of its initially declared position.
+ * If the tooltip overflows the viewport in any direction,
+ * it automatically adjusts to stay visible inside the viewport.
+ * This guarantees an optimal viewing experience without content being clipped or hidden.
+ */
+export const DynamicDisplayTooltipExample = {
+  args: {
+    description: 'Tooltip text', // Default value for description
+    label: 'Label', // Default value for label
+    position: 'top',
+    maxWidth: '400px',
+  },
+  render: (args) => {
+    const tooltipTopLeft = useTooltip()
+    const tooltipTopRight = useTooltip()
+    const tooltipBottomRight = useTooltip()
+    const tooltipBottomLeft = useTooltip()
+    // Pass args to MockedTooltip to make it reactive
+    return (
+      <FlexContainer>
+        <FlexContainer
+          isFlexColumn
+          isFlexJustifyBetween
+          style={{
+            height: '100vh',
+            width: '100vw',
+            overflow: 'hidden',
+            minWidth: 'auto',
+          }}
+        >
+          <FlexContainer isFlexJustifyBetween>
+            <Button {...tooltipTopLeft.getTriggerProps()}>Hover me</Button>
+            <Tooltip {...tooltipTopLeft.getTooltipProps()} {...args} />
+            <Button {...tooltipTopRight.getTriggerProps()}>Hover me</Button>
+            <Tooltip {...tooltipTopRight.getTooltipProps()} {...args} />
+          </FlexContainer>
+          <FlexContainer isFlexJustifyBetween>
+            <Button {...tooltipBottomRight.getTriggerProps()}>Hover me</Button>
+            <Tooltip {...tooltipBottomRight.getTooltipProps()} {...args} />
+            <Button {...tooltipBottomLeft.getTriggerProps()}>Hover me</Button>
+            <Tooltip {...tooltipBottomLeft.getTooltipProps()} {...args} />
+          </FlexContainer>
+        </FlexContainer>
+      </FlexContainer>
+    )
   },
   parameters: {
     docs: {
