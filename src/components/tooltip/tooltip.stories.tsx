@@ -71,7 +71,7 @@ export default meta
  * `getTooltipProps()`: Applied to the Tooltip component to manage its visibility, positioning, and accessibility.
  *
  *
- * **Note**: The tooltip component ensures that the tooltip remains visible regardless of its 
+ * **Note**: The tooltip component ensures that the tooltip remains visible regardless of its
  * initially declared position.
  * If the tooltip overflows the viewport in any direction,
  * it automatically adjusts to stay visible inside the viewport.
