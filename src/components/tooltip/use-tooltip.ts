@@ -54,7 +54,7 @@ export const useTooltip = ({ truncationTargetId }: UseTooltipOptions = {}) => {
 
     // Default position to top
     const tooltipPosition = tooltip.getAttribute('data-position') || 'top'
-    calculatePopoverPosition({ triggerElement: trigger, popoverElement: tooltip, position: tooltipPosition})
+    calculatePopoverPosition({ triggerElement: trigger, popoverElement: tooltip, position: tooltipPosition })
   }
 
   // Update tooltip position on visibility change or window resize
