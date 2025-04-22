@@ -30,36 +30,40 @@ const meta = {
           <TopBarMenu.Body>
             <TopBarMenu.List>
               <TopBarMenu.Group label="Main Nav Item 1" hasBadge>
-                <TopBarMenu.Item label="Label" href="#item-1.1" />
-                <TopBarMenu.Item label="Label" href="#item-1.2" />
-                <TopBarMenu.Item label="Label" href="#item-1.3" />
-                <TopBarMenu.Item label="Label" href="#item-1.4" />
-                <TopBarMenu.Item label="Label" href="#item-1.5" />
+                <TopBarMenu.Item href="#item-1.1">Label</TopBarMenu.Item>
+                <TopBarMenu.Item href="#item-1.2">Label</TopBarMenu.Item>
+                <TopBarMenu.Item href="#item-1.3">Label</TopBarMenu.Item>
+                <TopBarMenu.Item href="#item-1.4">Label</TopBarMenu.Item>
+                <TopBarMenu.Item href="#item-1.5">Label</TopBarMenu.Item>
               </TopBarMenu.Group>
-              <TopBarMenu.Item label="Main Nav Item 2" href="#item-2" />
-              <TopBarMenu.Item label="Main Nav Item 3" href="#item-3" />
-              <TopBarMenu.Item label="Main Nav Item 4" href="#item-4" />
-              <TopBarMenu.Item label="Main Nav Item 5" href="#item-5" />
+              <TopBarMenu.Item href="#item-2">Main Nav Item 2</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-3">Main Nav Item 3</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-4">Main Nav Item 4</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-5">Main Nav Item 5</TopBarMenu.Item>
             </TopBarMenu.List>
             <TopBarMenu.List>
               <TopBarMenu.Group label="Secondary Nav Item 1" hasBadge isActive>
-                <TopBarMenu.Item label="Label" href="#item-1.1" />
-                <TopBarMenu.Item label="Label" href="#item-1.2" />
-                <TopBarMenu.Item label="Label" href="#item-1.3" isActive />
-                <TopBarMenu.Item label="Label" href="#item-1.4" hasBadge />
-                <TopBarMenu.Item label="Label" href="#item-1.5" />
+                <TopBarMenu.Item href="#item-1.1">Label</TopBarMenu.Item>
+                <TopBarMenu.Item href="#item-1.2">Label</TopBarMenu.Item>
+                <TopBarMenu.Item href="#item-1.3" isActive>
+                  Label
+                </TopBarMenu.Item>
+                <TopBarMenu.Item href="#item-1.4" hasBadge>
+                  Label
+                </TopBarMenu.Item>
+                <TopBarMenu.Item href="#item-1.5">Label</TopBarMenu.Item>
               </TopBarMenu.Group>
-              <TopBarMenu.Item label="Secondary Nav Item 2" href="#item-2" />
-              <TopBarMenu.Item label="Secondary Nav Item 3" href="#item-3" />
-              <TopBarMenu.Item label="Secondary Nav Item 4" href="#item-4" />
-              <TopBarMenu.Item label="Secondary Nav Item 5" href="#item-5" />
+              <TopBarMenu.Item href="#item-2">Secondary Nav Item 2</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-3">Secondary Nav Item 3</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-4">Secondary Nav Item 4</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-5">Secondary Nav Item 5</TopBarMenu.Item>
             </TopBarMenu.List>
             <TopBarMenu.List>
-              <TopBarMenu.Item label="User Item 1" href="#item-1.1" />
-              <TopBarMenu.Item label="User Item 2" href="#item-1.1" />
-              <TopBarMenu.Item label="User Item 3" href="#item-1.1" />
-              <TopBarMenu.Item label="User Item 4" href="#item-1.1" />
-              <TopBarMenu.Item label="User Item 5" href="#item-1.1" />
+              <TopBarMenu.Item href="#item-1.1">User Item 1</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-1.1">User Item 2</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-1.1">User Item 3</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-1.1">User Item 4</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-1.1">User Item 5</TopBarMenu.Item>
             </TopBarMenu.List>
           </TopBarMenu.Body>
         </TopBarMenu>

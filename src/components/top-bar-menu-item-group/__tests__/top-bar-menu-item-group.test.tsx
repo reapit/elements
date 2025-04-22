@@ -8,9 +8,11 @@ describe('TopBarMenuItemGroup', () => {
   it('should able to render an expandable group ', () => {
     render(
       <TopBarMenuItemGroup label="Report" aria-label="Options, opens a sub menu" hasBadge>
-        <TopBarMenuItem label="Create" href="#create" />
-        <TopBarMenuItem label="Report" onClick={vi.fn()} hasBadge />
-        <TopBarMenuItem label="Archive" href="#archive" target="_blank" aria-label="Archive, opens in a new window" />
+        <TopBarMenuItem href="#create">Create</TopBarMenuItem>
+        <TopBarMenuItem onClick={vi.fn()}>Report</TopBarMenuItem>
+        <TopBarMenuItem href="#archive" target="_blank" aria-label="Archive, opens in a new window">
+          Archive
+        </TopBarMenuItem>
       </TopBarMenuItemGroup>,
     )
 

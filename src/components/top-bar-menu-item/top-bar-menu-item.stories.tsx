@@ -9,7 +9,7 @@ const meta = {
     layout: 'padded',
   },
   args: {
-    label: '',
+    children: 'Report',
     href: '',
     onClick: undefined,
   },
@@ -19,13 +19,21 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Simple: Story = {
-  render: ({}) => <TopBarMenuItem label="Report" href="#report" />,
+  render: ({}) => <TopBarMenuItem href="#report">Report</TopBarMenuItem>,
 }
 
 export const Active: Story = {
-  render: ({}) => <TopBarMenuItem label="Create" href="#create" isActive />,
+  render: ({}) => (
+    <TopBarMenuItem href="#create" isActive>
+      Create
+    </TopBarMenuItem>
+  ),
 }
 
 export const WithBadge: Story = {
-  render: ({}) => <TopBarMenuItem label="Archive" href="#archive" hasBadge />,
+  render: ({}) => (
+    <TopBarMenuItem aria-label="Open Archive in new tab" target="_blank" href="#archive" hasBadge>
+      Archive
+    </TopBarMenuItem>
+  ),
 }
