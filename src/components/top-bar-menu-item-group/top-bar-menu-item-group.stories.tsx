@@ -27,9 +27,13 @@ export const Default: Story = {
   render: ({}) => (
     <ul>
       <TopBarMenuItemGroup label="Report" aria-label="Options, opens a sub menu" hasBadge isActive>
-        <TopBarMenuItem label="Create" href="#create" />
-        <TopBarMenuItem label="Report" onClick={action('onClick')} hasBadge />
-        <TopBarMenuItem label="Archive" href="#archive" target="_blank" aria-label="Archive, opens in a new window" />
+        <TopBarMenuItem href="#create">Create</TopBarMenuItem>
+        <TopBarMenuItem onClick={action('onClick')} hasBadge>
+          Report
+        </TopBarMenuItem>
+        <TopBarMenuItem href="#archive" target="_blank" aria-label="Archive, opens in a new window">
+          Archive
+        </TopBarMenuItem>
       </TopBarMenuItemGroup>
     </ul>
   ),
@@ -44,14 +48,13 @@ export const Expandable: Story = {
         <Button onClick={() => setIsExpanded((prev) => !prev)}>{isExpanded ? 'Close' : 'Open'}</Button>
         <ul>
           <TopBarMenuItemGroup label="Report" aria-label="Options, opens a sub menu" hasBadge isActive={isExpanded}>
-            <TopBarMenuItem label="Create" href="#create" />
-            <TopBarMenuItem label="Report" onClick={action('onClick')} hasBadge />
-            <TopBarMenuItem
-              label="Archive"
-              href="#archive"
-              target="_blank"
-              aria-label="Archive, opens in a new window"
-            />
+            <TopBarMenuItem href="#create">Create</TopBarMenuItem>
+            <TopBarMenuItem onClick={action('onClick')} hasBadge>
+              Report
+            </TopBarMenuItem>
+            <TopBarMenuItem href="#archive" target="_blank" aria-label="Archive, opens in a new window">
+              Archive
+            </TopBarMenuItem>
           </TopBarMenuItemGroup>
         </ul>
       </>
