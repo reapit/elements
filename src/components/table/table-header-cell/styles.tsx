@@ -16,7 +16,7 @@ interface ElTableHeaderCellProps {
   'data-alignment': string
 }
 
-export const ElTableHeaderCell = styled.td<ElTableHeaderCellProps>`
+export const ElTableHeaderCell = styled.th<ElTableHeaderCellProps>`
   --tablecell-header-width: auto;
   --tablecell-header-min-width: auto;
   --tablecell-header-max-width: 100%;
@@ -51,5 +51,6 @@ export const ElTableHeaderCellContent = styled.div`
   min-height: 40px;
   flex: 1;
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
 `
