@@ -1,5 +1,6 @@
 import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useId } from '#src/storybook/random-id'
+import calculatePopoverPosition from '../../helpers/calculatePopoverPosition'
 
 type UseTooltipOptions = {
   truncationTargetId?: string
@@ -51,78 +52,9 @@ export const useTooltip = ({ truncationTargetId }: UseTooltipOptions = {}) => {
 
     if (!tooltip || !trigger) return
 
-    const triggerRect = trigger.getBoundingClientRect()
-    const tooltipRect = tooltip.getBoundingClientRect()
-
-    // Calculate scroll offsets
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
-    const scrollLeft = document.documentElement.scrollLeft || document.body.scrollLeft
-
-    // const viewportWidth = window.innerWidth
-    // const viewportHeight = window.innerHeight
-    const position = tooltip.getAttribute('data-position')
-
-    let top = 0
-    let left = 0
-
-    switch (position) {
-      case 'top':
-        top = triggerRect.top + scrollTop - tooltipRect.height - 4
-        left = triggerRect.left + scrollLeft + (triggerRect.width - tooltipRect.width) / 2
-        break
-      case 'top-start':
-        top = triggerRect.top + scrollTop - tooltipRect.height - 4
-        left = triggerRect.left + scrollLeft
-        break
-      case 'top-end':
-        top = triggerRect.top + scrollTop - tooltipRect.height - 4
-        left = triggerRect.right + scrollLeft - tooltipRect.width
-        break
-      case 'bottom':
-        top = triggerRect.bottom + scrollTop + 4
-        left = triggerRect.left + scrollLeft + (triggerRect.width - tooltipRect.width) / 2
-        break
-      case 'bottom-start':
-        top = triggerRect.bottom + scrollTop + 4
-        left = triggerRect.left + scrollLeft
-        break
-      case 'bottom-end':
-        top = triggerRect.bottom + scrollTop + 4
-        left = triggerRect.right + scrollLeft - tooltipRect.width
-        break
-      case 'left':
-        top = triggerRect.top + scrollTop + (triggerRect.height - tooltipRect.height) / 2
-        left = triggerRect.left + scrollLeft - tooltipRect.width - 4
-        break
-      case 'left-start':
-        top = triggerRect.top + scrollTop
-        left = triggerRect.left + scrollLeft - tooltipRect.width - 4
-        break
-      case 'left-end':
-        top = triggerRect.bottom + scrollTop - tooltipRect.height
-        left = triggerRect.left + scrollLeft - tooltipRect.width - 4
-        break
-      case 'right':
-        top = triggerRect.top + scrollTop + (triggerRect.height - tooltipRect.height) / 2
-        left = triggerRect.right + scrollLeft + 4
-        break
-      case 'right-start':
-        top = triggerRect.top + scrollTop
-        left = triggerRect.right + scrollLeft + 4
-        break
-      case 'right-end':
-        top = triggerRect.bottom + scrollTop - tooltipRect.height
-        left = triggerRect.right + scrollLeft + 4
-        break
-      default:
-        break
-    }
-
-    // Below are inline style applied to tooltip to position it relevant to respective trigger
-    tooltip.style.position = 'absolute'
-    tooltip.style.inset = '0px auto auto 0px'
-    tooltip.style.transform = `translate(${left}px, ${top}px)`
-    tooltip.style.margin = '0px'
+    // Default position to top
+    const tooltipPosition = tooltip.getAttribute('data-position') || 'top'
+    calculatePopoverPosition({ triggerElement: trigger, popoverElement: tooltip, position: tooltipPosition })
   }
 
   // Update tooltip position on visibility change or window resize
@@ -130,8 +62,12 @@ export const useTooltip = ({ truncationTargetId }: UseTooltipOptions = {}) => {
     if (isVisible) {
       positionTooltip()
       window.addEventListener('resize', positionTooltip)
+      window.addEventListener('scroll', positionTooltip, true)
     }
-    return () => window.removeEventListener('resize', positionTooltip)
+    return () => {
+      window.removeEventListener('resize', positionTooltip)
+      window.removeEventListener('scroll', positionTooltip)
+    }
   }, [isVisible])
 
   const getTriggerProps = (props?: HTMLAttributes<HTMLElement>) => ({

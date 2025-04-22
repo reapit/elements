@@ -1,25 +1,14 @@
-import React, { FC, HTMLAttributes } from 'react'
+import { FC, HTMLAttributes } from 'react'
 import { ElTooltip, ElTooltipLabel } from './styles'
 import { createPortal } from 'react-dom'
+import { PopoverPosition } from '../../helpers/calculatePopoverPosition'
 
 export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   label?: string
   description: string
   isVisible?: boolean
   maxWidth?: string
-  position?:
-    | 'top'
-    | 'bottom'
-    | 'right'
-    | 'left'
-    | 'top-start'
-    | 'top-end'
-    | 'bottom-start'
-    | 'bottom-end'
-    | 'right-start'
-    | 'right-end'
-    | 'left-start'
-    | 'left-end'
+  position?: PopoverPosition
 }
 
 export const Tooltip: FC<TooltipProps> = ({
