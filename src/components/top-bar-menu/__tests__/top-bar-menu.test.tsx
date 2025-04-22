@@ -38,10 +38,10 @@ describe('TopbarMenu', () => {
         <TopBarMenu.Body>
           <TopBarMenu.List>
             <TopBarMenu.Group isActive={false} label="Main Nav Item 1">
-              <TopBarMenu.Item label="Sub Nav Item 1" href="#item-1.1" />
-              <TopBarMenu.Item label="Sub Nav Item 2" href="#item-1.2" />
+              <TopBarMenu.Item href="#item-1.1">Sub Nav Item 1</TopBarMenu.Item>
+              <TopBarMenu.Item href="#item-1.2">Sub Nav Item 2</TopBarMenu.Item>
             </TopBarMenu.Group>
-            <TopBarMenu.Item label="Main Nav Item 2" onClick={mockOnButtonClick} />
+            <TopBarMenu.Item onClick={mockOnButtonClick}>Main Nav Item 2</TopBarMenu.Item>
           </TopBarMenu.List>
         </TopBarMenu.Body>
       </TopBarMenu>,
