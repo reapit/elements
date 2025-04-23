@@ -2,7 +2,7 @@ import React, { forwardRef, LegacyRef, ReactNode } from 'react'
 import { ElInputField, ElInputSizesEnum, ElInputVariantEnum, ElTextInput } from './styles'
 
 export interface TextInputProps
-  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'suffix'> {
+  extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size' | 'prefix' | 'suffix' | 'type'> {
   isError?: boolean
   variant?: ElInputVariantEnum
   size?: ElInputSizesEnum
