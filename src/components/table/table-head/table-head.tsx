@@ -25,9 +25,7 @@ export interface TableHeadProps extends TableHTMLAttributes<HTMLTableSectionElem
 export const TableHead: FC<TableHeadProps> = ({ children, isSticky, ...rest }) => {
   return (
     <ElTableHead {...rest} data-position={isSticky ? 'sticky' : 'relative'}>
-      <ElTableRowHead>
-        {children}
-      </ElTableRowHead>
+      <ElTableRowHead>{children}</ElTableRowHead>
     </ElTableHead>
   )
 }

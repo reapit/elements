@@ -6,7 +6,11 @@ exports[`TableHead > should match snapshot 1`] = `
     class="mocked-styled-0 el-table-head"
     data-position="relative"
   >
-    Mock Children
+    <tr
+      class="mocked-styled-1 el-table-row-head"
+    >
+      Mock Children
+    </tr>
   </thead>
 </DocumentFragment>
 `;

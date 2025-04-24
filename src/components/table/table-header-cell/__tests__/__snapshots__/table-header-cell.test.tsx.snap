@@ -2,7 +2,7 @@
 
 exports[`TableHeaderCell > should match snapshot 1`] = `
 <DocumentFragment>
-  <td
+  <th
     class="mocked-styled-0 el-table-header-cell"
     data-alignment="left"
     style="--tablecell-header-max-width: 100%; --tablecell-header-min-width: auto; --tablecell-header-width: auto;"
@@ -12,6 +12,6 @@ exports[`TableHeaderCell > should match snapshot 1`] = `
     >
       Mock Children
     </div>
-  </td>
+  </th>
 </DocumentFragment>
 `;
