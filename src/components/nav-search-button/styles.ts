@@ -11,17 +11,15 @@ export const ElNavSearchButton = styled.button`
   width: 100%;
   padding: var(--spacing-2);
   gap: var(--spacing-2);
-  border-radius: var(--corner-default);
-  background: var(--fill-default-lightest);
+  border-radius: var(--comp-navigation-border-radius-nav_search);
+  background: var(--comp-navigation-colour-fill-nav_search-default);
 
   &:focus {
-    box-shadow:
-      0px 0px 0px 1px #fff,
-      0px 0px 0px 4px var(--purple-300);
+    outline: var(--border-width-double) solid var(--colour-border-focus);
   }
 
   &:hover {
-    background: var(--fill-default-light);
+    background: var(--comp-navigation-colour-fill-nav_search-hover);
   }
 
   border: none;
@@ -47,21 +45,21 @@ export const ElNavSearchButtonIcon = styled(SearchIcon)`
   width: var(--icon-sm);
   height: var(--icon-sm);
   flex-shrink: 0;
-  color: var(--icon-primary);
+  color: var(--comp-navigation-colour-icon-nav_search);
 `
 
 const basePlaceholderStyle = `
-  color: var(--text-placeholder);
+  color: var(--comp-navigation-colour-text-nav_search-placeholder);
   font-family: var(--font-family);
   font-style: normal;
 `
 
 export const ElNavSearchButtonPlaceholder = styled.span`
   ${basePlaceholderStyle}
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-xs);
-  letter-spacing: var(--letter-spacing-xs);
+  font-size: var(--font-xs-regular-size);
+  font-weight: var(--font-xs-regular-weight);
+  line-height: var(--font-xs-regular-line_height);
+  letter-spacing: var(--font-xs-regular-letter_spacing);
 
   flex: 1;
   text-align: left;
@@ -69,8 +67,8 @@ export const ElNavSearchButtonPlaceholder = styled.span`
 
 export const ElNavSearchButtonShortcutText = styled.span`
   ${basePlaceholderStyle}
-  font-size: var(--font-size-2xs);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-2xs);
-  letter-spacing: var(--letter-spacing-2xs);
+  font-size: var(--font-2xs-medium-size);
+  font-weight: var(--font-2xs-medium-weight);
+  line-height: var(--font-2xs-medium-line_height);
+  letter-spacing: var(--font-2xs-medium-letter_spacing);
 `

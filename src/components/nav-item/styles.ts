@@ -5,40 +5,41 @@ export const ElNavItemLabelContainer = styled.span`
   padding: var(--spacing-half);
   align-items: flex-start;
 
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
+  /* text-sm/Medium */
+  font-family: var(--font-sm-medium-family);
+  font-size: var(--font-sm-medium-size);
   font-style: normal;
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
+  font-weight: var(--font-sm-medium-weight);
+  line-height: var(--font-sm-medium-line_height);
+  letter-spacing: var(--font-sm-medium-letter_spacing);
 `
 
 const baseNavItemStyle = `
   display: inline-flex;
   padding: var(--spacing-1) var(--spacing-3);
   align-items: center;
-  border-radius: var(--corner-default);
-  background: var(--fill-white);
+  border-radius: var(--comp-navigation-border-radius-nav_item-desktop);
+  background: var(--comp-navigation-colour-fill-nav_item-default);
+
   &:focus {
-    box-shadow:
-      0px 0px 0px 1px #fff,
-      0px 0px 0px 4px var(--purple-300);
+    outline: var(--border-width-double) solid var(--colour-border-focus);
   }
+
+
   &:hover {
-    background: var(--fill-default-lightest);
+    background: var(--comp-navigation-colour-fill-nav_item-hover);
   }
+
   &:active {
-    background: var(--fill-default-lightest);
+    background: var(--comp-navigation-colour-fill-nav_item-select);
   }
-  &:focus-visible {
-    outline: none;
-  }
+
   cursor: pointer;
   border: none;
 
-  color: var(--text-secondary);
+  color: var(--comp-navigation-colour-text-nav_item-default);
   &:active, &[aria-current="true"], &[aria-current="page"] {
-    color: var(--text-action);
+    color: var(--comp-navigation-colour-text-nav_item-select);
   }
 
   white-space: nowrap
