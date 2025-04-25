@@ -9,30 +9,25 @@ const baseStyles = `
   justify-content: center;
   align-items: center;
   gap: var(--spacing-none);
-  border-radius: var(--corner-defaul);
-  background: var(--fill-white);
+  border-radius: var(--comp-navigation-border-radius-nav_icon);
+  background: var(--comp-navigation-colour-fill-nav_icon-default);
   border: var(--border-none);
   color: var(--icon-app_bar-default);
   outline: none;
 
   &:focus-visible {
-    border-radius: var(--corner-default);
-    background: var(--fill-white);
-    box-shadow:
-      0px 0px 0px 1px var(--fill-white),
-      0px 0px 0px 4px var(--icon-button_primary-hover);
+    outline: var(--border-width-double) solid var(--colour-border-focus);
+
   }
 
   &:hover {
     cursor: pointer;
-    border-radius: var(--corner-default);
-    background: var(--fill-default-lightest);
+    background: var(--comp-navigation-colour-fill-nav_icon-hover);
   }
 
   &:active, &[aria-current="page"], &[aria-current="true"] {
-    color: var(--fill-action-dark);
-    border-radius: var(--corner-default);
-    background: var(--fill-default-lightest);
+    color: var(--comp-navigation-colour-icon-nav_icon-select);
+    background: var(--comp-navigation-colour-fill-nav_icon-select);
   }
 `
 
@@ -42,7 +37,7 @@ export const ElNavIconItemBadge = styled.span`
   top: 5px;
   width: var(--size-2);
   height: var(--size-2);
-  background-color: var(--icon-error);
+  background-color: var(--comp-navigation-colour-fill-notification_badge);
   border-radius: 100%;
 `
 
