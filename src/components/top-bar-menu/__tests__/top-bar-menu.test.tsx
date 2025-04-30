@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { TopBarMenu } from '../top-bar-menu'
 
 vi.mock('../../icon', () => ({
@@ -27,6 +27,82 @@ describe('TopBarMenu', () => {
         </TopBarMenu>,
       ).asFragment(),
     ).toMatchSnapshot()
+  })
+
+  it('should not render dialog when isOpen is false', () => {
+    const { container } = render(
+      <TopBarMenu isOpen={false} onClose={vi.fn()}>
+        <TopBarMenu.Header />
+        <TopBarMenu.Body>
+          <TopBarMenu.List>
+            <TopBarMenu.Item href="#item-1">Test Item</TopBarMenu.Item>
+          </TopBarMenu.List>
+        </TopBarMenu.Body>
+      </TopBarMenu>,
+    )
+
+    expect(container.querySelector('dialog[open]')).not.toBeInTheDocument()
+  })
+
+  it('should call onClose when the close button is clicked', () => {
+    const onCloseMock = vi.fn()
+
+    render(
+      <TopBarMenu isOpen onClose={onCloseMock}>
+        <TopBarMenu.Header />
+        <TopBarMenu.Body>
+          <TopBarMenu.List>
+            <TopBarMenu.Item href="#item-1">Test Item</TopBarMenu.Item>
+          </TopBarMenu.List>
+        </TopBarMenu.Body>
+      </TopBarMenu>,
+    )
+
+    const closeButton = screen.getByRole('button', { name: /close/i })
+    fireEvent.click(closeButton)
+
+    expect(onCloseMock).toHaveBeenCalledTimes(1)
+  })
+
+  it('should render badge indicators correctly', () => {
+    render(
+      <TopBarMenu isOpen onClose={vi.fn()}>
+        <TopBarMenu.Body>
+          <TopBarMenu.List>
+            <TopBarMenu.Item href="#item-1" hasBadge>
+              Item with Badge
+            </TopBarMenu.Item>
+            <TopBarMenu.Item href="#item-2">Item without Badge</TopBarMenu.Item>
+          </TopBarMenu.List>
+        </TopBarMenu.Body>
+      </TopBarMenu>,
+    )
+
+    const itemWithBadge = screen.getByText('Item with Badge').closest('a')
+    const itemWithoutBadge = screen.getByText('Item without Badge').closest('a')
+
+    // Check for badge in DOM structure
+    expect(itemWithBadge?.querySelector('span')).toBeInTheDocument()
+    expect(itemWithoutBadge?.querySelector('span')).not.toBeInTheDocument()
+  })
+
+  it('should handle button items with onClick handlers', () => {
+    const onClickMock = vi.fn()
+
+    render(
+      <TopBarMenu isOpen onClose={vi.fn()}>
+        <TopBarMenu.Body>
+          <TopBarMenu.List>
+            <TopBarMenu.Item onClick={onClickMock}>Button Item</TopBarMenu.Item>
+          </TopBarMenu.List>
+        </TopBarMenu.Body>
+      </TopBarMenu>,
+    )
+
+    const buttonItem = screen.getByText('Button Item')
+    fireEvent.click(buttonItem)
+
+    expect(onClickMock).toHaveBeenCalledTimes(1)
   })
 
   it('should handle the keyboard navigation properly', () => {
@@ -86,5 +162,47 @@ describe('TopBarMenu', () => {
     expect(getItems()).toHaveLength(4)
     fireEvent.keyDown(document.activeElement!, { key: ' ' })
     expect(getItems()).toHaveLength(2)
+  })
+
+  it('should correctly set active state on menu items', () => {
+    render(
+      <TopBarMenu isOpen onClose={vi.fn()}>
+        <TopBarMenu.Body>
+          <TopBarMenu.List>
+            <TopBarMenu.Item href="#item-1" isActive>
+              Active Item
+            </TopBarMenu.Item>
+            <TopBarMenu.Item href="#item-2">Inactive Item</TopBarMenu.Item>
+          </TopBarMenu.List>
+        </TopBarMenu.Body>
+      </TopBarMenu>,
+    )
+
+    const activeItem = screen.getByText('Active Item').closest('a')
+    const inactiveItem = screen.getByText('Inactive Item').closest('a')
+
+    expect(activeItem).toHaveAttribute('aria-current', 'page')
+    expect(inactiveItem).not.toHaveAttribute('aria-current')
+  })
+
+  it('should correctly set active state on button menu items', () => {
+    render(
+      <TopBarMenu isOpen onClose={vi.fn()}>
+        <TopBarMenu.Body>
+          <TopBarMenu.List>
+            <TopBarMenu.Item onClick={vi.fn()} isActive>
+              Active Button
+            </TopBarMenu.Item>
+            <TopBarMenu.Item onClick={vi.fn()}>Inactive Button</TopBarMenu.Item>
+          </TopBarMenu.List>
+        </TopBarMenu.Body>
+      </TopBarMenu>,
+    )
+
+    const activeButton = screen.getByText('Active Button').closest('button')
+    const inactiveButton = screen.getByText('Inactive Button').closest('button')
+
+    expect(activeButton).toHaveAttribute('aria-current', 'true')
+    expect(inactiveButton).not.toHaveAttribute('aria-current')
   })
 })
