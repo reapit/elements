@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { TopBarMenu } from '../top-bar-menu'
+import { getTopBarMenuClickableItems, TopBarMenu } from '../top-bar-menu'
 
 vi.mock('../../icon', () => ({
   Icon: () => <svg data-name="mocked" />,
@@ -109,7 +109,7 @@ describe('TopBarMenu', () => {
     const mockOnButtonClick = vi.fn()
     const mockOnKeyDown = vi.fn()
 
-    render(
+    const { container } = render(
       <TopBarMenu isOpen onKeyDown={mockOnKeyDown}>
         <TopBarMenu.Body>
           <TopBarMenu.List>
@@ -123,12 +123,7 @@ describe('TopBarMenu', () => {
       </TopBarMenu>,
     )
 
-    const getItems = () =>
-      document?.querySelectorAll(
-        'ul:not([aria-hidden="true"]):not([aria-hidden="false"]) > li > a, ul[aria-hidden="false"] > li > a, button',
-      ) as NodeListOf<HTMLElement>
-
-    const initialItems = getItems()
+    const initialItems = getTopBarMenuClickableItems(container)
     expect(initialItems).toHaveLength(2)
 
     initialItems[0].focus()
@@ -142,7 +137,7 @@ describe('TopBarMenu', () => {
     expect(document.activeElement).toBe(initialItems[0])
 
     // NOTE: ensure the sub items are accessible while the parent item expanded
-    const expandedItems = getItems()
+    const expandedItems = getTopBarMenuClickableItems(container)
     expect(expandedItems).toHaveLength(4)
     fireEvent.keyDown(document.activeElement!, { key: 'ArrowDown' })
     expect(document.activeElement).toBe(expandedItems[1])
@@ -157,11 +152,11 @@ describe('TopBarMenu', () => {
 
     // NOTE: asserting the expand and collapse functionality with across key strokes
     fireEvent.keyDown(document.activeElement!, { key: 'ArrowLeft' })
-    expect(getItems()).toHaveLength(2)
+    expect(getTopBarMenuClickableItems(container)).toHaveLength(2)
     fireEvent.keyDown(document.activeElement!, { key: 'Enter' })
-    expect(getItems()).toHaveLength(4)
+    expect(getTopBarMenuClickableItems(container)).toHaveLength(4)
     fireEvent.keyDown(document.activeElement!, { key: ' ' })
-    expect(getItems()).toHaveLength(2)
+    expect(getTopBarMenuClickableItems(container)).toHaveLength(2)
   })
 
   it('should correctly set active state on menu items', () => {

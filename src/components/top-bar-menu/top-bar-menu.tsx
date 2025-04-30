@@ -17,6 +17,23 @@ export interface TopBarMenuProps extends DialogHTMLAttributes<HTMLDialogElement>
 }
 
 /**
+ * Gets all clickable and focusable items in the menu container
+ *
+ * This function returns all buttons and links in the menu that are:
+ * - Links inside list items within visible lists (aria-hidden="false")
+ * - Links inside list items within lists that don't have aria-hidden attribute
+ * - All buttons in the container
+ *
+ * @param container The HTML container element to search within
+ * @returns A NodeList of clickable HTMLElements
+ */
+export const getTopBarMenuClickableItems = (container: HTMLElement): NodeListOf<HTMLElement> => {
+  return container?.querySelectorAll(
+    'ul:not([aria-hidden="true"]):not([aria-hidden="false"]) > li > a, ul[aria-hidden="false"] > li > a, button',
+  ) as NodeListOf<HTMLElement>
+}
+
+/**
  * TopBarMenu is a side panel navigation component.
  *
  * It's designed to be used in mobile and desktop layouts and provides
@@ -49,9 +66,7 @@ const TopBarMenu: TopBarMenuFC = ({ children, isOpen, onClose, ...rest }) => {
      * This will collect all the clickable items in the mobile nav menu, and
      * will handle the keyboard navigation for the mobile nav menu
      */
-    const clickableItems = container?.querySelectorAll(
-      'ul:not([aria-hidden="true"]):not([aria-hidden="false"]) > li > a, ul[aria-hidden="false"] > li > a, button',
-    ) as NodeListOf<HTMLElement>
+    const clickableItems = getTopBarMenuClickableItems(container)
 
     let currentIndex = -1
     clickableItems.forEach((item, index) => {
