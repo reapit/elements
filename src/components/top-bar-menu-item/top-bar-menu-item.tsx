@@ -34,23 +34,29 @@ const isTopBarMenuItemButtonElement = (props: TopBarMenuItemProps): props is Top
 }
 
 export const TopBarMenuItem: FC<TopBarMenuItemProps> = (props) => {
-  if (isTopBarMenuItemButtonElement(props)) {
-    const { isActive, children, hasBadge, ...rest } = props ?? {}
+  const { isActive, children, hasBadge, ...rest } = props ?? {}
 
+  if (isTopBarMenuItemButtonElement(props)) {
     return (
       <ElTopBarMenuItemListItem>
-        <ElTopBarMenuItemButton {...rest} aria-current={isActive ? 'true' : undefined}>
+        <ElTopBarMenuItemButton
+          {...(rest as TopBarMenuItemAsButtonElementProps)}
+          role="menuitem"
+          aria-current={isActive ? 'true' : undefined}
+        >
           {children}
           {hasBadge && <ElTopBarMenuItemBadge />}
         </ElTopBarMenuItemButton>
       </ElTopBarMenuItemListItem>
     )
   } else {
-    const { isActive, children, hasBadge, ...rest } = props ?? {}
-
     return (
       <ElTopBarMenuItemListItem>
-        <ElTopBarMenuItemAnchor {...rest} aria-current={isActive ? 'page' : undefined}>
+        <ElTopBarMenuItemAnchor
+          {...(rest as TopBarMenuItemAsAnchorElementProps)}
+          role="menuitem"
+          aria-current={isActive ? 'page' : undefined}
+        >
           {children}
           {hasBadge && <ElTopBarMenuItemBadge />}
         </ElTopBarMenuItemAnchor>

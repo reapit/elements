@@ -18,8 +18,12 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Simple: Story = {
+export const AsLink: Story = {
   render: ({}) => <TopBarMenuItem href="#report">Report</TopBarMenuItem>,
+}
+
+export const AsButton: Story = {
+  render: ({}) => <TopBarMenuItem onClick={() => console.log('Button clicked')}>Settings</TopBarMenuItem>,
 }
 
 export const Active: Story = {
