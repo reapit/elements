@@ -30,7 +30,7 @@ export interface TopBarMenuProps extends DialogHTMLAttributes<HTMLDialogElement>
 export const getTopBarMenuClickableItems = (container: HTMLElement): NodeListOf<HTMLElement> => {
   return container?.querySelectorAll(
     'ul:not([aria-hidden="true"]):not([aria-hidden="false"]) > li > a, ul[aria-hidden="false"] > li > a, button',
-  ) as NodeListOf<HTMLElement>
+  ) satisfies NodeListOf<HTMLElement>
 }
 
 /**
