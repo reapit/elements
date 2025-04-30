@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TopbarMenu > should match a snapshot when isOpen state is true 1`] = `
+exports[`TopBarMenu > should match a snapshot when isOpen state is true 1`] = `
 <DocumentFragment>
   <dialog
     class="mocked-styled-19 el-top-bar-menu"
@@ -58,6 +58,7 @@ exports[`TopbarMenu > should match a snapshot when isOpen state is true 1`] = `
               <a
                 class="mocked-styled-5 el-top-bar-menu-item-anchor"
                 href="#item-1.1"
+                role="menuitem"
               >
                 Label
               </a>
@@ -68,6 +69,7 @@ exports[`TopbarMenu > should match a snapshot when isOpen state is true 1`] = `
               <a
                 class="mocked-styled-5 el-top-bar-menu-item-anchor"
                 href="#item-1.2"
+                role="menuitem"
               >
                 Label
               </a>
@@ -80,6 +82,7 @@ exports[`TopbarMenu > should match a snapshot when isOpen state is true 1`] = `
           <a
             class="mocked-styled-5 el-top-bar-menu-item-anchor"
             href="#item-2"
+            role="menuitem"
           >
             Main Nav Item 2
           </a>
@@ -94,6 +97,7 @@ exports[`TopbarMenu > should match a snapshot when isOpen state is true 1`] = `
           <a
             class="mocked-styled-5 el-top-bar-menu-item-anchor"
             href="#item-1.1"
+            role="menuitem"
           >
             User Item 1
           </a>
@@ -104,6 +108,7 @@ exports[`TopbarMenu > should match a snapshot when isOpen state is true 1`] = `
           <a
             class="mocked-styled-5 el-top-bar-menu-item-anchor"
             href="#item-1.1"
+            role="menuitem"
           >
             User Item 2
           </a>

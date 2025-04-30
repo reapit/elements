@@ -1,12 +1,98 @@
-import { Meta, Source, Title, Subtitle, Description, Canvas, ArgTypes } from '@storybook/blocks';
-import * as TopBarMenu from './top-bar-menu.stories';
+import { Meta, Canvas, ArgTypes, Description } from '@storybook/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as TopBarMenu from './top-bar-menu.stories'
 
 <Meta of={TopBarMenu} />
 
-<Title of={TopBarMenu.Desktop} />
+# Top Bar Menu
 
-<Description of={TopBarMenu.Desktop} />
+The Top Bar Menu component is a mobile-friendly navigation panel that slides in from the right side of the screen. It provides a structured way to organize navigation items in lists and collapsible groups.
 
-<Canvas of={TopBarMenu.Desktop} />
+## Component Structure
+
+The TopBarMenu uses a compound component pattern, exposing these subcomponents:
+
+- `TopBarMenu.Header` - Header section with a close button
+- `TopBarMenu.Body` - Container for the menu content
+- `TopBarMenu.List` - Groups of menu items, separated by borders
+- `TopBarMenu.Group` - Collapsible groups of menu items with a label
+- `TopBarMenu.Item` - Individual navigation items (links or buttons)
+
+## Default Example
+
+The basic implementation of the TopBarMenu with main navigation, settings, and user menu sections.
+
+<Canvas of={TopBarMenu.Default} />
+
+## Initially Open
+
+Shows how the TopBarMenu looks when initially opened.
+
+<Canvas of={TopBarMenu.InitiallyOpen} />
+
+## With Active Item
+
+Demonstrates how active items are highlighted in the menu.
+
+<Canvas of={TopBarMenu.WithActiveItem} />
+
+## With Notification Badges
+
+Shows how notification badges appear on menu items and groups.
+
+<Canvas of={TopBarMenu.WithNotificationBadges} />
+
+## Mobile View
+
+How the TopBarMenu appears on mobile devices.
+
+<Canvas of={TopBarMenu.MobileView} />
+
+## Usage Example
+
+```tsx
+import { TopBarMenu } from '@reapit/elements'
+import { useState } from 'react'
+
+const MyNavigation = () => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  const handleClose = () => setIsOpen(false)
+
+  return (
+    <>
+      <button onClick={() => setIsOpen(true)}>Open Menu</button>
+
+      <TopBarMenu isOpen={isOpen} onClose={handleClose}>
+        <TopBarMenu.Header />
+        <TopBarMenu.Body>
+          <TopBarMenu.List>
+            <TopBarMenu.Item href="/dashboard" isActive>
+              Dashboard
+            </TopBarMenu.Item>
+
+            <TopBarMenu.Group label="Properties" hasBadge>
+              <TopBarMenu.Item href="/properties">All Properties</TopBarMenu.Item>
+              <TopBarMenu.Item href="/property-search">Property Search</TopBarMenu.Item>
+              <TopBarMenu.Item href="/saved-properties" hasBadge>
+                Saved Properties
+              </TopBarMenu.Item>
+            </TopBarMenu.Group>
+
+            <TopBarMenu.Item href="/calendar">Calendar</TopBarMenu.Item>
+          </TopBarMenu.List>
+
+          <TopBarMenu.List>
+            <TopBarMenu.Item href="/profile">My Profile</TopBarMenu.Item>
+            <TopBarMenu.Item onClick={handleLogout}>Sign Out</TopBarMenu.Item>
+          </TopBarMenu.List>
+        </TopBarMenu.Body>
+      </TopBarMenu>
+    </>
+  )
+}
+```
+
+## Props
 
 <ArgTypes of={TopBarMenu} />
