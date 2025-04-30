@@ -19,20 +19,21 @@ export interface TopBarMenuItemGroupProps extends HTMLAttributes<HTMLButtonEleme
 }
 
 export const TopBarMenuItemGroup: FC<TopBarMenuItemGroupProps> = (props) => {
-  const [isExpanded, setIsExpanded] = useTopBarMenuItemGroupState(Boolean(props?.isActive))
+  const { isActive, label, hasBadge, children, 'aria-label': ariaLabel, ...rest } = props ?? {}
+  const [isExpanded, setIsExpanded] = useTopBarMenuItemGroupState(Boolean(isActive))
   const panelId = useId()
 
-  const { isActive, label, hasBadge, children, 'aria-label': ariaLabel, ...rest } = props ?? {}
+  const handleToggle = () => setIsExpanded((prev) => !prev)
 
   return (
     <ElTopBarMenuItemGroupListItem data-is-expanded={isExpanded}>
       <ElTopBarMenuItemGroupButton
         {...rest}
         type="button"
-        aria-expanded={isExpanded ?? isActive}
+        aria-expanded={isExpanded}
         aria-label={ariaLabel ?? label}
         aria-controls={panelId}
-        onClick={() => setIsExpanded((prev) => !prev)}
+        onClick={handleToggle}
       >
         <ElTopBarMenuItemGroupContent>
           {label}

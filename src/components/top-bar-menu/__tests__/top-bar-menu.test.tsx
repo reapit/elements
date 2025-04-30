@@ -1,11 +1,11 @@
 import { fireEvent, render } from '@testing-library/react'
 import { TopBarMenu } from '../top-bar-menu'
-import { TopBar } from '#src/components/top-bar/top-bar'
 
 vi.mock('../../icon', () => ({
   Icon: () => <svg data-name="mocked" />,
 }))
-describe('TopbarMenu', () => {
+
+describe('TopBarMenu', () => {
   it('should match a snapshot when isOpen state is true', () => {
     expect(
       render(

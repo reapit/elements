@@ -8,25 +8,66 @@ import * as TopBarMenuItemGroupStories from './top-bar-menu-item-group.stories'
 
 # Top Bar Menu Item Group
 
-**A Versatile Navigation Component**
+**An Expandable Navigation Component**
 
-The `TopBarMenuItemGroup` is a wrapper component around the `TopBarMenuItem` component that provide the ability to group multiple `TopBarMenuItem` components together
+The `TopBarMenuItemGroup` is a wrapper component for `TopBarMenuItem` components that provides the ability to group multiple navigation items together in an expandable/collapsible section. It's designed for use in navigation menus, sidebars, and dropdown menus.
 
-**Default Appearance**
+## Usage
 
-## Expandable Variant
+```tsx
+// Basic usage
+<TopBarMenuItemGroup label="Reports">
+  <TopBarMenuItem href="#create">Create</TopBarMenuItem>
+  <TopBarMenuItem onClick={handleClick}>Generate</TopBarMenuItem>
+  <TopBarMenuItem href="#archive">Archive</TopBarMenuItem>
+</TopBarMenuItemGroup>
+
+// With badge notification
+<TopBarMenuItemGroup label="Notifications" hasBadge>
+  <TopBarMenuItem href="#inbox">Inbox</TopBarMenuItem>
+  <TopBarMenuItem href="#sent">Sent</TopBarMenuItem>
+</TopBarMenuItemGroup>
+
+// Initially expanded
+<TopBarMenuItemGroup label="Settings" isActive>
+  <TopBarMenuItem href="#profile">Profile</TopBarMenuItem>
+  <TopBarMenuItem href="#preferences">Preferences</TopBarMenuItem>
+</TopBarMenuItemGroup>
+```
+
+## Accessibility
+
+- Menu groups are properly structured with appropriate ARIA roles
+- The group button has `aria-expanded` to indicate its state
+- The group button has `aria-controls` to associate it with the panel it controls
+- Focus management follows established patterns for dropdown menus
+
+## Examples
 
 **Default**
 
+A collapsible menu group that is initially closed.
+
 <Canvas of={TopBarMenuItemGroupStories.Default} />
+
+<Controls />
 
 <RenderHtmlMarkup of={TopBarMenuItemGroupStories.Default} />
 
+**With Badge**
+
+A menu group with a notification badge indicator.
+
+<Canvas of={TopBarMenuItemGroupStories.WithBadge} />
+
+**Initially Expanded**
+
+A menu group that starts in the expanded state.
+
+<Canvas of={TopBarMenuItemGroupStories.Initially_Expanded} />
+
 **Expandable**
 
-An expandable `TopBarMenuItemGroup` that is initially closed.
-
-This component would prioritize the `isActive` prop over the internal state of the component
+An expandable menu group that can be controlled by external state.
 
 <Canvas of={TopBarMenuItemGroupStories.Expandable} />
-
