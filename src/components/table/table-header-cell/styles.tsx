@@ -49,8 +49,8 @@ export const ElTableHeaderCellContent = styled.div`
   line-height: var(--line-height-2xs);
   letter-spacing: var(--letter-spacing-2xs);
   min-height: 40px;
-  flex: auto;
-  display: inline-flex;
+  flex: 1;
+  display: flex;
   align-items: center;
   flex-wrap: wrap;
 `
