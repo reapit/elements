@@ -8,15 +8,15 @@ export const ElNavDropdownButton = styled.button`
   display: inline-flex;
   padding: var(--spacing-1) var(--spacing-3);
   gap: var(--spacing-1);
-  border-radius: var(--corner-default);
+  border-radius: var(--comp-navigation-border-radius-nav_item-desktop);
   background-color: var(--fill-white);
-  color: var(--text-secondary);
+  color: var(--comp-navigation-colour-text-nav_item-default);
   align-items: center;
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
+  font-family: var(--font-sm-medium-family);
+  font-size: var(--font-sm-medium-size);
+  font-weight: var(--font-sm-medium-weight);
+  line-height: var(--font-sm-medium-line_height);
+  letter-spacing: var(--font-sm-medium-letter_spacing);
 
   ${ElIcon} {
     pointer-events: none;
@@ -25,13 +25,11 @@ export const ElNavDropdownButton = styled.button`
 
   &:focus {
     justify-content: center;
-    color: var(--text-secondary);
     background-color: var(--fill-white);
-    box-shadow:
-      0px 0px 0px 1px #fff,
-      0px 0px 0px 4px #66b2ff;
+    outline: var(--border-width-double) solid var(--colour-border-focus);
   }
+
   &:hover {
-    background-color: var(--fill-default-lightest);
+    background: var(--comp-navigation-colour-fill-nav_item-hover);
   }
 `

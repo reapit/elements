@@ -16,9 +16,7 @@ export const ElTopBarLogo = styled.a`
   display: inline-flex;
 `
 
-export const ElTopBarProfile = styled.div`
-  padding: var(--spacing-1) var(--spacing-none);
-`
+export const ElTopBarProfile = styled.div``
 
 export const ElTopBarMainNav = styled(ElButtonGroup)`
   display: flex;
@@ -39,9 +37,8 @@ export const ElTopBar = styled.div`
   align-items: center;
   height: var(--size-14);
   padding: var(--spacing-2) var(--spacing-5);
-  border-bottom: var(--border-default) solid var(--outline-default);
-  background: var(--fill-white);
-
+  border-bottom: var(--comp-navigation-border-width-top_bar) solid var(--comp-navigation-colour-border-top_bar);
+  background: var(--comp-navigation-colour-fill-top_bar);
   ${isBelowWideScreen} {
     padding: var(--spacing-2) var(--spacing-4);
 
