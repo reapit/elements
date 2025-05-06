@@ -7,6 +7,8 @@ import { TableHead } from '../table-head/table-head'
 import { TableBody } from '../table-body'
 import { Input } from '../../input'
 import { AvatarRectangle } from '../../avatar-rectangle'
+import { TableRow } from '../table-row'
+import { TableCell } from '../table-cell'
 
 const meta: Meta<typeof TableHeaderCell> = {
   title: 'Components/TableHeaderCell',
@@ -21,27 +23,29 @@ export const BasicUsage = {
       <TableToolbar description="125 Properties" actions="Page size menu component goes here" />
       <Table>
         <TableHead>
-          <TableHeaderCell {...args} maxWidth="30px">
-            Checkbox Header
-          </TableHeaderCell>
-          <TableHeaderCell {...args}>First Header</TableHeaderCell>
-          <TableHeaderCell {...args}>Image Header</TableHeaderCell>
-          <TableHeaderCell {...args}>Second Header</TableHeaderCell>
-          <TableHeaderCell {...args}>Third Header</TableHeaderCell>
+          <TableRow>
+            <TableHeaderCell {...args} maxWidth="30px">
+              Checkbox Header
+            </TableHeaderCell>
+            <TableHeaderCell {...args}>First Header</TableHeaderCell>
+            <TableHeaderCell {...args}>Image Header</TableHeaderCell>
+            <TableHeaderCell {...args}>Second Header</TableHeaderCell>
+            <TableHeaderCell {...args}>Third Header</TableHeaderCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {Array.from({ length: 10 }, (_, index) => (
-            <tr key={index}>
-              <td>
+            <TableRow key={index}>
+              <TableCell>
                 <Input type="checkbox" />
-              </td>
-              <td>First Column</td>
-              <td>
+              </TableCell>
+              <TableCell>First Column</TableCell>
+              <TableCell>
                 <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
-              </td>
-              <td>Second Column</td>
-              <td>Last Column</td>
-            </tr>
+              </TableCell>
+              <TableCell>Second Column</TableCell>
+              <TableCell>Last Column</TableCell>
+            </TableRow>
           ))}
         </TableBody>
       </Table>

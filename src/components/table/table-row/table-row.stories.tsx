@@ -25,11 +25,13 @@ export const BasicUsage = {
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
         <TableHead>
-          <TableHeaderCell maxWidth="30px">Checkbox Header</TableHeaderCell>
-          <TableHeaderCell>First Header</TableHeaderCell>
-          <TableHeaderCell>Image Header</TableHeaderCell>
-          <TableHeaderCell>Second Header</TableHeaderCell>
-          <TableHeaderCell>Third Header</TableHeaderCell>
+          <TableRow>
+            <TableHeaderCell maxWidth="30px">Checkbox Header</TableHeaderCell>
+            <TableHeaderCell>First Header</TableHeaderCell>
+            <TableHeaderCell>Image Header</TableHeaderCell>
+            <TableHeaderCell>Second Header</TableHeaderCell>
+            <TableHeaderCell>Third Header</TableHeaderCell>
+          </TableRow>
         </TableHead>
         <TableBody>
           {Array.from({ length: 5 }, (_, index) => (
