@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, TableHTMLAttributes } from 'react'
-import { ElTableHead, ElTableRowHead } from './styles'
+import { ElTableHead } from './styles'
 
 export interface TableHeadProps extends TableHTMLAttributes<HTMLTableSectionElement> {
   children?: ReactNode
@@ -25,7 +25,7 @@ export interface TableHeadProps extends TableHTMLAttributes<HTMLTableSectionElem
 export const TableHead: FC<TableHeadProps> = ({ children, isSticky, ...rest }) => {
   return (
     <ElTableHead {...rest} data-position={isSticky ? 'sticky' : 'relative'}>
-      <ElTableRowHead>{children}</ElTableRowHead>
+      {children}
     </ElTableHead>
   )
 }
