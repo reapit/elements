@@ -86,6 +86,7 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
       aria-disabled={disabled}
       {...rest}
       aria-current={isActive ? 'true' : undefined}
+      tabIndex={disabled ? -1 : 0}
     >
       {children}
     </ElMenuItemButton>

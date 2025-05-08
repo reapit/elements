@@ -48,7 +48,7 @@ export const MenuPopover: FC<
     }
   }, [isOpen])
 
-  // if (!isOpen) return null
+  if (!isOpen) return null
 
   const handleClick = (event) => {
     // close menu if clicked target has parent with below selector

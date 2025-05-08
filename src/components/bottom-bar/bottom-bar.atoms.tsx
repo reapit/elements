@@ -2,7 +2,7 @@ import type { FC, ReactNode } from 'react'
 
 import { BottomBarItem } from '../bottom-bar-item'
 import { Icon } from '../icon'
-import { Menu, MenuItemContainerProps } from '../menu'
+import { Menu, type MenuItemProps } from '../menu'
 import { ElBottomBarMoreMenu } from './styles'
 
 export interface BottomBarMoreMenuProps {
@@ -26,7 +26,7 @@ export const BottomBarMoreMenu: FC<BottomBarMoreMenuProps> = ({ children }) => {
   )
 }
 
-export type BottomBarMoreMenuItemProps = MenuItemContainerProps
+export type BottomBarMoreMenuItemProps = MenuItemProps
 export const BottomBarMoreMenuItem: FC<BottomBarMoreMenuItemProps> = (args) => {
   return <Menu.Item {...args} />
 }

@@ -2,7 +2,7 @@ import type { FC } from 'react'
 import { MenuItemContainer, type MenuItemContainerProps } from './menu.atoms'
 import { ElMenuItemContent, ElMenuItemLabel } from './styles'
 
-interface MenuItemProps extends Omit<MenuItemContainerProps, 'children'> {
+export interface MenuItemProps extends Omit<MenuItemContainerProps, 'children'> {
   label?: string
 }
 

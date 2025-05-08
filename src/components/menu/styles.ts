@@ -32,8 +32,8 @@ export const ElMenuList = styled.div`
 
 export const ElMenuItemContent = styled.div`
   display: flex;
+  align-items: flex-start;
   flex-direction: column;
-  justify-content: center;
   gap: var(--spacing-1);
   flex: 1 0 0;
 `
@@ -44,10 +44,10 @@ export const ElMenuItemLabel = styled.span`
   font-weight: var(--font-sm-regular-weight);
   line-height: var(--font-sm-regular-line_height);
   letter-spacing: var(--font-sm-regular-letter_spacing);
-  text-align: left;
 `
 
 const baseMenuItemStyles = `
+  width: 100%;
   cursor: pointer;
   display: flex;
   align-items: flex-start;
@@ -55,7 +55,6 @@ const baseMenuItemStyles = `
   gap: var(--spacing-3);
   border-radius: var(--comp-menu-border-radius);
   background: var(--comp-menu-colour-fill-default);
-  width: 100%;
   color: var(--comp-menu-colour-text-default-primary);
 
   &:hover {
@@ -90,6 +89,12 @@ export const ElMenuItemButton = styled.button`
   &[aria-current="true"], &[aria-current="page"] {
     ${ElMenuItemLabel} {
       color: var(--comp-menu-colour-text-default-action) !important;
+    }
+  }
+
+  &[aria-disabled='true'] {
+    ${ElMenuItemLabel} {
+      color: var(--comp-menu-colour-text-disabled-primary);
     }
   }
 
