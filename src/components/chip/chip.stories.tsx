@@ -79,6 +79,15 @@ export const Wrapping: Story = {
   },
 }
 
+/** Line breaks within an otherwise unbreakable string are also permitted to prevent text from overflowing the chip. */
+export const LongWords: Story = {
+  args: {
+    ...FilterChip.args,
+    children: 'Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu, NZ',
+    maxWidth: '--size-80',
+  },
+}
+
 /**
  * Truncation is an optional behaviour that can be enabled to prevent the label from
  * wrapping on multiple lines

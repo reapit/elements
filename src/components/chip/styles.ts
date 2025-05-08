@@ -23,10 +23,10 @@ export const ElChip = styled.button<ElChipProps>`
   gap: var(--spacing-2);
   grid-template-columns: auto min-content;
   height: min-content;
+  max-width: var(--chip-max-width, auto);
   padding-block: var(--spacing-1);
   padding-inline: var(--spacing-4) var(--spacing-2);
   width: fit-content;
-  max-width: var(--chip-max-width, auto);
 
   &[aria-disabled='true'] {
     cursor: not-allowed;
@@ -74,6 +74,9 @@ interface ElChipLabelProps {
 export const ElChipLabel = styled.span<ElChipLabelProps>`
   color: var(--text-primary);
 
+  /* Allows long words to be broken and wrapped onto the next line. */
+  overflow-wrap: anywhere;
+
   /* text-sm/Regular */
   font-family: var(--font-family);
   font-size: var(--font-size-sm);
@@ -99,8 +102,8 @@ export const ElChipClearIcon = styled(Icon)`
    * does not allow consumer-supplied styles to have a higher specificity */
   color: var(--comp-chip-colour-icon-active) !important;
   font-size: 1rem;
-  height: var(--size-icon-sm) !important;
-  width: var(--size-icon-sm) !important;
+  height: var(--icon_size-s) !important;
+  width: var(--icon_size-s) !important;
 
   [aria-disabled='true'] & {
     color: var(--comp-chip-colour-icon-disabled) !important;
