@@ -140,43 +140,6 @@ exports[`BottomBar > can render 4 items and an overflow menu 1`] = `
           More
         </span>
       </button>
-      <div
-        class="mocked-styled-7 el-menu-popover"
-        data-open="false"
-        style="position: absolute;"
-      >
-        <div
-          class="mocked-styled-9 el-menu-list"
-          role="menu"
-        >
-          <button
-            class="mocked-styled-12 el-menu-item-button"
-            data-close-menu="true"
-            role="menuitem"
-          >
-            <div
-              class="mocked-styled-10 el-menu-item-content"
-            >
-              <span
-                class="mocked-styled-11 el-menu-item-label"
-              />
-            </div>
-          </button>
-          <button
-            class="mocked-styled-12 el-menu-item-button"
-            data-close-menu="true"
-            role="menuitem"
-          >
-            <div
-              class="mocked-styled-10 el-menu-item-content"
-            >
-              <span
-                class="mocked-styled-11 el-menu-item-label"
-              />
-            </div>
-          </button>
-        </div>
-      </div>
     </div>
   </div>
 </DocumentFragment>

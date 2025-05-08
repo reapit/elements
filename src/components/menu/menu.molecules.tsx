@@ -3,7 +3,7 @@ import { MenuItemContainer, type MenuItemContainerProps } from './menu.atoms'
 import { ElMenuItemContent, ElMenuItemLabel } from './styles'
 
 export interface MenuItemProps extends Omit<MenuItemContainerProps, 'children'> {
-  label?: string
+  label: string
 }
 
 export const MenuItem: FC<MenuItemProps> = ({ label, ...props }) => {
