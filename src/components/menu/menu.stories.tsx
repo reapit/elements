@@ -22,9 +22,10 @@ export const Default: StoryObj = {
         <Menu.Popover>
           <Menu.List>
             <Menu.Group label="Group Title">
-              <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
-              <Menu.Item href="/#">Menu Item as anchor</Menu.Item>
-              <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
+              <Menu.Item label="Menu Item" onClick={console.log} />
+              <Menu.Item label="Menu Item as anchor" href="/#" />
+              <Menu.Item label="Menu Item (keep open)" closeMenu={false} isActive />
+              <Menu.Item label="Menu Item (disabled)" href="/#" disabled />
             </Menu.Group>
           </Menu.List>
         </Menu.Popover>
@@ -44,9 +45,9 @@ export const WithCustomAlignment: Story = {
           <Menu.Popover yOffset={10}>
             <Menu.List>
               <Menu.Group label="Group Title">
-                <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
-                <Menu.Item href="/#">Menu Item as anchor</Menu.Item>
-                <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
+                <Menu.Item label="Menu Item" onClick={console.log} />
+                <Menu.Item label="Menu Item as anchor" href="/#" />
+                <Menu.Item label="Menu Item (keep open)" closeMenu={false} />
               </Menu.Group>
             </Menu.List>
           </Menu.Popover>
@@ -75,9 +76,9 @@ export const MoreComplexUsageExample: Story = {
           <Menu.Popover yOffset={yOffset}>
             <Menu.List>
               <Menu.Group label={title ?? 'Group Title'}>
-                <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
-                <Menu.Item href="/#">Menu Item as anchor</Menu.Item>
-                <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
+                <Menu.Item label="Menu Item" onClick={console.log} />
+                <Menu.Item label="Menu Item as anchor" href="/#" />
+                <Menu.Item label="Menu Item (keep open)" closeMenu={false} />
               </Menu.Group>
             </Menu.List>
           </Menu.Popover>

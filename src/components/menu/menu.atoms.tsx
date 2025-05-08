@@ -19,6 +19,12 @@ interface CommonMenuItemProps {
    * @default true
    */
   closeMenu?: boolean
+  /**
+   * Whether the Menu item is active
+   *
+   * @default false
+   **/
+  isActive?: boolean
 }
 
 interface MenuItemAsButtonElementProps extends CommonMenuItemProps, ButtonHTMLAttributes<HTMLButtonElement> {
@@ -29,10 +35,10 @@ interface MenuItemAsButtonElementProps extends CommonMenuItemProps, ButtonHTMLAt
 
 interface MenuItemAsAnchorElementProps extends CommonMenuItemProps, AnchorHTMLAttributes<HTMLAnchorElement> {
   /** MenuItemAsAnchor currently doesn't support disabled state */
-  disabled?: never
+  disabled?: boolean
 }
 
-export type MenuItemProps = MenuItemAsButtonElementProps | MenuItemAsAnchorElementProps
+export type MenuItemContainerProps = MenuItemAsButtonElementProps | MenuItemAsAnchorElementProps
 
 /**
  * The `MenuItemGroup` component is a wrapper for `MenuItem` which has optional label
@@ -51,17 +57,36 @@ export const MenuItemGroup: FC<
   )
 }
 
-export const MenuItem: FC<MenuItemProps> = ({ children, disabled, closeMenu = true, ...rest }) => {
+export const MenuItemContainer: FC<MenuItemContainerProps> = ({
+  children,
+  disabled,
+  isActive,
+  closeMenu = true,
+  ...rest
+}) => {
   if (!isItemAsButtonElement(rest)) {
     return (
-      <ElMenuItemAnchor role="menuitem" data-close-menu={closeMenu} {...(rest as MenuItemAsAnchorElementProps)}>
+      <ElMenuItemAnchor
+        role="menuitem"
+        data-close-menu={closeMenu}
+        {...(rest as MenuItemAsAnchorElementProps)}
+        aria-current={isActive ? 'page' : undefined}
+        aria-disabled={disabled}
+        tabIndex={disabled ? -1 : 0}
+      >
         {children}
       </ElMenuItemAnchor>
     )
   }
 
   return (
-    <ElMenuItemButton role="menuitem" data-close-menu={closeMenu} aria-disabled={disabled} {...rest}>
+    <ElMenuItemButton
+      role="menuitem"
+      data-close-menu={closeMenu}
+      aria-disabled={disabled}
+      {...rest}
+      aria-current={isActive ? 'true' : undefined}
+    >
       {children}
     </ElMenuItemButton>
   )
@@ -73,6 +98,6 @@ export const MenuList: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest
   </ElMenuList>
 )
 
-function isItemAsButtonElement(props: MenuItemProps): props is MenuItemAsButtonElementProps {
+function isItemAsButtonElement(props: MenuItemContainerProps): props is MenuItemAsButtonElementProps {
   return !props.href
 }

@@ -3,7 +3,7 @@
 exports[`BottomBar > can render 4 items and an overflow menu 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-14 el-bottom-bar"
+    class="mocked-styled-16 el-bottom-bar"
   >
     <button
       class="mocked-styled-5 el-button-bottom-bar-item-container"
@@ -90,7 +90,7 @@ exports[`BottomBar > can render 4 items and an overflow menu 1`] = `
       </span>
     </button>
     <div
-      class="mocked-styled-15 el-bottom-bar-more-menu el-menu"
+      class="mocked-styled-17 el-bottom-bar-more-menu el-menu"
       data-alignment="right"
     >
       <button
@@ -140,6 +140,43 @@ exports[`BottomBar > can render 4 items and an overflow menu 1`] = `
           More
         </span>
       </button>
+      <div
+        class="mocked-styled-7 el-menu-popover"
+        data-open="false"
+        style="position: absolute;"
+      >
+        <div
+          class="mocked-styled-9 el-menu-list"
+          role="menu"
+        >
+          <button
+            class="mocked-styled-12 el-menu-item-button"
+            data-close-menu="true"
+            role="menuitem"
+          >
+            <div
+              class="mocked-styled-10 el-menu-item-content"
+            >
+              <span
+                class="mocked-styled-11 el-menu-item-label"
+              />
+            </div>
+          </button>
+          <button
+            class="mocked-styled-12 el-menu-item-button"
+            data-close-menu="true"
+            role="menuitem"
+          >
+            <div
+              class="mocked-styled-10 el-menu-item-content"
+            >
+              <span
+                class="mocked-styled-11 el-menu-item-label"
+              />
+            </div>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 </DocumentFragment>
@@ -148,7 +185,7 @@ exports[`BottomBar > can render 4 items and an overflow menu 1`] = `
 exports[`BottomBar > can render 5 items 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-14 el-bottom-bar"
+    class="mocked-styled-16 el-bottom-bar"
   >
     <button
       class="mocked-styled-5 el-button-bottom-bar-item-container"

@@ -22,18 +22,34 @@ exports[`Menu Popover component > should render and close Popover based on any e
         role="menu"
       >
         <button
-          class="mocked-styled-3 el-menu-item-button"
+          class="mocked-styled-5 el-menu-item-button"
           data-close-menu="true"
           role="menuitem"
         >
-          Menu Item
+          <div
+            class="mocked-styled-3 el-menu-item-content"
+          >
+            <span
+              class="mocked-styled-4 el-menu-item-label"
+            >
+              Menu Item
+            </span>
+          </div>
         </button>
         <button
-          class="mocked-styled-3 el-menu-item-button"
+          class="mocked-styled-5 el-menu-item-button"
           data-close-menu="false"
           role="menuitem"
         >
-          Non closing Menu Item
+          <div
+            class="mocked-styled-3 el-menu-item-content"
+          >
+            <span
+              class="mocked-styled-4 el-menu-item-label"
+            >
+              Non closing Menu Item
+            </span>
+          </div>
         </button>
       </div>
     </div>
@@ -53,6 +69,47 @@ exports[`Menu Popover component > should render and close Popover based on any e
     >
       Trigger
     </button>
+    <div
+      class="mocked-styled-0 el-menu-popover"
+      data-open="false"
+      style="top: 4px;"
+    >
+      <div
+        class="mocked-styled-2 el-menu-list"
+        role="menu"
+      >
+        <button
+          class="mocked-styled-5 el-menu-item-button"
+          data-close-menu="true"
+          role="menuitem"
+        >
+          <div
+            class="mocked-styled-3 el-menu-item-content"
+          >
+            <span
+              class="mocked-styled-4 el-menu-item-label"
+            >
+              Menu Item
+            </span>
+          </div>
+        </button>
+        <button
+          class="mocked-styled-5 el-menu-item-button"
+          data-close-menu="false"
+          role="menuitem"
+        >
+          <div
+            class="mocked-styled-3 el-menu-item-content"
+          >
+            <span
+              class="mocked-styled-4 el-menu-item-label"
+            >
+              Non closing Menu Item
+            </span>
+          </div>
+        </button>
+      </div>
+    </div>
   </div>
 </DocumentFragment>
 `;

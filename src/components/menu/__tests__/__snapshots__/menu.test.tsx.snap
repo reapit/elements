@@ -10,28 +10,45 @@ exports[`Menu list component > should render menu with list components and match
       role="menu"
     >
       <div
-        class="mocked-styled-6 el-menu-item-group"
+        class="mocked-styled-8 el-menu-item-group"
         role="group"
       >
         <div
-          class="mocked-styled-5 el-menu-item-group-title"
+          class="mocked-styled-7 el-menu-item-group-title"
         >
           Group Title
         </div>
         <a
-          class="mocked-styled-4 el-menu-item-anchor"
+          class="mocked-styled-6 el-menu-item-anchor"
           data-close-menu="true"
           href="/#"
           role="menuitem"
+          tabindex="0"
         >
-          Menu item as anchor
+          <div
+            class="mocked-styled-3 el-menu-item-content"
+          >
+            <span
+              class="mocked-styled-4 el-menu-item-label"
+            >
+              Menu item as anchor
+            </span>
+          </div>
         </a>
         <button
-          class="mocked-styled-3 el-menu-item-button"
+          class="mocked-styled-5 el-menu-item-button"
           data-close-menu="true"
           role="menuitem"
         >
-          Menu item as button
+          <div
+            class="mocked-styled-3 el-menu-item-content"
+          >
+            <span
+              class="mocked-styled-4 el-menu-item-label"
+            >
+              Menu item as button
+            </span>
+          </div>
         </button>
       </div>
     </div>
