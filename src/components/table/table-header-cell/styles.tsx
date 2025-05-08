@@ -38,7 +38,7 @@ export const ElTableHeaderCell = styled.th<ElTableHeaderCellProps>`
   }
 `
 export const ElTableHeaderCellContent = styled.div`
-  width: 100%;
+  width: auto;
   padding: var(--spacing-2);
   gap: var(--spacing-1);
   color: var(--text-secondary);
@@ -49,8 +49,8 @@ export const ElTableHeaderCellContent = styled.div`
   line-height: var(--line-height-2xs);
   letter-spacing: var(--letter-spacing-2xs);
   min-height: 40px;
-  flex: 1;
-  display: flex;
+  flex: auto;
+  display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
 `
