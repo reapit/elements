@@ -37,9 +37,9 @@ export const BasicUsage = {
             <MenuPopover>
               <MenuList>
                 <MenuItemGroup>
-                  <MenuItem>25</MenuItem>
-                  <MenuItem>50</MenuItem>
-                  <MenuItem>100</MenuItem>
+                  <MenuItem label="25" />
+                  <MenuItem label="50" />
+                  <MenuItem label="100" />
                 </MenuItemGroup>
               </MenuList>
             </MenuPopover>

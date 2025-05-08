@@ -9,8 +9,8 @@ describe('Menu Popover component', () => {
         <Menu.Trigger>{({ getTriggerProps }) => <button {...getTriggerProps()}>Trigger</button>}</Menu.Trigger>
         <Menu.Popover>
           <Menu.List>
-            <Menu.Item>Menu Item</Menu.Item>
-            <Menu.Item closeMenu={false}>Non closing Menu Item</Menu.Item>
+            <Menu.Item label="Menu Item" />
+            <Menu.Item closeMenu={false} label="Non closing Menu Item" />
           </Menu.List>
         </Menu.Popover>
       </Menu>
