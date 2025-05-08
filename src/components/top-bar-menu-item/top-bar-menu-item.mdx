@@ -1,0 +1,59 @@
+import { Meta, Canvas, Controls } from '@storybook/blocks'
+
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+
+import * as TopBarMenuItemStories from './top-bar-menu-item.stories'
+
+<Meta of={TopBarMenuItemStories} />
+
+# Top Bar Menu Item
+
+**A Versatile Navigation Item Component**
+
+The `TopBarMenuItem` is a focused component designed to render individual navigation items. It can be used as an `HTMLAnchorElement` or `HTMLButtonElement` and is suitable for use in menus, navigation bars, and lists.
+
+## Usage
+
+```tsx
+// As a link
+<TopBarMenuItem href="#home">Home</TopBarMenuItem>
+
+// As a button
+<TopBarMenuItem onClick={handleClick}>Settings</TopBarMenuItem>
+
+// With active state
+<TopBarMenuItem href="#reports" isActive>Reports</TopBarMenuItem>
+
+// With notification badge
+<TopBarMenuItem href="#notifications" hasBadge>Notifications</TopBarMenuItem>
+```
+
+## DOM Structure
+
+The component always renders inside a list item (`<li>`) element, making it suitable for menu contexts. All standard props for buttons and anchors are supported and passed directly to the underlying element.
+
+## Accessibility
+
+- Menu items are properly structured with appropriate ARIA roles
+- Active states are indicated with `aria-current` attributes
+- Focus is visually indicated with a purple border
+
+## Examples
+
+**As Link**
+
+<Canvas of={TopBarMenuItemStories.AsLink} />
+
+**As Button**
+
+<Canvas of={TopBarMenuItemStories.AsButton} />
+
+**Active**
+
+<Canvas of={TopBarMenuItemStories.Active} />
+
+**With Badge**
+
+<Canvas of={TopBarMenuItemStories.WithBadge} />
+
+<Controls />
