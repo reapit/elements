@@ -23,7 +23,7 @@
       },
       "action": {
         "$type": "color",
-        "$value": "{purple-500}"
+        "$value": "{cobalt-500}"
       },
       "pending": {
         "$type": "color",
@@ -69,11 +69,11 @@
       },
       "action": {
         "$type": "color",
-        "$value": "{purple-500}"
+        "$value": "{cobalt-500}"
       },
       "hover": {
         "$type": "color",
-        "$value": "{purple-700}"
+        "$value": "{cobalt-700}"
       },
       "pending": {
         "$type": "color",
@@ -127,7 +127,7 @@
       },
       "action": {
         "$type": "color",
-        "$value": "{purple-500}"
+        "$value": "{cobalt-500}"
       },
       "pending": {
         "$type": "color",
@@ -196,15 +196,15 @@
       "action": {
         "lightest": {
           "$type": "color",
-          "$value": "{purple-050}"
+          "$value": "{cobalt-050}"
         },
         "light": {
           "$type": "color",
-          "$value": "{purple-100}"
+          "$value": "{cobalt-100}"
         },
         "dark": {
           "$type": "color",
-          "$value": "{purple-500}"
+          "$value": "{cobalt-500}"
         }
       },
       "pending": {
@@ -1293,17 +1293,17 @@
             },
             "select": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "avatar_button": {
             "default": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             },
             "hover": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "sidebar": {
@@ -1313,7 +1313,7 @@
             },
             "select": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "bottom_bar": {
@@ -1323,7 +1323,7 @@
             },
             "select": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "mobile_nav": {
@@ -1333,7 +1333,7 @@
             },
             "select": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "app_switcher": {
@@ -1407,7 +1407,7 @@
             },
             "select": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "sidebar": {
@@ -1417,7 +1417,7 @@
             },
             "select": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "bottom_bar": {
@@ -1427,7 +1427,7 @@
             },
             "select": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           }
         },
@@ -1481,11 +1481,11 @@
           "avatar_button": {
             "default": {
               "$type": "color",
-              "$value": "{purple-050}"
+              "$value": "{cobalt-050}"
             },
             "hover": {
               "$type": "color",
-              "$value": "{purple-100}"
+              "$value": "{cobalt-100}"
             }
           },
           "sidebar": {
@@ -1527,7 +1527,7 @@
             },
             "avatar": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "bottom_bar": {
@@ -1643,11 +1643,11 @@
             },
             "link": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             },
             "link_hover": {
               "$type": "color",
-              "$value": "{purple-700}"
+              "$value": "{cobalt-700}"
             }
           },
           "destructive": {
@@ -1675,11 +1675,11 @@
           "primary": {
             "default": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             },
             "hover": {
               "$type": "color",
-              "$value": "{purple-700}"
+              "$value": "{cobalt-700}"
             },
             "disabled": {
               "$type": "color",
@@ -1739,11 +1739,11 @@
           "primary": {
             "default": {
               "$type": "color",
-              "$value": "{purple-100}"
+              "$value": "{cobalt-100}"
             },
             "hover": {
               "$type": "color",
-              "$value": "{purple-300}"
+              "$value": "{cobalt-300}"
             },
             "disabled": {
               "$type": "color",
@@ -1787,11 +1787,11 @@
             },
             "link": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             },
             "link_hover": {
               "$type": "color",
-              "$value": "{purple-700}"
+              "$value": "{cobalt-700}"
             }
           },
           "destructive": {
@@ -1819,11 +1819,11 @@
           "primary": {
             "default": {
               "$type": "color",
-              "$value": "{purple-300}"
+              "$value": "{cobalt-300}"
             },
             "hover": {
               "$type": "color",
-              "$value": "{purple-300}"
+              "$value": "{cobalt-300}"
             },
             "disabled": {
               "$type": "color",
@@ -2105,11 +2105,11 @@
           "filter": {
             "default": {
               "$type": "color",
-              "$value": "{purple-050}"
+              "$value": "{cobalt-050}"
             },
             "hover": {
               "$type": "color",
-              "$value": "{purple-100}"
+              "$value": "{cobalt-100}"
             },
             "disabled": {
               "$type": "color",
@@ -2189,7 +2189,7 @@
             },
             "action": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "hover": {
@@ -2199,7 +2199,7 @@
             },
             "action": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "error": {
@@ -2209,7 +2209,7 @@
             },
             "action": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "disabled": {
@@ -2227,21 +2227,21 @@
           "default": {
             "icon_bg": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             },
             "uploader_bg": {
               "$type": "color",
-              "$value": "{purple-050}"
+              "$value": "{cobalt-050}"
             }
           },
           "hover": {
             "icon_bg": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             },
             "uploader_bg": {
               "$type": "color",
-              "$value": "{purple-100}"
+              "$value": "{cobalt-100}"
             }
           },
           "disabled": {
@@ -2257,11 +2257,11 @@
           "error": {
             "icon_bg": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             },
             "uploader_bg": {
               "$type": "color",
-              "$value": "{purple-050}"
+              "$value": "{cobalt-050}"
             }
           }
         },
@@ -2290,15 +2290,15 @@
         "border": {
           "default": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           },
           "hover": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           },
           "error": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           }
         }
       },
@@ -2405,7 +2405,7 @@
             },
             "highlight": {
               "$type": "color",
-              "$value": "{purple-100}"
+              "$value": "{cobalt-100}"
             }
           },
           "error": {
@@ -2470,7 +2470,7 @@
           },
           "focused": {
             "$type": "color",
-            "$value": "{purple-300}"
+            "$value": "{cobalt-300}"
           },
           "error": {
             "$type": "color",
@@ -2506,7 +2506,7 @@
         "fill": {
           "known": {
             "$type": "color",
-            "$value": "{purple-050}"
+            "$value": "{cobalt-050}"
           },
           "unknown": {
             "$type": "color",
@@ -2569,7 +2569,7 @@
             },
             "action": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "hover": {
@@ -2583,7 +2583,7 @@
             },
             "action": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "disabled": {
@@ -2597,7 +2597,7 @@
             },
             "action": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           }
         },
@@ -2635,7 +2635,7 @@
             },
             "action": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "hover": {
@@ -2649,7 +2649,7 @@
             },
             "action": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "disabled": {
@@ -2663,7 +2663,7 @@
             },
             "action": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           }
         }
@@ -2702,7 +2702,7 @@
         "fill": {
           "info": {
             "$type": "color",
-            "$value": "{purple-050}"
+            "$value": "{cobalt-050}"
           },
           "neutral": {
             "$type": "color",
@@ -2714,7 +2714,7 @@
           },
           "announcement": {
             "$type": "color",
-            "$value": "{purple-050}"
+            "$value": "{cobalt-050}"
           },
           "error": {
             "$type": "color",
@@ -2724,7 +2724,7 @@
         "icon": {
           "info": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           },
           "neutral": {
             "$type": "color",
@@ -2736,7 +2736,7 @@
           },
           "announcement": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           },
           "error": {
             "$type": "color",
@@ -2746,7 +2746,7 @@
         "border": {
           "action": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           },
           "error": {
             "$type": "color",
@@ -2952,7 +2952,7 @@
         "border": {
           "focused": {
             "$type": "color",
-            "$value": "{purple-300}"
+            "$value": "{cobalt-300}"
           },
           "error": {
             "$type": "color",
@@ -3019,17 +3019,17 @@
             },
             "checked": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "hover": {
             "unchecked": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             },
             "checked": {
               "$type": "color",
-              "$value": "{purple-700}"
+              "$value": "{cobalt-700}"
             }
           },
           "disabled": {
@@ -3175,7 +3175,7 @@
             },
             "checked": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             },
             "unchecked": {
               "$type": "color",
@@ -3189,7 +3189,7 @@
             },
             "checked": {
               "$type": "color",
-              "$value": "{purple-700}"
+              "$value": "{cobalt-700}"
             },
             "unchecked": {
               "$type": "color",
@@ -3233,7 +3233,7 @@
             },
             "selected": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             },
             "disabled": {
               "$type": "color",
@@ -3267,7 +3267,7 @@
             },
             "selected": {
               "$type": "color",
-              "$value": "{purple-500}"
+              "$value": "{cobalt-500}"
             }
           },
           "group": {
@@ -3326,7 +3326,7 @@
           },
           "info": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           },
           "error": {
             "$type": "color",
@@ -3367,7 +3367,7 @@
       "colour": {
         "fill": {
           "$type": "color",
-          "$value": "{purple-500}"
+          "$value": "{cobalt-500}"
         }
       }
     },
@@ -3422,7 +3422,7 @@
         "fill": {
           "progress_bar": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           },
           "error": {
             "$type": "color",
@@ -3436,7 +3436,7 @@
           },
           "default": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           },
           "error": {
             "$type": "color",
@@ -3444,7 +3444,7 @@
           },
           "read_only": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           }
         },
         "border": {
@@ -3466,7 +3466,7 @@
           },
           "progress_bar": {
             "$type": "color",
-            "$value": "{purple-500}"
+            "$value": "{cobalt-500}"
           }
         }
       },
