@@ -141,6 +141,7 @@ export const ChipSizing: Story = {
       <ChipGroup.Item key="8" {...ChipStories.Wrapping.args}>
         Or, you can avoid truncation and allow a long chip label to wrap to multiple lines
       </ChipGroup.Item>,
+      <ChipGroup.Item key="9" {...ChipStories.LongWords.args} />,
     ],
     overflow: 'wrap',
   },
