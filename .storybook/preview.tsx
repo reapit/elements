@@ -30,6 +30,12 @@ const preview: Preview = {
     },
   },
   parameters: {
+    backgrounds: {
+      values: [
+        { name: 'Light', value: '#F2F4F6' },
+        { name: 'Dark', value: '#222B33' },
+      ],
+    },
     viewport: {
       viewports: {
         superWideScreen: {
