@@ -4,7 +4,6 @@ import '../src/styles/globals'
 
 import type { Preview } from '@storybook/react'
 import type { Theme } from '../src/tokens'
-import { title } from 'process'
 
 const preview: Preview = {
   decorators: [
@@ -31,6 +30,12 @@ const preview: Preview = {
     },
   },
   parameters: {
+    backgrounds: {
+      values: [
+        { name: 'Light', value: '#F2F4F6' },
+        { name: 'Dark', value: '#222B33' },
+      ],
+    },
     viewMode: 'docs',
     options: {
       storySort: {
