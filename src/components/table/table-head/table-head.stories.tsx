@@ -6,7 +6,6 @@ import { TableHeaderCell } from '../table-header-cell'
 import { TableToolbar } from '../table-toolbar'
 import { TableBody } from '../table-body'
 import { Input } from '../../input'
-import { AvatarRectangle } from '../../avatar-rectangle'
 import { TableRow } from '../table-row'
 import { TableCell } from '../table-cell'
 
@@ -22,11 +21,11 @@ export const BasicUsage = {
       <Table>
         <TableHead {...args}>
           <TableRow>
-            <TableHeaderCell maxWidth="30px">Checkbox Header</TableHeaderCell>
+            <TableHeaderCell maxWidth="30px">Checkbox</TableHeaderCell>
             <TableHeaderCell>First Header</TableHeaderCell>
-            <TableHeaderCell>Image Header</TableHeaderCell>
             <TableHeaderCell>Second Header</TableHeaderCell>
             <TableHeaderCell>Third Header</TableHeaderCell>
+            <TableHeaderCell>Last Header</TableHeaderCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -36,10 +35,8 @@ export const BasicUsage = {
                 <Input type="checkbox" />
               </TableCell>
               <TableCell>First Column</TableCell>
-              <TableCell>
-                <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
-              </TableCell>
               <TableCell>Second Column</TableCell>
+              <TableCell>Third Column</TableCell>
               <TableCell>Last Column</TableCell>
             </TableRow>
           ))}

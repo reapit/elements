@@ -8,12 +8,8 @@ import { TableHead } from '../table-head'
 import { TableBody } from '../table-body'
 import { Input } from '../../input'
 import { AvatarRectangle } from '../../avatar-rectangle'
-import { styled } from '@linaria/react'
+import { TableCell } from '../table-cell'
 
-const ElTd = styled.td`
-  vertical-align: middle;
-  padding: var(--spacing-2);
-`
 export default {
   title: 'Components/TableRow',
   component: TableRow,
@@ -36,15 +32,15 @@ export const BasicUsage = {
         <TableBody>
           {Array.from({ length: 5 }, (_, index) => (
             <TableRow key={index} isSelected={index == 0}>
-              <ElTd>
+              <TableCell>
                 <Input type="checkbox" checked={index == 0} />
-              </ElTd>
-              <ElTd>First Column</ElTd>
-              <ElTd>
+              </TableCell>
+              <TableCell>First Column</TableCell>
+              <TableCell>
                 <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
-              </ElTd>
-              <ElTd>Second Column</ElTd>
-              <ElTd>Last Column</ElTd>
+              </TableCell>
+              <TableCell>Second Column</TableCell>
+              <TableCell>Last Column</TableCell>
             </TableRow>
           ))}
         </TableBody>

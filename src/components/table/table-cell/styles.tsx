@@ -26,30 +26,42 @@ export const ElTableCell = styled.td<ElTableCellProps>`
   max-width: var(--tablecell-max-width);
   gap: var(--spacing-1);
   vertical-align: middle;
+  padding: var(--spacing-2);
 
   &[data-alignment='left'] {
-    text-align: left;
+    * {
+      text-align: left;
+      justify-content: flex-start;
+    }
   }
   &[data-alignment='center'] {
-    text-align: center;
+    * {
+      text-align: center;
+      justify-content: center;
+    }
   }
   &[data-alignment='right'] {
-    text-align: right;
+    * {
+      text-align: right;
+      justify-content: flex-end;
+    }
   }
 `
 export const ElTableCellContent = styled.div`
-  width: auto;
-  padding: var(--spacing-2);
-  gap: var(--spacing-1);
-  color: var(--text-secondary);
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-regular);
-  font-style: normal;
-  line-height: var(--line-height-2xs);
-  letter-spacing: var(--letter-spacing-2xs);
-  min-height: 40px;
-  flex: auto;
+  width: 100%;
+  flex: 1;
   display: inline-flex;
   flex-wrap: wrap;
+  padding: var(--spacing-2) 0px;
+  align-items: center;
+  gap: var(--spacing-4);
+  overflow: hidden;
+  color: var(--colour-text-primary);
+  text-overflow: ellipsis;
+  font-family: var(--font-sm-regular-family);
+  font-size: var(--font-sm-regular-size);
+  font-style: normal;
+  font-weight: var(--font-sm-regular-weight);
+  line-height: var(--font-sm-regular-line_height);
+  letter-spacing: var(--font-sm-regular-letter_spacing);
 `

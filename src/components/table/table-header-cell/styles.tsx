@@ -25,32 +25,41 @@ export const ElTableHeaderCell = styled.th<ElTableHeaderCellProps>`
   min-width: var(--tablecell-header-min-width);
   max-width: var(--tablecell-header-max-width);
   gap: var(--spacing-1);
+  padding: var(--spacing-2);
   vertical-align: middle;
 
   &[data-alignment='left'] {
-    text-align: left;
+    * {
+      text-align: left;
+      justify-content: flex-start;
+    }
   }
   &[data-alignment='center'] {
-    text-align: center;
+    * {
+      text-align: center;
+      justify-content: center;
+    }
   }
   &[data-alignment='right'] {
-    text-align: right;
+    * {
+      text-align: right;
+      justify-content: flex-end;
+    }
   }
 `
 export const ElTableHeaderCellContent = styled.div`
-  width: auto;
-  padding: var(--spacing-2);
-  gap: var(--spacing-1);
-  color: var(--text-secondary);
-  font-family: var(--font-family);
-  font-size: var(--font-size-2xs);
-  font-style: normal;
-  font-weight: var(--font-weight-semibold, 600);
-  line-height: var(--line-height-2xs);
-  letter-spacing: var(--letter-spacing-2xs);
-  min-height: 40px;
-  flex: auto;
+  width: 100%;
+  flex: 1;
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
+  gap: var(--spacing-1);
+  padding: var(--spacing-2) 0px;
+  color: var(--colour-text-secondary);
+  font-family: var(--font-2xs-bold-family);
+  font-size: var(--font-2xs-bold-size);
+  font-style: normal;
+  font-weight: var(--font-2xs-bold-weight);
+  line-height: var(--font-2xs-bold-line_height);
+  letter-spacing: var(--font-2xs-bold-letter_spacing);
 `
