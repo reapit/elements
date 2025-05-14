@@ -1,4 +1,44 @@
 {
+  "cobalt-900": {
+    "$type": "color",
+    "$value": "#202d3b"
+  },
+  "cobalt-800": {
+    "$type": "color",
+    "$value": "#18405a"
+  },
+  "cobalt-700": {
+    "$type": "color",
+    "$value": "#006187"
+  },
+  "cobalt-600": {
+    "$type": "color",
+    "$value": "#0079a8"
+  },
+  "cobalt-500": {
+    "$type": "color",
+    "$value": "#0294d2"
+  },
+  "cobalt-400": {
+    "$type": "color",
+    "$value": "#35a9e0"
+  },
+  "cobalt-300": {
+    "$type": "color",
+    "$value": "#67bdea"
+  },
+  "cobalt-200": {
+    "$type": "color",
+    "$value": "#a0d5f3"
+  },
+  "cobalt-100": {
+    "$type": "color",
+    "$value": "#d6e9fa"
+  },
+  "cobalt-050": {
+    "$type": "color",
+    "$value": "#ebf5ff"
+  },
   "neutral-900": {
     "$type": "color",
     "$value": "#222b33"
