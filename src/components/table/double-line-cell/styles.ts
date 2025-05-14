@@ -15,7 +15,6 @@ export const ElAvatarContent = styled.div`
 
 export const ElCellContent = styled.div`
   display: flex;
-  padding: var(--spacing-2) 0px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
