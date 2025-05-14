@@ -25,7 +25,7 @@ export const ElTableHeaderCell = styled.th<ElTableHeaderCellProps>`
   min-width: var(--tablecell-header-min-width);
   max-width: var(--tablecell-header-max-width);
   gap: var(--spacing-1);
-  padding: var(--spacing-2);
+  padding: var(--spacing-2) 0px;
   vertical-align: middle;
 
   &[data-alignment='left'] {
@@ -54,7 +54,7 @@ export const ElTableHeaderCellContent = styled.div`
   align-items: center;
   flex-wrap: wrap;
   gap: var(--spacing-1);
-  padding: var(--spacing-2) 0px;
+  padding: var(--spacing-2);
   color: var(--colour-text-secondary);
   font-family: var(--font-2xs-bold-family);
   font-size: var(--font-2xs-bold-size);

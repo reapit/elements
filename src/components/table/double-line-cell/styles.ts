@@ -2,6 +2,7 @@ import { styled } from '@linaria/react'
 
 export const ElDoubleLineCell = styled.div`
   display: flex;
+  padding: 0px var(--spacing-2);
   align-items: center;
   flex: 1 0 0;
 `
@@ -11,6 +12,7 @@ export const ElAvatarContent = styled.div`
   align-items: center;
   gap: var(--spacing-4);
   flex: 1 0 0;
+  padding: var(--spacing-2) 0px;
 `
 
 export const ElCellContent = styled.div`
@@ -20,6 +22,7 @@ export const ElCellContent = styled.div`
   align-items: flex-start;
   gap: var(--spacing-1);
   flex: 1 0 0;
+  padding: var(--spacing-2) 0px;
 `
 
 export const ElMediaItemContent = styled.div`

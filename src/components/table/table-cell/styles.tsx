@@ -26,7 +26,7 @@ export const ElTableCell = styled.td<ElTableCellProps>`
   max-width: var(--tablecell-max-width);
   gap: var(--spacing-1);
   vertical-align: middle;
-  padding: var(--spacing-2);
+  padding: var(--spacing-2) 0px;
 
   &[data-alignment='left'] {
     * {
@@ -46,22 +46,4 @@ export const ElTableCell = styled.td<ElTableCellProps>`
       justify-content: flex-end;
     }
   }
-`
-export const ElTableCellContent = styled.div`
-  width: 100%;
-  flex: 1;
-  display: inline-flex;
-  flex-wrap: wrap;
-  padding: var(--spacing-2) 0px;
-  align-items: center;
-  gap: var(--spacing-4);
-  overflow: hidden;
-  color: var(--colour-text-primary);
-  text-overflow: ellipsis;
-  font-family: var(--font-sm-regular-family);
-  font-size: var(--font-sm-regular-size);
-  font-style: normal;
-  font-weight: var(--font-sm-regular-weight);
-  line-height: var(--font-sm-regular-line_height);
-  letter-spacing: var(--font-sm-regular-letter_spacing);
 `
