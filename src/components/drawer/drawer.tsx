@@ -78,8 +78,12 @@ export default function Drawer({
   // nested dialogs).
   const onClose = useWithStopPropagation(onCloseProp)
 
+  const onKeyUp = (event: React.KeyboardEvent<HTMLDialogElement>) => {
+    event.key === 'Escape' && closedBy === 'none' && event.stopPropagation() && event.preventDefault()
+  }
+
   return (
-    <ElDrawer ref={ref} onCancel={onCancel} onClose={onClose} {...rest}>
+    <ElDrawer onKeyUp={onKeyUp} ref={ref} onCancel={onCancel} onClose={onClose} {...rest}>
       <DrawerContextProvider dialogElementRef={ref}>
         {/*
          * Note: We only mount children when the drawer is open. This is because drawer content will often fetch
