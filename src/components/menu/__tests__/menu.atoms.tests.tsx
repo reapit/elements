@@ -26,6 +26,7 @@ describe('MenuItemContainer', () => {
       render(<MenuItemContainer disabled>Disabled Button</MenuItemContainer>)
 
       const button = screen.getByRole('menuitem')
+      expect(button).toHaveAttribute('disabled', 'true')
       expect(button).toHaveAttribute('aria-disabled', 'true')
       expect(button).toHaveAttribute('tabIndex', '-1')
     })
@@ -68,18 +69,6 @@ describe('MenuItemContainer', () => {
 
       const link = screen.getByRole('menuitem')
       expect(link).toHaveAttribute('aria-current', 'page')
-    })
-
-    it('should apply disabled state correctly', () => {
-      render(
-        <MenuItemContainer href="/test" disabled>
-          Disabled Link
-        </MenuItemContainer>,
-      )
-
-      const link = screen.getByRole('menuitem')
-      expect(link).toHaveAttribute('aria-disabled', 'true')
-      expect(link).toHaveAttribute('tabIndex', '-1')
     })
 
     it('should set data-close-menu attribute correctly', () => {

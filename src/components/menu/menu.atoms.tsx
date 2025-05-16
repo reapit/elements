@@ -34,8 +34,8 @@ interface MenuItemAsButtonElementProps extends CommonMenuItemProps, ButtonHTMLAt
 }
 
 interface MenuItemAsAnchorElementProps extends CommonMenuItemProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-  /** MenuItemAsAnchor currently doesn't support disabled state */
-  disabled?: boolean
+  /** MenuItemAsAnchor currently doesn't support disabled state, use MenuItemButton instead */
+  disabled?: never
 }
 
 export type MenuItemContainerProps = MenuItemAsButtonElementProps | MenuItemAsAnchorElementProps
@@ -71,8 +71,7 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
         role="menuitem"
         data-close-menu={closeMenu}
         aria-current={isActive ? 'page' : undefined}
-        aria-disabled={disabled}
-        tabIndex={disabled ? -1 : 0}
+        datat-test={disabled}
       >
         {children}
       </ElMenuItemAnchor>
@@ -84,6 +83,7 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
       {...rest}
       role="menuitem"
       data-close-menu={closeMenu}
+      disabled={disabled}
       aria-disabled={disabled}
       aria-current={isActive ? 'true' : undefined}
       tabIndex={disabled ? -1 : 0}

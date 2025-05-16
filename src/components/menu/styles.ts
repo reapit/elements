@@ -110,11 +110,6 @@ export const ElMenuItemAnchor = styled.a`
       color: var(--comp-menu-colour-text-default-action) !important;
     }
   }
-  &[aria-disabled='true'] {
-    ${ElMenuItemLabel} {
-      color: var(--comp-menu-colour-text-disabled-primary);
-    }
-  }
 `
 
 export const ElMenuItemGroupTitle = styled.div`

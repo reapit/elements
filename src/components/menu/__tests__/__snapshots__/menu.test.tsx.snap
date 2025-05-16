@@ -23,7 +23,6 @@ exports[`Menu list component > should render menu with list components and match
           data-close-menu="true"
           href="/#"
           role="menuitem"
-          tabindex="0"
         >
           <div
             class="mocked-styled-3 el-menu-item-content"

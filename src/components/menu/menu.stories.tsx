@@ -25,7 +25,7 @@ export const Default: StoryObj = {
               <Menu.Item label="Menu Item" onClick={console.log} />
               <Menu.Item label="Menu Item as anchor" href="/#" />
               <Menu.Item label="Menu Item (keep open)" closeMenu={false} isActive />
-              <Menu.Item label="Menu Item (disabled)" href="/#" disabled />
+              <Menu.Item label="Menu Item (disabled)" onClick={console.log} disabled />
             </Menu.Group>
           </Menu.List>
         </Menu.Popover>
