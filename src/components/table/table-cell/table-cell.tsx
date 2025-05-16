@@ -1,5 +1,5 @@
 import React, { FC, ReactNode, TdHTMLAttributes } from 'react'
-import { ElTableCell, ElTableCellContent } from './styles'
+import { ElTableCell } from './styles'
 
 export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
   children?: ReactNode
@@ -11,7 +11,6 @@ export interface TableCellProps extends TdHTMLAttributes<HTMLTableCellElement> {
 
 /**
  * `TableCell` is a standard HTML/JSX `<td>` component used in tables.
- * It also includes a child container (`<div>`) for additional flexibility.
  *
  * Typically `TableCell` is used inside `TableBody` and `TableRow` to display data.
  *
@@ -45,7 +44,7 @@ export const TableCell: FC<TableCellProps> = ({
         ...style,
       }}
     >
-      <ElTableCellContent>{children}</ElTableCellContent>
+      {children}
     </ElTableCell>
   )
 }
