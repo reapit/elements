@@ -9,159 +9,159 @@ export const ElBadge = styled.div`
   padding: var(--spacing-half) var(--spacing-1);
   align-items: center;
   gap: var(--spacing-half);
-  border-radius: var(--corner-default);
-  color: var(--text-info);
-  background: var(--fill-info-lightest);
+  border-radius: var(--comp-badge-border-radius);
+  color: var(--colour-icon-info);
+  background: var(--comp-badge-colour-fill-default-neutral);
 
   ${ElBadgeIcon} {
-    color: var(--icon-info);
+    color: var(--colour-icon-info);
 
     ${ElIcon} {
-      width: var(--icon-xs);
-      height: var(--icon-xs);
+      width: var(--icon_size-xs);
+      height: var(--icon_size-xs);
     }
   }
 
   &[data-variant='neutral'] {
-    color: var(--text-info);
-    background: var(--fill-info-lightest);
+    color: var(--comp-badge-colour-text-default-neutral);
+    background: var(--comp-badge-colour-fill-default-neutral);
 
     ${ElBadgeIcon} {
-      color: var(--icon-info);
+      color: var(--colour-icon-info);
     }
   }
 
   &[data-is-reversed='true'] {
-    color: var(--text-white);
-    background: var(--fill-info-dark);
+    color: var(--comp-badge-colour-text-reversed-neutral);
+    background: var(--comp-badge-colour-fill-reversed-neutral);
 
     ${ElBadgeIcon} {
-      color: var(--icon-white);
+      color: var(--colour-icon-white);
     }
   }
 
   &[data-variant='success'] {
-    color: var(--text-success);
-    background: var(--fill-success-lightest);
+    color: var(--comp-badge-colour-text-default-success);
+    background: var(--comp-badge-colour-fill-default-success);
 
     ${ElBadgeIcon} {
-      color: var(--icon-success);
+      color: var(--comp-badge-colour-icon-default-success);
     }
 
     &[data-is-reversed='true'] {
-      color: var(--text-white);
-      background: var(--fill-success-dark);
+      color: var(--comp-badge-colour-text-reversed-success);
+      background: var(--comp-badge-colour-fill-reversed-success);
 
       ${ElBadgeIcon} {
-        color: var(--icon-white);
+        color: var(--comp-badge-colour-icon-reversed-success);
       }
     }
   }
 
   &[data-variant='pending'] {
-    color: var(--text-pending);
-    background: var(--fill-pending-lightest);
+    color: var(--comp-badge-colour-text-default-pending);
+    background: var(--comp-badge-colour-fill-default-pending);
 
     ${ElBadgeIcon} {
-      color: var(--icon-pending);
+      color: var(--comp-badge-colour-icon-default-pending);
     }
 
     &[data-is-reversed='true'] {
-      color: var(--text-white);
-      background: var(--fill-pending-dark);
+      color: var(--comp-badge-colour-text-reversed-pending);
+      background: var(--comp-badge-colour-fill-reversed-pending);
 
       ${ElBadgeIcon} {
-        color: var(--icon-white);
+        color: var(--comp-badge-colour-icon-reversed-pending);
       }
     }
   }
 
   &[data-variant='warning'] {
-    color: var(--text-warning);
-    background: var(--fill-warning-lightest);
+    color: var(--comp-badge-colour-text-default-warning);
+    background: var(--comp-badge-colour-fill-default-warning);
 
     ${ElBadgeIcon} {
-      color: var(--icon-warning);
+      color: var(--comp-badge-colour-icon-default-warning);
     }
 
     &[data-is-reversed='true'] {
-      color: var(--text-white);
-      background: var(--fill-warning-dark);
+      color: var(--comp-badge-colour-text-reversed-warning);
+      background: var(--comp-badge-colour-fill-reversed-warning);
 
       ${ElBadgeIcon} {
-        color: var(--icon-white);
+        color: var(--comp-badge-colour-icon-reversed-warning);
       }
     }
   }
 
   &[data-variant='danger'] {
-    color: var(--text-error);
-    background: var(--fill-error-lightest);
+    color: var(--comp-badge-colour-text-default-danger);
+    background: var(--comp-badge-colour-fill-default-danger);
 
     ${ElBadgeIcon} {
-      color: var(--icon-error);
+      color: var(--comp-badge-colour-icon-default-danger);
     }
 
     &[data-is-reversed='true'] {
-      color: var(--text-white);
-      background: var(--fill-error-dark);
+      color: var(--comp-badge-colour-text-reversed-danger);
+      background: var(--comp-badge-colour-fill-reversed-danger);
 
       ${ElBadgeIcon} {
-        color: var(--icon-white);
+        color: var(--comp-badge-colour-icon-reversed-danger);
       }
     }
   }
 
   &[data-variant='inactive'] {
-    color: var(--text-secondary);
-    background: var(--fill-default-lightest);
+    color: var(--comp-badge-colour-text-default-inactive);
+    background: var(--comp-badge-colour-fill-default-inactive);
 
     ${ElBadgeIcon} {
-      color: var(--icon-secondary);
+      color: var(--comp-badge-colour-icon-default-inactive);
     }
 
     &[data-is-reversed='true'] {
-      color: var(--text-white);
-      background: var(--fill-default-medium);
+      color: var(--comp-badge-colour-text-reversed-inactive);
+      background: var(--comp-badge-colour-fill-reversed-inactive);
 
       ${ElBadgeIcon} {
-        color: var(--icon-white);
+        color: var(--comp-badge-colour-icon-reversed-inactive);
       }
     }
   }
 
   &[data-variant='accent_1'] {
-    color: var(--text-accent_1);
-    background: var(--fill-accent_1-lightest);
+    color: var(--comp-badge-colour-text-default-accent_1);
+    background: var(--comp-badge-colour-fill-default-accent_1);
 
     ${ElBadgeIcon} {
-      color: var(--icon-accent_1);
+      color: var(--comp-badge-colour-icon-default-accent_1);
     }
 
     &[data-is-reversed='true'] {
-      color: var(--text-white);
-      background: var(--fill-accent_1-dark);
+      color: var(--comp-badge-colour-text-reversed-accent_1);
+      background: var(--comp-badge-colour-fill-reversed-accent_1);
 
       ${ElBadgeIcon} {
-        color: var(--icon-white);
+        color: var(--comp-badge-colour-icon-reversed-accent_1);
       }
     }
   }
 
   &[data-variant='accent_2'] {
-    color: var(--text-accent_2);
-    background: var(--fill-accent_2-lightest);
+    color: var(--comp-badge-colour-text-default-accent_2);
+    background: var(--comp-badge-colour-fill-default-accent_2);
 
     ${ElBadgeIcon} {
-      color: var(--icon-accent_2);
+      color: var(--comp-badge-colour-icon-default-accent_2);
     }
 
     &[data-is-reversed='true'] {
-      color: var(--text-white);
-      background: var(--fill-accent_2-dark);
+      color: var(--comp-badge-colour-text-reversed-accent_2);
+      background: var(--comp-badge-colour-fill-reversed-accent_2);
 
       ${ElBadgeIcon} {
-        color: var(--icon-white);
+        color: var(--comp-badge-colour-icon-reversed-accent_2);
       }
     }
   }
@@ -173,10 +173,10 @@ export const ElBadgeLabel = styled.span`
   padding: 0px var(--spacing-half);
   align-items: center;
   text-align: center;
-  font-family: var(--font-family);
-  font-size: var(--font-size-xs);
+  font-family: var(--font-xs-medium-family);
+  font-size: var(--font-xs-medium-size);
   font-style: normal;
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-xs);
-  letter-spacing: var(--letter-spacing-xs);
+  font-weight: var(--font-xs-medium-weight);
+  line-height: var(--font-xs-medium-line_height);
+  letter-spacing: var(--font-xs-medium-letter_spacing);
 `
