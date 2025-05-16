@@ -50,7 +50,7 @@ export const MenuItemGroup: FC<
   }
 > = ({ children, label, ...rest }) => {
   return (
-    <ElMenuItemGroup role="group" {...rest}>
+    <ElMenuItemGroup {...rest} role="group">
       {!!label && <ElMenuItemGroupTitle>{label}</ElMenuItemGroupTitle>}
       {children}
     </ElMenuItemGroup>
@@ -67,9 +67,9 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
   if (!isItemAsButtonElement(rest)) {
     return (
       <ElMenuItemAnchor
+        {...(rest as MenuItemAsAnchorElementProps)}
         role="menuitem"
         data-close-menu={closeMenu}
-        {...(rest as MenuItemAsAnchorElementProps)}
         aria-current={isActive ? 'page' : undefined}
         aria-disabled={disabled}
         tabIndex={disabled ? -1 : 0}
@@ -81,10 +81,10 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
 
   return (
     <ElMenuItemButton
+      {...rest}
       role="menuitem"
       data-close-menu={closeMenu}
       aria-disabled={disabled}
-      {...rest}
       aria-current={isActive ? 'true' : undefined}
       tabIndex={disabled ? -1 : 0}
     >
@@ -94,7 +94,7 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
 }
 
 export const MenuList: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => (
-  <ElMenuList role="menu" {...rest}>
+  <ElMenuList {...rest} role="menu">
     {children}
   </ElMenuList>
 )
