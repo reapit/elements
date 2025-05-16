@@ -59,8 +59,8 @@ export const MenuItemGroup: FC<
 
 export const MenuItemContainer: FC<MenuItemContainerProps> = ({
   children,
-  disabled,
   isActive,
+  disabled,
   closeMenu = true,
   ...rest
 }) => {
@@ -69,7 +69,7 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
       <ElMenuItemAnchor
         {...(rest as MenuItemAsAnchorElementProps)}
         role="menuitem"
-        data-close-menu={closeMenu}
+        data-close-menu={closeMenu || !!disabled}
         aria-current={isActive ? 'page' : undefined}
         datat-test={disabled}
       >

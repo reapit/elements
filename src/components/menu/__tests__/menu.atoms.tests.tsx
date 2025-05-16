@@ -27,6 +27,7 @@ describe('MenuItemContainer', () => {
 
       const button = screen.getByRole('menuitem')
       expect(button).toHaveAttribute('disabled', 'true')
+      expect(button).toHaveAttribute('data-close-menu', 'false')
       expect(button).toHaveAttribute('aria-disabled', 'true')
       expect(button).toHaveAttribute('tabIndex', '-1')
     })
