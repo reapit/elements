@@ -6,8 +6,10 @@ import {
   ElMenu,
   ElMenuItemAnchor,
   ElMenuItemButton,
+  ElMenuItemContent,
   ElMenuItemGroup,
   ElMenuItemGroupTitle,
+  ElMenuItemLabel,
   ElMenuList,
   ElMenuPopover,
   Menu,
@@ -33,10 +35,20 @@ export const StylesOnlyUsage: Story = {
           <ElMenuList>
             <ElMenuItemGroup role="group">
               <ElMenuItemGroupTitle>Group Title</ElMenuItemGroupTitle>
-              <ElMenuItemButton role="menuitem">Menu Item</ElMenuItemButton>
-              <ElMenuItemButton role="menuitem">Menu Item</ElMenuItemButton>
+              <ElMenuItemButton role="menuitem">
+                <ElMenuItemContent>
+                  <ElMenuItemLabel>Menu Item</ElMenuItemLabel>
+                </ElMenuItemContent>
+              </ElMenuItemButton>
+              <ElMenuItemButton role="menuitem">
+                <ElMenuItemContent>
+                  <ElMenuItemLabel>Menu Item</ElMenuItemLabel>
+                </ElMenuItemContent>
+              </ElMenuItemButton>
               <ElMenuItemAnchor href="/#" role="menuitem">
-                Menu Item as anchor
+                <ElMenuItemContent>
+                  <ElMenuItemLabel>Menu Item as anchor</ElMenuItemLabel>
+                </ElMenuItemContent>
               </ElMenuItemAnchor>
             </ElMenuItemGroup>
           </ElMenuList>
@@ -66,9 +78,9 @@ export const ReactUsage: Story = {
           <Menu.Popover>
             <Menu.List>
               <Menu.Group label="Group Title">
-                <Menu.Item onClick={console.log}>Menu Item</Menu.Item>
-                <Menu.Item href="/#">Menu Item as anchor</Menu.Item>
-                <Menu.Item closeMenu={false}>Menu Item (keep open)</Menu.Item>
+                <Menu.Item label="Menu Item" onClick={console.log} />
+                <Menu.Item label="Menu Item as anchor" href="/#" />
+                <Menu.Item label="Menu Item (keep open)" closeMenu={false} />
               </Menu.Group>
             </Menu.List>
           </Menu.Popover>

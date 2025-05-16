@@ -91,9 +91,12 @@ export const Default: Story = {
             </Menu.Trigger>
             <Menu.Popover className={elTopBarMenuPopover}>
               <Menu.List>
-                <Menu.Item href="/">Button 3</Menu.Item>
-                <Menu.Item href="/">Button 4</Menu.Item>
-                <Menu.Item href="/">Button 5</Menu.Item>
+                <Menu.Item label="Button 3" href="/" />
+                <Menu.Item label="Button 4" href="/" />
+                <Menu.Item label="Button 5" href="/" />
+                <Menu.Item label="Menu Item" onClick={console.log} />
+                <Menu.Item label="Menu Item as anchor" href="/#" />
+                <Menu.Item label="Menu Item (keep open)" closeMenu={false} isActive />
               </Menu.List>
             </Menu.Popover>
           </Menu>
@@ -118,9 +121,9 @@ export const Default: Story = {
             </Menu.Trigger>
             <Menu.Popover className={elTopBarMenuPopover}>
               <Menu.List>
-                <Menu.Item href="/">User menu 1</Menu.Item>
-                <Menu.Item href="/">User menu 2</Menu.Item>
-                <Menu.Item href="/">User menu 3</Menu.Item>
+                <Menu.Item label="User menu 1" href="/" />
+                <Menu.Item label="User menu 2" href="/" />
+                <Menu.Item label="User menu 3" href="/" />
               </Menu.List>
             </Menu.Popover>
           </Menu>
@@ -178,9 +181,12 @@ export const ResponsiveMainNav: Story = {
               </Menu.Trigger>
               <Menu.Popover className={elTopBarMenuPopover}>
                 <Menu.List>
-                  <Menu.Item href="/">Button 3</Menu.Item>
-                  <Menu.Item href="/">Button 4</Menu.Item>
-                  <Menu.Item href="/">Button 5</Menu.Item>
+                  <Menu.Item label="Button 3" href="/" />
+                  <Menu.Item label="Button 4" href="/" />
+                  <Menu.Item label="Button 5" href="/" />
+                  <Menu.Item label="Menu Item" onClick={console.log} />
+                  <Menu.Item label="Menu Item as anchor" href="/#" />
+                  <Menu.Item label="Menu Item (keep open)" closeMenu={false} isActive />
                 </Menu.List>
               </Menu.Popover>
             </Menu>
@@ -206,9 +212,9 @@ export const ResponsiveMainNav: Story = {
             </Menu.Trigger>
             <Menu.Popover className={elTopBarMenuPopover}>
               <Menu.List>
-                <Menu.Item href="/">User menu 1</Menu.Item>
-                <Menu.Item href="/">User menu 2</Menu.Item>
-                <Menu.Item href="/">User menu 3</Menu.Item>
+                <Menu.Item label="User menu 1" href="/" />
+                <Menu.Item label="User menu 2" href="/" />
+                <Menu.Item label="User menu 3" href="/" />
               </Menu.List>
             </Menu.Popover>
           </Menu>
