@@ -1,76 +1,105 @@
 import { styled } from '@linaria/react'
-import { isBelowWideScreen, isTablet, isBelowDesktop, isWideScreen } from '../../styles/media'
+import { isTablet, isDesktop, isWideScreen } from '../../styles/media'
 import { ElButtonGroup } from '../button-group'
 import { css } from '@linaria/core'
 
-export const ElTopBarAppSwitcher = styled.a`
-  padding-right: var(--spacing-4);
+export const ElTopBarAppSwitcherContainer = styled.div`
+  grid-area: app-switcher;
 
+  display: none;
+  padding-inline-end: var(--spacing-4);
+  ${isTablet} {
+    display: block;
+  }
   ${isWideScreen} {
-    padding-right: var(--spacing-5);
+    padding-inline-end: var(--spacing-5);
   }
 `
 
-export const ElTopBarLogo = styled.a`
-  padding-right: var(--spacing-2);
-  display: inline-flex;
+export const ElTopBarLogoContainer = styled.div`
+  grid-area: logo;
+  display: flex;
+  align-items: center;
+  padding-block: var(--spacing-2);
+  padding-inline: 0 var(--spacing-2);
 `
 
-export const ElTopBarProfile = styled.div``
+export const ElTopBarAvatarContainer = styled.div`
+  grid-area: profile;
+  padding-block: var(--spacing-1);
 
-export const ElTopBarMainNav = styled(ElButtonGroup)`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding-left: var(--spacing-6);
-  flex-grow: 1;
+  display: none;
+  ${isDesktop} {
+    display: flex;
+  }
+`
+
+export const ElTopBarMainNavContainer = styled(ElButtonGroup)`
+  grid-area: main-nav;
+  padding-inline-start: var(--spacing-6);
+  padding-block: var(--spacing-1);
+  width: 100%;
+
+  display: none;
+  ${isWideScreen} {
+    display: flex;
+  }
+
+  /* Required to enable individual nav items to be displayed (or not) using container queries */
   container-type: inline-size;
 `
 
-export const ElTopBarSecondaryNav = styled(ElButtonGroup)`
+export const ElTopBarSecondaryNavContainer = styled(ElButtonGroup)`
+  grid-area: secondary-nav;
   flex-wrap: nowrap;
   padding-right: var(--spacing-2);
+
+  display: none;
+  ${isWideScreen} {
+    display: block;
+  }
 `
 
-export const ElTopBar = styled.div`
-  display: flex;
+export const ElTopBar = styled.nav`
+  display: grid;
   align-items: center;
+  grid-template-areas: 'app-switcher logo main-nav search secondary-nav mobile-nav profile';
+  grid-template-columns: min-content min-content 1fr auto auto auto auto;
   height: var(--size-14);
-  padding: var(--spacing-2) var(--spacing-5);
+
+  padding-block: var(--spacing-2);
+  padding-inline: var(--spacing-4) var(--spacing-2);
+  ${isTablet} {
+    padding-inline: var(--spacing-4);
+  }
+  ${isWideScreen} {
+    padding-inline: var(--spacing-5);
+  }
+
   border-bottom: var(--comp-navigation-border-width-top_bar) solid var(--comp-navigation-colour-border-top_bar);
   background: var(--comp-navigation-colour-fill-top_bar);
-  ${isBelowWideScreen} {
-    padding: var(--spacing-2) var(--spacing-4);
-
-    ${ElTopBarLogo} {
-      margin-right: auto;
-    }
-
-    ${ElTopBarMainNav}, ${ElTopBarSecondaryNav} {
-      display: none;
-    }
-  }
-
-  ${isBelowDesktop} {
-    ${ElTopBarProfile} {
-      display: none;
-    }
-  }
 `
 
-export const ElTopBarSearch = styled.div`
-  padding-right: var(--spacing-2);
+export const ElTopBarSearchContainer = styled.div`
+  grid-area: search;
 
+  width: var(--size-12);
+  padding-inline: 0 var(--spacing-2);
   ${isTablet} {
-    width: 216px;
-    padding: var(--spacing-1) var(--spacing-4) var(--spacing-1) var(--spacing-none);
+    width: var(--size-52);
+    padding-block: var(--spacing-1);
+    padding-inline-end: var(--spacing-4);
   }
 `
 
-export const ElTopBarMobileNav = styled.div`
-  display: inline-block;
-  padding-right: var(--spacing-2);
+export const ElTopBarMenuContainer = styled.div`
+  grid-area: mobile-nav;
 
+  display: block;
+  padding-inline-end: 0;
+  ${isDesktop} {
+    padding-inline-end: var(--spacing-2);
+  }
   ${isWideScreen} {
     display: none;
   }
