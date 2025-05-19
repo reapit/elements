@@ -74,8 +74,8 @@ export const WithOverflowMenu: Story = {
               Menu 4
             </BottomBar.Item>
             <BottomBar.MoreMenu>
-              <BottomBar.MoreMenuItem>Menu 5</BottomBar.MoreMenuItem>
-              <BottomBar.MoreMenuItem>Menu 6</BottomBar.MoreMenuItem>
+              <BottomBar.MoreMenuItem label="Menu 5" />
+              <BottomBar.MoreMenuItem label="Menu 6" />
             </BottomBar.MoreMenu>
           </BottomBar>
         </section>
