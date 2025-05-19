@@ -47,8 +47,8 @@ export const SplitButtonWithMenu = {
         <Menu.Trigger>{({ getTriggerProps }) => <SplitButton.Menu {...getTriggerProps()} />}</Menu.Trigger>
         <Menu.Popover>
           <Menu.List>
-            <Menu.Item onClick={console.log}>Save & Download</Menu.Item>
-            <Menu.Item disabled>Save & Send</Menu.Item>
+            <Menu.Item onClick={console.log} label="Save & Download" />
+            <Menu.Item disabled label="Save & Send" />
           </Menu.List>
         </Menu.Popover>
       </Menu>
@@ -120,10 +120,8 @@ export const SplitButtonDisabledWithMenu = {
         <Menu.Trigger>{({ getTriggerProps }) => <SplitButton.Menu {...getTriggerProps()} />}</Menu.Trigger>
         <Menu.Popover>
           <Menu.List>
-            <Menu.Item disabled onClick={console.log}>
-              Save & Download
-            </Menu.Item>
-            <Menu.Item disabled>Save & Send</Menu.Item>
+            <Menu.Item disabled onClick={console.log} label="Save & Download" />
+            <Menu.Item disabled label="Save & Send" />
           </Menu.List>
         </Menu.Popover>
       </Menu>

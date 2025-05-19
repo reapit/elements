@@ -1,8 +1,9 @@
 import React, { type HTMLAttributes } from 'react'
 import { MenuProvider } from './menu-context'
 import { MenuPopover, MenuTrigger } from './menu-popover'
-import { MenuItem, MenuItemGroup, MenuList } from './menu.atoms'
+import { MenuItemGroup, MenuList } from './menu.atoms'
 import { ElMenu } from './styles'
+import { MenuItem } from './menu.molecules'
 
 type MenuFC = React.FC<HTMLAttributes<HTMLDivElement> & { 'data-alignment'?: 'left' | 'right' }> & {
   Item: typeof MenuItem
