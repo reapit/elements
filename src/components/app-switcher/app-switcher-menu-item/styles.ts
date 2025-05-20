@@ -2,7 +2,9 @@ import { styled } from '@linaria/react'
 
 // (AA)TODO: Make sure these are valid for this
 // If we don't have the transparent border, the component will move a slight bit, which is not what we want
-export const ElAppSwitcherMenuItemAnchor = styled.div`
+export const ElAppSwitcherMenuItemAnchor = styled.a`
+  color: var(--text-primary);
+  cursor: pointer;
   width: 100%;
   display: grid;
   grid-template-columns: auto 1fr;

@@ -5,15 +5,6 @@ import { AppSwitcher } from './app-switcher'
 const meta = {
   title: 'Components/AppSwitcher',
   component: AppSwitcher,
-  // argTypes: {
-  //   children: {
-  //     control: 'text',
-  //   },
-  //   variant: {
-  //     control: 'radio',
-  //     options: ['filter', 'selection'],
-  //   },
-  // },
 } satisfies Meta<typeof AppSwitcher>
 
 export default meta
@@ -30,6 +21,7 @@ export const Default: Story = {
               logo={<AppAvatar appName={appNames.reapitPM.name} hasAccess={true} />}
               appName={appNames.reapitPM.name}
               description={appNames.reapitPM.description}
+              url={appNames.reapitPM.url}
             />
           </AppSwitcher.AccessibleAppsMenuGroup>
 
@@ -38,11 +30,13 @@ export const Default: Story = {
               logo={<AppAvatar appName={appNames.reapitLetting.name} hasAccess={false} />}
               appName={appNames.reapitLetting.name}
               description={appNames.reapitLetting.description}
+              url={appNames.reapitLetting.url}
             />
             <AppSwitcher.MenuItem
               logo={<AppAvatar appName={appNames.keyWhere.name} hasAccess={false} />}
               appName={appNames.keyWhere.name}
               description={appNames.keyWhere.description}
+              url={appNames.keyWhere.url}
             />
           </AppSwitcher.InaccessibleAppsMenuGroup>
         </AppSwitcher>
@@ -60,6 +54,7 @@ export const WhenAMenuItemIsFocused: Story = {
             logo={<AppAvatar appName={appNames.reapitPM.name} hasAccess={true} />}
             appName={appNames.reapitPM.name}
             description={appNames.reapitPM.description}
+            url={appNames.reapitPM.url}
             isFocused={true}
           />
         </AppSwitcher.AccessibleAppsMenuGroup>
@@ -69,11 +64,13 @@ export const WhenAMenuItemIsFocused: Story = {
             logo={<AppAvatar appName={appNames.reapitLetting.name} hasAccess={false} />}
             appName={appNames.reapitLetting.name}
             description={appNames.reapitLetting.description}
+            url={appNames.reapitLetting.url}
           />
           <AppSwitcher.MenuItem
             logo={<AppAvatar appName={appNames.keyWhere.name} hasAccess={false} />}
             appName={appNames.keyWhere.name}
             description={appNames.keyWhere.description}
+            url={appNames.keyWhere.url}
           />
         </AppSwitcher.InaccessibleAppsMenuGroup>
       </AppSwitcher>
