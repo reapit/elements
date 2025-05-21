@@ -14,7 +14,7 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: () => {
     return (
-      <div style={{ height: '300px' }}>
+      <div style={{ height: '400px' }}>
         <AppSwitcher>
           <AppSwitcher.AccessibleAppsMenuGroup>
             <AppSwitcher.MenuItem
@@ -47,32 +47,34 @@ export const Default: Story = {
 export const WhenAMenuItemIsFocused: Story = {
   render: () => {
     return (
-      <AppSwitcher>
-        <AppSwitcher.AccessibleAppsMenuGroup>
-          <AppSwitcher.MenuItem
-            logo={<AppAvatar appName={appNames.reapitPM.name} />}
-            appName={appNames.reapitPM.name}
-            description={appNames.reapitPM.description}
-            url={appNames.reapitPM.url}
-            isFocused={true}
-          />
-        </AppSwitcher.AccessibleAppsMenuGroup>
+      <div style={{ height: '400px' }}>
+        <AppSwitcher>
+          <AppSwitcher.AccessibleAppsMenuGroup>
+            <AppSwitcher.MenuItem
+              logo={<AppAvatar appName={appNames.reapitPM.name} />}
+              appName={appNames.reapitPM.name}
+              description={appNames.reapitPM.description}
+              url={appNames.reapitPM.url}
+              isFocused={true}
+            />
+          </AppSwitcher.AccessibleAppsMenuGroup>
 
-        <AppSwitcher.InaccessibleAppsMenuGroup>
-          <AppSwitcher.MenuItem
-            logo={<AppAvatar appName={appNames.reapitLetting.name} />}
-            appName={appNames.reapitLetting.name}
-            description={appNames.reapitLetting.description}
-            url={appNames.reapitLetting.url}
-          />
-          <AppSwitcher.MenuItem
-            logo={<AppAvatar appName={appNames.keyWhere.name} />}
-            appName={appNames.keyWhere.name}
-            description={appNames.keyWhere.description}
-            url={appNames.keyWhere.url}
-          />
-        </AppSwitcher.InaccessibleAppsMenuGroup>
-      </AppSwitcher>
+          <AppSwitcher.InaccessibleAppsMenuGroup>
+            <AppSwitcher.MenuItem
+              logo={<AppAvatar appName={appNames.reapitLetting.name} />}
+              appName={appNames.reapitLetting.name}
+              description={appNames.reapitLetting.description}
+              url={appNames.reapitLetting.url}
+            />
+            <AppSwitcher.MenuItem
+              logo={<AppAvatar appName={appNames.keyWhere.name} />}
+              appName={appNames.keyWhere.name}
+              description={appNames.keyWhere.description}
+              url={appNames.keyWhere.url}
+            />
+          </AppSwitcher.InaccessibleAppsMenuGroup>
+        </AppSwitcher>
+      </div>
     )
   },
 }
