@@ -1,6 +1,11 @@
 import { styled } from '@linaria/react'
 
 export const ElAppSwitcherNavIconButton = styled.button`
+  height: var(--size-9);
+  width: var(--size-9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding-top: var(--spacing-1);
   padding-bottom: var(--spacing-1);
   padding-left: var(--spacing-1);

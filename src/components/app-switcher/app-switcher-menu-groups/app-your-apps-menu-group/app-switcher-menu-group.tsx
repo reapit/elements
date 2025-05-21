@@ -8,7 +8,7 @@ type AppSwitcherMenuGroupProps = {
 
 function AppSwitcherInaccessibleAppsMenuGroup({ children }: AppSwitcherMenuGroupProps) {
   return (
-    <Menu.Group label={'YOUR APPS'}>
+    <Menu.Group label={'EXPLORE'}>
       <AppMenuGroupContext.Provider value={false}>{children}</AppMenuGroupContext.Provider>
     </Menu.Group>
   )
