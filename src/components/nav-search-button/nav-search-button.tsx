@@ -1,23 +1,27 @@
-import type { HTMLAttributes } from 'react'
 import {
   ElNavSearchButton,
   ElNavSearchButtonContainer,
   ElNavSearchButtonIcon,
   ElNavSearchButtonPlaceholder,
   ElNavSearchButtonShortcutText,
+  ElNavSearchIconItem,
 } from './styles'
-import { NavIconItem, type NavIconItemProps } from '../nav-icon-item'
 import { Icon } from '../icon'
 
+import type { HTMLAttributes, MouseEventHandler } from 'react'
+
 export interface NavSearchButton extends HTMLAttributes<HTMLButtonElement> {
+  onClick: MouseEventHandler<HTMLButtonElement>
   isShortcutVisible?: boolean
 }
 
-export const NavSearchButton: React.FC<NavSearchButton> = ({ isShortcutVisible = true, ...props }) => {
+export const NavSearchButton: React.FC<NavSearchButton> = ({ isShortcutVisible = true, onClick, ...props }) => {
   return (
     <ElNavSearchButtonContainer>
-      <NavIconItem {...(props as NavIconItemProps)} icon={<Icon icon="search" />} />
-      <ElNavSearchButton {...props}>
+      {/* NOTE: The display of these two buttons, ElNavSearchIconItem and ElNavSearchButton, is controlled
+       * by their respective CSS based on the size of their container. */}
+      <ElNavSearchIconItem {...props} aria-label="Search" onClick={onClick} icon={<Icon icon="search" />} />
+      <ElNavSearchButton {...props} onClick={onClick} type="button">
         <ElNavSearchButtonIcon aria-hidden="true" />
         <ElNavSearchButtonPlaceholder>Search</ElNavSearchButtonPlaceholder>
         {isShortcutVisible && <ElNavSearchButtonShortcutText>Ctrl + K</ElNavSearchButtonShortcutText>}
