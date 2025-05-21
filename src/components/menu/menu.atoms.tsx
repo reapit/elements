@@ -71,7 +71,6 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
         role="menuitem"
         data-close-menu={closeMenu || !!disabled}
         aria-current={isActive ? 'page' : undefined}
-        datat-test={disabled}
       >
         {children}
       </ElMenuItemAnchor>
