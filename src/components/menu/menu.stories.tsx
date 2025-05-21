@@ -51,7 +51,7 @@ export const WithCompleteFeatures: StoryObj = {
                 rightIcon={<Icon icon="exportIcon" />}
               />
               <Menu.Item
-                label="Menu Item anchor"
+                label="Menu Item anchor with long example text"
                 href="/#"
                 leftIcon={<Icon icon="property" />}
                 rightIcon={<Icon icon="exportIcon" />}
