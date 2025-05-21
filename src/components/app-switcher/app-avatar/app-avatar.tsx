@@ -1,3 +1,5 @@
+import { useContext } from 'react'
+import { AppMenuGroupContext } from '../app-switcher-menu-groups/app-switcher-menu-group-context'
 import AutoResponderDisabled from './icons/autoresponder-disabled.svg'
 import AutoResponder from './icons/autoresponder.svg?react'
 import KeyWhereDisabled from './icons/keyWhere-disabled.svg?react'
@@ -17,7 +19,6 @@ import ReapitWebsites from './icons/reapit-websites.svg?react'
 
 type AppAvatarProps = {
   appName: string
-  hasAccess: boolean
 }
 
 // const exampleURL = 'https://www.reapit.com'
@@ -37,7 +38,9 @@ export const appNames = {
   autoResponder: { name: 'Auto Responder', description: 'Automated Email Marketing', url: exampleURL },
 }
 
-export default function AppAvatar({ appName, hasAccess }: AppAvatarProps) {
+export default function AppAvatar({ appName }: AppAvatarProps) {
+  const hasAccess = useContext(AppMenuGroupContext)
+
   switch (appName) {
     case appNames.reapitPM.name:
       return hasAccess ? <ReapitPM /> : <ReapitPMDisabled />
