@@ -1,3 +1,4 @@
+import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 export const ElMenuPopover = styled.div`
@@ -7,7 +8,6 @@ export const ElMenuPopover = styled.div`
 
 export const ElMenu = styled.div`
   position: relative;
-  width: fit-content;
 
   &[data-alignment='left'] {
     > ${ElMenuPopover} {
@@ -22,7 +22,10 @@ export const ElMenu = styled.div`
 `
 
 export const ElMenuList = styled.div`
+  /* TODO: use token variable when available */
   min-width: 200px;
+  max-width: 301px;
+
   width: fit-content;
   padding: var(--spacing-2) var(--spacing-2);
   border-radius: var(--corner-default);
@@ -44,6 +47,23 @@ export const ElMenuItemLabel = styled.span`
   font-weight: var(--font-sm-regular-weight);
   line-height: var(--font-sm-regular-line_height);
   letter-spacing: var(--font-sm-regular-letter_spacing);
+  text-align: left;
+`
+
+export const ElMenuItemIcon = styled.div`
+  &,
+  svg {
+    width: var(--icon_size-m);
+    height: var(--icon_size-m);
+    color: var(--comp-menu-colour-icon-default-right);
+  }
+`
+
+export const elMenuItemLeftIcon = css`
+  &,
+  svg {
+    color: var(--comp-menu-colour-icon-default-left);
+  }
 `
 
 const baseMenuItemStyles = `
@@ -88,7 +108,14 @@ export const ElMenuItemButton = styled.button`
   ${baseMenuItemStyles}
   &[aria-current="true"], &[aria-current="page"] {
     ${ElMenuItemLabel} {
-      color: var(--comp-menu-colour-text-default-action) !important;
+      color: var(--comp-menu-colour-text-default-action);
+    }
+
+    .${elMenuItemLeftIcon} {
+      &,
+      svg {
+        color: var(--comp-menu-colour-icon-default-action);
+      }
     }
   }
 

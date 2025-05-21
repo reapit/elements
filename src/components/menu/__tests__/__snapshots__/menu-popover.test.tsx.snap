@@ -22,7 +22,7 @@ exports[`Menu Popover component > should render and close Popover based on any e
         role="menu"
       >
         <button
-          class="mocked-styled-5 el-menu-item-button"
+          class="mocked-styled-6 el-menu-item-button"
           data-close-menu="true"
           role="menuitem"
           tabindex="0"
@@ -38,7 +38,7 @@ exports[`Menu Popover component > should render and close Popover based on any e
           </div>
         </button>
         <button
-          class="mocked-styled-5 el-menu-item-button"
+          class="mocked-styled-6 el-menu-item-button"
           data-close-menu="false"
           role="menuitem"
           tabindex="0"

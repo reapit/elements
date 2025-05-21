@@ -10,16 +10,16 @@ exports[`Menu list component > should render menu with list components and match
       role="menu"
     >
       <div
-        class="mocked-styled-8 el-menu-item-group"
+        class="mocked-styled-9 el-menu-item-group"
         role="group"
       >
         <div
-          class="mocked-styled-7 el-menu-item-group-title"
+          class="mocked-styled-8 el-menu-item-group-title"
         >
           Group Title
         </div>
         <a
-          class="mocked-styled-6 el-menu-item-anchor"
+          class="mocked-styled-7 el-menu-item-anchor"
           data-close-menu="true"
           href="/#"
           role="menuitem"
@@ -35,7 +35,7 @@ exports[`Menu list component > should render menu with list components and match
           </div>
         </a>
         <button
-          class="mocked-styled-5 el-menu-item-button"
+          class="mocked-styled-6 el-menu-item-button"
           data-close-menu="true"
           role="menuitem"
           tabindex="0"

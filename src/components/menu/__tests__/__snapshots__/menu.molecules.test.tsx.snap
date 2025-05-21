@@ -1,9 +1,44 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`MenuItem component > should render with complete features enabled and match snapshot 1`] = `
+<DocumentFragment>
+  <button
+    class="mocked-styled-6 el-menu-item-button"
+    data-close-menu="false"
+    role="menuitem"
+    tabindex="0"
+  >
+    <div
+      class="el-menu-item-left-icon el-menu-item-icon"
+    >
+      <span>
+        Left Icon
+      </span>
+    </div>
+    <div
+      class="mocked-styled-3 el-menu-item-content"
+    >
+      <span
+        class="mocked-styled-4 el-menu-item-label"
+      >
+        Test Menu Item
+      </span>
+    </div>
+    <div
+      class="mocked-styled-5 el-menu-item-icon"
+    >
+      <span>
+        Right Icon
+      </span>
+    </div>
+  </button>
+</DocumentFragment>
+`;
+
 exports[`MenuItem component > should render with required props and match snapshot 1`] = `
 <DocumentFragment>
   <button
-    class="mocked-styled-5 el-menu-item-button"
+    class="mocked-styled-6 el-menu-item-button"
     data-close-menu="true"
     role="menuitem"
     tabindex="0"
