@@ -10,11 +10,11 @@ export const ElBadge = styled.div`
   align-items: center;
   gap: var(--spacing-half);
   border-radius: var(--comp-badge-border-radius);
-  color: var(--colour-icon-info);
+  color: var(--comp-badge-colour-text-default-neutral);
   background: var(--comp-badge-colour-fill-default-neutral);
 
   ${ElBadgeIcon} {
-    color: var(--colour-icon-info);
+    color: var(--comp-badge-colour-icon-default-neutral);
 
     ${ElIcon} {
       width: var(--icon_size-xs);
@@ -27,7 +27,7 @@ export const ElBadge = styled.div`
     background: var(--comp-badge-colour-fill-default-neutral);
 
     ${ElBadgeIcon} {
-      color: var(--colour-icon-info);
+      color: var(--comp-badge-colour-icon-default-neutral);
     }
   }
 
@@ -36,7 +36,7 @@ export const ElBadge = styled.div`
     background: var(--comp-badge-colour-fill-reversed-neutral);
 
     ${ElBadgeIcon} {
-      color: var(--colour-icon-white);
+      color: var(--comp-badge-colour-icon-reversed-neutral);
     }
   }
 
