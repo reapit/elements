@@ -18,22 +18,21 @@ export const Default: Story = {
         <AppSwitcher>
           <AppSwitcher.AccessibleAppsMenuGroup>
             <AppSwitcher.MenuItem
-              logo={<AppAvatar appName={appNames.reapitPM.name} hasAccess={true} />}
+              logo={<AppAvatar appName={appNames.reapitPM.name} />}
               appName={appNames.reapitPM.name}
               description={appNames.reapitPM.description}
               url={appNames.reapitPM.url}
             />
           </AppSwitcher.AccessibleAppsMenuGroup>
-
           <AppSwitcher.InaccessibleAppsMenuGroup>
             <AppSwitcher.MenuItem
-              logo={<AppAvatar appName={appNames.reapitLetting.name} hasAccess={false} />}
+              logo={<AppAvatar appName={appNames.reapitLetting.name} />}
               appName={appNames.reapitLetting.name}
               description={appNames.reapitLetting.description}
               url={appNames.reapitLetting.url}
             />
             <AppSwitcher.MenuItem
-              logo={<AppAvatar appName={appNames.keyWhere.name} hasAccess={false} />}
+              logo={<AppAvatar appName={appNames.keyWhere.name} />}
               appName={appNames.keyWhere.name}
               description={appNames.keyWhere.description}
               url={appNames.keyWhere.url}
@@ -51,7 +50,7 @@ export const WhenAMenuItemIsFocused: Story = {
       <AppSwitcher>
         <AppSwitcher.AccessibleAppsMenuGroup>
           <AppSwitcher.MenuItem
-            logo={<AppAvatar appName={appNames.reapitPM.name} hasAccess={true} />}
+            logo={<AppAvatar appName={appNames.reapitPM.name} />}
             appName={appNames.reapitPM.name}
             description={appNames.reapitPM.description}
             url={appNames.reapitPM.url}
@@ -61,13 +60,13 @@ export const WhenAMenuItemIsFocused: Story = {
 
         <AppSwitcher.InaccessibleAppsMenuGroup>
           <AppSwitcher.MenuItem
-            logo={<AppAvatar appName={appNames.reapitLetting.name} hasAccess={false} />}
+            logo={<AppAvatar appName={appNames.reapitLetting.name} />}
             appName={appNames.reapitLetting.name}
             description={appNames.reapitLetting.description}
             url={appNames.reapitLetting.url}
           />
           <AppSwitcher.MenuItem
-            logo={<AppAvatar appName={appNames.keyWhere.name} hasAccess={false} />}
+            logo={<AppAvatar appName={appNames.keyWhere.name} />}
             appName={appNames.keyWhere.name}
             description={appNames.keyWhere.description}
             url={appNames.keyWhere.url}
