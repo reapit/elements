@@ -6,4 +6,16 @@ describe('MenuItem component', () => {
     const { asFragment } = render(<MenuItem label="Test Menu Item" />)
     expect(asFragment()).toMatchSnapshot()
   })
+
+  it('should render with complete features enabled and match snapshot', () => {
+    const { asFragment } = render(
+      <MenuItem
+        label="Test Menu Item"
+        leftIcon={<span>Left Icon</span>}
+        rightIcon={<span>Right Icon</span>}
+        closeMenu={false}
+      />,
+    )
+    expect(asFragment()).toMatchSnapshot()
+  })
 })
