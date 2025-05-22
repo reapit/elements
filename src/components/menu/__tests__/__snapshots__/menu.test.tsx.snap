@@ -8,6 +8,7 @@ exports[`Menu list component > should render menu with list components and match
     <div
       class="mocked-styled-2 el-menu-list"
       role="menu"
+      style="max-width: var(undefined, auto);"
     >
       <div
         class="mocked-styled-9 el-menu-item-group"

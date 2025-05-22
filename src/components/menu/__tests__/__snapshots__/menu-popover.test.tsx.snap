@@ -20,6 +20,7 @@ exports[`Menu Popover component > should render and close Popover based on any e
       <div
         class="mocked-styled-2 el-menu-list"
         role="menu"
+        style="max-width: var(undefined, auto);"
       >
         <button
           class="mocked-styled-6 el-menu-item-button"

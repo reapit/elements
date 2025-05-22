@@ -42,7 +42,7 @@ export const WithCompleteFeatures: StoryObj = {
           {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
         </Menu.Trigger>
         <Menu.Popover>
-          <Menu.List>
+          <Menu.List maxWidth={'--size-80'}>
             <Menu.Group label="Group Title">
               <Menu.Item
                 label="Menu Item"
