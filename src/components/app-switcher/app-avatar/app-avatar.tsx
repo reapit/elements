@@ -1,5 +1,6 @@
 import { useContext } from 'react'
 import { AppMenuGroupContext } from '../app-switcher-menu-group-context'
+import { appNames } from '../appNames'
 import AutoResponderDisabled from './icons/autoresponder-disabled.svg?react'
 import AutoResponder from './icons/autoresponder.svg?react'
 import KeyWhereDisabled from './icons/keyWhere-disabled.svg?react'
@@ -21,24 +22,6 @@ type AppAvatarProps = {
   appName: string
 }
 
-// const exampleURL = 'https://www.reapit.com'
-const exampleURL = '#'
-export const appNames = {
-  reapitPM: { name: 'Reapit PM', description: 'Property Management', url: exampleURL },
-  reapitSales: { name: 'Reapit Sales', description: 'Real Estate CRM', url: exampleURL },
-  reapitLetting: { name: 'Reapit Lettings', description: 'Lettings Management', url: exampleURL },
-  reapitForms: { name: 'Reapit Forms', description: 'Documents & Digital Signing', url: exampleURL },
-  reapitWebsites: { name: 'Reapit Websites', description: 'Bespoke Website Design|', url: exampleURL },
-  reapitProposals: {
-    name: 'Reapit Proposals',
-    description: 'Interactive Digital Proposals',
-    url: exampleURL,
-  },
-  keyWhere: { name: 'KeyWhere', description: 'Real-time Key Management', url: exampleURL },
-  autoResponder: { name: 'Auto Responder', description: 'Automated Email Marketing', url: exampleURL },
-}
-
-// (AA)TODO: How can you make this size 24x24?
 export default function AppAvatar({ appName }: AppAvatarProps) {
   const hasAccess = useContext(AppMenuGroupContext)
   const fontSize = '40'
