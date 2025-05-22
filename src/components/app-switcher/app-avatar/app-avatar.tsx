@@ -1,6 +1,6 @@
 import { useContext } from 'react'
-import { AppMenuGroupContext } from '../app-switcher-menu-groups/app-switcher-menu-group-context'
-import AutoResponderDisabled from './icons/autoresponder-disabled.svg'
+import { AppMenuGroupContext } from '../app-switcher-menu-group-context'
+import AutoResponderDisabled from './icons/autoresponder-disabled.svg?react'
 import AutoResponder from './icons/autoresponder.svg?react'
 import KeyWhereDisabled from './icons/keyWhere-disabled.svg?react'
 import KeyWhere from './icons/keyWhere.svg?react'
@@ -38,26 +38,28 @@ export const appNames = {
   autoResponder: { name: 'Auto Responder', description: 'Automated Email Marketing', url: exampleURL },
 }
 
+// (AA)TODO: How can you make this size 24x24?
 export default function AppAvatar({ appName }: AppAvatarProps) {
   const hasAccess = useContext(AppMenuGroupContext)
+  const fontSize = '40'
 
   switch (appName) {
     case appNames.reapitPM.name:
-      return hasAccess ? <ReapitPM /> : <ReapitPMDisabled />
+      return hasAccess ? <ReapitPM fontSize={fontSize} /> : <ReapitPMDisabled fontSize={fontSize} />
     case appNames.reapitSales.name:
-      return hasAccess ? <ReapitSales /> : <ReapitSalesDisabled />
+      return hasAccess ? <ReapitSales fontSize={fontSize} /> : <ReapitSalesDisabled fontSize={fontSize} />
     case appNames.reapitLetting.name:
-      return hasAccess ? <ReapitLettings /> : <ReapitLettingsDisabled />
+      return hasAccess ? <ReapitLettings fontSize={fontSize} /> : <ReapitLettingsDisabled fontSize={fontSize} />
     case appNames.reapitForms.name:
-      return hasAccess ? <ReapitForms /> : <ReapitFormsDisabled />
+      return hasAccess ? <ReapitForms fontSize={fontSize} /> : <ReapitFormsDisabled fontSize={fontSize} />
     case appNames.reapitWebsites.name:
-      return hasAccess ? <ReapitWebsites /> : <ReapitWebsitesDisabled />
+      return hasAccess ? <ReapitWebsites fontSize={fontSize} /> : <ReapitWebsitesDisabled fontSize={fontSize} />
     case appNames.reapitProposals.name:
-      return hasAccess ? <ReapitProposals /> : <ReapitProposalsDisabled />
+      return hasAccess ? <ReapitProposals fontSize={fontSize} /> : <ReapitProposalsDisabled fontSize={fontSize} />
     case appNames.keyWhere.name:
-      return hasAccess ? <KeyWhere /> : <KeyWhereDisabled />
+      return hasAccess ? <KeyWhere fontSize={fontSize} /> : <KeyWhereDisabled fontSize={fontSize} />
     case appNames.autoResponder.name:
-      return hasAccess ? <AutoResponder /> : <AutoResponderDisabled />
+      return hasAccess ? <AutoResponder fontSize={fontSize} /> : <AutoResponderDisabled fontSize={fontSize} />
     default:
       return null
   }

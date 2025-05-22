@@ -23,7 +23,7 @@ export const ElMenu = styled.div`
 
 export const ElMenuList = styled.div`
   min-width: 200px;
-  width: fit-content;
+  width: max-content;
   padding: var(--spacing-2) var(--spacing-2);
   border-radius: var(--corner-default);
   background-color: var(--fill-white);
