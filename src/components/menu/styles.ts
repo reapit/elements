@@ -32,7 +32,7 @@ export const ElMenuItemLabel = styled.span`
 `
 
 export const ElMenuList = styled.div`
-  width: fit-content;
+  width: max-content;
   padding: var(--spacing-2) var(--spacing-2);
   border-radius: var(--corner-default);
   background-color: var(--fill-white);
