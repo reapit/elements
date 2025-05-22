@@ -1,8 +1,6 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
-import AppAvatar, { appNames } from '../app-avatar/app-avatar'
 import { AppSwitcher } from '../app-switcher'
 import { AppSwitcherInaccessibleAppsMenuGroup } from './app-switcher-inaccessible-menu-group'
-// import { AppSwitcherMenuItem } from './app-switcher-menu-item'
 
 const meta = {
   title: 'Components/AppSwitcher/AppSwitcherInaccessibleAppsMenuGroup',
@@ -22,27 +20,17 @@ const useParentDecorator: Decorator = (Story) => {
 }
 
 // (AA)TODO: Write comments for these stories
-// /**
-//  * By default, a a group will grow to whatever width it's parent allows.
-//  */
 export const Default: Story = {
   decorators: [useParentDecorator],
-
-  render: () => {
+  args: {
+    children: null,
+  },
+  render: ({}) => {
     return (
       <AppSwitcher.InaccessibleAppsMenuGroup>
-        <AppSwitcher.MenuItem
-          logo={<AppAvatar appName={appNames.reapitLetting.name} />}
-          appName={appNames.reapitLetting.name}
-          description={appNames.reapitLetting.description}
-          url={appNames.reapitLetting.url}
-        />
-        <AppSwitcher.MenuItem
-          logo={<AppAvatar appName={appNames.keyWhere.name} />}
-          appName={appNames.keyWhere.name}
-          description={appNames.keyWhere.description}
-          url={appNames.keyWhere.url}
-        />
+        <AppSwitcher.ReapitPMMenuItem url={'#'} />
+        <AppSwitcher.ReapitSalesMenuItem url={'#'} />
+        <AppSwitcher.KeyWhereMenuItem url={'#'} />
       </AppSwitcher.InaccessibleAppsMenuGroup>
     )
   },
@@ -50,22 +38,15 @@ export const Default: Story = {
 
 export const WhenAMenuItemIsFocused: Story = {
   decorators: [useParentDecorator],
-
-  render: () => {
+  args: {
+    children: null,
+  },
+  render: ({}) => {
     return (
       <AppSwitcher.InaccessibleAppsMenuGroup>
-        <AppSwitcher.MenuItem
-          logo={<AppAvatar appName={appNames.reapitLetting.name} />}
-          appName={appNames.reapitLetting.name}
-          description={appNames.reapitLetting.description}
-          url={appNames.reapitLetting.url}
-        />
-        <AppSwitcher.MenuItem
-          logo={<AppAvatar appName={appNames.keyWhere.name} />}
-          appName={appNames.keyWhere.name}
-          description={appNames.keyWhere.description}
-          url={appNames.keyWhere.url}
-        />
+        <AppSwitcher.ReapitPMMenuItem url={'#'} isFocused />
+        <AppSwitcher.ReapitSalesMenuItem url={'#'} />
+        <AppSwitcher.KeyWhereMenuItem url={'#'} />
       </AppSwitcher.InaccessibleAppsMenuGroup>
     )
   },
