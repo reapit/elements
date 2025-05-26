@@ -2,10 +2,16 @@
 
 exports[`SingleLineCell > should match snapshot 1`] = `
 <DocumentFragment>
-  <div
+  <td
     class="mocked-styled-0 el-single-line-cell"
+    style="--tablecell-max-width: 100%; --tablecell-min-width: auto; --tablecell-width: auto;"
   >
-    Value
-  </div>
+    <div
+      class="mocked-styled-1 el-single-line-cell-content"
+      data-alignment="left"
+    >
+      Value
+    </div>
+  </td>
 </DocumentFragment>
 `;

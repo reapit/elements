@@ -9,6 +9,7 @@ exports[`TableHeaderCell > should match snapshot 1`] = `
   >
     <div
       class="mocked-styled-1 el-table-header-cell-content"
+      data-alignment="left"
     >
       Mock Children
     </div>
