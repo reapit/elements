@@ -13,6 +13,9 @@ interface TableHeaderCellCSSProperties extends CSSProperties {
 
 interface ElTableHeaderCellProps {
   style?: TableHeaderCellCSSProperties
+}
+
+interface ElTableHeaderCellContentProps {
   'data-alignment': string
 }
 
@@ -26,31 +29,35 @@ export const ElTableHeaderCell = styled.th<ElTableHeaderCellProps>`
   max-width: var(--tablecell-header-max-width);
   gap: var(--spacing-1);
   vertical-align: middle;
-
-  &[data-alignment='left'] {
-    text-align: left;
-  }
-  &[data-alignment='center'] {
-    text-align: center;
-  }
-  &[data-alignment='right'] {
-    text-align: right;
-  }
-`
-export const ElTableHeaderCellContent = styled.div`
-  width: auto;
   padding: var(--spacing-2);
+`
+export const ElTableHeaderCellContent = styled.div<ElTableHeaderCellContentProps>`
+  width: auto;
+  padding: var(--spacing-2) 0px;
   gap: var(--spacing-1);
   color: var(--text-secondary);
-  font-family: var(--font-family);
-  font-size: var(--font-size-2xs);
-  font-style: normal;
-  font-weight: var(--font-weight-semibold, 600);
-  line-height: var(--line-height-2xs);
-  letter-spacing: var(--letter-spacing-2xs);
-  min-height: 40px;
   flex: auto;
   display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
+  display: flex;
+  font-family: var(--font-2xs-bold-family, Inter);
+  font-size: var(--font-2xs-bold-size);
+  font-style: normal;
+  font-weight: var(--font-2xs-bold-weight);
+  line-height: var(--font-2xs-bold-line_height);
+  letter-spacing: var(--font-2xs-bold-letter_spacing);
+
+  &[data-alignment='left'] {
+    text-align: left;
+    justify-content: start;
+  }
+  &[data-alignment='center'] {
+    text-align: center;
+    justify-content: center;
+  }
+  &[data-alignment='right'] {
+    text-align: right;
+    justify-content: right;
+  }
 `

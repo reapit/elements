@@ -25,7 +25,7 @@ export const BasicUsage = {
         <TableHead>
           <TableRow>
             <TableHeaderCell {...args} maxWidth="30px">
-              Checkbox Header
+              Check
             </TableHeaderCell>
             <TableHeaderCell {...args}>First Header</TableHeaderCell>
             <TableHeaderCell {...args}>Image Header</TableHeaderCell>
@@ -34,7 +34,7 @@ export const BasicUsage = {
           </TableRow>
         </TableHead>
         <TableBody>
-          {Array.from({ length: 10 }, (_, index) => (
+          {Array.from({ length: 3 }, (_, index) => (
             <TableRow key={index}>
               <TableCell>
                 <Input type="checkbox" />
