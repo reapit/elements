@@ -2,7 +2,12 @@ import { MouseEvent, useCallback } from 'react'
 import { Icon } from '../../icon'
 import { ElAppSwitcherNavIconButton } from './styles'
 
-export default function AppSwitcherNavIconButton(props) {
+type AppSwitcherNavIconButtonProps = {
+  onClick?: (event: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLAnchorElement>) => void
+  'aria-expanded'?: boolean
+}
+
+export default function AppSwitcherNavIconButton(props: AppSwitcherNavIconButtonProps) {
   const { onClick, 'aria-expanded': isSelected } = props
 
   const handleClick = useCallback(

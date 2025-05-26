@@ -1,5 +1,5 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
-import { AppMenuGroupContext } from '../app-switcher-menu-group-context'
+import { AppMenuGroupContext } from '../menu-group-context'
 import { appNames } from '../appNames'
 import AppAvatar from './app-avatar'
 

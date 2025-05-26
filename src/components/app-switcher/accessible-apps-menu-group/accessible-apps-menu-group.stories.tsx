@@ -1,11 +1,11 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
 import { AppSwitcher } from '../app-switcher'
-import { AppSwitcherInaccessibleAppsMenuGroup } from './app-switcher-inaccessible-menu-group'
+import { AppSwitcherAccessibleAppsMenuGroup } from './accessible-apps-menu-group'
 
 const meta = {
-  title: 'Components/AppSwitcher/AppSwitcherInaccessibleAppsMenuGroup',
-  component: AppSwitcherInaccessibleAppsMenuGroup,
-} satisfies Meta<typeof AppSwitcherInaccessibleAppsMenuGroup>
+  title: 'Components/AppSwitcher/AppSwitcherAccessibleAppsMenuGroup',
+  component: AppSwitcherAccessibleAppsMenuGroup,
+} satisfies Meta<typeof AppSwitcherAccessibleAppsMenuGroup>
 
 export default meta
 
@@ -27,11 +27,11 @@ export const Default: Story = {
   },
   render: ({}) => {
     return (
-      <AppSwitcher.InaccessibleAppsMenuGroup>
+      <AppSwitcher.AccessibleAppsMenuGroup>
         <AppSwitcher.ReapitPMMenuItem url={'#'} />
         <AppSwitcher.ReapitSalesMenuItem url={'#'} />
         <AppSwitcher.KeyWhereMenuItem url={'#'} />
-      </AppSwitcher.InaccessibleAppsMenuGroup>
+      </AppSwitcher.AccessibleAppsMenuGroup>
     )
   },
 }
@@ -41,13 +41,13 @@ export const WhenAMenuItemIsFocused: Story = {
   args: {
     children: null,
   },
-  render: ({}) => {
+  render: () => {
     return (
-      <AppSwitcher.InaccessibleAppsMenuGroup>
+      <AppSwitcher.AccessibleAppsMenuGroup>
         <AppSwitcher.ReapitPMMenuItem url={'#'} isFocused />
         <AppSwitcher.ReapitSalesMenuItem url={'#'} />
         <AppSwitcher.KeyWhereMenuItem url={'#'} />
-      </AppSwitcher.InaccessibleAppsMenuGroup>
+      </AppSwitcher.AccessibleAppsMenuGroup>
     )
   },
 }

@@ -46,7 +46,7 @@ export const WhenAMenuItemIsFocused: Story = {
     return (
       <AppSwitcher>
         <AppSwitcher.AccessibleAppsMenuGroup>
-          <AppSwitcher.ReapitPMMenuItem url={'#'} />
+          <AppSwitcher.ReapitPMMenuItem url={'#'} isFocused />
         </AppSwitcher.AccessibleAppsMenuGroup>
         <AppSwitcher.InaccessibleAppsMenuGroup>
           <AppSwitcher.ReapitLettingMenuItem url={'#'} />

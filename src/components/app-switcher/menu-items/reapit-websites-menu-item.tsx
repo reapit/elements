@@ -1,14 +1,14 @@
 import AppAvatar from '../app-avatar/app-avatar'
-import { AppSwitcherMenuItem } from '../app-switcher-menu-item/app-switcher-menu-item'
+import { AppSwitcherMenuItem } from '../menu-item/menu-item'
 import { appNames } from '../appNames'
 
-type ReapitPMMenuItemProps = {
+type ReapitWebsitesMenuItemProps = {
   url: string
   isFocused?: boolean
 }
 
-export default function ReapitPMMenuItem({ url, isFocused = false }: ReapitPMMenuItemProps) {
-  const { name, description } = appNames.reapitPM
+export default function ReapitWebsitesMenuItem({ url, isFocused = false }: ReapitWebsitesMenuItemProps) {
+  const { name, description } = appNames.reapitWebsites
 
   return (
     <AppSwitcherMenuItem

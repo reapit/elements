@@ -1,5 +1,5 @@
 import { useContext } from 'react'
-import { AppMenuGroupContext } from '../app-switcher-menu-group-context'
+import { AppMenuGroupContext } from '../menu-group-context'
 import { appNames } from '../appNames'
 import AutoResponderDisabled from './icons/autoresponder-disabled.svg?react'
 import AutoResponder from './icons/autoresponder.svg?react'

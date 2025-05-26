@@ -1,6 +1,6 @@
 import React from 'react'
 import { Menu } from '../../menu'
-import { AppMenuGroupContext } from '../app-switcher-menu-group-context'
+import { AppMenuGroupContext } from '../menu-group-context'
 
 type AppSwitcherMenuGroupProps = {
   children: React.ReactNode

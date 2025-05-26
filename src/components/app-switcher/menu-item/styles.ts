@@ -13,8 +13,10 @@ export const ElAppSwitcherMenuItemAnchor = styled.a`
   border-radius: var(--border-radius-l);
   border: var(--border-width-double) solid transparent;);
 
+  // (AA)TODO: Ask Kurt - How to use &:focus-visible here?
   &[data-focused='true'] {
     border: var(--border-width-double) solid var(--colour-border-focus);
+    outline-offset: var(--border-width-default);
   }
 
   &:hover {
