@@ -21,7 +21,7 @@ export const BasicUsage = {
       <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
       <Table>
         <TableHead>
-          <TableHeaderCell maxWidth="30px">Checkbox Header</TableHeaderCell>
+          <TableHeaderCell maxWidth="30px">Check</TableHeaderCell>
           <TableHeaderCell>First Header</TableHeaderCell>
           <TableHeaderCell>Image Header</TableHeaderCell>
           <TableHeaderCell>Second Header</TableHeaderCell>

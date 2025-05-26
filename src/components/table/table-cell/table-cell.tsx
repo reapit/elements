@@ -37,7 +37,6 @@ export const TableCell: FC<TableCellProps> = ({
   return (
     <ElTableCell
       {...rest}
-      data-alignment={alignment}
       style={{
         '--tablecell-max-width': maxWidth,
         '--tablecell-min-width': minWidth,
@@ -45,7 +44,7 @@ export const TableCell: FC<TableCellProps> = ({
         ...style,
       }}
     >
-      <ElTableCellContent>{children}</ElTableCellContent>
+      <ElTableCellContent data-alignment={alignment}>{children}</ElTableCellContent>
     </ElTableCell>
   )
 }

@@ -13,6 +13,9 @@ interface TableCellCSSProps extends CSSProperties {
 
 interface ElTableCellProps {
   style?: TableCellCSSProps
+}
+
+interface ElTableCellContentProps {
   'data-alignment': string
 }
 
@@ -25,31 +28,35 @@ export const ElTableCell = styled.td<ElTableCellProps>`
   min-width: var(--tablecell-min-width);
   max-width: var(--tablecell-max-width);
   gap: var(--spacing-1);
+  padding: var(--spacing-2);
   vertical-align: middle;
+`
+export const ElTableCellContent = styled.div<ElTableCellContentProps>`
+  width: auto;
+  gap: var(--spacing-1);
+  color: var(--text-primary);
+  flex: auto;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-family: var(--font-sm-medium-family, Inter);
+  font-size: var(--font-sm-medium-size);
+  font-style: normal;
+  font-weight: var(--font-sm-medium-weight);
+  line-height: var(--font-sm-medium-line_height);
+  letter-spacing: var(--font-sm-medium-letter_spacing);
 
   &[data-alignment='left'] {
     text-align: left;
+    justify-content: start;
   }
   &[data-alignment='center'] {
     text-align: center;
+    justify-content: center;
   }
   &[data-alignment='right'] {
     text-align: right;
+    justify-content: right;
   }
-`
-export const ElTableCellContent = styled.div`
-  width: auto;
-  padding: var(--spacing-2);
-  gap: var(--spacing-1);
-  color: var(--text-secondary);
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-regular);
-  font-style: normal;
-  line-height: var(--line-height-2xs);
-  letter-spacing: var(--letter-spacing-2xs);
-  min-height: 40px;
-  flex: auto;
-  display: inline-flex;
-  flex-wrap: wrap;
 `
