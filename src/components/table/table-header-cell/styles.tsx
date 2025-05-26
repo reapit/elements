@@ -37,7 +37,6 @@ export const ElTableHeaderCellContent = styled.div<ElTableHeaderCellContentProps
   gap: var(--spacing-1);
   color: var(--text-secondary);
   flex: auto;
-  display: inline-flex;
   align-items: center;
   flex-wrap: wrap;
   display: flex;
