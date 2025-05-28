@@ -15,7 +15,13 @@ import { useSideBarMenuGroupLabelIdContext } from './menu-group-label-id-context
 import type { HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
 interface SideBarMenuGroupSummaryProps extends HTMLAttributes<HTMLElement> {
+  /**
+   * The label for the menu group.
+   */
   children: ReactNode
+  /**
+   * The icon to display next to the label.
+   */
   icon: ReactNode
 }
 
@@ -23,9 +29,8 @@ interface SideBarMenuGroupSummaryProps extends HTMLAttributes<HTMLElement> {
  * A summary element for the `SideBar.MenuGroup`. It is explicitly designed for use within a `<details>` element,
  * relying on its `open` state to determine the orientation of the summary's dropdown indicator.
  *
- * ⚠️ **Important**: The stories shown here do not reflect the complete behaviour of the component as the summary
- * element is not interactive outside of a parent `<details>` element. To see the full behaviour, please refer to the
- * `SideBar.MenuGroup` component documentation.
+ * ⚠️ **Important**: `<summary> elements are not interactive outside of a parent `<details>` element. This component
+ * should only be used as the summary for a `SideBar.MenuGroup` component.
  */
 export function SideBarMenuGroupSummary({
   children,
@@ -37,11 +42,11 @@ export function SideBarMenuGroupSummary({
 }: SideBarMenuGroupSummaryProps) {
   const labelId = id ?? useSideBarMenuGroupLabelIdContext()
 
-  // We need to prevent the menu group from closing if it is currently active (i.e. one of its descendants represents
-  // the current page).
+  // We need to prevent the parent menu group from closing if it is currently active (i.e. one of its descendants
+  // represents the current page).
   //
   // NOTE: We don't add a click handler to the <details> element itself because that would be called for any
-  // click event that propogates from any descendants, which would include the submenu items.
+  // click event that propogates from _any_ descendants, which would include this <summary> element.
   const handleClick: MouseEventHandler<HTMLElement> = useCallback(
     (event) => {
       onClick?.(event)
@@ -71,5 +76,3 @@ export function SideBarMenuGroupSummary({
     </summary>
   )
 }
-
-SideBarMenuGroupSummary.displayName = 'SideBarMenuGroupSummary'

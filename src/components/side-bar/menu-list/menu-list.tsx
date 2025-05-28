@@ -3,6 +3,7 @@ import { SideBarMenuListItem } from './menu-list-item'
 import { SideBarMenuListGroup } from './menu-list-group'
 
 import type { ComponentProps } from 'react'
+import { SideBarSubmenu } from '../submenu'
 
 interface SideBarMenuListProps extends ComponentProps<typeof ElSideBarMenuList> {}
 
@@ -16,3 +17,6 @@ export function SideBarMenuList({ children, ...props }: SideBarMenuListProps) {
 
 SideBarMenuList.Item = SideBarMenuListItem
 SideBarMenuList.Group = SideBarMenuListGroup
+SideBarMenuList.GroupSummary = SideBarMenuListGroup.Summary
+SideBarMenuList.Submenu = SideBarSubmenu
+SideBarMenuList.SubmenuItem = SideBarSubmenu.Item

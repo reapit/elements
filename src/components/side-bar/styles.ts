@@ -9,9 +9,20 @@ export const ElSideBar = styled.nav<ElSideBarProps>`
   flex-direction: column;
   align-items: start;
   justify-content: space-between;
-  padding: var(--spacing-3);
-  background: var(--fill-white);
+  gap: var(--spacing-3);
+  height: 100%;
   width: 100%;
+
+  overflow: auto;
+
+  /* This scroll padding helps ensure content (like menu items) are not cut off when scrolling.
+   * - The block-start padding (i.e. top) matches the top padding of the side bar body
+   * - The block-end padding (i.e. bottom) matches the height of the side bar footer */
+  scroll-padding-block-start: var(--spacing-3);
+  scroll-padding-block-end: var(--spacing-16);
+
+  border-right: 1px solid var(--colour-border-light_default);
+  background: var(--comp-navigation-colour-fill-sidebar-default);
 
   &[data-state='collapsed'] {
     max-width: var(--size-16);
@@ -23,24 +34,20 @@ export const ElSideBar = styled.nav<ElSideBarProps>`
   }
 `
 
-export const ElSideBarContents = styled.div`
-  display: contents;
-`
-
-export const ELSideBarMenuList = styled.ul`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: var(--spacing-2);
+export const ElSideBarBody = styled.div`
   width: 100%;
-  container-type: inline-size;
+  padding-block-start: var(--spacing-3);
+  padding-inline: var(--spacing-3);
 
-  & li {
-    width: 100%;
-  }
+  background: var(--comp-navigation-colour-fill-sidebar-default);
 `
 
 export const ElSideBarFooter = styled.div`
-  padding-block-start: var(--spacing-3);
+  position: sticky;
+  bottom: 0;
+  padding-block-end: var(--spacing-3);
+  padding-inline: var(--spacing-3);
   width: 100%;
+
+  background: var(--comp-navigation-colour-fill-sidebar-default);
 `

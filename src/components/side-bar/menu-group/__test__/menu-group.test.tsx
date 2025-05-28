@@ -2,6 +2,7 @@ import { composeStories } from '@storybook/react'
 import { render, screen } from '@testing-library/react'
 import { SideBarMenuGroup } from '../menu-group'
 import * as stories from '../menu-group.stories'
+import { elSideBarMenuGroup } from '../styles'
 
 const MenuGroupStories = composeStories(stories)
 
@@ -11,6 +12,13 @@ test('renders a <details> element', () => {
 
   expect(group.tagName).toBe('DETAILS')
   expect(group).toBeInTheDocument()
+})
+
+test(`combines the .${elSideBarMenuGroup} and consumer-supplied classes correctly`, () => {
+  render(<MenuGroupStories.Example className="my-custom-class" />)
+  // NOTE: We don't use the `toHaveClass` matcher here because it does not enforce the order of classes, which we are
+  // specifically interested in here.
+  expect(screen.getByRole('group')).toHaveAttribute('class', `${elSideBarMenuGroup} my-custom-class`)
 })
 
 test('has an accessible name when the `SideBar` is collapsed', () => {
@@ -25,16 +33,16 @@ test('is labelled by the <summary> element', () => {
   expect(detailsElement.getAttribute('aria-labelledby')).toBe(summaryElement?.id)
 })
 
-test('is closed by default when NO descendant submenu items represent the current page', () => {
-  render(<MenuGroupStories.Example />)
-  // NOTE: <details> elements are only considered visible when they are open
-  expect(screen.getByRole('group')).not.toBeVisible()
-})
-
 test('is open by default when a descendant submenu item represents the current page', () => {
   render(<MenuGroupStories.Selected />)
   // NOTE: <details> elements are only considered visible when they are open
   expect(screen.getByRole('group')).toBeVisible()
+})
+
+test('is closed by default when NO descendant submenu items represent the current page', () => {
+  render(<MenuGroupStories.Example />)
+  // NOTE: <details> elements are only considered visible when they are open
+  expect(screen.getByRole('group')).not.toBeVisible()
 })
 
 test('is closed when the `SideBar` is collapsed', () => {

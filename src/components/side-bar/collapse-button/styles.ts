@@ -1,31 +1,16 @@
-import CollapseIcon from './icons/collapse.svg?react'
 import { styled } from '@linaria/react'
 
-export const ElSideBarCollapseButtonContainer = styled.div`
-  padding-top: var(--spacing-3);
-  width: 100%;
-`
-
 export const ElSideBarCollapseButton = styled.button`
-  overflow: hidden;
-  background: var(--fill-white);
-  border: none;
+  display: flex;
+  padding: var(--spacing-2);
+  align-items: center;
+  gap: var(--spacing-3);
+  width: 100%;
   cursor: pointer;
 
-  border-radius: var(--corner-lg);
-  display: flex;
-  flex-direction: row;
-  gap: var(--spacing-3);
-
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: start;
-  height: 40px;
-  padding: var(--spacing-none) var(--spacing-2);
-  gap: var(--spacing-3);
-  color: var(--neutral-600);
-  border-radius: var(--corner-lg);
+  background: var(--fill-white);
+  border: none;
+  border-radius: var(--comp-navigation-border-radius-menu_item);
 
   &:hover {
     background: var(--fill-default-lightest);
@@ -38,22 +23,37 @@ export const ElSideBarCollapseButton = styled.button`
   }
 `
 
-export const ElCollapseIcon = styled(CollapseIcon)`
-  flex-shrink: 0;
-  width: var(--icon-md);
-  height: var(--icon-md);
+export const ElSideBarCollapseButtonIcon = styled.span`
+  display: flex;
   padding: var(--spacing-half);
-  box-sizing: content-box;
+  align-items: center;
+
+  color: var(--comp-navigation-colour-icon-sidebar-default);
+
+  /* TODO: The collapse icon is not part of the Icon component yet; we're just importing a
+   * custom SVG directly. When Icon supports it, we should remove our custom SVG. */
+  svg {
+    color: inherit;
+    fill: currentColor;
+    width: var(--icon_size-m);
+    height: var(--icon_size-m);
+  }
 
   [aria-expanded='false'] & {
     transform: rotate(180deg);
   }
 `
 
-export const ElSideBarCollapseText = styled.span`
-  color: var(--neutral-600);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
+export const ElSideBarCollapseLabel = styled.span`
+  overflow: hidden;
+  color: var(--comp-navigation-colour-text-sidebar-default);
+  text-overflow: ellipsis;
+
+  /* text-sm/Regular */
+  font-family: var(--font-sm-regular-family);
+  font-size: var(--font-sm-regular-size);
+  font-style: normal;
+  font-weight: var(--font-sm-regular-weight);
+  line-height: var(--font-sm-regular-line_height);
+  letter-spacing: var(--font-sm-regular-letter_spacing);
 `

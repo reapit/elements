@@ -23,15 +23,15 @@ export const Example: Story = {
   args: {
     isActive: false,
     children: 'Submenu Item',
-    href: window.top?.location.href!,
+    href: globalThis.top?.location.href!,
   },
 }
 
 /**
  * When the item represents the current page, `isActive` should be supplied to communicate to visual and accessible
- * users that the item is currently "selected". For accessible users, this is communicated via `aria-current="page"`
- * on the underlying `<a>` element. The visual styling of the item is applied based on this ARIA attribute as well,
- * which means CSS-only consumers just need to ensure `aria-current="page"` is applied when appropriate.
+ * users that the item is currently "selected". For accessible users, this internally facilitated via `aria-current="page"`
+ * on the underlying `<a>` element. The visual styling of the item is also applied based on this ARIA attribute, so
+ * CSS-only consumers just need to ensure they provide `aria-current="page"` to their anchor when appropriate.
  */
 export const Selected: Story = {
   args: {
@@ -44,7 +44,7 @@ export const Selected: Story = {
  * When there is not enough space to display the full label, it will be truncated with an ellipsis. That said, author's
  * should typically ensure submenu item labels are short enough to fit within the available space in the `SideBar`.
  * Importantly, when the `SideBar` is collapsed, the submenu item's label will be available in the accessibility tree
- * despite not being visible.
+ * despite not being fully visible.
  */
 export const Truncation: Story = {
   args: {

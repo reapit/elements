@@ -3,7 +3,11 @@ import { elSideBarMenuItem, ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from
 
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-interface SideBarMenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'aria-current'> {
+// We don't want:
+// - `aria-current` because it is always derived from the `isActive` prop.
+type AttributesToOmit = 'aria-current'
+
+interface SideBarMenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, AttributesToOmit> {
   /** The label of the menu item */
   children: ReactNode
   /** The URL to navigate to when this item is activated. */
@@ -18,20 +22,21 @@ interface SideBarMenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorEleme
 }
 
 /**
- * Basic menu item for use in a `SideBar`. Is always an anchor element because side bar navigation items
- * should always navigate users to another page in the product. Note that this component is rarely used directly.
- * Instead, `SideBar.MenuItem` will typically be used as it wraps the anchor element in a list item (`<li>`).
+ * Standard menu item for use in a `SideBar`. Is always an anchor element because side bar navigation
+ * items should always navigate users to another page in the product.
  *
- * If trying to integrate submenu items with React Router, its best to wrap `SideBar.MenuItem` instead of
- * `SideBarMenuItem`, as the former will correctly render the link within a list item. For example, with
- * React Router 6, you would do:
+ * **Important:** ⚠️ This component should rarely be used directly. Instead, use `SideBar.MenuItem` as it wraps the
+ * anchor element in a list item (`<li>`) to ensure good semantics and accessibility when used with `SideBar.MenuList`.
+ *
+ * To integrate this component with React Router, simply wrap `SideBar.MenuItem`. For example, with React Router 6,
+ * you would do:
  *
  * ```
  * function MySideBarMenuItem({ to, ...props}) {
  *   const href = useHref(to)
  *   const isActive = useMatch(to)
  *   return (
- *     <SideBar.MenuItem {...props} href={href} isActive={isActive} />
+ *     <SideBarMenu.Item {...props} href={href} isActive={isActive} />
  *   )
  * }
  * ```

@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { SideBarSubmenuListItem } from '../submenu-list-item'
 
-test('renders an <a> element as child of a <li>', () => {
+test('renders a link as child of a list item', () => {
   render(<SideBarSubmenuListItem href="/">Item</SideBarSubmenuListItem>)
   const listItem = screen.getByRole('listitem')
   const anchor = screen.getByRole('link', { name: 'Item' })
@@ -11,7 +11,7 @@ test('renders an <a> element as child of a <li>', () => {
   expect(listItem.firstChild).toBe(anchor)
 })
 
-test('<a> element has `aria-current="page"` attribute present when `isActive`', () => {
+test('link `aria-current="page"` attribute present when `isActive`', () => {
   render(
     <SideBarSubmenuListItem href="/" isActive>
       Item

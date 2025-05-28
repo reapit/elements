@@ -31,11 +31,23 @@ export interface SideBarMenuGroupProps extends DetailsHTMLAttributes<HTMLDetails
 
 /**
  * A menu group that can contain a submenu of items for use in a `SideBar`. The group leverages a `<details>` element
- * to provide a native disclosure widget for showing and hiding the submenu. The group is styled to look like a
- * traditional menu item, but the submenu is hidden by default.
+ * to provide a native disclosure widget for showing and hiding the submenu. The group and its summary are styled to look
+ * like a traditional menu item.
+ *
+ * Generally, there should be no need to control the open state of menu groups; if you do, please surface your use-case
+ * with the Elements team so you can learn about the implications of doing so.
+ *
+ * **Note:** The `SideBar` handles keyboard navigation across all menu items and menu groups within it. As such, the menu
+ * group does not handle any of this itself.
  */
-export function SideBarMenuGroup({ children, className, summary, ...props }: SideBarMenuGroupProps) {
-  const labelId = useId()
+export function SideBarMenuGroup({
+  'aria-labelledby': ariaLabelledBy,
+  children,
+  className,
+  summary,
+  ...props
+}: SideBarMenuGroupProps) {
+  const labelId = ariaLabelledBy ?? useId()
   const sideBar = useSideBarContext()
   const ref = useSideBarMenuGroupController(sideBar.state)
   return (

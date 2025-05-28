@@ -91,6 +91,7 @@ interface DetailsProps extends DetailsHTMLAttributes<HTMLDetailsElement> {
   sideBarState: SideBarState
 }
 
+/** Simple integration of the subject under test (useSideBarMenuGroupController) and a `<details>` element */
 function Details({ children, sideBarState, ...props }: DetailsProps) {
   const ref = useSideBarMenuGroupController(sideBarState)
   return (

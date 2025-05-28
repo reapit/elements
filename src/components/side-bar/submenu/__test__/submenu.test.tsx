@@ -1,7 +1,7 @@
 import { render, screen } from '@testing-library/react'
 import { SideBarSubmenu } from '../submenu'
 
-test('renders an <ul> element', () => {
+test('renders a list', () => {
   render(<SideBarSubmenu>Children</SideBarSubmenu>)
   expect(screen.getByRole('list')).toBeVisible()
 })

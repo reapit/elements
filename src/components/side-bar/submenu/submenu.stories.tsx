@@ -45,6 +45,10 @@ export const Example: Story = {
   },
 }
 
+/**
+ * There is no visual or accessible difference applied to the submenu itself when one of its items represents the
+ * current page. It is just the specific item that will appear differently.
+ */
 export const Selected: Story = {
   args: {
     children: 'Selected item',

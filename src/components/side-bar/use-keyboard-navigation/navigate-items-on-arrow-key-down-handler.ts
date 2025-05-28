@@ -4,10 +4,13 @@ import { elSideBarSubmenuItem } from '../submenu-item'
 
 import type { KeyboardEvent } from 'react'
 
-const LIST_ITEM_SELECTORS = `.${elSideBarMenuItem}, details.${elSideBarMenuGroup}:open a.${elSideBarSubmenuItem}`
+// Since `navigateItemsOnArrowKeyDownHandler` is designed for use with the side bar, we hardcode the appropriate
+// selectors for the list items we want to navigate through.
+const LIST_ITEM_SELECTORS = `.${elSideBarMenuItem}, details.${elSideBarMenuGroup}[open] a.${elSideBarSubmenuItem}`
 
 /**
- *
+ * Handles arrow key down events in order to move focus between items in a list. Items that are focused are
+ * also scrolled into view. Focus will not be moved beyond the first or last items in the list.
  */
 export function navigateItemsOnArrowKeyDownHandler(event: KeyboardEvent<HTMLElement>) {
   const key = event.key
@@ -41,15 +44,13 @@ export function navigateItemsOnArrowKeyDownHandler(event: KeyboardEvent<HTMLElem
   // Now that we know we're going to handle the key event, we can prevent the default action. This stops the browser
   // from scrolling the page when the ArrowUp, ArrowDown, or Space key are pressed.
   event.preventDefault()
-  // We also want to stop the event from propagating because we may be in a nested list and we don't want the parent
-  // list to also receive and handle this event.
-  event.stopPropagation()
 
   const indexOfElementToFocus = getIndexOfElementToFocus(key, indexOfActiveElement)
   const elementToFocus = listItems.item(indexOfElementToFocus)
   // NOTE: only HTMLElement's can be focused; Element's cannot.
   if (elementToFocus instanceof HTMLElement) {
     elementToFocus.focus()
+    elementToFocus.scrollIntoView({ block: 'nearest' })
   }
 }
 

@@ -1,18 +1,20 @@
-import { SideBarSubmenuItem as BaseSideBarSubmenuItem } from '../submenu-item'
 import { ElSideBarSubmenuListItem } from './styles'
+import { SideBarSubmenuItem as SideBarSubmenuItem } from '../submenu-item'
 
 import type { ComponentProps } from 'react'
 
-interface SideBarSubmenuItemProps extends ComponentProps<typeof BaseSideBarSubmenuItem> {}
+interface SideBarSubmenuListItemProps extends ComponentProps<typeof SideBarSubmenuItem> {}
 
 /**
- * Menu item for use in a Side Bar's submenus. This is a thin wrapper around `SideBarSubmenuItem`
- * that ensures the item is contained within a list item (`<li>`).
+ * A thin wrapper around `SideBarSubmenuItem` that ensures it is contained within a list item (`<li>`) for
+ * correct semantics and accessibility when used with `SideBar.Submenu`.
+ *
+ * All props are passed through to `SideBarSubmenuItem`.
  */
-export function SideBarSubmenuListItem({ children, ...props }: SideBarSubmenuItemProps) {
+export function SideBarSubmenuListItem({ children, ...props }: SideBarSubmenuListItemProps) {
   return (
     <ElSideBarSubmenuListItem>
-      <BaseSideBarSubmenuItem {...props}>{children}</BaseSideBarSubmenuItem>
+      <SideBarSubmenuItem {...props}>{children}</SideBarSubmenuItem>
     </ElSideBarSubmenuListItem>
   )
 }

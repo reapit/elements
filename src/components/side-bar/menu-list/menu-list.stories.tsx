@@ -1,10 +1,29 @@
+import { Icon } from '../../icon'
 import { SideBarMenuList } from './menu-list'
+import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
+import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
+import { useViewportHeightDecorator } from '../__story__/use-viewport-height-decorator'
 
 import type { Meta, StoryObj } from '@storybook/react'
+
+// Common href for all menu items that links to the current storybook page.
+const href = globalThis.top?.location.href!
 
 const meta = {
   title: 'Components/SideBar/MenuList',
   component: SideBarMenuList,
+  argTypes: {
+    children: {
+      control: 'radio',
+      options: ['No selected item', 'Selected item', 'Selected submenu item'],
+      mapping: {
+        'No selected item': buildMenu('No selected item'),
+        'Selected item': buildMenu('Selected item'),
+        'Selected submenu item': buildMenu('Selected submenu item'),
+      },
+    },
+  },
+  decorators: [useSideBarContextDecorator],
 } satisfies Meta<typeof SideBarMenuList>
 
 export default meta
@@ -12,110 +31,80 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
-  args: {},
+  args: {
+    children: 'No selected item',
+  },
 }
 
-// export const WithGroups: Story = {
-//   args: {
-//     'aria-label': 'Navigation menu with groups',
-//   },
-//   render: (args) => (
-//     <SideBarMenuList {...args}>
-//       <SideBarMenuList.Group label="Main">
-//         <SideBarMenuList.Item href="#" active>
-//           Dashboard
-//         </SideBarMenuList.Item>
-//         <SideBarMenuList.Item href="#">Projects</SideBarMenuList.Item>
-//       </SideBarMenuList.Group>
+/**
+ * If a menu item represents the current page, it should be marked as "selected". See the `SideBar.MenuItem`
+ * documentation for details on how.
+ */
+export const SelectedItem: Story = {
+  args: {
+    children: 'Selected item',
+  },
+}
 
-//       <SideBarMenuList.Group label="Analytics">
-//         <SideBarMenuList.Item href="#">Reports</SideBarMenuList.Item>
-//         <SideBarMenuList.Item href="#">Metrics</SideBarMenuList.Item>
-//       </SideBarMenuList.Group>
+/**
+ * Likewise, if a submenu item represents the current page, it should be marked as "selected". This will automatically
+ * cause the parent `SideBar.MenuGroup` to be displayed as "selected" itself. See the `SideBar.SubmenuItem` documentation
+ * for details on how.
+ */
+export const SelectedSubmenuItem: Story = {
+  args: {
+    children: 'Selected submenu item',
+  },
+}
 
-//       <SideBarMenuList.Group label="System">
-//         <SideBarMenuList.Item href="#">Settings</SideBarMenuList.Item>
-//         <SideBarMenuList.Item href="#">Profile</SideBarMenuList.Item>
-//       </SideBarMenuList.Group>
-//     </SideBarMenuList>
-//   ),
-// }
+/**
+ * The menu list simply fills it parent container. If that parent does not have enough space for the labels
+ * of some or all of the submenu items, those labels will truncate as per the behaviour documented for each
+ * individual component. That said, authors (both designers and engineers) should typically ensure the side bar
+ * is afforded enough space for the menu items it contains.
+ */
+export const Truncation: Story = {
+  args: {
+    ...Example.args,
+  },
+  decorators: [useSideBarWidthDecorator],
+  parameters: {
+    sideBar: {
+      width: '120px',
+    },
+  },
+}
 
-// export const WithIcons: Story = {
-//   args: {
-//     'aria-label': 'Navigation menu with icons',
-//   },
-//   render: (args) => (
-//     <SideBarMenuList {...args}>
-//       <SideBarMenuList.Item href="#" active icon={<HomeIcon />}>
-//         Dashboard
-//       </SideBarMenuList.Item>
-//       <SideBarMenuList.Item href="#" icon={<FolderIcon />}>
-//         Projects
-//       </SideBarMenuList.Item>
-//       <SideBarMenuList.Item href="#" icon={<ChartIcon />}>
-//         Reports
-//       </SideBarMenuList.Item>
-//       <SideBarMenuList.Item href="#" icon={<GearIcon />}>
-//         Settings
-//       </SideBarMenuList.Item>
-//     </SideBarMenuList>
-//   ),
-// }
+/**
+ * When the side bar is collapsed, only the menu item's icons will be visible.
+ */
+export const Collapsed: Story = {
+  args: {
+    ...Example.args,
+  },
+  decorators: [useSideBarWidthDecorator],
+  parameters: {
+    sideBar: {
+      state: 'collapsed',
+    },
+  },
+}
 
-// // Simple icon components for the example
-// function HomeIcon() {
-//   return <span aria-hidden="true">🏠</span>
-// }
-
-// function FolderIcon() {
-//   return <span aria-hidden="true">📁</span>
-// }
-
-// function ChartIcon() {
-//   return <span aria-hidden="true">📊</span>
-// }
-
-// function GearIcon() {
-//   return <span aria-hidden="true">⚙️</span>
-// }
-
-// export const KeyboardNavigationDemo: Story = {
-//   args: {
-//     'aria-label': 'Keyboard navigation demo',
-//   },
-//   render: (args) => (
-//     <div>
-//       <p>Click on any menu item and then use the arrow keys to navigate:</p>
-//       <SideBarMenuList {...args}>
-//         <SideBarMenuList.Item href="#" active>
-//           Item 1
-//         </SideBarMenuList.Item>
-//         <SideBarMenuList.Item href="#">Item 2</SideBarMenuList.Item>
-//         <SideBarMenuList.Item href="#">Item 3</SideBarMenuList.Item>
-//         <SideBarMenuList.Item href="#">Item 4</SideBarMenuList.Item>
-//         <SideBarMenuList.Item href="#">Item 5</SideBarMenuList.Item>
-//       </SideBarMenuList>
-//     </div>
-//   ),
-// }
-
-// export const DisabledItems: Story = {
-//   args: {
-//     'aria-label': 'Menu with disabled items',
-//   },
-//   render: (args) => (
-//     <SideBarMenuList {...args}>
-//       <SideBarMenuList.Item href="#" active>
-//         Available Item
-//       </SideBarMenuList.Item>
-//       <SideBarMenuList.Item href="#" disabled>
-//         Disabled Item
-//       </SideBarMenuList.Item>
-//       <SideBarMenuList.Item href="#">Available Item</SideBarMenuList.Item>
-//       <SideBarMenuList.Item href="#" disabled>
-//         Disabled Item
-//       </SideBarMenuList.Item>
-//     </SideBarMenuList>
-//   ),
-// }
+function buildMenu(type: 'No selected item' | 'Selected item' | 'Selected submenu item') {
+  return [
+    <SideBarMenuList.Item key="1" href={href} icon={<Icon icon="property" />} isActive={type === 'Selected item'}>
+      Menu item 1
+    </SideBarMenuList.Item>,
+    <SideBarMenuList.Group
+      key="2"
+      summary={<SideBarMenuList.GroupSummary icon={<Icon icon="property" />}>Menu item 2</SideBarMenuList.GroupSummary>}
+    >
+      <SideBarMenuList.Submenu>
+        <SideBarMenuList.SubmenuItem href={href} isActive={type === 'Selected submenu item'}>
+          Submenu item 1
+        </SideBarMenuList.SubmenuItem>
+        <SideBarMenuList.SubmenuItem href={href}>Submenu item 2</SideBarMenuList.SubmenuItem>
+      </SideBarMenuList.Submenu>
+    </SideBarMenuList.Group>,
+  ]
+}

@@ -9,10 +9,9 @@ interface SideBarSubmenuProps extends ComponentProps<typeof ElSideBarSubmenuList
 }
 
 /**
- * A simple submenu for use in a `SideBar`. Typically used via `SideBar.Submenu`, with a collection of
- * `SideBar.SubmenuItem`'s as children and used in conjunction with `SideBar.MenuGroup`. Only one item, if any, in the
- * submenu should represent the current page at any given time. The children provided to the submenu should be list items
- * (`<li>` elements). `SideBar.SubmenuItem` handles this for you.
+ * A simple submenu for use in a `SideBar`. Typically used via `SideBar.Submenu` as the child of a `SideBar.MenuGroup`.
+ * The submenu itself will typically container a collection of `SideBar.SubmenuItem`'s as children. Only one items, if any,
+ * in the submenu should represent the current page at any given time.
  */
 export function SideBarSubmenu({ children, ...props }: SideBarSubmenuProps) {
   return <ElSideBarSubmenuList {...props}>{children}</ElSideBarSubmenuList>

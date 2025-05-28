@@ -2,8 +2,8 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon'
 
-// NOTE: This class is used as the basis for the menu item group as well. Changes here
-// will affect that component too.
+// NOTE: This class is used as the basis for the menu group's summary element as well. Changes here
+// will also affect that component.
 export const elSideBarMenuItem = css`
   display: grid;
   align-items: center;
