@@ -21,13 +21,28 @@ export const ElMenu = styled.div`
   }
 `
 
+export const ElMenuItemLabel = styled.span`
+  font-family: var(--font-sm-regular-family);
+  font-size: var(--font-sm-regular-size);
+  font-weight: var(--font-sm-regular-weight);
+  line-height: var(--font-sm-regular-line_height);
+  letter-spacing: var(--font-sm-regular-letter_spacing);
+  text-align: left;
+  white-space: nowrap;
+`
+
 export const ElMenuList = styled.div`
-  min-width: 200px;
   width: fit-content;
   padding: var(--spacing-2) var(--spacing-2);
   border-radius: var(--corner-default);
   background-color: var(--fill-white);
   box-shadow: 0px 4px 16px 0px #222b3329;
+
+  &[data-has-max-width='true'] {
+    ${ElMenuItemLabel} {
+      white-space: normal;
+    }
+  }
 `
 
 export const ElMenuItemContent = styled.div`
@@ -36,15 +51,6 @@ export const ElMenuItemContent = styled.div`
   flex-direction: column;
   gap: var(--spacing-1);
   flex: 1 0 0;
-`
-
-export const ElMenuItemLabel = styled.span`
-  font-family: var(--font-sm-regular-family);
-  font-size: var(--font-sm-regular-size);
-  font-weight: var(--font-sm-regular-weight);
-  line-height: var(--font-sm-regular-line_height);
-  letter-spacing: var(--font-sm-regular-letter_spacing);
-  text-align: left;
 `
 
 export const ElMenuItemIcon = styled.div`

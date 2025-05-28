@@ -97,7 +97,12 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
 }
 
 export const MenuList: FC<MenuListProps> = ({ children, maxWidth, ...rest }) => (
-  <ElMenuList {...rest} style={{ ...rest?.style, maxWidth: `var(${maxWidth}, auto)` }} role="menu">
+  <ElMenuList
+    {...rest}
+    style={{ ...rest?.style, maxWidth: `var(${maxWidth}, auto)` }}
+    data-has-max-width={!!maxWidth}
+    role="menu"
+  >
     {children}
   </ElMenuList>
 )
