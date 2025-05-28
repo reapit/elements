@@ -1,5 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks'
-import { useMenu } from '..'
+import { useMenu } from '../use-menu'
 
 describe('useMenu', () => {
   it('should open menu when openMenu is called', () => {
