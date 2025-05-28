@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 import SearchIcon from './icons/search-icon.svg?react'
-import { isMobile, isTablet } from '#src/styles/media'
+import { isTablet } from '#src/styles/media'
 import { NavIconItem } from '../nav-icon-item'
 
 export const ElNavSearchIconItem = styled(NavIconItem)`
@@ -31,7 +31,7 @@ export const ElNavSearchButton = styled.button`
   outline: none;
 
   display: none;
-  ${isMobile} {
+  ${isTablet} {
     display: flex;
   }
 `

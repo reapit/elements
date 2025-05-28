@@ -15,7 +15,7 @@ import { TopBar } from './top-bar'
 import { elNewTopBarAppSwitcher, NavResponsiveAppSwitcher } from '../deprecated-nav'
 
 export default {
-  title: 'Components/Top bar',
+  title: 'Components/TopBar',
   component: TopBar,
   argTypes: {
     appSwitcher: {
