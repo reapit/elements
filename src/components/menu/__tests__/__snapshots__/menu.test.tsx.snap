@@ -6,7 +6,8 @@ exports[`Menu list component > should render menu with list components and match
     class="mocked-styled-1 el-menu"
   >
     <div
-      class="mocked-styled-2 el-menu-list"
+      class="mocked-styled-3 el-menu-list"
+      data-has-max-width="false"
       role="menu"
       style="max-width: var(undefined, auto);"
     >
@@ -26,10 +27,10 @@ exports[`Menu list component > should render menu with list components and match
           role="menuitem"
         >
           <div
-            class="mocked-styled-3 el-menu-item-content"
+            class="mocked-styled-4 el-menu-item-content"
           >
             <span
-              class="mocked-styled-4 el-menu-item-label"
+              class="mocked-styled-2 el-menu-item-label"
             >
               Menu item as anchor
             </span>
@@ -42,10 +43,10 @@ exports[`Menu list component > should render menu with list components and match
           tabindex="0"
         >
           <div
-            class="mocked-styled-3 el-menu-item-content"
+            class="mocked-styled-4 el-menu-item-content"
           >
             <span
-              class="mocked-styled-4 el-menu-item-label"
+              class="mocked-styled-2 el-menu-item-label"
             >
               Menu item as button
             </span>

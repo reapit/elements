@@ -16,10 +16,10 @@ exports[`MenuItem component > should render with complete features enabled and m
       </span>
     </div>
     <div
-      class="mocked-styled-3 el-menu-item-content"
+      class="mocked-styled-4 el-menu-item-content"
     >
       <span
-        class="mocked-styled-4 el-menu-item-label"
+        class="mocked-styled-2 el-menu-item-label"
       >
         Test Menu Item
       </span>
@@ -44,10 +44,10 @@ exports[`MenuItem component > should render with required props and match snapsh
     tabindex="0"
   >
     <div
-      class="mocked-styled-3 el-menu-item-content"
+      class="mocked-styled-4 el-menu-item-content"
     >
       <span
-        class="mocked-styled-4 el-menu-item-label"
+        class="mocked-styled-2 el-menu-item-label"
       >
         Test Menu Item
       </span>
