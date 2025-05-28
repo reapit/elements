@@ -35,6 +35,50 @@ export const Default: StoryObj = {
   },
 }
 
+export const WithCompleteFeatures: StoryObj = {
+  render: () => {
+    return (
+      <Menu>
+        <Menu.Trigger>
+          {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
+        </Menu.Trigger>
+        <Menu.Popover>
+          <Menu.List maxWidth={'--size-80'}>
+            <Menu.Group label="Group Title">
+              <Menu.Item
+                label="Menu Item"
+                onClick={console.log}
+                leftIcon={<Icon icon="property" />}
+                rightIcon={<Icon icon="exportIcon" />}
+              />
+              <Menu.Item
+                label="Menu Item anchor with long example text"
+                href="/#"
+                leftIcon={<Icon icon="property" />}
+                rightIcon={<Icon icon="exportIcon" />}
+              />
+              <Menu.Item
+                label="Menu Item active"
+                isActive
+                onClick={console.log}
+                leftIcon={<Icon icon="property" />}
+                rightIcon={<Icon icon="exportIcon" />}
+              />
+              <Menu.Item
+                label="Menu Item (disabled)"
+                onClick={console.log}
+                disabled
+                leftIcon={<Icon icon="property" />}
+                rightIcon={<Icon icon="exportIcon" />}
+              />
+            </Menu.Group>
+          </Menu.List>
+        </Menu.Popover>
+      </Menu>
+    )
+  },
+}
+
 export const WithCustomAlignment: Story = {
   render: () => {
     return (
