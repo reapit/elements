@@ -1,44 +1,60 @@
 import { figmaDesignUrls } from '#src/storybook/figma/index'
 import type { Meta, StoryObj } from '@storybook/react'
 import { SideBar } from './side-bar'
-import {
-  elSideBarMenuItemAnchor,
-  ElSideBarMenuItemIcon,
-  ElSideBarMenuItemText,
-  SideBarMenuItem,
-} from '../side-bar-menu-item'
 import { Icon } from '../icon'
-import { useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
-import { SideBarMenuGroup, SideBarMenuGroupItem } from '../side-bar-menu-group'
+import { SideBarCollapseButton } from './collapse-button'
 
 export default {
-  title: 'Components/Side Bar',
+  title: 'Components/SideBar',
   component: SideBar,
 } as Meta<typeof SideBar>
 
 type Story = StoryObj<typeof SideBar>
 
-const Customicon = () => (
-  <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
-    <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-)
+// const Customicon = () => (
+//   <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+//     <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
+//     <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+//   </svg>
+// )
 
 export const Default: Story = {
-  render: () => {
-    const CustomLink = () => {
-      const { isExpanded } = useIsSideBarExpandedContext()
+  args: {
+    children: (
+      <SideBar.MenuList>
+        <SideBar.MenuItem icon={<Icon icon="dashboard" />} href="#">
+          Menu Item 1
+        </SideBar.MenuItem>
 
-      return (
-        <a href="#" className={elSideBarMenuItemAnchor}>
-          <ElSideBarMenuItemIcon>
-            <Icon icon="property" />
-          </ElSideBarMenuItemIcon>
-          {isExpanded && <ElSideBarMenuItemText>Custom Link</ElSideBarMenuItemText>}
-        </a>
-      )
-    }
+        <SideBar.MenuGroup
+          summary={<SideBar.MenuGroupSummary icon={<Icon icon="property" />}>Menu Item 2</SideBar.MenuGroupSummary>}
+        >
+          <SideBar.Submenu>
+            <SideBar.SubmenuItem href="#">Submenu Item 1</SideBar.SubmenuItem>
+            <SideBar.SubmenuItem href="#" isActive>
+              Submenu Item 2
+            </SideBar.SubmenuItem>
+            <SideBar.SubmenuItem href="#">Submenu Item 3</SideBar.SubmenuItem>
+          </SideBar.Submenu>
+        </SideBar.MenuGroup>
+
+        <SideBar.MenuGroup
+          summary={<SideBar.MenuGroupSummary icon={<Icon icon="user" />}>Menu Item 3</SideBar.MenuGroupSummary>}
+        >
+          <SideBar.Submenu>
+            <SideBar.SubmenuItem href="#">Submenu Item 1</SideBar.SubmenuItem>
+            <SideBar.SubmenuItem href="#">Submenu Item 2</SideBar.SubmenuItem>
+          </SideBar.Submenu>
+        </SideBar.MenuGroup>
+
+        <SideBar.MenuItem icon={<Icon icon="settings" />} href="#">
+          Menu Item 4
+        </SideBar.MenuItem>
+      </SideBar.MenuList>
+    ),
+    footer: <SideBar.CollapseButton />,
+  },
+  render: (args) => {
     return (
       <div
         style={{
@@ -56,40 +72,7 @@ export const Default: Story = {
           `}
         </style>
 
-        <SideBar>
-          <SideBar.MenuList>
-            <SideBarMenuItem isActive icon={<Icon icon="property" />} href="#">
-              SideBar Item (active)
-            </SideBarMenuItem>
-            <SideBarMenuGroup isActive label="Menu Group 1" icon={<Icon icon="property" />}>
-              <SideBarMenuGroupItem isActive href="#">
-                Sub Menu Item 1
-              </SideBarMenuGroupItem>
-              <SideBarMenuGroupItem href="#">Sub Menu Item 2</SideBarMenuGroupItem>
-            </SideBarMenuGroup>
-
-            <SideBarMenuGroup label="Menu Group 2" icon={<Icon icon="property" />}>
-              <SideBarMenuGroupItem href="#">Sub Menu Item 3</SideBarMenuGroupItem>
-              <SideBarMenuGroupItem href="#">Sub Menu Item 4</SideBarMenuGroupItem>
-            </SideBarMenuGroup>
-
-            <li>
-              <CustomLink />
-            </li>
-            <SideBarMenuItem icon={<Customicon />} href="#">
-              External Icon
-            </SideBarMenuItem>
-
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
-              return (
-                <SideBarMenuItem key={i} icon={<Icon icon="property" />} href="/#">
-                  SideBar Item
-                </SideBarMenuItem>
-              )
-            })}
-          </SideBar.MenuList>
-          <SideBar.CollapseButon />
-        </SideBar>
+        <SideBar {...args}></SideBar>
         <main
           style={{
             width: '100%',

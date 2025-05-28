@@ -1,66 +1,42 @@
-import { useState, type FC, type HTMLAttributes, type KeyboardEventHandler } from 'react'
-import { SideBarCollapseButton } from '../side-bar-collapse-button'
-import { IsSideBarExpandedContext, useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
-import { ElSideBar, ELSideBarMenuList } from './styles'
+import { ElSideBar, ElSideBarContents, ElSideBarFooter } from './styles'
+import { SideBarCollapseButton } from './collapse-button'
+import { SideBarMenuList } from './menu-list'
+import { SideBarMenuGroupSummary } from './menu-group'
+import { SideBarSubmenu } from './submenu'
+import { SideBarContextPublisher } from './side-bar-context'
+import { useId } from 'react'
+import { useSideBar } from './use-side-bar'
+import { useSideBarKeyboardNavigation } from './use-keyboard-navigation'
 
-type SideBarFC = FC<HTMLAttributes<HTMLElement>> & {
-  CollapseButon: typeof SideBarCollapseButton
-  MenuList: FC<HTMLAttributes<HTMLUListElement>>
+import type { ComponentProps, ReactNode } from 'react'
+
+interface SideBarProps extends Omit<ComponentProps<typeof ElSideBar>, 'data-state'> {
+  children: ReactNode
+  footer: ReactNode
 }
 
-const SideBar: SideBarFC = ({ children, ...props }) => {
-  const [isExpanded, setIsExpanded] = useState(true)
+export function SideBar({ children, footer, id, ...props }: SideBarProps) {
+  const sideBarId = id ?? useId()
+  const sideBar = useSideBar()
 
-  const handleOnKeyDown: KeyboardEventHandler<HTMLUListElement> = (e) => {
-    const container = e.currentTarget
-    const clickableItems = container?.querySelectorAll('a,button') as NodeListOf<HTMLElement>
+  const handleKeyboardNavigation = useSideBarKeyboardNavigation()
 
-    let currentIndex = -1
-    clickableItems.forEach((item, index) => {
-      if (item === document.activeElement) {
-        currentIndex = index
-      }
-    })
-
-    switch (e.key) {
-      case 'ArrowDown': {
-        e.preventDefault()
-        const nextItem = clickableItems[(currentIndex + 1) % clickableItems.length]
-        nextItem.focus()
-        break
-      }
-      case 'ArrowUp': {
-        e.preventDefault()
-        const prevItem = clickableItems[(currentIndex - 1 + clickableItems.length) % clickableItems.length]
-        prevItem.focus()
-        break
-      }
-      case 'Enter':
-      case ' ': {
-        e.preventDefault()
-        const currentItem = clickableItems[currentIndex] as HTMLAnchorElement | HTMLButtonElement
-        currentItem.click()
-        break
-      }
-    }
-
-    props.onKeyDown?.(e)
-  }
   return (
-    <IsSideBarExpandedContext.Provider value={{ isExpanded, setIsExpanded }}>
-      <ElSideBar aria-label="Sidebar Navigation" {...props} onKeyDown={handleOnKeyDown}>
-        {children}
-      </ElSideBar>
-    </IsSideBarExpandedContext.Provider>
+    <ElSideBar {...props} aria-label="Sidebar Navigation" data-state={sideBar.state} id={sideBarId}>
+      <SideBarContextPublisher id={sideBarId} {...sideBar}>
+        <ElSideBarContents onClick={sideBar.expand} onKeyDown={handleKeyboardNavigation}>
+          {children}
+        </ElSideBarContents>
+        <ElSideBarFooter>{footer}</ElSideBarFooter>
+      </SideBarContextPublisher>
+    </ElSideBar>
   )
 }
 
-SideBar.MenuList = ({ children }) => {
-  const { isExpanded } = useIsSideBarExpandedContext()
-
-  return <ELSideBarMenuList data-is-expanded={isExpanded}>{children}</ELSideBarMenuList>
-}
-
-SideBar.CollapseButon = SideBarCollapseButton
-
-export { SideBar }
+SideBar.CollapseButton = SideBarCollapseButton
+SideBar.MenuList = SideBarMenuList
+SideBar.MenuItem = SideBarMenuList.Item
+SideBar.MenuGroup = SideBarMenuList.Group
+SideBar.MenuGroupSummary = SideBarMenuGroupSummary
+SideBar.Submenu = SideBarSubmenu
+SideBar.SubmenuItem = SideBarSubmenu.Item
