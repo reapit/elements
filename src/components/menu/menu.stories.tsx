@@ -58,66 +58,6 @@ export const WithCustomAlignment: Story = {
   },
 }
 
-export const WithIframe: Story = {
-  render: () => {
-    const IFrameComponent = () => {
-      return (
-        <iframe
-          src="https://www.example.com"
-          style={{
-            width: '100%',
-            height: '100%',
-            border: 'none',
-            marginTop: '1rem',
-          }}
-          title="Example IFrame"
-        />
-      )
-    }
-
-    const IframeHandler = () => {
-      const { closeMenu } = useMenuContext()
-
-      // close the menu when iframe is focused
-      useEffect(() => {
-        const controller = new AbortController()
-        const handleWindowBlur = () => {
-          if (document.activeElement?.tagName === 'IFRAME') {
-            closeMenu()
-          }
-        }
-
-        window.addEventListener('blur', handleWindowBlur, {
-          signal: controller.signal,
-        })
-        return () => {
-          controller.abort()
-        }
-      }, [closeMenu])
-      return null
-    }
-
-    return (
-      <MainContainer className={elHScreen}>
-        <Menu>
-          <Menu.Trigger>
-            {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
-          </Menu.Trigger>
-          <Menu.Popover>
-            <IframeHandler />
-            <Menu.List>
-              <Menu.Group label="Group Title">
-                <Menu.Item label="Menu Item" onClick={console.log} />
-              </Menu.Group>
-            </Menu.List>
-          </Menu.Popover>
-        </Menu>
-        <IFrameComponent />
-      </MainContainer>
-    )
-  },
-}
-
 export const MoreComplexUsageExample: Story = {
   render: (props) => {
     const NavDropdownButtonUsageExample = ({
@@ -169,6 +109,67 @@ export const MoreComplexUsageExample: Story = {
           <NavDropdownButtonUsageExample {...props} data-alignment="right" />
         </FlexContainer>
       </FlexContainer>
+    )
+  },
+}
+
+export const WithIframe: Story = {
+  render: () => {
+    const IFrameComponent = () => {
+      return (
+        <iframe
+          src="https://www.example.com"
+          style={{
+            width: '100%',
+            height: '100%',
+            border: 'none',
+            marginTop: '1rem',
+          }}
+          title="Example IFrame"
+        />
+      )
+    }
+
+    // NOTE: make sure this component is rendered inside the Menu context
+    const IframeHandler = () => {
+      const { closeMenu } = useMenuContext()
+
+      // close the menu when iframe is focused
+      useEffect(() => {
+        const controller = new AbortController()
+        const handleWindowBlur = () => {
+          if (document.activeElement?.tagName === 'IFRAME') {
+            closeMenu()
+          }
+        }
+
+        window.addEventListener('blur', handleWindowBlur, {
+          signal: controller.signal,
+        })
+        return () => {
+          controller.abort()
+        }
+      }, [closeMenu])
+      return null
+    }
+
+    return (
+      <MainContainer className={elHScreen}>
+        <Menu>
+          <Menu.Trigger>
+            {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
+          </Menu.Trigger>
+          <Menu.Popover>
+            <IframeHandler />
+            <Menu.List>
+              <Menu.Group label="Group Title">
+                <Menu.Item label="Menu Item" onClick={console.log} />
+              </Menu.Group>
+            </Menu.List>
+          </Menu.Popover>
+        </Menu>
+        <IFrameComponent />
+      </MainContainer>
     )
   },
 }
