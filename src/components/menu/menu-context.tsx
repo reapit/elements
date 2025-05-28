@@ -1,5 +1,5 @@
 import { createContext, ReactNode, useContext, type FC } from 'react'
-import { useMenu } from '../../hooks/use-menu'
+import { useMenu } from './use-menu'
 
 interface MenuProviderProps {
   children: ReactNode
