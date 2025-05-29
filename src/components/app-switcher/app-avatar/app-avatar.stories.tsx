@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from '@storybook/react'
-import { apps } from '../appNames'
 import AppAvatar from './app-avatar'
 
 const meta: Meta<typeof AppAvatar> = {
@@ -10,14 +9,14 @@ const meta: Meta<typeof AppAvatar> = {
       control: { type: 'select' },
       description: 'Visual style of the avatars',
       options: [
-        apps.reapitPM.name,
-        apps.reapitSales.name,
-        apps.reapitLetting.name,
-        apps.reapitForms.name,
-        apps.reapitWebsites.name,
-        apps.reapitProposals.name,
-        apps.keyWhere.name,
-        apps.autoResponder.name,
+        'reapitPM',
+        'reapitSales',
+        'reapitLetting',
+        'reapitForms',
+        'reapitWebsites',
+        'reapitProposals',
+        'keyWhere',
+        'autoResponder',
       ],
     },
   },
@@ -29,14 +28,14 @@ type Story = StoryObj<typeof meta>
 
 export const BasicUsageWhenTheAvatarIsAccessible: Story = {
   args: {
-    appName: apps.reapitPM.name,
+    appName: 'reapitPM',
     hasAccess: true,
   },
 }
 
 export const BasicUsageWhenTheAvatarIsInaccessible: Story = {
   args: {
-    appName: apps.reapitPM.name,
+    appName: 'reapitPM',
     hasAccess: false,
   },
 }
