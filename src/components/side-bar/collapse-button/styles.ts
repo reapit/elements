@@ -14,7 +14,6 @@ export const ElSideBarCollapseButton = styled.button`
 
   &:hover {
     background: var(--fill-default-lightest);
-    font-weight: 500;
   }
 
   &:focus-visible {
