@@ -1,6 +1,6 @@
 import { MouseEvent, useCallback } from 'react'
 import { Icon } from '../../icon'
-import { ElAppSwitcherNavIconButton } from './styles'
+import { NavIconItem } from '../../nav-icon-item'
 
 type AppSwitcherNavIconButtonProps = {
   onClick?: (event: MouseEvent<HTMLButtonElement> | MouseEvent<HTMLAnchorElement>) => void
@@ -18,8 +18,11 @@ export default function AppSwitcherNavIconButton(props: AppSwitcherNavIconButton
   )
 
   return (
-    <ElAppSwitcherNavIconButton onClick={handleClick} data-selected={isSelected}>
-      <Icon icon="appSwitcher" />
-    </ElAppSwitcherNavIconButton>
+    <NavIconItem
+      aria-label="app switcher"
+      icon={<Icon icon="appSwitcher" />}
+      isActive={isSelected}
+      onClick={handleClick}
+    />
   )
 }
