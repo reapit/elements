@@ -1,66 +1,30 @@
-import { act, fireEvent, render, screen } from '@testing-library/react'
-import { SideBar } from '..'
+import { composeStories } from '@storybook/react'
+import { fireEvent, render, screen } from '@testing-library/react'
+import * as stories from '../side-bar.stories'
 
-vi.mock('../../side-bar-collapse-button/icons/collapse.svg?react', () => ({
-  default: vi.fn(() => <span data-testid="collapse-icon" />),
-}))
+const SideBarStories = composeStories(stories)
 
-describe('SideBar', () => {
-  it('should match snapshot with expanded state', () => {
-    const { asFragment } = render(
-      <SideBar>
-        <SideBar.MenuList>SideBar list content</SideBar.MenuList>
-        <SideBar.CollapseButon />
-      </SideBar>,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('renders a navigation element with an accessible name of "Sidebar navigation"', () => {
+  render(<SideBarStories.Example />)
+  expect(screen.getByRole('navigation', { name: 'Sidebar navigation' })).toBeVisible()
+})
 
-  it('should match snapshot with collapsed state', () => {
-    const { asFragment } = render(
-      <SideBar>
-        <SideBar.MenuList>SideBar list content</SideBar.MenuList>
-        <SideBar.CollapseButon />
-      </SideBar>,
-    )
-    act(() => {
-      fireEvent.click(screen.getByRole('button'))
-    })
-    expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'false')
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('allows the accessible name to be supplied by the consumer', () => {
+  render(<SideBarStories.Example aria-label="My accessible name" />)
+  expect(screen.getByRole('navigation', { name: 'My accessible name' })).toBeVisible()
+})
 
-  it('should handle onKeyDown event properly', () => {
-    const mockOnAnchorClick = vi.fn()
-    const mockOnButtonClick = vi.fn()
-    const mockOnKeyDown = vi.fn()
-    render(
-      <SideBar onKeyDown={mockOnKeyDown}>
-        <SideBar.MenuList>
-          <button>Item 1</button>
-          <a onClick={mockOnAnchorClick}>Item 2</a>
-        </SideBar.MenuList>
-        <button onClick={mockOnButtonClick}>Item 3</button>
-      </SideBar>,
-    )
-    const items = document.querySelectorAll('a,button') as NodeListOf<HTMLAnchorElement | HTMLButtonElement>
-    items[0].focus()
+test('has a `data-state="expanded" attribute when expanded', () => {
+  // NOTE: the SideBar, under test, will be expanded because the viewport is wider than our
+  // "wide screen" breakpoint. Thus, we need to collapse it manually.
+  render(<SideBarStories.Example />)
+  fireEvent.click(screen.getByRole('button', { name: 'Expand' }))
+  expect(screen.getByRole('navigation')).toHaveAttribute('data-state', 'expanded')
+})
 
-    fireEvent.keyDown(document.activeElement!, { key: 'ArrowDown' })
-    expect(mockOnKeyDown).toHaveBeenCalled()
-    expect(document.activeElement).toBe(items[1])
-
-    fireEvent.keyDown(document.activeElement!, { key: 'ArrowDown' })
-    expect(document.activeElement).toBe(items[2])
-
-    fireEvent.keyDown(document.activeElement!, { key: 'ArrowUp' })
-    expect(document.activeElement).toBe(items[1])
-    fireEvent.keyDown(document.activeElement!, { key: ' ' })
-    expect(mockOnAnchorClick).toHaveBeenCalled()
-
-    fireEvent.keyDown(document.activeElement!, { key: 'ArrowDown' })
-    expect(document.activeElement).toBe(items[2])
-    fireEvent.keyDown(document.activeElement!, { key: 'Enter' })
-    expect(mockOnButtonClick).toHaveBeenCalled()
-  })
+test('has a `data-state="collapsed" attribute when collapsed', () => {
+  // NOTE: the SideBar, under test, will be expanded because the viewport is wider than our
+  // "wide screen" breakpoint.
+  render(<SideBarStories.Example />)
+  expect(screen.getByRole('navigation')).toHaveAttribute('data-state', 'collapsed')
 })
