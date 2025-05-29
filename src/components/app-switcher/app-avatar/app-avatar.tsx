@@ -1,4 +1,4 @@
-import { AppNames, apps } from '../appNames'
+import { apps } from '../appNames'
 import AutoResponderDisabled from './icons/autoresponder-disabled.svg?react'
 import AutoResponder from './icons/autoresponder.svg?react'
 import KeyWhereDisabled from './icons/keyWhere-disabled.svg?react'
@@ -16,29 +16,31 @@ import ReapitSales from './icons/reapit-sales.svg?react'
 import ReapitWebsitesDisabled from './icons/reapit-websites-disabled.svg?react'
 import ReapitWebsites from './icons/reapit-websites.svg?react'
 
+import type { AppName } from '../appNames'
+
 type AppAvatarProps = {
-  appName: AppNames
+  appName: AppName
   hasAccess: boolean
 }
 
 export default function AppAvatar({ appName, hasAccess }: AppAvatarProps) {
   const fontSize = '40'
   switch (appName) {
-    case apps.reapitPM.name:
+    case 'reapitPM':
       return hasAccess ? <ReapitPM fontSize={fontSize} /> : <ReapitPMDisabled fontSize={fontSize} />
-    case apps.reapitSales.name:
+    case 'reapitSales':
       return hasAccess ? <ReapitSales fontSize={fontSize} /> : <ReapitSalesDisabled fontSize={fontSize} />
-    case apps.reapitLetting.name:
+    case 'reapitLetting':
       return hasAccess ? <ReapitLettings fontSize={fontSize} /> : <ReapitLettingsDisabled fontSize={fontSize} />
-    case apps.reapitForms.name:
+    case 'reapitForms':
       return hasAccess ? <ReapitForms fontSize={fontSize} /> : <ReapitFormsDisabled fontSize={fontSize} />
-    case apps.reapitWebsites.name:
+    case 'reapitWebsites':
       return hasAccess ? <ReapitWebsites fontSize={fontSize} /> : <ReapitWebsitesDisabled fontSize={fontSize} />
-    case apps.reapitProposals.name:
+    case 'reapitProposals':
       return hasAccess ? <ReapitProposals fontSize={fontSize} /> : <ReapitProposalsDisabled fontSize={fontSize} />
-    case apps.keyWhere.name:
+    case 'keyWhere':
       return hasAccess ? <KeyWhere fontSize={fontSize} /> : <KeyWhereDisabled fontSize={fontSize} />
-    case apps.autoResponder.name:
+    case 'autoResponder':
       return hasAccess ? <AutoResponder fontSize={fontSize} /> : <AutoResponderDisabled fontSize={fontSize} />
   }
 }
