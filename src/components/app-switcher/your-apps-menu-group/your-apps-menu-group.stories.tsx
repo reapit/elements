@@ -34,18 +34,3 @@ export const Default: Story = {
     )
   },
 }
-
-export const WhenAMenuItemIsFocused: Story = {
-  args: {
-    children: null,
-  },
-  render: () => {
-    return (
-      <AppSwitcher.YourAppsMenuGroup>
-        <AppSwitcher.ReapitPMMenuItem url={'#'} />
-        <AppSwitcher.ReapitSalesMenuItem url={'#'} />
-        <AppSwitcher.KeyWhereMenuItem url={'#'} />
-      </AppSwitcher.YourAppsMenuGroup>
-    )
-  },
-}

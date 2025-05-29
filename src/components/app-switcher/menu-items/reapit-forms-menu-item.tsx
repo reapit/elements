@@ -14,7 +14,7 @@ export default function ReapitFormsMenuItem({ url }: ReapitFormsMenuItemProps) {
 
   return (
     <AppSwitcherMenuItem
-      logo={<AppAvatar appName={name} hasAccess={hasAccess} />}
+      logo={<AppAvatar appName={'reapitForms'} hasAccess={hasAccess} />}
       appName={name}
       description={description}
       url={url}

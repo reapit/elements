@@ -1,4 +1,3 @@
-import { apps } from '../appNames'
 import AutoResponderDisabled from './icons/autoresponder-disabled.svg?react'
 import AutoResponder from './icons/autoresponder.svg?react'
 import KeyWhereDisabled from './icons/keyWhere-disabled.svg?react'

@@ -14,7 +14,7 @@ export default function AutoResponderMenuItem({ url }: AutoResponderMenuItemProp
 
   return (
     <AppSwitcherMenuItem
-      logo={<AppAvatar appName={name} hasAccess={hasAccess} />}
+      logo={<AppAvatar appName={'autoResponder'} hasAccess={hasAccess} />}
       appName={name}
       description={description}
       url={url}

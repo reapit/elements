@@ -1,5 +1,17 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { AppName } from '../appNames'
 import AppAvatar from './app-avatar'
+
+const appNames: AppName[] = [
+  'reapitPM',
+  'reapitSales',
+  'reapitLetting',
+  'reapitForms',
+  'reapitWebsites',
+  'reapitProposals',
+  'keyWhere',
+  'autoResponder',
+] as const
 
 const meta: Meta<typeof AppAvatar> = {
   title: 'Components/AppSwitcher/AppAvatar',
@@ -8,16 +20,7 @@ const meta: Meta<typeof AppAvatar> = {
     appName: {
       control: { type: 'select' },
       description: 'Visual style of the avatars',
-      options: [
-        'reapitPM',
-        'reapitSales',
-        'reapitLetting',
-        'reapitForms',
-        'reapitWebsites',
-        'reapitProposals',
-        'keyWhere',
-        'autoResponder',
-      ],
+      options: appNames,
     },
   },
 } satisfies Meta<typeof AppAvatar>

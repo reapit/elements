@@ -14,7 +14,7 @@ export default function ReapitProposalsMenuItem({ url }: ReapitProposalsMenuItem
 
   return (
     <AppSwitcherMenuItem
-      logo={<AppAvatar appName={name} hasAccess={hasAccess} />}
+      logo={<AppAvatar appName={'reapitProposals'} hasAccess={hasAccess} />}
       appName={name}
       description={description}
       url={url}

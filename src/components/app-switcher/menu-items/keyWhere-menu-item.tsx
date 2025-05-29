@@ -14,7 +14,7 @@ export default function KeyWhereMenuItem({ url }: KeyWhereMenuItemItemProps) {
 
   return (
     <AppSwitcherMenuItem
-      logo={<AppAvatar appName={name} hasAccess={hasAccess} />}
+      logo={<AppAvatar appName={'keyWhere'} hasAccess={hasAccess} />}
       appName={name}
       description={description}
       url={url}
