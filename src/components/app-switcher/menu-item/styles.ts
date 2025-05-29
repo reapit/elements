@@ -1,6 +1,5 @@
 import { styled } from '@linaria/react'
 
-// (AA)TODO: Make sure these are valid for this
 // If we don't have the transparent border, the component will move a slight bit, which is not what we want
 export const ElAppSwitcherMenuItemAnchor = styled.a`
   color: var(--text-primary);
@@ -13,9 +12,8 @@ export const ElAppSwitcherMenuItemAnchor = styled.a`
   border-radius: var(--border-radius-l);
   border: var(--border-width-double) solid transparent;);
 
-  // (AA)TODO: Ask Kurt - How to use &:focus-visible here?
-  &[data-focused='true'] {
-    border: var(--border-width-double) solid var(--colour-border-focus);
+  &:focus-visible {
+    outline: var(--border-width-double) solid var(--colour-border-focus);
     outline-offset: var(--border-width-default);
   }
 

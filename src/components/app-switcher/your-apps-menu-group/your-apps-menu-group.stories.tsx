@@ -1,15 +1,6 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
 import { AppSwitcher } from '../app-switcher'
-import { AppSwitcherAccessibleAppsMenuGroup } from './accessible-apps-menu-group'
-
-const meta = {
-  title: 'Components/AppSwitcher/AppSwitcherAccessibleAppsMenuGroup',
-  component: AppSwitcherAccessibleAppsMenuGroup,
-} satisfies Meta<typeof AppSwitcherAccessibleAppsMenuGroup>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+import { AppSwitcherYourAppsMenuGroup } from './your-apps-menu-group'
 
 const useParentDecorator: Decorator = (Story) => {
   return (
@@ -19,35 +10,42 @@ const useParentDecorator: Decorator = (Story) => {
   )
 }
 
-// (AA)TODO: Write comments for these stories
-export const Default: Story = {
+const meta = {
+  title: 'Components/AppSwitcher/AppSwitcherYourAppsMenuGroup',
+  component: AppSwitcherYourAppsMenuGroup,
   decorators: [useParentDecorator],
+} satisfies Meta<typeof AppSwitcherYourAppsMenuGroup>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
   args: {
     children: null,
   },
   render: ({}) => {
     return (
-      <AppSwitcher.AccessibleAppsMenuGroup>
+      <AppSwitcher.YourAppsMenuGroup>
         <AppSwitcher.ReapitPMMenuItem url={'#'} />
         <AppSwitcher.ReapitSalesMenuItem url={'#'} />
         <AppSwitcher.KeyWhereMenuItem url={'#'} />
-      </AppSwitcher.AccessibleAppsMenuGroup>
+      </AppSwitcher.YourAppsMenuGroup>
     )
   },
 }
 
 export const WhenAMenuItemIsFocused: Story = {
-  decorators: [useParentDecorator],
   args: {
     children: null,
   },
   render: () => {
     return (
-      <AppSwitcher.AccessibleAppsMenuGroup>
-        <AppSwitcher.ReapitPMMenuItem url={'#'} isFocused />
+      <AppSwitcher.YourAppsMenuGroup>
+        <AppSwitcher.ReapitPMMenuItem url={'#'} />
         <AppSwitcher.ReapitSalesMenuItem url={'#'} />
         <AppSwitcher.KeyWhereMenuItem url={'#'} />
-      </AppSwitcher.AccessibleAppsMenuGroup>
+      </AppSwitcher.YourAppsMenuGroup>
     )
   },
 }

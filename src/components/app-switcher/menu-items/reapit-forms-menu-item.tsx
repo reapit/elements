@@ -1,22 +1,23 @@
+import { useContext } from 'react'
 import AppAvatar from '../app-avatar/app-avatar'
+import { apps } from '../appNames'
+import { AppMenuGroupHasAccessContext } from '../menu-group-context'
 import { AppSwitcherMenuItem } from '../menu-item/menu-item'
-import { appNames } from '../appNames'
 
 type ReapitFormsMenuItemProps = {
   url: string
-  isFocused?: boolean
 }
 
-export default function ReapitFormsMenuItem({ url, isFocused = false }: ReapitFormsMenuItemProps) {
-  const { name, description } = appNames.reapitForms
+export default function ReapitFormsMenuItem({ url }: ReapitFormsMenuItemProps) {
+  const hasAccess = useContext(AppMenuGroupHasAccessContext)
+  const { name, description } = apps.reapitForms
 
   return (
     <AppSwitcherMenuItem
-      logo={<AppAvatar appName={name} />}
+      logo={<AppAvatar appName={name} hasAccess={hasAccess} />}
       appName={name}
       description={description}
       url={url}
-      isFocused={isFocused} // (AA)TODO: Can this be handled by the child component?
     />
   )
 }

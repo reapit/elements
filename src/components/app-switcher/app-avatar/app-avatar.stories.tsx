@@ -1,28 +1,34 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
-import { AppMenuGroupContext } from '../menu-group-context'
-import { appNames } from '../appNames'
+import { apps } from '../appNames'
+import { AppMenuGroupHasAccessContext } from '../menu-group-context'
 import AppAvatar from './app-avatar'
 
-interface ExtendedAppAvatarProps extends React.ComponentProps<typeof AppAvatar> {
-  hasAccess?: boolean
+const useAccessibleDecorator: Decorator = (Story, context) => {
+  const hasAccess = context.args.hasAccess as boolean
+  return (
+    <AppMenuGroupHasAccessContext.Provider value={hasAccess}>
+      <Story />
+    </AppMenuGroupHasAccessContext.Provider>
+  )
 }
 
-const meta: Meta<ExtendedAppAvatarProps> = {
+const meta: Meta<typeof AppAvatar> = {
   title: 'Components/AppSwitcher/AppAvatar',
   component: AppAvatar,
+  decorators: [useAccessibleDecorator],
   argTypes: {
     appName: {
       control: { type: 'select' },
       description: 'Visual style of the avatars',
       options: [
-        appNames.reapitPM.name,
-        appNames.reapitSales.name,
-        appNames.reapitLetting.name,
-        appNames.reapitForms.name,
-        appNames.reapitWebsites.name,
-        appNames.reapitProposals.name,
-        appNames.keyWhere.name,
-        appNames.autoResponder.name,
+        apps.reapitPM.name,
+        apps.reapitSales.name,
+        apps.reapitLetting.name,
+        apps.reapitForms.name,
+        apps.reapitWebsites.name,
+        apps.reapitProposals.name,
+        apps.keyWhere.name,
+        apps.autoResponder.name,
       ],
     },
   },
@@ -32,36 +38,16 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const useAccessibleDecorator: Decorator = (Story, context) => {
-  const hasAccess = context.args.hasAccess as boolean
-  return (
-    <AppMenuGroupContext.Provider value={hasAccess}>
-      <Story />
-    </AppMenuGroupContext.Provider>
-  )
-}
-
-const useInaccessibleDecorator: Decorator = (Story, context) => {
-  const hasAccess = context.args.hasAccess as boolean
-  return (
-    <AppMenuGroupContext.Provider value={hasAccess}>
-      <Story />
-    </AppMenuGroupContext.Provider>
-  )
-}
-
 export const BasicUsageWhenTheAvatarIsAccessible: Story = {
-  decorators: [useAccessibleDecorator],
   args: {
-    appName: appNames.reapitPM.name,
+    appName: apps.reapitPM.name,
     hasAccess: true,
   },
 }
 
 export const BasicUsageWhenTheAvatarIsInaccessible: Story = {
-  decorators: [useInaccessibleDecorator],
   args: {
-    appName: appNames.reapitPM.name,
+    appName: apps.reapitPM.name,
     hasAccess: false,
   },
 }

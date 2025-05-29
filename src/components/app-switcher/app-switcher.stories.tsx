@@ -1,14 +1,6 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
 import { AppSwitcher } from './app-switcher'
-
-const meta = {
-  title: 'Components/AppSwitcher',
-  component: AppSwitcher,
-} satisfies Meta<typeof AppSwitcher>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+import { ElAppSwitcherSectionDivider } from './styles'
 
 const useParentDecorator: Decorator = (Story) => {
   return (
@@ -18,40 +10,33 @@ const useParentDecorator: Decorator = (Story) => {
   )
 }
 
-// (AA)TODO: Get/share the args you need form the smaller components
-// (AA)TODO: Write comments for these stories
+const meta = {
+  title: 'Components/AppSwitcher',
+  component: AppSwitcher,
+  decorators: [useParentDecorator],
+} satisfies Meta<typeof AppSwitcher>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+// (AA-L)TODO: Get/share the args you need form the smaller components
+// (AA-L)TODO: Write comments for these and other stories
 // /**
 //  * By default, a a group will grow to whatever width it's parent allows.
 //  */
 export const Default: Story = {
-  decorators: [useParentDecorator],
   render: () => {
     return (
       <AppSwitcher>
-        <AppSwitcher.AccessibleAppsMenuGroup>
+        <AppSwitcher.YourAppsMenuGroup>
           <AppSwitcher.ReapitPMMenuItem url={'#'} />
-        </AppSwitcher.AccessibleAppsMenuGroup>
-        <AppSwitcher.InaccessibleAppsMenuGroup>
+        </AppSwitcher.YourAppsMenuGroup>
+        <ElAppSwitcherSectionDivider />
+        <AppSwitcher.ExploreMenuGroup>
           <AppSwitcher.ReapitLettingMenuItem url={'#'} />
           <AppSwitcher.KeyWhereMenuItem url={'#'} />
-        </AppSwitcher.InaccessibleAppsMenuGroup>
-      </AppSwitcher>
-    )
-  },
-}
-
-export const WhenAMenuItemIsFocused: Story = {
-  decorators: [useParentDecorator],
-  render: () => {
-    return (
-      <AppSwitcher>
-        <AppSwitcher.AccessibleAppsMenuGroup>
-          <AppSwitcher.ReapitPMMenuItem url={'#'} isFocused />
-        </AppSwitcher.AccessibleAppsMenuGroup>
-        <AppSwitcher.InaccessibleAppsMenuGroup>
-          <AppSwitcher.ReapitLettingMenuItem url={'#'} />
-          <AppSwitcher.KeyWhereMenuItem url={'#'} />
-        </AppSwitcher.InaccessibleAppsMenuGroup>
+        </AppSwitcher.ExploreMenuGroup>
       </AppSwitcher>
     )
   },

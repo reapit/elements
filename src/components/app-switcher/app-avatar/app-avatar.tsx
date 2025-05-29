@@ -1,6 +1,4 @@
-import { useContext } from 'react'
-import { AppMenuGroupContext } from '../menu-group-context'
-import { appNames } from '../appNames'
+import { AppNames, apps } from '../appNames'
 import AutoResponderDisabled from './icons/autoresponder-disabled.svg?react'
 import AutoResponder from './icons/autoresponder.svg?react'
 import KeyWhereDisabled from './icons/keyWhere-disabled.svg?react'
@@ -19,31 +17,28 @@ import ReapitWebsitesDisabled from './icons/reapit-websites-disabled.svg?react'
 import ReapitWebsites from './icons/reapit-websites.svg?react'
 
 type AppAvatarProps = {
-  appName: string
+  appName: AppNames
+  hasAccess: boolean
 }
 
-export default function AppAvatar({ appName }: AppAvatarProps) {
-  const hasAccess = useContext(AppMenuGroupContext)
+export default function AppAvatar({ appName, hasAccess }: AppAvatarProps) {
   const fontSize = '40'
-
   switch (appName) {
-    case appNames.reapitPM.name:
+    case apps.reapitPM.name:
       return hasAccess ? <ReapitPM fontSize={fontSize} /> : <ReapitPMDisabled fontSize={fontSize} />
-    case appNames.reapitSales.name:
+    case apps.reapitSales.name:
       return hasAccess ? <ReapitSales fontSize={fontSize} /> : <ReapitSalesDisabled fontSize={fontSize} />
-    case appNames.reapitLetting.name:
+    case apps.reapitLetting.name:
       return hasAccess ? <ReapitLettings fontSize={fontSize} /> : <ReapitLettingsDisabled fontSize={fontSize} />
-    case appNames.reapitForms.name:
+    case apps.reapitForms.name:
       return hasAccess ? <ReapitForms fontSize={fontSize} /> : <ReapitFormsDisabled fontSize={fontSize} />
-    case appNames.reapitWebsites.name:
+    case apps.reapitWebsites.name:
       return hasAccess ? <ReapitWebsites fontSize={fontSize} /> : <ReapitWebsitesDisabled fontSize={fontSize} />
-    case appNames.reapitProposals.name:
+    case apps.reapitProposals.name:
       return hasAccess ? <ReapitProposals fontSize={fontSize} /> : <ReapitProposalsDisabled fontSize={fontSize} />
-    case appNames.keyWhere.name:
+    case apps.keyWhere.name:
       return hasAccess ? <KeyWhere fontSize={fontSize} /> : <KeyWhereDisabled fontSize={fontSize} />
-    case appNames.autoResponder.name:
+    case apps.autoResponder.name:
       return hasAccess ? <AutoResponder fontSize={fontSize} /> : <AutoResponderDisabled fontSize={fontSize} />
-    default:
-      return null
   }
 }

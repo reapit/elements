@@ -1,15 +1,6 @@
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
 import { AppSwitcher } from '../app-switcher'
-import { AppSwitcherInaccessibleAppsMenuGroup } from './inaccessible-menu-group'
-
-const meta = {
-  title: 'Components/AppSwitcher/AppSwitcherInaccessibleAppsMenuGroup',
-  component: AppSwitcherInaccessibleAppsMenuGroup,
-} satisfies Meta<typeof AppSwitcherInaccessibleAppsMenuGroup>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+import { AppSwitcherExploreMenuGroup } from './explore-menu-group'
 
 const useParentDecorator: Decorator = (Story) => {
   return (
@@ -19,35 +10,42 @@ const useParentDecorator: Decorator = (Story) => {
   )
 }
 
-// (AA)TODO: Write comments for these stories
-export const Default: Story = {
+const meta = {
+  title: 'Components/AppSwitcher/AppSwitcherExploreAppsMenuGroup',
+  component: AppSwitcherExploreMenuGroup,
   decorators: [useParentDecorator],
+} satisfies Meta<typeof AppSwitcherExploreMenuGroup>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+export const Default: Story = {
   args: {
     children: null,
   },
   render: ({}) => {
     return (
-      <AppSwitcher.InaccessibleAppsMenuGroup>
+      <AppSwitcher.ExploreMenuGroup>
         <AppSwitcher.ReapitPMMenuItem url={'#'} />
         <AppSwitcher.ReapitSalesMenuItem url={'#'} />
         <AppSwitcher.KeyWhereMenuItem url={'#'} />
-      </AppSwitcher.InaccessibleAppsMenuGroup>
+      </AppSwitcher.ExploreMenuGroup>
     )
   },
 }
 
 export const WhenAMenuItemIsFocused: Story = {
-  decorators: [useParentDecorator],
   args: {
     children: null,
   },
   render: ({}) => {
     return (
-      <AppSwitcher.InaccessibleAppsMenuGroup>
-        <AppSwitcher.ReapitPMMenuItem url={'#'} isFocused />
+      <AppSwitcher.ExploreMenuGroup>
+        <AppSwitcher.ReapitPMMenuItem url={'#'} />
         <AppSwitcher.ReapitSalesMenuItem url={'#'} />
         <AppSwitcher.KeyWhereMenuItem url={'#'} />
-      </AppSwitcher.InaccessibleAppsMenuGroup>
+      </AppSwitcher.ExploreMenuGroup>
     )
   },
 }

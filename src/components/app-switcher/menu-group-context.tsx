@@ -1,3 +1,3 @@
 import React from 'react'
 
-export const AppMenuGroupContext = React.createContext<boolean>(false)
+export const AppMenuGroupHasAccessContext = React.createContext<boolean>(false)
