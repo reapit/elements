@@ -1,3 +1,4 @@
+import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 export const ElMenuPopover = styled.div`
@@ -7,7 +8,6 @@ export const ElMenuPopover = styled.div`
 
 export const ElMenu = styled.div`
   position: relative;
-  width: fit-content;
 
   &[data-alignment='left'] {
     > ${ElMenuPopover} {
@@ -21,13 +21,28 @@ export const ElMenu = styled.div`
   }
 `
 
+export const ElMenuItemLabel = styled.span`
+  font-family: var(--font-sm-regular-family);
+  font-size: var(--font-sm-regular-size);
+  font-weight: var(--font-sm-regular-weight);
+  line-height: var(--font-sm-regular-line_height);
+  letter-spacing: var(--font-sm-regular-letter_spacing);
+  text-align: left;
+  white-space: nowrap;
+`
+
 export const ElMenuList = styled.div`
-  min-width: 200px;
-  width: fit-content;
+  width: max-content;
   padding: var(--spacing-2) var(--spacing-2);
   border-radius: var(--corner-default);
   background-color: var(--fill-white);
   box-shadow: 0px 4px 16px 0px #222b3329;
+
+  &[data-has-max-width='true'] {
+    ${ElMenuItemLabel} {
+      white-space: normal;
+    }
+  }
 `
 
 export const ElMenuItemContent = styled.div`
@@ -38,12 +53,20 @@ export const ElMenuItemContent = styled.div`
   flex: 1 0 0;
 `
 
-export const ElMenuItemLabel = styled.span`
-  font-family: var(--font-sm-regular-family);
-  font-size: var(--font-sm-regular-size);
-  font-weight: var(--font-sm-regular-weight);
-  line-height: var(--font-sm-regular-line_height);
-  letter-spacing: var(--font-sm-regular-letter_spacing);
+export const ElMenuItemIcon = styled.div`
+  &,
+  svg {
+    width: var(--icon_size-m);
+    height: var(--icon_size-m);
+    color: var(--comp-menu-colour-icon-default-right);
+  }
+`
+
+export const elMenuItemLeftIcon = css`
+  &,
+  svg {
+    color: var(--comp-menu-colour-icon-default-left);
+  }
 `
 
 const baseMenuItemStyles = `
@@ -88,7 +111,14 @@ export const ElMenuItemButton = styled.button`
   ${baseMenuItemStyles}
   &[aria-current="true"], &[aria-current="page"] {
     ${ElMenuItemLabel} {
-      color: var(--comp-menu-colour-text-default-action) !important;
+      color: var(--comp-menu-colour-text-default-action);
+    }
+
+    .${elMenuItemLeftIcon} {
+      &,
+      svg {
+        color: var(--comp-menu-colour-icon-default-action);
+      }
     }
   }
 

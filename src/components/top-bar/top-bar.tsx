@@ -1,37 +1,38 @@
-import type { FC, HTMLAttributes } from 'react'
 import {
-  ElTopBarSearch,
   ElTopBar,
-  ElTopBarMobileNav,
-  ElTopBarSecondaryNav,
-  ElTopBarProfile,
-  ElTopBarMainNav,
-  ElTopBarLogo,
-  ElTopBarAppSwitcher,
+  ElTopBarAppSwitcherContainer,
+  ElTopBarLogoContainer,
+  ElTopBarMainNavContainer,
+  ElTopBarMenuContainer,
+  ElTopBarAvatarContainer,
+  ElTopBarSearchContainer,
+  ElTopBarSecondaryNavContainer,
 } from './styles'
 
-const TopBar: FC<HTMLAttributes<HTMLDivElement>> & {
-  AppSwitcher: typeof ElTopBarAppSwitcher
-  Logo: typeof ElTopBarLogo
-  MainNav: typeof ElTopBarMainNav
-  SecondaryNav: typeof ElTopBarSecondaryNav
-  Search: typeof ElTopBarSearch
-  MobileNav: typeof ElTopBarMobileNav
-  Profile: typeof ElTopBarProfile
-} = ({ children, ...props }) => {
-  return (
-    <nav>
-      <ElTopBar {...props}>{children}</ElTopBar>
-    </nav>
-  )
+import type { ComponentProps, ReactNode } from 'react'
+
+interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> {
+  appSwitcher?: ReactNode
+  avatar?: ReactNode
+  logo: ReactNode
+  mainNav?: ReactNode
+  menu?: ReactNode
+  search?: ReactNode
+  secondaryNav?: ReactNode
 }
 
-TopBar.AppSwitcher = ElTopBarAppSwitcher
-TopBar.Logo = ElTopBarLogo
-TopBar.MainNav = ElTopBarMainNav
-TopBar.SecondaryNav = ElTopBarSecondaryNav
-TopBar.Search = ElTopBarSearch
-TopBar.MobileNav = ElTopBarMobileNav
-TopBar.Profile = ElTopBarProfile
-
-export { TopBar }
+export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secondaryNav, ...props }: TopBarProps) {
+  return (
+    <ElTopBar {...props}>
+      {/* NOTE: The order here defines the "source order" of the DOM content. For a11y, it's important this
+       * matches the visual order defined by ElTopBar's CSS grid layout. */}
+      {appSwitcher && <ElTopBarAppSwitcherContainer>{appSwitcher}</ElTopBarAppSwitcherContainer>}
+      <ElTopBarLogoContainer>{logo}</ElTopBarLogoContainer>
+      {mainNav && <ElTopBarMainNavContainer>{mainNav}</ElTopBarMainNavContainer>}
+      {search && <ElTopBarSearchContainer>{search}</ElTopBarSearchContainer>}
+      {secondaryNav && <ElTopBarSecondaryNavContainer>{secondaryNav}</ElTopBarSecondaryNavContainer>}
+      {menu && <ElTopBarMenuContainer>{menu}</ElTopBarMenuContainer>}
+      <ElTopBarAvatarContainer>{avatar}</ElTopBarAvatarContainer>
+    </ElTopBar>
+  )
+}
