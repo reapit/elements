@@ -13,8 +13,8 @@ interface SideBarSubmenuProps extends ComponentProps<typeof ElSideBarSubmenuList
  * `SideBar.MenuGroup`. The submenu itself will typically container a collection of `SideBar.SubmenuItem`'s
  * as children. Only one items, if any, in the submenu should represent the current page at any given time.
  */
-export function SideBarSubmenu({ children, ...props }: SideBarSubmenuProps) {
-  return <ElSideBarSubmenuList {...props}>{children}</ElSideBarSubmenuList>
+export function SideBarSubmenu({ children, ...rest }: SideBarSubmenuProps) {
+  return <ElSideBarSubmenuList {...rest}>{children}</ElSideBarSubmenuList>
 }
 
 SideBarSubmenu.Item = SideBarSubmenuListItem
