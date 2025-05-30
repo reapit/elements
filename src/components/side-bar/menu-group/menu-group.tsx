@@ -46,13 +46,13 @@ export function SideBarMenuGroup({
   children,
   className,
   summary,
-  ...props
+  ...rest
 }: SideBarMenuGroupProps) {
   const labelId = ariaLabelledBy ?? useId()
   const sideBar = useSideBarContext()
   const ref = useSideBarMenuGroupController(sideBar.state)
   return (
-    <details {...props} className={cx(elSideBarMenuGroup, className)} aria-labelledby={labelId} ref={ref}>
+    <details {...rest} className={cx(elSideBarMenuGroup, className)} aria-labelledby={labelId} ref={ref}>
       <SideBarMenuGroupLabelIdContext.Provider value={labelId}>{summary}</SideBarMenuGroupLabelIdContext.Provider>
       {children}
     </details>
