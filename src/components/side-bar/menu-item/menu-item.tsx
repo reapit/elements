@@ -32,18 +32,18 @@ interface SideBarMenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorEleme
  * you would do:
  *
  * ```
- * function MySideBarMenuItem({ to, ...props}) {
+ * function MySideBarMenuItem({ to, ...rest}) {
  *   const href = useHref(to)
  *   const isActive = useMatch(to)
  *   return (
- *     <SideBarMenu.Item {...props} href={href} isActive={isActive} />
+ *     <SideBarMenu.Item {...rest} href={href} isActive={isActive} />
  *   )
  * }
  * ```
  */
-export function SideBarMenuItem({ children, className, icon, isActive, ...props }: SideBarMenuItemProps) {
+export function SideBarMenuItem({ children, className, icon, isActive, ...rest }: SideBarMenuItemProps) {
   return (
-    <a {...props} aria-current={isActive ? 'page' : false} className={cx(elSideBarMenuItem, className)}>
+    <a {...rest} aria-current={isActive ? 'page' : false} className={cx(elSideBarMenuItem, className)}>
       <ElSideBarMenuItemIcon aria-hidden>{icon}</ElSideBarMenuItemIcon>
       <ElSideBarMenuItemLabel>{children}</ElSideBarMenuItemLabel>
     </a>
