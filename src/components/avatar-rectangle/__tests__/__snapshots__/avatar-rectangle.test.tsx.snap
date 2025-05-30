@@ -46,7 +46,7 @@ exports[`AvatarRectangle > renders correctly with commercial variant and small s
       class="mocked-styled-1 el-avatar-rect-bottom-small-placeholder"
       fill="none"
       height="1em"
-      viewBox="0 0 48 36"
+      viewBox="0 0 40 32"
       width="1em"
       xmlns="http://www.w3.org/2000/svg"
     >
