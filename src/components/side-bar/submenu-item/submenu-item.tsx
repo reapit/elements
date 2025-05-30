@@ -29,18 +29,18 @@ interface SideBarSubmenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorEl
  * you would do:
  *
  * ```
- * function MySideBarSubmenuItem({ to, ...props}) {
+ * function MySideBarSubmenuItem({ to, ...rest}) {
  *   const href = useHref(to)
  *   const isActive = useMatch(to)
  *   return (
- *     <SideBarSubmenu.Item {...props} href={href} isActive={isActive} />
+ *     <SideBarSubmenu.Item {...rest} href={href} isActive={isActive} />
  *   )
  * }
  * ```
  */
-export function SideBarSubmenuItem({ children, className, isActive, ...props }: SideBarSubmenuItemProps) {
+export function SideBarSubmenuItem({ children, className, isActive, ...rest }: SideBarSubmenuItemProps) {
   return (
-    <a {...props} aria-current={isActive ? 'page' : false} className={cx(elSideBarSubmenuItem, className)}>
+    <a {...rest} aria-current={isActive ? 'page' : false} className={cx(elSideBarSubmenuItem, className)}>
       <ElSideBarSubmenuItemLabel>{children}</ElSideBarSubmenuItemLabel>
     </a>
   )
