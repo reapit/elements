@@ -47,18 +47,21 @@ export const WithCompleteFeatures: StoryObj = {
             <Menu.Group label="Group Title">
               <Menu.Item
                 label="Menu Item"
+                supplementaryInfo="Short description about the item"
                 onClick={console.log}
                 leftIcon={<Icon icon="property" />}
                 rightIcon={<Icon icon="exportIcon" />}
               />
               <Menu.Item
                 label="Menu Item anchor with long example text"
+                supplementaryInfo="Secondary info long description that won’t fit in one line"
                 href="/#"
                 leftIcon={<Icon icon="property" />}
                 rightIcon={<Icon icon="exportIcon" />}
               />
               <Menu.Item
                 label="Menu Item active"
+                supplementaryInfo="Short description about the item"
                 isActive
                 onClick={console.log}
                 leftIcon={<Icon icon="property" />}
@@ -66,6 +69,7 @@ export const WithCompleteFeatures: StoryObj = {
               />
               <Menu.Item
                 label="Menu Item (disabled)"
+                supplementaryInfo="Short description about the item"
                 onClick={console.log}
                 disabled
                 leftIcon={<Icon icon="property" />}

@@ -11,6 +11,7 @@ describe('MenuItem component', () => {
     const { asFragment } = render(
       <MenuItem
         label="Test Menu Item"
+        supplementaryInfo="Test Supplementary Info"
         leftIcon={<span>Left Icon</span>}
         rightIcon={<span>Right Icon</span>}
         closeMenu={false}

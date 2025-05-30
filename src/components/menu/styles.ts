@@ -21,6 +21,15 @@ export const ElMenu = styled.div`
   }
 `
 
+export const ElMenuItemSupplementaryInfo = styled.span`
+  color: var(--comp-menu-colour-text-hover-secondary);
+  font-family: var(--font-xs-regular-family);
+  font-size: var(--font-xs-regular-size);
+  font-weight: var(--font-xs-regular-weight);
+  line-height: var(--font-xs-regular-line_height);
+  letter-spacing: var(--font-xs-regular-letter_spacing);
+`
+
 export const ElMenuItemLabel = styled.span`
   font-family: var(--font-sm-regular-family);
   font-size: var(--font-sm-regular-size);
