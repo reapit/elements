@@ -11,13 +11,19 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 export const Default: Story = {
-  render: () => {
-    return <AppSwitcherNavIconButton />
+  args: {
+    onClick: () => {},
+  },
+  render: (args) => {
+    return <AppSwitcherNavIconButton {...args} />
   },
 }
 
 export const WhenTheNavIconButtonIsSelected: Story = {
-  render: () => {
-    return <AppSwitcherNavIconButton aria-expanded={true} />
+  args: {
+    onClick: () => {},
+  },
+  render: (args) => {
+    return <AppSwitcherNavIconButton aria-expanded={true} {...args} />
   },
 }
