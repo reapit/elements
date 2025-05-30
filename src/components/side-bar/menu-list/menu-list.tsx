@@ -11,8 +11,8 @@ interface SideBarMenuListProps extends ComponentProps<typeof ElSideBarMenuList> 
  * Main menu list for the `SideBar`. Typically provided a collection of `SideBar.MenuItem` and `SideBar.MenuGroup`
  * components as children.
  */
-export function SideBarMenuList({ children, ...props }: SideBarMenuListProps) {
-  return <ElSideBarMenuList {...props}>{children}</ElSideBarMenuList>
+export function SideBarMenuList({ children, ...rest }: SideBarMenuListProps) {
+  return <ElSideBarMenuList {...rest}>{children}</ElSideBarMenuList>
 }
 
 SideBarMenuList.Item = SideBarMenuListItem
