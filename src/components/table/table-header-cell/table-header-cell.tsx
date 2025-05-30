@@ -44,7 +44,7 @@ export const TableHeaderCell: FC<TableHeaderCellProps> = ({
         ...style,
       }}
     >
-      <ElTableHeaderCellContent>{children}</ElTableHeaderCellContent>
+      <ElTableHeaderCellContent data-alignment={alignment}>{children}</ElTableHeaderCellContent>
     </ElTableHeaderCell>
   )
 }
