@@ -1,121 +1,98 @@
-import { figmaDesignUrls } from '#src/storybook/figma/index'
-import type { Meta, StoryObj } from '@storybook/react'
-import { SideBar } from './side-bar'
-import {
-  elSideBarMenuItemAnchor,
-  ElSideBarMenuItemIcon,
-  ElSideBarMenuItemText,
-  SideBarMenuItem,
-} from '../side-bar-menu-item'
 import { Icon } from '../icon'
-import { useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
-import { SideBarMenuGroup, SideBarMenuGroupItem } from '../side-bar-menu-group'
+import { SideBar } from './side-bar'
+import { useViewportHeightDecorator } from './__story__/use-viewport-height-decorator'
+
+import type { Meta, StoryObj } from '@storybook/react'
+
+// Common href for all menu items that links to the current storybook page.
+const href = globalThis.top?.location.href!
 
 export default {
-  title: 'Components/Side Bar',
+  title: 'Components/SideBar',
   component: SideBar,
+  argTypes: {
+    children: {
+      control: 'radio',
+      options: ['No selected item', 'Selected item', 'Selected submenu item'],
+      mapping: {
+        'No selected item': buildMenu('No slected item'),
+        'Selected item': buildMenu('Selected item'),
+        'Selected submenu item': buildMenu('Selected submenu item'),
+      },
+    },
+    footer: {
+      control: false,
+    },
+  },
+  decorators: [useViewportHeightDecorator],
+  parameters: {
+    backgrounds: {
+      default: 'light',
+    },
+  },
 } as Meta<typeof SideBar>
 
 type Story = StoryObj<typeof SideBar>
 
-const Customicon = () => (
-  <svg width={24} height={24} viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="12" cy="8" r="4" stroke="currentColor" strokeWidth="2" />
-    <path d="M4 20c0-4 4-6 8-6s8 2 8 6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-  </svg>
-)
+export const Example: Story = {
+  args: {
+    children: 'No selected item',
+    footer: <SideBar.CollapseButton />,
+  },
+}
 
-export const Default: Story = {
-  render: () => {
-    const CustomLink = () => {
-      const { isExpanded } = useIsSideBarExpandedContext()
+/**
+ * If a menu item represents the current page, it should be marked as "selected". See the `SideBar.MenuItem`
+ * documentation for details on how.
+ */
+export const SelectedItem: Story = {
+  args: {
+    ...Example.args,
+    children: 'Selected item',
+  },
+}
 
-      return (
-        <a href="#" className={elSideBarMenuItemAnchor}>
-          <ElSideBarMenuItemIcon>
-            <Icon icon="property" />
-          </ElSideBarMenuItemIcon>
-          {isExpanded && <ElSideBarMenuItemText>Custom Link</ElSideBarMenuItemText>}
-        </a>
-      )
-    }
-    return (
-      <div
-        style={{
-          display: 'flex',
-          flexDirection: 'row',
-          height: '100%',
-          overflow: 'hidden',
-        }}
+/**
+ * Likewise, if a submenu item represents the current page, it should be marked as "selected". This will
+ * automatically cause the parent `SideBar.MenuGroup` to be displayed as "selected" itself. See the
+ * `SideBar.SubmenuItem` documentation for details on how.
+ */
+export const SelectedSubmenuItem: Story = {
+  args: {
+    ...Example.args,
+    children: 'Selected submenu item',
+  },
+}
+
+function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu item') {
+  return (
+    <SideBar.MenuList>
+      <SideBar.MenuItem key="1" href={href} icon={<Icon icon="dashboard" />}>
+        Menu item 1
+      </SideBar.MenuItem>
+      <SideBar.MenuItem key="2" href={href} icon={<Icon icon="contact" />} isActive={type === 'Selected item'}>
+        Menu item 2
+      </SideBar.MenuItem>
+      <SideBar.MenuGroup
+        key="3"
+        summary={<SideBar.MenuGroupSummary icon={<Icon icon="property" />}>Menu item 3</SideBar.MenuGroupSummary>}
       >
-        <style>
-          {`
-            #storybook-root {
-              height: 100%;
-            }
-          `}
-        </style>
-
-        <SideBar>
-          <SideBar.MenuList>
-            <SideBarMenuItem isActive icon={<Icon icon="property" />} href="#">
-              SideBar Item (active)
-            </SideBarMenuItem>
-            <SideBarMenuGroup isActive label="Menu Group 1" icon={<Icon icon="property" />}>
-              <SideBarMenuGroupItem isActive href="#">
-                Sub Menu Item 1
-              </SideBarMenuGroupItem>
-              <SideBarMenuGroupItem href="#">Sub Menu Item 2</SideBarMenuGroupItem>
-            </SideBarMenuGroup>
-
-            <SideBarMenuGroup label="Menu Group 2" icon={<Icon icon="property" />}>
-              <SideBarMenuGroupItem href="#">Sub Menu Item 3</SideBarMenuGroupItem>
-              <SideBarMenuGroupItem href="#">Sub Menu Item 4</SideBarMenuGroupItem>
-            </SideBarMenuGroup>
-
-            <li>
-              <CustomLink />
-            </li>
-            <SideBarMenuItem icon={<Customicon />} href="#">
-              External Icon
-            </SideBarMenuItem>
-
-            {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((i) => {
-              return (
-                <SideBarMenuItem key={i} icon={<Icon icon="property" />} href="/#">
-                  SideBar Item
-                </SideBarMenuItem>
-              )
-            })}
-          </SideBar.MenuList>
-          <SideBar.CollapseButon />
-        </SideBar>
-        <main
-          style={{
-            width: '100%',
-            overflow: 'auto',
-          }}
-        >
-          <div
-            style={{
-              background: '#ffdaf5',
-              paddingTop: '13rem',
-              paddingLeft: '3rem',
-              fontSize: '1.25rem',
-              height: '115vh',
-            }}
-          >
-            Placeholder main content
-          </div>
-        </main>
-      </div>
-    )
-  },
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.sideBar,
-      allowFullscreen: true,
-    },
-  },
+        <SideBar.Submenu>
+          <SideBar.SubmenuItem href={href}>Submenu item 1</SideBar.SubmenuItem>
+          <SideBar.SubmenuItem href={href} isActive={type === 'Selected submenu item'}>
+            Submenu item 2
+          </SideBar.SubmenuItem>
+        </SideBar.Submenu>
+      </SideBar.MenuGroup>
+      <SideBar.MenuGroup
+        key="4"
+        summary={<SideBar.MenuGroupSummary icon={<Icon icon="settings" />}>Menu item 4</SideBar.MenuGroupSummary>}
+      >
+        <SideBar.Submenu>
+          <SideBar.SubmenuItem href={href}>Submenu item 3</SideBar.SubmenuItem>
+          <SideBar.SubmenuItem href={href}>Submenu item 4</SideBar.SubmenuItem>
+        </SideBar.Submenu>
+      </SideBar.MenuGroup>
+    </SideBar.MenuList>
+  )
 }

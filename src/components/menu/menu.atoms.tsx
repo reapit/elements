@@ -40,6 +40,10 @@ interface MenuItemAsAnchorElementProps extends CommonMenuItemProps, AnchorHTMLAt
 
 export type MenuItemContainerProps = MenuItemAsButtonElementProps | MenuItemAsAnchorElementProps
 
+export interface MenuListProps extends HTMLAttributes<HTMLDivElement> {
+  maxWidth?: `--size-${string}`
+}
+
 /**
  * The `MenuItemGroup` component is a wrapper for `MenuItem` which has optional label
  * can be used for grouping multiple type of list item e.g RadioItem (in future).
@@ -71,7 +75,6 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
         role="menuitem"
         data-close-menu={closeMenu || !!disabled}
         aria-current={isActive ? 'page' : undefined}
-        datat-test={disabled}
       >
         {children}
       </ElMenuItemAnchor>
@@ -93,8 +96,13 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
   )
 }
 
-export const MenuList: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => (
-  <ElMenuList {...rest} role="menu">
+export const MenuList: FC<MenuListProps> = ({ children, maxWidth, ...rest }) => (
+  <ElMenuList
+    {...rest}
+    style={{ ...rest?.style, maxWidth: `var(${maxWidth}, auto)` }}
+    data-has-max-width={!!maxWidth}
+    role="menu"
+  >
     {children}
   </ElMenuList>
 )

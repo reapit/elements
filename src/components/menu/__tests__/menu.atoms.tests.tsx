@@ -88,7 +88,7 @@ describe('MenuItemContainer', () => {
 describe('MenuList', () => {
   it('should render as expected', () => {
     render(
-      <MenuList>
+      <MenuList maxWidth={'--size-80'}>
         <div data-testid="menu-child">Menu Child</div>
       </MenuList>,
     )

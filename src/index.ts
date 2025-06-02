@@ -105,5 +105,3 @@ export * from './components/avatar-button'
 export * from './components/container-query/container-query'
 
 export * from './components/side-bar'
-export * from './components/side-bar-menu-item'
-export * from './components/side-bar-menu-group'

@@ -72,6 +72,8 @@ export default defineConfig({
         'src/tokens',
         'src/types',
         // Note: We don't want to report coverage for:
+        // - story utilities
+        '**/__story__/**',
         // - barrel files
         '**/index.ts',
         // - our tests themselves
