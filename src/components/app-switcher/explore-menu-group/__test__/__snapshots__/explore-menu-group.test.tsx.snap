@@ -3,22 +3,22 @@
 exports[`renders AppSwitcherExploreMenuGroup properly 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-9 el-menu-item-group"
+    class="mocked-styled-11 el-menu-item-group"
     role="group"
   >
     <div
-      class="mocked-styled-8 el-menu-item-group-title"
+      class="mocked-styled-10 el-menu-item-group-title"
     >
       EXPLORE
     </div>
     <a
-      class="mocked-styled-10 el-app-switcher-menu-item-anchor"
+      class="mocked-styled-12 el-app-switcher-menu-item-anchor"
       href="https://www.test.com"
       rel="noopener noreferrer"
       target="_blank"
     >
       <div
-        class="mocked-styled-11 el-app-switcher-menu-item-logo"
+        class="mocked-styled-13 el-app-switcher-menu-item-logo"
       >
         <svg
           fill="none"
@@ -72,28 +72,28 @@ exports[`renders AppSwitcherExploreMenuGroup properly 1`] = `
         </svg>
       </div>
       <div
-        class="mocked-styled-12 el-menu-item-text-wrapper"
+        class="mocked-styled-14 el-menu-item-text-wrapper"
       >
         <div
-          class="mocked-styled-13 el-app-switcher-menu-item-name"
+          class="mocked-styled-15 el-app-switcher-menu-item-name"
         >
           Reapit PM
         </div>
         <div
-          class="mocked-styled-14 el-app-switcher-menu-item-description"
+          class="mocked-styled-16 el-app-switcher-menu-item-description"
         >
           Property Management
         </div>
       </div>
     </a>
     <a
-      class="mocked-styled-10 el-app-switcher-menu-item-anchor"
+      class="mocked-styled-12 el-app-switcher-menu-item-anchor"
       href="https://www.test.com"
       rel="noopener noreferrer"
       target="_blank"
     >
       <div
-        class="mocked-styled-11 el-app-switcher-menu-item-logo"
+        class="mocked-styled-13 el-app-switcher-menu-item-logo"
       >
         <svg
           fill="none"
@@ -151,28 +151,28 @@ exports[`renders AppSwitcherExploreMenuGroup properly 1`] = `
         </svg>
       </div>
       <div
-        class="mocked-styled-12 el-menu-item-text-wrapper"
+        class="mocked-styled-14 el-menu-item-text-wrapper"
       >
         <div
-          class="mocked-styled-13 el-app-switcher-menu-item-name"
+          class="mocked-styled-15 el-app-switcher-menu-item-name"
         >
           Reapit Sales
         </div>
         <div
-          class="mocked-styled-14 el-app-switcher-menu-item-description"
+          class="mocked-styled-16 el-app-switcher-menu-item-description"
         >
           Real Estate CRM
         </div>
       </div>
     </a>
     <a
-      class="mocked-styled-10 el-app-switcher-menu-item-anchor"
+      class="mocked-styled-12 el-app-switcher-menu-item-anchor"
       href="https://www.test.com"
       rel="noopener noreferrer"
       target="_blank"
     >
       <div
-        class="mocked-styled-11 el-app-switcher-menu-item-logo"
+        class="mocked-styled-13 el-app-switcher-menu-item-logo"
       >
         <svg
           fill="none"
@@ -209,15 +209,15 @@ exports[`renders AppSwitcherExploreMenuGroup properly 1`] = `
         </svg>
       </div>
       <div
-        class="mocked-styled-12 el-menu-item-text-wrapper"
+        class="mocked-styled-14 el-menu-item-text-wrapper"
       >
         <div
-          class="mocked-styled-13 el-app-switcher-menu-item-name"
+          class="mocked-styled-15 el-app-switcher-menu-item-name"
         >
           KeyWhere
         </div>
         <div
-          class="mocked-styled-14 el-app-switcher-menu-item-description"
+          class="mocked-styled-16 el-app-switcher-menu-item-description"
         >
           Real-time Key Management
         </div>

@@ -5,6 +5,7 @@ import { Button } from '../button'
 import { Icon } from '../icon'
 import { FlexContainer, MainContainer } from '../layout'
 import { elHScreen } from '../../styles/sizing'
+import { Badge } from '../badge'
 
 const meta: Meta<typeof Menu> = {
   title: 'Components/Menu',
@@ -47,18 +48,24 @@ export const WithCompleteFeatures: StoryObj = {
             <Menu.Group label="Group Title">
               <Menu.Item
                 label="Menu Item"
+                supplementaryInfo="Short description about the item"
+                badge={<Badge>Badge</Badge>}
                 onClick={console.log}
                 leftIcon={<Icon icon="property" />}
                 rightIcon={<Icon icon="exportIcon" />}
               />
               <Menu.Item
                 label="Menu Item anchor with long example text"
+                supplementaryInfo="Secondary info long description that won’t fit in one line"
+                badge={<Badge>Badge</Badge>}
                 href="/#"
                 leftIcon={<Icon icon="property" />}
                 rightIcon={<Icon icon="exportIcon" />}
               />
               <Menu.Item
                 label="Menu Item active"
+                supplementaryInfo="Short description about the item"
+                badge={<Badge>Badge</Badge>}
                 isActive
                 onClick={console.log}
                 leftIcon={<Icon icon="property" />}
@@ -66,6 +73,8 @@ export const WithCompleteFeatures: StoryObj = {
               />
               <Menu.Item
                 label="Menu Item (disabled)"
+                supplementaryInfo="Short description about the item"
+                badge={<Badge>Badge with long text</Badge>}
                 onClick={console.log}
                 disabled
                 leftIcon={<Icon icon="property" />}
