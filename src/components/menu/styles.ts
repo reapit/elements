@@ -30,6 +30,10 @@ export const ElMenuItemSupplementaryInfo = styled.span`
   letter-spacing: var(--font-xs-regular-letter_spacing);
 `
 
+export const ElMenuItemLabelContainer = styled.span`
+  text-align: left;
+`
+
 export const ElMenuItemLabel = styled.span`
   font-family: var(--font-sm-regular-family);
   font-size: var(--font-sm-regular-size);
@@ -38,6 +42,7 @@ export const ElMenuItemLabel = styled.span`
   letter-spacing: var(--font-sm-regular-letter_spacing);
   text-align: left;
   white-space: nowrap;
+  margin-right: var(--spacing-2);
 `
 
 export const ElMenuList = styled.div`
