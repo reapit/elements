@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test'
-import buildManifest from '../public/dist/index.json'
+import buildManifest from '../public/dist/index.json' assert { type: 'json' }
 import { navigate } from './utils'
 import { flakeyTestList } from './flakey-test-list'
 /** Credit to
