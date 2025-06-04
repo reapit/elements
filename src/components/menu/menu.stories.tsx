@@ -44,8 +44,8 @@ export const WithCompleteFeatures: StoryObj = {
           {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
         </Menu.Trigger>
         <Menu.Popover>
-          <Menu.List maxWidth={'--size-80'}>
-            <Menu.Group label="Group Title">
+          <Menu.List maxWidth="--size-80" maxHeight="--size-80">
+            <Menu.Group label="Long Group Title that doesn't fit in one line">
               <Menu.Item
                 label="Menu Item"
                 supplementaryInfo="Short description about the item"
@@ -80,6 +80,15 @@ export const WithCompleteFeatures: StoryObj = {
                 leftIcon={<Icon icon="property" />}
                 rightIcon={<Icon icon="exportIcon" />}
               />
+            </Menu.Group>
+            <Menu.Group maxHeight="--size-32" label="Group Title">
+              <Menu.Item label="Menu Item 1" onClick={console.log} />
+              <Menu.Item label="Menu Item 2" href="/#" />
+              <Menu.Item label="Menu Item 3" href="/#" />
+              <Menu.Item label="Menu Item 4" href="/#" />
+              <Menu.Item label="Menu Item 5" href="/#" />
+              <Menu.Item label="Menu Item 6" href="/#" />
+              <Menu.Item label="Menu Item 7" href="/#" />
             </Menu.Group>
           </Menu.List>
         </Menu.Popover>
