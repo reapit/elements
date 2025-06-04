@@ -8,7 +8,7 @@ test('renders the provided logo, app name and supplementary info', () => {
     <AppSwitcherMenuItem
       {...productConfigs.consoleCloud}
       avatar={<AppAvatar productId={'consoleCloud'} hasAccess />}
-      url={'https://www.test.com'}
+      href={'https://www.test.com'}
     />,
   )
   expect(asFragment()).toMatchSnapshot()
@@ -19,7 +19,7 @@ test('renders as a link element', () => {
     <AppSwitcherMenuItem
       {...productConfigs.consoleCloud}
       avatar={<AppAvatar productId={'consoleCloud'} hasAccess />}
-      url={'https://www.test.com'}
+      href={'https://www.test.com'}
     />,
   )
   expect(screen.getByRole('link')).toBeVisible()
@@ -30,7 +30,7 @@ test("is accessibly named by the product's name", () => {
     <AppSwitcherMenuItem
       {...productConfigs.consoleCloud}
       avatar={<AppAvatar productId={'consoleCloud'} hasAccess />}
-      url={'https://www.test.com'}
+      href={'https://www.test.com'}
     />,
   )
   expect(screen.getByRole('link', { name: 'Reapit PM' })).toBeVisible()
@@ -41,7 +41,7 @@ test("is accessibly described by the product's supplementary info", () => {
     <AppSwitcherMenuItem
       {...productConfigs.consoleCloud}
       avatar={<AppAvatar productId={'consoleCloud'} hasAccess />}
-      url={'https://www.test.com'}
+      href={'https://www.test.com'}
     />,
   )
   expect(screen.getByRole('link')).toHaveAccessibleDescription('Property Management')

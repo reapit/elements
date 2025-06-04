@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { AppSwitcherExploreMenuGroup } from '../explore-menu-group'
 import { AppSwitcherMenuGroupHasAccessContext } from '../../menu-group-has-access-context'
 
-test('renders a group element', () => {
+test('renders AppSwitcherExploreMenuGroup properly', () => {
   const { asFragment } = render(<AppSwitcherExploreMenuGroup>Fake child</AppSwitcherExploreMenuGroup>)
   expect(asFragment()).toMatchSnapshot()
 })

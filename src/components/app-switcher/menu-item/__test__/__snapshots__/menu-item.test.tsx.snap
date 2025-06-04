@@ -7,7 +7,7 @@ exports[`renders the provided logo, app name and supplementary info 1`] = `
     aria-labelledby=":r0:"
     class="mocked-styled-0 el-app-switcher-menu-item-anchor"
     href="https://www.test.com"
-    rel="noopener noreferrer"
+    rel="noreferrer"
     target="_blank"
   >
     <div
