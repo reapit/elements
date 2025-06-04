@@ -15,3 +15,19 @@ exports[`renders AppSwitcherExploreMenuGroup properly 1`] = `
   </div>
 </DocumentFragment>
 `;
+
+exports[`renders a group element 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-11 el-menu-item-group"
+    role="group"
+  >
+    <div
+      class="mocked-styled-10 el-menu-item-group-title"
+    >
+      EXPLORE
+    </div>
+    Fake child
+  </div>
+</DocumentFragment>
+`;
