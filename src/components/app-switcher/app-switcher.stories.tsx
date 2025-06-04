@@ -34,12 +34,12 @@ export const Example: Story = {
   args: {
     children: [
       <AppSwitcher.YourAppsMenuGroup key="1">
-        <AppSwitcher.ProductMenuItem productId="ireWeb" url={href} />
+        <AppSwitcher.ProductMenuItem href={href} productId="ireWeb" />
       </AppSwitcher.YourAppsMenuGroup>,
       <AppSwitcher.Divider key="2" />,
       <AppSwitcher.ExploreMenuGroup key="3">
-        <AppSwitcher.ProductMenuItem productId="consoleCloud" url={href} />
-        <AppSwitcher.ProductMenuItem productId="keywhere" url={href} />
+        <AppSwitcher.ProductMenuItem href={href} productId="consoleCloud" />
+        <AppSwitcher.ProductMenuItem href={href} productId="keywhere" />
       </AppSwitcher.ExploreMenuGroup>,
     ],
   },
@@ -98,14 +98,14 @@ export const AllAccessible: StoryObj<{ accessibleProductIds: string[] }> = {
         {displayableProductsForYourAppsGroup.length > 0 && (
           <AppSwitcher.YourAppsMenuGroup>
             {displayableProductsForYourAppsGroup.map((productId) => (
-              <AppSwitcher.ProductMenuItem key={productId} productId={productId} url={href} />
+              <AppSwitcher.ProductMenuItem key={productId} href={href} productId={productId} />
             ))}
           </AppSwitcher.YourAppsMenuGroup>
         )}
         {displayableProductsForExploreGroup.length > 0 && (
           <AppSwitcher.ExploreMenuGroup>
             {displayableProductsForExploreGroup.map((productId) => (
-              <AppSwitcher.ProductMenuItem key={productId} productId={productId} url={href} />
+              <AppSwitcher.ProductMenuItem key={productId} href={href} productId={productId} />
             ))}
           </AppSwitcher.ExploreMenuGroup>
         )}

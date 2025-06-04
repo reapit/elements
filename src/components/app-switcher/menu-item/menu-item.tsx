@@ -18,7 +18,7 @@ export interface AppSwitcherMenuItemProps
   extends ProductConfig,
     Omit<HTMLAttributes<HTMLAnchorElement>, AttributesToOmit> {
   avatar: ReactNode
-  url: string
+  href: string
 }
 
 /**
@@ -32,8 +32,8 @@ export interface AppSwitcherMenuItemProps
 export function AppSwitcherMenuItem({
   avatar: logo,
   appName,
+  href,
   supplementaryInfo,
-  url,
   ...rest
 }: AppSwitcherMenuItemProps) {
   const labelId = useId()
@@ -44,7 +44,7 @@ export function AppSwitcherMenuItem({
       {...rest}
       aria-labelledby={labelId}
       aria-describedby={descriptionId}
-      href={url}
+      href={href}
       target="_blank"
       rel="noreferrer"
     >

@@ -11,7 +11,7 @@ import type { ReactNode } from 'react'
 // of Elements but need to make some UI updates for one or more products.
 interface AppSwitcherProductMenuItemProps extends Partial<AppSwitcherMenuItemProps> {
   productId: SupportedProductId
-  url: string
+  href: string
 }
 
 /**
@@ -26,18 +26,18 @@ interface AppSwitcherProductMenuItemProps extends Partial<AppSwitcherMenuItemPro
 export function AppSwitcherProductMenuItem({
   appName: appNameOverride,
   avatar: logoOverride,
+  href,
   productId,
   supplementaryInfo: supplementaryInfoOverride,
-  url,
 }: AppSwitcherProductMenuItemProps): ReactNode {
   const hasAccess = useAppSwitcherMenuGroupHasAccessContext()
   const { appName, supplementaryInfo } = productConfigs[productId]
   return (
     <AppSwitcher.MenuItem
       appName={appNameOverride ?? appName}
-      supplementaryInfo={supplementaryInfoOverride ?? supplementaryInfo}
       avatar={logoOverride ?? <AppSwitcher.AppAvatar hasAccess={hasAccess} productId={productId} />}
-      url={url}
+      href={href}
+      supplementaryInfo={supplementaryInfoOverride ?? supplementaryInfo}
     />
   )
 }

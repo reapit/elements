@@ -46,7 +46,7 @@ export const Example: Story = {
     appName: 'App name',
     avatar: 'consoleCloud',
     supplementaryInfo: 'Supplementary info',
-    url: globalThis.top?.location.href!,
+    href: globalThis.top?.location.href!,
   },
 }
 
