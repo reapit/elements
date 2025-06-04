@@ -52,6 +52,8 @@ export const AllProducts: Story = {
       control: false,
     },
   },
+  /* eslint-disable-next-line @typescript-eslint/no-unused-vars -- if we don't have args here, our code
+   * snippet for this story will be borked. */
   render: (_args) => (
     <div
       style={{
@@ -64,9 +66,9 @@ export const AllProducts: Story = {
       }}
     >
       {productIds.map((productId) => [
-        <p>{productConfigs[productId].appName}</p>,
-        <AppAvatar productId={productId} hasAccess={true} />,
-        <AppAvatar productId={productId} hasAccess={false} />,
+        <p key={productId}>{productConfigs[productId].appName}</p>,
+        <AppAvatar key={`${productId}-has-access`} productId={productId} hasAccess={true} />,
+        <AppAvatar key={`${productId}-has-no-access`} productId={productId} hasAccess={false} />,
       ])}
     </div>
   ),
