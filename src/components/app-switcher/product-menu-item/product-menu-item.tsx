@@ -25,7 +25,7 @@ interface AppSwitcherProductMenuItemProps extends Partial<AppSwitcherMenuItemPro
  */
 export function AppSwitcherProductMenuItem({
   appName: appNameOverride,
-  avatar: logoOverride,
+  avatar: avatarOverride,
   href,
   productId,
   supplementaryInfo: supplementaryInfoOverride,
@@ -35,7 +35,7 @@ export function AppSwitcherProductMenuItem({
   return (
     <AppSwitcher.MenuItem
       appName={appNameOverride ?? appName}
-      avatar={logoOverride ?? <AppSwitcher.AppAvatar hasAccess={hasAccess} productId={productId} />}
+      avatar={avatarOverride ?? <AppSwitcher.AppAvatar hasAccess={hasAccess} productId={productId} />}
       href={href}
       supplementaryInfo={supplementaryInfoOverride ?? supplementaryInfo}
     />
