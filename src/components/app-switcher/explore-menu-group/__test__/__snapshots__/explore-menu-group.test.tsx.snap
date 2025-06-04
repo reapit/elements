@@ -11,7 +11,12 @@ exports[`renders AppSwitcherExploreMenuGroup properly 1`] = `
     >
       EXPLORE
     </div>
-    Fake child
+    <div
+      class="mocked-styled-12 el-menu-item-group-list"
+      style="max-height: var(undefined);"
+    >
+      Fake child
+    </div>
   </div>
 </DocumentFragment>
 `;
