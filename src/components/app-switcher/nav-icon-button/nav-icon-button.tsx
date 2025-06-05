@@ -7,11 +7,11 @@ interface AppSwitcherNavIconButtonProps extends ButtonHTMLAttributes<HTMLButtonE
   onClick: MouseEventHandler<HTMLButtonElement>
 }
 
-export default function AppSwitcherNavIconButton({ 'aria-label': ariaLabel, ...props }: AppSwitcherNavIconButtonProps) {
+export function AppSwitcherNavIconButton({ 'aria-label': ariaLabel, ...props }: AppSwitcherNavIconButtonProps) {
   return (
     <NavIconItem
       {...props}
-      aria-label={ariaLabel ?? 'app switcher'}
+      aria-label={ariaLabel ?? 'App Switcher'}
       icon={<Icon icon="appSwitcher" />}
       isActive={props['aria-expanded'] === 'true' || props['aria-expanded'] === true}
     />

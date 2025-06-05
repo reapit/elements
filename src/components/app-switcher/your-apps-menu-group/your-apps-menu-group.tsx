@@ -1,15 +1,18 @@
-import React from 'react'
+import { AppSwitcherMenuGroupHasAccessContext } from '../menu-group-has-access-context'
 import { Menu } from '../../menu'
-import { AppMenuGroupHasAccessContext } from '../menu-group-context'
 
-type AppSwitcherMenuGroupProps = {
-  children: React.ReactNode
+import type { ReactNode } from 'react'
+
+interface AppSwitcherMenuGroupProps {
+  children: ReactNode
 }
 
 function AppSwitcherYourAppsMenuGroup({ children }: AppSwitcherMenuGroupProps) {
   return (
     <Menu.Group label={'YOUR APPS'}>
-      <AppMenuGroupHasAccessContext.Provider value={true}>{children}</AppMenuGroupHasAccessContext.Provider>
+      <AppSwitcherMenuGroupHasAccessContext.Provider value={true}>
+        {children}
+      </AppSwitcherMenuGroupHasAccessContext.Provider>
     </Menu.Group>
   )
 }

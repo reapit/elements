@@ -1,15 +1,18 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renders AppSwitcherMenuItem properly 1`] = `
+exports[`renders the provided logo, app name and supplementary info 1`] = `
 <DocumentFragment>
   <a
+    aria-describedby=":r1:"
+    aria-labelledby=":r0:"
     class="mocked-styled-0 el-app-switcher-menu-item-anchor"
     href="https://www.test.com"
-    rel="noopener noreferrer"
+    rel="noreferrer"
     target="_blank"
   >
     <div
-      class="mocked-styled-1 el-app-switcher-menu-item-logo"
+      aria-hidden="true"
+      class="mocked-styled-1 el-app-switcher-menu-item-avatar"
     >
       <svg
         fill="none"
@@ -61,20 +64,18 @@ exports[`renders AppSwitcherMenuItem properly 1`] = `
         </defs>
       </svg>
     </div>
-    <div
-      class="mocked-styled-2 el-menu-item-text-wrapper"
+    <span
+      class="mocked-styled-2 el-app-switcher-menu-item-label"
+      id=":r0:"
     >
-      <div
-        class="mocked-styled-3 el-app-switcher-menu-item-name"
-      >
-        Reapit PM
-      </div>
-      <div
-        class="mocked-styled-4 el-app-switcher-menu-item-description"
-      >
-        Property Management
-      </div>
-    </div>
+      Reapit PM
+    </span>
+    <span
+      class="mocked-styled-3 el-app-switcher-menu-item-supplementary-info"
+      id=":r1:"
+    >
+      Property Management
+    </span>
   </a>
 </DocumentFragment>
 `;

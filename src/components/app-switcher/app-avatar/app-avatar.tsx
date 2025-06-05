@@ -15,21 +15,27 @@ import ReapitSales from './icons/reapit-sales.svg?react'
 import ReapitWebsitesDisabled from './icons/reapit-websites-disabled.svg?react'
 import ReapitWebsites from './icons/reapit-websites.svg?react'
 
-import type { AppName } from '../appNames'
+import type { SupportedProductId } from '../config'
 
-type AppAvatarProps = {
-  appName: AppName
+interface AppAvatarProps {
+  /** Whether the currently logged in user has access to the specified product or not */
   hasAccess: boolean
+  /** The specific product whose avatar should be displayed. */
+  productId: SupportedProductId
 }
 
-export default function AppAvatar({ appName, hasAccess }: AppAvatarProps) {
+/**
+ * An avatar/logo for Reapit products. The visual appearance of the avatar changes based on the current user's
+ * access to the product. When user's do not have access, the avatar will be greyed out.
+ */
+export function AppAvatar({ hasAccess, productId }: AppAvatarProps) {
   const fontSize = '40'
-  switch (appName) {
-    case 'reapitPM':
+  switch (productId) {
+    case 'consoleCloud':
       return hasAccess ? <ReapitPM fontSize={fontSize} /> : <ReapitPMDisabled fontSize={fontSize} />
-    case 'reapitSales':
+    case 'agentBox':
       return hasAccess ? <ReapitSales fontSize={fontSize} /> : <ReapitSalesDisabled fontSize={fontSize} />
-    case 'reapitLetting':
+    case 'ireWeb':
       return hasAccess ? <ReapitLettings fontSize={fontSize} /> : <ReapitLettingsDisabled fontSize={fontSize} />
     case 'reapitForms':
       return hasAccess ? <ReapitForms fontSize={fontSize} /> : <ReapitFormsDisabled fontSize={fontSize} />
@@ -37,7 +43,7 @@ export default function AppAvatar({ appName, hasAccess }: AppAvatarProps) {
       return hasAccess ? <ReapitWebsites fontSize={fontSize} /> : <ReapitWebsitesDisabled fontSize={fontSize} />
     case 'reapitProposals':
       return hasAccess ? <ReapitProposals fontSize={fontSize} /> : <ReapitProposalsDisabled fontSize={fontSize} />
-    case 'keyWhere':
+    case 'keywhere':
       return hasAccess ? <KeyWhere fontSize={fontSize} /> : <KeyWhereDisabled fontSize={fontSize} />
     case 'autoResponder':
       return hasAccess ? <AutoResponder fontSize={fontSize} /> : <AutoResponderDisabled fontSize={fontSize} />

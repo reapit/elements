@@ -4,15 +4,20 @@ import { AppSwitcherYourAppsMenuGroup } from './your-apps-menu-group'
 
 const useParentDecorator: Decorator = (Story) => {
   return (
-    <div style={{ width: 'fit-content' }}>
+    <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF' }}>
       <Story />
     </div>
   )
 }
 
 const meta = {
-  title: 'Components/AppSwitcher/AppSwitcherYourAppsMenuGroup',
+  title: 'Components/AppSwitcher/YourAppsMenuGroup',
   component: AppSwitcherYourAppsMenuGroup,
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
   decorators: [useParentDecorator],
 } satisfies Meta<typeof AppSwitcherYourAppsMenuGroup>
 
@@ -27,9 +32,7 @@ export const Default: Story = {
   render: ({}) => {
     return (
       <AppSwitcher.YourAppsMenuGroup>
-        <AppSwitcher.ReapitPMMenuItem url={'#'} />
-        <AppSwitcher.ReapitSalesMenuItem url={'#'} />
-        <AppSwitcher.KeyWhereMenuItem url={'#'} />
+        <AppSwitcher.ProductMenuItem href={globalThis.top?.location.href!} productId="agentBox" />
       </AppSwitcher.YourAppsMenuGroup>
     )
   },
