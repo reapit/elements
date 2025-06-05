@@ -1,0 +1,81 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders the provided logo, app name and supplementary info 1`] = `
+<DocumentFragment>
+  <a
+    aria-describedby=":r1:"
+    aria-labelledby=":r0:"
+    class="mocked-styled-0 el-app-switcher-menu-item-anchor"
+    href="https://www.test.com"
+    rel="noreferrer"
+    target="_blank"
+  >
+    <div
+      aria-hidden="true"
+      class="mocked-styled-1 el-app-switcher-menu-item-avatar"
+    >
+      <svg
+        fill="none"
+        font-size="40"
+        height="1em"
+        viewBox="0 0 40 40"
+        width="1em"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
+          fill="url(#paint0_linear_203_7948)"
+        />
+        <g
+          clip-path="url(#clip0_203_7948)"
+        >
+          <path
+            d="M8.11963 13.1456V26.8544L19.9909 33.7081L31.8629 26.8544V19.2783L30.2109 18.3242L27.4634 16.738L26.4043 16.1262L26.4029 20.8561L26.4015 25.586H25.1786H14.8018H13.5782V24.3631V17.3757V16.1521L16.7842 14.3013L18.9311 13.0623L19.9902 12.4505L23.1969 14.2887L25.3431 15.5186L26.4043 16.1262V14.9033V9.99423L19.9909 6.29193L8.11963 13.1456Z"
+            fill="white"
+          />
+        </g>
+        <defs>
+          <lineargradient
+            gradientUnits="userSpaceOnUse"
+            id="paint0_linear_203_7948"
+            x1="20.7019"
+            x2="20.7019"
+            y1="0.350877"
+            y2="31.2281"
+          >
+            <stop
+              stop-color="#5573FD"
+            />
+            <stop
+              offset="0.575"
+              stop-color="#4E56EA"
+            />
+          </lineargradient>
+          <clippath
+            id="clip0_203_7948"
+          >
+            <rect
+              fill="white"
+              height="28"
+              transform="translate(6 6)"
+              width="28"
+            />
+          </clippath>
+        </defs>
+      </svg>
+    </div>
+    <span
+      class="mocked-styled-2 el-app-switcher-menu-item-label"
+      id=":r0:"
+    >
+      Reapit PM
+    </span>
+    <span
+      class="mocked-styled-3 el-app-switcher-menu-item-supplementary-info"
+      id=":r1:"
+    >
+      Property Management
+    </span>
+  </a>
+</DocumentFragment>
+`;

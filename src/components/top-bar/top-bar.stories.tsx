@@ -1,4 +1,3 @@
-import { figmaDesignUrls } from '#src/storybook/figma/index'
 import type { Meta, StoryObj } from '@storybook/react'
 import { AvatarButton } from '../avatar-button'
 import { elIcon } from '../button'
@@ -13,54 +12,18 @@ import { ReapitLogo } from '../reapit-logo'
 import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
 import { TopBar } from './top-bar'
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
 import { elNewTopBarAppSwitcher, NavResponsiveAppSwitcher } from '../deprecated-nav'
 
-const viewports: typeof INITIAL_VIEWPORTS = {
-  superWideScreen: {
-    name: 'Super Wide Screen',
-    type: 'desktop',
-    styles: {
-      width: '1920px',
-      height: '1500px',
-    },
-  },
-  wideScreen: {
-    name: 'Wide Screen',
-    type: 'desktop',
-    styles: {
-      width: '1440px',
-      height: '900px',
-    },
-  },
-  desktop: {
-    name: 'Desktop',
-    type: 'desktop',
-    styles: {
-      width: '1024px',
-      height: '900px',
-    },
-  },
-  ipad11p: INITIAL_VIEWPORTS.ipad11p,
-  iphone14: INITIAL_VIEWPORTS.iphone14,
-}
-
 export default {
-  title: 'Components/Top bar',
+  title: 'Components/TopBar',
   component: TopBar,
-  parameters: {
-    viewport: { defaultViewport: 'responsive', viewports },
-  },
-} as Meta<typeof TopBar>
-
-type Story = StoryObj<typeof TopBar>
-
-export const Default: Story = {
-  // NOTE: this version is without `CSSContainerQuery` so the non react user doesn't see it in the docs
-  render: () => {
-    return (
-      <TopBar>
-        <TopBar.AppSwitcher>
+  argTypes: {
+    appSwitcher: {
+      control: 'radio',
+      options: ['None', 'Legacy App Switcher'],
+      mapping: {
+        None: null,
+        'Legacy App Switcher': (
           <NavResponsiveAppSwitcher
             className={elNewTopBarAppSwitcher}
             options={[
@@ -74,198 +37,119 @@ export const Default: Story = {
               },
             ]}
           />
-        </TopBar.AppSwitcher>
-        <TopBar.Logo href="/">
-          <ReapitLogo />
-        </TopBar.Logo>
-        <TopBar.MainNav>
-          <NavItem href="/">Button 1</NavItem>
-          <NavItem href="/">Button 2</NavItem>
-          <Menu>
-            <Menu.Trigger>
-              {({ getTriggerProps, isOpen }) => (
-                <NavDropdownButton {...getTriggerProps()} isOpen={isOpen}>
-                  More
-                </NavDropdownButton>
-              )}
-            </Menu.Trigger>
-            <Menu.Popover className={elTopBarMenuPopover}>
-              <Menu.List>
-                <Menu.Item href="/">Button 3</Menu.Item>
-                <Menu.Item href="/">Button 4</Menu.Item>
-                <Menu.Item href="/">Button 5</Menu.Item>
-              </Menu.List>
-            </Menu.Popover>
-          </Menu>
-        </TopBar.MainNav>
-        <TopBar.Search>
-          <NavSearchButton />
-        </TopBar.Search>
-
-        <TopBar.SecondaryNav>
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-        </TopBar.SecondaryNav>
-        <TopBar.MobileNav>
-          <NavIconItem aria-label="mobile secondary nav trigger" icon={<MenuIcon className={elIcon} />} />
-        </TopBar.MobileNav>
-
-        <TopBar.Profile>
+        ),
+      },
+    },
+    avatar: {
+      control: 'radio',
+      options: ['None', 'Avatar Menu'],
+      mapping: {
+        None: null,
+        'Avatar Menu': (
           <Menu data-alignment="right">
             <Menu.Trigger>
               {({ getTriggerProps, isOpen }) => <AvatarButton {...getTriggerProps()} isOpen={isOpen} label="AD" />}
             </Menu.Trigger>
             <Menu.Popover className={elTopBarMenuPopover}>
               <Menu.List>
-                <Menu.Item href="/">User menu 1</Menu.Item>
-                <Menu.Item href="/">User menu 2</Menu.Item>
-                <Menu.Item href="/">User menu 3</Menu.Item>
+                <Menu.Item label="User menu 1" />
+                <Menu.Item label="User menu 2" />
+                <Menu.Item label="User menu 3" />
               </Menu.List>
             </Menu.Popover>
           </Menu>
-        </TopBar.Profile>
-      </TopBar>
-    )
-  },
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.appBar,
-      allowFullscreen: true,
+        ),
+      },
     },
-  },
-}
-
-export const ResponsiveMainNav: Story = {
-  render: () => {
-    return (
-      <TopBar>
-        <TopBar.AppSwitcher>
-          <NavResponsiveAppSwitcher
-            className={elNewTopBarAppSwitcher}
-            options={[
-              {
-                text: 'AppMarket',
-                callback: console.log,
-              },
-              {
-                text: 'DevPortal',
-                callback: console.log,
-              },
-            ]}
-          />
-        </TopBar.AppSwitcher>
-        <TopBar.Logo href="/">
-          <ReapitLogo />
-        </TopBar.Logo>
-        <TopBar.MainNav>
-          <NavItem href="/">Button 1</NavItem>
-          <NavItem href="/">Button 2</NavItem>
-          <CSSContainerQuery condition={'(width < 1004px)'}>
-            <NavItem href="/">Button 3</NavItem>
-            <NavItem href="/">Button 4</NavItem>
-            <NavItem href="/">Button 5</NavItem>
-          </CSSContainerQuery>
-          <CSSContainerQuery condition={'not (width < 1005px)'}>
+    logo: {
+      control: false,
+    },
+    mainNav: {
+      control: 'radio',
+      options: ['None', 'Few', 'Many'],
+      mapping: {
+        None: null,
+        Few: (
+          <>
+            <NavItem>Button 1</NavItem>
+            <NavItem>Button 2</NavItem>
+          </>
+        ),
+        Many: (
+          <>
+            <NavItem>Button 1</NavItem>
+            <NavItem>Button 2</NavItem>
+            <CSSContainerQuery condition={'(width < 500px)'}>
+              <NavItem>Button 3</NavItem>
+              <NavItem>Button 4</NavItem>
+              <NavItem>Button 5</NavItem>
+            </CSSContainerQuery>
+            <CSSContainerQuery condition={'not (width < 500px)'}>
+              <Menu>
+                <Menu.Trigger>
+                  {({ getTriggerProps, isOpen }) => (
+                    <NavDropdownButton {...getTriggerProps()} isOpen={isOpen}>
+                      More
+                    </NavDropdownButton>
+                  )}
+                </Menu.Trigger>
+                <Menu.Popover className={elTopBarMenuPopover}>
+                  <Menu.List>
+                    <Menu.Item label="Button 3" />
+                    <Menu.Item label="Button 4" />
+                    <Menu.Item label="Button 5" />
+                  </Menu.List>
+                </Menu.Popover>
+              </Menu>
+            </CSSContainerQuery>
+          </>
+        ),
+      },
+    },
+    menu: {
+      control: false,
+    },
+    search: {
+      control: false,
+    },
+    secondaryNav: {
+      control: 'radio',
+      options: ['None', 'Some'],
+      mapping: {
+        None: null,
+        Some: (
+          <>
             <Menu>
               <Menu.Trigger>
-                {({ getTriggerProps, isOpen }) => (
-                  <NavDropdownButton {...getTriggerProps()} isOpen={isOpen}>
-                    More
-                  </NavDropdownButton>
-                )}
+                {({ getTriggerProps }) => <NavIconItem {...getTriggerProps()} icon={<Icon icon="star" />} />}
               </Menu.Trigger>
-              <Menu.Popover className={elTopBarMenuPopover}>
+              <Menu.Popover>
                 <Menu.List>
-                  <Menu.Item href="/">Button 3</Menu.Item>
-                  <Menu.Item href="/">Button 4</Menu.Item>
-                  <Menu.Item href="/">Button 5</Menu.Item>
+                  <Menu.Item label="Menu item 1" />
+                  <Menu.Item label="Menu item 2" />
+                  <Menu.Item label="Menu item 3" />
                 </Menu.List>
               </Menu.Popover>
             </Menu>
-          </CSSContainerQuery>
-        </TopBar.MainNav>
-        <TopBar.Search>
-          <NavSearchButton />
-        </TopBar.Search>
-
-        <TopBar.SecondaryNav>
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-        </TopBar.SecondaryNav>
-        <TopBar.MobileNav>
-          <NavIconItem aria-label="mobile secondary nav trigger" icon={<MenuIcon className={elIcon} />} />
-        </TopBar.MobileNav>
-
-        <TopBar.Profile>
-          <Menu data-alignment="right">
-            <Menu.Trigger>
-              {({ getTriggerProps, isOpen }) => <AvatarButton {...getTriggerProps()} isOpen={isOpen} label="AD" />}
-            </Menu.Trigger>
-            <Menu.Popover className={elTopBarMenuPopover}>
-              <Menu.List>
-                <Menu.Item href="/">User menu 1</Menu.Item>
-                <Menu.Item href="/">User menu 2</Menu.Item>
-                <Menu.Item href="/">User menu 3</Menu.Item>
-              </Menu.List>
-            </Menu.Popover>
-          </Menu>
-        </TopBar.Profile>
-      </TopBar>
-    )
-  },
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.appBar,
-      allowFullscreen: true,
+            <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
+            <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
+          </>
+        ),
+      },
     },
   },
-}
+} satisfies Meta<typeof TopBar>
 
-export const Mobile: Story = {
-  render: ResponsiveMainNav.render,
-  parameters: {
-    ...ResponsiveMainNav.parameters,
-    viewport: { defaultViewport: 'iphone14' },
-  },
-}
+type Story = StoryObj<typeof TopBar>
 
-export const Tablet: Story = {
-  render: ResponsiveMainNav.render,
-  parameters: {
-    ...ResponsiveMainNav.parameters,
-    viewport: { defaultViewport: 'ipad11p' },
-  },
-}
-export const Desktop: Story = {
-  render: ResponsiveMainNav.render,
-  parameters: {
-    ...ResponsiveMainNav.parameters,
-    viewport: {
-      defaultViewport: 'desktop',
-    },
-  },
-}
-
-export const WideScreen: Story = {
-  render: ResponsiveMainNav.render,
-  parameters: {
-    ...ResponsiveMainNav.parameters,
-    viewport: {
-      defaultViewport: 'wideScreen',
-    },
-  },
-}
-
-export const SuperWideScreen: Story = {
-  render: ResponsiveMainNav.render,
-  parameters: {
-    ...ResponsiveMainNav.parameters,
-    viewport: {
-      defaultViewport: 'superWideScreen',
-    },
+export const Example: Story = {
+  args: {
+    appSwitcher: 'Legacy App Switcher',
+    avatar: 'Avatar Menu',
+    logo: <ReapitLogo />,
+    mainNav: 'Many',
+    menu: <NavIconItem aria-label="mobile secondary nav trigger" icon={<MenuIcon className={elIcon} />} />,
+    search: <NavSearchButton onClick={() => void 0} />,
+    secondaryNav: 'Some',
   },
 }

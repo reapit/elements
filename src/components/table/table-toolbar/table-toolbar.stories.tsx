@@ -5,9 +5,10 @@ import { Button } from '#src/components/button/button'
 import { Icon } from '#src/components/icon/icon-component'
 import { Menu } from '#src/components/menu/menu'
 import { MenuPopover, MenuTrigger } from '#src/components/menu/menu-popover'
-import { MenuItem, MenuItemGroup, MenuList } from '#src/components/menu/menu.atoms'
+import { MenuItemGroup, MenuList } from '#src/components/menu/menu.atoms'
 import { ButtonGroup } from '#src/components/button-group/button-group'
 import { Skeleton } from '#src/components/skeleton/skeleton'
+import { MenuItem } from '../../menu/menu.molecules.js'
 
 const meta: Meta<typeof TableToolbar> = {
   title: 'Components/TableToolbar',
@@ -42,9 +43,9 @@ export const BasicUsage = {
           <MenuPopover>
             <MenuList>
               <MenuItemGroup>
-                <MenuItem>25</MenuItem>
-                <MenuItem>50</MenuItem>
-                <MenuItem>100</MenuItem>
+                <MenuItem label="25" />
+                <MenuItem label="50" />
+                <MenuItem label="100" />
               </MenuItemGroup>
             </MenuList>
           </MenuPopover>
@@ -76,9 +77,9 @@ export const WithBulkActions = {
             <MenuPopover>
               <MenuList>
                 <MenuItemGroup>
-                  <MenuItem>25</MenuItem>
-                  <MenuItem>50</MenuItem>
-                  <MenuItem>100</MenuItem>
+                  <MenuItem label="25" />
+                  <MenuItem label="50" />
+                  <MenuItem label="100" />
                 </MenuItemGroup>
               </MenuList>
             </MenuPopover>
@@ -115,9 +116,9 @@ export const ToolbarSkeleton = {
           <MenuPopover>
             <MenuList>
               <MenuItemGroup>
-                <MenuItem>25</MenuItem>
-                <MenuItem>50</MenuItem>
-                <MenuItem>100</MenuItem>
+                <MenuItem label="25" />
+                <MenuItem label="50" />
+                <MenuItem label="100" />
               </MenuItemGroup>
             </MenuList>
           </MenuPopover>

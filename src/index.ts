@@ -69,6 +69,7 @@ export * from './components/features'
 export * from './components/badge'
 export * from './components/checkbox'
 export * from './components/checkbox-group'
+export * from './components/avatar-rectangle'
 
 export * from './hooks/use-portal'
 export * from './hooks/use-snack'
@@ -105,5 +106,3 @@ export * from './components/avatar-button'
 export * from './components/container-query/container-query'
 
 export * from './components/side-bar'
-export * from './components/side-bar-menu-item'
-export * from './components/side-bar-menu-group'

@@ -12,13 +12,12 @@ export const ElAvatarButton = styled.button`
     outline: none;
 
     ${ElAvatar} {
-      box-shadow:
-        0px 0px 0px 1px #fff,
-        0px 0px 0px 4px var(--purple-300);
+      outline: var(--border-width-double) solid var(--colour-border-focus);
+      outline-offset: 1px;
     }
   }
 
   &:hover ${ElAvatar} {
-    background: var(--fill-action-light);
+    background: var(--comp-navigation-colour-fill-avatar_button-hover);
   }
 `

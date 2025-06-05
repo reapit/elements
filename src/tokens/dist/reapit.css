@@ -257,10 +257,10 @@
   --size-144: 576px; /* Used for sizing shapes except icons. For icons use icon sizes */
   --size-160: 640px; /* Used for sizing shapes except icons. For icons use icon sizes */
   --size-176: 704px; /* Used for sizing shapes except icons. For icons use icon sizes */
+  --size-192: 768px; /* Used for sizing shapes except icons. For icons use icon sizes */
   --size-none: 0px; /* Used for sizing shapes except icons. For icons use icon sizes */
   --size-px: 1px; /* Used for sizing shapes except icons. For icons use icon sizes */
   --size-half: 2px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-size-192: 768px; /* Used for sizing shapes except icons. For icons use icon sizes */
   --spacing-1: 4px;
   --spacing-2: 8px;
   --spacing-3: 12px;
@@ -281,6 +281,74 @@
   --spacing-40: 160px;
   --spacing-none: 0px;
   --spacing-half: 2px;
+  --comp-navigation-colour-text-nav_search-placeholder: #9faebc;
+  --comp-navigation-colour-text-nav_search-shortcut: #9faebc;
+  --comp-navigation-colour-text-notification_badge: #ffffff;
+  --comp-navigation-colour-text-nav_item-default: #607890;
+  --comp-navigation-colour-text-nav_item-select: #4e56ea;
+  --comp-navigation-colour-text-avatar_button-default: #4e56ea;
+  --comp-navigation-colour-text-avatar_button-hover: #4e56ea;
+  --comp-navigation-colour-text-sidebar-default: #506478;
+  --comp-navigation-colour-text-sidebar-select: #4e56ea;
+  --comp-navigation-colour-text-bottom_bar-default: #506478;
+  --comp-navigation-colour-text-bottom_bar-select: #4e56ea;
+  --comp-navigation-colour-text-mobile_nav-default: #222b33;
+  --comp-navigation-colour-text-mobile_nav-select: #4e56ea;
+  --comp-navigation-colour-text-app_switcher-label: #222b33;
+  --comp-navigation-colour-text-app_switcher-secondary_info: #607890;
+  --comp-navigation-colour-text-app_switcher-avatar: #ffffff;
+  --comp-navigation-colour-border-top_bar: #e5e9ed;
+  --comp-navigation-colour-border-mobile_nav: #e5e9ed;
+  --comp-navigation-colour-border-bottom_bar: #e5e9ed;
+  --comp-navigation-colour-border-notification_badge: #ffffff;
+  --comp-navigation-colour-icon-nav_search: #9faebc;
+  --comp-navigation-colour-icon-app_switcher: #9faebc;
+  --comp-navigation-colour-icon-mobile_nav: #9faebc;
+  --comp-navigation-colour-icon-menu_button: #9faebc;
+  --comp-navigation-colour-icon-nav_button-default: #9faebc;
+  --comp-navigation-colour-icon-nav_button-hover: #9faebc;
+  --comp-navigation-colour-icon-nav_icon-default: #798da1;
+  --comp-navigation-colour-icon-nav_icon-hover: #9faebc;
+  --comp-navigation-colour-icon-nav_icon-select: #4e56ea;
+  --comp-navigation-colour-icon-sidebar-default: #798da1;
+  --comp-navigation-colour-icon-sidebar-select: #4e56ea;
+  --comp-navigation-colour-icon-bottom_bar-default: #798da1;
+  --comp-navigation-colour-icon-bottom_bar-select: #4e56ea;
+  --comp-navigation-colour-fill-top_bar: #ffffff;
+  --comp-navigation-colour-fill-notification_badge: #f01830;
+  --comp-navigation-colour-fill-nav_search-default: #f2f4f6;
+  --comp-navigation-colour-fill-nav_search-hover: #e5e9ed;
+  --comp-navigation-colour-fill-nav_item-default: #ffffff;
+  --comp-navigation-colour-fill-nav_item-hover: #f2f4f6;
+  --comp-navigation-colour-fill-nav_item-select: #f2f4f6;
+  --comp-navigation-colour-fill-nav_icon-default: #ffffff;
+  --comp-navigation-colour-fill-nav_icon-hover: #f2f4f6;
+  --comp-navigation-colour-fill-nav_icon-select: #f2f4f6;
+  --comp-navigation-colour-fill-avatar_button-default: #ecf3ff;
+  --comp-navigation-colour-fill-avatar_button-hover: #d6e1ff;
+  --comp-navigation-colour-fill-sidebar-hover: #e5e9ed;
+  --comp-navigation-colour-fill-sidebar-default: #ffffff;
+  --comp-navigation-colour-fill-sidebar-select: #f2f4f6;
+  --comp-navigation-colour-fill-mobile_nav-default: #ffffff;
+  --comp-navigation-colour-fill-mobile_nav-hover: #e5e9ed;
+  --comp-navigation-colour-fill-mobile_nav-expanded: #f2f4f6;
+  --comp-navigation-colour-fill-app_switcher-default: #f2f4f6;
+  --comp-navigation-colour-fill-app_switcher-hover: #e5e9ed;
+  --comp-navigation-colour-fill-app_switcher-avatar: #4e56ea;
+  --comp-navigation-colour-fill-bottom_bar: #ffffff;
+  --comp-navigation-border-radius-none: 0px;
+  --comp-navigation-border-radius-nav_item-desktop: 4px;
+  --comp-navigation-border-radius-nav_item-mobile: 8px;
+  --comp-navigation-border-radius-nav_icon: 4px;
+  --comp-navigation-border-radius-menu_item: 8px;
+  --comp-navigation-border-radius-submenu_item: 4px;
+  --comp-navigation-border-radius-nav_search: 4px;
+  --comp-navigation-border-radius-avatar_button: 24px;
+  --comp-navigation-border-radius-notification_badge: 24px;
+  --comp-navigation-border-width-top_bar: 1px;
+  --comp-navigation-border-width-bottom_bar: 1px;
+  --comp-navigation-border-width-none: 0px;
+  --comp-navigation-border-width-notification_badge: 2px;
   --comp-button-colour-text-primary-default: #ffffff;
   --comp-button-colour-text-primary-hover: #ffffff;
   --comp-button-colour-text-primary-disabled: #9faebc;
@@ -483,7 +551,7 @@
   --comp-menu-colour-text-disabled-action: #4e56ea;
   --comp-menu-colour-fill-background: #ffffff;
   --comp-menu-colour-fill-default: #ffffff;
-  --comp-menu-colour-fill-hover: #e5e9ed;
+  --comp-menu-colour-fill-hover: #f2f4f6;
   --comp-menu-colour-fill-highlighted: #f2f4f6;
   --comp-menu-colour-fill-disabled: #ffffff;
   --comp-menu-colour-icon-default-left: #9faebc;
@@ -650,4 +718,29 @@
   --comp-upload_item-colour-border-progress_bar: #4e56ea;
   --comp-upload_item-border-width: 1px;
   --comp-upload_item-border-radius: 4px;
+  --comp-interactive_chip-colour-text-default-selected: #ffffff;
+  --comp-interactive_chip-colour-text-default-unselected: #415161;
+  --comp-interactive_chip-colour-text-hover-selected: #ffffff;
+  --comp-interactive_chip-colour-text-hover-unselected: #222b33;
+  --comp-interactive_chip-colour-text-disabled-unselectedd: #9faebc;
+  --comp-interactive_chip-colour-text-disabled-selected: #ffffff80;
+  --comp-interactive_chip-colour-text-info-helper: #607890;
+  --comp-interactive_chip-colour-text-info-error: #f01830;
+  --comp-interactive_chip-colour-fill-default-selected: #222b33;
+  --comp-interactive_chip-colour-fill-default-unselected: #ffffff;
+  --comp-interactive_chip-colour-fill-hover-selected: #415161;
+  --comp-interactive_chip-colour-fill-hover-unselected: #f2f4f6;
+  --comp-interactive_chip-colour-fill-disabled-selected: #9faebc;
+  --comp-interactive_chip-colour-fill-disabled-unselected: #e5e9ed;
+  --comp-interactive_chip-colour-icon-default-selected: #ffffff;
+  --comp-interactive_chip-colour-icon-default-unselected: #9faebc;
+  --comp-interactive_chip-colour-icon-hover-selected: #ffffff;
+  --comp-interactive_chip-colour-icon-hover-unselected: #607890;
+  --comp-interactive_chip-colour-icon-disabled-selected: #ffffff80;
+  --comp-interactive_chip-colour-icon-disabled-unselected: #9faebc;
+  --comp-interactive_chip-colour-icon-disabled-light_default: #e5e9ed;
+  --comp-interactive_chip-colour-border-default: #e5e9ed;
+  --comp-interactive_chip-colour-border-hover: #9faebc;
+  --comp-interactive_chip-border-radius: 24px;
+  --comp-interactive_chip-border-width: 1px;
 }

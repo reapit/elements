@@ -1165,6 +1165,11 @@
       "$value": "{unit-176}",
       "$description": "Used for sizing shapes except icons. For icons use icon sizes"
     },
+    "192": {
+      "$type": "dimension",
+      "$value": "{unit-192}",
+      "$description": "Used for sizing shapes except icons. For icons use icon sizes"
+    },
     "none": {
       "$type": "dimension",
       "$value": "{unit-0}",
@@ -1178,11 +1183,6 @@
     "half": {
       "$type": "dimension",
       "$value": "{unit-half}",
-      "$description": "Used for sizing shapes except icons. For icons use icon sizes"
-    },
-    "size-192": {
-      "$type": "dimension",
-      "$value": "{unit-192}",
       "$description": "Used for sizing shapes except icons. For icons use icon sizes"
     }
   },
@@ -1269,6 +1269,334 @@
     }
   },
   "comp": {
+    "navigation": {
+      "colour": {
+        "text": {
+          "nav_search": {
+            "placeholder": {
+              "$type": "color",
+              "$value": "{neutral-300}"
+            },
+            "shortcut": {
+              "$type": "color",
+              "$value": "{neutral-300}"
+            }
+          },
+          "notification_badge": {
+            "$type": "color",
+            "$value": "{white-900}"
+          },
+          "nav_item": {
+            "default": {
+              "$type": "color",
+              "$value": "{neutral-500}"
+            },
+            "select": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            }
+          },
+          "avatar_button": {
+            "default": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            }
+          },
+          "sidebar": {
+            "default": {
+              "$type": "color",
+              "$value": "{neutral-600}"
+            },
+            "select": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            }
+          },
+          "bottom_bar": {
+            "default": {
+              "$type": "color",
+              "$value": "{neutral-600}"
+            },
+            "select": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            }
+          },
+          "mobile_nav": {
+            "default": {
+              "$type": "color",
+              "$value": "{neutral-900}"
+            },
+            "select": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            }
+          },
+          "app_switcher": {
+            "label": {
+              "$type": "color",
+              "$value": "{neutral-900}"
+            },
+            "secondary_info": {
+              "$type": "color",
+              "$value": "{neutral-500}"
+            },
+            "avatar": {
+              "$type": "color",
+              "$value": "{white-900}"
+            }
+          }
+        },
+        "border": {
+          "top_bar": {
+            "$type": "color",
+            "$value": "{neutral-100}"
+          },
+          "mobile_nav": {
+            "$type": "color",
+            "$value": "{neutral-100}"
+          },
+          "bottom_bar": {
+            "$type": "color",
+            "$value": "{neutral-100}"
+          },
+          "notification_badge": {
+            "$type": "color",
+            "$value": "{white-900}"
+          }
+        },
+        "icon": {
+          "nav_search": {
+            "$type": "color",
+            "$value": "{neutral-300}"
+          },
+          "app_switcher": {
+            "$type": "color",
+            "$value": "{neutral-300}"
+          },
+          "mobile_nav": {
+            "$type": "color",
+            "$value": "{neutral-300}"
+          },
+          "menu_button": {
+            "$type": "color",
+            "$value": "{neutral-300}"
+          },
+          "nav_button": {
+            "default": {
+              "$type": "color",
+              "$value": "{neutral-300}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{neutral-300}"
+            }
+          },
+          "nav_icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{neutral-400}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{neutral-300}"
+            },
+            "select": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            }
+          },
+          "sidebar": {
+            "default": {
+              "$type": "color",
+              "$value": "{neutral-400}"
+            },
+            "select": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            }
+          },
+          "bottom_bar": {
+            "default": {
+              "$type": "color",
+              "$value": "{neutral-400}"
+            },
+            "select": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            }
+          }
+        },
+        "fill": {
+          "top_bar": {
+            "$type": "color",
+            "$value": "{white-900}"
+          },
+          "notification_badge": {
+            "$type": "color",
+            "$value": "{red-500}"
+          },
+          "nav_search": {
+            "default": {
+              "$type": "color",
+              "$value": "{neutral-050}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{neutral-100}"
+            }
+          },
+          "nav_item": {
+            "default": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{neutral-050}"
+            },
+            "select": {
+              "$type": "color",
+              "$value": "{neutral-050}"
+            }
+          },
+          "nav_icon": {
+            "default": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{neutral-050}"
+            },
+            "select": {
+              "$type": "color",
+              "$value": "{neutral-050}"
+            }
+          },
+          "avatar_button": {
+            "default": {
+              "$type": "color",
+              "$value": "{purple-050}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{purple-100}"
+            }
+          },
+          "sidebar": {
+            "hover": {
+              "$type": "color",
+              "$value": "{neutral-100}"
+            },
+            "default": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "select": {
+              "$type": "color",
+              "$value": "{neutral-050}"
+            }
+          },
+          "mobile_nav": {
+            "default": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{neutral-100}"
+            },
+            "expanded": {
+              "$type": "color",
+              "$value": "{neutral-050}"
+            }
+          },
+          "app_switcher": {
+            "default": {
+              "$type": "color",
+              "$value": "{neutral-050}"
+            },
+            "hover": {
+              "$type": "color",
+              "$value": "{neutral-100}"
+            },
+            "avatar": {
+              "$type": "color",
+              "$value": "{purple-500}"
+            }
+          },
+          "bottom_bar": {
+            "$type": "color",
+            "$value": "{white-900}"
+          }
+        }
+      },
+      "border": {
+        "radius": {
+          "none": {
+            "$type": "dimension",
+            "$value": "{unit-0}"
+          },
+          "nav_item": {
+            "desktop": {
+              "$type": "dimension",
+              "$value": "{unit-1}"
+            },
+            "mobile": {
+              "$type": "dimension",
+              "$value": "{unit-2}"
+            }
+          },
+          "nav_icon": {
+            "$type": "dimension",
+            "$value": "{unit-1}"
+          },
+          "menu_item": {
+            "$type": "dimension",
+            "$value": "{unit-2}"
+          },
+          "submenu_item": {
+            "$type": "dimension",
+            "$value": "{unit-1}"
+          },
+          "nav_search": {
+            "$type": "dimension",
+            "$value": "{unit-1}"
+          },
+          "avatar_button": {
+            "$type": "dimension",
+            "$value": "{unit-6}"
+          },
+          "notification_badge": {
+            "$type": "dimension",
+            "$value": "{unit-6}"
+          }
+        },
+        "width": {
+          "top_bar": {
+            "$type": "dimension",
+            "$value": "{unit-px}"
+          },
+          "bottom_bar": {
+            "$type": "dimension",
+            "$value": "{unit-px}"
+          },
+          "none": {
+            "$type": "dimension",
+            "$value": "{unit-0}"
+          },
+          "notification_badge": {
+            "$type": "dimension",
+            "$value": "{unit-half}"
+          }
+        }
+      }
+    },
     "button": {
       "colour": {
         "text": {
@@ -2284,7 +2612,7 @@
           },
           "hover": {
             "$type": "color",
-            "$value": "{neutral-100}"
+            "$value": "{neutral-050}"
           },
           "highlighted": {
             "$type": "color",
@@ -3150,6 +3478,140 @@
         "radius": {
           "$type": "dimension",
           "$value": "{unit-1}"
+        }
+      }
+    },
+    "interactive_chip": {
+      "colour": {
+        "text": {
+          "default": {
+            "selected": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "unselected": {
+              "$type": "color",
+              "$value": "{neutral-700}"
+            }
+          },
+          "hover": {
+            "selected": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "unselected": {
+              "$type": "color",
+              "$value": "{neutral-900}"
+            }
+          },
+          "disabled": {
+            "unselectedd": {
+              "$type": "color",
+              "$value": "{neutral-300}"
+            },
+            "selected": {
+              "$type": "color",
+              "$value": "{white-400}"
+            }
+          },
+          "info": {
+            "helper": {
+              "$type": "color",
+              "$value": "{neutral-500}"
+            },
+            "error": {
+              "$type": "color",
+              "$value": "{red-500}"
+            }
+          }
+        },
+        "fill": {
+          "default": {
+            "selected": {
+              "$type": "color",
+              "$value": "{neutral-900}"
+            },
+            "unselected": {
+              "$type": "color",
+              "$value": "{white-900}"
+            }
+          },
+          "hover": {
+            "selected": {
+              "$type": "color",
+              "$value": "{neutral-700}"
+            },
+            "unselected": {
+              "$type": "color",
+              "$value": "{neutral-050}"
+            }
+          },
+          "disabled": {
+            "selected": {
+              "$type": "color",
+              "$value": "{neutral-300}"
+            },
+            "unselected": {
+              "$type": "color",
+              "$value": "{neutral-100}"
+            }
+          }
+        },
+        "icon": {
+          "default": {
+            "selected": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "unselected": {
+              "$type": "color",
+              "$value": "{neutral-300}"
+            }
+          },
+          "hover": {
+            "selected": {
+              "$type": "color",
+              "$value": "{white-900}"
+            },
+            "unselected": {
+              "$type": "color",
+              "$value": "{neutral-500}"
+            }
+          },
+          "disabled": {
+            "selected": {
+              "$type": "color",
+              "$value": "{white-400}"
+            },
+            "unselected": {
+              "$type": "color",
+              "$value": "{neutral-300}"
+            },
+            "light_default": {
+              "$type": "color",
+              "$value": "{neutral-100}"
+            }
+          }
+        },
+        "border": {
+          "default": {
+            "$type": "color",
+            "$value": "{neutral-100}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{neutral-300}"
+          }
+        }
+      },
+      "border": {
+        "radius": {
+          "$type": "dimension",
+          "$value": "{unit-6}"
+        },
+        "width": {
+          "$type": "dimension",
+          "$value": "{unit-px}"
         }
       }
     }
