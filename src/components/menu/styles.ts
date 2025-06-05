@@ -21,6 +21,19 @@ export const ElMenu = styled.div`
   }
 `
 
+export const ElMenuItemSupplementaryInfo = styled.span`
+  color: var(--comp-menu-colour-text-hover-secondary);
+  font-family: var(--font-xs-regular-family);
+  font-size: var(--font-xs-regular-size);
+  font-weight: var(--font-xs-regular-weight);
+  line-height: var(--font-xs-regular-line_height);
+  letter-spacing: var(--font-xs-regular-letter_spacing);
+`
+
+export const ElMenuItemLabelContainer = styled.span`
+  text-align: left;
+`
+
 export const ElMenuItemLabel = styled.span`
   font-family: var(--font-sm-regular-family);
   font-size: var(--font-sm-regular-size);
@@ -29,6 +42,7 @@ export const ElMenuItemLabel = styled.span`
   letter-spacing: var(--font-sm-regular-letter_spacing);
   text-align: left;
   white-space: nowrap;
+  margin-right: var(--spacing-2);
 `
 
 export const ElMenuList = styled.div`
@@ -37,6 +51,7 @@ export const ElMenuList = styled.div`
   border-radius: var(--corner-default);
   background-color: var(--fill-white);
   box-shadow: 0px 4px 16px 0px #222b3329;
+  overflow: auto;
 
   &[data-has-max-width='true'] {
     ${ElMenuItemLabel} {
@@ -157,8 +172,11 @@ export const ElMenuItemGroupTitle = styled.div`
   align-items: center;
   align-self: stretch;
 `
-export const ElMenuItemGroup = styled.div`
+export const ElMenuItemGroup = styled.div``
+
+export const ElMenuItemGroupList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow: auto;
 `
