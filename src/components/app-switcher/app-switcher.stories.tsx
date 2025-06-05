@@ -27,8 +27,8 @@ const href = globalThis.top?.location.href!
  *
  * Instead, there are two utility functions, `getDisplayableProductsForYourAppsGroup` and
  * `getDisplayableProductsForExploreGroup`, that can be used to obtain the list of product IDs for each group based
- * on the those the currently logged-in user has access to, according to Reapit Connect. A practical exmaple of how
- * to do this is shown in the "All Accessible" and "None Accessible" stories below.
+ * on the currently logged-in user has access to, according to Reapit Connect. A practical exmaple of how to do this
+ * is shown in the "All Accessible" and "None Accessible" stories below.
  */
 export const Example: Story = {
   args: {
