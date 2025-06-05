@@ -1,4 +1,5 @@
 import { useLayoutEffect, useRef } from 'react'
+import { shouldBeOpen } from './should-be-open'
 
 import type { RefObject } from 'react'
 import type { SideBarState } from '../use-side-bar'
@@ -20,14 +21,22 @@ export function useSideBarMenuGroupController(sideBarState: SideBarState): RefOb
       } else {
         // If the sidebar is expanded, and an element representing the current page is within this menu group, we
         // want the group to be open.
-        if (hasCurrentPageElement(ref.current)) {
+        if (shouldBeOpen(ref.current)) {
           ref.current.open = true
         }
 
+        // We want to observe changes to the `data-is-active` attribute of the menu group itself so we can
+        // update the group's open state as appropriate.
+        const dataIsActiveObserver = createDataIsActiveObserver(ref.current)
+
         // We also want to observe changes to the `aria-current` attribute of the menu group's descendants so we
-        // can update the group's open state as appropriate.
-        const observer = createAriaCurrentObserver(ref.current)
-        return () => observer.disconnect()
+        // can update the group's open state when it changes.
+        const ariaCurrentObserver = createAriaCurrentObserver(ref.current)
+
+        return () => {
+          ariaCurrentObserver.disconnect()
+          dataIsActiveObserver.disconnect()
+        }
       }
     },
     [sideBarState],
@@ -37,15 +46,31 @@ export function useSideBarMenuGroupController(sideBarState: SideBarState): RefOb
 }
 
 /**
- * Creates a MutationObserver that listens for changes to the `aria-current` attribute within the given details element.
- * and updates the open state of that details element based on the presence of a descenant that represents the current
- * page (i.e. an element with `aria-current="page"`).
+ * Creates a MutationObserver that listens for changes to the `data-is-active` attribute on the given details element
+ * and updates the open state of that details element.
+ */
+function createDataIsActiveObserver(detailsElement: HTMLDetailsElement): MutationObserver {
+  const observer = new MutationObserver(() => {
+    // When we observe changes to the `aria-current` attribute, we want to open or close the menu element.
+    detailsElement.open = shouldBeOpen(detailsElement)
+  })
+
+  // We want to observe changes to the details element's subtree, but only changes to the `data-is-active` attribute.
+  observer.observe(detailsElement, {
+    attributeFilter: ['data-is-active'],
+  })
+
+  return observer
+}
+
+/**
+ * Creates a MutationObserver that listens for changes to the `aria-current` attribute within the given details element
+ * and updates the open state of that details element.
  */
 function createAriaCurrentObserver(detailsElement: HTMLDetailsElement): MutationObserver {
   const observer = new MutationObserver(() => {
-    // When we observe changes to the `aria-current` attribute, we want to open or close the menu element
-    // based on whether it contains an element with `aria-current="page"`.
-    detailsElement.open = hasCurrentPageElement(detailsElement)
+    // When we observe changes to the `aria-current` attribute, we want to open or close the menu element.
+    detailsElement.open = shouldBeOpen(detailsElement)
   })
 
   // We want to observe changes to the details element's subtree, but only changes to the `aria-current` attribute.
@@ -55,9 +80,4 @@ function createAriaCurrentObserver(detailsElement: HTMLDetailsElement): Mutation
   })
 
   return observer
-}
-
-/** Returns true if a descendant represents the current page  */
-function hasCurrentPageElement(detailsElement: HTMLDetailsElement): boolean {
-  return !!detailsElement.querySelector('[aria-current="page"]')
 }

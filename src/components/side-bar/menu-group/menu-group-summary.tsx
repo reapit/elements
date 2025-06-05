@@ -7,12 +7,12 @@ import {
   ElSideBarMenuGroupSummaryDropdownIcon,
 } from './styles'
 import { elSideBarMenuItem } from '../menu-item'
-import { elSideBarSubmenuItem } from '../submenu-item'
 import { Icon } from '../../icon'
 import { useCallback } from 'react'
 import { useSideBarMenuGroupLabelIdContext } from './menu-group-label-id-context'
 
 import type { HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import { shouldBeOpen } from './should-be-open'
 
 interface SideBarMenuGroupSummaryProps extends HTMLAttributes<HTMLElement> {
   /**
@@ -52,9 +52,8 @@ export function SideBarMenuGroupSummary({
       onClick?.(event)
 
       const detailsElement = event.currentTarget.closest(`details.${elSideBarMenuGroup}`)
-      const hasCurrentPageElement = !!detailsElement?.querySelector(`.${elSideBarSubmenuItem}[aria-current="page"]`)
 
-      if (hasCurrentPageElement) {
+      if (detailsElement instanceof HTMLDetailsElement && shouldBeOpen(detailsElement)) {
         event.preventDefault()
       }
     },
