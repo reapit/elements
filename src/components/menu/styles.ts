@@ -51,6 +51,7 @@ export const ElMenuList = styled.div`
   border-radius: var(--corner-default);
   background-color: var(--fill-white);
   box-shadow: 0px 4px 16px 0px #222b3329;
+  overflow: auto;
 
   &[data-has-max-width='true'] {
     ${ElMenuItemLabel} {
@@ -171,8 +172,11 @@ export const ElMenuItemGroupTitle = styled.div`
   align-items: center;
   align-self: stretch;
 `
-export const ElMenuItemGroup = styled.div`
+export const ElMenuItemGroup = styled.div``
+
+export const ElMenuItemGroupList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow: auto;
 `

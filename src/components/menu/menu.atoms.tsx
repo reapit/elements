@@ -6,7 +6,15 @@ import type {
   MouseEventHandler,
   ReactNode,
 } from 'react'
-import { ElMenuItemAnchor, ElMenuItemButton, ElMenuItemGroup, ElMenuItemGroupTitle, ElMenuList } from './styles'
+import {
+  ElMenuItemAnchor,
+  ElMenuItemButton,
+  ElMenuItemGroup,
+  ElMenuItemGroupList,
+  ElMenuItemGroupTitle,
+  ElMenuList,
+} from './styles'
+import type { sizeType } from '../../types/core'
 
 interface CommonMenuItemProps {
   children?: ReactNode
@@ -41,7 +49,8 @@ interface MenuItemAsAnchorElementProps extends CommonMenuItemProps, AnchorHTMLAt
 export type MenuItemContainerProps = MenuItemAsButtonElementProps | MenuItemAsAnchorElementProps
 
 export interface MenuListProps extends HTMLAttributes<HTMLDivElement> {
-  maxWidth?: `--size-${string}`
+  maxWidth?: sizeType
+  maxHeight?: sizeType
 }
 
 /**
@@ -51,12 +60,13 @@ export interface MenuListProps extends HTMLAttributes<HTMLDivElement> {
 export const MenuItemGroup: FC<
   HTMLAttributes<HTMLDivElement> & {
     label?: string
+    maxHeight?: sizeType
   }
-> = ({ children, label, ...rest }) => {
+> = ({ children, label, maxHeight, ...rest }) => {
   return (
     <ElMenuItemGroup {...rest} role="group">
       {!!label && <ElMenuItemGroupTitle>{label}</ElMenuItemGroupTitle>}
-      {children}
+      <ElMenuItemGroupList style={{ ...rest?.style, maxHeight: `var(${maxHeight})` }}>{children}</ElMenuItemGroupList>
     </ElMenuItemGroup>
   )
 }
@@ -96,10 +106,10 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
   )
 }
 
-export const MenuList: FC<MenuListProps> = ({ children, maxWidth, ...rest }) => (
+export const MenuList: FC<MenuListProps> = ({ children, maxWidth, maxHeight, ...rest }) => (
   <ElMenuList
     {...rest}
-    style={{ ...rest?.style, maxWidth: `var(${maxWidth}, auto)` }}
+    style={{ ...rest?.style, maxWidth: `var(${maxWidth})`, maxHeight: `var(${maxHeight})` }}
     data-has-max-width={!!maxWidth}
     role="menu"
   >

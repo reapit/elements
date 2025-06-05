@@ -1,15 +1,25 @@
 import { render } from '@testing-library/react'
-import { AppSwitcher } from '../../app-switcher'
 import { AppSwitcherYourAppsMenuGroup } from '../your-apps-menu-group'
+import { AppSwitcherMenuGroupHasAccessContext } from '../../menu-group-has-access-context'
 
-const sampleUrl = 'https://www.test.com'
 test('renders AppSwitcherYourAppsMenuGroup properly', () => {
-  const { asFragment } = render(
+  const { asFragment } = render(<AppSwitcherYourAppsMenuGroup>Fake child</AppSwitcherYourAppsMenuGroup>)
+  expect(asFragment()).toMatchSnapshot()
+})
+
+test('provides an `AppSwitcherMenuGroupHasAccessContext` value of `true`', () => {
+  let hasAccess: boolean | undefined
+
+  render(
     <AppSwitcherYourAppsMenuGroup>
-      <AppSwitcher.ReapitPMMenuItem url={sampleUrl} />
-      <AppSwitcher.ReapitSalesMenuItem url={sampleUrl} />
-      <AppSwitcher.KeyWhereMenuItem url={sampleUrl} />
+      <AppSwitcherMenuGroupHasAccessContext.Consumer>
+        {(value) => {
+          hasAccess = value
+          return null
+        }}
+      </AppSwitcherMenuGroupHasAccessContext.Consumer>
     </AppSwitcherYourAppsMenuGroup>,
   )
-  expect(asFragment()).toMatchSnapshot()
+
+  expect(hasAccess).toBe(true)
 })

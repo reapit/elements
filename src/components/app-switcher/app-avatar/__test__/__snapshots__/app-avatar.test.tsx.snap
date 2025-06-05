@@ -1,5 +1,122 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`renders agentBox icon when \`hasAccess\` is false 1`] = `
+<DocumentFragment>
+  <svg
+    fill="none"
+    font-size="40"
+    height="1em"
+    viewBox="0 0 40 40"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
+      fill="url(#paint0_linear_681_1707)"
+    />
+    <g
+      clip-path="url(#clip0_681_1707)"
+    >
+      <path
+        d="M10.5934 6.28003V9.98303H25.3403V29.1294H29.3891V6.28003H10.5934Z"
+        fill="white"
+      />
+      <path
+        d="M20.9394 33.72V13.9604L10.5934 9.98303L10.5934 29.7461L20.9394 33.72Z"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="paint0_linear_681_1707"
+        x1="20.7019"
+        x2="20.7019"
+        y1="0.350877"
+        y2="31.2281"
+      >
+        <stop
+          offset="0.075"
+          stop-color="#798DA1"
+        />
+        <stop
+          offset="0.575"
+          stop-color="#607890"
+        />
+      </lineargradient>
+      <clippath
+        id="clip0_681_1707"
+      >
+        <rect
+          fill="white"
+          height="28"
+          transform="translate(6 6)"
+          width="28"
+        />
+      </clippath>
+    </defs>
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`renders agentBox icon when \`hasAccess\` is true 1`] = `
+<DocumentFragment>
+  <svg
+    fill="none"
+    font-size="40"
+    height="1em"
+    viewBox="0 0 40 40"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
+      fill="url(#paint0_linear_681_72)"
+    />
+    <g
+      clip-path="url(#clip0_681_72)"
+    >
+      <path
+        d="M10.5934 6.28003V9.98303H25.3403V29.1294H29.3891V6.28003H10.5934Z"
+        fill="white"
+      />
+      <path
+        d="M20.9394 33.72V13.9604L10.5934 9.98303L10.5934 29.7461L20.9394 33.72Z"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="paint0_linear_681_72"
+        x1="20.7019"
+        x2="20.7019"
+        y1="0.350877"
+        y2="31.2281"
+      >
+        <stop
+          stop-color="#5573FD"
+        />
+        <stop
+          offset="0.575"
+          stop-color="#4E56EA"
+        />
+      </lineargradient>
+      <clippath
+        id="clip0_681_72"
+      >
+        <rect
+          fill="white"
+          height="28"
+          transform="translate(6 6)"
+          width="28"
+        />
+      </clippath>
+    </defs>
+  </svg>
+</DocumentFragment>
+`;
+
 exports[`renders autoResponder icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
@@ -52,7 +169,197 @@ exports[`renders autoResponder icon when \`hasAccess\` is true 1`] = `
 </DocumentFragment>
 `;
 
-exports[`renders keyWhere icon when \`hasAccess\` is false 1`] = `
+exports[`renders consoleCloud icon when \`hasAccess\` is false 1`] = `
+<DocumentFragment>
+  <svg
+    fill="none"
+    font-size="40"
+    height="1em"
+    viewBox="0 0 40 40"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
+      fill="url(#paint0_linear_681_3376)"
+    />
+    <g
+      clip-path="url(#clip0_681_3376)"
+    >
+      <path
+        d="M8.11975 13.1456V26.8544L19.9911 33.7081L31.8631 26.8544V19.2783L30.2111 18.3242L27.4636 16.738L26.4045 16.1262L26.4031 20.8561L26.4017 25.586H25.1788H14.802H13.5784V24.3631V17.3757V16.1521L16.7844 14.3013L18.9313 13.0623L19.9904 12.4505L23.1971 14.2887L25.3433 15.5186L26.4045 16.1262V14.9033V9.99423L19.9911 6.29193L8.11975 13.1456Z"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="paint0_linear_681_3376"
+        x1="20.7019"
+        x2="20.7019"
+        y1="0.350877"
+        y2="31.2281"
+      >
+        <stop
+          offset="0.075"
+          stop-color="#798DA1"
+        />
+        <stop
+          offset="0.575"
+          stop-color="#607890"
+        />
+      </lineargradient>
+      <clippath
+        id="clip0_681_3376"
+      >
+        <rect
+          fill="white"
+          height="28"
+          transform="translate(6 6)"
+          width="28"
+        />
+      </clippath>
+    </defs>
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`renders consoleCloud icon when \`hasAccess\` is true 1`] = `
+<DocumentFragment>
+  <svg
+    fill="none"
+    font-size="40"
+    height="1em"
+    viewBox="0 0 40 40"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
+      fill="url(#paint0_linear_203_7948)"
+    />
+    <g
+      clip-path="url(#clip0_203_7948)"
+    >
+      <path
+        d="M8.11963 13.1456V26.8544L19.9909 33.7081L31.8629 26.8544V19.2783L30.2109 18.3242L27.4634 16.738L26.4043 16.1262L26.4029 20.8561L26.4015 25.586H25.1786H14.8018H13.5782V24.3631V17.3757V16.1521L16.7842 14.3013L18.9311 13.0623L19.9902 12.4505L23.1969 14.2887L25.3431 15.5186L26.4043 16.1262V14.9033V9.99423L19.9909 6.29193L8.11963 13.1456Z"
+        fill="white"
+      />
+    </g>
+    <defs>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="paint0_linear_203_7948"
+        x1="20.7019"
+        x2="20.7019"
+        y1="0.350877"
+        y2="31.2281"
+      >
+        <stop
+          stop-color="#5573FD"
+        />
+        <stop
+          offset="0.575"
+          stop-color="#4E56EA"
+        />
+      </lineargradient>
+      <clippath
+        id="clip0_203_7948"
+      >
+        <rect
+          fill="white"
+          height="28"
+          transform="translate(6 6)"
+          width="28"
+        />
+      </clippath>
+    </defs>
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`renders ireWeb icon when \`hasAccess\` is false 1`] = `
+<DocumentFragment>
+  <svg
+    fill="none"
+    font-size="40"
+    height="1em"
+    viewBox="0 0 40 40"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
+      fill="url(#paint0_linear_681_188)"
+    />
+    <path
+      d="M32.2415 6.15323C12.4847 6.15323 9.05886 25.5243 7.74146 33.4273H9.37526C9.81276 30.5279 12.7773 19.0619 19.9915 13.6663C19.9915 13.6663 14.5042 20.4619 13.59 28.3271C16.9276 27.6915 27.0762 25.042 29.2301 15.7348L25.4886 15.1419C26.806 13.8245 30.271 10.1054 32.2408 6.15393L32.2415 6.15323Z"
+      fill="white"
+    />
+    <defs>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="paint0_linear_681_188"
+        x1="20.7019"
+        x2="20.7019"
+        y1="0.350877"
+        y2="31.2281"
+      >
+        <stop
+          offset="0.075"
+          stop-color="#798DA1"
+        />
+        <stop
+          offset="0.575"
+          stop-color="#607890"
+        />
+      </lineargradient>
+    </defs>
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`renders ireWeb icon when \`hasAccess\` is true 1`] = `
+<DocumentFragment>
+  <svg
+    fill="none"
+    font-size="40"
+    height="1em"
+    viewBox="0 0 40 40"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
+      fill="url(#paint0_linear_681_1909)"
+    />
+    <path
+      d="M32.2415 6.15326C12.4847 6.15326 9.05886 25.5244 7.74146 33.4274H9.37526C9.81276 30.528 12.7773 19.062 19.9915 13.6664C19.9915 13.6664 14.5042 20.462 13.59 28.3272C16.9276 27.6916 27.0762 25.0421 29.2301 15.7349L25.4886 15.142C26.806 13.8246 30.271 10.1055 32.2408 6.15396L32.2415 6.15326Z"
+      fill="white"
+    />
+    <defs>
+      <lineargradient
+        gradientUnits="userSpaceOnUse"
+        id="paint0_linear_681_1909"
+        x1="20.7019"
+        x2="20.7019"
+        y1="0.350877"
+        y2="31.2281"
+      >
+        <stop
+          stop-color="#5573FD"
+        />
+        <stop
+          offset="0.575"
+          stop-color="#4E56EA"
+        />
+      </lineargradient>
+    </defs>
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`renders keywhere icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
@@ -90,7 +397,7 @@ exports[`renders keyWhere icon when \`hasAccess\` is false 1`] = `
 </DocumentFragment>
 `;
 
-exports[`renders keyWhere icon when \`hasAccess\` is true 1`] = `
+exports[`renders keywhere icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
@@ -204,196 +511,6 @@ exports[`renders reapitForms icon when \`hasAccess\` is true 1`] = `
 </DocumentFragment>
 `;
 
-exports[`renders reapitLetting icon when \`hasAccess\` is false 1`] = `
-<DocumentFragment>
-  <svg
-    fill="none"
-    font-size="40"
-    height="1em"
-    viewBox="0 0 40 40"
-    width="1em"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
-      fill="url(#paint0_linear_681_188)"
-    />
-    <path
-      d="M32.2415 6.15323C12.4847 6.15323 9.05886 25.5243 7.74146 33.4273H9.37526C9.81276 30.5279 12.7773 19.0619 19.9915 13.6663C19.9915 13.6663 14.5042 20.4619 13.59 28.3271C16.9276 27.6915 27.0762 25.042 29.2301 15.7348L25.4886 15.1419C26.806 13.8245 30.271 10.1054 32.2408 6.15393L32.2415 6.15323Z"
-      fill="white"
-    />
-    <defs>
-      <lineargradient
-        gradientUnits="userSpaceOnUse"
-        id="paint0_linear_681_188"
-        x1="20.7019"
-        x2="20.7019"
-        y1="0.350877"
-        y2="31.2281"
-      >
-        <stop
-          offset="0.075"
-          stop-color="#798DA1"
-        />
-        <stop
-          offset="0.575"
-          stop-color="#607890"
-        />
-      </lineargradient>
-    </defs>
-  </svg>
-</DocumentFragment>
-`;
-
-exports[`renders reapitLetting icon when \`hasAccess\` is true 1`] = `
-<DocumentFragment>
-  <svg
-    fill="none"
-    font-size="40"
-    height="1em"
-    viewBox="0 0 40 40"
-    width="1em"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
-      fill="url(#paint0_linear_681_1909)"
-    />
-    <path
-      d="M32.2415 6.15326C12.4847 6.15326 9.05886 25.5244 7.74146 33.4274H9.37526C9.81276 30.528 12.7773 19.062 19.9915 13.6664C19.9915 13.6664 14.5042 20.462 13.59 28.3272C16.9276 27.6916 27.0762 25.0421 29.2301 15.7349L25.4886 15.142C26.806 13.8246 30.271 10.1055 32.2408 6.15396L32.2415 6.15326Z"
-      fill="white"
-    />
-    <defs>
-      <lineargradient
-        gradientUnits="userSpaceOnUse"
-        id="paint0_linear_681_1909"
-        x1="20.7019"
-        x2="20.7019"
-        y1="0.350877"
-        y2="31.2281"
-      >
-        <stop
-          stop-color="#5573FD"
-        />
-        <stop
-          offset="0.575"
-          stop-color="#4E56EA"
-        />
-      </lineargradient>
-    </defs>
-  </svg>
-</DocumentFragment>
-`;
-
-exports[`renders reapitPM icon when \`hasAccess\` is false 1`] = `
-<DocumentFragment>
-  <svg
-    fill="none"
-    font-size="40"
-    height="1em"
-    viewBox="0 0 40 40"
-    width="1em"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
-      fill="url(#paint0_linear_681_3376)"
-    />
-    <g
-      clip-path="url(#clip0_681_3376)"
-    >
-      <path
-        d="M8.11975 13.1456V26.8544L19.9911 33.7081L31.8631 26.8544V19.2783L30.2111 18.3242L27.4636 16.738L26.4045 16.1262L26.4031 20.8561L26.4017 25.586H25.1788H14.802H13.5784V24.3631V17.3757V16.1521L16.7844 14.3013L18.9313 13.0623L19.9904 12.4505L23.1971 14.2887L25.3433 15.5186L26.4045 16.1262V14.9033V9.99423L19.9911 6.29193L8.11975 13.1456Z"
-        fill="white"
-      />
-    </g>
-    <defs>
-      <lineargradient
-        gradientUnits="userSpaceOnUse"
-        id="paint0_linear_681_3376"
-        x1="20.7019"
-        x2="20.7019"
-        y1="0.350877"
-        y2="31.2281"
-      >
-        <stop
-          offset="0.075"
-          stop-color="#798DA1"
-        />
-        <stop
-          offset="0.575"
-          stop-color="#607890"
-        />
-      </lineargradient>
-      <clippath
-        id="clip0_681_3376"
-      >
-        <rect
-          fill="white"
-          height="28"
-          transform="translate(6 6)"
-          width="28"
-        />
-      </clippath>
-    </defs>
-  </svg>
-</DocumentFragment>
-`;
-
-exports[`renders reapitPM icon when \`hasAccess\` is true 1`] = `
-<DocumentFragment>
-  <svg
-    fill="none"
-    font-size="40"
-    height="1em"
-    viewBox="0 0 40 40"
-    width="1em"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
-      fill="url(#paint0_linear_203_7948)"
-    />
-    <g
-      clip-path="url(#clip0_203_7948)"
-    >
-      <path
-        d="M8.11963 13.1456V26.8544L19.9909 33.7081L31.8629 26.8544V19.2783L30.2109 18.3242L27.4634 16.738L26.4043 16.1262L26.4029 20.8561L26.4015 25.586H25.1786H14.8018H13.5782V24.3631V17.3757V16.1521L16.7842 14.3013L18.9311 13.0623L19.9902 12.4505L23.1969 14.2887L25.3431 15.5186L26.4043 16.1262V14.9033V9.99423L19.9909 6.29193L8.11963 13.1456Z"
-        fill="white"
-      />
-    </g>
-    <defs>
-      <lineargradient
-        gradientUnits="userSpaceOnUse"
-        id="paint0_linear_203_7948"
-        x1="20.7019"
-        x2="20.7019"
-        y1="0.350877"
-        y2="31.2281"
-      >
-        <stop
-          stop-color="#5573FD"
-        />
-        <stop
-          offset="0.575"
-          stop-color="#4E56EA"
-        />
-      </lineargradient>
-      <clippath
-        id="clip0_203_7948"
-      >
-        <rect
-          fill="white"
-          height="28"
-          transform="translate(6 6)"
-          width="28"
-        />
-      </clippath>
-    </defs>
-  </svg>
-</DocumentFragment>
-`;
-
 exports[`renders reapitProposals icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
@@ -442,123 +559,6 @@ exports[`renders reapitProposals icon when \`hasAccess\` is true 1`] = `
       d="M30.8332 9.01929C28.1615 9.13288 25.744 10.1177 23.9627 11.6476C22.0672 13.2759 20.8899 15.5221 20.8899 17.9921V31.9793C21.4664 30.8966 22.2641 29.9176 23.2326 29.0857C25.201 27.395 27.8766 26.3104 30.8332 26.1968V9.01929Z"
       fill="#4E56EA"
     />
-  </svg>
-</DocumentFragment>
-`;
-
-exports[`renders reapitSales icon when \`hasAccess\` is false 1`] = `
-<DocumentFragment>
-  <svg
-    fill="none"
-    font-size="40"
-    height="1em"
-    viewBox="0 0 40 40"
-    width="1em"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
-      fill="url(#paint0_linear_681_1707)"
-    />
-    <g
-      clip-path="url(#clip0_681_1707)"
-    >
-      <path
-        d="M10.5934 6.28003V9.98303H25.3403V29.1294H29.3891V6.28003H10.5934Z"
-        fill="white"
-      />
-      <path
-        d="M20.9394 33.72V13.9604L10.5934 9.98303L10.5934 29.7461L20.9394 33.72Z"
-        fill="white"
-      />
-    </g>
-    <defs>
-      <lineargradient
-        gradientUnits="userSpaceOnUse"
-        id="paint0_linear_681_1707"
-        x1="20.7019"
-        x2="20.7019"
-        y1="0.350877"
-        y2="31.2281"
-      >
-        <stop
-          offset="0.075"
-          stop-color="#798DA1"
-        />
-        <stop
-          offset="0.575"
-          stop-color="#607890"
-        />
-      </lineargradient>
-      <clippath
-        id="clip0_681_1707"
-      >
-        <rect
-          fill="white"
-          height="28"
-          transform="translate(6 6)"
-          width="28"
-        />
-      </clippath>
-    </defs>
-  </svg>
-</DocumentFragment>
-`;
-
-exports[`renders reapitSales icon when \`hasAccess\` is true 1`] = `
-<DocumentFragment>
-  <svg
-    fill="none"
-    font-size="40"
-    height="1em"
-    viewBox="0 0 40 40"
-    width="1em"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
-      fill="url(#paint0_linear_681_72)"
-    />
-    <g
-      clip-path="url(#clip0_681_72)"
-    >
-      <path
-        d="M10.5934 6.28003V9.98303H25.3403V29.1294H29.3891V6.28003H10.5934Z"
-        fill="white"
-      />
-      <path
-        d="M20.9394 33.72V13.9604L10.5934 9.98303L10.5934 29.7461L20.9394 33.72Z"
-        fill="white"
-      />
-    </g>
-    <defs>
-      <lineargradient
-        gradientUnits="userSpaceOnUse"
-        id="paint0_linear_681_72"
-        x1="20.7019"
-        x2="20.7019"
-        y1="0.350877"
-        y2="31.2281"
-      >
-        <stop
-          stop-color="#5573FD"
-        />
-        <stop
-          offset="0.575"
-          stop-color="#4E56EA"
-        />
-      </lineargradient>
-      <clippath
-        id="clip0_681_72"
-      >
-        <rect
-          fill="white"
-          height="28"
-          transform="translate(6 6)"
-          width="28"
-        />
-      </clippath>
-    </defs>
   </svg>
 </DocumentFragment>
 `;

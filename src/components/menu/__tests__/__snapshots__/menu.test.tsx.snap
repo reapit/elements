@@ -9,7 +9,7 @@ exports[`Menu list component > should render menu with list components and match
       class="mocked-styled-5 el-menu-list"
       data-has-max-width="false"
       role="menu"
-      style="max-width: var(undefined, auto);"
+      style="max-width: var(undefined); max-height: var(undefined);"
     >
       <div
         class="mocked-styled-11 el-menu-item-group"
@@ -20,46 +20,51 @@ exports[`Menu list component > should render menu with list components and match
         >
           Group Title
         </div>
-        <a
-          class="mocked-styled-9 el-menu-item-anchor"
-          data-close-menu="true"
-          href="/#"
-          role="menuitem"
+        <div
+          class="mocked-styled-12 el-menu-item-group-list"
+          style="max-height: var(undefined);"
         >
-          <div
-            class="mocked-styled-6 el-menu-item-content"
+          <a
+            class="mocked-styled-9 el-menu-item-anchor"
+            data-close-menu="true"
+            href="/#"
+            role="menuitem"
           >
-            <span
-              class="mocked-styled-3 el-menu-item-label-container"
+            <div
+              class="mocked-styled-6 el-menu-item-content"
             >
               <span
-                class="mocked-styled-4 el-menu-item-label"
+                class="mocked-styled-3 el-menu-item-label-container"
               >
-                Menu item as anchor
+                <span
+                  class="mocked-styled-4 el-menu-item-label"
+                >
+                  Menu item as anchor
+                </span>
               </span>
-            </span>
-          </div>
-        </a>
-        <button
-          class="mocked-styled-8 el-menu-item-button"
-          data-close-menu="true"
-          role="menuitem"
-          tabindex="0"
-        >
-          <div
-            class="mocked-styled-6 el-menu-item-content"
+            </div>
+          </a>
+          <button
+            class="mocked-styled-8 el-menu-item-button"
+            data-close-menu="true"
+            role="menuitem"
+            tabindex="0"
           >
-            <span
-              class="mocked-styled-3 el-menu-item-label-container"
+            <div
+              class="mocked-styled-6 el-menu-item-content"
             >
               <span
-                class="mocked-styled-4 el-menu-item-label"
+                class="mocked-styled-3 el-menu-item-label-container"
               >
-                Menu item as button
+                <span
+                  class="mocked-styled-4 el-menu-item-label"
+                >
+                  Menu item as button
+                </span>
               </span>
-            </span>
-          </div>
-        </button>
+            </div>
+          </button>
+        </div>
       </div>
     </div>
   </div>
