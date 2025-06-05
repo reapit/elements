@@ -119,7 +119,18 @@ export default {
         None: null,
         Some: (
           <>
-            <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
+            <Menu>
+              <Menu.Trigger>
+                {({ getTriggerProps }) => <NavIconItem {...getTriggerProps()} icon={<Icon icon="star" />} />}
+              </Menu.Trigger>
+              <Menu.Popover>
+                <Menu.List>
+                  <Menu.Item label="Menu item 1" />
+                  <Menu.Item label="Menu item 2" />
+                  <Menu.Item label="Menu item 3" />
+                </Menu.List>
+              </Menu.Popover>
+            </Menu>
             <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
             <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
           </>
@@ -127,7 +138,7 @@ export default {
       },
     },
   },
-} as Meta<typeof TopBar>
+} satisfies Meta<typeof TopBar>
 
 type Story = StoryObj<typeof TopBar>
 

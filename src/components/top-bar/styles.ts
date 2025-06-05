@@ -56,7 +56,7 @@ export const ElTopBarSecondaryNavContainer = styled(ElButtonGroup)`
 
   display: none;
   ${isWideScreen} {
-    display: block;
+    display: flex;
   }
 `
 
