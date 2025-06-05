@@ -13,6 +13,7 @@ export const getStoryUrl = (storybookUrl: string, id: string): string => {
 export const navigate = async (page: Page, storybookUrl: string, id: string): Promise<void> => {
   try {
     const url = getStoryUrl(storybookUrl, id)
+    console.log(`[Navigate] Loading ${url}`)
     await page.goto(url)
     await page.waitForLoadState('networkidle')
     // Check for Storybook "Couldn't find story matching" error before proceeding
@@ -23,6 +24,15 @@ export const navigate = async (page: Page, storybookUrl: string, id: string): Pr
     }
     await page.waitForSelector('#storybook-root')
   } catch (error) {
-    console.error('Error navigating to storybook', error)
+    throw new Error(`Failed to navigate to storybook URL: ${storybookUrl} with id: ${id}`)
+    console.error(`[Navigate] Error navigating to story: ${id}`, error)
+
+    // Try to take a screenshot of the broken state for debugging
+    try {
+      await page.screenshot({ path: `.visual-test/debug-${id}.png` })
+      console.log(`[Debug] Saved fallback screenshot for: ${id}`)
+    } catch (screenshotError) {
+      console.warn(`[Debug] Could not take fallback screenshot for: ${id}`, screenshotError)
+    }
   }
 }
