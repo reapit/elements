@@ -9,6 +9,7 @@ export const elSideBarMenuGroup = css`
 
   &:open,
   &[open],
+  &[data-is-active='true'],
   &:has([aria-current='page']) {
     background: var(--comp-navigation-colour-fill-sidebar-select);
   }
@@ -24,13 +25,13 @@ export const elSideBarMenuGroupSummary = css`
 `
 
 export const ElSideBarMenuGroupSummaryIcon = styled(ElSideBarMenuItemIcon)`
-  details:has([aria-current='page']) & {
+  :where(details[data-is-active='true'], details:has([aria-current='page'])) & {
     color: var(--comp-navigation-colour-icon-sidebar-select);
   }
 `
 
 export const ElSideBarMenuGroupSummaryLabel = styled(ElSideBarMenuItemLabel)`
-  details:has([aria-current='page']) & {
+  :where(details[data-is-active='true'], details:has([aria-current='page'])) & {
     color: var(--comp-navigation-colour-text-sidebar-select);
     font-weight: var(--font-weight-medium);
   }
