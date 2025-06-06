@@ -31,6 +31,10 @@ test('product configs should not change without updating this test', () => {
         "appName": "KeyWhere",
         "supplementaryInfo": "Real-time Key Management",
       },
+      "lettingsBDM": {
+        "appName": "Lettings BDM",
+        "supplementaryInfo": "New Business",
+      },
       "reapitForms": {
         "appName": "Reapit Forms",
         "supplementaryInfo": "Documents & Digital Signing",
@@ -57,10 +61,11 @@ test('product configs should not change without updating this test', () => {
 test('product display order should not change without updating this test', () => {
   expect(productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE)
     .toMatchInlineSnapshot(`
-    [
-      "ireWeb",
-      "consoleCloud",
-      "keywhere",
-    ]
-  `)
+      [
+        "ireWeb",
+        "consoleCloud",
+        "keywhere",
+        "lettingsBDM",
+      ]
+    `)
 })
