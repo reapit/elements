@@ -25,7 +25,7 @@ export const BasicUsage = {
         <TableHead>
           <TableRow>
             <TableHeaderCell {...args} maxWidth="30px">
-              Checkbox Header
+              Check
             </TableHeaderCell>
             <TableHeaderCell {...args}>First Header</TableHeaderCell>
             <TableHeaderCell {...args}>Image Header</TableHeaderCell>
