@@ -1,4 +1,4 @@
-import type { Decorator, Meta, StoryObj } from '@storybook/react'
+import { AppSwitcher } from '../app-switcher'
 import { AvatarButton } from '../avatar-button'
 import { elIcon } from '../button'
 import { CSSContainerQuery } from '../container-query/container-query'
@@ -7,12 +7,12 @@ import { Menu } from '../menu'
 import { NavDropdownButton } from '../nav-dropdown-button'
 import { NavIconItem } from '../nav-icon-item'
 import { NavItem } from '../nav-item'
-import { NavSearchButton } from '../nav-search-button/nav-search-button'
 import { ReapitLogo } from '../reapit-logo'
 import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
 import { TopBar } from './top-bar'
-import { AppSwitcher } from '../app-switcher'
+
+import type { Decorator, Meta, StoryObj } from '@storybook/react'
 
 export default {
   title: 'Components/TopBar',
@@ -177,7 +177,7 @@ export const Example: Story = {
     logo: <ReapitLogo />,
     mainNav: 'Many',
     menu: <NavIconItem aria-label="mobile secondary nav trigger" icon={<MenuIcon className={elIcon} />} />,
-    search: <NavSearchButton onClick={() => void 0} />,
+    search: <TopBar.NavSearchButton onClick={() => void 0} />,
     secondaryNav: 'Some',
   },
   decorators: [
@@ -199,6 +199,7 @@ export const Example: Story = {
 export const Mobile: Story = {
   args: {
     ...Example.args,
+    search: <TopBar.NavSearchIconItem onClick={() => void 0} />,
   },
   decorators: [useConstrainedWidthDecorator('375px')],
 }
@@ -211,6 +212,7 @@ export const Mobile: Story = {
 export const Tablet: Story = {
   args: {
     ...Example.args,
+    search: <TopBar.NavSearchButton onClick={() => void 0} shortcut="⌘K" />,
   },
   decorators: [useConstrainedWidthDecorator('768px')],
 }
@@ -220,7 +222,7 @@ export const Tablet: Story = {
  */
 export const Desktop: Story = {
   args: {
-    ...Example.args,
+    ...Tablet.args,
   },
   decorators: [useConstrainedWidthDecorator('1024px')],
 }
@@ -230,7 +232,7 @@ export const Desktop: Story = {
  */
 export const WideScreen: Story = {
   args: {
-    ...Example.args,
+    ...Tablet.args,
   },
   decorators: [useConstrainedWidthDecorator('1440px')],
 }
