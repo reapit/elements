@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react'
 import { AvatarButton } from '../avatar-button'
 import { elIcon } from '../button'
 import { CSSContainerQuery } from '../container-query/container-query'
@@ -12,7 +12,7 @@ import { ReapitLogo } from '../reapit-logo'
 import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
 import { TopBar } from './top-bar'
-import { elNewTopBarAppSwitcher, NavResponsiveAppSwitcher } from '../deprecated-nav'
+import { AppSwitcher } from '../app-switcher'
 
 export default {
   title: 'Components/TopBar',
@@ -23,20 +23,27 @@ export default {
       options: ['None', 'Legacy App Switcher'],
       mapping: {
         None: null,
-        'Legacy App Switcher': (
-          <NavResponsiveAppSwitcher
-            className={elNewTopBarAppSwitcher}
-            options={[
-              {
-                text: 'AppMarket',
-                callback: console.log,
-              },
-              {
-                text: 'DevPortal',
-                callback: console.log,
-              },
-            ]}
-          />
+        'App Switcher': (
+          <AppSwitcher>
+            <AppSwitcher.YourAppsMenuGroup>
+              {AppSwitcher.getDisplayableProductsForYourAppsGroup(['consoleCloud']).map((productId) => (
+                <AppSwitcher.ProductMenuItem
+                  key={productId}
+                  href={globalThis.top?.location.href!}
+                  productId={productId}
+                />
+              ))}
+            </AppSwitcher.YourAppsMenuGroup>
+            <AppSwitcher.ExploreMenuGroup>
+              {AppSwitcher.getDisplayableProductsForExploreGroup(['consoleCloud']).map((productId) => (
+                <AppSwitcher.ProductMenuItem
+                  key={productId}
+                  href={globalThis.top?.location.href!}
+                  productId={productId}
+                />
+              ))}
+            </AppSwitcher.ExploreMenuGroup>
+          </AppSwitcher>
         ),
       },
     },
@@ -138,13 +145,34 @@ export default {
       },
     },
   },
+  parameters: {
+    backgrounds: { default: 'light' },
+  },
 } satisfies Meta<typeof TopBar>
 
 type Story = StoryObj<typeof TopBar>
 
+function useConstrainedWidthDecorator(width: string): Decorator {
+  return (Story) => (
+    <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width }}>
+      <Story />
+    </div>
+  )
+}
+
+/**
+ * The Top Bar is responsive to viewport size and will automatically show or hide its various sections based on the
+ * available space. For browsers that support then, CSS container queries will be used by each section to determine
+ * whether it should be visible or not. For browsers that do not support container queries, this behaviour will fall
+ * back to relying on media queries.
+ *
+ * If viewing this story directly in Storybook, you can change the viewport size to see the responsive behaviour.
+ * Alternatively, if you're browser supports container queries, you can see the responsible behaviour in the stories
+ * further down.
+ */
 export const Example: Story = {
   args: {
-    appSwitcher: 'Legacy App Switcher',
+    appSwitcher: 'App Switcher',
     avatar: 'Avatar Menu',
     logo: <ReapitLogo />,
     mainNav: 'Many',
@@ -152,4 +180,57 @@ export const Example: Story = {
     search: <NavSearchButton onClick={() => void 0} />,
     secondaryNav: 'Some',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ height: '400px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    layout: 'fullscreen',
+  },
+}
+
+/**
+ * For viewports under 768px, very few of the Top Bar's sections will be visible. Most will have collapsed
+ * into the overflow menu, except for the product's "global" search entry point, if one is available.
+ */
+export const Mobile: Story = {
+  args: {
+    ...Example.args,
+  },
+  decorators: [useConstrainedWidthDecorator('375px')],
+}
+
+/**
+ * For viewports under between 768px and 1024px, the App Switcher will be available directly in the Top Bar
+ * and the "global" search entry point have more space available to itself. The main navigation, secondary
+ * navigation, and user profile menu will still be collapsed into the overflow menu.
+ */
+export const Tablet: Story = {
+  args: {
+    ...Example.args,
+  },
+  decorators: [useConstrainedWidthDecorator('768px')],
+}
+
+/**
+ * For viewports between 1024px and 1440px, the user's profile menu will become available directly in the Top Bar.
+ */
+export const Desktop: Story = {
+  args: {
+    ...Example.args,
+  },
+  decorators: [useConstrainedWidthDecorator('1024px')],
+}
+
+/**
+ * For viewports 1440px and wider, the Top Bar will display all of its regions.
+ */
+export const WideScreen: Story = {
+  args: {
+    ...Example.args,
+  },
+  decorators: [useConstrainedWidthDecorator('1440px')],
 }
