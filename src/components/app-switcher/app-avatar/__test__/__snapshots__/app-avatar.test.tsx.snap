@@ -435,6 +435,58 @@ exports[`renders keywhere icon when \`hasAccess\` is true 1`] = `
 </DocumentFragment>
 `;
 
+exports[`renders lettingsBDM icon when \`hasAccess\` is false 1`] = `
+<DocumentFragment>
+  <svg
+    fill="none"
+    font-size="40"
+    height="1em"
+    viewBox="0 0 40 40"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
+      fill="#F2F4F6"
+    />
+    <path
+      d="M31.1344 8.08337C24.4459 8.08337 13.4934 13.5694 19.8114 31.3534H21.2674C21.2674 31.3534 20.2339 27.6354 20.0584 25.0614C30.9784 22.1169 31.5114 12.6594 31.1344 8.08337Z"
+      fill="#607890"
+    />
+    <path
+      d="M16.9059 14.7719C14.1629 12.0874 9.19041 12.7959 9.19041 12.7959C9.06041 15.8444 9.17741 23.1309 17.2309 26.4459C15.0469 19.2634 16.9059 14.7719 16.9059 14.7719Z"
+      fill="#607890"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`renders lettingsBDM icon when \`hasAccess\` is true 1`] = `
+<DocumentFragment>
+  <svg
+    fill="none"
+    font-size="40"
+    height="1em"
+    viewBox="0 0 40 40"
+    width="1em"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
+      fill="#ECF3FF"
+    />
+    <path
+      d="M31.1344 8.08337C24.4459 8.08337 13.4934 13.5694 19.8114 31.3534H21.2674C21.2674 31.3534 20.2339 27.6354 20.0584 25.0614C30.9784 22.1169 31.5114 12.6594 31.1344 8.08337Z"
+      fill="#4C56F3"
+    />
+    <path
+      d="M16.9059 14.7719C14.1629 12.0874 9.19041 12.7959 9.19041 12.7959C9.06041 15.8444 9.17741 23.1309 17.2309 26.4459C15.0469 19.2634 16.9059 14.7719 16.9059 14.7719Z"
+      fill="#4C56F3"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
 exports[`renders reapitForms icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
