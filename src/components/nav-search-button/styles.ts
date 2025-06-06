@@ -3,9 +3,23 @@ import SearchIcon from './icons/search-icon.svg?react'
 import { isTablet } from '#src/styles/media'
 import { NavIconItem } from '../nav-icon-item'
 
+export const ElNavSearchButtonContainer = styled.div`
+  width: 100%;
+  container-name: nav-search-button-container;
+  container-type: inline-size;
+`
+
 export const ElNavSearchIconItem = styled(NavIconItem)`
-  ${isTablet} {
-    display: none;
+  @supports not (container: inline-size) {
+    ${isTablet} {
+      display: none;
+    }
+  }
+
+  @supports (container: inline-size) {
+    @container nav-search-button-container (width >= 150px) {
+      display: none;
+    }
   }
 `
 
@@ -14,8 +28,10 @@ export const ElNavSearchButton = styled.button`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  max-width: 200px;
   padding: var(--spacing-2);
   gap: var(--spacing-2);
+
   border-radius: var(--comp-navigation-border-radius-nav_search);
   background: var(--comp-navigation-colour-fill-nav_search-default);
 
@@ -31,12 +47,18 @@ export const ElNavSearchButton = styled.button`
   outline: none;
 
   display: none;
-  ${isTablet} {
-    display: flex;
+  @supports not (container: inline-size) {
+    ${isTablet} {
+      display: flex;
+    }
+  }
+
+  @supports (container: inline-size) {
+    @container nav-search-button-container (width >= 150px) {
+      display: flex;
+    }
   }
 `
-
-export const ElNavSearchButtonContainer = styled.div``
 
 export const ElNavSearchButtonIcon = styled(SearchIcon)`
   width: var(--icon-sm);
@@ -68,4 +90,10 @@ export const ElNavSearchButtonShortcutText = styled.span`
   font-weight: var(--font-2xs-medium-weight);
   line-height: var(--font-2xs-medium-line_height);
   letter-spacing: var(--font-2xs-medium-letter_spacing);
+
+  @supports (container: inline-size) {
+    @container nav-search-button-container (width < 150px) {
+      display: none;
+    }
+  }
 `
