@@ -8,6 +8,7 @@ import {
   ElTopBarSearchContainer,
   ElTopBarSecondaryNavContainer,
 } from './styles'
+import { TopBarNavItem } from './nav-item'
 import { TopBarNavSearch } from './nav-search'
 
 import type { ComponentProps, ReactNode } from 'react'
@@ -64,6 +65,7 @@ export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secon
   )
 }
 
+TopBar.NavItem = TopBarNavItem
 TopBar.NavSearch = TopBarNavSearch
 TopBar.NavSearchButton = TopBarNavSearch.Button
 TopBar.NavSearchIconItem = TopBarNavSearch.IconItem

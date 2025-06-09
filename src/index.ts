@@ -100,7 +100,6 @@ export * from './components/top-bar'
 export * from './components/reapit-logo'
 export * from './components/nav-dropdown-button'
 export * from './components/nav-icon-item'
-export * from './components/nav-item'
 export * from './components/avatar-button'
 export * from './components/container-query/container-query'
 
