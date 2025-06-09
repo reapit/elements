@@ -1,10 +1,10 @@
-import { NavSearchButton } from './nav-search-button'
+import { TopBarNavSearchButton } from './nav-search-button'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/TopBar/NavSearchButton',
-  component: NavSearchButton,
+  component: TopBarNavSearchButton,
   argTypes: {
     onClick: {
       control: false,
@@ -13,7 +13,7 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof NavSearchButton>
+} satisfies Meta<typeof TopBarNavSearchButton>
 
 export default meta
 

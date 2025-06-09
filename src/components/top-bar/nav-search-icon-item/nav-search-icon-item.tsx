@@ -3,7 +3,7 @@ import { NavIconItem } from '../../nav-icon-item'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
-export interface NavSearchIconItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+export interface TopBarNavSearchIconItemProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
   /**
    * A click handler that launches the product's search experience.
    */
@@ -14,7 +14,7 @@ export interface NavSearchIconItemProps extends Omit<ButtonHTMLAttributes<HTMLBu
  * A `NavIconItem` button used to launch the search experience for a product on mobile devices. It is designed
  * for use on mobile devices. For tablet devices and wider, `TopBar.NavSearchButton` should be used instead.
  */
-export function NavSearchIconItem({ 'aria-label': ariaLabel, onClick, ...rest }: NavSearchIconItemProps) {
+export function TopBarNavSearchIconItem({ 'aria-label': ariaLabel, onClick, ...rest }: TopBarNavSearchIconItemProps) {
   return (
     <NavIconItem
       {...rest}

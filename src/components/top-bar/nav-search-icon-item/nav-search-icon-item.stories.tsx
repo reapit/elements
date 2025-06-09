@@ -1,11 +1,11 @@
-import { NavSearchIconItem } from './nav-search-icon-item'
+import { TopBarNavSearchIconItem } from './nav-search-icon-item'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/TopBar/NavSearchIconItem',
-  component: NavSearchIconItem,
-} satisfies Meta<typeof NavSearchIconItem>
+  component: TopBarNavSearchIconItem,
+} satisfies Meta<typeof TopBarNavSearchIconItem>
 
 export default meta
 

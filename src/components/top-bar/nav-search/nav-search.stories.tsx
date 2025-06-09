@@ -1,10 +1,10 @@
-import { NavSearch } from './nav-search'
+import { TopBarNavSearch } from './nav-search'
 
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
 
 const meta = {
   title: 'Components/TopBar/NavSearch',
-  component: NavSearch,
+  component: TopBarNavSearch,
   argTypes: {
     button: {
       control: false,
@@ -13,7 +13,7 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof NavSearch>
+} satisfies Meta<typeof TopBarNavSearch>
 
 export default meta
 
@@ -24,8 +24,8 @@ type Story = StoryObj<typeof meta>
  */
 export const Example: Story = {
   args: {
-    button: <NavSearch.Button onClick={() => void 0} />,
-    iconItem: <NavSearch.IconItem onClick={() => void 0} />,
+    button: <TopBarNavSearch.Button onClick={() => void 0} />,
+    iconItem: <TopBarNavSearch.IconItem onClick={() => void 0} />,
   },
   decorators: [useConstrainedWidthDecorator('150px')],
 }
