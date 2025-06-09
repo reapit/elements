@@ -1,10 +1,10 @@
-import { ElNavSearch, ElNavSearchButtonContainer, ElNavSearchIconItemContainer } from './styles'
-import { NavSearchButton } from '../nav-search-button'
-import { NavSearchIconItem } from '../nav-search-icon-item'
+import { ElTopBarNavSearch, ElTopBarNavSearchButtonContainer, ElTopBarNavSearchIconItemContainer } from './styles'
+import { TopBarNavSearchButton } from '../nav-search-button'
+import { TopBarNavSearchIconItem } from '../nav-search-icon-item'
 
 import type { ComponentProps, ReactNode } from 'react'
 
-interface NavSearchProps extends ComponentProps<typeof ElNavSearch> {
+interface TopBarNavSearchProps extends ComponentProps<typeof ElTopBarNavSearch> {
   /**
    * The button to display on tablet devices and wider. Will typically be a `TopBar.NavSearchButton`.
    */
@@ -20,14 +20,14 @@ interface NavSearchProps extends ComponentProps<typeof ElNavSearch> {
  * (minimum of 150px), and the provided icon item when there isn't. Typically used with `TopBar.NavSearchButton`
  * and `TopBar.NavSearchIconItem`.
  */
-export function NavSearch({ button, iconItem, ...rest }: NavSearchProps) {
+export function TopBarNavSearch({ button, iconItem, ...rest }: TopBarNavSearchProps) {
   return (
-    <ElNavSearch {...rest}>
-      <ElNavSearchButtonContainer>{button}</ElNavSearchButtonContainer>
-      <ElNavSearchIconItemContainer>{iconItem}</ElNavSearchIconItemContainer>
-    </ElNavSearch>
+    <ElTopBarNavSearch {...rest}>
+      <ElTopBarNavSearchButtonContainer>{button}</ElTopBarNavSearchButtonContainer>
+      <ElTopBarNavSearchIconItemContainer>{iconItem}</ElTopBarNavSearchIconItemContainer>
+    </ElTopBarNavSearch>
   )
 }
 
-NavSearch.Button = NavSearchButton
-NavSearch.IconItem = NavSearchIconItem
+TopBarNavSearch.Button = TopBarNavSearchButton
+TopBarNavSearch.IconItem = TopBarNavSearchIconItem

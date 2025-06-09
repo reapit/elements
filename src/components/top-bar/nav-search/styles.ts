@@ -1,12 +1,12 @@
 import { isTablet } from '#src/styles/media'
 import { styled } from '@linaria/react'
 
-export const ElNavSearch = styled.div`
+export const ElTopBarNavSearch = styled.div`
   container-name: nav-search;
   container-type: inline-size;
 `
 
-export const ElNavSearchButtonContainer = styled.div`
+export const ElTopBarNavSearchButtonContainer = styled.div`
   display: none;
 
   @supports not (container-type: inline-size) {
@@ -21,7 +21,7 @@ export const ElNavSearchButtonContainer = styled.div`
   }
 `
 
-export const ElNavSearchIconItemContainer = styled.div`
+export const ElTopBarNavSearchIconItemContainer = styled.div`
   display: block;
 
   @supports not (container-type: inline-size) {

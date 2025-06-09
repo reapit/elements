@@ -1,13 +1,13 @@
 import {
-  ElNavSearchButton,
-  ElNavSearchButtonIcon,
-  ElNavSearchButtonPlaceholder,
-  ElNavSearchButtonShortcutText,
+  ElTopBarNavSearchButton,
+  ElTopBarNavSearchButtonIcon,
+  ElTopBarNavSearchButtonPlaceholder,
+  ElTopBarNavSearchButtonShortcutText,
 } from './styles'
 
 import type { ComponentProps, MouseEventHandler, ReactNode } from 'react'
 
-export interface NavSearchButtonProps extends ComponentProps<typeof ElNavSearchButton> {
+interface TopBarNavSearchButtonProps extends ComponentProps<typeof ElTopBarNavSearchButton> {
   /**
    * Indicates the keyboard shortcut that has been implemented to activate this button. Should typically
    * be Ctrl+K or Meta+K depending on the platform used by the currently logged in user.
@@ -35,12 +35,14 @@ export interface NavSearchButtonProps extends ComponentProps<typeof ElNavSearchB
  * the search experience to be launched via a keyboard shortcut; usually `Ctrl+K` or `⌘K`. If so, the shortcut
  * should be displayed via the `shortcut` prop.
  */
-export function NavSearchButton({ shortcut, onClick, ...props }: NavSearchButtonProps) {
+export function TopBarNavSearchButton({ shortcut, onClick, ...props }: TopBarNavSearchButtonProps) {
   return (
-    <ElNavSearchButton {...props} onClick={onClick} type="button">
-      <ElNavSearchButtonIcon aria-hidden="true" />
-      <ElNavSearchButtonPlaceholder>Search</ElNavSearchButtonPlaceholder>
-      {shortcut && <ElNavSearchButtonShortcutText aria-hidden="true">{shortcut}</ElNavSearchButtonShortcutText>}
-    </ElNavSearchButton>
+    <ElTopBarNavSearchButton {...props} onClick={onClick} type="button">
+      <ElTopBarNavSearchButtonIcon aria-hidden="true" />
+      <ElTopBarNavSearchButtonPlaceholder>Search</ElTopBarNavSearchButtonPlaceholder>
+      {shortcut && (
+        <ElTopBarNavSearchButtonShortcutText aria-hidden="true">{shortcut}</ElTopBarNavSearchButtonShortcutText>
+      )}
+    </ElTopBarNavSearchButton>
   )
 }

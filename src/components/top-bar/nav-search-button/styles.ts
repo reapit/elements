@@ -1,7 +1,7 @@
-import { styled } from '@linaria/react'
 import SearchIcon from './icons/search-icon.svg?react'
+import { styled } from '@linaria/react'
 
-export const ElNavSearchButton = styled.button`
+export const ElTopBarNavSearchButton = styled.button`
   cursor: pointer;
   display: flex;
   justify-content: space-between;
@@ -27,21 +27,17 @@ export const ElNavSearchButton = styled.button`
   outline: none;
 `
 
-export const ElNavSearchButtonIcon = styled(SearchIcon)`
+export const ElTopBarNavSearchButtonIcon = styled(SearchIcon)`
   width: var(--icon-sm);
   height: var(--icon-sm);
   flex-shrink: 0;
   color: var(--comp-navigation-colour-icon-nav_search);
 `
 
-const basePlaceholderStyle = `
+export const ElTopBarNavSearchButtonPlaceholder = styled.span`
   color: var(--comp-navigation-colour-text-nav_search-placeholder);
   font-family: var(--font-family);
   font-style: normal;
-`
-
-export const ElNavSearchButtonPlaceholder = styled.span`
-  ${basePlaceholderStyle}
   font-size: var(--font-xs-regular-size);
   font-weight: var(--font-xs-regular-weight);
   line-height: var(--font-xs-regular-line_height);
@@ -51,8 +47,10 @@ export const ElNavSearchButtonPlaceholder = styled.span`
   text-align: left;
 `
 
-export const ElNavSearchButtonShortcutText = styled.kbd`
-  ${basePlaceholderStyle}
+export const ElTopBarNavSearchButtonShortcutText = styled.kbd`
+  color: var(--comp-navigation-colour-text-nav_search-placeholder);
+  font-family: var(--font-family);
+  font-style: normal;
   font-size: var(--font-2xs-medium-size);
   font-weight: var(--font-2xs-medium-weight);
   line-height: var(--font-2xs-medium-line_height);
