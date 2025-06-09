@@ -1,6 +1,5 @@
 import { composeStories } from '@storybook/react'
 import { fireEvent, render, screen } from '@testing-library/react'
-import { NavSearchButton } from '../nav-search-button'
 import * as stories from '../nav-search-button.stories'
 
 const NavSearchButtonStories = composeStories(stories)
