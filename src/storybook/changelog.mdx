@@ -18,10 +18,15 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 
 ### **5.0.0-beta.30 - 06/06/25**
 
-- fix: `TopBar` secondary nav now applies correct `display` CSS property for widescreen or larger breakpoints
-- fix: Prevent `SideBar.MenuList` and `SideBar.Submenu` list elements from being impacted by user-agent applied padding and margin styles
-- feat: `TopBar` and `NavSearchButton` now use CSS container queries, when supported, for their responsive behaviour. Storybook docs also updated to demonstrate.
-- feat: Add Lettings BDM support to `AppSwitcher`
+- **fix:** `TopBar` secondary nav now applies correct `display` CSS property for widescreen or larger breakpoints
+- **fix:** Prevent `SideBar.MenuList` and `SideBar.Submenu` list elements from being impacted by user-agent applied padding and margin styles
+- **feat:** `TopBar` and `NavSearchButton` now use CSS container queries, when supported, for their responsive behaviour. Storybook docs also updated to demonstrate.
+- **feat:** Add Lettings BDM support to `AppSwitcher`
+- **feat!:** Move `NavSearchButton` into `TopBar` and split it into three separate components:
+  - `TopBar.NavSearch`, a responsive helper for correctly rendering the search button and search icon item across mobile and wider screen sizes;
+  - `TopBar.NavSearchButton`, a simple button that should be used to launch the search experience on tablet and wider screen sizes;
+  - `TopBar.NavSearchIconItem`, a thin wrapper around `NavItemIcon` that should be used to launch the search experience on mobile screen sizes.
+  - **BREAKING CHANGE:** Consumers using just `NavSearchButton` will no longer see a responsive change to the icon item version on mobile screen sizes.
 
 ### **5.0.0-beta.29 - 05/06/25**
 
