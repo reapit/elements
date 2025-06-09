@@ -3,16 +3,16 @@
 exports[`renders AppSwitcherYourAppsMenuGroup properly 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-11 el-menu-item-group"
+    class="mocked-styled-10 el-menu-item-group"
     role="group"
   >
     <div
-      class="mocked-styled-10 el-menu-item-group-title"
+      class="mocked-styled-9 el-menu-item-group-title"
     >
       YOUR APPS
     </div>
     <div
-      class="mocked-styled-12 el-menu-item-group-list"
+      class="mocked-styled-11 el-menu-item-group-list"
       style="max-height: var(undefined);"
     >
       Fake child
