@@ -4,7 +4,7 @@ import { elIcon } from '../button'
 import { Icon } from '../icon'
 import { Menu } from '../menu'
 import { TopBarNavDropdownButton } from './nav-dropdown-button'
-import { NavIconItem } from '../nav-icon-item'
+import { TopBarNavIconItem } from './nav-icon-item'
 import { ReapitLogo } from '../reapit-logo'
 import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
@@ -124,7 +124,14 @@ export default {
           <>
             <Menu>
               <Menu.Trigger>
-                {({ getTriggerProps }) => <NavIconItem {...getTriggerProps()} icon={<Icon icon="star" />} />}
+                {({ getTriggerProps }) => (
+                  <TopBarNavIconItem
+                    {...getTriggerProps()}
+                    aria-label="Nav icon item 1"
+                    as="button"
+                    icon={<Icon icon="star" />}
+                  />
+                )}
               </Menu.Trigger>
               <Menu.Popover>
                 <Menu.List>
@@ -134,8 +141,18 @@ export default {
                 </Menu.List>
               </Menu.Popover>
             </Menu>
-            <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-            <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
+            <TopBarNavIconItem
+              aria-current={false}
+              aria-label="Nav icon item 2"
+              href={href}
+              icon={<Icon icon="star" />}
+            />
+            <TopBarNavIconItem
+              aria-current={false}
+              aria-label="Nav icon item 3"
+              href={href}
+              icon={<Icon icon="star" />}
+            />
           </>
         ),
       },
@@ -172,7 +189,14 @@ export const Example: Story = {
     avatar: 'Avatar Menu',
     logo: <ReapitLogo />,
     mainNav: 'Many',
-    menu: <NavIconItem aria-label="mobile secondary nav trigger" icon={<MenuIcon className={elIcon} />} />,
+    menu: (
+      <TopBarNavIconItem
+        aria-current={false}
+        aria-label="Overflow menu"
+        href={href}
+        icon={<MenuIcon className={elIcon} />}
+      />
+    ),
     search: <TopBar.NavSearchButton onClick={() => void 0} />,
     secondaryNav: 'Some',
   },

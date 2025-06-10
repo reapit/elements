@@ -1,3 +1,7 @@
+export * from './nav-dropdown-button'
+export * from './nav-icon-item'
+export * from './nav-item'
+export * from './nav-search'
 export * from './styles'
 export * from './top-bar'
 
