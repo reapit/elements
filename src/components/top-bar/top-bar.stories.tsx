@@ -6,13 +6,14 @@ import { Icon } from '../icon'
 import { Menu } from '../menu'
 import { NavDropdownButton } from '../nav-dropdown-button'
 import { NavIconItem } from '../nav-icon-item'
-import { NavItem } from '../nav-item'
 import { ReapitLogo } from '../reapit-logo'
 import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
 import { TopBar } from './top-bar'
 
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
+
+const href = globalThis.top?.location.href!
 
 export default {
   title: 'Components/TopBar',
@@ -78,18 +79,18 @@ export default {
         None: null,
         Few: (
           <>
-            <NavItem>Button 1</NavItem>
-            <NavItem>Button 2</NavItem>
+            <TopBar.NavItem href={href}>Button 1</TopBar.NavItem>
+            <TopBar.NavItem href={href}>Button 2</TopBar.NavItem>
           </>
         ),
         Many: (
           <>
-            <NavItem>Button 1</NavItem>
-            <NavItem>Button 2</NavItem>
+            <TopBar.NavItem href={href}>Button 1</TopBar.NavItem>
+            <TopBar.NavItem href={href}>Button 2</TopBar.NavItem>
             <CSSContainerQuery condition={'(width < 500px)'}>
-              <NavItem>Button 3</NavItem>
-              <NavItem>Button 4</NavItem>
-              <NavItem>Button 5</NavItem>
+              <TopBar.NavItem href={href}>Button 3</TopBar.NavItem>
+              <TopBar.NavItem href={href}>Button 4</TopBar.NavItem>
+              <TopBar.NavItem href={href}>Button 5</TopBar.NavItem>
             </CSSContainerQuery>
             <CSSContainerQuery condition={'not (width < 500px)'}>
               <Menu>
