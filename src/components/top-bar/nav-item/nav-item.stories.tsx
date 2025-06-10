@@ -36,7 +36,7 @@ export const Selected: Story = {
 /**
  * When there is not enough space to display the full label, it will not wrap to a new line; rather, it will overflow
  * its container. That said, author's should typically ensure nav items have enough space in the Top Bar. As the main
- * nav's space reduces, nav items should be progressively collapsed into a `TopBar.NavDropdownItem` and its menu.
+ * nav's space reduces, nav items should be progressively collapsed into a `TopBar.NavDropdownButton` and its menu.
  */
 export const Overflow: Story = {
   args: {

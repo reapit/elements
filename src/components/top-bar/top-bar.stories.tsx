@@ -1,10 +1,9 @@
 import { AppSwitcher } from '../app-switcher'
 import { AvatarButton } from '../avatar-button'
 import { elIcon } from '../button'
-import { CSSContainerQuery } from '../container-query/container-query'
 import { Icon } from '../icon'
 import { Menu } from '../menu'
-import { NavDropdownButton } from '../nav-dropdown-button'
+import { TopBarNavDropdownButton } from './nav-dropdown-button'
 import { NavIconItem } from '../nav-icon-item'
 import { ReapitLogo } from '../reapit-logo'
 import MenuIcon from './icons/menu-icon.svg?react'
@@ -87,29 +86,25 @@ export default {
           <>
             <TopBar.NavItem href={href}>Button 1</TopBar.NavItem>
             <TopBar.NavItem href={href}>Button 2</TopBar.NavItem>
-            <CSSContainerQuery condition={'(width < 500px)'}>
-              <TopBar.NavItem href={href}>Button 3</TopBar.NavItem>
-              <TopBar.NavItem href={href}>Button 4</TopBar.NavItem>
-              <TopBar.NavItem href={href}>Button 5</TopBar.NavItem>
-            </CSSContainerQuery>
-            <CSSContainerQuery condition={'not (width < 500px)'}>
-              <Menu>
-                <Menu.Trigger>
-                  {({ getTriggerProps, isOpen }) => (
-                    <NavDropdownButton {...getTriggerProps()} isOpen={isOpen}>
-                      More
-                    </NavDropdownButton>
-                  )}
-                </Menu.Trigger>
-                <Menu.Popover className={elTopBarMenuPopover}>
-                  <Menu.List>
-                    <Menu.Item label="Button 3" />
-                    <Menu.Item label="Button 4" />
-                    <Menu.Item label="Button 5" />
-                  </Menu.List>
-                </Menu.Popover>
-              </Menu>
-            </CSSContainerQuery>
+            <TopBar.NavItem href={href}>Button 3</TopBar.NavItem>
+            <TopBar.NavItem href={href}>Button 4</TopBar.NavItem>
+            <TopBar.NavItem href={href}>Button 5</TopBar.NavItem>
+            <Menu>
+              <Menu.Trigger>
+                {({ getTriggerProps, isOpen }) => (
+                  <TopBarNavDropdownButton {...getTriggerProps()} aria-expanded={isOpen}>
+                    More
+                  </TopBarNavDropdownButton>
+                )}
+              </Menu.Trigger>
+              <Menu.Popover className={elTopBarMenuPopover}>
+                <Menu.List>
+                  <Menu.Item label="Button 6" />
+                  <Menu.Item label="Button 7" />
+                  <Menu.Item label="Button 8" />
+                </Menu.List>
+              </Menu.Popover>
+            </Menu>
           </>
         ),
       },
