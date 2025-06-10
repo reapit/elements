@@ -2,7 +2,7 @@
 
 exports[`TopBar snapshot 1`] = `
 <DocumentFragment>
-  <nav
+  <header
     class="mocked-styled-17 el-top-bar"
   >
     <div
@@ -16,7 +16,7 @@ exports[`TopBar snapshot 1`] = `
       Logo
     </div>
     <div
-      class="mocked-styled-21 el-button-group el-top-bar-main-nav-container el-button-group"
+      class="mocked-styled-21 el-top-bar-main-nav-container"
     >
       Main nav
     </div>
@@ -40,6 +40,6 @@ exports[`TopBar snapshot 1`] = `
     >
       Profile
     </div>
-  </nav>
+  </header>
 </DocumentFragment>
 `;

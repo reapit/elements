@@ -8,10 +8,12 @@ import {
   ElTopBarSearchContainer,
   ElTopBarSecondaryNavContainer,
 } from './styles'
-import { TopBarNavItem } from './nav-item'
+import { TopBarMainNav } from './main-nav'
+import { TopBarNavIconItem } from './nav-icon-item'
 import { TopBarNavSearch } from './nav-search'
 
 import type { ComponentProps, ReactNode } from 'react'
+import { TopBarNavDropdownButton } from './nav-dropdown-button'
 
 interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> {
   /**
@@ -49,9 +51,9 @@ interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> 
  * A responsive navigation bar that contains the product's app switcher, logo, main navigation, secondary navigation,
  * search entry point, and user profile menu.
  */
-export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secondaryNav, ...props }: TopBarProps) {
+export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secondaryNav, ...rest }: TopBarProps) {
   return (
-    <ElTopBar {...props}>
+    <ElTopBar {...rest}>
       {/* NOTE: The order here defines the "source order" of the DOM content. For a11y, it's important this
        * matches the visual order defined by ElTopBar's CSS grid layout. */}
       {appSwitcher && <ElTopBarAppSwitcherContainer>{appSwitcher}</ElTopBarAppSwitcherContainer>}
@@ -65,7 +67,11 @@ export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secon
   )
 }
 
-TopBar.NavItem = TopBarNavItem
+TopBar.MainNav = TopBarMainNav
+TopBar.NavItem = TopBarMainNav.Item
+TopBar.NavMenuItem = TopBarMainNav.MenuItem
+TopBar.NavDropdownButton = TopBarNavDropdownButton
+TopBar.NavIconItem = TopBarNavIconItem
 TopBar.NavSearch = TopBarNavSearch
 TopBar.NavSearchButton = TopBarNavSearch.Button
 TopBar.NavSearchIconItem = TopBarNavSearch.IconItem

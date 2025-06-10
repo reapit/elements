@@ -20,6 +20,10 @@ export interface TopBarNavDropdownButtonProps extends HTMLAttributes<HTMLButtonE
  *
  * Currently, it does not visually or accessibly communicate if one of it's menu items represents the current page.
  * A menu item that does represent the current page should have an `aria-current="page"` attribute.
+ *
+ * **Important:** ⚠️ This component should rarely be used directly. Instead, use `TopBar.NavMenuItem` as it comes with
+ * an integrated `Menu` and is correctly wrapped by a list item (`<li>`) to ensure good semantics and accessibility
+ * when used with `TopBar.MainNav`.
  */
 export function TopBarNavDropdownButton({
   'aria-expanded': ariaExpanded,
