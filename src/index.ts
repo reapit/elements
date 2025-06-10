@@ -98,7 +98,6 @@ export * from './components/table/double-line-cell'
 
 export * from './components/top-bar'
 export * from './components/reapit-logo'
-export * from './components/avatar-button'
 export * from './components/container-query/container-query'
 
 export * from './components/side-bar'

@@ -1,5 +1,5 @@
 import { AppSwitcher } from '../app-switcher'
-import { AvatarButton } from '../avatar-button'
+import { TopBarAvatarButton } from './avatar-button'
 import { elIcon } from '../button'
 import { Icon } from '../icon'
 import { Menu } from '../menu'
@@ -55,7 +55,11 @@ export default {
         'Avatar Menu': (
           <Menu data-alignment="right">
             <Menu.Trigger>
-              {({ getTriggerProps, isOpen }) => <AvatarButton {...getTriggerProps()} isOpen={isOpen} label="AD" />}
+              {({ getTriggerProps, isOpen }) => (
+                <TopBarAvatarButton {...getTriggerProps()} isOpen={isOpen}>
+                  AD
+                </TopBarAvatarButton>
+              )}
             </Menu.Trigger>
             <Menu.Popover className={elTopBarMenuPopover}>
               <Menu.List>
