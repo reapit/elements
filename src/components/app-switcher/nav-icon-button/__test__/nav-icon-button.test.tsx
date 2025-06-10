@@ -16,7 +16,7 @@ test('allows the accessible name to be supplied by the consumer', () => {
   expect(screen.getByRole('button', { name: 'my button' })).toBeVisible()
 })
 
-test('allows the accessible name to be supplied by the consumer', () => {
+test('forwards additional props to the underlying element', () => {
   render(<AppSwitcherNavIconButton aria-expanded="true" onClick={() => void 0} />)
-  expect(screen.getByRole('button')).toHaveAttribute('aria-current', 'true')
+  expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true')
 })

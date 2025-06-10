@@ -1,5 +1,5 @@
 import { Icon } from '../../icon'
-import { NavIconItem } from '../../nav-icon-item'
+import { TopBarNavIconItem } from '../nav-icon-item'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
@@ -16,9 +16,10 @@ export interface TopBarNavSearchIconItemProps extends Omit<ButtonHTMLAttributes<
  */
 export function TopBarNavSearchIconItem({ 'aria-label': ariaLabel, onClick, ...rest }: TopBarNavSearchIconItemProps) {
   return (
-    <NavIconItem
+    <TopBarNavIconItem
       {...rest}
       aria-label={ariaLabel ?? 'Search'}
+      as="button"
       icon={<Icon icon="search" />}
       onClick={onClick}
       type="button"
