@@ -8,12 +8,12 @@ import {
   ElTopBarSearchContainer,
   ElTopBarSecondaryNavContainer,
 } from './styles'
+import { TopBarAvatarButton } from './avatar-button'
 import { TopBarMainNav } from './main-nav'
-import { TopBarNavIconItem } from './nav-icon-item'
 import { TopBarNavSearch } from './nav-search'
+import { TopBarSecondaryNav } from './secondary-nav'
 
 import type { ComponentProps, ReactNode } from 'react'
-import { TopBarNavDropdownButton } from './nav-dropdown-button'
 
 interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> {
   /**
@@ -67,11 +67,16 @@ export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secon
   )
 }
 
+TopBar.AvatarButton = TopBarAvatarButton
+
 TopBar.MainNav = TopBarMainNav
 TopBar.NavItem = TopBarMainNav.Item
 TopBar.NavMenuItem = TopBarMainNav.MenuItem
-TopBar.NavDropdownButton = TopBarNavDropdownButton
-TopBar.NavIconItem = TopBarNavIconItem
+
+TopBar.SecondaryNav = TopBarSecondaryNav
+TopBar.NavIconItem = TopBarSecondaryNav.Item
+TopBar.NavIconMenuItem = TopBarSecondaryNav.MenuItem
+
 TopBar.NavSearch = TopBarNavSearch
 TopBar.NavSearchButton = TopBarNavSearch.Button
 TopBar.NavSearchIconItem = TopBarNavSearch.IconItem

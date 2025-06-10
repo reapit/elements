@@ -1,6 +1,5 @@
 import { styled } from '@linaria/react'
 import { isTablet, isDesktop, isWideScreen } from '../../styles/media'
-import { ElButtonGroup } from '../button-group'
 import { css } from '@linaria/core'
 
 export const ElTopBar = styled.header`
@@ -83,6 +82,12 @@ export const ElTopBarAvatarContainer = styled.div`
 
 export const ElTopBarMainNavContainer = styled.div`
   grid-area: main-nav;
+  padding-inline-start: var(--spacing-6);
+  padding-block: var(--spacing-1);
+
+  /* Allows individual nav items to be displayed (or not) using container queries */
+  container-name: top-bar-main-nav-container;
+  container-type: inline-size;
 
   display: none;
 
@@ -100,23 +105,22 @@ export const ElTopBarMainNavContainer = styled.div`
   }
 `
 
-export const ElTopBarSecondaryNavContainer = styled(ElButtonGroup)`
+export const ElTopBarSecondaryNavContainer = styled.div`
   grid-area: secondary-nav;
-  flex-wrap: nowrap;
   padding-right: var(--spacing-2);
 
   display: none;
 
   @supports not (container: inline-size) {
     ${isWideScreen} {
-      display: flex;
+      display: block;
     }
   }
 
   @supports (container: inline-size) {
     /* isWideScreen equivalent inline size; i.e. 1440px - 2 * var(--spacing-5) */
     @container top-bar (width >= 1400px) {
-      display: flex;
+      display: block;
     }
   }
 `

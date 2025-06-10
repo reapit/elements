@@ -1,12 +1,12 @@
 import { AppSwitcher } from '../app-switcher'
-import { TopBarAvatarButton } from './avatar-button'
 import { elIcon } from '../button'
-import { Icon } from '../icon'
-import { Menu } from '../menu'
-import { ReapitLogo } from '../reapit-logo'
-import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
+import { Icon } from '../icon'
+import { ReapitLogo } from '../reapit-logo'
+import { Menu } from '../menu'
+import MenuIcon from './icons/menu-icon.svg?react'
 import { TopBar } from './top-bar'
+import { TopBarNavIconItemButton } from './nav-icon-item'
 
 import type { Decorator, Meta, StoryObj } from '@storybook/react'
 
@@ -54,9 +54,9 @@ export default {
           <Menu data-alignment="right">
             <Menu.Trigger>
               {({ getTriggerProps, isOpen }) => (
-                <TopBarAvatarButton {...getTriggerProps()} isOpen={isOpen}>
+                <TopBar.AvatarButton {...getTriggerProps()} isOpen={isOpen}>
                   AD
-                </TopBarAvatarButton>
+                </TopBar.AvatarButton>
               )}
             </Menu.Trigger>
             <Menu.Popover className={elTopBarMenuPopover}>
@@ -112,31 +112,17 @@ export default {
       mapping: {
         None: null,
         Some: (
-          <>
-            <Menu>
-              <Menu.Trigger>
-                {({ getTriggerProps }) => (
-                  <TopBar.NavIconItem
-                    {...getTriggerProps()}
-                    aria-label="Nav icon item 1"
-                    as="button"
-                    icon={<Icon icon="star" />}
-                  />
-                )}
-              </Menu.Trigger>
-              <Menu.Popover>
-                <Menu.List>
-                  <Menu.Item label="Menu item 1" />
-                  <Menu.Item label="Menu item 2" />
-                  <Menu.Item label="Menu item 3" />
-                </Menu.List>
-              </Menu.Popover>
-            </Menu>
+          <TopBar.SecondaryNav>
+            <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<Icon icon="help" />}>
+              <Menu.Item label="Menu item 1" />
+              <Menu.Item label="Menu item 2" />
+              <Menu.Item label="Menu item 3" />
+            </TopBar.NavIconMenuItem>
             <TopBar.NavIconItem
               aria-current={false}
               aria-label="Nav icon item 2"
               href={href}
-              icon={<Icon icon="star" />}
+              icon={<Icon icon="notification" />}
             />
             <TopBar.NavIconItem
               aria-current={false}
@@ -144,7 +130,7 @@ export default {
               href={href}
               icon={<Icon icon="star" />}
             />
-          </>
+          </TopBar.SecondaryNav>
         ),
       },
     },
@@ -181,14 +167,19 @@ export const Example: Story = {
     logo: <ReapitLogo />,
     mainNav: 'Many',
     menu: (
-      <TopBar.NavIconItem
-        aria-current={false}
+      // TODO: replace this with the proper TopBarMenu component when it is available
+      <TopBarNavIconItemButton
         aria-label="Overflow menu"
-        href={href}
         icon={<MenuIcon className={elIcon} />}
+        onClick={() => void 0}
       />
     ),
-    search: <TopBar.NavSearchButton onClick={() => void 0} />,
+    search: (
+      <TopBar.NavSearch
+        button={<TopBar.NavSearchButton onClick={() => void 0} shortcut="⌘K" />}
+        iconItem={<TopBar.NavSearchIconItem onClick={() => void 0} />}
+      />
+    ),
     secondaryNav: 'Some',
   },
   decorators: [
@@ -210,7 +201,6 @@ export const Example: Story = {
 export const Mobile: Story = {
   args: {
     ...Example.args,
-    search: <TopBar.NavSearchIconItem onClick={() => void 0} />,
   },
   decorators: [useConstrainedWidthDecorator('375px')],
 }
@@ -223,7 +213,6 @@ export const Mobile: Story = {
 export const Tablet: Story = {
   args: {
     ...Example.args,
-    search: <TopBar.NavSearchButton onClick={() => void 0} shortcut="⌘K" />,
   },
   decorators: [useConstrainedWidthDecorator('768px')],
 }

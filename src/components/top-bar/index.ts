@@ -1,7 +1,11 @@
+export * from './main-nav'
 export * from './nav-dropdown-button'
 export * from './nav-icon-item'
 export * from './nav-item'
 export * from './nav-search'
+export * from './nav-search-button'
+export * from './nav-search-icon-item'
+export * from './secondary-nav'
 export * from './styles'
 export * from './top-bar'
 

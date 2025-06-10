@@ -1,15 +1,15 @@
 import { composeStories } from '@storybook/react'
 import { render, screen } from '@testing-library/react'
-import * as stories from '../nav-icon-item-anchor.stories'
+import * as stories from '../../nav-icon-item/nav-icon-item-button.stories'
 
 const TopBarNavIconItemStories = composeStories(stories)
 
-test('renders as a link with an accessible name', () => {
+test('renders as a button with an accessible name', () => {
   render(<TopBarNavIconItemStories.Example aria-label="My Item" />)
-  expect(screen.getByRole('link', { name: 'My Item' })).toBeVisible()
+  expect(screen.getByRole('button', { name: 'My Item' })).toBeVisible()
 })
 
-test('forwards additional props to the link element', () => {
+test('forwards additional props to the button element', () => {
   const testId = 'nav-icon-item'
   render(<TopBarNavIconItemStories.Example data-testid={testId} />)
 
@@ -17,8 +17,8 @@ test('forwards additional props to the link element', () => {
   expect(item).toBeVisible()
 })
 
-test('can display a badge when `hasBadge` is `true`', () => {
-  render(<TopBarNavIconItemStories.WithBadge />)
-  const button = screen.getByRole('link', { name: 'Notifications' })
+test('can display a badge', () => {
+  render(<TopBarNavIconItemStories.WithBadge onClick={() => void 0} />)
+  const button = screen.getByRole('button', { name: 'Notifications' })
   expect(button.querySelector('span')).toBeVisible()
 })

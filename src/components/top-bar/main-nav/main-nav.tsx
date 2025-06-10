@@ -18,7 +18,7 @@ interface TopBarMainNavProps extends ComponentProps<typeof ElTopBarMainNav> {
 
 /**
  * A simple navigation list for use in a `TopBar`. Typically used via `TopBar.MainNav`, it will often contain a
- * collection of `TopBar.NavItem` and `TopBar.NavMenuItem` children. Only one item, if any, in the main nav
+ * collection of `TopBar.NavItem` and `TopBar.NavMenuItem` children. Only one item, if any, in the top bar
  * should represent the current page at any given time.
  */
 export function TopBarMainNav({ 'aria-label': ariaLabel = 'Main navigation', children, ...rest }: TopBarMainNavProps) {

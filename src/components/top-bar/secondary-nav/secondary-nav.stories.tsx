@@ -1,13 +1,14 @@
-import { TopBarMainNav } from './main-nav'
+import { Icon } from '../../icon'
 import { Menu } from '../../menu'
+import { TopBarSecondaryNav } from './secondary-nav'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
 const href = globalThis.top?.location.href!
 
 const meta = {
-  title: 'Components/TopBar/MainNav',
-  component: TopBarMainNav,
+  title: 'Components/TopBar/SecondaryNav',
+  component: TopBarSecondaryNav,
   argTypes: {
     children: {
       control: 'radio',
@@ -19,7 +20,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TopBarMainNav>
+} satisfies Meta<typeof TopBarSecondaryNav>
 
 export default meta
 
@@ -32,7 +33,7 @@ export const Example: Story = {
 }
 
 /**
- * If a nav item represents the current page, it should be marked as "selected". See the `TopBar.NavItem`
+ * If a nav item represents the current page, it should be marked as "selected". See the `TopBar.NavIconItem`
  * documentation for details on how.
  */
 export const SelectedItem: Story = {
@@ -42,7 +43,7 @@ export const SelectedItem: Story = {
 }
 
 /**
- * The main nav can contain a mix of nav items and menu items.
+ * The secondary nav can contain a mix of icon items and icon menu items.
  */
 export const WithMenu: Story = {
   args: {
@@ -59,18 +60,26 @@ export const WithMenu: Story = {
 
 function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
   return [
-    <TopBarMainNav.Item key="1" href={href} isActive={type === 'Selected item'}>
-      Nav item 1
-    </TopBarMainNav.Item>,
-    <TopBarMainNav.Item key="2" href={href}>
-      Nav item 2
-    </TopBarMainNav.Item>,
+    <TopBarSecondaryNav.Item
+      key="1"
+      href={href}
+      icon={<Icon icon="star" />}
+      aria-label="Nav icon item 1"
+      aria-current={type === 'Selected item' ? 'page' : false}
+    />,
+    <TopBarSecondaryNav.Item
+      key="2"
+      href={href}
+      icon={<Icon icon="star" />}
+      aria-label="Nav icon item 2"
+      aria-current={false}
+    />,
     type === 'With menu' && (
-      <TopBarMainNav.MenuItem label="More">
-        <Menu.Item label="Menu Item 1" />
-        <Menu.Item label="Menu Item 2" />
-        <Menu.Item label="Menu Item 3" />
-      </TopBarMainNav.MenuItem>
+      <TopBarSecondaryNav.MenuItem key="3" icon={<Icon icon="help" />} aria-label="Help menu">
+        <Menu.Item label="Menu item 1" />
+        <Menu.Item label="Menu item 2" />
+        <Menu.Item label="Menu item 3" />
+      </TopBarSecondaryNav.MenuItem>
     ),
-  ].filter(Boolean)
+  ]
 }
