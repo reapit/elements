@@ -3,8 +3,6 @@ import { TopBarAvatarButton } from './avatar-button'
 import { elIcon } from '../button'
 import { Icon } from '../icon'
 import { Menu } from '../menu'
-import { TopBarNavDropdownButton } from './nav-dropdown-button'
-import { TopBarNavIconItem } from './nav-icon-item'
 import { ReapitLogo } from '../reapit-logo'
 import MenuIcon from './icons/menu-icon.svg?react'
 import { elTopBarMenuPopover } from './styles'
@@ -81,35 +79,24 @@ export default {
       mapping: {
         None: null,
         Few: (
-          <>
-            <TopBar.NavItem href={href}>Button 1</TopBar.NavItem>
-            <TopBar.NavItem href={href}>Button 2</TopBar.NavItem>
-          </>
+          <TopBar.MainNav>
+            <TopBar.MainNav.Item href={href}>Button 1</TopBar.MainNav.Item>
+            <TopBar.MainNav.Item href={href}>Button 2</TopBar.MainNav.Item>
+          </TopBar.MainNav>
         ),
         Many: (
-          <>
+          <TopBar.MainNav>
             <TopBar.NavItem href={href}>Button 1</TopBar.NavItem>
             <TopBar.NavItem href={href}>Button 2</TopBar.NavItem>
             <TopBar.NavItem href={href}>Button 3</TopBar.NavItem>
             <TopBar.NavItem href={href}>Button 4</TopBar.NavItem>
             <TopBar.NavItem href={href}>Button 5</TopBar.NavItem>
-            <Menu>
-              <Menu.Trigger>
-                {({ getTriggerProps, isOpen }) => (
-                  <TopBarNavDropdownButton {...getTriggerProps()} aria-expanded={isOpen}>
-                    More
-                  </TopBarNavDropdownButton>
-                )}
-              </Menu.Trigger>
-              <Menu.Popover className={elTopBarMenuPopover}>
-                <Menu.List>
-                  <Menu.Item label="Button 6" />
-                  <Menu.Item label="Button 7" />
-                  <Menu.Item label="Button 8" />
-                </Menu.List>
-              </Menu.Popover>
-            </Menu>
-          </>
+            <TopBar.NavMenuItem label="More">
+              <Menu.Item label="Button 6" />
+              <Menu.Item label="Button 7" />
+              <Menu.Item label="Button 8" />
+            </TopBar.NavMenuItem>
+          </TopBar.MainNav>
         ),
       },
     },
@@ -129,7 +116,7 @@ export default {
             <Menu>
               <Menu.Trigger>
                 {({ getTriggerProps }) => (
-                  <TopBarNavIconItem
+                  <TopBar.NavIconItem
                     {...getTriggerProps()}
                     aria-label="Nav icon item 1"
                     as="button"
@@ -145,13 +132,13 @@ export default {
                 </Menu.List>
               </Menu.Popover>
             </Menu>
-            <TopBarNavIconItem
+            <TopBar.NavIconItem
               aria-current={false}
               aria-label="Nav icon item 2"
               href={href}
               icon={<Icon icon="star" />}
             />
-            <TopBarNavIconItem
+            <TopBar.NavIconItem
               aria-current={false}
               aria-label="Nav icon item 3"
               href={href}
@@ -194,7 +181,7 @@ export const Example: Story = {
     logo: <ReapitLogo />,
     mainNav: 'Many',
     menu: (
-      <TopBarNavIconItem
+      <TopBar.NavIconItem
         aria-current={false}
         aria-label="Overflow menu"
         href={href}
