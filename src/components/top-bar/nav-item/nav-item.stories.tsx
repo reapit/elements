@@ -13,9 +13,9 @@ type Story = StoryObj<typeof TopBarNavItem>
 
 export const Example: Story = {
   args: {
+    'aria-current': false,
     children: 'Nav Item',
     href: globalThis.top?.location.href!,
-    isActive: false,
   },
 }
 
@@ -29,7 +29,7 @@ export const Example: Story = {
 export const Selected: Story = {
   args: {
     ...Example.args,
-    isActive: true,
+    'aria-current': 'page',
   },
 }
 

@@ -80,17 +80,31 @@ export default {
         None: null,
         Few: (
           <TopBar.MainNav>
-            <TopBar.MainNav.Item href={href}>Button 1</TopBar.MainNav.Item>
-            <TopBar.MainNav.Item href={href}>Button 2</TopBar.MainNav.Item>
+            <TopBar.MainNav.Item aria-current={false} href={href}>
+              Button 1
+            </TopBar.MainNav.Item>
+            <TopBar.MainNav.Item aria-current="page" href={href}>
+              Button 2
+            </TopBar.MainNav.Item>
           </TopBar.MainNav>
         ),
         Many: (
           <TopBar.MainNav>
-            <TopBar.NavItem href={href}>Button 1</TopBar.NavItem>
-            <TopBar.NavItem href={href}>Button 2</TopBar.NavItem>
-            <TopBar.NavItem href={href}>Button 3</TopBar.NavItem>
-            <TopBar.NavItem href={href}>Button 4</TopBar.NavItem>
-            <TopBar.NavItem href={href}>Button 5</TopBar.NavItem>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 1
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current="page" href={href}>
+              Button 2
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 3
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 4
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 5
+            </TopBar.NavItem>
             <TopBar.NavMenuItem label="More">
               <Menu.Item label="Button 6" />
               <Menu.Item label="Button 7" />

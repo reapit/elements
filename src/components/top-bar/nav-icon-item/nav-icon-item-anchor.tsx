@@ -19,8 +19,8 @@ interface TopBarNavIconItemAnchorProps extends AnchorHTMLAttributes<HTMLAnchorEl
  * A simple icon-only navigation item for use in the Top Bar's secondary navigation region. Is always an anchor
  * element because Top Bar navigation items should always navigate users to another page in the product.
  *
- * **Important:** ⚠️ This component should rarely be used directly. Instead, use `TopBar.NavIconItem` as it wraps the
- * item in a list item (`<li>`) to ensure good semantics and accessibility when used with `SideBar.SecondaryNav`.
+ * **Important:** ⚠️ Ensure you use this component via `TopBar.NavIconItem` as it wraps the anchor element in a list
+ * item (`<li>`) to ensure good semantics and accessibility when used with `TopBar.SecondaryNav`.
  *
  * To integrate this component with React Router, simply wrap `TopBar.NavIconItem`. For example, with React Router 6,
  * you would do:

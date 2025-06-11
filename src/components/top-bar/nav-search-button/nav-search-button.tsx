@@ -35,9 +35,9 @@ interface TopBarNavSearchButtonProps extends ComponentProps<typeof ElTopBarNavSe
  * the search experience to be launched via a keyboard shortcut; usually `Ctrl+K` or `⌘K`. If so, the shortcut
  * should be displayed via the `shortcut` prop.
  */
-export function TopBarNavSearchButton({ shortcut, onClick, ...props }: TopBarNavSearchButtonProps) {
+export function TopBarNavSearchButton({ shortcut, onClick, ...rest }: TopBarNavSearchButtonProps) {
   return (
-    <ElTopBarNavSearchButton {...props} onClick={onClick} type="button">
+    <ElTopBarNavSearchButton {...rest} onClick={onClick} type="button">
       <ElTopBarNavSearchButtonIcon aria-hidden="true" />
       <ElTopBarNavSearchButtonPlaceholder>Search</ElTopBarNavSearchButtonPlaceholder>
       {shortcut && (
