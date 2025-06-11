@@ -48,8 +48,25 @@ interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> 
 }
 
 /**
- * A responsive navigation bar that contains the product's app switcher, logo, main navigation, secondary navigation,
- * search entry point, and user profile menu.
+ * A responsive header that contains the product's app switcher, logo, main navigation, search entry point,
+ * secondary navigation, and user avatar. There are specific components designed for use in each region.
+ *
+ * Only the logo and user avatar are required; all other regions are optional.
+ *
+ * - **App switcher:** [AppSwitcher](/docs/components-appswitcher--docs)
+ * - **Avatar:** [Menu](/docs/components-menu--docs),
+ *   [TopBar.AvatarButton](/docs/components-topbar-avatarbutton--docs)
+ * - **Logo:** TODO
+ * - **Main navigation:** [TopBar.MainNav](/docs/components-topbar-mainnav--docs),
+ *   [TopBar.NavItem](/docs/components-topbar-navitem--docs),
+ *   [TopBar.NavMenuItem](/docs/components-topbar-navmenuitem--docs)
+ * - **Menu:** TODO
+ * - **Search:** [TopBar.NavSearch](/docs/components-topbar-navsearch--docs),
+ *   [TopBar.NavSearchButton](/docs/components-topbar-navsearchbutton--docs),
+ *   [TopBar.NavSearchIconItem](/docs/components-topbar-navsearchiconitem--docs)
+ * - **Secondary navigation:** [TopBar.SecondaryNav](/docs/components-topbar-secondarynav--docs),
+ *   [TopBar.NavIconItem](/docs/components-topbar-naviconitem--docs),
+ *   [TopBar.NavIconMenuItem](/docs/components-topbar-naviconmenuitem--docs)
  */
 export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secondaryNav, ...rest }: TopBarProps) {
   return (

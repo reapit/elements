@@ -59,10 +59,10 @@ export const WithMenu: Story = {
 
 function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
   return [
-    <TopBarMainNav.Item key="1" href={href} isActive={type === 'Selected item'}>
+    <TopBarMainNav.Item key="1" href={href} aria-current={type === 'Selected item' ? 'page' : false}>
       Nav item 1
     </TopBarMainNav.Item>,
-    <TopBarMainNav.Item key="2" href={href}>
+    <TopBarMainNav.Item key="2" aria-current={false} href={href}>
       Nav item 2
     </TopBarMainNav.Item>,
     type === 'With menu' && (

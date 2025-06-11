@@ -20,8 +20,8 @@ export interface TopBarNavIconItemButtonProps extends ButtonHTMLAttributes<HTMLB
  *
  * Button-based nav icon items do currently support an "active" state like their anchor-based counterparts.
  *
- * **Important:** ⚠️ This component should rarely be used directly. Instead, use `TopBar.NavIconMenuItem` as it wraps
- * the item in a list item (`<li>`) to ensure good semantics and accessibility when used with `SideBar.SecondaryNav`.
+ * **Important:** ⚠️ Ensure you use this component via `TopBar.NavIconMenuItem` as it wraps the button element in a
+ * list item (`<li>`) to ensure good semantics and accessibility when used with `TopBar.SecondaryNav`.
  */
 export function TopBarNavIconItemButton(props: TopBarNavIconItemButtonProps) {
   return <TopBarNavIconItemBase as="button" {...props} />
