@@ -1,8 +1,8 @@
 import { styled } from '@linaria/react'
 
-export const ElTopBarMainNav = styled.nav``
+export const ElTopBarSecondaryNav = styled.nav``
 
-export const ElTopBarMainNavList = styled.ul`
+export const ElTopBarSecondaryNavList = styled.ul`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -13,7 +13,7 @@ export const ElTopBarMainNavList = styled.ul`
   padding: 0;
 `
 
-export const ElTopBarMainNavListItem = styled.li`
+export const ElTopBarSecondaryNavListItem = styled.li`
   display: flex;
   align-items: center;
 `

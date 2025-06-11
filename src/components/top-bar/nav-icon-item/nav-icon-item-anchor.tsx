@@ -1,47 +1,40 @@
-import { cx } from '@linaria/core'
-import { ElTopBarNavIconItemBadge, ElTopBarNavIconItemIcon, elTopBarNavIconItem } from './styles'
-import { Tooltip, useTooltip } from '../../tooltip'
+import { TopBarNavIconItemBase } from './nav-icon-item-base'
 
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-export interface TopBarNavIconItemAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  /**
-   * The accessible name of the nav icon item.
-   */
-  'aria-label': string
-  /**
-   * Whether the nav item represents the current page.
-   **/
+interface TopBarNavIconItemAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+  /** Whether the nav item represents the current page. */
   'aria-current': 'page' | false
-  /**
-   * Optional badge to be displayed on the nav item
-   */
+  /** The accessible name of the nav icon item. */
+  'aria-label': string
+  /** Optional badge to be displayed on the nav item */
   hasBadge?: boolean
-  /**
-   * The nav item's icon.
-   */
-  icon: ReactNode
-  /**
-   * The URL to navigate to when the nav item is clicked.
-   */
+  /** The URL to navigate to when the nav item is clicked. */
   href: string
+  /** The nav item's icon. */
+  icon: ReactNode
 }
 
 /**
- * An anchor-based, icon-only navigation item for use in the Top Bar's secondary navigation region.
+ * A simple icon-only navigation item for use in the Top Bar's secondary navigation region. Is always an anchor
+ * element because Top Bar navigation items should always navigate users to another page in the product.
  *
- * Anchor-based nav icon items are typically used to navigate to a new page in the product.
+ * **Important:** ⚠️ This component should rarely be used directly. Instead, use `TopBar.NavIconItem` as it wraps the
+ * item in a list item (`<li>`) to ensure good semantics and accessibility when used with `SideBar.SecondaryNav`.
  *
- * **Important:** Typically, this component will not be used directly. Instead, the `TopBar.NavIconItem` component
- * is preferred.
+ * To integrate this component with React Router, simply wrap `TopBar.NavIconItem`. For example, with React Router 6,
+ * you would do:
+ *
+ * ```tsx
+ * function MyTopBarNavIconItem({ to, ...rest}) {
+ *   const href = useHref(to)
+ *   const isCurrentPage = useMatch(to)
+ *   return (
+ *     <TopBar.NavIconItemAnchor {...rest} aria-current={isCurrentPage ? 'page' : false} as="a" href={href} />
+ *   )
+ * }
+ * ```
  */
-export function TopBarNavIconItemAnchor({ className, icon, hasBadge, ...rest }: TopBarNavIconItemAnchorProps) {
-  const tooltip = useTooltip()
-  return (
-    <a {...tooltip.getTriggerProps(rest)} className={cx(elTopBarNavIconItem, className)}>
-      <ElTopBarNavIconItemIcon aria-hidden="true">{icon}</ElTopBarNavIconItemIcon>
-      {hasBadge && <ElTopBarNavIconItemBadge />}
-      <Tooltip {...tooltip.getTooltipProps()} description={rest['aria-label']} position="bottom" />
-    </a>
-  )
+export function TopBarNavIconItemAnchor(props: TopBarNavIconItemAnchorProps) {
+  return <TopBarNavIconItemBase {...props} as="a" />
 }

@@ -5,6 +5,11 @@ import type { Meta, StoryObj } from '@storybook/react'
 const meta = {
   title: 'Components/TopBar/NavSearchIconItem',
   component: TopBarNavSearchIconItem,
+  argTypes: {
+    onClick: {
+      control: false,
+    },
+  },
 } satisfies Meta<typeof TopBarNavSearchIconItem>
 
 export default meta

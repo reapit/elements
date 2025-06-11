@@ -1,52 +1,25 @@
 import { Icon } from '../../icon'
 import { Menu } from '../../menu'
-import { TopBarNavIconItem } from './nav-icon-item'
+import { TopBarNavIconItemButton } from './nav-icon-item-button'
 
 import type { Meta, StoryObj } from '@storybook/react'
 
 const meta = {
-  title: 'Components/TopBar/NavIconItem',
-  component: TopBarNavIconItem,
+  title: 'Components/TopBar/NavIconItemButton',
+  component: TopBarNavIconItemButton,
   argTypes: {
-    // NOTE: The descriptions for the following props are manually specified here because Storybook is unable to
-    // extract them from the component's prop type due to the use of a discriminated union.
-    'aria-current': {
-      control: 'radio',
-      description: 'Whether the nav item represents the current page. Only applicable when `as="a"`.',
-      options: ['page', false],
-      table: {
-        type: { summary: '"page" | false' },
-      },
-    },
-    'aria-label': {
-      control: 'text',
-      description: 'The accessible name of the nav item.',
-    },
-    as: {
-      control: 'radio',
-      description: 'Whether the nav item is rendered as a button or a link. Defaults to `"a"`.',
-      options: ['a', 'button'],
-      table: {
-        type: { summary: '"a" | "button"' },
-      },
-    },
-    hasBadge: {
-      control: 'boolean',
-      description: 'Whether the nav item has a badge.',
-    },
-    href: {
-      control: 'text',
-      description: 'The URL to navigate to when the nav item is clicked. Only applicable when `as="a"`.',
-    },
     icon: {
-      control: false,
-      description: "The nav item's icon.",
-      table: {
-        type: { summary: 'ReactNode' },
+      control: 'radio',
+      options: ['contact', 'help', 'notification', 'star'],
+      mapping: {
+        contact: <Icon icon="contact" />,
+        help: <Icon icon="help" />,
+        notification: <Icon icon="notification" />,
+        star: <Icon icon="star" />,
       },
     },
   },
-} satisfies Meta<typeof TopBarNavIconItem>
+} satisfies Meta<typeof TopBarNavIconItemButton>
 
 export default meta
 
@@ -59,24 +32,10 @@ type Story = StoryObj<typeof meta>
  */
 export const Example: Story = {
   args: {
-    'aria-current': false,
     'aria-label': 'Nav icon item',
     hasBadge: false,
-    href: globalThis.top?.location.href!,
     icon: <Icon icon="star" />,
-  },
-}
-
-/**
- * When the nav item represents the current page, `aria-current="page"` should be supplied. This indicates to visual
- * and accessible users that the item represents the current page.
- *
- * **Note:** This is only applicable when the nav item is a link.
- */
-export const Selected: Story = {
-  args: {
-    ...Example.args,
-    'aria-current': 'page',
+    onClick: () => void 0,
   },
 }
 
@@ -111,10 +70,9 @@ export const WithBadge: Story = {
  * </Menu.Trigger>
  * ```
  */
-export const AsButton: Story = {
+export const WithMenu: Story = {
   args: {
     'aria-label': 'Help menu',
-    as: 'button',
     icon: <Icon icon="help" />,
     onClick: () => void 0,
   },
@@ -128,7 +86,9 @@ export const AsButton: Story = {
   render: (args) => {
     return (
       <Menu>
-        <Menu.Trigger>{({ getTriggerProps }) => <TopBarNavIconItem {...args} {...getTriggerProps()} />}</Menu.Trigger>
+        <Menu.Trigger>
+          {({ getTriggerProps }) => <TopBarNavIconItemButton {...args} {...getTriggerProps()} />}
+        </Menu.Trigger>
         <Menu.Popover>
           <Menu.List>
             <Menu.Item label="Menu Item 1" />
