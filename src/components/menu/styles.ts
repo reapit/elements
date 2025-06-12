@@ -45,21 +45,6 @@ export const ElMenuItemLabel = styled.span`
   margin-right: var(--spacing-2);
 `
 
-export const ElMenuList = styled.div`
-  width: max-content;
-  padding: var(--spacing-2) var(--spacing-2);
-  border-radius: var(--corner-default);
-  background-color: var(--fill-white);
-  box-shadow: 0px 4px 16px 0px #222b3329;
-  overflow: auto;
-
-  &[data-has-max-width='true'] {
-    ${ElMenuItemLabel} {
-      white-space: normal;
-    }
-  }
-`
-
 export const ElMenuItemContent = styled.div`
   display: flex;
   align-items: flex-start;
@@ -172,11 +157,34 @@ export const ElMenuItemGroupTitle = styled.div`
   align-items: center;
   align-self: stretch;
 `
-export const ElMenuItemGroup = styled.div``
+export const ElMenuItemGroup = styled.div`
+  padding-inline: var(--spacing-2);
+`
 
 export const ElMenuItemGroupList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   overflow: auto;
+`
+
+export const ElMenuList = styled.div`
+  width: max-content;
+  padding: var(--spacing-2) 0;
+  border-radius: var(--corner-default);
+  background-color: var(--fill-white);
+  box-shadow: 0px 4px 16px 0px #222b3329;
+  overflow: auto;
+
+  &[data-has-max-width='true'] {
+    ${ElMenuItemLabel} {
+      white-space: normal;
+    }
+  }
+
+  ${ElMenuItemGroup}:not(:last-child) {
+    border-bottom: 1px solid var(--comp-divider-colour-border-solid);
+    padding-bottom: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+  }
 `
