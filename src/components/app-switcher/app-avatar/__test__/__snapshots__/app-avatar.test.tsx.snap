@@ -5,9 +5,9 @@ exports[`renders agentBox icon when \`hasAccess\` is false 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -64,9 +64,9 @@ exports[`renders agentBox icon when \`hasAccess\` is true 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -122,9 +122,9 @@ exports[`renders autoResponder icon when \`hasAccess\` is false 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -148,9 +148,9 @@ exports[`renders autoResponder icon when \`hasAccess\` is true 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -174,9 +174,9 @@ exports[`renders consoleCloud icon when \`hasAccess\` is false 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -229,9 +229,9 @@ exports[`renders consoleCloud icon when \`hasAccess\` is true 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -283,9 +283,9 @@ exports[`renders ireWeb icon when \`hasAccess\` is false 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -324,9 +324,9 @@ exports[`renders ireWeb icon when \`hasAccess\` is true 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -364,9 +364,9 @@ exports[`renders keywhere icon when \`hasAccess\` is false 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -402,9 +402,9 @@ exports[`renders keywhere icon when \`hasAccess\` is true 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -440,9 +440,9 @@ exports[`renders lettingsBDM icon when \`hasAccess\` is false 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -466,9 +466,9 @@ exports[`renders lettingsBDM icon when \`hasAccess\` is true 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -492,9 +492,9 @@ exports[`renders reapitForms icon when \`hasAccess\` is false 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -530,9 +530,9 @@ exports[`renders reapitForms icon when \`hasAccess\` is true 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -568,9 +568,9 @@ exports[`renders reapitProposals icon when \`hasAccess\` is false 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -594,9 +594,9 @@ exports[`renders reapitProposals icon when \`hasAccess\` is true 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -620,9 +620,9 @@ exports[`renders reapitWebsites icon when \`hasAccess\` is false 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
@@ -662,9 +662,9 @@ exports[`renders reapitWebsites icon when \`hasAccess\` is true 1`] = `
   <svg
     fill="none"
     font-size="40"
-    height="1em"
+    height="40"
     viewBox="0 0 40 40"
-    width="1em"
+    width="40"
     xmlns="http://www.w3.org/2000/svg"
   >
     <path
