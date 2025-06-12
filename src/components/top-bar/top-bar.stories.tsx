@@ -2,9 +2,9 @@ import { AppSwitcher } from '../app-switcher'
 import { elIcon } from '../button'
 import { elTopBarMenuPopover } from './styles'
 import { Icon } from '../icon'
-import { ReapitLogo } from '../reapit-logo'
 import { Menu } from '../menu'
 import MenuIcon from './icons/menu-icon.svg?react'
+import { supportedAppNames } from './brand-logo'
 import { TopBar } from './top-bar'
 import { TopBarNavIconItemButton } from './nav-icon-item'
 
@@ -12,13 +12,13 @@ import type { Decorator, Meta, StoryObj } from '@storybook/react'
 
 const href = globalThis.top?.location.href!
 
-export default {
+const meta = {
   title: 'Components/TopBar',
   component: TopBar,
   argTypes: {
     appSwitcher: {
       control: 'radio',
-      options: ['None', 'Legacy App Switcher'],
+      options: ['None', 'App Switcher'],
       mapping: {
         None: null,
         'App Switcher': (
@@ -71,14 +71,33 @@ export default {
       },
     },
     logo: {
-      control: false,
+      control: 'select',
+      options: supportedAppNames,
+      mapping: {
+        Reapit: <TopBar.BrandLogo appName="Reapit" href={href} />,
+        'Console Owner': <TopBar.BrandLogo appName="Console Owner" href={href} />,
+        'Console Pay': <TopBar.BrandLogo appName="Console Pay" href={href} />,
+        'Console Tenant': <TopBar.BrandLogo appName="Console Tenant" href={href} />,
+        'Reapit Connect': <TopBar.BrandLogo appName="Reapit Connect" href={href} />,
+        'Reapit Projector': <TopBar.BrandLogo appName="Reapit Projector" href={href} />,
+        'Reapit Sales': <TopBar.BrandLogo appName="Reapit Sales" href={href} />,
+        'Reapit Lettings': <TopBar.BrandLogo appName="Reapit Lettings" href={href} />,
+        'Reapit PM': <TopBar.BrandLogo appName="Reapit PM" href={href} />,
+        'PM Demo': <TopBar.BrandLogo appName="PM Demo" href={href} />,
+        'PM Sales': <TopBar.BrandLogo appName="PM Sales" href={href} />,
+        'PM Inspect': <TopBar.BrandLogo appName="PM Inspect" href={href} />,
+        'Reapit Forms': <TopBar.BrandLogo appName="Reapit Forms" href={href} />,
+        'Reapit Proposals': <TopBar.BrandLogo appName="Reapit Proposals" href={href} />,
+        KeyWhere: <TopBar.BrandLogo appName="KeyWhere" href={href} />,
+        'Auto Responder': <TopBar.BrandLogo appName="Auto Responder" href={href} />,
+      },
     },
     mainNav: {
       control: 'radio',
-      options: ['None', 'Few', 'Many'],
+      options: ['None', 'Some', 'Many'],
       mapping: {
         None: null,
-        Few: (
+        Some: (
           <TopBar.MainNav>
             <TopBar.MainNav.Item aria-current={false} href={href}>
               Button 1
@@ -154,7 +173,9 @@ export default {
   },
 } satisfies Meta<typeof TopBar>
 
-type Story = StoryObj<typeof TopBar>
+export default meta
+
+type Story = StoryObj<typeof meta>
 
 function useConstrainedWidthDecorator(width: string): Decorator {
   return (Story) => (
@@ -178,7 +199,7 @@ export const Example: Story = {
   args: {
     appSwitcher: 'App Switcher',
     avatar: 'Avatar Menu',
-    logo: <ReapitLogo />,
+    logo: 'Reapit',
     mainNav: 'Many',
     menu: (
       // TODO: replace this with the proper TopBarMenu component when it is available

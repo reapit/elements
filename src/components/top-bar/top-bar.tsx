@@ -1,3 +1,4 @@
+import { BrandLogo } from './brand-logo'
 import {
   ElTopBar,
   ElTopBarAppSwitcherContainer,
@@ -56,7 +57,7 @@ interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> 
  * - **App switcher:** [AppSwitcher](/docs/components-appswitcher--docs)
  * - **Avatar:** [Menu](/docs/components-menu--docs),
  *   [TopBar.AvatarButton](/docs/components-topbar-avatarbutton--docs)
- * - **Logo:** TODO
+ * - **Logo:** [TopBar.BrandLogo](/docs/components-topbar-brandlogo--docs)
  * - **Main navigation:** [TopBar.MainNav](/docs/components-topbar-mainnav--docs),
  *   [TopBar.NavItem](/docs/components-topbar-navitem--docs),
  *   [TopBar.NavMenuItem](/docs/components-topbar-navmenuitem--docs)
@@ -84,7 +85,7 @@ export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secon
   )
 }
 
-TopBar.AvatarButton = TopBarAvatarButton
+TopBar.BrandLogo = BrandLogo
 
 TopBar.MainNav = TopBarMainNav
 TopBar.NavItem = TopBarMainNav.Item
@@ -97,3 +98,5 @@ TopBar.NavIconMenuItem = TopBarSecondaryNav.MenuItem
 TopBar.NavSearch = TopBarNavSearch
 TopBar.NavSearchButton = TopBarNavSearch.Button
 TopBar.NavSearchIconItem = TopBarNavSearch.IconItem
+
+TopBar.AvatarButton = TopBarAvatarButton

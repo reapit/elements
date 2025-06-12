@@ -17,9 +17,9 @@ exports[`renders the provided logo, app name and supplementary info 1`] = `
       <svg
         fill="none"
         font-size="40"
-        height="1em"
+        height="40"
         viewBox="0 0 40 40"
-        width="1em"
+        width="40"
         xmlns="http://www.w3.org/2000/svg"
       >
         <path

@@ -56,8 +56,9 @@ export const ElTopBarLogoContainer = styled.div`
   grid-area: logo;
   display: flex;
   align-items: center;
+  justify-content: start;
   padding-block: var(--spacing-2);
-  padding-inline: 0 var(--spacing-2);
+  padding-inline: var(--spacing-none) var(--spacing-2);
 `
 
 export const ElTopBarAvatarContainer = styled.div`
