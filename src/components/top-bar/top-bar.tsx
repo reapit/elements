@@ -8,6 +8,10 @@ import {
   ElTopBarSearchContainer,
   ElTopBarSecondaryNavContainer,
 } from './styles'
+import { TopBarAvatarButton } from './avatar-button'
+import { TopBarMainNav } from './main-nav'
+import { TopBarNavSearch } from './nav-search'
+import { TopBarSecondaryNav } from './secondary-nav'
 
 import type { ComponentProps, ReactNode } from 'react'
 
@@ -44,12 +48,29 @@ interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> 
 }
 
 /**
- * A responsive navigation bar that contains the product's app switcher, logo, main navigation, secondary navigation,
- * search entry point, and user profile menu.
+ * A responsive header that contains the product's app switcher, logo, main navigation, search entry point,
+ * secondary navigation, and user avatar. There are specific components designed for use in each region.
+ *
+ * Only the logo and user avatar are required; all other regions are optional.
+ *
+ * - **App switcher:** [AppSwitcher](/docs/components-appswitcher--docs)
+ * - **Avatar:** [Menu](/docs/components-menu--docs),
+ *   [TopBar.AvatarButton](/docs/components-topbar-avatarbutton--docs)
+ * - **Logo:** TODO
+ * - **Main navigation:** [TopBar.MainNav](/docs/components-topbar-mainnav--docs),
+ *   [TopBar.NavItem](/docs/components-topbar-navitem--docs),
+ *   [TopBar.NavMenuItem](/docs/components-topbar-navmenuitem--docs)
+ * - **Menu:** TODO
+ * - **Search:** [TopBar.NavSearch](/docs/components-topbar-navsearch--docs),
+ *   [TopBar.NavSearchButton](/docs/components-topbar-navsearchbutton--docs),
+ *   [TopBar.NavSearchIconItem](/docs/components-topbar-navsearchiconitem--docs)
+ * - **Secondary navigation:** [TopBar.SecondaryNav](/docs/components-topbar-secondarynav--docs),
+ *   [TopBar.NavIconItem](/docs/components-topbar-naviconitem--docs),
+ *   [TopBar.NavIconMenuItem](/docs/components-topbar-naviconmenuitem--docs)
  */
-export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secondaryNav, ...props }: TopBarProps) {
+export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secondaryNav, ...rest }: TopBarProps) {
   return (
-    <ElTopBar {...props}>
+    <ElTopBar {...rest}>
       {/* NOTE: The order here defines the "source order" of the DOM content. For a11y, it's important this
        * matches the visual order defined by ElTopBar's CSS grid layout. */}
       {appSwitcher && <ElTopBarAppSwitcherContainer>{appSwitcher}</ElTopBarAppSwitcherContainer>}
@@ -62,3 +83,17 @@ export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secon
     </ElTopBar>
   )
 }
+
+TopBar.AvatarButton = TopBarAvatarButton
+
+TopBar.MainNav = TopBarMainNav
+TopBar.NavItem = TopBarMainNav.Item
+TopBar.NavMenuItem = TopBarMainNav.MenuItem
+
+TopBar.SecondaryNav = TopBarSecondaryNav
+TopBar.NavIconItem = TopBarSecondaryNav.Item
+TopBar.NavIconMenuItem = TopBarSecondaryNav.MenuItem
+
+TopBar.NavSearch = TopBarNavSearch
+TopBar.NavSearchButton = TopBarNavSearch.Button
+TopBar.NavSearchIconItem = TopBarNavSearch.IconItem

@@ -1,18 +1,16 @@
-import type { Decorator, Meta, StoryObj } from '@storybook/react'
-import { AvatarButton } from '../avatar-button'
-import { elIcon } from '../button'
-import { CSSContainerQuery } from '../container-query/container-query'
-import { Icon } from '../icon'
-import { Menu } from '../menu'
-import { NavDropdownButton } from '../nav-dropdown-button'
-import { NavIconItem } from '../nav-icon-item'
-import { NavItem } from '../nav-item'
-import { NavSearchButton } from '../nav-search-button/nav-search-button'
-import { ReapitLogo } from '../reapit-logo'
-import MenuIcon from './icons/menu-icon.svg?react'
-import { elTopBarMenuPopover } from './styles'
-import { TopBar } from './top-bar'
 import { AppSwitcher } from '../app-switcher'
+import { elIcon } from '../button'
+import { elTopBarMenuPopover } from './styles'
+import { Icon } from '../icon'
+import { ReapitLogo } from '../reapit-logo'
+import { Menu } from '../menu'
+import MenuIcon from './icons/menu-icon.svg?react'
+import { TopBar } from './top-bar'
+import { TopBarNavIconItemButton } from './nav-icon-item'
+
+import type { Decorator, Meta, StoryObj } from '@storybook/react'
+
+const href = globalThis.top?.location.href!
 
 export default {
   title: 'Components/TopBar',
@@ -55,7 +53,11 @@ export default {
         'Avatar Menu': (
           <Menu data-alignment="right">
             <Menu.Trigger>
-              {({ getTriggerProps, isOpen }) => <AvatarButton {...getTriggerProps()} isOpen={isOpen} label="AD" />}
+              {({ getTriggerProps, isOpen }) => (
+                <TopBar.AvatarButton {...getTriggerProps()} isOpen={isOpen}>
+                  AD
+                </TopBar.AvatarButton>
+              )}
             </Menu.Trigger>
             <Menu.Popover className={elTopBarMenuPopover}>
               <Menu.List>
@@ -77,39 +79,38 @@ export default {
       mapping: {
         None: null,
         Few: (
-          <>
-            <NavItem>Button 1</NavItem>
-            <NavItem>Button 2</NavItem>
-          </>
+          <TopBar.MainNav>
+            <TopBar.MainNav.Item aria-current={false} href={href}>
+              Button 1
+            </TopBar.MainNav.Item>
+            <TopBar.MainNav.Item aria-current="page" href={href}>
+              Button 2
+            </TopBar.MainNav.Item>
+          </TopBar.MainNav>
         ),
         Many: (
-          <>
-            <NavItem>Button 1</NavItem>
-            <NavItem>Button 2</NavItem>
-            <CSSContainerQuery condition={'(width < 500px)'}>
-              <NavItem>Button 3</NavItem>
-              <NavItem>Button 4</NavItem>
-              <NavItem>Button 5</NavItem>
-            </CSSContainerQuery>
-            <CSSContainerQuery condition={'not (width < 500px)'}>
-              <Menu>
-                <Menu.Trigger>
-                  {({ getTriggerProps, isOpen }) => (
-                    <NavDropdownButton {...getTriggerProps()} isOpen={isOpen}>
-                      More
-                    </NavDropdownButton>
-                  )}
-                </Menu.Trigger>
-                <Menu.Popover className={elTopBarMenuPopover}>
-                  <Menu.List>
-                    <Menu.Item label="Button 3" />
-                    <Menu.Item label="Button 4" />
-                    <Menu.Item label="Button 5" />
-                  </Menu.List>
-                </Menu.Popover>
-              </Menu>
-            </CSSContainerQuery>
-          </>
+          <TopBar.MainNav>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 1
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current="page" href={href}>
+              Button 2
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 3
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 4
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 5
+            </TopBar.NavItem>
+            <TopBar.NavMenuItem label="More">
+              <Menu.Item label="Button 6" />
+              <Menu.Item label="Button 7" />
+              <Menu.Item label="Button 8" />
+            </TopBar.NavMenuItem>
+          </TopBar.MainNav>
         ),
       },
     },
@@ -125,22 +126,25 @@ export default {
       mapping: {
         None: null,
         Some: (
-          <>
-            <Menu>
-              <Menu.Trigger>
-                {({ getTriggerProps }) => <NavIconItem {...getTriggerProps()} icon={<Icon icon="star" />} />}
-              </Menu.Trigger>
-              <Menu.Popover>
-                <Menu.List>
-                  <Menu.Item label="Menu item 1" />
-                  <Menu.Item label="Menu item 2" />
-                  <Menu.Item label="Menu item 3" />
-                </Menu.List>
-              </Menu.Popover>
-            </Menu>
-            <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-            <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-          </>
+          <TopBar.SecondaryNav>
+            <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<Icon icon="help" />}>
+              <Menu.Item label="Menu item 1" />
+              <Menu.Item label="Menu item 2" />
+              <Menu.Item label="Menu item 3" />
+            </TopBar.NavIconMenuItem>
+            <TopBar.NavIconItem
+              aria-current={false}
+              aria-label="Nav icon item 2"
+              href={href}
+              icon={<Icon icon="notification" />}
+            />
+            <TopBar.NavIconItem
+              aria-current={false}
+              aria-label="Nav icon item 3"
+              href={href}
+              icon={<Icon icon="star" />}
+            />
+          </TopBar.SecondaryNav>
         ),
       },
     },
@@ -176,8 +180,20 @@ export const Example: Story = {
     avatar: 'Avatar Menu',
     logo: <ReapitLogo />,
     mainNav: 'Many',
-    menu: <NavIconItem aria-label="mobile secondary nav trigger" icon={<MenuIcon className={elIcon} />} />,
-    search: <NavSearchButton onClick={() => void 0} />,
+    menu: (
+      // TODO: replace this with the proper TopBarMenu component when it is available
+      <TopBarNavIconItemButton
+        aria-label="Overflow menu"
+        icon={<MenuIcon className={elIcon} />}
+        onClick={() => void 0}
+      />
+    ),
+    search: (
+      <TopBar.NavSearch
+        button={<TopBar.NavSearchButton onClick={() => void 0} shortcut="⌘K" />}
+        iconItem={<TopBar.NavSearchIconItem onClick={() => void 0} />}
+      />
+    ),
     secondaryNav: 'Some',
   },
   decorators: [
@@ -220,7 +236,7 @@ export const Tablet: Story = {
  */
 export const Desktop: Story = {
   args: {
-    ...Example.args,
+    ...Tablet.args,
   },
   decorators: [useConstrainedWidthDecorator('1024px')],
 }
@@ -230,7 +246,7 @@ export const Desktop: Story = {
  */
 export const WideScreen: Story = {
   args: {
-    ...Example.args,
+    ...Tablet.args,
   },
   decorators: [useConstrainedWidthDecorator('1440px')],
 }

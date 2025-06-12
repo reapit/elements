@@ -18,11 +18,22 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 
 ### **5.0.0-beta.30 - 06/06/25**
 
-- fix: `TopBar` secondary nav now applies correct `display` CSS property for widescreen or larger breakpoints
-- fix: Prevent `SideBar.MenuList` and `SideBar.Submenu` list elements from being impacted by user-agent applied padding and margin styles
-- feat: `TopBar` and `NavSearchButton` now use CSS container queries, when supported, for their responsive behaviour. Storybook docs also updated to demonstrate.
-- feat: Add Lettings BDM support to `AppSwitcher`
-- feat: Add `Menu.Group` bottom border as menu divider
+- **fix:** `TopBar` secondary nav now applies correct `display` CSS property for widescreen or larger breakpoints
+- **fix:** Prevent `SideBar.MenuList` and `SideBar.Submenu` list elements from being impacted by user-agent applied padding and margin styles
+- **feat:** `TopBar` and `NavSearchButton` now use CSS container queries, when supported, for their responsive behaviour. Storybook docs also updated to demonstrate.
+- **feat:** Add Lettings BDM support to `AppSwitcher`
+- **feat!:** Move `NavSearchButton` into `TopBar` and split it into three separate components:
+  - `TopBar.NavSearch`, a responsive helper for correctly rendering the search button and search icon item across mobile and wider screen sizes;
+  - `TopBar.NavSearchButton`, a simple button that should be used to launch the search experience on tablet and wider screen sizes;
+  - `TopBar.NavSearchIconItem`, a thin wrapper around `NavItemIcon` that should be used to launch the search experience on mobile screen sizes.
+  - **BREAKING CHANGE:** Consumers using just `NavSearchButton` will no longer see a responsive change to the icon item version on mobile screen sizes.
+- **feat!:** Renamed `NavSearch`, `NavSearchButton` and `NavSearchIconItem` components and styled elements to have a `TopBar` prefix.
+- **feat!:** Move `NavItem` into `TopBar`, rename it and its related classes to use the `TopBar` prefix, and remove support for button-based nav items.
+- **feat!:** Move `NavDropdownButton` into `TopBar` and rename it and its related classes to use the `TopBar` prefix.
+- **feat!:** Move `NavIconItem` into `TopBar` and rename it and its related classes to use the `TopBar` prefix. It's prop interface has also been updated to explicitly `as="button"` if a button is desired; by default, the component will render as a link.
+- **feat!:** Move `AvatarButton` into `TopBar` and rename it and its related classes to use the `TopBar` prefix.
+- **feat:** Add new `MainNav` and `SecondaryNav` components to `TopBar`.
+- **feat:** Add `Menu.Group` bottom border as menu divider
 
 ### **5.0.0-beta.29 - 05/06/25**
 
