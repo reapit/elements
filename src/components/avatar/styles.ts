@@ -9,8 +9,8 @@ interface ElAvatarProps {
 
 export const ElAvatar = styled.span<ElAvatarProps>`
   display: flex;
-  width: var(--size-10, 40px);
-  height: var(--size-10, 40px);
+  width: var(--size-10);
+  height: var(--size-10);
   flex-direction: column;
   justify-content: center;
   align-items: center;
