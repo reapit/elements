@@ -1,3 +1,4 @@
+import { font } from '#src/components/text'
 import { styled } from '@linaria/react'
 
 // If we don't have the transparent border, the component will move a slight bit, which is not what we want
@@ -45,14 +46,7 @@ export const ElAppSwitcherMenuItemLabel = styled.span`
   overflow-wrap: anywhere;
 
   color: var(--comp-menu-colour-text-default-primary);
-
-  /* text-sm/Medium */
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-style: normal;
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
+  ${font('sm', 'medium')}
 `
 
 export const ElAppSwitcherMenuItemSupplementaryInfo = styled.span`
@@ -60,12 +54,5 @@ export const ElAppSwitcherMenuItemSupplementaryInfo = styled.span`
   overflow-wrap: anywhere;
 
   color: var(--comp-menu-colour-text-default-secondary);
-
-  /* text-xs/Regular */
-  font-family: var(--font-xs-regular-family);
-  font-size: var(--font-xs-regular-size);
-  font-style: normal;
-  font-weight: var(--font-xs-regular-weight);
-  line-height: var(--font-xs-regular-line_height);
-  letter-spacing: var(--font-xs-regular-letter_spacing);
+  ${font('xs', 'regular')}
 `

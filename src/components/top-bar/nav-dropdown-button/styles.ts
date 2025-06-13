@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon'
+import { font } from '#src/components/text'
 
 export const ElTopBarNavDropdownButton = styled.button`
   --__padding-block: calc(var(--spacing-half) + var(--spacing-1));
@@ -45,14 +46,7 @@ export const ElTopBarNavDropdownButtonLabel = styled.span`
   white-space: nowrap;
 
   color: var(--comp-navigation-colour-text-nav_item-default);
-
-  /* text-sm/Medium */
-  font-family: var(--font-sm-medium-family);
-  font-size: var(--font-sm-medium-size);
-  font-style: normal;
-  font-weight: var(--font-sm-medium-weight);
-  line-height: var(--font-sm-medium-line_height);
-  letter-spacing: var(--font-sm-medium-letter_spacing);
+  ${font('sm', 'medium')}
 `
 
 export const ElTopBarNavDropdownButtonIcon = styled.span`

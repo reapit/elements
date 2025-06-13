@@ -1,3 +1,4 @@
+import { font } from '#src/components/text'
 import { styled } from '@linaria/react'
 
 interface ElAvatarProps {
@@ -14,13 +15,7 @@ export const ElAvatar = styled.span<ElAvatarProps>`
   justify-content: center;
   align-items: center;
 
-  /* text-base/Bold */
-  font-family: var(--font-base-bold-family);
-  font-size: var(--font-base-bold-size);
-  font-style: normal;
-  font-weight: var(--font-base-bold-weight);
-  line-height: var(--font-base-bold-line_height);
-  letter-spacing: var(--font-base-bold-letter_spacing);
+  ${font('base', 'bold')}
 
   /** Colour styles */
   &[data-colour='default'] {
