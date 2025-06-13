@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/blocks'
+
+<Meta title="Components/Text/Font" />
+
+# `font`
+
+Many components with Elements need to apply font styles based on a specific size and weight. The required styles will
+be specified within Figma for each component and will look something like the following CSS:
+
+```css
+/* text-sm/Regular */
+font-family: var(--font-sm-regular-family, Inter);
+font-size: var(--font-sm-regular-size, 14px);
+font-style: normal;
+font-weight: var(--font-sm-regular-weight, 400);
+line-height: var(--font-sm-regular-line_height, 20px); /* 142.857% */
+letter-spacing: var(--font-sm-regular-letter_spacing, -0.14px);
+```
+
+When an engineer uses this CSS, they will simply copy and paste it into their styled element verbatim, then remove the
+CSS variable default/fallback values. The problem with this is we duplicate a lot of font-related CSS throughout many
+components, which increases the cost of change, especially if we go through another CSS variable overhaul.
+
+To ease this cost, we have a `font` CSS style helper that can be used. With this helper, instead of duplicating the CSS
+from Figma, an engineer will do the following:
+
+```ts
+// styles.ts
+import { font } from '#src/components/text'
+
+const MyStyledDiv = styled.div`
+  ${font('sm', 'regular')}
+`
+```
+
+This will generate the same CSS as shown in the first snippet, with the exception of `font-style` (generally, we want
+to inherit `font-style` rather than force it to be `normal` in all cases).

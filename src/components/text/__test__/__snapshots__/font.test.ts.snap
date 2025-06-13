@@ -1,0 +1,241 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`font(2xl, bold) returns correct CSS 1`] = `
+"
+    /* text-2xl/bold */
+    font: var(--font-2xl-bold-weight) var(--font-2xl-bold-size)/var(--font-2xl-bold-line_height) var(--font-2xl-bold-family);
+    letter-spacing: var(--font-2xl-bold-letter_spacing);
+  "
+`;
+
+exports[`font(2xl, medium) returns correct CSS 1`] = `
+"
+    /* text-2xl/medium */
+    font: var(--font-2xl-medium-weight) var(--font-2xl-medium-size)/var(--font-2xl-medium-line_height) var(--font-2xl-medium-family);
+    letter-spacing: var(--font-2xl-medium-letter_spacing);
+  "
+`;
+
+exports[`font(2xl, regular) returns correct CSS 1`] = `
+"
+    /* text-2xl/regular */
+    font: var(--font-2xl-regular-weight) var(--font-2xl-regular-size)/var(--font-2xl-regular-line_height) var(--font-2xl-regular-family);
+    letter-spacing: var(--font-2xl-regular-letter_spacing);
+  "
+`;
+
+exports[`font(2xs, bold) returns correct CSS 1`] = `
+"
+    /* text-2xs/bold */
+    font: var(--font-2xs-bold-weight) var(--font-2xs-bold-size)/var(--font-2xs-bold-line_height) var(--font-2xs-bold-family);
+    letter-spacing: var(--font-2xs-bold-letter_spacing);
+  "
+`;
+
+exports[`font(2xs, medium) returns correct CSS 1`] = `
+"
+    /* text-2xs/medium */
+    font: var(--font-2xs-medium-weight) var(--font-2xs-medium-size)/var(--font-2xs-medium-line_height) var(--font-2xs-medium-family);
+    letter-spacing: var(--font-2xs-medium-letter_spacing);
+  "
+`;
+
+exports[`font(2xs, regular) returns correct CSS 1`] = `
+"
+    /* text-2xs/regular */
+    font: var(--font-2xs-regular-weight) var(--font-2xs-regular-size)/var(--font-2xs-regular-line_height) var(--font-2xs-regular-family);
+    letter-spacing: var(--font-2xs-regular-letter_spacing);
+  "
+`;
+
+exports[`font(3xl, bold) returns correct CSS 1`] = `
+"
+    /* text-3xl/bold */
+    font: var(--font-3xl-bold-weight) var(--font-3xl-bold-size)/var(--font-3xl-bold-line_height) var(--font-3xl-bold-family);
+    letter-spacing: var(--font-3xl-bold-letter_spacing);
+  "
+`;
+
+exports[`font(3xl, medium) returns correct CSS 1`] = `
+"
+    /* text-3xl/medium */
+    font: var(--font-3xl-medium-weight) var(--font-3xl-medium-size)/var(--font-3xl-medium-line_height) var(--font-3xl-medium-family);
+    letter-spacing: var(--font-3xl-medium-letter_spacing);
+  "
+`;
+
+exports[`font(3xl, regular) returns correct CSS 1`] = `
+"
+    /* text-3xl/regular */
+    font: var(--font-3xl-regular-weight) var(--font-3xl-regular-size)/var(--font-3xl-regular-line_height) var(--font-3xl-regular-family);
+    letter-spacing: var(--font-3xl-regular-letter_spacing);
+  "
+`;
+
+exports[`font(3xs, bold) returns correct CSS 1`] = `
+"
+    /* text-3xs/bold */
+    font: var(--font-3xs-bold-weight) var(--font-3xs-bold-size)/var(--font-3xs-bold-line_height) var(--font-3xs-bold-family);
+    letter-spacing: var(--font-3xs-bold-letter_spacing);
+  "
+`;
+
+exports[`font(3xs, medium) returns correct CSS 1`] = `
+"
+    /* text-3xs/medium */
+    font: var(--font-3xs-medium-weight) var(--font-3xs-medium-size)/var(--font-3xs-medium-line_height) var(--font-3xs-medium-family);
+    letter-spacing: var(--font-3xs-medium-letter_spacing);
+  "
+`;
+
+exports[`font(3xs, regular) returns correct CSS 1`] = `
+"
+    /* text-3xs/regular */
+    font: var(--font-3xs-regular-weight) var(--font-3xs-regular-size)/var(--font-3xs-regular-line_height) var(--font-3xs-regular-family);
+    letter-spacing: var(--font-3xs-regular-letter_spacing);
+  "
+`;
+
+exports[`font(base, bold) returns correct CSS 1`] = `
+"
+    /* text-base/bold */
+    font: var(--font-base-bold-weight) var(--font-base-bold-size)/var(--font-base-bold-line_height) var(--font-base-bold-family);
+    letter-spacing: var(--font-base-bold-letter_spacing);
+  "
+`;
+
+exports[`font(base, medium) returns correct CSS 1`] = `
+"
+    /* text-base/medium */
+    font: var(--font-base-medium-weight) var(--font-base-medium-size)/var(--font-base-medium-line_height) var(--font-base-medium-family);
+    letter-spacing: var(--font-base-medium-letter_spacing);
+  "
+`;
+
+exports[`font(base, regular) returns correct CSS 1`] = `
+"
+    /* text-base/regular */
+    font: var(--font-base-regular-weight) var(--font-base-regular-size)/var(--font-base-regular-line_height) var(--font-base-regular-family);
+    letter-spacing: var(--font-base-regular-letter_spacing);
+  "
+`;
+
+exports[`font(lg, bold) returns correct CSS 1`] = `
+"
+    /* text-lg/bold */
+    font: var(--font-lg-bold-weight) var(--font-lg-bold-size)/var(--font-lg-bold-line_height) var(--font-lg-bold-family);
+    letter-spacing: var(--font-lg-bold-letter_spacing);
+  "
+`;
+
+exports[`font(lg, medium) returns correct CSS 1`] = `
+"
+    /* text-lg/medium */
+    font: var(--font-lg-medium-weight) var(--font-lg-medium-size)/var(--font-lg-medium-line_height) var(--font-lg-medium-family);
+    letter-spacing: var(--font-lg-medium-letter_spacing);
+  "
+`;
+
+exports[`font(lg, regular) returns correct CSS 1`] = `
+"
+    /* text-lg/regular */
+    font: var(--font-lg-regular-weight) var(--font-lg-regular-size)/var(--font-lg-regular-line_height) var(--font-lg-regular-family);
+    letter-spacing: var(--font-lg-regular-letter_spacing);
+  "
+`;
+
+exports[`font(md, bold) returns correct CSS 1`] = `
+"
+    /* text-md/bold */
+    font: var(--font-md-bold-weight) var(--font-md-bold-size)/var(--font-md-bold-line_height) var(--font-md-bold-family);
+    letter-spacing: var(--font-md-bold-letter_spacing);
+  "
+`;
+
+exports[`font(md, medium) returns correct CSS 1`] = `
+"
+    /* text-md/medium */
+    font: var(--font-md-medium-weight) var(--font-md-medium-size)/var(--font-md-medium-line_height) var(--font-md-medium-family);
+    letter-spacing: var(--font-md-medium-letter_spacing);
+  "
+`;
+
+exports[`font(md, regular) returns correct CSS 1`] = `
+"
+    /* text-md/regular */
+    font: var(--font-md-regular-weight) var(--font-md-regular-size)/var(--font-md-regular-line_height) var(--font-md-regular-family);
+    letter-spacing: var(--font-md-regular-letter_spacing);
+  "
+`;
+
+exports[`font(sm, bold) returns correct CSS 1`] = `
+"
+    /* text-sm/bold */
+    font: var(--font-sm-bold-weight) var(--font-sm-bold-size)/var(--font-sm-bold-line_height) var(--font-sm-bold-family);
+    letter-spacing: var(--font-sm-bold-letter_spacing);
+  "
+`;
+
+exports[`font(sm, medium) returns correct CSS 1`] = `
+"
+    /* text-sm/medium */
+    font: var(--font-sm-medium-weight) var(--font-sm-medium-size)/var(--font-sm-medium-line_height) var(--font-sm-medium-family);
+    letter-spacing: var(--font-sm-medium-letter_spacing);
+  "
+`;
+
+exports[`font(sm, regular) returns correct CSS 1`] = `
+"
+    /* text-sm/regular */
+    font: var(--font-sm-regular-weight) var(--font-sm-regular-size)/var(--font-sm-regular-line_height) var(--font-sm-regular-family);
+    letter-spacing: var(--font-sm-regular-letter_spacing);
+  "
+`;
+
+exports[`font(xl, bold) returns correct CSS 1`] = `
+"
+    /* text-xl/bold */
+    font: var(--font-xl-bold-weight) var(--font-xl-bold-size)/var(--font-xl-bold-line_height) var(--font-xl-bold-family);
+    letter-spacing: var(--font-xl-bold-letter_spacing);
+  "
+`;
+
+exports[`font(xl, medium) returns correct CSS 1`] = `
+"
+    /* text-xl/medium */
+    font: var(--font-xl-medium-weight) var(--font-xl-medium-size)/var(--font-xl-medium-line_height) var(--font-xl-medium-family);
+    letter-spacing: var(--font-xl-medium-letter_spacing);
+  "
+`;
+
+exports[`font(xl, regular) returns correct CSS 1`] = `
+"
+    /* text-xl/regular */
+    font: var(--font-xl-regular-weight) var(--font-xl-regular-size)/var(--font-xl-regular-line_height) var(--font-xl-regular-family);
+    letter-spacing: var(--font-xl-regular-letter_spacing);
+  "
+`;
+
+exports[`font(xs, bold) returns correct CSS 1`] = `
+"
+    /* text-xs/bold */
+    font: var(--font-xs-bold-weight) var(--font-xs-bold-size)/var(--font-xs-bold-line_height) var(--font-xs-bold-family);
+    letter-spacing: var(--font-xs-bold-letter_spacing);
+  "
+`;
+
+exports[`font(xs, medium) returns correct CSS 1`] = `
+"
+    /* text-xs/medium */
+    font: var(--font-xs-medium-weight) var(--font-xs-medium-size)/var(--font-xs-medium-line_height) var(--font-xs-medium-family);
+    letter-spacing: var(--font-xs-medium-letter_spacing);
+  "
+`;
+
+exports[`font(xs, regular) returns correct CSS 1`] = `
+"
+    /* text-xs/regular */
+    font: var(--font-xs-regular-weight) var(--font-xs-regular-size)/var(--font-xs-regular-line_height) var(--font-xs-regular-family);
+    letter-spacing: var(--font-xs-regular-letter_spacing);
+  "
+`;
