@@ -1,0 +1,22 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders AppSwitcherExploreMenuGroup properly 1`] = `
+<DocumentFragment>
+  <div
+    class="mocked-styled-10 el-menu-item-group"
+    role="group"
+  >
+    <div
+      class="mocked-styled-9 el-menu-item-group-title"
+    >
+      EXPLORE
+    </div>
+    <div
+      class="mocked-styled-11 el-menu-item-group-list"
+      style="max-height: var(undefined);"
+    >
+      Fake child
+    </div>
+  </div>
+</DocumentFragment>
+`;

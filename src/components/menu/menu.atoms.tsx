@@ -6,7 +6,15 @@ import type {
   MouseEventHandler,
   ReactNode,
 } from 'react'
-import { ElMenuItemAnchor, ElMenuItemButton, ElMenuItemGroup, ElMenuItemGroupTitle, ElMenuList } from './styles'
+import {
+  ElMenuItemAnchor,
+  ElMenuItemButton,
+  ElMenuItemGroup,
+  ElMenuItemGroupList,
+  ElMenuItemGroupTitle,
+  ElMenuList,
+} from './styles'
+import type { sizeType } from '../../types/core'
 
 interface CommonMenuItemProps {
   children?: ReactNode
@@ -40,6 +48,11 @@ interface MenuItemAsAnchorElementProps extends CommonMenuItemProps, AnchorHTMLAt
 
 export type MenuItemContainerProps = MenuItemAsButtonElementProps | MenuItemAsAnchorElementProps
 
+export interface MenuListProps extends HTMLAttributes<HTMLDivElement> {
+  maxWidth?: sizeType
+  maxHeight?: sizeType
+}
+
 /**
  * The `MenuItemGroup` component is a wrapper for `MenuItem` which has optional label
  * can be used for grouping multiple type of list item e.g RadioItem (in future).
@@ -47,12 +60,13 @@ export type MenuItemContainerProps = MenuItemAsButtonElementProps | MenuItemAsAn
 export const MenuItemGroup: FC<
   HTMLAttributes<HTMLDivElement> & {
     label?: string
+    maxHeight?: sizeType
   }
-> = ({ children, label, ...rest }) => {
+> = ({ children, label, maxHeight, ...rest }) => {
   return (
     <ElMenuItemGroup {...rest} role="group">
       {!!label && <ElMenuItemGroupTitle>{label}</ElMenuItemGroupTitle>}
-      {children}
+      <ElMenuItemGroupList style={{ ...rest?.style, maxHeight: `var(${maxHeight})` }}>{children}</ElMenuItemGroupList>
     </ElMenuItemGroup>
   )
 }
@@ -71,7 +85,6 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
         role="menuitem"
         data-close-menu={closeMenu || !!disabled}
         aria-current={isActive ? 'page' : undefined}
-        datat-test={disabled}
       >
         {children}
       </ElMenuItemAnchor>
@@ -93,8 +106,13 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
   )
 }
 
-export const MenuList: FC<HTMLAttributes<HTMLDivElement>> = ({ children, ...rest }) => (
-  <ElMenuList {...rest} role="menu">
+export const MenuList: FC<MenuListProps> = ({ children, maxWidth, maxHeight, ...rest }) => (
+  <ElMenuList
+    {...rest}
+    style={{ ...rest?.style, maxWidth: `var(${maxWidth})`, maxHeight: `var(${maxHeight})` }}
+    data-has-max-width={!!maxWidth}
+    role="menu"
+  >
     {children}
   </ElMenuList>
 )

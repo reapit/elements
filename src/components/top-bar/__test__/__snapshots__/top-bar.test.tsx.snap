@@ -1,59 +1,45 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`TopBar Snapshot > should match snapshot 1`] = `
+exports[`TopBar snapshot 1`] = `
 <DocumentFragment>
-  <nav>
+  <header
+    class="mocked-styled-35 el-top-bar"
+  >
     <div
-      class="mocked-styled-7 el-top-bar"
+      class="mocked-styled-36 el-top-bar-app-switcher-container"
     >
-      <a
-        class="mocked-styled-2 el-top-bar-app-switcher"
-      >
-        App-switcher
-      </a>
-      <a
-        class="mocked-styled-3 el-top-bar-logo"
-      >
-        <img
-          data-testid="logo-img"
-        />
-      </a>
-      <div
-        class="mocked-styled-5 el-button-group el-top-bar-main-nav el-button-group"
-      >
-        <div
-          data-testid="nav-item"
-        />
-      </div>
-      <div
-        class="mocked-styled-8 el-top-bar-search"
-      >
-        <div
-          data-testid="nav-search-button"
-        />
-      </div>
-      <div
-        class="mocked-styled-6 el-button-group el-top-bar-secondary-nav el-button-group"
-      >
-        <div
-          data-testid="nav-icon-item"
-        />
-      </div>
-      <div
-        class="mocked-styled-9 el-top-bar-mobile-nav"
-      >
-        <div
-          data-testid="nav-icon-item"
-        />
-      </div>
-      <div
-        class="mocked-styled-4 el-top-bar-profile"
-      >
-        <div
-          data-testid="avatar-button"
-        />
-      </div>
+      App switcher
     </div>
-  </nav>
+    <div
+      class="mocked-styled-37 el-top-bar-logo-container"
+    >
+      Logo
+    </div>
+    <div
+      class="mocked-styled-39 el-top-bar-main-nav-container"
+    >
+      Main nav
+    </div>
+    <div
+      class="mocked-styled-41 el-top-bar-search-container"
+    >
+      Search
+    </div>
+    <div
+      class="mocked-styled-40 el-top-bar-secondary-nav-container"
+    >
+      Secondary nav
+    </div>
+    <div
+      class="mocked-styled-42 el-top-bar-menu-container"
+    >
+      Mobile nav
+    </div>
+    <div
+      class="mocked-styled-38 el-top-bar-avatar-container"
+    >
+      Profile
+    </div>
+  </header>
 </DocumentFragment>
 `;

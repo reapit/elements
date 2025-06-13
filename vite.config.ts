@@ -51,11 +51,7 @@ export default defineConfig({
   },
   plugins: [
     react(),
-    svgr({
-      svgrOptions: {
-        icon: true,
-      },
-    }),
+    svgr(),
     wyw({
       babelOptions: {
         presets: ['@babel/preset-typescript', '@babel/preset-react'],
@@ -72,6 +68,8 @@ export default defineConfig({
         'src/tokens',
         'src/types',
         // Note: We don't want to report coverage for:
+        // - story utilities
+        '**/__story__/**',
         // - barrel files
         '**/index.ts',
         // - our tests themselves

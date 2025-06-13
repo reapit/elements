@@ -18,38 +18,48 @@ exports[`Menu Popover component > should render and close Popover based on any e
       style="top: 4px;"
     >
       <div
-        class="mocked-styled-2 el-menu-list"
+        class="mocked-styled-12 el-menu-list"
+        data-has-max-width="false"
         role="menu"
+        style="max-width: var(undefined); max-height: var(undefined);"
       >
         <button
-          class="mocked-styled-5 el-menu-item-button"
+          class="mocked-styled-7 el-menu-item-button"
           data-close-menu="true"
           role="menuitem"
           tabindex="0"
         >
           <div
-            class="mocked-styled-3 el-menu-item-content"
+            class="mocked-styled-5 el-menu-item-content"
           >
             <span
-              class="mocked-styled-4 el-menu-item-label"
+              class="mocked-styled-3 el-menu-item-label-container"
             >
-              Menu Item
+              <span
+                class="mocked-styled-4 el-menu-item-label"
+              >
+                Menu Item
+              </span>
             </span>
           </div>
         </button>
         <button
-          class="mocked-styled-5 el-menu-item-button"
+          class="mocked-styled-7 el-menu-item-button"
           data-close-menu="false"
           role="menuitem"
           tabindex="0"
         >
           <div
-            class="mocked-styled-3 el-menu-item-content"
+            class="mocked-styled-5 el-menu-item-content"
           >
             <span
-              class="mocked-styled-4 el-menu-item-label"
+              class="mocked-styled-3 el-menu-item-label-container"
             >
-              Non closing Menu Item
+              <span
+                class="mocked-styled-4 el-menu-item-label"
+              >
+                Non closing Menu Item
+              </span>
             </span>
           </div>
         </button>

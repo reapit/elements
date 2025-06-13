@@ -1,277 +1,273 @@
-import { figmaDesignUrls } from '#src/storybook/figma/index'
-import type { Meta, StoryObj } from '@storybook/react'
-import { AvatarButton } from '../avatar-button'
+import { AppSwitcher } from '../app-switcher'
 import { elIcon } from '../button'
-import { CSSContainerQuery } from '../container-query/container-query'
+import { elTopBarMenuPopover } from './styles'
 import { Icon } from '../icon'
 import { Menu } from '../menu'
-import { NavDropdownButton } from '../nav-dropdown-button'
-import { NavIconItem } from '../nav-icon-item'
-import { NavItem } from '../nav-item'
-import { NavSearchButton } from '../nav-search-button/nav-search-button'
-import { ReapitLogo } from '../reapit-logo'
 import MenuIcon from './icons/menu-icon.svg?react'
-import { elTopBarMenuPopover } from './styles'
+import { supportedAppNames } from './brand-logo'
 import { TopBar } from './top-bar'
-import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { elNewTopBarAppSwitcher, NavResponsiveAppSwitcher } from '../deprecated-nav'
+import { TopBarNavIconItemButton } from './nav-icon-item'
 
-const viewports: typeof INITIAL_VIEWPORTS = {
-  superWideScreen: {
-    name: 'Super Wide Screen',
-    type: 'desktop',
-    styles: {
-      width: '1920px',
-      height: '1500px',
-    },
-  },
-  wideScreen: {
-    name: 'Wide Screen',
-    type: 'desktop',
-    styles: {
-      width: '1440px',
-      height: '900px',
-    },
-  },
-  desktop: {
-    name: 'Desktop',
-    type: 'desktop',
-    styles: {
-      width: '1024px',
-      height: '900px',
-    },
-  },
-  ipad11p: INITIAL_VIEWPORTS.ipad11p,
-  iphone14: INITIAL_VIEWPORTS.iphone14,
-}
+import type { Decorator, Meta, StoryObj } from '@storybook/react'
 
-export default {
-  title: 'Components/Top bar',
+const href = globalThis.top?.location.href!
+
+const meta = {
+  title: 'Components/TopBar',
   component: TopBar,
-  parameters: {
-    viewport: { defaultViewport: 'responsive', viewports },
-  },
-} as Meta<typeof TopBar>
-
-type Story = StoryObj<typeof TopBar>
-
-export const Default: Story = {
-  // NOTE: this version is without `CSSContainerQuery` so the non react user doesn't see it in the docs
-  render: () => {
-    return (
-      <TopBar>
-        <TopBar.AppSwitcher>
-          <NavResponsiveAppSwitcher
-            className={elNewTopBarAppSwitcher}
-            options={[
-              {
-                text: 'AppMarket',
-                callback: console.log,
-              },
-              {
-                text: 'DevPortal',
-                callback: console.log,
-              },
-            ]}
-          />
-        </TopBar.AppSwitcher>
-        <TopBar.Logo href="/">
-          <ReapitLogo />
-        </TopBar.Logo>
-        <TopBar.MainNav>
-          <NavItem href="/">Button 1</NavItem>
-          <NavItem href="/">Button 2</NavItem>
-          <Menu>
+  argTypes: {
+    appSwitcher: {
+      control: 'radio',
+      options: ['None', 'App Switcher'],
+      mapping: {
+        None: null,
+        'App Switcher': (
+          <AppSwitcher>
+            <AppSwitcher.YourAppsMenuGroup>
+              {AppSwitcher.getDisplayableProductsForYourAppsGroup(['consoleCloud']).map((productId) => (
+                <AppSwitcher.ProductMenuItem
+                  key={productId}
+                  href={globalThis.top?.location.href!}
+                  productId={productId}
+                />
+              ))}
+            </AppSwitcher.YourAppsMenuGroup>
+            <AppSwitcher.ExploreMenuGroup>
+              {AppSwitcher.getDisplayableProductsForExploreGroup(['consoleCloud']).map((productId) => (
+                <AppSwitcher.ProductMenuItem
+                  key={productId}
+                  href={globalThis.top?.location.href!}
+                  productId={productId}
+                />
+              ))}
+            </AppSwitcher.ExploreMenuGroup>
+          </AppSwitcher>
+        ),
+      },
+    },
+    avatar: {
+      control: 'radio',
+      options: ['None', 'Avatar Menu'],
+      mapping: {
+        None: null,
+        'Avatar Menu': (
+          <Menu data-alignment="right">
             <Menu.Trigger>
               {({ getTriggerProps, isOpen }) => (
-                <NavDropdownButton {...getTriggerProps()} isOpen={isOpen}>
-                  More
-                </NavDropdownButton>
+                <TopBar.AvatarButton {...getTriggerProps()} isOpen={isOpen}>
+                  AD
+                </TopBar.AvatarButton>
               )}
             </Menu.Trigger>
             <Menu.Popover className={elTopBarMenuPopover}>
               <Menu.List>
-                <Menu.Item label="Button 3" href="/" />
-                <Menu.Item label="Button 4" href="/" />
-                <Menu.Item label="Button 5" href="/" />
-                <Menu.Item label="Menu Item" onClick={console.log} />
-                <Menu.Item label="Menu Item as anchor" href="/#" />
-                <Menu.Item label="Menu Item (keep open)" closeMenu={false} isActive />
+                <Menu.Item label="User menu 1" />
+                <Menu.Item label="User menu 2" />
+                <Menu.Item label="User menu 3" />
               </Menu.List>
             </Menu.Popover>
           </Menu>
-        </TopBar.MainNav>
-        <TopBar.Search>
-          <NavSearchButton />
-        </TopBar.Search>
-
-        <TopBar.SecondaryNav>
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-        </TopBar.SecondaryNav>
-        <TopBar.MobileNav>
-          <NavIconItem aria-label="mobile secondary nav trigger" icon={<MenuIcon className={elIcon} />} />
-        </TopBar.MobileNav>
-
-        <TopBar.Profile>
-          <Menu data-alignment="right">
-            <Menu.Trigger>
-              {({ getTriggerProps, isOpen }) => <AvatarButton {...getTriggerProps()} isOpen={isOpen} label="AD" />}
-            </Menu.Trigger>
-            <Menu.Popover className={elTopBarMenuPopover}>
-              <Menu.List>
-                <Menu.Item label="User menu 1" href="/" />
-                <Menu.Item label="User menu 2" href="/" />
-                <Menu.Item label="User menu 3" href="/" />
-              </Menu.List>
-            </Menu.Popover>
-          </Menu>
-        </TopBar.Profile>
-      </TopBar>
-    )
+        ),
+      },
+    },
+    logo: {
+      control: 'select',
+      options: supportedAppNames,
+      mapping: {
+        Reapit: <TopBar.BrandLogo appName="Reapit" href={href} />,
+        'Console Owner': <TopBar.BrandLogo appName="Console Owner" href={href} />,
+        'Console Pay': <TopBar.BrandLogo appName="Console Pay" href={href} />,
+        'Console Tenant': <TopBar.BrandLogo appName="Console Tenant" href={href} />,
+        'Reapit Connect': <TopBar.BrandLogo appName="Reapit Connect" href={href} />,
+        'Reapit Projector': <TopBar.BrandLogo appName="Reapit Projector" href={href} />,
+        'Reapit Sales': <TopBar.BrandLogo appName="Reapit Sales" href={href} />,
+        'Reapit Lettings': <TopBar.BrandLogo appName="Reapit Lettings" href={href} />,
+        'Reapit PM': <TopBar.BrandLogo appName="Reapit PM" href={href} />,
+        'PM Demo': <TopBar.BrandLogo appName="PM Demo" href={href} />,
+        'PM Sales': <TopBar.BrandLogo appName="PM Sales" href={href} />,
+        'PM Inspect': <TopBar.BrandLogo appName="PM Inspect" href={href} />,
+        'Reapit Forms': <TopBar.BrandLogo appName="Reapit Forms" href={href} />,
+        'Reapit Proposals': <TopBar.BrandLogo appName="Reapit Proposals" href={href} />,
+        KeyWhere: <TopBar.BrandLogo appName="KeyWhere" href={href} />,
+        'Auto Responder': <TopBar.BrandLogo appName="Auto Responder" href={href} />,
+      },
+    },
+    mainNav: {
+      control: 'radio',
+      options: ['None', 'Some', 'Many'],
+      mapping: {
+        None: null,
+        Some: (
+          <TopBar.MainNav>
+            <TopBar.MainNav.Item aria-current={false} href={href}>
+              Button 1
+            </TopBar.MainNav.Item>
+            <TopBar.MainNav.Item aria-current="page" href={href}>
+              Button 2
+            </TopBar.MainNav.Item>
+          </TopBar.MainNav>
+        ),
+        Many: (
+          <TopBar.MainNav>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 1
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current="page" href={href}>
+              Button 2
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 3
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 4
+            </TopBar.NavItem>
+            <TopBar.NavItem aria-current={false} href={href}>
+              Button 5
+            </TopBar.NavItem>
+            <TopBar.NavMenuItem label="More">
+              <Menu.Item label="Button 6" />
+              <Menu.Item label="Button 7" />
+              <Menu.Item label="Button 8" />
+            </TopBar.NavMenuItem>
+          </TopBar.MainNav>
+        ),
+      },
+    },
+    menu: {
+      control: false,
+    },
+    search: {
+      control: false,
+    },
+    secondaryNav: {
+      control: 'radio',
+      options: ['None', 'Some'],
+      mapping: {
+        None: null,
+        Some: (
+          <TopBar.SecondaryNav>
+            <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<Icon icon="help" />}>
+              <Menu.Item label="Menu item 1" />
+              <Menu.Item label="Menu item 2" />
+              <Menu.Item label="Menu item 3" />
+            </TopBar.NavIconMenuItem>
+            <TopBar.NavIconItem
+              aria-current={false}
+              aria-label="Nav icon item 2"
+              href={href}
+              icon={<Icon icon="notification" />}
+            />
+            <TopBar.NavIconItem
+              aria-current={false}
+              aria-label="Nav icon item 3"
+              href={href}
+              icon={<Icon icon="star" />}
+            />
+          </TopBar.SecondaryNav>
+        ),
+      },
+    },
   },
   parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.appBar,
-      allowFullscreen: true,
-    },
+    backgrounds: { default: 'light' },
+  },
+} satisfies Meta<typeof TopBar>
+
+export default meta
+
+type Story = StoryObj<typeof meta>
+
+function useConstrainedWidthDecorator(width: string): Decorator {
+  return (Story) => (
+    <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width }}>
+      <Story />
+    </div>
+  )
+}
+
+/**
+ * The Top Bar is responsive to viewport size and will automatically show or hide its various sections based on the
+ * available space. For browsers that support then, CSS container queries will be used by each section to determine
+ * whether it should be visible or not. For browsers that do not support container queries, this behaviour will fall
+ * back to relying on media queries.
+ *
+ * If viewing this story directly in Storybook, you can change the viewport size to see the responsive behaviour.
+ * Alternatively, if you're browser supports container queries, you can see the responsible behaviour in the stories
+ * further down.
+ */
+export const Example: Story = {
+  args: {
+    appSwitcher: 'App Switcher',
+    avatar: 'Avatar Menu',
+    logo: 'Reapit',
+    mainNav: 'Many',
+    menu: (
+      // TODO: replace this with the proper TopBarMenu component when it is available
+      <TopBarNavIconItemButton
+        aria-label="Overflow menu"
+        icon={<MenuIcon className={elIcon} />}
+        onClick={() => void 0}
+      />
+    ),
+    search: (
+      <TopBar.NavSearch
+        button={<TopBar.NavSearchButton onClick={() => void 0} shortcut="⌘K" />}
+        iconItem={<TopBar.NavSearchIconItem onClick={() => void 0} />}
+      />
+    ),
+    secondaryNav: 'Some',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ height: '400px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  parameters: {
+    layout: 'fullscreen',
   },
 }
 
-export const ResponsiveMainNav: Story = {
-  render: () => {
-    return (
-      <TopBar>
-        <TopBar.AppSwitcher>
-          <NavResponsiveAppSwitcher
-            className={elNewTopBarAppSwitcher}
-            options={[
-              {
-                text: 'AppMarket',
-                callback: console.log,
-              },
-              {
-                text: 'DevPortal',
-                callback: console.log,
-              },
-            ]}
-          />
-        </TopBar.AppSwitcher>
-        <TopBar.Logo href="/">
-          <ReapitLogo />
-        </TopBar.Logo>
-        <TopBar.MainNav>
-          <NavItem href="/">Button 1</NavItem>
-          <NavItem href="/">Button 2</NavItem>
-          <CSSContainerQuery condition={'(width < 1004px)'}>
-            <NavItem href="/">Button 3</NavItem>
-            <NavItem href="/">Button 4</NavItem>
-            <NavItem href="/">Button 5</NavItem>
-          </CSSContainerQuery>
-          <CSSContainerQuery condition={'not (width < 1005px)'}>
-            <Menu>
-              <Menu.Trigger>
-                {({ getTriggerProps, isOpen }) => (
-                  <NavDropdownButton {...getTriggerProps()} isOpen={isOpen}>
-                    More
-                  </NavDropdownButton>
-                )}
-              </Menu.Trigger>
-              <Menu.Popover className={elTopBarMenuPopover}>
-                <Menu.List>
-                  <Menu.Item label="Button 3" href="/" />
-                  <Menu.Item label="Button 4" href="/" />
-                  <Menu.Item label="Button 5" href="/" />
-                  <Menu.Item label="Menu Item" onClick={console.log} />
-                  <Menu.Item label="Menu Item as anchor" href="/#" />
-                  <Menu.Item label="Menu Item (keep open)" closeMenu={false} isActive />
-                </Menu.List>
-              </Menu.Popover>
-            </Menu>
-          </CSSContainerQuery>
-        </TopBar.MainNav>
-        <TopBar.Search>
-          <NavSearchButton />
-        </TopBar.Search>
-
-        <TopBar.SecondaryNav>
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-          <NavIconItem aria-label="secondary nav item example" icon={<Icon icon="star" />} />
-        </TopBar.SecondaryNav>
-        <TopBar.MobileNav>
-          <NavIconItem aria-label="mobile secondary nav trigger" icon={<MenuIcon className={elIcon} />} />
-        </TopBar.MobileNav>
-
-        <TopBar.Profile>
-          <Menu data-alignment="right">
-            <Menu.Trigger>
-              {({ getTriggerProps, isOpen }) => <AvatarButton {...getTriggerProps()} isOpen={isOpen} label="AD" />}
-            </Menu.Trigger>
-            <Menu.Popover className={elTopBarMenuPopover}>
-              <Menu.List>
-                <Menu.Item label="User menu 1" href="/" />
-                <Menu.Item label="User menu 2" href="/" />
-                <Menu.Item label="User menu 3" href="/" />
-              </Menu.List>
-            </Menu.Popover>
-          </Menu>
-        </TopBar.Profile>
-      </TopBar>
-    )
-  },
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.appBar,
-      allowFullscreen: true,
-    },
-  },
-}
-
+/**
+ * For viewports under 768px, very few of the Top Bar's sections will be visible. Most will have collapsed
+ * into the overflow menu, except for the product's "global" search entry point, if one is available.
+ */
 export const Mobile: Story = {
-  render: ResponsiveMainNav.render,
-  parameters: {
-    ...ResponsiveMainNav.parameters,
-    viewport: { defaultViewport: 'iphone14' },
+  args: {
+    ...Example.args,
   },
+  decorators: [useConstrainedWidthDecorator('375px')],
 }
 
+/**
+ * For viewports under between 768px and 1024px, the App Switcher will be available directly in the Top Bar
+ * and the "global" search entry point have more space available to itself. The main navigation, secondary
+ * navigation, and user profile menu will still be collapsed into the overflow menu.
+ */
 export const Tablet: Story = {
-  render: ResponsiveMainNav.render,
-  parameters: {
-    ...ResponsiveMainNav.parameters,
-    viewport: { defaultViewport: 'ipad11p' },
+  args: {
+    ...Example.args,
   },
+  decorators: [useConstrainedWidthDecorator('768px')],
 }
+
+/**
+ * For viewports between 1024px and 1440px, the user's profile menu will become available directly in the Top Bar.
+ */
 export const Desktop: Story = {
-  render: ResponsiveMainNav.render,
-  parameters: {
-    ...ResponsiveMainNav.parameters,
-    viewport: {
-      defaultViewport: 'desktop',
-    },
+  args: {
+    ...Tablet.args,
   },
+  decorators: [useConstrainedWidthDecorator('1024px')],
 }
 
+/**
+ * For viewports 1440px and wider, the Top Bar will display all of its regions.
+ */
 export const WideScreen: Story = {
-  render: ResponsiveMainNav.render,
-  parameters: {
-    ...ResponsiveMainNav.parameters,
-    viewport: {
-      defaultViewport: 'wideScreen',
-    },
+  args: {
+    ...Tablet.args,
   },
-}
-
-export const SuperWideScreen: Story = {
-  render: ResponsiveMainNav.render,
-  parameters: {
-    ...ResponsiveMainNav.parameters,
-    viewport: {
-      defaultViewport: 'superWideScreen',
-    },
-  },
+  decorators: [useConstrainedWidthDecorator('1440px')],
 }

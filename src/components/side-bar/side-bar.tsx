@@ -1,66 +1,52 @@
-import { useState, type FC, type HTMLAttributes, type KeyboardEventHandler } from 'react'
-import { SideBarCollapseButton } from '../side-bar-collapse-button'
-import { IsSideBarExpandedContext, useIsSideBarExpandedContext } from './is-side-bar-expanded-context'
-import { ElSideBar, ELSideBarMenuList } from './styles'
+import { determineSideBarStateFromViewport, useSideBarMatchMediaEffect } from './use-side-bar-match-media-effect'
+import { ElSideBar, ElSideBarBody, ElSideBarFooter } from './styles'
+import { SideBarCollapseButton } from './collapse-button'
+import { SideBarMenuList } from './menu-list'
+import { SideBarContextPublisher } from './side-bar-context'
+import { useId } from 'react'
+import { useSideBar } from './use-side-bar'
+import { useSideBarKeyboardNavigation } from './use-keyboard-navigation'
 
-type SideBarFC = FC<HTMLAttributes<HTMLElement>> & {
-  CollapseButon: typeof SideBarCollapseButton
-  MenuList: FC<HTMLAttributes<HTMLUListElement>>
+import type { ComponentProps, ReactNode } from 'react'
+
+interface SideBarProps extends Omit<ComponentProps<typeof ElSideBar>, 'data-state'> {
+  /**
+   * The side bar's menu items. Typically a `SideBar.MenuList` with `SideBar.MenuItem` and
+   * `SideBar.MenuGroup` components.
+   */
+  children: ReactNode
+  /**
+   * The side bar's footer. Should typically be a `SideBar.CollapseButton` component.
+   */
+  footer: ReactNode
 }
 
-const SideBar: SideBarFC = ({ children, ...props }) => {
-  const [isExpanded, setIsExpanded] = useState(true)
+/**
+ * Collapsible navigation component for products with too many navigation items to fit in the TopBar's main nav.
+ */
+export function SideBar({ 'aria-label': ariaLabel, children, footer, id, ...props }: SideBarProps) {
+  const sideBarId = id ?? useId()
+  const sideBar = useSideBar(() => determineSideBarStateFromViewport())
+  const handleKeyboardNavigation = useSideBarKeyboardNavigation()
 
-  const handleOnKeyDown: KeyboardEventHandler<HTMLUListElement> = (e) => {
-    const container = e.currentTarget
-    const clickableItems = container?.querySelectorAll('a,button') as NodeListOf<HTMLElement>
+  useSideBarMatchMediaEffect(sideBar)
 
-    let currentIndex = -1
-    clickableItems.forEach((item, index) => {
-      if (item === document.activeElement) {
-        currentIndex = index
-      }
-    })
-
-    switch (e.key) {
-      case 'ArrowDown': {
-        e.preventDefault()
-        const nextItem = clickableItems[(currentIndex + 1) % clickableItems.length]
-        nextItem.focus()
-        break
-      }
-      case 'ArrowUp': {
-        e.preventDefault()
-        const prevItem = clickableItems[(currentIndex - 1 + clickableItems.length) % clickableItems.length]
-        prevItem.focus()
-        break
-      }
-      case 'Enter':
-      case ' ': {
-        e.preventDefault()
-        const currentItem = clickableItems[currentIndex] as HTMLAnchorElement | HTMLButtonElement
-        currentItem.click()
-        break
-      }
-    }
-
-    props.onKeyDown?.(e)
-  }
   return (
-    <IsSideBarExpandedContext.Provider value={{ isExpanded, setIsExpanded }}>
-      <ElSideBar aria-label="Sidebar Navigation" {...props} onKeyDown={handleOnKeyDown}>
-        {children}
-      </ElSideBar>
-    </IsSideBarExpandedContext.Provider>
+    <ElSideBar {...props} aria-label={ariaLabel ?? 'Sidebar navigation'} data-state={sideBar.state} id={sideBarId}>
+      <SideBarContextPublisher id={sideBarId} {...sideBar}>
+        <ElSideBarBody onClick={sideBar.expand} onKeyDown={handleKeyboardNavigation}>
+          {children}
+        </ElSideBarBody>
+        <ElSideBarFooter>{footer}</ElSideBarFooter>
+      </SideBarContextPublisher>
+    </ElSideBar>
   )
 }
 
-SideBar.MenuList = ({ children }) => {
-  const { isExpanded } = useIsSideBarExpandedContext()
-
-  return <ELSideBarMenuList data-is-expanded={isExpanded}>{children}</ELSideBarMenuList>
-}
-
-SideBar.CollapseButon = SideBarCollapseButton
-
-export { SideBar }
+SideBar.CollapseButton = SideBarCollapseButton
+SideBar.MenuList = SideBarMenuList
+SideBar.MenuItem = SideBarMenuList.Item
+SideBar.MenuGroup = SideBarMenuList.Group
+SideBar.MenuGroupSummary = SideBarMenuList.GroupSummary
+SideBar.Submenu = SideBarMenuList.Submenu
+SideBar.SubmenuItem = SideBarMenuList.SubmenuItem

@@ -1,8 +1,20 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { MenuItemContainer, MenuList } from '../menu.atoms'
+import { MenuItemContainer, MenuItemGroup, MenuList } from '../menu.atoms'
 
-describe.todo('MenuItemGroup', () => {
-  // TODO: Add tests for MenuItemGroup in separate pr
+describe('MenuItemGroup', () => {
+  it('should render as expected', () => {
+    render(
+      <MenuItemGroup label="Group Title" maxHeight="--size-80">
+        Group Content
+      </MenuItemGroup>,
+    )
+
+    expect(screen.getByText('Group Title')).toBeInTheDocument()
+    expect(screen.getByText('Group Content')).toBeInTheDocument()
+    expect(screen.getByText('Group Content')).toHaveStyle({
+      maxHeight: 'var(--size-80)',
+    })
+  })
 })
 
 describe('MenuItemContainer', () => {
@@ -88,12 +100,16 @@ describe('MenuItemContainer', () => {
 describe('MenuList', () => {
   it('should render as expected', () => {
     render(
-      <MenuList>
+      <MenuList maxWidth="--size-80" maxHeight="--size-80">
         <div data-testid="menu-child">Menu Child</div>
       </MenuList>,
     )
 
-    expect(screen.getByRole('menu')).toBeInTheDocument()
+    const menu = screen.getByRole('menu')
+    expect(menu).toHaveStyle({
+      maxWidth: 'var(--size-80)',
+      maxHeight: 'var(--size-80)',
+    })
     expect(screen.getByTestId('menu-child')).toBeInTheDocument()
     expect(screen.getByTestId('custom-menu-list')).toBeInTheDocument()
   })

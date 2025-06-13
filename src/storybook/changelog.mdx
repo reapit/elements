@@ -16,143 +16,168 @@ We will publish release version history and changes here. Where possible, we wil
 
 Beta versions should be relatively stable but subject to occssional breaking changes.
 
-### **5.0.0-beta.28 - **/**/25**
-- TBC
+### **5.0.0-beta.30 - 06/06/25**
+
+- **fix:** `TopBar` secondary nav now applies correct `display` CSS property for widescreen or larger breakpoints
+- **fix:** Prevent `SideBar.MenuList` and `SideBar.Submenu` list elements from being impacted by user-agent applied padding and margin styles
+- **feat:** `TopBar` and `NavSearchButton` now use CSS container queries, when supported, for their responsive behaviour. Storybook docs also updated to demonstrate.
+- **feat:** Add Lettings BDM support to `AppSwitcher`
+- **feat!:** Move `NavSearchButton` into `TopBar` and split it into three separate components:
+  - `TopBar.NavSearch`, a responsive helper for correctly rendering the search button and search icon item across mobile and wider screen sizes;
+  - `TopBar.NavSearchButton`, a simple button that should be used to launch the search experience on tablet and wider screen sizes;
+  - `TopBar.NavSearchIconItem`, a thin wrapper around `NavItemIcon` that should be used to launch the search experience on mobile screen sizes.
+  - Consumers using just `NavSearchButton` will no longer see a responsive change to the icon item version on mobile screen sizes.
+- **feat!:** Renamed `NavSearch`, `NavSearchButton` and `NavSearchIconItem` components and styled elements to have a `TopBar` prefix.
+- **feat!:** Move `NavItem` into `TopBar`, rename it and its related classes to use the `TopBar` prefix, and remove support for button-based nav items.
+- **feat!:** Move `NavDropdownButton` into `TopBar` and rename it and its related classes to use the `TopBar` prefix.
+- **feat!:** Move `NavIconItem` into `TopBar` and rename it and its related classes to use the `TopBar` prefix. It's prop interface has also been updated to explicitly `as="button"` if a button is desired; by default, the component will render as a link.
+- **feat!:** Move `AvatarButton` into `TopBar` and rename it and its related classes to use the `TopBar` prefix.
+- **feat:** Add new `MainNav` and `SecondaryNav` components to `TopBar`.
+- **feat:** Add `Menu.Group` bottom border as menu divider
+- **feat:** Add new `BrandLogo` component to `TopBar`.
+- **feat!:** Updated config for SVGR plugin in `vite.config.ts` to no longer automatically apply `width="1em"` and `height="1em"` attributes
+  to the imported SVG. This is a breaking change that impacts all SVG imports. To minimise impact, the v4 `Icon` component has been updated
+  to apply these attributes itself, but there may be other SVG usage in some components that will experience visual regressions if they were
+  dependent on this automatic behaviour of the SVGR plugin.
+- **chore:** deprecated `ReapitLogo` component. Will be removed in v5 stable.
+- **chore:** update CSS variables to match latest Figma variables
+
+### **5.0.0-beta.29 - 05/06/25**
+
+- Support added for `maxHeight` in `Menu.List` and `Menu.Group`
+- Support added for `supplementaryText` and `badge` in `Menu.Item`
+- Resolved export issue for `AvatarRectangle`
+- Added `AppSwitcher` product display order helpers and improve documentation
+- Allow `SideBar.MenuGroup` to be forced "active"
+
+### **5.0.0-beta.28 - 30/05/25**
+
+- **Breaking:** `TopBar` no longer supports `children`, instead it uses individual props for each section. Also, it no longer provides access to `TopBar.MainNav` et al.
+- **Breaking:** `Menu.Item` no longer supports `children`, instead it uses `label` props top provide the label text.
+- **Breaking:** `SideBar` refactored and component names changed.
+  - You should now be using the compound components available on the `SideBar`. These include `SideBar.MenuList`, `SideBar.MenuGroup`, `SideBar.MenuGroupSummary`, `SideBar.MenuItem`, `SideBar.Submenu`, `SideBar.SubmenuItem` and `SideBar.CollapseButton`
+  - The menu groups no longer accept an `isActive` prop. Instead they are automatically styled as active if one of their submenu items is marked as active.
+  - The side bar will now automatically collapse or expand based on the viewport size.
+- **New:** Added `AppSwitcher` compound component.
+- Support added for `rightIcon` and `leftIcon` in `Menu.Item`
+- Resolved export issue for `useMenuContext`
+- Resolved export issue for `useTooltip` hook
 
 ### **5.0.0-beta.27 - 16/05/25**
+
 - Support added for Payprop theme
 - Minor bug fixes and css token variable updates
 
 ### **5.0.0-beta.25 - 16/04/25**
+
 - Resolved export issue for v5 NavItem
 
 ### **5.0.0-beta.24 - 16/04/25**
+
 - Resolved export issue for the TopBar and older Nav components.
 - To support both v4 and the v5 Beta, the following components have been renamed but are not yet directly deprecated in v5.  
-    `Nav` -> `DeprecatedNav`  
-    `NavItem` -> `DeprecatedNavItem`  
-    `NavSubNav` -> `DeprecatedNavSubNav`  
-    `NavSubNavItem` -> `DeprecatedNavSubNavItem`  
-    `NavResponsive` -> `DeprecatedNavResponsive`  
-    `NavResponsiveAvatar` -> `DeprecatedNavResponsiveAvatar`
-
+   `Nav` -> `DeprecatedNav`  
+   `NavItem` -> `DeprecatedNavItem`  
+   `NavSubNav` -> `DeprecatedNavSubNav`  
+   `NavSubNavItem` -> `DeprecatedNavSubNavItem`  
+   `NavResponsive` -> `DeprecatedNavResponsive`  
+   `NavResponsiveAvatar` -> `DeprecatedNavResponsiveAvatar`
 
 ### **5.0.0-beta.23 - 15/04/25**
+
 - Resolved issue with exports path for Top bar/Side bar Navigation.
 - Below are the newly added components in v5.  
-    `Checkbox`  
-    `Checkbox Group`  
-    `Split Button`  
-    `Table Text`  
-    `Single Line Cell`  
-    `Double Line Cell`
-
+   `Checkbox`  
+   `Checkbox Group`  
+   `Split Button`  
+   `Table Text`  
+   `Single Line Cell`  
+   `Double Line Cell`
 
 ### **5.0.0-beta.22 - 25/03/25**
+
 - Resolved an issue with imports path in the build `*.d.ts` files.
 
 ### **5.0.0-beta.21 - 24/03/25**
+
 - Resolved an issue where element types could not be imported by consumers.
 
 ### **5.0.0-beta.19 - 21/03/25**
 
 - Resolved the issue with the import script on elements styles.  
-i.e import the styles via `@reapit/elements/style.css` or `@reapit/elements/dist/index.css`
+  i.e import the styles via `@reapit/elements/style.css` or `@reapit/elements/dist/index.css`
 - Resolved an issue where CSS properties were not declared correctly.
 - Chip component now can support max-width using prop `maxWidth`
 
-
 ### **5.0.0-beta.18 - 20/03/25**
 
-- Updated React dependency to 18+ for beta  
+- Updated React dependency to 18+ for beta
 
 - Below are the newly added components in v5.  
-    `AvatarRectangle`  
-    `BottomBar`  
-    `BottomBarItem`  
-    `NavMenu`  
-    `NavSearchButton`  
-    `NavItem`  
-    `NavIconItem`  
-    `NavDropdownButton`  
-    `MobileNavItem`  
-    `Sidebar`  
-    `Skeleton`  
-    `TableContainer`  
-    `TableToolbar`  
-    `Topbar`  
-    `Feature`  
-    `EmptyData`
+   `AvatarRectangle`  
+   `BottomBar`  
+   `BottomBarItem`  
+   `NavMenu`  
+   `NavSearchButton`  
+   `NavItem`  
+   `NavIconItem`  
+   `NavDropdownButton`  
+   `MobileNavItem`  
+   `Sidebar`  
+   `Skeleton`  
+   `TableContainer`  
+   `TableToolbar`  
+   `Topbar`  
+   `Feature`  
+   `EmptyData`
 
 - To support both v4 and the v5 Beta, the following components have been renamed but are not yet directly deprecated in v5.  
-    `Badge` -> `DeprecatedBadge`  
-    `BreadCrumb` -> `DeprecatedBreadCrumb`  
-    `Chip` -> `DeprecatedChip`  
-    `Label` -> `DeprecatedLabel`  
-    `Pagination` -> `DeprecatedPagination`  
-    `StatusIndicator` -> `DeprecatedStatusIndicator`  
-    `Table` -> `DeprecatedTable`  
-    `Tag` -> `DeprecatedTag`  
-    `Theming` -> `DeprecatedTheming`  
-    `Tooltip` -> `DeprecatedTooltip`  
-  
+   `Badge` -> `DeprecatedBadge`  
+   `BreadCrumb` -> `DeprecatedBreadCrumb`  
+   `Chip` -> `DeprecatedChip`  
+   `Label` -> `DeprecatedLabel`  
+   `Pagination` -> `DeprecatedPagination`  
+   `StatusIndicator` -> `DeprecatedStatusIndicator`  
+   `Table` -> `DeprecatedTable`  
+   `Tag` -> `DeprecatedTag`  
+   `Theming` -> `DeprecatedTheming`  
+   `Tooltip` -> `DeprecatedTooltip`
 - Below is the detailed changelog for individual components that will be replaced in v5.  
-    **Avatar**  
-        - Breaking change - The old `Avatar` renamed to `DeprecatedAvatar`
-        - `type` prop has been renamed to `shape`.
-        - `src` prop no longer supported, use `children` or use `AvatarRectangle` if needed.
-        - Detailed props and usage are available in Storybook under the `Avatar` component.
-    
-    **Badge**
-        - **Breaking change** - The Badge component has be refactored with updated props.
-        - The `intent` prop has been deprecated. Use `variant` as a replacement with new values.
-        - Details on new and modified prop usage are available in Storybook under the Badge component.  
+   **Avatar**
 
-    **BreadCrumb**  
-        - Breaking change - The old `BreadCrumb` renamed to `DeprecatedBreadCrumb`
-        - The new `Breadcrumb` component is still in progress
-        
-    **Button**  
-        - **Breaking change** - The `Button` component has been refactored with updated props.
-        - The `intent` prop has been deprecated. Use `variant` as a replacement with new values.
-        - Details on new and modified prop usage are available in Storybook under the Button component.
+  - Breaking change - The old `Avatar` renamed to `DeprecatedAvatar` - `type` prop has been renamed to `shape`. - `src` prop no longer supported, use `children` or use `AvatarRectangle` if needed. - Detailed props and usage are available in Storybook under the `Avatar` component.
 
-    **Chip/ChipGroup**
-        - Updates primarily focus on UI presentation.
-        - The Chip component now supports additional props: variant, willTruncateLabel, and isDisabled.
-        - The ChipGroup component now includes support for wrapping or scrolling.
+  **Badge** - **Breaking change** - The Badge component has be refactored with updated props. - The `intent` prop has been deprecated. Use `variant` as a replacement with new values. - Details on new and modified prop usage are available in Storybook under the Badge component.
 
-    **LabelText:**  
-        - DOM element changed from `<label/>` to `<span/>`.  
-        - New props: `variant ('soft' | 'strong')`, `size ('small' | 'medium')`, `isRequired (boolean)`.  
-        - Details on the new and modified props usage are available in storybook under the `LabelText` component.  
+  **BreadCrumb**
 
-    **Pagination**
-        - **Breaking change** - `callback` prop has been renamed to `onPageChange`, without changing the behaviour.
-        - `currentPage` prop still remains with the same functionality.
-        - `numberPages` prop has been deprecated. Use `totalPages` instead.
-        - `hasStartButton` and `hasEndButton` props are no longer supported.
-        - Details on new and modified prop usage are available in Storybook under the `Pagination` component.
+  - Breaking change - The old `BreadCrumb` renamed to `DeprecatedBreadCrumb` - The new `Breadcrumb` component is still in progress
 
-    **StatusIndicator**  
-        - **Breaking change** - The `variant` prop has been deprecated. Use `intent` instead.
-        - `shape` prop is no longer supported.
-        - Details on new and modified prop usage are available in Storybook under the `StatusIndicator` component.
+  **Button**
 
-    **Table**
-        - **Breaking Change** - This component is currently in progress and undergoing staged releases; it is not yet readily available for use.
-        - The v4 Table is still accessible as DeprecatedTable.
-        - The new Table component will introduce more customizable props at the atomic level.
-        - Details on the new Table atoms can be found in Storybook under their respective elements.
+  - **Breaking change** - The `Button` component has been refactored with updated props. - The `intent` prop has been deprecated. Use `variant` as a replacement with new values. - Details on new and modified prop usage are available in Storybook under the Button component.
 
-    **Tag**  
-        - **Breaking change** - The old `Tag` renamed to `DeprecatedTag`
-        - `intent` prop no longer supported
-        - Detailed props and usage are available in Storybook under the `Tag` component
+  **Chip/ChipGroup** - Updates primarily focus on UI presentation. - The Chip component now supports additional props: variant, willTruncateLabel, and isDisabled. - The ChipGroup component now includes support for wrapping or scrolling.
 
-    **Tooltip**
-        - **Breaking change** - Moving from v4 -> v5, v4 props are replaced with new v5 props.
-        - Details on new and modified prop usage are available in Storybook under the Tooltip component.
+  **LabelText:**
+
+  - DOM element changed from `<label/>` to `<span/>`.
+  - New props: `variant ('soft' | 'strong')`, `size ('small' | 'medium')`, `isRequired (boolean)`.
+  - Details on the new and modified props usage are available in storybook under the `LabelText` component.
+
+  **Pagination** - **Breaking change** - `callback` prop has been renamed to `onPageChange`, without changing the behaviour. - `currentPage` prop still remains with the same functionality. - `numberPages` prop has been deprecated. Use `totalPages` instead. - `hasStartButton` and `hasEndButton` props are no longer supported. - Details on new and modified prop usage are available in Storybook under the `Pagination` component.
+
+  **StatusIndicator**
+
+  - **Breaking change** - The `variant` prop has been deprecated. Use `intent` instead. - `shape` prop is no longer supported. - Details on new and modified prop usage are available in Storybook under the `StatusIndicator` component.
+
+  **Table** - **Breaking Change** - This component is currently in progress and undergoing staged releases; it is not yet readily available for use. - The v4 Table is still accessible as DeprecatedTable. - The new Table component will introduce more customizable props at the atomic level. - Details on the new Table atoms can be found in Storybook under their respective elements.
+
+  **Tag**
+
+  - **Breaking change** - The old `Tag` renamed to `DeprecatedTag` - `intent` prop no longer supported - Detailed props and usage are available in Storybook under the `Tag` component
+
+  **Tooltip** - **Breaking change** - Moving from v4 -> v5, v4 props are replaced with new v5 props. - Details on new and modified prop usage are available in Storybook under the Tooltip component.
 
 ### **5.0.0-beta.15 - 03/10/24**
 
