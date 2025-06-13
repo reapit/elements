@@ -1,3 +1,4 @@
+import { font } from '#src/components/text'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
@@ -39,14 +40,7 @@ export const ElTopBarNavItemLabel = styled.span`
   white-space: nowrap;
 
   color: var(--comp-navigation-colour-text-nav_item-default);
-
-  /* text-sm/Medium */
-  font-family: var(--font-sm-medium-family);
-  font-size: var(--font-sm-medium-size);
-  font-style: normal;
-  font-weight: var(--font-sm-medium-weight);
-  line-height: var(--font-sm-medium-line_height);
-  letter-spacing: var(--font-sm-medium-letter_spacing);
+  ${font('sm', 'medium')}
 
   [aria-current='page'] & {
     color: var(--comp-navigation-colour-text-nav_item-select);

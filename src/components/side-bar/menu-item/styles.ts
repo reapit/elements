@@ -1,6 +1,7 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon'
+import { font } from '#src/components/text'
 
 // NOTE: This class is used as the basis for the menu group's summary element as well. Changes here
 // will also affect that component.
@@ -37,15 +38,9 @@ export const ElSideBarMenuItemLabel = styled.span`
 
   padding-block: var(--spacing-half);
 
-  /* text-sm/Regular */
-  font-family: var(--font-sm-regular-family);
-  font-size: var(--font-sm-regular-size);
-  font-style: normal;
-  font-weight: var(--font-sm-regular-weight);
-  line-height: var(--font-sm-regular-line_height);
-  letter-spacing: var(--font-sm-regular-letter_spacing);
-
   color: var(--comp-navigation-colour-text-sidebar-default);
+  ${font('sm', 'regular')}
+
   [aria-current='page'] > & {
     color: var(--comp-navigation-colour-text-sidebar-select);
     font-weight: var(--font-weight-medium);
