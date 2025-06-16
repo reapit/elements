@@ -11,14 +11,16 @@ export const ElTableToolbar = styled.div`
 `
 
 export const ElTableToolbarDescription = styled.div`
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-regular);
-  color: var(--text-colour-text-primary);
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
   text-align: left;
   gap: var(--spacing-1);
+
+  color: var(--colour-text-primary);
+  font-family: var(--font-sm-regular-family);
+  font-size: var(--font-sm-regular-size);
+  font-style: normal;
+  font-weight: var(--font-sm-regular-weight);
+  line-height: var(--font-sm-regular-line_height);
+  letter-spacing: var(--font-sm-regular-letter_spacing);
 `
 
 export const ElTableToolbarActions = styled.div``
