@@ -1,3 +1,4 @@
+import { font } from '#src/components/text'
 import SearchIcon from './icons/search-icon.svg?react'
 import { styled } from '@linaria/react'
 
@@ -36,12 +37,7 @@ export const ElTopBarNavSearchButtonIcon = styled(SearchIcon)`
 
 export const ElTopBarNavSearchButtonPlaceholder = styled.span`
   color: var(--comp-navigation-colour-text-nav_search-placeholder);
-  font-family: var(--font-family);
-  font-style: normal;
-  font-size: var(--font-xs-regular-size);
-  font-weight: var(--font-xs-regular-weight);
-  line-height: var(--font-xs-regular-line_height);
-  letter-spacing: var(--font-xs-regular-letter_spacing);
+  ${font('xs', 'regular')}
 
   flex: 1;
   text-align: left;
