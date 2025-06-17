@@ -16,7 +16,12 @@ We will publish release version history and changes here. Where possible, we wil
 
 Beta versions should be relatively stable but subject to occssional breaking changes.
 
-### **5.0.0-beta.30 - 06/06/25**
+### **5.0.0-beta.31 - xx/xx/25**
+
+- **feat:** Add `Text` and `font` helpers
+- **chore:** Use new `font` helper in `AppSwitcher`, `Avatar`, `SideBar`, and `TopBar`
+
+### **5.0.0-beta.30 - 16/06/25**
 
 - **fix:** `TopBar` secondary nav now applies correct `display` CSS property for widescreen or larger breakpoints
 - **fix:** Prevent `SideBar.MenuList` and `SideBar.Submenu` list elements from being impacted by user-agent applied padding and margin styles
@@ -41,6 +46,7 @@ Beta versions should be relatively stable but subject to occssional breaking cha
   dependent on this automatic behaviour of the SVGR plugin.
 - **chore:** deprecated `ReapitLogo` component. Will be removed in v5 stable.
 - **chore:** update CSS variables to match latest Figma variables
+- **chore:** ensure token JSON files are preprocessed before building new CSS files. This helps ensure good diffs when raising PRs in future.
 
 ### **5.0.0-beta.29 - 05/06/25**
 

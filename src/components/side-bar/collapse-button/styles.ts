@@ -1,3 +1,4 @@
+import { font } from '#src/components/text'
 import { styled } from '@linaria/react'
 
 export const ElSideBarCollapseButton = styled.button`
@@ -47,12 +48,5 @@ export const ElSideBarCollapseLabel = styled.span`
   overflow: hidden;
   color: var(--comp-navigation-colour-text-sidebar-default);
   text-overflow: ellipsis;
-
-  /* text-sm/Regular */
-  font-family: var(--font-sm-regular-family);
-  font-size: var(--font-sm-regular-size);
-  font-style: normal;
-  font-weight: var(--font-sm-regular-weight);
-  line-height: var(--font-sm-regular-line_height);
-  letter-spacing: var(--font-sm-regular-letter_spacing);
+  ${font('sm', 'regular')}
 `
