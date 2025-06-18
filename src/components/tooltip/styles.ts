@@ -40,16 +40,6 @@ export const ElTooltip = styled.div`
   animation-fill-mode: both;
   animation-timing-function: ease-in-out;
 
-  color: var(--comp-tooltip-colour-text);
-
-  /* text-xs/Regular */
-  font-family: var(--font-xs-regular-family);
-  font-size: var(--font-xs-regular-size);
-  font-style: normal;
-  font-weight: var(--font-xs-regular-weight);
-  line-height: var(--font-xs-regular-line_height);
-  letter-spacing: var(--font-xs-regular-letter_spacing);
-
   &[data-is-visible='true'] {
     animation-name: fadeIn;
   }
@@ -64,4 +54,12 @@ export const ElTooltip = styled.div`
 
 export const ElTooltipLabel = styled.span`
   text-align: left;
+
+  color: var(--comp-tooltip-colour-text);
+  font-family: var(--font-xs-regular-family);
+  font-size: var(--font-xs-regular-size);
+  font-style: normal;
+  font-weight: var(--font-xs-regular-weight);
+  line-height: var(--font-xs-regular-line_height);
+  letter-spacing: var(--font-xs-regular-letter_spacing);
 `
