@@ -5,17 +5,17 @@ exports[`Drawer component > should match a snapshot when closed 1`] = `<Document
 exports[`Drawer component > should match a snapshot when open 1`] = `
 <DocumentFragment>
   <div
-    class="el-is-active el-drawer-bg"
+    class="el-is-active el-deprecated-drawer-bg"
   />
   <div
-    class="el-is-active el-drawer"
+    class="el-is-active el-deprecated-drawer"
   >
     <div
-      class="mocked-styled-2 el-drawer-header"
+      class="mocked-styled-2 el-deprecated-drawer-header"
     >
       <div>
         <div
-          class="mocked-styled-4 el-drawer-title"
+          class="mocked-styled-4 el-deprecated-drawer-title"
         >
           test
         </div>
@@ -40,7 +40,7 @@ exports[`Drawer component > should match a snapshot when open 1`] = `
       </span>
     </div>
     <div
-      class="mocked-styled-5 el-drawer-body"
+      class="mocked-styled-5 el-deprecated-drawer-body"
     >
       Content within Drawer
     </div>
@@ -51,7 +51,7 @@ exports[`Drawer component > should match a snapshot when open 1`] = `
 exports[`DrawerBg > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-0 el-drawer-bg"
+    class="mocked-styled-0 el-deprecated-drawer-bg"
   >
     Content within Drawer
   </div>
@@ -61,7 +61,7 @@ exports[`DrawerBg > should match a snapshot 1`] = `
 exports[`DrawerBody > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-5 el-drawer-body"
+    class="mocked-styled-5 el-deprecated-drawer-body"
   >
     Content within Drawer
   </div>
@@ -71,7 +71,7 @@ exports[`DrawerBody > should match a snapshot 1`] = `
 exports[`DrawerContainer > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-1 el-drawer"
+    class="mocked-styled-1 el-deprecated-drawer"
   >
     Content within Drawer
   </div>
@@ -81,7 +81,7 @@ exports[`DrawerContainer > should match a snapshot 1`] = `
 exports[`DrawerHeader > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-2 el-drawer-header"
+    class="mocked-styled-2 el-deprecated-drawer-header"
   >
     Content within Drawer
   </div>
@@ -91,7 +91,7 @@ exports[`DrawerHeader > should match a snapshot 1`] = `
 exports[`DrawerSubtitle > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-3 el-drawer-subtitle"
+    class="mocked-styled-3 el-deprecated-drawer-subtitle"
   >
     Content within Drawer
   </div>
@@ -101,7 +101,7 @@ exports[`DrawerSubtitle > should match a snapshot 1`] = `
 exports[`DrawerTitle > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-4 el-drawer-title"
+    class="mocked-styled-4 el-deprecated-drawer-title"
   >
     Content within Drawer
   </div>
