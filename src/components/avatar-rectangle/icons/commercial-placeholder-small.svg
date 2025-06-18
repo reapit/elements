@@ -1,6 +1,6 @@
-<svg width="64px" height="48px" viewBox="0 0 64 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="48" height="40" viewBox="0 0 48 40" fill="none" xmlns="http://www.w3.org/2000/svg">
 <g id="Shapes">
-<path id="Bottom image" d="M16 48V38H50V12H64V48H16Z" fill="#E5E9ED"/>
-<path id="Top image" d="M48 0H0V36H48V0Z" fill="#E5E9ED"/>
+<path id="Bottom image" d="M8 44V34H42V8H56V44H8Z" fill="#E5E9ED"/>
+<path id="Top image" d="M40 -4H-8V32H40V-4Z" fill="#E5E9ED"/>
 </g>
 </svg>
