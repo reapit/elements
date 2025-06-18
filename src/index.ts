@@ -102,3 +102,4 @@ export * from './components/reapit-logo'
 export * from './components/container-query/container-query'
 
 export * from './components/side-bar'
+export * from './components/supplementary-info'
