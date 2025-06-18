@@ -1,5 +1,5 @@
 import { Icon } from '../../icon'
-import { NavIconItem } from '../../nav-icon-item'
+import { TopBarNavIconItemButton } from '../../top-bar'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
@@ -7,13 +7,8 @@ interface AppSwitcherNavIconButtonProps extends ButtonHTMLAttributes<HTMLButtonE
   onClick: MouseEventHandler<HTMLButtonElement>
 }
 
-export function AppSwitcherNavIconButton({ 'aria-label': ariaLabel, ...props }: AppSwitcherNavIconButtonProps) {
+export function AppSwitcherNavIconButton({ 'aria-label': ariaLabel, ...rest }: AppSwitcherNavIconButtonProps) {
   return (
-    <NavIconItem
-      {...props}
-      aria-label={ariaLabel ?? 'App Switcher'}
-      icon={<Icon icon="appSwitcher" />}
-      isActive={props['aria-expanded'] === 'true' || props['aria-expanded'] === true}
-    />
+    <TopBarNavIconItemButton {...rest} aria-label={ariaLabel ?? 'App Switcher'} icon={<Icon icon="appSwitcher" />} />
   )
 }

@@ -8,9 +8,10 @@ export type SupportedProductId =
   | 'consoleCloud' // Reapit PM
   | 'ireWeb' // Reapit Lettings
   | 'keywhere'
+  | 'lettingsBDM'
   | 'reapitForms'
-  | 'reapitWebsites'
   | 'reapitProposals'
+  | 'reapitWebsites'
 
 export interface ProductConfig {
   appName: string
@@ -25,11 +26,23 @@ export interface ProductConfig {
  * approved by the Product and Design teams.
  */
 export const productConfigs = {
-  consoleCloud: { appName: 'Reapit PM', supplementaryInfo: 'Property Management' },
+  autoResponder: {
+    appName: 'Auto Responder',
+    supplementaryInfo: 'Automated Email Marketing',
+  },
   agentBox: { appName: 'Reapit Sales', supplementaryInfo: 'Real Estate CRM' },
+  consoleCloud: { appName: 'Reapit PM', supplementaryInfo: 'Property Management' },
   ireWeb: {
     appName: 'Reapit Lettings',
     supplementaryInfo: 'Lettings Management',
+  },
+  keywhere: {
+    appName: 'KeyWhere',
+    supplementaryInfo: 'Real-time Key Management',
+  },
+  lettingsBDM: {
+    appName: 'Lettings BDM',
+    supplementaryInfo: 'New Business',
   },
   reapitForms: {
     appName: 'Reapit Forms',
@@ -42,14 +55,6 @@ export const productConfigs = {
   reapitProposals: {
     appName: 'Reapit Proposals',
     supplementaryInfo: 'Interactive Digital Proposals',
-  },
-  keywhere: {
-    appName: 'KeyWhere',
-    supplementaryInfo: 'Real-time Key Management',
-  },
-  autoResponder: {
-    appName: 'Auto Responder',
-    supplementaryInfo: 'Automated Email Marketing',
   },
 } as const satisfies Record<SupportedProductId, ProductConfig>
 
@@ -64,7 +69,10 @@ export const productConfigs = {
  * by the Product and Design teams and should not be changed without their explicit approval.
  */
 export const productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE = [
+  // Primary apps here (should be alphatically ordered by configured app name)
   'ireWeb', // Reapit Lettings
   'consoleCloud', // Reapit PM
+  // Secondary apps here (should be alphatically ordered by configured app name)
   'keywhere',
+  'lettingsBDM',
 ] as const satisfies SupportedProductId[]

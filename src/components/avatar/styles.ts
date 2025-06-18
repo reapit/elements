@@ -1,72 +1,56 @@
+import { font } from '#src/components/text'
 import { styled } from '@linaria/react'
 
-const baseCircleStyle = `
-  border-radius: var(--border-radius-3xl);
-`
+interface ElAvatarProps {
+  'data-colour': 'default' | 'purple'
+  'data-shape': 'circle' | 'square'
+  'data-size': 'small' | 'medium'
+}
 
-const baseMediumSizeStyle = `
+export const ElAvatar = styled.span<ElAvatarProps>`
+  display: flex;
   width: var(--size-10);
   height: var(--size-10);
-  font-size: var(--font-base-bold-size);
-  font-weight: var(--font-base-bold-weight);
-  line-height: var(--font-base-bold-line_height);
-  letter-spacing: var(--font-base-bold-letter_spacing);
-
-  /* override Icon element size  */
-  svg {
-    font-size: var(--icon_size-m);
-  }
-
-`
-
-const baseColourDefaultStyle = `
-  background: var(--colour-fill-neutral-medium);
-  color: var(--colour-text-white);
-
-  /* override Icon element colour  */
-  svg {
-    color: var(--colour-text-white);
-  }
-`
-
-export const ElAvatar = styled.span`
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  font-family: var(--font-family);
-  font-style: normal;
-  font-weight: var(--font-weight-semibold);
 
-  ${baseColourDefaultStyle}
-  ${baseCircleStyle}
-  ${baseMediumSizeStyle}
+  ${font('base', 'bold')}
 
-  &[data-shape='square'] {
-    border-radius: var(--border-radius-l);
+  /** Colour styles */
+  &[data-colour='default'] {
+    background: var(--colour-fill-neutral-medium);
+    color: var(--colour-text-white);
   }
 
   &[data-colour='purple'] {
     background: var(--colour-fill-action-lightest);
     color: var(--colour-text-action);
-    /* override Icon element colour  */
-    svg {
-      color: var(--colour-text-action);
-    }
   }
 
+  /** Shape styles */
+  &[data-shape='circle'] {
+    border-radius: var(--border-radius-3xl);
+  }
+
+  &[data-shape='square'] {
+    border-radius: var(--border-radius-l);
+  }
+
+  /** Size styles */
   &[data-size='small'] {
     width: var(--size-8);
     height: var(--size-8);
-    font-size: var(--font-2xs-bold-size);
-    font-weight: var(--font-2xs-bold-weight);
-    line-height: var(--font-2xs-bold-line_height);
-    letter-spacing: var(--font-2xs-bold-letter_spacing);
+    font-size: var(--font-size-2xs);
+    line-height: var(--line-height-2xs);
+    letter-spacing: var(--letter-spacing-2xs);
+  }
 
-    /* override Icon element size  */
-    svg {
-      font-size: var(--icon_size-s);
-    }
+  &[data-size='medium'] {
+    width: var(--size-10);
+    height: var(--size-10);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    letter-spacing: var(--letter-spacing-base);
   }
 `

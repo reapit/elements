@@ -2,16 +2,22 @@ import { FC, HTMLAttributes } from 'react'
 import { ElAvatar } from './styles'
 
 export interface AvatarProps extends HTMLAttributes<HTMLSpanElement> {
-  shape?: 'circle' | 'square'
-  size?: 'medium' | 'small'
+  /** The colour of the avatar. */
   colour?: 'default' | 'purple'
+  /** The shape of the avatar. */
+  shape?: 'circle' | 'square'
+  /** The size of the avatar. */
+  size?: 'medium' | 'small'
 }
 
+/**
+ * A simple avatar component that can be used to represent a user or other entity.
+ */
 export const Avatar: FC<AvatarProps> = ({
-  shape = 'circle',
-  size = 'medium',
   colour = 'default',
   children,
+  shape = 'circle',
+  size = 'medium',
   ...props
 }) => {
   return (
