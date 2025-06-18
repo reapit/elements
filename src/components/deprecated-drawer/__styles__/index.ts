@@ -2,7 +2,8 @@ import { styled } from '@linaria/react'
 import { elIsActive } from '../../../styles/states'
 import { isTablet } from '../../../styles/media'
 
-export const ElDrawerBg = styled.div`
+/** @deprecated */
+export const ElDeprecatedDrawerBg = styled.div`
   display: none;
   z-index: 98;
   width: 100%;
@@ -18,7 +19,8 @@ export const ElDrawerBg = styled.div`
   }
 `
 
-export const ElDrawer = styled.div`
+/** @deprecated */
+export const ElDeprecatedDrawer = styled.div`
   display: none;
   top: 0;
   box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
@@ -44,7 +46,8 @@ export const ElDrawer = styled.div`
   }
 `
 
-export const ElDrawerHeader = styled.div`
+/** @deprecated */
+export const ElDeprecatedDrawerHeader = styled.div`
   padding: 1.5rem 2rem;
   border-bottom: 1px solid var(--neutral-100);
   display: flex;
@@ -52,27 +55,31 @@ export const ElDrawerHeader = styled.div`
   align-items: flex-start;
 `
 
-export const ElDrawerSubtitle = styled.div`
+/** @deprecated */
+export const ElDeprecatedDrawerSubtitle = styled.div`
   color: var(--neutral-500);
   font-size: var(--font-size-default);
 `
 
-export const ElDrawerTitle = styled.div`
+/** @deprecated */
+export const ElDeprecatedDrawerTitle = styled.div`
   color: var(--black);
   font-weight: var(--font-weight-bold);
   font-size: var(--font-size-small-subheading);
 
-  &:has(~ ${ElDrawerSubtitle}) {
+  &:has(~ ${ElDeprecatedDrawerSubtitle}) {
     margin-bottom: 0.25rem;
   }
 `
 
-export const ElDrawerBody = styled.div`
+/** @deprecated */
+export const ElDeprecatedDrawerBody = styled.div`
   padding: 1.5rem 2rem;
   height: 100%;
 `
 
-export const ElDrawerFooter = styled.div`
+/** @deprecated */
+export const ElDeprecatedDrawerFooter = styled.div`
   border-top: 1px solid var(--neutral-100);
   padding: 0.875rem 2rem;
 `

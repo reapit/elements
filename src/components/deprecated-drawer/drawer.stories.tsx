@@ -1,5 +1,5 @@
 import { useDrawer } from '../../hooks/use-drawer'
-import { Drawer, DrawerBg } from './index'
+import { DeprecatedDrawer as Drawer, DeprecatedDrawerBg as DrawerBg } from './drawer'
 import { Button, DeprecatedButtonGroup } from '../button'
 import { FormLayout, InputWrapFull, InputWrapHalf } from '../form-layout'
 import { InputGroup } from '../input-group'
@@ -9,7 +9,7 @@ import { TextArea } from '../textarea'
 import { TextBase } from '../typography'
 
 export default {
-  title: 'Drawer',
+  title: 'DeprecatedDrawer',
   component: Drawer,
 }
 

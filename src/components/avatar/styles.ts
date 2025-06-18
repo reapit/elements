@@ -1,5 +1,6 @@
 import { font } from '#src/components/text'
 import { styled } from '@linaria/react'
+import { elIcon } from '../button'
 
 interface ElAvatarProps {
   'data-colour': 'default' | 'purple'
@@ -9,8 +10,8 @@ interface ElAvatarProps {
 
 export const ElAvatar = styled.span<ElAvatarProps>`
   display: flex;
-  width: var(--size-10, 40px);
-  height: var(--size-10, 40px);
+  width: var(--size-10);
+  height: var(--size-10);
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -35,6 +36,10 @@ export const ElAvatar = styled.span<ElAvatarProps>`
 
   &[data-shape='square'] {
     border-radius: var(--border-radius-l);
+
+    &[data-size='small'] {
+      border-radius: var(--border-radius-m);
+    }
   }
 
   /** Size styles */
@@ -44,6 +49,10 @@ export const ElAvatar = styled.span<ElAvatarProps>`
     font-size: var(--font-size-2xs);
     line-height: var(--line-height-2xs);
     letter-spacing: var(--letter-spacing-2xs);
+
+    .${elIcon} {
+      font-size: var(--icon_size-s);
+    }
   }
 
   &[data-size='medium'] {
@@ -52,5 +61,9 @@ export const ElAvatar = styled.span<ElAvatarProps>`
     font-size: var(--font-size-base);
     line-height: var(--line-height-base);
     letter-spacing: var(--letter-spacing-base);
+
+    .${elIcon} {
+      font-size: var(--icon_size-m);
+    }
   }
 `
