@@ -33,10 +33,11 @@ export const ElButtonSpinner = styled.div`
   color: transparent !important;
   pointer-events: none;
   animation: spinAround 800ms infinite linear;
-  border: 1px solid var(--text-placeholder);
+  border: 1px solid var(--comp-button-colour-text-busy-default);
   margin-right: 0.25rem;
   border-radius: 290486px;
-  border-color: transparent transparent var(--text-placeholder) var(--text-placeholder);
+  border-color: transparent transparent var(--comp-button-colour-text-busy-default)
+    var(--comp-button-colour-text-busy-default);
   display: none;
   height: 1rem;
   width: 1rem;
@@ -50,26 +51,30 @@ const baseButtonStyles = `
   display: inline-flex;
   position: relative;
   text-align: left;
-  color: var(--text-secondary);
-  background: var(--fill-white);
+  color: var(--comp-button-colour-text-secondary-default);
+  background: var(--comp-button-colour-fill-secondary-default);
   height: var(--size-9);
   padding: 0px var(--spacing-4);
   gap: var(--spacing-1);
-  border-radius: var(--corner-default);
-  border: 1px solid var(--outline-default);
+  border-radius: var(--comp-button-border-radius-default);
+  border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
   text-decoration: none; /* For anchors */
   
   .${elIcon} {
     padding: var(--spacing-half);
-    color: var(--icon-primary);
+    color: var(--comp-button-colour-icon-secondary-defaul);
   }
 
   &:hover {
-    color: var(--text-tertiary);
-    border: 1px solid var(--outline-button-secondary-hover);
+    color: var(--comp-button-colour-text-secondary-hover);
+    border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-hover);
     .${elIcon} {
-      color: var(--icon-secondary);
+      color: var(--comp-button-colour-icon-secondary-hover);
     }
+  }
+
+  &:focus {
+    border: var(--border-width-double) solid var(--colour-border-focus);
   }
 
   &.${elButtonIconOnly} {
@@ -98,9 +103,12 @@ const baseButtonStyles = `
       width: var(--size-10);
     }
     .${elButtonLabel} {
-      font-size: var(--font-size-base);
-      line-height: var(--line-height-base);
-      letter-spacing: var(--letter-spacing-base);
+      font-family: var(--font-base-medium-family);
+      font-size: var(--font-base-medium-size);
+      font-weight: var(--font-base-medium-weight);
+      line-height: var(--font-base-medium-line_height);
+      letter-spacing: var(--font-base-medium-letter_spacing);
+      
     }
     .${elButtonSpinner} {
       height: 1.125rem;
@@ -109,28 +117,28 @@ const baseButtonStyles = `
   }
 
   &[data-variant='primary'] {
-    background: var(--fill-action-dark);
-    color: var(--text-white);
+    background: var(--comp-button-colour-fill-primary-default);
+    color: var(--comp-button-colour-text-primary-default);
     border: unset;
 
     .${elIcon} {
-      color: var(--icon-button_primary-default);
+      color: var(--comp-button-colour-icon-primary-default);
     }
 
     &:hover {
-      background: var(--fill-button-primary-hover);
+       background: var(--comp-button-colour-fill-primary-hover);
       .${elIcon} {
-        color: var(--icon-button_primary-hover);
+         color: var(--comp-button-colour-icon-primary-hover);
       }
     }
   }
 
   &[data-variant='seconday'] {
     &:hover {
-      color: var(--text-tertiary);
-      border: 1px solid var(--outline-button-secondary-hover);
+      color: var(--comp-button-colour-text-secondary-hover);
+      border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
       .${elIcon} {
-        color: var(--icon-secondary);
+        color: var(--comp-button-colour-icon-secondary-hover);
       }
     }
   }
@@ -138,9 +146,9 @@ const baseButtonStyles = `
   &[data-variant='tertiary'] {
     border: unset;
     &:hover {
-      color: var(--text-tertiary);
+      color: var(--comp-button-colour-text-tertiary-hover);
       .${elIcon} {
-        color: var(--icon-secondary);
+        color: var(--comp-button-colour-icon-tertiary-hover);
       }
     }
     &[data-has-no-padding='true'] {
@@ -151,19 +159,21 @@ const baseButtonStyles = `
   }
 
   &[data-variant='destructive'] {
-    background: var(--fill-error-dark);
-    color: var(--text-white);
     border: unset;
+    background: var(--comp-button-colour-fill-destructive-default);
+    color: var(--comp-button-colour-text-destructive-default);
     .${elIcon} {
-      color: var(--icon-button_danger-default);
+      color: var(--comp-button-colour-icon-destructive-default);
     }
     &:hover {
-      background: var(--fill-button-danger-hover);
+      background: var(--comp-button-colour-fill-destructive-hover);
+      color: var(--comp-button-colour-text-destructive-hover);
       .${elIcon} {
-        color: var(--icon-button_danger-hover);
+        color: var(--comp-button-colour-icon-destructive-hover);
       }
     }
   }
+
 
   &[disabled],
   &[aria-disabled="true"],
@@ -172,20 +182,20 @@ const baseButtonStyles = `
   &[disabled][data-variant='secondary'],
   &[disabled][data-variant='tertiary'],
   &[disabled][data-variant='destructive'] {
-    color: var(--text-placeholder);
-    background: var(--fill-default-light);
     cursor: not-allowed;
     border: unset;
+    background: var(--comp-button-colour-fill-primary-disabled);
+    color: var(--comp-button-colour-text-primary-disabled);
 
     .${elIcon} {
-      color: var(--icon-primary);
+      color: var(--comp-button-colour-icon-primary-disabled);
     }
 
     &:hover {
-      background: var(--fill-default-light);
-      color: var(--text-placeholder);
+      background: var(--comp-button-colour-fill-primary-disabled);
+      color: var(--comp-button-colour-text-primary-disabled);
       .${elIcon} {
-        color: var(--icon-primary);
+        color: var(--comp-button-colour-icon-primary-disabled);
       }
     }
   }
@@ -197,6 +207,7 @@ const baseButtonStyles = `
     outline: 0;
   }
   
+  // TO DO: no the token variable names not updated, since no design guide in figma
   &.${elFloatingButton} {
     border-radius: 100%;
     height: 3.75rem;
@@ -246,11 +257,11 @@ const baseButtonStyles = `
 
 // Button Label style
 export const ElButtonLabel = styled.span`
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
+  font-family: var(--font-sm-medium-family);
+  font-size: var(--font-sm-medium-size);
+  font-weight: var(--font-sm-medium-weight);
+  line-height: var(--font-sm-medium-line_height);
+  letter-spacing: var(--font-sm-medium-letter_spacing);
   padding: 0 var(--spacing-half);
 `
 
