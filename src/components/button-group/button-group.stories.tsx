@@ -1,6 +1,6 @@
 import { ButtonGroup } from './button-group'
 import { Button } from '../button'
-import { Meta } from '@storybook/react'
+import { Meta } from '@storybook/react-vite'
 import { figmaDesignUrls } from '../../storybook/figma'
 import { Icon } from '../icon'
 

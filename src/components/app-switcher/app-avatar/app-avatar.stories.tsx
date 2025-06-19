@@ -1,7 +1,7 @@
 import { AppAvatar } from './app-avatar'
 import { productConfigs } from '../config'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { SupportedProductId } from '../config'
 
 const productIds = Object.keys(productConfigs) as SupportedProductId[]

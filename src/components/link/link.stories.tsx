@@ -1,6 +1,6 @@
 import { Link } from './link'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Link',
@@ -46,9 +46,9 @@ export const Reversed: Story = {
     ...Example.args,
     variant: 'reversed',
   },
-  parameters: {
+  globals: {
     backgrounds: {
-      default: 'dark',
+      value: 'dark',
     },
   },
 }

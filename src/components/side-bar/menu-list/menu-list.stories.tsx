@@ -3,7 +3,7 @@ import { SideBarMenuList } from './menu-list'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 // Common href for all menu items that links to the current storybook page.
 const href = globalThis.top?.location.href!

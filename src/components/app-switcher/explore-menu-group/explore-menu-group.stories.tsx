@@ -1,4 +1,4 @@
-import type { Decorator, Meta, StoryObj } from '@storybook/react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 import { AppSwitcher } from '../app-switcher'
 import { AppSwitcherExploreMenuGroup } from './explore-menu-group'
 

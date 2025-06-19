@@ -1,7 +1,7 @@
 import { ChipGroup } from './chip-group'
 import * as ChipStories from '../chip/chip.stories'
 
-import type { Decorator, Meta, StoryObj } from '@storybook/react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/ChipGroup',

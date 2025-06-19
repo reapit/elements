@@ -1,6 +1,6 @@
 import { Breadcrumbs } from './breadcrumbs'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import { elBreadcrumbsLink } from './styles'
 import { BodyText } from '../typography'
 

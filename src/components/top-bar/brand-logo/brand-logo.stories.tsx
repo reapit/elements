@@ -1,7 +1,7 @@
 import { BrandLogo } from './brand-logo'
 import { supportedAppNames } from './app-logo'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const href = globalThis.top?.location.href
 
