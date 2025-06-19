@@ -1,5 +1,7 @@
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
 import { DrawerBody } from './body'
+import { Pattern } from '../__story__/Pattern'
+
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
@@ -33,13 +35,7 @@ export const Example: Story = {
  */
 export const LongContent: Story = {
   args: {
-    children: (
-      <div style={{ color: '#FA00FF' }}>
-        ↓↓↓↓
-        <div style={{ height: '500px' }} />
-        ↑↑↑↑
-      </div>
-    ),
+    children: <Pattern height="200px" />,
   },
 }
 
