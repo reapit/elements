@@ -1,3 +1,4 @@
+import { useDrawerContext } from '../context'
 import { DrawerHeaderCloseButton } from './close-button'
 import {
   ElDrawerHeader,
@@ -28,12 +29,13 @@ interface DrawerHeaderProps extends Omit<ComponentProps<typeof ElDrawerHeader>, 
  * supplementary info and/or tabs.
  */
 export function DrawerHeader({ action, overline, children, supplementaryInfo, tabs, ...rest }: DrawerHeaderProps) {
+  const { titleId } = useDrawerContext() ?? {}
   return (
     <ElDrawerHeader {...rest}>
       <ElDrawerHeaderContentContainer>
         {action && <ElDrawerHeaderAction>{action}</ElDrawerHeaderAction>}
         {overline && <ElDrawerHeaderOverline>{overline}</ElDrawerHeaderOverline>}
-        <ElDrawerHeaderTitle>{children}</ElDrawerHeaderTitle>
+        <ElDrawerHeaderTitle id={titleId}>{children}</ElDrawerHeaderTitle>
         {supplementaryInfo && <ElDrawerHeaderSupplementaryInfo>{supplementaryInfo}</ElDrawerHeaderSupplementaryInfo>}
       </ElDrawerHeaderContentContainer>
       {tabs && <ElDrawerHeaderTabsContainer>{tabs}</ElDrawerHeaderTabsContainer>}
