@@ -16,10 +16,49 @@ We will publish release version history and changes here. Where possible, we wil
 
 Beta versions should be relatively stable but subject to occssional breaking changes.
 
-### **5.0.0-beta.29 - xx/xx/25**
+### **5.0.0-beta.31 - xx/xx/25**
+
+- **feat:** Add `Text` and `font` helpers
+- **chore:** Use new `font` helper in `AppSwitcher`, `Avatar`, `SideBar`, and `TopBar`
+- **feat:** Add new `SupplementaryInfo` component
+- **feat:** Add new `Link` component
+- **chore:** Add missing exports for `Chip` and `ChipGroup` component
+- **chore!:** Deprecated existing `Drawer` component. It is still available, but is now called `DeprecatedDrawer`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix.
+
+### **5.0.0-beta.30 - 16/06/25**
+
+- **fix:** `TopBar` secondary nav now applies correct `display` CSS property for widescreen or larger breakpoints
+- **fix:** Prevent `SideBar.MenuList` and `SideBar.Submenu` list elements from being impacted by user-agent applied padding and margin styles
+- **feat:** `TopBar` and `NavSearchButton` now use CSS container queries, when supported, for their responsive behaviour. Storybook docs also updated to demonstrate.
+- **feat:** Add Lettings BDM support to `AppSwitcher`
+- **feat!:** Move `NavSearchButton` into `TopBar` and split it into three separate components:
+  - `TopBar.NavSearch`, a responsive helper for correctly rendering the search button and search icon item across mobile and wider screen sizes;
+  - `TopBar.NavSearchButton`, a simple button that should be used to launch the search experience on tablet and wider screen sizes;
+  - `TopBar.NavSearchIconItem`, a thin wrapper around `NavItemIcon` that should be used to launch the search experience on mobile screen sizes.
+  - Consumers using just `NavSearchButton` will no longer see a responsive change to the icon item version on mobile screen sizes.
+- **feat!:** Renamed `NavSearch`, `NavSearchButton` and `NavSearchIconItem` components and styled elements to have a `TopBar` prefix.
+- **feat!:** Move `NavItem` into `TopBar`, rename it and its related classes to use the `TopBar` prefix, and remove support for button-based nav items.
+- **feat!:** Move `NavDropdownButton` into `TopBar` and rename it and its related classes to use the `TopBar` prefix.
+- **feat!:** Move `NavIconItem` into `TopBar` and rename it and its related classes to use the `TopBar` prefix. It's prop interface has also been updated to explicitly `as="button"` if a button is desired; by default, the component will render as a link.
+- **feat!:** Move `AvatarButton` into `TopBar` and rename it and its related classes to use the `TopBar` prefix.
+- **feat:** Add new `MainNav` and `SecondaryNav` components to `TopBar`.
+- **feat:** Add `Menu.Group` bottom border as menu divider
+- **feat:** Add new `BrandLogo` component to `TopBar`.
+- **feat!:** Updated config for SVGR plugin in `vite.config.ts` to no longer automatically apply `width="1em"` and `height="1em"` attributes
+  to the imported SVG. This is a breaking change that impacts all SVG imports. To minimise impact, the v4 `Icon` component has been updated
+  to apply these attributes itself, but there may be other SVG usage in some components that will experience visual regressions if they were
+  dependent on this automatic behaviour of the SVGR plugin.
+- **chore:** deprecated `ReapitLogo` component. Will be removed in v5 stable.
+- **chore:** update CSS variables to match latest Figma variables
+- **chore:** ensure token JSON files are preprocessed before building new CSS files. This helps ensure good diffs when raising PRs in future.
+
+### **5.0.0-beta.29 - 05/06/25**
+
 - Support added for `maxHeight` in `Menu.List` and `Menu.Group`
 - Support added for `supplementaryText` and `badge` in `Menu.Item`
 - Resolved export issue for `AvatarRectangle`
+- Added `AppSwitcher` product display order helpers and improve documentation
+- Allow `SideBar.MenuGroup` to be forced "active"
 
 ### **5.0.0-beta.28 - 30/05/25**
 

@@ -1,0 +1,19 @@
+import { Icon } from '../../icon'
+import { TopBarNavIconItemBase } from '../nav-icon-item'
+
+import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
+
+interface TopBarNavSearchIconItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+  /** A click handler that launches the product's search experience. */
+  onClick: MouseEventHandler<HTMLButtonElement>
+}
+
+/**
+ * A `NavIconItem` button used to launch the search experience for a product on mobile devices. It is designed
+ * for use on mobile devices. For tablet devices and wider, `TopBar.NavSearchButton` should be used instead.
+ */
+export function TopBarNavSearchIconItem({ 'aria-label': ariaLabel, ...rest }: TopBarNavSearchIconItemProps) {
+  return (
+    <TopBarNavIconItemBase {...rest} aria-label={ariaLabel ?? 'Search'} as="button" icon={<Icon icon="search" />} />
+  )
+}

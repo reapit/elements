@@ -89,6 +89,37 @@ test('`<details>` is closed when a descendant no longer represents the current p
   await waitFor(() => expect(screen.getByRole('group')).not.toBeVisible())
 })
 
+test('`<details>` is opened when it becomes active', async () => {
+  const { rerender } = render(
+    // NOTE: the `open` attribute is absent when we first render
+    <Details sideBarState="expanded" />,
+  )
+  expect(screen.getByRole('group')).not.toBeVisible()
+
+  rerender(
+    // NOTE: the `open` attribute is still absent when we rerender, but we expect the <details> element to be
+    // opened by our useSideBarMenuGroupController because the <details> element is marked as active
+    <Details data-is-active="true" sideBarState="expanded" />,
+  )
+  await waitFor(() => expect(screen.getByRole('group')).toBeVisible())
+})
+
+test('`<details>` is closed when it is no longer active', async () => {
+  const { rerender } = render(
+    // NOTE: the `open` attribute is present when we first render
+    <Details data-is-active="true" open sideBarState="expanded" />,
+  )
+  expect(screen.getByRole('group')).toBeVisible()
+
+  rerender(
+    // NOTE: the `open` attribute is still present when we rerender, but we expect the <details> element to be
+    // closed by our useSideBarMenuGroupController because the <details> element is no longer marked as active
+    // current page
+    <Details open sideBarState="expanded" />,
+  )
+  await waitFor(() => expect(screen.getByRole('group')).not.toBeVisible())
+})
+
 interface DetailsProps extends DetailsHTMLAttributes<HTMLDetailsElement> {
   sideBarState: SideBarState
 }

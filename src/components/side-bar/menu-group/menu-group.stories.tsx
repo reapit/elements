@@ -57,8 +57,8 @@ type Story = StoryObj<typeof meta>
 export const Example: Story = {
   args: {
     children: 'No selected item',
+    isActive: false,
     summary: <SideBarMenuGroup.Summary icon={<Icon icon="property" />}>Menu group</SideBarMenuGroup.Summary>,
-    open: false,
   },
 }
 
@@ -108,4 +108,15 @@ export const SelectedAndCollapsed = {
     ...Collapsed.parameters,
   },
   storyName: 'Selected and collapsed',
+}
+
+/**
+ * When a menu group needs to be open and visually active but no submenu item within a group can be uniquely identified
+ * as representing the current page, the group can be forced open via the `isActive` prop.
+ */
+export const ManuallyActive: Story = {
+  args: {
+    ...Example.args,
+    isActive: true,
+  },
 }

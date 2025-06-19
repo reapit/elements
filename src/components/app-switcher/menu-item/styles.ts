@@ -1,16 +1,20 @@
+import { font } from '#src/components/text'
 import { styled } from '@linaria/react'
 
 // If we don't have the transparent border, the component will move a slight bit, which is not what we want
 export const ElAppSwitcherMenuItemAnchor = styled.a`
-  color: var(--text-primary);
   cursor: pointer;
-  width: 100%;
+
   display: grid;
-  grid-template-columns: auto 1fr;
-  gap: var(--spacing-3);
-  padding: var(--spacing-3) var(--spacing-4) var(--spacing-3) var(--spacing-3);
-  border-radius: var(--border-radius-l);
-  border: var(--border-width-double) solid transparent;);
+  grid-template-areas: 'logo name' 'logo supplementary-info';
+  grid-template-columns: min-content auto;
+  grid-template-rows: min-content min-content;
+  gap: var(--spacing-1) var(--spacing-3);
+  padding-block: var(--spacing-3);
+  padding-inline: var(--spacing-3) var(--spacing-4);
+  border-radius: var(--comp-menu-border-radius);
+
+  width: 100%;
 
   &:focus-visible {
     outline: var(--border-width-double) solid var(--colour-border-focus);
@@ -19,11 +23,12 @@ export const ElAppSwitcherMenuItemAnchor = styled.a`
 
   &:hover {
     background-color: var(--comp-menu-colour-fill-hover);
-    cursor: pointer;
   }
 `
 
-export const ElAppSwitcherMenuItemLogo = styled.div`
+export const ElAppSwitcherMenuItemAvatar = styled.div`
+  grid-area: logo;
+
   width: var(--size-10);
   height: var(--size-10);
   display: flex;
@@ -36,18 +41,18 @@ export const ElAppSwitcherMenuItemLogo = styled.div`
   }
 `
 
-export const ElMenuItemTextWrapper = styled.div`
-  display: grid;
-  grid-template-rows: auto 1fr;
-  row-gap: var(--spacing-1);
+export const ElAppSwitcherMenuItemLabel = styled.span`
+  /* Allows long words to be broken and wrapped onto the next line. */
+  overflow-wrap: anywhere;
+
+  color: var(--comp-menu-colour-text-default-primary);
+  ${font('sm', 'medium')}
 `
 
-export const ElAppSwitcherMenuItemName = styled.div`
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-`
+export const ElAppSwitcherMenuItemSupplementaryInfo = styled.span`
+  /* Allows long words to be broken and wrapped onto the next line. */
+  overflow-wrap: anywhere;
 
-export const ElAppSwitcherMenuItemDescription = styled.div`
-  font-size: var(--font-size-xs);
-  color: var(--text-secondary);
+  color: var(--comp-menu-colour-text-default-secondary);
+  ${font('xs', 'regular')}
 `

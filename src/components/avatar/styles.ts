@@ -1,50 +1,69 @@
+import { font } from '#src/components/text'
 import { styled } from '@linaria/react'
+import { elIcon } from '../button'
 
-const baseCircleStyle = `
-  border-radius: var(--corner-3xl);
-`
+interface ElAvatarProps {
+  'data-colour': 'default' | 'purple'
+  'data-shape': 'circle' | 'square'
+  'data-size': 'small' | 'medium'
+}
 
-const baseMediumSizeStyle = `
+export const ElAvatar = styled.span<ElAvatarProps>`
+  display: flex;
   width: var(--size-10);
   height: var(--size-10);
-  font-size: var(--font-size-base);
-  line-height: var(--line-height-base);
-  letter-spacing: var(--letter-spacing-base);
-`
-
-const baseColourDefaultStyle = `
-  background: var(--fill-default-medium);
-  color: var(--text-white);
-`
-
-export const ElAvatar = styled.span`
-  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  font-family: var(--font-family);
-  font-style: normal;
-  font-weight: var(--font-weight-semibold);
 
-  ${baseColourDefaultStyle}
-  ${baseCircleStyle}
-  ${baseMediumSizeStyle}
+  ${font('base', 'bold')}
 
-  &[data-shape='square'] {
-    border-radius: var(--corner-lg);
+  /** Colour styles */
+  &[data-colour='default'] {
+    background: var(--colour-fill-neutral-medium);
+    color: var(--colour-text-white);
   }
 
   &[data-colour='purple'] {
-    background: var(--fill-action-lightest);
-    color: var(--text-action);
+    background: var(--colour-fill-action-lightest);
+    color: var(--colour-text-action);
   }
 
+  /** Shape styles */
+  &[data-shape='circle'] {
+    border-radius: var(--border-radius-3xl);
+  }
+
+  &[data-shape='square'] {
+    border-radius: var(--border-radius-l);
+
+    &[data-size='small'] {
+      border-radius: var(--border-radius-m);
+    }
+  }
+
+  /** Size styles */
   &[data-size='small'] {
     width: var(--size-8);
     height: var(--size-8);
     font-size: var(--font-size-2xs);
     line-height: var(--line-height-2xs);
     letter-spacing: var(--letter-spacing-2xs);
+
+    .${elIcon} {
+      font-size: var(--icon_size-s);
+    }
+  }
+
+  &[data-size='medium'] {
+    width: var(--size-10);
+    height: var(--size-10);
+    font-size: var(--font-size-base);
+    line-height: var(--line-height-base);
+    letter-spacing: var(--letter-spacing-base);
+
+    .${elIcon} {
+      font-size: var(--icon_size-m);
+    }
   }
 `

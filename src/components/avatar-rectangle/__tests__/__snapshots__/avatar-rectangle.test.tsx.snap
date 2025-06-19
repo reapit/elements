@@ -6,9 +6,9 @@ exports[`AvatarRectangle > renders correctly with commercial variant and medium 
     aria-label="Image placeholder"
     class="mocked-styled-5 el-avatar-rect-commercial-placeholder"
     fill="currentColor"
-    height="1em"
+    height="54"
     viewBox="0 0 72 54"
-    width="1em"
+    width="72"
     xmlns="http://www.w3.org/2000/svg"
   >
     <g
@@ -45,9 +45,9 @@ exports[`AvatarRectangle > renders correctly with commercial variant and small s
       aria-hidden="true"
       class="mocked-styled-1 el-avatar-rect-bottom-small-placeholder"
       fill="none"
-      height="1em"
-      viewBox="0 0 48 36"
-      width="1em"
+      height="32"
+      viewBox="0 0 40 32"
+      width="40"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path
@@ -82,9 +82,9 @@ exports[`AvatarRectangle > renders correctly with residential variant and small 
     aria-label="Image placeholder"
     class="mocked-styled-4 el-avatar-rect-residential-small-placeholder"
     fill="none"
-    height="1em"
+    height="48"
     viewBox="0 0 64 48"
-    width="1em"
+    width="64"
     xmlns="http://www.w3.org/2000/svg"
   >
     <rect
@@ -116,9 +116,9 @@ exports[`AvatarRectangle > simulate error and renders correctly when image fails
       aria-hidden="true"
       class="mocked-styled-0 el-avatar-rect-bottom-image"
       fill="none"
-      height="1em"
+      height="40"
       viewBox="0 0 54 40"
-      width="1em"
+      width="54"
       xmlns="http://www.w3.org/2000/svg"
     >
       <path

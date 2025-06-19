@@ -3,7 +3,7 @@
 exports[`MenuItem component > should render with complete features enabled and match snapshot 1`] = `
 <DocumentFragment>
   <button
-    class="mocked-styled-8 el-menu-item-button"
+    class="mocked-styled-7 el-menu-item-button"
     data-close-menu="false"
     role="menuitem"
     tabindex="0"
@@ -16,7 +16,7 @@ exports[`MenuItem component > should render with complete features enabled and m
       </span>
     </div>
     <div
-      class="mocked-styled-6 el-menu-item-content"
+      class="mocked-styled-5 el-menu-item-content"
     >
       <span
         class="mocked-styled-3 el-menu-item-label-container"
@@ -37,7 +37,7 @@ exports[`MenuItem component > should render with complete features enabled and m
       </span>
     </div>
     <div
-      class="mocked-styled-7 el-menu-item-icon"
+      class="mocked-styled-6 el-menu-item-icon"
     >
       <span>
         Right Icon
@@ -50,13 +50,13 @@ exports[`MenuItem component > should render with complete features enabled and m
 exports[`MenuItem component > should render with required props and match snapshot 1`] = `
 <DocumentFragment>
   <button
-    class="mocked-styled-8 el-menu-item-button"
+    class="mocked-styled-7 el-menu-item-button"
     data-close-menu="true"
     role="menuitem"
     tabindex="0"
   >
     <div
-      class="mocked-styled-6 el-menu-item-content"
+      class="mocked-styled-5 el-menu-item-content"
     >
       <span
         class="mocked-styled-3 el-menu-item-label-container"

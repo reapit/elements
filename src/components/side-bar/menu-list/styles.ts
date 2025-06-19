@@ -6,6 +6,8 @@ export const ElSideBarMenuList = styled.ul`
   display: flex;
   flex-direction: column;
   gap: var(--spacing-2);
+  margin-block: 0;
+  padding-inline: 0;
   padding-block-end: var(--spacing-2);
   width: 100%;
 

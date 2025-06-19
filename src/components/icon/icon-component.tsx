@@ -23,7 +23,18 @@ export const Icon: FC<IconProps> = memo(({ icon, intent, fontSize, className, he
 
   return (
     <ElIcon className={combinedClassName} {...rest} style={{ fontSize, height, width }}>
-      <Svg role="img" title={`Icon image with name ${icon}`} style={{ fontSize, height, width }} />
+      <Svg
+        role="img"
+        // NOTE: We set width and height attributes to mimic the svgr plugin's `icon` option.
+        // This option was originally used to set the width and height of the SVG to 1em
+        // when an SVG file was imported as a React component. This is no longer the case,
+        // so we now set the width and height attributes to 1em ourselves to ensure backwards
+        // compatibility.
+        height="1em"
+        width="1em"
+        title={`Icon image with name ${icon}`}
+        style={{ fontSize, height, width }}
+      />
     </ElIcon>
   )
 })

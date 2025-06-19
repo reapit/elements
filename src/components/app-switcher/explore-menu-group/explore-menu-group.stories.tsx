@@ -4,15 +4,20 @@ import { AppSwitcherExploreMenuGroup } from './explore-menu-group'
 
 const useParentDecorator: Decorator = (Story) => {
   return (
-    <div style={{ width: 'fit-content' }}>
+    <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF' }}>
       <Story />
     </div>
   )
 }
 
 const meta = {
-  title: 'Components/AppSwitcher/AppSwitcherExploreAppsMenuGroup',
+  title: 'Components/AppSwitcher/ExploreMenuGroup',
   component: AppSwitcherExploreMenuGroup,
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
   decorators: [useParentDecorator],
 } satisfies Meta<typeof AppSwitcherExploreMenuGroup>
 
@@ -27,9 +32,7 @@ export const Default: Story = {
   render: ({}) => {
     return (
       <AppSwitcher.ExploreMenuGroup>
-        <AppSwitcher.ReapitPMMenuItem url={'#'} />
-        <AppSwitcher.ReapitSalesMenuItem url={'#'} />
-        <AppSwitcher.KeyWhereMenuItem url={'#'} />
+        <AppSwitcher.ProductMenuItem href={globalThis.top?.location.href!} productId="ireWeb" />
       </AppSwitcher.ExploreMenuGroup>
     )
   },

@@ -94,6 +94,23 @@ test('prevents default action for click events if the menu group contains a link
   await expect(screen.findByRole('group')).resolves.toBeVisible()
 })
 
+test('prevents default action for click events if the menu group is marked as active', async () => {
+  render(
+    <details data-is-active="true" open>
+      <SideBarMenuGroupSummary icon="😎">Item</SideBarMenuGroupSummary>
+      <a href="/" aria-current="page">
+        Link
+      </a>
+    </details>,
+    { wrapper },
+  )
+  const summaryText = screen.getByText('Item')
+  fireEvent.click(summaryText)
+
+  // If the event was NOT prevented, the <details> element would be closed and thus not visible
+  await expect(screen.findByRole('group')).resolves.toBeVisible()
+})
+
 test('allows default action for click events if the menu group does NOT contain a link for the current page', async () => {
   render(
     <details open>
