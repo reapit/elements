@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { useDrawer, UseDrawer } from '../index'
-import { renderHook, act } from '@testing-library/react-hooks'
+import { renderHook, act } from '@testing-library/react'
 
 describe('useDrawer', () => {
   it('should return UseDrawer type correctly', async () => {

@@ -49,6 +49,7 @@ exports[`MultiSelectInput > should match a snapshot and render children 1`] = `
       <input
         aria-checked="true"
         aria-hidden="true"
+        checked=""
         class="mocked-styled-0 el-multi-select-checkbox"
         id="multi-select-chip-item-one"
         role="option"
