@@ -10,7 +10,7 @@ exports[`InputGroup component > should match a snapshot when used in explicit mo
       class="mocked-styled-1 el-input"
     />
     <span
-      class="mocked-styled-2 el-icon"
+      class="mocked-styled-2 el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -81,7 +81,7 @@ exports[`InputGroup component > should match a snapshot when used in react short
       id="myId"
     />
     <span
-      class="mocked-styled-2 el-icon"
+      class="mocked-styled-2 el-deprecated-icon"
       style="font-size: 1rem;"
     >
       <svg
@@ -115,7 +115,7 @@ exports[`InputGroup component > should match a snapshot when used in react short
       id="myId"
     />
     <span
-      class="mocked-styled-2 el-icon"
+      class="mocked-styled-2 el-deprecated-icon"
       style="font-size: 1rem;"
     >
       <svg

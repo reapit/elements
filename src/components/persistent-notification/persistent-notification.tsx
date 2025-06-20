@@ -8,7 +8,7 @@ import {
   elPnIsFixed,
   elPnIsInline,
 } from './__styles__'
-import { Icon, IconNames } from '../icon'
+import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 import { elIsActive } from '../../styles/states'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 
@@ -52,7 +52,7 @@ export const PersistentNotification: FC<PersistentNotificationProps> = ({
         data-testid="close-icon"
         onClick={() => onExpansionToggle && onExpansionToggle(!isExpanded)}
       >
-        <Icon fontSize="1.25rem" icon={icon} />
+        <DeprecatedIcon fontSize="1.25rem" icon={icon} />
       </div>
       <div aria-live="polite" className={elPnContent}>
         {children}

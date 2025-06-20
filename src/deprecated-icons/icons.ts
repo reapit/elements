@@ -167,6 +167,7 @@ import workflow from '../../assets/icons/workflow.svg?react'
 import placeholderLarge from '../../assets/placeholder-images/placeholderLarge.svg?react'
 import placeholderSmall from '../../assets/placeholder-images/placeholderSmall.svg?react'
 
+/** @deprecated */
 export const iconSet = {
   add,
   announcement,

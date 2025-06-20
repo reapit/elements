@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { DoubleLineCell } from '..'
 import { TableText } from '../../table-text'
-import { Icon } from '#src/components/icon/icon-component'
+import { DeprecatedIcon } from '#src/components/deprecated-icon/icon-component'
 import { Avatar } from '#src/components/avatar/avatar'
 
 describe('DoubleLineCell', () => {
@@ -25,9 +25,9 @@ describe('DoubleLineCell', () => {
       <DoubleLineCell
         firstLine={
           <>
-            <Icon icon="star" fontSize="1rem" />
+            <DeprecatedIcon icon="star" fontSize="1rem" />
             <TableText>Alphanumeric value</TableText>
-            <Icon icon="star" fontSize="1rem" />
+            <DeprecatedIcon icon="star" fontSize="1rem" />
           </>
         }
         secondLine={<TableText size="extra-small">Value 23 Jan 2025 4:30 pm Value</TableText>}

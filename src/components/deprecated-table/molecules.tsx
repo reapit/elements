@@ -31,7 +31,7 @@ import {
   ElTableCellSplitData,
   ElTableCellSplitSubData,
 } from './__styles__'
-import { Icon, IconNames } from '../icon'
+import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 import { elIsActive } from '../../styles/states'
 import { FlexContainer } from '../layout'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
@@ -149,7 +149,7 @@ export const DeprecatedTableCell: FC<DeprecatedTableCellProps> = ({
   )
   return (
     <ElDeprecatedTableCell className={combinedClassname} {...rest}>
-      {icon && <Icon intent="default" icon={icon} fontSize="1.25rem" />}
+      {icon && <DeprecatedIcon intent="default" icon={icon} fontSize="1.25rem" />}
       <ElDeprecatedTableCellContent data-narrow-label={narrowLabel}>{children}</ElDeprecatedTableCellContent>
     </ElDeprecatedTableCell>
   )
@@ -176,7 +176,7 @@ export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProp
       className={cx(className, narrowIsFullWidth && elTableNarrowCellIsFullWidth)}
       {...rest}
     >
-      {children ? children : <Icon intent={isOpen ? 'primary' : 'default'} icon="more" />}
+      {children ? children : <DeprecatedIcon intent={isOpen ? 'primary' : 'default'} icon="more" />}
     </ElTableExpandableRowTriggerCell>
   )
 }
@@ -194,7 +194,7 @@ export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, childr
         children
       ) : icon ? (
         <ElTableCtaIconContainer>
-          <Icon icon={icon} intent="default" />
+          <DeprecatedIcon icon={icon} intent="default" />
         </ElTableCtaIconContainer>
       ) : (
         ''
@@ -233,8 +233,8 @@ export const DeprecatedTableSortHeader: FC<DeprecatedTableSortHeaderProps> = ({ 
       <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
         {children}
         <FlexContainer>
-          <Icon icon="sortAscend" intent="default" />
-          <Icon icon="sortDescend" intent="default" />
+          <DeprecatedIcon icon="sortAscend" intent="default" />
+          <DeprecatedIcon icon="sortDescend" intent="default" />
         </FlexContainer>
       </FlexContainer>
     </ElDeprecatedTableSortHeader>

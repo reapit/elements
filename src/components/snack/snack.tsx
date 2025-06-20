@@ -1,7 +1,7 @@
 import React, { FC, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
 import { ElSnack, elSnackIcon, elSnackCloseIcon, ElSnackHolder } from './__styles__'
-import { Icon, IconNames } from '../icon'
+import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 
 export interface SnackProps extends HTMLAttributes<HTMLDivElement> {
@@ -37,10 +37,10 @@ export const Snack: FC<SnackProps> = ({ icon, intent = 'primary', className, onR
 
   return (
     <ElSnack className={combinedClassName} role="status" aria-live="polite" {...rest}>
-      {icon && <Icon fontSize="1.25rem" className={elSnackIcon} intent={intent} icon={icon} />}
+      {icon && <DeprecatedIcon fontSize="1.25rem" className={elSnackIcon} intent={intent} icon={icon} />}
       {children}
       {onRemove && (
-        <Icon
+        <DeprecatedIcon
           fontSize="1.25rem"
           className={elSnackCloseIcon}
           data-testid="close-icon"

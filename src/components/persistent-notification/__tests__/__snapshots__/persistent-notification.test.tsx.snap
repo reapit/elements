@@ -11,7 +11,7 @@ exports[`PersistentNotification component > should match a snapshot 1`] = `
       data-testid="close-icon"
     >
       <span
-        class="mocked-styled-1 el-icon"
+        class="mocked-styled-1 el-deprecated-icon"
         style="font-size: 1.25rem;"
       >
         <svg
@@ -52,7 +52,7 @@ exports[`PersistentNotification component > should match a snapshot for an inlin
       data-testid="close-icon"
     >
       <span
-        class="mocked-styled-1 el-icon"
+        class="mocked-styled-1 el-deprecated-icon"
         style="font-size: 1.25rem;"
       >
         <svg
@@ -93,7 +93,7 @@ exports[`PersistentNotification component > should match a snapshot when expande
       data-testid="close-icon"
     >
       <span
-        class="mocked-styled-1 el-icon"
+        class="mocked-styled-1 el-deprecated-icon"
         style="font-size: 1.25rem;"
       >
         <svg
@@ -134,7 +134,7 @@ exports[`PersistentNotification component > should match a snapshot when given a
       data-testid="close-icon"
     >
       <span
-        class="mocked-styled-1 el-icon"
+        class="mocked-styled-1 el-deprecated-icon"
         style="font-size: 1.25rem;"
       >
         <svg

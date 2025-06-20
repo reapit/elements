@@ -1,6 +1,6 @@
 import { DoubleLineCell } from './double-line-cell'
 import { TableText } from '../table-text'
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { Skeleton } from '../../skeleton'
 import { Avatar } from '../../avatar'
 
@@ -53,9 +53,9 @@ const meta = {
         if (itemName === 'Text') {
           acc[itemName] = (
             <>
-              <Icon icon="star" fontSize="1rem" />
+              <DeprecatedIcon icon="star" fontSize="1rem" />
               <TableText>Alphanumeric value</TableText>
-              <Icon icon="star" fontSize="1rem" />
+              <DeprecatedIcon icon="star" fontSize="1rem" />
             </>
           )
         }

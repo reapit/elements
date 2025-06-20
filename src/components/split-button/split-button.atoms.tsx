@@ -1,5 +1,5 @@
 import { FC } from 'react'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { ButtonProps } from '../button'
 import { ElSplitButtonActionButton, ElSplitButtonMenuButton } from './styles'
 
@@ -36,5 +36,5 @@ export const ActionButton: FC<SplitButtonProps> = (props) => {
  */
 export const MenuButton: FC<SplitButtonProps> = (props) => {
   const { ...rest } = props
-  return <ElSplitButtonMenuButton {...rest} iconLeft={<Icon icon="chevronDown" />}></ElSplitButtonMenuButton>
+  return <ElSplitButtonMenuButton {...rest} iconLeft={<DeprecatedIcon icon="chevronDown" />}></ElSplitButtonMenuButton>
 }

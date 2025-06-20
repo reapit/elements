@@ -18,7 +18,7 @@ import {
   CardListMainWrap,
 } from './card'
 import { elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
-import { Icon, IconNames } from '../icon'
+import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 import { elMb5, elMt5 } from '../../styles/spacing'
 import { Intent } from '../../helpers/intent'
 import { DeprecatedAvatar } from '../deprecated-avatar'
@@ -116,7 +116,7 @@ export const Card: FC<CardProps> = ({
               <CardListItem key={index} onClick={onClick}>
                 {listCardItemIcon && (
                   <CardListIcon>
-                    <Icon intent="primary" icon={listCardItemIcon} />
+                    <DeprecatedIcon intent="primary" icon={listCardItemIcon} />
                   </CardListIcon>
                 )}
                 <CardListItemTextWrap>

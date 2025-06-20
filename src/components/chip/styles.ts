@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import type { CSSProperties } from 'react'
 
 interface ElChipCSSProperties extends CSSProperties {
@@ -97,7 +97,7 @@ export const ElChipLabel = styled.span<ElChipLabelProps>`
   }
 `
 
-export const ElChipClearIcon = styled(Icon)`
+export const ElChipClearIcon = styled(DeprecatedIcon)`
   /* NOTE: We only use !important here because the current Icon component
    * does not allow consumer-supplied styles to have a higher specificity */
   color: var(--comp-chip-colour-icon-active) !important;

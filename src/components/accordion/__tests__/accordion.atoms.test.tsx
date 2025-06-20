@@ -7,7 +7,7 @@ import {
   AccordionTitleContent,
   AccordionContent,
 } from '../accordion.atoms'
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { elMr1 } from '../../../styles/spacing'
 import { elIsActive } from '../../../styles/states'
 
@@ -19,13 +19,13 @@ describe('Accordion basic usage', () => {
           <AccordionTitle>Accordion Item 1</AccordionTitle>
           <AccordionTitleContentWrapper>
             <AccordionTitleContent>
-              <Icon className={elMr1} icon="car" />2
+              <DeprecatedIcon className={elMr1} icon="car" />2
             </AccordionTitleContent>
             <AccordionTitleContent>
-              <Icon className={elMr1} icon="user" />5
+              <DeprecatedIcon className={elMr1} icon="user" />5
             </AccordionTitleContent>
             <AccordionTitleContent>
-              <Icon icon="chevronUp" />
+              <DeprecatedIcon icon="chevronUp" />
             </AccordionTitleContent>
           </AccordionTitleContentWrapper>
         </AccordionItem>
@@ -34,13 +34,13 @@ describe('Accordion basic usage', () => {
           <AccordionTitle>Accordion Item 2</AccordionTitle>
           <AccordionTitleContentWrapper>
             <AccordionTitleContent>
-              <Icon className={elMr1} icon="car" />2
+              <DeprecatedIcon className={elMr1} icon="car" />2
             </AccordionTitleContent>
             <AccordionTitleContent>
-              <Icon className={elMr1} icon="user" />5
+              <DeprecatedIcon className={elMr1} icon="user" />5
             </AccordionTitleContent>
             <AccordionTitleContent>
-              <Icon icon="chevronDown" />
+              <DeprecatedIcon icon="chevronDown" />
             </AccordionTitleContent>
           </AccordionTitleContentWrapper>
         </AccordionItem>

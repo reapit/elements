@@ -23,7 +23,7 @@ exports[`MobileNavItem > should render Expandable MobileNavItem 1`] = `
         />
       </span>
       <span
-        class="mocked-styled-0 el-icon"
+        class="mocked-styled-0 el-deprecated-icon"
         style="font-size: 16px;"
       >
         <svg

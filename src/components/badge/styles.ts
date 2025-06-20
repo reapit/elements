@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElIcon } from '../icon'
+import { ElDeprecatedIcon } from '../deprecated-icon'
 
 export const ElBadgeIcon = styled.span``
 
@@ -16,7 +16,7 @@ export const ElBadge = styled.div`
   ${ElBadgeIcon} {
     color: var(--comp-badge-colour-icon-default-neutral);
 
-    ${ElIcon} {
+    ${ElDeprecatedIcon} {
       width: var(--icon_size-xs);
       height: var(--icon_size-xs);
     }

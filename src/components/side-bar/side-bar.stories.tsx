@@ -1,4 +1,4 @@
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { SideBar } from './side-bar'
 import { useViewportHeightDecorator } from './__story__/use-viewport-height-decorator'
 
@@ -67,15 +67,22 @@ export const SelectedSubmenuItem: Story = {
 function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu item') {
   return (
     <SideBar.MenuList>
-      <SideBar.MenuItem key="1" href={href} icon={<Icon icon="dashboard" />}>
+      <SideBar.MenuItem key="1" href={href} icon={<DeprecatedIcon icon="dashboard" />}>
         Menu item 1
       </SideBar.MenuItem>
-      <SideBar.MenuItem key="2" href={href} icon={<Icon icon="contact" />} isActive={type === 'Selected item'}>
+      <SideBar.MenuItem
+        key="2"
+        href={href}
+        icon={<DeprecatedIcon icon="contact" />}
+        isActive={type === 'Selected item'}
+      >
         Menu item 2
       </SideBar.MenuItem>
       <SideBar.MenuGroup
         key="3"
-        summary={<SideBar.MenuGroupSummary icon={<Icon icon="property" />}>Menu item 3</SideBar.MenuGroupSummary>}
+        summary={
+          <SideBar.MenuGroupSummary icon={<DeprecatedIcon icon="property" />}>Menu item 3</SideBar.MenuGroupSummary>
+        }
       >
         <SideBar.Submenu>
           <SideBar.SubmenuItem href={href}>Submenu item 1</SideBar.SubmenuItem>
@@ -86,7 +93,9 @@ function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu
       </SideBar.MenuGroup>
       <SideBar.MenuGroup
         key="4"
-        summary={<SideBar.MenuGroupSummary icon={<Icon icon="settings" />}>Menu item 4</SideBar.MenuGroupSummary>}
+        summary={
+          <SideBar.MenuGroupSummary icon={<DeprecatedIcon icon="settings" />}>Menu item 4</SideBar.MenuGroupSummary>
+        }
       >
         <SideBar.Submenu>
           <SideBar.SubmenuItem href={href}>Submenu item 3</SideBar.SubmenuItem>
