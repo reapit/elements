@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/react'
+import { Meta } from '@storybook/react-vite'
 import { Button } from './button'
 import { ButtonGroup } from '../button-group'
-import { action } from '@storybook/addon-actions'
+import { action } from 'storybook/actions'
 import { Icon, IconNames } from '../icon'
 
 const ICON_OPTIONS: IconNames[] = ['star', 'check', 'add', 'chevronDown', 'email']

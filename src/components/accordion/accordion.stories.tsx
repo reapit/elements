@@ -10,7 +10,7 @@ import {
 import { Icon } from '../icon'
 import { elMr1 } from '../../styles/spacing'
 import { elIsActive } from '../../styles/states'
-import { Meta, StoryObj } from '@storybook/react'
+import { Meta, StoryObj } from '@storybook/react-vite'
 import { figmaDesignUrls } from '../../storybook/figma'
 
 const meta: Meta<typeof Accordion> = {

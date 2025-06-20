@@ -1,7 +1,7 @@
 import { TopBarMainNav } from './main-nav'
 import { Menu } from '../../menu'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const href = globalThis.top?.location.href!
 

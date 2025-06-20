@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react'
+import { Meta } from '@storybook/react-vite'
 // import { figmaDesignUrls } from '../../storybook/figma'
 import { TableToolbar } from './table-toolbar.js'
 import { Button } from '#src/components/button/button'

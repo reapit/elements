@@ -4,7 +4,7 @@ import { Icon } from '../../icon'
 import { Skeleton } from '../../skeleton'
 import { Avatar } from '../../avatar'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const MEDIA_OPTIONS = ['Image', 'Avatar', 'Empty', 'Image Skeleton', 'Avatar Skeleton']
 const FIRST_LINE_OPTIONS = ['Sddress', 'Name', 'Text', 'Skeleton']
