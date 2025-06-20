@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react'
+import { Meta } from '@storybook/react-vite'
 import { SplitButton } from './split-button'
 import { Menu } from '../menu'
 

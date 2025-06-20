@@ -5,7 +5,13 @@ exports[`Table > should match snapshot 1`] = `
   <table
     class="mocked-styled-0 el-table"
   >
-    Mock Child
+    <tbody>
+      <tr>
+        <td>
+          Mock cell
+        </td>
+      </tr>
+    </tbody>
   </table>
 </DocumentFragment>
 `;

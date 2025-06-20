@@ -1,7 +1,7 @@
-import React, { MouseEvent, PropsWithChildren } from 'react'
+import { MouseEvent, PropsWithChildren } from 'react'
 import { render } from '@testing-library/react'
-import { UseNavState, NavStateProvider, useNavState } from '../index'
-import { renderHook, act } from '@testing-library/react-hooks'
+import { NavStateProvider, useNavState } from '../index'
+import { renderHook, act } from '@testing-library/react'
 
 describe('NavStateProvider', () => {
   it('should match snapshot', () => {
@@ -11,7 +11,7 @@ describe('NavStateProvider', () => {
 
 describe('useNavState', () => {
   it('should return pwaNavState and setPwaNavState', async () => {
-    const { result } = renderHook<{}, UseNavState>(() => useNavState(), {
+    const { result } = renderHook(() => useNavState(), {
       wrapper: (props: PropsWithChildren) => <NavStateProvider>{props.children}</NavStateProvider>,
     })
 

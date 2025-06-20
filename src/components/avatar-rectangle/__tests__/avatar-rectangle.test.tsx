@@ -1,4 +1,4 @@
-import { render } from '@testing-library/react'
+import { act, render } from '@testing-library/react'
 import { AvatarRectangle } from '..'
 
 describe('AvatarRectangle', () => {
@@ -30,11 +30,13 @@ describe('AvatarRectangle', () => {
     const { asFragment } = render(
       <AvatarRectangle variant="commercial" size="medium" src="invalid-image.jpg" alt="Test Image" />,
     )
-    // Simulate image error because the asFragment doesn't care if the image is invalid
-    const img = document.querySelector('img')
-    if (img) {
-      img.dispatchEvent(new Event('error'))
-    }
+    act(() => {
+      // Simulate image error because the asFragment doesn't care if the image is invalid
+      const img = document.querySelector('img')
+      if (img) {
+        img.dispatchEvent(new Event('error'))
+      }
+    })
     expect(asFragment()).toMatchSnapshot()
   })
 })

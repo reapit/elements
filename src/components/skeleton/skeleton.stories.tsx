@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react'
+import { Meta } from '@storybook/react-vite'
 import { Skeleton } from './skeleton'
 
 const meta: Meta<typeof Skeleton> = {

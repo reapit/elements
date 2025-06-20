@@ -1,7 +1,7 @@
 import React from 'react'
 import { render } from '@testing-library/react'
 import { usePortal, Portal } from '../index'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 
 describe('usePortal', () => {
   it('should return a target  div correctly', async () => {

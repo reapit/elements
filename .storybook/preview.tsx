@@ -2,7 +2,7 @@ import React from 'react'
 import { ThemeProvider } from '../src/components/theme-provider'
 import '../src/styles/globals'
 
-import type { Preview } from '@storybook/react'
+import type { Preview } from '@storybook/react-vite'
 import type { Theme } from '../src/tokens'
 
 const preview: Preview = {
@@ -15,9 +15,7 @@ const preview: Preview = {
       </ThemeProvider>
     ),
   ],
-  globals: {
-    theme: 'reapit',
-  },
+
   globalTypes: {
     theme: {
       description: 'Reapit Design System theme',
@@ -29,7 +27,14 @@ const preview: Preview = {
       },
     },
   },
+
   parameters: {
+    backgrounds: {
+      values: [
+        { name: 'light', value: 'var(--colour-fill-neutral-lightest)' },
+        { name: 'dark', value: 'var(--colour-fill-neutral-darkest)' },
+      ],
+    },
     viewport: {
       viewports: {
         superWideScreen: {
@@ -82,6 +87,12 @@ const preview: Preview = {
       },
     },
   },
+
+  initialGlobals: {
+    theme: 'reapit',
+  },
+
+  tags: ['autodocs']
 }
 
 export default preview

@@ -2,7 +2,7 @@ import { SideBarSubmenuItem } from './submenu-item'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/SideBar/SubmenuItem',

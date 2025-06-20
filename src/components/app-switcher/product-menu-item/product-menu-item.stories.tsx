@@ -2,7 +2,7 @@ import { AppSwitcherProductMenuItem } from './product-menu-item'
 import { AppSwitcherMenuGroupHasAccessContext } from '../menu-group-has-access-context'
 import { productConfigs } from '../config'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/AppSwitcher/ProductMenuItem',

@@ -1,32 +1,39 @@
-import { renderHook } from '@testing-library/react-hooks'
+import { act, renderHook } from '@testing-library/react'
 import { useMenu } from '../use-menu'
 
 describe('useMenu', () => {
   it('should open menu when openMenu is called', () => {
     const { result } = renderHook(() => useMenu())
 
-    result.current.openMenu()
+    act(() => {
+      result.current.openMenu()
+    })
     expect(result.current.isOpen).toBe(true)
   })
 
   it('should close menu when closeMenu is called', () => {
     const { result } = renderHook(() => useMenu())
 
-    result.current.closeMenu()
+    act(() => {
+      result.current.closeMenu()
+    })
     expect(result.current.isOpen).toBe(false)
   })
 
   describe('getTriggerProps', () => {
     it('should toggle isOpen state when trigger is clicked', () => {
       const { result } = renderHook(() => useMenu())
-
-      let triggerProps = result.current.getTriggerProps()
-      triggerProps.onClick?.({} as any)
+      act(() => {
+        const triggerProps = result.current.getTriggerProps()
+        triggerProps.onClick?.({} as any)
+      })
 
       expect(result.current.isOpen).toBe(true)
 
-      triggerProps = result.current.getTriggerProps()
-      triggerProps.onClick?.({} as any)
+      act(() => {
+        const triggerProps = result.current.getTriggerProps()
+        triggerProps.onClick?.({} as any)
+      })
 
       expect(result.current.isOpen).toBe(false)
     })
@@ -34,13 +41,17 @@ describe('useMenu', () => {
     it('should toggle isOpen state when trigger is clicked', () => {
       const { result } = renderHook(() => useMenu())
 
-      let triggerProps = result.current.getTriggerProps()
-      triggerProps.onClick?.({} as any)
+      act(() => {
+        const triggerProps = result.current.getTriggerProps()
+        triggerProps.onClick?.({} as any)
+      })
 
       expect(result.current.isOpen).toBe(true)
 
-      triggerProps = result.current.getTriggerProps()
-      triggerProps.onClick?.({} as any)
+      act(() => {
+        const triggerProps = result.current.getTriggerProps()
+        triggerProps.onClick?.({} as any)
+      })
 
       expect(result.current.isOpen).toBe(false)
     })
@@ -92,11 +103,11 @@ describe('useMenu', () => {
       expect(popoverProps['data-open']).toBe(false)
       expect(triggerProps['aria-expanded']).toBe(false)
 
-      result.current.openMenu()
-      const updatedPopoverProps = result.current.getPopoverProps()
-      const updatedTriggerProps = result.current.getTriggerProps()
-      expect(updatedPopoverProps['data-open']).toBe(true)
-      expect(updatedTriggerProps['aria-expanded']).toBe(true)
+      act(() => {
+        result.current.openMenu()
+      })
+      expect(result.current.getPopoverProps()['data-open']).toBe(true)
+      expect(result.current.getTriggerProps()['aria-expanded']).toBe(true)
     })
 
     describe('onKeyDown', () => {
@@ -165,21 +176,27 @@ describe('useMenu', () => {
         expect(mockMenuItems[1].focus).toHaveBeenCalled()
 
         setMockActiveElement(mockMenuItems[1])
-        result.current.getPopoverProps().onKeyDown!({
-          ...mockEvent,
-          key: 'ArrowUp',
+        act(() => {
+          result.current.getPopoverProps().onKeyDown!({
+            ...mockEvent,
+            key: 'ArrowUp',
+          })
         })
         expect(mockMenuItems[0].focus).toHaveBeenCalled()
       })
 
       it('should focus button and close menu on Escape key press', () => {
         const { result } = renderHook(() => useMenu())
-        result.current.openMenu()
+        act(() => {
+          result.current.openMenu()
+        })
         expect(result.current.isOpen).toBe(true)
 
-        result.current.getPopoverProps().onKeyDown!({
-          ...mockEvent,
-          key: 'Escape',
+        act(() => {
+          result.current.getPopoverProps().onKeyDown!({
+            ...mockEvent,
+            key: 'Escape',
+          })
         })
 
         expect(result.current.isOpen).toBe(false)
@@ -206,21 +223,27 @@ describe('useMenu', () => {
     describe('onBlur', () => {
       it('should close menu if focus moves outside', () => {
         const { result } = renderHook(() => useMenu())
-        result.current.openMenu()
+        act(() => {
+          result.current.openMenu()
+        })
         expect(result.current.isOpen).toBe(true)
 
-        result.current.getPopoverProps().onBlur!({
-          currentTarget: {
-            contains: () => false,
-          },
-          relatedTarget: null,
-        } as any)
+        act(() => {
+          result.current.getPopoverProps().onBlur!({
+            currentTarget: {
+              contains: () => false,
+            },
+            relatedTarget: null,
+          } as any)
+        })
         expect(result.current.isOpen).toBe(false)
       })
 
       it('should not close the menu on blur if focus is moving to the trigger button.', () => {
         const { result } = renderHook(() => useMenu())
-        result.current.openMenu()
+        act(() => {
+          result.current.openMenu()
+        })
         expect(result.current.isOpen).toBe(true)
 
         result.current.getPopoverProps().onBlur!({
