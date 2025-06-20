@@ -15,7 +15,6 @@ import { TableHead } from '../table-head'
 import { TableHeaderCell } from '../table-header-cell'
 import { TableBody } from '../table-body'
 import { TableRow } from '../table-row'
-import { TableCell } from '../table-cell'
 import { Input } from '../../input'
 
 const CHILDREN_OPTIONS = [
@@ -30,7 +29,7 @@ const CHILDREN_OPTIONS = [
 ]
 
 const meta = {
-  title: 'Components/SingleLineCell',
+  title: 'Components/TableCell/SingleLineCell',
   component: SingleLineCell,
   argTypes: {
     children: {
@@ -132,9 +131,9 @@ export const BasicUsage: Story = {
           <TableBody>
             {Array.from({ length: 5 }, (_, index) => (
               <TableRow key={index}>
-                <TableCell {...args}>
+                <SingleLineCell {...args}>
                   <Input type="checkbox" />
-                </TableCell>
+                </SingleLineCell>
                 <SingleLineCell {...args}>
                   <TableText>John Smith 356</TableText>
                 </SingleLineCell>

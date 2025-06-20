@@ -93,8 +93,6 @@ export * from './components/table/table-header-cell'
 export * from './components/table/table-row'
 export * from './components/table/table-cell'
 export * from './components/table/table-text'
-export * from './components/table/single-line-cell'
-export * from './components/table/double-line-cell'
 
 export * from './components/top-bar'
 export * from './components/reapit-logo'
