@@ -2,7 +2,7 @@ import { Icon } from '../icon'
 import { SideBar } from './side-bar'
 import { useViewportHeightDecorator } from './__story__/use-viewport-height-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 // Common href for all menu items that links to the current storybook page.
 const href = globalThis.top?.location.href!
@@ -25,9 +25,9 @@ export default {
     },
   },
   decorators: [useViewportHeightDecorator],
-  parameters: {
+  globals: {
     backgrounds: {
-      default: 'light',
+      value: 'light',
     },
   },
 } as Meta<typeof SideBar>

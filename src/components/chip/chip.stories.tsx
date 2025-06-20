@@ -2,7 +2,7 @@ import { Chip } from './chip'
 import { Tooltip } from '../tooltip'
 import { useTooltip } from '../tooltip/use-tooltip'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/Chip',

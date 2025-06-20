@@ -2,7 +2,7 @@ import { Icon } from '../../icon'
 import { Menu } from '../../menu'
 import { TopBarSecondaryNav } from './secondary-nav'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const href = globalThis.top?.location.href!
 

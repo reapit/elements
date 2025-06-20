@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks'
+import { act, renderHook } from '@testing-library/react'
 import { useSideBar } from '../use-side-bar'
 
 test('default state is "expanded"', () => {
@@ -18,24 +18,34 @@ test('initial state can be specified via a function', () => {
 
 test('`expand` changes state to "expanded" when called', () => {
   const { result } = renderHook(() => useSideBar('collapsed'))
-  result.current.expand()
+  act(() => {
+    result.current.expand()
+  })
   expect(result.current.state).toBe('expanded')
 })
 
 test('`setState` changes to the specified state', () => {
   const { result } = renderHook(() => useSideBar('expanded'))
-  result.current.setState('collapsed')
+  act(() => {
+    result.current.setState('collapsed')
+  })
   expect(result.current.state).toBe('collapsed')
 
-  result.current.setState('expanded')
+  act(() => {
+    result.current.setState('expanded')
+  })
   expect(result.current.state).toBe('expanded')
 })
 
 test('`toggle` changes state between "expanded" and "collapsed" when called', () => {
   const { result } = renderHook(() => useSideBar())
-  result.current.toggle()
+  act(() => {
+    result.current.toggle()
+  })
   expect(result.current.state).toBe('collapsed')
 
-  result.current.toggle()
+  act(() => {
+    result.current.toggle()
+  })
   expect(result.current.state).toBe('expanded')
 })

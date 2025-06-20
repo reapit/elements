@@ -8,7 +8,7 @@ import { supportedAppNames } from './brand-logo'
 import { TopBar } from './top-bar'
 import { TopBarNavIconItemButton } from './nav-icon-item'
 
-import type { Decorator, Meta, StoryObj } from '@storybook/react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
 const href = globalThis.top?.location.href!
 
@@ -168,8 +168,10 @@ const meta = {
       },
     },
   },
-  parameters: {
-    backgrounds: { default: 'light' },
+  globals: {
+    backgrounds: {
+      value: 'light',
+    },
   },
 } satisfies Meta<typeof TopBar>
 

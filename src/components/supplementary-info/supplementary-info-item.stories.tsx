@@ -1,6 +1,6 @@
 import { SupplementaryInfoItem } from './supplementary-info-item'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { SupplementaryInfoItemColour } from './supplementary-info-item'
 
 const meta = {

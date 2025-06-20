@@ -2,7 +2,7 @@ import { Icon } from '../../icon'
 import { Menu } from '../../menu'
 import { TopBarNavIconItemButton } from './nav-icon-item-button'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/TopBar/NavIconItemButton',

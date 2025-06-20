@@ -2,7 +2,7 @@ import { AppSwitcher } from '../app-switcher'
 import { AppSwitcherMenuItem } from './menu-item'
 import { AppSwitcherMenuGroupHasAccessContext } from '../menu-group-has-access-context'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { SupportedProductId } from '../config'
 
 const meta = {

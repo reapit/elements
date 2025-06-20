@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 
 import { useToggleDialogVisibilityEffect } from '../use-toggle-dialog-visibility-effect'
 import { RefObject } from 'react'

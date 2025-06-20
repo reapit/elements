@@ -1,6 +1,6 @@
 import { TopBarNavSearch } from './nav-search'
 
-import type { Decorator, Meta, StoryObj } from '@storybook/react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/TopBar/NavSearch',

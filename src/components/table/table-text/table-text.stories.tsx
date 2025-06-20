@@ -1,7 +1,7 @@
 import { TableText } from './table-text'
 import { Icon, IconNames } from '../../icon'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const ICON_OPTIONS: IconNames[] = ['star', 'add', 'chevronDown', 'chevronLeft', 'chevronRight']
 

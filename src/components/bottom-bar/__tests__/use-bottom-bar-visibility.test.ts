@@ -1,6 +1,6 @@
 import { RefObject } from 'react'
 import { handleChangeBottomBarVisibility, useBottomBarVisibility } from '../use-bottom-bar-visibility'
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { act } from '@testing-library/react'
 
 describe('handleChangeBottomBarVisibility', () => {
