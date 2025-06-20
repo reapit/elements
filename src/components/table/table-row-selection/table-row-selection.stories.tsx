@@ -28,7 +28,7 @@ const tableData = [
 ]
 
 const RowSelectionDemo: React.FC<TableRowSelectionProps> = () => {
-  const { handleRowSelect, handleSelectAll, isRowSelected } = useRowSelection({
+  const { handleRowSelect, handleSelectAll, isRowSelected, isIndeterminate } = useRowSelection({
     rows: tableData,
     idKey: 'contactId',
   })
@@ -41,7 +41,7 @@ const RowSelectionDemo: React.FC<TableRowSelectionProps> = () => {
             <TableRow>
               <TableHeaderCell>
                 <TableRowSelection
-                  isIndeterminate={tableData.some((row) => isRowSelected(row.contactId))}
+                  isIndeterminate={isIndeterminate}
                   isSelectAll
                   aria-label="Select all rows"
                   onChange={handleSelectAll}
@@ -103,7 +103,7 @@ const { handleRowSelect, handleSelectAll, isRowSelected } = useRowSelection({
         <TableRow>
           <TableHeaderCell>
             <TableRowSelection
-              isIndeterminate={tableData.some((row) => isRowSelected(row.contactId))}
+              isIndeterminate={isIndeterminate}
               isSelectAll
               aria-label="Select all rows"
               onChange={handleSelectAll}

@@ -4,6 +4,8 @@ import { UseRowSelectionProps } from './types'
 export const useRowSelection = ({ rows, idKey }: UseRowSelectionProps) => {
   const [selectedRows, setSelectedRows] = useState(new Set<string>())
 
+  const isIndeterminate = selectedRows.size > 0 && selectedRows.size < rows.length
+
   const handleRowSelect = (id: string) => {
     setSelectedRows((prevSelected) => {
       const newSelected = new Set(prevSelected)
@@ -27,5 +29,6 @@ export const useRowSelection = ({ rows, idKey }: UseRowSelectionProps) => {
     handleRowSelect,
     handleSelectAll,
     isRowSelected,
+    isIndeterminate,
   }
 }
