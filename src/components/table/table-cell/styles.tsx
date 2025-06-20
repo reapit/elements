@@ -31,6 +31,57 @@ export const ElTableCell = styled.td<ElTableCellProps>`
   padding: var(--spacing-2);
   vertical-align: middle;
 `
+
+export const ElAvatarContent = styled.div`
+  display: flex;
+  padding: var(--spacing-1) 0px;
+  align-items: center;
+  gap: var(--spacing-4);
+`
+
+export const ElCellContent = styled.div`
+  display: inline-flex;
+  padding: var(--spacing-2) 0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--spacing-1);
+  flex: 1 0 0;
+`
+
+export const ElMediaItemContent = styled.div`
+  display: flex;
+  align-items: flex-start;
+
+  img {
+    width: var(--size-12);
+    height: var(--size-10);
+  }
+`
+
+export const ElDoubleLineContent = styled.div`
+  display: inline-flex;
+  padding: var(--spacing-1) 0px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  gap: var(--spacing-1);
+`
+
+export const ElFirstLine = styled.div`
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-2);
+  align-self: stretch;
+`
+
+export const ElSecondLine = styled.div`
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-1);
+  align-self: stretch;
+`
+
 export const ElTableCellContent = styled.div<ElTableCellContentProps>`
   width: auto;
   gap: var(--spacing-1);
@@ -50,13 +101,25 @@ export const ElTableCellContent = styled.div<ElTableCellContentProps>`
   &[data-alignment='left'] {
     text-align: left;
     justify-content: start;
+    & ${ElFirstLine}, ${ElSecondLine}, ${ElMediaItemContent} {
+      text-align: left;
+      justify-content: start;
+    }
   }
   &[data-alignment='center'] {
     text-align: center;
     justify-content: center;
+    & ${ElFirstLine}, ${ElSecondLine}, ${ElMediaItemContent} {
+      justify-content: center;
+      text-align: center;
+    }
   }
   &[data-alignment='right'] {
     text-align: right;
     justify-content: right;
+    & ${ElFirstLine}, ${ElSecondLine}, ${ElMediaItemContent} {
+      text-align: center;
+      justify-content: right;
+    }
   }
 `

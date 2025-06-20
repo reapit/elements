@@ -1,0 +1,26 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableCell > should match snapshot 1`] = `
+<DocumentFragment>
+  <td
+    class="mocked-styled-0 el-table-cell"
+    style="--tablecell-max-width: 100%; --tablecell-min-width: auto; --tablecell-width: auto;"
+  >
+    <div
+      class="mocked-styled-7 el-table-cell-content"
+      data-alignment="left"
+    >
+      <div
+        class="mocked-styled-2 el-cell-content"
+      >
+        <div
+          class="mocked-styled-5 el-first-line"
+        />
+        <div
+          class="mocked-styled-6 el-second-line"
+        />
+      </div>
+    </div>
+  </td>
+</DocumentFragment>
+`;

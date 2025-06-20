@@ -20,6 +20,24 @@ export interface ElDoubleLineCellProps extends HTMLAttributes<HTMLTableCellEleme
   maxWidth?: string
 }
 
+/**
+ * `DoubleLineCell` is a reusable table cell component that displays:
+ * - An optional media/avatar item,
+ * - A two-line layout with first and second lines of content.
+ *
+ * It supports alignment and width customization via CSS variables, and is useful for structured
+ * row displays like contact info, user lists, etc.
+ *
+ * @param mediaItem - Optional avatar or media node to show beside the text.
+ * @param firstLine - Main line of text (e.g. title or name).
+ * @param secondLine - Subtext or secondary info.
+ * @param alignment - Content alignment within the cell ('left', 'center', 'right').
+ * @param width - Width of the cell.
+ * @param minWidth - Minimum width of the cell.
+ * @param maxWidth - Maximum width of the cell.
+ * @param style - Inline styles applied to the cell (merged with width vars).
+ * @param rest - Additional props passed to the table cell element.
+ */
 export const DoubleLineCell: FC<ElDoubleLineCellProps> = ({
   mediaItem,
   firstLine,
