@@ -26,12 +26,14 @@ export interface UseRowSelectionProps {
  *
  * @property {string} id - The ID of the row this checkbox is associated with.
  * @property {boolean} [isSelectAll] - If true, this is the "select all" checkbox. Defaults to false.
+ * @property {boolean} [isIndeterminate] - If true, the checkbox is in an indeterminate state.
  * @property {(checked: boolean) => void} onChange - Function to call when the checkbox's checked state changes.
  * @property {boolean} checked - Whether the checkbox is currently checked.
  */
 export interface TableRowSelectionProps {
   id?: string
   isSelectAll?: boolean
+  isIndeterminate?: boolean
   onChange: (checked: boolean) => void
   checked: boolean
 }
