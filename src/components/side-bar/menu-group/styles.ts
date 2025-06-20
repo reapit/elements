@@ -2,6 +2,7 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { ElIcon } from '../../icon'
 import { ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from '../menu-item'
+import { font } from '#src/components/text'
 
 export const elSideBarMenuGroup = css`
   border-radius: var(--comp-navigation-border-radius-menu_item);
@@ -33,7 +34,7 @@ export const ElSideBarMenuGroupSummaryIcon = styled(ElSideBarMenuItemIcon)`
 export const ElSideBarMenuGroupSummaryLabel = styled(ElSideBarMenuItemLabel)`
   :where(details[data-is-active='true'], details:has([aria-current='page'])) & {
     color: var(--comp-navigation-colour-text-sidebar-select);
-    font-weight: var(--font-weight-medium);
+    ${font('sm', 'medium')}
   }
 `
 
