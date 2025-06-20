@@ -66,6 +66,8 @@ export * from './deprecated-icons'
 export * from './tokens'
 
 // v5 components
+export * from './icons'
+
 export * from './components/avatar'
 export * from './components/avatar-rectangle'
 export * from './components/badge'

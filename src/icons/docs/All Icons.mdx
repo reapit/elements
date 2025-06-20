@@ -1,0 +1,60 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { Text } from '#src/components/text'
+import * as icons from '../index'
+
+<Meta title="Icons/All Icons" />
+
+# Icons
+
+Icons are simple, visual elements that help with cognitive recognition.
+
+To use and icon as an Elements consumer, simply import the specific icon you need from it's dedicated package
+entry point. For example:
+
+```tsx
+import { ChevronRightIcon } from '@reapit/elements/icons/chevron-right'
+```
+
+If consuming an icon within another Elements component, you can target the exact icon you need:
+
+```tsx
+import { ChevronRightIcon } from '#src/icons/chevron-right'
+```
+
+# Gallery
+
+All icons available for use through Elements are listed below.
+
+<div style={{ display: 'grid', grid: 'auto-flow / repeat(4, auto)', gap: 'var(--spacing-4)' }}>
+  {Object.keys(icons).map((iconName) => {
+    const Icon = icons[iconName]
+    return (
+      <div
+        key={iconName}
+        style={{
+          color: '#FA00FF',
+          display: 'flex',
+          flexDirection: 'row',
+          alignItems: 'center',
+          gap: 'var(--spacing-4)',
+        }}
+      >
+        <div
+          style={{
+            boxSizing: 'content-box',
+            border: '1px solid #FA00FF',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: 'var(--spacing-2)',
+          }}
+        >
+          <Icon colour="primary" size="lg" />
+        </div>
+        <Text style={{ color: 'inherit' }} size="sm">
+          {iconName}
+        </Text>
+      </div>
+    )
+  })}
+</div>
