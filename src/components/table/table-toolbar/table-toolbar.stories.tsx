@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react-vite'
 // import { figmaDesignUrls } from '../../storybook/figma'
 import { TableToolbar } from './table-toolbar.js'
 import { Button } from '#src/components/button/button'
-import { Icon } from '#src/components/icon/icon-component'
+import { DeprecatedIcon } from '#src/components/deprecated-icon/icon-component'
 import { Menu } from '#src/components/menu/menu'
 import { MenuPopover, MenuTrigger } from '#src/components/menu/menu-popover'
 import { MenuItemGroup, MenuList } from '#src/components/menu/menu.atoms'
@@ -34,7 +34,7 @@ export const BasicUsage = {
                 variant="tertiary"
                 size="small"
                 {...getTriggerProps()}
-                iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
+                iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
               >
                 Page size: 25
               </Button>
@@ -71,7 +71,11 @@ export const WithBulkActions = {
           <Menu>
             <MenuTrigger>
               {({ getTriggerProps }) => (
-                <Button {...getTriggerProps()} size="small" iconRight={<Icon icon="more" fontSize="1rem" />} />
+                <Button
+                  {...getTriggerProps()}
+                  size="small"
+                  iconRight={<DeprecatedIcon icon="more" fontSize="1rem" />}
+                />
               )}
             </MenuTrigger>
             <MenuPopover>
@@ -107,7 +111,7 @@ export const ToolbarSkeleton = {
                 variant="tertiary"
                 size="small"
                 {...getTriggerProps()}
-                iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
+                iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
               >
                 Page size: 25
               </Button>

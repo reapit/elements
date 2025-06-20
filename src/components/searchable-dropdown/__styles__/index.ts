@@ -1,4 +1,4 @@
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { styled } from '@linaria/react'
 import { InputAddOn } from '../../input-add-on'
 import { Input } from '../../input'
@@ -49,7 +49,7 @@ export const ElSearchableDropdownSearchInputAddOn = styled(InputAddOn)`
   padding-left: 10px;
 `
 
-export const ElSearchableDropdownCloseButton = styled(Icon)`
+export const ElSearchableDropdownCloseButton = styled(DeprecatedIcon)`
   position: absolute;
   font-size: 1rem;
   color: var(--intent-default);

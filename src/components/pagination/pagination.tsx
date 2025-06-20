@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react'
 
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 
 import { PaginationButton } from './pagination.atoms'
 import { ElPagination, ElPaginationItem, ElPaginationList, ElPaginationText } from './styles'
@@ -38,7 +38,7 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, pageCount, onPage
             aria-label="Go to previous page"
             isDisabled={currentPage <= 1}
             onClick={handleOnBackPageClick}
-            iconLeft={<Icon icon="chevronLeft" />}
+            iconLeft={<DeprecatedIcon icon="chevronLeft" />}
             variant="tertiary"
           />
         </ElPaginationItem>
@@ -51,7 +51,7 @@ export const Pagination: FC<PaginationProps> = ({ currentPage, pageCount, onPage
             aria-label="Go to next page"
             isDisabled={currentPage >= pageCount}
             onClick={handleOnNextPageClick}
-            iconLeft={<Icon icon="chevronRight" />}
+            iconLeft={<DeprecatedIcon icon="chevronRight" />}
             variant="tertiary"
           />
         </ElPaginationItem>

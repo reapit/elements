@@ -2,7 +2,7 @@ import { render } from '@testing-library/react'
 import { InputGroup } from '..'
 import { Input } from '../../input'
 import { DeprecatedLabel } from '../../deprecated-label'
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 
 describe('InputGroup component', () => {
   it('should match a snapshot when used in react shorthand mode', () => {
@@ -29,7 +29,7 @@ describe('InputGroup component', () => {
     const wrapper = render(
       <InputGroup>
         <Input />
-        <Icon icon="email">Please enter an email</Icon>
+        <DeprecatedIcon icon="email">Please enter an email</DeprecatedIcon>
         <DeprecatedLabel>Please enter a username</DeprecatedLabel>
       </InputGroup>,
     )

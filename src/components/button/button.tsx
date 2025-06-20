@@ -24,7 +24,7 @@ import {
   elButtonGroupAlignCenter,
   ElButtonLabel,
 } from './styles'
-import { Icon, IconNames } from '../icon'
+import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 import { cx } from '@linaria/core'
 
 type ButtonSize = 'small' | 'medium' | 'large'
@@ -209,5 +209,5 @@ export const DeprecatedButtonGroup: FC<ButtonGroupProps> = ({ children, alignmen
 /** @deprecated */
 // Removing ClassName fixes the issue with different UI, lets look into this
 export const FloatingButton: FC<FloatingButtonProps> = ({ className, icon, ...rest }) => {
-  return <Button className={cx(className, elFloatingButton)} iconLeft={<Icon icon={icon} />} {...rest} />
+  return <Button className={cx(className, elFloatingButton)} iconLeft={<DeprecatedIcon icon={icon} />} {...rest} />
 }

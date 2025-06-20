@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElIcon } from '../../icon/__styles__'
+import { ElDeprecatedIcon } from '../../deprecated-icon/__styles__'
 import { ElDeprecatedLabel } from '../../deprecated-label/__styles__'
 import { ElInput, elHasInputError } from '../../input/__styles__'
 import { ElTextArea } from '../../textarea'
@@ -19,7 +19,7 @@ export const ElInputGroup = styled.div`
     padding: 0 0.5rem 0.5rem 0;
   }
 
-  ${ElIcon} {
+  ${ElDeprecatedIcon} {
     color: var(--neutral-400);
     border: var(--component-input-border);
     border-right: none;
@@ -38,7 +38,7 @@ export const ElInputGroup = styled.div`
     order: 4;
   }
 
-  ${ElMultiSelectInputWrapper} ${ElIcon} {
+  ${ElMultiSelectInputWrapper} ${ElDeprecatedIcon} {
     border: none;
     order: 0;
     padding-left: 0;
@@ -53,7 +53,7 @@ export const ElInputGroup = styled.div`
     width: 100%;
   }
 
-  ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElIcon}) {
+  ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElDeprecatedIcon}) {
     border-left: none;
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
@@ -67,27 +67,27 @@ export const ElInputGroup = styled.div`
 
   ${ElInput}:not([type='checkbox']):not([type='radio']), ${ElTextArea}, ${ElSelect} {
     &:focus {
-      ~ ${ElIcon}, ~ ${ElInputAddOn} {
+      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {
         border-color: var(--intent-primary);
       }
     }
 
     &.${elHasInputError} {
-      ~ ${ElIcon}, ~ ${ElInputAddOn} {
+      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {
         border-color: var(--intent-danger);
         background-color: var(--red-100);
       }
     }
 
     &:disabled {
-      ~ ${ElIcon}, ~ ${ElInputAddOn}, ~ ${ElDeprecatedLabel} {
+      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn}, ~ ${ElDeprecatedLabel} {
         color: rgba(100, 100, 100, 0.35);
       }
     }
   }
 
   ${ElInput}[type='checkbox'], ${ElInput}[type='radio'] {
-    ~ ${ElIcon} {
+    ~ ${ElDeprecatedIcon} {
       box-shadow: none;
       padding-left: 0;
       padding-right: 0.5rem;
@@ -101,7 +101,7 @@ export const ElInputGroup = styled.div`
     }
 
     &:checked {
-      ~ ${ElIcon}, ~ ${ElDeprecatedLabel}, ~ ${ElInputAddOn} {
+      ~ ${ElDeprecatedIcon}, ~ ${ElDeprecatedLabel}, ~ ${ElInputAddOn} {
         background: var(--white);
       }
 

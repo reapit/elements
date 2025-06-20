@@ -18,7 +18,7 @@ exports[`Snack component > should match a snapshot if an icon is supplied 1`] = 
     role="status"
   >
     <span
-      class="el-snack-icon el-intent-primary el-icon"
+      class="el-snack-icon el-intent-primary el-deprecated-icon"
       style="font-size: 1.25rem;"
     >
       <svg
@@ -52,7 +52,7 @@ exports[`SnackHolder component > should match a snapshot 1`] = `
       role="status"
     >
       <span
-        class="el-snack-icon el-intent-primary el-icon"
+        class="el-snack-icon el-intent-primary el-deprecated-icon"
         style="font-size: 1.25rem;"
       >
         <svg
@@ -73,7 +73,7 @@ exports[`SnackHolder component > should match a snapshot 1`] = `
       </span>
       i am a snack
       <span
-        class="el-snack-close-icon el-icon"
+        class="el-snack-close-icon el-deprecated-icon"
         data-testid="close-icon"
         style="font-size: 1.25rem;"
       >

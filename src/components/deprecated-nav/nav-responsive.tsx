@@ -2,7 +2,7 @@ import { cx } from '@linaria/core'
 import { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState, MouseEvent } from 'react'
 import { useNavState } from '../../hooks/use-nav-state'
 import { useMediaQuery } from '../../hooks/use-media-query'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { DeprecatedNav, DeprecatedNavItem, DeprecatedNavSubNav, DeprecatedNavSubNavItem } from './nav'
 import {
   ElDeprecatedNavBg,
@@ -120,7 +120,7 @@ export const DeprecatedNavResponsiveAvatar: FC<DeprecatedNavResponsiveAvatarProp
         </DeprecatedAvatar>
         {Boolean(options.length) && (
           <>
-            <Icon intent="default" icon={avatarOpen ? 'chevronUp' : 'chevronDown'} />
+            <DeprecatedIcon intent="default" icon={avatarOpen ? 'chevronUp' : 'chevronDown'} />
             {avatarOpen && (
               <ElDeprecatedNavMenu>
                 {options.map(({ callback, text }, index) => (
@@ -171,7 +171,7 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
         className={className}
       >
         <ElNavResponsiveAppSwitcherIconWrap className={cx(appSwitcherOpen && elAppSwitcherOpen)}>
-          <Icon intent="default" icon="appSwitcher" />
+          <DeprecatedIcon intent="default" icon="appSwitcher" />
         </ElNavResponsiveAppSwitcherIconWrap>
         {appSwitcherOpen && (
           <ElDeprecatedNavMenu>
@@ -266,7 +266,7 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
                     tabIndex={0}
                   />
                 ) : (
-                  <Icon
+                  <DeprecatedIcon
                     onClick={brandOptions?.callback}
                     onKeyDown={handleKeyboardEvent('Enter', brandOptions?.callback as () => void)}
                     style={{ maxHeight: 'var(--nav-brand-height)' }}
@@ -276,7 +276,7 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
                     tabIndex={0}
                   />
                 )}
-                <Icon
+                <DeprecatedIcon
                   className={cx(elMlAuto, elMr4, elDeprecatedNavItemHideDesktop)}
                   icon="more"
                   intent={navMenuOpen ? 'primary' : 'default'}
@@ -331,7 +331,7 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
               >
                 {text}
                 {hasSubItems && isMobile && (
-                  <Icon
+                  <DeprecatedIcon
                     className={elMlAuto}
                     intent="default"
                     icon={navMenuOpen && navItemIndex === itemIndex ? 'chevronUp' : 'chevronDown'}

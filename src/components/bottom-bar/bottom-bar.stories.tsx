@@ -1,7 +1,7 @@
 import { action } from 'storybook/actions'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useRef } from 'react'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { BottomBar } from './bottom-bar'
 
 const meta = {
@@ -29,19 +29,19 @@ export const Standard: Story = {
           <div style={{ backgroundColor: 'var(--intent-primary)', height: '180vh' }}>long content</div>
           <div style={{ backgroundColor: 'var(--intent-warning)' }}>short content</div>
           <BottomBar parentRef={ref}>
-            <BottomBar.Item icon={<Icon icon="star" />} isActive onClick={action('clicked')}>
+            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} isActive onClick={action('clicked')}>
               Menu 1
             </BottomBar.Item>
-            <BottomBar.Item icon={<Icon icon="star" />} onClick={action('clicked')} hasBadge>
+            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')} hasBadge>
               Menu 2
             </BottomBar.Item>
-            <BottomBar.Item icon={<Icon icon="star" />} onClick={action('clicked')}>
+            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')}>
               Menu 3
             </BottomBar.Item>
-            <BottomBar.Item icon={<Icon icon="star" />} onClick={action('clicked')}>
+            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')}>
               Menu 4
             </BottomBar.Item>
-            <BottomBar.Item icon={<Icon icon="star" />} onClick={action('clicked')}>
+            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')}>
               Menu 5
             </BottomBar.Item>
           </BottomBar>
@@ -61,16 +61,16 @@ export const WithOverflowMenu: Story = {
           <div style={{ backgroundColor: 'var(--intent-primary)', height: '180vh' }}>long content</div>
           <div style={{ backgroundColor: 'var(--intent-warning)' }}>short content</div>
           <BottomBar parentRef={ref}>
-            <BottomBar.Item icon={<Icon icon="star" />} isActive onClick={action('clicked')}>
+            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} isActive onClick={action('clicked')}>
               Menu 1
             </BottomBar.Item>
-            <BottomBar.Item icon={<Icon icon="star" />} onClick={action('clicked')} hasBadge>
+            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')} hasBadge>
               Menu 2
             </BottomBar.Item>
-            <BottomBar.Item icon={<Icon icon="star" />} onClick={action('clicked')}>
+            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')}>
               Menu 3
             </BottomBar.Item>
-            <BottomBar.Item icon={<Icon icon="star" />} onClick={action('clicked')}>
+            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')}>
               Menu 4
             </BottomBar.Item>
             <BottomBar.MoreMenu>

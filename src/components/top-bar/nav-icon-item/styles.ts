@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElIcon } from '../../icon'
+import { ElDeprecatedIcon } from '../../deprecated-icon'
 
 export const elTopBarNavIconItem = css`
   position: relative;
@@ -37,7 +37,7 @@ export const ElTopBarNavIconItemIcon = styled.span`
   width: var(--icon_size-l);
   height: var(--icon_size-l);
 
-  ${ElIcon} {
+  ${ElDeprecatedIcon} {
     color: inherit;
     font-size: inherit;
     width: inherit;

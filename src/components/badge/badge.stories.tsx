@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react-vite'
 import { Badge } from './badge'
-import { Icon, IconNames } from '../icon'
+import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 import { DeprecatedToolTip } from './../deprecated-tool-tip' // To be updated to v5 tooltip once #235 is merged
 
 const ICON_OPTIONS: IconNames[] = ['star', 'add', 'chevronDown', 'chevronLeft', 'chevronRight']
@@ -19,7 +19,7 @@ const meta: Meta<typeof Badge> = {
       options: ICON_OPTIONS,
       description: 'The icon displayed on the left side of the badge.',
       mapping: ICON_OPTIONS.reduce((acc, iconName) => {
-        acc[iconName] = <Icon icon={iconName} fontSize="1rem" />
+        acc[iconName] = <DeprecatedIcon icon={iconName} fontSize="1rem" />
         return acc
       }, {}),
     },
@@ -28,7 +28,7 @@ const meta: Meta<typeof Badge> = {
       options: ICON_OPTIONS,
       description: 'The icon displayed on the right side of the badge.',
       mapping: ICON_OPTIONS.reduce((acc, iconName) => {
-        acc[iconName] = <Icon icon={iconName} fontSize="1rem" />
+        acc[iconName] = <DeprecatedIcon icon={iconName} fontSize="1rem" />
         return acc
       }, {}),
     },
@@ -56,23 +56,23 @@ export const BadgeReversed = {
   args: {
     children: 'Label',
     isReversed: true,
-    iconLeft: <Icon icon="chevronLeft" fontSize="1rem" />,
-    iconRight: <Icon icon="chevronRight" fontSize="1rem" />,
+    iconLeft: <DeprecatedIcon icon="chevronLeft" fontSize="1rem" />,
+    iconRight: <DeprecatedIcon icon="chevronRight" fontSize="1rem" />,
   },
 }
 
 export const BadgeWithLabel = {
   args: {
     children: 'Label',
-    iconLeft: <Icon icon="chevronLeft" fontSize="1rem" />,
-    iconRight: <Icon icon="chevronRight" fontSize="1rem" />,
+    iconLeft: <DeprecatedIcon icon="chevronLeft" fontSize="1rem" />,
+    iconRight: <DeprecatedIcon icon="chevronRight" fontSize="1rem" />,
   },
 }
 
 export const BadgeWithIcon = {
   args: {
     'aria-label': 'Label',
-    iconLeft: <Icon icon="star" fontSize="1rem" />,
+    iconLeft: <DeprecatedIcon icon="star" fontSize="1rem" />,
   },
   render: (props) => (
     <DeprecatedToolTip tip="Star">
@@ -84,8 +84,8 @@ export const BadgeWithIcon = {
 export const BadgeVariant = {
   args: {
     children: 'Label',
-    iconLeft: <Icon icon="add" fontSize="1rem" />,
-    iconRight: <Icon icon="chevronDown" fontSize="1rem" />,
+    iconLeft: <DeprecatedIcon icon="add" fontSize="1rem" />,
+    iconRight: <DeprecatedIcon icon="chevronDown" fontSize="1rem" />,
   },
   // Adding decorator into the story to display multiple stories.
   decorators: [

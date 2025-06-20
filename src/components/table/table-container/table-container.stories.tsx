@@ -5,7 +5,7 @@ import { TableToolbar } from '../table-toolbar'
 import { Menu, MenuItem, MenuItemGroup, MenuList } from '../../menu'
 import { MenuPopover, MenuTrigger } from '#src/components/menu/menu-popover'
 import { Button } from '../../button'
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 
 const meta: Meta<typeof TableContainer> = {
   title: 'Components/TableContainer',
@@ -28,7 +28,7 @@ export const BasicUsage = {
                   variant="tertiary"
                   size="small"
                   {...getTriggerProps()}
-                  iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
+                  iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
                 >
                   Page size: 25
                 </Button>

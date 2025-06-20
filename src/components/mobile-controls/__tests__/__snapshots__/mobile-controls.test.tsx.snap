@@ -21,7 +21,7 @@ exports[`MobileControls component > should match a snapshot 1`] = `
         class="mocked-styled-3 el-button-spinner"
       />
       <span
-        class="mocked-styled-9 el-icon"
+        class="mocked-styled-9 el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -85,7 +85,7 @@ exports[`MobileControls component > should match a snapshot with full props 1`] 
         class="mocked-styled-3 el-button-spinner"
       />
       <span
-        class="mocked-styled-9 el-icon"
+        class="mocked-styled-9 el-deprecated-icon"
       >
         <svg
           fill="none"

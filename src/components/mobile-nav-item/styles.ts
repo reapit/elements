@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElIcon } from '../icon'
+import { ElDeprecatedIcon } from '../deprecated-icon'
 
 const baseStyles = `
   cursor: pointer;
@@ -46,7 +46,7 @@ export const ElMobileNavItemButton = styled.button`
 export const ElMobileNavItemExpanderButton = styled.button`
   ${baseStyles}
 
-  ${ElIcon} {
+  ${ElDeprecatedIcon} {
     color: var(--icon-primary);
   }
 `

@@ -64,7 +64,7 @@ exports[`Card > should match a snapshot and render children with full props 1`] 
         class="mocked-styled-17 el-card-list-icon"
       >
         <span
-          class="el-intent-primary el-icon"
+          class="el-intent-primary el-deprecated-icon"
         >
           <svg
             fill="none"
@@ -112,7 +112,7 @@ exports[`Card > should match a snapshot and render children with full props 1`] 
         class="mocked-styled-17 el-card-list-icon"
       >
         <span
-          class="el-intent-primary el-icon"
+          class="el-intent-primary el-deprecated-icon"
         >
           <svg
             fill="none"

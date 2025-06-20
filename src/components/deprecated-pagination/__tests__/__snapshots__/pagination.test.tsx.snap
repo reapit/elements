@@ -13,7 +13,7 @@ exports[`DeprecatedPagination > should match a snapshot 1`] = `
       type="button"
     >
       <span
-        class="el-deprecated-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -49,7 +49,7 @@ exports[`DeprecatedPagination > should match a snapshot 1`] = `
       type="button"
     >
       <span
-        class="el-deprecated-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -84,7 +84,7 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
       type="button"
     >
       <span
-        class="el-deprecated-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -110,7 +110,7 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
       type="button"
     >
       <span
-        class="el-deprecated-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -128,7 +128,7 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
         </svg>
       </span>
       <span
-        class="el-deprecated-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -164,7 +164,7 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
       type="button"
     >
       <span
-        class="el-deprecated-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -182,7 +182,7 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
         </svg>
       </span>
       <span
-        class="el-deprecated-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -208,7 +208,7 @@ exports[`DeprecatedPagination > should match a snapshot with start end buttons 1
       type="button"
     >
       <span
-        class="el-deprecated-pagination-primary el-icon"
+        class="el-deprecated-pagination-primary el-deprecated-icon"
       >
         <svg
           fill="none"

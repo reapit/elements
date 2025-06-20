@@ -1,4 +1,4 @@
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { TopBarNavIconItemAnchor } from './nav-icon-item-anchor'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -21,10 +21,10 @@ const meta = {
       control: 'radio',
       options: ['contact', 'help', 'notification', 'star'],
       mapping: {
-        contact: <Icon icon="contact" />,
-        help: <Icon icon="help" />,
-        notification: <Icon icon="notification" />,
-        star: <Icon icon="star" />,
+        contact: <DeprecatedIcon icon="contact" />,
+        help: <DeprecatedIcon icon="help" />,
+        notification: <DeprecatedIcon icon="notification" />,
+        star: <DeprecatedIcon icon="star" />,
       },
     },
   },
@@ -72,6 +72,6 @@ export const WithBadge: Story = {
     ...Example.args,
     'aria-label': 'Notifications',
     hasBadge: true,
-    icon: <Icon icon="notification" />,
+    icon: <DeprecatedIcon icon="notification" />,
   },
 }

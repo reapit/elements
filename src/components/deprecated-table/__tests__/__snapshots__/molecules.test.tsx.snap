@@ -6,7 +6,7 @@ exports[`DeprecatedTableCell Component > should match a snapshot with full props
     class="foo-bar el-table-cell-has-dark-text el-table-narrow-cell-is-full-width el-table-cell-narrow-order1 el-deprecated-table-cell"
   >
     <span
-      class="el-intent-default el-icon"
+      class="el-intent-default el-deprecated-icon"
       style="font-size: 1.25rem;"
     >
       <svg
@@ -129,7 +129,7 @@ exports[`TableCtaTriggerCell Component > should match a snapshot with no childre
       class="mocked-styled-11 el-table-cta-icon-container"
     >
       <span
-        class="el-intent-default el-icon"
+        class="el-intent-default el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -207,7 +207,7 @@ exports[`TableExpandableRowTriggerCell Component > should match a snapshot with 
     tabindex="0"
   >
     <span
-      class="el-intent-default el-icon"
+      class="el-intent-default el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -244,7 +244,7 @@ exports[`TableExpandableRowTriggerCell Component > should match a snapshot with 
     tabindex="0"
   >
     <span
-      class="el-intent-primary el-icon"
+      class="el-intent-primary el-deprecated-icon"
     >
       <svg
         fill="none"

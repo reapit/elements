@@ -2,7 +2,7 @@ import { Meta } from '@storybook/react-vite'
 import { Button } from './button'
 import { ButtonGroup } from '../button-group'
 import { action } from 'storybook/actions'
-import { Icon, IconNames } from '../icon'
+import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 
 const ICON_OPTIONS: IconNames[] = ['star', 'check', 'add', 'chevronDown', 'email']
 
@@ -20,7 +20,7 @@ const meta: Meta<typeof Button> = {
       options: ICON_OPTIONS,
       description: 'The icon displayed on the left side of the button.',
       mapping: ICON_OPTIONS.reduce((acc, iconName) => {
-        acc[iconName] = <Icon icon={iconName} fontSize="1rem" />
+        acc[iconName] = <DeprecatedIcon icon={iconName} fontSize="1rem" />
         return acc
       }, {}),
     },
@@ -29,7 +29,7 @@ const meta: Meta<typeof Button> = {
       options: ICON_OPTIONS,
       description: 'The icon displayed on the right side of the button.',
       mapping: ICON_OPTIONS.reduce((acc, iconName) => {
-        acc[iconName] = <Icon icon={iconName} fontSize="1rem" />
+        acc[iconName] = <DeprecatedIcon icon={iconName} fontSize="1rem" />
         return acc
       }, {}),
     },
@@ -73,29 +73,29 @@ export const ButtonVariants = {
     <ButtonGroup>
       <Button
         variant="primary"
-        iconLeft={<Icon icon="star" fontSize="1rem" />}
-        iconRight={<Icon icon="star" fontSize="1rem" />}
+        iconLeft={<DeprecatedIcon icon="star" fontSize="1rem" />}
+        iconRight={<DeprecatedIcon icon="star" fontSize="1rem" />}
       >
         Button
       </Button>
       <Button
         variant="secondary"
-        iconLeft={<Icon icon="star" fontSize="1rem" />}
-        iconRight={<Icon icon="star" fontSize="1rem" />}
+        iconLeft={<DeprecatedIcon icon="star" fontSize="1rem" />}
+        iconRight={<DeprecatedIcon icon="star" fontSize="1rem" />}
       >
         Button
       </Button>
       <Button
         variant="tertiary"
-        iconLeft={<Icon icon="star" fontSize="1rem" />}
-        iconRight={<Icon icon="star" fontSize="1rem" />}
+        iconLeft={<DeprecatedIcon icon="star" fontSize="1rem" />}
+        iconRight={<DeprecatedIcon icon="star" fontSize="1rem" />}
       >
         Button
       </Button>
       <Button
         variant="destructive"
-        iconLeft={<Icon icon="star" fontSize="1rem" />}
-        iconRight={<Icon icon="star" fontSize="1rem" />}
+        iconLeft={<DeprecatedIcon icon="star" fontSize="1rem" />}
+        iconRight={<DeprecatedIcon icon="star" fontSize="1rem" />}
       >
         Button
       </Button>
@@ -115,10 +115,13 @@ export const ButtonBusy = {
 export const ButtonWithIcon = {
   render: ({}) => (
     <ButtonGroup>
-      <Button iconLeft={<Icon icon="star" fontSize="1rem" />} iconRight={<Icon icon="star" fontSize="1rem" />}>
+      <Button
+        iconLeft={<DeprecatedIcon icon="star" fontSize="1rem" />}
+        iconRight={<DeprecatedIcon icon="star" fontSize="1rem" />}
+      >
         Button
       </Button>
-      <Button iconLeft={<Icon icon="star" fontSize="1rem" />} />
+      <Button iconLeft={<DeprecatedIcon icon="star" fontSize="1rem" />} />
     </ButtonGroup>
   ),
 }
@@ -127,8 +130,8 @@ export const ButtonSize = {
   render: ({}) => (
     <Button
       size="large"
-      iconLeft={<Icon icon="star" fontSize="1.25rem" />}
-      iconRight={<Icon icon="star" fontSize="1.25rem" />}
+      iconLeft={<DeprecatedIcon icon="star" fontSize="1.25rem" />}
+      iconRight={<DeprecatedIcon icon="star" fontSize="1.25rem" />}
     >
       Button
     </Button>
@@ -144,7 +147,10 @@ export const ButtonDisabled = {
 
 export const ButtonWithHref = {
   render: ({}) => (
-    <Button iconLeft={<Icon icon="star" fontSize="1rem" />} href="./?path=/story/components-button--button-with-href">
+    <Button
+      iconLeft={<DeprecatedIcon icon="star" fontSize="1rem" />}
+      href="./?path=/story/components-button--button-with-href"
+    >
       Add Item
     </Button>
   ),

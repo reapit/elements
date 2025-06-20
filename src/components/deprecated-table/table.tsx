@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, HTMLAttributes, ReactNode, SetStateAction, useState } from 'react'
 import { ElDeprecatedTable } from './__styles__'
-import { Icon, IconNames } from '../icon'
+import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 import {
   DeprecatedTableHeadersRow,
   DeprecatedTableHeader,
@@ -128,7 +128,7 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
             {firstRow.expandableContent?.headerContent ? (
               <>{firstRow.expandableContent?.headerContent}</>
             ) : (
-              <Icon icon="settings" intent="default" />
+              <DeprecatedIcon icon="settings" intent="default" />
             )}
           </DeprecatedTableHeader>
         )}
@@ -137,7 +137,7 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
             {firstRow.ctaContent?.headerContent ? (
               <>{firstRow.ctaContent?.headerContent}</>
             ) : (
-              <Icon icon="settings" intent="default" />
+              <DeprecatedIcon icon="settings" intent="default" />
             )}
           </DeprecatedTableHeader>
         )}

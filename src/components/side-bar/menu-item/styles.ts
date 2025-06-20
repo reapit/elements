@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElIcon } from '../../icon'
+import { ElDeprecatedIcon } from '../../deprecated-icon'
 import { font } from '#src/components/text'
 
 // NOTE: This class is used as the basis for the menu group's summary element as well. Changes here
@@ -57,7 +57,7 @@ export const ElSideBarMenuItemIcon = styled.span`
 
   // TODO: remove this when our Icon component inherits by default and
   // can be sized via props correctly.
-  ${ElIcon} {
+  ${ElDeprecatedIcon} {
     color: inherit;
     width: var(--icon_size-m);
     height: var(--icon_size-m);
