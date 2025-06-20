@@ -71,7 +71,7 @@ exports[`DoubleLineCell > should match snapshot with first and second line with 
         class="mocked-styled-5 el-first-line"
       >
         <span
-          class="mocked-styled-10 el-icon"
+          class="mocked-styled-10 el-deprecated-icon"
           style="font-size: 1rem;"
         >
           <svg
@@ -100,7 +100,7 @@ exports[`DoubleLineCell > should match snapshot with first and second line with 
           </span>
         </div>
         <span
-          class="mocked-styled-10 el-icon"
+          class="mocked-styled-10 el-deprecated-icon"
           style="font-size: 1rem;"
         >
           <svg

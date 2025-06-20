@@ -3,7 +3,7 @@ import { DeprecatedNav, DeprecatedNavItem } from './index'
 import { elDeprecatedNavItemActive, elDeprecatedNavItemHideDesktop, elDeprecatedNavItemExpanded } from './__styles__'
 import { NavStateProvider } from '../../hooks/use-nav-state'
 import { MediaStateProvider } from '../../hooks/use-media-query'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { elMlAuto, elMr2 } from '../../styles/spacing'
 import { DeprecatedNavResponsive } from './nav-responsive'
 
@@ -16,8 +16,8 @@ export const BasicExample = {
   render: ({}) => (
     <DeprecatedNav>
       <DeprecatedNavItem>
-        <Icon height="24px" width="100px" icon="reapitLogo" />
-        <Icon
+        <DeprecatedIcon height="24px" width="100px" icon="reapitLogo" />
+        <DeprecatedIcon
           className={cx(elMlAuto, elMr2, elDeprecatedNavItemHideDesktop)}
           icon="more"
           intent="default"
@@ -37,8 +37,8 @@ export const BasicExampleMobileMenuOpen = {
   render: ({}) => (
     <DeprecatedNav>
       <DeprecatedNavItem>
-        <Icon height="24px" width="100px" icon="reapitLogo" />
-        <Icon
+        <DeprecatedIcon height="24px" width="100px" icon="reapitLogo" />
+        <DeprecatedIcon
           className={cx(elMlAuto, elMr2, elDeprecatedNavItemHideDesktop)}
           icon="more"
           intent="default"

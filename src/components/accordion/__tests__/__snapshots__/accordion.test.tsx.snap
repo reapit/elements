@@ -25,7 +25,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           class="mocked-styled-5 el-accordion-title-content"
         >
           <span
-            class="el-mr1 el-icon"
+            class="el-mr1 el-deprecated-icon"
           >
             <svg
               fill="none"
@@ -58,7 +58,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           class="mocked-styled-5 el-accordion-title-content"
         >
           <span
-            class="el-mr1 el-icon"
+            class="el-mr1 el-deprecated-icon"
           >
             <svg
               fill="none"
@@ -89,7 +89,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           class="mocked-styled-5 el-accordion-title-content"
         >
           <span
-            class="el-intent-default el-icon"
+            class="el-intent-default el-deprecated-icon"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -140,7 +140,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           class="mocked-styled-5 el-accordion-title-content"
         >
           <span
-            class="el-mr1 el-icon"
+            class="el-mr1 el-deprecated-icon"
           >
             <svg
               fill="none"
@@ -173,7 +173,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           class="mocked-styled-5 el-accordion-title-content"
         >
           <span
-            class="el-mr1 el-icon"
+            class="el-mr1 el-deprecated-icon"
           >
             <svg
               fill="none"
@@ -204,7 +204,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           class="mocked-styled-5 el-accordion-title-content"
         >
           <span
-            class="el-intent-default el-icon"
+            class="el-intent-default el-deprecated-icon"
             style="font-size: 1.25rem;"
           >
             <svg

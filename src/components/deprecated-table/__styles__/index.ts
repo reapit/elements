@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElIcon } from '../../icon/__styles__'
+import { ElDeprecatedIcon } from '../../deprecated-icon/__styles__'
 import { elIsActive } from '../../../styles/states'
 
 export const isNarrow = '@media only screen and (max-width: 1024px)'
@@ -255,7 +255,7 @@ export const ElDeprecatedTableCell = styled.div`
 
   ${cellOrders}
 
-  ${ElIcon} {
+  ${ElDeprecatedIcon} {
     margin-right: 0.75rem;
   }
 

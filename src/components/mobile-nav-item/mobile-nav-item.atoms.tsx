@@ -3,7 +3,7 @@ import type { FC, ReactNode, MouseEventHandler } from 'react'
 
 import { useId } from '../../storybook/random-id'
 
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 
 import {
   ElMobileNavItemAnchor,
@@ -97,7 +97,7 @@ export const MobileNavItemExpandable: FC<MobileNavItemExpandableProps> = (props)
           {hasBadge && <ElMobileNavItemBadge />}
         </ElMobileNavItemContent>
 
-        <Icon icon={isExpanded ? 'chevronUp' : 'chevronDown'} fontSize="16px" />
+        <DeprecatedIcon icon={isExpanded ? 'chevronUp' : 'chevronDown'} fontSize="16px" />
       </ElMobileNavItemExpanderButton>
 
       <ElMobileNavSubItemUnorderedList id={panelId} aria-hidden={!isExpanded}>

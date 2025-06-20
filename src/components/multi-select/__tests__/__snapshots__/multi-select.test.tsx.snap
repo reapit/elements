@@ -121,7 +121,7 @@ exports[`MultiSelectInput > should match a snapshot and render non selected mess
       role="listbox"
     >
       <span
-        class="el-ml2 el-intent-default el-icon"
+        class="el-ml2 el-intent-default el-deprecated-icon"
       >
         <svg
           fill="none"

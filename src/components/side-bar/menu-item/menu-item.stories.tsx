@@ -1,4 +1,4 @@
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { SideBarMenuItem } from './menu-item'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
@@ -16,10 +16,10 @@ const meta = {
       control: 'radio',
       options: ['Property', 'Dashboard', 'Settings', 'User'],
       mapping: {
-        Property: <Icon icon="property" />,
-        Dashboard: <Icon icon="dashboard" />,
-        Settings: <Icon icon="settings" />,
-        User: <Icon icon="user" />,
+        Property: <DeprecatedIcon icon="property" />,
+        Dashboard: <DeprecatedIcon icon="dashboard" />,
+        Settings: <DeprecatedIcon icon="settings" />,
+        User: <DeprecatedIcon icon="user" />,
       },
     },
   },

@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElIcon } from '../../icon'
+import { ElDeprecatedIcon } from '../../deprecated-icon'
 import { font } from '#src/components/text'
 
 export const ElTopBarNavDropdownButton = styled.button`
@@ -32,7 +32,7 @@ export const ElTopBarNavDropdownButton = styled.button`
     background: var(--comp-navigation-colour-fill-nav_item-hover);
   }
 
-  ${ElIcon} {
+  ${ElDeprecatedIcon} {
     pointer-events: none;
     margin-left: 0;
   }

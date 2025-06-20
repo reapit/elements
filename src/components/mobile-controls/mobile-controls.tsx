@@ -1,6 +1,6 @@
 import React, { Dispatch, FC, HTMLAttributes, MouseEvent, SetStateAction, useState, useId } from 'react'
 import { ElMobileControlItem, ElMobileControls, ElMobileControlsBg, elMobileControlsVisible } from './__styles__'
-import { IconNames } from '../icon'
+import { IconNames } from '../deprecated-icon'
 import { FloatingButton } from '../button'
 import { cx } from '@linaria/core'
 import { elIsActive } from '../../styles/states'

@@ -7,7 +7,7 @@ import {
   AccordionContent,
   Accordion,
 } from './index'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { elMr1 } from '../../styles/spacing'
 import { elIsActive } from '../../styles/states'
 import { Meta, StoryObj } from '@storybook/react-vite'
@@ -27,13 +27,13 @@ export const StylesOnlyUsage = {
         <AccordionTitle>Accordion Item 1</AccordionTitle>
         <AccordionTitleContentWrapper>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="car" />2
+            <DeprecatedIcon className={elMr1} icon="car" />2
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="bed" />5
+            <DeprecatedIcon className={elMr1} icon="bed" />5
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon icon="chevronUp" />
+            <DeprecatedIcon icon="chevronUp" />
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
@@ -50,13 +50,13 @@ export const StylesOnlyUsage = {
         <AccordionTitle>Accordion Item 2</AccordionTitle>
         <AccordionTitleContentWrapper>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="car" />2
+            <DeprecatedIcon className={elMr1} icon="car" />2
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="bed" />5
+            <DeprecatedIcon className={elMr1} icon="bed" />5
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon icon="chevronDown" />
+            <DeprecatedIcon icon="chevronDown" />
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
@@ -67,13 +67,13 @@ export const StylesOnlyUsage = {
         <AccordionTitle>Accordion Item 3</AccordionTitle>
         <AccordionTitleContentWrapper>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="car" />2
+            <DeprecatedIcon className={elMr1} icon="car" />2
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon className={elMr1} icon="bed" />5
+            <DeprecatedIcon className={elMr1} icon="bed" />5
           </AccordionTitleContent>
           <AccordionTitleContent>
-            <Icon icon="chevronDown" />
+            <DeprecatedIcon icon="chevronDown" />
           </AccordionTitleContent>
         </AccordionTitleContentWrapper>
       </AccordionItem>
@@ -99,10 +99,10 @@ export const ReactUsage: StoryObj<typeof Accordion> = {
 
         titleItems: [
           <>
-            <Icon className={elMr1} icon="car" />2
+            <DeprecatedIcon className={elMr1} icon="car" />2
           </>,
           <>
-            <Icon className={elMr1} icon="bed" />5
+            <DeprecatedIcon className={elMr1} icon="bed" />5
           </>,
         ],
       },
@@ -112,10 +112,10 @@ export const ReactUsage: StoryObj<typeof Accordion> = {
 
         titleItems: [
           <>
-            <Icon className={elMr1} icon="car" />2
+            <DeprecatedIcon className={elMr1} icon="car" />2
           </>,
           <>
-            <Icon className={elMr1} icon="bed" />5
+            <DeprecatedIcon className={elMr1} icon="bed" />5
           </>,
         ],
       },
@@ -124,10 +124,10 @@ export const ReactUsage: StoryObj<typeof Accordion> = {
         content: 'Accordion Content 3',
         titleItems: [
           <>
-            <Icon className={elMr1} icon="car" />2
+            <DeprecatedIcon className={elMr1} icon="car" />2
           </>,
           <>
-            <Icon className={elMr1} icon="bed" />5
+            <DeprecatedIcon className={elMr1} icon="bed" />5
           </>,
         ],
       },

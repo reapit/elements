@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElIcon } from '../../icon'
+import { ElDeprecatedIcon } from '../../deprecated-icon'
 
 export const ElTableTextIcon = styled.span`
   display: flex;
@@ -26,7 +26,7 @@ export const ElTableText = styled.div`
 
   ${ElTableTextIcon} {
     color: var(--colour-icon-primary);
-    ${ElIcon} {
+    ${ElDeprecatedIcon} {
       width: var(--icon_size-s);
       height: var(--icon_size-s);
       color: inherit;

@@ -19,7 +19,7 @@ exports[`ControlledSearchableDropdown component > should display default value 1
       class="mocked-styled-11 el-searchable-dropdown-search-input-add-on el-input-add-on"
     >
       <span
-        class="el-intent-default el-icon"
+        class="el-intent-default el-deprecated-icon"
         style="font-size: 1rem;"
       >
         <svg
@@ -46,7 +46,7 @@ exports[`ControlledSearchableDropdown component > should display default value 1
       value="Forth"
     />
     <span
-      class="mocked-styled-12 el-searchable-dropdown-close-button el-icon"
+      class="mocked-styled-12 el-searchable-dropdown-close-button el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -86,7 +86,7 @@ exports[`ControlledSearchableDropdown component > should match a snapshot 1`] = 
       class="mocked-styled-11 el-searchable-dropdown-search-input-add-on el-input-add-on"
     >
       <span
-        class="el-intent-default el-icon"
+        class="el-intent-default el-deprecated-icon"
         style="font-size: 1rem;"
       >
         <svg
@@ -135,7 +135,7 @@ exports[`SearchableDropdown component > should match a snapshot 1`] = `
       class="mocked-styled-11 el-searchable-dropdown-search-input-add-on el-input-add-on"
     >
       <span
-        class="el-intent-default el-icon"
+        class="el-intent-default el-deprecated-icon"
         style="font-size: 1rem;"
       >
         <svg

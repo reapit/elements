@@ -1,4 +1,4 @@
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { TopBarNavIconItemBase } from '../nav-icon-item'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
@@ -14,6 +14,11 @@ interface TopBarNavSearchIconItemProps extends ButtonHTMLAttributes<HTMLButtonEl
  */
 export function TopBarNavSearchIconItem({ 'aria-label': ariaLabel, ...rest }: TopBarNavSearchIconItemProps) {
   return (
-    <TopBarNavIconItemBase {...rest} aria-label={ariaLabel ?? 'Search'} as="button" icon={<Icon icon="search" />} />
+    <TopBarNavIconItemBase
+      {...rest}
+      aria-label={ariaLabel ?? 'Search'}
+      as="button"
+      icon={<DeprecatedIcon icon="search" />}
+    />
   )
 }

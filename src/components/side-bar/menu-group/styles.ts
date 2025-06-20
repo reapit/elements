@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElIcon } from '../../icon'
+import { ElDeprecatedIcon } from '../../deprecated-icon'
 import { ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from '../menu-item'
 import { font } from '#src/components/text'
 
@@ -45,7 +45,7 @@ export const ElSideBarMenuGroupSummaryDropdownIcon = styled.span`
 
   padding: var(--spacing-1);
 
-  ${ElIcon} {
+  ${ElDeprecatedIcon} {
     width: var(--icon_size-xs);
     height: var(--icon_size-xs);
   }

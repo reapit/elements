@@ -1,4 +1,4 @@
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { SideBarMenuGroup } from './menu-group'
 import { SideBarSubmenu } from '../submenu'
 import { useArgs } from 'storybook/preview-api'
@@ -58,7 +58,7 @@ export const Example: Story = {
   args: {
     children: 'No selected item',
     isActive: false,
-    summary: <SideBarMenuGroup.Summary icon={<Icon icon="property" />}>Menu group</SideBarMenuGroup.Summary>,
+    summary: <SideBarMenuGroup.Summary icon={<DeprecatedIcon icon="property" />}>Menu group</SideBarMenuGroup.Summary>,
   },
 }
 

@@ -22,7 +22,7 @@ exports[`BreadCrumb > should match a snapshot 1`] = `
       class="el-flex-container el-flex-align-center"
     >
       <span
-        class="el-mr2 el-intent-default el-icon"
+        class="el-mr2 el-intent-default el-deprecated-icon"
         style="font-size: 12px;"
       >
         <svg
@@ -55,7 +55,7 @@ exports[`BreadCrumb > should match a snapshot 1`] = `
       class="el-flex-container el-flex-align-center"
     >
       <span
-        class="el-mr2 el-intent-default el-icon"
+        class="el-mr2 el-intent-default el-deprecated-icon"
         style="font-size: 12px;"
       >
         <svg
@@ -88,7 +88,7 @@ exports[`BreadCrumb > should match a snapshot 1`] = `
       class="el-flex-container el-flex-align-center"
     >
       <span
-        class="el-mr2 el-intent-default el-icon"
+        class="el-mr2 el-intent-default el-deprecated-icon"
         style="font-size: 12px;"
       >
         <svg

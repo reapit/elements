@@ -3,7 +3,7 @@
 exports[`Icon component > should match a snapshot 1`] = `
 <DocumentFragment>
   <span
-    class="mocked-styled-0 el-icon"
+    class="mocked-styled-0 el-deprecated-icon"
   >
     <svg
       fill="none"
@@ -26,7 +26,7 @@ exports[`Icon component > should match a snapshot 1`] = `
 exports[`Icon component > should match a snapshot when intent prop is supplied 1`] = `
 <DocumentFragment>
   <span
-    class="el-intent-primary el-icon"
+    class="el-intent-primary el-deprecated-icon"
   >
     <svg
       fill="none"

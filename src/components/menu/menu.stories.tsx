@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect, type ComponentProps } from 'react'
 import { Menu, useMenuContext } from '.'
 import { Button } from '../button'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { FlexContainer, MainContainer } from '../layout'
 import { elHScreen } from '../../styles/sizing'
 import { Badge } from '../badge'
@@ -19,7 +19,9 @@ export const Default: StoryObj = {
     return (
       <Menu>
         <Menu.Trigger>
-          {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
+          {({ getTriggerProps }) => (
+            <Button {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
+          )}
         </Menu.Trigger>
         <Menu.Popover>
           <Menu.List>
@@ -41,7 +43,9 @@ export const WithCompleteFeatures: StoryObj = {
     return (
       <Menu>
         <Menu.Trigger>
-          {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
+          {({ getTriggerProps }) => (
+            <Button {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
+          )}
         </Menu.Trigger>
         <Menu.Popover>
           <Menu.List maxWidth="--size-80" maxHeight="--size-80">
@@ -51,16 +55,16 @@ export const WithCompleteFeatures: StoryObj = {
                 supplementaryInfo="Short description about the item"
                 badge={<Badge>Badge</Badge>}
                 onClick={console.log}
-                leftIcon={<Icon icon="property" />}
-                rightIcon={<Icon icon="exportIcon" />}
+                leftIcon={<DeprecatedIcon icon="property" />}
+                rightIcon={<DeprecatedIcon icon="exportIcon" />}
               />
               <Menu.Item
                 label="Menu Item anchor with long example text"
                 supplementaryInfo="Secondary info long description that won’t fit in one line"
                 badge={<Badge>Badge</Badge>}
                 href="/#"
-                leftIcon={<Icon icon="property" />}
-                rightIcon={<Icon icon="exportIcon" />}
+                leftIcon={<DeprecatedIcon icon="property" />}
+                rightIcon={<DeprecatedIcon icon="exportIcon" />}
               />
               <Menu.Item
                 label="Menu Item active"
@@ -68,8 +72,8 @@ export const WithCompleteFeatures: StoryObj = {
                 badge={<Badge>Badge</Badge>}
                 isActive
                 onClick={console.log}
-                leftIcon={<Icon icon="property" />}
-                rightIcon={<Icon icon="exportIcon" />}
+                leftIcon={<DeprecatedIcon icon="property" />}
+                rightIcon={<DeprecatedIcon icon="exportIcon" />}
               />
               <Menu.Item
                 label="Menu Item (disabled)"
@@ -77,8 +81,8 @@ export const WithCompleteFeatures: StoryObj = {
                 badge={<Badge>Badge with long text</Badge>}
                 onClick={console.log}
                 disabled
-                leftIcon={<Icon icon="property" />}
-                rightIcon={<Icon icon="exportIcon" />}
+                leftIcon={<DeprecatedIcon icon="property" />}
+                rightIcon={<DeprecatedIcon icon="exportIcon" />}
               />
             </Menu.Group>
             <Menu.Group maxHeight="--size-32" label="Group Title">
@@ -103,7 +107,9 @@ export const WithCustomAlignment: Story = {
       <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
         <Menu data-alignment="right">
           <Menu.Trigger>
-            {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
+            {({ getTriggerProps }) => (
+              <Button {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
+            )}
           </Menu.Trigger>
           <Menu.Popover yOffset={10}>
             <Menu.List>
@@ -131,7 +137,7 @@ export const MoreComplexUsageExample: Story = {
         <Menu {...props}>
           <Menu.Trigger>
             {({ getTriggerProps }) => (
-              <Button {...getTriggerProps()} {...props} iconRight={<Icon icon="more" fontSize="1rem" />}>
+              <Button {...getTriggerProps()} {...props} iconRight={<DeprecatedIcon icon="more" fontSize="1rem" />}>
                 More
               </Button>
             )}
@@ -219,7 +225,9 @@ export const WithIframe: Story = {
       <MainContainer className={elHScreen}>
         <Menu>
           <Menu.Trigger>
-            {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<Icon icon="more" fontSize="1rem" />} />}
+            {({ getTriggerProps }) => (
+              <Button {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
+            )}
           </Menu.Trigger>
           <Menu.Popover>
             <IframeHandler />

@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { Badge } from '..'
-import { Icon } from '#src/components/icon'
+import { DeprecatedIcon } from '#src/components/deprecated-icon/index'
 
 describe('Badge', () => {
   test('should match snapshot', () => {
@@ -20,7 +20,10 @@ describe('Badge', () => {
 
   test('should match snapshot with icons and label', () => {
     const { asFragment } = render(
-      <Badge iconLeft={<Icon icon="add" fontSize="1rem" />} iconRight={<Icon icon="chevronDown" fontSize="1rem" />}>
+      <Badge
+        iconLeft={<DeprecatedIcon icon="add" fontSize="1rem" />}
+        iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
+      >
         Label
       </Badge>,
     )
@@ -28,7 +31,9 @@ describe('Badge', () => {
   })
 
   test('should match snapshot with icon only', () => {
-    const { asFragment } = render(<Badge iconLeft={<Icon icon="add" fontSize="1rem" />} aria-label="label"></Badge>)
+    const { asFragment } = render(
+      <Badge iconLeft={<DeprecatedIcon icon="add" fontSize="1rem" />} aria-label="label"></Badge>,
+    )
     expect(asFragment()).toMatchSnapshot()
   })
 })

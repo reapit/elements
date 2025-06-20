@@ -9,7 +9,8 @@ import {
   elIntentDefault,
 } from '../../../styles/intent'
 
-export const ElIcon = styled.span`
+/** @deprecated */
+export const ElDeprecatedIcon = styled.span`
   display: flex;
   font-size: 1.5rem;
   align-items: center;
