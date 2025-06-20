@@ -8,7 +8,7 @@ import { TableBody } from '../table-body'
 import { Input } from '../../input'
 import { AvatarRectangle } from '../../avatar-rectangle'
 import { TableRow } from '../table-row'
-import { TableCell } from '../table-cell'
+import { SingleLineCell } from '../table-cell'
 
 const meta: Meta<typeof TableHeaderCell> = {
   title: 'Components/TableHeaderCell',
@@ -25,7 +25,7 @@ export const BasicUsage = {
         <TableHead>
           <TableRow>
             <TableHeaderCell {...args} maxWidth="30px">
-              Checkbox Header
+              Check
             </TableHeaderCell>
             <TableHeaderCell {...args}>First Header</TableHeaderCell>
             <TableHeaderCell {...args}>Image Header</TableHeaderCell>
@@ -34,17 +34,17 @@ export const BasicUsage = {
           </TableRow>
         </TableHead>
         <TableBody>
-          {Array.from({ length: 10 }, (_, index) => (
+          {Array.from({ length: 3 }, (_, index) => (
             <TableRow key={index}>
-              <TableCell>
+              <SingleLineCell>
                 <Input type="checkbox" />
-              </TableCell>
-              <TableCell>First Column</TableCell>
-              <TableCell>
+              </SingleLineCell>
+              <SingleLineCell>First Column</SingleLineCell>
+              <SingleLineCell>
                 <AvatarRectangle variant="residential" size="medium" src="https://picsum.photos/seed/picsum/200/300" />
-              </TableCell>
-              <TableCell>Second Column</TableCell>
-              <TableCell>Last Column</TableCell>
+              </SingleLineCell>
+              <SingleLineCell>Second Column</SingleLineCell>
+              <SingleLineCell>Last Column</SingleLineCell>
             </TableRow>
           ))}
         </TableBody>
