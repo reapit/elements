@@ -7,7 +7,6 @@ import { Features, FeaturesItem } from '../../features'
 import { StatusIndicator } from '../../status-indicator'
 import { Tag, TagGroup } from '../../tag'
 
-import type { Meta, StoryObj } from '@storybook/react'
 import { TableContainer } from '../table-container'
 import { TableToolbar } from '../table-toolbar'
 import { Table } from '../table'
@@ -16,6 +15,7 @@ import { TableHeaderCell } from '../table-header-cell'
 import { TableBody } from '../table-body'
 import { TableRow } from '../table-row'
 import { Input } from '../../input'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const CHILDREN_OPTIONS = [
   'Alphanumeric',

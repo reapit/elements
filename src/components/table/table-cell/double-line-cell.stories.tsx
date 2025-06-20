@@ -4,7 +4,6 @@ import { Icon } from '../../icon'
 import { Skeleton } from '../../skeleton'
 import { Avatar } from '../../avatar'
 
-import type { Meta, StoryObj } from '@storybook/react'
 import { TableContainer } from '../table-container'
 import { TableToolbar } from '../table-toolbar'
 import { Table } from '../table/table'
@@ -14,6 +13,7 @@ import { TableBody } from '../table-body'
 import { TableRow } from '../table-row'
 import { Input } from '../../input'
 import { SingleLineCell } from './single-line-cell'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const MEDIA_OPTIONS = ['Image', 'Avatar', 'Empty', 'Image Skeleton', 'Avatar Skeleton']
 const FIRST_LINE_OPTIONS = ['Address', 'Name', 'Text', 'Skeleton']
