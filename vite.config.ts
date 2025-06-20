@@ -5,6 +5,20 @@ import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import wyw from '@wyw-in-js/vite'
 import packageManifest from './package.json'
+import path from 'node:path'
+import { readdirSync } from 'node:fs'
+
+// We dynamically discover all icons in the `src/icons` directory and add them as individual entry points
+// for our build.
+const icons = Object.fromEntries(
+  readdirSync('src/icons')
+    .filter((file) => file.endsWith('.tsx') && !file.includes('index'))
+    .map((file) => [
+      // `src/icons/add.tsx` -> `icons/add`
+      path.join('icons', path.basename(file, path.extname(file))),
+      path.join('src/icons', file),
+    ]),
+)
 
 export default defineConfig({
   build: {
@@ -14,6 +28,7 @@ export default defineConfig({
       cssFileName: 'style',
       entry: {
         index: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
+        ...icons,
       },
       formats: ['es', 'cjs'],
     },
