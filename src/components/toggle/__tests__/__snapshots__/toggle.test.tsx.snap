@@ -33,6 +33,7 @@ exports[`ToggleRadio > should match a snapshot and render children 1`] = `
     class="el-toggle-full-width el-toggle-radio-wrap"
   >
     <input
+      checked=""
       class="mocked-styled-4 el-toggle-radio"
       id="option-1"
       name="my-cool-toggle-radio"

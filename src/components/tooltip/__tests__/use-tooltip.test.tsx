@@ -1,4 +1,4 @@
-import { renderHook } from '@testing-library/react-hooks'
+import { renderHook } from '@testing-library/react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { useTooltip } from '../use-tooltip'
 import { Button } from '../../button'

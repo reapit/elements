@@ -3,7 +3,6 @@ import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
-import dts from 'vite-plugin-dts'
 import wyw from '@wyw-in-js/vite'
 import packageManifest from './package.json'
 
@@ -12,6 +11,7 @@ export default defineConfig({
     copyPublicDir: false,
     emptyOutDir: true,
     lib: {
+      cssFileName: 'style',
       entry: {
         index: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
       },
@@ -57,7 +57,6 @@ export default defineConfig({
         presets: ['@babel/preset-typescript', '@babel/preset-react'],
       },
     }),
-    dts(),
   ],
   test: {
     coverage: {
@@ -78,6 +77,8 @@ export default defineConfig({
         '**/*.stories.*',
         // - any type declaration files
         '**/*.d.ts',
+        // - any types.ts files
+        '**/types.ts',
       ],
       include: ['src/**/*.ts', 'src/**/*.tsx'],
       provider: 'v8',

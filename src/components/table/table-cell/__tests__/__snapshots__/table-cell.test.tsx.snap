@@ -2,16 +2,22 @@
 
 exports[`TableCell > should match snapshot 1`] = `
 <DocumentFragment>
-  <td
-    class="mocked-styled-0 el-table-cell"
-    data-alignment="left"
-    style="--tablecell-max-width: 100%; --tablecell-min-width: auto; --tablecell-width: auto;"
-  >
-    <div
-      class="mocked-styled-1 el-table-cell-content"
-    >
-      td
-    </div>
-  </td>
+  <table>
+    <tbody>
+      <tr>
+        <td
+          class="mocked-styled-0 el-table-cell"
+          data-alignment="left"
+          style="--tablecell-max-width: 100%; --tablecell-min-width: auto; --tablecell-width: auto;"
+        >
+          <div
+            class="mocked-styled-1 el-table-cell-content"
+          >
+            td
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
 </DocumentFragment>
 `;

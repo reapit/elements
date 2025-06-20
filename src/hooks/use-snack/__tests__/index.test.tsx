@@ -1,11 +1,11 @@
-import React, { PropsWithChildren } from 'react'
+import { PropsWithChildren } from 'react'
 import { render } from '@testing-library/react'
-import { SnackProvider, UseSnack, useSnack } from '../index'
-import { renderHook } from '@testing-library/react-hooks'
+import { SnackProvider, useSnack } from '../index'
+import { renderHook } from '@testing-library/react'
 
 describe('useSnack', () => {
   it('should return UseSnack state', async () => {
-    const { result } = renderHook<{}, UseSnack>(() => useSnack(), {
+    const { result } = renderHook(() => useSnack(), {
       wrapper: (props: PropsWithChildren) => <SnackProvider>{props.children}</SnackProvider>,
     })
 

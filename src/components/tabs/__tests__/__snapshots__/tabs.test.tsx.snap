@@ -11,6 +11,7 @@ exports[`Tabs > should match a snapshot and render children 1`] = `
     >
       <input
         aria-selected="true"
+        checked=""
         class="mocked-styled-1 el-tab"
         id="option-1"
         name="my-cool-toggle-radio"
