@@ -10,7 +10,7 @@ import { TableRow } from '../table-row'
 import { TableBody } from '../table-body'
 import { TableCell } from '../table-cell'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/TableRowSelection',
