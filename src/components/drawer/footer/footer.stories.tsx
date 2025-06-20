@@ -1,6 +1,7 @@
 import { Button } from '../../button'
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
 import { DrawerFooter } from './footer'
+import { Pattern } from '../__story__/Pattern'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -67,7 +68,7 @@ export const Sticky: Story = {
           overflow: 'auto',
         }}
       >
-        <div style={{ color: '#FA00FF', height: '300px' }}>↓↓↓↓</div>
+        <Pattern />
         <Story />
       </div>
     ),

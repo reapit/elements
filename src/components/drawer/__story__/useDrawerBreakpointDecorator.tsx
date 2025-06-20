@@ -48,7 +48,7 @@ export function Breakpoint({ breakpoint, children }: BreakpointProps) {
     <div
       style={{
         containerName: 'drawer',
-        containerType: 'inline-size',
+        containerType: 'size',
         display: 'grid',
         gridTemplateAreas: '"header" "body" "footer"',
         gridTemplateColumns: '1fr',
