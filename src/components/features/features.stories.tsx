@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 import { Features } from './features'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { ElTooltip } from '../tooltip'
 import { ElFeaturesItem, ElFeaturesItemIcon } from './styles'
 
@@ -27,16 +27,16 @@ type Story = StoryObj<typeof meta>
 export const Default: Story = {
   render: ({}) => (
     <Features>
-      <Features.Item aria-label="Bedrooms" icon={<Icon icon="bed" />}>
+      <Features.Item aria-label="Bedrooms" icon={<DeprecatedIcon icon="bed" />}>
         1
       </Features.Item>
-      <Features.Item aria-label="Bathooms" icon={<Icon icon="bath" />}>
+      <Features.Item aria-label="Bathooms" icon={<DeprecatedIcon icon="bath" />}>
         2
       </Features.Item>
-      <Features.Item aria-label="Cars" icon={<Icon icon="car" />}>
+      <Features.Item aria-label="Cars" icon={<DeprecatedIcon icon="car" />}>
         5
       </Features.Item>
-      <Features.Item aria-label="Areas" icon={<Icon icon="appSwitcher" />}>
+      <Features.Item aria-label="Areas" icon={<DeprecatedIcon icon="appSwitcher" />}>
         850 sqm
       </Features.Item>
     </Features>
@@ -58,7 +58,7 @@ export const DisplayTooltip = {
             Bathrooms
           </ElTooltip>
           <ElFeaturesItemIcon>
-            <Icon icon="bed" />
+            <DeprecatedIcon icon="bed" />
           </ElFeaturesItemIcon>
           1
         </ElFeaturesItem>

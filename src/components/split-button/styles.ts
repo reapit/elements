@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 import { Button } from '../button'
-import { ElIcon } from '../icon'
+import { ElDeprecatedIcon } from '../deprecated-icon'
 
 export const ElSplitButtonActionButton = styled(Button)``
 export const ElSplitButtonMenuButton = styled(Button)``
@@ -16,7 +16,7 @@ export const ElSplitButton = styled.div`
     border-right: var(--comp-button-border-width-none) solid var(--comp-button-colour-border-secondary-default);
 
     // Added this style to hide the iconRight from split action button
-    .el-button-label + ${ElIcon}{
+    .el-button-label + ${ElDeprecatedIcon}{
       display:none;
     }
 
@@ -46,7 +46,7 @@ export const ElSplitButton = styled.div`
       pointer-events: none;
     }
 
-    ${ElIcon} {
+    ${ElDeprecatedIcon} {
       display: contents;
       color: inherit;
       align-items: center;
@@ -59,7 +59,7 @@ export const ElSplitButton = styled.div`
     }
 
     // Added this style to hide the iconRight from split menu button
-    & > .el-button-spinner + ${ElIcon} + ${ElIcon} {
+    & > .el-button-spinner + ${ElDeprecatedIcon} + ${ElDeprecatedIcon} {
       display: none;
     }
 
@@ -95,7 +95,7 @@ export const ElSplitButton = styled.div`
       width: var(--size-10);
       height: var(--size-10);
 
-      ${ElIcon} svg {
+      ${ElDeprecatedIcon} svg {
         width: var(--icon_size-m);
         height: var(--icon_size-m);
       }

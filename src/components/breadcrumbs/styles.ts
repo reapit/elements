@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { isMobile } from '#src/styles/media'
 
 export const ElBreadcrumbsItem = styled.li`
@@ -14,7 +14,7 @@ export const ElBreadcrumbsItem = styled.li`
   }
 `
 
-export const ElBreadcrumbsItemChevron = styled(Icon)`
+export const ElBreadcrumbsItemChevron = styled(DeprecatedIcon)`
   display: flex;
   align-items: center;
   justify-content: center;

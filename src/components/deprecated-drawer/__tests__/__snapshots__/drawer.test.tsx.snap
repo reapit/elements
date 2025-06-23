@@ -21,7 +21,7 @@ exports[`Drawer component > should match a snapshot when open 1`] = `
         </div>
       </div>
       <span
-        class="el-intent-default el-icon"
+        class="el-intent-default el-deprecated-icon"
       >
         <svg
           fill="none"

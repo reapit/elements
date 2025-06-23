@@ -1,7 +1,7 @@
 import type { FC, ReactNode } from 'react'
 
 import { BottomBarItem } from '../bottom-bar-item'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { Menu, type MenuItemProps } from '../menu'
 import { ElBottomBarMoreMenu } from './styles'
 
@@ -14,7 +14,7 @@ export const BottomBarMoreMenu: FC<BottomBarMoreMenuProps> = ({ children }) => {
     <ElBottomBarMoreMenu data-alignment="right">
       <Menu.Trigger>
         {({ getTriggerProps }) => (
-          <BottomBarItem {...getTriggerProps()} icon={<Icon icon="more" />}>
+          <BottomBarItem {...getTriggerProps()} icon={<DeprecatedIcon icon="more" />}>
             More
           </BottomBarItem>
         )}

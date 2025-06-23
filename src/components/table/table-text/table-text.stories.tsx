@@ -1,5 +1,5 @@
 import { TableText } from './table-text'
-import { Icon, IconNames } from '../../icon'
+import { DeprecatedIcon, IconNames } from '../../deprecated-icon'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -39,7 +39,7 @@ const meta = {
       options: ICON_OPTIONS,
       description: 'The icon displayed on the left side of the badge.',
       mapping: ICON_OPTIONS.reduce((acc, iconName) => {
-        acc[iconName] = <Icon icon={iconName} fontSize="1rem" />
+        acc[iconName] = <DeprecatedIcon icon={iconName} fontSize="1rem" />
         return acc
       }, {}),
     },
@@ -48,7 +48,7 @@ const meta = {
       options: ICON_OPTIONS,
       description: 'The icon displayed on the right side of the badge.',
       mapping: ICON_OPTIONS.reduce((acc, iconName) => {
-        acc[iconName] = <Icon icon={iconName} fontSize="1rem" />
+        acc[iconName] = <DeprecatedIcon icon={iconName} fontSize="1rem" />
         return acc
       }, {}),
     },

@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElIcon } from '../icon'
+import { ElDeprecatedIcon } from '../deprecated-icon'
 
 export const ElFeaturesItemIcon = styled.span`
   color: var(--icon-primary);
@@ -21,7 +21,7 @@ export const ElFeaturesItem = styled.li`
   line-height: var(--line-height-2xs);
   letter-spacing: var(--letter-spacing-2xs);
 
-  ${ElIcon} {
+  ${ElDeprecatedIcon} {
     font-size: inherit;
   }
 `

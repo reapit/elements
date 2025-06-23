@@ -23,7 +23,7 @@ import {
   ElMultiSelectInputWrapper,
 } from './__styles__/index'
 import { useId } from '../../storybook/random-id'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { elMl2 } from '../../styles/spacing'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
@@ -204,7 +204,7 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
             })
           ) : (
             <>
-              <Icon className={elMl2} icon="task" intent="default" />
+              <DeprecatedIcon className={elMl2} icon="task" intent="default" />
               <p>{noneSelectedLabel ? noneSelectedLabel : 'Please select from the options below'}</p>
             </>
           )}

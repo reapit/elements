@@ -28,7 +28,7 @@ exports[`Badge > should match snapshot with icon only 1`] = `
       class="mocked-styled-0 el-badge-icon"
     >
       <span
-        class="mocked-styled-3 el-icon"
+        class="mocked-styled-3 el-deprecated-icon"
         style="font-size: 1rem;"
       >
         <svg
@@ -63,7 +63,7 @@ exports[`Badge > should match snapshot with icons and label 1`] = `
       class="mocked-styled-0 el-badge-icon"
     >
       <span
-        class="mocked-styled-3 el-icon"
+        class="mocked-styled-3 el-deprecated-icon"
         style="font-size: 1rem;"
       >
         <svg
@@ -92,7 +92,7 @@ exports[`Badge > should match snapshot with icons and label 1`] = `
       class="mocked-styled-0 el-badge-icon"
     >
       <span
-        class="mocked-styled-3 el-icon"
+        class="mocked-styled-3 el-deprecated-icon"
         style="font-size: 1rem;"
       >
         <svg

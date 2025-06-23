@@ -1,7 +1,7 @@
 import { AppSwitcher } from '../app-switcher'
 import { elIcon } from '../button'
 import { elTopBarMenuPopover } from './styles'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { Menu } from '../menu'
 import MenuIcon from './icons/menu-icon.svg?react'
 import { supportedAppNames } from './brand-logo'
@@ -146,7 +146,7 @@ const meta = {
         None: null,
         Some: (
           <TopBar.SecondaryNav>
-            <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<Icon icon="help" />}>
+            <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<DeprecatedIcon icon="help" />}>
               <Menu.Item label="Menu item 1" />
               <Menu.Item label="Menu item 2" />
               <Menu.Item label="Menu item 3" />
@@ -155,13 +155,13 @@ const meta = {
               aria-current={false}
               aria-label="Nav icon item 2"
               href={href}
-              icon={<Icon icon="notification" />}
+              icon={<DeprecatedIcon icon="notification" />}
             />
             <TopBar.NavIconItem
               aria-current={false}
               aria-label="Nav icon item 3"
               href={href}
-              icon={<Icon icon="star" />}
+              icon={<DeprecatedIcon icon="star" />}
             />
           </TopBar.SecondaryNav>
         ),

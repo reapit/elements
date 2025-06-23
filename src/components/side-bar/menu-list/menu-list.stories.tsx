@@ -1,4 +1,4 @@
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { SideBarMenuList } from './menu-list'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
@@ -91,12 +91,21 @@ export const Collapsed: Story = {
 
 function buildMenu(type: 'No selected item' | 'Selected item' | 'Selected submenu item') {
   return [
-    <SideBarMenuList.Item key="1" href={href} icon={<Icon icon="property" />} isActive={type === 'Selected item'}>
+    <SideBarMenuList.Item
+      key="1"
+      href={href}
+      icon={<DeprecatedIcon icon="property" />}
+      isActive={type === 'Selected item'}
+    >
       Menu item 1
     </SideBarMenuList.Item>,
     <SideBarMenuList.Group
       key="2"
-      summary={<SideBarMenuList.GroupSummary icon={<Icon icon="property" />}>Menu item 2</SideBarMenuList.GroupSummary>}
+      summary={
+        <SideBarMenuList.GroupSummary icon={<DeprecatedIcon icon="property" />}>
+          Menu item 2
+        </SideBarMenuList.GroupSummary>
+      }
     >
       <SideBarMenuList.Submenu>
         <SideBarMenuList.SubmenuItem href={href} isActive={type === 'Selected submenu item'}>

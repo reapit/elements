@@ -12,7 +12,7 @@ import React, {
 import { useId } from '../../storybook/random-id'
 import { elMl3, elMr4 } from '../../styles/spacing'
 import { Button } from '../button'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { DeprecatedLabel } from '../deprecated-label'
 import { FlexContainer } from '../layout'
 import { handleSetNativeInput } from '../multi-select'
@@ -154,7 +154,7 @@ export const FileInput: FileInputWrapped = forwardRef(
           {fileUrl ? (
             <ElFileInputIconContainer>
               {onFileView && (
-                <Icon
+                <DeprecatedIcon
                   role="button"
                   onClick={handleFileView(onFileView, fileUrl)}
                   className={elMr4}
@@ -163,7 +163,7 @@ export const FileInput: FileInputWrapped = forwardRef(
                   fontSize="1rem"
                 />
               )}
-              <Icon
+              <DeprecatedIcon
                 role="button"
                 onClick={handleFileClear(setFileName)}
                 className={elMr4}

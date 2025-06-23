@@ -28,7 +28,7 @@ exports[`SplitButton > should match snapshot 1`] = `
         class="mocked-styled-1 el-button-spinner"
       />
       <span
-        class="mocked-styled-0 el-icon"
+        class="mocked-styled-0 el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -79,7 +79,7 @@ exports[`SplitButton > should match snapshot with large size 1`] = `
         class="mocked-styled-1 el-button-spinner"
       />
       <span
-        class="mocked-styled-0 el-icon"
+        class="mocked-styled-0 el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -130,7 +130,7 @@ exports[`SplitButton > should match snapshot with secondary variant 1`] = `
         class="mocked-styled-1 el-button-spinner"
       />
       <span
-        class="mocked-styled-0 el-icon"
+        class="mocked-styled-0 el-deprecated-icon"
       >
         <svg
           fill="none"

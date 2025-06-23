@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElIcon } from '../../icon/__styles__'
+import { ElDeprecatedIcon } from '../../deprecated-icon/__styles__'
 import { elIsActive } from '../../../styles/states'
 import {
   elIntentPrimary,
@@ -25,7 +25,7 @@ export const elPnIcon = css`
   border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
   cursor: pointer;
 
-  ${ElIcon} {
+  ${ElDeprecatedIcon} {
     color: var(--white);
   }
 `

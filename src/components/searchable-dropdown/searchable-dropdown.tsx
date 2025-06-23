@@ -9,7 +9,7 @@ import {
   ElSearchableDropdownSearchLabel,
   ElSearchableDropdownSearchLoader,
 } from './__styles__'
-import { Icon, IconNames } from '../icon'
+import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 import { handleSetNativeInput } from '../multi-select'
 import { generateRandomId } from '../../storybook/random-id'
 import { DeprecatedLabel } from '../deprecated-label'
@@ -71,7 +71,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
       >
         <input id={id} style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
         <ElSearchableDropdownSearchInputAddOn>
-          <Icon icon={icon} fontSize="1rem" intent="default" />
+          <DeprecatedIcon icon={icon} fontSize="1rem" intent="default" />
         </ElSearchableDropdownSearchInputAddOn>
         <ElSearchableDropdownSearchInput data-testid="search-input" value={value} {...inputProps} />
         {isResultsListVisible && (

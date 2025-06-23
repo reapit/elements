@@ -13,7 +13,7 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
         <span
-          class="el-intent-primary el-icon"
+          class="el-intent-primary el-deprecated-icon"
         >
           <svg
             fill="none"
@@ -62,7 +62,7 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
         <span
-          class="el-intent-primary el-icon"
+          class="el-intent-primary el-deprecated-icon"
         >
           <svg
             fill="none"
@@ -103,7 +103,7 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
         <span
-          class="el-intent-primary el-icon"
+          class="el-intent-primary el-deprecated-icon"
         >
           <svg
             fill="none"
@@ -154,7 +154,7 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
         <span
-          class="el-intent-primary el-icon"
+          class="el-intent-primary el-deprecated-icon"
         >
           <svg
             fill="none"
@@ -195,7 +195,7 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
         <span
-          class="el-intent-primary el-icon"
+          class="el-intent-primary el-deprecated-icon"
         >
           <svg
             fill="none"
@@ -236,7 +236,7 @@ exports[`KeyValueList component > should match a snapshot 1`] = `
         class="mocked-styled-0 el-key-value-icon-wrap"
       >
         <span
-          class="el-intent-primary el-icon"
+          class="el-intent-primary el-deprecated-icon"
         >
           <svg
             fill="none"
@@ -288,7 +288,7 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
           <span
-            class="el-intent-primary el-icon"
+            class="el-intent-primary el-deprecated-icon"
           >
             <svg
               fill="none"
@@ -340,7 +340,7 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
           <span
-            class="el-intent-primary el-icon"
+            class="el-intent-primary el-deprecated-icon"
           >
             <svg
               fill="none"
@@ -384,7 +384,7 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
           <span
-            class="el-intent-primary el-icon"
+            class="el-intent-primary el-deprecated-icon"
           >
             <svg
               fill="none"
@@ -438,7 +438,7 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
           <span
-            class="el-intent-primary el-icon"
+            class="el-intent-primary el-deprecated-icon"
           >
             <svg
               fill="none"
@@ -482,7 +482,7 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
           <span
-            class="el-intent-primary el-icon"
+            class="el-intent-primary el-deprecated-icon"
           >
             <svg
               fill="none"
@@ -526,7 +526,7 @@ exports[`KeyValueList component > should match a snapshot for a grid 1`] = `
           class="mocked-styled-0 el-key-value-icon-wrap"
         >
           <span
-            class="el-intent-primary el-icon"
+            class="el-intent-primary el-deprecated-icon"
           >
             <svg
               fill="none"

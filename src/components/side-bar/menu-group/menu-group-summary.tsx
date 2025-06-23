@@ -7,7 +7,7 @@ import {
   ElSideBarMenuGroupSummaryDropdownIcon,
 } from './styles'
 import { elSideBarMenuItem } from '../menu-item'
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { useCallback } from 'react'
 import { useSideBarMenuGroupLabelIdContext } from './menu-group-label-id-context'
 
@@ -70,7 +70,7 @@ export function SideBarMenuGroupSummary({
       <ElSideBarMenuGroupSummaryIcon aria-hidden>{icon}</ElSideBarMenuGroupSummaryIcon>
       <ElSideBarMenuGroupSummaryLabel>{children}</ElSideBarMenuGroupSummaryLabel>
       <ElSideBarMenuGroupSummaryDropdownIcon aria-hidden>
-        <Icon icon="chevronDown" />
+        <DeprecatedIcon icon="chevronDown" />
       </ElSideBarMenuGroupSummaryDropdownIcon>
     </summary>
   )

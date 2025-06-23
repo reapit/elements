@@ -11,7 +11,7 @@ import {
   TableCtaTriggerCell,
   TableCellSplit,
 } from './molecules'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { elSpan2, elSpan3 } from '../grid'
 import { InputGroup } from '../input-group'
 import { Button, DeprecatedButtonGroup } from '../button'
@@ -212,7 +212,7 @@ export const ExpandableContent = {
         <DeprecatedTableHeader>Amount</DeprecatedTableHeader>
         <DeprecatedTableHeader>Payment Status</DeprecatedTableHeader>
         <DeprecatedTableHeader>
-          <Icon icon="edit" intent="default" />
+          <DeprecatedIcon icon="edit" intent="default" />
         </DeprecatedTableHeader>
       </DeprecatedTableHeadersRow>
       <DeprecatedTableRowContainer className={elIsActive}>

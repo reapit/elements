@@ -1,6 +1,6 @@
 import { SingleLineCell } from './single-line-cell'
 import { TableText } from '../table-text'
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { Skeleton } from '../../skeleton'
 import { Badge } from '../../badge'
 import { Features, FeaturesItem } from '../../features'
@@ -46,8 +46,8 @@ const meta = {
         if (itemName === 'Badge') {
           acc[itemName] = (
             <Badge
-              iconLeft={<Icon icon="add" fontSize="1rem" />}
-              iconRight={<Icon icon="chevronDown" fontSize="1rem" />}
+              iconLeft={<DeprecatedIcon icon="add" fontSize="1rem" />}
+              iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
               variant="success"
             >
               Label
@@ -57,16 +57,16 @@ const meta = {
         if (itemName === 'Features') {
           acc[itemName] = (
             <Features>
-              <FeaturesItem aria-label="Bedrooms" icon={<Icon icon="bed" />}>
+              <FeaturesItem aria-label="Bedrooms" icon={<DeprecatedIcon icon="bed" />}>
                 1
               </FeaturesItem>
-              <FeaturesItem aria-label="Bathooms" icon={<Icon icon="bath" />}>
+              <FeaturesItem aria-label="Bathooms" icon={<DeprecatedIcon icon="bath" />}>
                 2
               </FeaturesItem>
-              <FeaturesItem aria-label="Cars" icon={<Icon icon="car" />}>
+              <FeaturesItem aria-label="Cars" icon={<DeprecatedIcon icon="car" />}>
                 5
               </FeaturesItem>
-              <FeaturesItem aria-label="Areas" icon={<Icon icon="appSwitcher" />}>
+              <FeaturesItem aria-label="Areas" icon={<DeprecatedIcon icon="appSwitcher" />}>
                 850 sqm
               </FeaturesItem>
             </Features>
@@ -74,7 +74,10 @@ const meta = {
         }
         if (itemName === 'Icon with Value') {
           acc[itemName] = (
-            <TableText iconLeft={<Icon icon="star" fontSize="1rem" />} iconRight={<Icon icon="star" fontSize="1rem" />}>
+            <TableText
+              iconLeft={<DeprecatedIcon icon="star" fontSize="1rem" />}
+              iconRight={<DeprecatedIcon icon="star" fontSize="1rem" />}
+            >
               Value
             </TableText>
           )
