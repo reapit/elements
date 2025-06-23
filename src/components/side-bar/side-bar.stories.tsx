@@ -82,7 +82,7 @@ export const Sizing: Story = {
 function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu item') {
   return (
     <SideBar.MenuList>
-      <SideBar.MenuItem key="1" href={href} icon={<DeprecatedIcon icon="dashboard" />}>
+      <SideBar.MenuItem aria-current={false} key="1" href={href} icon={<DeprecatedIcon icon="dashboard" />}>
         Menu item 1
       </SideBar.MenuItem>
       <SideBar.MenuItem
@@ -100,7 +100,9 @@ function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu
         }
       >
         <SideBar.Submenu>
-          <SideBar.SubmenuItem href={href}>Submenu item 1</SideBar.SubmenuItem>
+          <SideBar.SubmenuItem aria-current={false} href={href}>
+            Submenu item 1
+          </SideBar.SubmenuItem>
           <SideBar.SubmenuItem aria-current={type === 'Selected submenu item' ? 'page' : false} href={href}>
             Submenu item 2
           </SideBar.SubmenuItem>
@@ -113,8 +115,12 @@ function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu
         }
       >
         <SideBar.Submenu>
-          <SideBar.SubmenuItem href={href}>Submenu item 3</SideBar.SubmenuItem>
-          <SideBar.SubmenuItem href={href}>Submenu item 4</SideBar.SubmenuItem>
+          <SideBar.SubmenuItem aria-current={false} href={href}>
+            Submenu item 3
+          </SideBar.SubmenuItem>
+          <SideBar.SubmenuItem aria-current={false} href={href}>
+            Submenu item 4
+          </SideBar.SubmenuItem>
         </SideBar.Submenu>
       </SideBar.MenuGroup>
     </SideBar.MenuList>

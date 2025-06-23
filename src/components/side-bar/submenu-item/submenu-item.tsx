@@ -7,7 +7,7 @@ interface SideBarSubmenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorEl
    * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
    * accessible users that the item is currently "selected".
    */
-  'aria-current'?: 'page' | false
+  'aria-current': 'page' | false
   /**
    * The label of the menu item.
    */

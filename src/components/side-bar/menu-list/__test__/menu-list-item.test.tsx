@@ -3,7 +3,7 @@ import { SideBarMenuListItem } from '../menu-list-item'
 
 test('renders an <a> element as child of a <li>', () => {
   render(
-    <SideBarMenuListItem href="/" icon="😎">
+    <SideBarMenuListItem aria-current={false} href="/" icon="😎">
       Item
     </SideBarMenuListItem>,
   )
@@ -17,7 +17,7 @@ test('renders an <a> element as child of a <li>', () => {
 
 test('forwards additional props to the underlying `SideBarMenuItem`', () => {
   render(
-    <SideBarMenuListItem href="/" icon="😎" aria-current="page">
+    <SideBarMenuListItem aria-current="page" href="/" icon="😎">
       Item
     </SideBarMenuListItem>,
   )

@@ -111,7 +111,9 @@ function buildMenu(type: 'No selected item' | 'Selected item' | 'Selected submen
         <SideBarMenuList.SubmenuItem aria-current={type === 'Selected submenu item' ? 'page' : false} href={href}>
           Submenu item 1
         </SideBarMenuList.SubmenuItem>
-        <SideBarMenuList.SubmenuItem href={href}>Submenu item 2</SideBarMenuList.SubmenuItem>
+        <SideBarMenuList.SubmenuItem aria-current={false} href={href}>
+          Submenu item 2
+        </SideBarMenuList.SubmenuItem>
       </SideBarMenuList.Submenu>
     </SideBarMenuList.Group>,
   ]
