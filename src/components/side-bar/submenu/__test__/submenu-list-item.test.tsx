@@ -11,9 +11,9 @@ test('renders a link as child of a list item', () => {
   expect(listItem.firstChild).toBe(anchor)
 })
 
-test('link `aria-current="page"` attribute present when `isActive`', () => {
+test('forwards additional props to the underlying `SideBarSubmenuItem`', () => {
   render(
-    <SideBarSubmenuListItem href="/" isActive>
+    <SideBarSubmenuListItem href="/" aria-current="page">
       Item
     </SideBarSubmenuListItem>,
   )

@@ -64,6 +64,21 @@ export const SelectedSubmenuItem: Story = {
   },
 }
 
+/**
+ * The side bar can be resized using the `width` prop. This size only applies when the side bar is expanded. Products
+ * should set the width according the menu items they display within the side bar. The side bar cannot be sized smaller
+ * than `--size-48` or larger than `--size-64`.
+ *
+ * By default, the side bar will size itself to `--size-64`.
+ */
+export const Sizing: Story = {
+  args: {
+    ...Example.args,
+    children: 'Selected submenu item',
+    width: '--size-52',
+  },
+}
+
 function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu item') {
   return (
     <SideBar.MenuList>
@@ -72,9 +87,9 @@ function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu
       </SideBar.MenuItem>
       <SideBar.MenuItem
         key="2"
+        aria-current={type === 'Selected item' ? 'page' : false}
         href={href}
         icon={<DeprecatedIcon icon="contact" />}
-        isActive={type === 'Selected item'}
       >
         Menu item 2
       </SideBar.MenuItem>
@@ -86,7 +101,7 @@ function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu
       >
         <SideBar.Submenu>
           <SideBar.SubmenuItem href={href}>Submenu item 1</SideBar.SubmenuItem>
-          <SideBar.SubmenuItem href={href} isActive={type === 'Selected submenu item'}>
+          <SideBar.SubmenuItem aria-current={type === 'Selected submenu item' ? 'page' : false} href={href}>
             Submenu item 2
           </SideBar.SubmenuItem>
         </SideBar.Submenu>

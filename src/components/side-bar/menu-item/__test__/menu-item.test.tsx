@@ -25,7 +25,12 @@ test('icon is visible but hidden from the accessibility tree', () => {
   expect(icon).toHaveAttribute('aria-hidden')
 })
 
-test('has `aria-current="page"` attribute present when `isActive`', () => {
+test('has `aria-current="false"` attribute when it does NOT represent the current page', () => {
+  render(<MenuItemStories.Example>Item</MenuItemStories.Example>)
+  expect(screen.getByRole('link', { name: 'Item' })).toHaveAttribute('aria-current', 'false')
+})
+
+test('has `aria-current="page"` attribute when it represents the current page', () => {
   render(<MenuItemStories.Selected>Item</MenuItemStories.Selected>)
   expect(screen.getByRole('link', { name: 'Item' })).toHaveAttribute('aria-current', 'page')
 })

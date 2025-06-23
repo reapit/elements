@@ -17,12 +17,12 @@ test(`combines the .${elSideBarSubmenuItem} and consumer-supplied classes correc
   expect(screen.getByRole('link')).toHaveAttribute('class', `${elSideBarSubmenuItem} my-custom-class`)
 })
 
-test('has `aria-current="false"` attribute present when `isActive={false}`', () => {
+test('has `aria-current="false"` attribute when it does NOT represent the current page', () => {
   render(<SubmenuItemStories.Example>Test item</SubmenuItemStories.Example>)
   expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'false')
 })
 
-test('has `aria-current="page"` attribute present when `isActive={true}`', () => {
+test('has `aria-current="page"` attribute when it represents the current page', () => {
   render(<SubmenuItemStories.Selected>Test item</SubmenuItemStories.Selected>)
   expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'page')
 })

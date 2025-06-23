@@ -93,9 +93,9 @@ function buildMenu(type: 'No selected item' | 'Selected item' | 'Selected submen
   return [
     <SideBarMenuList.Item
       key="1"
+      aria-current={type === 'Selected item' ? 'page' : false}
       href={href}
       icon={<DeprecatedIcon icon="property" />}
-      isActive={type === 'Selected item'}
     >
       Menu item 1
     </SideBarMenuList.Item>,
@@ -108,7 +108,7 @@ function buildMenu(type: 'No selected item' | 'Selected item' | 'Selected submen
       }
     >
       <SideBarMenuList.Submenu>
-        <SideBarMenuList.SubmenuItem href={href} isActive={type === 'Selected submenu item'}>
+        <SideBarMenuList.SubmenuItem aria-current={type === 'Selected submenu item' ? 'page' : false} href={href}>
           Submenu item 1
         </SideBarMenuList.SubmenuItem>
         <SideBarMenuList.SubmenuItem href={href}>Submenu item 2</SideBarMenuList.SubmenuItem>

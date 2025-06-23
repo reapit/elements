@@ -15,9 +15,9 @@ test('renders an <a> element as child of a <li>', () => {
   expect(listItem.firstChild).toBe(anchor)
 })
 
-test('<a> element has `aria-current="page"` attribute present when `isActive`', () => {
+test('forwards additional props to the underlying `SideBarMenuItem`', () => {
   render(
-    <SideBarMenuListItem href="/" icon="😎" isActive>
+    <SideBarMenuListItem href="/" icon="😎" aria-current="page">
       Item
     </SideBarMenuListItem>,
   )
