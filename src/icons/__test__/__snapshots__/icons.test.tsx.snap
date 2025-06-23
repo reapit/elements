@@ -1,0 +1,3563 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`'AddIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 11h-7V4a1 1 0 1 0-2 0v7H4a1 1 0 1 0 0 2h7v7a1 1 0 1 0 2 0v-7h7a1 1 0 1 0 0-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'AnnouncementIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M21.05 2.298a2 2 0 0 0-1.94-.09l-6.35 3.17H7a5 5 0 0 0-1.33 9.82l-1.4 4.18c-.148.458-.07.96.21 1.35a1.49 1.49 0 0 0 1.21.65h3a1.48 1.48 0 0 0 1.42-1l1.66-5h1l6.35 3.17a2 2 0 0 0 2.89-1.79V3.998a2 2 0 0 0-.96-1.7ZM4 10.378a3 3 0 0 1 3-3h5v6H7a3 3 0 0 1-3-3Zm4.28 9H6.39l1.33-4h1.89l-1.33 4Zm5.72-5.62v-6.76l6-3v12.76l-6-3Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'AppSwitcherIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6 4a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm8 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm8 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM6 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm8 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm8 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0ZM6 20a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm8 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm8 0a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ArchiveIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M20.45 2h-17C2.1 2 1 3.1 1 4.45v2c0 .81.4 1.52 1 1.97v10.53c0 .78.31 1.53.86 2.09.55.55 1.3.86 2.09.86h14c.78 0 1.53-.31 2.09-.86.56-.55.86-1.3.86-2.09V8.42c.6-.45 1-1.16 1-1.97v-2C22.9 3.1 21.8 2 20.45 2ZM2.9 4.45c0-.3.25-.55.55-.55h17c.3 0 .55.25.55.55v2c0 .3-.25.55-.55.55h-17c-.3 0-.55-.25-.55-.55v-2Zm6 4.45H15v2.05s0 .03-.01.04c-.01.01-.02.01-.04.01h-6s-.03 0-.04-.01c0 0-.01-.02-.01-.04V8.9Zm10.79 10.79c-.2.2-.46.31-.74.31h-14c-.28 0-.55-.11-.74-.31-.2-.2-.31-.46-.31-.74V8.9H7v2.05c0 .52.21 1.01.57 1.38.37.37.86.57 1.38.57h6c.52 0 1.01-.21 1.38-.57.37-.36.57-.86.57-1.38V8.9H20v10.05c0 .28-.11.55-.31.74Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ArrowDownIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19.714 11.29a1 1 0 0 0-1.42 0l-5.29 5.3V5a1 1 0 1 0-2 0v11.59l-5.29-5.3a1.004 1.004 0 0 0-1.42 1.42l7 7a1 1 0 0 0 1.42 0l7-7a1 1 0 0 0 0-1.42Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ArrowLeftIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19.006 11.004H7.416l5.3-5.29a1.004 1.004 0 0 0-1.42-1.42l-7 7a1 1 0 0 0 0 1.42l7 7a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-5.3-5.29h11.59a1 1 0 1 0 0-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ArrowRightIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m19.71 11.294-7-7a1.004 1.004 0 0 0-1.42 1.42l5.3 5.29H5a1 1 0 1 0 0 2h11.59l-5.3 5.29a1 1 0 0 0 0 1.42 1 1 0 0 0 1.42 0l7-7a1 1 0 0 0 0-1.42Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ArrowUpIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m19.714 11.296-7-7a1 1 0 0 0-1.42 0l-7 7a1.004 1.004 0 0 0 1.42 1.42l5.29-5.3v11.59a1 1 0 1 0 2 0V7.416l5.29 5.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'AsteriskIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.9 20.35v-6.425L5.325 17.15l-1.1-1.925L9.8 12 4.225 8.8l1.1-1.925L10.9 10.1V3.65h2.2v6.45l5.575-3.225 1.1 1.925L14.2 12l5.575 3.225-1.1 1.925-5.575-3.225v6.425h-2.2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'AttachmentIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9 22.424a7 7 0 0 1-4.95-11.95l7.07-7.07a5 5 0 0 1 7.07 7.07l-7.07 7.07a3 3 0 0 1-4.24-4.24l7.07-7.07a1 1 0 1 1 1.42 1.41l-7.08 7.08a1 1 0 1 0 1.42 1.41l7.07-7.07a3 3 0 0 0-4.24-4.24l-7.07 7.07a5 5 0 0 0 7.07 7.07l7.12-7.07a1 1 0 1 1 1.41 1.41L14 20.374a7.001 7.001 0 0 1-5 2.05Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'AutomationIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M14.315 9.796a2 2 0 1 1 2.827-2.829 2 2 0 0 1-2.827 2.83Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M20.933 2.469a1 1 0 0 1 .71.71 11.25 11.25 0 0 1-2.81 11.15 18.713 18.713 0 0 1-2.6 2.11 20.31 20.31 0 0 1-2.51 5.25 1 1 0 0 1-.74.42h-.08a1 1 0 0 1-.71-.29l-9.9-9.9a1 1 0 0 1-.29-.79 1 1 0 0 1 .42-.74 20.31 20.31 0 0 1 5.25-2.51 18.71 18.71 0 0 1 2.11-2.6 11.25 11.25 0 0 1 11.15-2.81Zm-10.51 14.78a21.999 21.999 0 0 0 7-4.34 9.09 9.09 0 0 0 2.43-8.67 9.09 9.09 0 0 0-8.65 2.43 22 22 0 0 0-4.34 7l3.56 3.58Z"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M7.243 19.729a4 4 0 0 1-3.86 1 4 4 0 0 1 1.03-3.86l2.83 2.86Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'BathIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M22 10h-2V6a4 4 0 0 0-8 0 1 1 0 1 0 2 0 2 2 0 1 1 4 0v4H2a1 1 0 1 0 0 2v2a6 6 0 0 0 2.84 5.09l-.73 1.46a1 1 0 0 0 .44 1.34A.931.931 0 0 0 5 22a1 1 0 0 0 .89-.55l.8-1.6c.43.1.869.151 1.31.15h8c.441.001.88-.05 1.31-.15l.8 1.6A1 1 0 0 0 19 22a.931.931 0 0 0 .45-.11 1 1 0 0 0 .44-1.34l-.73-1.46A6 6 0 0 0 22 14v-2a1 1 0 1 0 0-2Zm-2 4a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4v-2h16v2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'BedIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M23 15a.19.19 0 0 1 0-.08v-.14a.09.09 0 0 1 0-.05l-2-5.89V6a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2.84l-1.95 5.84a.09.09 0 0 1 0 .05v.14A.22.22 0 0 1 1 15v3a2 2 0 0 0 2 2v1a1 1 0 1 0 2 0v-1h14v1a1 1 0 1 0 2 0v-1a2 2 0 0 0 2-2v-3ZM4.72 10h14.56l1.33 4H3.39l1.33-4ZM5 6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v2H5V6ZM3 18v-2h18v2H3Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'BillBulkIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M20.22 3.778a9.5 9.5 0 0 0-13.436.01 9.374 9.374 0 0 0-1.316 1.68 9.05 9.05 0 0 0-1.68 1.314 9.492 9.492 0 0 0 0 13.44c3.707 3.704 9.728 3.704 13.445 0a9.245 9.245 0 0 0 1.335-1.71 9.17 9.17 0 0 0 1.652-1.296c3.707-3.705 3.707-9.714 0-13.429v-.01Zm-3.054 13.688-.125.202c-.298.47-.644.921-1.047 1.324-3.044 3.034-7.971 3.034-11.006 0a7.767 7.767 0 0 1 0-11c.461-.461.97-.855 1.517-1.171 2.978-1.767 6.906-1.383 9.47 1.18 2.564 2.563 2.948 6.48 1.171 9.465h.02Zm2.718-2.553a9.502 9.502 0 0 0-.337-4.31v-.01a8.24 8.24 0 0 0-.393-1.017v-.01a10.422 10.422 0 0 0-.51-.97.2.2 0 0 0-.038-.057 10.651 10.651 0 0 0-.547-.797c-.048-.057-.087-.115-.135-.173a9.004 9.004 0 0 0-.7-.787s-.02-.01-.03-.019c-.23-.23-.48-.441-.73-.653a2.891 2.891 0 0 0-.278-.21 6.089 6.089 0 0 0-.576-.394c-.096-.058-.192-.125-.288-.183-.26-.153-.519-.288-.778-.413-.135-.067-.279-.124-.423-.182l-.451-.173c-.163-.057-.317-.115-.48-.163-.135-.038-.27-.067-.413-.106a10.42 10.42 0 0 0-.922-.182c-.116-.02-.221-.029-.336-.048a11.66 11.66 0 0 0-.586-.048h-.288c-.413 0-.826.01-1.24.058-.038 0-.076 0-.114.01-.077.009-.164.009-.24.019a7.778 7.778 0 0 1 9.93.883 7.782 7.782 0 0 1 .893 9.925l.01.01Z"
+      fill-rule="evenodd"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M9.646 10.046h1.575c.71 0 1.296.586 1.296 1.296 0 .48.385.864.865.864a.86.86 0 0 0 .864-.864c0-1.622-1.287-2.937-2.89-3.014v-.586a.86.86 0 0 0-.865-.864.86.86 0 0 0-.864.864v.576a2.889 2.889 0 0 0-2.872 2.89c0 1.305.884 2.476 2.18 2.793l2.699.672c.509.124.874.585.874 1.123a1.16 1.16 0 0 1-1.162 1.161H9.77c-.71 0-1.297-.585-1.297-1.296a.86.86 0 0 0-.864-.864.86.86 0 0 0-.864.864 3.011 3.011 0 0 0 2.88 3.005v.595c0 .48.385.864.865.864a.86.86 0 0 0 .864-.864v-.576a2.885 2.885 0 0 0 2.881-2.89 2.877 2.877 0 0 0-2.18-2.793l-2.698-.671a1.145 1.145 0 0 1-.865-1.123 1.16 1.16 0 0 1 1.162-1.162h-.01Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'BillIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M18.46 5.541c-3.57-3.57-9.35-3.57-12.91 0-3.57 3.57-3.57 9.35 0 12.91 3.57 3.57 9.35 3.57 12.91 0 3.56-3.57 3.57-9.35 0-12.91ZM4.22 4.221c4.3-4.29 11.26-4.29 15.56 0 4.3 4.3 4.3 11.26 0 15.56-4.3 4.3-11.26 4.3-15.56 0-4.29-4.3-4.29-11.26 0-15.56Zm7.78.14c.52 0 .93.42.93.93v.74c1.86.05 3.36 1.58 3.36 3.45 0 .52-.42.93-.93.93s-.93-.42-.93-.93c0-.87-.71-1.58-1.58-1.58h-1.84a1.421 1.421 0 0 0-.34 2.8l3.14.79c1.46.37 2.49 1.68 2.49 3.19 0 1.82-1.47 3.29-3.29 3.29h-.07v.74c0 .52-.42.93-.93.93s-.93-.42-.93-.93v-.74a3.45 3.45 0 0 1-3.35-3.45c0-.52.42-.93.93-.93s.93.42.93.93c0 .87.71 1.58 1.58 1.58H13a1.421 1.421 0 0 0 .34-2.8l-3.14-.79a3.294 3.294 0 0 1-2.49-3.19c0-1.82 1.47-3.29 3.29-3.29h.06v-.74c0-.52.42-.93.93-.93H12Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'BookmarkBulkIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M18.66 2H11.4C9.37 2 7.71 3.62 7.62 5.63H5.8C3.71 5.63 2 7.34 2 9.43v10.6c0 .88.32 1.72 1.08 2.16.75.44 1.65.32 2.41-.11l3.67-2.04s.13-.05.28-.05c.15 0 .24.03.28.05l3.66 2.04c.77.42 1.66.55 2.41.11.76-.44 1.08-1.29 1.08-2.16v-2.75l2.11 1.18c.77.42 1.66.55 2.41.11.76-.44 1.08-1.29 1.08-2.16V5.8c0-2.09-1.71-3.8-3.8-3.8h-.01Zm-3.59 18.03c0 .48-.16.6-.19.61-.03.02-.21.1-.63-.13l-3.66-2.04c-.36-.2-.78-.27-1.14-.27-.36 0-.78.07-1.14.27l-3.67 2.05c-.42.23-.6.15-.63.13-.03-.02-.19-.13-.19-.61V9.43c0-1.1.9-2 2-2h7.26c1.1 0 2 .9 2 2v10.6h-.01Zm5.6-3.62c0 .48-.16.6-.19.61-.03.02-.21.1-.63-.13l-2.98-1.66v-5.8c0-2.09-1.71-3.8-3.8-3.8H9.41c.09-1.02.96-1.82 1.99-1.82h7.26c1.1 0 2 .9 2 2v10.6h.01Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'BookmarkIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16.44 2H7.56C5.04 2 3 4.01 3 6.47v12.68c0 1.12.45 2.04 1.24 2.51.81.48 1.85.44 2.88-.11l4.5-2.44c.18-.1.59-.1.77 0l4.49 2.44c.55.3 1.11.45 1.63.45.45 0 .87-.11 1.24-.33.79-.47 1.25-1.39 1.25-2.52V6.47C20.99 4.01 18.94 2 16.44 2ZM19 19.15c0 .39-.1.7-.27.8-.18.11-.52.05-.9-.16l-4.49-2.43c-.39-.22-.87-.32-1.34-.32-.47 0-.95.11-1.34.32L6.17 19.8c-.37.2-.72.26-.9.15-.17-.1-.27-.4-.27-.79V6.47C5 5.11 6.15 4 7.56 4h8.88C17.85 4 19 5.11 19 6.47v12.68Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'BuyIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m22.99 8.918-10.5-7a1 1 0 0 0-1.1 0l-10.45 7c-.4.32-.49.9-.21 1.33.28.43.85.57 1.31.33l.9-.63v11.3c0 .55.45 1 1 1h16c.55 0 1-.45 1-1v-11.3l.95.63c.16.11.35.17.55.17.44 0 .82-.29.95-.71s-.04-.87-.4-1.12Zm-4.05 11.33h-14V8.617l7-4.67 7 4.67v11.63Z"
+    />
+    <path
+      d="M11.15 7.588v.32h-.36c-1.4 0-2.55 1.18-2.55 2.63 0 1.69.98 2.23 1.73 2.49l1.19.41v2.63h-.12c-.6 0-1.09-.53-1.09-1.19a.85.85 0 1 0-1.7 0c0 1.59 1.25 2.89 2.79 2.89h.12v.32a.85.85 0 1 0 1.7 0v-.32h.38c1.41 0 2.55-1.18 2.55-2.63 0-1.68-.98-2.23-1.73-2.49l-1.2-.42v-2.62h.13c.6 0 1.09.53 1.09 1.19a.85.85 0 1 0 1.7 0c0-1.59-1.25-2.89-2.79-2.89h-.13v-.32a.85.85 0 1 0-1.7 0h-.01Zm0 4.05-.62-.22c-.41-.14-.59-.24-.59-.89 0-.51.38-.93.85-.93h.36v2.04Zm1.7 2.39.64.22c.41.15.59.24.59.89 0 .51-.38.93-.85.93h-.38v-2.04Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CalculatorIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9.5 13a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm2.5 1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm5.5-1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM8 18.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm5.5-1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm2.5 1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM7.5 6h9a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M5 2h14a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 2v16h14V4H5Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CalendarIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 4h-1V3a1 1 0 1 0-2 0v1H8V3a1 1 0 0 0-2 0v1H5a3 3 0 0 0-3 3v12a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3Zm1 15a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1v-9h16v9Zm0-11H4V7a1 1 0 0 1 1-1h14a1 1 0 0 1 1 1v1Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CalendarUserIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16.5 2.1a.9.9 0 0 1 .9.9v.6h.6a3.9 3.9 0 0 1 3.9 3.9V9a.9.9 0 1 1-1.8 0V7.5A2.1 2.1 0 0 0 18 5.4h-.6V6a.9.9 0 1 1-1.8 0v-.6H8.4V6a.9.9 0 0 1-1.8 0v-.6H6a2.1 2.1 0 0 0-2.1 2.1V18c0 1.16.94 2.1 2.1 2.1h5a.9.9 0 1 1 0 1.8H6A3.9 3.9 0 0 1 2.1 18V7.5A3.9 3.9 0 0 1 6 3.6h.6V3a.9.9 0 1 1 1.8 0v.6h7.2V3a.9.9 0 0 1 .9-.9Zm3.409 15a3 3 0 0 1 2.991 2.994V21a.9.9 0 1 1-1.8 0v-.903a1.2 1.2 0 0 0-1.194-1.197h-2.81a1.2 1.2 0 0 0-1.196 1.194V21a.9.9 0 1 1-1.8 0v-.909a3 3 0 0 1 2.994-2.99h2.815ZM7.5 14.625l.133.006a1.375 1.375 0 1 1-.133-.006Zm5 0 .133.006a1.375 1.375 0 1 1-.133-.006Zm6-3.775a2.9 2.9 0 1 1 0 5.8 2.9 2.9 0 0 1 0-5.8Zm0 1.8a1.1 1.1 0 1 0 0 2.2 1.1 1.1 0 0 0 0-2.2Zm-11-2.025.133.006a1.375 1.375 0 1 1-.133-.006Zm5 0 .133.006a1.375 1.375 0 1 1-.133-.006Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CameraIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16 13a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M17.5 6H20a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h2.5l.95-1.89A2 2 0 0 1 9.24 3h5.52a2 2 0 0 1 1.79 1.11L17.5 6ZM6 13a6 6 0 1 0 12 0 6 6 0 0 0-12 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CarIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.5 15.5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm13-2a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M21 8h-.28l-1.09-3.27A4 4 0 0 0 15.84 2H8.16a4 4 0 0 0-3.79 2.74L3.28 8H3a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1h8v1a2 2 0 0 0 2 2h1a2 2 0 0 0 2-2v-1a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2ZM6.26 5.37A2 2 0 0 1 8.16 4h7.68a2 2 0 0 1 1.9 1.37L18.61 8H5.39l.87-2.63ZM6 20H5v-1h1v1Zm13 0h-1v-1h1v1ZM3 17v-7h18v7H3Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CheckIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M20.289 6.387a1.323 1.323 0 0 0-1.87 0l-8.42 8.42-3.741-3.743a1.323 1.323 0 0 0-1.87 1.87l4.676 4.678a1.321 1.321 0 0 0 1.87 0l9.355-9.354a1.323 1.323 0 0 0 0-1.87Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CheckOutlineIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M1 12C1 5.925 5.925 1 12 1a11 11 0 0 1 11 11c0 6.075-4.925 11-11 11S1 18.075 1 12Zm20 0a9 9 0 1 0-18 0 9 9 0 0 0 18 0Z"
+      fill-rule="evenodd"
+    />
+    <path
+      d="m8.45 11.65 2.15 2.15 4.95-4.95a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275.948.948 0 0 1 .275.7.948.948 0 0 1-.275.7L11.3 15.9c-.2.2-.433.3-.7.3a.96.96 0 0 1-.7-.3l-2.85-2.85a.948.948 0 0 1-.275-.7c0-.283.092-.516.275-.7a.948.948 0 0 1 .7-.275.95.95 0 0 1 .7.275Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CheckboxDisabledIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CheckboxIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CheckboxIndeterminateIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CheckboxSelectedIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ChevronDownIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ChevronLeftIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15.495 20.004a.998.998 0 0 1-.709-.29l-6.99-7a1 1 0 0 1 0-1.42l6.99-7a1.002 1.002 0 0 1 1.678.45c.093.347-.006.716-.26.97l-6.291 6.29 6.292 6.29a1 1 0 0 1-.71 1.71Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ChevronRightIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.505 20.004a.998.998 0 0 1-1.005-1 1 1 0 0 1 .295-.71l6.292-6.29-6.292-6.29a1.005 1.005 0 0 1 0-1.42 1.002 1.002 0 0 1 1.419 0l6.99 7a1 1 0 0 1 0 1.42l-6.99 7a.998.998 0 0 1-.71.29Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ChevronUpIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M18.995 16.496a1 1 0 0 1-.71-.29L12 9.913l-6.286 6.293a1.004 1.004 0 0 1-1.42-1.418l6.997-6.993a1 1 0 0 1 1.419 0l6.995 6.993a.999.999 0 0 1-.71 1.708Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CircularAddIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M13 11h3a1 1 0 1 1 0 2h-3v3a1 1 0 1 1-2 0v-3H8a1 1 0 1 1 0-2h3V8a1 1 0 1 1 2 0v3Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M2 12C2 6.477 6.477 2 12 2A10 10 0 1 1 2 12Zm2 0a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CircularAddSolidIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm4 9h-3V8a1 1 0 1 0-2 0v3H8a1 1 0 1 0 0 2h3v3a1 1 0 1 0 2 0v-3h3a1 1 0 1 0 0-2Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CircularRemoveIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7 12a1 1 0 0 1 1-1h8a1 1 0 1 1 0 2H8a1 1 0 0 1-1-1Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M2 12C2 6.477 6.477 2 12 2A10 10 0 1 1 2 12Zm2 0a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CircularRemoveSolidIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm-4 9a1 1 0 1 0 0 2h8a1 1 0 1 0 0-2H8Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CloseIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m12.36 13.83 5.66 5.66a1 1 0 1 0 1.41-1.41l-5.66-5.66 5.66-5.66a1 1 0 1 0-1.41-1.41l-5.66 5.66L6.7 5.35a1 1 0 0 0-1.41 0 1 1 0 0 0 0 1.41l5.66 5.66-5.66 5.66a1 1 0 0 0 0 1.41 1 1 0 0 0 1.41 0l5.66-5.66Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CloudIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.5 20c-1.517 0-2.812-.525-3.887-1.575-1.075-1.05-1.612-2.333-1.613-3.85 0-1.3.392-2.458 1.175-3.475S3.983 9.433 5.25 9.15c.417-1.533 1.25-2.775 2.5-3.725C9 4.475 10.417 4 12 4c1.95 0 3.604.679 4.962 2.037C18.32 7.395 18.999 9.049 19 11c1.15.133 2.104.63 2.863 1.488A4.4 4.4 0 0 1 23 15.5c0 1.25-.437 2.313-1.312 3.188S19.75 20 18.5 20h-12Zm0-2h12c.7 0 1.292-.242 1.775-.725.483-.483.725-1.075.725-1.775s-.242-1.292-.725-1.775C19.792 13.242 19.2 13 18.5 13H17v-2c0-1.383-.488-2.562-1.463-3.537C14.562 6.488 13.383 6 12 6s-2.562.488-3.537 1.463C7.488 8.438 7 9.617 7 11h-.5c-.967 0-1.792.342-2.475 1.025A3.37 3.37 0 0 0 3 14.5c0 .967.342 1.792 1.025 2.475A3.37 3.37 0 0 0 6.5 18Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ComplianceIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m10.94 14.71 3.53-3.54a1.004 1.004 0 0 1 1.42 1.42l-4.24 4.24a1 1 0 0 1-1.42 0l-2.12-2.12a1.004 1.004 0 0 1 1.42-1.42l1.41 1.42Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M16 3h3a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h3a1 1 0 0 1 1-1h6a1 1 0 0 1 1 1ZM5 21h14V5h-3a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1H5v16Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ConsolidateIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M21.153 16.304a3.858 3.858 0 0 0-2.122-1.358V11.02h-6.05V9.07a3.93 3.93 0 0 0 2.122-1.374c.564-.697.846-1.507.846-2.432 0-1.103-.382-2.04-1.146-2.809C14.04 1.684 13.104 1.3 12 1.3c-1.104 0-2.039.384-2.803 1.153-.764.77-1.146 1.708-1.146 2.816 0 .922.282 1.732.846 2.428a3.935 3.935 0 0 0 2.123 1.372v1.951H4.97v3.926a3.859 3.859 0 0 0-2.123 1.358C2.282 17 2 17.816 2 18.751c0 1.1.383 2.033 1.15 2.8.767.766 1.7 1.15 2.8 1.15 1.103 0 2.04-.384 2.809-1.15.77-.767 1.154-1.7 1.154-2.8 0-.935-.282-1.75-.847-2.447a3.857 3.857 0 0 0-2.122-1.358V12.98h10.112v1.966a3.86 3.86 0 0 0-2.122 1.358c-.565.696-.847 1.512-.847 2.447 0 1.1.383 2.033 1.15 2.8.767.766 1.7 1.15 2.8 1.15 1.103 0 2.04-.384 2.809-1.15.77-.767 1.154-1.7 1.154-2.8 0-.935-.282-1.75-.847-2.447Zm-13.79 1.039c.384.387.576.857.576 1.409 0 .551-.194 1.018-.581 1.4a1.93 1.93 0 0 1-1.409.575 1.898 1.898 0 0 1-1.401-.58 1.923 1.923 0 0 1-.574-1.405c0-.552.193-1.02.579-1.404a1.919 1.919 0 0 1 1.406-.576c.552 0 1.02.194 1.404.581Zm4.632-10.104a1.912 1.912 0 0 1-1.407-.58 1.916 1.916 0 0 1-.577-1.405 1.9 1.9 0 0 1 .582-1.404 1.934 1.934 0 0 1 1.412-.576 1.91 1.91 0 0 1 1.407.581c.385.388.577.857.577 1.409a1.89 1.89 0 0 1-.582 1.4 1.937 1.937 0 0 1-1.412.575Zm7.45 12.914a1.93 1.93 0 0 1-1.409.574 1.898 1.898 0 0 1-1.4-.58 1.923 1.923 0 0 1-.575-1.405c0-.552.193-1.02.58-1.404a1.919 1.919 0 0 1 1.405-.576c.552 0 1.02.194 1.404.581.384.387.576.857.576 1.409 0 .551-.194 1.018-.581 1.4Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ContactIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5Zm0-11a3.49 3.49 0 0 0-3.5 3.5c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 12 13a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25A3.49 3.49 0 0 0 12 4Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ContactsAltIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4.393 14.508a.9.9 0 0 1 0 1.791l-.092.005H3.5a1.6 1.6 0 0 0-1.6 1.6V19l-.004.093a.9.9 0 0 1-1.792 0L.1 19v-1.096a3.4 3.4 0 0 1 3.4-3.4h.8l.093.005Zm9.446-1.509a4.4 4.4 0 0 1 4.4 4.4V19a.9.9 0 0 1-1.8 0v-1.6a2.6 2.6 0 0 0-2.6-2.6H10.16a2.6 2.6 0 0 0-2.6 2.6V19a.9.9 0 0 1-1.8 0v-1.6a4.4 4.4 0 0 1 4.4-4.4h3.679Zm6.661 1.505a3.4 3.4 0 0 1 3.4 3.4V19a.9.9 0 0 1-1.8 0v-1.096a1.6 1.6 0 0 0-1.6-1.6h-.8a.9.9 0 0 1 0-1.8h.8Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M2.68 8.784a2.923 2.923 0 0 1 4.025.103l.104.11a2.923 2.923 0 0 1 0 3.915l-.104.11a2.923 2.923 0 0 1-4.024.103l-.11-.104a2.923 2.923 0 0 1 0-4.134l.11-.103Zm2.753 1.376a1.124 1.124 0 0 0-1.503-.077l-.086.077a1.124 1.124 0 0 0 0 1.589l.086.077c.44.36 1.092.334 1.503-.077l.077-.086a1.124 1.124 0 0 0 0-1.417l-.077-.086Zm11.971-1.376a2.923 2.923 0 0 1 4.025.103l.103.11a2.923 2.923 0 0 1 0 3.915l-.103.11a2.923 2.923 0 0 1-4.025.103l-.11-.104a2.924 2.924 0 0 1 0-4.134l.11-.103Zm2.752 1.376a1.124 1.124 0 0 0-1.503-.077l-.086.077a1.124 1.124 0 0 0 0 1.589l.086.077c.441.36 1.092.333 1.503-.077l.077-.086a1.124 1.124 0 0 0 0-1.417l-.077-.086ZM9.31 5.133a4.015 4.015 0 0 1 5.529.143l.142.15a4.016 4.016 0 0 1 0 5.378l-.142.15a4.015 4.015 0 0 1-5.528.142l-.15-.142a4.015 4.015 0 0 1 0-5.678l.15-.143Zm4.256 1.416a2.216 2.216 0 0 0-2.964-.153l-.168.153a2.216 2.216 0 0 0 0 3.132l.168.152c.87.71 2.153.66 2.964-.152l.152-.169a2.216 2.216 0 0 0 0-2.795l-.152-.168Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ContactsIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M18 14.5a2.49 2.49 0 0 0 2.35-2.35c.094-.545.144-1.097.15-1.65a2.5 2.5 0 0 0-5 0c.006.553.056 1.105.15 1.65A2.49 2.49 0 0 0 18 14.5ZM8 15c-4.42 0-8 2.24-8 5h16c0-2.76-3.58-5-8-5Zm0-2a3.48 3.48 0 0 0 3.3-3.25c.131-.743.198-1.496.2-2.25a3.5 3.5 0 1 0-7 0c.002.754.069 1.507.2 2.25A3.48 3.48 0 0 0 8 13Zm10 3a8.38 8.38 0 0 0-1.61.15A5.63 5.63 0 0 1 18 20h6c0-2.21-2.69-4-6-4Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'CopyIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M9 17h10a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H9a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2Zm0-2V5h10v10H9Z"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M15 21a2 2 0 0 0 2-2H5V7a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'DashboardIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 7h-7V4h7v5Zm-9-5v9H4V4h7ZM4 15h7v5H4v-5Zm9 5v-9h7v9h-7Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'DragIndicatorAltIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M21 11H3a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2ZM3 8h18a1 1 0 1 0 0-2H3a1 1 0 0 0 0 2Zm18 8H3a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'DragIndicatorIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M11 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM9.5 16a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM16 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM14.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm1.5 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM9.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm6.5-1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'DrawCloseIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m10.707 4.294 6.997 6.996a.999.999 0 0 1 0 1.419l-6.997 6.995a1 1 0 0 1-1.42 0 1 1 0 0 1 0-1.419l5.298-5.287H3A1 1 0 1 1 3 11h11.585L9.287 5.713a1.003 1.003 0 1 1 1.42-1.42Z"
+    />
+    <path
+      d="M18 12v7.111c0 .491.448.889 1 .889s1-.398 1-.889V4.89c0-.492-.448-.89-1-.89s-1 .398-1 .889v7.11Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'EditIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3 16.172v5h5l12.59-12.59a2 2 0 0 0 0-2.82l-2.18-2.18a2 2 0 0 0-2.82 0L3 16.172Zm4.17 3H5v-2.17l8.41-8.42 2.18 2.18-8.42 8.41Zm7.66-12L17 5.002l2.17 2.17L17 9.342l-2.17-2.17Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ElipsisIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 7a2 2 0 1 1 0-4 2 2 0 0 1 0 4Zm-2 5a2 2 0 1 0 4 0 2 2 0 0 0-4 0Zm0 7a2 2 0 1 0 4 0 2 2 0 0 0-4 0Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'EmailDisabledIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M22.806 3.207a1 1 0 0 1 0 1.414l-.87.873c.041.161.064.331.064.506v12a2 2 0 0 1-2 2l-12.572-.002-3.007 3.008a1 1 0 0 1-1.414-1.414L21.392 3.207a1 1 0 0 1 1.414 0ZM17.84 4l-2 2H5.41l5.215 5.214-1.41 1.41L4 7.41v10.428l-1.492 1.494a1.992 1.992 0 0 1-.503-1.183L2 18V6a2 2 0 0 1 2-2l13.839-.001ZM20 7.427 9.428 17.998 20 18V7.427Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'EmailFillIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20.383 4.07c.034.01.069.02.104.028L12 12.586 3.513 4.098l.105-.028C3.74 4.035 3.865 4 4 4h16c.135 0 .259.035.383.07Z"
+    />
+    <path
+      d="M12 14.586c.535 0 1.038-.208 1.414-.585l8.487-8.49.029.105c.035.124.07.249.07.384v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6c0-.135.035-.259.07-.383.01-.035.02-.07.028-.104l8.487 8.486c.378.38.88.587 1.415.587Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'EmailIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2Zm-1.41 2L12 12.59 5.41 6h13.18ZM4 18V7.41L10.59 14a2 2 0 0 0 2.82 0L20 7.41V18H4Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'EuroIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M14.922 21.203c-1.978 0-3.741-.55-5.289-1.648-1.547-1.1-2.643-2.55-3.288-4.352H3.97c-.32 0-.59-.11-.808-.33-.22-.22-.33-.488-.33-.807 0-.32.11-.59.33-.809a1.1 1.1 0 0 1 .808-.329h1.9a6.6 6.6 0 0 1-.056-1.02c.008-.323.027-.602.057-.836h-1.9c-.32 0-.59-.11-.81-.33a1.102 1.102 0 0 1-.328-.808c0-.319.11-.588.329-.808.22-.22.489-.33.808-.33h2.375a9.19 9.19 0 0 1 3.297-4.324c1.542-1.117 3.302-1.675 5.28-1.675.999 0 1.945.148 2.84.443a9.499 9.499 0 0 1 2.504 1.26.94.94 0 0 1 .414.744.95.95 0 0 1-.314.786 1.18 1.18 0 0 1-.824.357 1.53 1.53 0 0 1-.886-.24 6.95 6.95 0 0 0-3.734-1.075c-1.34 0-2.55.348-3.63 1.043-1.077.697-1.888 1.59-2.432 2.682h5.11c.32 0 .59.11.808.33.22.22.33.488.33.807 0 .32-.11.59-.33.808a1.1 1.1 0 0 1-.808.33H8.165a6 6 0 0 0 0 1.856h5.805c.32 0 .59.11.808.33.22.22.33.49.33.808 0 .319-.11.588-.33.808a1.1 1.1 0 0 1-.808.33H8.83a6.64 6.64 0 0 0 2.46 2.704c1.08.68 2.29 1.02 3.632 1.02.684 0 1.34-.097 1.97-.29a7.3 7.3 0 0 0 1.765-.81c.27-.17.564-.247.885-.228.321.019.596.142.824.37a.94.94 0 0 1 .314.783.94.94 0 0 1-.414.74 9.397 9.397 0 0 1-2.503 1.267 9 9 0 0 1-2.84.443"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ExitIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5 21c-.55 0-1.02-.196-1.413-.587A1.926 1.926 0 0 1 3 19V5c0-.55.196-1.02.587-1.413A1.926 1.926 0 0 1 5 3h6a.97.97 0 0 1 .713.288c.191.191.287.429.287.712s-.096.52-.287.713A.968.968 0 0 1 11 5H5v14h6a.97.97 0 0 1 .713.288c.191.191.287.429.287.712s-.096.52-.287.712A.968.968 0 0 1 11 21H5Zm12.175-8H10a.967.967 0 0 1-.713-.287A.968.968 0 0 1 9 12c0-.283.096-.52.287-.713A.967.967 0 0 1 10 11h7.175L15.3 9.125a.918.918 0 0 1-.275-.675c0-.267.092-.5.275-.7a.948.948 0 0 1 .7-.313.946.946 0 0 1 .725.288L20.3 11.3c.2.2.3.433.3.7 0 .267-.1.5-.3.7l-3.575 3.575a.93.93 0 0 1-.713.288 1.02 1.02 0 0 1-.712-.313.973.973 0 0 1-.263-.713.977.977 0 0 1 .288-.687l1.85-1.85Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ExpandIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m12 18.1 2.325-2.325c.2-.2.442-.3.725-.3s.525.1.725.3c.2.2.3.442.3.725s-.1.525-.3.725L12.7 20.3c-.1.1-.208.17-.325.212a1.105 1.105 0 0 1-.375.063c-.133 0-.258-.02-.375-.063a.878.878 0 0 1-.325-.212l-3.075-3.075c-.2-.2-.3-.442-.3-.725s.1-.525.3-.725c.2-.2.442-.3.725-.3s.525.1.725.3L12 18.1ZM12 6 9.675 8.325c-.2.2-.442.3-.725.3a.988.988 0 0 1-.725-.3c-.2-.2-.3-.442-.3-.725s.1-.525.3-.725L11.3 3.8c.1-.1.208-.17.325-.213.117-.041.242-.062.375-.062s.258.02.375.062a.877.877 0 0 1 .325.213l3.075 3.075c.2.2.3.442.3.725s-.1.525-.3.725c-.2.2-.442.3-.725.3a.988.988 0 0 1-.725-.3L12 6Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ExportIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5 5v14h14v-7h2v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7v2H5Z"
+    />
+    <path
+      d="M15 3h5a1 1 0 0 1 1 1v5a1 1 0 1 1-2 0V6.41l-6.29 6.3a1 1 0 0 1-1.42 0 1 1 0 0 1 0-1.42L17.59 5H15a1 1 0 1 1 0-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FavouriteIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M11.994 20.504c-.27 0-.54-.049-.81-.146a2 2 0 0 1-.725-.457l-1.737-1.586a65.01 65.01 0 0 1-4.782-4.816C2.511 11.893 1.797 10.11 1.797 8.15c0-1.625.543-2.983 1.63-4.073C4.51 2.986 5.866 2.44 7.493 2.44a5.89 5.89 0 0 1 2.482.535 6.04 6.04 0 0 1 2.018 1.487 6.1 6.1 0 0 1 2.018-1.487 5.9 5.9 0 0 1 2.482-.535c1.628 0 2.988.545 4.08 1.635 1.09 1.09 1.636 2.448 1.635 4.074 0 1.96-.713 3.747-2.14 5.362a58.994 58.994 0 0 1-4.828 4.834l-1.706 1.561a1.9 1.9 0 0 1-.727.454 2.501 2.501 0 0 1-.814.144ZM11.002 6.78c-.46-.66-.968-1.169-1.523-1.527-.556-.358-1.217-.537-1.983-.537-.979 0-1.794.326-2.446.979-.652.652-.978 1.47-.978 2.455 0 .86.305 1.772.916 2.738.61.967 1.34 1.904 2.19 2.812.85.91 1.726 1.76 2.625 2.553.9.793 1.63 1.446 2.191 1.957.725-.662 1.457-1.317 2.196-1.964a37.974 37.974 0 0 0 2.63-2.55 18.994 18.994 0 0 0 2.195-2.807c.613-.963.92-1.877.92-2.74 0-.983-.327-1.801-.983-2.454-.655-.653-1.473-.98-2.455-.98-.77 0-1.431.18-1.985.538-.553.359-1.06.868-1.52 1.527a1.2 1.2 0 0 1-.444.402 1.197 1.197 0 0 1-1.546-.402Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FeatherIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20.264 3.739a5.94 5.94 0 0 0-8.398 0L6.176 9.42a4.001 4.001 0 0 0-1.172 2.819v5.373l-2.718 2.719a.977.977 0 1 0 1.382 1.382l2.726-2.728h5.354a3.99 3.99 0 0 0 2.817-1.164l5.69-5.682a5.928 5.928 0 0 0 0-8.401h.009Zm-1.39 7.028-5.69 5.682c-.382.382-.9.591-1.436.591h-3.4l8.353-8.355a.977.977 0 0 0-1.381-1.382l-8.362 8.364V12.25c0-.537.218-1.055.59-1.437l5.69-5.682a3.987 3.987 0 0 1 5.635 0 3.99 3.99 0 0 1 0 5.637Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FeedIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 5v4H4V5h16Zm0-2H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm0 12v4H4v-4h16Zm0-2H4a2 2 0 0 0-2 2v4a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-4a2 2 0 0 0-2-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileAttachedIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.142 17.45h7.703v-1.584H8.142v1.584Zm0-4.067h7.703v-1.584H8.142v1.584Zm-2.247 8.445c-.518 0-.964-.187-1.336-.56A1.824 1.824 0 0 1 4 19.934V3.909c0-.523.186-.971.559-1.346A1.817 1.817 0 0 1 5.895 2h8.663L20 7.442v12.49c0 .519-.188.964-.563 1.337a1.843 1.843 0 0 1-1.346.559H5.895Zm7.675-13.47v-4.45H5.895v16.024h12.196V8.359H13.57Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileAudioIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 3c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14Zm-6.958 3C9.258 6 7 8.333 7 11.21v4.053C7 16.224 7.75 17 8.68 17h1.681v-4.632h-2.24V11.21c0-2.24 1.753-4.052 3.92-4.052 2.169 0 3.922 1.812 3.922 4.052v1.158h-2.24V17h1.68c.93 0 1.68-.776 1.68-1.737V11.21c0-2.877-2.257-5.21-5.041-5.21Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileDocumentIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2Zm-2 6H7V7h10v2Zm0 4H7v-2h10v2Zm-3 4H7v-2h7v2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileDownloadIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M21 16a1 1 0 0 0-1 1v2H4v-2a1 1 0 1 0-2 0v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a1 1 0 0 0-1-1Zm-9.71-1.29a1 1 0 0 0 1.42 0l5-5a1.004 1.004 0 1 0-1.42-1.42L13 11.59V4a1 1 0 1 0-2 0v7.59l-3.29-3.3a1.004 1.004 0 0 0-1.42 1.42l5 5Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileExcelIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16.2 17h-2L12 13.2 9.8 17h-2l3.2-5-3.2-5h2l2.2 3.8L14.2 7h2L13 12m6-9H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m19.71 6.71-4.42-4.42a1 1 0 0 0-.7-.29H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.41a1 1 0 0 0-.29-.7ZM6 20V4h7v4a1 1 0 0 0 1 1h4v11H6Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileImageIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 3c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14Zm-9.5 8L5 17h14l-3.5-4.5-2.5 3.01L9.5 11Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FilePdfIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2Zm-9.5 8.5c0 .8-.7 1.5-1.5 1.5H7v2H5.5V9H8c.8 0 1.5.7 1.5 1.5v1Zm5 2c0 .8-.7 1.5-1.5 1.5h-2.5V9H13c.8 0 1.5.7 1.5 1.5v3Zm4-3H17v1h1.5V13H17v2h-1.5V9h3v1.5Zm-6.5 0h1v3h-1v-3Zm-5 0h1v1H7v-1Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FilePowerpointIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M5 3h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm4.945 8.942h1.675a2.175 2.175 0 0 0 1.481-.442 1.64 1.64 0 0 0 .5-1.293c0-1.1-.639-1.651-1.919-1.651H9.945v3.386Zm2.023-4.933a4.13 4.13 0 0 1 2.735.802 2.868 2.868 0 0 1 .953 2.322 3.231 3.231 0 0 1-.47 1.735 3.139 3.139 0 0 1-1.333 1.178 4.528 4.528 0 0 1-2.006.422h-1.9V17H8V7.01h3.968Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileSpreadsheetIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 3c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14Zm-8 2H9v4H5v2h4v8h2v-8h8V9h-8V5Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileUploadIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m7.71 9.716 3.29-3.3v7.59a1 1 0 1 0 2 0v-7.59l3.29 3.3a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42l-5-5a1 1 0 0 0-1.42 0l-5 5a1.004 1.004 0 0 0 1.42 1.42ZM21 15.006a1 1 0 0 0-1 1v2H4v-2a1 1 0 1 0-2 0v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a1 1 0 0 0-1-1Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileVideoIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 3c1.1 0 2 .9 2 2v14c0 1.1-.9 2-2 2H5c-1.1 0-2-.9-2-2V5c0-1.1.9-2 2-2h14ZM7.8 7h-.6C6.537 7 6 7.56 6 8.25v7.5c0 .69.537 1.25 1.2 1.25h9.6c.663 0 1.2-.56 1.2-1.25V7h-2.4l1.2 2.5H15L13.8 7h-1.2l1.2 2.5H12L10.8 7H9.6l1.2 2.5H9L7.8 7Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileWordIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M15.5 17H14l-2-7.5-2 7.5H8.5L6.1 7h1.7l1.54 7.5L11.3 7h1.4l1.97 7.5L16.2 7h1.7M19 3H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FileZipIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M14 17h-2v-2h-2v-2h2v2h2m0-6h-2v2h2v2h-2v-2h-2V9h2V7h-2V5h2v2h2m5-4H5c-1.11 0-2 .89-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FilterIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M17 11H7a1 1 0 1 0 0 2h10a1 1 0 1 0 0-2Zm3-5H4a1 1 0 0 0 0 2h16a1 1 0 1 0 0-2Zm-7 10h-2a1 1 0 1 0 0 2h2a1 1 0 1 0 0-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FolderIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M1 18a3 3 0 0 0 3 3h16a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3h-8.67l-.74-1.11A2 2 0 0 0 8.93 3H3a2 2 0 0 0-2 2v13Zm20 0a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V8.5A1.5 1.5 0 0 1 4.5 7H20a1 1 0 0 1 1 1v10Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ForwardIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3.09 19.6c.31 0 .57-.104.777-.312.208-.207.312-.467.312-.778v-3.96c0-.928.322-1.712.967-2.351.645-.64 1.426-.96 2.344-.96h10.803l-3.234 3.234a.974.974 0 0 0-.29.737c.005.293.11.547.317.764.217.217.474.325.772.325.298 0 .555-.108.772-.325l5.06-5.06a1 1 0 0 0 .24-.36c.047-.129.07-.263.07-.404 0-.141-.023-.276-.07-.404a1 1 0 0 0-.24-.36l-5.088-5.088A1.01 1.01 0 0 0 15.858 4c-.298 0-.555.108-.772.325a1.046 1.046 0 0 0-.325.764c0 .293.108.548.325.764l3.207 3.207H7.49c-1.513 0-2.807.532-3.88 1.597C2.537 11.72 2 13.019 2 14.55v3.96c0 .311.104.57.311.778.208.208.467.312.778.312Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FullscreenExitIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm0 16h-6V5h6v14Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'FullscreenIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5 5h4V3H5a2 2 0 0 0-2 2v4h2V5Zm14-2h-4v2h4v4h2V5a2 2 0 0 0-2-2Zm0 16h-4v2h4a2 2 0 0 0 2-2v-4h-2v4ZM5 15H3v4a2 2 0 0 0 2 2h4v-2H5v-4Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'HelpIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 6a3.85 3.85 0 0 1 2.67.82 2.93 2.93 0 0 1 .76 2.32c.002.444-.1.883-.3 1.28-.284.5-.645.953-1.07 1.34l-.64.62a2.15 2.15 0 0 0-.7 1.36v.49h-2a4.571 4.571 0 0 1 .28-1.78c.228-.508.57-.957 1-1.31.381-.3.718-.654 1-1.05.157-.256.24-.55.24-.85 0-.9-.41-1.35-1.24-1.35a1.27 1.27 0 0 0-.96.37 1.42 1.42 0 0 0-.37 1H8.35a3.09 3.09 0 0 1 1-2.4A3.86 3.86 0 0 1 12 6Zm-1.05 9.8a1.29 1.29 0 0 1 .93-.35 1.33 1.33 0 0 1 .93.35c.24.228.371.549.36.88a1.18 1.18 0 0 1-.35.87 1.31 1.31 0 0 1-.94.34 1.28 1.28 0 0 1-.94-.34 1.15 1.15 0 0 1-.36-.87 1.13 1.13 0 0 1 .37-.88Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M1 12C1 5.925 5.925 1 12 1a11 11 0 0 1 11 11c0 6.075-4.925 11-11 11S1 18.075 1 12Zm20 0a9 9 0 1 0-18 0 9 9 0 0 0 18 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'InfoIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm1.143 15.714h-2.286v-6h2.286v6Zm-1.143-8a1.714 1.714 0 1 1 0-3.428 1.714 1.714 0 0 1 0 3.428Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'InfoOutlineIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.857 17.714h2.286v-6h-2.286v6Zm-.441-9.058a1.714 1.714 0 1 0 3.168-1.312 1.714 1.714 0 0 0-3.168 1.312Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M1 12C1 5.925 5.925 1 12 1a11 11 0 0 1 11 11c0 6.075-4.925 11-11 11S1 18.075 1 12Zm20 0a9 9 0 1 0-18 0 9 9 0 0 0 18 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'InsightsIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.375 15.375h-2.25C3.504 15.375 3 15.879 3 16.5V21h4.5v-4.5c0-.621-.504-1.125-1.125-1.125Zm6.75-5.625h-2.25c-.621 0-1.125.504-1.125 1.125V21h4.5V10.875c0-.621-.504-1.125-1.125-1.125ZM19.875 3h-2.25c-.621 0-1.125.504-1.125 1.125V21H21V4.125C21 3.504 20.496 3 19.875 3Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'InspectionIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.11 14.29a1 1 0 0 1 1.41 0l1.42 1.42 3.54-3.54a1 1 0 1 1 1.41 1.42l-4.24 4.24a1 1 0 0 1-1.42 0l-2.12-2.12a1 1 0 0 1 0-1.42Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M18 4h1a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H5a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3h1V3a1 1 0 0 1 2 0v1h8V3a1 1 0 1 1 2 0v1Zm1 16a1 1 0 0 0 1-1v-9H4v9a1 1 0 0 0 1 1h14ZM4 8h16V7a1 1 0 0 0-1-1H5a1 1 0 0 0-1 1v1Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'InspectionTemplateIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M15.808 12.143a1.791 1.791 0 0 1 2.366-.008l4.35 3.76a.8.8 0 0 1-.665 1.391v3.204c0 .992-.808 1.8-1.8 1.8h-6.05a1.796 1.796 0 0 1-1.799-1.8v-3.232a.798.798 0 0 1-.742-1.374l4.34-3.741Zm1.318 1.2a.191.191 0 0 0-.253-.006l-.01.009-3.053 2.631v4.513c0 .113.087.2.2.2h6.05c.108 0 .2-.092.2-.2v-4.438l-3.133-2.707-.001-.001Z"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M16 1.2c3.2 0 5.8 2.587 5.8 5.8v4a.8.8 0 1 1-1.6 0V7c0-2.327-1.88-4.2-4.2-4.2H8A4.19 4.19 0 0 0 3.8 7v8c0 2.32 1.873 4.2 4.2 4.2h2l.082.004a.8.8 0 0 1 0 1.592L10 20.8H8A5.795 5.795 0 0 1 2.2 15V7c0-3.212 2.588-5.8 5.8-5.8h8Z"
+    />
+    <path
+      d="M9.268 11.024a.8.8 0 0 1 1.007 1.24l-1.83 1.65a.8.8 0 0 1-.95.09l-.121-.09-.91-.82-.058-.058a.8.8 0 0 1 1.13-1.13l.373.336 1.295-1.166.064-.052Zm0-4.994a.8.8 0 0 1 1.007 1.239l-1.83 1.65a.8.8 0 0 1-.95.09l-.121-.09-.91-.82-.058-.058a.8.8 0 0 1 1.13-1.13l.373.336 1.295-1.166.064-.052Zm7.814 1.174a.8.8 0 0 1 0 1.592L17 8.8h-4a.8.8 0 1 1 0-1.6h4l.082.004Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'InsuranceIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.11 11.198a1 1 0 0 1 1.41 0l1.42 1.42 3.54-3.54a1 1 0 1 1 1.41 1.42l-4.24 4.24a1 1 0 0 1-1.42 0l-2.12-2.12a1 1 0 0 1 0-1.42Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="m12.41 1.088 8 3.56a1 1 0 0 1 .59.91v5.35c0 5.45-3.71 10.56-8.73 11.93a.93.93 0 0 1-.54 0C6.71 21.468 3 16.358 3 10.908v-5.35a1 1 0 0 1 .59-.91l8-3.56a1 1 0 0 1 .82 0ZM12 20.838a10.53 10.53 0 0 0 7-9.93v-4.7l-7-3.11-7 3.11v4.7a10.53 10.53 0 0 0 7 9.93Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'KeyIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M18.31 3.811a5.2 5.2 0 0 0-7.22 7.11L3 19.001l1.71 1.71 2.67-2.71 2.69 2.68 1.7-1.68-2.69-2.67 3.71-3.71a5.2 5.2 0 0 0 5.52-8.81Zm-.82 6.37a2.8 2.8 0 0 1-4 0 2.8 2.8 0 0 1 2-4.78 2.76 2.76 0 0 1 2 .82 2.81 2.81 0 0 1 0 3.96Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'KeyboardIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5.862 8.999a.901.901 0 0 1 1.292 0 .944.944 0 0 1 0 1.316.902.902 0 0 1-.61.306.905.905 0 0 1-.345-.074.828.828 0 0 1-.491-.5.953.953 0 0 1-.073-.353.938.938 0 0 1 .227-.695Zm.255 4.326a.949.949 0 0 1 1.026.196.92.92 0 0 1 .005 1.314l-.005.006a.944.944 0 0 1-.631.306.96.96 0 0 1-.358-.074.886.886 0 0 1-.31-.195.922.922 0 0 1-.038-1.357.872.872 0 0 1 .31-.196Zm3.325-4.329A.904.904 0 0 1 10.735 9a.94.94 0 0 1-.005 1.314c-.17.17-.4.267-.639.269l.037.037a.912.912 0 0 1-.347-.074 1.062 1.062 0 0 1-.302-.195.933.933 0 0 1-.192-.307.952.952 0 0 1-.073-.353.938.938 0 0 1 .228-.696Zm3.985-.196a.897.897 0 0 1 .993.194.939.939 0 0 1 .191 1.014.936.936 0 0 1-.191.306.951.951 0 0 1-.61.307.906.906 0 0 1-.347-.074 1.059 1.059 0 0 1-.3-.196.935.935 0 0 1-.192-.306.956.956 0 0 1-.073-.354.941.941 0 0 1 .228-.697c.088-.081.19-.147.3-.195Zm3.423.213a.963.963 0 0 1 1.351-.019.924.924 0 0 1 .273.66.93.93 0 0 1-.076.354.842.842 0 0 1-.506.501.944.944 0 0 1-.357.112.943.943 0 0 1-.667-.27.94.94 0 0 1-.018-1.338Zm.246 4.312a.909.909 0 0 1 1 .196c.36.361.363.95.006 1.314a.913.913 0 0 1-.657.275l.037.037a.917.917 0 0 1-.349-.074.922.922 0 0 1-.303-.195l-.11-.14a.706.706 0 0 1-.082-.167.597.597 0 0 1-.056-.167 1.254 1.254 0 0 1 0-.186.984.984 0 0 1 .212-.697.92.92 0 0 1 .302-.196Zm-6.868.033h3.65c.503 0 .912.4.912.895a.904.904 0 0 1-.913.894h-3.649a.904.904 0 0 1-.912-.894c0-.494.408-.895.912-.895Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M3.75 4.2h16.5A2.75 2.75 0 0 1 23 6.95v10.08a2.75 2.75 0 0 1-2.75 2.749H3.75A2.75 2.75 0 0 1 1 17.029V6.95A2.75 2.75 0 0 1 3.75 4.2Zm16.5 13.746c.506 0 .917-.41.917-.916V6.95a.917.917 0 0 0-.917-.917H3.75a.917.917 0 0 0-.917.916v10.08c0 .506.411.917.917.917h16.5Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'LandSizeIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M23 2a1 1 0 1 0-2 0H9a1 1 0 0 0-2 0v2a1 1 0 0 0 2 0h12a1 1 0 1 0 2 0V2ZM1 8a1 1 0 0 1 1-1h2a1 1 0 0 1 0 2v12a1 1 0 1 1 0 2H2a1 1 0 1 1 0-2V9a1 1 0 0 1-1-1Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M7 9a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H9a2 2 0 0 1-2-2V9Zm2 0h12v12H9V9Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'LaptopIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3 18h18a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2H3a2 2 0 0 0-2 2v11a2 2 0 0 0 2 2ZM3 5h18v11H3V5ZM0 20v1a1 1 0 0 0 1 1h22a1 1 0 0 0 1-1v-1H0Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'LinkIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19.491 4.5a5.153 5.153 0 0 0-7.267 0l-2.177 2.176a1.032 1.032 0 0 0 0 1.457 1.032 1.032 0 0 0 1.458 0l2.176-2.176a3.084 3.084 0 1 1 4.363 4.362l-2.177 2.176a1.032 1.032 0 0 0 0 1.458c.196.196.467.299.729.299.261 0 .523-.103.728-.3l2.177-2.176c1.999-1.999 1.999-5.259 0-7.267l-.01-.01Z"
+    />
+    <path
+      d="M7.87 14.672a1.02 1.02 0 0 0 .73 1.747c.261 0 .523-.103.728-.299l5.81-5.81a1.032 1.032 0 0 0 0-1.457 1.02 1.02 0 0 0-1.448 0l-5.82 5.82Z"
+    />
+    <path
+      d="m9.319 19.025 2.176-2.176h-.009a1.032 1.032 0 0 1 1.457 0 1.02 1.02 0 0 1 0 1.447l-2.176 2.177c-1 1-2.317 1.504-3.634 1.504a5.128 5.128 0 0 1-3.634-1.504c-1.999-2.008-1.999-5.268 0-7.268l2.177-2.176a1.032 1.032 0 0 1 1.457 1.457l-2.176 2.177a3.084 3.084 0 1 0 4.362 4.362Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'LocationAltIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.91 23.191v-2c-2.095-.237-3.902-1.117-5.422-2.641-1.52-1.524-2.397-3.327-2.63-5.41h-2v-2.18h2C3.096 8.865 3.977 7.058 5.5 5.538c1.523-1.52 3.327-2.397 5.41-2.63v-2h2.18v2c2.083.233 3.887 1.11 5.41 2.63 1.523 1.52 2.404 3.327 2.64 5.422h2v2.18h-2c-.232 2.083-1.109 3.886-2.628 5.41-1.52 1.524-3.327 2.404-5.422 2.641v2h-2.18ZM12 18.978c1.917 0 3.55-.675 4.902-2.026 1.35-1.35 2.026-2.985 2.026-4.902 0-1.917-.675-3.551-2.026-4.902-1.35-1.35-2.985-2.026-4.902-2.026-1.917 0-3.55.675-4.902 2.026-1.35 1.35-2.025 2.985-2.026 4.902 0 1.917.675 3.551 2.026 4.902 1.35 1.35 2.985 2.026 4.902 2.026Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'LocationDisabledIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9.07 11.161a3 3 0 1 1 4.2-4.2l2.8-2.86a7 7 0 0 0-12 4.86 12.48 12.48 0 0 0 1.7 5.47l3.3-3.27Zm11.19-6.98a1 1 0 0 0-1.41 0L3.29 19.741a1 1 0 1 0 1.42 1.41l3.21-3.19c.91 1.3 1.78 2.4 2.38 3.12a1 1 0 0 0 1.54 0c1.82-2.21 6.23-7.95 6.23-12.12a7.615 7.615 0 0 0-.09-1.08l2.28-2.28a1 1 0 0 0 0-1.42Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'LocationIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2a7 7 0 0 0-7 7c0 4.17 4.41 9.91 6.23 12.1a1 1 0 0 0 1.54 0C14.59 18.91 19 13.17 19 9a7 7 0 0 0-7-7Zm0 10a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'LockIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2a6 6 0 0 1 6 6v2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2V8a6 6 0 0 1 6-6Zm0 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0-10a4 4 0 0 0-4 4v2h8V8a4 4 0 0 0-4-4Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'LockOutlineIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M13.5 16a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M18 8v2a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2V8a6 6 0 1 1 12 0Zm-6-4a4 4 0 0 0-4 4v2h8V8a4 4 0 0 0-4-4Zm-6 8v8h12v-8H6Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MaintenanceAltIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m21.157 18.326-6.85-6.84a2 2 0 0 1-.5-2 6.11 6.11 0 0 0 .1-2.6 6 6 0 0 0-4.82-4.79 5.94 5.94 0 0 0-2.95.21.49.49 0 0 0-.18.82l3.2 3.2a1 1 0 0 1 0 1.4l-1.43 1.43a1 1 0 0 1-1.42 0l-3.18-3.2a.49.49 0 0 0-.82.18 5.94 5.94 0 0 0-.21 2.95 6 6 0 0 0 4.82 4.82 6.11 6.11 0 0 0 2.6-.1 2 2 0 0 1 2 .5l6.85 6.85a1 1 0 0 0 1.42 0l1.37-1.43a1 1 0 0 0 0-1.4Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MaintenanceIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M18.947 22.407a2 2 0 0 1-1.41-.58l-6.85-6.85a1.05 1.05 0 0 0-1-.25 6.78 6.78 0 0 1-3 .12 7 7 0 0 1-5-9.9 1 1 0 0 1 .74-.55 1 1 0 0 1 .78.29l3.74 3.72 1.42-1.41-3.73-3.74a1 1 0 0 1-.28-.87 1 1 0 0 1 .54-.7 7 7 0 0 1 9.9 5 6.78 6.78 0 0 1-.12 3c-.095.354 0 .732.25 1l6.85 6.85a2 2 0 0 1 0 2.82l-1.42 1.42a1.94 1.94 0 0 1-1.41.63Zm1.42-3.41-6.85-6.85a3 3 0 0 1-.77-2.92 4.82 4.82 0 0 0 .08-2.17 5 5 0 0 0-4-4 4.9 4.9 0 0 0-1.62 0l2.57 2.53a2 2 0 0 1 0 2.82l-1.42 1.42a2 2 0 0 1-2.82 0l-2.57-2.57a4.9 4.9 0 0 0 0 1.62 5 5 0 0 0 4 4 4.86 4.86 0 0 0 2.18-.08 3.06 3.06 0 0 1 .79-.1 3 3 0 0 1 2.13.87l6.85 6.84 1.45-1.41Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MarketplaceIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.5 11a4.5 4.5 0 1 0 0-9 4.5 4.5 0 0 0 0 9Zm15.49-1.36c.28.47.06.86-.49.86h-8c-.5 0-.77-.39-.5-.86l4-6.78a.55.55 0 0 1 1 0l3.99 6.78ZM9.5 13.5a1 1 0 0 1 1 1v6a1 1 0 0 1-1 1h-6a1 1 0 0 1-1-1v-6a1 1 0 0 1 1-1h6Zm9 3H21a1 1 0 1 1 0 2h-2.5V21a1 1 0 1 1-2 0v-2.5H14a1 1 0 1 1 0-2h2.5V14a1 1 0 1 1 2 0v2.5Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MenuAltIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3 7a1 1 0 0 0 0 2h18a1 1 0 1 0 0-2H3Zm0 8a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MenuIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MessageAltIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 3.1A2.9 2.9 0 0 1 21.9 6v12a2.9 2.9 0 0 1-2.9 2.9h-4.628l-1.736 1.737a.9.9 0 0 1-1.18.08l-.092-.08L9.627 20.9H5a2.9 2.9 0 0 1-2.895-2.73L2.1 18V6A2.9 2.9 0 0 1 5 3.1h14Zm0 1.8H5A1.1 1.1 0 0 0 3.9 6v12A1.1 1.1 0 0 0 5 19.1h5a.9.9 0 0 1 .636.264L12 20.727l1.364-1.363a.9.9 0 0 1 .518-.256L14 19.1h5a1.1 1.1 0 0 0 1.1-1.1V6A1.1 1.1 0 0 0 19 4.9Zm-6.19 6.533.093.104c.33.417.33 1.01 0 1.426l-.09.1a1.15 1.15 0 1 1-.003-1.63Zm4 0 .093.104c.33.417.33 1.01 0 1.426l-.09.1a1.15 1.15 0 1 1-.003-1.63Zm-8 0 .093.104c.33.417.33 1.01 0 1.426l-.09.1a1.15 1.15 0 1 1-.003-1.63Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MessageDisabledIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4.2 18.83a1 1 0 1 0 1.42 1.41l3.19-3.19h.05l1.78 3.55a1.44 1.44 0 0 0 2.68 0l1.78-3.55h.88a7 7 0 0 0 4.85-12l.34-.34a1 1 0 1 0-1.41-1.42L4.2 18.83Zm11.78-3.78h-2.12l-1.88 3.76-1.65-3.29 9.09-9.08a5 5 0 0 1-3.44 8.61ZM5.7 14.5a5 5 0 0 1 2.28-9.45h7.17l1.91-1.91a7.61 7.61 0 0 0-1.08-.09h-8a7 7 0 0 0-3.73 12.91L5.7 14.5Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MessageIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16 3H8a7 7 0 0 0 0 14h.88l1.78 3.55a1.44 1.44 0 0 0 2.68 0L15.12 17H16a7 7 0 1 0 0-14Zm0 12h-2.12L12 18.76 10.12 15H8A5 5 0 0 1 8 5h8a5 5 0 0 1 0 10Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MessageTypingIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16 3H8c-3.85 0-7 3.15-7 7s3.15 7 7 7h.882l1.776 3.553c.293.585.783.921 1.342.921.56 0 1.049-.335 1.342-.922L15.118 17H16c3.85 0 7-3.15 7-7s-3.15-7-7-7Zm-9 8.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MicOffIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19.9 9.1a.9.9 0 0 1 .9.9 8.874 8.874 0 0 1-2.607 6.293 8.87 8.87 0 0 1-5.394 2.562v2.487h2.091a.9.9 0 1 1 0 1.8h-6a.9.9 0 0 1 0-1.8H11v-2.487a8.87 8.87 0 0 1-5.393-2.562A8.873 8.873 0 0 1 3 10a.9.9 0 1 1 1.8 0 7.07 7.07 0 0 0 2.08 5.02 7.074 7.074 0 0 0 5.02 2.08 7.07 7.07 0 0 0 5.02-2.08A7.074 7.074 0 0 0 19 10a.9.9 0 0 1 .9-.9Zm-8-8.1a5 5 0 0 1 5 5v4a5 5 0 0 1-10 0V6a5 5 0 0 1 5-5Zm0 1.8A3.2 3.2 0 0 0 8.7 6v4a3.2 3.2 0 0 0 6.4 0V6a3.2 3.2 0 0 0-3.2-3.2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MicOnIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19.9 9.1a.9.9 0 0 1 .9.9 8.874 8.874 0 0 1-2.607 6.293 8.87 8.87 0 0 1-5.394 2.562v2.487h2.091a.9.9 0 1 1 0 1.8h-6a.9.9 0 0 1 0-1.8H11v-2.487a8.87 8.87 0 0 1-5.393-2.562A8.873 8.873 0 0 1 3 10a.9.9 0 1 1 1.8 0 7.07 7.07 0 0 0 2.08 5.02 7.074 7.074 0 0 0 5.02 2.08 7.07 7.07 0 0 0 5.02-2.08A7.074 7.074 0 0 0 19 10a.9.9 0 0 1 .9-.9Zm-8-8.1a5 5 0 0 1 5 5v4a5 5 0 0 1-10 0V6a5 5 0 0 1 5-5Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MinusIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MobileIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M13.5 17a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 2v16h10V4H7Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MoneyIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M18.003 15.99c0-2.31-1.34-3.7-4.25-4.42l-2.52-.64c-1.5-.37-2.23-1.15-2.23-2.23 0-1.41 1.2-2.31 3-2.31a3.6 3.6 0 0 1 3.32 1.87 1.28 1.28 0 0 0 1.16.68 1.05 1.05 0 0 0 1.1-1.11 3.1 3.1 0 0 0-1.18-2.22 6.12 6.12 0 0 0-3.4-1.39V3a1 1 0 1 0-2 0v1.22c-2.89.28-4.75 2.09-4.75 4.68 0 2.23 1.34 3.68 4 4.33l2.54.66c1.76.45 2.56 1.2 2.56 2.4 0 1.46-1.2 2.31-3.23 2.31a4.3 4.3 0 0 1-3.62-1.73c-.5-.63-.89-.87-1.4-.87a1.12 1.12 0 0 0-1.1 1.2 3.08 3.08 0 0 0 1.2 2.14 6.57 6.57 0 0 0 3.8 1.45V22a1 1 0 1 0 2 0v-1.21c3.08-.29 5-2.1 5-4.8Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MonitorIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M18.599 2.104A3.473 3.473 0 0 1 21.9 5.571v8.857l-.005.17a3.47 3.47 0 0 1-3.295 3.297l-.171.005h-3.41l.275 2.2h.562l.092.005a.9.9 0 0 1 0 1.79l-.092.005H8.143a.901.901 0 0 1 0-1.8h.563l.274-2.2H5.571A3.473 3.473 0 0 1 2.1 14.43V5.57A3.473 3.473 0 0 1 5.57 2.1h12.857l.17.004ZM10.519 20.1h2.961l-.274-2.2h-2.412l-.274 2.2ZM3.9 14.429a1.671 1.671 0 0 0 1.671 1.67H18.43l.164-.007a1.672 1.672 0 0 0 1.507-1.663V13.9H3.9v.529ZM5.571 3.9a1.671 1.671 0 0 0-1.67 1.671V12.1H20.1V5.57a1.673 1.673 0 0 0-1.032-1.544 1.673 1.673 0 0 0-.64-.127H5.572Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MoodHappyIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.5 10a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm4.5 1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm2 1.5a5 5 0 0 1-10 0h10Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M2 12C2 6.477 6.477 2 12 2A10 10 0 1 1 2 12Zm2 0a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MoodNeutralIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.5 10a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm4.5 1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM8 15a1 1 0 0 1 1-1h6a1 1 0 1 1 0 2H9a1 1 0 0 1-1-1Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M2 12C2 6.477 6.477 2 12 2A10 10 0 1 1 2 12Zm2 0a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MoodUnhappyIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.5 10a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm4.5 1.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm-7.79 3.9A5.92 5.92 0 0 1 12 13a5.92 5.92 0 0 1 4.79 2.4 1 1 0 0 1-1.6 1.2 4 4 0 0 0-6.38 0 1 1 0 1 1-1.6-1.2Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M2 12C2 6.477 6.477 2 12 2A10 10 0 1 1 2 12Zm2 0a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MoreIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm5 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm7 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'NoteIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m14 1.1.094.005.133.024.134.047.11.057.06.04.064.052 6.08 6.08.073.094.036.06.05.103.026.072.02.08c.014.06.02.123.02.186v12a2.9 2.9 0 0 1-2.9 2.9H6A2.9 2.9 0 0 1 3.1 20V4A2.9 2.9 0 0 1 6 1.1h8Zm-.9 1.8H6A1.1 1.1 0 0 0 4.9 4v16A1.1 1.1 0 0 0 6 21.1h12a1.1 1.1 0 0 0 1.1-1.1V8.9H14a.9.9 0 0 1-.9-.9V2.9ZM16 16.1a.9.9 0 1 1 0 1.8H8a.9.9 0 1 1 0-1.8h8Zm0-4a.9.9 0 1 1 0 1.8H8a.9.9 0 1 1 0-1.8h8Zm-6-4a.9.9 0 1 1 0 1.8H8a.9.9 0 0 1 0-1.8h2Zm4.9-3.928V7.1h2.928L14.9 4.172Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'NotificationIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m21.798 17.4-2.8-3.73V9.5a6.5 6.5 0 0 0-5.5-6.41V2a1 1 0 1 0-2 0v1.09a6.5 6.5 0 0 0-5.5 6.41v4.17l-2.8 3.73a1 1 0 0 0 .8 1.6h4.5a4 4 0 0 0 8 0h4.5a1 1 0 0 0 .8-1.6Zm-9.3 3.6a2 2 0 0 1-2-2h4a2 2 0 0 1-2 2Zm-6.5-4 1.8-2.4a1 1 0 0 0 .2-.6V9.5a4.5 4.5 0 1 1 9 0V14a1 1 0 0 0 .2.6l1.8 2.4h-13Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PaymentIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.5 13h3a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M3.87 5h16.26A1.87 1.87 0 0 1 22 6.87v10.26A1.87 1.87 0 0 1 20.13 19H3.87A1.87 1.87 0 0 1 2 17.13V6.87A1.87 1.87 0 0 1 3.87 5ZM4 17h16v-6H4v6Zm0-8h16V7H4v2Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PeopleAltIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12.248 13.006A5 5 0 0 1 17 18v2a1 1 0 1 1-2 0v-2a3 3 0 0 0-2.703-2.985L12 15H7a3 3 0 0 0-3 3v2a1 1 0 1 1-2 0v-2a5 5 0 0 1 5-5h5l.248.006ZM18 13a4 4 0 0 1 4 4v3a1 1 0 1 1-2 0v-3a2 2 0 0 0-2-2 1 1 0 1 1 0-2Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M9.442 3.001a4.168 4.168 0 0 1 4.2 4.1v.022a4.338 4.338 0 0 1-3.97 4.293l-.207.013h-.073A4.337 4.337 0 0 1 5.22 7.332l-.006-.209v-.021A4.17 4.17 0 0 1 9.414 3h.029v.001ZM9.2 5.008a2.168 2.168 0 0 0-1.985 2.114 2.334 2.334 0 0 0 2.213 2.304 2.336 2.336 0 0 0 1.556-.704c.417-.43.652-1.002.659-1.6a2.166 2.166 0 0 0-1.985-2.114L9.443 5h-.03l-.214.008Z"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M15.405 3.003a4.167 4.167 0 0 1 4.023 4.099v.021a4.337 4.337 0 0 1-4.178 4.306 1.001 1.001 0 0 1-.072-2 2.337 2.337 0 0 0 2.249-2.315 2.166 2.166 0 0 0-1.984-2.106L15.23 5l-.102-.003A1.001 1.001 0 0 1 15.199 3l.206.003Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PhoneDisabledIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.48 12.69a11 11 0 0 1-1.28-2.54A3.5 3.5 0 0 0 9 9.29l-1-6a3.19 3.19 0 0 0-.83-.24A2.91 2.91 0 0 0 6.6 3 3.6 3.6 0 0 0 3 6.6a14.35 14.35 0 0 0 2.9 8.67l2.58-2.58Zm12.71-8.47a1 1 0 0 0-1.41 0L4.22 19.78a1 1 0 1 0 1.42 1.41l3.09-3.09A14.35 14.35 0 0 0 17.4 21a3.6 3.6 0 0 0 3.55-4.19 3.278 3.278 0 0 0-.25-.81l-6-1a3.49 3.49 0 0 0-.85 1.78 10.691 10.691 0 0 1-2.55-1.28l9.88-9.88a1 1 0 0 0 .01-1.4Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PhoneIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M21 16.81a3.281 3.281 0 0 0-.3-.81l-6-1a3.49 3.49 0 0 0-.85 1.78 10.74 10.74 0 0 1-6.65-6.63A3.5 3.5 0 0 0 9 9.29l-1-6a3.19 3.19 0 0 0-.83-.24A2.924 2.924 0 0 0 6.6 3 3.6 3.6 0 0 0 3 6.6C3 14.553 9.447 21 17.4 21a3.6 3.6 0 0 0 3.6-3.6 3.798 3.798 0 0 0 0-.59Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PhotoIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10 9a2 2 0 1 1-4 0 2 2 0 0 1 4 0Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M4 3h16a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Zm16 10.59V5H4v9.59l1.23-1.24a2.52 2.52 0 0 1 3.54 0l.73.74 3.38-3.38a3 3 0 0 1 4.24 0L20 13.59ZM4 17.41V19h16v-2.58l-4.29-4.3a1 1 0 0 0-1.42 0l-4.08 4.09a1 1 0 0 1-1.42 0l-1.44-1.44a.48.48 0 0 0-.7 0L4 17.41Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PinIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M16 11V4h.5a.5.5 0 0 0 .5-.5v-1a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5v1a.5.5 0 0 0 .5.5H8v7l-2 2v1.5a.5.5 0 0 0 .5.5H11v6l1 1 1-1v-6h4.5a.5.5 0 0 0 .5-.5V13l-2-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PoundIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M6.988 21.203c-.32 0-.59-.11-.808-.33-.22-.22-.33-.488-.33-.807v-.462c0-.207.047-.395.14-.566.093-.17.219-.305.376-.404a5.1 5.1 0 0 0 1.517-1.512 3.7 3.7 0 0 0 .59-2.056 3.807 3.807 0 0 0-.112-.93H6.81a1.1 1.1 0 0 1-.81-.328c-.22-.22-.329-.49-.328-.808 0-.32.11-.59.33-.808.219-.22.488-.33.808-.33h.428a21.007 21.007 0 0 1-.94-1.704C6 9.555 5.85 8.814 5.85 7.934c0-1.573.547-2.906 1.64-3.998 1.092-1.093 2.425-1.64 3.998-1.64 1.06 0 2.014.252 2.864.756a5.8 5.8 0 0 1 2.034 2.01.79.79 0 0 1 .03.795 1.27 1.27 0 0 1-.632.603c-.282.116-.56.123-.834.02a1.56 1.56 0 0 1-.696-.52 3.501 3.501 0 0 0-1.192-1.01 3.34 3.34 0 0 0-1.574-.38c-.93 0-1.724.328-2.38.98-.655.654-.983 1.449-.983 2.384 0 .788.186 1.45.559 1.985.372.535.77 1.183 1.195 1.943h3.109c.32 0 .59.11.808.33.22.22.33.49.33.808 0 .319-.11.588-.33.808a1.1 1.1 0 0 1-.808.33h-2.314c.03.133.05.28.06.438.01.16.015.323.015.49 0 .793-.135 1.513-.404 2.16a6.6 6.6 0 0 1-1.018 1.702h4.66c.549 0 .998-.131 1.348-.394.35-.263.58-.63.69-1.1.07-.287.197-.53.382-.731.184-.201.427-.302.73-.302.32 0 .584.109.796.327.21.217.316.486.316.805 0 1.06-.467 1.937-1.401 2.63-.934.693-1.887 1.04-2.86 1.04h-7Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PowerOnIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 3c-.55 0-1 .45-1 1v8c0 .55.45 1 1 1s1-.45 1-1V4c0-.55-.45-1-1-1Zm5.14 2.86a.99.99 0 0 0-.01 1.39c1.13 1.2 1.83 2.8 1.87 4.57.09 3.83-3.08 7.13-6.91 7.17A6.981 6.981 0 0 1 5 12c0-1.84.71-3.51 1.87-4.76.37-.39.37-1-.01-1.38a.993.993 0 0 0-1.43.02A8.92 8.92 0 0 0 3 11.74c-.14 4.88 3.83 9.1 8.71 9.25 5.1.16 9.29-3.93 9.29-9 0-2.37-.92-4.51-2.42-6.11-.38-.41-1.04-.42-1.44-.02Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PriorityHighIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 13.175 4.575 19.05c-.333.233-.68.262-1.038.087-.358-.175-.537-.47-.537-.887 0-.167.038-.325.112-.475a.85.85 0 0 1 .313-.35l8.575-6.7 8.575 6.7c.133.083.238.2.313.35.074.15.112.308.112.475 0 .4-.18.692-.538.875-.358.183-.704.158-1.037-.075L12 13.175Zm0-5.95L4.575 13.1c-.333.233-.68.263-1.038.088C3.18 13.011 3 12.716 3 12.3c0-.167.038-.325.112-.475a.85.85 0 0 1 .313-.35L12 4.775l8.575 6.7c.133.083.238.2.313.35.074.15.112.308.112.475 0 .4-.18.692-.538.875-.358.183-.704.158-1.037-.075L12 7.225Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PriorityLowIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m12 10.85 7.425-5.875c.333-.233.68-.263 1.037-.088.359.175.538.471.538.888 0 .167-.038.325-.113.475a.851.851 0 0 1-.312.35L12 13.3 3.425 6.6a.851.851 0 0 1-.313-.35A1.048 1.048 0 0 1 3 5.775c0-.4.18-.692.538-.875.358-.183.704-.158 1.037.075L12 10.85Zm0 5.95 7.425-5.875c.333-.233.68-.263 1.037-.088.359.175.538.471.538.888 0 .167-.038.325-.113.475a.851.851 0 0 1-.312.35L12 19.25l-8.575-6.7a.85.85 0 0 1-.313-.35A1.048 1.048 0 0 1 3 11.725c0-.4.18-.692.538-.875.358-.183.704-.158 1.037.075L12 16.8Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PriorityMediumIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4.2 8.5c-.663 0-1.2.448-1.2 1s.537 1 1.2 1h15.6c.663 0 1.2-.448 1.2-1s-.537-1-1.2-1H4.2Zm0 5c-.663 0-1.2.448-1.2 1s.537 1 1.2 1h15.6a1.3 1.3 0 0 0 .942-.38.897.897 0 0 0 .258-.62c0-.552-.537-1-1.2-1H4.2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PropertyCheckedIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.813 16.62a1 1 0 0 1-.71-.295l-2.12-2.12a1 1 0 1 1 1.41-1.42l1.42 1.42 3.54-3.54a1 1 0 1 1 1.41 1.42l-4.24 4.24a1 1 0 0 1-.71.296Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="m12.423 2.165 10.5 7a1 1 0 0 1-.55 1.83.94.94 0 0 1-.55-.17l-.95-.63v11.3a1 1 0 0 1-1 1h-16a1 1 0 0 1-1-1v-11.3l-.9.63a1 1 0 0 1-1.1-1.66l10.45-7a1 1 0 0 1 1.1 0Zm-7.55 18.33h14V8.865l-7-4.67-7 4.67v11.63Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'PropertyIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m22.923 9.165-10.5-7a1 1 0 0 0-1.1 0l-10.45 7a1 1 0 0 0 1.1 1.66l.9-.63v11.3a1 1 0 0 0 1 1h16a1 1 0 0 0 1-1v-11.3l.95.63a.94.94 0 0 0 .55.17 1 1 0 0 0 .55-1.83Zm-4.05 11.33h-14V8.865l7-4.67 7 4.67v11.63Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'RadioDisabledIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'RadioIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm0 18a8 8 0 1 1 0-16 8 8 0 0 1 0 16Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'RadioSelectedIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M17 12a5 5 0 1 1-10 0 5 5 0 0 1 10 0Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M2 12C2 6.477 6.477 2 12 2A10 10 0 1 1 2 12Zm2 0a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'RefreshIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19.75 13.009a1 1 0 0 0-1 .77 7 7 0 0 1-11.69 3.23 7.036 7.036 0 0 1 9.95-9.95l-2.1 2.1a.5.5 0 0 0 .36.85h5.24a.5.5 0 0 0 .5-.5v-5.29a.5.5 0 0 0-.5-.5.47.47 0 0 0-.35.14l-1.79 1.79a9 9 0 0 0-8.21-2.46 8.58 8.58 0 0 0-3 1.23 9 9 0 0 0-3.95 9.52 8.66 8.66 0 0 0 1.21 2.93 9 9 0 0 0 9.5 3.94 8.29 8.29 0 0 0 3-1.24 9 9 0 0 0 3.81-5.31 1 1 0 0 0-1-1.25h.02Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'RentIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="m16.495 5.667 5 5c2 2 2 5.25 0 7.25l-.25.25c-2 2-5.25 2-7.25 0l-3.21-3.21c-.19.15-.37.28-.57.41v4.41c0 .56-.22 1.1-.62 1.49l-1.11 1.11c-.82.82-2.16.82-2.98 0l-1.11-1.12c-.39-.4-.61-.93-.61-1.49v-4.4c-1.66-1.06-2.78-2.91-2.78-5.04 0-2.99 2.2-5.47 5.08-5.91a4.037 4.037 0 0 1 3.99-3.41c2.03 0 3.7 1.5 3.99 3.45.89.13 1.74.52 2.43 1.21Zm-4.42-1.04c-.2-.93-1.02-1.63-2.01-1.63v.01c-.92 0-1.69.61-1.95 1.44.9.16 1.73.54 2.44 1.06.46-.41.97-.7 1.52-.88Zm-3.85 10.16c0-.41.25-.77.61-.92l.01-.01c1.29-.67 2.17-2 2.17-3.54 0-1.86-1.28-3.41-3-3.86v3.1c.16.21.28.47.28.76 0 .71-.57 1.28-1.28 1.28-.71 0-1.28-.56-1.28-1.27 0-.29.12-.55.28-.76v-3.1c-1.72.45-3 2-3 3.86 0 1.54.88 2.87 2.17 3.54.34.14.59.47.61.86v5.04c0 .03.03.08.03.08l1.11 1.12c.04.04.11.04.15 0l1.11-1.11c.02-.02.03-.08.03-.08v-4.99Zm11.61 1.97.25-.25-.01-.01a3.126 3.126 0 0 0 0-4.42l-5.01-5.01c-.86-.86-2.21-.9-3.13-.14.67.97 1.06 2.14 1.06 3.4 0 1.15-.33 2.21-.89 3.12l3.31 3.31a3.126 3.126 0 0 0 4.42 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'RepeatIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M22.998 11.997h-2a9 9 0 0 0-13.8-7.61 1 1 0 0 0-.26 1.48 1 1 0 0 0 1.34.21 6.86 6.86 0 0 1 3.72-1.08 7 7 0 0 1 7 7h-2a.5.5 0 0 0-.39.81l3 3.7a.5.5 0 0 0 .78 0l3-3.7a.5.5 0 0 0-.39-.81Zm-7.28 5.92a6.861 6.861 0 0 1-3.72 1.08 7 7 0 0 1-7-7h2a.5.5 0 0 0 .39-.81l-3-3.7a.5.5 0 0 0-.78 0l-3 3.7a.5.5 0 0 0 .39.81h2a9 9 0 0 0 13.8 7.61 1 1 0 0 0 .26-1.48 1 1 0 0 0-1.34-.21Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ReplyAllIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m6.936 15.893-4.652-4.629a.958.958 0 0 1-.216-.314.923.923 0 0 1-.068-.352c0-.123.023-.24.068-.352a.959.959 0 0 1 .216-.315L6.95 5.265A.92.92 0 0 1 7.616 5a.922.922 0 0 1 .69.279c.18.189.27.415.27.678 0 .263-.094.49-.283.678l-3.962 3.963 3.976 3.976c.182.182.272.4.271.654a.916.916 0 0 1-.285.665.926.926 0 0 1-.678.283.926.926 0 0 1-.679-.283Zm14.114 2.706a.92.92 0 0 1-.678-.272.92.92 0 0 1-.272-.678v-3.022c0-.905-.29-1.645-.867-2.219-.579-.573-1.316-.86-2.212-.86h-6.773l3.026 3.026c.182.182.269.4.26.654a.961.961 0 0 1-.297.665.926.926 0 0 1-.679.283.882.882 0 0 1-.664-.283l-4.63-4.629a.957.957 0 0 1-.214-.314.923.923 0 0 1-.069-.352c0-.123.023-.24.069-.352a.959.959 0 0 1 .215-.315l4.653-4.666A.92.92 0 0 1 12.584 5a.922.922 0 0 1 .69.279c.18.189.27.415.27.678 0 .263-.094.49-.283.678l-3.013 3.013h6.773c1.413 0 2.596.476 3.55 1.43.952.952 1.429 2.136 1.429 3.549v3.022a.92.92 0 0 1-.272.678.92.92 0 0 1-.678.272Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ReplyIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20.91 19.6c-.31 0-.57-.104-.777-.312a1.056 1.056 0 0 1-.312-.778v-3.96c0-.928-.322-1.712-.967-2.351-.645-.64-1.426-.96-2.344-.96H5.707l3.234 3.234a.975.975 0 0 1 .29.737 1.102 1.102 0 0 1-.317.764 1.055 1.055 0 0 1-.772.325c-.298 0-.555-.108-.772-.325l-5.06-5.06a1 1 0 0 1-.24-.36A1.16 1.16 0 0 1 2 10.15c0-.141.024-.276.07-.404a1 1 0 0 1 .24-.36l5.088-5.088A1.01 1.01 0 0 1 8.142 4c.298 0 .555.108.772.325.217.217.325.472.325.764 0 .293-.108.548-.325.764L5.707 9.06H16.51c1.513 0 2.807.532 3.88 1.597C21.463 11.72 22 13.019 22 14.55v3.96c0 .311-.104.57-.311.778a1.056 1.056 0 0 1-.778.312Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ReportIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M19 3h-3a1 1 0 0 0-1-1H9a1 1 0 0 0-1 1H5a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2Zm0 18H5V5h3a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1h3v16Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'RestoreIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M10.863 2.363a.9.9 0 0 1 1.274 1.274L10.674 5.1H12a8.4 8.4 0 1 1-7.465 4.546l.046-.08a.9.9 0 0 1 1.553.908l-.166.344A6.6 6.6 0 1 0 12 6.9h-1.326l1.463 1.463.061.069a.9.9 0 0 1-1.266 1.266l-.069-.061-3-3a.893.893 0 0 1-.137-1.097.9.9 0 0 1 .137-.177l3-3Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SaleIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M22 3a1 1 0 1 1 0 2H4v17H2V3a1 1 0 0 1 2 0h18Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M8 7h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2Zm0 10h12V9H8v8Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SearchIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m21.71 20.29-5.4-5.39A7.9 7.9 0 0 0 18 10a8 8 0 1 0-8 8 7.9 7.9 0 0 0 4.9-1.69l5.39 5.4a1 1 0 0 0 1.42 0 1 1 0 0 0 0-1.42ZM4 10a6 6 0 1 1 12 0 6 6 0 0 1-12 0Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SendIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M18.672 3.108a1.773 1.773 0 0 1 1.747.445l.017.014.023.026c.448.465.653 1.164.39 1.873l-5.455 14.72c-.616 1.66-3.003 1.526-3.435-.187l-1.59-6.353-6.37-1.6c-1.717-.431-1.843-2.818-.187-3.433l14.725-5.46.135-.045Zm-6.759 10.124 1.598 6.376.03.073c.012.018.024.03.035.038a.21.21 0 0 0 .12.041c.05.003.092-.01.122-.028a.186.186 0 0 0 .076-.102l4.938-13.326-6.919 6.928Zm-7.545-3.119a.187.187 0 0 0-.102.076.217.217 0 0 0-.027.123c.002.05.019.09.04.117a.187.187 0 0 0 .11.065l6.394 1.606 6.925-6.934-13.34 4.947Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SeparatorDotIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SeparatorLineIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12.5 6h-1v12h1V6Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SettingsAltIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M5.277 4.6a3.4 3.4 0 0 1 6.559 0H21a.9.9 0 1 1 0 1.8h-9.165a3.4 3.4 0 0 1-6.559 0H3a.9.9 0 1 1 0-1.8h2.277Zm2.148-.231a1.6 1.6 0 1 1-.464 1.258.907.907 0 0 0 0-.254 1.6 1.6 0 0 1 .464-1.004ZM21 12.9h-2.277a3.4 3.4 0 0 1-6.559 0H3a.9.9 0 1 1 0-1.8h9.165a3.4 3.4 0 0 1 6.559 0H21a.9.9 0 1 1 0 1.8Zm-3.96-.9.003-.069a1.6 1.6 0 1 0 0 .137.912.912 0 0 1-.003-.068Zm-5.205 7.4a3.4 3.4 0 0 1-6.559 0H3a.9.9 0 1 1 0-1.8h2.277a3.4 3.4 0 0 1 6.559 0H21a.9.9 0 1 1 0 1.8h-9.165Zm-4.877-.832a.907.907 0 0 0 0-.136 1.6 1.6 0 1 1 0 .136Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SettingsIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M18.917 12.88c.08-.584.08-1.176 0-1.76l2.06-1.85a1 1 0 0 0 .25-1.27l-1.18-2a1 1 0 0 0-1.19-.45l-2.65.9a7.21 7.21 0 0 0-1.52-.89l-.55-2.76a1 1 0 0 0-1-.8h-2.34a1 1 0 0 0-1 .8l-.53 2.74a7.47 7.47 0 0 0-1.52.89l-2.65-.9a1 1 0 0 0-1.19.47l-1.18 2a1 1 0 0 0 .25 1.27l2.1 1.85a6.48 6.48 0 0 0 0 1.76l-2.1 1.85a1 1 0 0 0-.25 1.27l1.18 2a1 1 0 0 0 1.19.45l2.65-.9c.47.356.98.654 1.52.89l.55 2.74a1 1 0 0 0 1 .8h2.36a1 1 0 0 0 1-.8l.55-2.74a7.209 7.209 0 0 0 1.52-.89l2.65.9a1 1 0 0 0 1.15-.45l1.18-2a1 1 0 0 0-.25-1.27l-2.06-1.85ZM11.977 15a3 3 0 1 1 0-6 3 3 0 0 1 0 6Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ShareIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M18 22.185c-.885 0-1.637-.31-2.257-.929A3.07 3.07 0 0 1 14.815 19c0-.12.008-.245.025-.374.016-.13.041-.248.075-.356l-6.757-3.932a3.402 3.402 0 0 1-.997.623c-.37.15-.756.225-1.161.224-.885 0-1.637-.31-2.256-.929A3.07 3.07 0 0 1 2.814 12c0-.885.31-1.637.93-2.257A3.07 3.07 0 0 1 6 8.815c.405 0 .791.075 1.16.224.37.15.703.358.998.624l6.757-3.933a1.994 1.994 0 0 1-.075-.356A2.98 2.98 0 0 1 14.815 5c0-.885.31-1.637.929-2.256A3.07 3.07 0 0 1 18 1.814c.885 0 1.637.31 2.256.93.62.62.93 1.372.93 2.256 0 .885-.31 1.637-.93 2.257A3.075 3.075 0 0 1 18 8.185a3.14 3.14 0 0 1-1.16-.218 3.298 3.298 0 0 1-.998-.618L9.085 11.27c.034.108.059.227.075.356a3 3 0 0 1 0 .748c-.016.13-.041.249-.075.356l6.757 3.92c.293-.264.63-.473.997-.617A3.12 3.12 0 0 1 18 15.815c.885 0 1.637.31 2.256.929.62.62.93 1.372.93 2.256a3.07 3.07 0 0 1-.93 2.256c-.62.62-1.372.93-2.256.93M18 6a.97.97 0 0 0 .712-.287A.97.97 0 0 0 19 5a.969.969 0 0 0-.288-.712A.971.971 0 0 0 18 4a.97.97 0 0 0-.712.288A.969.969 0 0 0 17 5c0 .283.096.52.288.713A.967.967 0 0 0 18 6ZM6 13c.283 0 .52-.096.713-.287A.971.971 0 0 0 7 12a.97.97 0 0 0-.287-.713A.97.97 0 0 0 6 11a.97.97 0 0 0-.712.287A.97.97 0 0 0 5 12c0 .283.096.52.288.713A.967.967 0 0 0 6 13Zm12 7c.283 0 .52-.096.712-.288A.971.971 0 0 0 19 19a.969.969 0 0 0-.288-.712A.97.97 0 0 0 18 18a.97.97 0 0 0-.712.288A.969.969 0 0 0 17 19c0 .283.096.52.288.712A.965.965 0 0 0 18 20Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SortAscendIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m11.6 8.194-5 6.67a.5.5 0 0 0 .4.8h10a.5.5 0 0 0 .4-.8l-5-6.67a.51.51 0 0 0-.8 0Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SortDescendIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m12.4 15.47 5-6.67A.5.5 0 0 0 17 8H7a.5.5 0 0 0-.4.8l5 6.67a.51.51 0 0 0 .8 0Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SortIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M11.727 8.297 6.721 3.3a1.003 1.003 0 0 0-1.422 0L.293 8.297a.998.998 0 0 0 1.412 1.41l3.294-3.289V20c0 .55.45 1 1.001 1 .55 0 1.001-.45 1.001-1V6.418l3.294 3.288a.998.998 0 0 0 1.412-1.409h.02Zm.546 7.406 5.006 4.997a1.003 1.003 0 0 0 1.422 0l5.006-4.997a.998.998 0 0 0-1.412-1.41l-3.294 3.289V3.999c0-.55-.45-.999-1.001-.999-.55 0-1.001.45-1.001 1v13.582l-3.294-3.289a.998.998 0 0 0-1.412 1.41h-.02Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'SproutIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M11.493 23a.936.936 0 0 1-.68-.267.886.886 0 0 1-.274-.662v-8.897c-1.277 0-2.5-.235-3.671-.705a9.466 9.466 0 0 1-3.103-2.014 8.97 8.97 0 0 1-2.056-3.017A9.215 9.215 0 0 1 1 3.868v-.76c0-.314.11-.577.327-.79A1.12 1.12 0 0 1 2.139 2h.783c1.25 0 2.459.237 3.628.71a9.544 9.544 0 0 1 3.102 2.02 8.786 8.786 0 0 1 1.64 2.171 9.4 9.4 0 0 1 .917 2.547c.147-.248.31-.482.49-.704a7.92 7.92 0 0 1 .605-.656 9.517 9.517 0 0 1 3.103-2.019 9.7 9.7 0 0 1 3.67-.712h.784c.323 0 .593.106.811.319.219.212.328.475.328.788v.762a8.981 8.981 0 0 1-.732 3.568 9.216 9.216 0 0 1-2.077 3.018 9.304 9.304 0 0 1-3.087 1.999 9.823 9.823 0 0 1-3.655.689v5.571a.885.885 0 0 1-.275.662.938.938 0 0 1-.68.267Zm-.942-11.714a6.99 6.99 0 0 0-.589-2.832 7.53 7.53 0 0 0-1.671-2.4A7.767 7.767 0 0 0 5.823 4.43a7.55 7.55 0 0 0-2.913-.573c0 .99.191 1.94.573 2.848A7.274 7.274 0 0 0 5.14 9.119a7.51 7.51 0 0 0 2.483 1.61c.934.371 1.91.557 2.93.557Zm1.898 3.357c1.019 0 1.99-.186 2.913-.557a7.553 7.553 0 0 0 2.467-1.61 7.483 7.483 0 0 0 1.672-2.414 7.1 7.1 0 0 0 .589-2.848 7.672 7.672 0 0 0-2.93.573 7.72 7.72 0 0 0-2.482 1.625 7.318 7.318 0 0 0-1.656 2.399 7.157 7.157 0 0 0-.573 2.832Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'StarIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m16.234 13.95 5.58-4.07a.5.5 0 0 0-.3-.93h-6.89l-2.13-6.54a.51.51 0 0 0-1 0l-2.09 6.54h-6.89a.5.5 0 0 0-.3.91l5.58 4.09-2.13 6.54a.5.5 0 0 0 .77.56l5.58-4.1 5.58 4.06a.5.5 0 0 0 .77-.56l-2.13-6.5Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'StatusBadIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm3.54 12.12a1 1 0 0 1-.71 1.71 1 1 0 0 1-.71-.29L12 13.41l-2.12 2.13a1 1 0 0 1-.71.29 1 1 0 0 1-.71-1.71L10.59 12 8.46 9.88a1.004 1.004 0 0 1 1.42-1.42L12 10.59l2.12-2.13a1.004 1.004 0 0 1 1.42 1.42L13.41 12l2.13 2.12Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'StatusGoodIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm4.42 8.23-5 4.95a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3l-2.43-2.47a1 1 0 1 1 1.41-1.42l1.77 1.77L15 8.82a1 1 0 0 1 1.41 1.41h.01Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'StatusIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'StatusPausedIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm-1 13a1 1 0 1 1-2 0V9a1 1 0 0 1 2 0v6Zm4 0a1 1 0 1 1-2 0V9a1 1 0 1 1 2 0v6Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'StatusUnknownIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Zm.93 14.78a1.37 1.37 0 0 1-.91.32 1.35 1.35 0 0 1-.91-.32 1.07 1.07 0 0 1-.36-.83 1 1 0 0 1 .36-.82 1.31 1.31 0 0 1 .89-.33c.334-.01.66.109.91.33a1 1 0 0 1 .36.82 1.07 1.07 0 0 1-.34.83Zm2.15-6.16c-.186.351-.43.669-.72.94l-.79.73a1.9 1.9 0 0 0-.46.65c-.09.278-.137.568-.14.86H11a4.442 4.442 0 0 1 .22-1.57 2.51 2.51 0 0 1 .73-1 4.52 4.52 0 0 0 .76-.77 1.22 1.22 0 0 0 .29-.77c0-.68-.29-1-.88-1a.83.83 0 0 0-.66.3 1.24 1.24 0 0 0-.26.8H8.9a2.7 2.7 0 0 1 .86-2.11 3.38 3.38 0 0 1 2.36-.76 3.54 3.54 0 0 1 2.35.7 2.47 2.47 0 0 1 .83 2 2.32 2.32 0 0 1-.22 1Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'TagIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M17.782 7.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M12.992 2h7.29a1.5 1.5 0 0 1 1.5 1.5v7.29a1.5 1.5 0 0 1-.44 1.06L12.191 21a2 2 0 0 1-2.82 0l-6.59-6.59a2 2 0 0 1 0-2.82l9.15-9.15a1.5 1.5 0 0 1 1.06-.44Zm-2.21 17.59 9-9V4h-6.59l-9 9 6.59 6.59Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'TaskIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M4 11a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm0-4a1 1 0 1 0 0-2 1 1 0 0 0 0 2Zm0 10a1 1 0 1 0 0 2 1 1 0 0 0 0-2Zm16-6H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2ZM8 7h12a1 1 0 1 0 0-2H8a1 1 0 0 0 0 2Zm12 10H8a1 1 0 1 0 0 2h12a1 1 0 1 0 0-2Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'TimeIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M13 11h3a1 1 0 1 1 0 2h-4a1 1 0 0 1-1-1V7a1 1 0 1 1 2 0v4Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M2 12C2 6.477 6.477 2 12 2A10 10 0 1 1 2 12Zm2 0a8 8 0 1 0 16 0 8 8 0 0 0-16 0Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'TrashIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M5.393 23c-.568 0-1.05-.198-1.448-.594a1.958 1.958 0 0 1-.597-1.441V4.06h-.33a.983.983 0 0 1-.724-.295A.99.99 0 0 1 2 3.037c0-.289.098-.53.294-.723a.992.992 0 0 1 .725-.29H7.93c0-.292.098-.535.294-.73A.986.986 0 0 1 8.95 1h6.095c.287 0 .529.1.725.297a1 1 0 0 1 .293.728h4.92c.287 0 .529.098.724.295a.99.99 0 0 1 .294.728c0 .288-.098.53-.294.722a.992.992 0 0 1-.725.29h-.329v16.905c0 .564-.199 1.045-.597 1.44-.398.397-.88.595-1.448.595H5.393ZM18.607 4.06H5.393v16.905h13.214V4.06ZM8.527 18.453h1.916V6.535H8.527v11.918Zm5.03 0h1.923V6.535h-1.923v11.918Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'UnarchiveIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m11.28 5.285-3 3a.948.948 0 0 0 .67 1.62c.24 0 .49-.09.67-.28L11 8.245v4.38c0 .52.43.95.95.95s.95-.43.95-.95v-4.38l1.38 1.38c.19.19.43.28.67.28.24 0 .49-.09.67-.28.37-.37.37-.97 0-1.34l-3-3a.945.945 0 0 0-1.35 0h.01Z"
+    />
+    <path
+      d="M20.74 3.16A3.92 3.92 0 0 0 17.95 2h-2c-.52 0-.95.43-.95.95s.43.95.95.95h2c.55 0 1.06.21 1.45.6.38.38.6.91.6 1.45V14h-3.43c-.36 0-.72.1-1.03.29-.31.19-.56.46-.72.79l-.49.92-4.81-.03-.45-.9c-.16-.32-.41-.6-.72-.79-.31-.19-.66-.29-1.03-.29H3.9V5.95c0-.55.21-1.06.6-1.45.39-.39.9-.6 1.45-.6h2c.52 0 .95-.43.95-.95S8.47 2 7.95 2h-2c-1.06 0-2.05.41-2.79 1.16C2.41 3.9 2 4.89 2 5.95v12c0 1.06.41 2.05 1.16 2.79a3.92 3.92 0 0 0 2.79 1.16h12c1.05 0 2.05-.41 2.79-1.16.74-.75 1.16-1.74 1.16-2.79v-12c0-1.05-.41-2.05-1.16-2.79ZM19.4 19.4c-.39.39-.9.6-1.45.6h-12c-.54 0-1.07-.22-1.45-.6-.39-.39-.6-.9-.6-1.45v-2.04l3.48.02.45.9c.16.32.41.6.72.79.31.19.66.29 1.03.29h4.76c.36 0 .72-.1 1.03-.29.31-.19.56-.46.72-.79l.49-.92h3.43v2.05c0 .55-.21 1.06-.6 1.45l-.01-.01Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'UserIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M8.38 8.88c0-2 1.62-3.624 3.62-3.63a3.64 3.64 0 0 1 3.63 3.63c-.003.617-.06 1.233-.17 1.84A3.58 3.58 0 0 1 12 14a3.58 3.58 0 0 1-3.46-3.28 10.491 10.491 0 0 1-.16-1.84ZM12 12c.91 0 1.36-.82 1.49-1.6.09-.502.136-1.01.14-1.52a1.63 1.63 0 1 0-3.25 0 8.73 8.73 0 0 0 .13 1.52c.13.78.58 1.6 1.49 1.6Z"
+      fill-rule="evenodd"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M1 12C1 5.925 5.925 1 12 1a11 11 0 0 1 11 11c0 6.075-4.925 11-11 11S1 18.075 1 12Zm11 5c-2.75 0-4.73 1.27-5 2.49h.06a8.93 8.93 0 0 0 9.94 0c-.27-1.22-2.25-2.49-5-2.49Zm0-2c3.07 0 5.62 1.28 6.55 3.12h.03a9 9 0 1 0-13.16 0C6.38 16.28 8.93 15 12 15Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'VideoIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m10.365 16.018 5.503-3.54a.54.54 0 0 0 .255-.48.54.54 0 0 0-.255-.477l-5.503-3.54a.51.51 0 0 0-.585-.027.56.56 0 0 0-.298.513v7.066c0 .228.1.399.298.513a.51.51 0 0 0 .585-.028Zm-6.293 4.185c-.63 0-1.167-.222-1.61-.665a2.2 2.2 0 0 1-.665-1.61V6.072c0-.63.222-1.167.665-1.61.443-.443.98-.665 1.61-.665h15.856c.63 0 1.167.222 1.61.665.443.443.665.98.665 1.61v11.856c0 .63-.222 1.166-.665 1.61-.443.443-.98.665-1.61.665H4.072Zm0-2.275h15.856V6.072H4.072v11.856Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ViewDisabledIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M9.022 11.23v-.16a3 3 0 0 1 3-3h.16l-3.16 3.16Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="m21.172 4.74-1.83 1.84a12 12 0 0 1 3.38 4.05 1 1 0 0 1 0 .88 12 12 0 0 1-14.31 6l-2.75 2.75a1 1 0 1 1-1.38-1.45l15.52-15.52a1 1 0 0 1 1.52.13 1 1 0 0 1-.15 1.32Zm-10.97 10.98c.58.23 1.197.348 1.82.35a5 5 0 0 0 4.66-6.82l-1.66 1.66v.16a3 3 0 0 1-3 3h-.16l-1.66 1.65Z"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M7.152 9.96a4.9 4.9 0 0 0 .22 2.93l-2.68 2.68a12.17 12.17 0 0 1-3.37-4.06 1 1 0 0 1 0-.88 12 12 0 0 1 14.31-6l-1.79 1.79a4.92 4.92 0 0 0-2.94-.22 5 5 0 0 0-3.75 3.76Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'ViewIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M22.475 11.594c-3-5.9-10.2-8.3-16.1-5.3-2.3 1.2-4.1 3-5.3 5.3-.1.3-.1.6 0 .9 3 5.9 10.2 8.3 16.1 5.3 2.3-1.2 4.1-3 5.3-5.3.1-.3.1-.7 0-.9Zm-10.7 5.4c-2.8 0-5-2.2-5-5s2.2-5 5-5 5 2.2 5 5-2.2 5-5 5Zm0-8c1.7 0 3 1.3 3 3s-1.3 3-3 3-3-1.3-3-3 1.3-3 3-3Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'W3wIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M8.509 7.433a.9.9 0 0 1 1.67.664l-2.797 8.262-.034.086a.9.9 0 0 1-1.696-.574l.025-.088L8.475 7.52l.034-.087Zm4.078 0a.9.9 0 0 1 1.67.664l-2.797 8.262-.034.086a.9.9 0 0 1-1.696-.574l.025-.088 2.798-8.263.034-.087Zm4 0a.9.9 0 0 1 1.67.664l-2.797 8.262-.034.086a.9.9 0 0 1-1.696-.574l.025-.088 2.798-8.263.034-.087Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M21.184 1.209A1.8 1.8 0 0 1 22.8 3v18a1.8 1.8 0 0 1-1.8 1.8H3A1.8 1.8 0 0 1 1.2 21V3l.009-.184A1.8 1.8 0 0 1 3 1.2h18l.184.009ZM3 21h18V3H3v18Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'WalkingIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M7.845 18.096c-1.263 0-2.242-.47-2.937-1.407-.695-.938-1.03-2.027-1.004-3.266v-.024l-.432-.651c-.25-.383-.575-1.09-.972-2.12s-.596-2.246-.596-3.646c0-1.738.434-3.185 1.302-4.341C4.074 1.483 5.168.904 6.488.904c1.413 0 2.534.626 3.363 1.879.83 1.252 1.245 2.653 1.245 4.205a8.71 8.71 0 0 1-.364 2.55 26.82 26.82 0 0 1-.724 2.1l.176.283c.169.29.363.694.583 1.214.22.52.33 1.047.33 1.582 0 .958-.308 1.76-.92 2.408-.615.646-1.392.97-2.332.97M5.28 11.432l2.642-.532a39.44 39.44 0 0 0 .64-1.816c.212-.654.32-1.358.32-2.114 0-.976-.222-1.862-.665-2.657C7.774 3.517 7.202 3.12 6.5 3.12c-.702 0-1.274.398-1.717 1.196-.443.797-.664 1.702-.663 2.714 0 .938.129 1.792.386 2.563.258.77.516 1.383.774 1.839Zm2.57 4.448a.96.96 0 0 0 .737-.317c.195-.21.292-.5.292-.87 0-.263-.063-.543-.188-.84a6.006 6.006 0 0 0-.388-.775l-2.184.458c.007.646.15 1.199.431 1.657.28.458.713.687 1.3.687Zm8.304 7.216c-.94 0-1.717-.324-2.33-.971-.613-.648-.92-1.45-.92-2.408 0-.534.11-1.06.328-1.58.22-.517.414-.923.583-1.216l.176-.283c-.24-.6-.48-1.3-.724-2.098a8.699 8.699 0 0 1-.364-2.552c0-1.551.415-2.953 1.245-4.205.83-1.254 1.95-1.88 3.363-1.88 1.32 0 2.414.58 3.282 1.738.868 1.156 1.302 2.604 1.302 4.34 0 1.398-.198 2.606-.593 3.626-.395 1.02-.72 1.727-.975 2.122l-.432.676v.018c.012 1.24-.326 2.328-1.014 3.266-.688.938-1.664 1.407-2.927 1.407Zm2.565-6.693c.25-.42.506-1.02.768-1.8.261-.78.392-1.648.392-2.603 0-.992-.22-1.887-.663-2.684-.443-.798-1.015-1.197-1.717-1.196-.702 0-1.274.397-1.717 1.193-.442.795-.663 1.685-.663 2.669 0 .724.101 1.409.304 2.054.203.645.425 1.279.666 1.9l2.63.467Zm-2.577 4.477c.587 0 1.021-.231 1.303-.693.282-.462.427-1.017.434-1.663l-2.202-.416c-.133.23-.26.485-.38.767-.119.281-.178.55-.178.806 0 .301.093.576.28.826a.882.882 0 0 0 .743.373Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'WandIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <g
+      clip-path="url(#a)"
+    >
+      <path
+        d="m23.5.5-2.65 1.452L18.197.5l1.455 2.645-1.455 2.645 2.651-1.452L23.5 5.79l-1.445-2.645L23.5.5Zm-2.65 14.389-2.652-1.452 1.455 2.645-1.455 2.645 2.651-1.442 2.651 1.442-1.445-2.645 1.445-2.645-2.65 1.452ZM8.034 4.338l2.65 1.452L9.23 3.145 10.685.5 8.034 1.952 5.383.5l1.445 2.645L5.383 5.79l2.65-1.452Zm7.683 1.939a2.128 2.128 0 0 0-1.515-.626c-.578 0-1.116.219-1.514.626L1.128 17.812a2.145 2.145 0 0 0 0 3.033l2.033 2.029c.408.407.946.626 1.514.626.578 0 1.117-.219 1.515-.627L17.75 11.34a2.145 2.145 0 0 0 0-3.033l-2.033-2.029Zm.618 3.65-2.78 2.774-2.243-2.237 2.78-2.785s.08-.05.11-.05.07 0 .11.05l2.033 2.029c.06.06.06.16 0 .219h-.01Z"
+      />
+    </g>
+    <defs>
+      <clippath
+        id="a"
+      >
+        <path
+          d="M0 0h24v24H0z"
+        />
+      </clippath>
+    </defs>
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'WarningIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m23.184 20.507-10.28-18a1 1 0 0 0-1.74 0l-10.28 18a1 1 0 0 0 .87 1.5h20.56a1 1 0 0 0 .87-1.5Zm-11.15-1a1.2 1.2 0 1 1 0-2.4 1.2 1.2 0 0 1 0 2.4Zm.8-3.8h-1.6s-.35-4.5-.4-6a1.2 1.2 0 1 1 2.4 0c-.05 1.5-.4 6-.4 6Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'WarningOutlineIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M22.322 20.007h-.008.008Zm-1.727 0-8.561-14.99-8.561 14.99h17.122Zm2.589.5-10.28-18a1 1 0 0 0-1.74 0l-10.28 18a1 1 0 0 0 .87 1.5h20.56a1 1 0 0 0 .87-1.5Z"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M10.834 17.8a1.2 1.2 0 1 0 2.4 0 1.2 1.2 0 0 0-2.4 0Zm.4-2.093h1.6s.35-4.5.4-6a1.2 1.2 0 0 0-2.4 0c.05 1.5.4 6 .4 6Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'WorkflowIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    data-colour="inherit"
+    data-size="lg"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="m13.4 5.5-.4-2H5V3a1 1 0 0 0-2 0v19h2v-8.5h5.6l.4 2h10v-10h-7.6Z"
+    />
+  </svg>
+</DocumentFragment>
+`;

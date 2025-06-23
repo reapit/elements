@@ -1,9 +1,8 @@
 import { AppSwitcher } from '../app-switcher'
-import { elIcon } from '../button'
 import { elTopBarMenuPopover } from './styles'
 import { DeprecatedIcon } from '../deprecated-icon'
 import { Menu } from '../menu'
-import MenuIcon from './icons/menu-icon.svg?react'
+import { MenuAltIcon } from '#src/icons/menu-alt'
 import { supportedAppNames } from './brand-logo'
 import { TopBar } from './top-bar'
 import { TopBarNavIconItemButton } from './nav-icon-item'
@@ -205,11 +204,7 @@ export const Example: Story = {
     mainNav: 'Many',
     menu: (
       // TODO: replace this with the proper TopBarMenu component when it is available
-      <TopBarNavIconItemButton
-        aria-label="Overflow menu"
-        icon={<MenuIcon className={elIcon} />}
-        onClick={() => void 0}
-      />
+      <TopBarNavIconItemButton aria-label="Overflow menu" icon={<MenuAltIcon />} onClick={() => void 0} />
     ),
     search: (
       <TopBar.NavSearch
