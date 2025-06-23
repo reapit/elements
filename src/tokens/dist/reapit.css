@@ -83,6 +83,10 @@
   --colour-text-tertiary: #415161;
   --colour-text-warning: #ff6000;
   --colour-text-white: #ffffff;
+  --comp-accordion-border-width: 1px;
+  --comp-accordion-colour-border: #e5e9ed;
+  --comp-accordion-colour-icon: #607890;
+  --comp-accordion-colour-text: #222b33;
   --comp-badge-border-radius: 4px;
   --comp-badge-colour-fill-default-accent_1: #e2fafa;
   --comp-badge-colour-fill-default-accent_2: #faf4ff;
@@ -137,8 +141,8 @@
   --comp-button-border-width-default: 1px;
   --comp-button-border-width-none: 0px;
   --comp-button-colour-border-primary-default: #7e9bfa;
+  --comp-button-colour-border-primary-destructive: #f01830;
   --comp-button-colour-border-primary-disabled: #9faebc;
-  --comp-button-colour-border-primary-distructive: #f01830;
   --comp-button-colour-border-primary-hover: #7e9bfa;
   --comp-button-colour-border-secondary-default: #e5e9ed;
   --comp-button-colour-border-secondary-destructive-default: #f01830;

@@ -1,14 +1,9 @@
-// @ts-check
-
-/**
- * @typedef {import('./types.ts').Theme} Theme
- * @typedef {import('style-dictionary').Config} Config
- */
-
 import StyleDictionary from 'style-dictionary'
 
-/** @type {Theme[]} */
-const themes = ['payprop', 'reapit']
+import type { Config } from 'style-dictionary'
+import type { Theme } from './types'
+
+const themes = ['payprop', 'reapit'] as const satisfies Theme[]
 
 StyleDictionary.registerTransform({
   name: 'name/custom-format',
@@ -30,8 +25,7 @@ StyleDictionary.registerTransform({
   },
 })
 
-/** @returns {Config} */
-function getConfig(themeName) {
+function getConfig(themeName: Theme): Config {
   return {
     log: {
       verbosity: 'verbose',
@@ -51,7 +45,13 @@ function getConfig(themeName) {
               // instead of referencing the primitives. This is important because we do not want to expose the
               // primitives to consumers, (1) to prevent their misuse, and (2) to minimise the number of CSS variables
               // at play.
-              return token.filePath.includes('Semantics')
+              const isSemanticToken = token.filePath.includes('Semantics')
+
+              // Further, we only want to include tokens that are not internal. This is because internal tokens are
+              // for use in Figma only.
+              const isInternalToken = token.path.some((pathSegment) => pathSegment === 'internal')
+
+              return isSemanticToken && !isInternalToken
             },
             format: 'css/variables',
           },
