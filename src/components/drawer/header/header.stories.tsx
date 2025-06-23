@@ -1,5 +1,6 @@
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
 import { DrawerHeader } from './header'
+import { useDrawerContextDecorator } from '../__story__/useDrawerContextDecorator'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -38,6 +39,7 @@ const meta = {
       value: 'light',
     },
   },
+  decorators: [useDrawerContextDecorator()],
 } satisfies Meta<typeof DrawerHeader>
 
 export default meta
