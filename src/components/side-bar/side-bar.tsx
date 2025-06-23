@@ -19,12 +19,23 @@ interface SideBarProps extends Omit<ComponentProps<typeof ElSideBar>, 'data-stat
    * The side bar's footer. Should typically be a `SideBar.CollapseButton` component.
    */
   footer: ReactNode
+  /**
+   * The width of the side bar.
+   */
+  width?: `--size-${string}`
 }
 
 /**
  * Collapsible navigation component for products with too many navigation items to fit in the TopBar's main nav.
  */
-export function SideBar({ 'aria-label': ariaLabel, children, footer, id, ...props }: SideBarProps) {
+export function SideBar({
+  'aria-label': ariaLabel,
+  children,
+  footer,
+  id,
+  width = '--size-64',
+  ...props
+}: SideBarProps) {
   const sideBarId = id ?? useId()
   const sideBar = useSideBar(() => determineSideBarStateFromViewport())
   const handleKeyboardNavigation = useSideBarKeyboardNavigation()
@@ -32,7 +43,13 @@ export function SideBar({ 'aria-label': ariaLabel, children, footer, id, ...prop
   useSideBarMatchMediaEffect(sideBar)
 
   return (
-    <ElSideBar {...props} aria-label={ariaLabel ?? 'Sidebar navigation'} data-state={sideBar.state} id={sideBarId}>
+    <ElSideBar
+      {...props}
+      aria-label={ariaLabel ?? 'Sidebar navigation'}
+      data-state={sideBar.state}
+      id={sideBarId}
+      style={{ '--side-bar-width': `var(${width})` }}
+    >
       <SideBarContextPublisher id={sideBarId} {...sideBar}>
         <ElSideBarBody onClick={sideBar.expand} onKeyDown={handleKeyboardNavigation}>
           {children}
