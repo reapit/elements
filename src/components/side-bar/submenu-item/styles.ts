@@ -24,13 +24,6 @@ export const elSideBarSubmenuItem = css`
 
   padding: var(--spacing-none) var(--spacing-3) var(--spacing-none) 44px;
 
-  /* NOTE: If the container width is 40px or less, the side bar must be collapsed,
-   * so we want to reduce our inline start padding to ensure we aren't overflowing
-   * the container. */
-  @container (width <= 40px) {
-    padding-inline-start: 28px; /* 40px - var(--spacing-3) */
-  }
-
   border-radius: var(--comp-navigation-border-radius-none);
   height: var(--size-8);
 

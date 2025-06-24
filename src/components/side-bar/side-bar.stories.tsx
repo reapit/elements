@@ -13,11 +13,12 @@ export default {
   argTypes: {
     children: {
       control: 'radio',
-      options: ['No selected item', 'Selected item', 'Selected submenu item'],
+      options: ['No selected item', 'Menu Item 2 selected', 'Submenu Item 2 selected', 'Menu Item 4 active'],
       mapping: {
-        'No selected item': buildMenu('No slected item'),
-        'Selected item': buildMenu('Selected item'),
-        'Selected submenu item': buildMenu('Selected submenu item'),
+        'No selected item': buildMenu('No selected item'),
+        'Menu Item 2 selected': buildMenu('Menu Item 2 selected'),
+        'Submenu Item 2 selected': buildMenu('Submenu Item 2 selected'),
+        'Menu Item 4 active': buildMenu('Menu Item 4 active'),
       },
     },
     footer: {
@@ -48,7 +49,7 @@ export const Example: Story = {
 export const SelectedItem: Story = {
   args: {
     ...Example.args,
-    children: 'Selected item',
+    children: 'Menu Item 2 selected',
   },
 }
 
@@ -60,21 +61,37 @@ export const SelectedItem: Story = {
 export const SelectedSubmenuItem: Story = {
   args: {
     ...Example.args,
-    children: 'Selected submenu item',
+    children: 'Submenu Item 2 selected',
   },
 }
 
-function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu item') {
+/**
+ * The side bar can be resized using the `width` prop. This size only applies when the side bar is expanded. Products
+ * should set the width according the menu items they display within the side bar. The side bar cannot be sized smaller
+ * than `--size-48` or larger than `--size-64`.
+ *
+ * By default, the side bar will size itself to `--size-64`.
+ */
+export const Sizing: Story = {
+  args: {
+    ...SelectedItem.args,
+    width: '--size-52',
+  },
+}
+
+function buildMenu(
+  type: 'No selected item' | 'Menu Item 2 selected' | 'Submenu Item 2 selected' | 'Menu Item 4 active',
+) {
   return (
     <SideBar.MenuList>
-      <SideBar.MenuItem key="1" href={href} icon={<DeprecatedIcon icon="dashboard" />}>
+      <SideBar.MenuItem aria-current={false} key="1" href={href} icon={<DeprecatedIcon icon="dashboard" />}>
         Menu item 1
       </SideBar.MenuItem>
       <SideBar.MenuItem
         key="2"
+        aria-current={type === 'Menu Item 2 selected' ? 'page' : false}
         href={href}
         icon={<DeprecatedIcon icon="contact" />}
-        isActive={type === 'Selected item'}
       >
         Menu item 2
       </SideBar.MenuItem>
@@ -85,21 +102,28 @@ function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu
         }
       >
         <SideBar.Submenu>
-          <SideBar.SubmenuItem href={href}>Submenu item 1</SideBar.SubmenuItem>
-          <SideBar.SubmenuItem href={href} isActive={type === 'Selected submenu item'}>
+          <SideBar.SubmenuItem aria-current={false} href={href}>
+            Submenu item 1
+          </SideBar.SubmenuItem>
+          <SideBar.SubmenuItem aria-current={type === 'Submenu Item 2 selected' ? 'page' : false} href={href}>
             Submenu item 2
           </SideBar.SubmenuItem>
         </SideBar.Submenu>
       </SideBar.MenuGroup>
       <SideBar.MenuGroup
         key="4"
+        isActive={type === 'Menu Item 4 active'}
         summary={
           <SideBar.MenuGroupSummary icon={<DeprecatedIcon icon="settings" />}>Menu item 4</SideBar.MenuGroupSummary>
         }
       >
         <SideBar.Submenu>
-          <SideBar.SubmenuItem href={href}>Submenu item 3</SideBar.SubmenuItem>
-          <SideBar.SubmenuItem href={href}>Submenu item 4</SideBar.SubmenuItem>
+          <SideBar.SubmenuItem aria-current={false} href={href}>
+            Submenu item 3
+          </SideBar.SubmenuItem>
+          <SideBar.SubmenuItem aria-current={false} href={href}>
+            Submenu item 4
+          </SideBar.SubmenuItem>
         </SideBar.Submenu>
       </SideBar.MenuGroup>
     </SideBar.MenuList>

@@ -66,6 +66,8 @@ export * from './deprecated-icons'
 export * from './tokens'
 
 // v5 components
+export * from './icons'
+
 export * from './components/avatar'
 export * from './components/avatar-rectangle'
 export * from './components/badge'
@@ -78,6 +80,7 @@ export * from './components/chip'
 export * from './components/chip-group'
 export * from './components/container-query'
 export * from './components/dialog'
+export * from './components/drawer'
 export * from './components/empty-data'
 export * from './components/features'
 export * from './components/label-text'
