@@ -6,7 +6,7 @@ export const useViewportHeightDecorator: Decorator = (Story) => {
       style={{
         border: '1px solid #FA00FF',
         boxSizing: 'content-box',
-        height: '300px',
+        height: '400px',
       }}
     >
       <Story />
