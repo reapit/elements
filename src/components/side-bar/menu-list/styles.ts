@@ -11,6 +11,7 @@ export const ElSideBarMenuList = styled.ul`
   padding-block-end: var(--spacing-2);
   width: 100%;
 
+  container-name: side-bar-menu-list;
   container-type: inline-size;
 `
 

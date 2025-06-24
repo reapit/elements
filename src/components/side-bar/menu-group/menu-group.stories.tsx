@@ -99,6 +99,7 @@ export const Collapsed = {
  * expand, and the group to open, though this behaviour is handled by the `SideBar` component itself, not the group.
  */
 export const SelectedAndCollapsed = {
+  name: 'Selected and collapsed',
   args: {
     ...Collapsed.args,
     children: 'Selected item',
@@ -107,7 +108,6 @@ export const SelectedAndCollapsed = {
   parameters: {
     ...Collapsed.parameters,
   },
-  storyName: 'Selected and collapsed',
 }
 
 /**

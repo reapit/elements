@@ -1,7 +1,10 @@
 import { styled } from '@linaria/react'
 
+import type { CSSProperties } from 'react'
+
 interface ElSideBarProps {
   'data-state': 'collapsed' | 'expanded'
+  style?: { '--side-bar-width'?: string } & CSSProperties
 }
 
 export const ElSideBar = styled.nav<ElSideBarProps>`
@@ -11,7 +14,7 @@ export const ElSideBar = styled.nav<ElSideBarProps>`
   justify-content: space-between;
   gap: var(--spacing-3);
   height: 100%;
-  width: 100%;
+  width: var(--side-bar-width);
 
   overflow: auto;
 

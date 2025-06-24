@@ -17,12 +17,12 @@ test(`combines the .${elTopBarNavItem} and consumer-supplied classes correctly`,
   expect(screen.getByRole('link')).toHaveAttribute('class', `${elTopBarNavItem} my-custom-class`)
 })
 
-test('has `aria-current="false"` attribute present when `isActive={false}`', () => {
+test('has `aria-current="false"` attribute when it does NOT represent the current page', () => {
   render(<NavItemStories.Example>Test item</NavItemStories.Example>)
   expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'false')
 })
 
-test('has `aria-current="page"` attribute present when `isActive={true}`', () => {
+test('has `aria-current="page"` attribute when it represents the current page', () => {
   render(<NavItemStories.Selected>Test item</NavItemStories.Selected>)
   expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'page')
 })

@@ -4,6 +4,11 @@ import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
 interface SideBarSubmenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'aria-current'> {
   /**
+   * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
+   * accessible users that the item is currently "selected".
+   */
+  'aria-current': 'page' | false
+  /**
    * The label of the menu item.
    */
   children: ReactNode
@@ -11,11 +16,6 @@ interface SideBarSubmenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorEl
    * The URL to navigate to when this item is activated.
    */
   href: string
-  /**
-   * When the item represents the current page, `isActive` should be supplied to communicate to visual and accessible
-   * users that the item is currently "selected".
-   */
-  isActive?: boolean
 }
 
 /**
@@ -31,16 +31,21 @@ interface SideBarSubmenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorEl
  * ```
  * function MySideBarSubmenuItem({ to, ...rest}) {
  *   const href = useHref(to)
- *   const isActive = useMatch(to)
+ *   const isCurrentPage = useMatch(to)
  *   return (
- *     <SideBarSubmenu.Item {...rest} href={href} isActive={isActive} />
+ *     <SideBarSubmenu.Item {...rest} href={href} aria-current={isCurrentPage ? 'page' : false} />
  *   )
  * }
  * ```
  */
-export function SideBarSubmenuItem({ children, className, isActive, ...rest }: SideBarSubmenuItemProps) {
+export function SideBarSubmenuItem({
+  'aria-current': ariaCurrent,
+  children,
+  className,
+  ...rest
+}: SideBarSubmenuItemProps) {
   return (
-    <a {...rest} aria-current={isActive ? 'page' : false} className={cx(elSideBarSubmenuItem, className)}>
+    <a {...rest} aria-current={ariaCurrent} className={cx(elSideBarSubmenuItem, className)}>
       <ElSideBarSubmenuItemLabel>{children}</ElSideBarSubmenuItemLabel>
     </a>
   )

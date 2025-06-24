@@ -32,6 +32,11 @@
       "import": "./dist/js/index.js",
       "require": "./dist/js/index.cjs"
     },
+    "./icons/*": {
+      "types": "./dist/types/icons/*.d.ts",
+      "import": "./dist/js/icons/*.js",
+      "require": "./dist/js/icons/*.cjs"
+    },
     "./styles.css": "./dist/js/style.css",
     "./dist/index.css": "./dist/js/style.css"
   },
@@ -53,12 +58,13 @@
     "build": "yarn build:storybook & yarn build:types & yarn build:dist",
     "build:storybook": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
     "build:dist": "vite build",
-    "build:tokens": "yarn build:tokens:preprocess && yarn build:tokens:css",
-    "build:tokens:css": "yarn node ./src/tokens/build.mjs",
-    "build:tokens:preprocess": "yarn node ./src/tokens/preprocess.js",
     "build:types": "tsc --project tsconfig.build.json",
     "commit": "yarn test run --coverage --silent && yarn coverage:badges && yarn lint --fix && yarn check",
     "coverage:badges": "yarn make-badge branches && yarn make-badge functions && yarn make-badge lines && yarn make-badge statements",
+    "generate:icons": "yarn node --experimental-strip-types src/icons/bin/generate-icons.ts",
+    "generate:tokens": "yarn generate:tokens:preprocess && yarn generate:tokens:css",
+    "generate:tokens:css": "yarn node --experimental-strip-types ./src/tokens/build.ts",
+    "generate:tokens:preprocess": "yarn node ./src/tokens/preprocess.js",
     "lint": "eslint --cache --ext=ts,tsx,js src",
     "check": "tsc --noEmit",
     "make-badge": "coverage-badges --type ${0} --source coverage/report/coverage-summary.json --output coverage/badges/badge-${0}.svg --jsonPath total.${0}.pct",
@@ -90,7 +96,7 @@
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
     "@types/babel__core": "^7",
-    "@types/node": "^18.19.31",
+    "@types/node": "22.15.32",
     "@types/postcss-flexbugs-fixes": "^5.0.3",
     "@types/react": "^18.2.75",
     "@types/react-dom": "^18.2.24",
