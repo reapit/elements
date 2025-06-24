@@ -1,4 +1,44 @@
 {
+  "black-050": {
+    "$type": "color",
+    "$value": "#0000001a"
+  },
+  "black-100": {
+    "$type": "color",
+    "$value": "#00000033"
+  },
+  "black-200": {
+    "$type": "color",
+    "$value": "#0000004d"
+  },
+  "black-300": {
+    "$type": "color",
+    "$value": "#00000066"
+  },
+  "black-400": {
+    "$type": "color",
+    "$value": "#00000080"
+  },
+  "black-500": {
+    "$type": "color",
+    "$value": "#00000099"
+  },
+  "black-600": {
+    "$type": "color",
+    "$value": "#000000b2"
+  },
+  "black-700": {
+    "$type": "color",
+    "$value": "#000000cc"
+  },
+  "black-800": {
+    "$type": "color",
+    "$value": "#000000e5"
+  },
+  "black-900": {
+    "$type": "color",
+    "$value": "#000000"
+  },
   "blue-050": {
     "$type": "color",
     "$value": "#ebf5ff"
