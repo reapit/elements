@@ -13,11 +13,12 @@ export default {
   argTypes: {
     children: {
       control: 'radio',
-      options: ['No selected item', 'Selected item', 'Selected submenu item'],
+      options: ['No selected item', 'Menu Item 2 selected', 'Submenu Item 2 selected', 'Menu Item 4 active'],
       mapping: {
-        'No selected item': buildMenu('No slected item'),
-        'Selected item': buildMenu('Selected item'),
-        'Selected submenu item': buildMenu('Selected submenu item'),
+        'No selected item': buildMenu('No selected item'),
+        'Menu Item 2 selected': buildMenu('Menu Item 2 selected'),
+        'Submenu Item 2 selected': buildMenu('Submenu Item 2 selected'),
+        'Menu Item 4 active': buildMenu('Menu Item 4 active'),
       },
     },
     footer: {
@@ -48,7 +49,7 @@ export const Example: Story = {
 export const SelectedItem: Story = {
   args: {
     ...Example.args,
-    children: 'Selected item',
+    children: 'Menu Item 2 selected',
   },
 }
 
@@ -60,7 +61,7 @@ export const SelectedItem: Story = {
 export const SelectedSubmenuItem: Story = {
   args: {
     ...Example.args,
-    children: 'Selected submenu item',
+    children: 'Submenu Item 2 selected',
   },
 }
 
@@ -73,13 +74,14 @@ export const SelectedSubmenuItem: Story = {
  */
 export const Sizing: Story = {
   args: {
-    ...Example.args,
-    children: 'Selected submenu item',
+    ...SelectedItem.args,
     width: '--size-52',
   },
 }
 
-function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu item') {
+function buildMenu(
+  type: 'No selected item' | 'Menu Item 2 selected' | 'Submenu Item 2 selected' | 'Menu Item 4 active',
+) {
   return (
     <SideBar.MenuList>
       <SideBar.MenuItem aria-current={false} key="1" href={href} icon={<DeprecatedIcon icon="dashboard" />}>
@@ -87,7 +89,7 @@ function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu
       </SideBar.MenuItem>
       <SideBar.MenuItem
         key="2"
-        aria-current={type === 'Selected item' ? 'page' : false}
+        aria-current={type === 'Menu Item 2 selected' ? 'page' : false}
         href={href}
         icon={<DeprecatedIcon icon="contact" />}
       >
@@ -103,13 +105,14 @@ function buildMenu(type: 'No slected item' | 'Selected item' | 'Selected submenu
           <SideBar.SubmenuItem aria-current={false} href={href}>
             Submenu item 1
           </SideBar.SubmenuItem>
-          <SideBar.SubmenuItem aria-current={type === 'Selected submenu item' ? 'page' : false} href={href}>
+          <SideBar.SubmenuItem aria-current={type === 'Submenu Item 2 selected' ? 'page' : false} href={href}>
             Submenu item 2
           </SideBar.SubmenuItem>
         </SideBar.Submenu>
       </SideBar.MenuGroup>
       <SideBar.MenuGroup
         key="4"
+        isActive={type === 'Menu Item 4 active'}
         summary={
           <SideBar.MenuGroupSummary icon={<DeprecatedIcon icon="settings" />}>Menu item 4</SideBar.MenuGroupSummary>
         }
