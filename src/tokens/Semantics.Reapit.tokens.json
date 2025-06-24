@@ -354,6 +354,28 @@
     }
   },
   "comp": {
+    "accordion": {
+      "border": {
+        "width": {
+          "$type": "dimension",
+          "$value": "{unit-px}"
+        }
+      },
+      "colour": {
+        "border": {
+          "$type": "color",
+          "$value": "{neutral-100}"
+        },
+        "icon": {
+          "$type": "color",
+          "$value": "{neutral-500}"
+        },
+        "text": {
+          "$type": "color",
+          "$value": "{neutral-900}"
+        }
+      }
+    },
     "badge": {
       "border": {
         "radius": {
@@ -604,13 +626,13 @@
               "$type": "color",
               "$value": "{purple-300}"
             },
+            "destructive": {
+              "$type": "color",
+              "$value": "{red-500}"
+            },
             "disabled": {
               "$type": "color",
               "$value": "{neutral-300}"
-            },
-            "distructive": {
-              "$type": "color",
-              "$value": "{red-500}"
             },
             "hover": {
               "$type": "color",
@@ -3479,6 +3501,150 @@
       "$description": "Used only for icon sizing",
       "$type": "dimension",
       "$value": "{unit-3}"
+    }
+  },
+  "internal": {
+    "font": {
+      "link": {
+        "base": {
+          "default": {
+            "family": {
+              "$type": "string",
+              "$value": "{reapit_font}"
+            },
+            "letter_spacing": {
+              "$type": "dimension",
+              "$value": "-0.13px"
+            },
+            "line_height": {
+              "$type": "dimension",
+              "$value": "24px"
+            },
+            "size": {
+              "$type": "dimension",
+              "$value": "15px"
+            },
+            "weight": {
+              "$type": "dimension",
+              "$value": "500"
+            }
+          },
+          "quiet": {
+            "family": {
+              "$type": "string",
+              "$value": "{reapit_font}"
+            },
+            "letter_spacing": {
+              "$type": "dimension",
+              "$value": "-0.15px"
+            },
+            "line_height": {
+              "$type": "dimension",
+              "$value": "24px"
+            },
+            "size": {
+              "$type": "dimension",
+              "$value": "15px"
+            },
+            "weight": {
+              "$type": "dimension",
+              "$value": "500"
+            }
+          }
+        },
+        "sm": {
+          "default": {
+            "family": {
+              "$type": "string",
+              "$value": "{reapit_font}"
+            },
+            "letter_spacing": {
+              "$type": "dimension",
+              "$value": "-0.13px"
+            },
+            "line_height": {
+              "$type": "dimension",
+              "$value": "20px"
+            },
+            "size": {
+              "$type": "dimension",
+              "$value": "14px"
+            },
+            "weight": {
+              "$type": "dimension",
+              "$value": "500"
+            }
+          },
+          "quiet": {
+            "family": {
+              "$type": "string",
+              "$value": "{reapit_font}"
+            },
+            "letter_spacing": {
+              "$type": "dimension",
+              "$value": "-0.14px"
+            },
+            "line_height": {
+              "$type": "dimension",
+              "$value": "20px"
+            },
+            "size": {
+              "$type": "dimension",
+              "$value": "14px"
+            },
+            "weight": {
+              "$type": "dimension",
+              "$value": "500"
+            }
+          }
+        },
+        "xs": {
+          "default": {
+            "family": {
+              "$type": "string",
+              "$value": "{reapit_font}"
+            },
+            "letter_spacing": {
+              "$type": "dimension",
+              "$value": "-0.13px"
+            },
+            "line_height": {
+              "$type": "dimension",
+              "$value": "16px"
+            },
+            "size": {
+              "$type": "dimension",
+              "$value": "13px"
+            },
+            "weight": {
+              "$type": "dimension",
+              "$value": "500"
+            }
+          },
+          "quiet": {
+            "family": {
+              "$type": "string",
+              "$value": "{reapit_font}"
+            },
+            "letter_spacing": {
+              "$type": "dimension",
+              "$value": "-0.13px"
+            },
+            "line_height": {
+              "$type": "dimension",
+              "$value": "16px"
+            },
+            "size": {
+              "$type": "dimension",
+              "$value": "13px"
+            },
+            "weight": {
+              "$type": "dimension",
+              "$value": "500"
+            }
+          }
+        }
+      }
     }
   },
   "size": {

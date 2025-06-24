@@ -1,6 +1,6 @@
 import { InputGroup } from './index'
 import { Input } from '../input'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { DeprecatedLabel } from '../deprecated-label'
 import { InputAddOn } from '../input-add-on'
 
@@ -13,7 +13,7 @@ export const CompleteExample = {
   render: ({}) => (
     <InputGroup>
       <Input id="myId" type="text" />
-      <Icon fontSize="1rem" icon="user" />
+      <DeprecatedIcon fontSize="1rem" icon="user" />
       <DeprecatedLabel htmlFor="myId">Enter your username</DeprecatedLabel>
       <InputAddOn>Required</InputAddOn>
     </InputGroup>
@@ -25,7 +25,7 @@ export const WithIconOnly = {
   render: ({}) => (
     <InputGroup>
       <Input id="myId2" type="tel" placeholder="Enter your mobile number" />
-      <Icon fontSize="1rem" icon="phone" />
+      <DeprecatedIcon fontSize="1rem" icon="phone" />
     </InputGroup>
   ),
   name: 'With Icon only',

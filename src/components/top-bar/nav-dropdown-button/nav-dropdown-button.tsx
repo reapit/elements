@@ -1,5 +1,5 @@
 import { ElTopBarNavDropdownButton, ElTopBarNavDropdownButtonIcon, ElTopBarNavDropdownButtonLabel } from './styles'
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
@@ -34,7 +34,7 @@ export function TopBarNavDropdownButton({
     <ElTopBarNavDropdownButton {...rest} aria-expanded={ariaExpanded}>
       <ElTopBarNavDropdownButtonLabel>{children}</ElTopBarNavDropdownButtonLabel>
       <ElTopBarNavDropdownButtonIcon>
-        <Icon aria-hidden="true" intent="default" icon="chevronDown" fontSize="1rem" />
+        <DeprecatedIcon aria-hidden="true" intent="default" icon="chevronDown" fontSize="1rem" />
       </ElTopBarNavDropdownButtonIcon>
     </ElTopBarNavDropdownButton>
   )

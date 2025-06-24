@@ -3,7 +3,7 @@ import { SideBarMenuListItem } from '../menu-list-item'
 
 test('renders an <a> element as child of a <li>', () => {
   render(
-    <SideBarMenuListItem href="/" icon="😎">
+    <SideBarMenuListItem aria-current={false} href="/" icon="😎">
       Item
     </SideBarMenuListItem>,
   )
@@ -15,9 +15,9 @@ test('renders an <a> element as child of a <li>', () => {
   expect(listItem.firstChild).toBe(anchor)
 })
 
-test('<a> element has `aria-current="page"` attribute present when `isActive`', () => {
+test('forwards additional props to the underlying `SideBarMenuItem`', () => {
   render(
-    <SideBarMenuListItem href="/" icon="😎" isActive>
+    <SideBarMenuListItem aria-current="page" href="/" icon="😎">
       Item
     </SideBarMenuListItem>,
   )

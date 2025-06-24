@@ -25,7 +25,7 @@ exports[`DeprecatedTable Component > should match a snapshot for cta content alt
         role="columnheader"
       >
         <span
-          class="el-intent-default el-icon"
+          class="el-intent-default el-deprecated-icon"
         >
           <svg
             fill="none"
@@ -60,7 +60,7 @@ exports[`DeprecatedTable Component > should match a snapshot for cta content alt
             class="mocked-styled-11 el-table-cta-icon-container"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-deprecated-icon"
             >
               <svg
                 fill="none"
@@ -118,7 +118,7 @@ exports[`DeprecatedTable Component > should match a snapshot for expandable cont
           tabindex="0"
         >
           <span
-            class="el-intent-default el-icon"
+            class="el-intent-default el-deprecated-icon"
           >
             <svg
               fill="none"
@@ -242,7 +242,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           role="cell"
         >
           <span
-            class="el-intent-default el-icon"
+            class="el-intent-default el-deprecated-icon"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -273,7 +273,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           role="cell"
         >
           <span
-            class="el-intent-default el-icon"
+            class="el-intent-default el-deprecated-icon"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -367,7 +367,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
             class="mocked-styled-11 el-table-cta-icon-container"
           >
             <span
-              class="el-intent-default el-icon"
+              class="el-intent-default el-deprecated-icon"
             >
               <svg
                 fill="none"
@@ -459,7 +459,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
         role="columnheader"
       >
         <span
-          class="el-intent-default el-icon"
+          class="el-intent-default el-deprecated-icon"
         >
           <svg
             fill="none"
@@ -490,7 +490,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           role="cell"
         >
           <span
-            class="el-intent-default el-icon"
+            class="el-intent-default el-deprecated-icon"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -521,7 +521,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           role="cell"
         >
           <span
-            class="el-intent-default el-icon"
+            class="el-intent-default el-deprecated-icon"
             style="font-size: 1.25rem;"
           >
             <svg
@@ -612,7 +612,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           tabindex="0"
         >
           <span
-            class="el-intent-primary el-icon"
+            class="el-intent-primary el-deprecated-icon"
           >
             <svg
               fill="none"

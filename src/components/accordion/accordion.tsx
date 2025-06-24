@@ -1,7 +1,7 @@
 import { Dispatch, FC, Fragment, SetStateAction, useState, useId } from 'react'
 import { cx } from '@linaria/core'
 import { elIsActive } from '../../styles/states'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 import { AccordionProps } from './types'
 import {
@@ -52,7 +52,11 @@ export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => 
                   <AccordionTitleContent key={innerIndex}>{titleItem}</AccordionTitleContent>
                 ))}
               <AccordionTitleContent>
-                <Icon fontSize="1.25rem" intent="default" icon={openItem === index ? 'chevronUp' : 'chevronDown'} />
+                <DeprecatedIcon
+                  fontSize="1.25rem"
+                  intent="default"
+                  icon={openItem === index ? 'chevronUp' : 'chevronDown'}
+                />
               </AccordionTitleContent>
             </AccordionTitleContentWrapper>
           </AccordionItem>

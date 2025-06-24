@@ -1,0 +1,47 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Icon component > should match a snapshot 1`] = `
+<DocumentFragment>
+  <span
+    class="mocked-styled-0 el-deprecated-icon"
+  >
+    <svg
+      fill="none"
+      height="1em"
+      role="img"
+      title="Icon image with name add"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M20 11H13V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
+</DocumentFragment>
+`;
+
+exports[`Icon component > should match a snapshot when intent prop is supplied 1`] = `
+<DocumentFragment>
+  <span
+    class="el-intent-primary el-deprecated-icon"
+  >
+    <svg
+      fill="none"
+      height="1em"
+      role="img"
+      title="Icon image with name add"
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M20 11H13V4C13 3.44772 12.5523 3 12 3C11.4477 3 11 3.44772 11 4V11H4C3.44772 11 3 11.4477 3 12C3 12.5523 3.44772 13 4 13H11V20C11 20.5523 11.4477 21 12 21C12.5523 21 13 20.5523 13 20V13H20C20.5523 13 21 12.5523 21 12C21 11.4477 20.5523 11 20 11Z"
+        fill="currentColor"
+      />
+    </svg>
+  </span>
+</DocumentFragment>
+`;

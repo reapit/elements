@@ -1,8 +1,8 @@
 import { ButtonGroup } from './button-group'
 import { Button } from '../button'
-import { Meta } from '@storybook/react'
+import { Meta } from '@storybook/react-vite'
 import { figmaDesignUrls } from '../../storybook/figma'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 
 const meta: Meta<typeof ButtonGroup> = {
   title: 'Components/ButtonGroup',
@@ -56,7 +56,7 @@ export const WithIconOnlyButton = {
       <Button>Button 2</Button>
       <Button>Button 3</Button>
       <Button>Button 4</Button>
-      <Button iconLeft={<Icon icon="more" fontSize="1rem" />} />
+      <Button iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
     </ButtonGroup>
   ),
   parameters: {

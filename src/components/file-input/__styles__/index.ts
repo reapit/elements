@@ -1,5 +1,5 @@
 import { ElDeprecatedLabel } from '../../deprecated-label/__styles__/index'
-import { ElIcon } from '../../icon/__styles__/index'
+import { ElDeprecatedIcon } from '../../deprecated-icon/__styles__/index'
 import { ElButton } from '../../button/styles'
 import { styled } from '@linaria/react'
 
@@ -39,7 +39,7 @@ export const ElFileInputIconContainer = styled.div`
   display: flex;
   height: 34px;
 
-  ${ElIcon} {
+  ${ElDeprecatedIcon} {
     background: var(--white);
     border: 1px solid var(--component-input-focus-bg);
     border-radius: 0.25rem;

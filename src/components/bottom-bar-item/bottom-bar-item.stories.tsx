@@ -1,7 +1,7 @@
-import { action } from '@storybook/addon-actions'
-import type { Meta, StoryObj } from '@storybook/react'
+import { action } from 'storybook/actions'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { FlexContainer } from '../layout'
 import { BottomBarItem } from './bottom-bar-item'
 
@@ -50,7 +50,7 @@ export const Default: Story = {
   args: {
     isActive: false,
     children: 'Label',
-    icon: <Icon icon="star" />,
+    icon: <DeprecatedIcon icon="star" />,
   },
 }
 
@@ -58,14 +58,14 @@ export const Active: Story = {
   args: {
     isActive: true,
     children: 'Label',
-    icon: <Icon icon="star" />,
+    icon: <DeprecatedIcon icon="star" />,
   },
 }
 
 export const WithBadge: Story = {
   args: {
     children: 'Label',
-    icon: <Icon icon="star" />,
+    icon: <DeprecatedIcon icon="star" />,
     hasBadge: true,
   },
 }
@@ -73,7 +73,7 @@ export const WithBadge: Story = {
 export const WithHref: Story = {
   args: {
     href: '#',
-    icon: <Icon icon="star" />,
+    icon: <DeprecatedIcon icon="star" />,
     children: 'Label',
   },
   render: (args) => {
@@ -91,7 +91,7 @@ export const WithOnClick: Story = {
   name: 'With OnClick',
   args: {
     onClick: action('handleClick'),
-    icon: <Icon icon="star" />,
+    icon: <DeprecatedIcon icon="star" />,
     children: 'Label',
   },
   render: (args) => {

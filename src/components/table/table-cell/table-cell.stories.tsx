@@ -1,4 +1,4 @@
-import { Meta } from '@storybook/react'
+import { Meta } from '@storybook/react-vite'
 import { TableCell } from './table-cell'
 import { Table } from '../table/table'
 import { TableContainer } from '../table-container'

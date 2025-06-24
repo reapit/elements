@@ -12,7 +12,7 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       class="mocked-styled-5 el-deprecated-nav-item"
     >
       <span
-        class="mocked-styled-0 el-icon"
+        class="mocked-styled-0 el-deprecated-icon"
         role="button"
         style="width: 100px;"
         tabindex="0"
@@ -70,7 +70,7 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
         </svg>
       </span>
       <span
-        class="el-ml-auto el-mr4 el-deprecated-nav-item-hide-desktop el-intent-default el-icon"
+        class="el-ml-auto el-mr4 el-deprecated-nav-item-hide-desktop el-intent-default el-deprecated-icon"
         role="button"
         tabindex="0"
       >

@@ -1,7 +1,7 @@
 import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import { cx } from '@linaria/core'
 import { ElKeyValueIconWrap, ElKeyValueListWrap } from './__styles__'
-import { IconNames, Icon } from '../icon'
+import { IconNames, DeprecatedIcon } from '../deprecated-icon'
 import { ColHalf, Col, Grid } from '../grid'
 import { TextSM, TextXS } from '../typography'
 import { FlexContainer } from '../layout'
@@ -47,9 +47,9 @@ export const KeyValueContent: FC<KeyValueContentProps> = ({
       {icon ? (
         icon
       ) : iconName ? (
-        <Icon intent={intent ?? 'primary'} icon={iconName} />
+        <DeprecatedIcon intent={intent ?? 'primary'} icon={iconName} />
       ) : (
-        <Icon icon="placeholderSmall" />
+        <DeprecatedIcon icon="placeholderSmall" />
       )}
     </KeyValueIconWrap>
     <FlexContainer isFlexColumn>

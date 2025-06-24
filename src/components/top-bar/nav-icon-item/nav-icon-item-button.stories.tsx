@@ -1,8 +1,8 @@
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { Menu } from '../../menu'
 import { TopBarNavIconItemButton } from './nav-icon-item-button'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/TopBar/NavIconItemButton',
@@ -12,10 +12,10 @@ const meta = {
       control: 'radio',
       options: ['contact', 'help', 'notification', 'star'],
       mapping: {
-        contact: <Icon icon="contact" />,
-        help: <Icon icon="help" />,
-        notification: <Icon icon="notification" />,
-        star: <Icon icon="star" />,
+        contact: <DeprecatedIcon icon="contact" />,
+        help: <DeprecatedIcon icon="help" />,
+        notification: <DeprecatedIcon icon="notification" />,
+        star: <DeprecatedIcon icon="star" />,
       },
     },
   },
@@ -34,7 +34,7 @@ export const Example: Story = {
   args: {
     'aria-label': 'Nav icon item',
     hasBadge: false,
-    icon: <Icon icon="star" />,
+    icon: <DeprecatedIcon icon="star" />,
     onClick: () => void 0,
   },
 }
@@ -49,7 +49,7 @@ export const WithBadge: Story = {
     ...Example.args,
     'aria-label': 'Notifications',
     hasBadge: true,
-    icon: <Icon icon="notification" />,
+    icon: <DeprecatedIcon icon="notification" />,
   },
 }
 
@@ -73,7 +73,7 @@ export const WithBadge: Story = {
 export const WithMenu: Story = {
   args: {
     'aria-label': 'Help menu',
-    icon: <Icon icon="help" />,
+    icon: <DeprecatedIcon icon="help" />,
     onClick: () => void 0,
   },
   decorators: [

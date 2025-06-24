@@ -98,7 +98,7 @@ exports[`FileInput component > should match a snapshot with full props 1`] = `
         class="mocked-styled-2 el-file-input-icon-container"
       >
         <span
-          class="el-mr4 el-intent-primary el-icon"
+          class="el-mr4 el-intent-primary el-deprecated-icon"
           role="button"
           style="font-size: 1rem;"
         >
@@ -119,7 +119,7 @@ exports[`FileInput component > should match a snapshot with full props 1`] = `
           </svg>
         </span>
         <span
-          class="el-mr4 el-intent-primary el-icon"
+          class="el-mr4 el-intent-primary el-deprecated-icon"
           role="button"
           style="font-size: 1rem;"
         >

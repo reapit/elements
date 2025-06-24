@@ -10,7 +10,7 @@ import {
   ElDeprecatedDrawerSubtitle as ElDrawerSubtitle,
 } from './__styles__'
 import { elIsActive } from '../../styles/states'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 
 /** @deprecated */
 export interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
@@ -108,7 +108,7 @@ export const DeprecatedDrawer: FC<DrawerProps> = ({
             {title && <ElDrawerTitle>{title}</ElDrawerTitle>}
             {subtitle && <ElDrawerSubtitle>{subtitle}</ElDrawerSubtitle>}
           </div>
-          {canDismiss && <Icon icon="close" intent="default" onClick={onDrawerClose} />}
+          {canDismiss && <DeprecatedIcon icon="close" intent="default" onClick={onDrawerClose} />}
         </ElDrawerHeader>
         <ElDrawerBody>{children}</ElDrawerBody>
         {footerItems && <ElDrawerFooter>{footerItems}</ElDrawerFooter>}

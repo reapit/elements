@@ -2,6 +2,9 @@
 
 exports[`Select component > should match a snapshot 1`] = `
 <DocumentFragment>
-  bound HTMLSelectElement {}
+  <select
+    aria-label="Select an item from the dropdown list"
+    class="mocked-styled-0 el-select"
+  />
 </DocumentFragment>
 `;

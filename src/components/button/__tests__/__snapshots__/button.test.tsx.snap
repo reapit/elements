@@ -51,7 +51,7 @@ exports[`Button > should match snapshot for <ElAnchorButton> as a link button 1`
       class="mocked-styled-0 el-button-spinner"
     />
     <span
-      class="mocked-styled-6 el-icon"
+      class="mocked-styled-6 el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -84,7 +84,7 @@ exports[`Button > should match snapshot for icon-only button 1`] = `
       class="mocked-styled-0 el-button-spinner"
     />
     <span
-      class="mocked-styled-6 el-icon"
+      class="mocked-styled-6 el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -117,7 +117,7 @@ exports[`Button > should match snapshot with variant and icons 1`] = `
       class="mocked-styled-0 el-button-spinner"
     />
     <span
-      class="mocked-styled-6 el-icon"
+      class="mocked-styled-6 el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -140,7 +140,7 @@ exports[`Button > should match snapshot with variant and icons 1`] = `
       Button
     </span>
     <span
-      class="mocked-styled-6 el-icon"
+      class="mocked-styled-6 el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -337,7 +337,7 @@ exports[`FloatingButton > should render FloatingButton with icon 1`] = `
       class="mocked-styled-0 el-button-spinner"
     />
     <span
-      class="mocked-styled-6 el-icon"
+      class="mocked-styled-6 el-deprecated-icon"
     >
       <svg
         fill="none"

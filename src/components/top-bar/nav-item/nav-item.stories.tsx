@@ -1,6 +1,6 @@
 import { TopBarNavItem } from './nav-item'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/TopBar/NavItem',
@@ -20,11 +20,8 @@ export const Example: Story = {
 }
 
 /**
- * When the item represents the current page, `isActive` should be supplied to communicate to visual and accessible
- * users that the item is currently "selected". For accessible users, this is internally facilitated via
- * `aria-current="page"` on the underlying `<a>` element. The visual styling of the item is also applied based on
- * this ARIA attribute, so CSS-only consumers just need to ensure they provide `aria-current="page"` to their anchor
- * when appropriate.
+ * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
+ * accessible users that the item is currently "selected".
  */
 export const Selected: Story = {
   args: {

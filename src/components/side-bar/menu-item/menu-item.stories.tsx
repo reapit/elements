@@ -1,9 +1,9 @@
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { SideBarMenuItem } from './menu-item'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/SideBar/MenuItem',
@@ -16,10 +16,10 @@ const meta = {
       control: 'radio',
       options: ['Property', 'Dashboard', 'Settings', 'User'],
       mapping: {
-        Property: <Icon icon="property" />,
-        Dashboard: <Icon icon="dashboard" />,
-        Settings: <Icon icon="settings" />,
-        User: <Icon icon="user" />,
+        Property: <DeprecatedIcon icon="property" />,
+        Dashboard: <DeprecatedIcon icon="dashboard" />,
+        Settings: <DeprecatedIcon icon="settings" />,
+        User: <DeprecatedIcon icon="user" />,
       },
     },
   },
@@ -32,24 +32,21 @@ type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
   args: {
+    'aria-current': false,
     children: 'Menu item',
     href: globalThis.top?.location.href!,
     icon: 'Property',
-    isActive: false,
   },
 }
 
 /**
- * When the item represents the current page, `isActive` should be supplied to communicate to visual and accessible
- * users that the item is currently "selected". For accessible users, this internally facilitated via
- * `aria-current="page"` on the underlying `<a>` element. The visual styling of the item is also applied based on
- * this ARIA attribute, so CSS-only consumers just need to ensure they provide `aria-current="page"` to their anchor
- * when appropriate.
+ * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
+ * accessible users that the item is currently "selected".
  */
 export const Selected = {
   args: {
     ...Example.args,
-    isActive: true,
+    'aria-current': 'page',
   },
 }
 

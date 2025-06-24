@@ -3,17 +3,32 @@ import { defineConfig } from 'vite'
 import { fileURLToPath, URL } from 'node:url'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
-import dts from 'vite-plugin-dts'
 import wyw from '@wyw-in-js/vite'
 import packageManifest from './package.json'
+import path from 'node:path'
+import { readdirSync } from 'node:fs'
+
+// We dynamically discover all icons in the `src/icons` directory and add them as individual entry points
+// for our build.
+const icons = Object.fromEntries(
+  readdirSync('src/icons')
+    .filter((file) => file.endsWith('.tsx') && !file.includes('index'))
+    .map((file) => [
+      // `src/icons/add.tsx` -> `icons/add`
+      path.join('icons', path.basename(file, path.extname(file))),
+      path.join('src/icons', file),
+    ]),
+)
 
 export default defineConfig({
   build: {
     copyPublicDir: false,
     emptyOutDir: true,
     lib: {
+      cssFileName: 'style',
       entry: {
         index: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
+        ...icons,
       },
       formats: ['es', 'cjs'],
     },
@@ -57,7 +72,6 @@ export default defineConfig({
         presets: ['@babel/preset-typescript', '@babel/preset-react'],
       },
     }),
-    dts(),
   ],
   test: {
     coverage: {
@@ -78,6 +92,8 @@ export default defineConfig({
         '**/*.stories.*',
         // - any type declaration files
         '**/*.d.ts',
+        // - any types.ts files
+        '**/types.ts',
       ],
       include: ['src/**/*.ts', 'src/**/*.tsx'],
       provider: 'v8',

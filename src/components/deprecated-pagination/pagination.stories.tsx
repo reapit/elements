@@ -6,7 +6,7 @@ import {
   DeprecatedPaginationButton,
 } from './index'
 import { elDeprecatedPaginationPrimary } from './__styles__'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 
 export default {
   title: 'DeprecatedPagination',
@@ -17,13 +17,13 @@ export const BasicExample = {
   render: ({}) => (
     <DeprecatedPaginationWrap>
       <DeprecatedPaginationButton>
-        <Icon icon="chevronLeft" />
+        <DeprecatedIcon icon="chevronLeft" />
       </DeprecatedPaginationButton>
       <DeprecatedPaginationText>
         <strong>1</strong> of 4
       </DeprecatedPaginationText>
       <DeprecatedPaginationButton>
-        <Icon icon="chevronRight" className={elDeprecatedPaginationPrimary} />
+        <DeprecatedIcon icon="chevronRight" className={elDeprecatedPaginationPrimary} />
       </DeprecatedPaginationButton>
     </DeprecatedPaginationWrap>
   ),

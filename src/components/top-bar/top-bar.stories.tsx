@@ -1,14 +1,13 @@
 import { AppSwitcher } from '../app-switcher'
-import { elIcon } from '../button'
 import { elTopBarMenuPopover } from './styles'
-import { Icon } from '../icon'
+import { DeprecatedIcon } from '../deprecated-icon'
 import { Menu } from '../menu'
-import MenuIcon from './icons/menu-icon.svg?react'
+import { MenuAltIcon } from '#src/icons/menu-alt'
 import { supportedAppNames } from './brand-logo'
 import { TopBar } from './top-bar'
 import { TopBarNavIconItemButton } from './nav-icon-item'
 
-import type { Decorator, Meta, StoryObj } from '@storybook/react'
+import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
 const href = globalThis.top?.location.href!
 
@@ -146,7 +145,7 @@ const meta = {
         None: null,
         Some: (
           <TopBar.SecondaryNav>
-            <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<Icon icon="help" />}>
+            <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<DeprecatedIcon icon="help" />}>
               <Menu.Item label="Menu item 1" />
               <Menu.Item label="Menu item 2" />
               <Menu.Item label="Menu item 3" />
@@ -155,21 +154,23 @@ const meta = {
               aria-current={false}
               aria-label="Nav icon item 2"
               href={href}
-              icon={<Icon icon="notification" />}
+              icon={<DeprecatedIcon icon="notification" />}
             />
             <TopBar.NavIconItem
               aria-current={false}
               aria-label="Nav icon item 3"
               href={href}
-              icon={<Icon icon="star" />}
+              icon={<DeprecatedIcon icon="star" />}
             />
           </TopBar.SecondaryNav>
         ),
       },
     },
   },
-  parameters: {
-    backgrounds: { default: 'light' },
+  globals: {
+    backgrounds: {
+      value: 'light',
+    },
   },
 } satisfies Meta<typeof TopBar>
 
@@ -203,11 +204,7 @@ export const Example: Story = {
     mainNav: 'Many',
     menu: (
       // TODO: replace this with the proper TopBarMenu component when it is available
-      <TopBarNavIconItemButton
-        aria-label="Overflow menu"
-        icon={<MenuIcon className={elIcon} />}
-        onClick={() => void 0}
-      />
+      <TopBarNavIconItemButton aria-label="Overflow menu" icon={<MenuAltIcon />} onClick={() => void 0} />
     ),
     search: (
       <TopBar.NavSearch

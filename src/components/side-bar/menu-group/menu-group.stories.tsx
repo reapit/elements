@@ -1,12 +1,12 @@
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { SideBarMenuGroup } from './menu-group'
 import { SideBarSubmenu } from '../submenu'
-import { useArgs } from '@storybook/preview-api'
+import { useArgs } from 'storybook/preview-api'
 import * as SideBarSubmenuItemStories from '../submenu-item/submenu-item.stories'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Components/SideBar/MenuGroup',
@@ -58,7 +58,7 @@ export const Example: Story = {
   args: {
     children: 'No selected item',
     isActive: false,
-    summary: <SideBarMenuGroup.Summary icon={<Icon icon="property" />}>Menu group</SideBarMenuGroup.Summary>,
+    summary: <SideBarMenuGroup.Summary icon={<DeprecatedIcon icon="property" />}>Menu group</SideBarMenuGroup.Summary>,
   },
 }
 
@@ -99,6 +99,7 @@ export const Collapsed = {
  * expand, and the group to open, though this behaviour is handled by the `SideBar` component itself, not the group.
  */
 export const SelectedAndCollapsed = {
+  name: 'Selected and collapsed',
   args: {
     ...Collapsed.args,
     children: 'Selected item',
@@ -107,7 +108,6 @@ export const SelectedAndCollapsed = {
   parameters: {
     ...Collapsed.parameters,
   },
-  storyName: 'Selected and collapsed',
 }
 
 /**

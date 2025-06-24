@@ -1,8 +1,8 @@
-import { Icon } from '../../icon'
+import { DeprecatedIcon } from '../../deprecated-icon'
 import { Menu } from '../../menu'
 import { TopBarSecondaryNav } from './secondary-nav'
 
-import type { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const href = globalThis.top?.location.href!
 
@@ -63,19 +63,19 @@ function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
     <TopBarSecondaryNav.Item
       key="1"
       href={href}
-      icon={<Icon icon="star" />}
+      icon={<DeprecatedIcon icon="star" />}
       aria-label="Nav icon item 1"
       aria-current={type === 'Selected item' ? 'page' : false}
     />,
     <TopBarSecondaryNav.Item
       key="2"
       href={href}
-      icon={<Icon icon="star" />}
+      icon={<DeprecatedIcon icon="star" />}
       aria-label="Nav icon item 2"
       aria-current={false}
     />,
     type === 'With menu' && (
-      <TopBarSecondaryNav.MenuItem key="3" icon={<Icon icon="help" />} aria-label="Help menu">
+      <TopBarSecondaryNav.MenuItem key="3" icon={<DeprecatedIcon icon="help" />} aria-label="Help menu">
         <Menu.Item label="Menu item 1" />
         <Menu.Item label="Menu item 2" />
         <Menu.Item label="Menu item 3" />
