@@ -3647,6 +3647,12 @@
       }
     }
   },
+  "overlay": {
+    "50": {
+      "$type": "color",
+      "$value": "{black-400}"
+    }
+  },
   "size": {
     "1": {
       "$description": "Used for sizing shapes except icons. For icons use icon sizes",
