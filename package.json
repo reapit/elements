@@ -42,22 +42,15 @@
   },
   "license": "MIT",
   "author": "Will McVay <wmcvay@reapit.com>",
-  "types": "./dist/js/index.d.ts",
-  "main": "index.ts",
-  "module": "index.ts",
-  "publishConfig": {
-    "main": "dist/js/index.cjs",
-    "module": "dist/js/index.js"
-  },
   "files": [
     "dist/",
     "assets/",
     "coverage/badges"
   ],
   "scripts": {
-    "build": "yarn build:storybook & yarn build:types & yarn build:dist",
+    "build": "yarn build:storybook & yarn build:types & yarn build:lib",
     "build:storybook": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
-    "build:dist": "vite build",
+    "build:lib": "vite build",
     "build:types": "tsc --project tsconfig.build.json",
     "commit": "yarn test run --coverage --silent && yarn coverage:badges && yarn lint --fix && yarn check",
     "coverage:badges": "yarn make-badge branches && yarn make-badge functions && yarn make-badge lines && yarn make-badge statements",

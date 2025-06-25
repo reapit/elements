@@ -53,10 +53,6 @@ jobs:
         run: |
           bash <(curl -Ls https://coverage.codacy.com/get.sh)
 
-      - name: Build Lib
+      - name: Build
         run: |
-          yarn build:dist
-
-      - name: Build Storybook
-        run: |
-          yarn build:storybook
+          yarn build
