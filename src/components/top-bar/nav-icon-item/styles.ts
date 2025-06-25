@@ -12,7 +12,7 @@ export const elTopBarNavIconItem = css`
   border-radius: var(--comp-navigation-border-radius-nav_icon);
   background: var(--comp-navigation-colour-fill-nav_icon-default);
   border: var(--border-none);
-  color: var(--icon-app_bar-default);
+  color: var(--comp-navigation-colour-icon-nav_icon-secondary);
   outline: none;
 
   &:focus-visible {
