@@ -8,14 +8,14 @@ function FakeSvg(props: SVGProps<SVGSVGElement>) {
   return <svg data-testid="mock-svg" {...props} />
 }
 
-test('icon renders an svg with default colour and size', () => {
+test('icon renders an svg with default color and size', () => {
   const Icon = makeIcon('FakeIcon', FakeSvg)
   render(<Icon />)
 
   const svg = screen.getByTestId('mock-svg')
   expect(svg).toBeVisible()
   expect(svg.tagName).toBe('svg')
-  expect(svg).toHaveAttribute('data-colour', 'inherit')
+  expect(svg).toHaveAttribute('color', 'inherit')
   expect(svg).toHaveAttribute('data-size', '100%')
 })
 
@@ -24,12 +24,12 @@ test('icon has correct displayName', () => {
   expect(Icon.displayName).toBe('FakeIcon')
 })
 
-test('icon accepts colour prop', () => {
+test('icon accepts color prop', () => {
   const Icon = makeIcon('FakeIcon', FakeSvg)
-  render(<Icon colour="primary" />)
+  render(<Icon color="primary" />)
 
   const svg = screen.getByTestId('mock-svg')
-  expect(svg).toHaveAttribute('data-colour', 'primary')
+  expect(svg).toHaveAttribute('color', 'primary')
 })
 
 test('icon accepts size prop', () => {
