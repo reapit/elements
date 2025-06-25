@@ -7,7 +7,7 @@ const meta = {
   title: 'Icons/Icon',
   component: StarIcon,
   argTypes: {
-    colour: {
+    color: {
       control: 'select',
       options: iconColours,
       description: 'The colour of the icon.',
@@ -49,7 +49,7 @@ type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
   args: {
-    colour: 'primary',
+    color: 'primary',
     size: 'lg',
   },
 }
@@ -64,7 +64,7 @@ export const Colours: StoryObj = {
     size: 'lg',
   },
   argTypes: {
-    colour: {
+    color: {
       control: false,
     },
   },
@@ -80,7 +80,7 @@ export const Colours: StoryObj = {
           gap: 'var(--spacing-6)',
         }}
       >
-        {iconColours.map((colour) => [colour, <StarIcon key={colour} {...args} colour={colour} />])}
+        {iconColours.map((colour) => [colour, <StarIcon key={colour} {...args} color={colour} />])}
       </div>
     )
   },
@@ -93,7 +93,7 @@ export const Colours: StoryObj = {
 export const Sizes: Story = {
   args: {
     ...Example.args,
-    colour: 'primary',
+    color: 'primary',
   },
   argTypes: {
     size: {
