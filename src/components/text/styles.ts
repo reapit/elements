@@ -34,7 +34,7 @@ function generateElTextColourStyles() {
   return textColours
     .map((colour) => {
       return `&[data-colour='${colour}'] {
-      color: var(--colour-text-${colour});
+      color: ${colour === 'inherit' ? 'inherit' : `var(--colour-text-${colour})`};
     }`
     })
     .join('\n')
