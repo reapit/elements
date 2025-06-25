@@ -69,7 +69,8 @@ export const Element: Story = {
 }
 
 /**
- * The `colour` prop controls the text color. The available values are defined by the design system.
+ * The `colour` prop controls the text color. The available values are defined by the design system with the exception
+ * of `inherit`, which is a special value utility value that allows the text to inherit the colour of its parent.
  */
 export const Colour: Story = {
   args: {
@@ -97,4 +98,24 @@ export const Weight: Story = {
     as: 'strong',
     weight: 'bold',
   },
+}
+
+/**
+ * Usage of Text can be nested within other Text components. This can be useful when you need to prototype spans
+ * of differently coloured text within a larger block of text.
+ *
+ * **Important:** The size and weight of the nested text do **NOT** inherit from the parent.
+ */
+export const Nesting: Story = {
+  args: {
+    ...Example.args,
+  },
+  render: (args) => (
+    <Text {...args}>
+      This is a span of text that includes a{' '}
+      <Text as="strong" colour="action">
+        nested span of text.
+      </Text>
+    </Text>
+  ),
 }

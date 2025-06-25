@@ -64,6 +64,6 @@ type TextProps =
  * elements focused on inline text semantics. This is because we want this component to be minimally
  * useful.
  */
-export function Text({ as = 'span', colour = 'primary', size = 'base', weight = 'regular', ...props }: TextProps) {
+export function Text({ as = 'span', colour = 'inherit', size = 'base', weight = 'regular', ...props }: TextProps) {
   return <ElText as={as} data-colour={colour} data-font-size={size} data-font-weight={weight} {...props} />
 }
