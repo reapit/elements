@@ -10,7 +10,7 @@ export interface IconProps extends SVGProps<SVGSVGElement> {
 }
 
 export function makeIcon(name: string, Svg: FunctionComponent<SVGProps<SVGSVGElement>>) {
-  function Icon({ className, colour = 'inherit', size = 'lg', ...rest }: IconProps) {
+  function Icon({ className, colour = 'inherit', size = '100%', ...rest }: IconProps) {
     return <Svg {...rest} className={cx(elIcon, className)} data-colour={colour} data-size={size} />
   }
 

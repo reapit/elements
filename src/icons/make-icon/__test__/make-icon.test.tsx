@@ -16,7 +16,7 @@ test('icon renders an svg with default colour and size', () => {
   expect(svg).toBeVisible()
   expect(svg.tagName).toBe('svg')
   expect(svg).toHaveAttribute('data-colour', 'inherit')
-  expect(svg).toHaveAttribute('data-size', 'lg')
+  expect(svg).toHaveAttribute('data-size', '100%')
 })
 
 test('icon has correct displayName', () => {
