@@ -45,9 +45,9 @@ export const elIcon = css`
   }
 
   &,
-  &[data-size='lg'] {
-    width: var(--icon_size-l);
-    height: var(--icon_size-l);
+  &[data-size='100%'] {
+    width: 100%;
+    height: 100%;
   }
   &[data-size='xs'] {
     width: var(--icon_size-xs);
@@ -60,5 +60,9 @@ export const elIcon = css`
   &[data-size='md'] {
     width: var(--icon_size-m);
     height: var(--icon_size-m);
+  }
+  &[data-size='lg'] {
+    width: var(--icon_size-l);
+    height: var(--icon_size-l);
   }
 `

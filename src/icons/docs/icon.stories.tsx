@@ -1,5 +1,6 @@
 import { iconColours, iconSizes } from '../make-icon/types'
 import { StarIcon } from '../star'
+import { Text } from '#src/components/text'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -10,10 +11,22 @@ const meta = {
     colour: {
       control: 'select',
       options: iconColours,
+      description: 'The colour of the icon.',
+      table: {
+        defaultValue: {
+          summary: 'inherit',
+        },
+      },
     },
     size: {
       control: 'select',
       options: iconSizes,
+      description: 'The size of the icon.',
+      table: {
+        defaultValue: {
+          summary: '100%',
+        },
+      },
     },
   },
   globals: {
@@ -62,6 +75,7 @@ export const Colours: StoryObj = {
         style={{
           color: '#FA00FF',
           display: 'grid',
+          fontSize: 'var(--font-size-sm)',
           alignItems: 'center',
           gridTemplateColumns: 'min-content min-content',
           gap: 'var(--spacing-6)',
@@ -74,7 +88,8 @@ export const Colours: StoryObj = {
 }
 
 /**
- * There are four sizes available: `xs`, `sm`, `md`, `lg`.
+ * There are five sizes available. The default is `100%`, which is useful when you want the icons size to be determined
+ * by its parent element. This is common in other Elements components that expect icons to be a specific size.
  */
 export const Sizes: Story = {
   args: {
@@ -92,8 +107,9 @@ export const Sizes: Story = {
         style={{
           color: '#FA00FF',
           display: 'grid',
+          fontSize: 'var(--font-size-sm)',
           alignItems: 'center',
-          gridTemplateColumns: 'min-content min-content',
+          gridTemplateColumns: 'min-content var(--icon_size-l)',
           gap: 'var(--spacing-6)',
         }}
       >
