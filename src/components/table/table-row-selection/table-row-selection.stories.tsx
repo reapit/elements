@@ -8,7 +8,7 @@ import { TableHead } from '../table-head'
 import { TableHeaderCell } from '../table-header-cell'
 import { TableRow } from '../table-row'
 import { TableBody } from '../table-body'
-import { TableCell } from '../table-cell'
+import { SingleLineCell } from '../table-cell'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -60,21 +60,21 @@ const RowSelectionDemo: React.FC<TableRowSelectionProps> = () => {
                   isSelected={isRowSelected(row.contactId)}
                   onClick={() => handleRowSelect(row.contactId)}
                 >
-                  <TableCell>
+                  <SingleLineCell>
                     <TableRowSelection
                       id={row.contactId}
                       aria-label={`Select row ${row.contactId}`}
                       onChange={() => handleRowSelect(row.contactId)}
                       checked={isRowSelected(row.contactId)}
                     />
-                  </TableCell>
-                  <TableCell>{row.firstname}</TableCell>
-                  <TableCell>{row.lastname}</TableCell>
+                  </SingleLineCell>
+                  <SingleLineCell>{row.firstname}</SingleLineCell>
+                  <SingleLineCell>{row.lastname}</SingleLineCell>
                 </TableRow>
               ))
             ) : (
               <TableRow>
-                <TableCell colSpan={3}>No data to display</TableCell>
+                <SingleLineCell aria-colspan={3}>No data to display</SingleLineCell>
               </TableRow> // Or a loading indicator if you prefer
             )}
           </TableBody>
@@ -122,21 +122,21 @@ const { handleRowSelect, handleSelectAll, isRowSelected } = useRowSelection({
               isSelected={isRowSelected(row.contactId)}
               onClick={() => handleRowSelect(row.contactId)}
             >
-              <TableCell>
+              <SingleLineCell>
                 <TableRowSelection
                   id={row.contactId}
                   aria-label={\`Select row \`}
                   onChange={() => handleRowSelect(row.contactId)}
                   checked={isRowSelected(row.contactId)}
                 />
-              </TableCell>
-              <TableCell>{row.firstname}</TableCell>
-              <TableCell>{row.lastname}</TableCell>
+              </SingleLineCell>
+              <SingleLineCell>{row.firstname}</SingleLineCell>
+              <SingleLineCell>{row.lastname}</SingleLineCell>
             </TableRow>
           ))
         ) : (
           <TableRow>
-            <TableCell colSpan={3}>No data to display</TableCell>
+            <SingleLineCell aria-colspan={3}>No data to display</SingleLineCell>
           </TableRow> // Or a loading indicator if you prefer
         )}
       </TableBody>
