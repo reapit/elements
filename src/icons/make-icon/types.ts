@@ -1,5 +1,5 @@
 // TODO: Ideally we can derive or generate these from the token files in future.
-export const iconSizes = ['xs', 'sm', 'md', 'lg'] as const
+export const iconSizes = ['xs', 'sm', 'md', 'lg', '100%'] as const
 export const iconColours = [
   'inherit',
   'primary',
