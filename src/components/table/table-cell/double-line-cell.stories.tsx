@@ -4,14 +4,23 @@ import { DeprecatedIcon } from '../../deprecated-icon'
 import { Skeleton } from '../../skeleton'
 import { Avatar } from '../../avatar'
 
+import { TableContainer } from '../table-container'
+import { TableToolbar } from '../table-toolbar'
+import { Table } from '../table/table'
+import { TableHead } from '../table-head'
+import { TableHeaderCell } from '../table-header-cell'
+import { TableBody } from '../table-body'
+import { TableRow } from '../table-row'
+import { Input } from '../../input'
+import { SingleLineCell } from './single-line-cell'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const MEDIA_OPTIONS = ['Image', 'Avatar', 'Empty', 'Image Skeleton', 'Avatar Skeleton']
-const FIRST_LINE_OPTIONS = ['Sddress', 'Name', 'Text', 'Skeleton']
+const FIRST_LINE_OPTIONS = ['Address', 'Name', 'Text', 'Skeleton']
 const SECOND_LINE_OPTIONS = ['Suburb', 'Job', 'Text', 'Skeleton']
 
 const meta = {
-  title: 'Components/DoubleLineCell',
+  title: 'Components/TableCell/DoubleLineCell',
   component: DoubleLineCell,
   argTypes: {
     mediaItem: {
@@ -101,16 +110,37 @@ export const BasicUsage: Story = {
     mediaItem: 'Image',
     firstLine: 'Address',
     secondLine: 'Suburb',
+    alignment: 'left',
   },
-}
-
-/**
- * The `DoubleLineCell` component can be used to show the Skeleton component in order to show a loading state.
- */
-export const WithSkeleton: Story = {
-  args: {
-    mediaItem: 'Image Skeleton',
-    firstLine: 'Skeleton',
-    secondLine: 'Skeleton',
+  render: ({ alignment, ...args }) => {
+    return (
+      <TableContainer>
+        <TableToolbar description="125 Properties" actions="Page Size menu component goes here" />
+        <Table>
+          <TableHead>
+            <TableHeaderCell maxWidth="30px">Check</TableHeaderCell>
+            <TableHeaderCell>First Header</TableHeaderCell>
+            <TableHeaderCell>Second Header</TableHeaderCell>
+            <TableHeaderCell>Third Header</TableHeaderCell>
+            <TableHeaderCell>Last Header</TableHeaderCell>
+          </TableHead>
+          <TableBody>
+            {Array.from({ length: 5 }, (_, index) => (
+              <TableRow key={index}>
+                <SingleLineCell alignment={alignment}>
+                  <Input type="checkbox" />
+                </SingleLineCell>
+                <SingleLineCell alignment={alignment}>
+                  <TableText>John Smith 356</TableText>
+                </SingleLineCell>
+                <DoubleLineCell firstLine={args.firstLine} alignment={alignment} />
+                <DoubleLineCell mediaItem={args.mediaItem} alignment={alignment} />
+                <DoubleLineCell {...args} alignment={alignment} />
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    )
   },
 }
