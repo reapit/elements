@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`TableProvider > should match snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    Test Child
+  </div>
+</DocumentFragment>
+`;
