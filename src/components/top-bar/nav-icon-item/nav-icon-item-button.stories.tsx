@@ -54,21 +54,7 @@ export const WithBadge: Story = {
 }
 
 /**
- * Nav icon items can also be rendered as a button. This is typically used to group a number of related items within a
- * dropdown menu. The code snippet below demonstrates how to use `TopBar.NavIconItem` with the `Menu` component.
- *
- * ```tsx
- * <Menu.Trigger>
- *  {({ getTriggerProps }) => (
- *    <TopBar.NavIconItem
- *      {...getTriggerProps()}
- *      as="button"
- *      aria-label="Help menu"
- *      icon={<Icon icon="help" />}
- *    />
- *  )}
- * </Menu.Trigger>
- * ```
+ * Button-based items are typically used to group a number of related items within a dropdown menu.
  */
 export const WithMenu: Story = {
   args: {
