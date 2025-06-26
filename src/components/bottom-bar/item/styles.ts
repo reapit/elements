@@ -11,7 +11,7 @@ export const elBottomBarItem = css`
   justify-content: center;
   align-items: center;
   gap: var(--spacing-half);
-  background-color: var(--comp-navigation-colour-fill-bottom_bar-default);
+  background-color: var(--comp-navigation-colour-fill-bottom_bar);
   border: var(--border-none);
   border-radius: var(--border-radius-none);
   color: var(--comp-navigation-colour-text-bottom_bar-default);
@@ -20,6 +20,8 @@ export const elBottomBarItem = css`
   width: 100%;
 
   &:focus-visible {
+    /* NOTE: z-index is required to ensure the focus ring is visible above other items */
+    z-index: 1;
     outline: var(--border-width-double) solid var(--colour-border-focus);
   }
 
