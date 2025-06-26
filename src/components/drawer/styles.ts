@@ -54,7 +54,7 @@ export const ElDrawer = styled.dialog`
     transform: translateX(0);
 
     &::backdrop {
-      background-color: rgb(0 0 0 / 25%);
+      background-color: var(--overlay-50);
     }
   }
 
@@ -69,7 +69,7 @@ export const ElDrawer = styled.dialog`
       &[open] {
         transform: translateX(100%);
         &::backdrop {
-          background-color: rgb(0 0 0 / 0%);
+          background-color: transparent;
         }
       }
     }
