@@ -719,6 +719,7 @@
   --icon_size-m: 20px; /* Used only for icon sizing */
   --icon_size-s: 16px; /* Used only for icon sizing */
   --icon_size-xs: 12px; /* Used only for icon sizing */
+  --overlay-50: #00000080;
   --size-1: 4px; /* Used for sizing shapes except icons. For icons use icon sizes */
   --size-2: 8px; /* Used for sizing shapes except icons. For icons use icon sizes */
   --size-3: 12px; /* Used for sizing shapes except icons. For icons use icon sizes */
