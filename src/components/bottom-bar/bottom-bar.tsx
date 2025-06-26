@@ -1,43 +1,49 @@
-import type { FC, HTMLAttributes, ReactNode, RefObject } from 'react'
+import { BottomBarItemButton } from './item'
+import { BottomBarMenuList } from './menu-list'
+import { ElBottomBarContainer, ElBottomBarNav } from './styles'
+import { useBottomBarObserver } from './use-bottom-bar-observer'
 
-import { BottomBarItem } from '../bottom-bar-item'
-
-import { BottomBarMoreMenu, BottomBarMoreMenuItem } from './bottom-bar.atoms'
-import { ElBottomBar } from './styles'
-import { useBottomBarVisibility } from './use-bottom-bar-visibility'
+import type { HTMLAttributes, ReactNode, RefObject } from 'react'
 
 export interface BottomBarProps extends HTMLAttributes<HTMLDivElement> {
   /**
    * The children of the bottom bar
    **/
   children: ReactNode
-
   /**
-   * The reference of the parent element that the bottom bar is attached to
+   * The reference of the scroll container the bottom bar is rendered within
    *
    * @description see the story for an example
    */
-  parentRef: RefObject<HTMLElement> | null
+  scrollContainerRef: RefObject<HTMLElement>
 }
 
-type BottomBarFC = FC<BottomBarProps> & {
-  Item: typeof BottomBarItem
-  MoreMenu: typeof BottomBarMoreMenu
-  MoreMenuItem: typeof BottomBarMoreMenuItem
-}
-
-const BottomBar: BottomBarFC = ({ children, parentRef, ...rest }) => {
-  const { isOpen } = useBottomBarVisibility(parentRef)
+/**
+ * A bottom bar component for use on mobile-first applications or small screen sizes (XS breakpoint).
+ * Does not display on SM screens or above. Should only have a maximum of five (5) items. The fifth item can be an
+ * overflow menu.
+ *
+ * **Note:** The `Menu` component does not currently support pinning it's placement above the bottom bar items. It
+ * currently only renders above its trigger button if the viewport edge is close by.
+ */
+export function BottomBar({
+  'aria-label': ariaLabel = 'Bottom navigation',
+  children,
+  scrollContainerRef,
+  ...rest
+}: BottomBarProps) {
+  const isOpen = useBottomBarObserver(scrollContainerRef)
 
   return (
-    <ElBottomBar {...rest} data-is-open={isOpen}>
-      {children}
-    </ElBottomBar>
+    <ElBottomBarContainer>
+      <ElBottomBarNav {...rest} aria-label={ariaLabel} data-is-open={isOpen}>
+        {children}
+      </ElBottomBarNav>
+    </ElBottomBarContainer>
   )
 }
 
-BottomBar.Item = BottomBarItem
-BottomBar.MoreMenu = BottomBarMoreMenu
-BottomBar.MoreMenuItem = BottomBarMoreMenuItem
-
-export { BottomBar }
+BottomBar.Item = BottomBarMenuList.Item
+BottomBar.ItemButton = BottomBarItemButton
+BottomBar.MenuItem = BottomBarMenuList.MenuItem
+BottomBar.MenuList = BottomBarMenuList
