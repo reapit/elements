@@ -13,7 +13,7 @@ export function DrawerHeaderCloseButton() {
         autoFocus
         aria-label="Close"
         formMethod="dialog"
-        iconLeft={<CloseIcon aria-hidden />}
+        iconLeft={<CloseIcon size="lg" aria-hidden />}
         size="large"
         type="submit"
         variant="tertiary"
