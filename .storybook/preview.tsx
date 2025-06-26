@@ -36,7 +36,7 @@ const preview: Preview = {
       ],
     },
     viewport: {
-      viewports: {
+      options: {
         superWideScreen: {
           name: 'Super Wide Screen',
           type: 'desktop',
@@ -92,7 +92,7 @@ const preview: Preview = {
     theme: 'reapit',
   },
 
-  tags: ['autodocs']
+  tags: ['autodocs'],
 }
 
 export default preview

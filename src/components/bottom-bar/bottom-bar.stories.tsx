@@ -1,85 +1,97 @@
-import { action } from 'storybook/actions'
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { useRef } from 'react'
-import { DeprecatedIcon } from '../deprecated-icon'
 import { BottomBar } from './bottom-bar'
+import { Menu } from '../menu'
+import { Pattern } from '../drawer/__story__/Pattern'
+import { StarIcon } from '#src/icons/star'
+import { useRef } from 'react'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+// Common href for all menu items that links to the current storybook page.
+const href = globalThis.top?.location.href!
 
 const meta = {
-  title: 'Components/Bottom Bar',
+  title: 'Components/BottomBar',
   component: BottomBar,
+  argTypes: {
+    children: {
+      control: 'radio',
+      options: ['No selected item', 'Selected item', 'With overflow menu'],
+      mapping: {
+        'No selected item': buildMenu('No selected item'),
+        'Selected item': buildMenu('Selected item'),
+        'With overflow menu': buildMenu('With overflow menu'),
+      },
+    },
+    scrollContainerRef: {
+      control: false,
+    },
+  },
+  globals: {
+    backgrounds: {
+      value: 'light',
+    },
+  },
+  render: (args) => {
+    const ref = useRef<HTMLDivElement>(null)
+
+    return (
+      <div
+        ref={ref}
+        style={{
+          overflow: 'auto',
+          height: '300px',
+          width: '100%',
+          boxSizing: 'border-box',
+          border: '1px solid #FA00FF',
+        }}
+      >
+        <Pattern height="100vh" />
+        <BottomBar {...args} scrollContainerRef={ref} />
+      </div>
+    )
+  },
   parameters: {
     layout: 'fullscreen',
-  },
-  args: {
-    children: null,
-    parentRef: null,
   },
 } satisfies Meta<typeof BottomBar>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-export const Standard: Story = {
-  render: () => {
-    const ref = useRef<HTMLElement>(null)
-
-    return (
-      <main style={{ position: 'relative', overflow: 'hidden' }}>
-        <section ref={ref} style={{ height: '100dvh', overflowY: 'scroll', overflowX: 'hidden' }}>
-          <div style={{ backgroundColor: 'var(--intent-primary)', height: '180vh' }}>long content</div>
-          <div style={{ backgroundColor: 'var(--intent-warning)' }}>short content</div>
-          <BottomBar parentRef={ref}>
-            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} isActive onClick={action('clicked')}>
-              Menu 1
-            </BottomBar.Item>
-            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')} hasBadge>
-              Menu 2
-            </BottomBar.Item>
-            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')}>
-              Menu 3
-            </BottomBar.Item>
-            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')}>
-              Menu 4
-            </BottomBar.Item>
-            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')}>
-              Menu 5
-            </BottomBar.Item>
-          </BottomBar>
-        </section>
-      </main>
-    )
+export const Example: Story = {
+  args: {
+    'aria-label': 'Bottom navigation',
+    children: 'Selected item',
+    scrollContainerRef: { current: null },
   },
 }
 
-export const WithOverflowMenu: Story = {
-  render: () => {
-    const ref = useRef<HTMLElement>(null)
-
-    return (
-      <main style={{ position: 'relative', overflow: 'hidden' }}>
-        <section ref={ref} style={{ height: '100dvh', overflowY: 'scroll', overflowX: 'hidden' }}>
-          <div style={{ backgroundColor: 'var(--intent-primary)', height: '180vh' }}>long content</div>
-          <div style={{ backgroundColor: 'var(--intent-warning)' }}>short content</div>
-          <BottomBar parentRef={ref}>
-            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} isActive onClick={action('clicked')}>
-              Menu 1
-            </BottomBar.Item>
-            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')} hasBadge>
-              Menu 2
-            </BottomBar.Item>
-            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')}>
-              Menu 3
-            </BottomBar.Item>
-            <BottomBar.Item icon={<DeprecatedIcon icon="star" />} onClick={action('clicked')}>
-              Menu 4
-            </BottomBar.Item>
-            <BottomBar.MoreMenu>
-              <BottomBar.MoreMenuItem label="Menu 5" />
-              <BottomBar.MoreMenuItem label="Menu 6" />
-            </BottomBar.MoreMenu>
-          </BottomBar>
-        </section>
-      </main>
-    )
-  },
+function buildMenu(type: 'No selected item' | 'Selected item' | 'With overflow menu') {
+  return (
+    <BottomBar.MenuList>
+      <BottomBar.Item aria-current={type === 'Selected item' ? 'page' : false} icon={<StarIcon />} href={href}>
+        Menu 1
+      </BottomBar.Item>
+      <BottomBar.Item aria-current={false} icon={<StarIcon />} href={href} hasBadge>
+        Menu 2
+      </BottomBar.Item>
+      <BottomBar.Item aria-current={false} icon={<StarIcon />} href={href}>
+        Menu 3
+      </BottomBar.Item>
+      <BottomBar.Item aria-current={false} icon={<StarIcon />} href={href}>
+        Menu 4
+      </BottomBar.Item>
+      {type === 'With overflow menu' ? (
+        <BottomBar.MenuItem>
+          <Menu.Item label="Menu item 5" />
+          <Menu.Item label="Menu item 6" />
+          <Menu.Item label="Menu item 6" />
+        </BottomBar.MenuItem>
+      ) : (
+        <BottomBar.Item aria-current={false} icon={<StarIcon />} href={href}>
+          Menu 5
+        </BottomBar.Item>
+      )}
+    </BottomBar.MenuList>
+  )
 }
