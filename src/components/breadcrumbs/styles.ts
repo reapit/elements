@@ -39,6 +39,8 @@ export const elBreadcrumbsLink = css`
   text-overflow: ellipsis;
   overflow: hidden;
 
+  text-decoration: none;
+
   padding: 1px; // to imitate the link focus size
   border: var(--border-width-double) solid transparent;
   &:focus {

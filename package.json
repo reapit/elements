@@ -37,6 +37,7 @@
       "import": "./dist/js/icons/*.js",
       "require": "./dist/js/icons/*.cjs"
     },
+    "./reset.css": "./public/reset.css",
     "./styles.css": "./dist/js/style.css",
     "./dist/index.css": "./dist/js/style.css"
   },

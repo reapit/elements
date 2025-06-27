@@ -16,6 +16,7 @@ export const elBottomBarItem = css`
   border-radius: var(--border-radius-none);
   color: var(--comp-navigation-colour-text-bottom_bar-default);
   outline: none;
+  text-decoration: none;
 
   width: 100%;
 

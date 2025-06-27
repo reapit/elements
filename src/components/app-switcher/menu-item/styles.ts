@@ -14,6 +14,7 @@ export const ElAppSwitcherMenuItemAnchor = styled.a`
   padding-inline: var(--spacing-3) var(--spacing-4);
   border-radius: var(--comp-menu-border-radius);
 
+  text-decoration: none;
   width: 100%;
 
   &:focus-visible {
