@@ -18,6 +18,7 @@ const baseStyles = `
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-base);
   letter-spacing: var(--letter-spacing-base);
+  text-decoration: none;
 
   &:hover {
     background: var(--fill-default-light);
@@ -68,6 +69,11 @@ export const ElMobileNavItemBadge = styled.span`
 `
 
 export const ElMobileNavSubItemUnorderedList = styled.ul`
+  list-style: none;
+
+  margin-block: 0;
+  padding-inline: 0;
+
   display: flex;
   flex-direction: column;
   align-items: flex-start;
