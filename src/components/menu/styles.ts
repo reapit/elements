@@ -79,6 +79,7 @@ const baseMenuItemStyles = `
   border-radius: var(--comp-menu-border-radius);
   background: var(--comp-menu-colour-fill-default);
   color: var(--comp-menu-colour-text-default-primary);
+  text-decoration: none;
 
   &:hover {
     background: var(--comp-menu-colour-fill-hover);

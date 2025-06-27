@@ -22,6 +22,7 @@ export const elSideBarSubmenuItem = css`
   text-align: start;
   width: 100%;
 
+  text-decoration: none;
   padding: var(--spacing-none) var(--spacing-3) var(--spacing-none) 44px;
 
   border-radius: var(--comp-navigation-border-radius-none);

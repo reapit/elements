@@ -17,6 +17,7 @@ export const elTopBarNavItem = css`
   width: min-content;
 
   cursor: pointer;
+  text-decoration: none;
   border: none;
 
   color: var(--comp-navigation-colour-text-nav_item-default);

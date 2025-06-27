@@ -24,8 +24,8 @@ export const ElStep = styled.div`
   cursor: pointer;
 
   &.${elIsUsed} {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       background: var(--neutral-100);
     }
   }
@@ -35,8 +35,8 @@ export const ElStep = styled.div`
     background-color: var(--intent-primary);
   }
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: '';
     display: block;
     position: absolute;
