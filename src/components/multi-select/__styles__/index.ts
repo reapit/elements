@@ -38,7 +38,7 @@ export const ElMultiSelectCheckbox = styled.input`
     }
 
     &:hover {
-      &:before {
+      &::before {
         background-image: url('${dismiss(intentPrimary)}');
       }
     }
@@ -51,7 +51,7 @@ export const ElMultiSelectCheckbox = styled.input`
   &:not(:checked) + label {
     &:hover {
       padding: 0.2rem 2rem 0.2rem 1rem;
-      &:before {
+      &::before {
         content: '';
         position: absolute;
         background-image: url('${checked(intentPrimary)}');
@@ -106,7 +106,6 @@ export const ElMultiSelectSelected = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  padding: 0.25rem 0.5rem;
   background-color: var(--white);
   border: 1px solid var(--neutral-150);
   border-radius: 2px 2px 0 0;
@@ -124,7 +123,6 @@ export const ElMultiSelectSelected = styled.div`
 export const ElMultiSelectUnSelected = styled.div`
   display: flex;
   flex-wrap: wrap;
-  padding: 0.25rem 0.5rem;
   background-color: var(--white);
   border: 1px solid var(--neutral-150);
   border-top: none;

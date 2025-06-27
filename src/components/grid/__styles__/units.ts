@@ -2,7 +2,7 @@ import { css } from '@linaria/core'
 
 // Col Gaps
 export const elColGap0 = css`
-  grid-column-gap: 0rem;
+  grid-column-gap: 0;
 `
 
 export const elColGap1 = css`
@@ -40,7 +40,7 @@ export const elColGap12 = css`
 // Row Gaps
 
 export const elRowGap0 = css`
-  grid-row-gap: 0rem;
+  grid-row-gap: 0;
 `
 
 export const elRowGap1 = css`

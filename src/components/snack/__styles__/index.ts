@@ -13,7 +13,7 @@ import {
 export const ElSnack = styled.div`
   display: inline-flex;
   border-radius: var(--default-border-radius);
-  padding: 0.75rem 0.75rem;
+  padding: 0.75rem;
   align-items: center;
   background: var(--neutral-100);
   color: var(--black);

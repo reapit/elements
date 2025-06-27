@@ -4,8 +4,8 @@ export const ElTableToolbar = styled.div`
   display: flex;
   width: 100%;
   background: var(--fill-white);
-  padding: var(--spacing-2) 0px var(--spacing-2) 0px;
-  gap: 0px;
+  padding: var(--spacing-2) 0 var(--spacing-2) 0;
+  gap: 0;
   justify-content: space-between;
   align-items: center;
 `

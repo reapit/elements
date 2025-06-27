@@ -173,7 +173,7 @@ export const ElMenuList = styled.div`
   padding: var(--spacing-2) 0;
   border-radius: var(--corner-default);
   background-color: var(--fill-white);
-  box-shadow: 0px 4px 16px 0px #222b3329;
+  box-shadow: 0 4px 16px 0 #222b3329;
   overflow: auto;
 
   &[data-has-max-width='true'] {

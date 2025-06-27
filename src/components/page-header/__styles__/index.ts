@@ -50,7 +50,7 @@ export const ElPageHeaderTitleContainer = styled.div`
 export const ElPageHeaderWrapInner = styled.div`
   width: 100%;
   height: 100%;
-  padding: 0.5rem 0 0 0;
+  padding: 0.5rem 0 0;
 
   &.${elPageHeaderMaxWidth} {
     max-width: 1200px;
@@ -58,12 +58,11 @@ export const ElPageHeaderWrapInner = styled.div`
   }
 
   ${isTablet} {
-    padding: 2.5rem 1.5rem 0 1.5rem;
+    padding: 2.5rem 1.5rem 0;
   }
 `
 
 export const ElPageHeaderWrap = styled.div`
-  width: 100%;
   display: flex;
   flex-direction: column;
   background-color: var(--page-header-bg);
@@ -123,6 +122,6 @@ export const ElPageHeaderSeparator = styled.span`
     background-repeat: no-repeat;
     height: 1.5rem;
     width: 1.5rem;
-    right: 0rem;
+    right: 0;
   }
 `

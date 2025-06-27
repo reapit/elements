@@ -6,7 +6,7 @@ import ReapitLogoInfographic from '../../assets/icons/reapitLogo.svg?react'
 const WelcomeWrapper = styled.div`
   background-color: var(--white);
   width: 100%;
-  box-shadow: 0px 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 30px rgb(0 0 0 / 0.1);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
   display: flex;

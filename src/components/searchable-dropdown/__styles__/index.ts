@@ -35,12 +35,11 @@ export const ElSearchableDropdownResultsContainer = styled.div`
   width: 100%;
   max-height: 300px;
   overflow-y: auto;
-  background: #fff;
-  border: 1px solid #ccc;
+  border: 1px solid #cccccc;
   border-top: none;
   border-radius: 4px;
   background: var(--white);
-  box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
+  box-shadow: 0 4px 16px 0 rgb(34 43 51 / 0.16);
 `
 
 export const ElSearchableDropdownSearchInputAddOn = styled(InputAddOn)`

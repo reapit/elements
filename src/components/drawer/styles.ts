@@ -44,12 +44,10 @@ export const ElDrawer = styled.dialog`
      * the drawer when it is closed, it will override the browser's default "display: none" behaviour for closed
      * dialog elements. */
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto 1fr auto;
-    grid-template-areas:
-      'header'
-      'body'
-      'footer';
+    grid-template:
+      'header' auto
+      'body' 1fr
+      'footer' auto / 1fr;
 
     transform: translateX(0);
 

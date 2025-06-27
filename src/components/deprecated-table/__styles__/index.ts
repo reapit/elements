@@ -152,31 +152,31 @@ export const elTableRowFocused = css`
 export const ElDeprecatedTableHeadersRow = styled.div`
   display: grid;
 
-  // the below "grid-template-columns" is a bit mad, so I'll explain the constituent parts...
+  /* the below "grid-template-columns" is a bit mad, so I'll explain the constituent parts... */
 
-  // - "repeat(" - takes 2 args. The first is the number of columns (or auto-fit
-  // if not supplied). The second is the width of each column
+  /* - "repeat(" - takes 2 args. The first is the number of columns (or auto-fit
+   * if not supplied). The second is the width of each column */
 
-  // - "var(--component-table-num-columns, auto-fit)" - this is saying that if the
-  // number of columns is known through our variable (set by the data-columns attribute)
-  // on the ElDeprecatedTable element, then use that. Otherwise use CSS auto-fit, which will
-  // work out the number of columns based on what's in the DOM. This is required as
-  // people using this table could put any number of columns in. Unless the CSS is
-  // explicitly told the number of columns, it doesn't know.
+  /* - "var(--component-table-num-columns, auto-fit)" - this is saying that if the
+   * number of columns is known through our variable (set by the data-columns attribute)
+   * on the ElDeprecatedTable element, then use that. Otherwise use CSS auto-fit, which will
+   * work out the number of columns based on what's in the DOM. This is required as
+   * people using this table could put any number of columns in. Unless the CSS is
+   * explicitly told the number of columns, it doesn't know. */
 
-  // - minmax(var(--component-table-min-column-width), 1fr)) - this sets the width
-  // of each column. The columns will be a minimum of the variable and a maximum
-  // of 1fr (i.e. equal column widths)
+  /* - minmax(var(--component-table-min-column-width), 1fr)) - this sets the width
+   * of each column. The columns will be a minimum of the variable and a maximum
+   * of 1fr (i.e. equal column widths) */
 
-  // - var(--component-table-expandable-trigger-width, 0); - This bit at the end
-  // will add one additional column. It's width will be set by the variable, otherwise
-  // it will be 0 if the variable isn't defined. The idea here is that the button at the
-  // end of each row to open/close the expandable row is quite small, and by defining a
-  // set width for this column only the other columns can expand into the remaining space.
-  // If there are no expandable rows in the table, this variable can be left undefined
-  // and 0 will be used as the value. The column will still be there but won't be useful.
-  // The variable component-table-num-columns should be the number of columns MINUS
-  // the column that has the button to trigger the expandable row.
+  /* - var(--component-table-expandable-trigger-width, 0); - This bit at the end
+   * will add one additional column. It's width will be set by the variable, otherwise
+   * it will be 0 if the variable isn't defined. The idea here is that the button at the
+   * end of each row to open/close the expandable row is quite small, and by defining a
+   * set width for this column only the other columns can expand into the remaining space.
+   * If there are no expandable rows in the table, this variable can be left undefined
+   * and 0 will be used as the value. The column will still be there but won't be useful.
+   * The variable component-table-num-columns should be the number of columns MINUS
+   * the column that has the button to trigger the expandable row. */
 
   grid-template-columns:
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
@@ -207,7 +207,7 @@ export const ElDeprecatedTableHeader = styled.div`
 /** @deprecated */
 export const ElDeprecatedTableRow = styled.div`
   display: grid;
-  // see above for the explanation of this line
+  /* see above for the explanation of this line */
   grid-template-columns:
     repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
     var(--component-table-expandable-trigger-width, 0);
@@ -229,7 +229,6 @@ export const ElTableCtaCell = styled.div`
   order: 12;
 
   ${isNarrow} {
-    grid-column-end: span 2;
     text-align: center;
     justify-content: right;
     justify-self: end;
@@ -246,7 +245,7 @@ export const ElDeprecatedTableCell = styled.div`
   flex-wrap: wrap;
   color: var(--neutral-500);
   /* margin-right: 2px; */
-  word-break: break-word;
+  overflow-wrap: anywhere;
   font-size: var(--font-size-small);
 
   &:last-child {
@@ -294,7 +293,6 @@ export const ElTableExpandableRowTriggerCell = styled.div`
   order: 12;
 
   ${isNarrow} {
-    grid-column-end: span 2;
     text-align: center;
     justify-self: end;
     grid-column-end: 3;
@@ -303,14 +301,6 @@ export const ElTableExpandableRowTriggerCell = styled.div`
 
 /** @deprecated */
 export const ElDeprecatedTableRowContainer = styled.div`
-  &:hover:not(.${elIsActive}) {
-    background-color: var(--neutral-100);
-
-    ${ElDeprecatedTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElDeprecatedTableRow}, ${ElTableCtaCell} {
-      background-color: var(--neutral-100);
-    }
-  }
-
   &:focus,
   &.${elIsActive}, .${elTableRowFocused} {
     background: var(--purple-050);
@@ -325,6 +315,14 @@ export const ElDeprecatedTableRowContainer = styled.div`
 
     ${ElDeprecatedTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElDeprecatedTableRow}, ${ElTableCtaCell} {
       background: var(--white);
+    }
+  }
+
+  &:hover:not(.${elIsActive}) {
+    background-color: var(--neutral-100);
+
+    ${ElDeprecatedTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElDeprecatedTableRow}, ${ElTableCtaCell} {
+      background-color: var(--neutral-100);
     }
   }
 `
@@ -379,14 +377,12 @@ export const ElTableExpandableContainer = styled.div`
 export const ElDeprecatedTable = styled.div`
   &[data-force-narrow-table='true'] {
     ${ElTableExpandableRowTriggerCell} {
-      grid-column-end: span 2;
       text-align: center;
       justify-self: end;
       grid-column-end: 3;
     }
 
     ${ElTableCtaCell} {
-      grid-column-end: span 2;
       text-align: center;
       justify-content: right;
       justify-self: end;

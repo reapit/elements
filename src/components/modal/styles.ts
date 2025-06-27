@@ -29,7 +29,7 @@ export const ElModal = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
+  box-shadow: 0 4px 16px 0 rgb(34 43 51 / 0.16);
   border-radius: var(--default-border-radius);
   background: white;
   z-index: 99;

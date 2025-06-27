@@ -23,7 +23,7 @@ export const ElDeprecatedDrawerBg = styled.div`
 export const ElDeprecatedDrawer = styled.div`
   display: none;
   top: 0;
-  box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
+  box-shadow: 0 4px 16px 0 rgb(34 43 51 / 0.16);
   background: white;
   z-index: 99;
   width: 100%;

@@ -61,8 +61,8 @@ export const ElChip = styled.button<ElChipProps>`
 
   &:focus-visible {
     box-shadow:
-      0px 0px 0px var(--size-px) var(--white),
-      0px 0px 0px var(--size-1) var(--purple-300);
+      0 0 0 var(--size-px) var(--white),
+      0 0 0 var(--size-1) var(--purple-300);
     outline: none;
   }
 `

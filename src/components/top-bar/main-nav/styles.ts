@@ -4,8 +4,7 @@ export const ElTopBarMainNav = styled.nav``
 
 export const ElTopBarMainNavList = styled.ul`
   display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
+  flex-flow: row nowrap;
   align-items: center;
   gap: var(--spacing-2);
   list-style: none;

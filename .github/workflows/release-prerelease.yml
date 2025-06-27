@@ -51,11 +51,7 @@ jobs:
       - name: Install
         run: yarn
 
-      - name: Lint
-        run: |
-          yarn lint
-
-      - name: TypeCheck
+      - name: Check
         run: |
           yarn check
 

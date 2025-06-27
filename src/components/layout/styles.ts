@@ -10,8 +10,7 @@ export const elMainContainer = css`
   flex-direction: column;
   width: 100%;
   height: 100%;
-  overflow-y: visible;
-  overflow-x: hidden;
+  overflow: hidden visible;
   background: var(--white);
 
   &.${elHasGreyBackground} {
@@ -29,8 +28,7 @@ export const elPageContainer = css`
   padding: 0.5rem 1.25rem;
   width: 100%;
   height: 100%;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden scroll;
   background-color: var(--white);
 
   ${isTablet} {
@@ -56,8 +54,7 @@ export const elSecondaryNavContainer = css`
   width: 14rem;
   flex: 0 0 14rem;
   padding: 1.5rem;
-  overflow-y: scroll;
-  overflow-x: hidden;
+  overflow: hidden scroll;
   scrollbar-width: none;
   background: var(--white);
   border-right: 1px solid var(--neutral-050);

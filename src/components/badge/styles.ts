@@ -170,7 +170,7 @@ export const ElBadge = styled.div`
 // Badge Label style
 export const ElBadgeLabel = styled.span`
   display: flex;
-  padding: 0px var(--spacing-half);
+  padding: 0 var(--spacing-half);
   align-items: center;
   text-align: center;
   font-family: var(--font-xs-medium-family);
