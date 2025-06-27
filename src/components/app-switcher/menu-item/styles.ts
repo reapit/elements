@@ -6,9 +6,9 @@ export const ElAppSwitcherMenuItemAnchor = styled.a`
   cursor: pointer;
 
   display: grid;
-  grid-template-areas: 'logo name' 'logo supplementary-info';
-  grid-template-columns: min-content auto;
-  grid-template-rows: min-content min-content;
+  grid-template:
+    'logo name' min-content
+    'logo supplementary-info' min-content / min-content auto;
   gap: var(--spacing-1) var(--spacing-3);
   padding-block: var(--spacing-3);
   padding-inline: var(--spacing-3) var(--spacing-4);

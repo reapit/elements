@@ -4,12 +4,10 @@ import { is4KScreen, isDesktop, isSuperWideScreen, isTablet, isWideScreen } from
 export const ElGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
+  grid-gap: 1rem;
 
   ${isTablet} {
-    grid-column-gap: 1.25rem;
-    grid-row-gap: 1.25rem;
+    grid-gap: 1.25rem;
   }
 
   ${isDesktop} {
@@ -60,12 +58,10 @@ export const ElColSplit = styled.div`
 export const ElGridThirds = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
+  grid-gap: 1rem;
 
   ${isTablet} {
-    grid-column-gap: 1.25rem;
-    grid-row-gap: 1.25rem;
+    grid-gap: 1.25rem;
   }
 `
 

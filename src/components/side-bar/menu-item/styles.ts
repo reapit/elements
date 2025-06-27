@@ -55,8 +55,8 @@ export const ElSideBarMenuItemIcon = styled.span`
     color: var(--comp-navigation-colour-icon-sidebar-select);
   }
 
-  // TODO: remove this when our Icon component inherits by default and
-  // can be sized via props correctly.
+  /* TODO: remove this when our Icon component inherits by default and
+   * can be sized via props correctly. */
   ${ElDeprecatedIcon} {
     color: inherit;
     width: var(--icon_size-m);

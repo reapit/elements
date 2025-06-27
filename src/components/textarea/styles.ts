@@ -42,16 +42,16 @@ export interface ElTextAreaProps extends RestrictedTextareaHTMLAttributes {
 }
 
 export const ElTextArea = styled.textarea<ElTextAreaProps>`
-  // NOTE: These are public CSS variables that we use to allow CSS-only consumers
-  // to define the maximum and minimum rows the text area should resize between.
-  // We do this ourselves instead of leveraging Linaria's dynamic styles because
-  // that approach results in randomly-named CSS variables, which would not provide
-  // a friendly interface for CSS-only consumers.
+  /* NOTE: These are public CSS variables that we use to allow CSS-only consumers
+   * to define the maximum and minimum rows the text area should resize between.
+   * We do this ourselves instead of leveraging Linaria's dynamic styles because
+   * that approach results in randomly-named CSS variables, which would not provide
+   * a friendly interface for CSS-only consumers. */
   --textarea-max-rows: infinity;
   --textarea-min-rows: 3;
 
-  // NOTE: These are "private" CSS variables that we use to avoid repetition. They
-  // should never be overridden by consumers.
+  /* NOTE: These are "private" CSS variables that we use to avoid repetition. They
+   * should never be overridden by consumers. */
   --__textarea-border-width: var(--border-default);
   --__textarea-padding-x: var(--spacing-3);
   --__textarea-padding-y: var(--spacing-2);
@@ -70,18 +70,18 @@ export const ElTextArea = styled.textarea<ElTextAreaProps>`
   width: 100%;
 
   &[data-field-sizing='content'] {
-    // NOTE: field-sizing property is currently experimental
-    // @see https://drafts.csswg.org/css-ui/#field-sizing
-    // @see https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing
+    /* NOTE: field-sizing property is currently experimental
+     * @see https://drafts.csswg.org/css-ui/#field-sizing
+     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing */
     @supports (field-sizing: content) {
       field-sizing: content;
     }
   }
 
   &[data-field-sizing='fixed'] {
-    // NOTE: field-sizing property is currently experimental
-    // @see https://drafts.csswg.org/css-ui/#field-sizing
-    // @see https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing
+    /* NOTE: field-sizing property is currently experimental
+     * @see https://drafts.csswg.org/css-ui/#field-sizing
+     * @see https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing */
     @supports (field-sizing: fixed) {
       field-sizing: fixed;
     }
@@ -91,11 +91,11 @@ export const ElTextArea = styled.textarea<ElTextAreaProps>`
     resize: both;
   }
 
-  // We use CSS to calulate the max/min block size of the text area based on the max/min number of rows
-  // that have been specified. We use block-size instead of height because the latter is not writing-mode aware.
-  // @see https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode
-  // @see https://developer.mozilla.org/en-US/docs/Web/CSS/max-block-size
-  // @see https://developer.mozilla.org/en-US/docs/Web/CSS/min-block-size
+  /* We use CSS to calulate the max/min block size of the text area based on the max/min number of rows
+   * that have been specified. We use block-size instead of height because the latter is not writing-mode aware.
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/max-block-size
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/min-block-size */
   max-block-size: calc(
     1lh * var(--textarea-max-rows) + 2 * (var(--__textarea-padding-y) + var(--__textarea-border-width))
   );

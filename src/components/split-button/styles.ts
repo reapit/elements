@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { Button } from '../button'
+import { Button, elButtonSizeLarge, elButtonSizeSmall, ElButtonSpinner } from '../button'
 import { ElDeprecatedIcon } from '../deprecated-icon'
 
 export const ElSplitButtonActionButton = styled(Button)``
@@ -15,12 +15,12 @@ export const ElSplitButton = styled.div`
       var(--comp-button-border-radius-none) var(--comp-button-border-radius-default);
     border-right: var(--comp-button-border-width-none) solid var(--comp-button-colour-border-secondary-default);
 
-    // Added this style to hide the iconRight from split action button
-    .el-button-label + ${ElDeprecatedIcon}{
-      display:none;
+    /* Added this style to hide the iconRight from split action button */
+    .el-button-label + ${ElDeprecatedIcon} {
+      display: none;
     }
 
-    // Added this style to override the all the other button varients to default secondary
+    /* Added this style to override the all the other button varients to default secondary */
     &:not([data-variant='primary']):not([data-variant='busy']):not(&[aria-disabled='true']):not(&[disabled]) {
       background: var(--comp-button-colour-fill-secondary-default);
       color: var(--comp-button-colour-text-secondary-default);
@@ -34,12 +34,12 @@ export const ElSplitButton = styled.div`
       var(--comp-button-border-radius-default) var(--comp-button-border-radius-none);
     border-left: var(--comp-button-border-width-none) solid var(--comp-button-colour-border-secondary-default);
 
-    // This is to add the border-left in the SplitMenuButton to support busy state
-    &:before {
+    /* This is to add the border-left in the SplitMenuButton to support busy state */
+    &::before {
       content: '';
       position: absolute;
-      top: 6px; // Note: No varibale available for 6px
-      bottom: 6px; // Note: No varibale available for 6px
+      top: 6px; /* Note: No varibale available for 6px */
+      bottom: 6px; /* Note: No varibale available for 6px */
       left: var(--spacing-none);
       width: var(--comp-button-border-width-default);
       background-color: var(--comp-button-colour-border-secondary-default);
@@ -58,21 +58,21 @@ export const ElSplitButton = styled.div`
       }
     }
 
-    // Added this style to hide the iconRight from split menu button
-    & > .el-button-spinner + ${ElDeprecatedIcon} + ${ElDeprecatedIcon} {
+    /* Added this style to hide the iconRight from split menu button */
+    & > ${ElButtonSpinner} + ${ElDeprecatedIcon} + ${ElDeprecatedIcon} {
       display: none;
     }
 
-    // Added this style to override the all the other button varients to default secondary
+    /* Added this style to override the all the other button varients to default secondary */
     &:not([data-variant='primary']):not([data-variant='busy']):not(&[aria-disabled='true']):not(&[disabled]) {
       background: var(--comp-button-colour-fill-secondary-default);
       color: var(--comp-button-colour-text-secondary-default);
-      border:  var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
+      border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
       border-left: var(--comp-button-border-width-none) solid var(--comp-button-colour-border-secondary-default);
     }
 
     &[data-variant='primary'] {
-      &:before {
+      &::before {
         background-color: var(--comp-button-colour-border-primary-default);
       }
     }
@@ -80,13 +80,13 @@ export const ElSplitButton = styled.div`
     &[data-variant='busy'],
     &[disabled],
     &[aria-disabled='true'] {
-      &:before {
+      &::before {
         background-color: var(--comp-button-colour-border-primary-disabled);
       }
     }
   }
 
-  .el-button-size-large {
+  ${elButtonSizeLarge} {
     &${ElSplitButtonActionButton} {
       height: var(--size-10);
     }
@@ -102,11 +102,10 @@ export const ElSplitButton = styled.div`
     }
   }
 
-  .el-button-size-small {
+  ${elButtonSizeSmall} {
     &${ElSplitButtonMenuButton} {
       width: var(--size-8);
       height: var(--size-8);
     }
   }
-}
 `

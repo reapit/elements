@@ -15,6 +15,7 @@
     "skipLibCheck": true,
     "module": "Preserve",
     "target": "ES2022",
+    "diagnostics": true,
     "declaration": true,
     "declarationMap": true,
     "types": ["vite/client", "vitest/globals", "vite-plugin-svgr/client", "@testing-library/jest-dom/vitest"],

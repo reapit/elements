@@ -20,7 +20,7 @@ export const intentSecondary = '#4e56ea'
 
 export const elGlobals = css`
   :global() {
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap');
+    @import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap';
     /* Reset CSS */
     html,
     body,
@@ -106,7 +106,6 @@ export const elGlobals = css`
       margin: 0;
       padding: 0;
       border: 0;
-      font-size: 100%;
       font: inherit;
       vertical-align: baseline;
       line-height: 1.2;
@@ -140,7 +139,6 @@ export const elGlobals = css`
     blockquote:after,
     q:before,
     q:after {
-      content: '';
       content: none;
     }
     table {
@@ -153,11 +151,11 @@ export const elGlobals = css`
     html {
       font-size: 16px;
       font-family: 'Inter', Helvetica, Arial, sans-serif;
-      color: #222b33; // Neutral 900
+      color: #222b33; /* Neutral 900 */
       height: 100%;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+      -webkit-tap-highlight-color: rgb(0 0 0 / 0);
       overflow: hidden;
 
       * {
@@ -168,7 +166,7 @@ export const elGlobals = css`
 
     body {
       height: 100%;
-      background: #fff;
+      background: #ffffff;
       position: relative;
     }
 
@@ -179,7 +177,7 @@ export const elGlobals = css`
     a {
       text-decoration: none;
       cursor: pointer;
-      color: #4e56ea; // Purple 500
+      color: #4e56ea; /* Purple 500 */
     }
 
     code,
@@ -193,7 +191,7 @@ export const elGlobals = css`
 
     :root {
       /* Neutral color variables */
-      --white: #fff;
+      --white: #ffffff;
       --black: var(--neutral-900);
       --neutral-darkest: var(--neutral-700);
       --neutral-dark: var(--neutral-500);
@@ -264,7 +262,7 @@ export const elGlobals = css`
       /** component specific variables */
       --component-input-bg: var(--white);
       --component-input-focus-bg: var(--neutral-light);
-      --component-input-shadow: inset 0px -1px 0px var(--white);
+      --component-input-shadow: inset 0 -1px 0 var(--white);
       --component-input-border: 1px solid var(--neutral-150);
       --component-input-border-focus: 1px solid var(--purple-500);
       --component-steps-gutter-width: 12px;
@@ -289,7 +287,7 @@ export const elGlobals = css`
       --util-border-grey: 1px solid var(--neutral-100, '#dbdbdb');
       --util-border-purple: 1px solid var(--purple-300, '#9faebc');
       --util-border-radius: 0.25rem;
-      --util-box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
+      --util-box-shadow: 0 2px 9px rgb(0 0 0 / 0.08);
 
       /* Utility Responsive variables */
       --util-screen-width: 100vw;

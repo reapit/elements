@@ -10,13 +10,13 @@ export const elCardFocussed = css`
 export const ElCardWrap = styled.div`
   padding: 1rem;
   border-radius: 0.25rem;
-  box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.03);
+  box-shadow: 2px 4px 20px rgb(0 0 0 / 0.03);
   background: var(--white);
   position: relative;
 
   ${isTablet} {
     padding: 1.25rem;
-    box-shadow: 2px 4px 20px rgba(0, 0, 0, 0.05);
+    box-shadow: 2px 4px 20px rgb(0 0 0 / 0.05);
   }
 
   &.${elCardFocussed} {
@@ -33,8 +33,7 @@ export const ElCardHeadingWrap = styled.div`
   width: 100%;
 
   &.${elCardSubHeadingWrapAvatar} {
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: space-between;
   }
 `
@@ -96,7 +95,6 @@ export const ElCardBodyWrap = styled.div`
   white-space: normal;
   height: 3rem;
   font-size: var(--font-size-smallest);
-  transition: height 0.2s linear;
   transition: margin-bottom 0.2s linear;
   margin-top: 0.5rem;
 
@@ -148,9 +146,8 @@ export const elCardListMainWrapExpanded = css``
 
 export const ElCardListMainWrap = styled.div`
   display: flex;
-  flex-wrap: nowrap;
+  flex-flow: column nowrap;
   position: relative;
-  flex-direction: column;
 `
 
 export const ElCardListHeading = styled.h5`

@@ -36,10 +36,6 @@ export const ElTopBarNavDropdownButton = styled.button`
     pointer-events: none;
     margin-left: 0;
   }
-
-  &:hover {
-    background: var(--comp-navigation-colour-fill-nav_item-hover);
-  }
 `
 
 export const ElTopBarNavDropdownButtonLabel = styled.span`

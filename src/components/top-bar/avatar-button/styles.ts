@@ -9,7 +9,7 @@ export const ElTopBarAvatarButton = styled.button`
   border-radius: var(--comp-navigation-border-radius-avatar_button);
 
   &:focus-visible {
-    background: #fff;
+    background: #ffffff;
     outline: var(--border-width-double) solid var(--colour-border-focus);
     outline-offset: 1px;
   }

@@ -12,23 +12,6 @@ export const ElInput = styled.input`
   font-family: var(--font-sans-serif);
   font-size: var(--font-size-small);
 
-  &:not([type='checkbox']):not([type='radio']) {
-    flex-grow: 1;
-    border-radius: 0.125rem;
-    border: var(--component-input-border);
-    height: 2.25rem;
-    min-width: 0;
-
-    &:focus {
-      border: var(--component-input-border-focus);
-    }
-
-    &.${elHasInputError} {
-      border: 1px solid var(--intent-danger);
-      background-color: var(--red-100);
-    }
-  }
-
   &:focus {
     outline: none;
   }
@@ -46,6 +29,23 @@ export const ElInput = styled.input`
 
     ::placeholder {
       color: var(--neutral-300);
+    }
+  }
+
+  &:not([type='checkbox']):not([type='radio']) {
+    flex-grow: 1;
+    border-radius: 0.125rem;
+    border: var(--component-input-border);
+    height: 2.25rem;
+    min-width: 0;
+
+    &:focus {
+      border: var(--component-input-border-focus);
+    }
+
+    &.${elHasInputError} {
+      border: 1px solid var(--intent-danger);
+      background-color: var(--red-100);
     }
   }
 
@@ -70,7 +70,6 @@ export const ElInput = styled.input`
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 0.75rem;
-      border: 1px solid var(--neutral-400);
       background-color: var(--intent-primary);
       border: 1px solid var(--intent-primary);
     }
@@ -104,7 +103,7 @@ export const ElInput = styled.input`
     }
 
     &:checked {
-      &:after {
+      &::after {
         content: '';
         display: block;
         position: absolute;
@@ -120,7 +119,7 @@ export const ElInput = styled.input`
 
       &:disabled {
         background-color: var(--white);
-        &:after {
+        &::after {
           background-color: var(--neutral-300);
           border: var(--component-input-border);
         }

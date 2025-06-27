@@ -37,11 +37,10 @@ export const ElDeprecatedNavControlsBg = styled.div`
 /** @deprecated */
 export const ElDeprecatedNavContainer = styled.nav`
   display: flex;
-  flex-direction: row;
+  flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
   background-color: var(--white);
-  height: auto;
   width: 100%;
   position: sticky;
   top: 0;
@@ -49,7 +48,6 @@ export const ElDeprecatedNavContainer = styled.nav`
   height: auto;
   flex: 0 0 auto;
   overflow: visible;
-  flex-wrap: wrap;
 
   @media screen and (min-width: 768px) {
     height: 3.5rem;
@@ -82,8 +80,6 @@ export const ElDeprecatedNavItem = styled.a`
   display: flex;
   text-align: center;
   justify-content: flex-start;
-  align-items: center;
-  opacity: 0;
   cursor: pointer;
   height: 3.5rem;
   align-items: center;
@@ -91,6 +87,20 @@ export const ElDeprecatedNavItem = styled.a`
   flex: 1 0 100%;
   width: 100%;
   border-left: 3px solid var(--white);
+
+  &:first-child {
+    opacity: 1;
+    background-color: var(--white);
+    margin-right: auto;
+    width: 100%;
+    padding: 0 1.25rem;
+    border-bottom: 1px solid var(--neutral-100);
+  }
+
+  &:not(:first-child) {
+    height: 0;
+    overflow: hidden;
+  }
 
   &:hover {
     color: var(--neutral-500);
@@ -101,21 +111,6 @@ export const ElDeprecatedNavItem = styled.a`
     border-left: 3px solid var(--purple-300);
   }
 
-  &:first-child {
-    opacity: 1;
-    padding: 0;
-    background-color: var(--white);
-    margin-right: auto;
-    width: 100%;
-    padding: 0rem 1.25rem;
-    border-bottom: 1px solid var(--neutral-100);
-  }
-
-  &:not(:first-child) {
-    height: 0;
-    overflow: hidden;
-  }
-
   @media screen and (min-width: 768px) {
     height: 3.5rem;
     flex: 0 0 auto;
@@ -124,6 +119,16 @@ export const ElDeprecatedNavItem = styled.a`
     padding: 0 0.75rem;
     width: auto;
     border-left: none;
+
+    &:first-child {
+      width: auto;
+      border-bottom: none;
+      height: auto;
+    }
+
+    &:last-of-type {
+      margin-right: auto;
+    }
 
     &:not(:first-child) {
       overflow: visible;
@@ -137,16 +142,6 @@ export const ElDeprecatedNavItem = styled.a`
     &:hover:not(:first-child) {
       background-color: var(--neutral-050);
       border-left: none;
-    }
-
-    &:first-child {
-      width: auto;
-      border-bottom: none;
-      height: auto;
-    }
-
-    &:last-of-type {
-      margin-right: auto;
     }
   }
 `
@@ -265,7 +260,7 @@ export const ElDeprecatedNavMenu = styled.div`
   flex-direction: column;
   justify-content: center;
   width: 220px;
-  box-shadow: 0px 4px 16px 0px rgba(34, 43, 51, 0.16);
+  box-shadow: 0 4px 16px 0 rgb(34 43 51 / 0.16);
   border-radius: 4px;
   padding: 0.5rem 0;
 `
