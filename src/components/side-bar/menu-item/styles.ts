@@ -16,6 +16,7 @@ export const elSideBarMenuItem = css`
   padding: var(--spacing-2);
   width: 100%;
 
+  text-decoration: none;
   border-radius: var(--comp-navigation-border-radius-menu_item);
 
   &:hover,

@@ -3,6 +3,8 @@ import { styled } from '@linaria/react'
 export const ElPagination = styled.nav``
 
 export const ElPaginationList = styled.ul`
+  list-style: none;
+
   display: flex;
   justify-content: center;
   align-items: center;

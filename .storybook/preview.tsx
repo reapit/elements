@@ -1,6 +1,8 @@
 import React from 'react'
 import { ThemeProvider } from '../src/components/theme-provider'
+
 import '../src/styles/globals'
+import './preview.css'
 
 import type { Preview } from '@storybook/react-vite'
 import type { Theme } from '../src/tokens'
