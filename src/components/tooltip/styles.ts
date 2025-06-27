@@ -23,16 +23,11 @@ export const ElTooltip = styled.div`
     opacity: 0;
   }
 
+  border-radius: var(--comp-tooltip-border-radius);
+  background: var(--comp-tooltip-colour-fill);
+
   width: max-content;
-  background: var(--fill-default-darkest, #222b33);
-  color: var(--text-white);
   padding: var(--spacing-2) var(--spacing-3) var(--spacing-2) var(--spacing-3);
-  border-radius: var(--corner-default);
-  font-family: var(--font-family);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-xs);
-  letter-spacing: var(--letter-spacing-xs);
   text-align: left;
   position: absolute;
   transition: opacity 0.2s;
@@ -58,10 +53,13 @@ export const ElTooltip = styled.div`
 `
 
 export const ElTooltipLabel = styled.span`
-  font-family: var(--font-family);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-xs);
-  letter-spacing: var(--letter-spacing-xs);
   text-align: left;
+
+  color: var(--comp-tooltip-colour-text);
+  font-family: var(--font-xs-regular-family);
+  font-size: var(--font-xs-regular-size);
+  font-style: normal;
+  font-weight: var(--font-xs-regular-weight);
+  line-height: var(--font-xs-regular-line_height);
+  letter-spacing: var(--font-xs-regular-letter_spacing);
 `
