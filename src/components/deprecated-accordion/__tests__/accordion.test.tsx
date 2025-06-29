@@ -1,12 +1,12 @@
 import { render } from '@testing-library/react'
-import { Accordion, handleSetOpenItem } from '../accordion'
+import { DeprecatedAccordion, handleSetOpenItem } from '../accordion'
 import { DeprecatedIcon } from '../../deprecated-icon'
 import { elMr1 } from '../../../styles/spacing'
 
 describe('Accordion react shorthand', () => {
   it('should match a snapshot', () => {
     const wrapper = render(
-      <Accordion
+      <DeprecatedAccordion
         items={[
           {
             title: 'Accordion Item 1',
