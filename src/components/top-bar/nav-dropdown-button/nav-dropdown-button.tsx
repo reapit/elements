@@ -1,5 +1,5 @@
+import { ChevronDownIcon } from '#src/icons/chevron-down'
 import { ElTopBarNavDropdownButton, ElTopBarNavDropdownButtonIcon, ElTopBarNavDropdownButtonLabel } from './styles'
-import { DeprecatedIcon } from '../../deprecated-icon'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
@@ -33,8 +33,8 @@ export function TopBarNavDropdownButton({
   return (
     <ElTopBarNavDropdownButton {...rest} aria-expanded={ariaExpanded}>
       <ElTopBarNavDropdownButtonLabel>{children}</ElTopBarNavDropdownButtonLabel>
-      <ElTopBarNavDropdownButtonIcon>
-        <DeprecatedIcon aria-hidden="true" intent="default" icon="chevronDown" fontSize="1rem" />
+      <ElTopBarNavDropdownButtonIcon aria-hidden>
+        <ChevronDownIcon />
       </ElTopBarNavDropdownButtonIcon>
     </ElTopBarNavDropdownButton>
   )

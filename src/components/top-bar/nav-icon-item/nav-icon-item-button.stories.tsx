@@ -1,4 +1,7 @@
-import { DeprecatedIcon } from '../../deprecated-icon'
+import { ContactIcon } from '#src/icons/contact'
+import { HelpIcon } from '#src/icons/help'
+import { NotificationIcon } from '#src/icons/notification'
+import { StarIcon } from '#src/icons/star'
 import { Menu } from '../../menu'
 import { TopBarNavIconItemButton } from './nav-icon-item-button'
 
@@ -12,10 +15,10 @@ const meta = {
       control: 'radio',
       options: ['contact', 'help', 'notification', 'star'],
       mapping: {
-        contact: <DeprecatedIcon icon="contact" />,
-        help: <DeprecatedIcon icon="help" />,
-        notification: <DeprecatedIcon icon="notification" />,
-        star: <DeprecatedIcon icon="star" />,
+        contact: <ContactIcon />,
+        help: <HelpIcon />,
+        notification: <NotificationIcon />,
+        star: <StarIcon />,
       },
     },
   },
@@ -34,7 +37,7 @@ export const Example: Story = {
   args: {
     'aria-label': 'Nav icon item',
     hasBadge: false,
-    icon: <DeprecatedIcon icon="star" />,
+    icon: 'star',
     onClick: () => void 0,
   },
 }
@@ -49,7 +52,7 @@ export const WithBadge: Story = {
     ...Example.args,
     'aria-label': 'Notifications',
     hasBadge: true,
-    icon: <DeprecatedIcon icon="notification" />,
+    icon: 'notification',
   },
 }
 
@@ -59,7 +62,7 @@ export const WithBadge: Story = {
 export const WithMenu: Story = {
   args: {
     'aria-label': 'Help menu',
-    icon: <DeprecatedIcon icon="help" />,
+    icon: 'help',
     onClick: () => void 0,
   },
   decorators: [

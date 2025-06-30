@@ -1,8 +1,10 @@
 import { AppSwitcher } from '../app-switcher'
 import { elTopBarMenuPopover } from './styles'
-import { DeprecatedIcon } from '../deprecated-icon'
+import { HelpIcon } from '#src/icons/help'
 import { Menu } from '../menu'
 import { MenuAltIcon } from '#src/icons/menu-alt'
+import { NotificationIcon } from '#src/icons/notification'
+import { StarIcon } from '#src/icons/star'
 import { supportedAppNames } from './brand-logo'
 import { TopBar } from './top-bar'
 import { TopBarNavIconItemButton } from './nav-icon-item'
@@ -145,7 +147,7 @@ const meta = {
         None: null,
         Some: (
           <TopBar.SecondaryNav>
-            <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<DeprecatedIcon icon="help" />}>
+            <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<HelpIcon />}>
               <Menu.Item label="Menu item 1" />
               <Menu.Item label="Menu item 2" />
               <Menu.Item label="Menu item 3" />
@@ -154,14 +156,9 @@ const meta = {
               aria-current={false}
               aria-label="Nav icon item 2"
               href={href}
-              icon={<DeprecatedIcon icon="notification" />}
+              icon={<NotificationIcon />}
             />
-            <TopBar.NavIconItem
-              aria-current={false}
-              aria-label="Nav icon item 3"
-              href={href}
-              icon={<DeprecatedIcon icon="star" />}
-            />
+            <TopBar.NavIconItem aria-current={false} aria-label="Nav icon item 3" href={href} icon={<StarIcon />} />
           </TopBar.SecondaryNav>
         ),
       },
