@@ -21,6 +21,7 @@ export const intentSecondary = '#4e56ea'
 export const elGlobals = css`
   :global() {
     @import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap';
+
     /* Reset CSS */
     html,
     body,
@@ -110,6 +111,7 @@ export const elGlobals = css`
       vertical-align: baseline;
       line-height: 1.2;
     }
+
     /* HTML5 display-role reset for older browsers */
     article,
     aside,
@@ -124,23 +126,28 @@ export const elGlobals = css`
     section {
       display: block;
     }
+
     body {
       line-height: 1;
     }
+
     ol,
     ul {
       list-style: none;
     }
+
     blockquote,
     q {
       quotes: none;
     }
-    blockquote:before,
-    blockquote:after,
-    q:before,
-    q:after {
+
+    blockquote::before,
+    blockquote::after,
+    q::before,
+    q::after {
       content: none;
     }
+
     table {
       border-collapse: collapse;
       border-spacing: 0;
