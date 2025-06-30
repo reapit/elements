@@ -1,14 +1,16 @@
 import { styled } from '@linaria/react'
 import { elIsActive } from '../../styles/states'
 
-export const ElAccordionContainer = styled.div`
+/** @deprecated */
+export const ElDeprecatedAccordionContainer = styled.div`
   background-color: var(--white);
   height: auto;
   display: flex;
   flex-direction: column;
 `
 
-export const ElAccordionItem = styled.a`
+/** @deprecated */
+export const ElDeprecatedAccordionItem = styled.a`
   color: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -32,17 +34,20 @@ export const ElAccordionItem = styled.a`
     border-bottom: none;
   }
 `
-export const ElAccordionTitle = styled.div`
+/** @deprecated */
+export const ElDeprecatedAccordionTitle = styled.div`
   color: var(--black);
   font-size: var(--font-size-small);
   font-weight: var(--font-weight-medium);
 `
 
-export const ElAccordionTitleContentWrapper = styled.div`
+/** @deprecated */
+export const ElDeprecatedAccordionTitleContentWrapper = styled.div`
   display: flex;
 `
 
-export const ElAccordionTitleContent = styled.div`
+/** @deprecated */
+export const ElDeprecatedAccordionTitleContent = styled.div`
   font-size: var(--font-size-smallest);
   display: flex;
   align-items: center;
@@ -58,7 +63,8 @@ export const ElAccordionTitleContent = styled.div`
   }
 `
 
-export const ElAccordionContent = styled.div`
+/** @deprecated */
+export const ElDeprecatedAccordionContent = styled.div`
   height: 0;
   overflow: hidden;
   font-size: var(--font-size-small);

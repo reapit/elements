@@ -3,21 +3,21 @@
 exports[`Accordion basic usage > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-0 el-accordion-container"
+    class="mocked-styled-0 el-deprecated-accordion-container"
   >
     <a
-      class="mocked-styled-1 el-accordion-item"
+      class="mocked-styled-1 el-deprecated-accordion-item"
     >
       <div
-        class="mocked-styled-2 el-accordion-title"
+        class="mocked-styled-2 el-deprecated-accordion-title"
       >
         Accordion Item 1
       </div>
       <div
-        class="mocked-styled-3 el-accordion-title-content-wrapper"
+        class="mocked-styled-3 el-deprecated-accordion-title-content-wrapper"
       >
         <div
-          class="mocked-styled-4 el-accordion-title-content"
+          class="mocked-styled-4 el-deprecated-accordion-title-content"
         >
           <span
             class="el-mr1 el-deprecated-icon"
@@ -50,7 +50,7 @@ exports[`Accordion basic usage > should match a snapshot 1`] = `
           2
         </div>
         <div
-          class="mocked-styled-4 el-accordion-title-content"
+          class="mocked-styled-4 el-deprecated-accordion-title-content"
         >
           <span
             class="el-mr1 el-deprecated-icon"
@@ -81,7 +81,7 @@ exports[`Accordion basic usage > should match a snapshot 1`] = `
           5
         </div>
         <div
-          class="mocked-styled-4 el-accordion-title-content"
+          class="mocked-styled-4 el-deprecated-accordion-title-content"
         >
           <span
             class="mocked-styled-6 el-deprecated-icon"
@@ -105,23 +105,23 @@ exports[`Accordion basic usage > should match a snapshot 1`] = `
       </div>
     </a>
     <div
-      class="el-is-active el-accordion-content"
+      class="el-is-active el-deprecated-accordion-content"
     >
       Accordion Content 1
     </div>
     <a
-      class="mocked-styled-1 el-accordion-item"
+      class="mocked-styled-1 el-deprecated-accordion-item"
     >
       <div
-        class="mocked-styled-2 el-accordion-title"
+        class="mocked-styled-2 el-deprecated-accordion-title"
       >
         Accordion Item 2
       </div>
       <div
-        class="mocked-styled-3 el-accordion-title-content-wrapper"
+        class="mocked-styled-3 el-deprecated-accordion-title-content-wrapper"
       >
         <div
-          class="mocked-styled-4 el-accordion-title-content"
+          class="mocked-styled-4 el-deprecated-accordion-title-content"
         >
           <span
             class="el-mr1 el-deprecated-icon"
@@ -154,7 +154,7 @@ exports[`Accordion basic usage > should match a snapshot 1`] = `
           2
         </div>
         <div
-          class="mocked-styled-4 el-accordion-title-content"
+          class="mocked-styled-4 el-deprecated-accordion-title-content"
         >
           <span
             class="el-mr1 el-deprecated-icon"
@@ -185,7 +185,7 @@ exports[`Accordion basic usage > should match a snapshot 1`] = `
           5
         </div>
         <div
-          class="mocked-styled-4 el-accordion-title-content"
+          class="mocked-styled-4 el-deprecated-accordion-title-content"
         >
           <span
             class="mocked-styled-6 el-deprecated-icon"
@@ -209,7 +209,7 @@ exports[`Accordion basic usage > should match a snapshot 1`] = `
       </div>
     </a>
     <div
-      class="mocked-styled-5 el-accordion-content"
+      class="mocked-styled-5 el-deprecated-accordion-content"
     >
       Accordion Content 2
     </div>

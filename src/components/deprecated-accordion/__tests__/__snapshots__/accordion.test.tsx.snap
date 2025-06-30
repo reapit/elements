@@ -3,26 +3,26 @@
 exports[`Accordion react shorthand > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-1 el-accordion-container"
+    class="mocked-styled-1 el-deprecated-accordion-container"
   >
     <a
       aria-controls=":r0:-0"
       aria-label="Accordion item, hit return to expand content"
-      class="mocked-styled-2 el-accordion-item"
+      class="mocked-styled-2 el-deprecated-accordion-item"
       id=":r1:-0"
       role="button"
       tabindex="0"
     >
       <div
-        class="mocked-styled-3 el-accordion-title"
+        class="mocked-styled-3 el-deprecated-accordion-title"
       >
         Accordion Item 1
       </div>
       <div
-        class="mocked-styled-4 el-accordion-title-content-wrapper"
+        class="mocked-styled-4 el-deprecated-accordion-title-content-wrapper"
       >
         <div
-          class="mocked-styled-5 el-accordion-title-content"
+          class="mocked-styled-5 el-deprecated-accordion-title-content"
         >
           <span
             class="el-mr1 el-deprecated-icon"
@@ -55,7 +55,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           2
         </div>
         <div
-          class="mocked-styled-5 el-accordion-title-content"
+          class="mocked-styled-5 el-deprecated-accordion-title-content"
         >
           <span
             class="el-mr1 el-deprecated-icon"
@@ -86,7 +86,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           5
         </div>
         <div
-          class="mocked-styled-5 el-accordion-title-content"
+          class="mocked-styled-5 el-deprecated-accordion-title-content"
         >
           <span
             class="el-intent-default el-deprecated-icon"
@@ -114,7 +114,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
     <div
       aria-expanded="false"
       aria-labelledby=":r1:-0"
-      class="mocked-styled-6 el-accordion-content"
+      class="mocked-styled-6 el-deprecated-accordion-content"
       id=":r0:-0"
       role="region"
     >
@@ -123,21 +123,21 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
     <a
       aria-controls=":r0:-1"
       aria-label="Accordion item, hit return to expand content"
-      class="mocked-styled-2 el-accordion-item"
+      class="mocked-styled-2 el-deprecated-accordion-item"
       id=":r1:-1"
       role="button"
       tabindex="0"
     >
       <div
-        class="mocked-styled-3 el-accordion-title"
+        class="mocked-styled-3 el-deprecated-accordion-title"
       >
         Accordion Item 2
       </div>
       <div
-        class="mocked-styled-4 el-accordion-title-content-wrapper"
+        class="mocked-styled-4 el-deprecated-accordion-title-content-wrapper"
       >
         <div
-          class="mocked-styled-5 el-accordion-title-content"
+          class="mocked-styled-5 el-deprecated-accordion-title-content"
         >
           <span
             class="el-mr1 el-deprecated-icon"
@@ -170,7 +170,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           2
         </div>
         <div
-          class="mocked-styled-5 el-accordion-title-content"
+          class="mocked-styled-5 el-deprecated-accordion-title-content"
         >
           <span
             class="el-mr1 el-deprecated-icon"
@@ -201,7 +201,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
           5
         </div>
         <div
-          class="mocked-styled-5 el-accordion-title-content"
+          class="mocked-styled-5 el-deprecated-accordion-title-content"
         >
           <span
             class="el-intent-default el-deprecated-icon"
@@ -229,7 +229,7 @@ exports[`Accordion react shorthand > should match a snapshot 1`] = `
     <div
       aria-expanded="false"
       aria-labelledby=":r1:-1"
-      class="mocked-styled-6 el-accordion-content"
+      class="mocked-styled-6 el-deprecated-accordion-content"
       id=":r0:-1"
       role="region"
     >

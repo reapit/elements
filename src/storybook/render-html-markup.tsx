@@ -3,7 +3,7 @@ import { Source, SourceProps } from '@storybook/addon-docs/blocks'
 import prettier from 'prettier'
 import htmlParser from 'prettier/plugins/html'
 import type { Args, StoryContext } from '@storybook/react-vite'
-import { Accordion } from '../components/accordion'
+import { DeprecatedAccordion } from '../components/deprecated-accordion'
 import { Tile } from '../components/tile'
 import { cx } from '@linaria/core'
 import { elMb6, elMt6 } from '..'
@@ -62,7 +62,7 @@ export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
 
   return (
     <Tile className={cx(elMb6, elMt6)}>
-      <Accordion
+      <DeprecatedAccordion
         items={[
           {
             content: (
