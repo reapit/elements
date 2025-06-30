@@ -1,3 +1,4 @@
+import { ChevronDownIcon } from '#src/icons/chevron-down'
 import { cx } from '@linaria/core'
 import {
   elSideBarMenuGroup,
@@ -7,7 +8,6 @@ import {
   ElSideBarMenuGroupSummaryDropdownIcon,
 } from './styles'
 import { elSideBarMenuItem } from '../menu-item'
-import { DeprecatedIcon } from '../../deprecated-icon'
 import { useCallback } from 'react'
 import { useSideBarMenuGroupLabelIdContext } from './menu-group-label-id-context'
 
@@ -70,7 +70,7 @@ export function SideBarMenuGroupSummary({
       <ElSideBarMenuGroupSummaryIcon aria-hidden>{icon}</ElSideBarMenuGroupSummaryIcon>
       <ElSideBarMenuGroupSummaryLabel>{children}</ElSideBarMenuGroupSummaryLabel>
       <ElSideBarMenuGroupSummaryDropdownIcon aria-hidden>
-        <DeprecatedIcon icon="chevronDown" />
+        <ChevronDownIcon />
       </ElSideBarMenuGroupSummaryDropdownIcon>
     </summary>
   )

@@ -1,4 +1,4 @@
-import { DeprecatedIcon } from '../../deprecated-icon'
+import { PropertyIcon } from '#src/icons/property'
 import { SideBarMenuList } from './menu-list'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
@@ -95,17 +95,13 @@ function buildMenu(type: 'No selected item' | 'Selected item' | 'Selected submen
       key="1"
       aria-current={type === 'Selected item' ? 'page' : false}
       href={href}
-      icon={<DeprecatedIcon icon="property" />}
+      icon={<PropertyIcon />}
     >
       Menu item 1
     </SideBarMenuList.Item>,
     <SideBarMenuList.Group
       key="2"
-      summary={
-        <SideBarMenuList.GroupSummary icon={<DeprecatedIcon icon="property" />}>
-          Menu item 2
-        </SideBarMenuList.GroupSummary>
-      }
+      summary={<SideBarMenuList.GroupSummary icon={<PropertyIcon />}>Menu item 2</SideBarMenuList.GroupSummary>}
     >
       <SideBarMenuList.Submenu>
         <SideBarMenuList.SubmenuItem aria-current={type === 'Selected submenu item' ? 'page' : false} href={href}>

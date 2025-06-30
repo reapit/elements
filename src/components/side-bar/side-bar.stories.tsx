@@ -1,4 +1,7 @@
-import { DeprecatedIcon } from '../deprecated-icon'
+import { DashboardIcon } from '#src/icons/dashboard'
+import { ContactIcon } from '#src/icons/contact'
+import { PropertyIcon } from '#src/icons/property'
+import { SettingsIcon } from '#src/icons/settings'
 import { SideBar } from './side-bar'
 import { useViewportHeightDecorator } from './__story__/use-viewport-height-decorator'
 
@@ -84,22 +87,20 @@ function buildMenu(
 ) {
   return (
     <SideBar.MenuList>
-      <SideBar.MenuItem aria-current={false} key="1" href={href} icon={<DeprecatedIcon icon="dashboard" />}>
+      <SideBar.MenuItem aria-current={false} key="1" href={href} icon={<DashboardIcon />}>
         Menu item 1
       </SideBar.MenuItem>
       <SideBar.MenuItem
         key="2"
         aria-current={type === 'Menu Item 2 selected' ? 'page' : false}
         href={href}
-        icon={<DeprecatedIcon icon="contact" />}
+        icon={<ContactIcon />}
       >
         Menu item 2
       </SideBar.MenuItem>
       <SideBar.MenuGroup
         key="3"
-        summary={
-          <SideBar.MenuGroupSummary icon={<DeprecatedIcon icon="property" />}>Menu item 3</SideBar.MenuGroupSummary>
-        }
+        summary={<SideBar.MenuGroupSummary icon={<PropertyIcon />}>Menu item 3</SideBar.MenuGroupSummary>}
       >
         <SideBar.Submenu>
           <SideBar.SubmenuItem aria-current={false} href={href}>
@@ -113,9 +114,7 @@ function buildMenu(
       <SideBar.MenuGroup
         key="4"
         isActive={type === 'Menu Item 4 active'}
-        summary={
-          <SideBar.MenuGroupSummary icon={<DeprecatedIcon icon="settings" />}>Menu item 4</SideBar.MenuGroupSummary>
-        }
+        summary={<SideBar.MenuGroupSummary icon={<SettingsIcon />}>Menu item 4</SideBar.MenuGroupSummary>}
       >
         <SideBar.Submenu>
           <SideBar.SubmenuItem aria-current={false} href={href}>
