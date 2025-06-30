@@ -1,4 +1,4 @@
-import { DeprecatedIcon } from '../../deprecated-icon'
+import { SearchIcon } from '#src/icons/search'
 import { TopBarNavIconItemBase } from '../nav-icon-item'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
@@ -13,12 +13,5 @@ interface TopBarNavSearchIconItemProps extends ButtonHTMLAttributes<HTMLButtonEl
  * for use on mobile devices. For tablet devices and wider, `TopBar.NavSearchButton` should be used instead.
  */
 export function TopBarNavSearchIconItem({ 'aria-label': ariaLabel, ...rest }: TopBarNavSearchIconItemProps) {
-  return (
-    <TopBarNavIconItemBase
-      {...rest}
-      aria-label={ariaLabel ?? 'Search'}
-      as="button"
-      icon={<DeprecatedIcon icon="search" />}
-    />
-  )
+  return <TopBarNavIconItemBase {...rest} aria-label={ariaLabel ?? 'Search'} as="button" icon={<SearchIcon />} />
 }

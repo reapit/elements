@@ -1,4 +1,7 @@
-import { DeprecatedIcon } from '../../deprecated-icon'
+import { ContactIcon } from '#src/icons/contact'
+import { HelpIcon } from '#src/icons/help'
+import { NotificationIcon } from '#src/icons/notification'
+import { StarIcon } from '#src/icons/star'
 import { TopBarNavIconItemAnchor } from './nav-icon-item-anchor'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -21,10 +24,10 @@ const meta = {
       control: 'radio',
       options: ['contact', 'help', 'notification', 'star'],
       mapping: {
-        contact: <DeprecatedIcon icon="contact" />,
-        help: <DeprecatedIcon icon="help" />,
-        notification: <DeprecatedIcon icon="notification" />,
-        star: <DeprecatedIcon icon="star" />,
+        contact: <ContactIcon />,
+        help: <HelpIcon />,
+        notification: <NotificationIcon />,
+        star: <StarIcon />,
       },
     },
   },
@@ -72,6 +75,6 @@ export const WithBadge: Story = {
     ...Example.args,
     'aria-label': 'Notifications',
     hasBadge: true,
-    icon: <DeprecatedIcon icon="notification" />,
+    icon: 'notification',
   },
 }

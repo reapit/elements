@@ -1,5 +1,6 @@
+import { NotificationIcon } from '#src/icons/notification'
 import { render, screen } from '@testing-library/react'
-import { DeprecatedIcon } from '../../../deprecated-icon'
+import { StarIcon } from '#src/icons/star'
 import { TopBarSecondaryNavListItem } from '../secondary-nav-list-item'
 
 test('renders as a list item containing a navigation link', () => {
@@ -8,7 +9,7 @@ test('renders as a list item containing a navigation link', () => {
       href="https://example.com"
       aria-current={false}
       aria-label="My nav item"
-      icon={<DeprecatedIcon icon="star" />}
+      icon={<StarIcon />}
     />,
   )
 
@@ -25,7 +26,7 @@ test('forwards props to the underlying nav icon item', () => {
       href="https://example.com"
       aria-current={false}
       aria-label="My nav item"
-      icon={<DeprecatedIcon icon="star" />}
+      icon={<StarIcon />}
       data-testid="nav-icon-item"
     />,
   )
@@ -40,7 +41,7 @@ test('has `aria-current="false"` when `aria-current={false}`', () => {
       href="https://example.com"
       aria-current={false}
       aria-label="My nav item"
-      icon={<DeprecatedIcon icon="star" />}
+      icon={<StarIcon />}
     />,
   )
 
@@ -54,7 +55,7 @@ test('has `aria-current="page"` when `aria-current="page"`', () => {
       href="https://example.com"
       aria-current="page"
       aria-label="My nav item"
-      icon={<DeprecatedIcon icon="star" />}
+      icon={<StarIcon />}
     />,
   )
 
@@ -68,7 +69,7 @@ test('renders the correct href attribute', () => {
       href="https://custom-url.com"
       aria-current={false}
       aria-label="My nav item"
-      icon={<DeprecatedIcon icon="star" />}
+      icon={<StarIcon />}
     />,
   )
 
@@ -82,7 +83,7 @@ test('can display a badge when `hasBadge` is `true`', () => {
       href="https://example.com"
       aria-current={false}
       aria-label="Notifications"
-      icon={<DeprecatedIcon icon="notification" />}
+      icon={<NotificationIcon />}
       hasBadge={true}
     />,
   )
