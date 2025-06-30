@@ -1,5 +1,8 @@
-import { DeprecatedIcon } from '../../deprecated-icon'
+import { DashboardIcon } from '#src/icons/dashboard'
+import { PropertyIcon } from '#src/icons/property'
+import { SettingsIcon } from '#src/icons/settings'
 import { SideBarMenuItem } from './menu-item'
+import { UserIcon } from '#src/icons/user'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
@@ -16,10 +19,10 @@ const meta = {
       control: 'radio',
       options: ['Property', 'Dashboard', 'Settings', 'User'],
       mapping: {
-        Property: <DeprecatedIcon icon="property" />,
-        Dashboard: <DeprecatedIcon icon="dashboard" />,
-        Settings: <DeprecatedIcon icon="settings" />,
-        User: <DeprecatedIcon icon="user" />,
+        Property: <PropertyIcon />,
+        Dashboard: <DashboardIcon />,
+        Settings: <SettingsIcon />,
+        User: <UserIcon />,
       },
     },
   },
