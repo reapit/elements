@@ -5,7 +5,7 @@ import { useState } from 'react'
 import { Button } from '../button'
 
 export default {
-  title: 'Components/Modal',
+  title: 'Deprecated/Modal',
   component: Modal,
 }
 

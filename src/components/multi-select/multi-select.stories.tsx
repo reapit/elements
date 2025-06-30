@@ -1,7 +1,7 @@
 import { MultiSelect, MultiSelectChip, MultiSelectInput, elHasGreyChips } from './index'
 
 export default {
-  title: 'MultiSelect',
+  title: 'Deprecated/MultiSelect',
   component: MultiSelect,
 }
 

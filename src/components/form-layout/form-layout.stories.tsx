@@ -9,7 +9,7 @@ import { Select } from '../select'
 import { TextBase, TextSM } from '../typography'
 
 export default {
-  title: 'FormLayout',
+  title: 'Deprecated/FormLayout',
   component: FormLayout,
 }
 

@@ -3,7 +3,7 @@ import { Steps, StepsVertical } from './index'
 import { Button, DeprecatedButtonGroup } from '../button'
 
 export default {
-  title: 'Steps',
+  title: 'Deprecated/Steps',
   component: Steps,
 }
 

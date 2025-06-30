@@ -1,7 +1,7 @@
 import { PageHeader } from '.'
 
 export default {
-  title: 'PageHeader',
+  title: 'Deprecated/PageHeader',
   component: PageHeader,
 }
 

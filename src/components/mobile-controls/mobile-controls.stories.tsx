@@ -1,7 +1,7 @@
 import { MobileControls } from './index'
 
 export default {
-  title: 'MobileControls',
+  title: 'Deprecated/MobileControls',
   component: MobileControls,
 }
 

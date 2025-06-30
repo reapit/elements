@@ -2,7 +2,7 @@ import { Button } from '../components/button'
 import { DeprecatedElementsThemeProvider } from './deprecated-theme-provider'
 
 export default {
-  title: 'DeprecatedTheming',
+  title: 'Deprecated/DeprecatedTheming',
 }
 
 export const DeprecatedThemingProvider = {

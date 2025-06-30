@@ -4,7 +4,7 @@ import { Grid, Col, ColSplitThird, ColSplitTwoThirds, GridThirds } from '../grid
 import { elMb7 } from '../../styles/spacing'
 
 export default {
-  title: 'Tile',
+  title: 'Deprecated/Tile',
   component: Tile,
 }
 

@@ -1,7 +1,7 @@
 import { Select } from './index'
 
 export default {
-  title: 'Select',
+  title: 'Deprecated/Select',
   component: Select,
 }
 

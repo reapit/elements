@@ -2,7 +2,7 @@ import { Toggle, ToggleRadio } from './index'
 import { ElToggleItem } from './__styles__'
 
 export default {
-  title: 'Toggle',
+  title: 'Deprecated/Toggle',
   component: Toggle,
 }
 

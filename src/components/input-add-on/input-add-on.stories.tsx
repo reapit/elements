@@ -2,7 +2,7 @@ import { InputAddOn } from './index'
 import { DeprecatedIcon } from '../deprecated-icon'
 
 export default {
-  title: 'InputAddOn',
+  title: 'Deprecated/InputAddOn',
   component: InputAddOn,
 }
 

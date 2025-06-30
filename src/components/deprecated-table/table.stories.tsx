@@ -24,7 +24,7 @@ import { Input } from '../input'
 import { TextBase } from '../typography'
 
 export default {
-  title: 'DeprecatedTable',
+  title: 'Deprecated/DeprecatedTable',
   component: DeprecatedTable,
 }
 

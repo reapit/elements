@@ -14,7 +14,7 @@ import { Meta, StoryObj } from '@storybook/react-vite'
 import { figmaDesignUrls } from '../../storybook/figma'
 
 const meta: Meta<typeof DeprecatedAccordion> = {
-  title: 'DeprecatedAccordion',
+  title: 'Deprecated/DeprecatedAccordion',
   component: DeprecatedAccordion,
 }
 

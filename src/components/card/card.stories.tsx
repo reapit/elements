@@ -23,7 +23,7 @@ import { MediaStateProvider } from '../../hooks/use-media-query'
 import { DeprecatedAvatar } from '../deprecated-avatar'
 
 export default {
-  title: 'Card',
+  title: 'Deprecated/Card',
   component: Card,
 }
 

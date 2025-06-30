@@ -6,7 +6,7 @@ import { cx } from '@linaria/core'
 import { elColGap2, elRowGap3, elSpan12, elSpan8, elSpan4, elOffset4, elOffset8 } from './__styles__/units'
 
 export default {
-  title: 'Grid',
+  title: 'Deprecated/Grid',
 }
 
 export const BasicUsage = {

@@ -3,7 +3,7 @@ import { Button, DeprecatedButtonGroup } from '../../components/button'
 import { TextBase } from '../../components/typography'
 
 export default {
-  title: 'Hooks/useModal',
+  title: 'Deprecated/useModal',
 }
 
 export const BasicUsage = {

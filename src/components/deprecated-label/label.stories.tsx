@@ -1,7 +1,7 @@
 import { DeprecatedLabel } from './index'
 
 export default {
-  title: 'DeprecatedLabel',
+  title: 'Deprecated/DeprecatedLabel',
   component: DeprecatedLabel,
 }
 

@@ -1,7 +1,7 @@
 import { PlaceholderImage } from './index'
 
 export default {
-  title: 'PlaceholderImage',
+  title: 'Deprecated/PlaceholderImage',
   component: PlaceholderImage,
 }
 
