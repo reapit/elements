@@ -1,0 +1,35 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { Text } from '#src/components/text'
+import { NewAndRemovedIconsTable } from './new-and-removed-icons-table'
+
+<Meta title="Icons/Migrating to v5" />
+
+# Migrating to v5
+
+In most cases, each v4 icon has been replaced with a direct equivalent, only instead of all icons being available via
+a single `Icon` component, they are now available as individual components. For example, where the star icon was
+previously used by doing:
+
+```tsx
+import { Icon } from '@reapit/elements'
+
+const starIcon = <Icon name="star" />
+```
+
+It is now available as:
+
+```tsx
+import { StarIcon } from '@reapit/elements/icons/star'
+
+const starIcon = <StarIcon />
+```
+
+This allows for more granular control over bundle size, as only those icons explicitly imported and used will be included
+in the final bundle. To ease the migration path for v4 consumers with extensive icon usage, the v4 `Icon` component is
+still available, but has been renamed to `DeprecatedIcon`, and will be removed in a future version.
+
+A small number of v4 icons have been removed entirely, with no equivalent replacement available through the new v5 icons.
+The v5 icons also introduce a number of new icons that were not available in v4. The following table lists all the icons
+that have been removed or added in Elements v5.
+
+<NewAndRemovedIconsTable />
