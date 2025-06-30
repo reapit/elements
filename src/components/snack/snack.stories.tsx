@@ -3,7 +3,7 @@ import { SnackProvider } from '../../hooks/use-snack'
 import { Snack } from './snack'
 
 export default {
-  title: 'Snack',
+  title: 'Deprecated/Snack',
   component: Snack,
 }
 

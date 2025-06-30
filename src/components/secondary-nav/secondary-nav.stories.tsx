@@ -3,7 +3,7 @@ import { SecondaryNav, SecondaryNavItem } from './index'
 import { SecondaryNavContainer } from '../layout'
 
 export default {
-  title: 'SecondaryNav',
+  title: 'Deprecated/SecondaryNav',
   component: SecondaryNav,
 }
 

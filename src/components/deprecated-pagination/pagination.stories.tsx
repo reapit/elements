@@ -9,7 +9,7 @@ import { elDeprecatedPaginationPrimary } from './__styles__'
 import { DeprecatedIcon } from '../deprecated-icon'
 
 export default {
-  title: 'DeprecatedPagination',
+  title: 'Deprecated/DeprecatedPagination',
   component: DeprecatedPagination,
 }
 

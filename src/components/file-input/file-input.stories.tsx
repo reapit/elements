@@ -5,7 +5,7 @@ import { FlexContainer } from '../layout'
 import { Button, DeprecatedButtonGroup } from '../button'
 
 export default {
-  title: 'FileInput',
+  title: 'Deprecated/FileInput',
   component: FileInput,
 }
 

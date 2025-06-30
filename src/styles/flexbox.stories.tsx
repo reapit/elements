@@ -1,7 +1,7 @@
 import { GridDemoBlockWithMargin } from '../storybook/demo-block'
 
 export default {
-  title: 'Flexbox',
+  title: 'Deprecated/Flexbox',
 }
 
 export const Flex = {

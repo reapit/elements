@@ -1,7 +1,7 @@
 import { DeprecatedBreadCrumb } from './index'
 
 export default {
-  title: 'DeprecatedBreadCrumb',
+  title: 'Deprecated/DeprecatedBreadCrumb',
   component: DeprecatedBreadCrumb,
 }
 

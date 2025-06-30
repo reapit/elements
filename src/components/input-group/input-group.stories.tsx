@@ -5,7 +5,7 @@ import { DeprecatedLabel } from '../deprecated-label'
 import { InputAddOn } from '../input-add-on'
 
 export default {
-  title: 'InputGroup',
+  title: 'Deprecated/InputGroup',
   component: InputGroup,
 }
 

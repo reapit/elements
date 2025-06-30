@@ -1,7 +1,7 @@
 import { DeprecatedStatusIndicator } from '.'
 
 export default {
-  title: 'DeprecatedStatusIndicator',
+  title: 'Deprecated/DeprecatedStatusIndicator',
   component: DeprecatedStatusIndicator,
 }
 

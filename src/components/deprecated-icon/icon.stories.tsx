@@ -2,7 +2,7 @@ import { DeprecatedIcon } from './index'
 import { elMb5 } from '../../styles/spacing'
 
 export default {
-  title: 'Icon',
+  title: 'Deprecated/DeprecatedIcon',
   component: DeprecatedIcon,
 }
 

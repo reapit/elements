@@ -14,7 +14,7 @@ import { TextBase } from '../typography'
 import { InputGroup } from '../input-group'
 
 export default {
-  title: 'Components/Tabs',
+  title: 'Deprecated/Tabs',
 }
 
 export const StylesOnlyUsage = {

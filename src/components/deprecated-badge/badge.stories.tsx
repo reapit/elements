@@ -1,7 +1,7 @@
 import { DeprecatedBadge, DeprecatedBadgeGroup } from '.'
 
 export default {
-  title: 'DeprecatedBadge',
+  title: 'Deprecated/DeprecatedBadge',
   component: DeprecatedBadge,
 }
 
