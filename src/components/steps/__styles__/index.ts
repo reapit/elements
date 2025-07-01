@@ -24,8 +24,8 @@ export const ElStep = styled.div`
   cursor: pointer;
 
   &.${elIsUsed} {
-    &:before,
-    &:after {
+    &::before,
+    &::after {
       background: var(--neutral-100);
     }
   }
@@ -35,8 +35,8 @@ export const ElStep = styled.div`
     background-color: var(--intent-primary);
   }
 
-  &:before,
-  &:after {
+  &::before,
+  &::after {
     content: '';
     display: block;
     position: absolute;
@@ -46,18 +46,18 @@ export const ElStep = styled.div`
     background: var(--neutral-100);
   }
 
-  &:before {
+  &::before {
     left: calc(var(--component-steps-gutter-width) * -1);
   }
 
-  &:after {
+  &::after {
     right: calc(var(--component-steps-gutter-width) * -1);
   }
 
   &:first-child {
     margin-left: 0;
 
-    &:before {
+    &::before {
       display: none;
     }
   }
@@ -65,7 +65,7 @@ export const ElStep = styled.div`
   &:last-child {
     margin-right: 0;
 
-    &:after {
+    &::after {
       display: none;
     }
   }
@@ -90,7 +90,7 @@ export const ElStepVertical = styled.div`
 export const ElStepVerticalItem = styled.div`
   display: flex;
   width: 100%;
-  margin: 2.5rem 0 1.25rem 0;
+  margin: 2.5rem 0 1.25rem;
 
   ${isDesktop} {
     width: 6.5rem;

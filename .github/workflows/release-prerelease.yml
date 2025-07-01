@@ -51,11 +51,7 @@ jobs:
       - name: Install
         run: yarn
 
-      - name: Lint
-        run: |
-          yarn lint
-
-      - name: TypeCheck
+      - name: Check
         run: |
           yarn check
 
@@ -67,13 +63,9 @@ jobs:
         run: |
           yarn version ${{ steps.tagName.outputs.version }}
 
-      - name: Build Lib
+      - name: Build
         run: |
-          yarn build:dist
-
-      - name: Build Storybook
-        run: |
-          yarn build:storybook
+          yarn build
 
       - name: Create Pull Request For Version
         uses: peter-evans/create-pull-request@v5

@@ -17,6 +17,10 @@ export const ElDeprecatedAvatar = styled.div`
   width: 2.5rem;
   height: 2.5rem;
 
+  img {
+    max-width: 2.5rem;
+  }
+
   &.${elAvatarSmall} {
     width: 2rem;
     height: 2rem;
@@ -24,10 +28,6 @@ export const ElDeprecatedAvatar = styled.div`
     img {
       max-width: 2rem;
     }
-  }
-
-  img {
-    max-width: 2.5rem;
   }
 `
 

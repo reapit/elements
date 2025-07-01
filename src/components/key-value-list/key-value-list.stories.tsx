@@ -1,7 +1,7 @@
 import { KeyValueList } from '.'
 
 export default {
-  title: 'KeyValueList',
+  title: 'Deprecated/KeyValueList',
   component: KeyValueList,
 }
 

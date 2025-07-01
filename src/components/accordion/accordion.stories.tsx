@@ -1,143 +1,106 @@
-import {
-  AccordionContainer,
-  AccordionItem,
-  AccordionTitle,
-  AccordionTitleContentWrapper,
-  AccordionTitleContent,
-  AccordionContent,
-  Accordion,
-} from './index'
-import { DeprecatedIcon } from '../deprecated-icon'
-import { elMr1 } from '../../styles/spacing'
-import { elIsActive } from '../../styles/states'
-import { Meta, StoryObj } from '@storybook/react-vite'
-import { figmaDesignUrls } from '../../storybook/figma'
+import { Accordion } from './accordion'
+import { BathIcon } from '#src/icons/bath'
+import { BedIcon } from '#src/icons/bed'
+import { Button } from '#src/components/button/button'
+import { CarIcon } from '#src/icons/car'
+import { Features } from '#src/components/features'
+import { Pattern } from '../drawer/__story__/Pattern'
 
-const meta: Meta<typeof Accordion> = {
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+const meta = {
   title: 'Components/Accordion',
   component: Accordion,
-}
+  argTypes: {
+    children: {
+      control: false,
+    },
+    summary: {
+      control: 'select',
+      options: ['Basic', 'With Features', 'With Clear Button'],
+      mapping: {
+        Basic: <Accordion.Summary>Accordion Title</Accordion.Summary>,
+        'With Features': (
+          <Accordion.Summary
+            rightInfo={
+              <Features>
+                <Features.Item icon={<BedIcon />} aria-label="3">
+                  3
+                </Features.Item>
+                <Features.Item icon={<BathIcon />} aria-label="3">
+                  2
+                </Features.Item>
+                <Features.Item icon={<CarIcon />} aria-label="3">
+                  2
+                </Features.Item>
+              </Features>
+            }
+          >
+            Accordion Title
+          </Accordion.Summary>
+        ),
+        'With Clear Button': (
+          <Accordion.Summary
+            rightInfo={
+              <Button variant="tertiary" hasNoPadding>
+                Clear
+              </Button>
+            }
+          >
+            Accordion Title
+          </Accordion.Summary>
+        ),
+      },
+    },
+  },
+} satisfies Meta<typeof Accordion>
 
 export default meta
 
-export const StylesOnlyUsage = {
-  render: ({}) => (
-    <AccordionContainer>
-      <AccordionItem onClick={console.log} id="item-title-1" aria-controls="item-content-1">
-        <AccordionTitle>Accordion Item 1</AccordionTitle>
-        <AccordionTitleContentWrapper>
-          <AccordionTitleContent>
-            <DeprecatedIcon className={elMr1} icon="car" />2
-          </AccordionTitleContent>
-          <AccordionTitleContent>
-            <DeprecatedIcon className={elMr1} icon="bed" />5
-          </AccordionTitleContent>
-          <AccordionTitleContent>
-            <DeprecatedIcon icon="chevronUp" />
-          </AccordionTitleContent>
-        </AccordionTitleContentWrapper>
-      </AccordionItem>
-      <AccordionContent
-        id="item-content-1"
-        role="region"
-        aria-expanded="true"
-        aria-labelledby="item-title-1"
-        className={elIsActive}
-      >
-        Accordion Content 1
-      </AccordionContent>
-      <AccordionItem onClick={console.log} id="item-title-2" aria-controls="item-content-2">
-        <AccordionTitle>Accordion Item 2</AccordionTitle>
-        <AccordionTitleContentWrapper>
-          <AccordionTitleContent>
-            <DeprecatedIcon className={elMr1} icon="car" />2
-          </AccordionTitleContent>
-          <AccordionTitleContent>
-            <DeprecatedIcon className={elMr1} icon="bed" />5
-          </AccordionTitleContent>
-          <AccordionTitleContent>
-            <DeprecatedIcon icon="chevronDown" />
-          </AccordionTitleContent>
-        </AccordionTitleContentWrapper>
-      </AccordionItem>
-      <AccordionContent id="item-content-2" role="region" aria-expanded="false" aria-labelledby="item-title-2">
-        Accordion Content 2
-      </AccordionContent>
-      <AccordionItem onClick={console.log} id="item-title-3" aria-controls="item-content-3">
-        <AccordionTitle>Accordion Item 3</AccordionTitle>
-        <AccordionTitleContentWrapper>
-          <AccordionTitleContent>
-            <DeprecatedIcon className={elMr1} icon="car" />2
-          </AccordionTitleContent>
-          <AccordionTitleContent>
-            <DeprecatedIcon className={elMr1} icon="bed" />5
-          </AccordionTitleContent>
-          <AccordionTitleContent>
-            <DeprecatedIcon icon="chevronDown" />
-          </AccordionTitleContent>
-        </AccordionTitleContentWrapper>
-      </AccordionItem>
-      <AccordionContent id="item-content-3" role="region" aria-expanded="false" aria-labelledby="item-title-3">
-        Accordion Content 3
-      </AccordionContent>
-    </AccordionContainer>
-  ),
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.accordion,
-    },
+type Story = StoryObj<typeof meta>
+
+export const Example: Story = {
+  args: {
+    children: <Pattern height="100px" />,
+    open: false,
+    summary: 'Basic',
   },
 }
 
-export const ReactUsage: StoryObj<typeof Accordion> = {
+/**
+ * Use of the `open` prop does not result in the accordion's open state being controlled in the same way as controlled
+ * inputs. This is because clicking the accordion's summary element will, by default, remove the `open` attribute
+ * directly in the DOM.
+ *
+ * If you need to control the open state of the accordion, you will need to handle click events on the accordion's
+ * summary element and update the stateful value wired up to the `open` prop accordingly.
+ */
+export const InitiallyOpen: Story = {
   args: {
-    items: [
-      {
-        title: 'Accordion Item 1',
-        content: 'Accordion Content 1',
-
-        titleItems: [
-          <>
-            <DeprecatedIcon className={elMr1} icon="car" />2
-          </>,
-          <>
-            <DeprecatedIcon className={elMr1} icon="bed" />5
-          </>,
-        ],
-      },
-      {
-        title: 'Accordion Item 2',
-        content: 'Accordion Content 2',
-
-        titleItems: [
-          <>
-            <DeprecatedIcon className={elMr1} icon="car" />2
-          </>,
-          <>
-            <DeprecatedIcon className={elMr1} icon="bed" />5
-          </>,
-        ],
-      },
-      {
-        title: 'Accordion Item 3',
-        content: 'Accordion Content 3',
-        titleItems: [
-          <>
-            <DeprecatedIcon className={elMr1} icon="car" />2
-          </>,
-          <>
-            <DeprecatedIcon className={elMr1} icon="bed" />5
-          </>,
-        ],
-      },
-    ],
+    ...Example.args,
+    open: true,
   },
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.accordion,
-      allowFullscreen: true,
-    },
+}
+
+/**
+ * Accordions are block-level elements, so multiple accordions will simply stack on top of each other. By default,
+ * users should be able to open as many accordions as they want.
+ */
+export const Group: Story = {
+  args: {
+    ...Example.args,
   },
+  render: (args) => (
+    <>
+      <Accordion {...args} summary={<Accordion.Summary>Accordion 1</Accordion.Summary>}>
+        <Pattern height="100px" />
+      </Accordion>
+      <Accordion {...args} summary={<Accordion.Summary>Accordion 2</Accordion.Summary>}>
+        <Pattern height="100px" />
+      </Accordion>
+      <Accordion {...args} summary={<Accordion.Summary>Accordion 3</Accordion.Summary>}>
+        <Pattern height="100px" />
+      </Accordion>
+    </>
+  ),
 }

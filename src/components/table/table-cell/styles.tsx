@@ -34,14 +34,14 @@ export const ElTableCell = styled.td<ElTableCellProps>`
 
 export const ElAvatarContent = styled.div`
   display: flex;
-  padding: var(--spacing-1) 0px;
+  padding: var(--spacing-1) 0;
   align-items: center;
   gap: var(--spacing-4);
 `
 
 export const ElCellContent = styled.div`
   display: inline-flex;
-  padding: var(--spacing-2) 0px;
+  padding: var(--spacing-2) 0;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
@@ -61,7 +61,7 @@ export const ElMediaItemContent = styled.div`
 
 export const ElDoubleLineContent = styled.div`
   display: inline-flex;
-  padding: var(--spacing-1) 0px;
+  padding: var(--spacing-1) 0;
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;

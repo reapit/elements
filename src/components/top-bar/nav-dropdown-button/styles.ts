@@ -32,13 +32,10 @@ export const ElTopBarNavDropdownButton = styled.button`
     background: var(--comp-navigation-colour-fill-nav_item-hover);
   }
 
+  /* TODO: Remove this when DeprecatedIcon is removed. */
   ${ElDeprecatedIcon} {
     pointer-events: none;
     margin-left: 0;
-  }
-
-  &:hover {
-    background: var(--comp-navigation-colour-fill-nav_item-hover);
   }
 `
 
@@ -50,6 +47,11 @@ export const ElTopBarNavDropdownButtonLabel = styled.span`
 `
 
 export const ElTopBarNavDropdownButtonIcon = styled.span`
+  color: var(--comp-navigation-colour-icon-nav_button-default);
+
+  width: var(--icon_size-s);
+  height: var(--icon_size-s);
+
   [aria-expanded='true'] & {
     transform: rotate(180deg);
   }

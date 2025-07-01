@@ -9,7 +9,7 @@ import { TextArea } from '../textarea'
 import { TextBase } from '../typography'
 
 export default {
-  title: 'DeprecatedDrawer',
+  title: 'Deprecated/DeprecatedDrawer',
   component: Drawer,
 }
 

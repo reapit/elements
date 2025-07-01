@@ -289,8 +289,7 @@ export const ElButtonGroupInner = styled.div`
   display: flex;
   flex-wrap: wrap;
   grid-auto-flow: column;
-  column-gap: 0.75rem;
-  row-gap: 0.75rem;
+  gap: 0.75rem;
   width: fit-content;
   height: fit-content;
 
@@ -311,8 +310,7 @@ export const ElButtonGroupInner = styled.div`
 
   ${isMobile} {
     grid-template-columns: 1fr 1fr 1fr;
-    column-gap: 0.8rem;
-    row-gap: 0.8rem;
+    gap: 0.8rem;
     grid-auto-flow: inherit;
   }
 `

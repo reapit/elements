@@ -2,7 +2,7 @@ import { InputError } from './index'
 import { InputGroup } from '../input-group'
 
 export default {
-  title: 'InputError',
+  title: 'Deprecated/InputError',
   component: InputError,
 }
 

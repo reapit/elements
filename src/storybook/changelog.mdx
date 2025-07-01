@@ -16,6 +16,37 @@ We will publish release version history and changes here. Where possible, we wil
 
 Beta versions should be relatively stable but subject to occssional breaking changes.
 
+### **5.0.0-beta.35 - ??/??/25**
+
+- **chore!:** Deprecated `Accordion` component. It is still available, but is now called `DeprecatedAccordion`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix.
+- **feat:** Add new `Accordion` component. See [Accordion](?path=/docs/components-accordion--docs) for details.
+- **chore:** All v4 component docs have been grouped under the `Deprecated` section in Elements' Storybook. Consumers of these components should consider all these components to be implicitly deprecated. Explicit deprecation will come in a future beta version.
+- **chore!:** Remove global CSS reset from main stylesheet and update components that implicitly relied on these resets.
+  - A new stylesheet, `@reapit/elements/reset.css`, is also available to allow consumers to maintain the existing reset behaviour should they also be implicitly dependent on the reset styles.
+  - Neither Elements' main stylesheet, nor the new reset stylesheet, apply `-webkit-font-smoothing: antialiasing` or `-moz-osx-font-smoothing: grayscale`. See [Stop fixing font smoothing](https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/) for an explanation behind this decision.
+- **chore!:** Add latest icons. `DrawCloseIcon` has been removed from v5 icons. It's still available via `DeprecatedIcon`. Three new icons have also been added: `MenuCollapseIcon`, `MenuExpandIcon` and `ChangeLogIcon`.
+
+### **5.0.0-beta.34 - 30/06/25**
+
+- **chore:** Added CSS linting for Elements components.
+- **chore:** Added basic icon migration guide. See [Icons / Migrating to v5](?path=/docs/icons-migrating-to-v5--docs) for details.
+- **chore:** Updated `SideBar` to support and use new icons.
+- **chore:** Updated `TopBar` to support and use new icons.
+
+### **5.0.0-beta.33 - 27/06/25**
+
+- **chore:** Export `AppSwitcher` 🤦‍♂️
+- **fix:** Fix minor regressions in AppSwitcher and NavIconItem
+
+### **5.0.0-beta.32 - 26/06/25**
+
+- **feat!:** Change default size of new icons to a new `100%` size option.
+- **feat!:** Add new `inherit` value as the default for the colour, size and weight props of the `Text` component. The related `font` CSS helper also supports `inherit`.
+- **fix:** Types are now built in CI correctly
+- **feat!:** Icon `colour` prop replaced with native `color` SVG attribute
+- **chore:** Update design tokens to match latest changes in Figma
+- **chore!:** Refactor `BottomBar` and its subcomponents. `BottomBar.Item` now expects `aria-current` instead of `isActive` and `BottomBar` itself expects `scrollContainerRef` instead of `parentRef`. These components were not previously exported, but now are.
+
 ### **5.0.0-beta.31 - 24/06/25**
 
 - **feat:** Add `Text` and `font` helpers

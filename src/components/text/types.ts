@@ -15,6 +15,7 @@ export const textColours = [
   'accent_1',
   'accent_2',
   'action',
+  'inherit',
 ] as const
 
 export type FontSize = (typeof fontSizes)[number]

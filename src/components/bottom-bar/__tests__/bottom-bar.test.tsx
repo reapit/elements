@@ -1,35 +1,33 @@
-import { render } from '@testing-library/react'
-import { BottomBar } from '../bottom-bar'
+import { composeStories } from '@storybook/react-vite'
+import { render, screen } from '@testing-library/react'
+import * as stories from '../bottom-bar.stories'
 
-describe('BottomBar', () => {
-  it('can render 5 items', () => {
-    expect(
-      render(
-        <BottomBar parentRef={null}>
-          <BottomBar.Item icon={<span>mock icon</span>}>Menu 1</BottomBar.Item>
-          <BottomBar.Item icon={<span>mock icon</span>}>Menu 2</BottomBar.Item>
-          <BottomBar.Item icon={<span>mock icon</span>}>Menu 3</BottomBar.Item>
-          <BottomBar.Item icon={<span>mock icon</span>}>Menu 4</BottomBar.Item>
-          <BottomBar.Item icon={<span>mock icon</span>}>Menu 5</BottomBar.Item>
-        </BottomBar>,
-      ).asFragment(),
-    ).toMatchSnapshot()
-  })
+const BottomBarStories = composeStories(stories)
 
-  it('can render 4 items and an overflow menu', () => {
-    expect(
-      render(
-        <BottomBar parentRef={null}>
-          <BottomBar.Item icon={<span>mock icon</span>}>Menu 1</BottomBar.Item>
-          <BottomBar.Item icon={<span>mock icon</span>}>Menu 2</BottomBar.Item>
-          <BottomBar.Item icon={<span>mock icon</span>}>Menu 3</BottomBar.Item>
-          <BottomBar.Item icon={<span>mock icon</span>}>Menu 4</BottomBar.Item>
-          <BottomBar.MoreMenu>
-            <BottomBar.MoreMenuItem label="Menu 5" />
-            <BottomBar.MoreMenuItem label="Menu 6" />
-          </BottomBar.MoreMenu>
-        </BottomBar>,
-      ).asFragment(),
-    ).toMatchSnapshot()
-  })
+test('renders a navigation element', () => {
+  render(<BottomBarStories.Example />)
+
+  const nav = screen.getByRole('navigation')
+  expect(nav).toBeVisible()
+})
+
+test('has a default aria-label of "Bottom navigation"', () => {
+  render(<BottomBarStories.Example />)
+
+  const nav = screen.getByRole('navigation')
+  expect(nav).toHaveAttribute('aria-label', 'Bottom navigation')
+})
+
+test('allows overriding the aria-label', () => {
+  render(<BottomBarStories.Example aria-label="Custom label" />)
+
+  const nav = screen.getByRole('navigation')
+  expect(nav).toHaveAttribute('aria-label', 'Custom label')
+})
+
+test('forwards additional props to the nav element', () => {
+  render(<BottomBarStories.Example data-testid="test" className="custom-class" />)
+
+  const nav = screen.getByTestId('test')
+  expect(nav).toHaveClass('custom-class')
 })

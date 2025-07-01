@@ -1,76 +1,43 @@
-import { Dispatch, FC, Fragment, SetStateAction, useState, useId } from 'react'
-import { cx } from '@linaria/core'
-import { elIsActive } from '../../styles/states'
-import { DeprecatedIcon } from '../deprecated-icon'
-import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
-import { AccordionProps } from './types'
-import {
-  AccordionContainer,
-  AccordionContent,
-  AccordionItem,
-  AccordionTitle,
-  AccordionTitleContent,
-  AccordionTitleContentWrapper,
-} from './accordion.atoms'
+import { AccordionSummary } from './summary'
+import { AccordionLabelIdContext } from './accordion-label-id-context'
+import { ElAccordion, ElAccordionContent } from './styles'
+import { useId } from 'react'
 
-export const handleSetOpenItem =
-  (openItem: number, setOpenItem: Dispatch<SetStateAction<number | null>>, onClick?: () => void) => () => {
-    setOpenItem((currentItem) => {
-      if (onClick) {
-        onClick()
-      }
+import type { DetailsHTMLAttributes, ReactNode } from 'react'
 
-      if (currentItem === openItem) {
-        return null
-      }
-      return openItem
-    })
-  }
+export interface AccordionProps extends DetailsHTMLAttributes<HTMLDetailsElement> {
+  /**
+   * The content to be shown/hidden when the accordion is toggled.
+   */
+  children: ReactNode
+  /**
+   * Whether the accordion is open or not. Even if this is provided, the accordion will be uncontrolled by default.
+   * If you need to control this state, you will also need to handle click events on the accordion's summary element.
+   */
+  open?: boolean
+  /**
+   * The summary/header for the accordion. Will typically be an `Accordion.Summary`. If a custom element is
+   * rendered, it should be a `<summary>` element.
+   */
+  summary: ReactNode
+}
 
-export const Accordion: FC<AccordionProps> = ({ items, className, ...rest }) => {
-  const [openItem, setOpenItem] = useState<number | null>(null)
-  const itemContentId = useId()
-  const itemButtonId = useId()
+/**
+ * A disclosure widget that can show and hide content. The component leverages a `<details>` element to provide
+ * native disclosure functionality, with the summary/header being styled to look like a traditional accordion.
+ *
+ * **Note:** The open state of the accordion is uncontrolled by default. If you need to control this state,
+ * you can do so via the `open` prop, but please surface your use-case with the Elements team first.
+ */
+export function Accordion({ 'aria-labelledby': ariaLabelledBy, children, summary, ...rest }: AccordionProps) {
+  const labelId = ariaLabelledBy ?? useId()
 
   return (
-    <AccordionContainer className={className} {...rest}>
-      {items.map((item, index) => (
-        <Fragment key={index}>
-          <AccordionItem
-            id={[itemButtonId, index].join('-')}
-            aria-controls={[itemContentId, index].join('-')}
-            aria-label="Accordion item, hit return to expand content"
-            role="button"
-            tabIndex={0}
-            onClick={handleSetOpenItem(index, setOpenItem, item.onClick)}
-            onKeyDown={handleKeyboardEvent('Enter', handleSetOpenItem(index, setOpenItem, item.onClick))}
-          >
-            <AccordionTitle>{item.title}</AccordionTitle>
-            <AccordionTitleContentWrapper>
-              {item.titleItems &&
-                item.titleItems.map((titleItem, innerIndex) => (
-                  <AccordionTitleContent key={innerIndex}>{titleItem}</AccordionTitleContent>
-                ))}
-              <AccordionTitleContent>
-                <DeprecatedIcon
-                  fontSize="1.25rem"
-                  intent="default"
-                  icon={openItem === index ? 'chevronUp' : 'chevronDown'}
-                />
-              </AccordionTitleContent>
-            </AccordionTitleContentWrapper>
-          </AccordionItem>
-          <AccordionContent
-            role="region"
-            aria-labelledby={[itemButtonId, index].join('-')}
-            id={[itemContentId, index].join('-')}
-            aria-expanded={openItem === index}
-            className={cx(openItem === index && elIsActive)}
-          >
-            {item.content}
-          </AccordionContent>
-        </Fragment>
-      ))}
-    </AccordionContainer>
+    <ElAccordion {...rest} aria-labelledby={labelId}>
+      <AccordionLabelIdContext.Provider value={labelId}>{summary}</AccordionLabelIdContext.Provider>
+      <ElAccordionContent>{children}</ElAccordionContent>
+    </ElAccordion>
   )
 }
+
+Accordion.Summary = AccordionSummary

@@ -1,4 +1,5 @@
 export * from './bottom-bar'
-export * from './bottom-bar.atoms'
+export * from './item'
+export * from './menu-list'
 export * from './styles'
-export * from './use-bottom-bar-visibility'
+export * from './use-bottom-bar-observer'

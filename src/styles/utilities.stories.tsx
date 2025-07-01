@@ -5,7 +5,7 @@ import { elH6, elHScreen, elW6, elWScreen } from './sizing'
 import { elBorderPurple, elBorderGrey, elBorderGreyL, elBorderRadius, elBorderRadiusR, elBoxShadow } from './borders'
 
 export default {
-  title: 'Utilities',
+  title: 'Deprecated/Utilities',
 }
 
 export const Margin = {

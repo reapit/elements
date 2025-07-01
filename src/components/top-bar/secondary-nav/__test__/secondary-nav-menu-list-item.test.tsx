@@ -1,11 +1,11 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { Menu } from '#src/components/menu'
+import { StarIcon } from '#src/icons/star'
 import { TopBarSecondaryNavMenuListItem } from '../secondary-nav-menu-list-item'
-import { DeprecatedIcon } from '#src/components/deprecated-icon/index'
 
 test('renders as a list item containing a button', () => {
   render(
-    <TopBarSecondaryNavMenuListItem aria-label="More" icon={<DeprecatedIcon icon="star" />}>
+    <TopBarSecondaryNavMenuListItem aria-label="More" icon={<StarIcon />}>
       More
     </TopBarSecondaryNavMenuListItem>,
   )
@@ -19,7 +19,7 @@ test('renders as a list item containing a button', () => {
 
 test('forwards props to the underlying nav item', () => {
   render(
-    <TopBarSecondaryNavMenuListItem data-testid="nav-item" aria-label="More" icon={<DeprecatedIcon icon="star" />}>
+    <TopBarSecondaryNavMenuListItem data-testid="nav-item" aria-label="More" icon={<StarIcon />}>
       Fake child
     </TopBarSecondaryNavMenuListItem>,
   )
@@ -30,7 +30,7 @@ test('forwards props to the underlying nav item', () => {
 
 test('opens the menu when clicked', () => {
   render(
-    <TopBarSecondaryNavMenuListItem aria-label="More" icon={<DeprecatedIcon icon="star" />}>
+    <TopBarSecondaryNavMenuListItem aria-label="More" icon={<StarIcon />}>
       <Menu.Item label="Item 1" />
       <Menu.Item label="Item 2" />
       <Menu.Item label="Item 3" />

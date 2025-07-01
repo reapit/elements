@@ -9,7 +9,7 @@ import { DeprecatedNavResponsive as NavResponsive } from '../components/deprecat
 import { Grid, Col, ColSplitThird, ColSplitTwoThirds, GridThirds } from '../components/grid'
 
 export default {
-  title: 'Patterns/Layouts',
+  title: 'Deprecated/Layout Patterns',
 }
 
 export const CompleteCombinedExample = {

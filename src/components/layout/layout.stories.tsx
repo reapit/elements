@@ -3,7 +3,7 @@ import { GridDemoBlock } from '../../storybook/demo-block'
 import { Grid, Col } from '../grid'
 
 export default {
-  title: 'Components/Layouts',
+  title: 'Deprecated/Layouts',
 }
 
 export const MainContainerUsage = {

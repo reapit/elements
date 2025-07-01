@@ -1,0 +1,36 @@
+import { Meta, Story, Canvas, Source, Controls } from '@storybook/addon-docs/blocks'
+import { DeprecatedAccordion } from './index'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as AccordionStories from './accordion.stories'
+import { GuidelinesImage } from '../../storybook/figma'
+
+<Meta of={AccordionStories} />
+
+<GuidelinesImage name="Accordion" />
+
+## Styles Only Usage
+
+To open the accordion for vanilla usage, you will need to both toggle the `elIsActive` class on the content div and switch the `down` icon for `upSystem` - see the different states below.
+
+<Canvas of={AccordionStories.StylesOnlyUsage} />
+
+<RenderHtmlMarkup of={AccordionStories.StylesOnlyUsage} />
+
+## React Usage
+
+<Controls />
+
+The React version of the Accordion handles the toggling of active classes for you. The props accepted by the `AccordionItem` are below along with the `AccordionItemProps` interface.
+
+<Source
+  code={`
+export interface AccordionItemProps {
+  title: string
+  titleItems?: ReactNode[]
+  content: ReactNode
+}
+`}
+  language="typescript"
+/>
+
+<Canvas of={AccordionStories.ReactUsage} />

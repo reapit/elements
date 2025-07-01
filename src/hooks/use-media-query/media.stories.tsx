@@ -2,7 +2,7 @@ import { MediaStateProvider } from '.'
 import { MediaMobileExample, AllBreakPointExample } from './media.story-component'
 
 export default {
-  title: 'MediaStateProvider',
+  title: 'Deprecated/MediaStateProvider',
   component: MediaStateProvider,
 }
 

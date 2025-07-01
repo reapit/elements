@@ -1,7 +1,7 @@
 import { Portal } from '.'
 
 export default {
-  title: 'Portal',
+  title: 'Deprecated/Portal',
   component: Portal,
 }
 

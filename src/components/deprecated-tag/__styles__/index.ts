@@ -64,8 +64,7 @@ export const ElDeprecatedTagGroupInner = styled.div`
   display: flex;
   flex-wrap: wrap;
   grid-auto-flow: column;
-  column-gap: 0.25rem;
-  row-gap: 0.25rem;
+  gap: 0.25rem;
   width: fit-content;
   height: fit-content;
 `

@@ -1,6 +1,8 @@
 import React from 'react'
 import { ThemeProvider } from '../src/components/theme-provider'
+
 import '../src/styles/globals'
+import './preview.css'
 
 import type { Preview } from '@storybook/react-vite'
 import type { Theme } from '../src/tokens'
@@ -36,7 +38,7 @@ const preview: Preview = {
       ],
     },
     viewport: {
-      viewports: {
+      options: {
         superWideScreen: {
           name: 'Super Wide Screen',
           type: 'desktop',
@@ -92,7 +94,7 @@ const preview: Preview = {
     theme: 'reapit',
   },
 
-  tags: ['autodocs']
+  tags: ['autodocs'],
 }
 
 export default preview

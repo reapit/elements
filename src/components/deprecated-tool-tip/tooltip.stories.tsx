@@ -1,7 +1,7 @@
 import { DeprecatedToolTip } from './index'
 
 export default {
-  title: 'DeprecatedToolTip',
+  title: 'Deprecated/DeprecatedToolTip',
   component: DeprecatedToolTip,
 }
 

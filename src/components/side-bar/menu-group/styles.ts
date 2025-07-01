@@ -43,11 +43,18 @@ export const ElSideBarMenuGroupSummaryDropdownIcon = styled.span`
 
   color: var(--comp-navigation-colour-icon-sidebar-default);
 
+  /* NOTE: We don't want the padding to reduce the content size as we want the icons to be
+   * exactly --icon_size-s */
+  box-sizing: content-box;
   padding: var(--spacing-1);
 
+  width: var(--icon_size-s);
+  height: var(--icon_size-s);
+
+  /* TODO: remove this when DeprecatedIcon is removed. */
   ${ElDeprecatedIcon} {
-    width: var(--icon_size-xs);
-    height: var(--icon_size-xs);
+    width: inherit;
+    height: inherit;
   }
 
   details:open & {

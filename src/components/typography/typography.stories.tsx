@@ -14,7 +14,7 @@ import {
 } from './typography'
 
 export default {
-  title: 'Typography',
+  title: 'Deprecated/Typography',
   component: TextBase,
 }
 

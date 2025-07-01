@@ -19,8 +19,8 @@ type ElDialogContainerProps = DialogHTMLAttributes<HTMLDialogElement> & {
 }
 
 export const ElDialog = styled.dialog<ElDialogContainerProps>`
-  // NOTE: private CSS variables that deliberated used by the dialog component
-  --__dialog-box-shadow: 0px 4px 16px 0px rgba(96, 120, 144, 0.16);
+  /* NOTE: private CSS variables that deliberated used by the dialog component */
+  --__dialog-box-shadow: 0 4px 16px 0 rgb(96 120 144 / 0.16);
 
   z-index: 99;
   overflow: auto;
@@ -31,7 +31,7 @@ export const ElDialog = styled.dialog<ElDialogContainerProps>`
   min-width: 300px;
   max-height: 100%;
 
-  // calculate the width of the dialog based on the size of the container
+  /* calculate the width of the dialog based on the size of the container */
   width: calc(100% - var(--unit-16, 64px));
   max-width: 20rem;
 

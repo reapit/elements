@@ -1,7 +1,7 @@
 import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from './index'
 
 export default {
-  title: 'SearchableDropdown',
+  title: 'Deprecated/SearchableDropdown',
   component: SearchableDropdown,
 }
 

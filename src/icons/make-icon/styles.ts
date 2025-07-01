@@ -4,50 +4,50 @@ export const elIcon = css`
   fill: currentColor;
 
   &,
-  &[data-colour='primary'] {
+  &[color='primary'] {
     color: var(--colour-icon-primary);
   }
-  &[data-colour='secondary'] {
+  &[color='secondary'] {
     color: var(--colour-icon-secondary);
   }
-  &[data-colour='disabled'] {
+  &[color='disabled'] {
     color: var(--colour-icon-disabled);
   }
-  &[data-colour='white'] {
+  &[color='white'] {
     color: var(--colour-icon-white);
   }
-  &[data-colour='action'] {
+  &[color='action'] {
     color: var(--colour-icon-action);
   }
-  &[data-colour='pending'] {
+  &[color='pending'] {
     color: var(--colour-icon-pending);
   }
-  &[data-colour='warning'] {
+  &[color='warning'] {
     color: var(--colour-icon-warning);
   }
-  &[data-colour='error'] {
+  &[color='error'] {
     color: var(--colour-icon-error);
   }
-  &[data-colour='success'] {
+  &[color='success'] {
     color: var(--colour-icon-success);
   }
-  &[data-colour='info'] {
+  &[color='info'] {
     color: var(--colour-icon-info);
   }
-  &[data-colour='accent_1'] {
+  &[color='accent_1'] {
     color: var(--colour-icon-accent_1);
   }
-  &[data-colour='accent_2'] {
+  &[color='accent_2'] {
     color: var(--colour-icon-accent_2);
   }
-  &[data-colour='inherit'] {
+  &[color='inherit'] {
     color: inherit;
   }
 
   &,
-  &[data-size='lg'] {
-    width: var(--icon_size-l);
-    height: var(--icon_size-l);
+  &[data-size='100%'] {
+    width: 100%;
+    height: 100%;
   }
   &[data-size='xs'] {
     width: var(--icon_size-xs);
@@ -60,5 +60,9 @@ export const elIcon = css`
   &[data-size='md'] {
     width: var(--icon_size-m);
     height: var(--icon_size-m);
+  }
+  &[data-size='lg'] {
+    width: var(--icon_size-l);
+    height: var(--icon_size-l);
   }
 `

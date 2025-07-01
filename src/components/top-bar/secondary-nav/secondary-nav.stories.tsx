@@ -1,4 +1,5 @@
-import { DeprecatedIcon } from '../../deprecated-icon'
+import { StarIcon } from '#src/icons/star'
+import { HelpIcon } from '#src/icons/help'
 import { Menu } from '../../menu'
 import { TopBarSecondaryNav } from './secondary-nav'
 
@@ -63,19 +64,19 @@ function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
     <TopBarSecondaryNav.Item
       key="1"
       href={href}
-      icon={<DeprecatedIcon icon="star" />}
+      icon={<StarIcon />}
       aria-label="Nav icon item 1"
       aria-current={type === 'Selected item' ? 'page' : false}
     />,
     <TopBarSecondaryNav.Item
       key="2"
       href={href}
-      icon={<DeprecatedIcon icon="star" />}
+      icon={<StarIcon />}
       aria-label="Nav icon item 2"
       aria-current={false}
     />,
     type === 'With menu' && (
-      <TopBarSecondaryNav.MenuItem key="3" icon={<DeprecatedIcon icon="help" />} aria-label="Help menu">
+      <TopBarSecondaryNav.MenuItem key="3" icon={<HelpIcon />} aria-label="Help menu">
         <Menu.Item label="Menu item 1" />
         <Menu.Item label="Menu item 2" />
         <Menu.Item label="Menu item 3" />

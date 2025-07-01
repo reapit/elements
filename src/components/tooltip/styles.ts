@@ -36,7 +36,7 @@ export const ElTooltip = styled.div`
   pointer-events: none;
   white-space: normal;
   word-wrap: break-word;
-  z-index: 99999; // Adding additional CSS to position tooltip on top of everything
+  z-index: 99999; /* Adding additional CSS to position tooltip on top of everything */
 
   animation-duration: 0.2s;
   animation-fill-mode: both;
@@ -49,9 +49,9 @@ export const ElTooltip = styled.div`
     animation-name: fadeOut;
   }
 
-  // To do (In Future): Tooltip Positioning to be replaced with css anchor positioning feature
-  // Currently not supported by wider browser group
-  // See: https://developer.mozilla.org/en-US/docs/Web/CSS/position-anchor#browser_compatibility
+  /* To do (In Future): Tooltip Positioning to be replaced with css anchor positioning feature
+   * Currently not supported by wider browser group
+   * See: https://developer.mozilla.org/en-US/docs/Web/CSS/position-anchor#browser_compatibility */
 `
 
 export const ElTooltipLabel = styled.span`

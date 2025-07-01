@@ -53,39 +53,6 @@ export const ElInputGroup = styled.div`
     width: 100%;
   }
 
-  ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElDeprecatedIcon}) {
-    border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
-  }
-
-  ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElInputAddOn}), ${ElTextArea}:has(~ ${ElInputAddOn}), ${ElSelect}:has(~ ${ElInputAddOn}) {
-    border-right: none;
-    border-top-right-radius: 0;
-    border-bottom-right-radius: 0;
-  }
-
-  ${ElInput}:not([type='checkbox']):not([type='radio']), ${ElTextArea}, ${ElSelect} {
-    &:focus {
-      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {
-        border-color: var(--intent-primary);
-      }
-    }
-
-    &.${elHasInputError} {
-      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {
-        border-color: var(--intent-danger);
-        background-color: var(--red-100);
-      }
-    }
-
-    &:disabled {
-      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn}, ~ ${ElDeprecatedLabel} {
-        color: rgba(100, 100, 100, 0.35);
-      }
-    }
-  }
-
   ${ElInput}[type='checkbox'], ${ElInput}[type='radio'] {
     ~ ${ElDeprecatedIcon} {
       box-shadow: none;
@@ -117,7 +84,9 @@ export const ElInputGroup = styled.div`
     }
   }
 
-  ${ElToggleRadioWrap}, ${ElToggleLabel}, ${ElMultiSelectInputWrapper} {
+  ${ElToggleRadioWrap},
+  ${ElToggleLabel},
+  ${ElMultiSelectInputWrapper} {
     order: 2;
     ~ ${ElDeprecatedLabel} {
       order: 1;
@@ -132,5 +101,42 @@ export const ElInputGroup = styled.div`
     display: flex;
     align-items: center;
     padding: 0;
+  }
+
+  ${ElTextArea}:has(~ ${ElInputAddOn}),
+  ${ElSelect}:has(~ ${ElInputAddOn}),
+  ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElInputAddOn}) {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  ${ElTextArea},
+  ${ElSelect},
+  ${ElInput}:not([type='checkbox']):not([type='radio']) {
+    &:focus {
+      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {
+        border-color: var(--intent-primary);
+      }
+    }
+
+    &.${elHasInputError} {
+      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {
+        border-color: var(--intent-danger);
+        background-color: var(--red-100);
+      }
+    }
+
+    &:disabled {
+      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn}, ~ ${ElDeprecatedLabel} {
+        color: rgb(100 100 100 / 0.35);
+      }
+    }
+  }
+
+  ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElDeprecatedIcon}) {
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
   }
 `

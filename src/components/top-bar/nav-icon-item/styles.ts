@@ -12,7 +12,7 @@ export const elTopBarNavIconItem = css`
   border-radius: var(--comp-navigation-border-radius-nav_icon);
   background: var(--comp-navigation-colour-fill-nav_icon-default);
   border: var(--border-none);
-  color: var(--icon-app_bar-default);
+  color: var(--comp-navigation-colour-icon-nav_icon-default);
   outline: none;
 
   &:focus-visible {
@@ -33,13 +33,13 @@ export const elTopBarNavIconItem = css`
 
 export const ElTopBarNavIconItemIcon = styled.span`
   color: inherit;
-  font-size: var(--icon_size-l);
   width: var(--icon_size-l);
   height: var(--icon_size-l);
 
+  /* TODO: Remove this when DeprecatedIcon is removed. */
   ${ElDeprecatedIcon} {
     color: inherit;
-    font-size: inherit;
+    font-size: var(--icon_size-l);
     width: inherit;
     height: inherit;
   }

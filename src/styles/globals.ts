@@ -20,180 +20,17 @@ export const intentSecondary = '#4e56ea'
 
 export const elGlobals = css`
   :global() {
-    @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap');
-    /* Reset CSS */
-    html,
-    body,
-    div,
-    span,
-    applet,
-    object,
-    iframe,
-    h1,
-    h2,
-    h3,
-    h4,
-    h5,
-    h6,
-    p,
-    blockquote,
-    pre,
-    a,
-    abbr,
-    acronym,
-    address,
-    big,
-    cite,
-    code,
-    del,
-    dfn,
-    em,
-    img,
-    ins,
-    kbd,
-    q,
-    s,
-    samp,
-    small,
-    strike,
-    strong,
-    sub,
-    sup,
-    tt,
-    var,
-    b,
-    u,
-    i,
-    center,
-    dl,
-    dt,
-    dd,
-    ol,
-    ul,
-    li,
-    fieldset,
-    form,
-    label,
-    legend,
-    table,
-    caption,
-    tbody,
-    tfoot,
-    thead,
-    tr,
-    th,
-    td,
-    article,
-    aside,
-    canvas,
-    details,
-    embed,
-    figure,
-    figcaption,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    output,
-    ruby,
-    section,
-    summary,
-    time,
-    mark,
-    audio,
-    video {
-      margin: 0;
-      padding: 0;
-      border: 0;
-      font-size: 100%;
-      font: inherit;
-      vertical-align: baseline;
-      line-height: 1.2;
-    }
-    /* HTML5 display-role reset for older browsers */
-    article,
-    aside,
-    details,
-    figcaption,
-    figure,
-    footer,
-    header,
-    hgroup,
-    menu,
-    nav,
-    section {
-      display: block;
-    }
-    body {
-      line-height: 1;
-    }
-    ol,
-    ul {
-      list-style: none;
-    }
-    blockquote,
-    q {
-      quotes: none;
-    }
-    blockquote:before,
-    blockquote:after,
-    q:before,
-    q:after {
-      content: '';
-      content: none;
-    }
-    table {
-      border-collapse: collapse;
-      border-spacing: 0;
-    }
+    @import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap';
 
-    /* Some basic defaults */
-
-    html {
-      font-size: 16px;
-      font-family: 'Inter', Helvetica, Arial, sans-serif;
-      color: #222b33; // Neutral 900
-      height: 100%;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-      overflow: hidden;
-
-      * {
-        box-sizing: border-box;
-        letter-spacing: -0.01em;
-      }
-    }
-
-    body {
-      height: 100%;
-      background: #fff;
-      position: relative;
-    }
-
-    #root {
-      height: 100%;
-    }
-
-    a {
-      text-decoration: none;
-      cursor: pointer;
-      color: #4e56ea; // Purple 500
-    }
-
-    code,
-    pre {
-      font-family: 'Source Code Pro', monospace;
-    }
-
-    strong {
-      font-weight: bold;
+    *,
+    *::after,
+    *::before {
+      box-sizing: border-box;
     }
 
     :root {
       /* Neutral color variables */
-      --white: #fff;
+      --white: #ffffff;
       --black: var(--neutral-900);
       --neutral-darkest: var(--neutral-700);
       --neutral-dark: var(--neutral-500);
@@ -264,7 +101,7 @@ export const elGlobals = css`
       /** component specific variables */
       --component-input-bg: var(--white);
       --component-input-focus-bg: var(--neutral-light);
-      --component-input-shadow: inset 0px -1px 0px var(--white);
+      --component-input-shadow: inset 0 -1px 0 var(--white);
       --component-input-border: 1px solid var(--neutral-150);
       --component-input-border-focus: 1px solid var(--purple-500);
       --component-steps-gutter-width: 12px;
@@ -289,7 +126,7 @@ export const elGlobals = css`
       --util-border-grey: 1px solid var(--neutral-100, '#dbdbdb');
       --util-border-purple: 1px solid var(--purple-300, '#9faebc');
       --util-border-radius: 0.25rem;
-      --util-box-shadow: 0px 2px 9px rgba(0, 0, 0, 0.08);
+      --util-box-shadow: 0 2px 9px rgb(0 0 0 / 0.08);
 
       /* Utility Responsive variables */
       --util-screen-width: 100vw;

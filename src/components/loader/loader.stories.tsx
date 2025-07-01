@@ -1,7 +1,7 @@
 import { Loader } from './index'
 
 export default {
-  title: 'Loader',
+  title: 'Deprecated/Loader',
   component: Loader,
 }
 

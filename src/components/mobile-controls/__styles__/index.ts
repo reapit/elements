@@ -35,8 +35,10 @@ export const ElMobileControls = styled.div`
   right: 0.75rem;
   z-index: 99;
 
-  ${ElDeprecatedIcon}.${elIntentDefault} {
-    color: var(--white);
+  ${ElDeprecatedIcon} {
+    &.${elIntentDefault} {
+      color: var(--white);
+    }
   }
 
   ${isTablet} {
@@ -63,7 +65,7 @@ export const ElMobileControlItem = styled.a`
   opacity: 1;
 
   &:last-of-type {
-    margin: 0 0.5rem 0rem 0;
+    margin: 0 0.5rem 0 0;
   }
 
   &.${elIsActive} {

@@ -9,7 +9,7 @@ export const ElBreadcrumbsItem = styled.li`
   min-width: 0; /* Ensures flex children can shrink */
 
   ${isMobile} {
-    // dissalow shrink on mobile
+    /* disallow shrink on mobile */
     min-width: auto;
   }
 `
@@ -18,7 +18,7 @@ export const ElBreadcrumbsItemChevron = styled(DeprecatedIcon)`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0px var(--spacing-1);
+  padding: 0 var(--spacing-1);
 
   font-size: var(--icon_size-xs);
   color: var(--icon-primary);
@@ -39,7 +39,9 @@ export const elBreadcrumbsLink = css`
   text-overflow: ellipsis;
   overflow: hidden;
 
-  padding: 1px; // to imitate the link focus size
+  text-decoration: none;
+
+  padding: 1px; /* to imitate the link focus size */
   border: var(--border-width-double) solid transparent;
   &:focus {
     border-color: var(--colour-border-focus);
@@ -66,7 +68,7 @@ export const ElBreadcrumbsList = styled.ul`
     &::-webkit-scrollbar {
       display: none;
     }
-    scrollbar-width: none; // for firefox
+    scrollbar-width: none; /* for firefox */
   }
 `
 

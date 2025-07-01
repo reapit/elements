@@ -9,7 +9,7 @@ import {
 import { elProgressBarLabelRight, elProgressBarLabelLeft } from './__styles__'
 
 export default {
-  title: 'ProgressBar',
+  title: 'Deprecated/ProgressBar',
   component: ProgressBarSteps,
 }
 

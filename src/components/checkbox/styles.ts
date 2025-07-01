@@ -30,12 +30,12 @@ export const ElCheckboxSelectedSvgIcon = styled.svg`
     color: var(--comp-select-colour-icon-hover-checked);
   }
 
-  .el-checkbox-input:checked:not(:indeterminate) ~ & {
-    display: block;
-  }
-
   .el-checkbox-input:disabled ~ & {
     color: var(--comp-select-colour-icon-disabled-checked);
+  }
+
+  .el-checkbox-input:checked:not(:indeterminate) ~ & {
+    display: block;
   }
 `
 

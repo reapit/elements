@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { PersistentNotification } from './index'
 
 export default {
-  title: 'PersistentNotification',
+  title: 'Deprecated/PersistentNotification',
   component: PersistentNotification,
 }
 

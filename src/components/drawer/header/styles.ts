@@ -7,9 +7,9 @@ export const ElDrawerHeader = styled.div`
   border-bottom: var(--border-default) solid var(--outline-default);
   display: grid;
   grid-area: header;
-  grid-template-areas: 'main' 'tabs';
-  grid-template-columns: 1fr;
-  grid-template-rows: minmax(0, auto);
+  grid-template:
+    'main' minmax(0, auto)
+    'tabs' minmax(0, auto) / 1fr;
 
   /* XS-SM container size */
   padding-inline: var(--spacing-5) var(--spacing-3);
@@ -22,9 +22,10 @@ export const ElDrawerHeader = styled.div`
 export const ElDrawerHeaderContentContainer = styled.div`
   display: grid;
   grid-area: main;
-  grid-template-areas: 'overline close' 'title close' 'supplementary-info supplementary-info';
-  grid-template-columns: auto min-content;
-  grid-template-rows: minmax(0, auto) min-content min-content;
+  grid-template:
+    'overline close' minmax(0, auto)
+    'title close' min-content
+    'supplementary-info supplementary-info' min-content / auto min-content;
   align-items: center;
 
   /* XS-SM container size */

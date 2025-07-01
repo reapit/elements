@@ -1,8 +1,8 @@
-import { DeprecatedIcon } from '../../deprecated-icon'
+import { PropertyIcon } from '#src/icons/property'
 import { SideBarMenuGroup } from './menu-group'
 import { SideBarSubmenu } from '../submenu'
-import { useArgs } from 'storybook/preview-api'
 import * as SideBarSubmenuItemStories from '../submenu-item/submenu-item.stories'
+import { useArgs } from 'storybook/preview-api'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
@@ -58,7 +58,7 @@ export const Example: Story = {
   args: {
     children: 'No selected item',
     isActive: false,
-    summary: <SideBarMenuGroup.Summary icon={<DeprecatedIcon icon="property" />}>Menu group</SideBarMenuGroup.Summary>,
+    summary: <SideBarMenuGroup.Summary icon={<PropertyIcon />}>Menu group</SideBarMenuGroup.Summary>,
   },
 }
 

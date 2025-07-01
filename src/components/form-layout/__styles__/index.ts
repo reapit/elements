@@ -7,12 +7,10 @@ export const elFormLayoutHasMargin = css``
 export const ElFormLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-column-gap: 1rem;
-  grid-row-gap: 1rem;
+  grid-gap: 1rem;
 
   ${isTablet} {
-    grid-column-gap: 1.25rem;
-    grid-row-gap: 1.25rem;
+    grid-gap: 1.25rem;
   }
 
   ${isDesktop} {

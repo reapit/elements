@@ -4,8 +4,8 @@ exports[`'AddIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -23,8 +23,8 @@ exports[`'AnnouncementIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -42,8 +42,8 @@ exports[`'AppSwitcherIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -61,8 +61,8 @@ exports[`'ArchiveIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -82,8 +82,8 @@ exports[`'ArrowDownIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -101,8 +101,8 @@ exports[`'ArrowLeftIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -120,8 +120,8 @@ exports[`'ArrowRightIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -139,8 +139,8 @@ exports[`'ArrowUpIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -158,8 +158,8 @@ exports[`'AsteriskIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -177,8 +177,8 @@ exports[`'AttachmentIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -196,8 +196,8 @@ exports[`'AutomationIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -223,8 +223,8 @@ exports[`'BathIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -242,8 +242,8 @@ exports[`'BedIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -261,8 +261,8 @@ exports[`'BillBulkIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -287,8 +287,8 @@ exports[`'BillIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -308,8 +308,8 @@ exports[`'BookmarkBulkIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -329,8 +329,8 @@ exports[`'BookmarkIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -348,8 +348,8 @@ exports[`'BuyIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -370,8 +370,8 @@ exports[`'CalculatorIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -394,8 +394,8 @@ exports[`'CalendarIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -413,8 +413,8 @@ exports[`'CalendarUserIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -432,8 +432,8 @@ exports[`'CameraIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -456,8 +456,8 @@ exports[`'CarIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -476,12 +476,36 @@ exports[`'CarIcon' renders the correct SVG 1`] = `
 </DocumentFragment>
 `;
 
+exports[`'ChangeLogIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    color="inherit"
+    data-size="100%"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M17 15.275c.47 0 .85.38.85.85V18l-.004.087a.85.85 0 0 1-.846.763h-2a.85.85 0 1 1 0-1.7h1.15v-1.025c0-.47.38-.85.85-.85Zm-6.913-3.121a.85.85 0 0 1 0 1.692L10 13.85H6.05a.85.85 0 1 1 0-1.7H10l.087.004ZM14 8.65a.85.85 0 1 1 0 1.7H6a.85.85 0 1 1 0-1.7h8Zm0-3.32a.85.85 0 0 1 0 1.7H6a.85.85 0 1 1 0-1.7h8Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M15 1.15A2.849 2.849 0 0 1 17.85 4v8.446a5.35 5.35 0 1 1-6.557 6.403H5A2.849 2.849 0 0 1 2.15 16V4A2.849 2.849 0 0 1 5 1.15h10Zm1.5 12.825a3.65 3.65 0 1 0 0 7.3 3.65 3.65 0 0 0 0-7.3ZM5 2.85A1.15 1.15 0 0 0 3.85 4v12c0 .636.514 1.15 1.15 1.15h6.172a5.349 5.349 0 0 1 4.978-4.863V4A1.15 1.15 0 0 0 15 2.85H5Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
 exports[`'CheckIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -501,8 +525,8 @@ exports[`'CheckOutlineIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -525,8 +549,8 @@ exports[`'CheckboxDisabledIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -544,8 +568,8 @@ exports[`'CheckboxIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -563,8 +587,8 @@ exports[`'CheckboxIndeterminateIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -587,8 +611,8 @@ exports[`'CheckboxSelectedIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -606,8 +630,8 @@ exports[`'ChevronDownIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -625,8 +649,8 @@ exports[`'ChevronLeftIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -644,8 +668,8 @@ exports[`'ChevronRightIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -663,8 +687,8 @@ exports[`'ChevronUpIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -682,8 +706,8 @@ exports[`'CircularAddIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -706,8 +730,8 @@ exports[`'CircularAddSolidIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -727,8 +751,8 @@ exports[`'CircularRemoveIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -751,8 +775,8 @@ exports[`'CircularRemoveSolidIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -772,8 +796,8 @@ exports[`'CloseIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -791,8 +815,8 @@ exports[`'CloudIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -810,8 +834,8 @@ exports[`'ComplianceIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -834,8 +858,8 @@ exports[`'ConsolidateIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -853,8 +877,8 @@ exports[`'ContactIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -872,8 +896,8 @@ exports[`'ContactsAltIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -896,8 +920,8 @@ exports[`'ContactsIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -915,8 +939,8 @@ exports[`'CopyIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -939,8 +963,8 @@ exports[`'DashboardIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -958,8 +982,8 @@ exports[`'DragIndicatorAltIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -977,8 +1001,8 @@ exports[`'DragIndicatorIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -992,34 +1016,12 @@ exports[`'DragIndicatorIcon' renders the correct SVG 1`] = `
 </DocumentFragment>
 `;
 
-exports[`'DrawCloseIcon' renders the correct SVG 1`] = `
-<DocumentFragment>
-  <svg
-    class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
-    fill="currentColor"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="m10.707 4.294 6.997 6.996a.999.999 0 0 1 0 1.419l-6.997 6.995a1 1 0 0 1-1.42 0 1 1 0 0 1 0-1.419l5.298-5.287H3A1 1 0 1 1 3 11h11.585L9.287 5.713a1.003 1.003 0 1 1 1.42-1.42Z"
-    />
-    <path
-      d="M18 12v7.111c0 .491.448.889 1 .889s1-.398 1-.889V4.89c0-.492-.448-.89-1-.89s-1 .398-1 .889v7.11Z"
-    />
-  </svg>
-</DocumentFragment>
-`;
-
 exports[`'EditIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1037,8 +1039,8 @@ exports[`'ElipsisIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1056,8 +1058,8 @@ exports[`'EmailDisabledIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1075,8 +1077,8 @@ exports[`'EmailFillIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1097,8 +1099,8 @@ exports[`'EmailIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1116,8 +1118,8 @@ exports[`'EuroIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1135,8 +1137,8 @@ exports[`'ExitIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1154,8 +1156,8 @@ exports[`'ExpandIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1173,8 +1175,8 @@ exports[`'ExportIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1195,8 +1197,8 @@ exports[`'FavouriteIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1214,8 +1216,8 @@ exports[`'FeatherIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1233,8 +1235,8 @@ exports[`'FeedIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1252,8 +1254,8 @@ exports[`'FileAttachedIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1271,8 +1273,8 @@ exports[`'FileAudioIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1290,8 +1292,8 @@ exports[`'FileDocumentIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1309,8 +1311,8 @@ exports[`'FileDownloadIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1328,8 +1330,8 @@ exports[`'FileExcelIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1347,8 +1349,8 @@ exports[`'FileIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1366,8 +1368,8 @@ exports[`'FileImageIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1385,8 +1387,8 @@ exports[`'FilePdfIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1404,8 +1406,8 @@ exports[`'FilePowerpointIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1425,8 +1427,8 @@ exports[`'FileSpreadsheetIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1444,8 +1446,8 @@ exports[`'FileUploadIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1463,8 +1465,8 @@ exports[`'FileVideoIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1482,8 +1484,8 @@ exports[`'FileWordIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1501,8 +1503,8 @@ exports[`'FileZipIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1520,8 +1522,8 @@ exports[`'FilterIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1539,8 +1541,8 @@ exports[`'FolderIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1558,8 +1560,8 @@ exports[`'ForwardIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1577,8 +1579,8 @@ exports[`'FullscreenExitIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1596,8 +1598,8 @@ exports[`'FullscreenIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1615,8 +1617,8 @@ exports[`'HelpIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1639,8 +1641,8 @@ exports[`'InfoIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1658,8 +1660,8 @@ exports[`'InfoOutlineIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1682,8 +1684,8 @@ exports[`'InsightsIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1701,8 +1703,8 @@ exports[`'InspectionIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1725,8 +1727,8 @@ exports[`'InspectionTemplateIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1752,8 +1754,8 @@ exports[`'InsuranceIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1776,8 +1778,8 @@ exports[`'KeyIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1795,8 +1797,8 @@ exports[`'KeyboardIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1819,8 +1821,8 @@ exports[`'LandSizeIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1843,8 +1845,8 @@ exports[`'LaptopIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1862,8 +1864,8 @@ exports[`'LinkIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1887,8 +1889,8 @@ exports[`'LocationAltIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1906,8 +1908,8 @@ exports[`'LocationDisabledIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1925,8 +1927,8 @@ exports[`'LocationIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1944,8 +1946,8 @@ exports[`'LockIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1963,8 +1965,8 @@ exports[`'LockOutlineIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -1987,8 +1989,8 @@ exports[`'MaintenanceAltIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2006,8 +2008,8 @@ exports[`'MaintenanceIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2025,8 +2027,8 @@ exports[`'MarketplaceIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2044,8 +2046,8 @@ exports[`'MenuAltIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2059,12 +2061,50 @@ exports[`'MenuAltIcon' renders the correct SVG 1`] = `
 </DocumentFragment>
 `;
 
+exports[`'MenuCollapseIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    color="inherit"
+    data-size="100%"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3.2 6a.8.8 0 1 1 1.6 0v12a.8.8 0 0 1-1.6 0V6Zm10.367.435a.8.8 0 0 0-1.132 0L7.458 11.41a.798.798 0 0 0-.258.572V12a.8.8 0 0 0 .234.566l5.001 5a.8.8 0 1 0 1.132-1.131L9.93 12.8H20a.8.8 0 0 0 0-1.6H9.932l3.635-3.634a.8.8 0 0 0 0-1.131Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MenuExpandIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    color="inherit"
+    data-size="100%"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20.8 6a.8.8 0 1 0-1.6 0v12a.8.8 0 1 0 1.6 0V6Zm-10.367.435a.8.8 0 0 1 1.132 0l4.977 4.976a.798.798 0 0 1 .258.572v.018a.8.8 0 0 1-.234.566l-5.001 5a.8.8 0 1 1-1.132-1.131L14.07 12.8H4a.8.8 0 0 1 .001-1.6h10.068l-3.635-3.634a.8.8 0 0 1 0-1.131Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
 exports[`'MenuIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2082,8 +2122,8 @@ exports[`'MessageAltIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2101,8 +2141,8 @@ exports[`'MessageDisabledIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2120,8 +2160,8 @@ exports[`'MessageIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2139,8 +2179,8 @@ exports[`'MessageTypingIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2158,8 +2198,8 @@ exports[`'MicOffIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2177,8 +2217,8 @@ exports[`'MicOnIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2196,8 +2236,8 @@ exports[`'MinusIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2215,8 +2255,8 @@ exports[`'MobileIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2239,8 +2279,8 @@ exports[`'MoneyIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2258,8 +2298,8 @@ exports[`'MonitorIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2279,8 +2319,8 @@ exports[`'MoodHappyIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2303,8 +2343,8 @@ exports[`'MoodNeutralIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2327,8 +2367,8 @@ exports[`'MoodUnhappyIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2351,8 +2391,8 @@ exports[`'MoreIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2370,8 +2410,8 @@ exports[`'NoteIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2389,8 +2429,8 @@ exports[`'NotificationIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2408,8 +2448,8 @@ exports[`'PaymentIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2432,8 +2472,8 @@ exports[`'PeopleAltIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2459,8 +2499,8 @@ exports[`'PhoneDisabledIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2478,8 +2518,8 @@ exports[`'PhoneIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2497,8 +2537,8 @@ exports[`'PhotoIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2521,8 +2561,8 @@ exports[`'PinIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2540,8 +2580,8 @@ exports[`'PoundIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2559,8 +2599,8 @@ exports[`'PowerOnIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2578,8 +2618,8 @@ exports[`'PriorityHighIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2597,8 +2637,8 @@ exports[`'PriorityLowIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2616,8 +2656,8 @@ exports[`'PriorityMediumIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2635,8 +2675,8 @@ exports[`'PropertyCheckedIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2659,8 +2699,8 @@ exports[`'PropertyIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2678,8 +2718,8 @@ exports[`'RadioDisabledIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2697,8 +2737,8 @@ exports[`'RadioIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2716,8 +2756,8 @@ exports[`'RadioSelectedIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2740,8 +2780,8 @@ exports[`'RefreshIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2759,8 +2799,8 @@ exports[`'RentIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2780,8 +2820,8 @@ exports[`'RepeatIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2799,8 +2839,8 @@ exports[`'ReplyAllIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2818,8 +2858,8 @@ exports[`'ReplyIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2837,8 +2877,8 @@ exports[`'ReportIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2856,8 +2896,8 @@ exports[`'RestoreIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2875,8 +2915,8 @@ exports[`'SaleIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2899,8 +2939,8 @@ exports[`'SearchIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2918,8 +2958,8 @@ exports[`'SendIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2939,8 +2979,8 @@ exports[`'SeparatorDotIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2958,8 +2998,8 @@ exports[`'SeparatorLineIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2977,8 +3017,8 @@ exports[`'SettingsAltIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -2998,8 +3038,8 @@ exports[`'SettingsIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3017,8 +3057,8 @@ exports[`'ShareIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3036,8 +3076,8 @@ exports[`'SortAscendIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3055,8 +3095,8 @@ exports[`'SortDescendIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3074,8 +3114,8 @@ exports[`'SortIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3095,8 +3135,8 @@ exports[`'SproutIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3114,8 +3154,8 @@ exports[`'StarIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3133,8 +3173,8 @@ exports[`'StatusBadIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3152,8 +3192,8 @@ exports[`'StatusGoodIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3171,8 +3211,8 @@ exports[`'StatusIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3192,8 +3232,8 @@ exports[`'StatusPausedIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3211,8 +3251,8 @@ exports[`'StatusUnknownIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3230,8 +3270,8 @@ exports[`'TagIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3254,8 +3294,8 @@ exports[`'TaskIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3273,8 +3313,8 @@ exports[`'TimeIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3297,8 +3337,8 @@ exports[`'TrashIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3316,8 +3356,8 @@ exports[`'UnarchiveIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3338,8 +3378,8 @@ exports[`'UserIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3364,8 +3404,8 @@ exports[`'VideoIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3383,8 +3423,8 @@ exports[`'ViewDisabledIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3410,8 +3450,8 @@ exports[`'ViewIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3429,8 +3469,8 @@ exports[`'W3wIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3453,8 +3493,8 @@ exports[`'WalkingIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3472,8 +3512,8 @@ exports[`'WandIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3504,8 +3544,8 @@ exports[`'WarningIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3523,8 +3563,8 @@ exports[`'WarningOutlineIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"
@@ -3547,8 +3587,8 @@ exports[`'WorkflowIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
     class="el-icon"
-    data-colour="inherit"
-    data-size="lg"
+    color="inherit"
+    data-size="100%"
     fill="currentColor"
     height="24"
     viewBox="0 0 24 24"

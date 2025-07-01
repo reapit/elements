@@ -14,7 +14,7 @@ export const ElDeprecatedToolTipChild = styled.div`
   left: auto;
   right: auto;
 
-  &:after {
+  &::after {
     position: absolute;
     bottom: -0.5rem;
     left: calc(50% - 0.25rem);

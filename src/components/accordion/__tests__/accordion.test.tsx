@@ -1,55 +1,26 @@
-import { render } from '@testing-library/react'
-import { Accordion, handleSetOpenItem } from '../accordion'
-import { DeprecatedIcon } from '../../deprecated-icon'
-import { elMr1 } from '../../../styles/spacing'
+import { Accordion } from '../accordion'
+import { render, screen } from '@testing-library/react'
 
-describe('Accordion react shorthand', () => {
-  it('should match a snapshot', () => {
-    const wrapper = render(
-      <Accordion
-        items={[
-          {
-            title: 'Accordion Item 1',
-            content: 'Accordion Content 1',
-            titleItems: [
-              <>
-                <DeprecatedIcon className={elMr1} icon="car" />2
-              </>,
-              <>
-                <DeprecatedIcon className={elMr1} icon="user" />5
-              </>,
-            ],
-          },
-          {
-            title: 'Accordion Item 2',
-            content: 'Accordion Content 2',
-            titleItems: [
-              <>
-                <DeprecatedIcon className={elMr1} icon="car" />2
-              </>,
-              <>
-                <DeprecatedIcon className={elMr1} icon="user" />5
-              </>,
-            ],
-          },
-        ]}
-      />,
-    )
-    expect(wrapper.asFragment()).toMatchSnapshot()
-  })
+test('renders a <details> element', () => {
+  render(<Accordion summary={<Accordion.Summary>Title</Accordion.Summary>}>Content</Accordion>)
+  const group = screen.getByRole('group')
+
+  expect(group.tagName).toBe('DETAILS')
+  expect(group).toBeInTheDocument()
 })
 
-describe('handleSetOpenItem', () => {
-  it('should set the open item to the provided index if it is not currently open', () => {
-    const setOpenItem = vi.fn()
-    const onClick = vi.fn()
-    const openItem = 1
+test("the accordion title is the accordion's accessible name", () => {
+  render(<Accordion summary={<Accordion.Summary>Title</Accordion.Summary>}>Content</Accordion>)
+  const group = screen.getByRole('group', { name: 'Title' })
+  expect(group).toBeInTheDocument()
+})
 
-    const curried = handleSetOpenItem(openItem, setOpenItem, onClick)
-
-    curried()
-
-    expect(setOpenItem.mock.calls[0][0]()).toEqual(openItem)
-    expect(onClick).toHaveBeenCalled()
-  })
+test('content is visible when the accordion is open', async () => {
+  render(
+    <Accordion open summary={<Accordion.Summary>Title</Accordion.Summary>}>
+      Content
+    </Accordion>,
+  )
+  expect(screen.getByRole('group', { name: 'Title' })).toBeVisible()
+  expect(screen.getByText('Content')).toBeVisible()
 })

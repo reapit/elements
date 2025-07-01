@@ -1,4 +1,7 @@
-import { DeprecatedIcon } from '../../deprecated-icon'
+import { ContactIcon } from '#src/icons/contact'
+import { HelpIcon } from '#src/icons/help'
+import { NotificationIcon } from '#src/icons/notification'
+import { StarIcon } from '#src/icons/star'
 import { Menu } from '../../menu'
 import { TopBarNavIconItemButton } from './nav-icon-item-button'
 
@@ -12,10 +15,10 @@ const meta = {
       control: 'radio',
       options: ['contact', 'help', 'notification', 'star'],
       mapping: {
-        contact: <DeprecatedIcon icon="contact" />,
-        help: <DeprecatedIcon icon="help" />,
-        notification: <DeprecatedIcon icon="notification" />,
-        star: <DeprecatedIcon icon="star" />,
+        contact: <ContactIcon />,
+        help: <HelpIcon />,
+        notification: <NotificationIcon />,
+        star: <StarIcon />,
       },
     },
   },
@@ -34,7 +37,7 @@ export const Example: Story = {
   args: {
     'aria-label': 'Nav icon item',
     hasBadge: false,
-    icon: <DeprecatedIcon icon="star" />,
+    icon: 'star',
     onClick: () => void 0,
   },
 }
@@ -49,31 +52,17 @@ export const WithBadge: Story = {
     ...Example.args,
     'aria-label': 'Notifications',
     hasBadge: true,
-    icon: <DeprecatedIcon icon="notification" />,
+    icon: 'notification',
   },
 }
 
 /**
- * Nav icon items can also be rendered as a button. This is typically used to group a number of related items within a
- * dropdown menu. The code snippet below demonstrates how to use `TopBar.NavIconItem` with the `Menu` component.
- *
- * ```tsx
- * <Menu.Trigger>
- *  {({ getTriggerProps }) => (
- *    <TopBar.NavIconItem
- *      {...getTriggerProps()}
- *      as="button"
- *      aria-label="Help menu"
- *      icon={<Icon icon="help" />}
- *    />
- *  )}
- * </Menu.Trigger>
- * ```
+ * Button-based items are typically used to group a number of related items within a dropdown menu.
  */
 export const WithMenu: Story = {
   args: {
     'aria-label': 'Help menu',
-    icon: <DeprecatedIcon icon="help" />,
+    icon: 'help',
     onClick: () => void 0,
   },
   decorators: [

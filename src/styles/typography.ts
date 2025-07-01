@@ -35,7 +35,7 @@ export const elTextEllipsis = css`
 `
 
 export const elCode = css`
-  background: #f2f4f6; // grey 50
+  background: #f2f4f6; /* grey 50 */
   padding: 1rem;
   overflow: scroll;
 `

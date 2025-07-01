@@ -8,7 +8,7 @@ import { elMlAuto, elMr2 } from '../../styles/spacing'
 import { DeprecatedNavResponsive } from './nav-responsive'
 
 export default {
-  title: 'DeprecatedNav',
+  title: 'Deprecated/DeprecatedNav',
   component: DeprecatedNavResponsive,
 }
 

@@ -33,7 +33,7 @@ export const ElTableHeaderCell = styled.th<ElTableHeaderCellProps>`
 `
 export const ElTableHeaderCellContent = styled.div<ElTableHeaderCellContentProps>`
   width: auto;
-  padding: var(--spacing-2) 0px;
+  padding: var(--spacing-2) 0;
   gap: var(--spacing-1);
   color: var(--text-secondary);
   flex: auto;

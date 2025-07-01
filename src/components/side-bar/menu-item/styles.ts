@@ -16,6 +16,7 @@ export const elSideBarMenuItem = css`
   padding: var(--spacing-2);
   width: 100%;
 
+  text-decoration: none;
   border-radius: var(--comp-navigation-border-radius-menu_item);
 
   &:hover,
@@ -50,20 +51,23 @@ export const ElSideBarMenuItemLabel = styled.span`
 export const ElSideBarMenuItemIcon = styled.span`
   grid-area: icon;
 
+  /* NOTE: We don't want the padding to reduce the content size as we want the icons to be
+   * exactly --icon_size-m */
+  box-sizing: content-box;
+  padding: var(--spacing-half);
+
+  width: var(--icon_size-m);
+  height: var(--icon_size-m);
+
   color: var(--comp-navigation-colour-icon-sidebar-default);
   [aria-current='page'] > & {
     color: var(--comp-navigation-colour-icon-sidebar-select);
   }
 
-  // TODO: remove this when our Icon component inherits by default and
-  // can be sized via props correctly.
+  /* TODO: remove this when DeprecatedIcon is removed. */
   ${ElDeprecatedIcon} {
     color: inherit;
-    width: var(--icon_size-m);
-    height: var(--icon_size-m);
+    width: inherit;
+    height: inherit;
   }
-
-  display: flex;
-  place-items: center;
-  padding: var(--spacing-half);
 `

@@ -7,13 +7,25 @@ const meta = {
   title: 'Icons/Icon',
   component: StarIcon,
   argTypes: {
-    colour: {
+    color: {
       control: 'select',
       options: iconColours,
+      description: 'The colour of the icon.',
+      table: {
+        defaultValue: {
+          summary: 'inherit',
+        },
+      },
     },
     size: {
       control: 'select',
       options: iconSizes,
+      description: 'The size of the icon.',
+      table: {
+        defaultValue: {
+          summary: '100%',
+        },
+      },
     },
   },
   globals: {
@@ -37,7 +49,7 @@ type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
   args: {
-    colour: 'primary',
+    color: 'primary',
     size: 'lg',
   },
 }
@@ -52,7 +64,7 @@ export const Colours: StoryObj = {
     size: 'lg',
   },
   argTypes: {
-    colour: {
+    color: {
       control: false,
     },
   },
@@ -62,24 +74,26 @@ export const Colours: StoryObj = {
         style={{
           color: '#FA00FF',
           display: 'grid',
+          fontSize: 'var(--font-size-sm)',
           alignItems: 'center',
           gridTemplateColumns: 'min-content min-content',
           gap: 'var(--spacing-6)',
         }}
       >
-        {iconColours.map((colour) => [colour, <StarIcon key={colour} {...args} colour={colour} />])}
+        {iconColours.map((colour) => [colour, <StarIcon key={colour} {...args} color={colour} />])}
       </div>
     )
   },
 }
 
 /**
- * There are four sizes available: `xs`, `sm`, `md`, `lg`.
+ * There are five sizes available. The default is `100%`, which is useful when you want the icons size to be determined
+ * by its parent element. This is common in other Elements components that expect icons to be a specific size.
  */
 export const Sizes: Story = {
   args: {
     ...Example.args,
-    colour: 'primary',
+    color: 'primary',
   },
   argTypes: {
     size: {
@@ -92,8 +106,9 @@ export const Sizes: Story = {
         style={{
           color: '#FA00FF',
           display: 'grid',
+          fontSize: 'var(--font-size-sm)',
           alignItems: 'center',
-          gridTemplateColumns: 'min-content min-content',
+          gridTemplateColumns: 'min-content var(--icon_size-l)',
           gap: 'var(--spacing-6)',
         }}
       >

@@ -21,8 +21,7 @@ export const ElSideBar = styled.nav<ElSideBarProps>`
   /* This scroll padding helps ensure content (like menu items) are not cut off when scrolling.
    * - The block-start padding (i.e. top) matches the top padding of the side bar body
    * - The block-end padding (i.e. bottom) matches the height of the side bar footer */
-  scroll-padding-block-start: var(--spacing-3);
-  scroll-padding-block-end: var(--spacing-16);
+  scroll-padding-block: var(--spacing-3) var(--spacing-16);
 
   border-right: 1px solid var(--colour-border-light_default);
   background: var(--comp-navigation-colour-fill-sidebar-default);

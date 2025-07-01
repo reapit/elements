@@ -3,40 +3,40 @@
 exports[`TopBar snapshot 1`] = `
 <DocumentFragment>
   <header
-    class="mocked-styled-35 el-top-bar"
+    class="mocked-styled-34 el-top-bar"
   >
     <div
-      class="mocked-styled-36 el-top-bar-app-switcher-container"
+      class="mocked-styled-35 el-top-bar-app-switcher-container"
     >
       App switcher
     </div>
     <div
-      class="mocked-styled-37 el-top-bar-logo-container"
+      class="mocked-styled-36 el-top-bar-logo-container"
     >
       Logo
     </div>
     <div
-      class="mocked-styled-39 el-top-bar-main-nav-container"
+      class="mocked-styled-38 el-top-bar-main-nav-container"
     >
       Main nav
     </div>
     <div
-      class="mocked-styled-41 el-top-bar-search-container"
+      class="mocked-styled-40 el-top-bar-search-container"
     >
       Search
     </div>
     <div
-      class="mocked-styled-40 el-top-bar-secondary-nav-container"
+      class="mocked-styled-39 el-top-bar-secondary-nav-container"
     >
       Secondary nav
     </div>
     <div
-      class="mocked-styled-42 el-top-bar-menu-container"
+      class="mocked-styled-41 el-top-bar-menu-container"
     >
       Mobile nav
     </div>
     <div
-      class="mocked-styled-38 el-top-bar-avatar-container"
+      class="mocked-styled-37 el-top-bar-avatar-container"
     >
       Profile
     </div>
