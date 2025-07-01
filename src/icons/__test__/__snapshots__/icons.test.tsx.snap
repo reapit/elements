@@ -476,6 +476,30 @@ exports[`'CarIcon' renders the correct SVG 1`] = `
 </DocumentFragment>
 `;
 
+exports[`'ChangeLogIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    color="inherit"
+    data-size="100%"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M17 15.275c.47 0 .85.38.85.85V18l-.004.087a.85.85 0 0 1-.846.763h-2a.85.85 0 1 1 0-1.7h1.15v-1.025c0-.47.38-.85.85-.85Zm-6.913-3.121a.85.85 0 0 1 0 1.692L10 13.85H6.05a.85.85 0 1 1 0-1.7H10l.087.004ZM14 8.65a.85.85 0 1 1 0 1.7H6a.85.85 0 1 1 0-1.7h8Zm0-3.32a.85.85 0 0 1 0 1.7H6a.85.85 0 1 1 0-1.7h8Z"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M15 1.15A2.849 2.849 0 0 1 17.85 4v8.446a5.35 5.35 0 1 1-6.557 6.403H5A2.849 2.849 0 0 1 2.15 16V4A2.849 2.849 0 0 1 5 1.15h10Zm1.5 12.825a3.65 3.65 0 1 0 0 7.3 3.65 3.65 0 0 0 0-7.3ZM5 2.85A1.15 1.15 0 0 0 3.85 4v12c0 .636.514 1.15 1.15 1.15h6.172a5.349 5.349 0 0 1 4.978-4.863V4A1.15 1.15 0 0 0 15 2.85H5Z"
+      fill-rule="evenodd"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
 exports[`'CheckIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
@@ -987,28 +1011,6 @@ exports[`'DragIndicatorIcon' renders the correct SVG 1`] = `
   >
     <path
       d="M11 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Zm0 5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM9.5 16a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3ZM16 4.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM14.5 11a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm1.5 3.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0ZM9.5 21a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Zm6.5-1.5a1.5 1.5 0 1 1-3 0 1.5 1.5 0 0 1 3 0Z"
-    />
-  </svg>
-</DocumentFragment>
-`;
-
-exports[`'DrawCloseIcon' renders the correct SVG 1`] = `
-<DocumentFragment>
-  <svg
-    class="el-icon"
-    color="inherit"
-    data-size="100%"
-    fill="currentColor"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="m10.707 4.294 6.997 6.996a.999.999 0 0 1 0 1.419l-6.997 6.995a1 1 0 0 1-1.42 0 1 1 0 0 1 0-1.419l5.298-5.287H3A1 1 0 1 1 3 11h11.585L9.287 5.713a1.003 1.003 0 1 1 1.42-1.42Z"
-    />
-    <path
-      d="M18 12v7.111c0 .491.448.889 1 .889s1-.398 1-.889V4.89c0-.492-.448-.89-1-.89s-1 .398-1 .889v7.11Z"
     />
   </svg>
 </DocumentFragment>
@@ -2054,6 +2056,44 @@ exports[`'MenuAltIcon' renders the correct SVG 1`] = `
   >
     <path
       d="M3 7a1 1 0 0 0 0 2h18a1 1 0 1 0 0-2H3Zm0 8a1 1 0 1 0 0 2h18a1 1 0 1 0 0-2H3Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MenuCollapseIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    color="inherit"
+    data-size="100%"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M3.2 6a.8.8 0 1 1 1.6 0v12a.8.8 0 0 1-1.6 0V6Zm10.367.435a.8.8 0 0 0-1.132 0L7.458 11.41a.798.798 0 0 0-.258.572V12a.8.8 0 0 0 .234.566l5.001 5a.8.8 0 1 0 1.132-1.131L9.93 12.8H20a.8.8 0 0 0 0-1.6H9.932l3.635-3.634a.8.8 0 0 0 0-1.131Z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'MenuExpandIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    color="inherit"
+    data-size="100%"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M20.8 6a.8.8 0 1 0-1.6 0v12a.8.8 0 1 0 1.6 0V6Zm-10.367.435a.8.8 0 0 1 1.132 0l4.977 4.976a.798.798 0 0 1 .258.572v.018a.8.8 0 0 1-.234.566l-5.001 5a.8.8 0 1 1-1.132-1.131L14.07 12.8H4a.8.8 0 0 1 .001-1.6h10.068l-3.635-3.634a.8.8 0 0 1 0-1.131Z"
     />
   </svg>
 </DocumentFragment>
