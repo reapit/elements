@@ -9,32 +9,37 @@ import {
   MouseEvent,
 } from 'react'
 import {
-  ElButton,
-  elButtonSizeLarge,
-  elButtonSizeMedium,
-  elButtonSizeSmall,
-  elButtonIconOnly,
-  ElButtonSpinner,
-  ElAnchorButton,
-  elFloatingButton,
+  ElDeprecatedButton,
+  elDeprecatedButtonSizeLarge,
+  elDeprecatedButtonSizeMedium,
+  elDeprecatedButtonSizeSmall,
+  elDeprecatedButtonIconOnly,
+  ElDeprecatedButtonSpinner,
+  ElDeprecatedAnchorButton,
+  elDeprecatedFloatingButton,
   DeprecatedElButtonGroup,
-  ElButtonGroupInner,
-  elButtonGroupAlignLeft,
-  elButtonGroupAlignRight,
-  elButtonGroupAlignCenter,
-  ElButtonLabel,
+  ElDeprecatedButtonGroupInner,
+  elDeprecatedButtonGroupAlignLeft,
+  elDeprecatedButtonGroupAlignRight,
+  elDeprecatedButtonGroupAlignCenter,
+  ElDeprecatedButtonLabel,
 } from './styles'
 import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 import { cx } from '@linaria/core'
 
-type ButtonSize = 'small' | 'medium' | 'large'
+/** @deprecated */
+type DeprecatedButtonSize = 'small' | 'medium' | 'large'
 
-type ButtonAsButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'destructive' | 'busy'
-type ButtonAsAnchorVariant = Exclude<ButtonAsButtonVariant, 'busy'>
+/** @deprecated */
+type DeprecatedButtonAsButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'destructive' | 'busy'
 
-interface CommonButtonProps {
+/** @deprecated */
+type DeprecatedButtonAsAnchorVariant = Exclude<DeprecatedButtonAsButtonVariant, 'busy'>
+
+/** @deprecated */
+interface DeprecatedCommonButtonProps {
   children?: ReactNode
-  size?: ButtonSize
+  size?: DeprecatedButtonSize
   iconLeft?: ReactNode
   iconRight?: ReactNode
   /** The label for button. It must be supplied for buttons with no `children` */
@@ -43,22 +48,26 @@ interface CommonButtonProps {
 }
 
 // Define a specialized type for tertiary variant for prop hasNoPadding
-type TertiaryButtonProps = {
+/** @deprecated */
+type DeprecatedTertiaryButtonProps = {
   variant: 'tertiary'
   hasNoPadding?: boolean // Only tertiary buttons can use hasNoPadding
 }
 
 // Define the general type for non-tertiary variants
-type NonTertiaryButtonProps = {
-  variant?: Exclude<ButtonAsButtonVariant, 'tertiary'>
+/** @deprecated */
+type DeprecatedNonTertiaryButtonProps = {
+  variant?: Exclude<DeprecatedButtonAsButtonVariant, 'tertiary'>
   hasNoPadding?: never // Disallow hasNoPadding for other variants
 }
 
 // Combine the above two into a Variant-specific prop type
-type VariantSpecificProps = TertiaryButtonProps | NonTertiaryButtonProps
+/** @deprecated */
+type DeprecatedVariantSpecificProps = DeprecatedTertiaryButtonProps | DeprecatedNonTertiaryButtonProps
 
-type ButtonAsButtonElementProps = CommonButtonProps &
-  VariantSpecificProps &
+/** @deprecated */
+type DeprecatedButtonAsButtonElementProps = DeprecatedCommonButtonProps &
+  DeprecatedVariantSpecificProps &
   ButtonHTMLAttributes<HTMLButtonElement> & {
     href?: never
     target?: never
@@ -66,10 +75,11 @@ type ButtonAsButtonElementProps = CommonButtonProps &
     onClick?: MouseEventHandler<HTMLButtonElement>
   }
 
-type ButtonAsAnchorElementProps = CommonButtonProps &
-  VariantSpecificProps &
+/** @deprecated */
+type DeprecatedButtonAsAnchorElementProps = DeprecatedCommonButtonProps &
+  DeprecatedVariantSpecificProps &
   AnchorHTMLAttributes<HTMLAnchorElement> & {
-    variant?: ButtonAsAnchorVariant
+    variant?: DeprecatedButtonAsAnchorVariant
     /** Button styled <a> element should always have href */
     href: string
     target?: string
@@ -79,28 +89,31 @@ type ButtonAsAnchorElementProps = CommonButtonProps &
     onClick?: MouseEventHandler<HTMLAnchorElement>
   }
 
-export type ButtonProps = ButtonAsButtonElementProps | ButtonAsAnchorElementProps
+/** @deprecated */
+export type DeprecatedButtonProps = DeprecatedButtonAsButtonElementProps | DeprecatedButtonAsAnchorElementProps
 
-function isButtonAsButtonElement(props: ButtonProps): props is ButtonAsButtonElementProps {
+function isButtonAsButtonElement(props: DeprecatedButtonProps): props is DeprecatedButtonAsButtonElementProps {
   return !props.href
 }
 
 /** @deprecated */
-export type FloatingButtonProps = ButtonAsButtonElementProps & {
+export type DeprecatedFloatingButtonProps = DeprecatedButtonAsButtonElementProps & {
   icon: IconNames
 }
 
-export type ButtonGroupAlignment = 'left' | 'right' | 'center'
+/** @deprecated */
+export type DeprecatedButtonGroupAlignment = 'left' | 'right' | 'center'
 
 /**
  * A subset of button, button group should not be used.
  * @deprecated Will be removed in future major version. Use `button-group` as parent component.
  */
-export interface ButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
-  alignment?: ButtonGroupAlignment
+export interface DeprecatedButtonGroupProps extends HTMLAttributes<HTMLDivElement> {
+  alignment?: DeprecatedButtonGroupAlignment
 }
 
-export const Button: FC<ButtonProps> = (props) => {
+/** @deprecated */
+export const DeprecatedButton: FC<DeprecatedButtonProps> = (props) => {
   const {
     children,
     variant,
@@ -119,13 +132,13 @@ export const Button: FC<ButtonProps> = (props) => {
   } = props
 
   const sizeClass = cx(
-    size === 'small' && elButtonSizeSmall,
-    size === 'medium' && elButtonSizeMedium,
-    size === 'large' && elButtonSizeLarge,
+    size === 'small' && elDeprecatedButtonSizeSmall,
+    size === 'medium' && elDeprecatedButtonSizeMedium,
+    size === 'large' && elDeprecatedButtonSizeLarge,
   )
 
   const miscellaneousClass = cx(
-    !children && elButtonIconOnly, // if no children(label) then add el-button-icon-only class
+    !children && elDeprecatedButtonIconOnly, // if no children(label) then add el-button-icon-only class
   )
 
   const combinedClassName = cx(className, sizeClass, miscellaneousClass)
@@ -150,7 +163,7 @@ export const Button: FC<ButtonProps> = (props) => {
 
   if (!isButtonAsButtonElement(props)) {
     return (
-      <ElAnchorButton
+      <ElDeprecatedAnchorButton
         {...(rest as AnchorHTMLAttributes<HTMLAnchorElement>)}
         href={href}
         data-variant={variant}
@@ -162,15 +175,15 @@ export const Button: FC<ButtonProps> = (props) => {
         target={target}
         rel={rel}
       >
-        <ElButtonSpinner />
+        <ElDeprecatedButtonSpinner />
         {variant !== 'busy' && iconLeft}
-        {children && <ElButtonLabel>{children}</ElButtonLabel>}
+        {children && <ElDeprecatedButtonLabel>{children}</ElDeprecatedButtonLabel>}
         {variant !== 'busy' && iconRight}
-      </ElAnchorButton>
+      </ElDeprecatedAnchorButton>
     )
   } else {
     return (
-      <ElButton
+      <ElDeprecatedButton
         {...(rest as ButtonHTMLAttributes<HTMLButtonElement>)}
         data-variant={variant}
         data-has-no-padding={hasNoPadding}
@@ -180,11 +193,11 @@ export const Button: FC<ButtonProps> = (props) => {
         role="button"
         onClick={handleClick}
       >
-        <ElButtonSpinner />
+        <ElDeprecatedButtonSpinner />
         {variant !== 'busy' && iconLeft}
-        {children && <ElButtonLabel>{children}</ElButtonLabel>}
+        {children && <ElDeprecatedButtonLabel>{children}</ElDeprecatedButtonLabel>}
         {variant !== 'busy' && iconRight}
-      </ElButton>
+      </ElDeprecatedButton>
     )
   }
 }
@@ -193,21 +206,27 @@ export const Button: FC<ButtonProps> = (props) => {
  * Moved to its own component `ButtonGroup`.
  * @deprecated `alignment` prop will not be supported in new ButtonGroup component.
  */
-export const DeprecatedButtonGroup: FC<ButtonGroupProps> = ({ children, alignment, ...rest }) => {
+export const DeprecatedButtonGroup: FC<DeprecatedButtonGroupProps> = ({ children, alignment, ...rest }) => {
   const alignmentClass = cx(
-    alignment === 'left' && elButtonGroupAlignLeft,
-    alignment === 'right' && elButtonGroupAlignRight,
-    alignment === 'center' && elButtonGroupAlignCenter,
+    alignment === 'left' && elDeprecatedButtonGroupAlignLeft,
+    alignment === 'right' && elDeprecatedButtonGroupAlignRight,
+    alignment === 'center' && elDeprecatedButtonGroupAlignCenter,
   )
   return (
     <DeprecatedElButtonGroup {...rest}>
-      <ElButtonGroupInner className={alignmentClass}>{children}</ElButtonGroupInner>
+      <ElDeprecatedButtonGroupInner className={alignmentClass}>{children}</ElDeprecatedButtonGroupInner>
     </DeprecatedElButtonGroup>
   )
 }
 
 /** @deprecated */
 // Removing ClassName fixes the issue with different UI, lets look into this
-export const FloatingButton: FC<FloatingButtonProps> = ({ className, icon, ...rest }) => {
-  return <Button className={cx(className, elFloatingButton)} iconLeft={<DeprecatedIcon icon={icon} />} {...rest} />
+export const DeprecatedFloatingButton: FC<DeprecatedFloatingButtonProps> = ({ className, icon, ...rest }) => {
+  return (
+    <DeprecatedButton
+      className={cx(className, elDeprecatedFloatingButton)}
+      iconLeft={<DeprecatedIcon icon={icon} />}
+      {...rest}
+    />
+  )
 }

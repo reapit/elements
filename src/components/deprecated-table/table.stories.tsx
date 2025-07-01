@@ -14,7 +14,7 @@ import {
 import { DeprecatedIcon } from '../deprecated-icon'
 import { elSpan2, elSpan3 } from '../grid'
 import { InputGroup } from '../input-group'
-import { Button, DeprecatedButtonGroup } from '../button'
+import { DeprecatedButton, DeprecatedButtonGroup } from '../deprecated-button'
 import { DeprecatedStatusIndicator } from '../deprecated-status-indicator'
 import { elMlAuto } from '../../styles/spacing'
 import { FormLayout, InputWrap } from '../form-layout'
@@ -253,7 +253,7 @@ export const ExpandableContent = {
             <InputWrap />
             <InputWrap>
               <DeprecatedButtonGroup className={elMlAuto}>
-                <Button variant="primary">Send</Button>
+                <DeprecatedButton variant="primary">Send</DeprecatedButton>
               </DeprecatedButtonGroup>
             </InputWrap>
           </FormLayout>

@@ -1,7 +1,7 @@
 import { renderHook } from '@testing-library/react'
 import { render, screen, fireEvent } from '@testing-library/react'
 import { useTooltip } from '../use-tooltip'
-import { Button } from '../../button'
+import { DeprecatedButton } from '../../deprecated-button'
 import { Tooltip } from '../tooltip'
 import { describe, expect, test } from 'vitest'
 
@@ -11,7 +11,7 @@ const TooltipTestComponent = () => {
 
   return (
     <>
-      <Button {...tooltip.getTriggerProps()}>Hover me</Button>
+      <DeprecatedButton {...tooltip.getTriggerProps()}>Hover me</DeprecatedButton>
       <Tooltip {...tooltip.getTooltipProps()} description="Tooltip description" />
     </>
   )

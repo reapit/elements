@@ -4,14 +4,14 @@ exports[`Button > should fire click event on button element 1`] = `
 <DocumentFragment>
   <button
     aria-disabled="false"
-    class="el-button-size-medium el-button"
+    class="el-deprecated-button-size-medium el-deprecated-button"
     role="button"
   >
     <div
-      class="mocked-styled-0 el-button-spinner"
+      class="mocked-styled-1 el-deprecated-button-spinner"
     />
     <span
-      class="mocked-styled-1 el-button-label"
+      class="mocked-styled-2 el-deprecated-button-label"
     >
       Button
     </span>
@@ -23,14 +23,14 @@ exports[`Button > should match snapshot 1`] = `
 <DocumentFragment>
   <button
     aria-disabled="false"
-    class="el-button-size-medium el-button"
+    class="el-deprecated-button-size-medium el-deprecated-button"
     role="button"
   >
     <div
-      class="mocked-styled-0 el-button-spinner"
+      class="mocked-styled-1 el-deprecated-button-spinner"
     />
     <span
-      class="mocked-styled-1 el-button-label"
+      class="mocked-styled-2 el-deprecated-button-label"
     >
       Button
     </span>
@@ -41,17 +41,17 @@ exports[`Button > should match snapshot 1`] = `
 exports[`Button > should match snapshot for <ElAnchorButton> as a link button 1`] = `
 <DocumentFragment>
   <a
-    class="el-button-size-medium el-button-icon-only el-anchor-button"
+    class="el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-anchor-button"
     href="https://example.com"
     rel="noOpener noReferrer"
     role="button"
     target="_blank"
   >
     <div
-      class="mocked-styled-0 el-button-spinner"
+      class="mocked-styled-1 el-deprecated-button-spinner"
     />
     <span
-      class="mocked-styled-6 el-deprecated-icon"
+      class="mocked-styled-0 el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -76,15 +76,15 @@ exports[`Button > should match snapshot for icon-only button 1`] = `
 <DocumentFragment>
   <button
     aria-disabled="false"
-    class="el-button-size-medium el-button-icon-only el-button"
+    class="el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
     data-variant="primary"
     role="button"
   >
     <div
-      class="mocked-styled-0 el-button-spinner"
+      class="mocked-styled-1 el-deprecated-button-spinner"
     />
     <span
-      class="mocked-styled-6 el-deprecated-icon"
+      class="mocked-styled-0 el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -109,15 +109,15 @@ exports[`Button > should match snapshot with variant and icons 1`] = `
 <DocumentFragment>
   <button
     aria-disabled="false"
-    class="el-button-size-medium el-button"
+    class="el-deprecated-button-size-medium el-deprecated-button"
     data-variant="primary"
     role="button"
   >
     <div
-      class="mocked-styled-0 el-button-spinner"
+      class="mocked-styled-1 el-deprecated-button-spinner"
     />
     <span
-      class="mocked-styled-6 el-deprecated-icon"
+      class="mocked-styled-0 el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -135,12 +135,12 @@ exports[`Button > should match snapshot with variant and icons 1`] = `
       </svg>
     </span>
     <span
-      class="mocked-styled-1 el-button-label"
+      class="mocked-styled-2 el-deprecated-button-label"
     >
       Button
     </span>
     <span
-      class="mocked-styled-6 el-deprecated-icon"
+      class="mocked-styled-0 el-deprecated-icon"
     >
       <svg
         fill="none"
@@ -164,49 +164,49 @@ exports[`Button > should match snapshot with variant and icons 1`] = `
 exports[`DeprecatedButtonGroup > should match snapshot for align center 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-4 deprecated-el-button-group"
+    class="mocked-styled-5 deprecated-el-button-group"
   >
     <div
-      class="el-button-group-align-center el-button-group-inner"
+      class="el-deprecated-button-group-align-center el-deprecated-button-group-inner"
     >
       <button
         aria-disabled="false"
-        class="el-button-size-medium el-button"
+        class="el-deprecated-button-size-medium el-deprecated-button"
         role="button"
       >
         <div
-          class="mocked-styled-0 el-button-spinner"
+          class="mocked-styled-1 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-1 el-button-label"
+          class="mocked-styled-2 el-deprecated-button-label"
         >
           1
         </span>
       </button>
       <button
         aria-disabled="false"
-        class="el-button-size-medium el-button"
+        class="el-deprecated-button-size-medium el-deprecated-button"
         role="button"
       >
         <div
-          class="mocked-styled-0 el-button-spinner"
+          class="mocked-styled-1 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-1 el-button-label"
+          class="mocked-styled-2 el-deprecated-button-label"
         >
           2
         </span>
       </button>
       <button
         aria-disabled="false"
-        class="el-button-size-medium el-button"
+        class="el-deprecated-button-size-medium el-deprecated-button"
         role="button"
       >
         <div
-          class="mocked-styled-0 el-button-spinner"
+          class="mocked-styled-1 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-1 el-button-label"
+          class="mocked-styled-2 el-deprecated-button-label"
         >
           3
         </span>
@@ -219,49 +219,49 @@ exports[`DeprecatedButtonGroup > should match snapshot for align center 1`] = `
 exports[`DeprecatedButtonGroup > should match snapshot for align left 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-4 deprecated-el-button-group"
+    class="mocked-styled-5 deprecated-el-button-group"
   >
     <div
-      class="el-button-group-align-left el-button-group-inner"
+      class="el-deprecated-button-group-align-left el-deprecated-button-group-inner"
     >
       <button
         aria-disabled="false"
-        class="el-button-size-medium el-button"
+        class="el-deprecated-button-size-medium el-deprecated-button"
         role="button"
       >
         <div
-          class="mocked-styled-0 el-button-spinner"
+          class="mocked-styled-1 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-1 el-button-label"
+          class="mocked-styled-2 el-deprecated-button-label"
         >
           1
         </span>
       </button>
       <button
         aria-disabled="false"
-        class="el-button-size-medium el-button"
+        class="el-deprecated-button-size-medium el-deprecated-button"
         role="button"
       >
         <div
-          class="mocked-styled-0 el-button-spinner"
+          class="mocked-styled-1 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-1 el-button-label"
+          class="mocked-styled-2 el-deprecated-button-label"
         >
           2
         </span>
       </button>
       <button
         aria-disabled="false"
-        class="el-button-size-medium el-button"
+        class="el-deprecated-button-size-medium el-deprecated-button"
         role="button"
       >
         <div
-          class="mocked-styled-0 el-button-spinner"
+          class="mocked-styled-1 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-1 el-button-label"
+          class="mocked-styled-2 el-deprecated-button-label"
         >
           3
         </span>
@@ -274,49 +274,49 @@ exports[`DeprecatedButtonGroup > should match snapshot for align left 1`] = `
 exports[`DeprecatedButtonGroup > should match snapshot for align right 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-4 deprecated-el-button-group"
+    class="mocked-styled-5 deprecated-el-button-group"
   >
     <div
-      class="el-button-group-align-right el-button-group-inner"
+      class="el-deprecated-button-group-align-right el-deprecated-button-group-inner"
     >
       <button
         aria-disabled="false"
-        class="el-button-size-medium el-button"
+        class="el-deprecated-button-size-medium el-deprecated-button"
         role="button"
       >
         <div
-          class="mocked-styled-0 el-button-spinner"
+          class="mocked-styled-1 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-1 el-button-label"
+          class="mocked-styled-2 el-deprecated-button-label"
         >
           1
         </span>
       </button>
       <button
         aria-disabled="false"
-        class="el-button-size-medium el-button"
+        class="el-deprecated-button-size-medium el-deprecated-button"
         role="button"
       >
         <div
-          class="mocked-styled-0 el-button-spinner"
+          class="mocked-styled-1 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-1 el-button-label"
+          class="mocked-styled-2 el-deprecated-button-label"
         >
           2
         </span>
       </button>
       <button
         aria-disabled="false"
-        class="el-button-size-medium el-button"
+        class="el-deprecated-button-size-medium el-deprecated-button"
         role="button"
       >
         <div
-          class="mocked-styled-0 el-button-spinner"
+          class="mocked-styled-1 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-1 el-button-label"
+          class="mocked-styled-2 el-deprecated-button-label"
         >
           3
         </span>
@@ -330,14 +330,14 @@ exports[`FloatingButton > should render FloatingButton with icon 1`] = `
 <DocumentFragment>
   <button
     aria-disabled="false"
-    class="el-floating-button el-button-size-medium el-button-icon-only el-button"
+    class="el-deprecated-floating-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
     role="button"
   >
     <div
-      class="mocked-styled-0 el-button-spinner"
+      class="mocked-styled-1 el-deprecated-button-spinner"
     />
     <span
-      class="mocked-styled-6 el-deprecated-icon"
+      class="mocked-styled-0 el-deprecated-icon"
     >
       <svg
         fill="none"

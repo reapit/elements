@@ -13,15 +13,15 @@ exports[`MobileControls component > should match a snapshot 1`] = `
     <button
       aria-controls=":r0:"
       aria-disabled="false"
-      class="el-floating-button el-button-size-medium el-button-icon-only el-button"
+      class="el-deprecated-floating-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
       data-variant="primary"
       role="button"
     >
       <div
-        class="mocked-styled-3 el-button-spinner"
+        class="mocked-styled-4 el-deprecated-button-spinner"
       />
       <span
-        class="mocked-styled-9 el-deprecated-icon"
+        class="mocked-styled-3 el-deprecated-icon"
       >
         <svg
           fill="none"
@@ -77,15 +77,15 @@ exports[`MobileControls component > should match a snapshot with full props 1`] 
     <button
       aria-controls=":r1:"
       aria-disabled="false"
-      class="el-floating-button el-button-size-medium el-button-icon-only el-button"
+      class="el-deprecated-floating-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
       data-variant="primary"
       role="button"
     >
       <div
-        class="mocked-styled-3 el-button-spinner"
+        class="mocked-styled-4 el-deprecated-button-spinner"
       />
       <span
-        class="mocked-styled-9 el-deprecated-icon"
+        class="mocked-styled-3 el-deprecated-icon"
       >
         <svg
           fill="none"

@@ -1,26 +1,35 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { isMobile } from '#src/styles/media'
+import { ElDeprecatedIcon } from '../deprecated-icon'
 
-export const elButtonSizeSmall = css``
-export const elButtonSizeMedium = css``
-export const elButtonSizeLarge = css``
+/** @deprecated */
+export const elDeprecatedButtonSizeSmall = css``
+/** @deprecated */
+export const elDeprecatedButtonSizeMedium = css``
+/** @deprecated */
+export const elDeprecatedButtonSizeLarge = css``
 
-export const elButtonLabel = css``
-export const elIcon = css``
-export const elButtonIconOnly = css``
-export const elButtonSpinner = css``
+/** @deprecated */
+export const elDeprecatedButtonLabel = css``
+/** @deprecated */
+export const elDeprecatedIcon = ElDeprecatedIcon
+/** @deprecated */
+export const elDeprecatedButtonIconOnly = css``
+/** @deprecated */
+export const elDeprecatedButtonSpinner = css``
 
 /** @deprecated - Will be removed from future version */
-export const elFloatingButton = css``
+export const elDeprecatedFloatingButton = css``
 /** @deprecated */
-export const elButtonGroupAlignLeft = css``
+export const elDeprecatedButtonGroupAlignLeft = css``
 /** @deprecated */
-export const elButtonGroupAlignRight = css``
+export const elDeprecatedButtonGroupAlignRight = css``
 /** @deprecated */
-export const elButtonGroupAlignCenter = css``
+export const elDeprecatedButtonGroupAlignCenter = css``
 
-export const ElButtonSpinner = styled.div`
+/** @deprecated */
+export const ElDeprecatedButtonSpinner = styled.div`
   @keyframes spinAround {
     from {
       transform: rotate(0deg);
@@ -44,6 +53,7 @@ export const ElButtonSpinner = styled.div`
 `
 
 // Shared Base styles for buttons
+/** @deprecated */
 const baseButtonStyles = `
   cursor: pointer;
   align-items: center;
@@ -60,7 +70,7 @@ const baseButtonStyles = `
   border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
   text-decoration: none; /* For anchors */
   
-  .${elIcon} {
+  .${elDeprecatedIcon} {
     padding: var(--spacing-half);
     color: var(--comp-button-colour-icon-secondary-defaul);
   }
@@ -68,7 +78,7 @@ const baseButtonStyles = `
   &:hover {
     color: var(--comp-button-colour-text-secondary-hover);
     border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-hover);
-    .${elIcon} {
+    .${elDeprecatedIcon} {
       color: var(--comp-button-colour-icon-secondary-hover);
     }
   }
@@ -77,32 +87,32 @@ const baseButtonStyles = `
     border: var(--border-width-double) solid var(--colour-border-focus);
   }
 
-  &.${elButtonIconOnly} {
+  &.${elDeprecatedButtonIconOnly} {
     padding: 0px;
     width: var(--size-9);
-    .${elButtonSpinner} {
+    .${elDeprecatedButtonSpinner} {
       margin: 0 0.125rem;
     }
   }
 
-  &.${elButtonSizeSmall} {
+  &.${elDeprecatedButtonSizeSmall} {
     padding: 0px var(--spacing-3);
     height: var(--size-8);
-    &.${elButtonIconOnly} {
+    &.${elDeprecatedButtonIconOnly} {
       padding: 0px;
       width: var(--size-8);
-      .${elIcon} {
+      .${elDeprecatedIcon} {
           padding: var(--spacing-1);
       }
     }
   }
 
-  &.${elButtonSizeLarge} {
+  &.${elDeprecatedButtonSizeLarge} {
     height: var(--size-10);
-    &.${elButtonIconOnly} {
+    &.${elDeprecatedButtonIconOnly} {
       width: var(--size-10);
     }
-    .${elButtonLabel} {
+    .${elDeprecatedButtonLabel} {
       font-family: var(--font-base-medium-family);
       font-size: var(--font-base-medium-size);
       font-weight: var(--font-base-medium-weight);
@@ -110,7 +120,7 @@ const baseButtonStyles = `
       letter-spacing: var(--font-base-medium-letter_spacing);
       
     }
-    .${elButtonSpinner} {
+    .${elDeprecatedButtonSpinner} {
       height: 1.125rem;
       width: 1.125rem;
     }
@@ -121,13 +131,13 @@ const baseButtonStyles = `
     color: var(--comp-button-colour-text-primary-default);
     border: unset;
 
-    .${elIcon} {
+    .${elDeprecatedIcon} {
       color: var(--comp-button-colour-icon-primary-default);
     }
 
     &:hover {
        background: var(--comp-button-colour-fill-primary-hover);
-      .${elIcon} {
+      .${elDeprecatedIcon} {
          color: var(--comp-button-colour-icon-primary-hover);
       }
     }
@@ -137,7 +147,7 @@ const baseButtonStyles = `
     &:hover {
       color: var(--comp-button-colour-text-secondary-hover);
       border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
-      .${elIcon} {
+      .${elDeprecatedIcon} {
         color: var(--comp-button-colour-icon-secondary-hover);
       }
     }
@@ -147,7 +157,7 @@ const baseButtonStyles = `
     border: unset;
     &:hover {
       color: var(--comp-button-colour-text-tertiary-hover);
-      .${elIcon} {
+      .${elDeprecatedIcon} {
         color: var(--comp-button-colour-icon-tertiary-hover);
       }
     }
@@ -162,13 +172,13 @@ const baseButtonStyles = `
     border: unset;
     background: var(--comp-button-colour-fill-destructive-default);
     color: var(--comp-button-colour-text-destructive-default);
-    .${elIcon} {
+    .${elDeprecatedIcon} {
       color: var(--comp-button-colour-icon-destructive-default);
     }
     &:hover {
       background: var(--comp-button-colour-fill-destructive-hover);
       color: var(--comp-button-colour-text-destructive-hover);
-      .${elIcon} {
+      .${elDeprecatedIcon} {
         color: var(--comp-button-colour-icon-destructive-hover);
       }
     }
@@ -187,14 +197,14 @@ const baseButtonStyles = `
     background: var(--comp-button-colour-fill-primary-disabled);
     color: var(--comp-button-colour-text-primary-disabled);
 
-    .${elIcon} {
+    .${elDeprecatedIcon} {
       color: var(--comp-button-colour-icon-primary-disabled);
     }
 
     &:hover {
       background: var(--comp-button-colour-fill-primary-disabled);
       color: var(--comp-button-colour-text-primary-disabled);
-      .${elIcon} {
+      .${elDeprecatedIcon} {
         color: var(--comp-button-colour-icon-primary-disabled);
       }
     }
@@ -208,7 +218,7 @@ const baseButtonStyles = `
   }
   
   // TO DO: no the token variable names not updated, since no design guide in figma
-  &.${elFloatingButton} {
+  &.${elDeprecatedFloatingButton} {
     border-radius: 100%;
     height: 3.75rem;
     width: 3.75rem;
@@ -223,12 +233,12 @@ const baseButtonStyles = `
       width: 2.5rem;
       height: 2.5rem;
       margin: 0.5rem;
-      .${elIcon} {
+      .${elDeprecatedIcon} {
         font-size: 1rem;
       }
     }
 
-    ${elIcon} {
+    ${elDeprecatedIcon} {
       color: var(--neutral-400);
 
       &:hover {
@@ -237,18 +247,18 @@ const baseButtonStyles = `
     }
 
     &[data-variant='destructive'], &[data-variant='primary'] {
-      > .${elIcon} {
+      > .${elDeprecatedIcon} {
         color: var(--white);
       }
     }
 
     &[data-variant='busy'] {
-      & ${elButtonSpinner} {
+      & ${elDeprecatedButtonSpinner} {
         left: inherit;
         top: inherit;
       }
 
-      > .${elIcon} {
+      > .${elDeprecatedIcon} {
         visibility: hidden;
       }
     }
@@ -256,7 +266,8 @@ const baseButtonStyles = `
 `
 
 // Button Label style
-export const ElButtonLabel = styled.span`
+/** @deprecated */
+export const ElDeprecatedButtonLabel = styled.span`
   font-family: var(--font-sm-medium-family);
   font-size: var(--font-sm-medium-size);
   font-weight: var(--font-sm-medium-weight);
@@ -266,17 +277,19 @@ export const ElButtonLabel = styled.span`
 `
 
 // Apply shared styles to button component
-export const ElButton = styled.button`
+/** @deprecated */
+export const ElDeprecatedButton = styled.button`
   ${baseButtonStyles}
   &[data-variant='busy'] {
-    ${ElButtonSpinner} {
+    ${ElDeprecatedButtonSpinner} {
       display: block;
     }
   }
 `
 
 // Apply shared styles to anchor component
-export const ElAnchorButton = styled.a`
+/** @deprecated */
+export const ElDeprecatedAnchorButton = styled.a`
   ${baseButtonStyles}
 `
 
@@ -285,7 +298,7 @@ export const DeprecatedElButtonGroup = styled.div`
   display: grid;
 `
 /** @deprecated */
-export const ElButtonGroupInner = styled.div`
+export const ElDeprecatedButtonGroupInner = styled.div`
   display: flex;
   flex-wrap: wrap;
   grid-auto-flow: column;
@@ -293,17 +306,17 @@ export const ElButtonGroupInner = styled.div`
   width: fit-content;
   height: fit-content;
 
-  &.${elButtonGroupAlignLeft} {
+  &.${elDeprecatedButtonGroupAlignLeft} {
     margin-right: auto;
     justify-content: flex-start;
   }
 
-  &.${elButtonGroupAlignRight} {
+  &.${elDeprecatedButtonGroupAlignRight} {
     margin-left: auto;
     justify-content: flex-end;
   }
 
-  &.${elButtonGroupAlignCenter} {
+  &.${elDeprecatedButtonGroupAlignCenter} {
     margin: 0 auto;
     justify-content: center;
   }

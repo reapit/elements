@@ -3,7 +3,7 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { action } from 'storybook/actions'
 
-import { Button } from '../button'
+import { DeprecatedButton } from '../deprecated-button'
 import { Dialog } from './dialog'
 import { ElDialog, ElDialogBody, ElDialogFooter, ElDialogHeader, ElDialogTitle } from './styles'
 import { ButtonGroup } from '../button-group'
@@ -43,8 +43,8 @@ export const BasicUsageSmall: Story = {
         <ElDialogBody>Content</ElDialogBody>
         <ElDialogFooter>
           <ButtonGroup>
-            <Button>Cancel</Button>
-            <Button variant="primary">Close</Button>
+            <DeprecatedButton>Cancel</DeprecatedButton>
+            <DeprecatedButton variant="primary">Close</DeprecatedButton>
           </ButtonGroup>
         </ElDialogFooter>
       </ElDialog>
@@ -62,8 +62,8 @@ export const BasicUsageMedium: Story = {
         <ElDialogBody>Content</ElDialogBody>
         <ElDialogFooter>
           <ButtonGroup>
-            <Button>Cancel</Button>
-            <Button variant="primary">Close</Button>
+            <DeprecatedButton>Cancel</DeprecatedButton>
+            <DeprecatedButton variant="primary">Close</DeprecatedButton>
           </ButtonGroup>
         </ElDialogFooter>
       </ElDialog>
@@ -85,7 +85,7 @@ export const ReactUsage: Story = {
     return (
       <>
         <ButtonGroup>
-          <Button onClick={() => setIsOpen(true)}>Open Dialog</Button>
+          <DeprecatedButton onClick={() => setIsOpen(true)}>Open Dialog</DeprecatedButton>
         </ButtonGroup>
         <Dialog {...rest} isOpen={isOpen} size={size} title={title} onClose={() => setIsOpen(false)}>
           <Dialog.Header>
@@ -94,10 +94,10 @@ export const ReactUsage: Story = {
           <Dialog.Body>{children}</Dialog.Body>
           <Dialog.Footer>
             <ButtonGroup>
-              <Button onClick={() => setIsOpen(false)}>Cancel</Button>
-              <Button variant="primary" onClick={() => setIsOpen(false)}>
+              <DeprecatedButton onClick={() => setIsOpen(false)}>Cancel</DeprecatedButton>
+              <DeprecatedButton variant="primary" onClick={() => setIsOpen(false)}>
                 Close
-              </Button>
+              </DeprecatedButton>
             </ButtonGroup>
           </Dialog.Footer>
         </Dialog>

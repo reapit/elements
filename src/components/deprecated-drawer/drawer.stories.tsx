@@ -1,6 +1,6 @@
 import { useDrawer } from '../../hooks/use-drawer'
 import { DeprecatedDrawer as Drawer, DeprecatedDrawerBg as DrawerBg } from './drawer'
-import { Button, DeprecatedButtonGroup } from '../button'
+import { DeprecatedButton, DeprecatedButtonGroup } from '../deprecated-button'
 import { FormLayout, InputWrapFull, InputWrapHalf } from '../form-layout'
 import { InputGroup } from '../input-group'
 import { DeprecatedLabel } from '../deprecated-label'
@@ -24,15 +24,15 @@ export const ReactUsage = {
 
     return (
       <>
-        <Button variant="primary" onClick={openDrawer}>
+        <DeprecatedButton variant="primary" onClick={openDrawer}>
           Open Drawer
-        </Button>
+        </DeprecatedButton>
         <ExampleDrawer
           title="Demo Drawer Title"
           subtitle="Demo Drawer Subtitle"
           footerItems={
             <DeprecatedButtonGroup alignment="right">
-              <Button onClick={closeDrawer}>Close the Drawer</Button>
+              <DeprecatedButton onClick={closeDrawer}>Close the Drawer</DeprecatedButton>
             </DeprecatedButtonGroup>
           }
         >
@@ -49,15 +49,15 @@ export const ReactUsageWithForm = {
 
     return (
       <>
-        <Button variant="primary" onClick={openDrawer}>
+        <DeprecatedButton variant="primary" onClick={openDrawer}>
           Open Drawer
-        </Button>
+        </DeprecatedButton>
         <ExampleDrawer
           title="Demo Drawer Title"
           subtitle="Demo Drawer Subtitle"
           footerItems={
             <DeprecatedButtonGroup alignment="right">
-              <Button onClick={closeDrawer}>Close the Drawer</Button>
+              <DeprecatedButton onClick={closeDrawer}>Close the Drawer</DeprecatedButton>
             </DeprecatedButtonGroup>
           }
         >
@@ -99,16 +99,16 @@ export const ReactUsageCanDismiss = {
 
     return (
       <>
-        <Button variant="primary" onClick={openDrawer}>
+        <DeprecatedButton variant="primary" onClick={openDrawer}>
           Open Drawer
-        </Button>
+        </DeprecatedButton>
         <ExampleDrawer
           title="Demo Drawer Title"
           subtitle="Demo Drawer Subtitle"
           canDismiss
           footerItems={
             <DeprecatedButtonGroup alignment="right">
-              <Button onClick={closeDrawer}>Close the Drawer</Button>
+              <DeprecatedButton onClick={closeDrawer}>Close the Drawer</DeprecatedButton>
             </DeprecatedButtonGroup>
           }
         >
