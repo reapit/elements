@@ -1,5 +1,5 @@
 import { Meta } from '@storybook/react-vite'
-import { Button } from '../button'
+import { DeprecatedButton } from '../deprecated-button'
 import { useTooltip } from './use-tooltip'
 import { Tooltip, TooltipProps } from './tooltip'
 import { ElTooltip, ElTooltipLabel } from './styles'
@@ -102,7 +102,7 @@ export const BasicUsage = {
 
     return (
       <>
-        <Button {...tooltip.getTriggerProps()}>Hover me</Button>
+        <DeprecatedButton {...tooltip.getTriggerProps()}>Hover me</DeprecatedButton>
         <Tooltip {...tooltip.getTooltipProps()} {...args} />
       </>
     )
@@ -322,15 +322,15 @@ export const DynamicDisplayTooltipExample = {
           }}
         >
           <FlexContainer isFlexJustifyBetween>
-            <Button {...tooltipTopLeft.getTriggerProps()}>Hover me</Button>
+            <DeprecatedButton {...tooltipTopLeft.getTriggerProps()}>Hover me</DeprecatedButton>
             <Tooltip {...tooltipTopLeft.getTooltipProps()} {...args} />
-            <Button {...tooltipTopRight.getTriggerProps()}>Hover me</Button>
+            <DeprecatedButton {...tooltipTopRight.getTriggerProps()}>Hover me</DeprecatedButton>
             <Tooltip {...tooltipTopRight.getTooltipProps()} {...args} />
           </FlexContainer>
           <FlexContainer isFlexJustifyBetween>
-            <Button {...tooltipBottomRight.getTriggerProps()}>Hover me</Button>
+            <DeprecatedButton {...tooltipBottomRight.getTriggerProps()}>Hover me</DeprecatedButton>
             <Tooltip {...tooltipBottomRight.getTooltipProps()} {...args} />
-            <Button {...tooltipBottomLeft.getTriggerProps()}>Hover me</Button>
+            <DeprecatedButton {...tooltipBottomLeft.getTriggerProps()}>Hover me</DeprecatedButton>
             <Tooltip {...tooltipBottomLeft.getTooltipProps()} {...args} />
           </FlexContainer>
         </FlexContainer>

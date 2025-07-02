@@ -1,7 +1,7 @@
 import { Meta } from '@storybook/react-vite'
 // import { figmaDesignUrls } from '../../storybook/figma'
 import { TableToolbar } from './table-toolbar.js'
-import { Button } from '#src/components/button/button'
+import { DeprecatedButton } from '#src/components/deprecated-button/button'
 import { DeprecatedIcon } from '#src/components/deprecated-icon/icon-component'
 import { Menu } from '#src/components/menu/menu'
 import { MenuPopover, MenuTrigger } from '#src/components/menu/menu-popover'
@@ -30,14 +30,14 @@ export const BasicUsage = {
           <MenuTrigger>
             {({ getTriggerProps }) => (
               // To do: Once Button component is update with more props for no-padding, please make updates here
-              <Button
+              <DeprecatedButton
                 variant="tertiary"
                 size="small"
                 {...getTriggerProps()}
                 iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
               >
                 Page size: 25
-              </Button>
+              </DeprecatedButton>
             )}
           </MenuTrigger>
           <MenuPopover>
@@ -65,13 +65,13 @@ export const WithBulkActions = {
       description="5 of 125 selected"
       actions={
         <ButtonGroup>
-          <Button size="small">Button 1</Button>
-          <Button size="small">Button 2</Button>
-          <Button size="small">Button 3</Button>
+          <DeprecatedButton size="small">Button 1</DeprecatedButton>
+          <DeprecatedButton size="small">Button 2</DeprecatedButton>
+          <DeprecatedButton size="small">Button 3</DeprecatedButton>
           <Menu>
             <MenuTrigger>
               {({ getTriggerProps }) => (
-                <Button
+                <DeprecatedButton
                   {...getTriggerProps()}
                   size="small"
                   iconRight={<DeprecatedIcon icon="more" fontSize="1rem" />}
@@ -107,14 +107,14 @@ export const ToolbarSkeleton = {
           <MenuTrigger>
             {({ getTriggerProps }) => (
               // To do: Once Button component is update with more props for no-padding, please make updates here
-              <Button
+              <DeprecatedButton
                 variant="tertiary"
                 size="small"
                 {...getTriggerProps()}
                 iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
               >
                 Page size: 25
-              </Button>
+              </DeprecatedButton>
             )}
           </MenuTrigger>
           <MenuPopover>

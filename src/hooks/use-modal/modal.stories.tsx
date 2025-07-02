@@ -1,5 +1,5 @@
 import { useModal } from '.'
-import { Button, DeprecatedButtonGroup } from '../../components/button'
+import { DeprecatedButton, DeprecatedButtonGroup } from '../../components/deprecated-button'
 import { TextBase } from '../../components/typography'
 
 export default {
@@ -12,16 +12,16 @@ export const BasicUsage = {
 
     return (
       <>
-        <Button variant="primary" onClick={openModal}>
+        <DeprecatedButton variant="primary" onClick={openModal}>
           Open Modal
-        </Button>
+        </DeprecatedButton>
         <ModalComponent title="Welcome to the demo modal">
           <TextBase>Here&apos;s some nice content for the inside of the modal.</TextBase>
           <DeprecatedButtonGroup alignment="right">
-            <Button onClick={closeModal}>Close</Button>
-            <Button variant="primary" onClick={console.log}>
+            <DeprecatedButton onClick={closeModal}>Close</DeprecatedButton>
+            <DeprecatedButton variant="primary" onClick={console.log}>
               Do Something
-            </Button>
+            </DeprecatedButton>
           </DeprecatedButtonGroup>
         </ModalComponent>
       </>
@@ -37,12 +37,12 @@ export const MultipleModals = {
     return (
       <>
         <DeprecatedButtonGroup>
-          <Button variant="primary" onClick={openModalA}>
+          <DeprecatedButton variant="primary" onClick={openModalA}>
             Open Modal A
-          </Button>
-          <Button variant="primary" onClick={openModalB}>
+          </DeprecatedButton>
+          <DeprecatedButton variant="primary" onClick={openModalB}>
             Open Modal B
-          </Button>
+          </DeprecatedButton>
         </DeprecatedButtonGroup>
         <ModalA title="Modal A">I&apos;m the modal A&apos;s content</ModalA>
         <ModalB title="Modal B">I&apos;m the modal B&apos;s content</ModalB>

@@ -7,25 +7,25 @@ exports[`SplitButton > should match snapshot 1`] = `
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-7 el-split-button-action-button el-button-size-medium el-button"
+      class="mocked-styled-7 el-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
       role="button"
     >
       <div
-        class="mocked-styled-1 el-button-spinner"
+        class="mocked-styled-1 el-deprecated-button-spinner"
       />
       <span
-        class="mocked-styled-2 el-button-label"
+        class="mocked-styled-2 el-deprecated-button-label"
       >
         Button
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-8 el-split-button-menu-button el-button-size-medium el-button-icon-only el-button"
+      class="mocked-styled-8 el-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
       role="button"
     >
       <div
-        class="mocked-styled-1 el-button-spinner"
+        class="mocked-styled-1 el-deprecated-button-spinner"
       />
       <span
         class="mocked-styled-0 el-deprecated-icon"
@@ -58,25 +58,25 @@ exports[`SplitButton > should match snapshot with large size 1`] = `
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-7 el-split-button-action-button el-button-size-medium el-button"
+      class="mocked-styled-7 el-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
       role="button"
     >
       <div
-        class="mocked-styled-1 el-button-spinner"
+        class="mocked-styled-1 el-deprecated-button-spinner"
       />
       <span
-        class="mocked-styled-2 el-button-label"
+        class="mocked-styled-2 el-deprecated-button-label"
       >
         Button
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-8 el-split-button-menu-button el-button-size-medium el-button-icon-only el-button"
+      class="mocked-styled-8 el-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
       role="button"
     >
       <div
-        class="mocked-styled-1 el-button-spinner"
+        class="mocked-styled-1 el-deprecated-button-spinner"
       />
       <span
         class="mocked-styled-0 el-deprecated-icon"
@@ -109,25 +109,25 @@ exports[`SplitButton > should match snapshot with secondary variant 1`] = `
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-7 el-split-button-action-button el-button-size-medium el-button"
+      class="mocked-styled-7 el-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
       role="button"
     >
       <div
-        class="mocked-styled-1 el-button-spinner"
+        class="mocked-styled-1 el-deprecated-button-spinner"
       />
       <span
-        class="mocked-styled-2 el-button-label"
+        class="mocked-styled-2 el-deprecated-button-label"
       >
         Button
       </span>
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-8 el-split-button-menu-button el-button-size-medium el-button-icon-only el-button"
+      class="mocked-styled-8 el-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
       role="button"
     >
       <div
-        class="mocked-styled-1 el-button-spinner"
+        class="mocked-styled-1 el-deprecated-button-spinner"
       />
       <span
         class="mocked-styled-0 el-deprecated-icon"

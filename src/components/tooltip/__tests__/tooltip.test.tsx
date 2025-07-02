@@ -2,7 +2,7 @@ import React from 'react'
 import { vi } from 'vitest'
 import { fireEvent, render } from '@testing-library/react'
 import { useTooltip } from '../use-tooltip'
-import { Button } from '../../button'
+import { DeprecatedButton } from '../../deprecated-button'
 import { Tooltip } from '../tooltip'
 
 // Mock createPortal for rendering Tooltip to the body
@@ -20,7 +20,7 @@ describe('Tooltip with createPortal', () => {
       const tooltip = useTooltip()
       return (
         <>
-          <Button {...tooltip.getTriggerProps()}>Hover me</Button>
+          <DeprecatedButton {...tooltip.getTriggerProps()}>Hover me</DeprecatedButton>
           <Tooltip
             {...tooltip.getTooltipProps()}
             label="Label"
@@ -47,7 +47,7 @@ describe('Tooltip with createPortal', () => {
       const tooltip = useTooltip()
       return (
         <>
-          <Button {...tooltip.getTriggerProps()}>Hover me</Button>
+          <DeprecatedButton {...tooltip.getTriggerProps()}>Hover me</DeprecatedButton>
           <Tooltip
             {...tooltip.getTooltipProps()}
             label="Label"

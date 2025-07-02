@@ -1,30 +1,34 @@
 import { render, fireEvent, screen } from '@testing-library/react'
-import { Button, DeprecatedButtonGroup, FloatingButton } from '../index'
+import { DeprecatedButton, DeprecatedButtonGroup, DeprecatedFloatingButton } from '../index'
 import { DeprecatedIcon } from '#src/components/deprecated-icon/index'
 
 describe('Button', () => {
   test('should match snapshot', () => {
-    const { asFragment } = render(<Button>Button</Button>)
+    const { asFragment } = render(<DeprecatedButton>Button</DeprecatedButton>)
     expect(asFragment()).toMatchSnapshot()
   })
 
   test('should match snapshot with variant and icons', () => {
     const { asFragment } = render(
-      <Button variant="primary" iconLeft={<DeprecatedIcon icon="star" />} iconRight={<DeprecatedIcon icon="star" />}>
+      <DeprecatedButton
+        variant="primary"
+        iconLeft={<DeprecatedIcon icon="star" />}
+        iconRight={<DeprecatedIcon icon="star" />}
+      >
         Button
-      </Button>,
+      </DeprecatedButton>,
     )
     expect(asFragment()).toMatchSnapshot()
   })
 
   test('should match snapshot for icon-only button', () => {
-    const { asFragment } = render(<Button variant="primary" iconLeft={<DeprecatedIcon icon="star" />} />)
+    const { asFragment } = render(<DeprecatedButton variant="primary" iconLeft={<DeprecatedIcon icon="star" />} />)
     expect(asFragment()).toMatchSnapshot()
   })
 
   test('should fire click event on button element', () => {
     const onClickMock = vi.fn()
-    const { asFragment, getByText } = render(<Button onClick={onClickMock}>Button</Button>)
+    const { asFragment, getByText } = render(<DeprecatedButton onClick={onClickMock}>Button</DeprecatedButton>)
 
     // Capture the initial render as a snapshot
     expect(asFragment()).toMatchSnapshot()
@@ -36,7 +40,7 @@ describe('Button', () => {
 
   test('should match snapshot for <ElAnchorButton> as a link button', () => {
     const { asFragment } = render(
-      <Button
+      <DeprecatedButton
         href="https://example.com"
         iconLeft={<DeprecatedIcon icon="add" />}
         target="_blank"
@@ -49,9 +53,9 @@ describe('Button', () => {
   test('should not call onClick when isDisabled is true', () => {
     const onClick = vi.fn()
     render(
-      <Button isDisabled onClick={onClick}>
+      <DeprecatedButton isDisabled onClick={onClick}>
         Click Me
-      </Button>,
+      </DeprecatedButton>,
     )
 
     const button = screen.getByRole('button', { name: /click me/i })
@@ -63,9 +67,9 @@ describe('Button', () => {
   test('should call onClick when isDisabled is false', () => {
     const onClick = vi.fn()
     render(
-      <Button isDisabled={false} onClick={onClick}>
+      <DeprecatedButton isDisabled={false} onClick={onClick}>
         Click Me
-      </Button>,
+      </DeprecatedButton>,
     )
 
     const button = screen.getByRole('button', { name: /click me/i })
@@ -77,7 +81,7 @@ describe('Button', () => {
 
 describe('FloatingButton', () => {
   test('should render FloatingButton with icon', () => {
-    const { asFragment } = render(<FloatingButton icon="star" />)
+    const { asFragment } = render(<DeprecatedFloatingButton icon="star" />)
     expect(asFragment()).toMatchSnapshot()
   })
 })
@@ -87,9 +91,9 @@ describe('DeprecatedButtonGroup', () => {
   test('should match snapshot for align left', () => {
     const { asFragment } = render(
       <DeprecatedButtonGroup alignment="left">
-        <Button>1</Button>
-        <Button>2</Button>
-        <Button>3</Button>
+        <DeprecatedButton>1</DeprecatedButton>
+        <DeprecatedButton>2</DeprecatedButton>
+        <DeprecatedButton>3</DeprecatedButton>
       </DeprecatedButtonGroup>,
     )
     expect(asFragment()).toMatchSnapshot()
@@ -98,9 +102,9 @@ describe('DeprecatedButtonGroup', () => {
   test('should match snapshot for align right', () => {
     const { asFragment } = render(
       <DeprecatedButtonGroup alignment="right">
-        <Button>1</Button>
-        <Button>2</Button>
-        <Button>3</Button>
+        <DeprecatedButton>1</DeprecatedButton>
+        <DeprecatedButton>2</DeprecatedButton>
+        <DeprecatedButton>3</DeprecatedButton>
       </DeprecatedButtonGroup>,
     )
     expect(asFragment()).toMatchSnapshot()
@@ -109,9 +113,9 @@ describe('DeprecatedButtonGroup', () => {
   test('should match snapshot for align center', () => {
     const { asFragment } = render(
       <DeprecatedButtonGroup alignment="center">
-        <Button>1</Button>
-        <Button>2</Button>
-        <Button>3</Button>
+        <DeprecatedButton>1</DeprecatedButton>
+        <DeprecatedButton>2</DeprecatedButton>
+        <DeprecatedButton>3</DeprecatedButton>
       </DeprecatedButtonGroup>,
     )
     expect(asFragment()).toMatchSnapshot()

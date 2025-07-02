@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { DeprecatedIcon } from '../deprecated-icon'
-import { ButtonProps } from '../button'
+import { DeprecatedButtonProps } from '../deprecated-button'
 import { ElSplitButtonActionButton, ElSplitButtonMenuButton } from './styles'
 
 type SplitButtonVariant = 'primary' | 'secondary' | 'busy'
@@ -15,7 +15,7 @@ type SplitButtonVariant = 'primary' | 'secondary' | 'busy'
  *
  * All other button props can be added to the SplitButton component.
  */
-export type SplitButtonProps = ButtonProps & {
+export type SplitButtonProps = DeprecatedButtonProps & {
   variant?: SplitButtonVariant
   iconRight?: never
 }

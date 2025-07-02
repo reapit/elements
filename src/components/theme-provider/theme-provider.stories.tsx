@@ -1,4 +1,4 @@
-import { Button } from '../button'
+import { DeprecatedButton } from '../deprecated-button'
 import { ThemeProvider } from './theme-provider'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -25,7 +25,7 @@ export default meta
  * root element has a `data-theme="reapit"` attribute, or no `data-theme` attribute at all. */
 export const Reapit: Story = {
   args: {
-    children: <Button variant="primary">I&apos;m themed</Button>,
+    children: <DeprecatedButton variant="primary">I&apos;m themed</DeprecatedButton>,
     theme: 'reapit',
   },
 }

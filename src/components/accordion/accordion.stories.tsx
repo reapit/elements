@@ -1,7 +1,7 @@
 import { Accordion } from './accordion'
 import { BathIcon } from '#src/icons/bath'
 import { BedIcon } from '#src/icons/bed'
-import { Button } from '#src/components/button/button'
+import { DeprecatedButton } from '#src/components/deprecated-button/button'
 import { CarIcon } from '#src/icons/car'
 import { Features } from '#src/components/features'
 import { Pattern } from '../drawer/__story__/Pattern'
@@ -42,9 +42,9 @@ const meta = {
         'With Clear Button': (
           <Accordion.Summary
             rightInfo={
-              <Button variant="tertiary" hasNoPadding>
+              <DeprecatedButton variant="tertiary" hasNoPadding>
                 Clear
-              </Button>
+              </DeprecatedButton>
             }
           >
             Accordion Title

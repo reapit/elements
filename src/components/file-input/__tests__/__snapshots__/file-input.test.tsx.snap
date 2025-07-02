@@ -10,15 +10,15 @@ exports[`FileInput component > should match a snapshot 1`] = `
     >
       <button
         aria-disabled="false"
-        class="el-mr4 el-button-size-medium el-button"
+        class="el-mr4 el-deprecated-button-size-medium el-deprecated-button"
         role="button"
         type="button"
       >
         <div
-          class="mocked-styled-5 el-button-spinner"
+          class="mocked-styled-6 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-6 el-button-label"
+          class="mocked-styled-7 el-deprecated-button-label"
         >
           Upload
         </span>
@@ -69,15 +69,15 @@ exports[`FileInput component > should match a snapshot with full props 1`] = `
     >
       <button
         aria-disabled="false"
-        class="el-mr4 el-button-size-medium el-button"
+        class="el-mr4 el-deprecated-button-size-medium el-deprecated-button"
         role="button"
         type="button"
       >
         <div
-          class="mocked-styled-5 el-button-spinner"
+          class="mocked-styled-6 el-deprecated-button-spinner"
         />
         <span
-          class="mocked-styled-6 el-button-label"
+          class="mocked-styled-7 el-deprecated-button-label"
         >
           Change
         </span>
