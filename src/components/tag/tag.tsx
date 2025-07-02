@@ -1,23 +1,15 @@
-import { cx } from '@linaria/core'
-import { elTag, ElTagGroup } from './styles'
-import type { HTMLAttributes } from 'react'
+import { ElTag } from './styles'
 
-interface TagAsSpanProps extends HTMLAttributes<HTMLSpanElement> {
-  as: 'span'
+import type { HTMLAttributes, ReactNode } from 'react'
+
+export interface TagProps extends HTMLAttributes<HTMLSpanElement> {
+  /** The content of the tag. */
+  children: ReactNode
 }
 
-interface TagAsListItemProps extends HTMLAttributes<HTMLLIElement> {
-  as?: 'li'
+/**
+ * The tag component is used to label, categorise or organise items using keywords.
+ */
+export function Tag({ children, ...rest }: TagProps) {
+  return <ElTag {...rest}>{children}</ElTag>
 }
-
-export type TagProps = TagAsSpanProps | TagAsListItemProps
-
-export const Tag: React.FC<TagProps> = ({ children, as: Element = 'li', ...props }) => {
-  return (
-    <Element {...props} className={cx(elTag, props.className)}>
-      {children}
-    </Element>
-  )
-}
-
-export const TagGroup = ElTagGroup
