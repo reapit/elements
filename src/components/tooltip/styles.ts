@@ -26,6 +26,7 @@ export const ElTooltip = styled.div`
 
   border-radius: var(--comp-tooltip-border-radius);
   background: var(--comp-tooltip-colour-fill);
+  color: var(--comp-tooltip-colour-text);
 
   ${font('xs', 'regular')}
   width: max-content;
