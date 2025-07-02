@@ -1,4 +1,4 @@
-import { Button } from '../button'
+import { DeprecatedButton } from '../deprecated-button'
 import { Breakpoint, useDrawerBreakpointDecorator } from './__story__/useDrawerBreakpointDecorator'
 import { Drawer } from './drawer'
 import { Pattern } from './__story__/Pattern'
@@ -156,11 +156,11 @@ function ExampleFooterLayout() {
       </Drawer.Body>
       <Drawer.Footer>
         <form style={{ display: 'contents' }}>
-          <Button formMethod="dialog" variant="secondary">
+          <DeprecatedButton formMethod="dialog" variant="secondary">
             Cancel
-          </Button>
+          </DeprecatedButton>
         </form>
-        <Button variant="primary">Submit</Button>
+        <DeprecatedButton variant="primary">Submit</DeprecatedButton>
       </Drawer.Footer>
     </>
   )

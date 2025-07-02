@@ -11,7 +11,7 @@ import React, {
 } from 'react'
 import { useId } from '../../storybook/random-id'
 import { elMl3, elMr4 } from '../../styles/spacing'
-import { Button } from '../button'
+import { DeprecatedButton } from '../deprecated-button'
 import { DeprecatedIcon } from '../deprecated-icon'
 import { DeprecatedLabel } from '../deprecated-label'
 import { FlexContainer } from '../layout'
@@ -134,9 +134,9 @@ export const FileInput: FileInputWrapped = forwardRef(
       <ElFileInputWrap>
         {label && <DeprecatedLabel>{label}</DeprecatedLabel>}
         <FlexContainer isFlexAlignCenter>
-          <Button className={elMr4} type="button">
+          <DeprecatedButton className={elMr4} type="button">
             {fileUrl ? 'Change' : 'Upload'}
-          </Button>
+          </DeprecatedButton>
           <ElFileInput
             data-testid="el-file-input"
             aria-label={`File upload input ${placeholderText}`}

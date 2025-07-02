@@ -1,5 +1,5 @@
 import { ButtonGroup } from './button-group'
-import { Button } from '../button'
+import { DeprecatedButton } from '../deprecated-button'
 import { Meta } from '@storybook/react-vite'
 import { figmaDesignUrls } from '../../storybook/figma'
 import { DeprecatedIcon } from '../deprecated-icon'
@@ -14,11 +14,11 @@ export default meta
 export const Default = {
   render: ({}) => (
     <ButtonGroup>
-      <Button>Button 1</Button>
-      <Button>Button 2</Button>
-      <Button>Button 3</Button>
-      <Button>Button 4</Button>
-      <Button>Button 5</Button>
+      <DeprecatedButton>Button 1</DeprecatedButton>
+      <DeprecatedButton>Button 2</DeprecatedButton>
+      <DeprecatedButton>Button 3</DeprecatedButton>
+      <DeprecatedButton>Button 4</DeprecatedButton>
+      <DeprecatedButton>Button 5</DeprecatedButton>
     </ButtonGroup>
   ),
   parameters: {
@@ -33,11 +33,11 @@ export const Default = {
 export const WithPrimaryButton = {
   render: ({}) => (
     <ButtonGroup>
-      <Button>Button 1</Button>
-      <Button>Button 2</Button>
-      <Button>Button 3</Button>
-      <Button>Button 4</Button>
-      <Button variant="primary">Button 5</Button>
+      <DeprecatedButton>Button 1</DeprecatedButton>
+      <DeprecatedButton>Button 2</DeprecatedButton>
+      <DeprecatedButton>Button 3</DeprecatedButton>
+      <DeprecatedButton>Button 4</DeprecatedButton>
+      <DeprecatedButton variant="primary">Button 5</DeprecatedButton>
     </ButtonGroup>
   ),
   parameters: {
@@ -52,11 +52,11 @@ export const WithPrimaryButton = {
 export const WithIconOnlyButton = {
   render: ({}) => (
     <ButtonGroup>
-      <Button>Button 1</Button>
-      <Button>Button 2</Button>
-      <Button>Button 3</Button>
-      <Button>Button 4</Button>
-      <Button iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
+      <DeprecatedButton>Button 1</DeprecatedButton>
+      <DeprecatedButton>Button 2</DeprecatedButton>
+      <DeprecatedButton>Button 3</DeprecatedButton>
+      <DeprecatedButton>Button 4</DeprecatedButton>
+      <DeprecatedButton iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
     </ButtonGroup>
   ),
   parameters: {

@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, HTMLAttributes, MouseEvent, SetStateAction, useState, useId } from 'react'
 import { ElMobileControlItem, ElMobileControls, ElMobileControlsBg, elMobileControlsVisible } from './__styles__'
 import { IconNames } from '../deprecated-icon'
-import { FloatingButton } from '../button'
+import { DeprecatedFloatingButton } from '../deprecated-button'
 import { cx } from '@linaria/core'
 import { elIsActive } from '../../styles/states'
 
@@ -65,7 +65,7 @@ export const MobileControls: FC<MobileControlsProps> = ({
             {label}
           </ElMobileControlItem>
         ))}
-        <FloatingButton aria-controls={id} variant="primary" icon={buttonIcon ? buttonIcon : 'menu'} />
+        <DeprecatedFloatingButton aria-controls={id} variant="primary" icon={buttonIcon ? buttonIcon : 'menu'} />
       </ElMobileControls>
     </>
   )

@@ -3,7 +3,7 @@ import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall, For
 import { Toggle, ToggleRadio, ElToggleItem } from '../toggle'
 import { TextArea } from '../textarea'
 import { MultiSelectInput } from '../multi-select'
-import { Button, DeprecatedButtonGroup } from '../button'
+import { DeprecatedButton, DeprecatedButtonGroup } from '../deprecated-button'
 import { DeprecatedLabel } from '../deprecated-label'
 import { Select } from '../select'
 import { TextBase, TextSM } from '../typography'
@@ -83,8 +83,8 @@ export const BasicForm = {
         </InputWrapFull>
       </FormLayout>
       <DeprecatedButtonGroup alignment="left">
-        <Button>Cancel</Button>
-        <Button variant="primary">Submit</Button>
+        <DeprecatedButton>Cancel</DeprecatedButton>
+        <DeprecatedButton variant="primary">Submit</DeprecatedButton>
       </DeprecatedButtonGroup>
     </form>
   ),
@@ -202,8 +202,8 @@ export const ComplexForm = {
         </InputWrapFull>
       </FormLayout>
       <DeprecatedButtonGroup alignment="left">
-        <Button>Cancel</Button>
-        <Button variant="primary">Submit</Button>
+        <DeprecatedButton>Cancel</DeprecatedButton>
+        <DeprecatedButton variant="primary">Submit</DeprecatedButton>
       </DeprecatedButtonGroup>
     </form>
   ),

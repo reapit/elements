@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect, type ComponentProps } from 'react'
 import { Menu, useMenuContext } from '.'
-import { Button } from '../button'
+import { DeprecatedButton } from '../deprecated-button'
 import { DeprecatedIcon } from '../deprecated-icon'
 import { FlexContainer, MainContainer } from '../layout'
 import { elHScreen } from '../../styles/sizing'
@@ -20,7 +20,7 @@ export const Default: StoryObj = {
       <Menu>
         <Menu.Trigger>
           {({ getTriggerProps }) => (
-            <Button {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
+            <DeprecatedButton {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
           )}
         </Menu.Trigger>
         <Menu.Popover>
@@ -44,7 +44,7 @@ export const WithCompleteFeatures: StoryObj = {
       <Menu>
         <Menu.Trigger>
           {({ getTriggerProps }) => (
-            <Button {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
+            <DeprecatedButton {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
           )}
         </Menu.Trigger>
         <Menu.Popover>
@@ -108,7 +108,7 @@ export const WithCustomAlignment: Story = {
         <Menu data-alignment="right">
           <Menu.Trigger>
             {({ getTriggerProps }) => (
-              <Button {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
+              <DeprecatedButton {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
             )}
           </Menu.Trigger>
           <Menu.Popover yOffset={10}>
@@ -137,9 +137,13 @@ export const MoreComplexUsageExample: Story = {
         <Menu {...props}>
           <Menu.Trigger>
             {({ getTriggerProps }) => (
-              <Button {...getTriggerProps()} {...props} iconRight={<DeprecatedIcon icon="more" fontSize="1rem" />}>
+              <DeprecatedButton
+                {...getTriggerProps()}
+                {...props}
+                iconRight={<DeprecatedIcon icon="more" fontSize="1rem" />}
+              >
                 More
-              </Button>
+              </DeprecatedButton>
             )}
           </Menu.Trigger>
           <Menu.Popover yOffset={yOffset}>
@@ -226,7 +230,7 @@ export const WithIframe: Story = {
         <Menu>
           <Menu.Trigger>
             {({ getTriggerProps }) => (
-              <Button {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
+              <DeprecatedButton {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
             )}
           </Menu.Trigger>
           <Menu.Popover>

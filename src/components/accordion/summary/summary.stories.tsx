@@ -1,7 +1,7 @@
 import { AccordionLabelIdContext } from '../accordion-label-id-context'
 import { AccordionSummary } from './summary'
 import { BathIcon } from '#src/icons/bath'
-import { Button } from '#src/components/button/button'
+import { DeprecatedButton } from '#src/components/deprecated-button/button'
 import { BedIcon } from '#src/icons/bed'
 import { CarIcon } from '#src/icons/car'
 import { Features } from '#src/components/features'
@@ -32,9 +32,9 @@ const meta = {
         ),
         Value: '2',
         'Clear Button': (
-          <Button variant="tertiary" hasNoPadding>
+          <DeprecatedButton variant="tertiary" hasNoPadding>
             Clear
-          </Button>
+          </DeprecatedButton>
         ),
       },
     },

@@ -2,7 +2,7 @@ import { ModalBg, ModalBody, ModalHeader, ModalContainer, Modal } from './index'
 import { TextBase } from '../typography'
 import { elIsActive } from '../../styles/states'
 import { useState } from 'react'
-import { Button } from '../button'
+import { DeprecatedButton } from '../deprecated-button'
 
 export default {
   title: 'Deprecated/Modal',
@@ -29,9 +29,9 @@ export const ReactUsage = {
 
     return (
       <>
-        <Button variant="primary" onClick={() => setModalIsOpen(!modalIsOpen)}>
+        <DeprecatedButton variant="primary" onClick={() => setModalIsOpen(!modalIsOpen)}>
           Open Modal
-        </Button>
+        </DeprecatedButton>
         <Modal isOpen={modalIsOpen} onModalClose={() => setModalIsOpen(!modalIsOpen)} title="Welcome to the demo modal">
           <TextBase>Here&apos;s some nice content for the inside of the modal.</TextBase>
         </Modal>
