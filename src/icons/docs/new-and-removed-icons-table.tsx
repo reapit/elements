@@ -80,9 +80,9 @@ function getNewIcon(icon: string) {
 
 function getNotes(deprecatedIcon: React.ReactNode, newIcon: React.ReactNode) {
   if (!deprecatedIcon) {
-    return <Badge variant="neutral">New</Badge>
+    return <Badge colour="neutral">New</Badge>
   } else if (!newIcon) {
-    return <Badge variant="danger">Removed</Badge>
+    return <Badge colour="danger">Removed</Badge>
   }
   return null
 }
