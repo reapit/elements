@@ -1,4 +1,5 @@
 import { styled } from '@linaria/react'
+import { font } from '../text'
 
 export const ElTooltip = styled.div`
   @keyframes fadeIn {
@@ -23,16 +24,13 @@ export const ElTooltip = styled.div`
     opacity: 0;
   }
 
+  border-radius: var(--comp-tooltip-border-radius);
+  background: var(--comp-tooltip-colour-fill);
+  color: var(--comp-tooltip-colour-text);
+
+  ${font('xs', 'regular')}
   width: max-content;
-  background: var(--fill-default-darkest, #222b33);
-  color: var(--text-white);
   padding: var(--spacing-2) var(--spacing-3) var(--spacing-2) var(--spacing-3);
-  border-radius: var(--corner-default);
-  font-family: var(--font-family);
-  font-size: var(--font-size-xs);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-xs);
-  letter-spacing: var(--letter-spacing-xs);
   text-align: left;
   position: absolute;
   transition: opacity 0.2s;
@@ -58,10 +56,5 @@ export const ElTooltip = styled.div`
 `
 
 export const ElTooltipLabel = styled.span`
-  font-family: var(--font-family);
-  font-size: var(--font-size-xs);
   font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-xs);
-  letter-spacing: var(--letter-spacing-xs);
-  text-align: left;
 `
