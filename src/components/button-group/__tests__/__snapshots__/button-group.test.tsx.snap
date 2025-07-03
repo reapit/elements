@@ -11,10 +11,10 @@ exports[`ButtonGroup > renders its children horizontally with a gap of --spacing
       role="button"
     >
       <div
-        class="mocked-styled-2 el-deprecated-button-spinner"
+        class="mocked-styled-1 el-deprecated-button-spinner"
       />
       <span
-        class="mocked-styled-3 el-deprecated-button-label"
+        class="mocked-styled-2 el-deprecated-button-label"
       >
         Button 1
       </span>
@@ -25,10 +25,10 @@ exports[`ButtonGroup > renders its children horizontally with a gap of --spacing
       role="button"
     >
       <div
-        class="mocked-styled-2 el-deprecated-button-spinner"
+        class="mocked-styled-1 el-deprecated-button-spinner"
       />
       <span
-        class="mocked-styled-3 el-deprecated-button-label"
+        class="mocked-styled-2 el-deprecated-button-label"
       >
         Button 2
       </span>
@@ -39,10 +39,10 @@ exports[`ButtonGroup > renders its children horizontally with a gap of --spacing
       role="button"
     >
       <div
-        class="mocked-styled-2 el-deprecated-button-spinner"
+        class="mocked-styled-1 el-deprecated-button-spinner"
       />
       <span
-        class="mocked-styled-3 el-deprecated-button-label"
+        class="mocked-styled-2 el-deprecated-button-label"
       >
         Button 3
       </span>

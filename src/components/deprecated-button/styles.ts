@@ -1,7 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { isMobile } from '#src/styles/media'
-import { ElDeprecatedIcon } from '../deprecated-icon'
 
 /** @deprecated */
 export const elDeprecatedButtonSizeSmall = css``
@@ -13,7 +12,7 @@ export const elDeprecatedButtonSizeLarge = css``
 /** @deprecated */
 export const elDeprecatedButtonLabel = css``
 /** @deprecated */
-export const elDeprecatedIcon = ElDeprecatedIcon
+export const elDeprecatedIcon = css``
 /** @deprecated */
 export const elDeprecatedButtonIconOnly = css``
 /** @deprecated */

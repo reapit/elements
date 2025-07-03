@@ -7,7 +7,7 @@ import { DeprecatedIcon, IconNames } from '../deprecated-icon'
 const ICON_OPTIONS: IconNames[] = ['star', 'check', 'add', 'chevronDown', 'email']
 
 const meta: Meta<typeof DeprecatedButton> = {
-  title: 'Deprecated/Button',
+  title: 'Deprecated/DeprecatedButton',
   component: DeprecatedButton,
   argTypes: {
     variant: {
