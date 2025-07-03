@@ -10,10 +10,10 @@ exports[`Tooltip with createPortal > should not render the tooltip when hidden 1
     role="button"
   >
     <div
-      class="mocked-styled-1 el-deprecated-button-spinner"
+      class="mocked-styled-0 el-deprecated-button-spinner"
     />
     <span
-      class="mocked-styled-2 el-deprecated-button-label"
+      class="mocked-styled-1 el-deprecated-button-label"
     >
       Hover me
     </span>
@@ -31,10 +31,10 @@ exports[`Tooltip with createPortal > should render the tooltip when visible 1`] 
     role="button"
   >
     <div
-      class="mocked-styled-1 el-deprecated-button-spinner"
+      class="mocked-styled-0 el-deprecated-button-spinner"
     />
     <span
-      class="mocked-styled-2 el-deprecated-button-label"
+      class="mocked-styled-1 el-deprecated-button-label"
     >
       Hover me
     </span>
