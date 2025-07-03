@@ -1,182 +1,95 @@
 import { styled } from '@linaria/react'
 import { ElDeprecatedIcon } from '../deprecated-icon'
+import { font } from '../text'
 
-export const ElBadgeIcon = styled.span``
+export const badgeColours = [
+  'neutral',
+  'success',
+  'pending',
+  'warning',
+  'danger',
+  'inactive',
+  'accent_1',
+  'accent_2',
+] as const
 
-export const ElBadge = styled.div`
+export type BadgeColour = (typeof badgeColours)[number]
+
+interface ElBadgeProps {
+  'data-colour': BadgeColour
+  'data-variant': 'default' | 'reversed'
+}
+
+export const ElBadge = styled.span<ElBadgeProps>`
   display: inline-flex;
   height: var(--size-5);
-  padding: var(--spacing-half) var(--spacing-1);
+  padding-block: var(--spacing-half);
+  padding-inline: var(--spacing-1);
   align-items: center;
   gap: var(--spacing-half);
   border-radius: var(--comp-badge-border-radius);
-  color: var(--comp-badge-colour-text-default-neutral);
-  background: var(--comp-badge-colour-fill-default-neutral);
 
-  ${ElBadgeIcon} {
-    color: var(--comp-badge-colour-icon-default-neutral);
-
-    ${ElDeprecatedIcon} {
-      width: var(--icon_size-xs);
-      height: var(--icon_size-xs);
-    }
-  }
-
-  &[data-variant='neutral'] {
-    color: var(--comp-badge-colour-text-default-neutral);
-    background: var(--comp-badge-colour-fill-default-neutral);
-
-    ${ElBadgeIcon} {
-      color: var(--comp-badge-colour-icon-default-neutral);
-    }
-  }
-
-  &[data-is-reversed='true'] {
-    color: var(--comp-badge-colour-text-reversed-neutral);
-    background: var(--comp-badge-colour-fill-reversed-neutral);
-
-    ${ElBadgeIcon} {
-      color: var(--comp-badge-colour-icon-reversed-neutral);
-    }
-  }
-
-  &[data-variant='success'] {
-    color: var(--comp-badge-colour-text-default-success);
-    background: var(--comp-badge-colour-fill-default-success);
-
-    ${ElBadgeIcon} {
-      color: var(--comp-badge-colour-icon-default-success);
-    }
-
-    &[data-is-reversed='true'] {
-      color: var(--comp-badge-colour-text-reversed-success);
-      background: var(--comp-badge-colour-fill-reversed-success);
-
-      ${ElBadgeIcon} {
-        color: var(--comp-badge-colour-icon-reversed-success);
-      }
-    }
-  }
-
-  &[data-variant='pending'] {
-    color: var(--comp-badge-colour-text-default-pending);
-    background: var(--comp-badge-colour-fill-default-pending);
-
-    ${ElBadgeIcon} {
-      color: var(--comp-badge-colour-icon-default-pending);
-    }
-
-    &[data-is-reversed='true'] {
-      color: var(--comp-badge-colour-text-reversed-pending);
-      background: var(--comp-badge-colour-fill-reversed-pending);
-
-      ${ElBadgeIcon} {
-        color: var(--comp-badge-colour-icon-reversed-pending);
-      }
-    }
-  }
-
-  &[data-variant='warning'] {
-    color: var(--comp-badge-colour-text-default-warning);
-    background: var(--comp-badge-colour-fill-default-warning);
-
-    ${ElBadgeIcon} {
-      color: var(--comp-badge-colour-icon-default-warning);
-    }
-
-    &[data-is-reversed='true'] {
-      color: var(--comp-badge-colour-text-reversed-warning);
-      background: var(--comp-badge-colour-fill-reversed-warning);
-
-      ${ElBadgeIcon} {
-        color: var(--comp-badge-colour-icon-reversed-warning);
-      }
-    }
-  }
-
-  &[data-variant='danger'] {
-    color: var(--comp-badge-colour-text-default-danger);
-    background: var(--comp-badge-colour-fill-default-danger);
-
-    ${ElBadgeIcon} {
-      color: var(--comp-badge-colour-icon-default-danger);
-    }
-
-    &[data-is-reversed='true'] {
-      color: var(--comp-badge-colour-text-reversed-danger);
-      background: var(--comp-badge-colour-fill-reversed-danger);
-
-      ${ElBadgeIcon} {
-        color: var(--comp-badge-colour-icon-reversed-danger);
-      }
-    }
-  }
-
-  &[data-variant='inactive'] {
-    color: var(--comp-badge-colour-text-default-inactive);
-    background: var(--comp-badge-colour-fill-default-inactive);
-
-    ${ElBadgeIcon} {
-      color: var(--comp-badge-colour-icon-default-inactive);
-    }
-
-    &[data-is-reversed='true'] {
-      color: var(--comp-badge-colour-text-reversed-inactive);
-      background: var(--comp-badge-colour-fill-reversed-inactive);
-
-      ${ElBadgeIcon} {
-        color: var(--comp-badge-colour-icon-reversed-inactive);
-      }
-    }
-  }
-
-  &[data-variant='accent_1'] {
-    color: var(--comp-badge-colour-text-default-accent_1);
-    background: var(--comp-badge-colour-fill-default-accent_1);
-
-    ${ElBadgeIcon} {
-      color: var(--comp-badge-colour-icon-default-accent_1);
-    }
-
-    &[data-is-reversed='true'] {
-      color: var(--comp-badge-colour-text-reversed-accent_1);
-      background: var(--comp-badge-colour-fill-reversed-accent_1);
-
-      ${ElBadgeIcon} {
-        color: var(--comp-badge-colour-icon-reversed-accent_1);
-      }
-    }
-  }
-
-  &[data-variant='accent_2'] {
-    color: var(--comp-badge-colour-text-default-accent_2);
-    background: var(--comp-badge-colour-fill-default-accent_2);
-
-    ${ElBadgeIcon} {
-      color: var(--comp-badge-colour-icon-default-accent_2);
-    }
-
-    &[data-is-reversed='true'] {
-      color: var(--comp-badge-colour-text-reversed-accent_2);
-      background: var(--comp-badge-colour-fill-reversed-accent_2);
-
-      ${ElBadgeIcon} {
-        color: var(--comp-badge-colour-icon-reversed-accent_2);
-      }
-    }
-  }
+  ${badgeColours.map((colour) => generateElBadgeColourStyles(colour)).join('\n')};
 `
 
-// Badge Label style
-export const ElBadgeLabel = styled.span`
+function generateElBadgeColourStyles(colour: BadgeColour) {
+  return `
+    &[data-colour='${colour}'][data-variant='default'] {
+      background: var(--comp-badge-colour-fill-default-${colour});
+    }
+    
+    &[data-colour='${colour}'][data-variant='reversed'] {
+      background: var(--comp-badge-colour-fill-reversed-${colour});
+    }
+  `
+}
+
+export const ElBadgeLabelContainer = styled.span`
+  padding-inline: var(--spacing-half);
+
+  ${font('xs', 'medium')}
+
+  ${badgeColours.map((colour) => generateElBadgeLabelColourStyles(colour)).join('\n')};
+`
+
+function generateElBadgeLabelColourStyles(colour: BadgeColour) {
+  return `
+    [data-colour='${colour}'][data-variant='default'] & {
+      color: var(--comp-badge-colour-text-default-${colour});
+    }
+
+    [data-colour='${colour}'][data-variant='reversed'] & {
+      color: var(--comp-badge-colour-text-reversed-${colour});
+    }
+  `
+}
+
+export const ElBadgeIconContainer = styled.span`
   display: flex;
-  padding: 0 var(--spacing-half);
-  align-items: center;
-  text-align: center;
-  font-family: var(--font-xs-medium-family);
-  font-size: var(--font-xs-medium-size);
-  font-style: normal;
-  font-weight: var(--font-xs-medium-weight);
-  line-height: var(--font-xs-medium-line_height);
-  letter-spacing: var(--font-xs-medium-letter_spacing);
+  place-items: center;
+  place-content: center;
+
+  width: var(--icon_size-xs);
+  height: var(--icon_size-xs);
+
+  ${ElDeprecatedIcon} {
+    color: inherit;
+    font-size: var(--icon_size-xs);
+    width: inherit;
+    height: inherit;
+  }
+
+  ${badgeColours.map((colour) => generateElBadgeIconContainerColourStyles(colour)).join('\n')}
 `
+
+function generateElBadgeIconContainerColourStyles(colour: BadgeColour) {
+  return `
+    [data-colour='${colour}'][data-variant='default'] & {
+      color: var(--comp-badge-colour-icon-default-${colour});
+    }
+
+    [data-colour='${colour}'][data-variant='reversed'] & {
+      color: var(--comp-badge-colour-icon-reversed-${colour});
+    }
+  `
+}
