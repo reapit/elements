@@ -49,7 +49,7 @@ const meta = {
             <Badge
               iconLeft={<DeprecatedIcon icon="add" fontSize="1rem" />}
               iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
-              variant="success"
+              colour="success"
             >
               Label
             </Badge>
@@ -57,19 +57,11 @@ const meta = {
         }
         if (itemName === 'Features') {
           acc[itemName] = (
-            <Features>
-              <FeaturesItem aria-label="Bedrooms" icon={<DeprecatedIcon icon="bed" />}>
-                1
-              </FeaturesItem>
-              <FeaturesItem aria-label="Bathooms" icon={<DeprecatedIcon icon="bath" />}>
-                2
-              </FeaturesItem>
-              <FeaturesItem aria-label="Cars" icon={<DeprecatedIcon icon="car" />}>
-                5
-              </FeaturesItem>
-              <FeaturesItem aria-label="Areas" icon={<DeprecatedIcon icon="appSwitcher" />}>
-                850 sqm
-              </FeaturesItem>
+            <Features size="xs">
+              <FeaturesItem label="Bedrooms" icon={<DeprecatedIcon icon="bed" />} value="1" />
+              <FeaturesItem label="Bathooms" icon={<DeprecatedIcon icon="bath" />} value="2" />
+              <FeaturesItem label="Cars" icon={<DeprecatedIcon icon="car" />} value="5" />
+              <FeaturesItem label="Areas" icon={<DeprecatedIcon icon="appSwitcher" />} value="850 sqm" />
             </Features>
           )
         }

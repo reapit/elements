@@ -53,7 +53,7 @@ export const WithCompleteFeatures: StoryObj = {
               <Menu.Item
                 label="Menu Item"
                 supplementaryInfo="Short description about the item"
-                badge={<Badge>Badge</Badge>}
+                badge={<Badge colour="neutral">Badge</Badge>}
                 onClick={console.log}
                 leftIcon={<DeprecatedIcon icon="property" />}
                 rightIcon={<DeprecatedIcon icon="exportIcon" />}
@@ -61,7 +61,7 @@ export const WithCompleteFeatures: StoryObj = {
               <Menu.Item
                 label="Menu Item anchor with long example text"
                 supplementaryInfo="Secondary info long description that won’t fit in one line"
-                badge={<Badge>Badge</Badge>}
+                badge={<Badge colour="neutral">Badge</Badge>}
                 href="/#"
                 leftIcon={<DeprecatedIcon icon="property" />}
                 rightIcon={<DeprecatedIcon icon="exportIcon" />}
@@ -69,7 +69,7 @@ export const WithCompleteFeatures: StoryObj = {
               <Menu.Item
                 label="Menu Item active"
                 supplementaryInfo="Short description about the item"
-                badge={<Badge>Badge</Badge>}
+                badge={<Badge colour="neutral">Badge</Badge>}
                 isActive
                 onClick={console.log}
                 leftIcon={<DeprecatedIcon icon="property" />}
@@ -78,7 +78,7 @@ export const WithCompleteFeatures: StoryObj = {
               <Menu.Item
                 label="Menu Item (disabled)"
                 supplementaryInfo="Short description about the item"
-                badge={<Badge>Badge with long text</Badge>}
+                badge={<Badge colour="neutral">Badge with long text</Badge>}
                 onClick={console.log}
                 disabled
                 leftIcon={<DeprecatedIcon icon="property" />}

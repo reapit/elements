@@ -18,16 +18,10 @@ const meta = {
       mapping: {
         None: undefined,
         Features: (
-          <Features>
-            <Features.Item icon={<BedIcon />} aria-label="3">
-              3
-            </Features.Item>
-            <Features.Item icon={<BathIcon />} aria-label="3">
-              2
-            </Features.Item>
-            <Features.Item icon={<CarIcon />} aria-label="3">
-              2
-            </Features.Item>
+          <Features size="xs">
+            <Features.Item icon={<BedIcon />} label="Bedrooms" value="3" />
+            <Features.Item icon={<BathIcon />} label="Bathrooms" value="2" />
+            <Features.Item icon={<CarIcon />} label="Cars" value="2" />
           </Features>
         ),
         Value: '2',
