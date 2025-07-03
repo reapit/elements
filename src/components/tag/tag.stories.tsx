@@ -1,44 +1,22 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Tag, TagGroup as TagGroupComponent } from './tag'
+import { Tag } from './tag'
 
-export default {
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+const meta = {
   title: 'Components/Tag',
   component: Tag,
+  argTypes: {
+    children: {
+      control: 'text',
+    },
+  },
+} satisfies Meta<typeof Tag>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Example: Story = {
   args: {
     children: 'Tag',
   },
-  argTypes: {
-    as: {
-      control: 'inline-radio',
-      description:
-        'whether the component will be rendered as `li` or `span`, defaults to `li` for easier use with `TagGroup`',
-      options: ['li', 'span'],
-    },
-  },
-} as Meta<typeof Tag>
-
-type Story = StoryObj<typeof Tag>
-
-/**
- * The `Tag` component is used to label, categorise or organise items using keywords.
- */
-export const Default: Story = {
-  args: {
-    as: 'li',
-  },
-}
-
-/**
- * The `TagGroup` Component is useful to render multiple `Tag`
- */
-export const TagGroup: Story = {
-  render: () => (
-    <TagGroupComponent>
-      <Tag>Tag</Tag>
-      <Tag>Tag</Tag>
-      <Tag>Tag</Tag>
-      <Tag>Tag</Tag>
-      <Tag>Tag</Tag>
-    </TagGroupComponent>
-  ),
 }
