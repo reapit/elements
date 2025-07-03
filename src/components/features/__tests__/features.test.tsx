@@ -1,19 +1,22 @@
-import { render } from '@testing-library/react'
-import { Features } from '../features'
+import { composeStories } from '@storybook/react-vite'
+import * as featuresStories from '../features.stories'
+import { render, screen } from '@testing-library/react'
 
-describe('Features', () => {
-  it('should render the component', () => {
-    expect(
-      render(
-        <Features>
-          <Features.Item icon={<span>icon</span>} aria-label="Bathrooms">
-            1
-          </Features.Item>
-          <Features.Item icon={<span>icon</span>} aria-label="Bedrooms">
-            2
-          </Features.Item>
-        </Features>,
-      ).asFragment(),
-    ).toMatchSnapshot()
-  })
+const FeaturesStories = composeStories(featuresStories)
+
+it('renders as a description list element', () => {
+  render(<FeaturesStories.Example data-testid="features" />)
+  const features = screen.getByTestId('features')
+  expect(features).toBeVisible()
+  expect(features.tagName).toBe('DL')
+})
+
+it('applies the `data-size` attribute when a `size` is specified', () => {
+  render(<FeaturesStories.Example data-testid="features" size="base" />)
+  expect(screen.getByTestId('features')).toHaveAttribute('data-size', 'base')
+})
+
+it('applies the `data-wrap` attribute when `wrap` is specified', () => {
+  render(<FeaturesStories.Example data-testid="features" wrap="nowrap" />)
+  expect(screen.getByTestId('features')).toHaveAttribute('data-wrap', 'nowrap')
 })
