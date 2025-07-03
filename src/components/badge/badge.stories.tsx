@@ -1,141 +1,165 @@
-import { Meta } from '@storybook/react-vite'
 import { Badge } from './badge'
-import { DeprecatedIcon, IconNames } from '../deprecated-icon'
-import { DeprecatedToolTip } from './../deprecated-tool-tip' // To be updated to v5 tooltip once #235 is merged
+import { badgeColours } from './styles'
+import { ChevronLeftIcon } from '#src/icons/chevron-left'
+import { ChevronRightIcon } from '#src/icons/chevron-right'
+import { StarIcon } from '#src/icons/star'
 
-const ICON_OPTIONS: IconNames[] = ['star', 'add', 'chevronDown', 'chevronLeft', 'chevronRight']
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta: Meta<typeof Badge> = {
   title: 'Components/Badge',
   component: Badge,
   argTypes: {
-    variant: {
+    children: {
+      control: 'text',
+    },
+    colour: {
       control: 'select',
-      options: ['neutral', 'success', 'pending', 'warning', 'danger', 'inactive', 'accent_1', 'accent_2'],
-      description: 'Defines the badge style variant.',
+      options: badgeColours,
+      table: {
+        type: {
+          summary: 'union',
+        },
+      },
     },
     iconLeft: {
-      control: 'select',
-      options: ICON_OPTIONS,
-      description: 'The icon displayed on the left side of the badge.',
-      mapping: ICON_OPTIONS.reduce((acc, iconName) => {
-        acc[iconName] = <DeprecatedIcon icon={iconName} fontSize="1rem" />
-        return acc
-      }, {}),
+      control: 'radio',
+      options: ['None', 'ChevronLeft', 'Star'],
+      mapping: {
+        None: null,
+        ChevronLeft: <ChevronLeftIcon />,
+        Star: <StarIcon />,
+      },
     },
     iconRight: {
+      control: 'radio',
+      options: ['None', 'ChevronRight', 'Star'],
+      mapping: {
+        None: null,
+        ChevronRight: <ChevronRightIcon />,
+        Star: <StarIcon />,
+      },
+    },
+    variant: {
       control: 'select',
-      options: ICON_OPTIONS,
-      description: 'The icon displayed on the right side of the badge.',
-      mapping: ICON_OPTIONS.reduce((acc, iconName) => {
-        acc[iconName] = <DeprecatedIcon icon={iconName} fontSize="1rem" />
-        return acc
-      }, {}),
-    },
-    isReversed: { control: 'boolean', description: 'Reverse the badge if set to true.' },
-    'aria-label': {
-      control: 'text',
-      description: 'Accessible label for badge',
-    },
-    className: {
-      control: 'text',
-      description: 'CSS class for additional styling',
+      options: ['default', 'reversed'],
     },
   },
 }
 
 export default meta
+type Story = StoryObj<typeof meta>
 
-export const Default = {
+export const Example: Story = {
   args: {
-    children: 'Badge',
-  },
-}
-
-export const BadgeReversed = {
-  args: {
+    'aria-label': '',
     children: 'Label',
-    isReversed: true,
-    iconLeft: <DeprecatedIcon icon="chevronLeft" fontSize="1rem" />,
-    iconRight: <DeprecatedIcon icon="chevronRight" fontSize="1rem" />,
+    colour: 'neutral',
+    iconLeft: 'None',
+    iconRight: 'None',
+    variant: 'default',
   },
 }
 
-export const BadgeWithLabel = {
+/**
+ * There are two variants of the badge: `default` and `reversed`.
+ */
+export const Variants: Story = {
   args: {
-    children: 'Label',
-    iconLeft: <DeprecatedIcon icon="chevronLeft" fontSize="1rem" />,
-    iconRight: <DeprecatedIcon icon="chevronRight" fontSize="1rem" />,
+    ...Example.args,
+    variant: 'reversed',
   },
-}
-
-export const BadgeWithIcon = {
-  args: {
-    'aria-label': 'Label',
-    iconLeft: <DeprecatedIcon icon="star" fontSize="1rem" />,
+  argTypes: {
+    iconLeft: {
+      control: false,
+    },
+    iconRight: {
+      control: false,
+    },
+    variant: {
+      control: false,
+    },
   },
-  render: (props) => (
-    <DeprecatedToolTip tip="Star">
-      <Badge {...props}></Badge>
-    </DeprecatedToolTip>
-  ), // To be updated to v5 tooltip once #235 is merged
-}
-
-export const BadgeVariant = {
-  args: {
-    children: 'Label',
-    iconLeft: <DeprecatedIcon icon="add" fontSize="1rem" />,
-    iconRight: <DeprecatedIcon icon="chevronDown" fontSize="1rem" />,
-  },
-  // Adding decorator into the story to display multiple stories.
   decorators: [
     (Story: any) => (
-      <div
-        style={{
-          display: 'flex',
-          gap: '10px',
-        }}
-      >
+      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
         <Story />
       </div>
     ),
   ],
-  render: (props: any) => (
+  render: (args) => (
     <>
-      <Badge {...props}>{props.children}</Badge>
-      <Badge {...props} variant={props.variant ? props.variant : 'success'}>
-        {props.children}
-      </Badge>
-      <Badge {...props} variant={props.variant ? props.variant : 'pending'}>
-        {props.children}
-      </Badge>
-      <Badge {...props} variant={props.variant ? props.variant : 'warning'}>
-        {props.children}
-      </Badge>
-      <Badge {...props} variant={props.variant ? props.variant : 'danger'}>
-        {props.children}
-      </Badge>
-      <Badge {...props} variant={props.variant ? props.variant : 'inactive'}>
-        {props.children}
-      </Badge>
-      <Badge {...props} variant={props.variant ? props.variant : 'accent_1'}>
-        {props.children}
-      </Badge>
-      <Badge {...props} variant={props.variant ? props.variant : 'accent_2'}>
-        {props.children}
-      </Badge>
+      <Badge {...args} variant="default" />
+      <Badge {...args} variant="reversed" />
     </>
   ),
-  // Adding the parameters to display only one varient code in the source
-  parameters: {
-    docs: {
-      source: {
-        code: `
-<Badge variant='success'>
-  Label
-</Badge>
-        `,
-      },
+}
+
+/**
+ * Icons can be placed on the left or right side of the badge, regardless of the badge's variant.
+ */
+export const Icons: Story = {
+  args: {
+    ...Example.args,
+    iconLeft: 'ChevronLeft',
+    iconRight: 'ChevronRight',
+  },
+  decorators: [
+    (Story: any) => (
+      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <Badge {...args} iconRight={null} />
+      <Badge {...args} iconLeft={null} />
+      <Badge {...args} />
+    </>
+  ),
+}
+
+/**
+ * When there is not enough space available, an ARIA label can be provided in place of the visual label. In this case,
+ * the ARIA label will also be used as a tooltip for visual users. Either a left or right icon can be provided, but
+ * not both.
+ */
+export const IconOnly: Story = {
+  name: 'Icon-only',
+  args: {
+    ...Example.args,
+    'aria-label': 'Label',
+    children: null,
+    iconLeft: 'Star',
+  },
+  argTypes: {
+    variant: {
+      control: false,
     },
+  },
+  decorators: [
+    (Story: any) => (
+      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <Badge {...args} variant="default" />
+      <Badge {...args} variant="reversed" />
+    </>
+  ),
+}
+
+/**
+ * A number of semantic colours are available for the badge. The colour can be changed by setting the `colour` prop.
+ */
+export const Colours: Story = {
+  args: {
+    ...Example.args,
+    colour: 'danger',
+    iconLeft: 'Star',
   },
 }

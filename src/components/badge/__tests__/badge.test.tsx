@@ -1,39 +1,79 @@
-import { render } from '@testing-library/react'
-import { Badge } from '..'
-import { DeprecatedIcon } from '#src/components/deprecated-icon/index'
+import { render, screen } from '@testing-library/react'
+import { StarIcon } from '#src/icons/star'
+import { Badge } from '../badge'
 
-describe('Badge', () => {
-  test('should match snapshot', () => {
-    const { asFragment } = render(<Badge>Label</Badge>)
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('renders badge with label', () => {
+  render(<Badge colour="neutral">Test Badge</Badge>)
+  expect(screen.getByText('Test Badge')).toBeVisible()
+})
 
-  test('should match snapshot with reversed badge', () => {
-    const { asFragment } = render(<Badge isReversed>Label</Badge>)
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('applies correct data attributes', () => {
+  render(
+    <Badge colour="success" variant="reversed" data-testid="badge">
+      Test Badge
+    </Badge>,
+  )
+  const badge = screen.getByTestId('badge')
+  expect(badge).toHaveAttribute('data-colour', 'success')
+  expect(badge).toHaveAttribute('data-variant', 'reversed')
+})
 
-  test('should match snapshot with success variant and label', () => {
-    const { asFragment } = render(<Badge variant="success">Label</Badge>)
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('uses the default variant when one is not specified', () => {
+  render(
+    <Badge colour="neutral" data-testid="badge">
+      Test Badge
+    </Badge>,
+  )
+  expect(screen.getByTestId('badge')).toHaveAttribute('data-variant', 'default')
+})
 
-  test('should match snapshot with icons and label', () => {
-    const { asFragment } = render(
-      <Badge
-        iconLeft={<DeprecatedIcon icon="add" fontSize="1rem" />}
-        iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
-      >
-        Label
-      </Badge>,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('can display an icon on the left', () => {
+  render(
+    <Badge colour="neutral" iconLeft={<StarIcon data-testid="left-icon" />}>
+      Test Badge
+    </Badge>,
+  )
+  expect(screen.getByTestId('left-icon')).toBeVisible()
+})
 
-  test('should match snapshot with icon only', () => {
-    const { asFragment } = render(
-      <Badge iconLeft={<DeprecatedIcon icon="add" fontSize="1rem" />} aria-label="label"></Badge>,
-    )
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('can display an icon on the right', () => {
+  render(
+    <Badge colour="neutral" iconRight={<StarIcon data-testid="right-icon" />}>
+      Test Badge
+    </Badge>,
+  )
+  expect(screen.getByTestId('right-icon')).toBeVisible()
+})
+
+test('can display icons on both the left and right', () => {
+  render(
+    <Badge
+      colour="neutral"
+      iconLeft={<StarIcon data-testid="left-icon" />}
+      iconRight={<StarIcon data-testid="right-icon" />}
+    >
+      Test Badge
+    </Badge>,
+  )
+  expect(screen.getByTestId('left-icon')).toBeVisible()
+  expect(screen.getByTestId('right-icon')).toBeVisible()
+})
+
+test('forwards additional props to the underlying element', () => {
+  render(
+    <Badge colour="neutral" data-testid="my-badge" className="custom-class">
+      Test Badge
+    </Badge>,
+  )
+  expect(screen.getByTestId('my-badge')).toBeVisible()
+  expect(screen.getByTestId('my-badge')).toHaveClass('custom-class')
+})
+
+test('applies aria-label when provided', () => {
+  render(
+    <Badge colour="neutral" aria-label="Accessible Badge">
+      Test Badge
+    </Badge>,
+  )
+  expect(screen.getByLabelText('Accessible Badge')).toBeVisible()
 })
