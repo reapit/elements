@@ -1,15 +1,33 @@
 import { styled } from '@linaria/react'
 import { font } from '../text'
 
+import type { CSSProperties } from 'react'
+
 export const ElCompactSelectNativeContainer = styled.div`
   position: relative;
   display: inline-flex;
   align-items: center;
 `
 
-export const ElCompactSelectNative = styled.select`
+interface ElCompactSelectNativeProps {
+  style?: CSSProperties & {
+    '--select-max-width'?: string
+  }
+}
+
+export const ElCompactSelectNative = styled.select<ElCompactSelectNativeProps>`
   all: unset;
   box-sizing: border-box;
+
+  max-width: var(--select-max-width);
+
+  @supports (field-sizing: content) {
+    field-sizing: content;
+  }
+
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 
   cursor: pointer;
   color: var(--comp-input-colour-text-default-input);

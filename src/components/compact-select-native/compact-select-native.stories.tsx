@@ -16,7 +16,7 @@ const meta = {
             <option value="portfolio1">Portfolio 1</option>
             <option value="portfolio2">Portfolio 2</option>
             <option value="portfolio3">Portfolio 3</option>
-            <option value="portfolio4">Portfolio 4</option>
+            <option value="portfolio4">Portfolio 4 with a long name</option>
           </>
         ),
         'With Groups': (
@@ -26,7 +26,7 @@ const meta = {
               <option value="portfolio1">Portfolio 1</option>
               <option value="portfolio2">Portfolio 2</option>
             </optgroup>
-            <optgroup label="Other Portfolios">
+            <optgroup aria-label="Other Portfolios">
               <option value="portfolio3">Portfolio 3</option>
               <option value="portfolio4">Portfolio 4</option>
               <option value="portfolio5">Portfolio 5</option>
@@ -48,7 +48,7 @@ type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
   args: {
-    'aria-label': 'Select portfolio',
+    'aria-label': 'Portfolio',
     children: 'Simple',
     size: 'small',
   },
@@ -83,9 +83,21 @@ export const Sizes: Story = {
 }
 
 /**
+ * If the select's options are potentially long, the `maxWidth` prop can be used to limit how wide
+ * the select will grow when long options are selected.
+ */
+export const Overflow: Story = {
+  args: {
+    ...Example.args,
+    defaultValue: 'portfolio4',
+    maxWidth: '100px',
+  },
+}
+
+/**
  * Options for the select can be grouped using the native `optgroup` element.
  */
-export const WithGroups: Story = {
+export const OptionGroups: Story = {
   args: {
     ...Example.args,
     children: 'With Groups',
