@@ -216,7 +216,7 @@ const baseButtonStyles = `
     outline: 0;
   }
   
-  // TO DO: no the token variable names not updated, since no design guide in figma
+  /* TODO: no the token variable names not updated, since no design guide in figma */
   &.${elDeprecatedFloatingButton} {
     border-radius: 100%;
     height: 3.75rem;
