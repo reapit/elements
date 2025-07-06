@@ -82,10 +82,6 @@ const baseButtonStyles = `
     }
   }
 
-  &:focus {
-    border: var(--border-width-double) solid var(--colour-border-focus);
-  }
-
   &.${elDeprecatedButtonIconOnly} {
     padding: 0px;
     width: var(--size-9);
