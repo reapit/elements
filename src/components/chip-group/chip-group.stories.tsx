@@ -86,7 +86,7 @@ export const Default: Story = {
 /**
  * By default, chips will wrap to other lines if they would otherwise overflow the group's bounding box.
  */
-export const Wrapping: Story = {
+export const Overflow: Story = {
   args: {
     ...Default.args,
     overflow: 'wrap',
@@ -99,7 +99,7 @@ export const Wrapping: Story = {
  */
 export const Scrolling: Story = {
   args: {
-    ...Wrapping.args,
+    ...Overflow.args,
     overflow: 'scroll',
   },
   decorators: [useNarrowParentDecorator],
@@ -138,7 +138,7 @@ export const ChipSizing: Story = {
       <ChipGroup.Item key="7" {...ChipStories.FilterChip.args}>
         Chip 6
       </ChipGroup.Item>,
-      <ChipGroup.Item key="8" {...ChipStories.Wrapping.args}>
+      <ChipGroup.Item key="8" {...ChipStories.Overflow.args}>
         Or, you can avoid truncation and allow a long chip label to wrap to multiple lines
       </ChipGroup.Item>,
       <ChipGroup.Item key="9" {...ChipStories.LongWords.args} />,

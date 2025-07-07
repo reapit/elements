@@ -14,6 +14,9 @@ export const elButton = css`
   text-decoration: none;
   cursor: pointer;
 
+  /* NOTE: we don't want the button's label to wrap */
+  white-space: nowrap;
+
   &:focus-visible {
     outline: var(--border-width-double) solid var(--colour-border-focus);
     outline-offset: var(--border-width-default);
