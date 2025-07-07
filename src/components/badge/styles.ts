@@ -29,6 +29,9 @@ export const ElBadge = styled.span<ElBadgeProps>`
   gap: var(--spacing-half);
   border-radius: var(--comp-badge-border-radius);
 
+  /* NOTE: necessary when used in an inline or inline-block layout */
+  vertical-align: middle;
+
   ${badgeColours.map((colour) => generateElBadgeColourStyles(colour)).join('\n')};
 `
 

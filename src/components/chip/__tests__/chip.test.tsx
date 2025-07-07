@@ -47,19 +47,10 @@ test('chip label has `data-will-truncate="true"` attribute when `willTruncateLab
   expect(screen.getByText('Label')).toHaveAttribute('data-will-truncate', 'true')
 })
 
-test('disabled chip has `aria-disabled="true"` attribute', () => {
-  render(
-    <Chip isDisabled variant="filter">
-      Label
-    </Chip>,
-  )
-  expect(screen.getByRole('button', { name: 'Label' })).toHaveAttribute('aria-disabled', 'true')
-})
-
-test('disabled chip does not call `onClick`', () => {
+test('ARIA disabled chip does not call `onClick`', () => {
   const fakeClick = vi.fn()
   render(
-    <Chip isDisabled onClick={fakeClick} variant="filter">
+    <Chip aria-disabled="true" onClick={fakeClick} variant="filter">
       Label
     </Chip>,
   )
@@ -69,11 +60,11 @@ test('disabled chip does not call `onClick`', () => {
   expect(fakeClick).not.toHaveBeenCalled()
 })
 
-test('disabled chip prevents click events from propagating', () => {
+test('ARIA disabled chip prevents click events from propagating', () => {
   const parentClickHandler = vi.fn()
   render(
     <div onClick={parentClickHandler}>
-      <Chip isDisabled variant="filter">
+      <Chip aria-disabled="true" variant="filter">
         Label
       </Chip>
     </div>,

@@ -8,9 +8,9 @@ import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, MouseE
 export interface CommonButtonBaseProps {
   /**
    * Whether the button is disabled. This can be used to make the button appear disabled to users, but still be
-   * focusable and available in the a11y tree. ARIA disabled buttons, whether they are button or anchor DOM elements,
-   * will ignore click events. Using `aria-disabled` is preferred when the button should still be focusable while it's
-   * disabled; for example, to allow a tooltip to be displayed that explains why the button is disabled.
+   * focusable. ARIA disabled buttons, whether they are button or anchor DOM elements, will ignore click events.
+   * Using `aria-disabled` is preferred when the button should still be focusable while it's disabled; for example,
+   * to allow a tooltip to be displayed that explains why the button is disabled.
    */
   'aria-disabled'?: boolean | 'true' | 'false'
   /** The button's label */

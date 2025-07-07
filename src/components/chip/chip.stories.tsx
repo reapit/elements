@@ -8,10 +8,13 @@ const meta = {
   title: 'Components/Chip',
   component: Chip,
   argTypes: {
+    'aria-disabled': {
+      control: 'boolean',
+    },
     children: {
       control: 'text',
     },
-    isDisabled: {
+    disabled: {
       control: 'boolean',
     },
     variant: {
@@ -25,15 +28,23 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
+export const Example: Story = {
+  args: {
+    'aria-disabled': false,
+    children: 'Label',
+    disabled: false,
+    willTruncateLabel: false,
+    variant: 'filter',
+  },
+}
+
 /**
  * The filter chip variant is primarily used in a filter bar to indicate what
  * filters have been applied to a table
  */
 export const FilterChip: Story = {
   args: {
-    children: 'Label',
-    isDisabled: false,
-    willTruncateLabel: false,
+    ...Example.args,
     variant: 'filter',
   },
 }
@@ -44,20 +55,20 @@ export const FilterChip: Story = {
  */
 export const SelectionChip: Story = {
   args: {
-    ...FilterChip.args,
+    ...Example.args,
     variant: 'selection',
   },
 }
 
 /**
- * Chips can be disabled in order to prevent their removal. Disabled chips should
- * remain focusable in order to keep them in the accessibility tree. If it is
- * important to communicate why the chip is disabled, a tooltip can be provided.
+ * Chips can be disabled using `aria-disabled` or `disabled`. In both cases, click events will be ignored, however,
+ * `aria-disabled` allows the chip to still be focusable, which, for example, allows tooltips to still be displayed.
+ * A `disabled` chip is also `aria-disabled`, regardless of the value of `aria-disabled`.
  */
 export const Disabled: Story = {
   args: {
     ...FilterChip.args,
-    isDisabled: true,
+    disabled: true,
   },
   render: function DisabledChipStory(args) {
     const tooltip = useTooltip()
@@ -71,7 +82,7 @@ export const Disabled: Story = {
 }
 
 /** By default, long labels will wrap if there is not enough space is available. */
-export const Wrapping: Story = {
+export const Overflow: Story = {
   args: {
     ...FilterChip.args,
     children: "This very long label will wrap because it's parent is not wide enough",

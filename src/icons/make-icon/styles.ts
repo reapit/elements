@@ -3,6 +3,9 @@ import { css } from '@linaria/core'
 export const elIcon = css`
   fill: currentColor;
 
+  /* NOTE: necessary when used in an inline or inline-block layout */
+  vertical-align: middle;
+
   &,
   &[color='primary'] {
     color: var(--colour-icon-primary);

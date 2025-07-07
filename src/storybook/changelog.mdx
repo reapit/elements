@@ -21,6 +21,11 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 - **feat:** Add new `CompactSelectNative` component. See [CompactSelectNative](?path=/docs/components-compact-select-native--docs) for details.
 - **fix:** #502 introduced a visual regression in the `MobileControls` component. This has now been fixed.
 - **fix:** #502 introduced a visual regression in the `DeprecatedButton` component. This has now been fixed.
+- **chore!:** `Chip` component now aligned with `Button` component in terms of `aria-disabled` and `disabled` props. The original `isDisabled` prop has been removed.
+- **chore:** `Chip` now has the correct height (technically now a minimum height).
+- **chore:** `ChipGroup` now resets user-agent styles for its list and list item elements.
+- **chore:** `Badge`, `TagGroup` and icons will now default to `vertical-align: middle` in `inline` and `inline-block` layouts. This is important for the upcoming `PageHeader` replacement.
+- **chore:** `Button` labels will not wrap when used in a grid or flex layout that shrinks the button's container.
 
 ### **5.0.0-beta.36 - 04/07/25**
 

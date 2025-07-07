@@ -13,6 +13,9 @@ interface ElChipGroupListProps {
 }
 
 export const ElChipGroupList = styled.ul<ElChipGroupListProps>`
+  all: unset;
+  box-sizing: border-box;
+
   display: flex;
   gap: var(--spacing-2);
   list-style: none;
