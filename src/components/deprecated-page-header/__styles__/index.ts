@@ -4,14 +4,17 @@ import { ElDeprecatedAvatar, ElDeprecatedAvatarImage } from '../../deprecated-av
 import { elTextL, elTextBase } from '../../typography'
 import { css } from '@linaria/core'
 
+/** @deprecated */
 const dot = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
 <path d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z" fill="slategrey"/>
 </svg>
 `
 
-export const elPageHeaderMaxWidth = css``
+/** @deprecated */
+export const elDeprecatedPageHeaderMaxWidth = css``
 
-export const ElPageHeaderContainer = styled.div`
+/** @deprecated */
+export const ElDeprecatedPageHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -35,7 +38,8 @@ export const ElPageHeaderContainer = styled.div`
   }
 `
 
-export const ElPageHeaderTitleContainer = styled.div`
+/** @deprecated */
+export const ElDeprecatedPageHeaderTitleContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -47,12 +51,13 @@ export const ElPageHeaderTitleContainer = styled.div`
   }
 `
 
-export const ElPageHeaderWrapInner = styled.div`
+/** @deprecated */
+export const ElDeprecatedPageHeaderWrapInner = styled.div`
   width: 100%;
   height: 100%;
   padding: 0.5rem 0 0;
 
-  &.${elPageHeaderMaxWidth} {
+  &.${elDeprecatedPageHeaderMaxWidth} {
     max-width: 1200px;
     margin: 0 auto;
   }
@@ -62,7 +67,8 @@ export const ElPageHeaderWrapInner = styled.div`
   }
 `
 
-export const ElPageHeaderWrap = styled.div`
+/** @deprecated */
+export const ElDeprecatedPageHeaderWrap = styled.div`
   display: flex;
   flex-direction: column;
   background-color: var(--page-header-bg);
@@ -108,7 +114,8 @@ export const ElPageHeaderWrap = styled.div`
   }
 `
 
-export const ElPageHeaderSeparator = styled.span`
+/** @deprecated */
+export const ElDeprecatedPageHeaderSeparator = styled.span`
   height: 1.5rem;
   width: 1.5rem;
   position: relative;

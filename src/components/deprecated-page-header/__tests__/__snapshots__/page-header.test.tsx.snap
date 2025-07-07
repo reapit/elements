@@ -1,12 +1,12 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`PageHeader component > should match a snapshot 1`] = `
+exports[`DeprecatedPageHeader component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-3 el-page-header-wrap"
+    class="mocked-styled-3 el-deprecated-page-header-wrap"
   >
     <div
-      class="mocked-styled-2 el-page-header-wrap-inner"
+      class="mocked-styled-2 el-deprecated-page-header-wrap-inner"
     >
       <div
         class="el-mb6 el-deprecated-bread-crumb-container"
@@ -125,10 +125,10 @@ exports[`PageHeader component > should match a snapshot 1`] = `
         </div>
       </div>
       <div
-        class="mocked-styled-0 el-page-header-container"
+        class="mocked-styled-0 el-deprecated-page-header-container"
       >
         <div
-          class="mocked-styled-0 el-page-header-container"
+          class="mocked-styled-0 el-deprecated-page-header-container"
         >
           <div
             class="mocked-styled-6 el-deprecated-avatar el-deprecated-avatar-image el-deprecated-avatar"
@@ -144,7 +144,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
             class="el-flex-container el-flex-column"
           >
             <div
-              class="mocked-styled-1 el-page-header-title-container"
+              class="mocked-styled-1 el-deprecated-page-header-title-container"
             >
               <h1
                 class="el-text-base el-text2xl el-has-bold-text el-mr3"
@@ -184,7 +184,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
                 Page Info 1
               </div>
               <span
-                class="mocked-styled-4 el-page-header-separator"
+                class="mocked-styled-4 el-deprecated-page-header-separator"
               />
               <div
                 class="el-text-base"
@@ -192,7 +192,7 @@ exports[`PageHeader component > should match a snapshot 1`] = `
                 Page Info 2
               </div>
               <span
-                class="mocked-styled-4 el-page-header-separator"
+                class="mocked-styled-4 el-deprecated-page-header-separator"
               />
               <div
                 class="el-text-base"

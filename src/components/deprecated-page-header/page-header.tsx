@@ -1,12 +1,12 @@
 import React, { FC, Fragment, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
 import {
-  ElPageHeaderContainer,
-  ElPageHeaderSeparator,
-  ElPageHeaderTitleContainer,
-  ElPageHeaderWrap,
-  ElPageHeaderWrapInner,
-  elPageHeaderMaxWidth,
+  ElDeprecatedPageHeaderContainer,
+  ElDeprecatedPageHeaderSeparator,
+  ElDeprecatedPageHeaderTitleContainer,
+  ElDeprecatedPageHeaderWrap,
+  ElDeprecatedPageHeaderWrapInner,
+  elDeprecatedPageHeaderMaxWidth,
 } from './__styles__'
 import { Text2XL, TextL, TextBase, TypographyProps } from '../typography'
 import { FlexContainer } from '../layout'
@@ -17,7 +17,8 @@ import { DeprecatedBreadCrumb, DeprecatedBreadCrumbProps } from '../deprecated-b
 import { elMb3, elMb6, elMr3 } from '../../styles/spacing'
 import { Tabs, TabsProps } from '../tabs'
 
-export interface PageHeaderProps extends HTMLAttributes<HTMLDivElement> {
+/** @deprecated */
+export interface DeprecatedPageHeaderProps extends HTMLAttributes<HTMLDivElement> {
   avatar?: DeprecatedAvatarProps
   pageTitle: TypographyProps
   pageSubtitle?: TypographyProps
@@ -29,31 +30,40 @@ export interface PageHeaderProps extends HTMLAttributes<HTMLDivElement> {
   hasMaxWidth?: boolean
 }
 
-export const PageHeaderWrap: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
-  <ElPageHeaderWrap className={cx(className)} {...rest}>
+/** @deprecated */
+export const DeprecatedPageHeaderWrap: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
+  <ElDeprecatedPageHeaderWrap className={cx(className)} {...rest}>
     {children}
-  </ElPageHeaderWrap>
+  </ElDeprecatedPageHeaderWrap>
 )
 
-export const PageHeaderWrapInner: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
-  <ElPageHeaderWrapInner className={cx(className)} {...rest}>
+/** @deprecated */
+export const DeprecatedPageHeaderWrapInner: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
+  <ElDeprecatedPageHeaderWrapInner className={cx(className)} {...rest}>
     {children}
-  </ElPageHeaderWrapInner>
+  </ElDeprecatedPageHeaderWrapInner>
 )
 
-export const PageHeaderContainer: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
-  <ElPageHeaderContainer className={cx(className)} {...rest}>
+/** @deprecated */
+export const DeprecatedPageHeaderContainer: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
+  <ElDeprecatedPageHeaderContainer className={cx(className)} {...rest}>
     {children}
-  </ElPageHeaderContainer>
+  </ElDeprecatedPageHeaderContainer>
 )
 
-export const PageHeaderTitleContainer: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
-  <ElPageHeaderTitleContainer className={cx(className)} {...rest}>
+/** @deprecated */
+export const DeprecatedPageHeaderTitleContainer: FC<HTMLAttributes<HTMLDivElement>> = ({
+  children,
+  className,
+  ...rest
+}) => (
+  <ElDeprecatedPageHeaderTitleContainer className={cx(className)} {...rest}>
     {children}
-  </ElPageHeaderTitleContainer>
+  </ElDeprecatedPageHeaderTitleContainer>
 )
 
-export const PageHeader: FC<PageHeaderProps> = ({
+/** @deprecated */
+export const DeprecatedPageHeader: FC<DeprecatedPageHeaderProps> = ({
   avatar,
   pageTitle,
   pageSubtitle,
@@ -66,14 +76,14 @@ export const PageHeader: FC<PageHeaderProps> = ({
   ...rest
 }) => {
   return (
-    <PageHeaderWrap {...rest}>
-      <PageHeaderWrapInner className={cx(hasMaxWidth && elPageHeaderMaxWidth)}>
+    <DeprecatedPageHeaderWrap {...rest}>
+      <DeprecatedPageHeaderWrapInner className={cx(hasMaxWidth && elDeprecatedPageHeaderMaxWidth)}>
         {breadcrumb && <DeprecatedBreadCrumb className={elMb6} {...breadcrumb} />}
-        <PageHeaderContainer>
-          <PageHeaderContainer>
+        <DeprecatedPageHeaderContainer>
+          <DeprecatedPageHeaderContainer>
             {avatar && <DeprecatedAvatar {...avatar} />}
             <FlexContainer isFlexColumn>
-              <PageHeaderTitleContainer>
+              <DeprecatedPageHeaderTitleContainer>
                 {pageTitle && <Text2XL className={elMr3} tag="h1" hasBoldText {...pageTitle} />}
                 {tags && (
                   <DeprecatedTagGroup>
@@ -84,20 +94,20 @@ export const PageHeader: FC<PageHeaderProps> = ({
                     ))}
                   </DeprecatedTagGroup>
                 )}
-              </PageHeaderTitleContainer>
+              </DeprecatedPageHeaderTitleContainer>
               {pageSubtitle && <TextL tag="h2" hasBoldText {...pageSubtitle} />}
               {pageInfo && (
                 <FlexContainer>
                   {pageInfo.map(({ ...rest }, index) => (
                     <Fragment key={index}>
                       <TextBase {...rest} />
-                      {index !== pageInfo.length - 1 && <ElPageHeaderSeparator />}
+                      {index !== pageInfo.length - 1 && <ElDeprecatedPageHeaderSeparator />}
                     </Fragment>
                   ))}
                 </FlexContainer>
               )}
             </FlexContainer>
-          </PageHeaderContainer>
+          </DeprecatedPageHeaderContainer>
           {buttons && (
             <DeprecatedButtonGroup className={cx(!tabs && elMb3)}>
               {buttons.map(({ children, ...rest }, index) => (
@@ -107,9 +117,9 @@ export const PageHeader: FC<PageHeaderProps> = ({
               ))}
             </DeprecatedButtonGroup>
           )}
-        </PageHeaderContainer>
+        </DeprecatedPageHeaderContainer>
         {tabs && <Tabs {...tabs} />}
-      </PageHeaderWrapInner>
-    </PageHeaderWrap>
+      </DeprecatedPageHeaderWrapInner>
+    </DeprecatedPageHeaderWrap>
   )
 }
