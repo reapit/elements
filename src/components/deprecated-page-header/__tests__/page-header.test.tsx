@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react'
-import { PageHeader } from '..'
+import { DeprecatedPageHeader } from '..'
 
-describe('PageHeader component', () => {
+describe('DeprecatedPageHeader component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(
-      <PageHeader
+      <DeprecatedPageHeader
         breadcrumb={{
           defaultActiveIndex: 3,
           items: [

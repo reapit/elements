@@ -4,7 +4,7 @@ import { GridDemoBlock } from '../storybook/demo-block'
 import { NavStateProvider } from '../hooks/use-nav-state'
 import { MediaStateProvider } from '../hooks/use-media-query'
 import { SecondaryNav, SecondaryNavItem } from '../components/secondary-nav'
-import { PageHeader } from '../components/page-header'
+import { DeprecatedPageHeader } from '../components/deprecated-page-header'
 import { DeprecatedNavResponsive as NavResponsive } from '../components/deprecated-nav'
 import { Grid, Col, ColSplitThird, ColSplitTwoThirds, GridThirds } from '../components/grid'
 
@@ -107,7 +107,7 @@ export const CompleteCombinedExample = {
                 </SecondaryNav>
               </SecondaryNavContainer>
               <PageContainer>
-                <PageHeader
+                <DeprecatedPageHeader
                   breadcrumb={{
                     defaultActiveIndex: 3,
 
@@ -315,7 +315,7 @@ export const CompleteCombinedExampleMaxWidth = {
               ]}
             />
             <PageContainer hasGreyBackground>
-              <PageHeader
+              <DeprecatedPageHeader
                 hasMaxWidth
                 breadcrumb={{
                   defaultActiveIndex: 3,

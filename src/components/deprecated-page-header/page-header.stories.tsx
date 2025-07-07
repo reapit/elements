@@ -1,13 +1,13 @@
-import { PageHeader } from '.'
+import { DeprecatedPageHeader } from '.'
 
 export default {
-  title: 'Deprecated/PageHeader',
-  component: PageHeader,
+  title: 'Deprecated/DeprecatedPageHeader',
+  component: DeprecatedPageHeader,
 }
 
 export const BasicUsage = {
   render: ({}) => (
-    <PageHeader
+    <DeprecatedPageHeader
       breadcrumb={{
         defaultActiveIndex: 3,
         items: [
