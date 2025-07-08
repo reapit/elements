@@ -87,6 +87,7 @@ export const ElDeprecatedNavItem = styled.a`
   flex: 1 0 100%;
   width: 100%;
   border-left: 3px solid var(--white);
+  text-decoration: none;
 
   &:first-child {
     opacity: 1;
@@ -126,10 +127,6 @@ export const ElDeprecatedNavItem = styled.a`
       height: auto;
     }
 
-    &:last-of-type {
-      margin-right: auto;
-    }
-
     &:not(:first-child) {
       overflow: visible;
       padding: 0.375rem 0.75rem;
@@ -137,6 +134,10 @@ export const ElDeprecatedNavItem = styled.a`
       height: 2rem;
       border-top: none;
       margin-right: 1rem;
+    }
+
+    &:last-of-type {
+      margin-right: auto;
     }
 
     &:hover:not(:first-child) {
