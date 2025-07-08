@@ -9,8 +9,8 @@ export const ElFeaturesItem = styled.div`
 `
 
 export const ElFeaturesItemIcon = styled.dt`
-  all: unset;
-  box-sizing: border-box;
+  display: inline-flex;
+  place-items: center;
 
   color: var(--comp-features-colour-icon);
 
@@ -19,8 +19,7 @@ export const ElFeaturesItemIcon = styled.dt`
 `
 
 export const ElFeaturesItemValue = styled.dd`
-  all: unset;
-  box-sizing: border-box;
+  margin: 0;
 
   color: var(--comp-features-colour-text);
 
