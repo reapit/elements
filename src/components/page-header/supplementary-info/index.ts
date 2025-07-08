@@ -1,2 +1,2 @@
 export * from './styles'
-export * from './subtitle'
+export * from './supplementary-info'

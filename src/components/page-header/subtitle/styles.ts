@@ -6,7 +6,7 @@ export const ElPageHeaderSubtitle = styled.div`
   flex-flow: row wrap;
   gap: var(--spacing-2);
 
-  padding-block: var(--spacing-half);
+  padding-block: var(--spacing-1);
 `
 
 export const ElPageHeaderSubtitleText = styled.p`

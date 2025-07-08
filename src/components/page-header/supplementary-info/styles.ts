@@ -5,5 +5,5 @@ export const ElPageHeaderSupplementaryInfo = styled.div`
   flex-flow: row wrap;
   gap: var(--spacing-2) var(--spacing-6);
 
-  padding-block: var(--spacing-half);
+  padding-block-start: var(--spacing-1);
 `

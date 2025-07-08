@@ -19,6 +19,7 @@ export const ElCompactSelectNative = styled.select<ElCompactSelectNativeProps>`
   max-width: var(--select-max-width);
 
   appearance: none;
+  background-color: transparent;
   border: none;
 
   text-overflow: ellipsis;
