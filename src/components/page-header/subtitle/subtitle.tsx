@@ -10,7 +10,7 @@ interface PageHeaderSubtitleProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /**
- * A title component for page headers. Displays the main page title with optional, additional information and actions.
+ * A subtitle component for page headers. Displays the main page's subtitle with optional, additional information.
  * Typically used via `PageHeader.Subtitle`.
  */
 export function PageHeaderSubtitle({ additionalInfo, children, ...rest }: PageHeaderSubtitleProps) {
