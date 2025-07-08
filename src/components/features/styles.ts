@@ -6,9 +6,6 @@ interface ElFeaturesProps {
 }
 
 export const ElFeatures = styled.dl<ElFeaturesProps>`
-  all: unset;
-  box-sizing: border-box;
-
   display: inline-flex;
   align-items: center;
   gap: var(--spacing-3);

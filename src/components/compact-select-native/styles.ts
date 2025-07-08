@@ -16,14 +16,10 @@ interface ElCompactSelectNativeProps {
 }
 
 export const ElCompactSelectNative = styled.select<ElCompactSelectNativeProps>`
-  all: unset;
-  box-sizing: border-box;
-
   max-width: var(--select-max-width);
 
-  @supports (field-sizing: content) {
-    field-sizing: content;
-  }
+  appearance: none;
+  border: none;
 
   text-overflow: ellipsis;
   overflow: hidden;
@@ -32,7 +28,9 @@ export const ElCompactSelectNative = styled.select<ElCompactSelectNativeProps>`
   cursor: pointer;
   color: var(--comp-input-colour-text-default-input);
 
-  appearance: none;
+  @supports (field-sizing: content) {
+    field-sizing: content;
+  }
 
   /* NOTE: We need to create space for the absolutely positioned icon. */
   padding-inline-end: calc(var(--spacing-1) + var(--icon_size-s));

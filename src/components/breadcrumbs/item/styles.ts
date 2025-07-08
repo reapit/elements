@@ -1,9 +1,6 @@
 import { styled } from '@linaria/react'
 
 export const ElBreadcrumbItem = styled.li`
-  all: unset;
-  box-sizing: border-box;
-
   display: inline-grid;
   grid-template-columns: auto min-content;
   align-items: center;

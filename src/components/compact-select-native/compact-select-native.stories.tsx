@@ -26,7 +26,7 @@ const meta = {
               <option value="portfolio1">Portfolio 1</option>
               <option value="portfolio2">Portfolio 2</option>
             </optgroup>
-            <optgroup aria-label="Other Portfolios">
+            <optgroup label="Other Portfolios">
               <option value="portfolio3">Portfolio 3</option>
               <option value="portfolio4">Portfolio 4</option>
               <option value="portfolio5">Portfolio 5</option>

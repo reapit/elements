@@ -21,14 +21,16 @@ export const ElBreadcrumbs = styled.nav<ElBreadcrumbsProps>`
 `
 
 export const ElBreadcrumbsList = styled.ul`
-  all: unset;
-  box-sizing: border-box;
-
   display: inline-grid;
   grid-auto-flow: column;
   /* NOTE: This helps ensure each item has an equal share of the available space, especially when truncation occurs */
   grid-template-columns: repeat(auto-fill, minmax(0, auto));
   align-items: center;
+
+  list-style: none;
+
+  margin: 0;
+  padding: 0;
 
   width: 100%;
 
