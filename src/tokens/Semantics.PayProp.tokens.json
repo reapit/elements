@@ -2145,6 +2145,10 @@
             "$type": "color",
             "$value": "{white-900}"
           },
+          "secondary_top_bar": {
+            "$type": "color",
+            "$value": "{neutral-900}"
+          },
           "sidebar": {
             "default": {
               "$type": "color",
@@ -3016,7 +3020,7 @@
         },
         "line_height": {
           "$type": "dimension",
-          "$value": "-0.32px"
+          "$value": "40px"
         },
         "size": {
           "$type": "dimension",

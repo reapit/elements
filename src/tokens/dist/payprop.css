@@ -445,6 +445,7 @@
   --comp-navigation-colour-text-nav_search-placeholder: #9faebc;
   --comp-navigation-colour-text-nav_search-shortcut: #9faebc;
   --comp-navigation-colour-text-notification_badge: #ffffff;
+  --comp-navigation-colour-text-secondary_top_bar: #222b33;
   --comp-navigation-colour-text-sidebar-default: #506478;
   --comp-navigation-colour-text-sidebar-select: #0294d2;
   --comp-progress_bar-colour-fill: #0294d2;
@@ -612,7 +613,7 @@
   --font-2xs-regular-weight: 400;
   --font-3xl-bold-family: Inter;
   --font-3xl-bold-letter_spacing: -0.32px;
-  --font-3xl-bold-line_height: -0.32px;
+  --font-3xl-bold-line_height: 40px;
   --font-3xl-bold-size: 32px;
   --font-3xl-bold-weight: 600;
   --font-3xl-medium-family: Inter;
