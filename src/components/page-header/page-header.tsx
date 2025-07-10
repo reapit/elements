@@ -6,6 +6,7 @@ import {
   ElPageHeaderSupplementaryInfoContainer,
   ElPageHeaderTitleContainer,
 } from './styles'
+import { PageHeaderLeadingElement } from './leading-element'
 import { PageHeaderSubtitle } from './subtitle'
 import { PageHeaderSupplementaryInfo } from './supplementary-info'
 import { PageHeaderTitle } from './title'
@@ -23,7 +24,7 @@ interface PageHeaderProps extends Omit<HTMLAttributes<HTMLElement>, AttributesTo
   backgroundColour?: 'white' | 'neutral-lightest'
   /** The breadcrumbs for the current page. */
   breadcrumbs?: ReactNode
-  /** The leading element, like a property thumbnail, avatar or icon. */
+  /** The leading element, like an image or product icon. */
   leadingElement?: ReactNode
   /** The page subtitle. */
   subtitle?: ReactNode
@@ -64,6 +65,7 @@ export function PageHeader({
   )
 }
 
+PageHeader.LeadingElement = PageHeaderLeadingElement
 PageHeader.Subtitle = PageHeaderSubtitle
 PageHeader.SupplementaryInfo = PageHeaderSupplementaryInfo
 PageHeader.Title = PageHeaderTitle
