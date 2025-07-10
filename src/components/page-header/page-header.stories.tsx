@@ -1,12 +1,12 @@
 import { AddIcon } from '#src/icons/add'
-import { Avatar } from '../avatar'
-import { AvatarRectangle } from '../avatar-rectangle'
 import { Badge } from '../badge'
 import { Breadcrumbs } from '../breadcrumbs'
 import { Button } from '../button'
 import { ButtonGroup } from '../button-group'
 import { CompactSelectNative } from '../compact-select-native'
+import { FakeImage } from './leading-element/__story__/fake-image'
 import { Features } from '../features'
+import LogoDevice from './leading-element/__story__/logo-device.svg?react'
 import { PageHeader } from './page-header'
 import { StarIcon } from '#src/icons/star'
 import { SupplementaryInfo } from '../supplementary-info'
@@ -62,11 +62,20 @@ const meta = {
     },
     leadingElement: {
       control: 'select',
-      options: ['None', 'Avatar', 'Icon', 'Thumbnail'],
+      options: ['None', 'Icon', 'Image'],
       mapping: {
         None: null,
-        Avatar: <Avatar size="medium">T</Avatar>,
-        Thumbnail: <AvatarRectangle size="medium" variant="residential" />,
+        Icon: (
+          <PageHeader.LeadingElement type="icon">
+            <LogoDevice style={{ width: '100%', height: '100%' }} />
+          </PageHeader.LeadingElement>
+        ),
+        Image: (
+          <PageHeader.LeadingElement type="image">
+            {/* TODO: This should be replaced with a proper "image" component when we have one. */}
+            <FakeImage />
+          </PageHeader.LeadingElement>
+        ),
       },
     },
     subtitle: {
@@ -246,13 +255,13 @@ export const Actions: Story = {
 }
 
 /**
- * The page header also supports a leading element, such as an avatar, image, or product logo. This is useful for
- * providing a visual representation of the page's subject.
+ * The page header also supports a leading element, such as an image or product icon.
  */
 export const LeadingElement: Story = {
   args: {
     ...Example.args,
-    leadingElement: 'Avatar',
+    subtitle: 'Basic',
+    leadingElement: 'Image',
   },
 }
 
@@ -320,7 +329,7 @@ export const Breakpoints: Story = {
   args: {
     ...Example.args,
     breadcrumbs: 'Many',
-    leadingElement: 'Avatar',
+    leadingElement: 'Image',
     subtitle: 'Additional Info',
     supplementaryInfo: 'Summary Info',
     title: 'Multiple Actions',
