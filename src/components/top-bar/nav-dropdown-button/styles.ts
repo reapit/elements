@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../deprecated-icon'
+import { ElDeprecatedIcon } from '../../../deprecated/icon'
 import { font } from '#src/components/text'
 
 export const ElTopBarNavDropdownButton = styled.button`

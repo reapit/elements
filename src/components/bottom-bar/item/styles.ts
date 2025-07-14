@@ -1,7 +1,7 @@
 import { css } from '@linaria/core'
 import { font } from '#src/components/text'
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../deprecated-icon'
+import { ElDeprecatedIcon } from '../../../deprecated/icon'
 
 export const elBottomBarItem = css`
   position: relative;

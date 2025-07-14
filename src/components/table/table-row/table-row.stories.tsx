@@ -6,7 +6,7 @@ import { TableToolbar } from '../table-toolbar'
 import { TableHeaderCell } from '../table-header-cell'
 import { TableHead } from '../table-head'
 import { TableBody } from '../table-body'
-import { Input } from '../../input'
+import { Input } from '../../../deprecated/input'
 import { AvatarRectangle } from '../../avatar-rectangle'
 import { styled } from '@linaria/react'
 

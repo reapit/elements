@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect, type ComponentProps } from 'react'
 import { Menu, useMenuContext } from '.'
-import { DeprecatedButton } from '../deprecated-button'
-import { DeprecatedIcon } from '../deprecated-icon'
-import { FlexContainer, MainContainer } from '../layout'
+import { DeprecatedButton } from '../../deprecated/button'
+import { DeprecatedIcon } from '../../deprecated/icon'
+import { FlexContainer, MainContainer } from '../../deprecated/layout'
 import { elHScreen } from '../../styles/sizing'
 import { Badge } from '../badge'
 

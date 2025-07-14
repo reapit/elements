@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../deprecated-icon'
+import { ElDeprecatedIcon } from '../../../deprecated/icon'
 import { font } from '#src/components/text'
 
 // NOTE: This class is used as the basis for the menu group's summary element as well. Changes here

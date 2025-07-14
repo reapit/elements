@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { DeprecatedTableRow, DeprecatedTableCell } from '../components/deprecated-table'
+import { DeprecatedTableRow, DeprecatedTableCell } from '../deprecated/table'
 import { colord } from 'colord'
-import { TextSM } from '../components/typography'
+import { TextSM } from '../deprecated/typography'
 
 export const ThemingColourBlock: FC<{
   hex: string

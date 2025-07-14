@@ -3,7 +3,7 @@ import type { FC, ReactNode, MouseEventHandler } from 'react'
 
 import { useId } from '../../storybook/random-id'
 
-import { DeprecatedIcon } from '../deprecated-icon'
+import { DeprecatedIcon } from '../../deprecated/icon'
 
 import {
   ElMobileNavItemAnchor,

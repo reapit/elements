@@ -4,8 +4,8 @@ import { TableContainer } from './table-container'
 import { TableToolbar } from '../table-toolbar'
 import { Menu, MenuItem, MenuItemGroup, MenuList } from '../../menu'
 import { MenuPopover, MenuTrigger } from '#src/components/menu/menu-popover'
-import { DeprecatedButton } from '../../deprecated-button'
-import { DeprecatedIcon } from '../../deprecated-icon'
+import { DeprecatedButton } from '../../../deprecated/button'
+import { DeprecatedIcon } from '../../../deprecated/icon'
 
 const meta: Meta<typeof TableContainer> = {
   title: 'Components/TableContainer',

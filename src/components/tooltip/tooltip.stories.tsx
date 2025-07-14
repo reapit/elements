@@ -1,10 +1,10 @@
 import { Meta } from '@storybook/react-vite'
-import { DeprecatedButton } from '../deprecated-button'
+import { DeprecatedButton } from '../../deprecated/button'
 import { useTooltip } from './use-tooltip'
 import { Tooltip, TooltipProps } from './tooltip'
 import { ElTooltip, ElTooltipLabel } from './styles'
 import { useId } from 'react'
-import { FlexContainer } from '../layout'
+import { FlexContainer } from '../../deprecated/layout'
 
 const meta: Meta<typeof Tooltip> = {
   title: 'Components/Tooltip',

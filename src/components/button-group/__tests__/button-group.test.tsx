@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react'
 import { ButtonGroup } from '../button-group'
-import { DeprecatedButton } from '#src/components/deprecated-button/index'
+import { DeprecatedButton } from '#src/deprecated/button/index'
 
 describe('ButtonGroup', () => {
   test('renders its children horizontally with a gap of --spacing-2', () => {

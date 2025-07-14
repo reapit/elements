@@ -1,6 +1,6 @@
 import { FC, useCallback } from 'react'
 
-import { DeprecatedIcon } from '../deprecated-icon'
+import { DeprecatedIcon } from '../../deprecated/icon'
 
 import { PaginationButton } from './pagination.atoms'
 import { ElPagination, ElPaginationItem, ElPaginationList, ElPaginationText } from './styles'

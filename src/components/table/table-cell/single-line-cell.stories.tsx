@@ -1,6 +1,6 @@
 import { SingleLineCell } from './single-line-cell'
 import { TableText } from '../table-text'
-import { DeprecatedIcon } from '../../deprecated-icon'
+import { DeprecatedIcon } from '../../../deprecated/icon'
 import { Skeleton } from '../../skeleton'
 import { Badge } from '../../badge'
 import { Features, FeaturesItem } from '../../features'
@@ -15,7 +15,7 @@ import { TableHead } from '../table-head'
 import { TableHeaderCell } from '../table-header-cell'
 import { TableBody } from '../table-body'
 import { TableRow } from '../table-row'
-import { Input } from '../../input'
+import { Input } from '../../../deprecated/input'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const CHILDREN_OPTIONS = [
