@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import { styled } from '@linaria/react'
-import { isTablet } from '../styles/media'
+import { isTablet } from '../styles/deprecated-media'
 import ReapitLogoInfographic from '../../assets/icons/reapitLogo.svg?react'
 
 const WelcomeWrapper = styled.div`

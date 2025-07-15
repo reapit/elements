@@ -1,4 +1,4 @@
-import { isTablet } from '#src/styles/media'
+import { isTablet } from '#src/styles/deprecated-media'
 import { styled } from '@linaria/react'
 
 export const ElBottomBarContainer = styled.div`

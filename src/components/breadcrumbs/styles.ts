@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { isMobile } from '#src/styles/media'
+import { isMobile } from '#src/styles/deprecated-media'
 
 interface ElBreadcrumbsProps {
   'data-overflow'?: 'scroll' | 'truncate'

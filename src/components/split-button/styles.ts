@@ -4,8 +4,8 @@ import {
   elDeprecatedButtonSizeLarge,
   elDeprecatedButtonSizeSmall,
   ElDeprecatedButtonSpinner,
-} from '../deprecated-button'
-import { ElDeprecatedIcon } from '../deprecated-icon'
+} from '../../deprecated/button'
+import { ElDeprecatedIcon } from '../../deprecated/icon'
 
 export const ElSplitButtonActionButton = styled(DeprecatedButton)``
 export const ElSplitButtonMenuButton = styled(DeprecatedButton)``

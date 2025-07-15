@@ -1,6 +1,6 @@
 import { font } from '#src/components/text'
 import { styled } from '@linaria/react'
-import { elDeprecatedIcon } from '../deprecated-button'
+import { elDeprecatedIcon } from '../../deprecated/button'
 
 interface ElAvatarProps {
   'data-colour': 'default' | 'purple'

@@ -1,0 +1,26 @@
+import { Story, Canvas, Meta, Controls } from '@storybook/addon-docs/blocks'
+import { FlexContainer } from '../layout'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as LayoutStories from './layout.stories'
+
+<Meta of={LayoutStories} />
+
+# Layouts
+
+When thinking about laying out your page, you will need to wrap your content in a series of Containers. To support out common patterns, will first introduce some new container components.
+
+## Combined Layout
+
+For a complete example of how to lay out a page, see below where we have combined a number of other stories including `Nav`, `PageHeader`, `SecondaryNav` and `Grid` to give a full page layout.
+
+<Canvas of={LayoutStories.CompleteCombinedExample} />
+
+<RenderHtmlMarkup of={LayoutStories.CompleteCombinedExample} />
+
+## Combined Layout Max Width
+
+Variant on the complete layout but using a max width container in desktop, a side column and no secondary nav.
+
+<Canvas of={LayoutStories.CompleteCombinedExampleMaxWidth} />
+
+<RenderHtmlMarkup of={LayoutStories.CompleteCombinedExampleMaxWidth} />

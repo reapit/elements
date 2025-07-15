@@ -6,7 +6,7 @@ import {
   elIntentPending,
   elIntentWarning,
   elIntentDefault,
-} from '../../styles/intent'
+} from '../../styles/deprecated-intent'
 import { getIntentClassName } from '../intent'
 
 describe('getIntentClassName', () => {

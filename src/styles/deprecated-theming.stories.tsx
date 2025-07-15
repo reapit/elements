@@ -1,4 +1,4 @@
-import { DeprecatedButton } from '../components/deprecated-button'
+import { DeprecatedButton } from '../deprecated/button'
 import { DeprecatedElementsThemeProvider } from './deprecated-theme-provider'
 
 export default {

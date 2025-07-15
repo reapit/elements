@@ -1,4 +1,4 @@
-import { DeprecatedButton } from '../deprecated-button'
+import { DeprecatedButton } from '../../deprecated/button'
 import { Breakpoint, useDrawerBreakpointDecorator } from './__story__/useDrawerBreakpointDecorator'
 import { Drawer } from './drawer'
 import { Pattern } from './__story__/Pattern'

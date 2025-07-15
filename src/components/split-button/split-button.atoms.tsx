@@ -1,6 +1,6 @@
 import { FC } from 'react'
-import { DeprecatedIcon } from '../deprecated-icon'
-import { DeprecatedButtonProps } from '../deprecated-button'
+import { DeprecatedIcon } from '../../deprecated/icon'
+import { DeprecatedButtonProps } from '../../deprecated/button'
 import { ElSplitButtonActionButton, ElSplitButtonMenuButton } from './styles'
 
 type SplitButtonVariant = 'primary' | 'secondary' | 'busy'

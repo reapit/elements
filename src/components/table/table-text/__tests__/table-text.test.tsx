@@ -1,7 +1,7 @@
 import { expect, test } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { TableText } from '..'
-import { DeprecatedIcon } from '#src/components/deprecated-icon/index'
+import { DeprecatedIcon } from '#src/deprecated/icon/index'
 
 describe('TableText', () => {
   test('should match snapshot', () => {

@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../deprecated-icon'
+import { ElDeprecatedIcon } from '../../../deprecated/icon'
 import { ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from '../menu-item'
 import { font } from '#src/components/text'
 

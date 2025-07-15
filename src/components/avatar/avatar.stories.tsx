@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Avatar } from '.'
-import { DeprecatedIcon } from '../deprecated-icon'
+import { DeprecatedIcon } from '../../deprecated/icon'
 
 export default {
   title: 'Components/Avatar',

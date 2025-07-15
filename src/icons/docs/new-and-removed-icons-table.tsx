@@ -1,5 +1,5 @@
-import { DeprecatedIcon } from '#src/components/deprecated-icon'
-import { iconSet as v4Icons } from '#src/deprecated-icons'
+import { DeprecatedIcon } from '#src/deprecated/icon/index'
+import { iconSet as v4Icons } from '#src/deprecated/icons/index'
 import { Text } from '#src/components/text'
 import * as v5Icons from '..'
 import { Badge } from '#src/components/badge/badge'

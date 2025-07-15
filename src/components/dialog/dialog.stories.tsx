@@ -3,7 +3,7 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { action } from 'storybook/actions'
 
-import { DeprecatedButton } from '../deprecated-button'
+import { DeprecatedButton } from '../../deprecated/button'
 import { Dialog } from './dialog'
 import { ElDialog, ElDialogBody, ElDialogFooter, ElDialogHeader, ElDialogTitle } from './styles'
 import { ButtonGroup } from '../button-group'

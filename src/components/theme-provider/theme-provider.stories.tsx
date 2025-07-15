@@ -1,4 +1,4 @@
-import { DeprecatedButton } from '../deprecated-button'
+import { DeprecatedButton } from '../../deprecated/button'
 import { ThemeProvider } from './theme-provider'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'

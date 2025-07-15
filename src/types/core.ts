@@ -1,7 +1,9 @@
+/** @deprecated */
 export interface StringMap {
   [key: string]: string
 }
 
+/** @deprecated */
 export interface PropsWithChildren {
   // Not ideal but need to polyfill while we wait to upgrade to React 18
   children?: any

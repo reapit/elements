@@ -3,8 +3,8 @@ import { Source, SourceProps } from '@storybook/addon-docs/blocks'
 import prettier from 'prettier'
 import htmlParser from 'prettier/plugins/html'
 import type { Args, StoryContext } from '@storybook/react-vite'
-import { DeprecatedAccordion } from '../components/deprecated-accordion'
-import { Tile } from '../components/tile'
+import { DeprecatedAccordion } from '../deprecated/accordion'
+import { Tile } from '../deprecated/tile'
 import { cx } from '@linaria/core'
 import { elMb6, elMt6 } from '..'
 import { createRoot } from 'react-dom/client'
@@ -37,6 +37,7 @@ const handleFormatHTML = (raw: string | null, setHtml: Dispatch<SetStateAction<s
   format()
 }
 
+/** @deprecated */
 export const handleTransform =
   (
     setStoryContext: Dispatch<SetStateAction<StoryContext<Args> | null>>,
@@ -53,6 +54,7 @@ export const handleTransform =
     return html || code
   }
 
+/** @deprecated */
 export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
   const [storyContext, setStoryContext] = useState<StoryContext<Args> | null>(null)
   const [html, setHtml] = useState<string>('')

@@ -1,4 +1,4 @@
-import { isDesktop, isTablet } from '#src/styles/media'
+import { isDesktop, isTablet } from '#src/styles/deprecated-media'
 import { styled } from '@linaria/react'
 
 import type { CSSProperties } from 'react'

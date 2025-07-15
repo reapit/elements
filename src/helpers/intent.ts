@@ -6,7 +6,7 @@ import {
   elIntentPending,
   elIntentWarning,
   elIntentDefault,
-} from '../styles/intent'
+} from '../styles/deprecated-intent'
 
 export type Intent =
   | 'primary'
@@ -20,6 +20,7 @@ export type Intent =
   | 'critical'
   | 'low'
 
+/** @deprecated */
 export const getIntentClassName = (intent: Intent): string => {
   switch (intent) {
     case 'primary':

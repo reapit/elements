@@ -1,7 +1,7 @@
 import { AccordionLabelIdContext } from '../accordion-label-id-context'
 import { AccordionSummary } from './summary'
 import { BathIcon } from '#src/icons/bath'
-import { DeprecatedButton } from '#src/components/deprecated-button/button'
+import { DeprecatedButton } from '#src/deprecated/button/button'
 import { BedIcon } from '#src/icons/bed'
 import { CarIcon } from '#src/icons/car'
 import { Features } from '#src/components/features'

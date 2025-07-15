@@ -3,7 +3,7 @@ import { TableBody } from './table-body'
 import { Table } from '../table/table'
 import { TableContainer } from '../table-container'
 import { TableToolbar } from '../table-toolbar'
-import { Input } from '../../input'
+import { Input } from '../../../deprecated/input'
 import { AvatarRectangle } from '../../avatar-rectangle'
 
 export default {

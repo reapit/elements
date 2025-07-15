@@ -1,8 +1,8 @@
 import { ButtonGroup } from './button-group'
-import { DeprecatedButton } from '../deprecated-button'
+import { DeprecatedButton } from '../../deprecated/button'
 import { Meta } from '@storybook/react-vite'
 import { figmaDesignUrls } from '../../storybook/figma'
-import { DeprecatedIcon } from '../deprecated-icon'
+import { DeprecatedIcon } from '../../deprecated/icon'
 
 const meta: Meta<typeof ButtonGroup> = {
   title: 'Components/ButtonGroup',

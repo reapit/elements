@@ -1,4 +1,4 @@
-import { DeprecatedButton } from '../../deprecated-button'
+import { DeprecatedButton } from '../../../deprecated/button'
 import { CloseIcon } from '#src/icons/close'
 
 /**

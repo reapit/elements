@@ -1,5 +1,5 @@
 import { TableText } from './table-text'
-import { DeprecatedIcon, IconNames } from '../../deprecated-icon'
+import { DeprecatedIcon, IconNames } from '../../../deprecated/icon'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 

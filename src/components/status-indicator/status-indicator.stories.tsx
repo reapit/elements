@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react-vite'
 import { StatusIndicator } from './status-indicator'
-import { FlexContainer } from '../layout'
+import { FlexContainer } from '../../deprecated/layout'
 
 const meta = {
   title: 'Components/Status Indicator',
