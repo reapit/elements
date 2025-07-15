@@ -32,6 +32,16 @@
       "import": "./dist/js/index.js",
       "require": "./dist/js/index.cjs"
     },
+    "./core/*": {
+      "types": "./dist/types/components/*/index.d.ts",
+      "import": "./dist/js/components/*.js",
+      "require": "./dist/js/components/*.cjs"
+    },
+    "./deprecated/*": {
+      "types": "./dist/types/deprecated/*/index.d.ts",
+      "import": "./dist/js/deprecated/*.js",
+      "require": "./dist/js/deprecated/*.cjs"
+    },
     "./icons/*": {
       "types": "./dist/types/icons/*.d.ts",
       "import": "./dist/js/icons/*.js",

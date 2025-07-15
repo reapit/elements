@@ -1,23 +1,46 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from 'vite'
-import { fileURLToPath, URL } from 'node:url'
+import fs from 'node:fs'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import wyw from '@wyw-in-js/vite'
 import packageManifest from './package.json'
 import path from 'node:path'
-import { readdirSync } from 'node:fs'
+
+// We dynamically discover all "first-level" barrel files in the `src/components` directory and add them as
+// individual entry points for our build.
+const core = Object.fromEntries(
+  fs.globSync('src/components/*/index.ts', { withFileTypes: true }).map((file) => [
+    path.join('components', path.basename(file.parentPath)), // e.g. `components/button`
+    path.join(file.parentPath, file.name), // e.g. `src/components/button/index.ts`
+  ]),
+)
+
+// We dynamically discover all "first-level" barrel files in the `src/deprecated` directory and add them as
+// individual entry points for our build.
+const deprecated = Object.fromEntries(
+  fs.globSync('src/deprecated/*/index.ts', { withFileTypes: true }).map((file) => [
+    path.join('deprecated', path.basename(file.parentPath)), // e.g. `deprecated/button`
+    path.join(file.parentPath, file.name), // e.g. `src/deprecated/button/index.ts`
+  ]),
+)
 
 // We dynamically discover all icons in the `src/icons` directory and add them as individual entry points
 // for our build.
 const icons = Object.fromEntries(
-  readdirSync('src/icons')
-    .filter((file) => file.endsWith('.tsx') && !file.includes('index'))
-    .map((file) => [
-      // `src/icons/add.tsx` -> `icons/add`
-      path.join('icons', path.basename(file, path.extname(file))),
-      path.join('src/icons', file),
-    ]),
+  fs.globSync('src/icons/*.tsx', { withFileTypes: true }).map((file) => [
+    path.join('icons', path.basename(file.name, path.extname(file.name))), // e.g. `icons/add`
+    path.join(file.parentPath, file.name), // e.g. `src/icons/add.tsx`
+  ]),
+)
+
+// We dynamically discover all "first-level" barrel files in the `src/utils` directory and add them as individual
+// entry points for our build.
+const utils = Object.fromEntries(
+  fs.globSync('src/utils/*/index.ts', { withFileTypes: true }).map((file) => [
+    path.join('utils', path.basename(file.parentPath)), // e.g. `utils/url-search-params`
+    path.join(file.parentPath, file.name), // e.g. `src/utils/url-search-params/index.ts`
+  ]),
 )
 
 export default defineConfig({
@@ -27,9 +50,11 @@ export default defineConfig({
     lib: {
       cssFileName: 'style',
       entry: {
-        index: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
-        'utils/url-search-params': fileURLToPath(new URL('./src/utils/url-search-params/index.ts', import.meta.url)),
+        index: 'src/index.ts',
+        ...core,
+        ...deprecated,
         ...icons,
+        ...utils,
       },
       formats: ['es', 'cjs'],
     },
