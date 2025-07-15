@@ -14,7 +14,7 @@ import { DeprecatedAvatar, DeprecatedAvatarProps } from '../avatar'
 import { DeprecatedTag, DeprecatedTagGroup, DeprecatedTagProps } from '../tag'
 import { DeprecatedButton, DeprecatedButtonGroup, DeprecatedButtonProps } from '../button'
 import { DeprecatedBreadCrumb, DeprecatedBreadCrumbProps } from '../breadcrumb'
-import { elMb3, elMb6, elMr3 } from '../../styles/spacing'
+import { elMb3, elMb6, elMr3 } from '../../styles/deprecated-spacing'
 import { Tabs, TabsProps } from '../tabs'
 
 /** @deprecated */

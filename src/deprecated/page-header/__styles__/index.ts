@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { isTablet } from '../../../styles/media'
+import { isTablet } from '../../../styles/deprecated-media'
 import { ElDeprecatedAvatar, ElDeprecatedAvatarImage } from '../../avatar'
 import { elTextL, elTextBase } from '../../typography'
 import { css } from '@linaria/core'

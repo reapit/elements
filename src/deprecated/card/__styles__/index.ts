@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
-import { isTablet } from '../../../styles/media'
+import { isTablet } from '../../../styles/deprecated-media'
 import { ElDeprecatedAvatar } from '../../avatar'
 
 /** @deprecated */

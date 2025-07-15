@@ -31,7 +31,7 @@ import {
   elFlexAlignCenter,
   elFlexAlignStart,
   elFlexAlignEnd,
-} from '../../styles/flexbox'
+} from '../../styles/deprecated-flexbox'
 import { ContainerFlexProps, ContainerProps, TaggedElementProps } from './types'
 
 /** @deprecated */

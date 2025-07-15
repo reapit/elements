@@ -7,7 +7,7 @@ import {
   elIntentPrimary,
   elIntentSuccess,
   elIntentWarning,
-} from '../../../styles/intent'
+} from '../../../styles/deprecated-intent'
 
 /** @deprecated */
 export const elHasGreyText = css``

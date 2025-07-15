@@ -1,7 +1,7 @@
 import React, { FC, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
 import { ElSecondaryNav, ElSecondaryNavItem } from './__styles__'
-import { elIsActive } from '../../styles/states'
+import { elIsActive } from '../../styles/deprecated-states'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
 /** @deprecated */

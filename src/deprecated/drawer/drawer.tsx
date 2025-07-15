@@ -9,7 +9,7 @@ import {
   ElDeprecatedDrawerFooter as ElDrawerFooter,
   ElDeprecatedDrawerSubtitle as ElDrawerSubtitle,
 } from './__styles__'
-import { elIsActive } from '../../styles/states'
+import { elIsActive } from '../../styles/deprecated-states'
 import { DeprecatedIcon } from '../icon'
 
 /** @deprecated */

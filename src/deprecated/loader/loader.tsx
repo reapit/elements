@@ -1,6 +1,6 @@
 import React, { FC, HTMLAttributes } from 'react'
 import { ElLoaderContainer, ElLoaderLabel, ElLoader, ElLoaderMovingBar } from './__styles__'
-import { elIsFullPage } from '../../styles/states'
+import { elIsFullPage } from '../../styles/deprecated-states'
 
 /** @deprecated */
 export interface LoaderProps extends HTMLAttributes<HTMLDivElement> {

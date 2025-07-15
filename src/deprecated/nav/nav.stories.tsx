@@ -4,7 +4,7 @@ import { elDeprecatedNavItemActive, elDeprecatedNavItemHideDesktop, elDeprecated
 import { NavStateProvider } from '../use-nav-state'
 import { MediaStateProvider } from '../use-media-query'
 import { DeprecatedIcon } from '../icon'
-import { elMlAuto, elMr2 } from '../../styles/spacing'
+import { elMlAuto, elMr2 } from '../../styles/deprecated-spacing'
 import { DeprecatedNavResponsive } from './nav-responsive'
 
 export default {

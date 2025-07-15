@@ -1,5 +1,5 @@
 import { DeprecatedIcon } from './index'
-import { elMb5 } from '../../styles/spacing'
+import { elMb5 } from '../../styles/deprecated-spacing'
 
 export default {
   title: 'Deprecated/DeprecatedIcon',

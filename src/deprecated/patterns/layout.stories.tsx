@@ -1,12 +1,12 @@
 import { useState } from 'react'
-import { MainContainer, PageContainer, SecondaryNavContainer, FlexContainer } from '../index'
-import { GridDemoBlock } from '../storybook/demo-block'
-import { NavStateProvider } from '../deprecated/use-nav-state'
-import { MediaStateProvider } from '../deprecated/use-media-query'
-import { SecondaryNav, SecondaryNavItem } from '../deprecated/secondary-nav'
-import { DeprecatedPageHeader } from '../deprecated/page-header'
-import { DeprecatedNavResponsive as NavResponsive } from '../deprecated/nav'
-import { Grid, Col, ColSplitThird, ColSplitTwoThirds, GridThirds } from '../deprecated/grid'
+import { MainContainer, PageContainer, SecondaryNavContainer, FlexContainer } from '../layout'
+import { GridDemoBlock } from '../../storybook/demo-block'
+import { NavStateProvider } from '../use-nav-state'
+import { MediaStateProvider } from '../use-media-query'
+import { SecondaryNav, SecondaryNavItem } from '../secondary-nav'
+import { DeprecatedPageHeader } from '../page-header'
+import { DeprecatedNavResponsive as NavResponsive } from '../nav'
+import { Grid, Col, ColSplitThird, ColSplitTwoThirds, GridThirds } from '../grid'
 
 export default {
   title: 'Deprecated/Layout Patterns',

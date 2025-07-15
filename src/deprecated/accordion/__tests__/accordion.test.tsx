@@ -1,7 +1,7 @@
 import { render } from '@testing-library/react'
 import { DeprecatedAccordion, handleSetOpenItem } from '../accordion'
 import { DeprecatedIcon } from '../../icon'
-import { elMr1 } from '../../../styles/spacing'
+import { elMr1 } from '../../../styles/deprecated-spacing'
 
 describe('Accordion react shorthand', () => {
   it('should match a snapshot', () => {

@@ -13,8 +13,8 @@ import { DeprecatedIcon, IconNames } from '../icon'
 import { handleSetNativeInput } from '../multi-select'
 import { generateRandomId } from '../../storybook/random-id'
 import { DeprecatedLabel } from '../label'
-import { elMb3 } from '../../styles/spacing'
-import { elFlex } from '../../styles/flexbox'
+import { elMb3 } from '../../styles/deprecated-spacing'
+import { elFlex } from '../../styles/deprecated-flexbox'
 import { cx } from '@linaria/core'
 
 /** @deprecated */

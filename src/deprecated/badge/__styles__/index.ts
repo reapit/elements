@@ -7,7 +7,7 @@ import {
   elIntentWarning,
   elIntentDanger,
   elIntentDefault,
-} from '../../../styles/intent'
+} from '../../../styles/deprecated-intent'
 
 /** @deprecated */
 export const ElDeprecatedBadge = styled.span`

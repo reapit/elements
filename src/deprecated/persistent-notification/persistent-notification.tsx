@@ -9,7 +9,7 @@ import {
   elPnIsInline,
 } from './__styles__'
 import { DeprecatedIcon, IconNames } from '../icon'
-import { elIsActive } from '../../styles/states'
+import { elIsActive } from '../../styles/deprecated-states'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 
 /** @deprecated */

@@ -1,6 +1,6 @@
 import { ModalBg, ModalBody, ModalHeader, ModalContainer, Modal } from './index'
 import { TextBase } from '../typography'
-import { elIsActive } from '../../styles/states'
+import { elIsActive } from '../../styles/deprecated-states'
 import { useState } from 'react'
 import { DeprecatedButton } from '../button'
 

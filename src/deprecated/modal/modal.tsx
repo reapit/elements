@@ -1,7 +1,7 @@
 import { FC, HTMLAttributes, Ref, RefObject, createRef, useEffect, useId } from 'react'
 import { cx } from '@linaria/core'
 import { ModalBg, ModalContainer, ModalHeader, ModalBody } from './modal.atoms'
-import { elIsActive } from '../../styles/states'
+import { elIsActive } from '../../styles/deprecated-states'
 import { ModalProps } from './types'
 
 /** @deprecated */

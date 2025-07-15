@@ -1,7 +1,7 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { ElDeprecatedAvatar } from '../../avatar'
-import { elIsActive } from '../../../styles/states'
+import { elIsActive } from '../../../styles/deprecated-states'
 
 /** @deprecated */
 export const ElDeprecatedNavBg = styled.div`

@@ -1,7 +1,7 @@
 import React, { Dispatch, FC, HTMLAttributes, MouseEvent, SetStateAction, useState } from 'react'
 import { ElDeprecatedBreadCrumbItem, ElDeprecatedBreadCrumbContainer } from './__styles__'
 import { DeprecatedIcon } from '../icon'
-import { elMr2 } from '../../styles/spacing'
+import { elMr2 } from '../../styles/deprecated-spacing'
 import { FlexContainer } from '../layout'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 

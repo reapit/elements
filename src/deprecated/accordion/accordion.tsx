@@ -1,6 +1,6 @@
 import { Dispatch, FC, Fragment, SetStateAction, useState, useId } from 'react'
 import { cx } from '@linaria/core'
-import { elIsActive } from '../../styles/states'
+import { elIsActive } from '../../styles/deprecated-states'
 import { DeprecatedIcon } from '../icon'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 import { DeprecatedAccordionProps } from './types'

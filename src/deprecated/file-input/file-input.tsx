@@ -10,7 +10,7 @@ import React, {
   FC,
 } from 'react'
 import { useId } from '../../storybook/random-id'
-import { elMl3, elMr4 } from '../../styles/spacing'
+import { elMl3, elMr4 } from '../../styles/deprecated-spacing'
 import { DeprecatedButton } from '../../deprecated/button'
 import { DeprecatedIcon } from '../../deprecated/icon'
 import { DeprecatedLabel } from '../../deprecated/label'

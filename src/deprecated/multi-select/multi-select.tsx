@@ -24,7 +24,7 @@ import {
 } from './__styles__/index'
 import { useId } from '../../storybook/random-id'
 import { DeprecatedIcon } from '../icon'
-import { elMl2 } from '../../styles/spacing'
+import { elMl2 } from '../../styles/deprecated-spacing'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
 /** @deprecated */

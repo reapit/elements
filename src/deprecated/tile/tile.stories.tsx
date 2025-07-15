@@ -1,7 +1,7 @@
 import { Tile } from '.'
 import { PageContainer } from '../layout'
 import { Grid, Col, ColSplitThird, ColSplitTwoThirds, GridThirds } from '../grid'
-import { elMb7 } from '../../styles/spacing'
+import { elMb7 } from '../../styles/deprecated-spacing'
 
 export default {
   title: 'Deprecated/Tile',

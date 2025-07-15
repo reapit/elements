@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { isTablet } from '../../../styles/media'
+import { isTablet } from '../../../styles/deprecated-media'
 
 /** @deprecated */
 export const ElKeyValueIconWrap = styled.div`

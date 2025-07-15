@@ -8,7 +8,7 @@ import {
   elIntentNeutral,
   elIntentDefault,
   elIntentPending,
-} from '../../../styles/intent'
+} from '../../../styles/deprecated-intent'
 
 /** @deprecated */
 export const ElSnack = styled.div`

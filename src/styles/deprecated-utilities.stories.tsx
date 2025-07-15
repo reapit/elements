@@ -1,8 +1,15 @@
 import { cx } from '@linaria/core'
 import { GridDemoBlockFeatured, GridDemoBlockSizing, GridDemoBorders } from '../storybook/demo-block'
-import { elM6, elMb6, elP6, elPb6 } from './spacing'
-import { elH6, elHScreen, elW6, elWScreen } from './sizing'
-import { elBorderPurple, elBorderGrey, elBorderGreyL, elBorderRadius, elBorderRadiusR, elBoxShadow } from './borders'
+import { elM6, elMb6, elP6, elPb6 } from './deprecated-spacing'
+import { elH6, elHScreen, elW6, elWScreen } from './deprecated-sizing'
+import {
+  elBorderPurple,
+  elBorderGrey,
+  elBorderGreyL,
+  elBorderRadius,
+  elBorderRadiusR,
+  elBoxShadow,
+} from './deprecated-borders'
 
 export default {
   title: 'Deprecated/Utilities',

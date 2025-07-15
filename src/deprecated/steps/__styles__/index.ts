@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
-import { isDesktop } from '../../../styles/media'
-import { elIsActive, elIsUsed } from '../../../styles/states'
+import { isDesktop } from '../../../styles/deprecated-media'
+import { elIsActive, elIsUsed } from '../../../styles/deprecated-states'
 
 /** @deprecated */
 export const ElSteps = styled.div`

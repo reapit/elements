@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { isTablet, isDesktop, isWideScreen } from '../../styles/media'
+import { isTablet, isDesktop, isWideScreen } from '../../styles/deprecated-media'
 import { css } from '@linaria/core'
 
 export const ElTopBar = styled.header`

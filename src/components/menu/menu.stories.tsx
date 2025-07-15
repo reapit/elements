@@ -4,7 +4,7 @@ import { Menu, useMenuContext } from '.'
 import { DeprecatedButton } from '../../deprecated/button'
 import { DeprecatedIcon } from '../../deprecated/icon'
 import { FlexContainer, MainContainer } from '../../deprecated/layout'
-import { elHScreen } from '../../styles/sizing'
+import { elHScreen } from '../../styles/deprecated-sizing'
 import { Badge } from '../badge'
 
 const meta: Meta<typeof Menu> = {

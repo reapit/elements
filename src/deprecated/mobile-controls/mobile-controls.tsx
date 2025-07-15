@@ -3,7 +3,7 @@ import { ElMobileControlItem, ElMobileControls, ElMobileControlsBg, elMobileCont
 import { IconNames } from '../icon'
 import { DeprecatedFloatingButton } from '../button'
 import { cx } from '@linaria/core'
-import { elIsActive } from '../../styles/states'
+import { elIsActive } from '../../styles/deprecated-states'
 
 /** @deprecated */
 export interface MobileControlItem extends HTMLAttributes<HTMLAnchorElement> {

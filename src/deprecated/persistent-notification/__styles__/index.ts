@@ -1,7 +1,7 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { ElDeprecatedIcon } from '../../icon/__styles__'
-import { elIsActive } from '../../../styles/states'
+import { elIsActive } from '../../../styles/deprecated-states'
 import {
   elIntentPrimary,
   elIntentNeutral,
@@ -10,7 +10,7 @@ import {
   elIntentWarning,
   elIntentDanger,
   elIntentDefault,
-} from '../../../styles/intent'
+} from '../../../styles/deprecated-intent'
 
 /** @deprecated */
 export const elPnIsFullWidth = css``

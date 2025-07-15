@@ -1,5 +1,5 @@
-import { isMobile, isTablet } from '../../styles/media'
-import { elHFull } from '../../styles/sizing'
+import { isMobile, isTablet } from '../../styles/deprecated-media'
+import { elHFull } from '../../styles/deprecated-sizing'
 import { css } from '@linaria/core'
 
 /** @deprecated */

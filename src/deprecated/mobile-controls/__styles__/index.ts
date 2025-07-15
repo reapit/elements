@@ -1,9 +1,9 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
-import { isTablet } from '../../../styles/media'
-import { elIsActive } from '../../../styles/states'
+import { isTablet } from '../../../styles/deprecated-media'
+import { elIsActive } from '../../../styles/deprecated-states'
 import { ElDeprecatedIcon } from '../../icon/__styles__'
-import { elIntentDefault } from '../../../styles/intent'
+import { elIntentDefault } from '../../../styles/deprecated-intent'
 
 /** @deprecated */
 export const elMobileControlsVisible = css`

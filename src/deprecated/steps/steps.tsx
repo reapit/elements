@@ -1,6 +1,6 @@
 import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import { cx } from '@linaria/core'
-import { elIsActive, elIsUsed } from '../../styles/states'
+import { elIsActive, elIsUsed } from '../../styles/deprecated-states'
 import {
   ElSteps,
   ElStep,

@@ -1,5 +1,5 @@
 import { DRAWER_WIDTH_MD_2XL, DRAWER_WIDTH_XS_SM } from './constants'
-import { isDesktop } from '#src/styles/media'
+import { isDesktop } from '#src/styles/deprecated-media'
 import { styled } from '@linaria/react'
 
 export const ElDrawer = styled.dialog`

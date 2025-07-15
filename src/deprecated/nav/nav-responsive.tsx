@@ -21,11 +21,11 @@ import {
   elDeprecatedNavSubItemActive,
   elDeprecatedNavSubItemExpanded,
 } from './__styles__'
-import { elMlAuto, elMr2, elMr4 } from '../../styles/spacing'
+import { elMlAuto, elMr2, elMr4 } from '../../styles/deprecated-spacing'
 import { generateRandomId } from '../../storybook/random-id'
 import { DeprecatedAvatar } from '../avatar'
 import { Text2XS } from '../typography'
-import { elIsActive } from '../../styles/states'
+import { elIsActive } from '../../styles/deprecated-states'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
 export type DeprecatedNavResponsiveItemType = 'ICON' | 'ITEM' | 'SECONDARY'

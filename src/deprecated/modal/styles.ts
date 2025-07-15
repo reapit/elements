@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { elIsActive } from '../../styles/states'
+import { elIsActive } from '../../styles/deprecated-states'
 import { ElDeprecatedIcon } from '../icon/__styles__'
 
 /**

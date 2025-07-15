@@ -1,6 +1,6 @@
 import { DeprecatedButton } from '../button'
 import { useSnack } from '../use-snack'
-import { elM1 } from '../../styles/spacing'
+import { elM1 } from '../../styles/deprecated-spacing'
 
 /** @deprecated */
 export const UseSnackHookStory = () => {

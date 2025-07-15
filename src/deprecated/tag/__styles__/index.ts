@@ -7,7 +7,7 @@ import {
   elIntentPending,
   elIntentDefault,
   elIntentNeutral,
-} from '../../../styles/intent'
+} from '../../../styles/deprecated-intent'
 
 /** @deprecated */
 export const ElDeprecatedTag = styled.span`

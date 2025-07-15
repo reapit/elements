@@ -19,7 +19,7 @@ import {
 } from './card'
 import { elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
 import { DeprecatedIcon, IconNames } from '../icon'
-import { elMb5, elMt5 } from '../../styles/spacing'
+import { elMb5, elMt5 } from '../../styles/deprecated-spacing'
 import { Intent } from '../../helpers/intent'
 import { DeprecatedAvatar } from '../avatar'
 

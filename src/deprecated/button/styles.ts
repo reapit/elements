@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { isMobile } from '#src/styles/media'
+import { isMobile } from '#src/styles/deprecated-media'
 
 /** @deprecated */
 export const elDeprecatedButtonSizeSmall = css``

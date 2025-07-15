@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { isDesktop, isWideScreen, isTablet, isSuperWideScreen } from '../../../styles/media'
+import { isDesktop, isWideScreen, isTablet, isSuperWideScreen } from '../../../styles/deprecated-media'
 
 /** @deprecated */
 export const elFormLayoutHasMargin = css``

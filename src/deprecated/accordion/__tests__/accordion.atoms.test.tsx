@@ -8,8 +8,8 @@ import {
   DeprecatedAccordionContent,
 } from '../accordion.atoms'
 import { DeprecatedIcon } from '../../icon'
-import { elMr1 } from '../../../styles/spacing'
-import { elIsActive } from '../../../styles/states'
+import { elMr1 } from '../../../styles/deprecated-spacing'
+import { elIsActive } from '../../../styles/deprecated-states'
 
 describe('Accordion basic usage', () => {
   it('should match a snapshot', () => {

@@ -17,7 +17,7 @@ import {
 } from './card'
 import { elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
 import { DeprecatedIcon } from '../icon'
-import { elMb5 } from '../../styles/spacing'
+import { elMb5 } from '../../styles/deprecated-spacing'
 import { Card } from './card-components'
 import { MediaStateProvider } from '../use-media-query'
 import { DeprecatedAvatar } from '../avatar'

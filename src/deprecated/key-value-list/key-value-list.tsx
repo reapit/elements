@@ -6,7 +6,7 @@ import { ColHalf, Col, Grid } from '../grid'
 import { TextSM, TextXS } from '../typography'
 import { FlexContainer } from '../layout'
 import { Intent } from '../../helpers/intent'
-import { elTextEllipsis } from '../../styles/typography'
+import { elTextEllipsis } from '../../styles/deprecated-typography'
 
 /** @deprecated */
 export interface KeyValueItem {

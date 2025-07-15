@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { is4KScreen, isDesktop, isSuperWideScreen, isTablet, isWideScreen } from '../../../styles/media'
+import { is4KScreen, isDesktop, isSuperWideScreen, isTablet, isWideScreen } from '../../../styles/deprecated-media'
 
 /** @deprecated */
 export const ElGrid = styled.div`
