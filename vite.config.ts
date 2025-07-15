@@ -28,6 +28,7 @@ export default defineConfig({
       cssFileName: 'style',
       entry: {
         index: fileURLToPath(new URL('./src/index.ts', import.meta.url)),
+        'utils/url-search-params': fileURLToPath(new URL('./src/utils/url-search-params/index.ts', import.meta.url)),
         ...icons,
       },
       formats: ['es', 'cjs'],
