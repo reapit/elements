@@ -37,6 +37,11 @@
       "import": "./dist/js/icons/*.js",
       "require": "./dist/js/icons/*.cjs"
     },
+    "./utils/*": {
+      "types": "./dist/types/utils/*/index.d.ts",
+      "import": "./dist/js/utils/*/index.js",
+      "require": "./dist/js/utils/*/index.cjs"
+    },
     "./reset.css": "./public/reset.css",
     "./styles.css": "./dist/js/style.css",
     "./dist/index.css": "./dist/js/style.css"

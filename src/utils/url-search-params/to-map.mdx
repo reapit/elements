@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+# `toMap`
+
+<Meta title="Utils/URLSearchParams/toMap" />
+
+Converts a `URLSearchParams` object to a `Map`, ensuring that multiple values for the same key are stored as arrays.
+
+## Syntax
+
+```ts
+toMap(searchParams)
+```
+
+- `searchParams`: The `URLSearchParams` to convert.
+
+## Usage Example
+
+```ts
+import { toMap } from '@reapit/elements/utils/url-search-params'
+
+const searchParams = new URLSearchParams('a=1&a=2&b=3')
+const map = toMap(searchParams)
+console.log(map) // Map { 'a' => ['1', '2'], 'b' => ['3'] }
+```

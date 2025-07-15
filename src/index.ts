@@ -117,3 +117,5 @@ export * from './components/text'
 export * from './components/textarea'
 export * from './components/tooltip'
 export * from './components/top-bar'
+
+export * from './utils'

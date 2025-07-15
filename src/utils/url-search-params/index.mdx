@@ -1,0 +1,25 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+# Working with `URLSearchParams`
+
+<Meta title="Utils/URLSearchParams" />
+
+The `URLSearchParams` interface defines utility methods to work with the query string of a URL. It is common for
+web applications to use this interface to parse and manipulate the query string of a URL, particularly to store
+application state like the filters applied on a list page.
+
+It's valuable to store specific pieces of state in the URL because users should be able to:
+
+- Refresh the page or navigate through their browser history without losing their state;
+- Open links in a new tab using their OS' standard keyboard shortcut and reliably see the state they expect; and,
+- Share and bookmark links within a web application and have that link open to the same state as when the link was
+  copied.
+
+See [MDN's URLSearchParams documentation](https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams) for
+more details and usage examples.
+
+Unfortunately, the `URLSearchParams` interface can be a bit awkward to work with. The following utility functions
+are provided to smooth over some of its rough edges:
+
+- [toMap](?path=/docs/utils-urlsearchparams-tomap--docs): Converts a `URLSearchParams` object to a `Map`, ensuring that multiple values for the same key are stored as arrays.
+- [toURLSearchParams](?path=/docs/utils-urlsearchparams-tourlsearchparams--docs): Converts iterable of key-value pairs to a `URLSearchParams` object.
