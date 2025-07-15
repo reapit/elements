@@ -10,6 +10,7 @@ import React, {
   FC,
 } from 'react'
 
+/** @deprecated */
 export interface NavState {
   navItemIndex: number | null
   navMenuOpen: boolean
@@ -18,11 +19,13 @@ export interface NavState {
   callback?: () => void
 }
 
+/** @deprecated */
 export interface NavStateContextProps {
   navState: NavState
   setNavState: Dispatch<SetStateAction<NavState>>
 }
 
+/** @deprecated */
 export interface UseNavState {
   navState: NavState
   setNavState: (
@@ -30,10 +33,12 @@ export interface UseNavState {
   ) => (event?: MouseEvent<HTMLAnchorElement | HTMLDivElement | HTMLSpanElement>) => void
 }
 
+/** @deprecated */
 export const NavStateContext = createContext<NavStateContextProps>({} as NavStateContextProps)
 
 const { Provider } = NavStateContext
 
+/** @deprecated */
 export const NavStateProvider: FC<PropsWithChildren> = ({ children }) => {
   const [navState, setNavState] = useState<NavState>({
     navItemIndex: null,
@@ -54,6 +59,7 @@ export const NavStateProvider: FC<PropsWithChildren> = ({ children }) => {
   )
 }
 
+/** @deprecated */
 export const useNavState = (
   defaultNavIndex: number | null = null,
   defaultNavSubIndex: number | null = null,

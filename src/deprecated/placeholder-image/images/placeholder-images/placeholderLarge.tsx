@@ -1,5 +1,6 @@
 import React, { memo } from 'react'
 
+/** @deprecated */
 export default memo(() => (
   <svg width="1em" height="1em" viewBox="0 0 183 200" fill="none" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="90.7692" cy="108.718" rx="90.7692" ry="91.2821" fill="#F2F2F2" />

@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
+/** @deprecated */
 export const ElTabsItem = styled.span`
   width: 100%;
   height: 100%;
@@ -16,13 +17,16 @@ export const ElTabsItem = styled.span`
   color: var(--neutral-500);
 `
 
+/** @deprecated */
 export const elTabsFullWidth = css`
   width: 100%;
   justify-content: space-evenly;
 `
 
+/** @deprecated */
 export const elTabsHasNoBorder = css``
 
+/** @deprecated */
 export const ElTab = styled.input`
   height: 0;
   width: 0;
@@ -46,6 +50,7 @@ export const ElTab = styled.input`
   }
 `
 
+/** @deprecated */
 export const ElTabsLabel = styled.label`
   cursor: pointer;
   background: var(--white);
@@ -59,6 +64,7 @@ export const ElTabsLabel = styled.label`
   }
 `
 
+/** @deprecated */
 export const ElTabsWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -79,11 +85,13 @@ export const ElTabsWrap = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElTabsOptionsWrap = styled.div`
   display: flex;
   gap: 1.5rem;
 `
 
+/** @deprecated */
 export const ElTabsFooter = styled.div`
   width: 100%;
   height: 1.125rem;

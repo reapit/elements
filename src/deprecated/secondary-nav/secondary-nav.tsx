@@ -4,17 +4,21 @@ import { ElSecondaryNav, ElSecondaryNavItem } from './__styles__'
 import { elIsActive } from '../../styles/states'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
+/** @deprecated */
 export interface SecondaryNavProps extends HTMLAttributes<HTMLDivElement> {}
 
+/** @deprecated */
 export const SecondaryNav: FC<SecondaryNavProps> = ({ children, ...rest }) => {
   return <ElSecondaryNav {...rest}>{children}</ElSecondaryNav>
 }
 
+/** @deprecated */
 export interface SecondaryNavItemProps extends HTMLAttributes<HTMLDivElement> {
   active?: boolean
   className?: string
 }
 
+/** @deprecated */
 export const SecondaryNavItem: FC<SecondaryNavItemProps> = ({ active, className, onClick, children, ...rest }) => {
   const combinedClassName = cx(className, active && elIsActive)
 

@@ -8,6 +8,7 @@ import { FlexContainer } from '../layout'
 import { Intent } from '../../helpers/intent'
 import { elTextEllipsis } from '../../styles/typography'
 
+/** @deprecated */
 export interface KeyValueItem {
   key: string
   value: ReactNode
@@ -18,27 +19,32 @@ export interface KeyValueItem {
   textEllipsis?: boolean
 }
 
+/** @deprecated */
 export interface KeyValueContentProps {
   item: KeyValueItem
 }
 
+/** @deprecated */
 export interface KeyValueListProps extends HTMLAttributes<HTMLDivElement> {
   items: KeyValueItem[]
   hasGrid?: boolean
 }
 
+/** @deprecated */
 export const KeyValueIconWrap: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
   <ElKeyValueIconWrap className={cx(className)} {...rest}>
     {children}
   </ElKeyValueIconWrap>
 )
 
+/** @deprecated */
 export const KeyValueListWrap: FC<HTMLAttributes<HTMLDivElement>> = ({ children, className, ...rest }) => (
   <ElKeyValueListWrap className={cx(className)} {...rest}>
     {children}
   </ElKeyValueListWrap>
 )
 
+/** @deprecated */
 export const KeyValueContent: FC<KeyValueContentProps> = ({
   item: { intent, iconName, icon, value, key, textEllipsis },
 }) => (
@@ -61,6 +67,7 @@ export const KeyValueContent: FC<KeyValueContentProps> = ({
   </>
 )
 
+/** @deprecated */
 export const KeyValueList: FC<KeyValueListProps> = ({ className, items, hasGrid, ...rest }) => {
   return hasGrid ? (
     <Grid className={cx(className)} {...rest}>

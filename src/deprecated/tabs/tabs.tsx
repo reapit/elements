@@ -5,11 +5,13 @@ import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 import { TabsProps } from './types'
 import { TabsWrap, TabsOptionsWrap, Tab, TabsLabel, TabsItem, TabsFooter } from './tabs.atoms'
 
+/** @deprecated */
 export const handleKeyboardTabChange =
   (tabsRefs: MutableRefObject<(HTMLInputElement | null)[]>, index: number) => () => {
     tabsRefs.current[index]?.click()
   }
 
+/** @deprecated */
 export const Tabs: FC<TabsProps> = ({ className, isFullWidth, hasNoBorder, isControlled, name, options, ...rest }) => {
   const tabsRefs = useRef<(HTMLInputElement | null)[]>([])
 

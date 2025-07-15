@@ -27,13 +27,16 @@ import { DeprecatedIcon } from '../icon'
 import { elMl2 } from '../../styles/spacing'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
+/** @deprecated */
 export interface MultiSelectProps extends HTMLAttributes<HTMLDivElement> {}
 
+/** @deprecated */
 export interface MultiSelectOption {
   value: string
   name: string
 }
 
+/** @deprecated */
 export interface MultiSelectInputProps extends InputHTMLAttributes<HTMLInputElement> {
   id: string
   options: MultiSelectOption[]
@@ -41,10 +44,12 @@ export interface MultiSelectInputProps extends InputHTMLAttributes<HTMLInputElem
   noneSelectedLabel?: string
 }
 
+/** @deprecated */
 export type MultiSelectInputWrapped = React.ForwardRefExoticComponent<
   MultiSelectInputProps & RefAttributes<InputHTMLAttributes<HTMLInputElement>>
 >
 
+/** @deprecated */
 export interface MultiSelectChipProps extends InputHTMLAttributes<HTMLInputElement> {}
 
 const setNativeInputValue = (element: HTMLElement, value: string[], testFunc?: (value: string[]) => void) => {
@@ -60,6 +65,7 @@ const setNativeInputValue = (element: HTMLElement, value: string[], testFunc?: (
   }
 }
 
+/** @deprecated */
 export const handleSetNativeInput =
   (id: string, selectedOptionValues: string[], testFunc?: (value: string[]) => void) => () => {
     const input = document.getElementById(id)
@@ -71,6 +77,7 @@ export const handleSetNativeInput =
     }
   }
 
+/** @deprecated */
 export const handleResetDefaultValues =
   (
     setSelectedOptionValues: Dispatch<SetStateAction<string[]>>,
@@ -85,6 +92,7 @@ export const handleResetDefaultValues =
     }
   }
 
+/** @deprecated */
 export const handleSelectedOptions =
   (value: string, selectedOptionValues: string[], setSelectedOptionValues: Dispatch<SetStateAction<string[]>>) =>
   (event: ChangeEvent<HTMLInputElement>) => {
@@ -97,6 +105,7 @@ export const handleSelectedOptions =
     setSelectedOptionValues(newSelected)
   }
 
+/** @deprecated */
 export const handleSelectedKeyboardOptions =
   (
     value: string,
@@ -112,6 +121,7 @@ export const handleSelectedKeyboardOptions =
     setSelectedOptionValues(newSelected)
   }
 
+/** @deprecated */
 export const MultiSelectChip: FC<MultiSelectChipProps> = ({
   className,
   children,
@@ -137,18 +147,21 @@ export const MultiSelectChip: FC<MultiSelectChipProps> = ({
   )
 }
 
+/** @deprecated */
 export const MultiSelect: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
   <ElMultiSelect className={cx(className)} {...rest}>
     {children}
   </ElMultiSelect>
 )
 
+/** @deprecated */
 export const MultiSelectSelected: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
   <ElMultiSelectSelected className={cx(className)} {...rest}>
     {children}
   </ElMultiSelectSelected>
 )
 
+/** @deprecated */
 export const MultiSelectUnSelected: FC<MultiSelectProps> = ({ className, children, ...rest }) => (
   <ElMultiSelectUnSelected className={cx(className)} {...rest}>
     {children}
@@ -163,6 +176,7 @@ export const MultiSelectUnSelected: FC<MultiSelectProps> = ({ className, childre
  * global setter and call it on the input with the value. I then dispatch a real DOM change event and that triggers
  * the React handler, which hands back to my form lib or similar. It's adapted from this suggested workaround below:
  *  https://github.com/facebook/react/issues/11095#issuecomment-334305739  */
+/** @deprecated */
 export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
   (
     { className, options, defaultValues, noneSelectedLabel, id, ...rest },

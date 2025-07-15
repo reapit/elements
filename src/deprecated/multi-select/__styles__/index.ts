@@ -12,8 +12,10 @@ const dismiss = (fill: string) =>
     fill,
   )}"/></svg>`
 
+/** @deprecated */
 export const elHasGreyChips = css``
 
+/** @deprecated */
 export const ElMultiSelectCheckbox = styled.input`
   height: 0;
   width: 0;
@@ -66,6 +68,7 @@ export const ElMultiSelectCheckbox = styled.input`
   }
 `
 
+/** @deprecated */
 export const ElMultiSelectLabel = styled.label`
   cursor: pointer;
   min-width: 75px;
@@ -94,6 +97,7 @@ export const ElMultiSelectLabel = styled.label`
   }
 `
 
+/** @deprecated */
 export const ElMultiSelect = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -102,6 +106,7 @@ export const ElMultiSelect = styled.div`
   position: relative;
 `
 
+/** @deprecated */
 export const ElMultiSelectSelected = styled.div`
   display: flex;
   align-items: center;
@@ -120,6 +125,7 @@ export const ElMultiSelectSelected = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElMultiSelectUnSelected = styled.div`
   display: flex;
   flex-wrap: wrap;
@@ -131,6 +137,7 @@ export const ElMultiSelectUnSelected = styled.div`
   position: relative;
 `
 
+/** @deprecated */
 export const ElMultiSelectInput = styled.input`
   height: 0;
   width: 0;
@@ -138,6 +145,7 @@ export const ElMultiSelectInput = styled.input`
   visibility: hidden;
 `
 
+/** @deprecated */
 export const ElMultiSelectInputWrapper = styled.div`
   width: 100%;
 `

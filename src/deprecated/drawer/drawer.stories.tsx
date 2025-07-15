@@ -1,7 +1,7 @@
 import { useDrawer } from '../use-drawer'
 import { DeprecatedDrawer as Drawer, DeprecatedDrawerBg as DrawerBg } from './drawer'
 import { DeprecatedButton, DeprecatedButtonGroup } from '../button'
-import { FormLayout, InputWrapFull, InputWrapHalf } from '../../components/form-layout'
+import { FormLayout, InputWrapFull, InputWrapHalf } from '../../deprecated/form-layout'
 import { InputGroup } from '../input-group'
 import { DeprecatedLabel } from '../label'
 import { Select } from '../select'

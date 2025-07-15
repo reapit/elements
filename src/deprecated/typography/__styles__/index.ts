@@ -9,19 +9,32 @@ import {
   elIntentWarning,
 } from '../../../styles/intent'
 
+/** @deprecated */
 export const elHasGreyText = css``
+/** @deprecated */
 export const elHasNoMargin = css``
+/** @deprecated */
 export const elHasRegularText = css``
+/** @deprecated */
 export const elHasBoldText = css``
+/** @deprecated */
 export const elHasMediumText = css``
+/** @deprecated */
 export const elHasMargin = css``
+/** @deprecated */
 export const elHasItalicText = css``
+/** @deprecated */
 export const elHasCenteredText = css``
+/** @deprecated */
 export const elHasSectionMargin = css``
+/** @deprecated */
 export const elHasDisabledText = css``
+/** @deprecated */
 export const elHasCapitalisedText = css``
+/** @deprecated */
 export const elHasUpperCasedText = css``
 
+/** @deprecated */
 export const elTextBase = css`
   font-family: var(--font-sans-serif);
   color: var(--black);
@@ -110,41 +123,49 @@ export const elTextBase = css`
   }
 `
 
+/** @deprecated */
 export const elText3XL = css`
   font-size: 32px;
   line-height: 40px;
 `
 
+/** @deprecated */
 export const elText2XL = css`
   font-size: 24px;
   line-height: 32px;
 `
 
+/** @deprecated */
 export const elTextXL = css`
   font-size: 20px;
   line-height: 28px;
 `
 
+/** @deprecated */
 export const elTextL = css`
   font-size: 18px;
   line-height: 24px;
 `
 
+/** @deprecated */
 export const elTextSM = css`
   font-size: 14px;
   line-height: 20px;
 `
 
+/** @deprecated */
 export const elTextXS = css`
   font-size: 13px;
   line-height: 16px;
 `
 
+/** @deprecated */
 export const elText2XS = css`
   font-size: 12px;
   line-height: 16px;
 `
 
+/** @deprecated */
 export const elTitle = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-bold);
@@ -227,6 +248,7 @@ export const elTitle = css`
   }
 `
 
+/** @deprecated */
 export const elSubtitle = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
@@ -309,6 +331,7 @@ export const elSubtitle = css`
   }
 `
 
+/** @deprecated */
 export const elBodyText = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);
@@ -391,6 +414,7 @@ export const elBodyText = css`
   }
 `
 
+/** @deprecated */
 export const elSmallText = css`
   font-family: var(--font-sans-serif);
   font-weight: var(--font-weight-default);

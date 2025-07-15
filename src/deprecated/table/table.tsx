@@ -14,6 +14,7 @@ import {
 } from './molecules'
 import { Intent } from '../../helpers/intent'
 
+/** @deprecated */
 export type NarrowOptionsType = {
   showLabel?: boolean
   isFullWidth?: boolean
@@ -34,6 +35,7 @@ export interface DeprecatedCellProps {
   narrowTable?: NarrowOptionsType
 }
 
+/** @deprecated */
 export interface RowActionProps {
   content?: ReactNode
   cellContent?: ReactNode
@@ -58,6 +60,7 @@ export interface DeprecatedTableProps extends HTMLAttributes<HTMLDivElement> {
   setIndexExpandedRow?: Dispatch<SetStateAction<number | null>>
 }
 
+/** @deprecated */
 export const handleToggleExpandedRow =
   (
     index: number | null,

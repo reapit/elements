@@ -4,9 +4,12 @@ import { ElGrid, ElCol } from './__styles__'
 import { MediaType, useMediaQuery } from '../use-media-query'
 import * as units from './__styles__/units'
 
+/** @deprecated */
 export type GridUnitType = 0 | 1 | 2 | 3 | 4 | 6 | 8 | 12
+/** @deprecated */
 export type ColUnitType = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12 | 13 | 14 | 15 | 16 | 17 | 18 | 19 | 20
 
+/** @deprecated */
 export interface GridResponsiveProps extends HTMLAttributes<HTMLElement> {
   colGapMobile?: GridUnitType
   colGapTablet?: GridUnitType
@@ -22,6 +25,7 @@ export interface GridResponsiveProps extends HTMLAttributes<HTMLElement> {
   rowGap4KScreen?: GridUnitType
 }
 
+/** @deprecated */
 export interface ColResponsiveProps extends HTMLAttributes<HTMLElement> {
   spanMobile?: ColUnitType
   spanTablet?: ColUnitType
@@ -37,6 +41,7 @@ export interface ColResponsiveProps extends HTMLAttributes<HTMLElement> {
   offset4KScreen?: ColUnitType
 }
 
+/** @deprecated */
 export const getGridClasses = (props: GridResponsiveProps, mediaType: MediaType): string | null => {
   const {
     colGapMobile,
@@ -91,6 +96,7 @@ export const getGridClasses = (props: GridResponsiveProps, mediaType: MediaType)
   return null
 }
 
+/** @deprecated */
 export const getColClasses = (props: ColResponsiveProps, mediaType: MediaType): string | null => {
   const {
     spanMobile,
@@ -142,6 +148,7 @@ export const getColClasses = (props: ColResponsiveProps, mediaType: MediaType): 
   return null
 }
 
+/** @deprecated */
 export const GridResponsive: FC<GridResponsiveProps> = (props: GridResponsiveProps) => {
   const { className, children, ...rest } = props
   const mediaType = useMediaQuery()
@@ -153,6 +160,7 @@ export const GridResponsive: FC<GridResponsiveProps> = (props: GridResponsivePro
   )
 }
 
+/** @deprecated */
 export const ColResponsive: FC<ColResponsiveProps> = (props: ColResponsiveProps) => {
   const { className, children, ...rest } = props
   const mediaType = useMediaQuery()

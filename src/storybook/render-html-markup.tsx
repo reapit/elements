@@ -37,6 +37,7 @@ const handleFormatHTML = (raw: string | null, setHtml: Dispatch<SetStateAction<s
   format()
 }
 
+/** @deprecated */
 export const handleTransform =
   (
     setStoryContext: Dispatch<SetStateAction<StoryContext<Args> | null>>,
@@ -53,6 +54,7 @@ export const handleTransform =
     return html || code
   }
 
+/** @deprecated */
 export const RenderHtmlMarkup: FC<SourceProps> = (props) => {
   const [storyContext, setStoryContext] = useState<StoryContext<Args> | null>(null)
   const [html, setHtml] = useState<string>('')

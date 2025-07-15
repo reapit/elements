@@ -2,8 +2,10 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { isDesktop, isWideScreen, isTablet, isSuperWideScreen } from '../../../styles/media'
 
+/** @deprecated */
 export const elFormLayoutHasMargin = css``
 
+/** @deprecated */
 export const ElFormLayout = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -30,19 +32,23 @@ export const ElFormLayout = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElFormSectionDivider = styled.div`
   margin: 1.5rem 0;
   border-bottom: 1px solid var(--neutral-100);
 `
 
+/** @deprecated */
 export const ElInputWrapSmall = styled.div`
   grid-column-end: span 2;
 `
 
+/** @deprecated */
 export const ElInputWrap = styled.div`
   grid-column-end: span 4;
 `
 
+/** @deprecated */
 export const ElInputWrapMed = styled.div`
   grid-column-end: span 4;
 
@@ -59,6 +65,7 @@ export const ElInputWrapMed = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElInputWrapFull = styled.div`
   grid-column-end: span 4;
 
@@ -75,6 +82,7 @@ export const ElInputWrapFull = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElInputWrapHalf = styled.div`
   grid-column-end: span 2;
 

@@ -9,6 +9,7 @@ import { ElToggleRadioWrap, ElToggleLabel } from '../../toggle/__styles__'
 import { ElMultiSelectInputWrapper } from '../../multi-select/__styles__'
 import { ElInputError } from '../../input-error/__styles__'
 
+/** @deprecated */
 export const ElInputGroup = styled.div`
   display: flex;
   flex-wrap: wrap;

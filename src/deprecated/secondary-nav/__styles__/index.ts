@@ -1,11 +1,13 @@
 import { styled } from '@linaria/react'
 import { elIsActive } from '../../../styles/states'
 
+/** @deprecated */
 export const ElSecondaryNav = styled.div`
   transform: translate3d(-1.5rem, -1.5rem, 0);
   width: 14rem;
 `
 
+/** @deprecated */
 export const ElSecondaryNavItem = styled.div`
   padding: 0.625rem 1.5rem;
   color: var(--neutral-400);

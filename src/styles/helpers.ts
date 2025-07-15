@@ -1,5 +1,6 @@
 import { css } from '@linaria/core'
 
+/** @deprecated */
 export const elFadeIn = css`
   @keyframes fade-in {
     from {

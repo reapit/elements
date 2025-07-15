@@ -34,6 +34,7 @@ import {
 } from '../../styles/flexbox'
 import { ContainerFlexProps, ContainerProps, TaggedElementProps } from './types'
 
+/** @deprecated */
 export const TaggedElement: FC<TaggedElementProps> = ({
   tag,
   children,
@@ -73,24 +74,28 @@ export const TaggedElement: FC<TaggedElementProps> = ({
   }
 }
 
+/** @deprecated */
 export const MainContainer: FC<ContainerProps> = ({ tag = 'main', children, ...rest }) => (
   <TaggedElement tag={tag} baseClass={elMainContainer} {...rest}>
     {children}
   </TaggedElement>
 )
 
+/** @deprecated */
 export const PageContainer: FC<ContainerProps> = ({ tag = 'section', children, ...rest }) => (
   <TaggedElement tag={tag} baseClass={elPageContainer} {...rest}>
     {children}
   </TaggedElement>
 )
 
+/** @deprecated */
 export const SecondaryNavContainer: FC<ContainerProps> = ({ children, tag = 'aside', ...rest }) => (
   <TaggedElement tag={tag} baseClass={elSecondaryNavContainer} {...rest}>
     {children}
   </TaggedElement>
 )
 
+/** @deprecated */
 export const FlexContainer: FC<ContainerFlexProps> = ({
   tag = 'div',
   children,

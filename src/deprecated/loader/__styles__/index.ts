@@ -3,6 +3,7 @@ import { elIsFullPage } from '../../../styles/states'
 
 const ANIM_TIME = 1.2
 
+/** @deprecated */
 export const ElLoaderContainer = styled.div`
   display: flex;
   align-items: center;
@@ -15,12 +16,14 @@ export const ElLoaderContainer = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElLoaderLabel = styled.p`
   margin-right: 0.75rem;
   font-size: var(--font-size-default);
   color: var(--neutral-500);
 `
 
+/** @deprecated */
 export const ElLoader = styled.div`
   position: relative;
   background: var(--neutral-100);
@@ -28,6 +31,7 @@ export const ElLoader = styled.div`
   width: 80px;
 `
 
+/** @deprecated */
 export const ElLoaderMovingBar = styled.div`
   position: absolute;
   height: 100%;

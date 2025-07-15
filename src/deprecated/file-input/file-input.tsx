@@ -26,6 +26,7 @@ import {
 import { PlaceholderImage } from '../../deprecated/placeholder-image'
 import { TextSM } from '../../deprecated/typography'
 
+/** @deprecated */
 export interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
   onFileUpload?: (uploadImageModel: CreateImageUploadModel) => Promise<any | ImageUploadModel>
   onFileView?: (base64: string) => void
@@ -35,23 +36,28 @@ export interface FileInputProps extends React.InputHTMLAttributes<HTMLInputEleme
   fileName?: string
 }
 
+/** @deprecated */
 export interface FilePreviewImageProps {
   src?: string | null
 }
 
+/** @deprecated */
 export type FileInputWrapped = React.ForwardRefExoticComponent<
   FileInputProps & React.RefAttributes<React.InputHTMLAttributes<HTMLInputElement>>
 >
 
+/** @deprecated */
 export interface CreateImageUploadModel {
   name?: string
   imageData?: string
 }
 
+/** @deprecated */
 export interface ImageUploadModel {
   Url: string
 }
 
+/** @deprecated */
 export const handleFileChange =
   (
     setFileName: Dispatch<SetStateAction<string>>,
@@ -92,6 +98,7 @@ export const handleFileChange =
     }
   }
 
+/** @deprecated */
 export const handleFileClear =
   (setFileName: Dispatch<SetStateAction<string>>) => (event: MouseEvent<HTMLSpanElement>) => {
     event.stopPropagation()
@@ -100,6 +107,7 @@ export const handleFileClear =
     setFileName('')
   }
 
+/** @deprecated */
 export const handleFileView =
   (onFileView: (fileUrl: string) => void, fileUrl: string) => (event: MouseEvent<HTMLSpanElement>) => {
     event.stopPropagation()
@@ -107,12 +115,14 @@ export const handleFileView =
     onFileView(fileUrl)
   }
 
+/** @deprecated */
 export const FilePreviewImage: FC<FilePreviewImageProps> = ({ src }) => {
   if (!src) return <PlaceholderImage placeholder="placeholderSmall" size={120} fillAvailable />
 
   return <ElFilePreviewImage src={src} />
 }
 
+/** @deprecated */
 export const FileInput: FileInputWrapped = forwardRef(
   (
     { onFileView, onFileUpload, defaultValue, label, placeholderText, fileName = '', accept, id, ...rest },

@@ -20,6 +20,7 @@ export type Intent =
   | 'critical'
   | 'low'
 
+/** @deprecated */
 export const getIntentClassName = (intent: Intent): string => {
   switch (intent) {
     case 'primary':

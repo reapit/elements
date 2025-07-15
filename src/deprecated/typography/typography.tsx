@@ -28,8 +28,10 @@ import {
 } from './__styles__'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 
+/** @deprecated */
 export type TypeographyTag = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p' | 'small' | 'div' | 'span'
 
+/** @deprecated */
 export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   hasGreyText?: boolean
   hasNoMargin?: boolean
@@ -47,6 +49,7 @@ export interface TypographyProps extends HTMLAttributes<HTMLElement> {
   tag?: TypeographyTag
 }
 
+/** @deprecated */
 export interface TaggedTypographyProps extends TypographyProps {
   baseClass?: string
 }
@@ -98,6 +101,7 @@ const propsToClass =
     }
   }
 
+/** @deprecated */
 export const TaggedTypography: FC<TaggedTypographyProps> = (props) => {
   const { className, children, tag, ...rest } = useMemo(propsToClass(props), [props])
   switch (tag) {
@@ -165,28 +169,40 @@ export const TaggedTypography: FC<TaggedTypographyProps> = (props) => {
   }
 }
 
+/** @deprecated */
 export const Text3XL: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elText3XL} {...props} />
 
+/** @deprecated */
 export const Text2XL: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elText2XL} {...props} />
 
+/** @deprecated */
 export const TextXL: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTextXL} {...props} />
 
+/** @deprecated */
 export const TextL: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTextL} {...props} />
 
+/** @deprecated */
 export const TextBase: FC<TypographyProps> = (props) => <TaggedTypography {...props} />
 
+/** @deprecated */
 export const TextSM: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTextSM} {...props} />
 
+/** @deprecated */
 export const TextXS: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTextXS} {...props} />
 
+/** @deprecated */
 export const Text2XS: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elText2XS} {...props} />
 
+/** @deprecated */
 export const Title: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elTitle} tag="h1" {...props} />
 
+/** @deprecated */
 export const Subtitle: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elSubtitle} tag="h2" {...props} />
 
+/** @deprecated */
 export const BodyText: FC<TypographyProps> = (props) => <TaggedTypography baseClass={elBodyText} tag="p" {...props} />
 
+/** @deprecated */
 export const SmallText: FC<TypographyProps> = (props) => (
   <TaggedTypography baseClass={elSmallText} tag="small" {...props} />
 )

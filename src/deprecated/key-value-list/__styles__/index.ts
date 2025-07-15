@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react'
 import { isTablet } from '../../../styles/media'
 
+/** @deprecated */
 export const ElKeyValueIconWrap = styled.div`
   height: 1.25rem;
   width: 1.25rem;
@@ -12,6 +13,7 @@ export const ElKeyValueIconWrap = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElKeyValueListWrap = styled.div`
   display: flex;
   margin-bottom: 1rem;

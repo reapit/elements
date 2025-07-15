@@ -2,9 +2,12 @@ import { styled } from '@linaria/react'
 import { isDesktop } from '../../../styles/media'
 import { elIsActive, elIsUsed } from '../../../styles/states'
 
+/** @deprecated */
 export const ElSteps = styled.div`
   display: flex;
 `
+
+/** @deprecated */
 export const ElStep = styled.div`
   background-color: var(--neutral-100);
   color: var(--neutral-500);
@@ -71,11 +74,13 @@ export const ElStep = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElStepsVertical = styled.div`
   display: flex;
   flex-wrap: wrap;
 `
 
+/** @deprecated */
 export const ElStepVertical = styled.div`
   display: flex;
   flex-direction: column;
@@ -87,6 +92,7 @@ export const ElStepVertical = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElStepVerticalItem = styled.div`
   display: flex;
   width: 100%;
@@ -99,6 +105,7 @@ export const ElStepVerticalItem = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElStepVerticalContent = styled.div`
   width: 100%;
 `

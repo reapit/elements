@@ -24,6 +24,7 @@ export const ElDeprecatedToolTipChild = styled.div`
   }
 `
 
+/** @deprecated */
 export const elToolTipActive = css`
   display: block;
 `

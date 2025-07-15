@@ -1,12 +1,14 @@
 import { HTMLAttributes } from 'react'
 
 type LayoutTags = 'main' | 'aside' | 'section' | 'div'
+/** @deprecated */
 export interface ContainerProps extends HTMLAttributes<HTMLElement> {
   hasGreyBackground?: boolean
   hasMaxWidth?: boolean
   tag?: LayoutTags
 }
 
+/** @deprecated */
 export interface ContainerFlexProps extends ContainerProps {
   isFlexRow?: boolean
   isFlexRowReverse?: boolean
@@ -33,6 +35,7 @@ export interface ContainerFlexProps extends ContainerProps {
   hasGreyBackground?: boolean
 }
 
+/** @deprecated */
 export interface TaggedElementProps extends ContainerProps {
   baseClass: string
 }

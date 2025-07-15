@@ -3,6 +3,7 @@ import { ElDeprecatedIcon } from '../../../deprecated/icon/__styles__/index'
 import { ElDeprecatedButton } from '../../../deprecated/button/styles'
 import { styled } from '@linaria/react'
 
+/** @deprecated */
 export const ElFileInput = styled.input`
   &[type='file'] {
     font-family: var(--font-sans-serif);
@@ -20,6 +21,7 @@ export const ElFileInput = styled.input`
   }
 `
 
+/** @deprecated */
 export const ElFileInputWrap = styled.div`
   display: inline-block;
   position: relative;
@@ -35,6 +37,7 @@ export const ElFileInputWrap = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElFileInputIconContainer = styled.div`
   display: flex;
   height: 34px;
@@ -51,6 +54,8 @@ export const ElFileInputIconContainer = styled.div`
     cursor: pointer;
   }
 `
+
+/** @deprecated */
 export const ElFileInputHidden = styled.input`
   position: absolute;
   margin: 0;
@@ -60,6 +65,7 @@ export const ElFileInputHidden = styled.input`
   padding: 0;
 `
 
+/** @deprecated */
 export const ElFilePreviewImage = styled.img`
   max-width: 100%;
   max-height: 100%;

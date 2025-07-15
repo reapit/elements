@@ -10,6 +10,7 @@ import {
   elIntentPending,
 } from '../../../styles/intent'
 
+/** @deprecated */
 export const ElSnack = styled.div`
   display: inline-flex;
   border-radius: var(--default-border-radius);
@@ -48,16 +49,19 @@ export const ElSnack = styled.div`
   }
 `
 
+/** @deprecated */
 export const elSnackIcon = css`
   margin-right: 1rem;
 `
 
+/** @deprecated */
 export const elSnackCloseIcon = css`
   cursor: pointer;
   padding-left: 0.5rem;
   color: var(--black);
 `
 
+/** @deprecated */
 export const ElSnackHolder = styled.div`
   position: fixed;
   z-index: 100;

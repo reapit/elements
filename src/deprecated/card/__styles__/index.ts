@@ -3,10 +3,12 @@ import { css } from '@linaria/core'
 import { isTablet } from '../../../styles/media'
 import { ElDeprecatedAvatar } from '../../avatar'
 
+/** @deprecated */
 export const elCardFocussed = css`
   background-color: var(--purple-050);
 `
 
+/** @deprecated */
 export const ElCardWrap = styled.div`
   padding: 1rem;
   border-radius: 0.25rem;
@@ -24,8 +26,10 @@ export const ElCardWrap = styled.div`
   }
 `
 
+/** @deprecated */
 export const elCardSubHeadingWrapAvatar = css``
 
+/** @deprecated */
 export const ElCardHeadingWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -38,6 +42,7 @@ export const ElCardHeadingWrap = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElCardMainWrap = styled.div`
   display: flex;
   flex-wrap: nowrap;
@@ -51,6 +56,7 @@ export const ElCardMainWrap = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElCardHeading = styled.h5`
   display: -webkit-box;
   -webkit-line-clamp: 1;
@@ -62,6 +68,7 @@ export const ElCardHeading = styled.h5`
   font-size: var(--font-size-small);
 `
 
+/** @deprecated */
 export const ElCardSubHeading = styled.h6`
   color: var(--neutral-500);
   text-overflow: ellipsis;
@@ -72,6 +79,7 @@ export const ElCardSubHeading = styled.h6`
 
 export const elCardSubHeadingAdditionalExpanded = css``
 
+/** @deprecated */
 export const ElCardSubHeadingAdditional = styled.h6`
   color: var(--neutral-500);
   font-size: var(--font-size-smallest);
@@ -85,6 +93,7 @@ export const ElCardSubHeadingAdditional = styled.h6`
 
 export const elCardBodyWrapExpanded = css``
 
+/** @deprecated */
 export const ElCardBodyWrap = styled.div`
   width: 100%;
   color: var(--black);
@@ -109,6 +118,7 @@ export const elMobileListToggle = css`
   right: 0;
 `
 
+/** @deprecated */
 export const ElCardAvatarWrap = styled.div`
   display: flex;
   flex-direction: column;
@@ -127,6 +137,7 @@ export const ElCardAvatarWrap = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElCardImageWrap = styled(ElCardAvatarWrap)`
   border-radius: 0;
   width: 4.5rem;
@@ -138,18 +149,22 @@ export const ElCardImageWrap = styled(ElCardAvatarWrap)`
   }
 `
 
+/** @deprecated */
 export const ElCardList = styled.div`
   display: flex;
 `
 
+/** @deprecated */
 export const elCardListMainWrapExpanded = css``
 
+/** @deprecated */
 export const ElCardListMainWrap = styled.div`
   display: flex;
   flex-flow: column nowrap;
   position: relative;
 `
 
+/** @deprecated */
 export const ElCardListHeading = styled.h5`
   width: 100%;
   text-overflow: ellipsis;
@@ -159,6 +174,7 @@ export const ElCardListHeading = styled.h5`
   margin-bottom: 0.25rem;
 `
 
+/** @deprecated */
 export const ElCardListSubHeading = styled.h6`
   font-size: var(--font-size-smallest);
   color: var(--neutral-500);
@@ -168,6 +184,7 @@ export const ElCardListSubHeading = styled.h6`
   margin-bottom: 0.75rem;
 `
 
+/** @deprecated */
 export const elCardListItemExpanded = css`
   height: 2.5rem;
   margin-bottom: 0.5rem;
@@ -177,6 +194,7 @@ export const elCardListItemExpanded = css`
   }
 `
 
+/** @deprecated */
 export const ElCardListItem = styled.div`
   display: flex;
   height: 2rem;
@@ -188,6 +206,7 @@ export const ElCardListItem = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElCardListItemTextWrap = styled.div`
   font-size: var(--font-size-smallest);
   display: flex;
@@ -196,10 +215,12 @@ export const ElCardListItemTextWrap = styled.div`
   cursor: pointer;
 `
 
+/** @deprecated */
 export const ElCardListItemTextPrimary = styled.div`
   color: var(--black);
 `
 
+/** @deprecated */
 export const ElCardListItemTextSecondary = styled.div`
   font-size: var(--font-size-smallest);
   color: var(--intent-primary);
@@ -209,6 +230,7 @@ export const ElCardListItemTextSecondary = styled.div`
   overflow: hidden;
 `
 
+/** @deprecated */
 export const ElCardListIcon = styled.div`
   display: flex;
   align-items: center;

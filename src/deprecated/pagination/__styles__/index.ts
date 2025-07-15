@@ -1,5 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
+
 /** @deprecated */
 export const ElDeprecatedPaginationWrap = styled.div`
   width: fit-content;

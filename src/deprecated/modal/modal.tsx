@@ -4,6 +4,7 @@ import { ModalBg, ModalContainer, ModalHeader, ModalBody } from './modal.atoms'
 import { elIsActive } from '../../styles/states'
 import { ModalProps } from './types'
 
+/** @deprecated */
 export const handleModalFocus = (modalRef: RefObject<HTMLDivElement>, isOpen: boolean) => () => {
   if (isOpen && modalRef.current) {
     modalRef.current.focus()

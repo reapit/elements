@@ -5,6 +5,7 @@ import { Input } from '../../input'
 import { Loader } from '../../loader'
 import { DeprecatedLabel } from '../../label'
 
+/** @deprecated */
 export const ElSearchableDropdownContainer = styled.div`
   display: flex;
   position: relative;
@@ -12,6 +13,7 @@ export const ElSearchableDropdownContainer = styled.div`
   color: var(--black);
 `
 
+/** @deprecated */
 export const ElSearchableDropdownResult = styled.div`
   padding: 0 1rem;
   display: flex;
@@ -27,6 +29,7 @@ export const ElSearchableDropdownResult = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElSearchableDropdownResultsContainer = styled.div`
   position: absolute;
   top: calc(100% + 0.25rem);
@@ -42,12 +45,14 @@ export const ElSearchableDropdownResultsContainer = styled.div`
   box-shadow: 0 4px 16px 0 rgb(34 43 51 / 0.16);
 `
 
+/** @deprecated */
 export const ElSearchableDropdownSearchInputAddOn = styled(InputAddOn)`
   position: absolute;
   margin-top: 10px;
   padding-left: 10px;
 `
 
+/** @deprecated */
 export const ElSearchableDropdownCloseButton = styled(DeprecatedIcon)`
   position: absolute;
   font-size: 1rem;
@@ -57,16 +62,19 @@ export const ElSearchableDropdownCloseButton = styled(DeprecatedIcon)`
   cursor: pointer;
 `
 
+/** @deprecated */
 export const ElSearchableDropdownSearchInput = styled(Input)`
   padding-left: 32px;
 `
 
+/** @deprecated */
 export const ElSearchableDropdownSearchLabel = styled(DeprecatedLabel)`
   margin-left: 0.25rem;
   margin-bottom: 0.125rem;
   display: inline-block;
 `
 
+/** @deprecated */
 export const ElSearchableDropdownSearchLoader = styled(Loader)`
   position: absolute;
   margin-left: -88px;

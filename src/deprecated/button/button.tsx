@@ -92,6 +92,7 @@ type DeprecatedButtonAsAnchorElementProps = DeprecatedCommonButtonProps &
 /** @deprecated */
 export type DeprecatedButtonProps = DeprecatedButtonAsButtonElementProps | DeprecatedButtonAsAnchorElementProps
 
+/** @deprecated */
 function isButtonAsButtonElement(props: DeprecatedButtonProps): props is DeprecatedButtonAsButtonElementProps {
   return !props.href
 }

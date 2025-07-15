@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react'
 
+/** @deprecated */
 export const ElPlaceholderImage = styled.div`
   display: flex;
   align-items: center;
@@ -10,6 +11,7 @@ export const ElPlaceholderImage = styled.div`
   flex-shrink: 0;
 `
 
+/** @deprecated */
 export const ElPlaceholderImageWrapper = styled.div`
   display: flex;
   align-items: center;

@@ -2,6 +2,7 @@ import { FC, useMemo, useState } from 'react'
 import { DeprecatedDrawer as Drawer, DrawerProps } from '../drawer'
 import { Portal } from '../use-portal'
 
+/** @deprecated */
 export type UseDrawer = [
   Drawer: FC<Partial<DrawerProps>>,
   openDrawer: () => void,
@@ -9,6 +10,7 @@ export type UseDrawer = [
   drawerIsOpen: boolean,
 ]
 
+/** @deprecated */
 export const useDrawer = (id?: string): UseDrawer => {
   const [drawerIsOpen, setDrawerIsOpen] = useState(false)
 

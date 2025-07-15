@@ -17,6 +17,7 @@ import { elMb3 } from '../../styles/spacing'
 import { elFlex } from '../../styles/flexbox'
 import { cx } from '@linaria/core'
 
+/** @deprecated */
 export interface SearchableDropdownProps<T> extends React.InputHTMLAttributes<HTMLInputElement> {
   getResults: (query: string) => Promise<T[]>
   getResultValue: (result: T) => string
@@ -26,6 +27,7 @@ export interface SearchableDropdownProps<T> extends React.InputHTMLAttributes<HT
   label?: string
 }
 
+/** @deprecated */
 export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAttributes<HTMLInputElement> {
   isResultsListVisible: boolean
   isClearVisible: boolean
@@ -38,6 +40,7 @@ export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAtt
   label?: string
 }
 
+/** @deprecated */
 export const SearchableDropdownControlledInner = <T extends unknown>(
   {
     isResultsListVisible,
@@ -98,10 +101,12 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
   )
 }
 
+/** @deprecated */
 export const ControlledSearchableDropdown = forwardRef(SearchableDropdownControlledInner) as <T>(
   props: ControlledSearchableDropdownProps<T> & { ref?: React.ForwardedRef<HTMLInputElement> },
 ) => ReturnType<typeof SearchableDropdownControlledInner>
 
+/** @deprecated */
 export const SearchableDropdownInner = <T extends unknown>(
   {
     getResults,
@@ -191,10 +196,12 @@ export const SearchableDropdownInner = <T extends unknown>(
   )
 }
 
+/** @deprecated */
 export const SearchableDropdown = forwardRef(SearchableDropdownInner) as <T>(
   props: SearchableDropdownProps<T> & { ref?: React.ForwardedRef<HTMLInputElement> },
 ) => ReturnType<typeof SearchableDropdownInner>
 
+/** @deprecated */
 export const SearchableDropdownSearchLabel: FC<HTMLAttributes<HTMLLabelElement>> = ({ children, ...rest }) => {
   return <ElSearchableDropdownSearchLabel {...rest}>{children}</ElSearchableDropdownSearchLabel>
 }

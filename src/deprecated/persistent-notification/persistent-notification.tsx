@@ -12,6 +12,7 @@ import { DeprecatedIcon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/states'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 
+/** @deprecated */
 export interface PersistentNotificationProps extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
   intent?: Intent
@@ -23,6 +24,7 @@ export interface PersistentNotificationProps extends HTMLAttributes<HTMLDivEleme
   onExpansionToggle?: (newState: boolean) => void
 }
 
+/** @deprecated */
 export const PersistentNotification: FC<PersistentNotificationProps> = ({
   icon = 'info',
   intent = 'primary',

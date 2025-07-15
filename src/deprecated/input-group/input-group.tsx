@@ -8,6 +8,7 @@ import { Intent } from '../../helpers/intent'
 import { useId } from '../../storybook/random-id'
 import { InputError } from '../input-error'
 
+/** @deprecated */
 export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
   icon?: IconNames | null
   label?: string
@@ -31,10 +32,12 @@ export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElem
   errorMessage?: string
 }
 
+/** @deprecated */
 export type InputGroupWrapped = React.ForwardRefExoticComponent<
   InputGroupProps & React.RefAttributes<React.InputHTMLAttributes<HTMLInputElement>>
 >
 
+/** @deprecated */
 export const InputGroup: InputGroupWrapped = forwardRef(
   (
     { icon, label, className, id, intent, inputAddOnText, children, errorMessage, hasError, ...rest }: InputGroupProps,

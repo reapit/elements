@@ -2,14 +2,17 @@ import React, { FC, HTMLAttributes } from 'react'
 import { ElPlaceholderImage, ElPlaceholderImageWrapper } from './__styles__'
 import { placeholderImageSet } from './images'
 
+/** @deprecated */
 export type PlaceholderNames = keyof typeof placeholderImageSet
 
+/** @deprecated */
 export interface PlacholderImageProps extends HTMLAttributes<HTMLDivElement> {
   placeholder: PlaceholderNames
   size: number
   fillAvailable?: boolean
 }
 
+/** @deprecated */
 export const PlaceholderImage: FC<PlacholderImageProps> = ({ placeholder, size, fillAvailable, ...rest }) => {
   const Svg = placeholderImageSet[placeholder]
   const fontSize = `${(size * 0.625) / 16}em`

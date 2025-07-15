@@ -1,11 +1,13 @@
 import { FC, PropsWithChildren, useMemo } from 'react'
 
+/** @deprecated */
 export interface DeprecatedElementsThemeProviderProps extends PropsWithChildren {
   theme: {
     [key: string]: string
   }
 }
 
+/** @deprecated */
 export const toKebabCase = (theme: string) =>
   theme
     .replace(/([a-z0-9])([A-Z])/g, '$1-$2')

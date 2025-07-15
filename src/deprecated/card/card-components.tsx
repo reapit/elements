@@ -23,6 +23,7 @@ import { elMb5, elMt5 } from '../../styles/spacing'
 import { Intent } from '../../helpers/intent'
 import { DeprecatedAvatar } from '../avatar'
 
+/** @deprecated */
 export interface CardListItemProps {
   // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
   listCardItemHeading?: ReactNode
@@ -31,6 +32,7 @@ export interface CardListItemProps {
   onClick?: () => void
 }
 
+/** @deprecated */
 export interface ContextMenuItem {
   icon: IconNames
   onClick: () => void
@@ -39,10 +41,12 @@ export interface ContextMenuItem {
 
 // As per above, each of the context menu options should have an icon name, a click action and
 // optionally, an intent for example "danger", will render a red icon
+/** @deprecated */
 export interface CardContextMenuProps extends HTMLAttributes<HTMLDivElement> {
   contextMenuItems?: ContextMenuItem[]
 }
 
+/** @deprecated */
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   hasMainCard?: boolean // Should we render an Image card as the main card?
   // Supplied text options for the various fields
@@ -61,11 +65,13 @@ export interface CardProps extends HTMLAttributes<HTMLDivElement> {
   isSelected?: boolean // Does the card have the blue selected border
 }
 
+/** @deprecated */
 export const handleMouseHover =
   (hoverIndex: number | null, setHoverIndex: Dispatch<SetStateAction<number | null>>) => () => {
     setHoverIndex(hoverIndex)
   }
 
+/** @deprecated */
 export const Card: FC<CardProps> = ({
   className,
   hasMainCard,

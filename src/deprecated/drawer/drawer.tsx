@@ -23,6 +23,7 @@ export interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
   canDismiss?: boolean
 }
 
+/** @deprecated */
 export interface DrawerBaseProps extends HTMLAttributes<HTMLElement> {}
 
 /** @deprecated */
@@ -74,6 +75,7 @@ export const DeprecatedDrawerFooter: FC<DrawerBaseProps> = ({ className, childre
   </ElDrawerFooter>
 )
 
+/** @deprecated */
 export const handleDrawerFocus = (drawerRef: React.RefObject<HTMLDivElement>, isOpen: boolean) => () => {
   if (isOpen && drawerRef.current) {
     drawerRef.current.focus()

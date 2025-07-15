@@ -11,6 +11,7 @@ import {
 } from './__styles__'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
+/** @deprecated */
 export interface StepsProps extends HTMLAttributes<HTMLDivElement> {
   steps: string[]
   selectedStep?: string
@@ -18,11 +19,13 @@ export interface StepsProps extends HTMLAttributes<HTMLDivElement> {
   className?: string
 }
 
+/** @deprecated */
 export interface StepsVerticalStep {
   item: string
   content?: ReactNode
 }
 
+/** @deprecated */
 export interface StepsVerticalProps extends HTMLAttributes<HTMLDivElement> {
   steps: StepsVerticalStep[]
   selectedStep?: string
@@ -30,10 +33,12 @@ export interface StepsVerticalProps extends HTMLAttributes<HTMLDivElement> {
   className?: string
 }
 
+/** @deprecated */
 export const handleStepClick = (step: string, onStepClick?: (step: string) => void) => () => {
   onStepClick && onStepClick(step)
 }
 
+/** @deprecated */
 export const Steps: FC<StepsProps> = ({ steps = [], selectedStep, onStepClick, className = '', ...rest }) => {
   const selectedStepIndex = steps.findIndex((step) => step === selectedStep)
 
@@ -60,6 +65,7 @@ export const Steps: FC<StepsProps> = ({ steps = [], selectedStep, onStepClick, c
   )
 }
 
+/** @deprecated */
 export const StepsVertical: FC<StepsVerticalProps> = ({
   steps = [],
   selectedStep,

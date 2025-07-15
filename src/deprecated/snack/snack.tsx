@@ -4,6 +4,7 @@ import { ElSnack, elSnackIcon, elSnackCloseIcon, ElSnackHolder } from './__style
 import { DeprecatedIcon, IconNames } from '../icon'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 
+/** @deprecated */
 export interface SnackProps extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
   intent?: Intent
@@ -13,11 +14,13 @@ export interface SnackProps extends HTMLAttributes<HTMLDivElement> {
   _id?: string //internal identifier to remove snacks after a timeout
 }
 
+/** @deprecated */
 export interface SnackHolderProps extends HTMLAttributes<HTMLDivElement> {
   snacks: SnackProps[]
   removeSnackById?: (id: string) => void
 }
 
+/** @deprecated */
 export const SnackHolder: FC<SnackHolderProps> = ({ snacks, removeSnackById, ...rest }) => {
   return (
     <ElSnackHolder {...rest}>
@@ -31,6 +34,7 @@ export const SnackHolder: FC<SnackHolderProps> = ({ snacks, removeSnackById, ...
   )
 }
 
+/** @deprecated */
 export const Snack: FC<SnackProps> = ({ icon, intent = 'primary', className, onRemove, children, ...rest }) => {
   const intentClassName = getIntentClassName(intent)
   const combinedClassName = cx(className, intentClassName)

@@ -5,11 +5,13 @@ import { DeprecatedFloatingButton } from '../button'
 import { cx } from '@linaria/core'
 import { elIsActive } from '../../styles/states'
 
+/** @deprecated */
 export interface MobileControlItem extends HTMLAttributes<HTMLAnchorElement> {
   onClick?: () => void
   label?: string
 }
 
+/** @deprecated */
 export interface MobileControlsProps extends HTMLAttributes<HTMLDivElement> {
   buttonIcon?: IconNames
   buttonOnClick?: () => void
@@ -17,6 +19,7 @@ export interface MobileControlsProps extends HTMLAttributes<HTMLDivElement> {
   isVisible?: boolean
 }
 
+/** @deprecated */
 export const clickEventHandler =
   (setActive: Dispatch<SetStateAction<boolean>>, onClick?: () => void) =>
   (event: MouseEvent<HTMLAnchorElement | HTMLDivElement>) => {
@@ -30,6 +33,7 @@ export const clickEventHandler =
     }
   }
 
+/** @deprecated */
 export const MobileControls: FC<MobileControlsProps> = ({
   mobileControlItems,
   buttonOnClick,

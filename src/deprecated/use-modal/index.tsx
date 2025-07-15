@@ -2,6 +2,7 @@ import { FC, useMemo, useState } from 'react'
 import { Modal, ModalProps } from '../modal'
 import { Portal } from '../use-portal'
 
+/** @deprecated */
 export interface UseModal {
   Modal: FC<Partial<ModalProps>>
   closeModal: () => void
@@ -9,6 +10,7 @@ export interface UseModal {
   modalIsOpen: boolean
 }
 
+/** @deprecated */
 export const useModal = (id?: string): UseModal => {
   const [modalIsOpen, setModalIsOpen] = useState(false)
 

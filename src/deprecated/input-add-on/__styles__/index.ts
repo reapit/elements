@@ -9,6 +9,7 @@ import {
   elIntentDefault,
 } from '../../../styles/intent'
 
+/** @deprecated */
 export const ElInputAddOn = styled.span`
   font-size: var(--font-size-default);
   color: var(--neutral-400);

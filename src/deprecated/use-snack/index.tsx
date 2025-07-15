@@ -2,12 +2,15 @@ import React, { createContext, useState, useRef, useContext, PropsWithChildren, 
 import { SnackProps, SnackHolder } from '../snack'
 import { generateRandomId } from '../../storybook/random-id'
 
+/** @deprecated */
 export interface SnackContextProps {
   addSnackWithTimeout: (snack: SnackProps, timeout: number) => void
 }
 
+/** @deprecated */
 export const SnackContext = createContext<SnackContextProps>({} as SnackContextProps)
 
+/** @deprecated */
 export const SnackProvider: FC<PropsWithChildren> = ({ children }) => {
   const [snacks, setSnacks] = useState<SnackProps[]>([])
 
@@ -36,6 +39,7 @@ export const SnackProvider: FC<PropsWithChildren> = ({ children }) => {
   )
 }
 
+/** @deprecated */
 export interface UseSnack {
   custom: (snack: SnackProps, timeout?: number) => void
   success: (text: string, timeout?: number) => void
@@ -44,6 +48,7 @@ export interface UseSnack {
   warning: (text: string, timeout?: number) => void
 }
 
+/** @deprecated */
 export const useSnack = (): UseSnack => {
   const { addSnackWithTimeout } = useContext(SnackContext)
   const DEFAULT_TIMEOUT = 3000

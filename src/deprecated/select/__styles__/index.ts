@@ -1,5 +1,6 @@
 import { styled } from '@linaria/react'
 
+/** @deprecated */
 export const ElSelect = styled.select`
   display: flex;
   color: var(--black);

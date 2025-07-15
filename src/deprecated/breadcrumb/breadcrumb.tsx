@@ -5,6 +5,7 @@ import { elMr2 } from '../../styles/spacing'
 import { FlexContainer } from '../layout'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
+/** @deprecated */
 export interface DeprecatedBreadCrumbItem extends HTMLAttributes<HTMLAnchorElement> {
   text: string
   onClick: () => void
@@ -16,6 +17,7 @@ export interface DeprecatedBreadCrumbProps extends HTMLAttributes<HTMLElement> {
   defaultActiveIndex?: number
 }
 
+/** @deprecated */
 export const handleNext =
   (setActive: Dispatch<SetStateAction<number>>, onClick: () => void, index: number) =>
   (e?: MouseEvent<HTMLAnchorElement>) => {

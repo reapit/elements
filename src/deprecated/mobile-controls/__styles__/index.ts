@@ -5,10 +5,12 @@ import { elIsActive } from '../../../styles/states'
 import { ElDeprecatedIcon } from '../../icon/__styles__'
 import { elIntentDefault } from '../../../styles/intent'
 
+/** @deprecated */
 export const elMobileControlsVisible = css`
   display: flex;
 `
 
+/** @deprecated */
 export const ElMobileControlsBg = styled.div`
   display: none;
   z-index: 98;
@@ -25,6 +27,7 @@ export const ElMobileControlsBg = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElMobileControls = styled.div`
   position: fixed;
   display: flex;
@@ -50,6 +53,7 @@ export const ElMobileControls = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElMobileControlItem = styled.a`
   padding: 0.5rem 1rem;
   background: var(--white);

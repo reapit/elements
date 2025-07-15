@@ -1,8 +1,10 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
+/** @deprecated */
 export const elHasGreyBg = css``
 
+/** @deprecated */
 export const ElToggleItem = styled.span`
   width: 50%;
   height: 100%;
@@ -16,6 +18,7 @@ export const ElToggleItem = styled.span`
   color: var(--neutral-500);
 `
 
+/** @deprecated */
 export const ElToggleRadioItem = styled.span`
   width: 100%;
   height: 100%;
@@ -28,11 +31,13 @@ export const ElToggleRadioItem = styled.span`
   align-items: center;
 `
 
+/** @deprecated */
 export const elToggleFullWidth = css`
   width: 100%;
   justify-content: space-evenly;
 `
 
+/** @deprecated */
 export const ElToggleCheckbox = styled.input`
   height: 0;
   width: 0;
@@ -63,6 +68,7 @@ export const ElToggleCheckbox = styled.input`
   }
 `
 
+/** @deprecated */
 export const ElToggleLabel = styled.label`
   cursor: pointer;
   width: fit-content;
@@ -85,6 +91,7 @@ export const ElToggleLabel = styled.label`
   }
 `
 
+/** @deprecated */
 export const ElToggleRadio = styled.input`
   height: 0;
   width: 0;
@@ -106,6 +113,7 @@ export const ElToggleRadio = styled.input`
   }
 `
 
+/** @deprecated */
 export const ElToggleRadioLabel = styled.label`
   cursor: pointer;
   width: fit-content;
@@ -121,6 +129,7 @@ export const ElToggleRadioLabel = styled.label`
   }
 `
 
+/** @deprecated */
 export const ElToggleRadioWrap = styled.div`
   display: flex;
   border: var(--component-input-border);

@@ -21,11 +21,13 @@ import {
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 import { useId } from '../../storybook/random-id'
 
+/** @deprecated */
 export interface ToggleProps extends HTMLAttributes<HTMLInputElement> {
   isFullWidth?: boolean
   hasGreyBg?: boolean
 }
 
+/** @deprecated */
 export interface ToggleRadioOption {
   id: string
   value: string
@@ -33,6 +35,7 @@ export interface ToggleRadioOption {
   isChecked: boolean
 }
 
+/** @deprecated */
 export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
   options: ToggleRadioOption[]
   name: string
@@ -41,14 +44,17 @@ export interface ToggleRadioProps extends HTMLAttributes<HTMLInputElement> {
   hasGreyBg?: boolean
 }
 
+/** @deprecated */
 export type ToggleWrapped = React.ForwardRefExoticComponent<
   ToggleProps & RefAttributes<InputHTMLAttributes<HTMLInputElement>>
 >
 
+/** @deprecated */
 export type ToggleRadioWrapped = React.ForwardRefExoticComponent<
   ToggleRadioProps & RefAttributes<InputHTMLAttributes<HTMLInputElement>>
 >
 
+/** @deprecated */
 export const handleKeyboardToggleChange = (id: string) => () => {
   const radio = document.getElementById(id)
   if (radio) {
@@ -56,6 +62,7 @@ export const handleKeyboardToggleChange = (id: string) => () => {
   }
 }
 
+/** @deprecated */
 export const Toggle: ToggleWrapped = forwardRef(
   (
     { className, children, isFullWidth, hasGreyBg, id, ...rest },
@@ -84,6 +91,7 @@ export const Toggle: ToggleWrapped = forwardRef(
   },
 )
 
+/** @deprecated */
 export const ToggleRadio: ToggleRadioWrapped = forwardRef(
   (
     { className, isFullWidth, hasGreyBg, name, options, disabled, ...rest },

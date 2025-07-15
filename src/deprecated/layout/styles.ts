@@ -2,9 +2,12 @@ import { isMobile, isTablet } from '../../styles/media'
 import { elHFull } from '../../styles/sizing'
 import { css } from '@linaria/core'
 
+/** @deprecated */
 export const elHasGreyBackground = css``
+/** @deprecated */
 export const elHasMaxWidth = css``
 
+/** @deprecated */
 export const elMainContainer = css`
   display: flex;
   flex-direction: column;
@@ -23,6 +26,7 @@ export const elMainContainer = css`
   }
 `
 
+/** @deprecated */
 export const elPageContainer = css`
   display: block;
   padding: 0.5rem 1.25rem;
@@ -49,6 +53,7 @@ export const elPageContainer = css`
   }
 `
 
+/** @deprecated */
 export const elSecondaryNavContainer = css`
   display: block;
   width: 14rem;
@@ -68,6 +73,7 @@ export const elSecondaryNavContainer = css`
   }
 `
 
+/** @deprecated */
 export const elFlexContainer = css`
   display: flex;
   min-height: 0;

@@ -2,12 +2,14 @@
 import React from 'react'
 import { useMediaQuery } from '.'
 
+/** @deprecated */
 export const MediaMobileExample = () => {
   const { isMobile } = useMediaQuery()
 
   return isMobile ? <h1>Is Mobile</h1> : <h1>Not Mobile</h1>
 }
 
+/** @deprecated */
 export const AllBreakPointExample = () => {
   const { isMobile, isTablet, isDesktop, isWideScreen, isSuperWideScreen, is4KScreen } = useMediaQuery()
 

@@ -3,6 +3,7 @@ import { DeprecatedTableRow, DeprecatedTableCell } from '../deprecated/table'
 import { colord } from 'colord'
 import { TextSM } from '../deprecated/typography'
 
+/** @deprecated */
 export const ThemingColourBlock: FC<{
   hex: string
   varName: string

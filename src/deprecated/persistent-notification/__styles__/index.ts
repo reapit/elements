@@ -12,12 +12,16 @@ import {
   elIntentDefault,
 } from '../../../styles/intent'
 
+/** @deprecated */
 export const elPnIsFullWidth = css``
 
+/** @deprecated */
 export const elPnIsFixed = css``
 
+/** @deprecated */
 export const elPnIsInline = css``
 
+/** @deprecated */
 export const elPnIcon = css`
   padding-left: 0.75rem;
   display: flex;
@@ -30,6 +34,7 @@ export const elPnIcon = css`
   }
 `
 
+/** @deprecated */
 export const elPnContent = css`
   padding: 0.75rem;
   transition: 0.5s;
@@ -38,6 +43,7 @@ export const elPnContent = css`
   font-size: var(--font-size-default);
 `
 
+/** @deprecated */
 export const ElPersistentNotification = styled.div`
   display: flex;
   position: absolute;

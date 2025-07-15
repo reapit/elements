@@ -1,6 +1,7 @@
 import { styled } from '@linaria/react'
 import { is4KScreen, isDesktop, isSuperWideScreen, isTablet, isWideScreen } from '../../../styles/media'
 
+/** @deprecated */
 export const ElGrid = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -27,18 +28,22 @@ export const ElGrid = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElCol = styled.div`
   grid-column-end: span 4;
 `
 
+/** @deprecated */
 export const ElColHalf = styled.div`
   grid-column-end: span 2;
 `
 
+/** @deprecated */
 export const ElColQuarter = styled.div`
   grid-column-end: span 1;
 `
 
+/** @deprecated */
 export const ElColSplit = styled.div`
   grid-column-end: span 4;
 
@@ -55,6 +60,7 @@ export const ElColSplit = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElGridThirds = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -65,6 +71,7 @@ export const ElGridThirds = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElColSplitThird = styled.div`
   grid-column-end: span 3;
 
@@ -73,6 +80,7 @@ export const ElColSplitThird = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElColSplitTwoThirds = styled.div`
   grid-column-end: span 3;
 

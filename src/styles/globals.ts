@@ -6,16 +6,32 @@ import '#src/tokens/dist/reapit.css'
 import '#src/tokens/dist/payprop.css'
 
 // export javascript colours for the SVG background in the button
+
+/** @deprecated */
 export const intentPrimary = '#4e56ea'
+
+/** @deprecated */
 export const intentNeutral = '#0080ff'
+
+/** @deprecated */
 export const intentSuccess = '#20c040'
+
+/** @deprecated */
 export const intentPending = '#ffa000'
+
+/** @deprecated */
 export const intentWarning = '#ff6000'
+
+/** @deprecated */
 export const intentDanger = '#f01830'
+
+/** @deprecated */
 export const intentDefault = '#607890'
 
-/** @peprecated - to remove in v5. */
+/** @deprecated */
 export const intentCritical = '##4e56ea'
+
+/** @deprecated */
 export const intentSecondary = '#4e56ea'
 
 export const elGlobals = css`

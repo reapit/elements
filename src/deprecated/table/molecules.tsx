@@ -36,6 +36,7 @@ import { elIsActive } from '../../styles/states'
 import { FlexContainer } from '../layout'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 
+/** @deprecated */
 export type NarrowOrderType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
 /** @deprecated */
@@ -48,16 +49,19 @@ export interface DeprecatedTableCellProps extends HTMLAttributes<HTMLDivElement>
   narrowOrder?: NarrowOrderType
 }
 
+/** @deprecated */
 export interface TableCellSplitProps extends HTMLAttributes<HTMLDivElement> {
   data?: ReactNode
   subData?: ReactNode
 }
 
+/** @deprecated */
 export interface TableExpandableRowTriggerCellProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean
   narrowIsFullWidth?: boolean
 }
 
+/** @deprecated */
 export interface TableExpandableRowProps extends HTMLAttributes<HTMLDivElement> {
   isOpen?: boolean
   className?: string
@@ -68,14 +72,13 @@ export interface DeprecatedTableRowContainerProps extends HTMLAttributes<HTMLDiv
   isOpen?: boolean
 }
 
+/** @deprecated */
 export interface TableCtaTriggerCellProps extends HTMLAttributes<HTMLDivElement> {
   icon?: IconNames
 }
 
 /** @deprecated */
-export interface DeprecatedTableSortHeaderProps extends HTMLAttributes<HTMLDivElement> {
-  direction: 'up' | 'down'
-}
+export interface DeprecatedTableSortHeaderProps extends HTMLAttributes<HTMLDivElement> {}
 
 export const resolveNarrowOrderClass = (order: number): string | undefined => {
   switch (order) {
@@ -121,6 +124,7 @@ export const DeprecatedTableRow: FC<HTMLAttributes<HTMLDivElement>> = ({ childre
   return <ElDeprecatedTableRow {...rest}>{children}</ElDeprecatedTableRow>
 }
 
+/** @deprecated */
 export const TableCellSplit: FC<TableCellSplitProps> = ({ data, subData, ...rest }) => {
   return (
     <ElTableCellSplitWrap {...rest}>
@@ -155,10 +159,12 @@ export const DeprecatedTableCell: FC<DeprecatedTableCellProps> = ({
   )
 }
 
+/** @deprecated */
 export const handleTableCtaClick = (onClick?: (event?: any) => void) => () => {
   onClick && onClick()
 }
 
+/** @deprecated */
 export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProps> = ({
   isOpen,
   narrowIsFullWidth,
@@ -181,6 +187,7 @@ export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProp
   )
 }
 
+/** @deprecated */
 export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, children, onClick, ...rest }) => {
   return (
     <ElTableCtaCell
@@ -203,6 +210,7 @@ export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, childr
   )
 }
 
+/** @deprecated */
 export const TableExpandableRow: FC<TableExpandableRowProps> = ({ isOpen, className, children, ...rest }) => {
   const combinedClassname = cx(className, isOpen && elIsActive)
   return (

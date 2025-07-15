@@ -1,5 +1,6 @@
 import { MutableRefObject, useEffect } from 'react'
 
+/** @deprecated */
 export const useClickOutside = (ref: MutableRefObject<HTMLDivElement | null>, onClickOutside: VoidFunction) => {
   useEffect(() => {
     const controller = new AbortController()

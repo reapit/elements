@@ -3,6 +3,8 @@ import { cx } from '@linaria/core'
 import { Intent, getIntentClassName } from '../../helpers/intent'
 import { ElDeprecatedIcon } from './__styles__'
 import { iconSet } from '../icons'
+
+/** @deprecated */
 export type IconNames = keyof typeof iconSet
 
 /** @deprecated */

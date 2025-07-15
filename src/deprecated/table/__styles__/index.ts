@@ -3,6 +3,7 @@ import { styled } from '@linaria/react'
 import { ElDeprecatedIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/states'
 
+/** @deprecated */
 export const isNarrow = '@media only screen and (max-width: 1024px)'
 
 const EXPANDABLE_TRIGGER_CELL_WIDTH = '40px'
@@ -12,72 +13,84 @@ const MAX_HEADER_HEIGHT = '3rem'
 const MAX_TABLE_CONTENT_HEIGHT = '60px'
 const MAX_LINE_LENGTH = 2
 
+/** @deprecated */
 export const ElTableCellNarrowOrder1 = css`
   ${isNarrow} {
     order: 0;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder2 = css`
   ${isNarrow} {
     order: 1;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder3 = css`
   ${isNarrow} {
     order: 2;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder4 = css`
   ${isNarrow} {
     order: 3;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder5 = css`
   ${isNarrow} {
     order: 4;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder6 = css`
   ${isNarrow} {
     order: 5;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder7 = css`
   ${isNarrow} {
     order: 6;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder8 = css`
   ${isNarrow} {
     order: 7;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder9 = css`
   ${isNarrow} {
     order: 8;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder10 = css`
   ${isNarrow} {
     order: 9;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder11 = css`
   ${isNarrow} {
     order: 10;
   }
 `
 
+/** @deprecated */
 export const ElTableCellNarrowOrder12 = css`
   ${isNarrow} {
     order: 11;
@@ -135,14 +148,18 @@ const cellOrders = `
 `
 
 // modifiers
+/** @deprecated */
 export const elTableNarrowCellIsFullWidth = css`
   ${isNarrow} {
     grid-column-end: span 2;
     text-align: center;
   }
 `
+
+/** @deprecated */
 export const elTableCellHasDarkText = css``
 
+/** @deprecated */
 export const elTableRowFocused = css`
   background: var(--purple-050);
 `
@@ -219,6 +236,7 @@ export const ElDeprecatedTableRow = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElTableCtaCell = styled.div`
   background: var(--white);
   display: flex;
@@ -263,11 +281,13 @@ export const ElDeprecatedTableCell = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElTableCellSplitWrap = styled.div`
   display: flex;
   flex-direction: column;
 `
 
+/** @deprecated */
 export const ElTableCellSplitData = styled.div`
   font-size: var(--font-size-small);
   color: var(--black);
@@ -276,6 +296,7 @@ export const ElTableCellSplitData = styled.div`
   text-overflow: ellipsis;
 `
 
+/** @deprecated */
 export const ElTableCellSplitSubData = styled.div`
   font-size: var(--font-size-smallest);
   color: var(--neutral-500);
@@ -284,6 +305,7 @@ export const ElTableCellSplitSubData = styled.div`
   text-overflow: ellipsis;
 `
 
+/** @deprecated */
 export const ElTableExpandableRowTriggerCell = styled.div`
   display: flex;
   align-items: center;
@@ -348,12 +370,14 @@ export const ElDeprecatedTableCellContent = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElTableCtaIconContainer = styled.div`
   ${isNarrow} {
     padding: 0.75rem;
   }
 `
 
+/** @deprecated */
 export const ElTableExpandableRow = styled.div`
   height: 0;
   background: var(--white);
@@ -368,6 +392,7 @@ export const ElTableExpandableRow = styled.div`
   }
 `
 
+/** @deprecated */
 export const ElTableExpandableContainer = styled.div`
   padding: 1rem 0.5rem;
   border-bottom: 1px solid var(--neutral-100);
