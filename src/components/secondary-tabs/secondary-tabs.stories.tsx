@@ -1,12 +1,12 @@
-import { PrimaryTabs } from './primary-tabs'
+import { SecondaryTabs } from './secondary-tabs'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const href = globalThis.top?.location.href!
 
 const meta = {
-  title: 'Components/PrimaryTabs',
-  component: PrimaryTabs,
+  title: 'Components/SecondaryTabs',
+  component: SecondaryTabs,
   argTypes: {
     children: {
       control: 'radio',
@@ -18,14 +18,14 @@ const meta = {
     },
     overflow: {
       control: 'radio',
-      options: ['scroll', 'visible'],
+      options: ['scroll', 'undefined'],
       mapping: {
         scroll: 'scroll',
-        visible: 'visible',
+        undefined: undefined,
       },
     },
   },
-} satisfies Meta<typeof PrimaryTabs>
+} satisfies Meta<typeof SecondaryTabs>
 
 export default meta
 
@@ -47,7 +47,7 @@ export const SelectedTab: Story = {
 }
 
 /**
- * Ideally, overflowing should be avoided as much as possible. When it can’t be avoided (e.g. small
+ * Ideally, overflowing should be avoided as much as possible. When it can't be avoided (e.g. small
  * breakpoints) use horizontal scrolling by providing `overflow="scroll"`. By default, tabs will simply
  * overflow the container.
  */
@@ -69,20 +69,20 @@ export const Overflow: Story = {
 
 function buildTabs(type: 'No selected tab' | 'Selected tab') {
   return [
-    <PrimaryTabs.Item key="apples" href={href} aria-current={type === 'Selected tab' ? 'page' : false}>
+    <SecondaryTabs.Item key="apples" href={href} aria-current={type === 'Selected tab' ? 'page' : false}>
       Apples
-    </PrimaryTabs.Item>,
-    <PrimaryTabs.Item key="bananas" aria-current={false} href={href}>
+    </SecondaryTabs.Item>,
+    <SecondaryTabs.Item key="bananas" aria-current={false} href={href}>
       Bananas
-    </PrimaryTabs.Item>,
-    <PrimaryTabs.Item key="peaches" aria-current={false} href={href}>
+    </SecondaryTabs.Item>,
+    <SecondaryTabs.Item key="peaches" aria-current={false} href={href}>
       Peaches
-    </PrimaryTabs.Item>,
-    <PrimaryTabs.Item key="strawberries" aria-current={false} href={href}>
+    </SecondaryTabs.Item>,
+    <SecondaryTabs.Item key="strawberries" aria-current={false} href={href}>
       Strawberries
-    </PrimaryTabs.Item>,
-    <PrimaryTabs.Item key="watermelon" aria-current={false} href={href}>
+    </SecondaryTabs.Item>,
+    <SecondaryTabs.Item key="watermelon" aria-current={false} href={href}>
       Watermelon
-    </PrimaryTabs.Item>,
+    </SecondaryTabs.Item>,
   ]
 }
