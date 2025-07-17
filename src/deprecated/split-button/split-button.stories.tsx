@@ -1,10 +1,10 @@
 import { Meta } from '@storybook/react-vite'
-import { SplitButton } from './split-button'
-import { Menu } from '../menu'
+import { DeprecatedSplitButton } from './split-button'
+import { Menu } from '#src/components/menu'
 
-const meta: Meta<typeof SplitButton> = {
-  title: 'Components/Split Button',
-  component: SplitButton,
+const meta: Meta<typeof DeprecatedSplitButton> = {
+  title: 'Deprecated/DeprecatedSplitButton',
+  component: DeprecatedSplitButton,
 }
 
 export default meta
@@ -14,10 +14,10 @@ export const Default = {
     children: 'Button',
   },
   render: (props: any) => (
-    <SplitButton>
-      <SplitButton.Action>{props.children}</SplitButton.Action>
-      <SplitButton.Menu />
-    </SplitButton>
+    <DeprecatedSplitButton>
+      <DeprecatedSplitButton.Action>{props.children}</DeprecatedSplitButton.Action>
+      <DeprecatedSplitButton.Menu />
+    </DeprecatedSplitButton>
   ),
 }
 
@@ -41,10 +41,10 @@ export const SplitButtonWithMenu = {
     ),
   ],
   render: (props: any) => (
-    <SplitButton>
-      <SplitButton.Action onClick={console.log}>{props.children}</SplitButton.Action>
+    <DeprecatedSplitButton>
+      <DeprecatedSplitButton.Action onClick={console.log}>{props.children}</DeprecatedSplitButton.Action>
       <Menu data-alignment="right">
-        <Menu.Trigger>{({ getTriggerProps }) => <SplitButton.Menu {...getTriggerProps()} />}</Menu.Trigger>
+        <Menu.Trigger>{({ getTriggerProps }) => <DeprecatedSplitButton.Menu {...getTriggerProps()} />}</Menu.Trigger>
         <Menu.Popover>
           <Menu.List>
             <Menu.Item onClick={console.log} label="Save & Download" />
@@ -52,7 +52,7 @@ export const SplitButtonWithMenu = {
           </Menu.List>
         </Menu.Popover>
       </Menu>
-    </SplitButton>
+    </DeprecatedSplitButton>
   ),
 }
 
@@ -61,10 +61,10 @@ export const SplitButtonVariants = {
     children: 'Button',
   },
   render: (props: any) => (
-    <SplitButton>
-      <SplitButton.Action variant="primary">{props.children}</SplitButton.Action>
-      <SplitButton.Menu variant="primary" />
-    </SplitButton>
+    <DeprecatedSplitButton>
+      <DeprecatedSplitButton.Action variant="primary">{props.children}</DeprecatedSplitButton.Action>
+      <DeprecatedSplitButton.Menu variant="primary" />
+    </DeprecatedSplitButton>
   ),
 }
 
@@ -73,10 +73,10 @@ export const SplitButtonBusy = {
     children: 'Button',
   },
   render: (props: any) => (
-    <SplitButton>
-      <SplitButton.Action variant="busy">{props.children}</SplitButton.Action>
-      <SplitButton.Menu variant="busy" />
-    </SplitButton>
+    <DeprecatedSplitButton>
+      <DeprecatedSplitButton.Action variant="busy">{props.children}</DeprecatedSplitButton.Action>
+      <DeprecatedSplitButton.Menu variant="busy" />
+    </DeprecatedSplitButton>
   ),
 }
 
@@ -85,10 +85,10 @@ export const SplitButtonDisabled = {
     children: 'Button',
   },
   render: (props: any) => (
-    <SplitButton>
-      <SplitButton.Action isDisabled>{props.children}</SplitButton.Action>
-      <SplitButton.Menu isDisabled />
-    </SplitButton>
+    <DeprecatedSplitButton>
+      <DeprecatedSplitButton.Action isDisabled>{props.children}</DeprecatedSplitButton.Action>
+      <DeprecatedSplitButton.Menu isDisabled />
+    </DeprecatedSplitButton>
   ),
 }
 
@@ -112,12 +112,12 @@ export const SplitButtonDisabledWithMenu = {
     ),
   ],
   render: (props: any) => (
-    <SplitButton>
-      <SplitButton.Action isDisabled onClick={console.log}>
+    <DeprecatedSplitButton>
+      <DeprecatedSplitButton.Action isDisabled onClick={console.log}>
         {props.children}
-      </SplitButton.Action>
+      </DeprecatedSplitButton.Action>
       <Menu data-alignment="right">
-        <Menu.Trigger>{({ getTriggerProps }) => <SplitButton.Menu {...getTriggerProps()} />}</Menu.Trigger>
+        <Menu.Trigger>{({ getTriggerProps }) => <DeprecatedSplitButton.Menu {...getTriggerProps()} />}</Menu.Trigger>
         <Menu.Popover>
           <Menu.List>
             <Menu.Item disabled onClick={console.log} label="Save & Download" />
@@ -125,7 +125,7 @@ export const SplitButtonDisabledWithMenu = {
           </Menu.List>
         </Menu.Popover>
       </Menu>
-    </SplitButton>
+    </DeprecatedSplitButton>
   ),
 }
 
@@ -134,9 +134,9 @@ export const SplitButtonSize = {
     children: 'Button',
   },
   render: (props: any) => (
-    <SplitButton>
-      <SplitButton.Action size="large">{props.children}</SplitButton.Action>
-      <SplitButton.Menu size="large" />
-    </SplitButton>
+    <DeprecatedSplitButton>
+      <DeprecatedSplitButton.Action size="large">{props.children}</DeprecatedSplitButton.Action>
+      <DeprecatedSplitButton.Menu size="large" />
+    </DeprecatedSplitButton>
   ),
 }
