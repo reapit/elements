@@ -1,13 +1,13 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`SplitButton > should match snapshot 1`] = `
+exports[`DeprecatedSplitButton > should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-9 el-split-button"
+    class="mocked-styled-9 el-deprecated-split-button"
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-7 el-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
+      class="mocked-styled-7 el-deprecated-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
       role="button"
     >
       <div
@@ -21,7 +21,7 @@ exports[`SplitButton > should match snapshot 1`] = `
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-8 el-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
+      class="mocked-styled-8 el-deprecated-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
       role="button"
     >
       <div
@@ -50,15 +50,15 @@ exports[`SplitButton > should match snapshot 1`] = `
 </DocumentFragment>
 `;
 
-exports[`SplitButton > should match snapshot with large size 1`] = `
+exports[`DeprecatedSplitButton > should match snapshot with large size 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-9 el-split-button"
+    class="mocked-styled-9 el-deprecated-split-button"
     data-size="large"
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-7 el-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
+      class="mocked-styled-7 el-deprecated-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
       role="button"
     >
       <div
@@ -72,7 +72,7 @@ exports[`SplitButton > should match snapshot with large size 1`] = `
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-8 el-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
+      class="mocked-styled-8 el-deprecated-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
       role="button"
     >
       <div
@@ -101,15 +101,15 @@ exports[`SplitButton > should match snapshot with large size 1`] = `
 </DocumentFragment>
 `;
 
-exports[`SplitButton > should match snapshot with secondary variant 1`] = `
+exports[`DeprecatedSplitButton > should match snapshot with secondary variant 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-9 el-split-button"
+    class="mocked-styled-9 el-deprecated-split-button"
     data-variant="secondary"
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-7 el-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
+      class="mocked-styled-7 el-deprecated-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
       role="button"
     >
       <div
@@ -123,7 +123,7 @@ exports[`SplitButton > should match snapshot with secondary variant 1`] = `
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-8 el-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
+      class="mocked-styled-8 el-deprecated-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
       role="button"
     >
       <div

@@ -7,15 +7,19 @@ import {
 } from '../../deprecated/button'
 import { ElDeprecatedIcon } from '../../deprecated/icon'
 
-export const ElSplitButtonActionButton = styled(DeprecatedButton)``
-export const ElSplitButtonMenuButton = styled(DeprecatedButton)``
+/** @deprecated */
+export const ElDeprecatedSplitButtonActionButton = styled(DeprecatedButton)``
 
-export const ElSplitButton = styled.div`
+/** @deprecated */
+export const ElDeprecatedSplitButtonMenuButton = styled(DeprecatedButton)``
+
+/** @deprecated */
+export const ElDeprecatedSplitButton = styled.div`
   display: inline-flex;
   height: var(--size-9);
   align-items: flex-start;
 
-  ${ElSplitButtonActionButton} {
+  ${ElDeprecatedSplitButtonActionButton} {
     border-radius: var(--comp-button-border-radius-default) var(--comp-button-border-radius-none)
       var(--comp-button-border-radius-none) var(--comp-button-border-radius-default);
     border-right: var(--comp-button-border-width-none) solid var(--comp-button-colour-border-secondary-default);
@@ -34,7 +38,7 @@ export const ElSplitButton = styled.div`
     }
   }
 
-  ${ElSplitButtonMenuButton} {
+  ${ElDeprecatedSplitButtonMenuButton} {
     border-radius: var(--comp-button-border-radius-none) var(--comp-button-border-radius-default)
       var(--comp-button-border-radius-default) var(--comp-button-border-radius-none);
     border-left: var(--comp-button-border-width-none) solid var(--comp-button-colour-border-secondary-default);
@@ -92,11 +96,11 @@ export const ElSplitButton = styled.div`
   }
 
   ${elDeprecatedButtonSizeLarge} {
-    &${ElSplitButtonActionButton} {
+    &${ElDeprecatedSplitButtonActionButton} {
       height: var(--size-10);
     }
 
-    &${ElSplitButtonMenuButton} {
+    &${ElDeprecatedSplitButtonMenuButton} {
       width: var(--size-10);
       height: var(--size-10);
 
@@ -108,7 +112,7 @@ export const ElSplitButton = styled.div`
   }
 
   ${elDeprecatedButtonSizeSmall} {
-    &${ElSplitButtonMenuButton} {
+    &${ElDeprecatedSplitButtonMenuButton} {
       width: var(--size-8);
       height: var(--size-8);
     }

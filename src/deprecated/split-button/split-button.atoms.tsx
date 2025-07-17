@@ -1,7 +1,7 @@
 import { FC } from 'react'
 import { DeprecatedIcon } from '../../deprecated/icon'
 import { DeprecatedButtonProps } from '../../deprecated/button'
-import { ElSplitButtonActionButton, ElSplitButtonMenuButton } from './styles'
+import { ElDeprecatedSplitButtonActionButton, ElDeprecatedSplitButtonMenuButton } from './styles'
 
 type SplitButtonVariant = 'primary' | 'secondary' | 'busy'
 
@@ -14,8 +14,10 @@ type SplitButtonVariant = 'primary' | 'secondary' | 'busy'
  * Optional iconRight is set to never as SplitButton won't facilitate iconRight.
  *
  * All other button props can be added to the SplitButton component.
+ *
+ * @deprecated
  */
-export type SplitButtonProps = DeprecatedButtonProps & {
+export type DeprecatedSplitButtonProps = DeprecatedButtonProps & {
   variant?: SplitButtonVariant
   iconRight?: never
 }
@@ -23,18 +25,25 @@ export type SplitButtonProps = DeprecatedButtonProps & {
 /**
  * SplitButton Action button component:
  * This component consists of a button component.
+ * @deprecated
  */
-export const ActionButton: FC<SplitButtonProps> = (props) => {
+export const DeprecatedActionButton: FC<DeprecatedSplitButtonProps> = (props) => {
   const { children, ...rest } = props
 
-  return <ElSplitButtonActionButton {...rest}>{children}</ElSplitButtonActionButton>
+  return <ElDeprecatedSplitButtonActionButton {...rest}>{children}</ElDeprecatedSplitButtonActionButton>
 }
 
 /**
  * SplitButton Menu button component:
  * This component consists of a button component.
+ * @deprecated
  */
-export const MenuButton: FC<SplitButtonProps> = (props) => {
+export const DeprecatedMenuButton: FC<DeprecatedSplitButtonProps> = (props) => {
   const { ...rest } = props
-  return <ElSplitButtonMenuButton {...rest} iconLeft={<DeprecatedIcon icon="chevronDown" />}></ElSplitButtonMenuButton>
+  return (
+    <ElDeprecatedSplitButtonMenuButton
+      {...rest}
+      iconLeft={<DeprecatedIcon icon="chevronDown" />}
+    ></ElDeprecatedSplitButtonMenuButton>
+  )
 }
