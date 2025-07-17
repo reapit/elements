@@ -30,7 +30,7 @@ interface SplitButtonMenuButtonProps extends Omit<ButtonHTMLAttributes<HTMLButto
 
 /**
  * The `SplitButton.MenuButton` component is used to represent the menu button in a `SplitButton`. It will typically
- * be used as the trigger for a `Menu`.
+ * be used via `SplitButton.Menu`, which includes the `Menu` component baked-in.
  */
 export function SplitButtonMenuButton({
   'aria-expanded': ariaExpanded,
