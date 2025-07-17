@@ -51,7 +51,7 @@ export function Breakpoint({ breakpoint, children }: BreakpointProps) {
         containerType: 'size',
         display: 'grid',
         gridTemplateAreas: '"header" "body" "footer"',
-        gridTemplateColumns: '1fr',
+        gridTemplateColumns: '100%',
         gridTemplateRows: 'auto 1fr auto',
         height: '400px',
         width: breakpoint === 'XS-SM' ? DRAWER_WIDTH_XS_SM : DRAWER_WIDTH_MD_2XL,

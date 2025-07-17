@@ -1,10 +1,13 @@
 import { styled } from '@linaria/react'
 
-interface ElPrimaryTabsProps {
-  'data-overflow'?: 'scroll' | 'visible'
+export interface ElPrimaryTabsProps {
+  'data-overflow': 'scroll' | 'visible'
 }
 
 export const ElPrimaryTabs = styled.nav<ElPrimaryTabsProps>`
+  border-bottom: var(--border-width-default) solid var(--comp-tab-colour-border-group);
+  width: 100%;
+
   &,
   &[data-overflow='visible'] {
     overflow-x: visible;
@@ -26,20 +29,6 @@ export const ElPrimaryTabsList = styled.menu`
 
   margin: 0;
   padding: 0;
-
-  /* NOTE: We use a pseudo-element to draw the bottom border of the menu element, as this
-   * provides the simplest and most reliable way to draw a border that can be overlapped by
-   * the list items' borders. */
-  &::after {
-    content: '';
-    position: absolute;
-    inset-inline: 0;
-    inset-block-end: 0;
-    width: 100%;
-    height: var(--border-width-default);
-    background-color: var(--comp-tab-colour-border-group);
-    z-index: -1;
-  }
 `
 
 export const ElPrimaryTabsListItem = styled.li`

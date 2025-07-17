@@ -1,4 +1,4 @@
-import { DeprecatedButton } from '../../../deprecated/button'
+import { Button } from '#src/components/button'
 import { CloseIcon } from '#src/icons/close'
 
 /**
@@ -9,11 +9,11 @@ import { CloseIcon } from '#src/icons/close'
 export function DrawerHeaderCloseButton() {
   return (
     <form>
-      <DeprecatedButton
+      <Button
         autoFocus
         aria-label="Close"
         formMethod="dialog"
-        iconLeft={<CloseIcon size="lg" aria-hidden />}
+        iconLeft={<CloseIcon aria-hidden />}
         size="large"
         type="submit"
         variant="tertiary"
