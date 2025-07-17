@@ -1,8 +1,11 @@
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
 import { DrawerHeader } from './header'
+import { PrimaryTabs } from '#src/components/primary-tabs'
 import { useDrawerContextDecorator } from '../__story__/useDrawerContextDecorator'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+
+const href = globalThis.top?.location.href!
 
 const meta = {
   title: 'Components/Drawer/Header',
@@ -28,7 +31,31 @@ const meta = {
     tabs: {
       control: 'radio',
       mapping: {
-        Tabs: 'TODO',
+        Tabs: (
+          <PrimaryTabs overflow="scroll">
+            <PrimaryTabs.Item aria-current="page" href={href}>
+              Tab item
+            </PrimaryTabs.Item>
+            <PrimaryTabs.Item aria-current={false} href={href}>
+              Tab item
+            </PrimaryTabs.Item>
+            <PrimaryTabs.Item aria-current={false} href={href}>
+              Tab item
+            </PrimaryTabs.Item>
+            <PrimaryTabs.Item aria-current={false} href={href}>
+              Tab item
+            </PrimaryTabs.Item>
+            <PrimaryTabs.Item aria-current={false} href={href}>
+              Tab item
+            </PrimaryTabs.Item>
+            <PrimaryTabs.Item aria-current={false} href={href}>
+              Tab item
+            </PrimaryTabs.Item>
+            <PrimaryTabs.Item aria-current={false} href={href}>
+              Tab item
+            </PrimaryTabs.Item>
+          </PrimaryTabs>
+        ),
         None: null,
       },
       options: ['Tabs', 'None'],
@@ -55,19 +82,36 @@ export const Example: Story = {
 }
 
 /**
+ * Tabs can also be used within the Drawer's header. Typically, these will be
+ * [PrimaryTabs](?path=/docs/components-primarytabs--docs). While the number of tabs should generally be kept low,
+ * if there are too many to fit within the drawer's header, `overflow="scroll"` can be used with the `PrimaryTabs`
+ * component to allow them to scroll.
+ */
+export const Tabs: Story = {
+  args: {
+    ...Example.args,
+    tabs: 'Tabs',
+  },
+}
+
+/**
  * Like the body and footer, the drawer header will adjust it's layout based on the inline-size of its parent
  * container. This story demonstrates the layout changes within containers that mimic the drawer's width within
  * different breakpoints.
  */
-export const DynamicLayout: StoryObj = {
+export const DynamicLayout: Story = {
+  args: {
+    ...Example.args,
+    tabs: 'Tabs',
+  },
   decorators: [useDrawerBreakpointDecorator()],
-  render: () => (
+  render: (args) => (
     <>
       <Breakpoint breakpoint="XS-SM">
-        <DrawerHeader {...Example.args} action={<DrawerHeader.CloseButton />} />
+        <DrawerHeader {...args} action={<DrawerHeader.CloseButton />} />
       </Breakpoint>
       <Breakpoint breakpoint="MD-2XL">
-        <DrawerHeader {...Example.args} action={<DrawerHeader.CloseButton />} />
+        <DrawerHeader {...args} action={<DrawerHeader.CloseButton />} />
       </Breakpoint>
     </>
   ),

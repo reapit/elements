@@ -1,7 +1,8 @@
-import { DeprecatedButton } from '../../deprecated/button'
+import { Button } from '#src/components/button'
 import { Breakpoint, useDrawerBreakpointDecorator } from './__story__/useDrawerBreakpointDecorator'
 import { Drawer } from './drawer'
 import { Pattern } from './__story__/Pattern'
+import { PrimaryTabs } from '#src/components/primary-tabs'
 import { SupplementaryInfo } from '../supplementary-info'
 import { useArgs } from 'storybook/preview-api'
 import { useDrawerContextDecorator } from './__story__/useDrawerContextDecorator'
@@ -14,12 +15,13 @@ const meta = {
   argTypes: {
     children: {
       control: 'radio',
+      options: ['Simple', 'Tabbed', 'With Footer', 'Empty'],
       mapping: {
         Simple: <ExampleSimpleLayout />,
+        Tabbed: <ExampleSimpleLayout withTabs />,
         'With Footer': <ExampleFooterLayout />,
         Empty: null,
       },
-      options: ['Simple', 'With Footer', 'Empty'],
     },
   },
 } satisfies Meta<typeof Drawer>
@@ -93,10 +95,10 @@ export const Breakpoints: StoryObj = {
   render: () => (
     <>
       <Breakpoint breakpoint="XS-SM">
-        <ExampleSimpleLayout />
+        <ExampleSimpleLayout withTabs />
       </Breakpoint>
       <Breakpoint breakpoint="MD-2XL">
-        <ExampleSimpleLayout />
+        <ExampleSimpleLayout withTabs />
       </Breakpoint>
 
       <Breakpoint breakpoint="XS-SM">
@@ -114,7 +116,9 @@ export const Breakpoints: StoryObj = {
   },
 }
 
-function ExampleSimpleLayout() {
+function ExampleSimpleLayout({ withTabs }: { withTabs?: boolean }) {
+  const href = globalThis.top?.location.href!
+
   return (
     <>
       <Drawer.Header
@@ -125,6 +129,33 @@ function ExampleSimpleLayout() {
             <SupplementaryInfo.Item colour="secondary">Optional info 1</SupplementaryInfo.Item>
             <SupplementaryInfo.Item colour="secondary">Optional info 2</SupplementaryInfo.Item>
           </SupplementaryInfo>
+        }
+        tabs={
+          withTabs ? (
+            <PrimaryTabs overflow="scroll">
+              <PrimaryTabs.Item aria-current="page" href={href}>
+                Tab item
+              </PrimaryTabs.Item>
+              <PrimaryTabs.Item aria-current={false} href={href}>
+                Tab item
+              </PrimaryTabs.Item>
+              <PrimaryTabs.Item aria-current={false} href={href}>
+                Tab item
+              </PrimaryTabs.Item>
+              <PrimaryTabs.Item aria-current={false} href={href}>
+                Tab item
+              </PrimaryTabs.Item>
+              <PrimaryTabs.Item aria-current={false} href={href}>
+                Tab item
+              </PrimaryTabs.Item>
+              <PrimaryTabs.Item aria-current={false} href={href}>
+                Tab item
+              </PrimaryTabs.Item>
+              <PrimaryTabs.Item aria-current={false} href={href}>
+                Tab item
+              </PrimaryTabs.Item>
+            </PrimaryTabs>
+          ) : null
         }
       >
         Drawer title
@@ -156,11 +187,13 @@ function ExampleFooterLayout() {
       </Drawer.Body>
       <Drawer.Footer>
         <form style={{ display: 'contents' }}>
-          <DeprecatedButton formMethod="dialog" variant="secondary">
+          <Button formMethod="dialog" size="medium" variant="secondary">
             Cancel
-          </DeprecatedButton>
+          </Button>
         </form>
-        <DeprecatedButton variant="primary">Submit</DeprecatedButton>
+        <Button size="medium" variant="primary">
+          Submit
+        </Button>
       </Drawer.Footer>
     </>
   )

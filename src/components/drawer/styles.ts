@@ -47,7 +47,7 @@ export const ElDrawer = styled.dialog`
     grid-template:
       'header' auto
       'body' 1fr
-      'footer' auto / 1fr;
+      'footer' auto / 100%;
 
     transform: translateX(0);
 

@@ -1,4 +1,4 @@
-import { DeprecatedButton } from '../../../deprecated/button'
+import { Button } from '#src/components/button'
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
 import { DrawerFooter } from './footer'
 import { Pattern } from '../__story__/Pattern'
@@ -40,11 +40,13 @@ export const Example: Story = {
          * There are other ways to achieve this, but this is one of the simplest. We may chose, in future, to
          * provide a Drawer-specific Cancel button similar to the header's Close button.*/}
         <form style={{ display: 'contents' }}>
-          <DeprecatedButton formMethod="dialog" type="submit">
+          <Button formMethod="dialog" size="medium" type="submit" variant="secondary">
             Cancel
-          </DeprecatedButton>
+          </Button>
         </form>
-        <DeprecatedButton variant="primary">Add</DeprecatedButton>
+        <Button size="medium" variant="primary">
+          Add
+        </Button>
       </>
     ),
   },
