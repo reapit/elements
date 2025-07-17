@@ -99,20 +99,18 @@ export const elButton = css`
     color: var(--comp-button-colour-text-secondary-default);
 
     &:hover {
-      border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-hover);
+      border-color: var(--comp-button-colour-border-secondary-hover);
       background: var(--comp-button-colour-fill-secondary-hover);
       color: var(--comp-button-colour-text-secondary-hover);
     }
 
     &[data-is-destructive='true'] {
-      border: var(--comp-button-border-width-default) solid
-        var(--comp-button-colour-border-secondary-destructive-default);
+      border-color: var(--comp-button-colour-border-secondary-destructive-default);
       background: var(--comp-button-colour-fill-secondary-destructive-default);
       color: var(--comp-button-colour-text-secondary-destructive-default);
 
       &:hover {
-        border: var(--comp-button-border-width-default) solid
-          var(--comp-button-colour-border-secondary-destructive-hover);
+        border-color: var(--comp-button-colour-border-secondary-destructive-hover);
         background: var(--comp-button-colour-fill-secondary-destructive-hover);
         color: var(--comp-button-colour-text-secondary-destructive-hover);
       }
