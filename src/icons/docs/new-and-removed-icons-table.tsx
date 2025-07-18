@@ -1,8 +1,8 @@
 import { DeprecatedIcon } from '#src/deprecated/icon/index'
 import { iconSet as v4Icons } from '#src/deprecated/icons/index'
-import { Text } from '#src/components/text'
+import { Text } from '#src/core/text/index'
 import * as v5Icons from '..'
-import { Badge } from '#src/components/badge/badge'
+import { Badge } from '#src/core/badge/badge'
 
 export function NewAndRemovedIconsTable() {
   const tableStyles = { border: '1px solid #FA00FF', width: '50%' }

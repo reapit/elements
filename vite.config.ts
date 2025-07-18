@@ -7,12 +7,12 @@ import wyw from '@wyw-in-js/vite'
 import packageManifest from './package.json'
 import path from 'node:path'
 
-// We dynamically discover all "first-level" barrel files in the `src/components` directory and add them as
+// We dynamically discover all "first-level" barrel files in the `src/core` directory and add them as
 // individual entry points for our build.
 const core = Object.fromEntries(
-  fs.globSync('src/components/*/index.ts', { withFileTypes: true }).map((file) => [
-    path.join('components', path.basename(file.parentPath)), // e.g. `components/button`
-    path.join(file.parentPath, file.name), // e.g. `src/components/button/index.ts`
+  fs.globSync('src/core/*/index.ts', { withFileTypes: true }).map((file) => [
+    path.join('core', path.basename(file.parentPath)), // e.g. `core/button`
+    path.join(file.parentPath, file.name), // e.g. `src/core/button/index.ts`
   ]),
 )
 

@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react-vite'
 import { DeprecatedSplitButton } from './split-button'
-import { Menu } from '#src/components/menu'
+import { Menu } from '#src/core/menu/index'
 
 const meta: Meta<typeof DeprecatedSplitButton> = {
   title: 'Deprecated/DeprecatedSplitButton',

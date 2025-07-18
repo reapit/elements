@@ -1,5 +1,5 @@
 import React from 'react'
-import { ThemeProvider } from '../src/components/theme-provider'
+import { ThemeProvider } from '#src/core/theme-provider'
 
 import '../src/styles/globals'
 import './preview.css'
