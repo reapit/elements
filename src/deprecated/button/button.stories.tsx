@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react-vite'
 import { DeprecatedButton } from './button'
-import { ButtonGroup } from '../../components/button-group'
+import { ButtonGroup } from '../../core/button-group'
 import { action } from 'storybook/actions'
 import { DeprecatedIcon, IconNames } from '../icon'
 

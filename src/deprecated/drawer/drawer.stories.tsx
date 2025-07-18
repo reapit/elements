@@ -5,7 +5,7 @@ import { FormLayout, InputWrapFull, InputWrapHalf } from '../../deprecated/form-
 import { InputGroup } from '../input-group'
 import { DeprecatedLabel } from '../label'
 import { Select } from '../select'
-import { TextArea } from '../../components/textarea'
+import { TextArea } from '../../core/textarea'
 import { TextBase } from '../typography'
 
 export default {
