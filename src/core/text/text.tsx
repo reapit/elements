@@ -54,7 +54,7 @@ type TextProps =
 /**
  * A simple component that can be used to display text in a particular size, weight and colour. If
  * you're just looking to apply appropriate font styles to a styled element based on a particular
- * combination of font size and/or weight, the [font](/docs/components-text-font--docs) helper
+ * combination of font size and/or weight, the [font](/docs/core-text-font--docs) helper
  * is preferable.
  *
  * **Important:** Direct use of this component is strongly discouraged. It is primarily intended as an

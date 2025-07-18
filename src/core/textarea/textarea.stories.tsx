@@ -2,7 +2,7 @@ import { Meta, StoryObj } from '@storybook/react-vite'
 import { TextArea } from './index'
 
 export default {
-  title: 'Components/TextArea',
+  title: 'Core/TextArea',
   component: TextArea,
 } as Meta<typeof TextArea>
 

@@ -3,7 +3,7 @@ import { SecondaryTab } from './tab'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/SecondaryTabs/Tab',
+  title: 'Core/SecondaryTabs/Tab',
   component: SecondaryTab,
 } satisfies Meta<typeof SecondaryTab>
 

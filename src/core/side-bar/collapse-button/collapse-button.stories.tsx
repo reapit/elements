@@ -5,7 +5,7 @@ import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decora
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/SideBar/CollapseButton',
+  title: 'Core/SideBar/CollapseButton',
   component: SideBarCollapseButton,
   // NOTE: decorators are applied in array order, inside-out. That is, useSideBarWidthDecorator wraps the story first,
   // then useSideBarContextDecorator wraps the result of that.

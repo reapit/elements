@@ -9,7 +9,7 @@ import { ElDialog, ElDialogBody, ElDialogFooter, ElDialogHeader, ElDialogTitle }
 import { ButtonGroup } from '../button-group'
 
 const meta = {
-  title: 'Components/Dialog',
+  title: 'Core/Dialog',
   component: Dialog,
   parameters: {
     layout: 'padded',

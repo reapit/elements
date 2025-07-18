@@ -11,7 +11,7 @@ import { TableRow } from '../table-row'
 import { SingleLineCell } from '../table-cell'
 
 export default {
-  title: 'Components/TableHead',
+  title: 'Core/TableHead',
   component: TableHead,
 } as Meta<typeof TableHead>
 

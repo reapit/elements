@@ -5,7 +5,7 @@ import { useTooltip } from '../tooltip/use-tooltip'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Chip',
+  title: 'Core/Chip',
   component: Chip,
   argTypes: {
     'aria-disabled': {

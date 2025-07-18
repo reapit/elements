@@ -1,7 +1,7 @@
 import { ElLabelText, LabelText } from './index'
 
 export default {
-  title: 'Components/LabelText',
+  title: 'Core/LabelText',
   component: ElLabelText,
 }
 

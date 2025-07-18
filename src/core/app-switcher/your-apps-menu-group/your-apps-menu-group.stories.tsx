@@ -11,7 +11,7 @@ const useParentDecorator: Decorator = (Story) => {
 }
 
 const meta = {
-  title: 'Components/AppSwitcher/YourAppsMenuGroup',
+  title: 'Core/AppSwitcher/YourAppsMenuGroup',
   component: AppSwitcherYourAppsMenuGroup,
   argTypes: {
     children: {

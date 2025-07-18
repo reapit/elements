@@ -54,20 +54,20 @@ interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> 
  *
  * Only the logo and user avatar are required; all other regions are optional.
  *
- * - **App switcher:** [AppSwitcher](/docs/components-appswitcher--docs)
- * - **Avatar:** [Menu](/docs/components-menu--docs),
- *   [TopBar.AvatarButton](/docs/components-topbar-avatarbutton--docs)
- * - **Logo:** [TopBar.BrandLogo](/docs/components-topbar-brandlogo--docs)
- * - **Main navigation:** [TopBar.MainNav](/docs/components-topbar-mainnav--docs),
- *   [TopBar.NavItem](/docs/components-topbar-navitem--docs),
- *   [TopBar.NavMenuItem](/docs/components-topbar-navmenuitem--docs)
+ * - **App switcher:** [AppSwitcher](/docs/core-appswitcher--docs)
+ * - **Avatar:** [Menu](/docs/core-menu--docs),
+ *   [TopBar.AvatarButton](/docs/core-topbar-avatarbutton--docs)
+ * - **Logo:** [TopBar.BrandLogo](/docs/core-topbar-brandlogo--docs)
+ * - **Main navigation:** [TopBar.MainNav](/docs/core-topbar-mainnav--docs),
+ *   [TopBar.NavItem](/docs/core-topbar-navitem--docs),
+ *   [TopBar.NavMenuItem](/docs/core-topbar-navmenuitem--docs)
  * - **Menu:** TODO
- * - **Search:** [TopBar.NavSearch](/docs/components-topbar-navsearch--docs),
- *   [TopBar.NavSearchButton](/docs/components-topbar-navsearchbutton--docs),
- *   [TopBar.NavSearchIconItem](/docs/components-topbar-navsearchiconitem--docs)
- * - **Secondary navigation:** [TopBar.SecondaryNav](/docs/components-topbar-secondarynav--docs),
- *   [TopBar.NavIconItem](/docs/components-topbar-naviconitem--docs),
- *   [TopBar.NavIconMenuItem](/docs/components-topbar-naviconmenuitem--docs)
+ * - **Search:** [TopBar.NavSearch](/docs/core-topbar-navsearch--docs),
+ *   [TopBar.NavSearchButton](/docs/core-topbar-navsearchbutton--docs),
+ *   [TopBar.NavSearchIconItem](/docs/core-topbar-navsearchiconitem--docs)
+ * - **Secondary navigation:** [TopBar.SecondaryNav](/docs/core-topbar-secondarynav--docs),
+ *   [TopBar.NavIconItem](/docs/core-topbar-naviconitem--docs),
+ *   [TopBar.NavIconMenuItem](/docs/core-topbar-naviconmenuitem--docs)
  */
 export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secondaryNav, ...rest }: TopBarProps) {
   return (

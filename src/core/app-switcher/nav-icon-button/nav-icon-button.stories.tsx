@@ -3,7 +3,7 @@ import { AppSwitcherNavIconButton } from './nav-icon-button'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/AppSwitcher/NavIconButton',
+  title: 'Core/AppSwitcher/NavIconButton',
   component: AppSwitcherNavIconButton,
   argTypes: {
     onClick: {

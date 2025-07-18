@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const href = globalThis.top?.location.href!
 
 const meta = {
-  title: 'Components/Drawer/Header',
+  title: 'Core/Drawer/Header',
   component: DrawerHeader,
   argTypes: {
     action: {
@@ -83,7 +83,7 @@ export const Example: Story = {
 
 /**
  * Tabs can also be used within the Drawer's header. Typically, these will be
- * [PrimaryTabs](?path=/docs/components-primarytabs--docs). While the number of tabs should generally be kept low,
+ * [PrimaryTabs](?path=/docs/core-primarytabs--docs). While the number of tabs should generally be kept low,
  * if there are too many to fit within the drawer's header, `overflow="scroll"` can be used with the `PrimaryTabs`
  * component to allow them to scroll.
  */

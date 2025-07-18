@@ -4,7 +4,7 @@ import { ThemeProvider } from './theme-provider'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/ThemeProvider',
+  title: 'Core/ThemeProvider',
   component: ThemeProvider,
   argTypes: {
     children: {

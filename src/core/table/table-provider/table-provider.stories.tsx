@@ -3,7 +3,7 @@ import { TableProvider } from './table-provider'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/TableProvider',
+  title: 'Core/TableProvider',
   component: TableProvider,
 } satisfies Meta<typeof TableProvider>
 

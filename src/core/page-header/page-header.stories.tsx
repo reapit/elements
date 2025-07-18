@@ -17,7 +17,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const href = globalThis.top?.location.href!
 
 const meta = {
-  title: 'Components/PageHeader',
+  title: 'Core/PageHeader',
   component: PageHeader,
   argTypes: {
     backgroundColour: {

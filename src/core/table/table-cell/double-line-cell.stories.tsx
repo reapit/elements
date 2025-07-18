@@ -20,7 +20,7 @@ const FIRST_LINE_OPTIONS = ['Address', 'Name', 'Text', 'Skeleton']
 const SECOND_LINE_OPTIONS = ['Suburb', 'Job', 'Text', 'Skeleton']
 
 const meta = {
-  title: 'Components/TableCell/DoubleLineCell',
+  title: 'Core/TableCell/DoubleLineCell',
   component: DoubleLineCell,
   argTypes: {
     mediaItem: {

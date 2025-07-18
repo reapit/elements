@@ -8,7 +8,7 @@ import { Menu } from '../../menu'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/BottomBar/ItemButton',
+  title: 'Core/BottomBar/ItemButton',
   component: BottomBarItemButton,
   argTypes: {
     icon: {

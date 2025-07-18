@@ -11,7 +11,7 @@ import { Skeleton } from '#src/core/skeleton/skeleton'
 import { MenuItem } from '../../menu/menu.molecules.js'
 
 const meta: Meta<typeof TableToolbar> = {
-  title: 'Components/TableToolbar',
+  title: 'Core/TableToolbar',
   component: TableToolbar,
 }
 

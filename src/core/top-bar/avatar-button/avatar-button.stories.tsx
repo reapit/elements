@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta: Meta<typeof TopBarAvatarButton> = {
   component: TopBarAvatarButton,
-  title: 'Components/TopBar/AvatarButton',
+  title: 'Core/TopBar/AvatarButton',
 }
 
 export default meta

@@ -3,7 +3,7 @@ import { FeaturesLandSizeItem } from './land-size'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Features/LandSize',
+  title: 'Core/Features/LandSize',
   component: FeaturesLandSizeItem,
   argTypes: {
     value: {

@@ -3,7 +3,7 @@ import { TagGroup } from './tag-group'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/TagGroup',
+  title: 'Core/TagGroup',
   component: TagGroup,
   argTypes: {
     children: {

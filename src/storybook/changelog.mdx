@@ -20,22 +20,23 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 
 - **feat:** Add new `MatchMedia` and `useMatchMedia`. See [MatchMedia](?path=/docs/utils-matchmedia--docs) and [useMatchMedia](?path=/docs/utils-matchmedia-usematchmedia--docs) for details.
 - **feat:** Add new `isWidthAtOrAbove` and `isWidthBelow` utilities. See [breakpoints](?path=/docs/utils-breakpoints--docs) for details.
+- **chore:** Moved "Components" section to "Core" in Storybook to align with the subpath entry point recently introduced.
 
 ### **5.0.0-beta.38 - 18/07/25**
 
-- **feat:** Added new `PageHeader.LeadingElement` after design updates to the page header. See [PageHeader.LeadingElement](?path=/docs/components-pageheader-leadingelement--docs) for details. Avatar's are no longer supported in the new page header.
+- **feat:** Added new `PageHeader.LeadingElement` after design updates to the page header. See [PageHeader.LeadingElement](?path=/docs/core-pageheader-leadingelement--docs) for details. Avatar's are no longer supported in the new page header.
 - **chore:** Deprecate v4 components and put them in `src/deprecated`.
 - **feat:** Add new `URLSearchParams` utilities. See [URLSearchParams](?path=/docs/utils-urlsearchparams--docs) for details.
 - **feat:** Add new package entry points for components and deprecated components: `@reapit/elements/core/*` and `@reapit/elements/deprecated/*` respectively.
-- **feat:** Add new `PrimaryTabs` component. See [PrimaryTabs](?path=/docs/components-primarytabs--docs) for details.
-- **feat:** Add new `SecondaryTabs` component. See [SecondaryTabs](?path=/docs/components-secondarytabs--docs) for details.
+- **feat:** Add new `PrimaryTabs` component. See [PrimaryTabs](?path=/docs/core-primarytabs--docs) for details.
+- **feat:** Add new `SecondaryTabs` component. See [SecondaryTabs](?path=/docs/core-secondarytabs--docs) for details.
 - **chore!:** Deprecate `SplitButton` component. It is still available, but is now called `DeprecatedSplitButton`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix. It can now be imported from `@reapit/elements/deprecated/split-button`, as well as the root entry point, `@reapit/elements`.
-- **feat:** Add new `SplitButton` component. See [SplitButton](?path=/docs/components-splitbutton--docs) for details.
-- **feat:** Support `PrimaryTabs` in `Drawer` component. See [Drawer.Header](?path=/docs/components-drawer-header--docs) for details.
+- **feat:** Add new `SplitButton` component. See [SplitButton](?path=/docs/core-splitbutton--docs) for details.
+- **feat:** Support `PrimaryTabs` in `Drawer` component. See [Drawer.Header](?path=/docs/core-drawer-header--docs) for details.
 
 ### **5.0.0-beta.37 - 09/07/25**
 
-- **feat:** Add new `CompactSelectNative` component. See [CompactSelectNative](?path=/docs/components-compactselectnative--docs) for details.
+- **feat:** Add new `CompactSelectNative` component. See [CompactSelectNative](?path=/docs/core-compactselectnative--docs) for details.
 - **fix:** #502 introduced a visual regression in the `MobileControls` component. This has now been fixed.
 - **fix:** #502 introduced a visual regression in the `DeprecatedButton` component. This has now been fixed.
 - **chore!:** `Chip` component now aligned with `Button` component in terms of `aria-disabled` and `disabled` props. The original `isDisabled` prop has been removed.
@@ -46,7 +47,7 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 - **chore!:** Deprecated `PageHeader` component. It is still available, but is now called `DeprecatedPageHeader`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix.
 - **chore:** Stop using CSS `all` property in components as it impacts CSS custom properties as well. Also resolves icon alignment issue in `Features`.
 - **fix:** #551 introduced a visual regression in the `DeprecatedNav` component. This has now been fixed.
-- **feat:** Add new `PageHeader` component. See [PageHeader](?path=/docs/components-pageheader--docs) for details.
+- **feat:** Add new `PageHeader` component. See [PageHeader](?path=/docs/core-pageheader--docs) for details.
 - **chore:** Update design tokens to match latest changes in Figma.
 
 ### **5.0.0-beta.36 - 04/07/25**
@@ -56,17 +57,17 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 ### **5.0.0-beta.35 - 03/07/25**
 
 - **chore!:** Deprecated `Accordion` component. It is still available, but is now called `DeprecatedAccordion`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix.
-- **feat:** Add new `Accordion` component. See [Accordion](?path=/docs/components-accordion--docs) for details.
+- **feat:** Add new `Accordion` component. See [Accordion](?path=/docs/core-accordion--docs) for details.
 - **chore:** All v4 component docs have been grouped under the `Deprecated` section in Elements' Storybook. Consumers of these components should consider all these components to be implicitly deprecated. Explicit deprecation will come in a future beta version.
 - **chore!:** Remove global CSS reset from main stylesheet and update components that implicitly relied on these resets.
   - A new stylesheet, `@reapit/elements/reset.css`, is also available to allow consumers to maintain the existing reset behaviour should they also be implicitly dependent on the reset styles.
   - Neither Elements' main stylesheet, nor the new reset stylesheet, apply `-webkit-font-smoothing: antialiasing` or `-moz-osx-font-smoothing: grayscale`. See [Stop fixing font smoothing](https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/) for an explanation behind this decision.
 - **chore!:** Add latest icons. `DrawCloseIcon` has been removed from v5 icons. It's still available via `DeprecatedIcon`. Three new icons have also been added: `MenuCollapseIcon`, `MenuExpandIcon` and `ChangeLogIcon`.
 - **chore!:** Deprecate `Button` component. It is still available, but is now called `DeprecatedButton`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix.
-- **feat:** Add new `Button` component. See [Button](?path=/docs/components-button--docs) for details.
-- **chore!:** Refactor `Tag` and `TagGroup` to match the structure of `Chip` and `ChipGroup`. `Tag` no longer supports an `as` prop. See [Tag](?path=/docs/components-tag--docs) and [TagGroup](?path=/docs/components-tag-group--docs) for details.
-- **chore!:** Refactor `Badge` component, with the following breaking changes: `variant` is now `colour` and `isReversed` is now `variant`. See [Badge](?path=/docs/components-badge--docs) for details.
-- **feat!:** `Features` component now provides common feature items "out-of-the-box". See [Features](?path=/docs/components-features--docs) for details. The low-level `Features.Item` component also received a breaking change, with `aria-label` being replaced with `label`.
+- **feat:** Add new `Button` component. See [Button](?path=/docs/core-button--docs) for details.
+- **chore!:** Refactor `Tag` and `TagGroup` to match the structure of `Chip` and `ChipGroup`. `Tag` no longer supports an `as` prop. See [Tag](?path=/docs/core-tag--docs) and [TagGroup](?path=/docs/core-tag-group--docs) for details.
+- **chore!:** Refactor `Badge` component, with the following breaking changes: `variant` is now `colour` and `isReversed` is now `variant`. See [Badge](?path=/docs/core-badge--docs) for details.
+- **feat!:** `Features` component now provides common feature items "out-of-the-box". See [Features](?path=/docs/core-features--docs) for details. The low-level `Features.Item` component also received a breaking change, with `aria-label` being replaced with `label`.
 - **chore:** Update docs for `Breadcrumbs` component, and add docs for `Breadcrumbs.Item` and `Breadcrumbs.Link`. Also added new `overflow` prop to `Breadcrumbs`.
 
 ### **5.0.0-beta.34 - 30/06/25**

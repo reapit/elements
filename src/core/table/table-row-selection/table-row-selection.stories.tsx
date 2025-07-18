@@ -13,7 +13,7 @@ import { SingleLineCell } from '../table-cell'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/TableRowSelection',
+  title: 'Core/TableRowSelection',
   component: TableRowSelection,
 } satisfies Meta<typeof TableRowSelection>
 

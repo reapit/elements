@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const href = globalThis.top?.location.href!
 
 const meta = {
-  title: 'Components/Breadcrumbs/Item',
+  title: 'Core/Breadcrumbs/Item',
   component: BreadcrumbItem,
   argTypes: {
     children: {

@@ -7,7 +7,7 @@ import { TopBarNavIconItemAnchor } from './nav-icon-item-anchor'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/TopBar/NavIconItemAnchor',
+  title: 'Core/TopBar/NavIconItemAnchor',
   component: TopBarNavIconItemAnchor,
   argTypes: {
     'aria-current': {

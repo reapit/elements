@@ -10,7 +10,7 @@ import { useDrawerContextDecorator } from './__story__/useDrawerContextDecorator
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Drawer',
+  title: 'Core/Drawer',
   component: Drawer,
   argTypes: {
     children: {

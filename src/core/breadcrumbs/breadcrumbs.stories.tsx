@@ -3,7 +3,7 @@ import { Breadcrumbs } from './breadcrumbs'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Breadcrumbs',
+  title: 'Core/Breadcrumbs',
   component: Breadcrumbs,
   argTypes: {
     children: {

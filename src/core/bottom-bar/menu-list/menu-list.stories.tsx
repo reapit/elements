@@ -9,7 +9,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const href = globalThis.top?.location.href!
 
 const meta = {
-  title: 'Components/BottomBar/MenuList',
+  title: 'Core/BottomBar/MenuList',
   component: BottomBarMenuList,
   argTypes: {
     children: {

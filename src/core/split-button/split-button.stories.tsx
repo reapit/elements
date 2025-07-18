@@ -4,7 +4,7 @@ import { SplitButton } from './split-button'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/SplitButton',
+  title: 'Core/SplitButton',
   component: SplitButton,
   argTypes: {
     action: {

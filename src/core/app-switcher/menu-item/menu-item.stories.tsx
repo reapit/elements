@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { SupportedProductId } from '../config'
 
 const meta = {
-  title: 'Components/AppSwitcher/MenuItem',
+  title: 'Core/AppSwitcher/MenuItem',
   component: AppSwitcherMenuItem,
   argTypes: {
     avatar: {

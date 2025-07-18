@@ -15,7 +15,7 @@ const ElTd = styled.td`
   padding: var(--spacing-2);
 `
 export default {
-  title: 'Components/TableRow',
+  title: 'Core/TableRow',
   component: TableRow,
 } as Meta<typeof TableRow>
 

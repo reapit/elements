@@ -5,7 +5,7 @@ import { Pagination } from './pagination'
 import { useState } from 'react'
 
 const meta = {
-  title: 'Components/Pagination',
+  title: 'Core/Pagination',
   component: Pagination,
   args: {
     onPageChange: action('onPageChange'),

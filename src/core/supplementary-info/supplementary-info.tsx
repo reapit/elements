@@ -12,7 +12,7 @@ interface SupplementaryInfoProps extends HTMLAttributes<HTMLUListElement> {
 
 /**
  * A list of supplementary information items, typically used to display metadata or status information.
- * See also [SupplementaryInfo.Item](/docs/components-supplementaryinfo-item--docs).
+ * See also [SupplementaryInfo.Item](/docs/core-supplementaryinfo-item--docs).
  */
 export function SupplementaryInfo({ children, size = 'base', ...rest }: SupplementaryInfoProps) {
   return (

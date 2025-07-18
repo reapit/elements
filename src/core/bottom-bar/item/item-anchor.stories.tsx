@@ -7,7 +7,7 @@ import { StarIcon } from '#src/icons/star'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/BottomBar/ItemAnchor',
+  title: 'Core/BottomBar/ItemAnchor',
   component: BottomBarItemAnchor,
   argTypes: {
     'aria-current': {

@@ -9,7 +9,7 @@ import { Features } from '#src/core/features/index'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Accordion/Summary',
+  title: 'Core/Accordion/Summary',
   component: AccordionSummary,
   argTypes: {
     rightInfo: {

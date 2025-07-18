@@ -7,7 +7,7 @@ import { StarIcon } from '#src/icons/star'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Button',
+  title: 'Core/Button',
   component: Button,
   subcomponents: { AnchorButton },
   argTypes: {
@@ -186,7 +186,7 @@ export const IconOnly: Story = {
  * `aria-disabled` allows the button to still be focusable, which, for example, allows tooltips to still be displayed.
  * A `disabled` button is also `aria-disabled`, regardless of the value of `aria-disabled`.
  *
- * Importantly, [AnchorButton](?path=/docs/components-button--anchors)'s do not support the `disabled` prop; so they
+ * Importantly, [AnchorButton](?path=/docs/core-button--anchors)'s do not support the `disabled` prop; so they
  * can only be disabled using `aria-disabled="true"`.
  */
 export const Disabled: Story = {

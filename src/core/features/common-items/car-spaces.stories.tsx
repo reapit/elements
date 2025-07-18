@@ -3,7 +3,7 @@ import { FeaturesCarSpacesItem } from './car-spaces'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Features/CarSpaces',
+  title: 'Core/Features/CarSpaces',
   component: FeaturesCarSpacesItem,
   argTypes: {
     value: {
