@@ -1,0 +1,29 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Utils/MatchMedia/useMatchMedia" />
+
+# useMatchMedia
+
+A hook-based API for working with media queries. Like [MatchMedia](?path=/docs/utils-matchmedia--docs), it works with
+any valid media query condition and returns a boolean value indicating whether the condition currently matches.
+
+## Syntax
+
+```tsx
+useMatchMedia(condition)
+```
+
+- `condition`: The media query condition to match against.
+
+## Example
+
+```tsx
+import { Button } from '@reapit/elements/core/button'
+import { isWidthAtOrAbove } from '@reapit/elements/utils/breakpoints'
+import { useMatchMedia } from '@reapit/elements/utils/match-media'
+
+function MyResponsiveButton(props: MyResponsiveButtonProps) {
+  const isWidthAtOrAboveMD = useMatchMedia(isWidthAtOrAbove('MD'))
+  return <Button {...props} size={isWidthAtOrAboveMD ? 'medium' : 'large'} />
+}
+```

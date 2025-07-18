@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+# Working with Breakpoints
+
+<Meta title="Utils/Breakpoints" />
+
+Elements defines a standard set of breakpoints that can be used to create responsive designs. The minimum width of
+each breakpoint is defined in the `BreakpointMinimumDimensions` object available via `@reapit/elements/utils/breakpoints`.
+
+Elements also provides utility functions to help create conditions based on these breakpoints. These functions can be
+combined with [MatchMedia](?path=/docs/utils-matchmedia--docs) or [useMatchMedia](?path=/docs/utils-matchmedia--docs) within
+your JavaScript code, or directly in styled components using Linaria's `styled` utility.
+
+For example, in JavaScript code:
+
+```tsx
+import { isWidthAtOrAbove, isWidthBelow } from '@reapit/elements/utils/breakpoints'
+
+// true when width >= BreakpointMinimumDimensions.SM
+const isWidthAtOrAboveSM = useMatchMedia(isWidthAtOrAbove('SM'))
+
+// true when width < BreakpointMinimumDimensions.MD
+const isWidthBelowMD = useMatchMedia(isWidthBelow('MD'))
+```
+
+Or in a styled component:
+
+```tsx
+import { isWidthAtOrAbove } from '@reapit/elements/utils/breakpoints'
+import { styled } from '@linaria/react'
+
+const MyResponsiveDiv = styled.div`
+  background-color: blue;
+
+  /* Equivalent to "@media (min-width: 1024px)" */
+  @media only screen and ${isWidthAtOrAbove('MD')} {
+    background-color: red;
+  }
+`
+```
