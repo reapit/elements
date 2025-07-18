@@ -7,7 +7,7 @@ import { useId } from 'react'
 import { FlexContainer } from '../../deprecated/layout'
 
 const meta: Meta<typeof Tooltip> = {
-  title: 'Components/Tooltip',
+  title: 'Core/Tooltip',
   component: Tooltip,
   argTypes: {
     description: {

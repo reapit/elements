@@ -7,7 +7,7 @@ import type { SupportedProductId } from '../config'
 const productIds = Object.keys(productConfigs) as SupportedProductId[]
 
 const meta: Meta<typeof AppAvatar> = {
-  title: 'Components/AppSwitcher/AppAvatar',
+  title: 'Core/AppSwitcher/AppAvatar',
   component: AppAvatar,
   argTypes: {
     productId: {

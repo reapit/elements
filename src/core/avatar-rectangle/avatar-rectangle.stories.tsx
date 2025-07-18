@@ -8,7 +8,7 @@ import {
 } from './styles'
 
 export default {
-  title: 'Components/Avatar Rectangle',
+  title: 'Core/Avatar Rectangle',
   component: AvatarRectangle,
   args: {
     variant: 'residential',

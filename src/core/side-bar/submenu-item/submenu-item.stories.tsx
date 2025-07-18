@@ -5,7 +5,7 @@ import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decora
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/SideBar/SubmenuItem',
+  title: 'Core/SideBar/SubmenuItem',
   component: SideBarSubmenuItem,
   argTypes: {
     children: {

@@ -3,7 +3,7 @@ import { Avatar } from '.'
 import { DeprecatedIcon } from '../../deprecated/icon'
 
 export default {
-  title: 'Components/Avatar',
+  title: 'Core/Avatar',
   component: Avatar,
   args: {
     children: 'AD',

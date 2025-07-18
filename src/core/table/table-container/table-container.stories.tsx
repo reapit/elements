@@ -8,7 +8,7 @@ import { DeprecatedButton } from '../../../deprecated/button'
 import { DeprecatedIcon } from '../../../deprecated/icon'
 
 const meta: Meta<typeof TableContainer> = {
-  title: 'Components/TableContainer',
+  title: 'Core/TableContainer',
   component: TableContainer,
 }
 

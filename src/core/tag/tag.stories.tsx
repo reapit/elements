@@ -3,7 +3,7 @@ import { Tag } from './tag'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Tag',
+  title: 'Core/Tag',
   component: Tag,
   argTypes: {
     children: {

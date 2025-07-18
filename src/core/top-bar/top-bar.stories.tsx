@@ -14,7 +14,7 @@ import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 const href = globalThis.top?.location.href!
 
 const meta = {
-  title: 'Components/TopBar',
+  title: 'Core/TopBar',
   component: TopBar,
   argTypes: {
     appSwitcher: {

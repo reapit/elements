@@ -5,7 +5,7 @@ import { figmaDesignUrls } from '../../storybook/figma'
 import { DeprecatedIcon } from '../../deprecated/icon'
 
 const meta: Meta<typeof ButtonGroup> = {
-  title: 'Components/ButtonGroup',
+  title: 'Core/ButtonGroup',
   component: ButtonGroup,
 }
 

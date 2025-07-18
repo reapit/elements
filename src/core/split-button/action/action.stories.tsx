@@ -7,7 +7,7 @@ import { StarIcon } from '#src/icons/star'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/SplitButton/Action',
+  title: 'Core/SplitButton/Action',
   component: SplitButtonAction,
   subcomponents: {
     AnchorAction: SplitButtonAnchorAction,
@@ -115,8 +115,8 @@ export const Icons: Story = {
  * for example, allows tooltips to still be displayed. A disabled button is also `aria-disabled`, regardless of the
  * value of `aria-disabled`.
  *
- * Importantly, [AnchorActions](?path=/docs/components-splitbutton-action--anchors)'s, just like
- * [AnchorButton](?path=/docs/components-button--anchors)'s do not support the disabled prop; so they can only be
+ * Importantly, [AnchorActions](?path=/docs/core-splitbutton-action--anchors)'s, just like
+ * [AnchorButton](?path=/docs/core-button--anchors)'s do not support the disabled prop; so they can only be
  * disabled using `aria-disabled="true"`.
  */
 export const Disabled: Story = {

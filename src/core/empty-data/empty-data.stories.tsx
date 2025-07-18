@@ -2,7 +2,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import { EmptyData } from './empty-data'
 
 const meta: Meta<typeof EmptyData> = {
-  title: 'Components/Empty Data',
+  title: 'Core/Empty Data',
 }
 
 export default meta

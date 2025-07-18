@@ -7,7 +7,7 @@ import { Input } from '../../../deprecated/input'
 import { AvatarRectangle } from '../../avatar-rectangle'
 
 export default {
-  title: 'Components/Table',
+  title: 'Core/Table',
   component: Table,
 } as Meta<typeof Table>
 

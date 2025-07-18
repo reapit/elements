@@ -3,7 +3,7 @@ import { TopBarNavItem } from './nav-item'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/TopBar/NavItem',
+  title: 'Core/TopBar/NavItem',
   component: TopBarNavItem,
 } satisfies Meta<typeof TopBarNavItem>
 

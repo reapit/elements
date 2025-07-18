@@ -5,7 +5,7 @@ import { PageHeaderLeadingElement } from './leading-element'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/PageHeader/LeadingElement',
+  title: 'Core/PageHeader/LeadingElement',
   component: PageHeaderLeadingElement,
   argTypes: {
     children: {

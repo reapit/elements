@@ -3,7 +3,7 @@ import { SupplementaryInfo } from './supplementary-info'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/SupplementaryInfo',
+  title: 'Core/SupplementaryInfo',
   component: SupplementaryInfo,
   argTypes: {
     children: {

@@ -4,7 +4,7 @@ import { SplitButtonContext } from '../context'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/SplitButton/MenuButton',
+  title: 'Core/SplitButton/MenuButton',
   component: SplitButtonMenuButton,
   argTypes: {
     disabled: {

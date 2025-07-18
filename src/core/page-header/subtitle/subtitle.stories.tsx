@@ -6,7 +6,7 @@ import { TagGroup } from '#src/core/tag-group/index'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/PageHeader/Subtitle',
+  title: 'Core/PageHeader/Subtitle',
   component: PageHeaderSubtitle,
   argTypes: {
     additionalInfo: {

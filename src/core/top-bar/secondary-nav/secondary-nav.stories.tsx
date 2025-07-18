@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const href = globalThis.top?.location.href!
 
 const meta = {
-  title: 'Components/TopBar/SecondaryNav',
+  title: 'Core/TopBar/SecondaryNav',
   component: TopBarSecondaryNav,
   argTypes: {
     children: {

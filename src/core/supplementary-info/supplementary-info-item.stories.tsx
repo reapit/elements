@@ -4,7 +4,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { SupplementaryInfoItemColour } from './supplementary-info-item'
 
 const meta = {
-  title: 'Components/SupplementaryInfo/Item',
+  title: 'Core/SupplementaryInfo/Item',
   component: SupplementaryInfoItem,
   tags: ['autodocs'],
   argTypes: {

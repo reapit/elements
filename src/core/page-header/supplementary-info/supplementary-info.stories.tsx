@@ -6,7 +6,7 @@ import { SupplementaryInfo } from '#src/core/supplementary-info/index'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/PageHeader/SupplementaryInfo',
+  title: 'Core/PageHeader/SupplementaryInfo',
   component: PageHeaderSupplementaryInfo,
   argTypes: {
     children: {

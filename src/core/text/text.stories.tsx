@@ -4,7 +4,7 @@ import { fontSizes, fontWeights, textColours } from './types'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Text',
+  title: 'Core/Text',
   component: Text,
   argTypes: {
     as: {

@@ -11,7 +11,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const href = globalThis.top?.location.href!
 
 export default {
-  title: 'Components/SideBar',
+  title: 'Core/SideBar',
   component: SideBar,
   argTypes: {
     children: {

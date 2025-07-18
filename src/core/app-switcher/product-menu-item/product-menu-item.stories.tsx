@@ -5,7 +5,7 @@ import { productConfigs } from '../config'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/AppSwitcher/ProductMenuItem',
+  title: 'Core/AppSwitcher/ProductMenuItem',
   component: AppSwitcherProductMenuItem,
   argTypes: {
     productId: {

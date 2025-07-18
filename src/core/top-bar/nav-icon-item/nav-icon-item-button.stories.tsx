@@ -8,7 +8,7 @@ import { TopBarNavIconItemButton } from './nav-icon-item-button'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/TopBar/NavIconItemButton',
+  title: 'Core/TopBar/NavIconItemButton',
   component: TopBarNavIconItemButton,
   argTypes: {
     icon: {

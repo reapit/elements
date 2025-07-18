@@ -11,7 +11,7 @@ import { TableRow } from '../table-row'
 import { SingleLineCell } from '../table-cell'
 
 const meta: Meta<typeof TableHeaderCell> = {
-  title: 'Components/TableHeaderCell',
+  title: 'Core/TableHeaderCell',
   component: TableHeaderCell,
 }
 

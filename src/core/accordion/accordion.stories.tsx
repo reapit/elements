@@ -9,7 +9,7 @@ import { Pattern } from '../drawer/__story__/Pattern'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Accordion',
+  title: 'Core/Accordion',
   component: Accordion,
   argTypes: {
     children: {

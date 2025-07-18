@@ -3,7 +3,7 @@ import { PrimaryTab } from './tab'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/PrimaryTabs/Tab',
+  title: 'Core/PrimaryTabs/Tab',
   component: PrimaryTab,
 } satisfies Meta<typeof PrimaryTab>
 

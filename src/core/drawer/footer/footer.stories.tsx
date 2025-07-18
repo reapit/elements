@@ -6,7 +6,7 @@ import { Pattern } from '../__story__/Pattern'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Drawer/Footer',
+  title: 'Core/Drawer/Footer',
   component: DrawerFooter,
   argTypes: {
     children: {

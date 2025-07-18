@@ -7,7 +7,7 @@ import { StarIcon } from '#src/icons/star'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta: Meta<typeof Badge> = {
-  title: 'Components/Badge',
+  title: 'Core/Badge',
   component: Badge,
   argTypes: {
     children: {

@@ -3,7 +3,7 @@ import { TopBarNavSearchIconItem } from './nav-search-icon-item'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/TopBar/NavSearchIconItem',
+  title: 'Core/TopBar/NavSearchIconItem',
   component: TopBarNavSearchIconItem,
   argTypes: {
     onClick: {

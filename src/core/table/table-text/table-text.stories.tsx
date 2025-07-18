@@ -6,7 +6,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const ICON_OPTIONS: IconNames[] = ['star', 'add', 'chevronDown', 'chevronLeft', 'chevronRight']
 
 const meta = {
-  title: 'Components/TableText',
+  title: 'Core/TableText',
   component: TableText,
   argTypes: {
     children: {

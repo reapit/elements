@@ -6,7 +6,7 @@ import { CarIcon } from '#src/icons/car'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/Features/Item',
+  title: 'Core/Features/Item',
   component: FeaturesItem,
   argTypes: {
     icon: {

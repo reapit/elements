@@ -3,7 +3,7 @@ import { TopBarNavDropdownButton } from '.'
 import { Menu } from '../../menu'
 
 const meta: Meta<typeof TopBarNavDropdownButton> = {
-  title: 'Components/TopBar/NavDropdownButton',
+  title: 'Core/TopBar/NavDropdownButton',
   component: TopBarNavDropdownButton,
   argTypes: {
     children: {

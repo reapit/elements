@@ -3,7 +3,7 @@ import { StatusIndicator } from './status-indicator'
 import { FlexContainer } from '../../deprecated/layout'
 
 const meta = {
-  title: 'Components/Status Indicator',
+  title: 'Core/Status Indicator',
   component: StatusIndicator,
   argTypes: {
     variant: {

@@ -3,7 +3,7 @@ import { CompactSelectNative } from './compact-select-native'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Components/CompactSelectNative',
+  title: 'Core/CompactSelectNative',
   component: CompactSelectNative,
   argTypes: {
     children: {

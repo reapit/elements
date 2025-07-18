@@ -30,7 +30,7 @@ const CHILDREN_OPTIONS = [
 ]
 
 const meta = {
-  title: 'Components/TableCell/SingleLineCell',
+  title: 'Core/TableCell/SingleLineCell',
   component: SingleLineCell,
   argTypes: {
     children: {

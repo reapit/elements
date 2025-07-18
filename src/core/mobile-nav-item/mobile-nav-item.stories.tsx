@@ -4,7 +4,7 @@ import { MobileNavItem } from './mobile-nav-item'
 import { action } from 'storybook/actions'
 
 const meta = {
-  title: 'Components/Mobile Nav Item',
+  title: 'Core/Mobile Nav Item',
   component: MobileNavItem,
   parameters: {
     layout: 'padded',
