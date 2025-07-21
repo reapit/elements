@@ -53,9 +53,9 @@ export const Example: Story = {
 }
 
 /**
- * The drawer footer is sticky positioned to the bottom of its parent when it scrolls.
+ * The drawer footer is always sticky positioned to the bottom of its parent container when its parent overflows.
  */
-export const Sticky: Story = {
+export const StickyPositioning: Story = {
   args: {
     ...Example.args,
   },
