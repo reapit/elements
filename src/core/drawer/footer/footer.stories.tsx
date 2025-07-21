@@ -1,5 +1,6 @@
 import { Button } from '#src/core/button/index'
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
+import { DRAWER_CSS_CONTAINER_NAME } from '../constants'
 import { DrawerFooter } from './footer'
 import { Pattern } from '../__story__/Pattern'
 
@@ -17,7 +18,7 @@ const meta = {
     (Story) => (
       // NOTE: The footer requires a parent container with `containerType: 'inline-size'` to allow its container
       // queries to work. Typically, this would be the Drawer itself, but we're not rendering that here.
-      <div style={{ containerType: 'inline-size' }}>
+      <div style={{ containerName: DRAWER_CSS_CONTAINER_NAME, containerType: 'inline-size' }}>
         <Story />
       </div>
     ),
@@ -65,6 +66,7 @@ export const StickyPositioning: Story = {
         style={{
           boxSizing: 'border-box',
           border: '1px solid #FA00FF',
+          containerName: DRAWER_CSS_CONTAINER_NAME,
           containerType: 'inline-size',
           maxHeight: '200px',
           overflow: 'auto',

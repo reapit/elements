@@ -1,7 +1,9 @@
-import { DRAWER_WIDTH_MD_2XL } from '../constants'
+import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_MD_2XL } from '../constants'
 import { ElDrawerFooter } from '../footer'
 import { font } from '../../text'
 import { styled } from '@linaria/react'
+
+export const DRAWER_HEADER_CSS_CONTAINER_NAME = 'drawer-header'
 
 export const ElDrawerHeader = styled.div`
   position: sticky;
@@ -9,42 +11,12 @@ export const ElDrawerHeader = styled.div`
 
   background: var(--fill-white);
 
-  /* NOTE: We use a "private" CSS variable to couple the negative margin of the tabs container to this border width */
-  --__drawer-header-border-width: var(--border-default);
+  container-type: scroll-state;
+  container-name: ${DRAWER_HEADER_CSS_CONTAINER_NAME};
 
-  border-block-end: var(--__drawer-header-border-width) solid var(--outline-default);
-
-  display: grid;
-  grid-area: header;
-  grid-template:
-    'main' minmax(0, auto)
-    'tabs' minmax(0, auto) / 100%;
-
-  /* NOTE: When the drawer has a footer, the header should not be sticky and it should therefore, have no border. */
+  /* When the drawer has a footer, the header should NOT be sticky. */
   &:has(~ ${ElDrawerFooter}) {
     position: static;
-    border-block-end: none;
-  }
-`
-
-export const ElDrawerHeaderContentContainer = styled.div`
-  display: grid;
-  grid-area: main;
-  grid-template:
-    'overline close' minmax(0, auto)
-    /* NOTE: We need to use minmax for the title row because min-content and auto will consider the close button's
-     * size, which will result in a larger track height when the close button is present than when it is not. */
-    'title close' minmax(0, auto)
-    'supplementary-info supplementary-info' minmax(0, auto) / auto min-content;
-  align-items: center;
-
-  /* XS-SM container size */
-  padding-block: var(--spacing-3);
-  padding-inline: var(--spacing-5) var(--spacing-3);
-
-  @container (width >= ${DRAWER_WIDTH_MD_2XL}) {
-    padding-block: var(--spacing-5);
-    padding-inline: var(--spacing-8) var(--spacing-5);
   }
 `
 
@@ -53,14 +25,62 @@ export const ElDrawerHeaderTabsContainer = styled.div`
 
   width: 100%;
 
-  /* NOTE: This negative margin is used to make the tabs border overlap the drawer header's border. */
-  margin-block-end: calc(0px - var(--__drawer-header-border-width));
+  /* This negative margin is used to make the tabs border overlap the drawer header's border. */
+  margin-block-end: calc(0px - var(--border-default));
 
-  /* XS-SM container size */
   padding-inline-start: var(--spacing-5);
 
-  @container (width >= ${DRAWER_WIDTH_MD_2XL}) {
+  @container ${DRAWER_CSS_CONTAINER_NAME} (width >= ${DRAWER_WIDTH_MD_2XL}) {
     padding-inline-start: var(--spacing-8);
+  }
+`
+
+export const ElDrawerHeaderContentContainer = styled.div`
+  display: grid;
+  grid-area: header;
+  grid-template:
+    'main' minmax(0, auto)
+    'tabs' minmax(0, auto) / 100%;
+
+  /* If the browser does not support scroll-state queries, we always show a border when there's no footer. */
+  @supports not (container-type: scroll-state) {
+    &:not(:has(~ ${ElDrawerFooter})) {
+      border-block-end: var(--border-default) solid var(--outline-default);
+    }
+  }
+
+  /* If the browser supports scroll-state queries, we only show a border when the header is stuck to the top of
+   * the drawer. This only happens when the header is sticky positioned, which only occurs when there's no footer. */
+  @supports (container-type: scroll-state) {
+    @container ${DRAWER_HEADER_CSS_CONTAINER_NAME} scroll-state(stuck: top) {
+      border-block-end: var(--border-default) solid var(--outline-default);
+    }
+  }
+
+  /* When the drawer has tabs, we need to add a border to this container (at all times) because the tabs own
+   * border will not stretch to the left edge of the drawer. */
+  &:has(> ${ElDrawerHeaderTabsContainer}) {
+    border-block-end: var(--border-default) solid var(--outline-default);
+  }
+`
+
+export const ElDrawerHeaderTitleContainer = styled.div`
+  display: grid;
+  grid-area: main;
+  grid-template:
+    'overline close' minmax(0, auto)
+    /* We need to use minmax for the title row because min-content and auto will consider the close button's size,
+     * which will result in a larger track height when the close button is present than when it is not. */
+    'title close' minmax(0, auto)
+    'supplementary-info supplementary-info' minmax(0, auto) / auto min-content;
+  align-items: center;
+
+  padding-block: var(--spacing-3);
+  padding-inline: var(--spacing-5) var(--spacing-3);
+
+  @container ${DRAWER_CSS_CONTAINER_NAME} (width >= ${DRAWER_WIDTH_MD_2XL}) {
+    padding-block: var(--spacing-5);
+    padding-inline: var(--spacing-8) var(--spacing-5);
   }
 `
 

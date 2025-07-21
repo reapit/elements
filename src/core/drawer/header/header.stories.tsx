@@ -110,6 +110,7 @@ export const StickyPositioning: Story = {
         style={{
           boxSizing: 'border-box',
           border: '1px solid #FA00FF',
+          containerName: 'drawer',
           containerType: 'inline-size',
           maxHeight: '200px',
           overflow: 'auto',
@@ -138,6 +139,7 @@ export const StaticPositioning: Story = {
         style={{
           boxSizing: 'border-box',
           border: '1px solid #FA00FF',
+          containerName: 'drawer',
           containerType: 'inline-size',
           maxHeight: '200px',
           overflow: 'auto',
@@ -165,7 +167,7 @@ export const DynamicLayout: Story = {
   render: (args) => (
     <>
       <Breakpoint breakpoint="XS-SM">
-        <DrawerHeader {...args} action={<DrawerHeader.CloseButton />} />
+        <DrawerHeader {...args} action={<DrawerHeader.CloseButton />} tabs={null} />
       </Breakpoint>
       <Breakpoint breakpoint="MD-2XL">
         <DrawerHeader {...args} action={<DrawerHeader.CloseButton />} />

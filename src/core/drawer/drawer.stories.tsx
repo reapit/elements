@@ -95,7 +95,7 @@ export const Breakpoints: StoryObj = {
   render: () => (
     <>
       <Breakpoint breakpoint="XS-SM">
-        <ExampleSimpleLayout withTabs />
+        <ExampleSimpleLayout />
       </Breakpoint>
       <Breakpoint breakpoint="MD-2XL">
         <ExampleSimpleLayout withTabs />

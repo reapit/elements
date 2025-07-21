@@ -1,4 +1,4 @@
-import { DRAWER_WIDTH_XS_SM, DRAWER_WIDTH_MD_2XL } from '../constants'
+import { DRAWER_WIDTH_XS_SM, DRAWER_WIDTH_MD_2XL, DRAWER_CSS_CONTAINER_NAME } from '../constants'
 
 import type { Decorator } from '@storybook/react'
 import type { ReactNode } from 'react'
@@ -47,7 +47,7 @@ export function Breakpoint({ breakpoint, children }: BreakpointProps) {
   return (
     <div
       style={{
-        containerName: 'drawer',
+        containerName: DRAWER_CSS_CONTAINER_NAME,
         containerType: 'size',
         display: 'grid',
         gridTemplateAreas: '"header" "body" "footer"',

@@ -1,5 +1,7 @@
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
+import { DRAWER_CSS_CONTAINER_NAME } from '../constants'
 import { DrawerBody } from './body'
+import { DrawerFooter } from '../footer'
 import { Pattern } from '../__story__/Pattern'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -27,6 +29,34 @@ export const Example: Story = {
   args: {
     children: 'Drawer content',
   },
+}
+
+/**
+ * When the drawer body is followed by a footer, the body will have no block start (top) padding because the
+ * header will not be sticky and, therefore, we do not need the additional space. This behaviour explicitly
+ * depends on the presence of the `ElDrawerFooter` class being used; it will not work for custom footers that
+ * use their own classes.
+ */
+export const Footer: Story = {
+  args: {
+    ...Example.args,
+    children: <Pattern height="100px" />,
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          boxSizing: 'border-box',
+          border: '1px solid #FA00FF',
+          containerName: DRAWER_CSS_CONTAINER_NAME,
+          containerType: 'inline-size',
+        }}
+      >
+        <Story />
+        <DrawerFooter>Footer</DrawerFooter>
+      </div>
+    ),
+  ],
 }
 
 /**
