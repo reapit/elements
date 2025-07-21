@@ -3,11 +3,12 @@ import { DrawerHeaderCloseButton } from './close-button'
 import {
   ElDrawerHeader,
   ElDrawerHeaderAction,
-  ElDrawerHeaderContentContainer,
+  ElDrawerHeaderTitleContainer,
   ElDrawerHeaderOverline,
   ElDrawerHeaderSupplementaryInfo,
   ElDrawerHeaderTabsContainer,
   ElDrawerHeaderTitle,
+  ElDrawerHeaderContentContainer,
 } from './styles'
 import type { HTMLAttributes, ReactNode } from 'react'
 
@@ -33,12 +34,14 @@ export function DrawerHeader({ action, overline, children, supplementaryInfo, ta
   return (
     <ElDrawerHeader {...rest}>
       <ElDrawerHeaderContentContainer>
-        {action && <ElDrawerHeaderAction>{action}</ElDrawerHeaderAction>}
-        {overline && <ElDrawerHeaderOverline>{overline}</ElDrawerHeaderOverline>}
-        <ElDrawerHeaderTitle id={titleId}>{children}</ElDrawerHeaderTitle>
-        {supplementaryInfo && <ElDrawerHeaderSupplementaryInfo>{supplementaryInfo}</ElDrawerHeaderSupplementaryInfo>}
+        <ElDrawerHeaderTitleContainer>
+          {action && <ElDrawerHeaderAction>{action}</ElDrawerHeaderAction>}
+          {overline && <ElDrawerHeaderOverline>{overline}</ElDrawerHeaderOverline>}
+          <ElDrawerHeaderTitle id={titleId}>{children}</ElDrawerHeaderTitle>
+          {supplementaryInfo && <ElDrawerHeaderSupplementaryInfo>{supplementaryInfo}</ElDrawerHeaderSupplementaryInfo>}
+        </ElDrawerHeaderTitleContainer>
+        {tabs && <ElDrawerHeaderTabsContainer>{tabs}</ElDrawerHeaderTabsContainer>}
       </ElDrawerHeaderContentContainer>
-      {tabs && <ElDrawerHeaderTabsContainer>{tabs}</ElDrawerHeaderTabsContainer>}
     </ElDrawerHeader>
   )
 }
