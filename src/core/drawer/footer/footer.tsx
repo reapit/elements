@@ -1,8 +1,8 @@
 import { ElDrawerFooter } from './styles'
 
-import type { ComponentProps, ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 
-interface DrawerFooterProps extends ComponentProps<typeof ElDrawerFooter> {
+interface DrawerFooterProps extends HTMLAttributes<HTMLDivElement> {
   /** The footer actions. Typically one or more buttons. */
   children: ReactNode
 }

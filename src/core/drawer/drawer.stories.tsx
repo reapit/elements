@@ -1,4 +1,4 @@
-import { Button } from '#src/core/button/index'
+import { Button } from '#src/core/button'
 import { Breakpoint, useDrawerBreakpointDecorator } from './__story__/useDrawerBreakpointDecorator'
 import { Drawer } from './drawer'
 import { Pattern } from './__story__/Pattern'
@@ -171,7 +171,6 @@ function ExampleFooterLayout() {
   return (
     <>
       <Drawer.Header
-        action={<Drawer.HeaderCloseButton />}
         overline="Optional text"
         supplementaryInfo={
           <SupplementaryInfo>
@@ -187,7 +186,7 @@ function ExampleFooterLayout() {
       </Drawer.Body>
       <Drawer.Footer>
         <form style={{ display: 'contents' }}>
-          <Button formMethod="dialog" size="medium" variant="secondary">
+          <Button autoFocus formMethod="dialog" size="medium" variant="secondary">
             Cancel
           </Button>
         </form>

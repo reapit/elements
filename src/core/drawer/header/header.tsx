@@ -9,16 +9,16 @@ import {
   ElDrawerHeaderTabsContainer,
   ElDrawerHeaderTitle,
 } from './styles'
-import type { ComponentProps, ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 
-interface DrawerHeaderProps extends Omit<ComponentProps<typeof ElDrawerHeader>, 'title'> {
+interface DrawerHeaderProps extends HTMLAttributes<HTMLDivElement> {
   /** Optional close action for the drawer. Should not be used when the drawer contains a form. */
   action?: ReactNode
   /** Optional text to display above the title. */
   overline?: ReactNode
   /** Optional supplementary information. Typically a `SupplementaryInfo` component. */
   supplementaryInfo?: ReactNode
-  /** Optional tabs. Typically a `Tabs` component. */
+  /** Optional tabs. Typically a `Tabs` component. Note that tabs should not be used when the drawer has a footer. */
   tabs?: ReactNode
   /** The title of the drawer. */
   children: ReactNode

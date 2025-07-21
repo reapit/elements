@@ -1,20 +1,30 @@
 import { DRAWER_WIDTH_MD_2XL } from '../constants'
+import { ElDrawerFooter } from '../footer'
 import { font } from '../../text'
 import { styled } from '@linaria/react'
 
 export const ElDrawerHeader = styled.div`
+  position: sticky;
+  inset-block-start: 0;
+
   background: var(--fill-white);
 
   /* NOTE: We use a "private" CSS variable to couple the negative margin of the tabs container to this border width */
   --__drawer-header-border-width: var(--border-default);
 
-  border-bottom: var(--__drawer-header-border-width) solid var(--outline-default);
+  border-block-end: var(--__drawer-header-border-width) solid var(--outline-default);
 
   display: grid;
   grid-area: header;
   grid-template:
     'main' minmax(0, auto)
     'tabs' minmax(0, auto) / 100%;
+
+  /* NOTE: When the drawer has a footer, the header should not be sticky and it should therefore, have no border. */
+  &:has(~ ${ElDrawerFooter}) {
+    position: static;
+    border-block-end: none;
+  }
 `
 
 export const ElDrawerHeaderContentContainer = styled.div`
@@ -22,8 +32,10 @@ export const ElDrawerHeaderContentContainer = styled.div`
   grid-area: main;
   grid-template:
     'overline close' minmax(0, auto)
-    'title close' min-content
-    'supplementary-info supplementary-info' min-content / auto min-content;
+    /* NOTE: We need to use minmax for the title row because min-content and auto will consider the close button's
+     * size, which will result in a larger track height when the close button is present than when it is not. */
+    'title close' minmax(0, auto)
+    'supplementary-info supplementary-info' minmax(0, auto) / auto min-content;
   align-items: center;
 
   /* XS-SM container size */
@@ -71,7 +83,10 @@ export const ElDrawerHeaderTitle = styled.h2`
   color: var(--text-primary);
   grid-area: title;
 
-  ${font('lg', 'bold')}
+  ${font('xl', 'bold')}
+
+  margin: 0;
+  padding: 0;
 `
 
 export const ElDrawerHeaderSupplementaryInfo = styled.div`

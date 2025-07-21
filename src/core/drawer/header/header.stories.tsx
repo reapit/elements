@@ -1,5 +1,7 @@
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
 import { DrawerHeader } from './header'
+import { DrawerFooter } from '../footer'
+import { Pattern } from '../__story__/Pattern'
 import { PrimaryTabs } from '#src/core/primary-tabs/index'
 import { useDrawerContextDecorator } from '../__story__/useDrawerContextDecorator'
 
@@ -92,6 +94,61 @@ export const Tabs: Story = {
     ...Example.args,
     tabs: 'Tabs',
   },
+}
+
+/**
+ * By default, the drawer header will be sticky when the drawer content scrolls. This ensures the context displayed by
+ * the drawer's header is always visible when viewing the content.
+ */
+export const StickyPositioning: Story = {
+  args: {
+    ...Example.args,
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          boxSizing: 'border-box',
+          border: '1px solid #FA00FF',
+          containerType: 'inline-size',
+          maxHeight: '200px',
+          overflow: 'auto',
+        }}
+      >
+        <Story />
+        <Pattern />
+      </div>
+    ),
+  ],
+}
+
+/**
+ * However, when the drawer has a footer, the header will not be sticky and it will have no bottom border. This
+ * behaviour explicitly depends on the presence of the "official" drawer footer's class being a
+ * [subsequent sibling](https://developer.mozilla.org/en-US/docs/Web/CSS/Subsequent-sibling_combinator) to the header.
+ */
+export const StaticPositioning: Story = {
+  args: {
+    ...Example.args,
+    action: 'None',
+  },
+  decorators: [
+    (Story) => (
+      <div
+        style={{
+          boxSizing: 'border-box',
+          border: '1px solid #FA00FF',
+          containerType: 'inline-size',
+          maxHeight: '200px',
+          overflow: 'auto',
+        }}
+      >
+        <Story />
+        <Pattern />
+        <DrawerFooter>Footer</DrawerFooter>
+      </div>
+    ),
+  ],
 }
 
 /**
