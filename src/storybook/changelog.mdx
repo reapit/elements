@@ -24,6 +24,7 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 - **feat:** `Drawer.Header` is now sticky by default. When a Drawer.Footer is present, the header will be statically positioned. See [Drawer.Header](?path=/docs/core-drawer-header--docs) for details.
 - **chore!:** Design updates to the `Drawer` components.
 - **feat!:** Refactor `Dialog` to align with `Drawer` implementation and Design updates. Includes new sizes and updated subcomponents. See [Dialog](?path=/docs/core-dialog--docs) for details.
+- **fix:** `@reapit/elements/reset.css` entry point is now correctly defined.
 
 ### **5.0.0-beta.38 - 18/07/25**
 
@@ -171,23 +172,23 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 ### **5.0.0-beta.24 - 16/04/25**
 
 - Resolved export issue for the TopBar and older Nav components.
-- To support both v4 and the v5 Beta, the following components have been renamed but are not yet directly deprecated in v5.  
-   `Nav` -> `DeprecatedNav`  
-   `NavItem` -> `DeprecatedNavItem`  
-   `NavSubNav` -> `DeprecatedNavSubNav`  
-   `NavSubNavItem` -> `DeprecatedNavSubNavItem`  
-   `NavResponsive` -> `DeprecatedNavResponsive`  
+- To support both v4 and the v5 Beta, the following components have been renamed but are not yet directly deprecated in v5.
+   `Nav` -> `DeprecatedNav`
+   `NavItem` -> `DeprecatedNavItem`
+   `NavSubNav` -> `DeprecatedNavSubNav`
+   `NavSubNavItem` -> `DeprecatedNavSubNavItem`
+   `NavResponsive` -> `DeprecatedNavResponsive`
    `NavResponsiveAvatar` -> `DeprecatedNavResponsiveAvatar`
 
 ### **5.0.0-beta.23 - 15/04/25**
 
 - Resolved issue with exports path for Top bar/Side bar Navigation.
-- Below are the newly added components in v5.  
-   `Checkbox`  
-   `Checkbox Group`  
-   `Split Button`  
-   `Table Text`  
-   `Single Line Cell`  
+- Below are the newly added components in v5.
+   `Checkbox`
+   `Checkbox Group`
+   `Split Button`
+   `Table Text`
+   `Single Line Cell`
    `Double Line Cell`
 
 ### **5.0.0-beta.22 - 25/03/25**
@@ -200,7 +201,7 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 
 ### **5.0.0-beta.19 - 21/03/25**
 
-- Resolved the issue with the import script on elements styles.  
+- Resolved the issue with the import script on elements styles.
   i.e import the styles via `@reapit/elements/style.css` or `@reapit/elements/dist/index.css`
 - Resolved an issue where CSS properties were not declared correctly.
 - Chip component now can support max-width using prop `maxWidth`
@@ -209,36 +210,36 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 
 - Updated React dependency to 18+ for beta
 
-- Below are the newly added components in v5.  
-   `AvatarRectangle`  
-   `BottomBar`  
-   `BottomBarItem`  
-   `NavMenu`  
-   `NavSearchButton`  
-   `NavItem`  
-   `NavIconItem`  
-   `NavDropdownButton`  
-   `MobileNavItem`  
-   `Sidebar`  
-   `Skeleton`  
-   `TableContainer`  
-   `TableToolbar`  
-   `Topbar`  
-   `Feature`  
+- Below are the newly added components in v5.
+   `AvatarRectangle`
+   `BottomBar`
+   `BottomBarItem`
+   `NavMenu`
+   `NavSearchButton`
+   `NavItem`
+   `NavIconItem`
+   `NavDropdownButton`
+   `MobileNavItem`
+   `Sidebar`
+   `Skeleton`
+   `TableContainer`
+   `TableToolbar`
+   `Topbar`
+   `Feature`
    `EmptyData`
 
-- To support both v4 and the v5 Beta, the following components have been renamed but are not yet directly deprecated in v5.  
-   `Badge` -> `DeprecatedBadge`  
-   `BreadCrumb` -> `DeprecatedBreadCrumb`  
-   `Chip` -> `DeprecatedChip`  
-   `Label` -> `DeprecatedLabel`  
-   `Pagination` -> `DeprecatedPagination`  
-   `StatusIndicator` -> `DeprecatedStatusIndicator`  
-   `Table` -> `DeprecatedTable`  
-   `Tag` -> `DeprecatedTag`  
-   `Theming` -> `DeprecatedTheming`  
+- To support both v4 and the v5 Beta, the following components have been renamed but are not yet directly deprecated in v5.
+   `Badge` -> `DeprecatedBadge`
+   `BreadCrumb` -> `DeprecatedBreadCrumb`
+   `Chip` -> `DeprecatedChip`
+   `Label` -> `DeprecatedLabel`
+   `Pagination` -> `DeprecatedPagination`
+   `StatusIndicator` -> `DeprecatedStatusIndicator`
+   `Table` -> `DeprecatedTable`
+   `Tag` -> `DeprecatedTag`
+   `Theming` -> `DeprecatedTheming`
    `Tooltip` -> `DeprecatedTooltip`
-- Below is the detailed changelog for individual components that will be replaced in v5.  
+- Below is the detailed changelog for individual components that will be replaced in v5.
    **Avatar**
 
   - Breaking change - The old `Avatar` renamed to `DeprecatedAvatar` - `type` prop has been renamed to `shape`. - `src` prop no longer supported, use `children` or use `AvatarRectangle` if needed. - Detailed props and usage are available in Storybook under the `Avatar` component.
