@@ -2,6 +2,13 @@ import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_MD_2XL, DRAWER_WIDTH_XS_SM } fr
 import { isWidthAtOrAbove } from '#src/utils/breakpoints/conditions'
 import { styled } from '@linaria/react'
 
+const BACKDROP_DURATION = '100ms'
+const DIALOG_DURATION = '200ms'
+const TOTAL_DURATION = '200ms'
+
+const BACKDROP_OUT_DELAY = '0ms'
+const DIALOG_IN_DELAY = '0ms'
+
 export const ElDrawer = styled.dialog`
   position: fixed;
 
@@ -28,8 +35,10 @@ export const ElDrawer = styled.dialog`
   min-height: 100svh;
   overflow: auto;
 
-  /* Initially transform the drawer's position so it is off-screen */
-  transform: translateX(100%);
+  &:focus-visible {
+    outline: var(--border-width-double) solid var(--colour-border-focus);
+    outline-offset: var(--border-width-default);
+  }
 
   /* Fully transparent when the drawer is closed */
   &::backdrop {
@@ -47,8 +56,6 @@ export const ElDrawer = styled.dialog`
       'body' 1fr
       'footer' auto / 100%;
 
-    transform: translateX(0);
-
     &::backdrop {
       background-color: var(--overlay-50);
     }
@@ -58,6 +65,33 @@ export const ElDrawer = styled.dialog`
    * "no-preference," we're taking a reduced-motion-first approach to our styling. See
    * https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion. */
   @media (prefers-reduced-motion: no-preference) {
+    transform: translateX(100%);
+
+    /* See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#transitioning_dialog_elements
+     * for details on what the allow-discrete transition behaviour is all about */
+    transition:
+      all ${TOTAL_DURATION} allow-discrete,
+      opacity ${DIALOG_DURATION} ease-out,
+      transform ${DIALOG_DURATION} ease-out;
+
+    &::backdrop {
+      background-color: transparent;
+      transition: all ${BACKDROP_DURATION} ease-out allow-discrete ${BACKDROP_OUT_DELAY};
+    }
+
+    &:is(:open, [open]) {
+      transform: translateX(0);
+
+      transition:
+        all ${TOTAL_DURATION} allow-discrete,
+        opacity ${DIALOG_DURATION} ease-out ${DIALOG_IN_DELAY},
+        transform ${DIALOG_DURATION} ease-out ${DIALOG_IN_DELAY};
+
+      &::backdrop {
+        transition: all ${BACKDROP_DURATION} ease-out allow-discrete;
+      }
+    }
+
     /* Starting styles for the drawer and backdrop. These are applied at the start of the drawer's
      * "open" transition. See https://developer.mozilla.org/en-US/docs/Web/CSS/@starting-style. */
     @starting-style {
@@ -67,21 +101,6 @@ export const ElDrawer = styled.dialog`
           background-color: transparent;
         }
       }
-    }
-
-    /* See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#transitioning_dialog_elements
-     * for details on why we transition the display and overlay properties, and what the allow-discrete
-     * transition behaviour is all about */
-    transition:
-      transform 0.2s ease-out,
-      display 0.2s ease-out allow-discrete,
-      overlay 0.2s ease-in-out allow-discrete;
-
-    &::backdrop {
-      transition:
-        background-color 0.2s ease-out,
-        display 0.2s ease-out allow-discrete,
-        overlay 0.2s ease-in-out allow-discrete;
     }
   }
 `

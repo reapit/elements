@@ -1,7 +1,7 @@
 import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_MD_2XL } from '../constants'
 import { styled } from '@linaria/react'
 
-export const ElDrawerFooter = styled.div`
+export const ElDrawerFooter = styled.footer`
   grid-area: footer;
 
   position: sticky;
