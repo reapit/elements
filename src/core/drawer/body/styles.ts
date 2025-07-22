@@ -2,7 +2,7 @@ import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_MD_2XL } from '../constants'
 import { ElDrawerFooter } from '../footer'
 import { styled } from '@linaria/react'
 
-export const ElDrawerBody = styled.div`
+export const ElDrawerBody = styled.article`
   grid-area: body;
   background: var(--fill-white);
   height: 100%;

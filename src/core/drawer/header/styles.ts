@@ -5,7 +5,7 @@ import { styled } from '@linaria/react'
 
 export const DRAWER_HEADER_CSS_CONTAINER_NAME = 'drawer-header'
 
-export const ElDrawerHeader = styled.div`
+export const ElDrawerHeader = styled.header`
   position: sticky;
   inset-block-start: 0;
 
