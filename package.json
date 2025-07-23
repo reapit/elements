@@ -52,7 +52,7 @@
       "import": "./dist/js/utils/*/index.js",
       "require": "./dist/js/utils/*/index.cjs"
     },
-    "./reset.css": "./public/reset.css",
+    "./reset.css": "./assets/reset.css",
     "./styles.css": "./dist/js/style.css",
     "./dist/index.css": "./dist/js/style.css"
   },
