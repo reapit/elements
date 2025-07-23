@@ -1,6 +1,5 @@
 import { test, expect } from '@playwright/test'
-// Use require for JSON import to avoid import attributes syntax error
-import buildManifest from '../public/dist/index.json'
+import buildManifest from '../public/dist/index.json' assert { type: 'json' }
 import { navigate } from './utils'
 import { flakeyTestList } from './flakey-test-list'
 /** Credit to
