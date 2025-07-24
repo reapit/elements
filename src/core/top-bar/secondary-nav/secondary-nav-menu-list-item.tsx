@@ -1,5 +1,5 @@
 import { ElTopBarSecondaryNavListItem } from './styles'
-import { Menu } from '../../menu'
+import { Menu } from '#src/deprecated/menu'
 import { TopBarNavIconItemButton } from '../nav-icon-item/nav-icon-item-button'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'

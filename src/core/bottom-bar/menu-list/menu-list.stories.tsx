@@ -1,5 +1,5 @@
 import { BottomBarMenuList } from './menu-list'
-import { Menu } from '#src/core/menu/index'
+import { Menu } from '#src/deprecated/menu'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
 

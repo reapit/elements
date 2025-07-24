@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { TopBarNavDropdownButton } from '.'
-import { Menu } from '../../menu'
+import { Menu } from '#src/deprecated/menu'
 
 const meta: Meta<typeof TopBarNavDropdownButton> = {
   title: 'Core/TopBar/NavDropdownButton',

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { BottomBarMenuListItem } from '../menu-list-menu-item'
 import { StarIcon } from '#src/icons/star'
-import { Menu } from '#src/core/menu/menu'
+import { Menu } from '#src/deprecated/menu'
 
 test('renders as a list item containing a button', () => {
   render(

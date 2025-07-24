@@ -1,7 +1,7 @@
 import { AppSwitcher } from '../app-switcher'
 import { elTopBarMenuPopover } from './styles'
 import { HelpIcon } from '#src/icons/help'
-import { Menu } from '../menu'
+import { Menu } from '#src/deprecated/menu'
 import { MenuAltIcon } from '#src/icons/menu-alt'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'

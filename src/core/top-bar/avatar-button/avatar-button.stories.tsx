@@ -1,4 +1,4 @@
-import { Menu } from '../../menu'
+import { Menu } from '#src/deprecated/menu'
 import { TopBarAvatarButton } from './avatar-button'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'

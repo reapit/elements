@@ -1,6 +1,6 @@
 import { BottomBarItemButton } from '../item'
 import { ElBottomBarMenuListItem, ElBottomBarMenu } from './styles'
-import { Menu } from '../../menu'
+import { Menu } from '#src/deprecated/menu'
 import { MoreIcon } from '#src/icons/more'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'

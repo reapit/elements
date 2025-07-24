@@ -1,5 +1,5 @@
 import { type FC, type HTMLAttributes, useLayoutEffect, useRef, useState } from 'react'
-import { useClickOutside } from '../../deprecated/use-click-outside'
+import { useClickOutside } from '../use-click-outside'
 import { useMenuContext } from './menu-context'
 import { ElMenuPopover } from './styles'
 

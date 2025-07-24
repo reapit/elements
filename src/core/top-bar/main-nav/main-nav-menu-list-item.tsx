@@ -1,5 +1,5 @@
 import { ElTopBarMainNavListItem } from './styles'
-import { Menu } from '../../menu'
+import { Menu } from '#src/deprecated/menu'
 import { TopBarNavDropdownButton } from '../nav-dropdown-button'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'

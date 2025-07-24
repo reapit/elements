@@ -1,4 +1,4 @@
-import { Menu } from '../menu'
+import { Menu } from '#src/deprecated/menu'
 import { SplitButton } from './split-button'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'

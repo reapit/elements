@@ -7,7 +7,7 @@ import { AppSwitcherYourAppsMenuGroup } from './your-apps-menu-group'
 import { ElAppSwitcherSectionDivider } from './styles'
 import { getDisplayableProductsForYourAppsGroup } from './get-displayable-products-for-your-apps-group'
 import { getDisplayableProductsForExploreGroup } from './get-displayable-products-for-explore-group'
-import { Menu } from '../menu'
+import { Menu } from '#src/deprecated/menu'
 
 import type { ReactNode } from 'react'
 

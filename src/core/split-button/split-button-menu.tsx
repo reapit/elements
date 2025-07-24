@@ -1,4 +1,4 @@
-import { Menu } from '#src/core/menu/index'
+import { Menu } from '#src/deprecated/menu'
 import { SplitButtonMenuButton } from './menu-button'
 
 import type { ComponentProps, ReactNode } from 'react'

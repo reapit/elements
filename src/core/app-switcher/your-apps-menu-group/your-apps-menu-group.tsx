@@ -1,5 +1,5 @@
 import { AppSwitcherMenuGroupHasAccessContext } from '../menu-group-has-access-context'
-import { Menu } from '../../menu'
+import { Menu } from '#src/deprecated/menu'
 
 import type { ReactNode } from 'react'
 

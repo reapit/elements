@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { Menu } from '#src/core/menu/index'
+import { Menu } from '#src/deprecated/menu'
 import { StarIcon } from '#src/icons/star'
 import { TopBarSecondaryNavMenuListItem } from '../secondary-nav-menu-list-item'
 

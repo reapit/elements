@@ -3,7 +3,7 @@ import { ContactIcon } from '#src/icons/contact'
 import { HelpIcon } from '#src/icons/help'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
-import { Menu } from '../../menu'
+import { Menu } from '#src/deprecated/menu'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 

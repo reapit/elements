@@ -1,5 +1,5 @@
 import { TopBarMainNav } from './main-nav'
-import { Menu } from '../../menu'
+import { Menu } from '#src/deprecated/menu'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 

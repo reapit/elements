@@ -1,6 +1,6 @@
 import { StarIcon } from '#src/icons/star'
 import { HelpIcon } from '#src/icons/help'
-import { Menu } from '../../menu'
+import { Menu } from '#src/deprecated/menu'
 import { TopBarSecondaryNav } from './secondary-nav'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'

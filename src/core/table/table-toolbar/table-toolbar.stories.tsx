@@ -3,12 +3,12 @@ import { Meta } from '@storybook/react-vite'
 import { TableToolbar } from './table-toolbar.js'
 import { DeprecatedButton } from '#src/deprecated/button/button'
 import { DeprecatedIcon } from '#src/deprecated/icon/icon-component'
-import { Menu } from '#src/core/menu/menu'
-import { MenuPopover, MenuTrigger } from '#src/core/menu/menu-popover'
-import { MenuItemGroup, MenuList } from '#src/core/menu/menu.atoms'
+import { Menu } from '#src/deprecated/menu/menuu/menu'
+import { MenuPopover, MenuTrigger } from '#src/deprecated/menu/menu-popover'
+import { MenuItemGroup, MenuList } from '#src/deprecated/menu/menu.atoms'
 import { ButtonGroup } from '#src/core/button-group/button-group'
 import { Skeleton } from '#src/core/skeleton/skeleton'
-import { MenuItem } from '../../menu/menu.molecules.js'
+import { MenuItem } from '#src/deprecated/menu/menu.molecules'
 
 const meta: Meta<typeof TableToolbar> = {
   title: 'Core/TableToolbar',

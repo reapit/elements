@@ -1,5 +1,5 @@
 import { BottomBar } from './bottom-bar'
-import { Menu } from '../menu'
+import { Menu } from '#src/deprecated/menu'
 import { Pattern } from '../drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
 import { useRef } from 'react'
