@@ -8,7 +8,7 @@ import { elHScreen } from '../../styles/deprecated-sizing'
 import { Badge } from '../../core/badge'
 
 const meta: Meta<typeof Menu> = {
-  title: 'Core/Menu',
+  title: 'Deprecated/Menu',
 }
 
 export default meta
