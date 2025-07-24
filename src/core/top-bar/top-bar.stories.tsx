@@ -1,7 +1,7 @@
 import { AppSwitcher } from '../app-switcher'
 import { elTopBarMenuPopover } from './styles'
 import { HelpIcon } from '#src/icons/help'
-import { Menu } from '#src/deprecated/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { MenuAltIcon } from '#src/icons/menu-alt'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
@@ -52,22 +52,22 @@ const meta = {
       mapping: {
         None: null,
         'Avatar Menu': (
-          <Menu data-alignment="right">
-            <Menu.Trigger>
+          <DeprecatedMenu data-alignment="right">
+            <DeprecatedMenu.Trigger>
               {({ getTriggerProps, isOpen }) => (
                 <TopBar.AvatarButton {...getTriggerProps()} isOpen={isOpen}>
                   AD
                 </TopBar.AvatarButton>
               )}
-            </Menu.Trigger>
-            <Menu.Popover className={elTopBarMenuPopover}>
-              <Menu.List>
-                <Menu.Item label="User menu 1" />
-                <Menu.Item label="User menu 2" />
-                <Menu.Item label="User menu 3" />
-              </Menu.List>
-            </Menu.Popover>
-          </Menu>
+            </DeprecatedMenu.Trigger>
+            <DeprecatedMenu.Popover className={elTopBarMenuPopover}>
+              <DeprecatedMenu.List>
+                <DeprecatedMenu.Item label="User menu 1" />
+                <DeprecatedMenu.Item label="User menu 2" />
+                <DeprecatedMenu.Item label="User menu 3" />
+              </DeprecatedMenu.List>
+            </DeprecatedMenu.Popover>
+          </DeprecatedMenu>
         ),
       },
     },
@@ -148,9 +148,9 @@ const meta = {
         Some: (
           <TopBar.SecondaryNav>
             <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<HelpIcon />}>
-              <Menu.Item label="Menu item 1" />
-              <Menu.Item label="Menu item 2" />
-              <Menu.Item label="Menu item 3" />
+              <DeprecatedMenu.Item label="Menu item 1" />
+              <DeprecatedMenu.Item label="Menu item 2" />
+              <DeprecatedMenu.Item label="Menu item 3" />
             </TopBar.NavIconMenuItem>
             <TopBar.NavIconItem
               aria-current={false}

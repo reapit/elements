@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { Menu } from '#src/deprecated/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { SplitButtonContext } from '../context'
 import { SplitButtonMenu } from '../split-button-menu'
 
@@ -8,9 +8,9 @@ import type { ReactNode } from 'react'
 test('renders as a button', () => {
   render(
     <SplitButtonMenu aria-label="More">
-      <Menu.Item label="Item 1" />
-      <Menu.Item label="Item 2" />
-      <Menu.Item label="Item 3" />
+      <DeprecatedMenu.Item label="Item 1" />
+      <DeprecatedMenu.Item label="Item 2" />
+      <DeprecatedMenu.Item label="Item 3" />
     </SplitButtonMenu>,
     { wrapper },
   )
@@ -33,9 +33,9 @@ test('forwards props to the underlying button', () => {
 test('opens the menu when clicked', () => {
   render(
     <SplitButtonMenu aria-label="More">
-      <Menu.Item label="Item 1" />
-      <Menu.Item label="Item 2" />
-      <Menu.Item label="Item 3" />
+      <DeprecatedMenu.Item label="Item 1" />
+      <DeprecatedMenu.Item label="Item 2" />
+      <DeprecatedMenu.Item label="Item 3" />
     </SplitButtonMenu>,
     { wrapper },
   )

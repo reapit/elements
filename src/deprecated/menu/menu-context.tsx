@@ -1,22 +1,24 @@
 import { createContext, ReactNode, useContext, type FC } from 'react'
-import { useMenu } from './use-menu'
+import { useDeprecatedMenu } from './use-menu'
 
-interface MenuProviderProps {
+/** @deprecated */
+interface DeprecatedMenuProviderProps {
   children: ReactNode
 }
 
-const MenuContext = createContext<useMenu | null>(null)
+/** @deprecated */
+export const DeprecatedMenuContext = createContext<useDeprecatedMenu | null>(null)
 
-const MenuProvider: FC<MenuProviderProps> = ({ children }) => {
-  const menu = useMenu()
+/** @deprecated */
+export const DeprecatedMenuProvider: FC<DeprecatedMenuProviderProps> = ({ children }) => {
+  const menu = useDeprecatedMenu()
 
-  return <MenuContext.Provider value={menu}>{children}</MenuContext.Provider>
+  return <DeprecatedMenuContext.Provider value={menu}>{children}</DeprecatedMenuContext.Provider>
 }
 
-export { MenuContext, MenuProvider }
-
-export const useMenuContext = () => {
-  const context = useContext(MenuContext)
+/** @deprecated */
+export const useDeprecatedMenuContext = () => {
+  const context = useContext(DeprecatedMenuContext)
   if (!context) {
     throw new Error('useMenuContext must be used within a MenuProvider')
   }

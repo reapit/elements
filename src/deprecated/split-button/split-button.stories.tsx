@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/react-vite'
 import { DeprecatedSplitButton } from './split-button'
-import { Menu } from '#src/core/menu/index'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 
 const meta: Meta<typeof DeprecatedSplitButton> = {
   title: 'Deprecated/DeprecatedSplitButton',
@@ -43,15 +43,17 @@ export const SplitButtonWithMenu = {
   render: (props: any) => (
     <DeprecatedSplitButton>
       <DeprecatedSplitButton.Action onClick={console.log}>{props.children}</DeprecatedSplitButton.Action>
-      <Menu data-alignment="right">
-        <Menu.Trigger>{({ getTriggerProps }) => <DeprecatedSplitButton.Menu {...getTriggerProps()} />}</Menu.Trigger>
-        <Menu.Popover>
-          <Menu.List>
-            <Menu.Item onClick={console.log} label="Save & Download" />
-            <Menu.Item disabled label="Save & Send" />
-          </Menu.List>
-        </Menu.Popover>
-      </Menu>
+      <DeprecatedMenu data-alignment="right">
+        <DeprecatedMenu.Trigger>
+          {({ getTriggerProps }) => <DeprecatedSplitButton.Menu {...getTriggerProps()} />}
+        </DeprecatedMenu.Trigger>
+        <DeprecatedMenu.Popover>
+          <DeprecatedMenu.List>
+            <DeprecatedMenu.Item onClick={console.log} label="Save & Download" />
+            <DeprecatedMenu.Item disabled label="Save & Send" />
+          </DeprecatedMenu.List>
+        </DeprecatedMenu.Popover>
+      </DeprecatedMenu>
     </DeprecatedSplitButton>
   ),
 }
@@ -116,15 +118,17 @@ export const SplitButtonDisabledWithMenu = {
       <DeprecatedSplitButton.Action isDisabled onClick={console.log}>
         {props.children}
       </DeprecatedSplitButton.Action>
-      <Menu data-alignment="right">
-        <Menu.Trigger>{({ getTriggerProps }) => <DeprecatedSplitButton.Menu {...getTriggerProps()} />}</Menu.Trigger>
-        <Menu.Popover>
-          <Menu.List>
-            <Menu.Item disabled onClick={console.log} label="Save & Download" />
-            <Menu.Item disabled label="Save & Send" />
-          </Menu.List>
-        </Menu.Popover>
-      </Menu>
+      <DeprecatedMenu data-alignment="right">
+        <DeprecatedMenu.Trigger>
+          {({ getTriggerProps }) => <DeprecatedSplitButton.Menu {...getTriggerProps()} />}
+        </DeprecatedMenu.Trigger>
+        <DeprecatedMenu.Popover>
+          <DeprecatedMenu.List>
+            <DeprecatedMenu.Item disabled onClick={console.log} label="Save & Download" />
+            <DeprecatedMenu.Item disabled label="Save & Send" />
+          </DeprecatedMenu.List>
+        </DeprecatedMenu.Popover>
+      </DeprecatedMenu>
     </DeprecatedSplitButton>
   ),
 }

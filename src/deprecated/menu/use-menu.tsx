@@ -3,7 +3,8 @@ import { HTMLAttributes, useState } from 'react'
 type HtmlButtonAttr = HTMLAttributes<HTMLButtonElement>
 type HtmlDivAttr = HTMLAttributes<HTMLDivElement>
 
-export interface useMenu {
+/** @deprecated */
+export interface useDeprecatedMenu {
   getTriggerProps: (props?: Partial<HtmlButtonAttr>) => HtmlButtonAttr
   getPopoverProps: (props?: Partial<HtmlDivAttr>) => HtmlDivAttr
   isOpen: boolean
@@ -11,10 +12,11 @@ export interface useMenu {
   closeMenu: VoidFunction
 }
 
-export const useMenu = (): useMenu => {
+/** @deprecated */
+export const useDeprecatedMenu = (): useDeprecatedMenu => {
   const [isOpen, setIsOpen] = useState(false)
 
-  const getTriggerProps: useMenu['getTriggerProps'] = (props) => {
+  const getTriggerProps: useDeprecatedMenu['getTriggerProps'] = (props) => {
     return {
       ...props,
       'aria-haspopup': true,
@@ -40,7 +42,7 @@ export const useMenu = (): useMenu => {
     }
   }
 
-  const getPopoverProps: useMenu['getPopoverProps'] = (props) => {
+  const getPopoverProps: useDeprecatedMenu['getPopoverProps'] = (props) => {
     return {
       ...props,
       'data-open': isOpen,

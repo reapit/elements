@@ -1,4 +1,4 @@
-import { Menu } from '#src/core/menu/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { styled } from '@linaria/react'
 
 export const ElBottomBarMenuList = styled.menu`
@@ -19,6 +19,6 @@ export const ElBottomBarMenuListItem = styled.li`
   flex-grow: 1;
 `
 
-export const ElBottomBarMenu = styled(Menu)`
+export const ElBottomBarMenu = styled(DeprecatedMenu)`
   width: 100%;
 `

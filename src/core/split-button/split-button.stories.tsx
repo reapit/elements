@@ -1,4 +1,4 @@
-import { Menu } from '#src/deprecated/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { SplitButton } from './split-button'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -22,10 +22,10 @@ const meta = {
       mapping: {
         Default: (
           <SplitButton.Menu aria-label="More actions">
-            <Menu.Group>
-              <Menu.Item label="Action 1" />
-              <Menu.Item label="Action 2" />
-            </Menu.Group>
+            <DeprecatedMenu.Group>
+              <DeprecatedMenu.Item label="Action 1" />
+              <DeprecatedMenu.Item label="Action 2" />
+            </DeprecatedMenu.Group>
           </SplitButton.Menu>
         ),
         Disabled: (

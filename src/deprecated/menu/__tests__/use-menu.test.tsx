@@ -1,9 +1,9 @@
 import { act, renderHook } from '@testing-library/react'
-import { useMenu } from '../use-menu'
+import { useDeprecatedMenu } from '../use-menu'
 
 describe('useMenu', () => {
   it('should open menu when openMenu is called', () => {
-    const { result } = renderHook(() => useMenu())
+    const { result } = renderHook(() => useDeprecatedMenu())
 
     act(() => {
       result.current.openMenu()
@@ -12,7 +12,7 @@ describe('useMenu', () => {
   })
 
   it('should close menu when closeMenu is called', () => {
-    const { result } = renderHook(() => useMenu())
+    const { result } = renderHook(() => useDeprecatedMenu())
 
     act(() => {
       result.current.closeMenu()
@@ -22,7 +22,7 @@ describe('useMenu', () => {
 
   describe('getTriggerProps', () => {
     it('should toggle isOpen state when trigger is clicked', () => {
-      const { result } = renderHook(() => useMenu())
+      const { result } = renderHook(() => useDeprecatedMenu())
       act(() => {
         const triggerProps = result.current.getTriggerProps()
         triggerProps.onClick?.({} as any)
@@ -39,7 +39,7 @@ describe('useMenu', () => {
     })
 
     it('should toggle isOpen state when trigger is clicked', () => {
-      const { result } = renderHook(() => useMenu())
+      const { result } = renderHook(() => useDeprecatedMenu())
 
       act(() => {
         const triggerProps = result.current.getTriggerProps()
@@ -57,7 +57,7 @@ describe('useMenu', () => {
     })
 
     it('should apply aria and class attributes correctly', () => {
-      const { result } = renderHook(() => useMenu())
+      const { result } = renderHook(() => useDeprecatedMenu())
       const triggerProps = result.current.getTriggerProps({
         className: 'custom-class',
       })
@@ -69,7 +69,7 @@ describe('useMenu', () => {
 
     it('should focus the first menu item on ArrowDown key press', () => {
       const mockCustomOnKeyDown = vi.fn()
-      const { result } = renderHook(() => useMenu())
+      const { result } = renderHook(() => useDeprecatedMenu())
       const triggerProps = result.current.getTriggerProps({
         onKeyDown: mockCustomOnKeyDown,
       })
@@ -96,7 +96,7 @@ describe('useMenu', () => {
 
   describe('getPopoverProps', () => {
     it('should apply data-open attribute correctly', () => {
-      const { result } = renderHook(() => useMenu())
+      const { result } = renderHook(() => useDeprecatedMenu())
 
       const popoverProps = result.current.getPopoverProps()
       const triggerProps = result.current.getTriggerProps()
@@ -148,7 +148,7 @@ describe('useMenu', () => {
       })
 
       it('should focus next item on ArrowDown key press', () => {
-        const { result } = renderHook(() => useMenu())
+        const { result } = renderHook(() => useDeprecatedMenu())
 
         result.current.getPopoverProps().onKeyDown!({
           ...mockEvent,
@@ -166,7 +166,7 @@ describe('useMenu', () => {
       })
 
       it('should focus previous item on ArrowUp key press', () => {
-        const { result } = renderHook(() => useMenu())
+        const { result } = renderHook(() => useDeprecatedMenu())
 
         result.current.getPopoverProps().onKeyDown!({
           ...mockEvent,
@@ -186,7 +186,7 @@ describe('useMenu', () => {
       })
 
       it('should focus button and close menu on Escape key press', () => {
-        const { result } = renderHook(() => useMenu())
+        const { result } = renderHook(() => useDeprecatedMenu())
         act(() => {
           result.current.openMenu()
         })
@@ -204,7 +204,7 @@ describe('useMenu', () => {
       })
 
       it('should activate menu item on Enter or Space key press', () => {
-        const { result } = renderHook(() => useMenu())
+        const { result } = renderHook(() => useDeprecatedMenu())
 
         result.current.getPopoverProps().onKeyDown!({
           ...mockEvent,
@@ -222,7 +222,7 @@ describe('useMenu', () => {
 
     describe('onBlur', () => {
       it('should close menu if focus moves outside', () => {
-        const { result } = renderHook(() => useMenu())
+        const { result } = renderHook(() => useDeprecatedMenu())
         act(() => {
           result.current.openMenu()
         })
@@ -240,7 +240,7 @@ describe('useMenu', () => {
       })
 
       it('should not close the menu on blur if focus is moving to the trigger button.', () => {
-        const { result } = renderHook(() => useMenu())
+        const { result } = renderHook(() => useDeprecatedMenu())
         act(() => {
           result.current.openMenu()
         })

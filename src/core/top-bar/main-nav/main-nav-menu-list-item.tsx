@@ -1,5 +1,5 @@
 import { ElTopBarMainNavListItem } from './styles'
-import { Menu } from '#src/deprecated/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { TopBarNavDropdownButton } from '../nav-dropdown-button'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
@@ -18,16 +18,16 @@ interface TopBarMainNavMenuListItemProps extends ButtonHTMLAttributes<HTMLButton
 export function TopBarMainNavMenuListItem({ children, label, ...rest }: TopBarMainNavMenuListItemProps) {
   return (
     <ElTopBarMainNavListItem>
-      <Menu>
-        <Menu.Trigger>
+      <DeprecatedMenu>
+        <DeprecatedMenu.Trigger>
           {({ getTriggerProps }) => (
             <TopBarNavDropdownButton {...getTriggerProps(rest)}>{label}</TopBarNavDropdownButton>
           )}
-        </Menu.Trigger>
-        <Menu.Popover>
-          <Menu.List>{children}</Menu.List>
-        </Menu.Popover>
-      </Menu>
+        </DeprecatedMenu.Trigger>
+        <DeprecatedMenu.Popover>
+          <DeprecatedMenu.List>{children}</DeprecatedMenu.List>
+        </DeprecatedMenu.Popover>
+      </DeprecatedMenu>
     </ElTopBarMainNavListItem>
   )
 }

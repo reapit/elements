@@ -7,7 +7,7 @@ import { AppSwitcherYourAppsMenuGroup } from './your-apps-menu-group'
 import { ElAppSwitcherSectionDivider } from './styles'
 import { getDisplayableProductsForYourAppsGroup } from './get-displayable-products-for-your-apps-group'
 import { getDisplayableProductsForExploreGroup } from './get-displayable-products-for-explore-group'
-import { Menu } from '#src/deprecated/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 
 import type { ReactNode } from 'react'
 
@@ -25,12 +25,14 @@ interface AppSwitcherProps {
  */
 export function AppSwitcher({ children }: AppSwitcherProps) {
   return (
-    <Menu>
-      <Menu.Trigger>{({ getTriggerProps }) => <AppSwitcherNavIconButton {...getTriggerProps()} />}</Menu.Trigger>
-      <Menu.Popover>
-        <Menu.List>{children}</Menu.List>
-      </Menu.Popover>
-    </Menu>
+    <DeprecatedMenu>
+      <DeprecatedMenu.Trigger>
+        {({ getTriggerProps }) => <AppSwitcherNavIconButton {...getTriggerProps()} />}
+      </DeprecatedMenu.Trigger>
+      <DeprecatedMenu.Popover>
+        <DeprecatedMenu.List>{children}</DeprecatedMenu.List>
+      </DeprecatedMenu.Popover>
+    </DeprecatedMenu>
   )
 }
 

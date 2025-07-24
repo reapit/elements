@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect, type ComponentProps } from 'react'
-import { Menu, useMenuContext } from '.'
+import { DeprecatedMenu, useDeprecatedMenuContext } from '.'
 import { DeprecatedButton } from '../button'
 import { DeprecatedIcon } from '../icon'
 import { FlexContainer, MainContainer } from '../layout'
@@ -17,23 +17,23 @@ type Story = StoryObj<typeof Menu>
 export const Default: StoryObj = {
   render: () => {
     return (
-      <Menu>
-        <Menu.Trigger>
+      <DeprecatedMenu>
+        <DeprecatedMenu.Trigger>
           {({ getTriggerProps }) => (
             <DeprecatedButton {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
           )}
-        </Menu.Trigger>
-        <Menu.Popover>
-          <Menu.List>
-            <Menu.Group label="Group Title">
-              <Menu.Item label="Menu Item" onClick={console.log} />
-              <Menu.Item label="Menu Item as anchor" href="/#" />
-              <Menu.Item label="Menu Item (keep open)" closeMenu={false} isActive />
-              <Menu.Item label="Menu Item (disabled)" onClick={console.log} disabled />
-            </Menu.Group>
-          </Menu.List>
-        </Menu.Popover>
-      </Menu>
+        </DeprecatedMenu.Trigger>
+        <DeprecatedMenu.Popover>
+          <DeprecatedMenu.List>
+            <DeprecatedMenu.Group label="Group Title">
+              <DeprecatedMenu.Item label="Menu Item" onClick={console.log} />
+              <DeprecatedMenu.Item label="Menu Item as anchor" href="/#" />
+              <DeprecatedMenu.Item label="Menu Item (keep open)" closeMenu={false} isActive />
+              <DeprecatedMenu.Item label="Menu Item (disabled)" onClick={console.log} disabled />
+            </DeprecatedMenu.Group>
+          </DeprecatedMenu.List>
+        </DeprecatedMenu.Popover>
+      </DeprecatedMenu>
     )
   },
 }
@@ -41,16 +41,16 @@ export const Default: StoryObj = {
 export const WithCompleteFeatures: StoryObj = {
   render: () => {
     return (
-      <Menu>
-        <Menu.Trigger>
+      <DeprecatedMenu>
+        <DeprecatedMenu.Trigger>
           {({ getTriggerProps }) => (
             <DeprecatedButton {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
           )}
-        </Menu.Trigger>
-        <Menu.Popover>
-          <Menu.List maxWidth="--size-80" maxHeight="--size-80">
-            <Menu.Group label="Long Group Title that doesn't fit in one line">
-              <Menu.Item
+        </DeprecatedMenu.Trigger>
+        <DeprecatedMenu.Popover>
+          <DeprecatedMenu.List maxWidth="--size-80" maxHeight="--size-80">
+            <DeprecatedMenu.Group label="Long Group Title that doesn't fit in one line">
+              <DeprecatedMenu.Item
                 label="Menu Item"
                 supplementaryInfo="Short description about the item"
                 badge={<Badge colour="neutral">Badge</Badge>}
@@ -58,7 +58,7 @@ export const WithCompleteFeatures: StoryObj = {
                 leftIcon={<DeprecatedIcon icon="property" />}
                 rightIcon={<DeprecatedIcon icon="exportIcon" />}
               />
-              <Menu.Item
+              <DeprecatedMenu.Item
                 label="Menu Item anchor with long example text"
                 supplementaryInfo="Secondary info long description that won’t fit in one line"
                 badge={<Badge colour="neutral">Badge</Badge>}
@@ -66,7 +66,7 @@ export const WithCompleteFeatures: StoryObj = {
                 leftIcon={<DeprecatedIcon icon="property" />}
                 rightIcon={<DeprecatedIcon icon="exportIcon" />}
               />
-              <Menu.Item
+              <DeprecatedMenu.Item
                 label="Menu Item active"
                 supplementaryInfo="Short description about the item"
                 badge={<Badge colour="neutral">Badge</Badge>}
@@ -75,7 +75,7 @@ export const WithCompleteFeatures: StoryObj = {
                 leftIcon={<DeprecatedIcon icon="property" />}
                 rightIcon={<DeprecatedIcon icon="exportIcon" />}
               />
-              <Menu.Item
+              <DeprecatedMenu.Item
                 label="Menu Item (disabled)"
                 supplementaryInfo="Short description about the item"
                 badge={<Badge colour="neutral">Badge with long text</Badge>}
@@ -84,19 +84,19 @@ export const WithCompleteFeatures: StoryObj = {
                 leftIcon={<DeprecatedIcon icon="property" />}
                 rightIcon={<DeprecatedIcon icon="exportIcon" />}
               />
-            </Menu.Group>
-            <Menu.Group maxHeight="--size-32" label="Group Title">
-              <Menu.Item label="Menu Item 1" onClick={console.log} />
-              <Menu.Item label="Menu Item 2" href="/#" />
-              <Menu.Item label="Menu Item 3" href="/#" />
-              <Menu.Item label="Menu Item 4" href="/#" />
-              <Menu.Item label="Menu Item 5" href="/#" />
-              <Menu.Item label="Menu Item 6" href="/#" />
-              <Menu.Item label="Menu Item 7" href="/#" />
-            </Menu.Group>
-          </Menu.List>
-        </Menu.Popover>
-      </Menu>
+            </DeprecatedMenu.Group>
+            <DeprecatedMenu.Group maxHeight="--size-32" label="Group Title">
+              <DeprecatedMenu.Item label="Menu Item 1" onClick={console.log} />
+              <DeprecatedMenu.Item label="Menu Item 2" href="/#" />
+              <DeprecatedMenu.Item label="Menu Item 3" href="/#" />
+              <DeprecatedMenu.Item label="Menu Item 4" href="/#" />
+              <DeprecatedMenu.Item label="Menu Item 5" href="/#" />
+              <DeprecatedMenu.Item label="Menu Item 6" href="/#" />
+              <DeprecatedMenu.Item label="Menu Item 7" href="/#" />
+            </DeprecatedMenu.Group>
+          </DeprecatedMenu.List>
+        </DeprecatedMenu.Popover>
+      </DeprecatedMenu>
     )
   },
 }
@@ -105,22 +105,22 @@ export const WithCustomAlignment: Story = {
   render: () => {
     return (
       <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
-        <Menu data-alignment="right">
-          <Menu.Trigger>
+        <DeprecatedMenu data-alignment="right">
+          <DeprecatedMenu.Trigger>
             {({ getTriggerProps }) => (
               <DeprecatedButton {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
             )}
-          </Menu.Trigger>
-          <Menu.Popover yOffset={10}>
-            <Menu.List>
-              <Menu.Group label="Group Title">
-                <Menu.Item label="Menu Item" onClick={console.log} />
-                <Menu.Item label="Menu Item as anchor" href="/#" />
-                <Menu.Item label="Menu Item (keep open)" closeMenu={false} />
-              </Menu.Group>
-            </Menu.List>
-          </Menu.Popover>
-        </Menu>
+          </DeprecatedMenu.Trigger>
+          <DeprecatedMenu.Popover yOffset={10}>
+            <DeprecatedMenu.List>
+              <DeprecatedMenu.Group label="Group Title">
+                <DeprecatedMenu.Item label="Menu Item" onClick={console.log} />
+                <DeprecatedMenu.Item label="Menu Item as anchor" href="/#" />
+                <DeprecatedMenu.Item label="Menu Item (keep open)" closeMenu={false} />
+              </DeprecatedMenu.Group>
+            </DeprecatedMenu.List>
+          </DeprecatedMenu.Popover>
+        </DeprecatedMenu>
       </FlexContainer>
     )
   },
@@ -132,10 +132,10 @@ export const MoreComplexUsageExample: Story = {
       title,
       yOffset,
       ...props
-    }: ComponentProps<typeof Menu> & { title?: string; yOffset?: number }) => {
+    }: ComponentProps<typeof DeprecatedMenu> & { title?: string; yOffset?: number }) => {
       return (
-        <Menu {...props}>
-          <Menu.Trigger>
+        <DeprecatedMenu {...props}>
+          <DeprecatedMenu.Trigger>
             {({ getTriggerProps }) => (
               <DeprecatedButton
                 {...getTriggerProps()}
@@ -145,17 +145,17 @@ export const MoreComplexUsageExample: Story = {
                 More
               </DeprecatedButton>
             )}
-          </Menu.Trigger>
-          <Menu.Popover yOffset={yOffset}>
-            <Menu.List>
-              <Menu.Group label={title ?? 'Group Title'}>
-                <Menu.Item label="Menu Item" onClick={console.log} />
-                <Menu.Item label="Menu Item as anchor" href="/#" />
-                <Menu.Item label="Menu Item (keep open)" closeMenu={false} />
-              </Menu.Group>
-            </Menu.List>
-          </Menu.Popover>
-        </Menu>
+          </DeprecatedMenu.Trigger>
+          <DeprecatedMenu.Popover yOffset={yOffset}>
+            <DeprecatedMenu.List>
+              <DeprecatedMenu.Group label={title ?? 'Group Title'}>
+                <DeprecatedMenu.Item label="Menu Item" onClick={console.log} />
+                <DeprecatedMenu.Item label="Menu Item as anchor" href="/#" />
+                <DeprecatedMenu.Item label="Menu Item (keep open)" closeMenu={false} />
+              </DeprecatedMenu.Group>
+            </DeprecatedMenu.List>
+          </DeprecatedMenu.Popover>
+        </DeprecatedMenu>
       )
     }
     return (
@@ -204,7 +204,7 @@ export const WithIframe: Story = {
 
     // NOTE: make sure this component is rendered inside the Menu context
     const IframeHandler = () => {
-      const { closeMenu } = useMenuContext()
+      const { closeMenu } = useDeprecatedMenuContext()
 
       // close the menu when iframe is focused
       useEffect(() => {
@@ -227,21 +227,21 @@ export const WithIframe: Story = {
 
     return (
       <MainContainer className={elHScreen}>
-        <Menu>
-          <Menu.Trigger>
+        <DeprecatedMenu>
+          <DeprecatedMenu.Trigger>
             {({ getTriggerProps }) => (
               <DeprecatedButton {...getTriggerProps()} iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
             )}
-          </Menu.Trigger>
-          <Menu.Popover>
+          </DeprecatedMenu.Trigger>
+          <DeprecatedMenu.Popover>
             <IframeHandler />
-            <Menu.List>
-              <Menu.Group label="Group Title">
-                <Menu.Item label="Menu Item" onClick={console.log} />
-              </Menu.Group>
-            </Menu.List>
-          </Menu.Popover>
-        </Menu>
+            <DeprecatedMenu.List>
+              <DeprecatedMenu.Group label="Group Title">
+                <DeprecatedMenu.Item label="Menu Item" onClick={console.log} />
+              </DeprecatedMenu.Group>
+            </DeprecatedMenu.List>
+          </DeprecatedMenu.Popover>
+        </DeprecatedMenu>
         <IFrameComponent />
       </MainContainer>
     )

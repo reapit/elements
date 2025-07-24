@@ -1,5 +1,5 @@
 import { BottomBar } from './bottom-bar'
-import { Menu } from '#src/deprecated/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { Pattern } from '../drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
 import { useRef } from 'react'
@@ -83,9 +83,9 @@ function buildMenu(type: 'No selected item' | 'Selected item' | 'With overflow m
       </BottomBar.Item>
       {type === 'With overflow menu' ? (
         <BottomBar.MenuItem>
-          <Menu.Item label="Menu item 5" />
-          <Menu.Item label="Menu item 6" />
-          <Menu.Item label="Menu item 6" />
+          <DeprecatedMenu.Item label="Menu item 5" />
+          <DeprecatedMenu.Item label="Menu item 6" />
+          <DeprecatedMenu.Item label="Menu item 6" />
         </BottomBar.MenuItem>
       ) : (
         <BottomBar.Item aria-current={false} icon={<StarIcon />} href={href}>

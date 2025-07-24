@@ -1,4 +1,4 @@
-import { Menu } from '#src/deprecated/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { TopBarAvatarButton } from './avatar-button'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -48,17 +48,17 @@ export const WithAMenu: Story = {
     ),
   ],
   render: ({ children }) => (
-    <Menu>
-      <Menu.Trigger>
+    <DeprecatedMenu>
+      <DeprecatedMenu.Trigger>
         {({ getTriggerProps }) => <TopBarAvatarButton {...getTriggerProps()}>{children}</TopBarAvatarButton>}
-      </Menu.Trigger>
-      <Menu.Popover>
-        <Menu.List>
-          <Menu.Item label="Menu Item 1" />
-          <Menu.Item label="Menu Item 2" />
-          <Menu.Item label="Menu Item 3" />
-        </Menu.List>
-      </Menu.Popover>
-    </Menu>
+      </DeprecatedMenu.Trigger>
+      <DeprecatedMenu.Popover>
+        <DeprecatedMenu.List>
+          <DeprecatedMenu.Item label="Menu Item 1" />
+          <DeprecatedMenu.Item label="Menu Item 2" />
+          <DeprecatedMenu.Item label="Menu Item 3" />
+        </DeprecatedMenu.List>
+      </DeprecatedMenu.Popover>
+    </DeprecatedMenu>
   ),
 }

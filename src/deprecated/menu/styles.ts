@@ -1,27 +1,30 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
-export const ElMenuPopover = styled.div`
+/** @deprecated */
+export const ElDeprecatedMenuPopover = styled.div`
   position: absolute;
   z-index: 100;
 `
 
-export const ElMenu = styled.div`
+/** @deprecated */
+export const ElDeprecatedMenu = styled.div`
   position: relative;
 
   &[data-alignment='left'] {
-    > ${ElMenuPopover} {
+    > ${ElDeprecatedMenuPopover} {
       left: 0;
     }
   }
   &[data-alignment='right'] {
-    > ${ElMenuPopover} {
+    > ${ElDeprecatedMenuPopover} {
       right: 0;
     }
   }
 `
 
-export const ElMenuItemSupplementaryInfo = styled.span`
+/** @deprecated */
+export const ElDeprecatedMenuItemSupplementaryInfo = styled.span`
   color: var(--comp-menu-colour-text-hover-secondary);
   font-family: var(--font-xs-regular-family);
   font-size: var(--font-xs-regular-size);
@@ -30,11 +33,13 @@ export const ElMenuItemSupplementaryInfo = styled.span`
   letter-spacing: var(--font-xs-regular-letter_spacing);
 `
 
-export const ElMenuItemLabelContainer = styled.span`
+/** @deprecated */
+export const ElDeprecatedMenuItemLabelContainer = styled.span`
   text-align: left;
 `
 
-export const ElMenuItemLabel = styled.span`
+/** @deprecated */
+export const ElDeprecatedMenuItemLabel = styled.span`
   font-family: var(--font-sm-regular-family);
   font-size: var(--font-sm-regular-size);
   font-weight: var(--font-sm-regular-weight);
@@ -45,7 +50,8 @@ export const ElMenuItemLabel = styled.span`
   margin-right: var(--spacing-2);
 `
 
-export const ElMenuItemContent = styled.div`
+/** @deprecated */
+export const ElDeprecatedMenuItemContent = styled.div`
   display: flex;
   align-items: flex-start;
   flex-direction: column;
@@ -53,7 +59,8 @@ export const ElMenuItemContent = styled.div`
   flex: 1 0 0;
 `
 
-export const ElMenuItemIcon = styled.div`
+/** @deprecated */
+export const ElDeprecatedMenuItemIcon = styled.div`
   &,
   svg {
     width: var(--icon_size-m);
@@ -62,7 +69,8 @@ export const ElMenuItemIcon = styled.div`
   }
 `
 
-export const elMenuItemLeftIcon = css`
+/** @deprecated */
+export const elDeprecatedMenuItemLeftIcon = css`
   &,
   svg {
     color: var(--comp-menu-colour-icon-default-left);
@@ -108,14 +116,15 @@ const baseMenuItemStyles = `
   }
 `
 
-export const ElMenuItemButton = styled.button`
+/** @deprecated */
+export const ElDeprecatedMenuItemButton = styled.button`
   ${baseMenuItemStyles}
   &[aria-current="true"], &[aria-current="page"] {
-    ${ElMenuItemLabel} {
+    ${ElDeprecatedMenuItemLabel} {
       color: var(--comp-menu-colour-text-default-action);
     }
 
-    .${elMenuItemLeftIcon} {
+    .${elDeprecatedMenuItemLeftIcon} {
       &,
       svg {
         color: var(--comp-menu-colour-icon-default-action);
@@ -124,7 +133,7 @@ export const ElMenuItemButton = styled.button`
   }
 
   &[aria-disabled='true'] {
-    ${ElMenuItemLabel} {
+    ${ElDeprecatedMenuItemLabel} {
       color: var(--comp-menu-colour-text-disabled-primary);
     }
   }
@@ -134,16 +143,18 @@ export const ElMenuItemButton = styled.button`
   border: none;
 `
 
-export const ElMenuItemAnchor = styled.a`
+/** @deprecated */
+export const ElDeprecatedMenuItemAnchor = styled.a`
   ${baseMenuItemStyles}
   &[aria-current="true"], &[aria-current="page"] {
-    ${ElMenuItemLabel} {
+    ${ElDeprecatedMenuItemLabel} {
       color: var(--comp-menu-colour-text-default-action) !important;
     }
   }
 `
 
-export const ElMenuItemGroupTitle = styled.div`
+/** @deprecated */
+export const ElDeprecatedMenuItemGroupTitle = styled.div`
   font-family: var(--font-family);
   font-size: var(--font-size-2xs);
   font-style: normal;
@@ -158,18 +169,21 @@ export const ElMenuItemGroupTitle = styled.div`
   align-items: center;
   align-self: stretch;
 `
-export const ElMenuItemGroup = styled.div`
+/** @deprecated */
+export const ElDeprecatedMenuItemGroup = styled.div`
   padding-inline: var(--spacing-2);
 `
 
-export const ElMenuItemGroupList = styled.div`
+/** @deprecated */
+export const ElDeprecatedMenuItemGroupList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   overflow: auto;
 `
 
-export const ElMenuList = styled.div`
+/** @deprecated */
+export const ElDeprecatedMenuList = styled.div`
   width: max-content;
   padding: var(--spacing-2) 0;
   border-radius: var(--corner-default);
@@ -178,12 +192,12 @@ export const ElMenuList = styled.div`
   overflow: auto;
 
   &[data-has-max-width='true'] {
-    ${ElMenuItemLabel} {
+    ${ElDeprecatedMenuItemLabel} {
       white-space: normal;
     }
   }
 
-  ${ElMenuItemGroup}:not(:last-child) {
+  ${ElDeprecatedMenuItemGroup}:not(:last-child) {
     border-bottom: 1px solid var(--comp-divider-colour-border-solid);
     padding-bottom: var(--spacing-2);
     margin-bottom: var(--spacing-2);

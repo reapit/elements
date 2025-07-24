@@ -1,29 +1,29 @@
 import React, { type HTMLAttributes } from 'react'
-import { MenuProvider } from './menu-context'
-import { MenuPopover, MenuTrigger } from './menu-popover'
-import { MenuItemGroup, MenuList } from './menu.atoms'
-import { ElMenu } from './styles'
-import { MenuItem } from './menu.molecules'
+import { DeprecatedMenuProvider } from './menu-context'
+import { DeprecatedMenuPopover, DeprecatedMenuTrigger } from './menu-popover'
+import { DeprecatedMenuItemGroup, DeprecatedMenuList } from './menu.atoms'
+import { ElDeprecatedMenu } from './styles'
+import { DeprecatedMenuItem } from './menu.molecules'
 
-type MenuFC = React.FC<HTMLAttributes<HTMLDivElement> & { 'data-alignment'?: 'left' | 'right' }> & {
-  Item: typeof MenuItem
-  Group: typeof MenuItemGroup
-  Trigger: typeof MenuTrigger
-  Popover: typeof MenuPopover
-  List: typeof MenuList
+/** @deprecated */
+type DeprecatedMenuFC = React.FC<HTMLAttributes<HTMLDivElement> & { 'data-alignment'?: 'left' | 'right' }> & {
+  Item: typeof DeprecatedMenuItem
+  Group: typeof DeprecatedMenuItemGroup
+  Trigger: typeof DeprecatedMenuTrigger
+  Popover: typeof DeprecatedMenuPopover
+  List: typeof DeprecatedMenuList
 }
 
-const Menu: MenuFC = ({ children, ...props }) => {
+/** @deprecated */
+export const DeprecatedMenu: DeprecatedMenuFC = ({ children, ...props }) => {
   return (
-    <MenuProvider>
-      <ElMenu {...props}>{children}</ElMenu>
-    </MenuProvider>
+    <DeprecatedMenuProvider>
+      <ElDeprecatedMenu {...props}>{children}</ElDeprecatedMenu>
+    </DeprecatedMenuProvider>
   )
 }
-Menu.Item = MenuItem
-Menu.Group = MenuItemGroup
-Menu.Trigger = MenuTrigger
-Menu.Popover = MenuPopover
-Menu.List = MenuList
-
-export { Menu }
+DeprecatedMenu.Item = DeprecatedMenuItem
+DeprecatedMenu.Group = DeprecatedMenuItemGroup
+DeprecatedMenu.Trigger = DeprecatedMenuTrigger
+DeprecatedMenu.Popover = DeprecatedMenuPopover
+DeprecatedMenu.List = DeprecatedMenuList

@@ -1,5 +1,5 @@
 import { AppSwitcherMenuGroupHasAccessContext } from '../menu-group-has-access-context'
-import { Menu } from '#src/deprecated/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 
 import type { ReactNode } from 'react'
 
@@ -9,11 +9,11 @@ interface AppSwitcherMenuGroupProps {
 
 function AppSwitcherExploreMenuGroup({ children }: AppSwitcherMenuGroupProps) {
   return (
-    <Menu.Group label={'EXPLORE'}>
+    <DeprecatedMenu.Group label={'EXPLORE'}>
       <AppSwitcherMenuGroupHasAccessContext.Provider value={false}>
         {children}
       </AppSwitcherMenuGroupHasAccessContext.Provider>
-    </Menu.Group>
+    </DeprecatedMenu.Group>
   )
 }
 

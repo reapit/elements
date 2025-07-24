@@ -7,16 +7,17 @@ import type {
   ReactNode,
 } from 'react'
 import {
-  ElMenuItemAnchor,
-  ElMenuItemButton,
-  ElMenuItemGroup,
-  ElMenuItemGroupList,
-  ElMenuItemGroupTitle,
-  ElMenuList,
+  ElDeprecatedMenuItemAnchor,
+  ElDeprecatedMenuItemButton,
+  ElDeprecatedMenuItemGroup,
+  ElDeprecatedMenuItemGroupList,
+  ElDeprecatedMenuItemGroupTitle,
+  ElDeprecatedMenuList,
 } from './styles'
 import type { sizeType } from '../../types/core'
 
-interface CommonMenuItemProps {
+/** @deprecated */
+interface CommonDeprecatedMenuItemProps {
   children?: ReactNode
   /**
    * Whether the menu is closed when clicking this item
@@ -35,20 +36,30 @@ interface CommonMenuItemProps {
   isActive?: boolean
 }
 
-interface MenuItemAsButtonElementProps extends CommonMenuItemProps, ButtonHTMLAttributes<HTMLButtonElement> {
+/** @deprecated */
+interface DeprecatedMenuItemAsButtonElementProps
+  extends CommonDeprecatedMenuItemProps,
+    ButtonHTMLAttributes<HTMLButtonElement> {
   href?: never
   disabled?: boolean
   onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
-interface MenuItemAsAnchorElementProps extends CommonMenuItemProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+/** @deprecated */
+interface DeprecatedMenuItemAsAnchorElementProps
+  extends CommonDeprecatedMenuItemProps,
+    AnchorHTMLAttributes<HTMLAnchorElement> {
   /** MenuItemAsAnchor currently doesn't support disabled state, use MenuItemButton instead */
   disabled?: never
 }
 
-export type MenuItemContainerProps = MenuItemAsButtonElementProps | MenuItemAsAnchorElementProps
+/** @deprecated */
+export type DeprecatedMenuItemContainerProps =
+  | DeprecatedMenuItemAsButtonElementProps
+  | DeprecatedMenuItemAsAnchorElementProps
 
-export interface MenuListProps extends HTMLAttributes<HTMLDivElement> {
+/** @deprecated */
+export interface DeprecatedMenuListProps extends HTMLAttributes<HTMLDivElement> {
   maxWidth?: sizeType
   maxHeight?: sizeType
 }
@@ -56,22 +67,27 @@ export interface MenuListProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * The `MenuItemGroup` component is a wrapper for `MenuItem` which has optional label
  * can be used for grouping multiple type of list item e.g RadioItem (in future).
+ *
+ * @deprecated
  */
-export const MenuItemGroup: FC<
+export const DeprecatedMenuItemGroup: FC<
   HTMLAttributes<HTMLDivElement> & {
     label?: string
     maxHeight?: sizeType
   }
 > = ({ children, label, maxHeight, ...rest }) => {
   return (
-    <ElMenuItemGroup {...rest} role="group">
-      {!!label && <ElMenuItemGroupTitle>{label}</ElMenuItemGroupTitle>}
-      <ElMenuItemGroupList style={{ ...rest?.style, maxHeight: `var(${maxHeight})` }}>{children}</ElMenuItemGroupList>
-    </ElMenuItemGroup>
+    <ElDeprecatedMenuItemGroup {...rest} role="group">
+      {!!label && <ElDeprecatedMenuItemGroupTitle>{label}</ElDeprecatedMenuItemGroupTitle>}
+      <ElDeprecatedMenuItemGroupList style={{ ...rest?.style, maxHeight: `var(${maxHeight})` }}>
+        {children}
+      </ElDeprecatedMenuItemGroupList>
+    </ElDeprecatedMenuItemGroup>
   )
 }
 
-export const MenuItemContainer: FC<MenuItemContainerProps> = ({
+/** @deprecated */
+export const DeprecatedMenuItemContainer: FC<DeprecatedMenuItemContainerProps> = ({
   children,
   isActive,
   disabled,
@@ -80,19 +96,19 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
 }) => {
   if (!isItemAsButtonElement(rest)) {
     return (
-      <ElMenuItemAnchor
-        {...(rest as MenuItemAsAnchorElementProps)}
+      <ElDeprecatedMenuItemAnchor
+        {...(rest as DeprecatedMenuItemAsAnchorElementProps)}
         role="menuitem"
         data-close-menu={closeMenu || !!disabled}
         aria-current={isActive ? 'page' : undefined}
       >
         {children}
-      </ElMenuItemAnchor>
+      </ElDeprecatedMenuItemAnchor>
     )
   }
 
   return (
-    <ElMenuItemButton
+    <ElDeprecatedMenuItemButton
       {...rest}
       role="menuitem"
       data-close-menu={closeMenu}
@@ -102,21 +118,24 @@ export const MenuItemContainer: FC<MenuItemContainerProps> = ({
       tabIndex={disabled ? -1 : 0}
     >
       {children}
-    </ElMenuItemButton>
+    </ElDeprecatedMenuItemButton>
   )
 }
 
-export const MenuList: FC<MenuListProps> = ({ children, maxWidth, maxHeight, ...rest }) => (
-  <ElMenuList
+/** @deprecated */
+export const DeprecatedMenuList: FC<DeprecatedMenuListProps> = ({ children, maxWidth, maxHeight, ...rest }) => (
+  <ElDeprecatedMenuList
     {...rest}
     style={{ ...rest?.style, maxWidth: `var(${maxWidth})`, maxHeight: `var(${maxHeight})` }}
     data-has-max-width={!!maxWidth}
     role="menu"
   >
     {children}
-  </ElMenuList>
+  </ElDeprecatedMenuList>
 )
 
-function isItemAsButtonElement(props: MenuItemContainerProps): props is MenuItemAsButtonElementProps {
+function isItemAsButtonElement(
+  props: DeprecatedMenuItemContainerProps,
+): props is DeprecatedMenuItemAsButtonElementProps {
   return !props.href
 }

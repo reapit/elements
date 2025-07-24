@@ -1,5 +1,5 @@
 import { BottomBarMenuList } from './menu-list'
-import { Menu } from '#src/deprecated/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
 
@@ -81,9 +81,9 @@ function buildMenu(type: 'No selected item' | 'Selected item') {
       Menu item 4
     </BottomBarMenuList.Item>,
     <BottomBarMenuList.MenuItem key="5">
-      <Menu.Item label="Menu item 5" />
-      <Menu.Item label="Menu item 6" />
-      <Menu.Item label="Menu item 7" />
+      <DeprecatedMenu.Item label="Menu item 5" />
+      <DeprecatedMenu.Item label="Menu item 6" />
+      <DeprecatedMenu.Item label="Menu item 7" />
     </BottomBarMenuList.MenuItem>,
   ]
 }
