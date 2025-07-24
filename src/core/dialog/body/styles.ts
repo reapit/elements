@@ -1,4 +1,3 @@
-import { ElDialogFooter } from '../footer'
 import { styled } from '@linaria/react'
 
 export const ElDialogBody = styled.article`
@@ -15,8 +14,5 @@ export const ElDialogBody = styled.article`
 
   [data-size='full-screen'] & {
     padding: var(--spacing-5);
-  }
-
-  &:has(~ ${ElDialogFooter}) {
   }
 `

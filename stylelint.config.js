@@ -25,7 +25,7 @@ export default {
     'at-rule-descriptor-no-unknown': true,
     'at-rule-descriptor-value-no-unknown': true,
     'at-rule-no-unknown': true,
-    'at-rule-prelude-no-invalid': true,
+    'at-rule-prelude-no-invalid': false, // TODO: This rule doesn't play nice with interpolations in template strings
     'color-no-invalid-hex': true,
     'custom-property-no-missing-var-function': true,
     'function-calc-no-unspaced-operator': true,
@@ -34,7 +34,7 @@ export default {
     'keyframe-declaration-no-important': true,
     'media-feature-name-no-unknown': true,
     'media-feature-name-value-no-unknown': true,
-    'media-query-no-invalid': true,
+    'media-query-no-invalid': false, // TODO: This rule doesn't play ncie with interpolations in template strings
     'named-grid-areas-no-invalid': true,
     'no-invalid-double-slash-comments': true,
     'no-invalid-position-at-import-rule': null, // TODO: Change to true when we've removed the global styles
