@@ -7,12 +7,12 @@ import { FlexContainer, MainContainer } from '../layout'
 import { elHScreen } from '../../styles/deprecated-sizing'
 import { Badge } from '../../core/badge'
 
-const meta: Meta<typeof Menu> = {
-  title: 'Deprecated/Menu',
+const meta: Meta<typeof DeprecatedMenu> = {
+  title: 'Deprecated/DeprecatedMenu',
 }
 
 export default meta
-type Story = StoryObj<typeof Menu>
+type Story = StoryObj<typeof DeprecatedMenu>
 
 export const Default: StoryObj = {
   render: () => {

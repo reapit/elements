@@ -1,7 +1,7 @@
 import { AppSwitcher } from '../app-switcher'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { elTopBarMenuPopover } from './styles'
 import { HelpIcon } from '#src/icons/help'
-import { DeprecatedMenu } from '#src/deprecated/menu'
 import { MenuAltIcon } from '#src/icons/menu-alt'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
@@ -126,9 +126,9 @@ const meta = {
               Button 5
             </TopBar.NavItem>
             <TopBar.NavMenuItem label="More">
-              <Menu.Item label="Button 6" />
-              <Menu.Item label="Button 7" />
-              <Menu.Item label="Button 8" />
+              <DeprecatedMenu.Item label="Button 6" />
+              <DeprecatedMenu.Item label="Button 7" />
+              <DeprecatedMenu.Item label="Button 8" />
             </TopBar.NavMenuItem>
           </TopBar.MainNav>
         ),

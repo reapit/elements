@@ -68,7 +68,7 @@ export const WithBulkActions = {
           <DeprecatedButton size="small">Button 1</DeprecatedButton>
           <DeprecatedButton size="small">Button 2</DeprecatedButton>
           <DeprecatedButton size="small">Button 3</DeprecatedButton>
-          <Menu>
+          <DeprecatedMenu>
             <DeprecatedMenuTrigger>
               {({ getTriggerProps }) => (
                 <DeprecatedButton
@@ -87,7 +87,7 @@ export const WithBulkActions = {
                 </DeprecatedMenuItemGroup>
               </DeprecatedMenuList>
             </DeprecatedMenuPopover>
-          </Menu>
+          </DeprecatedMenu>
         </ButtonGroup>
       }
     />
@@ -103,7 +103,7 @@ export const ToolbarSkeleton = {
     <TableToolbar
       description={<Skeleton height="1rem" width="10rem" />}
       actions={
-        <Menu>
+        <DeprecatedMenu>
           <DeprecatedMenuTrigger>
             {({ getTriggerProps }) => (
               // To do: Once Button component is update with more props for no-padding, please make updates here
@@ -126,7 +126,7 @@ export const ToolbarSkeleton = {
               </DeprecatedMenuItemGroup>
             </DeprecatedMenuList>
           </DeprecatedMenuPopover>
-        </Menu>
+        </DeprecatedMenu>
       }
     />
   ),
