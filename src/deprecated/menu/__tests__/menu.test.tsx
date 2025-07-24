@@ -1,17 +1,17 @@
 import { render } from '@testing-library/react'
-import { Menu } from '../menu'
+import { DeprecatedMenu } from '../menu'
 
 describe('Menu list component', () => {
   it('should render menu with list components and match snapshots', () => {
     const { asFragment } = render(
-      <Menu>
-        <Menu.List>
-          <Menu.Group label="Group Title">
-            <Menu.Item href="/#" label="Menu item as anchor" />
-            <Menu.Item label="Menu item as button" />
-          </Menu.Group>
-        </Menu.List>
-      </Menu>,
+      <DeprecatedMenu>
+        <DeprecatedMenu.List>
+          <DeprecatedMenu.Group label="Group Title">
+            <DeprecatedMenu.Item href="/#" label="Menu item as anchor" />
+            <DeprecatedMenu.Item label="Menu item as button" />
+          </DeprecatedMenu.Group>
+        </DeprecatedMenu.List>
+      </DeprecatedMenu>,
     )
     expect(asFragment()).toMatchSnapshot()
   })

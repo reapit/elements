@@ -1,9 +1,9 @@
 import { render } from '@testing-library/react'
-import { MenuProvider, useDeprecatedMenuContext } from '../menu-context'
+import { DeprecatedMenuProvider, useDeprecatedMenuContext } from '../menu-context'
 
 describe('MenuProvider and useMenuContext', () => {
   it('should render MenuProvider and match snapshot', () => {
-    const { asFragment } = render(<MenuProvider>Foo</MenuProvider>)
+    const { asFragment } = render(<DeprecatedMenuProvider>Foo</DeprecatedMenuProvider>)
     expect(asFragment()).toMatchSnapshot()
   })
 
