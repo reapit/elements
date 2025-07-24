@@ -334,6 +334,7 @@
   --comp-label_text-colour-text-primary: #222b33;
   --comp-label_text-colour-text-secondary: #607890;
   --comp-menu-border-radius: 8px;
+  --comp-menu-colour-border: #e5e9ed;
   --comp-menu-colour-fill-background: #ffffff;
   --comp-menu-colour-fill-default: #ffffff;
   --comp-menu-colour-fill-disabled: #ffffff;
@@ -448,6 +449,17 @@
   --comp-navigation-colour-text-secondary_top_bar: #222b33;
   --comp-navigation-colour-text-sidebar-default: #506478;
   --comp-navigation-colour-text-sidebar-select: #4e56ea;
+  --comp-office_switcher-border-radius: 8px;
+  --comp-office_switcher-border-width: 1px;
+  --comp-office_switcher-colour-border: #e5e9ed;
+  --comp-office_switcher-colour-fill-default: #ffffff;
+  --comp-office_switcher-colour-fill-hover: #f2f4f6;
+  --comp-office_switcher-colour-icon-action: #4e56ea;
+  --comp-office_switcher-colour-icon-default: #9faebc;
+  --comp-office_switcher-colour-icon-hover: #9faebc;
+  --comp-office_switcher-colour-text-action: #4e56ea;
+  --comp-office_switcher-colour-text-default: #222b33;
+  --comp-office_switcher-colour-text-hover: #222b33;
   --comp-progress_bar-colour-fill: #4e56ea;
   --comp-reversed_button-border-radius: 4px;
   --comp-reversed_button-border-width: 1px;

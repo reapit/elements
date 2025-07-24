@@ -1616,6 +1616,10 @@
         }
       },
       "colour": {
+        "border": {
+          "$type": "color",
+          "$value": "{neutral-100}"
+        },
         "fill": {
           "background": {
             "$type": "color",
@@ -2158,6 +2162,62 @@
               "$type": "color",
               "$value": "{cobalt-500}"
             }
+          }
+        }
+      }
+    },
+    "office_switcher": {
+      "border": {
+        "radius": {
+          "$type": "dimension",
+          "$value": "{unit-2}"
+        },
+        "width": {
+          "$type": "dimension",
+          "$value": "{unit-px}"
+        }
+      },
+      "colour": {
+        "border": {
+          "$type": "color",
+          "$value": "{white-900}"
+        },
+        "fill": {
+          "default": {
+            "$type": "color",
+            "$value": "{white-900}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{neutral-050}"
+          }
+        },
+        "icon": {
+          "action": {
+            "$type": "color",
+            "$value": "{cobalt-500}"
+          },
+          "default": {
+            "$type": "color",
+            "$value": "{neutral-300}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{neutral-300}"
+          }
+        },
+        "text": {
+          "action": {
+            "$type": "color",
+            "$value": "{cobalt-500}"
+          },
+          "default": {
+            "$type": "color",
+            "$value": "{neutral-900}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{neutral-900}"
           }
         }
       }
