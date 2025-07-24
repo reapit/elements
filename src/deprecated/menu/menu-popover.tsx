@@ -1,7 +1,7 @@
 import { type FC, type HTMLAttributes, useLayoutEffect, useRef, useState } from 'react'
-import { useClickOutside } from '../../deprecated/use-click-outside'
-import { useMenuContext } from './menu-context'
-import { ElMenuPopover } from './styles'
+import { useClickOutside } from '../use-click-outside'
+import { useDeprecatedMenuContext } from './menu-context'
+import { ElDeprecatedMenuPopover } from './styles'
 
 export const calculatePopoverPosition = (
   container: HTMLElement,
@@ -22,7 +22,8 @@ export const calculatePopoverPosition = (
   }
 }
 
-export const MenuPopover: FC<
+/** @deprecated */
+export const DeprecatedMenuPopover: FC<
   {
     /**
      * Optional parameter to adjust the vertical position of the popover
@@ -32,7 +33,7 @@ export const MenuPopover: FC<
     yOffset?: number
   } & HTMLAttributes<HTMLDivElement>
 > = ({ children, yOffset = 4, ...props }) => {
-  const { isOpen, closeMenu, getPopoverProps } = useMenuContext()
+  const { isOpen, closeMenu, getPopoverProps } = useDeprecatedMenuContext()
   const popoverRef = useRef<HTMLDivElement>(null)
 
   const [popoverStyle, setPopoverStyle] = useState<React.CSSProperties>({
@@ -57,14 +58,21 @@ export const MenuPopover: FC<
   }
 
   return (
-    <ElMenuPopover style={popoverStyle} ref={popoverRef} {...props} {...getPopoverProps()} onClick={handleClick}>
+    <ElDeprecatedMenuPopover
+      style={popoverStyle}
+      ref={popoverRef}
+      {...props}
+      {...getPopoverProps()}
+      onClick={handleClick}
+    >
       {children}
-    </ElMenuPopover>
+    </ElDeprecatedMenuPopover>
   )
 }
 
-export const MenuTrigger = ({ children }) => {
-  const { getTriggerProps, isOpen } = useMenuContext()
+/** @deprecated */
+export const DeprecatedMenuTrigger = ({ children }) => {
+  const { getTriggerProps, isOpen } = useDeprecatedMenuContext()
 
   return children({ getTriggerProps, isOpen })
 }

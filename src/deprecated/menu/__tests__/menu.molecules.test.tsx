@@ -1,15 +1,15 @@
 import { render } from '@testing-library/react'
-import { MenuItem } from '../menu.molecules'
+import { DeprecatedMenuItem } from '../menu.molecules'
 
 describe('MenuItem component', () => {
   it('should render with required props and match snapshot', () => {
-    const { asFragment } = render(<MenuItem label="Test Menu Item" />)
+    const { asFragment } = render(<DeprecatedMenuItem label="Test Menu Item" />)
     expect(asFragment()).toMatchSnapshot()
   })
 
   it('should render with complete features enabled and match snapshot', () => {
     const { asFragment } = render(
-      <MenuItem
+      <DeprecatedMenuItem
         label="Test Menu Item"
         supplementaryInfo="Test Supplementary Info"
         badge={<span>badge</span>}

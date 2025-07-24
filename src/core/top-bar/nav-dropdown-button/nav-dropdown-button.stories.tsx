@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { TopBarNavDropdownButton } from '.'
-import { Menu } from '../../menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 
 const meta: Meta<typeof TopBarNavDropdownButton> = {
   title: 'Core/TopBar/NavDropdownButton',
@@ -85,17 +85,17 @@ export const WithAMenu: Story = {
     ),
   ],
   render: ({ children }) => (
-    <Menu>
-      <Menu.Trigger>
+    <DeprecatedMenu>
+      <DeprecatedMenu.Trigger>
         {({ getTriggerProps }) => <TopBarNavDropdownButton {...getTriggerProps()}>{children}</TopBarNavDropdownButton>}
-      </Menu.Trigger>
-      <Menu.Popover>
-        <Menu.List>
-          <Menu.Item label="Menu Item 1" />
-          <Menu.Item label="Menu Item 2" />
-          <Menu.Item label="Menu Item 3" />
-        </Menu.List>
-      </Menu.Popover>
-    </Menu>
+      </DeprecatedMenu.Trigger>
+      <DeprecatedMenu.Popover>
+        <DeprecatedMenu.List>
+          <DeprecatedMenu.Item label="Menu Item 1" />
+          <DeprecatedMenu.Item label="Menu Item 2" />
+          <DeprecatedMenu.Item label="Menu Item 3" />
+        </DeprecatedMenu.List>
+      </DeprecatedMenu.Popover>
+    </DeprecatedMenu>
   ),
 }

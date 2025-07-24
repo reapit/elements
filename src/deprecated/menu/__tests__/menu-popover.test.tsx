@@ -1,19 +1,21 @@
 import { fireEvent, render } from '@testing-library/react'
-import { Menu } from '../menu'
+import { DeprecatedMenu } from '../menu'
 import { calculatePopoverPosition } from '../menu-popover'
 
 describe('Menu Popover component', () => {
   const MockMenuPopoverComponent = () => {
     return (
-      <Menu>
-        <Menu.Trigger>{({ getTriggerProps }) => <button {...getTriggerProps()}>Trigger</button>}</Menu.Trigger>
-        <Menu.Popover>
-          <Menu.List>
-            <Menu.Item label="Menu Item" />
-            <Menu.Item closeMenu={false} label="Non closing Menu Item" />
-          </Menu.List>
-        </Menu.Popover>
-      </Menu>
+      <DeprecatedMenu>
+        <DeprecatedMenu.Trigger>
+          {({ getTriggerProps }) => <button {...getTriggerProps()}>Trigger</button>}
+        </DeprecatedMenu.Trigger>
+        <DeprecatedMenu.Popover>
+          <DeprecatedMenu.List>
+            <DeprecatedMenu.Item label="Menu Item" />
+            <DeprecatedMenu.Item closeMenu={false} label="Non closing Menu Item" />
+          </DeprecatedMenu.List>
+        </DeprecatedMenu.Popover>
+      </DeprecatedMenu>
     )
   }
 

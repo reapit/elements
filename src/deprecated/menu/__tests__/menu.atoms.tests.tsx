@@ -1,12 +1,12 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { MenuItemContainer, MenuItemGroup, MenuList } from '../menu.atoms'
+import { DeprecatedMenuItemContainer, DeprecatedMenuItemGroup, DeprecatedMenuList } from '../menu.atoms'
 
 describe('MenuItemGroup', () => {
   it('should render as expected', () => {
     render(
-      <MenuItemGroup label="Group Title" maxHeight="--size-80">
+      <DeprecatedMenuItemGroup label="Group Title" maxHeight="--size-80">
         Group Content
-      </MenuItemGroup>,
+      </DeprecatedMenuItemGroup>,
     )
 
     expect(screen.getByText('Group Title')).toBeInTheDocument()
@@ -20,7 +20,7 @@ describe('MenuItemGroup', () => {
 describe('MenuItemContainer', () => {
   describe('as button', () => {
     it('should render as button when no href is provided', () => {
-      render(<MenuItemContainer>Test Button</MenuItemContainer>)
+      render(<DeprecatedMenuItemContainer>Test Button</DeprecatedMenuItemContainer>)
 
       const button = screen.getByRole('menuitem')
       expect(button.tagName).toBe('BUTTON')
@@ -28,14 +28,14 @@ describe('MenuItemContainer', () => {
     })
 
     it('should apply active state correctly', () => {
-      render(<MenuItemContainer isActive>Active Button</MenuItemContainer>)
+      render(<DeprecatedMenuItemContainer isActive>Active Button</DeprecatedMenuItemContainer>)
 
       const button = screen.getByRole('menuitem')
       expect(button).toHaveAttribute('aria-current', 'true')
     })
 
     it('should apply disabled state correctly', () => {
-      render(<MenuItemContainer disabled>Disabled Button</MenuItemContainer>)
+      render(<DeprecatedMenuItemContainer disabled>Disabled Button</DeprecatedMenuItemContainer>)
 
       const button = screen.getByRole('menuitem')
       expect(button).toHaveAttribute('disabled', 'true')
@@ -47,7 +47,7 @@ describe('MenuItemContainer', () => {
     it('should call onClick handler when clicked', () => {
       const handleClick = vi.fn()
 
-      render(<MenuItemContainer onClick={handleClick}>Clickable Button</MenuItemContainer>)
+      render(<DeprecatedMenuItemContainer onClick={handleClick}>Clickable Button</DeprecatedMenuItemContainer>)
 
       const button = screen.getByRole('menuitem')
       fireEvent.click(button)
@@ -56,7 +56,7 @@ describe('MenuItemContainer', () => {
     })
 
     it('should set data-close-menu attribute correctly', () => {
-      render(<MenuItemContainer closeMenu={false}>Non-closing Button</MenuItemContainer>)
+      render(<DeprecatedMenuItemContainer closeMenu={false}>Non-closing Button</DeprecatedMenuItemContainer>)
 
       const button = screen.getByRole('menuitem')
       expect(button).toHaveAttribute('data-close-menu', 'false')
@@ -65,7 +65,7 @@ describe('MenuItemContainer', () => {
 
   describe('as anchor', () => {
     it('should render as anchor when href is provided', () => {
-      render(<MenuItemContainer href="/test">Test Link</MenuItemContainer>)
+      render(<DeprecatedMenuItemContainer href="/test">Test Link</DeprecatedMenuItemContainer>)
 
       const link = screen.getByRole('menuitem')
       expect(link.tagName).toBe('A')
@@ -75,9 +75,9 @@ describe('MenuItemContainer', () => {
 
     it('should apply active state correctly', () => {
       render(
-        <MenuItemContainer href="/test" isActive>
+        <DeprecatedMenuItemContainer href="/test" isActive>
           Active Link
-        </MenuItemContainer>,
+        </DeprecatedMenuItemContainer>,
       )
 
       const link = screen.getByRole('menuitem')
@@ -86,9 +86,9 @@ describe('MenuItemContainer', () => {
 
     it('should set data-close-menu attribute correctly', () => {
       render(
-        <MenuItemContainer href="/test" closeMenu={false}>
+        <DeprecatedMenuItemContainer href="/test" closeMenu={false}>
           Non-closing Link
-        </MenuItemContainer>,
+        </DeprecatedMenuItemContainer>,
       )
 
       const link = screen.getByRole('menuitem')
@@ -100,9 +100,9 @@ describe('MenuItemContainer', () => {
 describe('MenuList', () => {
   it('should render as expected', () => {
     render(
-      <MenuList maxWidth="--size-80" maxHeight="--size-80">
+      <DeprecatedMenuList maxWidth="--size-80" maxHeight="--size-80">
         <div data-testid="menu-child">Menu Child</div>
-      </MenuList>,
+      </DeprecatedMenuList>,
     )
 
     const menu = screen.getByRole('menu')

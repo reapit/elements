@@ -1,5 +1,5 @@
 import { TopBarMainNav } from './main-nav'
-import { Menu } from '../../menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -67,9 +67,9 @@ function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
     </TopBarMainNav.Item>,
     type === 'With menu' && (
       <TopBarMainNav.MenuItem label="More">
-        <Menu.Item label="Menu Item 1" />
-        <Menu.Item label="Menu Item 2" />
-        <Menu.Item label="Menu Item 3" />
+        <DeprecatedMenu.Item label="Menu Item 1" />
+        <DeprecatedMenu.Item label="Menu Item 2" />
+        <DeprecatedMenu.Item label="Menu Item 3" />
       </TopBarMainNav.MenuItem>
     ),
   ].filter(Boolean)

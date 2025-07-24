@@ -3,7 +3,7 @@ import { ContactIcon } from '#src/icons/contact'
 import { HelpIcon } from '#src/icons/help'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
-import { Menu } from '../../menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -73,16 +73,18 @@ export const WithMenu: Story = {
   ],
   render: (args) => {
     return (
-      <Menu>
-        <Menu.Trigger>{({ getTriggerProps }) => <BottomBarItemButton {...args} {...getTriggerProps()} />}</Menu.Trigger>
-        <Menu.Popover>
-          <Menu.List>
-            <Menu.Item label="Menu Item 1" />
-            <Menu.Item label="Menu Item 2" />
-            <Menu.Item label="Menu Item 3" />
-          </Menu.List>
-        </Menu.Popover>
-      </Menu>
+      <DeprecatedMenu>
+        <DeprecatedMenu.Trigger>
+          {({ getTriggerProps }) => <BottomBarItemButton {...args} {...getTriggerProps()} />}
+        </DeprecatedMenu.Trigger>
+        <DeprecatedMenu.Popover>
+          <DeprecatedMenu.List>
+            <DeprecatedMenu.Item label="Menu Item 1" />
+            <DeprecatedMenu.Item label="Menu Item 2" />
+            <DeprecatedMenu.Item label="Menu Item 3" />
+          </DeprecatedMenu.List>
+        </DeprecatedMenu.Popover>
+      </DeprecatedMenu>
     )
   },
 }

@@ -1,7 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { BottomBarMenuListItem } from '../menu-list-menu-item'
 import { StarIcon } from '#src/icons/star'
-import { Menu } from '#src/core/menu/menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 
 test('renders as a list item containing a button', () => {
   render(
@@ -31,9 +31,9 @@ test('forwards props to the underlying nav item', () => {
 test('opens the menu when clicked', () => {
   render(
     <BottomBarMenuListItem aria-label="More" icon={<StarIcon />}>
-      <Menu.Item label="Item 1" />
-      <Menu.Item label="Item 2" />
-      <Menu.Item label="Item 3" />
+      <DeprecatedMenu.Item label="Item 1" />
+      <DeprecatedMenu.Item label="Item 2" />
+      <DeprecatedMenu.Item label="Item 3" />
     </BottomBarMenuListItem>,
   )
 

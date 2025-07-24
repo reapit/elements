@@ -3,41 +3,41 @@
 exports[`Menu list component > should render menu with list components and match snapshots 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-1 el-menu"
+    class="mocked-styled-1 el-deprecated-menu"
   >
     <div
-      class="mocked-styled-12 el-menu-list"
+      class="mocked-styled-12 el-deprecated-menu-list"
       data-has-max-width="false"
       role="menu"
       style="max-width: var(undefined); max-height: var(undefined);"
     >
       <div
-        class="mocked-styled-10 el-menu-item-group"
+        class="mocked-styled-10 el-deprecated-menu-item-group"
         role="group"
       >
         <div
-          class="mocked-styled-9 el-menu-item-group-title"
+          class="mocked-styled-9 el-deprecated-menu-item-group-title"
         >
           Group Title
         </div>
         <div
-          class="mocked-styled-11 el-menu-item-group-list"
+          class="mocked-styled-11 el-deprecated-menu-item-group-list"
           style="max-height: var(undefined);"
         >
           <a
-            class="mocked-styled-8 el-menu-item-anchor"
+            class="mocked-styled-8 el-deprecated-menu-item-anchor"
             data-close-menu="true"
             href="/#"
             role="menuitem"
           >
             <div
-              class="mocked-styled-5 el-menu-item-content"
+              class="mocked-styled-5 el-deprecated-menu-item-content"
             >
               <span
-                class="mocked-styled-3 el-menu-item-label-container"
+                class="mocked-styled-3 el-deprecated-menu-item-label-container"
               >
                 <span
-                  class="mocked-styled-4 el-menu-item-label"
+                  class="mocked-styled-4 el-deprecated-menu-item-label"
                 >
                   Menu item as anchor
                 </span>
@@ -45,19 +45,19 @@ exports[`Menu list component > should render menu with list components and match
             </div>
           </a>
           <button
-            class="mocked-styled-7 el-menu-item-button"
+            class="mocked-styled-7 el-deprecated-menu-item-button"
             data-close-menu="true"
             role="menuitem"
             tabindex="0"
           >
             <div
-              class="mocked-styled-5 el-menu-item-content"
+              class="mocked-styled-5 el-deprecated-menu-item-content"
             >
               <span
-                class="mocked-styled-3 el-menu-item-label-container"
+                class="mocked-styled-3 el-deprecated-menu-item-label-container"
               >
                 <span
-                  class="mocked-styled-4 el-menu-item-label"
+                  class="mocked-styled-4 el-deprecated-menu-item-label"
                 >
                   Menu item as button
                 </span>

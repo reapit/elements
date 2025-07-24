@@ -2,8 +2,8 @@ import { Meta } from '@storybook/react-vite'
 // import { figmaDesignUrls } from '../../storybook/figma'
 import { TableContainer } from './table-container'
 import { TableToolbar } from '../table-toolbar'
-import { Menu, MenuItem, MenuItemGroup, MenuList } from '../../menu'
-import { MenuPopover, MenuTrigger } from '#src/core/menu/menu-popover'
+import { DeprecatedMenu, DeprecatedMenuItem, DeprecatedMenuItemGroup, DeprecatedMenuList } from '#src/deprecated/menu'
+import { DeprecatedMenuPopover, DeprecatedMenuTrigger } from '#src/deprecated/menu/menu-popover'
 import { DeprecatedButton } from '../../../deprecated/button'
 import { DeprecatedIcon } from '../../../deprecated/icon'
 
@@ -20,8 +20,8 @@ export const BasicUsage = {
       <TableToolbar
         description="125 Properties"
         actions={
-          <Menu>
-            <MenuTrigger>
+          <DeprecatedMenu>
+            <DeprecatedMenuTrigger>
               {({ getTriggerProps }) => (
                 // To do: Once Button component is update with more props for no-padding, please make updates here
                 <DeprecatedButton
@@ -33,17 +33,17 @@ export const BasicUsage = {
                   Page size: 25
                 </DeprecatedButton>
               )}
-            </MenuTrigger>
-            <MenuPopover>
-              <MenuList>
-                <MenuItemGroup>
-                  <MenuItem label="25" />
-                  <MenuItem label="50" />
-                  <MenuItem label="100" />
-                </MenuItemGroup>
-              </MenuList>
-            </MenuPopover>
-          </Menu>
+            </DeprecatedMenuTrigger>
+            <DeprecatedMenuPopover>
+              <DeprecatedMenuList>
+                <DeprecatedMenuItemGroup>
+                  <DeprecatedMenuItem label="25" />
+                  <DeprecatedMenuItem label="50" />
+                  <DeprecatedMenuItem label="100" />
+                </DeprecatedMenuItemGroup>
+              </DeprecatedMenuList>
+            </DeprecatedMenuPopover>
+          </DeprecatedMenu>
         }
       />
     </TableContainer>

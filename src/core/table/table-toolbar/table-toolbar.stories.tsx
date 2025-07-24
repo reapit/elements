@@ -3,12 +3,12 @@ import { Meta } from '@storybook/react-vite'
 import { TableToolbar } from './table-toolbar.js'
 import { DeprecatedButton } from '#src/deprecated/button/button'
 import { DeprecatedIcon } from '#src/deprecated/icon/icon-component'
-import { Menu } from '#src/core/menu/menu'
-import { MenuPopover, MenuTrigger } from '#src/core/menu/menu-popover'
-import { MenuItemGroup, MenuList } from '#src/core/menu/menu.atoms'
+import { DeprecatedMenu } from '#src/deprecated/menu'
+import { DeprecatedMenuPopover, DeprecatedMenuTrigger } from '#src/deprecated/menu/menu-popover'
+import { DeprecatedMenuItemGroup, DeprecatedMenuList } from '#src/deprecated/menu/menu.atoms'
 import { ButtonGroup } from '#src/core/button-group/button-group'
 import { Skeleton } from '#src/core/skeleton/skeleton'
-import { MenuItem } from '../../menu/menu.molecules.js'
+import { DeprecatedMenuItem } from '#src/deprecated/menu/menu.molecules'
 
 const meta: Meta<typeof TableToolbar> = {
   title: 'Core/TableToolbar',
@@ -26,8 +26,8 @@ export const BasicUsage = {
     <TableToolbar
       description="125 Properties"
       actions={
-        <Menu>
-          <MenuTrigger>
+        <DeprecatedMenu>
+          <DeprecatedMenuTrigger>
             {({ getTriggerProps }) => (
               // To do: Once Button component is update with more props for no-padding, please make updates here
               <DeprecatedButton
@@ -39,17 +39,17 @@ export const BasicUsage = {
                 Page size: 25
               </DeprecatedButton>
             )}
-          </MenuTrigger>
-          <MenuPopover>
-            <MenuList>
-              <MenuItemGroup>
-                <MenuItem label="25" />
-                <MenuItem label="50" />
-                <MenuItem label="100" />
-              </MenuItemGroup>
-            </MenuList>
-          </MenuPopover>
-        </Menu>
+          </DeprecatedMenuTrigger>
+          <DeprecatedMenuPopover>
+            <DeprecatedMenuList>
+              <DeprecatedMenuItemGroup>
+                <DeprecatedMenuItem label="25" />
+                <DeprecatedMenuItem label="50" />
+                <DeprecatedMenuItem label="100" />
+              </DeprecatedMenuItemGroup>
+            </DeprecatedMenuList>
+          </DeprecatedMenuPopover>
+        </DeprecatedMenu>
       }
     />
   ),
@@ -68,8 +68,8 @@ export const WithBulkActions = {
           <DeprecatedButton size="small">Button 1</DeprecatedButton>
           <DeprecatedButton size="small">Button 2</DeprecatedButton>
           <DeprecatedButton size="small">Button 3</DeprecatedButton>
-          <Menu>
-            <MenuTrigger>
+          <DeprecatedMenu>
+            <DeprecatedMenuTrigger>
               {({ getTriggerProps }) => (
                 <DeprecatedButton
                   {...getTriggerProps()}
@@ -77,17 +77,17 @@ export const WithBulkActions = {
                   iconRight={<DeprecatedIcon icon="more" fontSize="1rem" />}
                 />
               )}
-            </MenuTrigger>
-            <MenuPopover>
-              <MenuList>
-                <MenuItemGroup>
-                  <MenuItem label="25" />
-                  <MenuItem label="50" />
-                  <MenuItem label="100" />
-                </MenuItemGroup>
-              </MenuList>
-            </MenuPopover>
-          </Menu>
+            </DeprecatedMenuTrigger>
+            <DeprecatedMenuPopover>
+              <DeprecatedMenuList>
+                <DeprecatedMenuItemGroup>
+                  <DeprecatedMenuItem label="25" />
+                  <DeprecatedMenuItem label="50" />
+                  <DeprecatedMenuItem label="100" />
+                </DeprecatedMenuItemGroup>
+              </DeprecatedMenuList>
+            </DeprecatedMenuPopover>
+          </DeprecatedMenu>
         </ButtonGroup>
       }
     />
@@ -103,8 +103,8 @@ export const ToolbarSkeleton = {
     <TableToolbar
       description={<Skeleton height="1rem" width="10rem" />}
       actions={
-        <Menu>
-          <MenuTrigger>
+        <DeprecatedMenu>
+          <DeprecatedMenuTrigger>
             {({ getTriggerProps }) => (
               // To do: Once Button component is update with more props for no-padding, please make updates here
               <DeprecatedButton
@@ -116,17 +116,17 @@ export const ToolbarSkeleton = {
                 Page size: 25
               </DeprecatedButton>
             )}
-          </MenuTrigger>
-          <MenuPopover>
-            <MenuList>
-              <MenuItemGroup>
-                <MenuItem label="25" />
-                <MenuItem label="50" />
-                <MenuItem label="100" />
-              </MenuItemGroup>
-            </MenuList>
-          </MenuPopover>
-        </Menu>
+          </DeprecatedMenuTrigger>
+          <DeprecatedMenuPopover>
+            <DeprecatedMenuList>
+              <DeprecatedMenuItemGroup>
+                <DeprecatedMenuItem label="25" />
+                <DeprecatedMenuItem label="50" />
+                <DeprecatedMenuItem label="100" />
+              </DeprecatedMenuItemGroup>
+            </DeprecatedMenuList>
+          </DeprecatedMenuPopover>
+        </DeprecatedMenu>
       }
     />
   ),

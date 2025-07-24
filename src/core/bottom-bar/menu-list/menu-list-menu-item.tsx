@@ -1,6 +1,6 @@
 import { BottomBarItemButton } from '../item'
 import { ElBottomBarMenuListItem, ElBottomBarMenu } from './styles'
-import { Menu } from '../../menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { MoreIcon } from '#src/icons/more'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
@@ -28,16 +28,16 @@ export function BottomBarMenuListItem({
   return (
     <ElBottomBarMenuListItem>
       <ElBottomBarMenu data-alignment="right">
-        <Menu.Trigger>
+        <DeprecatedMenu.Trigger>
           {({ getTriggerProps }) => (
             <BottomBarItemButton {...getTriggerProps(rest)} icon={icon}>
               {label}
             </BottomBarItemButton>
           )}
-        </Menu.Trigger>
-        <Menu.Popover>
-          <Menu.List>{children}</Menu.List>
-        </Menu.Popover>
+        </DeprecatedMenu.Trigger>
+        <DeprecatedMenu.Popover>
+          <DeprecatedMenu.List>{children}</DeprecatedMenu.List>
+        </DeprecatedMenu.Popover>
       </ElBottomBarMenu>
     </ElBottomBarMenuListItem>
   )

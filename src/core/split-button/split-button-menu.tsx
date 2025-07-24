@@ -1,4 +1,4 @@
-import { Menu } from '#src/core/menu/index'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { SplitButtonMenuButton } from './menu-button'
 
 import type { ComponentProps, ReactNode } from 'react'
@@ -13,11 +13,13 @@ interface SplitButtonMenuProps extends ComponentProps<typeof SplitButtonMenuButt
  */
 export function SplitButtonMenu({ children, ...rest }: SplitButtonMenuProps) {
   return (
-    <Menu data-alignment="right">
-      <Menu.Trigger>{({ getTriggerProps }) => <SplitButtonMenuButton {...getTriggerProps(rest)} />}</Menu.Trigger>
-      <Menu.Popover>
-        <Menu.List>{children}</Menu.List>
-      </Menu.Popover>
-    </Menu>
+    <DeprecatedMenu data-alignment="right">
+      <DeprecatedMenu.Trigger>
+        {({ getTriggerProps }) => <SplitButtonMenuButton {...getTriggerProps(rest)} />}
+      </DeprecatedMenu.Trigger>
+      <DeprecatedMenu.Popover>
+        <DeprecatedMenu.List>{children}</DeprecatedMenu.List>
+      </DeprecatedMenu.Popover>
+    </DeprecatedMenu>
   )
 }

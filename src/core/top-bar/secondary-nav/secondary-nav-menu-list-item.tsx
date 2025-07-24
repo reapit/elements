@@ -1,5 +1,5 @@
 import { ElTopBarSecondaryNavListItem } from './styles'
-import { Menu } from '../../menu'
+import { DeprecatedMenu } from '#src/deprecated/menu'
 import { TopBarNavIconItemButton } from '../nav-icon-item/nav-icon-item-button'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
@@ -24,16 +24,16 @@ export function TopBarSecondaryNavMenuListItem({
 }: TopBarSecondaryNavMenuListItemProps) {
   return (
     <ElTopBarSecondaryNavListItem>
-      <Menu>
-        <Menu.Trigger>
+      <DeprecatedMenu>
+        <DeprecatedMenu.Trigger>
           {({ getTriggerProps }) => (
             <TopBarNavIconItemButton {...getTriggerProps(rest)} aria-label={ariaLabel} icon={icon} />
           )}
-        </Menu.Trigger>
-        <Menu.Popover>
-          <Menu.List>{children}</Menu.List>
-        </Menu.Popover>
-      </Menu>
+        </DeprecatedMenu.Trigger>
+        <DeprecatedMenu.Popover>
+          <DeprecatedMenu.List>{children}</DeprecatedMenu.List>
+        </DeprecatedMenu.Popover>
+      </DeprecatedMenu>
     </ElTopBarSecondaryNavListItem>
   )
 }
