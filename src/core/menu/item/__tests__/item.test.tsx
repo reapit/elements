@@ -1,7 +1,7 @@
 import { MenuItem } from '../item'
 import { render, screen } from '@testing-library/react'
 
-test('renders a button element', () => {
+test('renders a menuitem element', () => {
   render(<MenuItem>Menu item</MenuItem>)
-  expect(screen.getByRole('button')).toBeVisible()
+  expect(screen.getByRole('menuitem')).toBeVisible()
 })

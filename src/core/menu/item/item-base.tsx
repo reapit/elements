@@ -56,10 +56,11 @@ export function MenuItemBase({
   badge,
   className,
   children,
-  supplementaryInfo,
   iconLeft,
   iconRight,
   onClick,
+  role = 'menuitem',
+  supplementaryInfo,
   ...rest
 }: MenuItemBaseProps) {
   const labelId = useId()
@@ -98,6 +99,7 @@ export function MenuItemBase({
       aria-labelledby={labelId}
       className={cx(elMenuItem, className)}
       onClick={handleClick}
+      role={role}
     >
       {iconLeft && <ElMenuItemIconContainer aria-hidden>{iconLeft}</ElMenuItemIconContainer>}
       <ElMenuItemContentContainer>

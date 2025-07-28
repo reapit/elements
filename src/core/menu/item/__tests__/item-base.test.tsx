@@ -3,23 +3,23 @@ import { StarIcon } from '#src/icons/star'
 import { MenuItemBase } from '../item-base'
 import { Badge } from '#src/core/badge'
 
-test('renders as a button element when `as="button"`', () => {
+test('renders as a menuitem element when `as="button"`', () => {
   render(<MenuItemBase as="button">Menu item</MenuItemBase>)
-  expect(screen.getByRole('button', { name: 'Menu item' })).toBeVisible()
+  expect(screen.getByRole('menuitem', { name: 'Menu item' })).toBeVisible()
 })
 
-test('renders as a link element when `as="a"`', () => {
+test('renders as a menuitem element when `as="a"`', () => {
   render(
     <MenuItemBase as="a" href="https://fake.url">
       Menu item
     </MenuItemBase>,
   )
-  expect(screen.getByRole('link', { name: 'Menu item' })).toBeVisible()
+  expect(screen.getByRole('menuitem', { name: 'Menu item' })).toBeVisible()
 })
 
 test('has an `aria-details` attribute', () => {
   render(<MenuItemBase as="button">Test Button</MenuItemBase>)
-  expect(screen.getByRole('button')).toHaveAttribute('aria-details')
+  expect(screen.getByRole('menuitem')).toHaveAttribute('aria-details')
 })
 
 test('is ARIA disabled when `disabled` is true', () => {
@@ -28,7 +28,7 @@ test('is ARIA disabled when `disabled` is true', () => {
       Menu item
     </MenuItemBase>,
   )
-  expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true')
+  expect(screen.getByRole('menuitem')).toHaveAttribute('aria-disabled', 'true')
 })
 
 describe('when `aria-disabled="true"`', () => {
@@ -40,7 +40,7 @@ describe('when `aria-disabled="true"`', () => {
         Button
       </MenuItemBase>,
     )
-    const button = screen.getByRole('button')
+    const button = screen.getByRole('menuitem')
     fireEvent.click(button)
 
     expect(onClick).not.toHaveBeenCalled()
@@ -56,7 +56,7 @@ describe('when `aria-disabled="true"`', () => {
         Button
       </MenuItemBase>,
     )
-    const button = screen.getByRole('button')
+    const button = screen.getByRole('menuitem')
     fireEvent.click(button)
 
     expect(preventDefaultSpy).toHaveBeenCalled()
@@ -73,7 +73,7 @@ describe('when `aria-disabled="true"`', () => {
         </MenuItemBase>
       </div>,
     )
-    const button = screen.getByRole('button')
+    const button = screen.getByRole('menuitem')
     fireEvent.click(button)
 
     expect(parentOnClick).not.toHaveBeenCalled()

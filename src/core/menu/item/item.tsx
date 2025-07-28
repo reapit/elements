@@ -8,7 +8,7 @@ export interface MenuItemProps extends CommonMenuItemBaseProps, ButtonHTMLAttrib
   'aria-checked'?: boolean
   /**
    * Whether the menu item is disabled or not. Unlike `aria-disabled`, menu items disabled with this prop will not be
-   * focusable or interactive.
+   * focusable or interactive. Typically, disabled menu items should be focusable, so `aria-disabled` is preferred.
    */
   disabled?: boolean
 }
