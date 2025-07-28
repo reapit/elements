@@ -23,6 +23,10 @@ export const elMenuItem = css`
   &:focus-visible {
     outline: var(--border-width-double) solid var(--colour-border-focus);
     outline-offset: var(--border-width-default);
+
+    /* NOTE: Menu items sit flush against each other, so we need to ensure the focus outline
+     * sits above subsequent items */
+    z-index: 1;
   }
 
   &:hover {
