@@ -164,7 +164,6 @@ export const Overflow: Story = {
 export const Anchors: StoryObj<typeof AnchorMenuItem> = {
   args: {
     'aria-current': false,
-    'aria-selected': false,
     'aria-disabled': false,
     badge: 'New',
     children: 'Agentbox',
@@ -172,6 +171,12 @@ export const Anchors: StoryObj<typeof AnchorMenuItem> = {
     iconLeft: 'Property',
     iconRight: 'Export',
     supplementaryInfo: 'Property sales and more',
+  },
+  argTypes: {
+    'aria-current': {
+      control: 'radio',
+      options: ['page', false],
+    },
   },
   render: (args) => <AnchorMenuItem {...args} />,
 }
