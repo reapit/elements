@@ -10,6 +10,11 @@ import type { PopoverPlacement } from './map-placement-to-css'
 export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
   /** The ID of the element this popover to which this popover should be anchored. */
   anchorId: string
+  /**
+   * The border radius of the popover. Can be any valid CSS length, though a border radius
+   * CSS variable is recommended. By default, the radius will be zero.
+   */
+  borderRadius?: string
   /** The content of the popover. */
   children: ReactNode
   /** The visual elevation of the popover. Determines how much shadow the popover casts. */
@@ -78,6 +83,7 @@ export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
  */
 export function Popover({
   anchorId,
+  borderRadius,
   children,
   className,
   elevation = 'none',
@@ -128,6 +134,7 @@ export function Popover({
       style={
         {
           ...style,
+          '--popover-border-radius': borderRadius,
           '--popover-max-height': maxHeight,
           '--popover-max-width': maxWidth,
         } as CSSProperties

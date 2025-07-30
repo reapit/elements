@@ -145,6 +145,18 @@ export const Placements: Story = {
 }
 
 /**
+ * The border radius of the popover element can be adjusted with the `borderRadius` prop. While
+ * this prop accepts any valid CSS length, it should typically be a border-radius-related CSS
+ * variable such as `--border-radius-xl` or `--comp-menu-border-radius`.
+ */
+export const BorderRadius: Story = {
+  args: {
+    ...Example.args,
+    borderRadius: 'var(--border-radius-xl)',
+  },
+}
+
+/**
  * By default, popovers will grow to the width of their content. To constrain this behaviour, a maximum
  * width can be specified. Content should generally adapt to the constrained width by wrapping rather
  * than overflowing.
