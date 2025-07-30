@@ -1,13 +1,11 @@
 import { AnchorMenuItem, MenuItem } from './item'
 import { ElMenuContent } from './styles'
+import { getPopoverTriggerProps as getMenuTriggerProps } from '#src/utils/popover'
 import { MenuDivider } from './divider'
 import { MenuGroup } from './group'
 import { Popover } from '#src/utils/popover'
 
 import type { HTMLAttributes } from 'react'
-
-// Make this helper available for convenience.
-export { getPopoverTriggerProps as getMenuTriggerProps } from '#src/utils/popover'
 
 // NOTE: We omit...
 // - role, because the Menu's role should always be "menu".
@@ -47,6 +45,7 @@ export function Menu({
       {...rest}
       aria-labelledby={ariaLabelledBy}
       anchorId={ariaLabelledBy}
+      borderRadius="var(--comp-menu-border-radius)"
       elevation="xl"
       gap={`var(${gap})`}
       maxHeight={`var(${maxHeight})`}
@@ -65,3 +64,6 @@ Menu.AnchorItem = AnchorMenuItem
 Menu.Divider = MenuDivider
 Menu.Group = MenuGroup
 Menu.Item = MenuItem
+
+// Make this helper available for convenience.
+Menu.getMenuTriggerProps = getMenuTriggerProps

@@ -3,7 +3,6 @@ import { ElMenuGroup } from './group'
 import { ElMenuDivider } from './divider'
 
 export const ElMenuContent = styled.div`
-  border-radius: var(--comp-menu-border-radius);
   background: var(--colour-fill-white);
 
   padding: var(--spacing-2);

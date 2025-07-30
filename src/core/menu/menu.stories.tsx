@@ -1,5 +1,5 @@
 import { Badge } from '#src/core/badge'
-import { getMenuTriggerProps, Menu } from './menu'
+import { Menu } from './menu'
 import { StarIcon } from '#src/icons/star'
 import { useId } from 'react'
 
@@ -110,7 +110,7 @@ const meta = {
           aria-controls={props.id}
           aria-haspopup="menu"
           id={props['aria-labelledby']}
-          {...getMenuTriggerProps({
+          {...Menu.getMenuTriggerProps({
             popoverTarget: props.id,
             popoverTargetAction: 'toggle',
           })}

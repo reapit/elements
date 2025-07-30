@@ -54,6 +54,15 @@ test('can override the default elevation', () => {
   expect(screen.getByText('Popover content')).toHaveAttribute('data-elevation', 'xl')
 })
 
+test('provides custom CSS property for borderRadius when specified', () => {
+  render(
+    <Popover {...requiredProps} borderRadius="8px">
+      Popover content
+    </Popover>,
+  )
+  expect(screen.getByText('Popover content')).toHaveStyle('--popover-border-radius: 8px')
+})
+
 test('provides custom CSS property for maxWidth when specified', () => {
   render(
     <Popover {...requiredProps} maxWidth="300px">
@@ -72,13 +81,14 @@ test('provides custom CSS property for maxHeight when specified', () => {
   expect(screen.getByText('Popover content')).toHaveStyle('--popover-max-height: 200px')
 })
 
-test('provides custom CSS properties for both maxWidth and maxHeight when specified', () => {
+test('provides all custom CSS properties when specified', () => {
   render(
-    <Popover {...requiredProps} maxWidth="300px" maxHeight="200px">
+    <Popover {...requiredProps} borderRadius="8px" maxWidth="300px" maxHeight="200px">
       Popover content
     </Popover>,
   )
   const popover = screen.getByText('Popover content')
+  expect(popover).toHaveStyle('--popover-border-radius: 8px')
   expect(popover).toHaveStyle('--popover-max-width: 300px')
   expect(popover).toHaveStyle('--popover-max-height: 200px')
 })

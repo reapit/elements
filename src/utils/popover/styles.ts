@@ -12,6 +12,7 @@ export const elPopover = css`
     padding: 0;
     margin: 0;
 
+    border-radius: var(--popover-border-radius, 0);
     max-height: var(--popover-max-height, max-content);
     max-width: var(--popover-max-width, max-content);
 
