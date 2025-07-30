@@ -1,9 +1,9 @@
 import { BottomBarItemButton } from './item-button'
 import { ContactIcon } from '#src/icons/contact'
 import { HelpIcon } from '#src/icons/help'
+import { Menu } from '#src/core/menu'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
-import { DeprecatedMenu } from '#src/deprecated/menu'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -73,18 +73,18 @@ export const WithMenu: Story = {
   ],
   render: (args) => {
     return (
-      <DeprecatedMenu>
-        <DeprecatedMenu.Trigger>
-          {({ getTriggerProps }) => <BottomBarItemButton {...args} {...getTriggerProps()} />}
-        </DeprecatedMenu.Trigger>
-        <DeprecatedMenu.Popover>
-          <DeprecatedMenu.List>
-            <DeprecatedMenu.Item label="Menu Item 1" />
-            <DeprecatedMenu.Item label="Menu Item 2" />
-            <DeprecatedMenu.Item label="Menu Item 3" />
-          </DeprecatedMenu.List>
-        </DeprecatedMenu.Popover>
-      </DeprecatedMenu>
+      <>
+        <BottomBarItemButton
+          {...args}
+          {...Menu.getMenuTriggerProps({ popoverTarget: 'menu', popoverTargetAction: 'toggle' })}
+          id="trigger"
+        />
+        <Menu aria-labelledby="trigger" id="menu" placement="top-end">
+          <Menu.Item>Menu Item 1</Menu.Item>
+          <Menu.Item>Menu Item 2</Menu.Item>
+          <Menu.Item>Menu Item 3</Menu.Item>
+        </Menu>
+      </>
     )
   },
 }

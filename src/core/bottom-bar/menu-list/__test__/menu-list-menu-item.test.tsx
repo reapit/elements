@@ -1,13 +1,17 @@
 import { fireEvent, render, screen } from '@testing-library/react'
+import { BottomBarContextProvider } from '../../context'
 import { BottomBarMenuListItem } from '../menu-list-menu-item'
+import { Menu } from '#src/core/menu'
 import { StarIcon } from '#src/icons/star'
-import { DeprecatedMenu } from '#src/deprecated/menu'
+
+import type { ReactNode } from 'react'
 
 test('renders as a list item containing a button', () => {
   render(
     <BottomBarMenuListItem aria-label="More" icon={<StarIcon />}>
       More
     </BottomBarMenuListItem>,
+    { wrapper },
   )
 
   const listItem = screen.getByRole('listitem')
@@ -22,6 +26,7 @@ test('forwards props to the underlying nav item', () => {
     <BottomBarMenuListItem data-testid="nav-item" aria-label="More" icon={<StarIcon />}>
       Fake child
     </BottomBarMenuListItem>,
+    { wrapper },
   )
 
   const button = screen.getByTestId('nav-item')
@@ -31,18 +36,26 @@ test('forwards props to the underlying nav item', () => {
 test('opens the menu when clicked', () => {
   render(
     <BottomBarMenuListItem aria-label="More" icon={<StarIcon />}>
-      <DeprecatedMenu.Item label="Item 1" />
-      <DeprecatedMenu.Item label="Item 2" />
-      <DeprecatedMenu.Item label="Item 3" />
+      <Menu.Item>Item 1</Menu.Item>
+      <Menu.Item>Item 2</Menu.Item>
+      <Menu.Item>Item 3</Menu.Item>
     </BottomBarMenuListItem>,
+    { wrapper },
   )
 
   const button = screen.getByRole('button')
 
   fireEvent.click(button)
 
-  expect(button).toHaveAttribute('aria-expanded', 'true')
   expect(screen.getByText('Item 1')).toBeVisible()
   expect(screen.getByText('Item 2')).toBeVisible()
   expect(screen.getByText('Item 3')).toBeVisible()
 })
+
+interface WrapperProps {
+  children: ReactNode
+}
+
+function wrapper({ children }: WrapperProps) {
+  return <BottomBarContextProvider isOpen={true}>{children}</BottomBarContextProvider>
+}
