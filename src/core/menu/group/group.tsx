@@ -1,5 +1,7 @@
 import { ElMenuGroup, ElMenuGroupLabelContainer } from './styles'
-import { useId, type HTMLAttributes, type ReactNode } from 'react'
+import { useId } from 'react'
+
+import type { HTMLAttributes, ReactNode } from 'react'
 
 interface MenuGroupProps extends HTMLAttributes<HTMLDivElement> {
   /**

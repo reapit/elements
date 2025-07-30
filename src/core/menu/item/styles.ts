@@ -39,8 +39,8 @@ export const elMenuItem = css`
     background: var(--comp-menu-colour-fill-default);
   }
 
-  &[aria-checked='true'],
-  &[aria-current='page'] {
+  &[aria-checked='true']:enabled,
+  &[aria-current='page']:enabled {
     background: var(--comp-menu-colour-fill-highlighted);
   }
 `
@@ -56,15 +56,6 @@ export const ElMenuItemIconContainer = styled.span`
   /* aka left icon */
   &:first-of-type {
     color: var(--comp-menu-colour-icon-default-left);
-
-    [aria-checked='true'] &,
-    [aria-current='page'] & {
-      color: var(--comp-menu-colour-icon-default-action);
-
-      &:hover {
-        color: var(--comp-menu-colour-icon-hover-action);
-      }
-    }
   }
 
   /* aka right icon */
@@ -72,7 +63,6 @@ export const ElMenuItemIconContainer = styled.span`
     color: var(--comp-menu-colour-icon-default-right);
   }
 
-  /* Disabled styles come last to ensure they override other state-based styles like hover */
   [aria-disabled='true'] &,
   :disabled & {
     &:first-of-type {
@@ -80,6 +70,20 @@ export const ElMenuItemIconContainer = styled.span`
     }
     &:last-of-type {
       color: var(--comp-menu-colour-icon-disabled-right);
+    }
+  }
+
+  [aria-checked='true']:enabled &,
+  [aria-current='page']:enabled & {
+    &:first-of-type {
+      color: var(--comp-menu-colour-icon-default-action);
+    }
+  }
+
+  [aria-checked='true']:enabled:hover &,
+  [aria-current='page']:enabled:hover & {
+    &:first-of-type {
+      color: var(--comp-menu-colour-icon-hover-action);
     }
   }
 `
@@ -105,18 +109,19 @@ export const ElMenuItemLabelText = styled.span`
   ${font('sm', 'regular')}
   color: var(--comp-menu-colour-text-default-primary);
 
-  [aria-checked='true'] &,
-  [aria-current='page'] & {
-    color: var(--comp-menu-colour-text-default-action);
-
-    &:hover {
-      color: var(--comp-menu-colour-text-hover-action);
-    }
-  }
-
   [aria-disabled='true'] &,
   :disabled & {
     color: var(--comp-menu-colour-text-disabled-primary);
+  }
+
+  [aria-checked='true']:enabled &,
+  [aria-current='page']:enabled & {
+    color: var(--comp-menu-colour-text-default-action);
+  }
+
+  [aria-checked='true']:enabled:hover &,
+  [aria-current='page']:enabled:hover & {
+    color: var(--comp-menu-colour-text-hover-action);
   }
 `
 

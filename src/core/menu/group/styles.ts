@@ -9,6 +9,11 @@ export const ElMenuGroup = styled.div`
 `
 
 export const ElMenuGroupLabelContainer = styled.div`
+  position: sticky;
+  top: 0;
+
+  background: var(--colour-fill-white);
+
   ${font('2xs', 'bold')}
   text-transform: uppercase;
 

@@ -1,5 +1,5 @@
 import { Badge } from '#src/core/badge'
-import { MenuGroup } from './menu-group'
+import { MenuGroup } from './group'
 import { AnchorMenuItem, MenuItem } from '../item'
 import { StarIcon } from '#src/icons/star'
 
@@ -88,7 +88,42 @@ export const Example: Story = {
  */
 export const NoLabel: Story = {
   args: {
-    'aria-label': 'Actions',
-    children: 'Simple',
+    ...Example.args,
+    label: null,
   },
+}
+
+/**
+ * Menu groups should generally have short and concise labels, but the text will flow to multiple lines
+ * if it cannot fit in the available space.
+ */
+export const Overflow: Story = {
+  args: {
+    ...Example.args,
+    label: "This is a long group title that won't fit on one line",
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '277px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+/**
+ * The menu group label will remain sticky positioned if the parent container scrolls.
+ */
+export const StickyPositioning: Story = {
+  args: {
+    ...Example.args,
+    children: 'Fancy',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', maxHeight: '100px', overflow: 'auto' }}>
+        <Story />
+      </div>
+    ),
+  ],
 }

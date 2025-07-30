@@ -1,2 +1,2 @@
-export * from './menu-group'
+export * from './group'
 export * from './styles'
