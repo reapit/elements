@@ -1,4 +1,4 @@
-import { MenuGroup } from '../menu-group'
+import { MenuGroup } from '../group'
 import { render, screen } from '@testing-library/react'
 
 test('renders a group element', () => {
