@@ -1,0 +1,97 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`produces correct CSS for the "bottom" placement 1`] = `
+"
+        top: anchor(bottom);
+        justify-self: anchor-center;
+        margin-block: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "bottom-end" placement 1`] = `
+"
+        top: anchor(bottom);
+        right: anchor(right);
+        margin-block: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "bottom-start" placement 1`] = `
+"
+        top: anchor(bottom);
+        left: anchor(left);
+        margin-block: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "left" placement 1`] = `
+"
+        align-self: anchor-center;
+        right: anchor(left);
+        margin-inline: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "left-end" placement 1`] = `
+"
+        bottom: anchor(bottom);
+        right: anchor(left);
+        margin-inline: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "left-start" placement 1`] = `
+"
+        top: anchor(top);
+        right: anchor(left);
+        margin-inline: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "right" placement 1`] = `
+"
+        align-self: anchor-center;
+        left: anchor(right);
+        margin-inline: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "right-end" placement 1`] = `
+"
+        bottom: anchor(bottom);
+        left: anchor(right);
+        margin-inline: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "right-start" placement 1`] = `
+"
+        top: anchor(top);
+        left: anchor(right);
+        margin-inline: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "top" placement 1`] = `
+"
+        bottom: anchor(top);
+        justify-self: anchor-center;
+        margin-block: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "top-end" placement 1`] = `
+"
+        bottom: anchor(top);
+        right: anchor(right);
+        margin-block: var(--fake-gap);
+      "
+`;
+
+exports[`produces correct CSS for the "top-start" placement 1`] = `
+"
+        bottom: anchor(top);
+        left: anchor(left);
+        margin-block: var(--fake-gap);
+      "
+`;

@@ -3,5 +3,5 @@
  * @returns true if CSS anchor positioning is supported, false otherwise
  */
 export function isCSSAnchorPositioningSupported() {
-  return 'anchorName' in document.documentElement.style
+  return CSS.supports('anchor-name', '--myanchor')
 }
