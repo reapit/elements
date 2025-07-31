@@ -1,5 +1,5 @@
 import { BottomBar } from './bottom-bar'
-import { DeprecatedMenu } from '#src/deprecated/menu'
+import { Menu } from '#src/core/menu'
 import { Pattern } from '../drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
 import { useRef } from 'react'
@@ -61,7 +61,7 @@ type Story = StoryObj<typeof meta>
 export const Example: Story = {
   args: {
     'aria-label': 'Bottom navigation',
-    children: 'Selected item',
+    children: 'With overflow menu',
     scrollContainerRef: { current: null },
   },
 }
@@ -69,7 +69,7 @@ export const Example: Story = {
 function buildMenu(type: 'No selected item' | 'Selected item' | 'With overflow menu') {
   return (
     <BottomBar.MenuList>
-      <BottomBar.Item aria-current={type === 'Selected item' ? 'page' : false} icon={<StarIcon />} href={href}>
+      <BottomBar.Item aria-current={type !== 'No selected item' ? 'page' : false} icon={<StarIcon />} href={href}>
         Menu 1
       </BottomBar.Item>
       <BottomBar.Item aria-current={false} icon={<StarIcon />} href={href} hasBadge>
@@ -83,9 +83,9 @@ function buildMenu(type: 'No selected item' | 'Selected item' | 'With overflow m
       </BottomBar.Item>
       {type === 'With overflow menu' ? (
         <BottomBar.MenuItem>
-          <DeprecatedMenu.Item label="Menu item 5" />
-          <DeprecatedMenu.Item label="Menu item 6" />
-          <DeprecatedMenu.Item label="Menu item 6" />
+          <Menu.Item>Menu item 5</Menu.Item>
+          <Menu.Item>Menu item 6</Menu.Item>
+          <Menu.Item>Menu item 6</Menu.Item>
         </BottomBar.MenuItem>
       ) : (
         <BottomBar.Item aria-current={false} icon={<StarIcon />} href={href}>

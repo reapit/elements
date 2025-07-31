@@ -1,5 +1,6 @@
+import { BottomBarContextProvider } from '../context'
 import { BottomBarMenuList } from './menu-list'
-import { DeprecatedMenu } from '#src/deprecated/menu'
+import { Menu } from '#src/core/menu'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
 
@@ -23,15 +24,17 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <div
-        style={{
-          boxSizing: 'content-box',
-          border: '1px solid #FA00FF',
-        }}
-      >
-        <Pattern height="120px" />
-        <Story />
-      </div>
+      <BottomBarContextProvider isOpen={true}>
+        <div
+          style={{
+            boxSizing: 'content-box',
+            border: '1px solid #FA00FF',
+          }}
+        >
+          <Pattern height="120px" />
+          <Story />
+        </div>
+      </BottomBarContextProvider>
     ),
   ],
   globals: {
@@ -81,9 +84,9 @@ function buildMenu(type: 'No selected item' | 'Selected item') {
       Menu item 4
     </BottomBarMenuList.Item>,
     <BottomBarMenuList.MenuItem key="5">
-      <DeprecatedMenu.Item label="Menu item 5" />
-      <DeprecatedMenu.Item label="Menu item 6" />
-      <DeprecatedMenu.Item label="Menu item 7" />
+      <Menu.Item>Menu item 5</Menu.Item>
+      <Menu.Item>Menu item 6</Menu.Item>
+      <Menu.Item>Menu item 7</Menu.Item>
     </BottomBarMenuList.MenuItem>,
   ]
 }

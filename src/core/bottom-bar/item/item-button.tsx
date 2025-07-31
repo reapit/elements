@@ -10,7 +10,7 @@ export interface BottomBarItemButtonProps extends ButtonHTMLAttributes<HTMLButto
   /** The nav item's icon. */
   icon: ReactNode
   /** The click handler for the nav item. */
-  onClick: MouseEventHandler<HTMLButtonElement>
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 /**
