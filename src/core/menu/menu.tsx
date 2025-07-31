@@ -1,5 +1,5 @@
 import { AnchorMenuItem, MenuItem } from './item'
-import { ElMenuContent } from './styles'
+import { elMenu } from './styles'
 import { getPopoverTriggerProps as getMenuTriggerProps } from '#src/utils/popover'
 import { MenuDivider } from './divider'
 import { MenuGroup } from './group'
@@ -45,7 +45,7 @@ export function Menu({
       {...rest}
       aria-labelledby={ariaLabelledBy}
       anchorId={ariaLabelledBy}
-      borderRadius="var(--comp-menu-border-radius)"
+      className={elMenu}
       elevation="xl"
       gap={`var(${gap})`}
       maxHeight={`var(${maxHeight})`}
@@ -55,7 +55,7 @@ export function Menu({
       popover="auto"
       role="menu"
     >
-      <ElMenuContent>{children}</ElMenuContent>
+      {children}
     </Popover>
   )
 }
