@@ -1,8 +1,11 @@
-import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
 import { ElDeprecatedIcon } from '../../../deprecated/icon'
 import { font } from '#src/core/text/index'
+import { styled } from '@linaria/react'
 
-export const ElTopBarNavDropdownButton = styled.button`
+// NOTE: We can't use styled.button here because Linaria's styled elements silently drop
+// Popover API attributes 😤
+export const elTopBarNavDropdownButton = css`
   --__padding-block: calc(var(--spacing-half) + var(--spacing-1));
   --__padding-inline: calc(var(--spacing-half) + var(--spacing-3));
 
@@ -52,7 +55,7 @@ export const ElTopBarNavDropdownButtonIcon = styled.span`
   width: var(--icon_size-s);
   height: var(--icon_size-s);
 
-  [aria-expanded='true'] & {
+  .${elTopBarNavDropdownButton}:has(~ :popover-open) & {
     transform: rotate(180deg);
   }
 `

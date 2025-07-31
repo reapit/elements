@@ -1,4 +1,5 @@
 import { css } from '@linaria/core'
+import { ElButtonIconContainer } from '../../button'
 
 // NOTE: This class is designed to be used in conjunction with the ElButton class.
 export const elSplitButtonMenuButton = css`
@@ -57,5 +58,9 @@ export const elSplitButtonMenuButton = css`
   * still elevate it, as it is focusable. */
   &:focus-visible:not(:disabled) {
     z-index: 1;
+  }
+
+  &:has(+ :popover-open) ${ElButtonIconContainer}:first-child {
+    transform: rotate(180deg);
   }
 `

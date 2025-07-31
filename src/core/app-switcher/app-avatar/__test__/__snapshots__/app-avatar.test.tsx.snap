@@ -4,7 +4,6 @@ exports[`renders agentBox icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -63,7 +62,6 @@ exports[`renders agentBox icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -121,7 +119,6 @@ exports[`renders autoResponder icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -147,7 +144,6 @@ exports[`renders autoResponder icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -173,7 +169,6 @@ exports[`renders consoleCloud icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -228,7 +223,6 @@ exports[`renders consoleCloud icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -282,7 +276,6 @@ exports[`renders ireWeb icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -323,7 +316,6 @@ exports[`renders ireWeb icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -363,7 +355,6 @@ exports[`renders keywhere icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -401,7 +392,6 @@ exports[`renders keywhere icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -439,7 +429,6 @@ exports[`renders lettingsBDM icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -465,7 +454,6 @@ exports[`renders lettingsBDM icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -491,7 +479,6 @@ exports[`renders reapitForms icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -529,7 +516,6 @@ exports[`renders reapitForms icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -567,7 +553,6 @@ exports[`renders reapitProposals icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -593,7 +578,6 @@ exports[`renders reapitProposals icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -619,7 +603,6 @@ exports[`renders reapitWebsites icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"
@@ -661,7 +644,6 @@ exports[`renders reapitWebsites icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <svg
     fill="none"
-    font-size="40"
     height="40"
     viewBox="0 0 40 40"
     width="40"

@@ -10,7 +10,7 @@ export interface TopBarNavIconItemButtonProps extends Omit<ButtonHTMLAttributes<
   /** The nav item's icon. */
   icon: ReactNode
   /** The click handler for the nav item. */
-  onClick: MouseEventHandler<HTMLButtonElement>
+  onClick?: MouseEventHandler<HTMLButtonElement>
 }
 
 /**

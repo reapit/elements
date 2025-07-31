@@ -4,10 +4,10 @@ import { AppSwitcherMenuItem } from './menu-item'
 import { AppSwitcherNavIconButton } from './nav-icon-button'
 import { AppSwitcherProductMenuItem } from './product-menu-item'
 import { AppSwitcherYourAppsMenuGroup } from './your-apps-menu-group'
-import { ElAppSwitcherSectionDivider } from './styles'
 import { getDisplayableProductsForYourAppsGroup } from './get-displayable-products-for-your-apps-group'
 import { getDisplayableProductsForExploreGroup } from './get-displayable-products-for-explore-group'
-import { DeprecatedMenu } from '#src/deprecated/menu'
+import { Menu } from '#src/core/menu'
+import { useId } from 'react'
 
 import type { ReactNode } from 'react'
 
@@ -24,20 +24,23 @@ interface AppSwitcherProps {
  * Explore group).
  */
 export function AppSwitcher({ children }: AppSwitcherProps) {
+  const triggerId = useId()
+  const menuId = useId()
+
   return (
-    <DeprecatedMenu>
-      <DeprecatedMenu.Trigger>
-        {({ getTriggerProps }) => <AppSwitcherNavIconButton {...getTriggerProps()} />}
-      </DeprecatedMenu.Trigger>
-      <DeprecatedMenu.Popover>
-        <DeprecatedMenu.List>{children}</DeprecatedMenu.List>
-      </DeprecatedMenu.Popover>
-    </DeprecatedMenu>
+    <>
+      <AppSwitcherNavIconButton
+        {...Menu.getMenuTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+      />
+      <Menu aria-labelledby={triggerId} id={menuId} placement="bottom-start">
+        {children}
+      </Menu>
+    </>
   )
 }
 
 AppSwitcher.AppAvatar = AppAvatar
-AppSwitcher.Divider = ElAppSwitcherSectionDivider
+AppSwitcher.Divider = Menu.Divider
 AppSwitcher.ExploreMenuGroup = AppSwitcherExploreMenuGroup
 AppSwitcher.MenuItem = AppSwitcherMenuItem
 AppSwitcher.ProductMenuItem = AppSwitcherProductMenuItem

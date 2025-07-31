@@ -31,25 +31,24 @@ interface AppAvatarProps {
  * access to the product. When user's do not have access, the avatar will be greyed out.
  */
 export function AppAvatar({ hasAccess, productId }: AppAvatarProps) {
-  const fontSize = '40'
   switch (productId) {
     case 'consoleCloud':
-      return hasAccess ? <ReapitPM fontSize={fontSize} /> : <ReapitPMDisabled fontSize={fontSize} />
+      return hasAccess ? <ReapitPM /> : <ReapitPMDisabled />
     case 'agentBox':
-      return hasAccess ? <ReapitSales fontSize={fontSize} /> : <ReapitSalesDisabled fontSize={fontSize} />
+      return hasAccess ? <ReapitSales /> : <ReapitSalesDisabled />
     case 'ireWeb':
-      return hasAccess ? <ReapitLettings fontSize={fontSize} /> : <ReapitLettingsDisabled fontSize={fontSize} />
+      return hasAccess ? <ReapitLettings /> : <ReapitLettingsDisabled />
     case 'reapitForms':
-      return hasAccess ? <ReapitForms fontSize={fontSize} /> : <ReapitFormsDisabled fontSize={fontSize} />
+      return hasAccess ? <ReapitForms /> : <ReapitFormsDisabled />
     case 'reapitWebsites':
-      return hasAccess ? <ReapitWebsites fontSize={fontSize} /> : <ReapitWebsitesDisabled fontSize={fontSize} />
+      return hasAccess ? <ReapitWebsites /> : <ReapitWebsitesDisabled />
     case 'reapitProposals':
-      return hasAccess ? <ReapitProposals fontSize={fontSize} /> : <ReapitProposalsDisabled fontSize={fontSize} />
+      return hasAccess ? <ReapitProposals /> : <ReapitProposalsDisabled />
     case 'keywhere':
-      return hasAccess ? <KeyWhere fontSize={fontSize} /> : <KeyWhereDisabled fontSize={fontSize} />
+      return hasAccess ? <KeyWhere /> : <KeyWhereDisabled />
     case 'autoResponder':
-      return hasAccess ? <AutoResponder fontSize={fontSize} /> : <AutoResponderDisabled fontSize={fontSize} />
+      return hasAccess ? <AutoResponder /> : <AutoResponderDisabled />
     case 'lettingsBDM':
-      return hasAccess ? <LettingsBDM fontSize={fontSize} /> : <LettingsBDMDisabled fontSize={fontSize} />
+      return hasAccess ? <LettingsBDM /> : <LettingsBDMDisabled />
   }
 }

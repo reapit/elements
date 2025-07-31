@@ -48,13 +48,6 @@ export const WithMenu: Story = {
   args: {
     children: 'With menu',
   },
-  decorators: [
-    (Story) => (
-      <div style={{ height: '300px' }}>
-        <Story />
-      </div>
-    ),
-  ],
 }
 
 function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {

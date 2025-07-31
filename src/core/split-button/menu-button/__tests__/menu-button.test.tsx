@@ -7,9 +7,6 @@ import type { ReactNode } from 'react'
 vi.mock('#src/icons/chevron-down', () => ({
   ChevronDownIcon: () => <span data-testid="chevron-down-icon" />,
 }))
-vi.mock('#src/icons/chevron-up', () => ({
-  ChevronUpIcon: () => <span data-testid="chevron-up-icon" />,
-}))
 
 test('renders a button element', () => {
   render(<SplitButtonMenuButton aria-label="Open menu" />, { wrapper })
@@ -26,14 +23,9 @@ test('forwards additional props to the underlying button', () => {
   expect(screen.getByTestId('menu-btn')).toBeVisible()
 })
 
-test('shows `ChevronDownIcon` when aria-expanded is false or not set', () => {
+test('shows `ChevronDownIcon`', () => {
   render(<SplitButtonMenuButton aria-label="Menu" />, { wrapper })
   expect(screen.getByTestId('chevron-down-icon')).toBeVisible()
-})
-
-test('shows `ChevronUpIcon` when aria-expanded is true', () => {
-  render(<SplitButtonMenuButton aria-label="Menu" aria-expanded={true} />, { wrapper })
-  expect(screen.getByTestId('chevron-up-icon')).toBeVisible()
 })
 
 test('applies size and variant from `SplitButtonContext`', () => {

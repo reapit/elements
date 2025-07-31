@@ -1,5 +1,5 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { DeprecatedMenu } from '#src/deprecated/menu'
+import { Menu } from '#src/core/menu'
+import { render, screen } from '@testing-library/react'
 import { SplitButtonContext } from '../context'
 import { SplitButtonMenu } from '../split-button-menu'
 
@@ -8,9 +8,9 @@ import type { ReactNode } from 'react'
 test('renders as a button', () => {
   render(
     <SplitButtonMenu aria-label="More">
-      <DeprecatedMenu.Item label="Item 1" />
-      <DeprecatedMenu.Item label="Item 2" />
-      <DeprecatedMenu.Item label="Item 3" />
+      <Menu.Item>Item 1</Menu.Item>
+      <Menu.Item>Item 2</Menu.Item>
+      <Menu.Item>Item 3</Menu.Item>
     </SplitButtonMenu>,
     { wrapper },
   )
@@ -30,24 +30,25 @@ test('forwards props to the underlying button', () => {
   expect(screen.getByTestId('nav-item')).toBeInstanceOf(HTMLButtonElement)
 })
 
-test('opens the menu when clicked', () => {
+test('will open the menu when clicked', () => {
   render(
     <SplitButtonMenu aria-label="More">
-      <DeprecatedMenu.Item label="Item 1" />
-      <DeprecatedMenu.Item label="Item 2" />
-      <DeprecatedMenu.Item label="Item 3" />
+      <Menu.Item>Item 1</Menu.Item>
+      <Menu.Item>Item 2</Menu.Item>
+      <Menu.Item>Item 3</Menu.Item>
     </SplitButtonMenu>,
     { wrapper },
   )
 
   const button = screen.getByRole('button')
+  const menu = screen.getByRole('menu')
 
-  fireEvent.click(button)
+  expect(button).toHaveAttribute('popovertarget', menu.id)
+})
 
-  expect(button).toHaveAttribute('aria-expanded', 'true')
-  expect(screen.getByText('Item 1')).toBeVisible()
-  expect(screen.getByText('Item 2')).toBeVisible()
-  expect(screen.getByText('Item 3')).toBeVisible()
+test('menu is labelled by the button', () => {
+  render(<SplitButtonMenu aria-label="More">Fake item</SplitButtonMenu>, { wrapper })
+  expect(screen.getByRole('menu', { name: 'More' })).toBeVisible()
 })
 
 interface WrapperProps {
