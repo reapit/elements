@@ -8,10 +8,14 @@ import {
 import { ElDeprecatedIcon } from '#src/deprecated/icon'
 
 /** @deprecated */
-export const ElDeprecatedSplitButtonActionButton = styled(DeprecatedButton)``
+export const ElDeprecatedSplitButtonActionButton = styled(DeprecatedButton)`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
-export const ElDeprecatedSplitButtonMenuButton = styled(DeprecatedButton)``
+export const ElDeprecatedSplitButtonMenuButton = styled(DeprecatedButton)`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElDeprecatedSplitButton = styled.div`

@@ -27,7 +27,9 @@ export const ElCardWrap = styled.div`
 `
 
 /** @deprecated */
-export const elCardSubHeadingWrapAvatar = css``
+export const elCardSubHeadingWrapAvatar = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElCardHeadingWrap = styled.div`
@@ -77,7 +79,9 @@ export const ElCardSubHeading = styled.h6`
   font-size: var(--font-size-smallest);
 `
 
-export const elCardSubHeadingAdditionalExpanded = css``
+export const elCardSubHeadingAdditionalExpanded = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElCardSubHeadingAdditional = styled.h6`
@@ -91,7 +95,9 @@ export const ElCardSubHeadingAdditional = styled.h6`
   justify-content: space-between;
 `
 
-export const elCardBodyWrapExpanded = css``
+export const elCardBodyWrapExpanded = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElCardBodyWrap = styled.div`
@@ -155,7 +161,9 @@ export const ElCardList = styled.div`
 `
 
 /** @deprecated */
-export const elCardListMainWrapExpanded = css``
+export const elCardListMainWrapExpanded = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElCardListMainWrap = styled.div`

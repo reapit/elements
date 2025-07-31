@@ -1,6 +1,8 @@
 import { styled } from '@linaria/react'
 
-export const ElTopBarSecondaryNav = styled.nav``
+export const ElTopBarSecondaryNav = styled.nav`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 export const ElTopBarSecondaryNavList = styled.ul`
   display: flex;

@@ -24,7 +24,9 @@ export const elTabsFullWidth = css`
 `
 
 /** @deprecated */
-export const elTabsHasNoBorder = css``
+export const elTabsHasNoBorder = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElTab = styled.input`

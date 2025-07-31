@@ -10,29 +10,53 @@ import {
 } from '../../../styles/deprecated-intent'
 
 /** @deprecated */
-export const elHasGreyText = css``
+export const elHasGreyText = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasNoMargin = css``
+export const elHasNoMargin = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasRegularText = css``
+export const elHasRegularText = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasBoldText = css``
+export const elHasBoldText = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasMediumText = css``
+export const elHasMediumText = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasMargin = css``
+export const elHasMargin = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasItalicText = css``
+export const elHasItalicText = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasCenteredText = css``
+export const elHasCenteredText = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasSectionMargin = css``
+export const elHasSectionMargin = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasDisabledText = css``
+export const elHasDisabledText = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasCapitalisedText = css``
+export const elHasCapitalisedText = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasUpperCasedText = css``
+export const elHasUpperCasedText = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const elTextBase = css`

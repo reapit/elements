@@ -3,7 +3,9 @@ import { styled } from '@linaria/react'
 import { isDesktop, isWideScreen, isTablet, isSuperWideScreen } from '../../../styles/deprecated-media'
 
 /** @deprecated */
-export const elFormLayoutHasMargin = css``
+export const elFormLayoutHasMargin = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElFormLayout = styled.div`

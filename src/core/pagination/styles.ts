@@ -1,6 +1,8 @@
 import { styled } from '@linaria/react'
 
-export const ElPagination = styled.nav``
+export const ElPagination = styled.nav`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 export const ElPaginationList = styled.ul`
   list-style: none;
@@ -12,7 +14,9 @@ export const ElPaginationList = styled.ul`
   gap: var(--spacing-6);
 `
 
-export const ElPaginationItem = styled.li``
+export const ElPaginationItem = styled.li`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 export const ElPaginationText = styled.span`
   text-align: center;

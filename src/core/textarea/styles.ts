@@ -2,7 +2,9 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import type { CSSProperties, TextareaHTMLAttributes } from 'react'
 
-export const elTextAreaHasError = css``
+export const elTextAreaHasError = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 export type ContentFieldSizing = 'content'
 export type FixedFieldSizing = 'fixed'

@@ -13,7 +13,9 @@ import {
 /**
  * @deprecated
  */
-export const elDeprecatedShapeTag = css``
+export const elDeprecatedShapeTag = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /**
  * @deprecated
