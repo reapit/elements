@@ -18,20 +18,7 @@ type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
   args: {
-    'aria-expanded': false,
     children: 'More',
-  },
-}
-
-/**
- * When the dropdown's menu is expanded, `aria-expanded` should be `true`. In this case, the button's chevron icon will
- * be rotated to visually communicate the "openness" of the menu. For accessible users, this is communicated via the
- * `aria-expanded` attribute itself.
- */
-export const Expanded: Story = {
-  args: {
-    ...Example.args,
-    'aria-expanded': true,
   },
 }
 

@@ -1,13 +1,10 @@
 import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { ElTopBarNavDropdownButton, ElTopBarNavDropdownButtonIcon, ElTopBarNavDropdownButtonLabel } from './styles'
+import { cx } from '@linaria/core'
+import { elTopBarNavDropdownButton, ElTopBarNavDropdownButtonIcon, ElTopBarNavDropdownButtonLabel } from './styles'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
 export interface TopBarNavDropdownButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  /**
-   * Whether the dropdown is expanded or not. This will typically be controlled by a `Menu.Trigger` component.
-   */
-  'aria-expanded': boolean
   /**
    * The label of the dropdown button.
    */
@@ -25,17 +22,13 @@ export interface TopBarNavDropdownButtonProps extends HTMLAttributes<HTMLButtonE
  * is correctly wrapped by a list item (`<li>`) to ensure good semantics and accessibility when used with
  * `TopBar.MainNav`.
  */
-export function TopBarNavDropdownButton({
-  'aria-expanded': ariaExpanded,
-  children,
-  ...rest
-}: TopBarNavDropdownButtonProps) {
+export function TopBarNavDropdownButton({ children, className, ...rest }: TopBarNavDropdownButtonProps) {
   return (
-    <ElTopBarNavDropdownButton {...rest} aria-expanded={ariaExpanded}>
+    <button {...rest} className={cx(elTopBarNavDropdownButton, className)}>
       <ElTopBarNavDropdownButtonLabel>{children}</ElTopBarNavDropdownButtonLabel>
       <ElTopBarNavDropdownButtonIcon aria-hidden>
         <ChevronDownIcon />
       </ElTopBarNavDropdownButtonIcon>
-    </ElTopBarNavDropdownButton>
+    </button>
   )
 }

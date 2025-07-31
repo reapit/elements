@@ -1,6 +1,5 @@
 import { Button } from '#src/core/button/index'
 import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { ChevronUpIcon } from '#src/icons/chevron-up'
 import { cx } from '@linaria/core'
 import { elSplitButtonMenuButton } from './styles'
 import { useSplitButtonContext } from '../context'
@@ -15,8 +14,6 @@ interface SplitButtonMenuButtonProps extends Omit<ButtonHTMLAttributes<HTMLButto
    * to allow a tooltip to be displayed that explains why the action is disabled.
    */
   'aria-disabled'?: boolean | 'true' | 'false'
-  /** Whether the menu this button controls is expanded */
-  'aria-expanded'?: boolean | 'true' | 'false'
   /** The button's label */
   'aria-label': string
   /**
@@ -32,18 +29,13 @@ interface SplitButtonMenuButtonProps extends Omit<ButtonHTMLAttributes<HTMLButto
  * The `SplitButton.MenuButton` component is used to represent the menu button in a `SplitButton`. It will typically
  * be used via `SplitButton.Menu`, which includes the `Menu` component baked-in.
  */
-export function SplitButtonMenuButton({
-  'aria-expanded': ariaExpanded,
-  className,
-  ...rest
-}: SplitButtonMenuButtonProps) {
+export function SplitButtonMenuButton({ className, ...rest }: SplitButtonMenuButtonProps) {
   const { size, variant } = useSplitButtonContext()
   return (
     <Button
       {...rest}
-      aria-expanded={ariaExpanded}
       className={cx(elSplitButtonMenuButton, className)}
-      iconLeft={ariaExpanded ? <ChevronUpIcon /> : <ChevronDownIcon />}
+      iconLeft={<ChevronDownIcon />}
       size={size}
       variant={variant}
     />

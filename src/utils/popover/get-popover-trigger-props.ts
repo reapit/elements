@@ -1,9 +1,11 @@
 interface GetPopoverTriggerPropsInput {
+  id: string
   popoverTarget: string
   popoverTargetAction: 'hide' | 'show' | 'toggle'
 }
 
 interface GetPopoverTriggerPropsOutput {
+  id: string
   popovertarget: string
   popovertargetaction: 'hide' | 'show' | 'toggle'
 }
@@ -23,10 +25,12 @@ interface GetPopoverTriggerPropsOutput {
  * @returns popover trigger attributes for use in React 18 consumers.
  */
 export function getPopoverTriggerProps({
+  id,
   popoverTarget,
   popoverTargetAction,
 }: GetPopoverTriggerPropsInput): GetPopoverTriggerPropsOutput {
   return {
+    id,
     popovertarget: popoverTarget,
     popovertargetaction: popoverTargetAction,
   }

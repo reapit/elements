@@ -4,12 +4,17 @@ import * as stories from '../app-switcher.stories'
 
 const AppSwitcherStories = composeStories(stories)
 
-test('menu is not visible by default', () => {
+test('app switcher button will open the menu when clicked', () => {
   render(<AppSwitcherStories.Example />)
-  // NOTE: the underlying menu component currently assigns role="menu" to the content of the popover
-  // which is not rendered when the menu is closed, hence our use of `queryByRole and `toBeInTheDocument`
-  // instead of `getByRole` and `toBeVisible`.
-  expect(screen.queryByRole('menu')).not.toBeInTheDocument()
+
+  const trigger = screen.getByRole('button', { name: 'App Switcher' })
+  const menu = screen.getByRole('menu')
+  expect(trigger).toHaveAttribute('popovertarget', menu.id)
+})
+
+test('menu is labelled by the trigger button', () => {
+  render(<AppSwitcherStories.Example />)
+  expect(screen.getByRole('menu', { name: 'App Switcher' })).toBeVisible()
 })
 
 test('menu trigger button is visible', () => {

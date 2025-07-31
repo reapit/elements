@@ -36,19 +36,13 @@ export const Example: Story = {
       <AppSwitcher.YourAppsMenuGroup key="1">
         <AppSwitcher.ProductMenuItem href={href} productId="ireWeb" />
       </AppSwitcher.YourAppsMenuGroup>,
-      <AppSwitcher.ExploreMenuGroup key="2">
+      <AppSwitcher.Divider key="2" />,
+      <AppSwitcher.ExploreMenuGroup key="3">
         <AppSwitcher.ProductMenuItem href={href} productId="consoleCloud" />
         <AppSwitcher.ProductMenuItem href={href} productId="keywhere" />
       </AppSwitcher.ExploreMenuGroup>,
     ],
   },
-  decorators: [
-    (Story) => (
-      <div style={{ width: '400px', height: '400px' }}>
-        <Story />
-      </div>
-    ),
-  ],
 }
 
 /**
@@ -95,11 +89,14 @@ export const AllAccessible: StoryObj<{ accessibleProductIds: string[] }> = {
     return (
       <>
         {displayableProductsForYourAppsGroup.length > 0 && (
-          <AppSwitcher.YourAppsMenuGroup>
-            {displayableProductsForYourAppsGroup.map((productId) => (
-              <AppSwitcher.ProductMenuItem key={productId} href={href} productId={productId} />
-            ))}
-          </AppSwitcher.YourAppsMenuGroup>
+          <>
+            <AppSwitcher.YourAppsMenuGroup>
+              {displayableProductsForYourAppsGroup.map((productId) => (
+                <AppSwitcher.ProductMenuItem key={productId} href={href} productId={productId} />
+              ))}
+            </AppSwitcher.YourAppsMenuGroup>
+            <AppSwitcher.Divider />
+          </>
         )}
         {displayableProductsForExploreGroup.length > 0 && (
           <AppSwitcher.ExploreMenuGroup>

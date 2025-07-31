@@ -3,20 +3,17 @@
 exports[`renders AppSwitcherExploreMenuGroup properly 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-10 el-deprecated-menu-item-group"
+    aria-labelledby=":r0:"
+    class="mocked-styled-1 el-menu-group"
     role="group"
   >
     <div
-      class="mocked-styled-9 el-deprecated-menu-item-group-title"
+      class="mocked-styled-2 el-menu-group-label-container"
+      id=":r0:"
     >
       EXPLORE
     </div>
-    <div
-      class="mocked-styled-11 el-deprecated-menu-item-group-list"
-      style="max-height: var(undefined);"
-    >
-      Fake child
-    </div>
+    Fake child
   </div>
 </DocumentFragment>
 `;

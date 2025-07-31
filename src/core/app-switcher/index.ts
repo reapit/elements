@@ -1,4 +1,3 @@
-export * from './styles'
 export * from './app-avatar'
 export * from './app-switcher'
 export * from './explore-menu-group'

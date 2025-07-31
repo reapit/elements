@@ -1,5 +1,4 @@
-import { fireEvent, render, screen } from '@testing-library/react'
-import { DeprecatedMenu } from '#src/deprecated/menu'
+import { render, screen } from '@testing-library/react'
 import { StarIcon } from '#src/icons/star'
 import { TopBarSecondaryNavMenuListItem } from '../secondary-nav-menu-list-item'
 
@@ -31,18 +30,21 @@ test('forwards props to the underlying nav item', () => {
 test('opens the menu when clicked', () => {
   render(
     <TopBarSecondaryNavMenuListItem aria-label="More" icon={<StarIcon />}>
-      <DeprecatedMenu.Item label="Item 1" />
-      <DeprecatedMenu.Item label="Item 2" />
-      <DeprecatedMenu.Item label="Item 3" />
+      Fake item
     </TopBarSecondaryNavMenuListItem>,
   )
 
   const button = screen.getByRole('button')
+  const menu = screen.getByRole('menu')
 
-  fireEvent.click(button)
+  expect(button).toHaveAttribute('popovertarget', menu.id)
+})
 
-  expect(button).toHaveAttribute('aria-expanded', 'true')
-  expect(screen.getByText('Item 1')).toBeVisible()
-  expect(screen.getByText('Item 2')).toBeVisible()
-  expect(screen.getByText('Item 3')).toBeVisible()
+test('menu is labelled by the button', () => {
+  render(
+    <TopBarSecondaryNavMenuListItem aria-label="More" icon={<StarIcon />}>
+      Fake child
+    </TopBarSecondaryNavMenuListItem>,
+  )
+  expect(screen.getByRole('menu', { name: 'More' })).toBeVisible()
 })
