@@ -2,7 +2,7 @@ import { TopBarNavIconItemBase } from './nav-icon-item-base'
 
 import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
-export interface TopBarNavIconItemButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface TopBarNavIconItemButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
   /** The accessible name of the nav icon item. */
   'aria-label': string
   /** Optional badge to be displayed on the nav item */

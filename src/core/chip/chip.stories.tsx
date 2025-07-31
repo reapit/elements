@@ -1,7 +1,8 @@
 import { Chip } from './chip'
-import { DeprecatedTooltip, useDeprecatedTooltip } from '#src/deprecated/tooltip'
+import { Tooltip } from '#src/core/tooltip'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { useId } from 'react'
 
 const meta = {
   title: 'Core/Chip',
@@ -70,11 +71,16 @@ export const Disabled: Story = {
     'aria-disabled': true,
   },
   render: function DisabledChipStory(args) {
-    const tooltip = useDeprecatedTooltip()
+    const chipId = useId()
     return (
       <>
-        <Chip {...args} {...tooltip.getTriggerProps()} />
-        <DeprecatedTooltip description="Because reasons" position="top" {...tooltip.getTooltipProps()} />
+        <Chip
+          {...args}
+          {...Tooltip.getTooltipTriggerProps({ id: chipId, tooltipId: 'tooltip', tooltipPurpose: 'describe' })}
+        />
+        <Tooltip id="tooltip" triggerId={chipId}>
+          Because reasons
+        </Tooltip>
       </>
     )
   },

@@ -71,9 +71,30 @@ test('forwards additional props to the underlying element', () => {
 
 test('applies aria-label when provided', () => {
   render(
-    <Badge colour="neutral" aria-label="Accessible Badge">
+    <Badge colour="neutral" data-testid="my-badge" aria-label="Accessible Badge">
       Test Badge
     </Badge>,
   )
-  expect(screen.getByLabelText('Accessible Badge')).toBeVisible()
+  const labelledElement = screen.getByLabelText('Accessible Badge')
+  expect(labelledElement).toBeVisible()
+  expect(screen.getByTestId('my-badge')).toBe(labelledElement)
+})
+
+test('icon-only badges are labelled by their tooltip', () => {
+  render(
+    <Badge
+      aria-label="Accessible Badge"
+      colour="neutral"
+      data-testid="my-badge"
+      iconLeft={<StarIcon data-testid="left-icon" />}
+    />,
+  )
+  const tooltip = screen.getByRole('tooltip')
+  expect(tooltip).toBeVisible()
+  expect(screen.getByTestId('my-badge')).toHaveAttribute('aria-labelledby', tooltip.id)
+})
+
+test('icon-only badge has no tooltip if aria-label is not provided', () => {
+  render(<Badge colour="neutral" data-testid="my-badge" iconLeft={<StarIcon data-testid="left-icon" />} />)
+  expect(screen.queryByRole('tooltip')).not.toBeInTheDocument()
 })

@@ -2,13 +2,13 @@ import { ContactIcon } from '#src/icons/contact'
 import { HelpIcon } from '#src/icons/help'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
-import { TopBarNavIconItemAnchor } from './nav-icon-item-anchor'
+import { TopBarNavIconItem } from './nav-icon-item'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Core/TopBar/NavIconItemAnchor',
-  component: TopBarNavIconItemAnchor,
+  component: TopBarNavIconItem,
   argTypes: {
     'aria-current': {
       control: 'radio',
@@ -31,7 +31,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TopBarNavIconItemAnchor>
+} satisfies Meta<typeof TopBarNavIconItem>
 
 export default meta
 
