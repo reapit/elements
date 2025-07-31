@@ -1,38 +1,38 @@
 import { renderHook } from '@testing-library/react'
 import { render, screen, fireEvent } from '@testing-library/react'
-import { useTooltip } from '../use-tooltip'
+import { useDeprecatedTooltip } from '../use-tooltip'
 import { DeprecatedButton } from '../../../deprecated/button'
-import { Tooltip } from '../tooltip'
+import { DeprecatedTooltip } from '../tooltip'
 import { describe, expect, test } from 'vitest'
 
 // Helper component to test hook behavior
 const TooltipTestComponent = () => {
-  const tooltip = useTooltip()
+  const tooltip = useDeprecatedTooltip()
 
   return (
     <>
       <DeprecatedButton {...tooltip.getTriggerProps()}>Hover me</DeprecatedButton>
-      <Tooltip {...tooltip.getTooltipProps()} description="Tooltip description" />
+      <DeprecatedTooltip {...tooltip.getTooltipProps()} description="Tooltip description" />
     </>
   )
 }
 
 const TooltipTruncatedTextComponent = () => {
   const mockId = 'mock-truncated-id'
-  const tooltip = useTooltip({ truncationTargetId: mockId })
+  const tooltip = useDeprecatedTooltip({ truncationTargetId: mockId })
   return (
     <>
       <div id={mockId} {...tooltip.getTriggerProps()}>
         Text is truncated here
       </div>
-      <Tooltip {...tooltip.getTooltipProps()} description="Tooltip Text is truncated here" />
+      <DeprecatedTooltip {...tooltip.getTooltipProps()} description="Tooltip Text is truncated here" />
     </>
   )
 }
 
 describe('useTooltip', () => {
   test('should return tooltip, trigger and truncation target props', () => {
-    const { result } = renderHook(() => useTooltip())
+    const { result } = renderHook(() => useDeprecatedTooltip())
 
     const triggerProps = result.current.getTriggerProps()
     const tooltipProps = result.current.getTooltipProps()

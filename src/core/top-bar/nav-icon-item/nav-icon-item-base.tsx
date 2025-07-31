@@ -1,6 +1,6 @@
 import { cx } from '@linaria/core'
 import { ElTopBarNavIconItemBadge, ElTopBarNavIconItemIcon, elTopBarNavIconItem } from './styles'
-import { Tooltip, useTooltip } from '../../tooltip'
+import { DeprecatedTooltip, useDeprecatedTooltip } from '#src/deprecated/tooltip'
 
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, ReactNode } from 'react'
 
@@ -30,12 +30,12 @@ export type TopBarNavIconItemBaseProps = TopBarNavIconItemAsAnchorProps | TopBar
  * `TopBar.NavIconItemAnchor` and `TopBar.NavIconItemButton` components and should not be used directly by consumers.
  */
 export function TopBarNavIconItemBase({ as: Element, className, icon, hasBadge, ...rest }: TopBarNavIconItemBaseProps) {
-  const tooltip = useTooltip()
+  const tooltip = useDeprecatedTooltip()
   return (
     <Element {...tooltip.getTriggerProps(rest)} className={cx(elTopBarNavIconItem, className)}>
       <ElTopBarNavIconItemIcon aria-hidden="true">{icon}</ElTopBarNavIconItemIcon>
       {hasBadge && <ElTopBarNavIconItemBadge />}
-      <Tooltip {...tooltip.getTooltipProps()} description={rest['aria-label']} position="bottom" />
+      <DeprecatedTooltip {...tooltip.getTooltipProps()} description={rest['aria-label']} position="bottom" />
     </Element>
   )
 }

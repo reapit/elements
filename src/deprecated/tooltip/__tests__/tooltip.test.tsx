@@ -1,9 +1,9 @@
 import React from 'react'
 import { vi } from 'vitest'
 import { fireEvent, render } from '@testing-library/react'
-import { useTooltip } from '../use-tooltip'
+import { useDeprecatedTooltip } from '../use-tooltip'
 import { DeprecatedButton } from '../../../deprecated/button'
-import { Tooltip } from '../tooltip'
+import { DeprecatedTooltip } from '../tooltip'
 
 // Mock createPortal for rendering Tooltip to the body
 vi.mock('react-dom', async () => {
@@ -17,11 +17,11 @@ vi.mock('react-dom', async () => {
 describe('Tooltip with createPortal', () => {
   it('should render the tooltip when visible', () => {
     const TestComponent = () => {
-      const tooltip = useTooltip()
+      const tooltip = useDeprecatedTooltip()
       return (
         <>
           <DeprecatedButton {...tooltip.getTriggerProps()}>Hover me</DeprecatedButton>
-          <Tooltip
+          <DeprecatedTooltip
             {...tooltip.getTooltipProps()}
             label="Label"
             description="This is a tooltip"
@@ -44,11 +44,11 @@ describe('Tooltip with createPortal', () => {
 
   it('should not render the tooltip when hidden', () => {
     const TestComponent = () => {
-      const tooltip = useTooltip()
+      const tooltip = useDeprecatedTooltip()
       return (
         <>
           <DeprecatedButton {...tooltip.getTriggerProps()}>Hover me</DeprecatedButton>
-          <Tooltip
+          <DeprecatedTooltip
             {...tooltip.getTooltipProps()}
             label="Label"
             description="This is a tooltip"

@@ -1,14 +1,14 @@
 import { Meta } from '@storybook/react-vite'
 import { DeprecatedButton } from '../../deprecated/button'
-import { useTooltip } from './use-tooltip'
-import { Tooltip, TooltipProps } from './tooltip'
-import { ElTooltip, ElTooltipLabel } from './styles'
+import { useDeprecatedTooltip } from './use-tooltip'
+import { DeprecatedTooltip, DeprecatedTooltipProps } from './tooltip'
+import { ElDeprecatedTooltip, ElDeprecatedTooltipLabel } from './styles'
 import { useId } from 'react'
 import { FlexContainer } from '../../deprecated/layout'
 
-const meta: Meta<typeof Tooltip> = {
+const meta: Meta<typeof DeprecatedTooltip> = {
   title: 'Core/Tooltip',
-  component: Tooltip,
+  component: DeprecatedTooltip,
   argTypes: {
     description: {
       control: 'text',
@@ -98,12 +98,12 @@ export const BasicUsage = {
     ),
   ],
   render: (args: any) => {
-    const tooltip = useTooltip()
+    const tooltip = useDeprecatedTooltip()
 
     return (
       <>
         <DeprecatedButton {...tooltip.getTriggerProps()}>Hover me</DeprecatedButton>
-        <Tooltip {...tooltip.getTooltipProps()} {...args} />
+        <DeprecatedTooltip {...tooltip.getTooltipProps()} {...args} />
       </>
     )
   },
@@ -125,17 +125,17 @@ render: () => {
 }
 
 // Mock createPortal for this story
-const MockedTooltip = (props: TooltipProps) => {
+const MockedTooltip = (props: DeprecatedTooltipProps) => {
   const content = (
-    <ElTooltip
+    <ElDeprecatedTooltip
       role="tooltip"
       data-position={props.position}
       style={{ maxWidth: props.maxWidth }}
       data-is-visible={true}
     >
-      {props.label && <ElTooltipLabel>{props.label}: </ElTooltipLabel>}
+      {props.label && <ElDeprecatedTooltipLabel>{props.label}: </ElDeprecatedTooltipLabel>}
       {props.description}
-    </ElTooltip>
+    </ElDeprecatedTooltip>
   )
 
   return content
@@ -168,7 +168,7 @@ const MockedTooltip = (props: TooltipProps) => {
 
  *
  * ```
- * 
+ *
  * <div id={truncatedId}>Text will get truncated</div>
  * ```
  */
@@ -178,12 +178,12 @@ export const ConditionalDisplay = {
     const truncatedElementId2 = useId()
     const tooltipData = [
       {
-        tooltip: useTooltip({ truncationTargetId: truncatedElementId1 }),
+        tooltip: useDeprecatedTooltip({ truncationTargetId: truncatedElementId1 }),
         text: 'Text is truncated here',
         id: truncatedElementId1,
       },
       {
-        tooltip: useTooltip({ truncationTargetId: truncatedElementId2 }),
+        tooltip: useDeprecatedTooltip({ truncationTargetId: truncatedElementId2 }),
         text: 'Text not truncated',
         id: truncatedElementId2,
       },
@@ -217,7 +217,7 @@ export const ConditionalDisplay = {
             >
               {text}
             </span>
-            <Tooltip {...tooltip.getTooltipProps()} description={text} />
+            <DeprecatedTooltip {...tooltip.getTooltipProps()} description={text} />
           </div>
         ))}
       </div>
@@ -304,10 +304,10 @@ export const DynamicDisplayTooltipExample = {
     maxWidth: '400px',
   },
   render: (args) => {
-    const tooltipTopLeft = useTooltip()
-    const tooltipTopRight = useTooltip()
-    const tooltipBottomRight = useTooltip()
-    const tooltipBottomLeft = useTooltip()
+    const tooltipTopLeft = useDeprecatedTooltip()
+    const tooltipTopRight = useDeprecatedTooltip()
+    const tooltipBottomRight = useDeprecatedTooltip()
+    const tooltipBottomLeft = useDeprecatedTooltip()
     // Pass args to MockedTooltip to make it reactive
     return (
       <FlexContainer>
@@ -323,15 +323,15 @@ export const DynamicDisplayTooltipExample = {
         >
           <FlexContainer isFlexJustifyBetween>
             <DeprecatedButton {...tooltipTopLeft.getTriggerProps()}>Hover me</DeprecatedButton>
-            <Tooltip {...tooltipTopLeft.getTooltipProps()} {...args} />
+            <DeprecatedTooltip {...tooltipTopLeft.getTooltipProps()} {...args} />
             <DeprecatedButton {...tooltipTopRight.getTriggerProps()}>Hover me</DeprecatedButton>
-            <Tooltip {...tooltipTopRight.getTooltipProps()} {...args} />
+            <DeprecatedTooltip {...tooltipTopRight.getTooltipProps()} {...args} />
           </FlexContainer>
           <FlexContainer isFlexJustifyBetween>
             <DeprecatedButton {...tooltipBottomRight.getTriggerProps()}>Hover me</DeprecatedButton>
-            <Tooltip {...tooltipBottomRight.getTooltipProps()} {...args} />
+            <DeprecatedTooltip {...tooltipBottomRight.getTooltipProps()} {...args} />
             <DeprecatedButton {...tooltipBottomLeft.getTriggerProps()}>Hover me</DeprecatedButton>
-            <Tooltip {...tooltipBottomLeft.getTooltipProps()} {...args} />
+            <DeprecatedTooltip {...tooltipBottomLeft.getTooltipProps()} {...args} />
           </FlexContainer>
         </FlexContainer>
       </FlexContainer>

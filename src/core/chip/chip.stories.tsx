@@ -1,6 +1,5 @@
 import { Chip } from './chip'
-import { Tooltip } from '../tooltip'
-import { useTooltip } from '../tooltip/use-tooltip'
+import { DeprecatedTooltip, useDeprecatedTooltip } from '#src/deprecated/tooltip'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -68,14 +67,14 @@ export const SelectionChip: Story = {
 export const Disabled: Story = {
   args: {
     ...FilterChip.args,
-    disabled: true,
+    'aria-disabled': true,
   },
   render: function DisabledChipStory(args) {
-    const tooltip = useTooltip()
+    const tooltip = useDeprecatedTooltip()
     return (
       <>
         <Chip {...args} {...tooltip.getTriggerProps()} />
-        <Tooltip description="Because reasons" position="top" {...tooltip.getTooltipProps()} />
+        <DeprecatedTooltip description="Because reasons" position="top" {...tooltip.getTooltipProps()} />
       </>
     )
   },

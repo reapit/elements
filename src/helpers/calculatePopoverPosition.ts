@@ -49,8 +49,9 @@ export interface calculatePopoverPositionProps {
  * @param {HTMLElement} popoverElement - The popover element to be positioned.
  * @param {string} [position='bottom-start'] - Preferred position of the popover.
  * @param {number} [popoverOffset=4] - The spacing between the trigger and popover.
+ *
+ * @deprecated
  */
-
 const calculatePopoverPosition = ({
   triggerElement,
   popoverElement,

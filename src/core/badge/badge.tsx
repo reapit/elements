@@ -1,5 +1,5 @@
 import { ElBadge, ElBadgeLabelContainer, ElBadgeIconContainer } from './styles'
-import { Tooltip, useTooltip } from '../tooltip'
+import { DeprecatedTooltip, useDeprecatedTooltip } from '#src/deprecated/tooltip'
 
 import type { BadgeColour } from './styles'
 import type { HTMLAttributes, ReactNode } from 'react'
@@ -34,7 +34,7 @@ export function Badge({
   // It's an icon-only badge if there's no label text and only one icon
   const isIconOnly = !children && (iconLeft || iconRight) && !(iconLeft && iconRight)
 
-  const tooltip = useTooltip()
+  const tooltip = useDeprecatedTooltip()
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- We don't need the aria-describedby prop
   const { 'aria-describedby': _, ...triggerProps } = tooltip.getTriggerProps(rest)
@@ -44,7 +44,9 @@ export function Badge({
       {iconLeft && <ElBadgeIconContainer aria-hidden>{iconLeft}</ElBadgeIconContainer>}
       {children && <ElBadgeLabelContainer>{children}</ElBadgeLabelContainer>}
       {iconRight && <ElBadgeIconContainer aria-hidden>{iconRight}</ElBadgeIconContainer>}
-      {isIconOnly && ariaLabel && <Tooltip {...tooltip.getTooltipProps()} description={ariaLabel} position="top" />}
+      {isIconOnly && ariaLabel && (
+        <DeprecatedTooltip {...tooltip.getTooltipProps()} description={ariaLabel} position="top" />
+      )}
     </ElBadge>
   )
 }
