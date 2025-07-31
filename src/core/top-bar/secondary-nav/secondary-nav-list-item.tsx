@@ -1,9 +1,9 @@
 import { ElTopBarSecondaryNavListItem } from './styles'
-import { TopBarNavIconItemAnchor } from '../nav-icon-item'
+import { TopBarNavIconItem } from '../nav-icon-item'
 
 import type { ComponentProps } from 'react'
 
-interface TopBarSecondaryNavListItemProps extends ComponentProps<typeof TopBarNavIconItemAnchor> {}
+interface TopBarSecondaryNavListItemProps extends ComponentProps<typeof TopBarNavIconItem> {}
 
 /**
  * A thin wrapper around `TopBarNavIconItemAnchor` that ensures it is contained within a list item (`<li>`) for
@@ -14,7 +14,7 @@ interface TopBarSecondaryNavListItemProps extends ComponentProps<typeof TopBarNa
 export function TopBarSecondaryNavListItem({ children, ...props }: TopBarSecondaryNavListItemProps) {
   return (
     <ElTopBarSecondaryNavListItem>
-      <TopBarNavIconItemAnchor {...props}>{children}</TopBarNavIconItemAnchor>
+      <TopBarNavIconItem {...props}>{children}</TopBarNavIconItem>
     </ElTopBarSecondaryNavListItem>
   )
 }

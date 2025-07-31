@@ -2,7 +2,7 @@ import { TopBarNavIconItemBase } from './nav-icon-item-base'
 
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-interface TopBarNavIconItemAnchorProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
+interface TopBarNavIconItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
   /** Whether the nav item represents the current page. */
   'aria-current': 'page' | false
   /** The accessible name of the nav icon item. */
@@ -35,6 +35,6 @@ interface TopBarNavIconItemAnchorProps extends AnchorHTMLAttributes<HTMLAnchorEl
  * }
  * ```
  */
-export function TopBarNavIconItemAnchor(props: TopBarNavIconItemAnchorProps) {
+export function TopBarNavIconItem(props: TopBarNavIconItemProps) {
   return <TopBarNavIconItemBase {...props} as="a" />
 }
