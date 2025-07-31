@@ -1,9 +1,10 @@
-import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
 import { ElMenuGroup } from './group'
 import { ElMenuDivider } from './divider'
 
-export const ElMenuContent = styled.div`
+export const elMenu = css`
   background: var(--colour-fill-white);
+  border-radius: var(--comp-menu-border-radius);
 
   padding: var(--spacing-2);
 

@@ -44,12 +44,14 @@ export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
    * [popover](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover)
    * for more details.
    *
+   * For browsers that do not support `hint`, they will fallback to `manual`.
+   *
    * A special value of `null` allows the popover to not be a popover. This can be useful when you need
    * to display a popover element permanently in the UI (such as in documentation or example code). Just
    * note that the absence of the `popover` attribute means the element will not be displayed within the
    * top-layer, so may be susceptible to z-index issues.
    */
-  popover?: 'auto' | 'manual' | null
+  popover?: 'auto' | 'hint' | 'manual' | null
   /** Where the popover should be placed relative to its anchor. */
   placement: PopoverPlacement
   /**
