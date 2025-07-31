@@ -2,7 +2,9 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 /** @deprecated */
-export const elAvatarSmall = css``
+export const elAvatarSmall = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated will be replaced by new v5 ElAvatarRectangle */
 export const ElDeprecatedAvatar = styled.div`

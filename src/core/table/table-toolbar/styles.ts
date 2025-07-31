@@ -23,4 +23,6 @@ export const ElTableToolbarDescription = styled.div`
   letter-spacing: var(--font-sm-regular-letter_spacing);
 `
 
-export const ElTableToolbarActions = styled.div``
+export const ElTableToolbarActions = styled.div`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`

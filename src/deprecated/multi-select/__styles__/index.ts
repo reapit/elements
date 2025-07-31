@@ -13,7 +13,9 @@ const dismiss = (fill: string) =>
   )}"/></svg>`
 
 /** @deprecated */
-export const elHasGreyChips = css``
+export const elHasGreyChips = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElMultiSelectCheckbox = styled.input`

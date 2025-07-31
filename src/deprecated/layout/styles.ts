@@ -3,9 +3,13 @@ import { elHFull } from '../../styles/deprecated-sizing'
 import { css } from '@linaria/core'
 
 /** @deprecated */
-export const elHasGreyBackground = css``
+export const elHasGreyBackground = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elHasMaxWidth = css``
+export const elHasMaxWidth = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const elMainContainer = css`

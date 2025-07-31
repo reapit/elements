@@ -11,7 +11,9 @@ const dot = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" wid
 `
 
 /** @deprecated */
-export const elDeprecatedPageHeaderMaxWidth = css``
+export const elDeprecatedPageHeaderMaxWidth = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElDeprecatedPageHeaderContainer = styled.div`

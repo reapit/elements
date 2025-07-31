@@ -157,7 +157,9 @@ export const elTableNarrowCellIsFullWidth = css`
 `
 
 /** @deprecated */
-export const elTableCellHasDarkText = css``
+export const elTableCellHasDarkText = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const elTableRowFocused = css`

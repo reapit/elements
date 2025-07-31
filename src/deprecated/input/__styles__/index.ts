@@ -2,7 +2,9 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
 /** @deprecated */
-export const elHasInputError = css``
+export const elHasInputError = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElInput = styled.input`

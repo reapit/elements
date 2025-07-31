@@ -2,7 +2,9 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
 /** @deprecated */
-export const elHasGreyBg = css``
+export const elHasGreyBg = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElToggleItem = styled.span`

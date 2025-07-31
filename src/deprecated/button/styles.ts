@@ -3,29 +3,51 @@ import { styled } from '@linaria/react'
 import { isMobile } from '#src/styles/deprecated-media'
 
 /** @deprecated */
-export const elDeprecatedButtonSizeSmall = css``
+export const elDeprecatedButtonSizeSmall = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elDeprecatedButtonSizeMedium = css``
+export const elDeprecatedButtonSizeMedium = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elDeprecatedButtonSizeLarge = css``
+export const elDeprecatedButtonSizeLarge = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
-export const elDeprecatedButtonLabel = css``
+export const elDeprecatedButtonLabel = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elDeprecatedIcon = css``
+export const elDeprecatedIcon = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elDeprecatedButtonIconOnly = css``
+export const elDeprecatedButtonIconOnly = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elDeprecatedButtonSpinner = css``
+export const elDeprecatedButtonSpinner = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated - Will be removed from future version */
-export const elDeprecatedFloatingButton = css``
+export const elDeprecatedFloatingButton = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elDeprecatedButtonGroupAlignLeft = css``
+export const elDeprecatedButtonGroupAlignLeft = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elDeprecatedButtonGroupAlignRight = css``
+export const elDeprecatedButtonGroupAlignRight = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 /** @deprecated */
-export const elDeprecatedButtonGroupAlignCenter = css``
+export const elDeprecatedButtonGroupAlignCenter = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElDeprecatedButtonSpinner = styled.div`
@@ -68,7 +90,7 @@ const baseButtonStyles = `
   border-radius: var(--comp-button-border-radius-default);
   border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
   text-decoration: none; /* For anchors */
-  
+
   .${elDeprecatedIcon} {
     padding: var(--spacing-half);
     color: var(--comp-button-colour-icon-secondary-defaul);
@@ -113,7 +135,7 @@ const baseButtonStyles = `
       font-weight: var(--font-base-medium-weight);
       line-height: var(--font-base-medium-line_height);
       letter-spacing: var(--font-base-medium-letter_spacing);
-      
+
     }
     .${elDeprecatedButtonSpinner} {
       height: 1.125rem;
@@ -211,7 +233,7 @@ const baseButtonStyles = `
       0px 0px 0px 4px var(--purple-300);
     outline: 0;
   }
-  
+
   /* TODO: no the token variable names not updated, since no design guide in figma */
   &.${elDeprecatedFloatingButton} {
     border-radius: 100%;

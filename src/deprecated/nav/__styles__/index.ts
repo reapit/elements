@@ -69,7 +69,9 @@ export const ElDeprecatedNavSubContainer = styled.div`
 `
 
 /** @deprecated */
-export const elDeprecatedNavItemSecondary = css``
+export const elDeprecatedNavItemSecondary = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 /** @deprecated */
 export const ElDeprecatedNavItem = styled.a`
@@ -329,7 +331,9 @@ export const ElDeprecatedNavResponsiveAvatarWrap = styled.div`
   }
 `
 
-export const elAppSwitcherOpen = css``
+export const elAppSwitcherOpen = css`
+  /* https://github.com/Anber/wyw-in-js/issues/144 */
+`
 
 export const ElNavResponsiveAppSwitcherWrap = styled.div`
   position: relative;
