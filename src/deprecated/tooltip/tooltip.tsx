@@ -1,9 +1,10 @@
 import { FC, HTMLAttributes } from 'react'
-import { ElTooltip, ElTooltipLabel } from './styles'
+import { ElDeprecatedTooltip, ElDeprecatedTooltipLabel } from './styles'
 import { createPortal } from 'react-dom'
 import { PopoverPosition } from '../../helpers/calculatePopoverPosition'
 
-export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
+/** @deprecated */
+export interface DeprecatedTooltipProps extends HTMLAttributes<HTMLDivElement> {
   label?: string
   description: string
   isVisible?: boolean
@@ -11,7 +12,8 @@ export interface TooltipProps extends HTMLAttributes<HTMLDivElement> {
   position?: PopoverPosition
 }
 
-export const Tooltip: FC<TooltipProps> = ({
+/** @deprecated */
+export const DeprecatedTooltip: FC<DeprecatedTooltipProps> = ({
   isVisible,
   label,
   description,
@@ -20,10 +22,10 @@ export const Tooltip: FC<TooltipProps> = ({
   ...rest
 }) => {
   const tooltip = (
-    <ElTooltip role="tooltip" data-position={position} style={{ maxWidth: maxWidth }} {...rest}>
-      {label && <ElTooltipLabel>{label}: </ElTooltipLabel>}
+    <ElDeprecatedTooltip role="tooltip" data-position={position} style={{ maxWidth: maxWidth }} {...rest}>
+      {label && <ElDeprecatedTooltipLabel>{label}: </ElDeprecatedTooltipLabel>}
       {description}
-    </ElTooltip>
+    </ElDeprecatedTooltip>
   )
   if (!isVisible) {
     return null

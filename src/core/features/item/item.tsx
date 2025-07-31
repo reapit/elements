@@ -1,6 +1,5 @@
 import { ElFeaturesItem, ElFeaturesItemValue, ElFeaturesItemIcon } from './styles'
-import { useTooltip } from '../../tooltip/use-tooltip'
-import { Tooltip } from '../../tooltip'
+import { DeprecatedTooltip, useDeprecatedTooltip } from '#src/deprecated/tooltip'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
@@ -19,7 +18,7 @@ export function FeaturesItem({ icon, label, value, ...rest }: FeaturesItemProps)
   // TODO: Tooltip always wires up `aria-describedby` between the trigger and the tooltip, but we don't actually
   // want to do that here. In this case, we really just want the tooltip for visual users as `aria-describedby`
   // interferes with the a11y.
-  const { getTooltipProps, getTriggerProps } = useTooltip()
+  const { getTooltipProps, getTriggerProps } = useDeprecatedTooltip()
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars -- we don't want aria-describedby on the trigger
   const { 'aria-describedby': _, ...triggerProps } = getTriggerProps(rest)
@@ -28,7 +27,7 @@ export function FeaturesItem({ icon, label, value, ...rest }: FeaturesItemProps)
     <ElFeaturesItem {...triggerProps}>
       <ElFeaturesItemIcon aria-label={label}>{icon}</ElFeaturesItemIcon>
       <ElFeaturesItemValue>{value}</ElFeaturesItemValue>
-      <Tooltip {...getTooltipProps()} description={label} position="top" />
+      <DeprecatedTooltip {...getTooltipProps()} description={label} position="top" />
     </ElFeaturesItem>
   )
 }

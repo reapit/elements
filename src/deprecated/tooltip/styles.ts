@@ -1,7 +1,8 @@
 import { styled } from '@linaria/react'
-import { font } from '../text'
+import { font } from '#src/core/text'
 
-export const ElTooltip = styled.div`
+/** @deprecated */
+export const ElDeprecatedTooltip = styled.div`
   @keyframes fadeIn {
     from {
       opacity: 0;
@@ -55,6 +56,7 @@ export const ElTooltip = styled.div`
    * See: https://developer.mozilla.org/en-US/docs/Web/CSS/position-anchor#browser_compatibility */
 `
 
-export const ElTooltipLabel = styled.span`
+/** @deprecated */
+export const ElDeprecatedTooltipLabel = styled.span`
   font-weight: var(--font-weight-semibold);
 `

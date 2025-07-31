@@ -2,11 +2,13 @@ import { HTMLAttributes, useEffect, useRef, useState } from 'react'
 import { useId } from '#src/storybook/random-id'
 import calculatePopoverPosition from '../../helpers/calculatePopoverPosition'
 
+/** @deprecated */
 type UseTooltipOptions = {
   truncationTargetId?: string
 }
 
-export const useTooltip = ({ truncationTargetId }: UseTooltipOptions = {}) => {
+/** @deprecated */
+export const useDeprecatedTooltip = ({ truncationTargetId }: UseTooltipOptions = {}) => {
   const tooltipId = useRef(`tooltip-id-${useId()}`).current
   const [isVisible, setIsVisible] = useState(false)
 
@@ -70,6 +72,7 @@ export const useTooltip = ({ truncationTargetId }: UseTooltipOptions = {}) => {
     }
   }, [isVisible])
 
+  /** @deprecated */
   const getTriggerProps = (props?: HTMLAttributes<HTMLElement>) => ({
     ...props,
     'data-visible-id': tooltipId,
@@ -92,6 +95,7 @@ export const useTooltip = ({ truncationTargetId }: UseTooltipOptions = {}) => {
     },
   })
 
+  /** @deprecated */
   const getTooltipProps = (props?: HTMLAttributes<HTMLDivElement>) => ({
     ...props,
     id: tooltipId,
