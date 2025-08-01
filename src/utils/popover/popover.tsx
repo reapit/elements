@@ -2,6 +2,7 @@ import { applyCSSAnchorPositioningPolyfill } from '#src/polyfills/css-anchor-pos
 import { buildAnchorPositioningCSS } from './build-anchor-positioning-css'
 import { cx } from '@linaria/core'
 import { elPopover } from './styles'
+import { getPopoverTriggerProps } from './get-popover-trigger-props'
 import { useLayoutEffect, useRef } from 'react'
 
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
@@ -147,3 +148,5 @@ export function Popover({
     </div>
   )
 }
+
+Popover.getTriggerProps = getPopoverTriggerProps

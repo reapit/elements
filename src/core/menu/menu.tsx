@@ -1,6 +1,6 @@
 import { AnchorMenuItem, MenuItem } from './item'
 import { elMenu } from './styles'
-import { getPopoverTriggerProps as getMenuTriggerProps, Popover } from '#src/utils/popover'
+import { Popover } from '#src/utils/popover'
 import { MenuDivider } from './divider'
 import { MenuGroup } from './group'
 import { useCloseMenuOnClick } from './use-close-menu-on-click'
@@ -74,4 +74,4 @@ Menu.Group = MenuGroup
 Menu.Item = MenuItem
 
 // Make this helper available for convenience.
-Menu.getTriggerProps = getMenuTriggerProps
+Menu.getTriggerProps = Popover.getTriggerProps

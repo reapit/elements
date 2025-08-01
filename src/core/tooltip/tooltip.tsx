@@ -69,4 +69,4 @@ export function Tooltip({
   )
 }
 
-Tooltip.getTooltipTriggerProps = getTooltipTriggerProps
+Tooltip.getTriggerProps = getTooltipTriggerProps
