@@ -16,16 +16,19 @@ We will publish release version history and changes here. Where possible, we wil
 
 Beta versions should be relatively stable but subject to occssional breaking changes.
 
-### **5.0.0-beta.40 - ??/??/25**
+### **5.0.0-beta.40 - 01/08/25**
 
 - **chore!:** Deprecate `Menu` component. It is still available, but is now called `DeprecatedMenu`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix. It can now be imported from
 - **chore:** Update design tokens to match latest changes in Figma
 - **chore!:** Renamed `ElipsisIcon` to `MoreVertIcon` to align with Design System changes.
 - **feat:** Add new `Popover` utility component. See [Popover](?path=/docs/utils-popover--docs) for details.
 - **feat:** Add new `Menu`. See [Menu](?path=/docs/core-menu--docs) for details.
-- **chore:** Use new `Menu` in `BottomBar.MenuItem`.
 - **chore!:** Deprecate `Tooltip` component. It is still available, but is now called `DeprecatedTooltip`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix. It can now be imported from `@reapit/elements/deprecated/tooltip`, as well as the root entry point, `@reapit/elements`.
 - **feat:** Add new `Tooltip`. See [Tooltip](?path=/docs/core-tooltip--docs) for details.
+- **chore:** Use new `Tooltip` in all core components.
+- **chore:** Use new `Menu` in all core components.
+- **chore:** Upgraded Storybook, Vite and TypeScript to latest versions.
+- **fix:** `Checkbox` now supports consumer-supplied refs.
 
 ### **5.0.0-beta.39 - 23/07/25**
 
