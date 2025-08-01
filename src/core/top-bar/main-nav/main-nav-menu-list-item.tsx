@@ -27,7 +27,7 @@ export function TopBarMainNavMenuListItem({ children, id, label, ...rest }: TopB
       >
         {label}
       </TopBarNavDropdownButton>
-      <Menu aria-labelledby={triggerId} id={menuId} placement="bottom-end">
+      <Menu aria-labelledby={triggerId} id={menuId} placement="bottom-start">
         {children}
       </Menu>
     </ElTopBarMainNavListItem>

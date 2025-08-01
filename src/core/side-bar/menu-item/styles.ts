@@ -51,6 +51,9 @@ export const ElSideBarMenuItemLabel = styled.span`
 export const ElSideBarMenuItemIcon = styled.span`
   grid-area: icon;
 
+  display: inline-flex;
+  align-items: center;
+
   /* NOTE: We don't want the padding to reduce the content size as we want the icons to be
    * exactly --icon_size-m */
   box-sizing: content-box;
