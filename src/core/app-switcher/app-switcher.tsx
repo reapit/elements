@@ -30,7 +30,7 @@ export function AppSwitcher({ children }: AppSwitcherProps) {
   return (
     <>
       <AppSwitcherNavIconButton
-        {...Menu.getMenuTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
       />
       <Menu aria-labelledby={triggerId} id={menuId} placement="bottom-start">
         {children}

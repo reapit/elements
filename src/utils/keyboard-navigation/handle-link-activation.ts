@@ -1,10 +1,11 @@
 import type { KeyboardEvent } from 'react'
 
 /**
- * Handles the Space key down event to activate links. This is necessary to ensure menu items (`<a>` elements) and
- * menu group `<summary>` elements can be activated using the same keys.
+ * Activates link elements when the Space key is pressed on them. This is useful when facilitating keyboard
+ * interaction across a group of items (e.g., menu items in a menu) so that all items, whether they are buttons
+ * or links, can be activated with the same keys.
  */
-export function activateLinkOnSpaceKeyDownHandler(event: KeyboardEvent<HTMLElement>) {
+export function handleLinkActivation(event: KeyboardEvent<HTMLElement>) {
   if (event.key !== ' ') {
     return
   }

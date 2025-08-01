@@ -1,11 +1,11 @@
-import { activateLinkOnSpaceKeyDownHandler } from '../activate-link-on-space-key-down-handler'
+import { handleLinkActivation } from '../handle-link-activation'
 import { fireEvent, render, screen } from '@testing-library/react'
 
 test('triggers a click event when Space is pressed and the target is an <a> element', async () => {
   const onClick = vi.fn()
 
   render(
-    <div onKeyDown={activateLinkOnSpaceKeyDownHandler}>
+    <div onKeyDown={handleLinkActivation}>
       <a href="/" onClick={onClick} />
     </div>,
   )
@@ -18,7 +18,7 @@ test('does nothing when Space is pressed and the target is NOT an <a> element', 
   const onClick = vi.fn()
 
   render(
-    <div onKeyDown={activateLinkOnSpaceKeyDownHandler}>
+    <div onKeyDown={handleLinkActivation}>
       <button onClick={onClick} />
     </div>,
   )

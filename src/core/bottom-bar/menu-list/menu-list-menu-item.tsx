@@ -57,9 +57,8 @@ export function BottomBarMenuListItem({
     <ElBottomBarMenuListItem ref={listItemRef}>
       <BottomBarItemButton
         {...rest}
-        {...Menu.getMenuTriggerProps({ popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
         icon={icon}
-        id={triggerId}
       >
         {label}
       </BottomBarItemButton>

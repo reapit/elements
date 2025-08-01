@@ -5,7 +5,7 @@ import type { KeyboardEvent } from 'react'
  * it will focus that `<details>` element's `<summary>`, scroll it into view and, if the `<details>` element
  * does not contain an element with `aria-current="page"`, it will close the `<details>`.
  */
-export function closeMenuGroupOnEscapeKeyDownHandler(event: KeyboardEvent<HTMLElement>) {
+export function handleCloseMenuGroup(event: KeyboardEvent<HTMLElement>) {
   if (event.key !== 'Escape') {
     return
   }

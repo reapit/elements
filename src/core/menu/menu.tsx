@@ -1,9 +1,10 @@
 import { AnchorMenuItem, MenuItem } from './item'
 import { elMenu } from './styles'
-import { getPopoverTriggerProps as getMenuTriggerProps } from '#src/utils/popover'
+import { getPopoverTriggerProps as getMenuTriggerProps, Popover } from '#src/utils/popover'
 import { MenuDivider } from './divider'
 import { MenuGroup } from './group'
-import { Popover } from '#src/utils/popover'
+import { useCloseMenuOnClick } from './use-close-menu-on-click'
+import { useMenuKeyboardNavigation } from './use-keyboard-navigation'
 
 import type { HTMLAttributes } from 'react'
 
@@ -37,9 +38,14 @@ export function Menu({
   gap = '--spacing-1',
   maxHeight,
   maxWidth,
+  onClick,
+  onKeyDown,
   placement = 'top-start',
   ...rest
 }: MenuProps) {
+  const handleClick = useCloseMenuOnClick(onClick)
+  const handleKeyboardNavigation = useMenuKeyboardNavigation(onKeyDown)
+
   return (
     <Popover
       {...rest}
@@ -50,6 +56,8 @@ export function Menu({
       gap={`var(${gap})`}
       maxHeight={`var(${maxHeight})`}
       maxWidth={`var(${maxWidth})`}
+      onClick={handleClick}
+      onKeyDown={handleKeyboardNavigation}
       placement={placement}
       positionTryFallbacks="flip-block, flip-inline"
       popover="auto"
@@ -66,4 +74,4 @@ Menu.Group = MenuGroup
 Menu.Item = MenuItem
 
 // Make this helper available for convenience.
-Menu.getMenuTriggerProps = getMenuTriggerProps
+Menu.getTriggerProps = getMenuTriggerProps

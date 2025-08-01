@@ -11,10 +11,10 @@ interface TopBarSecondaryNavListItemProps extends ComponentProps<typeof TopBarNa
  *
  * All props are passed through to `TopBarNavIconItemAnchor`.
  */
-export function TopBarSecondaryNavListItem({ children, ...props }: TopBarSecondaryNavListItemProps) {
+export function TopBarSecondaryNavListItem(props: TopBarSecondaryNavListItemProps) {
   return (
     <ElTopBarSecondaryNavListItem>
-      <TopBarNavIconItem {...props}>{children}</TopBarNavIconItem>
+      <TopBarNavIconItem {...props} />
     </ElTopBarSecondaryNavListItem>
   )
 }

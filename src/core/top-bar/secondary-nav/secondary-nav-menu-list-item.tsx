@@ -31,7 +31,7 @@ export function TopBarSecondaryNavMenuListItem({
     <ElTopBarSecondaryNavListItem>
       <TopBarNavIconItemButton
         {...rest}
-        {...Menu.getMenuTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
         aria-label={ariaLabel}
         icon={icon}
       />
