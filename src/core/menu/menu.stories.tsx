@@ -109,8 +109,8 @@ const meta = {
         <button
           aria-controls={props.id}
           aria-haspopup="menu"
-          id={props['aria-labelledby']}
-          {...Menu.getMenuTriggerProps({
+          {...Menu.getTriggerProps({
+            id: props['aria-labelledby'],
             popoverTarget: props.id,
             popoverTargetAction: 'toggle',
           })}
@@ -177,9 +177,26 @@ export const MaxWidth: Story = {
  */
 export const MaxHeight: Story = {
   args: {
-    'aria-labelledby': 'anchor',
-    children: 'Fancy',
-    id: 'menu',
+    ...Example.args,
     maxHeight: '--size-40',
+  },
+}
+
+/**
+ * By default, a menu will automatically close when one of its menu items are clicked. This behaviour
+ * can be avoided by calling `event.preventDefault()` on the click event, either through an `onClick`
+ * event handler on the Menu itself, or through an `onClick` handler on a specific menu item.
+ *
+ * The example below demonstrates a single, stubborn menu item that just won't let the menu close.
+ */
+export const PreventingClosure: Story = {
+  args: {
+    ...Example.args,
+    children: (
+      <>
+        <Menu.Item onClick={(event) => event.preventDefault()}>I won&apos;t let the menu close</Menu.Item>
+        <Menu.Item>But I will</Menu.Item>
+      </>
+    ),
   },
 }

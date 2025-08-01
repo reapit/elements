@@ -36,8 +36,7 @@ const meta = {
       <>
         <button
           autoFocus
-          {...getPopoverTriggerProps({ popoverTarget: props.id, popoverTargetAction: 'toggle' })}
-          id={props.anchorId}
+          {...getPopoverTriggerProps({ id: props.anchorId, popoverTarget: props.id, popoverTargetAction: 'toggle' })}
         >
           Anchor
         </button>

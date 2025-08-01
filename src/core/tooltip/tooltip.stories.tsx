@@ -10,9 +10,6 @@ const meta = {
     children: {
       control: 'text',
     },
-    label: {
-      control: 'text',
-    },
     maxWidth: {
       control: 'text',
       table: {

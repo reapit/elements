@@ -18,7 +18,7 @@ export function SplitButtonMenu({ children, id, ...rest }: SplitButtonMenuProps)
     <>
       <SplitButtonMenuButton
         {...rest}
-        {...Menu.getMenuTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
       />
       <Menu aria-labelledby={triggerId} id={menuId} placement="bottom-end">
         {children}

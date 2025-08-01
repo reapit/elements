@@ -1,29 +1,37 @@
-import { elSideBarMenuItem } from '../menu-item'
-import { elSideBarMenuGroup } from '../menu-group'
-import { elSideBarSubmenuItem } from '../submenu-item'
-
 import type { KeyboardEvent } from 'react'
 
-// Since `navigateItemsOnArrowKeyDownHandler` is designed for use with the side bar, we hardcode the appropriate
-// selectors for the list items we want to navigate through.
-const LIST_ITEM_SELECTORS = `.${elSideBarMenuItem}, details.${elSideBarMenuGroup}[open] a.${elSideBarSubmenuItem}`
+interface HandleArrowNavigationOptions {
+  /**
+   * A string containing one or more selectors to match. This string must be a valid CSS
+   * selector string; if it isn't, a SyntaxError exception is thrown. Defaults to selecting
+   * all `<a>` and `<button>` elements.
+   */
+  selectors?: string
+}
 
 /**
- * Handles arrow key down events in order to move focus between items in a list. Items that are focused are
- * also scrolled into view. Focus will not be moved beyond the first or last items in the list.
+ * Handles arrow key events in order to move focus between a collection of elements. Elements that are
+ * focused are also scrolled into view. Focus will not be moved beyond the first or last element in the
+ * collection.
+ *
+ * The `currentTarget` of the event is assumed to be the common ancestor of the navigable elements.
  */
-export function navigateItemsOnArrowKeyDownHandler(event: KeyboardEvent<HTMLElement>) {
+export function handleArrowNavigation(
+  event: KeyboardEvent<HTMLElement>,
+  // By default, we'll navigate all descendant anchors and buttons.
+  { selectors = 'a, button' }: HandleArrowNavigationOptions = {},
+) {
   const key = event.key
 
-  // If the key is not one of the supported arrow keys or the SPACE key, we can return early.
+  // If the key is not one of the supported arrow keys, we can return early.
   if (!isArrowKey(key)) {
     return
   }
 
   // If one of the arrow keys is pressed, we need to find the active element and focus the next or previous item.
-  const list = event.currentTarget
-  const listItems = list.querySelectorAll(LIST_ITEM_SELECTORS)
-  const indexOfActiveElement = findIndexOfActiveListItem(listItems)
+  const commonAncestor = event.currentTarget
+  const elementsToNavigate = commonAncestor.querySelectorAll(selectors)
+  const indexOfActiveElement = findIndexOfActiveListItem(elementsToNavigate)
 
   // If we can't find the active element among our list items, something weird has happened and we bail.
   if (indexOfActiveElement === null) {
@@ -37,7 +45,7 @@ export function navigateItemsOnArrowKeyDownHandler(event: KeyboardEvent<HTMLElem
   }
 
   // Likewise, if focus is on the last item of the list and the user is trying to navigate downwards, we also bail.
-  if (indexOfActiveElement === listItems.length - 1 && (key === 'ArrowDown' || key === 'ArrowRight')) {
+  if (indexOfActiveElement === elementsToNavigate.length - 1 && (key === 'ArrowDown' || key === 'ArrowRight')) {
     return
   }
 
@@ -46,7 +54,8 @@ export function navigateItemsOnArrowKeyDownHandler(event: KeyboardEvent<HTMLElem
   event.preventDefault()
 
   const indexOfElementToFocus = getIndexOfElementToFocus(key, indexOfActiveElement)
-  const elementToFocus = listItems.item(indexOfElementToFocus)
+  const elementToFocus = elementsToNavigate.item(indexOfElementToFocus)
+
   // NOTE: only HTMLElement's can be focused; Element's cannot.
   if (elementToFocus instanceof HTMLElement) {
     elementToFocus.focus()

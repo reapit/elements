@@ -1,9 +1,9 @@
-import { closeMenuGroupOnEscapeKeyDownHandler } from '../close-menu-group-on-escape-key-down-handler'
+import { handleCloseMenuGroup } from '../handle-close-menu-group'
 import { render, screen, fireEvent } from '@testing-library/react'
 
 test("focuses the <summary> of the key down event target's ancestral <details> element", () => {
   render(
-    <div onKeyDown={closeMenuGroupOnEscapeKeyDownHandler}>
+    <div onKeyDown={handleCloseMenuGroup}>
       <details open>
         <summary data-testid="summary">Menu Group</summary>
         <a href="/" />
@@ -17,7 +17,7 @@ test("focuses the <summary> of the key down event target's ancestral <details> e
 
 test("closes the key down event target's ancestral <details> element if one of its descendants are not the current page", () => {
   render(
-    <div onKeyDown={closeMenuGroupOnEscapeKeyDownHandler}>
+    <div onKeyDown={handleCloseMenuGroup}>
       <details open>
         <summary>Menu Group</summary>
         <a href="/" />
@@ -31,7 +31,7 @@ test("closes the key down event target's ancestral <details> element if one of i
 
 test("does NOT close the key down event target's ancestral <details> element if one of its descendants are the current page", () => {
   render(
-    <div onKeyDown={closeMenuGroupOnEscapeKeyDownHandler}>
+    <div onKeyDown={handleCloseMenuGroup}>
       <details open>
         <summary>Menu Group</summary>
         <a href="/" aria-current="page" />

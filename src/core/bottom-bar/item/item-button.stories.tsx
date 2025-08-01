@@ -76,8 +76,7 @@ export const WithMenu: Story = {
       <>
         <BottomBarItemButton
           {...args}
-          {...Menu.getMenuTriggerProps({ popoverTarget: 'menu', popoverTargetAction: 'toggle' })}
-          id="trigger"
+          {...Menu.getTriggerProps({ id: 'trigger', popoverTarget: 'menu', popoverTargetAction: 'toggle' })}
         />
         <Menu aria-labelledby="trigger" id="menu" placement="top-end">
           <Menu.Item>Menu Item 1</Menu.Item>

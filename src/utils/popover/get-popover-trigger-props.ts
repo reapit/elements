@@ -1,10 +1,10 @@
-interface GetPopoverTriggerPropsInput {
+export interface GetPopoverTriggerPropsInput {
   id: string
   popoverTarget: string
   popoverTargetAction: 'hide' | 'show' | 'toggle'
 }
 
-interface GetPopoverTriggerPropsOutput {
+export interface GetPopoverTriggerPropsOutput {
   id: string
   popovertarget: string
   popovertargetaction: 'hide' | 'show' | 'toggle'

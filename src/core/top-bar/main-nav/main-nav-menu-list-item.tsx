@@ -23,7 +23,7 @@ export function TopBarMainNavMenuListItem({ children, id, label, ...rest }: TopB
     <ElTopBarMainNavListItem>
       <TopBarNavDropdownButton
         {...rest}
-        {...Menu.getMenuTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
       >
         {label}
       </TopBarNavDropdownButton>

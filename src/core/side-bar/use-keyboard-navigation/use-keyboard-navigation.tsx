@@ -1,6 +1,6 @@
-import { activateLinkOnSpaceKeyDownHandler } from './activate-link-on-space-key-down-handler'
-import { closeMenuGroupOnEscapeKeyDownHandler } from './close-menu-group-on-escape-key-down-handler'
-import { navigateItemsOnArrowKeyDownHandler } from './navigate-items-on-arrow-key-down-handler'
+import { handleArrowNavigation } from './handle-arrow-navigation'
+import { handleCloseMenuGroup } from './handle-close-menu-group'
+import { handleLinkActivation } from '#src/utils/keyboard-navigation'
 import { useCallback } from 'react'
 
 import type { KeyboardEventHandler } from 'react'
@@ -14,8 +14,8 @@ export function useSideBarKeyboardNavigation(): KeyboardEventHandler<HTMLDivElem
     if (event.defaultPrevented) {
       return
     }
-    activateLinkOnSpaceKeyDownHandler(event)
-    navigateItemsOnArrowKeyDownHandler(event)
-    closeMenuGroupOnEscapeKeyDownHandler(event)
+    handleLinkActivation(event)
+    handleArrowNavigation(event)
+    handleCloseMenuGroup(event)
   }, [])
 }
