@@ -1,13 +1,16 @@
+import addonDocs from "@storybook/addon-docs";
+import addonA11y from "@storybook/addon-a11y";
+import addonLinks from "@storybook/addon-links";
+import { definePreview } from '@storybook/react-vite'
 import React from 'react'
 import { ThemeProvider } from '#src/core/theme-provider'
 
 import '../src/styles/globals'
 import './preview.css'
 
-import type { Preview } from '@storybook/react-vite'
 import type { Theme } from '../src/tokens'
 
-const preview: Preview = {
+export default definePreview({
   decorators: [
     // NOTE: This decorator is used to wrap all stories with the ThemeProvider
     // and apply the selected `theme` from the Storybook toolbar.
@@ -95,6 +98,5 @@ const preview: Preview = {
   },
 
   tags: ['autodocs'],
-}
-
-export default preview
+  addons: [addonLinks(), addonA11y(), addonDocs()]
+})
