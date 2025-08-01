@@ -1,6 +1,6 @@
 {
   "name": "@reapit/elements",
-  "version": "5.0.0-beta.41",
+  "version": "5.0.0-beta.42",
   "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
   "homepage": "https://github.com/reapit/elements#readme",
   "bugs": {
