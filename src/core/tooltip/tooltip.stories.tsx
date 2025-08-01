@@ -51,7 +51,7 @@ const meta = {
     return (
       <>
         <button
-          {...Tooltip.getTooltipTriggerProps({ id: props.triggerId, tooltipId: props.id, tooltipPurpose: 'describe' })}
+          {...Tooltip.getTriggerProps({ id: props.triggerId, tooltipId: props.id, tooltipPurpose: 'describe' })}
           style={{
             whiteSpace: 'nowrap',
             overflow: 'hidden',

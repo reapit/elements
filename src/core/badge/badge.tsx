@@ -48,7 +48,7 @@ export function Badge({
   // tooltip, it'll be nuked by the `aria-labelledby` value we get from
   // `Tooltip.getTooltipTriggerProps`. 🤷‍♂️
   const a11yProps = useTooltip
-    ? Tooltip.getTooltipTriggerProps({ id: badgeId, tooltipId, tooltipPurpose: 'label' })
+    ? Tooltip.getTriggerProps({ id: badgeId, tooltipId, tooltipPurpose: 'label' })
     : {
         'aria-label': ariaLabel,
         id: badgeId,

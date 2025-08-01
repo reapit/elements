@@ -44,7 +44,7 @@ export function TopBarNavIconItemBase({
   // NOTE: Yes, it's a bit weird to be using `aria-label` for a visual label (via the tooltip).
   // There's also some awkwardness here with `aria-labelledby`. If the consumer provides it,
   // it'll be nuked by the `aria-labelledby` value we get from `Tooltip.getTooltipTriggerProps`. 🤷‍♂️
-  const a11yProps = Tooltip.getTooltipTriggerProps({ id: triggerId, tooltipId, tooltipPurpose: 'label' })
+  const a11yProps = Tooltip.getTriggerProps({ id: triggerId, tooltipId, tooltipPurpose: 'label' })
 
   return (
     <Element

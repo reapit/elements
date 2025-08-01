@@ -76,7 +76,7 @@ export const Disabled: Story = {
       <>
         <Chip
           {...args}
-          {...Tooltip.getTooltipTriggerProps({ id: chipId, tooltipId: 'tooltip', tooltipPurpose: 'describe' })}
+          {...Tooltip.getTriggerProps({ id: chipId, tooltipId: 'tooltip', tooltipPurpose: 'describe' })}
         />
         <Tooltip id="tooltip" triggerId={chipId}>
           Because reasons
