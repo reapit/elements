@@ -4,6 +4,9 @@ import { create } from 'storybook/theming'
 import brandImage from './public/reapitLogo.svg'
 
 addons.setConfig({
+  sidebar: {
+    collapsedRoots: ['deprecated'],
+  },
   theme: create({
     base: 'light',
     colorPrimary: '#4e56ea',
