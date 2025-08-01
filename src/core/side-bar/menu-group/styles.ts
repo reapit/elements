@@ -41,6 +41,9 @@ export const ElSideBarMenuGroupSummaryLabel = styled(ElSideBarMenuItemLabel)`
 export const ElSideBarMenuGroupSummaryDropdownIcon = styled.span`
   grid-area: dropdown;
 
+  display: inline-flex;
+  align-items: center;
+
   color: var(--comp-navigation-colour-icon-sidebar-default);
 
   /* NOTE: We don't want the padding to reduce the content size as we want the icons to be

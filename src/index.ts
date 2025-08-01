@@ -105,6 +105,7 @@ export * from './core/table'
 export * from './core/tag'
 export * from './core/tag-group'
 export * from './core/text'
+export * from './core/textarea'
 export * from './core/tooltip'
 export * from './core/top-bar'
 
