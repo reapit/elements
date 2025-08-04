@@ -1,0 +1,59 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+# extractPathParams
+
+<Meta title="Utils/Path/extractPathParams" />
+
+Extracts path parameters from a pathname according to the provided path pattern. If the pattern matches the pathname, an object containing the extracted parameter values, if any, will be returned.
+
+Optional path parameters are not supported.
+
+The shape of the parameters object is automatically inferred from the path pattern.
+
+## Syntax
+
+```ts
+extractPathParams(pattern, pathname)
+```
+
+- `pattern`: A path pattern string that may contain named parameters (`:param`) and/or splat parameters (`*`)
+- `pathname`: The pathname to extract parameters from
+
+Returns an object containing the extracted path parameters if the pattern matches the pathname, or `null` if no match is found.
+
+The returned object type is automatically inferred from the pattern:
+- Named parameters (`:paramName`) become required string properties
+- Splat parameters (`*`) become a `'*'` property containing the captured path segment
+- If no parameters are defined in the pattern, returns an empty object `{}`
+
+## Type Safety
+
+The function includes sophisticated TypeScript types that extract parameter names from the pattern string:
+
+```ts
+// Type is inferred as { id: string } | null
+extractPathParams('/foo/:fooId', '...')
+
+// Type is inferred as { fooId: string; barId: string } | null
+extractPathParams('/foo/:fooId/bar/:barId', '...')
+
+// Type is inferred as { '*': string } | null
+extractPathParams('/foo/*', '...')
+
+// Type is inferred as { fooId: string; '*': string } | null
+extractPathParams('/foo/:fooId/*', '...')
+```
+
+## Example
+
+```ts
+import { extractPathParams } from '@reapit/elements/utils/path'
+
+// Named parameter with splat
+extractPathParams('/foo/:fooId/*', '/foo/123/bar/baz')
+// => { fooId: '123', '*': 'bar/baz' }
+
+// Multiple named parameters with splat
+extractPathParams('/foo/:fooId/bar/:barId/*', '/foo/123/bar/abc/baz/qux')
+// => { fooId: '123', barId: 'abc', '*': 'baz/qux' }
+```

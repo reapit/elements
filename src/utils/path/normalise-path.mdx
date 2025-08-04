@@ -1,0 +1,38 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+# normalisePath
+
+<Meta title="Utils/Path/normalisePath" />
+
+Normalises a path by removing trailing slashes, except for the root path.
+
+## Syntax
+
+```ts
+normalisePath(path)
+```
+
+- `path`: The path string to normalize
+
+Returns the normalized path as a string:
+- The root path "/" is returned unchanged
+- All other paths have trailing slashes removed
+- Paths without trailing slashes are returned unchanged
+
+## Example
+
+```ts
+import { normalisePath } from '@reapit/elements/utils/path'
+
+// Root path is preserved
+normalisePath('/')
+// => '/'
+
+// Trailing slashes are removed
+normalisePath('/users/')
+// => '/users'
+
+// Already normalized paths are unchanged
+normalisePath('/users')
+// => '/users'
+```
