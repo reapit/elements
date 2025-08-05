@@ -1,0 +1,20 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+# Working with Paths
+
+<Meta title="Utils/Path" />
+
+Path handling is typically the responsibility of a router like React Router. However, there are cases where we want path-like handling outside of the router's typical domain of responsiblity, such as URL search parameters. For instance, drawer's can benefit from having their open state, and perhaps some or all of their content, determined by a path-like URL search parameter.
+
+When dealing with paths, its common to need some level of path parameter matching, so that a path pattern like `/users/:id` can be used to match actual pathnames like `/users/abc-123`.
+
+Typically, these path utilities will not be used directly.
+
+---
+
+The main helper is [matchPath](?path=/docs/utils-path-matchpath--docs), which can be used to match a path pattern against a pathname. If a match is made, it will return the extracted parameters as an object, if any.
+
+It is built on top of the following, lower-level helpers.
+- [compilePathPattern](?path=/docs/utils-path-compilepathpattern--docs): Compiles a path pattern into a regular expression for efficient matching
+- [extractPathParams](?path=/docs/utils-path-extractpathparams--docs): Extracts parameter values from a pathname using a path pattern
+- [normalisePath](?path=/docs/utils-path-normalisepath--docs): Normalizes paths by removing trailing slashes for consistent comparison

@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+# matchPath
+
+<Meta title="Utils/Path/matchPath" />
+
+Matches a path pattern against a pathname and, if successful, returns the parameters specified by the pattern. This function is the primary interface for path pattern matching, combining pattern compilation, normalization, and parameter extraction into a single convenient API.
+
+Trailing slashes in both the pattern and the pathname are ignored for consistent matching behavior. Optional parameters in patterns are not supported.
+
+## Syntax
+
+```ts
+matchPath(pattern, pathname)
+```
+
+- `pattern`: A pattern describing the path and, optionally, any path parameters it may include.
+- `pathname`: The current pathname to match the pattern against.
+
+Returns a `PathMatch` object if the pattern matches the pathname, or `null` if no match is found.
+
+The `PathMatch` object contains:
+- `params`: An object containing the extracted path parameters
+- `pathname`: The normalized pathname that was matched
+- `pattern`: The normalized pattern that was used for matching
+
+## Example
+
+```ts
+import { matchPath } from '@reapit/elements/utils/path'
+
+// No match
+matchPath('/users', '/posts')
+// => null
+
+// Exact match with no parameters
+matchPath('/users', '/users')
+// => { params: {}, pathname: '/users', pattern: '/users' }
+
+// Single parameter
+matchPath('/users/:id', '/users/123')
+// => { params: { id: '123' }, pathname: '/users/123', pattern: '/users/:id' }
+
+// Multiple parameters
+matchPath('/users/:userId/posts/:postId', '/users/456/posts/789')
+// => { params: { userId: '456', postId: '789' }, pathname: '/users/456/posts/789', pattern: '/users/:userId/posts/:postId' }
+
+// Splat matching remaining path
+matchPath('/docs/*', '/docs/api/users')
+// => { params: { '*': 'api/users' }, pathname: '/docs/api/users', pattern: '/docs/*' }
+```

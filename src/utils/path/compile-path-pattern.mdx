@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+# compilePathPattern
+
+<Meta title="Utils/Path/compilePathPattern" />
+
+Compiles a path pattern into a regular expression that can be used to match real pathnames. Path parameters in the pattern (e.g., `:id`) become named capture groups in the regular expression, allowing their values to be extracted from matched pathnames.
+
+The splat (*) parameter, if present in the pattern, will always be the last capture group. It is not be available as a named capture group.
+
+The compiled regular expression is always case-insensitive.
+
+## Syntax
+
+```ts
+compilePathPattern(pattern)
+```
+
+- `pattern`: The path pattern to compile into a regular expression. Should not have a trailing slash.
+
+Returns a `RegExp` object that can be used to test and match pathnames against the compiled pattern. Named parameters become named capture groups, and splat parameters become positional capture groups.
+
+## Example
+
+```ts
+import { compilePathPattern } from '@reapit/elements/utils/path'
+
+const regex = compilePathPattern('/users/:id')
+
+// Test if a pathname matches
+regex.test('/users/123') // => true
+regex.test('/users') // => false
+regex.test('/posts/123') // => false
+
+// Path parameter available as a named capture group
+const match = '/users/123'.match(regex)
+if (match) {
+  console.log(match.groups?.id) // => '123'
+}
+```
