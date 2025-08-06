@@ -3,7 +3,7 @@ import { ElSideBar, ElSideBarBody, ElSideBarFooter } from './styles'
 import { SideBarCollapseButton } from './collapse-button'
 import { SideBarMenuList } from './menu-list'
 import { SideBarContextPublisher } from './side-bar-context'
-import { useId, useRef } from 'react'
+import { useId } from 'react'
 import { useSideBar } from './use-side-bar'
 import { useSideBarController } from './use-side-bar-controller'
 import { useSideBarKeyboardNavigation } from './use-keyboard-navigation'
@@ -37,12 +37,11 @@ export function SideBar({
   width = '--size-64',
   ...props
 }: SideBarProps) {
-  const sideBarBodyRef = useRef<HTMLDivElement>(null)
   const sideBarId = id ?? useId()
   const sideBar = useSideBar(() => determineSideBarStateFromViewport())
   const handleKeyboardNavigation = useSideBarKeyboardNavigation()
+  const ref = useSideBarController(sideBar.state)
 
-  useSideBarController(sideBarBodyRef)
   useSideBarMatchMediaEffect(sideBar)
 
   return (
@@ -54,7 +53,7 @@ export function SideBar({
       style={{ '--side-bar-width': `var(${width})` }}
     >
       <SideBarContextPublisher id={sideBarId} {...sideBar}>
-        <ElSideBarBody ref={sideBarBodyRef} onClick={sideBar.expand} onKeyDown={handleKeyboardNavigation}>
+        <ElSideBarBody ref={ref} onClick={sideBar.expand} onKeyDown={handleKeyboardNavigation}>
           {children}
         </ElSideBarBody>
         <ElSideBarFooter>{footer}</ElSideBarFooter>
