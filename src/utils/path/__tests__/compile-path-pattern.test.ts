@@ -28,17 +28,26 @@ test('compiles and matches multiple path parameters', () => {
   expect(match?.groups?.postId).toBe('456')
 })
 
-test('compiles and matches splat parameter', () => {
+test('compiles and matches leading splat parameter', () => {
+  const regex1 = compilePathPattern('*/files') // should only match paths ending with "/files"
+
+  expect(regex1.exec('/files')?.[1]).toBe('/')
+  expect(regex1.exec('/my/path/to/some/files')?.[1]).toBe('/my/path/to/some/')
+  expect(regex1.test('/my/path/to/some/files/and/things')).toBe(false)
+
+  const regex2 = compilePathPattern('*/') // should match any path
+
+  expect(regex2.test('')).toBe(false)
+  expect(regex2.exec('/')?.[1]).toBe('/')
+  expect(regex2.exec('/my/path/to/some/files')?.[1]).toBe('/my/path/to/some/files')
+})
+
+test('compiles and matches trailing splat parameter', () => {
   const regex = compilePathPattern('/files/*')
 
-  const match1 = '/files/docs/readme.txt'.match(regex)
-  expect(match1?.[1]).toBe('docs/readme.txt')
-
-  const match2 = '/files/'.match(regex)
-  expect(match2?.[1]).toBe('') // empty remaining path
-
-  const match3 = '/files'.match(regex)
-  expect(match3?.[1]).toBe('') // empty remaining path
+  expect(regex.exec('/files/docs/readme.txt')?.[1]).toBe('docs/readme.txt')
+  expect(regex.exec('/files/')?.[1]).toBe('') // empty remaining path
+  expect(regex.exec('/files')?.[1]).toBe('') // empty remaining path
 })
 
 test('compiles and matches combined path parameter and splat', () => {

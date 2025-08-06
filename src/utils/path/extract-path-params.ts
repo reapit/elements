@@ -1,4 +1,5 @@
 import { compilePathPattern } from './compile-path-pattern'
+import { normalisePath } from './normalise-path'
 
 /**
  * @see https://www.totaltypescript.com/concepts/the-prettify-helper
@@ -26,7 +27,11 @@ type ExtractRequiredPathParams<Pattern extends string> = {
 /**
  * Builds a type that has an optional "*" property if the given pattern ends with a splat (*) parameter.
  */
-type ExtractSplatPathParam<Pattern extends string> = Pattern extends `${string}*${'' | '/'}` ? { '*': string } : {}
+type ExtractSplatPathParam<Pattern extends string> = Pattern extends `*${string}` // Leading splat
+  ? { '*': string }
+  : Pattern extends `${string}*` // Trailing splat
+    ? { '*': string }
+    : {}
 
 type ExtractPathParams<Pattern extends string> = ExtractRequiredPathParams<Pattern> & ExtractSplatPathParam<Pattern>
 
@@ -60,9 +65,9 @@ export function extractPathParams<Pattern extends string, Params = PathParams<Pa
   }
 
   // Check if pattern has a splat and extract it from positional capture.
-  // It will always be the last capture group when present
+  // It will always be the last capture group when present.
   if (pattern.includes('*') && match.length > 1) {
-    params['*'] = match[match.length - 1] ?? ''
+    params['*'] = normalisePath(match[match.length - 1]) ?? ''
   }
 
   return params as Params

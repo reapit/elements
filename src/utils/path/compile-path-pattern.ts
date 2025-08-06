@@ -4,7 +4,8 @@
 const REGEX_PATTERNS = {
   FORWARD_SLASH: /\//g,
   PATH_PARAM: /:(\w+)/g,
-  SPLAT_PARAM: /\/\*/g,
+  LEADING_SPLAT_PARAM: /^\*\//,
+  TRAILING_SPLAT_PARAM: /\/\*$/,
 } as const
 
 /**
@@ -12,7 +13,10 @@ const REGEX_PATTERNS = {
  */
 const CAPTURE_GROUPS = {
   PATH_PARAM: '(?<$1>[^/]+)',
-  SPLAT_PARAM: '/?([\\w \\/.~-]*)',
+  LEADING_SPLAT_PARAM: '^([\\w \\/.~-]+)/?',
+  // NOTE: the leading "/" is optional because we want "/files/*" to treat "/files/" and "/files"
+  // the match "" as the splat parameter's value.
+  TRAILING_SPLAT_PARAM: '/?([\\w \\/.~-]*)',
 } as const
 
 /**
@@ -40,9 +44,14 @@ export function compilePathPattern(pathPattern: string): RegExp {
   }
 
   const regexPattern = pathPattern
-    .replace(REGEX_PATTERNS.SPLAT_PARAM, CAPTURE_GROUPS.SPLAT_PARAM) // Replace /* with optional splat capture group
-    .replace(REGEX_PATTERNS.FORWARD_SLASH, '\\/') // Escape forward slashes
-    .replace(REGEX_PATTERNS.PATH_PARAM, CAPTURE_GROUPS.PATH_PARAM) // Replace :param with named capture groups
+    // Replace */ with leading splat capture group (start only)
+    .replace(REGEX_PATTERNS.LEADING_SPLAT_PARAM, CAPTURE_GROUPS.LEADING_SPLAT_PARAM)
+    // Replace /* with trailing splat capture group (end only)
+    .replace(REGEX_PATTERNS.TRAILING_SPLAT_PARAM, CAPTURE_GROUPS.TRAILING_SPLAT_PARAM)
+    // Replace :param with named capture groups
+    .replace(REGEX_PATTERNS.PATH_PARAM, CAPTURE_GROUPS.PATH_PARAM)
+    // Escape forward slashes
+    .replace(REGEX_PATTERNS.FORWARD_SLASH, '\\/')
 
   return new RegExp(`${regexPattern}$`, 'i')
 }

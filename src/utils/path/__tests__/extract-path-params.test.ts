@@ -30,7 +30,19 @@ test('extracts multiple path parameters', () => {
   expectTypeOf(params).toEqualTypeOf<{ userId: string; postId: string } | null>()
 })
 
-test('extracts splat parameter', () => {
+test('extracts leading splat parameter', () => {
+  const params1 = extractPathParams('*/bob', '/path/to/a resource/called/bob') // space is permitted
+
+  expect(params1).toEqual({ '*': '/path/to/a resource/called' })
+  expectTypeOf(params1).toEqualTypeOf<{ '*': string } | null>()
+
+  const params2 = extractPathParams('*/bob', '/bob')
+
+  expect(params2).toEqual({ '*': '/' })
+  expectTypeOf(params2).toEqualTypeOf<{ '*': string } | null>()
+})
+
+test('extracts trailing splat parameter', () => {
   const params = extractPathParams('/*', '/path/to/a resource') // space is permitted
 
   expect(params).toEqual({ '*': 'path/to/a resource' })
@@ -52,7 +64,7 @@ test('handles special characters in parameter values', () => {
 })
 
 test('handles empty splat parameter', () => {
-  expect(extractPathParams('/files/*', '/files/')).toEqual({ '*': '' })
+  expect(extractPathParams('/files/*', '/files')).toEqual({ '*': '' })
   expect(extractPathParams('/users/:id/*', '/users/123/')).toEqual({
     id: '123',
     '*': '',
