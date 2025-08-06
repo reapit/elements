@@ -3,11 +3,7 @@ import { elSideBarMenuItem, ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from
 
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-// We don't want:
-// - `aria-current` because it is always derived from the `isActive` prop.
-type AttributesToOmit = 'aria-current'
-
-interface SideBarMenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, AttributesToOmit> {
+interface SideBarMenuItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /**
    * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
    * accessible users that the item is currently "selected".
