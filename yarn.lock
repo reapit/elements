@@ -2057,8 +2057,8 @@ __metadata:
     "@typescript-eslint/parser": "npm:^7.6.0"
     "@vitejs/plugin-react": "npm:^4.7.0"
     "@vitest/coverage-v8": "npm:^3.2.4"
-    "@wyw-in-js/babel-preset": "npm:^0.7.0"
-    "@wyw-in-js/vite": "npm:^0.7.0"
+    "@wyw-in-js/babel-preset": "npm:0.6.0"
+    "@wyw-in-js/vite": "npm:0.6.0"
     aws-cdk: "npm:^2.137.0"
     aws-cdk-lib: "npm:^2.137.0"
     aws-sdk: "npm:^2.1597.0"
@@ -3498,27 +3498,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wyw-in-js/babel-preset@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "@wyw-in-js/babel-preset@npm:0.7.0"
+"@wyw-in-js/babel-preset@npm:0.6.0":
+  version: 0.6.0
+  resolution: "@wyw-in-js/babel-preset@npm:0.6.0"
   dependencies:
     "@babel/core": "npm:^7.23.5"
-    "@wyw-in-js/transform": "npm:0.7.0"
-  checksum: 10/b182bf6dbb6053dc00f84308cad6422d64c90476b2b9edb88bdcb400d4948b817be2a4e0df81e30b28f87e63cd6f948ee22c092bab554995a15f2dfbbac06057
+    "@wyw-in-js/transform": "npm:0.6.0"
+  checksum: 10/2c37d0c79630c8220e391f9bc1dd008a658aa422f419594d0970285f0641cfb4faa8ce469eba53d4917925eb770ff97bc0934cc6a66bf05e295e4cb586b2b11b
   languageName: node
   linkType: hard
 
-"@wyw-in-js/processor-utils@npm:0.7.0":
-  version: 0.7.0
-  resolution: "@wyw-in-js/processor-utils@npm:0.7.0"
-  dependencies:
-    "@babel/generator": "npm:^7.23.5"
-    "@wyw-in-js/shared": "npm:0.7.0"
-  checksum: 10/350d21d680bb4000ea434262d149fb756923e8c2f721e610e2e15517cbb1634109a60e9ecbe6423a78b6a58d1fd5a163cab2d06a7a756a133bacb6f64249f308
-  languageName: node
-  linkType: hard
-
-"@wyw-in-js/processor-utils@npm:^0.6.0":
+"@wyw-in-js/processor-utils@npm:0.6.0, @wyw-in-js/processor-utils@npm:^0.6.0":
   version: 0.6.0
   resolution: "@wyw-in-js/processor-utils@npm:0.6.0"
   dependencies:
@@ -3539,20 +3529,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@wyw-in-js/shared@npm:0.7.0":
-  version: 0.7.0
-  resolution: "@wyw-in-js/shared@npm:0.7.0"
-  dependencies:
-    debug: "npm:^4.3.4"
-    find-up: "npm:^5.0.0"
-    minimatch: "npm:^9.0.3"
-  checksum: 10/970e69f896b5012a5b181d024cbe9529659215e2d985b0102f6907c143fe4647aa4b45c0b795f37796336093f1511e2b9c3af235c1c3e802d85a542f6179d52e
-  languageName: node
-  linkType: hard
-
-"@wyw-in-js/transform@npm:0.7.0":
-  version: 0.7.0
-  resolution: "@wyw-in-js/transform@npm:0.7.0"
+"@wyw-in-js/transform@npm:0.6.0":
+  version: 0.6.0
+  resolution: "@wyw-in-js/transform@npm:0.6.0"
   dependencies:
     "@babel/core": "npm:^7.23.5"
     "@babel/generator": "npm:^7.23.5"
@@ -3561,27 +3540,27 @@ __metadata:
     "@babel/template": "npm:^7.22.15"
     "@babel/traverse": "npm:^7.23.5"
     "@babel/types": "npm:^7.23.5"
-    "@wyw-in-js/processor-utils": "npm:0.7.0"
-    "@wyw-in-js/shared": "npm:0.7.0"
+    "@wyw-in-js/processor-utils": "npm:0.6.0"
+    "@wyw-in-js/shared": "npm:0.6.0"
     babel-merge: "npm:^3.0.0"
     cosmiconfig: "npm:^8.0.0"
     happy-dom: "npm:^15.11.0"
     source-map: "npm:^0.7.4"
     stylis: "npm:^4.3.0"
     ts-invariant: "npm:^0.10.3"
-  checksum: 10/835854a3b2df01b8a0c425cd64fc07665011b5ca948d75cda89bedd2ee78b06c7bee83de39514d90df003222f805ce4e3cbd9becbf1ac8969edb598d2271e8c5
+  checksum: 10/e1870b804b1e139ddadcf5a51997b82e34934d222cf87b4b5580fdf864224b54521afe9275549d39626dc63cdd2b7d0783ba286d54f7a8b3b166ef6b3992134a
   languageName: node
   linkType: hard
 
-"@wyw-in-js/vite@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "@wyw-in-js/vite@npm:0.7.0"
+"@wyw-in-js/vite@npm:0.6.0":
+  version: 0.6.0
+  resolution: "@wyw-in-js/vite@npm:0.6.0"
   dependencies:
-    "@wyw-in-js/shared": "npm:0.7.0"
-    "@wyw-in-js/transform": "npm:0.7.0"
+    "@wyw-in-js/shared": "npm:0.6.0"
+    "@wyw-in-js/transform": "npm:0.6.0"
   peerDependencies:
     vite: ">=3.2.7"
-  checksum: 10/19ad46877252c71c010649e6631e8b95ebf748362c4c6d45ffab133fedb5a3174d4e7e17e3853342f8d6e26deb159ddb6331571487feb68d68ff2a105947a837
+  checksum: 10/a0c79e85f7515ac67e19b67ea45f0ba690d80a63bbe97362eb1467d4d5cf3e2209b7c233b40ab3ed508e29c96fe7b8bdb70a78f8542bd459042be9111406b72a
   languageName: node
   linkType: hard
 
