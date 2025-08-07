@@ -1,9 +1,10 @@
+import { cx } from '@linaria/core'
 import { Avatar } from '../../avatar/avatar'
-import { ElTopBarAvatarButton } from './styles'
+import { elTopBarAvatarButton } from './styles'
 
-import type { ComponentProps, ReactNode } from 'react'
+import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
-export interface AvatarButtonProps extends ComponentProps<typeof ElTopBarAvatarButton> {
+export interface AvatarButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /** The accessible name of the button. */
   'aria-label'?: string
   /** The avatar's text. Typically the initials of the current user. */
@@ -14,13 +15,20 @@ export interface AvatarButtonProps extends ComponentProps<typeof ElTopBarAvatarB
  * A simple avatar button that should open a menu with items that relate to the current user. These menu items will
  * typically include the ability to manage their Reapit Connect user account, preferences, and logout of their
  * current session.
+ *
+ * Typically, `TopBar.AvatarMenu` will be used as it combines `TopBar.AvatarButton` and `Menu` together.
  */
-export function TopBarAvatarButton({ 'aria-label': ariaLabel = 'Profile menu', children, ...rest }: AvatarButtonProps) {
+export function TopBarAvatarButton({
+  'aria-label': ariaLabel = 'Profile menu',
+  children,
+  className,
+  ...rest
+}: AvatarButtonProps) {
   return (
-    <ElTopBarAvatarButton {...rest} aria-label={ariaLabel}>
+    <button {...rest} aria-label={ariaLabel} className={cx(elTopBarAvatarButton, className)}>
       <Avatar size="small" shape="circle" colour="purple">
         {children}
       </Avatar>
-    </ElTopBarAvatarButton>
+    </button>
   )
 }

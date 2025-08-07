@@ -1,3 +1,6 @@
+export * from './avatar-button'
+export * from './avatar-menu'
+export * from './brand-logo'
 export * from './main-nav'
 export * from './nav-dropdown-button'
 export * from './nav-icon-item'
