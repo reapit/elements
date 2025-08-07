@@ -40,7 +40,7 @@ export const elMenuItem = css`
   }
 
   &[aria-checked='true']:enabled,
-  &[aria-current='page']:enabled {
+  &[aria-current='page']:not([aria-disabled='true']) {
     background: var(--comp-menu-colour-fill-highlighted);
   }
 `
@@ -74,14 +74,14 @@ export const ElMenuItemIconContainer = styled.span`
   }
 
   [aria-checked='true']:enabled &,
-  [aria-current='page']:enabled & {
+  [aria-current='page']:not([aria-disabled='true']) & {
     &:first-of-type {
       color: var(--comp-menu-colour-icon-default-action);
     }
   }
 
   [aria-checked='true']:enabled:hover &,
-  [aria-current='page']:enabled:hover & {
+  [aria-current='page']:not([aria-disabled='true']):hover & {
     &:first-of-type {
       color: var(--comp-menu-colour-icon-hover-action);
     }
@@ -115,12 +115,12 @@ export const ElMenuItemLabelText = styled.span`
   }
 
   [aria-checked='true']:enabled &,
-  [aria-current='page']:enabled & {
+  [aria-current='page']:not([aria-disabled='true']) & {
     color: var(--comp-menu-colour-text-default-action);
   }
 
   [aria-checked='true']:enabled:hover &,
-  [aria-current='page']:enabled:hover & {
+  [aria-current='page']:not([aria-disabled='true']):hover & {
     color: var(--comp-menu-colour-text-hover-action);
   }
 `
