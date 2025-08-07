@@ -1,5 +1,7 @@
 import { cx } from '@linaria/core'
 import { elSideBarMenuItem, ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from './styles'
+import { Tooltip } from '#src/core/tooltip'
+import { useId } from 'react'
 
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
@@ -42,12 +44,25 @@ export function SideBarMenuItem({
   children,
   className,
   icon,
+  id,
   ...rest
 }: SideBarMenuItemProps) {
+  const tooltipId = useId()
+  const triggerId = id ?? useId()
+  const truncationTargetId = useId()
+
   return (
-    <a {...rest} aria-current={ariaCurrent} className={cx(elSideBarMenuItem, className)}>
+    <a
+      {...rest}
+      {...Tooltip.getTriggerProps({ id: triggerId, tooltipId, tooltipPurpose: 'label' })}
+      aria-current={ariaCurrent}
+      className={cx(elSideBarMenuItem, className)}
+    >
       <ElSideBarMenuItemIcon aria-hidden>{icon}</ElSideBarMenuItemIcon>
-      <ElSideBarMenuItemLabel>{children}</ElSideBarMenuItemLabel>
+      <ElSideBarMenuItemLabel id={truncationTargetId}>{children}</ElSideBarMenuItemLabel>
+      <Tooltip id={tooltipId} placement="right" triggerId={triggerId} truncationTargetId={truncationTargetId}>
+        {children}
+      </Tooltip>
     </a>
   )
 }

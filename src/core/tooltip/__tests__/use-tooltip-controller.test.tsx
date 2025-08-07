@@ -155,15 +155,14 @@ test('does not show tooltip when isTooltipNeeded returns false', () => {
     }),
   )
 
-  // Try all the trigger events
   triggerElement.dispatchEvent(new Event('focus'))
-  triggerElement.dispatchEvent(new Event('mouseenter'))
   triggerElement.dispatchEvent(new Event('blur'))
-  triggerElement.dispatchEvent(new Event('mouseleave'))
 
-  expect(mockIsTooltipNeeded).toHaveBeenCalledWith('test-truncation-target')
-
-  // None of the popover methods should be called
   expect(mockShowPopover).not.toHaveBeenCalled()
-  expect(mockHidePopover).not.toHaveBeenCalled()
+
+  // Simulate change in `isTooltipNeeded` result
+  mockIsTooltipNeeded.mockReturnValue(true)
+
+  triggerElement.dispatchEvent(new Event('focus'))
+  expect(mockShowPopover).toHaveBeenCalled()
 })

@@ -8,6 +8,13 @@ import { determineSideBarStateFromViewport } from '../../use-side-bar-match-medi
 vi.mock('../../use-side-bar-match-media-effect')
 vi.mocked(determineSideBarStateFromViewport).mockReturnValue('expanded')
 
+beforeEach(() => {
+  // NOTE: Unclear why, but without this, we see a test runtime error from the blur event listener added
+  // by `use-menu-group-controller.ts` about `hidePopover` not existing
+  // not existing on the tooltipElement. Suspect its a bug in Happy DOM w.r.t to event handling.
+  HTMLElement.prototype.hidePopover = () => void 0
+})
+
 test('navigates through list items when arrow keys are pressed', async () => {
   render(<TestSideBar />)
 

@@ -1,7 +1,8 @@
 import CollapseIcon from './icons/collapse.svg?react'
 import { ElSideBarCollapseButton, ElSideBarCollapseButtonIcon, ElSideBarCollapseLabel } from './styles'
+import { Tooltip } from '#src/core/tooltip'
+import { useCallback, useId } from 'react'
 import { useSideBarContext } from '../side-bar-context'
-import { useCallback } from 'react'
 
 import type { ComponentProps, MouseEventHandler } from 'react'
 
@@ -21,8 +22,13 @@ interface SideBarCollapseButtonProps extends Omit<ComponentProps<typeof ElSideBa
  * When the side bar is collapsed, the button's accessible name will be "Expand" (though this will not be visible), and
  * when the side bar is expanded, the button's accessible name will be "Collapse".
  */
-export function SideBarCollapseButton({ onClick, ...props }: SideBarCollapseButtonProps) {
+export function SideBarCollapseButton({ id, onClick, ...props }: SideBarCollapseButtonProps) {
   const sideBar = useSideBarContext()
+  const tooltipId = useId()
+  const triggerId = id ?? useId()
+  const truncationTargetId = useId()
+
+  const label = sideBar.state === 'expanded' ? 'Collapse' : 'Expand'
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = useCallback(
     (event) => {
@@ -38,6 +44,7 @@ export function SideBarCollapseButton({ onClick, ...props }: SideBarCollapseButt
   return (
     <ElSideBarCollapseButton
       {...props}
+      {...Tooltip.getTriggerProps({ id: triggerId, tooltipId, tooltipPurpose: 'label' })}
       aria-controls={sideBar.id}
       aria-expanded={sideBar.state === 'expanded'}
       onClick={handleClick}
@@ -45,7 +52,10 @@ export function SideBarCollapseButton({ onClick, ...props }: SideBarCollapseButt
       <ElSideBarCollapseButtonIcon aria-hidden>
         <CollapseIcon />
       </ElSideBarCollapseButtonIcon>
-      <ElSideBarCollapseLabel>{sideBar.state === 'expanded' ? 'Collapse' : 'Expand'}</ElSideBarCollapseLabel>
+      <ElSideBarCollapseLabel id={truncationTargetId}>{label}</ElSideBarCollapseLabel>
+      <Tooltip id={tooltipId} placement="right" triggerId={triggerId} truncationTargetId={truncationTargetId}>
+        {label}
+      </Tooltip>
     </ElSideBarCollapseButton>
   )
 }

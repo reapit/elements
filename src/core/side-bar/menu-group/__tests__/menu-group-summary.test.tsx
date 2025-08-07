@@ -35,17 +35,27 @@ test(`combines the .${elSideBarMenuItem}, .${elSideBarMenuGroupSummary} and cons
   )
 })
 
-test('the `id` published by the menu group is used by default', () => {
+test("the `id` published by the menu group is used for the summary's tooltip", () => {
   render(
     <SideBarMenuGroupSummary data-testid="summary" icon="😎">
       Item
     </SideBarMenuGroupSummary>,
     { wrapper },
   )
-  expect(screen.getByTestId('summary')).toHaveAttribute('id', 'test-label-id') // This `id` is provided by the wrapper
+  expect(screen.getByRole('tooltip')).toHaveAttribute('id', 'test-label-id') // This `id` is provided by the wrapper
 })
 
-test('a consumer-supplied `id` will be used instead of the `id` published by the menu group', () => {
+test('the summary element always has an ID', () => {
+  render(
+    <SideBarMenuGroupSummary data-testid="summary" icon="😎">
+      Item
+    </SideBarMenuGroupSummary>,
+    { wrapper },
+  )
+  expect(screen.getByTestId('summary')).toHaveAttribute('id')
+})
+
+test("a consumer-supplied `id` will override the the summary element's default ID", () => {
   render(
     <SideBarMenuGroupSummary data-testid="summary" icon="😎" id="my-id">
       Item
@@ -78,6 +88,8 @@ test('calls a consumer-supplied `onClick` handler', () => {
 })
 
 test('prevents default action for click events if the menu group contains a link for the current page', async () => {
+  const preventDefaultSpy = vi.spyOn(Event.prototype, 'preventDefault')
+
   render(
     <details open>
       <SideBarMenuGroupSummary icon="😎">Item</SideBarMenuGroupSummary>
@@ -87,14 +99,25 @@ test('prevents default action for click events if the menu group contains a link
     </details>,
     { wrapper },
   )
-  const summaryText = screen.getByText('Item')
+  // NOTE: It's unclear why, but using getByTestId to retrieve the summary element directly,
+  // like in other tests here, then firing a click event on it does not result in the prevent
+  // action being defaulted, despite being able to confirm preventDefault is correctly called
+  // on the click event. However, getting the element that holds the label text and clicking
+  // on it, does result in the behaviour we expect.
+  const summaryText = screen.getByText('Item', { ignore: '[role="tooltip"]' })
   fireEvent.click(summaryText)
 
   // If the event was NOT prevented, the <details> element would be closed and thus not visible
   await expect(screen.findByRole('group')).resolves.toBeVisible()
+
+  // NOTE: We additionally assert that preventDefault was not called because of the issue described
+  // above for Happy DOM's event handling.
+  expect(preventDefaultSpy).toHaveBeenCalled()
 })
 
 test('prevents default action for click events if the menu group is marked as active', async () => {
+  const preventDefaultSpy = vi.spyOn(Event.prototype, 'preventDefault')
+
   render(
     <details data-is-active="true" open>
       <SideBarMenuGroupSummary icon="😎">Item</SideBarMenuGroupSummary>
@@ -104,26 +127,38 @@ test('prevents default action for click events if the menu group is marked as ac
     </details>,
     { wrapper },
   )
-  const summaryText = screen.getByText('Item')
+  const summaryText = screen.getByText('Item', { ignore: '[role="tooltip"]' })
   fireEvent.click(summaryText)
 
   // If the event was NOT prevented, the <details> element would be closed and thus not visible
   await expect(screen.findByRole('group')).resolves.toBeVisible()
+
+  // NOTE: We additionally assert that preventDefault was not called because of the issue described
+  // above for Happy DOM's event handling.
+  expect(preventDefaultSpy).toHaveBeenCalled()
 })
 
-test('allows default action for click events if the menu group does NOT contain a link for the current page', async () => {
+test('allows default action for click events if the menu group is not active and does not contain a link for the current page', async () => {
+  const preventDefaultSpy = vi.spyOn(Event.prototype, 'preventDefault')
+
   render(
     <details open>
-      <SideBarMenuGroupSummary icon="😎">Item</SideBarMenuGroupSummary>
+      <SideBarMenuGroupSummary data-testid="summary" icon="😎">
+        Item
+      </SideBarMenuGroupSummary>
       <a href="/">Link</a>
     </details>,
     { wrapper },
   )
-  const summaryText = screen.getByText('Item')
+  const summaryText = screen.getByTestId('summary')
   fireEvent.click(summaryText)
 
-  // If the event was prevented, the <details> element would not be open and thus not visible
-  await expect(screen.findByRole('group')).resolves.toBeVisible()
+  // If the event was NOT prevented, the <details> element would be closed and thus not visible
+  await expect(screen.findByRole('group')).resolves.not.toBeVisible()
+
+  // NOTE: We additionally assert that preventDefault was not called because of the issue described
+  // above for Happy DOM's event handling.
+  expect(preventDefaultSpy).not.toHaveBeenCalled()
 })
 
 function wrapper({ children }: { children: ReactNode }) {

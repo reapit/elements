@@ -26,11 +26,11 @@ test('has an accessible name when the `SideBar` is collapsed', () => {
   expect(screen.getByRole('group', { name: 'Group' })).toBeInTheDocument()
 })
 
-test('is labelled by the <summary> element', () => {
+test("is labelled by the <summary> element's tooltip", () => {
   render(<MenuGroupStories.Selected />)
   const detailsElement = screen.getByRole('group')
-  const summaryElement = detailsElement.firstElementChild
-  expect(detailsElement.getAttribute('aria-labelledby')).toBe(summaryElement?.id)
+  const tooltipElement = screen.getByRole('tooltip')
+  expect(detailsElement.getAttribute('aria-labelledby')).toBe(tooltipElement?.id)
 })
 
 test('is open by default when a descendant submenu item represents the current page', () => {

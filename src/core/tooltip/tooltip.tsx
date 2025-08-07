@@ -55,6 +55,7 @@ export function Tooltip({
       {...rest}
       anchorId={triggerId}
       className={elTooltip}
+      data-truncation-target-id={truncationTargetId}
       elevation="none"
       gap="var(--spacing-1)"
       id={id}
