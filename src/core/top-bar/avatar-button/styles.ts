@@ -1,7 +1,7 @@
-import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
 import { ElAvatar } from '../../avatar/styles'
 
-export const ElTopBarAvatarButton = styled.button`
+export const elTopBarAvatarButton = css`
   cursor: pointer;
   background: none;
   border: none;

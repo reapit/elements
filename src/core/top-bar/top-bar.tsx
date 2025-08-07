@@ -10,6 +10,7 @@ import {
   ElTopBarSecondaryNavContainer,
 } from './styles'
 import { TopBarAvatarButton } from './avatar-button'
+import { TopBarAvatarMenu } from './avatar-menu'
 import { TopBarMainNav } from './main-nav'
 import { TopBarNavSearch } from './nav-search'
 import { TopBarSecondaryNav } from './secondary-nav'
@@ -22,7 +23,7 @@ interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> 
    */
   appSwitcher?: ReactNode
   /**
-   * The user's profile menu. Typically an `AvatarButton`.
+   * The user's profile menu. Typically an `AvatarMenu`.
    */
   avatar?: ReactNode
   /**
@@ -55,8 +56,7 @@ interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> 
  * Only the logo and user avatar are required; all other regions are optional.
  *
  * - **App switcher:** [AppSwitcher](/docs/core-appswitcher--docs)
- * - **Avatar:** [Menu](/docs/core-menu--docs),
- *   [TopBar.AvatarButton](/docs/core-topbar-avatarbutton--docs)
+ * - **Avatar:** [TopBar.AvatarMenu](/docs/core-topbar-avatarmenu--docs)
  * - **Logo:** [TopBar.BrandLogo](/docs/core-topbar-brandlogo--docs)
  * - **Main navigation:** [TopBar.MainNav](/docs/core-topbar-mainnav--docs),
  *   [TopBar.NavItem](/docs/core-topbar-navitem--docs),
@@ -100,3 +100,4 @@ TopBar.NavSearchButton = TopBarNavSearch.Button
 TopBar.NavSearchIconItem = TopBarNavSearch.IconItem
 
 TopBar.AvatarButton = TopBarAvatarButton
+TopBar.AvatarMenu = TopBarAvatarMenu

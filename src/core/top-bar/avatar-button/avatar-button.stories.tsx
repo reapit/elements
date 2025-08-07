@@ -1,4 +1,4 @@
-import { DeprecatedMenu } from '#src/deprecated/menu'
+import { Menu } from '#src/core/menu'
 import { TopBarAvatarButton } from './avatar-button'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -19,18 +19,9 @@ export const Example: Story = {
 }
 
 /**
- * The following example demonstrates the use of `TopBar.AvatarButton` with the `Menu` component. The code
- * snippet does not work well with the `Menu.Trigger` component's render-prop, but it works as follows:
- *
- * ```tsx
- * <Menu.Trigger>
- *  {({ getTriggerProps }) => (
- *    <TopBar.AvatarButton {...getTriggerProps()}>KD</TopBar.AvatarButton>
- *  )}
- * </Menu.Trigger>
- * ```
+ * The following example demonstrates the use of `TopBar.AvatarButton` with the `Menu` component.
  */
-export const WithAMenu: Story = {
+export const WithMenu: Story = {
   name: 'With a Menu',
   args: {
     ...Example.args,
@@ -40,25 +31,21 @@ export const WithAMenu: Story = {
       control: false,
     },
   },
-  decorators: [
-    (Story) => (
-      <div style={{ height: '200px' }}>
-        <Story />
-      </div>
-    ),
-  ],
+  parameters: {
+    layout: 'centered',
+  },
   render: ({ children }) => (
-    <DeprecatedMenu>
-      <DeprecatedMenu.Trigger>
-        {({ getTriggerProps }) => <TopBarAvatarButton {...getTriggerProps()}>{children}</TopBarAvatarButton>}
-      </DeprecatedMenu.Trigger>
-      <DeprecatedMenu.Popover>
-        <DeprecatedMenu.List>
-          <DeprecatedMenu.Item label="Menu Item 1" />
-          <DeprecatedMenu.Item label="Menu Item 2" />
-          <DeprecatedMenu.Item label="Menu Item 3" />
-        </DeprecatedMenu.List>
-      </DeprecatedMenu.Popover>
-    </DeprecatedMenu>
+    <>
+      <TopBarAvatarButton
+        {...Menu.getTriggerProps({ id: 'trigger', popoverTarget: 'menu', popoverTargetAction: 'toggle' })}
+      >
+        {children}
+      </TopBarAvatarButton>
+      <Menu aria-labelledby="trigger" id="menu" placement="bottom-end">
+        <Menu.Item>Menu Item 1</Menu.Item>
+        <Menu.Item>Menu Item 2</Menu.Item>
+        <Menu.Item>Menu Item 3</Menu.Item>
+      </Menu>
+    </>
   ),
 }
