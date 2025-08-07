@@ -266,6 +266,14 @@
   --comp-file_uploader-colour-text-hover-primary: #222b33;
   --comp-file_uploader-colour-text-info-error: #f01830;
   --comp-file_uploader-colour-text-info-helper: #607890;
+  --comp-folder_tab-border: #607890;
+  --comp-folder_tab-colour-border: #c5ced6;
+  --comp-folder_tab-colour-fill-default: #d8dee4;
+  --comp-folder_tab-colour-fill-hover: #0294d2;
+  --comp-folder_tab-colour-fill-selected: #ffffff;
+  --comp-folder_tab-colour-text-default: #607890;
+  --comp-folder_tab-colour-text-hover: #ffffff;
+  --comp-folder_tab-colour-text-selected: #222b33;
   --comp-input-border-radius: 2px;
   --comp-input-border-width: 1px;
   --comp-input-colour-border-busy: #d8dee4;
@@ -326,7 +334,7 @@
   --comp-interactive_chip-colour-text-default-selected: #ffffff;
   --comp-interactive_chip-colour-text-default-unselected: #415161;
   --comp-interactive_chip-colour-text-disabled-selected: #ffffff80;
-  --comp-interactive_chip-colour-text-disabled-unselectedd: #9faebc;
+  --comp-interactive_chip-colour-text-disabled-unselected: #9faebc;
   --comp-interactive_chip-colour-text-hover-selected: #ffffff;
   --comp-interactive_chip-colour-text-hover-unselected: #222b33;
   --comp-interactive_chip-colour-text-info-error: #f01830;

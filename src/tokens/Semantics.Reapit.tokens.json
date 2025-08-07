@@ -1248,6 +1248,54 @@
         }
       }
     },
+    "folder_tab": {
+      "border": {
+        "$type": "color",
+        "$value": "{neutral-500}",
+        "radius": {
+          "$type": "dimension",
+          "$value": "{unit-4}"
+        },
+        "width": {
+          "$type": "dimension",
+          "$value": "{unit-px}"
+        }
+      },
+      "colour": {
+        "border": {
+          "$type": "color",
+          "$value": "{neutral-200}"
+        },
+        "fill": {
+          "default": {
+            "$type": "color",
+            "$value": "{neutral-150}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{purple-500}"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{white-900}"
+          }
+        },
+        "text": {
+          "default": {
+            "$type": "color",
+            "$value": "{neutral-500}"
+          },
+          "hover": {
+            "$type": "color",
+            "$value": "{white-900}"
+          },
+          "selected": {
+            "$type": "color",
+            "$value": "{neutral-900}"
+          }
+        }
+      }
+    },
     "input": {
       "border": {
         "radius": {
@@ -1566,7 +1614,7 @@
               "$type": "color",
               "$value": "{white-400}"
             },
-            "unselectedd": {
+            "unselected": {
               "$type": "color",
               "$value": "{neutral-300}"
             }
