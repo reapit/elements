@@ -1,18 +1,18 @@
 import { ChevronDownIcon } from '#src/icons/chevron-down'
 import { cx } from '@linaria/core'
 import {
-  elSideBarMenuGroup,
   elSideBarMenuGroupSummary,
   ElSideBarMenuGroupSummaryIcon,
   ElSideBarMenuGroupSummaryLabel,
   ElSideBarMenuGroupSummaryDropdownIcon,
 } from './styles'
 import { elSideBarMenuItem } from '../menu-item'
-import { useCallback } from 'react'
+import { shouldBeOpen } from './should-be-open'
+import { Tooltip } from '#src/core/tooltip'
+import { useCallback, useId } from 'react'
 import { useSideBarMenuGroupLabelIdContext } from './menu-group-label-id-context'
 
 import type { HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
-import { shouldBeOpen } from './should-be-open'
 
 interface SideBarMenuGroupSummaryProps extends HTMLAttributes<HTMLElement> {
   /**
@@ -40,7 +40,9 @@ export function SideBarMenuGroupSummary({
   onClick,
   ...props
 }: SideBarMenuGroupSummaryProps) {
-  const labelId = id ?? useSideBarMenuGroupLabelIdContext()
+  const tooltipId = useSideBarMenuGroupLabelIdContext()
+  const triggerId = id ?? useId()
+  const truncationTargetId = useId()
 
   // We need to prevent the parent menu group from closing if it is currently active (i.e. one of its descendants
   // represents the current page).
@@ -51,9 +53,9 @@ export function SideBarMenuGroupSummary({
     (event) => {
       onClick?.(event)
 
-      const detailsElement = event.currentTarget.closest(`details.${elSideBarMenuGroup}`)
+      const detailsElement = event.currentTarget.closest('details')
 
-      if (detailsElement instanceof HTMLDetailsElement && shouldBeOpen(detailsElement)) {
+      if (detailsElement && shouldBeOpen(detailsElement)) {
         event.preventDefault()
       }
     },
@@ -63,15 +65,18 @@ export function SideBarMenuGroupSummary({
   return (
     <summary
       {...props}
+      {...Tooltip.getTriggerProps({ id: triggerId, tooltipId, tooltipPurpose: 'label' })}
       className={cx(elSideBarMenuItem, elSideBarMenuGroupSummary, className)}
-      id={labelId}
       onClick={handleClick}
     >
       <ElSideBarMenuGroupSummaryIcon aria-hidden>{icon}</ElSideBarMenuGroupSummaryIcon>
-      <ElSideBarMenuGroupSummaryLabel>{children}</ElSideBarMenuGroupSummaryLabel>
+      <ElSideBarMenuGroupSummaryLabel id={truncationTargetId}>{children}</ElSideBarMenuGroupSummaryLabel>
       <ElSideBarMenuGroupSummaryDropdownIcon aria-hidden>
         <ChevronDownIcon />
       </ElSideBarMenuGroupSummaryDropdownIcon>
+      <Tooltip id={tooltipId} placement="right" triggerId={triggerId} truncationTargetId={truncationTargetId}>
+        {children}
+      </Tooltip>
     </summary>
   )
 }

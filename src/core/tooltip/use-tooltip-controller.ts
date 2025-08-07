@@ -23,10 +23,6 @@ interface UseTooltipControllerInput {
 export function useTooltipController({ tooltipId, triggerId, truncationTargetId }: UseTooltipControllerInput): void {
   useEffect(
     function subscribeToAnchorEvents() {
-      if (!isTooltipNeeded(truncationTargetId)) {
-        return
-      }
-
       // TODO: We are relying on element IDs instead of refs because we want to avoid the
       // complexity of using `forwardRef` in Tooltip. Once we're on React 19 and refs are a normal prop,
       // we'll be able to pass a ref directly to Tooltip without any extra cost.
@@ -42,11 +38,15 @@ export function useTooltipController({ tooltipId, triggerId, truncationTargetId 
 
       if (tooltipElement instanceof HTMLElement && triggerElement instanceof HTMLElement) {
         // Keyboard accessibility
-        triggerElement.addEventListener('focus', () => tooltipElement.showPopover(), { signal })
+        triggerElement.addEventListener('focus', () => showTooltipIfNeeded(tooltipElement, truncationTargetId), {
+          signal,
+        })
         triggerElement.addEventListener('blur', () => tooltipElement.hidePopover(), { signal })
 
         // Mouse interaction
-        triggerElement.addEventListener('mouseenter', () => tooltipElement.showPopover(), { signal })
+        triggerElement.addEventListener('mouseenter', () => showTooltipIfNeeded(tooltipElement, truncationTargetId), {
+          signal,
+        })
         triggerElement.addEventListener(
           'mouseleave',
           () => {
@@ -67,4 +67,17 @@ export function useTooltipController({ tooltipId, triggerId, truncationTargetId 
     },
     [triggerId, tooltipId],
   )
+}
+
+/**
+ * Shows the specified popover if the truncation target has truncated content.
+ *
+ * @param tooltipElement the popover element to show, if needed.
+ * @param truncationTargetId the ID of the element to measure for truncation.
+ */
+function showTooltipIfNeeded(tooltipElement: HTMLElement, truncationTargetId?: string) {
+  if (!isTooltipNeeded(truncationTargetId)) {
+    return
+  }
+  tooltipElement.showPopover()
 }
