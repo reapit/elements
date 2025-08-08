@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 export const ElChipGroup = styled.div`
   display: block;
 
-  :has(& > [data-overflow='scroll']) {
+  &:has(> [data-overflow='scroll']) {
     overflow-x: auto;
   }
 `
