@@ -44,7 +44,10 @@ afterEach(() => {
   mockIsTooltipNeeded.mockClear()
 })
 
-test('calls showPopover on anchor focus', () => {
+test('calls showPopover on anchor focus when focus-visible', () => {
+  // When :focus-visible match is true, the anchor was focused via keyboard navigation.
+  triggerElement.matches = vi.fn().mockReturnValue(true)
+
   renderHook(() =>
     useTooltipController({
       tooltipId: 'test-tooltip',
@@ -96,8 +99,24 @@ test('calls hidePopover on anchor mouseleave when not focus-visible', () => {
   expect(triggerElement.matches).toHaveBeenCalledWith(':focus-visible')
 })
 
+test('does not call showPopover on anchor focus when not focus-visible', () => {
+  // When :focus-visible match is false, the anchor was not focused via keyboard navigation.
+  triggerElement.matches = vi.fn().mockReturnValue(false)
+
+  renderHook(() =>
+    useTooltipController({
+      tooltipId: 'test-tooltip',
+      triggerId: 'test-trigger',
+    }),
+  )
+
+  triggerElement.dispatchEvent(new Event('focus'))
+  expect(mockShowPopover).not.toHaveBeenCalled()
+  expect(triggerElement.matches).toHaveBeenCalledWith(':focus-visible')
+})
+
 test('does not call hidePopover on anchor mouseleave when focus-visible', () => {
-  // Mock matches to return true for :focus-visible
+  // When :focus-visible match is true, the anchor is focused via keyboard navigation.
   triggerElement.matches = vi.fn().mockReturnValue(true)
 
   renderHook(() =>
@@ -131,21 +150,25 @@ test('removes event listeners on cleanup', () => {
     }),
   )
 
-  // Verify events work before unmount
-  triggerElement.dispatchEvent(new Event('focus'))
+  // Verify events work before unmount.
+  // NOTE: We're using mouseenter because it doesn't rely on :focus-visible matches.
+  triggerElement.dispatchEvent(new Event('mouseenter'))
   expect(mockShowPopover).toHaveBeenCalledTimes(1)
 
   // Unmount the hook
   unmount()
 
   // Events should no longer trigger after cleanup
-  triggerElement.dispatchEvent(new Event('focus'))
+  triggerElement.dispatchEvent(new Event('mouseenter'))
   expect(mockShowPopover).toHaveBeenCalledTimes(1) // Still 1, not 2
 })
 
 test('does not show tooltip when isTooltipNeeded returns false', () => {
   // Mock isTooltipNeeded to return false
   mockIsTooltipNeeded.mockReturnValue(false)
+  // When :focus-visible match is true, the anchor is focused via keyboard navigation.
+  // This is needed for the focus event to show the tooltip.
+  triggerElement.matches = vi.fn().mockReturnValue(true)
 
   renderHook(() =>
     useTooltipController({

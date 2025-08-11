@@ -38,26 +38,20 @@ export function useTooltipController({ tooltipId, triggerId, truncationTargetId 
 
       if (tooltipElement instanceof HTMLElement && triggerElement instanceof HTMLElement) {
         // Keyboard accessibility
-        triggerElement.addEventListener('focus', () => showTooltipIfNeeded(tooltipElement, truncationTargetId), {
-          signal,
-        })
-        triggerElement.addEventListener('blur', () => tooltipElement.hidePopover(), { signal })
-
-        // Mouse interaction
-        triggerElement.addEventListener('mouseenter', () => showTooltipIfNeeded(tooltipElement, truncationTargetId), {
-          signal,
-        })
         triggerElement.addEventListener(
-          'mouseleave',
-          () => {
-            // NOTE: we only want to hide the tooltip if its trigger doesn't currently have focus
-            // from keyboard navigation. We don't care if it's focused due to interaction.
-            if (!triggerElement.matches(':focus-visible')) {
-              tooltipElement.hidePopover()
-            }
-          },
+          'focus',
+          () => handleFocusEvent(triggerElement, tooltipElement, truncationTargetId),
           { signal },
         )
+        triggerElement.addEventListener('blur', () => handleBlurEvent(tooltipElement), { signal })
+
+        // Mouse interaction
+        triggerElement.addEventListener('mouseenter', () => handleMouseEnterEvent(tooltipElement, truncationTargetId), {
+          signal,
+        })
+        triggerElement.addEventListener('mouseleave', () => handleMouseLeaveEvent(triggerElement, tooltipElement), {
+          signal,
+        })
       }
 
       return () => {
@@ -67,6 +61,58 @@ export function useTooltipController({ tooltipId, triggerId, truncationTargetId 
     },
     [triggerId, tooltipId],
   )
+}
+
+/**
+ * Shows the tooltip when the trigger is focused via keyboard navigation. Since the trigger
+ * may also control a menu, we don't want to show the tooltip if the trigger is focused
+ * programmatically, such as when the menu is closed (closing the menu will cause focus to
+ * return to the menu's trigger).
+ *
+ * @param triggerElement the popover's trigger element
+ * @param tooltipElement the popover element to show, if needed.
+ * @param truncationTargetId the ID of the element to measure for truncation.
+ */
+function handleFocusEvent(triggerElement: HTMLElement, tooltipElement: HTMLElement, truncationTargetId?: string) {
+  if (triggerElement.matches(':focus-visible')) {
+    showTooltipIfNeeded(tooltipElement, truncationTargetId)
+  }
+}
+
+/**
+ * Always hides the tooltip, whether it is showing or not.
+ *
+ * @param tooltipElement the popover element to hide
+ */
+function handleBlurEvent(tooltipElement: HTMLElement) {
+  tooltipElement.hidePopover()
+}
+
+/**
+ * Shows the tooltip, if needed.
+ *
+ * @param tooltipElement the popover element to show, if needed.
+ * @param truncationTargetId the ID of the element to measure for truncation.
+ */
+function handleMouseEnterEvent(tooltipElement: HTMLElement, truncationTargetId?: string) {
+  showTooltipIfNeeded(tooltipElement, truncationTargetId)
+}
+
+/**
+ * Hides the tooltip, but if the trigger element does not currently have focus due to keyboard
+ * navigation. If the trigger is focused due to a programmatic change (like a menu controlled
+ * by the trigger being closed and focus returning to the trigger element), we want to ensure
+ * the tooltip is hidden.
+ *
+ * @param triggerElement the popover's trigger element
+ * @param tooltipElement the popover element to show, if needed.
+ */
+function handleMouseLeaveEvent(triggerElement: HTMLElement, tooltipElement: HTMLElement) {
+  // NOTE: we only want to hide the tooltip when the mouse leaves if its trigger doesn't currently
+  // have focus from keyboard navigation. We don't care if it's focused due to interaction.
+  if (!triggerElement.matches(':focus-visible')) {
+    tooltipElement.hidePopover()
+  }
 }
 
 /**
