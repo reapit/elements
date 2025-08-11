@@ -1,53 +1,51 @@
+import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
-export const ElStatusIndicatorShape = styled.span`
-  width: var(--size-2);
-  height: var(--size-2);
-  border-radius: 100%;
-
-  &[data-variant='neutral'] {
-    background: var(--icon-info);
-  }
-
-  &[data-variant='success'] {
-    background: var(--icon-success);
-  }
-
-  &[data-variant='pending'] {
-    background: var(--icon-pending);
-  }
-
-  &[data-variant='warning'] {
-    background: var(--icon-warning);
-  }
-
-  &[data-variant='danger'] {
-    background: var(--icon-error);
-  }
-
-  &[data-variant='inactive'] {
-    background: var(--icon-secondary);
-  }
-
-  &[data-variant='accent1'] {
-    background: var(--icon-accent_1);
-  }
-
-  &[data-variant='accent2'] {
-    background: var(--icon-accent_2);
-  }
-`
-
-export const ElStatusIndicator = styled.div`
+export const ElStatusIndicator = styled.strong`
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
 
-  color: var(--text-primary);
-  font-family: var(--font-family);
-  font-size: var(--font-size-sm);
-  font-style: normal;
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
+  color: var(--comp-status-colour-text-neutral);
+  ${font('sm', 'regular')}
+
+  &::before {
+    content: '';
+    width: var(--size-2);
+    height: var(--size-2);
+    border-radius: 100%;
+    flex-shrink: 0;
+  }
+
+  &[data-variant='neutral']::before {
+    background: var(--comp-status-colour-icon-neutral);
+  }
+
+  &[data-variant='success']::before {
+    background: var(--comp-status-colour-icon-success);
+  }
+
+  &[data-variant='pending']::before {
+    background: var(--comp-status-colour-icon-pending);
+  }
+
+  &[data-variant='warning']::before {
+    background: var(--comp-status-colour-icon-warning);
+  }
+
+  &[data-variant='danger']::before {
+    background: var(--comp-status-colour-icon-danger);
+  }
+
+  &[data-variant='inactive']::before {
+    background: var(--comp-status-colour-icon-inactive);
+  }
+
+  &[data-variant='accent1']::before {
+    background: var(--comp-status-colour-icon-accent_1);
+  }
+
+  &[data-variant='accent2']::before {
+    background: var(--comp-status-colour-icon-accent_2);
+  }
 `
