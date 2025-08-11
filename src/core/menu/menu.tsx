@@ -1,4 +1,5 @@
 import { AnchorMenuItem, MenuItem } from './item'
+import { cx } from '@linaria/core'
 import { elMenu } from './styles'
 import { Popover } from '#src/utils/popover'
 import { MenuDivider } from './divider'
@@ -35,6 +36,7 @@ export interface MenuProps extends Omit<HTMLAttributes<HTMLDivElement>, Attribut
 export function Menu({
   'aria-labelledby': ariaLabelledBy,
   children,
+  className,
   gap = '--spacing-1',
   maxHeight,
   maxWidth,
@@ -51,7 +53,7 @@ export function Menu({
       {...rest}
       aria-labelledby={ariaLabelledBy}
       anchorId={ariaLabelledBy}
-      className={elMenu}
+      className={cx(elMenu, className)}
       elevation="xl"
       gap={`var(${gap})`}
       maxHeight={`var(${maxHeight})`}

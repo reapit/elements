@@ -1,7 +1,7 @@
 import { css } from '@linaria/core'
 
 export const elPopover = css`
-  /* NOTE: we place these styled inside an anonymous layer so they can border
+  /* NOTE: we place these styled inside an anonymous layer so they can be easily
    * overriden by the Popover's consumers even if the consumer's styles have the
    * same specificity. */
   @layer {

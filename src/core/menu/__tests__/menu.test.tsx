@@ -16,6 +16,15 @@ test('uses popover="auto"', () => {
   expect(screen.getByRole('menu')).toHaveAttribute('popover', 'auto')
 })
 
+test('accepts consumer-supplied class names', () => {
+  render(
+    <Menu {...requiredProps} className="custom-class">
+      Menu content
+    </Menu>,
+  )
+  expect(screen.getByRole('menu')).toHaveClass('custom-class')
+})
+
 test('forwards additional props to the menu', () => {
   render(
     <Menu {...requiredProps} data-testid="test-id">
