@@ -1,15 +1,21 @@
-import { render } from '@testing-library/react'
-import { StatusIndicator } from '..'
+import { render, screen } from '@testing-library/react'
+import { StatusIndicator } from '../status-indicator'
 
-describe('StatusIndicator', () => {
-  it('should render as expected', () => {
-    expect(render(<StatusIndicator variant="neutral">Neutral</StatusIndicator>).asFragment()).toMatchSnapshot()
-    expect(render(<StatusIndicator variant="success">Success</StatusIndicator>).asFragment()).toMatchSnapshot()
-    expect(render(<StatusIndicator variant="warning">Warning</StatusIndicator>).asFragment()).toMatchSnapshot()
-    expect(render(<StatusIndicator variant="pending">Pending</StatusIndicator>).asFragment()).toMatchSnapshot()
-    expect(render(<StatusIndicator variant="danger">Danger</StatusIndicator>).asFragment()).toMatchSnapshot()
-    expect(render(<StatusIndicator variant="inactive">Inactive</StatusIndicator>).asFragment()).toMatchSnapshot()
-    expect(render(<StatusIndicator variant="accent1">Accent 1</StatusIndicator>).asFragment()).toMatchSnapshot()
-    expect(render(<StatusIndicator variant="accent2">Accent 2</StatusIndicator>).asFragment()).toMatchSnapshot()
-  })
+test('renders as a strong element', () => {
+  render(<StatusIndicator variant="neutral">Status</StatusIndicator>)
+  expect(screen.getByRole('strong')).toBeVisible()
+})
+
+test('applies the correct data-variant attribute', () => {
+  render(<StatusIndicator variant="success">Status</StatusIndicator>)
+  expect(screen.getByRole('strong')).toHaveAttribute('data-variant', 'success')
+})
+
+test('forwards additional props to the strong element', () => {
+  render(
+    <StatusIndicator data-testid="test-id" variant="success">
+      Status
+    </StatusIndicator>,
+  )
+  expect(screen.getByTestId('test-id')).toBe(screen.getByRole('strong'))
 })

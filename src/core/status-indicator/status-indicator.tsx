@@ -1,34 +1,24 @@
-import { FC, HTMLAttributes, ReactNode } from 'react'
-import { ElStatusIndicator, ElStatusIndicatorShape } from './styles'
+import { ElStatusIndicator } from './styles'
+import type { HTMLAttributes, ReactNode } from 'react'
 
-export type StatusIndicatorVariant =
-  | 'neutral'
-  | 'success'
-  | 'pending'
-  | 'warning'
-  | 'danger'
-  | 'inactive'
-  | 'accent1'
-  | 'accent2'
+// We omit:
+// - aria-label and aria-labelledby by because they are prohibited for <strong> elements
+//   by the WAI-ARIA guidelines (they should only be used for interactive content).
+type AttributesToOmit = 'aria-label' | 'aria-labelledby'
 
-export interface StatusIndicatorProps extends HTMLAttributes<HTMLSpanElement> {
-  /**
-   * The variant of the status indicator, used to highlight important information
-   *
-   * @default "neutral"
-   */
-  variant?: StatusIndicatorVariant
-
-  /**
-   * The related content associated with the status indicator variant
-   */
+export interface StatusIndicatorProps extends Omit<HTMLAttributes<HTMLElement>, AttributesToOmit> {
+  /** The label of the status indicator. */
   children: ReactNode
+  /** The variant of the status indicator. */
+  variant: 'neutral' | 'success' | 'pending' | 'warning' | 'danger' | 'inactive' | 'accent1' | 'accent2'
 }
 
-export const StatusIndicator: FC<StatusIndicatorProps> = ({ variant = 'neutral', children, ...rest }) => {
+/**
+ * A low-visibility component used to highlight important information.
+ */
+export function StatusIndicator({ children, variant, ...rest }: StatusIndicatorProps) {
   return (
-    <ElStatusIndicator {...rest}>
-      <ElStatusIndicatorShape data-variant={variant} />
+    <ElStatusIndicator {...rest} data-variant={variant}>
       {children}
     </ElStatusIndicator>
   )
