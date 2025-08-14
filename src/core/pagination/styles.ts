@@ -1,3 +1,4 @@
+import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
 export const ElPagination = styled.nav`
@@ -23,10 +24,5 @@ export const ElPaginationText = styled.span`
   min-width: var(--size-12);
 
   color: var(--colour-text-primary);
-  font-family: var(--font-base-regular-family);
-  font-size: var(--font-base-regular-size);
-  font-style: normal;
-  font-weight: var(--font-base-regular-weight);
-  line-height: var(--font-base-regular-line_height);
-  letter-spacing: var(--font-base-regular-letter_spacing);
+  ${font('base', 'regular')}
 `

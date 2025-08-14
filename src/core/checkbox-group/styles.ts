@@ -1,3 +1,4 @@
+import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
 export const ElLegend = styled.legend`
@@ -5,12 +6,7 @@ export const ElLegend = styled.legend`
   align-items: center;
   gap: var(--spacing-1);
   color: var(--text-colour-text-secondary);
-  font-family: var(--font-family);
-  font-size: var(--font-size-xs);
-  font-style: normal;
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-xs);
-  letter-spacing: var(--letter-spacing-xs);
+  ${font('xs', 'regular')}
 `
 
 export const ElCheckboxGroup = styled.fieldset`

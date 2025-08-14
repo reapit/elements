@@ -1,29 +1,21 @@
+import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
 export const ElEmptyDataDescription = styled.p`
   color: var(--text-primary);
-  font-size: var(--font-size-base);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-base);
-  letter-spacing: var(--letter-spacing-base);
+  ${font('base', 'regular')}
   text-align: center;
 `
 
 export const ElEmptyDataSecondaryDescription = styled.p`
   color: var(--text-secondary);
-  font-size: var(--font-size-sm,);
-  font-weight: var(--font-weight-regular,);
-  line-height: var(--line-height-sm,);
-  letter-spacing: var(--letter-spacing-sm);
+  ${font('sm', 'regular')}
   text-align: center;
 `
 
 export const ElEmptyDataActionButton = styled.button`
   color: var(--text-action);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-medium);
-  line-height: var(--line-height-sm);
-  letter-spacing: var(--letter-spacing-sm);
+  ${font('sm', 'medium')}
 
   text-align: center;
   border: none;
