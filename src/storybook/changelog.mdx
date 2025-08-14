@@ -19,6 +19,9 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 ### **5.0.0-beta.44 - ??/??/25**
 
 - **fix:** App Switcher now accepts standard button attributes and fowards them to the underlying trigger button.
+- **fix:** Menu groups and dividers will be correctly styled even if they are not direct descendants of the Menu.
+- **feat:** Added `Menu.getClosestMenuElement` helper function to allow menu items to more easily find their parent menu. This is particularly useful for menu items that need to manually close the menu.
+- **chore!:** Moves `@reapit/elements/core/container-query` to `@reapit/elements/utils/css-container-query` to align with it's actual name (`CSSContainerQuery`) and the fact its not a "core" component.
 
 ### **5.0.0-beta.43 - 12/08/25**
 

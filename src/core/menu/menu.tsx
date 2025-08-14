@@ -75,5 +75,5 @@ Menu.Divider = MenuDivider
 Menu.Group = MenuGroup
 Menu.Item = MenuItem
 
-// Make this helper available for convenience.
+Menu.getClosestMenuElement = Popover.getClosestPopoverElement
 Menu.getTriggerProps = Popover.getTriggerProps

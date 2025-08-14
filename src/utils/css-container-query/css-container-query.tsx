@@ -16,17 +16,16 @@ export const CSSContainerQuery: FC<CSSContainerQueryProps> = ({ children, condit
   const id = useRef(baseId++)
   return (
     <>
-      <style>
-        {`
-         .el-container-query-${id.current} {
+      <style>{`
+        .el-css-container-query-${id.current} {
           display: contents;
 
           @container ${condition}  {
             display: none;
           }
-      }`}
-      </style>
-      <div className={`el-container-query-${id.current}`}>{children}</div>
+        }
+      `}</style>
+      <div className={`el-css-container-query-${id.current}`}>{children}</div>
     </>
   )
 }
