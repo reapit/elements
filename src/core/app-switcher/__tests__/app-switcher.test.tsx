@@ -28,3 +28,8 @@ test('the menu is visible when the trigger button is clicked', () => {
   fireEvent.click(button)
   expect(screen.getByRole('menu')).toBeVisible()
 })
+
+test('additional props are forwarded to the trigger button', () => {
+  render(<AppSwitcherStories.Example data-testid="test-id" />)
+  expect(screen.getByTestId('test-id')).toBe(screen.getByRole('button'))
+})
