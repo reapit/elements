@@ -21,8 +21,9 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 - **fix:** App Switcher now accepts standard button attributes and fowards them to the underlying trigger button.
 - **fix:** Menu groups and dividers will be correctly styled even if they are not direct descendants of the Menu.
 - **feat:** Added `Menu.getClosestMenuElement` helper function to allow menu items to more easily find their parent menu. This is particularly useful for menu items that need to manually close the menu.
-- **chore!:** Moves `@reapit/elements/core/container-query` to `@reapit/elements/utils/css-container-query` to align with it's actual name (`CSSContainerQuery`) and the fact its not a "core" component.
+- **chore!:** Moved `@reapit/elements/core/container-query` to `@reapit/elements/utils/css-container-query` to align with it's actual name (`CSSContainerQuery`) and the fact its not a "core" component.
 - **chore:** Updated all core components to use the `font` helper instead of duplicated font styles.
+- **chore!:** Moved Table components from `@reapit/elements/core/table` to `@reapit/elements/lab/table` and the related CSS classes are all prefixed with `el-experimental-*` now. Importantly, they are no longer available via the main `@reapit/elements` entry point. The deprecated v4 Table components are still available via `@reapit/elements/deprecated/table`.
 
 ### **5.0.0-beta.43 - 12/08/25**
 
