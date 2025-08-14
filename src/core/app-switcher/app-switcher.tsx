@@ -9,9 +9,9 @@ import { getDisplayableProductsForExploreGroup } from './get-displayable-product
 import { Menu } from '#src/core/menu'
 import { useId } from 'react'
 
-import type { ReactNode } from 'react'
+import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
-interface AppSwitcherProps {
+interface AppSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * The menu groups and their items. Should typically be `AppSwitcher.ExploreMenuGroup`,
    * `AppSwitcher.YourAppsMenuGroup`, and `AppSwitcher.ProductMenuItem` components */
@@ -23,13 +23,14 @@ interface AppSwitcherProps {
  * the products the current user has access to (in the Your Apps group), and other apps from Reapit (in the
  * Explore group).
  */
-export function AppSwitcher({ children }: AppSwitcherProps) {
-  const triggerId = useId()
+export function AppSwitcher({ children, id, ...rest }: AppSwitcherProps) {
+  const triggerId = id ?? useId()
   const menuId = useId()
 
   return (
     <>
       <AppSwitcherNavIconButton
+        {...rest}
         {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
       />
       <Menu aria-labelledby={triggerId} id={menuId} placement="bottom-start">
