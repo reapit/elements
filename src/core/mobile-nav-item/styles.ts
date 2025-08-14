@@ -1,5 +1,6 @@
-import { styled } from '@linaria/react'
 import { ElDeprecatedIcon } from '../../deprecated/icon'
+import { font } from '#src/core/text'
+import { styled } from '@linaria/react'
 
 const baseStyles = `
   cursor: pointer;
@@ -12,12 +13,7 @@ const baseStyles = `
   border: 4px solid transparent;
   background: inherit;
   padding: var(--spacing-2) var(--spacing-4);
-  font-family: var(--font-family);
-  font-size: var(--font-size-base);
-  font-style: normal;
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-base);
-  letter-spacing: var(--letter-spacing-base);
+  ${font('base', 'regular')}
   text-decoration: none;
 
   &:hover {
@@ -32,7 +28,7 @@ const baseStyles = `
   &[aria-current='true'],
   &[aria-current='page'] {
     color: var(--text-action);
-    font-weight: var(--font-weight-medium);
+    ${font('base', 'medium')}
   }
 `
 

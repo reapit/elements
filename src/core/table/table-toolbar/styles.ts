@@ -1,3 +1,4 @@
+import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
 export const ElTableToolbar = styled.div`
@@ -15,12 +16,7 @@ export const ElTableToolbarDescription = styled.div`
   gap: var(--spacing-1);
 
   color: var(--colour-text-primary);
-  font-family: var(--font-sm-regular-family);
-  font-size: var(--font-sm-regular-size);
-  font-style: normal;
-  font-weight: var(--font-sm-regular-weight);
-  line-height: var(--font-sm-regular-line_height);
-  letter-spacing: var(--font-sm-regular-letter_spacing);
+  ${font('sm', 'regular')}
 `
 
 export const ElTableToolbarActions = styled.div`

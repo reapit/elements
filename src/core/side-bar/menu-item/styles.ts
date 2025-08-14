@@ -44,7 +44,7 @@ export const ElSideBarMenuItemLabel = styled.span`
 
   [aria-current='page'] > & {
     color: var(--comp-navigation-colour-text-sidebar-select);
-    font-weight: var(--font-weight-medium);
+    ${font('sm', 'medium')}
   }
 `
 

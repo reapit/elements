@@ -1,5 +1,6 @@
-import { styled } from '@linaria/react'
 import { ElDeprecatedIcon } from '../../../deprecated/icon'
+import { font } from '#src/core/text'
+import { styled } from '@linaria/react'
 
 export const ElTableTextIcon = styled.span`
   display: flex;
@@ -11,12 +12,7 @@ export const ElTableTextContent = styled.span`
   display: flex;
   align-items: center;
   color: var(--colour-text-primary);
-  font-family: var(--font-sm-regular-family);
-  font-style: normal;
-  font-weight: var(--font-sm-regular-weight);
-  font-size: var(--font-sm-regular-size);
-  line-height: var(--font-sm-regular-line_height);
-  letter-spacing: var(--font-sm-regular-letter_spacing);
+  ${font('sm', 'regular')}
 `
 
 export const ElTableText = styled.div`
@@ -53,9 +49,7 @@ export const ElTableText = styled.div`
   &[data-variant='accent_2'],
   &[data-variant='action'] {
     ${ElTableTextContent} {
-      font-weight: var(--font-sm-medium-weight);
-      line-height: var(--font-sm-medium-line_height);
-      letter-spacing: var(--font-sm-medium-letter_spacing);
+      ${font('sm', 'medium')}
     }
   }
 

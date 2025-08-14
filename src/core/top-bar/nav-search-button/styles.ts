@@ -45,10 +45,5 @@ export const ElTopBarNavSearchButtonPlaceholder = styled.span`
 
 export const ElTopBarNavSearchButtonShortcutText = styled.kbd`
   color: var(--comp-navigation-colour-text-nav_search-placeholder);
-  font-family: var(--font-family);
-  font-style: normal;
-  font-size: var(--font-2xs-medium-size);
-  font-weight: var(--font-2xs-medium-weight);
-  line-height: var(--font-2xs-medium-line_height);
-  letter-spacing: var(--font-2xs-medium-letter_spacing);
+  ${font('2xs', 'medium')}
 `
