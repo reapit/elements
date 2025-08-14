@@ -16,6 +16,15 @@ const core = Object.fromEntries(
   ]),
 )
 
+// We dynamically discover all "first-level" barrel files in the `src/lab` directory and add them as
+// individual entry points for our build.
+const lab = Object.fromEntries(
+  fs.globSync('src/lab/*/index.ts', { withFileTypes: true }).map((file) => [
+    path.join('lab', path.basename(file.parentPath)), // e.g. `core/button`
+    path.join(file.parentPath, file.name), // e.g. `src/core/button/index.ts`
+  ]),
+)
+
 // We dynamically discover all "first-level" barrel files in the `src/deprecated` directory and add them as
 // individual entry points for our build.
 const deprecated = Object.fromEntries(
@@ -52,6 +61,7 @@ export default defineConfig({
       entry: {
         index: 'src/index.ts',
         ...core,
+        ...lab,
         ...deprecated,
         ...icons,
         ...utils,

@@ -5,7 +5,7 @@ import brandImage from './public/reapitLogo.svg'
 
 addons.setConfig({
   sidebar: {
-    collapsedRoots: ['deprecated'],
+    collapsedRoots: ['deprecated', 'lab'],
   },
   theme: create({
     base: 'light',
