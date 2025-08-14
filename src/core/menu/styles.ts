@@ -8,11 +8,14 @@ export const elMenu = css`
 
   padding: var(--spacing-2);
 
-  & > ${ElMenuDivider} {
+  /* NOTE: We do NOT use the immediate child selector here because we want to allow
+     for dividers and menu groups to be nested within other elements. This is primarily
+     to support the use of CSSContainerQuery and it's reliance on a wrapping <div> */
+  & ${ElMenuDivider} {
     margin-inline: calc(0px - var(--spacing-2));
   }
 
-  & > ${ElMenuGroup} {
+  & ${ElMenuGroup} {
     margin-inline: calc(0px - var(--spacing-2));
 
     &:first-child {

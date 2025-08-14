@@ -200,3 +200,47 @@ export const PreventingClosure: Story = {
     ),
   },
 }
+
+/**
+ * If a menu item prevents the automatic closure of the menu, it's likely it will need to manually close
+ * the menu itself at some point (e.g., after an asynchrous action has settled). To do this, the menu
+ * element must be used.
+ *
+ * The `Menu.getClosestMenuElement` helper is available to assist with this. For example,
+ *
+ * ```ts
+ * const handleClick = (event: React.MouseEvent) => {
+ *   // Prevent the menu from closing automatically
+ *   event.preventDefault()
+ *   const menu = Menu.getClosestMenuElement(event.currentTarget)
+ *
+ *   await doSomethingAsync()
+ *
+ *   // Close the menu after the async action has completed
+ *   menu?.hidePopover()
+ * }
+ * ```
+ */
+export const ImperativeClosure: Story = {
+  args: {
+    ...Example.args,
+    children: (
+      <>
+        <Menu.Item
+          onClick={async (event) => {
+            event.preventDefault()
+            const menu = Menu.getClosestMenuElement(event.currentTarget)
+
+            // Simulate an async action
+            await new Promise((resolve) => setTimeout(resolve, 1000))
+
+            menu?.hidePopover()
+          }}
+        >
+          I&apos;ll close the menu in a second
+        </Menu.Item>
+        <Menu.Item>But I will</Menu.Item>
+      </>
+    ),
+  },
+}
