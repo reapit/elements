@@ -89,7 +89,7 @@ export const ElTopBarSecondaryNavContainer = styled.div`
 
   display: none;
 
-  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('SM')} {
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('LG')} {
     display: block;
   }
 `
