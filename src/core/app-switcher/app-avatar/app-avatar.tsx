@@ -1,21 +1,21 @@
-import AutoResponderDisabled from './icons/autoresponder-disabled.svg?react'
-import AutoResponder from './icons/autoresponder.svg?react'
-import KeyWhereDisabled from './icons/keywhere-disabled.svg?react'
-import KeyWhere from './icons/keywhere.svg?react'
-import ReapitFormsDisabled from './icons/reapit-forms-disabled.svg?react'
-import ReapitForms from './icons/reapit-forms.svg?react'
-import ReapitLettingsDisabled from './icons/reapit-lettings-disabled.svg?react'
-import ReapitLettings from './icons/reapit-lettings.svg?react'
-import ReapitPMDisabled from './icons/reapit-pm-disabled.svg?react'
-import ReapitPM from './icons/reapit-pm.svg?react'
-import ReapitProposalsDisabled from './icons/reapit-proposals-disabled.svg?react'
-import ReapitProposals from './icons/reapit-proposals.svg?react'
-import ReapitSalesDisabled from './icons/reapit-sales-disabled.svg?react'
-import ReapitSales from './icons/reapit-sales.svg?react'
-import ReapitWebsitesDisabled from './icons/reapit-websites-disabled.svg?react'
-import ReapitWebsites from './icons/reapit-websites.svg?react'
-import LettingsBDM from './icons/lettings-bdm.svg?react'
-import LettingsBDMDisabled from './icons/lettings-bdm-disabled.svg?react'
+import AutoResponderDisabled from './icons/autoresponder-disabled.svg?url'
+import AutoResponder from './icons/autoresponder.svg?url'
+import KeyWhereDisabled from './icons/keywhere-disabled.svg?url'
+import KeyWhere from './icons/keywhere.svg?url'
+import ReapitFormsDisabled from './icons/reapit-forms-disabled.svg?url'
+import ReapitForms from './icons/reapit-forms.svg?url'
+import ReapitLettingsDisabled from './icons/reapit-lettings-disabled.svg?url'
+import ReapitLettings from './icons/reapit-lettings.svg?url'
+import ReapitPMDisabled from './icons/reapit-pm-disabled.svg?url'
+import ReapitPM from './icons/reapit-pm.svg?url'
+import ReapitProposalsDisabled from './icons/reapit-proposals-disabled.svg?url'
+import ReapitProposals from './icons/reapit-proposals.svg?url'
+import ReapitSalesDisabled from './icons/reapit-sales-disabled.svg?url'
+import ReapitSales from './icons/reapit-sales.svg?url'
+import ReapitWebsitesDisabled from './icons/reapit-websites-disabled.svg?url'
+import ReapitWebsites from './icons/reapit-websites.svg?url'
+import LettingsBDM from './icons/lettings-bdm.svg?url'
+import LettingsBDMDisabled from './icons/lettings-bdm-disabled.svg?url'
 
 import type { SupportedProductId } from '../config'
 
@@ -33,22 +33,22 @@ interface AppAvatarProps {
 export function AppAvatar({ hasAccess, productId }: AppAvatarProps) {
   switch (productId) {
     case 'consoleCloud':
-      return hasAccess ? <ReapitPM /> : <ReapitPMDisabled />
+      return hasAccess ? <img src={ReapitPM} /> : <img src={ReapitPMDisabled} />
     case 'agentBox':
-      return hasAccess ? <ReapitSales /> : <ReapitSalesDisabled />
+      return hasAccess ? <img src={ReapitSales} /> : <img src={ReapitSalesDisabled} />
     case 'ireWeb':
-      return hasAccess ? <ReapitLettings /> : <ReapitLettingsDisabled />
+      return hasAccess ? <img src={ReapitLettings} /> : <img src={ReapitLettingsDisabled} />
     case 'reapitForms':
-      return hasAccess ? <ReapitForms /> : <ReapitFormsDisabled />
+      return hasAccess ? <img src={ReapitForms} /> : <img src={ReapitFormsDisabled} />
     case 'reapitWebsites':
-      return hasAccess ? <ReapitWebsites /> : <ReapitWebsitesDisabled />
+      return hasAccess ? <img src={ReapitWebsites} /> : <img src={ReapitWebsitesDisabled} />
     case 'reapitProposals':
-      return hasAccess ? <ReapitProposals /> : <ReapitProposalsDisabled />
+      return hasAccess ? <img src={ReapitProposals} /> : <img src={ReapitProposalsDisabled} />
     case 'keywhere':
-      return hasAccess ? <KeyWhere /> : <KeyWhereDisabled />
+      return hasAccess ? <img src={KeyWhere} /> : <img src={KeyWhereDisabled} />
     case 'autoResponder':
-      return hasAccess ? <AutoResponder /> : <AutoResponderDisabled />
+      return hasAccess ? <img src={AutoResponder} /> : <img src={AutoResponderDisabled} />
     case 'lettingsBDM':
-      return hasAccess ? <LettingsBDM /> : <LettingsBDMDisabled />
+      return hasAccess ? <img src={LettingsBDM} /> : <img src={LettingsBDMDisabled} />
   }
 }

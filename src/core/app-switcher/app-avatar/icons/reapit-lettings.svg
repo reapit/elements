@@ -1,10 +1,10 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z" fill="url(#paint0_linear_681_1909)"/>
-<path d="M32.2415 6.15326C12.4847 6.15326 9.05886 25.5244 7.74146 33.4274H9.37526C9.81276 30.528 12.7773 19.062 19.9915 13.6664C19.9915 13.6664 14.5042 20.462 13.59 28.3272C16.9276 27.6916 27.0762 25.0421 29.2301 15.7349L25.4886 15.142C26.806 13.8246 30.271 10.1055 32.2408 6.15396L32.2415 6.15326Z" fill="white"/>
-<defs>
-<linearGradient id="paint0_linear_681_1909" x1="20.7019" y1="0.350877" x2="20.7019" y2="31.2281" gradientUnits="userSpaceOnUse">
-<stop stop-color="#5573FD"/>
-<stop offset="0.575" stop-color="#4E56EA"/>
-</linearGradient>
-</defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 40 40">
+  <path fill="url(#reapit-lettings__a)" d="M0 8a8 8 0 0 1 8-8h24a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8V8Z"/>
+  <path fill="#fff" d="M32.576 6C12.293 6 8.776 25.887 7.424 34H9.1c.45-2.977 3.493-14.748 10.899-20.287 0 0-5.633 6.976-6.572 15.051 3.426-.652 13.845-3.372 16.056-12.927l-3.84-.61c1.352-1.351 4.909-5.17 6.931-9.226V6Z"/>
+  <defs>
+    <linearGradient id="reapit-lettings__a" x1="20.702" x2="20.702" y1=".351" y2="31.228" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#5573FD"/>
+      <stop offset=".575" stop-color="#4E56EA"/>
+    </linearGradient>
+  </defs>
 </svg>
