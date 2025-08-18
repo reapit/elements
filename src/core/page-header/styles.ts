@@ -1,4 +1,4 @@
-import { isDesktop, isTablet } from '#src/styles/deprecated-media'
+import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/breakpoints'
 import { styled } from '@linaria/react'
 
 import type { CSSProperties } from 'react'
@@ -24,12 +24,12 @@ export const ElPageHeader = styled.header<PageHeaderProps>`
 
   /* NOTE: Media queries are use by default, but if the browser supports container queries, they will override the
    * media query styles defined here. */
-  ${isTablet} {
+  @media screen and ${isWidthAtOrAbove('SM')} {
     padding-block: var(--spacing-8);
     padding-inline: var(--spacing-8);
   }
 
-  ${isDesktop} {
+  @media screen and ${isWidthAtOrAbove('MD')} {
     padding-block: var(--spacing-10);
     padding-inline: var(--spacing-10);
   }
@@ -37,21 +37,19 @@ export const ElPageHeader = styled.header<PageHeaderProps>`
   /* NOTE: These container query styles come _after_ the media query styles, so they will override them (if the browser
    * supports container queries). These container query styles are also dependent on a parent element being a size or
    * inline-size container. */
-  @supports (container-type: inline-size) {
-    @container (width < 768px) {
-      padding-block: var(--spacing-3);
-      padding-inline: var(--spacing-5) var(--spacing-3);
-    }
+  @container ${isWidthBelow('SM')} {
+    padding-block: var(--spacing-3);
+    padding-inline: var(--spacing-5) var(--spacing-3);
+  }
 
-    @container (width >= 768px) {
-      padding-block: var(--spacing-8);
-      padding-inline: var(--spacing-8);
-    }
+  @container ${isWidthBelow('MD')} {
+    padding-block: var(--spacing-8);
+    padding-inline: var(--spacing-8);
+  }
 
-    @container (width >= 1024px) {
-      padding-block: var(--spacing-8);
-      padding-inline: var(--spacing-10);
-    }
+  @container ${isWidthBelow('MD')} {
+    padding-block: var(--spacing-8);
+    padding-inline: var(--spacing-10);
   }
 `
 
@@ -61,21 +59,19 @@ export const ElPageHeaderBreadcrumbsContainer = styled.div`
 
   /* NOTE: Media queries are use by default, but if the browser supports container queries, they will override the
    * media query styles defined here. */
-  ${isTablet} {
+  @media screen and ${isWidthAtOrAbove('SM')} {
+    padding-block-end: var(--spacing-4);
+  }
+
+  @container ${isWidthAtOrAbove('SM')} {
     padding-block-end: var(--spacing-4);
   }
 
   /* NOTE: These container query styles come _after_ the media query styles, so they will override them (if the browser
-  * supports container queries). These container query styles are also dependent on a parent element being a size or
-  * inline-size container. */
-  @supports (container-type: inline-size) {
-    @container (width < 768px) {
-      padding-block-end: var(--spacing-2);
-    }
-
-    @container (width >= 768px) {
-      padding-block-end: var(--spacing-4);
-    }
+   * supports container queries). These container query styles are also dependent on a parent element being a size or
+   * inline-size container. */
+  @container ${isWidthBelow('SM')} {
+    padding-block-end: var(--spacing-2);
   }
 `
 
@@ -85,21 +81,19 @@ export const ElPageHeaderLeadingElementContainer = styled.div`
 
   /* NOTE: Media queries are use by default, but if the browser supports container queries, they will override the
    * media query styles defined here. */
-  ${isTablet} {
+  @media screen and ${isWidthAtOrAbove('SM')} {
+    padding-inline-end: var(--spacing-4);
+  }
+
+  @container ${isWidthAtOrAbove('SM')} {
     padding-inline-end: var(--spacing-4);
   }
 
   /* NOTE: These container query styles come _after_ the media query styles, so they will override them (if the browser
-  * supports container queries). These container query styles are also dependent on a parent element being a size or
-  * inline-size container. */
-  @supports (container-type: inline-size) {
-    @container (width < 768px) {
-      padding-inline-end: var(--spacing-3);
-    }
-
-    @container (width >= 768px) {
-      padding-inline-end: var(--spacing-4);
-    }
+   * supports container queries). These container query styles are also dependent on a parent element being a size or
+   * inline-size container. */
+  @container ${isWidthBelow('SM')} {
+    padding-inline-end: var(--spacing-3);
   }
 `
 

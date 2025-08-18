@@ -38,11 +38,13 @@ const meta = {
       <div
         ref={ref}
         style={{
-          overflow: 'auto',
-          height: '300px',
-          width: '100%',
           boxSizing: 'border-box',
           border: '1px solid #FA00FF',
+          containerType: 'inline-size',
+          height: '300px',
+          marginInline: 'auto',
+          overflow: 'auto',
+          width: '600px',
         }}
       >
         <Pattern height="100vh" />

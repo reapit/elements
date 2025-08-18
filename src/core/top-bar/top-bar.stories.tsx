@@ -213,7 +213,7 @@ export const Example: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ height: '400px' }}>
+      <div style={{ height: '200px' }}>
         <Story />
       </div>
     ),
@@ -227,7 +227,7 @@ export const Example: Story = {
  * For viewports under 768px, very few of the Top Bar's sections will be visible. Most will have collapsed
  * into the overflow menu, except for the product's "global" search entry point, if one is available.
  */
-export const Mobile: Story = {
+export const XS: Story = {
   args: {
     ...Example.args,
   },
@@ -239,7 +239,7 @@ export const Mobile: Story = {
  * and the "global" search entry point have more space available to itself. The main navigation, secondary
  * navigation, and user profile menu will still be collapsed into the overflow menu.
  */
-export const Tablet: Story = {
+export const SM: Story = {
   args: {
     ...Example.args,
   },
@@ -249,9 +249,9 @@ export const Tablet: Story = {
 /**
  * For viewports between 1024px and 1440px, the user's profile menu will become available directly in the Top Bar.
  */
-export const Desktop: Story = {
+export const MD: Story = {
   args: {
-    ...Tablet.args,
+    ...SM.args,
   },
   decorators: [useConstrainedWidthDecorator('1024px')],
 }
@@ -259,9 +259,10 @@ export const Desktop: Story = {
 /**
  * For viewports 1440px and wider, the Top Bar will display all of its regions.
  */
-export const WideScreen: Story = {
+export const LG_2XL: Story = {
+  name: 'LG–2XL',
   args: {
-    ...Tablet.args,
+    ...MD.args,
   },
   decorators: [useConstrainedWidthDecorator('1440px')],
 }

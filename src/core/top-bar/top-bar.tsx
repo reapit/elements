@@ -2,10 +2,11 @@ import { BrandLogo } from './brand-logo'
 import {
   ElTopBar,
   ElTopBarAppSwitcherContainer,
+  ElTopBarAvatarContainer,
+  ElTopBarContentContainer,
   ElTopBarLogoContainer,
   ElTopBarMainNavContainer,
   ElTopBarMenuContainer,
-  ElTopBarAvatarContainer,
   ElTopBarSearchContainer,
   ElTopBarSecondaryNavContainer,
 } from './styles'
@@ -72,15 +73,17 @@ interface TopBarProps extends Omit<ComponentProps<typeof ElTopBar>, 'children'> 
 export function TopBar({ appSwitcher, avatar, logo, mainNav, menu, search, secondaryNav, ...rest }: TopBarProps) {
   return (
     <ElTopBar {...rest}>
-      {/* NOTE: The order here defines the "source order" of the DOM content. For a11y, it's important this
-       * matches the visual order defined by ElTopBar's CSS grid layout. */}
-      {appSwitcher && <ElTopBarAppSwitcherContainer>{appSwitcher}</ElTopBarAppSwitcherContainer>}
-      <ElTopBarLogoContainer>{logo}</ElTopBarLogoContainer>
-      {mainNav && <ElTopBarMainNavContainer>{mainNav}</ElTopBarMainNavContainer>}
-      {search && <ElTopBarSearchContainer>{search}</ElTopBarSearchContainer>}
-      {secondaryNav && <ElTopBarSecondaryNavContainer>{secondaryNav}</ElTopBarSecondaryNavContainer>}
-      {menu && <ElTopBarMenuContainer>{menu}</ElTopBarMenuContainer>}
-      <ElTopBarAvatarContainer>{avatar}</ElTopBarAvatarContainer>
+      <ElTopBarContentContainer>
+        {/* NOTE: The order here defines the "source order" of the DOM content. For a11y, it's important this
+         * matches the visual order defined by ElTopBar's CSS grid layout. */}
+        {appSwitcher && <ElTopBarAppSwitcherContainer>{appSwitcher}</ElTopBarAppSwitcherContainer>}
+        <ElTopBarLogoContainer>{logo}</ElTopBarLogoContainer>
+        {mainNav && <ElTopBarMainNavContainer>{mainNav}</ElTopBarMainNavContainer>}
+        {search && <ElTopBarSearchContainer>{search}</ElTopBarSearchContainer>}
+        {secondaryNav && <ElTopBarSecondaryNavContainer>{secondaryNav}</ElTopBarSecondaryNavContainer>}
+        {menu && <ElTopBarMenuContainer>{menu}</ElTopBarMenuContainer>}
+        <ElTopBarAvatarContainer>{avatar}</ElTopBarAvatarContainer>
+      </ElTopBarContentContainer>
     </ElTopBar>
   )
 }

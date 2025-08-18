@@ -10,7 +10,7 @@ import type { Breakpoint } from './breakpoints'
  * @returns A condition that can be used with media or container queries.
  */
 export function isWidthAtOrAbove(breakpoint: Breakpoint) {
-  return `(min-width: ${BreakpointMinimumDimensions[breakpoint]})`
+  return `(width >= ${BreakpointMinimumDimensions[breakpoint]})`
 }
 
 /**
@@ -21,5 +21,5 @@ export function isWidthAtOrAbove(breakpoint: Breakpoint) {
  * @returns A condition that can be used with media or container queries.
  */
 export function isWidthBelow(breakpoint: Breakpoint) {
-  return `(max-width: ${BreakpointMinimumDimensions[breakpoint]})`
+  return `(width < ${BreakpointMinimumDimensions[breakpoint]})`
 }

@@ -6,9 +6,9 @@ import type { Breakpoint } from '../breakpoints'
 const breakpoints = Object.keys(BreakpointMinimumDimensions).sort() as Breakpoint[]
 
 test.each(breakpoints)('isWidthAtOrAbove("%s")', (bp) => {
-  expect(isWidthAtOrAbove(bp)).toBe(`(min-width: ${BreakpointMinimumDimensions[bp]})`)
+  expect(isWidthAtOrAbove(bp)).toBe(`(width >= ${BreakpointMinimumDimensions[bp]})`)
 })
 
 test.each(breakpoints)('isWidthBelow("%s")', (bp) => {
-  expect(isWidthBelow(bp)).toBe(`(max-width: ${BreakpointMinimumDimensions[bp]})`)
+  expect(isWidthBelow(bp)).toBe(`(width < ${BreakpointMinimumDimensions[bp]})`)
 })

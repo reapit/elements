@@ -1,4 +1,4 @@
-import { isTablet } from '#src/styles/deprecated-media'
+import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/breakpoints'
 import { styled } from '@linaria/react'
 
 interface PageHeaderLeadingElementProps {
@@ -19,24 +19,25 @@ export const ElPageHeaderLeadingElement = styled.div<PageHeaderLeadingElementPro
     height: var(--size-6);
     width: var(--size-6);
 
-    ${isTablet} {
+    @media screen and ${isWidthAtOrAbove('SM')} {
       padding-block-start: var(--spacing-1);
       height: var(--size-10);
       width: var(--size-10);
     }
 
-    @supports (container-type: inline-size) {
-      @container (width < 768px) {
-        padding-block-start: var(--spacing-2);
-        height: var(--size-6);
-        width: var(--size-6);
-      }
+    @container ${isWidthAtOrAbove('SM')} {
+      padding-block-start: var(--spacing-1);
+      height: var(--size-10);
+      width: var(--size-10);
+    }
 
-      @container (width >= 768px) {
-        padding-block-start: var(--spacing-1);
-        height: var(--size-10);
-        width: var(--size-10);
-      }
+    /* NOTE: This container query will override the default media query behaviour above if there's
+     * an ancestor is a container. If there's no ancestral container, the media query will behave
+     * as defined above. */
+    @container ${isWidthBelow('SM')} {
+      padding-block-start: var(--spacing-2);
+      height: var(--size-6);
+      width: var(--size-6);
     }
   }
 
@@ -47,18 +48,19 @@ export const ElPageHeaderLeadingElement = styled.div<PageHeaderLeadingElementPro
     padding-block-start: var(--spacing-1);
     width: var(--size-16);
 
-    ${isTablet} {
+    @media screen and ${isWidthAtOrAbove('SM')} {
       width: var(--size-24);
     }
 
-    @supports (container-type: inline-size) {
-      @container (width < 768px) {
-        width: var(--size-16);
-      }
+    @container ${isWidthAtOrAbove('SM')} {
+      width: var(--size-24);
+    }
 
-      @container (width >= 768px) {
-        width: var(--size-24);
-      }
+    /* NOTE: This container query will override the default media query behaviour above if there's
+     * an ancestor is a container. If there's no ancestral container, the media query will behave
+     * as defined above. */
+    @container ${isWidthBelow('SM')} {
+      width: var(--size-16);
     }
   }
 `
