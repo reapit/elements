@@ -36,13 +36,12 @@ export const ElBottomBarItemIcon = styled.span`
   position: relative;
 
   color: var(--comp-navigation-colour-icon-bottom_bar-default);
-  font-size: var(--icon_size-l);
   width: var(--icon_size-l);
   height: var(--icon_size-l);
 
   ${ElDeprecatedIcon} {
     color: inherit;
-    font-size: inherit;
+    font-size: var(--icon_size-l);
     width: inherit;
     height: inherit;
   }

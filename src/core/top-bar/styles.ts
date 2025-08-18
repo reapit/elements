@@ -1,29 +1,35 @@
-import { styled } from '@linaria/react'
-import { isTablet, isDesktop, isWideScreen } from '../../styles/deprecated-media'
 import { css } from '@linaria/core'
+import { isWidthAtOrAbove } from '#src/utils/breakpoints'
+import { styled } from '@linaria/react'
+import { TOP_BAR_CONTAINER_NAME } from './constants'
 
 export const ElTopBar = styled.header`
+  height: var(--size-14);
+  width: 100%;
+
+  container-name: ${TOP_BAR_CONTAINER_NAME};
+  container-type: inline-size;
+
+  border-bottom: var(--comp-navigation-border-width-top_bar) solid var(--comp-navigation-colour-border-top_bar);
+  background: var(--comp-navigation-colour-fill-top_bar);
+`
+
+export const ElTopBarContentContainer = styled.div`
   display: grid;
   align-items: center;
   grid-template-areas: 'app-switcher logo main-nav search secondary-nav mobile-nav profile';
   grid-template-columns: min-content min-content 1fr auto auto auto auto;
-  height: var(--size-14);
-  width: 100%;
-
-  container-name: top-bar;
-  container-type: inline-size;
 
   padding-block: var(--spacing-2);
   padding-inline: var(--spacing-4) var(--spacing-2);
-  ${isTablet} {
+
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('SM')} {
     padding-inline: var(--spacing-4);
   }
-  ${isWideScreen} {
+
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('LG')} {
     padding-inline: var(--spacing-5);
   }
-
-  border-bottom: var(--comp-navigation-border-width-top_bar) solid var(--comp-navigation-colour-border-top_bar);
-  background: var(--comp-navigation-colour-fill-top_bar);
 `
 
 export const ElTopBarAppSwitcherContainer = styled.div`
@@ -31,24 +37,13 @@ export const ElTopBarAppSwitcherContainer = styled.div`
 
   display: none;
   padding-inline-end: var(--spacing-4);
-  @supports not (container: inline-size) {
-    ${isTablet} {
-      display: block;
-    }
-    ${isWideScreen} {
-      padding-inline-end: var(--spacing-5);
-    }
+
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('SM')} {
+    display: block;
   }
 
-  @supports (container: inline-size) {
-    /* isTablet equivalent inline size; i.e. 768px - 2 * var(--spacing-4) */
-    @container top-bar (width >= 736px) {
-      display: block;
-    }
-    /* isWideScreen equivalent inline size; i.e. 1440px - 2 * var(--spacing-5) */
-    @container top-bar (width >= 1400px) {
-      padding-inline-end: var(--spacing-5);
-    }
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('LG')} {
+    padding-inline-end: var(--spacing-5);
   }
 `
 
@@ -67,17 +62,8 @@ export const ElTopBarAvatarContainer = styled.div`
 
   display: none;
 
-  @supports not (container: inline-size) {
-    ${isDesktop} {
-      display: flex;
-    }
-  }
-
-  @supports (container: inline-size) {
-    /* isDesktop equivalent inline size; i.e. 1024px - 2 * var(--spacing-4) */
-    @container top-bar (width >= 992px) {
-      display: flex;
-    }
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('MD')} {
+    display: flex;
   }
 `
 
@@ -92,17 +78,8 @@ export const ElTopBarMainNavContainer = styled.div`
 
   display: none;
 
-  @supports not (container: inline-size) {
-    ${isWideScreen} {
-      display: block;
-    }
-  }
-
-  @supports (container: inline-size) {
-    /* isWideScreen equivalent inline size; i.e. 1440px - 2 * var(--spacing-5) */
-    @container top-bar (width >= 1400px) {
-      display: block;
-    }
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('LG')} {
+    display: block;
   }
 `
 
@@ -112,17 +89,8 @@ export const ElTopBarSecondaryNavContainer = styled.div`
 
   display: none;
 
-  @supports not (container: inline-size) {
-    ${isWideScreen} {
-      display: block;
-    }
-  }
-
-  @supports (container: inline-size) {
-    /* isWideScreen equivalent inline size; i.e. 1440px - 2 * var(--spacing-5) */
-    @container top-bar (width >= 1400px) {
-      display: block;
-    }
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('SM')} {
+    display: block;
   }
 `
 
@@ -133,21 +101,10 @@ export const ElTopBarSearchContainer = styled.div`
   padding-block: var(--spacing-none);
   padding-inline-end: var(--spacing-2);
 
-  @supports not (container: inline-size) {
-    ${isTablet} {
-      width: 216px;
-      padding-block: var(--spacing-1);
-      padding-inline-end: var(--spacing-4);
-    }
-  }
-
-  @supports (container: inline-size) {
-    /* isTablet equivalent inline size; i.e. 768px - 2 * var(--spacing-4) */
-    @container top-bar (width >= 736px) {
-      width: 216px;
-      padding-block: var(--spacing-1);
-      padding-inline-end: var(--spacing-4);
-    }
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('SM')} {
+    width: 216px;
+    padding-block: var(--spacing-1);
+    padding-inline-end: var(--spacing-4);
   }
 `
 
@@ -157,24 +114,12 @@ export const ElTopBarMenuContainer = styled.div`
   display: block;
   padding-inline-end: 0;
 
-  @supports not (container: inline-size) {
-    ${isDesktop} {
-      padding-inline-end: var(--spacing-2);
-    }
-    ${isWideScreen} {
-      display: none;
-    }
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('MD')} {
+    padding-inline-end: var(--spacing-2);
   }
 
-  @supports (container: inline-size) {
-    /* isDesktop equivalent inline size; i.e. 1024px - 2 * var(--spacing-4) */
-    @container top-bar (width >= 992px) {
-      padding-inline-end: var(--spacing-2);
-    }
-    /* isWideScreen equivalent inline size; i.e. 1440px - 2 * var(--spacing-5) */
-    @container top-bar (width >= 1400px) {
-      display: none;
-    }
+  @container ${TOP_BAR_CONTAINER_NAME} ${isWidthAtOrAbove('LG')} {
+    display: none;
   }
 `
 

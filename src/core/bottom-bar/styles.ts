@@ -1,4 +1,4 @@
-import { isTablet } from '#src/styles/deprecated-media'
+import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/breakpoints'
 import { styled } from '@linaria/react'
 
 export const ElBottomBarContainer = styled.div`
@@ -10,16 +10,20 @@ export const ElBottomBarContainer = styled.div`
   container-type: inline-size;
 
   display: block;
-  @supports not (container-type: inline-size) {
-    ${isTablet} {
-      display: none;
-    }
+
+  @media screen and ${isWidthAtOrAbove('SM')} {
+    display: none;
   }
-  @supports (container-type: inline-size) {
-    /* NOTE: This is equivalent to the SM breakpoint */
-    @container (width >= 768px) {
-      display: none;
-    }
+
+  @container ${isWidthAtOrAbove('SM')} {
+    display: none;
+  }
+
+  /* NOTE: This container query will override the default media query behaviour above if there's
+   * an ancestor is a container. If there's no ancestral container, the media query will behave
+   * as defined above. */
+  @container ${isWidthBelow('SM')} {
+    display: block;
   }
 `
 

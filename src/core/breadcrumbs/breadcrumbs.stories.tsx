@@ -59,10 +59,11 @@ export const Example: Story = {
 }
 
 /**
- * Overflowing should be avoided as much as possible. On SM screen sizes and larger, or when `overflow="truncate"` is
- * specified, each item's text will shrink as space becomes limited, using ellipses to indicate truncation has
- * occurred, but the breadcrumb separators should remain fully visible. In general, it's best to avoid this situation
- * altogether by limiting the number of breadcrumbs in the trail.
+ * Overflowing should be avoided as much as possible. On SM viewport or container sizes and larger, or
+ * when `overflow="truncate"` is specified, each item's text will shrink as space becomes limited, using
+ * ellipses to indicate truncation has occurred, but the breadcrumb separators should remain fully
+ * visible. In general, it's best to avoid this situation altogether by limiting the number of
+ * breadcrumbs in the trail.
  */
 export const Overflow: Story = {
   args: {
@@ -78,7 +79,7 @@ export const Overflow: Story = {
 }
 
 /**
- * On XS screen sizes (e.g. under 768px), or when `overflow="scroll"` is specified, the breadcrumbs will be
+ * In XS viewport or container sizes, or when `overflow="scroll"` is specified, the breadcrumbs will be
  * horizontally scrollable, albeit without any visible scrollbar. When scrolling occurs, the focus outlines will
  * be clipped; this is expected and considered acceptable.
  */
