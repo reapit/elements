@@ -78,7 +78,7 @@ export const ElFolderTabContentContainer = styled.span`
   overflow: hidden;
 
   /* Ensures the tab content is stacked above the tab's waves, if they're visible */
-  transform: translateX(0px);
+  transform: translateX(0);
 `
 
 export const elFolderTabWave = css`
