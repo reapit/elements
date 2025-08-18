@@ -266,7 +266,9 @@
   --comp-file_uploader-colour-text-hover-primary: #222b33;
   --comp-file_uploader-colour-text-info-error: #f01830;
   --comp-file_uploader-colour-text-info-helper: #607890;
-  --comp-folder_tab-border: #607890;
+  --comp-folder_tab-border-radius-MD_2XL: 32px;
+  --comp-folder_tab-border-radius-XS_SM: 16px;
+  --comp-folder_tab-border-width: 1px;
   --comp-folder_tab-colour-border: #c5ced6;
   --comp-folder_tab-colour-fill-default: #d8dee4;
   --comp-folder_tab-colour-fill-hover: #4e56ea;
