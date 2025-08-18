@@ -14,54 +14,9 @@ exports[`renders the provided logo, app name and supplementary info 1`] = `
       aria-hidden="true"
       class="mocked-styled-1 el-app-switcher-menu-item-avatar"
     >
-      <svg
-        fill="none"
-        height="40"
-        viewBox="0 0 40 40"
-        width="40"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z"
-          fill="url(#paint0_linear_203_7948)"
-        />
-        <g
-          clip-path="url(#clip0_203_7948)"
-        >
-          <path
-            d="M8.11963 13.1456V26.8544L19.9909 33.7081L31.8629 26.8544V19.2783L30.2109 18.3242L27.4634 16.738L26.4043 16.1262L26.4029 20.8561L26.4015 25.586H25.1786H14.8018H13.5782V24.3631V17.3757V16.1521L16.7842 14.3013L18.9311 13.0623L19.9902 12.4505L23.1969 14.2887L25.3431 15.5186L26.4043 16.1262V14.9033V9.99423L19.9909 6.29193L8.11963 13.1456Z"
-            fill="white"
-          />
-        </g>
-        <defs>
-          <lineargradient
-            gradientUnits="userSpaceOnUse"
-            id="paint0_linear_203_7948"
-            x1="20.7019"
-            x2="20.7019"
-            y1="0.350877"
-            y2="31.2281"
-          >
-            <stop
-              stop-color="#5573FD"
-            />
-            <stop
-              offset="0.575"
-              stop-color="#4E56EA"
-            />
-          </lineargradient>
-          <clippath
-            id="clip0_203_7948"
-          >
-            <rect
-              fill="white"
-              height="28"
-              transform="translate(6 6)"
-              width="28"
-            />
-          </clippath>
-        </defs>
-      </svg>
+      <img
+        src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20fill='none'%20viewBox='0%200%2040%2040'%3e%3cpath%20fill='url(%23reapit-pm__a)'%20d='M0%208a8%208%200%200%201%208-8h24a8%208%200%200%201%208%208v24a8%208%200%200%201-8%208H8a8%208%200%200%201-8-8V8Z'/%3e%3cpath%20fill='%23fff'%20d='M8.375%2013v14L20.5%2034l12.124-7v-7.737l-1.687-.975-2.806-1.62-1.082-.624v4.83l-.002%204.83H13.95V16.07l3.275-1.89%202.192-1.265%201.082-.625%203.275%201.877%202.192%201.256%201.083.62V9.782L20.5%206%208.376%2013Z'/%3e%3cdefs%3e%3clinearGradient%20id='reapit-pm__a'%20x1='20.702'%20x2='20.702'%20y1='.351'%20y2='31.228'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%235573FD'/%3e%3cstop%20offset='.575'%20stop-color='%234E56EA'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
+      />
     </div>
     <span
       class="mocked-styled-2 el-app-switcher-menu-item-label"

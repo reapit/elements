@@ -1,15 +1,10 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-<path d="M0 8C0 3.58172 3.58172 0 8 0H32C36.4183 0 40 3.58172 40 8V32C40 36.4183 36.4183 40 32 40H8C3.58172 40 0 36.4183 0 32V8Z" fill="url(#paint0_linear_681_3376)"/>
-<g clip-path="url(#clip0_681_3376)">
-<path d="M8.11975 13.1456V26.8544L19.9911 33.7081L31.8631 26.8544V19.2783L30.2111 18.3242L27.4636 16.738L26.4045 16.1262L26.4031 20.8561L26.4017 25.586H25.1788H14.802H13.5784V24.3631V17.3757V16.1521L16.7844 14.3013L18.9313 13.0623L19.9904 12.4505L23.1971 14.2887L25.3433 15.5186L26.4045 16.1262V14.9033V9.99423L19.9911 6.29193L8.11975 13.1456Z" fill="white"/>
-</g>
-<defs>
-<linearGradient id="paint0_linear_681_3376" x1="20.7019" y1="0.350877" x2="20.7019" y2="31.2281" gradientUnits="userSpaceOnUse">
-<stop offset="0.075" stop-color="#798DA1"/>
-<stop offset="0.575" stop-color="#607890"/>
-</linearGradient>
-<clipPath id="clip0_681_3376">
-<rect width="28" height="28" fill="white" transform="translate(6 6)"/>
-</clipPath>
-</defs>
+<svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="none" viewBox="0 0 40 40">
+  <path fill="url(#reapit-pm-disabled__a)" d="M0 8a8 8 0 0 1 8-8h24a8 8 0 0 1 8 8v24a8 8 0 0 1-8 8H8a8 8 0 0 1-8-8V8Z"/>
+  <path fill="#fff" d="M8.375 13v14L20.5 34l12.124-7v-7.737l-1.687-.975-2.806-1.62-1.082-.624v4.83l-.002 4.83H13.95V16.07l3.275-1.89 2.192-1.265 1.082-.625 3.275 1.877 2.192 1.256 1.083.62V9.782L20.5 6 8.376 13Z"/>
+  <defs>
+    <linearGradient id="reapit-pm-disabled__a" x1="20.702" x2="20.702" y1=".351" y2="31.228" gradientUnits="userSpaceOnUse">
+      <stop offset=".075" stop-color="#798DA1"/>
+      <stop offset=".575" stop-color="#607890"/>
+    </linearGradient>
+  </defs>
 </svg>
