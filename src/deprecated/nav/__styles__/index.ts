@@ -91,6 +91,11 @@ export const ElDeprecatedNavItem = styled.a`
   border-left: 3px solid var(--white);
   text-decoration: none;
 
+  &:hover {
+    color: var(--neutral-500);
+    background-color: var(--neutral-050);
+  }
+
   &:first-child {
     opacity: 1;
     background-color: var(--white);
@@ -103,11 +108,6 @@ export const ElDeprecatedNavItem = styled.a`
   &:not(:first-child) {
     height: 0;
     overflow: hidden;
-  }
-
-  &:hover {
-    color: var(--neutral-500);
-    background-color: var(--neutral-050);
   }
 
   &:hover:not(:first-child) {
