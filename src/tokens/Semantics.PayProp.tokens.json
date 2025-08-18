@@ -1250,11 +1250,15 @@
     },
     "folder_tab": {
       "border": {
-        "$type": "color",
-        "$value": "{neutral-500}",
         "radius": {
-          "$type": "dimension",
-          "$value": "{unit-4}"
+          "MD_2XL": {
+            "$type": "dimension",
+            "$value": "{unit-4}"
+          },
+          "XS_SM": {
+            "$type": "dimension",
+            "$value": "{unit-4}"
+          }
         },
         "width": {
           "$type": "dimension",
