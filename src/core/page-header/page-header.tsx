@@ -13,8 +13,10 @@ import { PageHeaderTitle } from './title'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-// NOTE: We omit the `title` attribute because we want to use that prop name for the page header title.
-type AttributesToOmit = 'title'
+// NOTE: We omit...
+// - `children`, because the page title's "children" are spread across multiple props.
+// - `title`, because we want to use that prop name for the page header title.
+type AttributesToOmit = 'children' | 'title'
 
 interface PageHeaderProps extends Omit<HTMLAttributes<HTMLElement>, AttributesToOmit> {
   /**
