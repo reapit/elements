@@ -166,12 +166,12 @@
   --comp-button-colour-fill-secondary-destructive-hover: #ffffff;
   --comp-button-colour-fill-secondary-disabled: #e5e9ed;
   --comp-button-colour-fill-secondary-hover: #ffffff;
-  --comp-button-colour-fill-tertiary-default: #ffffff;
-  --comp-button-colour-fill-tertiary-destructive-default: #ffffff;
+  --comp-button-colour-fill-tertiary-default: #ffffff00;
+  --comp-button-colour-fill-tertiary-destructive-default: #ffffff00;
   --comp-button-colour-fill-tertiary-destructive-disabled: #e5e9ed;
-  --comp-button-colour-fill-tertiary-destructive-hover: #ffffff;
+  --comp-button-colour-fill-tertiary-destructive-hover: #ffffff00;
   --comp-button-colour-fill-tertiary-disabled: #e5e9ed;
-  --comp-button-colour-fill-tertiary-hover: #ffffff;
+  --comp-button-colour-fill-tertiary-hover: #ffffff00;
   --comp-button-colour-icon-busy-default: #9faebc;
   --comp-button-colour-icon-destructive-default: #fcd9dd;
   --comp-button-colour-icon-destructive-disabled: #9faebc;

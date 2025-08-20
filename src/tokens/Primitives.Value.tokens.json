@@ -487,6 +487,10 @@
     "$type": "color",
     "$value": "#00505a"
   },
+  "transparent": {
+    "$type": "color",
+    "$value": "#ffffff00"
+  },
   "unit-0": {
     "$type": "dimension",
     "$value": "0px"
