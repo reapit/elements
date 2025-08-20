@@ -60,7 +60,7 @@ export const Example: Story = {
  *
  * These differences are because tabs are designed to be stacked horizontally in larger containers, but
  * vertically in smaller containers. This behaviour is more clearly seen in the stories for
- * [FolderTabs](?/docs/core-foldertabs--example).
+ * [FolderTabs](./?path=/docs/core-foldertabs--example).
  */
 export const FirstTab: Story = {
   args: {
@@ -151,7 +151,7 @@ export const LastTab: Story = {
  * When the tab represents the current page, `aria-current="page"` should be supplied to communicate to
  * visual and accessible users that the tab is currently "selected". The selected tab, in large containers
  * only, will sit above all other tabs. This behaviour is more clearly seen in the stories for
- * [FolderTabs](?/docs/core-foldertabs--example).
+ * [FolderTabs](./?path=/docs/core-foldertabs--example).
  */
 export const Selected: Story = {
   args: {
@@ -162,7 +162,7 @@ export const Selected: Story = {
 }
 
 /**
- * The [FolderTabs.CountLabel](?/docs/core-foldertabs-countlabel-example) component can be used to
+ * The [FolderTabs.CountLabel](./?path=/docs/core-foldertabs-countlabel-example) component can be used to
  * display a numerical count alongside the tab label. This is typically used to indicate the number
  * of items associated with the tab, such as the number of transactions ready for processing.
  */
@@ -181,7 +181,7 @@ export const WithCount: Story = {
 
 /**
  * By default, tabs can contain any content, though this will typically be plain text or a
- * [FolderTabs.CountLabel](?/docs/core-foldertabs-countlabel--example). When plain text is displayed,
+ * [FolderTabs.CountLabel](./?path=/docs/core-foldertabs-countlabel--example). When plain text is displayed,
  * it will be truncated if it is too long to fit within the available space.
  */
 export const Overflow: Story = {
@@ -223,7 +223,7 @@ export const Overflow: Story = {
 }
 
 /**
- * When [FolderTabs.CountLabel](?/docs/core-foldertabs-countlabel-example) is used for the tab content,
+ * When [FolderTabs.CountLabel](?path=/docs/core-foldertabs-countlabel-example) is used for the tab content,
  * the label text will still truncate if there's not enough space, but tabs in large containers will
  * allow two lines of text before truncation is applied.
  */

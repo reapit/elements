@@ -6,10 +6,7 @@ import type { AnchorHTMLAttributes, ReactNode } from 'react'
 interface FolderTabProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
   /** Whether this tab represents the current page or not. */
   'aria-current': 'page' | false
-  /**
-   * The tab's label text. Typically plain text or a
-   * [FolderTabs.Count](?/docs/core-foldertabcount--example) element.
-   */
+  /** The tab's label text. Typically plain text or a `FolderTabs.CountLabel` element. */
   children: ReactNode
   /** The page this tab should navigate to. */
   href: string
