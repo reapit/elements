@@ -14,9 +14,9 @@ test('renders as the specified HTML element', () => {
   expect(el.tagName).toBe('STRONG')
 })
 
-test('applies data attributes for colour, size, and weight', () => {
+test('applies data attributes for colour, overflow, size, and weight', () => {
   render(
-    <Text as="em" colour="secondary" size="xl" weight="bold">
+    <Text as="em" colour="secondary" overflow="truncate" size="xl" weight="bold">
       Styled text
     </Text>,
   )
@@ -24,6 +24,7 @@ test('applies data attributes for colour, size, and weight', () => {
   expect(el).toHaveAttribute('data-colour', 'secondary')
   expect(el).toHaveAttribute('data-font-size', 'xl')
   expect(el).toHaveAttribute('data-font-weight', 'bold')
+  expect(el).toHaveAttribute('data-overflow', 'truncate')
 })
 
 test('forwards additional props to the rendered element', () => {

@@ -1,17 +1,16 @@
+import { css } from '@linaria/core'
 import { font } from './font'
 import { fontSizes, fontWeights, textColours } from './types'
-import { styled } from '@linaria/react'
 
-import type { FontSize, FontWeight } from './types'
-
-interface ElTextProps {
-  'data-font-size': FontSize
-  'data-font-weight': FontWeight
-}
-
-export const ElText = styled.span<ElTextProps>`
+export const elText = css`
   ${generateElTextFontStyles()}
   ${generateElTextColourStyles()}
+
+  &[data-overflow='truncate'] {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
 `
 
 function generateElTextFontStyles() {
