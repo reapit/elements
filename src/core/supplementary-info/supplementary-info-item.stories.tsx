@@ -1,7 +1,7 @@
 import { SupplementaryInfoItem } from './supplementary-info-item'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import type { SupplementaryInfoItemColour } from './supplementary-info-item'
+import type { SupplementaryInfoColour } from './supplementary-info-item'
 
 const meta = {
   title: 'Core/SupplementaryInfo/Item',
@@ -20,7 +20,7 @@ const meta = {
         'danger',
         'accent-1',
         'accent-2',
-      ] satisfies SupplementaryInfoItemColour[],
+      ] satisfies SupplementaryInfoColour[],
     },
     children: {
       control: 'text',
