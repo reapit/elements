@@ -1,10 +1,12 @@
-import { ElText } from './styles'
+import { cx } from '@linaria/core'
+import { elText } from './styles'
 
 import type { FontSize, FontWeight, TextColour } from './types'
 import type { HTMLAttributes, QuoteHTMLAttributes, TimeHTMLAttributes } from 'react'
 
 interface BaseTextProps {
   colour?: TextColour
+  overflow?: 'truncate'
   size?: FontSize
   weight?: FontWeight
 }
@@ -64,6 +66,23 @@ type TextProps =
  * elements focused on inline text semantics. This is because we want this component to be minimally
  * useful.
  */
-export function Text({ as = 'span', colour = 'inherit', size = 'base', weight = 'regular', ...props }: TextProps) {
-  return <ElText as={as} data-colour={colour} data-font-size={size} data-font-weight={weight} {...props} />
+export function Text({
+  as: Element = 'span',
+  className,
+  colour = 'inherit',
+  overflow,
+  size = 'base',
+  weight = 'regular',
+  ...rest
+}: TextProps) {
+  return (
+    <Element
+      className={cx(elText, className)}
+      data-colour={colour}
+      data-overflow={overflow}
+      data-font-size={size}
+      data-font-weight={weight}
+      {...(rest as HTMLAttributes<HTMLElement>)}
+    />
+  )
 }
