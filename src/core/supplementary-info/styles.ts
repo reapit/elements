@@ -1,8 +1,6 @@
 import { font } from '../text'
 import { styled } from '@linaria/react'
-import separatorDotBaseUrl from './separator-dot-base.svg?inline'
-import separatorDotSmUrl from './separator-dot-sm.svg?inline'
-import separatorDotXsUrl from './separator-dot-xs.svg?inline'
+import separatorDotUrl from './separator-dot.svg?inline'
 
 export const ElSupplementaryInfoList = styled.ul`
   display: inline-block;
@@ -21,6 +19,38 @@ export const ElSupplementaryInfoList = styled.ul`
   &[data-size='xs'] {
     ${font('xs', 'regular')}
   }
+
+  &,
+  &[data-colour='inherit'] {
+    color: inherit;
+  }
+  &[data-colour='primary'] {
+    color: var(--colour-text-primary);
+  }
+  &[data-colour='secondary'] {
+    color: var(--colour-text-secondary);
+  }
+  &[data-colour='neutral'] {
+    color: var(--colour-text-info);
+  }
+  &[data-colour='success'] {
+    color: var(--colour-text-success);
+  }
+  &[data-colour='pending'] {
+    color: var(--colour-text-pending);
+  }
+  &[data-colour='warning'] {
+    color: var(--colour-text-warning);
+  }
+  &[data-colour='danger'] {
+    color: var(--colour-text-error);
+  }
+  &[data-colour='accent-1'] {
+    color: var(--colour-text-accent_1);
+  }
+  &[data-colour='accent-2'] {
+    color: var(--colour-text-accent_2);
+  }
 `
 
 export const ElSupplementaryInfoItem = styled.li`
@@ -34,22 +64,29 @@ export const ElSupplementaryInfoItem = styled.li`
     display: inline-block;
     vertical-align: middle;
 
-    width: 1lh;
-    height: 1lh;
+    /* NOTE: We don't use the #src/icons/svgs/separator-dot.svg because we need one that
+     * has a hardcoded fill colour as a data URL encoded SVG is not impacted by CSS. */
+    background: url(${separatorDotUrl}) center/cover no-repeat;
 
-    /* NOTE: The separator dot changes size based on the size of parent */
     &,
     [data-size='base'] & {
-      background: url(${separatorDotBaseUrl}) center/cover no-repeat;
+      width: var(--icon_size-l);
+      height: var(--icon_size-l);
     }
     [data-size='sm'] & {
-      background: url(${separatorDotSmUrl}) center/cover no-repeat;
+      width: var(--icon_size-m);
+      height: var(--icon_size-m);
     }
     [data-size='xs'] & {
-      background: url(${separatorDotXsUrl}) center/cover no-repeat;
+      width: var(--icon_size-s);
+      height: var(--icon_size-s);
     }
   }
 
+  &,
+  &[data-colour='inherit'] {
+    color: inherit;
+  }
   &[data-colour='primary'] {
     color: var(--colour-text-primary);
   }

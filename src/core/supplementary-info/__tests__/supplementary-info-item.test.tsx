@@ -8,9 +8,9 @@ test('renders a list item element with the expected content', () => {
   expect(screen.getByText('Test content')).toBeVisible()
 })
 
-test('uses primary colour by default', () => {
+test('uses inherit colour by default', () => {
   render(<SupplementaryInfoItem>Test content</SupplementaryInfoItem>)
-  expect(screen.getByRole('listitem')).toHaveAttribute('data-colour', 'primary')
+  expect(screen.getByRole('listitem')).toHaveAttribute('data-colour', 'inherit')
 })
 
 test('applies the correct `data-colour` attribute', () => {
