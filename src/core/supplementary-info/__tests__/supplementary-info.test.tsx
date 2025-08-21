@@ -15,7 +15,17 @@ test('renders a list of supplementary information items', () => {
   expect(screen.getAllByRole('listitem')).toHaveLength(3)
 })
 
-test('applies the correct size class based on the size prop', () => {
+test('uses inherit colour by default', () => {
+  render(<SupplementaryInfo>Test content</SupplementaryInfo>)
+  expect(screen.getByRole('list')).toHaveAttribute('data-colour', 'inherit')
+})
+
+test('applies the correct colour attribute based on the colour prop', () => {
+  render(<SupplementaryInfo colour="primary">Fake child</SupplementaryInfo>)
+  expect(screen.getByRole('list')).toHaveAttribute('data-colour', 'primary')
+})
+
+test('applies the correct size attribute based on the size prop', () => {
   render(<SupplementaryInfo size="xs">Fake child</SupplementaryInfo>)
   expect(screen.getByRole('list')).toHaveAttribute('data-size', 'xs')
 })
