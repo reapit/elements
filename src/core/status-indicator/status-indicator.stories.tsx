@@ -5,7 +5,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const variants = ['neutral', 'success', 'pending', 'warning', 'danger', 'inactive', 'accent1', 'accent2'] as const
 
 const meta = {
-  title: 'Core/Status Indicator',
+  title: 'Core/StatusIndicator',
   component: StatusIndicator,
   argTypes: {
     children: {
