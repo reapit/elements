@@ -2,13 +2,6 @@ import { SearchInput } from './search-input'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-/**
- * Storybook metadata for the {@link SearchInput} component.
- *
- * - `title` defines the group and name under which the component appears in the Storybook UI.
- * - `component` is the actual React component being documented.
- * - `argTypes` define controls for props so that users can interactively test variations.
- */
 const meta = {
   title: 'Lab/SearchInput',
   component: SearchInput,
