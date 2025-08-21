@@ -9,6 +9,9 @@ export const ELInput = styled.input`
   border: none;
   outline: none;
   background: transparent;
+  overflow: hidden;
+  color: var(--comp-input-colour-text-default-input);
+  text-overflow: ellipsis;
 
   &::placeholder {
     color: var(--comp-input-colour-text-default-placeholder);
