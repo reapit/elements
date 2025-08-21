@@ -1,2 +1,2 @@
-export * from './table'
 export * from './search-input'
+export * from './styles'
