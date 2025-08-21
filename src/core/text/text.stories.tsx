@@ -16,19 +16,29 @@ const meta = {
     },
     children: {
       control: 'text',
+      description: 'The text content.',
       table: {
         type: { summary: 'ReactNode' },
       },
     },
     colour: {
       control: 'select',
+      description: 'The text colour.',
       options: textColours,
       table: {
         type: { summary: 'union' },
       },
     },
+    overflow: {
+      control: false,
+      description: 'Determines what happens when text overflows its parent.',
+      table: {
+        type: { summary: "'truncate'" },
+      },
+    },
     size: {
       control: 'select',
+      description: 'The font size of the text.',
       options: fontSizes,
       table: {
         type: { summary: 'union' },
@@ -36,6 +46,7 @@ const meta = {
     },
     weight: {
       control: 'select',
+      description: 'The font weight of the text.',
       options: fontWeights,
       table: {
         type: { summary: 'union' },
@@ -51,7 +62,7 @@ type Story = StoryObj<typeof Text>
 export const Example: Story = {
   args: {
     as: 'span',
-    children: 'A semantically meaningful portion of text',
+    children: 'A styled span of text',
     colour: 'primary',
     size: 'base',
     weight: 'regular',
@@ -113,7 +124,35 @@ export const Nesting: Story = {
   render: (args) => (
     <Text {...args}>
       This is a span of text that includes a{' '}
-      <Text as="strong" colour="action">
+      <Text as="strong" colour="error" weight="medium">
+        nested span of text.
+      </Text>
+    </Text>
+  ),
+}
+
+/**
+ * The `overflow` prop controls whether the text should be truncated with an ellipsis or remain
+ * visible when it overflows. This behaviour is dependent on the layout mode of the parent. In this
+ * example, the parent is a flex container, which ensures the text is sized to fit within the grid.
+ * This means the text will overflow and truncate.
+ */
+export const Overflow: Story = {
+  args: {
+    ...Example.args,
+    overflow: 'truncate',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '300px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <Text {...args}>
+      This is a span of text that includes a{' '}
+      <Text as="strong" colour="error" weight="medium">
         nested span of text.
       </Text>
     </Text>

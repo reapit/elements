@@ -163,3 +163,21 @@ export const Colours: Story = {
     iconLeft: 'Star',
   },
 }
+
+/**
+ * If there is insufficient space available for the badge's label to be fully displayed, it will
+ * not wrap. It is up to the parent container to decide whether the overflow should be visible or not.
+ */
+export const Overflow: Story = {
+  args: {
+    ...Example.args,
+    children: 'A very long label that will overflow',
+  },
+  decorators: [
+    (Story: any) => (
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '100px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+}

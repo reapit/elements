@@ -21,12 +21,14 @@ interface ElBadgeProps {
 }
 
 export const ElBadge = styled.span<ElBadgeProps>`
-  display: inline-flex;
+  display: inline-grid;
+  grid-auto-flow: column;
+  align-items: center;
+  gap: var(--spacing-half);
+
   height: var(--size-5);
   padding-block: var(--spacing-half);
   padding-inline: var(--spacing-1);
-  align-items: center;
-  gap: var(--spacing-half);
   border-radius: var(--comp-badge-border-radius);
 
   /* NOTE: necessary when used in an inline or inline-block layout */
@@ -40,7 +42,7 @@ function generateElBadgeColourStyles(colour: BadgeColour) {
     &[data-colour='${colour}'][data-variant='default'] {
       background: var(--comp-badge-colour-fill-default-${colour});
     }
-    
+
     &[data-colour='${colour}'][data-variant='reversed'] {
       background: var(--comp-badge-colour-fill-reversed-${colour});
     }
@@ -48,9 +50,10 @@ function generateElBadgeColourStyles(colour: BadgeColour) {
 }
 
 export const ElBadgeLabelContainer = styled.span`
-  padding-inline: var(--spacing-half);
-
   ${font('xs', 'medium')}
+
+  white-space: nowrap;
+  padding-inline: var(--spacing-half);
 
   ${badgeColours.map((colour) => generateElBadgeLabelColourStyles(colour)).join('\n')};
 `
