@@ -18,7 +18,6 @@ export const ELInput = styled.input`
 export const ELSearchInput = styled.div`
   display: flex;
   align-items: center;
-  width: 260px;
   border-radius: var(--comp-input-border-radius);
   border: var(--comp-input-border-width) solid var(--comp-input-colour-border-default);
   background: var(--comp-input-colour-fill-default-background);
