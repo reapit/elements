@@ -9,6 +9,8 @@ export const ElStatusIndicator = styled.strong`
   color: var(--comp-status-colour-text-neutral);
   ${font('sm', 'regular')}
 
+  white-space: nowrap;
+
   &::before {
     content: '';
     width: var(--size-2);
