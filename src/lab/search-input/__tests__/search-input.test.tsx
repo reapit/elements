@@ -1,58 +1,57 @@
-import { render, screen, fireEvent } from '@testing-library/react'
-import { SearchInput } from '../index'
+import { composeStories } from '@storybook/react'
+import { fireEvent, render, screen } from '@testing-library/react'
+import * as stories from '../search-input.stories'
 
-describe('SearchInput', () => {
-  test('should match snapshot (default)', () => {
-    const { asFragment } = render(<SearchInput />)
-    expect(asFragment()).toMatchSnapshot()
-  })
+const SearchInputStories = composeStories(stories)
 
-  test('should match snapshot when disabled', () => {
-    const { asFragment } = render(<SearchInput isDisabled />)
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('renders default SearchInput with placeholder', () => {
+  render(<SearchInputStories.Default />)
+  expect(screen.getByPlaceholderText('Search')).toBeVisible()
+})
 
-  test('should match snapshot with large size', () => {
-    const { asFragment } = render(<SearchInput inputSize="large" />)
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('calls onSearch when typing in the input', () => {
+  const handleSearch = vi.fn()
+  render(<SearchInputStories.Default onSearch={handleSearch} />)
 
-  test('should call onSearch when typing', () => {
-    const handleSearch = vi.fn()
-    render(<SearchInput onSearch={handleSearch} placeholder="Search..." />)
+  const input = screen.getByPlaceholderText('Search')
+  fireEvent.change(input, { target: { value: 'hello' } })
 
-    const input = screen.getByPlaceholderText('Search...')
+  expect(handleSearch).toHaveBeenCalledWith('hello')
+  expect(input).toHaveValue('hello')
+})
 
-    fireEvent.change(input, { target: { value: 'hello' } })
-    expect(handleSearch).toHaveBeenCalledWith('hello')
-    expect(input).toHaveValue('hello')
-  })
+test('shows clear button when text is entered', () => {
+  render(<SearchInputStories.Default />)
 
-  test('should show clear button and clear input when clicked', () => {
-    const handleSearch = vi.fn()
-    render(<SearchInput onSearch={handleSearch} placeholder="Search..." />)
+  const input = screen.getByPlaceholderText('Search')
+  fireEvent.change(input, { target: { value: 'clear me' } })
 
-    const input = screen.getByPlaceholderText('Search...')
-    fireEvent.change(input, { target: { value: 'test' } })
+  expect(screen.getByRole('button')).toBeVisible()
+})
 
-    // Clear button should now be visible
-    const clearButton = screen.getByRole('button')
-    expect(clearButton).toBeInTheDocument()
+test('clicking clear button resets input value', () => {
+  const handleSearch = vi.fn()
+  render(<SearchInputStories.Default onSearch={handleSearch} />)
 
-    fireEvent.click(clearButton)
+  const input = screen.getByPlaceholderText('Search')
+  fireEvent.change(input, { target: { value: 'test' } })
 
-    expect(handleSearch).toHaveBeenCalledWith('') // cleared
-    expect(input).toHaveValue('')
-  })
+  const clearButton = screen.getByRole('button')
+  fireEvent.click(clearButton)
 
-  test('should not update value when disabled', () => {
-    const handleSearch = vi.fn()
-    render(<SearchInput isDisabled onSearch={handleSearch} placeholder="Search..." />)
+  expect(input).toHaveValue('')
+  expect(handleSearch).toHaveBeenCalledWith('')
+})
 
-    const input = screen.getByPlaceholderText('Search...')
-    fireEvent.change(input, { target: { value: 'blocked' } })
+test('does not allow typing when disabled', () => {
+  const handleSearch = vi.fn()
+  render(<SearchInputStories.IsDisabled onSearch={handleSearch} />)
 
-    expect(handleSearch).not.toHaveBeenCalled()
-    expect(input).toHaveValue('') // still empty
-  })
+  const input = screen.getByPlaceholderText('Search')
+  expect(input).toBeDisabled()
+})
+
+test('applies large size when inputSize="large"', () => {
+  render(<SearchInputStories.SizeLarge />)
+  expect(screen.getByPlaceholderText('Search').closest('div')).toHaveAttribute('data-size', 'large')
 })

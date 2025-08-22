@@ -1,24 +1,26 @@
 import { font } from '#src/core/text/index'
 import { styled } from '@linaria/react'
 
-export const ELInput = styled.input`
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 1;
-  flex: 1 0 0;
+export const ElInput = styled.input`
+  flex: 1 1 auto;
+  min-width: 0;
   border: none;
   outline: none;
   background: transparent;
   overflow: hidden;
   color: var(--comp-input-colour-text-default-input);
-  text-overflow: ellipsis;
 
   &::placeholder {
     color: var(--comp-input-colour-text-default-placeholder);
   }
+
+  &[type='search']::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+    appearance: none;
+  }
 `
 
-export const ELSearchInput = styled.div`
+export const ElSearchInput = styled.div`
   display: flex;
   align-items: center;
   border-radius: var(--comp-input-border-radius);

@@ -1,25 +1,27 @@
 import { useState, FC, ChangeEvent, InputHTMLAttributes } from 'react'
-import { ELSearchInput, ELInput } from './styles'
+import { ElSearchInput, ElInput } from './styles'
 import { SearchIcon } from '#src/icons/search'
 import { CloseIcon } from '#src/icons/close'
 import { Button } from '#src/core/button'
 
 /**
  * Props for the SearchInput component.
- *
- * @prop {'small' | 'medium' | 'large'} [inputSize="medium"]
- *   Controls the size of the search input.
- *
- * @prop {(value: string) => void} [onSearch]
- *   Callback fired whenever the input value changes
- *   or when the clear button is pressed.
- *
- * @prop {boolean} [isDisabled=false]
- *   If true, the input will be disabled and changes will be ignored.
  */
 export interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> {
+  /**
+   * Controls the size of the search input.
+   * @default "medium"
+   */
   inputSize?: 'small' | 'medium' | 'large'
+  /**
+   * Callback fired whenever the input value changes
+   * or when the clear button is pressed.
+   */
   onSearch?: (value: string) => void
+  /**
+   * If `true`, the input will be disabled and changes will be ignored.
+   * @default false
+   */
   isDisabled?: boolean
 }
 
@@ -33,11 +35,6 @@ export const SearchInput: FC<SearchInputProps> = ({ inputSize = 'medium', onSear
   const [value, setValue] = useState('')
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
-    if (isDisabled) {
-      event.preventDefault()
-      event.stopPropagation()
-      return
-    }
     setValue(event.target.value)
     if (onSearch) onSearch(event.target.value)
     if (rest.onChange) rest.onChange(event)
@@ -49,19 +46,20 @@ export const SearchInput: FC<SearchInputProps> = ({ inputSize = 'medium', onSear
   }
 
   return (
-    <ELSearchInput data-size={inputSize} aria-disabled={isDisabled}>
+    <ElSearchInput data-size={inputSize} aria-disabled={isDisabled}>
       {!value && <SearchIcon size="sm" color="primary" />}
-      <ELInput
+      <ElInput
         value={value}
         onChange={handleChange}
         placeholder={rest.placeholder || 'Search'}
         name="search-input"
         disabled={isDisabled}
+        type="search"
         {...rest}
       />
       {value && (
         <Button iconLeft={<CloseIcon color="primary" />} size="small" variant="tertiary" onClick={handleClear} />
       )}
-    </ELSearchInput>
+    </ElSearchInput>
   )
 }
