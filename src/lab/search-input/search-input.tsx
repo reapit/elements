@@ -14,15 +14,16 @@ export interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> 
    */
   inputSize?: 'small' | 'medium' | 'large'
   /**
-   * Callback fired whenever the input value changes
-   * or when the clear button is pressed.
-   */
-  onSearch?: (value: string) => void
-  /**
    * If `true`, the input will be disabled and changes will be ignored.
    * @default false
    */
   isDisabled?: boolean
+  /**
+   * Callback fired whenever the input value changes or when the clear button is pressed.
+   * Considered unstable because it may be removed in future when the component is standardised
+   * in `@reapit/elements/core`.
+   */
+  unstable_onSearch?: (value: string) => void
 }
 
 /**
@@ -31,7 +32,12 @@ export interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> 
  * - A clear button (visible when the field has a value).
  * - Support for custom sizes and disabled state.
  */
-export const SearchInput: FC<SearchInputProps> = ({ inputSize = 'medium', onSearch, isDisabled = false, ...rest }) => {
+export const SearchInput: FC<SearchInputProps> = ({
+  inputSize = 'medium',
+  isDisabled = false,
+  unstable_onSearch: onSearch,
+  ...rest
+}) => {
   const [value, setValue] = useState('')
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
