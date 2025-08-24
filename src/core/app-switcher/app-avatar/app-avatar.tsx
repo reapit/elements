@@ -32,10 +32,14 @@ interface AppAvatarProps {
  */
 export function AppAvatar({ hasAccess, productId }: AppAvatarProps) {
   switch (productId) {
-    case 'consoleCloud':
-      return hasAccess ? <img src={ReapitPM} /> : <img src={ReapitPMDisabled} />
     case 'agentBox':
       return hasAccess ? <img src={ReapitSales} /> : <img src={ReapitSalesDisabled} />
+    case 'autoResponder':
+      return hasAccess ? <img src={AutoResponder} /> : <img src={AutoResponderDisabled} />
+    case 'bdm':
+      return hasAccess ? <img src={LettingsBDM} /> : <img src={LettingsBDMDisabled} />
+    case 'consoleCloud':
+      return hasAccess ? <img src={ReapitPM} /> : <img src={ReapitPMDisabled} />
     case 'ireWeb':
       return hasAccess ? <img src={ReapitLettings} /> : <img src={ReapitLettingsDisabled} />
     case 'reapitForms':
@@ -46,9 +50,5 @@ export function AppAvatar({ hasAccess, productId }: AppAvatarProps) {
       return hasAccess ? <img src={ReapitProposals} /> : <img src={ReapitProposalsDisabled} />
     case 'keywhere':
       return hasAccess ? <img src={KeyWhere} /> : <img src={KeyWhereDisabled} />
-    case 'autoResponder':
-      return hasAccess ? <img src={AutoResponder} /> : <img src={AutoResponderDisabled} />
-    case 'lettingsBDM':
-      return hasAccess ? <img src={LettingsBDM} /> : <img src={LettingsBDMDisabled} />
   }
 }
