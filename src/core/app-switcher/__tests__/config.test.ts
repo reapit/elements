@@ -19,6 +19,10 @@ test('product configs should not change without updating this test', () => {
         "appName": "Auto Responder",
         "supplementaryInfo": "Automated Email Marketing",
       },
+      "bdm": {
+        "appName": "Lettings BDM",
+        "supplementaryInfo": "New Business",
+      },
       "consoleCloud": {
         "appName": "Reapit PM",
         "supplementaryInfo": "Property Management",
@@ -30,10 +34,6 @@ test('product configs should not change without updating this test', () => {
       "keywhere": {
         "appName": "KeyWhere",
         "supplementaryInfo": "Real-time Key Management",
-      },
-      "lettingsBDM": {
-        "appName": "Lettings BDM",
-        "supplementaryInfo": "New Business",
       },
       "reapitForms": {
         "appName": "Reapit Forms",
@@ -65,7 +65,7 @@ test('product display order should not change without updating this test', () =>
         "ireWeb",
         "consoleCloud",
         "keywhere",
-        "lettingsBDM",
+        "bdm",
       ]
     `)
 })

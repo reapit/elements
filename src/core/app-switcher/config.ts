@@ -5,10 +5,10 @@
 export type SupportedProductId =
   | 'agentBox' // Reapit Sales
   | 'autoResponder'
+  | 'bdm' // Lettings BDM
   | 'consoleCloud' // Reapit PM
   | 'ireWeb' // Reapit Lettings
   | 'keywhere'
-  | 'lettingsBDM'
   | 'reapitForms'
   | 'reapitProposals'
   | 'reapitWebsites'
@@ -31,6 +31,10 @@ export const productConfigs = {
     supplementaryInfo: 'Automated Email Marketing',
   },
   agentBox: { appName: 'Reapit Sales', supplementaryInfo: 'Real Estate CRM' },
+  bdm: {
+    appName: 'Lettings BDM',
+    supplementaryInfo: 'New Business',
+  },
   consoleCloud: { appName: 'Reapit PM', supplementaryInfo: 'Property Management' },
   ireWeb: {
     appName: 'Reapit Lettings',
@@ -39,10 +43,6 @@ export const productConfigs = {
   keywhere: {
     appName: 'KeyWhere',
     supplementaryInfo: 'Real-time Key Management',
-  },
-  lettingsBDM: {
-    appName: 'Lettings BDM',
-    supplementaryInfo: 'New Business',
   },
   reapitForms: {
     appName: 'Reapit Forms',
@@ -74,5 +74,5 @@ export const productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR
   'consoleCloud', // Reapit PM
   // Secondary apps here (should be alphatically ordered by configured app name)
   'keywhere',
-  'lettingsBDM',
+  'bdm',
 ] as const satisfies SupportedProductId[]
