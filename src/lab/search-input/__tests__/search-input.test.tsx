@@ -9,9 +9,9 @@ test('renders default SearchInput with placeholder', () => {
   expect(screen.getByPlaceholderText('Search')).toBeVisible()
 })
 
-test('calls onSearch when typing in the input', () => {
+test('calls unstable_onSearch when typing in the input', () => {
   const handleSearch = vi.fn()
-  render(<SearchInputStories.Default onSearch={handleSearch} />)
+  render(<SearchInputStories.Default unstable_onSearch={handleSearch} />)
 
   const input = screen.getByPlaceholderText('Search')
   fireEvent.change(input, { target: { value: 'hello' } })
@@ -31,7 +31,7 @@ test('shows clear button when text is entered', () => {
 
 test('clicking clear button resets input value', () => {
   const handleSearch = vi.fn()
-  render(<SearchInputStories.Default onSearch={handleSearch} />)
+  render(<SearchInputStories.Default unstable_onSearch={handleSearch} />)
 
   const input = screen.getByPlaceholderText('Search')
   fireEvent.change(input, { target: { value: 'test' } })
@@ -45,7 +45,7 @@ test('clicking clear button resets input value', () => {
 
 test('does not allow typing when disabled', () => {
   const handleSearch = vi.fn()
-  render(<SearchInputStories.IsDisabled onSearch={handleSearch} />)
+  render(<SearchInputStories.IsDisabled unstable_onSearch={handleSearch} />)
 
   const input = screen.getByPlaceholderText('Search')
   expect(input).toBeDisabled()
