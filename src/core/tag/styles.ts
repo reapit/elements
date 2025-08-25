@@ -8,4 +8,5 @@ export const ElTag = styled.span`
   background: var(--comp-tag-colour-fill);
 
   ${font('xs', 'medium')}
+  white-space: nowrap;
 `

@@ -28,10 +28,10 @@ interface ChipProps extends Omit<ElementAttributes, ElementAttributesToOmit> {
   disabled?: boolean
   /** The maximum width of the chip. If not provided, the chip will be as wide as its content. */
   maxWidth?: `--size-${string}`
+  /** Whether the label of the chip should be truncated if it is too long */
+  overflow?: 'truncate'
   /** The variant of the chip */
   variant: 'filter' | 'selection'
-  /** Whether the label of the chip should be truncated if it is too long */
-  willTruncateLabel?: boolean
 }
 
 /**
@@ -42,8 +42,8 @@ export function Chip({
   children,
   onClick,
   maxWidth,
+  overflow,
   variant,
-  willTruncateLabel,
   ...rest
 }: ChipProps) {
   const handleClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
@@ -75,7 +75,7 @@ export function Chip({
       // attr() function syntax yet. Thus, we use a CSS variable instead.
       style={maxWidth ? { '--chip-max-width': `var(${maxWidth})` } : undefined}
     >
-      <ElChipLabel data-will-truncate={willTruncateLabel}>{children}</ElChipLabel>
+      <ElChipLabel data-overflow={overflow}>{children}</ElChipLabel>
       <ElChipClearIcon>
         <CloseIcon />
       </ElChipClearIcon>

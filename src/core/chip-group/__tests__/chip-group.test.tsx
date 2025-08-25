@@ -10,12 +10,28 @@ test('renders its children in a list', () => {
   expect(list).toHaveTextContent('Fake child')
 })
 
-test('chip group list has `data-overflow="wrap"` attribute, by default', () => {
+test('chip group list has `data-flow="wrap"` attribute, by default', () => {
   render(<ChipGroup>Fake child</ChipGroup>)
-  expect(screen.getByRole('list')).toHaveAttribute('data-overflow', 'wrap')
+  expect(screen.getByRole('list')).toHaveAttribute('data-flow', 'wrap')
 })
 
-test('chip group list has `data-overflow="scroll"` attribute when specified', () => {
-  render(<ChipGroup overflow="scroll">Fake child</ChipGroup>)
-  expect(screen.getByRole('list')).toHaveAttribute('data-overflow', 'scroll')
+test('chip group list has `data-overflow="visible"` attribute, by default', () => {
+  render(<ChipGroup>Fake child</ChipGroup>)
+  expect(screen.getByRole('list')).toHaveAttribute('data-overflow', 'visible')
+})
+
+test('chip group list has `data-flow="nowrap"` attribute when specified', () => {
+  render(<ChipGroup flow="nowrap">Fake child</ChipGroup>)
+  expect(screen.getByRole('list')).toHaveAttribute('data-flow', 'nowrap')
+})
+
+test('chip group list has `data-overflow="auto"` attribute when specified', () => {
+  render(<ChipGroup overflow="auto">Fake child</ChipGroup>)
+  expect(screen.getByRole('list')).toHaveAttribute('data-overflow', 'auto')
+})
+
+test('forwards additional props to the list element', () => {
+  render(<ChipGroup data-testid="test-id">Test Tag</ChipGroup>)
+  expect(screen.getByTestId('test-id')).toBeVisible()
+  expect(screen.getByTestId('test-id')).toBe(screen.getByRole('list'))
 })

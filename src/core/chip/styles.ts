@@ -72,7 +72,7 @@ export const ElChip = styled.button<ElChipProps>`
 `
 
 interface ElChipLabelProps {
-  'data-will-truncate'?: boolean
+  'data-overflow': 'truncate' | undefined
 }
 
 export const ElChipLabel = styled.span<ElChipLabelProps>`
@@ -85,7 +85,7 @@ export const ElChipLabel = styled.span<ElChipLabelProps>`
 
   text-align: left;
 
-  &[data-will-truncate='true'] {
+  &[data-overflow='truncate'] {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;

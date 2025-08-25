@@ -30,13 +30,15 @@ type Story = StoryObj<typeof TagGroup>
 export const Example: Story = {
   args: {
     children: 'Many',
+    flow: 'wrap',
+    overflow: 'visible',
   },
 }
 
 /**
  * By default, tags within the tag group will wrap to the next line if the container is too small.
  */
-export const Overflow: Story = {
+export const Wrapping: Story = {
   args: {
     children: 'Many',
   },
@@ -47,4 +49,31 @@ export const Overflow: Story = {
       </div>
     ),
   ],
+}
+
+/**
+ * The default wrapping behaviour can be overridden by setting `flow="nowrap"`. This is often
+ * useful when using a tag group within the context of an element that does not want its content
+ * wrapping, such as a single-line table cell.
+ */
+export const NoWrapping: Story = {
+  args: {
+    ...Wrapping.args,
+    flow: 'nowrap',
+  },
+  decorators: Wrapping.decorators,
+}
+
+/**
+ * When wrapping is disabled, the overflow behaviour can also be configured using `overflow`. By
+ * default, it will be `visible`, but `auto` can be used to allow scrolling if the content does
+ * overflow.
+ */
+export const Overflow: Story = {
+  args: {
+    ...NoWrapping.args,
+    flow: 'nowrap',
+    overflow: 'auto',
+  },
+  decorators: NoWrapping.decorators,
 }
