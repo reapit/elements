@@ -17,6 +17,9 @@ const meta = {
     disabled: {
       control: 'boolean',
     },
+    overflow: {
+      control: 'text',
+    },
     variant: {
       control: 'radio',
       options: ['filter', 'selection'],
@@ -33,7 +36,8 @@ export const Example: Story = {
     'aria-disabled': false,
     children: 'Label',
     disabled: false,
-    willTruncateLabel: false,
+    maxWidth: undefined,
+    overflow: undefined,
     variant: 'filter',
   },
 }
@@ -61,9 +65,11 @@ export const SelectionChip: Story = {
 }
 
 /**
- * Chips can be disabled using `aria-disabled` or `disabled`. In both cases, click events will be ignored, however,
- * `aria-disabled` allows the chip to still be focusable, which, for example, allows tooltips to still be displayed.
- * A `disabled` chip is also `aria-disabled`, regardless of the value of `aria-disabled`.
+ * Chips can be disabled using `aria-disabled` or `disabled`. In both cases,
+ * click events will be ignored, however, `aria-disabled` allows the chip to
+ * still be focusable, which, for example, allows tooltips to still be displayed.
+ * A `disabled` chip is also `aria-disabled`, regardless of the value of
+ * `aria-disabled`.
  */
 export const Disabled: Story = {
   args: {
@@ -86,22 +92,33 @@ export const Disabled: Story = {
   },
 }
 
-/** By default, long labels will wrap if there is not enough space is available. */
-export const Overflow: Story = {
+/**
+ * By default, long labels will wrap if there is not enough space is available.
+ */
+export const Wrapping: Story = {
   args: {
     ...FilterChip.args,
     children: "This very long label will wrap because it's parent is not wide enough",
-    maxWidth: '--size-80',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '300px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 }
 
-/** Line breaks within an otherwise unbreakable string are also permitted to prevent text from overflowing the chip. */
+/**
+ * Line breaks within an otherwise unbreakable string are also permitted to prevent text
+ * from overflowing the chip.
+ */
 export const LongWords: Story = {
   args: {
-    ...FilterChip.args,
+    ...Wrapping.args,
     children: 'Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu, NZ',
-    maxWidth: '--size-80',
   },
+  decorators: Wrapping.decorators,
 }
 
 /**
@@ -112,7 +129,19 @@ export const Truncation: Story = {
   args: {
     ...FilterChip.args,
     children: 'Truncation can be applied when necessary',
+    overflow: 'truncate',
+  },
+  decorators: Wrapping.decorators,
+}
+
+/**
+ * In some cases, it may be necessary to limit the width of a chip directly, rather than
+ * relying on its parent container.
+ */
+export const MaxWidth: Story = {
+  args: {
+    ...FilterChip.args,
+    children: 'This chip has its own maximum width constraint',
     maxWidth: '--size-80',
-    willTruncateLabel: true,
   },
 }

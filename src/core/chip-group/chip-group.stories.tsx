@@ -56,7 +56,6 @@ const meta = {
     },
     overflow: {
       control: 'radio',
-      options: ['scroll', 'wrap'],
     },
   },
 } satisfies Meta<typeof ChipGroup>
@@ -76,31 +75,43 @@ const useNarrowParentDecorator: Decorator = (Story) => {
 /**
  * By default, a chip group will grow to whatever width it's parent allows.
  */
-export const Default: Story = {
+export const Example: Story = {
   args: {
     children: 'Filter Chips',
-    overflow: 'wrap',
+    flow: 'wrap',
+    overflow: 'visible',
   },
 }
 
 /**
- * By default, chips will wrap to other lines if they would otherwise overflow the group's bounding box.
+ * By default, chips will wrap to other lines if there is insufficient space.
  */
-export const Overflow: Story = {
+export const Wrapping: Story = {
   args: {
-    ...Default.args,
-    overflow: 'wrap',
+    ...Example.args,
   },
   decorators: [useNarrowParentDecorator],
 }
 
 /**
- * In some instances (e.g. small breakpoints), horizontal scrolling can be facilitated.
+ * The default wrapping behaviour can be overridden using `flow="nowrap"`. This can be useful at
+ * small breakpoints where the chip group should not occupy too much vertical space.
  */
-export const Scrolling: Story = {
+export const NoWrapping: Story = {
   args: {
-    ...Overflow.args,
-    overflow: 'scroll',
+    ...Example.args,
+    flow: 'nowrap',
+  },
+  decorators: [useNarrowParentDecorator],
+}
+
+/**
+ * When wrapping is disabled, it will often be useful to allow the chip group to scroll horizontally.
+ */
+export const Overflow: Story = {
+  args: {
+    ...NoWrapping.args,
+    overflow: 'auto',
   },
   decorators: [useNarrowParentDecorator],
 }
@@ -138,12 +149,12 @@ export const ChipSizing: Story = {
       <ChipGroup.Item key="7" {...ChipStories.FilterChip.args}>
         Chip 6
       </ChipGroup.Item>,
-      <ChipGroup.Item key="8" {...ChipStories.Overflow.args}>
+      <ChipGroup.Item key="8" {...ChipStories.Wrapping.args}>
         Or, you can avoid truncation and allow a long chip label to wrap to multiple lines
       </ChipGroup.Item>,
       <ChipGroup.Item key="9" {...ChipStories.LongWords.args} />,
     ],
-    overflow: 'wrap',
+    flow: 'wrap',
   },
   decorators: [useNarrowParentDecorator],
 }

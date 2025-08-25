@@ -1,36 +1,41 @@
 import { styled } from '@linaria/react'
 
-export const ElChipGroup = styled.div`
-  display: block;
-
-  &:has(> [data-overflow='scroll']) {
-    overflow-x: auto;
-  }
-`
-
 interface ElChipGroupListProps {
-  'data-overflow': 'scroll' | 'wrap'
+  'data-flow': 'wrap' | 'nowrap'
+  'data-overflow': 'auto' | 'visible'
 }
 
 export const ElChipGroupList = styled.ul<ElChipGroupListProps>`
-  display: flex;
+  display: inline-flex;
   gap: var(--spacing-2);
 
   list-style: none;
-
   margin: 0;
   padding: 0;
+  width: 100%;
 
-  &[data-overflow='scroll'] {
-    flex-wrap: nowrap;
-    width: max-content;
+  &,
+  &[data-flow='wrap'] {
+    flex-flow: row wrap;
   }
 
-  &[data-overflow='wrap'] {
-    flex-wrap: wrap;
+  &[data-flow='nowrap'] {
+    flex-flow: row nowrap;
+  }
+
+  &,
+  &[data-overflow='visible'] {
+    overflow: visible;
+  }
+
+  &[data-overflow='auto'] {
+    overflow: auto;
   }
 `
 
 export const ElChipGroupListItem = styled.li`
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  max-width: 100%;
 `

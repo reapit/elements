@@ -38,13 +38,13 @@ test('chip has no `aria-disabled` attribute when enabled', () => {
   expect(screen.getByRole('button', { name: 'Label' })).not.toHaveAttribute('aria-disabled')
 })
 
-test('chip label has `data-will-truncate="true"` attribute when `willTruncateLabel` is provided', () => {
+test('chip label has `data-overflow="truncate"` attribute when `overflow="truncate"` is provided', () => {
   render(
-    <Chip willTruncateLabel variant="selection">
+    <Chip overflow="truncate" variant="selection">
       Label
     </Chip>,
   )
-  expect(screen.getByText('Label')).toHaveAttribute('data-will-truncate', 'true')
+  expect(screen.getByText('Label')).toHaveAttribute('data-overflow', 'truncate')
 })
 
 test('ARIA disabled chip does not call `onClick`', () => {
