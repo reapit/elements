@@ -1,11 +1,11 @@
-import { MenuDivider } from './divider'
+import { Divider } from './divider'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/Menu/Divider',
-  component: MenuDivider,
-} satisfies Meta<typeof MenuDivider>
+  title: 'Core/Divider',
+  component: Divider,
+} satisfies Meta<typeof Divider>
 
 export default meta
 
