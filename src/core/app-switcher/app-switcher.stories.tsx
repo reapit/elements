@@ -58,11 +58,14 @@ export const Example: Story = {
  * const ids = AppSwitcher.getDisplayableProductsForYourAppsGroup(accessibleProductIds)
  *
  * return ids.length > 0 && (
- *  <AppSwitcher.ExploreMenuGroup>
- *    {ids.map((productId) => (
- *      <AppSwitcher.Product key={productId} productId={productId} url={href} />
- *    ))}
- *  </AppSwitcher.ExploreMenuGroup>
+ *  <>
+ *    <AppSwitcher.ExploreMenuGroup>
+ *      {ids.map((productId) => (
+ *        <AppSwitcher.Product key={productId} productId={productId} url={href} />
+ *      ))}
+ *    </AppSwitcher.ExploreMenuGroup>
+ *    <AppSwitcher.Divider />
+ *  </>
  * )
  * ```
  */
