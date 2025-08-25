@@ -4,11 +4,11 @@ exports[`renders AppSwitcherExploreMenuGroup properly 1`] = `
 <DocumentFragment>
   <div
     aria-labelledby=":r0:"
-    class="mocked-styled-1 el-menu-group"
+    class="mocked-styled-0 el-menu-group"
     role="group"
   >
     <div
-      class="mocked-styled-2 el-menu-group-label-container"
+      class="mocked-styled-1 el-menu-group-label-container"
       id=":r0:"
     >
       EXPLORE

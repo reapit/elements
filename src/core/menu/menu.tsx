@@ -2,7 +2,7 @@ import { AnchorMenuItem, MenuItem } from './item'
 import { cx } from '@linaria/core'
 import { elMenu } from './styles'
 import { Popover } from '#src/utils/popover'
-import { MenuDivider } from './divider'
+import { Divider } from '#src/core/divider'
 import { MenuGroup } from './group'
 import { useCloseMenuOnClick } from './use-close-menu-on-click'
 import { useMenuKeyboardNavigation } from './use-keyboard-navigation'
@@ -71,7 +71,7 @@ export function Menu({
 }
 
 Menu.AnchorItem = AnchorMenuItem
-Menu.Divider = MenuDivider
+Menu.Divider = Divider
 Menu.Group = MenuGroup
 Menu.Item = MenuItem
 
