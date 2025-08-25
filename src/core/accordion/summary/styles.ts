@@ -20,6 +20,11 @@ export const ElAccordionSummary = styled.summary`
     outline: var(--border-width-double) solid var(--colour-border-focus);
     outline-offset: var(--border-width-default);
   }
+
+  /* Ensure the user-agent disclosure marker is hidden */
+  &::marker {
+    display: none;
+  }
 `
 
 export const ElAccordionSummaryTitle = styled.div`
@@ -46,8 +51,9 @@ export const ElAccordionSummaryIcon = styled.div`
 
   color: var(--comp-accordion-colour-icon);
 
-  details:open &,
-  details[open] & {
+  /* We use :is because it accepts a forgiving selector list, and not all browsers
+   * support the :open selector for details elements. */
+  :is(details:open, details[open]) & {
     transform: rotate(180deg);
   }
 `
