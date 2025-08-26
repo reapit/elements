@@ -16,6 +16,10 @@ const meta = {
         'Disabled (aria-disabled)': <SplitButton.Action aria-disabled="true">Button</SplitButton.Action>,
       },
     },
+    busy: {
+      control: 'radio',
+      options: ['action', 'menu-item'],
+    },
     menu: {
       control: 'radio',
       options: ['Default', 'Disabled', 'Disabled (aria-disabled)'],
@@ -49,6 +53,7 @@ type Story = StoryObj<typeof meta>
 export const Example: Story = {
   args: {
     action: 'Default',
+    busy: undefined,
     menu: 'Default',
     size: 'medium',
     variant: 'primary',
@@ -157,7 +162,24 @@ export const Disabled: Story = {
 }
 
 /**
- * When used within a form, a split button's primary action and menu items will, by default, submit
+ * While the individual buttons that comprise the `SplitButton` can be individually marked as busy,
+ * care must be taken to ensure the other button is disabled. That is, if the main action is busy,
+ * the menu button should be disabled, and vice versa. To make this less error-prone, `SplitButton`
+ * accepts a `busy` prop that helps to ensure the correct busy/disabled state for each button is applied.
+ *
+ * This example demonstrates a `SplitButton` whose menu item is currently busy. Notably, both buttons
+ * are ARIA disabled to avoid timing issues when used to submit forms (disabled form elements are not
+ * included in the submitted form data).
+ */
+export const Busy: Story = {
+  args: {
+    ...Example.args,
+    busy: 'menu-item',
+  },
+}
+
+/**
+ * When used within a form, a split button's main action and menu items will, by default, submit
  * the form. This is how buttons associated with forms work (see MDN's documentation on the button
  * element's [type](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button#type)
  * attribute). If this is not desired, the `type` attribute can be set to `"button"`.
