@@ -155,3 +155,49 @@ export const Disabled: Story = {
     </>
   ),
 }
+
+/**
+ * When used within a form, a split button's primary action and menu items will, by default, submit
+ * the form. This is how buttons associated with forms work (see MDN's documentation on the button
+ * element's [type](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/button#type)
+ * attribute). If this is not desired, the `type` attribute can be set to `"button"`.
+ *
+ * For those that do participate in form submission, the `name` and `value` attributes can be used to
+ * identify the button within the submitted form data. In this example, form submission will display
+ * an alert dialog that shows which submit button was used.
+ */
+export const Forms: Story = {
+  args: {
+    action: (
+      <SplitButton.Action name="action" value="send" type="submit">
+        Send
+      </SplitButton.Action>
+    ),
+    menu: (
+      <SplitButton.Menu aria-label="More actions">
+        <Menu.Item name="action" value="schedule">
+          Schedule for later
+        </Menu.Item>
+      </SplitButton.Menu>
+    ),
+    size: 'medium',
+    variant: 'primary',
+  },
+  decorators: [
+    (Story) => (
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          if (e.nativeEvent instanceof SubmitEvent) {
+            // NOTE: form data won't include the submitter's name and value without the submitter
+            // being passed to the FormData constructor.
+            const formData = new FormData(e.currentTarget, e.nativeEvent.submitter)
+            alert(`Action = ${formData.get('action')}`)
+          }
+        }}
+      >
+        <Story />
+      </form>
+    ),
+  ],
+}

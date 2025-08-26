@@ -13,6 +13,11 @@ test('renders a button element', () => {
   expect(screen.getByRole('button', { name: 'Open menu' })).toBeVisible()
 })
 
+test('always has type="button"', () => {
+  render(<SplitButtonMenuButton aria-label="Expand" aria-expanded={true} />, { wrapper })
+  expect(screen.getByRole('button')).toHaveAttribute('type', 'button')
+})
+
 test('forwards the `aria-expanded` prop', () => {
   render(<SplitButtonMenuButton aria-label="Expand" aria-expanded={true} />, { wrapper })
   expect(screen.getByRole('button')).toHaveAttribute('aria-expanded', 'true')

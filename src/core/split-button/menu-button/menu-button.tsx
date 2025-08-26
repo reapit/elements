@@ -6,7 +6,12 @@ import { useSplitButtonContext } from '../context'
 
 import type { ButtonHTMLAttributes } from 'react'
 
-interface SplitButtonMenuButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+// NOTE: We omit...
+// - children, because it has no visual label
+// - type, because it should always be type="button"
+type AttributesToOmit = 'children' | 'type'
+
+interface SplitButtonMenuButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
   /**
    * Whether the action is disabled. This can be used to make the action appear disabled to users, but still be
    * focusable. ARIA disabled actions, whether they are button or anchor DOM elements, will ignore click events.
@@ -37,6 +42,7 @@ export function SplitButtonMenuButton({ className, ...rest }: SplitButtonMenuBut
       className={cx(elSplitButtonMenuButton, className)}
       iconLeft={<ChevronDownIcon />}
       size={size}
+      type="button"
       variant={variant}
     />
   )
