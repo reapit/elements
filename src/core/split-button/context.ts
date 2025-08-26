@@ -3,8 +3,12 @@ import { createContext, useContext } from 'react'
 import type { ComponentProps } from 'react'
 import type { SplitButton } from './split-button'
 
-interface SplitButtonContextType {
+export interface SplitButtonContextType {
+  /** Whether the main action button, menu button, or neither, is busy. */
+  busy: 'action' | 'menu-item' | undefined
+  /** The size of the main action and menu buttons. */
   size: ComponentProps<typeof SplitButton>['size']
+  /** The variant used by the main action and menu buttons. */
   variant: ComponentProps<typeof SplitButton>['variant']
 }
 

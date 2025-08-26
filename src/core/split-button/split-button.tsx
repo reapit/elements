@@ -9,6 +9,8 @@ import type { HTMLAttributes, ReactNode } from 'react'
 interface SplitButtonProps extends HTMLAttributes<HTMLDivElement> {
   /** The main action for the `SplitButton` */
   action: ReactNode
+  /** The part of the split button that is currently busy, if any. */
+  busy?: 'action' | 'menu-item'
   /** The menu to display in the split button */
   menu: ReactNode
   /** The size of the button */
@@ -20,10 +22,10 @@ interface SplitButtonProps extends HTMLAttributes<HTMLDivElement> {
 /**
  * A split button lets users perform an action or choose from a small group of other related actions.
  */
-export function SplitButton({ action, menu, size, variant, ...rest }: SplitButtonProps) {
+export function SplitButton({ action, menu, busy, size, variant, ...rest }: SplitButtonProps) {
   return (
     <ElSplitButton {...rest}>
-      <SplitButtonContext.Provider value={{ size, variant }}>
+      <SplitButtonContext.Provider value={{ busy, size, variant }}>
         {action}
         {menu}
       </SplitButtonContext.Provider>

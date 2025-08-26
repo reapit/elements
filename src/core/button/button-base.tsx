@@ -96,6 +96,9 @@ export function ButtonBase({
     <Element
       {...(rest as HTMLAttributes<HTMLElement>)}
       className={cx(elButton, className)}
+      // NOTE: we explicitly DO NOT use `isBusy` to properly disable button-based buttons because
+      // that can lead to timing issues with form submissions (disabled form elements are not part
+      // of the submitted form data). Thus, busy buttons are only ever ARIA disabled.
       aria-disabled={!!isBusy || !!rest['disabled'] || !!ariaDisabled}
       data-variant={variant}
       data-size={size}

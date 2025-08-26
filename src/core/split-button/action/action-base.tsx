@@ -41,10 +41,30 @@ export interface SplitButtonActionAsAnchorProps
 
 export type SplitButtonActionBaseProps = SplitButtonActionAsButtonProps | SplitButtonActionAsAnchorProps
 
-export function SplitButtonActionBase({ children, className, ...rest }: SplitButtonActionBaseProps) {
-  const { size, variant } = useSplitButtonContext()
+/**
+ * A polymorphic button foundation that can render as either a button or anchor element.
+ * This component is used internally by the `SplitButtonAction` and `SplitButtonAnchorAction`
+ * components and should not be used directly by consumers.
+ */
+export function SplitButtonActionBase({
+  'aria-disabled': ariaDisabled,
+  children,
+  className,
+  isBusy,
+  ...rest
+}: SplitButtonActionBaseProps) {
+  const { busy, size, variant } = useSplitButtonContext()
+
   return (
-    <ButtonBase {...rest} className={cx(elSplitButtonAction, className)} size={size} variant={variant}>
+    <ButtonBase
+      {...rest}
+      // If the menu button is busy, this action button should be ARIA disabled.
+      aria-disabled={ariaDisabled || busy === 'menu-item'}
+      className={cx(elSplitButtonAction, className)}
+      isBusy={isBusy || busy === 'action'}
+      size={size}
+      variant={variant}
+    >
       {children}
     </ButtonBase>
   )

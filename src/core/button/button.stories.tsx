@@ -219,6 +219,9 @@ export const Disabled: Story = {
  * Buttons that have been clicked and are performing some asynchronous action should be marked as busy using `isBusy`.
  * Busy buttons are `aria-disabled`, show a spinner instead of the button's other icons, and look the same regardless
  * of the button's variant.
+ *
+ * We explicitly DO NOT use mark busy buttons as disabled because that can lead to timing issues with form submissions
+ * (disabled form elements are not part of the submitted form data). Thus, busy buttons are only ever ARIA disabled.
  */
 export const Busy: Story = {
   args: {

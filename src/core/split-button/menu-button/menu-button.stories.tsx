@@ -38,6 +38,7 @@ export const Example: Story = {
     'aria-expanded': false,
     'aria-label': 'More actions',
     disabled: false,
+    isBusy: false,
   },
 }
 
@@ -97,5 +98,17 @@ export const Disabled: Story = {
   args: {
     ...Example.args,
     disabled: true,
+  },
+}
+
+/**
+ * If any menu items performs an asynchronous action, the menu button should be marked as busy until
+ * that action is complete. This can be achieved using `isBusy`. Busy buttons are disabled to prevent
+ * the action being triggered again.
+ */
+export const Busy: Story = {
+  args: {
+    ...Example.args,
+    isBusy: true,
   },
 }

@@ -127,7 +127,7 @@ export const Disabled: Story = {
 }
 
 /**
- * Actions can be busy using `isBusy`. In this case, the button will be disabled and the loading spinner
+ * Actions can be busy using `isBusy`. In this case, the button will be ARIA disabled and the loading spinner
  * will be displayed.
  */
 export const Busy: Story = {
