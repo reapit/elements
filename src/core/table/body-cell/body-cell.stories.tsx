@@ -239,9 +239,6 @@ export const Alignment: Story = {
     ),
     useTableDecorator('body-cell'),
   ],
-  parameters: {
-    tableWidth: 'var(--size-80)',
-  },
 }
 
 /**

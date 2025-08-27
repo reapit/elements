@@ -1,14 +1,33 @@
+import type { CSSProperties } from 'react'
 import type { Decorator } from '@storybook/react-vite'
-import { CSSProperties } from 'react'
 
 type StoryPlacement = 'body' | 'body-cell' | 'body-row' | 'head' | 'header-cell' | 'header-row'
 
 /** Simple story decorator that renders the story in a valid table DOM hierarchy */
 export function useTableDecorator(placement: StoryPlacement): Decorator {
-  return (Story, { parameters: { tableWidth = 'auto' } }) => {
-    const tableStyle: CSSProperties = { borderCollapse: 'collapse', width: tableWidth }
-    const rowGroupStyle: CSSProperties = { display: 'grid' }
-    const rowStyle: CSSProperties = { display: 'grid', gridAutoFlow: 'column' }
+  return (Story, { parameters: { tableWidth = 'auto', tableColumns = 3 } }) => {
+    const tableStyle: CSSProperties = {
+      display: 'grid',
+      gridAutoFlow: 'row',
+      gridAutoRows: 'auto',
+      gridTemplateColumns: `repeat(${tableColumns}, 1fr)`,
+      justifyContent: 'start',
+      width: tableWidth,
+    }
+    const rowGroupStyle: CSSProperties = {
+      display: 'grid',
+      gridColumn: '1 / -1',
+      gridAutoFlow: 'row',
+      gridAutoRows: 'auto',
+      gridTemplateColumns: 'subgrid',
+      justifyContent: 'inherit',
+    }
+    const rowStyle: CSSProperties = {
+      display: 'grid',
+      gridColumn: '1 / -1',
+      gridTemplateColumns: 'subgrid',
+      justifyContent: 'inherit',
+    }
 
     switch (placement) {
       case 'body':
@@ -22,7 +41,7 @@ export function useTableDecorator(placement: StoryPlacement): Decorator {
         return (
           <table style={tableStyle}>
             <thead />
-            <tbody>
+            <tbody style={rowGroupStyle}>
               <tr style={rowStyle}>
                 <Story />
               </tr>
