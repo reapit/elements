@@ -6,6 +6,8 @@ import { font } from '#src/core/text'
 // supported by the TableBodyCell component.
 export const elTableBodyCell = css`
   display: grid;
+  align-items: center;
+  justify-content: inherit;
 
   ${font('sm', 'regular')}
 
@@ -14,7 +16,6 @@ export const elTableBodyCell = css`
 
   overflow: hidden;
 
-  &,
   &[data-justify-content='start'] {
     justify-content: start;
   }

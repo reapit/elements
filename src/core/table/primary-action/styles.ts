@@ -23,8 +23,14 @@ export const elTableRowPrimaryAction = css`
     inset: 0 0 0 0;
   }
 
-  &:focus-visible::after {
-    outline: var(--border-width-double) solid var(--colour-border-focus);
-    outline-offset: var(--border-width-default);
+  &:focus-visible {
+    /* We increase the z-index to ensure the focus outline is above subsequent sibling table
+     * row hover styles */
+    z-index: 1;
+
+    &::after {
+      outline: var(--border-width-double) solid var(--colour-border-focus);
+      outline-offset: var(--border-width-default);
+    }
   }
 `
