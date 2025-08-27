@@ -1,3 +1,6 @@
+import { TableBody } from '../body'
+import { TableBodyRow } from '../body-row'
+
 import type { CSSProperties } from 'react'
 import type { Decorator } from '@storybook/react-vite'
 
@@ -14,20 +17,6 @@ export function useTableDecorator(placement: StoryPlacement): Decorator {
       justifyContent: 'start',
       width: tableWidth,
     }
-    const rowGroupStyle: CSSProperties = {
-      display: 'grid',
-      gridColumn: '1 / -1',
-      gridAutoFlow: 'row',
-      gridAutoRows: 'auto',
-      gridTemplateColumns: 'subgrid',
-      justifyContent: 'inherit',
-    }
-    const rowStyle: CSSProperties = {
-      display: 'grid',
-      gridColumn: '1 / -1',
-      gridTemplateColumns: 'subgrid',
-      justifyContent: 'inherit',
-    }
 
     switch (placement) {
       case 'body':
@@ -41,20 +30,20 @@ export function useTableDecorator(placement: StoryPlacement): Decorator {
         return (
           <table style={tableStyle}>
             <thead />
-            <tbody style={rowGroupStyle}>
-              <tr style={rowStyle}>
+            <TableBody>
+              <TableBodyRow style={{ border: 'none' }}>
                 <Story />
-              </tr>
-            </tbody>
+              </TableBodyRow>
+            </TableBody>
           </table>
         )
       case 'body-row':
         return (
           <table style={tableStyle}>
             <thead />
-            <tbody style={rowGroupStyle}>
+            <TableBody>
               <Story />
-            </tbody>
+            </TableBody>
           </table>
         )
       case 'head':
@@ -68,7 +57,7 @@ export function useTableDecorator(placement: StoryPlacement): Decorator {
         return (
           <table style={tableStyle}>
             <thead>
-              <tr style={rowStyle}>
+              <tr>
                 <Story />
               </tr>
             </thead>
@@ -78,7 +67,7 @@ export function useTableDecorator(placement: StoryPlacement): Decorator {
       case 'header-row':
         return (
           <table style={tableStyle}>
-            <thead style={rowGroupStyle}>
+            <thead>
               <Story />
             </thead>
             <tbody />
