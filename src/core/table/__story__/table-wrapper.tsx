@@ -17,6 +17,12 @@ export function buildTableWrapper(placement: ChildPlacement): FC<{ children: Rea
       width: '100%',
     }
 
+    const subgridStyles: CSSProperties = {
+      display: 'grid',
+      gridColumn: '1 / -1',
+      gridTemplateColumns: 'subgrid',
+    }
+
     switch (placement) {
       case 'body':
         return <table style={tableStyle}>{children}</table>
@@ -39,15 +45,15 @@ export function buildTableWrapper(placement: ChildPlacement): FC<{ children: Rea
       case 'header-cell':
         return (
           <table style={tableStyle}>
-            <thead>
-              <tr>{children}</tr>
+            <thead style={subgridStyles}>
+              <tr style={subgridStyles}>{children}</tr>
             </thead>
           </table>
         )
       case 'header-row':
         return (
           <table style={tableStyle}>
-            <thead>{children}</thead>
+            <thead style={subgridStyles}>{children}</thead>
           </table>
         )
     }
