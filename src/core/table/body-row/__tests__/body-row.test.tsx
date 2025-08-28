@@ -1,31 +1,51 @@
-import { composeStories } from '@storybook/react-vite'
+import { buildTableWrapper } from '../../__story__/table-wrapper'
 import { render, screen } from '@testing-library/react'
-import * as tableBodyRowStories from '../body-row.stories'
+import { TableBodyRow } from '../body-row'
 
-const TableBodyRowStories = composeStories(tableBodyRowStories)
+const wrapper = buildTableWrapper('body-row')
 
 test('renders as a cell element by default', () => {
-  render(<TableBodyRowStories.Example />)
+  render(
+    <TableBodyRow>
+      <td />
+    </TableBodyRow>,
+    { wrapper },
+  )
   expect(screen.getByRole('row')).toBeVisible()
 })
 
 test('can render as a div with no implicit role', () => {
-  const { container } = render(<TableBodyRowStories.Divs />)
+  const { container } = render(<TableBodyRow as="div">Foo</TableBodyRow>)
   expect(container.firstElementChild?.tagName).toBe('DIV')
   expect(screen.queryByRole('row')).not.toBeInTheDocument()
 })
 
 test('has .el-table-body-row class', () => {
-  render(<TableBodyRowStories.Example />)
+  render(
+    <TableBodyRow>
+      <td />
+    </TableBodyRow>,
+    { wrapper },
+  )
   expect(screen.getByRole('row')).toHaveClass('el-table-body-row')
 })
 
 test('accepts other classes', () => {
-  render(<TableBodyRowStories.Example className="custom-class" />)
+  render(
+    <TableBodyRow className="custom-class">
+      <td />
+    </TableBodyRow>,
+    { wrapper },
+  )
   expect(screen.getByRole('row')).toHaveClass('el-table-body-row custom-class')
 })
 
 test('forwards additional props to the row', () => {
-  render(<TableBodyRowStories.Example data-testid="test-id" />)
+  render(
+    <TableBodyRow data-testid="test-id">
+      <td />
+    </TableBodyRow>,
+    { wrapper },
+  )
   expect(screen.getByTestId('test-id')).toBe(screen.getByRole('row'))
 })

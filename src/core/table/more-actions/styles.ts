@@ -18,6 +18,8 @@ export const elTableRowMoreActionsButton = css`
   background: transparent;
   color: var(--colour-icon-primary);
 
+  cursor: pointer;
+
   /* NOTE: This ensures the button is layered above the table row's primary action */
   z-index: ${TABLE_ROW_INTERACTIVE_ELEMENT_Z_INDEX};
 
