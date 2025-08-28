@@ -85,7 +85,7 @@ const meta = {
 } satisfies Meta<typeof TableBodyRow>
 
 export default meta
-type Story = StoryObj<typeof TableBodyRow>
+type Story = StoryObj<typeof meta>
 
 /**
  * By default, rows do not exhibit any cursor-based interactivity, such has hover styles. This is because

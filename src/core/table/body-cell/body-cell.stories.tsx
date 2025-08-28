@@ -89,7 +89,7 @@ const meta = {
 } satisfies Meta<typeof TableBodyCell>
 
 export default meta
-type Story = StoryObj<typeof TableBodyCell>
+type Story = StoryObj<typeof meta>
 
 /**
  * At their simplest, body cell's will contain a single line of plain text. However, it's important
@@ -132,14 +132,13 @@ export const DoubleLineLayout: Story = {
 /**
  * Often it will be necessary to render a table cell as a row header, `<th>`. When you
  * do use `th`, it's [scope](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-scope)
- * should also be specified as `row`. Further, the text should typically have a medium font weight.
- * If you need a cell to act as a column header, you should use `Table.HeadingCell` instead.
+ * will automatically be set as `row`. Care should be taken to use a medium font weight for the cell's
+ * primary content. If you need a cell to act as a column header, use `Table.HeadingCell` instead.
  */
 export const RowHeader: Story = {
   args: {
     ...Example.args,
     as: 'th',
-    scope: 'row',
     children: <Text weight="medium">I&apos;m in a &lt;th&gt;</Text>,
   },
   decorators: [useTableDecorator('body-cell')],
