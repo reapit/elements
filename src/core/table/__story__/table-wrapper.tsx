@@ -1,5 +1,6 @@
 import { TableBody } from '../body'
 import { TableBodyRow } from '../body-row'
+import { TableHeaderRow } from '../header-row'
 
 import type { CSSProperties, FC, ReactNode } from 'react'
 
@@ -46,7 +47,7 @@ export function buildTableWrapper(placement: ChildPlacement): FC<{ children: Rea
         return (
           <table style={tableStyle}>
             <thead style={subgridStyles}>
-              <tr style={subgridStyles}>{children}</tr>
+              <TableHeaderRow style={{ border: 'none' }}>{children}</TableHeaderRow>
             </thead>
           </table>
         )
