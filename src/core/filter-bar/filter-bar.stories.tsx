@@ -66,7 +66,7 @@ const meta = {
         None: undefined,
         'Some Filters': (
           <FilterBar.AppliedFilters>
-            <ChipGroup overflow="wrap">
+            <ChipGroup>
               <ChipGroup.Item {...ChipStories.FilterChip.args} />
               <ChipGroup.Item {...ChipStories.FilterChip.args} />
               <ChipGroup.Item {...ChipStories.FilterChip.args} />
@@ -78,7 +78,7 @@ const meta = {
         ),
         'Many Filters': (
           <FilterBar.AppliedFilters>
-            <ChipGroup overflow="wrap">
+            <ChipGroup>
               <ChipGroup.Item {...ChipStories.FilterChip.args} />
               <ChipGroup.Item {...ChipStories.FilterChip.args} />
               <ChipGroup.Item {...ChipStories.FilterChip.args} />
@@ -101,7 +101,7 @@ const meta = {
               </Button>
             }
           >
-            <ChipGroup overflow="wrap">
+            <ChipGroup>
               <ChipGroup.Item {...ChipStories.FilterChip.args} />
               <ChipGroup.Item {...ChipStories.FilterChip.args} />
               <ChipGroup.Item {...ChipStories.FilterChip.args} />

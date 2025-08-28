@@ -57,6 +57,8 @@ interface WrapperProps {
 
 function wrapper({ children }: WrapperProps) {
   return (
-    <SplitButtonContext.Provider value={{ size: 'medium', variant: 'primary' }}>{children}</SplitButtonContext.Provider>
+    <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'primary' }}>
+      {children}
+    </SplitButtonContext.Provider>
   )
 }

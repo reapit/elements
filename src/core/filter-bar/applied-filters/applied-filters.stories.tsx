@@ -13,10 +13,10 @@ const meta = {
   argTypes: {
     children: {
       control: 'radio',
-      options: ['Some Filters', 'Many Filters', 'Mixed States'],
+      options: ['Some Filters', 'Many Filters'],
       mapping: {
         'Some Filters': (
-          <ChipGroup overflow="wrap">
+          <ChipGroup>
             <ChipGroup.Item {...ChipStories.FilterChip.args} />
             <ChipGroup.Item {...ChipStories.FilterChip.args} />
             <ChipGroup.Item {...ChipStories.FilterChip.args} />
@@ -26,7 +26,7 @@ const meta = {
           </ChipGroup>
         ),
         'Many Filters': (
-          <ChipGroup overflow="wrap">
+          <ChipGroup>
             <ChipGroup.Item {...ChipStories.FilterChip.args} />
             <ChipGroup.Item {...ChipStories.FilterChip.args} />
             <ChipGroup.Item {...ChipStories.FilterChip.args} />
@@ -96,14 +96,14 @@ export const Overflow: Story = {
 }
 
 /**
- * When a chip group is configured to scroll any overflowing chips, the filter bar's action, if present,
- * will remain visible.
+ * When a chip group is configured to automatically scroll any overflowing chips, the filter bar's
+ * action, if present, will remain visible.
  */
 export const Scrolling: Story = {
   args: {
     ...Action.args,
     children: (
-      <ChipGroup overflow="scroll">
+      <ChipGroup overflow="auto">
         <ChipGroup.Item {...ChipStories.FilterChip.args} />
         <ChipGroup.Item {...ChipStories.FilterChip.args} />
         <ChipGroup.Item {...ChipStories.FilterChip.args} />

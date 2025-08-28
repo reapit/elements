@@ -31,7 +31,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <SplitButtonContext.Provider value={{ size: 'medium', variant: 'primary' }}>
+      <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'primary' }}>
         <Story />
       </SplitButtonContext.Provider>
     ),
@@ -63,10 +63,10 @@ export const Variants: Story = {
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
-        <SplitButtonContext.Provider value={{ size: 'medium', variant: 'primary' }}>
+        <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'primary' }}>
           <Story />
         </SplitButtonContext.Provider>
-        <SplitButtonContext.Provider value={{ size: 'medium', variant: 'secondary' }}>
+        <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'secondary' }}>
           <Story />
         </SplitButtonContext.Provider>
       </div>
@@ -85,13 +85,13 @@ export const Sizes: Story = {
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
-        <SplitButtonContext.Provider value={{ size: 'small', variant: 'secondary' }}>
+        <SplitButtonContext.Provider value={{ busy: undefined, size: 'small', variant: 'secondary' }}>
           <Story />
         </SplitButtonContext.Provider>
-        <SplitButtonContext.Provider value={{ size: 'medium', variant: 'secondary' }}>
+        <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'secondary' }}>
           <Story />
         </SplitButtonContext.Provider>
-        <SplitButtonContext.Provider value={{ size: 'large', variant: 'secondary' }}>
+        <SplitButtonContext.Provider value={{ busy: undefined, size: 'large', variant: 'secondary' }}>
           <Story />
         </SplitButtonContext.Provider>
       </div>
