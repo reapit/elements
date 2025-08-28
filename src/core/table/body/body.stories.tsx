@@ -1,9 +1,11 @@
 import { Avatar } from '#src/core/avatar'
+import { Menu } from '#src/core/menu'
 import { TableBody } from './body'
 import { TableBodyCell } from '../body-cell'
 import { TableBodyRow } from '../body-row'
 import { TableCellDoubleLineLayout } from '../double-line-layout'
 import { TableRowPrimaryAction } from '../primary-action'
+import { TableRowMoreActions } from '../more-actions'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -37,9 +39,6 @@ const meta = {
         },
       },
     },
-  },
-  parameters: {
-    tableWidth: '100%',
   },
 } satisfies Meta<typeof TableBody>
 
@@ -92,6 +91,12 @@ function buildRows(type: 'single-line' | 'double-line') {
             </TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
+            <TableBodyCell>
+              <TableRowMoreActions aria-label="More actions for John Smith">
+                <Menu.Item>Action 1</Menu.Item>
+                <Menu.Item>Action 2</Menu.Item>
+              </TableRowMoreActions>
+            </TableBodyCell>
           </TableBodyRow>
 
           <TableBodyRow>
@@ -100,6 +105,12 @@ function buildRows(type: 'single-line' | 'double-line') {
             </TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
+            <TableBodyCell>
+              <TableRowMoreActions aria-label="More actions for 45 Queen Elizabeth St, Melbourne 3100">
+                <Menu.Item>Action 1</Menu.Item>
+                <Menu.Item>Action 2</Menu.Item>
+              </TableRowMoreActions>
+            </TableBodyCell>
           </TableBodyRow>
         </>
       )
@@ -115,6 +126,12 @@ function buildRows(type: 'single-line' | 'double-line') {
             </TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
+            <TableBodyCell>
+              <TableRowMoreActions aria-label="More actions for Mary Jane">
+                <Menu.Item>Action 1</Menu.Item>
+                <Menu.Item>Action 2</Menu.Item>
+              </TableRowMoreActions>
+            </TableBodyCell>
           </TableBodyRow>
 
           <TableBodyRow>
@@ -125,6 +142,12 @@ function buildRows(type: 'single-line' | 'double-line') {
             </TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
+            <TableBodyCell>
+              <TableRowMoreActions aria-label="More actions for John Smith">
+                <Menu.Item>Action 1</Menu.Item>
+                <Menu.Item>Action 2</Menu.Item>
+              </TableRowMoreActions>
+            </TableBodyCell>
           </TableBodyRow>
         </>
       )

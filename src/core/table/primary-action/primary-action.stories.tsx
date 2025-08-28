@@ -29,9 +29,6 @@ const meta = {
       </div>
     ),
   ],
-  parameters: {
-    tableWidth: '100%',
-  },
 } satisfies Meta<typeof TableRowPrimaryAction>
 
 export default meta

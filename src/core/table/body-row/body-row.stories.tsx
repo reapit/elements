@@ -1,8 +1,10 @@
 import { Avatar } from '#src/core/avatar'
+import { Menu } from '#src/core/menu'
 import { TableBodyCell } from '../body-cell'
 import { TableBodyRow } from './body-row'
 import { TableCellDoubleLineLayout } from '../double-line-layout'
 import { TableRowPrimaryAction } from '../primary-action'
+import { TableRowMoreActions } from '../more-actions'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -32,6 +34,12 @@ const meta = {
             <TableBodyCell>10 Hay St, Melbourne 3100</TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
+            <TableBodyCell>
+              <TableRowMoreActions aria-label="More actions for 10 Hay St, Melbourne 3100">
+                <Menu.Item>Action 1</Menu.Item>
+                <Menu.Item>Action 2</Menu.Item>
+              </TableRowMoreActions>
+            </TableBodyCell>
           </>
         ),
         'Primary action': (
@@ -41,6 +49,12 @@ const meta = {
             </TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
+            <TableBodyCell>
+              <TableRowMoreActions aria-label="More actions for 10 Hay St, Melbourne 3100">
+                <Menu.Item>Action 1</Menu.Item>
+                <Menu.Item>Action 2</Menu.Item>
+              </TableRowMoreActions>
+            </TableBodyCell>
           </>
         ),
         'Double-line': (
@@ -52,6 +66,12 @@ const meta = {
             </TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
+            <TableBodyCell>
+              <TableRowMoreActions aria-label="More actions for Mary Jane">
+                <Menu.Item>Action 1</Menu.Item>
+                <Menu.Item>Action 2</Menu.Item>
+              </TableRowMoreActions>
+            </TableBodyCell>
           </>
         ),
       },
@@ -61,9 +81,6 @@ const meta = {
         },
       },
     },
-  },
-  parameters: {
-    tableWidth: '100%',
   },
 } satisfies Meta<typeof TableBodyRow>
 
