@@ -1,41 +1,43 @@
-import { composeStories } from '@storybook/react-vite'
+import { TableBodyCell } from '../body-cell'
 import { render, screen } from '@testing-library/react'
-import * as tableBodyCellStories from '../body-cell.stories'
-
-const TableBodyCellStories = composeStories(tableBodyCellStories)
 
 test('renders as a cell element by default', () => {
-  render(<TableBodyCellStories.Example />)
+  render(<TableBodyCell>Content</TableBodyCell>)
   expect(screen.getByRole('cell')).toBeVisible()
 })
 
-test('can render as a row header cell', () => {
-  render(<TableBodyCellStories.RowHeader scope="row" data-testid="table-cell" />)
+test('can render as a header cell', () => {
+  render(<TableBodyCell as="th">Content</TableBodyCell>)
   expect(screen.getByRole('rowheader')).toBeVisible()
 })
 
 test('can render as a div with no implicit role', () => {
-  const { container } = render(<TableBodyCellStories.Divs />)
+  const { container } = render(<TableBodyCell as="div">Content</TableBodyCell>)
   expect(container.firstElementChild?.tagName).toBe('DIV')
   expect(screen.queryByRole('cell')).not.toBeInTheDocument()
 })
 
+test('applies scope="row" when rendered as a header cell', () => {
+  render(<TableBodyCell as="th">Content</TableBodyCell>)
+  expect(screen.getByRole('rowheader')).toHaveAttribute('scope', 'row')
+})
+
 test('applies `data-justify-content` when `justifyContent` is provided', () => {
-  render(<TableBodyCellStories.Alignment />)
+  render(<TableBodyCell justifyContent="end">Content</TableBodyCell>)
   expect(screen.getByRole('cell')).toHaveAttribute('data-justify-content', 'end')
 })
 
 test('has .el-table-body-cell class', () => {
-  render(<TableBodyCellStories.Example />)
+  render(<TableBodyCell>Content</TableBodyCell>)
   expect(screen.getByRole('cell')).toHaveClass('el-table-body-cell')
 })
 
 test('accepts other classes', () => {
-  render(<TableBodyCellStories.Example className="custom-class" />)
+  render(<TableBodyCell className="custom-class">Content</TableBodyCell>)
   expect(screen.getByRole('cell')).toHaveClass('el-table-body-cell custom-class')
 })
 
 test('forwards additional props to the cell', () => {
-  render(<TableBodyCellStories.Example data-testid="test-id" />)
+  render(<TableBodyCell data-testid="test-id">Content</TableBodyCell>)
   expect(screen.getByTestId('test-id')).toBe(screen.getByRole('cell'))
 })

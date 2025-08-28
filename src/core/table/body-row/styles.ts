@@ -19,7 +19,7 @@ export const elTableBodyRow = css`
   justify-content: inherit;
   width: 100%;
 
-  background: var(--colour-white);
+  background: var(--colour-fill-white);
   border-block-end: var(--border-width-default) solid var(--colour-border-light_default);
   padding: 0;
 
