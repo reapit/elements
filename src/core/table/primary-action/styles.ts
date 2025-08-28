@@ -1,5 +1,6 @@
 import { css } from '@linaria/core'
 import { font } from '#src/core/text'
+import { TABLE_ROW_PRIMARY_ACTION_Z_INDEX } from '../constants'
 
 export const elTableRowPrimaryAction = css`
   display: inline-grid;
@@ -20,13 +21,13 @@ export const elTableRowPrimaryAction = css`
     content: '';
     display: block;
     position: absolute;
-    inset: 0 0 0 0;
+    inset: 0;
   }
 
   &:focus-visible {
     /* We increase the z-index to ensure the focus outline is above subsequent sibling table
      * row hover styles */
-    z-index: 1;
+    z-index: ${TABLE_ROW_PRIMARY_ACTION_Z_INDEX};
 
     &::after {
       outline: var(--border-width-double) solid var(--colour-border-focus);

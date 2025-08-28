@@ -8,14 +8,14 @@ type StoryPlacement = 'body' | 'body-cell' | 'body-row' | 'head' | 'header-cell'
 
 /** Simple story decorator that renders the story in a valid table DOM hierarchy */
 export function useTableDecorator(placement: StoryPlacement): Decorator {
-  return (Story, { parameters: { tableWidth = 'auto', tableColumns = 3 } }) => {
+  return (Story) => {
     const tableStyle: CSSProperties = {
       display: 'grid',
       gridAutoFlow: 'row',
       gridAutoRows: 'auto',
-      gridTemplateColumns: `repeat(${tableColumns}, 1fr)`,
+      gridTemplateColumns: '1fr 1fr 1fr min-content',
       justifyContent: 'start',
-      width: tableWidth,
+      width: '100%',
     }
 
     switch (placement) {

@@ -12,7 +12,7 @@ export const elTableBodyCell = css`
   ${font('sm', 'regular')}
 
   border: none;
-  padding: 0 var(--spacing-2);
+  padding: var(--spacing-2);
 
   overflow: hidden;
 

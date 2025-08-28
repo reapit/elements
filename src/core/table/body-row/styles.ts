@@ -20,8 +20,8 @@ export const elTableBodyRow = css`
   width: 100%;
 
   background: var(--colour-white);
-  padding-block: var(--spacing-2);
   border-block-end: var(--border-width-default) solid var(--colour-border-light_default);
+  padding: 0;
 
   min-height: var(--size-10);
   max-height: var(--size-18);
