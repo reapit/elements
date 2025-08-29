@@ -7,22 +7,25 @@ import { font } from '#src/core/text'
 export const elTableBodyCell = css`
   display: grid;
   align-items: center;
-  justify-content: inherit;
 
   ${font('sm', 'regular')}
+  text-align: var(--__table-column-justification);
 
   border: none;
   padding: var(--spacing-2);
 
   overflow: hidden;
 
-  &[data-justify-content='start'] {
-    justify-content: start;
+  &[data-justify-self='start'] {
+    --__table-column-justification: start;
+    justify-self: start;
   }
-  &[data-justify-content='center'] {
-    justify-content: center;
+  &[data-justify-self='center'] {
+    --__table-column-justification: center;
+    justify-self: center;
   }
-  &[data-justify-content='end'] {
-    justify-content: end;
+  &[data-justify-self='end'] {
+    --__table-column-justification: end;
+    justify-self: end;
   }
 `

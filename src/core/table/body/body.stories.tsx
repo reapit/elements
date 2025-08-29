@@ -86,7 +86,7 @@ function buildRows(type: 'single-line' | 'double-line') {
       return (
         <>
           <TableBodyRow>
-            <TableBodyCell as="th" scope="row">
+            <TableBodyCell as="th">
               <TableRowPrimaryAction href={href}>10 Hay St, Melbourne 3100</TableRowPrimaryAction>
             </TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
@@ -100,7 +100,7 @@ function buildRows(type: 'single-line' | 'double-line') {
           </TableBodyRow>
 
           <TableBodyRow>
-            <TableBodyCell as="th" scope="row">
+            <TableBodyCell as="th">
               <TableRowPrimaryAction href={href}>45 Queen Elizabeth St, Melbourne 3100</TableRowPrimaryAction>
             </TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
@@ -119,7 +119,7 @@ function buildRows(type: 'single-line' | 'double-line') {
       return (
         <>
           <TableBodyRow>
-            <TableBodyCell as="th" scope="row">
+            <TableBodyCell as="th">
               <TableCellDoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
                 <TableRowPrimaryAction href={href}>Mary Jane</TableRowPrimaryAction>
               </TableCellDoubleLineLayout>
@@ -135,7 +135,7 @@ function buildRows(type: 'single-line' | 'double-line') {
           </TableBodyRow>
 
           <TableBodyRow>
-            <TableBodyCell as="th" scope="row">
+            <TableBodyCell as="th">
               <TableCellDoubleLineLayout mediaItem={<Avatar>JS</Avatar>} supplementaryData="Engineer">
                 <TableRowPrimaryAction href={href}>John Smith</TableRowPrimaryAction>
               </TableCellDoubleLineLayout>

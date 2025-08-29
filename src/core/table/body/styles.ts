@@ -6,5 +6,4 @@ export const elTableBody = css`
   grid-auto-flow: row;
   grid-auto-rows: auto;
   grid-template-columns: subgrid;
-  justify-content: inherit;
 `

@@ -15,7 +15,6 @@ export const elTableHeaderRow = css`
   grid-template-columns: subgrid;
   grid-template-rows: auto;
   align-items: center;
-  justify-content: inherit;
   width: 100%;
 
   background: var(--colour-fill-white);

@@ -7,7 +7,8 @@ import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
 // NOTE: we omit...
 // - children, because the more actions button should never have a visual label
-type AttributesToOmit = 'children'
+// - type, because the more actions button should never act as a submit button
+type AttributesToOmit = 'children' | 'type'
 
 interface TableRowMoreActionsButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
   /**
@@ -16,7 +17,7 @@ interface TableRowMoreActionsButtonProps extends Omit<ButtonHTMLAttributes<HTMLB
    * is preferred when the button should still be focusable while it's disabled; for example, to allow
    * a tooltip to be displayed that explains why the button is disabled.
    */
-  'aria-disabled': boolean
+  'aria-disabled'?: boolean
   /**
    * The accessible name for this button. Take care to ensure it is descriptive of the table row
    * to which it's related.
@@ -26,7 +27,7 @@ interface TableRowMoreActionsButtonProps extends Omit<ButtonHTMLAttributes<HTMLB
    * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will
    * not be focusable or interactive.
    */
-  disabled: boolean
+  disabled?: boolean
 }
 
 /**
@@ -67,6 +68,7 @@ export function TableRowMoreActionsButton({
       className={cx(elTableRowMoreActionsButton, className)}
       disabled={disabled}
       onClick={handleClick}
+      type="button"
     >
       <MoreIcon />
     </button>
