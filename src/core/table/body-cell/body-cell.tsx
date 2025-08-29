@@ -5,7 +5,7 @@ import type { HTMLAttributes, ReactNode, TdHTMLAttributes, ThHTMLAttributes } fr
 
 interface TableBodyCellCommonProps {
   /** The alignment of the cell's content. */
-  justifyContent?: 'start' | 'center' | 'end'
+  justifySelf?: 'start' | 'center' | 'end'
 }
 
 interface TableBodyCellAsTdProps extends TableBodyCellCommonProps, TdHTMLAttributes<HTMLTableCellElement> {
@@ -35,21 +35,10 @@ type TableBodyCellProps = TableBodyCellAsTdProps | TableBodyCellAsThProps | Tabl
  * A basic cell for a table's body. Does little more than render its children in a `<td>`,
  * `<th>`, or `<div>` element. Typically used via `Table.BodyCell`.
  */
-export function TableBodyCell({
-  as: Element = 'td',
-  children,
-  className,
-  justifyContent,
-  ...rest
-}: TableBodyCellProps) {
+export function TableBodyCell({ as: Element = 'td', children, className, justifySelf, ...rest }: TableBodyCellProps) {
   const thElementScope = Element === 'th' ? { scope: 'row' } : undefined
   return (
-    <Element
-      {...rest}
-      {...thElementScope}
-      className={cx(elTableBodyCell, className)}
-      data-justify-content={justifyContent}
-    >
+    <Element {...rest} {...thElementScope} className={cx(elTableBodyCell, className)} data-justify-self={justifySelf}>
       {children}
     </Element>
   )

@@ -91,7 +91,7 @@ export const Clipping: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '150px' }}>
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '120px' }}>
         <Story />
       </div>
     ),

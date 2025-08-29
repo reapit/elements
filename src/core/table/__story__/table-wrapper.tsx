@@ -1,56 +1,47 @@
-import { TableBody } from '../body'
-import { TableBodyRow } from '../body-row'
-import { TableHead } from '../head'
-import { TableHeaderRow } from '../header-row'
+import { Table } from '../table'
 
-import type { CSSProperties, FC, ReactNode } from 'react'
+import type { FC, ReactNode } from 'react'
 
 export type ChildPlacement = 'body' | 'body-cell' | 'body-row' | 'head' | 'header-cell' | 'header-row'
 
 /** Simple factory that returns a component that renders valid table DOM hierarchy around its children */
-export function buildTableWrapper(placement: ChildPlacement): FC<{ children: ReactNode }> {
+export function buildTableWrapper(
+  placement: ChildPlacement,
+  columns: string = '1fr 1fr 1fr min-content',
+): FC<{ children: ReactNode }> {
   return ({ children }) => {
-    const tableStyle: CSSProperties = {
-      display: 'grid',
-      gridAutoFlow: 'row',
-      gridAutoRows: 'auto',
-      gridTemplateColumns: '1fr 1fr 1fr min-content',
-      justifyContent: 'start',
-      width: '100%',
-    }
-
     switch (placement) {
       case 'body':
-        return <table style={tableStyle}>{children}</table>
+        return <Table columns={columns}>{children}</Table>
       case 'body-cell':
         return (
-          <table style={tableStyle}>
-            <TableBody>
-              <TableBodyRow style={{ border: 'none' }}>{children}</TableBodyRow>
-            </TableBody>
-          </table>
+          <Table columns={columns}>
+            <Table.Body>
+              <Table.BodyRow style={{ border: 'none' }}>{children}</Table.BodyRow>
+            </Table.Body>
+          </Table>
         )
       case 'body-row':
         return (
-          <table style={tableStyle}>
-            <TableBody>{children}</TableBody>
-          </table>
+          <Table columns={columns}>
+            <Table.Body>{children}</Table.Body>
+          </Table>
         )
       case 'head':
-        return <table style={tableStyle}>{children}</table>
+        return <Table columns={columns}>{children}</Table>
       case 'header-cell':
         return (
-          <table style={tableStyle}>
-            <TableHead>
-              <TableHeaderRow style={{ border: 'none' }}>{children}</TableHeaderRow>
-            </TableHead>
-          </table>
+          <Table columns={columns}>
+            <Table.Head>
+              <Table.HeaderRow style={{ border: 'none' }}>{children}</Table.HeaderRow>
+            </Table.Head>
+          </Table>
         )
       case 'header-row':
         return (
-          <table style={tableStyle}>
-            <TableHead>{children}</TableHead>
-          </table>
+          <Table columns={columns}>
+            <Table.Head>{children}</Table.Head>
+          </Table>
         )
     }
   }

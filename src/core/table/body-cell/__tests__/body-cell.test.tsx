@@ -25,9 +25,9 @@ test('applies scope="row" when rendered as a header cell', () => {
   expect(screen.getByRole('rowheader')).toHaveAttribute('scope', 'row')
 })
 
-test('applies `data-justify-content` when `justifyContent` is provided', () => {
-  render(<TableBodyCell justifyContent="end">Content</TableBodyCell>, { wrapper })
-  expect(screen.getByRole('cell')).toHaveAttribute('data-justify-content', 'end')
+test('applies `data-justify-self` when `justifySelf` is provided', () => {
+  render(<TableBodyCell justifySelf="end">Content</TableBodyCell>, { wrapper })
+  expect(screen.getByRole('cell')).toHaveAttribute('data-justify-self', 'end')
 })
 
 test('has .el-table-body-cell class', () => {

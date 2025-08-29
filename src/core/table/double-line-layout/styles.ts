@@ -5,8 +5,7 @@ export const ElTableCellDoubleLineLayout = styled.div`
   display: inline-grid;
   grid-template: 'media-item primary-data' auto 'media-item supplementary-data' auto / auto 1fr;
   align-items: center;
-  justify-content: inherit;
-  justify-self: inherit;
+  justify-content: var(--__table-column-justification);
 
   padding-block: var(--spacing-2);
 `
@@ -14,8 +13,7 @@ export const ElTableCellDoubleLineLayout = styled.div`
 export const ElTableCellDoubleLineLayoutPrimaryData = styled.div`
   grid-area: primary-data;
   display: inline-grid;
-  justify-content: inherit;
-  justify-self: inherit;
+  justify-content: var(--__table-column-justification);
 
   /* NOTE: We want to avoid any overflow AND prevent text from wrapping. The nowrap
    * behaviour here is important because some components may be design to wrap by default.
@@ -30,8 +28,7 @@ export const ElTableCellDoubleLineLayoutSupplementaryData = styled.span`
   grid-area: supplementary-data;
   display: inline-grid;
   color: var(--colour-text-secondary);
-  justify-content: inherit;
-  justify-self: inherit;
+  justify-content: var(--__table-column-justification);
 
   /* NOTE: We want to avoid any overflow AND prevent text from wrapping. The nowrap
    * behaviour here is important because some components may be design to wrap by default.

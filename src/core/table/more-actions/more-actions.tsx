@@ -11,7 +11,7 @@ interface TableRowMoreActionsProps extends ComponentProps<typeof TableRowMoreAct
    * is preferred when the button should still be focusable while it's disabled; for example, to allow
    * a tooltip to be displayed that explains why the button is disabled.
    */
-  'aria-disabled': boolean
+  'aria-disabled'?: boolean
   /**
    * The accessible name for this button. Take care to ensure it is descriptive of the table row
    * to which it's related.
@@ -23,7 +23,7 @@ interface TableRowMoreActionsProps extends ComponentProps<typeof TableRowMoreAct
    * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will
    * not be focusable or interactive.
    */
-  disabled: boolean
+  disabled?: boolean
 }
 
 /**

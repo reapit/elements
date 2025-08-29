@@ -4,9 +4,9 @@ import { font } from '#src/core/text'
 export const elTableCellSortButton = css`
   display: inline-grid;
   grid-template-columns: minmax(auto, min-content) min-content;
-  grid-template-rows: auto;
+  grid-template-rows: subgrid;
   align-items: center;
-  justify-content: inherit;
+  justify-content: var(--__table-column-justification);
   gap: var(--spacing-1);
   width: 100%;
 
@@ -20,7 +20,6 @@ export const elTableCellSortButton = css`
   cursor: pointer;
 
   ${font('2xs', 'bold')}
-  text-align: center;
   text-transform: uppercase;
 
   &:focus-visible {

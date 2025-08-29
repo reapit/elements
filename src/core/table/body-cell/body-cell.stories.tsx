@@ -172,12 +172,13 @@ export const Overflow: Story = {
     ),
   },
   decorators: [
+    useTableDecorator('body-cell', '150px'),
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '150px' }}>
+      // NOTE: This div wraps the entire table.
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: 'min-content' }}>
         <Story />
       </div>
     ),
-    useTableDecorator('body-cell'),
   ],
 }
 
@@ -228,15 +229,16 @@ export const EmptyCells: Story = {
 export const Alignment: Story = {
   args: {
     ...DoubleLineLayout.args,
-    justifyContent: 'end',
+    justifySelf: 'end',
   },
   decorators: [
+    useTableDecorator('body-cell', '300px'),
     (Story) => (
-      <div style={{ display: 'grid', boxSizing: 'content-box', border: '1px solid #FA00FF' }}>
+      // NOTE: This div wraps the entire table.
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: 'min-content' }}>
         <Story />
       </div>
     ),
-    useTableDecorator('body-cell'),
   ],
 }
 
