@@ -91,40 +91,33 @@ export const Colour: Story = {
 }
 
 /**
- * The `size` prop controls the font size.
+ * The `font` prop controls the font size and weight.
  */
-export const Size: Story = {
+export const FontStyle: Story = {
   args: {
     ...Example.args,
-    size: 'xs',
+    font: 'text-2xl/bold',
   },
 }
 
 /**
- * The `weight` prop controls the font weight.
- */
-export const Weight: Story = {
-  args: {
-    ...Example.args,
-    as: 'strong',
-    weight: 'bold',
-  },
-}
-
-/**
- * Usage of Text can be nested within other Text components. This can be useful when you need to prototype spans
- * of differently coloured text within a larger block of text.
+ * Both `font` and `colour` accept "inherit" as values. This allows for nested Text usage, which is
+ * useful when you need a child span to be styled differently from its parent while inheriting the
+ * other properties. However, because our font styles are always size/weight pairs, it is not possible
+ * to inherit the font size separate to it's weight.
  *
- * **Important:** The size and weight of the nested text do **NOT** inherit from the parent.
+ * This example shows a smaller span of text inheriting the font size and weight of its parent while
+ * colouring itself differently.
  */
-export const Nesting: Story = {
+export const Inheritance: Story = {
   args: {
     ...Example.args,
+    font: 'text-xs/bold',
   },
   render: (args) => (
     <Text {...args}>
       This is a span of text that includes a{' '}
-      <Text as="strong" colour="error" weight="medium">
+      <Text as="strong" colour="error" font="inherit">
         nested span of text.
       </Text>
     </Text>
@@ -139,7 +132,7 @@ export const Nesting: Story = {
  */
 export const Overflow: Story = {
   args: {
-    ...Example.args,
+    ...Inheritance.args,
     overflow: 'truncate',
   },
   decorators: [
@@ -152,7 +145,7 @@ export const Overflow: Story = {
   render: (args) => (
     <Text {...args}>
       This is a span of text that includes a{' '}
-      <Text as="strong" colour="error" weight="medium">
+      <Text as="strong" colour="error" font="inherit">
         nested span of text.
       </Text>
     </Text>

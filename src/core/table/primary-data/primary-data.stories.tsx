@@ -122,7 +122,7 @@ export const Truncation: Story = {
     ...Icons.args,
     children: (
       <>
-        <Text id="text" overflow="truncate">
+        <Text font="inherit" id="text" overflow="truncate">
           10 Queen Elizabeth St, Melbourne 3100
         </Text>
         <Tooltip id="tooltip" placement="top" triggerId="text" truncationTargetId="text">

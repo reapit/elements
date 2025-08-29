@@ -14,7 +14,12 @@ export const elText = css`
 `
 
 function generateElTextFontStyles() {
-  return fontSizes
+  return `
+  &[data-font-size='inherit'][data-font-weight='inherit'] {
+    font: inherit;
+  }
+
+  ${fontSizes
     .map((size) => {
       return fontWeights
         .map((weight) => {
@@ -26,7 +31,8 @@ function generateElTextFontStyles() {
         })
         .join('\n')
     })
-    .join('\n')
+    .join('\n')}
+  `
 }
 
 function generateElTextColourStyles() {

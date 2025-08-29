@@ -139,7 +139,7 @@ export const RowHeader: Story = {
   args: {
     ...Example.args,
     as: 'th',
-    children: <Text weight="medium">I&apos;m in a &lt;th&gt;</Text>,
+    children: <Text font="text-sm/medium">I&apos;m in a &lt;th&gt;</Text>,
   },
   decorators: [useTableDecorator('body-cell')],
 }
@@ -194,7 +194,7 @@ export const Truncation: Story = {
     ...Example.args,
     children: (
       <>
-        <Text id="text" overflow="truncate" size="sm">
+        <Text font="inherit" id="text" overflow="truncate">
           10 Queen Elizabeth St, Melbourne 3100
         </Text>
         <Tooltip id="tooltip" placement="top" triggerId="text" truncationTargetId="text">
@@ -213,7 +213,7 @@ export const EmptyCells: Story = {
   args: {
     ...Example.args,
     children: (
-      <Text colour="placeholder" size="sm">
+      <Text font="inherit" colour="placeholder">
         Not available
       </Text>
     ),

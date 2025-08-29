@@ -106,7 +106,7 @@ export const Truncation: Story = {
     'aria-labelledby': 'tooltip',
     children: (
       <>
-        <Text id="text" size="2xs" overflow="truncate" weight="bold">
+        <Text font="inherit" id="text" overflow="truncate">
           Long column header
         </Text>
         <Tooltip id="tooltip" triggerId="sort-button" truncationTargetId="text">
