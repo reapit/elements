@@ -1,5 +1,6 @@
 import { TableBody } from '../body'
 import { TableBodyRow } from '../body-row'
+import { TableHead } from '../head'
 import { TableHeaderRow } from '../header-row'
 
 import type { CSSProperties, FC, ReactNode } from 'react'
@@ -16,12 +17,6 @@ export function buildTableWrapper(placement: ChildPlacement): FC<{ children: Rea
       gridTemplateColumns: '1fr 1fr 1fr min-content',
       justifyContent: 'start',
       width: '100%',
-    }
-
-    const subgridStyles: CSSProperties = {
-      display: 'grid',
-      gridColumn: '1 / -1',
-      gridTemplateColumns: 'subgrid',
     }
 
     switch (placement) {
@@ -46,15 +41,15 @@ export function buildTableWrapper(placement: ChildPlacement): FC<{ children: Rea
       case 'header-cell':
         return (
           <table style={tableStyle}>
-            <thead style={subgridStyles}>
+            <TableHead>
               <TableHeaderRow style={{ border: 'none' }}>{children}</TableHeaderRow>
-            </thead>
+            </TableHead>
           </table>
         )
       case 'header-row':
         return (
           <table style={tableStyle}>
-            <thead style={subgridStyles}>{children}</thead>
+            <TableHead>{children}</TableHead>
           </table>
         )
     }
