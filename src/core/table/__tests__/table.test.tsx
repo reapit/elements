@@ -82,3 +82,51 @@ test('forwards additional props to the row', () => {
   )
   expect(screen.getByTestId('test-id')).toBe(screen.getByRole('table'))
 })
+
+test('exposes Table.Body', () => {
+  expect(Table.Body).toBeDefined()
+})
+
+test('exposes Table.BodyCell', () => {
+  expect(Table.BodyCell).toBeDefined()
+})
+
+test('exposes Table.BodyRow', () => {
+  expect(Table.BodyRow).toBeDefined()
+})
+
+test('exposes Table.PrimaryAction', () => {
+  expect(Table.PrimaryAction).toBeDefined()
+})
+
+test('exposes Table.PrimaryActionButton', () => {
+  expect(Table.PrimaryActionButton).toBeDefined()
+})
+
+test('exposes Table.MoreActions', () => {
+  expect(Table.MoreActions).toBeDefined()
+})
+
+test('exposes Table.DoubleLineLayout', () => {
+  expect(Table.DoubleLineLayout).toBeDefined()
+})
+
+test('exposes Table.PrimaryData', () => {
+  expect(Table.PrimaryData).toBeDefined()
+})
+
+test('exposes Table.Head', () => {
+  expect(Table.Head).toBeDefined()
+})
+
+test('exposes Table.HeaderCell', () => {
+  expect(Table.HeaderCell).toBeDefined()
+})
+
+test('exposes Table.HeaderRow', () => {
+  expect(Table.HeaderRow).toBeDefined()
+})
+
+test('exposes Table.SortButton', () => {
+  expect(Table.SortButton).toBeDefined()
+})

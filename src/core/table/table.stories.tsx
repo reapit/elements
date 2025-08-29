@@ -29,6 +29,27 @@ const meta = {
         },
       },
     },
+    columns: {
+      control: 'text',
+      description:
+        'Defines the number of columns and their explicit sizing. Columns are defined using the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns">grid-template-columns</a> syntax.',
+      table: {
+        type: {
+          summary: 'string',
+        },
+      },
+    },
+    justifyItems: {
+      control: 'radio',
+      description:
+        'Defines how column content is positioned along the inline axis. By default, content is packed against the starting edge of the column.',
+      options: ['start', 'center', 'end'],
+      table: {
+        type: {
+          summary: "'start' | 'center' | 'end'",
+        },
+      },
+    },
   },
 } satisfies Meta<typeof Table>
 

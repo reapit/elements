@@ -9,15 +9,23 @@ import { TableCellSortButton } from './sort-button'
 import { TableHead } from './head'
 import { TableHeaderCell } from './header-cell'
 import { TableHeaderRow } from './header-row'
+import { TableRowMoreActions } from './more-actions'
 import { TableRowPrimaryAction } from './primary-action'
 import { TableRowPrimaryActionButton } from './primary-action/primary-action-button'
 
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
-import { TableRowMoreActions } from './more-actions'
 
 interface CommonTablePros {
-  /** The `grid-template-columns` definition for the table. */
+  /**
+   * Defines the number of columns and their explicit sizing. Columns are defined using the
+   * [grid-template-columns)(https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
+   * syntax.
+   */
   columns: string
+  /**
+   * Defines how column content is positioned along the inline axis. By default, content is packed
+   * against the starting edge of the column.
+   */
   justifyItems?: 'start' | 'center' | 'end'
 }
 
@@ -40,11 +48,12 @@ type TableProps = TableAsTableProps | TableAsDivProps
 /**
  * A classic table. Renders its children in a `<table>` or `<div>` element based on the specified columns.
  *
- * Tables are built by composing the following atoms:
+ * Tables are built by composing the following components:
  * - **Table head:** [Table.Head](./?path=/docs/core-table-head--docs),
  * [Table.HeaderRow](./?path=/docs/core-table-headerrow--docs),
  * [Table.HeaderCell](./?path=/docs/core-table-headercell--docs), and
  * [Table.SortButton](./?path=/docs/core-table-sortbutton--docs)
+ *
  * - **Table body:** [Table.Body](./?path=/docs/core-table-body--docs),
  * [Table.BodyRow](./?path=/docs/core-table-bodyrow--docs),
  * [Table.BodyCell](./?path=/docs/core-table-bodycell--docs),
