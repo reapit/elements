@@ -107,7 +107,7 @@ export const Truncation: Story = {
     ...Example.args,
     children: (
       <>
-        <Text id="primary-text" overflow="truncate" size="sm">
+        <Text font="inherit" id="primary-text" overflow="truncate">
           10 Queen Elizabeth St
         </Text>
         <Tooltip id="primary-tooltip" placement="top" triggerId="primary-text" truncationTargetId="primary-text">
@@ -118,7 +118,7 @@ export const Truncation: Story = {
     mediaItem: 'Image',
     supplementaryData: (
       <>
-        <Text id="supplementary-text" overflow="truncate" size="xs">
+        <Text font="inherit" id="supplementary-text" overflow="truncate">
           Melbourne 3100
         </Text>
         <Tooltip
