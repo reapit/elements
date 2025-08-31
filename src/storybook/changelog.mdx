@@ -25,6 +25,10 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 - **chore:** Enhanced `ChipGroup` to ensure items are sized to the full-width of the container if their labels are too long for the available space.
 - **fix:** `SplitButton.MenuButton` is now always a `type="button"` to avoid it submitting forms its associated with.
 - **feat:** Added `busy` prop to `SplitButton` to help ensure the main action and menu buttons have the correct state when one of them is busy.
+- **feat:** Added `font` prop to `Text` that now allows font styles to be inherited from a parent.
+- **feat:** Added new foundational `Table` atoms. They are available via `@reapit/elements/core/table`. New atoms include:
+  - Table head: `Table.Head`, `Table.HeaderRow`, `Table.HeaderCell`, and `Table.SortButton`
+  - Table body: `Table.Body`, `Table.BodyRow`, `Table.BodyCell`, `Table.PrimaryAction`,`Table.PrimaryActionButton`, `Table.MoreActions`, `Table.DoubleLineLayout` and `Table.PrimaryData`.
 
 ### **5.0.0-beta.46 - 25/08/25**
 

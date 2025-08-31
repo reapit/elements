@@ -89,7 +89,7 @@ const meta = {
 } satisfies Meta<typeof TableBodyCell>
 
 export default meta
-type Story = StoryObj<typeof TableBodyCell>
+type Story = StoryObj<typeof meta>
 
 /**
  * At their simplest, body cell's will contain a single line of plain text. However, it's important
@@ -132,15 +132,14 @@ export const DoubleLineLayout: Story = {
 /**
  * Often it will be necessary to render a table cell as a row header, `<th>`. When you
  * do use `th`, it's [scope](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/th#attr-scope)
- * should also be specified as `row`. Further, the text should typically have a medium font weight.
- * If you need a cell to act as a column header, you should use `Table.HeadingCell` instead.
+ * will automatically be set as `row`. Care should be taken to use a medium font weight for the cell's
+ * primary content. If you need a cell to act as a column header, use `Table.HeadingCell` instead.
  */
 export const RowHeader: Story = {
   args: {
     ...Example.args,
     as: 'th',
-    scope: 'row',
-    children: <Text weight="medium">I&apos;m in a &lt;th&gt;</Text>,
+    children: <Text font="text-sm/medium">I&apos;m in a &lt;th&gt;</Text>,
   },
   decorators: [useTableDecorator('body-cell')],
 }
@@ -173,12 +172,13 @@ export const Overflow: Story = {
     ),
   },
   decorators: [
+    useTableDecorator('body-cell', '150px'),
     (Story) => (
-      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '150px' }}>
+      // NOTE: This div wraps the entire table.
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: 'min-content' }}>
         <Story />
       </div>
     ),
-    useTableDecorator('body-cell'),
   ],
 }
 
@@ -195,7 +195,7 @@ export const Truncation: Story = {
     ...Example.args,
     children: (
       <>
-        <Text id="text" overflow="truncate" size="sm">
+        <Text font="inherit" id="text" overflow="truncate">
           10 Queen Elizabeth St, Melbourne 3100
         </Text>
         <Tooltip id="tooltip" placement="top" triggerId="text" truncationTargetId="text">
@@ -214,7 +214,7 @@ export const EmptyCells: Story = {
   args: {
     ...Example.args,
     children: (
-      <Text colour="placeholder" size="sm">
+      <Text font="inherit" colour="placeholder">
         Not available
       </Text>
     ),
@@ -229,19 +229,17 @@ export const EmptyCells: Story = {
 export const Alignment: Story = {
   args: {
     ...DoubleLineLayout.args,
-    justifyContent: 'end',
+    justifySelf: 'end',
   },
   decorators: [
+    useTableDecorator('body-cell', '300px'),
     (Story) => (
-      <div style={{ display: 'grid', boxSizing: 'content-box', border: '1px solid #FA00FF' }}>
+      // NOTE: This div wraps the entire table.
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: 'min-content' }}>
         <Story />
       </div>
     ),
-    useTableDecorator('body-cell'),
   ],
-  parameters: {
-    tableWidth: 'var(--size-80)',
-  },
 }
 
 /**
