@@ -29,6 +29,8 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 - **feat:** Added new foundational `Table` atoms. They are available via `@reapit/elements/core/table`. New atoms include:
   - Table head: `Table.Head`, `Table.HeaderRow`, `Table.HeaderCell`, and `Table.SortButton`
   - Table body: `Table.Body`, `Table.BodyRow`, `Table.BodyCell`, `Table.PrimaryAction`,`Table.PrimaryActionButton`, `Table.MoreActions`, `Table.DoubleLineLayout` and `Table.PrimaryData`.
+- **chore!:** Refactored `Pagination` to now support anchor-based pagination links instead of being restricted to buttons. The `onPageChange` prop has been deprecated and will be removed in a future version, while the `currentPage` prop has been renamed to `pageNumber`.
+- **fix:** `Table.HeaderCell` now renders as a `<td>` if it has no cell content and is not being rendered as a `<div>`.
 
 ### **5.0.0-beta.46 - 25/08/25**
 
