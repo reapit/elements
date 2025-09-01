@@ -4,9 +4,14 @@ import { render, screen } from '@testing-library/react'
 
 const wrapper = buildTableWrapper('header-cell')
 
-test('can render as a header cell by default', () => {
+test('renders as a header cell by default', () => {
   render(<TableHeaderCell as="th">Content</TableHeaderCell>, { wrapper })
   expect(screen.getByRole('columnheader')).toBeVisible()
+})
+
+test('renders as a cell when its empty and not being explicitly rendered as a div', () => {
+  render(<TableHeaderCell />, { wrapper })
+  expect(screen.getByRole('cell')).toBeVisible()
 })
 
 test('can render as a div with no implicit role', () => {
