@@ -1,61 +1,87 @@
-import { FC, useCallback } from 'react'
+import { ElPagination, ElPaginationItem, ElPaginationList } from './styles'
+import { getLinkProps } from './get-link-props'
+import { PaginationInfo } from './info'
+import { PaginationLink, PaginationLinkButton } from './link'
+import { useCallback } from 'react'
 
-import { DeprecatedIcon } from '../../deprecated/icon'
-
-import { PaginationButton } from './pagination.atoms'
-import { ElPagination, ElPaginationItem, ElPaginationList, ElPaginationText } from './styles'
+import type { ReactNode } from 'react'
 
 export interface PaginationProps {
   /**
-   * state of the current page
+   * The action to go to the next page. Typically a `Pagination.Link`
+   * or `Pagination.LinkButton`.
    */
-  currentPage: number
+  leftAction?: ReactNode
   /**
-   * total number of pages
+   * Optional callback useful when relying on the deprecated, built-in button controls
+   * @deprecated use `leftAction` and `rightAction`
+   */
+  onPageChange?: (page: number) => void
+  /**
+   * The total number of pages.
    */
   pageCount: number
   /**
-   * Triggered when the clicks on a button to change the current page
+   * The current page number. Expects a 1-based value.
    */
-  onPageChange: (page: number) => void
+  pageNumber: number
+  /**
+   * The action to go to the previous page. Typically a `Pagination.Link`
+   * or `Pagination.LinkButton`.
+   */
+  rightAction?: ReactNode
 }
 
-export const Pagination: FC<PaginationProps> = ({ currentPage, pageCount, onPageChange }) => {
-  const handleOnNextPageClick = useCallback(() => {
-    onPageChange(currentPage + 1)
-  }, [currentPage])
+/**
+ * The pagination component is used to navigate between pages. It displays the current page and the total
+ * number of pages available.
+ */
+export function Pagination({ leftAction, onPageChange, pageCount, pageNumber, rightAction }: PaginationProps) {
+  const deprecatedHandleOnNextPageClick = useCallback(() => {
+    onPageChange?.(pageNumber + 1)
+  }, [pageNumber])
 
-  const handleOnBackPageClick = useCallback(() => {
-    onPageChange(currentPage - 1)
-  }, [currentPage])
+  const deprecatedHandleOnBackPageClick = useCallback(() => {
+    onPageChange?.(pageNumber - 1)
+  }, [pageNumber])
 
   return (
     <ElPagination aria-label="Pagination">
       <ElPaginationList>
         <ElPaginationItem>
-          <PaginationButton
-            size="small"
-            aria-label="Go to previous page"
-            isDisabled={currentPage <= 1}
-            onClick={handleOnBackPageClick}
-            iconLeft={<DeprecatedIcon icon="chevronLeft" />}
-            variant="tertiary"
-          />
+          {leftAction ?? (
+            // NOTE: will be removed in future
+            <PaginationLinkButton
+              aria-label="Go to previous page"
+              disabled={pageNumber === 1}
+              onClick={deprecatedHandleOnBackPageClick}
+              variant="previous-page"
+            />
+          )}
         </ElPaginationItem>
+
         <ElPaginationItem>
-          <ElPaginationText>{`${currentPage} of ${pageCount}`}</ElPaginationText>
+          <PaginationInfo pageNumber={pageNumber} pageCount={pageCount} />
         </ElPaginationItem>
+
         <ElPaginationItem>
-          <PaginationButton
-            size="small"
-            aria-label="Go to next page"
-            isDisabled={currentPage >= pageCount}
-            onClick={handleOnNextPageClick}
-            iconLeft={<DeprecatedIcon icon="chevronRight" />}
-            variant="tertiary"
-          />
+          {rightAction ?? (
+            // NOTE: will be removed in future
+            <PaginationLinkButton
+              aria-label="Go to next page"
+              disabled={pageNumber === pageCount}
+              onClick={deprecatedHandleOnNextPageClick}
+              variant="next-page"
+            />
+          )}
         </ElPaginationItem>
       </ElPaginationList>
     </ElPagination>
   )
 }
+
+Pagination.Info = PaginationInfo
+Pagination.Link = PaginationLink
+Pagination.LinkButton = PaginationLinkButton
+
+Pagination.getLinkProps = getLinkProps

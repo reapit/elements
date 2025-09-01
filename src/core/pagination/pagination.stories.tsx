@@ -1,22 +1,17 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { action } from 'storybook/actions'
-
 import { Pagination } from './pagination'
-import { useState } from 'react'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+const href = globalThis.top?.location.href!
 
 const meta = {
   title: 'Core/Pagination',
   component: Pagination,
-  args: {
-    onPageChange: action('onPageChange'),
-    currentPage: 1,
-    pageCount: 5,
-  },
   argTypes: {
-    currentPage: {
+    leftAction: {
       control: false,
     },
-    pageCount: {
+    rightAction: {
       control: false,
     },
   },
@@ -26,12 +21,32 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * The pagination component is used to navigate between pages
- * It displays the current page and the total number of pages available
+ * The pagination actions can either be links or buttons. In either case, the left action should be
+ * ARIA disabled if the first page is being displayed, while the right action should be ARIA disabled
+ * if the last page is being displayed.
+ *
+ * The `Pagination.getLinkProps` helper can be used to assist configuring the `Pagination.Link` or
+ * `Pagination.LinkButton` actions. It will ensure the correct `aria-disabled` and `aria-label`
+ * attributes are set.
  */
-export const Default: Story = {
-  render: (args) => {
-    const [page, setPage] = useState(1)
-    return <Pagination {...args} onPageChange={setPage} currentPage={page} />
+export const Example: Story = {
+  args: {
+    leftAction: <Pagination.Link {...Pagination.getLinkProps('previous-page', 1, 10)} href={href} />,
+    pageCount: 10,
+    pageNumber: 1,
+    rightAction: <Pagination.Link {...Pagination.getLinkProps('next-page', 1, 10)} href={href} />,
+  },
+}
+
+/**
+ * In some cases, it may be necessary to use button elements, rather than anchor elements, for the
+ * pagination links. In this case, `Pagination.LinkButton` can be used in place of `Pagination.Link`.
+ */
+export const Buttons: Story = {
+  args: {
+    leftAction: <Pagination.LinkButton {...Pagination.getLinkProps('previous-page', 5, 10)} />,
+    pageCount: 10,
+    pageNumber: 5,
+    rightAction: <Pagination.LinkButton {...Pagination.getLinkProps('next-page', 5, 10)} />,
   },
 }

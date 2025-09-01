@@ -36,16 +36,16 @@ export interface CommonButtonBaseProps {
   variant: 'primary' | 'secondary' | 'tertiary'
 }
 
-export interface ButtonAsButtonProps extends CommonButtonBaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonBaseAsButtonProps extends CommonButtonBaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
   as: 'button'
 }
 
-export interface ButtonAsAnchorProps extends CommonButtonBaseProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+export interface ButtonBaseAsAnchorProps extends CommonButtonBaseProps, AnchorHTMLAttributes<HTMLAnchorElement> {
   as: 'a'
   href: string
 }
 
-export type ButtonBaseProps = ButtonAsButtonProps | ButtonAsAnchorProps
+export type ButtonBaseProps = ButtonBaseAsButtonProps | ButtonBaseAsAnchorProps
 
 /**
  * A polymorphic button foundation that can render as either a button or anchor element.
