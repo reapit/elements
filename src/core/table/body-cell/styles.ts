@@ -16,6 +16,10 @@ export const elTableBodyCell = css`
 
   overflow: hidden;
 
+  &[data-has-no-padding='true'] {
+    padding: 0;
+  }
+
   &[data-justify-self='start'] {
     --__table-column-justification: start;
     justify-self: start;
