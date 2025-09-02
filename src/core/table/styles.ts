@@ -6,10 +6,9 @@ export const elTable = css`
   display: grid;
   grid-auto-flow: row;
   grid-auto-rows: auto;
-  grid-template-columns: var(--__table-columns);
   justify-items: var(--__table-column-justification);
   justify-content: var(--__table-column-justification);
-  width: '100%';
+  width: 100%;
 
   &[data-justify-items='start'] {
     --__table-column-justification: start;

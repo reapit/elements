@@ -1,4 +1,5 @@
 import { TableHeaderCell } from './header-cell'
+import { TableCellCheckbox } from '../checkbox'
 import { TableCellSortButton } from '../sort-button'
 import { Text } from '#src/core/text'
 import { Tooltip } from '#src/core/tooltip'
@@ -39,6 +40,7 @@ const meta = {
             Amount
           </TableCellSortButton>
         ),
+        Checkbox: <TableCellCheckbox aria-label="Select all rows" name="selectAll" />,
       },
       table: {
         type: {
@@ -138,6 +140,33 @@ export const Alignment: Story = {
   decorators: [
     useTableDecorator('header-cell', '150px'),
     (Story) => (
+      <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: 'min-content' }}>
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+/**
+ * In some cases, the content of the cell may want to fill the full height of the row and the full
+ * width of the column. In this case, `hasNoPadding` can be used to remove the cell's default padding.
+ * This is particularly useful for allowing a checkbox's hit area to fill the whole cell to help avoid
+ * miss-clicks that activate the row's primary action (if one is present).
+ *
+ * This example demonstrates this with a [Table.Checkbox](./?path=/docs/core-table-checkbox--docs) in
+ * a fixed-width column (typically, we'd use `min-content` for a row selection column). Since
+ * `Table.Checkbox` is designed to fill its parent, its hit area includes the entire cell.
+ */
+export const NoPadding: Story = {
+  args: {
+    ...Example.args,
+    children: 'Checkbox',
+    hasNoPadding: true,
+  },
+  decorators: [
+    useTableDecorator('header-cell', 'var(--size-64)'),
+    (Story) => (
+      // NOTE: This div wraps the entire table.
       <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: 'min-content' }}>
         <Story />
       </div>

@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { elTableRowPrimaryAction } from '../primary-action/styles'
+import { elTableRowPrimaryAction } from '../primary-action'
 
 // NOTE: This is a plain class so that we have an exportable class name
 // available for consumers that want table row styling on an element not
@@ -24,6 +24,13 @@ export const elTableBodyRow = css`
 
   min-height: var(--size-10);
   max-height: var(--size-18);
+
+  /* For now, we don't differentiate between individual checked inputs (which may include checkboxes
+   * or radio buttons) in the row. Rather, we assume the only checked input in the row is the one for
+   * selecting the row. This may change in future, but it's the simplest approach for now. */
+  &:has(input:checked) {
+    background: var(--colour-fill-action-lightest);
+  }
 
   &:has(.${elTableRowPrimaryAction}):hover {
     background: var(--colour-fill-neutral-lightest);

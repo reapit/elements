@@ -6,6 +6,11 @@ import type { HTMLAttributes, ReactNode, ThHTMLAttributes } from 'react'
 interface TableHeaderCellCommonProps {
   /** The cell content. */
   children?: ReactNode
+  /**
+   * Remove default padding. Useful for cells that contain an interactive element whose hit area
+   * should fill the entire cell.
+   */
+  hasNoPadding?: boolean
   /** The alignment of the cell's content. */
   justifySelf?: 'start' | 'center' | 'end'
 }
@@ -35,6 +40,7 @@ export function TableHeaderCell({
   as: ElementProp = 'th',
   children,
   className,
+  hasNoPadding,
   justifySelf,
   ...rest
 }: TableHeaderCellProps) {
@@ -43,7 +49,13 @@ export function TableHeaderCell({
   const Element = !children && ElementProp === 'th' ? 'td' : ElementProp
   const thElementScope = Element === 'th' ? { scope: 'col' } : undefined
   return (
-    <Element {...rest} {...thElementScope} className={cx(elTableHeaderCell, className)} data-justify-self={justifySelf}>
+    <Element
+      {...rest}
+      {...thElementScope}
+      className={cx(elTableHeaderCell, className)}
+      data-has-no-padding={hasNoPadding}
+      data-justify-self={justifySelf}
+    >
       {children}
     </Element>
   )

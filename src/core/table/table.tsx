@@ -14,6 +14,7 @@ import { TableRowPrimaryAction } from './primary-action'
 import { TableRowPrimaryActionButton } from './primary-action/primary-action-button'
 
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
+import { TableCellCheckbox } from './checkbox'
 
 interface CommonTablePros {
   /**
@@ -51,16 +52,18 @@ type TableProps = TableAsTableProps | TableAsDivProps
  * Tables are built by composing the following components:
  * - **Table head:** [Table.Head](./?path=/docs/core-table-head--docs),
  * [Table.HeaderRow](./?path=/docs/core-table-headerrow--docs),
- * [Table.HeaderCell](./?path=/docs/core-table-headercell--docs), and
- * [Table.SortButton](./?path=/docs/core-table-sortbutton--docs)
+ * [Table.HeaderCell](./?path=/docs/core-table-headercell--docs),
+ * [Table.SortButton](./?path=/docs/core-table-sortbutton--docs), and
+ * [Table.Checkbox](./?path=/docs/core-table-checkbox--docs)
  *
  * - **Table body:** [Table.Body](./?path=/docs/core-table-body--docs),
  * [Table.BodyRow](./?path=/docs/core-table-bodyrow--docs),
  * [Table.BodyCell](./?path=/docs/core-table-bodycell--docs),
  * [Table.PrimaryAction](./?path=/docs/core-table-primaryaction--docs),
  * [Table.MoreActions](./?path=/docs/core-table-moreactions--docs),
- * [Table.DoubleLineLayout](./?path=/docs/core-table-doublelinelayout--docs), and
- * [Table.PrimaryData](./?path=/docs/core-table-primarydata--docs)
+ * [Table.DoubleLineLayout](./?path=/docs/core-table-doublelinelayout--docs),
+ * [Table.PrimaryData](./?path=/docs/core-table-primarydata--docs), and
+ * [Table.Checkbox](./?path=/docs/core-table-checkbox--docs)
  */
 export function Table({
   as: Element = 'table',
@@ -96,3 +99,5 @@ Table.Head = TableHead
 Table.HeaderCell = TableHeaderCell
 Table.HeaderRow = TableHeaderRow
 Table.SortButton = TableCellSortButton
+
+Table.Checkbox = TableCellCheckbox
