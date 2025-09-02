@@ -11,17 +11,25 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const Default: Story = {
+export const BasicUsage: Story = {
   args: {
-    label: 'Select an option',
-    isRequired: true,
-    clearable: true,
+    id: 'basic-select',
+    options: [
+      { label: 'Option 1', value: 'option1' },
+      { label: 'Option 2', value: 'option2' },
+    ],
+  },
+}
+
+export const SelectGroup: Story = {
+  args: {
+    id: 'group-select',
     options: [
       {
         label: 'Group A',
         options: [
           { label: 'Option 1', value: 'a1' },
-          { label: 'Option 2', value: 'a2', selected: true },
+          { label: 'Option 2', value: 'a2' },
         ],
       },
       {
@@ -37,8 +45,7 @@ export const Default: Story = {
 
 export const MultiSelect: Story = {
   args: {
-    label: 'Select multiple options',
-    isRequired: true,
+    id: 'multi-select',
     clearable: true,
     multiple: true,
     options: [
@@ -46,7 +53,7 @@ export const MultiSelect: Story = {
         label: 'Group A',
         options: [
           { label: 'Option 1', value: 'a1' },
-          { label: 'Option 2', value: 'a2', selected: true },
+          { label: 'Option 2', value: 'a2' },
         ],
       },
       {

@@ -23,7 +23,8 @@ interface GroupOption {
 type OptionType = BaseOption | GroupOption
 
 export interface SelectCustomProps {
-  label: string
+  id: string
+  label?: string
   options: OptionType[]
   helperText?: string
   defaultValue?: string[]
@@ -64,6 +65,7 @@ const getInitialSelected = (options: OptionType[], defaultValue: string[]): stri
 }
 
 export const SelectCustom: React.FC<SelectCustomProps> = ({
+  id,
   label,
   options,
   helperText,
@@ -75,8 +77,8 @@ export const SelectCustom: React.FC<SelectCustomProps> = ({
   const flatOptions = flattenOptions(options)
   const [selectedValues, setSelectedValues] = useState<string[]>(getInitialSelected(options, defaultValue))
 
-  const popoverId = `select-popover-${label.replace(/\s+/g, '-').toLowerCase()}`
-  const triggerId = `select-input-${label.replace(/\s+/g, '-').toLowerCase()}`
+  const popoverId = `select-popover-${id.replace(/\s+/g, '-').toLowerCase()}`
+  const triggerId = `select-input-${id.replace(/\s+/g, '-').toLowerCase()}`
 
   const closePopover = () => {
     const popover = document.getElementById(popoverId) as HTMLElement & { hidePopover?: () => void }
@@ -197,7 +199,9 @@ export const SelectCustom: React.FC<SelectCustomProps> = ({
                 selected={selectedValues.includes(opt.value)}
                 onClick={() => handleSelect(opt.value)}
               >
-                {opt.label}
+                <LabelText size="small" className="el-option-label">
+                  {opt.label}
+                </LabelText>
               </ElOption>
             )
           })}
