@@ -5,14 +5,22 @@ import { Button } from '#src/core/button'
 import { ChevronDownIcon } from '#src/icons/chevron-down'
 import { LabelText } from '#src/core/label-text'
 import { ChipGroup } from '#src/core/chip-group'
-import { Popover } from '#src/utils/popover'
+import { elPopover, Popover } from '#src/utils/popover'
+import { Divider } from '#src/core/divider'
 
-import { ElSelectCustom, ElInputField, ElInput, ElOption } from './styles'
+import { ElSelectCustom, elInputField, ElContent, ElOption } from './styles'
 
-interface OptionType {
-  value: string
+interface BaseOption {
   label: string
+  value: string
+  selected?: boolean
 }
+interface GroupOption {
+  label?: string
+  options: BaseOption[]
+}
+
+type OptionType = BaseOption | GroupOption
 
 export interface SelectCustomProps {
   label: string
@@ -24,6 +32,37 @@ export interface SelectCustomProps {
   isRequired?: boolean
 }
 
+// --------------------
+// Helpers
+// --------------------
+const flattenOptions = (options: OptionType[]): BaseOption[] => {
+  const result: BaseOption[] = []
+  options.forEach((opt) => {
+    if ('options' in opt) {
+      result.push(...opt.options)
+    } else {
+      result.push(opt)
+    }
+  })
+  return result
+}
+
+const getInitialSelected = (options: OptionType[], defaultValue: string[]): string[] => {
+  if (defaultValue.length > 0) return defaultValue
+
+  const values: string[] = []
+  options.forEach((opt) => {
+    if ('options' in opt) {
+      opt.options.forEach((o) => {
+        if (o.selected) values.push(o.value)
+      })
+    } else {
+      if (opt.selected) values.push(opt.value)
+    }
+  })
+  return values
+}
+
 export const SelectCustom: React.FC<SelectCustomProps> = ({
   label,
   options,
@@ -33,23 +72,19 @@ export const SelectCustom: React.FC<SelectCustomProps> = ({
   clearable = false,
   isRequired,
 }) => {
-  const [selectedValues, setSelectedValues] = useState<string[]>(defaultValue)
+  const flatOptions = flattenOptions(options)
+  const [selectedValues, setSelectedValues] = useState<string[]>(getInitialSelected(options, defaultValue))
 
   const popoverId = `select-popover-${label.replace(/\s+/g, '-').toLowerCase()}`
   const triggerId = `select-input-${label.replace(/\s+/g, '-').toLowerCase()}`
 
   const closePopover = () => {
-    // programmatically hide using triggerProps
-    const trigger = document.getElementById(triggerId)
-    if (trigger) {
-      trigger.setAttribute('popovertargetaction', 'hide')
-      trigger.click()
-      trigger.setAttribute('popovertargetaction', 'toggle') // reset
-    }
+    const popover = document.getElementById(popoverId) as HTMLElement & { hidePopover?: () => void }
+    popover?.hidePopover?.()
   }
 
   const { focusedOptionIndex, onSelectKeyDown } = useSelectKeyboardNavigation({
-    selectOptions: options,
+    selectOptions: flatOptions,
     onOptionSelect: (id) => handleSelect(id),
     onClose: () => {
       closePopover()
@@ -63,7 +98,6 @@ export const SelectCustom: React.FC<SelectCustomProps> = ({
       })
     } else {
       setSelectedValues([id])
-      // hide popover after selecting
       closePopover()
     }
   }
@@ -71,8 +105,8 @@ export const SelectCustom: React.FC<SelectCustomProps> = ({
   const clearSelection = () => setSelectedValues([])
 
   const displayValue = multiple
-    ? selectedValues.map((value) => options.find((option) => option.value === value)?.label).join(', ')
-    : options.find((option) => option.value === selectedValues[0])?.label || ''
+    ? selectedValues.map((value) => flatOptions.find((o) => o.value === value)?.label).join(', ')
+    : flatOptions.find((o) => o.value === selectedValues[0])?.label || ''
 
   const triggerProps = Popover.getTriggerProps({
     id: triggerId,
@@ -85,57 +119,100 @@ export const SelectCustom: React.FC<SelectCustomProps> = ({
       <LabelText size="small" isRequired={isRequired}>
         {label}
       </LabelText>
-      <ElInputField
+      <button
         {...triggerProps}
+        type="button"
         role="combobox"
         aria-autocomplete="list"
-        aria-expanded="false" // updated by popover open state (optional: sync via state)
+        aria-expanded="false"
         onKeyDown={onSelectKeyDown}
+        className={elInputField}
       >
-        <ElInput type="text" readOnly value={displayValue} tabIndex={-1} />
-        <span>{displayValue || 'Select...'}</span>
-        {clearable && selectedValues.length > 0 && (
+        <ElContent size="small">{displayValue || 'Select an option'}</ElContent>
+        {clearable && selectedValues.length > 0 ? (
           <Button
             iconLeft={<CloseIcon color="primary" />}
             size="small"
             variant="tertiary"
-            onClick={(e) => {
-              e.stopPropagation() // prevent toggling popover
+            onClick={(event) => {
+              event.stopPropagation()
               clearSelection()
             }}
           />
+        ) : (
+          <ChevronDownIcon size="sm" color="primary" />
         )}
-        {!clearable && selectedValues.length === 0 && <ChevronDownIcon size="sm" color="primary" />}
-      </ElInputField>
+      </button>
+      <Popover
+        id={popoverId}
+        anchorId={triggerId}
+        placement="bottom-start"
+        popover="auto"
+        className={elPopover}
+        maxWidth="auto"
+      >
+        <ul role="listbox">
+          {options.map((opt, i) => {
+            if ('options' in opt) {
+              // Group
+              return (
+                <li key={`group-${i}`}>
+                  {opt.label && (
+                    <LabelText size="small" className="el-group-title">
+                      {opt.label}
+                    </LabelText>
+                  )}
+                  <ul>
+                    {opt.options.map((option) => {
+                      const globalIndex = flatOptions.findIndex((o) => o.value === option.value)
+                      return (
+                        <ElOption
+                          key={option.value}
+                          role="option"
+                          aria-selected={selectedValues.includes(option.value)}
+                          focused={focusedOptionIndex === globalIndex}
+                          selected={selectedValues.includes(option.value)}
+                          onClick={() => handleSelect(option.value)}
+                        >
+                          <LabelText size="small" className="el-option-label">
+                            {option.label}
+                          </LabelText>
+                        </ElOption>
+                      )
+                    })}
+                  </ul>
+                  {i < options.length - 1 && <Divider />}
+                </li>
+              )
+            }
+
+            // Single option
+            const globalIndex = flatOptions.findIndex((o) => o.value === opt.value)
+            return (
+              <ElOption
+                key={opt.value}
+                role="option"
+                aria-selected={selectedValues.includes(opt.value)}
+                focused={focusedOptionIndex === globalIndex}
+                selected={selectedValues.includes(opt.value)}
+                onClick={() => handleSelect(opt.value)}
+              >
+                {opt.label}
+              </ElOption>
+            )
+          })}
+        </ul>
+      </Popover>
       {helperText && <LabelText size="small">{helperText}</LabelText>}
       {multiple && (
         <ChipGroup>
           {selectedValues.map((value) => (
             <ChipGroup.Item key={value} variant="filter" onClick={() => handleSelect(value)}>
-              {options.find((option) => option.value === value)?.label}
+              {flatOptions.find((o) => o.value === value)?.label}
             </ChipGroup.Item>
           ))}
         </ChipGroup>
       )}
-      <Popover id={popoverId} anchorId={triggerId} placement="bottom-start">
-        <LabelText size="small" isRequired={isRequired}>
-          {label}
-        </LabelText>
-        <ul role="listbox">
-          {options.map((option, i) => (
-            <ElOption
-              key={option.value}
-              role="option"
-              aria-selected={selectedValues.includes(option.value)}
-              focused={focusedOptionIndex === i}
-              selected={selectedValues.includes(option.value)}
-              onClick={() => handleSelect(option.value)}
-            >
-              {option.label}
-            </ElOption>
-          ))}
-        </ul>
-      </Popover>
     </ElSelectCustom>
   )
 }
