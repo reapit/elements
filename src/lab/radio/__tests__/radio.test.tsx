@@ -47,3 +47,25 @@ test('calls onChange when Radio is clicked', () => {
   expect(handleChange).toHaveBeenCalledTimes(1)
   expect(radio).toBeChecked()
 })
+
+test('marks Radio as invalid when required and not selected on form submit', () => {
+  render(
+    <form data-testid="form">
+      <RadioStories.RequiredRadio />
+      <button type="submit">Submit</button>
+    </form>,
+  )
+
+  const radio = screen.getByRole('radio', { hidden: true })
+  const form = screen.getByTestId('form')
+
+  // Sanity: radio is required but not checked yet
+  expect(radio).toBeRequired()
+  expect(radio).not.toBeChecked()
+
+  // Submit the form without selecting the radio
+  fireEvent.submit(form)
+
+  // Browser will consider it invalid
+  expect(radio).toBeInvalid()
+})

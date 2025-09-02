@@ -1,7 +1,8 @@
 import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
 import { LabelText } from '#src/core/label-text'
 
-export const ElRadioSvgIcon = styled.svg`
+export const ElRadioSvgIcon = css`
   display: none;
   grid-area: input;
   width: 100%;
@@ -15,7 +16,8 @@ export const ElRadioSvgIcon = styled.svg`
     display: block;
   }
 
-  [data-error='true'] & {
+  [data-error='true'] &,
+  .el-radio-input:invalid ~ & {
     color: var(--comp-select-colour-icon-error-unchecked);
     &:hover {
       color: var(--comp-select-colour-icon-error-unchecked);
@@ -27,7 +29,7 @@ export const ElRadioSvgIcon = styled.svg`
   }
 `
 
-export const ElRadioSelectedSvgIcon = styled.svg`
+export const ElRadioSelectedSvgIcon = css`
   display: none;
   grid-area: input;
   width: 100%;
@@ -41,7 +43,8 @@ export const ElRadioSelectedSvgIcon = styled.svg`
     color: var(--comp-select-colour-icon-hover-checked);
   }
 
-  [data-error='true'] & {
+  [data-error='true'] &,
+  .el-radio-input:invalid ~ & {
     color: var(--comp-select-colour-icon-error-unchecked);
     &:hover {
       color: var(--comp-select-colour-icon-error-unchecked);

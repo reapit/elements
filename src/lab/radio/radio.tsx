@@ -1,7 +1,15 @@
 import { forwardRef, InputHTMLAttributes, useRef } from 'react'
-import { ElRadioIcon, ElRadioSelectedIcon } from './radio.atoms'
-import { ElRadio, ElRadioInput, ElRadioLabelText, ElRadioSupplementaryInfo } from './styles'
 import mergeRefs from '#src/helpers/mergeRefs'
+import { RadioIcon } from '#src/icons/radio'
+import { RadioSelectedIcon } from '#src/icons/radio-selected'
+import {
+  ElRadio,
+  ElRadioInput,
+  ElRadioLabelText,
+  ElRadioSupplementaryInfo,
+  ElRadioSvgIcon,
+  ElRadioSelectedSvgIcon,
+} from './styles'
 
 /**
  * Interface for the Radio component props.
@@ -32,8 +40,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         <ElRadioInput type="radio" ref={mergeRefs(inputRef, ref)} required={isRequired} {...rest} aria-hidden />
         {/* Icons for different radio states (unchecked, checked). */}
         {/* aria-hidden is used to prevent screen readers from announcing these decorative icons. */}
-        <ElRadioIcon aria-hidden />
-        <ElRadioSelectedIcon aria-hidden />
+        <RadioIcon aria-hidden color="primary" className={ElRadioSvgIcon} />
+        <RadioSelectedIcon aria-hidden color="primary" className={ElRadioSelectedSvgIcon} />
         {/* Label text for the radio. Styled using data attributes for variant and size. */}
         <ElRadioLabelText variant="strong" size="medium" isRequired={isRequired}>
           {label}
