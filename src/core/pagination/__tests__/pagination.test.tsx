@@ -1,65 +1,52 @@
-import { act, fireEvent, render } from '@testing-library/react'
-import { Pagination, PaginationProps } from '../pagination'
+import { fireEvent, render, screen } from '@testing-library/react'
+import { Pagination } from '../pagination'
 
-describe('Pagination', () => {
-  const mockOnPageChange = vi.fn()
-  afterEach(() => {
-    vi.clearAllMocks()
+test('renders as a navigation element with a child list element', () => {
+  render(<Pagination leftAction="Left action" pageCount={3} pageNumber={2} rightAction="Right action" />)
+  expect(screen.getByRole('navigation')).toBeVisible()
+  expect(screen.getByRole('list')).toBeVisible()
+  expect(screen.getByRole('navigation').firstElementChild).toBe(screen.getByRole('list'))
+})
+
+test('displays the left action', () => {
+  render(<Pagination leftAction="Left action" pageCount={3} pageNumber={2} rightAction="Right action" />)
+  expect(screen.getByText('Left action')).toBeVisible()
+})
+
+test('displays the rigth action', () => {
+  render(<Pagination leftAction="Left action" pageCount={3} pageNumber={2} rightAction="Right action" />)
+  expect(screen.getByText('Right action')).toBeVisible()
+})
+
+test('displays the current page number and total page count in the format "X of Y"', () => {
+  render(<Pagination leftAction="Left action" pageCount={3} pageNumber={2} rightAction="Right action" />)
+  expect(screen.getByText('2 of 3')).toBeVisible()
+})
+
+describe('deprecated behaviour', () => {
+  test('onPageChange called with next page number when next page button is clicked', () => {
+    const onPageChange = vi.fn()
+    render(<Pagination onPageChange={onPageChange} pageCount={3} pageNumber={2} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Go to next page' }))
+
+    expect(onPageChange).toHaveBeenCalledWith(3)
   })
 
-  it('should able to increment', () => {
-    const { getByRole } = renderComponent({ currentPage: 1, pageCount: 3 })
+  test('onPageChange called with previous page number when previous page button is clicked', () => {
+    const onPageChange = vi.fn()
+    render(<Pagination onPageChange={onPageChange} pageCount={3} pageNumber={2} />)
+    fireEvent.click(screen.getByRole('button', { name: 'Go to previous page' }))
 
-    act(() => {
-      fireEvent.click(
-        getByRole('button', {
-          name: 'Go to next page',
-        }),
-      )
-    })
-    expect(mockOnPageChange).toHaveBeenCalledWith(2)
+    expect(onPageChange).toHaveBeenCalledWith(1)
   })
 
-  it('should able to decrement', () => {
-    const { getByRole } = renderComponent({ currentPage: 3, pageCount: 3 })
-
-    act(() => {
-      fireEvent.click(
-        getByRole('button', {
-          name: 'Go to previous page',
-        }),
-      )
-    })
-    expect(mockOnPageChange).toHaveBeenCalledWith(2)
+  test('previous page link is disabled when on the first page', () => {
+    render(<Pagination pageCount={3} pageNumber={1} />)
+    expect(screen.getByRole('button', { name: 'Go to previous page' })).toHaveAttribute('aria-disabled', 'true')
   })
 
-  it('should not decrement when current page is 1', () => {
-    const { getByRole } = renderComponent({ currentPage: 1, pageCount: 3 })
-
-    act(() => {
-      fireEvent.click(
-        getByRole('button', {
-          name: 'Go to previous page',
-        }),
-      )
-    })
-    expect(mockOnPageChange).not.toHaveBeenCalled()
+  test('next page link is disabled when on the last page', () => {
+    render(<Pagination pageCount={3} pageNumber={3} />)
+    expect(screen.getByRole('button', { name: 'Go to next page' })).toHaveAttribute('aria-disabled', 'true')
   })
-
-  it('should not increment when is a last page', () => {
-    const { getByRole } = renderComponent({ currentPage: 3, pageCount: 3 })
-
-    act(() => {
-      fireEvent.click(
-        getByRole('button', {
-          name: 'Go to next page',
-        }),
-      )
-    })
-    expect(mockOnPageChange).not.toHaveBeenCalled()
-  })
-
-  const renderComponent = (props?: Partial<PaginationProps>) => {
-    return render(<Pagination currentPage={1} pageCount={3} {...props} onPageChange={mockOnPageChange} />)
-  }
 })

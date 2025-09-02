@@ -1,28 +1,23 @@
-import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
 export const ElPagination = styled.nav`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
+  padding-block: var(--spacing-6) var(--spacing-2);
 `
 
 export const ElPaginationList = styled.ul`
-  list-style: none;
-
   display: flex;
-  justify-content: center;
+  flex-flow: row nowrap;
   align-items: center;
-  padding: var(--spacing-6) var(--spacing-none) var(--spacing-2) var(--spacing-none);
+  justify-content: center;
   gap: var(--spacing-6);
+
+  list-style: none;
+  padding: 0;
+  margin: 0;
 `
 
 export const ElPaginationItem = styled.li`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
-
-export const ElPaginationText = styled.span`
-  text-align: center;
-  min-width: var(--size-12);
-
-  color: var(--colour-text-primary);
-  ${font('base', 'regular')}
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 `

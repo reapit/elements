@@ -4,6 +4,8 @@ import { elTableHeaderCell } from './styles'
 import type { HTMLAttributes, ReactNode, ThHTMLAttributes } from 'react'
 
 interface TableHeaderCellCommonProps {
+  /** The cell content. */
+  children?: ReactNode
   /** The alignment of the cell's content. */
   justifySelf?: 'start' | 'center' | 'end'
 }
@@ -15,16 +17,12 @@ interface TableHeaderCellAsThProps
   /** The sort direction currently applied to the column. */
   'aria-sort'?: 'ascending' | 'descending'
   as?: 'th'
-  /** The cell content. */
-  children: ReactNode
 }
 
 interface TableHeaderCellAsDivProps extends TableHeaderCellCommonProps, HTMLAttributes<HTMLDivElement> {
   /** The sort direction currently applied to the column. */
   'aria-sort'?: 'ascending' | 'descending'
   as: 'div'
-  /** The cell content. */
-  children: ReactNode
 }
 
 type TableHeaderCellProps = TableHeaderCellAsThProps | TableHeaderCellAsDivProps
@@ -34,12 +32,15 @@ type TableHeaderCellProps = TableHeaderCellAsThProps | TableHeaderCellAsDivProps
  * `<div>` element. Typically used via `Table.HeaderCell`.
  */
 export function TableHeaderCell({
-  as: Element = 'th',
+  as: ElementProp = 'th',
   children,
   className,
   justifySelf,
   ...rest
 }: TableHeaderCellProps) {
+  // If there's no children (i.e. it's an empty cell), we need to render as a <td>, not a <th>, but this
+  // only relevant if we're rendering as a <th> element in the first-place.
+  const Element = !children && ElementProp === 'th' ? 'td' : ElementProp
   const thElementScope = Element === 'th' ? { scope: 'col' } : undefined
   return (
     <Element {...rest} {...thElementScope} className={cx(elTableHeaderCell, className)} data-justify-self={justifySelf}>
