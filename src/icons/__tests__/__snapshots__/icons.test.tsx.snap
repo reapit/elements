@@ -2695,25 +2695,6 @@ exports[`'PropertyIcon' renders the correct SVG 1`] = `
 </DocumentFragment>
 `;
 
-exports[`'RadioDisabledIcon' renders the correct SVG 1`] = `
-<DocumentFragment>
-  <svg
-    class="el-icon"
-    color="inherit"
-    data-size="100%"
-    fill="currentColor"
-    height="24"
-    viewBox="0 0 24 24"
-    width="24"
-    xmlns="http://www.w3.org/2000/svg"
-  >
-    <path
-      d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10 10-4.477 10-10A10 10 0 0 0 12 2Z"
-    />
-  </svg>
-</DocumentFragment>
-`;
-
 exports[`'RadioIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg

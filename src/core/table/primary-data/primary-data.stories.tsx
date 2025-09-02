@@ -6,7 +6,7 @@ import { StatusIndicator } from '#src/core/status-indicator'
 import { TableCellPrimaryData } from './primary-data'
 import { TagGroup } from '#src/core/tag-group'
 import { Text } from '#src/core/text'
-import { Tooltip } from '../../tooltip'
+import { Tooltip } from '#src/core/tooltip'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 

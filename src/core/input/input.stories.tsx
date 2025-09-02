@@ -12,6 +12,14 @@ const meta = {
     type: {
       control: 'text',
     },
+    value: {
+      control: 'text',
+      table: {
+        type: {
+          summary: 'string | number | readonly string[] | undefined',
+        },
+      },
+    },
   },
 } satisfies Meta<typeof Input>
 

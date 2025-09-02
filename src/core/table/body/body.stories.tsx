@@ -3,6 +3,7 @@ import { Menu } from '#src/core/menu'
 import { TableBody } from './body'
 import { TableBodyCell } from '../body-cell'
 import { TableBodyRow } from '../body-row'
+import { TableCellCheckbox } from '../checkbox'
 import { TableCellDoubleLineLayout } from '../double-line-layout'
 import { TableRowPrimaryAction } from '../primary-action'
 import { TableRowMoreActions } from '../more-actions'
@@ -50,7 +51,7 @@ export const Example: Story = {
     as: 'tbody',
     children: 'Double-line',
   },
-  decorators: [useTableDecorator('body')],
+  decorators: [useTableDecorator('body', 'min-content 1fr 1fr 1fr min-content')],
 }
 
 /**
@@ -86,6 +87,9 @@ function buildRows(type: 'single-line' | 'double-line') {
       return (
         <>
           <TableBodyRow>
+            <TableBodyCell>
+              <TableCellCheckbox aria-label="Select 10 Hay St, Melbourne 3100" name="selections" value="1" />
+            </TableBodyCell>
             <TableBodyCell as="th">
               <TableRowPrimaryAction href={href}>10 Hay St, Melbourne 3100</TableRowPrimaryAction>
             </TableBodyCell>
@@ -100,6 +104,13 @@ function buildRows(type: 'single-line' | 'double-line') {
           </TableBodyRow>
 
           <TableBodyRow>
+            <TableBodyCell>
+              <TableCellCheckbox
+                aria-label="Select 45 Queen Elizabeth St, Melbourne 3100"
+                name="selections"
+                value="2"
+              />
+            </TableBodyCell>
             <TableBodyCell as="th">
               <TableRowPrimaryAction href={href}>45 Queen Elizabeth St, Melbourne 3100</TableRowPrimaryAction>
             </TableBodyCell>
@@ -119,6 +130,9 @@ function buildRows(type: 'single-line' | 'double-line') {
       return (
         <>
           <TableBodyRow>
+            <TableBodyCell>
+              <TableCellCheckbox aria-label="Select Mary Jane" name="selections" value="1" />
+            </TableBodyCell>
             <TableBodyCell as="th">
               <TableCellDoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
                 <TableRowPrimaryAction href={href}>Mary Jane</TableRowPrimaryAction>
@@ -135,6 +149,9 @@ function buildRows(type: 'single-line' | 'double-line') {
           </TableBodyRow>
 
           <TableBodyRow>
+            <TableBodyCell>
+              <TableCellCheckbox aria-label="Select John Smith" name="selections" value="2" />
+            </TableBodyCell>
             <TableBodyCell as="th">
               <TableCellDoubleLineLayout mediaItem={<Avatar>JS</Avatar>} supplementaryData="Engineer">
                 <TableRowPrimaryAction href={href}>John Smith</TableRowPrimaryAction>
