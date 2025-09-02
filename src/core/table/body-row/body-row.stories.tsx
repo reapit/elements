@@ -2,6 +2,7 @@ import { Avatar } from '#src/core/avatar'
 import { Menu } from '#src/core/menu'
 import { TableBodyCell } from '../body-cell'
 import { TableBodyRow } from './body-row'
+import { TableCellCheckbox } from '../checkbox'
 import { TableCellDoubleLineLayout } from '../double-line-layout'
 import { TableRowPrimaryAction } from '../primary-action'
 import { TableRowMoreActions } from '../more-actions'
@@ -27,11 +28,11 @@ const meta = {
     children: {
       control: 'select',
       description: 'The row content.',
-      options: ['Plain text', 'Primary action', 'Double-line'],
+      options: ['Plain text', 'Primary action', 'Double-line', 'Selectable', 'Selected'],
       mapping: {
         'Plain text': (
           <>
-            <TableBodyCell>10 Hay St, Melbourne 3100</TableBodyCell>
+            <TableBodyCell as="th">10 Hay St, Melbourne 3100</TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
             <TableBodyCell>
@@ -44,7 +45,7 @@ const meta = {
         ),
         'Primary action': (
           <>
-            <TableBodyCell as="th" scope="row">
+            <TableBodyCell as="th">
               <TableRowPrimaryAction href={href}>10 Hay St, Melbourne 3100</TableRowPrimaryAction>
             </TableBodyCell>
             <TableBodyCell>Data</TableBodyCell>
@@ -59,7 +60,47 @@ const meta = {
         ),
         'Double-line': (
           <>
+            <TableBodyCell as="th">
+              <TableCellDoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
+                <TableRowPrimaryAction href={href}>Mary Jane</TableRowPrimaryAction>
+              </TableCellDoubleLineLayout>
+            </TableBodyCell>
+            <TableBodyCell>Data</TableBodyCell>
+            <TableBodyCell>Data</TableBodyCell>
             <TableBodyCell>
+              <TableRowMoreActions aria-label="More actions for Mary Jane">
+                <Menu.Item>Action 1</Menu.Item>
+                <Menu.Item>Action 2</Menu.Item>
+              </TableRowMoreActions>
+            </TableBodyCell>
+          </>
+        ),
+        Selectable: (
+          <>
+            <TableBodyCell>
+              <TableCellCheckbox aria-label="Select Mary Jane" name="selections" value="1" />
+            </TableBodyCell>
+            <TableBodyCell as="th">
+              <TableCellDoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
+                <TableRowPrimaryAction href={href}>Mary Jane</TableRowPrimaryAction>
+              </TableCellDoubleLineLayout>
+            </TableBodyCell>
+            <TableBodyCell>Data</TableBodyCell>
+            <TableBodyCell>Data</TableBodyCell>
+            <TableBodyCell>
+              <TableRowMoreActions aria-label="More actions for Mary Jane">
+                <Menu.Item>Action 1</Menu.Item>
+                <Menu.Item>Action 2</Menu.Item>
+              </TableRowMoreActions>
+            </TableBodyCell>
+          </>
+        ),
+        Selected: (
+          <>
+            <TableBodyCell>
+              <TableCellCheckbox aria-label="Select Mary Jane" checked name="selections" value="1" />
+            </TableBodyCell>
+            <TableBodyCell as="th">
               <TableCellDoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
                 <TableRowPrimaryAction href={href}>Mary Jane</TableRowPrimaryAction>
               </TableCellDoubleLineLayout>
@@ -133,6 +174,30 @@ export const DoubleLineContent: Story = {
     children: 'Double-line',
   },
   decorators: [useTableDecorator('body-row')],
+}
+
+/**
+ * When rows are selectable, they will have a [Table.Checkbox](./?path=/docs/core-table-checkbox--docs)
+ * present in the leading column.
+ */
+export const Selectable: Story = {
+  args: {
+    ...Example.args,
+    children: 'Selectable',
+  },
+  decorators: [useTableDecorator('body-row', 'min-content 1fr 1fr 1fr min-content')],
+}
+
+/**
+ * When the row's selection checkbox is checked, the row will be visually highlighted to indicate it
+ * has been selected.
+ */
+export const Selected: Story = {
+  args: {
+    ...Example.args,
+    children: 'Selected',
+  },
+  decorators: Selectable.decorators,
 }
 
 /**

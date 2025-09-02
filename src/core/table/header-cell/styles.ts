@@ -19,6 +19,10 @@ export const elTableHeaderCell = css`
   text-align: var(--__table-column-justification);
   text-transform: uppercase;
 
+  &[data-has-no-padding='true'] {
+    padding: 0;
+  }
+
   &[data-justify-self='start'] {
     --__table-column-justification: start;
     justify-self: start;

@@ -24,7 +24,7 @@ export interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   /** Type of form control. */
   type: 'checkbox'
   /** The value of the form control. */
-  value?: string
+  value?: InputHTMLAttributes<HTMLInputElement>['value']
 }
 
 /**

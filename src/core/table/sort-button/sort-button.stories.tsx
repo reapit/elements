@@ -1,12 +1,12 @@
 import { getNextSortDirection } from './sort-direction'
 import { TableCellSortButton } from './sort-button'
+import { Text } from '#src/core/text'
+import { Tooltip } from '#src/core/tooltip'
 import { useArgs } from 'storybook/preview-api'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { MouseEventHandler } from 'react'
 import type { SortDirection } from './sort-direction'
-import { Text } from '../../text'
-import { Tooltip } from '../../tooltip'
 
 const meta = {
   title: 'Core/Table/SortButton',
