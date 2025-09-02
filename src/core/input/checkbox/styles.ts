@@ -70,7 +70,7 @@ export const elInputCheckboxIcon = css`
   input:focus-visible ~ & {
     border-radius: var(--border-radius-m);
     outline: var(--border-width-double) solid var(--colour-border-focus);
-    outline-offset: -1px;
+    outline-offset: var(--border-width-default);
   }
 
   /* When the checkbox is indeterminate, hide all but the indeterminate icon */
