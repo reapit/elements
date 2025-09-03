@@ -29,7 +29,7 @@ export interface ProductConfig {
 export const productConfigs = {
   autoResponder: {
     appName: 'Auto Responder',
-    supplementaryInfo: 'Automated email marketing',
+    supplementaryInfo: 'Auto-enquiry follow up',
   },
   agentBox: { appName: 'Reapit Sales', supplementaryInfo: 'Real estate CRM' },
   bdm: {
