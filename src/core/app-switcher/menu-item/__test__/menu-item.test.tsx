@@ -44,5 +44,5 @@ test("is accessibly described by the product's supplementary info", () => {
       href={'https://www.test.com'}
     />,
   )
-  expect(screen.getByRole('link')).toHaveAccessibleDescription('Property Management')
+  expect(screen.getByRole('link')).toHaveAccessibleDescription('Property management')
 })
