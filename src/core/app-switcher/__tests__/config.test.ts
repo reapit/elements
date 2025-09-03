@@ -17,7 +17,7 @@ test('product configs should not change without updating this test', () => {
       },
       "autoResponder": {
         "appName": "Auto Responder",
-        "supplementaryInfo": "Automated email marketing",
+        "supplementaryInfo": "Auto-enquiry follow up",
       },
       "bdm": {
         "appName": "Lettings BDM",
