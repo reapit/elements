@@ -7,8 +7,8 @@ import {
   ElRadioInput,
   ElRadioLabelText,
   ElRadioSupplementaryInfo,
-  ElRadioSvgIcon,
-  ElRadioSelectedSvgIcon,
+  elRadioSvgIcon,
+  elRadioSelectedSvgIcon,
 } from './styles'
 
 /**
@@ -40,8 +40,8 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         <ElRadioInput type="radio" ref={mergeRefs(inputRef, ref)} required={isRequired} {...rest} aria-hidden />
         {/* Icons for different radio states (unchecked, checked). */}
         {/* aria-hidden is used to prevent screen readers from announcing these decorative icons. */}
-        <RadioIcon aria-hidden color="primary" className={ElRadioSvgIcon} />
-        <RadioSelectedIcon aria-hidden color="primary" className={ElRadioSelectedSvgIcon} />
+        <RadioIcon aria-hidden className={elRadioSvgIcon} />
+        <RadioSelectedIcon aria-hidden className={elRadioSelectedSvgIcon} />
         {/* Label text for the radio. Styled using data attributes for variant and size. */}
         <ElRadioLabelText variant="strong" size="medium" isRequired={isRequired}>
           {label}

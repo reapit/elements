@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 import { LabelText } from '#src/core/label-text'
 
-export const ElRadioSvgIcon = css`
+export const elRadioSvgIcon = css`
   display: none;
   grid-area: input;
   width: 100%;
@@ -29,7 +29,7 @@ export const ElRadioSvgIcon = css`
   }
 `
 
-export const ElRadioSelectedSvgIcon = css`
+export const elRadioSelectedSvgIcon = css`
   display: none;
   grid-area: input;
   width: 100%;
