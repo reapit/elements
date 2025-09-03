@@ -28,7 +28,7 @@ exports[`renders the provided logo, app name and supplementary info 1`] = `
       class="mocked-styled-3 el-app-switcher-menu-item-supplementary-info"
       id=":r1:"
     >
-      Property Management
+      Property management
     </span>
   </a>
 </DocumentFragment>

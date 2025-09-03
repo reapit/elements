@@ -102,6 +102,7 @@ export const Divs: Story = {
 function buildTable(as: 'semantic' | 'div') {
   return (
     <>
+      <Table.Toolbar leftContent="2 bills" />
       <Table.Head as={as === 'semantic' ? 'thead' : 'div'}>
         <Table.HeaderRow as={as === 'semantic' ? 'tr' : 'div'}>
           <Table.HeaderCell as={as === 'semantic' ? 'th' : 'div'} justifySelf="start">

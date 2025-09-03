@@ -1,7 +1,13 @@
 import { Text } from './text'
 import { fontSizes, fontWeights, textColours } from './types'
 
+import type { FontStyle } from './types'
 import type { Meta, StoryObj } from '@storybook/react-vite'
+
+const fontStyles = [
+  'inherit',
+  ...fontWeights.flatMap((weight) => fontSizes.map((size) => `text-${size}/${weight}` as const)),
+] satisfies FontStyle[]
 
 const meta = {
   title: 'Core/Text',
@@ -29,6 +35,14 @@ const meta = {
         type: { summary: 'union' },
       },
     },
+    font: {
+      control: 'select',
+      description: 'The font family of the text.',
+      options: fontStyles,
+      table: {
+        type: { summary: 'union' },
+      },
+    },
     overflow: {
       control: false,
       description: 'Determines what happens when text overflows its parent.',
@@ -38,19 +52,13 @@ const meta = {
     },
     size: {
       control: 'select',
-      description: 'The font size of the text.',
+      description: '**Deprecated: use `font` instead.** The font size of the text.',
       options: fontSizes,
-      table: {
-        type: { summary: 'union' },
-      },
     },
     weight: {
       control: 'select',
-      description: 'The font weight of the text.',
+      description: '**Deprecated: use `font` instead.** The font weight of the text.',
       options: fontWeights,
-      table: {
-        type: { summary: 'union' },
-      },
     },
   },
 } satisfies Meta<typeof Text>
@@ -64,6 +72,7 @@ export const Example: Story = {
     as: 'span',
     children: 'A styled span of text',
     colour: 'primary',
+    font: undefined,
     size: 'base',
     weight: 'regular',
   },
@@ -93,10 +102,12 @@ export const Colour: Story = {
 /**
  * The `font` prop controls the font size and weight.
  */
-export const FontStyle: Story = {
+export const Font: Story = {
   args: {
     ...Example.args,
     font: 'text-2xl/bold',
+    size: undefined,
+    weight: undefined,
   },
 }
 

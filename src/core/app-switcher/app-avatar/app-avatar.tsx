@@ -2,6 +2,8 @@ import AutoResponderDisabled from './icons/autoresponder-disabled.svg?url'
 import AutoResponder from './icons/autoresponder.svg?url'
 import KeyWhereDisabled from './icons/keywhere-disabled.svg?url'
 import KeyWhere from './icons/keywhere.svg?url'
+import MoveMeInDisabled from './icons/movemein-disabled.svg?url'
+import MoveMeIn from './icons/movemein.svg?url'
 import ReapitFormsDisabled from './icons/reapit-forms-disabled.svg?url'
 import ReapitForms from './icons/reapit-forms.svg?url'
 import ReapitLettingsDisabled from './icons/reapit-lettings-disabled.svg?url'
@@ -42,6 +44,8 @@ export function AppAvatar({ hasAccess, productId }: AppAvatarProps) {
       return hasAccess ? <img src={ReapitPM} /> : <img src={ReapitPMDisabled} />
     case 'ireWeb':
       return hasAccess ? <img src={ReapitLettings} /> : <img src={ReapitLettingsDisabled} />
+    case 'mmiWeb':
+      return hasAccess ? <img src={MoveMeIn} /> : <img src={MoveMeInDisabled} />
     case 'reapitForms':
       return hasAccess ? <img src={ReapitForms} /> : <img src={ReapitFormsDisabled} />
     case 'reapitWebsites':

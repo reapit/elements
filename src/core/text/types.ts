@@ -21,3 +21,5 @@ export const textColours = [
 export type FontSize = (typeof fontSizes)[number]
 export type FontWeight = (typeof fontWeights)[number]
 export type TextColour = (typeof textColours)[number]
+
+export type FontStyle = `text-${FontSize}/${FontWeight}` | 'inherit'
