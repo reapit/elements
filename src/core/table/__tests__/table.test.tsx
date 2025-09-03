@@ -130,3 +130,11 @@ test('exposes Table.HeaderRow', () => {
 test('exposes Table.SortButton', () => {
   expect(Table.SortButton).toBeDefined()
 })
+
+test('exposes Table.Checkbox', () => {
+  expect(Table.Checkbox).toBeDefined()
+})
+
+test('exposes Table.Toolbar', () => {
+  expect(Table.Toolbar).toBeDefined()
+})
