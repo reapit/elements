@@ -13,39 +13,43 @@ test('product configs should not change without updating this test', () => {
     {
       "agentBox": {
         "appName": "Reapit Sales",
-        "supplementaryInfo": "Real Estate CRM",
+        "supplementaryInfo": "Real estate CRM",
       },
       "autoResponder": {
         "appName": "Auto Responder",
-        "supplementaryInfo": "Automated Email Marketing",
+        "supplementaryInfo": "Automated email marketing",
       },
       "bdm": {
         "appName": "Lettings BDM",
-        "supplementaryInfo": "New Business",
+        "supplementaryInfo": "Business development",
       },
       "consoleCloud": {
         "appName": "Reapit PM",
-        "supplementaryInfo": "Property Management",
+        "supplementaryInfo": "Property management",
       },
       "ireWeb": {
         "appName": "Reapit Lettings",
-        "supplementaryInfo": "Lettings Management",
+        "supplementaryInfo": "Leasing management",
       },
       "keywhere": {
         "appName": "KeyWhere",
-        "supplementaryInfo": "Real-time Key Management",
+        "supplementaryInfo": "Key management",
+      },
+      "mmiWeb": {
+        "appName": "Move Me In",
+        "supplementaryInfo": "Utility connections service",
       },
       "reapitForms": {
         "appName": "Reapit Forms",
-        "supplementaryInfo": "Documents & Digital Signing",
+        "supplementaryInfo": "Documents & digital signing",
       },
       "reapitProposals": {
         "appName": "Reapit Proposals",
-        "supplementaryInfo": "Interactive Digital Proposals",
+        "supplementaryInfo": "Interactive digital proposals",
       },
       "reapitWebsites": {
         "appName": "Reapit Websites",
-        "supplementaryInfo": "Bespoke Website Design",
+        "supplementaryInfo": "Website builder",
       },
     }
   `)
