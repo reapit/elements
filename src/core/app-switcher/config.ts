@@ -9,6 +9,7 @@ export type SupportedProductId =
   | 'consoleCloud' // Reapit PM
   | 'ireWeb' // Reapit Lettings
   | 'keywhere'
+  | 'mmiWeb'
   | 'reapitForms'
   | 'reapitProposals'
   | 'reapitWebsites'
@@ -28,33 +29,37 @@ export interface ProductConfig {
 export const productConfigs = {
   autoResponder: {
     appName: 'Auto Responder',
-    supplementaryInfo: 'Automated Email Marketing',
+    supplementaryInfo: 'Auto-enquiry follow up',
   },
-  agentBox: { appName: 'Reapit Sales', supplementaryInfo: 'Real Estate CRM' },
+  agentBox: { appName: 'Reapit Sales', supplementaryInfo: 'Real estate CRM' },
   bdm: {
     appName: 'Lettings BDM',
-    supplementaryInfo: 'New Business',
+    supplementaryInfo: 'Business development',
   },
-  consoleCloud: { appName: 'Reapit PM', supplementaryInfo: 'Property Management' },
+  consoleCloud: { appName: 'Reapit PM', supplementaryInfo: 'Property management' },
   ireWeb: {
     appName: 'Reapit Lettings',
-    supplementaryInfo: 'Lettings Management',
+    supplementaryInfo: 'Leasing management',
   },
   keywhere: {
     appName: 'KeyWhere',
-    supplementaryInfo: 'Real-time Key Management',
+    supplementaryInfo: 'Key management',
+  },
+  mmiWeb: {
+    appName: 'Move Me In',
+    supplementaryInfo: 'Utility connections service',
   },
   reapitForms: {
     appName: 'Reapit Forms',
-    supplementaryInfo: 'Documents & Digital Signing',
+    supplementaryInfo: 'Documents & digital signing',
   },
   reapitWebsites: {
     appName: 'Reapit Websites',
-    supplementaryInfo: 'Bespoke Website Design',
+    supplementaryInfo: 'Website builder',
   },
   reapitProposals: {
     appName: 'Reapit Proposals',
-    supplementaryInfo: 'Interactive Digital Proposals',
+    supplementaryInfo: 'Interactive digital proposals',
   },
 } as const satisfies Record<SupportedProductId, ProductConfig>
 

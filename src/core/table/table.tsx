@@ -3,6 +3,7 @@ import { elTable } from './styles'
 import { TableBody } from './body'
 import { TableBodyCell } from './body-cell'
 import { TableBodyRow } from './body-row'
+import { TableCellCheckbox } from './checkbox'
 import { TableCellDoubleLineLayout } from './double-line-layout'
 import { TableCellPrimaryData } from './primary-data'
 import { TableCellSortButton } from './sort-button'
@@ -12,9 +13,9 @@ import { TableHeaderRow } from './header-row'
 import { TableRowMoreActions } from './more-actions'
 import { TableRowPrimaryAction } from './primary-action'
 import { TableRowPrimaryActionButton } from './primary-action/primary-action-button'
+import { TableToolbar } from './toolbar'
 
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
-import { TableCellCheckbox } from './checkbox'
 
 interface CommonTablePros {
   /**
@@ -50,6 +51,8 @@ type TableProps = TableAsTableProps | TableAsDivProps
  * A classic table. Renders its children in a `<table>` or `<div>` element based on the specified columns.
  *
  * Tables are built by composing the following components:
+ * - **Table toolbar:** [Table.Toolbar](./?path=/docs/core-table-toolbar--docs)
+ *
  * - **Table head:** [Table.Head](./?path=/docs/core-table-head--docs),
  * [Table.HeaderRow](./?path=/docs/core-table-headerrow--docs),
  * [Table.HeaderCell](./?path=/docs/core-table-headercell--docs),
@@ -101,3 +104,5 @@ Table.HeaderRow = TableHeaderRow
 Table.SortButton = TableCellSortButton
 
 Table.Checkbox = TableCellCheckbox
+
+Table.Toolbar = TableToolbar

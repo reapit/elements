@@ -1,10 +1,8 @@
 import { cx } from '@linaria/core'
 import { elText } from './styles'
 
-import type { FontSize, FontWeight, TextColour } from './types'
+import type { FontStyle, FontSize, FontWeight, TextColour } from './types'
 import type { HTMLAttributes, QuoteHTMLAttributes, TimeHTMLAttributes } from 'react'
-
-type FontStyle = `text-${FontSize}/${FontWeight}` | 'inherit'
 
 interface BaseTextProps {
   colour?: TextColour
