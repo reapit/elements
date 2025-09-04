@@ -23,8 +23,8 @@ export interface TableCellCheckboxProps extends Omit<InputHTMLAttributes<HTMLInp
    */
   name?: string
   /**
-   * The value that should be submitted with a form when the checkbox is checked. Will typically be
-   * the ID of the entity represented by the row this checkbox is a descendant of.
+   * The value that should be submitted with a form when the checkbox is checked. For row checkboxes, this
+   * will typically be the ID of the entity represented by the row this checkbox is a descendant of.
    */
   value?: InputHTMLAttributes<HTMLInputElement>['value']
 }

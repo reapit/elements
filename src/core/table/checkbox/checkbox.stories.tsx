@@ -33,8 +33,8 @@ type Story = StoryObj<typeof meta>
  *
  * Importantly, since table cells apply padding by default, this padding should typically be disabled toto
  * allow the checkbox to trully take up the maximum space possible. See
- * [the No Padding story for Table.BodyCell](./?path=/docs/core-table-bodycell--nopadding) and
- * [the No Padding story for Table.HeaderCell](./?path=/docs/core-table-headercell--nopadding) for
+ * [the No Padding story for Table.BodyCell](./?path=/story/core-table-bodycell--no-padding) and
+ * [the No Padding story for Table.HeaderCell](./?path=/story/core-table-headercell--no-padding) for
  * examples on how to do this.
  */
 export const Example: Story = {
