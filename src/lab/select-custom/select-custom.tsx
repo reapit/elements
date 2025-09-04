@@ -235,7 +235,7 @@ export const SelectCustom: FC<SelectCustomProps> & {
         gap="var(--spacing-1)"
       >
         <SelectContext.Provider value={{ selectedValues, onSelect: handleSelect, isMultiple }}>
-          <ul role="listbox" ref={listRef}>
+          <ul role="listbox" ref={listRef} tabIndex={-1}>
             {children}
           </ul>
         </SelectContext.Provider>
