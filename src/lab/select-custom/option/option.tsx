@@ -8,7 +8,7 @@ import { ElOption, ElLabelContainer, ElLabelItem, ElAdditionalInfo1, ElAdditiona
 export interface OptionProps {
   value: string
   label: string
-  badge?: ReactNode
+  badge?: string
   additionalInfo1?: ReactNode
   additionalInfo2?: ReactNode
   selected?: boolean

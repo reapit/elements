@@ -1,7 +1,6 @@
 import { font } from '#src/core/text/index'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { LabelText } from '#src/core/label-text'
 
 export const ElSelectCustom = styled.div`
   display: flex;
@@ -9,6 +8,14 @@ export const ElSelectCustom = styled.div`
   align-items: flex-start;
   gap: var(--spacing-2);
   align-self: stretch;
+
+  .el-chip-group-list {
+    padding-top: var(--spacing-2);
+  }
+
+  .el-label-text[data-error='true'] {
+    color: var(--comp-input-colour-text-info-error);
+  }
 `
 export const elInputField = css`
   display: flex;
@@ -20,30 +27,29 @@ export const elInputField = css`
   border-radius: var(--comp-input-border-radius);
   border: var(--comp-input-border-width) solid var(--comp-input-colour-border-default);
   background: var(--comp-input-colour-fill-default-background);
+
+  &.el-button.el-input-field[aria-invalid='true'] {
+    border-radius: var(--comp-input-border-radius);
+    border: var(--comp-input-border-width) solid var(--comp-input-colour-border-error);
+    background: var(--comp-input-colour-fill-error-background);
+  }
 `
 
-export const ElContent = styled(LabelText)`
+export const ElContent = styled.div`
   display: flex;
   padding: var(--spacing-none);
   align-items: center;
   gap: var(--spacing-none);
   flex: 1 0 0;
-
-  &[data-variant='soft'] {
-    color: var(--comp-input-colour-text-focused-input);
-  }
+  overflow: hidden;
 `
 
-export const ElPlaceholder = styled(LabelText)`
+export const ElPlaceholder = styled.div`
   display: flex;
   padding: var(--spacing-none);
   align-items: center;
   gap: var(--spacing-none);
   flex: 1 0 0;
-
-  &[data-variant='soft'] {
-    color: var(--comp-input-colour-text-default-placeholder);
-  }
 `
 
 export const elPopover = css`
@@ -148,13 +154,25 @@ export const ElOption = styled.li`
   align-self: stretch;
 
   .el-label-text {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 1;
+    display: block;
+    white-space: normal;
+    overflow: visible;
 
     &[data-variant='soft'] {
       color: var(--comp-menu-colour-text-default-primary);
     }
+  }
+
+  &:focus-visible {
+    border-radius: var(--border-radius-m);
+    border: var(--border-width-double) solid var(--colour-border-focus);
+    padding: calc(var(--spacing-2) - 2px) calc(var(--spacing-3) - 2px);
+  }
+
+  &:hover {
+    cursor: pointer;
+    border-radius: var(--comp-menu-border-radius);
+    background: var(--comp-menu-colour-fill-hover);
   }
 
   &[aria-selected='true'] {

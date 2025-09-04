@@ -2,7 +2,7 @@ import { ReactNode, FC } from 'react'
 import { LabelText } from '#src/core/label-text'
 import { ElOptionGroup } from '../styles'
 
-interface OptionGroupProps {
+export interface OptionGroupProps {
   label?: string
   children: ReactNode
 }

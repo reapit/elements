@@ -1,102 +1,152 @@
-import { FC, useState, ReactNode, createContext } from 'react'
-import { Option } from './item'
+import { FC, useState, ReactNode, createContext, useEffect } from 'react'
+import { Option } from './option'
 import { Group } from './group'
 import { LabelText } from '#src/core/label-text'
+import { Text } from '#src/core/text'
 import { Button } from '#src/core/button'
 import { CloseIcon } from '#src/icons/close'
 import { ChevronDownIcon } from '#src/icons/chevron-down'
 import { ChipGroup } from '#src/core/chip-group'
-// import { Divider } from '#src/core/divider'
-import { Popover, elPopover } from '#src/utils/popover'
+import { Popover, elPopover, PopoverPlacement } from '#src/utils/popover'
 import { useSelectKeyboardNavigation } from './use-select-keyboard-navigation'
+import { getInitialSelected, getTotalOptions } from './helper'
 import { ElSelectCustom, elInputField, ElContent, ElPlaceholder } from './styles'
 
+/**
+ * Represents an item that can be selected in the custom select component.
+ */
 export interface SelectedItem {
+  /** The value of the selected item */
   value: string
+  /** The label displayed for the selected item */
   label: string
 }
 
+/**
+ * Context provided to `Option` and `Group` components within `SelectCustom`.
+ */
 export const SelectContext = createContext<{
+  /** Currently selected items */
   selectedValues: SelectedItem[]
+  /** Function to select or deselect an item */
   onSelect: (item: SelectedItem) => void
-  multiple: boolean
+  /** Determines if multiple selections are allowed */
+  isMultiple: boolean
 }>({
   selectedValues: [],
   onSelect: () => {},
-  multiple: false,
+  isMultiple: false,
 })
 
-/** Extract initial selected values from children Option components */
-const getInitialSelected = (children: ReactNode, multiple: boolean): SelectedItem[] => {
-  const selected: SelectedItem[] = []
-
-  const traverse = (nodes: ReactNode) => {
-    if (!nodes) return
-    if (Array.isArray(nodes)) {
-      nodes.forEach(traverse)
-    } else if (typeof nodes === 'object' && 'props' in (nodes as any)) {
-      const props: any = (nodes as any).props
-      if ((nodes as any).type === Option && props.selected) {
-        selected.push({ value: props.value, label: props.label })
-      }
-      // recursively traverse groups
-      if ((nodes as any).type === Group) traverse(props.children)
-    }
-  }
-
-  traverse(children)
-
-  if (!multiple && selected.length > 1) {
-    return [selected[0]]
-  }
-
-  return selected
-}
-
+/**
+ * Props for the `SelectCustom` component.
+ */
 export interface SelectCustomProps {
+  /** Unique identifier for the select component */
   id: string
+  /** Label displayed above the select input */
   label?: string
+  /** Helper text displayed below the select input */
   helperText?: string
+  /** Error message displayed below the select input */
+  errorMessage?: string
+  /** Option and Group components as children */
   children: ReactNode
-  multiple?: boolean
-  clearable?: boolean
+  /** Whether multiple selections are allowed */
+  isMultiple?: boolean
+  /** Whether the selection can be cleared */
+  isClearable?: boolean
+  /** Whether the field is required */
   isRequired?: boolean
+  /** Whether the select is disabled */
+  isDisabled?: boolean
+  /** Maximum height for the popover */
+  popoverMaxHeight?: string
+  /** Maximum width for the popover */
+  popoverMaxWidth?: string
+  /** Placement of the popover relative to the trigger */
+  popoverPlacement?: PopoverPlacement
 }
 
+/**
+ * Custom select component with support for single/multiple selection,
+ * keyboard navigation, popover, and clearable selection.
+ */
 export const SelectCustom: FC<SelectCustomProps> & {
+  /** Exposes the `Group` component for nested option groups */
   Group: typeof Group
+  /** Exposes the `Option` component for selectable items */
   Option: typeof Option
-} = ({ id, label, children, helperText, multiple = false, clearable = false, isRequired = false }) => {
-  const [selectedValues, setSelectedValues] = useState(() => getInitialSelected(children, multiple))
+} = ({
+  id,
+  label,
+  children,
+  helperText,
+  errorMessage,
+  isMultiple = false,
+  isClearable = false,
+  isRequired = false,
+  isDisabled = false,
+  popoverMaxHeight,
+  popoverMaxWidth,
+  popoverPlacement,
+}) => {
+  // State for selected items
+  const [selectedValues, setSelectedValues] = useState(() => getInitialSelected(children, isMultiple))
 
+  // Generate IDs for accessibility
   const popoverId = `select-popover-${id.replace(/\s+/g, '-').toLowerCase()}`
   const triggerId = `select-input-${id.replace(/\s+/g, '-').toLowerCase()}`
 
+  // Keyboard navigation for the select list
   const listRef = useSelectKeyboardNavigation(popoverId)
 
+  /**
+   * Closes the popover programmatically.
+   */
   const closePopover = () => {
     const popover = document.getElementById(popoverId) as HTMLElement & { hidePopover?: () => void }
     popover?.hidePopover?.()
   }
 
+  /**
+   * Handles selecting or deselecting an item.
+   * @param item - The item to select/deselect
+   */
   const handleSelect = (item: SelectedItem) => {
     setSelectedValues((prev) => {
-      if (!multiple) return [item]
+      if (!isMultiple) return [item]
       return prev.find((s) => s.value === item.value) ? prev.filter((s) => s.value !== item.value) : [...prev, item]
     })
 
-    if (!multiple) closePopover()
+    if (!isMultiple) closePopover()
   }
 
+  /**
+   * Clears all selected items.
+   */
   const clearSelection = () => setSelectedValues([])
 
-  const displayValue = multiple ? '' : selectedValues[0]?.label || ''
+  const displayValue = isMultiple ? '' : selectedValues[0]?.label || ''
 
   const triggerProps = Popover.getTriggerProps({
     id: triggerId,
     popoverTarget: popoverId,
     popoverTargetAction: 'toggle',
   })
+
+  const descriptionId = `${id}-description`
+  const message = errorMessage || helperText
+  const isError = Boolean(errorMessage)
+
+  const totalOptions = getTotalOptions(children)
+  const isAllSelected = isMultiple && selectedValues.length >= totalOptions
+
+  useEffect(() => {
+    if (isAllSelected) {
+      closePopover()
+    }
+  }, [isAllSelected])
 
   return (
     <ElSelectCustom id={id}>
@@ -114,13 +164,24 @@ export const SelectCustom: FC<SelectCustomProps> & {
         role="combobox"
         aria-expanded="false"
         className={elInputField}
+        aria-disabled={isDisabled || isAllSelected}
+        aria-describedby={message ? descriptionId : undefined}
+        aria-invalid={isError || false}
       >
         {displayValue ? (
-          <ElContent size="small">{displayValue}</ElContent>
+          <ElContent>
+            <Text as="span" colour="primary" font="text-xs/regular" overflow="truncate">
+              {displayValue}
+            </Text>
+          </ElContent>
         ) : (
-          <ElPlaceholder size="small">Select an option</ElPlaceholder>
+          <ElPlaceholder>
+            <Text as="span" colour="placeholder" font="text-xs/regular" overflow="truncate">
+              Select an option
+            </Text>
+          </ElPlaceholder>
         )}
-        {clearable && selectedValues.length > 0 ? (
+        {isClearable && !isMultiple && selectedValues.length > 0 ? (
           <CloseIcon
             color="primary"
             size="sm"
@@ -134,20 +195,37 @@ export const SelectCustom: FC<SelectCustomProps> & {
         )}
       </Button>
 
-      <Popover id={popoverId} anchorId={triggerId} placement="bottom-start" popover="auto" className={elPopover}>
-        <SelectContext.Provider value={{ selectedValues, onSelect: handleSelect, multiple }}>
+      <Popover
+        id={popoverId}
+        anchorId={triggerId}
+        placement={popoverPlacement || 'bottom-start'}
+        popover="auto"
+        className={elPopover}
+        maxHeight={popoverMaxHeight}
+        maxWidth={popoverMaxWidth}
+      >
+        <SelectContext.Provider value={{ selectedValues, onSelect: handleSelect, isMultiple }}>
           <ul role="listbox" ref={listRef}>
             {children}
           </ul>
         </SelectContext.Provider>
       </Popover>
 
-      {helperText && <LabelText size="small">{helperText}</LabelText>}
+      {message && (
+        <LabelText id={descriptionId} size="small" data-error={isError ? true : false}>
+          {message}
+        </LabelText>
+      )}
 
-      {multiple && selectedValues.length > 0 && (
+      {isMultiple && selectedValues.length > 0 && (
         <ChipGroup>
           {selectedValues.map((item, index) => (
-            <ChipGroup.Item key={`${item.value}-${index}`} variant="filter" onClick={() => handleSelect(item)}>
+            <ChipGroup.Item
+              key={`${item.value}-${index}`}
+              variant="filter"
+              onClick={() => handleSelect(item)}
+              aria-disabled={isDisabled}
+            >
               {item.label}
             </ChipGroup.Item>
           ))}
