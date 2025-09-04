@@ -12,6 +12,10 @@ const meta: Meta<typeof SelectCustom> = {
       control: 'text',
       description: 'Unique identifier for the select',
     },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+    },
     label: {
       control: 'text',
       description: 'Label for the select',
@@ -76,6 +80,25 @@ export const BasicUsage: Story = {
     id: 'basic-select',
     label: 'Label',
     helperText: 'Optional helper text',
+    size: 'small',
+  },
+  render: (args) => (
+    <SelectCustom {...args}>
+      <SelectCustom.Option value="option1" label="Option 1" />
+      <SelectCustom.Option value="option2" label="Option 2" />
+      <SelectCustom.Option value="option3" label="Option 3" />
+    </SelectCustom>
+  ),
+}
+
+/**
+ * Size variations of the SelectCustom component.
+ */
+export const Size: Story = {
+  args: {
+    id: 'select-size',
+    label: 'Label',
+    size: 'large',
   },
   render: (args) => (
     <SelectCustom {...args}>

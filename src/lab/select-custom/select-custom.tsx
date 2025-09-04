@@ -44,6 +44,8 @@ export const SelectContext = createContext<{
 export interface SelectCustomProps {
   /** Unique identifier for the select component */
   id: string
+  /** Size of the select component. @default "medium" */
+  size?: 'small' | 'medium' | 'large'
   /** Label displayed above the select input */
   label?: string
   /** Helper text displayed below the select input */
@@ -77,6 +79,7 @@ export const SelectCustom: FC<SelectCustomProps> & {
   Option: typeof Option
 } = ({
   id,
+  size = 'medium',
   label,
   children,
   helperText,
@@ -175,16 +178,16 @@ export const SelectCustom: FC<SelectCustomProps> & {
   }, [triggerId])
 
   return (
-    <ElSelectCustom id={id}>
+    <ElSelectCustom id={id} aria-size={size}>
       {label && (
-        <LabelText size="small" isRequired={isRequired}>
+        <LabelText size={size === 'large' ? 'medium' : 'small'} isRequired={isRequired}>
           {label}
         </LabelText>
       )}
 
       <Button
         variant="secondary"
-        size="small"
+        size={size}
         {...triggerProps}
         type="button"
         role="combobox"

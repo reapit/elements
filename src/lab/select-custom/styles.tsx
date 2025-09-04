@@ -19,8 +19,6 @@ export const ElSelectCustom = styled.div`
 `
 export const elInputField = css`
   display: flex;
-  height: var(--size-8);
-  padding: var(--spacing-2);
   align-items: center;
   gap: var(--spacing-2);
   align-self: stretch;
