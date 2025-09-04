@@ -6,6 +6,7 @@ export const ElTag = styled.span`
 
   border-radius: var(--comp-tag-border-radius);
   background: var(--comp-tag-colour-fill);
+  color: var(--comp-tag-colour-text);
 
   ${font('xs', 'medium')}
   white-space: nowrap;
