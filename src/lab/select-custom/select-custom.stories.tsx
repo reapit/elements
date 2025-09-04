@@ -44,10 +44,6 @@ const meta: Meta<typeof SelectCustom> = {
       control: 'text',
       description: 'Max height of the popover',
     },
-    popoverMaxWidth: {
-      control: 'text',
-      description: 'Max width of the popover',
-    },
     popoverPlacement: {
       control: 'select',
       description: 'Visual placement of the popover',

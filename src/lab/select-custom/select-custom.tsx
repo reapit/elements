@@ -62,8 +62,6 @@ export interface SelectCustomProps {
   isDisabled?: boolean
   /** Maximum height for the popover */
   popoverMaxHeight?: string
-  /** Maximum width for the popover */
-  popoverMaxWidth?: string
   /** Placement of the popover relative to the trigger */
   popoverPlacement?: PopoverPlacement
 }
@@ -88,11 +86,16 @@ export const SelectCustom: FC<SelectCustomProps> & {
   isRequired = false,
   isDisabled = false,
   popoverMaxHeight,
-  popoverMaxWidth,
   popoverPlacement,
 }) => {
   // State for selected items
   const [selectedValues, setSelectedValues] = useState(() => getInitialSelected(children, isMultiple))
+
+  /**
+   * Tracks the current width of the select input button in pixels.
+   * This is used to make the Popover match the button's width.
+   */
+  const [inputWidth, setInputWidth] = useState<number>(0)
 
   // Generate IDs for accessibility
   const popoverId = `select-popover-${id.replace(/\s+/g, '-').toLowerCase()}`
@@ -148,6 +151,29 @@ export const SelectCustom: FC<SelectCustomProps> & {
     }
   }, [isAllSelected])
 
+  /**
+   * Measures the rendered width of the select input button and updates `inputWidth`.
+   * Uses a ResizeObserver to automatically update if the button width changes (e.g., responsive layouts).
+   */
+  useEffect(() => {
+    const buttonEl = document.getElementById(triggerId)
+    if (!buttonEl) return
+
+    /**
+     * Update the state with the button's current width
+     */
+    const updateWidth = () => setInputWidth(buttonEl.offsetWidth)
+
+    updateWidth() // initial width
+
+    // Observe the button for width changes
+    const resizeObserver = new ResizeObserver(updateWidth)
+    resizeObserver.observe(buttonEl)
+
+    // Cleanup observer on unmount
+    return () => resizeObserver.disconnect()
+  }, [triggerId])
+
   return (
     <ElSelectCustom id={id}>
       {label && (
@@ -202,7 +228,8 @@ export const SelectCustom: FC<SelectCustomProps> & {
         popover="auto"
         className={elPopover}
         maxHeight={popoverMaxHeight}
-        maxWidth={popoverMaxWidth}
+        style={{ minWidth: inputWidth }}
+        gap="var(--spacing-1)"
       >
         <SelectContext.Provider value={{ selectedValues, onSelect: handleSelect, isMultiple }}>
           <ul role="listbox" ref={listRef}>
