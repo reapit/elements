@@ -178,7 +178,7 @@ export const SelectCustom: FC<SelectCustomProps> & {
   }, [triggerId])
 
   return (
-    <ElSelectCustom id={id} aria-size={size}>
+    <ElSelectCustom id={id}>
       {label && (
         <LabelText size={size === 'large' ? 'medium' : 'small'} isRequired={isRequired}>
           {label}
