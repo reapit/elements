@@ -1,0 +1,41 @@
+import { Meta, Story, Canvas, Controls } from '@storybook/addon-docs/blocks'
+import { RenderHtmlMarkup } from '../../storybook/render-html-markup'
+import * as SelectCustom from './select-custom.stories'
+
+<Meta of={SelectCustom} />
+
+# SelectCustom
+
+The **SelectCustom** component is a styled alternate for the native `<select>` element. It supports **single- and multi-select modes**, keyboard navigation, option groups, clearable selections, helper text, and chip-based display of selected values.
+
+<Controls />
+
+## Basic Usage
+
+Basic usage of the SelectCustom component with three options.
+
+<Canvas of={SelectCustom.BasicUsage} />
+
+## SelectCustom Size
+
+Size variations of the SelectCustom component.
+
+<Canvas of={SelectCustom.Size} />
+
+## SelectCustom Custom
+
+Custom usage of the SelectCustom component demonstrating additional info and badges for options.
+
+<Canvas of={SelectCustom.CustomUsage} />
+
+## SelectCustom Group
+
+The Select popover can contain one or more groups, separated by dividers. Each group may optionally include a title.
+
+<Canvas of={SelectCustom.SelectGroup} />
+
+## SelectCustom MultiSelect
+
+The **multi-select** mode displays each selected value as a chip, allowing users to clear selections individually.
+
+<Canvas of={SelectCustom.MultiSelect} />
