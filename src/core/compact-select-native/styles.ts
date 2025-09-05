@@ -7,6 +7,7 @@ export const ElCompactSelectNativeContainer = styled.div`
   position: relative;
   display: inline-flex;
   align-items: center;
+  max-width: 100%;
 `
 
 interface ElCompactSelectNativeProps {
@@ -16,7 +17,7 @@ interface ElCompactSelectNativeProps {
 }
 
 export const ElCompactSelectNative = styled.select<ElCompactSelectNativeProps>`
-  max-width: var(--select-max-width);
+  max-width: var(--select-max-width, 100%);
 
   appearance: none;
   background-color: transparent;
@@ -34,7 +35,7 @@ export const ElCompactSelectNative = styled.select<ElCompactSelectNativeProps>`
   }
 
   /* NOTE: We need to create space for the absolutely positioned icon. */
-  padding-inline-end: calc(var(--spacing-1) + var(--icon_size-s));
+  padding-inline-end: calc(var(--spacing-2) + var(--icon_size-s));
 
   &:focus-visible {
     outline: var(--border-width-double) solid var(--colour-border-focus);

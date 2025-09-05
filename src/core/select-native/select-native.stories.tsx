@@ -1,10 +1,10 @@
-import { CompactSelectNative } from './compact-select-native'
+import { SelectNative } from './select-native'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/CompactSelectNative',
-  component: CompactSelectNative,
+  title: 'Core/SelectNative',
+  component: SelectNative,
   argTypes: {
     children: {
       control: 'radio',
@@ -12,11 +12,10 @@ const meta = {
       mapping: {
         Simple: (
           <>
-            <option value="">Select portfolio</option>
-            <option value="portfolio1">Portfolio 1</option>
-            <option value="portfolio2">Portfolio 2</option>
-            <option value="portfolio3">Portfolio 3</option>
-            <option value="portfolio4">Portfolio 4 with a long name</option>
+            <option value="">Select an option</option>
+            <option value="commercial">Commercial</option>
+            <option value="residential">Residential</option>
+            <option value="other">Some other option with a long name</option>
           </>
         ),
         'With Groups': (
@@ -40,7 +39,7 @@ const meta = {
       options: ['small', 'medium', 'large'],
     },
   },
-} satisfies Meta<typeof CompactSelectNative>
+} satisfies Meta<typeof SelectNative>
 
 export default meta
 
@@ -48,9 +47,15 @@ type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
   args: {
-    'aria-label': 'Portfolio',
+    autoComplete: 'off',
     children: 'Simple',
+    defaultValue: undefined,
+    form: undefined,
+    maxWidth: undefined,
+    name: 'mySelect',
+    required: false,
     size: 'small',
+    value: undefined,
   },
 }
 
@@ -78,18 +83,31 @@ export const Sizes: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)', alignItems: 'center' }}>
+      <div style={{ display: 'flex', gap: 'var(--spacing-6)', alignItems: 'start' }}>
         <Story />
       </div>
     ),
   ],
   render: (args) => (
     <>
-      <CompactSelectNative {...args} size="small" />
-      <CompactSelectNative {...args} size="medium" />
-      <CompactSelectNative {...args} size="large" />
+      <SelectNative {...args} size="small" />
+      <SelectNative {...args} size="medium" />
+      <SelectNative {...args} size="large" />
     </>
   ),
+}
+
+/**
+ * Like all form controls, the native select will display in an invalid state when it's value
+ * does not meet the validation constraints applied to it, such as being required, when it has
+ * been "touched", meaning the control has been focused then blurred.
+ */
+export const Invalid: Story = {
+  args: {
+    ...Example.args,
+    isTouched: true,
+    required: true,
+  },
 }
 
 /**
@@ -99,20 +117,20 @@ export const DefaultValue: Story = {
   name: 'Default value',
   args: {
     ...Example.args,
-    defaultValue: 'portfolio1',
+    defaultValue: 'residential',
   },
 }
 
 /**
  * The value of the select can be controlled by providing an explicit `value`. In this example, the select's value is
- * pinned to "Portfolio 1" and, because that controlled value is not updated when another option is selected, it does
+ * pinned to "Commercial" and, because that controlled value is not updated when another option is selected, it does
  * not change.
  */
 export const ControlledValue: Story = {
   name: 'Controlled value',
   args: {
     ...Example.args,
-    value: 'portfolio1',
+    value: 'commercial',
   },
 }
 
@@ -122,7 +140,7 @@ export const ControlledValue: Story = {
 export const Overflow: Story = {
   args: {
     ...Example.args,
-    defaultValue: 'portfolio4',
+    defaultValue: 'other',
   },
   decorators: [
     (Story) => (
@@ -140,7 +158,7 @@ export const Overflow: Story = {
 export const MaxWidth: Story = {
   args: {
     ...Overflow.args,
-    defaultValue: 'portfolio4',
+    defaultValue: 'other',
     maxWidth: '100px',
   },
   decorators: Overflow.decorators,
