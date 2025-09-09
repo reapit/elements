@@ -48,10 +48,17 @@ export interface ChipSelectChipProps extends Omit<InputHTMLAttributes<HTMLInputE
  * controlled (or uncontrolled) like any other native input. Typically used via `ChipSelect.Option`.
  */
 export const ChipSelectChip = forwardRef<HTMLInputElement, ChipSelectChipProps>(
-  ({ 'aria-label': ariaLabel, children, icon, isExclusive, maxWidth, onChange, overflow, size, ...rest }, ref) => {
+  (
+    { 'aria-label': ariaLabel, children, icon, isExclusive = false, maxWidth, onChange, overflow, size, ...rest },
+    ref,
+  ) => {
     const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
       (event) => {
-        maybeDeselectOtherOptions(event.currentTarget)
+        // We only need to deselect other options if the one whose checked state is changing
+        // has been checked. If it has been unchecked, there's nothing to do.
+        if (event.currentTarget.checked) {
+          maybeDeselectOtherOptions(event.currentTarget)
+        }
         onChange?.(event)
       },
       [onChange],
@@ -65,6 +72,7 @@ export const ChipSelectChip = forwardRef<HTMLInputElement, ChipSelectChipProps>(
       >
         <ElChipSelectChipInput
           {...rest}
+          // NOTE: this attribute is tightly coupled to the `isExclusiveOption` helper.
           data-exclusive={isExclusive}
           onChange={handleChange}
           ref={ref}

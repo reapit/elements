@@ -1,5 +1,6 @@
 import { ChipSelectContextProvider } from './context'
 import { ChipSelectOption } from './chip-select-option'
+import { determineNextControlledState } from './chip'
 import { ElChipSelect } from './styles'
 
 import type { HTMLAttributes, ReactNode } from 'react'
@@ -57,3 +58,4 @@ export function ChipSelect({
 }
 
 ChipSelect.Option = ChipSelectOption
+ChipSelect.determineNextControlledState = determineNextControlledState

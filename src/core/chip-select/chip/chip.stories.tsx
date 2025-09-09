@@ -1,7 +1,6 @@
 import { ChipSelectChip } from './chip'
 import { SproutIcon } from '#src/icons/sprout'
 import { StarIcon } from '#src/icons/star'
-import { useArgs } from 'storybook/preview-api'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -220,20 +219,4 @@ export const MultiSelect: Story = {
   },
   argTypes: SingleSelect.argTypes,
   render: SingleSelect.render,
-}
-
-/**
- * Since chips are native checkbox elements (`<input type="checkbox">`). As such, their checked state
- * can be controlled in the same manner as any other checkbox. However, when controlling the checked
- * state of an option, consumers become responsible for any side effects that may need to occur, such as
- * unchecking other options in the `ChipSelect`.
- */
-export const Controlled: Story = {
-  args: {
-    ...Example.args,
-  },
-  render: (args) => {
-    const [, setArgs] = useArgs()
-    return <ChipSelectChip {...args} onChange={(event) => setArgs({ checked: event.currentTarget.checked })} />
-  },
 }

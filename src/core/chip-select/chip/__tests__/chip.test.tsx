@@ -99,6 +99,14 @@ test('applies `data-size` to the root element', () => {
   expect(container.firstElementChild).toHaveAttribute('data-size', 'large')
 })
 
+test('applies `data-exclusive` to the input element', () => {
+  const { rerender } = render(<ChipSelectChip isExclusive size="large" value="foo" />)
+  expect(screen.getByRole('checkbox')).toHaveAttribute('data-exclusive', 'true')
+
+  rerender(<ChipSelectChip size="large" value="foo" />)
+  expect(screen.getByRole('checkbox')).toHaveAttribute('data-exclusive', 'false')
+})
+
 test('applies `data-overflow="truncate"` to label text when `overflow="truncate"` is provided', () => {
   render(
     <ChipSelectChip overflow="truncate" size="small" value="foo">
