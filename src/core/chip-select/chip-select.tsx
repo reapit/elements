@@ -1,4 +1,4 @@
-import { ChipSelectContextProvider } from './context'
+import { ChipSelectContext, ChipSelectContextProvider, useChipSelectContext } from './context'
 import { ChipSelectOption } from './chip-select-option'
 import { determineNextControlledState } from './chip'
 import { ElChipSelect } from './styles'
@@ -37,6 +37,10 @@ export interface ChipSelectProps extends HTMLAttributes<HTMLDivElement> {
  * both single-select and multi-select modes depending on the use case. Importantly, single-select
  * behaviour in controlled scenarios (that is, where the checked state of each option is controlled
  * by the consumer) must be handled by the consumers given they are responsible for the state.
+ *
+ * See [ChipSelect x Formik](https://codesandbox.io/p/sandbox/eloquent-julien-hkgfgy)
+ * and [ChipSelect x React Hook Form](https://codesandbox.io/p/sandbox/strange-lederberg-thzzwv)
+ * for integration examples with popular form state management libraries.
  */
 export function ChipSelect({
   children,
@@ -59,3 +63,6 @@ export function ChipSelect({
 
 ChipSelect.Option = ChipSelectOption
 ChipSelect.determineNextControlledState = determineNextControlledState
+
+ChipSelect.Context = ChipSelectContext
+ChipSelect.useContext = useChipSelectContext

@@ -103,10 +103,12 @@ export const MultiSelect: Story = {
  * single-select behaviour, however, manual intervention will be required. To assist with this, the
  * `ChipSelect.determineNextControlledState` helper is provided.
  *
- * Whether single- or multi-select behaviour is desired, the controlled state must be an array.
- *
- * This example demonstrates a controlled usage of the `ChipSelect` via simple local component state
- * (`useState`) and `ChipSelect.determineNextControlledState`.
+ * Whether single- or multi-select behaviour is desired, the controlled state must be an array of
+ * string values. The example here demonstrates a controlled usage of the `ChipSelect` via simple
+ * local component state (`useState`) and `ChipSelect.determineNextControlledState`. Examples that
+ * demonstrate integration with [Formik](https://codesandbox.io/p/sandbox/eloquent-julien-hkgfgy)
+ * and [React Hook Form](https://codesandbox.io/p/sandbox/strange-lederberg-thzzwv)
+ * are also available.
  */
 export const Controlled: Story = {
   args: {
