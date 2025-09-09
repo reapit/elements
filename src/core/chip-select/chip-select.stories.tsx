@@ -1,7 +1,8 @@
 import { ChipSelect } from './chip-select'
 import { StarIcon } from '#src/icons/star'
-import { useId } from 'react'
+import { useId, useState } from 'react'
 
+import type { ChangeEventHandler } from 'react'
 import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
@@ -88,6 +89,54 @@ export const MultiSelect: Story = {
   args: {
     ...Example.args,
     multiple: true,
+  },
+}
+
+/**
+ * Since chips are native checkbox elements (`<input type="checkbox">`), their checked state can be
+ * controlled in the same manner as any other checkbox. However, when controlling the checked state of
+ * an option, consumers become responsible for managing the single- or multi-select behaviour of the
+ * `ChipSelect`.
+ *
+ * When using controlled form state management libraries like Formik, the multi-select behaviour will
+ * often be handled out-of-the-box, as that's the default behaviour of standard checkbox groups. For
+ * single-select behaviour, however, manual intervention will be required. To assist with this, the
+ * `ChipSelect.determineNextControlledState` helper is provided.
+ *
+ * Whether single- or multi-select behaviour is desired, the controlled state must be an array.
+ *
+ * This example demonstrates a controlled usage of the `ChipSelect` via simple local component state
+ * (`useState`) and `ChipSelect.determineNextControlledState`.
+ */
+export const Controlled: Story = {
+  args: {
+    ...Example.args,
+  },
+  argTypes: { children: { control: false } },
+  parameters: { docs: { source: { type: 'code' } } },
+  render: () => {
+    // Our controlled state. We start with the option whose value is "1" checked.
+    const [state, setState] = useState(['1'])
+
+    const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+      // NOTE: we get a reference to the current target outside of our state setter function
+      // because the state setter may be called after the synthetic event has been cleaned up
+      // and it's reference to the current target lost.
+      const option = event.currentTarget
+
+      // `determineNextControlledState` does the heavy lifting for us, returning the appropriate
+      // next state given the current state and the option whose checked state has changed.
+      setState((state) => ChipSelect.determineNextControlledState(state, option))
+    }
+
+    // Since we're not using a form, we don't need to specify a name for each chip; rather,
+    // we're directly controlling each chip's checked state.
+    return (
+      <ChipSelect size="small">
+        <ChipSelect.Option checked={state.includes('1')} icon={<StarIcon />} onChange={onChange} value="1" />
+        <ChipSelect.Option checked={state.includes('2')} icon={<StarIcon />} onChange={onChange} value="2" />
+      </ChipSelect>
+    )
   },
 }
 
