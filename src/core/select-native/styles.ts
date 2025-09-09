@@ -41,9 +41,8 @@ export const ElSelectNative = styled.select<ElSelectNativeProps>`
   cursor: pointer;
   color: var(--comp-input-colour-text-default-input);
 
-  padding-inline-start: var(--spacing-2);
   /* NOTE: We need to create space for the absolutely positioned icon. */
-  padding-inline-end: calc(var(--spacing-2) + var(--icon_size-s) + var(--spacing-2));
+  padding-inline: var(--spacing-2) calc(var(--spacing-2) + var(--icon_size-s) + var(--spacing-2));
 
   /* NOTE: Invalid styles should only be used if the control has been "touched" (focused then blurred).
    * We use :where to avoid the presence of the isTouched attribute increasing the selector's

@@ -59,7 +59,7 @@ export const elPopover = css`
   border-radius: var(--comp-menu-border-radius);
   background: var(--comp-menu-colour-fill-background);
   /* elevation-xl */
-  box-shadow: 0 var(--size-1) var(--size-4) 0 rgba(34, 43, 51, 0.16);
+  box-shadow: 0 var(--size-1) var(--size-4) 0 rgb(34 43 51 / 0.16);
 
   [role='listbox'] {
     display: flex;
