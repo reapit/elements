@@ -64,6 +64,7 @@ export const Example: Story = {
     name: 'foo',
     onChange: undefined,
     overflow: undefined,
+    readOnly: false,
     size: 'small',
     value: 'abc-123',
   },
@@ -137,7 +138,20 @@ export const Selected: Story = {
 }
 
 /**
- * Chips can also be disabled. Importantly, disabled chips do not participate in form submission.
+ * Chips can be read-only. When they are, they will still be focusable and, if checked, will participate
+ * in form submission, but their checked state will not be changed when clicked or activated.
+ */
+export const ReadOnly: Story = {
+  name: 'Read-only',
+  args: {
+    ...Example.args,
+    readOnly: true,
+  },
+}
+
+/**
+ * Chips can also be disabled. While they look the same as readonly chips, disabled chips do not
+ * participate in form submission.
  */
 export const Disabled: Story = {
   args: {

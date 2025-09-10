@@ -20,26 +20,57 @@ test('checkbox is correctly labelled', () => {
   expect(screen.getByRole('checkbox', { name: 'Label' })).toBeVisible()
 })
 
-test('calls `onChange` when clicked', () => {
-  const handleChange = vi.fn()
+test('applies readOnly attribute to checkbox when read-only', () => {
   render(
-    <ChipSelectChip onChange={handleChange} size="small" value="foo">
+    <ChipSelectChip readOnly size="small" value="foo">
+      Label
+    </ChipSelectChip>,
+  )
+  expect(screen.getByRole('checkbox')).toHaveAttribute('readonly')
+})
+
+test('checked state does not change when read-only', () => {
+  render(
+    <ChipSelectChip readOnly size="small" value="foo">
       Label
     </ChipSelectChip>,
   )
   fireEvent.click(screen.getByRole('checkbox'))
-  expect(handleChange).toHaveBeenCalled()
+  expect(screen.getByRole('checkbox')).not.toBeChecked()
 })
 
-test('calls `onChange` when label is clicked', () => {
-  const handleChange = vi.fn()
+test('calls `onClick` when clicked', () => {
+  const handleClick = vi.fn()
   render(
-    <ChipSelectChip onChange={handleChange} size="small" value="foo">
+    <ChipSelectChip onClick={handleClick} readOnly size="small" value="foo">
       Label
     </ChipSelectChip>,
   )
   fireEvent.click(screen.getByText('Label'))
-  expect(handleChange).toHaveBeenCalled()
+  expect(handleClick).toHaveBeenCalled()
+})
+
+test('calls `onChange` when clicked', () => {
+  const onClick = vi.fn()
+  const onChange = vi.fn()
+  render(
+    <ChipSelectChip onClick={onClick} onChange={onChange} size="small" value="foo">
+      Label
+    </ChipSelectChip>,
+  )
+  fireEvent.click(screen.getByRole('checkbox'))
+  expect(onChange).toHaveBeenCalled()
+})
+
+test('does not call `onChange` when read-only', () => {
+  const handleChange = vi.fn()
+  render(
+    <ChipSelectChip onChange={handleChange} readOnly size="small" value="foo">
+      Label
+    </ChipSelectChip>,
+  )
+  fireEvent.click(screen.getByText('Label'))
+  expect(handleChange).not.toHaveBeenCalled()
 })
 
 test('checkbox has `type="checkbox"` attribute', () => {

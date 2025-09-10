@@ -45,6 +45,10 @@ export const ElChipSelectChip = styled.label<ElChipSelectChipProps>`
 
   &:has(input:disabled) {
     cursor: not-allowed;
+  }
+
+  &:has(input:disabled),
+  &:has(input[readonly]) {
     background: var(--comp-interactive_chip-colour-fill-disabled-unselected);
     border-color: var(--comp-interactive_chip-colour-fill-disabled-unselected);
     color: var(--comp-interactive_chip-colour-text-disabled-unselected);
@@ -108,11 +112,11 @@ export const ElChipSelectChipIconContainer = styled.span`
     color: var(--comp-interactive_chip-colour-icon-hover-selected);
   }
 
-  input:disabled ~ & {
+  input:is(:disabled, [readonly]) ~ & {
     color: var(--comp-interactive_chip-colour-icon-disabled-unselected);
   }
 
-  input:disabled:checked ~ & {
+  input:is(:disabled, [readonly]):checked ~ & {
     color: var(--comp-interactive_chip-colour-icon-disabled-selected);
   }
 
@@ -145,7 +149,7 @@ export const ElChipSelectChipLabelText = styled.span<ElChipSelectChipLabelTextPr
     color: var(--neutral-700);
   }
 
-  input:disabled ~ * & {
+  input:is(:disabled, [readonly]) ~ * & {
     color: var(--neutral-400);
   }
 
