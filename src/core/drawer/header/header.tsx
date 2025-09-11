@@ -12,24 +12,26 @@ import {
 } from './styles'
 import type { HTMLAttributes, ReactNode } from 'react'
 
-interface DrawerHeaderProps extends HTMLAttributes<HTMLDivElement> {
-  /** Optional close action for the drawer. Should not be used when the drawer contains a form. */
-  action?: ReactNode
-  /** Optional text to display above the title. */
-  overline?: ReactNode
-  /** Optional supplementary information. Typically a `SupplementaryInfo` component. */
-  supplementaryInfo?: ReactNode
-  /** Optional tabs. Typically a `Tabs` component. Note that tabs should not be used when the drawer has a footer. */
-  tabs?: ReactNode
-  /** The title of the drawer. */
-  children: ReactNode
+export namespace DrawerHeader {
+  export interface Props extends HTMLAttributes<HTMLDivElement> {
+    /** Optional close action for the drawer. Should not be used when the drawer contains a form. */
+    action?: ReactNode
+    /** Optional text to display above the title. */
+    overline?: ReactNode
+    /** Optional supplementary information. Typically a `SupplementaryInfo` component. */
+    supplementaryInfo?: ReactNode
+    /** Optional tabs. Typically a `Tabs` component. Note that tabs should not be used when the drawer has a footer. */
+    tabs?: ReactNode
+    /** The title of the drawer. */
+    children: ReactNode
+  }
 }
 
 /**
  * A header for drawers. Contains the drawer's title, as well as an optional action (close button), category,
  * supplementary info and/or tabs.
  */
-export function DrawerHeader({ action, overline, children, supplementaryInfo, tabs, ...rest }: DrawerHeaderProps) {
+export function DrawerHeader({ action, overline, children, supplementaryInfo, tabs, ...rest }: DrawerHeader.Props) {
   const { titleId } = useDrawerContext() ?? {}
   return (
     <ElDrawerHeader {...rest}>

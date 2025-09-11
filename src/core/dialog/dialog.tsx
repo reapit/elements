@@ -8,47 +8,49 @@ import { useId } from 'react'
 
 import type { DialogHTMLAttributes, ReactNode } from 'react'
 
-// NOTE: we omit..
-// - `open` because we do not want React consumers to use it directly as it results in a non-modal experience.
-//     Instead, our React `Dialog` component provides an `isOpen` prop that ensures a modal experience is achieved.
-type AttributesToOmit = 'open'
+export namespace Dialog {
+  // NOTE: we omit..
+  // - `open` because we do not want React consumers to use it directly as it results in a non-modal experience.
+  //     Instead, our React `Dialog` component provides an `isOpen` prop that ensures a modal experience is achieved.
+  type AttributesToOmit = 'open'
 
-interface DialogProps extends Omit<DialogHTMLAttributes<HTMLDialogElement>, AttributesToOmit> {
-  /** The dialog content */
-  children: ReactNode
-  /**
-   * Specifies the types of user actions that can be used to close the dialog. This property distinguishes
-   * two methods by which a dialog can be closed:
-   *
-   *  (1) A platform-specific user action, such as pressing the `Esc` key on desktop platforms, or a "back" or
-   *    "dismiss" gesture on mobile platforms.
-   *
-   *  (2) A developer-specified mechanism such as the dialog close button and a `<form>` submission.
-   *
-   * Possible values are:
-   *
-   *  - `closerequest`: The dialog can be dismissed with a platform-specific user action or a
-   *    developer-specified mechanism. This is what detail dialogs should use.
-   *
-   *  - `none`: The dialog cannot be closed by the user (e.g. via the close button). This is what form dialogs
-   *    should use.
-   *
-   * **Note:** The `closedby` attribute for the HTML `<dialog>` element is experimental. We currently approximate
-   * its behaviour internally, but we are not using the attribute itself.
-   *
-   * **Note 2:** The HTML `<dialog>` element distinguishes a third method, `any`, for closing a dialog element,
-   * but Dialog does not currently support it. See MDN's
-   * [closedBy](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#closedby)
-   * attribute docs for more information.
-   *
-   * **Note 3:** The `closedBy` attribute is not supported in all browsers. We currently approximate its behaviour
-   * internally, but we are not using the attribute itself.
-   */
-  closedBy?: 'closerequest' | 'none'
-  /** Indicates whether the dialog is open or not */
-  isOpen?: boolean
-  /** The size of the dialog. */
-  size: 'small' | 'medium' | 'large' | 'full-screen'
+  export interface Props extends Omit<DialogHTMLAttributes<HTMLDialogElement>, AttributesToOmit> {
+    /** The dialog content */
+    children: ReactNode
+    /**
+     * Specifies the types of user actions that can be used to close the dialog. This property distinguishes
+     * two methods by which a dialog can be closed:
+     *
+     *  (1) A platform-specific user action, such as pressing the `Esc` key on desktop platforms, or a "back" or
+     *    "dismiss" gesture on mobile platforms.
+     *
+     *  (2) A developer-specified mechanism such as the dialog close button and a `<form>` submission.
+     *
+     * Possible values are:
+     *
+     *  - `closerequest`: The dialog can be dismissed with a platform-specific user action or a
+     *    developer-specified mechanism. This is what detail dialogs should use.
+     *
+     *  - `none`: The dialog cannot be closed by the user (e.g. via the close button). This is what form dialogs
+     *    should use.
+     *
+     * **Note:** The `closedby` attribute for the HTML `<dialog>` element is experimental. We currently approximate
+     * its behaviour internally, but we are not using the attribute itself.
+     *
+     * **Note 2:** The HTML `<dialog>` element distinguishes a third method, `any`, for closing a dialog element,
+     * but Dialog does not currently support it. See MDN's
+     * [closedBy](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#closedby)
+     * attribute docs for more information.
+     *
+     * **Note 3:** The `closedBy` attribute is not supported in all browsers. We currently approximate its behaviour
+     * internally, but we are not using the attribute itself.
+     */
+    closedBy?: 'closerequest' | 'none'
+    /** Indicates whether the dialog is open or not */
+    isOpen?: boolean
+    /** The size of the dialog. */
+    size: 'small' | 'medium' | 'large' | 'full-screen'
+  }
 }
 
 /**
@@ -72,7 +74,7 @@ export function Dialog({
   onClose: onCloseProp,
   size,
   ...rest
-}: DialogProps) {
+}: Dialog.Props) {
   // We need to imperatively show or close the dialog element when the `isOpen` prop changes.
   const ref = useDialogController(isOpenProp)
   // We need to track the DOM-held open state of the dialog element to ensure we can show/hide our children.

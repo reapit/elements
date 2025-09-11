@@ -3,20 +3,22 @@ import LeftWave from './left-wave.svg?react'
 import RightWave from './right-wave.svg?react'
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-interface FolderTabProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  /** Whether this tab represents the current page or not. */
-  'aria-current': 'page' | false
-  /** The tab's label text. Typically plain text or a `FolderTabs.CountLabel` element. */
-  children: ReactNode
-  /** The page this tab should navigate to. */
-  href: string
+export namespace FolderTab {
+  export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+    /** Whether this tab represents the current page or not. */
+    'aria-current': 'page' | false
+    /** The tab's label text. Typically plain text or a `FolderTabs.CountLabel` element. */
+    children: ReactNode
+    /** The page this tab should navigate to. */
+    href: string
+  }
 }
 
 /**
  * Folder tabs let users switch between related sections of content within the same screen.
  * Typically used via `FolderTabs.Item`.
  */
-export function FolderTab({ children, ...rest }: FolderTabProps) {
+export function FolderTab({ children, ...rest }: FolderTab.Props) {
   return (
     <ElFolderTab {...rest}>
       <LeftWave aria-hidden className={elFolderTabWave} />
