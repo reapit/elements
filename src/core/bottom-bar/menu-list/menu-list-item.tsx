@@ -3,7 +3,9 @@ import { ElBottomBarMenuListItem } from './styles'
 
 import type { ComponentProps } from 'react'
 
-interface BottomBarListItemProps extends ComponentProps<typeof BottomBarItemAnchor> {}
+export namespace BottomBarListItem {
+  export interface Props extends ComponentProps<typeof BottomBarItemAnchor> {}
+}
 
 /**
  * A thin wrapper around `BottomBarMenuItem` that ensures it is contained within a list item (`<li>`) for
@@ -11,7 +13,7 @@ interface BottomBarListItemProps extends ComponentProps<typeof BottomBarItemAnch
  *
  * All props are passed through to `BottomBarMenuItem`.
  */
-export function BottomBarListItem({ children, ...props }: BottomBarListItemProps) {
+export function BottomBarListItem({ children, ...props }: BottomBarListItem.Props) {
   return (
     <ElBottomBarMenuListItem>
       <BottomBarItemAnchor {...props}>{children}</BottomBarItemAnchor>

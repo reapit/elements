@@ -7,12 +7,14 @@ import { useEffect, useId, useRef } from 'react'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
-interface BottomBarMenuListItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  children: ReactNode
-  icon?: ReactNode
-  label?: string
-  maxWidth?: `--size-${string}`
-  maxHeight?: `--size-${string}`
+export namespace BottomBarMenuListItem {
+  export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    children: ReactNode
+    icon?: ReactNode
+    label?: string
+    maxWidth?: `--size-${string}`
+    maxHeight?: `--size-${string}`
+  }
 }
 
 /**
@@ -29,7 +31,7 @@ export function BottomBarMenuListItem({
   maxHeight,
   maxWidth,
   ...rest
-}: BottomBarMenuListItemProps) {
+}: BottomBarMenuListItem.Props) {
   const menuId = useId()
   const triggerId = id ?? useId()
 

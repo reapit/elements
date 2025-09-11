@@ -3,11 +3,13 @@ import { Menu } from '#src/core/menu'
 
 import type { ReactNode } from 'react'
 
-interface AppSwitcherMenuGroupProps {
-  children: ReactNode
+export namespace AppSwitcherExploreMenuGroup {
+  export interface Props {
+    children: ReactNode
+  }
 }
 
-function AppSwitcherExploreMenuGroup({ children }: AppSwitcherMenuGroupProps) {
+export function AppSwitcherExploreMenuGroup({ children }: AppSwitcherExploreMenuGroup.Props) {
   return (
     <Menu.Group label={'EXPLORE'}>
       <AppSwitcherMenuGroupHasAccessContext.Provider value={false}>
@@ -16,5 +18,3 @@ function AppSwitcherExploreMenuGroup({ children }: AppSwitcherMenuGroupProps) {
     </Menu.Group>
   )
 }
-
-export { AppSwitcherExploreMenuGroup }
