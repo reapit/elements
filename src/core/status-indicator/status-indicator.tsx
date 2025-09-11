@@ -6,17 +6,19 @@ import type { HTMLAttributes, ReactNode } from 'react'
 //   by the WAI-ARIA guidelines (they should only be used for interactive content).
 type AttributesToOmit = 'aria-label' | 'aria-labelledby'
 
-export interface StatusIndicatorProps extends Omit<HTMLAttributes<HTMLElement>, AttributesToOmit> {
-  /** The label of the status indicator. */
-  children: ReactNode
-  /** The variant of the status indicator. */
-  variant: 'neutral' | 'success' | 'pending' | 'warning' | 'danger' | 'inactive' | 'accent1' | 'accent2'
+export namespace StatusIndicator {
+  export interface Props extends Omit<HTMLAttributes<HTMLElement>, AttributesToOmit> {
+    /** The label of the status indicator. */
+    children: ReactNode
+    /** The variant of the status indicator. */
+    variant: 'neutral' | 'success' | 'pending' | 'warning' | 'danger' | 'inactive' | 'accent1' | 'accent2'
+  }
 }
 
 /**
  * A low-visibility component used to highlight important information.
  */
-export function StatusIndicator({ children, variant, ...rest }: StatusIndicatorProps) {
+export function StatusIndicator({ children, variant, ...rest }: StatusIndicator.Props) {
   return (
     <ElStatusIndicator {...rest} data-variant={variant}>
       {children}

@@ -3,7 +3,9 @@ import { PrimaryTab } from './tab'
 
 import type { ComponentProps } from 'react'
 
-interface PrimaryTabsItemProps extends ComponentProps<typeof PrimaryTab> {}
+export namespace PrimaryTabsItem {
+  export interface Props extends ComponentProps<typeof PrimaryTab> {}
+}
 
 /**
  * A thin wrapper around `PrimaryTab` that ensures it is contained within a list item (`<li>`) for
@@ -11,7 +13,7 @@ interface PrimaryTabsItemProps extends ComponentProps<typeof PrimaryTab> {}
  *
  * All props are passed through to `PrimaryTab`.
  */
-export function PrimaryTabsItem(props: PrimaryTabsItemProps) {
+export function PrimaryTabsItem(props: PrimaryTabsItem.Props) {
   return (
     <ElPrimaryTabsListItem>
       <PrimaryTab {...props} />
