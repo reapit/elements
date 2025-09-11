@@ -1,14 +1,19 @@
 import { CarIcon } from '#src/icons/car'
 import { FeaturesItem } from '../item'
 
-interface FeaturesCarSpacesItemProps {
-  /** The number of car spaces in the property. */
-  value: number
+export namespace FeaturesCarSpacesItem {
+  export interface Props {
+    /** The number of car spaces in the property. */
+    value: number
+  }
 }
 
 /**
  * A feature item that represents the number of car spaces in a property.
  */
-export function FeaturesCarSpacesItem({ value }: FeaturesCarSpacesItemProps) {
+export function FeaturesCarSpacesItem({ value }: FeaturesCarSpacesItem.Props) {
   return <FeaturesItem icon={<CarIcon />} label="Car spaces" value={value} />
 }
+
+/** @deprecated Use FeaturesCarSpacesItem.Props instead */
+export type FeaturesCarSpacesItemProps = FeaturesCarSpacesItem.Props

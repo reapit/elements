@@ -4,10 +4,12 @@ import { useId } from 'react'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-interface FeaturesItemProps extends HTMLAttributes<HTMLDivElement> {
-  icon: ReactNode
-  label: string
-  value: ReactNode
+export namespace FeaturesItem {
+  export interface Props extends HTMLAttributes<HTMLDivElement> {
+    icon: ReactNode
+    label: string
+    value: ReactNode
+  }
 }
 
 /**
@@ -15,7 +17,7 @@ interface FeaturesItemProps extends HTMLAttributes<HTMLDivElement> {
  * using pre-configured items like `Features.Bedrooms`, `Features.Bathrooms`, `Features.CarSpaces`, and
  * `Features.LandSize`.
  */
-export function FeaturesItem({ icon, id, label, value, ...rest }: FeaturesItemProps) {
+export function FeaturesItem({ icon, id, label, value, ...rest }: FeaturesItem.Props) {
   const tooltipId = useId()
   const triggerId = id ?? useId()
 
@@ -29,3 +31,6 @@ export function FeaturesItem({ icon, id, label, value, ...rest }: FeaturesItemPr
     </ElFeaturesItem>
   )
 }
+
+/** @deprecated Use FeaturesItem.Props instead */
+export type FeaturesItemProps = FeaturesItem.Props

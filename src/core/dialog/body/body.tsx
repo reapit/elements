@@ -1,11 +1,13 @@
 import { ElDialogBody } from './styles'
 import type { HTMLAttributes, ReactNode } from 'react'
 
-interface DialogBodyProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * The content of the dialog's body.
-   */
-  children: ReactNode
+export namespace DialogBody {
+  export interface Props extends HTMLAttributes<HTMLDivElement> {
+    /**
+     * The content of the dialog's body.
+     */
+    children: ReactNode
+  }
 }
 
 /**
@@ -13,6 +15,6 @@ interface DialogBodyProps extends HTMLAttributes<HTMLDivElement> {
  * container and grow to the height of its content. Like the dialog's header and footer, the body also
  * adjusts its padding based on the inline-size of the dialog.
  */
-export function DialogBody({ children, ...rest }: DialogBodyProps) {
+export function DialogBody({ children, ...rest }: DialogBody.Props) {
   return <ElDialogBody {...rest}>{children}</ElDialogBody>
 }
