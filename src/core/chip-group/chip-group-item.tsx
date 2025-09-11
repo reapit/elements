@@ -3,12 +3,14 @@ import { Chip } from '../chip/chip'
 
 import type { ComponentProps } from 'react'
 
-interface ChipGroupItemProps extends ComponentProps<typeof Chip> {}
+export namespace ChipGroupItem {
+  export interface Props extends ComponentProps<typeof Chip> {}
+}
 
 /**
  * A thin wrapper around a chip to ensure it is rendered as a list item inside the chip group.
  */
-export function ChipGroupItem(props: ChipGroupItemProps) {
+export function ChipGroupItem(props: ChipGroupItem.Props) {
   return (
     <ElChipGroupListItem>
       <Chip {...props} />

@@ -9,15 +9,17 @@ import {
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-interface AccordionSummaryProps extends HTMLAttributes<HTMLElement> {
-  /**
-   * The accordion's title. This will also serve as the accessible label for the accordion.
-   */
-  children: ReactNode
-  /**
-   * Optional information to display on the right side of the summary
-   */
-  rightInfo?: ReactNode
+export namespace AccordionSummary {
+  export interface Props extends HTMLAttributes<HTMLElement> {
+    /**
+     * The accordion's title. This will also serve as the accessible label for the accordion.
+     */
+    children: ReactNode
+    /**
+     * Optional information to display on the right side of the summary
+     */
+    rightInfo?: ReactNode
+  }
 }
 
 /**
@@ -28,7 +30,7 @@ interface AccordionSummaryProps extends HTMLAttributes<HTMLElement> {
  * ⚠️ **Important**: `<summary>` elements are not interactive outside of a parent `<details>` element.
  * This component should only be used as the summary for an Accordion component.
  */
-export function AccordionSummary({ children, rightInfo, ...rest }: AccordionSummaryProps) {
+export function AccordionSummary({ children, rightInfo, ...rest }: AccordionSummary.Props) {
   const labelId = useAccordionLabelIdContext()
   return (
     <ElAccordionSummary {...rest}>

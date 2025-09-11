@@ -1,11 +1,13 @@
 import { ButtonBase } from './button-base'
 
 import type { AnchorHTMLAttributes } from 'react'
-import type { CommonButtonBaseProps } from './button-base'
+import type { ButtonBase as ButtonBaseNamespace } from './button-base'
 
-export interface AnchorButtonProps extends CommonButtonBaseProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-  /** The URL to which this anchor button navigates */
-  href: string
+export namespace AnchorButton {
+  export interface Props extends ButtonBaseNamespace.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+    /** The URL to which this anchor button navigates */
+    href: string
+  }
 }
 
 /**
@@ -15,6 +17,6 @@ export interface AnchorButtonProps extends CommonButtonBaseProps, AnchorHTMLAttr
  * Use `AnchorButton` when you need button-like styling but want to navigate to a URL. Use `Button` when the action
  * needs to occur on click.
  */
-export function AnchorButton(props: AnchorButtonProps) {
+export function AnchorButton(props: AnchorButton.Props) {
   return <ButtonBase as="a" {...props} />
 }

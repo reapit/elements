@@ -4,19 +4,21 @@ import { Tooltip } from '#src/core/tooltip'
 import type { BadgeColour } from './styles'
 import { useId, type HTMLAttributes, type ReactNode } from 'react'
 
-interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
-  /** The label for the badge. This is considered mandatory for icon-only badges. */
-  'aria-label'?: string
-  /** The badge label. */
-  children?: ReactNode
-  /** The colour of the badge. */
-  colour: BadgeColour
-  /** The left icon of the badge. */
-  iconLeft?: ReactNode
-  /** The right icon of the badge. */
-  iconRight?: ReactNode
-  /** Whether the badge is reversed. */
-  variant?: 'default' | 'reversed'
+export namespace Badge {
+  export interface Props extends HTMLAttributes<HTMLSpanElement> {
+    /** The label for the badge. This is considered mandatory for icon-only badges. */
+    'aria-label'?: string
+    /** The badge label. */
+    children?: ReactNode
+    /** The colour of the badge. */
+    colour: BadgeColour
+    /** The left icon of the badge. */
+    iconLeft?: ReactNode
+    /** The right icon of the badge. */
+    iconRight?: ReactNode
+    /** Whether the badge is reversed. */
+    variant?: 'default' | 'reversed'
+  }
 }
 
 /**
@@ -31,7 +33,7 @@ export function Badge({
   id,
   variant = 'default',
   ...rest
-}: BadgeProps) {
+}: Badge.Props) {
   // It's an icon-only badge if there's no label text and only one icon
   const isIconOnly = !children && (iconLeft || iconRight) && !(iconLeft && iconRight)
   const useTooltip = isIconOnly && ariaLabel
