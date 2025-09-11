@@ -11,23 +11,25 @@ import type { ButtonHTMLAttributes } from 'react'
 // - type, because it should always be type="button"
 type AttributesToOmit = 'children' | 'type'
 
-interface SplitButtonMenuButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
-  /**
-   * Whether the action is disabled. This can be used to make the action appear disabled to users, but still be
-   * focusable. ARIA disabled actions, whether they are button or anchor DOM elements, will ignore click events.
-   * Using `aria-disabled` is preferred when the action should still be focusable while it's disabled; for example,
-   * to allow a tooltip to be displayed that explains why the action is disabled.
-   */
-  'aria-disabled'?: boolean | 'true' | 'false'
-  /** The button's label */
-  'aria-label': string
-  /**
-   * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will not be
-   * focusable or interactive.
-   */
-  disabled?: boolean
-  /** Whether the menu button is in a busy state */
-  isBusy?: boolean
+export namespace SplitButtonMenuButton {
+  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
+    /**
+     * Whether the action is disabled. This can be used to make the action appear disabled to users, but still be
+     * focusable. ARIA disabled actions, whether they are button or anchor DOM elements, will ignore click events.
+     * Using `aria-disabled` is preferred when the action should still be focusable while it's disabled; for example,
+     * to allow a tooltip to be displayed that explains why the action is disabled.
+     */
+    'aria-disabled'?: boolean | 'true' | 'false'
+    /** The button's label */
+    'aria-label': string
+    /**
+     * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will not be
+     * focusable or interactive.
+     */
+    disabled?: boolean
+    /** Whether the menu button is in a busy state */
+    isBusy?: boolean
+  }
 }
 
 /**
@@ -39,7 +41,7 @@ export function SplitButtonMenuButton({
   className,
   isBusy,
   ...rest
-}: SplitButtonMenuButtonProps) {
+}: SplitButtonMenuButton.Props) {
   const { busy, size, variant } = useSplitButtonContext()
 
   return (

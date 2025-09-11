@@ -13,11 +13,13 @@ export type SupplementaryInfoColour =
   | 'accent-1'
   | 'accent-2'
 
-interface SupplementaryInfoItemProps extends HTMLAttributes<HTMLLIElement> {
-  /** The content of the item. */
-  children: ReactNode
-  /** Text colour of the item. Used to convey certain messages or to draw users' attention to certain information */
-  colour?: SupplementaryInfoColour
+export namespace SupplementaryInfoItem {
+  export interface Props extends HTMLAttributes<HTMLLIElement> {
+    /** The content of the item. */
+    children: ReactNode
+    /** Text colour of the item. Used to convey certain messages or to draw users' attention to certain information */
+    colour?: SupplementaryInfoColour
+  }
 }
 
 /**
@@ -27,7 +29,7 @@ interface SupplementaryInfoItemProps extends HTMLAttributes<HTMLLIElement> {
  *
  * Item's are always an `<li>` element because `SupplementaryInfo` is always a `<ul>` element.
  */
-export function SupplementaryInfoItem({ children, colour = 'inherit', ...rest }: SupplementaryInfoItemProps) {
+export function SupplementaryInfoItem({ children, colour = 'inherit', ...rest }: SupplementaryInfoItem.Props) {
   return (
     <ElSupplementaryInfoItem {...rest} data-colour={colour}>
       {children}

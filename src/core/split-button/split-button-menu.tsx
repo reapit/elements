@@ -3,15 +3,17 @@ import { SplitButtonMenuButton } from './menu-button'
 
 import { useId, type ComponentProps, type ReactNode } from 'react'
 
-interface SplitButtonMenuProps extends ComponentProps<typeof SplitButtonMenuButton> {
-  /** The menu items to display in the menu */
-  children: ReactNode
+export namespace SplitButtonMenu {
+  export interface Props extends ComponentProps<typeof SplitButtonMenuButton> {
+    /** The menu items to display in the menu */
+    children: ReactNode
+  }
 }
 
 /**
  * The menu for a `SplitButton`.
  */
-export function SplitButtonMenu({ children, id, ...rest }: SplitButtonMenuProps) {
+export function SplitButtonMenu({ children, id, ...rest }: SplitButtonMenu.Props) {
   const triggerId = id ?? useId()
   const menuId = useId()
   return (

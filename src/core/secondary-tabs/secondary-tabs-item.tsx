@@ -3,7 +3,9 @@ import { SecondaryTab } from './tab'
 
 import type { ComponentProps } from 'react'
 
-interface SecondaryTabsItemProps extends ComponentProps<typeof SecondaryTab> {}
+export namespace SecondaryTabsItem {
+  export interface Props extends ComponentProps<typeof SecondaryTab> {}
+}
 
 /**
  * A thin wrapper around `SecondaryTab` that ensures it is contained within a list item (`<li>`) for
@@ -11,7 +13,7 @@ interface SecondaryTabsItemProps extends ComponentProps<typeof SecondaryTab> {}
  *
  * All props are passed through to `SecondaryTab`.
  */
-export function SecondaryTabsItem(props: SecondaryTabsItemProps) {
+export function SecondaryTabsItem(props: SecondaryTabsItem.Props) {
   return (
     <ElSecondaryTabsListItem>
       <SecondaryTab {...props} />
