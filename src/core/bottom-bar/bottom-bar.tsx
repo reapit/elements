@@ -6,17 +6,19 @@ import { useBottomBarObserver } from './use-bottom-bar-observer'
 
 import type { HTMLAttributes, ReactNode, RefObject } from 'react'
 
-export interface BottomBarProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * The children of the bottom bar
-   **/
-  children: ReactNode
-  /**
-   * The reference of the scroll container the bottom bar is rendered within
-   *
-   * @description see the story for an example
-   */
-  scrollContainerRef: RefObject<HTMLElement>
+export namespace BottomBar {
+  export interface Props extends HTMLAttributes<HTMLDivElement> {
+    /**
+     * The children of the bottom bar
+     **/
+    children: ReactNode
+    /**
+     * The reference of the scroll container the bottom bar is rendered within
+     *
+     * @description see the story for an example
+     */
+    scrollContainerRef: RefObject<HTMLElement>
+  }
 }
 
 /**
@@ -29,7 +31,7 @@ export function BottomBar({
   children,
   scrollContainerRef,
   ...rest
-}: BottomBarProps) {
+}: BottomBar.Props) {
   const isOpen = useBottomBarObserver(scrollContainerRef)
 
   return (
@@ -45,3 +47,6 @@ BottomBar.Item = BottomBarMenuList.Item
 BottomBar.ItemButton = BottomBarItemButton
 BottomBar.MenuItem = BottomBarMenuList.MenuItem
 BottomBar.MenuList = BottomBarMenuList
+
+/** @deprecated Use BottomBar.Props instead */
+export type BottomBarProps = BottomBar.Props

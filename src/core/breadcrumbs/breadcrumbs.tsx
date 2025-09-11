@@ -4,11 +4,13 @@ import { ElBreadcrumbs, ElBreadcrumbsList } from './styles'
 
 import type { HTMLAttributes } from 'react'
 
-interface BreadcrumbsProps extends HTMLAttributes<HTMLElement> {
-  /**
-   * Force the breadcrumb trail to grow to its maximum content width, or to 100% of its parent container.
-   */
-  overflow?: 'scroll' | 'truncate'
+export namespace Breadcrumbs {
+  export interface Props extends HTMLAttributes<HTMLElement> {
+    /**
+     * Force the breadcrumb trail to grow to its maximum content width, or to 100% of its parent container.
+     */
+    overflow?: 'scroll' | 'truncate'
+  }
 }
 
 /**
@@ -23,7 +25,7 @@ interface BreadcrumbsProps extends HTMLAttributes<HTMLElement> {
  *
  * This dynamic behaviour can be overridden by specifying the `width` property.
  */
-export function Breadcrumbs({ children, overflow, ...rest }: BreadcrumbsProps) {
+export function Breadcrumbs({ children, overflow, ...rest }: Breadcrumbs.Props) {
   return (
     <ElBreadcrumbs {...rest} data-overflow={overflow}>
       <ElBreadcrumbsList>{children}</ElBreadcrumbsList>
@@ -33,3 +35,6 @@ export function Breadcrumbs({ children, overflow, ...rest }: BreadcrumbsProps) {
 
 Breadcrumbs.Item = BreadcrumbItem
 Breadcrumbs.Link = BreadcrumbLink
+
+// Backward compatibility
+export type BreadcrumbsProps = Breadcrumbs.Props

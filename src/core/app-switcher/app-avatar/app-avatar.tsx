@@ -21,18 +21,20 @@ import LettingsBDMDisabled from './icons/lettings-bdm-disabled.svg?url'
 
 import type { SupportedProductId } from '../config'
 
-interface AppAvatarProps {
-  /** Whether the currently logged in user has access to the specified product or not */
-  hasAccess: boolean
-  /** The specific product whose avatar should be displayed. */
-  productId: SupportedProductId
+export namespace AppAvatar {
+  export interface Props {
+    /** Whether the currently logged in user has access to the specified product or not */
+    hasAccess: boolean
+    /** The specific product whose avatar should be displayed. */
+    productId: SupportedProductId
+  }
 }
 
 /**
  * An avatar/logo for Reapit products. The visual appearance of the avatar changes based on the current user's
  * access to the product. When user's do not have access, the avatar will be greyed out.
  */
-export function AppAvatar({ hasAccess, productId }: AppAvatarProps) {
+export function AppAvatar({ hasAccess, productId }: AppAvatar.Props) {
   switch (productId) {
     case 'agentBox':
       return hasAccess ? <img src={ReapitSales} /> : <img src={ReapitSalesDisabled} />

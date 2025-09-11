@@ -14,12 +14,15 @@ import type { HTMLAttributes, ReactNode } from 'react'
 // - `aria-describedby`: we want exclusive control over what text is used to describe the menu item.
 type AttributesToOmit = 'aria-labelledby' | 'aria-describedby'
 
-export interface AppSwitcherMenuItemProps
-  extends ProductConfig,
-    Omit<HTMLAttributes<HTMLAnchorElement>, AttributesToOmit> {
-  avatar: ReactNode
-  href: string
+export namespace AppSwitcherMenuItem {
+  export interface Props extends ProductConfig, Omit<HTMLAttributes<HTMLAnchorElement>, AttributesToOmit> {
+    avatar: ReactNode
+    href: string
+  }
 }
+
+/** @deprecated Use AppSwitcherMenuItem.Props instead */
+export type AppSwitcherMenuItemProps = AppSwitcherMenuItem.Props
 
 /**
  * A basic menu item for the App Switcher. Displays a product's logo, name, and supplementary info. Typically,
@@ -35,7 +38,7 @@ export function AppSwitcherMenuItem({
   href,
   supplementaryInfo,
   ...rest
-}: AppSwitcherMenuItemProps) {
+}: AppSwitcherMenuItem.Props) {
   const labelId = useId()
   const descriptionId = useId()
 

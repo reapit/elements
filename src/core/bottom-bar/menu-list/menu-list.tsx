@@ -4,7 +4,9 @@ import { ElBottomBarMenuList } from './styles'
 
 import type { ComponentProps } from 'react'
 
-interface BottomBarMenuListProps extends ComponentProps<typeof ElBottomBarMenuList> {}
+export namespace BottomBarMenuList {
+  export interface Props extends ComponentProps<typeof ElBottomBarMenuList> {}
+}
 
 /**
  * The menu list for the `BottomBar`. Typically provided a collection of `BottomBar.Item` and `BottomBar.MenuItem`
@@ -15,7 +17,7 @@ interface BottomBarMenuListProps extends ComponentProps<typeof ElBottomBarMenuLi
  * button. Further, it's automatic placement logic relies on the menu being close to the viewport's edge, which means
  * it always has room on Storybook docs pages to render below its trigger.
  */
-export function BottomBarMenuList({ children, ...rest }: BottomBarMenuListProps) {
+export function BottomBarMenuList({ children, ...rest }: BottomBarMenuList.Props) {
   return <ElBottomBarMenuList {...rest}>{children}</ElBottomBarMenuList>
 }
 

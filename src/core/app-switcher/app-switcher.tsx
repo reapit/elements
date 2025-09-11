@@ -11,11 +11,13 @@ import { useId } from 'react'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
-interface AppSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /**
-   * The menu groups and their items. Should typically be `AppSwitcher.ExploreMenuGroup`,
-   * `AppSwitcher.YourAppsMenuGroup`, and `AppSwitcher.ProductMenuItem` components */
-  children: ReactNode
+export namespace AppSwitcher {
+  export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    /**
+     * The menu groups and their items. Should typically be `AppSwitcher.ExploreMenuGroup`,
+     * `AppSwitcher.YourAppsMenuGroup`, and `AppSwitcher.ProductMenuItem` components */
+    children: ReactNode
+  }
 }
 
 /**
@@ -23,7 +25,7 @@ interface AppSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
  * the products the current user has access to (in the Your Apps group), and other apps from Reapit (in the
  * Explore group).
  */
-export function AppSwitcher({ children, id, ...rest }: AppSwitcherProps) {
+export function AppSwitcher({ children, id, ...rest }: AppSwitcher.Props) {
   const triggerId = id ?? useId()
   const menuId = useId()
 

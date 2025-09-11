@@ -3,10 +3,12 @@ import { TopBarNavIconItemButton } from '../../top-bar'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
-interface AppSwitcherNavIconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  onClick?: MouseEventHandler<HTMLButtonElement>
+export namespace AppSwitcherNavIconButton {
+  export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    onClick?: MouseEventHandler<HTMLButtonElement>
+  }
 }
 
-export function AppSwitcherNavIconButton({ 'aria-label': ariaLabel, ...rest }: AppSwitcherNavIconButtonProps) {
+export function AppSwitcherNavIconButton({ 'aria-label': ariaLabel, ...rest }: AppSwitcherNavIconButton.Props) {
   return <TopBarNavIconItemButton {...rest} aria-label={ariaLabel ?? 'App Switcher'} icon={<AppSwitcherIcon />} />
 }
