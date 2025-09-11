@@ -12,38 +12,40 @@ import { useCallback, useId } from 'react'
 
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
-export interface CommonMenuItemBaseProps {
-  /**
-   * Whether the menu item is disabled. This can be used to make the menu item appear disabled to users, but still be
-   * focusable. ARIA disabled menu items, whether they are button or anchor DOM elements, will ignore click events.
-   * Using `aria-disabled` is preferred when the menu item should still be focusable while it's disabled; for example,
-   * to allow a tooltip to be displayed that explains why the menu item is disabled.
-   */
-  'aria-disabled'?: boolean | 'true' | 'false'
-  /** Badge to display next to the primary text */
-  badge?: ReactNode
-  /** The menu item's primary label */
-  children?: ReactNode
-  /** Icon to display on the left side */
-  iconLeft?: ReactNode
-  /** Icon to display on the right side */
-  iconRight?: ReactNode
-  /** Secondary description text */
-  supplementaryInfo?: ReactNode
-}
+export namespace MenuItemBase {
+  export interface CommonProps {
+    /**
+     * Whether the menu item is disabled. This can be used to make the menu item appear disabled to users, but still be
+     * focusable. ARIA disabled menu items, whether they are button or anchor DOM elements, will ignore click events.
+     * Using `aria-disabled` is preferred when the menu item should still be focusable while it's disabled; for example,
+     * to allow a tooltip to be displayed that explains why the menu item is disabled.
+     */
+    'aria-disabled'?: boolean | 'true' | 'false'
+    /** Badge to display next to the primary text */
+    badge?: ReactNode
+    /** The menu item's primary label */
+    children?: ReactNode
+    /** Icon to display on the left side */
+    iconLeft?: ReactNode
+    /** Icon to display on the right side */
+    iconRight?: ReactNode
+    /** Secondary description text */
+    supplementaryInfo?: ReactNode
+  }
 
-export interface MenuItemAsButtonProps extends CommonMenuItemBaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
-  'aria-checked'?: boolean
-  as: 'button'
-}
+  export interface AsButtonProps extends CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
+    'aria-checked'?: boolean
+    as: 'button'
+  }
 
-export interface MenuItemAsAnchorProps extends CommonMenuItemBaseProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-  'aria-current'?: 'page' | false
-  as: 'a'
-  href: string
-}
+  export interface AsAnchorProps extends CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+    'aria-current'?: 'page' | false
+    as: 'a'
+    href: string
+  }
 
-export type MenuItemBaseProps = MenuItemAsButtonProps | MenuItemAsAnchorProps
+  export type Props = AsButtonProps | AsAnchorProps
+}
 
 /**
  * A polymorphic menu item foundation that can render as either a button or anchor element.
@@ -62,7 +64,7 @@ export function MenuItemBase({
   role = 'menuitem',
   supplementaryInfo,
   ...rest
-}: MenuItemBaseProps) {
+}: MenuItemBase.Props) {
   const labelId = useId()
   const badgeId = useId()
   const supplementaryInfoId = useId()
@@ -115,3 +117,15 @@ export function MenuItemBase({
     </Element>
   )
 }
+
+/** @deprecated Use MenuItemBase.CommonProps instead */
+export type CommonMenuItemBaseProps = MenuItemBase.CommonProps
+
+/** @deprecated Use MenuItemBase.AsButtonProps instead */
+export type MenuItemAsButtonProps = MenuItemBase.AsButtonProps
+
+/** @deprecated Use MenuItemBase.AsAnchorProps instead */
+export type MenuItemAsAnchorProps = MenuItemBase.AsAnchorProps
+
+/** @deprecated Use MenuItemBase.Props instead */
+export type MenuItemBaseProps = MenuItemBase.Props

@@ -2,16 +2,18 @@ import { ElPageHeaderLeadingElement } from './styles'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-interface PageHeaderLeadingElementProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * The actual leading element to display. Will typically be an image or product icon.
-   */
-  children: ReactNode
-  /**
-   * The type of leading element being displayed. This impacts the amount of space available to the element
-   * on different screen/container sizes.
-   */
-  type: 'icon' | 'image'
+export namespace PageHeaderLeadingElement {
+  export interface Props extends HTMLAttributes<HTMLDivElement> {
+    /**
+     * The actual leading element to display. Will typically be an image or product icon.
+     */
+    children: ReactNode
+    /**
+     * The type of leading element being displayed. This impacts the amount of space available to the element
+     * on different screen/container sizes.
+     */
+    type: 'icon' | 'image'
+  }
 }
 
 /**
@@ -19,7 +21,7 @@ interface PageHeaderLeadingElementProps extends HTMLAttributes<HTMLDivElement> {
  * Typically used via `PageHeader.LeadingElement`. This component does not render the leading element itself, rather
  * it provides a correctly sized container, based on the `type` prop, for the leading element.
  */
-export function PageHeaderLeadingElement({ children, type, ...rest }: PageHeaderLeadingElementProps) {
+export function PageHeaderLeadingElement({ children, type, ...rest }: PageHeaderLeadingElement.Props) {
   return (
     <ElPageHeaderLeadingElement {...rest} data-type={type}>
       {children}

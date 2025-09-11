@@ -13,27 +13,29 @@ import { PageHeaderTitle } from './title'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-// NOTE: We omit...
-// - `children`, because the page title's "children" are spread across multiple props.
-// - `title`, because we want to use that prop name for the page header title.
-type AttributesToOmit = 'children' | 'title'
+export namespace PageHeader {
+  // NOTE: We omit...
+  // - `children`, because the page title's "children" are spread across multiple props.
+  // - `title`, because we want to use that prop name for the page header title.
+  type AttributesToOmit = 'children' | 'title'
 
-interface PageHeaderProps extends Omit<HTMLAttributes<HTMLElement>, AttributesToOmit> {
-  /**
-   * The background colour of the page header. When no value is provided (the default), the background will be
-   * transparent.
-   */
-  backgroundColour?: 'white' | 'neutral-lightest'
-  /** The breadcrumbs for the current page. */
-  breadcrumbs?: ReactNode
-  /** The leading element, like an image or product icon. */
-  leadingElement?: ReactNode
-  /** The page subtitle. */
-  subtitle?: ReactNode
-  /** The supplementary info. */
-  supplementaryInfo?: ReactNode
-  /** The page title. */
-  title: ReactNode
+  export interface Props extends Omit<HTMLAttributes<HTMLElement>, AttributesToOmit> {
+    /**
+     * The background colour of the page header. When no value is provided (the default), the background will be
+     * transparent.
+     */
+    backgroundColour?: 'white' | 'neutral-lightest'
+    /** The breadcrumbs for the current page. */
+    breadcrumbs?: ReactNode
+    /** The leading element, like an image or product icon. */
+    leadingElement?: ReactNode
+    /** The page subtitle. */
+    subtitle?: ReactNode
+    /** The supplementary info. */
+    supplementaryInfo?: ReactNode
+    /** The page title. */
+    title: ReactNode
+  }
 }
 
 /**
@@ -47,7 +49,7 @@ export function PageHeader({
   subtitle,
   leadingElement,
   supplementaryInfo,
-}: PageHeaderProps) {
+}: PageHeader.Props) {
   return (
     <ElPageHeader
       style={{
