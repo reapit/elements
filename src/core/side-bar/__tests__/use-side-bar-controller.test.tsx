@@ -1,7 +1,7 @@
 import { render, screen, waitFor } from '@testing-library/react'
 import { useSideBarController } from '../use-side-bar-controller'
 
-import type { SideBarState } from '../use-side-bar'
+import type { useSideBar } from '../use-side-bar'
 
 test('only observes changes when the side bar is expanded', () => {
   const observeSpy = vi.spyOn(MutationObserver.prototype, 'observe')
@@ -49,7 +49,7 @@ test('handles null ref gracefully', () => {
 interface TestComponentProps {
   activeGroup?: 'none' | 'menu-group-1'
   currentPage?: 'none' | 'menu-item-1'
-  sideBarState?: SideBarState
+  sideBarState?: useSideBar.State
 }
 
 function TestComponent({ activeGroup = 'none', currentPage = 'none', sideBarState = 'expanded' }: TestComponentProps) {

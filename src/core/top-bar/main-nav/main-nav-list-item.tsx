@@ -3,7 +3,9 @@ import { TopBarNavItem } from '../nav-item'
 
 import type { ComponentProps } from 'react'
 
-interface TopBarMainNavItemListProps extends ComponentProps<typeof TopBarNavItem> {}
+export namespace TopBarMainNavListItem {
+  export interface Props extends ComponentProps<typeof TopBarNavItem> {}
+}
 
 /**
  * A thin wrapper around `TopBarNavItem` that ensures it is contained within a list item (`<li>`) for
@@ -11,7 +13,7 @@ interface TopBarMainNavItemListProps extends ComponentProps<typeof TopBarNavItem
  *
  * All props are passed through to `TopBarNavItem`.
  */
-export function TopBarMainNavListItem(props: TopBarMainNavItemListProps) {
+export function TopBarMainNavListItem(props: TopBarMainNavListItem.Props) {
   return (
     <ElTopBarMainNavListItem>
       <TopBarNavItem {...props} />

@@ -7,16 +7,18 @@ import {
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-interface TableCellDoubleLineLayoutProps extends HTMLAttributes<HTMLDivElement> {
-  /**
-   * The primary data being displayed in the table cell. Typically used with alphanumeric
-   * information like addresses, dates, times, and names.
-   */
-  children: ReactNode
-  /** The media item to display. Typically an image or avatar. */
-  mediaItem?: ReactNode
-  /** The trailing icon displayed after the content. */
-  supplementaryData?: ReactNode
+export namespace TableCellDoubleLineLayout {
+  export interface Props extends HTMLAttributes<HTMLDivElement> {
+    /**
+     * The primary data being displayed in the table cell. Typically used with alphanumeric
+     * information like addresses, dates, times, and names.
+     */
+    children: ReactNode
+    /** The media item to display. Typically an image or avatar. */
+    mediaItem?: ReactNode
+    /** The trailing icon displayed after the content. */
+    supplementaryData?: ReactNode
+  }
 }
 
 /**
@@ -28,7 +30,7 @@ export function TableCellDoubleLineLayout({
   mediaItem,
   supplementaryData,
   ...rest
-}: TableCellDoubleLineLayoutProps) {
+}: TableCellDoubleLineLayout.Props) {
   return (
     <ElTableCellDoubleLineLayout {...rest}>
       {mediaItem && <ElTableCellDoubleLineLayoutMediaItem>{mediaItem}</ElTableCellDoubleLineLayoutMediaItem>}
@@ -39,3 +41,6 @@ export function TableCellDoubleLineLayout({
     </ElTableCellDoubleLineLayout>
   )
 }
+
+// Backward compatibility
+export type TableCellDoubleLineLayoutProps = TableCellDoubleLineLayout.Props

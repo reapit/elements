@@ -4,12 +4,17 @@ import { elTopBarNavDropdownButton, ElTopBarNavDropdownButtonIcon, ElTopBarNavDr
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-export interface TopBarNavDropdownButtonProps extends HTMLAttributes<HTMLButtonElement> {
-  /**
-   * The label of the dropdown button.
-   */
-  children: ReactNode
+export namespace TopBarNavDropdownButton {
+  export interface Props extends HTMLAttributes<HTMLButtonElement> {
+    /**
+     * The label of the dropdown button.
+     */
+    children: ReactNode
+  }
 }
+
+/** @deprecated Use TopBarNavDropdownButton.Props instead */
+export type TopBarNavDropdownButtonProps = TopBarNavDropdownButton.Props
 
 /**
  * A simple dropdown button for use in the Top Bar's main navigation region. It can be used as an overflow menu when
@@ -22,7 +27,7 @@ export interface TopBarNavDropdownButtonProps extends HTMLAttributes<HTMLButtonE
  * is correctly wrapped by a list item (`<li>`) to ensure good semantics and accessibility when used with
  * `TopBar.MainNav`.
  */
-export function TopBarNavDropdownButton({ children, className, ...rest }: TopBarNavDropdownButtonProps) {
+export function TopBarNavDropdownButton({ children, className, ...rest }: TopBarNavDropdownButton.Props) {
   return (
     <button {...rest} className={cx(elTopBarNavDropdownButton, className)}>
       <ElTopBarNavDropdownButtonLabel>{children}</ElTopBarNavDropdownButtonLabel>

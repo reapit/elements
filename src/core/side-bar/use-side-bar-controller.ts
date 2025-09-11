@@ -1,13 +1,13 @@
 import { shouldBeOpen } from './menu-group'
 import { useEffect, useRef } from 'react'
 
-import type { SideBarState } from './use-side-bar'
+import type { useSideBar } from './use-side-bar'
 
 /**
  * A simple effect that observes changes to which item represents the current page (or active group) and
  * ensures all menu groups are closed.
  */
-export function useSideBarController(sideBarState: SideBarState) {
+export function useSideBarController(sideBarState: useSideBar.State) {
   const ref = useRef<HTMLDivElement>(null)
 
   useEffect(

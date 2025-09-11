@@ -1,5 +1,5 @@
 import { useEffect } from 'react'
-import type { UseSideBarResult } from './use-side-bar'
+import type { useSideBar } from './use-side-bar'
 
 // Media query to detect "wide-screen" widths (1440px and above).
 const mediaQuery = globalThis.matchMedia('(min-width: 1440px)')
@@ -8,7 +8,7 @@ const mediaQuery = globalThis.matchMedia('(min-width: 1440px)')
  * A simple effect that listens for changes in the match media query (min wide-screen width) and updates
  * the side bar's state accordingly.
  */
-export function useSideBarMatchMediaEffect({ setState }: UseSideBarResult) {
+export function useSideBarMatchMediaEffect({ setState }: useSideBar.Result) {
   useEffect(
     function expandOrCollapseWhenMediaQueryChanges() {
       setState(determineSideBarStateFromViewport())

@@ -10,24 +10,26 @@ import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 // - type, because the more actions button should never act as a submit button
 type AttributesToOmit = 'children' | 'type'
 
-interface TableRowMoreActionsButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
-  /**
-   * Whether the button is disabled. This can be used to make the button appear disabled to users, but
-   * still be focusable. When ARIA disabled, the button will ignore click events. Using `aria-disabled`
-   * is preferred when the button should still be focusable while it's disabled; for example, to allow
-   * a tooltip to be displayed that explains why the button is disabled.
-   */
-  'aria-disabled'?: boolean
-  /**
-   * The accessible name for this button. Take care to ensure it is descriptive of the table row
-   * to which it's related.
-   */
-  'aria-label': string
-  /**
-   * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will
-   * not be focusable or interactive.
-   */
-  disabled?: boolean
+export namespace TableRowMoreActionsButton {
+  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
+    /**
+     * Whether the button is disabled. This can be used to make the button appear disabled to users, but
+     * still be focusable. When ARIA disabled, the button will ignore click events. Using `aria-disabled`
+     * is preferred when the button should still be focusable while it's disabled; for example, to allow
+     * a tooltip to be displayed that explains why the button is disabled.
+     */
+    'aria-disabled'?: boolean
+    /**
+     * The accessible name for this button. Take care to ensure it is descriptive of the table row
+     * to which it's related.
+     */
+    'aria-label': string
+    /**
+     * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will
+     * not be focusable or interactive.
+     */
+    disabled?: boolean
+  }
 }
 
 /**
@@ -41,7 +43,7 @@ export function TableRowMoreActionsButton({
   disabled,
   onClick,
   ...rest
-}: TableRowMoreActionsButtonProps) {
+}: TableRowMoreActionsButton.Props) {
   const handleClick = useCallback<MouseEventHandler<HTMLElement>>(
     (event) => {
       const element = event.currentTarget
@@ -74,3 +76,6 @@ export function TableRowMoreActionsButton({
     </button>
   )
 }
+
+// Backward compatibility
+export type TableRowMoreActionsButtonProps = TableRowMoreActionsButton.Props

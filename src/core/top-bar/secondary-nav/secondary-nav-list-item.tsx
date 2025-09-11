@@ -3,7 +3,9 @@ import { TopBarNavIconItem } from '../nav-icon-item'
 
 import type { ComponentProps } from 'react'
 
-interface TopBarSecondaryNavListItemProps extends ComponentProps<typeof TopBarNavIconItem> {}
+export namespace TopBarSecondaryNavListItem {
+  export interface Props extends ComponentProps<typeof TopBarNavIconItem> {}
+}
 
 /**
  * A thin wrapper around `TopBarNavIconItemAnchor` that ensures it is contained within a list item (`<li>`) for
@@ -11,7 +13,7 @@ interface TopBarSecondaryNavListItemProps extends ComponentProps<typeof TopBarNa
  *
  * All props are passed through to `TopBarNavIconItemAnchor`.
  */
-export function TopBarSecondaryNavListItem(props: TopBarSecondaryNavListItemProps) {
+export function TopBarSecondaryNavListItem(props: TopBarSecondaryNavListItem.Props) {
   return (
     <ElTopBarSecondaryNavListItem>
       <TopBarNavIconItem {...props} />

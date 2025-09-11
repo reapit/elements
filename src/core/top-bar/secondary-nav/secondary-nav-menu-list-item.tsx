@@ -5,12 +5,14 @@ import { useId } from 'react'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
-interface TopBarSecondaryNavMenuListItemProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  'aria-label': string
-  children: ReactNode
-  icon: ReactNode
-  maxWidth?: `--size-${string}`
-  maxHeight?: `--size-${string}`
+export namespace TopBarSecondaryNavMenuListItem {
+  export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    'aria-label': string
+    children: ReactNode
+    icon: ReactNode
+    maxWidth?: `--size-${string}`
+    maxHeight?: `--size-${string}`
+  }
 }
 
 /**
@@ -23,7 +25,7 @@ export function TopBarSecondaryNavMenuListItem({
   icon,
   id,
   ...rest
-}: TopBarSecondaryNavMenuListItemProps) {
+}: TopBarSecondaryNavMenuListItem.Props) {
   const triggerId = id ?? useId()
   const menuId = useId()
 

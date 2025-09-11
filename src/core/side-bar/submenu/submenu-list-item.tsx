@@ -3,7 +3,14 @@ import { SideBarSubmenuItem as SideBarSubmenuItem } from '../submenu-item'
 
 import type { ComponentProps } from 'react'
 
-interface SideBarSubmenuListItemProps extends ComponentProps<typeof SideBarSubmenuItem> {}
+export namespace SideBarSubmenuListItem {
+  export interface Props extends ComponentProps<typeof SideBarSubmenuItem> {}
+}
+
+/**
+ * @deprecated Use `SideBarSubmenuListItem.Props` instead
+ */
+export type SideBarSubmenuListItemProps = SideBarSubmenuListItem.Props
 
 /**
  * A thin wrapper around `SideBarSubmenuItem` that ensures it is contained within a list item (`<li>`) for
@@ -11,7 +18,7 @@ interface SideBarSubmenuListItemProps extends ComponentProps<typeof SideBarSubme
  *
  * All props are passed through to `SideBarSubmenuItem`.
  */
-export function SideBarSubmenuListItem({ children, ...props }: SideBarSubmenuListItemProps) {
+export function SideBarSubmenuListItem({ children, ...props }: SideBarSubmenuListItem.Props) {
   return (
     <ElSideBarSubmenuListItem>
       <SideBarSubmenuItem {...props}>{children}</SideBarSubmenuItem>

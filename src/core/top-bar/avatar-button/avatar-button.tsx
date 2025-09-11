@@ -4,12 +4,17 @@ import { elTopBarAvatarButton } from './styles'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
-export interface AvatarButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  /** The accessible name of the button. */
-  'aria-label'?: string
-  /** The avatar's text. Typically the initials of the current user. */
-  children: ReactNode
+export namespace TopBarAvatarButton {
+  export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    /** The accessible name of the button. */
+    'aria-label'?: string
+    /** The avatar's text. Typically the initials of the current user. */
+    children: ReactNode
+  }
 }
+
+/** @deprecated Use TopBarAvatarButton.Props instead */
+export type AvatarButtonProps = TopBarAvatarButton.Props
 
 /**
  * A simple avatar button that should open a menu with items that relate to the current user. These menu items will
@@ -23,7 +28,7 @@ export function TopBarAvatarButton({
   children,
   className,
   ...rest
-}: AvatarButtonProps) {
+}: TopBarAvatarButton.Props) {
   return (
     <button {...rest} aria-label={ariaLabel} className={cx(elTopBarAvatarButton, className)}>
       <Avatar size="small" shape="circle" colour="purple">

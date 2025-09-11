@@ -17,35 +17,37 @@ import { TableToolbar } from './toolbar'
 
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
 
-interface CommonTablePros {
-  /**
-   * Defines the number of columns and their explicit sizing. Columns are defined using the
-   * [grid-template-columns)(https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
-   * syntax.
-   */
-  columns: string
-  /**
-   * Defines how column content is positioned along the inline axis. By default, content is packed
-   * against the starting edge of the column.
-   */
-  justifyItems?: 'start' | 'center' | 'end'
-}
+export namespace Table {
+  interface CommonProps {
+    /**
+     * Defines the number of columns and their explicit sizing. Columns are defined using the
+     * [grid-template-columns)(https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
+     * syntax.
+     */
+    columns: string
+    /**
+     * Defines how column content is positioned along the inline axis. By default, content is packed
+     * against the starting edge of the column.
+     */
+    justifyItems?: 'start' | 'center' | 'end'
+  }
 
-// NOTE: We do not use TableHTMLAttributes because the table-specific attributes it provides are
-// deprecated (see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table#attributes).
-interface TableAsTableProps extends CommonTablePros, HTMLAttributes<HTMLTableElement> {
-  as?: 'table'
-  /** The table's content. */
-  children: ReactNode
-}
+  // NOTE: We do not use TableHTMLAttributes because the table-specific attributes it provides are
+  // deprecated (see https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/table#attributes).
+  interface AsTableProps extends CommonProps, HTMLAttributes<HTMLTableElement> {
+    as?: 'table'
+    /** The table's content. */
+    children: ReactNode
+  }
 
-interface TableAsDivProps extends CommonTablePros, HTMLAttributes<HTMLDivElement> {
-  as: 'div'
-  /** The table's content. */
-  children: ReactNode
-}
+  interface AsDivProps extends CommonProps, HTMLAttributes<HTMLDivElement> {
+    as: 'div'
+    /** The table's content. */
+    children: ReactNode
+  }
 
-type TableProps = TableAsTableProps | TableAsDivProps
+  export type Props = AsTableProps | AsDivProps
+}
 
 /**
  * A classic table. Renders its children in a `<table>` or `<div>` element based on the specified columns.
@@ -76,7 +78,7 @@ export function Table({
   justifyItems = 'start',
   style,
   ...rest
-}: TableProps) {
+}: Table.Props) {
   return (
     <Element
       {...rest}
@@ -106,3 +108,6 @@ Table.SortButton = TableCellSortButton
 Table.Checkbox = TableCellCheckbox
 
 Table.Toolbar = TableToolbar
+
+// Backward compatibility
+export type TableProps = Table.Props

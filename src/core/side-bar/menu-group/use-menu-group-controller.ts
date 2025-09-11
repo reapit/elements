@@ -2,13 +2,13 @@ import { useLayoutEffect, useRef } from 'react'
 import { shouldBeOpen } from './should-be-open'
 
 import type { RefObject } from 'react'
-import type { SideBarState } from '../use-side-bar'
+import type { useSideBar } from '../use-side-bar'
 
 /**
  * Controls the open state of a `SideBar.MenuGroup` when the `SideBar` is expanded or collapsed or when a descendant
  * comes to represent, or stops representing, the current page.
  */
-export function useSideBarMenuGroupController(sideBarState: SideBarState): RefObject<HTMLDetailsElement> {
+export function useSideBarMenuGroupController(sideBarState: useSideBar.State): RefObject<HTMLDetailsElement> {
   const ref = useRef<HTMLDetailsElement>(null)
 
   useLayoutEffect(
