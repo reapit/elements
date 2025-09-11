@@ -54,6 +54,11 @@
       "import": "./dist/js/icons/*.js",
       "require": "./dist/js/icons/*.cjs"
     },
+    "./lab/*": {
+      "types": "./dist/types/lab/*/index.d.ts",
+      "import": "./dist/js/lab/*/index.js",
+      "require": "./dist/js/lab/*/index.cjs"
+    },
     "./utils/*": {
       "types": "./dist/types/utils/*/index.d.ts",
       "import": "./dist/js/utils/*/index.js",
