@@ -4,34 +4,36 @@ import { useCallback } from 'react'
 
 import type { ButtonHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
-type ElementAttributes = ButtonHTMLAttributes<HTMLButtonElement>
+export namespace Chip {
+  type ElementAttributes = ButtonHTMLAttributes<HTMLButtonElement>
 
-// We omit a few attributes from the base ElChip component (itself based on a <button>):
-// - `disabled`: we use `isDisabled` instead (which maps to `aria-disabled`).
-// - `type`: chips should never be used as form submit or reset buttons.
-type ElementAttributesToOmit = Extract<keyof ElementAttributes, 'disabled' | 'type'>
+  // We omit a few attributes from the base ElChip component (itself based on a <button>):
+  // - `disabled`: we use `isDisabled` instead (which maps to `aria-disabled`).
+  // - `type`: chips should never be used as form submit or reset buttons.
+  type ElementAttributesToOmit = Extract<keyof ElementAttributes, 'disabled' | 'type'>
 
-interface ChipProps extends Omit<ElementAttributes, ElementAttributesToOmit> {
-  /**
-   * Whether the chip is disabled. This can be used to make the chip appear disabled to users, but still be
-   * focusable. ARIA disabled chips, whether they are button or anchor DOM elements, will ignore click events.
-   * Using `aria-disabled` is preferred when the chip should still be focusable while it's disabled; for example,
-   * to allow a tooltip to be displayed that explains why the chip is disabled.
-   */
-  'aria-disabled'?: boolean | 'true' | 'false'
-  /** The label of the chip */
-  children: ReactNode
-  /**
-   * Whether the button is disabled or not. Unlike `aria-disabled`, chips disabled with this prop will not be
-   * focusable or interactive.
-   */
-  disabled?: boolean
-  /** The maximum width of the chip. If not provided, the chip will be as wide as its content. */
-  maxWidth?: `--size-${string}`
-  /** Whether the label of the chip should be truncated if it is too long */
-  overflow?: 'truncate'
-  /** The variant of the chip */
-  variant: 'filter' | 'selection'
+  export interface Props extends Omit<ElementAttributes, ElementAttributesToOmit> {
+    /**
+     * Whether the chip is disabled. This can be used to make the chip appear disabled to users, but still be
+     * focusable. ARIA disabled chips, whether they are button or anchor DOM elements, will ignore click events.
+     * Using `aria-disabled` is preferred when the chip should still be focusable while it's disabled; for example,
+     * to allow a tooltip to be displayed that explains why the chip is disabled.
+     */
+    'aria-disabled'?: boolean | 'true' | 'false'
+    /** The label of the chip */
+    children: ReactNode
+    /**
+     * Whether the button is disabled or not. Unlike `aria-disabled`, chips disabled with this prop will not be
+     * focusable or interactive.
+     */
+    disabled?: boolean
+    /** The maximum width of the chip. If not provided, the chip will be as wide as its content. */
+    maxWidth?: `--size-${string}`
+    /** Whether the label of the chip should be truncated if it is too long */
+    overflow?: 'truncate'
+    /** The variant of the chip */
+    variant: 'filter' | 'selection'
+  }
 }
 
 /**
@@ -45,7 +47,7 @@ export function Chip({
   overflow,
   variant,
   ...rest
-}: ChipProps) {
+}: Chip.Props) {
   const handleClick = useCallback<MouseEventHandler<HTMLButtonElement>>(
     (event) => {
       const element = event.currentTarget

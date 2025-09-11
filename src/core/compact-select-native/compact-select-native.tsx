@@ -9,24 +9,26 @@ import type { ReactNode, SelectHTMLAttributes } from 'react'
 // - `multiple` because it is incompatible with our compact select design.
 type AttributesToOmit = 'size' | 'multiple'
 
-export interface CompactSelectNativeProps extends Omit<SelectHTMLAttributes<HTMLSelectElement>, AttributesToOmit> {
-  /** The accessible name of the select */
-  'aria-label': string
-  /**
-   * Specifies what, if any, permission the user agent has to provide automated assistance in filling
-   * out form field values, as well as guidance to the browser as to the type of information expected
-   * in the field. See [autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete)
-   * docs on MDN.
-   *
-   * Default's to `off` to avoid PII being used in forms.
-   */
-  autoComplete?: 'off' | 'on' | (string & {})
-  /** The options for the select. Must be `<option>` or `<optgroup>` elements. */
-  children: ReactNode
-  /** The maximum width of the select */
-  maxWidth?: string
-  /** The size of the select */
-  size: 'small' | 'medium' | 'large'
+export namespace CompactSelectNative {
+  export interface Props extends Omit<SelectHTMLAttributes<HTMLSelectElement>, AttributesToOmit> {
+    /** The accessible name of the select */
+    'aria-label': string
+    /**
+     * Specifies what, if any, permission the user agent has to provide automated assistance in filling
+     * out form field values, as well as guidance to the browser as to the type of information expected
+     * in the field. See [autocomplete](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Attributes/autocomplete)
+     * docs on MDN.
+     *
+     * Default's to `off` to avoid PII being used in forms.
+     */
+    autoComplete?: 'off' | 'on' | (string & {})
+    /** The options for the select. Must be `<option>` or `<optgroup>` elements. */
+    children: ReactNode
+    /** The maximum width of the select */
+    maxWidth?: string
+    /** The size of the select */
+    size: 'small' | 'medium' | 'large'
+  }
 }
 
 /**
@@ -36,7 +38,7 @@ export interface CompactSelectNativeProps extends Omit<SelectHTMLAttributes<HTML
  * size itself to the size of its content, up to the maximum inline size of its container, rather than
  * the width of the longest option. Importantly, it only supports single selection.
  */
-export const CompactSelectNative = forwardRef<HTMLSelectElement, CompactSelectNativeProps>(
+export const CompactSelectNative = forwardRef<HTMLSelectElement, CompactSelectNative.Props>(
   ({ autoComplete = 'off', children, maxWidth, size, ...rest }, ref) => {
     return (
       // NOTE: We have to wrap the select in a container so our chevron icon can be positioned absolutely
@@ -60,3 +62,6 @@ export const CompactSelectNative = forwardRef<HTMLSelectElement, CompactSelectNa
     )
   },
 )
+
+/** @deprecated Use CompactSelectNative.Props instead */
+export type CompactSelectNativeProps = CompactSelectNative.Props

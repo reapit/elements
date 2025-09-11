@@ -9,17 +9,22 @@ import {
   ElAvatarRectResidentialSmallPlaceholder,
 } from './styles'
 
-export interface AvatarRectangle extends HTMLAttributes<HTMLDivElement> {
-  variant: 'residential' | 'commercial'
-  size: 'medium' | 'small'
-  src?: string
-  alt?: string
+export namespace AvatarRectangle {
+  export interface Props extends HTMLAttributes<HTMLDivElement> {
+    variant: 'residential' | 'commercial'
+    size: 'medium' | 'small'
+    src?: string
+    alt?: string
+  }
 }
+
+/** @deprecated Use AvatarRectangle.Props instead */
+export type AvatarRectangle = AvatarRectangle.Props
 
 /**
  * A versatile component designed to render property image.
  */
-export const AvatarRectangle: FC<AvatarRectangle> = ({
+export const AvatarRectangle: FC<AvatarRectangle.Props> = ({
   size = 'medium',
   variant = 'residential',
   src,

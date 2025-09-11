@@ -1,14 +1,16 @@
 import { ButtonBase } from './button-base'
 
 import type { ButtonHTMLAttributes } from 'react'
-import type { CommonButtonBaseProps } from './button-base'
+import type { ButtonBase as ButtonBaseNamespace } from './button-base'
 
-export interface ButtonProps extends CommonButtonBaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
-  /**
-   * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will not be
-   * focusable or interactive.
-   */
-  disabled?: boolean
+export namespace Button {
+  export interface Props extends ButtonBaseNamespace.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
+    /**
+     * Whether the button is disabled or not. Unlike `aria-disabled`, buttons disabled with this prop will not be
+     * focusable or interactive.
+     */
+    disabled?: boolean
+  }
 }
 
 /**
@@ -18,6 +20,6 @@ export interface ButtonProps extends CommonButtonBaseProps, ButtonHTMLAttributes
  * Use `Button` when the action needs to occur on click. Use `AnchorButton` when you need button-like styling but want
  * to navigate to a URL.
  */
-export function Button(props: ButtonProps) {
+export function Button(props: Button.Props) {
   return <ButtonBase as="button" {...props} />
 }

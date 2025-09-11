@@ -5,47 +5,49 @@ import { useCallback } from 'react'
 
 import type { AnchorHTMLAttributes, ButtonHTMLAttributes, HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
-export interface CommonButtonBaseProps {
-  /**
-   * Whether the button is disabled. This can be used to make the button appear disabled to users, but still be
-   * focusable. ARIA disabled buttons, whether they are button or anchor DOM elements, will ignore click events.
-   * Using `aria-disabled` is preferred when the button should still be focusable while it's disabled; for example,
-   * to allow a tooltip to be displayed that explains why the button is disabled.
-   */
-  'aria-disabled'?: boolean | 'true' | 'false'
-  /** The button's label */
-  children?: ReactNode
-  /** Remove default padding. Only applies to tertiary buttons. */
-  hasNoPadding?: boolean
-  /** Icon to display on the left side */
-  iconLeft?: ReactNode
-  /** Icon to display on the right side */
-  iconRight?: ReactNode
-  /**
-   * Whether the button is in a busy state. A busy button will be `aria-disabled`, so will be focusable. However,
-   * click events will be ignored while it is busy.
-   */
-  isBusy?: boolean
-  /** Whether the button represents a destructive action */
-  isDestructive?: boolean
-  /** The size of the button */
-  size: 'small' | 'medium' | 'large'
-  /** Whether to use link-style appearance. Only applies to tertiary buttons. */
-  useLinkStyle?: boolean
-  /** The visual variant of the button */
-  variant: 'primary' | 'secondary' | 'tertiary'
-}
+export namespace ButtonBase {
+  export interface CommonProps {
+    /**
+     * Whether the button is disabled. This can be used to make the button appear disabled to users, but still be
+     * focusable. ARIA disabled buttons, whether they are button or anchor DOM elements, will ignore click events.
+     * Using `aria-disabled` is preferred when the button should still be focusable while it's disabled; for example,
+     * to allow a tooltip to be displayed that explains why the button is disabled.
+     */
+    'aria-disabled'?: boolean | 'true' | 'false'
+    /** The button's label */
+    children?: ReactNode
+    /** Remove default padding. Only applies to tertiary buttons. */
+    hasNoPadding?: boolean
+    /** Icon to display on the left side */
+    iconLeft?: ReactNode
+    /** Icon to display on the right side */
+    iconRight?: ReactNode
+    /**
+     * Whether the button is in a busy state. A busy button will be `aria-disabled`, so will be focusable. However,
+     * click events will be ignored while it is busy.
+     */
+    isBusy?: boolean
+    /** Whether the button represents a destructive action */
+    isDestructive?: boolean
+    /** The size of the button */
+    size: 'small' | 'medium' | 'large'
+    /** Whether to use link-style appearance. Only applies to tertiary buttons. */
+    useLinkStyle?: boolean
+    /** The visual variant of the button */
+    variant: 'primary' | 'secondary' | 'tertiary'
+  }
 
-export interface ButtonBaseAsButtonProps extends CommonButtonBaseProps, ButtonHTMLAttributes<HTMLButtonElement> {
-  as: 'button'
-}
+  export interface AsButtonProps extends CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
+    as: 'button'
+  }
 
-export interface ButtonBaseAsAnchorProps extends CommonButtonBaseProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-  as: 'a'
-  href: string
-}
+  export interface AsAnchorProps extends CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+    as: 'a'
+    href: string
+  }
 
-export type ButtonBaseProps = ButtonBaseAsButtonProps | ButtonBaseAsAnchorProps
+  export type Props = AsButtonProps | AsAnchorProps
+}
 
 /**
  * A polymorphic button foundation that can render as either a button or anchor element.
@@ -67,7 +69,7 @@ export function ButtonBase({
   useLinkStyle,
   variant,
   ...rest
-}: ButtonBaseProps) {
+}: ButtonBase.Props) {
   // It's an icon-only button if there's no label text and only one icon
   const isIconOnly = !children && (iconLeft || iconRight) && !(iconLeft && iconRight)
 
