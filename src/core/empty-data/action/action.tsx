@@ -3,12 +3,19 @@ import { AnchorButton } from '#src/core/button'
 import type { AttributesToOmit } from './common'
 import type { ComponentProps, ReactNode } from 'react'
 
-interface EmptyDataActionProps extends Omit<ComponentProps<typeof AnchorButton>, AttributesToOmit> {
-  /** The action's label. */
-  children: ReactNode
-  /** The URL to navigate to; will typically be an entity creation page or drawer. */
-  href: string
+export namespace EmptyDataAction {
+  export interface Props extends Omit<ComponentProps<typeof AnchorButton>, AttributesToOmit> {
+    /** The action's label. */
+    children: ReactNode
+    /** The URL to navigate to; will typically be an entity creation page or drawer. */
+    href: string
+  }
 }
+
+/**
+ * @deprecated Use `EmptyDataAction.Props` instead.
+ */
+export type EmptyDataActionProps = EmptyDataAction.Props
 
 /**
  * A simple action component. Comes in two varieties: `EmptyData.Action`, which renders as an
@@ -17,6 +24,6 @@ interface EmptyDataActionProps extends Omit<ComponentProps<typeof AnchorButton>,
  * Use `EmptyData.Action` when you need button-like styling but want to navigate to a URL. Use
  * `EmptyData.ActionButton` when the action needs to occur on click.
  */
-export function EmptyDataAction(props: EmptyDataActionProps) {
+export function EmptyDataAction(props: EmptyDataAction.Props) {
   return <AnchorButton {...props} size="medium" variant="tertiary" useLinkStyle />
 }

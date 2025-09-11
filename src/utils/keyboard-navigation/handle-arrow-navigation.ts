@@ -1,12 +1,14 @@
 import type { KeyboardEvent } from 'react'
 
-interface HandleArrowNavigationOptions {
-  /**
-   * A string containing one or more selectors to match. This string must be a valid CSS
-   * selector string; if it isn't, a SyntaxError exception is thrown. Defaults to selecting
-   * all `<a>` and `<button>` elements.
-   */
-  selectors?: string
+export namespace handleArrowNavigation {
+  export interface Options {
+    /**
+     * A string containing one or more selectors to match. This string must be a valid CSS
+     * selector string; if it isn't, a SyntaxError exception is thrown. Defaults to selecting
+     * all `<a>` and `<button>` elements.
+     */
+    selectors?: string
+  }
 }
 
 /**
@@ -19,7 +21,7 @@ interface HandleArrowNavigationOptions {
 export function handleArrowNavigation(
   event: KeyboardEvent<HTMLElement>,
   // By default, we'll navigate all descendant anchors and buttons.
-  { selectors = 'a, button' }: HandleArrowNavigationOptions = {},
+  { selectors = 'a, button' }: handleArrowNavigation.Options = {},
 ) {
   const key = event.key
 

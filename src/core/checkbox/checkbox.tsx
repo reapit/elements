@@ -3,24 +3,26 @@ import { ElCheckboxIcon, ElCheckboxSelectedIcon, ElCheckboxIndeterminateIcon } f
 import { ElCheckbox, ElCheckboxInput, ElCheckboxLabelText, ElCheckboxSupplementaryInfo } from './styles'
 import mergeRefs from '#src/helpers/mergeRefs'
 
-/**
- * Interface for the Checkbox component props.
- *
- * Optional label text to display next to the checkbox.
- * Provides a user-friendly description of the checkbox's purpose.
- *
- * Optional supplementary information to display below the label.
- * Offers additional context or details related to the checkbox.
- *
- * Optional required to make input element required.
- *
- * Optional isIndeterminate to make input element as an indeterminate state.
- */
-export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
-  label?: string
-  supplementaryInfo?: string
-  required?: boolean
-  isIndeterminate?: boolean
+export namespace Checkbox {
+  /**
+   * Interface for the Checkbox component props.
+   *
+   * Optional label text to display next to the checkbox.
+   * Provides a user-friendly description of the checkbox's purpose.
+   *
+   * Optional supplementary information to display below the label.
+   * Offers additional context or details related to the checkbox.
+   *
+   * Optional required to make input element required.
+   *
+   * Optional isIndeterminate to make input element as an indeterminate state.
+   */
+  export interface Props extends InputHTMLAttributes<HTMLInputElement> {
+    label?: string
+    supplementaryInfo?: string
+    required?: boolean
+    isIndeterminate?: boolean
+  }
 }
 
 /**
@@ -28,7 +30,7 @@ export interface CheckboxProps extends InputHTMLAttributes<HTMLInputElement> {
  * This component combines the atomic checkbox components (ElCheckbox, ElCheckboxInput, etc.)
  * into a single, reusable checkbox component.
  */
-export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
+export const Checkbox = forwardRef<HTMLInputElement, Checkbox.Props>(
   ({ label, supplementaryInfo, required, isIndeterminate = false, className, ...rest }, ref) => {
     const inputRef = useRef<HTMLInputElement>(null)
     useEffect(() => {

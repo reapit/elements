@@ -3,13 +3,15 @@ import type { FC } from 'react'
 import { MobileNavItemExpandable, MobileNavItemSimple } from './mobile-nav-item.atoms'
 import type { MobileNavItemExpandableProps, MobileNavItemSimpleProps } from './mobile-nav-item.atoms'
 
-const isExpandableVariant = (props: MobileNavItemProps): props is MobileNavItemExpandableProps => {
+export namespace MobileNavItem {
+  export type Props = MobileNavItemSimpleProps | MobileNavItemExpandableProps
+}
+
+const isExpandableVariant = (props: MobileNavItem.Props): props is MobileNavItemExpandableProps => {
   return 'children' in props
 }
 
-export type MobileNavItemProps = MobileNavItemSimpleProps | MobileNavItemExpandableProps
-
-export const MobileNavItem: FC<MobileNavItemProps> = (props) => {
+export const MobileNavItem: FC<MobileNavItem.Props> = (props) => {
   if (isExpandableVariant(props)) {
     return <MobileNavItemExpandable {...props} />
   } else {

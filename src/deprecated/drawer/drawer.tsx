@@ -13,7 +13,7 @@ import { elIsActive } from '../../styles/deprecated-states'
 import { DeprecatedIcon } from '../icon'
 
 /** @deprecated */
-export interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
+export interface DeprecatedDrawerProps extends HTMLAttributes<HTMLDivElement> {
   isOpen: boolean
   onDrawerClose: () => void
   title?: string
@@ -24,52 +24,80 @@ export interface DrawerProps extends HTMLAttributes<HTMLDivElement> {
 }
 
 /** @deprecated */
-export interface DrawerBaseProps extends HTMLAttributes<HTMLElement> {}
+export interface DeprecatedDrawerBaseProps extends HTMLAttributes<HTMLElement> {}
 
 /** @deprecated */
-export const DeprecatedDrawerBg: FC<DrawerBaseProps> = ({ className, children, ...rest }: DrawerBaseProps) => (
+export const DeprecatedDrawerBg: FC<DeprecatedDrawerBaseProps> = ({
+  className,
+  children,
+  ...rest
+}: DeprecatedDrawerBaseProps) => (
   <ElDrawerBg className={cx(className)} {...rest}>
     {children}
   </ElDrawerBg>
 )
 
 /** @deprecated */
-export const DeprecatedDrawerContainer: FC<DrawerBaseProps> = ({ className, children, ...rest }: DrawerBaseProps) => (
+export const DeprecatedDrawerContainer: FC<DeprecatedDrawerBaseProps> = ({
+  className,
+  children,
+  ...rest
+}: DeprecatedDrawerBaseProps) => (
   <ElDrawer className={cx(className)} {...rest}>
     {children}
   </ElDrawer>
 )
 
 /** @deprecated */
-export const DeprecatedDrawerHeader: FC<DrawerBaseProps> = ({ className, children, ...rest }: DrawerBaseProps) => (
+export const DeprecatedDrawerHeader: FC<DeprecatedDrawerBaseProps> = ({
+  className,
+  children,
+  ...rest
+}: DeprecatedDrawerBaseProps) => (
   <ElDrawerHeader className={cx(className)} {...rest}>
     {children}
   </ElDrawerHeader>
 )
 
 /** @deprecated */
-export const DeprecatedDrawerTitle: FC<DrawerBaseProps> = ({ className, children, ...rest }: DrawerBaseProps) => (
+export const DeprecatedDrawerTitle: FC<DeprecatedDrawerBaseProps> = ({
+  className,
+  children,
+  ...rest
+}: DeprecatedDrawerBaseProps) => (
   <ElDrawerTitle className={cx(className)} {...rest}>
     {children}
   </ElDrawerTitle>
 )
 
 /** @deprecated */
-export const DeprecatedDrawerSubtitle: FC<DrawerBaseProps> = ({ className, children, ...rest }: DrawerBaseProps) => (
+export const DeprecatedDrawerSubtitle: FC<DeprecatedDrawerBaseProps> = ({
+  className,
+  children,
+  ...rest
+}: DeprecatedDrawerBaseProps) => (
   <ElDrawerSubtitle className={cx(className)} {...rest}>
     {children}
   </ElDrawerSubtitle>
 )
 
 /** @deprecated */
-export const DeprecatedDrawerBody: FC<DrawerBaseProps> = ({ className, children, ...rest }: DrawerBaseProps) => (
+export const DeprecatedDrawerBody: FC<DeprecatedDrawerBaseProps> = ({
+  className,
+  children,
+  ...rest
+}: DeprecatedDrawerBaseProps) => (
   <ElDrawerBody className={cx(className)} {...rest}>
     {children}
   </ElDrawerBody>
 )
 
 /** @deprecated */
-export const DeprecatedDrawerFooter: FC<DrawerBaseProps> = ({ className, children, ...rest }: DrawerBaseProps) => (
+export const DeprecatedDrawerFooter: FC<DeprecatedDrawerBaseProps> = ({
+  className,
+  children,
+  ...rest
+}: DeprecatedDrawerBaseProps) => (
   <ElDrawerFooter className={cx(className)} {...rest}>
     {children}
   </ElDrawerFooter>
@@ -83,7 +111,7 @@ export const handleDrawerFocus = (drawerRef: React.RefObject<HTMLDivElement>, is
 }
 
 /** @deprecated */
-export const DeprecatedDrawer: FC<DrawerProps> = ({
+export const DeprecatedDrawer: FC<DeprecatedDrawerProps> = ({
   isOpen,
   onDrawerClose,
   title,
