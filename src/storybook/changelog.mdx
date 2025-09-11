@@ -18,7 +18,9 @@ Beta versions should be relatively stable but subject to occssional breaking cha
 
 ### **5.0.0-beta.51 - ??/??/25**
 
-- TBC
+- **chore:** Implemented new component interface pattern that allows prop interfaces to be accessed directly from the component name, rather than requiring the use of `ComponentProps` or a separate import. That is, instead of using `import type { MyComponentProps } from ...` or `ComponentProps<typeof MyComponent>`, you can simply use `MyComponent.Props`. The existing component props are still available, but have been deprecated and will be removed in a future release.
+- **chore!:** Moved `MobileNavItem` from `@reapit/elements/core/mobile-nav-item` to `@reapit/elements/lab/mobile-nav-item`. It is no longer available via the root `@reapit/elements` entry point. All styled elements and class names related to the component have been renamed to use `ElExperimental` and `elExperimental` prefixes; e.g. `ElMobileNavItem` -> `ElExperimentalMobileNavItem`.
+- **chore!:** Renamed all class names involved in existing Lab components to use the `ElExperimental` and `elExperimental` prefixes.
 
 ### **5.0.0-beta.50 - 10/09/25**
 

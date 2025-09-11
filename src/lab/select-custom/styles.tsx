@@ -2,7 +2,7 @@ import { font } from '#src/core/text/index'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
-export const ElSelectCustom = styled.div`
+export const ElExperimentalSelectCustomContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -17,7 +17,7 @@ export const ElSelectCustom = styled.div`
     color: var(--comp-input-colour-text-info-error);
   }
 `
-export const elInputField = css`
+export const elExperimentalSelectCustomInputField = css`
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
@@ -33,7 +33,7 @@ export const elInputField = css`
   }
 `
 
-export const ElContent = styled.div`
+export const ElExperimentalSelectCustomContent = styled.div`
   display: flex;
   padding: var(--spacing-none);
   align-items: center;
@@ -42,7 +42,7 @@ export const ElContent = styled.div`
   overflow: hidden;
 `
 
-export const ElPlaceholder = styled.div`
+export const ElExperimentalSelectCustomPlaceholder = styled.div`
   display: flex;
   padding: var(--spacing-none);
   align-items: center;
@@ -50,7 +50,7 @@ export const ElPlaceholder = styled.div`
   flex: 1 0 0;
 `
 
-export const elPopover = css`
+export const elExperimentalSelectCustomPopover = css`
   padding: var(--spacing-2) var(--spacing-none);
   flex-direction: column;
   align-items: flex-start;
@@ -108,7 +108,7 @@ export const elPopover = css`
   }
 `
 
-export const ElOptionGroup = styled.div`
+export const ElExperimentalSelectCustomOptionGroup = styled.div`
   display: flex;
   padding: 0 var(--spacing-2);
   flex-direction: column;
@@ -131,7 +131,7 @@ export const ElOptionGroup = styled.div`
   }
 `
 
-export const elGroupTitle = css`
+export const elExperimentalSelectCustomGroupTitle = css`
   display: flex;
   padding: var(--spacing-2) var(--spacing-3);
   align-items: center;
@@ -142,7 +142,7 @@ export const elGroupTitle = css`
   }
 `
 
-export const ElOption = styled.li`
+export const ElExperimentalSelectCustomOption = styled.li`
   display: flex;
   padding: var(--spacing-2) var(--spacing-3);
   flex-direction: column;
@@ -189,21 +189,21 @@ export const ElOption = styled.li`
   }
 `
 
-export const ElLabelContainer = styled.div`
+export const ElExperimentalSelectCustomLabelContainer = styled.div`
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
   align-self: stretch;
 `
 
-export const ElLabelItem = styled.div`
+export const ElExperimentalSelectCustomLabelItem = styled.div`
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
   flex: 1 0 0;
 `
 
-export const ElAdditionalInfo1 = styled.div`
+export const ElExperimentalSelectCustomAdditionalInfo1 = styled.div`
   display: flex;
   height: var(--size-5);
   align-items: center;
@@ -212,7 +212,7 @@ export const ElAdditionalInfo1 = styled.div`
   ${font('xs', 'regular')}
 `
 
-export const ElAdditionalInfo2 = styled.div`
+export const ElExperimentalSelectCustomAdditionalInfo2 = styled.div`
   display: flex;
   height: var(--size-5);
   align-items: center;

@@ -1,7 +1,7 @@
 import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
-export const ElLegend = styled.span`
+export const ElExperimentalRadioGroupLegend = styled.span`
   display: flex;
   align-items: center;
   gap: var(--spacing-1);
@@ -9,7 +9,7 @@ export const ElLegend = styled.span`
   ${font('xs', 'regular')}
 `
 
-export const ElRadioGroup = styled.div`
+export const ElExperimentalRadioGroup = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -22,7 +22,7 @@ export const ElRadioGroup = styled.div`
   }
 `
 
-export const ElRadioContent = styled.div`
+export const ElExperimentalRadioGroupContent = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;

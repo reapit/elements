@@ -1,6 +1,6 @@
 import { FC, ReactNode, HTMLAttributes } from 'react'
 import { LabelText } from '#src/core/label-text'
-import { ElRadioGroup, ElRadioContent } from './styles'
+import { ElExperimentalRadioGroup, ElExperimentalRadioGroupContent } from './styles'
 
 export interface RadioGroupProps extends HTMLAttributes<HTMLDivElement> {
   orientation?: 'vertical' | 'horizontal'
@@ -18,16 +18,16 @@ export const RadioGroup: FC<RadioGroupProps> = ({
   children,
 }) => {
   return (
-    <ElRadioGroup data-error={errorMessage ? true : false}>
+    <ElExperimentalRadioGroup data-error={errorMessage ? true : false}>
       <LabelText size="medium" isRequired={isRequired}>
         {label}
       </LabelText>
-      <ElRadioContent role="radiogroup" aria-orientation={orientation}>
+      <ElExperimentalRadioGroupContent role="radiogroup" aria-orientation={orientation}>
         {children}
-      </ElRadioContent>
+      </ElExperimentalRadioGroupContent>
       <LabelText size="medium" data-style="error">
         {errorMessage}
       </LabelText>
-    </ElRadioGroup>
+    </ElExperimentalRadioGroup>
   )
 }

@@ -1,5 +1,5 @@
 import { useState, FC, ChangeEvent, InputHTMLAttributes } from 'react'
-import { ElSearchInput, ElInput } from './styles'
+import { ElExperimentalSearchInputContainer, ElExperimentalSearchInput } from './styles'
 import { SearchIcon } from '#src/icons/search'
 import { CloseIcon } from '#src/icons/close'
 import { Button } from '#src/core/button'
@@ -52,9 +52,9 @@ export const SearchInput: FC<SearchInputProps> = ({
   }
 
   return (
-    <ElSearchInput data-size={inputSize} aria-disabled={isDisabled}>
+    <ElExperimentalSearchInputContainer data-size={inputSize} aria-disabled={isDisabled}>
       {!value && <SearchIcon size="sm" color="primary" />}
-      <ElInput
+      <ElExperimentalSearchInput
         value={value}
         onChange={handleChange}
         placeholder={rest.placeholder || 'Search'}
@@ -66,6 +66,6 @@ export const SearchInput: FC<SearchInputProps> = ({
       {value && (
         <Button iconLeft={<CloseIcon color="primary" />} size="small" variant="tertiary" onClick={handleClear} />
       )}
-    </ElSearchInput>
+    </ElExperimentalSearchInputContainer>
   )
 }

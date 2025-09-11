@@ -3,7 +3,13 @@ import { SelectContext, SelectedItem } from '../select-custom'
 import { LabelText } from '#src/core/label-text'
 import { CheckIcon } from '#src/icons/check'
 import { Badge } from '#src/core/badge'
-import { ElOption, ElLabelContainer, ElLabelItem, ElAdditionalInfo1, ElAdditionalInfo2 } from '../styles'
+import {
+  ElExperimentalSelectCustomOption,
+  ElExperimentalSelectCustomLabelContainer,
+  ElExperimentalSelectCustomLabelItem,
+  ElExperimentalSelectCustomAdditionalInfo1,
+  ElExperimentalSelectCustomAdditionalInfo2,
+} from '../styles'
 
 export interface OptionProps {
   value: string
@@ -21,16 +27,20 @@ export const Option: FC<OptionProps> = ({ value, label, badge, additionalInfo1, 
   const handleClick = () => onSelect({ value, label } as SelectedItem)
 
   return (
-    <ElOption role="option" aria-selected={isSelected} tabIndex={-1} onClick={handleClick}>
-      <ElLabelContainer>
-        <ElLabelItem>
+    <ElExperimentalSelectCustomOption role="option" aria-selected={isSelected} tabIndex={-1} onClick={handleClick}>
+      <ElExperimentalSelectCustomLabelContainer>
+        <ElExperimentalSelectCustomLabelItem>
           <LabelText size="small">{label}</LabelText>
           {badge && <Badge colour="neutral">{badge}</Badge>}
-        </ElLabelItem>
+        </ElExperimentalSelectCustomLabelItem>
         {isSelected && <CheckIcon size="md" color="secondary" />}
-      </ElLabelContainer>
-      {additionalInfo1 && <ElAdditionalInfo1>{additionalInfo1}</ElAdditionalInfo1>}
-      {additionalInfo2 && <ElAdditionalInfo2>{additionalInfo2}</ElAdditionalInfo2>}
-    </ElOption>
+      </ElExperimentalSelectCustomLabelContainer>
+      {additionalInfo1 && (
+        <ElExperimentalSelectCustomAdditionalInfo1>{additionalInfo1}</ElExperimentalSelectCustomAdditionalInfo1>
+      )}
+      {additionalInfo2 && (
+        <ElExperimentalSelectCustomAdditionalInfo2>{additionalInfo2}</ElExperimentalSelectCustomAdditionalInfo2>
+      )}
+    </ElExperimentalSelectCustomOption>
   )
 }

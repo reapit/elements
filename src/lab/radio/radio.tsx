@@ -3,12 +3,12 @@ import mergeRefs from '#src/helpers/mergeRefs'
 import { RadioIcon } from '#src/icons/radio'
 import { RadioSelectedIcon } from '#src/icons/radio-selected'
 import {
-  ElRadio,
-  ElRadioInput,
-  ElRadioLabelText,
-  ElRadioSupplementaryInfo,
-  elRadioSvgIcon,
-  elRadioSelectedSvgIcon,
+  ElExperimentalRadio,
+  ElExperimentalRadioInput,
+  ElExperimentalRadioLabelText,
+  ElExperimentalRadioSupplementaryInfo,
+  elExperimentalRadioSvgIcon,
+  elExperimentalRadioSelectedSvgIcon,
 } from './styles'
 
 /**
@@ -35,22 +35,28 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
     const inputRef = useRef<HTMLInputElement>(null)
 
     return (
-      <ElRadio className={className} data-error={hasError}>
+      <ElExperimentalRadio className={className} data-error={hasError}>
         {/* The actual radio input element. Forwards the ref and other input props. */}
-        <ElRadioInput type="radio" ref={mergeRefs(inputRef, ref)} required={isRequired} {...rest} aria-hidden />
+        <ElExperimentalRadioInput
+          type="radio"
+          ref={mergeRefs(inputRef, ref)}
+          required={isRequired}
+          {...rest}
+          aria-hidden
+        />
         {/* Icons for different radio states (unchecked, checked). */}
         {/* aria-hidden is used to prevent screen readers from announcing these decorative icons. */}
-        <RadioIcon aria-hidden className={elRadioSvgIcon} />
-        <RadioSelectedIcon aria-hidden className={elRadioSelectedSvgIcon} />
+        <RadioIcon aria-hidden className={elExperimentalRadioSvgIcon} />
+        <RadioSelectedIcon aria-hidden className={elExperimentalRadioSelectedSvgIcon} />
         {/* Label text for the radio. Styled using data attributes for variant and size. */}
-        <ElRadioLabelText variant="strong" size="medium" isRequired={isRequired}>
+        <ElExperimentalRadioLabelText variant="strong" size="medium" isRequired={isRequired}>
           {label}
-        </ElRadioLabelText>
+        </ElExperimentalRadioLabelText>
         {/* Supplementary information displayed below the label. Styled using data attributes. */}
-        <ElRadioSupplementaryInfo variant="soft" size="small">
+        <ElExperimentalRadioSupplementaryInfo variant="soft" size="small">
           {supplementaryInfo}
-        </ElRadioSupplementaryInfo>
-      </ElRadio>
+        </ElExperimentalRadioSupplementaryInfo>
+      </ElExperimentalRadio>
     )
   },
 )
