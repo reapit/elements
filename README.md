@@ -21,3 +21,8 @@ This project was imported from the Reapit Foundations Monorepo at version 4.0.2.
 - If you are interested in our future roadmap, you can view [here](https://github.com/orgs/reapit/projects/16/views/2).
 
 Please read our [disclaimer](./DISCLAIMER.md) before proceeding.
+
+## For Contributors & AI Agents
+
+- **[AGENTS.md](./AGENTS.md)** - Essential guide for AI agents working on this project
+- **[guidelines/interface-pattern.md](./guidelines/interface-pattern.md)** - TypeScript interface pattern requirements and code review checklist

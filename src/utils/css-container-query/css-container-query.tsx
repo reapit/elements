@@ -1,13 +1,22 @@
-import { ReactNode, useRef, type FC } from 'react'
+import { useRef } from 'react'
+
+import type { FC, ReactNode } from 'react'
 
 let baseId = 1
 
-interface CSSContainerQueryProps {
-  children: ReactNode
-  condition: string
+export namespace CSSContainerQuery {
+  export interface Props {
+    children: ReactNode
+    condition: string
+  }
 }
 
-export const CSSContainerQuery: FC<CSSContainerQueryProps> = ({ children, condition }) => {
+/**
+ * @deprecated Use `CSSContainerQuery.Props` instead.
+ */
+export type CSSContainerQueryProps = CSSContainerQuery.Props
+
+export const CSSContainerQuery: FC<CSSContainerQuery.Props> = ({ children, condition }) => {
   /**
    * We need to create a unique class name to allow these styles to apply to the div being rendered here.
    * This is only necessary because Firefox does not yet support the @scope CSS at-rule

@@ -9,64 +9,71 @@ import { useLayoutEffect, useRef } from 'react'
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
 import type { PopoverPlacement } from './map-placement-to-css'
 
-export interface PopoverProps extends HTMLAttributes<HTMLDivElement> {
-  /** The ID of the element this popover to which this popover should be anchored. */
-  anchorId: string
-  /**
-   * The border radius of the popover. Can be any valid CSS length, though a border radius
-   * CSS variable is recommended. By default, the radius will be zero.
-   */
-  borderRadius?: string
-  /** The content of the popover. */
-  children: ReactNode
-  /** The visual elevation of the popover. Determines how much shadow the popover casts. */
-  elevation?: 'none' | 'xl'
-  /**
-   * The gap between the popover and the anchor. Can be any valid CSS length, though `--spacing-*`
-   * CSS variables are recommended. By default, the gap will be zero.
-   */
-  gap?: string
-  /**
-   * The ID of this popover. This is mandatory because the popover's trigger will need to reference
-   * this in it's `popovertarget` attribute.
-   */
-  id: string
-  /**
-   * The maximum height of the popover. Can be any valid CSS length, though `--size-*`
-   * CSS variables are recommended. By default, the popover will be as tall as its content requires.
-   */
-  maxHeight?: string
-  /**
-   * The maximum width of the popover. Can be any valid CSS length, though `--size-*`
-   * CSS variables are recommended. By default, the popover will be as wide as its content requires.
-   */
-  maxWidth?: string
-  /**
-   * The "kind" of popover this should be. See
-   * [popover](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover)
-   * for more details.
-   *
-   * For browsers that do not support `hint`, they will fallback to `manual`.
-   *
-   * A special value of `null` allows the popover to not be a popover. This can be useful when you need
-   * to display a popover element permanently in the UI (such as in documentation or example code). Just
-   * note that the absence of the `popover` attribute means the element will not be displayed within the
-   * top-layer, so may be susceptible to z-index issues.
-   */
-  popover?: 'auto' | 'hint' | 'manual' | null
-  /** Where the popover should be placed relative to its anchor. */
-  placement: PopoverPlacement
-  /**
-   * Fallback positions for the popover that should be tried when it would otherwise overflow the viewport.
-   * See [position-try-fallbacks](https://developer.mozilla.org/en-US/docs/Web/CSS/position-try-fallbacks)
-   * for more details. Note that the [polyfill](https://anchor-positioning.oddbird.net/) we rely on for
-   * anchor positioning in some browsers will not play nicely with all available options.
-   *
-   * Typically, "flip-block", "flip-inline" or both will be sufficient for most use cases.
-   * Defaults to "none".
-   */
-  positionTryFallbacks?: string
+export namespace Popover {
+  export interface Props extends HTMLAttributes<HTMLDivElement> {
+    /** The ID of the element this popover to which this popover should be anchored. */
+    anchorId: string
+    /**
+     * The border radius of the popover. Can be any valid CSS length, though a border radius
+     * CSS variable is recommended. By default, the radius will be zero.
+     */
+    borderRadius?: string
+    /** The content of the popover. */
+    children: ReactNode
+    /** The visual elevation of the popover. Determines how much shadow the popover casts. */
+    elevation?: 'none' | 'xl'
+    /**
+     * The gap between the popover and the anchor. Can be any valid CSS length, though `--spacing-*`
+     * CSS variables are recommended. By default, the gap will be zero.
+     */
+    gap?: string
+    /**
+     * The ID of this popover. This is mandatory because the popover's trigger will need to reference
+     * this in it's `popovertarget` attribute.
+     */
+    id: string
+    /**
+     * The maximum height of the popover. Can be any valid CSS length, though `--size-*`
+     * CSS variables are recommended. By default, the popover will be as tall as its content requires.
+     */
+    maxHeight?: string
+    /**
+     * The maximum width of the popover. Can be any valid CSS length, though `--size-*`
+     * CSS variables are recommended. By default, the popover will be as wide as its content requires.
+     */
+    maxWidth?: string
+    /**
+     * The "kind" of popover this should be. See
+     * [popover](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover)
+     * for more details.
+     *
+     * For browsers that do not support `hint`, they will fallback to `manual`.
+     *
+     * A special value of `null` allows the popover to not be a popover. This can be useful when you need
+     * to display a popover element permanently in the UI (such as in documentation or example code). Just
+     * note that the absence of the `popover` attribute means the element will not be displayed within the
+     * top-layer, so may be susceptible to z-index issues.
+     */
+    popover?: 'auto' | 'hint' | 'manual' | null
+    /** Where the popover should be placed relative to its anchor. */
+    placement: PopoverPlacement
+    /**
+     * Fallback positions for the popover that should be tried when it would otherwise overflow the viewport.
+     * See [position-try-fallbacks](https://developer.mozilla.org/en-US/docs/Web/CSS/position-try-fallbacks)
+     * for more details. Note that the [polyfill](https://anchor-positioning.oddbird.net/) we rely on for
+     * anchor positioning in some browsers will not play nicely with all available options.
+     *
+     * Typically, "flip-block", "flip-inline" or both will be sufficient for most use cases.
+     * Defaults to "none".
+     */
+    positionTryFallbacks?: string
+  }
 }
+
+/**
+ * @deprecated Use `Popover.Props` instead.
+ */
+export type PopoverProps = Popover.Props
 
 /**
  * A simple popover that can be positioned relative to an anchor. It is designed to work with the
@@ -100,7 +107,7 @@ export function Popover({
   popover = 'auto',
   style,
   ...rest
-}: PopoverProps) {
+}: Popover.Props) {
   const styleRef = useRef<HTMLStyleElement>(null)
 
   // NOTE: The polyfill we're using supports inline styles on elements, however, because React

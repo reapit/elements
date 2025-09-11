@@ -1,15 +1,3 @@
-export interface GetPopoverTriggerPropsInput {
-  id: string
-  popoverTarget: string
-  popoverTargetAction: 'hide' | 'show' | 'toggle'
-}
-
-export interface GetPopoverTriggerPropsOutput {
-  id: string
-  popovertarget: string
-  popovertargetaction: 'hide' | 'show' | 'toggle'
-}
-
 /**
  * React 18 does not support the HTML attributes involved in the
  * [Popover API](https://developer.mozilla.org/en-US/docs/Web/API/Popover_API). This helper
@@ -28,10 +16,34 @@ export function getPopoverTriggerProps({
   id,
   popoverTarget,
   popoverTargetAction,
-}: GetPopoverTriggerPropsInput): GetPopoverTriggerPropsOutput {
+}: getPopoverTriggerProps.Input): getPopoverTriggerProps.Output {
   return {
     id,
     popovertarget: popoverTarget,
     popovertargetaction: popoverTargetAction,
   }
 }
+
+export namespace getPopoverTriggerProps {
+  export interface Input {
+    id: string
+    popoverTarget: string
+    popoverTargetAction: 'hide' | 'show' | 'toggle'
+  }
+
+  export interface Output {
+    id: string
+    popovertarget: string
+    popovertargetaction: 'hide' | 'show' | 'toggle'
+  }
+}
+
+/**
+ * @deprecated Use `getPopoverTriggerProps.Input` instead.
+ */
+export type GetPopoverTriggerPropsInput = getPopoverTriggerProps.Input
+
+/**
+ * @deprecated Use `getPopoverTriggerProps.Output` instead.
+ */
+export type GetPopoverTriggerPropsOutput = getPopoverTriggerProps.Output
