@@ -16,8 +16,11 @@ import { DrawerBody } from './body'
 import { DrawerHeader } from './header'
 import { DrawerFooter } from './footer'
 
-// Backward compatibility exports
+/** @deprecated use Drawer.Props instead */
 export type DrawerProps = Drawer.Props
+/** @deprecated use DrawerBody.Props instead */
 export type DrawerBodyProps = DrawerBody.Props
+/** @deprecated use DrawerHeader.Props instead */
 export type DrawerHeaderProps = DrawerHeader.Props
+/** @deprecated use DrawerFooter.Props instead */
 export type DrawerFooterProps = DrawerFooter.Props

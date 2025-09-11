@@ -4,61 +4,63 @@ import { elText } from './styles'
 import type { FontStyle, FontSize, FontWeight, TextColour } from './types'
 import type { HTMLAttributes, QuoteHTMLAttributes, TimeHTMLAttributes } from 'react'
 
-interface BaseTextProps {
-  colour?: TextColour
-  /**
-   * Defines the font style the text should use. Defaults to `inherit` when not provided.
-   * When both `font` and `size`/`weight` are provided, `font` takes precedence.
-   */
-  font?: FontStyle
-  overflow?: 'truncate'
-  /** @deprecated Use `font` prop instead */
-  size?: FontSize
-  /** @deprecated Use `font` prop instead */
-  weight?: FontWeight
-}
+export namespace Text {
+  interface BaseProps {
+    colour?: TextColour
+    /**
+     * Defines the font style the text should use. Defaults to `inherit` when not provided.
+     * When both `font` and `size`/`weight` are provided, `font` takes precedence.
+     */
+    font?: FontStyle
+    overflow?: 'truncate'
+    /** @deprecated Use `font` prop instead */
+    size?: FontSize
+    /** @deprecated Use `font` prop instead */
+    weight?: FontWeight
+  }
 
-interface TextAsAbbrProps extends BaseTextProps, HTMLAttributes<HTMLElement> {
-  as: 'abbr'
-}
+  interface AsAbbrProps extends BaseProps, HTMLAttributes<HTMLElement> {
+    as: 'abbr'
+  }
 
-interface TextAsEmProps extends BaseTextProps, HTMLAttributes<HTMLElement> {
-  as: 'em'
-}
+  interface AsEmProps extends BaseProps, HTMLAttributes<HTMLElement> {
+    as: 'em'
+  }
 
-interface TextAsMarkProps extends BaseTextProps, HTMLAttributes<HTMLElement> {
-  as: 'mark'
-}
+  interface AsMarkProps extends BaseProps, HTMLAttributes<HTMLElement> {
+    as: 'mark'
+  }
 
-interface TextAsQuoteProps extends BaseTextProps, QuoteHTMLAttributes<HTMLQuoteElement> {
-  as: 'q'
-}
+  interface AsQuoteProps extends BaseProps, QuoteHTMLAttributes<HTMLQuoteElement> {
+    as: 'q'
+  }
 
-interface TextAsStrikethroughProps extends BaseTextProps, HTMLAttributes<HTMLElement> {
-  as: 's'
-}
+  interface AsStrikethroughProps extends BaseProps, HTMLAttributes<HTMLElement> {
+    as: 's'
+  }
 
-interface TextAsSpanProps extends BaseTextProps, HTMLAttributes<HTMLSpanElement> {
-  as?: 'span'
-}
+  interface AsSpanProps extends BaseProps, HTMLAttributes<HTMLSpanElement> {
+    as?: 'span'
+  }
 
-interface TextAsStrongProps extends BaseTextProps, HTMLAttributes<HTMLElement> {
-  as: 'strong'
-}
+  interface AsStrongProps extends BaseProps, HTMLAttributes<HTMLElement> {
+    as: 'strong'
+  }
 
-interface TextAsTimeProps extends BaseTextProps, TimeHTMLAttributes<HTMLTimeElement> {
-  as: 'time'
-}
+  interface AsTimeProps extends BaseProps, TimeHTMLAttributes<HTMLTimeElement> {
+    as: 'time'
+  }
 
-type TextProps =
-  | TextAsAbbrProps
-  | TextAsEmProps
-  | TextAsMarkProps
-  | TextAsQuoteProps
-  | TextAsStrikethroughProps
-  | TextAsSpanProps
-  | TextAsStrongProps
-  | TextAsTimeProps
+  export type Props =
+    | AsAbbrProps
+    | AsEmProps
+    | AsMarkProps
+    | AsQuoteProps
+    | AsStrikethroughProps
+    | AsSpanProps
+    | AsStrongProps
+    | AsTimeProps
+}
 
 /**
  * A simple component that can be used to display text in a particular size, weight and colour. If
@@ -82,7 +84,7 @@ export function Text({
   size: deprecatedSizeProp,
   weight: deprecatedWeightProp,
   ...rest
-}: TextProps) {
+}: Text.Props) {
   // We use the deprecated props if neither font, size nor weight are specified, OR if no font is specified
   // but at least one of size or weight are.
   const useDeprecatedProps =

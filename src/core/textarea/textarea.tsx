@@ -1,16 +1,15 @@
 import { ContentFieldSizingTextArea, FixedFieldSizingTextArea, ManualFieldSizingTextArea } from './textarea.atoms'
 import { forwardRef } from 'react'
 
-import type {
-  ContentFieldSizingTextAreaProps,
-  FixedFieldSizingTextAreaProps,
-  ManualFieldSizingTextAreaProps,
-} from './textarea.atoms'
+export namespace TextArea {
+  export type Props =
+    | ContentFieldSizingTextArea.Props
+    | FixedFieldSizingTextArea.Props
+    | ManualFieldSizingTextArea.Props
+}
 
-export type TextAreaProps =
-  | ContentFieldSizingTextAreaProps
-  | FixedFieldSizingTextAreaProps
-  | ManualFieldSizingTextAreaProps
+/** @deprecated Use TextArea.Props instead */
+export type TextAreaProps = TextArea.Props
 
 /**
  * An (almost) standard HTML/JSX `<textarea>` for use in forms.
@@ -20,7 +19,7 @@ export type TextAreaProps =
  * support the [field-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing) property, we
  * fallback to a JS-based resizing solution that is only available to React-based consumers.
  */
-export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>(({ fieldSizing, ...rest }, ref) => {
+export const TextArea = forwardRef<HTMLTextAreaElement, TextArea.Props>(({ fieldSizing, ...rest }, ref) => {
   if (fieldSizing === 'manual') {
     return <ManualFieldSizingTextArea fieldSizing={fieldSizing} {...rest} ref={ref} />
   } else if (fieldSizing === 'fixed') {

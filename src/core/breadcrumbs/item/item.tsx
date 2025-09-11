@@ -27,5 +27,5 @@ export function BreadcrumbItem({ children, ...rest }: BreadcrumbItem.Props) {
   )
 }
 
-// Backward compatibility
+/** @deprecated use BreadcrumbItem.Props instead */
 export type BreadcrumbItemProps = BreadcrumbItem.Props

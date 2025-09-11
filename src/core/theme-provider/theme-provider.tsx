@@ -3,9 +3,11 @@ import { useTheme } from './use-theme'
 import type { ReactNode } from 'react'
 import type { Theme } from '#src/tokens'
 
-interface ThemeProviderProps {
-  children: ReactNode
-  theme: Theme
+export namespace ThemeProvider {
+  export interface Props {
+    children: ReactNode
+    theme: Theme
+  }
 }
 
 /**
@@ -21,7 +23,7 @@ interface ThemeProviderProps {
  * It is also possible to use the `useTheme` hook directly if you'd prefer to interact with a hook-based API, or to
  * manually set the `data-theme` attribute on the document's root element in HTML document.
  */
-export function ThemeProvider({ children, theme }: ThemeProviderProps) {
+export function ThemeProvider({ children, theme }: ThemeProvider.Props) {
   useTheme(theme)
   return children
 }
