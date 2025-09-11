@@ -10,23 +10,25 @@ import type { PopoverPlacement } from '#src/utils/popover'
 // - role, because the Tooltip's role should always be "menu".
 type AttributesToOmit = 'role'
 
-export interface TooltipProps extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
-  /** The ID of the tooltip. */
-  id: string
-  /** The maximum width of the menu. By default, the menu will be as wide as its widest item. */
-  maxWidth?: `--size-${string}`
-  /** Where the popover should be placed relative to its anchor. */
-  placement?: PopoverPlacement
-  /**
-   * The ID of the element described by this tooltip. When this element receives focus or is
-   * hovered by the mouse, the tooltip will be displayed.
-   */
-  triggerId: string
-  /**
-   * The ID of element to measure for truncation. If supplied, the tooltip will only display
-   * if this element's content has been truncated.
-   */
-  truncationTargetId?: string
+export namespace Tooltip {
+  export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
+    /** The ID of the tooltip. */
+    id: string
+    /** The maximum width of the menu. By default, the menu will be as wide as its widest item. */
+    maxWidth?: `--size-${string}`
+    /** Where the popover should be placed relative to its anchor. */
+    placement?: PopoverPlacement
+    /**
+     * The ID of the element described by this tooltip. When this element receives focus or is
+     * hovered by the mouse, the tooltip will be displayed.
+     */
+    triggerId: string
+    /**
+     * The ID of element to measure for truncation. If supplied, the tooltip will only display
+     * if this element's content has been truncated.
+     */
+    truncationTargetId?: string
+  }
 }
 
 /**
@@ -47,7 +49,7 @@ export function Tooltip({
   triggerId,
   truncationTargetId,
   ...rest
-}: TooltipProps) {
+}: Tooltip.Props) {
   useTooltipController({ tooltipId: id, triggerId, truncationTargetId })
 
   return (
@@ -71,3 +73,6 @@ export function Tooltip({
 }
 
 Tooltip.getTriggerProps = getTooltipTriggerProps
+
+/** @deprecated use Tooltip.Props instead */
+export type TooltipProps = Tooltip.Props

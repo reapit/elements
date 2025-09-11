@@ -28,7 +28,7 @@ export namespace Link {
   }
 }
 
-// Backward compatibility export
+/** @deprecated use Link.Props instead */
 export type LinkProps = Link.Props
 
 /**

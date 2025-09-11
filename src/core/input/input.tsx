@@ -29,7 +29,7 @@ export namespace Input {
   }
 }
 
-// Backward compatibility
+/** @deprecated use Input.Props instead */
 export type InputProps = Input.Props
 
 /**

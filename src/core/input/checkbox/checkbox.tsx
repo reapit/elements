@@ -14,7 +14,7 @@ export namespace InputCheckbox {
   export interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, AttributesToOmit> {}
 }
 
-// Backward compatibility
+/** @deprecated use InputCheckbox.Props instead */
 export type CheckboxInputProps = InputCheckbox.Props
 
 /**

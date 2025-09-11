@@ -36,5 +36,5 @@ export function Breadcrumbs({ children, overflow, ...rest }: Breadcrumbs.Props) 
 Breadcrumbs.Item = BreadcrumbItem
 Breadcrumbs.Link = BreadcrumbLink
 
-// Backward compatibility
+/** @deprecated use Breadcrumbs.Props instead */
 export type BreadcrumbsProps = Breadcrumbs.Props

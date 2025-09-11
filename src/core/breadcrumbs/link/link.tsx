@@ -27,5 +27,5 @@ export function BreadcrumbLink({ children, ...rest }: BreadcrumbLink.Props) {
   )
 }
 
-// Backward compatibility
+/** @deprecated use BreadcrumbLink.Props instead */
 export type BreadcrumbLinkProps = BreadcrumbLink.Props
