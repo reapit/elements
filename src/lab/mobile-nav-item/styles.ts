@@ -1,4 +1,4 @@
-import { ElDeprecatedIcon } from '../../deprecated/icon'
+import { ElDeprecatedIcon } from '#src/deprecated/icon'
 import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
@@ -32,15 +32,15 @@ const baseStyles = `
   }
 `
 
-export const ElMobileNavItemAnchor = styled.a`
+export const ElExperimentalMobileNavItemAnchor = styled.a`
   ${baseStyles}
 `
 
-export const ElMobileNavItemButton = styled.button`
+export const ElExperimentalMobileNavItemButton = styled.button`
   ${baseStyles}
 `
 
-export const ElMobileNavItemExpanderButton = styled.button`
+export const ElExperimentalMobileNavItemExpanderButton = styled.button`
   ${baseStyles}
 
   ${ElDeprecatedIcon} {
@@ -48,7 +48,7 @@ export const ElMobileNavItemExpanderButton = styled.button`
   }
 `
 
-export const ElMobileNavItemContent = styled.span`
+export const ElExperimentalMobileNavItemContent = styled.span`
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -56,7 +56,7 @@ export const ElMobileNavItemContent = styled.span`
   flex-grow: 1;
 `
 
-export const ElMobileNavItemBadge = styled.span`
+export const ElExperimentalMobileNavItemBadge = styled.span`
   display: block;
   width: var(--size-2);
   height: var(--size-2);
@@ -64,7 +64,7 @@ export const ElMobileNavItemBadge = styled.span`
   border-radius: 100%;
 `
 
-export const ElMobileNavSubItemUnorderedList = styled.ul`
+export const ElExperimentalMobileNavSubItemUnorderedList = styled.ul`
   list-style: none;
 
   margin-block: 0;
@@ -79,7 +79,7 @@ export const ElMobileNavSubItemUnorderedList = styled.ul`
   }
 `
 
-export const ElMobileNavItemListItem = styled.li`
+export const ElExperimentalMobileNavItemListItem = styled.li`
   display: flex;
   flex-direction: column;
   align-self: stretch;
@@ -90,17 +90,17 @@ export const ElMobileNavItemListItem = styled.li`
   &[data-is-expanded='true'] {
     background: var(--fill-default-lightest);
 
-    > ${ElMobileNavItemExpanderButton} {
+    > ${ElExperimentalMobileNavItemExpanderButton} {
       border-radius: var(--corner-lg) var(--corner-lg) var(--corner-none) var(--corner-none);
     }
-    ${ElMobileNavSubItemUnorderedList} > * {
+    ${ElExperimentalMobileNavSubItemUnorderedList} > * {
       background: var(--fill-default-lightest);
       border-radius: var(--corner-none);
     }
-    ${ElMobileNavSubItemUnorderedList} > :last-child {
+    ${ElExperimentalMobileNavSubItemUnorderedList} > :last-child {
       border-radius: var(--corner-none) var(--corner-none) var(--corner-lg) var(--corner-lg);
     }
-    ${ElMobileNavItemAnchor}, ${ElMobileNavItemExpanderButton} {
+    ${ElExperimentalMobileNavItemAnchor}, ${ElExperimentalMobileNavItemExpanderButton} {
       &:hover {
         background: var(--fill-default-light);
       }

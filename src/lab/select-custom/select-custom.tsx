@@ -10,7 +10,12 @@ import { ChipGroup } from '#src/core/chip-group'
 import { Popover, elPopover, PopoverPlacement } from '#src/utils/popover'
 import { useSelectKeyboardNavigation } from './use-select-keyboard-navigation'
 import { getInitialSelected, getTotalOptions } from './helper'
-import { ElSelectCustom, elInputField, ElContent, ElPlaceholder } from './styles'
+import {
+  ElExperimentalSelectCustomContainer,
+  elExperimentalSelectCustomInputField,
+  ElExperimentalSelectCustomContent,
+  ElExperimentalSelectCustomPlaceholder,
+} from './styles'
 
 /**
  * Represents an item that can be selected in the custom select component.
@@ -178,7 +183,7 @@ export const SelectCustom: FC<SelectCustomProps> & {
   }, [triggerId])
 
   return (
-    <ElSelectCustom id={id}>
+    <ElExperimentalSelectCustomContainer id={id}>
       {label && (
         <LabelText size={size === 'large' ? 'medium' : 'small'} isRequired={isRequired}>
           {label}
@@ -192,23 +197,23 @@ export const SelectCustom: FC<SelectCustomProps> & {
         type="button"
         role="combobox"
         aria-expanded="false"
-        className={elInputField}
+        className={elExperimentalSelectCustomInputField}
         aria-disabled={isDisabled || isAllSelected}
         aria-describedby={message ? descriptionId : undefined}
         aria-invalid={isError || false}
       >
         {displayValue ? (
-          <ElContent>
+          <ElExperimentalSelectCustomContent>
             <Text as="span" colour="primary" font="text-xs/regular" overflow="truncate">
               {displayValue}
             </Text>
-          </ElContent>
+          </ElExperimentalSelectCustomContent>
         ) : (
-          <ElPlaceholder>
+          <ElExperimentalSelectCustomPlaceholder>
             <Text as="span" colour="placeholder" font="text-xs/regular" overflow="truncate">
               Select an option
             </Text>
-          </ElPlaceholder>
+          </ElExperimentalSelectCustomPlaceholder>
         )}
         {isClearable && !isMultiple && selectedValues.length > 0 ? (
           <CloseIcon
@@ -261,7 +266,7 @@ export const SelectCustom: FC<SelectCustomProps> & {
           ))}
         </ChipGroup>
       )}
-    </ElSelectCustom>
+    </ElExperimentalSelectCustomContainer>
   )
 }
 

@@ -1,7 +1,7 @@
 import { font } from '#src/core/text/index'
 import { styled } from '@linaria/react'
 
-export const ElInput = styled.input`
+export const ElExperimentalSearchInput = styled.input`
   flex: 1 1 auto;
   min-width: 0;
   border: none;
@@ -20,7 +20,7 @@ export const ElInput = styled.input`
   }
 `
 
-export const ElSearchInput = styled.div`
+export const ElExperimentalSearchInputContainer = styled.div`
   display: flex;
   align-items: center;
   border-radius: var(--comp-input-border-radius);

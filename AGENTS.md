@@ -44,6 +44,15 @@ yarn generate:tokens # Generate CSS variables
 - Visual regression tests ensure UI consistency
 - Library supports both ESM and CJS exports
 
+## Lab Components (`src/lab/`)
+**Experimental components with special naming requirements:**
+
+- Components have unstable APIs and are subject to change or removal. They may not be fit-for-purpose in all use cases.
+- **Styled components MUST use `ElExperimental` prefix** (e.g., `const ElExperimentalButton = styled.button`...)
+- **CSS class names MUST use `elExperimental` prefix** (e.g., `const elExperimentalButton = css`...)
+- These prefixes prevent naming conflicts with existing components in `src/core`, `src/deprecated`, and `src/utils`
+- See `src/lab/README.md` for detailed guidelines and examples
+
 ## Contributing Guidelines
 - Components should be TypeScript with proper type definitions
 - Follow existing naming conventions and file structure

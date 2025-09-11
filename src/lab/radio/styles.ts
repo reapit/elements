@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 import { LabelText } from '#src/core/label-text'
 
-export const elRadioSvgIcon = css`
+export const elExperimentalRadioSvgIcon = css`
   display: none;
   grid-area: input;
   width: 100%;
@@ -29,7 +29,7 @@ export const elRadioSvgIcon = css`
   }
 `
 
-export const elRadioSelectedSvgIcon = css`
+export const elExperimentalRadioSelectedSvgIcon = css`
   display: none;
   grid-area: input;
   width: 100%;
@@ -56,7 +56,7 @@ export const elRadioSelectedSvgIcon = css`
   }
 `
 
-export const ElRadio = styled.label`
+export const ElExperimentalRadio = styled.label`
   display: grid;
   gap: var(--spacing-1) var(--spacing-2);
   grid-template:
@@ -65,7 +65,7 @@ export const ElRadio = styled.label`
   align-items: center;
 `
 
-export const ElRadioInput = styled.input`
+export const ElExperimentalRadioInput = styled.input`
   appearance: none;
   box-sizing: border-box;
   grid-area: input;
@@ -87,18 +87,18 @@ export const ElRadioInput = styled.input`
   }
 `
 
-export const ElRadioLabelText = styled(LabelText)`
+export const ElExperimentalRadioLabelText = styled(LabelText)`
   grid-area: label;
 
-  ${ElRadioInput}:disabled ~ & {
+  ${ElExperimentalRadioInput}:disabled ~ & {
     color: var(--comp-select-colour-text-label-disabled);
   }
 `
 
-export const ElRadioSupplementaryInfo = styled(LabelText)`
+export const ElExperimentalRadioSupplementaryInfo = styled(LabelText)`
   grid-area: supplementary-info;
 
-  ${ElRadioInput}:disabled ~ & {
+  ${ElExperimentalRadioInput}:disabled ~ & {
     color: var(--comp-select-colour-text-supp_info-disabled);
   }
 `

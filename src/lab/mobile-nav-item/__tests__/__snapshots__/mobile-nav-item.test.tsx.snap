@@ -4,22 +4,22 @@ exports[`MobileNavItem > should render Expandable MobileNavItem 1`] = `
 <DocumentFragment>
   <li
     aria-label="Item 2"
-    class="mocked-styled-7 el-mobile-nav-item-list-item"
+    class="mocked-styled-7 el-experimental-mobile-nav-item-list-item"
     data-is-expanded="true"
   >
     <button
       aria-controls="test-static-id"
       aria-current="true"
       aria-expanded="true"
-      class="mocked-styled-3 el-mobile-nav-item-expander-button"
+      class="mocked-styled-3 el-experimental-mobile-nav-item-expander-button"
       type="button"
     >
       <span
-        class="mocked-styled-4 el-mobile-nav-item-content"
+        class="mocked-styled-4 el-experimental-mobile-nav-item-content"
       >
         Item 2
         <span
-          class="mocked-styled-5 el-mobile-nav-item-badge"
+          class="mocked-styled-5 el-experimental-mobile-nav-item-badge"
         />
       </span>
       <span
@@ -45,20 +45,20 @@ exports[`MobileNavItem > should render Expandable MobileNavItem 1`] = `
     </button>
     <ul
       aria-hidden="false"
-      class="mocked-styled-6 el-mobile-nav-sub-item-unordered-list"
+      class="mocked-styled-6 el-experimental-mobile-nav-sub-item-unordered-list"
       id="test-static-id"
     >
       <li
         aria-label="Sub Item 2.1"
-        class="mocked-styled-7 el-mobile-nav-item-list-item"
+        class="mocked-styled-7 el-experimental-mobile-nav-item-list-item"
       >
         <a
           aria-current="page"
-          class="mocked-styled-1 el-mobile-nav-item-anchor"
+          class="mocked-styled-1 el-experimental-mobile-nav-item-anchor"
           href="#item-2.1"
         >
           <span
-            class="mocked-styled-4 el-mobile-nav-item-content"
+            class="mocked-styled-4 el-experimental-mobile-nav-item-content"
           >
             Sub Item 2.1
           </span>
@@ -66,31 +66,31 @@ exports[`MobileNavItem > should render Expandable MobileNavItem 1`] = `
       </li>
       <li
         aria-label="Sub Item 2.2"
-        class="mocked-styled-7 el-mobile-nav-item-list-item"
+        class="mocked-styled-7 el-experimental-mobile-nav-item-list-item"
       >
         <button
-          class="mocked-styled-2 el-mobile-nav-item-button"
+          class="mocked-styled-2 el-experimental-mobile-nav-item-button"
         >
           <span
-            class="mocked-styled-4 el-mobile-nav-item-content"
+            class="mocked-styled-4 el-experimental-mobile-nav-item-content"
           >
             Sub Item 2.2
             <span
-              class="mocked-styled-5 el-mobile-nav-item-badge"
+              class="mocked-styled-5 el-experimental-mobile-nav-item-badge"
             />
           </span>
         </button>
       </li>
       <li
         aria-label="Sub Item 2.3"
-        class="mocked-styled-7 el-mobile-nav-item-list-item"
+        class="mocked-styled-7 el-experimental-mobile-nav-item-list-item"
       >
         <a
-          class="mocked-styled-1 el-mobile-nav-item-anchor"
+          class="mocked-styled-1 el-experimental-mobile-nav-item-anchor"
           href="#item-2.3"
         >
           <span
-            class="mocked-styled-4 el-mobile-nav-item-content"
+            class="mocked-styled-4 el-experimental-mobile-nav-item-content"
           >
             Sub Item 2.3
           </span>
@@ -105,14 +105,14 @@ exports[`MobileNavItem > should render Simple MobileNavItem 1`] = `
 <DocumentFragment>
   <li
     aria-label="Item 1"
-    class="mocked-styled-7 el-mobile-nav-item-list-item"
+    class="mocked-styled-7 el-experimental-mobile-nav-item-list-item"
   >
     <a
-      class="mocked-styled-1 el-mobile-nav-item-anchor"
+      class="mocked-styled-1 el-experimental-mobile-nav-item-anchor"
       href="#item-1"
     >
       <span
-        class="mocked-styled-4 el-mobile-nav-item-content"
+        class="mocked-styled-4 el-experimental-mobile-nav-item-content"
       >
         Item 1
       </span>
@@ -125,18 +125,18 @@ exports[`MobileNavItem > should render Simple MobileNavItem with badge 1`] = `
 <DocumentFragment>
   <li
     aria-label="Item 1"
-    class="mocked-styled-7 el-mobile-nav-item-list-item"
+    class="mocked-styled-7 el-experimental-mobile-nav-item-list-item"
   >
     <a
-      class="mocked-styled-1 el-mobile-nav-item-anchor"
+      class="mocked-styled-1 el-experimental-mobile-nav-item-anchor"
       href="#item-1"
     >
       <span
-        class="mocked-styled-4 el-mobile-nav-item-content"
+        class="mocked-styled-4 el-experimental-mobile-nav-item-content"
       >
         Item 1
         <span
-          class="mocked-styled-5 el-mobile-nav-item-badge"
+          class="mocked-styled-5 el-experimental-mobile-nav-item-badge"
         />
       </span>
     </a>

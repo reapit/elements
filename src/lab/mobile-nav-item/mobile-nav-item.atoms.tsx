@@ -6,13 +6,13 @@ import { useId } from '../../storybook/random-id'
 import { DeprecatedIcon } from '../../deprecated/icon'
 
 import {
-  ElMobileNavItemAnchor,
-  ElMobileNavItemBadge,
-  ElMobileNavItemButton,
-  ElMobileNavItemContent,
-  ElMobileNavItemExpanderButton,
-  ElMobileNavItemListItem,
-  ElMobileNavSubItemUnorderedList,
+  ElExperimentalMobileNavItemAnchor,
+  ElExperimentalMobileNavItemBadge,
+  ElExperimentalMobileNavItemButton,
+  ElExperimentalMobileNavItemContent,
+  ElExperimentalMobileNavItemExpanderButton,
+  ElExperimentalMobileNavItemListItem,
+  ElExperimentalMobileNavSubItemUnorderedList,
 } from './styles'
 
 type CommonMobileNavItemProps = {
@@ -46,27 +46,27 @@ export const MobileNavItemSimple: FC<MobileNavItemSimpleProps> = (props) => {
     const { onClick, isActive, label, hasBadge, ...rest } = props ?? {}
 
     return (
-      <ElMobileNavItemListItem {...rest} aria-label={label}>
-        <ElMobileNavItemButton onClick={onClick} aria-current={isActive ? 'true' : undefined}>
-          <ElMobileNavItemContent>
+      <ElExperimentalMobileNavItemListItem {...rest} aria-label={label}>
+        <ElExperimentalMobileNavItemButton onClick={onClick} aria-current={isActive ? 'true' : undefined}>
+          <ElExperimentalMobileNavItemContent>
             {label}
-            {hasBadge && <ElMobileNavItemBadge />}
-          </ElMobileNavItemContent>
-        </ElMobileNavItemButton>
-      </ElMobileNavItemListItem>
+            {hasBadge && <ElExperimentalMobileNavItemBadge />}
+          </ElExperimentalMobileNavItemContent>
+        </ElExperimentalMobileNavItemButton>
+      </ElExperimentalMobileNavItemListItem>
     )
   } else {
     const { href, isActive, label, hasBadge, ...rest } = props ?? {}
 
     return (
-      <ElMobileNavItemListItem {...rest} aria-label={label}>
-        <ElMobileNavItemAnchor href={href} aria-current={isActive ? 'page' : undefined}>
-          <ElMobileNavItemContent>
+      <ElExperimentalMobileNavItemListItem {...rest} aria-label={label}>
+        <ElExperimentalMobileNavItemAnchor href={href} aria-current={isActive ? 'page' : undefined}>
+          <ElExperimentalMobileNavItemContent>
             {label}
-            {hasBadge && <ElMobileNavItemBadge />}
-          </ElMobileNavItemContent>
-        </ElMobileNavItemAnchor>
-      </ElMobileNavItemListItem>
+            {hasBadge && <ElExperimentalMobileNavItemBadge />}
+          </ElExperimentalMobileNavItemContent>
+        </ElExperimentalMobileNavItemAnchor>
+      </ElExperimentalMobileNavItemListItem>
     )
   }
 }
@@ -84,25 +84,25 @@ export const MobileNavItemExpandable: FC<MobileNavItemExpandableProps> = (props)
   const { isActive, label, hasBadge, children, ...rest } = props ?? {}
 
   return (
-    <ElMobileNavItemListItem {...rest} data-is-expanded={isExpanded} aria-label={label}>
-      <ElMobileNavItemExpanderButton
+    <ElExperimentalMobileNavItemListItem {...rest} data-is-expanded={isExpanded} aria-label={label}>
+      <ElExperimentalMobileNavItemExpanderButton
         type="button"
         aria-expanded={isExpanded ?? isActive}
         aria-current={isActive ? 'true' : undefined}
         aria-controls={panelId}
         onClick={() => setIsExpanded((prev) => !prev)}
       >
-        <ElMobileNavItemContent>
+        <ElExperimentalMobileNavItemContent>
           {label}
-          {hasBadge && <ElMobileNavItemBadge />}
-        </ElMobileNavItemContent>
+          {hasBadge && <ElExperimentalMobileNavItemBadge />}
+        </ElExperimentalMobileNavItemContent>
 
         <DeprecatedIcon icon={isExpanded ? 'chevronUp' : 'chevronDown'} fontSize="16px" />
-      </ElMobileNavItemExpanderButton>
+      </ElExperimentalMobileNavItemExpanderButton>
 
-      <ElMobileNavSubItemUnorderedList id={panelId} aria-hidden={!isExpanded}>
+      <ElExperimentalMobileNavSubItemUnorderedList id={panelId} aria-hidden={!isExpanded}>
         {children}
-      </ElMobileNavSubItemUnorderedList>
-    </ElMobileNavItemListItem>
+      </ElExperimentalMobileNavSubItemUnorderedList>
+    </ElExperimentalMobileNavItemListItem>
   )
 }
