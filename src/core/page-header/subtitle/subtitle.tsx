@@ -2,18 +2,20 @@ import { ElPageHeaderSubtitle, ElPageHeaderSubtitleText, ElPageHeaderSubtitleAdd
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-interface PageHeaderSubtitleProps extends HTMLAttributes<HTMLDivElement> {
-  /** The main title text to display */
-  children: ReactNode
-  /** Optional information to display alongside the title. Typically a tag group, badge, or icon. */
-  additionalInfo?: ReactNode
+export namespace PageHeaderSubtitle {
+  export interface Props extends HTMLAttributes<HTMLDivElement> {
+    /** The main title text to display */
+    children: ReactNode
+    /** Optional information to display alongside the title. Typically a tag group, badge, or icon. */
+    additionalInfo?: ReactNode
+  }
 }
 
 /**
  * A subtitle component for page headers. Displays the main page's subtitle with optional, additional information.
  * Typically used via `PageHeader.Subtitle`.
  */
-export function PageHeaderSubtitle({ additionalInfo, children, ...rest }: PageHeaderSubtitleProps) {
+export function PageHeaderSubtitle({ additionalInfo, children, ...rest }: PageHeaderSubtitle.Props) {
   return (
     <ElPageHeaderSubtitle {...rest}>
       <ElPageHeaderSubtitleText>{children}</ElPageHeaderSubtitleText>

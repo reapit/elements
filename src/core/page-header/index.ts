@@ -1,5 +1,6 @@
 export * from './page-header'
 export * from './styles'
+export * from './leading-element'
 export * from './subtitle'
 export * from './supplementary-info'
 export * from './title'

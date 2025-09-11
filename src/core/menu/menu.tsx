@@ -13,19 +13,21 @@ import type { HTMLAttributes } from 'react'
 // - role, because the Menu's role should always be "menu".
 type AttributesToOmit = 'role'
 
-export interface MenuProps extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
-  /** The element that labels this menu. This should be the element that controls the menu. */
-  'aria-labelledby': string
-  /** The ID of the menu. */
-  id: string
-  /** The gap between the popover and the anchor. */
-  gap?: `--spacing-${string}`
-  /** The maximum height of the menu. By default, the menu will be as tall as its content requires. */
-  maxHeight?: `--size-${string}`
-  /** The maximum width of the menu. By default, the menu will be as wide as its widest item. */
-  maxWidth?: `--size-${string}`
-  /** Where the popover should be placed relative to its anchor. */
-  placement?: 'top-start' | 'top' | 'top-end' | 'bottom-start' | 'bottom' | 'bottom-end'
+export namespace Menu {
+  export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
+    /** The element that labels this menu. This should be the element that controls the menu. */
+    'aria-labelledby': string
+    /** The ID of the menu. */
+    id: string
+    /** The gap between the popover and the anchor. */
+    gap?: `--spacing-${string}`
+    /** The maximum height of the menu. By default, the menu will be as tall as its content requires. */
+    maxHeight?: `--size-${string}`
+    /** The maximum width of the menu. By default, the menu will be as wide as its widest item. */
+    maxWidth?: `--size-${string}`
+    /** Where the popover should be placed relative to its anchor. */
+    placement?: 'top-start' | 'top' | 'top-end' | 'bottom-start' | 'bottom' | 'bottom-end'
+  }
 }
 
 /**
@@ -44,7 +46,7 @@ export function Menu({
   onKeyDown,
   placement = 'top-start',
   ...rest
-}: MenuProps) {
+}: Menu.Props) {
   const handleClick = useCloseMenuOnClick(onClick)
   const handleKeyboardNavigation = useMenuKeyboardNavigation(onKeyDown)
 
@@ -77,3 +79,6 @@ Menu.Item = MenuItem
 
 Menu.getClosestMenuElement = Popover.getClosestPopoverElement
 Menu.getTriggerProps = Popover.getTriggerProps
+
+/** @deprecated Use Menu.Props instead */
+export type MenuProps = Menu.Props

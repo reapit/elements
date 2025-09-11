@@ -1,13 +1,15 @@
 import { MenuItemBase } from './item-base'
 
 import type { AnchorHTMLAttributes } from 'react'
-import type { CommonMenuItemBaseProps } from './item-base'
+import type { MenuItemBase as MenuItemBaseNamespace } from './item-base'
 
-export interface MenuAnchorItemProps extends CommonMenuItemBaseProps, AnchorHTMLAttributes<HTMLAnchorElement> {
-  /** Whether the menu item represents the current page */
-  'aria-current'?: 'page' | false
-  /** The URL to which this menu anchor item navigates */
-  href: string
+export namespace AnchorMenuItem {
+  export interface Props extends MenuItemBaseNamespace.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+    /** Whether the menu item represents the current page */
+    'aria-current'?: 'page' | false
+    /** The URL to which this menu anchor item navigates */
+    href: string
+  }
 }
 
 /**
@@ -16,6 +18,9 @@ export interface MenuAnchorItemProps extends CommonMenuItemBaseProps, AnchorHTML
  * Use `Menu.AnchorItem` when you need menu item styling but want to navigate to a URL.
  * Use `Menu.Item` when the action needs to occur on click.
  */
-export function AnchorMenuItem(props: MenuAnchorItemProps) {
+export function AnchorMenuItem(props: AnchorMenuItem.Props) {
   return <MenuItemBase as="a" {...props} />
 }
+
+/** @deprecated Use AnchorMenuItem.Props instead */
+export type MenuAnchorItemProps = AnchorMenuItem.Props

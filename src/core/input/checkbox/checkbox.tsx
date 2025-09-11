@@ -10,12 +10,17 @@ import type { InputHTMLAttributes } from 'react'
 // - type, because this should always be a checkbox-type input.
 type AttributesToOmit = 'type'
 
-export interface CheckboxInputProps extends Omit<InputHTMLAttributes<HTMLInputElement>, AttributesToOmit> {}
+export namespace InputCheckbox {
+  export interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, AttributesToOmit> {}
+}
+
+// Backward compatibility
+export type CheckboxInputProps = InputCheckbox.Props
 
 /**
  * A basic `<input type="checkbox">` component. Used internally by `Input`; not intended for direct use.
  */
-export const InputCheckbox = forwardRef<HTMLInputElement, CheckboxInputProps>(({ className, style, ...rest }, ref) => {
+export const InputCheckbox = forwardRef<HTMLInputElement, InputCheckbox.Props>(({ className, style, ...rest }, ref) => {
   return (
     // Consumer-supplied class names and inline styles are applied to the root "container" element,
     // not the input. This is because we don't want consumers to _easily_ override the input's styles

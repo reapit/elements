@@ -1,13 +1,24 @@
 import React, { FC, LabelHTMLAttributes } from 'react'
 import { ElLabelRequiredMark, ElLabelText } from './styles'
 
-export interface LabelTextProps extends LabelHTMLAttributes<HTMLSpanElement> {
-  variant?: 'soft' | 'strong'
-  size?: 'small' | 'medium'
-  isRequired?: boolean
+export namespace LabelText {
+  export interface Props extends LabelHTMLAttributes<HTMLSpanElement> {
+    variant?: 'soft' | 'strong'
+    size?: 'small' | 'medium'
+    isRequired?: boolean
+  }
 }
 
-export const LabelText: FC<LabelTextProps> = ({ children, isRequired, size = 'medium', variant = 'soft', ...rest }) => {
+/** @deprecated Use LabelText.Props instead */
+export type LabelTextProps = LabelText.Props
+
+export const LabelText: FC<LabelText.Props> = ({
+  children,
+  isRequired,
+  size = 'medium',
+  variant = 'soft',
+  ...rest
+}) => {
   return (
     <ElLabelText {...rest} data-size={size} data-variant={variant}>
       {children}
