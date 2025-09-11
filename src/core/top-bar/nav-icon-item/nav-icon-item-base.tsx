@@ -4,26 +4,33 @@ import { Tooltip } from '#src/core/tooltip'
 
 import { HTMLAttributes, useId, type AnchorHTMLAttributes, type ButtonHTMLAttributes, type ReactNode } from 'react'
 
-interface TopBarNavIconItemCommonProps {
-  hasBadge?: boolean
-  icon: ReactNode
+export namespace TopBarNavIconItemBase {
+  interface CommonProps {
+    hasBadge?: boolean
+    icon: ReactNode
+  }
+
+  export interface AsAnchorProps extends CommonProps, Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
+    'aria-label': string
+    as: 'a'
+  }
+
+  export interface AsButtonProps extends CommonProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
+    'aria-label': string
+    as: 'button'
+  }
+
+  export type Props = AsAnchorProps | AsButtonProps
 }
 
-export interface TopBarNavIconItemAsAnchorProps
-  extends TopBarNavIconItemCommonProps,
-    Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
-  'aria-label': string
-  as: 'a'
-}
+/** @deprecated Use TopBarNavIconItemBase.AsAnchorProps instead */
+export type TopBarNavIconItemAsAnchorProps = TopBarNavIconItemBase.AsAnchorProps
 
-export interface TopBarNavIconItemAsButtonProps
-  extends TopBarNavIconItemCommonProps,
-    Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
-  'aria-label': string
-  as: 'button'
-}
+/** @deprecated Use TopBarNavIconItemBase.AsButtonProps instead */
+export type TopBarNavIconItemAsButtonProps = TopBarNavIconItemBase.AsButtonProps
 
-export type TopBarNavIconItemBaseProps = TopBarNavIconItemAsAnchorProps | TopBarNavIconItemAsButtonProps
+/** @deprecated Use TopBarNavIconItemBase.Props instead */
+export type TopBarNavIconItemBaseProps = TopBarNavIconItemBase.Props
 
 /**
  * A simple polymorphic icon-only nav item that can render as a button or link. It is used internally by the
@@ -37,7 +44,7 @@ export function TopBarNavIconItemBase({
   id,
   hasBadge,
   ...rest
-}: TopBarNavIconItemBaseProps) {
+}: TopBarNavIconItemBase.Props) {
   const triggerId = id ?? useId()
   const tooltipId = useId()
 

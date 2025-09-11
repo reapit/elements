@@ -14,16 +14,23 @@ import { useSideBarMenuGroupLabelIdContext } from './menu-group-label-id-context
 
 import type { HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
-interface SideBarMenuGroupSummaryProps extends HTMLAttributes<HTMLElement> {
-  /**
-   * The label for the menu group.
-   */
-  children: ReactNode
-  /**
-   * The icon to display next to the label.
-   */
-  icon: ReactNode
+export namespace SideBarMenuGroupSummary {
+  export interface Props extends HTMLAttributes<HTMLElement> {
+    /**
+     * The label for the menu group.
+     */
+    children: ReactNode
+    /**
+     * The icon to display next to the label.
+     */
+    icon: ReactNode
+  }
 }
+
+/**
+ * @deprecated Use `SideBarMenuGroupSummary.Props` instead
+ */
+export type SideBarMenuGroupSummaryProps = SideBarMenuGroupSummary.Props
 
 /**
  * A summary element for the `SideBar.MenuGroup`. It is explicitly designed for use within a `<details>` element,
@@ -39,7 +46,7 @@ export function SideBarMenuGroupSummary({
   id,
   onClick,
   ...props
-}: SideBarMenuGroupSummaryProps) {
+}: SideBarMenuGroupSummary.Props) {
   const tooltipId = useSideBarMenuGroupLabelIdContext()
   const triggerId = id ?? useId()
   const truncationTargetId = useId()

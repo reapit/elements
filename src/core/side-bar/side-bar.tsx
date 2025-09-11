@@ -10,21 +10,28 @@ import { useSideBarKeyboardNavigation } from './use-keyboard-navigation'
 
 import type { ComponentProps, ReactNode } from 'react'
 
-interface SideBarProps extends Omit<ComponentProps<typeof ElSideBar>, 'data-state'> {
-  /**
-   * The side bar's menu items. Typically a `SideBar.MenuList` with `SideBar.MenuItem` and
-   * `SideBar.MenuGroup` components.
-   */
-  children: ReactNode
-  /**
-   * The side bar's footer. Should typically be a `SideBar.CollapseButton` component.
-   */
-  footer: ReactNode
-  /**
-   * The width of the side bar.
-   */
-  width?: `--size-${string}`
+export namespace SideBar {
+  export interface Props extends Omit<ComponentProps<typeof ElSideBar>, 'data-state'> {
+    /**
+     * The side bar's menu items. Typically a `SideBar.MenuList` with `SideBar.MenuItem` and
+     * `SideBar.MenuGroup` components.
+     */
+    children: ReactNode
+    /**
+     * The side bar's footer. Should typically be a `SideBar.CollapseButton` component.
+     */
+    footer: ReactNode
+    /**
+     * The width of the side bar.
+     */
+    width?: `--size-${string}`
+  }
 }
+
+/**
+ * @deprecated Use `SideBar.Props` instead
+ */
+export type SideBarProps = SideBar.Props
 
 /**
  * Collapsible navigation component for products with too many navigation items to fit in the TopBar's main nav.
@@ -36,7 +43,7 @@ export function SideBar({
   id,
   width = '--size-64',
   ...props
-}: SideBarProps) {
+}: SideBar.Props) {
   const sideBarId = id ?? useId()
   const sideBar = useSideBar(() => determineSideBarStateFromViewport())
   const handleKeyboardNavigation = useSideBarKeyboardNavigation()

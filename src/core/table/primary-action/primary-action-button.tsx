@@ -3,20 +3,26 @@ import { elTableRowPrimaryAction } from './styles'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
-// NOTE: We omit...
-// - disabled, because the row's primary action should never be disabled.
-type AttributesToOmit = 'disabled'
+// NOTE: we omit...
+// - type, because we internally control the button type
+type AttributesToOmit = 'type'
 
-export interface TableRowPrimaryActionButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
-  /** The content of the primary action */
-  children: ReactNode
+export namespace TableRowPrimaryActionButton {
+  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
+    /** The content of the primary action */
+    children: ReactNode
+  }
 }
 
 /**
- * A simple primary action component for table rows. Comes in two varieties: `Table.PrimaryActionButton`,
- * which renders as a button, and `Table.PrimaryAction`, which renders as an anchor.
+ * A primary action button for table rows. Renders as a button (`<button>`) element that spans the entire
+ * row, allowing users to interact by clicking anywhere on the row. The visual appearance is
+ * designed to integrate seamlessly with table layouts while providing clear interactive feedback.
+ * Typically used via `Table.PrimaryActionButton`.
  */
-export function TableRowPrimaryActionButton({ className, ...rest }: TableRowPrimaryActionButtonProps) {
+export function TableRowPrimaryActionButton({ className, ...rest }: TableRowPrimaryActionButton.Props) {
   return <button {...rest} className={cx(elTableRowPrimaryAction, className)} />
 }
+
+// Backward compatibility
+export type TableRowPrimaryActionButtonProps = TableRowPrimaryActionButton.Props

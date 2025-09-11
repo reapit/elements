@@ -1,40 +1,50 @@
 import { cx } from '@linaria/core'
+import { forwardRef } from 'react'
+import { Input } from '../../input'
 import { elTableCellCheckbox } from './styles'
-import { Input } from '#src/core/input'
 
-import { forwardRef, type InputHTMLAttributes } from 'react'
+import type { InputHTMLAttributes } from 'react'
 
 // NOTE: we omit...
-// - type, because this component will always be a checkbox input
-type AttributesToOmit = 'type'
+// - defaultChecked, because we control state via checked
+// - type, because we internally control the input type
+type AttributesToOmit = 'defaultChecked' | 'type'
 
-export interface TableCellCheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, AttributesToOmit> {
-  /** The accessible name for the checkbox. */
-  'aria-label': string
-  /** Indicates whether the checkbox or radio is checked. */
-  checked?: boolean
-  /** Whether the checkbox is disabled. Typically, row selection checkboxes should avoid being disabled. */
-  disabled?: boolean
-  /** The form this checkbox is associated with. */
-  form?: string
-  /**
-   * Name of the checkbox. Submitted as part of a name/value pair. Will typically be the same name as
-   * all other checkboxes in the same column of the table.
-   */
-  name?: string
-  /**
-   * The value that should be submitted with a form when the checkbox is checked. For row checkboxes, this
-   * will typically be the ID of the entity represented by the row this checkbox is a descendant of.
-   */
-  value?: InputHTMLAttributes<HTMLInputElement>['value']
+export namespace TableCellCheckbox {
+  export interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, AttributesToOmit> {
+    /** The accessible name for the checkbox. */
+    'aria-label': string
+    /** Indicates whether the checkbox or radio is checked. */
+    checked?: boolean
+    /** Whether the checkbox is disabled. Typically, row selection checkboxes should avoid being disabled. */
+    disabled?: boolean
+    /** The form this checkbox is associated with. */
+    form?: string
+    /**
+     * Name of the checkbox. Submitted as part of a name/value pair. Will typically be the same name as
+     * other row selection checkboxes in the table.
+     */
+    name?: string
+    /** Callback fired when the checkbox state changes. */
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+    /** The accessible name for the checkbox when used in a table header for selecting all rows. */
+    title?: string
+    /** The value of the checkbox. Submitted as part of a name/value pair. */
+    value?: string
+  }
 }
 
 /**
- * A thin wrapper around [Input's checkbox implementation](./?path=/docs/core-input--docs) that is geared
- * for use in tables built with [Table](./?path=/docs/core-table--docs).
+ * A checkbox meant to be used inside of table cells. Displays an HTML checkbox input. Typically used
+ * via `Table.Checkbox`.
  */
-export const TableCellCheckbox = forwardRef<HTMLInputElement, TableCellCheckboxProps>(({ className, ...rest }, ref) => {
-  return <Input {...rest} className={cx(elTableCellCheckbox, className)} ref={ref} type="checkbox" />
-})
+export const TableCellCheckbox = forwardRef<HTMLInputElement, TableCellCheckbox.Props>(
+  ({ className, ...rest }, ref) => {
+    return <Input {...rest} className={cx(elTableCellCheckbox, className)} ref={ref} type="checkbox" />
+  },
+)
 
 TableCellCheckbox.displayName = 'TableCellCheckbox'
+
+// Backward compatibility
+export type TableCellCheckboxProps = TableCellCheckbox.Props

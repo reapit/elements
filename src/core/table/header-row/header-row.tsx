@@ -3,31 +3,35 @@ import { elTableHeaderRow } from './styles'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-interface TableHeaderRowAsTrProps extends HTMLAttributes<HTMLTableRowElement> {
-  as?: 'tr'
-  /** The row content. */
-  children: ReactNode
-}
+export namespace TableHeaderRow {
+  interface AsTrProps extends HTMLAttributes<HTMLTableRowElement> {
+    as?: 'tr'
+    /** The row's cells. */
+    children: ReactNode
+  }
 
-interface TableHeaderRowAsDivProps extends HTMLAttributes<HTMLDivElement> {
-  as: 'div'
-  /** The row content. */
-  children: ReactNode
-}
+  interface AsDivProps extends HTMLAttributes<HTMLDivElement> {
+    as: 'div'
+    /** The row's cells. */
+    children: ReactNode
+  }
 
-type TableHeaderRowProps = TableHeaderRowAsTrProps | TableHeaderRowAsDivProps
+  export type Props = AsTrProps | AsDivProps
+}
 
 /**
- * A basic row for a table's head. Does little more than render it's children in a `<tr>` or `<div>`.
- * Cells within a row may contain static text or buttons that sort the table column. Cells are
- * aligned to the table's CSS grid layout via
- * [subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid). Typically
- * used via `Table.HeadingRow`.
+ * A table's header row. Does little more than render its children in a `<tr>` or `<div>` element.
+ * Descendants will flow to new columns while rows will align to the table's grid using
+ * [subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid).
+ * Typically used via `Table.HeaderRow`.
  */
-export function TableHeaderRow({ as: Element = 'tr', children, className, ...rest }: TableHeaderRowProps) {
+export function TableHeaderRow({ as: Element = 'tr', children, className, ...rest }: TableHeaderRow.Props) {
   return (
     <Element {...rest} className={cx(elTableHeaderRow, className)}>
       {children}
     </Element>
   )
 }
+
+// Backward compatibility
+export type TableHeaderRowProps = TableHeaderRow.Props

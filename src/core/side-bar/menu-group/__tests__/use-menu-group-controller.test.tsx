@@ -2,7 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react'
 import { useSideBarMenuGroupController } from '../use-menu-group-controller'
 
 import type { DetailsHTMLAttributes } from 'react'
-import type { SideBarState } from '../../use-side-bar'
+import type { useSideBar } from '../../use-side-bar'
 
 test('`<details>` is opened when the `SideBar` is expanded and a descendant represents the current page', () => {
   const { rerender } = render(
@@ -121,7 +121,7 @@ test('`<details>` is closed when it is no longer active', async () => {
 })
 
 interface DetailsProps extends DetailsHTMLAttributes<HTMLDetailsElement> {
-  sideBarState: SideBarState
+  sideBarState: useSideBar.State
 }
 
 /** Simple integration of the subject under test (useSideBarMenuGroupController) and a `<details>` element */

@@ -3,22 +3,24 @@ import { elTableRowPrimaryAction } from './styles'
 
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-export interface TableRowPrimaryActionProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  /** The content of the primary action */
-  children: ReactNode
-  /** The URL to which this primary action navigates */
-  href: string
+export namespace TableRowPrimaryAction {
+  export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+    /** The content of the primary action */
+    children: ReactNode
+    /** The URL to which this primary action navigates */
+    href: string
+  }
 }
 
 /**
- * A simple primary action component for table rows that allows an anchor or button, typically placed
- * within a row's header cell, to act as the row's primary action. The key feature of the primary
- * action is that its "hit area" will expand to fill the bounding box of the closest, relative-positioned
- * ancestor. By default, this will be the table row.
- *
- * Comes in two varieties: `Table.PrimaryAction`, which renders as an anchor, and
- * `Table.PrimaryActionButton`, which renders as a button.
+ * A primary action for table rows. Renders as an anchor (`<a>`) element that spans the entire
+ * row, allowing users to navigate by clicking anywhere on the row. The visual appearance is
+ * designed to integrate seamlessly with table layouts while providing clear interactive feedback.
+ * Typically used via `Table.PrimaryAction`.
  */
-export function TableRowPrimaryAction({ className, ...rest }: TableRowPrimaryActionProps) {
+export function TableRowPrimaryAction({ className, ...rest }: TableRowPrimaryAction.Props) {
   return <a {...rest} className={cx(elTableRowPrimaryAction, className)} />
 }
+
+// Backward compatibility
+export type TableRowPrimaryActionProps = TableRowPrimaryAction.Props

@@ -2,21 +2,28 @@ import { elSideBarSubmenuItem, ElSideBarSubmenuItemLabel } from './styles'
 import { cx } from '@linaria/core'
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-interface SideBarSubmenuItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'aria-current'> {
-  /**
-   * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
-   * accessible users that the item is currently "selected".
-   */
-  'aria-current': 'page' | false
-  /**
-   * The label of the menu item.
-   */
-  children: ReactNode
-  /**
-   * The URL to navigate to when this item is activated.
-   */
-  href: string
+export namespace SideBarSubmenuItem {
+  export interface Props extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'aria-current'> {
+    /**
+     * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
+     * accessible users that the item is currently "selected".
+     */
+    'aria-current': 'page' | false
+    /**
+     * The label of the menu item.
+     */
+    children: ReactNode
+    /**
+     * The URL to navigate to when this item is activated.
+     */
+    href: string
+  }
 }
+
+/**
+ * @deprecated Use `SideBarSubmenuItem.Props` instead
+ */
+export type SideBarSubmenuItemProps = SideBarSubmenuItem.Props
 
 /**
  * A simple menu item for use in submenus within a `SideBar`. Is always an anchor element because side bar navigation
@@ -43,7 +50,7 @@ export function SideBarSubmenuItem({
   children,
   className,
   ...rest
-}: SideBarSubmenuItemProps) {
+}: SideBarSubmenuItem.Props) {
   return (
     <a {...rest} aria-current={ariaCurrent} className={cx(elSideBarSubmenuItem, className)}>
       <ElSideBarSubmenuItemLabel>{children}</ElSideBarSubmenuItemLabel>

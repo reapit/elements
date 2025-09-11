@@ -12,7 +12,14 @@ import type { ComponentProps, MouseEventHandler } from 'react'
 // - `children` because the button text is always "Collapse" or "Expand" based on the state of the SideBar.
 type AttributesToOmit = 'aria-expanded' | 'aria-controls' | 'children'
 
-interface SideBarCollapseButtonProps extends Omit<ComponentProps<typeof ElSideBarCollapseButton>, AttributesToOmit> {}
+export namespace SideBarCollapseButton {
+  export interface Props extends Omit<ComponentProps<typeof ElSideBarCollapseButton>, AttributesToOmit> {}
+}
+
+/**
+ * @deprecated Use `SideBarCollapseButton.Props` instead
+ */
+export type SideBarCollapseButtonProps = SideBarCollapseButton.Props
 
 /**
  * A button used to collapse or expand the `SideBar`. Should be placed within the `SideBar` footer. To help communicate
@@ -22,7 +29,7 @@ interface SideBarCollapseButtonProps extends Omit<ComponentProps<typeof ElSideBa
  * When the side bar is collapsed, the button's accessible name will be "Expand" (though this will not be visible), and
  * when the side bar is expanded, the button's accessible name will be "Collapse".
  */
-export function SideBarCollapseButton({ id, onClick, ...props }: SideBarCollapseButtonProps) {
+export function SideBarCollapseButton({ id, onClick, ...props }: SideBarCollapseButton.Props) {
   const sideBar = useSideBarContext()
   const tooltipId = useId()
   const triggerId = id ?? useId()

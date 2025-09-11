@@ -8,37 +8,44 @@ import { useSideBarMenuGroupController } from './use-menu-group-controller'
 
 import type { DetailsHTMLAttributes, ReactNode } from 'react'
 
-export interface SideBarMenuGroupProps extends DetailsHTMLAttributes<HTMLDetailsElement> {
-  /**
-   * Typically a single `SideBar.Submenu` component that contains any number of submenu items
-   */
-  children: ReactNode
-  /**
-   * Allows consumers to "force" the menu group to be active in scenarios where it does not have a submenu item
-   * that represents the current page. Typically, this should not be necessary, but it can be a useful escape hatch
-   * when dealing with pages that, from an Information Architecture (IA) perspective, are part of a menu group,
-   * but where no submenu items can be uniquely marked as representing current page.
-   *
-   * Being active means the menu group will be open (except when the `SideBar` is collapsed). However, being `open`
-   * does not mean the menu group is active.
-   */
-  isActive?: boolean
-  /**
-   * Indicates whether the menu group's contents---that is, the submenu of items---are currently visible.
-   *
-   * Typically, the open state of menu groups can remain uncontrolled. If this state is controlled, it is important
-   * for consumers to listen for
-   * [toggle](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details#events) events fired after
-   * the underlying `<details>` element's `open` state changes. This is because the `SideBar` will, at times,
-   * imperatively control child `<details>` elements.
-   */
-  open?: boolean
-  /**
-   * The summary/main item for the menu group. Will typically be a `SideBar.MenuGroupSummary`. If a custom element is
-   * rendered, it should be a `<summary>` element.
-   */
-  summary: ReactNode
+export namespace SideBarMenuGroup {
+  export interface Props extends DetailsHTMLAttributes<HTMLDetailsElement> {
+    /**
+     * Typically a single `SideBar.Submenu` component that contains any number of submenu items
+     */
+    children: ReactNode
+    /**
+     * Allows consumers to "force" the menu group to be active in scenarios where it does not have a submenu item
+     * that represents the current page. Typically, this should not be necessary, but it can be a useful escape hatch
+     * when dealing with pages that, from an Information Architecture (IA) perspective, are part of a menu group,
+     * but where no submenu items can be uniquely marked as representing current page.
+     *
+     * Being active means the menu group will be open (except when the `SideBar` is collapsed). However, being `open`
+     * does not mean the menu group is active.
+     */
+    isActive?: boolean
+    /**
+     * Indicates whether the menu group's contents---that is, the submenu of items---are currently visible.
+     *
+     * Typically, the open state of menu groups can remain uncontrolled. If this state is controlled, it is important
+     * for consumers to listen for
+     * [toggle](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/details#events) events fired after
+     * the underlying `<details>` element's `open` state changes. This is because the `SideBar` will, at times,
+     * imperatively control child `<details>` elements.
+     */
+    open?: boolean
+    /**
+     * The summary/main item for the menu group. Will typically be a `SideBar.MenuGroupSummary`. If a custom element is
+     * rendered, it should be a `<summary>` element.
+     */
+    summary: ReactNode
+  }
 }
+
+/**
+ * @deprecated Use `SideBarMenuGroup.Props` instead
+ */
+export type SideBarMenuGroupProps = SideBarMenuGroup.Props
 
 /**
  * A menu group that can contain a submenu of items for use in a `SideBar`. The group leverages a `<details>`
@@ -58,7 +65,7 @@ export function SideBarMenuGroup({
   isActive,
   summary,
   ...rest
-}: SideBarMenuGroupProps) {
+}: SideBarMenuGroup.Props) {
   const labelId = ariaLabelledBy ?? useId()
   const sideBar = useSideBarContext()
   const ref = useSideBarMenuGroupController(sideBar.state)

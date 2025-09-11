@@ -3,7 +3,14 @@ import { ElSideBarMenuListItem } from './styles'
 
 import type { ComponentProps } from 'react'
 
-interface SideBarMenuListGroupProps extends ComponentProps<typeof SideBarMenuGroup> {}
+export namespace SideBarMenuListGroup {
+  export interface Props extends ComponentProps<typeof SideBarMenuGroup> {}
+}
+
+/**
+ * @deprecated Use `SideBarMenuListGroup.Props` instead
+ */
+export type SideBarMenuListGroupProps = SideBarMenuListGroup.Props
 
 /**
  * A thin wrapper around `SideBarMenuGroup` that ensures it is contained within a list item (`<li>`) for
@@ -11,7 +18,7 @@ interface SideBarMenuListGroupProps extends ComponentProps<typeof SideBarMenuGro
  *
  * All props are passed through to `SideBarMenuGroup`.
  */
-export function SideBarMenuListGroup({ children, ...props }: SideBarMenuListGroupProps) {
+export function SideBarMenuListGroup({ children, ...props }: SideBarMenuListGroup.Props) {
   return (
     <ElSideBarMenuListItem>
       <SideBarMenuGroup {...props}>{children}</SideBarMenuGroup>

@@ -1,7 +1,7 @@
 import { createContext, useContext, useMemo } from 'react'
-import type { UseSideBarResult } from './use-side-bar'
+import type { useSideBar } from './use-side-bar'
 
-interface SideBarContextValue extends UseSideBarResult {
+interface SideBarContextValue extends useSideBar.Result {
   id: string
 }
 

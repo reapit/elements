@@ -9,20 +9,22 @@ import type { SortDirection } from './sort-direction'
 // - disabled, because the sort button should never be disabled
 type AttributesToOmit = 'disabled'
 
-interface TableCellSortButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
-  /** The sort button's label. */
-  children: ReactNode
-  /** The name of the "field" in the table's data sorted by this button. */
-  name: string
-  /** The current sort direction for this column, if any. */
-  value: SortDirection
+export namespace TableCellSortButton {
+  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
+    /** The sort button's label. */
+    children: ReactNode
+    /** The name of the "field" in the table's data sorted by this button. */
+    name: string
+    /** The current sort direction for this column, if any. */
+    value: SortDirection
+  }
 }
 
 /**
  * A simple button for table column headers that allows users to sort the column in ascending
  * or descending order. Typically used via `Table.SortButton`.
  */
-export function TableCellSortButton({ children, className, name, value, ...rest }: TableCellSortButtonProps) {
+export function TableCellSortButton({ children, className, name, value, ...rest }: TableCellSortButton.Props) {
   return (
     <button {...rest} className={cx(elTableCellSortButton, className)} name={name} value={value}>
       {children}
@@ -30,3 +32,6 @@ export function TableCellSortButton({ children, className, name, value, ...rest 
     </button>
   )
 }
+
+// Backward compatibility
+export type TableCellSortButtonProps = TableCellSortButton.Props

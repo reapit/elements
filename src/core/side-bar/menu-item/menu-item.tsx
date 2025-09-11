@@ -5,19 +5,26 @@ import { useId } from 'react'
 
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-interface SideBarMenuItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  /**
-   * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
-   * accessible users that the item is currently "selected".
-   */
-  'aria-current': 'page' | false
-  /** The label of the menu item */
-  children: ReactNode
-  /** The URL to navigate to when this item is activated. */
-  href: string
-  /** The icon to display next to the label. */
-  icon: ReactNode
+export namespace SideBarMenuItem {
+  export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+    /**
+     * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
+     * accessible users that the item is currently "selected".
+     */
+    'aria-current': 'page' | false
+    /** The label of the menu item */
+    children: ReactNode
+    /** The URL to navigate to when this item is activated. */
+    href: string
+    /** The icon to display next to the label. */
+    icon: ReactNode
+  }
 }
+
+/**
+ * @deprecated Use `SideBarMenuItem.Props` instead
+ */
+export type SideBarMenuItemProps = SideBarMenuItem.Props
 
 /**
  * Standard menu item for use in a `SideBar`. Is always an anchor element because side bar navigation
@@ -46,7 +53,7 @@ export function SideBarMenuItem({
   icon,
   id,
   ...rest
-}: SideBarMenuItemProps) {
+}: SideBarMenuItem.Props) {
   const tooltipId = useId()
   const triggerId = id ?? useId()
   const truncationTargetId = useId()

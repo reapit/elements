@@ -6,14 +6,16 @@ import type { HTMLAttributes, ReactNode } from 'react'
 // - children, because we internally control the child content
 type AttributesToOmit = 'children'
 
-interface TableToolbarProps extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
-  /** Typically used to show the total number of items or the number of selected rows. */
-  leftContent?: ReactNode
-  /**
-   * Typically used to display table controls, like page size, or actions available for
-   * the selected rows.
-   */
-  rightContent?: ReactNode
+export namespace TableToolbar {
+  export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
+    /** Typically used to show the total number of items or the number of selected rows. */
+    leftContent?: ReactNode
+    /**
+     * Typically used to display table controls, like page size, or actions available for
+     * the selected rows.
+     */
+    rightContent?: ReactNode
+  }
 }
 
 /**
@@ -21,7 +23,7 @@ interface TableToolbarProps extends Omit<HTMLAttributes<HTMLDivElement>, Attribu
  * in the table and/or some controls related to the items. At least one of `leftContent` or `rightContent`
  * must be provided.
  */
-export function TableToolbar({ leftContent, rightContent, ...rest }: TableToolbarProps) {
+export function TableToolbar({ leftContent, rightContent, ...rest }: TableToolbar.Props) {
   return (
     <ElTableToolbar {...rest}>
       {leftContent && <ElTableToolbarLeftContent>{leftContent}</ElTableToolbarLeftContent>}
@@ -29,3 +31,6 @@ export function TableToolbar({ leftContent, rightContent, ...rest }: TableToolba
     </ElTableToolbar>
   )
 }
+
+// Backward compatibility
+export type TableToolbarProps = TableToolbar.Props

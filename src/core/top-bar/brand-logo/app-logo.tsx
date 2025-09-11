@@ -38,14 +38,16 @@ export const supportedAppNames = [
 
 export type SupportedAppName = (typeof supportedAppNames)[number]
 
-interface AppLogoProps {
-  appName: SupportedAppName
+export namespace AppLogo {
+  export interface Props {
+    appName: SupportedAppName
+  }
 }
 
 /**
  * A simple component for displaying product's logo. Each logo will have an accessible name that matches the app name.
  */
-export function AppLogo({ appName }: AppLogoProps) {
+export function AppLogo({ appName }: AppLogo.Props) {
   switch (appName) {
     case 'Reapit':
       return <Reapit aria-label={appName} />

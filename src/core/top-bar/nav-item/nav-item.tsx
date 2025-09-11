@@ -3,15 +3,17 @@ import { ElTopBarNavItemLabel, elTopBarNavItem } from './styles'
 
 import type { AnchorHTMLAttributes } from 'react'
 
-interface TopBarNavItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
-  /**
-   * Whether the nav item represents the current page.
-   */
-  'aria-current': 'page' | false
-  /**
-   * The URL to navigate to when this item is activated.
-   */
-  href: string
+export namespace TopBarNavItem {
+  export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
+    /**
+     * Whether the nav item represents the current page.
+     */
+    'aria-current': 'page' | false
+    /**
+     * The URL to navigate to when this item is activated.
+     */
+    href: string
+  }
 }
 
 /**
@@ -34,7 +36,7 @@ interface TopBarNavItemProps extends AnchorHTMLAttributes<HTMLAnchorElement> {
  * }
  * ```
  */
-export function TopBarNavItem({ 'aria-current': ariaCurrent, children, className, ...rest }: TopBarNavItemProps) {
+export function TopBarNavItem({ 'aria-current': ariaCurrent, children, className, ...rest }: TopBarNavItem.Props) {
   return (
     <a {...rest} aria-current={ariaCurrent} className={cx(elTopBarNavItem, className)}>
       <ElTopBarNavItemLabel>{children}</ElTopBarNavItemLabel>

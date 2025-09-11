@@ -4,16 +4,18 @@ import { TopBarSecondaryNavMenuListItem } from './secondary-nav-menu-list-item'
 
 import type { ComponentProps, ReactNode } from 'react'
 
-interface TopBarSecondaryNavProps extends ComponentProps<typeof ElTopBarSecondaryNav> {
-  /**
-   * The accessible name for the secondary navigation.
-   * @default 'Secondary navigation'
-   */
-  'aria-label'?: string
-  /**
-   * The secondary navigation items for the product. Typically a collection of `TopBar.NavIconItem`'s.
-   */
-  children: ReactNode
+export namespace TopBarSecondaryNav {
+  export interface Props extends ComponentProps<typeof ElTopBarSecondaryNav> {
+    /**
+     * The accessible name for the secondary navigation.
+     * @default 'Secondary navigation'
+     */
+    'aria-label'?: string
+    /**
+     * The secondary navigation items for the product. Typically a collection of `TopBar.NavIconItem`'s.
+     */
+    children: ReactNode
+  }
 }
 
 /**
@@ -25,7 +27,7 @@ export function TopBarSecondaryNav({
   'aria-label': ariaLabel = 'Secondary navigation',
   children,
   ...rest
-}: TopBarSecondaryNavProps) {
+}: TopBarSecondaryNav.Props) {
   return (
     <ElTopBarSecondaryNav {...rest} aria-label={ariaLabel}>
       <ElTopBarSecondaryNavList>{children}</ElTopBarSecondaryNavList>

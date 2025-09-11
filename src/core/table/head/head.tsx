@@ -3,19 +3,21 @@ import { elTableHead } from './styles'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-interface TableHeadAsTheadProps extends HTMLAttributes<HTMLTableSectionElement> {
-  as?: 'thead'
-  /** The table's rows. */
-  children: ReactNode
-}
+export namespace TableHead {
+  interface AsTheadProps extends HTMLAttributes<HTMLTableSectionElement> {
+    as?: 'thead'
+    /** The table's header rows. */
+    children: ReactNode
+  }
 
-interface TableHeadAsDivProps extends HTMLAttributes<HTMLDivElement> {
-  as: 'div'
-  /** The table's rows. */
-  children: ReactNode
-}
+  interface AsDivProps extends HTMLAttributes<HTMLDivElement> {
+    as: 'div'
+    /** The table's header rows. */
+    children: ReactNode
+  }
 
-type TableHeadProps = TableHeadAsTheadProps | TableHeadAsDivProps
+  export type Props = AsTheadProps | AsDivProps
+}
 
 /**
  * A table's head. Does little more than render its children in a `<thead>` or `<div>` element.
@@ -23,10 +25,13 @@ type TableHeadProps = TableHeadAsTheadProps | TableHeadAsDivProps
  * [subgrid](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_grid_layout/Subgrid).
  * Typically used via `Table.Head`.
  */
-export function TableHead({ as: Element = 'thead', children, className, ...rest }: TableHeadProps) {
+export function TableHead({ as: Element = 'thead', children, className, ...rest }: TableHead.Props) {
   return (
     <Element {...rest} className={cx(elTableHead, className)}>
       {children}
     </Element>
   )
 }
+
+// Backward compatibility
+export type TableHeadProps = TableHead.Props

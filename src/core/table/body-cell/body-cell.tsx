@@ -3,38 +3,40 @@ import { elTableBodyCell } from './styles'
 
 import type { HTMLAttributes, ReactNode, TdHTMLAttributes, ThHTMLAttributes } from 'react'
 
-interface TableBodyCellCommonProps {
-  /**
-   * Remove default padding. Useful for cells that contain an interactive element whose hit area
-   * should fill the entire cell.
-   */
-  hasNoPadding?: boolean
-  /** The alignment of the cell's content. */
-  justifySelf?: 'start' | 'center' | 'end'
-}
+export namespace TableBodyCell {
+  interface CommonProps {
+    /**
+     * Remove default padding. Useful for cells that contain an interactive element whose hit area
+     * should fill the entire cell.
+     */
+    hasNoPadding?: boolean
+    /** The alignment of the cell's content. */
+    justifySelf?: 'start' | 'center' | 'end'
+  }
 
-interface TableBodyCellAsTdProps extends TableBodyCellCommonProps, TdHTMLAttributes<HTMLTableCellElement> {
-  as?: 'td'
-  /** The cell content. */
-  children: ReactNode
-}
+  interface AsTdProps extends CommonProps, TdHTMLAttributes<HTMLTableCellElement> {
+    as?: 'td'
+    /** The cell content. */
+    children: ReactNode
+  }
 
-interface TableBodyCellAsThProps
-  extends TableBodyCellCommonProps,
-    // NOTE: we omit scope because it should always be "row"
-    Omit<ThHTMLAttributes<HTMLTableCellElement>, 'scope'> {
-  as: 'th'
-  /** The cell content. */
-  children: ReactNode
-}
+  interface AsThProps
+    extends CommonProps,
+      // NOTE: we omit scope because it should always be "row"
+      Omit<ThHTMLAttributes<HTMLTableCellElement>, 'scope'> {
+    as: 'th'
+    /** The cell content. */
+    children: ReactNode
+  }
 
-interface TableBodyCellAsDivProps extends TableBodyCellCommonProps, HTMLAttributes<HTMLDivElement> {
-  as: 'div'
-  /** The cell content. */
-  children: ReactNode
-}
+  interface AsDivProps extends CommonProps, HTMLAttributes<HTMLDivElement> {
+    as: 'div'
+    /** The cell content. */
+    children: ReactNode
+  }
 
-type TableBodyCellProps = TableBodyCellAsTdProps | TableBodyCellAsThProps | TableBodyCellAsDivProps
+  export type Props = AsTdProps | AsThProps | AsDivProps
+}
 
 /**
  * A basic cell for a table's body. Does little more than render its children in a `<td>`,
@@ -47,7 +49,7 @@ export function TableBodyCell({
   hasNoPadding,
   justifySelf,
   ...rest
-}: TableBodyCellProps) {
+}: TableBodyCell.Props) {
   const thElementScope = Element === 'th' ? { scope: 'row' } : undefined
   return (
     <Element
@@ -61,3 +63,6 @@ export function TableBodyCell({
     </Element>
   )
 }
+
+// Backward compatibility
+export type TableBodyCellProps = TableBodyCell.Props

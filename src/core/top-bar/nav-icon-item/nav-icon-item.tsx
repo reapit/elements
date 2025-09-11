@@ -2,17 +2,19 @@ import { TopBarNavIconItemBase } from './nav-icon-item-base'
 
 import type { AnchorHTMLAttributes, ReactNode } from 'react'
 
-interface TopBarNavIconItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
-  /** Whether the nav item represents the current page. */
-  'aria-current': 'page' | false
-  /** The accessible name of the nav icon item. */
-  'aria-label': string
-  /** Optional badge to be displayed on the nav item */
-  hasBadge?: boolean
-  /** The URL to navigate to when the nav item is clicked. */
-  href: string
-  /** The nav item's icon. */
-  icon: ReactNode
+export namespace TopBarNavIconItem {
+  export interface Props extends Omit<AnchorHTMLAttributes<HTMLAnchorElement>, 'children'> {
+    /** Whether the nav item represents the current page. */
+    'aria-current': 'page' | false
+    /** The accessible name of the nav icon item. */
+    'aria-label': string
+    /** Optional badge to be displayed on the nav item */
+    hasBadge?: boolean
+    /** The URL to navigate to when the nav item is clicked. */
+    href: string
+    /** The nav item's icon. */
+    icon: ReactNode
+  }
 }
 
 /**
@@ -35,6 +37,6 @@ interface TopBarNavIconItemProps extends Omit<AnchorHTMLAttributes<HTMLAnchorEle
  * }
  * ```
  */
-export function TopBarNavIconItem(props: TopBarNavIconItemProps) {
+export function TopBarNavIconItem(props: TopBarNavIconItem.Props) {
   return <TopBarNavIconItemBase {...props} as="a" />
 }
