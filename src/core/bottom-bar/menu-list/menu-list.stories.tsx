@@ -1,4 +1,4 @@
-import { BottomBarContextProvider } from '../context'
+import { BottomBarContext } from '../context'
 import { BottomBarMenuList } from './menu-list'
 import { Menu } from '#src/core/menu'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
@@ -24,7 +24,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <BottomBarContextProvider isOpen={true}>
+      <BottomBarContext.Provider value={{ isOpen: true }}>
         <div
           style={{
             boxSizing: 'content-box',
@@ -34,7 +34,7 @@ const meta = {
           <Pattern height="120px" />
           <Story />
         </div>
-      </BottomBarContextProvider>
+      </BottomBarContext.Provider>
     ),
   ],
   globals: {
