@@ -1,9 +1,15 @@
 import { DialogBody } from './body'
-import { DialogContextProvider } from './context'
+import { DialogContext, useDialogContext } from './context'
 import { DialogFooter } from './footer'
 import { DialogHeader } from './header'
 import { ElDialog } from './styles'
-import { useDialogController, useDialogObserver, useCancelCloseRequests, useWithStopPropagation } from '../drawer'
+import {
+  getClosestDialogElement,
+  useDialogController,
+  useDialogObserver,
+  useCancelCloseRequests,
+  useWithStopPropagation,
+} from '#src/core/drawer'
 import { useId } from 'react'
 
 import type { DialogHTMLAttributes, ReactNode } from 'react'
@@ -102,13 +108,13 @@ export function Dialog({
       onCancel={onCancel}
       onClose={onClose}
     >
-      <DialogContextProvider dialogRef={ref} titleId={titleId}>
+      <DialogContext.Provider value={{ titleId }}>
         {/*
          * Note: We only mount children when the dialog is open. This is because dialog content will often fetch
          * its own data and we do not want those network requests occurring when the dialog is mounted but closed.
          */}
         {isOpen && children}
-      </DialogContextProvider>
+      </DialogContext.Provider>
     </ElDialog>
   )
 }
@@ -117,3 +123,8 @@ Dialog.Body = DialogBody
 Dialog.Footer = DialogFooter
 Dialog.Header = DialogHeader
 Dialog.HeaderCloseButton = DialogHeader.CloseButton
+
+Dialog.Context = DialogContext
+Dialog.useContext = useDialogContext
+
+Dialog.getClosestDialogElement = getClosestDialogElement

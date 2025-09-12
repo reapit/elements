@@ -1,46 +1,26 @@
-import { createContext, useContext, useMemo } from 'react'
+import { createContext, useContext } from 'react'
 
-import type { ReactNode, RefObject } from 'react'
-
-interface DrawerContext {
-  dialogRef: RefObject<HTMLDialogElement>
-  titleId: string
-}
-
-interface DrawerContextProviderProps extends DrawerContext {
-  children: ReactNode
+export namespace DrawerContext {
+  export interface Value {
+    /** The ID used for accessibility labeling of the drawer title */
+    titleId: string
+  }
 }
 
 /**
- * The context available to a Drawer's descendants. Provides access to a single `close` function
- * that can be used to imperatively close the parent drawer.
+ * The context available to a Drawer's descendants. Provides access to titleId
+ * for proper accessibility labeling.
  */
-const DrawerContext = createContext<DrawerContext | null>(null)
-
-/**
- * Provides the given values over the `DrawerContext`. For internal Drawer use only.
- */
-export function DrawerContextProvider({ children, dialogRef, titleId }: DrawerContextProviderProps) {
-  const value = useMemo<DrawerContext>(
-    () => ({
-      dialogRef,
-      titleId,
-    }),
-    [dialogRef, titleId],
-  )
-  return <DrawerContext.Provider value={value}>{children}</DrawerContext.Provider>
-}
+export const DrawerContext = createContext<DrawerContext.Value | null>(null)
 
 /**
  * Returns the current `DrawerContext` value.
  * @throws an error if the context is not defined.
  */
-export function useDrawerContext(): DrawerContext | null {
+export function useDrawerContext(): DrawerContext.Value {
   const context = useContext(DrawerContext)
   if (!context) {
     throw new Error('DrawerContext not defined: useDrawerContext can only be used in a child of DrawerContext')
   }
   return context
 }
-
-export default DrawerContext

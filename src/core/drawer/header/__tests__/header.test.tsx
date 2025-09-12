@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
+import { DrawerContext } from '../../context'
 import { DrawerHeader } from '../header'
-import { DrawerContextProvider } from '../../context'
 
 import type { ReactNode } from 'react'
 
@@ -35,9 +35,5 @@ test('forwards additional props to the header element', () => {
 })
 
 function wrapper({ children }: { children: ReactNode }) {
-  return (
-    <DrawerContextProvider dialogRef={{ current: null }} titleId="test-title-id">
-      {children}
-    </DrawerContextProvider>
-  )
+  return <DrawerContext.Provider value={{ titleId: 'test-title-id' }}>{children}</DrawerContext.Provider>
 }

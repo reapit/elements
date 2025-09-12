@@ -1,4 +1,4 @@
-import { BottomBarContextProvider } from './context'
+import { BottomBarContext, useBottomBarContext } from './context'
 import { BottomBarItemButton } from './item'
 import { BottomBarMenuList } from './menu-list'
 import { ElBottomBarContainer, ElBottomBarNav } from './styles'
@@ -37,7 +37,7 @@ export function BottomBar({
   return (
     <ElBottomBarContainer>
       <ElBottomBarNav {...rest} aria-label={ariaLabel} data-is-open={isOpen}>
-        <BottomBarContextProvider isOpen={isOpen}>{children}</BottomBarContextProvider>
+        <BottomBarContext.Provider value={{ isOpen }}>{children}</BottomBarContext.Provider>
       </ElBottomBarNav>
     </ElBottomBarContainer>
   )
@@ -47,6 +47,9 @@ BottomBar.Item = BottomBarMenuList.Item
 BottomBar.ItemButton = BottomBarItemButton
 BottomBar.MenuItem = BottomBarMenuList.MenuItem
 BottomBar.MenuList = BottomBarMenuList
+
+BottomBar.Context = BottomBarContext
+BottomBar.useContext = useBottomBarContext
 
 /** @deprecated Use BottomBar.Props instead */
 export type BottomBarProps = BottomBar.Props

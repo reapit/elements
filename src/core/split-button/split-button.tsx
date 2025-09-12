@@ -1,6 +1,6 @@
 import { ElSplitButton } from './styles'
 import { SplitButtonAction, SplitButtonAnchorAction } from './action'
-import { SplitButtonContext } from './context'
+import { SplitButtonContext, useSplitButtonContext } from './context'
 import { SplitButtonMenu } from './split-button-menu'
 import { SplitButtonMenuButton } from './menu-button'
 
@@ -39,3 +39,6 @@ SplitButton.Action = SplitButtonAction
 SplitButton.AnchorAction = SplitButtonAnchorAction
 SplitButton.Menu = SplitButtonMenu
 SplitButton.MenuButton = SplitButtonMenuButton
+
+SplitButton.Context = SplitButtonContext
+SplitButton.useContext = useSplitButtonContext

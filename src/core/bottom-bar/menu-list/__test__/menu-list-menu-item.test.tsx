@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { BottomBarContextProvider } from '../../context'
+import { BottomBarContext } from '../../context'
 import { BottomBarMenuListItem } from '../menu-list-menu-item'
 import { Menu } from '#src/core/menu'
 import { StarIcon } from '#src/icons/star'
@@ -57,5 +57,5 @@ interface WrapperProps {
 }
 
 function wrapper({ children }: WrapperProps) {
-  return <BottomBarContextProvider isOpen={true}>{children}</BottomBarContextProvider>
+  return <BottomBarContext.Provider value={{ isOpen: true }}>{children}</BottomBarContext.Provider>
 }
