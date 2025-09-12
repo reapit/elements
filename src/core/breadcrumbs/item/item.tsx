@@ -27,5 +27,7 @@ export function BreadcrumbItem({ children, ...rest }: BreadcrumbItem.Props) {
   )
 }
 
+BreadcrumbItem.displayName = 'Breadcrumbs.Item'
+
 /** @deprecated use BreadcrumbItem.Props instead */
 export type BreadcrumbItemProps = BreadcrumbItem.Props

@@ -27,5 +27,7 @@ export function BreadcrumbLink({ children, ...rest }: BreadcrumbLink.Props) {
   )
 }
 
+BreadcrumbLink.displayName = 'Breadcrumbs.Link'
+
 /** @deprecated use BreadcrumbLink.Props instead */
 export type BreadcrumbLinkProps = BreadcrumbLink.Props
