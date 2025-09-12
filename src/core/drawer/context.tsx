@@ -2,13 +2,14 @@ import { createContext, useContext } from 'react'
 
 export namespace DrawerContext {
   export interface Value {
+    /** The ID used for accessibility labeling of the drawer title */
     titleId: string
   }
 }
 
 /**
- * The context available to a Drawer's descendants. Provides access to a single `close` function
- * that can be used to imperatively close the parent drawer.
+ * The context available to a Drawer's descendants. Provides access to titleId
+ * for proper accessibility labeling.
  */
 export const DrawerContext = createContext<DrawerContext.Value | null>(null)
 

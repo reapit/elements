@@ -60,3 +60,4 @@ yarn generate:tokens # Generate CSS variables
 - Use design tokens for consistent styling
 - Ensure accessibility compliance
 - **All components MUST follow the namespace interface pattern (see guidelines/interface-pattern.md)**
+- **React contexts MUST follow the context pattern (see guidelines/context-pattern.md)**

@@ -14,8 +14,16 @@ export namespace SplitButtonContext {
   }
 }
 
+/**
+ * The context available to a SplitButton's descendants. Provides access to shared
+ * state including busy status, size, and variant for consistent styling.
+ */
 export const SplitButtonContext = createContext<SplitButtonContext.Value | null>(null)
 
+/**
+ * Returns the current SplitButtonContext value.
+ * @throws an error if the context is not defined.
+ */
 export function useSplitButtonContext(): SplitButtonContext.Value {
   const context = useContext(SplitButtonContext)
   if (!context) {

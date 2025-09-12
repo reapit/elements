@@ -2,13 +2,14 @@ import { createContext, useContext } from 'react'
 
 export namespace DialogContext {
   export interface Value {
+    /** The ID used for accessibility labeling of the dialog title */
     titleId: string
   }
 }
 
 /**
- * The context available to a Dialog's descendants. Provides access to a single `close` function
- * that can be used to imperatively close the parent dialog.
+ * The context available to a Dialog's descendants. Provides access to titleId
+ * for proper accessibility labeling.
  */
 export const DialogContext = createContext<DialogContext.Value | null>(null)
 

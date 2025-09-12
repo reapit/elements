@@ -2,6 +2,7 @@ import { createContext, useContext } from 'react'
 
 export namespace BottomBarContext {
   export interface Value {
+    /** Whether the bottom bar is currently open */
     isOpen: boolean
   }
 }
