@@ -1,8 +1,9 @@
-import { DrawerContextProvider } from './context'
 import { DrawerBody } from './body'
+import { DrawerContext, useDrawerContext } from './context'
 import { DrawerFooter } from './footer'
 import { DrawerHeader } from './header'
 import { ElDrawer } from './styles'
+import { getClosestDialogElement } from './get-closest-dialog-element'
 import { useCancelCloseRequests } from './use-cancel-close-requests'
 import { useDialogController } from './use-dialog-controller'
 import { useDialogObserver } from './use-dialog-observer'
@@ -94,13 +95,13 @@ export function Drawer({
 
   return (
     <ElDrawer {...rest} aria-labelledby={ariaLabelledBy ?? titleId} ref={ref} onCancel={onCancel} onClose={onClose}>
-      <DrawerContextProvider dialogRef={ref} titleId={titleId}>
+      <DrawerContext.Provider value={{ titleId }}>
         {/*
          * Note: We only mount children when the drawer is open. This is because drawer content will often fetch
          * its own data and we do not want those network requests occurring when the drawer is mounted but closed.
          */}
         {isOpen && children}
-      </DrawerContextProvider>
+      </DrawerContext.Provider>
     </ElDrawer>
   )
 }
@@ -109,3 +110,8 @@ Drawer.Body = DrawerBody
 Drawer.Footer = DrawerFooter
 Drawer.Header = DrawerHeader
 Drawer.HeaderCloseButton = DrawerHeader.CloseButton
+
+Drawer.Context = DrawerContext
+Drawer.useContext = useDrawerContext
+
+Drawer.getClosestDialogElement = getClosestDialogElement

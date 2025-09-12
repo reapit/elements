@@ -21,7 +21,7 @@ export namespace DialogHeader {
  * A header for dialogs. Contains the dialog's title, as well as an optional action (close button).
  */
 export function DialogHeader({ action, children, 'aria-label': ariaLabel, ...rest }: DialogHeader.Props) {
-  const { titleId } = useDialogContext() ?? {}
+  const { titleId } = useDialogContext()
   return (
     // NOTE: If we don't have a visible title, we should have an aria-label on this root element.
     <ElDialogHeader {...rest} aria-label={ariaLabel} id={!children ? titleId : undefined}>

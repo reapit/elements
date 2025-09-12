@@ -1,4 +1,4 @@
-import { ChipSelectContext, ChipSelectContextProvider, useChipSelectContext } from './context'
+import { ChipSelectContext, useChipSelectContext } from './context'
 import { ChipSelectOption } from './chip-select-option'
 import { determineNextControlledState } from './chip'
 import { ElChipSelect } from './styles'
@@ -59,9 +59,7 @@ export function ChipSelect({
 }: ChipSelect.Props) {
   return (
     <ElChipSelect {...rest} data-flow={flow} data-overflow={overflow}>
-      <ChipSelectContextProvider form={form} multiple={multiple} name={name} size={size}>
-        {children}
-      </ChipSelectContextProvider>
+      <ChipSelectContext.Provider value={{ form, multiple, name, size }}>{children}</ChipSelectContext.Provider>
     </ElChipSelect>
   )
 }

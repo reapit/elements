@@ -1,8 +1,8 @@
 import { ChipSelectOption } from '../chip-select-option'
-import { ChipSelectContextProvider } from '../context'
+import { ChipSelectContext } from '../context'
 import { render, screen } from '@testing-library/react'
 
-import type { ComponentProps, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
 test('renders as checkbox element', () => {
   render(<ChipSelectOption value="test-value">Test Option</ChipSelectOption>, {
@@ -56,10 +56,8 @@ test('forwards additional props to ChipSelectChip', () => {
   expect(screen.getByRole('checkbox')).toHaveAttribute('data-testid', 'custom-option')
 })
 
-type CreateWrapperProps = Omit<ComponentProps<typeof ChipSelectContextProvider>, 'children'>
-
-function createWrapper(contextProps: CreateWrapperProps) {
+function createWrapper(context: ChipSelectContext.Value) {
   return function Wrapper({ children }: { children: ReactNode }) {
-    return <ChipSelectContextProvider {...contextProps}>{children}</ChipSelectContextProvider>
+    return <ChipSelectContext.Provider value={context}>{children}</ChipSelectContext.Provider>
   }
 }
