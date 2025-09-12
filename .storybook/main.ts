@@ -1,15 +1,16 @@
-import { defineMain } from '@storybook/react-vite/node'
-import path from 'path'
+import type { StorybookConfig } from '@storybook/react-vite'
 
-module.exports = {
-  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
-
-  addons: ['@storybook/addon-links', '@storybook/addon-a11y', '@storybook/addon-designs', '@storybook/addon-docs'],
-
-  loader: { '.js': 'jsx' },
-
+const config: StorybookConfig = {
   framework: {
     name: '@storybook/react-vite',
     options: {},
   },
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
+  addons: ['@storybook/addon-links', '@storybook/addon-a11y', '@storybook/addon-designs', '@storybook/addon-docs'],
+  core: {
+    disableTelemetry: true,
+    enableCrashReports: false,
+  },
 }
+
+export default config
