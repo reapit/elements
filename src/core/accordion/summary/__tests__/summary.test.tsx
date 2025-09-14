@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { AccordionLabelIdContext } from '../../accordion-label-id-context'
+import { AccordionContext } from '../../context'
 import { AccordionSummary } from '../summary'
 
 import type { ReactNode } from 'react'
@@ -32,5 +32,5 @@ test('icon is visible, but hidden from the accessibility tree', () => {
 })
 
 function wrapper({ children }: { children: ReactNode }) {
-  return <AccordionLabelIdContext.Provider value="test-label-id">{children}</AccordionLabelIdContext.Provider>
+  return <AccordionContext.Provider value={{ labelId: 'test-label-id' }}>{children}</AccordionContext.Provider>
 }

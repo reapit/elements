@@ -4,7 +4,7 @@ import { useId } from 'react'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
-export namespace FeaturesItem {
+export namespace FeatureItem {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     icon: ReactNode
     label: string
@@ -17,7 +17,7 @@ export namespace FeaturesItem {
  * using pre-configured items like `Features.Bedrooms`, `Features.Bathrooms`, `Features.CarSpaces`, and
  * `Features.LandSize`.
  */
-export function FeaturesItem({ icon, id, label, value, ...rest }: FeaturesItem.Props) {
+export function FeatureItem({ icon, id, label, value, ...rest }: FeatureItem.Props) {
   const tooltipId = useId()
   const triggerId = id ?? useId()
 
@@ -32,5 +32,7 @@ export function FeaturesItem({ icon, id, label, value, ...rest }: FeaturesItem.P
   )
 }
 
+FeatureItem.displayName = 'Features.Item'
+
 /** @deprecated Use FeaturesItem.Props instead */
-export type FeaturesItemProps = FeaturesItem.Props
+export type FeaturesItemProps = FeatureItem.Props

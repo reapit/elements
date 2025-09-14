@@ -1,5 +1,5 @@
 import { BedIcon } from '#src/icons/bed'
-import { FeaturesItem } from '../item'
+import { FeatureItem } from '../item'
 
 export namespace FeaturesBedroomsItem {
   export interface Props {
@@ -11,7 +11,7 @@ export namespace FeaturesBedroomsItem {
  * A feature item that represents the number of bedrooms in a property.
  */
 export function FeaturesBedroomsItem({ value }: FeaturesBedroomsItem.Props) {
-  return <FeaturesItem icon={<BedIcon />} label="Bedrooms" value={value} />
+  return <FeatureItem icon={<BedIcon />} label="Bedrooms" value={value} />
 }
 
 /** @deprecated Use FeaturesBedroomsItem.Props instead */

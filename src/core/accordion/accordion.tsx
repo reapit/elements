@@ -1,5 +1,5 @@
 import { AccordionSummary } from './summary'
-import { AccordionLabelIdContext } from './accordion-label-id-context'
+import { AccordionContext } from './context'
 import { ElAccordion, ElAccordionContent } from './styles'
 import { useId } from 'react'
 
@@ -36,7 +36,7 @@ export function Accordion({ 'aria-labelledby': ariaLabelledBy, children, summary
 
   return (
     <ElAccordion {...rest} aria-labelledby={labelId}>
-      <AccordionLabelIdContext.Provider value={labelId}>{summary}</AccordionLabelIdContext.Provider>
+      <AccordionContext.Provider value={{ labelId }}>{summary}</AccordionContext.Provider>
       <ElAccordionContent>{children}</ElAccordionContent>
     </ElAccordion>
   )

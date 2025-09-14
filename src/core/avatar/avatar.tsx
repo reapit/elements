@@ -5,7 +5,7 @@ import type { FC, HTMLAttributes } from 'react'
 export namespace Avatar {
   export interface Props extends HTMLAttributes<HTMLSpanElement> {
     /** The colour of the avatar. */
-    colour?: 'default' | 'purple'
+    colour?: 'default' | 'primary'
     /** The shape of the avatar. */
     shape?: 'circle' | 'square'
     /** The size of the avatar. */

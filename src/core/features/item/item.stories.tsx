@@ -1,4 +1,4 @@
-import { FeaturesItem } from './item'
+import { FeatureItem } from './item'
 import { BathIcon } from '#src/icons/bath'
 import { BedIcon } from '#src/icons/bed'
 import { CarIcon } from '#src/icons/car'
@@ -7,7 +7,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Core/Features/Item',
-  component: FeaturesItem,
+  component: FeatureItem,
   argTypes: {
     icon: {
       control: 'radio',
@@ -19,7 +19,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof FeaturesItem>
+} satisfies Meta<typeof FeatureItem>
 
 export default meta
 type Story = StoryObj<typeof meta>

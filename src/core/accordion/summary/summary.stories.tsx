@@ -1,4 +1,4 @@
-import { AccordionLabelIdContext } from '../accordion-label-id-context'
+import { AccordionContext } from '../context'
 import { AccordionSummary } from './summary'
 import { BathIcon } from '#src/icons/bath'
 import { DeprecatedButton } from '#src/deprecated/button/button'
@@ -35,11 +35,11 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <AccordionLabelIdContext.Provider value="test-label-id">
+      <AccordionContext.Provider value={{ labelId: 'test-label-id' }}>
         <details>
           <Story />
         </details>
-      </AccordionLabelIdContext.Provider>
+      </AccordionContext.Provider>
     ),
     (Story, { parameters: { width } }) => {
       if (width) {
