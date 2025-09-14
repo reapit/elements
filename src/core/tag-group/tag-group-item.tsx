@@ -1,5 +1,5 @@
 import { ElTagGroupListItem } from './styles'
-import { Tag } from '../tag/tag'
+import { Tag } from '#src/core/tag'
 
 import type { ComponentProps } from 'react'
 
@@ -17,3 +17,5 @@ export function TagGroupItem(props: TagGroupItem.Props) {
     </ElTagGroupListItem>
   )
 }
+
+TagGroupItem.displayName = 'TagGroup.Item'
