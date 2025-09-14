@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 import { elDeprecatedIcon } from '../../deprecated/button'
 
 interface ElAvatarProps {
-  'data-colour': 'default' | 'purple'
+  'data-colour': 'default' | 'primary'
   'data-shape': 'circle' | 'square'
   'data-size': 'small' | 'medium'
 }
@@ -24,7 +24,7 @@ export const ElAvatar = styled.span<ElAvatarProps>`
     color: var(--colour-text-white);
   }
 
-  &[data-colour='purple'] {
+  &[data-colour='primary'] {
     background: var(--colour-fill-action-lightest);
     color: var(--colour-text-action);
   }

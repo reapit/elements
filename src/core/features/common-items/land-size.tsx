@@ -1,5 +1,5 @@
 import { LandSizeIcon } from '#src/icons/land-size'
-import { FeaturesItem } from '../item'
+import { FeatureItem } from '../item'
 
 import type { ReactNode } from 'react'
 
@@ -15,7 +15,7 @@ export namespace FeaturesLandSizeItem {
  * area units are accessible (e.g. by using an `<abbr>` element with a `title` attribute).
  */
 export function FeaturesLandSizeItem({ value }: FeaturesLandSizeItem.Props) {
-  return <FeaturesItem icon={<LandSizeIcon />} label="Land size" value={value} />
+  return <FeatureItem icon={<LandSizeIcon />} label="Land size" value={value} />
 }
 
 /** @deprecated Use FeaturesLandSizeItem.Props instead */

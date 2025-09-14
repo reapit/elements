@@ -1,6 +1,8 @@
 {
   "codeConnect": {
-    "include": ["src/core/{badge,breadcrumbs,button,chip,chip-group,link,tag,tag-group}/**/*.{tsx,jsx}"],
+    "include": [
+      "src/core/{accordion,avatar,badge,breadcrumbs,button,chip,chip-group,features,link,tag,tag-group}/**/*.{tsx,jsx}"
+    ],
     "importPaths": {
       "src/core/*": "@reapit/elements/core/*",
       "src/icons/*": "@reapit/elements/icons/*",
@@ -9,6 +11,9 @@
     "interactiveSetupFigmaFileUrl": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=136-3822",
     "label": "React",
     "documentUrlSubstitutions": {
+      "<ACCORDION_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=14320-99220",
+      "<AVATAR_CIRCLE_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=52-880",
+      "<AVATAR_SQUARE_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=1077-7569",
       "<BADGE_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=1454-7529",
       "<BREADCRUMB_ITEM_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=6903-9696",
       "<BREADCRUMB_LINK_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=6903-9655",
@@ -16,6 +21,8 @@
       "<BUTTON_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=13904-19759",
       "<CHIP_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=7051-11054",
       "<CHIP_GROUP_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=7130-7091",
+      "<FEATURE_ITEM_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=12955-37788",
+      "<FEATURES_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=2355-9645",
       "<LINK_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=11867-66681",
       "<TAG_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=55-982",
       "<TAG_GROUP_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=118-6272"

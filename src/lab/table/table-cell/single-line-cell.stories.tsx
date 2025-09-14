@@ -3,7 +3,7 @@ import { TableText } from '../table-text'
 import { DeprecatedIcon } from '#src/deprecated/icon'
 import { Skeleton } from '#src/core/skeleton'
 import { Badge } from '#src/core/badge'
-import { Features, FeaturesItem } from '#src/core/features'
+import { Features, FeatureItem } from '#src/core/features'
 import { StatusIndicator } from '#src/core/status-indicator'
 import { Tag } from '#src/core/tag'
 import { TagGroup } from '#src/core/tag-group'
@@ -58,10 +58,10 @@ const meta = {
         if (itemName === 'Features') {
           acc[itemName] = (
             <Features size="xs">
-              <FeaturesItem label="Bedrooms" icon={<DeprecatedIcon icon="bed" />} value="1" />
-              <FeaturesItem label="Bathooms" icon={<DeprecatedIcon icon="bath" />} value="2" />
-              <FeaturesItem label="Cars" icon={<DeprecatedIcon icon="car" />} value="5" />
-              <FeaturesItem label="Areas" icon={<DeprecatedIcon icon="appSwitcher" />} value="850 sqm" />
+              <FeatureItem label="Bedrooms" icon={<DeprecatedIcon icon="bed" />} value="1" />
+              <FeatureItem label="Bathooms" icon={<DeprecatedIcon icon="bath" />} value="2" />
+              <FeatureItem label="Cars" icon={<DeprecatedIcon icon="car" />} value="5" />
+              <FeatureItem label="Areas" icon={<DeprecatedIcon icon="appSwitcher" />} value="850 sqm" />
             </Features>
           )
         }

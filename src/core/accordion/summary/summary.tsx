@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from '../../../icons/chevron-down'
-import { useAccordionLabelIdContext } from '../accordion-label-id-context'
+import { useAccordionContext } from '../context'
 import {
   ElAccordionSummary,
   ElAccordionSummaryTitle,
@@ -31,7 +31,7 @@ export namespace AccordionSummary {
  * This component should only be used as the summary for an Accordion component.
  */
 export function AccordionSummary({ children, rightInfo, ...rest }: AccordionSummary.Props) {
-  const labelId = useAccordionLabelIdContext()
+  const { labelId } = useAccordionContext()
   return (
     <ElAccordionSummary {...rest}>
       <ElAccordionSummaryTitle id={labelId}>{children}</ElAccordionSummaryTitle>
@@ -42,3 +42,5 @@ export function AccordionSummary({ children, rightInfo, ...rest }: AccordionSumm
     </ElAccordionSummary>
   )
 }
+
+AccordionSummary.displayName = 'Accordion.Summary'

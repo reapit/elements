@@ -1,5 +1,5 @@
 import { ElFeatures } from './styles'
-import { FeaturesItem } from './item'
+import { FeatureItem } from './item'
 import {
   FeaturesBathroomsItem,
   FeaturesBedroomsItem,
@@ -36,7 +36,7 @@ Features.Bedrooms = FeaturesBedroomsItem
 Features.CarSpaces = FeaturesCarSpacesItem
 Features.LandSize = FeaturesLandSizeItem
 
-Features.Item = FeaturesItem
+Features.Item = FeatureItem
 
 /** @deprecated Use Features.Props instead */
 export type FeaturesProps = Features.Props

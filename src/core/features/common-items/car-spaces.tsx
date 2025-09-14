@@ -1,5 +1,5 @@
 import { CarIcon } from '#src/icons/car'
-import { FeaturesItem } from '../item'
+import { FeatureItem } from '../item'
 
 export namespace FeaturesCarSpacesItem {
   export interface Props {
@@ -12,7 +12,7 @@ export namespace FeaturesCarSpacesItem {
  * A feature item that represents the number of car spaces in a property.
  */
 export function FeaturesCarSpacesItem({ value }: FeaturesCarSpacesItem.Props) {
-  return <FeaturesItem icon={<CarIcon />} label="Car spaces" value={value} />
+  return <FeatureItem icon={<CarIcon />} label="Car spaces" value={value} />
 }
 
 /** @deprecated Use FeaturesCarSpacesItem.Props instead */
