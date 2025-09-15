@@ -30,3 +30,5 @@ export function FolderTab({ children, ...rest }: FolderTab.Props) {
     </ElFolderTab>
   )
 }
+
+FolderTab.displayName = 'FolderTabs.Item'

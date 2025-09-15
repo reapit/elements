@@ -20,3 +20,5 @@ export function PrimaryTabsItem(props: PrimaryTabsItem.Props) {
     </ElPrimaryTabsListItem>
   )
 }
+
+PrimaryTabsItem.displayName = 'PrimaryTabs.Item'

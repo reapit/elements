@@ -23,3 +23,5 @@ export function FolderTabCountLabel({ children, count, ...rest }: FolderTabCount
     </ElFolderTabCountContainer>
   )
 }
+
+FolderTabCountLabel.displayName = 'FolderTabs.CountLabel'
