@@ -27,3 +27,5 @@ export type EmptyDataActionProps = EmptyDataAction.Props
 export function EmptyDataAction(props: EmptyDataAction.Props) {
   return <AnchorButton {...props} size="medium" variant="tertiary" useLinkStyle />
 }
+
+EmptyDataAction.displayName = 'EmptyData.Action'

@@ -1,7 +1,8 @@
 import { Menu } from '#src/core/menu'
 import { SplitButtonMenuButton } from './menu-button'
+import { useId } from 'react'
 
-import { useId, type ComponentProps, type ReactNode } from 'react'
+import type { ComponentProps, ReactNode } from 'react'
 
 export namespace SplitButtonMenu {
   export interface Props extends ComponentProps<typeof SplitButtonMenuButton> {
@@ -28,3 +29,5 @@ export function SplitButtonMenu({ children, id, ...rest }: SplitButtonMenu.Props
     </>
   )
 }
+
+SplitButtonMenu.displayName = 'SplitButton.Menu'

@@ -20,3 +20,5 @@ export type EmptyDataActionButtonProps = EmptyDataActionButton.Props
 export function EmptyDataActionButton(props: EmptyDataActionButton.Props) {
   return <Button {...props} size="medium" variant="tertiary" useLinkStyle />
 }
+
+EmptyDataActionButton.displayName = 'EmptyData.ActionButton'

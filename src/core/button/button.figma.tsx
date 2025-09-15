@@ -25,8 +25,8 @@ figma.connect(Button, '<BUTTON_URL>', {
     }),
   },
   example: (props) => (
-    // NOTE: Use AnchorButton when needing to navigate
     <Button
+      // NOTE: Use AnchorButton when needing to navigate
       disabled={props.disabled}
       hasNoPadding={props.hasNoPadding}
       iconLeft={props.iconLeft}
