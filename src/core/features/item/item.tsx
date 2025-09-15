@@ -1,4 +1,4 @@
-import { ElFeaturesItem, ElFeaturesItemValue, ElFeaturesItemIcon } from './styles'
+import { ElFeatureItem, ElFeatureItemValue, ElFeatureItemIcon } from './styles'
 import { Tooltip } from '#src/core/tooltip'
 import { useId } from 'react'
 
@@ -22,13 +22,13 @@ export function FeatureItem({ icon, id, label, value, ...rest }: FeatureItem.Pro
   const triggerId = id ?? useId()
 
   return (
-    <ElFeaturesItem {...rest} id={triggerId}>
-      <ElFeaturesItemIcon aria-labelledby={tooltipId}>{icon}</ElFeaturesItemIcon>
-      <ElFeaturesItemValue>{value}</ElFeaturesItemValue>
+    <ElFeatureItem {...rest} id={triggerId}>
+      <ElFeatureItemIcon aria-labelledby={tooltipId}>{icon}</ElFeatureItemIcon>
+      <ElFeatureItemValue>{value}</ElFeatureItemValue>
       <Tooltip id={tooltipId} placement="top" triggerId={triggerId}>
         {label}
       </Tooltip>
-    </ElFeaturesItem>
+    </ElFeatureItem>
   )
 }
 

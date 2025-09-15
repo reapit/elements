@@ -17,3 +17,5 @@ export function ChipGroupItem(props: ChipGroupItem.Props) {
     </ElChipGroupListItem>
   )
 }
+
+ChipGroupItem.displayName = 'ChipGroup.Item'

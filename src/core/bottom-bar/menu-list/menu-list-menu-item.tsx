@@ -10,6 +10,7 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react'
 export namespace BottomBarMenuListItem {
   export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     children: ReactNode
+    hasBadge?: boolean
     icon?: ReactNode
     label?: string
     maxWidth?: `--size-${string}`
@@ -25,6 +26,7 @@ export namespace BottomBarMenuListItem {
  */
 export function BottomBarMenuListItem({
   children,
+  hasBadge,
   icon = <MoreIcon />,
   id,
   label = 'More',
@@ -60,6 +62,7 @@ export function BottomBarMenuListItem({
       <BottomBarItemButton
         {...rest}
         {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        hasBadge={hasBadge}
         icon={icon}
       >
         {label}
@@ -70,3 +73,5 @@ export function BottomBarMenuListItem({
     </ElBottomBarMenuListItem>
   )
 }
+
+BottomBarMenuListItem.displayName = 'BottomBar.MenuItem'

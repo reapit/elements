@@ -20,3 +20,5 @@ export function BottomBarListItem({ children, ...props }: BottomBarListItem.Prop
     </ElBottomBarMenuListItem>
   )
 }
+
+BottomBarListItem.displayName = 'BottomBar.Item'
