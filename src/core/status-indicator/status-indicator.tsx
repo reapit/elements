@@ -11,7 +11,7 @@ export namespace StatusIndicator {
     /** The label of the status indicator. */
     children: ReactNode
     /** The variant of the status indicator. */
-    variant: 'neutral' | 'success' | 'pending' | 'warning' | 'danger' | 'inactive' | 'accent1' | 'accent2'
+    variant: 'neutral' | 'success' | 'pending' | 'warning' | 'danger' | 'inactive' | 'accent_1' | 'accent_2'
   }
 }
 

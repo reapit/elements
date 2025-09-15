@@ -45,10 +45,10 @@ export const ElSupplementaryInfoList = styled.ul`
   &[data-colour='danger'] {
     color: var(--colour-text-error);
   }
-  &[data-colour='accent-1'] {
+  &[data-colour='accent_1'] {
     color: var(--colour-text-accent_1);
   }
-  &[data-colour='accent-2'] {
+  &[data-colour='accent_2'] {
     color: var(--colour-text-accent_2);
   }
 `
@@ -108,10 +108,10 @@ export const ElSupplementaryInfoItem = styled.li`
   &[data-colour='danger'] {
     color: var(--colour-text-error);
   }
-  &[data-colour='accent-1'] {
+  &[data-colour='accent_1'] {
     color: var(--colour-text-accent_1);
   }
-  &[data-colour='accent-2'] {
+  &[data-colour='accent_2'] {
     color: var(--colour-text-accent_2);
   }
 
@@ -135,8 +135,8 @@ export const ElSupplementaryInfoItem = styled.li`
   [data-size='base'] &[data-colour='pending'],
   [data-size='base'] &[data-colour='warning'],
   [data-size='base'] &[data-colour='danger'],
-  [data-size='base'] &[data-colour='accent-1'],
-  [data-size='base'] &[data-colour='accent-2'] {
+  [data-size='base'] &[data-colour='accent_1'],
+  [data-size='base'] &[data-colour='accent_2'] {
     ${font('base', 'medium')}
   }
   [data-size='sm'] &[data-colour='neutral'],
@@ -144,8 +144,8 @@ export const ElSupplementaryInfoItem = styled.li`
   [data-size='sm'] &[data-colour='pending'],
   [data-size='sm'] &[data-colour='warning'],
   [data-size='sm'] &[data-colour='danger'],
-  [data-size='sm'] &[data-colour='accent-1'],
-  [data-size='sm'] &[data-colour='accent-2'] {
+  [data-size='sm'] &[data-colour='accent_1'],
+  [data-size='sm'] &[data-colour='accent_2'] {
     ${font('sm', 'medium')}
   }
   [data-size='xs'] &[data-colour='neutral'],
@@ -153,8 +153,8 @@ export const ElSupplementaryInfoItem = styled.li`
   [data-size='xs'] &[data-colour='pending'],
   [data-size='xs'] &[data-colour='warning'],
   [data-size='xs'] &[data-colour='danger'],
-  [data-size='xs'] &[data-colour='accent-1'],
-  [data-size='xs'] &[data-colour='accent-2'] {
+  [data-size='xs'] &[data-colour='accent_1'],
+  [data-size='xs'] &[data-colour='accent_2'] {
     ${font('xs', 'medium')}
   }
 `

@@ -1,7 +1,7 @@
 {
   "codeConnect": {
     "include": [
-      "src/core/{accordion,avatar,badge,bottom-bar,breadcrumbs,button,button-group,chip,chip-group,chip-select,compact-select-native,divider,empty-data,features,folder-tabs,link,primary-tabs,secondary-tabs,select-native,split-button,tag,tag-group,tooltip}/**/*.{tsx,jsx}"
+      "src/core/{accordion,avatar,badge,bottom-bar,breadcrumbs,button,button-group,chip,chip-group,chip-select,compact-select-native,divider,empty-data,features,filter-bar,folder-tabs,link,primary-tabs,secondary-tabs,select-native,split-button,status-indicator,supplementary-info,tag,tag-group,tooltip}/**/*.{tsx,jsx}"
     ],
     "importPaths": {
       "src/core/*": "@reapit/elements/core/*",
@@ -31,6 +31,10 @@
       "<EMPTY_DATA_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=86-1823",
       "<FEATURE_ITEM_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=12955-37788",
       "<FEATURES_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=2355-9645",
+      "<FILTER_BAR_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=13476-49354",
+      "<FILTER_BAR_APPLIED_FILTERS_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=13476-28224",
+      "<FILTER_BAR_LEFT_CONTENT_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=13523-12761",
+      "<FILTER_BAR_RIGHT_CONTENT_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=13476-43996",
       "<FOLDER_TAB_ITEM_CONTENT_SM_2XL_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=15238-28409",
       "<FOLDER_TAB_ITEM_SM_2XL_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=15238-28306",
       "<FOLDER_TAB_ITEM_CONTENT_XS_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=15238-28415",
@@ -45,11 +49,16 @@
       "<SPLIT_BUTTON_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=2356-10273",
       "<PRIMARY_TAB_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=60-1049",
       "<PRIMARY_TABS_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=7076-9436",
+      "<SECONDARY_TAB_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=209-5342",
+      "<SECONDARY_TABS_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=7076-9436",
+      "<STATUS_INDICATOR_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=5722-7495",
+      "<SUPPLEMENTARY_INFO_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=11918-14145",
+      "<SUPPLEMENTARY_INFO_ITEM_BASE_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=11918-14088",
+      "<SUPPLEMENTARY_INFO_ITEM_SM_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=11918-14107",
+      "<SUPPLEMENTARY_INFO_ITEM_XS_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=11918-14126",
       "<TAG_GROUP_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=118-6272",
       "<TAG_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=55-982",
-      "<TOOLTIP_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=6462-8381",
-      "<SECONDARY_TAB_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=209-5342",
-      "<SECONDARY_TABS_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=7076-9436"
+      "<TOOLTIP_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=6462-8381"
     }
   }
 }

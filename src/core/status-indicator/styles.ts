@@ -43,11 +43,11 @@ export const ElStatusIndicator = styled.strong`
     background: var(--comp-status-colour-icon-inactive);
   }
 
-  &[data-variant='accent1']::before {
+  &[data-variant='accent_1']::before {
     background: var(--comp-status-colour-icon-accent_1);
   }
 
-  &[data-variant='accent2']::before {
+  &[data-variant='accent_2']::before {
     background: var(--comp-status-colour-icon-accent_2);
   }
 `
