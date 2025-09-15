@@ -19,3 +19,5 @@ export namespace SplitButtonAction {
 export function SplitButtonAction(props: SplitButtonAction.Props) {
   return <SplitButtonActionBase as="button" {...props} />
 }
+
+SplitButtonAction.displayName = 'SplitButton.Action'

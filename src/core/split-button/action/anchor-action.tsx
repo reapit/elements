@@ -16,3 +16,5 @@ export namespace SplitButtonAnchorAction {
 export function SplitButtonAnchorAction(props: SplitButtonAnchorAction.Props) {
   return <SplitButtonActionBase as="a" {...props} />
 }
+
+SplitButtonAnchorAction.displayName = 'SplitButton.AnchorAction'

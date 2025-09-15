@@ -27,3 +27,5 @@ export function EmptyDataDescription({ children, secondaryText, ...rest }: Empty
     </ElEmptyDataDescription>
   )
 }
+
+EmptyDataDescription.displayName = 'EmptyData.Description'
