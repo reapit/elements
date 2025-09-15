@@ -21,3 +21,5 @@ export function SecondaryTabsItem(props: SecondaryTabsItem.Props) {
     </ElSecondaryTabsListItem>
   )
 }
+
+SecondaryTabsItem.displayName = 'SecondaryTabs.Item'

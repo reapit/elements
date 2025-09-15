@@ -122,6 +122,8 @@ export default defineConfig({
         '**/__story__/**',
         // - barrel files
         '**/index.ts',
+        // - our figma code connect files
+        '**/*.figma.*',
         // - our tests themselves
         '**/*.test.*',
         // - our stories
