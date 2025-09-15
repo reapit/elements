@@ -16,3 +16,5 @@ export namespace DrawerFooter {
 export function DrawerFooter({ children, ...rest }: DrawerFooter.Props) {
   return <ElDrawerFooter {...rest}>{children}</ElDrawerFooter>
 }
+
+DrawerFooter.displayName = 'Drawer.Footer'

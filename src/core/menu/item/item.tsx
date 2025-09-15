@@ -25,5 +25,7 @@ export function MenuItem(props: MenuItem.Props) {
   return <MenuItemBase as="button" {...props} />
 }
 
+MenuItem.displayName = 'Menu.Item'
+
 /** @deprecated Use MenuItem.Props instead */
 export type MenuItemProps = MenuItem.Props

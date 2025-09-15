@@ -22,5 +22,7 @@ export function AnchorMenuItem(props: AnchorMenuItem.Props) {
   return <MenuItemBase as="a" {...props} />
 }
 
+AnchorMenuItem.displayName = 'Menu.AnchorItem'
+
 /** @deprecated Use AnchorMenuItem.Props instead */
 export type MenuAnchorItemProps = AnchorMenuItem.Props

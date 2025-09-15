@@ -21,3 +21,5 @@ export function DialogHeaderCloseButton() {
     </form>
   )
 }
+
+DialogHeaderCloseButton.displayName = 'Dialog.HeaderCloseButton'

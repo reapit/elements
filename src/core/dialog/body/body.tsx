@@ -18,3 +18,5 @@ export namespace DialogBody {
 export function DialogBody({ children, ...rest }: DialogBody.Props) {
   return <ElDialogBody {...rest}>{children}</ElDialogBody>
 }
+
+DialogBody.displayName = 'Dialog.Body'

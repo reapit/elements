@@ -30,3 +30,5 @@ export function MenuGroup({ 'aria-label': ariaLabel, children, label, role = 'gr
     </ElMenuGroup>
   )
 }
+
+MenuGroup.displayName = 'Menu.Group'
