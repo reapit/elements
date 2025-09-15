@@ -22,4 +22,4 @@ export const ChipSelectOption = forwardRef<HTMLInputElement, ChipSelectOption.Pr
   return <ChipSelectChip {...props} isExclusive={!multiple} form={form} name={name} ref={ref} size={size} />
 })
 
-ChipSelectOption.displayName = 'ChipSelectOption'
+ChipSelectOption.displayName = 'ChipSelect.Option'

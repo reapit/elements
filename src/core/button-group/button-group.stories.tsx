@@ -1,69 +1,89 @@
+import { Button } from '#src/core/button'
 import { ButtonGroup } from './button-group'
-import { DeprecatedButton } from '../../deprecated/button'
-import { Meta } from '@storybook/react-vite'
-import { figmaDesignUrls } from '../../storybook/figma'
-import { DeprecatedIcon } from '../../deprecated/icon'
 
-const meta: Meta<typeof ButtonGroup> = {
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+const meta = {
   title: 'Core/ButtonGroup',
   component: ButtonGroup,
-}
+  argTypes: {
+    children: {
+      control: 'radio',
+      options: ['Secondary', 'Primary action', 'Mixed buttons'],
+      mapping: {
+        Secondary: (
+          <>
+            <Button size="medium" variant="secondary">
+              Button 1
+            </Button>
+            <Button size="medium" variant="secondary">
+              Button 2
+            </Button>
+            <Button size="medium" variant="secondary">
+              Button 3
+            </Button>
+          </>
+        ),
+        'Primary action': (
+          <>
+            <Button size="medium" variant="secondary">
+              Button 1
+            </Button>
+            <Button size="medium" variant="secondary">
+              Button 2
+            </Button>
+            <Button size="medium" variant="primary">
+              Button 3
+            </Button>
+          </>
+        ),
+        'Mixed buttons': (
+          <>
+            <Button size="medium" variant="tertiary">
+              Button 1
+            </Button>
+            <Button size="medium" variant="secondary">
+              Button 2
+            </Button>
+            <Button size="medium" variant="primary">
+              Button 3
+            </Button>
+          </>
+        ),
+      },
+    },
+  },
+} satisfies Meta<typeof ButtonGroup>
 
 export default meta
+type Story = StoryObj<typeof ButtonGroup>
 
-export const Default = {
-  render: ({}) => (
-    <ButtonGroup>
-      <DeprecatedButton>Button 1</DeprecatedButton>
-      <DeprecatedButton>Button 2</DeprecatedButton>
-      <DeprecatedButton>Button 3</DeprecatedButton>
-      <DeprecatedButton>Button 4</DeprecatedButton>
-      <DeprecatedButton>Button 5</DeprecatedButton>
-    </ButtonGroup>
-  ),
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.buttonGroup,
-      allowFullscreen: true,
-    },
+/**
+ * Quite often, all buttons within the button group will be the same variant, but this is not strictly
+ * required. What is strictly required is that button groups have at least one button, and all buttons
+ * with the group share the same size.
+ */
+export const Example: Story = {
+  args: {
+    children: 'Secondary',
   },
 }
 
-export const WithPrimaryButton = {
-  render: ({}) => (
-    <ButtonGroup>
-      <DeprecatedButton>Button 1</DeprecatedButton>
-      <DeprecatedButton>Button 2</DeprecatedButton>
-      <DeprecatedButton>Button 3</DeprecatedButton>
-      <DeprecatedButton>Button 4</DeprecatedButton>
-      <DeprecatedButton variant="primary">Button 5</DeprecatedButton>
-    </ButtonGroup>
-  ),
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.buttonGroup,
-      allowFullscreen: true,
-    },
+/**
+ * It is common for one button to be a primary action. This is often the case with button groups used in
+ * forms and dialogs.
+ */
+export const Primary = {
+  args: {
+    children: 'Primary action',
   },
 }
 
-export const WithIconOnlyButton = {
-  render: ({}) => (
-    <ButtonGroup>
-      <DeprecatedButton>Button 1</DeprecatedButton>
-      <DeprecatedButton>Button 2</DeprecatedButton>
-      <DeprecatedButton>Button 3</DeprecatedButton>
-      <DeprecatedButton>Button 4</DeprecatedButton>
-      <DeprecatedButton iconLeft={<DeprecatedIcon icon="more" fontSize="1rem" />} />
-    </ButtonGroup>
-  ),
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.buttonGroup,
-      allowFullscreen: true,
-    },
+/**
+ * Of course, where appropriate, any valid button variant can be used within a button group.
+ */
+export const Mixed = {
+  args: {
+    children: 'Mixed buttons',
   },
 }

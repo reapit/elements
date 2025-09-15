@@ -21,5 +21,7 @@ export function BottomBarMenuList({ children, ...rest }: BottomBarMenuList.Props
   return <ElBottomBarMenuList {...rest}>{children}</ElBottomBarMenuList>
 }
 
+BottomBarMenuList.displayName = 'BottomBar.MenuList'
+
 BottomBarMenuList.Item = BottomBarListItem
 BottomBarMenuList.MenuItem = BottomBarMenuListItem

@@ -1,14 +1,14 @@
 import { styled } from '@linaria/react'
 import { font } from '../../text'
 
-export const ElFeaturesItem = styled.div`
+export const ElFeatureItem = styled.div`
   display: inline-flex;
   flex: 0 0 auto;
   align-items: center;
   gap: var(--spacing-1);
 `
 
-export const ElFeaturesItemIcon = styled.dt`
+export const ElFeatureItemIcon = styled.dt`
   display: inline-flex;
   place-items: center;
 
@@ -18,7 +18,7 @@ export const ElFeaturesItemIcon = styled.dt`
   height: var(--icon_size-s);
 `
 
-export const ElFeaturesItemValue = styled.dd`
+export const ElFeatureItemValue = styled.dd`
   margin: 0;
 
   color: var(--comp-features-colour-text);
