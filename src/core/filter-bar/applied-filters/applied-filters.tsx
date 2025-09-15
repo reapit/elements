@@ -26,3 +26,5 @@ export function FilterBarAppliedFilters({ action, children, ...rest }: FilterBar
     </ElFilterBarAppliedFilters>
   )
 }
+
+FilterBarAppliedFilters.displayName = 'FilterBar.AppliedFilters'

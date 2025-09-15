@@ -16,3 +16,5 @@ export type FilterBarLeftContentProps = FilterBarLeftContent.Props
 export function FilterBarLeftContent(props: FilterBarLeftContent.Props) {
   return <ElFilterBarLeftContent {...props} />
 }
+
+FilterBarLeftContent.displayName = 'FilterBar.LeftContent'

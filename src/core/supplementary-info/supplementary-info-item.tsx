@@ -10,8 +10,8 @@ export type SupplementaryInfoColour =
   | 'pending'
   | 'warning'
   | 'danger'
-  | 'accent-1'
-  | 'accent-2'
+  | 'accent_1'
+  | 'accent_2'
 
 export namespace SupplementaryInfoItem {
   export interface Props extends HTMLAttributes<HTMLLIElement> {
@@ -36,3 +36,5 @@ export function SupplementaryInfoItem({ children, colour = 'inherit', ...rest }:
     </ElSupplementaryInfoItem>
   )
 }
+
+SupplementaryInfoItem.displayName = 'SupplementaryInfo.Item'
