@@ -56,13 +56,13 @@
     },
     "./lab/*": {
       "types": "./dist/types/lab/*/index.d.ts",
-      "import": "./dist/js/lab/*/index.js",
-      "require": "./dist/js/lab/*/index.cjs"
+      "import": "./dist/js/lab/*.js",
+      "require": "./dist/js/lab/*.cjs"
     },
     "./utils/*": {
       "types": "./dist/types/utils/*/index.d.ts",
-      "import": "./dist/js/utils/*/index.js",
-      "require": "./dist/js/utils/*/index.cjs"
+      "import": "./dist/js/utils/*.js",
+      "require": "./dist/js/utils/*.cjs"
     },
     "./reset.css": "./assets/reset.css",
     "./styles.css": "./dist/js/style.css",
