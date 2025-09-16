@@ -17,11 +17,7 @@ exports[`Label component > should match a snapshot if it required 1`] = `
     data-size="medium"
     data-variant="soft"
   >
-    <span
-      class="mocked-styled-1 el-label-required-mark"
-    >
-      *
-    </span>
+     *
   </span>
 </DocumentFragment>
 `;
