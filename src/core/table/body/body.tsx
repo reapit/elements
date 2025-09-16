@@ -33,5 +33,7 @@ export function TableBody({ as: Element = 'tbody', children, className, ...rest 
   )
 }
 
+TableBody.displayName = 'Table.Body'
+
 // Backward compatibility
 export type TableBodyProps = TableBody.Props

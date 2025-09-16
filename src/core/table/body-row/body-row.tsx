@@ -33,5 +33,7 @@ export function TableBodyRow({ as: Element = 'tr', children, className, ...rest 
   )
 }
 
+TableBodyRow.displayName = 'Table.BodyRow'
+
 // Backward compatibility
 export type TableBodyRowProps = TableBodyRow.Props

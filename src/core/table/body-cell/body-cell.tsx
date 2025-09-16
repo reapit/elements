@@ -64,5 +64,7 @@ export function TableBodyCell({
   )
 }
 
+TableBodyCell.displayName = 'Table.BodyCell'
+
 // Backward compatibility
 export type TableBodyCellProps = TableBodyCell.Props

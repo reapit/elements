@@ -47,5 +47,7 @@ export function TableRowMoreActions({ children, id, ...rest }: TableRowMoreActio
   )
 }
 
+TableRowMoreActions.displayName = 'Table.MoreActions'
+
 // Backward compatibility
 export type TableRowMoreActionsProps = TableRowMoreActions.Props

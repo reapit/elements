@@ -33,5 +33,7 @@ export function TableCellSortButton({ children, className, name, value, ...rest 
   )
 }
 
+TableCellSortButton.displayName = 'Table.SortButton'
+
 // Backward compatibility
 export type TableCellSortButtonProps = TableCellSortButton.Props

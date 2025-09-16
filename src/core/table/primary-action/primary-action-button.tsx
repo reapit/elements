@@ -24,5 +24,7 @@ export function TableRowPrimaryActionButton({ className, ...rest }: TableRowPrim
   return <button {...rest} className={cx(elTableRowPrimaryAction, className)} />
 }
 
+TableRowPrimaryActionButton.displayName = 'Table.PrimaryActionButton'
+
 // Backward compatibility
 export type TableRowPrimaryActionButtonProps = TableRowPrimaryActionButton.Props

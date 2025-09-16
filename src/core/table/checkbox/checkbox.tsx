@@ -44,7 +44,7 @@ export const TableCellCheckbox = forwardRef<HTMLInputElement, TableCellCheckbox.
   },
 )
 
-TableCellCheckbox.displayName = 'TableCellCheckbox'
+TableCellCheckbox.displayName = 'Table.Checkbox'
 
 // Backward compatibility
 export type TableCellCheckboxProps = TableCellCheckbox.Props

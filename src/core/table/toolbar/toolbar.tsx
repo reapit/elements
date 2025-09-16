@@ -32,5 +32,7 @@ export function TableToolbar({ leftContent, rightContent, ...rest }: TableToolba
   )
 }
 
+TableToolbar.displayName = 'Table.Toolbar'
+
 // Backward compatibility
 export type TableToolbarProps = TableToolbar.Props

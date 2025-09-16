@@ -33,5 +33,7 @@ export function TableHead({ as: Element = 'thead', children, className, ...rest 
   )
 }
 
+TableHead.displayName = 'Table.Head'
+
 // Backward compatibility
 export type TableHeadProps = TableHead.Props

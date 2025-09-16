@@ -22,5 +22,7 @@ export function TableRowPrimaryAction({ className, ...rest }: TableRowPrimaryAct
   return <a {...rest} className={cx(elTableRowPrimaryAction, className)} />
 }
 
+TableRowPrimaryAction.displayName = 'Table.PrimaryAction'
+
 // Backward compatibility
 export type TableRowPrimaryActionProps = TableRowPrimaryAction.Props

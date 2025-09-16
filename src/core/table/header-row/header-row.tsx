@@ -33,5 +33,7 @@ export function TableHeaderRow({ as: Element = 'tr', children, className, ...res
   )
 }
 
+TableHeaderRow.displayName = 'Table.HeaderRow'
+
 // Backward compatibility
 export type TableHeaderRowProps = TableHeaderRow.Props
