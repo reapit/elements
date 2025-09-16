@@ -47,5 +47,7 @@ export function TableCellPrimaryData({ children, iconLeft, iconRight, ...rest }:
   )
 }
 
+TableCellPrimaryData.displayName = 'Table.PrimaryData'
+
 // Backward compatibility
 export type TableCellPrimaryDataProps = TableCellPrimaryData.Props

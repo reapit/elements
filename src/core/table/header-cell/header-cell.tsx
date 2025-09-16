@@ -63,5 +63,7 @@ export function TableHeaderCell({
   )
 }
 
+TableHeaderCell.displayName = 'Table.HeaderCell'
+
 // Backward compatibility
 export type TableHeaderCellProps = TableHeaderCell.Props

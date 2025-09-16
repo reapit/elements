@@ -42,5 +42,7 @@ export function TableCellDoubleLineLayout({
   )
 }
 
+TableCellDoubleLineLayout.displayName = 'Table.DoubleLineLayout'
+
 // Backward compatibility
 export type TableCellDoubleLineLayoutProps = TableCellDoubleLineLayout.Props
