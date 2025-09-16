@@ -27,7 +27,25 @@ const meta = {
         none: null,
       },
     },
-    breadcrumbs: {
+    leadingElement: {
+      control: 'select',
+      options: ['None', 'Icon', 'Image'],
+      mapping: {
+        None: null,
+        Icon: (
+          <PageHeader.LeadingElement type="icon">
+            <LogoDevice style={{ width: '100%', height: '100%' }} />
+          </PageHeader.LeadingElement>
+        ),
+        Image: (
+          <PageHeader.LeadingElement type="image">
+            {/* TODO: This should be replaced with a proper "image" component when we have one. */}
+            <FakeImage />
+          </PageHeader.LeadingElement>
+        ),
+      },
+    },
+    navigation: {
       control: 'select',
       options: ['None', 'Some', 'Many'],
       mapping: {
@@ -57,24 +75,6 @@ const meta = {
               <Breadcrumbs.Link href={href}>Level four</Breadcrumbs.Link>
             </Breadcrumbs.Item>
           </Breadcrumbs>
-        ),
-      },
-    },
-    leadingElement: {
-      control: 'select',
-      options: ['None', 'Icon', 'Image'],
-      mapping: {
-        None: null,
-        Icon: (
-          <PageHeader.LeadingElement type="icon">
-            <LogoDevice style={{ width: '100%', height: '100%' }} />
-          </PageHeader.LeadingElement>
-        ),
-        Image: (
-          <PageHeader.LeadingElement type="image">
-            {/* TODO: This should be replaced with a proper "image" component when we have one. */}
-            <FakeImage />
-          </PageHeader.LeadingElement>
         ),
       },
     },
@@ -223,8 +223,8 @@ type Story = StoryObj<typeof meta>
 export const Example: Story = {
   args: {
     backgroundColour: 'neutral-lightest',
-    breadcrumbs: 'None',
     leadingElement: 'None',
+    navigation: 'None',
     subtitle: 'None',
     supplementaryInfo: 'None',
     title: 'Basic',
@@ -238,7 +238,7 @@ export const Example: Story = {
 export const Navigation: Story = {
   args: {
     ...Example.args,
-    breadcrumbs: 'Some',
+    navigation: 'Some',
   },
 }
 
@@ -328,8 +328,8 @@ export const BackgroundColour: Story = {
 export const Breakpoints: Story = {
   args: {
     ...Example.args,
-    breadcrumbs: 'Many',
     leadingElement: 'Image',
+    navigation: 'Many',
     subtitle: 'Additional Info',
     supplementaryInfo: 'Summary Info',
     title: 'Multiple Actions',
@@ -382,7 +382,7 @@ export const Breakpoints: Story = {
 export const Overflow: Story = {
   args: {
     ...Example.args,
-    breadcrumbs: 'Many',
+    navigation: 'Many',
     subtitle: 'Additional Info',
     supplementaryInfo: 'Summary Info',
     title: (

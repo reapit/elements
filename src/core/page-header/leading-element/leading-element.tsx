@@ -28,3 +28,5 @@ export function PageHeaderLeadingElement({ children, type, ...rest }: PageHeader
     </ElPageHeaderLeadingElement>
   )
 }
+
+PageHeaderLeadingElement.displayName = 'PageHeader.LeadingElement'
