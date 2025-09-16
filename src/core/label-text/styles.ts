@@ -18,6 +18,3 @@ export const ElLabelText = styled.span`
     color: var(--text-primary);
   }
 `
-export const ElLabelRequiredMark = styled.span`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`

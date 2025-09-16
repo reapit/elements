@@ -25,10 +25,10 @@ export namespace PageHeader {
      * transparent.
      */
     backgroundColour?: 'white' | 'neutral-lightest'
-    /** The breadcrumbs for the current page. */
-    breadcrumbs?: ReactNode
     /** The leading element, like an image or product icon. */
     leadingElement?: ReactNode
+    /** The breadcrumbs for the current page. */
+    navigation?: ReactNode
     /** The page subtitle. */
     subtitle?: ReactNode
     /** The supplementary info. */
@@ -44,7 +44,7 @@ export namespace PageHeader {
  */
 export function PageHeader({
   backgroundColour,
-  breadcrumbs,
+  navigation: breadcrumbs,
   title,
   subtitle,
   leadingElement,

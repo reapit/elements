@@ -23,3 +23,5 @@ export function PageHeaderSubtitle({ additionalInfo, children, ...rest }: PageHe
     </ElPageHeaderSubtitle>
   )
 }
+
+PageHeaderSubtitle.displayName = 'PageHeader.Subtitle'

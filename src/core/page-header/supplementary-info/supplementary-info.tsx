@@ -19,3 +19,5 @@ export namespace PageHeaderSupplementaryInfo {
 export function PageHeaderSupplementaryInfo({ children, ...rest }: PageHeaderSupplementaryInfo.Props) {
   return <ElPageHeaderSupplementaryInfo {...rest}>{children}</ElPageHeaderSupplementaryInfo>
 }
+
+PageHeaderSupplementaryInfo.displayName = 'PageHeader.SupplementaryInfo'

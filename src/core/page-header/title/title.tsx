@@ -34,3 +34,5 @@ export function PageHeaderTitle({ actions, additionalInfo, children, ...rest }: 
     </ElPageHeaderTitle>
   )
 }
+
+PageHeaderTitle.displayName = 'PageHeader.Title'

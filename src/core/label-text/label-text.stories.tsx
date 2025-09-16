@@ -1,38 +1,29 @@
-import { ElLabelText, LabelText } from './index'
+import { LabelText } from './label-text'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-export default {
+const meta = {
   title: 'Core/LabelText',
-  component: ElLabelText,
-}
-
-export const BasicUsage = {
-  render: (args) => (
-    <>
-      <LabelText {...args}>I&apos;m a label for a form input or something else</LabelText>
-    </>
-  ),
+  component: LabelText,
   argTypes: {
     size: {
-      control: 'select',
-      description: 'Defines label text render size',
+      control: 'radio',
       options: ['small', 'medium'],
-      table: {
-        type: { summary: 'enum' },
-        defaultValue: { summary: 'small' },
-      },
     },
     variant: {
-      control: 'select',
-      description: 'Rendering label text with the variant',
+      control: 'radio',
       options: ['soft', 'strong'],
-      table: {
-        type: { summary: 'enum' },
-        defaultValue: { summary: 'soft' },
-      },
     },
-    isRequired: {
-      control: 'boolean',
-      description: 'Rendering Required mark in the end children',
-    },
+  },
+} satisfies Meta<typeof LabelText>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Example: Story = {
+  args: {
+    children: "I'm a label for a form input or something else",
+    isRequired: false,
+    size: 'small',
+    variant: 'soft',
   },
 }

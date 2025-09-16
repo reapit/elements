@@ -9,7 +9,7 @@ test('renders a header element', () => {
 })
 
 test('displays breadcrumbs when provided', () => {
-  render(<PageHeader title="Page title" breadcrumbs={<span>Breadcrumbs</span>} />)
+  render(<PageHeader title="Page title" navigation={<span>Breadcrumbs</span>} />)
   expect(screen.getByText('Breadcrumbs')).toBeVisible()
 })
 
