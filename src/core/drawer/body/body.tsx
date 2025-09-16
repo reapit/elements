@@ -18,3 +18,5 @@ export namespace DrawerBody {
 export function DrawerBody({ children, ...rest }: DrawerBody.Props) {
   return <ElDrawerBody {...rest}>{children}</ElDrawerBody>
 }
+
+DrawerBody.displayName = 'Drawer.Body'

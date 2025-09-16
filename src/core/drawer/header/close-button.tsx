@@ -21,3 +21,5 @@ export function DrawerHeaderCloseButton() {
     </form>
   )
 }
+
+DrawerHeaderCloseButton.displayName = 'Drawer.HeaderCloseButton'

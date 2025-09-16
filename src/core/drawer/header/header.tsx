@@ -48,4 +48,6 @@ export function DrawerHeader({ action, overline, children, supplementaryInfo, ta
   )
 }
 
+DrawerHeader.displayName = 'Drawer.Header'
+
 DrawerHeader.CloseButton = DrawerHeaderCloseButton

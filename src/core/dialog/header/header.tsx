@@ -33,4 +33,6 @@ export function DialogHeader({ action, children, 'aria-label': ariaLabel, ...res
   )
 }
 
+DialogHeader.displayName = 'Dialog.Header'
+
 DialogHeader.CloseButton = DialogHeaderCloseButton

@@ -16,3 +16,5 @@ export namespace DialogFooter {
 export function DialogFooter({ children, ...rest }: DialogFooter.Props) {
   return <ElDialogFooter {...rest}>{children}</ElDialogFooter>
 }
+
+DialogFooter.displayName = 'Dialog.Footer'
