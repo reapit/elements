@@ -35,5 +35,7 @@ export function TopBarSecondaryNav({
   )
 }
 
+TopBarSecondaryNav.displayName = 'TopBar.SecondaryNav'
+
 TopBarSecondaryNav.Item = TopBarSecondaryNavListItem
 TopBarSecondaryNav.MenuItem = TopBarSecondaryNavMenuListItem

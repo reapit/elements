@@ -48,3 +48,5 @@ export function TopBarNavSearchButton({ shortcut, onClick, ...rest }: TopBarNavS
     </ElTopBarNavSearchButton>
   )
 }
+
+TopBarNavSearchButton.displayName = 'TopBar.SearchButton'

@@ -35,3 +35,5 @@ export function TopBarMainNavMenuListItem({ children, id, label, ...rest }: TopB
     </ElTopBarMainNavListItem>
   )
 }
+
+TopBarMainNavMenuListItem.displayName = 'TopBar.NavMenuItem'

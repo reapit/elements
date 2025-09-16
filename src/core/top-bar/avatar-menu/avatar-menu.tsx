@@ -38,3 +38,5 @@ export function TopBarAvatarMenu({ children, id, initials, maxWidth, maxHeight, 
     </>
   )
 }
+
+TopBarAvatarMenu.displayName = 'TopBar.AvatarMenu'

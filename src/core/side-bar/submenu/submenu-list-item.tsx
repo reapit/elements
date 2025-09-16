@@ -25,3 +25,5 @@ export function SideBarSubmenuListItem({ children, ...props }: SideBarSubmenuLis
     </ElSideBarSubmenuListItem>
   )
 }
+
+SideBarSubmenuListItem.displayName = 'SideBar.SubmenuItem'

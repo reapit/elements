@@ -20,3 +20,5 @@ export function TopBarMainNavListItem(props: TopBarMainNavListItem.Props) {
     </ElTopBarMainNavListItem>
   )
 }
+
+TopBarMainNavListItem.displayName = 'TopBar.NavItem'

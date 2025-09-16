@@ -1,5 +1,5 @@
 import { cx } from '@linaria/core'
-import { Avatar } from '../../avatar/avatar'
+import { Avatar } from '#src/core/avatar'
 import { elTopBarAvatarButton } from './styles'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
@@ -31,7 +31,7 @@ export function TopBarAvatarButton({
 }: TopBarAvatarButton.Props) {
   return (
     <button {...rest} aria-label={ariaLabel} className={cx(elTopBarAvatarButton, className)}>
-      <Avatar size="small" shape="circle" colour="purple">
+      <Avatar size="small" shape="circle" colour="primary">
         {children}
       </Avatar>
     </button>

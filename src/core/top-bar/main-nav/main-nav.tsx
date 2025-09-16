@@ -31,5 +31,7 @@ export function TopBarMainNav({ 'aria-label': ariaLabel = 'Main navigation', chi
   )
 }
 
+TopBarMainNav.displayName = 'TopBar.MainNav'
+
 TopBarMainNav.Item = TopBarMainNavListItem
 TopBarMainNav.MenuItem = TopBarMainNavMenuListItem

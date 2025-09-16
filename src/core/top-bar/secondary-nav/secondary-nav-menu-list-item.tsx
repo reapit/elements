@@ -43,3 +43,5 @@ export function TopBarSecondaryNavMenuListItem({
     </ElTopBarSecondaryNavListItem>
   )
 }
+
+TopBarSecondaryNavMenuListItem.displayName = 'TopBar.NavIconMenuItem'

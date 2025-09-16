@@ -22,6 +22,8 @@ export function SideBarMenuList({ children, ...rest }: SideBarMenuList.Props) {
   return <ElSideBarMenuList {...rest}>{children}</ElSideBarMenuList>
 }
 
+SideBarMenuList.displayName = 'SideBar.MenuList'
+
 SideBarMenuList.Item = SideBarMenuListItem
 SideBarMenuList.Group = SideBarMenuListGroup
 SideBarMenuList.GroupSummary = SideBarMenuListGroup.Summary

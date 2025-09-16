@@ -26,4 +26,6 @@ export function SideBarMenuListGroup({ children, ...props }: SideBarMenuListGrou
   )
 }
 
+SideBarMenuListGroup.displayName = 'SideBar.MenuGroup'
+
 SideBarMenuListGroup.Summary = SideBarMenuGroup.Summary
