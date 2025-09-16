@@ -24,3 +24,5 @@ export function BrandLogo({ appName, href = '/', ...rest }: BrandLogo.Props) {
     </ElBrandLogo>
   )
 }
+
+BrandLogo.displayName = 'TopBar.BrandLogo'

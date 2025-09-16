@@ -3,16 +3,16 @@
 exports[`CheckboxGroup > should match snapshot 1`] = `
 <DocumentFragment>
   <label
-    class="mocked-styled-5 el-checkbox"
+    class="mocked-styled-4 el-checkbox"
   >
     <input
       aria-hidden="true"
-      class="mocked-styled-6 el-checkbox-input"
+      class="mocked-styled-5 el-checkbox-input"
       type="checkbox"
     />
     <svg
       aria-hidden="true"
-      class="mocked-styled-2 el-checkbox-svg-icon"
+      class="mocked-styled-1 el-checkbox-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -23,7 +23,7 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
     </svg>
     <svg
       aria-hidden="true"
-      class="mocked-styled-3 el-checkbox-selected-svg-icon"
+      class="mocked-styled-2 el-checkbox-selected-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -33,12 +33,12 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
       />
     </svg>
     <span
-      class="mocked-styled-7 el-checkbox-label-text el-label-text"
+      class="mocked-styled-6 el-checkbox-label-text el-label-text"
       data-size="medium"
       data-variant="strong"
     />
     <span
-      class="mocked-styled-8 el-checkbox-supplementary-info el-label-text"
+      class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
       data-size="small"
       data-variant="soft"
     />
@@ -49,16 +49,16 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
 exports[`CheckboxGroup > should match snapshot with Checkbox with Label 1`] = `
 <DocumentFragment>
   <label
-    class="mocked-styled-5 el-checkbox"
+    class="mocked-styled-4 el-checkbox"
   >
     <input
       aria-hidden="true"
-      class="mocked-styled-6 el-checkbox-input"
+      class="mocked-styled-5 el-checkbox-input"
       type="checkbox"
     />
     <svg
       aria-hidden="true"
-      class="mocked-styled-2 el-checkbox-svg-icon"
+      class="mocked-styled-1 el-checkbox-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -69,7 +69,7 @@ exports[`CheckboxGroup > should match snapshot with Checkbox with Label 1`] = `
     </svg>
     <svg
       aria-hidden="true"
-      class="mocked-styled-3 el-checkbox-selected-svg-icon"
+      class="mocked-styled-2 el-checkbox-selected-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -79,14 +79,14 @@ exports[`CheckboxGroup > should match snapshot with Checkbox with Label 1`] = `
       />
     </svg>
     <span
-      class="mocked-styled-7 el-checkbox-label-text el-label-text"
+      class="mocked-styled-6 el-checkbox-label-text el-label-text"
       data-size="medium"
       data-variant="strong"
     >
       Label
     </span>
     <span
-      class="mocked-styled-8 el-checkbox-supplementary-info el-label-text"
+      class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
       data-size="small"
       data-variant="soft"
     />
@@ -97,16 +97,16 @@ exports[`CheckboxGroup > should match snapshot with Checkbox with Label 1`] = `
 exports[`CheckboxGroup > should match snapshot with Checkbox with Label and Suppliemntary text 1`] = `
 <DocumentFragment>
   <label
-    class="mocked-styled-5 el-checkbox"
+    class="mocked-styled-4 el-checkbox"
   >
     <input
       aria-hidden="true"
-      class="mocked-styled-6 el-checkbox-input"
+      class="mocked-styled-5 el-checkbox-input"
       type="checkbox"
     />
     <svg
       aria-hidden="true"
-      class="mocked-styled-2 el-checkbox-svg-icon"
+      class="mocked-styled-1 el-checkbox-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -117,7 +117,7 @@ exports[`CheckboxGroup > should match snapshot with Checkbox with Label and Supp
     </svg>
     <svg
       aria-hidden="true"
-      class="mocked-styled-3 el-checkbox-selected-svg-icon"
+      class="mocked-styled-2 el-checkbox-selected-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -127,14 +127,14 @@ exports[`CheckboxGroup > should match snapshot with Checkbox with Label and Supp
       />
     </svg>
     <span
-      class="mocked-styled-7 el-checkbox-label-text el-label-text"
+      class="mocked-styled-6 el-checkbox-label-text el-label-text"
       data-size="medium"
       data-variant="strong"
     >
       Label
     </span>
     <span
-      class="mocked-styled-8 el-checkbox-supplementary-info el-label-text"
+      class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
       data-size="small"
       data-variant="soft"
     >
@@ -147,17 +147,17 @@ exports[`CheckboxGroup > should match snapshot with Checkbox with Label and Supp
 exports[`CheckboxGroup > should match snapshot with disabled Checkbox 1`] = `
 <DocumentFragment>
   <label
-    class="mocked-styled-5 el-checkbox"
+    class="mocked-styled-4 el-checkbox"
   >
     <input
       aria-hidden="true"
-      class="mocked-styled-6 el-checkbox-input"
+      class="mocked-styled-5 el-checkbox-input"
       disabled=""
       type="checkbox"
     />
     <svg
       aria-hidden="true"
-      class="mocked-styled-2 el-checkbox-svg-icon"
+      class="mocked-styled-1 el-checkbox-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -168,7 +168,7 @@ exports[`CheckboxGroup > should match snapshot with disabled Checkbox 1`] = `
     </svg>
     <svg
       aria-hidden="true"
-      class="mocked-styled-3 el-checkbox-selected-svg-icon"
+      class="mocked-styled-2 el-checkbox-selected-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -178,14 +178,14 @@ exports[`CheckboxGroup > should match snapshot with disabled Checkbox 1`] = `
       />
     </svg>
     <span
-      class="mocked-styled-7 el-checkbox-label-text el-label-text"
+      class="mocked-styled-6 el-checkbox-label-text el-label-text"
       data-size="medium"
       data-variant="strong"
     >
       Label
     </span>
     <span
-      class="mocked-styled-8 el-checkbox-supplementary-info el-label-text"
+      class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
       data-size="small"
       data-variant="soft"
     >
@@ -198,16 +198,16 @@ exports[`CheckboxGroup > should match snapshot with disabled Checkbox 1`] = `
 exports[`CheckboxGroup > should match snapshot with indeterminate Checkbox 1`] = `
 <DocumentFragment>
   <label
-    class="mocked-styled-5 el-checkbox"
+    class="mocked-styled-4 el-checkbox"
   >
     <input
       aria-hidden="true"
-      class="mocked-styled-6 el-checkbox-input"
+      class="mocked-styled-5 el-checkbox-input"
       type="checkbox"
     />
     <svg
       aria-hidden="true"
-      class="mocked-styled-2 el-checkbox-svg-icon"
+      class="mocked-styled-1 el-checkbox-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -218,7 +218,7 @@ exports[`CheckboxGroup > should match snapshot with indeterminate Checkbox 1`] =
     </svg>
     <svg
       aria-hidden="true"
-      class="mocked-styled-3 el-checkbox-selected-svg-icon"
+      class="mocked-styled-2 el-checkbox-selected-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -229,7 +229,7 @@ exports[`CheckboxGroup > should match snapshot with indeterminate Checkbox 1`] =
     </svg>
     <svg
       aria-hidden="true"
-      class="mocked-styled-4 el-checkbox-indeterminate-svg-icon"
+      class="mocked-styled-3 el-checkbox-indeterminate-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -243,14 +243,14 @@ exports[`CheckboxGroup > should match snapshot with indeterminate Checkbox 1`] =
       />
     </svg>
     <span
-      class="mocked-styled-7 el-checkbox-label-text el-label-text"
+      class="mocked-styled-6 el-checkbox-label-text el-label-text"
       data-size="medium"
       data-variant="strong"
     >
       Label
     </span>
     <span
-      class="mocked-styled-8 el-checkbox-supplementary-info el-label-text"
+      class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
       data-size="small"
       data-variant="soft"
     >
@@ -263,16 +263,16 @@ exports[`CheckboxGroup > should match snapshot with indeterminate Checkbox 1`] =
 exports[`CheckboxGroup > should match snapshot with required Checkbox 1`] = `
 <DocumentFragment>
   <label
-    class="mocked-styled-5 el-checkbox"
+    class="mocked-styled-4 el-checkbox"
   >
     <input
       aria-hidden="true"
-      class="mocked-styled-6 el-checkbox-input"
+      class="mocked-styled-5 el-checkbox-input"
       type="checkbox"
     />
     <svg
       aria-hidden="true"
-      class="mocked-styled-2 el-checkbox-svg-icon"
+      class="mocked-styled-1 el-checkbox-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -283,7 +283,7 @@ exports[`CheckboxGroup > should match snapshot with required Checkbox 1`] = `
     </svg>
     <svg
       aria-hidden="true"
-      class="mocked-styled-3 el-checkbox-selected-svg-icon"
+      class="mocked-styled-2 el-checkbox-selected-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -293,19 +293,14 @@ exports[`CheckboxGroup > should match snapshot with required Checkbox 1`] = `
       />
     </svg>
     <span
-      class="mocked-styled-7 el-checkbox-label-text el-label-text"
+      class="mocked-styled-6 el-checkbox-label-text el-label-text"
       data-size="medium"
       data-variant="strong"
     >
-      Label
-      <span
-        class="mocked-styled-1 el-label-required-mark"
-      >
-        *
-      </span>
+      Label *
     </span>
     <span
-      class="mocked-styled-8 el-checkbox-supplementary-info el-label-text"
+      class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
       data-size="small"
       data-variant="soft"
     >

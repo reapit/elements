@@ -31,5 +31,7 @@ export function TopBarNavSearch({ button, iconItem, ...rest }: TopBarNavSearch.P
   )
 }
 
+TopBarNavSearch.displayName = 'TopBar.NavSearch'
+
 TopBarNavSearch.Button = TopBarNavSearchButton
 TopBarNavSearch.IconItem = TopBarNavSearchIconItem

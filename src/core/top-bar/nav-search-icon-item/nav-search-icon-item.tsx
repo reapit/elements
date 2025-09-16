@@ -17,3 +17,5 @@ export namespace TopBarNavSearchIconItem {
 export function TopBarNavSearchIconItem({ 'aria-label': ariaLabel, ...rest }: TopBarNavSearchIconItem.Props) {
   return <TopBarNavIconItemBase {...rest} aria-label={ariaLabel ?? 'Search'} as="button" icon={<SearchIcon />} />
 }
+
+TopBarNavSearchIconItem.displayName = 'TopBar.SearchIconItem'

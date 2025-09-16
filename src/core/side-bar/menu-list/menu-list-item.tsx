@@ -25,3 +25,5 @@ export function SideBarMenuListItem({ children, ...props }: SideBarMenuListItem.
     </ElSideBarMenuListItem>
   )
 }
+
+SideBarMenuListItem.displayName = 'SideBar.MenuItem'

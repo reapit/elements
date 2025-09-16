@@ -20,3 +20,5 @@ export function TopBarSecondaryNavListItem(props: TopBarSecondaryNavListItem.Pro
     </ElTopBarSecondaryNavListItem>
   )
 }
+
+TopBarSecondaryNavListItem.displayName = 'TopBar.NavIconItem'

@@ -24,4 +24,6 @@ export function SideBarSubmenu({ children, ...rest }: SideBarSubmenu.Props) {
   return <ElSideBarSubmenuList {...rest}>{children}</ElSideBarSubmenuList>
 }
 
+SideBarSubmenu.displayName = 'SideBar.Submenu'
+
 SideBarSubmenu.Item = SideBarSubmenuListItem

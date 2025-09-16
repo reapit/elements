@@ -66,3 +66,5 @@ export function SideBarCollapseButton({ id, onClick, ...props }: SideBarCollapse
     </ElSideBarCollapseButton>
   )
 }
+
+SideBarCollapseButton.displayName = 'SideBar.CollapseButton'

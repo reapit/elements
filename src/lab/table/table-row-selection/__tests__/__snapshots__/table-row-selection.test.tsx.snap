@@ -3,17 +3,17 @@
 exports[`TableRowSelection > should match snapshot 1`] = `
 <DocumentFragment>
   <label
-    class="mocked-styled-5 el-checkbox"
+    class="mocked-styled-4 el-checkbox"
   >
     <input
       aria-hidden="true"
       aria-label="Select row undefined"
-      class="mocked-styled-6 el-checkbox-input"
+      class="mocked-styled-5 el-checkbox-input"
       type="checkbox"
     />
     <svg
       aria-hidden="true"
-      class="mocked-styled-2 el-checkbox-svg-icon"
+      class="mocked-styled-1 el-checkbox-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -24,7 +24,7 @@ exports[`TableRowSelection > should match snapshot 1`] = `
     </svg>
     <svg
       aria-hidden="true"
-      class="mocked-styled-3 el-checkbox-selected-svg-icon"
+      class="mocked-styled-2 el-checkbox-selected-svg-icon"
       viewBox="0 0 24 24"
       xmlns="http://www.w3.org/2000/svg"
     >
@@ -34,12 +34,12 @@ exports[`TableRowSelection > should match snapshot 1`] = `
       />
     </svg>
     <span
-      class="mocked-styled-7 el-checkbox-label-text el-label-text"
+      class="mocked-styled-6 el-checkbox-label-text el-label-text"
       data-size="medium"
       data-variant="strong"
     />
     <span
-      class="mocked-styled-8 el-checkbox-supplementary-info el-label-text"
+      class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
       data-size="small"
       data-variant="soft"
     />
