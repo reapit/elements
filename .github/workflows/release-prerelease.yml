@@ -34,7 +34,7 @@ jobs:
           ref: main
 
       - name: Get Tag
-        uses: olegtarasov/get-tag@v2.1
+        uses: olegtarasov/get-tag@v2.1.4
         id: tagName
         with:
           tagRegex: '(?<package>.*)_(?<version>.*)'
