@@ -42,7 +42,7 @@ export const Icons: Story = {
 export const Colour: Story = {
   args: {
     ...Example.args,
-    colour: 'purple',
+    colour: 'primary',
   },
 }
 
@@ -53,7 +53,7 @@ export const ColouredIcons: Story = {
   args: {
     ...Example.args,
     children: <DeprecatedIcon icon="contact" />,
-    colour: 'purple',
+    colour: 'primary',
   },
 }
 

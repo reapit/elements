@@ -3,7 +3,6 @@ import { SplitButtonMenuButton } from '../menu-button'
 import { SplitButtonContext } from '../../context'
 
 import type { ReactNode } from 'react'
-import type { SplitButtonContextType } from '../../context'
 
 vi.mock('#src/icons/chevron-down', () => ({
   ChevronDownIcon: () => <span data-testid="chevron-down-icon" />,
@@ -77,7 +76,7 @@ test('applies custom `className`', () => {
 
 interface WrapperProps {
   children: ReactNode
-  busy?: SplitButtonContextType['busy']
+  busy?: SplitButtonContext.Value['busy']
 }
 
 function Wrapper({ children, busy }: WrapperProps) {

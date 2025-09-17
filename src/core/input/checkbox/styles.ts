@@ -60,9 +60,26 @@ export const elInputCheckboxIcon = css`
     color: var(--comp-select-colour-icon-disabled-unchecked);
   }
 
+  /* Focus outline */
+  input:focus-visible ~ & {
+    border-radius: var(--border-radius-m);
+    outline: var(--border-width-double) solid var(--colour-border-focus);
+    outline-offset: var(--border-width-default);
+  }
+
   /* Checked/indeterminate colours */
   input:is(:checked, :indeterminate) ~ & {
     color: var(--comp-select-colour-icon-default-checked);
+  }
+
+  /* When the checkbox is neither checked nor indeterminate, hide all but the unchecked icon */
+  input:not(:checked, :indeterminate) ~ &:not([data-show-when='unchecked']) {
+    display: none;
+  }
+
+  /* When the checkbox is indeterminate, hide all but the indeterminate icon */
+  input:indeterminate ~ &:not([data-show-when='indeterminate']) {
+    display: none;
   }
 
   input:invalid:is(:checked, :indeterminate) ~ & {
@@ -73,25 +90,8 @@ export const elInputCheckboxIcon = css`
     color: var(--comp-select-colour-icon-disabled-checked);
   }
 
-  /* Focus outline */
-  input:focus-visible ~ & {
-    border-radius: var(--border-radius-m);
-    outline: var(--border-width-double) solid var(--colour-border-focus);
-    outline-offset: var(--border-width-default);
-  }
-
-  /* When the checkbox is indeterminate, hide all but the indeterminate icon */
-  input:indeterminate ~ &:not([data-show-when='indeterminate']) {
-    display: none;
-  }
-
   /* When the checkbox is checked, but not indeterminate, hide all but the checked icon */
   input:checked:not(:indeterminate) ~ &:not([data-show-when='checked']) {
-    display: none;
-  }
-
-  /* When the checkbox is neither checked nor indeterminate, hide all but the unchecked icon */
-  input:not(:checked, :indeterminate) ~ &:not([data-show-when='unchecked']) {
     display: none;
   }
 `
