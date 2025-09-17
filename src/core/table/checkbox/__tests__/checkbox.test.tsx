@@ -2,12 +2,12 @@ import { render, screen } from '@testing-library/react'
 import { TableCellCheckbox } from '../checkbox'
 
 test('renders as a checkbox element', () => {
-  render(<TableCellCheckbox />)
-  expect(screen.getByRole('checkbox')).toBeVisible()
+  render(<TableCellCheckbox aria-label="My checkbox" />)
+  expect(screen.getByRole('checkbox', { name: 'My checkbox' })).toBeVisible()
 })
 
 test('has .el-table-cell-checkbox class', () => {
-  const { container } = render(<TableCellCheckbox />)
+  const { container } = render(<TableCellCheckbox aria-label="My checkbox" />)
   // NOTE: We don't use getByRole here because it's not the checkbox element that receives
   // the class, rather it's the checkbox's parent. To rely on this knowledge here would be to couple
   // this test to an implementation concern. For the purpose of testing this subject, we just want
@@ -20,11 +20,11 @@ test('accepts other classes', () => {
   // the class, rather it's the checkbox's parent. To rely on this knowledge here would be to couple
   // this test to an implementation concern. For the purpose of testing this subject, we just want
   // to ensure our custom class also reaches the DOM.
-  const { container } = render(<TableCellCheckbox className="custom-class" />)
+  const { container } = render(<TableCellCheckbox aria-label="My checkbox" className="custom-class" />)
   expect(container.querySelector('.el-table-cell-checkbox')).toHaveClass('el-table-cell-checkbox custom-class')
 })
 
 test('forwards additional props to the checkbox element', () => {
-  render(<TableCellCheckbox data-testid="test-id" />)
+  render(<TableCellCheckbox aria-label="My checkbox" data-testid="test-id" />)
   expect(screen.getByTestId('test-id')).toBe(screen.getByRole('checkbox'))
 })

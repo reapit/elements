@@ -9,7 +9,7 @@ describe('Avatar', () => {
 
   it('should render properly with specified props and match snapshot', () => {
     const { asFragment } = render(
-      <Avatar shape="square" size="small" colour="purple">
+      <Avatar shape="square" size="small" colour="primary">
         Square Avatar
       </Avatar>,
     )

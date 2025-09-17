@@ -18,8 +18,8 @@ const meta = {
         'pending',
         'warning',
         'danger',
-        'accent-1',
-        'accent-2',
+        'accent_1',
+        'accent_2',
       ] satisfies SupplementaryInfoColour[],
     },
     children: {

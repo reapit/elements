@@ -46,10 +46,10 @@ const meta = {
           <SupplementaryInfo.Item key="danger" colour="danger">
             Danger
           </SupplementaryInfo.Item>,
-          <SupplementaryInfo.Item key="accent-1" colour="accent-1">
+          <SupplementaryInfo.Item key="accent_1" colour="accent_1">
             Accent 1
           </SupplementaryInfo.Item>,
-          <SupplementaryInfo.Item key="accent-2" colour="accent-2">
+          <SupplementaryInfo.Item key="accent_2" colour="accent_2">
             Accent 2
           </SupplementaryInfo.Item>,
         ],

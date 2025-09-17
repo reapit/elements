@@ -2,7 +2,7 @@ import { StatusIndicator } from './status-indicator'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const variants = ['neutral', 'success', 'pending', 'warning', 'danger', 'inactive', 'accent1', 'accent2'] as const
+const variants = ['neutral', 'success', 'pending', 'warning', 'danger', 'inactive', 'accent_1', 'accent_2'] as const
 
 const meta = {
   title: 'Core/StatusIndicator',

@@ -18,7 +18,7 @@ exports[`Avatar > should render properly with specified props and match snapshot
 <DocumentFragment>
   <span
     class="mocked-styled-0 el-avatar"
-    data-colour="purple"
+    data-colour="primary"
     data-shape="square"
     data-size="small"
     role="presentation"

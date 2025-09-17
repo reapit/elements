@@ -4,7 +4,6 @@ import { SplitButtonContext } from '../../context'
 import { StarIcon } from '#src/icons/star'
 
 import type { ReactNode } from 'react'
-import type { SplitButtonContextType } from '../../context'
 
 test('renders as a button element when `as="button"`', () => {
   render(<SplitButtonActionBase as="button">Button</SplitButtonActionBase>, { wrapper: Wrapper })
@@ -118,7 +117,7 @@ test('shows a spinner when busy', () => {
 
 interface WrapperProps {
   children: ReactNode
-  busy?: SplitButtonContextType['busy']
+  busy?: SplitButtonContext.Value['busy']
 }
 
 function Wrapper({ children, busy }: WrapperProps) {

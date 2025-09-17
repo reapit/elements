@@ -21,21 +21,15 @@ export const ElChipSelectChip = styled.label<ElChipSelectChipProps>`
   border-radius: var(--comp-interactive_chip-border-radius);
   cursor: pointer;
 
+  &:hover {
+    background: var(--comp-interactive_chip-colour-fill-hover-unselected);
+    border-color: var(--comp-interactive_chip-colour-border-hover);
+  }
+
   &:has(input:checked) {
     border-color: var(--comp-interactive_chip-colour-fill-default-selected);
     background: var(--comp-interactive_chip-colour-fill-default-selected);
     color: var(--comp-interactive_chip-colour-text-default-selected);
-  }
-
-  &:hover {
-    background: var(--comp-interactive_chip-colour-fill-hover-unselected);
-    border-color: var(--comp-interactive_chip-colour-border-hover);
-
-    &:has(input:checked) {
-      border-color: var(--comp-interactive_chip-colour-fill-hover-selected);
-      background: var(--comp-interactive_chip-colour-fill-hover-selected);
-      color: var(--comp-interactive_chip-colour-text-hover-selected);
-    }
   }
 
   &:has(input:focus-visible) {
@@ -52,12 +46,19 @@ export const ElChipSelectChip = styled.label<ElChipSelectChipProps>`
     background: var(--comp-interactive_chip-colour-fill-disabled-unselected);
     border-color: var(--comp-interactive_chip-colour-fill-disabled-unselected);
     color: var(--comp-interactive_chip-colour-text-disabled-unselected);
+  }
 
-    &:has(input:checked) {
-      border-color: var(--comp-interactive_chip-colour-fill-disabled-selected);
-      background: var(--comp-interactive_chip-colour-fill-disabled-selected);
-      color: var(--comp-interactive_chip-colour-text-disabled-selected);
-    }
+  &:has(input:checked:disabled),
+  &:has(input[readonly]:checked) {
+    border-color: var(--comp-interactive_chip-colour-fill-disabled-selected);
+    background: var(--comp-interactive_chip-colour-fill-disabled-selected);
+    color: var(--comp-interactive_chip-colour-text-disabled-selected);
+  }
+
+  &:has(input:checked):hover {
+    border-color: var(--comp-interactive_chip-colour-fill-hover-selected);
+    background: var(--comp-interactive_chip-colour-fill-hover-selected);
+    color: var(--comp-interactive_chip-colour-text-hover-selected);
   }
 
   &[data-size='small'] {
@@ -100,16 +101,22 @@ export const ElChipSelectChipIconContainer = styled.span`
 
   color: var(--comp-interactive_chip-colour-icon-default-unselected);
 
+  [data-size='small'] &,
+  [data-size='medium'] & {
+    width: var(--icon_size-s);
+    height: var(--icon_size-s);
+  }
+  [data-size='large'] & {
+    width: var(--icon_size-m);
+    height: var(--icon_size-m);
+  }
+
   input:checked ~ & {
     color: var(--comp-interactive_chip-colour-icon-default-selected);
   }
 
   label:hover ~ & {
     color: var(--comp-interactive_chip-colour-icon-hover-unselected);
-  }
-
-  label:hover:has(input:checked) ~ & {
-    color: var(--comp-interactive_chip-colour-icon-hover-selected);
   }
 
   input:is(:disabled, [readonly]) ~ & {
@@ -120,14 +127,8 @@ export const ElChipSelectChipIconContainer = styled.span`
     color: var(--comp-interactive_chip-colour-icon-disabled-selected);
   }
 
-  [data-size='small'] &,
-  [data-size='medium'] & {
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
-  }
-  [data-size='large'] & {
-    width: var(--icon_size-m);
-    height: var(--icon_size-m);
+  label:hover:has(input:checked) ~ & {
+    color: var(--comp-interactive_chip-colour-icon-hover-selected);
   }
 `
 
