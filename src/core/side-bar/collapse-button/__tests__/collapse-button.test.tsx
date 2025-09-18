@@ -1,4 +1,4 @@
-import { composeStories } from '@storybook/react'
+import { composeStories } from '@storybook/react-vite'
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import * as stories from '../collapse-button.stories'
 import { SideBarContextPublisher } from '../../side-bar-context'

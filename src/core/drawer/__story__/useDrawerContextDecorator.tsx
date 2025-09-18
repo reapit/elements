@@ -1,6 +1,6 @@
 import { DrawerContext } from '../context'
 
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react-vite'
 
 export function useDrawerContextDecorator(): Decorator {
   return (Story) => (

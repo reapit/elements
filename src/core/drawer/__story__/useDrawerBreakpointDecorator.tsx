@@ -1,6 +1,6 @@
 import { DRAWER_WIDTH_XS_SM, DRAWER_WIDTH_MD_2XL, DRAWER_CSS_CONTAINER_NAME } from '../constants'
 
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react-vite'
 import type { ReactNode } from 'react'
 
 export function useDrawerBreakpointDecorator(): Decorator {

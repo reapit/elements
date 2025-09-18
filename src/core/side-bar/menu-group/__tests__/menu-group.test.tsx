@@ -1,4 +1,4 @@
-import { composeStories } from '@storybook/react'
+import { composeStories } from '@storybook/react-vite'
 import { render, screen } from '@testing-library/react'
 import { SideBarMenuGroup } from '../menu-group'
 import * as stories from '../menu-group.stories'
