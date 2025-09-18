@@ -49,7 +49,7 @@ jobs:
           echo "RELEASE_VERSION=${{ steps.tagName.outputs.package }}_${{ steps.tagName.outputs.version }}" >> $GITHUB_ENV
 
       - name: Install
-        run: yarn
+        run: yarn install --immutable
 
       - name: Check
         run: |
