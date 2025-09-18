@@ -1,4 +1,4 @@
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react-vite'
 import { useSideBarContext } from '../side-bar-context'
 
 export const useSideBarWidthDecorator: Decorator = (Story, context) => {

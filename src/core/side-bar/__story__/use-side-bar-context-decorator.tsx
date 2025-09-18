@@ -1,4 +1,4 @@
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react-vite'
 import { useSideBar } from '../use-side-bar'
 import { useId } from 'react'
 import { SideBarContextPublisher } from '../side-bar-context'

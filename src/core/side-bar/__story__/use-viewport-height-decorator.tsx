@@ -1,4 +1,4 @@
-import type { Decorator } from '@storybook/react'
+import type { Decorator } from '@storybook/react-vite'
 
 export const useViewportHeightDecorator: Decorator = (Story) => {
   return (
