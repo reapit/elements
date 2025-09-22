@@ -80,4 +80,5 @@ export const productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR
   // Secondary apps here (should be alphatically ordered by configured app name)
   'keywhere',
   'bdm',
+  'mmiWeb',
 ] as const satisfies SupportedProductId[]

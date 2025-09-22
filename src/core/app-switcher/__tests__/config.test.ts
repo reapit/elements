@@ -70,6 +70,7 @@ test('product display order should not change without updating this test', () =>
         "consoleCloud",
         "keywhere",
         "bdm",
+        "mmiWeb",
       ]
     `)
 })

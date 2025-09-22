@@ -125,11 +125,11 @@ export const AllAccessible: StoryObj<{ accessibleProductIds: string[] }> = {
  * const ids = AppSwitcher.getDisplayableProductsForExploreGroup(accessibleProductIds)
  *
  * return ids.length > 0 && (
- *  <AppSwitcher.YourAppsMenuGroup>
+ *  <AppSwitcher.ExploreMenuGroup>
  *    {ids.map((productId) => (
  *      <AppSwitcher.Product key={productId} productId={productId} url={href} />
  *    ))}
- *  </AppSwitcher.YourAppsMenuGroup>
+ *  </AppSwitcher.ExploreMenuGroup>
  * )
  * ```
  */
