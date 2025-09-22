@@ -68,6 +68,7 @@ test('product display order should not change without updating this test', () =>
       [
         "ireWeb",
         "consoleCloud",
+        "agentBox",
         "keywhere",
         "bdm",
         "mmiWeb",
