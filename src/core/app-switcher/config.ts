@@ -75,10 +75,11 @@ export const productConfigs = {
  */
 export const productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE = [
   // Primary apps here (should be alphatically ordered by configured app name)
-  'ireWeb', // Reapit Lettings
-  'consoleCloud', // Reapit PM
+  'ireWeb', // => Reapit Lettings
+  'consoleCloud', // => Reapit PM
+  'agentBox', // => Reapit Sales
   // Secondary apps here (should be alphatically ordered by configured app name)
   'keywhere',
-  'bdm',
+  'bdm', // => Lettings BDM
   'mmiWeb',
 ] as const satisfies SupportedProductId[]
