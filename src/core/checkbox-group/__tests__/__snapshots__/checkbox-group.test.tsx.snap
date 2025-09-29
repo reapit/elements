@@ -11,7 +11,6 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
     >
       <span
         class="mocked-styled-0 el-label-text"
-        data-size="medium"
         data-variant="soft"
       >
         Select options
@@ -167,10 +166,14 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup Label UI is re
     >
       <span
         class="mocked-styled-0 el-label-text"
-        data-size="medium"
         data-variant="soft"
       >
-        Select options *
+        Select options
+        <span
+          aria-label="(Required)"
+        >
+           *
+        </span>
       </span>
     </legend>
     <label
@@ -323,7 +326,6 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should not sho
     >
       <span
         class="mocked-styled-0 el-label-text"
-        data-size="medium"
         data-variant="soft"
       >
         Select options
@@ -481,7 +483,6 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should show su
     >
       <span
         class="mocked-styled-0 el-label-text"
-        data-size="medium"
         data-variant="soft"
       >
         Select options
@@ -639,7 +640,6 @@ exports[`CheckboxGroup > should match snapshot with horizontal CheckboxGroup 1`]
     >
       <span
         class="mocked-styled-0 el-label-text"
-        data-size="medium"
         data-variant="soft"
       >
         Select options

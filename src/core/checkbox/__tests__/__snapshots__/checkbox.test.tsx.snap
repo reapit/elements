@@ -297,7 +297,12 @@ exports[`CheckboxGroup > should match snapshot with required Checkbox 1`] = `
       data-size="medium"
       data-variant="strong"
     >
-      Label *
+      Label
+      <span
+        aria-label="(Required)"
+      >
+         *
+      </span>
     </span>
     <span
       class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"

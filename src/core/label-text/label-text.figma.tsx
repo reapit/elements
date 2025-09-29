@@ -6,8 +6,8 @@ figma.connect(LabelText, '<LABEL_TEXT_URL>', {
     children: figma.string('Label text'),
     isRequired: figma.boolean('Required'),
     size: figma.enum('Size', {
-      Small: 'small',
-      Medium: 'medium',
+      Small: 'xs',
+      Medium: 'sm',
     }),
     variant: figma.enum('Variant', {
       Soft: 'soft',
