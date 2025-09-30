@@ -1,7 +1,7 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
-export const ElInputCheckboxContainer = styled.div`
+export const ElCheckboxInputContainer = styled.div`
   /* We need relative positioning to allow the input to be absolutely positioned covers
    * the whole container. */
   position: relative;
@@ -17,7 +17,11 @@ export const ElInputCheckboxContainer = styled.div`
   }
 `
 
-export const ElInputCheckbox = styled.input`
+interface ElCheckboxInputProps {
+  'data-is-touched': boolean
+}
+
+export const ElCheckboxInput = styled.input<ElCheckboxInputProps>`
   /* We absolutely position the checkbox input so that it covers the whole container.
    * this ensures any padding applied to the container by a consumer is "included" in
    * the input's "hit area". */
@@ -37,7 +41,7 @@ export const ElInputCheckbox = styled.input`
   }
 `
 
-export const elInputCheckboxIcon = css`
+export const elCheckboxInputIcon = css`
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -52,7 +56,11 @@ export const elInputCheckboxIcon = css`
   /* Unchecked colours */
   color: var(--comp-select-colour-icon-default-unchecked);
 
-  input:invalid ~ & {
+  /* NOTE: we only use the invalid styles if the input is invalid AND has the data-is-touched
+   * attribute set to true. This allows consumers to control when the invalid styles are applied,
+   * such as only when the form control has been "touched" */
+  input:invalid[data-is-touched='true'] ~ &,
+  input:user-invalid[data-is-touched='true'] ~ & {
     color: var(--comp-select-colour-icon-error-unchecked);
   }
 
@@ -82,7 +90,8 @@ export const elInputCheckboxIcon = css`
     display: none;
   }
 
-  input:invalid:is(:checked, :indeterminate) ~ & {
+  input:invalid[data-is-touched='true']:is(:checked, :indeterminate) ~ &,
+  input:user-invalid[data-is-touched='true']:is(:checked, :indeterminate) ~ & {
     color: var(--comp-select-colour-icon-error-checked);
   }
 
