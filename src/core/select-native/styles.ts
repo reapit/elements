@@ -48,8 +48,8 @@ export const ElSelectNative = styled.select<ElSelectNativeProps>`
    * We use :where to avoid the presence of the isTouched attribute increasing the selector's
    * specificity and, therefore, overriding our focus styles. When a touched and invalid field is
    * focused, we want the focus styles to take precedence. */
-  &:where([data-is-touched='true']):invalid,
-  &:where([data-is-touched='true']):user-invalid {
+  &:invalid:where([data-is-touched='true']),
+  &:user-invalid:where([data-is-touched='true']) {
     border-color: var(--comp-input-colour-border-error);
     background: var(--comp-input-colour-fill-error-background);
   }

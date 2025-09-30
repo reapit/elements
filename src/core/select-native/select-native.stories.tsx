@@ -98,9 +98,9 @@ export const Sizes: Story = {
 }
 
 /**
- * Like all form controls, the native select will display in an invalid state when it's value
- * does not meet the validation constraints applied to it, such as being required, when it has
- * been "touched", meaning the control has been focused then blurred.
+ * Like all form controls that visually communicate their validity, the native select will display in an
+ * invalid state when it's value does not meet the validation constraints applied to it, such as being
+ * required, and it has been "touched", meaning the control has been focused then blurred.
  */
 export const Invalid: Story = {
   args: {

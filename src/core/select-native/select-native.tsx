@@ -49,13 +49,13 @@ export namespace SelectNative {
  * container. Importantly, it only supports single selection.
  */
 export const SelectNative = forwardRef<HTMLSelectElement, SelectNative.Props>(
-  ({ autoComplete = 'off', children, isTouched, maxWidth, size, ...rest }, ref) => {
+  ({ autoComplete = 'off', children, className, isTouched, maxWidth, size, style, ...rest }, ref) => {
     return (
       // NOTE: We have to wrap the select in a container so our chevron icon can be positioned absolutely
       // at the select's right edge. This is the simplest way for us to achieve the visual requirements of
       // the component while still using a native select element. The main downside is we have more DOM
       // elements involved than we would prefer.
-      <ElSelectNativeContainer style={{ '--select-max-width': maxWidth }}>
+      <ElSelectNativeContainer className={className} style={{ ...style, '--select-max-width': maxWidth }}>
         <ElSelectNative {...rest} autoComplete={autoComplete} data-is-touched={!!isTouched} data-size={size} ref={ref}>
           {children}
         </ElSelectNative>
