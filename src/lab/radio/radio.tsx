@@ -49,11 +49,11 @@ export const Radio = forwardRef<HTMLInputElement, RadioProps>(
         <RadioIcon aria-hidden className={elExperimentalRadioSvgIcon} />
         <RadioSelectedIcon aria-hidden className={elExperimentalRadioSelectedSvgIcon} />
         {/* Label text for the radio. Styled using data attributes for variant and size. */}
-        <ElExperimentalRadioLabelText variant="strong" size="medium" isRequired={isRequired}>
+        <ElExperimentalRadioLabelText variant="strong" size="sm" isRequired={isRequired}>
           {label}
         </ElExperimentalRadioLabelText>
         {/* Supplementary information displayed below the label. Styled using data attributes. */}
-        <ElExperimentalRadioSupplementaryInfo variant="soft" size="small">
+        <ElExperimentalRadioSupplementaryInfo variant="soft" size="xs">
           {supplementaryInfo}
         </ElExperimentalRadioSupplementaryInfo>
       </ElExperimentalRadio>

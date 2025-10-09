@@ -7,7 +7,7 @@ export namespace LabelText {
     /** Whether the required indicator should be displayed. Only applicable when labelling form controls. */
     isRequired?: boolean
     /** The size of the label text. */
-    size?: 'small' | 'medium'
+    size?: 'xs' | 'sm'
     /** The variant of the label text. */
     variant?: 'soft' | 'strong'
   }
@@ -20,11 +20,11 @@ export type LabelTextProps = LabelText.Props
  * Labels give a name to a component or group of components. Pair them with form components like checkboxes
  * or inputs to prompt someone to enter certain information, or with plain text to categorise information.
  */
-export function LabelText({ children, isRequired, size = 'medium', variant = 'soft', ...rest }: LabelText.Props) {
+export function LabelText({ children, isRequired, size, variant = 'soft', ...rest }: LabelText.Props) {
   return (
     <ElLabelText {...rest} data-size={size} data-variant={variant}>
       {children}
-      {isRequired && ' *'}
+      {isRequired && <span aria-label="(Required)"> *</span>}
     </ElLabelText>
   )
 }

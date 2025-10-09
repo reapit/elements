@@ -30,7 +30,7 @@ export const Option: FC<OptionProps> = ({ value, label, badge, additionalInfo1, 
     <ElExperimentalSelectCustomOption role="option" aria-selected={isSelected} tabIndex={-1} onClick={handleClick}>
       <ElExperimentalSelectCustomLabelContainer>
         <ElExperimentalSelectCustomLabelItem>
-          <LabelText size="small">{label}</LabelText>
+          <LabelText size="xs">{label}</LabelText>
           {badge && <Badge colour="neutral">{badge}</Badge>}
         </ElExperimentalSelectCustomLabelItem>
         {isSelected && <CheckIcon size="md" color="secondary" />}

@@ -185,7 +185,7 @@ export const SelectCustom: FC<SelectCustomProps> & {
   return (
     <ElExperimentalSelectCustomContainer id={id}>
       {label && (
-        <LabelText size={size === 'large' ? 'medium' : 'small'} isRequired={isRequired}>
+        <LabelText size={size === 'large' ? 'sm' : 'xs'} isRequired={isRequired}>
           {label}
         </LabelText>
       )}
@@ -247,7 +247,7 @@ export const SelectCustom: FC<SelectCustomProps> & {
       </Popover>
 
       {message && (
-        <LabelText id={descriptionId} size="small" data-error={isError ? true : false}>
+        <LabelText id={descriptionId} size="xs" data-error={isError ? true : false}>
           {message}
         </LabelText>
       )}

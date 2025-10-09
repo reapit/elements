@@ -29,14 +29,14 @@ const meta = {
         'Additional Info 1': (
           <>
             <StarIcon size="sm" color="primary" />
-            <LabelText size="small">Additional Info 1</LabelText>
+            <LabelText size="xs">Additional Info 1</LabelText>
             <Badge colour="neutral">Badge</Badge>
           </>
         ),
         'Additional Info 2': (
           <>
             <StarIcon size="sm" color="primary" />
-            <LabelText size="small">Additional Info 2</LabelText>
+            <LabelText size="xs">Additional Info 2</LabelText>
             <Badge colour="neutral">Badge</Badge>
           </>
         ),
@@ -51,14 +51,14 @@ const meta = {
         'Additional Info 1': (
           <>
             <StarIcon size="sm" color="primary" />
-            <LabelText size="small">Additional Info 1</LabelText>
+            <LabelText size="xs">Additional Info 1</LabelText>
             <Badge colour="neutral">Badge</Badge>
           </>
         ),
         'Additional Info 2': (
           <>
             <StarIcon size="sm" color="primary" />
-            <LabelText size="small">Additional Info 2</LabelText>
+            <LabelText size="xs">Additional Info 2</LabelText>
             <Badge colour="neutral">Badge</Badge>
           </>
         ),

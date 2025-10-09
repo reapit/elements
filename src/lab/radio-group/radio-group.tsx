@@ -19,13 +19,13 @@ export const RadioGroup: FC<RadioGroupProps> = ({
 }) => {
   return (
     <ElExperimentalRadioGroup data-error={errorMessage ? true : false}>
-      <LabelText size="medium" isRequired={isRequired}>
+      <LabelText size="sm" isRequired={isRequired}>
         {label}
       </LabelText>
       <ElExperimentalRadioGroupContent role="radiogroup" aria-orientation={orientation}>
         {children}
       </ElExperimentalRadioGroupContent>
-      <LabelText size="medium" data-style="error">
+      <LabelText size="sm" data-style="error">
         {errorMessage}
       </LabelText>
     </ElExperimentalRadioGroup>

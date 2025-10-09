@@ -49,11 +49,11 @@ export const Checkbox = forwardRef<HTMLInputElement, Checkbox.Props>(
         <ElCheckboxSelectedIcon aria-hidden />
         {isIndeterminate && <ElCheckboxIndeterminateIcon aria-hidden />}
         {/* Label text for the checkbox. Styled using data attributes for variant and size. */}
-        <ElCheckboxLabelText variant="strong" size="medium" isRequired={required}>
+        <ElCheckboxLabelText variant="strong" size="sm" isRequired={required}>
           {label}
         </ElCheckboxLabelText>
         {/* Supplementary information displayed below the label. Styled using data attributes. */}
-        <ElCheckboxSupplementaryInfo variant="soft" size="small">
+        <ElCheckboxSupplementaryInfo variant="soft" size="xs">
           {supplementaryInfo}
         </ElCheckboxSupplementaryInfo>
       </ElCheckbox>

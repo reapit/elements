@@ -34,12 +34,12 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
     </svg>
     <span
       class="mocked-styled-6 el-checkbox-label-text el-label-text"
-      data-size="medium"
+      data-size="sm"
       data-variant="strong"
     />
     <span
       class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
-      data-size="small"
+      data-size="xs"
       data-variant="soft"
     />
   </label>
@@ -80,14 +80,14 @@ exports[`CheckboxGroup > should match snapshot with Checkbox with Label 1`] = `
     </svg>
     <span
       class="mocked-styled-6 el-checkbox-label-text el-label-text"
-      data-size="medium"
+      data-size="sm"
       data-variant="strong"
     >
       Label
     </span>
     <span
       class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
-      data-size="small"
+      data-size="xs"
       data-variant="soft"
     />
   </label>
@@ -128,14 +128,14 @@ exports[`CheckboxGroup > should match snapshot with Checkbox with Label and Supp
     </svg>
     <span
       class="mocked-styled-6 el-checkbox-label-text el-label-text"
-      data-size="medium"
+      data-size="sm"
       data-variant="strong"
     >
       Label
     </span>
     <span
       class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
-      data-size="small"
+      data-size="xs"
       data-variant="soft"
     >
       Supplementary Info
@@ -179,14 +179,14 @@ exports[`CheckboxGroup > should match snapshot with disabled Checkbox 1`] = `
     </svg>
     <span
       class="mocked-styled-6 el-checkbox-label-text el-label-text"
-      data-size="medium"
+      data-size="sm"
       data-variant="strong"
     >
       Label
     </span>
     <span
       class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
-      data-size="small"
+      data-size="xs"
       data-variant="soft"
     >
       Supplementary Info
@@ -244,14 +244,14 @@ exports[`CheckboxGroup > should match snapshot with indeterminate Checkbox 1`] =
     </svg>
     <span
       class="mocked-styled-6 el-checkbox-label-text el-label-text"
-      data-size="medium"
+      data-size="sm"
       data-variant="strong"
     >
       Label
     </span>
     <span
       class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
-      data-size="small"
+      data-size="xs"
       data-variant="soft"
     >
       Supplementary Info
@@ -294,14 +294,19 @@ exports[`CheckboxGroup > should match snapshot with required Checkbox 1`] = `
     </svg>
     <span
       class="mocked-styled-6 el-checkbox-label-text el-label-text"
-      data-size="medium"
+      data-size="sm"
       data-variant="strong"
     >
-      Label *
+      Label
+      <span
+        aria-label="(Required)"
+      >
+         *
+      </span>
     </span>
     <span
       class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
-      data-size="small"
+      data-size="xs"
       data-variant="soft"
     >
       Supplementary Info

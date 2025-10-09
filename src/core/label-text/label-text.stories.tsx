@@ -7,7 +7,7 @@ const meta = {
   argTypes: {
     size: {
       control: 'radio',
-      options: ['small', 'medium'],
+      options: ['xs', 'sm'],
     },
     variant: {
       control: 'radio',
@@ -23,7 +23,7 @@ export const Example: Story = {
   args: {
     children: "I'm a label for a form input or something else",
     isRequired: false,
-    size: 'small',
+    size: 'xs',
     variant: 'soft',
   },
 }

@@ -10,7 +10,7 @@ export interface OptionGroupProps {
 export const Group: FC<OptionGroupProps> = ({ label, children }) => {
   return (
     <ElExperimentalSelectCustomOptionGroup role="group">
-      {label && <LabelText size="small">{label}</LabelText>}
+      {label && <LabelText size="xs">{label}</LabelText>}
       {children}
     </ElExperimentalSelectCustomOptionGroup>
   )
