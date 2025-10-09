@@ -11,7 +11,7 @@ import {
 test('product configs should not change without updating this test', () => {
   expect(productConfigs).toMatchInlineSnapshot(`
     {
-      "agentBox": {
+      "agentbox": {
         "appName": "Reapit Sales",
         "supplementaryInfo": "Real estate CRM",
       },
@@ -68,7 +68,7 @@ test('product display order should not change without updating this test', () =>
       [
         "ireWeb",
         "consoleCloud",
-        "agentBox",
+        "agentbox",
         "keywhere",
         "bdm",
         "mmiWeb",

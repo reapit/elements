@@ -3,7 +3,7 @@
  * through `AppAvatar` and a related config in the `productConfigs` object.
  */
 export type SupportedProductId =
-  | 'agentBox' // Reapit Sales
+  | 'agentbox' // Reapit Sales
   | 'autoResponder'
   | 'bdm' // Lettings BDM
   | 'consoleCloud' // Reapit PM
@@ -31,7 +31,7 @@ export const productConfigs = {
     appName: 'Auto Responder',
     supplementaryInfo: 'Auto-enquiry follow up',
   },
-  agentBox: { appName: 'Reapit Sales', supplementaryInfo: 'Real estate CRM' },
+  agentbox: { appName: 'Reapit Sales', supplementaryInfo: 'Real estate CRM' },
   bdm: {
     appName: 'Lettings BDM',
     supplementaryInfo: 'Business development',
@@ -77,7 +77,7 @@ export const productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR
   // Primary apps here (should be alphatically ordered by configured app name)
   'ireWeb', // => Reapit Lettings
   'consoleCloud', // => Reapit PM
-  'agentBox', // => Reapit Sales
+  'agentbox', // => Reapit Sales
   // Secondary apps here (should be alphatically ordered by configured app name)
   'keywhere',
   'bdm', // => Lettings BDM
