@@ -144,6 +144,25 @@ test('can be disabled', () => {
   expect(screen.getByRole('combobox')).toBeDisabled()
 })
 
+test('forwards `className` to the root container element', () => {
+  const { container } = render(
+    <SelectNative {...defaultProps} className="my-class">
+      <option value="">Select portfolio</option>
+    </SelectNative>,
+  )
+  expect(container.firstElementChild).toHaveClass('my-class')
+  expect(screen.getByRole('combobox')).not.toHaveClass('my-class')
+})
+
+test('forwards `style` to the root container element', () => {
+  const { container } = render(
+    <SelectNative {...defaultProps} style={{ color: 'red' }}>
+      <option value="">Select portfolio</option>
+    </SelectNative>,
+  )
+  expect(container.firstElementChild).toHaveStyle({ color: 'red' })
+})
+
 test('forwards ref to select element', () => {
   const ref = vi.fn()
 
