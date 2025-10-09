@@ -1,18 +1,19 @@
 import { render, screen, fireEvent } from '@testing-library/react'
-import { Option } from '../option'
-import { SelectContext, SelectedItem } from '../../select-custom'
+import { ExperimentalSelectCustomOption } from '../option'
+import { SelectCustomContext } from '../../context'
 import { Badge } from '#src/core/badge'
 import { LabelText } from '#src/core/label-text'
 import { StarIcon } from '#src/icons/star'
+import type { SelectedItem } from '../../context'
 
 describe('Option', () => {
   const onSelect = vi.fn()
 
   const renderWithContext = (props = {}, selected: SelectedItem[] = []) => {
     return render(
-      <SelectContext.Provider value={{ selectedValues: selected, onSelect, isMultiple: false }}>
-        <Option value="option1" label="Option 1" {...props} />
-      </SelectContext.Provider>,
+      <SelectCustomContext.Provider value={{ selectedValues: selected, onSelect, isMultiple: false }}>
+        <ExperimentalSelectCustomOption value="option1" label="Option 1" {...props} />
+      </SelectCustomContext.Provider>,
     )
   }
 

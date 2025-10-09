@@ -1,47 +1,25 @@
-import { FC, useState, ReactNode, createContext, useEffect } from 'react'
-import { Option } from './option'
-import { Group } from './group'
+import { useState, useEffect } from 'react'
+import {
+  ElExperimentalSelectCustomContainer,
+  ElExperimentalSelectCustomInputField,
+  ElExperimentalSelectCustomContent,
+  ElExperimentalSelectCustomPlaceholder,
+  elExperimentalSelectCustomPopover,
+} from './styles'
+import { ExperimentalSelectCustomOption } from './option'
+import { ExperimentalSelectCustomOptionGroup } from './group'
+import { SelectCustomContext } from './context'
 import { LabelText } from '#src/core/label-text'
 import { Text } from '#src/core/text'
-import { Button } from '#src/core/button'
 import { CloseIcon } from '#src/icons/close'
 import { ChevronDownIcon } from '#src/icons/chevron-down'
 import { ChipGroup } from '#src/core/chip-group'
-import { Popover, elPopover, PopoverPlacement } from '#src/utils/popover'
+import { Popover, PopoverPlacement } from '#src/utils/popover'
 import { useSelectKeyboardNavigation } from './use-select-keyboard-navigation'
 import { getInitialSelected, getTotalOptions } from './helper'
-import {
-  ElExperimentalSelectCustomContainer,
-  elExperimentalSelectCustomInputField,
-  ElExperimentalSelectCustomContent,
-  ElExperimentalSelectCustomPlaceholder,
-} from './styles'
 
-/**
- * Represents an item that can be selected in the custom select component.
- */
-export interface SelectedItem {
-  /** The value of the selected item */
-  value: string
-  /** The label displayed for the selected item */
-  label: string
-}
-
-/**
- * Context provided to `Option` and `Group` components within `SelectCustom`.
- */
-export const SelectContext = createContext<{
-  /** Currently selected items */
-  selectedValues: SelectedItem[]
-  /** Function to select or deselect an item */
-  onSelect: (item: SelectedItem) => void
-  /** Determines if multiple selections are allowed */
-  isMultiple: boolean
-}>({
-  selectedValues: [],
-  onSelect: () => {},
-  isMultiple: false,
-})
+import type { ReactNode } from 'react'
+import type { SelectedItem } from './context'
 
 /**
  * Props for the `SelectCustom` component.
@@ -77,12 +55,7 @@ export interface SelectCustomProps {
  * Custom select component with support for single/multiple selection,
  * keyboard navigation, popover, and clearable selection.
  */
-export const SelectCustom: FC<SelectCustomProps> & {
-  /** Exposes the `Group` component for nested option groups */
-  Group: typeof Group
-  /** Exposes the `Option` component for selectable items */
-  Option: typeof Option
-} = ({
+export function SelectCustom({
   id,
   size = 'medium',
   label,
@@ -95,7 +68,7 @@ export const SelectCustom: FC<SelectCustomProps> & {
   isDisabled = false,
   popoverMaxHeight,
   popoverPlacement,
-}) => {
+}: SelectCustomProps) {
   // State for selected items
   const [selectedValues, setSelectedValues] = useState(() => getInitialSelected(children, isMultiple))
 
@@ -190,14 +163,13 @@ export const SelectCustom: FC<SelectCustomProps> & {
         </LabelText>
       )}
 
-      <Button
+      <ElExperimentalSelectCustomInputField
         variant="secondary"
         size={size}
         {...triggerProps}
         type="button"
         role="combobox"
         aria-expanded="false"
-        className={elExperimentalSelectCustomInputField}
         aria-disabled={isDisabled || isAllSelected}
         aria-describedby={message ? descriptionId : undefined}
         aria-invalid={isError || false}
@@ -227,23 +199,23 @@ export const SelectCustom: FC<SelectCustomProps> & {
         ) : (
           <ChevronDownIcon size="sm" color="primary" />
         )}
-      </Button>
+      </ElExperimentalSelectCustomInputField>
 
       <Popover
         id={popoverId}
         anchorId={triggerId}
         placement={popoverPlacement || 'bottom-start'}
         popover="auto"
-        className={elPopover}
+        className={elExperimentalSelectCustomPopover}
         maxHeight={popoverMaxHeight}
         style={{ minWidth: inputWidth }}
         gap="var(--spacing-1)"
       >
-        <SelectContext.Provider value={{ selectedValues, onSelect: handleSelect, isMultiple }}>
+        <SelectCustomContext.Provider value={{ selectedValues, onSelect: handleSelect, isMultiple }}>
           <ul role="listbox" ref={listRef} tabIndex={-1}>
             {children}
           </ul>
-        </SelectContext.Provider>
+        </SelectCustomContext.Provider>
       </Popover>
 
       {message && (
@@ -270,5 +242,5 @@ export const SelectCustom: FC<SelectCustomProps> & {
   )
 }
 
-SelectCustom.Group = Group
-SelectCustom.Option = Option
+SelectCustom.Group = ExperimentalSelectCustomOptionGroup
+SelectCustom.Option = ExperimentalSelectCustomOption

@@ -1,8 +1,8 @@
 /** Extract initial selected values from children Option components */
-import { ReactNode } from 'react'
-import { SelectedItem } from './select-custom'
-import { Option } from './option'
-import { Group } from './group'
+import type { ReactNode } from 'react'
+import type { SelectedItem } from './context'
+import { ExperimentalSelectCustomOption } from './option'
+import { ExperimentalSelectCustomOptionGroup } from './group'
 
 /**
  * Extracts the initially selected values from a tree of Option and Group components.
@@ -22,11 +22,11 @@ export const getInitialSelected = (children: ReactNode, isMultiple: boolean): Se
       nodes.forEach(traverse)
     } else if (typeof nodes === 'object' && 'props' in (nodes as any)) {
       const props: any = (nodes as any).props
-      if ((nodes as any).type === Option && props.selected) {
+      if ((nodes as any).type === ExperimentalSelectCustomOption && props.selected) {
         selected.push({ value: props.value, label: props.label })
       }
       // recursively traverse groups
-      if ((nodes as any).type === Group) traverse(props.children)
+      if ((nodes as any).type === ExperimentalSelectCustomOptionGroup) traverse(props.children)
     }
   }
 
@@ -55,8 +55,8 @@ export const getTotalOptions = (nodes: ReactNode): number => {
       children.forEach(traverse)
     } else if (typeof children === 'object' && 'props' in (children as any)) {
       const props: any = (children as any).props
-      if ((children as any).type === Option) count += 1
-      if ((children as any).type === Group) traverse(props.children)
+      if ((children as any).type === ExperimentalSelectCustomOption) count += 1
+      if ((children as any).type === ExperimentalSelectCustomOptionGroup) traverse(props.children)
     }
   }
 

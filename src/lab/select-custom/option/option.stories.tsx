@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Option } from './option'
+import { ExperimentalSelectCustomOption } from './option'
 import { StarIcon } from '#src/icons/star'
 import { LabelText } from '#src/core/label-text'
 import { Badge } from '#src/core/badge'
 
 const meta = {
   title: 'Lab/SelectCustom/Option',
-  component: Option,
+  component: ExperimentalSelectCustomOption,
   argTypes: {
     value: {
       control: 'text',
@@ -68,7 +68,7 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof Option>
+} satisfies Meta<typeof ExperimentalSelectCustomOption>
 
 export default meta
 

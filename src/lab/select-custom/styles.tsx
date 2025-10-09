@@ -1,3 +1,4 @@
+import { Button } from '#src/core/button'
 import { font } from '#src/core/text/index'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
@@ -17,7 +18,7 @@ export const ElExperimentalSelectCustomContainer = styled.div`
     color: var(--comp-input-colour-text-info-error);
   }
 `
-export const elExperimentalSelectCustomInputField = css`
+export const ElExperimentalSelectCustomInputField = styled(Button)`
   display: flex;
   align-items: center;
   gap: var(--spacing-2);
@@ -26,7 +27,7 @@ export const elExperimentalSelectCustomInputField = css`
   border: var(--comp-input-border-width) solid var(--comp-input-colour-border-default);
   background: var(--comp-input-colour-fill-default-background);
 
-  &.el-button.el-input-field[aria-invalid='true'] {
+  &[aria-invalid='true'] {
     border-radius: var(--comp-input-border-radius);
     border: var(--comp-input-border-width) solid var(--comp-input-colour-border-error);
     background: var(--comp-input-colour-fill-error-background);
@@ -67,16 +68,16 @@ export const elExperimentalSelectCustomPopover = css`
     align-items: flex-start;
     align-self: stretch;
 
-    .el-option-group {
+    .el-experimental-select-custom-option-group {
       padding: var(--spacing-none) var(--spacing-2);
     }
   }
 
-  [role='listbox']:not(:has(.el-option-group)) {
+  [role='listbox']:not(:has(.el-experimental-select-custom-option-group)) {
     padding: var(--spacing-none) var(--spacing-2);
   }
 
-  [role='listbox'] .el-option-group:not(:last-child)::after {
+  [role='listbox'] .el-experimental-select-custom-option-group:not(:last-child)::after {
     content: '';
     display: flex;
     height: var(--size-px, 1px);
@@ -115,8 +116,12 @@ export const ElExperimentalSelectCustomOptionGroup = styled.div`
   align-items: flex-start;
   align-self: stretch;
 
-  .el-option {
+  .el-experimental-select-custom-option {
     padding: var(--spacing-none);
+
+    .el-experimental-select-custom-label-container {
+      padding-right: var(--spacing-3);
+    }
   }
 
   .el-label-text {
@@ -174,7 +179,7 @@ export const ElExperimentalSelectCustomOption = styled.li`
   }
 
   &[aria-selected='true'] {
-    .el-label-container {
+    .el-experimental-select-custom-label-container {
       .el-label-text {
         ${font('sm', 'medium')}
         &[data-variant='soft'] {

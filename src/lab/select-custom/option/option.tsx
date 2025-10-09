@@ -1,5 +1,5 @@
-import { ReactNode, FC, useContext } from 'react'
-import { SelectContext, SelectedItem } from '../select-custom'
+import { ReactNode, FC } from 'react'
+import { useSelectCustomContext } from '../context'
 import { LabelText } from '#src/core/label-text'
 import { CheckIcon } from '#src/icons/check'
 import { Badge } from '#src/core/badge'
@@ -11,6 +11,8 @@ import {
   ElExperimentalSelectCustomAdditionalInfo2,
 } from '../styles'
 
+import type { SelectedItem } from '../context'
+
 export interface OptionProps {
   value: string
   label: string
@@ -20,8 +22,14 @@ export interface OptionProps {
   selected?: boolean
 }
 
-export const Option: FC<OptionProps> = ({ value, label, badge, additionalInfo1, additionalInfo2 }) => {
-  const { selectedValues, onSelect } = useContext(SelectContext)
+export const ExperimentalSelectCustomOption: FC<OptionProps> = ({
+  value,
+  label,
+  badge,
+  additionalInfo1,
+  additionalInfo2,
+}) => {
+  const { selectedValues, onSelect } = useSelectCustomContext()
   const isSelected = selectedValues.some((s) => s.value === value)
 
   const handleClick = () => onSelect({ value, label } as SelectedItem)

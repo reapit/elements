@@ -1,10 +1,10 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Option } from '../option'
-import { Group } from '../group'
+import { ExperimentalSelectCustomOption } from '../option'
+import { ExperimentalSelectCustomOptionGroup } from '../group'
 
 const meta = {
   title: 'Lab/SelectCustom/Group',
-  component: Group,
+  component: ExperimentalSelectCustomOptionGroup,
   argTypes: {
     label: {
       control: 'text',
@@ -15,7 +15,7 @@ const meta = {
       description: 'The options contained within the group.',
     },
   },
-} satisfies Meta<typeof Group>
+} satisfies Meta<typeof ExperimentalSelectCustomOptionGroup>
 
 export default meta
 
@@ -31,8 +31,8 @@ export const Default: Story = {
     label: 'Group 1',
     children: (
       <>
-        <Option value="option1" label="Option 1" />
-        <Option value="option2" label="Option 2" />
+        <ExperimentalSelectCustomOption value="option1" label="Option 1" />
+        <ExperimentalSelectCustomOption value="option2" label="Option 2" />
       </>
     ),
   },

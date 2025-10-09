@@ -7,7 +7,7 @@ export interface OptionGroupProps {
   children: ReactNode
 }
 
-export const Group: FC<OptionGroupProps> = ({ label, children }) => {
+export const ExperimentalSelectCustomOptionGroup: FC<OptionGroupProps> = ({ label, children }) => {
   return (
     <ElExperimentalSelectCustomOptionGroup role="group">
       {label && <LabelText size="xs">{label}</LabelText>}
