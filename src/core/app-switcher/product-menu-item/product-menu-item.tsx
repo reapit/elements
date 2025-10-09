@@ -31,11 +31,13 @@ export function AppSwitcherProductMenuItem({
   href,
   productId,
   supplementaryInfo: supplementaryInfoOverride,
+  ...rest
 }: AppSwitcherProductMenuItem.Props): ReactNode {
   const hasAccess = useAppSwitcherMenuGroupHasAccessContext()
   const { appName, supplementaryInfo } = productConfigs[productId]
   return (
     <AppSwitcher.MenuItem
+      {...rest}
       appName={appNameOverride ?? appName}
       avatar={avatarOverride ?? <AppSwitcher.AppAvatar hasAccess={hasAccess} productId={productId} />}
       href={href}

@@ -40,3 +40,10 @@ test('allows avatar to be overridden', () => {
   render(<AppSwitcherProductMenuItem avatar="😎" productId="consoleCloud" href="https://fake.url" />)
   expect(screen.getByText('😎')).toBeVisible()
 })
+
+test('forwards additional attributes to link element', () => {
+  render(
+    <AppSwitcherProductMenuItem data-testid="test-id" avatar="😎" productId="consoleCloud" href="https://fake.url" />,
+  )
+  expect(screen.getByTestId('test-id')).toBe(screen.getByRole('link'))
+})
