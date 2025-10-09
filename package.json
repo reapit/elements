@@ -19,7 +19,11 @@
   },
   "imports": {
     "#src/*": {
-      "types": "./dist/types/*/index.d.ts",
+      "types": [
+        "./src/*.js",
+        "./src/*/index.js",
+        "./dist/types/*/index.d.ts"
+      ],
       "import": "./src/*"
     }
   },
@@ -66,7 +70,7 @@
     "coverage/badges"
   ],
   "scripts": {
-    "build": "yarn build:storybook & yarn build:types & yarn build:lib",
+    "build": "yarn build:types && yarn build:lib && yarn build:storybook",
     "build:storybook": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
     "build:lib": "vite build",
     "build:types": "tsc --project tsconfig.build.json",
@@ -76,12 +80,12 @@
     "generate:tokens": "yarn generate:tokens:preprocess && yarn generate:tokens:css",
     "generate:tokens:css": "yarn node --experimental-strip-types ./src/tokens/build.ts",
     "generate:tokens:preprocess": "yarn node ./src/tokens/preprocess.js",
-    "lint": "yarn lint:es & yarn lint:css",
+    "lint": "yarn lint:es && yarn lint:css",
     "lint:css": "stylelint --fix \"src/**/*.{ts,tsx,js,jsx,css}\"",
     "lint:es": "eslint --fix --cache --ext=ts,tsx,js src",
-    "check": "yarn check:types & yarn check:lint",
+    "check": "yarn check:types && yarn check:lint",
     "check:types": "tsc --noEmit",
-    "check:lint": "yarn check:lint:css & yarn check:lint:es",
+    "check:lint": "yarn check:lint:css && yarn check:lint:es",
     "check:lint:css": "stylelint \"src/**/*.{ts,tsx,js,jsx,css}\"",
     "check:lint:es": "eslint --cache --ext=ts,tsx,js src",
     "make-badge": "coverage-badges --type ${0} --source coverage/report/coverage-summary.json --output coverage/badges/badge-${0}.svg --jsonPath total.${0}.pct",
