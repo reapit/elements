@@ -20,7 +20,7 @@ export const ElSelectNativeContainer = styled.div<ElSelectNativeContainerProps>`
 `
 
 interface ElSelectNativeProps {
-  'data-is-touched': boolean
+  'data-show-validity': boolean
 }
 
 export const ElSelectNative = styled.select<ElSelectNativeProps>`
@@ -44,12 +44,12 @@ export const ElSelectNative = styled.select<ElSelectNativeProps>`
   /* NOTE: We need to create space for the absolutely positioned icon. */
   padding-inline: var(--spacing-2) calc(var(--spacing-2) + var(--icon_size-s) + var(--spacing-2));
 
-  /* NOTE: Invalid styles should only be used if the control has been "touched" (focused then blurred).
-   * We use :where to avoid the presence of the isTouched attribute increasing the selector's
-   * specificity and, therefore, overriding our focus styles. When a touched and invalid field is
-   * focused, we want the focus styles to take precedence. */
-  &:where([data-is-touched='true']):invalid,
-  &:where([data-is-touched='true']):user-invalid {
+  /* NOTE: Invalid styles should only be used if data-show-validity is true. We use :where to avoid
+   * the presence of the data-show-validity attribute increasing the selector's specificity and,
+   * therefore, overriding our focus styles. When a touched and invalid field is focused, we want the
+   * focus styles to take precedence. */
+  &:where([data-show-validity='true']):invalid,
+  &:where([data-show-validity='true']):user-invalid {
     border-color: var(--comp-input-colour-border-error);
     background: var(--comp-input-colour-fill-error-background);
   }

@@ -26,17 +26,17 @@ export namespace SelectNative {
     defaultValue?: string
     /** The ID of the `<form>` element to associate this select with. */
     form?: string
-    /**
-     * Whether the select has been touched, meaning it has received focus, then been blurred. The select
-     * must be touched for it's validity to be visually communicated.
-     */
-    isTouched?: boolean
     /** The maximum width of the select */
     maxWidth?: string
     /** The name of the control */
     name?: string
     /** Used to indicate whether an option with a non-empty string value must be selected. */
     required?: boolean
+    /**
+     * Whether the control's validity should be visually communicated or not. Typically, validity will only be shown
+     * when the control has been touched (i.e. the user has interacted with it).
+     */
+    showValidity?: boolean
     /** The size of the select */
     size: 'small' | 'medium' | 'large'
     /** Controls which option is selected. Must match the value of some `<option>`. */
@@ -49,14 +49,20 @@ export namespace SelectNative {
  * container. Importantly, it only supports single selection.
  */
 export const SelectNative = forwardRef<HTMLSelectElement, SelectNative.Props>(
-  ({ autoComplete = 'off', children, isTouched, maxWidth, size, ...rest }, ref) => {
+  ({ autoComplete = 'off', children, maxWidth, showValidity, size, ...rest }, ref) => {
     return (
       // NOTE: We have to wrap the select in a container so our chevron icon can be positioned absolutely
       // at the select's right edge. This is the simplest way for us to achieve the visual requirements of
       // the component while still using a native select element. The main downside is we have more DOM
       // elements involved than we would prefer.
       <ElSelectNativeContainer style={{ '--select-max-width': maxWidth }}>
-        <ElSelectNative {...rest} autoComplete={autoComplete} data-is-touched={!!isTouched} data-size={size} ref={ref}>
+        <ElSelectNative
+          {...rest}
+          autoComplete={autoComplete}
+          data-show-validity={!!showValidity}
+          data-size={size}
+          ref={ref}
+        >
           {children}
         </ElSelectNative>
         <ElSelectNativeIconContainer aria-hidden>

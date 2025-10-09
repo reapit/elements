@@ -54,6 +54,7 @@ export const Example: Story = {
     maxWidth: undefined,
     name: 'mySelect',
     required: false,
+    showValidity: true,
     size: 'small',
     value: undefined,
   },
@@ -99,14 +100,15 @@ export const Sizes: Story = {
 
 /**
  * Like all form controls, the native select will display in an invalid state when it's value
- * does not meet the validation constraints applied to it, such as being required, when it has
- * been "touched", meaning the control has been focused then blurred.
+ * does not meet the validation constraints applied to it, such as being required, and when
+ * `showValidity` is set to true. Typically `showValidity` will be true when the control has been
+ * touched (interacted with).
  */
 export const Invalid: Story = {
   args: {
     ...Example.args,
-    isTouched: true,
     required: true,
+    showValidity: true,
   },
 }
 

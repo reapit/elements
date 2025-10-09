@@ -1,6 +1,6 @@
 import { cx } from '@linaria/core'
 import { forwardRef } from 'react'
-import { Input } from '../../input'
+import { CheckboxInput } from '#src/core/checkbox-input'
 import { elTableCellCheckbox } from './styles'
 
 import type { InputHTMLAttributes } from 'react'
@@ -40,7 +40,7 @@ export namespace TableCellCheckbox {
  */
 export const TableCellCheckbox = forwardRef<HTMLInputElement, TableCellCheckbox.Props>(
   ({ className, ...rest }, ref) => {
-    return <Input {...rest} className={cx(elTableCellCheckbox, className)} ref={ref} type="checkbox" />
+    return <CheckboxInput {...rest} className={cx(elTableCellCheckbox, className)} ref={ref} type="checkbox" />
   },
 )
 

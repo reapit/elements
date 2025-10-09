@@ -29,22 +29,22 @@ test('accepts explicit autocomplete values', () => {
   expect(screen.getByRole('combobox')).toHaveAttribute('autocomplete', 'on')
 })
 
-test('defaults data-is-touched to `false`', () => {
+test('defaults data-show-validity to `false`', () => {
   render(
     <SelectNative {...defaultProps} size="large">
       <option value="">Select portfolio</option>
     </SelectNative>,
   )
-  expect(screen.getByRole('combobox')).toHaveAttribute('data-is-touched', 'false')
+  expect(screen.getByRole('combobox')).toHaveAttribute('data-show-validity', 'false')
 })
 
-test('applies correct data-is-touched attribute', () => {
+test('applies correct data-show-validity attribute', () => {
   render(
-    <SelectNative {...defaultProps} isTouched size="large">
+    <SelectNative {...defaultProps} showValidity size="large">
       <option value="">Select portfolio</option>
     </SelectNative>,
   )
-  expect(screen.getByRole('combobox')).toHaveAttribute('data-is-touched', 'true')
+  expect(screen.getByRole('combobox')).toHaveAttribute('data-show-validity', 'true')
 })
 
 test('applies correct data-size attribute', () => {
