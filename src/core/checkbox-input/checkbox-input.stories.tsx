@@ -53,7 +53,7 @@ export const Example: Story = {
  * Like any native checkbox, this state can be activated by setting the input element's `indeterminate`
  * property programmatically.
  */
-export const IndeterminateCheckbox: Story = {
+export const Indeterminate: Story = {
   args: {
     ...Example.args,
   },
@@ -65,6 +65,16 @@ export const IndeterminateCheckbox: Story = {
       }
     }, [])
     return <CheckboxInput {...args} ref={inputRef} />
+  },
+}
+
+/**
+ * Checkboxes can be disabled. When they are, they do not participate in form submission.
+ */
+export const Disabled: Story = {
+  args: {
+    ...Example.args,
+    disabled: true,
   },
 }
 

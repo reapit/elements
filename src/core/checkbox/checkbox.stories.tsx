@@ -27,13 +27,14 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-export const DefaulfCheckbox: Story = {
+export const Example: Story = {
   args: {
     label: 'Label',
     supplementaryInfo: 'Supplementary Info',
     disabled: false,
     isIndeterminate: false,
     required: false,
+    showValidity: false,
   },
 }
 
@@ -42,9 +43,9 @@ export const DefaulfCheckbox: Story = {
  * It will be helpful when used in the form to restrict user to check the checkbox
  * For Example: Terms and Condition, Data Privacy Consent, etc..
  */
-export const RequiredCheckbox: Story = {
+export const Required: Story = {
   args: {
-    ...DefaulfCheckbox.args,
+    ...Example.args,
     required: true,
   },
 }
@@ -53,21 +54,33 @@ export const RequiredCheckbox: Story = {
  * The checkbox can be Indeterminate when used in the nested checkbox workflow
  * where checkbox is Partially Selected
  */
-export const IndeterminateCheckbox: Story = {
+export const Indeterminate: Story = {
   args: {
-    ...DefaulfCheckbox.args,
+    ...Example.args,
     isIndeterminate: true,
   },
 }
 
 /**
- * The checkbox can be disabled. A disabled checkbox is rendered as un-interactable,
- * preventing user selection or deselection. Visually, it typically appears
- * grayed out, indicating its inactive state.
+ * Checkboxes can be disabled. When they are, they do not participate in form submission.
  */
-export const DisabledCheckbox: Story = {
+export const Disabled: Story = {
   args: {
-    ...DefaulfCheckbox.args,
+    ...Example.args,
     disabled: true,
+  },
+}
+
+/**
+ * Like all form controls that visually communicate their validity, the checkbox will display in an
+ * invalid state when it's value does not meet the validation constraints applied to it, such as being
+ * required, and the `showValidity` prop is set to true. Typically, `showValidity` will be true when the
+ * control has been touched (interacted with).
+ */
+export const Invalid: Story = {
+  args: {
+    ...Example.args,
+    required: true,
+    showValidity: true,
   },
 }

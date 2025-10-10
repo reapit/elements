@@ -4,7 +4,6 @@ exports[`Label component > should match a snapshot 1`] = `
 <DocumentFragment>
   <span
     class="mocked-styled-0 el-label-text"
-    data-variant="soft"
   />
 </DocumentFragment>
 `;
@@ -13,7 +12,6 @@ exports[`Label component > should match a snapshot if it required 1`] = `
 <DocumentFragment>
   <span
     class="mocked-styled-0 el-label-text"
-    data-variant="soft"
   >
     <span
       aria-label="(Required)"

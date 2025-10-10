@@ -6,6 +6,7 @@ export const ElLabelText = styled.span`
   gap: var(--spacing-1);
 
   font: inherit;
+  color: inherit;
 
   &[data-size='xs'] {
     ${font('xs', 'regular')}

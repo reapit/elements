@@ -24,6 +24,7 @@ export const TableRowSelection: React.FC<TableRowSelectionProps> = ({
   return (
     <Checkbox
       {...rest}
+      label=""
       isIndeterminate={isIndeterminate}
       checked={checked}
       onChange={handleChange}

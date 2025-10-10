@@ -17,139 +17,235 @@ exports[`CheckboxGroup > should match snapshot 1`] = `
       </span>
     </legend>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option1"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":r0:"
+          aria-labelledby=":r2:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":r1:"
+          name="options"
+          type="checkbox"
+          value="option1"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":r2:"
       >
         Option 1
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option2"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":r3:"
+          aria-labelledby=":r5:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":r4:"
+          name="options"
+          type="checkbox"
+          value="option2"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":r5:"
       >
         Option 2
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option3"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":r6:"
+          aria-labelledby=":r8:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":r7:"
+          name="options"
+          type="checkbox"
+          value="option3"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":r8:"
       >
         Option 3
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
   </fieldset>
 </DocumentFragment>
@@ -177,139 +273,235 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup Label UI is re
       </span>
     </legend>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option1"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":r9:"
+          aria-labelledby=":rb:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":ra:"
+          name="options"
+          type="checkbox"
+          value="option1"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":rb:"
       >
         Option 1
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option2"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":rc:"
+          aria-labelledby=":re:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":rd:"
+          name="options"
+          type="checkbox"
+          value="option2"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":re:"
       >
         Option 2
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option3"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":rf:"
+          aria-labelledby=":rh:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":rg:"
+          name="options"
+          type="checkbox"
+          value="option3"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":rh:"
       >
         Option 3
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
   </fieldset>
 </DocumentFragment>
@@ -332,141 +524,241 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should not sho
       </span>
     </legend>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option1"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":rr:"
+          aria-labelledby=":rt:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":rs:"
+          name="options"
+          type="checkbox"
+          value="option1"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":rt:"
       >
         Option 1
       </span>
       <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
+        class="mocked-styled-7 el-checkbox-supplementary-info"
+        id=":rr:"
       >
         Supplementary Info
       </span>
     </label>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option2"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":ru:"
+          aria-labelledby=":r10:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":rv:"
+          name="options"
+          type="checkbox"
+          value="option2"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":r10:"
       >
         Option 2
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option3"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":r11:"
+          aria-labelledby=":r13:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":r12:"
+          name="options"
+          type="checkbox"
+          value="option3"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":r13:"
       >
         Option 3
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
   </fieldset>
 </DocumentFragment>
@@ -489,141 +781,241 @@ exports[`CheckboxGroup > should match snapshot with CheckboxGroup should show su
       </span>
     </legend>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option1"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":ri:"
+          aria-labelledby=":rk:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":rj:"
+          name="options"
+          type="checkbox"
+          value="option1"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":rk:"
       >
         Option 1
       </span>
       <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
+        class="mocked-styled-7 el-checkbox-supplementary-info"
+        id=":ri:"
       >
         Supplementary Info
       </span>
     </label>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option2"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":rl:"
+          aria-labelledby=":rn:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":rm:"
+          name="options"
+          type="checkbox"
+          value="option2"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":rn:"
       >
         Option 2
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option3"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":ro:"
+          aria-labelledby=":rq:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":rp:"
+          name="options"
+          type="checkbox"
+          value="option3"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":rq:"
       >
         Option 3
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
   </fieldset>
 </DocumentFragment>
@@ -646,139 +1038,235 @@ exports[`CheckboxGroup > should match snapshot with horizontal CheckboxGroup 1`]
       </span>
     </legend>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option1"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":r14:"
+          aria-labelledby=":r16:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":r15:"
+          name="options"
+          type="checkbox"
+          value="option1"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":r16:"
       >
         Option 1
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option2"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":r17:"
+          aria-labelledby=":r19:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":r18:"
+          name="options"
+          type="checkbox"
+          value="option2"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":r19:"
       >
         Option 2
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
     <label
-      class="mocked-styled-6 el-checkbox"
+      class="mocked-styled-5 el-checkbox"
     >
-      <input
-        aria-hidden="true"
-        class="mocked-styled-7 el-checkbox-input"
-        name="options"
-        type="checkbox"
-        value="option3"
-      />
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-3 el-checkbox-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
+      <div
+        class="mocked-styled-3 el-checkbox-input-container"
       >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-          fill="currentColor"
+        <input
+          aria-describedby=":r1a:"
+          aria-labelledby=":r1c:"
+          class="mocked-styled-4 el-checkbox-input"
+          data-show-validity="false"
+          id=":r1b:"
+          name="options"
+          type="checkbox"
+          value="option3"
         />
-      </svg>
-      <svg
-        aria-hidden="true"
-        class="mocked-styled-4 el-checkbox-selected-svg-icon"
-        viewBox="0 0 24 24"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="indeterminate"
+          data-size="100%"
           fill="currentColor"
-        />
-      </svg>
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          />
+          <path
+            clip-rule="evenodd"
+            d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+            fill-rule="evenodd"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="checked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          />
+        </svg>
+        <svg
+          aria-hidden="true"
+          class="el-icon el-checkbox-input-icon"
+          color="inherit"
+          data-show-when="unchecked"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          />
+        </svg>
+      </div>
       <span
-        class="mocked-styled-8 el-checkbox-label-text el-label-text"
-        data-size="sm"
-        data-variant="strong"
+        class="mocked-styled-6 el-checkbox-label-text el-label-text"
+        id=":r1c:"
       >
         Option 3
       </span>
-      <span
-        class="mocked-styled-9 el-checkbox-supplementary-info el-label-text"
-        data-size="xs"
-        data-variant="soft"
-      />
     </label>
   </fieldset>
 </DocumentFragment>

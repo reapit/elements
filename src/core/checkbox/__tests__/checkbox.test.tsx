@@ -1,35 +1,22 @@
-import { expect, test } from 'vitest'
-import { render } from '@testing-library/react'
-import { Checkbox } from '..'
+import { Checkbox } from '../checkbox'
+import { render, screen } from '@testing-library/react'
 
-describe('CheckboxGroup', () => {
-  test('should match snapshot', () => {
-    const { asFragment } = render(<Checkbox />)
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('renders a checkbox', () => {
+  render(<Checkbox label="Label" />)
+  expect(screen.getByRole('checkbox', { name: 'Label' })).toBeVisible()
+})
 
-  test('should match snapshot with Checkbox with Label', () => {
-    const { asFragment } = render(<Checkbox label="Label" />)
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('displays a required indicator when required', () => {
+  render(<Checkbox label="Label" required />)
+  expect(screen.getByRole('checkbox', { name: 'Label (Required)' })).toBeVisible()
+})
 
-  test('should match snapshot with Checkbox with Label and Suppliemntary text', () => {
-    const { asFragment } = render(<Checkbox label="Label" supplementaryInfo="Supplementary Info" />)
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('checkbox is described by the supplementary info, when provided', () => {
+  render(<Checkbox label="Label" supplementaryInfo="Description" />)
+  expect(screen.getByRole('checkbox')).toHaveAccessibleDescription('Description')
+})
 
-  test('should match snapshot with required Checkbox', () => {
-    const { asFragment } = render(<Checkbox label="Label" required supplementaryInfo="Supplementary Info" />)
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  test('should match snapshot with indeterminate Checkbox', () => {
-    const { asFragment } = render(<Checkbox isIndeterminate label="Label" supplementaryInfo="Supplementary Info" />)
-    expect(asFragment()).toMatchSnapshot()
-  })
-
-  test('should match snapshot with disabled Checkbox', () => {
-    const { asFragment } = render(<Checkbox disabled label="Label" supplementaryInfo="Supplementary Info" />)
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('forwards additional props to the checkbox', () => {
+  render(<Checkbox data-testid="my-checkbox" label="Label" />)
+  expect(screen.getByRole('checkbox')).toHaveAttribute('data-testid', 'my-checkbox')
 })

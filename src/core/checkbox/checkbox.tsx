@@ -1,61 +1,64 @@
-import React, { forwardRef, InputHTMLAttributes, useEffect, useRef } from 'react'
-import { ElCheckboxIcon, ElCheckboxSelectedIcon, ElCheckboxIndeterminateIcon } from './checkbox.atoms'
-import { ElCheckbox, ElCheckboxInput, ElCheckboxLabelText, ElCheckboxSupplementaryInfo } from './styles'
-import mergeRefs from '#src/helpers/mergeRefs'
+import { CheckboxInput } from '#src/core/checkbox-input'
+import { ElCheckbox, ElCheckboxLabelText, ElCheckboxSupplementaryInfo } from './styles'
+import { forwardRef, useEffect, useId } from 'react'
+
+import type { ReactNode } from 'react'
+
+// NOTE: we omit...
+// - aria-describedby, because we describe the checkbox internally using the supplementary info
+// - aria-labelledby, because we label the checkbox internally using the label prop
+type AttributesToOmit = 'aria-describedby' | 'aria-labelledby'
 
 export namespace Checkbox {
-  /**
-   * Interface for the Checkbox component props.
-   *
-   * Optional label text to display next to the checkbox.
-   * Provides a user-friendly description of the checkbox's purpose.
-   *
-   * Optional supplementary information to display below the label.
-   * Offers additional context or details related to the checkbox.
-   *
-   * Optional required to make input element required.
-   *
-   * Optional isIndeterminate to make input element as an indeterminate state.
-   */
-  export interface Props extends InputHTMLAttributes<HTMLInputElement> {
-    label?: string
-    supplementaryInfo?: string
-    required?: boolean
+  export interface Props extends Omit<CheckboxInput.Props, AttributesToOmit> {
+    /** Checkbox label. */
+    label: ReactNode
+    /** Supplementary information for the checkbox. Acts as an accessible description for the input. */
+    supplementaryInfo?: ReactNode
+    /**
+     * Determines if the checkbox is in an indeterminate state or not. When controlled, care must be
+     * taken to ensure changes to the checkbox's state result in changes to the value provided to this prop.
+     * As such, should only be used when the checkbox's checked state is also controlled.
+     */
     isIndeterminate?: boolean
   }
 }
 
 /**
- * Checkbox component: A styled and composed checkbox element.
- * This component combines the atomic checkbox components (ElCheckbox, ElCheckboxInput, etc.)
- * into a single, reusable checkbox component.
+ * A simple checkbox with label and optional supplementary info.
  */
 export const Checkbox = forwardRef<HTMLInputElement, Checkbox.Props>(
-  ({ label, supplementaryInfo, required, isIndeterminate = false, className, ...rest }, ref) => {
-    const inputRef = useRef<HTMLInputElement>(null)
-    useEffect(() => {
-      if (inputRef.current) {
-        inputRef.current.indeterminate = !!isIndeterminate // Use prop value
-      }
-    }, [isIndeterminate]) // Run effect when isIndeterminate changes
+  ({ className, id, isIndeterminate = false, label, required, supplementaryInfo, ...rest }, ref) => {
+    const descriptionId = useId()
+    const inputId = id ?? useId()
+    const labelId = useId()
+
+    useEffect(
+      function syncIsIndeterminateWithInput() {
+        const checkbox = document.getElementById(inputId)
+        if (checkbox instanceof HTMLInputElement) {
+          checkbox.indeterminate = !!isIndeterminate
+        }
+      },
+      [inputId, isIndeterminate],
+    )
 
     return (
       <ElCheckbox className={className}>
-        {/* The actual checkbox input element. Forwards the ref and other input props. */}
-        <ElCheckboxInput type="checkbox" ref={mergeRefs(inputRef, ref)} {...rest} aria-hidden />
-        {/* Icons for different checkbox states (unchecked, checked, indeterminate). */}
-        {/* aria-hidden is used to prevent screen readers from announcing these decorative icons. */}
-        <ElCheckboxIcon aria-hidden />
-        <ElCheckboxSelectedIcon aria-hidden />
-        {isIndeterminate && <ElCheckboxIndeterminateIcon aria-hidden />}
-        {/* Label text for the checkbox. Styled using data attributes for variant and size. */}
-        <ElCheckboxLabelText variant="strong" size="sm" isRequired={required}>
+        <CheckboxInput
+          {...rest}
+          aria-describedby={descriptionId}
+          aria-labelledby={labelId}
+          id={inputId}
+          ref={ref}
+          required={required}
+        />
+        <ElCheckboxLabelText id={labelId} isRequired={required}>
           {label}
         </ElCheckboxLabelText>
-        {/* Supplementary information displayed below the label. Styled using data attributes. */}
-        <ElCheckboxSupplementaryInfo variant="soft" size="xs">
-          {supplementaryInfo}
-        </ElCheckboxSupplementaryInfo>
+        {supplementaryInfo && (
+          <ElCheckboxSupplementaryInfo id={descriptionId}>{supplementaryInfo}</ElCheckboxSupplementaryInfo>
+        )}
       </ElCheckbox>
     )
   },

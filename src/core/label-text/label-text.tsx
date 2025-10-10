@@ -20,7 +20,7 @@ export type LabelTextProps = LabelText.Props
  * Labels give a name to a component or group of components. Pair them with form components like checkboxes
  * or inputs to prompt someone to enter certain information, or with plain text to categorise information.
  */
-export function LabelText({ children, isRequired, size, variant = 'soft', ...rest }: LabelText.Props) {
+export function LabelText({ children, isRequired, size, variant, ...rest }: LabelText.Props) {
   return (
     <ElLabelText {...rest} data-size={size} data-variant={variant}>
       {children}

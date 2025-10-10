@@ -3,45 +3,77 @@
 exports[`TableRowSelection > should match snapshot 1`] = `
 <DocumentFragment>
   <label
-    class="mocked-styled-4 el-checkbox"
+    class="mocked-styled-3 el-checkbox"
   >
-    <input
-      aria-hidden="true"
-      aria-label="Select row undefined"
-      class="mocked-styled-5 el-checkbox-input"
-      type="checkbox"
-    />
-    <svg
-      aria-hidden="true"
-      class="mocked-styled-1 el-checkbox-svg-icon"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
+    <div
+      class="mocked-styled-0 el-checkbox-input-container"
     >
-      <path
-        d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2Zm0,18H4V4H20Z"
-        fill="currentColor"
+      <input
+        aria-describedby=":r0:"
+        aria-label="Select row undefined"
+        aria-labelledby=":r2:"
+        class="mocked-styled-1 el-checkbox-input"
+        data-show-validity="false"
+        id=":r1:"
+        type="checkbox"
       />
-    </svg>
-    <svg
-      aria-hidden="true"
-      class="mocked-styled-2 el-checkbox-selected-svg-icon"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        d="M20,2H4A2,2,0,0,0,2,4V20a2,2,0,0,0,2,2H20a2,2,0,0,0,2-2V4A2,2,0,0,0,20,2ZM18,9.17l-7.07,7.07a1,1,0,0,1-.71.3,1,1,0,0,1-.7-.3L6,12.71a1,1,0,0,1,0-1.42,1,1,0,0,1,1.41,0l2.83,2.83L16.6,7.76A1,1,0,0,1,18,9.17Z"
+      <svg
+        aria-hidden="true"
+        class="el-icon el-checkbox-input-icon"
+        color="inherit"
+        data-show-when="indeterminate"
+        data-size="100%"
         fill="currentColor"
-      />
-    </svg>
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+        />
+        <path
+          clip-rule="evenodd"
+          d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+          fill-rule="evenodd"
+        />
+      </svg>
+      <svg
+        aria-hidden="true"
+        class="el-icon el-checkbox-input-icon"
+        color="inherit"
+        data-show-when="checked"
+        data-size="100%"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+        />
+      </svg>
+      <svg
+        aria-hidden="true"
+        class="el-icon el-checkbox-input-icon"
+        color="inherit"
+        data-show-when="unchecked"
+        data-size="100%"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+        />
+      </svg>
+    </div>
     <span
-      class="mocked-styled-6 el-checkbox-label-text el-label-text"
-      data-size="sm"
-      data-variant="strong"
-    />
-    <span
-      class="mocked-styled-7 el-checkbox-supplementary-info el-label-text"
-      data-size="xs"
-      data-variant="soft"
+      class="mocked-styled-4 el-checkbox-label-text el-label-text"
+      id=":r2:"
     />
   </label>
 </DocumentFragment>
