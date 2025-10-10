@@ -40,10 +40,10 @@ export function AppAvatar({ hasAccess, productId }: AppAvatar.Props) {
       return hasAccess ? <img src={ReapitSales} /> : <img src={ReapitSalesDisabled} />
     case 'autoResponder':
       return hasAccess ? <img src={AutoResponder} /> : <img src={AutoResponderDisabled} />
-    case 'bdm':
-      return hasAccess ? <img src={LettingsBDM} /> : <img src={LettingsBDMDisabled} />
     case 'consoleCloud':
       return hasAccess ? <img src={ReapitPM} /> : <img src={ReapitPMDisabled} />
+    case 'ireBdm':
+      return hasAccess ? <img src={LettingsBDM} /> : <img src={LettingsBDMDisabled} />
     case 'ireWeb':
       return hasAccess ? <img src={ReapitLettings} /> : <img src={ReapitLettingsDisabled} />
     case 'mmiWeb':
@@ -54,7 +54,7 @@ export function AppAvatar({ hasAccess, productId }: AppAvatar.Props) {
       return hasAccess ? <img src={ReapitWebsites} /> : <img src={ReapitWebsitesDisabled} />
     case 'reapitProposals':
       return hasAccess ? <img src={ReapitProposals} /> : <img src={ReapitProposalsDisabled} />
-    case 'keywhere':
+    case 'keyWhere':
       return hasAccess ? <img src={KeyWhere} /> : <img src={KeyWhereDisabled} />
   }
 }

@@ -1,3 +1,4 @@
+import { isProductAccessible } from './is-product-accessible'
 import { productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE } from './config'
 
 import type { SupportedProductId } from './config'
@@ -9,6 +10,6 @@ import type { SupportedProductId } from './config'
  */
 export function getDisplayableProductsForYourAppsGroup(accessibleProductIds: string[]): SupportedProductId[] {
   return productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE.filter(
-    (productId) => accessibleProductIds.includes(productId),
+    (productId) => isProductAccessible(productId, accessibleProductIds),
   )
 }

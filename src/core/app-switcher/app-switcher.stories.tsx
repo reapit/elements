@@ -39,7 +39,7 @@ export const Example: Story = {
       <AppSwitcher.Divider key="2" />,
       <AppSwitcher.ExploreMenuGroup key="3">
         <AppSwitcher.ProductMenuItem href={href} productId="consoleCloud" />
-        <AppSwitcher.ProductMenuItem href={href} productId="keywhere" />
+        <AppSwitcher.ProductMenuItem href={href} productId="keyWhere" />
       </AppSwitcher.ExploreMenuGroup>,
     ],
   },
