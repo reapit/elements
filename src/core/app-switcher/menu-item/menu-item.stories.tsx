@@ -11,9 +11,9 @@ const meta = {
   argTypes: {
     avatar: {
       control: 'radio',
-      options: ['agentbox', 'consoleCloud', 'reapitForms', 'ireWeb'] as const satisfies SupportedProductId[],
+      options: ['agentBox', 'consoleCloud', 'reapitForms', 'ireWeb'] as const satisfies SupportedProductId[],
       mapping: {
-        agentbox: <AppSwitcher.AppAvatar hasAccess productId="agentbox" />,
+        agentBox: <AppSwitcher.AppAvatar hasAccess productId="agentBox" />,
         consoleCloud: <AppSwitcher.AppAvatar hasAccess productId="consoleCloud" />,
         ireWeb: <AppSwitcher.AppAvatar hasAccess productId="ireWeb" />,
         reapitForms: <AppSwitcher.AppAvatar hasAccess productId="reapitForms" />,

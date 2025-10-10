@@ -36,7 +36,7 @@ export namespace AppAvatar {
  */
 export function AppAvatar({ hasAccess, productId }: AppAvatar.Props) {
   switch (productId) {
-    case 'agentbox':
+    case 'agentBox':
       return hasAccess ? <img src={ReapitSales} /> : <img src={ReapitSalesDisabled} />
     case 'autoResponder':
       return hasAccess ? <img src={AutoResponder} /> : <img src={AutoResponderDisabled} />

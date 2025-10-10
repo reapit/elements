@@ -1,6 +1,6 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
-exports[`renders agentbox icon when \`hasAccess\` is false 1`] = `
+exports[`renders agentBox icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <img
     src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20fill='none'%20viewBox='0%200%2040%2040'%3e%3cpath%20fill='url(%23reapit-sales-disabled__a)'%20d='M0%208a8%208%200%200%201%208-8h24a8%208%200%200%201%208%208v24a8%208%200%200%201-8%208H8a8%208%200%200%201-8-8V8Z'/%3e%3cpath%20fill='%23fff'%20d='M10.41%206v3.779h15.048v19.537h4.132V6H10.41Z'/%3e%3cpath%20fill='%23fff'%20d='M20.967%2034V13.837L10.41%209.78v20.166L20.967%2034Z'/%3e%3cdefs%3e%3clinearGradient%20id='reapit-sales-disabled__a'%20x1='20.702'%20x2='20.702'%20y1='.351'%20y2='31.228'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20offset='.075'%20stop-color='%23798DA1'/%3e%3cstop%20offset='.575'%20stop-color='%23607890'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
@@ -8,7 +8,7 @@ exports[`renders agentbox icon when \`hasAccess\` is false 1`] = `
 </DocumentFragment>
 `;
 
-exports[`renders agentbox icon when \`hasAccess\` is true 1`] = `
+exports[`renders agentBox icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <img
     src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20fill='none'%20viewBox='0%200%2040%2040'%3e%3cpath%20fill='url(%23reapit-sales__a)'%20d='M0%208a8%208%200%200%201%208-8h24a8%208%200%200%201%208%208v24a8%208%200%200%201-8%208H8a8%208%200%200%201-8-8V8Z'/%3e%3cpath%20fill='%23fff'%20d='M10.41%206v3.779h15.048v19.537h4.132V6H10.41Z'/%3e%3cpath%20fill='%23fff'%20d='M20.967%2034V13.837L10.41%209.78v20.166L20.967%2034Z'/%3e%3cdefs%3e%3clinearGradient%20id='reapit-sales__a'%20x1='20.702'%20x2='20.702'%20y1='.351'%20y2='31.228'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%235573FD'/%3e%3cstop%20offset='.575'%20stop-color='%234E56EA'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
