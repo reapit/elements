@@ -12,7 +12,7 @@ const meta = {
     },
     type: {
       control: 'select',
-      options: ['date', 'datetime-local', 'month', 'time', 'week'],
+      options: ['date', 'datetime-local', 'time'],
     },
     value: {
       control: 'text',
@@ -44,6 +44,35 @@ export const Example: Story = {
     step: undefined,
     type: 'date',
   },
+}
+
+/**
+ * There are three sizes available: `small`, `medium` and `large`.
+ */
+export const Sizes: Story = {
+  args: {
+    ...Example.args,
+    defaultValue: '2025-10-13',
+  },
+  argTypes: {
+    size: {
+      control: false,
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <DateTimeInput {...args} size="small" />
+      <DateTimeInput {...args} size="medium" />
+      <DateTimeInput {...args} size="large" />
+    </>
+  ),
 }
 
 /**

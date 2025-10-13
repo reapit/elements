@@ -31,6 +31,8 @@ export interface SearchInputProps extends InputHTMLAttributes<HTMLInputElement> 
  * - A leading search icon (visible when the field is empty).
  * - A clear button (visible when the field has a value).
  * - Support for custom sizes and disabled state.
+ *
+ * @deprecated
  */
 export const SearchInput: FC<SearchInputProps> = ({
   inputSize = 'medium',

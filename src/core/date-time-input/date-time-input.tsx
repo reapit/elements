@@ -5,7 +5,7 @@ import { TextInput } from '#src/core/text-input'
 import type { InputHTMLAttributes } from 'react'
 
 // NOTE: we omit...
-// - size, because checkbox inputs don't support sizing.
+// - size, because we want to use size for our own purposes
 type AttributesToOmit = 'size'
 
 export namespace DateTimeInput {

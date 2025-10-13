@@ -31,7 +31,7 @@ test('has no button padding', () => {
 
 test('always has type="button"', () => {
   render(<DateTimeInputPickerButton aria-controls="my-date-input" variant="date" />)
-  expect(screen.getByRole('button')).toHaveAttribute('data-has-no-padding', 'true')
+  expect(screen.getByRole('button')).toHaveAttribute('type', 'button')
 })
 
 test('uses time icon for time variant', () => {

@@ -1,0 +1,74 @@
+import { forwardRef, useId, useState } from 'react'
+import { SearchIcon } from '#src/icons/search'
+import { TextInput } from '#src/core/text-input'
+
+import type { ChangeEventHandler, InputHTMLAttributes } from 'react'
+import { SearchInputClearButton } from './clear-button/clear-button'
+
+// NOTE: we omit...
+// - onInput, because we use it internally and don't want to expose it to consumers
+// - size, because we want to use size for our own purposes
+type AttributesToOmit = 'onInput' | 'size'
+
+export namespace SearchInput {
+  export interface Props extends Omit<InputHTMLAttributes<HTMLInputElement>, AttributesToOmit> {
+    /**
+     * Whether the input's value is being asynchronously validated, and the validation takes long enough
+     * to warrant visual feedback, the input can be marked as busy.
+     */
+    isBusy?: boolean
+    /** The maximum width of the input. */
+    maxWidth?: string
+    /**
+     * Whether the control's validity should be visually communicated or not. Typically, validity will only be shown
+     * when the control has been touched (i.e. the user has interacted with it).
+     */
+    showValidity?: boolean
+    /** Size of input. */
+    size?: 'small' | 'medium' | 'large'
+    /** Type of input. */
+    type?: 'search'
+  }
+}
+
+/**
+ * A native input element geared for search. Built on top of `TextInput`.
+ */
+export const SearchInput = forwardRef<HTMLInputElement, SearchInput.Props>(
+  ({ defaultValue, disabled, id, onChange, readOnly, showValidity, type = 'search', value, ...rest }, ref) => {
+    const uniqueId = useId()
+    const inputId = id ?? uniqueId
+
+    const isControlled = value !== undefined
+
+    // On first render, if value or default value are truthy, the input has a value.
+    const [hasValue, setHasValue] = useState<boolean>(isControlled ? !!value : !!defaultValue)
+    const showClearButton = !readOnly && !disabled && hasValue
+
+    const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+      onChange?.(event)
+      setHasValue(!!event.currentTarget.value)
+    }
+
+    return (
+      <TextInput
+        {...rest}
+        defaultValue={defaultValue}
+        disabled={disabled}
+        id={inputId}
+        // We only show the search icon if the input is empty
+        leadingIcon={!hasValue && <SearchIcon />}
+        onChange={handleChange}
+        onInput={handleChange}
+        readOnly={readOnly}
+        ref={ref}
+        showValidity={showValidity}
+        trailingIcon={showClearButton && <SearchInputClearButton aria-controls={inputId} />}
+        type={type}
+        value={value}
+      />
+    )
+  },
+)
+
+SearchInput.displayName = 'SearchInput'

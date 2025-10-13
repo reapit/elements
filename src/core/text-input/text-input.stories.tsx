@@ -38,20 +38,7 @@ const meta = {
     },
     type: {
       control: 'select',
-      options: [
-        'checkbox',
-        'email',
-        'date',
-        'datetime-local',
-        'month',
-        'password',
-        'search',
-        'tel',
-        'text',
-        'time',
-        'url',
-        'week',
-      ],
+      options: ['checkbox', 'email', 'date', 'datetime-local', 'password', 'search', 'tel', 'text', 'time', 'url'],
     },
     value: {
       control: 'text',
@@ -82,6 +69,35 @@ export const Example: Story = {
     size: 'medium',
     type: 'text',
   },
+}
+
+/**
+ * There are three sizes available: `small`, `medium` and `large`.
+ */
+export const Sizes: Story = {
+  args: {
+    ...Example.args,
+    defaultValue: 'Text',
+  },
+  argTypes: {
+    size: {
+      control: false,
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <TextInput {...args} size="small" />
+      <TextInput {...args} size="medium" />
+      <TextInput {...args} size="large" />
+    </>
+  ),
 }
 
 /**
