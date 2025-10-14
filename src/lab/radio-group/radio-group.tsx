@@ -10,6 +10,7 @@ export interface RadioGroupProps extends HTMLAttributes<HTMLDivElement> {
   children?: ReactNode
 }
 
+/** @deprecated */
 export const RadioGroup: FC<RadioGroupProps> = ({
   orientation = 'vertical',
   isRequired,

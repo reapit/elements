@@ -29,6 +29,8 @@ export interface RadioProps extends InputHTMLAttributes<HTMLInputElement> {
  * Radio component: A styled and composed radio element.
  * This component combines the atomic radio components (ElRadio, ElRadioInput, etc.)
  * into a single, reusable radio component.
+ *
+ * @deprecated
  */
 export const Radio = forwardRef<HTMLInputElement, RadioProps>(
   ({ label, supplementaryInfo, isRequired, hasError, className, ...rest }, ref) => {

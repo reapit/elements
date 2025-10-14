@@ -19,8 +19,9 @@ figma.connect(CheckboxControl, '<CHECKBOX_URL>', {
       false: undefined,
     }),
   },
-  example: ({ errorText, isIndeterminate, label, supplementaryInfo }) => (
+  example: ({ disabled, errorText, isIndeterminate, label, supplementaryInfo }) => (
     <CheckboxControl
+      disabled={disabled}
       errorText={errorText}
       isIndeterminate={isIndeterminate}
       label={label}

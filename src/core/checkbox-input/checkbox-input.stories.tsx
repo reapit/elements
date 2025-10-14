@@ -9,6 +9,9 @@ const meta = {
   title: 'Core/CheckboxInput',
   component: CheckboxInput,
   argTypes: {
+    checked: {
+      control: 'boolean',
+    },
     value: {
       control: 'text',
       table: {

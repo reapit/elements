@@ -25,9 +25,8 @@ export namespace Checkbox {
 }
 
 /**
- * A simple checkbox with label and optional supplementary info. It does not provide any visual indication
- * of requiredness, as that is only relevant to solitary checkboxes, not checkboxes that are part of a
- * group. If you need to show validation errors, use `CheckboxControl` instead.
+ * A simple checkbox with label and optional supplementary info. Acts as a common foundation for
+ * `CheckboxControl` and `CheckboxGroupControl.Option`. Will rarely be used directly.
  */
 export const Checkbox = forwardRef<HTMLInputElement, Checkbox.Props>(
   (
