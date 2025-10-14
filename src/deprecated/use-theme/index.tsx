@@ -22,7 +22,11 @@ export const THEME_LOCAL_STOREAGE_KEY = `reapit-foundations-${THEME_BODY_CLASS}`
  *
  * @deprecated
  */
-export const useTheme = ({ initialSelection = 'default' }: { initialSelection?: string }): UseThemeInterface => {
+export const useDeprecatedTheme = ({
+  initialSelection = 'default',
+}: {
+  initialSelection?: string
+}): UseThemeInterface => {
   // Initial setting of theme from localStorage
   useEffect(() => {
     if (localStorage) {

@@ -1,9 +1,9 @@
 import { renderHook, act } from '@testing-library/react'
-import { THEME_LOCAL_STOREAGE_KEY, useTheme } from '..'
+import { THEME_LOCAL_STOREAGE_KEY, useDeprecatedTheme } from '..'
 
 describe('use-theme', () => {
   it('can load use-theme', () => {
-    const { result } = renderHook(() => useTheme({ initialSelection: 'default' }))
+    const { result } = renderHook(() => useDeprecatedTheme({ initialSelection: 'default' }))
 
     expect(result.current.currentTheme).toBe('default')
 
@@ -18,7 +18,7 @@ describe('use-theme', () => {
   it('can load use-theme with localstorage preset', () => {
     localStorage.setItem(THEME_LOCAL_STOREAGE_KEY, JSON.stringify({ theme: 'my-saved-theme' }))
 
-    const { result } = renderHook(() => useTheme({ initialSelection: 'default' }))
+    const { result } = renderHook(() => useDeprecatedTheme({ initialSelection: 'default' }))
 
     expect(result.current.currentTheme).toBe('my-saved-theme')
 
