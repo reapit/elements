@@ -1748,22 +1748,22 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@floating-ui/core@npm:^1.7.2":
-  version: 1.7.2
-  resolution: "@floating-ui/core@npm:1.7.2"
+"@floating-ui/core@npm:^1.7.3":
+  version: 1.7.3
+  resolution: "@floating-ui/core@npm:1.7.3"
   dependencies:
     "@floating-ui/utils": "npm:^0.2.10"
-  checksum: 10/2885a4c824f8d148222714cf2650c29bf3b30b70f465b990734766aafb1366ba23b4a285918c4f3ee67161096e7b9e4fbe0b3ca31e0f78800338cb4e6292912d
+  checksum: 10/a8952ff2673ddf28f12feeb86d90c54949e45bcb1af5758b7672850ac0dadb36d4bd61aa45dad1b6a35ba40d4756d3573afac6610b90502639d7266b91e0864e
   languageName: node
   linkType: hard
 
-"@floating-ui/dom@npm:^1.7.1":
-  version: 1.7.2
-  resolution: "@floating-ui/dom@npm:1.7.2"
+"@floating-ui/dom@npm:^1.7.4":
+  version: 1.7.4
+  resolution: "@floating-ui/dom@npm:1.7.4"
   dependencies:
-    "@floating-ui/core": "npm:^1.7.2"
+    "@floating-ui/core": "npm:^1.7.3"
     "@floating-ui/utils": "npm:^0.2.10"
-  checksum: 10/2d581459973b66024c47f039cabdc059b39c72abca93a4a0a8110e0a90b79d3fb84e49099afb73e13b3e7f17096070422220d996b206a5f0120c92bd7c48b98b
+  checksum: 10/d3d6a23e7b9804ba56338c7c666590258683af14b6026270d32afc1202f72b5b82cca359004bdc7830bf2463a045da6c7bd4e7d5351218cf270ff94206197971
   languageName: node
   linkType: hard
 
@@ -2143,15 +2143,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oddbird/css-anchor-positioning@npm:0.6.1":
-  version: 0.6.1
-  resolution: "@oddbird/css-anchor-positioning@npm:0.6.1"
+"@oddbird/css-anchor-positioning@npm:^0.7.0":
+  version: 0.7.0
+  resolution: "@oddbird/css-anchor-positioning@npm:0.7.0"
   dependencies:
-    "@floating-ui/dom": "npm:^1.7.1"
-    "@types/css-tree": "npm:^2.3.10"
+    "@floating-ui/dom": "npm:^1.7.4"
+    "@types/css-tree": "npm:^2.3.11"
     css-tree: "npm:^3.1.0"
-    nanoid: "npm:^5.1.5"
-  checksum: 10/1e6f12f18f8953f0234dff3bb506b10826eaf1ae04a747f965eac48fba27cd7ed8784f6d1b1a7a1278d0d83aa69e07ef231d5a1ee691d5995dea1d13dcb5da8f
+    nanoid: "npm:^5.1.6"
+  checksum: 10/a093af889eba27d874de371256a8cf28bcc6c47f231662d3f38b47446747d383d488272a94d2576873fc98b93ccc8a7b5ef251188731441c216cf35ffadd7137
   languageName: node
   linkType: hard
 
@@ -2192,7 +2192,7 @@ __metadata:
     "@linaria/postcss-linaria": "npm:6.3.0"
     "@linaria/react": "npm:6.3.0"
     "@mdx-js/react": "npm:3.0.1"
-    "@oddbird/css-anchor-positioning": "npm:0.6.1"
+    "@oddbird/css-anchor-positioning": "npm:^0.7.0"
     "@playwright/test": "npm:1.43.0"
     "@storybook/addon-a11y": "npm:9.1.10"
     "@storybook/addon-designs": "npm:10.0.2"
@@ -3239,10 +3239,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/css-tree@npm:^2.3.10":
-  version: 2.3.10
-  resolution: "@types/css-tree@npm:2.3.10"
-  checksum: 10/d4c8d36eb6fc5ed97fadd64bb501e7cc0d87a40567ed915e2d9797402e8c278fe4f9cd62c97beb9a629682d8c8ed66862ef44dc02c3ad20566d1374c086bc9cd
+"@types/css-tree@npm:^2.3.11":
+  version: 2.3.11
+  resolution: "@types/css-tree@npm:2.3.11"
+  checksum: 10/c4e1e990257cc8f9c90ebe3ec1b3d53733f9883cf772bbf1c2da462bb9fa6770b6ed98f24e176d1e0ad2c6b276b8ced5cd3d676b793518bec09adf2dd077a307
   languageName: node
   linkType: hard
 
@@ -9018,12 +9018,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"nanoid@npm:^5.1.5":
-  version: 5.1.5
-  resolution: "nanoid@npm:5.1.5"
+"nanoid@npm:^5.1.6":
+  version: 5.1.6
+  resolution: "nanoid@npm:5.1.6"
   bin:
     nanoid: bin/nanoid.js
-  checksum: 10/6de2d006b51c983be385ef7ee285f7f2a57bd96f8c0ca881c4111461644bd81fafc2544f8e07cb834ca0f3e0f3f676c1fe78052183f008b0809efe6e273119f5
+  checksum: 10/4109dbcf596d7f297a9b42f459b8f01694a03ebbdd2f41408d963ad54e5ec7234cbe7b4acad137751f31add11bb4fb3415a3e688082516745812811f05570014
   languageName: node
   linkType: hard
 
