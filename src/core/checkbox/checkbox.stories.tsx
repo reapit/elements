@@ -1,4 +1,6 @@
 import { Checkbox } from './checkbox'
+import { LabelText } from '../label-text'
+
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
@@ -39,20 +41,21 @@ export const Example: Story = {
 }
 
 /**
- * The checkbox UI can be set as required.
- * It will be helpful when used in the form to restrict user to check the checkbox
- * For Example: Terms and Condition, Data Privacy Consent, etc..
+ * A checkbox can be marked as required. This indicates that the checkbox must be checked for its related form
+ * to be successfully submitted. Importantly, the visual "required indicator" (*) is not handled automatically
+ * because it is only relevent to solitary checkboxes, not checkbox groups.
  */
 export const Required: Story = {
   args: {
     ...Example.args,
+    label: <LabelText isRequired>Label</LabelText>,
     required: true,
   },
 }
 
 /**
- * The checkbox can be Indeterminate when used in the nested checkbox workflow
- * where checkbox is Partially Selected
+ * Checkboxes can be set to an indeterminate state. When controlling `isIndeterminate`, it is important that
+ * consumers also control the checked state appropriately.
  */
 export const Indeterminate: Story = {
   args: {

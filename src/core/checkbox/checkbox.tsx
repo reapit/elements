@@ -5,9 +5,9 @@ import { forwardRef, useEffect, useId } from 'react'
 import type { ReactNode } from 'react'
 
 // NOTE: we omit...
-// - aria-describedby, because we describe the checkbox internally using the supplementary info
 // - aria-labelledby, because we label the checkbox internally using the label prop
-type AttributesToOmit = 'aria-describedby' | 'aria-labelledby'
+// - size, because we don't support it for checkboxes
+type AttributesToOmit = 'aria-labelledby' | 'size'
 
 export namespace Checkbox {
   export interface Props extends Omit<CheckboxInput.Props, AttributesToOmit> {
@@ -25,10 +25,24 @@ export namespace Checkbox {
 }
 
 /**
- * A simple checkbox with label and optional supplementary info.
+ * A simple checkbox with label and optional supplementary info. It does not provide any visual indication
+ * of requiredness, as that is only relevant to solitary checkboxes, not checkboxes that are part of a
+ * group. If you need to show validation errors, use `CheckboxControl` instead.
  */
 export const Checkbox = forwardRef<HTMLInputElement, Checkbox.Props>(
-  ({ className, id, isIndeterminate = false, label, required, supplementaryInfo, ...rest }, ref) => {
+  (
+    {
+      'aria-describedby': ariaDescribedBy,
+      className,
+      id,
+      isIndeterminate = false,
+      label,
+      required,
+      supplementaryInfo,
+      ...rest
+    },
+    ref,
+  ) => {
     const descriptionId = useId()
     const inputId = id ?? useId()
     const labelId = useId()
@@ -37,7 +51,7 @@ export const Checkbox = forwardRef<HTMLInputElement, Checkbox.Props>(
       function syncIsIndeterminateWithInput() {
         const checkbox = document.getElementById(inputId)
         if (checkbox instanceof HTMLInputElement) {
-          checkbox.indeterminate = !!isIndeterminate
+          checkbox.indeterminate = isIndeterminate
         }
       },
       [inputId, isIndeterminate],
@@ -47,15 +61,13 @@ export const Checkbox = forwardRef<HTMLInputElement, Checkbox.Props>(
       <ElCheckbox className={className}>
         <CheckboxInput
           {...rest}
-          aria-describedby={descriptionId}
+          aria-describedby={ariaDescribedBy ?? descriptionId}
           aria-labelledby={labelId}
           id={inputId}
           ref={ref}
           required={required}
         />
-        <ElCheckboxLabelText id={labelId} isRequired={required}>
-          {label}
-        </ElCheckboxLabelText>
+        <ElCheckboxLabelText id={labelId}>{label}</ElCheckboxLabelText>
         {supplementaryInfo && (
           <ElCheckboxSupplementaryInfo id={descriptionId}>{supplementaryInfo}</ElCheckboxSupplementaryInfo>
         )}

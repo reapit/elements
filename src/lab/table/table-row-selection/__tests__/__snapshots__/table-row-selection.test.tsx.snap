@@ -3,7 +3,7 @@
 exports[`TableRowSelection > should match snapshot 1`] = `
 <DocumentFragment>
   <label
-    class="mocked-styled-3 el-checkbox"
+    class="mocked-styled-2 el-checkbox"
   >
     <div
       class="mocked-styled-0 el-checkbox-input-container"
@@ -72,7 +72,7 @@ exports[`TableRowSelection > should match snapshot 1`] = `
       </svg>
     </div>
     <span
-      class="mocked-styled-4 el-checkbox-label-text el-label-text"
+      class="mocked-styled-3 el-checkbox-label-text"
       id=":r2:"
     />
   </label>

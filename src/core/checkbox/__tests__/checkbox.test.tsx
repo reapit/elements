@@ -6,14 +6,24 @@ test('renders a checkbox', () => {
   expect(screen.getByRole('checkbox', { name: 'Label' })).toBeVisible()
 })
 
-test('displays a required indicator when required', () => {
-  render(<Checkbox label="Label" required />)
-  expect(screen.getByRole('checkbox', { name: 'Label (Required)' })).toBeVisible()
-})
-
-test('checkbox is described by the supplementary info, when provided', () => {
+test('is described by the supplementary info, when provided', () => {
   render(<Checkbox label="Label" supplementaryInfo="Description" />)
   expect(screen.getByRole('checkbox')).toHaveAccessibleDescription('Description')
+})
+
+test('can be described by consumer-specified element', () => {
+  render(
+    <>
+      <Checkbox aria-describedby="consumer-description" label="Label" supplementaryInfo="Description" />
+      <span id="consumer-description">Consumer description</span>
+    </>,
+  )
+  expect(screen.getByRole('checkbox')).toHaveAccessibleDescription('Consumer description')
+})
+
+test('can be indeterminate', () => {
+  render(<Checkbox isIndeterminate label="Label" />)
+  expect(screen.getByRole('checkbox')).toBePartiallyChecked()
 })
 
 test('forwards additional props to the checkbox', () => {
