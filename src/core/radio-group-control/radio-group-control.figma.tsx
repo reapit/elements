@@ -18,7 +18,7 @@ figma.connect(RadioGroupControl, '<RADIO_GROUP_URL>', {
         text: undefined,
       },
     }),
-    orientation: figma.enum('Variant', {
+    orientation: figma.enum('Orientation', {
       Horizontal: 'horizontal',
       Vertical: 'vertical',
     }),
