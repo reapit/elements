@@ -80,6 +80,20 @@ test('passes `name` prop to context', () => {
   )
 })
 
+test('passes `required` prop to context', () => {
+  expect.assertions(1)
+  render(
+    <ChipSelect size="medium" required>
+      <ChipSelectContext.Consumer>
+        {(context) => {
+          expect(context?.required).toBe(true)
+          return null
+        }}
+      </ChipSelectContext.Consumer>
+    </ChipSelect>,
+  )
+})
+
 test('passes `size` prop to context', () => {
   expect.assertions(1)
   render(

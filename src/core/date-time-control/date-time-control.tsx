@@ -43,7 +43,7 @@ export function DateTimeControl({
   return (
     <FormControl as="div" size={size} maxWidth={maxWidth}>
       {label && (
-        <FormControl.Label htmlFor={inputId} isRequired={required} size={size}>
+        <FormControl.Label htmlFor={inputId} isRequired={required}>
           {label}
         </FormControl.Label>
       )}

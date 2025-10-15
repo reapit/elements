@@ -17,9 +17,19 @@ export type ChipSelectOptionProps = ChipSelectOption.Props
  * A thin wrapper around `ChipSelectChip` that respects the `form`, `name`, `size` and selection mode
  * of the `ChipSelect`.
  */
-export const ChipSelectOption = forwardRef<HTMLInputElement, ChipSelectOption.Props>((props, ref) => {
-  const { form, multiple, name, size } = useChipSelectContext()
-  return <ChipSelectChip {...props} isExclusive={!multiple} form={form} name={name} ref={ref} size={size} />
+export const ChipSelectOption = forwardRef<HTMLInputElement, ChipSelectOption.Props>(({ required, ...rest }, ref) => {
+  const context = useChipSelectContext()
+  return (
+    <ChipSelectChip
+      {...rest}
+      isExclusive={!context.multiple}
+      form={context.form}
+      name={context.name}
+      ref={ref}
+      required={required ?? context.required}
+      size={context.size}
+    />
+  )
 })
 
 ChipSelectOption.displayName = 'ChipSelect.Option'

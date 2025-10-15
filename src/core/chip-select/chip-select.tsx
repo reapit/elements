@@ -29,8 +29,13 @@ export namespace ChipSelect {
     name?: string
     /** What overflow behaviour the chip select should exhibit. */
     overflow?: 'auto' | 'visible'
+    /**
+     * Whether all options in the group are required by default. Individual options can override
+     * this value.
+     */
+    required?: boolean
     /** The size of the chip select's options. */
-    size: 'small' | 'medium' | 'large'
+    size?: 'small' | 'medium' | 'large'
   }
 }
 
@@ -54,12 +59,15 @@ export function ChipSelect({
   multiple = false,
   name,
   overflow = 'visible',
-  size,
+  required,
+  size = 'medium',
   ...rest
 }: ChipSelect.Props) {
   return (
     <ElChipSelect {...rest} data-flow={flow} data-overflow={overflow}>
-      <ChipSelectContext.Provider value={{ form, multiple, name, size }}>{children}</ChipSelectContext.Provider>
+      <ChipSelectContext.Provider value={{ form, multiple, name, required, size }}>
+        {children}
+      </ChipSelectContext.Provider>
     </ElChipSelect>
   )
 }

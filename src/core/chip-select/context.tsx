@@ -13,6 +13,11 @@ export namespace ChipSelectContext {
     name?: string
     /** The size of options in the chip select. */
     size: ComponentProps<typeof ChipSelectChip>['size']
+    /**
+     * Whether all options in the group are required by default. Individual options can override
+     * this value.
+     */
+    required?: boolean
   }
 }
 
