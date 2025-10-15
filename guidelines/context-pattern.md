@@ -1,12 +1,12 @@
 # React Context Pattern Guidelines
 
-This document outlines the standard pattern for implementing React contexts in Reapit Elements components.
+React contexts in Reapit Elements follow a consistent pattern that ensures type safety, clear documentation, and proper error handling. This guide defines that standard pattern.
 
 ## Overview
 
-React contexts in this codebase follow a consistent namespace pattern that provides type safety, clear documentation, and proper error handling. All contexts should follow this established pattern for consistency and maintainability.
+All contexts must follow this established pattern for consistency and maintainability across the library.
 
-## ✅ Required Pattern
+## Required Pattern
 
 ### Basic Context Structure
 
@@ -30,24 +30,24 @@ export const ComponentNameContext = createContext<ComponentNameContext.Value | n
 
 /**
  * Returns the current ComponentNameContext value.
- * @throws an error if the context is not defined.
+ * @throws if context is undefined.
  */
 export function useComponentNameContext(): ComponentNameContext.Value {
   const context = useContext(ComponentNameContext)
   if (!context) {
-    throw new Error('useComponentNameContext must be used within a ComponentName')
+    throw new Error('useComponentNameContext requires a ComponentName ancestor')
   }
   return context
 }
 ```
 
-## 🔍 Pattern Elements
+## Pattern Components
 
 ### 1. Namespace Declaration
 
-- **MUST** use the component name followed by `Context`
-- **MUST** contain a `Value` interface that defines the context shape
-- **MUST** document all properties with JSDoc comments
+- **MUST** use component name followed by `Context`
+- **MUST** contain `Value` interface defining context shape when not a simple primitive
+- **MUST** document all properties with JSDoc
 
 ```typescript
 export namespace DialogContext {
@@ -60,13 +60,14 @@ export namespace DialogContext {
 
 ### 2. Context Creation
 
-- **MUST** use `createContext` with the namespace type union: `ComponentNameContext.Value | null`
-- **MUST** initialize with `null` to enforce proper usage checking
-- **SHOULD** include JSDoc documentation explaining the context's purpose
+- **MUST** use `createContext` with correct type and initial value
+- **MUST** use `null` for initial value unless a sensible default exists
+- **MUST** initialize with `null` to enforce proper usage checking when a default value is not appropriate
+- **MUST** include JSDoc explaining context purpose
 
 ```typescript
 /**
- * The context available to a Dialog's descendants. Provides access to titleId
+ * Context available to Dialog descendants. Provides titleId
  * for proper accessibility labeling.
  */
 export const DialogContext = createContext<DialogContext.Value | null>(null)
@@ -74,26 +75,26 @@ export const DialogContext = createContext<DialogContext.Value | null>(null)
 
 ### 3. Custom Hook
 
-- **MUST** provide a custom hook named `useComponentNameContext`
-- **MUST** throw a descriptive error if context is not available
-- **MUST** return the non-null context value
-- **SHOULD** include JSDoc documentation
+- **MUST** provide custom hook named `useComponentNameContext`
+- **MUST** return non-null context value
+- **MUST** throw descriptive error if context is unavailable
+- **MUST** include JSDoc documentation
 
 ```typescript
 /**
  * Returns the current DialogContext value.
- * @throws an error if the context is not defined.
+ * @throws if context is undefined.
  */
 export function useDialogContext(): DialogContext.Value {
   const context = useContext(DialogContext)
   if (!context) {
-    throw new Error('DialogContext not defined: useDialogContext can only be used in a child of DialogContext')
+    throw new Error('useDialogContext requires a Dialog ancestor')
   }
   return context
 }
 ```
 
-## 📋 Context Value Examples
+## Context Value Examples
 
 ### Simple State Context
 ```typescript
@@ -135,33 +136,33 @@ export namespace SplitButtonContext {
 }
 ```
 
-## 🚫 Common Mistakes to Avoid
+## Common Mistakes
 
-### ❌ Wrong Naming
+### Wrong Naming
 ```typescript
-// Don't use inconsistent naming
+// Use consistent naming
 export namespace ButtonCtx { } // Wrong: use full "Context"
-export namespace ButtonContextState { } // Wrong: don't add suffixes
+export namespace ButtonContextState { } // Wrong: avoid suffixes
 ```
 
-### ❌ Missing Error Handling
+### Missing Error Handling
 ```typescript
-// Don't return nullable values from hook
+// Hook must throw on undefined context
 export function useDialogContext(): DialogContext.Value | null {
   return useContext(DialogContext) // Wrong: should throw on null
 }
 ```
 
-### ❌ Inconsistent Error Messages
+### Generic Error Messages
 ```typescript
-// Don't use generic error messages
-throw new Error('Context not found') // Wrong: be specific
+// Use specific error messages
+throw new Error('Context not found') // Wrong: too generic
 
-// Use descriptive, component-specific messages
-throw new Error('useDialogContext can only be used in a child of DialogContext')
+// Specify hook name and required ancestor
+throw new Error('useDialogContext requires a Dialog ancestor')
 ```
 
-### ❌ Missing Documentation
+### Missing Documentation
 ```typescript
 export namespace DialogContext {
   export interface Value {
@@ -170,9 +171,9 @@ export namespace DialogContext {
 }
 ```
 
-## 🎯 File Structure
+## File Structure
 
-Each context should be in its own file within the component directory:
+Place each context in its own file within the component directory:
 
 ```
 src/core/component-name/
@@ -182,7 +183,7 @@ src/core/component-name/
 └── __tests__/
 ```
 
-## 📝 Integration with Components
+## Integration with Components
 
 ### Provider Usage
 ```typescript
@@ -213,22 +214,22 @@ export function ChildComponent() {
 }
 ```
 
-## 🔍 Code Review Checklist
+## Code Review Checklist
 
 When reviewing context implementations:
 
-- [ ] Namespace follows `ComponentNameContext` pattern
-- [ ] Interface is named `Value` and exported from namespace
-- [ ] All properties have JSDoc documentation
-- [ ] Context created with `| null` union type
+- [ ] Namespace uses `ComponentNameContext` pattern
+- [ ] Interface exports `Value` from namespace
+- [ ] All properties include JSDoc
+- [ ] Context uses `| null` union type and `null` initial value when no sensible default value exists
 - [ ] Custom hook throws descriptive error on null context
-- [ ] Error message mentions both hook name and required parent component
+- [ ] Error message specifies hook name and required ancestor
 - [ ] Hook returns non-nullable context value
 - [ ] File follows established directory structure
 
-## 📚 Related Patterns
+## Related Patterns
 
-This context pattern works in conjunction with:
+This context pattern works with:
 
 - [Interface Pattern](./interface-pattern.md) - For component props
 - Component composition patterns

@@ -1,6 +1,6 @@
 # Interface Pattern Code Review Checklist
 
-Quick reference for AI agents when reviewing or writing component code.
+Reference guide for reviewing and writing component code.
 
 ## ✅ Required Pattern
 
@@ -21,29 +21,58 @@ export namespace ComponentName {
 
 ### For New Components
 
-- [ ] Uses `ComponentName.Props` pattern (not `ComponentNameProps`)
-- [ ] Namespace exported and matches component name exactly
-- [ ] Props interface inside namespace
-- [ ] All props have JSDoc documentation
-- [ ] No standalone interface definitions
+- [ ] Pattern uses `ComponentName.Props` (not `ComponentNameProps`)
+- [ ] Export namespace matching component name exactly
+- [ ] Place Props interface inside namespace
+- [ ] Document all props with JSDoc
+- [ ] Avoid standalone interface definitions
 
 ### For Component Migrations
 
-- [ ] Original `ComponentNameProps` converted to namespace
-- [ ] Deprecated type alias added: `export type ComponentNameProps = ComponentName.Props`
-- [ ] Component function signature updated to use `ComponentName.Props`
-- [ ] Tests still pass after migration
+- [ ] Convert original `ComponentNameProps` to namespace
+- [ ] Add deprecated type alias: `export type ComponentNameProps = ComponentName.Props`
+- [ ] Update component function signature to use `ComponentName.Props`
+- [ ] Verify tests pass after migration
 
 ### For Compound Components
 
-- [ ] Subcomponents use nested namespaces: `Parent.Child.Props`
-- [ ] Static properties properly typed
-- [ ] Each subcomponent follows same pattern
+- [ ] Use nested namespaces for subcomponents: `Parent.Child.Props`
+- [ ] Type static properties properly
+- [ ] Apply pattern to each subcomponent
 
 ### For Utility Functions
 
-- [ ] Input/output types use function name as namespace
-- [ ] Example: `utilityFunction.Input` and `utilityFunction.Output`
+- [ ] Use function name as namespace for input/output types
+- [ ] Define types as `utilityFunction.Input` and `utilityFunction.Output`
+
+**Complete Example:**
+
+```typescript
+export namespace formatCurrency {
+  export interface Input {
+    /** Amount in cents */
+    amount: number
+    /** ISO 4217 currency code */
+    currency: string
+  }
+  
+  export interface Output {
+    /** Formatted currency string */
+    formatted: string
+  }
+}
+
+export function formatCurrency(input: formatCurrency.Input): formatCurrency.Output {
+  const formatter = new Intl.NumberFormat('en-US', {
+    style: 'currency',
+    currency: input.currency,
+  })
+  
+  return {
+    formatted: formatter.format(input.amount / 100)
+  }
+}
+```
 
 ## 🚫 Common Mistakes to Flag
 

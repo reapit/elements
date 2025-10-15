@@ -2,7 +2,7 @@
 
 ## Project Overview
 
-**Reapit Elements** is a TypeScript-based React UI component library for building web applications using the Reapit Design System. The library provides a comprehensive set of reusable components with cross-platform support and is distributed via NPM.
+**Reapit Elements** is a TypeScript-based React UI component library for the Reapit Design System. It provides reusable, cross-platform components distributed via NPM.
 
 ## Project Structure
 - **Language**: TypeScript with React
@@ -33,29 +33,29 @@ yarn generate:tokens # Generate CSS variables
 ```
 
 ## Component Architecture
-- Each component has its own directory with `index.ts`, component file, and tests
-- Uses CSS-in-JS with Linaria for styling
-- Follows atomic design principles
-- Includes comprehensive TypeScript types
-- Exports both individual components and bundled library
+- Each component occupies its own directory containing `index.ts`, component file, and tests
+- Styled with Linaria (CSS-in-JS)
+- Built on atomic design principles
+- Typed with TypeScript
+- Exported as individual components and bundled library
 
-## Important Notes
-- Node.js >= 22.18.0 required
+## Requirements and Features
+- Requires Node.js >= 22.18.0
 - Components use design tokens from `src/tokens/`
 - Visual regression tests ensure UI consistency
-- Library supports both ESM and CJS exports
+- Supports ESM and CJS exports
 
 ## Lab Components (`src/lab/`)
-**Experimental components with special naming requirements:**
+**Experimental components requiring special naming conventions:**
 
-- Components have unstable APIs and are subject to change or removal. They may not be fit-for-purpose in all use cases.
+- These components expose unstable APIs subject to change or removal. Use them with caution.
 - **Styled components MUST use `ElExperimental` prefix** (e.g., `const ElExperimentalButton = styled.button`...)
 - **CSS class names MUST use `elExperimental` prefix** (e.g., `const elExperimentalButton = css`...)
 - These prefixes prevent naming conflicts with existing components in `src/core`, `src/deprecated`, and `src/utils`
 - See `src/lab/README.md` for detailed guidelines and examples
 
 ## Contributing Guidelines
-- Components should be TypeScript with proper type definitions
+- Write components in TypeScript with proper type definitions
 - Follow existing naming conventions and file structure
 - Include unit tests and Storybook stories
 - Use design tokens for consistent styling
