@@ -1,5 +1,4 @@
 import { Meta } from '@storybook/react-vite'
-// import { figmaDesignUrls } from '../../storybook/figma'
 import { TableToolbar } from './table-toolbar.js'
 import { DeprecatedButton } from '#src/deprecated/button/button'
 import { DeprecatedIcon } from '#src/deprecated/icon/icon-component'

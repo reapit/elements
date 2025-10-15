@@ -11,7 +11,6 @@ import { DeprecatedIcon } from '../icon'
 import { elMr1 } from '../../styles/deprecated-spacing'
 import { elIsActive } from '../../styles/deprecated-states'
 import { Meta, StoryObj } from '@storybook/react-vite'
-import { figmaDesignUrls } from '../../storybook/figma'
 
 const meta: Meta<typeof DeprecatedAccordion> = {
   title: 'Deprecated/DeprecatedAccordion',
@@ -92,12 +91,6 @@ export const StylesOnlyUsage = {
       </DeprecatedAccordionContent>
     </DeprecatedAccordionContainer>
   ),
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.accordion,
-    },
-  },
 }
 
 export const ReactUsage: StoryObj<typeof DeprecatedAccordion> = {
@@ -142,12 +135,5 @@ export const ReactUsage: StoryObj<typeof DeprecatedAccordion> = {
         ],
       },
     ],
-  },
-  parameters: {
-    design: {
-      type: 'figma',
-      url: figmaDesignUrls.accordion,
-      allowFullscreen: true,
-    },
   },
 }
