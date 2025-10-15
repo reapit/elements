@@ -26,7 +26,8 @@ yarn start           # Start Storybook dev server
 yarn build           # Build library and Storybook
 yarn test            # Run unit tests
 yarn visual-test     # Run Playwright visual tests
-yarn lint            # Lint TypeScript and CSS
+yarn check           # Check TS types
+yarn lint            # Lint JS & CSS
 yarn generate:icons  # Generate SVG icon components
 yarn generate:tokens # Generate CSS variables
 ```

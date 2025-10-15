@@ -8,6 +8,8 @@ import type { FieldsetHTMLAttributes, HTMLAttributes } from 'react'
 
 export namespace FormControl {
   interface CommonProps {
+    /** The maximum width of the form control. */
+    maxWidth?: string
     /** The size of the form control. Should match the size of the control being labelled. */
     size?: 'small' | 'medium' | 'large'
   }
@@ -24,9 +26,22 @@ export namespace FormControl {
  * Handles the layout of a form control's label, helper text and error message. Can be used with any form
  * control, such as standard inputs, checkbox or radio groups, chip selects, and more.
  */
-export function FormControl({ as: Element = 'div', children, className, size, ...rest }: FormControl.Props) {
+export function FormControl({
+  as: Element = 'div',
+  children,
+  className,
+  maxWidth,
+  size,
+  style,
+  ...rest
+}: FormControl.Props) {
   return (
-    <Element {...(rest as any)} className={cx(elFormControl, className)} data-size={size}>
+    <Element
+      {...(rest as any)}
+      className={cx(elFormControl, className)}
+      data-size={size}
+      style={{ ...style, maxWidth }}
+    >
       {children}
     </Element>
   )

@@ -2,7 +2,7 @@ import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
 export const ElFormControlErrorText = styled.p`
-  display: inline-block;
+  display: block;
   color: var(--comp-input-colour-text-info-error);
 
   font: inherit;

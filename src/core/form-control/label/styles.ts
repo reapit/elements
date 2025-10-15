@@ -1,7 +1,7 @@
 import { css } from '@linaria/core'
 
 export const elFormControlLabel = css`
-  display: inline-block;
+  display: block;
   font: inherit;
 
   padding: 0;

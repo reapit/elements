@@ -1,13 +1,22 @@
 import { CheckIcon } from '#src/icons/check'
 import { LocationIcon } from '#src/icons/location'
-import { TextInput } from './text-input'
+import { TextControl } from './text-control'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/TextInput',
-  component: TextInput,
+  title: 'Core/TextControl',
+  component: TextControl,
   argTypes: {
+    errorText: {
+      control: 'text',
+    },
+    helpText: {
+      control: 'text',
+    },
+    label: {
+      control: 'text',
+    },
     leadingIcon: {
       control: 'select',
       options: ['None', 'Check', 'Location'],
@@ -16,6 +25,9 @@ const meta = {
         Check: <CheckIcon />,
         Location: <LocationIcon />,
       },
+    },
+    placeholder: {
+      control: 'text',
     },
     prefix: {
       control: 'text',
@@ -38,7 +50,7 @@ const meta = {
     },
     type: {
       control: 'select',
-      options: ['checkbox', 'email', 'date', 'datetime-local', 'password', 'search', 'tel', 'text', 'time', 'url'],
+      options: ['email', 'password', 'search', 'tel', 'text', 'url'],
     },
     value: {
       control: 'text',
@@ -49,25 +61,34 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TextInput>
+} satisfies Meta<typeof TextControl>
 
 export default meta
+
 type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
   args: {
-    'aria-label': 'My input',
     defaultValue: '',
     disabled: false,
+    errorText: '',
+    helpText: '',
+    label: 'Label',
     maxLength: undefined,
     minLength: undefined,
     name: 'myInput',
+    leadingIcon: 'None',
     pattern: undefined,
+    prefix: '',
+    placeholder: '',
     readOnly: false,
     required: false,
     showValidity: false,
     size: 'medium',
+    suffix: '',
+    trailingIcon: 'None',
     type: 'text',
+    value: undefined,
   },
 }
 
@@ -93,11 +114,21 @@ export const Sizes: Story = {
   ],
   render: (args) => (
     <>
-      <TextInput {...args} size="small" />
-      <TextInput {...args} size="medium" />
-      <TextInput {...args} size="large" />
+      <TextControl {...args} size="small" />
+      <TextControl {...args} size="medium" />
+      <TextControl {...args} size="large" />
     </>
   ),
+}
+
+/**
+ * Optional help text can be provided to give more context about the text input.
+ */
+export const HelpText: Story = {
+  args: {
+    ...Example.args,
+    helpText: 'Optional help text',
+  },
 }
 
 /**
@@ -132,8 +163,8 @@ export const Affixes: Story = {
   ],
   render: (args) => (
     <>
-      <TextInput {...args} suffix={undefined} />
-      <TextInput {...args} prefix={undefined} />
+      <TextControl {...args} suffix={undefined} />
+      <TextControl {...args} prefix={undefined} />
     </>
   ),
 }
@@ -147,13 +178,14 @@ export const Affixes: Story = {
 export const Invalid: Story = {
   args: {
     ...Icons.args,
+    errorText: 'Error message',
     required: true,
     showValidity: true,
   },
 }
 
 /**
- * Text inputs can be disabled. A disable input will not receive the `click` event, and are not submitted
+ * Text inputs can be disabled. A disabled input will not receive the `click` event, and are not submitted
  * with the form they're associated with.
  */
 export const Disabled: Story = {

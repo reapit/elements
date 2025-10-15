@@ -44,6 +44,17 @@ export const Example: Story = {
 }
 
 /**
+ * By default, the form control will grow to the width of its parent. To constrain its width,
+ * an explicit `maxWidth` can be specified.
+ */
+export const MaxWidth: Story = {
+  args: {
+    ...Example.args,
+    maxWidth: '300px',
+  },
+}
+
+/**
  * When the form control is invalid, an error message will commonly be displayed beneath using
  * `FormControl.ErrorText` to describing why the form control's value is not valid.
  *
