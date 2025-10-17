@@ -3,7 +3,7 @@ import { useEffect, type ComponentProps } from 'react'
 import { DeprecatedMenu, useDeprecatedMenuContext } from '.'
 import { DeprecatedButton } from '../button'
 import { DeprecatedIcon } from '../icon'
-import { FlexContainer, MainContainer } from '../layout'
+import { FlexContainer, DeprecatedMainContainer } from '../layout'
 import { elHScreen } from '../../styles/deprecated-sizing'
 import { Badge } from '../../core/badge'
 
@@ -226,7 +226,7 @@ export const WithIframe: Story = {
     }
 
     return (
-      <MainContainer className={elHScreen}>
+      <DeprecatedMainContainer className={elHScreen}>
         <DeprecatedMenu>
           <DeprecatedMenu.Trigger>
             {({ getTriggerProps }) => (
@@ -243,7 +243,7 @@ export const WithIframe: Story = {
           </DeprecatedMenu.Popover>
         </DeprecatedMenu>
         <IFrameComponent />
-      </MainContainer>
+      </DeprecatedMainContainer>
     )
   },
 }

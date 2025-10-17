@@ -12,7 +12,7 @@ export const elHasMaxWidth = css`
 `
 
 /** @deprecated */
-export const elMainContainer = css`
+export const elDeprecatedMainContainer = css`
   display: flex;
   flex-direction: column;
   width: 100%;

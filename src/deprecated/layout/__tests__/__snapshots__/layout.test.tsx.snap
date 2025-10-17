@@ -27,7 +27,7 @@ exports[`FlexContainer > should match a snapshot and render children with all pr
 exports[`MainContainer > should match a snapshot and render children 1`] = `
 <DocumentFragment>
   <main
-    class="el-main-container el-has-grey-background"
+    class="el-deprecated-main-container el-has-grey-background"
   >
     <p>
       I am child

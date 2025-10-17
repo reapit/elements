@@ -3,7 +3,7 @@ import { cx } from '@linaria/core'
 import {
   elHasGreyBackground,
   elHasMaxWidth,
-  elMainContainer,
+  elDeprecatedMainContainer,
   elPageContainer,
   elSecondaryNavContainer,
   elFlexContainer,
@@ -75,8 +75,8 @@ export const TaggedElement: FC<TaggedElementProps> = ({
 }
 
 /** @deprecated */
-export const MainContainer: FC<ContainerProps> = ({ tag = 'main', children, ...rest }) => (
-  <TaggedElement tag={tag} baseClass={elMainContainer} {...rest}>
+export const DeprecatedMainContainer: FC<ContainerProps> = ({ tag = 'main', children, ...rest }) => (
+  <TaggedElement tag={tag} baseClass={elDeprecatedMainContainer} {...rest}>
     {children}
   </TaggedElement>
 )

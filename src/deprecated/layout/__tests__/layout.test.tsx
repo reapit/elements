@@ -1,20 +1,20 @@
 import { render } from '@testing-library/react'
 import {
-  MainContainer,
+  DeprecatedMainContainer,
   PageContainer,
   SecondaryNavContainer,
   FlexContainer,
   TaggedElement,
-  elMainContainer,
+  elDeprecatedMainContainer,
 } from '../index'
 import { cx } from '@linaria/core'
 
 describe('MainContainer', () => {
   it('should match a snapshot and render children', () => {
     const wrapper = render(
-      <MainContainer hasGreyBackground>
+      <DeprecatedMainContainer hasGreyBackground>
         <p>I am child</p>
-      </MainContainer>,
+      </DeprecatedMainContainer>,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
@@ -88,7 +88,9 @@ describe('FlexContainer', () => {
     describe('TaggedElement', () => {
       ;['div', 'main', 'aside', 'section'].forEach((tag) => {
         it(`Can return element with tag [${tag}]`, () => {
-          const component = render(<TaggedElement baseClass={cx(elMainContainer)} tag={tag as any}></TaggedElement>)
+          const component = render(
+            <TaggedElement baseClass={cx(elDeprecatedMainContainer)} tag={tag as any}></TaggedElement>,
+          )
           expect(component.baseElement.querySelector(tag)?.tagName.toLowerCase()).toBe(tag)
         })
       })
@@ -97,7 +99,7 @@ describe('FlexContainer', () => {
     describe('Layout elements can use tag', () => {
       ;['div', 'main', 'aside', 'section'].forEach((tag) => {
         Object.entries({
-          main: <MainContainer tag={tag as any}></MainContainer>,
+          main: <DeprecatedMainContainer tag={tag as any}></DeprecatedMainContainer>,
           page: <PageContainer tag={tag as any}></PageContainer>,
           secondaryNav: <SecondaryNavContainer tag={tag as any}></SecondaryNavContainer>,
         }).forEach(([name, element]) => {

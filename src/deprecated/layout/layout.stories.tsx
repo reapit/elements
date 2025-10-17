@@ -1,4 +1,4 @@
-import { MainContainer, PageContainer, SecondaryNavContainer, FlexContainer } from './index'
+import { DeprecatedMainContainer, PageContainer, SecondaryNavContainer, FlexContainer } from './index'
 import { GridDemoBlock } from '../../storybook/demo-block'
 import { Grid, Col } from '../grid'
 
@@ -8,13 +8,13 @@ export default {
 
 export const MainContainerUsage = {
   render: ({}) => (
-    <MainContainer>
+    <DeprecatedMainContainer>
       <FlexContainer isFlexGrow1>
         <PageContainer>
           <GridDemoBlock />
         </PageContainer>
       </FlexContainer>
-    </MainContainer>
+    </DeprecatedMainContainer>
   ),
 }
 
@@ -87,11 +87,11 @@ export const FlexContainerUsage = {
 export const TaggedLayouts = {
   render: ({}) => (
     <>
-      <MainContainer tag="main">
+      <DeprecatedMainContainer tag="main">
         <FlexContainer tag="section" isFlexGrow1>
           <PageContainer tag="aside">These containers all have semanitic tags I passed as a prop</PageContainer>
         </FlexContainer>
-      </MainContainer>
+      </DeprecatedMainContainer>
     </>
   ),
 }
