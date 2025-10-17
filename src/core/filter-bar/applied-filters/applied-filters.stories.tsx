@@ -161,8 +161,6 @@ export const Breakpoints: Story = {
     ),
   },
   globals: {
-    viewport: {
-      value: 'mobile',
-    },
+    viewport: { value: 'XS' },
   },
 }

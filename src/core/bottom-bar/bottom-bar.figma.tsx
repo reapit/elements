@@ -1,14 +1,12 @@
 import { BottomBar } from './bottom-bar'
 import figma from '@figma/code-connect'
 
-const ref = { current: null }
-
 figma.connect(BottomBar, '<BOTTOM_BAR_URL>', {
   props: {
     children: figma.children('*'),
   },
   example: (props) => (
-    <BottomBar scrollContainerRef={ref}>
+    <BottomBar>
       <BottomBar.MenuList>{props.children}</BottomBar.MenuList>
     </BottomBar>
   ),
@@ -25,7 +23,7 @@ figma.connect(BottomBar, '<BOTTOM_BAR_URL>', {
     }),
   },
   example: (props) => (
-    <BottomBar scrollContainerRef={ref}>
+    <BottomBar>
       <BottomBar.MenuList>
         {props.children}
         <BottomBar.MenuItem

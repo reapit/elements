@@ -39,7 +39,7 @@ export function BottomBarMenuListItem({
 
   const listItemRef = useRef<HTMLLIElement>(null)
 
-  const { isOpen } = useBottomBarContext()
+  const { state } = useBottomBarContext()
 
   useEffect(
     function closePopoverWhenBottomBarCloses() {
@@ -50,11 +50,11 @@ export function BottomBarMenuListItem({
       // Until then, we simply get the menu element via it's parent.
       const menuElement = listItemRef.current?.lastElementChild
 
-      if (!isOpen && menuElement instanceof HTMLElement) {
+      if (state === 'retracted' && menuElement instanceof HTMLElement) {
         menuElement.hidePopover()
       }
     },
-    [isOpen],
+    [state],
   )
 
   return (

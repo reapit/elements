@@ -4,40 +4,37 @@ import { BottomBarMenuList } from './menu-list'
 import { ElBottomBarContainer, ElBottomBarNav } from './styles'
 import { useBottomBarObserver } from './use-bottom-bar-observer'
 
-import type { HTMLAttributes, ReactNode, RefObject } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 
 export namespace BottomBar {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
-    /**
-     * The children of the bottom bar
-     **/
+    /** The children of the bottom bar. **/
     children: ReactNode
-    /**
-     * The reference of the scroll container the bottom bar is rendered within
-     *
-     * @description see the story for an example
-     */
-    scrollContainerRef: RefObject<HTMLElement>
+    /** The ID of the scroll container the bottom bar will observe. */
+    scrollContainerId?: string
   }
 }
 
 /**
  * A bottom bar component for use on mobile-first applications or small screen sizes (XS breakpoint).
- * Does not display on SM screens or above. Should only have a maximum of five (5) items. The fifth item can be an
- * overflow menu.
+ * Should only have a maximum of five (5) items. The fifth item can be an overflow menu. Will retract
+ * and extend based on the direction of scroll in the observed scroll container.
+ *
+ * Typically placed within a sticky-positioned element within the scroll container being
+ * observed, such as the `PageLayout.BottomBarRegion`.
  */
 export function BottomBar({
   'aria-label': ariaLabel = 'Bottom navigation',
   children,
-  scrollContainerRef,
+  scrollContainerId,
   ...rest
 }: BottomBar.Props) {
-  const isOpen = useBottomBarObserver(scrollContainerRef)
+  const state = useBottomBarObserver(scrollContainerId)
 
   return (
     <ElBottomBarContainer>
-      <ElBottomBarNav {...rest} aria-label={ariaLabel} data-is-open={isOpen}>
-        <BottomBarContext.Provider value={{ isOpen }}>{children}</BottomBarContext.Provider>
+      <ElBottomBarNav {...rest} aria-label={ariaLabel} data-state={state}>
+        <BottomBarContext.Provider value={{ state }}>{children}</BottomBarContext.Provider>
       </ElBottomBarNav>
     </ElBottomBarContainer>
   )

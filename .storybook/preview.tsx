@@ -1,9 +1,9 @@
-import addonDocs from "@storybook/addon-docs";
-import addonA11y from "@storybook/addon-a11y";
-import addonLinks from "@storybook/addon-links";
+import addonDocs from '@storybook/addon-docs'
+import addonA11y from '@storybook/addon-a11y'
+import addonLinks from '@storybook/addon-links'
 import { definePreview } from '@storybook/react-vite'
-import React from 'react'
 import { ThemeProvider } from '#src/core/theme-provider'
+import { BreakpointMinimumDimensions } from '#src/utils/breakpoints'
 
 import '../src/styles/globals'
 import './preview.css'
@@ -37,45 +37,53 @@ export default definePreview({
     backgrounds: {
       options: {
         light: { name: 'light', value: 'var(--colour-fill-neutral-lightest)' },
-        dark: { name: 'dark', value: 'var(--colour-fill-neutral-darkest)' }
+        dark: { name: 'dark', value: 'var(--colour-fill-neutral-darkest)' },
       },
     },
     viewport: {
       options: {
-        superWideScreen: {
-          name: 'Super Wide Screen',
+        '2XL': {
+          name: '2XL (4KScreen)',
           type: 'desktop',
           styles: {
-            width: '1920px',
+            width: BreakpointMinimumDimensions['2XL'],
             height: '1500px',
           },
         },
-        wideScreen: {
-          name: 'Wide Screen',
+        XL: {
+          name: 'XL (SuperWideScreen)',
           type: 'desktop',
           styles: {
-            width: '1440px',
+            width: BreakpointMinimumDimensions.XL,
+            height: '1500px',
+          },
+        },
+        LG: {
+          name: 'LG (WideScreen)',
+          type: 'desktop',
+          styles: {
+            width: BreakpointMinimumDimensions.LG,
             height: '900px',
           },
         },
-        desktop: {
-          name: 'Desktop',
+        MD: {
+          name: 'MD (Desktop)',
           type: 'desktop',
           styles: {
-            width: '1024px',
+            width: BreakpointMinimumDimensions.MD,
             height: '900px',
           },
         },
-        tablet: {
-          name: 'Tablet',
+        SM: {
+          name: 'SM (Tablet)',
           type: 'tablet',
           styles: {
-            width: '768px',
+            width: BreakpointMinimumDimensions.SM,
             height: '1024px',
           },
         },
-        mobile: {
-          name: 'Mobile',
+        XS: {
+          name: 'XS (Mobile)',
           type: 'mobile',
           styles: {
             width: '375px',
@@ -98,5 +106,5 @@ export default definePreview({
   },
 
   tags: ['autodocs'],
-  addons: [addonLinks(), addonA11y(), addonDocs()]
+  addons: [addonLinks(), addonA11y(), addonDocs()],
 })

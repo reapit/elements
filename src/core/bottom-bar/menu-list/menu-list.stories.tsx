@@ -24,7 +24,7 @@ const meta = {
   },
   decorators: [
     (Story) => (
-      <BottomBarContext.Provider value={{ isOpen: true }}>
+      <BottomBarContext.Provider value={{ state: 'extended' }}>
         <div
           style={{
             boxSizing: 'content-box',

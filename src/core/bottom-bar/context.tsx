@@ -1,9 +1,11 @@
 import { createContext, useContext } from 'react'
 
+export type BottomBarState = 'extended' | 'retracted'
+
 export namespace BottomBarContext {
   export interface Value {
-    /** Whether the bottom bar is currently open */
-    isOpen: boolean
+    /** Whether the bottom bar is currently extended or retracted */
+    state: BottomBarState
   }
 }
 

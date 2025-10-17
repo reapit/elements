@@ -2,7 +2,6 @@ import { BottomBar } from './bottom-bar'
 import { Menu } from '#src/core/menu'
 import { Pattern } from '../drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
-import { useRef } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -22,7 +21,7 @@ const meta = {
         'With overflow menu': buildMenu('With overflow menu'),
       },
     },
-    scrollContainerRef: {
+    scrollContainerId: {
       control: false,
     },
   },
@@ -31,24 +30,21 @@ const meta = {
       value: 'light',
     },
   },
-  render: (args) => {
-    const ref = useRef<HTMLDivElement>(null)
-
+  render: ({ scrollContainerId, ...rest }) => {
     return (
       <div
-        ref={ref}
+        id={scrollContainerId}
         style={{
-          boxSizing: 'border-box',
+          boxSizing: 'content-box',
           border: '1px solid #FA00FF',
-          containerType: 'inline-size',
           height: '300px',
-          marginInline: 'auto',
           overflow: 'auto',
-          width: '600px',
         }}
       >
         <Pattern height="100vh" />
-        <BottomBar {...args} scrollContainerRef={ref} />
+        <div style={{ position: 'sticky', bottom: 0 }}>
+          <BottomBar {...rest} scrollContainerId={scrollContainerId} />
+        </div>
       </div>
     )
   },
@@ -60,11 +56,26 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+/**
+ * Without a scroll container ID, the bottom bar will be extended and, if it is a descendant of the
+ * scroll container, will remain sticky-positioned to its bottom.
+ */
 export const Example: Story = {
   args: {
     'aria-label': 'Bottom navigation',
     children: 'With overflow menu',
-    scrollContainerRef: { current: null },
+    scrollContainerId: undefined,
+  },
+}
+
+/**
+ * By specifying a scroll container ID, the bottom bar will dynamically retract as the user
+ * scrolls down within that container, and extend as the user scrolls back up.
+ */
+export const Retractable: Story = {
+  args: {
+    ...Example.args,
+    scrollContainerId: 'scroll-container-id',
   },
 }
 

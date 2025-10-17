@@ -1,13 +1,12 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
 import { useBottomBarObserver } from '../use-bottom-bar-observer'
-import { useRef } from 'react'
 
-test('returns true initially', () => {
+test('returns "extended" initially', () => {
   render(<TestComponent />)
-  expect(screen.getByText('true')).toBeInTheDocument()
+  expect(screen.getByText('extended')).toBeInTheDocument()
 })
 
-test('returns true when scrolling up', async () => {
+test('returns "extended" when scrolling up', async () => {
   render(<TestComponent />)
 
   // Decreasing scrollTop = scrolling up
@@ -15,11 +14,11 @@ test('returns true when scrolling up', async () => {
   fireEvent.scroll(screen.getByTestId('scroll-container'), { target: { scrollTop: 50 } })
 
   await waitFor(() => {
-    expect(screen.getByText('true')).toBeInTheDocument()
+    expect(screen.getByText('extended')).toBeInTheDocument()
   })
 })
 
-test('returns false when scrolling down', async () => {
+test('returns "retracted" when scrolling down', async () => {
   render(<TestComponent />)
 
   // Increasing scrollTop = scrolling down
@@ -27,20 +26,19 @@ test('returns false when scrolling down', async () => {
   fireEvent.scroll(screen.getByTestId('scroll-container'), { target: { scrollTop: 150 } })
 
   await waitFor(() => {
-    expect(screen.getByText('false')).toBeInTheDocument()
+    expect(screen.getByText('retracted')).toBeInTheDocument()
   })
 })
 
-test('handles null ref gracefully', () => {
-  function TestComponent() {
-    // NOTE: ref is not attached to a DOM element.
-    const ref = useRef<HTMLDivElement>(null)
-    const isOpen = useBottomBarObserver(ref)
-    return <div>{isOpen ? 'true' : 'false'}</div>
+test('handles unattached ID gracefully', () => {
+  function NoIDTestComponent() {
+    // NOTE: ID is not attached to a DOM element.
+    const state = useBottomBarObserver('scroll-container-id')
+    return <div>{state}</div>
   }
 
-  render(<TestComponent />)
-  expect(screen.queryByText('true')).toBeInTheDocument()
+  render(<NoIDTestComponent />)
+  expect(screen.queryByText('extended')).toBeInTheDocument()
 })
 
 test('cleans up event listener on unmount', () => {
@@ -52,11 +50,10 @@ test('cleans up event listener on unmount', () => {
 })
 
 function TestComponent() {
-  const ref = useRef<HTMLDivElement>(null)
-  const isOpen = useBottomBarObserver(ref)
+  const state = useBottomBarObserver('scroll-container-id')
   return (
-    <div data-testid="scroll-container" ref={ref}>
-      {isOpen ? 'true' : 'false'}
+    <div data-testid="scroll-container" id="scroll-container-id">
+      {state}
     </div>
   )
 }

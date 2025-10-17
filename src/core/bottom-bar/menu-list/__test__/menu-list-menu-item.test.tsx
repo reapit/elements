@@ -57,5 +57,5 @@ interface WrapperProps {
 }
 
 function wrapper({ children }: WrapperProps) {
-  return <BottomBarContext.Provider value={{ isOpen: true }}>{children}</BottomBarContext.Provider>
+  return <BottomBarContext.Provider value={{ state: 'extended' }}>{children}</BottomBarContext.Provider>
 }
