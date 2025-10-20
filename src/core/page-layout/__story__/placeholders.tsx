@@ -20,7 +20,11 @@ export function BottomBarPlaceholder() {
 export function BodyPlaceholder() {
   return (
     <div style={{ height: '120svh' }}>
-      <PageHeader backgroundColour="neutral-lightest" title={<PageHeader.Title>Body</PageHeader.Title>} />
+      <PageHeader
+        backgroundColour="--colour-fill-neutral-lightest"
+        size="wide"
+        title={<PageHeader.Title>Title</PageHeader.Title>}
+      />
     </div>
   )
 }

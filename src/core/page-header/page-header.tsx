@@ -6,6 +6,7 @@ import {
   ElPageHeaderSupplementaryInfoContainer,
   ElPageHeaderTitleContainer,
 } from './styles'
+import { MainContainer } from '#src/core/main-container'
 import { PageHeaderLeadingElement } from './leading-element'
 import { PageHeaderSubtitle } from './subtitle'
 import { PageHeaderSupplementaryInfo } from './supplementary-info'
@@ -24,11 +25,13 @@ export namespace PageHeader {
      * The background colour of the page header. When no value is provided (the default), the background will be
      * transparent.
      */
-    backgroundColour?: 'white' | 'neutral-lightest'
+    backgroundColour?: `--colour-fill-${string}`
     /** The leading element, like an image or product icon. */
     leadingElement?: ReactNode
     /** The breadcrumbs for the current page. */
     navigation?: ReactNode
+    /** The size of the page header container. */
+    size: 'fluid' | 'wide' | 'narrow'
     /** The page subtitle. */
     subtitle?: ReactNode
     /** The supplementary info. */
@@ -46,26 +49,23 @@ export function PageHeader({
   backgroundColour,
   navigation: breadcrumbs,
   title,
+  size,
   subtitle,
   leadingElement,
   supplementaryInfo,
 }: PageHeader.Props) {
   return (
-    <ElPageHeader
-      style={{
-        // NOTE: If a background colour is provided, we set the CSS variable to the corresponding colour. Otherwise
-        // we leave the CSS variable undefined so that our styled element will default to a transparent background.
-        '--page-header-background_colour': backgroundColour ? `var(--colour-fill-${backgroundColour})` : undefined,
-      }}
-    >
-      {breadcrumbs && <ElPageHeaderBreadcrumbsContainer>{breadcrumbs}</ElPageHeaderBreadcrumbsContainer>}
-      {leadingElement && <ElPageHeaderLeadingElementContainer>{leadingElement}</ElPageHeaderLeadingElementContainer>}
-      <ElPageHeaderTitleContainer>{title}</ElPageHeaderTitleContainer>
-      {subtitle && <ElPageHeaderSubtitleContainer>{subtitle}</ElPageHeaderSubtitleContainer>}
-      {supplementaryInfo && (
-        <ElPageHeaderSupplementaryInfoContainer>{supplementaryInfo}</ElPageHeaderSupplementaryInfoContainer>
-      )}
-    </ElPageHeader>
+    <MainContainer as="div" backgroundColour={backgroundColour} size={size}>
+      <ElPageHeader>
+        {breadcrumbs && <ElPageHeaderBreadcrumbsContainer>{breadcrumbs}</ElPageHeaderBreadcrumbsContainer>}
+        {leadingElement && <ElPageHeaderLeadingElementContainer>{leadingElement}</ElPageHeaderLeadingElementContainer>}
+        <ElPageHeaderTitleContainer>{title}</ElPageHeaderTitleContainer>
+        {subtitle && <ElPageHeaderSubtitleContainer>{subtitle}</ElPageHeaderSubtitleContainer>}
+        {supplementaryInfo && (
+          <ElPageHeaderSupplementaryInfoContainer>{supplementaryInfo}</ElPageHeaderSupplementaryInfoContainer>
+        )}
+      </ElPageHeader>
+    </MainContainer>
   )
 }
 

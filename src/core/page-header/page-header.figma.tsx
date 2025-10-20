@@ -15,6 +15,7 @@ figma.connect(PageHeader, '<PAGE_HEADER_URL>', {
     <PageHeader
       leadingElement={props.leadingElement}
       navigation={props.navigation.children}
+      size="fluid" // TODO: Make this match the design when supported by the component in Figma
       subtitle={props.subtitle}
       supplementaryInfo={props.supplementaryInfo}
       title={props.title}

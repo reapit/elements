@@ -12,7 +12,8 @@ export const ElTagGroupList = styled.ul<ElTagGroupListProps>`
   list-style: none;
   margin: 0;
   padding: 0;
-  width: 100%;
+  /* We don't want it to automatically fill the whole width of its container, but we do want to constraint it */
+  max-width: 100%;
 
   /* NOTE: necessary when used in an inline or inline-block layout */
   vertical-align: middle;

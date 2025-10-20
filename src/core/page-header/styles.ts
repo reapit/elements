@@ -20,18 +20,15 @@ export const ElPageHeader = styled.header<PageHeaderProps>`
   background-color: var(--page-header-background_colour);
 
   padding-block: var(--spacing-3);
-  padding-inline: var(--spacing-5) var(--spacing-3);
 
   /* NOTE: Media queries are use by default, but if the browser supports container queries, they will override the
    * media query styles defined here. */
   @media screen and ${isWidthAtOrAbove('SM')} {
     padding-block: var(--spacing-8);
-    padding-inline: var(--spacing-8);
   }
 
   @media screen and ${isWidthAtOrAbove('MD')} {
     padding-block: var(--spacing-10);
-    padding-inline: var(--spacing-10);
   }
 
   /* NOTE: These container query styles come _after_ the media query styles, so they will override them (if the browser
@@ -39,17 +36,10 @@ export const ElPageHeader = styled.header<PageHeaderProps>`
    * inline-size container. */
   @container ${isWidthBelow('SM')} {
     padding-block: var(--spacing-3);
-    padding-inline: var(--spacing-5) var(--spacing-3);
   }
 
-  @container ${isWidthBelow('MD')} {
+  @container ${isWidthAtOrAbove('SM')} {
     padding-block: var(--spacing-8);
-    padding-inline: var(--spacing-8);
-  }
-
-  @container ${isWidthBelow('MD')} {
-    padding-block: var(--spacing-8);
-    padding-inline: var(--spacing-10);
   }
 `
 

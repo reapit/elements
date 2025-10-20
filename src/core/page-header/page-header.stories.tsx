@@ -1,6 +1,7 @@
 import { AddIcon } from '#src/icons/add'
 import { Badge } from '../badge'
 import { Breadcrumbs } from '../breadcrumbs'
+import { BreakpointMinimumDimensions } from '#src/utils/index'
 import { Button } from '../button'
 import { ButtonGroup } from '../button-group'
 import { CompactSelectNative } from '../compact-select-native'
@@ -77,6 +78,10 @@ const meta = {
           </Breadcrumbs>
         ),
       },
+    },
+    size: {
+      control: 'select',
+      options: ['fluid', 'wide', 'narrow'],
     },
     subtitle: {
       control: 'select',
@@ -222,9 +227,10 @@ type Story = StoryObj<typeof meta>
  */
 export const Example: Story = {
   args: {
-    backgroundColour: 'neutral-lightest',
+    backgroundColour: '--colour-fill-neutral-lightest',
     leadingElement: 'None',
     navigation: 'None',
+    size: 'fluid',
     subtitle: 'None',
     supplementaryInfo: 'None',
     title: 'Basic',
@@ -303,14 +309,56 @@ export const Supplementary: Story = {
 }
 
 /**
+ * The page header can be sized in a similar manner to `MainContainer`, with `fluid`, `wide`, and `narrow`
+ * sizes available. Beneath the MD breakpoint, all sizes will behave as `fluid`. This example demonstrates
+ * the `narrow` size within SM- and MD-sized containers.
+ */
+export const Size: Story = {
+  args: {
+    ...Example.args,
+    size: 'narrow',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-10)' }}>
+        <article
+          style={{
+            containerType: 'inline-size',
+            boxSizing: 'content-box',
+            border: '1px solid #FA00FF',
+            width: BreakpointMinimumDimensions.SM,
+          }}
+        >
+          <Story />
+        </article>
+        <article
+          style={{
+            containerType: 'inline-size',
+            boxSizing: 'content-box',
+            border: '1px solid #FA00FF',
+            width: BreakpointMinimumDimensions.MD,
+          }}
+        >
+          <Story />
+        </article>
+      </div>
+    ),
+  ],
+  parameters: {
+    layout: 'padded',
+  },
+}
+
+/**
  * The page header can support alternative background colours. Typically, the background will either be
- * `white` or `neutral-lightest`, though the default (i.e. when no `backgroundColour` is specified) is
- * transparent. It is strongly encouraged to only use semantic colour variables defined by the Design System.
+ * `--colour-fill-white` or `--colour-fill-neutral-lightest`, though the default (i.e. when no
+ * `backgroundColour` is specified) is transparent. It is strongly encouraged to only use semantic colour
+ * variables defined by the Design System.
  */
 export const BackgroundColour: Story = {
   args: {
     ...Example.args,
-    backgroundColour: 'white',
+    backgroundColour: '--colour-fill-white',
   },
   globals: {
     backgrounds: {
@@ -352,7 +400,7 @@ export const Breakpoints: Story = {
             containerType: 'inline-size',
             boxSizing: 'content-box',
             border: '1px solid #FA00FF',
-            width: '768px',
+            width: BreakpointMinimumDimensions.SM,
           }}
         >
           <Story />
@@ -362,7 +410,7 @@ export const Breakpoints: Story = {
             containerType: 'inline-size',
             boxSizing: 'content-box',
             border: '1px solid #FA00FF',
-            width: '1024px',
+            width: BreakpointMinimumDimensions.MD,
           }}
         >
           <Story />
