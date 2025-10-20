@@ -18,7 +18,12 @@ const meta = {
       control: 'boolean',
     },
     overflow: {
-      control: 'text',
+      control: 'radio',
+      options: ['undefined', 'truncate'],
+      mapping: {
+        undefined: undefined,
+        truncate: 'truncate',
+      },
     },
     variant: {
       control: 'radio',

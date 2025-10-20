@@ -12,5 +12,6 @@ test('renders as a list item element', () => {
 test('forwards other props to the underlying tag', () => {
   render(<TagGroupItem data-testid="custom-tag">Tag</TagGroupItem>)
   expect(screen.getByTestId('custom-tag')).toBeVisible()
-  expect(screen.getByTestId('custom-tag')).toBe(screen.getByText('Tag'))
+  // NOTE: the text is in a child element of the root tag element receiving the extra attributes
+  expect(screen.getByTestId('custom-tag')).toBe(screen.getByText('Tag').parentElement)
 })

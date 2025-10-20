@@ -11,7 +11,7 @@ interface ElChipCSSProperties extends CSSProperties {
 
 interface ElChipProps {
   'data-variant': 'filter' | 'selection'
-  style?: ElChipCSSProperties
+  style: ElChipCSSProperties
 }
 
 export const ElChip = styled.button<ElChipProps>`

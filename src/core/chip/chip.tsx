@@ -45,6 +45,7 @@ export function Chip({
   onClick,
   maxWidth,
   overflow,
+  style,
   variant,
   ...rest
 }: Chip.Props) {
@@ -75,7 +76,7 @@ export function Chip({
       onClick={handleClick}
       // NOTE: We'd prefer --chip-max-width to be a data attribute, but browsers do not support CSS' advanced
       // attr() function syntax yet. Thus, we use a CSS variable instead.
-      style={maxWidth ? { '--chip-max-width': `var(${maxWidth})` } : undefined}
+      style={{ ...style, ...(maxWidth && { '--chip-max-width': `var(${maxWidth})` }) }}
     >
       <ElChipLabel data-overflow={overflow}>{children}</ElChipLabel>
       <ElChipClearIcon>

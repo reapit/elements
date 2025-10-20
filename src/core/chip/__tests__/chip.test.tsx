@@ -74,3 +74,12 @@ test('ARIA disabled chip prevents click events from propagating', () => {
 
   expect(parentClickHandler).not.toHaveBeenCalled()
 })
+
+test('allows inline styles to be specified', () => {
+  render(
+    <Chip style={{ backgroundColor: 'red' }} variant="filter">
+      Label
+    </Chip>,
+  )
+  expect(screen.getByRole('button')).toHaveStyle({ backgroundColor: 'red' })
+})
