@@ -45,7 +45,7 @@ export const ElDrawerHeaderContentContainer = styled.div`
   /* If the browser does not support scroll-state queries, we always show a border when there's no footer. */
   @supports not (container-type: scroll-state) {
     &:not(:has(~ ${ElDrawerFooter})) {
-      border-block-end: var(--border-default) solid var(--outline-default);
+      border-block-end: var(--border-default) solid var(--colour-border-neutral-light_default);
     }
   }
 
@@ -53,14 +53,14 @@ export const ElDrawerHeaderContentContainer = styled.div`
    * the drawer. This only happens when the header is sticky positioned, which only occurs when there's no footer. */
   @supports (container-type: scroll-state) {
     @container ${DRAWER_HEADER_CSS_CONTAINER_NAME} scroll-state(stuck: top) {
-      border-block-end: var(--border-default) solid var(--outline-default);
+      border-block-end: var(--border-default) solid var(--colour-border-neutral-light_default);
     }
   }
 
   /* When the drawer has tabs, we need to add a border to this container (at all times) because the tabs own
    * border will not stretch to the left edge of the drawer. */
   &:has(> ${ElDrawerHeaderTabsContainer}) {
-    border-block-end: var(--border-default) solid var(--outline-default);
+    border-block-end: var(--border-default) solid var(--colour-border-neutral-light_default);
   }
 `
 

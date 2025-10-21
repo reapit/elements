@@ -27,7 +27,7 @@ export const ElDialogHeaderContentContainer = styled.div`
   padding-block: 0;
 
   @container dialog-header scroll-state(stuck: top) {
-    border-block-end: var(--border-width-default, 1px) solid var(--colour-border-light_default);
+    border-block-end: var(--border-width-default, 1px) solid var(--colour-border-neutral-light_default);
   }
 
   &,

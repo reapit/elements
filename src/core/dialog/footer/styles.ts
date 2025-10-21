@@ -7,7 +7,7 @@ export const ElDialogFooter = styled.footer`
   inset-block-end: 0;
 
   background: var(--colour-fill-white);
-  border-block-start: var(--border-width-default, 1px) solid var(--colour-border-light_default);
+  border-block-start: var(--border-width-default, 1px) solid var(--colour-border-neutral-light_default);
 
   width: 100%;
 

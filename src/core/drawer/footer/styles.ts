@@ -16,7 +16,7 @@ export const ElDrawerFooter = styled.footer`
   width: 100%;
 
   background: var(--colour-fill-white);
-  border-block-start: var(--border-width-default, 1px) solid var(--colour-border-light_default);
+  border-block-start: var(--border-width-default, 1px) solid var(--colour-border-neutral-light_default);
 
   grid-auto-columns: 1fr;
   padding: var(--spacing-3) var(--spacing-6);

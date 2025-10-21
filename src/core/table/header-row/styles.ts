@@ -18,7 +18,7 @@ export const elTableHeaderRow = css`
   width: 100%;
 
   background: var(--colour-fill-white);
-  border-block-end: var(--border-width-default) solid var(--colour-border-light_default);
+  border-block-end: var(--border-width-default) solid var(--colour-border-neutral-light_default);
   padding: 0;
 
   min-height: var(--size-10);

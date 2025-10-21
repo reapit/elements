@@ -23,7 +23,7 @@ export const ElSideBar = styled.nav<ElSideBarProps>`
    * - The block-end padding (i.e. bottom) matches the height of the side bar footer */
   scroll-padding-block: var(--spacing-3) var(--spacing-16);
 
-  border-right: 1px solid var(--colour-border-light_default);
+  border-right: 1px solid var(--colour-border-neutral-light_default);
   background: var(--comp-navigation-colour-fill-sidebar-default);
 
   &[data-state='collapsed'] {

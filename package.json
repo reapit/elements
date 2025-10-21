@@ -81,7 +81,7 @@
     "generate:tokens:css": "yarn node --experimental-strip-types ./src/tokens/build.ts",
     "generate:tokens:preprocess": "yarn node ./src/tokens/preprocess.js",
     "lint": "yarn lint:es && yarn lint:css",
-    "lint:css": "stylelint --fix \"src/**/*.{ts,tsx,js,jsx,css}\"",
+    "lint:css": "stylelint \"src/**/*.{ts,tsx,js,jsx,css}\"",
     "lint:es": "eslint --fix --cache --ext=ts,tsx,js src",
     "check": "yarn check:types && yarn check:lint",
     "check:types": "tsc --noEmit",
