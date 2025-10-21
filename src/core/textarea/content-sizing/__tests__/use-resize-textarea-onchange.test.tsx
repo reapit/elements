@@ -1,14 +1,14 @@
 import { fireEvent, render, screen, waitFor } from '@testing-library/react'
-import syncTextAreaHeight from '../sync-textarea-height'
+import syncTextareaHeight from '../sync-textarea-height'
 import { useRef } from 'react'
-import useResizeTextAreaOnChange from '../use-resize-textarea-onchange'
+import useResizeTextareaOnChange from '../use-resize-textarea-onchange'
 
 import type { ChangeEventHandler } from 'react'
 
 vi.mock('../sync-textarea-height')
 
 beforeEach(() => {
-  vi.mocked(syncTextAreaHeight).mockClear()
+  vi.mocked(syncTextareaHeight).mockClear()
 })
 
 test('always calls `onChange`', async () => {
@@ -31,7 +31,7 @@ test('syncs height when `isEnabled` is true', async () => {
   render(<TestComponent isEnabled onChange={onChange} />)
   fireEvent.change(screen.getByRole('textbox'), { target: { value: 'foo' } })
 
-  await waitFor(() => expect(syncTextAreaHeight).toHaveBeenCalled())
+  await waitFor(() => expect(syncTextareaHeight).toHaveBeenCalled())
 })
 
 test('syncs value when `isEnabled` is true', async () => {
@@ -52,7 +52,7 @@ test('does NOT sync height when `isEnabled` is false', async () => {
   render(<TestComponent isEnabled={false} onChange={onChange} />)
   fireEvent.change(screen.getByRole('textbox'), { target: { value: 'foo' } })
 
-  await waitFor(() => expect(syncTextAreaHeight).not.toHaveBeenCalled())
+  await waitFor(() => expect(syncTextareaHeight).not.toHaveBeenCalled())
 })
 
 test('does NOT sync height when change event default is prevented', async () => {
@@ -61,13 +61,13 @@ test('does NOT sync height when change event default is prevented', async () => 
   render(<TestComponent isEnabled onChange={onChange} />)
   fireEvent.change(screen.getByRole('textbox'), { target: { value: 'foo' } })
 
-  await waitFor(() => expect(syncTextAreaHeight).not.toHaveBeenCalled())
+  await waitFor(() => expect(syncTextareaHeight).not.toHaveBeenCalled())
 })
 
 function TestComponent({ isEnabled, onChange }: { isEnabled: boolean; onChange: ChangeEventHandler }) {
   const textAreaRef = useRef<HTMLTextAreaElement>(null)
   const shadowTextAreaRef = useRef<HTMLTextAreaElement>(null)
-  const handleChange = useResizeTextAreaOnChange({ isEnabled, shadowTextAreaRef, textAreaRef })
+  const handleChange = useResizeTextareaOnChange({ isEnabled, shadowTextAreaRef, textAreaRef })
 
   return (
     <>

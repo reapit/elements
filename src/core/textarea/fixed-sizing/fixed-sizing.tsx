@@ -1,0 +1,38 @@
+import { ElTextArea } from '../styles'
+import { forwardRef } from 'react'
+
+import type { BaseTextareaProps, FixedFieldSizing } from '../types'
+
+export namespace TextareaWithFixedSizing {
+  export interface Props extends BaseTextareaProps {
+    /** Ensures the text area has a fixed size based on the specified number of rows. */
+    fieldSizing: FixedFieldSizing
+    /**
+     * The exact number of rows to which the text area should be sized.
+     *
+     * @default 3
+     */
+    rows?: number
+  }
+}
+
+/** @deprecated Use TextareaWithFixedSizing.Props instead */
+export type FixedFieldSizingTextAreaProps = TextareaWithFixedSizing.Props
+
+/**
+ * A fixed-sized text area.
+ */
+export const TextareaWithFixedSizing = forwardRef<HTMLTextAreaElement, TextareaWithFixedSizing.Props>(
+  ({ fieldSizing, rows = 3, showValidity, size = 'medium', ...rest }, ref) => {
+    return (
+      <ElTextArea
+        {...rest}
+        data-field-sizing={fieldSizing}
+        data-show-validity={!!showValidity}
+        data-size={size}
+        ref={ref}
+        rows={rows}
+      />
+    )
+  },
+)

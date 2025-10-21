@@ -1,7 +1,7 @@
 import { InputGroup } from '../../deprecated/input-group'
 import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall, FormSectionDivider } from './form-layout'
 import { Toggle, ToggleRadio, ElToggleItem } from '../../deprecated/toggle'
-import { TextArea } from '../../core/textarea'
+import { Textarea } from '../../core/textarea'
 import { MultiSelectInput } from '../../deprecated/multi-select'
 import { DeprecatedButton, DeprecatedButtonGroup } from '../../deprecated/button'
 import { DeprecatedLabel } from '../../deprecated/label'
@@ -77,7 +77,7 @@ export const BasicForm = {
         </InputWrap>
         <InputWrapFull>
           <InputGroup>
-            <TextArea fieldSizing="content" placeholder="A placeholder" />
+            <Textarea fieldSizing="content" placeholder="A placeholder" />
             <DeprecatedLabel>Long Description</DeprecatedLabel>
           </InputGroup>
         </InputWrapFull>
@@ -161,7 +161,7 @@ export const ComplexForm = {
         </InputWrap>
         <InputWrapFull>
           <InputGroup>
-            <TextArea fieldSizing="content" placeholder="A placeholder" />
+            <Textarea fieldSizing="content" placeholder="A placeholder" />
             <DeprecatedLabel>Long Description</DeprecatedLabel>
           </InputGroup>
         </InputWrapFull>

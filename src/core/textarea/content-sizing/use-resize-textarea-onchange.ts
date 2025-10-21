@@ -1,20 +1,20 @@
-import syncTextAreaHeight from './sync-textarea-height'
+import syncTextareaHeight from './sync-textarea-height'
 
 import type { ChangeEvent, ChangeEventHandler, RefObject } from 'react'
 
-type UseResizeTextAreaOnChangeConfig = {
+type UseResizeTextareaOnChangeConfig = {
   isEnabled: boolean
   shadowTextAreaRef: RefObject<HTMLTextAreaElement>
   textAreaRef: RefObject<HTMLTextAreaElement>
 }
 
-type UseResizeTextAreaOnChangeDecorator = (onChange?: ChangeEventHandler) => ChangeEventHandler
+type UseResizeTextareaOnChangeDecorator = (onChange?: ChangeEventHandler) => ChangeEventHandler
 
-export default function useResizeTextAreaOnChange({
+export default function useResizeTextareaOnChange({
   isEnabled,
   shadowTextAreaRef,
   textAreaRef,
-}: UseResizeTextAreaOnChangeConfig): UseResizeTextAreaOnChangeDecorator {
+}: UseResizeTextareaOnChangeConfig): UseResizeTextareaOnChangeDecorator {
   return function decorateTextAreaChangeHandler(onChange?: ChangeEventHandler) {
     return function syncTextAreaHeightAfterOnChange(event: ChangeEvent) {
       onChange?.(event)
@@ -24,7 +24,7 @@ export default function useResizeTextAreaOnChange({
         // NOTE: Since the text area's are uncontrolled, we need to manually sync the current value to
         // the shadow text area.
         shadowTextAreaRef.current.value = textAreaRef.current.value
-        syncTextAreaHeight(shadowTextAreaRef.current, textAreaRef.current)
+        syncTextareaHeight(shadowTextAreaRef.current, textAreaRef.current)
       }
     }
   }

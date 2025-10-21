@@ -5,7 +5,7 @@ import { FormLayout, InputWrapFull, InputWrapHalf } from '../../deprecated/form-
 import { InputGroup } from '../input-group'
 import { DeprecatedLabel } from '../label'
 import { Select } from '../select'
-import { TextArea } from '../../core/textarea'
+import { Textarea } from '../../core/textarea'
 import { TextBase } from '../typography'
 
 export default {
@@ -83,7 +83,7 @@ export const ReactUsageWithForm = {
             <InputWrapFull>
               <InputGroup>
                 <DeprecatedLabel>Notes</DeprecatedLabel>
-                <TextArea fieldSizing="content" />
+                <Textarea fieldSizing="content" />
               </InputGroup>
             </InputWrapFull>
           </FormLayout>

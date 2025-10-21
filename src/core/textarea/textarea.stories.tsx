@@ -1,32 +1,79 @@
-import { Meta, StoryObj } from '@storybook/react-vite'
-import { TextArea } from './index'
+import { Textarea } from './index'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
-export default {
-  title: 'Core/TextArea',
-  component: TextArea,
-} as Meta<typeof TextArea>
+const meta = {
+  title: 'Core/Textarea',
+  component: Textarea,
+  argTypes: {
+    defaultValue: { control: 'text' },
+    fieldSizing: { control: 'radio', options: ['content', 'fixed', 'manual'] },
+    maxLength: { control: 'text' },
+    minLength: { control: 'text' },
+    size: { control: 'radio', options: ['small', 'medium', 'large'] },
+    value: { control: 'text' },
+  },
+} satisfies Meta<typeof Textarea>
 
-export const BasicUsage: StoryObj<typeof TextArea> = {
+export default meta
+
+type Story = StoryObj<typeof Textarea>
+
+export const Example: Story = {
   args: {
+    defaultValue: undefined,
+    disabled: false,
     fieldSizing: 'content',
+    maxLength: undefined,
+    minLength: undefined,
     name: 'description',
     placeholder: 'Description',
+    readOnly: false,
+    required: false,
+    showValidity: false,
+    size: 'medium',
+    value: undefined,
   },
 }
 
 /**
- * A TextArea can be invalid in three ways:
- *
- *  - Applying any of the standard [HTML form validation attributes](https://developer.mozilla.org/en-US/docs/Learn/Forms/Form_validation#using_built-in_form_validation) and providing a value that does not meet these constraints;
- *  - Using custom [constraint validation](https://developer.mozilla.org/en-US/docs/Web/HTML/Constraint_validation); or,
- *  - By explicitly setting `hasError` component prop to true (or the `el-text-area-has-error` class if using CSS only).
- *
- * The following example demonstrates a required text area that has no value, which is excersing option (1) above.
+ * There are three sizes available: `small`, `medium` and `large`.
  */
-export const Invalid: StoryObj<typeof TextArea> = {
+export const Sizes: Story = {
+  args: {
+    ...Example.args,
+  },
+  argTypes: {
+    size: {
+      control: false,
+    },
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', alignItems: 'flex-start', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <Textarea {...args} size="small" />
+      <Textarea {...args} size="medium" />
+      <Textarea {...args} size="large" />
+    </>
+  ),
+}
+
+/**
+ * Like all form controls that visually communicate their validity, the input will display in an
+ * invalid state when it's value does not meet the validation constraints applied to it, such as being
+ * required, and it `showValidity` is true. Typically, `showValidity` will be true when the control has
+ * been touched (interacted with).
+ */
+export const Invalid: Story = {
   args: {
     placeholder: 'Description',
     required: true,
+    showValidity: true,
   },
 }
 
@@ -34,7 +81,7 @@ export const Invalid: StoryObj<typeof TextArea> = {
  * A Text area can be disabled in forms to prevent their use. When disabled, the text area cannot be focused and its
  * value will not be submitted with the form.
  */
-export const Disabled: StoryObj<typeof TextArea> = {
+export const Disabled: Story = {
   args: {
     placeholder: 'Description',
     disabled: true,
@@ -45,7 +92,7 @@ export const Disabled: StoryObj<typeof TextArea> = {
  * A Text area can also be marked as read-only in forms to prevent their current value being changed. Unlike a disabled
  * text area, a read-only text area can still be focused, and its value will still be submitted with the form.
  */
-export const ReadOnly: StoryObj<typeof TextArea> = {
+export const ReadOnly: Story = {
   args: {
     value: "I can't be edited",
     readOnly: true,
@@ -63,7 +110,7 @@ export const ReadOnly: StoryObj<typeof TextArea> = {
  *
  * This example demonstrates resizing behaviour for an *uncontrolled* text area.
  */
-export const UncontrolledResizing: StoryObj<typeof TextArea> = {
+export const Uncontrolled: Story = {
   args: {
     defaultValue: '1\n2',
     placeholder: 'Type here...',
@@ -78,9 +125,9 @@ export const UncontrolledResizing: StoryObj<typeof TextArea> = {
  * **Note:** to change the value of the text area, you will need to use the `value` control when viewing the
  * story individually.
  */
-export const ControlledResizing: StoryObj<typeof TextArea> = {
+export const Controlled: Story = {
   args: {
-    placeholder: 'Type here...',
+    ...Example.args,
     maxRows: 5,
     minRows: 1,
     value: '1\n2\n3',
@@ -91,7 +138,7 @@ export const ControlledResizing: StoryObj<typeof TextArea> = {
  * Importantly, when an explicit row count is specified, no resizing will occur, whether the text area's
  * value is controlled or not. This allows text areas to have a fixed size when necessary.
  */
-export const FixedSize: StoryObj<typeof TextArea> = {
+export const FixedSizing: Story = {
   args: {
     fieldSizing: 'fixed',
     placeholder: 'Type here...',
@@ -108,7 +155,7 @@ export const FixedSize: StoryObj<typeof TextArea> = {
  *
  * @deprecated
  */
-export const ManualSizing: StoryObj<typeof TextArea> = {
+export const ManualSizing: Story = {
   args: {
     fieldSizing: 'manual',
     placeholder: 'Type here...',
