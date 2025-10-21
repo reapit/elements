@@ -98,6 +98,7 @@ export const Placement: Story = {
  * This maximum width can be overridden when required.
  */
 export const MaxWidth: Story = {
+  name: 'Max-width',
   args: {
     ...Example.args,
     children: 'This is a very long tooltip message that will wrap to additional lines.',

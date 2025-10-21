@@ -158,6 +158,7 @@ export const Overflow: Story = {
  * when we don't want to allow the select to grow as wide as its container.
  */
 export const MaxWidth: Story = {
+  name: 'Max-width',
   args: {
     ...Overflow.args,
     defaultValue: 'other',

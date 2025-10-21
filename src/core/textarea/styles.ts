@@ -22,7 +22,7 @@ export const ElTextArea = styled.textarea<ElTextAreaProps>`
    * that approach results in randomly-named CSS variables, which would not provide
    * a friendly interface for CSS-only consumers. */
   --textarea-max-rows: infinity;
-  --textarea-min-rows: 3;
+  --textarea-min-rows: 2;
 
   /* NOTE: These are "private" CSS variables that we use to avoid repetition. They
    * should never be overridden by consumers. */
@@ -51,7 +51,10 @@ export const ElTextArea = styled.textarea<ElTextAreaProps>`
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/max-block-size
    * @see https://developer.mozilla.org/en-US/docs/Web/CSS/min-block-size */
   max-block-size: calc(1lh * var(--textarea-max-rows) + 2 * (var(--textarea-padding-y) + var(--textarea-border-width)));
-  min-block-size: calc(1lh * var(--textarea-min-rows) + 2 * (var(--textarea-padding-y) + var(--textarea-border-width)));
+  min-block-size: max(
+    var(--textarea-min-block-size),
+    calc(1lh * var(--textarea-min-rows) + 2 * (var(--textarea-padding-y) + var(--textarea-border-width)))
+  );
 
   &::placeholder {
     color: var(--textarea-placeholder-colour);
@@ -59,14 +62,17 @@ export const ElTextArea = styled.textarea<ElTextAreaProps>`
   }
 
   &[data-size='small'] {
+    --textarea-min-block-size: var(--size-16);
     ${font('xs', 'regular')}
   }
   /* NOTE: medium is the default size */
   &,
   &[data-size='medium'] {
+    --textarea-min-block-size: var(--size-20);
     ${font('sm', 'regular')}
   }
   &[data-size='large'] {
+    --textarea-min-block-size: var(--size-24);
     ${font('base', 'regular')}
   }
 

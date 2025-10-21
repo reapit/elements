@@ -233,6 +233,7 @@ export const Placeholder: Story = {
  * By default, text inputs will fill their parent's width. This can be constrained by providing a `maxWidth`.
  */
 export const MaxWidth: Story = {
+  name: 'Max-width',
   args: {
     ...Icons.args,
     maxWidth: 'var(--size-64)',

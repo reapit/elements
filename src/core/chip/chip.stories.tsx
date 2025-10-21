@@ -144,6 +144,7 @@ export const Truncation: Story = {
  * relying on its parent container.
  */
 export const MaxWidth: Story = {
+  name: 'Max-width',
   args: {
     ...FilterChip.args,
     children: 'This chip has its own maximum width constraint',

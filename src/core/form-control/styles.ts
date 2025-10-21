@@ -10,6 +10,7 @@ export const elFormControl = css`
   border: none;
   padding: 0;
   margin: 0;
+  width: 100%;
 
   &,
   &[data-size='small'],

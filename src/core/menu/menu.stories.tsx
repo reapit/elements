@@ -154,6 +154,7 @@ export const Gap: Story = {
  * constrain how wide it can grow. Menu item content that would otherwise to wider will subsequently wrap.
  */
 export const MaxWidth: Story = {
+  name: 'Max-width',
   args: {
     ...Example.args,
     children: (

@@ -164,6 +164,7 @@ export const BorderRadius: Story = {
  * `--size-*` CSS variable.
  */
 export const MaxWidth: Story = {
+  name: 'Max-width',
   args: {
     ...Example.args,
     children: (

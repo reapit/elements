@@ -9,8 +9,6 @@ export namespace TextareaWithFixedSizing {
     fieldSizing: FixedFieldSizing
     /**
      * The exact number of rows to which the text area should be sized.
-     *
-     * @default 3
      */
     rows?: number
   }
@@ -23,7 +21,7 @@ export type FixedFieldSizingTextAreaProps = TextareaWithFixedSizing.Props
  * A fixed-sized text area.
  */
 export const TextareaWithFixedSizing = forwardRef<HTMLTextAreaElement, TextareaWithFixedSizing.Props>(
-  ({ fieldSizing, rows = 3, showValidity, size = 'medium', ...rest }, ref) => {
+  ({ fieldSizing, rows = 2, showValidity, size = 'medium', ...rest }, ref) => {
     return (
       <ElTextArea
         {...rest}

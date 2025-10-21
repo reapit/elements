@@ -124,6 +124,7 @@ export const Invalid: Story = {
  * a `maxWidth`.
  */
 export const MaxWidth: Story = {
+  name: 'Max-width',
   args: {
     ...Example.args,
     maxWidth: 'var(--size-64)',

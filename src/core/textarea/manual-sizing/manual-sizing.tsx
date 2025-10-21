@@ -11,7 +11,7 @@ export namespace TextareaWithManualSizing {
      */
     fieldSizing: ManualFieldSizing
     /**
-     * The exact number of rows to which the text area should be _initially_ sized.
+     * The exact number of rows to which the text area should be _initially_ sized. The default is 2.
      */
     initialRows?: number
   }
@@ -25,7 +25,7 @@ export type ManualFieldSizingTextAreaProps = TextareaWithManualSizing.Props
  * @deprecated Will be removed in future major version. Use `content` or `fixed` field sizing instead.
  */
 export const TextareaWithManualSizing = forwardRef<HTMLTextAreaElement, TextareaWithManualSizing.Props>(
-  ({ fieldSizing, initialRows = 3, showValidity, size = 'medium', ...rest }, ref) => {
+  ({ fieldSizing, initialRows = 2, showValidity, size = 'medium', ...rest }, ref) => {
     return (
       <ElTextArea
         {...rest}

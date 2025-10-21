@@ -21,9 +21,9 @@ test('applies data-size attribute', () => {
   expect(screen.getByRole('textbox')).toHaveAttribute('data-size', 'large')
 })
 
-test('default rows is 3', () => {
+test('default rows is 2', () => {
   render(<TextareaWithManualSizing fieldSizing="manual" />)
-  expect(screen.getByRole('textbox')).toHaveAttribute('rows', '3')
+  expect(screen.getByRole('textbox')).toHaveAttribute('rows', '2')
 })
 
 test('can set custom number of initial rows', () => {

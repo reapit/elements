@@ -69,6 +69,7 @@ export const Truncation: Story = {
  * specifying a maximum width also implies truncation.
  */
 export const MaxWidth: Story = {
+  name: 'Max-width',
   args: {
     ...Overflow.args,
     children: 'This tag has its own maximum width constraint',

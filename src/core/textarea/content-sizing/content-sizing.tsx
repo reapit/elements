@@ -16,9 +16,8 @@ export namespace TextareaWithContentSizing {
     fieldSizing: ContentFieldSizing
     /**
      * The maximum number of rows to which the text area should be sized. Provides the upper bound
-     * for the text area to grow to, except where an explicit value for `rows` is defined.
-     *
-     * @default Infinity
+     * for the text area to grow to, except where an explicit value for `rows` is defined. The default
+     * is Infinity.
      */
     maxRows?: number
     /**
@@ -26,8 +25,6 @@ export namespace TextareaWithContentSizing {
      * for the text area to shrink to, except where an explicit value for `rows` is defined. The
      * [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/textarea#rows)
      * highlight that the default number of rows is 2.
-     *
-     * @default 3
      */
     minRows?: number
   }
@@ -45,7 +42,7 @@ export const TextareaWithContentSizing = forwardRef<HTMLTextAreaElement, Textare
       defaultValue,
       fieldSizing = 'content',
       maxRows = Infinity,
-      minRows = 3,
+      minRows = 2,
       onChange,
       showValidity,
       size = 'medium',

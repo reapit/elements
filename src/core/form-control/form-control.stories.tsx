@@ -48,6 +48,7 @@ export const Example: Story = {
  * an explicit `maxWidth` can be specified.
  */
 export const MaxWidth: Story = {
+  name: 'Max-width',
   args: {
     ...Example.args,
     maxWidth: '300px',

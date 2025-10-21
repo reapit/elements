@@ -39,7 +39,7 @@ test.skip('default min/max rows are 3 and Infinity respectively', () => {
 // NOTE: Skipped because the assertion doesn't currently work as expected. Unsure if it's happy-dom
 // or @testing-library/jest-dom that owns the behaviour.
 // See https://github.com/testing-library/jest-dom/issues/649
-test.skip('default min/max rows are 3 and Infinity respectively', () => {
+test.skip('can set custom min/max rows', () => {
   render(<TextareaWithContentSizing fieldSizing="content" maxRows={10} minRows={5} />)
   expect(screen.getByRole('textbox')).toHaveStyle({ '--textarea-min-rows': 5, '--textarea-max-rows': 10 })
 })
