@@ -2802,7 +2802,7 @@
           "disabled": {
             "checked": {
               "$type": "color",
-              "$value": "{neutral-100}"
+              "$value": "{purple-200}"
             },
             "handle": {
               "$type": "color",
