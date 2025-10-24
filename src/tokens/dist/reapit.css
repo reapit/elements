@@ -764,50 +764,50 @@
   --font-xs-regular-line_height: 16px;
   --font-xs-regular-size: 13px;
   --font-xs-regular-weight: 400;
-  --icon_size-l: 24px; /* Used only for icon sizing */
-  --icon_size-m: 20px; /* Used only for icon sizing */
-  --icon_size-s: 16px; /* Used only for icon sizing */
-  --icon_size-xs: 12px; /* Used only for icon sizing */
+  --icon_size-l: 24px; /** Used only for icon sizing */
+  --icon_size-m: 20px; /** Used only for icon sizing */
+  --icon_size-s: 16px; /** Used only for icon sizing */
+  --icon_size-xs: 12px; /** Used only for icon sizing */
   --overlay-50: #00000080;
-  --size-1: 4px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-2: 8px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-3: 12px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-4: 16px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-5: 20px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-6: 24px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-7: 28px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-8: 32px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-9: 36px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-10: 40px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-11: 44px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-12: 48px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-14: 56px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-16: 64px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-18: 72px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-20: 80px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-24: 96px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-28: 112px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-32: 128px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-36: 144px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-40: 160px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-44: 176px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-48: 192px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-52: 208px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-56: 224px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-60: 240px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-64: 256px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-72: 288px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-80: 320px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-96: 384px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-112: 448px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-128: 512px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-144: 576px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-160: 640px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-176: 704px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-192: 768px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-half: 2px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-none: 0px; /* Used for sizing shapes except icons. For icons use icon sizes */
-  --size-px: 1px; /* Used for sizing shapes except icons. For icons use icon sizes */
+  --size-1: 4px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-2: 8px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-3: 12px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-4: 16px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-5: 20px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-6: 24px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-7: 28px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-8: 32px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-9: 36px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-10: 40px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-11: 44px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-12: 48px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-14: 56px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-16: 64px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-18: 72px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-20: 80px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-24: 96px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-28: 112px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-32: 128px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-36: 144px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-40: 160px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-44: 176px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-48: 192px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-52: 208px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-56: 224px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-60: 240px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-64: 256px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-72: 288px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-80: 320px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-96: 384px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-112: 448px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-128: 512px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-144: 576px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-160: 640px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-176: 704px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-192: 768px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-half: 2px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-none: 0px; /** Used for sizing shapes except icons. For icons use icon sizes */
+  --size-px: 1px; /** Used for sizing shapes except icons. For icons use icon sizes */
   --spacing-1: 4px;
   --spacing-2: 8px;
   --spacing-3: 12px;

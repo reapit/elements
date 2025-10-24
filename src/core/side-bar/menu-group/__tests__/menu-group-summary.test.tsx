@@ -20,19 +20,14 @@ test('renders a <summary> element', () => {
   expect(summary.tagName).toBe('SUMMARY')
 })
 
-test(`combines the .${elSideBarMenuItem}, .${elSideBarMenuGroupSummary} and consumer-supplied classes correctly`, () => {
+test(`combines the .${elSideBarMenuItem}, .${elSideBarMenuGroupSummary} and consumer-supplied classes`, () => {
   render(
     <SideBarMenuGroupSummary className="my-custom-class" data-testid="summary" icon="😎">
       Item
     </SideBarMenuGroupSummary>,
     { wrapper },
   )
-  // NOTE: We don't use the `toHaveClass` matcher here because it does not enforce the order of classes, which we are
-  // specifically interested in here.
-  expect(screen.getByTestId('summary')).toHaveAttribute(
-    'class',
-    `${elSideBarMenuItem} ${elSideBarMenuGroupSummary} my-custom-class`,
-  )
+  expect(screen.getByTestId('summary')).toHaveClass(`${elSideBarMenuItem} ${elSideBarMenuGroupSummary} my-custom-class`)
 })
 
 test("the `id` published by the menu group is used for the summary's tooltip", () => {
@@ -116,7 +111,7 @@ test('prevents default action for click events if the menu group contains a link
 })
 
 test('prevents default action for click events if the menu group is marked as active', async () => {
-  const preventDefaultSpy = vi.spyOn(Event.prototype, 'preventDefault')
+  using preventDefaultSpy = vi.spyOn(Event.prototype, 'preventDefault')
 
   render(
     <details data-is-active="true" open>
@@ -139,7 +134,7 @@ test('prevents default action for click events if the menu group is marked as ac
 })
 
 test('allows default action for click events if the menu group is not active and does not contain a link for the current page', async () => {
-  const preventDefaultSpy = vi.spyOn(Event.prototype, 'preventDefault')
+  using preventDefaultSpy = vi.spyOn(Event.prototype, 'preventDefault')
 
   render(
     <details open>

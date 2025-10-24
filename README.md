@@ -25,4 +25,4 @@ Please read our [disclaimer](./DISCLAIMER.md) before proceeding.
 ## For Contributors & AI Agents
 
 - **[AGENTS.md](./AGENTS.md)** - Essential guide for AI agents working on this project
-- **[guidelines/*](./guidelines/*)** - Guidelines concerning code style, patterns, and best practices
+- **[guidelines/*](./guidelines)** - Guidelines concerning code style, patterns, and best practices
