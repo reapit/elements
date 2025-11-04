@@ -19,34 +19,35 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 ### **5.0.0-beta.61 - ??/??/25**
 
 - **feat:** `Button` now has a default size of `medium` and a default variant of `secondary`.
+- **feat:** Add new `SelectNativeControl` component. See [SelectNativeControl](./?path=/docs/core-selectnativecontrol--docs) for details.
 
 ### **5.0.0-beta.60 - 24/10/25**
 
-- **feat!:** Add `showValidity` and `size` props to `Textarea` to align with recent form control work. It has also been renamed from `TextArea` to `Textarea` to align with component naming conventions. The internal components and CSS classes have also received similar naming changes. See [Textarea](?path=/docs/core-textarea--docs) for details.
+- **feat!:** Add `showValidity` and `size` props to `Textarea` to align with recent form control work. It has also been renamed from `TextArea` to `Textarea` to align with component naming conventions. The internal components and CSS classes have also received similar naming changes. See [Textarea](./?path=/docs/core-textarea--docs) for details.
 - **chore!:** CSS variables updated to match latest Figma design tokens. Some have been renamed, so this is a breaking change for any consumers using these variables directly.
-- **feat:** Add new `TextareaControl` component. See [TextareaControl](?path=/docs/core-textareacontrol--docs) for details.
-- **feat:** Add new `SwitchInput` component. See [SwitchInput](?path=/docs/core-switchinput--docs) for details.
-- **feat:** Add new `Switch` component. See [Switch](?path=/docs/core-switch--docs) for details.
+- **feat:** Add new `TextareaControl` component. See [TextareaControl](./?path=/docs/core-textareacontrol--docs) for details.
+- **feat:** Add new `SwitchInput` component. See [SwitchInput](./?path=/docs/core-switchinput--docs) for details.
+- **feat:** Add new `Switch` component. See [Switch](./?path=/docs/core-switch--docs) for details.
 
 ### **5.0.0-beta.59 - 20/10/25**
 
 - **chore!:** `BottomBar` prop `scrollContainerRef` renamed to `scrollContainerId`. It is also now optional. Without a scroll container ID, the bottom bar will remain extended.
-- **feat:** Add new `PageLayout` component. See [PageLayout](?path=/docs/core-pagelayout--docs) for details.
-- **feat!:** Add new `MainContainer` component. See [MainContainer](?path=/docs/core-maincontainer--docs) for details. Renames the deprecated `MainContainer` to `DeprecatedMainContainer`.
+- **feat:** Add new `PageLayout` component. See [PageLayout](./?path=/docs/core-pagelayout--docs) for details.
+- **feat!:** Add new `MainContainer` component. See [MainContainer](./?path=/docs/core-maincontainer--docs) for details. Renames the deprecated `MainContainer` to `DeprecatedMainContainer`.
 - **feat!:** `PageHeader` now supports the same `size` prop as `MainContainer`. The `backgroundColour` prop now expects the full design token name.
 - **feat:** Update `Tag` to support text truncation and a maximum width constraint in the same way as `Chip`.
 
 ### **5.0.0-beta.58 - 15/10/25**
 
-- **feat:** Added new `SearchInput`. See [SearchInput](?path=/docs/core-searchinput--docs) for details.
-- **feat!:** Added new `CheckboxControl` and `CheckboxGroupControl`. See [CheckboxControl](?path=/docs/core-checkboxcontrol--docs) and [CheckboxGroupControl](?path=/docs/core-checkboxgroupcontrol--docs) for details.
+- **feat:** Added new `SearchInput`. See [SearchInput](./?path=/docs/core-searchinput--docs) for details.
+- **feat!:** Added new `CheckboxControl` and `CheckboxGroupControl`. See [CheckboxControl](./?path=/docs/core-checkboxcontrol--docs) and [CheckboxGroupControl](./?path=/docs/core-checkboxgroupcontrol--docs) for details.
   - `Checkbox` no longer supports the display of a required indicator by default; instead, this is handled by `CheckboxControl`.
   - `CheckboxGroup` has been replaced by `CheckboxGroupControl`.
-- **feat:** Added new core `RadioInput` and `RadioGroupControl` components. See [RadioInput](?path=/docs/core-radioinput--docs) and [RadioGroupControl](?path=/docs/core-radiogroupcontrol--docs) for details.
+- **feat:** Added new core `RadioInput` and `RadioGroupControl` components. See [RadioInput](./?path=/docs/core-radioinput--docs) and [RadioGroupControl](./?path=/docs/core-radiogroupcontrol--docs) for details.
 - **chore!:** Renamed deprecated `useTheme` to `useDeprecatedTheme` to avoid confusion/collision with the core `useTheme` hook.
-- **feat:** Add new `TextControl`. See [TextControl](?path=/docs/core-textcontrol--docs) for details.
-- **feat:** Add new `DateTimeControl`. See [DateTimeControl](?path=/docs/core-datetimecontrol--docs) for details.
-- **feat:** Add new `ChipSelectControl`. See [ChipSelectControl](?path=/docs/core-chipselectcontrol--docs) for details.
+- **feat:** Add new `TextControl`. See [TextControl](./?path=/docs/core-textcontrol--docs) for details.
+- **feat:** Add new `DateTimeControl`. See [DateTimeControl](./?path=/docs/core-datetimecontrol--docs) for details.
+- **feat:** Add new `ChipSelectControl`. See [ChipSelectControl](./?path=/docs/core-chipselectcontrol--docs) for details.
 
 ### **5.0.0-beta.57 - 10/10/25**
 
@@ -58,11 +59,11 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 
 ### **5.0.0-beta.55 - 10/10/25**
 
-- **feat:** Add new `FormControl` component. See [FormControl](?path=/docs/core-formcontrol--docs) for details.
+- **feat:** Add new `FormControl` component. See [FormControl](./?path=/docs/core-formcontrol--docs) for details.
 - **chore!:** Renamed `Input` to `CheckboxInput`. Renamed `isTouched` prop to `showValidity`.
 - **chore!:** Renamed `SelectNative` `isTouched` prop to `showValidity`.
-- **feat:** Add new `TextInput` component. See [TextInput](?path=/docs/core-textinput--docs) for details.
-- **feat:** Add new `DateTimeInput` component. See [DateTimeInput](?path=/docs/core-datetimeinput--docs) for details.
+- **feat:** Add new `TextInput` component. See [TextInput](./?path=/docs/core-textinput--docs) for details.
+- **feat:** Add new `DateTimeInput` component. See [DateTimeInput](./?path=/docs/core-datetimeinput--docs) for details.
 - **fix:** `SelectCustom` style regressions and cyclic imports fixed. The latter was causing issues with the published Storybook docs.
 
 ### **5.0.0-beta.54 - 09/10/25**
@@ -157,14 +158,14 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 - **chore!:** Moved `@reapit/elements/core/container-query` to `@reapit/elements/utils/css-container-query` to align with it's actual name (`CSSContainerQuery`) and the fact its not a "core" component.
 - **chore:** Updated all core components to use the `font` helper instead of duplicated font styles.
 - **chore!:** Moved Table components from `@reapit/elements/core/table` to `@reapit/elements/lab/table` and the related CSS classes are all prefixed with `el-experimental-*` now. Importantly, they are no longer available via the main `@reapit/elements` entry point. The deprecated v4 Table components are still available via `@reapit/elements/deprecated/table`.
-- **feat:** Added `FolderTabs`. See [FolderTabs](?path=/docs/core-foldertabs--docs) for details.
+- **feat:** Added `FolderTabs`. See [FolderTabs](./?path=/docs/core-foldertabs--docs) for details.
 - **chore:** Use new breakpoints and related conditions in core components.
 - **fix:** Bug with `isWidthBelow` condition where it was inclusive of the upper bound rather than being strictly less than the upper bound.
 
 ### **5.0.0-beta.43 - 12/08/25**
 
 - **chore:** Update design tokens to match latest changes in Figma
-- **feat:** Add new `FilterBar`. See [FilterBar](?path=/docs/core-filterbar--docs) for details.
+- **feat:** Add new `FilterBar`. See [FilterBar](./?path=/docs/core-filterbar--docs) for details.
 - **fix:** `Menu` now correctly handles consumer-supplied `className` prop.
 - **chore!:** Refactored `StatusIndicator`. The `el-status-indicator-shape` class has been removed and  the `variant` prop is no longer defaulted.
 - **fix:** `Tooltip` only shows when the trigger is focused through keyboard navigation. Previously, it would show when the trigger was programmatically focused, such as when a menu controlled by the trigger was closed.
@@ -190,10 +191,10 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 - **chore!:** Deprecate `Menu` component. It is still available, but is now called `DeprecatedMenu`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix. It can now be imported from
 - **chore:** Update design tokens to match latest changes in Figma
 - **chore!:** Renamed `ElipsisIcon` to `MoreVertIcon` to align with Design System changes.
-- **feat:** Add new `Popover` utility component. See [Popover](?path=/docs/utils-popover--docs) for details.
-- **feat:** Add new `Menu`. See [Menu](?path=/docs/core-menu--docs) for details.
+- **feat:** Add new `Popover` utility component. See [Popover](./?path=/docs/utils-popover--docs) for details.
+- **feat:** Add new `Menu`. See [Menu](./?path=/docs/core-menu--docs) for details.
 - **chore!:** Deprecate `Tooltip` component. It is still available, but is now called `DeprecatedTooltip`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix. It can now be imported from `@reapit/elements/deprecated/tooltip`, as well as the root entry point, `@reapit/elements`.
-- **feat:** Add new `Tooltip`. See [Tooltip](?path=/docs/core-tooltip--docs) for details.
+- **feat:** Add new `Tooltip`. See [Tooltip](./?path=/docs/core-tooltip--docs) for details.
 - **chore:** Use new `Tooltip` in all core components.
 - **chore:** Use new `Menu` in all core components.
 - **chore:** Upgraded Storybook, Vite and TypeScript to latest versions.
@@ -202,29 +203,29 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 
 ### **5.0.0-beta.39 - 23/07/25**
 
-- **feat:** Add new `MatchMedia` and `useMatchMedia`. See [MatchMedia](?path=/docs/utils-matchmedia--docs) and [useMatchMedia](?path=/docs/utils-matchmedia-usematchmedia--docs) for details.
-- **feat:** Add new `isWidthAtOrAbove` and `isWidthBelow` utilities. See [breakpoints](?path=/docs/utils-breakpoints--docs) for details.
+- **feat:** Add new `MatchMedia` and `useMatchMedia`. See [MatchMedia](./?path=/docs/utils-matchmedia--docs) and [useMatchMedia](./?path=/docs/utils-matchmedia-usematchmedia--docs) for details.
+- **feat:** Add new `isWidthAtOrAbove` and `isWidthBelow` utilities. See [breakpoints](./?path=/docs/utils-breakpoints--docs) for details.
 - **chore:** Moved "Components" section to "Core" in Storybook to align with the subpath entry point recently introduced.
-- **feat:** `Drawer.Header` is now sticky by default. When a Drawer.Footer is present, the header will be statically positioned. See [Drawer.Header](?path=/docs/core-drawer-header--docs) for details.
+- **feat:** `Drawer.Header` is now sticky by default. When a Drawer.Footer is present, the header will be statically positioned. See [Drawer.Header](./?path=/docs/core-drawer-header--docs) for details.
 - **chore!:** Design updates to the `Drawer` components.
-- **feat!:** Refactor `Dialog` to align with `Drawer` implementation and Design updates. Includes new sizes and updated subcomponents. See [Dialog](?path=/docs/core-dialog--docs) for details.
+- **feat!:** Refactor `Dialog` to align with `Drawer` implementation and Design updates. Includes new sizes and updated subcomponents. See [Dialog](./?path=/docs/core-dialog--docs) for details.
 - **fix:** `@reapit/elements/reset.css` entry point is now correctly defined.
 
 ### **5.0.0-beta.38 - 18/07/25**
 
-- **feat:** Added new `PageHeader.LeadingElement` after design updates to the page header. See [PageHeader.LeadingElement](?path=/docs/core-pageheader-leadingelement--docs) for details. Avatar's are no longer supported in the new page header.
+- **feat:** Added new `PageHeader.LeadingElement` after design updates to the page header. See [PageHeader.LeadingElement](./?path=/docs/core-pageheader-leadingelement--docs) for details. Avatar's are no longer supported in the new page header.
 - **chore:** Deprecate v4 components and put them in `src/deprecated`.
-- **feat:** Add new `URLSearchParams` utilities. See [URLSearchParams](?path=/docs/utils-urlsearchparams--docs) for details.
+- **feat:** Add new `URLSearchParams` utilities. See [URLSearchParams](./?path=/docs/utils-urlsearchparams--docs) for details.
 - **feat:** Add new package entry points for components and deprecated components: `@reapit/elements/core/*` and `@reapit/elements/deprecated/*` respectively.
-- **feat:** Add new `PrimaryTabs` component. See [PrimaryTabs](?path=/docs/core-primarytabs--docs) for details.
-- **feat:** Add new `SecondaryTabs` component. See [SecondaryTabs](?path=/docs/core-secondarytabs--docs) for details.
+- **feat:** Add new `PrimaryTabs` component. See [PrimaryTabs](./?path=/docs/core-primarytabs--docs) for details.
+- **feat:** Add new `SecondaryTabs` component. See [SecondaryTabs](./?path=/docs/core-secondarytabs--docs) for details.
 - **chore!:** Deprecate `SplitButton` component. It is still available, but is now called `DeprecatedSplitButton`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix. It can now be imported from `@reapit/elements/deprecated/split-button`, as well as the root entry point, `@reapit/elements`.
-- **feat:** Add new `SplitButton` component. See [SplitButton](?path=/docs/core-splitbutton--docs) for details.
-- **feat:** Support `PrimaryTabs` in `Drawer` component. See [Drawer.Header](?path=/docs/core-drawer-header--docs) for details.
+- **feat:** Add new `SplitButton` component. See [SplitButton](./?path=/docs/core-splitbutton--docs) for details.
+- **feat:** Support `PrimaryTabs` in `Drawer` component. See [Drawer.Header](./?path=/docs/core-drawer-header--docs) for details.
 
 ### **5.0.0-beta.37 - 09/07/25**
 
-- **feat:** Add new `CompactSelectNative` component. See [CompactSelectNative](?path=/docs/core-compactselectnative--docs) for details.
+- **feat:** Add new `CompactSelectNative` component. See [CompactSelectNative](./?path=/docs/core-compactselectnative--docs) for details.
 - **fix:** #502 introduced a visual regression in the `MobileControls` component. This has now been fixed.
 - **fix:** #502 introduced a visual regression in the `DeprecatedButton` component. This has now been fixed.
 - **chore!:** `Chip` component now aligned with `Button` component in terms of `aria-disabled` and `disabled` props. The original `isDisabled` prop has been removed.
@@ -235,7 +236,7 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 - **chore!:** Deprecated `PageHeader` component. It is still available, but is now called `DeprecatedPageHeader`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix.
 - **chore:** Stop using CSS `all` property in components as it impacts CSS custom properties as well. Also resolves icon alignment issue in `Features`.
 - **fix:** #551 introduced a visual regression in the `DeprecatedNav` component. This has now been fixed.
-- **feat:** Add new `PageHeader` component. See [PageHeader](?path=/docs/core-pageheader--docs) for details.
+- **feat:** Add new `PageHeader` component. See [PageHeader](./?path=/docs/core-pageheader--docs) for details.
 - **chore:** Update design tokens to match latest changes in Figma.
 
 ### **5.0.0-beta.36 - 04/07/25**
@@ -245,23 +246,23 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 ### **5.0.0-beta.35 - 03/07/25**
 
 - **chore!:** Deprecated `Accordion` component. It is still available, but is now called `DeprecatedAccordion`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix.
-- **feat:** Add new `Accordion` component. See [Accordion](?path=/docs/core-accordion--docs) for details.
+- **feat:** Add new `Accordion` component. See [Accordion](./?path=/docs/core-accordion--docs) for details.
 - **chore:** All v4 component docs have been grouped under the `Deprecated` section in Elements' Storybook. Consumers of these components should consider all these components to be implicitly deprecated. Explicit deprecation will come in a future beta version.
 - **chore!:** Remove global CSS reset from main stylesheet and update components that implicitly relied on these resets.
   - A new stylesheet, `@reapit/elements/reset.css`, is also available to allow consumers to maintain the existing reset behaviour should they also be implicitly dependent on the reset styles.
   - Neither Elements' main stylesheet, nor the new reset stylesheet, apply `-webkit-font-smoothing: antialiasing` or `-moz-osx-font-smoothing: grayscale`. See [Stop fixing font smoothing](https://usabilitypost.com/2012/11/05/stop-fixing-font-smoothing/) for an explanation behind this decision.
 - **chore!:** Add latest icons. `DrawCloseIcon` has been removed from v5 icons. It's still available via `DeprecatedIcon`. Three new icons have also been added: `MenuCollapseIcon`, `MenuExpandIcon` and `ChangeLogIcon`.
 - **chore!:** Deprecate `Button` component. It is still available, but is now called `DeprecatedButton`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix.
-- **feat:** Add new `Button` component. See [Button](?path=/docs/core-button--docs) for details.
-- **chore!:** Refactor `Tag` and `TagGroup` to match the structure of `Chip` and `ChipGroup`. `Tag` no longer supports an `as` prop. See [Tag](?path=/docs/core-tag--docs) and [TagGroup](?path=/docs/core-tag-group--docs) for details.
-- **chore!:** Refactor `Badge` component, with the following breaking changes: `variant` is now `colour` and `isReversed` is now `variant`. See [Badge](?path=/docs/core-badge--docs) for details.
-- **feat!:** `Features` component now provides common feature items "out-of-the-box". See [Features](?path=/docs/core-features--docs) for details. The low-level `Features.Item` component also received a breaking change, with `aria-label` being replaced with `label`.
+- **feat:** Add new `Button` component. See [Button](./?path=/docs/core-button--docs) for details.
+- **chore!:** Refactor `Tag` and `TagGroup` to match the structure of `Chip` and `ChipGroup`. `Tag` no longer supports an `as` prop. See [Tag](./?path=/docs/core-tag--docs) and [TagGroup](./?path=/docs/core-tag-group--docs) for details.
+- **chore!:** Refactor `Badge` component, with the following breaking changes: `variant` is now `colour` and `isReversed` is now `variant`. See [Badge](./?path=/docs/core-badge--docs) for details.
+- **feat!:** `Features` component now provides common feature items "out-of-the-box". See [Features](./?path=/docs/core-features--docs) for details. The low-level `Features.Item` component also received a breaking change, with `aria-label` being replaced with `label`.
 - **chore:** Update docs for `Breadcrumbs` component, and add docs for `Breadcrumbs.Item` and `Breadcrumbs.Link`. Also added new `overflow` prop to `Breadcrumbs`.
 
 ### **5.0.0-beta.34 - 30/06/25**
 
 - **chore:** Added CSS linting for Elements components.
-- **chore:** Added basic icon migration guide. See [Icons / Migrating to v5](?path=/docs/icons-migrating-to-v5--docs) for details.
+- **chore:** Added basic icon migration guide. See [Icons / Migrating to v5](./?path=/docs/icons-migrating-to-v5--docs) for details.
 - **chore:** Updated `SideBar` to support and use new icons.
 - **chore:** Updated `TopBar` to support and use new icons.
 
@@ -289,7 +290,7 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 - **chore!:** Deprecated existing `Drawer` component. It is still available, but is now called `DeprecatedDrawer`. All CSS classes related to this component have also been updated to use an `el-deprecated-...` prefix.
 - **chore:** Bumped Vite, Vitest, TypeScript, React Testing Library, Happy DOM, Linaria, Storybook, Node.js and Yarn to latest versions
 - **chore!:** Deprecated and renamed `Icon`. It is still available, but is now called `DeprecatedIcon`. The underlying `ElIcon` styled element and related class have also been deprecated and renamed to `ElDeprecatedIcon`/`el-deprecated-icon` respectively.
-- **feat:** Add new icon components. See [All Icons](?path=/docs/icons-all-icons--docs) for details on how to consume them, and what icons are available. See [Icon](?path=/docs/icons-icon--docs) for details on each icon's prop interface.
+- **feat:** Add new icon components. See [All Icons](./?path=/docs/icons-all-icons--docs) for details on how to consume them, and what icons are available. See [Icon](./?path=/docs/icons-icon--docs) for details on each icon's prop interface.
 - **chore!:** Updated SideBar item components to use `aria-current` directly instead of `isActive`. This aligns them with the TopBar item components.
 - **feat:** Added `width` prop to main SideBar component. This allows products to more easily set the desired width of their side bar based on their unique menu items.
 - **feat:** Add new Drawer component
