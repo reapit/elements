@@ -87,6 +87,16 @@ describe('when `aria-disabled="true"`', () => {
   })
 })
 
+test('uses medium size by default', () => {
+  render(<ButtonBase as="button">Test Button</ButtonBase>)
+  expect(screen.getByRole('button')).toHaveAttribute('data-size', 'medium')
+})
+
+test('uses secondary variant by default', () => {
+  render(<ButtonBase as="button">Test Button</ButtonBase>)
+  expect(screen.getByRole('button')).toHaveAttribute('data-variant', 'secondary')
+})
+
 test('applies correct data-* attributes', () => {
   render(
     <ButtonBase as="button" isDestructive hasNoPadding size="large" useLinkStyle variant="secondary">

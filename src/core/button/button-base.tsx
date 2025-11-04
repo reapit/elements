@@ -30,11 +30,11 @@ export namespace ButtonBase {
     /** Whether the button represents a destructive action */
     isDestructive?: boolean
     /** The size of the button */
-    size: 'small' | 'medium' | 'large'
+    size?: 'small' | 'medium' | 'large'
     /** Whether to use link-style appearance. Only applies to tertiary buttons. */
     useLinkStyle?: boolean
     /** The visual variant of the button */
-    variant: 'primary' | 'secondary' | 'tertiary'
+    variant?: 'primary' | 'secondary' | 'tertiary'
   }
 
   export interface AsButtonProps extends CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
@@ -65,9 +65,9 @@ export function ButtonBase({
   isBusy,
   isDestructive,
   onClick,
-  size,
+  size = 'medium',
   useLinkStyle,
-  variant,
+  variant = 'secondary',
   ...rest
 }: ButtonBase.Props) {
   // It's an icon-only button if there's no label text and only one icon
