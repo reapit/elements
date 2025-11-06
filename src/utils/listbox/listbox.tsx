@@ -8,7 +8,7 @@ import { Divider } from '#src/core/divider'
 import { ListboxContext, useListboxContext } from './context'
 import { ListboxOption } from './option'
 import { ListboxOptgroup } from './optgroup'
-import { ListboxRenderContext } from './render-context'
+import { ListboxRenderContext, useListboxRenderContext } from './render-context'
 import { ListboxSelect } from './select'
 import { useFocusManagement } from './use-focus-management'
 import { useId } from 'react'
@@ -25,7 +25,7 @@ export namespace Listbox {
   export interface OptionProps extends ListboxOption.BaseProps {}
   export interface OptgroupProps extends ListboxOptgroup.BaseProps {}
 
-  export interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
+  export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
     /**
      * Allows multiple option selection in the listbox.
      * When `true`, selects multiple options simultaneously.
@@ -38,6 +38,8 @@ export namespace Listbox {
      * listbox renders its options horizontally.
      */
     'aria-orientation'?: 'horizontal' | 'vertical'
+    /** Element type for the listbox container. Defaults to `'div'`. */
+    as?: ElementType<HTMLAttributes<HTMLDivElement>>
     /**
      * Options and option groups to display. Use `Listbox.Option`, `Listbox.Optgroup`,
      * or `Listbox.Divider` components. The underlying select element renders selected
@@ -54,6 +56,8 @@ export namespace Listbox {
     id?: string
     /** The form control name for form submission. */
     name?: string
+    /** Change handler for the underlying select element. Fires when selection changes. */
+    onChange?: ChangeEventHandler<HTMLSelectElement>
     /**
      * Placeholder text for the default empty option.
      * Applies only to single-select listboxes (`aria-multiselectable` is `false`).
@@ -80,13 +84,6 @@ export namespace Listbox {
      * For single-select, uses only the first value.
      */
     value?: readonly string[]
-  }
-
-  export interface Props extends BaseProps {
-    /** Element type for the listbox container. Defaults to `'div'`. */
-    as?: ElementType<BaseProps, 'div'>
-    /** Change handler for the underlying select element. Fires when selection changes. */
-    onChange?: ChangeEventHandler<HTMLSelectElement>
   }
 }
 
@@ -174,7 +171,9 @@ Listbox.Select = ListboxSelect
 Listbox.useSelectionObserver = useListboxSelectionObserver
 
 Listbox.Context = ListboxContext
+Listbox.RenderContext = ListboxRenderContext
 Listbox.useContext = useListboxContext
+Listbox.useRenderContext = useListboxRenderContext
 
 Listbox.clearValue = clearListboxValue
 Listbox.getSelectedOptions = getListboxSelectedOptions
