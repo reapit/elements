@@ -1,0 +1,177 @@
+import { Badge } from '#src/core/badge'
+import { ComboboxOption } from './option'
+import { StarIcon } from '#src/icons/star'
+import { Text } from '#src/core/text'
+import { useState } from 'react'
+
+import type { Meta, StoryObj } from '@storybook/react-vite'
+
+const meta = {
+  title: 'Core/Combobox/Option',
+  component: ComboboxOption,
+  argTypes: {
+    'aria-checked': {
+      control: 'boolean',
+    },
+    'aria-selected': {
+      control: 'boolean',
+    },
+    badge: {
+      control: 'radio',
+      options: ['None', 'Badge'],
+      mapping: {
+        None: undefined,
+        Badge: <Badge colour="neutral">Badge</Badge>,
+      },
+    },
+    children: {
+      control: false,
+    },
+    supplementaryInfo: {
+      control: 'radio',
+      options: ['None', 'One line', 'Two lines'],
+      mapping: {
+        None: undefined,
+        'One line': (
+          <ComboboxOption.SupplementaryInfo
+            badge={<Badge colour="neutral">Badge</Badge>}
+            icon={<StarIcon aria-label="Preferred" />}
+          >
+            Optional info
+          </ComboboxOption.SupplementaryInfo>
+        ),
+        'Two lines': [
+          <ComboboxOption.SupplementaryInfo
+            key="1"
+            badge={<Badge colour="neutral">Badge</Badge>}
+            icon={<StarIcon aria-label="Preferred" />}
+          >
+            Optional info
+          </ComboboxOption.SupplementaryInfo>,
+          <ComboboxOption.SupplementaryInfo
+            key="2"
+            badge={<Badge colour="neutral">Badge</Badge>}
+            icon={<StarIcon aria-label="Favourite" />}
+          >
+            Optional info
+          </ComboboxOption.SupplementaryInfo>,
+        ],
+      },
+    },
+    value: {
+      control: 'text',
+    },
+  },
+} satisfies Meta<typeof ComboboxOption>
+
+export default meta
+type Story = StoryObj<typeof meta>
+
+export const Example: Story = {
+  args: {
+    'aria-checked': undefined,
+    'aria-selected': undefined,
+    badge: 'None',
+    children: 'Label',
+    supplementaryInfo: 'None',
+    value: 'option-1',
+  },
+}
+
+/**
+ * Each option manages its selection state internally. Single-select comboboxes use the
+ * `aria-selected` attribute to mark selected options.
+ */
+export const Selected: Story = {
+  args: {
+    ...Example.args,
+    'aria-selected': true,
+  },
+}
+
+/**
+ * Multi-select comboboxes use the `aria-checked` attribute to mark selected options.
+ */
+export const Checked: Story = {
+  args: {
+    ...Example.args,
+    'aria-checked': true,
+  },
+}
+
+/**
+ * Badges provide additional context. Place them after the option label or within supplementary info.
+ */
+export const Badges: Story = {
+  args: {
+    ...Example.args,
+    badge: 'Badge',
+  },
+}
+
+/**
+ * Supplementary information helps users choose the right option. Provide up to two lines, each with
+ * icons, text, or badges.
+ */
+export const SupplementaryInfo: Story = {
+  args: {
+    ...Example.args,
+    supplementaryInfo: 'Two lines',
+  },
+}
+
+/**
+ * Keep labels and supplementary information concise. Text wraps to multiple lines when it exceeds
+ * available space. Badges display inline or wrap to a new line as needed.
+ */
+export const Wrapping: Story = {
+  args: {
+    ...Selected.args,
+    badge: <Badge colour="neutral">Commercial</Badge>,
+    children: '456B Heritage Boulevard, Upper Brookfield Heights, Brisbane QLD 4069',
+    supplementaryInfo: [
+      <ComboboxOption.SupplementaryInfo key="1" badge={<Badge colour="inactive">Sales</Badge>}>
+        John Smith
+      </ComboboxOption.SupplementaryInfo>,
+      <ComboboxOption.SupplementaryInfo key="2" badge={<Badge colour="inactive">Owner</Badge>}>
+        Sarah Johnson
+      </ComboboxOption.SupplementaryInfo>,
+    ],
+  },
+  decorators: [
+    (Story) => {
+      const [width, setWidth] = useState(300)
+      return (
+        <>
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 'var(--spacing-2)',
+              marginBlockEnd: 'var(--spacing-2)',
+            }}
+          >
+            <input
+              aria-label="Container width"
+              id="width"
+              min={200}
+              max={400}
+              onChange={(event) => setWidth(Number(event.currentTarget.value))}
+              step={10}
+              type="range"
+              value={width}
+            />
+            <output htmlFor="width">
+              <Text colour="secondary" font="text-sm/regular">
+                {width}px
+              </Text>
+            </output>
+          </div>
+          <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: `${width}px` }}>
+            <Story />
+          </div>
+        </>
+      )
+    },
+  ],
+}
