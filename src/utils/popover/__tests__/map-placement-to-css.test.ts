@@ -18,5 +18,45 @@ export const supportedPopoverPlacements = [
 
 test.each(supportedPopoverPlacements)('produces correct CSS for the "%s" placement', (placement) => {
   const fakeGap = 'var(--fake-gap)'
-  expect(mapPlacementToCSS(placement, fakeGap)).toMatchSnapshot()
+  expect(mapPlacementToCSS({ gap: fakeGap, placement })).toMatchSnapshot()
+})
+
+test('produces correct CSS for a custom placement', () => {
+  const fakeGap = 'var(--fake-gap)'
+  expect(
+    mapPlacementToCSS({
+      gap: fakeGap,
+      placement: {
+        alignSelf: 'anchor-center',
+        bottom: 'anchor(bottom)',
+        justifySelf: 'anchor-center',
+        left: 'anchor(left)',
+        right: 'anchor(right)',
+        top: 'anchor(top)',
+      },
+    }),
+  ).toMatchSnapshot()
+})
+
+test('produces correct CSS for a custom placement that has some properties', () => {
+  const fakeGap = 'var(--fake-gap)'
+  expect(
+    mapPlacementToCSS({
+      gap: fakeGap,
+      placement: {
+        justifySelf: 'anchor-center',
+        top: 'anchor(top)',
+      },
+    }),
+  ).toMatchSnapshot()
+})
+
+test('produces correct CSS for a custom placement that has no properties', () => {
+  const fakeGap = 'var(--fake-gap)'
+  expect(
+    mapPlacementToCSS({
+      gap: fakeGap,
+      placement: {},
+    }),
+  ).toMatchSnapshot()
 })

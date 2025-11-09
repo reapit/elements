@@ -1,5 +1,11 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`produces correct CSS for a custom placement 1`] = `"align-self: anchor-center; bottom: anchor(bottom); justify-self: anchor-center; left: anchor(left); right: anchor(right); top: anchor(top)"`;
+
+exports[`produces correct CSS for a custom placement that has no properties 1`] = `""`;
+
+exports[`produces correct CSS for a custom placement that has some properties 1`] = `"justify-self: anchor-center; top: anchor(top)"`;
+
 exports[`produces correct CSS for the "bottom" placement 1`] = `
 "
         top: anchor(bottom);

@@ -82,7 +82,8 @@ export const Gap: Story = {
 }
 
 /**
- * There are a number of placements available for popovers relative to their anchor. They are shown below.
+ * A number of common positions for popovers relative to their anchor are available as simple string-based
+ * placements. These are shown below.
  */
 export const Placements: Story = {
   args: {
@@ -144,6 +145,29 @@ export const Placements: Story = {
 }
 
 /**
+ * When the predefined placements are insufficient, the `placement` prop can also accept an object with
+ * inset properties, `top`, `right`, `bottom`, and `left`, and self-alignment properties, `alignSelf` and
+ * `justifySelf`, defined.
+ *
+ * See [Using inset properties with anchor() function values](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Anchor_positioning/Using#using_inset_properties_with_anchor_function_values)
+ * for details on how to position the popover element using this approach.
+ */
+export const CustomPositioning: Story = {
+  args: {
+    ...Example.args,
+    children: <MyPopoverContent style={{ textAlign: 'center' }}>🚀</MyPopoverContent>,
+    minWidth: 'calc(anchor-size(width) + var(--spacing-4))',
+    style: {
+      marginTop: 'calc(-1 * var(--spacing-2))',
+    },
+    placement: {
+      justifySelf: 'anchor-center',
+      top: 'anchor(top)',
+    },
+  },
+}
+
+/**
  * The border radius of the popover element can be adjusted with the `borderRadius` prop. While
  * this prop accepts any valid CSS length, it should typically be a border-radius-related CSS
  * variable such as `--border-radius-xl` or `--comp-menu-border-radius`.
@@ -161,7 +185,8 @@ export const BorderRadius: Story = {
  * than overflowing.
  *
  * While the maximum width can be defined using any valid CSS length, the value should typically be a
- * `--size-*` CSS variable.
+ * `--size-*` CSS variable, though the special `anchor-size()` value is also supported, allowing the popover
+ * to ensure it doesn't become wider than its anchor.
  */
 export const MaxWidth: Story = {
   name: 'Max-width',
@@ -179,6 +204,20 @@ export const MaxWidth: Story = {
 }
 
 /**
+ * A minimum width can also be specified. While the minimum width can be defined using any valid CSS
+ * length, the value should typically be a `--size-*` CSS variable, though the special `anchor-size()`
+ * value is also supported, allowing the popover to ensure it doesn't become narrower than its anchor.
+ */
+export const MinWidth: Story = {
+  name: 'Min-width',
+  args: {
+    ...Example.args,
+    children: <MyPopoverContent>👋</MyPopoverContent>,
+    minWidth: 'anchor-size()',
+  },
+}
+
+/**
  * Similarly, popovers will grow, by default, to the height of their content. To constrain this behaviour,
  * a maximum height can also be specified, at which point the popover will scroll the content.
  *
@@ -186,6 +225,7 @@ export const MaxWidth: Story = {
  * should typically be a `--size-*` CSS variable.
  */
 export const MaxHeight: Story = {
+  name: 'Max-height',
   args: {
     ...MaxWidth.args,
     maxHeight: 'var(--size-36)',

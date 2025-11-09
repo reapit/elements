@@ -63,15 +63,6 @@ test('provides custom CSS property for borderRadius when specified', () => {
   expect(screen.getByText('Popover content')).toHaveStyle('--popover-border-radius: 8px')
 })
 
-test('provides custom CSS property for maxWidth when specified', () => {
-  render(
-    <Popover {...requiredProps} maxWidth="300px">
-      Popover content
-    </Popover>,
-  )
-  expect(screen.getByText('Popover content')).toHaveStyle('--popover-max-width: 300px')
-})
-
 test('provides custom CSS property for maxHeight when specified', () => {
   render(
     <Popover {...requiredProps} maxHeight="200px">
@@ -83,13 +74,12 @@ test('provides custom CSS property for maxHeight when specified', () => {
 
 test('provides all custom CSS properties when specified', () => {
   render(
-    <Popover {...requiredProps} borderRadius="8px" maxWidth="300px" maxHeight="200px">
+    <Popover {...requiredProps} borderRadius="8px" maxHeight="200px">
       Popover content
     </Popover>,
   )
   const popover = screen.getByText('Popover content')
   expect(popover).toHaveStyle('--popover-border-radius: 8px')
-  expect(popover).toHaveStyle('--popover-max-width: 300px')
   expect(popover).toHaveStyle('--popover-max-height: 200px')
 })
 
@@ -106,17 +96,12 @@ test('allows other inline styles to be provided', () => {
 
 test('combines existing styles with CSS custom properties', () => {
   render(
-    <Popover
-      {...requiredProps}
-      maxWidth="300px"
-      style={{ backgroundColor: 'red', '--custom-prop': 'value' } as CSSProperties}
-    >
+    <Popover {...requiredProps} style={{ backgroundColor: 'red', '--custom-prop': 'value' } as CSSProperties}>
       Popover content
     </Popover>,
   )
   const popover = screen.getByText('Popover content')
   expect(popover).toHaveStyle('background-color: red')
-  expect(popover).toHaveStyle('--popover-max-width: 300px')
   expect(popover).toHaveStyle('--custom-prop: value')
 })
 

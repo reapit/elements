@@ -1,6 +1,6 @@
 /**
- * Returns the closest ancestor acting as a popover for the given element. Useful in event
- * handlers when needing to imperatively control the popover from one of its descendants.
+ * Finds the closest popover ancestor. Use in event handlers to control the popover
+ * from a descendant element.
  */
 export function getClosestPopoverElement(element: HTMLElement): HTMLElement | null {
   return element.closest('[popover]')

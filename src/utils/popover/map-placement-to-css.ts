@@ -1,3 +1,12 @@
+export interface PopoverPlacementObject {
+  alignSelf?: 'anchor-center' | 'start' | 'end'
+  bottom?: `anchor(${string})` | (string & {})
+  justifySelf?: 'anchor-center' | 'start' | 'end'
+  left?: `anchor(${string})` | (string & {})
+  right?: `anchor(${string})` | (string & {})
+  top?: `anchor(${string})` | (string & {})
+}
+
 export type PopoverPlacement =
   | 'top-start'
   | 'top'
@@ -11,22 +20,43 @@ export type PopoverPlacement =
   | 'left-start'
   | 'left'
   | 'left-end'
+  | PopoverPlacementObject
+
+export namespace mapPlacementToCSS {
+  export interface Input {
+    /** Gap between positioned element and anchor. Does not apply to custom placements */
+    gap: string
+    /** Placement relative to anchor */
+    placement: PopoverPlacement
+  }
+}
 
 /**
- * Returns a CSS string that defines the necessary CSS properties for a positioned element
- * to be placed according to the specified `placement` value.
- *
- * @param placement the placement of the positioned element w.r.t. to its anchor
+ * Generates CSS properties to position an element using the specified placement.
  */
-export function mapPlacementToCSS(placement: PopoverPlacement, gap: string): string {
-  // NOTE: We do not use logical properties (like `inset-block-start`) because the polyfill
-  // we're currently relying on in some browsers doesn't work nicely with them. Likewise for
-  // our lack of use of the `position-area` property. In future, when all browsers natively
-  // support CSS anchor positioning, `position-area` will match quite easily to our `placement`
-  // options (such that we may want to simply expose `position-area` directly).
+export function mapPlacementToCSS({ gap, placement }: mapPlacementToCSS.Input): string {
+  // NOTE: custom placements do not consider the specified gap, as it is not possible to
+  // interpret which margin the gap should be applied to.
+  if (typeof placement !== 'string') {
+    const { alignSelf, top, right, bottom, left, justifySelf } = placement
+    return [
+      alignSelf && `align-self: ${alignSelf}`,
+      bottom && `bottom: ${bottom}`,
+      justifySelf && `justify-self: ${justifySelf}`,
+      left && `left: ${left}`,
+      right && `right: ${right}`,
+      top && `top: ${top}`,
+    ]
+      .filter(Boolean)
+      .join('; ')
+  }
+
+  // NOTE: The polyfill incompatibility prevents using logical properties like `inset-block-start`
+  // and `position-area`. Once browsers support CSS anchor positioning natively, `position-area`
+  // will map directly to our placement options.
   //
-  // For now, we map our `placement` value to inset properties (top, left etc) and the
-  // `align-self`/`justify-self` properties with the special `anchor-center` value.
+  // Currently, placement maps to inset properties (top, left, etc.) and `align-self`/`justify-self`
+  // with the `anchor-center` value.
   switch (placement) {
     case 'bottom':
       return `
