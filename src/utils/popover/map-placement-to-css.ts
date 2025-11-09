@@ -1,7 +1,7 @@
 export interface PopoverPlacementObject {
-  alignSelf?: 'anchor-center' | 'start' | 'end'
+  alignSelf?: 'anchor-center'
   bottom?: `anchor(${string})` | (string & {})
-  justifySelf?: 'anchor-center' | 'start' | 'end'
+  justifySelf?: 'anchor-center'
   left?: `anchor(${string})` | (string & {})
   right?: `anchor(${string})` | (string & {})
   top?: `anchor(${string})` | (string & {})
