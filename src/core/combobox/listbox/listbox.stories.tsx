@@ -23,7 +23,7 @@ const meta = {
     (Story) => {
       const listboxId = useId()
       return (
-        <ComboboxContext.Provider value={{ listboxId }}>
+        <ComboboxContext.Provider value={{ disabled: false, listboxId, required: false }}>
           <Story />
         </ComboboxContext.Provider>
       )

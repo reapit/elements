@@ -39,7 +39,14 @@ export namespace ListboxOption {
  * **Important:** The `as` element type must be button-based and forward all props to the
  * underlying button for proper functionality.
  */
-export function ListboxOption({ as: Element, children, onClick, value: optionValue, ...rest }: ListboxOption.Props) {
+export function ListboxOption({
+  as: Element,
+  children,
+  disabled,
+  onClick,
+  value: optionValue,
+  ...rest
+}: ListboxOption.Props) {
   const context = useListboxContext()
   const renderContext = useListboxRenderContext()
 
@@ -84,6 +91,9 @@ export function ListboxOption({ as: Element, children, onClick, value: optionVal
       data-listbox-id={context.listboxId}
       // Determines click behavior: toggle or select.
       data-select-action={context.selectAction}
+      // If the listbox is disabled, all options will also be disabled. Options can be
+      // independently disabled.
+      disabled={context.disabled || disabled}
       onClick={handleClick}
       role="option"
       // Options stay focusable for keyboard navigation but never enter the tab sequence.

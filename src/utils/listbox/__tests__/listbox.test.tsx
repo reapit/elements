@@ -95,6 +95,26 @@ test('renders children in both native and display contexts', () => {
   expect(screen.getByText('display')).toBeVisible()
 })
 
+test('can be disabled', () => {
+  render(
+    <Listbox disabled>
+      <option value="option1">Option 1</option>
+    </Listbox>,
+  )
+  expect(screen.getByRole('listbox')).toHaveAttribute('aria-disabled', 'true')
+  expect(screen.getByRole('combobox', { hidden: true })).toBeDisabled()
+})
+
+test('can be required', () => {
+  render(
+    <Listbox required>
+      <option value="option1">Option 1</option>
+    </Listbox>,
+  )
+  expect(screen.getByRole('listbox')).toHaveAttribute('aria-required', 'true')
+  expect(screen.getByRole('combobox', { hidden: true })).toBeRequired()
+})
+
 test('provides `ListboxContext` to descendants', () => {
   // We expect two assertions because the ListboxContext.Consumer is rendered twice,
   // once in the native render context and the other in the display render context
@@ -104,14 +124,26 @@ test('provides `ListboxContext` to descendants', () => {
     <Listbox>
       <ListboxContext.Consumer>
         {(context) => {
-          expect(context).toMatchInlineSnapshot(`
+          expect(context).toMatchInlineSnapshot(
             {
-              "listboxId": ":rj:",
+              disabled: false,
+              // The auto-generated ID can change if more/less test cases run before this one.
+              // We don't care about the specific ID, only that one is provided.
+              listboxId: expect.any(String),
+              multiple: false,
+              selectAction: 'toggle',
+              selectValue: [],
+            },
+            `
+            {
+              "disabled": false,
+              "listboxId": Any<String>,
               "multiple": false,
               "selectAction": "toggle",
               "selectValue": [],
             }
-          `)
+          `,
+          )
           return null
         }}
       </ListboxContext.Consumer>

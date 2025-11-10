@@ -52,6 +52,8 @@ export namespace Listbox {
      * For single-select, uses only the first value.
      */
     defaultValue?: readonly string[]
+    /** Whether the listbox and it's options are disabled. */
+    disabled?: boolean
     /** The listbox element's ID. Generates automatically if omitted. */
     id?: string
     /** The form control name for form submission. */
@@ -64,6 +66,8 @@ export namespace Listbox {
      * Defaults to `'Select an option'`.
      */
     placeholder?: string
+    /** Whether the listbox is required. */
+    required?: boolean
     /**
      * Behavior when clicking an option.
      * - `'toggle'`: Toggles the option's selected state (useful for multi-select)
@@ -110,6 +114,7 @@ export function Listbox({
   children,
   className,
   defaultValue,
+  disabled = false,
   id,
   name,
   onBlur,
@@ -117,6 +122,7 @@ export function Listbox({
   onFocus,
   onKeyDown,
   placeholder,
+  required = false,
   selectAction = 'toggle',
   selectionFollowsFocus = !multiple,
   style,
@@ -134,8 +140,10 @@ export function Listbox({
     <Element
       {...rest}
       {...focusHandlers}
+      aria-disabled={disabled}
       aria-multiselectable={multiple}
       aria-orientation={ariaOrientation}
+      aria-required={required}
       // Whether options select automatically when focused.
       data-selection-follows-focus={selectionFollowsFocus}
       className={className}
@@ -147,13 +155,15 @@ export function Listbox({
       // only as an initial value.
       tabIndex={0}
     >
-      <ListboxContext.Provider value={{ listboxId, multiple, selectAction, selectValue }}>
+      <ListboxContext.Provider value={{ disabled, listboxId, multiple, selectAction, selectValue }}>
         <ListboxSelect
+          disabled={disabled}
           id={selectId}
           multiple={multiple}
           name={name}
           onChange={handleChange}
           placeholder={placeholder}
+          required={required}
           value={selectValue}
         >
           {children}

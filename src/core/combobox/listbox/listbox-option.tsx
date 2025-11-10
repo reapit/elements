@@ -15,5 +15,5 @@ export function ComboboxListboxOption(props: ComboboxListboxOption.Props) {
 
 ComboboxListboxOption.displayName = 'Combobox.Option'
 
-ComboboxListboxOption.getOptionLabel = ComboboxOption.getOptionLabel
+ComboboxListboxOption.getLabel = ComboboxOption.getOptionLabel
 ComboboxListboxOption.SupplementaryInfo = ComboboxOption.SupplementaryInfo

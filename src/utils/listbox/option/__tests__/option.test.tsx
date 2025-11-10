@@ -106,6 +106,19 @@ describe('in a "custom" render context', () => {
     expect(screen.getByRole('option')).toHaveAttribute('aria-selected', 'true')
   })
 
+  test('is disabled when the listbox is disabled', () => {
+    render(
+      <ListboxContext.Provider value={{ ...defaultContext, disabled: true }}>
+        <ListboxRenderContext.Provider value="display">
+          <ListboxOption as={CustomTestOption} value="option-1">
+            Option 1
+          </ListboxOption>
+        </ListboxRenderContext.Provider>
+      </ListboxContext.Provider>,
+    )
+    expect(screen.getByRole('option')).toBeDisabled()
+  })
+
   test('has data-listbox-id attribute', () => {
     render(
       <ListboxContext.Provider value={defaultContext}>
@@ -190,6 +203,7 @@ describe('in a "custom" render context', () => {
 })
 
 const defaultContext: ListboxContext.Value = {
+  disabled: false,
   listboxId: 'my-listbox',
   multiple: false,
   selectAction: 'toggle',

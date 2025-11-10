@@ -51,6 +51,8 @@ export const Example: Story = {
         Option 3
       </Listbox.Option>,
     ],
+    disabled: false,
+    required: false,
   },
 }
 
@@ -76,6 +78,16 @@ export const Multiple: Story = {
     ...Example.args,
     'aria-multiselectable': true,
     defaultValue: ['1', '2'],
+  },
+}
+
+/**
+ * Listbox options can be disabled.
+ */
+export const Disabled: Story = {
+  args: {
+    ...Example.args,
+    disabled: true,
   },
 }
 

@@ -2,6 +2,8 @@ import { createContext, useContext } from 'react'
 
 export namespace ListboxContext {
   export interface Value {
+    /** Whether the listbox and its options are disabled */
+    disabled: boolean
     /** Listbox element ID */
     listboxId: string
     /** Allows multiple option selection */
