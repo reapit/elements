@@ -26,6 +26,8 @@ export namespace Listbox {
   export interface OptgroupProps extends ListboxOptgroup.BaseProps {}
 
   export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
+    /** Whether the listbox and its options are disabled. */
+    'aria-disabled'?: boolean
     /**
      * Allows multiple option selection in the listbox.
      * When `true`, selects multiple options simultaneously.
@@ -38,6 +40,8 @@ export namespace Listbox {
      * listbox renders its options horizontally.
      */
     'aria-orientation'?: 'horizontal' | 'vertical'
+    /** Whether the listbox is required. */
+    'aria-required'?: boolean
     /** Element type for the listbox container. Defaults to `'div'`. */
     as?: ElementType<HTMLAttributes<HTMLDivElement>>
     /**
@@ -52,8 +56,6 @@ export namespace Listbox {
      * For single-select, uses only the first value.
      */
     defaultValue?: readonly string[]
-    /** Whether the listbox and it's options are disabled. */
-    disabled?: boolean
     /** The listbox element's ID. Generates automatically if omitted. */
     id?: string
     /** The form control name for form submission. */
@@ -66,8 +68,6 @@ export namespace Listbox {
      * Defaults to `'Select an option'`.
      */
     placeholder?: string
-    /** Whether the listbox is required. */
-    required?: boolean
     /**
      * Behavior when clicking an option.
      * - `'toggle'`: Toggles the option's selected state (useful for multi-select)
@@ -108,13 +108,14 @@ export namespace Listbox {
  * - `Listbox.Divider` always renders as `<hr>`
  */
 export function Listbox({
+  'aria-disabled': disabled = false,
   'aria-multiselectable': multiple = false,
   'aria-orientation': ariaOrientation = 'vertical',
+  'aria-required': required = false,
   as: Element = 'div',
   children,
   className,
   defaultValue,
-  disabled = false,
   id,
   name,
   onBlur,
@@ -122,7 +123,6 @@ export function Listbox({
   onFocus,
   onKeyDown,
   placeholder,
-  required = false,
   selectAction = 'toggle',
   selectionFollowsFocus = !multiple,
   style,

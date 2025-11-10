@@ -38,8 +38,10 @@ type Story = StoryObj<typeof meta>
  */
 export const Example: Story = {
   args: {
+    'aria-disabled': false,
     'aria-multiselectable': false,
     'aria-orientation': 'horizontal',
+    'aria-required': false,
     children: [
       <Listbox.Option key="1" as={MyListboxOption} value="1">
         Option 1
@@ -51,8 +53,6 @@ export const Example: Story = {
         Option 3
       </Listbox.Option>,
     ],
-    disabled: false,
-    required: false,
   },
 }
 
@@ -87,7 +87,7 @@ export const Multiple: Story = {
 export const Disabled: Story = {
   args: {
     ...Example.args,
-    disabled: true,
+    'aria-disabled': true,
   },
 }
 

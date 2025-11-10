@@ -97,7 +97,7 @@ test('renders children in both native and display contexts', () => {
 
 test('can be disabled', () => {
   render(
-    <Listbox disabled>
+    <Listbox aria-disabled>
       <option value="option1">Option 1</option>
     </Listbox>,
   )
@@ -107,7 +107,7 @@ test('can be disabled', () => {
 
 test('can be required', () => {
   render(
-    <Listbox required>
+    <Listbox aria-required>
       <option value="option1">Option 1</option>
     </Listbox>,
   )

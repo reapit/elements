@@ -5,12 +5,12 @@ import { Listbox } from '#src/utils/listbox'
 import { useComboboxContext } from '../context'
 
 // We omit...
+// - aria-disabled, because it is set by Combobox
 // - aria-orientation, because it is always "vertical"
-// - disabled, because it is set by Combobox
+// - aria-required, because it is set by Combobox
 // - id, because it is set by Combobox
-// - required, because it is set by Combobox
 // - selectAction, because it is always "select"
-type AttributesToOmit = 'aria-orientation' | 'disabled' | 'id' | 'required' | 'selectAction'
+type AttributesToOmit = 'aria-disabled' | 'aria-orientation' | 'aria-required' | 'id' | 'selectAction'
 
 export namespace ComboboxListbox {
   export interface Props extends Omit<Listbox.Props, AttributesToOmit> {}
@@ -25,10 +25,10 @@ export function ComboboxListbox(props: ComboboxListbox.Props) {
     <Listbox
       as={ElComboboxListbox}
       {...props}
+      aria-disabled={disabled}
       aria-orientation="vertical"
-      disabled={disabled}
+      aria-required={required}
       id={listboxId}
-      required={required}
       selectAction="select"
       selectionFollowsFocus={false}
     />
