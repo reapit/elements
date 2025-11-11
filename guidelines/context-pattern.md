@@ -1,10 +1,6 @@
-# React Context Pattern Guidelines
+# React Context Pattern
 
-React contexts in Reapit Elements follow a consistent pattern that ensures type safety, clear documentation, and proper error handling. This guide defines that standard pattern.
-
-## Overview
-
-All contexts must follow this established pattern for consistency and maintainability across the library.
+React contexts follow a consistent pattern to ensure type safety, clear documentation, and error handling across the library.
 
 ## Required Pattern
 
@@ -23,14 +19,14 @@ export namespace ComponentNameContext {
 }
 
 /**
- * Brief description of what this context provides.
- * Include usage examples if helpful.
+ * Context that ComponentName provides to descendants.
+ * Describe what values this context exposes and why.
  */
 export const ComponentNameContext = createContext<ComponentNameContext.Value | null>(null)
 
 /**
- * Returns the current ComponentNameContext value.
- * @throws if context is undefined.
+ * Returns ComponentNameContext.Value from the nearest ComponentName ancestor.
+ * @throws Error when called outside a ComponentName component.
  */
 export function useComponentNameContext(): ComponentNameContext.Value {
   const context = useContext(ComponentNameContext)
@@ -46,7 +42,7 @@ export function useComponentNameContext(): ComponentNameContext.Value {
 ### 1. Namespace Declaration
 
 - **MUST** use component name followed by `Context`
-- **MUST** contain `Value` interface defining context shape when not a simple primitive
+- **MUST** contain `Value` interface that defines the context shape
 - **MUST** document all properties with JSDoc
 
 ```typescript
@@ -60,15 +56,14 @@ export namespace DialogContext {
 
 ### 2. Context Creation
 
-- **MUST** use `createContext` with correct type and initial value
-- **MUST** use `null` for initial value unless a sensible default exists
-- **MUST** initialize with `null` to enforce proper usage checking when a default value is not appropriate
-- **MUST** include JSDoc explaining context purpose
+- **MUST** use `createContext<ComponentNameContext.Value | null>(null)`
+- **MUST** initialize with `null` to enforce usage checking in the custom hook
+- **MUST** include JSDoc that explains the context purpose
 
 ```typescript
 /**
- * Context available to Dialog descendants. Provides titleId
- * for proper accessibility labeling.
+ * Context that Dialog provides to descendants. Exposes titleId
+ * for accessibility labeling.
  */
 export const DialogContext = createContext<DialogContext.Value | null>(null)
 ```
@@ -77,13 +72,13 @@ export const DialogContext = createContext<DialogContext.Value | null>(null)
 
 - **MUST** provide custom hook named `useComponentNameContext`
 - **MUST** return non-null context value
-- **MUST** throw descriptive error if context is unavailable
+- **MUST** throw descriptive error when context is unavailable
 - **MUST** include JSDoc documentation
 
 ```typescript
 /**
- * Returns the current DialogContext value.
- * @throws if context is undefined.
+ * Returns DialogContext.Value from the nearest Dialog ancestor.
+ * @throws Error when called outside a Dialog component.
  */
 export function useDialogContext(): DialogContext.Value {
   const context = useContext(DialogContext)
@@ -140,33 +135,50 @@ export namespace SplitButtonContext {
 
 ### Wrong Naming
 ```typescript
-// Use consistent naming
-export namespace ButtonCtx { } // Wrong: use full "Context"
-export namespace ButtonContextState { } // Wrong: avoid suffixes
+// Use full "Context" suffix
+export namespace ButtonCtx { } // ❌ Wrong
+export namespace ButtonContext { } // ✅ Correct
+
+// No additional suffixes
+export namespace ButtonContextState { } // ❌ Wrong
+export namespace ButtonContext { } // ✅ Correct
 ```
 
 ### Missing Error Handling
 ```typescript
-// Hook must throw on undefined context
+// Hook must throw when context is null
 export function useDialogContext(): DialogContext.Value | null {
-  return useContext(DialogContext) // Wrong: should throw on null
+  return useContext(DialogContext) // ❌ Wrong: returns null
+}
+
+export function useDialogContext(): DialogContext.Value {
+  const context = useContext(DialogContext)
+  if (!context) {
+    throw new Error('useDialogContext requires a Dialog ancestor')
+  }
+  return context // ✅ Correct: throws on null, returns non-null value
 }
 ```
 
 ### Generic Error Messages
 ```typescript
-// Use specific error messages
-throw new Error('Context not found') // Wrong: too generic
-
 // Specify hook name and required ancestor
-throw new Error('useDialogContext requires a Dialog ancestor')
+throw new Error('Context not found') // ❌ Wrong: too generic
+throw new Error('useDialogContext requires a Dialog ancestor') // ✅ Correct
 ```
 
 ### Missing Documentation
 ```typescript
 export namespace DialogContext {
   export interface Value {
-    titleId: string // Wrong: missing JSDoc
+    titleId: string // ❌ Wrong: missing JSDoc
+  }
+}
+
+export namespace DialogContext {
+  export interface Value {
+    /** The ID used for accessibility labeling */
+    titleId: string // ✅ Correct: includes JSDoc
   }
 }
 ```
@@ -221,11 +233,11 @@ When reviewing context implementations:
 - [ ] Namespace uses `ComponentNameContext` pattern
 - [ ] Interface exports `Value` from namespace
 - [ ] All properties include JSDoc
-- [ ] Context uses `| null` union type and `null` initial value when no sensible default value exists
+- [ ] Context uses `| null` union type with `null` initial value
 - [ ] Custom hook throws descriptive error on null context
 - [ ] Error message specifies hook name and required ancestor
 - [ ] Hook returns non-nullable context value
-- [ ] File follows established directory structure
+- [ ] File follows directory structure
 
 ## Related Patterns
 
@@ -235,4 +247,4 @@ This context pattern works with:
 - Component composition patterns
 - Accessibility patterns (e.g., `titleId` for ARIA labeling)
 
-Following this pattern ensures consistency across all React contexts in the Reapit Elements library.
+This pattern ensures consistency across all React contexts in Reapit Elements.
