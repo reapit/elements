@@ -110,6 +110,7 @@ export default defineConfig({
     }),
   ],
   test: {
+    clearMocks: true,
     coverage: {
       exclude: [
         'src/styles',
