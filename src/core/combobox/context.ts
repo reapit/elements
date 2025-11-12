@@ -2,10 +2,14 @@ import { createContext, useContext } from 'react'
 
 export namespace ComboboxContext {
   export interface Value {
+    /** Button element ID */
+    buttonId: string
     /** Whether the combobox is disabled */
     disabled: boolean
     /** Listbox element ID */
     listboxId: string
+    /** Popup element ID */
+    popupId: string
     /** Whether the combobox is required */
     required: boolean
   }

@@ -3,10 +3,10 @@ import { focusInputOrListbox } from './focus-input-or-listbox'
 
 export namespace useComboboxPopupFocusManagement {
   export interface Input {
-    /** ID of the popup element */
+    /** ID of the popup element. */
     popupId: string
-    /** ID of the combobox input that controls this popup (from aria-labelledby) */
-    comboboxId: string
+    /** ID of the combobox button that controls this popup. */
+    buttonId: string
   }
 }
 
@@ -19,7 +19,7 @@ export namespace useComboboxPopupFocusManagement {
  * @param options - Configuration for popup focus management
  */
 export function useComboboxPopupFocusManagement(options: useComboboxPopupFocusManagement.Input): void {
-  const { popupId, comboboxId } = options
+  const { popupId, buttonId } = options
 
   useComboboxPopupObserver(popupId, (event) => {
     const popupElement = document.getElementById(popupId)
@@ -32,7 +32,7 @@ export function useComboboxPopupFocusManagement(options: useComboboxPopupFocusMa
     if (event.newState === 'closed') {
       // Only return focus if it was inside the popup when it closed
       if (popupElement.contains(document.activeElement)) {
-        const comboboxElement = document.getElementById(comboboxId)
+        const comboboxElement = document.getElementById(buttonId)
         comboboxElement?.focus()
       }
     }

@@ -1,30 +1,37 @@
 import { ComboboxPopup } from '../popup'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { FakeToggleEvent } from './FakeToggleEvent'
+import { ComboboxContext } from '../../context'
 
 test('renders a dialog element for the popover variant', () => {
   render(
-    <ComboboxPopup aria-labelledby="label-id" id="popup-id" variant="popover">
-      Content
-    </ComboboxPopup>,
+    <ComboboxContext.Provider value={defaultContext}>
+      <ComboboxPopup aria-labelledby="label-id" variant="popover">
+        Content
+      </ComboboxPopup>
+    </ComboboxContext.Provider>,
   )
   expect(screen.getByRole('dialog')).toBeVisible()
 })
 
 test('renders a dialog element for the drawer variant', () => {
   render(
-    <ComboboxPopup aria-labelledby="label-id" id="popup-id" variant="drawer">
-      Content
-    </ComboboxPopup>,
+    <ComboboxContext.Provider value={defaultContext}>
+      <ComboboxPopup aria-labelledby="label-id" variant="drawer">
+        Content
+      </ComboboxPopup>
+    </ComboboxContext.Provider>,
   )
   expect(screen.getByRole('dialog', { hidden: true })).toBeInTheDocument()
 })
 
 test('renders children content in popover variant', () => {
   render(
-    <ComboboxPopup aria-labelledby="label-id" id="popup-id" variant="popover">
-      Test Content
-    </ComboboxPopup>,
+    <ComboboxContext.Provider value={defaultContext}>
+      <ComboboxPopup aria-labelledby="label-id" variant="popover">
+        Test Content
+      </ComboboxPopup>
+    </ComboboxContext.Provider>,
   )
   expect(screen.getByText('Test Content')).toBeInTheDocument()
 })
@@ -33,9 +40,11 @@ test('renders children content in popover variant', () => {
 // when it is closed.
 test.skip('renders children content in drawer variant', () => {
   render(
-    <ComboboxPopup aria-labelledby="label-id" id="popup-id" variant="drawer">
-      Drawer Content
-    </ComboboxPopup>,
+    <ComboboxContext.Provider value={defaultContext}>
+      <ComboboxPopup aria-labelledby="label-id" variant="drawer">
+        Drawer Content
+      </ComboboxPopup>
+    </ComboboxContext.Provider>,
   )
   expect(screen.getByText('Drawer Content')).toBeInTheDocument()
 })
@@ -54,15 +63,11 @@ test('exposes toggle method', () => {
 
 test('forwards additional props to popover', () => {
   render(
-    <ComboboxPopup
-      aria-labelledby="label-id"
-      id="popup-id"
-      variant="popover"
-      data-testid="custom-popup"
-      className="custom-class"
-    >
-      Content
-    </ComboboxPopup>,
+    <ComboboxContext.Provider value={defaultContext}>
+      <ComboboxPopup aria-labelledby="label-id" variant="popover" data-testid="custom-popup" className="custom-class">
+        Content
+      </ComboboxPopup>
+    </ComboboxContext.Provider>,
   )
   expect(screen.getByTestId('custom-popup')).toBeVisible()
   expect(screen.getByTestId('custom-popup')).toHaveClass('custom-class')
@@ -70,9 +75,11 @@ test('forwards additional props to popover', () => {
 
 test('focuses child element when popup opens', () => {
   render(
-    <ComboboxPopup aria-labelledby="label-id" id="popup-id" variant="popover" data-testid="popup">
-      <div role="listbox" tabIndex={-1} data-testid="listbox" />
-    </ComboboxPopup>,
+    <ComboboxContext.Provider value={defaultContext}>
+      <ComboboxPopup aria-labelledby="label-id" variant="popover" data-testid="popup">
+        <div role="listbox" tabIndex={-1} data-testid="listbox" />
+      </ComboboxPopup>
+    </ComboboxContext.Provider>,
   )
 
   const popup = screen.getByTestId('popup')
@@ -83,9 +90,11 @@ test('focuses child element when popup opens', () => {
 
 test('does not focus child element when popup closes', () => {
   render(
-    <ComboboxPopup aria-labelledby="label-id" id="popup-id" variant="popover" data-testid="popup">
-      <div role="listbox" tabIndex={-1} data-testid="listbox" />
-    </ComboboxPopup>,
+    <ComboboxContext.Provider value={defaultContext}>
+      <ComboboxPopup aria-labelledby="label-id" variant="popover" data-testid="popup">
+        <div role="listbox" tabIndex={-1} data-testid="listbox" />
+      </ComboboxPopup>
+    </ComboboxContext.Provider>,
   )
 
   const popup = screen.getByTestId('popup')
@@ -93,3 +102,11 @@ test('does not focus child element when popup closes', () => {
 
   expect(screen.getByTestId('listbox')).not.toHaveFocus()
 })
+
+const defaultContext: ComboboxContext.Value = {
+  buttonId: 'button-id',
+  disabled: false,
+  listboxId: 'listbox-id',
+  popupId: 'popup-id',
+  required: false,
+}

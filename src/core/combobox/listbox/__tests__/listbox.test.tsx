@@ -42,8 +42,10 @@ test('options have data-select-action="select"', () => {
   expect(screen.getByRole('option')).toHaveAttribute('data-select-action', 'select')
 })
 
-const defaultContext = {
+const defaultContext: ComboboxContext.Value = {
+  buttonId: 'button-id',
   disabled: false,
   listboxId: 'listbox-id',
+  popupId: 'popup-id',
   required: false,
 }

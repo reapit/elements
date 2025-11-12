@@ -11,9 +11,6 @@ const meta = {
   title: 'Core/Combobox/Popup',
   component: ComboboxPopup,
   argTypes: {
-    'aria-labelledby': {
-      control: false,
-    },
     children: {
       control: 'select',
       options: ['Simple', 'Detailed', 'Filterable'],
@@ -95,26 +92,21 @@ const meta = {
     },
   },
   render: (args) => {
-    // NOTE: because we have multiple stories on the one docs page, we append a "suffix" to
-    // the IDs so they are unique per story.
-    const suffix = useId()
-    const props = {
-      ...args,
-      'aria-labelledby': `${args['aria-labelledby']}-${suffix}`,
-      id: `${args.id}-${suffix}`,
-    }
+    const buttonId = useId()
+    const listboxId = useId()
+    const popupId = useId()
 
     return (
-      <ComboboxContext.Provider value={{ disabled: false, listboxId: suffix, required: false }}>
+      <ComboboxContext.Provider value={{ buttonId, disabled: false, listboxId, popupId, required: false }}>
         <button
-          aria-controls={props.id}
-          aria-haspopup={args.variant === 'drawer' ? 'dialog' : 'listbox'}
-          id={props['aria-labelledby']}
-          onClick={() => ComboboxPopup.toggle(props.id)}
+          aria-controls={popupId}
+          aria-haspopup="dialog"
+          id={buttonId}
+          onClick={() => ComboboxPopup.toggle(popupId)}
         >
           Click me and I will open the popup for you!
         </button>
-        <ComboboxPopup {...props} />
+        <ComboboxPopup {...args} />
       </ComboboxContext.Provider>
     )
   },
@@ -130,9 +122,7 @@ type Story = StoryObj<typeof meta>
  */
 export const Example: Story = {
   args: {
-    'aria-labelledby': 'my-combobox',
     children: 'Simple',
-    id: 'my-popup',
     maxWidth: undefined,
     variant: 'popover',
   },

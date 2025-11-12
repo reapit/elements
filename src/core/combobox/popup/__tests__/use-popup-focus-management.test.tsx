@@ -53,7 +53,7 @@ test('does not change focus when popup closes and focus is outside popup', () =>
 
 test('does not call focusListboxOrSearchInputChild when popup element does not exist', () => {
   function ComponentWithNonExistentPopup() {
-    useComboboxPopupFocusManagement({ popupId: 'non-existent-popup', comboboxId: 'combobox-id' })
+    useComboboxPopupFocusManagement({ popupId: 'non-existent-popup', buttonId: 'combobox-id' })
     return <div data-testid="combobox" id="combobox-id" />
   }
 
@@ -73,7 +73,7 @@ test('does not call focusListboxOrSearchInputChild when popup element does not e
 
 test('does not return focus when combobox element does not exist', () => {
   function ComponentWithNonExistentCombobox() {
-    useComboboxPopupFocusManagement({ popupId: 'popup-id', comboboxId: 'non-existent-combobox' })
+    useComboboxPopupFocusManagement({ popupId: 'popup-id', buttonId: 'non-existent-combobox' })
     return (
       <div id="popup-id" data-testid="popup">
         <div role="listbox" tabIndex={-1} />
@@ -151,7 +151,7 @@ test('does not return focus to combobox when active element is outside popup', (
 })
 
 function TestComponent() {
-  useComboboxPopupFocusManagement({ popupId: 'popup-id', comboboxId: 'combobox-id' })
+  useComboboxPopupFocusManagement({ popupId: 'popup-id', buttonId: 'combobox-id' })
 
   return (
     <>
