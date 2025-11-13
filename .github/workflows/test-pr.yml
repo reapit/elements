@@ -13,42 +13,95 @@ env:
   CI: true
 
 jobs:
-  test-pr:
-    name: Test
+  pr-lint:
+    name: Test PR / Lint Title
     runs-on: ubuntu-latest
     steps:
       - uses: seferov/pr-lint-action@v1.2.0
         with:
           title-regex: '^(?:(?:\[WIP\] ?)?(?:build|ci|chore|docs|task|feat|fix|perf|refactor|revert|style|test)!?\:(?:\ +?#\d+?\ +?)?.*)|(?:\[Snyk\].*)'
-          title-regex-flags: 'g' # optional
+          title-regex-flags: 'g'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-close-message: 'Closing this pull request since the title does not match %pattern% pattern. Please fix the title and re-open the pull request.'
 
+  check:
+    name: Test PR / Type Check
+    runs-on: ubuntu-latest
+    steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
         with:
           fetch-depth: 0
 
       - name: Set Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
-          node-version: '22.x'
+          node-version: 22
+          cache: 'yarn'
 
       - name: Install
         run: yarn install --immutable
 
       - name: Check
-        run: |
-          yarn check
+        run: yarn check
+
+  test:
+    name: Test PR / Unit Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'yarn'
+
+      - name: Install
+        run: yarn install --immutable
 
       - name: Test
-        run: |
-          yarn test run --passWithNoTests --coverage --silent
+        run: yarn test run --passWithNoTests --coverage --silent
 
       - name: Codacy Checks
-        run: |
-          bash <(curl -Ls https://coverage.codacy.com/get.sh)
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+
+  build:
+    name: Test PR / Build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'yarn'
+
+      - name: Install
+        run: yarn install --immutable
 
       - name: Build
+        run: yarn build
+
+  all-checks-passed:
+    name: Test PR / All Checks Passed
+    runs-on: ubuntu-latest
+    needs: [pr-lint, check, test, build]
+    if: always()
+    steps:
+      - name: Check all jobs succeeded
         run: |
-          yarn build
+          if [[ "${{ needs.pr-lint.result }}" != "success" ||
+                "${{ needs.check.result }}" != "success" ||
+                "${{ needs.test.result }}" != "success" ||
+                "${{ needs.build.result }}" != "success" ]]; then
+            echo "One or more jobs failed"
+            exit 1
+          fi
