@@ -35,7 +35,8 @@ export function ComboboxPopupPopover({
       id={id}
       maxWidth={maxWidth ?? defaultWidth}
       minWidth={defaultWidth}
-      placement={placement}
+      left={left}
+      top={top}
       popover="auto"
       positionTryFallbacks="flip-block, flip-inline"
       role="dialog"
@@ -48,7 +49,5 @@ export function ComboboxPopupPopover({
 // NOTE: --combobox-popup-popover-padding is defined in styles.ts
 const defaultWidth = 'calc(anchor-size(width) + 2 * var(--combobox-popup-popover-padding))'
 
-const placement: Popover.Props['placement'] = {
-  left: 'calc(anchor(left) - var(--combobox-popup-popover-padding))',
-  top: 'calc(anchor(top) - var(--combobox-popup-popover-padding))',
-}
+const left = 'calc(anchor(left) - var(--combobox-popup-popover-padding))'
+const top = 'calc(anchor(top) - var(--combobox-popup-popover-padding))'

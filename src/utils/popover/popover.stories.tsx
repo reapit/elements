@@ -1,9 +1,11 @@
 import { getPopoverTriggerProps } from './get-popover-trigger-props'
+import { placements } from '#src/utils/anchor-positioning'
 import { Popover } from './popover'
 import { styled } from '@linaria/react'
-import { useId } from 'react'
+import { useId, useLayoutEffect, useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Placement } from '#src/utils/anchor-positioning'
 
 const MyPopoverContent = styled.div`
   padding: var(--spacing-2);
@@ -35,7 +37,6 @@ const meta = {
     return (
       <>
         <button
-          autoFocus
           {...getPopoverTriggerProps({ id: props.anchorId, popoverTarget: props.id, popoverTargetAction: 'toggle' })}
         >
           Anchor
@@ -93,52 +94,65 @@ export const Placements: Story = {
     controls: {
       disabled: true,
     },
+    layout: 'padded',
   },
   render: () => {
+    const [currentPlacement, setCurrentPlacement] = useState<Placement>('top')
+
+    useLayoutEffect(() => {
+      // We want the popover immediately visible.
+      document.getElementById('popover')?.showPopover()
+    }, [])
+
     return (
-      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '300px' }}>
+      <div style={{ display: 'grid', grid: '"demo options" auto / 1fr max-content', placeItems: 'center' }}>
         <div
           id="anchor"
           style={{
+            gridArea: 'demo',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
             background: 'var(--colour-fill-neutral-light',
             borderRadius: 'var(--border-radius-xl)',
-            width: '400px',
-            height: '200px',
+            width: '200px',
+            height: '100px',
           }}
         >
           Anchor
         </div>
-        {(
-          [
-            'top-start',
-            'top',
-            'top-end',
-            'right-start',
-            'right',
-            'right-end',
-            'bottom-start',
-            'bottom',
-            'bottom-end',
-            'left-start',
-            'left',
-            'left-end',
-          ] as const
-        ).map((placement) => (
-          <Popover
-            key={placement}
-            id={placement}
-            anchorId="anchor"
-            gap="var(--spacing-2)"
-            placement={placement}
-            popover={null}
-            positionTryFallbacks="none"
-          >
-            <MyPopoverContent>{placement}</MyPopoverContent>
-          </Popover>
-        ))}
+        <Popover
+          id="popover"
+          anchorId="anchor"
+          gap="var(--spacing-2)"
+          placement={currentPlacement}
+          // Manual popovers won't dismiss other popovers
+          popover="manual"
+          positionTryFallbacks="none"
+        >
+          <MyPopoverContent>Popover</MyPopoverContent>
+        </Popover>
+        <div
+          style={{
+            display: 'grid',
+            grid: 'auto-flow / repeat(3, auto)',
+            gridArea: 'options',
+            gap: 'var(--spacing-2)',
+          }}
+        >
+          {placements.map((placement) => (
+            <label key={placement}>
+              <input
+                type="radio"
+                name="placement"
+                checked={placement === currentPlacement}
+                value={placement}
+                onChange={() => setCurrentPlacement(placement)}
+              />
+              {placement}
+            </label>
+          ))}
+        </div>
       </div>
     )
   },
@@ -154,16 +168,14 @@ export const Placements: Story = {
  */
 export const CustomPositioning: Story = {
   args: {
-    ...Example.args,
+    anchorId: 'anchor',
     children: <MyPopoverContent style={{ textAlign: 'center' }}>🚀</MyPopoverContent>,
+    elevation: 'none',
+    id: 'popover',
+    justifySelf: 'anchor-center',
     minWidth: 'calc(anchor-size(width) + var(--spacing-4))',
-    style: {
-      marginTop: 'calc(-1 * var(--spacing-2))',
-    },
-    placement: {
-      justifySelf: 'anchor-center',
-      top: 'anchor(top)',
-    },
+    positionTryFallbacks: 'flip-block, flip-inline',
+    top: 'anchor(top)',
   },
 }
 
