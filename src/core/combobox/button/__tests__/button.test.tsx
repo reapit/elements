@@ -128,5 +128,5 @@ test('exposes ComboboxButton.ClearButton', () => {
 })
 
 test('exposes ComboboxButton.TogglePopupButton', () => {
-  expect(ComboboxButton.TogglePopupButton).toBeDefined()
+  expect(ComboboxButton.OpenPopupButton).toBeDefined()
 })

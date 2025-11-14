@@ -1,5 +1,5 @@
 import { ComboboxButtonClearButton } from './clear-button'
-import { ComboboxButtonTogglePopupButton } from './toggle-popup-button'
+import { ComboboxButtonOpenPopupButton } from './open-popup-button'
 import {
   ElComboboxButton,
   ElComboboxButtonIconContainer,
@@ -85,4 +85,4 @@ export function ComboboxButton({
 }
 
 ComboboxButton.ClearButton = ComboboxButtonClearButton
-ComboboxButton.TogglePopupButton = ComboboxButtonTogglePopupButton
+ComboboxButton.OpenPopupButton = ComboboxButtonOpenPopupButton

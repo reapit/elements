@@ -1,31 +1,31 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { useCloseComboboxPopupOnClick } from '../use-close-on-click'
-import { hideComboboxPopup } from '../hide-popup'
+import { closeComboboxPopup } from '../close-popup'
 
 import type { MouseEventHandler } from 'react'
 
-vi.mock('../hide-popup')
+vi.mock('../close-popup')
 
 // NOTE: useCloseOnClick does not respond to untrusted events, which is what fireEvent.click results
 // in. This means we're can't verify this test case outside of a real browser.
-test.skip('calls hidePopup by default for option click events', () => {
+test.skip('calls closeComboboxPopup by default for option click events', () => {
   render(<TestComponent />)
 
   const element = screen.getByRole('option', { name: 'Item 1' })
   fireEvent.click(element)
 
-  expect(hideComboboxPopup).toHaveBeenCalled()
+  expect(closeComboboxPopup).toHaveBeenCalled()
 })
 
 // NOTE: useCloseOnClick does not respond to untrusted events, which is what fireEvent.click results
 // in. This means we're can't verify this test case outside of a real browser.
-test.skip('calls hidePopup by default for option descendant click events', () => {
+test.skip('calls closeComboboxPopup by default for option descendant click events', () => {
   render(<TestComponent />)
 
   const element = screen.getByTestId('item-2-inner-span')
   fireEvent.click(element)
 
-  expect(hideComboboxPopup).toHaveBeenCalled()
+  expect(closeComboboxPopup).toHaveBeenCalled()
 })
 
 test('always calls onClick handler when provided', () => {
@@ -38,36 +38,36 @@ test('always calls onClick handler when provided', () => {
   expect(onClick).toHaveBeenCalled()
 })
 
-test('does not call hidePopup when default action has been prevented by an option', () => {
+test('does not call closeComboboxPopup when default action has been prevented by an option', () => {
   render(<TestComponent />)
 
   const element = screen.getByRole('option', { name: 'Item that will not close the listbox' })
   fireEvent.click(element)
 
-  expect(hideComboboxPopup).not.toHaveBeenCalled()
+  expect(closeComboboxPopup).not.toHaveBeenCalled()
 })
 
-test('does not call hidePopup when default action has been prevented by the consumer onClick', () => {
+test('does not call closeComboboxPopup when default action has been prevented by the consumer onClick', () => {
   const onClick = vi.fn((event) => event.preventDefault())
   render(<TestComponent onClick={onClick} />)
 
   const element = screen.getByRole('option', { name: 'Item 1' })
   fireEvent.click(element)
 
-  expect(hideComboboxPopup).not.toHaveBeenCalled()
+  expect(closeComboboxPopup).not.toHaveBeenCalled()
 })
 
-test('does not call hidePopup when event target is not an option or option descendant', () => {
+test('does not call closeComboboxPopup when event target is not an option or option descendant', () => {
   render(<TestComponent />)
 
   const element = screen.getByTestId('test-div')
   fireEvent.click(element)
 
-  expect(hideComboboxPopup).not.toHaveBeenCalled()
+  expect(closeComboboxPopup).not.toHaveBeenCalled()
 })
 
 interface TestComponentProps {
-  onClick?: MouseEventHandler<HTMLDivElement>
+  onClick?: MouseEventHandler<HTMLDialogElement>
 }
 
 function TestComponent({ onClick }: TestComponentProps) {

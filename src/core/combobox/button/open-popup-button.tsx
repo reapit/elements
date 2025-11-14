@@ -1,10 +1,10 @@
 import { Button } from '#src/core/button'
 import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { toggleComboboxPopup } from '../popup'
+import { openComboboxPopup } from '../popup-dialog'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
-export namespace ComboboxButtonTogglePopupButton {
+export namespace ComboboxButtonOpenPopupButton {
   export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     /** Accessible label for the button. Defaults to "Toggle popup". */
     'aria-label'?: string
@@ -17,15 +17,15 @@ export namespace ComboboxButtonTogglePopupButton {
  * Secondary action button that toggles combobox popup visibility. Used as a trailing action within
  * the combobox button container.
  */
-export function ComboboxButtonTogglePopupButton({
-  'aria-label': ariaLabel = 'Toggle popup',
+export function ComboboxButtonOpenPopupButton({
+  'aria-label': ariaLabel = 'Open popup',
   'aria-controls': ariaControls,
   onClick,
   ...rest
-}: ComboboxButtonTogglePopupButton.Props) {
+}: ComboboxButtonOpenPopupButton.Props) {
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     onClick?.(event)
-    toggleComboboxPopup(ariaControls)
+    openComboboxPopup(ariaControls)
   }
 
   return (
@@ -37,7 +37,8 @@ export function ComboboxButtonTogglePopupButton({
       iconLeft={<ChevronDownIcon />}
       onClick={handleClick}
       size="small"
-      // Removed from tab order because this is primarily a visual addon
+      // Removed from tab order because this is primarily a visual addon.
+      // Accessible users will open the popup from the primary combobox button.
       tabIndex={-1}
       variant="tertiary"
     />

@@ -6,8 +6,8 @@ export default {
     'at-rule-no-deprecated': true,
     'declaration-property-value-keyword-no-deprecated': true,
 
-    // Prevent descending specificity
-    'no-descending-specificity': true,
+    // Would be nice to prevent descending specificity, but it doesn't play well with nested styles
+    'no-descending-specificity': null,
 
     // Prevent duplicate properties
     'declaration-block-no-duplicate-custom-properties': true,

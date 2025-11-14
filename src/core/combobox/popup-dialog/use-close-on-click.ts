@@ -1,4 +1,4 @@
-import { hideComboboxPopup } from './hide-popup'
+import { closeComboboxPopup } from './close-popup'
 import { useCallback } from 'react'
 
 import type { MouseEventHandler } from 'react'
@@ -9,7 +9,9 @@ import type { MouseEventHandler } from 'react'
  * @param onClick - Optional click handler to call before closing.
  * @returns Click handler that closes the popup on option clicks.
  */
-export function useCloseComboboxPopupOnClick(onClick?: MouseEventHandler<HTMLElement>): MouseEventHandler<HTMLElement> {
+export function useCloseComboboxPopupOnClick(
+  onClick?: MouseEventHandler<HTMLDialogElement>,
+): MouseEventHandler<HTMLDialogElement> {
   return useCallback(
     (event) => {
       onClick?.(event)
@@ -21,7 +23,7 @@ export function useCloseComboboxPopupOnClick(onClick?: MouseEventHandler<HTMLEle
         // Close if target is an option or option descendant
         (event.target.role === 'option' || event.target.closest('[role="option"]') !== null)
       ) {
-        hideComboboxPopup(event.currentTarget)
+        closeComboboxPopup(event.currentTarget as HTMLDialogElement)
       }
     },
     [onClick],

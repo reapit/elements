@@ -29,7 +29,7 @@ export function ComboboxSelectButton({
         selections.length > 0 ? (
           <ComboboxButton.ClearButton aria-controls={listboxId} disabled={disabled} />
         ) : (
-          <ComboboxButton.TogglePopupButton aria-controls={popupId} disabled={disabled} />
+          <ComboboxButton.OpenPopupButton aria-controls={popupId} disabled={disabled} />
         )
       }
       placeholder={placeholder}
@@ -39,3 +39,5 @@ export function ComboboxSelectButton({
     </ComboboxButton>
   )
 }
+
+ComboboxSelectButton.displayName = 'Combobox.SelectButton'

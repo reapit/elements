@@ -15,7 +15,7 @@ const meta = {
       control: 'select',
       options: ['Toggle', 'Clear'],
       mapping: {
-        Toggle: <ComboboxButton.TogglePopupButton aria-controls="my-combobox" />,
+        Toggle: <ComboboxButton.OpenPopupButton aria-controls="my-combobox" />,
         Clear: <ComboboxButton.ClearButton aria-controls="my-combobox-button" />,
       },
     },

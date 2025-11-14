@@ -44,3 +44,5 @@ export function ComboboxAutocompleteButton({
     </ComboboxButton>
   )
 }
+
+ComboboxAutocompleteButton.displayName = 'Combobox.AutocompleteButton'

@@ -1,4 +1,4 @@
-import { showComboboxPopup, useComboboxPopupState } from './popup'
+import { openComboboxPopup, useComboboxPopupState } from './popup-dialog'
 import { useComboboxContext } from './context'
 import { useComboboxSelectedOptions } from './use-selected-options'
 import { useComboboxSelectionSummary } from './use-selection-summary'
@@ -84,7 +84,7 @@ export function useComboboxButton({ onClick, placeholder }: useComboboxButton.In
 
   const handleClick: MouseEventHandler<HTMLButtonElement> = (event) => {
     onClick?.(event)
-    showComboboxPopup(popupId)
+    openComboboxPopup(popupId)
   }
 
   return {

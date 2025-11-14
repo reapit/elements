@@ -1,5 +1,5 @@
 import { Badge } from '#src/core/badge'
-import { ComboboxPopup } from './popup'
+import { ComboboxPopupDialog } from './popup-dialog'
 import { ComboboxListbox } from '../listbox'
 import { SearchInput } from '#src/core/search-input'
 import { useId } from 'react'
@@ -9,8 +9,14 @@ import { ComboboxContext } from '../context'
 
 const meta = {
   title: 'Core/Combobox/Popup',
-  component: ComboboxPopup,
+  component: ComboboxPopupDialog,
   argTypes: {
+    'aria-labelledby': {
+      control: false,
+    },
+    id: {
+      control: false,
+    },
     children: {
       control: 'select',
       options: ['Simple', 'Detailed', 'Filterable'],
@@ -42,6 +48,7 @@ const meta = {
                 456B Heritage Boulevard, Upper Brookfield Heights, Brisbane QLD 4069
               </ComboboxListbox.Option>
             </ComboboxListbox.Optgroup>
+            <ComboboxListbox.Divider />
             <ComboboxListbox.Optgroup label="All">
               <ComboboxListbox.Option
                 badge={<Badge colour="neutral">Residential</Badge>}
@@ -82,13 +89,13 @@ const meta = {
           </ComboboxListbox>,
         ],
       },
-      maxWidth: {
-        control: 'text',
-      },
-      variant: {
-        control: 'radio',
-        options: ['drawer', 'popover'],
-      },
+    },
+    maxWidth: {
+      control: 'text',
+    },
+    variant: {
+      control: 'radio',
+      options: ['drawer', 'popover', 'auto'],
     },
   },
   render: (args) => {
@@ -102,15 +109,15 @@ const meta = {
           aria-controls={popupId}
           aria-haspopup="dialog"
           id={buttonId}
-          onClick={() => ComboboxPopup.toggle(popupId)}
+          onClick={() => ComboboxPopupDialog.open(popupId)}
         >
           Click me and I will open the popup for you!
         </button>
-        <ComboboxPopup {...args} />
+        <ComboboxPopupDialog {...args} aria-labelledby={buttonId} id={popupId} />
       </ComboboxContext.Provider>
     )
   },
-} satisfies Meta<typeof ComboboxPopup>
+} satisfies Meta<typeof ComboboxPopupDialog>
 
 export default meta
 
@@ -118,19 +125,23 @@ type Story = StoryObj<typeof meta>
 
 /**
  * Many popups will function as simple popovers that present the available options to the user.
- * These popovers will always size themselves to the width of their anchor element.
+ * The popup automatically anchors to the element specified by `aria-labelledby`. By default,
+ * popovers are slightly wider than their anchor element to accommodate padding.
  */
 export const Example: Story = {
   args: {
+    'aria-labelledby': 'button-id',
     children: 'Simple',
+    id: 'popup-id',
     maxWidth: undefined,
     variant: 'popover',
   },
 }
 
 /**
- * By default, popover-style popups will match their anchor element's width. This can be overridden
- * by setting `maxWidth` to a valid CSS length. A `--size-*` CSS variable is typically preferred.
+ * By default, popover-style popups are slightly wider than their anchor element to accommodate
+ * padding. This width can be overridden by setting `maxWidth` to a valid CSS length. A `--size-*`
+ * CSS variable is typically preferred.
  */
 export const MaxWidth: Story = {
   name: 'Max-width',
@@ -150,6 +161,17 @@ export const Drawer: Story = {
   args: {
     ...Example.args,
     variant: 'drawer',
+  },
+}
+
+/**
+ * The `auto` variant displays as a drawer on XS breakpoint (< 768px) and as a popover on SM
+ * and above. This provides a responsive experience that adapts to the viewport size.
+ */
+export const Auto: Story = {
+  args: {
+    ...Example.args,
+    variant: 'auto',
   },
 }
 

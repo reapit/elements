@@ -19,11 +19,6 @@ test('has aria-label of "Clear selection"', () => {
   expect(screen.getByRole('button', { name: 'Clear selection' })).toBeVisible()
 })
 
-test('has tabIndex of -1', () => {
-  render(<ComboboxButtonClearButton aria-controls="combobox-1" />)
-  expect(screen.getByRole('button')).toHaveAttribute('tabIndex', '-1')
-})
-
 test('applies small size to the button', () => {
   render(<ComboboxButtonClearButton aria-controls="combobox-1" />)
   expect(screen.getByRole('button')).toHaveAttribute('data-size', 'small')

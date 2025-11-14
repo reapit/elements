@@ -1,13 +1,14 @@
 import { ComboboxContext } from '../context'
 import { fireEvent, renderHook } from '@testing-library/react'
-import { showComboboxPopup, useComboboxPopupState } from '../popup'
+import { openComboboxPopup, useComboboxPopupState } from '../popup-dialog'
 import { useComboboxButton } from '../use-button'
 import { useComboboxSelectedOptions } from '../use-selected-options'
 import { useComboboxSelectionSummary } from '../use-selection-summary'
 
 import type { ReactNode } from 'react'
 
-vi.mock('../popup')
+vi.mock('../combobox-popup')
+vi.mock('../popup-dialog')
 vi.mock('../use-selected-options')
 vi.mock('../use-selection-summary')
 
@@ -121,7 +122,7 @@ test('calls showComboboxPopup when button is clicked', () => {
 
   result.current.props.onClick({ currentTarget: button } as any)
 
-  expect(showComboboxPopup).toHaveBeenCalledWith('test-popup-id')
+  expect(openComboboxPopup).toHaveBeenCalledWith('test-popup-id')
 })
 
 test('calls consumer onClick when button is clicked', () => {

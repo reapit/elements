@@ -4,7 +4,6 @@ import { useComboboxButton } from '../use-button'
 import { useComboboxContext } from '../context'
 
 import type { ComboboxContext } from '../context'
-import type { useComboboxButton as UseComboboxButtonType } from '../use-button'
 
 vi.mock('../use-button')
 vi.mock('../context')
@@ -48,7 +47,7 @@ test('renders toggle popup button when no selections exist', () => {
   })
 
   render(<ComboboxSelectButton />)
-  expect(screen.getByRole('button', { name: 'Toggle popup' })).toBeVisible()
+  expect(screen.getByRole('button', { name: 'Open popup' })).toBeVisible()
 })
 
 test('renders clear button when selections exist', () => {
@@ -86,7 +85,7 @@ test('passes popupId to toggle button aria-controls', () => {
   })
 
   render(<ComboboxSelectButton />)
-  expect(screen.getByRole('button', { name: 'Toggle popup' })).toBeVisible()
+  expect(screen.getByRole('button', { name: 'Open popup' })).toBeVisible()
 })
 
 test('passes disabled state to clear button', () => {
@@ -114,7 +113,7 @@ test('passes disabled state to toggle popup button', () => {
   })
 
   render(<ComboboxSelectButton />)
-  expect(screen.getByRole('button', { name: 'Toggle popup' })).toBeDisabled()
+  expect(screen.getByRole('button', { name: 'Open popup' })).toBeDisabled()
 })
 
 test('calls useComboboxButton with onClick handler', () => {
@@ -163,7 +162,7 @@ const mockContextValue: ComboboxContext.Value = {
   required: false,
 }
 
-const mockButtonHookOutput: ReturnType<typeof UseComboboxButtonType> = {
+const mockButtonHookOutput: useComboboxButton.Output = {
   props: {
     'aria-controls': 'test-popup-id',
     'aria-expanded': false,

@@ -37,8 +37,6 @@ export function ComboboxButtonClearButton({
       iconLeft={<CloseIcon />}
       onClick={handleClick}
       size="small"
-      // Removed from tab order because this is primarily a visual addon
-      tabIndex={-1}
       variant="tertiary"
     />
   )

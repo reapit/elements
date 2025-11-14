@@ -1,5 +1,6 @@
 import { Combobox } from './combobox'
 import { SearchInput } from '#src/core/search-input'
+import { Text } from '#src/core/text'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -62,6 +63,29 @@ export const Autocomplete: Story = {
 }
 
 /**
+ * By default, the combobox popup will switch to a drawer experience on XS breakpoints. It can also be
+ * pinned to a popover or drawer using the `variant` prop.
+ */
+export const Drawer: Story = {
+  args: {
+    children: [
+      <Combobox.AutocompleteButton key="button" />,
+      <Combobox.Popup key="popup" variant="drawer">
+        <SearchInput />
+        <Combobox.Listbox>
+          <Combobox.Option value="option1">Option 1</Combobox.Option>
+          <Combobox.Option value="option2">Option 2</Combobox.Option>
+          <Combobox.Option value="option3">Option 3</Combobox.Option>
+        </Combobox.Listbox>
+      </Combobox.Popup>,
+    ],
+    disabled: false,
+    required: false,
+    showValidity: false,
+  },
+}
+
+/**
  * Demonstrates filtering preloaded options with a search input. To fetch options
  * dynamically, use the controlled search value in your request.
  */
@@ -98,7 +122,9 @@ export const Filtering: Story = {
                 </Combobox.Option>
               ))
             ) : (
-              <div style={{ padding: '8px', color: '#666' }}>No results found</div>
+              <Text colour="placeholder" style={{ padding: 'var(--spacing-2)' }}>
+                No results found
+              </Text>
             )}
           </Combobox.Listbox>
         </Combobox.Popup>
