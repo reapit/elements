@@ -22,13 +22,13 @@ test('can display a badge', () => {
   expect(screen.getByText('Badge')).toBeVisible()
 })
 
-test('can display supplementary information', () => {
+test('can display additional information', () => {
   render(
-    <ComboboxOption supplementaryInfo="Supplementary info" value="test-value">
+    <ComboboxOption additionalInfo="Additional info" value="test-value">
       Option text
     </ComboboxOption>,
   )
-  expect(screen.getByText('Supplementary info')).toBeVisible()
+  expect(screen.getByText('Additional info')).toBeVisible()
 })
 
 test('has an `aria-details` attribute when a badge and/or supplementary info are provided', () => {
@@ -40,18 +40,18 @@ test('has an `aria-details` attribute when a badge and/or supplementary info are
   expect(screen.getByRole('option')).toHaveAttribute('aria-details')
 })
 
-test('has an `aria-details` attribute when supplementary info is provided', () => {
+test('has an `aria-details` attribute when additional info is provided', () => {
   render(
-    <ComboboxOption supplementaryInfo="Supplementary info" value="test-value">
+    <ComboboxOption additionalInfo="Additional info" value="test-value">
       Option text
     </ComboboxOption>,
   )
   expect(screen.getByRole('option')).toHaveAttribute('aria-details')
 })
 
-test('has an `aria-details` attribute when both a badge and supplementary info are provided', () => {
+test('has an `aria-details` attribute when both a badge and additional info are provided', () => {
   render(
-    <ComboboxOption badge="Badge" supplementaryInfo="Supplementary info" value="test-value">
+    <ComboboxOption badge="Badge" additionalInfo="Additional info" value="test-value">
       Option text
     </ComboboxOption>,
   )

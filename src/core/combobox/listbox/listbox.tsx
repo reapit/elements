@@ -40,7 +40,7 @@ ComboboxListbox.displayName = 'Combobox.Listbox'
 ComboboxListbox.Divider = Listbox.Divider
 ComboboxListbox.Optgroup = ComboboxListboxOptgroup
 ComboboxListbox.Option = ComboboxListboxOption
-ComboboxListbox.OptionSupplementaryInfo = ComboboxListboxOption.SupplementaryInfo
+ComboboxListbox.OptionAdditionalInfo = ComboboxListboxOption.AdditionalInfo
 
 ComboboxListbox.clearValue = Listbox.clearValue
 ComboboxListbox.getOptionLabel = ComboboxListboxOption.getLabel

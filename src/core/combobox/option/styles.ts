@@ -77,7 +77,7 @@ export const ElComboboxOptionBadgeContainer = styled.span`
   align-items: center;
 `
 
-export const ElComboboxOptionSupplementaryInfoContainer = styled.span`
+export const ElComboboxOptionAdditionalInfoContainer = styled.span`
   grid-column: 1 / -1;
   display: flex;
   flex-flow: column nowrap;
@@ -89,13 +89,13 @@ export const ElComboboxOptionSupplementaryInfoContainer = styled.span`
   margin-block-start: var(--spacing-half);
 `
 
-export const ElComboboxOptionSupplementaryInfo = styled.span`
+export const ElComboboxOptionAdditionalInfo = styled.span`
   font: inherit;
   color: inherit;
   min-height: var(--size-5);
 `
 
-export const ElComboboxOptionSupplementaryInfoIconContainer = styled.span`
+export const ElComboboxOptionAdditionalInfoIconContainer = styled.span`
   box-sizing: content-box;
   display: inline-flex;
   align-items: center;

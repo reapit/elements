@@ -1,13 +1,13 @@
 import {
   ElComboboxOption,
+  ElComboboxOptionAdditionalInfoContainer,
   ElComboboxOptionBadgeContainer,
   ElComboboxOptionCheckIconContainer,
   ElComboboxOptionLabel,
   ElComboboxOptionTextContainer,
-  ElComboboxOptionSupplementaryInfoContainer,
 } from './styles'
 import { CheckIcon } from '#src/icons/check'
-import { ComboboxOptionSupplementaryInfo } from './option-supplementary-info'
+import { ComboboxOptionAdditionalInfo } from './option-additional-info'
 import { getOptionLabel } from './get-option-label'
 import { useId } from 'react'
 
@@ -22,8 +22,8 @@ export namespace ComboboxOption {
     badge?: ReactNode
     /** Option label text */
     children?: ReactNode
-    /** Supplementary info lines. Pass one or more `Combobox.OptionSupplementaryInfo` */
-    supplementaryInfo?: ReactNode
+    /** Additional info lines. Pass one or more `Combobox.OptionAdditionalInfo` */
+    additionalInfo?: ReactNode
     /** Option value */
     value: string
   }
@@ -32,14 +32,13 @@ export namespace ComboboxOption {
 /**
  * A Combobox option. Use via `Combobox.Option`.
  */
-export function ComboboxOption({ badge, children, supplementaryInfo, ...rest }: ComboboxOption.Props) {
+export function ComboboxOption({ badge, children, additionalInfo, ...rest }: ComboboxOption.Props) {
   const badgeId = useId()
   const labelId = useId()
-  const supplementaryInfoId = useId()
+  const additionalInfoId = useId()
 
-  // We only use the detail the option if the associated badge or supplementary info are present.
-  const ariaDetails =
-    [badge && badgeId, supplementaryInfo && supplementaryInfoId].filter((x) => !!x).join(' ') || undefined
+  // We only use the detail the option if the associated badge or additional info are present.
+  const ariaDetails = [badge && badgeId, additionalInfo && additionalInfoId].filter((x) => !!x).join(' ') || undefined
 
   return (
     <ElComboboxOption {...rest} aria-labelledby={labelId} aria-details={ariaDetails} role="option" type="button">
@@ -50,14 +49,14 @@ export function ComboboxOption({ badge, children, supplementaryInfo, ...rest }: 
         <ElComboboxOptionTextContainer id={labelId}>{children}</ElComboboxOptionTextContainer>
         {badge && <ElComboboxOptionBadgeContainer id={badgeId}>{badge}</ElComboboxOptionBadgeContainer>}
       </ElComboboxOptionLabel>
-      {supplementaryInfo && (
-        <ElComboboxOptionSupplementaryInfoContainer id={supplementaryInfoId}>
-          {supplementaryInfo}
-        </ElComboboxOptionSupplementaryInfoContainer>
+      {additionalInfo && (
+        <ElComboboxOptionAdditionalInfoContainer id={additionalInfoId}>
+          {additionalInfo}
+        </ElComboboxOptionAdditionalInfoContainer>
       )}
     </ElComboboxOption>
   )
 }
 
 ComboboxOption.getOptionLabel = getOptionLabel
-ComboboxOption.SupplementaryInfo = ComboboxOptionSupplementaryInfo
+ComboboxOption.AdditionalInfo = ComboboxOptionAdditionalInfo

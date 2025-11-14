@@ -76,5 +76,5 @@ Combobox.Popup = ComboboxPopup
 Combobox.Listbox = ComboboxListbox
 Combobox.Option = ComboboxListbox.Option
 Combobox.Optgroup = ComboboxListbox.Optgroup
-Combobox.OptionSupplementaryInfo = ComboboxListbox.OptionSupplementaryInfo
+Combobox.OptionSupplementaryInfo = ComboboxListbox.OptionAdditionalInfo
 Combobox.Divider = ComboboxListbox.Divider

@@ -1,33 +1,33 @@
-import { ComboboxOptionSupplementaryInfo } from '../option-supplementary-info'
+import { ComboboxOptionAdditionalInfo } from '../option-additional-info'
 import { render, screen } from '@testing-library/react'
 
 test('renders as a span element', () => {
-  const { container } = render(<ComboboxOptionSupplementaryInfo>Text</ComboboxOptionSupplementaryInfo>)
+  const { container } = render(<ComboboxOptionAdditionalInfo>Text</ComboboxOptionAdditionalInfo>)
   const span = container.querySelector('span')
   expect(span?.tagName).toBe('SPAN')
   expect(span).toBeVisible()
 })
 
 test('can display supplementary info text', () => {
-  render(<ComboboxOptionSupplementaryInfo>Supplementary text</ComboboxOptionSupplementaryInfo>)
+  render(<ComboboxOptionAdditionalInfo>Supplementary text</ComboboxOptionAdditionalInfo>)
   expect(screen.getByText('Supplementary text')).toBeVisible()
 })
 
 test('can display an icon', () => {
-  render(<ComboboxOptionSupplementaryInfo icon="Icon">Text</ComboboxOptionSupplementaryInfo>)
+  render(<ComboboxOptionAdditionalInfo icon="Icon">Text</ComboboxOptionAdditionalInfo>)
   expect(screen.getByText('Icon')).toBeVisible()
 })
 
 test('can display a badge', () => {
-  render(<ComboboxOptionSupplementaryInfo badge="Badge">Text</ComboboxOptionSupplementaryInfo>)
+  render(<ComboboxOptionAdditionalInfo badge="Badge">Text</ComboboxOptionAdditionalInfo>)
   expect(screen.getByText('Badge')).toBeVisible()
 })
 
 test('can display an icon, supplementary text and a badge', () => {
   render(
-    <ComboboxOptionSupplementaryInfo icon="Icon" badge="Badge">
+    <ComboboxOptionAdditionalInfo icon="Icon" badge="Badge">
       Text
-    </ComboboxOptionSupplementaryInfo>,
+    </ComboboxOptionAdditionalInfo>,
   )
   expect(screen.getByText('Icon')).toBeVisible()
   expect(screen.getByText('Text')).toBeVisible()
@@ -35,20 +35,20 @@ test('can display an icon, supplementary text and a badge', () => {
 })
 
 test('does not render icon container when icon is not provided', () => {
-  const { container } = render(<ComboboxOptionSupplementaryInfo>Text</ComboboxOptionSupplementaryInfo>)
+  const { container } = render(<ComboboxOptionAdditionalInfo>Text</ComboboxOptionAdditionalInfo>)
 
   const iconContainer = container.querySelector('.el-combobox-option-supplementary-info-icon-container')
   expect(iconContainer).toBeNull()
 })
 
 test('does not render badge container when badge is not provided', () => {
-  const { container } = render(<ComboboxOptionSupplementaryInfo>Text</ComboboxOptionSupplementaryInfo>)
+  const { container } = render(<ComboboxOptionAdditionalInfo>Text</ComboboxOptionAdditionalInfo>)
 
   const badgeContainer = container.querySelector('.el-combobox-option-badge-container')
   expect(badgeContainer).toBeNull()
 })
 
 test('forwards additional props to the span element', () => {
-  render(<ComboboxOptionSupplementaryInfo data-testid="custom-info">Text</ComboboxOptionSupplementaryInfo>)
+  render(<ComboboxOptionAdditionalInfo data-testid="custom-info">Text</ComboboxOptionAdditionalInfo>)
   expect(screen.getByTestId('custom-info')).toBeVisible()
 })

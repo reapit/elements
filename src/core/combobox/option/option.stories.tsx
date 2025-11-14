@@ -27,34 +27,34 @@ const meta = {
     children: {
       control: false,
     },
-    supplementaryInfo: {
+    additionalInfo: {
       control: 'radio',
       options: ['None', 'One line', 'Two lines'],
       mapping: {
         None: undefined,
         'One line': (
-          <ComboboxOption.SupplementaryInfo
+          <ComboboxOption.AdditionalInfo
             badge={<Badge colour="neutral">Badge</Badge>}
             icon={<StarIcon aria-label="Preferred" />}
           >
             Optional info
-          </ComboboxOption.SupplementaryInfo>
+          </ComboboxOption.AdditionalInfo>
         ),
         'Two lines': [
-          <ComboboxOption.SupplementaryInfo
+          <ComboboxOption.AdditionalInfo
             key="1"
             badge={<Badge colour="neutral">Badge</Badge>}
             icon={<StarIcon aria-label="Preferred" />}
           >
             Optional info
-          </ComboboxOption.SupplementaryInfo>,
-          <ComboboxOption.SupplementaryInfo
+          </ComboboxOption.AdditionalInfo>,
+          <ComboboxOption.AdditionalInfo
             key="2"
             badge={<Badge colour="neutral">Badge</Badge>}
             icon={<StarIcon aria-label="Favourite" />}
           >
             Optional info
-          </ComboboxOption.SupplementaryInfo>,
+          </ComboboxOption.AdditionalInfo>,
         ],
       },
     },
@@ -73,7 +73,7 @@ export const Example: Story = {
     'aria-selected': undefined,
     badge: 'None',
     children: 'Label',
-    supplementaryInfo: 'None',
+    additionalInfo: 'None',
     value: 'option-1',
   },
 }
@@ -116,7 +116,7 @@ export const Badges: Story = {
 export const SupplementaryInfo: Story = {
   args: {
     ...Example.args,
-    supplementaryInfo: 'Two lines',
+    additionalInfo: 'Two lines',
   },
 }
 
@@ -129,13 +129,13 @@ export const Wrapping: Story = {
     ...Selected.args,
     badge: <Badge colour="neutral">Commercial</Badge>,
     children: '456B Heritage Boulevard, Upper Brookfield Heights, Brisbane QLD 4069',
-    supplementaryInfo: [
-      <ComboboxOption.SupplementaryInfo key="1" badge={<Badge colour="inactive">Sales</Badge>}>
+    additionalInfo: [
+      <ComboboxOption.AdditionalInfo key="1" badge={<Badge colour="inactive">Sales</Badge>}>
         John Smith
-      </ComboboxOption.SupplementaryInfo>,
-      <ComboboxOption.SupplementaryInfo key="2" badge={<Badge colour="inactive">Owner</Badge>}>
+      </ComboboxOption.AdditionalInfo>,
+      <ComboboxOption.AdditionalInfo key="2" badge={<Badge colour="inactive">Owner</Badge>}>
         Sarah Johnson
-      </ComboboxOption.SupplementaryInfo>,
+      </ComboboxOption.AdditionalInfo>,
     ],
   },
   decorators: [

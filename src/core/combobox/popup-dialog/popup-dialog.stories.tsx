@@ -33,14 +33,14 @@ const meta = {
             <ComboboxListbox.Optgroup label="Recommended">
               <ComboboxListbox.Option
                 badge={<Badge colour="neutral">Commercial</Badge>}
-                supplementaryInfo={
+                additionalInfo={
                   <>
-                    <ComboboxListbox.OptionSupplementaryInfo badge={<Badge colour="inactive">Sales</Badge>}>
+                    <ComboboxListbox.OptionAdditionalInfo badge={<Badge colour="inactive">Sales</Badge>}>
                       John Smith
-                    </ComboboxListbox.OptionSupplementaryInfo>
-                    <ComboboxListbox.OptionSupplementaryInfo badge={<Badge colour="inactive">Owner</Badge>}>
+                    </ComboboxListbox.OptionAdditionalInfo>
+                    <ComboboxListbox.OptionAdditionalInfo badge={<Badge colour="inactive">Owner</Badge>}>
                       Sarah Johnson
-                    </ComboboxListbox.OptionSupplementaryInfo>
+                    </ComboboxListbox.OptionAdditionalInfo>
                   </>
                 }
                 value="1"
@@ -52,14 +52,14 @@ const meta = {
             <ComboboxListbox.Optgroup label="All">
               <ComboboxListbox.Option
                 badge={<Badge colour="neutral">Residential</Badge>}
-                supplementaryInfo={
+                additionalInfo={
                   <>
-                    <ComboboxListbox.OptionSupplementaryInfo badge={<Badge colour="inactive">Sales</Badge>}>
+                    <ComboboxListbox.OptionAdditionalInfo badge={<Badge colour="inactive">Sales</Badge>}>
                       Bob Brown
-                    </ComboboxListbox.OptionSupplementaryInfo>
-                    <ComboboxListbox.OptionSupplementaryInfo badge={<Badge colour="inactive">Owner</Badge>}>
+                    </ComboboxListbox.OptionAdditionalInfo>
+                    <ComboboxListbox.OptionAdditionalInfo badge={<Badge colour="inactive">Owner</Badge>}>
                       Betty White
-                    </ComboboxListbox.OptionSupplementaryInfo>
+                    </ComboboxListbox.OptionAdditionalInfo>
                   </>
                 }
                 value="2"
@@ -68,10 +68,10 @@ const meta = {
               </ComboboxListbox.Option>
               <ComboboxListbox.Option
                 badge={<Badge colour="neutral">Residential</Badge>}
-                supplementaryInfo={
-                  <ComboboxListbox.OptionSupplementaryInfo badge={<Badge colour="inactive">Owner</Badge>}>
+                additionalInfo={
+                  <ComboboxListbox.OptionAdditionalInfo badge={<Badge colour="inactive">Owner</Badge>}>
                     Bernard Black
-                  </ComboboxListbox.OptionSupplementaryInfo>
+                  </ComboboxListbox.OptionAdditionalInfo>
                 }
                 value="3"
               >

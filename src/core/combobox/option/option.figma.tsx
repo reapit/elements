@@ -11,10 +11,10 @@ figma.connect(ComboboxOption, '<COMBOBOX_OPTION_URL>', {
       false: undefined,
     }),
     label: figma.string('Label'),
-    supplementaryInfo: figma.children('Additional info *'),
+    additionalInfo: figma.children('Additional info *'),
   },
   example: (props) => (
-    <ComboboxOption badge={props.badge} supplementaryInfo={props.supplementaryInfo} value="REPLACE ME">
+    <ComboboxOption badge={props.badge} additionalInfo={props.additionalInfo} value="REPLACE ME">
       {props.label}
     </ComboboxOption>
   ),

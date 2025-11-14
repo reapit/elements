@@ -4,7 +4,7 @@ import { render, screen } from '@testing-library/react'
 
 test('returns the label text when aria-labelledby is present', () => {
   render(
-    <ComboboxOption badge="Badge" supplementaryInfo="Supplementary info" value="1">
+    <ComboboxOption badge="Badge" additionalInfo="Supplementary info" value="1">
       Option 1
     </ComboboxOption>,
   )

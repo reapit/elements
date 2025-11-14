@@ -29,9 +29,7 @@ const meta = {
                   Badge
                 </Badge>
               }
-              supplementaryInfo={
-                <ComboboxOption.SupplementaryInfo>Supplementary info</ComboboxOption.SupplementaryInfo>
-              }
+              additionalInfo={<ComboboxOption.AdditionalInfo>Supplementary info</ComboboxOption.AdditionalInfo>}
               value="option-1"
             >
               Option 1
@@ -42,9 +40,7 @@ const meta = {
                   Badge
                 </Badge>
               }
-              supplementaryInfo={
-                <ComboboxOption.SupplementaryInfo>Supplementary info</ComboboxOption.SupplementaryInfo>
-              }
+              additionalInfo={<ComboboxOption.AdditionalInfo>Supplementary info</ComboboxOption.AdditionalInfo>}
               value="option-2"
             >
               Option 2
@@ -55,9 +51,7 @@ const meta = {
                   Badge
                 </Badge>
               }
-              supplementaryInfo={
-                <ComboboxOption.SupplementaryInfo>Supplementary info</ComboboxOption.SupplementaryInfo>
-              }
+              additionalInfo={<ComboboxOption.AdditionalInfo>Supplementary info</ComboboxOption.AdditionalInfo>}
               value="option-3"
             >
               Option 3
