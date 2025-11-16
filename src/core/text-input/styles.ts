@@ -13,6 +13,7 @@ interface ElTextInputContainerProps {
 }
 
 export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
+  position: relative;
   display: inline-flex;
   align-items: center;
   max-width: var(--input-max-width, 100%);
@@ -109,12 +110,17 @@ interface ElTextInputProps {
 }
 
 export const ElTextInput = styled.input<ElTextInputProps>`
+  position: absolute;
+  inset: 0;
+
   appearance: none;
   background: transparent;
 
   width: 100%;
   /* NOTE: --input-max-width comes from ElTextInputContainer */
   max-width: var(--input-max-width, 100%);
+
+  padding-inline: var(--input-padding-inline-start) var(--input-padding-inline-end);
 
   height: 100%;
   border: none;
@@ -150,26 +156,31 @@ export const ElTextInput = styled.input<ElTextInputProps>`
 
   /* No icons/affixes */
   &:only-child {
-    padding-inline: var(--spacing-3);
+    --input-padding-inline-start: var(--spacing-3);
+    --input-padding-inline-end: var(--spacing-3);
   }
 
   /* Leading and trailing icons/affixes */
   &:not(:only-child) {
-    padding-inline: var(--spacing-2);
+    --input-padding-inline-start: calc(var(--spacing-2) + var(--input-icon-size) + var(--input-icon-inline_padding));
+    --input-padding-inline-end: calc(var(--spacing-2) + var(--input-icon-size) + var(--input-icon-inline_padding));
   }
 
   /* Trailing icon or suffix only */
   &:first-child:not(:only-child) {
-    padding-inline: var(--spacing-3) var(--spacing-2);
+    --input-padding-inline-start: var(--spacing-3);
+    --input-padding-inline-end: calc(var(--spacing-2) + var(--input-icon-size) + var(--input-icon-inline_padding));
   }
 
   /* Leading icon or prefix only */
   &:last-child:not(:only-child) {
-    padding-inline: var(--spacing-2) var(--spacing-3);
+    --input-padding-inline-start: calc(var(--spacing-2) + var(--input-icon-size) + var(--input-icon-inline_padding));
+    --input-padding-inline-end: var(--spacing-3);
   }
 `
 
 export const ElTextInputIconContainer = styled.span`
+  position: absolute;
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -181,22 +192,27 @@ export const ElTextInputIconContainer = styled.span`
   color: var(--input-icon-colour);
 
   &:first-child {
+    left: 0;
     padding-inline-start: var(--input-icon-inline_padding);
   }
   &:last-child {
+    right: 0;
     padding-inline-end: var(--input-icon-inline_padding);
   }
 `
 
 export const ElTextInputAffixContainer = styled.span`
+  position: absolute;
   font: inherit;
 
   color: var(--input-affix-colour);
 
   &:first-child {
+    left: 0;
     padding-inline-start: var(--input-affix-inline_padding);
   }
   &:last-child {
+    right: 0;
     padding-inline-end: var(--input-affix-inline_padding);
   }
 `

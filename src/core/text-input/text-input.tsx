@@ -12,7 +12,7 @@ import type { InputHTMLAttributes, ReactNode } from 'react'
 
 // NOTE: we omit...
 // - prefix, because we want to use it for our own purposes.
-// - size, because checkbox inputs don't support sizing.
+// - size, because we want to use it for our own purposes.
 type AttributesToOmit = 'prefix' | 'size'
 
 export namespace TextInput {
@@ -66,7 +66,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInput.Props>(
       maxWidth,
       prefix,
       showValidity,
-      size,
+      size = 'medium',
       style,
       suffix,
       trailingIcon,
