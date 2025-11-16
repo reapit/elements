@@ -1,5 +1,5 @@
 import { AtAGlanceCardContent } from './card-content'
-import { PropertyIcon } from '#src/icons/property'
+import { SproutIcon } from '#src/icons/sprout'
 import { Text } from '#src/core/text'
 import { useState } from 'react'
 
@@ -14,10 +14,10 @@ const meta: Meta<typeof AtAGlanceCardContent> = {
     },
     icon: {
       control: 'radio',
-      options: ['None', 'Property'],
+      options: ['None', 'Sprout'],
       mapping: {
         None: undefined,
-        Property: <PropertyIcon />,
+        Sprout: <SproutIcon />,
       },
     },
     label: {
@@ -41,7 +41,7 @@ type Story = StoryObj<typeof meta>
  */
 export const Example: Story = {
   args: {
-    icon: 'Property',
+    icon: 'Sprout',
     description: 'Crunchy and Juicy',
     label: 'Apple',
     layout: 'vertical',
@@ -188,7 +188,7 @@ export const Wrapping: Story = {
 /**
  * With vertical and compact layouts, the value is always aligned to the bottom of the card. When
  * multiple cards are displayed in a row using a flex or grid layout, they will automatically stretch
- * to match the height of the tallest card. This ensures all values align horizontally at the bottom,
+ * to match the height of the tallest card. This ensures all values align with each other at the bottom,
  * even when cards contain different amounts of label and description content.
  */
 export const Alignment: Story = {

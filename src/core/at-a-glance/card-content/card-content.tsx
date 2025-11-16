@@ -10,15 +10,15 @@ import {
 export namespace AtAGlanceCardContent {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /** Optional description text. */
-    description?: string
+    description?: ReactNode
     /** Optional icon to display. */
     icon?: ReactNode
     /** The label text for the card content. */
-    label: string
+    label: ReactNode
     /** The layout for the card content. */
     layout?: 'vertical' | 'horizontal' | 'compact'
     /** The value to display. */
-    value: string
+    value: ReactNode
   }
 }
 
