@@ -1,4 +1,4 @@
-import { ElTextArea } from '../styles'
+import { ElTextarea } from '../styles'
 import { forwardRef } from 'react'
 
 import type { BaseTextareaProps, ManualFieldSizing } from '../types'
@@ -27,7 +27,7 @@ export type ManualFieldSizingTextAreaProps = TextareaWithManualSizing.Props
 export const TextareaWithManualSizing = forwardRef<HTMLTextAreaElement, TextareaWithManualSizing.Props>(
   ({ fieldSizing, initialRows = 2, showValidity, size = 'medium', ...rest }, ref) => {
     return (
-      <ElTextArea
+      <ElTextarea
         {...rest}
         data-field-sizing={fieldSizing}
         data-show-validity={!!showValidity}

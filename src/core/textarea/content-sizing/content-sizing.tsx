@@ -1,4 +1,4 @@
-import { ElShadowTextArea, ElTextArea } from '../styles'
+import { ElShadowTextarea, ElTextarea } from '../styles'
 import { forwardRef, useRef } from 'react'
 import isCSSContentFieldSizingSupported from './is-css-content-fieldsizing-supported'
 import mergeRefs from '#src/helpers/mergeRefs'
@@ -74,7 +74,7 @@ export const TextareaWithContentSizing = forwardRef<HTMLTextAreaElement, Textare
 
     return (
       <>
-        <ElTextArea
+        <ElTextarea
           {...rest}
           data-field-sizing={fieldSizing}
           data-show-validity={!!showValidity}
@@ -92,7 +92,7 @@ export const TextareaWithContentSizing = forwardRef<HTMLTextAreaElement, Textare
           // NOTE: This "shadow" text area is used to help size the visible text area above. Once the
           // CSS [field-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing)
           // property becomes more widely available, we won't need this at all.
-          <ElShadowTextArea
+          <ElShadowTextarea
             aria-hidden
             data-field-sizing={fieldSizing}
             data-show-validity={!!showValidity}

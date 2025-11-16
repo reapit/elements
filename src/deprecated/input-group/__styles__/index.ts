@@ -2,7 +2,7 @@ import { styled } from '@linaria/react'
 import { ElDeprecatedIcon } from '../../icon/__styles__'
 import { ElDeprecatedLabel } from '../../label/__styles__'
 import { ElInput, elHasInputError } from '../../input/__styles__'
-import { ElTextArea } from '../../../core/textarea'
+import { ElTextarea } from '../../../core/textarea'
 import { ElSelect } from '../../select/__styles__'
 import { ElInputAddOn } from '../../input-add-on/__styles__'
 import { ElToggleRadioWrap, ElToggleLabel } from '../../toggle/__styles__'
@@ -45,7 +45,7 @@ export const ElInputGroup = styled.div`
     padding-left: 0;
   }
 
-  ${ElInput}, ${ElTextArea}, ${ElSelect} {
+  ${ElInput}, ${ElTextarea}, ${ElSelect} {
     order: 3;
   }
 
@@ -104,7 +104,7 @@ export const ElInputGroup = styled.div`
     padding: 0;
   }
 
-  ${ElTextArea}:has(~ ${ElInputAddOn}),
+  ${ElTextarea}:has(~ ${ElInputAddOn}),
   ${ElSelect}:has(~ ${ElInputAddOn}),
   ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElInputAddOn}) {
     border-right: none;
@@ -112,7 +112,7 @@ export const ElInputGroup = styled.div`
     border-bottom-right-radius: 0;
   }
 
-  ${ElTextArea},
+  ${ElTextarea},
   ${ElSelect},
   ${ElInput}:not([type='checkbox']):not([type='radio']) {
     &:focus {

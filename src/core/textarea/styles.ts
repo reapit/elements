@@ -1,21 +1,22 @@
+import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
+
 import type { ContentFieldSizing, FixedFieldSizing, ManualFieldSizing } from './types'
 import type { CSSProperties } from 'react'
-import { font } from '../text/font'
 
-interface TextAreaCSSProperties extends CSSProperties {
+interface TextareaCSSProperties extends CSSProperties {
   '--textarea-max-rows'?: number
   '--textarea-min-rows'?: number
 }
 
-export interface ElTextAreaProps {
+export interface ElTextareaProps {
   'data-field-sizing': ContentFieldSizing | FixedFieldSizing | ManualFieldSizing
   'data-show-validity': boolean
   'data-size': 'small' | 'medium' | 'large'
-  style?: TextAreaCSSProperties
+  style?: TextareaCSSProperties
 }
 
-export const ElTextArea = styled.textarea<ElTextAreaProps>`
+export const ElTextarea = styled.textarea<ElTextareaProps>`
   /* NOTE: These are public CSS variables that we use to allow CSS-only consumers
    * to define the maximum and minimum rows the text area should resize between.
    * We do this ourselves instead of leveraging Linaria's dynamic styles because
@@ -128,7 +129,7 @@ export const ElTextArea = styled.textarea<ElTextAreaProps>`
   }
 `
 
-export const ElShadowTextArea = styled(ElTextArea)`
+export const ElShadowTextarea = styled(ElTextarea)`
   position: absolute;
   height: 0;
   left: 0;
