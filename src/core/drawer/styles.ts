@@ -15,7 +15,7 @@ export const ElDrawer = styled.dialog`
   container-name: ${DRAWER_CSS_CONTAINER_NAME};
   container-type: size;
 
-  background: var(--fill-white);
+  background: var(--colour-fill-white);
   border: none;
   padding: 0;
 

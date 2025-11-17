@@ -67,6 +67,7 @@ export namespace Drawer {
  * section of MDN's `<dialog>` documentation.
  */
 export function Drawer({
+  'aria-label': ariaLabel,
   'aria-labelledby': ariaLabelledBy,
   children,
   closedBy = 'closerequest',
@@ -94,7 +95,16 @@ export function Drawer({
   const onClose = useWithStopPropagation(onCloseProp)
 
   return (
-    <ElDrawer {...rest} aria-labelledby={ariaLabelledBy ?? titleId} ref={ref} onCancel={onCancel} onClose={onClose}>
+    <ElDrawer
+      {...rest}
+      // NOTE: we do not wire-up aria-labelledby when aria-label is provided. By default, aria-labelledby takes
+      // precedence. See https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label#:~:text=aria%2Dlabelledby%20will%20take%20precedence%20over%20aria%2Dlabel%20if%20both%20are%20applied
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabel ? undefined : (ariaLabelledBy ?? titleId)}
+      ref={ref}
+      onCancel={onCancel}
+      onClose={onClose}
+    >
       <DrawerContext.Provider value={{ titleId }}>
         {/*
          * Note: We only mount children when the drawer is open. This is because drawer content will often fetch

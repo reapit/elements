@@ -4,7 +4,7 @@ export const elIcon = css`
   fill: currentColor;
 
   /* NOTE: necessary when used in an inline or inline-block layout */
-  vertical-align: middle;
+  vertical-align: text-bottom;
 
   /* NOTE: we place these styles inside a layer to allow them to be easily overridden
    * by a consumer-supplied class that would otherwise have a lower specificity and

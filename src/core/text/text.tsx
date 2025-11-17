@@ -100,8 +100,8 @@ export function Text({
       className={cx(elText, className)}
       data-colour={colour}
       data-overflow={overflow}
-      data-font-size={useDeprecatedProps ? deprecatedSizeProp ?? 'base' : size}
-      data-font-weight={useDeprecatedProps ? deprecatedWeightProp ?? 'regular' : weight}
+      data-font-size={useDeprecatedProps ? (deprecatedSizeProp ?? 'base') : size}
+      data-font-weight={useDeprecatedProps ? (deprecatedWeightProp ?? 'regular') : weight}
       {...(rest as HTMLAttributes<HTMLElement>)}
     />
   )
