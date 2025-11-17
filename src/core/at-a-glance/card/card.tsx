@@ -7,6 +7,8 @@ export namespace AtAGlanceCard {
     children: ReactNode
     /** Maximum width of the card. */
     maxWidth?: string
+    /** Minimum width of the card. */
+    minWidth?: string
   }
 }
 
@@ -14,9 +16,9 @@ export namespace AtAGlanceCard {
  * A simple card container for displaying at-a-glance information.
  * Use with `AtAGlance.CardContent` as children to display structured data.
  */
-export function AtAGlanceCard({ children, maxWidth, style, ...rest }: AtAGlanceCard.Props) {
+export function AtAGlanceCard({ children, maxWidth, minWidth, style, ...rest }: AtAGlanceCard.Props) {
   return (
-    <ElAtAGlanceCard style={{ ...style, maxWidth }} {...rest}>
+    <ElAtAGlanceCard style={{ ...style, maxWidth, minWidth }} {...rest}>
       {children}
     </ElAtAGlanceCard>
   )

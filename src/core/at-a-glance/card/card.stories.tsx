@@ -100,6 +100,17 @@ export const Link: Story = {
 }
 
 /**
+ * The minimum and maximum width of the card can be specified. This example demonstrates a
+ * maximum width. Both constraints are useful in the context of grid and carousel layouts of cards.
+ */
+export const Width: Story = {
+  args: {
+    children: <AtAGlanceCardContent label="Apple" layout="horizontal" value="32" />,
+    maxWidth: '150px',
+  },
+}
+
+/**
  * The card works with all three layouts of `AtAGlance.CardContent`:
  * `vertical`, `compact`, and `horizontal`.
  */
