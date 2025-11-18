@@ -10,8 +10,19 @@ export namespace AtAGlanceCardLink {
 }
 
 /**
- * A link styled for use within AtAGlance.Card as a value. The link expands to make the
- * entire card clickable.
+ * A link styled for use within `AtAGlance.Card`. Wrap `AtAGlance.CardContent` with this
+ * component to make the entire card clickable.
+ *
+ * @example
+ * <AtAGlance.Card>
+ *   <AtAGlance.CardLink href="/details">
+ *     <AtAGlance.CardContent
+ *       label="Total Sales"
+ *       value="$12,345"
+ *       description="Last 30 days"
+ *     />
+ *   </AtAGlance.CardLink>
+ * </AtAGlance.Card>
  */
 export function AtAGlanceCardLink(props: AtAGlanceCardLink.Props) {
   return <ElAtAGlanceCardLink {...props} />

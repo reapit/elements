@@ -88,13 +88,25 @@ function buildCards(count: 2 | 3 | 4 | 5 | 6 | 7 | 8, { layout, variant }: Build
 
   return cards.slice(0, count).map((item) => (
     <AtAGlanceCarousel.Item key={item.label}>
-      <AtAGlanceCardContent
-        description={item.description}
-        icon={<SproutIcon />}
-        label={item.label}
-        layout={layout}
-        value={variant === 'simple' ? item.value : <AtAGlanceCardLink href={href}>{item.value}</AtAGlanceCardLink>}
-      />
+      {variant === 'simple' ? (
+        <AtAGlanceCardContent
+          description={item.description}
+          icon={<SproutIcon />}
+          label={item.label}
+          layout={layout}
+          value={item.value}
+        />
+      ) : (
+        <AtAGlanceCardLink href={href}>
+          <AtAGlanceCardContent
+            description={item.description}
+            icon={<SproutIcon />}
+            label={item.label}
+            layout={layout}
+            value={item.value}
+          />
+        </AtAGlanceCardLink>
+      )}
     </AtAGlanceCarousel.Item>
   ))
 }

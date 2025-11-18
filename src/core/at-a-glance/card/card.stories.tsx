@@ -25,22 +25,26 @@ const meta: Meta<typeof AtAGlanceCard> = {
           />
         ),
         Link: (
-          <AtAGlanceCardContent
-            description="Crunchy and Juicy"
-            icon={<SproutIcon />}
-            label="Apple"
-            layout="vertical"
-            value={<AtAGlanceCardLink href="#">32</AtAGlanceCardLink>}
-          />
+          <AtAGlanceCardLink href="#">
+            <AtAGlanceCardContent
+              description="Crunchy and Juicy"
+              icon={<SproutIcon />}
+              label="Apple"
+              layout="vertical"
+              value="32"
+            />
+          </AtAGlanceCardLink>
         ),
         Selectable: (
-          <AtAGlanceCardContent
-            description="Crunchy and Juicy"
-            icon={<SproutIcon />}
-            label="Apple"
-            layout="vertical"
-            value={<AtAGlanceCardLink href="#">32</AtAGlanceCardLink>}
-          />
+          <AtAGlanceCardLink href="#">
+            <AtAGlanceCardContent
+              description="Crunchy and Juicy"
+              icon={<SproutIcon />}
+              label="Apple"
+              layout="vertical"
+              value="32"
+            />
+          </AtAGlanceCardLink>
         ),
         Compact: (
           <AtAGlanceCardContent
@@ -83,18 +87,22 @@ export const Example: Story = {
 }
 
 /**
- * When the card has a descendant `AtAGlance.CardLink`, it will appear interactive.
+ * Wrap the entire `AtAGlance.CardContent` with `AtAGlance.CardLink` to make the
+ * entire card clickable. This follows accessibility best practices by allowing
+ * the link to contain semantic markup like headings.
  */
 export const Link: Story = {
   args: {
     children: (
-      <AtAGlanceCardContent
-        description="Crunchy and Juicy"
-        icon={<SproutIcon />}
-        label="Apple"
-        layout="vertical"
-        value={<AtAGlanceCardLink href="#">32</AtAGlanceCardLink>}
-      />
+      <AtAGlanceCardLink href={globalThis.top?.location?.href!}>
+        <AtAGlanceCardContent
+          description="Crunchy and Juicy"
+          icon={<SproutIcon />}
+          label="Apple"
+          layout="vertical"
+          value="32"
+        />
+      </AtAGlanceCardLink>
     ),
   },
 }

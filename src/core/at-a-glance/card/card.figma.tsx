@@ -35,13 +35,15 @@ figma.connect(AtAGlanceCard, '<AT_A_GLANCE_CARD_URL>', {
   },
   example: (props) => (
     <AtAGlanceCard>
-      <AtAGlanceCardContent
-        icon={props.contentProps.icon}
-        description={props.contentProps.description}
-        label={props.contentProps.label}
-        layout={props.contentProps.layout}
-        value={<AtAGlanceCardLink href="<REPLACE ME>">{props.contentProps.value}</AtAGlanceCardLink>}
-      />
+      <AtAGlanceCardLink href="<REPLACE ME>">
+        <AtAGlanceCardContent
+          icon={props.contentProps.icon}
+          description={props.contentProps.description}
+          label={props.contentProps.label}
+          layout={props.contentProps.layout}
+          value={props.contentProps.value}
+        />
+      </AtAGlanceCardLink>
     </AtAGlanceCard>
   ),
 })

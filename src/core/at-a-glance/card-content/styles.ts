@@ -8,6 +8,7 @@ interface ElAtAGlanceCardContentProps {
 export const ElAtAGlanceCardContent = styled.div<ElAtAGlanceCardContentProps>`
   display: grid;
   align-self: stretch;
+  padding: var(--spacing-5);
 
   &[data-layout='vertical'] {
     grid:
@@ -16,9 +17,9 @@ export const ElAtAGlanceCardContent = styled.div<ElAtAGlanceCardContentProps>`
       'description' min-content
       'value' auto / 1fr;
 
-    --aag-icon-padding: 0 0 var(--spacing-2) 0;
-    --aag-value-align-self: end;
-    --aag-value-padding: var(--spacing-1) 0 0 0;
+    --aag-card-content-icon-padding: 0 0 var(--spacing-2) 0;
+    --aag-card-content-value-align-self: end;
+    --aag-card-content-value-padding: var(--spacing-1) 0 0 0;
   }
 
   &[data-layout='compact'] {
@@ -27,9 +28,9 @@ export const ElAtAGlanceCardContent = styled.div<ElAtAGlanceCardContentProps>`
       'icon description' minmax(0, min-content)
       '. value' auto / min-content 1fr auto;
 
-    --aag-icon-padding: 0 var(--spacing-4) 0 0;
-    --aag-value-align-self: end;
-    --aag-value-padding: var(--spacing-1) 0 0 0;
+    --aag-card-content-icon-padding: 0 var(--spacing-4) 0 0;
+    --aag-card-content-value-align-self: end;
+    --aag-card-content-value-padding: var(--spacing-1) 0 0 0;
   }
 
   &[data-layout='horizontal'] {
@@ -37,10 +38,11 @@ export const ElAtAGlanceCardContent = styled.div<ElAtAGlanceCardContentProps>`
       'icon label value' min-content
       'icon description value' minmax(0, min-content) / min-content 1fr;
     align-items: center;
+    align-content: center;
 
-    --aag-icon-padding: 0 var(--spacing-4) 0 0;
-    --aag-value-align-self: auto;
-    --aag-value-padding: 0 0 0 var(--spacing-1);
+    --aag-card-content-icon-padding: 0 var(--spacing-4) 0 0;
+    --aag-card-content-value-align-self: auto;
+    --aag-card-content-value-padding: 0 0 0 var(--spacing-1);
   }
 `
 
@@ -52,7 +54,7 @@ export const ElAtAGlanceCardContentIcon = styled.div`
   justify-content: center;
   width: var(--icon_size-l);
   height: var(--icon_size-l);
-  padding: var(--aag-icon-padding);
+  padding: var(--aag-card-content-icon-padding);
   color: var(--colour-icon-primary);
 `
 
@@ -78,12 +80,13 @@ export const ElAtAGlanceCardContentDescription = styled.p`
 
 export const ElAtAGlanceCardContentValue = styled.p`
   grid-area: value;
-  align-self: var(--aag-value-align-self);
+  align-self: var(--aag-card-content-value-align-self);
 
-  color: var(--colour-text-primary);
+  /* --aag-card-content-value-colour can be defined by parent components like AtAGlanceCardLink */
+  color: var(--aag-card-content-value-colour, var(--colour-text-primary));
   ${font('2xl', 'bold')}
   white-space: nowrap;
 
   margin: 0;
-  padding: var(--aag-value-padding);
+  padding: var(--aag-card-content-value-padding);
 `

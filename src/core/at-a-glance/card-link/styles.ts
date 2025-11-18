@@ -1,17 +1,19 @@
-import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
 export const ElAtAGlanceCardLink = styled.a`
-  ${font('2xl', 'bold')}
-  color: var(--colour-text-action);
+  /* --aag-card-content-value-colour is consumed by AtAGlanceCardContent */
+  --aag-card-content-value-colour: var(--colour-text-action);
+  --aag-card-link-background-colour: var(--colour-fill-white);
+
+  /* Align to AtAGlanceCard's grid layout */
+  display: grid;
+  grid: subgrid / subgrid;
+  background-color: var(--aag-card-link-background-colour);
   text-decoration: none;
-  /* Focus styles are provided by ElAtAGlanceCard. */
+
   outline: none;
 
-  /* Grows the link to fill its ElAtAGlanceCard parent to make the whole card clickable. */
-  &::before {
-    position: absolute;
-    content: '';
-    inset: 0;
+  &:is(:hover, :focus-visible) {
+    --aag-card-link-background-colour: var(--colour-fill-neutral-lightest);
   }
 `
