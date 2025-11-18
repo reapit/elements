@@ -1,7 +1,6 @@
 import { AtAGlanceCardContent } from '../card-content'
 import { AtAGlanceCardLink } from '../card-link'
-import { AtAGlanceGrid } from './grid'
-import { AtAGlanceGridItem } from './grid-item'
+import { AtAGlanceCarousel } from './carousel'
 import { SproutIcon } from '#src/icons/sprout'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -9,46 +8,37 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 const href = globalThis.top?.location.href!
 
 const meta = {
-  title: 'Core/AtAGlance/Grid',
-  component: AtAGlanceGrid,
+  title: 'Core/AtAGlance/Carousel',
+  component: AtAGlanceCarousel,
   argTypes: {
-    children: {
-      control: false,
-    },
-    templateColumns: {
-      control: 'text',
-    },
+    children: { control: false },
+    columns: { control: 'text' },
   },
-} satisfies Meta<typeof AtAGlanceGrid>
+} satisfies Meta<typeof AtAGlanceCarousel>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-/**
- * By default, content is laid out in a grid whose columns are explicitly defined by `templateColumns`.
- */
 export const Example: Story = {
   args: {
-    children: buildCards(8, { layout: 'vertical', variant: 'with-link' }),
-    templateColumns: '1fr 1fr 1fr 1fr',
-    layout: 'template',
+    children: buildCards(8, { layout: 'horizontal', variant: 'with-link' }),
+    columns: 'var(--size-60)',
   },
 }
 
 /**
- * To layout content in a grid using implicitly created columns, use `layout="auto"` and `autoColumns`
- * instead. This allows, for example, content to be laid out in a single row with N columns.
+ * The carousel is only scrollable, and the next/previous buttons visible, when the cards
+ * overflow its containing block.
  */
-export const Layout: Story = {
+export const NoOverflow: Story = {
   args: {
-    autoColumns: 'minmax(200px, 1fr)',
-    children: buildCards(8, { layout: 'vertical', variant: 'with-link' }),
-    layout: 'auto',
+    children: buildCards(2, { layout: 'vertical', variant: 'simple' }),
+    columns: 'var(--size-60)',
   },
 }
 
 interface BuildCardsOptions {
-  layout: AtAGlanceCardContent.Props['layout']
+  layout: 'horizontal' | 'vertical'
   variant: 'simple' | 'with-link'
 }
 
@@ -97,7 +87,7 @@ function buildCards(count: 2 | 3 | 4 | 5 | 6 | 7 | 8, { layout, variant }: Build
   ] as const
 
   return cards.slice(0, count).map((item) => (
-    <AtAGlanceGridItem key={item.label}>
+    <AtAGlanceCarousel.Item key={item.label}>
       <AtAGlanceCardContent
         description={item.description}
         icon={<SproutIcon />}
@@ -105,6 +95,6 @@ function buildCards(count: 2 | 3 | 4 | 5 | 6 | 7 | 8, { layout, variant }: Build
         layout={layout}
         value={variant === 'simple' ? item.value : <AtAGlanceCardLink href={href}>{item.value}</AtAGlanceCardLink>}
       />
-    </AtAGlanceGridItem>
+    </AtAGlanceCarousel.Item>
   ))
 }

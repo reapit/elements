@@ -13,6 +13,8 @@ export const ElAtAGlanceGrid = styled.ul`
   }
   &[data-layout='auto'] {
     grid-auto-flow: column;
+    overflow: auto;
+    scroll-snap-type: x mandatory;
   }
 `
 
@@ -20,4 +22,6 @@ export const ElAtAGlanceGridItem = styled.li`
   display: grid;
   padding: 0;
   margin: 0;
+
+  scroll-snap-align: start;
 `
