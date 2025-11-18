@@ -1914,6 +1914,10 @@
               "$type": "color",
               "$value": "{neutral-500}"
             }
+          },
+          "placeholder": {
+            "$type": "color",
+            "$value": "{neutral-300}"
           }
         }
       }
