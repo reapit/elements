@@ -1,5 +1,6 @@
 export * from './accordion'
 export * from './app-switcher'
+export * from './at-a-glance'
 export * from './avatar'
 export * from './avatar-rectangle'
 export * from './badge'
