@@ -8,6 +8,9 @@ const meta: Meta<typeof AtAGlanceCardLink> = {
   title: 'Core/AtAGlance/CardLink',
   component: AtAGlanceCardLink,
   argTypes: {
+    children: {
+      control: false,
+    },
     href: {
       control: 'text',
     },
@@ -21,11 +24,18 @@ const href = globalThis.top?.location.href!
 
 export const Example: Story = {
   args: {
+    'aria-current': false,
+    children: <AtAGlanceCardContent icon={<SproutIcon />} label="Apples" description="Crunchy and juicy" value="42" />,
     href,
   },
-  render: (args) => (
-    <AtAGlanceCardLink {...args}>
-      <AtAGlanceCardContent icon={<SproutIcon />} label="Total Sales" description="Last 30 days" value="$12,345" />
-    </AtAGlanceCardLink>
-  ),
+}
+
+/**
+ * If the link represents the current page, `aria-current` should be provided.
+ */
+export const Selected: Story = {
+  args: {
+    ...Example.args,
+    'aria-current': true,
+  },
 }

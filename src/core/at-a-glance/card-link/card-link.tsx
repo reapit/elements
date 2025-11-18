@@ -4,7 +4,9 @@ import type { AnchorHTMLAttributes } from 'react'
 
 export namespace AtAGlanceCardLink {
   export interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
-    /** The URL to link to */
+    /** Indicates the link represents the current page. */
+    'aria-current'?: boolean
+    /** The URL to link to. */
     href: string
   }
 }

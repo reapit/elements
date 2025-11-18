@@ -1,6 +1,7 @@
 import { AtAGlanceCard } from './card'
 import { AtAGlanceCardContent } from '../card-content'
 import { AtAGlanceCardLink } from '../card-link'
+import { AtAGlanceCardRadio } from '../card-radio'
 import { SproutIcon } from '#src/icons/sprout'
 import { Text } from '#src/core/text'
 import { useState } from 'react'
@@ -103,6 +104,26 @@ export const Link: Story = {
           value="32"
         />
       </AtAGlanceCardLink>
+    ),
+  },
+}
+
+/**
+ * Wrap the entire `AtAGlance.CardContent` with `AtAGlance.CardRadio` to make the
+ * entire card selectable.
+ */
+export const Radio: Story = {
+  args: {
+    children: (
+      <AtAGlanceCardRadio name="fruit" value="apple">
+        <AtAGlanceCardContent
+          description="Crunchy and Juicy"
+          icon={<SproutIcon />}
+          label="Apple"
+          layout="vertical"
+          value="32"
+        />
+      </AtAGlanceCardRadio>
     ),
   },
 }
