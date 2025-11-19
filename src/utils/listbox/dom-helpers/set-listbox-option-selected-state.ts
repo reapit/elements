@@ -29,6 +29,7 @@ export function setListboxOptionSelectedState(
   optionValue: string,
   setter: (selected: boolean) => boolean,
 ): void {
+
   const selectElement = getListboxSelectElement(listboxId)
   const optionToSelect = getSelectOptionByValue(selectElement, optionValue)
   const currentState = optionToSelect.selected

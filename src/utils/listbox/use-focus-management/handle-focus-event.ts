@@ -52,12 +52,18 @@ export function handleFocusEvent(event: FocusEvent<HTMLElement>): void {
   // Determine if this is keyboard focus (as opposed to mouse/pointer focus)
   const isKeyboard = isKeyboardFocus(target)
 
+  // We only manage focus when it's changing via the keyboard. For mouse clicks,
+  // we want the clicked element to be focused.
+  if (!isKeyboard) {
+    return
+  }
+
   const isFocusFromOutside = !listboxElement.contains(relatedTarget)
   const isFocusBetweenOptions =
     listboxElement.contains(relatedTarget) && isOptionElement(target) && isOptionElement(relatedTarget)
 
   // Behavior 1: Focus moving between options within the listbox
-  if (isFocusBetweenOptions && selectionFollowsFocus && isKeyboard) {
+  if (isFocusBetweenOptions && selectionFollowsFocus) {
     target.click()
     return
   }
@@ -78,8 +84,8 @@ export function handleFocusEvent(event: FocusEvent<HTMLElement>): void {
     const firstOption = listboxElement.querySelector(OPTION_SELECTOR)
     if (isOptionElement(firstOption)) {
       firstOption.focus()
-      // Auto-select the first option if selection follows focus and using keyboard
-      if (selectionFollowsFocus && isKeyboard) {
+      // Auto-select the first option if selection follows focus
+      if (selectionFollowsFocus) {
         firstOption.click()
       }
     }

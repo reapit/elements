@@ -1,7 +1,9 @@
 import { AtAGlance } from './at-a-glance'
 import { buildCards } from './__story__/build-cards'
+import { SettingsAltIcon } from '#src/icons/settings-alt'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { Button } from '../button'
 
 const meta = {
   title: 'Core/AtAGlance',
@@ -9,13 +11,44 @@ const meta = {
   argTypes: {
     children: {
       control: 'select',
-      options: ['Carousel', 'Grid', 'Listbox'],
+      options: ['Carousel', 'Grid', 'Links', 'Listbox with Carousel', 'Listbox with Grid'],
       mapping: {
-        Carousel: <AtAGlance.Carousel columns="200px">{buildCards({ variant: 'with-link' })}</AtAGlance.Carousel>,
+        Carousel: <AtAGlance.Carousel columns="200px">{buildCards({ variant: 'simple' })}</AtAGlance.Carousel>,
+        Header: (
+          <>
+            <AtAGlance.Header
+              accessory={
+                <Button
+                  aria-label="View settings"
+                  hasNoPadding
+                  iconLeft={<SettingsAltIcon />}
+                  size="large"
+                  variant="tertiary"
+                />
+              }
+            >
+              Available fruit
+            </AtAGlance.Header>
+            <AtAGlance.Grid templateColumns="repeat(auto-fit, minmax(200px, 1fr))">
+              {buildCards({ count: 4, variant: 'simple' })}
+            </AtAGlance.Grid>
+          </>
+        ),
         Grid: (
           <AtAGlance.Grid templateColumns="repeat(auto-fit, minmax(200px, 1fr))">
             {buildCards({ variant: 'simple' })}
           </AtAGlance.Grid>
+        ),
+        Links: <AtAGlance.Carousel columns="200px">{buildCards({ variant: 'with-link' })}</AtAGlance.Carousel>,
+        'Listbox with Carousel': (
+          <AtAGlance.Listbox as={AtAGlance.Carousel} columns="200px">
+            {buildCards({ variant: 'selectable' })}
+          </AtAGlance.Listbox>
+        ),
+        'Listbox with Grid': (
+          <AtAGlance.Listbox as={AtAGlance.Grid} templateColumns="1fr 1fr 1fr 1fr">
+            {buildCards({ variant: 'selectable' })}
+          </AtAGlance.Listbox>
         ),
       },
     },
@@ -25,14 +58,52 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+/**
+ * Grid layout displays cards in a responsive grid pattern.
+ * Use this when you want cards to wrap and fill available space.
+ */
 export const Example: Story = {
+  args: {
+    children: 'Grid',
+  },
+}
+
+/**
+ * A header can be included to title the at-a-glance section and provide an accessory action.
+ */
+export const Header: Story = {
+  args: {
+    children: 'Header',
+  },
+}
+
+/**
+ * Carousel layout displays cards in a horizontal scrolling container with navigation buttons.
+ * Use this when you have many cards and want to save vertical space.
+ */
+export const Carousel: Story = {
   args: {
     children: 'Carousel',
   },
 }
 
-export const Grid: Story = {
+/**
+ * Linked cards allow users to navigate to other pages when clicked. They can also be used to update
+ * URL search params. If the card represents the current URL, it can be marked as selected using
+ * `aria-current="page"`.
+ */
+export const Links: Story = {
   args: {
-    children: 'Grid',
+    children: 'Links',
+  },
+}
+
+/**
+ * Selectable cards allow users to select options. Only single-selection is currently supported.
+ * Selected cards can be deselected by clicking on them again.
+ */
+export const Selectable: Story = {
+  args: {
+    children: 'Listbox with Carousel',
   },
 }

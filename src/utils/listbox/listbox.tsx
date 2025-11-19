@@ -15,17 +15,17 @@ import { useId } from 'react'
 import { useListboxSelectionObserver } from './use-listbox-selection-observer'
 import { useListboxState } from './use-listbox-state'
 
-import type { ChangeEventHandler, ElementType, HTMLAttributes, ReactNode } from 'react'
+import type { ChangeEventHandler, ComponentPropsWithoutRef, ElementType, HTMLAttributes, ReactNode } from 'react'
 
 // NOTE: we omit...
 // onChange, because we accept a select element's change event handler instead
 type AttributesToOmit = 'onChange'
 
 export namespace Listbox {
-  export interface OptionProps extends ListboxOption.BaseProps {}
+  export type OptionProps<C extends ElementType = 'button'> = ListboxOption.Props<C>
   export interface OptgroupProps extends ListboxOptgroup.BaseProps {}
 
-  export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
+  export interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
     /** Whether the listbox and its options are disabled. */
     'aria-disabled'?: boolean
     /**
@@ -42,8 +42,6 @@ export namespace Listbox {
     'aria-orientation'?: 'horizontal' | 'vertical'
     /** Whether the listbox is required. */
     'aria-required'?: boolean
-    /** Element type for the listbox container. Defaults to `'div'`. */
-    as?: ElementType<HTMLAttributes<HTMLDivElement>>
     /**
      * Options and option groups to display. Use `Listbox.Option`, `Listbox.Optgroup`,
      * or `Listbox.Divider` components. The underlying select element renders selected
@@ -89,6 +87,16 @@ export namespace Listbox {
      */
     value?: readonly string[]
   }
+
+  /**
+   * Polymorphic props that merge BaseProps with any additional props from the `as` component.
+   * When a component with required props is passed via `as`, those props become required.
+   */
+  export type Props<C extends ElementType = 'div'> = BaseProps &
+    Omit<ComponentPropsWithoutRef<C>, keyof BaseProps> & {
+      /** Element type for the listbox container. Defaults to `'div'`. */
+      as?: C
+    }
 }
 
 /**
@@ -107,12 +115,12 @@ export namespace Listbox {
  * in the listbox UI
  * - `Listbox.Divider` always renders as `<hr>`
  */
-export function Listbox({
+export function Listbox<C extends ElementType = 'div'>({
   'aria-disabled': disabled = false,
   'aria-multiselectable': multiple = false,
   'aria-orientation': ariaOrientation = 'vertical',
   'aria-required': required = false,
-  as: Element = 'div',
+  as,
   children,
   className,
   defaultValue,
@@ -128,7 +136,9 @@ export function Listbox({
   style,
   value,
   ...rest
-}: Listbox.Props) {
+}: Listbox.Props<C>) {
+  const Element = as ?? 'div'
+
   const selectId = useId()
   const fallbackListboxId = useId()
   const listboxId = id ?? fallbackListboxId

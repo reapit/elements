@@ -7,7 +7,7 @@ export namespace ListboxOptgroup {
      * The label text for the option group. Provides a visual and semantic label
      * for the group of related options.
      */
-    label: string | undefined
+    label?: string
   }
 
   export interface Props extends BaseProps {

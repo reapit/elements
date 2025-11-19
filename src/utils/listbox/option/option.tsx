@@ -2,7 +2,7 @@ import { setListboxOptionSelectedState } from '../dom-helpers'
 import { useListboxContext } from '../context'
 import { useListboxRenderContext } from '../render-context'
 
-import type { ButtonHTMLAttributes, ElementType, MouseEventHandler } from 'react'
+import type { ButtonHTMLAttributes, ComponentPropsWithoutRef, ElementType, MouseEventHandler } from 'react'
 
 export namespace ListboxOption {
   export interface BaseProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -10,14 +10,15 @@ export namespace ListboxOption {
     value: string
   }
 
-  export interface Props extends BaseProps {
-    /**
-     * Element type to render for the option. Must be button-based.
-     * Forward all props to the underlying `<button>` element for proper accessibility
-     * and functionality.
-     */
-    as: ElementType<BaseProps, 'button'>
-  }
+  export type Props<C extends ElementType = 'button'> = BaseProps &
+    Omit<ComponentPropsWithoutRef<C>, keyof BaseProps> & {
+      /**
+       * Element type to render for the option. Must be button-based.
+       * Forward all props to the underlying `<button>` element for proper accessibility
+       * and functionality.
+       */
+      as?: C
+    }
 }
 
 /**
@@ -39,14 +40,15 @@ export namespace ListboxOption {
  * **Important:** The `as` element type must be button-based and forward all props to the
  * underlying button for proper functionality.
  */
-export function ListboxOption({
-  as: Element,
+export function ListboxOption<C extends ElementType = 'button'>({
+  as,
   children,
   disabled,
   onClick,
   value: optionValue,
   ...rest
-}: ListboxOption.Props) {
+}: ListboxOption.Props<C>) {
+  const Element = as || 'button'
   const context = useListboxContext()
   const renderContext = useListboxRenderContext()
 

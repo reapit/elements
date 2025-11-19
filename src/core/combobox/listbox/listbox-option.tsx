@@ -2,7 +2,7 @@ import { ComboboxOption } from '../option'
 import { Listbox } from '#src/utils/listbox'
 
 export namespace ComboboxListboxOption {
-  export interface Props extends Listbox.OptionProps, ComboboxOption.Props {}
+  export interface Props extends Listbox.OptionProps<typeof ComboboxOption> {}
 }
 
 /**

@@ -3,44 +3,76 @@ import { render, screen } from '@testing-library/react'
 
 import type { FocusEvent } from 'react'
 
-test('handles null relatedTarget (focus from nowhere)', () => {
-  render(<TestListbox />)
+/**
+ * Testing approach note:
+ *
+ * These tests use spies on DOM methods like `.click()` and `.focus()` because
+ * `handleFocusEvent` is a low-level utility function that directly manipulates
+ * focus as part of implementing the ARIA listbox pattern. We're testing that
+ * the function correctly calls these DOM methods under specific conditions.
+ *
+ * The `:focus-visible` pseudo-class is mocked via `element.matches()` to simulate
+ * keyboard vs mouse focus, as this distinction is critical to the function's logic.
+ */
 
-  const listbox = screen.getByRole('listbox')
+describe('Early return for non-keyboard focus', () => {
+  test('returns early when focus is not from keyboard (mouse click)', () => {
+    render(<TestListbox selectionFollowsFocus />)
 
-  const event = createFocusEvent({
-    currentTarget: listbox,
-    target: listbox,
-    relatedTarget: null,
+    const listbox = screen.getByRole('listbox')
+    const option1 = screen.getByRole('option', { name: 'Option 1' })
+    const option2 = screen.getByRole('option', { name: 'Option 2' })
+
+    // Mock :focus-visible to return false (mouse focus)
+    vi.spyOn(option2, 'matches').mockReturnValue(false)
+
+    const clickSpy = vi.spyOn(option2, 'click')
+    const focusSpy = vi.spyOn(option2, 'focus')
+
+    const event = createFocusEvent({
+      currentTarget: listbox,
+      target: option2,
+      relatedTarget: option1,
+    })
+
+    handleFocusEvent(event)
+
+    // Should not manage focus or trigger any actions
+    expect(clickSpy).not.toHaveBeenCalled()
+    expect(focusSpy).not.toHaveBeenCalled()
+    expect(listbox.tabIndex).toBe(0) // Should remain unchanged
   })
 
-  handleFocusEvent(event)
+  test('returns early when focus enters from outside via mouse', () => {
+    render(<TestListbox selectionFollowsFocus />)
 
-  expect(listbox.tabIndex).toBe(-1)
-})
+    const listbox = screen.getByRole('listbox')
+    const option1 = screen.getByRole('option', { name: 'Option 1' })
+    const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
 
-test('does not throw when querySelector returns non-button element', () => {
-  render(<TestListbox includeNonButtonOption />)
+    // Mock :focus-visible to return false (mouse focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(false)
 
-  const listbox = screen.getByRole('listbox')
-  const option1 = screen.getByRole('option', { name: 'Option 1' })
-  const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
+    const focusSpy = vi.spyOn(option1, 'focus')
+    const clickSpy = vi.spyOn(option1, 'click')
 
-  const event = createFocusEvent({
-    currentTarget: listbox,
-    target: listbox,
-    relatedTarget: outsideButton,
+    const event = createFocusEvent({
+      currentTarget: listbox,
+      target: listbox,
+      relatedTarget: outsideButton,
+    })
+
+    handleFocusEvent(event)
+
+    // Should not manage focus or trigger any actions
+    expect(focusSpy).not.toHaveBeenCalled()
+    expect(clickSpy).not.toHaveBeenCalled()
+    expect(listbox.tabIndex).toBe(0) // Should remain unchanged
   })
-
-  // Should skip the div and focus the first button option
-  const focusSpy = vi.spyOn(option1, 'focus')
-  handleFocusEvent(event)
-
-  expect(focusSpy).toHaveBeenCalled()
 })
 
 describe('Behavior 1: Focus moving between options within the listbox', () => {
-  test('clicks the newly focused option when selectionFollowsFocus is true and focus is from keyboard', () => {
+  test('clicks newly focused option when selectionFollowsFocus is true (keyboard focus)', () => {
     render(<TestListbox selectionFollowsFocus />)
 
     const listbox = screen.getByRole('listbox')
@@ -63,7 +95,7 @@ describe('Behavior 1: Focus moving between options within the listbox', () => {
     expect(clickSpy).toHaveBeenCalledTimes(1)
   })
 
-  test('does not click the newly focused option when focus is from mouse (not :focus-visible)', () => {
+  test('does not click newly focused option when focus is from mouse', () => {
     render(<TestListbox selectionFollowsFocus />)
 
     const listbox = screen.getByRole('listbox')
@@ -83,15 +115,19 @@ describe('Behavior 1: Focus moving between options within the listbox', () => {
 
     handleFocusEvent(event)
 
+    // Early return means no click
     expect(clickSpy).not.toHaveBeenCalled()
   })
 
-  test('does not click the newly focused option when selectionFollowsFocus is false', () => {
+  test('does not click newly focused option when selectionFollowsFocus is false', () => {
     render(<TestListbox selectionFollowsFocus={false} />)
 
     const listbox = screen.getByRole('listbox')
     const option1 = screen.getByRole('option', { name: 'Option 1' })
     const option2 = screen.getByRole('option', { name: 'Option 2' })
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(option2, 'matches').mockReturnValue(true)
 
     const clickSpy = vi.spyOn(option2, 'click')
 
@@ -112,6 +148,9 @@ describe('Behavior 1: Focus moving between options within the listbox', () => {
     const listbox = screen.getByRole('listbox')
     const option1 = screen.getByRole('option', { name: 'Option 1' })
     const option2 = screen.getByRole('option', { name: 'Option 2' })
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(option2, 'matches').mockReturnValue(true)
 
     const clickSpy = vi.spyOn(option2, 'click')
 
@@ -134,6 +173,9 @@ describe('Behavior 1: Focus moving between options within the listbox', () => {
     const divElement = document.createElement('div')
     listbox.appendChild(divElement)
 
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(divElement, 'matches').mockReturnValue(true)
+
     const event = createFocusEvent({
       currentTarget: listbox,
       target: divElement,
@@ -152,6 +194,9 @@ describe('Behavior 1: Focus moving between options within the listbox', () => {
     const listbox = screen.getByRole('listbox')
     const option1 = screen.getByRole('option', { name: 'Option 1' })
 
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
+
     const event = createFocusEvent({
       currentTarget: listbox,
       target: listbox,
@@ -160,17 +205,23 @@ describe('Behavior 1: Focus moving between options within the listbox', () => {
 
     handleFocusEvent(event)
 
-    // No errors should occur
+    // Should proceed to Behavior 2 logic (focus entering from outside is false)
     expect(listbox.tabIndex).toBe(0)
   })
 })
 
 describe('Behavior 2: Focus entering the listbox from outside', () => {
-  test('removes listbox from tab sequence (sets tabIndex to -1)', () => {
+  test('removes listbox from tab sequence and focuses first option (keyboard focus)', () => {
     render(<TestListbox />)
 
     const listbox = screen.getByRole('listbox')
+    const option1 = screen.getByRole('option', { name: 'Option 1' })
     const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
+
+    const focusSpy = vi.spyOn(option1, 'focus')
 
     const event = createFocusEvent({
       currentTarget: listbox,
@@ -181,6 +232,55 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
     handleFocusEvent(event)
 
     expect(listbox.tabIndex).toBe(-1)
+    expect(focusSpy).toHaveBeenCalledTimes(1)
+  })
+
+  test('does not manage focus when entering from outside via mouse', () => {
+    render(<TestListbox />)
+
+    const listbox = screen.getByRole('listbox')
+    const option1 = screen.getByRole('option', { name: 'Option 1' })
+    const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
+
+    // Mock :focus-visible to return false (mouse focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(false)
+
+    const focusSpy = vi.spyOn(option1, 'focus')
+
+    const event = createFocusEvent({
+      currentTarget: listbox,
+      target: listbox,
+      relatedTarget: outsideButton,
+    })
+
+    handleFocusEvent(event)
+
+    // Early return means no focus management
+    expect(listbox.tabIndex).toBe(0)
+    expect(focusSpy).not.toHaveBeenCalled()
+  })
+
+  test('handles null relatedTarget with keyboard focus', () => {
+    render(<TestListbox />)
+
+    const listbox = screen.getByRole('listbox')
+    const option1 = screen.getByRole('option', { name: 'Option 1' })
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
+
+    const focusSpy = vi.spyOn(option1, 'focus')
+
+    const event = createFocusEvent({
+      currentTarget: listbox,
+      target: listbox,
+      relatedTarget: null,
+    })
+
+    handleFocusEvent(event)
+
+    expect(listbox.tabIndex).toBe(-1)
+    expect(focusSpy).toHaveBeenCalledTimes(1)
   })
 
   test('focuses the first selected option when one exists', () => {
@@ -189,6 +289,9 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
     const listbox = screen.getByRole('listbox')
     const option2 = screen.getByRole('option', { name: 'Option 2' })
     const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
 
     const focusSpy = vi.spyOn(option2, 'focus')
 
@@ -210,6 +313,9 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
     const option3 = screen.getByRole('option', { name: 'Option 3' })
     const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
 
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
+
     const focusSpy = vi.spyOn(option3, 'focus')
 
     const event = createFocusEvent({
@@ -223,7 +329,7 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
     expect(focusSpy).toHaveBeenCalledTimes(1)
   })
 
-  test('focuses first option and clicks it when no selected option exists, selectionFollowsFocus is true, and focus is from keyboard', () => {
+  test('clicks first option when no selection exists and selectionFollowsFocus is true (keyboard focus)', () => {
     render(<TestListbox selectionFollowsFocus />)
 
     const listbox = screen.getByRole('listbox')
@@ -248,7 +354,7 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
     expect(clickSpy).toHaveBeenCalledTimes(1)
   })
 
-  test('focuses first option without clicking when no selected option exists and focus is from mouse', () => {
+  test('does not manage focus when entering from outside via mouse (even with selectionFollowsFocus)', () => {
     render(<TestListbox selectionFollowsFocus />)
 
     const listbox = screen.getByRole('listbox')
@@ -269,16 +375,20 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
 
     handleFocusEvent(event)
 
-    expect(focusSpy).toHaveBeenCalledTimes(1)
+    // Early return means no focus management
+    expect(focusSpy).not.toHaveBeenCalled()
     expect(clickSpy).not.toHaveBeenCalled()
   })
 
-  test('focuses first option without clicking when no selected option exists and selectionFollowsFocus is false', () => {
+  test('focuses first option without clicking when no selection exists and selectionFollowsFocus is false', () => {
     render(<TestListbox selectionFollowsFocus={false} />)
 
     const listbox = screen.getByRole('listbox')
     const option1 = screen.getByRole('option', { name: 'Option 1' })
     const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
 
     const focusSpy = vi.spyOn(option1, 'focus')
     const clickSpy = vi.spyOn(option1, 'click')
@@ -301,6 +411,9 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
     const listbox = screen.getByRole('listbox')
     const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
 
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
+
     const event = createFocusEvent({
       currentTarget: listbox,
       target: listbox,
@@ -320,6 +433,9 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
     const option1 = screen.getByRole('option', { name: 'Option 1' })
     const option3 = screen.getByRole('option', { name: 'Option 3' })
     const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
 
     const focusSpy1 = vi.spyOn(option1, 'focus')
     const focusSpy3 = vi.spyOn(option3, 'focus')
@@ -343,6 +459,9 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
     const option2 = screen.getByRole('option', { name: 'Option 2' })
     const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
 
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
+
     const clickSpy = vi.spyOn(option2, 'click')
 
     const event = createFocusEvent({
@@ -354,6 +473,29 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
     handleFocusEvent(event)
 
     expect(clickSpy).not.toHaveBeenCalled()
+  })
+
+  test('does not throw when querySelector returns non-button element', () => {
+    render(<TestListbox includeNonButtonOption />)
+
+    const listbox = screen.getByRole('listbox')
+    const option1 = screen.getByRole('option', { name: 'Option 1' })
+    const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
+
+    const event = createFocusEvent({
+      currentTarget: listbox,
+      target: listbox,
+      relatedTarget: outsideButton,
+    })
+
+    // Should skip the div and focus the first button option
+    const focusSpy = vi.spyOn(option1, 'focus')
+    handleFocusEvent(event)
+
+    expect(focusSpy).toHaveBeenCalled()
   })
 })
 

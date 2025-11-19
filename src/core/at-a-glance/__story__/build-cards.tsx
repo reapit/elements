@@ -13,7 +13,7 @@ export namespace buildCards {
 }
 
 export function buildCards({ count = 8, layout = 'vertical', variant = 'simple' }: buildCards.Input = {}) {
-  return cards.slice(0, count).map((item) => {
+  return cards.slice(0, count).map((item, index) => {
     if (variant === 'simple') {
       return (
         <AtAGlance.GridItem key={item.label}>
@@ -32,6 +32,7 @@ export function buildCards({ count = 8, layout = 'vertical', variant = 'simple' 
       return (
         <AtAGlance.GridItem key={item.label}>
           <AtAGlance.AnchorCard
+            aria-current={index === 0 ? 'page' : undefined}
             description={item.description}
             displayValue={item.value}
             href={href}
@@ -42,6 +43,19 @@ export function buildCards({ count = 8, layout = 'vertical', variant = 'simple' 
         </AtAGlance.GridItem>
       )
     }
+
+    // variant === 'selectable'
+    return (
+      <AtAGlance.ListboxOption
+        key={item.label}
+        description={item.description}
+        displayValue={item.value}
+        icon={<SproutIcon />}
+        label={item.label}
+        layout={layout}
+        value={item.label}
+      />
+    )
   })
 }
 

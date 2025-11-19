@@ -7,6 +7,7 @@ import { AtAGlanceHeader } from './header'
 import { ElAtAGlance } from './styles'
 
 import type { HTMLAttributes } from 'react'
+import { AtAGlanceListbox } from './listbox'
 
 export namespace AtAGlance {
   export interface Props extends HTMLAttributes<HTMLElement> {}
@@ -27,3 +28,5 @@ AtAGlance.Carousel = AtAGlanceCarousel
 AtAGlance.Grid = AtAGlanceGrid
 AtAGlance.GridItem = AtAGlanceGrid.Item
 AtAGlance.Header = AtAGlanceHeader
+AtAGlance.Listbox = AtAGlanceListbox
+AtAGlance.ListboxOption = AtAGlanceListbox.Option
