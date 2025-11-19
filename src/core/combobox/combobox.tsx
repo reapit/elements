@@ -3,6 +3,7 @@ import { ComboboxSelectButton } from './combobox-select-button'
 import { ComboboxContext } from './context'
 import { ComboboxListbox } from './listbox'
 import { ComboboxPopup } from './combobox-popup'
+import { ComboboxSearchInput } from './search-input'
 import { ElCombobox } from './styles'
 import { Listbox } from '#src/utils/listbox'
 import { useId } from 'react'
@@ -72,7 +73,10 @@ Combobox.getListboxValue = Listbox.getValue
 
 Combobox.AutocompleteButton = ComboboxAutocompleteButton
 Combobox.SelectButton = ComboboxSelectButton
+
 Combobox.Popup = ComboboxPopup
+Combobox.SearchInput = ComboboxSearchInput
+
 Combobox.Listbox = ComboboxListbox
 Combobox.Option = ComboboxListbox.Option
 Combobox.Optgroup = ComboboxListbox.Optgroup

@@ -1,11 +1,11 @@
 import { Badge } from '#src/core/badge'
-import { ComboboxPopupDialog } from './popup-dialog'
+import { ComboboxContext } from '../context'
 import { ComboboxListbox } from '../listbox'
-import { SearchInput } from '#src/core/search-input'
+import { ComboboxPopupDialog } from './popup-dialog'
+import { ComboboxSearchInput } from '../search-input'
 import { useId } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { ComboboxContext } from '../context'
 
 const meta = {
   title: 'Core/Combobox/Popup',
@@ -81,7 +81,7 @@ const meta = {
           </ComboboxListbox>
         ),
         Filterable: [
-          <SearchInput key="search-input" />,
+          <ComboboxSearchInput aria-label="Filter options" key="search-input" />,
           <ComboboxListbox key="listbox" defaultValue={['1']}>
             <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
             <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>

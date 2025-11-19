@@ -1,7 +1,8 @@
-import { cx } from '@linaria/core'
 import { AnchorPositioning } from '#src/utils/anchor-positioning'
 import { elComboboxPopupDialog } from './styles'
 import { closeComboboxPopup } from './close-popup'
+import { ComboboxPopupDialogContext, useComboboxPopupDialogContext } from './context'
+import { cx } from '@linaria/core'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 import { openComboboxPopup } from './open-popup'
 import { useCloseComboboxPopupOnClick } from './use-close-on-click'
@@ -15,9 +16,9 @@ export namespace ComboboxPopupDialog {
     'aria-labelledby': string
     /** Popup content. */
     children: ReactNode
-    /** Maximum height. By default, the popover will grow to fit its content. */
     /** ID of the popup element. */
     id: string
+    /** Maximum height. By default, the popover will grow to fit its content. */
     maxHeight?: string
     /** Maximum width. By default, the popover is slightly wider than the anchor. */
     maxWidth?: string
@@ -90,21 +91,25 @@ export function ComboboxPopupDialog({
       onClick={handleClick}
       style={{ ...style, maxHeight }}
     >
-      {needsAnchorPositioning && (
-        <AnchorPositioning
-          anchorElementId={ariaLabelledBy}
-          left={defaultLeft}
-          maxWidth={maxWidth ?? defaultWidth}
-          minWidth={defaultWidth}
-          positionedElementId={id}
-          positionTryFallbacks="flip-block, flip-inline"
-          top={defaultTop}
-        />
-      )}
-      {children}
+      <ComboboxPopupDialogContext.Provider value={{ variant }}>
+        {needsAnchorPositioning && (
+          <AnchorPositioning
+            anchorElementId={ariaLabelledBy}
+            left={defaultLeft}
+            maxWidth={maxWidth ?? defaultWidth}
+            minWidth={defaultWidth}
+            positionedElementId={id}
+            positionTryFallbacks="flip-block, flip-inline"
+            top={defaultTop}
+          />
+        )}
+        {children}
+      </ComboboxPopupDialogContext.Provider>
     </dialog>
   )
 }
 
+ComboboxPopupDialog.Context = ComboboxPopupDialogContext
+ComboboxPopupDialog.useContext = useComboboxPopupDialogContext
 ComboboxPopupDialog.open = openComboboxPopup
 ComboboxPopupDialog.close = closeComboboxPopup

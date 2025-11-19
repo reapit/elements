@@ -1,5 +1,4 @@
 import { Combobox } from './combobox'
-import { SearchInput } from '#src/core/search-input'
 import { Text } from '#src/core/text'
 import { useState } from 'react'
 
@@ -48,7 +47,7 @@ export const Autocomplete: Story = {
     children: [
       <Combobox.AutocompleteButton key="button" />,
       <Combobox.Popup key="popup" variant="popover">
-        <SearchInput />
+        <Combobox.SearchInput aria-label="Filter options" />
         <Combobox.Listbox>
           <Combobox.Option value="option1">Option 1</Combobox.Option>
           <Combobox.Option value="option2">Option 2</Combobox.Option>
@@ -71,7 +70,7 @@ export const Drawer: Story = {
     children: [
       <Combobox.AutocompleteButton key="button" />,
       <Combobox.Popup key="popup" variant="drawer">
-        <SearchInput />
+        <Combobox.SearchInput aria-label="Filter options" />
         <Combobox.Listbox>
           <Combobox.Option value="option1">Option 1</Combobox.Option>
           <Combobox.Option value="option2">Option 2</Combobox.Option>
@@ -113,7 +112,11 @@ export const Filtering: Story = {
       <Combobox {...args}>
         <Combobox.AutocompleteButton />
         <Combobox.Popup variant="popover">
-          <SearchInput value={searchValue} onChange={(e) => setSearchValue(e.target.value)} />
+          <Combobox.SearchInput
+            aria-label="Filter options"
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
           <Combobox.Listbox>
             {filteredOptions.length > 0 ? (
               filteredOptions.map((option) => (
