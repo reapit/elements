@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { SearchInputClearButton } from '../clear-button'
 
+vi.mock('#src/icons/clear', () => ({ ClearIcon: () => 'clear icon' }))
 vi.mock('#src/icons/close', () => ({ CloseIcon: () => 'close icon' }))
 
 test('renders a button element', () => {
@@ -33,9 +34,14 @@ test('always has type="button"', () => {
   expect(screen.getByRole('button')).toHaveAttribute('type', 'button')
 })
 
-test('uses close icon', () => {
+test('uses close icon for default variant', () => {
   render(<SearchInputClearButton aria-controls="my-time-input" />)
   expect(screen.getByText('close icon')).toBeVisible()
+})
+
+test('uses clear icon for borderless variant', () => {
+  render(<SearchInputClearButton aria-controls="my-time-input" variant="borderless" />)
+  expect(screen.getByText('clear icon')).toBeVisible()
 })
 
 test('focuses input and clears its value when clicked', () => {

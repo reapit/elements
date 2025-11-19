@@ -50,6 +50,8 @@ export namespace TextInput {
     trailingIcon?: ReactNode
     /** Type of input. */
     type?: 'email' | 'date' | 'datetime-local' | 'password' | 'search' | 'tel' | 'text' | 'time' | 'url'
+    /** The visual style of the input. */
+    variant?: 'default' | 'borderless'
   }
 }
 
@@ -71,6 +73,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInput.Props>(
       suffix,
       trailingIcon,
       type = 'text',
+      variant = 'default',
       ...rest
     },
     ref,
@@ -99,6 +102,7 @@ export const TextInput = forwardRef<HTMLInputElement, TextInput.Props>(
         aria-busy={!!isBusy}
         className={className}
         data-size={size}
+        data-variant={variant}
         style={{ '--input-max-width': maxWidth, ...style }}
       >
         {showPrefix && <ElTextInputAffixContainer>{prefix}</ElTextInputAffixContainer>}

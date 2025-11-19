@@ -53,6 +53,10 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
     --input-icon-size: var(--icon_size-m);
   }
 
+  &[data-variant='borderless'] {
+    border: none;
+  }
+
   /* NOTE: we only use the invalid styles if the input is invalid AND has the data-show-validity
    * attribute set to true. Further, we use :where to ensure data-show-validity does not increase
    * the specificity of our selector, otherwise these styles would override our focus styles. */

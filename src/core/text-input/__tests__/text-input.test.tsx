@@ -23,6 +23,11 @@ test('defaults autoComplete to off', () => {
   expect(screen.getByRole('textbox')).toHaveAttribute('autoComplete', 'off')
 })
 
+test('defaults variant to "default"', () => {
+  const { container } = render(<TextInput />)
+  expect(container.firstElementChild).toHaveAttribute('data-variant', 'default')
+})
+
 test('applies the correct input type', () => {
   render(<TextInput type="email" />)
   expect(screen.getByRole('textbox')).toHaveAttribute('type', 'email')
@@ -46,6 +51,11 @@ test('applies correct `data-size` attribute', () => {
 test('applies `data-text-align="right"` when suffix present', () => {
   render(<TextInput suffix="%" />)
   expect(screen.getByRole('textbox')).toHaveAttribute('data-text-align', 'right')
+})
+
+test('applies correct variant when specified', () => {
+  const { container } = render(<TextInput variant="borderless" />)
+  expect(container.firstElementChild).toHaveAttribute('data-variant', 'borderless')
 })
 
 test('displays leading icon when supplied', () => {
@@ -72,6 +82,28 @@ test('displays spinner when busy', () => {
   const { container } = render(<TextInput isBusy />)
   expect(container.querySelector('svg')).toBeVisible()
   expect(container.querySelector('svg')).toHaveClass('el-text-input-spinner')
+})
+
+test('prefers prefix over leading icon when both provided', () => {
+  render(<TextInput prefix="$" leadingIcon={<span>icon</span>} />)
+  expect(screen.getByText('$')).toBeVisible()
+  expect(screen.queryByText('icon')).not.toBeInTheDocument()
+})
+
+test('hides suffix when busy', () => {
+  render(<TextInput suffix="%" isBusy />)
+  expect(screen.queryByText('%')).not.toBeInTheDocument()
+})
+
+test('hides trailing icon when busy', () => {
+  render(<TextInput trailingIcon={<span>icon</span>} isBusy />)
+  expect(screen.queryByText('icon')).not.toBeInTheDocument()
+})
+
+test('prefers suffix over trailing icon when both provided', () => {
+  render(<TextInput suffix="%" trailingIcon={<span>icon</span>} />)
+  expect(screen.getByText('%')).toBeVisible()
+  expect(screen.queryByText('icon')).not.toBeInTheDocument()
 })
 
 test('forwards `className` to the root container element', () => {

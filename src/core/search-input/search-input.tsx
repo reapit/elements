@@ -26,8 +26,10 @@ export namespace SearchInput {
     showValidity?: boolean
     /** Size of input. */
     size?: 'small' | 'medium' | 'large'
-    /** Type of input. */
-    type?: 'search'
+    /** Type of input. Default is "search". */
+    type?: 'search' | 'text'
+    /** The visual style of the input. */
+    variant?: 'default' | 'borderless'
   }
 }
 
@@ -35,7 +37,21 @@ export namespace SearchInput {
  * A native input element geared for search. Built on top of `TextInput`.
  */
 export const SearchInput = forwardRef<HTMLInputElement, SearchInput.Props>(
-  ({ defaultValue, disabled, id, onChange, readOnly, showValidity, type = 'search', value, ...rest }, ref) => {
+  (
+    {
+      defaultValue,
+      disabled,
+      id,
+      onChange,
+      readOnly,
+      showValidity,
+      type = 'search',
+      value,
+      variant = 'default',
+      ...rest
+    },
+    ref,
+  ) => {
     const uniqueId = useId()
     const inputId = id ?? uniqueId
 
@@ -63,9 +79,10 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInput.Props>(
         readOnly={readOnly}
         ref={ref}
         showValidity={showValidity}
-        trailingIcon={showClearButton && <SearchInputClearButton aria-controls={inputId} />}
+        trailingIcon={showClearButton && <SearchInputClearButton aria-controls={inputId} variant={variant} />}
         type={type}
         value={value}
+        variant={variant}
       />
     )
   },

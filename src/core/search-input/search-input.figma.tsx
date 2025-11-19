@@ -12,8 +12,12 @@ figma.connect(SearchInput, '<SEARCH_INPUT_URL>', {
       Medium: 'medium',
       Large: 'large',
     }),
+    variant: figma.enum('Variant', {
+      Default: 'default',
+      Borderless: 'borderless',
+    }),
   },
-  example: ({ disabled, placeholder, size }) => (
-    <SearchInput disabled={disabled} placeholder={placeholder} size={size} />
+  example: ({ disabled, placeholder, size, variant }) => (
+    <SearchInput disabled={disabled} placeholder={placeholder} size={size} variant={variant} />
   ),
 })

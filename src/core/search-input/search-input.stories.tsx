@@ -120,6 +120,21 @@ export const Invalid: Story = {
 }
 
 /**
+ * Search inputs support a borderless variant for use in contexts where the default border is too visually heavy.
+ */
+export const Borderless: Story = {
+  args: {
+    ...Example.args,
+    variant: 'borderless',
+  },
+  globals: {
+    backgrounds: {
+      value: 'light',
+    },
+  },
+}
+
+/**
  * By default, search inputs will fill their parent's width. This can be constrained by providing
  * a `maxWidth`.
  */
