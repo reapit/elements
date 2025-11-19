@@ -1,25 +1,23 @@
-import { AtAGlanceCardContent } from '../card-content'
-import { AtAGlanceCardLink } from '../card-link'
-import { AtAGlanceGrid } from './grid'
-import { AtAGlanceGridItem } from './grid-item'
-import { SproutIcon } from '#src/icons/sprout'
+import { AtAGlance } from '../at-a-glance'
+import { buildCards } from '../__story__/build-cards'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const href = globalThis.top?.location.href!
-
 const meta = {
   title: 'Core/AtAGlance/Grid',
-  component: AtAGlanceGrid,
+  component: AtAGlance.Grid,
   argTypes: {
     children: {
       control: false,
+    },
+    gap: {
+      control: 'text',
     },
     templateColumns: {
       control: 'text',
     },
   },
-} satisfies Meta<typeof AtAGlanceGrid>
+} satisfies Meta<typeof AtAGlance.Grid>
 
 export default meta
 type Story = StoryObj<typeof meta>
@@ -29,7 +27,8 @@ type Story = StoryObj<typeof meta>
  */
 export const Example: Story = {
   args: {
-    children: buildCards(8, { layout: 'vertical', variant: 'with-link' }),
+    children: buildCards({ variant: 'with-link' }),
+    gap: undefined,
     templateColumns: '1fr 1fr 1fr 1fr',
     layout: 'template',
   },
@@ -42,81 +41,17 @@ export const Example: Story = {
 export const Layout: Story = {
   args: {
     autoColumns: 'minmax(200px, 1fr)',
-    children: buildCards(8, { layout: 'vertical', variant: 'with-link' }),
+    children: buildCards({ variant: 'with-link' }),
     layout: 'auto',
   },
 }
 
-interface BuildCardsOptions {
-  layout: AtAGlanceCardContent.Props['layout']
-  variant: 'simple' | 'with-link'
-}
-
-function buildCards(count: 2 | 3 | 4 | 5 | 6 | 7 | 8, { layout, variant }: BuildCardsOptions) {
-  const cards = [
-    {
-      label: 'Apple',
-      description: 'Crunchy and juicy',
-      value: '32',
-    },
-    {
-      label: 'Banana',
-      description: 'Soft and flavourless',
-      value: '25',
-    },
-    {
-      label: 'Grape',
-      description: 'Nice and winey',
-      value: '0',
-    },
-    {
-      label: 'Kiwi',
-      description: 'Full of Vitamin C',
-      value: '6',
-    },
-    {
-      label: 'Lemon',
-      description: 'Sour as they come',
-      value: '10',
-    },
-    {
-      label: 'Strawberry',
-      description: 'Red and sweet',
-      value: '35',
-    },
-    {
-      label: 'Watermelon',
-      description: 'Refreshing and hydrating',
-      value: '17',
-    },
-    {
-      label: 'Orange',
-      description: 'Citrusy goodness',
-      value: '51',
-    },
-  ] as const
-
-  return cards.slice(0, count).map((item) => (
-    <AtAGlanceGridItem key={item.label}>
-      {variant === 'simple' ? (
-        <AtAGlanceCardContent
-          description={item.description}
-          icon={<SproutIcon />}
-          label={item.label}
-          layout={layout}
-          value={item.value}
-        />
-      ) : (
-        <AtAGlanceCardLink href={href}>
-          <AtAGlanceCardContent
-            description={item.description}
-            icon={<SproutIcon />}
-            label={item.label}
-            layout={layout}
-            value={item.value}
-          />
-        </AtAGlanceCardLink>
-      )}
-    </AtAGlanceGridItem>
-  ))
+/**
+ * The gap between grid items can be adjusted using `gap`.
+ */
+export const Gap: Story = {
+  args: {
+    ...Example.args,
+    gap: '--spacing-8',
+  },
 }

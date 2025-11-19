@@ -212,22 +212,6 @@ test('sets data-can-scroll-right attribute when canScrollRight is true', () => {
   expect(grid).toHaveAttribute('data-can-scroll-right', 'true')
 })
 
-test('forwards additional props to container', () => {
-  vi.mocked(useScrollObserver).mockReturnValue({
-    canScrollLeft: false,
-    canScrollRight: false,
-  })
-
-  render(
-    <AtAGlanceCarousel data-testid="custom-carousel" className="custom-class">
-      <div>Content</div>
-    </AtAGlanceCarousel>,
-  )
-
-  expect(screen.getByTestId('custom-carousel')).toBeVisible()
-  expect(screen.getByTestId('custom-carousel')).toHaveClass('custom-class')
-})
-
 test('can click buttons when scrolling is not available', () => {
   vi.mocked(useScrollObserver).mockReturnValue({
     canScrollLeft: false,
@@ -245,10 +229,6 @@ test('can click buttons when scrolling is not available', () => {
   expect(() => fireEvent.click(buttons[1])).not.toThrow()
 })
 
-test('exposes AtAGlanceCarousel.Item', () => {
-  expect(AtAGlanceCarousel.Item).toBeDefined()
-})
-
 test('uses auto layout for grid', () => {
   vi.mocked(useScrollObserver).mockReturnValue({
     canScrollLeft: false,
@@ -263,4 +243,20 @@ test('uses auto layout for grid', () => {
 
   const grid = screen.getByRole('list')
   expect(grid).toHaveAttribute('data-layout', 'auto')
+})
+
+test('forwards additional props to child grid', () => {
+  vi.mocked(useScrollObserver).mockReturnValue({
+    canScrollLeft: false,
+    canScrollRight: false,
+  })
+
+  render(
+    <AtAGlanceCarousel data-testid="custom-carousel" className="custom-class">
+      <div>Content</div>
+    </AtAGlanceCarousel>,
+  )
+
+  expect(screen.getByTestId('custom-carousel')).toBeVisible()
+  expect(screen.getByTestId('custom-carousel')).toHaveClass('custom-class')
 })

@@ -1,13 +1,13 @@
-import { AtAGlanceCard } from './card'
+import { AtAGlanceButtonCard } from './button-card'
 import { SproutIcon } from '#src/icons/sprout'
 import { Text } from '#src/core/text'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta: Meta<typeof AtAGlanceCard> = {
-  title: 'Core/AtAGlance/Card',
-  component: AtAGlanceCard,
+const meta: Meta<typeof AtAGlanceButtonCard> = {
+  title: 'Core/AtAGlance/ButtonCard',
+  component: AtAGlanceButtonCard,
   argTypes: {
     description: { control: 'text' },
     displayValue: { control: 'text' },
@@ -19,6 +19,7 @@ const meta: Meta<typeof AtAGlanceCard> = {
     },
     maxWidth: { control: 'text' },
     minWidth: { control: 'text' },
+    onClick: { action: 'clicked' },
   },
 }
 
@@ -26,8 +27,11 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * A static card for displaying at-a-glance information.
- * Use this component when the card does not need to be interactive.
+ * A button card that triggers an action when clicked. The entire card is clickable
+ * and triggers an onClick handler. The display value is shown in the action color
+ * to indicate interactivity.
+ *
+ * Use this component when the card should trigger a standalone action rather than navigate.
  */
 export const Example: Story = {
   args: {
@@ -36,11 +40,12 @@ export const Example: Story = {
     icon: <SproutIcon />,
     label: 'Apple',
     layout: 'vertical',
+    onClick: () => alert('Button clicked!'),
   },
 }
 
 /**
- * Static cards support three layout variants:
+ * Button cards support three layout variants:
  * - `vertical`: Icon and content stacked vertically (default)
  * - `compact`: Icon on left, label/description stacked, value on far right
  * - `horizontal`: Icon on left, label/description stacked, value on right
@@ -51,7 +56,7 @@ export const Layouts: Story = {
   },
   decorators: [
     (Story, { args }) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ color: '#FA00FF', display: 'flex', gap: 'var(--spacing-6)' }}>
         <div style={{ flexGrow: 1 }}>
           <Text style={{ marginBlockEnd: 'var(--spacing-2)' }}>Vertical</Text>
           <Story args={{ ...args, layout: 'vertical' }} />
@@ -99,16 +104,22 @@ export const Width: Story = {
     label: 'Apple',
     layout: 'horizontal',
     maxWidth: '200px',
+    onClick: () => alert('Clicked!'),
   },
 }
 
 /**
- * Card content is stretched to fill available space, allowing values within
+ * Button card content is stretched to fill available space, allowing values within
  * each card to be vertically aligned when displayed in a grid.
  */
 export const Alignment: Story = {
   args: {
     ...Example.args,
+  },
+  argTypes: {
+    label: { control: false },
+    description: { control: false },
+    displayValue: { control: false },
   },
   decorators: [
     (Story: any) => {
@@ -157,15 +168,21 @@ export const Alignment: Story = {
   ],
   render: (args) => (
     <>
-      <AtAGlanceCard {...args} description="Crunchy and Juicy" displayValue="32" icon={<SproutIcon />} label="Apple" />
-      <AtAGlanceCard
+      <AtAGlanceButtonCard
+        {...args}
+        description="Crunchy and Juicy"
+        displayValue="32"
+        icon={<SproutIcon />}
+        label="Apple"
+      />
+      <AtAGlanceButtonCard
         {...args}
         description="Crunchy and juicy. Some are red, others are green. Some can even be yellow, pink or dark purple. I've ran out of copy ideas."
         displayValue="32"
         icon={<SproutIcon />}
         label="Apple"
       />
-      <AtAGlanceCard
+      <AtAGlanceButtonCard
         {...args}
         description="They all mean the same thing"
         displayValue="32"

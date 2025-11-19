@@ -1,12 +1,13 @@
-import { useId } from 'react'
 import { AtAGlanceGrid } from '../grid'
 import { Button } from '#src/core/button'
 import { ChevronLeftIcon } from '#src/icons/chevron-left'
 import { ChevronRightIcon } from '#src/icons/chevron-right'
+import { cx } from '@linaria/core'
 import { ElAtAGlanceCarousel, elAtAGlanceCarouselButton, elAtAGlanceCarouselGrid } from './styles'
-import { useScrollObserver } from './use-scroll-observer'
 import { scrollContainerLeft } from './scroll-container-left'
 import { scrollContainerRight } from './scroll-container-right'
+import { useId } from 'react'
+import { useScrollObserver } from './use-scroll-observer'
 
 import type { HTMLAttributes } from 'react'
 
@@ -18,6 +19,10 @@ export namespace AtAGlanceCarousel {
      * value.
      */
     columns?: string
+    /**
+     * The gap between the grid's rows and columns. Defaults to `--spacing-4`.
+     */
+    gap?: `--spacing-${string}`
   }
 }
 
@@ -25,12 +30,13 @@ export namespace AtAGlanceCarousel {
  * A carousel component for displaying at-a-glance cards with horizontal scrolling.
  * Navigation buttons show/hide based on scroll position.
  */
-export function AtAGlanceCarousel({ children, columns = '1fr', ...rest }: AtAGlanceCarousel.Props) {
-  const scrollContainerId = useId()
+export function AtAGlanceCarousel({ children, className, columns = '1fr', id, ...rest }: AtAGlanceCarousel.Props) {
+  const fallbackId = useId()
+  const scrollContainerId = id ?? fallbackId
   const { canScrollLeft, canScrollRight } = useScrollObserver(scrollContainerId)
 
   return (
-    <ElAtAGlanceCarousel {...rest}>
+    <ElAtAGlanceCarousel>
       <Button
         aria-label="Previous"
         className={elAtAGlanceCarouselButton}
@@ -42,8 +48,9 @@ export function AtAGlanceCarousel({ children, columns = '1fr', ...rest }: AtAGla
       />
 
       <AtAGlanceGrid
+        {...rest}
         autoColumns={columns}
-        className={elAtAGlanceCarouselGrid}
+        className={cx(className, elAtAGlanceCarouselGrid)}
         data-can-scroll-left={canScrollLeft}
         data-can-scroll-right={canScrollRight}
         id={scrollContainerId}
@@ -64,5 +71,3 @@ export function AtAGlanceCarousel({ children, columns = '1fr', ...rest }: AtAGla
     </ElAtAGlanceCarousel>
   )
 }
-
-AtAGlanceCarousel.Item = AtAGlanceGrid.Item

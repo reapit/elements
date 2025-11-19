@@ -1,16 +1,21 @@
-import { AtAGlanceCard } from './card'
+import { AtAGlanceAnchorCard } from './anchor-card'
 import { SproutIcon } from '#src/icons/sprout'
 import { Text } from '#src/core/text'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta: Meta<typeof AtAGlanceCard> = {
-  title: 'Core/AtAGlance/Card',
-  component: AtAGlanceCard,
+const meta: Meta<typeof AtAGlanceAnchorCard> = {
+  title: 'Core/AtAGlance/AnchorCard',
+  component: AtAGlanceAnchorCard,
   argTypes: {
+    'aria-current': {
+      control: 'inline-radio',
+      options: ['page', false],
+    },
     description: { control: 'text' },
     displayValue: { control: 'text' },
+    href: { control: 'text' },
     icon: { control: false },
     label: { control: 'text' },
     layout: {
@@ -25,14 +30,20 @@ const meta: Meta<typeof AtAGlanceCard> = {
 export default meta
 type Story = StoryObj<typeof meta>
 
+const href = globalThis.top?.location?.href!
+
 /**
- * A static card for displaying at-a-glance information.
- * Use this component when the card does not need to be interactive.
+ * A navigable card that links to a URL. The entire card is clickable
+ * and navigates to the specified URL. The display value is shown in the action color
+ * to indicate interactivity.
+ *
+ * Use this component when the card should navigate to another page or section.
  */
 export const Example: Story = {
   args: {
     description: 'Crunchy and Juicy',
     displayValue: '32',
+    href,
     icon: <SproutIcon />,
     label: 'Apple',
     layout: 'vertical',
@@ -40,7 +51,7 @@ export const Example: Story = {
 }
 
 /**
- * Static cards support three layout variants:
+ * Link cards support three layout variants:
  * - `vertical`: Icon and content stacked vertically (default)
  * - `compact`: Icon on left, label/description stacked, value on far right
  * - `horizontal`: Icon on left, label/description stacked, value on right
@@ -51,7 +62,7 @@ export const Layouts: Story = {
   },
   decorators: [
     (Story, { args }) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
+      <div style={{ color: '#FA00FF', display: 'flex', gap: 'var(--spacing-6)' }}>
         <div style={{ flexGrow: 1 }}>
           <Text style={{ marginBlockEnd: 'var(--spacing-2)' }}>Vertical</Text>
           <Story args={{ ...args, layout: 'vertical' }} />
@@ -67,6 +78,17 @@ export const Layouts: Story = {
       </div>
     ),
   ],
+}
+
+/**
+ * Use `aria-current="page"` to indicate the link represents the current page (i.e. it's "selected").
+ * This applies special styling to highlight the current context.
+ */
+export const Selected: Story = {
+  args: {
+    ...Example.args,
+    'aria-current': 'page',
+  },
 }
 
 /**
@@ -96,6 +118,7 @@ export const NoDescription: Story = {
 export const Width: Story = {
   args: {
     displayValue: '32',
+    href,
     label: 'Apple',
     layout: 'horizontal',
     maxWidth: '200px',
@@ -103,12 +126,17 @@ export const Width: Story = {
 }
 
 /**
- * Card content is stretched to fill available space, allowing values within
+ * Link card content is stretched to fill available space, allowing values within
  * each card to be vertically aligned when displayed in a grid.
  */
 export const Alignment: Story = {
   args: {
     ...Example.args,
+  },
+  argTypes: {
+    label: { control: false },
+    description: { control: false },
+    displayValue: { control: false },
   },
   decorators: [
     (Story: any) => {
@@ -157,15 +185,21 @@ export const Alignment: Story = {
   ],
   render: (args) => (
     <>
-      <AtAGlanceCard {...args} description="Crunchy and Juicy" displayValue="32" icon={<SproutIcon />} label="Apple" />
-      <AtAGlanceCard
+      <AtAGlanceAnchorCard
+        {...args}
+        description="Crunchy and Juicy"
+        displayValue="32"
+        icon={<SproutIcon />}
+        label="Apple"
+      />
+      <AtAGlanceAnchorCard
         {...args}
         description="Crunchy and juicy. Some are red, others are green. Some can even be yellow, pink or dark purple. I've ran out of copy ideas."
         displayValue="32"
         icon={<SproutIcon />}
         label="Apple"
       />
-      <AtAGlanceCard
+      <AtAGlanceAnchorCard
         {...args}
         description="They all mean the same thing"
         displayValue="32"

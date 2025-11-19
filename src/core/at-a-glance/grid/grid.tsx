@@ -1,9 +1,10 @@
+import { cx } from '@linaria/core'
 import { AtAGlanceGridItem } from './grid-item'
-import { ElAtAGlanceGrid } from './styles'
+import { elAtAGlanceGrid } from './styles'
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
 
 export namespace AtAGlanceGrid {
-  export interface Props extends HTMLAttributes<HTMLUListElement> {
+  export interface Props extends HTMLAttributes<HTMLElement> {
     /**
      * Width of implicitly created grid columns. Applies only when `layout="auto"`.
      * Accepts any valid [grid-auto-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/grid-auto-columns) value.
@@ -11,6 +12,10 @@ export namespace AtAGlanceGrid {
     autoColumns?: string
     /** The cards to display in the grid. */
     children: ReactNode
+    /**
+     * The gap between the grid's rows and columns. Defaults to `--spacing-4`.
+     */
+    gap?: `--spacing-${string}`
     /**
      * Number and size of explicitly created grid columns. Applies only when `layout="template"`.
      * Accepts any valid [grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns) value.
@@ -33,19 +38,34 @@ export namespace AtAGlanceGrid {
 export function AtAGlanceGrid({
   autoColumns,
   children,
+  className,
+  gap = '--spacing-4',
   templateColumns = '1fr 1fr 1fr 1fr 1fr',
   layout = 'template',
+  role,
   style,
   ...rest
 }: AtAGlanceGrid.Props) {
-  const gridStyles: CSSProperties = {
+  // Render a <div> when a custom role is provided and a <ul> otherwise.
+  // Ensures usage with Listbox (which passes role="listbox") results in a <div>
+  const Element = role ? 'div' : 'ul'
+
+  const gridStyles = {
     ...(layout === 'auto' && autoColumns ? { gridAutoColumns: autoColumns } : {}),
     ...(layout === 'template' && templateColumns ? { gridTemplateColumns: templateColumns } : {}),
-  }
+    '--aag-grid-gap': `var(${gap})`,
+  } as const satisfies CSSProperties & { '--aag-grid-gap': string }
+
   return (
-    <ElAtAGlanceGrid {...rest} data-layout={layout} style={{ ...style, ...gridStyles }}>
+    <Element
+      {...rest}
+      className={cx(className, elAtAGlanceGrid)}
+      data-layout={layout}
+      role={role}
+      style={{ ...style, ...gridStyles }}
+    >
       {children}
-    </ElAtAGlanceGrid>
+    </Element>
   )
 }
 

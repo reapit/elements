@@ -1,28 +1,26 @@
-import { AtAGlanceCardContent } from '../card-content'
-import { AtAGlanceCardLink } from '../card-link'
-import { AtAGlanceCarousel } from './carousel'
-import { SproutIcon } from '#src/icons/sprout'
+import { AtAGlance } from '../at-a-glance'
+import { buildCards } from '../__story__/build-cards'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const href = globalThis.top?.location.href!
-
 const meta = {
   title: 'Core/AtAGlance/Carousel',
-  component: AtAGlanceCarousel,
+  component: AtAGlance.Carousel,
   argTypes: {
     children: { control: false },
     columns: { control: 'text' },
+    gap: { control: 'text' },
   },
-} satisfies Meta<typeof AtAGlanceCarousel>
+} satisfies Meta<typeof AtAGlance.Carousel>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
   args: {
-    children: buildCards(8, { layout: 'horizontal', variant: 'with-link' }),
+    children: buildCards({ layout: 'horizontal', variant: 'with-link' }),
     columns: 'var(--size-60)',
+    gap: undefined,
   },
 }
 
@@ -32,81 +30,7 @@ export const Example: Story = {
  */
 export const NoOverflow: Story = {
   args: {
-    children: buildCards(2, { layout: 'vertical', variant: 'simple' }),
+    children: buildCards({ count: 2 }),
     columns: 'var(--size-60)',
   },
-}
-
-interface BuildCardsOptions {
-  layout: 'horizontal' | 'vertical'
-  variant: 'simple' | 'with-link'
-}
-
-function buildCards(count: 2 | 3 | 4 | 5 | 6 | 7 | 8, { layout, variant }: BuildCardsOptions) {
-  const cards = [
-    {
-      label: 'Apple',
-      description: 'Crunchy and juicy',
-      value: '32',
-    },
-    {
-      label: 'Banana',
-      description: 'Soft and flavourless',
-      value: '25',
-    },
-    {
-      label: 'Grape',
-      description: 'Nice and winey',
-      value: '0',
-    },
-    {
-      label: 'Kiwi',
-      description: 'Full of Vitamin C',
-      value: '6',
-    },
-    {
-      label: 'Lemon',
-      description: 'Sour as they come',
-      value: '10',
-    },
-    {
-      label: 'Strawberry',
-      description: 'Red and sweet',
-      value: '35',
-    },
-    {
-      label: 'Watermelon',
-      description: 'Refreshing and hydrating',
-      value: '17',
-    },
-    {
-      label: 'Orange',
-      description: 'Citrusy goodness',
-      value: '51',
-    },
-  ] as const
-
-  return cards.slice(0, count).map((item) => (
-    <AtAGlanceCarousel.Item key={item.label}>
-      {variant === 'simple' ? (
-        <AtAGlanceCardContent
-          description={item.description}
-          icon={<SproutIcon />}
-          label={item.label}
-          layout={layout}
-          value={item.value}
-        />
-      ) : (
-        <AtAGlanceCardLink href={href}>
-          <AtAGlanceCardContent
-            description={item.description}
-            icon={<SproutIcon />}
-            label={item.label}
-            layout={layout}
-            value={item.value}
-          />
-        </AtAGlanceCardLink>
-      )}
-    </AtAGlanceCarousel.Item>
-  ))
 }
