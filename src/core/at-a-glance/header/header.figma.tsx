@@ -1,7 +1,7 @@
-import { AtAGlanceHeader } from './header'
+import { AtAGlance } from '../at-a-glance'
 import figma from '@figma/code-connect'
 
-figma.connect(AtAGlanceHeader, '<AT_A_GLANCE_HEADER_URL>', {
+figma.connect(AtAGlance.Header, '<AT_A_GLANCE_HEADER_URL>', {
   props: {
     accessory: figma.boolean('Show accessory', {
       true: figma.instance('Accessory'),
@@ -9,5 +9,5 @@ figma.connect(AtAGlanceHeader, '<AT_A_GLANCE_HEADER_URL>', {
     }),
     children: figma.string('Title'),
   },
-  example: (props) => <AtAGlanceHeader accessory={props.accessory}>{props.children}</AtAGlanceHeader>,
+  example: (props) => <AtAGlance.Header accessory={props.accessory}>{props.children}</AtAGlance.Header>,
 })

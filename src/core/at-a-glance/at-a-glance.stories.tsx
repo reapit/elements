@@ -42,12 +42,12 @@ const meta = {
         Links: <AtAGlance.Carousel columns="200px">{buildCards({ variant: 'with-link' })}</AtAGlance.Carousel>,
         'Listbox with Carousel': (
           <AtAGlance.Listbox as={AtAGlance.Carousel} columns="200px">
-            {buildCards({ variant: 'selectable' })}
+            {buildCards({ layout: 'compact', variant: 'selectable' })}
           </AtAGlance.Listbox>
         ),
         'Listbox with Grid': (
           <AtAGlance.Listbox as={AtAGlance.Grid} templateColumns="1fr 1fr 1fr 1fr">
-            {buildCards({ variant: 'selectable' })}
+            {buildCards({ layout: 'horizontal', variant: 'selectable' })}
           </AtAGlance.Listbox>
         ),
       },
@@ -100,7 +100,16 @@ export const Links: Story = {
 
 /**
  * Selectable cards allow users to select options. Only single-selection is currently supported.
- * Selected cards can be deselected by clicking on them again.
+ * Cards can be deselected by clicking on them again. `AtAGlance.Listbox` is polymorphic
+ * and can be used with either `AtAGlance.Grid` or `AtAGlance.Carousel` via its `as` prop.
+ *
+ * ```tsx
+ * <AtAGlance.Listbox as={AtAGlance.Carousel} columns="200px">
+ *   <AtAGlance.ListboxOption displayValue="32" label="Apple" value="apple" />
+ *   <AtAGlance.ListboxOption displayValue="25" label="Banana" value="banana" />
+ *   ...
+ * </AtAGlance.Listbox>
+ * ```
  */
 export const Selectable: Story = {
   args: {

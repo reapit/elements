@@ -1,7 +1,7 @@
-import { AtAGlanceGrid } from './grid'
+import { AtAGlance } from '../at-a-glance'
 import figma from '@figma/code-connect'
 
-figma.connect(AtAGlanceGrid, '<AT_A_GLANCE_GRID_URL>', {
+figma.connect(AtAGlance.Grid, '<AT_A_GLANCE_GRID_URL>', {
   props: {
     children: figma.children('*'),
     templateColumns: figma.enum('Grid template', {
@@ -15,5 +15,5 @@ figma.connect(AtAGlanceGrid, '<AT_A_GLANCE_GRID_URL>', {
       '2x1': '1fr 1fr',
     }),
   },
-  example: (props) => <AtAGlanceGrid templateColumns={props.templateColumns}>{props.children}</AtAGlanceGrid>,
+  example: (props) => <AtAGlance.Grid templateColumns={props.templateColumns}>{props.children}</AtAGlance.Grid>,
 })

@@ -1,8 +1,8 @@
 import { AtAGlance } from '../at-a-glance'
 import figma from '@figma/code-connect'
 
-figma.connect(AtAGlance.Card, '<AT_A_GLANCE_CARD_URL>', {
-  variant: { Variant: 'Simple' },
+figma.connect(AtAGlance.ListboxOption, '<AT_A_GLANCE_CARD_URL>', {
+  variant: { Variant: 'Selectable' },
   props: {
     content: figma.nestedProps('AAG card content', {
       icon: figma.boolean('Show icon', {
@@ -23,14 +23,14 @@ figma.connect(AtAGlance.Card, '<AT_A_GLANCE_CARD_URL>', {
     }),
   },
   example: (props) => (
-    <AtAGlance.GridItem>
-      <AtAGlance.Card
-        icon={props.content.icon}
-        description={props.content.description}
-        label={props.content.label}
-        layout={props.content.layout}
-        displayValue={props.content.displayValue}
-      />
-    </AtAGlance.GridItem>
+    // Must be a child of AtAGlance.Listbox
+    <AtAGlance.ListboxOption
+      icon={props.content.icon}
+      description={props.content.description}
+      displayValue={props.content.displayValue}
+      label={props.content.label}
+      layout={props.content.layout}
+      value="<REPLACE ME>"
+    />
   ),
 })

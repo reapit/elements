@@ -14,8 +14,9 @@ export namespace AtAGlance {
 }
 
 /**
- * Container component for at-a-glance information displays.
- * Use with the nested card components to create information dashboards.
+ * At a glance is a set of cards used to summarise key information from a dataset.
+ * Optionally, it can be used as a way to filter the dataset or link to another section
+ * or page for additional information.
  */
 export function AtAGlance(props: AtAGlance.Props) {
   return <ElAtAGlance {...props} />
