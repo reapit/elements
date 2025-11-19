@@ -15,5 +15,10 @@ figma.connect(AtAGlance.Grid, '<AT_A_GLANCE_GRID_URL>', {
       '2x1': '1fr 1fr',
     }),
   },
-  example: (props) => <AtAGlance.Grid templateColumns={props.templateColumns}>{props.children}</AtAGlance.Grid>,
+  example: (props) => (
+    <AtAGlance.Grid templateColumns={props.templateColumns}>
+      {/* Use <AtAGlance.Listbox as={AtAGlance.Grid}> when children are AtAGlance.ListboxOption. */}
+      {props.children}
+    </AtAGlance.Grid>
+  ),
 })
