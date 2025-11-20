@@ -31,7 +31,7 @@ test('has aria-orientation="vertical"', () => {
   expect(screen.getByRole('listbox')).toHaveAttribute('aria-orientation', 'vertical')
 })
 
-test('options have data-select-action="select"', () => {
+test('options have data-select-action="auto" by default', () => {
   render(
     <ComboboxContext.Provider value={defaultContext}>
       <ComboboxListbox>
@@ -39,7 +39,18 @@ test('options have data-select-action="select"', () => {
       </ComboboxListbox>
     </ComboboxContext.Provider>,
   )
-  expect(screen.getByRole('option')).toHaveAttribute('data-select-action', 'select')
+  expect(screen.getByRole('option')).toHaveAttribute('data-select-action', 'auto')
+})
+
+test('can override the default select action', () => {
+  render(
+    <ComboboxContext.Provider value={defaultContext}>
+      <ComboboxListbox selectAction="toggle">
+        <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
+      </ComboboxListbox>
+    </ComboboxContext.Provider>,
+  )
+  expect(screen.getByRole('option')).toHaveAttribute('data-select-action', 'toggle')
 })
 
 const defaultContext: ComboboxContext.Value = {

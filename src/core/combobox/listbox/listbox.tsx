@@ -9,8 +9,7 @@ import { useComboboxContext } from '../context'
 // - aria-orientation, because it is always "vertical"
 // - aria-required, because it is set by Combobox
 // - id, because it is set by Combobox
-// - selectAction, because it is always "select"
-type AttributesToOmit = 'aria-disabled' | 'aria-orientation' | 'aria-required' | 'id' | 'selectAction'
+type AttributesToOmit = 'aria-disabled' | 'aria-orientation' | 'aria-required' | 'id'
 
 export namespace ComboboxListbox {
   export interface Props extends Omit<Listbox.Props, AttributesToOmit> {}
@@ -29,7 +28,6 @@ export function ComboboxListbox(props: ComboboxListbox.Props) {
       aria-orientation="vertical"
       aria-required={required}
       id={listboxId}
-      selectAction="select"
       selectionFollowsFocus={false}
     />
   )
