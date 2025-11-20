@@ -82,3 +82,4 @@ Combobox.Option = ComboboxListbox.Option
 Combobox.Optgroup = ComboboxListbox.Optgroup
 Combobox.OptionSupplementaryInfo = ComboboxListbox.OptionAdditionalInfo
 Combobox.Divider = ComboboxListbox.Divider
+Combobox.ListboxPlaceholder = ComboboxListbox.Placeholder

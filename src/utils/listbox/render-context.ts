@@ -2,7 +2,7 @@ import { createContext, useContext } from 'react'
 
 export namespace ListboxRenderContext {
   /** How descendants render: as custom display elements or native select elements */
-  export type Value = 'display' | 'native'
+  export type Value = 'custom' | 'native'
 }
 
 /**

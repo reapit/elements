@@ -90,9 +90,9 @@ test('renders children in both native and display contexts', () => {
       </ListboxRenderContext.Consumer>
     </Listbox>,
   )
-  // Should render in both native and display contexts
+  // Should render in both native and custom contexts
   expect(screen.getByText('native')).toBeInTheDocument()
-  expect(screen.getByText('display')).toBeVisible()
+  expect(screen.getByText('custom')).toBeVisible()
 })
 
 test('can be disabled', () => {

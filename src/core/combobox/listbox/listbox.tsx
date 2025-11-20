@@ -1,3 +1,4 @@
+import { ComboboxListboxPlaceholder } from './listbox-placeholder'
 import { ComboboxListboxOptgroup } from './listbox-optgroup'
 import { ComboboxListboxOption } from './listbox-option'
 import { ElComboboxListbox } from './styles'
@@ -39,6 +40,7 @@ ComboboxListbox.Divider = Listbox.Divider
 ComboboxListbox.Optgroup = ComboboxListboxOptgroup
 ComboboxListbox.Option = ComboboxListboxOption
 ComboboxListbox.OptionAdditionalInfo = ComboboxListboxOption.AdditionalInfo
+ComboboxListbox.Placeholder = ComboboxListboxPlaceholder
 
 ComboboxListbox.clearValue = Listbox.clearValue
 ComboboxListbox.getOptionLabel = ComboboxListboxOption.getLabel

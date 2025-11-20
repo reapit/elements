@@ -70,7 +70,7 @@ describe('in a "custom" render context', () => {
   test('renders as an option element', () => {
     render(
       <ListboxContext.Provider value={defaultContext}>
-        <ListboxRenderContext.Provider value="display">
+        <ListboxRenderContext.Provider value="custom">
           <ListboxOption as={CustomTestOption} value="option-1">
             Option 1
           </ListboxOption>
@@ -83,7 +83,7 @@ describe('in a "custom" render context', () => {
   test('is aria-checked when selected and multiple=true', () => {
     render(
       <ListboxContext.Provider value={{ ...defaultContext, multiple: true, selectValue: ['option-1'] }}>
-        <ListboxRenderContext.Provider value="display">
+        <ListboxRenderContext.Provider value="custom">
           <ListboxOption as={CustomTestOption} value="option-1">
             Option 1
           </ListboxOption>
@@ -96,7 +96,7 @@ describe('in a "custom" render context', () => {
   test('is aria-selected when selected and multiple=false', () => {
     render(
       <ListboxContext.Provider value={{ ...defaultContext, selectValue: ['option-1'] }}>
-        <ListboxRenderContext.Provider value="display">
+        <ListboxRenderContext.Provider value="custom">
           <ListboxOption as={CustomTestOption} value="option-1">
             Option 1
           </ListboxOption>
@@ -109,7 +109,7 @@ describe('in a "custom" render context', () => {
   test('is disabled when the listbox is disabled', () => {
     render(
       <ListboxContext.Provider value={{ ...defaultContext, disabled: true }}>
-        <ListboxRenderContext.Provider value="display">
+        <ListboxRenderContext.Provider value="custom">
           <ListboxOption as={CustomTestOption} value="option-1">
             Option 1
           </ListboxOption>
@@ -122,7 +122,7 @@ describe('in a "custom" render context', () => {
   test('has data-listbox-id attribute', () => {
     render(
       <ListboxContext.Provider value={defaultContext}>
-        <ListboxRenderContext.Provider value="display">
+        <ListboxRenderContext.Provider value="custom">
           <ListboxOption as={CustomTestOption} value="option-1">
             Option 1
           </ListboxOption>
@@ -135,7 +135,7 @@ describe('in a "custom" render context', () => {
   test('has data-select-action attribute', () => {
     render(
       <ListboxContext.Provider value={defaultContext}>
-        <ListboxRenderContext.Provider value="display">
+        <ListboxRenderContext.Provider value="custom">
           <ListboxOption as={CustomTestOption} value="option-1">
             Option 1
           </ListboxOption>
@@ -149,7 +149,7 @@ describe('in a "custom" render context', () => {
     const onClick = vi.fn()
     render(
       <ListboxContext.Provider value={defaultContext}>
-        <ListboxRenderContext.Provider value="display">
+        <ListboxRenderContext.Provider value="custom">
           <ListboxOption as={CustomTestOption} value="option-1" onClick={onClick}>
             Option 1
           </ListboxOption>
@@ -164,7 +164,7 @@ describe('in a "custom" render context', () => {
     const onClick = vi.fn()
     render(
       <ListboxContext.Provider value={{ ...defaultContext }}>
-        <ListboxRenderContext.Provider value="display">
+        <ListboxRenderContext.Provider value="custom">
           <ListboxOption as={CustomTestOption} value="option-1" onClick={onClick}>
             Option 1
           </ListboxOption>
@@ -178,7 +178,7 @@ describe('in a "custom" render context', () => {
   test('forwards value to button element', () => {
     render(
       <ListboxContext.Provider value={defaultContext}>
-        <ListboxRenderContext.Provider value="display">
+        <ListboxRenderContext.Provider value="custom">
           <ListboxOption as={CustomTestOption} value="option-1">
             Option 1
           </ListboxOption>
@@ -191,7 +191,7 @@ describe('in a "custom" render context', () => {
   test('forwards additional attributes to the option element', () => {
     render(
       <ListboxContext.Provider value={defaultContext}>
-        <ListboxRenderContext.Provider value="display">
+        <ListboxRenderContext.Provider value="custom">
           <ListboxOption as={CustomTestOption} data-testid="test-id" value="option-1">
             Option 1
           </ListboxOption>

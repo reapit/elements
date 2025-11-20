@@ -1,5 +1,4 @@
 import { Combobox } from './combobox'
-import { Text } from '#src/core/text'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -125,9 +124,9 @@ export const Filtering: Story = {
                 </Combobox.Option>
               ))
             ) : (
-              <Text colour="placeholder" style={{ padding: 'var(--spacing-2)' }}>
-                No results found
-              </Text>
+              // Combobox.Listbox holds state in the DOM, so the placeholder text should be
+              // rendered as it's child.
+              <Combobox.ListboxPlaceholder>No results found</Combobox.ListboxPlaceholder>
             )}
           </Combobox.Listbox>
         </Combobox.Popup>

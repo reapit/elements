@@ -42,7 +42,7 @@ describe('in a "native" render context', () => {
 describe('in a "display" render context', () => {
   test('renders as a group element', () => {
     render(
-      <ListboxRenderContext.Provider value="display">
+      <ListboxRenderContext.Provider value="custom">
         <ListboxOptgroup as={CustomTestOptgroup} label="My group">
           <option value="test">Test</option>
         </ListboxOptgroup>
@@ -53,7 +53,7 @@ describe('in a "display" render context', () => {
 
   test('always displays children', () => {
     render(
-      <ListboxRenderContext.Provider value="display">
+      <ListboxRenderContext.Provider value="custom">
         <ListboxOptgroup as={CustomTestOptgroup} data-testid="test-id" label="My group">
           <option value="test">Test</option>
         </ListboxOptgroup>
@@ -64,7 +64,7 @@ describe('in a "display" render context', () => {
 
   test('forwards additional attributes to the group element', () => {
     render(
-      <ListboxRenderContext.Provider value="display">
+      <ListboxRenderContext.Provider value="custom">
         <ListboxOptgroup as={CustomTestOptgroup} data-testid="test-id" label="My group">
           <option value="test">Test</option>
         </ListboxOptgroup>

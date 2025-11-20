@@ -179,7 +179,7 @@ export function Listbox<C extends ElementType = 'div'>({
         >
           {children}
         </ListboxSelect>
-        <ListboxRenderContext.Provider value="display">{children}</ListboxRenderContext.Provider>
+        <ListboxRenderContext.Provider value="custom">{children}</ListboxRenderContext.Provider>
       </ListboxContext.Provider>
     </Element>
   )

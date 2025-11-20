@@ -170,3 +170,21 @@ export const Forms: Story = {
     ),
   ],
 }
+
+/**
+ * Display a placeholder when no options are available. This is useful for search results or
+ * filtered lists.
+ */
+export const Placeholder: Story = {
+  args: {
+    children: <ComboboxListbox.Placeholder>No results found</ComboboxListbox.Placeholder>,
+    name: 'options',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ border: '1px solid #FA00FF' }}>
+        <Story />
+      </div>
+    ),
+  ],
+}
