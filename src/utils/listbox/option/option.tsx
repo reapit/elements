@@ -1,6 +1,6 @@
-import { setListboxOptionSelectedState } from '../dom-helpers'
 import { useListboxContext } from '../context'
 import { useListboxRenderContext } from '../render-context'
+import { updateOptionSelection } from './update-option-selection'
 
 import type { ButtonHTMLAttributes, ComponentPropsWithoutRef, ElementType, MouseEventHandler } from 'react'
 
@@ -64,21 +64,7 @@ export function ListboxOption<C extends ElementType = 'button'>({
     // Call consumer's onClick handler first
     onClick?.(event)
 
-    const { listboxId, selectAction } = event.currentTarget.dataset
-
-    // This happens when the `as` component fails to forward props to the underlying <button> element.
-    if (!listboxId) return
-
-    const optionValue = event.currentTarget.value
-
-    // The selectAction setting determines whether to toggle or select the option.
-    if (selectAction === 'toggle') {
-      // Toggle: flip the current selected state (used in multi-select scenarios)
-      setListboxOptionSelectedState(listboxId, optionValue, (selected) => !selected)
-    } else if (selectAction === 'select') {
-      // Select: always set to selected (used in single-select scenarios)
-      setListboxOptionSelectedState(listboxId, optionValue, () => true)
-    }
+    updateOptionSelection(event)
   }
 
   return (

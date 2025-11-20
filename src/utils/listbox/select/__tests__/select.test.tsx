@@ -57,7 +57,7 @@ test('binds onChange to both change and input events', () => {
 test('provides ListboxRenderContext with "native" value to children', () => {
   const TestChild = () => {
     const context = useContext(ListboxRenderContext)
-    return <div data-testid="context-value">{context}</div>
+    return <option data-testid="context-value">{context}</option>
   }
 
   render(

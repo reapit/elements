@@ -131,7 +131,7 @@ test('provides `ListboxContext` to descendants', () => {
               // We don't care about the specific ID, only that one is provided.
               listboxId: expect.any(String),
               multiple: false,
-              selectAction: 'toggle',
+              selectAction: 'auto',
               selectValue: [],
             },
             `
@@ -139,7 +139,7 @@ test('provides `ListboxContext` to descendants', () => {
               "disabled": false,
               "listboxId": Any<String>,
               "multiple": false,
-              "selectAction": "toggle",
+              "selectAction": "auto",
               "selectValue": [],
             }
           `,
@@ -216,4 +216,56 @@ test('forwards additional props to listbox element', () => {
     </Listbox>,
   )
   expect(screen.getByTestId('custom-listbox')).toBe(screen.getByRole('listbox'))
+})
+
+test('exposes Listbox.Option', () => {
+  expect(Listbox.Option).toBeDefined()
+})
+
+test('exposes Listbox.Optgroup', () => {
+  expect(Listbox.Optgroup).toBeDefined()
+})
+
+test('exposes Listbox.Select', () => {
+  expect(Listbox.Select).toBeDefined()
+})
+
+test('exposes Listbox.Divider', () => {
+  expect(Listbox.Divider).toBeDefined()
+})
+
+test('exposes Listbox.Context', () => {
+  expect(Listbox.Context).toBeDefined()
+})
+
+test('exposes Listbox.RenderContext', () => {
+  expect(Listbox.RenderContext).toBeDefined()
+})
+
+test('exposes Listbox.useContext', () => {
+  expect(Listbox.useContext).toBeDefined()
+})
+
+test('exposes Listbox.useRenderContext', () => {
+  expect(Listbox.useRenderContext).toBeDefined()
+})
+
+test('exposes Listbox.useSelectionObserver', () => {
+  expect(Listbox.useSelectionObserver).toBeDefined()
+})
+
+test('exposes Listbox.clearValue', () => {
+  expect(Listbox.clearValue).toBeDefined()
+})
+
+test('exposes Listbox.getSelectedOptions', () => {
+  expect(Listbox.getSelectedOptions).toBeDefined()
+})
+
+test('exposes Listbox.getValue', () => {
+  expect(Listbox.getValue).toBeDefined()
+})
+
+test('exposes Listbox.setOptionSelectedState', () => {
+  expect(Listbox.setOptionSelectedState).toBeDefined()
 })

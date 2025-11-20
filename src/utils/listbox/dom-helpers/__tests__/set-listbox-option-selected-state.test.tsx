@@ -60,12 +60,12 @@ test('setter receives current selected state as parameter', () => {
   setListboxOptionSelectedState('test-listbox', 'option1', setter)
 
   expect(setter).toHaveBeenCalledTimes(1)
-  expect(setter).toHaveBeenCalledWith(true)
+  expect(setter).toHaveBeenCalledWith(true, expect.any(HTMLSelectElement))
 
   setListboxOptionSelectedState('test-listbox', 'option2', setter)
 
   expect(setter).toHaveBeenCalledTimes(2)
-  expect(setter).toHaveBeenCalledWith(false)
+  expect(setter).toHaveBeenCalledWith(false, expect.any(HTMLSelectElement))
 })
 
 test('dispatches input event after updating selected state', () => {

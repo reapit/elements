@@ -9,7 +9,7 @@ export namespace ListboxContext {
     /** Allows multiple option selection */
     multiple: boolean
     /** Whether to toggle or select the option when clicked */
-    selectAction: 'select' | 'toggle'
+    selectAction: 'auto' | 'select' | 'toggle'
     /** Currently selected option values from the hidden select element */
     selectValue: readonly string[]
   }

@@ -68,11 +68,12 @@ export namespace Listbox {
     placeholder?: string
     /**
      * Behavior when clicking an option.
-     * - `'toggle'`: Toggles the option's selected state (useful for multi-select)
+     * - `'auto'`: Selects for single-selects, toggles for multi-selects
      * - `'select'`: Always selects the option (useful for single-select)
-     * Defaults to `'toggle'`.
+     * - `'toggle'`: Toggles the option's selected state (useful for multi-select)
+     * Defaults to `'auto'`.
      */
-    selectAction?: 'select' | 'toggle'
+    selectAction?: 'auto' | 'select' | 'toggle'
     /**
      * Whether selection follows focus during keyboard navigation.
      * When `true`, arrow key navigation automatically selects the focused option.
@@ -131,7 +132,7 @@ export function Listbox<C extends ElementType = 'div'>({
   onFocus,
   onKeyDown,
   placeholder,
-  selectAction = 'toggle',
+  selectAction = 'auto',
   selectionFollowsFocus = !multiple,
   style,
   value,
