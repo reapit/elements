@@ -15,7 +15,7 @@ const meta = {
   argTypes: {
     as: {
       control: 'select',
-      options: ['span', 'strong', 'em', 'mark', 'q', 's', 'time'],
+      options: ['span', 'strong', 'em', 'mark', 'p', 'q', 's', 'time'],
       table: {
         type: { summary: 'union' },
       },

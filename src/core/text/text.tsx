@@ -31,6 +31,10 @@ export namespace Text {
     as: 'mark'
   }
 
+  interface AsParagraphProps extends BaseProps, HTMLAttributes<HTMLParagraphElement> {
+    as: 'p'
+  }
+
   interface AsQuoteProps extends BaseProps, QuoteHTMLAttributes<HTMLQuoteElement> {
     as: 'q'
   }
@@ -55,6 +59,7 @@ export namespace Text {
     | AsAbbrProps
     | AsEmProps
     | AsMarkProps
+    | AsParagraphProps
     | AsQuoteProps
     | AsStrikethroughProps
     | AsSpanProps
@@ -72,8 +77,8 @@ export namespace Text {
  * escape hatch when prototyping UI that is not yet supported by the Design System. Within the Design
  * System, the `font` helper function exported alongside this component is the preferred way to apply
  * font styles to styled elements. As such, it currently supports an intentionally limited set of HTML
- * elements focused on inline text semantics. This is because we want this component to be minimally
- * useful.
+ * elements focused on inline text semantics (with the exception of `<p>`). This is because we want this
+ * component to be minimally useful.
  */
 export function Text({
   as: Element = 'span',

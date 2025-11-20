@@ -3,6 +3,11 @@ import { font } from './font'
 import { fontSizes, fontWeights, textColours } from './types'
 
 export const elText = css`
+  &:is(p) {
+    margin: 0;
+    padding: 0;
+  }
+
   ${generateElTextFontStyles()}
   ${generateElTextColourStyles()}
 
