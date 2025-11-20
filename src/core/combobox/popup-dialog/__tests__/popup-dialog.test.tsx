@@ -107,6 +107,14 @@ test('exposes close static method', () => {
   expect(ComboboxPopupDialog.close).toBeDefined()
 })
 
+test('exposes Context', () => {
+  expect(ComboboxPopupDialog.Context).toBeDefined()
+})
+
+test('exposes useContext', () => {
+  expect(ComboboxPopupDialog.useContext).toBeDefined()
+})
+
 const defaultProps = {
   'aria-labelledby': 'label-id',
   id: 'popup-id',

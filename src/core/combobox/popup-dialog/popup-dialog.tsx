@@ -8,6 +8,7 @@ import { openComboboxPopup } from './open-popup'
 import { useCloseComboboxPopupOnClick } from './use-close-on-click'
 import { useMatchMedia } from '#src/utils/match-media'
 
+import type { CloseOnSelection } from './use-close-on-click'
 import type { DialogHTMLAttributes, ReactNode } from 'react'
 
 export namespace ComboboxPopupDialog {
@@ -16,6 +17,12 @@ export namespace ComboboxPopupDialog {
     'aria-labelledby': string
     /** Popup content. */
     children: ReactNode
+    /**
+     * Whether the popup should close when an option is selected. Default is 'auto'
+     * which will close on selection for single-select comboboxes, but not for
+     * multi-select comboboxes.
+     */
+    closeOnSelection?: CloseOnSelection
     /** ID of the popup element. */
     id: string
     /** Maximum height. By default, the popover will grow to fit its content. */
@@ -32,8 +39,7 @@ export namespace ComboboxPopupDialog {
   }
 }
 
-// Safari doesn't support the closedby attribute on the <dialog> element. In Safari, if we detect a
-// click on the backdrop, we close the dialog ourselves.
+// Safari workaround: Safari lacks closedby attribute support, so we handle backdrop clicks manually.
 const isClosedBySupported = 'closedBy' in HTMLDialogElement.prototype
 
 // NOTE: --combobox-popup-padding is defined in styles.ts
@@ -56,6 +62,7 @@ export function ComboboxPopupDialog({
   'aria-labelledby': ariaLabelledBy,
   children,
   className,
+  closeOnSelection = 'auto',
   id,
   maxHeight,
   maxWidth,
@@ -86,6 +93,7 @@ export function ComboboxPopupDialog({
        * but is supported in all modern browsers, except Safari. We handle light dismiss for Safari via
        * the click handler */
       closedby="any"
+      data-close-on-selection={closeOnSelection}
       data-variant={variant}
       id={id}
       onClick={handleClick}

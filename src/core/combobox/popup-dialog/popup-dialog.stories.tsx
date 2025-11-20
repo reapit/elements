@@ -19,7 +19,7 @@ const meta = {
     },
     children: {
       control: 'select',
-      options: ['Simple', 'Detailed', 'Filterable'],
+      options: ['Simple', 'Detailed', 'Filterable', 'Multi-select'],
       mapping: {
         Simple: (
           <ComboboxListbox defaultValue={['1']}>
@@ -88,6 +88,14 @@ const meta = {
             <ComboboxListbox.Option value="3">Option 3</ComboboxListbox.Option>
           </ComboboxListbox>,
         ],
+        'Multi-select': [
+          <ComboboxSearchInput aria-label="Filter options" key="search-input" />,
+          <ComboboxListbox key="listbox" defaultValue={['1']} aria-multiselectable>
+            <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
+            <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>
+            <ComboboxListbox.Option value="3">Option 3</ComboboxListbox.Option>
+          </ComboboxListbox>,
+        ],
       },
     },
     maxWidth: {
@@ -132,6 +140,7 @@ export const Example: Story = {
   args: {
     'aria-labelledby': 'button-id',
     children: 'Simple',
+    closeOnSelection: 'auto',
     id: 'popup-id',
     maxWidth: undefined,
     variant: 'popover',
@@ -182,5 +191,22 @@ export const Filterable: Story = {
   args: {
     ...Example.args,
     children: 'Filterable',
+  },
+}
+
+/**
+ * For single-select comboboxes, the popup will close when a selection is made. For multi-select
+ * comboboxes, it won't. This behaviour can be customised using `closeOnSelection`.
+ *
+ * - `auto` (default): Closes on selection for single-select comboboxes; remains open for multi-select.
+ * - `always`: Always closes when the user selects an option.
+ * - `never`: Never closes on selection; the user must explicitly close the popup.
+ */
+export const Closing: Story = {
+  args: {
+    ...Example.args,
+    children: 'Multi-select',
+    closeOnSelection: 'never',
+    variant: 'popover',
   },
 }

@@ -27,13 +27,18 @@ test('throws error when element is not found by ID', () => {
   )
 })
 
-test('throws error when element is not an HTMLDialogElement (by reference)', () => {
+test('throws error when element passed by reference is null', () => {
+  expect(() => openComboboxPopup(null as unknown as HTMLDialogElement)).toThrow(
+    'openComboboxPopup: Element (passed by reference) not found in the DOM',
+  )
+})
+
+test('throws error when element passed by reference is not an HTMLDialogElement', () => {
   const div = document.createElement('div')
-  div.id = 'test-element'
   document.body.appendChild(div)
 
-  expect(() => openComboboxPopup(div.id)).toThrow(
-    'openComboboxPopup: Element with ID "test-element" is not an HTMLDialogElement',
+  expect(() => openComboboxPopup(div as unknown as HTMLDialogElement)).toThrow(
+    'openComboboxPopup: Element (passed by reference) is not an HTMLDialogElement',
   )
 })
 
