@@ -1,6 +1,5 @@
 import { Button } from '#src/core/button'
 import { ClearIcon } from '#src/icons/clear'
-import { CloseIcon } from '#src/icons/close'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
@@ -13,8 +12,8 @@ export namespace SearchInputClearButton {
   export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
     /** The ID of the search input to clear */
     'aria-controls': string
-    /** The visual style of the input. */
-    variant?: 'default' | 'borderless'
+    /** The size of the clear button. */
+    size: 'medium' | 'large'
   }
 }
 
@@ -23,7 +22,7 @@ export namespace SearchInputClearButton {
  */
 export function SearchInputClearButton({
   'aria-controls': ariaControls,
-  variant = 'default',
+  size = 'medium',
   ...rest
 }: SearchInputClearButton.Props) {
   const clearInput: MouseEventHandler<HTMLButtonElement> = () => {
@@ -43,9 +42,9 @@ export function SearchInputClearButton({
       aria-controls={ariaControls}
       aria-label="Clear"
       hasNoPadding
-      iconLeft={variant === 'borderless' ? <ClearIcon /> : <CloseIcon />}
+      iconLeft={<ClearIcon />}
       onClick={clearInput}
-      size="medium"
+      size={size}
       type="button"
       variant="tertiary"
     />

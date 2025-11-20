@@ -68,8 +68,7 @@ export const Drawer: Story = {
   args: {
     children: [
       <Combobox.AutocompleteButton key="button" />,
-      <Combobox.Popup key="popup" variant="drawer">
-        <Combobox.SearchInput aria-label="Filter options" />
+      <Combobox.Popup key="popup" search={<Combobox.SearchInput aria-label="Filter options" />} variant="drawer">
         <Combobox.Listbox>
           <Combobox.Option value="option1">Option 1</Combobox.Option>
           <Combobox.Option value="option2">Option 2</Combobox.Option>
@@ -110,12 +109,15 @@ export const Filtering: Story = {
     return (
       <Combobox {...args}>
         <Combobox.AutocompleteButton />
-        <Combobox.Popup variant="popover">
-          <Combobox.SearchInput
-            aria-label="Filter options"
-            value={searchValue}
-            onChange={(e) => setSearchValue(e.target.value)}
-          />
+        <Combobox.Popup
+          search={
+            <Combobox.SearchInput
+              aria-label="Filter options"
+              value={searchValue}
+              onChange={(e) => setSearchValue(e.target.value)}
+            />
+          }
+        >
           <Combobox.Listbox>
             {filteredOptions.length > 0 ? (
               filteredOptions.map((option) => (

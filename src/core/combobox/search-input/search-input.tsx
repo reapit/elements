@@ -2,7 +2,7 @@ import { determineSearchInputVariant } from './determine-search-input-variant'
 import { isWidthBelow } from '#src/utils/breakpoints'
 import { SearchInput } from '#src/core/search-input'
 import { useMatchMedia } from '#src/utils/match-media'
-import { useComboboxPopupDialogContext } from '../popup-dialog/context'
+import { useComboboxPopupDialogContext } from '../popup-dialog'
 
 // We omit
 // - `variant`, because it is determined automatically based on the combobox popup's variant
@@ -28,8 +28,10 @@ export namespace ComboboxSearchInput {
  * ```tsx
  * <Combobox>
  *   <Combobox.AutocompleteButton />
- *   <Combobox.Popup variant="popover">
- *     <Combobox.SearchInput placeholder="Search options..." />
+ *   <Combobox.Popup
+ *     search={<Combobox.SearchInput placeholder="Search options..." />}
+ *     variant="popover"
+ *   >
  *     <Combobox.Listbox>
  *       <Combobox.Option value="1">Option 1</Combobox.Option>
  *     </Combobox.Listbox>

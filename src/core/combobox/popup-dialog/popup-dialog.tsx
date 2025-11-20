@@ -1,5 +1,5 @@
 import { AnchorPositioning } from '#src/utils/anchor-positioning'
-import { elComboboxPopupDialog } from './styles'
+import { elComboboxPopupDialog, ElComboboxPopupDialogHeader, ElComboboxPopupDialogListboxContainer } from './styles'
 import { closeComboboxPopup } from './close-popup'
 import { ComboboxPopupDialogContext, useComboboxPopupDialogContext } from './context'
 import { cx } from '@linaria/core'
@@ -10,6 +10,7 @@ import { useMatchMedia } from '#src/utils/match-media'
 
 import type { CloseOnSelection } from './use-close-on-click'
 import type { DialogHTMLAttributes, ReactNode } from 'react'
+import { ComboboxPopupDialogCloseButton } from './close-button'
 
 export namespace ComboboxPopupDialog {
   export interface Props extends DialogHTMLAttributes<HTMLDialogElement> {
@@ -29,6 +30,8 @@ export namespace ComboboxPopupDialog {
     maxHeight?: string
     /** Maximum width. By default, the popover is slightly wider than the anchor. */
     maxWidth?: string
+    /** Optional search input component for filtering options (typically Combobox.SearchInput). */
+    search?: ReactNode
     /**
      * Variant type:
      * - **auto**: The default. Displays as a drawer on XS breakpoint, popover on SM and above
@@ -67,12 +70,14 @@ export function ComboboxPopupDialog({
   maxHeight,
   maxWidth,
   onClick,
+  search,
   style,
   variant = 'auto',
   ...rest
 }: ComboboxPopupDialog.Props) {
   const isSMOrAbove = useMatchMedia(isWidthAtOrAbove('SM'))
   const needsAnchorPositioning = variant === 'popover' || (variant === 'auto' && isSMOrAbove)
+  const needsCloseButton = variant === 'drawer' || (variant === 'auto' && !isSMOrAbove)
 
   const handleClick = useCloseComboboxPopupOnClick((event) => {
     onClick?.(event)
@@ -111,7 +116,14 @@ export function ComboboxPopupDialog({
             top={defaultTop}
           />
         )}
-        {children}
+        {/* Render header when search or close button are needed */}
+        {(search || needsCloseButton) && (
+          <ElComboboxPopupDialogHeader>
+            {search}
+            {needsCloseButton && <ComboboxPopupDialogCloseButton />}
+          </ElComboboxPopupDialogHeader>
+        )}
+        <ElComboboxPopupDialogListboxContainer>{children}</ElComboboxPopupDialogListboxContainer>
       </ComboboxPopupDialogContext.Provider>
     </dialog>
   )

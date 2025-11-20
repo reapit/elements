@@ -45,6 +45,7 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInput.Props>(
       onChange,
       readOnly,
       showValidity,
+      size = 'medium',
       type = 'search',
       value,
       variant = 'default',
@@ -60,6 +61,10 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInput.Props>(
     // On first render, if value or default value are truthy, the input has a value.
     const [hasValue, setHasValue] = useState<boolean>(isControlled ? !!value : !!defaultValue)
     const showClearButton = !readOnly && !disabled && hasValue
+
+    // When the search input is small, clear button is medium sized; for all other input sizes,
+    // the clear button is large sized.
+    const clearButtonSize = size === 'small' ? 'medium' : 'large'
 
     const handleChange: ChangeEventHandler<HTMLInputElement> = (event) => {
       onChange?.(event)
@@ -79,7 +84,8 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInput.Props>(
         readOnly={readOnly}
         ref={ref}
         showValidity={showValidity}
-        trailingIcon={showClearButton && <SearchInputClearButton aria-controls={inputId} variant={variant} />}
+        size={size}
+        trailingIcon={showClearButton && <SearchInputClearButton aria-controls={inputId} size={clearButtonSize} />}
         type={type}
         value={value}
         variant={variant}

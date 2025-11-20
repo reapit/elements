@@ -1,5 +1,6 @@
 import { css } from '@linaria/core'
 import { DRAWER_WIDTH_MD_2XL, DRAWER_WIDTH_XS_SM } from '#src/core/drawer'
+import { styled } from '@linaria/react'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 
 const BACKDROP_DURATION = '100ms'
@@ -24,16 +25,23 @@ export const elComboboxPopupDialog = css`
   inset: auto;
   border: none;
   margin: 0;
+  /* The dialog itself has no padding, but its descendants use --combobox-popup-padding
+   * which is controlled by the dialog. */
+  padding: 0;
 
   background: var(--colour-fill-white);
   box-shadow: var(--combobox-popup-shadow);
 
   border-radius: var(--combobox-popup-border-radius);
-  padding: var(--combobox-popup-padding);
 
   /* Backdrop styles */
   &::backdrop {
     background: var(--combobox-popup-backdrop-colour);
+  }
+
+  &:is(:open, [open]) {
+    display: flex;
+    flex-flow: column nowrap;
   }
 
   /* Drawer variant styles */
@@ -51,7 +59,6 @@ export const elComboboxPopupDialog = css`
     height: 100%;
     max-height: 100svh;
     min-height: 100svh;
-    overflow: auto;
 
     max-width: ${DRAWER_WIDTH_XS_SM};
     min-width: ${DRAWER_WIDTH_XS_SM};
@@ -130,7 +137,6 @@ export const elComboboxPopupDialog = css`
       --combobox-popup-shadow: var(--combobox-popup-popover-shadow);
 
       border-radius: var(--comp-menu-border-radius);
-      padding: var(--combobox-popup-padding);
 
       /* Override drawer styles */
       inset: auto;
@@ -159,4 +165,27 @@ export const elComboboxPopupDialog = css`
       }
     }
   }
+`
+
+export const ElComboboxPopupDialogHeader = styled.div`
+  grid-area: header;
+  position: sticky;
+  top: 0;
+
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  gap: var(--spacing-2);
+  padding: var(--combobox-popup-padding);
+
+  background: inherit;
+`
+
+export const ElComboboxPopupDialogListboxContainer = styled.div`
+  grid-area: listbox;
+  padding-block: 0 var(--combobox-popup-padding);
+  padding-inline: var(--combobox-popup-padding);
+
+  height: 100%;
+  overflow: auto;
 `
