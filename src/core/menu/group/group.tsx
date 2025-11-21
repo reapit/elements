@@ -24,6 +24,8 @@ export namespace MenuGroup {
 export function MenuGroup({ 'aria-label': ariaLabel, children, label, role = 'group', ...rest }: MenuGroup.Props) {
   const labelId = useId()
   return (
+    // NOTE: we do not wire-up aria-labelledby when aria-label is provided. By default, aria-labelledby takes
+    // precedence. See https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label#:~:text=aria%2Dlabelledby%20will%20take%20precedence%20over%20aria%2Dlabel%20if%20both%20are%20applied
     <ElMenuGroup {...rest} aria-label={ariaLabel} aria-labelledby={ariaLabel ? undefined : labelId} role={role}>
       {label && <ElMenuGroupLabelContainer id={labelId}>{label}</ElMenuGroupLabelContainer>}
       {children}

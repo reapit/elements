@@ -17,7 +17,7 @@ export const ElMenuGroupLabelContainer = styled.div`
   ${font('2xs', 'bold')}
   text-transform: uppercase;
 
-  color: var(--comp-menu-colour-text-group_title, #9faebc);
+  color: var(--comp-menu-colour-text-group_title);
   padding-block: var(--spacing-2);
   padding-inline: var(--spacing-3);
 `

@@ -3,6 +3,12 @@ import { useCloseMenuOnClick } from '../use-close-menu-on-click'
 
 import type { MouseEventHandler } from 'react'
 
+beforeEach(() => {
+  if (!('isTrusted' in MouseEvent.prototype)) {
+    Object.defineProperty(MouseEvent.prototype, 'isTrusted', { value: true })
+  }
+})
+
 test('calls hidePopover by default for menuitem click events', () => {
   const hidePopover = vi.fn()
   render(<TestComponent hidePopover={hidePopover} />)

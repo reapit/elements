@@ -15,7 +15,7 @@ import { TableRowPrimaryAction } from './primary-action'
 import { TableRowPrimaryActionButton } from './primary-action/primary-action-button'
 import { TableToolbar } from './toolbar'
 
-import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
+import type { HTMLAttributes, ReactNode } from 'react'
 
 export namespace Table {
   interface CommonProps {
@@ -84,7 +84,7 @@ export function Table({
       {...rest}
       className={cx(elTable, className)}
       data-justify-items={justifyItems}
-      style={{ ...style, gridTemplateColumns: columns } as CSSProperties}
+      style={{ ...style, gridTemplateColumns: columns }}
     >
       {children}
     </Element>

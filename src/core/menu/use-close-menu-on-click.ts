@@ -15,8 +15,11 @@ export function useCloseMenuOnClick(onClick?: MouseEventHandler<HTMLDivElement>)
       onClick?.(event)
       if (
         !event.defaultPrevented &&
+        // We only close if the click was initiated by the user; this helps us avoid closing the menu
+        // when the click was triggered by a programmatic action, such as element.click().
+        event.isTrusted &&
         event.target instanceof HTMLElement &&
-        // The event target may not be a child of the element with the `menuitem` role
+        // Any target that is a menuitem, or a child of a menuitem, should close the menu
         (event.target.role === 'menuitem' || event.target.closest('[role="menuitem"]') !== null)
       ) {
         event.currentTarget.hidePopover()
