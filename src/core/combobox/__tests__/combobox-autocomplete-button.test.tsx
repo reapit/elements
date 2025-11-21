@@ -143,9 +143,9 @@ test('uses default placeholder when not provided', () => {
   })
 })
 
-test('applies custom size when provided', () => {
-  const { container } = render(<ComboboxAutocompleteButton size="small" />)
-  expect(container.querySelector('[data-size="small"]')).toBeVisible()
+test('uses size specified by ComboboxContext', () => {
+  const { container } = render(<ComboboxAutocompleteButton />)
+  expect(container.querySelector('[data-size="medium"]')).toBeVisible()
 })
 
 test('forwards additional props to underlying element', () => {
@@ -159,6 +159,7 @@ const mockContextValue: ComboboxContext.Value = {
   listboxId: 'test-listbox-id',
   popupId: 'test-popup-id',
   required: false,
+  size: 'medium',
 }
 
 const mockButtonHookOutput: ReturnType<typeof UseComboboxButtonType> = {

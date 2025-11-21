@@ -2,7 +2,7 @@ import { ComboboxButton } from './button'
 import { useComboboxContext } from './context'
 import { useComboboxButton } from './use-button'
 
-type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'id'
+type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'id' | 'size'
 
 export namespace ComboboxSelectButton {
   export interface Props extends Omit<ComboboxButton.Props, AttributesToOmit> {}
@@ -15,10 +15,9 @@ export namespace ComboboxSelectButton {
 export function ComboboxSelectButton({
   onClick,
   placeholder = 'Select an option',
-  size = 'medium',
   ...rest
 }: ComboboxSelectButton.Props) {
-  const { disabled, listboxId, popupId } = useComboboxContext()
+  const { disabled, listboxId, popupId, size } = useComboboxContext()
   const { props, selections, selectionSummary } = useComboboxButton({ onClick, placeholder })
 
   return (

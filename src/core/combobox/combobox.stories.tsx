@@ -10,6 +10,10 @@ const meta = {
     children: {
       control: false,
     },
+    size: {
+      control: 'select',
+      options: ['small', 'medium', 'large'],
+    },
   },
 } satisfies Meta<typeof Combobox>
 
@@ -35,59 +39,24 @@ export const Example: Story = {
     disabled: false,
     required: false,
     showValidity: false,
+    size: 'medium',
   },
 }
 
 /**
- * Demonstrates an autocomplete combobox that lets users filter options by typing.
+ * Demonstrates an autocomplete combobox that lets users filter options by typing. In this example,
+ * the options are preloaded. To fetch options dynamically, use the controlled search value in your request.
  */
 export const Autocomplete: Story = {
   args: {
-    children: [
-      <Combobox.AutocompleteButton key="button" />,
-      <Combobox.Popup key="popup" variant="popover">
-        <Combobox.SearchInput aria-label="Filter options" />
-        <Combobox.Listbox>
-          <Combobox.Option value="option1">Option 1</Combobox.Option>
-          <Combobox.Option value="option2">Option 2</Combobox.Option>
-          <Combobox.Option value="option3">Option 3</Combobox.Option>
-        </Combobox.Listbox>
-      </Combobox.Popup>,
-    ],
+    ...Example.args,
     disabled: false,
     required: false,
     showValidity: false,
   },
-}
-
-/**
- * By default, the combobox popup will switch to a drawer experience on XS breakpoints. It can also be
- * pinned to a popover or drawer using the `variant` prop.
- */
-export const Drawer: Story = {
-  args: {
-    children: [
-      <Combobox.AutocompleteButton key="button" />,
-      <Combobox.Popup key="popup" search={<Combobox.SearchInput aria-label="Filter options" />} variant="drawer">
-        <Combobox.Listbox>
-          <Combobox.Option value="option1">Option 1</Combobox.Option>
-          <Combobox.Option value="option2">Option 2</Combobox.Option>
-          <Combobox.Option value="option3">Option 3</Combobox.Option>
-        </Combobox.Listbox>
-      </Combobox.Popup>,
-    ],
-    disabled: false,
-    required: false,
-    showValidity: false,
-  },
-}
-
-/**
- * Demonstrates filtering preloaded options with a search input. To fetch options
- * dynamically, use the controlled search value in your request.
- */
-export const Filtering: Story = {
+  parameters: { docs: { source: { type: 'code' } } },
   render: (args) => {
+    // We control the search input's value with basic component state.
     const [searchValue, setSearchValue] = useState('')
 
     const allOptions = [
@@ -118,7 +87,7 @@ export const Filtering: Story = {
             />
           }
         >
-          <Combobox.Listbox>
+          <Combobox.Listbox aria-multiselectable>
             {filteredOptions.length > 0 ? (
               filteredOptions.map((option) => (
                 <Combobox.Option key={option.value} value={option.value}>
@@ -135,9 +104,37 @@ export const Filtering: Story = {
       </Combobox>
     )
   },
+}
+
+/**
+ * By default, the combobox popup will switch to a drawer experience on XS breakpoints. It can also be
+ * pinned to a popover or drawer using the `variant` prop.
+ */
+export const Drawer: Story = {
   args: {
+    children: [
+      <Combobox.AutocompleteButton key="button" />,
+      <Combobox.Popup key="popup" search={<Combobox.SearchInput aria-label="Filter options" />} variant="drawer">
+        <Combobox.Listbox>
+          <Combobox.Option value="option1">Option 1</Combobox.Option>
+          <Combobox.Option value="option2">Option 2</Combobox.Option>
+          <Combobox.Option value="option3">Option 3</Combobox.Option>
+        </Combobox.Listbox>
+      </Combobox.Popup>,
+    ],
     disabled: false,
     required: false,
     showValidity: false,
+  },
+}
+
+/**
+ * Three sizes are supported: small, medium, and large. The size impacts both the combobox button and
+ * the option labels.
+ */
+export const Sizes: Story = {
+  args: {
+    ...Example.args,
+    size: 'large',
   },
 }

@@ -80,24 +80,26 @@ const meta = {
             </ComboboxListbox.Optgroup>
           </ComboboxListbox>
         ),
-        'Multi-select': (
-          <ComboboxListbox defaultValue={['1']} aria-multiselectable>
+        Filterable: [
+          <ComboboxSearchInput aria-label="Filter options" key="search-input" />,
+          <ComboboxListbox key="listbox" defaultValue={['1']}>
             <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
             <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>
             <ComboboxListbox.Option value="3">Option 3</ComboboxListbox.Option>
-          </ComboboxListbox>
-        ),
+          </ComboboxListbox>,
+        ],
+        'Multi-select': [
+          <ComboboxSearchInput aria-label="Filter options" key="search-input" />,
+          <ComboboxListbox key="listbox" defaultValue={['1']} aria-multiselectable>
+            <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
+            <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>
+            <ComboboxListbox.Option value="3">Option 3</ComboboxListbox.Option>
+          </ComboboxListbox>,
+        ],
       },
     },
     maxWidth: {
       control: 'text',
-    },
-    search: {
-      control: 'boolean',
-      mapping: {
-        true: <ComboboxSearchInput aria-label="Filter options" />,
-        false: null,
-      },
     },
     variant: {
       control: 'radio',
@@ -110,7 +112,9 @@ const meta = {
     const popupId = useId()
 
     return (
-      <ComboboxContext.Provider value={{ buttonId, disabled: false, listboxId, popupId, required: false }}>
+      <ComboboxContext.Provider
+        value={{ buttonId, disabled: false, listboxId, popupId, required: false, size: 'medium' }}
+      >
         <button
           aria-controls={popupId}
           aria-haspopup="dialog"
@@ -141,7 +145,6 @@ export const Example: Story = {
     closeOnSelection: 'auto',
     id: 'popup-id',
     maxWidth: undefined,
-    search: false,
     variant: 'popover',
   },
 }
@@ -190,7 +193,6 @@ export const Filterable: Story = {
   args: {
     ...Example.args,
     children: 'Filterable',
-    search: true,
   },
 }
 
@@ -208,46 +210,5 @@ export const Closing: Story = {
     children: 'Multi-select',
     closeOnSelection: 'never',
     variant: 'popover',
-  },
-}
-
-/**
- * The listbox will scroll when there's too many options to display in the popup's available space.
- */
-export const Overflow: Story = {
-  args: {
-    ...Example.args,
-    children: (
-      <ComboboxListbox aria-multiselectable defaultValue={['1']}>
-        <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="3">Option 3</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="4">Option 4</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="5">Option 5</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="6">Option 6</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="7">Option 7</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="8">Option 8</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="9">Option 9</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="10">Option 10</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="11">Option 11</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="12">Option 12</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="13">Option 13</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="14">Option 14</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="15">Option 15</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="16">Option 16</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="17">Option 17</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="18">Option 18</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="19">Option 19</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="20">Option 20</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="21">Option 21</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="22">Option 22</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="23">Option 23</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="24">Option 24</ComboboxListbox.Option>
-        <ComboboxListbox.Option value="25">Option 25</ComboboxListbox.Option>
-      </ComboboxListbox>
-    ),
-    maxHeight: '300px',
-    search: true,
-    variant: 'auto',
   },
 }

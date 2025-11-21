@@ -20,6 +20,8 @@ export namespace ComboboxContext {
     popupId: string
     /** Whether the combobox is required */
     required: boolean
+    /** Size of the combobox */
+    size: 'small' | 'medium' | 'large'
   }
 }
 

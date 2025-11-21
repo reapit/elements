@@ -59,4 +59,5 @@ const defaultContext: ComboboxContext.Value = {
   listboxId: 'listbox-id',
   popupId: 'popup-id',
   required: false,
+  size: 'medium',
 }

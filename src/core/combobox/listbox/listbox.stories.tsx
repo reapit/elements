@@ -24,7 +24,14 @@ const meta = {
       const listboxId = useId()
       return (
         <ComboboxContext.Provider
-          value={{ buttonId: 'button-id', disabled: false, listboxId, popupId: 'popup-id', required: false }}
+          value={{
+            buttonId: 'button-id',
+            disabled: false,
+            listboxId,
+            popupId: 'popup-id',
+            required: false,
+            size: 'medium',
+          }}
         >
           <Story />
         </ComboboxContext.Provider>

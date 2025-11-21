@@ -158,6 +158,7 @@ const mockContextValue: ComboboxContext.Value = {
   listboxId: 'test-listbox-id',
   popupId: 'test-popup-id',
   required: false,
+  size: 'medium',
 }
 
 const mockSelections = [

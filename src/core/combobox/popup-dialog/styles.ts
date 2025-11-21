@@ -188,4 +188,9 @@ export const ElComboboxPopupDialogListboxContainer = styled.div`
 
   height: 100%;
   overflow: auto;
+
+  &:first-of-type {
+    /* Add block start padding when the header is not present */
+    padding-block: var(--combobox-popup-padding);
+  }
 `

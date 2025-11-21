@@ -58,6 +58,24 @@ test('has an `aria-details` attribute when both a badge and additional info are 
   expect(screen.getByRole('option')).toHaveAttribute('aria-details')
 })
 
+test('has medium size by default', () => {
+  render(
+    <ComboboxOption badge="Badge" value="test-value">
+      Option text
+    </ComboboxOption>,
+  )
+  expect(screen.getByRole('option')).toHaveAttribute('data-size', 'medium')
+})
+
+test('applies specified size', () => {
+  render(
+    <ComboboxOption badge="Badge" size="large" value="test-value">
+      Option text
+    </ComboboxOption>,
+  )
+  expect(screen.getByRole('option')).toHaveAttribute('data-size', 'large')
+})
+
 test('renders a check icon', () => {
   const { container } = render(<ComboboxOption value="test-value">Option text</ComboboxOption>)
 

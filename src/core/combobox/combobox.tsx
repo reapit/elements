@@ -22,6 +22,8 @@ export namespace Combobox {
     required?: boolean
     /** Whether to show validation state styling */
     showValidity?: boolean
+    /** Size of the combobox */
+    size?: 'small' | 'medium' | 'large'
   }
 }
 
@@ -30,8 +32,8 @@ export namespace Combobox {
  * a value for the input from a collection.
  *
  * Provides context to descendant components for managing accessibility relationships and state.
- * Use with `Combobox.SelectButton` or `Combobox.AutocompleteButton`, `Combobox.Popup`, and
- * `Combobox.Listbox` to build a complete combobox pattern.
+ * Use with `Combobox.SelectButton` or `Combobox.AutocompleteButton`, `Combobox.Popup`,
+ * `Combobox.SearchInput`, `Combobox.Listbox` et al to build a complete combobox pattern.
  *
  * @example
  * ```tsx
@@ -52,6 +54,7 @@ export function Combobox({
   maxWidth,
   required = false,
   showValidity = false,
+  size = 'medium',
   style,
   ...rest
 }: Combobox.Props) {
@@ -60,7 +63,7 @@ export function Combobox({
   const popupId = useId()
 
   return (
-    <ComboboxContext.Provider value={{ buttonId, disabled, listboxId, popupId, required }}>
+    <ComboboxContext.Provider value={{ buttonId, disabled, listboxId, popupId, required, size }}>
       <ElCombobox {...rest} data-show-validity={showValidity} style={{ '--combobox-max-width': maxWidth, ...style }}>
         {children}
       </ElCombobox>

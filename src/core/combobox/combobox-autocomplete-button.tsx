@@ -4,7 +4,7 @@ import { SearchIcon } from '#src/icons/search'
 import { useComboboxButton } from './use-button'
 import { useComboboxContext } from './context'
 
-type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'id'
+type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'id' | 'size'
 
 export namespace ComboboxAutocompleteButton {
   export interface Props extends Omit<ComboboxButton.Props, AttributesToOmit> {}
@@ -17,10 +17,9 @@ export namespace ComboboxAutocompleteButton {
 export function ComboboxAutocompleteButton({
   onClick,
   placeholder = 'Search...',
-  size = 'medium',
   ...rest
 }: ComboboxAutocompleteButton.Props) {
-  const { disabled, listboxId } = useComboboxContext()
+  const { disabled, listboxId, size } = useComboboxContext()
   const { props, selections, selectionSummary } = useComboboxButton({ onClick, placeholder })
 
   return (

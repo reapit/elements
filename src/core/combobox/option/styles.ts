@@ -24,7 +24,6 @@ export const ElComboboxOption = styled.button`
   border-radius: var(--comp-menu-border-radius);
   padding: var(--spacing-2) var(--spacing-3);
 
-  ${font('sm', 'regular')}
   text-align: left;
 
   &:focus-visible {
@@ -37,11 +36,28 @@ export const ElComboboxOption = styled.button`
     --combobox-option-check-icon-colour: var(--comp-menu-colour-icon-hover-action);
   }
 
+  &,
+  &[data-size='medium'] {
+    ${font('sm', 'regular')}
+  }
+
+  &[data-size='large'] {
+    ${font('base', 'regular')}
+  }
+
   &[aria-checked='true'],
   &[aria-selected='true'] {
-    ${font('sm', 'bold')}
     --combobox-option-check-icon-display: inline-flex;
     --combobox-option-label-colour: var(--comp-menu-colour-text-default-action);
+
+    &,
+    &[data-size='medium'] {
+      ${font('sm', 'bold')}
+    }
+
+    &[data-size='large'] {
+      ${font('base', 'bold')}
+    }
   }
 `
 

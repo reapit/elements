@@ -24,6 +24,8 @@ export namespace ComboboxOption {
     children?: ReactNode
     /** Additional info lines. Pass one or more `Combobox.OptionAdditionalInfo` */
     additionalInfo?: ReactNode
+    /** Option size. Influences the option's label text. */
+    size?: 'medium' | 'large'
     /** Option value */
     value: string
   }
@@ -32,7 +34,7 @@ export namespace ComboboxOption {
 /**
  * A Combobox option. Use via `Combobox.Option`.
  */
-export function ComboboxOption({ badge, children, additionalInfo, ...rest }: ComboboxOption.Props) {
+export function ComboboxOption({ badge, children, additionalInfo, size = 'medium', ...rest }: ComboboxOption.Props) {
   const badgeId = useId()
   const labelId = useId()
   const additionalInfoId = useId()
@@ -41,7 +43,14 @@ export function ComboboxOption({ badge, children, additionalInfo, ...rest }: Com
   const ariaDetails = [badge && badgeId, additionalInfo && additionalInfoId].filter((x) => !!x).join(' ') || undefined
 
   return (
-    <ElComboboxOption {...rest} aria-labelledby={labelId} aria-details={ariaDetails} role="option" type="button">
+    <ElComboboxOption
+      {...rest}
+      aria-labelledby={labelId}
+      aria-details={ariaDetails}
+      data-size={size}
+      role="option"
+      type="button"
+    >
       <ElComboboxOptionCheckIconContainer aria-hidden>
         <CheckIcon />
       </ElComboboxOptionCheckIconContainer>

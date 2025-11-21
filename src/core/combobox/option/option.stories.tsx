@@ -74,8 +74,34 @@ export const Example: Story = {
     badge: 'None',
     children: 'Label',
     additionalInfo: 'None',
+    size: 'medium',
     value: 'option-1',
   },
+}
+
+/**
+ *
+ */
+export const Sizes: Story = {
+  args: {
+    ...Example.args,
+  },
+  argTypes: {
+    size: { control: false },
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexFlow: 'row nowrap', alignItems: 'center', gap: 'var(--spacing-6)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <ComboboxOption {...args} size="medium" />
+      <ComboboxOption {...args} size="large" />
+    </>
+  ),
 }
 
 /**
