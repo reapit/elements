@@ -18,6 +18,8 @@
 export function scrollContainerLeft(containerId: string): void {
   const element = document.getElementById(containerId)
   if (element) {
-    element.scrollBy({ left: -element.clientWidth, behavior: 'smooth' })
+    // Use instant scroll when the user prefers reduced motion.
+    const prefersReducedMotion = globalThis.matchMedia('(prefers-reduced-motion: reduce)').matches
+    element.scrollBy({ left: -element.clientWidth, behavior: prefersReducedMotion ? 'instant' : 'smooth' })
   }
 }

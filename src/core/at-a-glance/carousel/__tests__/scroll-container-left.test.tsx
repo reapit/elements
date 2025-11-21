@@ -1,14 +1,12 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { scrollContainerLeft } from '../scroll-container-left'
 
 test('scrolls element left by its clientWidth', () => {
-  const TestComponent = () => <div id="test-container" data-testid="container" />
+  render(<div id="test-container" data-testid="test-id" />)
 
-  render(<TestComponent />)
-  const element = document.getElementById('test-container')!
+  const element = screen.getByTestId('test-id')
   Object.defineProperty(element, 'clientWidth', { value: 300, configurable: true })
-  const scrollBySpy = vi.fn()
-  element.scrollBy = scrollBySpy
+  const scrollBySpy = vi.spyOn(element, 'scrollBy')
 
   scrollContainerLeft('test-container')
 
@@ -17,19 +15,71 @@ test('scrolls element left by its clientWidth', () => {
 
 test('does nothing when element is not found', () => {
   render(<div />)
-
-  // Should not throw
   expect(() => scrollContainerLeft('non-existent-id')).not.toThrow()
 })
 
-test('uses smooth scrolling behavior', () => {
-  const TestComponent = () => <div id="smooth-test" />
+test('scrolls by negative clientWidth value', () => {
+  render(<div id="negative-test" data-testid="test-id" />)
 
-  render(<TestComponent />)
-  const element = document.getElementById('smooth-test')!
-  Object.defineProperty(element, 'clientWidth', { value: 400, configurable: true })
-  const scrollBySpy = vi.fn()
-  element.scrollBy = scrollBySpy
+  const element = screen.getByTestId('test-id')
+  Object.defineProperty(element, 'clientWidth', { value: 500, configurable: true })
+  const scrollBySpy = vi.spyOn(element, 'scrollBy')
+
+  scrollContainerLeft('negative-test')
+
+  expect(scrollBySpy).toHaveBeenCalledWith(
+    expect.objectContaining({
+      left: -500,
+    }),
+  )
+})
+
+test('handles element with zero clientWidth', () => {
+  render(<div id="zero-width" data-testid="test-id" />)
+
+  const element = screen.getByTestId('test-id')
+  Object.defineProperty(element, 'clientWidth', { value: 0, configurable: true })
+  const scrollBySpy = vi.spyOn(element, 'scrollBy')
+
+  scrollContainerLeft('zero-width')
+
+  expect(scrollBySpy).toHaveBeenCalledWith(
+    expect.objectContaining({
+      left: -0,
+    }),
+  )
+})
+
+test('uses instant scrolling behavior when user has reduced motion preference', () => {
+  const matchMediaSpy = vi
+    .spyOn(globalThis, 'matchMedia')
+    .mockImplementation(() => ({ matches: true }) as MediaQueryList)
+
+  render(<div data-testid="test-id" id="instant-test" />)
+
+  const element = screen.getByTestId('test-id')!
+  const scrollBySpy = vi.spyOn(element, 'scrollBy')
+
+  scrollContainerLeft('instant-test')
+
+  expect(scrollBySpy).toHaveBeenCalledWith(
+    expect.objectContaining({
+      behavior: 'instant',
+    }),
+  )
+
+  matchMediaSpy.mockRestore()
+})
+
+test('uses smooth scrolling behavior when user has no reduced motion preference', () => {
+  const matchMediaSpy = vi
+    .spyOn(globalThis, 'matchMedia')
+    .mockImplementation(() => ({ matches: false }) as MediaQueryList)
+
+  render(<div data-testid="smooth-test" id="smooth-test" />)
+
+  const element = screen.getByTestId('smooth-test')!
+  const scrollBySpy = vi.spyOn(element, 'scrollBy')
 
   scrollContainerLeft('smooth-test')
 
@@ -38,51 +88,6 @@ test('uses smooth scrolling behavior', () => {
       behavior: 'smooth',
     }),
   )
-})
 
-test('scrolls by negative clientWidth value', () => {
-  const TestComponent = () => <div id="negative-test" />
-
-  render(<TestComponent />)
-  const element = document.getElementById('negative-test')!
-  Object.defineProperty(element, 'clientWidth', { value: 500, configurable: true })
-  const scrollBySpy = vi.fn()
-  element.scrollBy = scrollBySpy
-
-  scrollContainerLeft('negative-test')
-
-  const callArgs = scrollBySpy.mock.calls[0][0]
-  expect(callArgs.left).toBeLessThan(0)
-  expect(callArgs.left).toBe(-500)
-})
-
-test('handles element with zero clientWidth', () => {
-  const TestComponent = () => <div id="zero-width" />
-
-  render(<TestComponent />)
-  const element = document.getElementById('zero-width')!
-  Object.defineProperty(element, 'clientWidth', { value: 0, configurable: true })
-  const scrollBySpy = vi.fn()
-  element.scrollBy = scrollBySpy
-
-  scrollContainerLeft('zero-width')
-
-  expect(scrollBySpy).toHaveBeenCalledWith({ left: -0, behavior: 'smooth' })
-})
-
-test('can be called multiple times', () => {
-  const TestComponent = () => <div id="multi-scroll" />
-
-  render(<TestComponent />)
-  const element = document.getElementById('multi-scroll')!
-  Object.defineProperty(element, 'clientWidth', { value: 200, configurable: true })
-  const scrollBySpy = vi.fn()
-  element.scrollBy = scrollBySpy
-
-  scrollContainerLeft('multi-scroll')
-  scrollContainerLeft('multi-scroll')
-  scrollContainerLeft('multi-scroll')
-
-  expect(scrollBySpy).toHaveBeenCalledTimes(3)
-  expect(scrollBySpy).toHaveBeenCalledWith({ left: -200, behavior: 'smooth' })
+  matchMediaSpy.mockRestore()
 })

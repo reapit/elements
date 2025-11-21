@@ -35,7 +35,7 @@ test('renders left and right navigation buttons', () => {
   expect(buttons).toHaveLength(2)
 })
 
-test('hides left button when canScrollLeft is false', () => {
+test('ARIA disables left button when canScrollLeft is false', () => {
   vi.mocked(useScrollObserver).mockReturnValue({
     canScrollLeft: false,
     canScrollRight: true,
@@ -48,26 +48,10 @@ test('hides left button when canScrollLeft is false', () => {
   )
 
   const buttons = screen.getAllByRole('button', { hidden: true })
-  expect(buttons[0]).toHaveAttribute('hidden')
+  expect(buttons[0]).toHaveAttribute('aria-disabled', 'true')
 })
 
-test('shows left button when canScrollLeft is true', () => {
-  vi.mocked(useScrollObserver).mockReturnValue({
-    canScrollLeft: true,
-    canScrollRight: true,
-  })
-
-  render(
-    <AtAGlanceCarousel>
-      <div>Content</div>
-    </AtAGlanceCarousel>,
-  )
-
-  const buttons = screen.getAllByRole('button')
-  expect(buttons[0]).not.toHaveAttribute('hidden')
-})
-
-test('hides right button when canScrollRight is false', () => {
+test('ARIA disables right button when canScrollRight is false', () => {
   vi.mocked(useScrollObserver).mockReturnValue({
     canScrollLeft: true,
     canScrollRight: false,
@@ -80,10 +64,10 @@ test('hides right button when canScrollRight is false', () => {
   )
 
   const buttons = screen.getAllByRole('button', { hidden: true })
-  expect(buttons[1]).toHaveAttribute('hidden')
+  expect(buttons[1]).toHaveAttribute('aria-disabled', 'true')
 })
 
-test('shows right button when canScrollRight is true', () => {
+test('enables left button when canScrollLeft is true', () => {
   vi.mocked(useScrollObserver).mockReturnValue({
     canScrollLeft: true,
     canScrollRight: true,
@@ -96,7 +80,23 @@ test('shows right button when canScrollRight is true', () => {
   )
 
   const buttons = screen.getAllByRole('button')
-  expect(buttons[1]).not.toHaveAttribute('hidden')
+  expect(buttons[0]).toHaveAttribute('aria-disabled', 'false')
+})
+
+test('enables right button when canScrollRight is true', () => {
+  vi.mocked(useScrollObserver).mockReturnValue({
+    canScrollLeft: true,
+    canScrollRight: true,
+  })
+
+  render(
+    <AtAGlanceCarousel>
+      <div>Content</div>
+    </AtAGlanceCarousel>,
+  )
+
+  const buttons = screen.getAllByRole('button')
+  expect(buttons[1]).toHaveAttribute('aria-disabled', 'false')
 })
 
 test('handles left button click without errors', () => {
@@ -192,8 +192,8 @@ test('sets data-can-scroll-left attribute when canScrollLeft is true', () => {
     </AtAGlanceCarousel>,
   )
 
-  const grid = screen.getByRole('list')
-  expect(grid).toHaveAttribute('data-can-scroll-left', 'true')
+  const carousel = screen.getByRole('list').parentElement
+  expect(carousel).toHaveAttribute('data-can-scroll-left', 'true')
 })
 
 test('sets data-can-scroll-right attribute when canScrollRight is true', () => {
@@ -208,8 +208,8 @@ test('sets data-can-scroll-right attribute when canScrollRight is true', () => {
     </AtAGlanceCarousel>,
   )
 
-  const grid = screen.getByRole('list')
-  expect(grid).toHaveAttribute('data-can-scroll-right', 'true')
+  const carousel = screen.getByRole('list').parentElement
+  expect(carousel).toHaveAttribute('data-can-scroll-right', 'true')
 })
 
 test('can click buttons when scrolling is not available', () => {

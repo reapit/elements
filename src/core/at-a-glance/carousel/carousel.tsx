@@ -36,14 +36,19 @@ export function AtAGlanceCarousel({ children, className, columns = '1fr', id, ..
   const { canScrollLeft, canScrollRight } = useScrollObserver(scrollContainerId)
 
   return (
-    <ElAtAGlanceCarousel>
+    <ElAtAGlanceCarousel data-can-scroll-left={canScrollLeft} data-can-scroll-right={canScrollRight}>
       <Button
         aria-label="Previous"
         className={elAtAGlanceCarouselButton}
-        hidden={!canScrollLeft}
+        // ARIA-disable the button when scrolling left is impossible, keeping it focusable while
+        // communicating its disabled state to assistive technologies.
+        aria-disabled={!canScrollLeft}
         iconLeft={<ChevronLeftIcon />}
         onClick={() => scrollContainerLeft(scrollContainerId)}
         size="medium"
+        // Remove from tab order when scrolling left is impossible. Keyboard users cannot tab to it,
+        // but it remains focusable if already focused.
+        tabIndex={canScrollLeft ? 0 : -1}
         variant="secondary"
       />
 
@@ -51,8 +56,6 @@ export function AtAGlanceCarousel({ children, className, columns = '1fr', id, ..
         {...rest}
         autoColumns={columns}
         className={cx(className, elAtAGlanceCarouselGrid)}
-        data-can-scroll-left={canScrollLeft}
-        data-can-scroll-right={canScrollRight}
         id={scrollContainerId}
         layout="auto"
       >
@@ -62,10 +65,15 @@ export function AtAGlanceCarousel({ children, className, columns = '1fr', id, ..
       <Button
         aria-label="Next"
         className={elAtAGlanceCarouselButton}
-        hidden={!canScrollRight}
+        // ARIA-disable the button when scrolling right is impossible, keeping it focusable while
+        // communicating its disabled state to assistive technologies.
+        aria-disabled={!canScrollRight}
         iconRight={<ChevronRightIcon />}
         onClick={() => scrollContainerRight(scrollContainerId)}
         size="medium"
+        // Remove from tab order when scrolling right is impossible. Keyboard users cannot tab to it,
+        // but it remains focusable if already focused.
+        tabIndex={canScrollRight ? 0 : -1}
         variant="secondary"
       />
     </ElAtAGlanceCarousel>
