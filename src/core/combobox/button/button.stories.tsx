@@ -138,3 +138,37 @@ export const Invalid: Story = {
     ),
   ],
 }
+
+/**
+ * By default, combobox buttons will fill their parent's width. This can be constrained by providing
+ * a `maxWidth` to the combobox.
+ */
+export const MaxWidth: Story = {
+  name: 'Max-width',
+  args: {
+    ...Placeholder.args,
+    action: null,
+    placeholder: 'Search...',
+    children: 'Search...',
+    leadingIcon: <SearchIcon />,
+  },
+  decorators: [
+    (Story) => (
+      // This CSS variable is set by ElCombobox when Combobox is constrained by its maxWidth prop.
+      <div style={{ '--combobox-max-width': 'var(--size-40)' } as CSSProperties}>
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+/**
+ * When the label text is too long, it will be truncated.
+ */
+export const Truncation: Story = {
+  args: {
+    ...Example.args,
+    children: 'Long label text that will not fit within the available space',
+  },
+  decorators: MaxWidth.decorators,
+}

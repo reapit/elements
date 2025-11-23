@@ -16,6 +16,8 @@ export namespace ComboboxContext {
     disabled: boolean
     /** Listbox element ID */
     listboxId: string
+    /** Whether multiple selections are allowed */
+    multiple: boolean
     /** Popup element ID */
     popupId: string
     /** Whether the combobox is required */

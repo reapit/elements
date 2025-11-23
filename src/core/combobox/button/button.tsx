@@ -2,9 +2,10 @@ import { ComboboxButtonClearButton } from './clear-button'
 import { ComboboxButtonOpenPopupButton } from './open-popup-button'
 import {
   ElComboboxButton,
-  ElComboboxButtonIconContainer,
-  ElComboboxButtonContainer,
   ElComboboxButtonActionContainer,
+  ElComboboxButtonContainer,
+  ElComboboxButtonIconContainer,
+  ElComboboxButtonLabelContainer,
 } from './styles'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
@@ -77,7 +78,7 @@ export function ComboboxButton({
         type="button"
       >
         {leadingIcon && <ElComboboxButtonIconContainer>{leadingIcon}</ElComboboxButtonIconContainer>}
-        {children ?? placeholder}
+        <ElComboboxButtonLabelContainer>{children ?? placeholder}</ElComboboxButtonLabelContainer>
       </ElComboboxButton>
       {action && <ElComboboxButtonActionContainer>{action}</ElComboboxButtonActionContainer>}
     </ElComboboxButtonContainer>

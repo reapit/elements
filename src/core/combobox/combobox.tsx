@@ -1,9 +1,9 @@
-import { ComboboxAutocompleteButton } from './combobox-autocomplete-button'
-import { ComboboxSelectButton } from './combobox-select-button'
+import { ComboboxAutocompleteButton } from './autocomplete-button'
 import { ComboboxContext } from './context'
 import { ComboboxListbox } from './listbox'
 import { ComboboxPopup } from './combobox-popup'
 import { ComboboxSearchInput } from './search-input'
+import { ComboboxSelectButton } from './select-button'
 import { ElCombobox } from './styles'
 import { Listbox } from '#src/utils/listbox'
 import { useId } from 'react'
@@ -12,6 +12,11 @@ import type { HTMLAttributes } from 'react'
 
 export namespace Combobox {
   export interface Props extends HTMLAttributes<HTMLElement> {
+    /**
+     * Whether the combobox supports multiple selections.
+     * @default false
+     */
+    'aria-multiselectable'?: boolean
     /** Combobox button, popup, and other child components */
     children?: React.ReactNode
     /** Whether the combobox is disabled */
@@ -49,6 +54,7 @@ export namespace Combobox {
  * ```
  */
 export function Combobox({
+  'aria-multiselectable': multiple = false,
   children,
   disabled = false,
   maxWidth,
@@ -63,7 +69,7 @@ export function Combobox({
   const popupId = useId()
 
   return (
-    <ComboboxContext.Provider value={{ buttonId, disabled, listboxId, popupId, required, size }}>
+    <ComboboxContext.Provider value={{ buttonId, disabled, listboxId, multiple, popupId, required, size }}>
       <ElCombobox {...rest} data-show-validity={showValidity} style={{ '--combobox-max-width': maxWidth, ...style }}>
         {children}
       </ElCombobox>

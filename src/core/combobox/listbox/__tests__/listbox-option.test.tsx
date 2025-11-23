@@ -46,6 +46,7 @@ const defaultComboboxContext: ComboboxContext.Value = {
   buttonId: 'button-id',
   disabled: false,
   listboxId: 'listbox-id',
+  multiple: false,
   popupId: 'popup-id',
   required: false,
   size: 'medium',

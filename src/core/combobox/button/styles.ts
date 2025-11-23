@@ -60,7 +60,6 @@ export const ElComboboxButton = styled.button`
 
   display: inline-flex;
   align-items: center;
-  height: 100%;
   width: 100%;
   padding-inline: var(--padding-inline-start) var(--padding-inline-end);
   /* NOTE: ElComboboxInputContainer sets --combobox-max-width */
@@ -105,6 +104,12 @@ export const ElComboboxButtonIconContainer = styled.span`
   padding-inline-end: var(--combobox-button-addon-padding-inline);
 
   color: var(--combobox-icon-colour, var(--comp-input-colour-icon-default));
+`
+
+export const ElComboboxButtonLabelContainer = styled.span`
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 export const ElComboboxButtonActionContainer = styled.span`

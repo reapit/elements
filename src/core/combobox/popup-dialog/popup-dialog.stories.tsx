@@ -90,7 +90,7 @@ const meta = {
         ],
         'Multi-select': [
           <ComboboxSearchInput aria-label="Filter options" key="search-input" />,
-          <ComboboxListbox key="listbox" defaultValue={['1']} aria-multiselectable>
+          <ComboboxListbox key="listbox" defaultValue={['1']}>
             <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
             <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>
             <ComboboxListbox.Option value="3">Option 3</ComboboxListbox.Option>
@@ -106,14 +106,22 @@ const meta = {
       options: ['drawer', 'popover', 'auto'],
     },
   },
-  render: (args) => {
+  render: (args, { parameters }) => {
     const buttonId = useId()
     const listboxId = useId()
     const popupId = useId()
 
     return (
       <ComboboxContext.Provider
-        value={{ buttonId, disabled: false, listboxId, popupId, required: false, size: 'medium' }}
+        value={{
+          buttonId,
+          disabled: false,
+          listboxId,
+          multiple: parameters.multiple ?? false,
+          popupId,
+          required: false,
+          size: 'medium',
+        }}
       >
         <button
           aria-controls={popupId}
@@ -193,6 +201,9 @@ export const Filterable: Story = {
   args: {
     ...Example.args,
     children: 'Filterable',
+  },
+  parameters: {
+    multiple: true,
   },
 }
 

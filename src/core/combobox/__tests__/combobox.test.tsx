@@ -1,5 +1,6 @@
 import { Combobox } from '../combobox'
 import { render, screen } from '@testing-library/react'
+import { ComboboxContext } from '../context'
 
 test('renders children', () => {
   render(
@@ -8,6 +9,37 @@ test('renders children', () => {
     </Combobox>,
   )
   expect(screen.getByText('Test content')).toBeVisible()
+})
+
+test('provides IDs and other values over ComboboxContext', () => {
+  expect.assertions(1)
+  render(
+    <Combobox aria-multiselectable disabled required size="large">
+      <ComboboxContext.Consumer>
+        {(value) => {
+          expect(value).toMatchInlineSnapshot(
+            {
+              buttonId: expect.any(String),
+              listboxId: expect.any(String),
+              popupId: expect.any(String),
+            },
+            `
+            {
+              "buttonId": Any<String>,
+              "disabled": true,
+              "listboxId": Any<String>,
+              "multiple": true,
+              "popupId": Any<String>,
+              "required": true,
+              "size": "large",
+            }
+          `,
+          )
+          return null
+        }}
+      </ComboboxContext.Consumer>
+    </Combobox>,
+  )
 })
 
 test('applies maxWidth via CSS variable', () => {

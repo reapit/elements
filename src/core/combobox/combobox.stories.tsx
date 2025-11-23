@@ -50,9 +50,7 @@ export const Example: Story = {
 export const Autocomplete: Story = {
   args: {
     ...Example.args,
-    disabled: false,
-    required: false,
-    showValidity: false,
+    'aria-multiselectable': true,
   },
   parameters: { docs: { source: { type: 'code' } } },
   render: (args) => {
@@ -87,7 +85,7 @@ export const Autocomplete: Story = {
             />
           }
         >
-          <Combobox.Listbox aria-multiselectable>
+          <Combobox.Listbox>
             {filteredOptions.length > 0 ? (
               filteredOptions.map((option) => (
                 <Combobox.Option key={option.value} value={option.value}>
@@ -112,8 +110,9 @@ export const Autocomplete: Story = {
  */
 export const Drawer: Story = {
   args: {
+    ...Example.args,
     children: [
-      <Combobox.AutocompleteButton key="button" />,
+      <Combobox.SelectButton key="button" />,
       <Combobox.Popup key="popup" search={<Combobox.SearchInput aria-label="Filter options" />} variant="drawer">
         <Combobox.Listbox>
           <Combobox.Option value="option1">Option 1</Combobox.Option>
@@ -122,9 +121,6 @@ export const Drawer: Story = {
         </Combobox.Listbox>
       </Combobox.Popup>,
     ],
-    disabled: false,
-    required: false,
-    showValidity: false,
   },
 }
 

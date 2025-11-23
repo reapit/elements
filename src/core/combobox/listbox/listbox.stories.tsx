@@ -20,7 +20,7 @@ const meta = {
     },
   },
   decorators: [
-    (Story) => {
+    (Story, { parameters }) => {
       const listboxId = useId()
       return (
         <ComboboxContext.Provider
@@ -28,6 +28,7 @@ const meta = {
             buttonId: 'button-id',
             disabled: false,
             listboxId,
+            multiple: parameters.multiple ?? false,
             popupId: 'popup-id',
             required: false,
             size: 'medium',
@@ -49,7 +50,6 @@ type Story = StoryObj<typeof meta>
  */
 export const Example: Story = {
   args: {
-    'aria-multiselectable': false,
     children: [
       <ComboboxListbox.Option key="1" value="1">
         Option 1
@@ -63,6 +63,9 @@ export const Example: Story = {
     ],
     defaultValue: ['1'],
     name: 'options',
+  },
+  parameters: {
+    multiple: false,
   },
 }
 
@@ -79,14 +82,16 @@ export const Single: Story = {
 }
 
 /**
- * Use `aria-multiselectable` for multi-select behavior.
+ * The listbox will allow multiple selections when the parent Combobox has `aria-multiselectable`.
  */
 export const Multiple: Story = {
   name: 'Multi-select',
   args: {
     ...Example.args,
-    'aria-multiselectable': true,
     defaultValue: ['1', '2'],
+  },
+  parameters: {
+    multiple: true,
   },
 }
 
@@ -153,7 +158,6 @@ export const Controlled: Story = {
 export const Forms: Story = {
   args: {
     ...Example.args,
-    'aria-multiselectable': true,
     name: 'options',
   },
   argTypes: {
@@ -176,6 +180,9 @@ export const Forms: Story = {
       </form>
     ),
   ],
+  parameters: {
+    multiple: true,
+  },
 }
 
 /**

@@ -1,6 +1,8 @@
-import { ComboboxButton } from './button'
-import { useComboboxContext } from './context'
-import { useComboboxButton } from './use-button'
+import { ComboboxButton } from '../button'
+import { getComboboxSelectButtonLabelText } from './get-label-text'
+import { useComboboxContext } from '../context'
+import { useComboboxButtonProps } from '../use-button-props'
+import { useComboboxSelectedOptions } from '../use-selected-options'
 
 type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'id' | 'size'
 
@@ -17,13 +19,15 @@ export function ComboboxSelectButton({
   placeholder = 'Select an option',
   ...rest
 }: ComboboxSelectButton.Props) {
-  const { disabled, listboxId, popupId, size } = useComboboxContext()
-  const { props, selections, selectionSummary } = useComboboxButton({ onClick, placeholder })
+  const { disabled, listboxId, multiple, popupId, size } = useComboboxContext()
+  const buttonProps = useComboboxButtonProps({ onClick })
+  const selections = useComboboxSelectedOptions(listboxId)
+  const labelText = getComboboxSelectButtonLabelText({ multiple, placeholder, selections })
 
   return (
     <ComboboxButton
       {...rest}
-      {...props}
+      {...buttonProps}
       action={
         selections.length > 0 ? (
           <ComboboxButton.ClearButton aria-controls={listboxId} disabled={disabled} />
@@ -34,7 +38,7 @@ export function ComboboxSelectButton({
       placeholder={placeholder}
       size={size}
     >
-      {selectionSummary}
+      {labelText}
     </ComboboxButton>
   )
 }
