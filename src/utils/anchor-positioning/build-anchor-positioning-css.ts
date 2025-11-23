@@ -18,11 +18,11 @@ export namespace buildAnchorPositioningCSS {
      */
     minWidth?: string
     /**
-     * Popover ID. Required for the trigger's `popovertarget` attribute.
+     * Positioned element ID.
      */
     positionedElementId: string
     /**
-     * Fallback positions when the popover overflows the viewport. See
+     * Fallback positions when the positioned element overflows the viewport. See
      * [position-try-fallbacks](https://developer.mozilla.org/en-US/docs/Web/CSS/position-try-fallbacks).
      * The [polyfill](https://anchor-positioning.oddbird.net/) limits available options.
      *
