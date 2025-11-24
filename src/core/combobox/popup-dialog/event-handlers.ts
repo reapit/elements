@@ -1,6 +1,7 @@
+import { clearSearchInput } from '#src/core/search-input'
 import { closeComboboxPopup } from './close-popup'
 
-import type { MouseEvent } from 'react'
+import type { MouseEvent, SyntheticEvent } from 'react'
 
 /**
  * Valid values for the closeOnSelection behavior.
@@ -131,4 +132,35 @@ function shouldCloseForAutoMode(listboxElement: HTMLElement | null): boolean {
 
   // Fall back to the `aria-multiselectable` attribute.
   return listboxElement?.getAttribute('aria-multiselectable') === 'false'
+}
+
+/**
+ * Clears the search input when the popup closes, unless opted out.
+ *
+ * This function searches for a search input within the popup dialog
+ * and clears its value. It respects the `data-preserve-search-on-close` attribute.
+ *
+ * @param event The close event from the dialog element
+ *
+ * @example
+ * const handleClose = (event: SyntheticEvent<HTMLDialogElement>) => {
+ *   clearSearchInputOnClose(event)
+ * }
+ */
+export function clearSearchInputOnClose(event: SyntheticEvent<HTMLDialogElement>): void {
+  const { preserveSearchOnClose } = event.currentTarget.dataset
+
+  // If the search input should be preserved, do nothing.
+  if (preserveSearchOnClose === 'true') {
+    return
+  }
+
+  // We take a dumb approach by assuming the search input is the first and only
+  // input element within the dialog. This may not hold in all cases, but it's
+  // the cheapest thing we can do.
+  const searchInputElement = event.currentTarget.querySelector('input')
+
+  if (searchInputElement instanceof HTMLInputElement) {
+    clearSearchInput(searchInputElement)
+  }
 }

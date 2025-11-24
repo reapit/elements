@@ -1,4 +1,4 @@
-export * from './click-handlers'
+export * from './event-handlers'
 export * from './close-popup'
 export * from './context'
 export * from './open-popup'

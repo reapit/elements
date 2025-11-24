@@ -1,4 +1,5 @@
 import { Button } from '#src/core/button'
+import { clearSearchInput } from '../clear-search-input'
 import { ClearIcon } from '#src/icons/clear'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
@@ -28,10 +29,7 @@ export function SearchInputClearButton({
   const clearInput: MouseEventHandler<HTMLButtonElement> = () => {
     const inputElement = document.getElementById(ariaControls)
     if (inputElement instanceof HTMLInputElement) {
-      inputElement.value = ''
-      // Dispatch an input event so that any onChange handlers are notified of the change.
-      const inputEvent = new Event('input', { bubbles: true, cancelable: true })
-      inputElement.dispatchEvent(inputEvent)
+      clearSearchInput(inputElement)
       inputElement.focus()
     }
   }

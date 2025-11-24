@@ -1,8 +1,13 @@
 import { closeComboboxPopup } from '../close-popup'
-import { closeOnBackdropClick, getOptionElement, maybeCloseOnSelection } from '../click-handlers'
+import {
+  clearSearchInputOnClose,
+  closeOnBackdropClick,
+  getOptionElement,
+  maybeCloseOnSelection,
+} from '../event-handlers'
 import { fireEvent, render, screen } from '@testing-library/react'
 
-import type { MouseEvent } from 'react'
+import type { MouseEvent, SyntheticEvent } from 'react'
 
 vi.mock('../close-popup')
 
@@ -171,6 +176,54 @@ describe('getOptionElement', () => {
   })
 })
 
+describe('clearSearchInputOnClose', () => {
+  test('clears search input when preserveSearchOnClose is false', () => {
+    render(<SearchTestComponent initialValue="search query" />)
+
+    const dialog = screen.getByTestId('test-dialog')
+    const input = screen.getByTestId('search-input')
+    const event = { currentTarget: dialog } as SyntheticEvent<HTMLDialogElement>
+
+    expect(input).toHaveValue('search query')
+
+    clearSearchInputOnClose(event)
+
+    expect(input).toHaveValue('')
+  })
+
+  test('preserves search input when preserveSearchOnClose is true', () => {
+    render(<SearchTestComponent initialValue="search query" preserveSearchOnClose />)
+
+    const dialog = screen.getByTestId('test-dialog')
+    const input = screen.getByTestId('search-input')
+    const event = { currentTarget: dialog } as SyntheticEvent<HTMLDialogElement>
+
+    expect(input).toHaveValue('search query')
+
+    clearSearchInputOnClose(event)
+
+    expect(input).toHaveValue('search query')
+  })
+
+  test('does nothing when header element not found', () => {
+    render(<SearchTestComponent initialValue="test" />)
+
+    const dialog = screen.getByTestId('test-dialog')
+    const event = { currentTarget: dialog } as SyntheticEvent<HTMLDialogElement>
+
+    expect(() => clearSearchInputOnClose(event)).not.toThrow()
+  })
+
+  test('does nothing when search input not found in header', () => {
+    render(<SearchTestComponent hasInput={false} />)
+
+    const dialog = screen.getByTestId('test-dialog')
+    const event = { currentTarget: dialog } as SyntheticEvent<HTMLDialogElement>
+
+    expect(() => clearSearchInputOnClose(event)).not.toThrow()
+  })
+})
+
 interface TestComponentProps {
   closeOnSelection?: 'always' | 'never' | 'auto'
   includeListboxId?: boolean
@@ -206,6 +259,26 @@ function TestComponent({
         <div role="option">Item without listbox ID</div>
       </div>
       <div data-testid="non-option-element">Not an option</div>
+    </dialog>
+  )
+}
+
+interface SearchTestComponentProps {
+  hasInput?: boolean
+  initialValue?: string
+  preserveSearchOnClose?: boolean
+}
+
+function SearchTestComponent({
+  hasInput = true,
+  initialValue = '',
+  preserveSearchOnClose = false,
+}: SearchTestComponentProps) {
+  return (
+    <dialog data-testid="test-dialog" data-preserve-search-on-close={preserveSearchOnClose} open>
+      <div id="test-header">
+        {hasInput && <input data-testid="search-input" defaultValue={initialValue} type="text" />}
+      </div>
     </dialog>
   )
 }

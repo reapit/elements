@@ -14,9 +14,6 @@ const meta = {
     'aria-labelledby': {
       control: false,
     },
-    id: {
-      control: false,
-    },
     children: {
       control: 'select',
       options: ['Simple', 'Detailed', 'Filterable', 'Multi-select'],
@@ -81,7 +78,6 @@ const meta = {
           </ComboboxListbox>
         ),
         Filterable: [
-          <ComboboxSearchInput aria-label="Filter options" key="search-input" />,
           <ComboboxListbox key="listbox" defaultValue={['1']}>
             <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
             <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>
@@ -89,7 +85,6 @@ const meta = {
           </ComboboxListbox>,
         ],
         'Multi-select': [
-          <ComboboxSearchInput aria-label="Filter options" key="search-input" />,
           <ComboboxListbox key="listbox" defaultValue={['1']}>
             <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
             <ComboboxListbox.Option value="2">Option 2</ComboboxListbox.Option>
@@ -98,8 +93,18 @@ const meta = {
         ],
       },
     },
+    id: {
+      control: false,
+    },
     maxWidth: {
       control: 'text',
+    },
+    search: {
+      control: 'boolean',
+      mapping: {
+        true: <ComboboxSearchInput aria-label="Search" />,
+        false: null,
+      },
     },
     variant: {
       control: 'radio',
@@ -201,6 +206,7 @@ export const Filterable: Story = {
   args: {
     ...Example.args,
     children: 'Filterable',
+    search: true,
   },
   parameters: {
     multiple: true,
@@ -220,6 +226,21 @@ export const Closing: Story = {
     ...Example.args,
     children: 'Multi-select',
     closeOnSelection: 'never',
+    search: true,
     variant: 'popover',
+  },
+}
+
+/**
+ * By default, the search input, if present, will be cleared when the popup is closed. This can be
+ * prevented using `preserveSearchOnClose`.
+ */
+export const PreserveSearch: Story = {
+  args: {
+    ...Filterable.args,
+    preserveSearchOnClose: true,
+  },
+  parameters: {
+    multiple: true,
   },
 }

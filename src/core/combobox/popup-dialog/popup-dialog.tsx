@@ -1,16 +1,16 @@
 import { AnchorPositioning } from '#src/utils/anchor-positioning'
-import { elComboboxPopupDialog, ElComboboxPopupDialogHeader, ElComboboxPopupDialogListboxContainer } from './styles'
+import { clearSearchInputOnClose, closeOnBackdropClick, maybeCloseOnSelection } from './event-handlers'
 import { closeComboboxPopup } from './close-popup'
+import { ComboboxPopupDialogCloseButton } from './close-button'
 import { ComboboxPopupDialogContext, useComboboxPopupDialogContext } from './context'
 import { cx } from '@linaria/core'
+import { elComboboxPopupDialog, ElComboboxPopupDialogHeader, ElComboboxPopupDialogListboxContainer } from './styles'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 import { openComboboxPopup } from './open-popup'
-import { closeOnBackdropClick, maybeCloseOnSelection } from './click-handlers'
 import { useMatchMedia } from '#src/utils/match-media'
 
-import type { CloseOnSelection } from './click-handlers'
-import type { DialogHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
-import { ComboboxPopupDialogCloseButton } from './close-button'
+import type { CloseOnSelection } from './event-handlers'
+import type { DialogHTMLAttributes, MouseEventHandler, ReactEventHandler, ReactNode } from 'react'
 
 export namespace ComboboxPopupDialog {
   export interface Props extends DialogHTMLAttributes<HTMLDialogElement> {
@@ -30,6 +30,12 @@ export namespace ComboboxPopupDialog {
     maxHeight?: string
     /** Maximum width. By default, the popover is slightly wider than the anchor. */
     maxWidth?: string
+    /**
+     * Whether to preserve (keep) the search input value when the popup closes.
+     * When false (default), the search input, if present, will be cleared on close.
+     * @default false
+     */
+    preserveSearchOnClose?: boolean
     /** Optional search input component for filtering options (typically Combobox.SearchInput). */
     search?: ReactNode
     /**
@@ -66,7 +72,9 @@ export function ComboboxPopupDialog({
   id,
   maxHeight,
   maxWidth,
+  onClose,
   onClick,
+  preserveSearchOnClose = false,
   search,
   style,
   variant = 'auto',
@@ -76,9 +84,15 @@ export function ComboboxPopupDialog({
   const needsAnchorPositioning = variant === 'popover' || (variant === 'auto' && isSMOrAbove)
   const needsCloseButton = variant === 'drawer' || (variant === 'auto' && !isSMOrAbove)
 
+  const handleClose: ReactEventHandler<HTMLDialogElement> = (event) => {
+    onClose?.(event)
+    if (search) {
+      clearSearchInputOnClose(event)
+    }
+  }
+
   const handleClick: MouseEventHandler<HTMLDialogElement> = (event) => {
     onClick?.(event)
-
     maybeCloseOnSelection(event)
     closeOnBackdropClick(event)
   }
@@ -93,8 +107,10 @@ export function ComboboxPopupDialog({
        * the click handler */
       closedby="any"
       data-close-on-selection={closeOnSelection}
+      data-preserve-search-on-close={preserveSearchOnClose}
       data-variant={variant}
       id={id}
+      onClose={handleClose}
       onClick={handleClick}
       style={{ ...style, maxHeight }}
     >
