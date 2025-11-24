@@ -22,8 +22,10 @@ import type { ChangeEventHandler, ComponentPropsWithoutRef, ElementType, HTMLAtt
 type AttributesToOmit = 'onChange'
 
 export namespace Listbox {
+  export interface DividerProps extends Divider.Props {}
   export type OptionProps<C extends ElementType = 'button'> = ListboxOption.Props<C>
   export interface OptgroupProps extends ListboxOptgroup.BaseProps {}
+  export interface SelectProps extends ListboxSelect.Props {}
 
   export interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
     /** Whether the listbox and its options are disabled. */
@@ -82,6 +84,14 @@ export namespace Listbox {
      */
     selectionFollowsFocus?: boolean
     /**
+     * Ref to the underlying HTMLSelectElement.
+     *
+     * We use `selectRef` instead of the standard `ref` prop to preserve TypeScript's type
+     * inference for the polymorphic `as` prop. Combining `forwardRef` with generic type
+     * parameters breaks this inference.
+     */
+    selectRef?: React.Ref<HTMLSelectElement>
+    /**
      * Selected option values for controlled mode.
      * Always an array of strings, regardless of single- or multi-select mode.
      * For single-select, uses only the first value.
@@ -115,6 +125,14 @@ export namespace Listbox {
  * - `Listbox.Optgroup` renders as `<optgroup>` in the native select and as a custom div
  * in the listbox UI
  * - `Listbox.Divider` always renders as `<hr>`
+ *
+ * @example
+ * // Integrate with React Hook Form
+ * const { ref, ...field } = register('myField')
+ * <Listbox selectRef={ref} {...field}>
+ *   <Listbox.Option value="1">Option 1</Listbox.Option>
+ *   <Listbox.Option value="2">Option 2</Listbox.Option>
+ * </Listbox>
  */
 export function Listbox<C extends ElementType = 'div'>({
   'aria-disabled': disabled = false,
@@ -133,6 +151,7 @@ export function Listbox<C extends ElementType = 'div'>({
   onKeyDown,
   placeholder,
   selectAction = 'auto',
+  selectRef,
   selectionFollowsFocus = !multiple,
   style,
   value,
@@ -167,6 +186,11 @@ export function Listbox<C extends ElementType = 'div'>({
       tabIndex={0}
     >
       <ListboxContext.Provider value={{ disabled, listboxId, multiple, selectAction, selectValue }}>
+        {/*
+          The hidden select maintains form state and enables native form submission.
+          It receives selectRef for form library integration (e.g., React Hook Form).
+          Because the select is hidden, the listbox container above handles focus/blur events.
+        */}
         <ListboxSelect
           disabled={disabled}
           id={selectId}
@@ -174,6 +198,7 @@ export function Listbox<C extends ElementType = 'div'>({
           name={name}
           onChange={handleChange}
           placeholder={placeholder}
+          ref={selectRef}
           required={required}
           value={selectValue}
         >

@@ -1,4 +1,5 @@
 import { ElListboxSelect } from './styles'
+import { forwardRef } from 'react'
 import { ListboxRenderContext } from '../render-context'
 import type { SelectHTMLAttributes } from 'react'
 
@@ -28,14 +29,10 @@ export namespace ListboxSelect {
  * receive `value="native"` from ListboxRenderContext, rendering as native `<option>` or
  * `<optgroup>` elements.
  */
-export function ListboxSelect({
-  children,
-  onChange,
-  placeholder = 'Select an option',
-  multiple,
-  value: selectedValues,
-  ...rest
-}: ListboxSelect.Props) {
+export const ListboxSelect = forwardRef<HTMLSelectElement, ListboxSelect.Props>(function ListboxSelect(
+  { children, onChange, placeholder = 'Select an option', multiple, value: selectedValues, ...rest },
+  ref,
+) {
   return (
     <ElListboxSelect
       {...rest}
@@ -45,6 +42,7 @@ export function ListboxSelect({
       // NOTE: Wires onChange to onInput to catch manual input events fired when
       // clicking the display options within the listbox.
       onInput={onChange}
+      ref={ref}
       value={multiple ? selectedValues : (selectedValues[0] ?? '')}
     >
       {!multiple && (
@@ -64,4 +62,4 @@ export function ListboxSelect({
       <ListboxRenderContext.Provider value="native">{children}</ListboxRenderContext.Provider>
     </ElListboxSelect>
   )
-}
+})
