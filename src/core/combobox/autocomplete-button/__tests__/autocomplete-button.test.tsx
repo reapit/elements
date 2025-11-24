@@ -45,14 +45,14 @@ test('renders "open popup" button', () => {
   expect(screen.getByRole('button', { name: 'Open popup' })).toBeVisible()
 })
 
-test('passes listboxId to "open popup" aria-controls', () => {
+test('passes popupId to "open popup" aria-controls', () => {
   vi.mocked(useComboboxContext).mockReturnValue({
     ...mockContextValue,
-    listboxId: 'custom-listbox-id',
+    popupId: 'popup-id',
   })
   vi.mocked(useComboboxButtonProps).mockReturnValue(mockButtonHookOutput)
   render(<ComboboxAutocompleteButton />)
-  expect(screen.getByRole('button', { name: 'Open popup' })).toHaveAttribute('aria-controls', 'custom-listbox-id')
+  expect(screen.getByRole('button', { name: 'Open popup' })).toHaveAttribute('aria-controls', 'popup-id')
 })
 
 test('passes disabled state to "open popup" button', () => {

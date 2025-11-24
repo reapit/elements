@@ -19,14 +19,14 @@ export function ComboboxAutocompleteButton({
   placeholder = 'Search...',
   ...rest
 }: ComboboxAutocompleteButton.Props) {
-  const { disabled, listboxId, size } = useComboboxContext()
+  const { disabled, popupId, size } = useComboboxContext()
   const buttonProps = useComboboxButtonProps({ onClick })
 
   return (
     <ComboboxButton
       {...rest}
       {...buttonProps}
-      action={<ComboboxButton.OpenPopupButton aria-controls={listboxId} disabled={disabled} />}
+      action={<ComboboxButton.OpenPopupButton aria-controls={popupId} disabled={disabled} />}
       leadingIcon={<SearchIcon aria-hidden />}
       placeholder={placeholder}
       size={size}
