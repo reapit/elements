@@ -5,11 +5,11 @@ import { ComboboxPopupDialogContext, useComboboxPopupDialogContext } from './con
 import { cx } from '@linaria/core'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 import { openComboboxPopup } from './open-popup'
-import { useCloseComboboxPopupOnClick } from './use-close-on-click'
+import { closeOnBackdropClick, maybeCloseOnSelection } from './click-handlers'
 import { useMatchMedia } from '#src/utils/match-media'
 
-import type { CloseOnSelection } from './use-close-on-click'
-import type { DialogHTMLAttributes, ReactNode } from 'react'
+import type { CloseOnSelection } from './click-handlers'
+import type { DialogHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 import { ComboboxPopupDialogCloseButton } from './close-button'
 
 export namespace ComboboxPopupDialog {
@@ -41,9 +41,6 @@ export namespace ComboboxPopupDialog {
     variant?: 'popover' | 'drawer' | 'auto'
   }
 }
-
-// Safari workaround: Safari lacks closedby attribute support, so we handle backdrop clicks manually.
-const isClosedBySupported = 'closedBy' in HTMLDialogElement.prototype
 
 // NOTE: --combobox-popup-padding is defined in styles.ts
 const defaultWidth = 'calc(anchor-size(width) + 2 * var(--combobox-popup-padding))'
@@ -79,15 +76,12 @@ export function ComboboxPopupDialog({
   const needsAnchorPositioning = variant === 'popover' || (variant === 'auto' && isSMOrAbove)
   const needsCloseButton = variant === 'drawer' || (variant === 'auto' && !isSMOrAbove)
 
-  const handleClick = useCloseComboboxPopupOnClick((event) => {
+  const handleClick: MouseEventHandler<HTMLDialogElement> = (event) => {
     onClick?.(event)
-    const dialog = event.currentTarget
-    // Workaround Safari's lack of support for the closedby attribute
-    if (!isClosedBySupported && event.target === dialog) {
-      // Click was on the backdrop, not on dialog content
-      dialog.close()
-    }
-  })
+
+    maybeCloseOnSelection(event)
+    closeOnBackdropClick(event)
+  }
 
   return (
     <dialog

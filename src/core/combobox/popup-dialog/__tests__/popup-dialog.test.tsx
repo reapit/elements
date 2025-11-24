@@ -1,12 +1,5 @@
 import { ComboboxPopupDialog } from '../popup-dialog'
-import { useCloseComboboxPopupOnClick } from '../use-close-on-click'
 import { fireEvent, render, screen } from '@testing-library/react'
-
-vi.mock('../use-close-on-click')
-
-beforeEach(() => {
-  vi.mocked(useCloseComboboxPopupOnClick).mockImplementation((onClick) => (event) => onClick?.(event))
-})
 
 test('renders as a dialog element', () => {
   render(
@@ -63,7 +56,7 @@ test('accepts maxWidth prop', () => {
   expect(screen.getByRole('dialog')).toHaveStyle('max-width: 500px')
 })
 
-test('calls useCloseComboboxPopupOnClick with wrapped onClick handler', () => {
+test('calls onClick handler when provided', () => {
   const onClick = vi.fn()
   render(
     <ComboboxPopupDialog {...defaultProps} onClick={onClick}>
@@ -71,23 +64,8 @@ test('calls useCloseComboboxPopupOnClick with wrapped onClick handler', () => {
     </ComboboxPopupDialog>,
   )
 
-  expect(useCloseComboboxPopupOnClick).toHaveBeenCalledWith(expect.any(Function))
-})
-
-test('calls useCloseComboboxPopupOnClick when no onClick provided', () => {
-  render(<ComboboxPopupDialog {...defaultProps}>Content</ComboboxPopupDialog>)
-
-  expect(useCloseComboboxPopupOnClick).toHaveBeenCalledWith(expect.any(Function))
-})
-
-test('uses handler returned by useCloseComboboxPopupOnClick', () => {
-  const wrappedHandler = vi.fn()
-  vi.mocked(useCloseComboboxPopupOnClick).mockReturnValue(wrappedHandler)
-
-  render(<ComboboxPopupDialog {...defaultProps}>Content</ComboboxPopupDialog>)
-
   fireEvent.click(screen.getByRole('dialog'))
-  expect(wrappedHandler).toHaveBeenCalledTimes(1)
+  expect(onClick).toHaveBeenCalledTimes(1)
 })
 
 test('forwards additional props to dialog', () => {
