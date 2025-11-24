@@ -21,31 +21,66 @@ export namespace ComponentName {
 
 ### For New Components
 
-- [ ] Pattern uses `ComponentName.Props` (not `ComponentNameProps`)
-- [ ] Namespace name matches component name exactly
-- [ ] Props interface lives inside namespace
-- [ ] All props include JSDoc documentation
-- [ ] No standalone interface definitions
+- [ ] Use `ComponentName.Props` (not `ComponentNameProps`)
+- [ ] Match namespace name to component name exactly
+- [ ] Place Props interface inside namespace
+- [ ] Include JSDoc documentation for all props
+- [ ] Define interfaces inside namespaces only
 
 ### For Component Migrations
 
-- [ ] Original `ComponentNameProps` converted to namespace
-- [ ] Added deprecated type alias: `export type ComponentNameProps = ComponentName.Props`
-- [ ] Component function signature uses `ComponentName.Props`
-- [ ] Tests pass after migration
+- [ ] Convert `ComponentNameProps` to namespace pattern
+- [ ] Add deprecated type alias: `export type ComponentNameProps = ComponentName.Props`
+- [ ] Update component function signature to use `ComponentName.Props`
+- [ ] Verify tests pass after migration
 
 ### For Compound Components
 
-- [ ] Nested namespaces for subcomponents: `Parent.Child.Props`
-- [ ] Static properties typed correctly
-- [ ] Pattern applied to each subcomponent
+- [ ] Give each subcomponent its own namespace with `Props` interface
+- [ ] Re-export subcomponent prop interfaces in parent namespace (e.g., `export interface ChildProps extends Child.Props`)
+- [ ] Type static properties correctly
+- [ ] Apply pattern to all subcomponents
+
+**Example:**
+```typescript
+export namespace ComboboxSelectButton {
+  export interface Props {
+    /** Placeholder text */
+    placeholder?: string
+  }
+}
+
+export function ComboboxSelectButton({ placeholder }: ComboboxSelectButton.Props) {
+  // implementation
+}
+
+export namespace Combobox {
+  export interface Props {
+    /** Combobox children */
+    children?: React.ReactNode
+  }
+  
+  export interface SelectButtonProps extends ComboboxSelectButton.Props {}
+}
+
+export function Combobox({ children }: Combobox.Props) {
+  // implementation
+}
+
+Combobox.SelectButton = ComboboxSelectButton
+```
+
+**Why this pattern works:**
+- Users reference `Combobox.SelectButtonProps` instead of `ComboboxSelectButton.Props`
+- Unifies API surface under parent namespace
+- Makes compound components more intuitive
 
 ### For Utility Functions
 
-- [ ] Function name serves as namespace for input/output types
-- [ ] Types defined as `utilityFunction.Input` and `utilityFunction.Output`
+- [ ] Use function name as namespace for input/output types
+- [ ] Define types as `utilityFunction.Input` and `utilityFunction.Output`
 
-**Complete Example:**
+**Example:**
 
 ```typescript
 export namespace formatCurrency {
@@ -92,12 +127,12 @@ export interface BaseComboboxPopupProps extends HTMLAttributes<HTMLElement> {
 ```
 
 **Requirements for this exception:**
-- Interface name starts with `Base` prefix
-- Include a code comment explaining the shared usage
-- Two or more unrelated components extend the interface
-- All properties include JSDoc documentation
+- Start interface name with `Base` prefix
+- Explain shared usage in code comment
+- Extend interface in two or more unrelated components
+- Include JSDoc documentation for all properties
 
-**Example usage:**
+**Usage:**
 ```typescript
 export namespace ComboboxPopupDrawer {
   export interface Props extends BaseComboboxPopupProps {
@@ -113,7 +148,7 @@ export namespace ComboboxPopupPopover {
 }
 ```
 
-## 🚫 Common Mistakes to Flag
+## 🚫 Common Mistakes
 
 ```typescript
 // ❌ Standalone interface
@@ -124,10 +159,10 @@ export namespace ButtonComponent {
   export interface Props { }
 }
 
-// ❌ Missing JSDoc
+// ❌ Missing JSDoc for interface properties
 export namespace Button {
   export interface Props {
-    variant: string // No documentation
+    variant: string
   }
 }
 
@@ -138,7 +173,7 @@ export namespace Button { }
 
 ## 🎯 Quick Fix Examples
 
-**Before (wrong):**
+**Before:**
 ```typescript
 interface DialogProps {
   open: boolean
@@ -149,7 +184,7 @@ export function Dialog({ open }: DialogProps) {
 }
 ```
 
-**After (correct):**
+**After:**
 ```typescript
 export namespace Dialog {
   export interface Props {
@@ -178,7 +213,7 @@ Check these locations when reviewing code:
 
 Skip these locations:
 
-- `src/deprecated/*/` - Legacy components (do not modify)
+- `src/deprecated/*/` - Legacy components (leave unchanged)
 - `src/icons/*/` - Generated components
 - `src/tokens/*/` - Generated tokens
 
