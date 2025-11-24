@@ -19,7 +19,7 @@ exports[`Modal component > should match a snapshot when open 1`] = `
       test
     </div>
     <div
-      class="mocked-styled-0 el-modal-bg"
+      class="mocked-styled-3 el-modal-body"
       id=":r1:"
     >
       Content within modal

@@ -1,6 +1,6 @@
 import { FC, ForwardedRef, forwardRef, HTMLAttributes, LegacyRef } from 'react'
 import { cx } from '@linaria/core'
-import { ElModalBg, ElModal, ElModalHeader } from './styles'
+import { ElModalBg, ElModalBody, ElModal, ElModalHeader } from './styles'
 import { ModalBaseProps, ModalContainerProps } from './types'
 
 /**
@@ -36,7 +36,7 @@ export const ModalHeader: FC<ModalBaseProps> = ({ className, children, ...rest }
  * @deprecated
  */
 export const ModalBody: FC<ModalBaseProps> = ({ className, children, ...rest }: ModalBaseProps) => (
-  <ElModalBg className={cx(className)} {...rest}>
+  <ElModalBody className={cx(className)} {...rest}>
     {children}
-  </ElModalBg>
+  </ElModalBody>
 )
