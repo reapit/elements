@@ -5,7 +5,7 @@ export const ElComboboxButtonContainer = styled.div`
   position: relative;
 
   display: inline-flex;
-  align-items: center;
+  align-items: stretch;
   /* NOTE: Combobox sets --combobox-max-width */
   max-width: var(--combobox-max-width, 100%);
   width: 100%;
@@ -119,6 +119,7 @@ export const ElComboboxButtonActionContainer = styled.span`
   right: 0;
 
   display: inline-flex;
+  align-self: center;
   align-items: center;
   justify-content: center;
 
