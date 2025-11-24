@@ -14,7 +14,7 @@ test('renders children', () => {
 test('provides IDs and other values over ComboboxContext', () => {
   expect.assertions(1)
   render(
-    <Combobox aria-multiselectable disabled required size="large">
+    <Combobox disabled multiple required size="large">
       <ComboboxContext.Consumer>
         {(value) => {
           expect(value).toMatchInlineSnapshot(
@@ -123,8 +123,8 @@ test('exposes Optgroup', () => {
   expect(Combobox.Optgroup).toBeDefined()
 })
 
-test('exposes OptionSupplementaryInfo', () => {
-  expect(Combobox.OptionSupplementaryInfo).toBeDefined()
+test('exposes OptionAdditionalInfo', () => {
+  expect(Combobox.OptionAdditionalInfo).toBeDefined()
 })
 
 test('exposes Divider', () => {

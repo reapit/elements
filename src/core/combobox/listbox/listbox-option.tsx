@@ -6,6 +6,7 @@ import { useComboboxContext } from '../context'
 type AttributesToOmit = 'size'
 
 export namespace ComboboxListboxOption {
+  export interface AdditionalInfoProps extends ComboboxOption.AdditionalInfoProps {}
   export interface Props extends Omit<Listbox.OptionProps<typeof ComboboxOption>, AttributesToOmit> {}
 }
 

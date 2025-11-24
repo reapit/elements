@@ -50,7 +50,7 @@ export const Example: Story = {
 export const Autocomplete: Story = {
   args: {
     ...Example.args,
-    'aria-multiselectable': true,
+    multiple: true,
   },
   parameters: { docs: { source: { type: 'code' } } },
   render: (args) => {

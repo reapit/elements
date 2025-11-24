@@ -6,14 +6,29 @@ import { Listbox } from '#src/utils/listbox'
 import { useComboboxContext } from '../context'
 
 // We omit...
+// - as, because we pin it to our styled element
 // - aria-disabled, because it is set by Combobox
 // - aria-multiselectable, because it is set by Combobox
 // - aria-orientation, because it is always "vertical"
 // - aria-required, because it is set by Combobox
 // - id, because it is set by Combobox
-type AttributesToOmit = 'aria-disabled' | 'aria-multiselectable' | 'aria-orientation' | 'aria-required' | 'id'
+// - selectionFollowsFocus, because it is always false
+type AttributesToOmit =
+  | 'as'
+  | 'aria-disabled'
+  | 'aria-multiselectable'
+  | 'aria-orientation'
+  | 'aria-required'
+  | 'id'
+  | 'selectionFollowsFocus'
 
 export namespace ComboboxListbox {
+  export interface DividerProps extends Listbox.DividerProps {}
+  export interface OptgroupProps extends ComboboxListboxOptgroup.Props {}
+  export interface OptionProps extends ComboboxListboxOption.Props {}
+  export interface OptionAdditionalInfoProps extends ComboboxListboxOption.AdditionalInfoProps {}
+  export interface PlaceholderProps extends ComboboxListboxPlaceholder.Props {}
+
   export interface Props extends Omit<Listbox.Props, AttributesToOmit> {}
 }
 
@@ -24,8 +39,8 @@ export function ComboboxListbox(props: ComboboxListbox.Props) {
   const { disabled, listboxId, multiple, required } = useComboboxContext()
   return (
     <Listbox
-      as={ElComboboxListbox}
       {...props}
+      as={ElComboboxListbox}
       aria-disabled={disabled}
       aria-multiselectable={multiple}
       aria-orientation="vertical"

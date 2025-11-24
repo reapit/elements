@@ -11,18 +11,26 @@ import { useId } from 'react'
 import type { HTMLAttributes } from 'react'
 
 export namespace Combobox {
+  export interface AutocompleteButtonProps extends ComboboxAutocompleteButton.Props {}
+  export interface SelectButtonProps extends ComboboxSelectButton.Props {}
+  export interface DividerProps extends ComboboxListbox.DividerProps {}
+  export interface ListboxProps extends ComboboxListbox.Props {}
+  export interface ListboxPlaceholderProps extends ComboboxListbox.PlaceholderProps {}
+  export interface OptgroupProps extends ComboboxListbox.OptgroupProps {}
+  export interface OptionProps extends ComboboxListbox.OptionProps {}
+  export interface OptionAdditionalInfoProps extends ComboboxListbox.OptionAdditionalInfoProps {}
+  export interface PopupProps extends ComboboxPopup.Props {}
+  export interface SearchInputProps extends ComboboxSearchInput.Props {}
+
   export interface Props extends HTMLAttributes<HTMLElement> {
-    /**
-     * Whether the combobox supports multiple selections.
-     * @default false
-     */
-    'aria-multiselectable'?: boolean
     /** Combobox button, popup, and other child components */
     children?: React.ReactNode
     /** Whether the combobox is disabled */
     disabled?: boolean
     /** Maximum width of the combobox. Defaults to 100% */
     maxWidth?: string
+    /** Whether the combobox supports multiple selections. */
+    multiple?: boolean
     /** Whether a selection is required */
     required?: boolean
     /** Whether to show validation state styling */
@@ -54,10 +62,10 @@ export namespace Combobox {
  * ```
  */
 export function Combobox({
-  'aria-multiselectable': multiple = false,
   children,
   disabled = false,
   maxWidth,
+  multiple = false,
   required = false,
   showValidity = false,
   size = 'medium',
@@ -87,8 +95,8 @@ Combobox.Popup = ComboboxPopup
 Combobox.SearchInput = ComboboxSearchInput
 
 Combobox.Listbox = ComboboxListbox
-Combobox.Option = ComboboxListbox.Option
 Combobox.Optgroup = ComboboxListbox.Optgroup
-Combobox.OptionSupplementaryInfo = ComboboxListbox.OptionAdditionalInfo
+Combobox.Option = ComboboxListbox.Option
+Combobox.OptionAdditionalInfo = ComboboxListbox.OptionAdditionalInfo
 Combobox.Divider = ComboboxListbox.Divider
 Combobox.ListboxPlaceholder = ComboboxListbox.Placeholder

@@ -17,6 +17,8 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react'
 type AttributesToOmit = 'role'
 
 export namespace ComboboxOption {
+  export interface AdditionalInfoProps extends ComboboxOptionAdditionalInfo.Props {}
+
   export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
     /** Badge displayed after the label */
     badge?: ReactNode
