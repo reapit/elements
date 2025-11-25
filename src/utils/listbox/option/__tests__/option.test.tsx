@@ -202,6 +202,60 @@ describe('in a "custom" render context', () => {
   })
 })
 
+describe('empty value selection logic', () => {
+  test('selects option with empty value when selectValue is empty', () => {
+    render(
+      <ListboxContext.Provider value={{ ...defaultContext, selectValue: [] }}>
+        <ListboxRenderContext.Provider value="custom">
+          <ListboxOption as={CustomTestOption} value="">
+            Empty Option
+          </ListboxOption>
+        </ListboxRenderContext.Provider>
+      </ListboxContext.Provider>,
+    )
+    expect(screen.getByRole('option')).toHaveAttribute('aria-selected', 'true')
+  })
+
+  test('does not select option with empty value when selectValue has values', () => {
+    render(
+      <ListboxContext.Provider value={{ ...defaultContext, selectValue: ['other-value'] }}>
+        <ListboxRenderContext.Provider value="custom">
+          <ListboxOption as={CustomTestOption} value="">
+            Empty Option
+          </ListboxOption>
+        </ListboxRenderContext.Provider>
+      </ListboxContext.Provider>,
+    )
+    expect(screen.getByRole('option')).toHaveAttribute('aria-selected', 'false')
+  })
+
+  test('renders nothing in native context when empty value is selected', () => {
+    render(
+      <ListboxContext.Provider value={{ ...defaultContext, selectValue: [] }}>
+        <ListboxRenderContext.Provider value="native">
+          <ListboxOption as={CustomTestOption} value="">
+            Empty Option
+          </ListboxOption>
+        </ListboxRenderContext.Provider>
+      </ListboxContext.Provider>,
+    )
+    expect(screen.queryByRole('option')).not.toBeInTheDocument()
+  })
+
+  test('renders option element in native context when empty value is not selected', () => {
+    render(
+      <ListboxContext.Provider value={{ ...defaultContext, selectValue: ['other-value'] }}>
+        <ListboxRenderContext.Provider value="native">
+          <ListboxOption as={CustomTestOption} value="">
+            Empty Option
+          </ListboxOption>
+        </ListboxRenderContext.Provider>
+      </ListboxContext.Provider>,
+    )
+    expect(screen.getByRole('option')).toBeInTheDocument()
+  })
+})
+
 const defaultContext: ListboxContext.Value = {
   disabled: false,
   listboxId: 'my-listbox',

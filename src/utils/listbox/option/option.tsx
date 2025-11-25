@@ -52,7 +52,8 @@ export function ListboxOption<C extends ElementType = 'button'>({
   const context = useListboxContext()
   const renderContext = useListboxRenderContext()
 
-  const isSelected = context.selectValue.includes(optionValue)
+  const isSelected =
+    context.selectValue.includes(optionValue) || (optionValue === '' && context.selectValue.length === 0)
 
   // In native context, renders only unselected options. ListboxSelect renders selected
   // options automatically, preventing duplicates.

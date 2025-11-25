@@ -113,7 +113,7 @@ describe('missing listboxId', () => {
   })
 })
 
-test('skips update when value is empty string', () => {
+test('allows empty string as a valid value', () => {
   const event = createOptionClickEvent({
     listboxId: 'test-listbox',
     selectAction: 'select',
@@ -122,7 +122,7 @@ test('skips update when value is empty string', () => {
 
   updateOptionSelection(event)
 
-  expect(setListboxOptionSelectedState).not.toHaveBeenCalled()
+  expect(setListboxOptionSelectedState).toHaveBeenCalledWith('test-listbox', '', expect.any(Function))
 })
 
 describe('invalid selectAction', () => {

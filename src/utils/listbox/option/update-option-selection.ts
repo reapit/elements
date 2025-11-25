@@ -49,7 +49,8 @@ export function updateOptionSelection(event: MouseEvent<HTMLButtonElement>) {
 
   // Validate required attributes
   // This happens when the `as` component fails to forward props to the underlying <button> element.
-  if (!listboxId || !optionValue) return
+  // We use typeof for the optionValue because the option may legitimately have a value of "".
+  if (!listboxId || typeof optionValue !== 'string') return
 
   // Validate and apply the selection action
   if (!isValidSelectAction(selectAction)) return

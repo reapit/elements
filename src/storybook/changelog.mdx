@@ -18,8 +18,15 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 
 ### **5.0.0-beta.62 - ??/??/25**
 
+- **feat:** `Combobox.Popup` has a close button when displayed as a drawer.
+- **feat:** `SearchInput` uses the same "clear" icon regardless of variant.
 - **feat:** `AtAGlance.Carousel` left/right buttons now only show on hover or keyboard navigation.
+- **feat:** `Menu` only closes on trusted clicks. This aligns its behaviour with the `Combobox.Popup`.
+- **feat:** `Combobox.AutocompleteButton` and `Combobox.SelectButton` updated to align their label text with Figma designs.
 - **fix:** Deprecated `Modal` now uses `ElModalBody` instead of `ElModalBg` for the `ModalBody`.
+- **feat:** `Combobox` conditionally clears the search input value when the popup closes.
+- **feat:** `Listbox` supports `selectRef` for form library integration.
+- **feat:** `Listbox` supports option with empty value. This is important for compact selects as they have no clear button.
 
 ### **5.0.0-beta.61 - 20/11/25**
 
