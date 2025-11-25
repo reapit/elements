@@ -1,3 +1,4 @@
+import { ChipGroup } from '#src/core/chip-group'
 import { Combobox } from './combobox'
 import { useState } from 'react'
 
@@ -53,9 +54,17 @@ export const Autocomplete: Story = {
     multiple: true,
   },
   parameters: { docs: { source: { type: 'code' } } },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexFlow: 'column', gap: 'var(--spacing-2)' }}>
+        <Story />
+      </div>
+    ),
+  ],
   render: (args) => {
     // We control the search input's value with basic component state.
     const [searchValue, setSearchValue] = useState('')
+    const [comboboxValue, setComboboxValue] = useState<readonly string[]>([])
 
     const allOptions = [
       { label: 'Apple', value: 'apple' },
@@ -74,32 +83,49 @@ export const Autocomplete: Story = {
     )
 
     return (
-      <Combobox {...args}>
-        <Combobox.AutocompleteButton />
-        <Combobox.Popup
-          search={
-            <Combobox.SearchInput
-              aria-label="Filter options"
-              value={searchValue}
-              onChange={(e) => setSearchValue(e.target.value)}
-            />
-          }
-        >
-          <Combobox.Listbox>
-            {filteredOptions.length > 0 ? (
-              filteredOptions.map((option) => (
-                <Combobox.Option key={option.value} value={option.value}>
-                  {option.label}
-                </Combobox.Option>
-              ))
-            ) : (
-              // Combobox.Listbox holds state in the DOM, so the placeholder text should be
-              // rendered as it's child.
-              <Combobox.ListboxPlaceholder>No results found</Combobox.ListboxPlaceholder>
-            )}
-          </Combobox.Listbox>
-        </Combobox.Popup>
-      </Combobox>
+      <>
+        <Combobox {...args}>
+          <Combobox.AutocompleteButton />
+          <Combobox.Popup
+            search={
+              <Combobox.SearchInput
+                aria-label="Filter options"
+                value={searchValue}
+                onChange={(e) => setSearchValue(e.target.value)}
+              />
+            }
+          >
+            <Combobox.Listbox
+              name="fruit"
+              onChange={(event) => setComboboxValue(Combobox.getListboxValue(event.currentTarget))}
+              value={comboboxValue}
+            >
+              {filteredOptions.length > 0 ? (
+                filteredOptions.map((option) => (
+                  <Combobox.Option key={option.value} value={option.value}>
+                    {option.label}
+                  </Combobox.Option>
+                ))
+              ) : (
+                // Combobox.Listbox holds state in the DOM, so the placeholder text should be
+                // rendered as it's child.
+                <Combobox.ListboxPlaceholder>No results found</Combobox.ListboxPlaceholder>
+              )}
+            </Combobox.Listbox>
+          </Combobox.Popup>
+        </Combobox>
+        <ChipGroup>
+          {comboboxValue.map((value) => (
+            <ChipGroup.Item
+              key={value}
+              onClick={() => setComboboxValue(comboboxValue.filter((v) => v !== value))}
+              variant="selection"
+            >
+              {allOptions.find((option) => option.value === value)?.label ?? value}
+            </ChipGroup.Item>
+          ))}
+        </ChipGroup>
+      </>
     )
   },
 }
@@ -133,4 +159,27 @@ export const Sizes: Story = {
     ...Example.args,
     size: 'large',
   },
+}
+
+/**
+ * Three sizes are supported: small, medium, and large. The size impacts both the combobox button and
+ * the option labels.
+ */
+export const Forms: Story = {
+  ...Autocomplete,
+  decorators: [
+    (Story) => (
+      <form
+        onSubmit={(e) => {
+          e.preventDefault()
+          const formData = new FormData(e.currentTarget)
+          alert(JSON.stringify({ fruit: formData.getAll('fruit') }))
+        }}
+        style={{ display: 'flex', flexDirection: 'column', alignItems: 'start', gap: 'var(--spacing-4)' }}
+      >
+        <button type="submit">Submit</button>
+        <Story />
+      </form>
+    ),
+  ],
 }
