@@ -30,6 +30,8 @@ export namespace ComboboxPopupDialog {
     maxHeight?: string
     /** Maximum width. By default, the popover is slightly wider than the anchor. */
     maxWidth?: string
+    /** Minimum width. By default, the popover is slightly wider than the anchor. */
+    minWidth?: string
     /**
      * Whether to preserve (keep) the search input value when the popup closes.
      * When false (default), the search input, if present, will be cleared on close.
@@ -49,9 +51,9 @@ export namespace ComboboxPopupDialog {
 }
 
 // NOTE: --combobox-popup-padding is defined in styles.ts
-const defaultWidth = 'calc(anchor-size(width) + 2 * var(--combobox-popup-padding))'
-const defaultLeft = 'calc(anchor(left) - var(--combobox-popup-padding))'
-const defaultTop = 'calc(anchor(top) - var(--combobox-popup-padding))'
+export const defaultPopupWidth = 'calc(anchor-size(width) + 2 * var(--combobox-popup-padding))'
+export const defaultPopupInsetLeft = 'calc(anchor(left) - var(--combobox-popup-padding))'
+export const defaultPopupInsetTop = 'calc(anchor(top) - var(--combobox-popup-padding))'
 
 /**
  * Combobox popup dialog that can be displayed as a popover, drawer, or auto.
@@ -71,7 +73,8 @@ export function ComboboxPopupDialog({
   closeOnSelection = 'auto',
   id,
   maxHeight,
-  maxWidth,
+  maxWidth = defaultPopupWidth,
+  minWidth = defaultPopupWidth,
   onClose,
   onClick,
   preserveSearchOnClose = false,
@@ -118,12 +121,12 @@ export function ComboboxPopupDialog({
         {needsAnchorPositioning && (
           <AnchorPositioning
             anchorElementId={ariaLabelledBy}
-            left={defaultLeft}
-            maxWidth={maxWidth ?? defaultWidth}
-            minWidth={defaultWidth}
+            left={defaultPopupInsetLeft}
+            maxWidth={maxWidth}
+            minWidth={minWidth}
             positionedElementId={id}
             positionTryFallbacks="flip-block, flip-inline"
-            top={defaultTop}
+            top={defaultPopupInsetTop}
           />
         )}
         {/* Render header when search or close button are needed */}

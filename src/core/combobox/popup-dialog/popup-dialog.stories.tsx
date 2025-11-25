@@ -164,8 +164,9 @@ export const Example: Story = {
 
 /**
  * By default, popover-style popups are slightly wider than their anchor element to accommodate
- * padding. This width can be overridden by setting `maxWidth` to a valid CSS length. A `--size-*`
- * CSS variable is typically preferred.
+ * padding. This width can be overridden by setting `maxWidth` to a valid CSS length. Any `--size-*`
+ * CSS variable or intrinsic size keywords (e.g., `fit-content`, `min-content`, `max-content`) will
+ * typically be preferred.
  */
 export const MaxWidth: Story = {
   name: 'Max-width',

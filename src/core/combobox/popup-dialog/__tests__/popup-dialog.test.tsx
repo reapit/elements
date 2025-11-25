@@ -56,6 +56,15 @@ test('accepts maxWidth prop', () => {
   expect(screen.getByRole('dialog')).toHaveStyle('max-width: 500px')
 })
 
+test('accepts minWidth prop', () => {
+  render(
+    <ComboboxPopupDialog {...defaultProps} minWidth="500px">
+      Content
+    </ComboboxPopupDialog>,
+  )
+  expect(screen.getByRole('dialog')).toHaveStyle('min-width: 500px')
+})
+
 test('calls onClick handler when provided', () => {
   const onClick = vi.fn()
   render(
