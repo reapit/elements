@@ -7,7 +7,7 @@ type AttributesToOmit = 'size'
 
 export namespace ComboboxListboxOption {
   export interface AdditionalInfoProps extends ComboboxOption.AdditionalInfoProps {}
-  export interface Props extends Omit<Listbox.OptionProps<typeof ComboboxOption>, AttributesToOmit> {}
+  export interface Props extends Omit<ComboboxOption.Props, AttributesToOmit>, Listbox.OptionProps {}
 }
 
 /**

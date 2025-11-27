@@ -8,13 +8,17 @@ test('invokes callback with initial selection on mount', () => {
 
   render(
     <TestListboxObserver callback={callback}>
-      <button role="option">Option 1</button>
-      <button role="option">Option 2</button>
+      <button role="option" value="1">
+        Option 1
+      </button>
+      <button role="option" value="2">
+        Option 2
+      </button>
     </TestListboxObserver>,
   )
 
   expect(callback).toHaveBeenCalledTimes(1)
-  expect(callback).toHaveBeenCalledWith([])
+  expect(callback).toHaveBeenCalledWith([], [])
 })
 
 test('invokes callback when aria-checked attribute changes', async () => {
@@ -22,20 +26,22 @@ test('invokes callback when aria-checked attribute changes', async () => {
 
   const { rerender } = render(
     <TestListboxObserver callback={callback}>
-      <button role="option">Option 1</button>
+      <button role="option" value="1">
+        Option 1
+      </button>
     </TestListboxObserver>,
   )
 
   rerender(
     <TestListboxObserver callback={callback}>
-      <button aria-checked role="option">
+      <button aria-checked role="option" value="1">
         Option 1
       </button>
     </TestListboxObserver>,
   )
 
   await waitFor(() => expect(callback).toHaveBeenCalledTimes(2))
-  expect(callback).toHaveBeenLastCalledWith([expect.any(HTMLButtonElement)])
+  expect(callback).toHaveBeenLastCalledWith([expect.any(HTMLButtonElement)], [])
 })
 
 test('invokes callback when aria-selected attribute changes', async () => {
@@ -43,33 +49,37 @@ test('invokes callback when aria-selected attribute changes', async () => {
 
   const { rerender } = render(
     <TestListboxObserver callback={callback}>
-      <button role="option">Option 1</button>
+      <button role="option" value="1">
+        Option 1
+      </button>
     </TestListboxObserver>,
   )
 
   rerender(
     <TestListboxObserver callback={callback}>
-      <button aria-selected role="option">
+      <button aria-selected role="option" value="1">
         Option 1
       </button>
     </TestListboxObserver>,
   )
 
   await waitFor(() => expect(callback).toHaveBeenCalledTimes(2))
-  expect(callback).toHaveBeenLastCalledWith([expect.any(HTMLButtonElement)])
+  expect(callback).toHaveBeenLastCalledWith([expect.any(HTMLButtonElement)], [])
 })
 
 test('does not invoke callback for other attribute changes', async () => {
   const callback = vi.fn()
   const { rerender } = render(
     <TestListboxObserver callback={callback}>
-      <button role="option">Option 1</button>
+      <button role="option" value="1">
+        Option 1
+      </button>
     </TestListboxObserver>,
   )
 
   rerender(
     <TestListboxObserver callback={callback}>
-      <button data-testid="test" role="option">
+      <button data-testid="test" role="option" value="1">
         Option 1
       </button>
     </TestListboxObserver>,
@@ -84,7 +94,9 @@ test('observes selection changes in subtree', async () => {
   const { rerender } = render(
     <TestListboxObserver callback={callback}>
       <div role="group">
-        <button role="option">Option 1</button>
+        <button role="option" value="1">
+          Option 1
+        </button>
       </div>
     </TestListboxObserver>,
   )
@@ -92,7 +104,7 @@ test('observes selection changes in subtree', async () => {
   rerender(
     <TestListboxObserver callback={callback}>
       <div role="group">
-        <button aria-checked role="option">
+        <button aria-checked role="option" value="1">
           Option 1
         </button>
       </div>
@@ -102,16 +114,73 @@ test('observes selection changes in subtree', async () => {
   await waitFor(() => expect(callback).toHaveBeenCalledTimes(2))
 })
 
+test('invokes callback when option elements are added to select', async () => {
+  const callback = vi.fn()
+  const { rerender } = render(
+    <TestListboxObserver callback={callback} selectChildren={<option value="1">Option 1</option>} />,
+  )
+
+  // Clear initial mount call
+  callback.mockClear()
+
+  rerender(
+    <TestListboxObserver
+      callback={callback}
+      selectChildren={
+        <>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+        </>
+      }
+    />,
+  )
+
+  await waitFor(() => expect(callback).toHaveBeenCalledTimes(1))
+})
+
+test('invokes callback when option elements are removed from select', async () => {
+  const callback = vi.fn()
+  const { rerender } = render(
+    <TestListboxObserver
+      callback={callback}
+      selectChildren={
+        <>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+        </>
+      }
+    />,
+  )
+
+  // Clear initial mount call
+  callback.mockClear()
+
+  rerender(<TestListboxObserver callback={callback} selectChildren={<option value="1">Option 1</option>} />)
+
+  await waitFor(() => expect(callback).toHaveBeenCalledTimes(1))
+})
+
 interface TestListboxObserverProps {
   listboxId?: string
-  callback: (selectedOptions: HTMLButtonElement[]) => void
+  callback: (selectedOptions: HTMLButtonElement[], listboxState: readonly string[]) => void
+  /** Children to render as visible listbox options */
   children?: ReactNode
+  /** Children to render inside the hidden select element */
+  selectChildren?: ReactNode
 }
 
-function TestListboxObserver({ listboxId = 'test-listbox', callback, children }: TestListboxObserverProps) {
+function TestListboxObserver({
+  listboxId = 'test-listbox',
+  callback,
+  children,
+  selectChildren,
+}: TestListboxObserverProps) {
   useListboxSelectionObserver(listboxId, callback)
   return (
     <div id={listboxId} role="listbox">
+      <select id={`${listboxId}-select`} hidden>
+        {selectChildren}
+      </select>
       {children}
     </div>
   )

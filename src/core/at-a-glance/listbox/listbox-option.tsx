@@ -2,7 +2,7 @@ import { AtAGlanceButtonCard } from '../button-card'
 import { Listbox } from '#src/utils/listbox'
 
 export namespace AtAGlanceListboxOption {
-  export interface Props extends Listbox.OptionProps<typeof AtAGlanceButtonCard> {
+  export interface Props extends AtAGlanceButtonCard.Props, Listbox.OptionProps {
     /** Option value used in form submission and selection tracking */
     value: string
   }

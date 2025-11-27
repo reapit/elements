@@ -1,5 +1,6 @@
 export * from './context'
 export * from './dom-helpers'
+export * from './get-select-id'
 export * from './listbox'
 export * from './optgroup'
 export * from './option'

@@ -40,6 +40,8 @@ import { SELECTED_OPTION_SELECTOR } from './selectors'
  * })
  */
 export function getListboxSelectedOptions(listboxElement: HTMLElement): HTMLButtonElement[] {
-  // NOTE: we use a type assertion here because our selector explicitly queries for button elements.
-  return Array.from(listboxElement.querySelectorAll(SELECTED_OPTION_SELECTOR)) as HTMLButtonElement[]
+  return Array.from(listboxElement.querySelectorAll(SELECTED_OPTION_SELECTOR)).filter(
+    // Need to exclude options with an empty value.
+    (option) => option instanceof HTMLButtonElement && option.value !== '',
+  ) as HTMLButtonElement[]
 }

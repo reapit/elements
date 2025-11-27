@@ -5,13 +5,14 @@ import {
   setListboxOptionSelectedState,
 } from './dom-helpers'
 import { Divider } from '#src/core/divider'
+import { getListboxSelectId } from './get-select-id'
 import { ListboxContext, useListboxContext } from './context'
 import { ListboxOption } from './option'
 import { ListboxOptgroup } from './optgroup'
 import { ListboxRenderContext, useListboxRenderContext } from './render-context'
 import { ListboxSelect } from './select'
 import { useFocusManagement } from './use-focus-management'
-import { useId } from 'react'
+import { useId, useMemo } from 'react'
 import { useListboxSelectionObserver } from './use-listbox-selection-observer'
 import { useListboxState } from './use-listbox-state'
 
@@ -23,7 +24,7 @@ type AttributesToOmit = 'onChange'
 
 export namespace Listbox {
   export interface DividerProps extends Divider.Props {}
-  export type OptionProps<C extends ElementType = 'button'> = ListboxOption.Props<C>
+  export interface OptionProps extends ListboxOption.BaseProps {}
   export interface OptgroupProps extends ListboxOptgroup.BaseProps {}
   export interface SelectProps extends ListboxSelect.Props {}
 
@@ -159,12 +160,16 @@ export function Listbox<C extends ElementType = 'div'>({
 }: Listbox.Props<C>) {
   const Element = as ?? 'div'
 
-  const selectId = useId()
   const fallbackListboxId = useId()
   const listboxId = id ?? fallbackListboxId
 
   const [selectValue, handleChange] = useListboxState({ defaultValue, multiple, onChange, value })
   const focusHandlers = useFocusManagement({ onBlur, onFocus, onKeyDown })
+
+  const contextValue = useMemo(
+    () => ({ disabled, listboxId, multiple, selectAction, selectValue }),
+    [disabled, listboxId, multiple, selectAction, selectValue],
+  )
 
   return (
     <Element
@@ -185,7 +190,7 @@ export function Listbox<C extends ElementType = 'div'>({
       // only as an initial value.
       tabIndex={0}
     >
-      <ListboxContext.Provider value={{ disabled, listboxId, multiple, selectAction, selectValue }}>
+      <ListboxContext.Provider value={contextValue}>
         {/*
           The hidden select maintains form state and enables native form submission.
           It receives selectRef for form library integration (e.g., React Hook Form).
@@ -193,7 +198,7 @@ export function Listbox<C extends ElementType = 'div'>({
         */}
         <ListboxSelect
           disabled={disabled}
-          id={selectId}
+          id={getListboxSelectId(listboxId)}
           multiple={multiple}
           name={name}
           onChange={handleChange}

@@ -1,6 +1,7 @@
-import { getListboxSelectedOptions } from './dom-helpers'
+import { getListboxSelectedOptions, getListboxValue } from './dom-helpers'
 import { useCallback, useEffect, useRef } from 'react'
 import { useMutationObserver } from '#src/utils/mutation-observer'
+import { getListboxSelectId } from './get-select-id'
 
 /**
  * Observes selection changes in a listbox and invokes a callback with the selected options.
@@ -9,12 +10,16 @@ import { useMutationObserver } from '#src/utils/mutation-observer'
  * listbox, triggering the callback whenever selection state changes. Invokes the callback on
  * initial mount to capture the initial selection state.
  *
+ * Also observes the native `<select>` element within the listbox, triggering the callback
+ * whenever the selected option changes. This ensures changes to the select's value that don't
+ * result in attribute changes to the listbox's visible options are observed.
+ *
  * Handles unstable callback references with a ref, preventing unnecessary re-observation when
  * the callback reference changes but the listbox ID remains constant.
  */
 export function useListboxSelectionObserver(
   listboxId: string,
-  callback: (selectedOptions: HTMLButtonElement[]) => void,
+  callback: (visibleOptions: HTMLButtonElement[], listboxState: readonly string[]) => void,
 ): void {
   const callbackRef = useRef(callback)
 
@@ -35,8 +40,9 @@ export function useListboxSelectionObserver(
   const observeSelectedOptions = useCallback(() => {
     const listboxElement = document.getElementById(listboxId)
     if (listboxElement) {
-      const selectedOptions = getListboxSelectedOptions(listboxElement)
-      callbackRef.current(selectedOptions)
+      const listboxState = getListboxValue(listboxId)
+      const visibleOptions = getListboxSelectedOptions(listboxElement)
+      callbackRef.current(visibleOptions, listboxState)
     }
   }, [listboxId])
 
@@ -47,15 +53,27 @@ export function useListboxSelectionObserver(
     /* eslint-disable-next-line react-hooks/exhaustive-deps -- won't be necessary once we have useEffectEvent */
   }, [])
 
-  useMutationObserver(listboxId, observeSelectedOptions, options)
+  useMutationObserver(listboxId, observeSelectedOptions, listboxObserverOptions)
+  useMutationObserver(getListboxSelectId(listboxId), observeSelectedOptions, listboxSelectObserverOptions)
 }
 
 /**
- * Configuration for the MutationObserver that watches for selection changes.
- * Monitors only aria-checked and aria-selected attribute changes throughout
+ * Configuration for the MutationObserver that watches for attribute changes on listbox
+ * descendants. Monitors only `aria-checked` and `aria-selected` attributes throughout
  * the listbox subtree.
  */
-const options: MutationObserverInit = {
+const listboxObserverOptions: MutationObserverInit = {
+  // Observe attribute changes
   attributeFilter: ['aria-checked', 'aria-selected'],
+  // Observe full subtree
   subtree: true,
+}
+
+/**
+ * Configuration for the MutationObserver that watches for the addition or removal
+ * of native options from the listbox's native <select> element.
+ */
+const listboxSelectObserverOptions: MutationObserverInit = {
+  // Observe addition/removal of child elements (the native <option> elements)
+  childList: true,
 }

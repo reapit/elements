@@ -278,6 +278,7 @@ function TestComboboxSelectedOptions({
   onSelectionsChange(selections)
   return (
     <div id={listboxId} role="listbox">
+      <select id={`${listboxId}-select`} hidden />
       {children}
     </div>
   )
