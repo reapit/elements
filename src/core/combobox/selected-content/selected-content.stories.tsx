@@ -1,13 +1,13 @@
-import { ComboboxSelectionChips } from './selection-chips'
+import { ComboboxSelectedContent } from './selected-content'
 import { Listbox } from '#src/utils/listbox'
 import { Text } from '#src/core/text'
-import { useState } from 'react'
+import { useId, useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/Combobox/SelectionChips',
-  component: ComboboxSelectionChips,
+  title: 'Core/Combobox/SelectedContent',
+  component: ComboboxSelectedContent,
   argTypes: {
     listboxId: {
       control: 'text',
@@ -15,7 +15,8 @@ const meta = {
   },
   decorators: [
     (Story, { args, parameters }) => {
-      const [searchValue, setSearchValue] = useState('')
+      const listboxId = `${args.id}-${useId()}`
+      const [searchValue, setSearchValue] = useState(parameters.initialFilter ?? '')
 
       const filteredOptions = allOptions.filter((option) =>
         option.label.toLowerCase().startsWith(searchValue.toLowerCase()),
@@ -42,11 +43,13 @@ const meta = {
               </label>
             )}
             <Listbox
-              aria-multiselectable
               defaultValue={args.defaultOptions?.map((option) => option.value)}
-              id={args.listboxId}
+              id={listboxId}
               selectAction="select"
             >
+              <Listbox.Option as={MyListboxOption} value="">
+                Select an option
+              </Listbox.Option>
               {options.map((option) => (
                 <Listbox.Option as={MyListboxOption} key={option.value} value={option.value}>
                   {option.label}
@@ -55,12 +58,12 @@ const meta = {
             </Listbox>
           </div>
 
-          <Story />
+          <Story args={{ ...args, listboxId }} />
         </div>
       )
     },
   ],
-} satisfies Meta<typeof ComboboxSelectionChips>
+} satisfies Meta<typeof ComboboxSelectedContent>
 
 export default meta
 
@@ -80,7 +83,7 @@ export const Example: Story = {
 /**
  * An initial state must be provided for selection chips to be displayed on first render
  * when the listbox options are not immediately present in the DOM, such as when filtering
- * may be applied or the options are loaded asynchronously.
+ * is applied or the options are loaded asynchronously.
  */
 export const DefaultOptions: Story = {
   name: 'Default options',
@@ -92,34 +95,6 @@ export const DefaultOptions: Story = {
   parameters: {
     enableFiltering: true,
     initialFilter: 'Apple',
-  },
-}
-
-/**
- * The selection chips are a standard `ChipGroup` and will, by default, allow selection chips
- * to wrap when there is not enough space to display. This behaviour can be adjusted using
- * `flow` and `overflow`.
- */
-export const Wrapping: Story = {
-  args: {
-    ...Example.args,
-    defaultOptions: [
-      { label: 'Apple', value: 'apple' },
-      { label: 'Apricot', value: 'apricot' },
-      { label: 'Banana', value: 'banana' },
-      { label: 'Blueberry', value: 'blueberry' },
-    ],
-    listboxId: 'wrapping-example',
-  },
-  decorators: [
-    (Story) => (
-      <div style={{ border: '1px solid #FA00FF', width: '300px' }}>
-        <Story />
-      </div>
-    ),
-  ],
-  parameters: {
-    enableFiltering: true,
   },
 }
 

@@ -154,6 +154,47 @@ export const Sizes: Story = {
 }
 
 /**
+ * The combobox's value can be controlled like any other form control. The `Combobox.useState` hook is
+ * available; it has the correct type baked-in. When responding to changes, `Combobox.getListboxValue`
+ * can be used to retrieve the appropriate value from the DOM element.
+ */
+export const Controlled: Story = {
+  args: {
+    ...Example.args,
+  },
+  render: (args) => {
+    const [value, setValue] = Combobox.useState([])
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', color: '#FA00FF' }}>
+        {/* Some actions to control the combobox state outside of it's popup. */}
+        <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
+          <button onClick={() => setValue(['option1'])}>Select Option 1</button>
+          <button onClick={() => setValue([])}>Clear selection</button>
+        </div>
+
+        {/* Our controlled state */}
+        <pre>{JSON.stringify(value)}</pre>
+
+        <Combobox {...args}>
+          <DemoButton key="button" />
+          <Combobox.Popup key="popup">
+            {/* We use our state to control the listbox's value. The Combobox.getListboxValue helps
+             * get the value of the listbox; `e.currentTarget.value` will only give the first selected
+             * value, not all of them. */}
+            <Combobox.Listbox onChange={(e) => setValue(Combobox.getListboxValue(e.currentTarget))} value={value}>
+              <Combobox.Option value="option1">Option 1</Combobox.Option>
+              <Combobox.Option value="option2">Option 2</Combobox.Option>
+              <Combobox.Option value="option3">Option 3</Combobox.Option>
+            </Combobox.Listbox>
+          </Combobox.Popup>
+        </Combobox>
+      </div>
+    )
+  },
+}
+
+/**
  * Three sizes are supported: small, medium, and large. The size impacts both the combobox button and
  * the option labels.
  */

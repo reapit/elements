@@ -1,23 +1,35 @@
-import { ComboboxContext } from './context'
+import { ComboboxButton } from './button'
+import { ComboboxContext, useComboboxContext } from './context'
 import { ComboboxListbox } from './listbox'
 import { ComboboxPopup } from './combobox-popup'
 import { ComboboxSearchInput } from './search-input'
-import { ElCombobox } from './styles'
+import { ComboboxSelectedContent } from './selected-content'
 import { ComboboxSelectionChips } from './selection-chips'
+import { ElCombobox } from './styles'
+import { getComboboxListboxId } from './get-listbox-id'
+import { getComboboxPopupId } from './get-popup-id'
 import { Listbox } from '#src/utils/listbox'
+import { useComboboxButton } from './use-button'
+import { useComboboxHasSelection } from './use-has-selection'
+import { useComboboxSelectedOptions } from './use-selected-options'
+import { useComboboxState } from './use-state'
 import { useId } from 'react'
 
 import type { HTMLAttributes } from 'react'
 
 export namespace Combobox {
+  export interface ButtonProps extends ComboboxButton.Props {}
+  export interface ClearButtonProps extends ComboboxButton.ClearButtonProps {}
   export interface DividerProps extends ComboboxListbox.DividerProps {}
   export interface ListboxProps extends ComboboxListbox.Props {}
   export interface ListboxPlaceholderProps extends ComboboxListbox.PlaceholderProps {}
+  export interface OpenPopupButtonProps extends ComboboxButton.OpenPopupButtonProps {}
   export interface OptgroupProps extends ComboboxListbox.OptgroupProps {}
   export interface OptionProps extends ComboboxListbox.OptionProps {}
   export interface OptionAdditionalInfoProps extends ComboboxListbox.OptionAdditionalInfoProps {}
   export interface PopupProps extends ComboboxPopup.Props {}
   export interface SearchInputProps extends ComboboxSearchInput.Props {}
+  export interface SelectedContentProps extends ComboboxSelectedContent.Props {}
   export interface SelectionChipsProps extends ComboboxSelectionChips.Props {}
 
   export interface Props extends HTMLAttributes<HTMLElement> {
@@ -43,14 +55,14 @@ export namespace Combobox {
  * a value for the input from a collection.
  *
  * Provides context to descendant components for managing accessibility relationships and state.
- * Use with `Combobox.SelectButton` or `Combobox.AutocompleteButton`, `Combobox.Popup`,
- * `Combobox.SearchInput`, `Combobox.Listbox` et al to build a complete combobox pattern.
+ * Use with `Combobox.Popup`, `Combobox.SearchInput`, `Combobox.Listbox` et al to build a
+ * complete combobox pattern.
  *
  * @example
  * ```tsx
  * <Combobox required>
- *   <Combobox.SelectButton placeholder="Select an option" />
- *   <Combobox.Popup variant="popover">
+ *   <MyComboboxButton />
+ *   <Combobox.Popup>
  *     <Combobox.Listbox>
  *       <Combobox.Option value="1">Option 1</Combobox.Option>
  *       <Combobox.Option value="2">Option 2</Combobox.Option>
@@ -62,6 +74,7 @@ export namespace Combobox {
 export function Combobox({
   children,
   disabled = false,
+  id,
   maxWidth,
   multiple = false,
   required = false,
@@ -70,9 +83,10 @@ export function Combobox({
   style,
   ...rest
 }: Combobox.Props) {
-  const buttonId = useId()
-  const listboxId = useId()
-  const popupId = useId()
+  const fallbackButtonId = useId()
+  const buttonId = id ?? fallbackButtonId
+  const listboxId = getComboboxListboxId(buttonId)
+  const popupId = getComboboxPopupId(buttonId)
 
   return (
     <ComboboxContext.Provider value={{ buttonId, disabled, listboxId, multiple, popupId, required, size }}>
@@ -85,15 +99,26 @@ export function Combobox({
 
 Combobox.getOptionLabel = ComboboxListbox.getOptionLabel
 Combobox.getListboxValue = Listbox.getValue
+Combobox.getListboxId = getComboboxListboxId
+Combobox.getPopupId = getComboboxPopupId
 
-Combobox.Popup = ComboboxPopup
-Combobox.SearchInput = ComboboxSearchInput
-
+Combobox.Button = ComboboxButton
+Combobox.ClearButton = ComboboxButton.ClearButton
+Combobox.Divider = ComboboxListbox.Divider
 Combobox.Listbox = ComboboxListbox
+Combobox.ListboxPlaceholder = ComboboxListbox.Placeholder
+Combobox.OpenPopupButton = ComboboxButton.OpenPopupButton
 Combobox.Optgroup = ComboboxListbox.Optgroup
 Combobox.Option = ComboboxListbox.Option
 Combobox.OptionAdditionalInfo = ComboboxListbox.OptionAdditionalInfo
-Combobox.Divider = ComboboxListbox.Divider
-Combobox.ListboxPlaceholder = ComboboxListbox.Placeholder
-
+Combobox.Popup = ComboboxPopup
+Combobox.SearchInput = ComboboxSearchInput
+Combobox.SelectedContent = ComboboxSelectedContent
 Combobox.SelectionChips = ComboboxSelectionChips
+
+Combobox.Context = ComboboxContext
+Combobox.useButton = useComboboxButton
+Combobox.useContext = useComboboxContext
+Combobox.useHasSelection = useComboboxHasSelection
+Combobox.useSelectedOptions = useComboboxSelectedOptions
+Combobox.useState = useComboboxState

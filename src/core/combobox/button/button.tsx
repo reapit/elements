@@ -14,6 +14,9 @@ import type { ButtonHTMLAttributes, ReactNode } from 'react'
 type AttributesToOmit = 'size'
 
 export namespace ComboboxButton {
+  export interface ClearButtonProps extends ComboboxButtonClearButton.Props {}
+  export interface OpenPopupButtonProps extends ComboboxButtonOpenPopupButton.Props {}
+
   export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
     /** Secondary button displayed at the end (e.g., clear button or toggle button). */
     action?: ReactNode
@@ -22,7 +25,7 @@ export namespace ComboboxButton {
     /** Whether the popup is open. */
     'aria-expanded': boolean
     /** Current label of the button. Must be plain text. */
-    children?: string
+    children?: ReactNode
     /** ID of the button */
     id: string
     /** Icon displayed at the start of the button. */
