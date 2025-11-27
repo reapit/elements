@@ -25,7 +25,7 @@ export namespace ComponentName {
 - [ ] Match namespace name to component name exactly
 - [ ] Place Props interface inside namespace
 - [ ] Include JSDoc documentation for all props
-- [ ] Define interfaces inside namespaces only
+- [ ] Place all API-related interfaces (props, data types) inside namespaces
 
 ### For Component Migrations
 
@@ -109,6 +109,42 @@ export function formatCurrency(input: formatCurrency.Input): formatCurrency.Outp
 }
 ```
 
+## Data Types in Namespaces
+
+Data types that are part of a component or function's API surface should be included in the namespace:
+
+```typescript
+// ✅ Correct: Data type in namespace
+export namespace useComboboxSelectedOptions {
+  /** Represents a selected option with its label and value. */
+  export interface Option {
+    /** The option's label text */
+    label: string
+    /** The option's value */
+    value: string
+  }
+}
+
+export function useComboboxSelectedOptions(
+  listboxId: string,
+  defaultOptions: readonly useComboboxSelectedOptions.Option[] = [],
+): readonly useComboboxSelectedOptions.Option[] {
+  // Returns array of data objects
+}
+```
+
+**Benefits:**
+- **Consistency**: One rule - all interfaces go in namespaces
+- **Discoverability**: Types appear in IDE autocomplete alongside the function/component
+- **Clear ownership**: Obvious which component/function owns the type
+- **Reduced naming collisions**: Can use simpler names within namespaces
+
+**When to namespace data types:**
+- Type is returned by a function
+- Type is accepted as a parameter
+- Type is used primarily with one component/function
+- Type is part of the public API surface
+
 ## ⚖️ Exceptions to the Pattern
 
 ### Shared Base Interfaces
@@ -151,7 +187,7 @@ export namespace ComboboxPopupPopover {
 ## 🚫 Common Mistakes
 
 ```typescript
-// ❌ Standalone interface
+// ❌ Standalone props interface (should be in namespace)
 interface ButtonProps { }
 
 // ❌ Wrong namespace name
@@ -169,6 +205,16 @@ export namespace Button {
 // ❌ Props outside namespace
 export interface Props { }
 export namespace Button { }
+
+// ❌ Standalone data type that's part of API surface (should be in namespace)
+export interface ComboboxSelectedOption {
+  label: string
+  value: string
+}
+
+export function useComboboxSelectedOptions(): readonly ComboboxSelectedOption[] {
+  // Should be useComboboxSelectedOptions.Option instead
+}
 ```
 
 ## 🎯 Quick Fix Examples

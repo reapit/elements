@@ -4,11 +4,19 @@
 
 This guideline provides quick-reference principles for writing clear, concise prose that humans will read. Apply these rules to documentation, error messages, commit messages, UI text, comments, explanations, and any other human-facing text.
 
-## Core Resource
+## Language Standard
 
-**Full Reference**: https://raw.githubusercontent.com/obra/the-elements-of-style/main/skills/writing-clearly-and-concisely/elements-of-style.md
+**Use British English spelling and conventions in all prose.** This includes documentation, comments, error messages, and UI text.
 
-**Note**: The full Elements of Style reference (~12,000 tokens) should be fetched on-demand when writing or editing substantial prose. For routine writing, use the principles below.
+Examples:
+- colour (not color)
+- analyse (not analyze)
+- organise (not organize)
+- realise (not realize)
+- centre (not center)
+- favour (not favor)
+
+**Note**: Code identifiers (variable names, function names, class names) may use American English if required by external APIs or established conventions, but all surrounding prose should use British English.
 
 ## When to Apply This Guideline
 
