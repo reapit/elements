@@ -5,6 +5,9 @@ export const elFormControlLabel = css`
   font: inherit;
 
   padding: 0;
-  /* Block end margin set here because the parent form control can't reliably use a flex layout. */
-  margin: 0 0 var(--spacing-2) 0;
+  /* Set bottom margin when label is a legend. Legend elements do not participate
+   * in flex layouts of a fieldset. */
+  &:is(legend) {
+    margin: 0 0 var(--spacing-2) 0;
+  }
 `

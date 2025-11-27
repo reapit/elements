@@ -7,9 +7,8 @@ export const ElFormControlHelpText = styled.p`
 
   font: inherit;
 
+  margin: 0;
   padding: 0;
-  /* Block start margin set here because the parent form control can't reliably use a flex layout. */
-  margin: var(--spacing-2) 0 0 0;
 
   /* By default, we simply inherit from the parent FormControl's font styles. These styles allow for
    * that sizing to be overriden. */
