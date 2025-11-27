@@ -54,7 +54,7 @@ test('can override the default select action', () => {
 })
 
 const defaultContext: ComboboxContext.Value = {
-  buttonId: 'button-id',
+  comboboxId: 'button-id',
   disabled: false,
   listboxId: 'listbox-id',
   multiple: false,

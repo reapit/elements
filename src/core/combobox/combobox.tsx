@@ -72,6 +72,9 @@ export namespace Combobox {
  * ```
  */
 export function Combobox({
+  'aria-describedby': ariaDescribedBy,
+  'aria-errormessage': ariaErrorMessage,
+  'aria-invalid': ariaInvalid,
   children,
   disabled = false,
   id,
@@ -83,13 +86,26 @@ export function Combobox({
   style,
   ...rest
 }: Combobox.Props) {
-  const fallbackButtonId = useId()
-  const buttonId = id ?? fallbackButtonId
-  const listboxId = getComboboxListboxId(buttonId)
-  const popupId = getComboboxPopupId(buttonId)
+  const fallbackComboboxId = useId()
+  const comboboxId = id ?? fallbackComboboxId
+  const listboxId = getComboboxListboxId(comboboxId)
+  const popupId = getComboboxPopupId(comboboxId)
 
   return (
-    <ComboboxContext.Provider value={{ buttonId, disabled, listboxId, multiple, popupId, required, size }}>
+    <ComboboxContext.Provider
+      value={{
+        ariaDescribedBy,
+        ariaErrorMessage,
+        ariaInvalid,
+        comboboxId,
+        disabled,
+        listboxId,
+        multiple,
+        popupId,
+        required,
+        size,
+      }}
+    >
       <ElCombobox {...rest} data-show-validity={showValidity} style={{ '--combobox-max-width': maxWidth, ...style }}>
         {children}
       </ElCombobox>

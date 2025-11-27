@@ -113,7 +113,7 @@ function createWrapper(contextValue: ComboboxContext.Value) {
 }
 
 const mockContextValue: ComboboxContext.Value = {
-  buttonId: 'test-button-id',
+  comboboxId: 'test-button-id',
   disabled: false,
   listboxId: 'test-listbox-id',
   multiple: false,

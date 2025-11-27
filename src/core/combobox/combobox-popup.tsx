@@ -16,9 +16,9 @@ export namespace ComboboxPopup {
  * - **auto**: Displays as a drawer on XS breakpoint (< 768px), popover on SM and above
  */
 export function ComboboxPopup(props: ComboboxPopup.Props) {
-  const { buttonId, popupId } = useComboboxContext()
+  const { comboboxId, popupId } = useComboboxContext()
   return (
-    <ComboboxPopupDialog {...props} aria-labelledby={buttonId} id={popupId}>
+    <ComboboxPopupDialog {...props} aria-labelledby={comboboxId} id={popupId}>
       {props.children}
     </ComboboxPopupDialog>
   )

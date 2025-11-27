@@ -19,13 +19,16 @@ test('provides IDs and other values over ComboboxContext', () => {
         {(value) => {
           expect(value).toMatchInlineSnapshot(
             {
-              buttonId: expect.any(String),
+              comboboxId: expect.any(String),
               listboxId: expect.any(String),
               popupId: expect.any(String),
             },
             `
             {
-              "buttonId": Any<String>,
+              "ariaDescribedBy": undefined,
+              "ariaErrorMessage": undefined,
+              "ariaInvalid": undefined,
+              "comboboxId": Any<String>,
               "disabled": true,
               "listboxId": Any<String>,
               "multiple": true,

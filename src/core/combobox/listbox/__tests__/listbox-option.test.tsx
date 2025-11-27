@@ -43,7 +43,7 @@ test('promotes small size to medium', () => {
 })
 
 const defaultComboboxContext: ComboboxContext.Value = {
-  buttonId: 'button-id',
+  comboboxId: 'button-id',
   disabled: false,
   listboxId: 'listbox-id',
   multiple: false,

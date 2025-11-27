@@ -112,14 +112,14 @@ const meta = {
     },
   },
   render: (args, { parameters }) => {
-    const buttonId = useId()
+    const comboboxId = useId()
     const listboxId = useId()
     const popupId = useId()
 
     return (
       <ComboboxContext.Provider
         value={{
-          buttonId,
+          comboboxId,
           disabled: false,
           listboxId,
           multiple: parameters.multiple ?? false,
@@ -131,12 +131,12 @@ const meta = {
         <button
           aria-controls={popupId}
           aria-haspopup="dialog"
-          id={buttonId}
+          id={comboboxId}
           onClick={() => ComboboxPopupDialog.open(popupId)}
         >
           Click me and I will open the popup for you!
         </button>
-        <ComboboxPopupDialog {...args} aria-labelledby={buttonId} id={popupId} />
+        <ComboboxPopupDialog {...args} aria-labelledby={comboboxId} id={popupId} />
       </ComboboxContext.Provider>
     )
   },

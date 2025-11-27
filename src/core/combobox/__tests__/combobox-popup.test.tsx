@@ -14,7 +14,7 @@ test('renders dialog with children', () => {
   expect(screen.getByRole('dialog')).toBeVisible()
 })
 
-test('sets aria-labelledby from context buttonId', () => {
+test('sets aria-labelledby from context comboboxId', () => {
   render(
     <ComboboxContext.Provider value={defaultContext}>
       <ComboboxPopup open variant="popover">
@@ -58,7 +58,7 @@ test('exposes hide static method', () => {
 })
 
 const defaultContext: ComboboxContext.Value = {
-  buttonId: 'button-id',
+  comboboxId: 'button-id',
   disabled: false,
   listboxId: 'listbox-id',
   multiple: false,

@@ -6,8 +6,14 @@ import { createContext, useContext } from 'react'
 
 export namespace ComboboxContext {
   export interface Value {
-    /** Button element ID */
-    buttonId: string
+    /** ID of element(s) describing the combobox */
+    ariaDescribedBy?: string
+    /** ID of element providing error message for the combobox */
+    ariaErrorMessage?: string
+    /** Whether the combobox value is invalid */
+    ariaInvalid?: boolean | 'false' | 'true' | 'grammar' | 'spelling'
+    /** Combobox element ID */
+    comboboxId: string
     /** Whether the combobox is disabled */
     disabled: boolean
     /** Listbox element ID */
