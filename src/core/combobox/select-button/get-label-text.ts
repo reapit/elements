@@ -7,7 +7,7 @@ export namespace getComboboxSelectButtonLabelText {
     /** The placeholder text to display when no options or multiple options are selected */
     placeholder: string
     /** The selected options, if any. */
-    selections: ComboboxSelectedOption[]
+    selections: readonly ComboboxSelectedOption[]
   }
 }
 

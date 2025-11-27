@@ -5,6 +5,7 @@ import { ComboboxPopup } from './combobox-popup'
 import { ComboboxSearchInput } from './search-input'
 import { ComboboxSelectButton } from './select-button'
 import { ElCombobox } from './styles'
+import { ComboboxSelectionChips } from './selection-chips'
 import { Listbox } from '#src/utils/listbox'
 import { useId } from 'react'
 
@@ -21,6 +22,7 @@ export namespace Combobox {
   export interface OptionAdditionalInfoProps extends ComboboxListbox.OptionAdditionalInfoProps {}
   export interface PopupProps extends ComboboxPopup.Props {}
   export interface SearchInputProps extends ComboboxSearchInput.Props {}
+  export interface SelectionChipsProps extends ComboboxSelectionChips.Props {}
 
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** Combobox button, popup, and other child components */
@@ -100,3 +102,5 @@ Combobox.Option = ComboboxListbox.Option
 Combobox.OptionAdditionalInfo = ComboboxListbox.OptionAdditionalInfo
 Combobox.Divider = ComboboxListbox.Divider
 Combobox.ListboxPlaceholder = ComboboxListbox.Placeholder
+
+Combobox.SelectionChips = ComboboxSelectionChips
