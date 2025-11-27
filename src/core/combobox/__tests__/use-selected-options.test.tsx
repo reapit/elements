@@ -1,6 +1,5 @@
 import { render, waitFor } from '@testing-library/react'
 import { useComboboxSelectedOptions } from '../use-selected-options'
-import type { ComboboxSelectedOption } from '../use-selected-options'
 
 import type { ReactNode } from 'react'
 
@@ -266,7 +265,7 @@ test('clears selections when all options are deselected', async () => {
 
 interface TestComboboxSelectedOptionsProps {
   listboxId?: string
-  onSelectionsChange: (selections: readonly ComboboxSelectedOption[]) => void
+  onSelectionsChange: (selections: readonly useComboboxSelectedOptions.Option[]) => void
   children?: ReactNode
 }
 

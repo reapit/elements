@@ -2,12 +2,10 @@ import { ChipGroup } from '#src/core/chip-group'
 import { setListboxOptionSelectedState } from '#src/utils/listbox'
 import { useComboboxSelectedOptions } from '../use-selected-options'
 
-import type { ComboboxSelectedOption } from '../use-selected-options'
-
 export namespace ComboboxSelectionChips {
   export interface Props extends Omit<ChipGroup.Props, 'children'> {
     /** Selected options to be displayed on first render. */
-    defaultOptions?: readonly ComboboxSelectedOption[]
+    defaultOptions?: readonly useComboboxSelectedOptions.Option[]
     /** ID of the combobox listbox */
     listboxId: string
   }

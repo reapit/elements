@@ -14,7 +14,7 @@ export namespace ComboboxPopupDialogContext {
 
 /**
  * Context that ComboboxPopupDialog provides to descendants.
- * Exposes the popup dialog's variant so child components can adapt their behavior
+ * Exposes the popup dialog's variant so child components can adapt their behaviour
  * based on whether the popup is displayed as a popover, drawer, or auto.
  */
 export const ComboboxPopupDialogContext = createContext<ComboboxPopupDialogContext.Value | null>(null)

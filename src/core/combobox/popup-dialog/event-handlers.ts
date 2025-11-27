@@ -4,7 +4,7 @@ import { closeComboboxPopup } from './close-popup'
 import type { MouseEvent, SyntheticEvent } from 'react'
 
 /**
- * Valid values for the closeOnSelection behavior.
+ * Valid values for the closeOnSelection behaviour.
  */
 export const CLOSE_ON_SELECTION = {
   AUTO: 'auto',
@@ -117,7 +117,7 @@ export function getOptionElement(element: unknown): HTMLElement | null {
  * Determines whether the popup should close for 'auto' mode based on the listbox's
  * multi-selectable state.
  *
- * Close behavior logic for 'auto' mode:
+ * Close behaviour logic for 'auto' mode:
  * - Close only for single-select listboxes (ariaMultiSelectable === 'false')
  * - Don't close for multi-select listboxes or if listbox element is not found
  *

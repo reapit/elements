@@ -5,10 +5,6 @@ import { createContext, useContext } from 'react'
 // attributes used by only one subcomponent on that subcomponent's interface instead.
 
 export namespace ComboboxContext {
-  /**
-   * Configuration shared between Combobox subcomponents.
-   * Only includes attributes used by multiple subcomponents.
-   */
   export interface Value {
     /** Button element ID */
     buttonId: string
@@ -28,7 +24,8 @@ export namespace ComboboxContext {
 }
 
 /**
- * Provides configuration to Combobox descendants for managing listbox behaviour.
+ * Context that Combobox provides to descendants. Exposes configuration for
+ * managing shared state across button, listbox, and popup components.
  */
 export const ComboboxContext = createContext<ComboboxContext.Value | null>(null)
 

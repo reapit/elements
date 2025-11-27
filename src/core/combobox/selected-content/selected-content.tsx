@@ -8,7 +8,7 @@ export namespace ComboboxSelectedContent {
      * Selected option to be displayed on first render. Necessary when the initial selected option
      * is not present in the DOM.
      */
-    defaultOptions?: ReturnType<typeof useComboboxSelectedOptions>
+    defaultOptions?: readonly useComboboxSelectedOptions.Option[]
     /** ID of the combobox listbox */
     listboxId: string
   }

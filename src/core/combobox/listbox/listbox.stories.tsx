@@ -120,7 +120,7 @@ export const Groups: Story = {
 
 /**
  * Control the selected state like any native form control. When controlling the combobox state,
- * you must implement the behavior the combobox would otherwise handle automatically. The
+ * you must implement the behaviour the combobox would otherwise handle automatically. The
  * `ComboboxListbox.getValue` helper, also exposed via `Combobox.getListboxValue`, assists with
  * this in form libraries like Formik.
  *

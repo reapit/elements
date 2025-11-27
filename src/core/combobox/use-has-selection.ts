@@ -2,7 +2,7 @@ import { useListboxSelectionObserver } from '#src/utils/listbox'
 import { useState } from 'react'
 
 /**
- * Tracks the whether a combobox listbox has any selected options.
+ * Returns whether the combobox listbox has selected options.
  *
  * This hook observes selection changes in the listbox element identified by `listboxId` and
  * maintains a simple boolean state.

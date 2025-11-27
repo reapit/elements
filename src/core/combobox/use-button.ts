@@ -35,7 +35,7 @@ export namespace useComboboxButton {
 }
 
 /**
- * Provides accessibility props, event handlers, and common data for combobox buttons.
+ * Returns accessibility props, event handlers, and common data for combobox buttons.
  *
  * This hook encapsulates all the common logic shared across combobox button variants:
  * - ARIA attributes and event handlers
