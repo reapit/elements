@@ -99,14 +99,6 @@ test('forwards additional props to the underlying element', () => {
   expect(container.firstChild).toHaveAttribute('data-testid', 'my-combobox')
 })
 
-test('exposes AutocompleteButton', () => {
-  expect(Combobox.AutocompleteButton).toBeDefined()
-})
-
-test('exposes SelectButton', () => {
-  expect(Combobox.SelectButton).toBeDefined()
-})
-
 test('exposes Popup', () => {
   expect(Combobox.Popup).toBeDefined()
 })

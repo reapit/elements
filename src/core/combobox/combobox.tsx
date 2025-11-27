@@ -1,9 +1,7 @@
-import { ComboboxAutocompleteButton } from './autocomplete-button'
 import { ComboboxContext } from './context'
 import { ComboboxListbox } from './listbox'
 import { ComboboxPopup } from './combobox-popup'
 import { ComboboxSearchInput } from './search-input'
-import { ComboboxSelectButton } from './select-button'
 import { ElCombobox } from './styles'
 import { ComboboxSelectionChips } from './selection-chips'
 import { Listbox } from '#src/utils/listbox'
@@ -12,8 +10,6 @@ import { useId } from 'react'
 import type { HTMLAttributes } from 'react'
 
 export namespace Combobox {
-  export interface AutocompleteButtonProps extends ComboboxAutocompleteButton.Props {}
-  export interface SelectButtonProps extends ComboboxSelectButton.Props {}
   export interface DividerProps extends ComboboxListbox.DividerProps {}
   export interface ListboxProps extends ComboboxListbox.Props {}
   export interface ListboxPlaceholderProps extends ComboboxListbox.PlaceholderProps {}
@@ -89,9 +85,6 @@ export function Combobox({
 
 Combobox.getOptionLabel = ComboboxListbox.getOptionLabel
 Combobox.getListboxValue = Listbox.getValue
-
-Combobox.AutocompleteButton = ComboboxAutocompleteButton
-Combobox.SelectButton = ComboboxSelectButton
 
 Combobox.Popup = ComboboxPopup
 Combobox.SearchInput = ComboboxSearchInput

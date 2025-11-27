@@ -1,7 +1,7 @@
 import { ComboboxContext } from '../context'
 import { fireEvent, renderHook } from '@testing-library/react'
 import { openComboboxPopup, useComboboxPopupState } from '../popup-dialog'
-import { useComboboxButtonProps } from '../use-button-props'
+import { useComboboxButton } from '../use-button'
 
 import type { ReactNode } from 'react'
 
@@ -13,7 +13,7 @@ beforeEach(() => {
 })
 
 test('returns button props with correct aria-controls', () => {
-  const { result } = renderHook(() => useComboboxButtonProps(), {
+  const { result } = renderHook(() => useComboboxButton(), {
     wrapper: createWrapper(mockContextValue),
   })
   expect(result.current['aria-controls']).toBe('test-popup-id')
@@ -22,7 +22,7 @@ test('returns button props with correct aria-controls', () => {
 test('returns button props with correct aria-expanded when popup is closed', () => {
   vi.mocked(useComboboxPopupState).mockReturnValue(false)
 
-  const { result } = renderHook(() => useComboboxButtonProps(), {
+  const { result } = renderHook(() => useComboboxButton(), {
     wrapper: createWrapper(mockContextValue),
   })
   expect(result.current['aria-expanded']).toBe(false)
@@ -31,49 +31,49 @@ test('returns button props with correct aria-expanded when popup is closed', () 
 test('returns button props with correct aria-expanded when popup is open', () => {
   vi.mocked(useComboboxPopupState).mockReturnValue(true)
 
-  const { result } = renderHook(() => useComboboxButtonProps(), {
+  const { result } = renderHook(() => useComboboxButton(), {
     wrapper: createWrapper(mockContextValue),
   })
   expect(result.current['aria-expanded']).toBe(true)
 })
 
 test('returns button props with aria-required false when not required', () => {
-  const { result } = renderHook(() => useComboboxButtonProps(), {
+  const { result } = renderHook(() => useComboboxButton(), {
     wrapper: createWrapper({ ...mockContextValue, required: false }),
   })
   expect(result.current['aria-required']).toBe(false)
 })
 
 test('returns button props with aria-required true when required', () => {
-  const { result } = renderHook(() => useComboboxButtonProps(), {
+  const { result } = renderHook(() => useComboboxButton(), {
     wrapper: createWrapper({ ...mockContextValue, required: true }),
   })
   expect(result.current['aria-required']).toBe(true)
 })
 
 test('returns button props with disabled false when not disabled', () => {
-  const { result } = renderHook(() => useComboboxButtonProps(), {
+  const { result } = renderHook(() => useComboboxButton(), {
     wrapper: createWrapper({ ...mockContextValue, disabled: false }),
   })
   expect(result.current.disabled).toBe(false)
 })
 
 test('returns button props with disabled true when disabled', () => {
-  const { result } = renderHook(() => useComboboxButtonProps(), {
+  const { result } = renderHook(() => useComboboxButton(), {
     wrapper: createWrapper({ ...mockContextValue, disabled: true }),
   })
   expect(result.current.disabled).toBe(true)
 })
 
 test('returns button props with correct id', () => {
-  const { result } = renderHook(() => useComboboxButtonProps(), {
+  const { result } = renderHook(() => useComboboxButton(), {
     wrapper: createWrapper(mockContextValue),
   })
   expect(result.current.id).toBe('test-button-id')
 })
 
 test('calls showComboboxPopup when button is clicked', () => {
-  const { result } = renderHook(() => useComboboxButtonProps(), {
+  const { result } = renderHook(() => useComboboxButton(), {
     wrapper: createWrapper(mockContextValue),
   })
 
@@ -87,7 +87,7 @@ test('calls showComboboxPopup when button is clicked', () => {
 
 test('calls consumer onClick when button is clicked', () => {
   const onClick = vi.fn()
-  const { result } = renderHook(() => useComboboxButtonProps({ onClick }), {
+  const { result } = renderHook(() => useComboboxButton({ onClick }), {
     wrapper: createWrapper(mockContextValue),
   })
 
@@ -100,7 +100,7 @@ test('calls consumer onClick when button is clicked', () => {
 })
 
 test('calls useComboboxPopupState with popupId', () => {
-  renderHook(() => useComboboxButtonProps(), {
+  renderHook(() => useComboboxButton(), {
     wrapper: createWrapper(mockContextValue),
   })
   expect(useComboboxPopupState).toHaveBeenCalledWith('test-popup-id')

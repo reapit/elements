@@ -1,4 +1,7 @@
 import { Combobox } from './combobox'
+import { ComboboxButton } from './button'
+import { useComboboxButton } from './use-button'
+import { useComboboxContext } from './context'
 import { getComboboxListboxId } from './get-listbox-id'
 import { useState } from 'react'
 
@@ -23,12 +26,12 @@ export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * Demonstrates a basic combobox with static options.
+ * Demonstrates a basic combobox with static options using the low-level ComboboxButton primitive.
  */
 export const Example: Story = {
   args: {
     children: [
-      <Combobox.SelectButton key="button" />,
+      <DemoButton key="button" />,
       <Combobox.Popup key="popup" variant="popover">
         <Combobox.Listbox>
           <Combobox.Option value="option1">Option 1</Combobox.Option>
@@ -86,7 +89,7 @@ export const DynamicOptions: Story = {
     return (
       <>
         <Combobox {...args}>
-          <Combobox.AutocompleteButton />
+          <DemoButton placeholder="Search..." />
           <Combobox.Popup
             search={
               <Combobox.SearchInput
@@ -127,7 +130,7 @@ export const Drawer: Story = {
   args: {
     ...Example.args,
     children: [
-      <Combobox.SelectButton key="button" />,
+      <DemoButton key="button" />,
       <Combobox.Popup key="popup" search={<Combobox.SearchInput aria-label="Filter options" />} variant="drawer">
         <Combobox.Listbox>
           <Combobox.Option value="option1">Option 1</Combobox.Option>
@@ -175,4 +178,18 @@ export const Forms: Story = {
       </form>
     ),
   ],
+}
+
+/**
+ * Simple demo button for stories that uses ComboboxButton primitive.
+ */
+function DemoButton({ placeholder = 'Select an option' }: { placeholder?: string }) {
+  const { size } = useComboboxContext()
+  const buttonProps = useComboboxButton({ placeholder })
+
+  return (
+    <ComboboxButton {...buttonProps} placeholder={placeholder} size={size}>
+      Click me!
+    </ComboboxButton>
+  )
 }
