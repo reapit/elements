@@ -1,6 +1,8 @@
 import { ChipGroup } from '#src/core/chip-group'
+import { elComboboxSelectionChips } from './styles'
 import { setListboxOptionSelectedState } from '#src/utils/listbox'
 import { useComboboxSelectedOptions } from '../use-selected-options'
+import { cx } from '@linaria/core'
 
 export namespace ComboboxSelectionChips {
   export interface Props extends Omit<ChipGroup.Props, 'children'> {
@@ -17,11 +19,16 @@ export namespace ComboboxSelectionChips {
  *
  * **Only intended for use in multi-select combobox experiences.**
  */
-export function ComboboxSelectionChips({ listboxId, defaultOptions, ...rest }: ComboboxSelectionChips.Props) {
+export function ComboboxSelectionChips({
+  className,
+  listboxId,
+  defaultOptions,
+  ...rest
+}: ComboboxSelectionChips.Props) {
   const options = useComboboxSelectedOptions(listboxId, defaultOptions)
   return (
     options.length > 0 && (
-      <ChipGroup {...rest}>
+      <ChipGroup {...rest} className={cx(elComboboxSelectionChips, className)}>
         {options.map((option) => (
           <ChipGroup.Item
             key={option.value}

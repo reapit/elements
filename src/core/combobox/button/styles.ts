@@ -41,8 +41,9 @@ export const ElComboboxButtonContainer = styled.div`
     --combobox-button-icon-size: var(--icon_size-m);
   }
 
-  /* Apply focus styles only when the primary button has keyboard focus */
-  &:has(button:focus-visible) {
+  /* Use :focus rather than :focus-visible to provide the same visual feedback
+   * as other inputs/form controls. */
+  &:has(button:focus) {
     border: var(--comp-input-border-width) solid var(--comp-input-colour-border-focused);
   }
 `
@@ -52,6 +53,8 @@ export const ElComboboxButton = styled.button`
   --padding-with-action: calc(
     var(--spacing-2) + var(--combobox-button-icon-size) + var(--combobox-button-addon-padding-inline)
   );
+  position: absolute;
+  inset: 0;
 
   appearance: none;
   background: transparent;
@@ -61,6 +64,7 @@ export const ElComboboxButton = styled.button`
   display: inline-flex;
   align-items: center;
   width: 100%;
+  padding-block: 0;
   padding-inline: var(--padding-inline-start) var(--padding-inline-end);
   /* NOTE: ElComboboxInputContainer sets --combobox-max-width */
   max-width: var(--combobox-max-width, 100%);
