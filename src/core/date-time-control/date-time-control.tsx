@@ -38,7 +38,8 @@ export function DateTimeControl({
 }: DateTimeControl.Props) {
   const fallbackInputId = useId()
   const inputId = id ?? fallbackInputId
-  const descriptionId = useId()
+  const helpTextId = useId()
+  const errorTextId = useId()
 
   return (
     <FormControl as="div" size={size} maxWidth={maxWidth}>
@@ -47,11 +48,19 @@ export function DateTimeControl({
           {label}
         </FormControl.Label>
       )}
-      <DateTimeInput {...rest} aria-describedby={descriptionId} id={inputId} required={required} size={size} />
+      <DateTimeInput
+        {...rest}
+        aria-describedby={helpText && !errorText ? helpTextId : undefined}
+        aria-errormessage={errorText ? errorTextId : undefined}
+        aria-invalid={errorText ? true : undefined}
+        id={inputId}
+        required={required}
+        size={size}
+      />
       {errorText ? (
-        <FormControl.ErrorText id={descriptionId}>{errorText}</FormControl.ErrorText>
+        <FormControl.ErrorText id={errorTextId}>{errorText}</FormControl.ErrorText>
       ) : (
-        helpText && <FormControl.HelpText id={descriptionId}>{helpText}</FormControl.HelpText>
+        helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
       )}
     </FormControl>
   )

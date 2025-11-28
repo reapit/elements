@@ -11,9 +11,9 @@ test('displays error text, when provided', () => {
   expect(screen.getByText('Error text')).toBeVisible()
 })
 
-test('is described by the error text, when provided', () => {
+test('is described by the error text via aria-errormessage, when provided', () => {
   render(<TextareaControl label="Label" fieldSizing="content" helpText="Help text" errorText="Error text" />)
-  expect(screen.getByRole('textbox')).toHaveAccessibleDescription('Error text')
+  expect(screen.getByRole('textbox')).toHaveAccessibleErrorMessage('Error text')
 })
 
 test('displays help text, when provided and no error is present', () => {
@@ -23,7 +23,11 @@ test('displays help text, when provided and no error is present', () => {
 
 test('is described by the help text, when provided and no error is present', () => {
   render(<TextareaControl label="Label" fieldSizing="content" helpText="Help text" />)
-  expect(screen.getByRole('textbox')).toHaveAccessibleDescription('Help text')
+  const textarea = screen.getByRole('textbox')
+  expect(textarea).toHaveAttribute('aria-describedby')
+  expect(textarea).toHaveAccessibleDescription('Help text')
+  expect(textarea).not.toHaveAttribute('aria-errormessage')
+  expect(textarea).not.toHaveAttribute('aria-invalid')
 })
 
 test('does not display help text when error text is present', () => {
@@ -69,4 +73,24 @@ test('forwards additional attributes to the textarea', () => {
   const textarea = screen.getByTestId('test-id')
   expect(textarea).toBe(screen.getByRole('textbox'))
   expect(textarea).toHaveAttribute('placeholder', 'Enter text')
+})
+
+test('sets aria-invalid to true when error text is present', () => {
+  render(<TextareaControl label="Label" fieldSizing="content" errorText="Error text" />)
+  expect(screen.getByRole('textbox')).toHaveAttribute('aria-invalid', 'true')
+})
+
+test('does not set aria-invalid when error text is not present', () => {
+  render(<TextareaControl label="Label" fieldSizing="content" />)
+  expect(screen.getByRole('textbox')).not.toHaveAttribute('aria-invalid')
+})
+
+test('does not set aria-errormessage when error text is not present', () => {
+  render(<TextareaControl label="Label" fieldSizing="content" helpText="Help text" />)
+  expect(screen.getByRole('textbox')).not.toHaveAttribute('aria-errormessage')
+})
+
+test('does not set aria-describedby when error text is present', () => {
+  render(<TextareaControl label="Label" fieldSizing="content" helpText="Help text" errorText="Error text" />)
+  expect(screen.getByRole('textbox')).not.toHaveAttribute('aria-describedby')
 })

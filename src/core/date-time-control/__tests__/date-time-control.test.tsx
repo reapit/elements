@@ -20,9 +20,9 @@ test('displays error text, when provided', () => {
   expect(screen.getByText('Error text')).toBeVisible()
 })
 
-test('is described by the error text, when provided', () => {
+test('is described by the error text via aria-errormessage, when provided', () => {
   render(<DateTimeControl label="Label" helpText="Help text" errorText="Error text" />)
-  expect(screen.getByLabelText('Label')).toHaveAccessibleDescription('Error text')
+  expect(screen.getByLabelText('Label')).toHaveAccessibleErrorMessage('Error text')
 })
 
 test('displays help text, when provided and no error is present', () => {
@@ -32,7 +32,11 @@ test('displays help text, when provided and no error is present', () => {
 
 test('is described by the help text, when provided and no error is present', () => {
   render(<DateTimeControl label="Label" helpText="Help text" />)
-  expect(screen.getByLabelText('Label')).toHaveAccessibleDescription('Help text')
+  const input = screen.getByLabelText('Label')
+  expect(input).toHaveAttribute('aria-describedby')
+  expect(input).toHaveAccessibleDescription('Help text')
+  expect(input).not.toHaveAttribute('aria-errormessage')
+  expect(input).not.toHaveAttribute('aria-invalid')
 })
 
 test('does not display help text when error text is present', () => {
@@ -55,4 +59,24 @@ test('forwards additional attributes to the input', () => {
   const input = screen.getByTestId('test-id')
   expect(input).toBe(screen.getByLabelText('Label'))
   expect(input).toHaveAttribute('placeholder', 'Enter text')
+})
+
+test('sets aria-invalid to true when error text is present', () => {
+  render(<DateTimeControl label="Label" errorText="Error text" />)
+  expect(screen.getByLabelText('Label')).toHaveAttribute('aria-invalid', 'true')
+})
+
+test('does not set aria-invalid when error text is not present', () => {
+  render(<DateTimeControl label="Label" />)
+  expect(screen.getByLabelText('Label')).not.toHaveAttribute('aria-invalid')
+})
+
+test('does not set aria-errormessage when error text is not present', () => {
+  render(<DateTimeControl label="Label" helpText="Help text" />)
+  expect(screen.getByLabelText('Label')).not.toHaveAttribute('aria-errormessage')
+})
+
+test('does not set aria-describedby when error text is present', () => {
+  render(<DateTimeControl label="Label" helpText="Help text" errorText="Error text" />)
+  expect(screen.getByLabelText('Label')).not.toHaveAttribute('aria-describedby')
 })

@@ -68,12 +68,20 @@ export function CheckboxGroupControl({
   showValidity,
   ...rest
 }: CheckboxGroupControl.Props) {
-  const descriptionId = useId()
+  const helpTextId = useId()
+  const errorTextId = useId()
 
   return (
     // NOTE: we do not use the fieldset's native disabled, form or name attributes, because we want
     // individual checkboxes to be able to override them.
-    <FormControl {...rest} aria-describedby={descriptionId} as="fieldset" size="medium">
+    <FormControl
+      {...rest}
+      aria-describedby={helpText && !errorText ? helpTextId : undefined}
+      aria-errormessage={errorText ? errorTextId : undefined}
+      aria-invalid={errorText ? true : undefined}
+      as="fieldset"
+      size="medium"
+    >
       {label && (
         <FormControl.Label as="legend" isRequired={required}>
           {label}
@@ -85,9 +93,9 @@ export function CheckboxGroupControl({
         </CheckboxGroupControlContext.Provider>
       </ElCheckboxGroup>
       {errorText ? (
-        <FormControl.ErrorText id={descriptionId}>{errorText}</FormControl.ErrorText>
+        <FormControl.ErrorText id={errorTextId}>{errorText}</FormControl.ErrorText>
       ) : (
-        helpText && <FormControl.HelpText id={descriptionId}>{helpText}</FormControl.HelpText>
+        helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
       )}
     </FormControl>
   )

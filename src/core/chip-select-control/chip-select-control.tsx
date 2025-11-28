@@ -36,10 +36,17 @@ export function ChipSelectControl({
   size = 'medium',
   ...rest
 }: ChipSelectControl.Props) {
-  const descriptionId = useId()
+  const helpTextId = useId()
+  const errorTextId = useId()
 
   return (
-    <FormControl aria-describedby={descriptionId} as="fieldset" size={size}>
+    <FormControl
+      aria-describedby={helpText && !errorText ? helpTextId : undefined}
+      aria-errormessage={errorText ? errorTextId : undefined}
+      aria-invalid={errorText ? true : undefined}
+      as="fieldset"
+      size={size}
+    >
       <FormControl.Label as="legend">
         <LabelText isRequired={required}>{label}</LabelText>
       </FormControl.Label>
@@ -47,9 +54,9 @@ export function ChipSelectControl({
         {children}
       </ChipSelect>
       {errorText ? (
-        <FormControl.ErrorText id={descriptionId}>{errorText}</FormControl.ErrorText>
+        <FormControl.ErrorText id={errorTextId}>{errorText}</FormControl.ErrorText>
       ) : (
-        helpText && <FormControl.HelpText id={descriptionId}>{helpText}</FormControl.HelpText>
+        helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
       )}
     </FormControl>
   )

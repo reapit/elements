@@ -17,17 +17,17 @@ export namespace CheckboxControl {
  * for a solitary checkbox.
  */
 export function CheckboxControl({ errorText, label, required, ...rest }: CheckboxControl.Props) {
-  const descriptionId = useId()
+  const errorTextId = useId()
 
   return (
     <FormControl as="div" size="medium">
-      {/* NOTE: we only want to override the checkbox's description element when error text is present */}
       <Checkbox
         {...rest}
-        aria-describedby={errorText ? descriptionId : undefined}
+        aria-errormessage={errorText ? errorTextId : undefined}
+        aria-invalid={errorText ? true : undefined}
         label={<LabelText isRequired={required}>{label}</LabelText>}
       />
-      {errorText && <FormControl.ErrorText id={descriptionId}>{errorText}</FormControl.ErrorText>}
+      {errorText && <FormControl.ErrorText id={errorTextId}>{errorText}</FormControl.ErrorText>}
     </FormControl>
   )
 }

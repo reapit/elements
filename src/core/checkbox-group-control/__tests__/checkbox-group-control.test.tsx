@@ -16,18 +16,22 @@ test('is labelled by the label text, when provided', () => {
   expect(screen.getByRole('group', { name: 'Group label' })).toBeVisible()
 })
 
-test('is described by the help text, when provided', () => {
+test('is described by the help text, when provided and no error is present', () => {
   render(<CheckboxGroupControl helpText="Help text">Child</CheckboxGroupControl>)
-  expect(screen.getByRole('group')).toHaveAccessibleDescription('Help text')
+  const group = screen.getByRole('group')
+  expect(group).toHaveAttribute('aria-describedby')
+  expect(group).toHaveAccessibleDescription('Help text')
+  expect(group).not.toHaveAttribute('aria-errormessage')
+  expect(group).not.toHaveAttribute('aria-invalid')
 })
 
-test('is described by the error text, when provided', () => {
+test('is described by the error text via aria-errormessage, when provided', () => {
   render(
     <CheckboxGroupControl helpText="Help text" errorText="Error text">
       Child
     </CheckboxGroupControl>,
   )
-  expect(screen.getByRole('group')).toHaveAccessibleDescription('Error text')
+  expect(screen.getByRole('group')).toHaveAccessibleErrorMessage('Error text')
 })
 
 test('displays label text, when provided', () => {
@@ -77,4 +81,28 @@ test('applies data-orientation="horizontal" when specified', () => {
 test('forwards additional attributes to the div element', () => {
   const { container } = render(<CheckboxGroupControl data-testid="group">Child</CheckboxGroupControl>)
   expect(container.firstElementChild).toBe(screen.getByTestId('group'))
+})
+
+test('sets aria-invalid to true when error text is present', () => {
+  render(<CheckboxGroupControl errorText="Error text">Child</CheckboxGroupControl>)
+  expect(screen.getByRole('group')).toHaveAttribute('aria-invalid', 'true')
+})
+
+test('does not set aria-invalid when error text is not present', () => {
+  render(<CheckboxGroupControl>Child</CheckboxGroupControl>)
+  expect(screen.getByRole('group')).not.toHaveAttribute('aria-invalid')
+})
+
+test('does not set aria-errormessage when error text is not present', () => {
+  render(<CheckboxGroupControl helpText="Help text">Child</CheckboxGroupControl>)
+  expect(screen.getByRole('group')).not.toHaveAttribute('aria-errormessage')
+})
+
+test('does not set aria-describedby when error text is present', () => {
+  render(
+    <CheckboxGroupControl helpText="Help text" errorText="Error text">
+      Child
+    </CheckboxGroupControl>,
+  )
+  expect(screen.getByRole('group')).not.toHaveAttribute('aria-describedby')
 })
