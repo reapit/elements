@@ -1,7 +1,7 @@
 import { DeprecatedSelect } from './index'
 
 export default {
-  title: 'Deprecated/Select',
+  title: 'Deprecated/DeprecatedSelect',
   component: DeprecatedSelect,
 }
 

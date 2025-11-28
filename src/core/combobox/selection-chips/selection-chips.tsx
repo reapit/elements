@@ -8,6 +8,8 @@ export namespace ComboboxSelectionChips {
   export interface Props extends Omit<ChipGroup.Props, 'children'> {
     /** Selected options to be displayed on first render. */
     defaultOptions?: readonly useComboboxSelectedOptions.Option[]
+    /** Whether the selection chips are disabled. */
+    disabled?: boolean
     /** ID of the combobox listbox */
     listboxId: string
   }
@@ -21,6 +23,7 @@ export namespace ComboboxSelectionChips {
  */
 export function ComboboxSelectionChips({
   className,
+  disabled,
   listboxId,
   defaultOptions,
   ...rest
@@ -34,6 +37,7 @@ export function ComboboxSelectionChips({
             key={option.value}
             aria-controls={listboxId}
             aria-label={`Remove ${option.label}`}
+            disabled={disabled}
             onClick={() => setListboxOptionSelectedState(listboxId, option.value, () => false)}
             variant="selection"
           >

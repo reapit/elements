@@ -117,9 +117,19 @@ test('renders each chip in a list item element', () => {
     { label: 'Option 1', value: 'option-1' },
     { label: 'Option 2', value: 'option-2' },
   ])
-  const { container } = render(<ComboboxSelectionChips listboxId="test-listbox" />)
-  const chips = container.querySelectorAll('li')
-  expect(chips).toHaveLength(2)
+  render(<ComboboxSelectionChips listboxId="test-listbox" />)
+  expect(screen.getAllByRole('listitem')).toHaveLength(2)
+})
+
+test('disables all chips when disabled', () => {
+  vi.mocked(useComboboxSelectedOptions).mockReturnValue([
+    { label: 'Option 1', value: 'option-1' },
+    { label: 'Option 2', value: 'option-2' },
+  ])
+  render(<ComboboxSelectionChips disabled listboxId="test" />)
+  const buttons = screen.getAllByRole('button', { hidden: true })
+  expect(buttons[0]).toBeDisabled()
+  expect(buttons[1]).toBeDisabled()
 })
 
 test('forwards additional ChipGroup props to the underlying ChipGroup component', () => {

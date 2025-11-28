@@ -23,7 +23,9 @@ const meta = {
 
       const options = parameters.enableFiltering ? filteredOptions : allOptions
 
-      return (
+      return parameters.hideListbox ? (
+        <Story />
+      ) : (
         <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)' }}>
           <Text style={{ color: '#FA00FF' }}>Listbox</Text>
           <div
@@ -74,6 +76,25 @@ export const Example: Story = {
   args: {
     defaultOptions: undefined,
     listboxId: 'listbox-id',
+  },
+}
+
+/**
+ * All selection chips can be disabled using `disabled`. This will typically occur when
+ * the combobox itself is disabled.
+ */
+export const Disabled: Story = {
+  args: {
+    ...Example.args,
+    disabled: true,
+    defaultOptions: [
+      { label: 'Apple', value: 'apple' },
+      { label: 'Orange', value: 'orange' },
+    ],
+    listboxId: 'disabled-example',
+  },
+  parameters: {
+    hideListbox: true,
   },
 }
 

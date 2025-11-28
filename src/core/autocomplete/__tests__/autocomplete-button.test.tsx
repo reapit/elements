@@ -1,5 +1,4 @@
 import { Autocomplete } from '../autocomplete'
-import { Combobox } from '#src/core/combobox'
 import { render, screen } from '@testing-library/react'
 import { fireEvent } from '@testing-library/react'
 
@@ -7,45 +6,45 @@ vi.mock('#src/core/combobox/popup-dialog')
 
 test('renders a combobox element', () => {
   render(
-    <Combobox>
+    <Autocomplete>
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.getByRole('combobox')).toBeVisible()
 })
 
 test('displays default placeholder text when no placeholder is provided', () => {
   render(
-    <Combobox>
+    <Autocomplete>
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.getByRole('combobox')).toHaveTextContent('Search...')
 })
 
 test('displays custom placeholder text', () => {
   render(
-    <Combobox>
+    <Autocomplete>
       <Autocomplete.Button placeholder="Find an item..." />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.getByRole('combobox')).toHaveTextContent('Find an item...')
 })
 
 test('displays placeholder text in multi-select mode', () => {
   render(
-    <Combobox multiple>
+    <Autocomplete multiple>
       <Autocomplete.Button placeholder="Search items..." />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.getByRole('combobox')).toHaveTextContent('Search items...')
 })
 
 test('renders search icon when there is no selection', () => {
   render(
-    <Combobox>
+    <Autocomplete>
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   const button = screen.getByRole('combobox')
   const searchIcon = button.querySelector('svg[aria-hidden="true"]')
@@ -54,18 +53,18 @@ test('renders search icon when there is no selection', () => {
 
 test('does not render clear button when there is no selection', () => {
   render(
-    <Combobox>
+    <Autocomplete>
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.queryByRole('button', { name: 'Clear selection' })).not.toBeInTheDocument()
 })
 
 test('does not render clear button in multi-select mode', () => {
   render(
-    <Combobox multiple>
+    <Autocomplete multiple>
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.queryByRole('button', { name: 'Clear selection' })).not.toBeInTheDocument()
 })
@@ -73,9 +72,9 @@ test('does not render clear button in multi-select mode', () => {
 test('calls onClick handler when clicked', () => {
   const onClick = vi.fn()
   render(
-    <Combobox>
+    <Autocomplete>
       <Autocomplete.Button onClick={onClick} />
-    </Combobox>,
+    </Autocomplete>,
   )
 
   fireEvent.click(screen.getByRole('combobox'))
@@ -85,27 +84,27 @@ test('calls onClick handler when clicked', () => {
 
 test('forwards additional props to underlying element', () => {
   render(
-    <Combobox>
+    <Autocomplete>
       <Autocomplete.Button data-testid="my-autocomplete-button" />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.getByTestId('my-autocomplete-button')).toBeVisible()
 })
 
 test('is disabled when Combobox is disabled', () => {
   render(
-    <Combobox disabled>
+    <Autocomplete disabled>
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.getByRole('combobox')).toBeDisabled()
 })
 
 test('has correct aria-controls attribute', () => {
   render(
-    <Combobox>
+    <Autocomplete>
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   const combobox = screen.getByRole('combobox')
   expect(combobox).toHaveAttribute('aria-controls')
@@ -114,36 +113,36 @@ test('has correct aria-controls attribute', () => {
 
 test('does not have aria-expanded when popup is closed', () => {
   render(
-    <Combobox>
+    <Autocomplete>
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.getByRole('combobox')).not.toHaveAttribute('aria-expanded')
 })
 
 test('has aria-required true when Combobox is required', () => {
   render(
-    <Combobox required>
+    <Autocomplete required>
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.getByRole('combobox')).toHaveAttribute('aria-required', 'true')
 })
 
 test('has aria-required false when Combobox is not required', () => {
   render(
-    <Combobox>
+    <Autocomplete>
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   expect(screen.getByRole('combobox')).toHaveAttribute('aria-required', 'false')
 })
 
 test('applies small size from context', () => {
   const { container } = render(
-    <Combobox size="small">
+    <Autocomplete size="small">
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   // data-size is on the parent container, not the combobox button itself
   expect(container.querySelector('[data-size="small"]')).toBeInTheDocument()
@@ -151,9 +150,9 @@ test('applies small size from context', () => {
 
 test('applies medium size from context', () => {
   const { container } = render(
-    <Combobox size="medium">
+    <Autocomplete size="medium">
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   // data-size is on the parent container, not the combobox button itself
   expect(container.querySelector('[data-size="medium"]')).toBeInTheDocument()
@@ -161,9 +160,9 @@ test('applies medium size from context', () => {
 
 test('applies large size from context', () => {
   const { container } = render(
-    <Combobox size="large">
+    <Autocomplete size="large">
       <Autocomplete.Button />
-    </Combobox>,
+    </Autocomplete>,
   )
   // data-size is on the parent container, not the combobox button itself
   expect(container.querySelector('[data-size="large"]')).toBeInTheDocument()

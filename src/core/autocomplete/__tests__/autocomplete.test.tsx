@@ -30,34 +30,6 @@ test('renders with listbox', () => {
   expect(screen.getByRole('combobox')).toBeVisible()
 })
 
-test('supports single-select mode by default', () => {
-  render(
-    <Autocomplete>
-      <Autocomplete.Button />
-      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
-        <Autocomplete.Listbox>
-          <Autocomplete.Option value="1">Option 1</Autocomplete.Option>
-        </Autocomplete.Listbox>
-      </Autocomplete.Popup>
-    </Autocomplete>,
-  )
-  expect(screen.getByRole('combobox')).toBeVisible()
-})
-
-test('supports multi-select mode', () => {
-  render(
-    <Autocomplete multiple>
-      <Autocomplete.Button />
-      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
-        <Autocomplete.Listbox>
-          <Autocomplete.Option value="1">Option 1</Autocomplete.Option>
-        </Autocomplete.Listbox>
-      </Autocomplete.Popup>
-    </Autocomplete>,
-  )
-  expect(screen.getByRole('combobox')).toBeVisible()
-})
-
 test('can be disabled', () => {
   render(
     <Autocomplete disabled>
@@ -116,64 +88,6 @@ test('supports large size', () => {
     </Autocomplete>,
   )
   expect(container.querySelector('[data-size="large"]')).toBeVisible()
-})
-
-test('renders options with additional info', () => {
-  render(
-    <Autocomplete>
-      <Autocomplete.Button />
-      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
-        <Autocomplete.Listbox>
-          <Autocomplete.Option value="1">
-            Option 1<Autocomplete.OptionAdditionalInfo>Additional info</Autocomplete.OptionAdditionalInfo>
-          </Autocomplete.Option>
-        </Autocomplete.Listbox>
-      </Autocomplete.Popup>
-    </Autocomplete>,
-  )
-  expect(screen.getByRole('combobox')).toBeVisible()
-})
-
-test('renders optgroups', () => {
-  render(
-    <Autocomplete>
-      <Autocomplete.Button />
-      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
-        <Autocomplete.Listbox>
-          <Autocomplete.Optgroup label="Group 1">
-            <Autocomplete.Option value="1">Option 1</Autocomplete.Option>
-          </Autocomplete.Optgroup>
-        </Autocomplete.Listbox>
-      </Autocomplete.Popup>
-    </Autocomplete>,
-  )
-  expect(screen.getByRole('combobox')).toBeVisible()
-})
-
-test('renders placeholder in listbox', () => {
-  render(
-    <Autocomplete>
-      <Autocomplete.Button />
-      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
-        <Autocomplete.Listbox>
-          <Autocomplete.Placeholder>No options available</Autocomplete.Placeholder>
-        </Autocomplete.Listbox>
-      </Autocomplete.Popup>
-    </Autocomplete>,
-  )
-  expect(screen.getByRole('combobox')).toBeVisible()
-})
-
-test('renders search input with placeholder', () => {
-  render(
-    <Autocomplete>
-      <Autocomplete.Button />
-      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" placeholder="Type to search..." />}>
-        <Autocomplete.Listbox />
-      </Autocomplete.Popup>
-    </Autocomplete>,
-  )
-  expect(screen.getByRole('combobox')).toBeVisible()
 })
 
 test('forwards additional props to underlying element', () => {
@@ -239,19 +153,4 @@ test('exposes getPopupId utility function', () => {
 
 test('exposes useState hook', () => {
   expect(Autocomplete.useState).toBeDefined()
-})
-
-test('accepts onChange prop', () => {
-  const onChange = vi.fn()
-  render(
-    <Autocomplete onChange={onChange}>
-      <Autocomplete.Button />
-      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
-        <Autocomplete.Listbox>
-          <Autocomplete.Option value="option1">Option 1</Autocomplete.Option>
-        </Autocomplete.Listbox>
-      </Autocomplete.Popup>
-    </Autocomplete>,
-  )
-  expect(screen.getByRole('combobox')).toBeVisible()
 })

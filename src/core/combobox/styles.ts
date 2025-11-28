@@ -19,7 +19,7 @@ export const ElCombobox = styled.div<ElComboboxProps>`
   /* Default theme variables: These CSS variables define the combobox appearance in its default state.
    * They are mapped from design system tokens and can be overridden by descendant components.
    * State-specific selectors below (:invalid, :focus-visible, :disabled) override these defaults. */
-  --combobox-background: var(--comp-input-colour-fill-background-default);
+  --combobox-background: var(--comp-input-colour-fill-default-background);
   --combobox-border-colour: var(--comp-input-colour-border-default);
   --combobox-border-radius: var(--comp-input-border-radius);
   --combobox-border-width: var(--comp-input-border-width);
