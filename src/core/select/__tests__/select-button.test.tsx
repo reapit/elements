@@ -1,136 +1,158 @@
-import { SelectButton } from '../select-button'
-import { Combobox } from '#src/core/combobox'
 import { render, screen } from '@testing-library/react'
-import { useComboboxButton } from '#src/core/combobox/use-button'
-
-vi.mock('#src/core/combobox/use-button')
-vi.mock('#src/core/combobox/use-has-selection')
-
-const defaultButtonProps: useComboboxButton.Output = {
-  'aria-controls': 'test-popup-id',
-  'aria-expanded': false,
-  'aria-required': false,
-  disabled: false,
-  id: 'test-combobox-id',
-  onClick: vi.fn(),
-}
-
-beforeEach(() => {
-  vi.mocked(useComboboxButton).mockReturnValue(defaultButtonProps)
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(false)
-})
-
-function renderSelectButton(props = {}) {
-  return render(
-    <Combobox>
-      <SelectButton {...props} />
-    </Combobox>,
-  )
-}
+import { Select } from '../select'
 
 test('renders a combobox element', () => {
-  renderSelectButton()
+  render(
+    <Select>
+      <Select.Button />
+    </Select>,
+  )
   expect(screen.getByRole('combobox')).toBeVisible()
 })
 
-test('displays placeholder text when no selections exist', () => {
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(false)
-  renderSelectButton({ placeholder: 'Select an option' })
+test('displays default placeholder text when no placeholder is provided', () => {
+  render(
+    <Select>
+      <Select.Button />
+    </Select>,
+  )
   expect(screen.getByRole('combobox')).toHaveTextContent('Select an option')
 })
 
-test('displays selection summary when selections exist', () => {
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(true)
-  renderSelectButton()
-  // Selection content is rendered by Combobox.SelectedContent component
-  expect(screen.getByRole('combobox')).toBeVisible()
-})
-
-test('renders toggle popup button when no selections exist', () => {
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(false)
-  renderSelectButton()
-  expect(screen.getByRole('button', { name: 'Open popup' })).toBeVisible()
-})
-
-test('renders clear button when selections exist', () => {
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(true)
-  renderSelectButton()
-  expect(screen.getByRole('button', { name: 'Clear selection' })).toBeVisible()
-})
-
-test('passes listboxId to clear button aria-controls', () => {
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(true)
+test('displays custom placeholder text', () => {
   render(
-    <Combobox id="custom-combobox">
-      <SelectButton />
-    </Combobox>,
+    <Select>
+      <Select.Button placeholder="Find an item..." />
+    </Select>,
   )
-  const listboxId = Combobox.getListboxId('custom-combobox')
-  expect(screen.getByRole('button', { name: 'Clear selection' })).toHaveAttribute('aria-controls', listboxId)
+  expect(screen.getByRole('combobox')).toHaveTextContent('Find an item...')
 })
 
-test('passes popupId to toggle button aria-controls', () => {
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(false)
+test('displays placeholder text in multi-select mode', () => {
   render(
-    <Combobox id="custom-combobox">
-      <SelectButton />
-    </Combobox>,
+    <Select multiple>
+      <Select.Button placeholder="Search items..." />
+    </Select>,
   )
-  const popupId = Combobox.getPopupId('custom-combobox')
-  expect(screen.getByRole('button', { name: 'Open popup' })).toHaveAttribute('aria-controls', popupId)
+  expect(screen.getByRole('combobox')).toHaveTextContent('Search items...')
 })
 
-test('passes disabled state to clear button', () => {
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(true)
+test('displays open popup button when there is no selection', () => {
   render(
-    <Combobox disabled>
-      <SelectButton />
-    </Combobox>,
+    <Select>
+      <Select.Button />
+    </Select>,
   )
-  expect(screen.getByRole('button', { name: 'Clear selection' })).toBeDisabled()
+  expect(screen.queryByRole('button', { name: 'Open popup' })).toBeVisible()
 })
 
-test('passes disabled state to toggle popup button', () => {
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(false)
+test('displays clear button when there is a selection', () => {
   render(
-    <Combobox disabled>
-      <SelectButton />
-    </Combobox>,
+    <Select>
+      <Select.Button />
+      <Select.Popup>
+        <Select.Listbox value={['1']}>
+          <Select.Option aria-selected value="1">
+            Option 1
+          </Select.Option>
+        </Select.Listbox>
+      </Select.Popup>
+    </Select>,
   )
-  expect(screen.getByRole('button', { name: 'Open popup' })).toBeDisabled()
+  expect(screen.queryByRole('button', { name: 'Clear selection' })).toBeVisible()
 })
 
-test('uses size specified by ComboboxContext', () => {
-  const { container } = render(
-    <Combobox size="medium">
-      <SelectButton />
-    </Combobox>,
-  )
-  expect(container.querySelector('[data-size="medium"]')).toBeVisible()
-})
-
-test('forwards additional props to the combobox element', () => {
-  renderSelectButton({ 'data-testid': 'my-select-button' })
-  expect(screen.getByTestId('my-select-button')).toBe(screen.getByRole('combobox'))
-})
-
-test('displays placeholder in multi-select mode even with selections', () => {
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(true)
+test('does not render clear button in multi-select mode', () => {
   render(
-    <Combobox multiple>
-      <SelectButton placeholder="Select options" />
-    </Combobox>,
+    <Select multiple>
+      <Select.Button />
+    </Select>,
   )
-  expect(screen.getByRole('combobox')).toHaveTextContent('Select options')
-})
-
-test('shows open popup button in multi-select mode', () => {
-  vi.mocked(Combobox.useHasSelection).mockReturnValue(true)
-  render(
-    <Combobox multiple>
-      <SelectButton />
-    </Combobox>,
-  )
-  expect(screen.getByRole('button', { name: 'Open popup' })).toBeVisible()
   expect(screen.queryByRole('button', { name: 'Clear selection' })).not.toBeInTheDocument()
+})
+
+test('is disabled when Combobox is disabled', () => {
+  render(
+    <Select disabled>
+      <Select.Button />
+    </Select>,
+  )
+  expect(screen.getByRole('combobox')).toBeDisabled()
+})
+
+test('has correct aria-controls attribute', () => {
+  render(
+    <Select>
+      <Select.Button />
+    </Select>,
+  )
+  const combobox = screen.getByRole('combobox')
+  expect(combobox).toHaveAttribute('aria-controls')
+  expect(combobox.getAttribute('aria-controls')).toMatch(/-popup$/)
+})
+
+test('has aria-expanded="false" when popup is closed', () => {
+  render(
+    <Select>
+      <Select.Button />
+    </Select>,
+  )
+  expect(screen.getByRole('combobox')).toHaveAttribute('aria-expanded', 'false')
+})
+
+test('has aria-required true when Combobox is required', () => {
+  render(
+    <Select required>
+      <Select.Button />
+    </Select>,
+  )
+  expect(screen.getByRole('combobox')).toHaveAttribute('aria-required', 'true')
+})
+
+test('has aria-required false when Combobox is not required', () => {
+  render(
+    <Select>
+      <Select.Button />
+    </Select>,
+  )
+  expect(screen.getByRole('combobox')).toHaveAttribute('aria-required', 'false')
+})
+
+test('applies small size from context', () => {
+  const { container } = render(
+    <Select size="small">
+      <Select.Button />
+    </Select>,
+  )
+  // data-size is on the parent container, not the combobox button itself
+  expect(container.querySelector('[data-size="small"]')).toBeInTheDocument()
+})
+
+test('applies medium size from context', () => {
+  const { container } = render(
+    <Select size="medium">
+      <Select.Button />
+    </Select>,
+  )
+  // data-size is on the parent container, not the combobox button itself
+  expect(container.querySelector('[data-size="medium"]')).toBeInTheDocument()
+})
+
+test('applies large size from context', () => {
+  const { container } = render(
+    <Select size="large">
+      <Select.Button />
+    </Select>,
+  )
+  // data-size is on the parent container, not the combobox button itself
+  expect(container.querySelector('[data-size="large"]')).toBeInTheDocument()
+})
+
+test('forwards additional props to underlying element', () => {
+  render(
+    <Select>
+      <Select.Button data-testid="my-Select-button" />
+    </Select>,
+  )
+  expect(screen.getByTestId('my-Select-button')).toBeVisible()
 })

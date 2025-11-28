@@ -1,8 +1,6 @@
 import { Select } from '../select'
 import { render, screen } from '@testing-library/react'
 
-vi.mock('#src/core/combobox/popup-dialog')
-
 test('renders a combobox', () => {
   render(
     <Select>

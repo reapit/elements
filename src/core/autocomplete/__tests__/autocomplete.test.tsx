@@ -1,8 +1,6 @@
 import { Autocomplete } from '../autocomplete'
 import { render, screen } from '@testing-library/react'
 
-vi.mock('#src/core/combobox/popup-dialog')
-
 test('renders a combobox', () => {
   render(
     <Autocomplete>
@@ -15,19 +13,28 @@ test('renders a combobox', () => {
   expect(screen.getByRole('combobox')).toBeVisible()
 })
 
+test('renders with dialog', () => {
+  render(
+    <Autocomplete>
+      <Autocomplete.Button />
+      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
+        <Autocomplete.Listbox />
+      </Autocomplete.Popup>
+    </Autocomplete>,
+  )
+  expect(screen.getByRole('dialog', { hidden: true })).toBeInTheDocument()
+})
+
 test('renders with listbox', () => {
   render(
     <Autocomplete>
       <Autocomplete.Button />
       <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
-        <Autocomplete.Listbox>
-          <Autocomplete.Option value="1">Option 1</Autocomplete.Option>
-          <Autocomplete.Option value="2">Option 2</Autocomplete.Option>
-        </Autocomplete.Listbox>
+        <Autocomplete.Listbox />
       </Autocomplete.Popup>
     </Autocomplete>,
   )
-  expect(screen.getByRole('combobox')).toBeVisible()
+  expect(screen.getByRole('listbox', { hidden: true })).toBeInTheDocument()
 })
 
 test('can be disabled', () => {
@@ -105,6 +112,10 @@ test('forwards additional props to underlying element', () => {
 
 test('exposes Button component', () => {
   expect(Autocomplete.Button).toBeDefined()
+})
+
+test('exposes Divider component', () => {
+  expect(Autocomplete.Divider).toBeDefined()
 })
 
 test('exposes Listbox component', () => {

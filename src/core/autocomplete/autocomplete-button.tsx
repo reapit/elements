@@ -5,7 +5,7 @@ type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 
 
 export namespace AutocompleteButton {
   export interface Props extends Omit<Combobox.ButtonProps, AttributesToOmit> {
-    /** Default selected options to display before the listbox is mounted */
+    /** Default options to display when no selections have been made. */
     defaultOptions?: Combobox.SelectedContentProps['defaultOptions']
   }
 }

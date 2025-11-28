@@ -1,46 +1,46 @@
+import { CompactSelect } from '../compact-select'
 import { render, screen } from '@testing-library/react'
-import { Select } from '../select'
 
 test('renders children inside popup', () => {
   render(
-    <Select>
-      <Select.Popup>
+    <CompactSelect>
+      <CompactSelect.Popup>
         <div data-testid="popup-content">Popup content</div>
-      </Select.Popup>
-    </Select>,
+      </CompactSelect.Popup>
+    </CompactSelect>,
   )
   expect(screen.getByRole('dialog', { hidden: true })).toBeInTheDocument()
 })
 
 test('uses auto as default closeOnSelection value', () => {
   render(
-    <Select>
-      <Select.Popup>
-        <Select.Listbox />
-      </Select.Popup>
-    </Select>,
+    <CompactSelect>
+      <CompactSelect.Popup>
+        <CompactSelect.Listbox />
+      </CompactSelect.Popup>
+    </CompactSelect>,
   )
   expect(screen.getByRole('dialog', { hidden: true })).toHaveAttribute('data-close-on-selection', 'auto')
 })
 
 test('accepts closeOnSelection prop', () => {
   render(
-    <Select>
-      <Select.Popup closeOnSelection="never">
-        <Select.Listbox />
-      </Select.Popup>
-    </Select>,
+    <CompactSelect>
+      <CompactSelect.Popup closeOnSelection="never">
+        <CompactSelect.Listbox />
+      </CompactSelect.Popup>
+    </CompactSelect>,
   )
   expect(screen.getByRole('dialog', { hidden: true })).toHaveAttribute('data-close-on-selection', 'never')
 })
 
 test('forwards additional props to underlying element', () => {
   render(
-    <Select>
-      <Select.Popup data-testid="my-popup">
-        <Select.Listbox />
-      </Select.Popup>
-    </Select>,
+    <CompactSelect>
+      <CompactSelect.Popup data-testid="my-popup">
+        <CompactSelect.Listbox />
+      </CompactSelect.Popup>
+    </CompactSelect>,
   )
   expect(screen.getByTestId('my-popup')).toBe(screen.getByRole('dialog', { hidden: true }))
 })

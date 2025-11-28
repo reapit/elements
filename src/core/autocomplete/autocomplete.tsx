@@ -29,6 +29,7 @@ Autocomplete.getValue = Combobox.getListboxValue
 Autocomplete.getListboxId = Combobox.getListboxId
 Autocomplete.getPopupId = Combobox.getPopupId
 Autocomplete.Button = AutocompleteButton
+Autocomplete.Divider = Combobox.Divider
 Autocomplete.Listbox = Combobox.Listbox
 Autocomplete.Option = Combobox.Option
 Autocomplete.OptionAdditionalInfo = Combobox.OptionAdditionalInfo

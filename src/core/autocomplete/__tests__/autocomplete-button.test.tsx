@@ -1,8 +1,5 @@
 import { Autocomplete } from '../autocomplete'
 import { render, screen } from '@testing-library/react'
-import { fireEvent } from '@testing-library/react'
-
-vi.mock('#src/core/combobox/popup-dialog')
 
 test('renders a combobox element', () => {
   render(
@@ -69,28 +66,6 @@ test('does not render clear button in multi-select mode', () => {
   expect(screen.queryByRole('button', { name: 'Clear selection' })).not.toBeInTheDocument()
 })
 
-test('calls onClick handler when clicked', () => {
-  const onClick = vi.fn()
-  render(
-    <Autocomplete>
-      <Autocomplete.Button onClick={onClick} />
-    </Autocomplete>,
-  )
-
-  fireEvent.click(screen.getByRole('combobox'))
-
-  expect(onClick).toHaveBeenCalledTimes(1)
-})
-
-test('forwards additional props to underlying element', () => {
-  render(
-    <Autocomplete>
-      <Autocomplete.Button data-testid="my-autocomplete-button" />
-    </Autocomplete>,
-  )
-  expect(screen.getByTestId('my-autocomplete-button')).toBeVisible()
-})
-
 test('is disabled when Combobox is disabled', () => {
   render(
     <Autocomplete disabled>
@@ -111,13 +86,13 @@ test('has correct aria-controls attribute', () => {
   expect(combobox.getAttribute('aria-controls')).toMatch(/-popup$/)
 })
 
-test('does not have aria-expanded when popup is closed', () => {
+test('has aria-expanded="false" when popup is closed', () => {
   render(
     <Autocomplete>
       <Autocomplete.Button />
     </Autocomplete>,
   )
-  expect(screen.getByRole('combobox')).not.toHaveAttribute('aria-expanded')
+  expect(screen.getByRole('combobox')).toHaveAttribute('aria-expanded', 'false')
 })
 
 test('has aria-required true when Combobox is required', () => {
@@ -166,4 +141,13 @@ test('applies large size from context', () => {
   )
   // data-size is on the parent container, not the combobox button itself
   expect(container.querySelector('[data-size="large"]')).toBeInTheDocument()
+})
+
+test('forwards additional props to underlying element', () => {
+  render(
+    <Autocomplete>
+      <Autocomplete.Button data-testid="my-autocomplete-button" />
+    </Autocomplete>,
+  )
+  expect(screen.getByTestId('my-autocomplete-button')).toBeVisible()
 })

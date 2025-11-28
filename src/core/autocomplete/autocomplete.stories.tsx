@@ -116,6 +116,39 @@ export const Preloaded: Story = {
 }
 
 /**
+ * Options can be grouped using the `CompactSelect.Optgroup`. Groups should always be separated
+ * by a `CompactSelect.Divider`.
+ */
+export const Groups: Story = {
+  args: {
+    ...Example.args,
+    id: 'groups-example',
+  },
+  render: (args) => {
+    return (
+      <Autocomplete {...args}>
+        <Autocomplete.Button placeholder="Filter fruit" />
+        <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Filter produce" />}>
+          <Autocomplete.Listbox>
+            <Autocomplete.Optgroup label="Fruits">
+              <Autocomplete.Option value="apple">Apple</Autocomplete.Option>
+              <Autocomplete.Option value="banana">Banana</Autocomplete.Option>
+              <Autocomplete.Option value="orange">Orange</Autocomplete.Option>
+            </Autocomplete.Optgroup>
+            <Autocomplete.Divider />
+            <Autocomplete.Optgroup label="Vegetables">
+              <Autocomplete.Option value="carrot">Carrot</Autocomplete.Option>
+              <Autocomplete.Option value="broccoli">Broccoli</Autocomplete.Option>
+              <Autocomplete.Option value="spinach">Spinach</Autocomplete.Option>
+            </Autocomplete.Optgroup>
+          </Autocomplete.Listbox>
+        </Autocomplete.Popup>
+      </Autocomplete>
+    )
+  },
+}
+
+/**
  * Demonstrates a multi-select autocomplete that lets users filter and select multiple preloaded options.
  */
 export const MultiSelect: Story = {
