@@ -1,25 +1,25 @@
 import React, { forwardRef, LegacyRef } from 'react'
-import { ElSelect } from './__styles__'
+import { ElDeprecatedSelect } from './__styles__'
 
 /** @deprecated */
-export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {}
+export interface DeprecatedSelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {}
 
 /** @deprecated */
-export type SelectWrapped = React.ForwardRefExoticComponent<
-  SelectProps & React.RefAttributes<React.SelectHTMLAttributes<HTMLSelectElement>>
+export type DeprecatedSelectWrapped = React.ForwardRefExoticComponent<
+  DeprecatedSelectProps & React.RefAttributes<React.SelectHTMLAttributes<HTMLSelectElement>>
 >
 
 /** @deprecated */
-export const Select: SelectWrapped = forwardRef(
+export const DeprecatedSelect: DeprecatedSelectWrapped = forwardRef(
   ({ children, ...rest }, ref: React.ForwardedRef<React.SelectHTMLAttributes<HTMLSelectElement>>) => {
     return (
-      <ElSelect
+      <ElDeprecatedSelect
         aria-label="Select an item from the dropdown list"
         {...rest}
         ref={ref as unknown as LegacyRef<HTMLSelectElement>}
       >
         {children}
-      </ElSelect>
+      </ElDeprecatedSelect>
     )
   },
 )

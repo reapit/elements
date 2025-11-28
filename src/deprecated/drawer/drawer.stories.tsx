@@ -4,7 +4,7 @@ import { DeprecatedButton, DeprecatedButtonGroup } from '../button'
 import { FormLayout, InputWrapFull, InputWrapHalf } from '../../deprecated/form-layout'
 import { InputGroup } from '../input-group'
 import { DeprecatedLabel } from '../label'
-import { Select } from '../select'
+import { DeprecatedSelect } from '../select'
 import { Textarea } from '../../core/textarea'
 import { TextBase } from '../typography'
 
@@ -74,10 +74,10 @@ export const ReactUsageWithForm = {
             <InputWrapHalf>
               <InputGroup>
                 <DeprecatedLabel>Under 18?</DeprecatedLabel>
-                <Select>
+                <DeprecatedSelect>
                   <option>Yes</option>
                   <option>No</option>
-                </Select>
+                </DeprecatedSelect>
               </InputGroup>
             </InputWrapHalf>
             <InputWrapFull>

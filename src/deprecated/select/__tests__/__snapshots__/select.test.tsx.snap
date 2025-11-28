@@ -4,7 +4,7 @@ exports[`Select component > should match a snapshot 1`] = `
 <DocumentFragment>
   <select
     aria-label="Select an item from the dropdown list"
-    class="mocked-styled-0 el-select"
+    class="mocked-styled-0 el-deprecated-select"
   />
 </DocumentFragment>
 `;

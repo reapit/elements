@@ -5,7 +5,7 @@ import { Textarea } from '../../core/textarea'
 import { MultiSelectInput } from '../../deprecated/multi-select'
 import { DeprecatedButton, DeprecatedButtonGroup } from '../../deprecated/button'
 import { DeprecatedLabel } from '../../deprecated/label'
-import { Select } from '../../deprecated/select'
+import { DeprecatedSelect } from '../../deprecated/select'
 import { TextBase, TextSM } from '../../deprecated/typography'
 
 export default {
@@ -112,11 +112,11 @@ export const ComplexForm = {
         <InputWrap>
           <InputGroup>
             <DeprecatedLabel>Select Option</DeprecatedLabel>
-            <Select>
+            <DeprecatedSelect>
               <option value="1">Option 1</option>
               <option value="2">Option 2</option>
               <option value="3">Option 3</option>
-            </Select>
+            </DeprecatedSelect>
           </InputGroup>
         </InputWrap>
         <InputWrapSmall>

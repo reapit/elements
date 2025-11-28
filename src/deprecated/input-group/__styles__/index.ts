@@ -3,7 +3,7 @@ import { ElDeprecatedIcon } from '../../icon/__styles__'
 import { ElDeprecatedLabel } from '../../label/__styles__'
 import { ElInput, elHasInputError } from '../../input/__styles__'
 import { ElTextarea } from '../../../core/textarea'
-import { ElSelect } from '../../select/__styles__'
+import { ElDeprecatedSelect } from '../../select/__styles__'
 import { ElInputAddOn } from '../../input-add-on/__styles__'
 import { ElToggleRadioWrap, ElToggleLabel } from '../../toggle/__styles__'
 import { ElMultiSelectInputWrapper } from '../../multi-select/__styles__'
@@ -45,7 +45,7 @@ export const ElInputGroup = styled.div`
     padding-left: 0;
   }
 
-  ${ElInput}, ${ElTextarea}, ${ElSelect} {
+  ${ElInput}, ${ElTextarea}, ${ElDeprecatedSelect} {
     order: 3;
   }
 
@@ -105,7 +105,7 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElTextarea}:has(~ ${ElInputAddOn}),
-  ${ElSelect}:has(~ ${ElInputAddOn}),
+  ${ElDeprecatedSelect}:has(~ ${ElInputAddOn}),
   ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElInputAddOn}) {
     border-right: none;
     border-top-right-radius: 0;
@@ -113,7 +113,7 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElTextarea},
-  ${ElSelect},
+  ${ElDeprecatedSelect},
   ${ElInput}:not([type='checkbox']):not([type='radio']) {
     &:focus {
       ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {

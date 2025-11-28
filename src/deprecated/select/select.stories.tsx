@@ -1,26 +1,26 @@
-import { Select } from './index'
+import { DeprecatedSelect } from './index'
 
 export default {
   title: 'Deprecated/Select',
-  component: Select,
+  component: DeprecatedSelect,
 }
 
 export const BasicUsage = {
   render: ({}) => (
-    <Select>
+    <DeprecatedSelect>
       <option value="1">Option 1</option>
       <option value="2">Option 2</option>
       <option value="3">Option 3</option>
-    </Select>
+    </DeprecatedSelect>
   ),
 }
 
 export const SelectDisabled = {
   render: ({}) => (
-    <Select disabled>
+    <DeprecatedSelect disabled>
       <option value="1">Option 1</option>
       <option value="2">Option 2</option>
       <option value="3">Option 3</option>
-    </Select>
+    </DeprecatedSelect>
   ),
 }

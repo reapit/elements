@@ -1,7 +1,7 @@
 import { styled } from '@linaria/react'
 
 /** @deprecated */
-export const ElSelect = styled.select`
+export const ElDeprecatedSelect = styled.select`
   display: flex;
   color: var(--black);
   width: 100%;
