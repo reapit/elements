@@ -9,53 +9,33 @@ const meta = {
   argTypes: {
     children: {
       control: 'radio',
-      defaultValue: 'Filter Chips',
-      options: ['Filter Chips', 'Selection Chips'],
+      defaultValue: 'Fruit',
+      options: ['Fruit', 'Colours'],
       mapping: {
-        'Filter Chips': [
-          <ChipGroup.Item key="1" {...ChipStories.FilterChip.args}>
-            Apples
-          </ChipGroup.Item>,
-          <ChipGroup.Item key="2" {...ChipStories.FilterChip.args}>
-            Bananas
-          </ChipGroup.Item>,
-          <ChipGroup.Item key="3" {...ChipStories.FilterChip.args}>
-            Oranges
-          </ChipGroup.Item>,
-          <ChipGroup.Item key="4" {...ChipStories.FilterChip.args}>
-            Peanuts
-          </ChipGroup.Item>,
-          <ChipGroup.Item key="5" {...ChipStories.FilterChip.args}>
-            Strawberries
-          </ChipGroup.Item>,
-          <ChipGroup.Item key="6" {...ChipStories.FilterChip.args}>
-            Watermelons
-          </ChipGroup.Item>,
+        Fruit: [
+          <ChipGroup.Item key="1">Apples</ChipGroup.Item>,
+          <ChipGroup.Item key="2">Bananas</ChipGroup.Item>,
+          <ChipGroup.Item key="3">Oranges</ChipGroup.Item>,
+          <ChipGroup.Item key="4">Peanuts</ChipGroup.Item>,
+          <ChipGroup.Item key="5">Strawberries</ChipGroup.Item>,
+          <ChipGroup.Item key="6">Watermelons</ChipGroup.Item>,
         ],
-        'Selection Chips': [
-          <ChipGroup.Item key="1" {...ChipStories.SelectionChip.args}>
-            Red
-          </ChipGroup.Item>,
-          <ChipGroup.Item key="2" {...ChipStories.SelectionChip.args}>
-            Blue
-          </ChipGroup.Item>,
-          <ChipGroup.Item key="3" {...ChipStories.SelectionChip.args}>
-            Yellow
-          </ChipGroup.Item>,
-          <ChipGroup.Item key="4" {...ChipStories.SelectionChip.args}>
-            Pink
-          </ChipGroup.Item>,
-          <ChipGroup.Item key="5" {...ChipStories.SelectionChip.args}>
-            Black
-          </ChipGroup.Item>,
-          <ChipGroup.Item key="6" {...ChipStories.SelectionChip.args}>
-            White
-          </ChipGroup.Item>,
+        Colours: [
+          <ChipGroup.Item key="1">Red</ChipGroup.Item>,
+          <ChipGroup.Item key="2">Blue</ChipGroup.Item>,
+          <ChipGroup.Item key="3">Yellow</ChipGroup.Item>,
+          <ChipGroup.Item key="4">Pink</ChipGroup.Item>,
+          <ChipGroup.Item key="5">Black</ChipGroup.Item>,
+          <ChipGroup.Item key="6">White</ChipGroup.Item>,
         ],
       },
     },
     overflow: {
       control: 'radio',
+    },
+    variant: {
+      control: 'radio',
+      options: ['filter', 'selection'],
     },
   },
 } satisfies Meta<typeof ChipGroup>
@@ -77,9 +57,43 @@ const useNarrowParentDecorator: Decorator = (Story) => {
  */
 export const Example: Story = {
   args: {
-    children: 'Filter Chips',
+    'aria-disabled': false,
+    children: 'Fruit',
+    disabled: false,
     flow: 'wrap',
     overflow: 'visible',
+    variant: 'filter',
+  },
+}
+
+/**
+ * All chips in the group can be disabled. Individual chips can override the group's disabled state;
+ * `aria-disabled` works the same way.
+ */
+export const Disabled: Story = {
+  args: {
+    ...Example.args,
+    children: [
+      <ChipGroup.Item key="1">Apples</ChipGroup.Item>,
+      <ChipGroup.Item key="2">Bananas</ChipGroup.Item>,
+      <ChipGroup.Item key="3" aria-disabled={false} disabled={false}>
+        Oranges
+      </ChipGroup.Item>,
+      <ChipGroup.Item key="4">Peanuts</ChipGroup.Item>,
+      <ChipGroup.Item key="5">Strawberries</ChipGroup.Item>,
+      <ChipGroup.Item key="6">Watermelons</ChipGroup.Item>,
+    ],
+    disabled: true,
+  },
+}
+
+/**
+ * The variant of all chips in the group can be set using `variant`.
+ */
+export const Variants: Story = {
+  args: {
+    ...Example.args,
+    variant: 'selection',
   },
 }
 
@@ -155,6 +169,7 @@ export const ChipSizing: Story = {
       <ChipGroup.Item key="9" {...ChipStories.LongWords.args} />,
     ],
     flow: 'wrap',
+    variant: 'filter',
   },
   decorators: [useNarrowParentDecorator],
 }

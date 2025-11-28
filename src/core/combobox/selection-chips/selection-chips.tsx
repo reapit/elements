@@ -5,7 +5,7 @@ import { useComboboxSelectedOptions } from '../use-selected-options'
 import { cx } from '@linaria/core'
 
 export namespace ComboboxSelectionChips {
-  export interface Props extends Omit<ChipGroup.Props, 'children'> {
+  export interface Props extends Omit<ChipGroup.Props, 'children' | 'variant'> {
     /** Selected options to be displayed on first render. */
     defaultOptions?: readonly useComboboxSelectedOptions.Option[]
     /** Whether the selection chips are disabled. */
@@ -31,7 +31,7 @@ export function ComboboxSelectionChips({
   const options = useComboboxSelectedOptions(listboxId, defaultOptions)
   return (
     options.length > 0 && (
-      <ChipGroup {...rest} className={cx(elComboboxSelectionChips, className)}>
+      <ChipGroup {...rest} className={cx(elComboboxSelectionChips, className)} variant="selection">
         {options.map((option) => (
           <ChipGroup.Item
             key={option.value}
@@ -39,7 +39,6 @@ export function ComboboxSelectionChips({
             aria-label={`Remove ${option.label}`}
             disabled={disabled}
             onClick={() => setListboxOptionSelectedState(listboxId, option.value, () => false)}
-            variant="selection"
           >
             {option.label}
           </ChipGroup.Item>

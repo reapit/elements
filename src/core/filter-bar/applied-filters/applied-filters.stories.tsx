@@ -1,6 +1,5 @@
 import { Button } from '#src/core/button'
 import { ChipGroup } from '#src/core/chip-group'
-import * as ChipStories from '#src/core/chip/chip.stories'
 import { FilterBarAppliedFilters } from './applied-filters'
 import { MatchMedia } from '#src/utils/match-media'
 
@@ -16,31 +15,31 @@ const meta = {
       options: ['Some Filters', 'Many Filters'],
       mapping: {
         'Some Filters': (
-          <ChipGroup>
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
+          <ChipGroup variant="filter">
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
             <Button size="small" variant="tertiary">
               Clear all
             </Button>
           </ChipGroup>
         ),
         'Many Filters': (
-          <ChipGroup>
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
-            <ChipGroup.Item {...ChipStories.FilterChip.args} />
+          <ChipGroup variant="filter">
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
+            <ChipGroup.Item>Label</ChipGroup.Item>
             <Button size="small" variant="tertiary">
               Clear all
             </Button>
@@ -103,21 +102,21 @@ export const Scrolling: Story = {
   args: {
     ...Action.args,
     children: (
-      <ChipGroup overflow="auto">
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
-        <ChipGroup.Item {...ChipStories.FilterChip.args} />
+      <ChipGroup overflow="auto" variant="selection">
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
+        <ChipGroup.Item>Label</ChipGroup.Item>
         <Button size="small" variant="tertiary">
           Clear all
         </Button>
@@ -144,18 +143,18 @@ export const Breakpoints: Story = {
   args: {
     ...Action.args,
     children: (
-      <ChipGroup>
+      <ChipGroup variant="filter">
         <MatchMedia condition={isWidthAtOrAbove('SM')}>
-          <ChipGroup.Item {...ChipStories.FilterChip.args} />
-          <ChipGroup.Item {...ChipStories.FilterChip.args} />
-          <ChipGroup.Item {...ChipStories.FilterChip.args} />
-          <ChipGroup.Item {...ChipStories.FilterChip.args} />
+          <ChipGroup.Item>Label</ChipGroup.Item>
+          <ChipGroup.Item>Label</ChipGroup.Item>
+          <ChipGroup.Item>Label</ChipGroup.Item>
+          <ChipGroup.Item>Label</ChipGroup.Item>
           <Button size="small" variant="tertiary">
             Clear all
           </Button>
         </MatchMedia>
         <MatchMedia condition={isWidthBelow('SM')}>
-          <ChipGroup.Item {...ChipStories.FilterChip.args}>4 filters applied</ChipGroup.Item>
+          <ChipGroup.Item>4 filters applied</ChipGroup.Item>
         </MatchMedia>
       </ChipGroup>
     ),

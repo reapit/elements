@@ -1,7 +1,6 @@
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
 import { ChipGroup } from '#src/core/chip-group'
-import * as ChipStories from '#src/core/chip/chip.stories'
 import { FilterBar } from './filter-bar'
 import { FilterIcon } from '#src/icons/filter'
 
@@ -66,10 +65,10 @@ const meta = {
         None: undefined,
         'Some Filters': (
           <FilterBar.AppliedFilters>
-            <ChipGroup>
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
+            <ChipGroup variant="filter">
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
               <Button size="small" variant="tertiary">
                 Clear all
               </Button>
@@ -78,15 +77,15 @@ const meta = {
         ),
         'Many Filters': (
           <FilterBar.AppliedFilters>
-            <ChipGroup>
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
+            <ChipGroup variant="filter">
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
               <Button size="small" variant="tertiary">
                 Clear all
               </Button>
@@ -101,10 +100,10 @@ const meta = {
               </Button>
             }
           >
-            <ChipGroup>
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
-              <ChipGroup.Item {...ChipStories.FilterChip.args} />
+            <ChipGroup variant="filter">
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
+              <ChipGroup.Item>Label</ChipGroup.Item>
               <Button size="small" variant="tertiary">
                 Clear all
               </Button>

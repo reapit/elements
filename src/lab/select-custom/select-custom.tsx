@@ -225,7 +225,7 @@ export function SelectCustom({
       )}
 
       {isMultiple && selectedValues.length > 0 && (
-        <ChipGroup>
+        <ChipGroup variant="selection">
           {selectedValues.map((item, index) => (
             <ChipGroup.Item
               key={`${item.value}-${index}`}
