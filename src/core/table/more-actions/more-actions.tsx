@@ -40,7 +40,7 @@ export function TableRowMoreActions({ children, id, ...rest }: TableRowMoreActio
         {...rest}
         {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
       />
-      <Menu aria-labelledby={triggerId} id={menuId} placement="top-end">
+      <Menu aria-labelledby={triggerId} id={menuId} placement="bottom-end">
         {children}
       </Menu>
     </>
