@@ -96,12 +96,12 @@ export const MultiSelect: Story = {
       </div>
     ),
   ],
-  render: (args) => {
+  render: (args, { parameters }) => {
     const fallbackId = useId()
     const id = args.id ?? fallbackId
 
     return (
-      <>
+      <Select.DefaultOptionsContext.Provider value={parameters.defaultOptions ?? []}>
         <Select {...args} id={id}>
           <Select.Button />
           <Select.Popup>
@@ -119,7 +119,29 @@ export const MultiSelect: Story = {
           </Select.Popup>
         </Select>
         <Select.SelectionChips listboxId={Select.getListboxId(id)} />
-      </>
+      </Select.DefaultOptionsContext.Provider>
     )
+  },
+}
+
+/**
+ * When the select has one or more initial selections, the label text for those options must
+ * be provided to `Select.Button` (single-select), and `Select.SelectionChips` (multi-select).
+ * The value of each option should also form the `value` or `defaultValue` of `Select.Listbox`.
+ * This wire up can be done manually via each component's prop interface or automatically through
+ * `Select.DefaultOptionsContext`.
+ */
+export const DefaultOptions = {
+  args: {
+    ...MultiSelect.args,
+    id: 'default-options-example',
+  },
+  render: MultiSelect.render,
+  parameters: {
+    docs: { story: { source: 'code' } },
+    defaultOptions: [
+      { label: 'Banana', value: 'banana' },
+      { label: 'Blueberry', value: 'blueberry' },
+    ],
   },
 }

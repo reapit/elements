@@ -6,6 +6,7 @@ import type { ReactNode } from 'react'
 
 export namespace AutocompleteControl {
   export interface Props extends Autocomplete.Props {
+    defaultOptions?: Autocomplete.DefaultOptionsContextValue
     /** Optional error text that communicates why the autocomplete's value is invalid. */
     errorText?: ReactNode
     /** Optional help text that provides more context about the autocomplete. */
@@ -26,6 +27,7 @@ export namespace AutocompleteControl {
  */
 export function AutocompleteControl({
   children,
+  defaultOptions,
   disabled,
   errorText,
   helpText,
@@ -44,32 +46,34 @@ export function AutocompleteControl({
 
   return (
     <FormControl as="div" size={size} maxWidth={maxWidth}>
-      {label && (
-        <FormControl.Label htmlFor={autocompleteId} isRequired={required}>
-          {label}
-        </FormControl.Label>
-      )}
-      <Autocomplete
-        {...rest}
-        aria-describedby={helpText && !errorText ? helpTextId : undefined}
-        aria-errormessage={errorText ? errorTextId : undefined}
-        aria-invalid={errorText ? true : undefined}
-        disabled={disabled}
-        id={autocompleteId}
-        multiple={multiple}
-        required={required}
-        size={size}
-      >
-        {children}
-      </Autocomplete>
-      {errorText ? (
-        <FormControl.ErrorText id={errorTextId}>{errorText}</FormControl.ErrorText>
-      ) : (
-        helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
-      )}
-      {multiple && (
-        <Autocomplete.SelectionChips disabled={disabled} listboxId={Autocomplete.getListboxId(autocompleteId)} />
-      )}
+      <Autocomplete.DefaultOptionsContext.Provider value={defaultOptions ?? []}>
+        {label && (
+          <FormControl.Label htmlFor={autocompleteId} isRequired={required}>
+            {label}
+          </FormControl.Label>
+        )}
+        <Autocomplete
+          {...rest}
+          aria-describedby={helpText && !errorText ? helpTextId : undefined}
+          aria-errormessage={errorText ? errorTextId : undefined}
+          aria-invalid={errorText ? true : undefined}
+          disabled={disabled}
+          id={autocompleteId}
+          multiple={multiple}
+          required={required}
+          size={size}
+        >
+          {children}
+        </Autocomplete>
+        {errorText ? (
+          <FormControl.ErrorText id={errorTextId}>{errorText}</FormControl.ErrorText>
+        ) : (
+          helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
+        )}
+        {multiple && (
+          <Autocomplete.SelectionChips disabled={disabled} listboxId={Autocomplete.getListboxId(autocompleteId)} />
+        )}
+      </Autocomplete.DefaultOptionsContext.Provider>
     </FormControl>
   )
 }

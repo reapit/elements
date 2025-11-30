@@ -166,7 +166,7 @@ export const MultiSelect: Story = {
       </div>
     ),
   ],
-  render: (args) => {
+  render: (args, { parameters }) => {
     const fallbackId = useId()
     const id = args.id ?? fallbackId
     const [searchText, setSearchText] = useState('')
@@ -174,7 +174,7 @@ export const MultiSelect: Story = {
     const filteredOptions = filterFruit(searchText)
 
     return (
-      <>
+      <Autocomplete.DefaultOptionsContext.Provider value={parameters.defaultOptions ?? []}>
         <Autocomplete {...args} id={id}>
           <Autocomplete.Button />
           <Autocomplete.Popup
@@ -200,8 +200,30 @@ export const MultiSelect: Story = {
           </Autocomplete.Popup>
         </Autocomplete>
         <Autocomplete.SelectionChips listboxId={Autocomplete.getListboxId(id)} />
-      </>
+      </Autocomplete.DefaultOptionsContext.Provider>
     )
+  },
+}
+
+/**
+ * When the autocomplete has one or more initial selections, the label text for those options must
+ * be provided to `Autocomplete.Button` (single-select), and `Autocomplete.SelectionChips` (multi-select).
+ * The value of each option should also form the `value` or `defaultValue` of `Autocomplete.Listbox`.
+ * This wire up can be done manually via the each component's prop interface or automatically through
+ * `Autocomplete.DefaultOptionsContext`.
+ */
+export const DefaultOptions = {
+  args: {
+    ...MultiSelect.args,
+    id: 'default-options-example',
+  },
+  render: MultiSelect.render,
+  parameters: {
+    docs: { story: { source: 'code' } },
+    defaultOptions: [
+      { label: 'Banana', value: 'banana' },
+      { label: 'Blueberry', value: 'blueberry' },
+    ],
   },
 }
 

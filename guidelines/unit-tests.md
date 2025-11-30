@@ -204,6 +204,89 @@ test('exposes Table.HeaderCell', () => {
 })
 ```
 
+### Context-Dependent Components
+
+Components that require React Context can be tested using either the `wrapper` option or inline providers. Choose based on how many tests share the same context setup.
+
+#### Using the `wrapper` Option
+
+Use the `wrapper` option when most tests share the same context configuration. Define the wrapper as a helper component.
+
+```typescript
+import { SplitButtonContext } from '../context'
+import type { ReactNode } from 'react'
+
+test('applies size and variant from context', () => {
+  render(<SplitButtonActionBase as="button" />, { wrapper: Wrapper })
+  const button = screen.getByRole('button')
+  expect(button).toHaveAttribute('data-size', 'medium')
+  expect(button).toHaveAttribute('data-variant', 'primary')
+})
+
+test('is ARIA disabled when context has busy="action"', () => {
+  render(<SplitButtonActionBase as="button" />, {
+    wrapper: (props) => <Wrapper {...props} busy="action" />,
+  })
+  expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true')
+})
+
+interface WrapperProps {
+  children: ReactNode
+  busy?: SplitButtonContext.Value['busy']
+}
+
+function Wrapper({ children, busy }: WrapperProps) {
+  return (
+    <SplitButtonContext.Provider value={{ busy, size: 'medium', variant: 'primary' }}>
+      {children}
+    </SplitButtonContext.Provider>
+  )
+}
+```
+
+#### Inlining Context Providers
+
+Inline providers when tests need different context values or when context setup is simple.
+
+```typescript
+test('applies "default" variant when popup variant is "popover"', () => {
+  const { container } = render(
+    <ComboboxPopupDialogContext.Provider value={{ variant: 'popover' }}>
+      <ComboboxSearchInput aria-label="Filter options" />
+    </ComboboxPopupDialogContext.Provider>,
+  )
+  expect(container.firstElementChild).toHaveAttribute('data-variant', 'default')
+})
+
+test('applies "borderless" variant when popup variant is "drawer"', () => {
+  const { container } = render(
+    <ComboboxPopupDialogContext.Provider value={{ variant: 'drawer' }}>
+      <ComboboxSearchInput aria-label="Filter options" />
+    </ComboboxPopupDialogContext.Provider>,
+  )
+  expect(container.firstElementChild).toHaveAttribute('data-variant', 'borderless')
+})
+
+test('throws error when rendered outside context', () => {
+  expect(() => {
+    render(<ComponentRequiringContext />)
+  }).toThrow('useComponentContext requires a Component ancestor')
+})
+```
+
+#### Choosing Between Patterns
+
+**Use `wrapper` option when:**
+- Most tests share the same context configuration
+- Context setup is complex or verbose
+- Tests only vary context values slightly
+
+**Inline providers when:**
+- Each test needs different context values
+- Context setup is simple
+- Testing error handling (missing context)
+- Clarity benefits from seeing the full setup in each test
+
 ## Testing Utility Functions
 
 ### Pure Functions

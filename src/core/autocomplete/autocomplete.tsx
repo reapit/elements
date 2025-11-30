@@ -4,6 +4,7 @@ import { Combobox } from '#src/core/combobox'
 
 export namespace Autocomplete {
   export interface ButtonProps extends AutocompleteButton.Props {}
+  export interface DefaultOptionsContextValue extends Combobox.DefaultOptionsContextValue {}
   export interface DividerProps extends Combobox.DividerProps {}
   export interface ListboxProps extends Combobox.Props {}
   export interface OptgroupProps extends Combobox.OptgroupProps {}
@@ -13,6 +14,7 @@ export namespace Autocomplete {
   export interface PopupProps extends Combobox.PopupProps {}
   export interface SearchInputProps extends Combobox.SearchInputProps {}
   export interface SelectionChipsProps extends Combobox.SelectionChipsProps {}
+  export interface SelectionChipsItemProps extends Combobox.SelectionChipsItemProps {}
 
   export interface Props extends Combobox.Props {}
 }
@@ -30,6 +32,7 @@ Autocomplete.getListboxId = Combobox.getListboxId
 Autocomplete.getPopupId = Combobox.getPopupId
 Autocomplete.Button = AutocompleteButton
 Autocomplete.Divider = Combobox.Divider
+Autocomplete.DefaultOptionsContext = Combobox.DefaultOptionsContext
 Autocomplete.Listbox = Combobox.Listbox
 Autocomplete.Option = Combobox.Option
 Autocomplete.OptionAdditionalInfo = Combobox.OptionAdditionalInfo
@@ -38,4 +41,5 @@ Autocomplete.Placeholder = Combobox.ListboxPlaceholder
 Autocomplete.Popup = AutocompletePopup
 Autocomplete.SearchInput = Combobox.SearchInput
 Autocomplete.SelectionChips = Combobox.SelectionChips
+Autocomplete.SelectionChipsItem = Combobox.SelectionChipsItem
 Autocomplete.useState = Combobox.useState

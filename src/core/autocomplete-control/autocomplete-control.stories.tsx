@@ -26,7 +26,8 @@ const meta = {
     },
   },
   render: (args) => {
-    const [value, setValue] = Autocomplete.useState([])
+    // NOTE: We initialise value from the story's `defaultOptions` to maintain state consistency.
+    const [value, setValue] = Autocomplete.useState(args.defaultOptions?.map((o) => o.value) ?? [])
     const [searchText, setSearchText] = useState('')
 
     const filteredOptions = filterFruit(searchText)
@@ -86,6 +87,21 @@ export const Example: Story = {
     size: 'medium',
   },
   parameters: { docs: { source: { type: 'code' } } },
+}
+
+/**
+ * When the autocomplete has one or more options initially selected, the control must be provided with
+ * `defaultOptions` that define the label text to use for those options.
+ */
+export const DefaultOptions: Story = {
+  args: {
+    ...Example.args,
+    defaultOptions: [
+      { label: 'Apple', value: 'apple' },
+      { label: 'Banana', value: 'banana' },
+    ],
+    multiple: true,
+  },
 }
 
 /**

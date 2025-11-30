@@ -4,6 +4,7 @@ import { ComboboxListboxOption } from './listbox-option'
 import { ElComboboxListbox } from './styles'
 import { Listbox } from '#src/utils/listbox'
 import { useComboboxContext } from '../context'
+import { useComboboxDefaultOptionsContext } from '../default-options-context'
 
 // We omit...
 // - as, because we pin it to our styled element
@@ -35,16 +36,21 @@ export namespace ComboboxListbox {
 /**
  * A listbox for a Combobox. Built on the Listbox foundation.
  */
-export function ComboboxListbox(props: ComboboxListbox.Props) {
+export function ComboboxListbox({ defaultValue: defaultValueProp, ...rest }: ComboboxListbox.Props) {
+  const defaultOptions = useComboboxDefaultOptionsContext()
+  const defaultValue = defaultOptions.map((option) => option.value)
+
   const { disabled, listboxId, multiple, required } = useComboboxContext()
+
   return (
     <Listbox
-      {...props}
+      {...rest}
       as={ElComboboxListbox}
       aria-disabled={disabled}
       aria-multiselectable={multiple}
       aria-orientation="vertical"
       aria-required={required}
+      defaultValue={defaultValueProp ?? defaultValue}
       id={listboxId}
       selectionFollowsFocus={false}
     />

@@ -6,6 +6,7 @@ import type { ReactNode } from 'react'
 
 export namespace SelectControl {
   export interface Props extends Select.Props {
+    defaultOptions?: Select.DefaultOptionsContextValue
     /** Optional error text that communicates why the select's value is invalid. */
     errorText?: ReactNode
     /** Optional help text that provides more context about the select. */
@@ -26,6 +27,7 @@ export namespace SelectControl {
  */
 export function SelectControl({
   children,
+  defaultOptions,
   disabled,
   errorText,
   helpText,
@@ -44,29 +46,31 @@ export function SelectControl({
 
   return (
     <FormControl as="div" size={size} maxWidth={maxWidth}>
-      {label && (
-        <FormControl.Label htmlFor={selectId} isRequired={required}>
-          {label}
-        </FormControl.Label>
-      )}
-      <Select
-        {...rest}
-        aria-describedby={helpText && !errorText ? helpTextId : undefined}
-        aria-errormessage={errorText ? errorTextId : undefined}
-        aria-invalid={errorText ? true : undefined}
-        id={selectId}
-        multiple={multiple}
-        required={required}
-        size={size}
-      >
-        {children}
-      </Select>
-      {errorText ? (
-        <FormControl.ErrorText id={errorTextId}>{errorText}</FormControl.ErrorText>
-      ) : (
-        helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
-      )}
-      {multiple && <Select.SelectionChips disabled={disabled} listboxId={Select.getListboxId(selectId)} />}
+      <Select.DefaultOptionsContext.Provider value={defaultOptions ?? []}>
+        {label && (
+          <FormControl.Label htmlFor={selectId} isRequired={required}>
+            {label}
+          </FormControl.Label>
+        )}
+        <Select
+          {...rest}
+          aria-describedby={helpText && !errorText ? helpTextId : undefined}
+          aria-errormessage={errorText ? errorTextId : undefined}
+          aria-invalid={errorText ? true : undefined}
+          id={selectId}
+          multiple={multiple}
+          required={required}
+          size={size}
+        >
+          {children}
+        </Select>
+        {errorText ? (
+          <FormControl.ErrorText id={errorTextId}>{errorText}</FormControl.ErrorText>
+        ) : (
+          helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
+        )}
+        {multiple && <Select.SelectionChips disabled={disabled} listboxId={Select.getListboxId(selectId)} />}
+      </Select.DefaultOptionsContext.Provider>
     </FormControl>
   )
 }

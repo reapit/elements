@@ -1,5 +1,6 @@
 import { ComboboxButton } from './button'
 import { ComboboxContext, useComboboxContext } from './context'
+import { ComboboxDefaultOptionsContext, useComboboxDefaultOptionsContext } from './default-options-context'
 import { ComboboxListbox } from './listbox'
 import { ComboboxPopup } from './combobox-popup'
 import { ComboboxSearchInput } from './search-input'
@@ -20,6 +21,8 @@ import type { HTMLAttributes } from 'react'
 export namespace Combobox {
   export interface ButtonProps extends ComboboxButton.Props {}
   export interface ClearButtonProps extends ComboboxButton.ClearButtonProps {}
+  export interface ContextValue extends ComboboxContext.Value {}
+  export interface DefaultOptionsContextValue extends ComboboxDefaultOptionsContext.Value {}
   export interface DividerProps extends ComboboxListbox.DividerProps {}
   export interface ListboxProps extends ComboboxListbox.Props {}
   export interface ListboxPlaceholderProps extends ComboboxListbox.PlaceholderProps {}
@@ -31,6 +34,7 @@ export namespace Combobox {
   export interface SearchInputProps extends ComboboxSearchInput.Props {}
   export interface SelectedContentProps extends ComboboxSelectedContent.Props {}
   export interface SelectionChipsProps extends ComboboxSelectionChips.Props {}
+  export interface SelectionChipsItemProps extends ComboboxSelectionChips.ItemProps {}
 
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** Combobox button, popup, and other child components */
@@ -131,10 +135,13 @@ Combobox.Popup = ComboboxPopup
 Combobox.SearchInput = ComboboxSearchInput
 Combobox.SelectedContent = ComboboxSelectedContent
 Combobox.SelectionChips = ComboboxSelectionChips
+Combobox.SelectionChipsItem = ComboboxSelectionChips.Item
 
 Combobox.Context = ComboboxContext
+Combobox.DefaultOptionsContext = ComboboxDefaultOptionsContext
 Combobox.useButton = useComboboxButton
 Combobox.useContext = useComboboxContext
+Combobox.useDefaultOptionsContext = useComboboxDefaultOptionsContext
 Combobox.useHasSelection = useComboboxHasSelection
 Combobox.useSelectedOptions = useComboboxSelectedOptions
 Combobox.useState = useComboboxState

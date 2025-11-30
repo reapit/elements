@@ -102,12 +102,12 @@ test('renders many selected options', () => {
 test('passes listboxId to useComboboxSelectedOptions hook', () => {
   vi.mocked(useComboboxSelectedOptions).mockReturnValue([])
   render(<ComboboxSelectionChips listboxId="custom-listbox-id" />)
-  expect(useComboboxSelectedOptions).toHaveBeenCalledWith('custom-listbox-id', undefined)
+  expect(useComboboxSelectedOptions).toHaveBeenCalledWith('custom-listbox-id', [])
 })
 
 test('passes defaultOptions to useComboboxSelectedOptions hook', () => {
   const defaultOptions = [{ label: 'Option 1', value: 'option-1' }]
-  vi.mocked(useComboboxSelectedOptions).mockReturnValue([])
+  vi.mocked(useComboboxSelectedOptions).mockReturnValue(defaultOptions)
   render(<ComboboxSelectionChips listboxId="test" defaultOptions={defaultOptions} />)
   expect(useComboboxSelectedOptions).toHaveBeenCalledWith('test', defaultOptions)
 })

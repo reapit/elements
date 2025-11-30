@@ -61,6 +61,21 @@ export const Example: Story = {
 }
 
 /**
+ * When the select has one or more options initially selected, the control must be provided with
+ * `defaultOptions` that define the label text to use for those options.
+ */
+export const DefaultOptions: Story = {
+  args: {
+    ...Example.args,
+    defaultOptions: [
+      { label: 'Apple', value: 'apple' },
+      { label: 'Banana', value: 'banana' },
+    ],
+    multiple: true,
+  },
+}
+
+/**
  * There are three sizes available: `small`, `medium` and `large`.
  */
 export const Sizes: Story = {

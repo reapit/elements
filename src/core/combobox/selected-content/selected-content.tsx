@@ -1,3 +1,4 @@
+import { useComboboxDefaultOptionsContext } from '../default-options-context'
 import { useComboboxSelectedOptions } from '../use-selected-options'
 
 import type { HTMLAttributes } from 'react'
@@ -19,7 +20,11 @@ export namespace ComboboxSelectedContent {
  *
  * **Intended for use in single-select combobox experiences.**
  */
-export function ComboboxSelectedContent({ defaultOptions, listboxId }: ComboboxSelectedContent.Props) {
-  const options = useComboboxSelectedOptions(listboxId, defaultOptions)
+export function ComboboxSelectedContent({
+  defaultOptions: defaultOptionsProp,
+  listboxId,
+}: ComboboxSelectedContent.Props) {
+  const defaultOptions = useComboboxDefaultOptionsContext()
+  const options = useComboboxSelectedOptions(listboxId, defaultOptionsProp ?? defaultOptions)
   return options.at(0)?.label
 }

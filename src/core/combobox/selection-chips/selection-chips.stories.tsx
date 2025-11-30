@@ -99,6 +99,33 @@ export const Disabled: Story = {
 }
 
 /**
+ * Selection chips render automatically without `children`. To disable individual chips (preventing deselection),
+ * provide `children` to render chips manually.
+ *
+ * The default options specified in this example are also provided to the demo listbox.
+ */
+export const Children: Story = {
+  args: {
+    children: (options) => {
+      return options.map((option) => (
+        // We are treating the "Mango" option as a mandatory option; i.e. it cannot be disabled.
+        // It is up to consumers to ensure that the mandatory option cannot be deselected via the
+        // combobox listbox.
+        <ComboboxSelectionChips.Item aria-disabled={option.value === 'mango'} key={option.value} value={option.value}>
+          {option.label}
+        </ComboboxSelectionChips.Item>
+      ))
+    },
+    defaultOptions: [
+      { label: 'Mango', value: 'mango' },
+      { label: 'Orange', value: 'orange' },
+    ],
+    listboxId: 'children-example',
+  },
+  parameters: { docs: { source: { type: 'code' } } },
+}
+
+/**
  * An initial state must be provided for selection chips to be displayed on first render
  * when the listbox options are not immediately present in the DOM, such as when filtering
  * may be applied or the options are loaded asynchronously.
