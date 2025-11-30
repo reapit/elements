@@ -1,4 +1,6 @@
 import { AtAGlanceButtonCard } from '../button-card'
+import { cx } from '@linaria/core'
+import { elAtAGlanceListboxOption } from './styles'
 import { Listbox } from '#src/utils/listbox'
 
 export namespace AtAGlanceListboxOption {
@@ -33,8 +35,8 @@ export namespace AtAGlanceListboxOption {
  * </AtAGlance.Listbox>
  * ```
  */
-export function AtAGlanceListboxOption(props: AtAGlanceListboxOption.Props) {
-  return <Listbox.Option as={AtAGlanceButtonCard} {...props} />
+export function AtAGlanceListboxOption({ className, ...rest }: AtAGlanceListboxOption.Props) {
+  return <Listbox.Option as={AtAGlanceButtonCard} {...rest} className={cx(elAtAGlanceListboxOption, className)} />
 }
 
 AtAGlanceListboxOption.displayName = 'AtAGlance.ListboxOption'

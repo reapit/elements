@@ -19,6 +19,12 @@ export const elAtAGlanceGrid = css`
     scroll-snap-type: x mandatory;
     /* Account for grid container padding when scroll snapping */
     scroll-padding: var(--border-width-double);
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    &::-webkit-scrollbar {
+      display: none;
+    }
   }
 `
 

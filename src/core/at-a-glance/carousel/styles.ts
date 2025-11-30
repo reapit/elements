@@ -1,3 +1,4 @@
+import { isWidthBelow } from '#src/utils/breakpoints'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
@@ -80,5 +81,10 @@ export const elAtAGlanceCarouselButton = css`
       --aag-carousel-right-button-opacity: 1;
       --aag-carousel-right-button-z-index: 1;
     }
+  }
+
+  /* Carousel buttons are NOT displayed on the XS breakpoint */
+  @media screen and (${isWidthBelow('SM')}) {
+    display: none;
   }
 `

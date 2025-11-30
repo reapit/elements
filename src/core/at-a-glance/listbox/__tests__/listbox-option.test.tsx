@@ -56,3 +56,27 @@ test('applies min-width when specified', () => {
   )
   expect(screen.getByRole('option')).toHaveStyle({ minWidth: '200px' })
 })
+
+test('applies elAtAGlanceListboxOption className', () => {
+  render(
+    <Listbox name="test">
+      <AtAGlanceListboxOption value="test-value" label="Test Label" displayValue="Test Value" minWidth="200px" />
+    </Listbox>,
+  )
+  expect(screen.getByRole('option')).toHaveClass('el-at-aglance-listbox-option')
+})
+
+test('applies custom className when supplied', () => {
+  render(
+    <Listbox name="test">
+      <AtAGlanceListboxOption
+        className="custom-class"
+        value="test-value"
+        label="Test Label"
+        displayValue="Test Value"
+        minWidth="200px"
+      />
+    </Listbox>,
+  )
+  expect(screen.getByRole('option')).toHaveClass('el-at-aglance-listbox-option custom-class')
+})
