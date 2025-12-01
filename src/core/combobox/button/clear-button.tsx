@@ -6,10 +6,10 @@ import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 
 export namespace ComboboxButtonClearButton {
   export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-    /** Accessible label for the button. Defaults to "Clear selection". */
-    'aria-label'?: string
     /** ID of the combobox listbox element cleared by this button. */
     'aria-controls': string
+    /** Accessible label for the button. Defaults to "Clear selection". */
+    'aria-label'?: string
   }
 }
 

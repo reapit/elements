@@ -1,4 +1,5 @@
 import { ComboboxButton } from './button'
+import { ElCombobox } from '../styles'
 import { SearchIcon } from '#src/icons/search'
 
 import type { CSSProperties } from 'react'
@@ -47,7 +48,6 @@ export const Example: Story = {
     id: 'my-combobox-button',
     maxWidth: undefined,
     placeholder: 'Select an option',
-    showValidity: false,
     size: 'medium',
   },
 }
@@ -92,20 +92,10 @@ export const Disabled: Story = {
   },
   decorators: [
     (Story) => (
-      <div
-        // These styles are applied by ElCombobox when the Combobox is disabled.
-        style={
-          {
-            '--combobox-background': 'var(--comp-input-colour-fill-disabled-background)',
-            '--combobox-border-colour': 'var(--comp-input-colour-border-disabled)',
-            '--combobox-icon-colour': 'var(--comp-input-colour-icon-disabled)',
-            '--combobox-placeholder-colour': 'var(--comp-input-colour-text-disabled-placeholder)',
-            '--combobox-text-colour': 'var(--comp-input-colour-text-disabled-input)',
-          } as CSSProperties
-        }
-      >
+      <ElCombobox>
+        <select disabled hidden />
         <Story />
-      </div>
+      </ElCombobox>
     ),
   ],
 }
@@ -120,21 +110,10 @@ export const Invalid: Story = {
   },
   decorators: [
     (Story) => (
-      <div
-        // These styles are applied by ElCombobox when the Combobox is invalid
-        // and is configured to show its validity.
-        style={
-          {
-            '--combobox-background': 'var(--comp-input-colour-fill-error-background)',
-            '--combobox-border-colour': 'var(--comp-input-colour-border-error)',
-            '--combobox-icon-colour': 'var(--comp-input-colour-icon-error)',
-            '--combobox-placeholder-colour': 'var(--comp-input-colour-text-error-placeholder)',
-            '--combobox-text-colour': 'var(--comp-input-colour-text-error-input)',
-          } as CSSProperties
-        }
-      >
+      <ElCombobox data-show-validity="true">
+        <select required hidden />
         <Story />
-      </div>
+      </ElCombobox>
     ),
   ],
 }

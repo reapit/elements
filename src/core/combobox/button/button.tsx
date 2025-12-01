@@ -36,8 +36,6 @@ export namespace ComboboxButton {
     placeholder?: string
     /** Visual size of the button. */
     size?: 'small' | 'medium' | 'large'
-    /** Whether to show validation state styling. Typically enabled after user interaction. */
-    showValidity?: boolean
   }
 }
 
@@ -45,8 +43,8 @@ export namespace ComboboxButton {
  * Primary button component for combobox controls. Used to open the combobox's popup. Often displays the
  * label text of the selected option and provides a secondary action to clear the selected value.
  *
- * This is a low-level component. Consider using `Combobox.SelectButton` or `Combobox.AutocompleteButton`
- * for more complete implementations.
+ * This is a low-level component and should only be used when building a more complete combobox button
+ * like `Autocomplete.Button` and `Select.Button`.
  */
 export function ComboboxButton({
   action,
@@ -57,7 +55,6 @@ export function ComboboxButton({
   id,
   leadingIcon,
   placeholder = 'Select an option',
-  showValidity,
   size = 'medium',
   style,
   ...rest
@@ -75,7 +72,6 @@ export function ComboboxButton({
         aria-expanded={ariaExpanded}
         aria-haspopup="dialog"
         data-placeholder-shown={isPlaceholderShown}
-        data-show-validity={!!showValidity}
         id={id}
         role="combobox"
         type="button"

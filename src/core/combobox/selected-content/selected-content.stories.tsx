@@ -98,6 +98,28 @@ export const DefaultOptions: Story = {
   },
 }
 
+/**
+ * Selected content renders automatically without `children`. To customise how the content is rendered,
+ * provide a `children` render-prop. This is useful when rendering the selected option as a card using
+ * `Combobox.Card`.
+ *
+ * The default options specified in this example are also provided to the demo listbox.
+ */
+export const Children: Story = {
+  args: {
+    ...Example.args,
+    children: (options) => {
+      return (
+        <Text colour="error" font="text-base/medium">
+          {options.at(0)?.label}
+        </Text>
+      )
+    },
+    defaultOptions: [{ label: 'Orange', value: 'orange' }],
+    listboxId: 'children-example',
+  },
+}
+
 /** Simple custom listbox option component */
 function MyListboxOption(props: Listbox.OptionProps) {
   const isSelected = props['aria-checked'] || props['aria-selected']

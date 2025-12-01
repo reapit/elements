@@ -1,4 +1,5 @@
 import { ComboboxButton } from './button'
+import { ComboboxCard } from './card'
 import { ComboboxContext, useComboboxContext } from './context'
 import { ComboboxDefaultOptionsContext, useComboboxDefaultOptionsContext } from './default-options-context'
 import { ComboboxListbox } from './listbox'
@@ -20,6 +21,7 @@ import type { HTMLAttributes } from 'react'
 
 export namespace Combobox {
   export interface ButtonProps extends ComboboxButton.Props {}
+  export interface CardProps extends ComboboxCard.Props {}
   export interface ClearButtonProps extends ComboboxButton.ClearButtonProps {}
   export interface ContextValue extends ComboboxContext.Value {}
   export interface DefaultOptionsContextValue extends ComboboxDefaultOptionsContext.Value {}
@@ -123,6 +125,7 @@ Combobox.getListboxId = getComboboxListboxId
 Combobox.getPopupId = getComboboxPopupId
 
 Combobox.Button = ComboboxButton
+Combobox.Card = ComboboxCard
 Combobox.ClearButton = ComboboxButton.ClearButton
 Combobox.Divider = ComboboxListbox.Divider
 Combobox.Listbox = ComboboxListbox

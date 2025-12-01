@@ -102,6 +102,14 @@ test('forwards additional props to the underlying element', () => {
   expect(container.firstChild).toHaveAttribute('data-testid', 'my-combobox')
 })
 
+test('exposes Button', () => {
+  expect(Combobox.Button).toBeDefined()
+})
+
+test('exposes Card', () => {
+  expect(Combobox.Card).toBeDefined()
+})
+
 test('exposes Popup', () => {
   expect(Combobox.Popup).toBeDefined()
 })
@@ -124,6 +132,18 @@ test('exposes OptionAdditionalInfo', () => {
 
 test('exposes Divider', () => {
   expect(Combobox.Divider).toBeDefined()
+})
+
+test('exposes SearchInput', () => {
+  expect(Combobox.SearchInput).toBeDefined()
+})
+
+test('exposes SelectedContent', () => {
+  expect(Combobox.SelectedContent).toBeDefined()
+})
+
+test('exposes SelectionChips', () => {
+  expect(Combobox.SelectionChips).toBeDefined()
 })
 
 test('exposes getOptionLabel utility', () => {
