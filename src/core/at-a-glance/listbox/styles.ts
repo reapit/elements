@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
 
 export const elAtAGlanceListboxOption = css`
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 `

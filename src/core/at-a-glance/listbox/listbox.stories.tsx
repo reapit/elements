@@ -35,7 +35,7 @@ type Story = StoryObj<typeof meta>
  * A listbox allows users to select from a set of options. This example uses a carousel layout
  * for horizontal scrolling with navigation buttons.
  */
-export const Carousel: Story = {
+export const Example: Story = {
   args: {
     name: 'fruit',
     // @ts-expect-error -- TS doesn't know about the mapping we do

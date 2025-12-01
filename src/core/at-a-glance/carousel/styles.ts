@@ -16,6 +16,7 @@ export const ElAtAGlanceCarousel = styled.div`
     transparent 100%
   );
 
+  position: relative;
   display: flex;
   flex-flow: row nowrap;
   width: 100%;

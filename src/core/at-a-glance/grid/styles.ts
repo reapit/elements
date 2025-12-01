@@ -33,5 +33,5 @@ export const ElAtAGlanceGridItem = styled.li`
   padding: 0;
   margin: 0;
 
-  scroll-snap-align: start;
+  scroll-snap-align: center;
 `
