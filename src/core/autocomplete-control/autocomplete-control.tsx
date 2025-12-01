@@ -5,19 +5,30 @@ import { useId } from 'react'
 import type { ReactNode } from 'react'
 
 export namespace AutocompleteControl {
+  export interface ButtonProps extends Autocomplete.ButtonProps {}
+  export interface DividerProps extends Autocomplete.DividerProps {}
+  export interface ListboxProps extends Autocomplete.ListboxProps {}
+  export interface OptgroupProps extends Autocomplete.OptgroupProps {}
+  export interface OptionProps extends Autocomplete.OptionProps {}
+  export interface OptionAdditionalInfoProps extends Autocomplete.OptionAdditionalInfoProps {}
+  export interface PopupProps extends Autocomplete.PopupProps {}
+  export interface SelectionChipsItemProps extends Autocomplete.SelectionChipsItemProps {}
+
   export interface Props extends Autocomplete.Props {
     defaultOptions?: Autocomplete.DefaultOptionsContextValue
     /** Optional error text that communicates why the autocomplete's value is invalid. */
     errorText?: ReactNode
     /** Optional help text that provides more context about the autocomplete. */
     helpText?: ReactNode
-    /** The maximum width of the form control. */
-    maxWidth?: string
     /**
      * The visual label for the autocomplete. If no visual label is provided, an accessible
      * label should be provided via `aria-label`.
      */
     label?: ReactNode
+    /** The maximum width of the form control. */
+    maxWidth?: string
+    /** Render-prop allowing custom rendering of selection chips. */
+    renderChips?: Autocomplete.SelectionChipsProps['children']
   }
 }
 
@@ -35,6 +46,7 @@ export function AutocompleteControl({
   label,
   maxWidth,
   multiple,
+  renderChips,
   required,
   size = 'medium',
   ...rest
@@ -71,9 +83,22 @@ export function AutocompleteControl({
           helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
         )}
         {multiple && (
-          <Autocomplete.SelectionChips disabled={disabled} listboxId={Autocomplete.getListboxId(autocompleteId)} />
+          <Autocomplete.SelectionChips disabled={disabled} listboxId={Autocomplete.getListboxId(autocompleteId)}>
+            {renderChips}
+          </Autocomplete.SelectionChips>
         )}
       </Autocomplete.DefaultOptionsContext.Provider>
     </FormControl>
   )
 }
+
+AutocompleteControl.getValue = Autocomplete.getValue
+AutocompleteControl.Button = Autocomplete.Button
+AutocompleteControl.Divider = Autocomplete.Divider
+AutocompleteControl.Listbox = Autocomplete.Listbox
+AutocompleteControl.Option = Autocomplete.Option
+AutocompleteControl.OptionAdditionalInfo = Autocomplete.OptionAdditionalInfo
+AutocompleteControl.Optgroup = Autocomplete.Optgroup
+AutocompleteControl.Popup = Autocomplete.Popup
+AutocompleteControl.SelectionChipsItem = Autocomplete.SelectionChipsItem
+AutocompleteControl.useState = Autocomplete.useState

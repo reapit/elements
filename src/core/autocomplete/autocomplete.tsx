@@ -6,7 +6,7 @@ export namespace Autocomplete {
   export interface ButtonProps extends AutocompleteButton.Props {}
   export interface DefaultOptionsContextValue extends Combobox.DefaultOptionsContextValue {}
   export interface DividerProps extends Combobox.DividerProps {}
-  export interface ListboxProps extends Combobox.Props {}
+  export interface ListboxProps extends Combobox.ListboxProps {}
   export interface OptgroupProps extends Combobox.OptgroupProps {}
   export interface OptionProps extends Combobox.OptionProps {}
   export interface OptionAdditionalInfoProps extends Combobox.OptionAdditionalInfoProps {}

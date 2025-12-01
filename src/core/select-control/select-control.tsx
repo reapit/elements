@@ -5,6 +5,15 @@ import { useId } from 'react'
 import type { ReactNode } from 'react'
 
 export namespace SelectControl {
+  export interface ButtonProps extends Select.ButtonProps {}
+  export interface DividerProps extends Select.DividerProps {}
+  export interface ListboxProps extends Select.ListboxProps {}
+  export interface OptgroupProps extends Select.OptgroupProps {}
+  export interface OptionProps extends Select.OptionProps {}
+  export interface OptionAdditionalInfoProps extends Select.OptionAdditionalInfoProps {}
+  export interface PopupProps extends Select.PopupProps {}
+  export interface SelectionChipsItemProps extends Select.SelectionChipsItemProps {}
+
   export interface Props extends Select.Props {
     defaultOptions?: Select.DefaultOptionsContextValue
     /** Optional error text that communicates why the select's value is invalid. */
@@ -18,6 +27,8 @@ export namespace SelectControl {
     label?: ReactNode
     /** The maximum width of the form control. */
     maxWidth?: string
+    /** Render-prop allowing custom rendering of selection chips. */
+    renderChips?: Select.SelectionChipsProps['children']
   }
 }
 
@@ -35,6 +46,7 @@ export function SelectControl({
   label,
   maxWidth,
   multiple,
+  renderChips,
   required,
   size = 'medium',
   ...rest
@@ -69,8 +81,23 @@ export function SelectControl({
         ) : (
           helpText && <FormControl.HelpText id={helpTextId}>{helpText}</FormControl.HelpText>
         )}
-        {multiple && <Select.SelectionChips disabled={disabled} listboxId={Select.getListboxId(selectId)} />}
+        {multiple && (
+          <Select.SelectionChips disabled={disabled} listboxId={Select.getListboxId(selectId)}>
+            {renderChips}
+          </Select.SelectionChips>
+        )}
       </Select.DefaultOptionsContext.Provider>
     </FormControl>
   )
 }
+
+SelectControl.getValue = Select.getValue
+SelectControl.Button = Select.Button
+SelectControl.Divider = Select.Divider
+SelectControl.Listbox = Select.Listbox
+SelectControl.Option = Select.Option
+SelectControl.OptionAdditionalInfo = Select.OptionAdditionalInfo
+SelectControl.Optgroup = Select.Optgroup
+SelectControl.Popup = Select.Popup
+SelectControl.SelectionChipsItem = Select.SelectionChipsItem
+SelectControl.useState = Select.useState
