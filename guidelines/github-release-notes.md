@@ -1,0 +1,60 @@
+# Release Notes Enhancement Prompt
+
+Please enhance the GitHub-generated release notes with a "Notable Changes" section at the top.
+
+## Input Materials
+1. GitHub's automatically generated release notes (from the PR list)
+2. The `src/storybook/changelog.mdx` file for additional context about changes
+
+## Output Format
+
+Structure the enhanced release notes as follows:
+
+```
+## Notable Changes
+
+### 🎉 New things
+[List new features, components, and capabilities with Storybook doc links where applicable]
+
+### 🐛 Bug fixes
+[Only include this section if there are actual bug fixes in the release]
+
+### 💔 Breaking changes
+[Only include this section if there are breaking changes in the release]
+
+## What's Changed
+[Keep the original GitHub-generated PR list intact]
+
+**Full Changelog**: [Keep the original comparison link]
+```
+
+## Guidelines
+
+1. **Tone & Style**: Follow the writing guidelines in `guidelines/writing-clarity.md`. Be conversational, clear, and occasionally add personality (like emojis or light humor where appropriate).
+
+2. **Categorization**:
+   - Group related changes together under "New things"
+   - Link to Storybook documentation URLs (format: `https://elements-beta.dev.paas.reapit.cloud/?path=/docs/[category]-[component]--docs`)
+   - Only include "Bug fixes" and "Breaking changes" sections if they apply
+   - Omit internal/chore items unless they directly impact developers
+
+3. **Context Sources**:
+   - Use `changelog.mdx` for additional context when available
+   - Not every commit will have a corresponding changelog entry
+   - Focus on changes that matter to library consumers
+
+4. **Component References**:
+   - Wrap component names in square brackets with Storybook links
+   - **IMPORTANT**: Verify Storybook URLs by checking the `title` field in the component's `.stories.tsx` file (e.g., `src/core/combobox/combobox.stories.tsx`). Do NOT guess the category (`core`, `lab`, `utils`, `deprecated`) - either check the source code or ask the user.
+   - Add brief explanations for technical or utility components
+   - Note when features are for internal use vs. product code
+
+5. **Breaking Changes**:
+   - Clearly explain the impact
+   - Provide before/after examples when helpful
+
+## Example Usage
+
+**Input**: Paste GitHub's auto-generated release notes
+
+**Output**: Enhanced release notes with the Notable Changes section added at the top, followed by the original "What's Changed" section.
