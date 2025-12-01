@@ -53,17 +53,21 @@ export const elComboboxPopupDialog = css`
 
     position: fixed;
 
-    /* Position the drawer on the right side of the screen and make it full height */
-    inset-inline: auto 0;
+    /* Position the drawer to cover the whole viewport */
+    inset-inline: 0;
     inset-block: 0;
     height: 100%;
     max-height: 100svh;
     min-height: 100svh;
 
-    max-width: ${DRAWER_WIDTH_XS_SM};
+    width: 100%;
+    max-width: 100%;
     min-width: ${DRAWER_WIDTH_XS_SM};
 
     @media screen and (${isWidthAtOrAbove('SM')}) {
+      /* Position the drawer on the right side of the screen */
+      inset-inline: auto 0;
+
       max-width: ${DRAWER_WIDTH_MD_2XL};
       min-width: ${DRAWER_WIDTH_MD_2XL};
     }
@@ -175,6 +179,7 @@ export const ElComboboxPopupDialogHeader = styled.div`
   display: flex;
   flex-flow: row nowrap;
   align-items: center;
+  justify-content: end;
   gap: var(--spacing-2);
   padding: var(--combobox-popup-padding);
 
