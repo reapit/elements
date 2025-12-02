@@ -21,6 +21,10 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 - **feat:** Add `Combobox.Card` component. This is a low-level component that will be leveraged by `Autocomplete` and `Select` to allow for card-based display of the selected option in single-select experiences.
 - **feat:** `Combobox.SelectedContent` now allows custom UI via a `children` render-prop.
 - **fix:** `Combobox.Popup` now fills the viewport width on XS breakpoints larger than 375px. The close button is now also right aligned when no search input is present.
+- **feat:** `AutocompleteControl` and `SelectControl` now support custom chips rendering via the `renderChips` prop.
+- **fix:** Improve `AtAGlance` scroll snap behaviour
+- **refactor!:** `Listbox` now accepts a plain string value like native select when used as a single-select
+- **fix:** Prevent close event from propagating from `Combobox.Popup` to parent dialogs
 
 ### **5.0.0-beta.62 - 01/12/25**
 
