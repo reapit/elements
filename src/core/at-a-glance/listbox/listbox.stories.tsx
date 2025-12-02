@@ -62,19 +62,20 @@ export const Grid: Story = {
  * Controlled listbox with state management. Selection is managed externally via `value` and `onChange`.
  */
 export const Controlled: Story = {
-  render: () => {
-    const [selected, setSelected] = useState<readonly string[]>(['Apple'])
+  args: {
+    ...Example.args,
+    id: 'my-fruit',
+  },
+  render: (args) => {
+    const [selected, setSelected] = useState<string | readonly string[]>(['Apple'])
 
     return (
       <>
-        <Text>Selected: {selected.join(', ') || 'None'}</Text>
+        <Text>Selected: {(Array.isArray(selected) ? selected.join(', ') : selected) || 'None'}</Text>
         <br />
         <br />
         <AtAGlance.Listbox
-          as={AtAGlance.Carousel}
-          columns="200px"
-          id="my-fruit"
-          name="fruit"
+          {...args}
           onChange={() => setSelected(AtAGlance.Listbox.getValue('my-fruit'))}
           value={selected}
         >

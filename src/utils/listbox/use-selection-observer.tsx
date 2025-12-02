@@ -19,7 +19,7 @@ import { getListboxSelectId } from './get-select-id'
  */
 export function useListboxSelectionObserver(
   listboxId: string,
-  callback: (visibleOptions: HTMLButtonElement[], listboxState: readonly string[]) => void,
+  callback: (visibleOptions: HTMLButtonElement[], listboxState: string | readonly string[]) => void,
 ): void {
   const callbackRef = useRef(callback)
 

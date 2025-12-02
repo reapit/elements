@@ -1,5 +1,5 @@
 import { render, waitFor } from '@testing-library/react'
-import { useListboxSelectionObserver } from '../use-listbox-selection-observer'
+import { useListboxSelectionObserver } from '../use-selection-observer'
 
 import type { ReactNode } from 'react'
 
@@ -18,7 +18,7 @@ test('invokes callback with initial selection on mount', () => {
   )
 
   expect(callback).toHaveBeenCalledTimes(1)
-  expect(callback).toHaveBeenCalledWith([], [])
+  expect(callback).toHaveBeenCalledWith([], '')
 })
 
 test('invokes callback when aria-checked attribute changes', async () => {
@@ -41,7 +41,7 @@ test('invokes callback when aria-checked attribute changes', async () => {
   )
 
   await waitFor(() => expect(callback).toHaveBeenCalledTimes(2))
-  expect(callback).toHaveBeenLastCalledWith([expect.any(HTMLButtonElement)], [])
+  expect(callback).toHaveBeenLastCalledWith([expect.any(HTMLButtonElement)], '')
 })
 
 test('invokes callback when aria-selected attribute changes', async () => {
@@ -64,7 +64,7 @@ test('invokes callback when aria-selected attribute changes', async () => {
   )
 
   await waitFor(() => expect(callback).toHaveBeenCalledTimes(2))
-  expect(callback).toHaveBeenLastCalledWith([expect.any(HTMLButtonElement)], [])
+  expect(callback).toHaveBeenLastCalledWith([expect.any(HTMLButtonElement)], '')
 })
 
 test('does not invoke callback for other attribute changes', async () => {
@@ -162,7 +162,7 @@ test('invokes callback when option elements are removed from select', async () =
 
 interface TestListboxObserverProps {
   listboxId?: string
-  callback: (selectedOptions: HTMLButtonElement[], listboxState: readonly string[]) => void
+  callback: (selectedOptions: HTMLButtonElement[], listboxState: string | readonly string[]) => void
   /** Children to render as visible listbox options */
   children?: ReactNode
   /** Children to render inside the hidden select element */

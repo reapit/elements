@@ -11,15 +11,21 @@ import { getListboxSelectElement } from './common'
  * @returns Readonly array of selected option values, excluding empty strings
  * @throws {ListboxError} when the listbox does not exist or lacks a select element
  */
-export function getListboxValue(listboxId: string): readonly string[]
-export function getListboxValue(selectElement: HTMLSelectElement): readonly string[]
-export function getListboxValue(listboxIdOrSelectElement: string | HTMLSelectElement): readonly string[] {
+export function getListboxValue(listboxId: string): string | readonly string[]
+export function getListboxValue(selectElement: HTMLSelectElement): string | readonly string[]
+export function getListboxValue(listboxIdOrSelectElement: string | HTMLSelectElement): string | readonly string[] {
   const selectElement =
     listboxIdOrSelectElement instanceof HTMLSelectElement
       ? listboxIdOrSelectElement
       : getListboxSelectElement(listboxIdOrSelectElement)
 
-  return Array.from(selectElement.selectedOptions)
+  const values = Array.from(selectElement.selectedOptions)
     .map((option) => option.value)
     .filter((value) => value !== '')
+
+  if (selectElement.multiple) {
+    return values
+  }
+
+  return values[0] ?? ''
 }

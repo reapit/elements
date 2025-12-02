@@ -14,7 +14,6 @@ import { Listbox } from '#src/utils/listbox'
 import { useComboboxButton } from './use-button'
 import { useComboboxHasSelection } from './use-has-selection'
 import { useComboboxSelectedOptions } from './use-selected-options'
-import { useComboboxState } from './use-state'
 import { useId } from 'react'
 
 import type { HTMLAttributes } from 'react'
@@ -147,4 +146,4 @@ Combobox.useContext = useComboboxContext
 Combobox.useDefaultOptionsContext = useComboboxDefaultOptionsContext
 Combobox.useHasSelection = useComboboxHasSelection
 Combobox.useSelectedOptions = useComboboxSelectedOptions
-Combobox.useState = useComboboxState
+Combobox.useState = ComboboxListbox.useState

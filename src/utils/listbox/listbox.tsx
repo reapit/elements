@@ -13,8 +13,9 @@ import { ListboxRenderContext, useListboxRenderContext } from './render-context'
 import { ListboxSelect } from './select'
 import { useFocusManagement } from './use-focus-management'
 import { useId, useMemo } from 'react'
-import { useListboxSelectionObserver } from './use-listbox-selection-observer'
-import { useListboxState } from './use-listbox-state'
+import { useListboxSelectionObserver } from './use-selection-observer'
+import { useListboxSelectState } from './use-select-state'
+import { useListboxState } from './use-state'
 
 import type { ChangeEventHandler, ComponentPropsWithoutRef, ElementType, HTMLAttributes, ReactNode } from 'react'
 
@@ -56,7 +57,7 @@ export namespace Listbox {
      * Always an array of strings, regardless of single- or multi-select mode.
      * For single-select, uses only the first value.
      */
-    defaultValue?: readonly string[]
+    defaultValue?: string | readonly string[]
     /** The listbox element's ID. Generates automatically if omitted. */
     id?: string
     /** The form control name for form submission. */
@@ -97,7 +98,7 @@ export namespace Listbox {
      * Always an array of strings, regardless of single- or multi-select mode.
      * For single-select, uses only the first value.
      */
-    value?: readonly string[]
+    value?: string | readonly string[]
   }
 
   /**
@@ -163,7 +164,7 @@ export function Listbox<C extends ElementType = 'div'>({
   const fallbackListboxId = useId()
   const listboxId = id ?? fallbackListboxId
 
-  const [selectValue, handleChange] = useListboxState({ defaultValue, multiple, onChange, value })
+  const [selectValue, handleChange] = useListboxSelectState({ defaultValue, multiple, onChange, value })
   const focusHandlers = useFocusManagement({ onBlur, onFocus, onKeyDown })
 
   const contextValue = useMemo(
@@ -220,6 +221,7 @@ Listbox.Option = ListboxOption
 Listbox.Optgroup = ListboxOptgroup
 Listbox.Select = ListboxSelect
 Listbox.useSelectionObserver = useListboxSelectionObserver
+Listbox.useState = useListboxState
 
 Listbox.Context = ListboxContext
 Listbox.RenderContext = ListboxRenderContext

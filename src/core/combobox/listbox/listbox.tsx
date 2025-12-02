@@ -70,3 +70,4 @@ ComboboxListbox.getOptionLabel = ComboboxListboxOption.getLabel
 ComboboxListbox.getSelectedOptions = Listbox.getSelectedOptions
 ComboboxListbox.getValue = Listbox.getValue
 ComboboxListbox.setOptionSelectedState = Listbox.setOptionSelectedState
+ComboboxListbox.useState = Listbox.useState

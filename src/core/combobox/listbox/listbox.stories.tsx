@@ -1,6 +1,6 @@
 import { ComboboxContext } from '../context'
 import { ComboboxListbox } from './listbox'
-import { useId, useState } from 'react'
+import { useId } from 'react'
 
 import type { ChangeEventHandler } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -135,7 +135,7 @@ export const Controlled: Story = {
   parameters: { docs: { source: { type: 'code' } } },
   render: (args) => {
     // Our controlled state. We start with the option whose value is "1" checked.
-    const [value, setValue] = useState<readonly string[]>(['1'])
+    const [value, setValue] = ComboboxListbox.useState('1')
 
     const handleChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
       // NOTE: we get a reference to the current target outside of our state setter function

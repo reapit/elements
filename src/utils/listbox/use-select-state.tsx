@@ -2,16 +2,16 @@ import { getListboxValue } from './dom-helpers'
 import { useState } from 'react'
 import type { ChangeEventHandler } from 'react'
 
-export namespace useListboxState {
+export namespace useListboxSelectState {
   export interface Input {
     /** Initially selected option values for uncontrolled mode */
-    defaultValue?: readonly string[]
+    defaultValue?: string | readonly string[]
     /** Allows multiple option selection */
     multiple: boolean
     /** Change event handler for the underlying select element */
     onChange?: ChangeEventHandler<HTMLSelectElement>
     /** Selected option values for controlled mode */
-    value?: readonly string[]
+    value?: string | readonly string[]
   }
 
   export type Output = [
@@ -28,24 +28,26 @@ export namespace useListboxState {
  *
  * In controlled mode, uses the provided `value` prop to determine selection.
  * In uncontrolled mode, manages internal state initialized from `defaultValue`.
- *
- * For single-select listboxes, uses only the first selected value.
  */
-export function useListboxState({
+export function useListboxSelectState({
   defaultValue,
   multiple,
   onChange,
   value,
-}: useListboxState.Input): useListboxState.Output {
-  const [internalValue, setInternalValue] = useState(value ?? defaultValue ?? [])
+}: useListboxSelectState.Input): useListboxSelectState.Output {
+  const [internalValue, setInternalValue] = useState(() => asArray(value ?? defaultValue ?? []))
   // Uses the explicit `value` as the controlled value when provided; otherwise uses internal state.
-  const controlledValue = value ?? internalValue
+  const controlledValue = asArray(value ?? internalValue)
   const selectValue = multiple ? controlledValue : controlledValue.slice(0, 1)
 
   const handleChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
     onChange?.(event)
-    setInternalValue(getListboxValue(event.currentTarget))
+    setInternalValue(asArray(getListboxValue(event.currentTarget)))
   }
 
   return [selectValue, handleChange]
+}
+
+function asArray(value: string | readonly string[]): readonly string[] {
+  return typeof value === 'string' ? [value] : value
 }

@@ -150,7 +150,7 @@ export const Groups: Story = {
  *
  * Whether single- or multi-select behaviour is desired, the controlled state must be an array of
  * string values. The example here demonstrates a controlled usage of the `Listbox` via simple
- * local component state (`useState`) and `Listbox.getValue`.
+ * local component state (`Listbox.useState`) and `Listbox.getValue`.
  */
 export const Controlled: Story = {
   args: {
@@ -160,7 +160,7 @@ export const Controlled: Story = {
   parameters: { docs: { source: { type: 'code' } } },
   render: (args) => {
     // Our controlled state. We start with the option whose value is "1" checked.
-    const [value, setValue] = useState<readonly string[]>(['1'])
+    const [value, setValue] = Listbox.useState('1')
 
     const handleChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
       // NOTE: we get a reference to the current target outside of our state setter function
@@ -172,7 +172,50 @@ export const Controlled: Story = {
       setValue(Listbox.getValue(selectElement))
     }
 
-    return <Listbox {...args} onChange={handleChange} value={value} />
+    return (
+      <>
+        <pre style={{ color: '#FA00FF' }}>{JSON.stringify(value)}</pre>
+        <Listbox {...args} onChange={handleChange} value={value} />
+      </>
+    )
+  },
+}
+
+/**
+ * For multi-select listboxes, the controlled value should be an array of strings. This example
+ * demonstrates a controlled multi-select listbox where users can select multiple options.
+ *
+ * The `Listbox.getValue` helper returns an array for multi-select listboxes, making it easy to
+ * manage the state.
+ */
+export const ControlledMultiSelect: Story = {
+  name: 'Controlled (multi-select)',
+  args: {
+    ...Example.args,
+    'aria-multiselectable': true,
+    defaultValue: undefined,
+  },
+  parameters: { docs: { source: { type: 'code' } } },
+  render: (args) => {
+    // Our controlled state. We start with options "1" and "2" selected.
+    const [value, setValue] = Listbox.useState(['1', '2'])
+
+    const handleChange: ChangeEventHandler<HTMLSelectElement> = (event) => {
+      // NOTE: we get a reference to the current target outside of our state setter function
+      // because the state setter may be called after the synthetic event has been cleaned up
+      // and it's reference to the current target lost.
+      const selectElement = event.currentTarget
+
+      // `getValue` does the heavy lifting for us, returning the new state for the select.
+      setValue(Listbox.getValue(selectElement))
+    }
+
+    return (
+      <>
+        <pre>{JSON.stringify(value)}</pre>
+        <Listbox {...args} onChange={handleChange} value={value} />
+      </>
+    )
   },
 }
 
@@ -244,6 +287,9 @@ export const ObservingState: Story = {
 /**
  * Any selected options will be included in the form data during submission. The following example
  * demonstrates this through a native HTML form.
+ *
+ * Note: the form submission handler retrieves the "options" form value using `formData.getAll('options')`.
+ * This will result in an array of selected values, whether the listbox is a single- or multi-select.
  */
 export const Forms: Story = {
   args: {
