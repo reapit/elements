@@ -212,7 +212,7 @@ export const MultiSelect: Story = {
  * This wire up can be done manually via the each component's prop interface or automatically through
  * `Autocomplete.DefaultOptionsContext`.
  */
-export const DefaultOptions = {
+export const DefaultOptions: Story = {
   args: {
     ...MultiSelect.args,
     id: 'default-options-example',

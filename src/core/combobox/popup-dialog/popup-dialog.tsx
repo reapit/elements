@@ -89,6 +89,10 @@ export function ComboboxPopupDialog({
 
   const handleClose: ReactEventHandler<HTMLDialogElement> = (event) => {
     onClose?.(event)
+
+    // Prevent the close event from propagating to any parent dialog elements.
+    event.stopPropagation()
+
     if (search) {
       clearSearchInputOnClose(event)
     }

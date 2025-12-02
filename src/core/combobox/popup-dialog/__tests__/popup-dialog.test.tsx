@@ -102,6 +102,24 @@ test('exposes useContext', () => {
   expect(ComboboxPopupDialog.useContext).toBeDefined()
 })
 
+test('stops propagation of close event', () => {
+  const onClose = vi.fn()
+  render(
+    <ComboboxPopupDialog {...defaultProps} onClose={onClose}>
+      Content
+    </ComboboxPopupDialog>,
+  )
+
+  const dialog = screen.getByRole('dialog')
+  const closeEvent = new Event('close', { bubbles: true, cancelable: true })
+  const stopPropagationSpy = vi.spyOn(closeEvent, 'stopPropagation')
+
+  fireEvent(dialog, closeEvent)
+
+  expect(onClose).toHaveBeenCalledTimes(1)
+  expect(stopPropagationSpy).toHaveBeenCalledTimes(1)
+})
+
 const defaultProps = {
   'aria-labelledby': 'label-id',
   id: 'popup-id',
