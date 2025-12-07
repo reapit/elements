@@ -136,7 +136,7 @@ export const elButton = css`
     }
 
     &[data-has-no-padding='true'] {
-      height: auto;
+      height: fit-content;
       padding: 0;
 
       &[data-is-icon-only='true'] {
