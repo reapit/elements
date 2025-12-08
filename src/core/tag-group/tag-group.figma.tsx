@@ -15,7 +15,7 @@ figma.connect(TagGroup, '<TAG_GROUP_URL>', {
   ),
 })
 
-figma.connect(TagGroup, 'https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=118%3A6272', {
+figma.connect(TagGroup, '<TAG_GROUP_URL>', {
   imports: ['import { TagGroup } from "@reapit/elements/core/tag-group"'],
   variant: { 'No of tags': '2' },
   props: {
@@ -34,7 +34,7 @@ figma.connect(TagGroup, 'https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Rea
   ),
 })
 
-figma.connect(TagGroup, 'https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=118%3A6272', {
+figma.connect(TagGroup, '<TAG_GROUP_URL>', {
   imports: ['import { TagGroup } from "@reapit/elements/core/tag-group"'],
   variant: { 'No of tags': '3' },
   props: {

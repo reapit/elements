@@ -29,7 +29,9 @@ async function loadFigmaIcons(): Promise<FigmaComponent[]> {
   // The `?node-id=xxx` query param is important as it helps Figma narrow the search for components to within
   // the identified node in the figma file. In this case, the node is the "Icons list" auto layout layer
   // which contains all the icon component instances.
-  return await client.getComponents('https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20-727')
+  return await client.getComponents(
+    'https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=20-727&m=dev',
+  )
 }
 
 /** Create a file for a specific icon */
