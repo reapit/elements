@@ -1,6 +1,6 @@
 {
   "codeConnect": {
-    "include": ["src/core/**/*.tsx"],
+    "include": ["src/core/**/*.tsx", "src/icons/*.tsx"],
     "importPaths": {
       "src/core/*": "@reapit/elements/core/*",
       "src/icons/*": "@reapit/elements/icons/*",
