@@ -9,8 +9,14 @@ figma.connect(Button, '<BUTTON_URL>', {
       Disabled: true,
     }),
     hasNoPadding: figma.boolean('Remove padding'),
-    iconLeft: figma.instance('Icon L'),
-    iconRight: figma.instance('Icon R'),
+    iconLeft: figma.boolean('Icon left', {
+      true: figma.instance('Icon L'),
+      false: undefined,
+    }),
+    iconRight: figma.boolean('Icon right', {
+      true: figma.instance('Icon R'),
+      false: undefined,
+    }),
     isDestructive: figma.boolean('Destructive'),
     size: figma.enum('Size', {
       Small: 'small',
