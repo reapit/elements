@@ -1,4 +1,3 @@
-import { Autocomplete } from '#src/core/autocomplete'
 import { AutocompleteControl } from './autocomplete-control'
 import { useState } from 'react'
 
@@ -27,40 +26,40 @@ const meta = {
   },
   render: (args) => {
     // NOTE: We initialise value from the story's `defaultOptions` to maintain state consistency.
-    const [value, setValue] = Autocomplete.useState(args.defaultOptions?.map((o) => o.value) ?? [])
+    const [value, setValue] = AutocompleteControl.useState(args.defaultOptions?.map((o) => o.value) ?? [])
     const [searchText, setSearchText] = useState('')
 
     const filteredOptions = filterFruit(searchText)
 
     return (
       <AutocompleteControl {...args}>
-        <Autocomplete.Button />
-        <Autocomplete.Popup
+        <AutocompleteControl.Button />
+        <AutocompleteControl.Popup
           search={
-            <Autocomplete.SearchInput
+            <AutocompleteControl.SearchInput
               aria-label="Filter fruit"
               value={searchText}
               onChange={(e) => setSearchText(e.target.value)}
             />
           }
         >
-          <Autocomplete.Listbox
+          <AutocompleteControl.Listbox
             // Name prop is required for the form submission example
             name="fruit"
-            onChange={(e) => setValue(Autocomplete.getValue(e.currentTarget))}
+            onChange={(e) => setValue(AutocompleteControl.getValue(e.currentTarget))}
             value={value}
           >
             {filteredOptions.length > 0 ? (
               filteredOptions.map((option) => (
-                <Autocomplete.Option key={option.value} value={option.value}>
+                <AutocompleteControl.Option key={option.value} value={option.value}>
                   {option.label}
-                </Autocomplete.Option>
+                </AutocompleteControl.Option>
               ))
             ) : (
-              <Autocomplete.Placeholder>No results found</Autocomplete.Placeholder>
+              <AutocompleteControl.Placeholder>No results found</AutocompleteControl.Placeholder>
             )}
-          </Autocomplete.Listbox>
-        </Autocomplete.Popup>
+          </AutocompleteControl.Listbox>
+        </AutocompleteControl.Popup>
       </AutocompleteControl>
     )
   },
@@ -128,7 +127,7 @@ export const Sizes: Story = {
 }
 
 /**
- * Optional help text can be provided to give more context about the autocomplete.
+ * Optional help text can be provided to give more context about the autocompleteControl.
  */
 export const HelpText: Story = {
   args: {

@@ -6,12 +6,14 @@ import type { ReactNode } from 'react'
 
 export namespace AutocompleteControl {
   export interface ButtonProps extends Autocomplete.ButtonProps {}
+  export interface CardDefaultContentProps extends Autocomplete.CardDefaultContentProps {}
   export interface DividerProps extends Autocomplete.DividerProps {}
   export interface ListboxProps extends Autocomplete.ListboxProps {}
   export interface OptgroupProps extends Autocomplete.OptgroupProps {}
   export interface OptionProps extends Autocomplete.OptionProps {}
   export interface OptionAdditionalInfoProps extends Autocomplete.OptionAdditionalInfoProps {}
   export interface PopupProps extends Autocomplete.PopupProps {}
+  export interface SearchInputProps extends Autocomplete.SearchInputProps {}
   export interface SelectionChipsItemProps extends Autocomplete.SelectionChipsItemProps {}
 
   export interface Props extends Autocomplete.Props {
@@ -94,11 +96,14 @@ export function AutocompleteControl({
 
 AutocompleteControl.getValue = Autocomplete.getValue
 AutocompleteControl.Button = Autocomplete.Button
+AutocompleteControl.CardDefaultContent = Autocomplete.CardDefaultContent
 AutocompleteControl.Divider = Autocomplete.Divider
 AutocompleteControl.Listbox = Autocomplete.Listbox
 AutocompleteControl.Option = Autocomplete.Option
 AutocompleteControl.OptionAdditionalInfo = Autocomplete.OptionAdditionalInfo
 AutocompleteControl.Optgroup = Autocomplete.Optgroup
+AutocompleteControl.Placeholder = Autocomplete.Placeholder
 AutocompleteControl.Popup = Autocomplete.Popup
+AutocompleteControl.SearchInput = Autocomplete.SearchInput
 AutocompleteControl.SelectionChipsItem = Autocomplete.SelectionChipsItem
 AutocompleteControl.useState = Autocomplete.useState

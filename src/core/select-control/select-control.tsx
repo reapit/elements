@@ -6,6 +6,7 @@ import type { ReactNode } from 'react'
 
 export namespace SelectControl {
   export interface ButtonProps extends Select.ButtonProps {}
+  export interface CardDefaultContentProps extends Select.CardDefaultContentProps {}
   export interface DividerProps extends Select.DividerProps {}
   export interface ListboxProps extends Select.ListboxProps {}
   export interface OptgroupProps extends Select.OptgroupProps {}
@@ -93,6 +94,7 @@ export function SelectControl({
 
 SelectControl.getValue = Select.getValue
 SelectControl.Button = Select.Button
+SelectControl.CardDefaultContent = Select.CardDefaultContent
 SelectControl.Divider = Select.Divider
 SelectControl.Listbox = Select.Listbox
 SelectControl.Option = Select.Option

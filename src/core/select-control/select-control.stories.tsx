@@ -1,5 +1,4 @@
 import { SelectControl } from './select-control'
-import { Select } from '#src/core/select'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -33,21 +32,21 @@ type Story = StoryObj<typeof meta>
 export const Example: Story = {
   args: {
     children: [
-      <Select.Button key="button" />,
-      <Select.Popup key="popup">
+      <SelectControl.Button key="button" />,
+      <SelectControl.Popup key="popup">
         {/* Name is required for form submission example */}
-        <Select.Listbox name="fruit">
-          <Select.Option value="apple">Apple</Select.Option>
-          <Select.Option value="apricot">Apricot</Select.Option>
-          <Select.Option value="avocado">Avocado</Select.Option>
-          <Select.Option value="banana">Banana</Select.Option>
-          <Select.Option value="blueberry">Blueberry</Select.Option>
-          <Select.Option value="cherry">Cherry</Select.Option>
-          <Select.Option value="cantaloupe">Cantaloupe</Select.Option>
-          <Select.Option value="grape">Grape</Select.Option>
-          <Select.Option value="grapefruit">Grapefruit</Select.Option>
-        </Select.Listbox>
-      </Select.Popup>,
+        <SelectControl.Listbox name="fruit">
+          <SelectControl.Option value="apple">Apple</SelectControl.Option>
+          <SelectControl.Option value="apricot">Apricot</SelectControl.Option>
+          <SelectControl.Option value="avocado">Avocado</SelectControl.Option>
+          <SelectControl.Option value="banana">Banana</SelectControl.Option>
+          <SelectControl.Option value="blueberry">Blueberry</SelectControl.Option>
+          <SelectControl.Option value="cherry">Cherry</SelectControl.Option>
+          <SelectControl.Option value="cantaloupe">Cantaloupe</SelectControl.Option>
+          <SelectControl.Option value="grape">Grape</SelectControl.Option>
+          <SelectControl.Option value="grapefruit">Grapefruit</SelectControl.Option>
+        </SelectControl.Listbox>
+      </SelectControl.Popup>,
     ],
     disabled: false,
     errorText: '',
