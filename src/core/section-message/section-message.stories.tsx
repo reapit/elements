@@ -1,11 +1,12 @@
-import { SectionMessage } from './section-message'
-import { InfoIcon } from '#src/icons/info'
-import { WarningIcon } from '#src/icons/warning'
-import { CheckIcon } from '#src/icons/check'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
-import { Text } from '#src/core/text'
+import { CheckIcon } from '#src/icons/check'
+import { ErrorIcon } from '#src/icons/error'
 import { fn } from 'storybook/test'
+import { InfoIcon } from '#src/icons/info'
+import { SectionMessage } from './section-message'
+import { Text } from '#src/core/text'
+import { WarningIcon } from '#src/icons/warning'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -14,7 +15,7 @@ const meta: Meta<typeof SectionMessage> = {
   title: 'Core/SectionMessage',
   component: SectionMessage,
   argTypes: {
-    description: {
+    children: {
       control: 'text',
     },
     title: {
@@ -26,12 +27,13 @@ const meta: Meta<typeof SectionMessage> = {
     },
     icon: {
       control: 'radio',
-      options: ['None', 'Info', 'Warning', 'Check'],
+      options: ['None', 'Info', 'Warning', 'Check', 'Error'],
       mapping: {
         None: null,
         Info: <InfoIcon />,
         Warning: <WarningIcon />,
         Check: <CheckIcon />,
+        Error: <ErrorIcon />,
       },
     },
     onDismiss: {
@@ -45,12 +47,12 @@ type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
   args: {
-    description: 'This is a section message that provides important information to the user.',
-    title: 'Section Message Title',
-    variant: 'info',
+    actions: undefined,
+    children: 'This is a section message that provides important information to the user.',
     icon: 'Info',
     onDismiss: undefined,
-    actions: undefined,
+    title: 'Section Message Title',
+    variant: 'info',
   },
 }
 
@@ -79,10 +81,20 @@ export const Variants: Story = {
   ],
   render: (args) => (
     <>
-      <SectionMessage {...args} title="Error Section Message" variant="error" icon={<WarningIcon />} />
-      <SectionMessage {...args} title="Warning Section Message" variant="warning" icon={<WarningIcon />} />
-      <SectionMessage {...args} title="Info Section Message" variant="info" icon={<InfoIcon />} />
-      <SectionMessage {...args} title="Success Section Message" variant="success" icon={<CheckIcon />} />
+      <SectionMessage {...args} title="Error Section Message" variant="error" icon={<ErrorIcon aria-label="Error" />} />
+      <SectionMessage
+        {...args}
+        title="Warning Section Message"
+        variant="warning"
+        icon={<WarningIcon aria-label="Warning" />}
+      />
+      <SectionMessage {...args} title="Info Section Message" variant="info" icon={<InfoIcon aria-label="Note" />} />
+      <SectionMessage
+        {...args}
+        title="Success Section Message"
+        variant="success"
+        icon={<CheckIcon aria-label="Success" />}
+      />
       <SectionMessage {...args} title="Neutral Light Section Message" variant="neutral-light" />
       <SectionMessage {...args} title="Neutral Dark Section Message" variant="neutral-dark" />
     </>
@@ -145,7 +157,7 @@ export const Complete: Story = {
   args: {
     ...Example.args,
     title: 'Complete Example',
-    description:
+    children:
       'This section message includes all available features: a title, description, icon, actions, and dismiss button.',
     icon: 'Info',
     actions: (
@@ -167,14 +179,14 @@ export const Wrapping: Story = {
   args: {
     ...Example.args,
     title: 'This is a longer section message title that will wrap when space is constrained',
-    description:
-      'This is a longer description that demonstrates how the section message component handles text wrapping when placed in a width-constrained container.',
+    children:
+      'This is a longer description that demonstrates how the section message component handles text wrapping when space is constrained.',
     icon: 'Info',
     onDismiss: fn(),
   },
   decorators: [
     (Story) => {
-      const [width, setWidth] = useState(400)
+      const [width, setWidth] = useState(500)
       return (
         <>
           <div
@@ -188,8 +200,8 @@ export const Wrapping: Story = {
             <input
               aria-label="Container width"
               id="width"
-              min={200}
-              max={600}
+              min={300}
+              max={700}
               onChange={(event) => setWidth(Number(event.currentTarget.value))}
               step={10}
               type="range"
@@ -208,4 +220,91 @@ export const Wrapping: Story = {
       )
     },
   ],
+}
+
+/**
+ * To help reduce space, `lineClamp` allows the description content to
+ * be truncated after the specified number of lines.
+ */
+export const Clamping: Story = {
+  args: {
+    ...Wrapping.args,
+    lineClamp: 1,
+  },
+  decorators: Wrapping.decorators,
+}
+
+/**
+ * When showing a message dynamically, like in response to user interaction, use the appropriate
+ * ARIA role for the section message. For messages present on page load, no role should be used.
+ *
+ * - **`role="alert"`** for urgent messages that need immediate attention (errors, warnings).
+ * Announced immediately, interrupting current screen reader activity. Use for form validation
+ * errors, critical warnings, session expiry notices
+ * - **`role="status"`** for non-urgent updates (info, success messages). Announced politely when
+ * the screen reader finishes its current task. Use for success confirmations, informational
+ * updates, progress indicators.
+ *
+ * ```tsx
+ * // ❌ WRONG - Static message on page load with role
+ * <SectionMessage
+ *   role="alert"  // Don't do this!
+ *   variant="info"
+ *   description="Welcome message"
+ * />
+ *
+ * // ✅ CORRECT - Static message (no role)
+ * <SectionMessage
+ *   variant="info"
+ *   description="Welcome message"
+ * />
+ *
+ * // ✅ CORRECT - Dynamic error (use alert)
+ * {errorMessage && (
+ *   <SectionMessage
+ *     role="alert"
+ *     variant="error"
+ *     description={errorMessage}
+ *   />
+ * )}
+ *
+ * // ✅ CORRECT - Dynamic success (use status)
+ * {successMessage && (
+ *   <SectionMessage
+ *     role="status"
+ *     variant="success"
+ *     description={successMessage}
+ *   />
+ * )}
+ * ```
+ */
+export const DynamicLoading: Story = {
+  args: {
+    children: 'This is a dynamically loaded message that will be announced by screen readers.',
+    title: 'Dynamic Message',
+    variant: 'info',
+    icon: 'Info',
+    role: 'status',
+  },
+  argTypes: {
+    ...meta.argTypes,
+    role: {
+      control: 'select',
+      options: ['alert', 'status', undefined],
+      children: 'ARIA role - use "alert" for errors/warnings, "status" for info/success',
+    },
+  },
+  render: (args) => {
+    const [isVisible, setIsVisible] = useState(false)
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+        <div>
+          <button onClick={() => setIsVisible(!isVisible)}>{isVisible ? 'Hide Message' : 'Show Message'}</button>
+        </div>
+
+        {isVisible && <SectionMessage {...args} onDismiss={() => setIsVisible(false)} />}
+      </div>
+    )
+  },
 }

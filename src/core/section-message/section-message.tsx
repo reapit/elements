@@ -1,3 +1,4 @@
+import { Button } from '../button'
 import { CloseIcon } from '#src/icons/close'
 import {
   ElSectionMessage,
@@ -5,58 +6,99 @@ import {
   ElSectionMessageTitle,
   ElSectionMessageDescription,
   ElSectionMessageActions,
-  ElSectionMessageDismissButton,
 } from './styles'
+import { LineClamp } from '#src/utils/line-clamp/line-clamp'
+import { useId } from 'react'
 
 import type { HTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
+// We omit `title` because we need to use it for our own purposes.
+type AttributesToOmit = 'title'
+
 export namespace SectionMessage {
-  export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, 'title'> {
+  export interface Props extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
+    /** Actions to display at the bottom */
+    actions?: ReactNode
     /** The description content of the section message */
-    description: ReactNode
-    /** Optional title text */
+    children: ReactNode
+    /** Icon to display */
+    icon?: ReactNode
+    /** Maximum number of lines to description content to display before truncating */
+    lineClamp?: number | 'none'
+    /** Callback fired when the dismiss button is clicked */
+    onDismiss?: MouseEventHandler<HTMLButtonElement>
+    /** Title of the section message */
     title?: string
     /** The variant of the section message */
     variant: 'error' | 'warning' | 'info' | 'success' | 'neutral-light' | 'neutral-dark'
-    /** Callback fired when the dismiss button is clicked */
-    onDismiss?: MouseEventHandler<HTMLButtonElement>
-    /** Optional actions to display at the bottom */
-    actions?: ReactNode
-    /** Optional icon to display */
-    icon?: ReactNode
   }
 }
 
 /**
- * A section message component that displays contextual information or alerts users within a specific screen section.
+ * A section message is used to alert users or display contextual information in a particular
+ * section of the screen. The component can be used on pages, drawers, dialogs or popovers.
  *
- * Can be used in pages, drawers, dialogs, or popovers.
- * Supports multiple variants (error, warning, info, success, neutral-light, neutral-dark)
- * with optional title, icon, actions, and dismiss functionality.
+ * For **dynamic messages** (shown after user interaction), use the appropriate ARIA role:
+ * - `role="alert"` for urgent messages needing immediate attention (errors, warnings); or,
+ * - `role="status"` for non-urgent updates (info, success).
+ *
+ * For **static messages** (present on page load), no role is needed. Screen readers only announce
+ * live region updates, not initial content.
+ *
+ * @example
+ * // Static message on page load (no role)
+ * <SectionMessage variant="info">
+ *   You have 3 unread messages
+ * </SectionMessage>
+ *
+ * @example
+ * // Dynamic error message (use role="alert")
+ * {errorMessage && (
+ *   <SectionMessage role="alert" variant="error">
+ *     {errorMessage}
+ *   </SectionMessage>
+ * )}
+ *
+ * @example
+ * // Dynamic success message (use role="status")
+ * {successMessage && (
+ *   <SectionMessage role="status" variant="success">
+ *     {successMessage}
+ *   </SectionMessage>
+ * )}
  */
 export function SectionMessage({
-  description,
+  actions,
+  children,
+  icon,
+  lineClamp = 'none',
+  onDismiss,
   title,
   variant,
-  onDismiss,
-  actions,
-  icon,
   ...rest
 }: SectionMessage.Props) {
-  const defaultRole = variant === 'error' || variant === 'warning' ? 'alert' : 'status'
-  const role = rest.role ?? defaultRole
+  const titleId = useId()
 
   return (
-    <ElSectionMessage {...rest} role={role} data-variant={variant}>
-      {icon && <ElSectionMessageIconContainer aria-hidden>{icon}</ElSectionMessageIconContainer>}
-      {title && <ElSectionMessageTitle>{title}</ElSectionMessageTitle>}
-      <ElSectionMessageDescription>{description}</ElSectionMessageDescription>
-      {actions && <ElSectionMessageActions>{actions}</ElSectionMessageActions>}
+    <ElSectionMessage {...rest} data-variant={variant} aria-labelledby={title ? titleId : undefined}>
+      {/* Dimiss button is first so it is earlier in the tab sequence than the rest of the content */}
       {onDismiss && (
-        <ElSectionMessageDismissButton type="button" aria-label="dismiss" onClick={onDismiss}>
-          <CloseIcon aria-hidden />
-        </ElSectionMessageDismissButton>
+        <Button
+          aria-label="Dismiss message"
+          hasNoPadding
+          iconLeft={<CloseIcon aria-hidden />}
+          onClick={onDismiss}
+          size="small"
+          type="button"
+          variant="tertiary"
+        />
       )}
+      {icon && <ElSectionMessageIconContainer>{icon}</ElSectionMessageIconContainer>}
+      {title && <ElSectionMessageTitle id={titleId}>{title}</ElSectionMessageTitle>}
+      <LineClamp as={ElSectionMessageDescription} clampTo={lineClamp}>
+        {children}
+      </LineClamp>
+      {actions && <ElSectionMessageActions>{actions}</ElSectionMessageActions>}
     </ElSectionMessage>
   )
 }
