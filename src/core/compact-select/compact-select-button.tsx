@@ -4,7 +4,7 @@ import { ElCompactSelectButton, ElCompactSelectButtonLabelText, ElCompactSelectI
 import { Tooltip } from '#src/core/tooltip'
 import { useId } from 'react'
 
-type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 'placeholder' | 'size'
+type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 'size'
 
 export namespace CompactSelectButton {
   export interface Props extends Omit<Combobox.ButtonProps, AttributesToOmit> {
@@ -17,7 +17,12 @@ export namespace CompactSelectButton {
  * A button that opens a popup with preloaded options. Use this for compact single-select comboboxes.
  * Displays placeholder text when no selection is made.
  */
-export function CompactSelectButton({ defaultOptions, onClick, ...rest }: CompactSelectButton.Props) {
+export function CompactSelectButton({
+  defaultOptions,
+  onClick,
+  placeholder = 'Select an option',
+  ...rest
+}: CompactSelectButton.Props) {
   const buttonProps = Combobox.useButton({ onClick })
   const context = Combobox.useContext()
   const hasSelection = Combobox.useHasSelection(context.listboxId)
@@ -34,15 +39,18 @@ export function CompactSelectButton({ defaultOptions, onClick, ...rest }: Compac
       {...rest}
       {...buttonProps}
       {...Tooltip.getTriggerProps({ id: buttonProps.id, tooltipId, tooltipPurpose: 'describe' })}
+      aria-placeholder={placeholder}
       data-size={context.size}
       role="combobox"
     >
-      <ElCompactSelectButtonLabelText id={labelTextId}>{content}</ElCompactSelectButtonLabelText>
+      <ElCompactSelectButtonLabelText data-placeholder={placeholder} id={labelTextId}>
+        {content}
+      </ElCompactSelectButtonLabelText>
       <ElCompactSelectIconContainer>
         <ChevronDownIcon />
       </ElCompactSelectIconContainer>
       <Tooltip id={tooltipId} triggerId={buttonProps.id} truncationTargetId={labelTextId}>
-        {content}
+        {content || placeholder}
       </Tooltip>
     </ElCompactSelectButton>
   )

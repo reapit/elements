@@ -46,6 +46,10 @@ export const ElCompactSelectButtonLabelText = styled.span`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
+
+  &:empty::before {
+    content: attr(data-placeholder);
+  }
 `
 
 export const ElCompactSelectIconContainer = styled.span`
