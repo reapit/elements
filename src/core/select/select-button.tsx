@@ -5,8 +5,18 @@ type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 
 
 export namespace SelectButton {
   export interface Props extends Omit<Combobox.ButtonProps, AttributesToOmit> {
+    /**
+     * Render-prop to customise display of selected content. Typically used with the card
+     * selection style.
+     */
+    children?: Combobox.SelectedContentProps['children']
     /** Default options to display when no selections have been made. */
     defaultOptions?: Combobox.SelectedContentProps['defaultOptions']
+    /**
+     * Visual style of the selected content. Only applies for single-select autocompletes
+     * when a selection has been made.
+     */
+    selectionStyle?: 'card' | 'default'
   }
 }
 
@@ -15,21 +25,36 @@ export namespace SelectButton {
  * Use this for standard select-style components where users choose from predefined options.
  */
 export function SelectButton({
+  children,
   defaultOptions,
   onClick,
   placeholder = 'Select an option',
+  selectionStyle = 'default',
   ...rest
 }: SelectButton.Props) {
-  const buttonProps = useComboboxButton({ onClick, placeholder })
+  const buttonProps = useComboboxButton({ onClick })
   const context = Combobox.useContext()
   const hasSelection = Combobox.useHasSelection(context.listboxId)
 
   // Clear button is only shown for single-selects with a selection
   const showClearButton = hasSelection && !context.multiple
-  // Placeholder is shown if there are no selections, or when the select is a multi-select.
-  const showPlaceholder = !hasSelection || context.multiple
+  // Content is shown if there are selections and the autocomplete is a single-select.
+  const showContent = hasSelection && !context.multiple
+  // The card style is only shown for single-selects with a selection
+  const showCard = selectionStyle === 'card' && showContent
 
-  return (
+  return showCard ? (
+    <Combobox.Card
+      {...rest}
+      {...buttonProps}
+      action={<Combobox.ClearButton aria-controls={context.listboxId} disabled={context.disabled} />}
+      size={context.size}
+    >
+      <Combobox.SelectedContent defaultOptions={defaultOptions} listboxId={context.listboxId}>
+        {children}
+      </Combobox.SelectedContent>
+    </Combobox.Card>
+  ) : (
     <Combobox.Button
       {...rest}
       {...buttonProps}
@@ -43,10 +68,10 @@ export function SelectButton({
       placeholder={placeholder}
       size={context.size}
     >
-      {showPlaceholder ? (
-        placeholder
-      ) : (
-        <Combobox.SelectedContent defaultOptions={defaultOptions} listboxId={context.listboxId} />
+      {showContent && (
+        <Combobox.SelectedContent defaultOptions={defaultOptions} listboxId={context.listboxId}>
+          {children}
+        </Combobox.SelectedContent>
       )}
     </Combobox.Button>
   )

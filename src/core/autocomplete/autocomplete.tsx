@@ -4,6 +4,7 @@ import { Combobox } from '#src/core/combobox'
 
 export namespace Autocomplete {
   export interface ButtonProps extends AutocompleteButton.Props {}
+  export interface CardDefaultContentProps extends Combobox.CardDefaultContentProps {}
   export interface DefaultOptionsContextValue extends Combobox.DefaultOptionsContextValue {}
   export interface DividerProps extends Combobox.DividerProps {}
   export interface ListboxProps extends Combobox.ListboxProps {}
@@ -31,6 +32,7 @@ Autocomplete.getValue = Combobox.getListboxValue
 Autocomplete.getListboxId = Combobox.getListboxId
 Autocomplete.getPopupId = Combobox.getPopupId
 Autocomplete.Button = AutocompleteButton
+Autocomplete.CardDefaultContent = Combobox.CardDefaultContent
 Autocomplete.Divider = Combobox.Divider
 Autocomplete.DefaultOptionsContext = Combobox.DefaultOptionsContext
 Autocomplete.Listbox = Combobox.Listbox

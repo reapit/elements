@@ -10,31 +10,31 @@ test('renders a combobox element', () => {
   expect(screen.getByRole('combobox')).toBeVisible()
 })
 
-test('displays default placeholder text when no placeholder is provided', () => {
+test('sets default aria-placeholder when no placeholder is provided', () => {
   render(
     <Autocomplete>
       <Autocomplete.Button />
     </Autocomplete>,
   )
-  expect(screen.getByRole('combobox')).toHaveTextContent('Search...')
+  expect(screen.getByRole('combobox')).toHaveAttribute('aria-placeholder', 'Search...')
 })
 
-test('displays custom placeholder text', () => {
+test('sets custom aria-placeholder', () => {
   render(
     <Autocomplete>
       <Autocomplete.Button placeholder="Find an item..." />
     </Autocomplete>,
   )
-  expect(screen.getByRole('combobox')).toHaveTextContent('Find an item...')
+  expect(screen.getByRole('combobox')).toHaveAttribute('aria-placeholder', 'Find an item...')
 })
 
-test('displays placeholder text in multi-select mode', () => {
+test('sets aria-placeholder in multi-select mode', () => {
   render(
     <Autocomplete multiple>
       <Autocomplete.Button placeholder="Search items..." />
     </Autocomplete>,
   )
-  expect(screen.getByRole('combobox')).toHaveTextContent('Search items...')
+  expect(screen.getByRole('combobox')).toHaveAttribute('aria-placeholder', 'Search items...')
 })
 
 test('renders search icon when there is no selection', () => {

@@ -10,12 +10,6 @@ export namespace useComboboxButton {
      * before the internal popup-showing logic.
      */
     onClick?: MouseEventHandler<HTMLButtonElement>
-    /**
-     * Placeholder text to display when no option is selected (or multiple options
-     * are selected in multi-select mode).
-     * @default 'Select an option'
-     */
-    placeholder?: string
   }
 
   export interface Output {
@@ -37,6 +31,8 @@ export namespace useComboboxButton {
     id: string
     /** Click handler that triggers the popup and calls consumer's onClick */
     onClick: MouseEventHandler<HTMLButtonElement>
+    /** Role for the button element */
+    role: 'combobox'
   }
 }
 
@@ -86,5 +82,6 @@ export function useComboboxButton({ onClick }: useComboboxButton.Input = {}): us
     disabled,
     id: comboboxId,
     onClick: handleClick,
+    role: 'combobox',
   }
 }

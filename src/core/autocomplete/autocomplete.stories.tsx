@@ -1,4 +1,5 @@
 import { Autocomplete } from './autocomplete'
+import { SupplementaryInfo } from '../supplementary-info'
 import { useEffect, useId, useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -227,6 +228,52 @@ export const DefaultOptions: Story = {
   },
 }
 
+/**
+ * Single-select autocompletes can display a card with dynamic content by providing `selectionStyle="card"`
+ * and a `children` render-prop to `Autocomplete.Button`.
+ */
+export const SelectionCard: Story = {
+  args: {
+    ...Preloaded.args,
+    id: 'selection-card-example',
+  },
+  parameters: {
+    docs: { story: { source: 'code' } },
+  },
+  render: (args) => {
+    return (
+      <Autocomplete {...args}>
+        <Autocomplete.Button
+          defaultOptions={[{ label: 'Banana', value: 'banana' }]}
+          placeholder="Select fruit"
+          selectionStyle="card"
+        >
+          {(options) => (
+            <Autocomplete.CardDefaultContent
+              additionalInfo={
+                <SupplementaryInfo colour="secondary">
+                  <SupplementaryInfo.Item>{descriptions[options[0]?.value]}</SupplementaryInfo.Item>
+                </SupplementaryInfo>
+              }
+            >
+              {options[0]?.label}
+            </Autocomplete.CardDefaultContent>
+          )}
+        </Autocomplete.Button>
+        <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Filter fruit" />}>
+          <Autocomplete.Listbox defaultValue={'banana'}>
+            {allOptions.map((option) => (
+              <Autocomplete.Option key={option.value} value={option.value}>
+                {option.label}
+              </Autocomplete.Option>
+            ))}
+          </Autocomplete.Listbox>
+        </Autocomplete.Popup>
+      </Autocomplete>
+    )
+  },
+}
+
 interface FruitOption {
   label: string
   value: string
@@ -274,3 +321,15 @@ const allOptions: FruitOption[] = [
   { label: 'Grape', value: 'grape' },
   { label: 'Grapefruit', value: 'grapefruit' },
 ]
+
+const descriptions = {
+  apple: 'Crunchy and juicy',
+  apricot: 'Great with cream',
+  avocado: 'Creamy and nutritious',
+  banana: 'Soft and sweet',
+  blueberry: 'Packed with goodness',
+  cherry: 'Place on top',
+  cantaloupe: 'Juicy and floral',
+  grape: 'Berry winey',
+  grapefruit: 'Acidic and juicy',
+}

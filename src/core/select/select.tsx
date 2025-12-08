@@ -4,6 +4,7 @@ import { Combobox } from '#src/core/combobox'
 
 export namespace Select {
   export interface ButtonProps extends SelectButton.Props {}
+  export interface CardDefaultContentProps extends Combobox.CardDefaultContentProps {}
   export interface DefaultOptionsContextValue extends Combobox.DefaultOptionsContextValue {}
   export interface DividerProps extends Combobox.DividerProps {}
   export interface ListboxProps extends Combobox.ListboxProps {}
@@ -28,6 +29,7 @@ Select.getValue = Combobox.getListboxValue
 Select.getListboxId = Combobox.getListboxId
 Select.getPopupId = Combobox.getPopupId
 Select.Button = SelectButton
+Select.CardDefaultContent = Combobox.CardDefaultContent
 Select.DefaultOptionsContext = Combobox.DefaultOptionsContext
 Select.Divider = Combobox.Divider
 Select.Listbox = Combobox.Listbox

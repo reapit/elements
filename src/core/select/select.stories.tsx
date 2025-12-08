@@ -1,4 +1,5 @@
 import { Select } from './select'
+import { SupplementaryInfo } from '../supplementary-info'
 import { useId } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -144,4 +145,66 @@ export const DefaultOptions: Story = {
       { label: 'Blueberry', value: 'blueberry' },
     ],
   },
+}
+
+/**
+ * Single-select selects can display a card with dynamic content by providing `selectionStyle="card"`
+ * and a `children` render-prop to `Select.Button`.
+ */
+export const SelectionCard: Story = {
+  args: {
+    ...Example.args,
+    id: 'selection-card-example',
+  },
+  parameters: {
+    docs: { story: { source: 'code' } },
+  },
+  render: (args) => {
+    return (
+      <Select {...args}>
+        <Select.Button
+          defaultOptions={[{ label: 'Banana', value: 'banana' }]}
+          placeholder="Select fruit"
+          selectionStyle="card"
+        >
+          {(options) => (
+            <Select.CardDefaultContent
+              additionalInfo={
+                <SupplementaryInfo colour="secondary">
+                  <SupplementaryInfo.Item>{descriptions[options[0]?.value]}</SupplementaryInfo.Item>
+                </SupplementaryInfo>
+              }
+            >
+              {options[0]?.label}
+            </Select.CardDefaultContent>
+          )}
+        </Select.Button>
+        <Select.Popup>
+          <Select.Listbox defaultValue={'banana'}>
+            <Select.Option value="apple">Apple</Select.Option>
+            <Select.Option value="apricot">Apricot</Select.Option>
+            <Select.Option value="avocado">Avocado</Select.Option>
+            <Select.Option value="banana">Banana</Select.Option>
+            <Select.Option value="blueberry">Blueberry</Select.Option>
+            <Select.Option value="cherry">Cherry</Select.Option>
+            <Select.Option value="cantaloupe">Cantaloupe</Select.Option>
+            <Select.Option value="grape">Grape</Select.Option>
+            <Select.Option value="grapefruit">Grapefruit</Select.Option>
+          </Select.Listbox>
+        </Select.Popup>
+      </Select>
+    )
+  },
+}
+
+const descriptions = {
+  apple: 'Crunchy and juicy',
+  apricot: 'Great with cream',
+  avocado: 'Creamy and nutritious',
+  banana: 'Soft and sweet',
+  blueberry: 'Packed with goodness',
+  cherry: 'Place on top',
+  cantaloupe: 'Juicy and floral',
+  grape: 'Berry winey',
+  grapefruit: 'Acidic and juicy',
 }
