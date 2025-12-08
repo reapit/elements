@@ -1,13 +1,11 @@
 import { applyCSSAnchorPositioningPolyfill } from '../polyfill'
 import { isCSSAnchorPositioningSupported } from '../is-css-anchor-positioning-supported'
-import polyfill from '@oddbird/css-anchor-positioning/fn'
+import { polyfill } from '../preload'
 
-vi.mock('@oddbird/css-anchor-positioning/fn')
 vi.mock('../is-css-anchor-positioning-supported')
-
-beforeEach(() => {
-  vi.clearAllMocks()
-})
+vi.mock('../preload', () => ({
+  polyfill: vi.fn(),
+}))
 
 describe('when CSS anchor positioning is not supported', () => {
   beforeEach(() => {
@@ -39,17 +37,48 @@ describe('when CSS anchor positioning is not supported', () => {
 
   test('allows default options to be overridden', async () => {
     const testElement = document.createElement('div')
+    document.body.appendChild(testElement)
     await applyCSSAnchorPositioningPolyfill({
       elements: [testElement],
       excludeInlineStyles: false,
       useAnimationFrame: true,
     })
+    expect(polyfill).toHaveBeenCalledOnce()
     expect(polyfill).toHaveBeenCalledWith({
       elements: [testElement],
       excludeInlineStyles: false,
       useAnimationFrame: true,
     })
     testElement.remove()
+  })
+
+  test('filters out disconnected elements before applying polyfill', async () => {
+    const connectedElement = document.createElement('div')
+    const disconnectedElement = document.createElement('div')
+    document.body.appendChild(connectedElement)
+
+    await applyCSSAnchorPositioningPolyfill({
+      elements: [connectedElement, disconnectedElement],
+    })
+
+    expect(polyfill).toHaveBeenCalledWith({
+      elements: [connectedElement],
+      excludeInlineStyles: true,
+      useAnimationFrame: false,
+    })
+
+    connectedElement.remove()
+  })
+
+  test('does not apply polyfill if all elements are disconnected', async () => {
+    const disconnectedElement1 = document.createElement('div')
+    const disconnectedElement2 = document.createElement('div')
+
+    await applyCSSAnchorPositioningPolyfill({
+      elements: [disconnectedElement1, disconnectedElement2],
+    })
+
+    expect(polyfill).not.toHaveBeenCalled()
   })
 })
 

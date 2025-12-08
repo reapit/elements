@@ -52,6 +52,11 @@ const utils = Object.fromEntries(
   ]),
 )
 
+// Dedicated polyfill entry points that can be preloaded via <link rel="modulepreload">
+const polyfillPreloads = {
+  'polyfills/css-anchor-positioning/preload': 'src/polyfills/css-anchor-positioning/preload.ts',
+}
+
 export default defineConfig({
   build: {
     copyPublicDir: false,
@@ -65,6 +70,7 @@ export default defineConfig({
         ...deprecated,
         ...icons,
         ...utils,
+        ...polyfillPreloads,
       },
       formats: ['es', 'cjs'],
     },

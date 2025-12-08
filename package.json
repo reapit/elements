@@ -53,6 +53,11 @@
       "import": "./dist/js/lab/*.js",
       "require": "./dist/js/lab/*.cjs"
     },
+    "./polyfills/*": {
+      "types": "./dist/types/polyfills/*/index.d.ts",
+      "import": "./dist/js/polyfills/*.js",
+      "require": "./dist/js/polyfills/*.cjs"
+    },
     "./utils/*": {
       "types": "./dist/types/utils/*/index.d.ts",
       "import": "./dist/js/utils/*.js",

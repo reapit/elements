@@ -44,10 +44,28 @@ export async function applyCSSAnchorPositioningPolyfill({
 }: applyCSSAnchorPositioningPolyfill.Options = {}): Promise<void> {
   if (!isCSSAnchorPositioningSupported()) {
     // Dynamic import is cached by browser's module system - no repeated network requests
-    const { default: polyfillFn } = await import('@oddbird/css-anchor-positioning/fn')
+    // Uses dedicated entry point that can be preloaded via <link rel="modulepreload">
+    const { polyfill: polyfillFn } = await import('./preload')
+
+    if (elements) {
+      // Because the import is async, we need to confirm our elements are still connected to the DOM
+      // before applying the polyfill.
+      const connectedElements = elements.filter((element) => element.isConnected)
+
+      if (connectedElements.length === 0) {
+        return
+      }
+
+      await polyfillFn({
+        elements: connectedElements,
+        excludeInlineStyles,
+        useAnimationFrame,
+      })
+
+      return
+    }
 
     await polyfillFn({
-      elements,
       excludeInlineStyles,
       useAnimationFrame,
     })
