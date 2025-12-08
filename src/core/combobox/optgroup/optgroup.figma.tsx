@@ -6,5 +6,8 @@ figma.connect(ComboboxOptgroup, '<COMBOBOX_OPTGROUP_URL>', {
     label: figma.string('Group title'),
     children: figma.children('List item *'),
   },
-  example: (props) => <ComboboxOptgroup label={props.label}>{props.children}</ComboboxOptgroup>,
+  example: (props) => (
+    // Use Optgroup via Autocomplete, CompactSelect or Select instead of Combobox.
+    <ComboboxOptgroup label={props.label}>{props.children}</ComboboxOptgroup>
+  ),
 })

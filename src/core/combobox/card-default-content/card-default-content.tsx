@@ -30,3 +30,5 @@ export function ComboboxCardDefaultContent({ additionalInfo, children, ...rest }
     </ElComboboxCardDefaultContent>
   )
 }
+
+ComboboxCardDefaultContent.displayName = 'Combobox.CardDefaultContent'

@@ -14,6 +14,7 @@ figma.connect(ComboboxOption, '<COMBOBOX_OPTION_URL>', {
     additionalInfo: figma.children('Additional info *'),
   },
   example: (props) => (
+    // Use Option via Autocomplete, CompactSelect or Select instead of Combobox.
     <ComboboxOption badge={props.badge} additionalInfo={props.additionalInfo} value="REPLACE ME">
       {props.label}
     </ComboboxOption>
