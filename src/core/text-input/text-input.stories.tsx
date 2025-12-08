@@ -63,6 +63,7 @@ export const Example: Story = {
     minLength: undefined,
     name: 'myInput',
     pattern: undefined,
+    placeholder: '',
     readOnly: false,
     required: false,
     showValidity: false,

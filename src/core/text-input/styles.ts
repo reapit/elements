@@ -101,9 +101,9 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
   &:has(input:read-only:not(:disabled)) {
     background: var(--comp-input-colour-fill-read_only-background);
     border-color: var(--comp-input-colour-fill-read_only-background);
-    --input-affix-colour: var(--comp-input-colour-text-read_only-placeholder);
+    --input-affix-colour: var(--comp-input-colour-text-default-placeholder);
     --input-icon-colour: var(--comp-input-colour-icon-read_only);
-    --input-placeholder-colour: var(--comp-input-colour-text-read_only-placeholder);
+    --input-placeholder-colour: var(--comp-input-colour-text-default-placeholder);
     --input-text-colour: var(--comp-input-colour-text-read_only-input);
   }
 `

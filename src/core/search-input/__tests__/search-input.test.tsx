@@ -1,5 +1,5 @@
 import { SearchInput } from '../search-input'
-import { render, screen } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 
 vi.mock('#src/icons/search', () => ({ SearchIcon: () => 'search icon' }))
 
@@ -22,13 +22,44 @@ test('uses consumer-supplied ID when provided', () => {
   expect(screen.queryByRole('searchbox')).toHaveAttribute('id', 'my-id')
 })
 
-test('displays leading search icon when input is empty', () => {
+test('displays leading search icon when input is empty and not focused', () => {
   render(<SearchInput defaultValue="" />)
   expect(screen.getByText('search icon')).toBeVisible()
 })
 
-test('does NOT display leading search icon when input has a value', () => {
+test('displays leading search icon again when input loses focus (if still empty)', () => {
+  render(<SearchInput defaultValue="" />)
+
+  const input = screen.getByRole('searchbox')
+  fireEvent.focus(input)
+  expect(screen.queryByText('search icon')).not.toBeInTheDocument()
+
+  fireEvent.blur(input)
+  expect(screen.getByText('search icon')).toBeVisible()
+})
+
+test('displays leading search icon when input is readonly (regardless of focus)', () => {
+  render(<SearchInput readOnly defaultValue="" />)
+  expect(screen.getByText('search icon')).toBeVisible()
+})
+
+test('displays leading search icon when input is readonly with a value', () => {
+  render(<SearchInput readOnly defaultValue="test" />)
+  expect(screen.getByText('search icon')).toBeVisible()
+})
+
+test('hides leading search icon when input has a value', () => {
   render(<SearchInput defaultValue="test" />)
+  expect(screen.queryByText('search icon')).not.toBeInTheDocument()
+})
+
+test('hides leading search icon when input is focused (even if empty)', () => {
+  render(<SearchInput defaultValue="" />)
+
+  const input = screen.getByRole('searchbox')
+  expect(screen.getByText('search icon')).toBeVisible()
+
+  fireEvent.focus(input)
   expect(screen.queryByText('search icon')).not.toBeInTheDocument()
 })
 

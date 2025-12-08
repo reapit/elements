@@ -59,8 +59,12 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInput.Props>(
     const isControlled = value !== undefined
 
     // On first render, if value or default value are truthy, the input has a value.
-    const [hasValue, setHasValue] = useState<boolean>(isControlled ? !!value : !!defaultValue)
+    const [hasValue, setHasValue] = useState(isControlled ? !!value : !!defaultValue)
     const showClearButton = !readOnly && !disabled && hasValue
+
+    // We only show the search icon if the input is readonly, or it's empty and not focused
+    const [hasFocus, setHasFocus] = useState(false)
+    const showLeadingIcon = readOnly || (!hasValue && !hasFocus)
 
     // When the search input is small, clear button is medium sized; for all other input sizes,
     // the clear button is large sized.
@@ -71,15 +75,26 @@ export const SearchInput = forwardRef<HTMLInputElement, SearchInput.Props>(
       setHasValue(!!event.currentTarget.value)
     }
 
+    const handleFocus = (event: React.FocusEvent<HTMLInputElement>) => {
+      setHasFocus(true)
+      rest.onFocus?.(event)
+    }
+
+    const handleBlur = (event: React.FocusEvent<HTMLInputElement>) => {
+      setHasFocus(false)
+      rest.onBlur?.(event)
+    }
+
     return (
       <TextInput
         {...rest}
         defaultValue={defaultValue}
         disabled={disabled}
         id={inputId}
-        // We only show the search icon if the input is empty
-        leadingIcon={!hasValue && <SearchIcon />}
+        leadingIcon={showLeadingIcon && <SearchIcon />}
+        onBlur={handleBlur}
         onChange={handleChange}
+        onFocus={handleFocus}
         onInput={handleChange}
         readOnly={readOnly}
         ref={ref}
