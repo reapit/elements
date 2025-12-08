@@ -9,7 +9,9 @@ export const ElSupplementaryInfoList = styled.ul`
   padding-inline: 0;
   width: fit-content;
 
-  &,
+  &[data-size='inherit'] {
+    font: inherit;
+  }
   &[data-size='base'] {
     ${font('base', 'regular')}
   }

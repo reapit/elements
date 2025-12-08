@@ -59,7 +59,8 @@ export function ComboboxButton({
   style,
   ...rest
 }: ComboboxButton.Props) {
-  const isPlaceholderShown = !children || children === placeholder
+  // Children = selected content; no children = no selected content and placeholder should be displayed
+  const hasSelection = !!children
 
   return (
     // Applies consumer class names and inline styles to the container, not the button.
@@ -71,13 +72,15 @@ export function ComboboxButton({
         aria-controls={ariaControls}
         aria-expanded={ariaExpanded}
         aria-haspopup="dialog"
-        data-placeholder-shown={isPlaceholderShown}
+        aria-placeholder={placeholder}
         id={id}
         role="combobox"
         type="button"
       >
         {leadingIcon && <ElComboboxButtonIconContainer>{leadingIcon}</ElComboboxButtonIconContainer>}
-        <ElComboboxButtonLabelContainer>{children ?? placeholder}</ElComboboxButtonLabelContainer>
+        <ElComboboxButtonLabelContainer aria-hidden={!hasSelection} data-placeholder={placeholder}>
+          {children}
+        </ElComboboxButtonLabelContainer>
       </ElComboboxButton>
       {action && <ElComboboxButtonActionContainer>{action}</ElComboboxButtonActionContainer>}
     </ElComboboxButtonContainer>

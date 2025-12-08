@@ -53,8 +53,6 @@ export const ElComboboxButton = styled.button`
   --padding-with-action: calc(
     var(--spacing-2) + var(--combobox-button-icon-size) + var(--combobox-button-addon-padding-inline)
   );
-  position: absolute;
-  inset: 0;
 
   appearance: none;
   background: transparent;
@@ -77,11 +75,6 @@ export const ElComboboxButton = styled.button`
 
   &:disabled {
     cursor: not-allowed;
-  }
-
-  /* Style placeholder text when data-placeholder-shown is true */
-  &[data-placeholder-shown='true'] {
-    color: var(--combobox-placeholder-colour, var(--comp-input-colour-text-default-placeholder));
   }
 
   /* No trailing action */
@@ -114,6 +107,13 @@ export const ElComboboxButtonLabelContainer = styled.span`
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+
+  /* No content (:empty) means we display the placeholder text */
+  &:empty::before {
+    content: attr(data-placeholder);
+    color: var(--combobox-placeholder-colour, var(--comp-input-colour-text-default-placeholder));
+    display: inline-block;
+  }
 `
 
 export const ElComboboxButtonActionContainer = styled.span`

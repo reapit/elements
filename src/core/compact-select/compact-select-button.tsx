@@ -4,7 +4,7 @@ import { ElCompactSelectButton, ElCompactSelectButtonLabelText, ElCompactSelectI
 import { Tooltip } from '#src/core/tooltip'
 import { useId } from 'react'
 
-type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 'size'
+type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 'placeholder' | 'size'
 
 export namespace CompactSelectButton {
   export interface Props extends Omit<Combobox.ButtonProps, AttributesToOmit> {
@@ -17,22 +17,15 @@ export namespace CompactSelectButton {
  * A button that opens a popup with preloaded options. Use this for compact single-select comboboxes.
  * Displays placeholder text when no selection is made.
  */
-export function CompactSelectButton({
-  defaultOptions,
-  onClick,
-  placeholder = 'Select an option',
-  ...rest
-}: CompactSelectButton.Props) {
-  const buttonProps = Combobox.useButton({ onClick, placeholder })
+export function CompactSelectButton({ defaultOptions, onClick, ...rest }: CompactSelectButton.Props) {
+  const buttonProps = Combobox.useButton({ onClick })
   const context = Combobox.useContext()
   const hasSelection = Combobox.useHasSelection(context.listboxId)
 
   const labelTextId = useId()
   const tooltipId = useId()
 
-  const content = !hasSelection ? (
-    placeholder
-  ) : (
+  const content = hasSelection && (
     <Combobox.SelectedContent defaultOptions={defaultOptions} listboxId={context.listboxId} />
   )
 

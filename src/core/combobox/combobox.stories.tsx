@@ -6,6 +6,7 @@ import { getComboboxListboxId } from './get-listbox-id'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { SupplementaryInfo } from '../supplementary-info'
 
 const meta = {
   title: 'Core/Combobox',
@@ -154,6 +155,48 @@ export const Sizes: Story = {
 }
 
 /**
+ * `Combobox.Card` can be used to provide more details about the selected option in single-select
+ * comboboxes. The card is equivalent to `Combobox.Button` and should be used with Combobox.useButton.
+ * Unlike the standard combobox button, the card will not open the popup when clicked. It is a
+ * low-level primitive that will typically be used within a higher-level component.
+ *
+ * See `Autocomplete.Button` and `Select.Button` for examples.
+ */
+export const Cards: Story = {
+  args: {
+    ...Example.args,
+    id: 'card-example',
+    children: [
+      <Combobox.Card aria-controls={Combobox.getListboxId('card-example')} aria-expanded={false} key="card">
+        <Combobox.SelectedContent
+          defaultOptions={[{ label: 'Option 1', value: 'option1' }]}
+          listboxId={Combobox.getListboxId('card-example')}
+        >
+          {(options) => (
+            <Combobox.CardDefaultContent
+              additionalInfo={
+                <SupplementaryInfo colour="secondary">
+                  <SupplementaryInfo.Item>The default</SupplementaryInfo.Item>
+                </SupplementaryInfo>
+              }
+            >
+              {options[0]?.label}
+            </Combobox.CardDefaultContent>
+          )}
+        </Combobox.SelectedContent>
+      </Combobox.Card>,
+      <Combobox.Popup key="popup" variant="popover">
+        <Combobox.Listbox value="option1">
+          <Combobox.Option value="option1">Option 1</Combobox.Option>
+          <Combobox.Option value="option2">Option 2</Combobox.Option>
+          <Combobox.Option value="option3">Option 3</Combobox.Option>
+        </Combobox.Listbox>
+      </Combobox.Popup>,
+    ],
+  },
+}
+
+/**
  * The combobox's value can be controlled like any other form control. The `Combobox.useState` hook is
  * available; it has the correct type baked-in. When responding to changes, `Combobox.getListboxValue`
  * can be used to retrieve the appropriate value from the DOM element.
@@ -163,14 +206,14 @@ export const Controlled: Story = {
     ...Example.args,
   },
   render: (args) => {
-    const [value, setValue] = Combobox.useState([])
+    const [value, setValue] = Combobox.useState('')
 
     return (
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-2)', color: '#FA00FF' }}>
         {/* Some actions to control the combobox state outside of it's popup. */}
         <div style={{ display: 'flex', gap: 'var(--spacing-2)' }}>
-          <button onClick={() => setValue(['option1'])}>Select Option 1</button>
-          <button onClick={() => setValue([])}>Clear selection</button>
+          <button onClick={() => setValue('option1')}>Select Option 1</button>
+          <button onClick={() => setValue('')}>Clear selection</button>
         </div>
 
         {/* Our controlled state */}
@@ -226,7 +269,7 @@ export const Forms: Story = {
  */
 function DemoButton({ placeholder = 'Select an option' }: { placeholder?: string }) {
   const { size } = useComboboxContext()
-  const buttonProps = useComboboxButton({ placeholder })
+  const buttonProps = useComboboxButton()
 
   return (
     <ComboboxButton {...buttonProps} placeholder={placeholder} size={size}>

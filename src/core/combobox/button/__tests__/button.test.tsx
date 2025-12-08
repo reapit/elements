@@ -18,14 +18,14 @@ test('displays children when provided', () => {
   expect(screen.getByRole('combobox')).toHaveTextContent('John Smith')
 })
 
-test('displays placeholder when no children provided', () => {
+test('sets aria-placeholder when no children provided', () => {
   render(<ComboboxButton aria-controls="popup" aria-expanded={false} id="my-button" placeholder="Choose one" />)
-  expect(screen.getByRole('combobox')).toHaveTextContent('Choose one')
+  expect(screen.getByRole('combobox')).toHaveAttribute('aria-placeholder', 'Choose one')
 })
 
 test('uses "Select an option" as default placeholder', () => {
   render(<ComboboxButton aria-controls="popup" aria-expanded={false} id="my-button" />)
-  expect(screen.getByRole('combobox')).toHaveTextContent('Select an option')
+  expect(screen.getByRole('combobox')).toHaveAttribute('aria-placeholder', 'Select an option')
 })
 
 test('uses medium size by default', () => {
@@ -85,22 +85,31 @@ test('uses provided id prop', () => {
   expect(screen.getByRole('combobox')).toHaveAttribute('id', 'my-button')
 })
 
-test('sets data-placeholder-shown to true when children matches placeholder', () => {
+test('sets aria-placeholder attribute', () => {
   render(
     <ComboboxButton aria-controls="popup" aria-expanded={false} id="my-button" placeholder="Select an option">
-      Select an option
+      Selected value
     </ComboboxButton>,
   )
-  expect(screen.getByRole('combobox')).toHaveAttribute('data-placeholder-shown', 'true')
+  expect(screen.getByRole('combobox')).toHaveAttribute('aria-placeholder', 'Select an option')
 })
 
-test('sets data-placeholder-shown to false when children differs from placeholder', () => {
-  render(
+test('label container is not hidden when children are provided', () => {
+  const { container } = render(
     <ComboboxButton aria-controls="popup" aria-expanded={false} id="my-button">
       Selected value
     </ComboboxButton>,
   )
-  expect(screen.getByRole('combobox')).toHaveAttribute('data-placeholder-shown', 'false')
+  const labelContainer = container.querySelector('button > span')
+  expect(labelContainer).toHaveAttribute('aria-hidden', 'false')
+})
+
+test('label container is hidden when no children are provided', () => {
+  const { container } = render(
+    <ComboboxButton aria-controls="popup" aria-expanded={false} id="my-button" placeholder="Choose one" />,
+  )
+  const labelContainer = container.querySelector('button > span')
+  expect(labelContainer).toHaveAttribute('aria-hidden', 'true')
 })
 
 test('forwards `className` to the root container element', () => {

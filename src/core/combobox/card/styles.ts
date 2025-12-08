@@ -1,7 +1,7 @@
 import { font } from '#src/core/text'
 import { styled } from '@linaria/react'
 
-export const ElComboboxCard = styled.article`
+export const ElComboboxCard = styled.div`
   position: relative;
 
   display: inline-flex;
@@ -24,26 +24,48 @@ export const ElComboboxCard = styled.article`
     var(--combobox-border-colour, var(--comp-input-colour-border-default));
 
   &[data-size='small'] {
-    ${font('xs', 'regular')}
+    /* Combobox.CardDefaultContent inherits these size-based font styles */
+    ${font('xs', 'medium')}
     min-height: var(--size-8);
     --combobox-button-icon-size: var(--icon_size-s);
   }
   /* NOTE: Medium is the default size */
   &,
   &[data-size='medium'] {
-    ${font('sm', 'regular')}
+    ${font('sm', 'medium')}
     min-height: var(--size-9);
     --combobox-button-icon-size: var(--icon_size-s);
   }
   &[data-size='large'] {
-    ${font('base', 'regular')}
+    ${font('base', 'medium')}
     min-height: var(--size-10);
     --combobox-button-icon-size: var(--icon_size-m);
   }
+
+  /* Use :focus rather than :focus-visible to provide the same visual feedback
+   * as other inputs/form controls. */
+  &:has(button:focus) {
+    border: var(--comp-input-border-width) solid var(--comp-input-colour-border-focused);
+  }
 `
 
-export const ElComboboxContent = styled.div`
+export const ElComboboxCardButton = styled.button`
+  appearance: none;
+  background: transparent;
+  border: none;
+  outline: none;
+
+  display: inline-flex;
+  align-items: center;
+  width: 100%;
   padding: var(--spacing-1);
+  /* NOTE: ElComboboxInputContainer sets --combobox-max-width */
+  max-width: var(--combobox-max-width, 100%);
+
+  font: inherit;
+  text-align: left;
+
+  color: var(--combobox-text-colour);
 `
 
 export const ElComboboxCardActionContainer = styled.span`

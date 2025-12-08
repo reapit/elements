@@ -13,8 +13,14 @@ export namespace SupplementaryInfo {
      * of individual items can still be overridden.
      */
     colour?: SupplementaryInfoColour
-    /** The text size for all supplementary info items. */
-    size?: 'base' | 'sm' | 'xs'
+    /**
+     * The text size for all supplementary info items.
+     * - `'inherit'` - Inherits the font size from the parent element
+     * - `'base'` - Base text size
+     * - `'sm'` - Small text size
+     * - `'xs'` - Extra small text size
+     */
+    size?: 'inherit' | 'base' | 'sm' | 'xs'
   }
 }
 
@@ -22,7 +28,12 @@ export namespace SupplementaryInfo {
  * A list of supplementary information items, typically used to display metadata or status information.
  * See also [SupplementaryInfo.Item](./?path=/docs/core-supplementaryinfo-item--docs).
  */
-export function SupplementaryInfo({ children, colour = 'inherit', size = 'base', ...rest }: SupplementaryInfo.Props) {
+export function SupplementaryInfo({
+  children,
+  colour = 'inherit',
+  size = 'inherit',
+  ...rest
+}: SupplementaryInfo.Props) {
   return (
     <ElSupplementaryInfoList {...rest} data-colour={colour} data-size={size}>
       {children}

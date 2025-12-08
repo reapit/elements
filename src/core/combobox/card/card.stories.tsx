@@ -1,13 +1,19 @@
+import { ComboboxButtonClearButton } from '../button'
 import { ComboboxCard } from './card'
+import { ComboboxCardDefaultContent } from '../card-default-content'
 import { ElCombobox } from '../styles'
-import { Text } from '#src/core/text'
+import { SupplementaryInfo } from '../../supplementary-info'
 
+import type { CSSProperties } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
   title: 'Core/Combobox/Card',
   component: ComboboxCard,
   argTypes: {
+    action: {
+      control: false,
+    },
     'aria-controls': {
       control: 'text',
     },
@@ -23,36 +29,58 @@ type Story = StoryObj<typeof meta>
 
 export const Example: Story = {
   args: {
+    action: <ComboboxButtonClearButton aria-controls="example-listbox-id" />,
     'aria-controls': 'listbox-id',
+    'aria-expanded': false,
     children: (
-      <div style={{ display: 'flex', flexFlow: 'column', gap: 'var(--spacing-1)' }}>
-        <Text font="text-base/medium">Apple</Text>
-        <Text colour="secondary" font="text-xs/regular">
-          Crunchy and juicy
-        </Text>
-        <Text colour="secondary" font="text-xs/regular">
-          52 available
-        </Text>
-      </div>
+      <ComboboxCardDefaultContent
+        additionalInfo={
+          <>
+            <SupplementaryInfo colour="secondary" size="sm">
+              Crunchy and juicy
+            </SupplementaryInfo>
+            <SupplementaryInfo colour="secondary" size="sm">
+              52 available
+            </SupplementaryInfo>
+          </>
+        }
+      >
+        Apple
+      </ComboboxCardDefaultContent>
     ),
   },
+  decorators: [
+    (Story) => (
+      <ElCombobox>
+        <div id="example-listbox-id">
+          <select disabled hidden />
+        </div>
+        <Story />
+      </ElCombobox>
+    ),
+  ],
 }
 
 /**
  * The parent combobox provides styles to the combobox card via CSS variables. When
  * the parent combobox is disabled, it sets these CSS variables to values that visually communicate this
  * state via the combobox card. This behaviour is manually shown here.
+ *
+ * Care should be taken to ensure the provided `action` is also disabled.
  */
 export const Disabled: Story = {
   args: {
     ...Example.args,
+    action: <ComboboxButtonClearButton aria-controls="disabled-example-listbox-id" disabled />,
     'aria-controls': 'disabled-example',
     disabled: true,
   },
   decorators: [
     (Story) => (
       <ElCombobox>
-        <select disabled hidden />
+        <div id="disabled-example-listbox-id">
+          <select disabled hidden />
+        </div>
         <Story />
       </ElCombobox>
     ),
@@ -66,14 +94,36 @@ export const Disabled: Story = {
 export const Invalid: Story = {
   args: {
     ...Example.args,
+    action: <ComboboxButtonClearButton aria-controls="invalid-example-listbox-id" />,
     'aria-controls': 'invalid-example',
   },
   decorators: [
     (Story) => (
       <ElCombobox data-show-validity="true">
-        <select required hidden />
+        <div id="invalid-example-listbox-id">
+          <select required hidden />
+        </div>
         <Story />
       </ElCombobox>
+    ),
+  ],
+}
+
+/**
+ * By default, combobox cards will fill their parent's width. This can be constrained by providing
+ * a `maxWidth` to the combobox.
+ */
+export const MaxWidth: Story = {
+  name: 'Max-width',
+  args: {
+    ...Example.args,
+  },
+  decorators: [
+    (Story) => (
+      // This CSS variable is set by ElCombobox when Combobox is constrained by its maxWidth prop.
+      <div style={{ '--combobox-max-width': 'var(--size-40)' } as CSSProperties}>
+        <Story />
+      </div>
     ),
   ],
 }

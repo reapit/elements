@@ -61,7 +61,7 @@ export const Placeholder: Story = {
   args: {
     ...Example.args,
     action: 'Toggle',
-    children: 'Select an option',
+    children: null,
     placeholder: 'Select an option',
   },
 }
@@ -75,7 +75,6 @@ export const Search: Story = {
     ...Placeholder.args,
     action: null,
     placeholder: 'Search...',
-    children: 'Search...',
     leadingIcon: <SearchIcon />,
   },
 }

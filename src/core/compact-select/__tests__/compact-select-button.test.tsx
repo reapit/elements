@@ -10,24 +10,6 @@ test('renders a combobox element', () => {
   expect(screen.getByRole('combobox')).toBeVisible()
 })
 
-test('displays default placeholder text when no placeholder is provided', () => {
-  render(
-    <CompactSelect>
-      <CompactSelect.Button />
-    </CompactSelect>,
-  )
-  expect(screen.getByRole('combobox')).toHaveTextContent('Select an option')
-})
-
-test('displays custom placeholder text', () => {
-  render(
-    <CompactSelect>
-      <CompactSelect.Button placeholder="Find an item..." />
-    </CompactSelect>,
-  )
-  expect(screen.getByRole('combobox')).toHaveTextContent('Find an item...')
-})
-
 test('is disabled when Combobox is disabled', () => {
   render(
     <CompactSelect disabled>

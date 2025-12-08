@@ -1,5 +1,6 @@
 export * from './button'
 export * from './card'
+export * from './card-default-content'
 export * from './combobox'
 export * from './combobox-popup'
 export * from './context'
