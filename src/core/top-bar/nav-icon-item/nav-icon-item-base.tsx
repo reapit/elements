@@ -62,10 +62,13 @@ export function TopBarNavIconItemBase({
       className={cx(elTopBarNavIconItem, className)}
     >
       <ElTopBarNavIconItemIcon aria-hidden="true">{icon}</ElTopBarNavIconItemIcon>
+      {/* Keep the badge in the DOM but hide it. Having it mount/unmount can cause race condition
+        with the tooltip's anchor positioning in some consumers that leads to DOMException errors.
+        See https://consolegroup.atlassian.net/wiki/spaces/~5bf25118bef4d137b63bce08/pages/3813376086/Incident+explainer+Subset+of+users+unable+to+login. */}
+      <ElTopBarNavIconItemBadge hidden={!hasBadge} />
       <Tooltip id={tooltipId} placement="bottom" triggerId={triggerId}>
         {ariaLabel}
       </Tooltip>
-      {hasBadge && <ElTopBarNavIconItemBadge />}
     </Element>
   )
 }
