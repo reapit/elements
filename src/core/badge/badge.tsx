@@ -58,14 +58,14 @@ export function Badge({
 
   return (
     <ElBadge {...rest} {...a11yProps} data-colour={colour} data-variant={variant}>
-      {iconLeft && <ElBadgeIconContainer aria-hidden>{iconLeft}</ElBadgeIconContainer>}
-      {children && <ElBadgeLabelContainer>{children}</ElBadgeLabelContainer>}
-      {iconRight && <ElBadgeIconContainer aria-hidden>{iconRight}</ElBadgeIconContainer>}
       {useTooltip && (
         <Tooltip triggerId={badgeId} id={tooltipId} placement="top">
           {ariaLabel}
         </Tooltip>
       )}
+      {iconLeft && <ElBadgeIconContainer aria-hidden>{iconLeft}</ElBadgeIconContainer>}
+      {children && <ElBadgeLabelContainer>{children}</ElBadgeLabelContainer>}
+      {iconRight && <ElBadgeIconContainer aria-hidden>{iconRight}</ElBadgeIconContainer>}
     </ElBadge>
   )
 }

@@ -62,10 +62,10 @@ export function TopBarNavIconItemBase({
       className={cx(elTopBarNavIconItem, className)}
     >
       <ElTopBarNavIconItemIcon aria-hidden="true">{icon}</ElTopBarNavIconItemIcon>
-      {hasBadge && <ElTopBarNavIconItemBadge />}
       <Tooltip id={tooltipId} placement="bottom" triggerId={triggerId}>
         {ariaLabel}
       </Tooltip>
+      {hasBadge && <ElTopBarNavIconItemBadge />}
     </Element>
   )
 }
