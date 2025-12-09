@@ -7,10 +7,11 @@ import { cx } from '@linaria/core'
 import { elComboboxPopupDialog, ElComboboxPopupDialogHeader, ElComboboxPopupDialogListboxContainer } from './styles'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 import { openComboboxPopup } from './open-popup'
+import { useCancelCloseRequests, useWithStopPropagation } from '#src/core/drawer'
 import { useMatchMedia } from '#src/utils/match-media'
 
 import type { CloseOnSelection } from './event-handlers'
-import type { DialogHTMLAttributes, MouseEventHandler, ReactEventHandler, ReactNode } from 'react'
+import type { DialogHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
 export namespace ComboboxPopupDialog {
   export interface Props extends DialogHTMLAttributes<HTMLDialogElement> {
@@ -75,6 +76,7 @@ export function ComboboxPopupDialog({
   maxHeight,
   maxWidth = defaultPopupWidth,
   minWidth = defaultPopupWidth,
+  onCancel,
   onClose,
   onClick,
   preserveSearchOnClose = false,
@@ -87,16 +89,14 @@ export function ComboboxPopupDialog({
   const needsAnchorPositioning = variant === 'popover' || (variant === 'auto' && isSMOrAbove)
   const needsCloseButton = variant === 'drawer' || (variant === 'auto' && !isSMOrAbove)
 
-  const handleClose: ReactEventHandler<HTMLDialogElement> = (event) => {
+  const handleCancel = useCancelCloseRequests('any', onCancel)
+
+  const handleClose = useWithStopPropagation<HTMLDialogElement>((event) => {
     onClose?.(event)
-
-    // Prevent the close event from propagating to any parent dialog elements.
-    event.stopPropagation()
-
     if (search) {
       clearSearchInputOnClose(event)
     }
-  }
+  })
 
   const handleClick: MouseEventHandler<HTMLDialogElement> = (event) => {
     onClick?.(event)
@@ -117,6 +117,7 @@ export function ComboboxPopupDialog({
       data-preserve-search-on-close={preserveSearchOnClose}
       data-variant={variant}
       id={id}
+      onCancel={handleCancel}
       onClose={handleClose}
       onClick={handleClick}
       style={{ ...style, maxHeight }}

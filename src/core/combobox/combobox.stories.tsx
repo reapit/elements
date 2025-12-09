@@ -1,12 +1,12 @@
 import { Combobox } from './combobox'
 import { ComboboxButton } from './button'
+import { getComboboxListboxId } from './get-listbox-id'
+import { SupplementaryInfo } from '../supplementary-info'
 import { useComboboxButton } from './use-button'
 import { useComboboxContext } from './context'
-import { getComboboxListboxId } from './get-listbox-id'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { SupplementaryInfo } from '../supplementary-info'
 
 const meta = {
   title: 'Core/Combobox',

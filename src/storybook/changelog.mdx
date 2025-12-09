@@ -19,6 +19,7 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 ### **5.0.0-beta.64 - TBC**
 
 - **fix:** `AutocompleteControl` and `SelectControl` are now correctly labelled by their respective `<label>` elements.
+- **fix:** `Drawer`, `Dialog` and `Combobox.Popup` prevent propagation of cancel events. This ensures, for example, that Combobox popups can be light dismissed without their cancel event being prevented by a parent drawer or dialog.
 
 ### **5.0.0-beta.63 - 09/12/2025**
 

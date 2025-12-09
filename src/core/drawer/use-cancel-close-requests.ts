@@ -6,20 +6,23 @@ import type { ReactEventHandler } from 'react'
  * This allows us to approximate the real `closedBy` attribute of the HTML dialog element.
  */
 export function useCancelCloseRequests(
-  closedBy: 'closerequest' | 'none',
+  closedBy: 'any' | 'closerequest' | 'none',
   onCancel?: ReactEventHandler<HTMLDialogElement>,
 ): ReactEventHandler<HTMLDialogElement> {
   return useCallback<ReactEventHandler<HTMLDialogElement>>(
     (event) => {
-      // If the `closedBy` prop is set to "none", we cancel the event to simulate the `closedBy` attribute of the HTML
-      // dialog element. This is because the `closedBy` attribute is not yet supported in all browsers. In the interim,
-      // we cancel dialog "cancel" events if the `closedBy` prop is set to "none", as "none" means the drawer should
-      // only be closable by a developer-specified mechanism (e.g. a button that calls `HTMLDialogElement.close()`).
+      // Native <dialog> cancel events do not bubble. React events do, so we prevent propagation to align
+      // with native behaviour.
+      event.stopPropagation()
+
+      // When `closedBy` is "none", cancel the browser's cancel event to prevent the dialogue from closing.
+      // This simulates the HTML `closedBy` attribute, which lacks broad browser support. With `closedBy`
+      // set to "none", the drawer closes only through developer-specified mechanisms (e.g. a button
+      // calling `HTMLDialogElement.close()`).
       //
-      // It's also import to note that we can only cancel the event if it is emitted by the browser. There are cases
-      // where a cancel event is not emitted by the browser when Esc is pressed, only a close event. In these cases,
-      // the drawer will always close.
-      if (closedBy === 'none') {
+      // Note: We can only cancel browser-emitted events. Some browsers emit only a close event when Esc
+      // is pressed, not a cancel event. In these cases, the drawer will always close.
+      if (closedBy === 'none' && event.target === event.currentTarget) {
         event.preventDefault()
       } else {
         onCancel?.(event)

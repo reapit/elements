@@ -102,6 +102,48 @@ test('exposes useContext', () => {
   expect(ComboboxPopupDialog.useContext).toBeDefined()
 })
 
+test('calls onCancel handler when provided', () => {
+  const onCancel = vi.fn()
+  render(
+    <ComboboxPopupDialog {...defaultProps} onCancel={onCancel}>
+      Content
+    </ComboboxPopupDialog>,
+  )
+
+  fireEvent(screen.getByRole('dialog'), new Event('cancel', { bubbles: true }))
+  expect(onCancel).toHaveBeenCalledTimes(1)
+})
+
+test('stops propagation of cancel event', () => {
+  const onCancel = vi.fn()
+  render(
+    <ComboboxPopupDialog {...defaultProps} onCancel={onCancel}>
+      Content
+    </ComboboxPopupDialog>,
+  )
+
+  const dialog = screen.getByRole('dialog')
+  const cancelEvent = new Event('cancel', { bubbles: true, cancelable: true })
+  const stopPropagationSpy = vi.spyOn(cancelEvent, 'stopPropagation')
+
+  fireEvent(dialog, cancelEvent)
+
+  expect(onCancel).toHaveBeenCalledTimes(1)
+  expect(stopPropagationSpy).toHaveBeenCalledTimes(1)
+})
+
+test('calls onClose handler when provided', () => {
+  const onClose = vi.fn()
+  render(
+    <ComboboxPopupDialog {...defaultProps} onClose={onClose}>
+      Content
+    </ComboboxPopupDialog>,
+  )
+
+  fireEvent(screen.getByRole('dialog'), new Event('close', { bubbles: true }))
+  expect(onClose).toHaveBeenCalledTimes(1)
+})
+
 test('stops propagation of close event', () => {
   const onClose = vi.fn()
   render(
