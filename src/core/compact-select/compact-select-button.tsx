@@ -39,12 +39,11 @@ export function CompactSelectButton({
       {...rest}
       {...buttonProps}
       {...Tooltip.getTriggerProps({ id: buttonProps.id, tooltipId, tooltipPurpose: 'describe' })}
-      aria-placeholder={placeholder}
       data-size={context.size}
       role="combobox"
     >
-      <ElCompactSelectButtonLabelText data-placeholder={placeholder} id={labelTextId}>
-        {content}
+      <ElCompactSelectButtonLabelText data-has-selection={hasSelection} data-placeholder={placeholder} id={labelTextId}>
+        {hasSelection ? content : placeholder}
       </ElCompactSelectButtonLabelText>
       <ElCompactSelectIconContainer>
         <ChevronDownIcon />

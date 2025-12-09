@@ -18,8 +18,8 @@ export namespace FormControlLabel {
 
   export interface AsLabelProps extends CommonProps, LabelHTMLAttributes<HTMLLabelElement> {
     as?: 'label'
-    /** The ID of the form control this label is associated with. */
-    htmlFor: string
+    /** The ID of the form control this label is associated with. Optional when using aria-labelledby. */
+    htmlFor?: string
   }
 
   export interface AsLegendProps extends CommonProps, HTMLAttributes<HTMLLegendElement> {

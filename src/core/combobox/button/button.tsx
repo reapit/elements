@@ -72,14 +72,13 @@ export function ComboboxButton({
         aria-controls={ariaControls}
         aria-expanded={ariaExpanded}
         aria-haspopup="dialog"
-        aria-placeholder={placeholder}
         id={id}
         role="combobox"
         type="button"
       >
         {leadingIcon && <ElComboboxButtonIconContainer>{leadingIcon}</ElComboboxButtonIconContainer>}
-        <ElComboboxButtonLabelContainer aria-hidden={!hasSelection} data-placeholder={placeholder}>
-          {children}
+        <ElComboboxButtonLabelContainer data-has-selection={hasSelection} data-placeholder={placeholder}>
+          {hasSelection ? children : placeholder}
         </ElComboboxButtonLabelContainer>
       </ElComboboxButton>
       {action && <ElComboboxButtonActionContainer>{action}</ElComboboxButtonActionContainer>}

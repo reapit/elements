@@ -47,8 +47,9 @@ export const ElCompactSelectButtonLabelText = styled.span`
   overflow: hidden;
   white-space: nowrap;
 
-  &:empty::before {
-    content: attr(data-placeholder);
+  /* Display placeholder text with muted color when no selection */
+  &[data-has-selection='false'] {
+    color: var(--comp-input-colour-text-default-placeholder);
   }
 `
 

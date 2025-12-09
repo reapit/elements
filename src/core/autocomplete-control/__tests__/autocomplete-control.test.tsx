@@ -16,6 +16,27 @@ test('renders an autocomplete', () => {
   expect(screen.getByRole('combobox')).toBeInTheDocument()
 })
 
+test('combobox has aria-labelledby pointing to label', () => {
+  render(
+    <AutocompleteControl label="Search for a user">
+      <Autocomplete.Button />
+      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
+        <Autocomplete.Listbox>
+          <Autocomplete.Option value="1">User 1</Autocomplete.Option>
+        </Autocomplete.Listbox>
+      </Autocomplete.Popup>
+    </AutocompleteControl>,
+  )
+
+  const combobox = screen.getByRole('combobox')
+  const labelledBy = combobox.getAttribute('aria-labelledby')
+
+  expect(labelledBy).toBeTruthy()
+
+  const label = document.getElementById(labelledBy!)
+  expect(label).toHaveTextContent('Search for a user')
+})
+
 test('displays error text, when provided', () => {
   render(
     <AutocompleteControl label="Label" helpText="Help text" errorText="Error text">

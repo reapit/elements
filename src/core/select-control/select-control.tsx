@@ -54,6 +54,7 @@ export function SelectControl({
 }: SelectControl.Props) {
   const fallbackSelectId = useId()
   const selectId = id ?? fallbackSelectId
+  const labelId = useId()
   const helpTextId = useId()
   const errorTextId = useId()
 
@@ -61,7 +62,7 @@ export function SelectControl({
     <FormControl as="div" size={size} maxWidth={maxWidth}>
       <Select.DefaultOptionsContext.Provider value={defaultOptions ?? []}>
         {label && (
-          <FormControl.Label htmlFor={selectId} isRequired={required}>
+          <FormControl.Label htmlFor={selectId} id={labelId} isRequired={required}>
             {label}
           </FormControl.Label>
         )}
@@ -70,6 +71,7 @@ export function SelectControl({
           aria-describedby={helpText && !errorText ? helpTextId : undefined}
           aria-errormessage={errorText ? errorTextId : undefined}
           aria-invalid={errorText ? true : undefined}
+          aria-labelledby={label ? labelId : undefined}
           id={selectId}
           multiple={multiple}
           required={required}

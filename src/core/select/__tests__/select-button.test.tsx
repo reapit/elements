@@ -10,31 +10,31 @@ test('renders a combobox element', () => {
   expect(screen.getByRole('combobox')).toBeVisible()
 })
 
-test('sets default aria-placeholder when no placeholder is provided', () => {
+test('displays default placeholder text when no placeholder is provided', () => {
   render(
     <Select>
       <Select.Button />
     </Select>,
   )
-  expect(screen.getByRole('combobox')).toHaveAttribute('aria-placeholder', 'Select an option')
+  expect(screen.getByRole('combobox')).toHaveTextContent('Select an option')
 })
 
-test('sets custom aria-placeholder', () => {
+test('displays custom placeholder text', () => {
   render(
     <Select>
       <Select.Button placeholder="Find an item..." />
     </Select>,
   )
-  expect(screen.getByRole('combobox')).toHaveAttribute('aria-placeholder', 'Find an item...')
+  expect(screen.getByRole('combobox')).toHaveTextContent('Find an item...')
 })
 
-test('sets aria-placeholder in multi-select mode', () => {
+test('displays placeholder text in multi-select mode', () => {
   render(
     <Select multiple>
       <Select.Button placeholder="Search items..." />
     </Select>,
   )
-  expect(screen.getByRole('combobox')).toHaveAttribute('aria-placeholder', 'Search items...')
+  expect(screen.getByRole('combobox')).toHaveTextContent('Search items...')
 })
 
 test('displays open popup button when there is no selection', () => {

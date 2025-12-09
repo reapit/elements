@@ -16,6 +16,27 @@ test('renders a select', () => {
   expect(screen.getByRole('combobox')).toBeInTheDocument()
 })
 
+test('combobox has aria-labelledby pointing to label', () => {
+  render(
+    <SelectControl label="Choose a fruit">
+      <Select.Button />
+      <Select.Popup>
+        <Select.Listbox>
+          <Select.Option value="apple">Apple</Select.Option>
+        </Select.Listbox>
+      </Select.Popup>
+    </SelectControl>,
+  )
+
+  const combobox = screen.getByRole('combobox')
+  const labelledBy = combobox.getAttribute('aria-labelledby')
+
+  expect(labelledBy).toBeTruthy()
+
+  const label = document.getElementById(labelledBy!)
+  expect(label).toHaveTextContent('Choose a fruit')
+})
+
 test('displays error text, when provided', () => {
   render(
     <SelectControl label="Label" helpText="Help text" errorText="Error text">

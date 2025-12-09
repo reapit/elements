@@ -108,11 +108,9 @@ export const ElComboboxButtonLabelContainer = styled.span`
   overflow: hidden;
   text-overflow: ellipsis;
 
-  /* No content (:empty) means we display the placeholder text */
-  &:empty::before {
-    content: attr(data-placeholder);
+  /* Display placeholder text with muted color when no selection */
+  &[data-has-selection='false'] {
     color: var(--combobox-placeholder-colour, var(--comp-input-colour-text-default-placeholder));
-    display: inline-block;
   }
 `
 

@@ -12,6 +12,8 @@ export namespace ComboboxContext {
     ariaErrorMessage?: string
     /** Whether the combobox value is invalid */
     ariaInvalid?: boolean | 'false' | 'true' | 'grammar' | 'spelling'
+    /** ID of element(s) labelling the combobox */
+    ariaLabelledBy?: string
     /** Combobox element ID */
     comboboxId: string
     /** Whether the combobox is disabled */

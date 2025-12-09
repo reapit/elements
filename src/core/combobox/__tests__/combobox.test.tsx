@@ -28,6 +28,7 @@ test('provides IDs and other values over ComboboxContext', () => {
               "ariaDescribedBy": undefined,
               "ariaErrorMessage": undefined,
               "ariaInvalid": undefined,
+              "ariaLabelledBy": undefined,
               "comboboxId": Any<String>,
               "disabled": true,
               "listboxId": Any<String>,

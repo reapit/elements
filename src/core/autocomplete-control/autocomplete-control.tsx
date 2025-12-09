@@ -55,6 +55,7 @@ export function AutocompleteControl({
 }: AutocompleteControl.Props) {
   const fallbackAutocompleteId = useId()
   const autocompleteId = id ?? fallbackAutocompleteId
+  const labelId = useId()
   const helpTextId = useId()
   const errorTextId = useId()
 
@@ -62,7 +63,7 @@ export function AutocompleteControl({
     <FormControl as="div" size={size} maxWidth={maxWidth}>
       <Autocomplete.DefaultOptionsContext.Provider value={defaultOptions ?? []}>
         {label && (
-          <FormControl.Label htmlFor={autocompleteId} isRequired={required}>
+          <FormControl.Label htmlFor={autocompleteId} id={labelId} isRequired={required}>
             {label}
           </FormControl.Label>
         )}
@@ -71,6 +72,7 @@ export function AutocompleteControl({
           aria-describedby={helpText && !errorText ? helpTextId : undefined}
           aria-errormessage={errorText ? errorTextId : undefined}
           aria-invalid={errorText ? true : undefined}
+          aria-labelledby={label ? labelId : undefined}
           disabled={disabled}
           id={autocompleteId}
           multiple={multiple}

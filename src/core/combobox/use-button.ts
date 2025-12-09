@@ -23,6 +23,8 @@ export namespace useComboboxButton {
     'aria-expanded': boolean
     /** Whether the combobox value is invalid */
     'aria-invalid'?: boolean | 'false' | 'true' | 'grammar' | 'spelling'
+    /** ID of element(s) labelling the combobox */
+    'aria-labelledby'?: string
     /** Whether a selection is required for the combobox */
     'aria-required': boolean
     /** Whether the button is disabled */
@@ -60,7 +62,7 @@ export namespace useComboboxButton {
  * ```
  */
 export function useComboboxButton({ onClick }: useComboboxButton.Input = {}): useComboboxButton.Output {
-  const { ariaDescribedBy, ariaErrorMessage, ariaInvalid, comboboxId, disabled, popupId, required } =
+  const { ariaDescribedBy, ariaErrorMessage, ariaInvalid, ariaLabelledBy, comboboxId, disabled, popupId, required } =
     useComboboxContext()
 
   const isExpanded = useComboboxPopupState(popupId)
@@ -76,6 +78,7 @@ export function useComboboxButton({ onClick }: useComboboxButton.Input = {}): us
     'aria-errormessage': ariaErrorMessage,
     'aria-expanded': isExpanded,
     'aria-invalid': ariaInvalid,
+    'aria-labelledby': ariaLabelledBy,
     // We use aria-required to indicate a value for the _combobox_ is required.
     // See https://www.w3.org/WAI/ARIA/apg/patterns/combobox/
     'aria-required': required,
