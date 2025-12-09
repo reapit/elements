@@ -1,6 +1,6 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Avatar } from '.'
-import { DeprecatedIcon } from '../../deprecated/icon'
+import { ContactIcon } from '#src/icons/contact'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 
 export default {
   title: 'Core/Avatar',
@@ -32,7 +32,7 @@ export const Example: Story = {
 export const Icons: Story = {
   args: {
     ...Example.args,
-    children: <DeprecatedIcon icon="contact" />,
+    children: <ContactIcon />,
   },
 }
 
@@ -52,7 +52,7 @@ export const Colour: Story = {
 export const ColouredIcons: Story = {
   args: {
     ...Example.args,
-    children: <DeprecatedIcon icon="contact" />,
+    children: <ContactIcon />,
     colour: 'primary',
   },
 }
