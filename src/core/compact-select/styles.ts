@@ -46,11 +46,6 @@ export const ElCompactSelectButtonLabelText = styled.span`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-
-  /* Display placeholder text with muted color when no selection */
-  &[data-has-selection='false'] {
-    color: var(--comp-input-colour-text-default-placeholder);
-  }
 `
 
 export const ElCompactSelectIconContainer = styled.span`
