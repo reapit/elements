@@ -497,6 +497,93 @@ describe('Behavior 2: Focus entering the listbox from outside', () => {
 
     expect(focusSpy).toHaveBeenCalled()
   })
+
+  test('dispatches focusin event on select when focus enters from outside (trusted event)', () => {
+    render(<TestListbox />)
+
+    const listbox = screen.getByRole('listbox')
+    const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
+    const selectElement = listbox.querySelector('select') as HTMLSelectElement
+
+    // Listen for the focusin event
+    const focusinListener = vi.fn()
+    selectElement.addEventListener('focusin', focusinListener)
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
+
+    const event = createFocusEvent({
+      currentTarget: listbox,
+      target: listbox,
+      relatedTarget: outsideButton,
+      isTrusted: true,
+    })
+
+    handleFocusEvent(event)
+
+    expect(focusinListener).toHaveBeenCalledTimes(1)
+    expect(focusinListener).toHaveBeenCalledWith(
+      expect.objectContaining({
+        type: 'focusin',
+        bubbles: true,
+        cancelable: true,
+        relatedTarget: outsideButton,
+      }),
+    )
+  })
+
+  test('does not dispatch focusin event on select when event is not trusted', () => {
+    render(<TestListbox />)
+
+    const listbox = screen.getByRole('listbox')
+    const outsideButton = screen.getByRole('button', { name: 'Outside Button' })
+    const selectElement = listbox.querySelector('select') as HTMLSelectElement
+
+    // Listen for the focusin event
+    const focusinListener = vi.fn()
+    selectElement.addEventListener('focusin', focusinListener)
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(listbox, 'matches').mockReturnValue(true)
+
+    const event = createFocusEvent({
+      currentTarget: listbox,
+      target: listbox,
+      relatedTarget: outsideButton,
+      isTrusted: false,
+    })
+
+    handleFocusEvent(event)
+
+    expect(focusinListener).not.toHaveBeenCalled()
+  })
+
+  test('does not dispatch focusin event when focus moves between options', () => {
+    render(<TestListbox selectionFollowsFocus />)
+
+    const listbox = screen.getByRole('listbox')
+    const option1 = screen.getByRole('option', { name: 'Option 1' })
+    const option2 = screen.getByRole('option', { name: 'Option 2' })
+    const selectElement = listbox.querySelector('select') as HTMLSelectElement
+
+    // Listen for the focusin event
+    const focusinListener = vi.fn()
+    selectElement.addEventListener('focusin', focusinListener)
+
+    // Mock :focus-visible to return true (keyboard focus)
+    vi.spyOn(option2, 'matches').mockReturnValue(true)
+
+    const event = createFocusEvent({
+      currentTarget: listbox,
+      target: option2,
+      relatedTarget: option1,
+      isTrusted: true,
+    })
+
+    handleFocusEvent(event)
+
+    expect(focusinListener).not.toHaveBeenCalled()
+  })
 })
 
 /**
@@ -520,6 +607,11 @@ function TestListbox({
   return (
     <>
       <div role="listbox" tabIndex={0} data-selection-follows-focus={selectionFollowsFocus?.toString()}>
+        <select style={{ display: 'none' }}>
+          <option value="1">Option 1</option>
+          <option value="2">Option 2</option>
+          <option value="3">Option 3</option>
+        </select>
         {includeNonButtonOption && <div role="option">Non-button option</div>}
         {!noOptions && (
           <>
@@ -562,15 +654,18 @@ function createFocusEvent({
   currentTarget,
   target,
   relatedTarget,
+  isTrusted = false,
 }: {
   currentTarget: HTMLElement
   target: EventTarget
   relatedTarget: EventTarget | null
+  isTrusted?: boolean
 }): FocusEvent<HTMLElement> {
   return {
     currentTarget,
     target,
     relatedTarget,
     type: 'focus',
+    isTrusted,
   } as FocusEvent<HTMLElement>
 }

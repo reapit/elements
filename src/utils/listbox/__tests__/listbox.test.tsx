@@ -269,3 +269,7 @@ test('exposes Listbox.getValue', () => {
 test('exposes Listbox.setOptionSelectedState', () => {
   expect(Listbox.setOptionSelectedState).toBeDefined()
 })
+
+test('exposes Listbox.useState', () => {
+  expect(Listbox.useState).toBeDefined()
+})

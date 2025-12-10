@@ -28,7 +28,7 @@ describe('getListboxSelectElement', () => {
 
     expect(() => {
       getListboxSelectElement('empty-listbox')
-    }).toThrow('Listbox "empty-listbox" does not contain a select element as its first child. Found: null')
+    }).toThrow('Listbox with id "empty-listbox" does not contain a select element as its first child. Found: null')
   })
 
   test('throws error when first child is not a select element', () => {
@@ -40,7 +40,48 @@ describe('getListboxSelectElement', () => {
 
     expect(() => {
       getListboxSelectElement('invalid-listbox')
-    }).toThrow('Listbox "invalid-listbox" does not contain a select element as its first child. Found: HTMLDivElement')
+    }).toThrow(
+      'Listbox with id "invalid-listbox" does not contain a select element as its first child. Found: HTMLDivElement',
+    )
+  })
+
+  test('returns the select element when passed an HTMLElement directly', () => {
+    render(
+      <div data-testid="test-listbox">
+        <select multiple>
+          <option value="option1">Option 1</option>
+        </select>
+      </div>,
+    )
+
+    const listboxElement = screen.getByTestId('test-listbox')
+    const result = getListboxSelectElement(listboxElement)
+
+    expect(result).toBeInstanceOf(HTMLSelectElement)
+    expect(result).toBe(screen.getByRole('listbox'))
+  })
+
+  test('throws error when passed HTMLElement has no children', () => {
+    const emptyElement = document.createElement('div')
+    emptyElement.setAttribute('data-testid', 'empty-element')
+
+    expect(() => {
+      getListboxSelectElement(emptyElement)
+    }).toThrow('does not contain a select element as its first child. Found: null')
+  })
+
+  test('throws error when passed HTMLElement has non-select first child', () => {
+    render(
+      <div data-testid="invalid-listbox">
+        <div>Not a select</div>
+      </div>,
+    )
+
+    const listboxElement = screen.getByTestId('invalid-listbox')
+
+    expect(() => {
+      getListboxSelectElement(listboxElement)
+    }).toThrow('does not contain a select element as its first child. Found: HTMLDivElement')
   })
 })
 

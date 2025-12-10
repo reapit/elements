@@ -17,11 +17,18 @@ import { useListboxSelectionObserver } from './use-selection-observer'
 import { useListboxSelectState } from './use-select-state'
 import { useListboxState } from './use-state'
 
-import type { ChangeEventHandler, ComponentPropsWithoutRef, ElementType, HTMLAttributes, ReactNode } from 'react'
+import type {
+  ChangeEventHandler,
+  ComponentPropsWithoutRef,
+  ElementType,
+  FocusEventHandler,
+  HTMLAttributes,
+  ReactNode,
+} from 'react'
 
 // NOTE: we omit...
-// onChange, because we accept a select element's change event handler instead
-type AttributesToOmit = 'onChange'
+// `onBlur`, `onChange`, and `onFocus`, because we accept the select element versions instead
+type AttributesToOmit = 'onBlur' | 'onChange' | 'onFocus'
 
 export namespace Listbox {
   export interface DividerProps extends Divider.Props {}
@@ -62,8 +69,12 @@ export namespace Listbox {
     id?: string
     /** The form control name for form submission. */
     name?: string
+    /** Blur handler for the underlying select element. Fires when focus leaves the listbox. */
+    onBlur?: FocusEventHandler<HTMLSelectElement>
     /** Change handler for the underlying select element. Fires when selection changes. */
     onChange?: ChangeEventHandler<HTMLSelectElement>
+    /** Focus handler for the underlying select element. Fires when focus enters the listbox. */
+    onFocus?: FocusEventHandler<HTMLSelectElement>
     /**
      * Placeholder text for the default empty option.
      * Applies only to single-select listboxes (`aria-multiselectable` is `false`).
@@ -165,7 +176,7 @@ export function Listbox<C extends ElementType = 'div'>({
   const listboxId = id ?? fallbackListboxId
 
   const [selectValue, handleChange] = useListboxSelectState({ defaultValue, multiple, onChange, value })
-  const focusHandlers = useFocusManagement({ onBlur, onFocus, onKeyDown })
+  const focusHandlers = useFocusManagement({ onKeyDown })
 
   const contextValue = useMemo(
     () => ({ disabled, listboxId, multiple, selectAction, selectValue }),
@@ -202,7 +213,9 @@ export function Listbox<C extends ElementType = 'div'>({
           id={getListboxSelectId(listboxId)}
           multiple={multiple}
           name={name}
+          onBlur={onBlur}
           onChange={handleChange}
+          onFocus={onFocus}
           placeholder={placeholder}
           ref={selectRef}
           required={required}

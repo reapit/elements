@@ -27,16 +27,6 @@ test('returns an object with onBlur, onFocus, and onKeyDown handlers', () => {
   `)
 })
 
-test('calls user-provided onBlur handler if provided', () => {
-  const userOnBlur = vi.fn()
-  const { result } = renderHook(() => useFocusManagement({ onBlur: userOnBlur }))
-
-  const event = createFocusEvent()
-  result.current.onBlur(event)
-
-  expect(userOnBlur).toHaveBeenCalledWith(event)
-})
-
 test('calls handleBlurEvent with the event', () => {
   const { result } = renderHook(() => useFocusManagement({}))
 
@@ -49,16 +39,6 @@ test('calls handleBlurEvent with the event', () => {
 test('does not throw when user onBlur is not provided', () => {
   const { result } = renderHook(() => useFocusManagement({}))
   expect(() => result.current.onBlur(createFocusEvent())).not.toThrow()
-})
-
-test('calls user-provided onFocus handler if provided', () => {
-  const userOnFocus = vi.fn()
-  const { result } = renderHook(() => useFocusManagement({ onFocus: userOnFocus }))
-
-  const event = createFocusEvent()
-  result.current.onFocus(event)
-
-  expect(userOnFocus).toHaveBeenCalledWith(event)
 })
 
 test('calls handleFocusEvent with the event', () => {

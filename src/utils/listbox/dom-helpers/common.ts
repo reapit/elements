@@ -14,24 +14,42 @@ export class ListboxError extends Error {
 }
 
 /**
- * Gets the select element from a listbox by its ID.
+ * Gets the select element for a listbox by the listbox ID.
  * @param listboxId - The ID of the listbox element
  * @returns The select element within the listbox
  * @throws {ListboxError} if the listbox does not exist or does not contain a select element.
  */
-export function getListboxSelectElement(listboxId: string): HTMLSelectElement {
-  const listboxElement = document.getElementById(listboxId)
+export function getListboxSelectElement(listboxId: string): HTMLSelectElement
+/**
+ * Gets the select element for a listbox.
+ * @param listboxElement - The listbox element
+ * @returns The select element within the listbox
+ * @throws {ListboxError} if the listbox does not exist or does not contain a select element.
+ */
+export function getListboxSelectElement(listboxElement: HTMLElement): HTMLSelectElement
+export function getListboxSelectElement(listboxIdOrElement: string | HTMLElement): HTMLSelectElement {
+  let listboxElement: HTMLElement
 
-  if (!listboxElement) {
-    throw new ListboxError(`Listbox with id "${listboxId}" does not exist in the document`)
+  if (typeof listboxIdOrElement === 'string') {
+    const element = document.getElementById(listboxIdOrElement)
+
+    if (!element) {
+      throw new ListboxError(`Listbox with id "${listboxIdOrElement}" does not exist in the document`)
+    }
+
+    listboxElement = element
+  } else {
+    listboxElement = listboxIdOrElement
   }
 
   // The select element is, by convention, the first child of the listbox element
   const selectElement = listboxElement.firstElementChild
 
   if (!(selectElement instanceof HTMLSelectElement)) {
+    const description =
+      typeof listboxIdOrElement === 'string' ? `Listbox with id "${listboxIdOrElement}"` : 'Listbox element'
     throw new ListboxError(
-      `Listbox "${listboxId}" does not contain a select element as its first child. ` +
+      `${description} does not contain a select element as its first child. ` +
         `Found: ${selectElement?.constructor.name ?? 'null'}`,
     )
   }
