@@ -19,6 +19,7 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 ### **5.0.0-beta.67 - ??/??/2025**
 
 - **fix:** The `Combobox.Popup` close button no longer uses a `<form>` to close the popup. Avoids `<form> cannot contain a nested <form>` errors when the combobox itself is part of a form.
+- **refactor!:** `Listbox` focus/blur handlers are now passed to the internal `<select>` element and typed as `FocusEventHandler<HTMLSelectElement>`.
 
 ### **5.0.0-beta.66 - 10/12/2025**
 
