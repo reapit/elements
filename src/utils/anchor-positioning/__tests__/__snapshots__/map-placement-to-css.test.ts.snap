@@ -2,7 +2,8 @@
 
 exports[`produces correct CSS for the "bottom" placement 1`] = `
 "
-        position-area: end center;
+        justify-self: anchor-center;
+        top: anchor(bottom);
         margin-block: var(--fake-gap);
       "
 `;
@@ -25,7 +26,8 @@ exports[`produces correct CSS for the "bottom-start" placement 1`] = `
 
 exports[`produces correct CSS for the "left" placement 1`] = `
 "
-        position-area: center start;
+        align-self: anchor-center;
+        right: anchor(left);
         margin-inline: var(--fake-gap);
       "
 `;
@@ -48,7 +50,8 @@ exports[`produces correct CSS for the "left-start" placement 1`] = `
 
 exports[`produces correct CSS for the "right" placement 1`] = `
 "
-        position-area: center end;
+        align-self: anchor-center;
+        left: anchor(right);
         margin-inline: var(--fake-gap);
       "
 `;
@@ -71,7 +74,8 @@ exports[`produces correct CSS for the "right-start" placement 1`] = `
 
 exports[`produces correct CSS for the "top" placement 1`] = `
 "
-        position-area: top center;
+        bottom: anchor(top);
+        justify-self: anchor-center;
         margin-block: var(--fake-gap);
       "
 `;

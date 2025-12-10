@@ -39,10 +39,15 @@ export function mapPlacementToCSS({ gap = '0', placement }: mapPlacementToCSS.In
   //
   // Currently, placement maps to inset properties (top, left, etc.) and `align-self`/`justify-self`
   // with the `anchor-center` value.
+  //
+  // IMPORTANT: The `position-area` polyfill is incompatible with React's reconciliation algorithm
+  // as it results in web components being added to the DOM without React being aware of them. This
+  // is why we are not using `position-area` here.
   switch (placement) {
     case 'bottom':
       return `
-        position-area: end center;
+        justify-self: anchor-center;
+        top: anchor(bottom);
         margin-block: ${gap};
       `
     case 'bottom-end':
@@ -59,7 +64,8 @@ export function mapPlacementToCSS({ gap = '0', placement }: mapPlacementToCSS.In
       `
     case 'left':
       return `
-        position-area: center start;
+        align-self: anchor-center;
+        right: anchor(left);
         margin-inline: ${gap};
       `
     case 'left-end':
@@ -76,7 +82,8 @@ export function mapPlacementToCSS({ gap = '0', placement }: mapPlacementToCSS.In
       `
     case 'right':
       return `
-        position-area: center end;
+        align-self: anchor-center;
+        left: anchor(right);
         margin-inline: ${gap};
       `
     case 'right-end':
@@ -93,7 +100,8 @@ export function mapPlacementToCSS({ gap = '0', placement }: mapPlacementToCSS.In
       `
     case 'top':
       return `
-        position-area: top center;
+        bottom: anchor(top);
+        justify-self: anchor-center;
         margin-block: ${gap};
       `
     case 'top-end':
