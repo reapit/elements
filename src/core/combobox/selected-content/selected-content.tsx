@@ -1,20 +1,19 @@
 import { useComboboxDefaultOptionsContext } from '../default-options-context'
 import { useComboboxSelectedOptions } from '../use-selected-options'
 
-import type { HTMLAttributes, ReactNode } from 'react'
+import type { ReactNode } from 'react'
 
-// We omit `children` because we use it as a render-prop
-type AttributesToOmit = 'children'
+type Option = useComboboxSelectedOptions.Option
 
 export namespace ComboboxSelectedContent {
-  export interface Props extends Omit<HTMLAttributes<HTMLSpanElement>, AttributesToOmit> {
+  export interface Props {
     /** Render-prop function to customise selected content rendering. */
-    children?: (options: readonly useComboboxSelectedOptions.Option[]) => ReactNode
+    children?: (option: Option) => ReactNode
     /**
      * Selected option to be displayed on first render. Necessary when the initial selected option
      * is not present in the DOM.
      */
-    defaultOptions?: readonly useComboboxSelectedOptions.Option[]
+    defaultOptions?: readonly Option[]
     /** ID of the combobox listbox */
     listboxId: string
   }
@@ -32,5 +31,13 @@ export function ComboboxSelectedContent({
 }: ComboboxSelectedContent.Props) {
   const defaultOptions = useComboboxDefaultOptionsContext()
   const options = useComboboxSelectedOptions(listboxId, defaultOptionsProp ?? defaultOptions)
-  return children?.(options) ?? options.at(0)?.label
+
+  if (!hasOptions(options)) return null
+
+  return children?.(options[0]) ?? options[0].label
+}
+
+/** Validates the given options array has at least one option. */
+function hasOptions(options: readonly Option[]): options is [Option, ...Option[]] {
+  return options.length > 0
 }

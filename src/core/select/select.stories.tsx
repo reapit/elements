@@ -167,15 +167,15 @@ export const SelectionCard: Story = {
           placeholder="Select fruit"
           selectionStyle="card"
         >
-          {(options) => (
+          {(option) => (
             <Select.CardDefaultContent
               additionalInfo={
                 <SupplementaryInfo colour="secondary">
-                  <SupplementaryInfo.Item>{descriptions[options[0]?.value]}</SupplementaryInfo.Item>
+                  <SupplementaryInfo.Item>{descriptions[option.value]}</SupplementaryInfo.Item>
                 </SupplementaryInfo>
               }
             >
-              {options[0]?.label}
+              {option.label}
             </Select.CardDefaultContent>
           )}
         </Select.Button>

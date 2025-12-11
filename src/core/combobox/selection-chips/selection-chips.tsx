@@ -3,21 +3,22 @@ import { ComboboxSelectionChip } from './selection-chip'
 import { ComboboxSelectionChipsContext } from './context'
 import { cx } from '@linaria/core'
 import { elComboboxSelectionChips } from './styles'
+import { useComboboxDefaultOptionsContext } from '../default-options-context'
 import { useComboboxSelectedOptions } from '../use-selected-options'
 
 import type { ReactNode } from 'react'
-import { useComboboxDefaultOptionsContext } from '../default-options-context'
 
 type AttributesToOmit = 'children' | 'variant'
+type Option = useComboboxSelectedOptions.Option
 
 export namespace ComboboxSelectionChips {
   export interface ItemProps extends ComboboxSelectionChip.Props {}
 
   export interface Props extends Omit<ChipGroup.Props, AttributesToOmit> {
     /** Render-prop function to customise selection chip rendering. */
-    children?: (options: readonly useComboboxSelectedOptions.Option[]) => ReactNode
+    children?: (options: readonly [Option, ...Option[]]) => ReactNode
     /** Selected options to be displayed on first render. */
-    defaultOptions?: readonly useComboboxSelectedOptions.Option[]
+    defaultOptions?: readonly Option[]
     /** Whether the selection chips are disabled. */
     disabled?: boolean
     /** ID of the combobox listbox */
@@ -41,6 +42,8 @@ export function ComboboxSelectionChips({
   const defaultOptions = useComboboxDefaultOptionsContext()
   const options = useComboboxSelectedOptions(listboxId, defaultOptionsProp ?? defaultOptions)
 
+  if (!hasOptions(options)) return null
+
   const chips =
     children?.(options) ??
     options.map((option) => (
@@ -50,12 +53,15 @@ export function ComboboxSelectionChips({
     ))
 
   return (
-    options.length > 0 && (
-      <ChipGroup {...rest} className={cx(elComboboxSelectionChips, className)} variant="selection">
-        <ComboboxSelectionChipsContext.Provider value={{ listboxId }}>{chips}</ComboboxSelectionChipsContext.Provider>
-      </ChipGroup>
-    )
+    <ChipGroup {...rest} className={cx(elComboboxSelectionChips, className)} variant="selection">
+      <ComboboxSelectionChipsContext.Provider value={{ listboxId }}>{chips}</ComboboxSelectionChipsContext.Provider>
+    </ChipGroup>
   )
+}
+
+/** Validates the given options array has at least one option. */
+function hasOptions(options: readonly Option[]): options is [Option, ...Option[]] {
+  return options.length > 0
 }
 
 ComboboxSelectionChips.Item = ComboboxSelectionChip

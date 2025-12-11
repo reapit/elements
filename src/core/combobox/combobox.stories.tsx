@@ -172,7 +172,7 @@ export const Cards: Story = {
           defaultOptions={[{ label: 'Option 1', value: 'option1' }]}
           listboxId={Combobox.getListboxId('card-example')}
         >
-          {(options) => (
+          {(option) => (
             <Combobox.CardDefaultContent
               additionalInfo={
                 <SupplementaryInfo colour="secondary">
@@ -180,7 +180,7 @@ export const Cards: Story = {
                 </SupplementaryInfo>
               }
             >
-              {options[0]?.label}
+              {option.label}
             </Combobox.CardDefaultContent>
           )}
         </Combobox.SelectedContent>

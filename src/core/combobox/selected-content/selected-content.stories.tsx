@@ -15,7 +15,7 @@ const meta = {
   },
   decorators: [
     (Story, { args, parameters }) => {
-      const listboxId = `${args.id}-${useId()}`
+      const listboxId = useId()
       const [searchValue, setSearchValue] = useState(parameters.initialFilter ?? '')
 
       const filteredOptions = allOptions.filter((option) =>
@@ -108,10 +108,10 @@ export const DefaultOptions: Story = {
 export const Children: Story = {
   args: {
     ...Example.args,
-    children: (options) => {
+    children: (option) => {
       return (
         <Text colour="error" font="text-base/medium">
-          {options.at(0)?.label}
+          {option.label}
         </Text>
       )
     },

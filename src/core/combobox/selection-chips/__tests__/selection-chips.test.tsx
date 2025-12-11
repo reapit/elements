@@ -99,6 +99,20 @@ test('renders many selected options', () => {
   })
 })
 
+test('calls children render-prop when provided and options are selected', () => {
+  vi.mocked(useComboboxSelectedOptions).mockReturnValue([{ label: 'Option 1', value: 'option-1' }])
+  const children = vi.fn()
+  render(<ComboboxSelectionChips listboxId="test-listbox">{children}</ComboboxSelectionChips>)
+  expect(children).toHaveBeenCalledWith([{ label: 'Option 1', value: 'option-1' }])
+})
+
+test('does not call children render-prop when no options are selected', () => {
+  vi.mocked(useComboboxSelectedOptions).mockReturnValue([])
+  const children = vi.fn()
+  render(<ComboboxSelectionChips listboxId="test-listbox">{children}</ComboboxSelectionChips>)
+  expect(children).not.toHaveBeenCalled()
+})
+
 test('passes listboxId to useComboboxSelectedOptions hook', () => {
   vi.mocked(useComboboxSelectedOptions).mockReturnValue([])
   render(<ComboboxSelectionChips listboxId="custom-listbox-id" />)
