@@ -1,4 +1,5 @@
 import { ElComboboxListboxPlaceholder } from './styles'
+import { useComboboxContext } from '../context'
 import { useListboxRenderContext } from '#src/utils/listbox'
 
 import type { HTMLAttributes, ReactNode } from 'react'
@@ -16,7 +17,8 @@ export namespace ComboboxListboxPlaceholder {
  * A placeholder component for the Combobox listbox. Use to display placeholder text when no options
  * are available.
  */
-export function ComboboxListboxPlaceholder({ children, size = 'medium', ...rest }: ComboboxListboxPlaceholder.Props) {
+export function ComboboxListboxPlaceholder({ children, ...rest }: ComboboxListboxPlaceholder.Props) {
+  const { size } = useComboboxContext()
   const renderContext = useListboxRenderContext()
 
   // Render nothing in the native select; only render in the custom UI.
