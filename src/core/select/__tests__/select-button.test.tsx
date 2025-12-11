@@ -62,10 +62,15 @@ test('displays clear button when there is a selection', () => {
   expect(screen.queryByRole('button', { name: 'Clear selection' })).toBeVisible()
 })
 
-test('does not render clear button in multi-select mode', () => {
+test('does not render clear button when there is a selection for multi-selects', () => {
   render(
     <Select multiple>
       <Select.Button />
+      <Select.Listbox value={['1']}>
+        <Select.Option aria-selected value="1">
+          Option 1
+        </Select.Option>
+      </Select.Listbox>
     </Select>,
   )
   expect(screen.queryByRole('button', { name: 'Clear selection' })).not.toBeInTheDocument()

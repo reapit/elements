@@ -48,19 +48,65 @@ test('renders search icon when there is no selection', () => {
   expect(searchIcon).toBeVisible()
 })
 
-test('does not render clear button when there is no selection', () => {
+test('renders search icon when there is a selection for multi-selects', () => {
+  render(
+    <Autocomplete multiple>
+      <Autocomplete.Button />
+      <Autocomplete.Popup search={null}>
+        <Autocomplete.Listbox value={['1']}>
+          <Autocomplete.Option aria-checked value="1">
+            Option 1
+          </Autocomplete.Option>
+        </Autocomplete.Listbox>
+      </Autocomplete.Popup>
+    </Autocomplete>,
+  )
+  const button = screen.getByRole('combobox')
+  const searchIcon = button.querySelector('svg[aria-hidden="true"]')
+  expect(searchIcon).toBeVisible()
+})
+
+test('renders clear button when there is a selection for single-selects', () => {
   render(
     <Autocomplete>
       <Autocomplete.Button />
+      <Autocomplete.Popup search={null}>
+        <Autocomplete.Listbox value="1">
+          <Autocomplete.Option aria-selected value="1">
+            Option 1
+          </Autocomplete.Option>
+        </Autocomplete.Listbox>
+      </Autocomplete.Popup>
+    </Autocomplete>,
+  )
+  expect(screen.queryByRole('button', { name: 'Clear selection' })).toBeVisible()
+})
+
+test('does not render clear button when there is no selection for single-selects', () => {
+  render(
+    <Autocomplete>
+      <Autocomplete.Button />
+      <Autocomplete.Popup search={null}>
+        <Autocomplete.Listbox value="">
+          <Autocomplete.Option value="1">Option 1</Autocomplete.Option>
+        </Autocomplete.Listbox>
+      </Autocomplete.Popup>
     </Autocomplete>,
   )
   expect(screen.queryByRole('button', { name: 'Clear selection' })).not.toBeInTheDocument()
 })
 
-test('does not render clear button in multi-select mode', () => {
+test('does not render clear button when there is a selection for multi-selects', () => {
   render(
     <Autocomplete multiple>
       <Autocomplete.Button />
+      <Autocomplete.Popup search={null}>
+        <Autocomplete.Listbox value={['1']}>
+          <Autocomplete.Option aria-checked value="1">
+            Option 1
+          </Autocomplete.Option>
+        </Autocomplete.Listbox>
+      </Autocomplete.Popup>
     </Autocomplete>,
   )
   expect(screen.queryByRole('button', { name: 'Clear selection' })).not.toBeInTheDocument()

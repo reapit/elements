@@ -37,14 +37,12 @@ export function AutocompleteButton({
   const context = Combobox.useContext()
   const hasSelection = Combobox.useHasSelection(context.listboxId)
 
-  // Clear button is only shown for single-selects with a selection
-  const showClearButton = hasSelection && !context.multiple
-  // Search icon is shown when there's no selection
-  const showSearchIcon = !hasSelection
-  // Content is shown if there are selections and the autocomplete is a single-select.
-  const showContent = hasSelection && !context.multiple
+  // Search icon is shown for multi-selects or when a single-select has no selection
+  const showSearchIcon = context.multiple || !hasSelection
+  // Selected content is only shown for single-selects with a selection
+  const showSelectedContent = !context.multiple && hasSelection
   // The card style is only shown for single-selects with a selection
-  const showCard = selectionStyle === 'card' && showContent
+  const showCard = selectionStyle === 'card' && showSelectedContent
 
   return showCard ? (
     <Combobox.Card
@@ -61,12 +59,14 @@ export function AutocompleteButton({
     <Combobox.Button
       {...rest}
       {...buttonProps}
-      action={showClearButton && <Combobox.ClearButton aria-controls={context.listboxId} disabled={context.disabled} />}
+      action={
+        showSelectedContent && <Combobox.ClearButton aria-controls={context.listboxId} disabled={context.disabled} />
+      }
       leadingIcon={showSearchIcon && <SearchIcon aria-hidden />}
       placeholder={placeholder}
       size={context.size}
     >
-      {showContent && (
+      {showSelectedContent && (
         <Combobox.SelectedContent defaultOptions={defaultOptions} listboxId={context.listboxId}>
           {children}
         </Combobox.SelectedContent>

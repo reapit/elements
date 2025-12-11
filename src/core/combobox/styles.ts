@@ -37,9 +37,9 @@ export const ElCombobox = styled.div<ElComboboxProps>`
     --combobox-text-colour: var(--comp-input-colour-text-error-input);
   }
 
-  /* Focused state: When the combobox contains a focused input, override theme variables
+  /* Focused state: When the combobox contains a focused button, override theme variables
    * to display focused styling. This takes precedence over default state. */
-  &:has(input:focus-visible) {
+  &:has(button:focus) {
     --combobox-background: var(--comp-input-colour-fill-focused-background);
     --combobox-border-colour: var(--comp-input-colour-border-focused);
     --combobox-icon-colour: var(--comp-input-colour-icon-focused);
