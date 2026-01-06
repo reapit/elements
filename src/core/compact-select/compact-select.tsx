@@ -1,8 +1,7 @@
-import { SelectPopup } from './compact-select-popup'
 import { Combobox } from '#src/core/combobox/combobox'
 import { CompactSelectButton } from './compact-select-button'
-
-import type { Combobox as ComboboxType } from '#src/core/combobox/combobox'
+import { CompactSelectPopup } from './compact-select-popup'
+import type { Dispatch, SetStateAction } from 'react'
 
 // We omit,
 // - `multiple`, because compact selects only support single selection.
@@ -11,15 +10,15 @@ import type { Combobox as ComboboxType } from '#src/core/combobox/combobox'
 type AttributesToOmit = Extract<keyof Combobox.Props, 'multiple' | 'required' | 'showValidity'>
 
 export namespace CompactSelect {
-  export interface ButtonProps extends React.ComponentProps<typeof CompactSelectButton> {}
-  export interface DividerProps extends ComboboxType.DividerProps {}
-  export interface ListboxProps extends ComboboxType.Props {}
-  export interface OptgroupProps extends ComboboxType.OptgroupProps {}
-  export interface OptionProps extends ComboboxType.OptionProps {}
-  export interface OptionAdditionalInfoProps extends ComboboxType.OptionAdditionalInfoProps {}
-  export interface PopupProps extends ComboboxType.PopupProps {}
+  export interface ButtonProps extends CompactSelectButton.Props {}
+  export interface DividerProps extends Combobox.DividerProps {}
+  export interface ListboxProps extends Combobox.Props {}
+  export interface OptgroupProps extends Combobox.OptgroupProps {}
+  export interface OptionProps extends Combobox.OptionProps {}
+  export interface OptionAdditionalInfoProps extends Combobox.OptionAdditionalInfoProps {}
+  export interface PopupProps extends Combobox.PopupProps {}
 
-  export interface Props extends Omit<ComboboxType.Props, AttributesToOmit> {}
+  export interface Props extends Omit<Combobox.Props, AttributesToOmit> {}
 }
 
 /**
@@ -39,5 +38,8 @@ CompactSelect.Listbox = Combobox.Listbox
 CompactSelect.Option = Combobox.Option
 CompactSelect.OptionAdditionalInfo = Combobox.OptionAdditionalInfo
 CompactSelect.Optgroup = Combobox.Optgroup
-CompactSelect.Popup = SelectPopup
-CompactSelect.useState = Combobox.useState
+CompactSelect.Popup = CompactSelectPopup
+// Cast Combobox.useState to only accept string values because CompactSelect is always single-select.
+CompactSelect.useState = Combobox.useState as (
+  initialState: string | (() => string),
+) => [string, Dispatch<SetStateAction<string>>]
