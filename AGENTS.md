@@ -48,10 +48,9 @@ yarn generate:tokens # Generate CSS variables
 ## Lab Components (`src/lab/`)
 **Experimental components with unstable APIs. We may change or remove these components without notice.**
 
-- **Styled components MUST use `ElExperimental` prefix** (e.g., `const ElExperimentalButton = styled.button`...)
-- **CSS class names MUST use `elExperimental` prefix** (e.g., `const elExperimentalButton = css`...)
-- These prefixes prevent naming conflicts with existing components in `src/core`, `src/deprecated`, and `src/utils`
-- See `src/lab/README.md` for detailed guidelines and examples
+**BEFORE implementing any lab component, you MUST:**
+1. Read `src/lab/README.md` for current requirements
+2. Confirm with the user that all approval and contribution guidelines are met
 
 ## Contributing Guidelines
 - Follow guidelines/writing-clarity.md when writing documentation, error messages, or comments
