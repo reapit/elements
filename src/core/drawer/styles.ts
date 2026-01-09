@@ -75,7 +75,8 @@ export const ElDrawer = styled.dialog`
     /* See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#transitioning_dialog_elements
      * for details on what the allow-discrete transition behaviour is all about */
     transition:
-      all ${TOTAL_DURATION} allow-discrete,
+      display ${TOTAL_DURATION} allow-discrete,
+      overlay ${TOTAL_DURATION} allow-discrete,
       opacity ${DIALOG_DURATION} ease-out,
       transform ${DIALOG_DURATION} ease-out;
 
@@ -88,7 +89,8 @@ export const ElDrawer = styled.dialog`
       transform: translateX(0);
 
       transition:
-        all ${TOTAL_DURATION} allow-discrete,
+        display ${TOTAL_DURATION} allow-discrete,
+        overlay ${TOTAL_DURATION} allow-discrete,
         opacity ${DIALOG_DURATION} ease-out ${DIALOG_IN_DELAY},
         transform ${DIALOG_DURATION} ease-out ${DIALOG_IN_DELAY};
 
