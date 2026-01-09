@@ -1,4 +1,4 @@
-export * from './avatar-button'
+export * from './avatar'
 export * from './avatar-menu'
 export * from './brand-logo'
 export * from './main-nav'

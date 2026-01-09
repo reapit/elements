@@ -1,5 +1,5 @@
 import { Menu } from '#src/core/menu'
-import { TopBarAvatarButton } from '../avatar-button'
+import { TopBarAvatarButton } from '../avatar'
 import { useId } from 'react'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'

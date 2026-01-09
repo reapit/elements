@@ -1,11 +1,9 @@
-import { cx } from '@linaria/core'
-import { Avatar } from '#src/core/avatar'
-import { elTopBarAvatarButton } from './styles'
+import { TopBarAvatarBase } from './avatar-base'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
 export namespace TopBarAvatarButton {
-  export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, 'children'> {
     /** The accessible name of the button. */
     'aria-label'?: string
     /** The avatar's text. Typically the initials of the current user. */
@@ -23,17 +21,6 @@ export type AvatarButtonProps = TopBarAvatarButton.Props
  *
  * Typically, `TopBar.AvatarMenu` will be used as it combines `TopBar.AvatarButton` and `Menu` together.
  */
-export function TopBarAvatarButton({
-  'aria-label': ariaLabel = 'Profile menu',
-  children,
-  className,
-  ...rest
-}: TopBarAvatarButton.Props) {
-  return (
-    <button {...rest} aria-label={ariaLabel} className={cx(elTopBarAvatarButton, className)}>
-      <Avatar size="small" shape="circle" colour="primary">
-        {children}
-      </Avatar>
-    </button>
-  )
+export function TopBarAvatarButton({ 'aria-label': ariaLabel = 'Profile menu', ...rest }: TopBarAvatarButton.Props) {
+  return <TopBarAvatarBase {...rest} aria-label={ariaLabel} as="button" />
 }

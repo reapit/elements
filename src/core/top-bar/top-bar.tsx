@@ -10,7 +10,7 @@ import {
   ElTopBarSearchContainer,
   ElTopBarSecondaryNavContainer,
 } from './styles'
-import { TopBarAvatarButton } from './avatar-button'
+import { TopBarAvatarAnchor, TopBarAvatarButton } from './avatar'
 import { TopBarAvatarMenu } from './avatar-menu'
 import { TopBarMainNav } from './main-nav'
 import { TopBarNavSearch } from './nav-search'
@@ -104,5 +104,6 @@ TopBar.NavSearch = TopBarNavSearch
 TopBar.NavSearchButton = TopBarNavSearch.Button
 TopBar.NavSearchIconItem = TopBarNavSearch.IconItem
 
+TopBar.AvatarAnchor = TopBarAvatarAnchor
 TopBar.AvatarButton = TopBarAvatarButton
 TopBar.AvatarMenu = TopBarAvatarMenu
