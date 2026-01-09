@@ -1,4 +1,4 @@
-import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_MD_2XL } from '../constants'
+import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL } from '../constants'
 import { ElDrawerFooter } from '../footer'
 import { styled } from '@linaria/react'
 
@@ -10,7 +10,7 @@ export const ElDrawerBody = styled.article`
   padding-block: var(--spacing-5);
   padding-inline: var(--spacing-5);
 
-  @container ${DRAWER_CSS_CONTAINER_NAME} (width >= ${DRAWER_WIDTH_MD_2XL}) {
+  @container ${DRAWER_CSS_CONTAINER_NAME} (width >= ${DRAWER_WIDTH_SM_2XL}) {
     padding-inline: var(--spacing-8);
   }
 

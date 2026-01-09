@@ -1,4 +1,4 @@
-import { DRAWER_WIDTH_XS_SM, DRAWER_WIDTH_MD_2XL, DRAWER_CSS_CONTAINER_NAME } from '../constants'
+import { DRAWER_WIDTH_XS, DRAWER_WIDTH_SM_2XL, DRAWER_CSS_CONTAINER_NAME } from '../constants'
 
 import type { Decorator } from '@storybook/react-vite'
 import type { ReactNode } from 'react'
@@ -24,7 +24,7 @@ function BreakpointsLayout({ children }: BreakpointsLayoutProps) {
         display: 'grid',
         columnGap: 'var(--spacing-10)',
         rowGap: 'var(--spacing-10)',
-        gridTemplateColumns: `${DRAWER_WIDTH_XS_SM} ${DRAWER_WIDTH_MD_2XL}`,
+        gridTemplateColumns: `${DRAWER_WIDTH_XS} ${DRAWER_WIDTH_SM_2XL}`,
         gridTemplateRows: 'min-content 400px',
         gridAutoRows: '400px',
         height: 'max-content',
@@ -54,7 +54,7 @@ export function Breakpoint({ breakpoint, children }: BreakpointProps) {
         gridTemplateColumns: '100%',
         gridTemplateRows: 'auto 1fr auto',
         height: '400px',
-        width: breakpoint === 'XS-SM' ? DRAWER_WIDTH_XS_SM : DRAWER_WIDTH_MD_2XL,
+        width: breakpoint === 'XS-SM' ? DRAWER_WIDTH_XS : DRAWER_WIDTH_SM_2XL,
         overflow: 'auto',
         border: '1px solid #FA00FF',
         boxSizing: 'content-box',

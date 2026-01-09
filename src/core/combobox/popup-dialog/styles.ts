@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { DRAWER_WIDTH_MD_2XL, DRAWER_WIDTH_XS_SM } from '#src/core/drawer'
+import { DRAWER_WIDTH_SM_2XL, DRAWER_WIDTH_XS } from '#src/core/drawer'
 import { styled } from '@linaria/react'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 
@@ -62,14 +62,14 @@ export const elComboboxPopupDialog = css`
 
     width: 100%;
     max-width: 100%;
-    min-width: ${DRAWER_WIDTH_XS_SM};
+    min-width: ${DRAWER_WIDTH_XS};
 
     @media screen and (${isWidthAtOrAbove('SM')}) {
       /* Position the drawer on the right side of the screen */
       inset-inline: auto 0;
 
-      max-width: ${DRAWER_WIDTH_MD_2XL};
-      min-width: ${DRAWER_WIDTH_MD_2XL};
+      max-width: ${DRAWER_WIDTH_SM_2XL};
+      min-width: ${DRAWER_WIDTH_SM_2XL};
     }
 
     /* Open state of the dialog. We use :is because it accepts a forgiving selector list, and not all browsers

@@ -1,4 +1,4 @@
-import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_MD_2XL } from '../constants'
+import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL } from '../constants'
 import { ElDrawerFooter } from '../footer'
 import { font } from '../../text'
 import { styled } from '@linaria/react'
@@ -30,7 +30,7 @@ export const ElDrawerHeaderTabsContainer = styled.div`
 
   padding-inline-start: var(--spacing-5);
 
-  @container ${DRAWER_CSS_CONTAINER_NAME} (width >= ${DRAWER_WIDTH_MD_2XL}) {
+  @container ${DRAWER_CSS_CONTAINER_NAME} (width >= ${DRAWER_WIDTH_SM_2XL}) {
     padding-inline-start: var(--spacing-8);
   }
 `
@@ -78,7 +78,7 @@ export const ElDrawerHeaderTitleContainer = styled.div`
   padding-block: var(--spacing-3);
   padding-inline: var(--spacing-5) var(--spacing-3);
 
-  @container ${DRAWER_CSS_CONTAINER_NAME} (width >= ${DRAWER_WIDTH_MD_2XL}) {
+  @container ${DRAWER_CSS_CONTAINER_NAME} (width >= ${DRAWER_WIDTH_SM_2XL}) {
     padding-block: var(--spacing-5);
     padding-inline: var(--spacing-8) var(--spacing-5);
   }

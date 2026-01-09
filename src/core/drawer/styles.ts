@@ -1,4 +1,4 @@
-import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_MD_2XL, DRAWER_WIDTH_XS_SM } from './constants'
+import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL, DRAWER_WIDTH_XS } from './constants'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints/conditions'
 import { styled } from '@linaria/react'
 
@@ -13,18 +13,23 @@ export const ElDrawer = styled.dialog`
   position: fixed;
 
   container-name: ${DRAWER_CSS_CONTAINER_NAME};
-  container-type: size;
+  container-type: inline-size;
 
   background: var(--colour-fill-white);
   border: none;
   padding: 0;
 
-  max-width: ${DRAWER_WIDTH_XS_SM};
-  min-width: ${DRAWER_WIDTH_XS_SM};
+  /* Grow to fill available space, but max out at dynamic viewport width.
+   * Never shrink below XS drawer width. */
+  width: 100%;
+  max-width: 100dvw;
+  min-width: ${DRAWER_WIDTH_XS};
 
-  @media ${isWidthAtOrAbove('MD')} {
-    max-width: ${DRAWER_WIDTH_MD_2XL};
-    min-width: ${DRAWER_WIDTH_MD_2XL};
+  @media ${isWidthAtOrAbove('SM')} {
+    /* For SM and above, max out at SM-2XL drawer width.
+     * Never shrink below SM-2XL drawer width. */
+    max-width: ${DRAWER_WIDTH_SM_2XL};
+    min-width: ${DRAWER_WIDTH_SM_2XL};
   }
 
   /* Position the drawer on the right side of the screen and make it full height */
