@@ -1,5 +1,6 @@
 import { ElTopBarSecondaryNav, ElTopBarSecondaryNavList } from './styles'
 import { TopBarSecondaryNavListItem } from './secondary-nav-list-item'
+import { TopBarSecondaryNavListItemButton } from './secondary-nav-list-item-button'
 import { TopBarSecondaryNavMenuListItem } from './secondary-nav-menu-list-item'
 
 import type { ComponentProps, ReactNode } from 'react'
@@ -38,4 +39,5 @@ export function TopBarSecondaryNav({
 TopBarSecondaryNav.displayName = 'TopBar.SecondaryNav'
 
 TopBarSecondaryNav.Item = TopBarSecondaryNavListItem
+TopBarSecondaryNav.ItemButton = TopBarSecondaryNavListItemButton
 TopBarSecondaryNav.MenuItem = TopBarSecondaryNavMenuListItem

@@ -98,6 +98,7 @@ TopBar.NavMenuItem = TopBarMainNav.MenuItem
 
 TopBar.SecondaryNav = TopBarSecondaryNav
 TopBar.NavIconItem = TopBarSecondaryNav.Item
+TopBar.NavIconItemButton = TopBarSecondaryNav.ItemButton
 TopBar.NavIconMenuItem = TopBarSecondaryNav.MenuItem
 
 TopBar.NavSearch = TopBarNavSearch
