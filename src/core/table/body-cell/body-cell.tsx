@@ -21,7 +21,8 @@ export namespace TableBodyCell {
   }
 
   interface AsThProps
-    extends CommonProps,
+    extends
+      CommonProps,
       // NOTE: we omit scope because it should always be "row"
       Omit<ThHTMLAttributes<HTMLTableCellElement>, 'scope'> {
     as: 'th'

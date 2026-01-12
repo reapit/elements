@@ -5,8 +5,8 @@ figma.connect(Table.HeaderRow, '<TABLE_HEADER_ROW_URL>', {
   props: {
     checkbox: figma.boolean('Selectable', {
       true: (
-        <Table.HeaderCell aria-label="Select rows">
-          <Table.Checkbox aria-label="Select all" />
+        <Table.HeaderCell aria-label="Selection">
+          <Table.Checkbox aria-label="Select all rows" />
         </Table.HeaderCell>
       ),
       false: undefined,

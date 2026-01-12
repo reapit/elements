@@ -6,7 +6,7 @@ figma.connect(Table.BodyRow, '<TABLE_BODY_ROW_URL>', {
     checkbox: figma.boolean('Selectable', {
       true: (
         <Table.BodyCell>
-          <Table.Checkbox aria-label="Select all" />
+          <Table.Checkbox aria-label="Select XXX" />
         </Table.BodyCell>
       ),
       false: undefined,
