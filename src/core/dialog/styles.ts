@@ -1,4 +1,4 @@
-import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
 
 const BACKDROP_DURATION = '100ms'
 const DIALOG_DURATION = '200ms'
@@ -7,12 +7,7 @@ const TOTAL_DURATION = '300ms'
 const BACKDROP_OUT_DELAY = DIALOG_DURATION
 const DIALOG_IN_DELAY = BACKDROP_DURATION
 
-interface ElDialogContainerProps {
-  /** The size of the dialog. */
-  'data-size': 'small' | 'medium' | 'large' | 'full-screen'
-}
-
-export const ElDialog = styled.dialog<ElDialogContainerProps>`
+export const elDialog = css`
   overflow: auto;
   border: none;
   border-radius: var(--corner-radius-corner-lg, 8px);

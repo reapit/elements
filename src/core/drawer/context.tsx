@@ -20,7 +20,7 @@ export const DrawerContext = createContext<DrawerContext.Value | null>(null)
 export function useDrawerContext(): DrawerContext.Value {
   const context = useContext(DrawerContext)
   if (!context) {
-    throw new Error('DrawerContext not defined: useDrawerContext can only be used in a child of DrawerContext')
+    throw new Error('useDrawerContext requires a Drawer ancestor')
   }
   return context
 }

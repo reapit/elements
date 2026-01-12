@@ -1,11 +1,12 @@
 import { AnchorPositioning } from '#src/utils/anchor-positioning'
-import { clearSearchInputOnClose, closeOnBackdropClick, maybeCloseOnSelection } from './event-handlers'
+import { clearSearchInputOnClose, maybeCloseOnSelection } from './event-handlers'
 import { closeComboboxPopup } from './close-popup'
 import { ComboboxPopupDialogCloseButton } from './close-button'
 import { ComboboxPopupDialogContext, useComboboxPopupDialogContext } from './context'
 import { cx } from '@linaria/core'
 import { elComboboxPopupDialog, ElComboboxPopupDialogHeader, ElComboboxPopupDialogListboxContainer } from './styles'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
+import { maybeCloseOnBackdropClick } from '#src/utils/dialog'
 import { openComboboxPopup } from './open-popup'
 import { useCancelCloseRequests, useWithStopPropagation } from '#src/core/drawer'
 import { useMatchMedia } from '#src/utils/match-media'
@@ -101,7 +102,7 @@ export function ComboboxPopupDialog({
   const handleClick: MouseEventHandler<HTMLDialogElement> = (event) => {
     onClick?.(event)
     maybeCloseOnSelection(event)
-    closeOnBackdropClick(event)
+    maybeCloseOnBackdropClick(event)
   }
 
   return (
@@ -109,9 +110,7 @@ export function ComboboxPopupDialog({
       {...rest}
       aria-labelledby={ariaLabelledBy}
       className={cx(elComboboxPopupDialog, className)}
-      /* eslint-disable-next-line react/no-unknown-property -- closedby is not yet in React types
-       * but is supported in all modern browsers, except Safari. We handle light dismiss for Safari via
-       * the click handler */
+      /* eslint-disable-next-line react/no-unknown-property -- closedby not yet in React types */
       closedby="any"
       data-close-on-selection={closeOnSelection}
       data-preserve-search-on-close={preserveSearchOnClose}

@@ -83,6 +83,15 @@ test('unmounts children when dialog closes', async () => {
   await waitFor(() => expect(screen.queryByText('Test content')).not.toBeInTheDocument())
 })
 
+test('forwards className to the underlying dialog element', async () => {
+  render(
+    <Dialog className="custom-class" isOpen size="small">
+      Test content
+    </Dialog>,
+  )
+  await waitFor(() => expect(screen.getByRole('dialog')).toHaveClass('custom-class'))
+})
+
 test('forwards additional props to the dialog element', () => {
   render(
     <Dialog data-testid="test-id" size="small">

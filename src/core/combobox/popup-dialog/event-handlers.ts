@@ -68,29 +68,6 @@ export function maybeCloseOnSelection(event: MouseEvent<HTMLDialogElement>): voi
 }
 
 /**
- * Closes the dialog when clicking on the backdrop (Safari workaround).
- *
- * Safari doesn't support the closedby attribute, so we handle backdrop clicks manually.
- * This function checks if the click target is the dialog element itself (not its children),
- * which indicates a backdrop click.
- *
- * @param event The click event from the dialog element
- *
- * @example
- * const handleClick = (event: MouseEvent<HTMLDialogElement>) => {
- *   closeOnBackdropClick(event)
- * }
- */
-export function closeOnBackdropClick(event: MouseEvent<HTMLDialogElement>): void {
-  const isClosedBySupported = 'closedBy' in HTMLDialogElement.prototype
-
-  if (!isClosedBySupported && event.target === event.currentTarget) {
-    // Click was on the backdrop, not on dialog content
-    event.currentTarget.close()
-  }
-}
-
-/**
  * Finds the closest option element from a click target.
  *
  * Searches up the DOM tree from the given element to find an element with

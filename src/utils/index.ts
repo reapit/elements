@@ -1,5 +1,6 @@
 export * from './breakpoints'
 export * from './css-container-query'
+export * from './dialog'
 export * from './keyboard-navigation'
 export * from './match-media'
 export * from './path'

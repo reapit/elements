@@ -1,16 +1,18 @@
+import { cx } from '@linaria/core'
 import { DrawerBody } from './body'
 import { DrawerContext, useDrawerContext } from './context'
 import { DrawerFooter } from './footer'
 import { DrawerHeader } from './header'
-import { ElDrawer } from './styles'
+import { elDrawer } from './styles'
 import { getClosestDialogElement } from './get-closest-dialog-element'
+import { maybeCloseOnBackdropClick } from '#src/utils/dialog'
 import { useCancelCloseRequests } from './use-cancel-close-requests'
 import { useDialogController } from './use-dialog-controller'
 import { useDialogObserver } from './use-dialog-observer'
 import { useId } from 'react'
 import { useWithStopPropagation } from './use-with-stop-propagation'
 
-import type { DialogHTMLAttributes, ReactNode } from 'react'
+import type { DialogHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
 // NOTE: we omit..
 // - `open` because we do not want React consumers to use it directly as it results in a non-modal experience.
@@ -23,33 +25,28 @@ export namespace Drawer {
     children: ReactNode
     /**
      * Specifies the types of user actions that can be used to close the drawer. This property distinguishes
-     * two methods by which a drawer can be closed:
+     * three methods by which a drawer can be closed:
      *
-     *  (1) A platform-specific user action, such as pressing the `Esc` key on desktop platforms, or a "back" or
-     *    "dismiss" gesture on mobile platforms.
-     *
-     *  (2) A developer-specified mechanism such as the drawer close button and a `<form>` submission.
+     * - A _light dismiss user action_, in which the drawer is closed when the user clicks or taps
+     * outside it. This is equivalent to the "light dismiss" behavior of "auto" state popovers.
+     * - A _platform-specific user action_, such as pressing the `Esc` key on desktop platforms, or a "back"
+     * or "dismiss" gesture on mobile platforms.
+     * - A developer-specified mechanism such as a `<button>` with a `click` handler that invokes
+     * `HTMLDialogElement.close()` or a `<form>` submission.
      *
      * Possible values are:
      *
+     *  - `any`: The drawer can be closed by clicking on the backdrop, pressing the `Esc` key, or a
+     *    developer-specified mechanism. This is useful for lightweight dismissible drawers.
      *  - `closerequest`: The drawer can be dismissed with a platform-specific user action or a
      *    developer-specified mechanism. This is what detail drawers should use.
-     *
      *  - `none`: The drawer cannot be closed by the user (e.g. via the close button). This is what form drawers
      *    should use.
      *
-     * **Note:** The `closedby` attribute for the HTML `<dialog>` element is experimental. We currently approximate
-     * its behaviour internally, but we are not using the attribute itself.
-     *
-     * **Note 2:** The HTML `<dialog>` element distinguishes a third method, `any`, for closing a dialog element,
-     * but Drawer does not currently support it. See MDN's
-     * [closedBy](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#closedby)
-     * attribute docs for more information.
-     *
-     * **Note 3:** The `closedBy` attribute is not supported in all browsers. We currently approximate its behaviour
-     * internally, but we are not using the attribute itself.
+     * **note:** Safari does not currently support `closedBy`. `Drawer` attempts to polyfill its behaviour,
+     * but it's not perfect. Namely, "back" or "dismiss" gestures on mobile platforms are not supported.
      */
-    closedBy?: 'closerequest' | 'none'
+    closedBy?: 'any' | 'closerequest' | 'none'
     /** Indicates whether the Drawer is open or not */
     isOpen?: boolean
   }
@@ -70,9 +67,11 @@ export function Drawer({
   'aria-label': ariaLabel,
   'aria-labelledby': ariaLabelledBy,
   children,
+  className,
   closedBy = 'closerequest',
   isOpen: isOpenProp,
   onCancel: onCancelProp,
+  onClick: onClickProp,
   onClose: onCloseProp,
   ...rest
 }: Drawer.Props) {
@@ -94,15 +93,26 @@ export function Drawer({
   // nested dialogs).
   const onClose = useWithStopPropagation(onCloseProp)
 
+  // Handle backdrop clicks to close the drawer (Safari workaround).
+  // maybeCloseOnBackdropClick checks if closedby='any' is set before closing.
+  const onClick: MouseEventHandler<HTMLDialogElement> = (event) => {
+    onClickProp?.(event)
+    maybeCloseOnBackdropClick(event)
+  }
+
   return (
-    <ElDrawer
+    <dialog
       {...rest}
       // NOTE: we do not wire-up aria-labelledby when aria-label is provided. By default, aria-labelledby takes
       // precedence. See https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label#:~:text=aria%2Dlabelledby%20will%20take%20precedence%20over%20aria%2Dlabel%20if%20both%20are%20applied
       aria-label={ariaLabel}
       aria-labelledby={ariaLabel ? undefined : (ariaLabelledBy ?? titleId)}
+      className={cx(elDrawer, className)}
+      /* eslint-disable-next-line react/no-unknown-property -- closedby not yet in React types */
+      closedby={closedBy}
       ref={ref}
       onCancel={onCancel}
+      onClick={onClick}
       onClose={onClose}
     >
       <DrawerContext.Provider value={{ titleId }}>
@@ -112,7 +122,7 @@ export function Drawer({
          */}
         {isOpen && children}
       </DrawerContext.Provider>
-    </ElDrawer>
+    </dialog>
   )
 }
 

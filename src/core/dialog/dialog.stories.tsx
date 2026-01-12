@@ -2,6 +2,7 @@ import { Button } from '#src/core/button'
 import { Dialog } from './dialog'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { useArgs } from 'storybook/preview-api'
+import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -45,6 +46,46 @@ export const Example: Story = {
       <>
         <button onClick={() => setArgs({ isOpen: true })}>Open Dialog</button>
         <Dialog onClose={() => setArgs({ isOpen: false })} {...args} />
+      </>
+    )
+  },
+}
+
+/**
+ * The `closedBy` prop specifies the types of user actions that can be used to close the dialog. It
+ * distinguishes three methods:
+ *
+ * - A _light dismiss user action_, in which the dialog is closed when the user clicks or taps
+ * outside it. This is equivalent to the "light dismiss" behavior of "auto" state popovers.
+ * - A _platform-specific user action_, such as pressing the `Esc` key on desktop platforms, or a "back"
+ * or "dismiss" gesture on mobile platforms.
+ * - A developer-specified mechanism such as a `<button>` with a `click` handler that invokes
+ * `HTMLDialogElement.close()` or a `<form>` submission.
+ *
+ * Possible values are:
+ *
+ * - `any`, the dialog can be dismissed using any of the three methods.
+ * - `closerequest`, the dialog can be dismissed with a platform-specific user action or a
+ * developer-specified mechanism.
+ * - `none`, the dialog can only be dismissed with a developer-specified mechanism.
+ *
+ * **note:** Safari does not currently support `closedBy`. `Dialog` attempts to polyfill its behaviour,
+ * but it's not perfect. Namely, "back" or "dismiss" gestures on mobile platforms are not supported.
+ *
+ * In this example, the dialog is using `closedBy="any"`, meaning any of the three methods can be used
+ * to dismiss it.
+ */
+export const ClosedBy: Story = {
+  args: {
+    ...Example.args,
+    closedBy: 'any',
+  },
+  render: function ClosedBy(args) {
+    const [isOpen, setIsOpen] = useState(false)
+    return (
+      <>
+        <button onClick={() => setIsOpen(true)}>Open Dialog</button>
+        <Dialog onClose={() => setIsOpen(false)} {...args} isOpen={isOpen} />
       </>
     )
   },

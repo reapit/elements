@@ -1,8 +1,9 @@
+import { cx } from '@linaria/core'
 import { DialogBody } from './body'
 import { DialogContext, useDialogContext } from './context'
 import { DialogFooter } from './footer'
 import { DialogHeader } from './header'
-import { ElDialog } from './styles'
+import { elDialog } from './styles'
 import {
   getClosestDialogElement,
   useDialogController,
@@ -10,9 +11,10 @@ import {
   useCancelCloseRequests,
   useWithStopPropagation,
 } from '#src/core/drawer'
+import { maybeCloseOnBackdropClick } from '#src/utils/dialog'
 import { useId } from 'react'
 
-import type { DialogHTMLAttributes, ReactNode } from 'react'
+import type { DialogHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
 
 export namespace Dialog {
   // NOTE: we omit..
@@ -25,33 +27,28 @@ export namespace Dialog {
     children: ReactNode
     /**
      * Specifies the types of user actions that can be used to close the dialog. This property distinguishes
-     * two methods by which a dialog can be closed:
+     * three methods by which a dialog can be closed:
      *
-     *  (1) A platform-specific user action, such as pressing the `Esc` key on desktop platforms, or a "back" or
-     *    "dismiss" gesture on mobile platforms.
-     *
-     *  (2) A developer-specified mechanism such as the dialog close button and a `<form>` submission.
+     * - A _light dismiss user action_, in which the dialog is closed when the user clicks or taps
+     * outside it. This is equivalent to the "light dismiss" behavior of "auto" state popovers.
+     * - A _platform-specific user action_, such as pressing the `Esc` key on desktop platforms, or a "back"
+     * or "dismiss" gesture on mobile platforms.
+     * - A developer-specified mechanism such as a `<button>` with a `click` handler that invokes
+     * `HTMLDialogElement.close()` or a `<form>` submission.
      *
      * Possible values are:
      *
+     *  - `any`: The dialog can be closed by clicking on the backdrop, pressing the `Esc` key, or a
+     *    developer-specified mechanism. This is useful for lightweight dismissible dialogs.
      *  - `closerequest`: The dialog can be dismissed with a platform-specific user action or a
      *    developer-specified mechanism. This is what detail dialogs should use.
-     *
      *  - `none`: The dialog cannot be closed by the user (e.g. via the close button). This is what form dialogs
      *    should use.
      *
-     * **Note:** The `closedby` attribute for the HTML `<dialog>` element is experimental. We currently approximate
-     * its behaviour internally, but we are not using the attribute itself.
-     *
-     * **Note 2:** The HTML `<dialog>` element distinguishes a third method, `any`, for closing a dialog element,
-     * but Dialog does not currently support it. See MDN's
-     * [closedBy](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/dialog#closedby)
-     * attribute docs for more information.
-     *
-     * **Note 3:** The `closedBy` attribute is not supported in all browsers. We currently approximate its behaviour
-     * internally, but we are not using the attribute itself.
+     * **note:** Safari does not currently support `closedBy`. `Dialog` attempts to polyfill its behaviour,
+     * but it's not perfect. Namely, "back" or "dismiss" gestures on mobile platforms are not supported.
      */
-    closedBy?: 'closerequest' | 'none'
+    closedBy?: 'any' | 'closerequest' | 'none'
     /** Indicates whether the dialog is open or not */
     isOpen?: boolean
     /** The size of the dialog. */
@@ -74,10 +71,12 @@ export namespace Dialog {
 export function Dialog({
   'aria-labelledby': ariaLabelledBy,
   children,
+  className,
   closedBy = 'closerequest',
   isOpen: isOpenProp,
   onCancel: onCancelProp,
   onClose: onCloseProp,
+  onClick: onClickProp,
   size,
   ...rest
 }: Dialog.Props) {
@@ -99,14 +98,25 @@ export function Dialog({
   // nested dialogs).
   const onClose = useWithStopPropagation(onCloseProp)
 
+  // Handle backdrop clicks to close the dialog (Safari workaround).
+  // maybeCloseOnBackdropClick checks if closedby='any' is set before closing.
+  const onClick: MouseEventHandler<HTMLDialogElement> = (event) => {
+    onClickProp?.(event)
+    maybeCloseOnBackdropClick(event)
+  }
+
   return (
-    <ElDialog
+    <dialog
       {...rest}
       aria-labelledby={ariaLabelledBy ?? titleId}
       data-size={size}
+      className={cx(elDialog, className)}
+      /* eslint-disable-next-line react/no-unknown-property -- closedby not yet in React types */
+      closedby={closedBy}
       ref={ref}
       onCancel={onCancel}
       onClose={onClose}
+      onClick={onClick}
     >
       <DialogContext.Provider value={{ titleId }}>
         {/*
@@ -115,7 +125,7 @@ export function Dialog({
          */}
         {isOpen && children}
       </DialogContext.Provider>
-    </ElDialog>
+    </dialog>
   )
 }
 

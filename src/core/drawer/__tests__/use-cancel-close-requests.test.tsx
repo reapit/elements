@@ -1,6 +1,36 @@
 import { fireEvent, render, screen } from '@testing-library/react'
 import { useCancelCloseRequests } from '../use-cancel-close-requests'
 
+describe('when `closedBy="any"`', () => {
+  test('does not cancel the event', () => {
+    render(<TestComponent closedBy="any" />)
+
+    const cancelEvent = new Event('cancel', { cancelable: true, bubbles: true })
+    fireEvent(screen.getByRole('dialog'), cancelEvent)
+
+    expect(cancelEvent.defaultPrevented).toBe(false)
+  })
+
+  test('stops event propagation', () => {
+    render(<TestComponent closedBy="any" />)
+
+    const cancelEvent = new Event('cancel', { cancelable: true, bubbles: true })
+    const stopPropagationSpy = vi.spyOn(cancelEvent, 'stopPropagation')
+    fireEvent(screen.getByRole('dialog'), cancelEvent)
+
+    expect(stopPropagationSpy).toHaveBeenCalled()
+  })
+
+  test('calls consumer-supplied `onCancel`', () => {
+    const onCancel = vi.fn()
+    render(<TestComponent closedBy="any" onCancel={onCancel} />)
+
+    fireEvent(screen.getByRole('dialog'), new Event('cancel', { bubbles: true }))
+
+    expect(onCancel).toHaveBeenCalledTimes(1)
+  })
+})
+
 describe('when `closedBy="closerequest"`', () => {
   test('does not cancel the event', () => {
     render(<TestComponent closedBy="closerequest" />)
@@ -87,7 +117,7 @@ describe('when `closedBy="none"`', () => {
 })
 
 interface TestComponentProps {
-  closedBy?: 'closerequest' | 'none'
+  closedBy?: 'any' | 'closerequest' | 'none'
   onCancel?: React.EventHandler<React.SyntheticEvent<HTMLDialogElement>>
 }
 

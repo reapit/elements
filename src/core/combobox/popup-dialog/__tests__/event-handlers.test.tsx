@@ -1,10 +1,6 @@
 import { closeComboboxPopup } from '../close-popup'
-import {
-  clearSearchInputOnClose,
-  closeOnBackdropClick,
-  getOptionElement,
-  maybeCloseOnSelection,
-} from '../event-handlers'
+import { clearSearchInputOnClose, getOptionElement, maybeCloseOnSelection } from '../event-handlers'
+import { maybeCloseOnBackdropClick } from '#src/utils/dialog'
 import { fireEvent, render, screen } from '@testing-library/react'
 
 import type { MouseEvent, SyntheticEvent } from 'react'
@@ -237,7 +233,7 @@ function TestComponent({
 }: TestComponentProps) {
   const handleClick = (event: MouseEvent<HTMLDialogElement>) => {
     maybeCloseOnSelection(event)
-    closeOnBackdropClick(event)
+    maybeCloseOnBackdropClick(event)
   }
 
   return (

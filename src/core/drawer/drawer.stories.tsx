@@ -6,6 +6,7 @@ import { PrimaryTabs } from '#src/core/primary-tabs/index'
 import { SupplementaryInfo } from '../supplementary-info'
 import { useArgs } from 'storybook/preview-api'
 import { useDrawerContextDecorator } from './__story__/useDrawerContextDecorator'
+import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -46,6 +47,46 @@ export const Example: Story = {
       <>
         <button onClick={() => setArgs({ isOpen: true })}>Open Drawer</button>
         <Drawer onClose={() => setArgs({ isOpen: false })} {...args} />
+      </>
+    )
+  },
+}
+
+/**
+ * The `closedBy` prop specifies the types of user actions that can be used to close the drawer. It
+ * distinguishes three methods:
+ *
+ * - A _light dismiss user action_, in which the drawer is closed when the user clicks or taps
+ * outside it. This is equivalent to the "light dismiss" behavior of "auto" state popovers.
+ * - A _platform-specific user action_, such as pressing the `Esc` key on desktop platforms, or a "back"
+ * or "dismiss" gesture on mobile platforms.
+ * - A developer-specified mechanism such as a `<button>` with a `click` handler that invokes
+ * `HTMLDialogElement.close()` or a `<form>` submission.
+ *
+ * Possible values are:
+ *
+ * - `any`, the drawer can be dismissed using any of the three methods.
+ * - `closerequest`, the drawer can be dismissed with a platform-specific user action or a
+ * developer-specified mechanism.
+ * - `none`, the drawer can only be dismissed with a developer-specified mechanism.
+ *
+ * **note:** Safari does not currently support `closedBy`. `Drawer` attempts to polyfill its behaviour,
+ * but it's not perfect. Namely, "back" or "dismiss" gestures on mobile platforms are not supported.
+ *
+ * In this example, the drawer is using `closedBy="any"`, meaning any of the three methods can be used
+ * to dismiss it.
+ */
+export const ClosedBy: Story = {
+  args: {
+    ...Example.args,
+    closedBy: 'any',
+  },
+  render: function ClosedBy(args) {
+    const [isOpen, setIsOpen] = useState(false)
+    return (
+      <>
+        <button onClick={() => setIsOpen(true)}>Open Drawer</button>
+        <Drawer onClose={() => setIsOpen(false)} {...args} isOpen={isOpen} />
       </>
     )
   },

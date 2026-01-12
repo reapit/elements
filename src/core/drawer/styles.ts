@@ -1,6 +1,6 @@
+import { css } from '@linaria/core'
 import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL, DRAWER_WIDTH_XS } from './constants'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints/conditions'
-import { styled } from '@linaria/react'
 
 const BACKDROP_DURATION = '100ms'
 const DIALOG_DURATION = '200ms'
@@ -9,7 +9,7 @@ const TOTAL_DURATION = '200ms'
 const BACKDROP_OUT_DELAY = '0ms'
 const DIALOG_IN_DELAY = '0ms'
 
-export const ElDrawer = styled.dialog`
+export const elDrawer = css`
   position: fixed;
 
   container-name: ${DRAWER_CSS_CONTAINER_NAME};
