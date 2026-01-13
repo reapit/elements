@@ -7,12 +7,11 @@ import { getPopoverTriggerProps } from './get-popover-trigger-props'
 import type { CSSProperties, HTMLAttributes, ReactNode } from 'react'
 
 // We omit these ID props because Popover accepts them via different names.
-type AttributesToOmit = 'anchorElementId' | 'positionedElementId'
+type AttributesToOmit = 'anchorElementId' | 'position' | 'positionedElementId'
 
 export namespace Popover {
   export interface Props
-    extends Omit<AnchorPositioning.PositioningProps, AttributesToOmit>,
-      HTMLAttributes<HTMLDivElement> {
+    extends Omit<AnchorPositioning.PositioningProps, AttributesToOmit>, HTMLAttributes<HTMLDivElement> {
     /** ID of the element to anchor this popover to. */
     anchorId: string
     /**
@@ -42,6 +41,10 @@ export namespace Popover {
      * `popover` attribute, the element won't render in the top layer and may encounter z-index issues.
      */
     popover?: 'auto' | 'hint' | 'manual' | null
+    /**
+     * The position of the popover. Must be absolute or fixed. Default is absolute.
+     */
+    position?: AnchorPositioning.Props['position']
   }
 }
 
@@ -78,6 +81,7 @@ export function Popover({
   maxWidth,
   minWidth,
   placement,
+  position = 'absolute',
   positionTryFallbacks,
   popover = 'auto',
   right,
@@ -111,6 +115,7 @@ export function Popover({
         maxWidth={maxWidth}
         minWidth={minWidth}
         placement={placement}
+        position={position}
         positionedElementId={id}
         positionTryFallbacks={positionTryFallbacks}
         right={right}

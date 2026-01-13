@@ -18,6 +18,10 @@ export namespace buildAnchorPositioningCSS {
      */
     minWidth?: string
     /**
+     * The position of the element. Must be absolute or fixed. Default is absolute.
+     */
+    position?: 'absolute' | 'fixed'
+    /**
      * Positioned element ID.
      */
     positionedElementId: string
@@ -48,6 +52,7 @@ export function buildAnchorPositioningCSS({
   maxWidth,
   minWidth,
   placement,
+  position = 'absolute',
   positionedElementId,
   positionTryFallbacks = 'none',
   right,
@@ -75,7 +80,7 @@ export function buildAnchorPositioningCSS({
     }
 
     #${CSS.escape(positionedElementId)} {
-      position: absolute;
+      position: ${position};
       position-anchor: ${anchorName};
       position-try-fallbacks: ${positionTryFallbacks};
       ${maxWidth ? `max-width: ${maxWidth};` : ''}

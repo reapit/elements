@@ -11,6 +11,7 @@ test('calls mapPlacementToCSS', () => {
     maxWidth: 'var(--fake-max-width)',
     minWidth: 'var(--fake-min-width)',
     placement: 'top-start',
+    position: 'absolute',
     positionedElementId: 'positioned-element',
     positionTryFallbacks: 'flip-block',
   })
@@ -29,6 +30,7 @@ test('produces CSS for the anchor element and positioned element', () => {
       maxWidth: 'var(--fake-max-width)',
       minWidth: 'var(--fake-min-width)',
       placement: 'top-start',
+      position: 'absolute',
       positionedElementId: 'positioned-element',
       positionTryFallbacks: 'flip-block, flip-inline',
     }),
@@ -50,12 +52,41 @@ test('produces CSS for the anchor element and positioned element', () => {
   `)
 })
 
+test('handles position: fixed', () => {
+  expect(
+    buildAnchorPositioningCSS({
+      anchorElementId: ':r1:', // simulate a `useId` string
+      gap: 'var(--fake-gap)',
+      placement: 'top-start',
+      position: 'fixed',
+      positionedElementId: 'positioned-element',
+      positionTryFallbacks: 'flip-block, flip-inline',
+    }),
+  ).toMatchInlineSnapshot(`
+    "
+        #\\:r1\\: {
+          anchor-name: --\\:r1\\:;
+        }
+
+        #positioned-element {
+          position: fixed;
+          position-anchor: --\\:r1\\:;
+          position-try-fallbacks: flip-block, flip-inline;
+          ${'' /* max width; this is needed to prevent prettier removing the whitespace */}
+          ${'' /* min width; this is needed to prevent prettier removing the whitespace */}
+          /* mocked positioning css */
+        }
+      "
+  `)
+})
+
 test('handles undefined max and min widths', () => {
   expect(
     buildAnchorPositioningCSS({
       anchorElementId: ':r1:', // simulate a `useId` string
       gap: 'var(--fake-gap)',
       placement: 'top-start',
+      position: 'absolute',
       positionedElementId: 'positioned-element',
       positionTryFallbacks: 'flip-block, flip-inline',
     }),

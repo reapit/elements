@@ -128,6 +128,11 @@ export function ComboboxPopupDialog({
             left={defaultPopupInsetLeft}
             maxWidth={maxWidth}
             minWidth={minWidth}
+            // NOTE: position="absolute" leads to scrolling on the document when a popup is
+            // open in, for example, a drawer that itself has scrolled. Using fixed positioning
+            // avoids this. It's unclear if this is an anchor positioning bug, or intentional
+            // spec behaviour.
+            position="fixed"
             positionedElementId={id}
             positionTryFallbacks="flip-block, flip-inline"
             top={defaultPopupInsetTop}

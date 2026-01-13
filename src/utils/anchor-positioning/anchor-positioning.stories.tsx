@@ -56,6 +56,7 @@ export const Example: Story = {
     left: '',
     positionedElementId: 'target',
     placement: 'right',
+    position: 'absolute',
     right: '',
     top: '',
   },
