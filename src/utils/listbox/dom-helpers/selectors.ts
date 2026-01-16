@@ -4,8 +4,14 @@
  * Matches button elements with the role="option" attribute, which represent
  * individual options within a listbox. These are the interactive elements that
  * users can click or navigate to with the keyboard.
+ *
+ * Also matches summary elements in order to support use-cases where the listbox
+ * contains collapsible groups of options using details and summary elements.
+ *
+ * TODO: It's possible we should support custom selectors via a prop on the listbox,
+ * as summary element support is, at time of writing, only required by OfficeSwitcher.
  */
-export const OPTION_SELECTOR = 'button[role="option"]'
+export const OPTION_SELECTOR = ':is(button[role="option"], summary)'
 
 /**
  * CSS selector for selected listbox option elements.

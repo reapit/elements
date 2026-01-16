@@ -70,3 +70,30 @@ export const Searchable: Story = {
     ),
   },
 }
+
+/**
+ * In some cases, offices may need to be grouped.
+ */
+export const Groups: Story = {
+  args: {
+    children: (
+      <OfficeSwitcher.Select>
+        <OfficeSwitcher.Button />
+        <OfficeSwitcher.Popup search={<OfficeSwitcher.SearchInput aria-label="Search offices" />}>
+          <OfficeSwitcher.Listbox defaultValue="1">
+            <OfficeSwitcher.Optgroup label="Australia" open>
+              <OfficeSwitcher.Option value="1">Brisbane South</OfficeSwitcher.Option>
+              <OfficeSwitcher.Option value="2">Gold Coast Central</OfficeSwitcher.Option>
+              <OfficeSwitcher.Option value="3">Sunshine Valley</OfficeSwitcher.Option>
+            </OfficeSwitcher.Optgroup>
+            <OfficeSwitcher.Optgroup label="United States">
+              <OfficeSwitcher.Option value="4">New York</OfficeSwitcher.Option>
+              <OfficeSwitcher.Option value="5">Los Angeles</OfficeSwitcher.Option>
+              <OfficeSwitcher.Option value="6">Chicago</OfficeSwitcher.Option>
+            </OfficeSwitcher.Optgroup>
+          </OfficeSwitcher.Listbox>
+        </OfficeSwitcher.Popup>
+      </OfficeSwitcher.Select>
+    ),
+  },
+}

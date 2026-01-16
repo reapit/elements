@@ -3,6 +3,7 @@ import { CompactSelect } from '#src/core/compact-select'
 import { ElOfficeSwitcher } from './styles'
 import { OfficeSwitcherPopup } from './office-switcher-popup'
 import { OfficeSwitcherSelect } from './office-switcher-select'
+import { OfficeSwitcherSelectOptgroup } from './office-switcher-select-optgroup'
 import { OfficeSwitcherSelectOption } from './office-switcher-select-option'
 
 import type { HTMLAttributes, ReactNode } from 'react'
@@ -11,7 +12,7 @@ export namespace OfficeSwitcher {
   export interface ButtonProps extends CompactSelect.ButtonProps {}
   export interface DividerProps extends CompactSelect.DividerProps {}
   export interface ListboxProps extends CompactSelect.ListboxProps {}
-  export interface OptgroupProps extends CompactSelect.OptgroupProps {}
+  export interface OptgroupProps extends OfficeSwitcherSelectOptgroup.Props {}
   export interface OptionProps extends OfficeSwitcherSelectOption.Props {}
   export interface PopupProps extends OfficeSwitcherPopup.Props {}
   export interface SearchInputProps extends Combobox.SearchInputProps {}
@@ -40,7 +41,7 @@ OfficeSwitcher.Button = CompactSelect.Button
 OfficeSwitcher.Divider = CompactSelect.Divider
 OfficeSwitcher.Listbox = CompactSelect.Listbox
 OfficeSwitcher.Option = OfficeSwitcherSelectOption
-OfficeSwitcher.Optgroup = CompactSelect.Optgroup
+OfficeSwitcher.Optgroup = OfficeSwitcherSelectOptgroup
 OfficeSwitcher.Popup = OfficeSwitcherPopup
 OfficeSwitcher.SearchInput = Combobox.SearchInput
 OfficeSwitcher.Select = OfficeSwitcherSelect
