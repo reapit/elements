@@ -1,4 +1,5 @@
 export * from './accordion'
+export * from './alert-banner'
 export * from './app-switcher'
 export * from './at-a-glance'
 export * from './autocomplete'

@@ -1,0 +1,90 @@
+import { Button } from '#src/core/button'
+import { styled } from '@linaria/react'
+import { font } from '#src/core/text'
+import { isWidthAtOrAbove } from '#src/utils/index'
+
+interface ElAlertBannerProps {
+  'data-variant': 'error' | 'warning' | 'info'
+}
+
+export const ElAlertBanner = styled.div<ElAlertBannerProps>`
+  --alert-banner-background: var(--colour-fill-info-lightest);
+  --alert-banner-border-colour: var(--colour-border-info-default);
+  --alert-banner-icon-colour: var(--colour-icon-info);
+  --alert-banner-actions-padding-block-start: var(--spacing-2);
+
+  position: relative;
+  display: grid;
+  grid:
+    'icon description' auto
+    'icon actions' minmax(0, auto) / minmax(0, auto) 1fr;
+  gap: 0 var(--spacing-2);
+  width: 100%;
+
+  background-color: var(--alert-banner-background);
+  border-bottom: var(--border-width-double) solid var(--alert-banner-border-colour);
+  padding: var(--spacing-4) var(--spacing-5);
+
+  /* Responsive padding adjustments */
+  @container ${isWidthAtOrAbove('SM')} {
+    grid: 'icon description actions' auto / minmax(0, auto) 1fr minmax(0, auto);
+    --alert-banner-actions-padding-block-start: 0;
+  }
+
+  &[data-is-dismissable='true'] {
+    padding-inline-end: var(--spacing-14);
+  }
+
+  &[data-variant='error'] {
+    --alert-banner-background: var(--colour-fill-error-lightest);
+    --alert-banner-border-colour: var(--colour-border-error-default);
+    --alert-banner-icon-colour: var(--colour-icon-error);
+  }
+
+  &[data-variant='warning'] {
+    --alert-banner-background: var(--colour-fill-warning-lightest);
+    --alert-banner-border-colour: var(--colour-border-warning-default);
+    --alert-banner-icon-colour: var(--colour-icon-warning);
+  }
+
+  &[data-variant='info'] {
+    --alert-banner-background: var(--colour-fill-info-lightest);
+    --alert-banner-border-colour: var(--colour-border-info-default);
+    --alert-banner-icon-colour: var(--colour-icon-info);
+  }
+`
+
+export const ElAlertBannerActions = styled.div`
+  grid-area: actions;
+
+  display: flex;
+  padding-block-start: var(--alert-banner-actions-padding-block-start);
+  flex-shrink: 0;
+`
+
+export const ElAlertBannerDescription = styled.div`
+  grid-area: description;
+
+  ${font('base', 'regular')}
+  flex: 1 0 0;
+  color: var(--colour-text-primary);
+  min-width: 0;
+`
+
+export const ElAlertBannerDismissButton = styled(Button)`
+  position: absolute;
+  inset: var(--spacing-2) var(--spacing-2) var(--spacing-2) auto;
+`
+
+export const ElAlertBannerIconContainer = styled.div`
+  grid-area: icon;
+
+  box-sizing: content-box;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  padding: var(--spacing-half) var(--spacing-none);
+  color: var(--alert-banner-icon-colour);
+  height: var(--icon_size-m);
+  width: var(--icon_size-m);
+`
