@@ -9,8 +9,10 @@
 
 ## File Organization
 
+Vitest globals (`test`, `expect`, `describe`, `vi`, `afterEach`, etc.) are available without imports. Do not import them from `vitest`.
+
 ```typescript
-// 1. Imports
+// 1. Imports (Vitest globals are available without imports)
 import { Component } from '../component'
 import { render, screen } from '@testing-library/react'
 

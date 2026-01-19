@@ -2,9 +2,10 @@ import { Button } from '#src/core/button'
 import { styled } from '@linaria/react'
 import { font } from '#src/core/text'
 import { isWidthAtOrAbove } from '#src/utils/index'
+import type { AlertBanner } from './alert-banner'
 
 interface ElAlertBannerProps {
-  'data-variant': 'error' | 'warning' | 'info'
+  'data-variant': AlertBanner.Variant
 }
 
 export const ElAlertBanner = styled.div<ElAlertBannerProps>`
@@ -29,6 +30,10 @@ export const ElAlertBanner = styled.div<ElAlertBannerProps>`
   @container ${isWidthAtOrAbove('SM')} {
     grid: 'icon description actions' auto / minmax(0, auto) 1fr minmax(0, auto);
     --alert-banner-actions-padding-block-start: 0;
+  }
+
+  &[hidden] {
+    display: none;
   }
 
   &[data-is-dismissable='true'] {
@@ -62,13 +67,14 @@ export const ElAlertBannerActions = styled.div`
   flex-shrink: 0;
 `
 
-export const ElAlertBannerDescription = styled.div`
+export const ElAlertBannerDescription = styled.p`
   grid-area: description;
 
   ${font('base', 'regular')}
   flex: 1 0 0;
   color: var(--colour-text-primary);
   min-width: 0;
+  margin: 0;
 `
 
 export const ElAlertBannerDismissButton = styled(Button)`
