@@ -18,7 +18,7 @@ const storyNames = buildEntries.filter(
 storyNames.forEach((story) => {
   test(story, async ({ page }, meta) => {
     await page.setViewportSize({ width: 1920, height: 1080 })
-    await navigate(page, 'https://elements-beta.dev.paas.reapit.cloud', meta.title)
+    await navigate(page, 'http://localhost:6006', meta.title)
 
     const screenshot = await page.screenshot()
 
