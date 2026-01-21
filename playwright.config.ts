@@ -85,9 +85,11 @@ export default defineConfig({
 
   /* Run your local dev server before starting the tests */
   webServer: {
-    command: 'yarn serve public/dist -l 6006',
-    port: 6006,
+    command: 'yarn http-server public/dist -p 6006',
+    url: 'http://localhost:6006',
     reuseExistingServer: !process.env.CI,
     timeout: 120000,
+    stdout: 'ignore',
+    stderr: 'ignore',
   },
 })
