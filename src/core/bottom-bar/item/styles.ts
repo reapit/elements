@@ -22,7 +22,7 @@ export const elBottomBarItem = css`
 
   &:focus-visible {
     /* NOTE: z-index is required to ensure the focus ring is visible above other items */
-    z-index: 1;
+    z-index: var(--z-index-elevated);
     outline: var(--border-width-double) solid var(--colour-border-focus);
   }
 

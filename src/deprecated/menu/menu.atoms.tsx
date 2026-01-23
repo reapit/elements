@@ -38,8 +38,7 @@ interface CommonDeprecatedMenuItemProps {
 
 /** @deprecated */
 interface DeprecatedMenuItemAsButtonElementProps
-  extends CommonDeprecatedMenuItemProps,
-    ButtonHTMLAttributes<HTMLButtonElement> {
+  extends CommonDeprecatedMenuItemProps, ButtonHTMLAttributes<HTMLButtonElement> {
   href?: never
   disabled?: boolean
   onClick?: MouseEventHandler<HTMLButtonElement>
@@ -47,8 +46,7 @@ interface DeprecatedMenuItemAsButtonElementProps
 
 /** @deprecated */
 interface DeprecatedMenuItemAsAnchorElementProps
-  extends CommonDeprecatedMenuItemProps,
-    AnchorHTMLAttributes<HTMLAnchorElement> {
+  extends CommonDeprecatedMenuItemProps, AnchorHTMLAttributes<HTMLAnchorElement> {
   /** MenuItemAsAnchor currently doesn't support disabled state, use MenuItemButton instead */
   disabled?: never
 }

@@ -5,4 +5,5 @@ export const ElSplitButton = styled.div`
   align-items: start;
   height: min-content;
   width: min-content;
+  isolation: isolate;
 `

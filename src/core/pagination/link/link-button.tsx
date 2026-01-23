@@ -9,8 +9,7 @@ type AttributesToOmit = 'children'
 
 export namespace PaginationLinkButton {
   export interface Props
-    extends PaginationLinkBaseType.CommonProps,
-      Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
+    extends PaginationLinkBaseType.CommonProps, Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
     /**
      * Whether the button is disabled. This can be used to make the button appear disabled to users,
      * but still be focusable. This will typically be used when there is no next or previous page.

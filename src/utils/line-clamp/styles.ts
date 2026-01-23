@@ -19,7 +19,7 @@ export const elLineClampText = css`
        * text changes. */
       linear-gradient(to left, transparent 10ch, black 15ch),
       /* Fully transparent on bottom edge until 1lh, then hard transition to full black at 1lh. */
-        linear-gradient(to top, transparent 1lh, black 1lh);
+      linear-gradient(to top, transparent 1lh, black 1lh);
   }
 `
 

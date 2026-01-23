@@ -65,7 +65,7 @@ export const ElFolderTab = styled.a<ElFolderTabProps>`
     ${font('lg', 'medium')}
 
     &[aria-current='page'] {
-      z-index: 1;
+      z-index: var(--z-index-elevated);
     }
   }
 `

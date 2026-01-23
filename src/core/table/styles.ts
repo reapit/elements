@@ -9,6 +9,7 @@ export const elTable = css`
   justify-items: var(--__table-column-justification);
   justify-content: var(--__table-column-justification);
   width: 100%;
+  isolation: isolate;
 
   &[data-justify-items='start'] {
     --__table-column-justification: start;

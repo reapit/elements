@@ -26,7 +26,7 @@ export const elMenuItem = css`
 
     /* NOTE: Menu items sit flush against each other, so we need to ensure the focus outline
      * sits above subsequent items */
-    z-index: 1;
+    z-index: var(--z-index-elevated);
   }
 
   &:hover {

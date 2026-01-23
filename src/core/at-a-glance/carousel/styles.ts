@@ -20,16 +20,17 @@ export const ElAtAGlanceCarousel = styled.div`
   display: flex;
   flex-flow: row nowrap;
   width: 100%;
+  isolation: isolate;
 
   &:hover {
     /* Show navigation buttons on hover when scrolling is possible */
     &[data-can-scroll-left='true'] {
       --aag-carousel-left-button-opacity: 1;
-      --aag-carousel-left-button-z-index: 1;
+      --aag-carousel-left-button-z-index: var(--z-index-elevated);
     }
     &[data-can-scroll-right='true'] {
       --aag-carousel-right-button-opacity: 1;
-      --aag-carousel-right-button-z-index: 1;
+      --aag-carousel-right-button-z-index: var(--z-index-elevated);
     }
   }
 
@@ -67,7 +68,7 @@ export const elAtAGlanceCarouselButton = css`
     /* Show button when focused for keyboard navigation */
     &:focus-visible {
       --aag-carousel-left-button-opacity: 1;
-      --aag-carousel-left-button-z-index: 1;
+      --aag-carousel-left-button-z-index: var(--z-index-elevated);
     }
   }
 
@@ -80,7 +81,7 @@ export const elAtAGlanceCarouselButton = css`
     /* Show button when focused for keyboard navigation */
     &:focus-visible {
       --aag-carousel-right-button-opacity: 1;
-      --aag-carousel-right-button-z-index: 1;
+      --aag-carousel-right-button-z-index: var(--z-index-elevated);
     }
   }
 

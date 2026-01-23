@@ -57,7 +57,7 @@ export const elSplitButtonMenuButton = css`
   /* NOTE: We only want to elevate the action button when it is not disabled. If the action is aria-disabled, we will
   * still elevate it, as it is focusable. */
   &:focus-visible:not(:disabled) {
-    z-index: 1;
+    z-index: var(--z-index-elevated);
   }
 
   &:has(+ :popover-open) ${ElButtonIconContainer}:first-child {

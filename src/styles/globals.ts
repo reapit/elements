@@ -114,6 +114,11 @@ export const elGlobals = css`
       /** other defaults */
       --default-border-radius: 0.25rem;
 
+      /** Z-index layering tokens */
+      --z-index-base: 0;
+      --z-index-elevated: 1;
+      --z-index-sticky: 10;
+
       /** component specific variables */
       --component-input-bg: var(--white);
       --component-input-focus-bg: var(--neutral-light);

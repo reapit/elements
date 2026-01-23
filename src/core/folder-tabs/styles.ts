@@ -4,6 +4,7 @@ import { styled } from '@linaria/react'
 export const ElFolderTabs = styled.nav`
   container-name: ${FOLDER_TABS_CSS_CONTAINER_NAME};
   container-type: inline-size;
+  isolation: isolate;
 `
 
 export const ElFolderTabsGroup = styled.div`
