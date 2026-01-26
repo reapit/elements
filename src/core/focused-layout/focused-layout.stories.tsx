@@ -114,8 +114,11 @@ export const MultiStep: Story = {
 }
 
 /**
- * On mobile viewports (XS breakpoint), the bottom bar is prominently displayed for easy
- * access to actions.
+ * If the content overflows the viewport, the page will scroll. When actions are present in the top bar,
+ * it will stick to the top of the viewport. Likewise, if the bottom bar is present with actions, it will
+ * stick to the bottom of the viewport.
+ *
+ * **Note:** Again, it is up to consumers to show/hide actions and the bottom bar across breakpoints.
  */
 export const Scrolling: Story = {
   args: {
