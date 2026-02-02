@@ -48,7 +48,7 @@ export function AppAvatar({ hasAccess, productId }: AppAvatar.Props) {
       return hasAccess ? <img src={ReapitLettings} /> : <img src={ReapitLettingsDisabled} />
     case 'mmiWeb':
       return hasAccess ? <img src={MoveMeIn} /> : <img src={MoveMeInDisabled} />
-    case 'reapitForms':
+    case 'reapitforms':
       return hasAccess ? <img src={ReapitForms} /> : <img src={ReapitFormsDisabled} />
     case 'reapitWebsites':
       return hasAccess ? <img src={ReapitWebsites} /> : <img src={ReapitWebsitesDisabled} />

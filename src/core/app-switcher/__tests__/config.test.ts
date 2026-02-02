@@ -39,10 +39,6 @@ test('product configs should not change without updating this test', () => {
         "appName": "Move Me In",
         "supplementaryInfo": "Utility connections service",
       },
-      "reapitForms": {
-        "appName": "Reapit Forms",
-        "supplementaryInfo": "Documents & digital signing",
-      },
       "reapitProposals": {
         "appName": "Reapit Proposals",
         "supplementaryInfo": "Interactive digital proposals",
@@ -50,6 +46,10 @@ test('product configs should not change without updating this test', () => {
       "reapitWebsites": {
         "appName": "Reapit Websites",
         "supplementaryInfo": "Website builder",
+      },
+      "reapitforms": {
+        "appName": "Reapit Forms",
+        "supplementaryInfo": "Documents & digital signing",
       },
     }
   `)
@@ -72,6 +72,8 @@ test('product display order should not change without updating this test', () =>
         "keyWhere",
         "ireBdm",
         "mmiWeb",
+        "reapitforms",
+        "reapitProposals",
       ]
     `)
 })

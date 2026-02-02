@@ -112,22 +112,6 @@ exports[`renders mmiWeb icon when \`hasAccess\` is true 1`] = `
 </DocumentFragment>
 `;
 
-exports[`renders reapitForms icon when \`hasAccess\` is false 1`] = `
-<DocumentFragment>
-  <img
-    src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20fill='none'%20viewBox='0%200%2040%2040'%3e%3cpath%20fill='%23F2F4F6'%20d='M0%208a8%208%200%200%201%208-8h24a8%208%200%200%201%208%208v24a8%208%200%200%201-8%208H8a8%208%200%200%201-8-8V8Z'/%3e%3cpath%20fill='%23607890'%20d='M31.917%208.042%207%2020.181l8.608%202.32%2010.827-8.6-7.233%2010.466%209.373%208.591%203.341-24.916Z'/%3e%3c/svg%3e"
-  />
-</DocumentFragment>
-`;
-
-exports[`renders reapitForms icon when \`hasAccess\` is true 1`] = `
-<DocumentFragment>
-  <img
-    src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20fill='none'%20viewBox='0%200%2040%2040'%3e%3cpath%20fill='%23ECF3FF'%20d='M0%208a8%208%200%200%201%208-8h24a8%208%200%200%201%208%208v24a8%208%200%200%201-8%208H8a8%208%200%200%201-8-8V8Z'/%3e%3cpath%20fill='%234E56EA'%20d='M31.917%208.042%207%2020.181l8.608%202.32%2010.827-8.6-7.233%2010.466%209.373%208.591%203.341-24.916Z'/%3e%3c/svg%3e"
-  />
-</DocumentFragment>
-`;
-
 exports[`renders reapitProposals icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <img
@@ -156,6 +140,22 @@ exports[`renders reapitWebsites icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <img
     src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20fill='none'%20viewBox='0%200%2040%2040'%3e%3cpath%20fill='%23ECF3FF'%20d='M0%208a8%208%200%200%201%208-8h24a8%208%200%200%201%208%208v24a8%208%200%200%201-8%208H8a8%208%200%200%201-8-8V8Z'/%3e%3cpath%20fill='%234E56EA'%20d='m17.713%2016.581%203.058%203.057c2.352%202.352%204.84.257%205.793-1.265.562-.896%201.067-1.752%201.438-2.585.868-1.95%201.001-3.5.356-4.146-.646-.645-2.195-.512-4.146.356-2.06.917-4.346%202.533-6.498%204.583Zm8.355-6.841c-4.35-2.577-9.987-2.148-13.909%201.287l4.421%204.421c3.38-3.231%206.857-5.262%209.488-5.707Zm-15.041%202.419c-3.435%203.922-3.864%209.559-1.286%2013.909.445-2.632%202.475-6.108%205.707-9.488l-4.421-4.421Zm8.988%2015.231.002-.002c-2.217%201.58-4.337%202.576-6.084%202.871%204.35%202.578%209.986%202.149%2013.909-1.286l-1.736-1.736c-2.567-2.567-4.366-1-6.091.153Zm-3.72.374c2.521-1.384%206.276-4.061%202.851-7.486l-2.565-2.565c-2.05%202.153-3.665%204.438-4.582%206.5-.868%201.95-1.001%203.5-.356%204.145.646.646%202.195.512%204.146-.355.168-.075.336-.155.506-.239ZM30.26%2013.931c-.304%201.798-1.35%203.99-3.01%206.275-.137.176-.276.36-.412.551-.987%201.392-1.778%203.17.312%205.261l1.824%201.824c3.433-3.923%203.863-9.56%201.286-13.91Z'/%3e%3c/svg%3e"
+  />
+</DocumentFragment>
+`;
+
+exports[`renders reapitforms icon when \`hasAccess\` is false 1`] = `
+<DocumentFragment>
+  <img
+    src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20fill='none'%20viewBox='0%200%2040%2040'%3e%3cpath%20fill='%23F2F4F6'%20d='M0%208a8%208%200%200%201%208-8h24a8%208%200%200%201%208%208v24a8%208%200%200%201-8%208H8a8%208%200%200%201-8-8V8Z'/%3e%3cpath%20fill='%23607890'%20d='M31.917%208.042%207%2020.181l8.608%202.32%2010.827-8.6-7.233%2010.466%209.373%208.591%203.341-24.916Z'/%3e%3c/svg%3e"
+  />
+</DocumentFragment>
+`;
+
+exports[`renders reapitforms icon when \`hasAccess\` is true 1`] = `
+<DocumentFragment>
+  <img
+    src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20fill='none'%20viewBox='0%200%2040%2040'%3e%3cpath%20fill='%23ECF3FF'%20d='M0%208a8%208%200%200%201%208-8h24a8%208%200%200%201%208%208v24a8%208%200%200%201-8%208H8a8%208%200%200%201-8-8V8Z'/%3e%3cpath%20fill='%234E56EA'%20d='M31.917%208.042%207%2020.181l8.608%202.32%2010.827-8.6-7.233%2010.466%209.373%208.591%203.341-24.916Z'/%3e%3c/svg%3e"
   />
 </DocumentFragment>
 `;

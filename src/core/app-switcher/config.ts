@@ -10,7 +10,7 @@ export type SupportedProductId =
   | 'ireWeb' // Reapit Lettings
   | 'keyWhere'
   | 'mmiWeb'
-  | 'reapitForms'
+  | 'reapitforms'
   | 'reapitProposals'
   | 'reapitWebsites'
 
@@ -49,7 +49,7 @@ export const productConfigs = {
     appName: 'Move Me In',
     supplementaryInfo: 'Utility connections service',
   },
-  reapitForms: {
+  reapitforms: {
     appName: 'Reapit Forms',
     supplementaryInfo: 'Documents & digital signing',
   },
@@ -82,4 +82,6 @@ export const productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR
   'keyWhere',
   'ireBdm', // => Lettings BDM
   'mmiWeb',
+  'reapitforms',
+  'reapitProposals',
 ] as const satisfies SupportedProductId[]

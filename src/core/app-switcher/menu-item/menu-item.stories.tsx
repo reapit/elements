@@ -11,12 +11,12 @@ const meta = {
   argTypes: {
     avatar: {
       control: 'radio',
-      options: ['agentBox', 'consoleCloud', 'reapitForms', 'ireWeb'] as const satisfies SupportedProductId[],
+      options: ['agentBox', 'consoleCloud', 'reapitforms', 'ireWeb'] as const satisfies SupportedProductId[],
       mapping: {
         agentBox: <AppSwitcher.AppAvatar hasAccess productId="agentBox" />,
         consoleCloud: <AppSwitcher.AppAvatar hasAccess productId="consoleCloud" />,
         ireWeb: <AppSwitcher.AppAvatar hasAccess productId="ireWeb" />,
-        reapitForms: <AppSwitcher.AppAvatar hasAccess productId="reapitForms" />,
+        reapitForms: <AppSwitcher.AppAvatar hasAccess productId="reapitforms" />,
       },
     },
   },
