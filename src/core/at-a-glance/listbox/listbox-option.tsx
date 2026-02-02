@@ -3,11 +3,23 @@ import { cx } from '@linaria/core'
 import { elAtAGlanceListboxOption } from './styles'
 import { Listbox } from '#src/utils/listbox'
 
+import type { ComponentPropsWithoutRef, ElementType } from 'react'
+
 export namespace AtAGlanceListboxOption {
-  export interface Props extends AtAGlanceButtonCard.Props, Listbox.OptionProps {
+  export interface BaseProps extends AtAGlanceButtonCard.Props, Listbox.OptionProps {
     /** Option value used in form submission and selection tracking */
     value: string
   }
+
+  export type Props<C extends ElementType = typeof AtAGlanceButtonCard> = BaseProps &
+    Omit<ComponentPropsWithoutRef<C>, keyof BaseProps> & {
+      /**
+       * Element type to render for the option. Must be button-based.
+       * Forward all props to the underlying `<button>` element for proper accessibility
+       * and functionality.
+       */
+      as?: C
+    }
 }
 
 /**
@@ -35,8 +47,12 @@ export namespace AtAGlanceListboxOption {
  * </AtAGlance.Listbox>
  * ```
  */
-export function AtAGlanceListboxOption({ className, ...rest }: AtAGlanceListboxOption.Props) {
-  return <Listbox.Option as={AtAGlanceButtonCard} {...rest} className={cx(elAtAGlanceListboxOption, className)} />
+export function AtAGlanceListboxOption<C extends ElementType = typeof AtAGlanceButtonCard>({
+  as,
+  className,
+  ...rest
+}: AtAGlanceListboxOption.Props<C>) {
+  return <Listbox.Option {...rest} as={as ?? AtAGlanceButtonCard} className={cx(elAtAGlanceListboxOption, className)} />
 }
 
 AtAGlanceListboxOption.displayName = 'AtAGlance.ListboxOption'

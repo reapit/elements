@@ -1,27 +1,31 @@
-import { cx } from '@linaria/core'
 import {
-  elAtAGlanceCard,
-  elAtAGlanceCardDescription,
-  elAtAGlanceCardIcon,
-  elAtAGlanceCardLabel,
-  elAtAGlanceCardValue,
+  AtAGlanceCard,
+  AtAGlanceCardIcon,
+  AtAGlanceCardLabel,
+  AtAGlanceCardDescription,
+  AtAGlanceCardValue,
 } from '../card'
-import { elAtAGlanceButtonCard } from './styles'
 import { useId } from 'react'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
+// NOTE: we omit children because the component does not accept them
+type AttributesToOmit = 'children'
+
 export namespace AtAGlanceButtonCard {
-  export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
-    /** Optional description text. */
+  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
+    /** Secondary text below the label. */
     description?: ReactNode
     /** The display value/metric to show. */
     displayValue: ReactNode
-    /** Optional icon to display. */
+    /** Icon displayed in the icon grid area. */
     icon?: ReactNode
     /** The label text for the card content. */
     label: ReactNode
-    /** The layout for the card content. */
+    /**
+     * The layout for the card content.
+     * @default 'vertical'
+     */
     layout?: 'vertical' | 'horizontal' | 'compact'
     /** Maximum width of the card. */
     maxWidth?: string
@@ -33,55 +37,33 @@ export namespace AtAGlanceButtonCard {
 /**
  * A button card that triggers an action when clicked. The entire card is clickable.
  * Use this component when the card should trigger an action (onClick handler).
- * The value text is displayed in the action color to indicate interactivity.
- *
- * This component can be used standalone or integrated with Listbox via `AtAGlance.ListboxButtonCard`.
+ * The value text is displayed in the action colour to indicate interactivity.
  */
 export function AtAGlanceButtonCard({
-  'aria-checked': ariaChecked,
-  'aria-pressed': ariaPressed,
-  'aria-selected': ariaSelected,
-  className,
   description,
   displayValue,
   icon,
   label,
   layout = 'vertical',
-  maxWidth,
-  minWidth,
-  style,
-  type = 'button',
   ...rest
 }: AtAGlanceButtonCard.Props) {
   const labelId = useId()
   const descriptionId = useId()
-  const displayValueId = useId()
+  const valueId = useId()
+
   return (
-    <button
+    <AtAGlanceCard
       {...rest}
-      aria-checked={ariaChecked}
-      aria-pressed={ariaPressed}
-      aria-selected={ariaSelected}
+      aria-describedby={`${description ? descriptionId : ''} ${valueId}`.trim()}
       aria-labelledby={labelId}
-      aria-describedby={`${description ? descriptionId : ''} ${displayValueId}`}
-      className={cx(className, elAtAGlanceCard, elAtAGlanceButtonCard)}
-      data-layout={layout}
-      style={{ ...style, maxWidth, minWidth }}
-      type={type}
+      as="button"
+      layout={layout}
     >
-      {icon && <span className={elAtAGlanceCardIcon}>{icon}</span>}
-      <span className={elAtAGlanceCardLabel} id={labelId}>
-        {label}
-      </span>
-      {description && (
-        <span className={elAtAGlanceCardDescription} id={descriptionId}>
-          {description}
-        </span>
-      )}
-      <span className={elAtAGlanceCardValue} id={displayValueId}>
-        {displayValue}
-      </span>
-    </button>
+      {icon && <AtAGlanceCardIcon>{icon}</AtAGlanceCardIcon>}
+      <AtAGlanceCardLabel id={labelId}>{label}</AtAGlanceCardLabel>
+      {description && <AtAGlanceCardDescription id={descriptionId}>{description}</AtAGlanceCardDescription>}
+      <AtAGlanceCardValue id={valueId}>{displayValue}</AtAGlanceCardValue>
+    </AtAGlanceCard>
   )
 }
 

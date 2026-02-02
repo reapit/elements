@@ -1,4 +1,4 @@
-import { AtAGlanceAnchorCard } from './anchor-card'
+import { AtAGlanceArticleCard } from './article-card'
 import { SproutIcon } from '#src/icons/sprout'
 import { Text } from '#src/core/text'
 import { useState } from 'react'
@@ -6,16 +6,11 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/AtAGlance/AnchorCard',
-  component: AtAGlanceAnchorCard,
+  title: 'Core/AtAGlance/ArticleCard',
+  component: AtAGlanceArticleCard,
   argTypes: {
-    'aria-current': {
-      control: 'inline-radio',
-      options: ['page', false],
-    },
     description: { control: 'text' },
     displayValue: { control: 'text' },
-    href: { control: 'text' },
     icon: { control: false },
     label: { control: 'text' },
     layout: {
@@ -25,25 +20,19 @@ const meta = {
     maxWidth: { control: 'text' },
     minWidth: { control: 'text' },
   },
-} satisfies Meta<AtAGlanceAnchorCard.Props>
+} satisfies Meta<AtAGlanceArticleCard.Props>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
-const href = globalThis.top?.location?.href!
-
 /**
- * A navigable card that links to a URL. The entire card is clickable
- * and navigates to the specified URL. The display value is shown in the action color
- * to indicate interactivity.
- *
- * Use this component when the card should navigate to another page or section.
+ * A static article card for displaying at-a-glance information.
+ * Use this component when the card is for display purposes only (not interactive).
  */
 export const Example: Story = {
   args: {
     description: 'Crunchy and Juicy',
     displayValue: '32',
-    href,
     icon: <SproutIcon />,
     label: 'Apple',
     layout: 'vertical',
@@ -51,7 +40,7 @@ export const Example: Story = {
 }
 
 /**
- * Link cards support three layout variants:
+ * Article cards support three layout variants:
  * - `vertical`: Icon and content stacked vertically (default)
  * - `compact`: Icon on left, label/description stacked, value on far right
  * - `horizontal`: Icon on left, label/description stacked, value on right
@@ -81,17 +70,6 @@ export const Layouts: Story = {
 }
 
 /**
- * Use `aria-current="page"` to indicate the link represents the current page (i.e. it's "selected").
- * This applies special styling to highlight the current context.
- */
-export const Selected: Story = {
-  args: {
-    ...Example.args,
-    'aria-current': 'page',
-  },
-}
-
-/**
  * The icon prop is optional.
  */
 export const NoIcon: Story = {
@@ -118,7 +96,6 @@ export const NoDescription: Story = {
 export const Width: Story = {
   args: {
     displayValue: '32',
-    href,
     label: 'Apple',
     layout: 'horizontal',
     maxWidth: '200px',
@@ -126,7 +103,7 @@ export const Width: Story = {
 }
 
 /**
- * Link card content is stretched to fill available space, allowing values within
+ * Article card content is stretched to fill available space, allowing values within
  * each card to be vertically aligned when displayed in a grid.
  */
 export const Alignment: Story = {
@@ -185,21 +162,21 @@ export const Alignment: Story = {
   ],
   render: (args) => (
     <>
-      <AtAGlanceAnchorCard
+      <AtAGlanceArticleCard
         {...args}
         description="Crunchy and Juicy"
         displayValue="32"
         icon={<SproutIcon />}
         label="Apple"
       />
-      <AtAGlanceAnchorCard
+      <AtAGlanceArticleCard
         {...args}
         description="Crunchy and juicy. Some are red, others are green. Some can even be yellow, pink or dark purple. I've ran out of copy ideas."
         displayValue="32"
         icon={<SproutIcon />}
         label="Apple"
       />
-      <AtAGlanceAnchorCard
+      <AtAGlanceArticleCard
         {...args}
         description="They all mean the same thing"
         displayValue="32"

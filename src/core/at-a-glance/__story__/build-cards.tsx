@@ -17,7 +17,7 @@ export function buildCards({ count = 8, layout = 'vertical', variant = 'simple' 
     if (variant === 'simple') {
       return (
         <AtAGlance.GridItem key={item.label}>
-          <AtAGlance.Card
+          <AtAGlance.ArticleCard
             description={item.description}
             displayValue={item.value}
             icon={<SproutIcon />}

@@ -1,8 +1,7 @@
 import { css } from '@linaria/core'
-import { font } from '#src/core/text'
 
 /**
- * Base card styling applied to all card variants (Card, LinkCard, ButtonCard).
+ * Base card styling applied to all card variants.
  */
 export const elAtAGlanceCard = css`
   --aag-card-background-colour-default: var(--colour-fill-white);
@@ -12,8 +11,8 @@ export const elAtAGlanceCard = css`
 
   --aag-card-outline-selected: var(--border-width-double) solid var(--colour-border-action-default);
   --aag-card-outline: none;
-  --aag-card-value-colour-default: var(--colour-text-primary);
 
+  --aag-card-value-colour-default: var(--colour-text-primary);
   --aag-card-value-colour-interactive: var(--colour-text-action);
   --aag-card-value-colour: var(--aag-card-value-colour-default);
 
@@ -39,6 +38,9 @@ export const elAtAGlanceCard = css`
 
   padding: var(--spacing-5);
 
+  width: 100%;
+
+  /* Built-in layout styles */
   &[data-layout='vertical'] {
     grid:
       'icon' min-content
@@ -73,55 +75,36 @@ export const elAtAGlanceCard = css`
     --aag-card-value-align-self: auto;
     --aag-card-value-padding: 0 0 0 var(--spacing-1);
   }
-`
 
-/**
- * Icon styling. Grid-positioned via grid-area.
- */
-export const elAtAGlanceCardIcon = css`
-  grid-area: icon;
-  box-sizing: content-box;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: var(--icon_size-l);
-  height: var(--icon_size-l);
-  padding: var(--aag-card-icon-padding);
-  color: var(--colour-icon-primary);
-`
+  /* Anchor-specific styling */
+  &:is(a) {
+    --aag-card-value-colour: var(--aag-card-value-colour-interactive);
 
-/**
- * Label/heading styling. Grid-positioned via grid-area.
- */
-export const elAtAGlanceCardLabel = css`
-  grid-area: label;
-  color: var(--colour-text-primary);
-  ${font('base', 'medium')}
-  margin: 0;
-  padding: 0;
-`
+    text-decoration: none;
 
-/**
- * Description text styling. Grid-positioned via grid-area.
- */
-export const elAtAGlanceCardDescription = css`
-  grid-area: description;
-  color: var(--colour-text-secondary);
-  ${font('sm', 'regular')}
-  margin: 0;
-  padding: 0;
-`
+    &[aria-current='page'] {
+      --aag-card-background-colour: var(--aag-card-background-colour-selected);
+      --aag-card-outline: var(--aag-card-outline-selected);
+    }
+  }
 
-/**
- * Value/metric styling. Grid-positioned via grid-area.
- * Color can be customized via CSS variable --aag-card-value-colour.
- */
-export const elAtAGlanceCardValue = css`
-  grid-area: value;
-  align-self: var(--aag-card-value-align-self);
-  color: var(--aag-card-value-colour, var(--colour-text-primary));
-  ${font('2xl', 'bold')}
-  white-space: nowrap;
-  margin: 0;
-  padding: var(--aag-card-value-padding);
+  /* Button-specific styling */
+  &:is(button) {
+    --aag-card-value-colour: var(--aag-card-value-colour-interactive);
+
+    &[aria-checked='true'],
+    &[aria-pressed='true'],
+    &[aria-selected='true'] {
+      --aag-card-background-colour: var(--aag-card-background-colour-selected);
+      --aag-card-outline: var(--aag-card-outline-selected);
+    }
+  }
+
+  &:is(a, button) {
+    cursor: pointer;
+
+    &:is(:hover, :focus-visible) {
+      --aag-card-background-colour: var(--aag-card-background-colour-hover);
+    }
+  }
 `

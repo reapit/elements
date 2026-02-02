@@ -1,177 +1,97 @@
+import { AtAGlance } from '../at-a-glance'
 import { AtAGlanceCard } from './card'
 import { SproutIcon } from '#src/icons/sprout'
-import { Text } from '#src/core/text'
-import { useState } from 'react'
+import { Badge } from '#src/core/badge'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta: Meta<typeof AtAGlanceCard> = {
+const meta = {
   title: 'Core/AtAGlance/Card',
   component: AtAGlanceCard,
-  argTypes: {
-    description: { control: 'text' },
-    displayValue: { control: 'text' },
-    icon: { control: false },
-    label: { control: 'text' },
-    layout: {
-      control: 'select',
-      options: ['vertical', 'horizontal', 'compact'],
-    },
-    maxWidth: { control: 'text' },
-    minWidth: { control: 'text' },
-  },
-}
+} satisfies Meta<typeof AtAGlanceCard>
 
 export default meta
 type Story = StoryObj<typeof meta>
 
 /**
- * A static card for displaying at-a-glance information.
- * Use this component when the card does not need to be interactive.
+ * Card provides a composition API for building custom AtAGlance cards. The AtAGlance.CardIcon,
+ * AtAGlance.CardLabel, AtAGlance.CardDescription, and AtAGlance.CardValue subcomponents can be
+ * used as children, as well as other custom components.
+ *
+ * Direct use of Card should be reserved for custom layouts with the `grid` prop, though the canned
+ * vertical, compact and horizontal layouts are still available via the `layout` prop. Whether grid
+ * layout is used, consumers must handle any accessibility requirements. The `AtAGlance.ArticleCard`,
+ * `AtAGlance.AnchorCard`, or `AtAGlance.ButtonCard` all provide built-in accessibility for the canned
+ * layouts.
  */
 export const Example: Story = {
-  args: {
-    description: 'Crunchy and Juicy',
-    displayValue: '32',
-    icon: <SproutIcon />,
-    label: 'Apple',
-    layout: 'vertical',
-  },
+  args: {} as AtAGlanceCard.AsArticleProps,
+  render: () => (
+    <AtAGlance.Card layout="vertical">
+      <AtAGlance.CardIcon>
+        <SproutIcon />
+      </AtAGlance.CardIcon>
+      <AtAGlance.CardLabel>Apple</AtAGlance.CardLabel>
+      <AtAGlance.CardDescription>Crunchy and Juicy</AtAGlance.CardDescription>
+      <AtAGlance.CardValue>32</AtAGlance.CardValue>
+    </AtAGlance.Card>
+  ),
 }
 
 /**
- * Static cards support three layout variants:
- * - `vertical`: Icon and content stacked vertically (default)
- * - `compact`: Icon on left, label/description stacked, value on far right
- * - `horizontal`: Icon on left, label/description stacked, value on right
+ * The Card is polymorphic, supporting `a`, `article` and `button` elements via the `as` prop.
+ *
+ * The elements used by the built-in subcomponents will automatically change based on `as`.
+ * Specifically, for `a` and `button`, descendants will be `<span>` elements.
+ *
+ * Accessibility props, like `aria-labelledby` and `aria-describedby`, must be manually handled.
+ * `AtAGlance.AnchorCard` and `AtAGlance.ButtonCard` take care of this internally, though they
+ * only support the built-in subcomponents (description, icon, label and value).
  */
-export const Layouts: Story = {
-  args: {
-    ...Example.args,
-  },
-  decorators: [
-    (Story, { args }) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
-        <div style={{ flexGrow: 1 }}>
-          <Text style={{ marginBlockEnd: 'var(--spacing-2)' }}>Vertical</Text>
-          <Story args={{ ...args, layout: 'vertical' }} />
-        </div>
-        <div style={{ flexGrow: 1 }}>
-          <Text style={{ marginBlockEnd: 'var(--spacing-2)' }}>Compact</Text>
-          <Story args={{ ...args, layout: 'compact' }} />
-        </div>
-        <div style={{ flexGrow: 1 }}>
-          <Text style={{ marginBlockEnd: 'var(--spacing-2)' }}>Horizontal</Text>
-          <Story args={{ ...args, layout: 'horizontal' }} />
-        </div>
-      </div>
-    ),
-  ],
+export const Polymorphism: Story = {
+  args: {} as AtAGlanceCard.AsAnchorProps,
+  render: () => (
+    <AtAGlance.Card aria-label="Apple: 32" as="a" href="#" layout="compact">
+      <AtAGlance.CardIcon>
+        <SproutIcon />
+      </AtAGlance.CardIcon>
+      <AtAGlance.CardLabel>Apple</AtAGlance.CardLabel>
+      <AtAGlance.CardDescription>Click to view details</AtAGlance.CardDescription>
+      <AtAGlance.CardValue>32</AtAGlance.CardValue>
+    </AtAGlance.Card>
+  ),
 }
 
 /**
- * The icon prop is optional.
+ * When using a custom grid layout with custom components, each component should be assigned a specific
+ * `grid-area` that is referenced in the `grid`. The `useAtAGlanceCardContext` hook can be used to
+ * facilitate dynamic HTML element choice within the custom components based on the Card's `as` prop.
+ *
+ * Note the need to apply inline styles (or custom classes) to descendants in order to space them out.
  */
-export const NoIcon: Story = {
-  args: {
-    ...Example.args,
-    icon: null,
-  },
-}
-
-/**
- * The description prop is optional.
- */
-export const NoDescription: Story = {
-  args: {
-    ...Example.args,
-    description: null,
-  },
-}
-
-/**
- * The minimum and maximum width of the card can be specified. This is useful
- * in the context of grid and carousel layouts.
- */
-export const Width: Story = {
-  args: {
-    displayValue: '32',
-    label: 'Apple',
-    layout: 'horizontal',
-    maxWidth: '200px',
-  },
-}
-
-/**
- * Card content is stretched to fill available space, allowing values within
- * each card to be vertically aligned when displayed in a grid.
- */
-export const Alignment: Story = {
-  args: {
-    ...Example.args,
-  },
-  decorators: [
-    (Story: any) => {
-      const [width, setWidth] = useState(900)
-      return (
-        <>
-          <div
-            style={{
-              display: 'flex',
-              alignItems: 'center',
-              gap: 'var(--spacing-2)',
-              marginBlockEnd: 'var(--spacing-2)',
-            }}
-          >
-            <input
-              aria-label="Container width"
-              id="width"
-              min={800}
-              max={1200}
-              onChange={(event) => setWidth(Number(event.currentTarget.value))}
-              step={10}
-              type="range"
-              value={width}
-            />
-            <output htmlFor="width">
-              <Text colour="secondary" font="text-sm/regular">
-                {width}px
-              </Text>
-            </output>
-          </div>
-          <div
-            style={{
-              border: '1px solid #FA00FF',
-              display: 'grid',
-              gridAutoFlow: 'column',
-              gridAutoColumns: '1fr',
-              gap: 'var(--spacing-6)',
-              width,
-            }}
-          >
-            <Story />
-          </div>
-        </>
-      )
-    },
-  ],
-  render: (args) => (
-    <>
-      <AtAGlanceCard {...args} description="Crunchy and Juicy" displayValue="32" icon={<SproutIcon />} label="Apple" />
-      <AtAGlanceCard
-        {...args}
-        description="Crunchy and juicy. Some are red, others are green. Some can even be yellow, pink or dark purple. I've ran out of copy ideas."
-        displayValue="32"
-        icon={<SproutIcon />}
-        label="Apple"
-      />
-      <AtAGlanceCard
-        {...args}
-        description="They all mean the same thing"
-        displayValue="32"
-        icon={<SproutIcon />}
-        label="Apple, apfel, pomme, mela, maçã or măr"
-      />
-    </>
+export const CustomLayout: Story = {
+  args: {} as AtAGlanceCard.AsButtonProps,
+  render: () => (
+    <AtAGlance.Card
+      as="button"
+      aria-label="Apples: 32, up 5%"
+      onClick={() => alert('Clicked!')}
+      grid="'icon label value trend' auto / min-content 1fr auto auto"
+      maxWidth="300px"
+      style={{ alignItems: 'center' }}
+    >
+      <AtAGlance.CardIcon style={{ marginInlineEnd: 'var(--spacing-2)' }}>
+        <SproutIcon />
+      </AtAGlance.CardIcon>
+      <AtAGlance.CardLabel>Apple</AtAGlance.CardLabel>
+      <AtAGlance.CardValue>32</AtAGlance.CardValue>
+      <Badge
+        colour="success"
+        style={{ gridArea: 'trend', alignSelf: 'center', marginInlineStart: 'var(--spacing-2)' }}
+        variant="reversed"
+      >
+        +5%
+      </Badge>
+    </AtAGlance.Card>
   ),
 }

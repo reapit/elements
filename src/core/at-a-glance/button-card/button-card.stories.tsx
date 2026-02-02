@@ -5,7 +5,7 @@ import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta: Meta<typeof AtAGlanceButtonCard> = {
+const meta = {
   title: 'Core/AtAGlance/ButtonCard',
   component: AtAGlanceButtonCard,
   argTypes: {
@@ -21,7 +21,7 @@ const meta: Meta<typeof AtAGlanceButtonCard> = {
     minWidth: { control: 'text' },
     onClick: { action: 'clicked' },
   },
-}
+} satisfies Meta<AtAGlanceButtonCard.Props>
 
 export default meta
 type Story = StoryObj<typeof meta>

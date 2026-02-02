@@ -1,4 +1,4 @@
-import { AtAGlanceCard } from '../../card'
+import { AtAGlanceArticleCard } from '../../article-card'
 import { AtAGlanceGridItem } from '../grid-item'
 import { render, screen } from '@testing-library/react'
 
@@ -15,7 +15,7 @@ test('displays children', () => {
 test('can wrap a Card component', () => {
   render(
     <AtAGlanceGridItem>
-      <AtAGlanceCard label="Test" displayValue="Value" />
+      <AtAGlanceArticleCard label="Test" displayValue="Value" />
     </AtAGlanceGridItem>,
   )
   expect(screen.getByRole('listitem')).toBeVisible()

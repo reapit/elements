@@ -1,1 +1,1 @@
-export { AtAGlanceAnchorCard } from './anchor-card'
+export * from './anchor-card'

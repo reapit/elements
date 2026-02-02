@@ -3,6 +3,9 @@ import { Listbox } from '#src/utils/listbox'
 import { ElementType } from 'react'
 
 export namespace AtAGlanceListbox {
+  export interface OptionProps extends AtAGlanceListboxOption.BaseProps {}
+  export interface BaseProps extends Listbox.BaseProps {}
+
   export type Props<C extends ElementType> = Listbox.Props<C>
 }
 

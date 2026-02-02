@@ -1,8 +1,10 @@
 import { AtAGlance } from '../at-a-glance'
+import { Badge } from '#src/core/badge'
 import { buildCards } from '../__story__/build-cards'
 import { Text } from '#src/core/text'
 import { useState } from 'react'
 
+import type { ButtonHTMLAttributes, ReactNode } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
@@ -84,4 +86,70 @@ export const Controlled: Story = {
       </>
     )
   },
+}
+
+/**
+ * Listbox options can render as a custom card by using `as`. The custom component must
+ * extend the standard HTML button element prop interface and must render as a button element.
+ *
+ * In this example, each option renders as the `MyCustomCardOption` component, which supports
+ * a `label`, `value` and `trend`: the first two use the built-in `AtAGlance.CardLabel` and
+ * `AtAGlance.CardValue` subcomponents, while the last one uses the `Badge` component with some
+ * custom styles.
+ */
+export const Polymorphism: Story = {
+  args: {
+    ...Example.args,
+    id: 'my-polymorphed-fruit',
+  },
+  render: (args) => {
+    const [selected, setSelected] = useState<string | readonly string[]>(['Apple'])
+
+    return (
+      <>
+        <Text>Selected: {(Array.isArray(selected) ? selected.join(', ') : selected) || 'None'}</Text>
+        <br />
+        <br />
+        <AtAGlance.Listbox
+          {...args}
+          onChange={() => setSelected(AtAGlance.Listbox.getValue('my-polymorphed-fruit'))}
+          value={selected}
+        >
+          <AtAGlance.ListboxOption as={MyCustomCardOption} displayValue="30" label="Apple" trend={2} value="Apple" />
+          <AtAGlance.ListboxOption as={MyCustomCardOption} displayValue="22" label="Banana" trend={10} value="Banana" />
+          <AtAGlance.ListboxOption as={MyCustomCardOption} displayValue="40" label="Cherry" trend={5} value="Cherry" />
+        </AtAGlance.Listbox>
+      </>
+    )
+  },
+}
+
+namespace MyCustomCardOption {
+  export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+    displayValue: ReactNode
+    label: ReactNode
+    trend: number
+  }
+}
+
+function MyCustomCardOption({ displayValue, label, trend, ...rest }: MyCustomCardOption.Props) {
+  return (
+    <AtAGlance.Card
+      {...rest}
+      as="button"
+      grid="'label value trend' auto / 1fr auto auto"
+      maxWidth="300px"
+      style={{ alignItems: 'center' }}
+    >
+      <AtAGlance.CardLabel>{label}</AtAGlance.CardLabel>
+      <AtAGlance.CardValue>{displayValue}</AtAGlance.CardValue>
+      <Badge
+        colour="success"
+        style={{ gridArea: 'trend', alignSelf: 'center', marginInlineStart: 'var(--spacing-2)' }}
+        variant="reversed"
+      >
+        {trend}%
+      </Badge>
+    </AtAGlance.Card>
+  )
 }

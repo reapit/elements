@@ -1,7 +1,7 @@
 import { AtAGlance } from '../at-a-glance'
 import figma from '@figma/code-connect'
 
-figma.connect(AtAGlance.Card, '<AT_A_GLANCE_CARD_URL>', {
+figma.connect(AtAGlance.ArticleCard, '<AT_A_GLANCE_CARD_URL>', {
   variant: { Variant: 'Simple' },
   props: {
     content: figma.nestedProps('AAG card content', {
@@ -24,12 +24,12 @@ figma.connect(AtAGlance.Card, '<AT_A_GLANCE_CARD_URL>', {
   },
   example: (props) => (
     <AtAGlance.GridItem>
-      <AtAGlance.Card
+      <AtAGlance.ArticleCard
         icon={props.content.icon}
         description={props.content.description}
+        displayValue={props.content.displayValue}
         label={props.content.label}
         layout={props.content.layout}
-        displayValue={props.content.displayValue}
       />
     </AtAGlance.GridItem>
   ),
