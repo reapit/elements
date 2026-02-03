@@ -1,5 +1,6 @@
 export * from './app-avatar'
 export * from './app-switcher'
+export * from './config'
 export * from './explore-menu-group'
 export * from './is-product-accessible'
 export * from './get-displayable-products-for-explore-group'
