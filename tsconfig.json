@@ -3,6 +3,7 @@
     "allowJs": true,
     "esModuleInterop": true,
     "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true,
     "allowSyntheticDefaultImports": true,
     "jsx": "react-jsx",
     "noEmit": false,
@@ -21,9 +22,8 @@
     "types": ["vite/client", "vitest/globals", "vite-plugin-svgr/client", "@testing-library/jest-dom/vitest"],
     "lib": ["ESNext", "dom"],
     "outDir": "dist/types",
-    "rootDir": "src",
-    "sourceRoot": "/"
+    "rootDir": "./",
   },
-  "include": ["src"],
-  "exclude": [".yarn", "archive", "dist", "node_modules", "public"]
+  "include": ["codemods", "src"],
+  "exclude": [".yarn", "archive", "dist", "node_modules", "public", "scripts/cdk", "storybook-static"],
 }

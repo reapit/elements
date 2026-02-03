@@ -21,7 +21,7 @@ yarn-error.log*
 # Vite
 .vite/
 dist/
-/public/dist
+public/dist
 
 # Storybook
 storybook-static
@@ -30,14 +30,15 @@ storybook-static
 .linaria-cache
 
 # Vitest
-coverage/
-coverage/report
+coverage/**
+!coverage/badges
+!coverage/badges/*
 
 # Playwright
-/test-results/
-/playwright-report/
-/blob-report/
-/playwright/.cache/
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
 .visual-test/**
 
 # ESLint

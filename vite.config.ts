@@ -153,7 +153,7 @@ export default defineConfig({
     },
     environment: 'happy-dom',
     globals: true,
-    include: ['src/**/*.test.ts?(x)'],
+    include: ['src/**/*.test.ts?(x)', 'codemods/**/*.test.ts'],
     setupFiles: ['vitest.setup.ts'],
   },
 })
