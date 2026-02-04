@@ -1,5 +1,7 @@
 # React Context Pattern
 
+> **Note:** When implementing or reviewing this pattern, use the `react-context-pattern` skill (`.opencode/skills/react-context-pattern.md`). This guideline serves as comprehensive reference documentation.
+
 React contexts follow a consistent pattern to ensure type safety, clear documentation, and error handling across the library.
 
 ## Required Pattern
@@ -92,6 +94,7 @@ export function useDialogContext(): DialogContext.Value {
 ## Context Value Examples
 
 ### Simple State Context
+
 ```typescript
 export namespace BottomBarContext {
   export interface Value {
@@ -102,6 +105,7 @@ export namespace BottomBarContext {
 ```
 
 ### Configuration Context
+
 ```typescript
 export namespace ChipSelectContext {
   export interface Value {
@@ -118,6 +122,7 @@ export namespace ChipSelectContext {
 ```
 
 ### Complex State Context
+
 ```typescript
 export namespace SplitButtonContext {
   export interface Value {
@@ -134,17 +139,19 @@ export namespace SplitButtonContext {
 ## Common Mistakes
 
 ### Wrong Naming
+
 ```typescript
 // Use full "Context" suffix
-export namespace ButtonCtx { } // ❌ Wrong
-export namespace ButtonContext { } // ✅ Correct
+export namespace ButtonCtx {} // ❌ Wrong
+export namespace ButtonContext {} // ✅ Correct
 
 // No additional suffixes
-export namespace ButtonContextState { } // ❌ Wrong
-export namespace ButtonContext { } // ✅ Correct
+export namespace ButtonContextState {} // ❌ Wrong
+export namespace ButtonContext {} // ✅ Correct
 ```
 
 ### Missing Error Handling
+
 ```typescript
 // Hook must throw when context is null
 export function useDialogContext(): DialogContext.Value | null {
@@ -161,6 +168,7 @@ export function useDialogContext(): DialogContext.Value {
 ```
 
 ### Generic Error Messages
+
 ```typescript
 // Specify hook name and required ancestor
 throw new Error('Context not found') // ❌ Wrong: too generic
@@ -168,6 +176,7 @@ throw new Error('useDialogContext requires a Dialog ancestor') // ✅ Correct
 ```
 
 ### Missing Documentation
+
 ```typescript
 export namespace DialogContext {
   export interface Value {
@@ -198,6 +207,7 @@ src/core/component-name/
 ## Integration with Components
 
 ### Provider Usage
+
 ```typescript
 // In the main component file
 import { ComponentNameContext } from './context'
@@ -216,6 +226,7 @@ export function ComponentName({ children, ...props }: ComponentName.Props) {
 ```
 
 ### Consumer Usage
+
 ```typescript
 // In child components
 import { useComponentNameContext } from '../context'

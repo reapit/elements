@@ -5,6 +5,7 @@
 **Reapit Elements** is a TypeScript-based React UI component library for the Reapit Design System. It provides reusable, cross-platform components distributed via NPM.
 
 ## Project Structure
+
 - **Language**: TypeScript with React
 - **Build Tool**: Vite
 - **Package Manager**: Yarn
@@ -13,6 +14,7 @@
 - **Documentation**: Storybook
 
 ## Core Directories
+
 - `src/core/` - Main UI components (buttons, inputs, dialogs, etc.)
 - `src/icons/` - Generated SVG icon components
 - `src/tokens/` - Generated design tokens and CSS variables
@@ -21,6 +23,7 @@
 - `src/lab/` - Experimental components
 
 ## Development Commands
+
 ```bash
 yarn start           # Start Storybook dev server
 yarn build           # Build library and Storybook
@@ -33,6 +36,7 @@ yarn generate:tokens # Generate CSS variables
 ```
 
 ## Component Architecture
+
 - Each component occupies its own directory containing `index.ts`, component file, and tests
 - Styled with Linaria (CSS-in-JS)
 - Built on atomic design principles
@@ -40,25 +44,30 @@ yarn generate:tokens # Generate CSS variables
 - Exported as individual components and bundled library
 
 ## Requirements and Features
+
 - Requires Node.js >= 22.18.0
 - Components use design tokens from `src/tokens/`
 - Visual regression tests ensure UI consistency
 - Supports ESM and CJS exports
 
 ## Lab Components (`src/lab/`)
+
 **Experimental components with unstable APIs. We may change or remove these components without notice.**
 
 **BEFORE implementing any lab component, you MUST:**
+
 1. Read `src/lab/README.md` for current requirements
 2. Confirm with the user that all approval and contribution guidelines are met
 
 ## Contributing Guidelines
-- Follow guidelines/writing-clarity.md when writing documentation, error messages, or comments
+
 - Write components in TypeScript with proper type definitions
 - Follow existing naming conventions and file structure
-- Include unit tests following guidelines/unit-tests.md
 - Include Storybook stories
 - Use design tokens for consistent styling
 - Ensure accessibility compliance
-- **All components MUST follow the namespace interface pattern (see guidelines/interface-pattern.md)**
-- **React contexts MUST follow the context pattern (see guidelines/context-pattern.md)**
+- **All components MUST follow the namespace interface pattern** (use `component-interface-pattern` skill)
+- **React contexts MUST follow the context pattern** (use `react-context-pattern` skill)
+- **Tests MUST follow testing guidelines** (use `writing-unit-tests` skill)
+- **All prose MUST use British English and follow clarity principles** (use `writing-clear-prose` skill)
+- **Codemods for breaking changes MUST follow the codemod workflow** (use `creating-codemods` skill)

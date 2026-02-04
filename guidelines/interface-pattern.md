@@ -1,5 +1,7 @@
 # Interface Pattern
 
+> **Note:** When implementing or reviewing this pattern, use the `component-interface-pattern` skill (`.opencode/skills/component-interface-pattern.md`). This guideline serves as comprehensive reference documentation.
+
 This guide defines the standard pattern for component and utility function type definitions in Reapit Elements.
 
 ## ✅ Required Pattern
@@ -42,6 +44,7 @@ export namespace ComponentName {
 - [ ] Apply pattern to all subcomponents
 
 **Example:**
+
 ```typescript
 export namespace ComboboxSelectButton {
   export interface Props {
@@ -59,7 +62,7 @@ export namespace Combobox {
     /** Combobox children */
     children?: React.ReactNode
   }
-  
+
   export interface SelectButtonProps extends ComboboxSelectButton.Props {}
 }
 
@@ -71,6 +74,7 @@ Combobox.SelectButton = ComboboxSelectButton
 ```
 
 **Why this pattern works:**
+
 - Users reference `Combobox.SelectButtonProps` instead of `ComboboxSelectButton.Props`
 - Unifies API surface under parent namespace
 - Makes compound components more intuitive
@@ -90,7 +94,7 @@ export namespace formatCurrency {
     /** ISO 4217 currency code */
     currency: string
   }
-  
+
   export interface Output {
     /** Formatted currency string */
     formatted: string
@@ -102,9 +106,9 @@ export function formatCurrency(input: formatCurrency.Input): formatCurrency.Outp
     style: 'currency',
     currency: input.currency,
   })
-  
+
   return {
-    formatted: formatter.format(input.amount / 100)
+    formatted: formatter.format(input.amount / 100),
   }
 }
 ```
@@ -134,12 +138,14 @@ export function useComboboxSelectedOptions(
 ```
 
 **Benefits:**
+
 - **Consistency**: One rule - all interfaces go in namespaces
 - **Discoverability**: Types appear in IDE autocomplete alongside the function/component
 - **Clear ownership**: Obvious which component/function owns the type
 - **Reduced naming collisions**: Can use simpler names within namespaces
 
 **When to namespace data types:**
+
 - Type is returned by a function
 - Type is accepted as a parameter
 - Type is used primarily with one component/function
@@ -163,12 +169,14 @@ export interface BaseComboboxPopupProps extends HTMLAttributes<HTMLElement> {
 ```
 
 **Requirements for this exception:**
+
 - Start interface name with `Base` prefix
 - Explain shared usage in code comment
 - Extend interface in two or more unrelated components
 - Include JSDoc documentation for all properties
 
 **Usage:**
+
 ```typescript
 export namespace ComboboxPopupDrawer {
   export interface Props extends BaseComboboxPopupProps {
@@ -188,11 +196,11 @@ export namespace ComboboxPopupPopover {
 
 ```typescript
 // ❌ Standalone props interface (should be in namespace)
-interface ButtonProps { }
+interface ButtonProps {}
 
 // ❌ Wrong namespace name
 export namespace ButtonComponent {
-  export interface Props { }
+  export interface Props {}
 }
 
 // ❌ Missing JSDoc for interface properties
@@ -203,8 +211,8 @@ export namespace Button {
 }
 
 // ❌ Props outside namespace
-export interface Props { }
-export namespace Button { }
+export interface Props {}
+export namespace Button {}
 
 // ❌ Standalone data type that's part of API surface (should be in namespace)
 export interface ComboboxSelectedOption {
@@ -220,6 +228,7 @@ export function useComboboxSelectedOptions(): readonly ComboboxSelectedOption[] 
 ## 🎯 Quick Fix Examples
 
 **Before:**
+
 ```typescript
 interface DialogProps {
   open: boolean
@@ -231,6 +240,7 @@ export function Dialog({ open }: DialogProps) {
 ```
 
 **After:**
+
 ```typescript
 export namespace Dialog {
   export interface Props {
@@ -254,7 +264,7 @@ export function Dialog({ open }: Dialog.Props) {
 Check these locations when reviewing code:
 
 - `src/core/*/` - All core components
-- `src/utils/*/` - All utility components  
+- `src/utils/*/` - All utility components
 - `src/lab/*/` - Lab components (must follow pattern)
 
 Skip these locations:

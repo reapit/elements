@@ -1,5 +1,7 @@
 # Codemods
 
+**Note:** When creating a codemod, use the `creating-codemods` skill (`.opencode/skills/creating-codemods.md`) for a step-by-step workflow. This document provides comprehensive reference material.
+
 This guide defines the process for creating and maintaining codemods in Reapit Elements.
 
 ## What is a Codemod?

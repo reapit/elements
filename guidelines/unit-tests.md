@@ -1,5 +1,7 @@
 # Unit Tests
 
+> **Note:** When writing or reviewing tests, use the `writing-unit-tests` skill (`.opencode/skills/writing-unit-tests.md`). This guideline serves as comprehensive reference documentation.
+
 ## General Principles
 
 - **Write flat test structures** - Use individual `test()` calls. Group tests with `describe` blocks only when the grouping clarifies the structure.
@@ -126,9 +128,9 @@ import { fireEvent, render, screen } from '@testing-library/react'
 test('calls onClick handler when clicked', () => {
   const onClick = vi.fn()
   render(<Button onClick={onClick}>Click me</Button>)
-  
+
   fireEvent.click(screen.getByRole('button'))
-  
+
   expect(onClick).toHaveBeenCalledTimes(1)
 })
 ```
@@ -142,9 +144,9 @@ import userEvent from '@testing-library/user-event'
 test('updates input value when user types', async () => {
   const user = userEvent.setup()
   render(<Input label="Name" />)
-  
+
   await user.type(screen.getByRole('textbox'), 'John')
-  
+
   expect(screen.getByRole('textbox')).toHaveValue('John')
 })
 ```
@@ -279,11 +281,13 @@ test('throws error when rendered outside context', () => {
 #### Choosing Between Patterns
 
 **Use `wrapper` option when:**
+
 - Most tests share the same context configuration
 - Context setup is complex or verbose
 - Tests only vary context values slightly
 
 **Inline providers when:**
+
 - Each test needs different context values
 - Context setup is simple
 - Testing error handling (missing context)
@@ -344,9 +348,7 @@ test('can change themes', () => {
 Use `test.each` to test multiple similar cases:
 
 ```typescript
-const testCases = fontSizes.flatMap((size) => 
-  fontWeights.map((weight) => [size, weight] as const)
-)
+const testCases = fontSizes.flatMap((size) => fontWeights.map((weight) => [size, weight] as const))
 
 test.each(testCases)('font(%s, %s) returns correct CSS', (size, weight) => {
   expect(font(size, weight)).toMatchSnapshot()
@@ -366,7 +368,7 @@ test('returns true when scrollWidth exceeds clientWidth', () => {
   const scrollWidth = 150
   const clientWidth = 100
   createElementWithDimensions('test-element', scrollWidth, clientWidth)
-  
+
   const result = isTooltipNeeded('test-element')
   expect(result).toBe(true)
 })
@@ -374,7 +376,7 @@ test('returns true when scrollWidth exceeds clientWidth', () => {
 function createElementWithDimensions(id: string, scrollWidth: number, clientWidth: number): HTMLElement {
   const element = document.createElement('div')
   element.id = id
-  
+
   Object.defineProperty(element, 'scrollWidth', {
     configurable: true,
     value: scrollWidth,
@@ -383,7 +385,7 @@ function createElementWithDimensions(id: string, scrollWidth: number, clientWidt
     configurable: true,
     value: clientWidth,
   })
-  
+
   document.body.appendChild(element)
   return element
 }
@@ -394,10 +396,10 @@ function createElementWithDimensions(id: string, scrollWidth: number, clientWidt
 ```typescript
 test('returns "retracted" when scrolling down', async () => {
   render(<TestComponent />)
-  
+
   fireEvent.scroll(screen.getByTestId('scroll-container'), { target: { scrollTop: 100 } })
   fireEvent.scroll(screen.getByTestId('scroll-container'), { target: { scrollTop: 150 } })
-  
+
   await waitFor(() => {
     expect(screen.getByText('retracted')).toBeInTheDocument()
   })
