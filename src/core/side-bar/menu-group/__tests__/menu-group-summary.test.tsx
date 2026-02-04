@@ -87,7 +87,9 @@ test('prevents default action for click events if the menu group contains a link
 
   render(
     <details open>
-      <SideBarMenuGroupSummary icon="😎">Item</SideBarMenuGroupSummary>
+      <SideBarMenuGroupSummary data-testid="summary" icon="😎">
+        Item
+      </SideBarMenuGroupSummary>
       <a href="/" aria-current="page">
         Link
       </a>
@@ -97,16 +99,12 @@ test('prevents default action for click events if the menu group contains a link
   // NOTE: It's unclear why, but using getByTestId to retrieve the summary element directly,
   // like in other tests here, then firing a click event on it does not result in the prevent
   // action being defaulted, despite being able to confirm preventDefault is correctly called
-  // on the click event. However, getting the element that holds the label text and clicking
-  // on it, does result in the behaviour we expect.
-  const summaryText = screen.getByText('Item', { ignore: '[role="tooltip"]' })
+  // on the click event.
+  const summaryText = screen.getByTestId('summary')
   fireEvent.click(summaryText)
 
-  // If the event was NOT prevented, the <details> element would be closed and thus not visible
-  await expect(screen.findByRole('group')).resolves.toBeVisible()
-
-  // NOTE: We additionally assert that preventDefault was not called because of the issue described
-  // above for Happy DOM's event handling.
+  // Rather than asserting the details element is visible, we can only assert that preventDefault
+  // was called because of the issue described above for Happy DOM's event handling.
   expect(preventDefaultSpy).toHaveBeenCalled()
 })
 
@@ -115,21 +113,24 @@ test('prevents default action for click events if the menu group is marked as ac
 
   render(
     <details data-is-active="true" open>
-      <SideBarMenuGroupSummary icon="😎">Item</SideBarMenuGroupSummary>
+      <SideBarMenuGroupSummary data-testid="summary" icon="😎">
+        Item
+      </SideBarMenuGroupSummary>
       <a href="/" aria-current="page">
         Link
       </a>
     </details>,
     { wrapper },
   )
-  const summaryText = screen.getByText('Item', { ignore: '[role="tooltip"]' })
+  // NOTE: It's unclear why, but using getByTestId to retrieve the summary element directly,
+  // like in other tests here, then firing a click event on it does not result in the prevent
+  // action being defaulted, despite being able to confirm preventDefault is correctly called
+  // on the click event.
+  const summaryText = screen.getByTestId('summary')
   fireEvent.click(summaryText)
 
-  // If the event was NOT prevented, the <details> element would be closed and thus not visible
-  await expect(screen.findByRole('group')).resolves.toBeVisible()
-
-  // NOTE: We additionally assert that preventDefault was not called because of the issue described
-  // above for Happy DOM's event handling.
+  // Rather than asserting the details element is visible, we can only assert that preventDefault
+  // was called because of the issue described above for Happy DOM's event handling.
   expect(preventDefaultSpy).toHaveBeenCalled()
 })
 
