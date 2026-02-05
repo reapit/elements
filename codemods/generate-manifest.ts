@@ -115,4 +115,6 @@ function main(): void {
   console.log('\nTo regenerate this file, run: yarn generate:codemod-manifest')
 }
 
-main()
+if (import.meta.main) {
+  main()
+}
