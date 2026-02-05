@@ -1,8 +1,14 @@
-import { Text } from './text'
+import { css } from '@linaria/core'
 import { fontSizes, fontWeights, textColours } from './types'
+import { Text } from './text'
 
 import type { FontStyle } from './types'
 import type { Meta, StoryObj } from '@storybook/react-vite'
+
+const myCustomTextStyles = css`
+  padding-block-end: var(--spacing-6);
+  border: 1px solid #ff00fa;
+`
 
 const fontStyles = [
   'inherit',
@@ -25,6 +31,14 @@ const meta = {
       description: 'The text content.',
       table: {
         type: { summary: 'ReactNode' },
+      },
+    },
+    className: {
+      control: 'text',
+      options: ['None', 'Custom'],
+      mapping: {
+        None: undefined,
+        Custom: myCustomTextStyles,
       },
     },
     colour: {
@@ -71,6 +85,7 @@ export const Example: Story = {
   args: {
     as: 'span',
     children: 'A styled span of text',
+    className: 'None',
     colour: 'primary',
     font: undefined,
     size: 'base',
@@ -161,4 +176,19 @@ export const Overflow: Story = {
       </Text>
     </Text>
   ),
+}
+
+/**
+ * Additional styling can be provided via a custom class. For example, Text resets the padding and margin
+ * applied by user-agents on `<p>` elements to `0`. By providing a custom class, you can apply any necessary
+ * padding/margin to the element.
+ *
+ * Inline styles can also be used.
+ */
+export const CustomClass: Story = {
+  args: {
+    as: 'p',
+    children: 'My custom class gives me padding and border',
+    className: 'Custom',
+  },
 }

@@ -3,7 +3,9 @@ import { font } from './font'
 import { fontSizes, fontWeights, textColours } from './types'
 
 export const elText = css`
-  &:is(p) {
+  /* NOTE: We use :where instead of :is because we want these styles to have lower precedence than
+   * those applied by a custom class or other selector */
+  &:where(p) {
     margin: 0;
     padding: 0;
   }
