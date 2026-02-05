@@ -148,3 +148,5 @@ ComboboxPopupDialog.Context = ComboboxPopupDialogContext
 ComboboxPopupDialog.useContext = useComboboxPopupDialogContext
 ComboboxPopupDialog.open = openDialog
 ComboboxPopupDialog.close = closeDialog
+
+export { closeDialog as closeComboboxPopup, openDialog as openComboboxPopup } from '#src/utils/dialog'

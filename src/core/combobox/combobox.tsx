@@ -126,6 +126,8 @@ Combobox.getOptionLabel = ComboboxListbox.getOptionLabel
 Combobox.getListboxValue = Listbox.getValue
 Combobox.getListboxId = getComboboxListboxId
 Combobox.getPopupId = getComboboxPopupId
+Combobox.closePopup = ComboboxPopup.close
+Combobox.openPopup = ComboboxPopup.open
 
 Combobox.Button = ComboboxButton
 Combobox.Card = ComboboxCard

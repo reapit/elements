@@ -47,14 +47,14 @@ test('forwards additional props to dialog element', () => {
   expect(screen.getByRole('dialog')).toBe(screen.getByRole('dialog'))
 })
 
-test('exposes show static method', () => {
-  expect(ComboboxPopup.show).toBeDefined()
-  expect(ComboboxPopup.show).toBe(ComboboxPopupDialog.open)
+test('exposes open static method', () => {
+  expect(ComboboxPopup.open).toBeDefined()
+  expect(ComboboxPopup.open).toBe(ComboboxPopupDialog.open)
 })
 
-test('exposes hide static method', () => {
-  expect(ComboboxPopup.hide).toBeDefined()
-  expect(ComboboxPopup.hide).toBe(ComboboxPopupDialog.close)
+test('exposes close static method', () => {
+  expect(ComboboxPopup.close).toBeDefined()
+  expect(ComboboxPopup.close).toBe(ComboboxPopupDialog.close)
 })
 
 const defaultContext: ComboboxContext.Value = {

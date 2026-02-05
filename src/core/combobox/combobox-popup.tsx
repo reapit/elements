@@ -26,5 +26,5 @@ export function ComboboxPopup(props: ComboboxPopup.Props) {
 
 ComboboxPopup.displayName = 'Combobox.Popup'
 
-ComboboxPopup.show = ComboboxPopupDialog.open
-ComboboxPopup.hide = ComboboxPopupDialog.close
+ComboboxPopup.open = ComboboxPopupDialog.open
+ComboboxPopup.close = ComboboxPopupDialog.close
