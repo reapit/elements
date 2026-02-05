@@ -4,6 +4,10 @@ import type { ReactEventHandler } from 'react'
 /**
  * Cancel any `cancel` events emitted by the browser when the dialog close request is made if `closedBy` is `none`.
  * This allows us to approximate the real `closedBy` attribute of the HTML dialog element.
+ *
+ * @param closedBy - The types of user actions that can close the dialog.
+ * @param onCancel - Optional cancel event handler from consumer.
+ * @returns A cancel event handler that stops propagation and optionally prevents default.
  */
 export function useCancelCloseRequests(
   closedBy: 'any' | 'closerequest' | 'none',
@@ -15,7 +19,7 @@ export function useCancelCloseRequests(
       // with native behaviour.
       event.stopPropagation()
 
-      // When `closedBy` is "none", cancel the browser's cancel event to prevent the dialogue from closing.
+      // When `closedBy` is "none", prevents the dialog from closing by cancelling the browser's cancel event.
       // This simulates the HTML `closedBy` attribute, which lacks broad browser support. With `closedBy`
       // set to "none", the drawer closes only through developer-specified mechanisms (e.g. a button
       // calling `HTMLDialogElement.close()`).

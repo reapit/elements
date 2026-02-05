@@ -21,6 +21,7 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 - **refactor!:** Refactor `AtAGlance.Card` to support custom layouts. Added `AtAGlance.ArticleCard` to support canned layouts via slot props (`description`, `displayValue` etc).
 - **chore:** Export `SupportedProductId` and other AppSwitcher config so it is available to consumers.
 - **feat:** Add codemod for migrating `AtAGlance.Card` to `AtAGlance.ArticleCard`. The codemod is provided as a binary from Elements, so consumers can run `yarn codemod list` to see details about available codemods.
+- **refactor!:** Add `HTMLDialog` utility component and refactor `Drawer`, `Dialog` and `Combobox.Popup` components to use it internally. Consolidated dialog-related utilities into `src/utils/dialog` (previously scattered across component directories). Deprecated old utility function names in favour of more descriptive names: `useDialogController` → `useDialogOpenController`, `useDialogObserver` → `useDialogOpenState`, `openComboboxPopup` → `openDialog`, `closeComboboxPopup` → `closeDialog`. Old names remain available as deprecated re-exports for backwards compatibility.
 
 ### **5.0.0-beta.69 - 02/02/2026**
 
@@ -265,7 +266,7 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 - **chore:** Update design tokens to match latest changes in Figma
 - **feat:** Add new `FilterBar`. See [FilterBar](./?path=/docs/core-filterbar--docs) for details.
 - **fix:** `Menu` now correctly handles consumer-supplied `className` prop.
-- **chore!:** Refactored `StatusIndicator`. The `el-status-indicator-shape` class has been removed and  the `variant` prop is no longer defaulted.
+- **chore!:** Refactored `StatusIndicator`. The `el-status-indicator-shape` class has been removed and the `variant` prop is no longer defaulted.
 - **fix:** `Tooltip` only shows when the trigger is focused through keyboard navigation. Previously, it would show when the trigger was programmatically focused, such as when a menu controlled by the trigger was closed.
 
 ### **5.0.0-beta.42 - 07/08/25**
@@ -456,23 +457,23 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 
 - Resolved export issue for the TopBar and older Nav components.
 - To support both v4 and the v5 Beta, the following components have been renamed but are not yet directly deprecated in v5.
-   `Nav` -> `DeprecatedNav`
-   `NavItem` -> `DeprecatedNavItem`
-   `NavSubNav` -> `DeprecatedNavSubNav`
-   `NavSubNavItem` -> `DeprecatedNavSubNavItem`
-   `NavResponsive` -> `DeprecatedNavResponsive`
-   `NavResponsiveAvatar` -> `DeprecatedNavResponsiveAvatar`
+  `Nav` -> `DeprecatedNav`
+  `NavItem` -> `DeprecatedNavItem`
+  `NavSubNav` -> `DeprecatedNavSubNav`
+  `NavSubNavItem` -> `DeprecatedNavSubNavItem`
+  `NavResponsive` -> `DeprecatedNavResponsive`
+  `NavResponsiveAvatar` -> `DeprecatedNavResponsiveAvatar`
 
 ### **5.0.0-beta.23 - 15/04/25**
 
 - Resolved issue with exports path for Top bar/Side bar Navigation.
 - Below are the newly added components in v5.
-   `Checkbox`
-   `Checkbox Group`
-   `Split Button`
-   `Table Text`
-   `Single Line Cell`
-   `Double Line Cell`
+  `Checkbox`
+  `Checkbox Group`
+  `Split Button`
+  `Table Text`
+  `Single Line Cell`
+  `Double Line Cell`
 
 ### **5.0.0-beta.22 - 25/03/25**
 
@@ -494,53 +495,49 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 - Updated React dependency to 18+ for beta
 
 - Below are the newly added components in v5.
-   `AvatarRectangle`
-   `BottomBar`
-   `BottomBarItem`
-   `NavMenu`
-   `NavSearchButton`
-   `NavItem`
-   `NavIconItem`
-   `NavDropdownButton`
-   `MobileNavItem`
-   `Sidebar`
-   `Skeleton`
-   `TableContainer`
-   `TableToolbar`
-   `Topbar`
-   `Feature`
-   `EmptyData`
+  `AvatarRectangle`
+  `BottomBar`
+  `BottomBarItem`
+  `NavMenu`
+  `NavSearchButton`
+  `NavItem`
+  `NavIconItem`
+  `NavDropdownButton`
+  `MobileNavItem`
+  `Sidebar`
+  `Skeleton`
+  `TableContainer`
+  `TableToolbar`
+  `Topbar`
+  `Feature`
+  `EmptyData`
 
 - To support both v4 and the v5 Beta, the following components have been renamed but are not yet directly deprecated in v5.
-   `Badge` -> `DeprecatedBadge`
-   `BreadCrumb` -> `DeprecatedBreadCrumb`
-   `Chip` -> `DeprecatedChip`
-   `Label` -> `DeprecatedLabel`
-   `Pagination` -> `DeprecatedPagination`
-   `StatusIndicator` -> `DeprecatedStatusIndicator`
-   `Table` -> `DeprecatedTable`
-   `Tag` -> `DeprecatedTag`
-   `Theming` -> `DeprecatedTheming`
-   `Tooltip` -> `DeprecatedTooltip`
+  `Badge` -> `DeprecatedBadge`
+  `BreadCrumb` -> `DeprecatedBreadCrumb`
+  `Chip` -> `DeprecatedChip`
+  `Label` -> `DeprecatedLabel`
+  `Pagination` -> `DeprecatedPagination`
+  `StatusIndicator` -> `DeprecatedStatusIndicator`
+  `Table` -> `DeprecatedTable`
+  `Tag` -> `DeprecatedTag`
+  `Theming` -> `DeprecatedTheming`
+  `Tooltip` -> `DeprecatedTooltip`
 - Below is the detailed changelog for individual components that will be replaced in v5.
-   **Avatar**
-
+  **Avatar**
   - Breaking change - The old `Avatar` renamed to `DeprecatedAvatar` - `type` prop has been renamed to `shape`. - `src` prop no longer supported, use `children` or use `AvatarRectangle` if needed. - Detailed props and usage are available in Storybook under the `Avatar` component.
 
   **Badge** - **Breaking change** - The Badge component has be refactored with updated props. - The `intent` prop has been deprecated. Use `variant` as a replacement with new values. - Details on new and modified prop usage are available in Storybook under the Badge component.
 
   **BreadCrumb**
-
   - Breaking change - The old `BreadCrumb` renamed to `DeprecatedBreadCrumb` - The new `Breadcrumb` component is still in progress
 
   **Button**
-
   - **Breaking change** - The `Button` component has been refactored with updated props. - The `intent` prop has been deprecated. Use `variant` as a replacement with new values. - Details on new and modified prop usage are available in Storybook under the Button component.
 
   **Chip/ChipGroup** - Updates primarily focus on UI presentation. - The Chip component now supports additional props: variant, willTruncateLabel, and isDisabled. - The ChipGroup component now includes support for wrapping or scrolling.
 
   **LabelText:**
-
   - DOM element changed from `<label/>` to `<span/>`.
   - New props: `variant ('soft' | 'strong')`, `size ('small' | 'medium')`, `isRequired (boolean)`.
   - Details on the new and modified props usage are available in storybook under the `LabelText` component.
@@ -548,13 +545,11 @@ Beta versions should be relatively stable but subject to occassional breaking ch
   **Pagination** - **Breaking change** - `callback` prop has been renamed to `onPageChange`, without changing the behaviour. - `currentPage` prop still remains with the same functionality. - `numberPages` prop has been deprecated. Use `totalPages` instead. - `hasStartButton` and `hasEndButton` props are no longer supported. - Details on new and modified prop usage are available in Storybook under the `Pagination` component.
 
   **StatusIndicator**
-
   - **Breaking change** - The `variant` prop has been deprecated. Use `intent` instead. - `shape` prop is no longer supported. - Details on new and modified prop usage are available in Storybook under the `StatusIndicator` component.
 
   **Table** - **Breaking Change** - This component is currently in progress and undergoing staged releases; it is not yet readily available for use. - The v4 Table is still accessible as DeprecatedTable. - The new Table component will introduce more customizable props at the atomic level. - Details on the new Table atoms can be found in Storybook under their respective elements.
 
   **Tag**
-
   - **Breaking change** - The old `Tag` renamed to `DeprecatedTag` - `intent` prop no longer supported - Detailed props and usage are available in Storybook under the `Tag` component
 
   **Tooltip** - **Breaking change** - Moving from v4 -> v5, v4 props are replaced with new v5 props. - Details on new and modified prop usage are available in Storybook under the Tooltip component.

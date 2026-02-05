@@ -4,15 +4,10 @@ import { DrawerContext, useDrawerContext } from './context'
 import { DrawerFooter } from './footer'
 import { DrawerHeader } from './header'
 import { elDrawer } from './styles'
-import { getClosestDialogElement } from './get-closest-dialog-element'
-import { maybeCloseOnBackdropClick } from '#src/utils/dialog'
-import { useCancelCloseRequests } from './use-cancel-close-requests'
-import { useDialogController } from './use-dialog-controller'
-import { useDialogObserver } from './use-dialog-observer'
+import { HTMLDialog, getClosestDialogElement, useDialogOpenController, useDialogOpenState } from '#src/utils/dialog'
 import { useId } from 'react'
-import { useWithStopPropagation } from './use-with-stop-propagation'
 
-import type { DialogHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import type { DialogHTMLAttributes, ReactNode } from 'react'
 
 // NOTE: we omit..
 // - `open` because we do not want React consumers to use it directly as it results in a non-modal experience.
@@ -70,46 +65,27 @@ export function Drawer({
   className,
   closedBy = 'closerequest',
   isOpen: isOpenProp,
-  onCancel: onCancelProp,
-  onClick: onClickProp,
-  onClose: onCloseProp,
+  onCancel,
+  onClick,
+  onClose,
   ...rest
 }: Drawer.Props) {
   // We need to imperatively show or close the dialog element when the `isOpen` prop changes.
-  const ref = useDialogController(isOpenProp)
+  const ref = useDialogOpenController(isOpenProp)
   // We need to track the DOM-held open state of the dialog element to ensure we can show/hide our children.
-  const isOpen = useDialogObserver(ref)
+  const isOpen = useDialogOpenState(ref)
 
   const titleId = useId()
 
-  // NOTE: Not all browsers support the `closedBy` attribute, so we need to approximate it. We do that by trying
-  // to cancel any `cancel` events emitted by the browser when the dialog close request is made. Importantly, the
-  // browser will not always emit a `cancel` event as it has anti-spam measures in place.
-  const onCancel = useCancelCloseRequests(closedBy, onCancelProp)
-
-  // NOTE: React's `onClose` event handler for <dialog> elements propagates, but we don't want it to.
-  // The [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#accessibility) explicitly
-  // states dialogs should be closed one-at-a-time and it's possible we will have nested drawers (and thus,
-  // nested dialogs).
-  const onClose = useWithStopPropagation(onCloseProp)
-
-  // Handle backdrop clicks to close the drawer (Safari workaround).
-  // maybeCloseOnBackdropClick checks if closedby='any' is set before closing.
-  const onClick: MouseEventHandler<HTMLDialogElement> = (event) => {
-    onClickProp?.(event)
-    maybeCloseOnBackdropClick(event)
-  }
-
   return (
-    <dialog
+    <HTMLDialog
       {...rest}
       // NOTE: we do not wire-up aria-labelledby when aria-label is provided. By default, aria-labelledby takes
       // precedence. See https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-label#:~:text=aria%2Dlabelledby%20will%20take%20precedence%20over%20aria%2Dlabel%20if%20both%20are%20applied
       aria-label={ariaLabel}
       aria-labelledby={ariaLabel ? undefined : (ariaLabelledBy ?? titleId)}
       className={cx(elDrawer, className)}
-      /* eslint-disable-next-line react/no-unknown-property -- closedby not yet in React types */
-      closedby={closedBy}
+      closedBy={closedBy}
       ref={ref}
       onCancel={onCancel}
       onClick={onClick}
@@ -122,7 +98,7 @@ export function Drawer({
          */}
         {isOpen && children}
       </DrawerContext.Provider>
-    </dialog>
+    </HTMLDialog>
   )
 }
 

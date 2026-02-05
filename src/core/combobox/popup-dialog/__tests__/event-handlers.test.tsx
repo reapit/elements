@@ -1,11 +1,17 @@
-import { closeComboboxPopup } from '../close-popup'
+import { closeDialog } from '#src/utils/dialog'
 import { clearSearchInputOnClose, getOptionElement, maybeCloseOnSelection } from '../event-handlers'
 import { maybeCloseOnBackdropClick } from '#src/utils/dialog'
 import { fireEvent, render, screen } from '@testing-library/react'
 
 import type { MouseEvent, SyntheticEvent } from 'react'
 
-vi.mock('../close-popup')
+vi.mock('#src/utils/dialog', async () => {
+  const actual = await vi.importActual<typeof import('#src/utils/dialog')>('#src/utils/dialog')
+  return {
+    ...actual,
+    closeDialog: vi.fn(),
+  }
+})
 
 beforeEach(() => {
   if (!('isTrusted' in MouseEvent.prototype)) {
@@ -20,7 +26,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByRole('option', { name: 'Item 1' })
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).toHaveBeenCalled()
+    expect(closeDialog).toHaveBeenCalled()
   })
 
   test('does not close popup when option is clicked with closeOnSelection "never"', () => {
@@ -29,7 +35,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByRole('option', { name: 'Item 1' })
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).not.toHaveBeenCalled()
+    expect(closeDialog).not.toHaveBeenCalled()
   })
 
   test('closes popup for single-select listbox with closeOnSelection "auto"', () => {
@@ -38,7 +44,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByRole('option', { name: 'Item 1' })
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).toHaveBeenCalled()
+    expect(closeDialog).toHaveBeenCalled()
   })
 
   test('does not close popup for multi-select listbox with closeOnSelection "auto"', () => {
@@ -47,7 +53,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByRole('option', { name: 'Item 1' })
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).not.toHaveBeenCalled()
+    expect(closeDialog).not.toHaveBeenCalled()
   })
 
   test('closes popup on option descendant click with closeOnSelection "always"', () => {
@@ -56,7 +62,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByTestId('item-2-inner-span')
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).toHaveBeenCalled()
+    expect(closeDialog).toHaveBeenCalled()
   })
 
   test('does not close popup on option descendant click with closeOnSelection "never"', () => {
@@ -65,7 +71,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByTestId('item-2-inner-span')
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).not.toHaveBeenCalled()
+    expect(closeDialog).not.toHaveBeenCalled()
   })
 
   test('closes popup on option descendant click for single-select listbox with closeOnSelection "auto"', () => {
@@ -74,7 +80,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByTestId('item-2-inner-span')
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).toHaveBeenCalled()
+    expect(closeDialog).toHaveBeenCalled()
   })
 
   test('respects preventDefault from option click handler', () => {
@@ -83,7 +89,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByRole('option', { name: 'Item that prevents default' })
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).not.toHaveBeenCalled()
+    expect(closeDialog).not.toHaveBeenCalled()
   })
 
   test('ignores clicks on non-option elements', () => {
@@ -92,7 +98,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByTestId('non-option-element')
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).not.toHaveBeenCalled()
+    expect(closeDialog).not.toHaveBeenCalled()
   })
 
   test('does not close when listbox element is not found (auto mode)', () => {
@@ -101,7 +107,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByRole('option', { name: 'Item 1' })
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).not.toHaveBeenCalled()
+    expect(closeDialog).not.toHaveBeenCalled()
   })
 
   test('does not close when listboxId is missing from option dataset (auto mode)', () => {
@@ -110,7 +116,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByRole('option', { name: 'Item without listbox ID' })
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).not.toHaveBeenCalled()
+    expect(closeDialog).not.toHaveBeenCalled()
   })
 
   test('closes popup regardless of listbox element when closeOnSelection is "always"', () => {
@@ -119,7 +125,7 @@ describe('maybeCloseOnSelection', () => {
     const element = screen.getByRole('option', { name: 'Item 1' })
     fireEvent.click(element)
 
-    expect(closeComboboxPopup).toHaveBeenCalled()
+    expect(closeDialog).toHaveBeenCalled()
   })
 
   test('handles invalid closeOnSelection values gracefully', () => {
@@ -130,7 +136,7 @@ describe('maybeCloseOnSelection', () => {
     fireEvent.click(element)
 
     // Should not close or throw error
-    expect(closeComboboxPopup).not.toHaveBeenCalled()
+    expect(closeDialog).not.toHaveBeenCalled()
   })
 })
 

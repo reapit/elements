@@ -4,17 +4,10 @@ import { DialogContext, useDialogContext } from './context'
 import { DialogFooter } from './footer'
 import { DialogHeader } from './header'
 import { elDialog } from './styles'
-import {
-  getClosestDialogElement,
-  useDialogController,
-  useDialogObserver,
-  useCancelCloseRequests,
-  useWithStopPropagation,
-} from '#src/core/drawer'
-import { maybeCloseOnBackdropClick } from '#src/utils/dialog'
+import { HTMLDialog, getClosestDialogElement, useDialogOpenController, useDialogOpenState } from '#src/utils/dialog'
 import { useId } from 'react'
 
-import type { DialogHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import type { DialogHTMLAttributes, ReactNode } from 'react'
 
 export namespace Dialog {
   // NOTE: we omit..
@@ -74,45 +67,26 @@ export function Dialog({
   className,
   closedBy = 'closerequest',
   isOpen: isOpenProp,
-  onCancel: onCancelProp,
-  onClose: onCloseProp,
-  onClick: onClickProp,
+  onCancel,
+  onClose,
+  onClick,
   size,
   ...rest
 }: Dialog.Props) {
   // We need to imperatively show or close the dialog element when the `isOpen` prop changes.
-  const ref = useDialogController(isOpenProp)
+  const ref = useDialogOpenController(isOpenProp)
   // We need to track the DOM-held open state of the dialog element to ensure we can show/hide our children.
-  const isOpen = useDialogObserver(ref)
+  const isOpen = useDialogOpenState(ref)
 
   const titleId = useId()
 
-  // NOTE: Not all browsers support the `closedBy` attribute, so we need to approximate it. We do that by trying
-  // to cancel any `cancel` events emitted by the browser when the dialog close request is made. Importantly, the
-  // browser will not always emit a `cancel` event as it has anti-spam measures in place.
-  const onCancel = useCancelCloseRequests(closedBy, onCancelProp)
-
-  // NOTE: React's `onClose` event handler for <dialog> elements propagates, but we don't want it to.
-  // The [MDN docs](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog#accessibility) explicitly
-  // states dialogs should be closed one-at-a-time and it's possible we will have nested dialogs (and thus,
-  // nested dialogs).
-  const onClose = useWithStopPropagation(onCloseProp)
-
-  // Handle backdrop clicks to close the dialog (Safari workaround).
-  // maybeCloseOnBackdropClick checks if closedby='any' is set before closing.
-  const onClick: MouseEventHandler<HTMLDialogElement> = (event) => {
-    onClickProp?.(event)
-    maybeCloseOnBackdropClick(event)
-  }
-
   return (
-    <dialog
+    <HTMLDialog
       {...rest}
       aria-labelledby={ariaLabelledBy ?? titleId}
       data-size={size}
       className={cx(elDialog, className)}
-      /* eslint-disable-next-line react/no-unknown-property -- closedby not yet in React types */
-      closedby={closedBy}
+      closedBy={closedBy}
       ref={ref}
       onCancel={onCancel}
       onClose={onClose}
@@ -125,7 +99,7 @@ export function Dialog({
          */}
         {isOpen && children}
       </DialogContext.Provider>
-    </dialog>
+    </HTMLDialog>
   )
 }
 

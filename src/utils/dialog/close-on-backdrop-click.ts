@@ -10,11 +10,11 @@ import type { MouseEvent } from 'react'
  * The function does nothing when:
  * - The dialog doesn't have closedby='any' attribute
  * - The browser supports closedBy natively
- * - The click was on dialogue content (not the backdrop)
+ * - The click was on dialog content (not the backdrop)
  *
  * Safe to call unconditionally - it will only close the dialog when all conditions are met.
  *
- * @param event The click event from the dialog element
+ * @param event - The click event from the dialog element.
  *
  * @example
  * const handleClick = (event: MouseEvent<HTMLDialogElement>) => {

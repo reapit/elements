@@ -1,5 +1,5 @@
 import { clearSearchInput } from '#src/core/search-input'
-import { closeComboboxPopup } from './close-popup'
+import { closeDialog } from '#src/utils/dialog'
 
 import type { MouseEvent, SyntheticEvent } from 'react'
 
@@ -52,7 +52,7 @@ export function maybeCloseOnSelection(event: MouseEvent<HTMLDialogElement>): voi
 
   // Always close if we're configured to always close on selection
   if (closeOnSelection === CLOSE_ON_SELECTION.ALWAYS) {
-    closeComboboxPopup(event.currentTarget)
+    closeDialog(event.currentTarget)
     return
   }
 
@@ -62,7 +62,7 @@ export function maybeCloseOnSelection(event: MouseEvent<HTMLDialogElement>): voi
     const listboxElement = listboxId ? document.getElementById(listboxId) : null
 
     if (shouldCloseForAutoMode(listboxElement)) {
-      closeComboboxPopup(event.currentTarget)
+      closeDialog(event.currentTarget)
     }
   }
 }

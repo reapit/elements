@@ -4,8 +4,11 @@ import type { RefObject } from 'react'
 /**
  * Observes changes to the dialog's `open` attribute and synchronises its own local component state with changes
  * to the dialog open state.
+ *
+ * @param ref - Reference to the dialog element to observe.
+ * @returns Whether the dialog is currently open.
  */
-export function useDialogObserver(ref: RefObject<HTMLDialogElement>): boolean {
+export function useDialogOpenState(ref: RefObject<HTMLDialogElement>): boolean {
   const [isOpen, setIsOpen] = useState(false)
 
   useLayoutEffect(() => {

@@ -9,8 +9,11 @@ import type { RefObject } from 'react'
  *
  * **Note:** We do not rely on the `open` attribute of the dialog element because it does not show the dialog in a
  * modal state.
+ *
+ * @param isOpen - Whether the dialog should be open.
+ * @returns A ref to attach to the dialog element.
  */
-export function useDialogController(isOpen: boolean | undefined): RefObject<HTMLDialogElement> {
+export function useDialogOpenController(isOpen: boolean | undefined): RefObject<HTMLDialogElement> {
   const ref = useRef<HTMLDialogElement>(null)
 
   useLayoutEffect(

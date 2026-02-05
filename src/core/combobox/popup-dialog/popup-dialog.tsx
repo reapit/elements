@@ -1,18 +1,15 @@
 import { AnchorPositioning } from '#src/utils/anchor-positioning'
+import { closeDialog, HTMLDialog, openDialog } from '#src/utils/dialog'
 import { clearSearchInputOnClose, maybeCloseOnSelection } from './event-handlers'
-import { closeComboboxPopup } from './close-popup'
 import { ComboboxPopupDialogCloseButton } from './close-button'
 import { ComboboxPopupDialogContext, useComboboxPopupDialogContext } from './context'
 import { cx } from '@linaria/core'
 import { elComboboxPopupDialog, ElComboboxPopupDialogHeader, ElComboboxPopupDialogListboxContainer } from './styles'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
-import { maybeCloseOnBackdropClick } from '#src/utils/dialog'
-import { openComboboxPopup } from './open-popup'
-import { useCancelCloseRequests, useWithStopPropagation } from '#src/core/drawer'
 import { useMatchMedia } from '#src/utils/match-media'
 
 import type { CloseOnSelection } from './event-handlers'
-import type { DialogHTMLAttributes, MouseEventHandler, ReactNode } from 'react'
+import type { DialogHTMLAttributes, MouseEventHandler, ReactEventHandler, ReactNode } from 'react'
 
 export namespace ComboboxPopupDialog {
   export interface Props extends DialogHTMLAttributes<HTMLDialogElement> {
@@ -90,33 +87,29 @@ export function ComboboxPopupDialog({
   const needsAnchorPositioning = variant === 'popover' || (variant === 'auto' && isSMOrAbove)
   const needsCloseButton = variant === 'drawer' || (variant === 'auto' && !isSMOrAbove)
 
-  const handleCancel = useCancelCloseRequests('any', onCancel)
-
-  const handleClose = useWithStopPropagation<HTMLDialogElement>((event) => {
+  const handleClose: ReactEventHandler<HTMLDialogElement> = (event) => {
     onClose?.(event)
     if (search) {
       clearSearchInputOnClose(event)
     }
-  })
+  }
 
   const handleClick: MouseEventHandler<HTMLDialogElement> = (event) => {
     onClick?.(event)
     maybeCloseOnSelection(event)
-    maybeCloseOnBackdropClick(event)
   }
 
   return (
-    <dialog
+    <HTMLDialog
       {...rest}
       aria-labelledby={ariaLabelledBy}
       className={cx(elComboboxPopupDialog, className)}
-      /* eslint-disable-next-line react/no-unknown-property -- closedby not yet in React types */
-      closedby="any"
+      closedBy="any"
       data-close-on-selection={closeOnSelection}
       data-preserve-search-on-close={preserveSearchOnClose}
       data-variant={variant}
       id={id}
-      onCancel={handleCancel}
+      onCancel={onCancel}
       onClose={handleClose}
       onClick={handleClick}
       style={{ ...style, maxHeight }}
@@ -147,11 +140,11 @@ export function ComboboxPopupDialog({
         )}
         <ElComboboxPopupDialogListboxContainer>{children}</ElComboboxPopupDialogListboxContainer>
       </ComboboxPopupDialogContext.Provider>
-    </dialog>
+    </HTMLDialog>
   )
 }
 
 ComboboxPopupDialog.Context = ComboboxPopupDialogContext
 ComboboxPopupDialog.useContext = useComboboxPopupDialogContext
-ComboboxPopupDialog.open = openComboboxPopup
-ComboboxPopupDialog.close = closeComboboxPopup
+ComboboxPopupDialog.open = openDialog
+ComboboxPopupDialog.close = closeDialog

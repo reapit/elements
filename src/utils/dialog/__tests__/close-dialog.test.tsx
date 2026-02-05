@@ -1,4 +1,4 @@
-import { closeComboboxPopup } from '../close-popup'
+import { closeDialog } from '../close-dialog'
 import { render, screen } from '@testing-library/react'
 
 afterEach(() => {
@@ -9,27 +9,25 @@ test('hides a dialog element by calling close()', () => {
   render(<dialog open data-testid="test-dialog" />)
   const dialog = screen.getByTestId('test-dialog')
 
-  closeComboboxPopup(dialog as HTMLDialogElement)
+  closeDialog(dialog as HTMLDialogElement)
 
   expect(dialog).not.toBeVisible()
 })
 
 test('hides a dialog element by ID', () => {
   render(<dialog open id="test-dialog" data-testid="test-dialog" />)
-  closeComboboxPopup('test-dialog')
+  closeDialog('test-dialog')
 
   expect(screen.getByTestId('test-dialog')).not.toBeVisible()
 })
 
 test('throws error when element is not found by ID', () => {
-  expect(() => closeComboboxPopup('non-existent')).toThrow(
-    'closeComboboxPopup: Element with ID "non-existent" not found in the DOM',
-  )
+  expect(() => closeDialog('non-existent')).toThrow('closeDialog: Element with ID "non-existent" not found in the DOM')
 })
 
 test('throws error when element passed by reference is null', () => {
-  expect(() => closeComboboxPopup(null as unknown as HTMLDialogElement)).toThrow(
-    'closeComboboxPopup: Element (passed by reference) not found in the DOM',
+  expect(() => closeDialog(null as unknown as HTMLDialogElement)).toThrow(
+    'closeDialog: Element (passed by reference) not found in the DOM',
   )
 })
 
@@ -37,8 +35,8 @@ test('throws error when element passed by reference is not an HTMLDialogElement'
   const div = document.createElement('div')
   document.body.appendChild(div)
 
-  expect(() => closeComboboxPopup(div as unknown as HTMLDialogElement)).toThrow(
-    'closeComboboxPopup: Element (passed by reference) is not an HTMLDialogElement',
+  expect(() => closeDialog(div as unknown as HTMLDialogElement)).toThrow(
+    'closeDialog: Element (passed by reference) is not an HTMLDialogElement',
   )
 })
 
@@ -47,7 +45,7 @@ test('throws error when element is not an HTMLDialogElement (by ID)', () => {
   div.id = 'test-popup'
   document.body.appendChild(div)
 
-  expect(() => closeComboboxPopup('test-popup')).toThrow(
-    'closeComboboxPopup: Element with ID "test-popup" is not an HTMLDialogElement',
+  expect(() => closeDialog('test-popup')).toThrow(
+    'closeDialog: Element with ID "test-popup" is not an HTMLDialogElement',
   )
 })

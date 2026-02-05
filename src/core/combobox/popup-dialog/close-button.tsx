@@ -1,6 +1,6 @@
 import { Button } from '#src/core/button'
 import { CloseIcon } from '#src/icons/close'
-import { getClosestDialogElement } from '#src/core/drawer'
+import { getClosestDialogElement } from '#src/utils/dialog'
 import type { MouseEventHandler } from 'react'
 
 /**

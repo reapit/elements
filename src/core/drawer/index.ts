@@ -5,11 +5,36 @@ export * from './drawer'
 export * from './footer'
 export * from './header'
 export * from './styles'
-export * from './get-closest-dialog-element'
-export * from './use-cancel-close-requests'
-export * from './use-dialog-controller'
-export * from './use-dialog-observer'
-export * from './use-with-stop-propagation'
+
+/**
+ * @deprecated Import `getClosestDialogElement` from `@reapit/elements/utils/dialog` instead.
+ * This re-export will be removed in a future major version.
+ */
+export { getClosestDialogElement } from '#src/utils/dialog'
+
+/**
+ * @deprecated Import `useCancelCloseRequests` from `@reapit/elements/utils/dialog` instead.
+ * This re-export will be removed in a future major version.
+ */
+export { useCancelCloseRequests } from '#src/utils/dialog'
+
+/**
+ * @deprecated Import `useDialogOpenController` from `@reapit/elements/utils/dialog` instead.
+ * This re-export will be removed in a future major version.
+ */
+export { useDialogOpenController as useDialogController } from '#src/utils/dialog'
+
+/**
+ * @deprecated Import `useDialogOpenState` from `@reapit/elements/utils/dialog` instead.
+ * This re-export will be removed in a future major version.
+ */
+export { useDialogOpenState as useDialogObserver } from '#src/utils/dialog'
+
+/**
+ * @deprecated Import `useWithStopPropagation` from `@reapit/elements/utils/events` instead.
+ * This re-export will be removed in a future major version.
+ */
+export { useWithStopPropagation } from '#src/utils/events'
 
 // Import specific components to access their namespaces for backward compatibility
 import { Drawer } from './drawer'

@@ -1,5 +1,5 @@
 import { render, screen, waitFor } from '@testing-library/react'
-import { useDialogController } from '../use-dialog-controller'
+import { useDialogOpenController } from '../use-dialog-open-controller'
 
 test('shows dialog when `isOpen` is true', async () => {
   render(<TestComponent isOpen={true} />)
@@ -38,7 +38,7 @@ test('closes dialog when `isOpen` changes from true to false', async () => {
 
 test('handles null ref gracefully', () => {
   const TestComponent = () => {
-    useDialogController(true)
+    useDialogOpenController(true)
     return 'rendered'
   }
 
@@ -51,6 +51,6 @@ interface TestComponentProps {
 }
 
 function TestComponent({ isOpen }: TestComponentProps) {
-  const ref = useDialogController(isOpen)
+  const ref = useDialogOpenController(isOpen)
   return <dialog ref={ref}>Test Dialog</dialog>
 }
