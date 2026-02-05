@@ -112,3 +112,5 @@ Dialog.Context = DialogContext
 Dialog.useContext = useDialogContext
 
 Dialog.getClosestDialogElement = getClosestDialogElement
+
+export { getClosestDialogElement } from '#src/utils/dialog'

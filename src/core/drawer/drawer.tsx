@@ -111,3 +111,5 @@ Drawer.Context = DrawerContext
 Drawer.useContext = useDrawerContext
 
 Drawer.getClosestDialogElement = getClosestDialogElement
+
+export { getClosestDialogElement } from '#src/utils/dialog'
