@@ -1,11 +1,6 @@
-import { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
 import { run } from './runner.ts'
 import { listCodemods, getCodemodDescription, getCodemodReadme, validateCodemodName } from './codemods.ts'
 import { parseFrontMatter } from './readme-parser.ts'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
 
 function printHelp(): void {
   console.log(`
@@ -36,6 +31,7 @@ Arguments:
 
 Options:
   --ext <extensions>      File extensions to process (default: .tsx,.ts,.jsx,.js)
+  --facade-package <pkg>  Package name that re-exports @reapit/elements
   --dry-run, -d           Preview changes without writing files
   --help, -h              Show this help message
 
@@ -43,6 +39,7 @@ Examples:
   yarn codemod apply ${codemodName} src/
   yarn codemod apply ${codemodName} src/ --dry-run
   yarn codemod apply ${codemodName} src/ --ext .tsx,.jsx
+  yarn codemod apply ${codemodName} src/ --facade-package @company/ui-components
 `)
 }
 

@@ -25,6 +25,44 @@ yarn codemod apply at-a-glance-article-card src/ --dry-run
 yarn codemod apply at-a-glance-article-card src/ --ext .tsx,.jsx
 ```
 
+### Facade Package Support
+
+If your project re-exports `@reapit/elements` through an internal facade package, use the `--facade-package` flag:
+
+```bash
+yarn codemod apply at-a-glance-article-card src/ --facade-package @company/ui-components
+```
+
+The codemod uses **prefix matching**, so specifying a base package will match all its subpaths:
+
+```bash
+# This will match:
+# - @company/design-system/elements
+# - @company/design-system/core
+# - @company/design-system/utils
+# - etc.
+yarn codemod apply at-a-glance-article-card src/ --facade-package @company/design-system
+```
+
+If you have multiple unrelated facade packages, run the codemod once for each package:
+
+```bash
+yarn codemod apply at-a-glance-article-card src/ --facade-package @company/ui
+yarn codemod apply at-a-glance-article-card src/ --facade-package @another/design-lib
+```
+
+**Example with facade package:**
+
+```tsx
+// Before (with facade package @habio/design-system)
+import { AtAGlanceCard } from '@habio/design-system/elements'
+;<AtAGlanceCard displayValue="42" label="Total" />
+
+// After running with --facade-package @habio/design-system
+import { AtAGlance } from '@habio/design-system/elements'
+;<AtAGlance.ArticleCard displayValue="42" label="Total" />
+```
+
 ## Background
 
 The `AtAGlance.Card` component API has changed:
@@ -57,7 +95,7 @@ Both namespaced and direct component usage are converted to the namespaced `AtAG
 
 ## Import Handling
 
-The codemod removes `AtAGlanceCard` from imports when it is no longer used and adds the `AtAGlance` import:
+The codemod removes `AtAGlanceCard` from imports when it is no longer used and adds the `AtAGlance` import. This works for direct `@reapit/elements` imports and facade packages (when specified via `--facade-package`):
 
 ```tsx
 // Before

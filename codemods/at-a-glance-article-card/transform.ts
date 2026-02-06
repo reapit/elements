@@ -21,6 +21,28 @@ import { Project, SyntaxKind, JsxOpeningElement, JsxSelfClosingElement, SourceFi
 
 type JsxElementWithTag = JsxOpeningElement | JsxSelfClosingElement
 
+/**
+ * Checks if a module specifier matches a package name.
+ * Handles both exact matches and subpath imports.
+ * @example
+ * matchesPackage('@company/ui', '@company/ui') // true
+ * matchesPackage('@company/ui/elements', '@company/ui') // true
+ * matchesPackage('@company/ui-v2', '@company/ui') // false
+ */
+function matchesPackage(moduleSpecifier: string, packageName: string): boolean {
+  return moduleSpecifier === packageName || moduleSpecifier.startsWith(packageName + '/')
+}
+
+/**
+ * Checks if a module specifier is an import from @reapit/elements or a facade package.
+ */
+function isElementsImport(moduleSpecifier: string, facadePackage?: string): boolean {
+  return (
+    matchesPackage(moduleSpecifier, '@reapit/elements') ||
+    (facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage))
+  )
+}
+
 function getTagName(element: JsxElementWithTag): string {
   return element.getTagNameNode().getText()
 }
@@ -136,17 +158,13 @@ function transformJsxElements(sourceFile: SourceFile, atAGlanceCardAliases: Set<
   }
 }
 
-function getAtAGlanceCardAliases(sourceFile: SourceFile): Set<string> {
+function getAtAGlanceCardAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
   const aliases = new Set<string>()
 
   for (const importDecl of sourceFile.getImportDeclarations()) {
     const moduleSpecifier = importDecl.getModuleSpecifierValue()
-    const isElementsImport =
-      moduleSpecifier === '@reapit/elements' ||
-      moduleSpecifier.startsWith('@reapit/elements/') ||
-      moduleSpecifier.includes('at-a-glance')
 
-    if (!isElementsImport) continue
+    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
 
     for (const namedImport of importDecl.getNamedImports()) {
       if (namedImport.getName() === 'AtAGlanceCard') {
@@ -158,8 +176,8 @@ function getAtAGlanceCardAliases(sourceFile: SourceFile): Set<string> {
     }
   }
 
-  // Add default only if no imports found (handles test snippets without imports)
-  if (aliases.size === 0) {
+  // Add default only if file has NO imports at all (handles test snippets without imports)
+  if (aliases.size === 0 && sourceFile.getImportDeclarations().length === 0) {
     aliases.add('AtAGlanceCard')
   }
 
@@ -176,15 +194,11 @@ function isAtAGlanceCardStillUsed(sourceFile: SourceFile, aliases: Set<string>):
   })
 }
 
-function hasAtAGlanceImport(sourceFile: SourceFile): boolean {
+function hasAtAGlanceImport(sourceFile: SourceFile, facadePackage?: string): boolean {
   return sourceFile.getImportDeclarations().some((importDecl) => {
     const moduleSpecifier = importDecl.getModuleSpecifierValue()
-    const isElementsImport =
-      moduleSpecifier === '@reapit/elements' ||
-      moduleSpecifier.startsWith('@reapit/elements/') ||
-      moduleSpecifier.includes('at-a-glance')
 
-    if (!isElementsImport) return false
+    if (!isElementsImport(moduleSpecifier, facadePackage)) return false
 
     return importDecl.getNamedImports().some((namedImport) => namedImport.getName() === 'AtAGlance')
   })
@@ -197,41 +211,52 @@ function usesAtAGlanceNamespace(sourceFile: SourceFile): boolean {
   return [...selfClosingElements, ...openingElements].some((element) => getTagName(element).startsWith('AtAGlance.'))
 }
 
-function updateImports(sourceFile: SourceFile, atAGlanceCardAliases: Set<string>): void {
+function updateImports(sourceFile: SourceFile, atAGlanceCardAliases: Set<string>, facadePackage?: string): void {
   const importDeclarations = sourceFile.getImportDeclarations()
   const atAGlanceCardStillUsed = isAtAGlanceCardStillUsed(sourceFile, atAGlanceCardAliases)
-  const needsAtAGlanceImport = usesAtAGlanceNamespace(sourceFile) && !hasAtAGlanceImport(sourceFile)
-  let atAGlanceImportAdded = false
+  const needsAtAGlanceImport = usesAtAGlanceNamespace(sourceFile) && !hasAtAGlanceImport(sourceFile, facadePackage)
+  let importDeclWhereAtAGlanceCardWasRemoved: (typeof importDeclarations)[0] | null = null
 
+  // First pass: Remove AtAGlanceCard imports and track where it was removed
   for (const importDecl of importDeclarations) {
     const moduleSpecifier = importDecl.getModuleSpecifierValue()
 
-    // Only process imports from @reapit/elements or relative paths to at-a-glance
-    const isElementsImport =
-      moduleSpecifier === '@reapit/elements' ||
-      moduleSpecifier.startsWith('@reapit/elements/') ||
-      moduleSpecifier.includes('at-a-glance')
+    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
 
-    if (!isElementsImport) continue
-
-    // Remove AtAGlanceCard from imports if no longer used
     if (!atAGlanceCardStillUsed) {
       const namedImports = importDecl.getNamedImports()
 
       for (const namedImport of namedImports) {
         if (namedImport.getName() === 'AtAGlanceCard') {
           namedImport.remove()
+          importDeclWhereAtAGlanceCardWasRemoved = importDecl
         }
       }
     }
+  }
 
-    // Add AtAGlance import if needed (only once, after removing AtAGlanceCard)
-    if (needsAtAGlanceImport && !atAGlanceImportAdded) {
-      importDecl.addNamedImport('AtAGlance')
-      atAGlanceImportAdded = true
+  // Second pass: Add AtAGlance import to the same declaration where AtAGlanceCard was removed
+  // Do this BEFORE removing empty imports to avoid accessing removed nodes
+  if (needsAtAGlanceImport && importDeclWhereAtAGlanceCardWasRemoved) {
+    importDeclWhereAtAGlanceCardWasRemoved.addNamedImport('AtAGlance')
+  } else if (needsAtAGlanceImport) {
+    // If we didn't find where AtAGlanceCard was removed, add to first elements import
+    for (const importDecl of importDeclarations) {
+      const moduleSpecifier = importDecl.getModuleSpecifierValue()
+
+      if (isElementsImport(moduleSpecifier, facadePackage)) {
+        importDecl.addNamedImport('AtAGlance')
+        break
+      }
     }
+  }
 
-    // Remove the entire import if no named imports remain
+  // Third pass: Remove empty import declarations
+  for (const importDecl of importDeclarations) {
+    const moduleSpecifier = importDecl.getModuleSpecifierValue()
+
+    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
+
     if (
       importDecl.getNamedImports().length === 0 &&
       !importDecl.getDefaultImport() &&
@@ -242,7 +267,11 @@ function updateImports(sourceFile: SourceFile, atAGlanceCardAliases: Set<string>
   }
 }
 
-export default function transform(source: string, filePath: string = 'file.tsx'): string {
+export default function transform(
+  source: string,
+  filePath: string = 'file.tsx',
+  options?: { facadePackage?: string },
+): string {
   const project = new Project({
     useInMemoryFileSystem: true,
     compilerOptions: {
@@ -253,10 +282,10 @@ export default function transform(source: string, filePath: string = 'file.tsx')
   const sourceFile = project.createSourceFile(filePath, source)
 
   // Get aliases before transforming (e.g., import { AtAGlanceCard as Card })
-  const atAGlanceCardAliases = getAtAGlanceCardAliases(sourceFile)
+  const atAGlanceCardAliases = getAtAGlanceCardAliases(sourceFile, options?.facadePackage)
 
   transformJsxElements(sourceFile, atAGlanceCardAliases)
-  updateImports(sourceFile, atAGlanceCardAliases)
+  updateImports(sourceFile, atAGlanceCardAliases, options?.facadePackage)
 
   return sourceFile.getFullText()
 }

@@ -5,7 +5,7 @@ const { join } = require('node:path')
 const child = spawn(
   process.execPath,
   ['--experimental-strip-types', '--no-warnings', join(__dirname, 'bin.ts'), ...process.argv.slice(2)],
-  { stdio: 'inherit' }
+  { stdio: 'inherit' },
 )
 
 child.on('exit', (code) => {

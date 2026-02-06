@@ -1,7 +1,7 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'node:fs'
 import { join, resolve, relative } from 'node:path'
 
-export type Transform = (source: string, filePath: string) => string
+export type Transform = (source: string, filePath: string, options?: { facadePackage?: string }) => string
 
 export interface RunOptions {
   transform: Transform
@@ -106,6 +106,7 @@ Arguments:
 
 Options:
   --ext <extensions>  File extensions to process (default: .tsx,.ts,.jsx,.js)
+  --facade-package <pkg>  Package name that re-exports @reapit/elements
   --dry-run, -d       Preview changes without writing files
   --help, -h          Show this help message
 
@@ -113,6 +114,7 @@ Examples:
   yarn dlx @reapit/elements codemod apply ${codemodName} src/
   yarn dlx @reapit/elements codemod apply ${codemodName} src/ --dry-run
   yarn dlx @reapit/elements codemod apply ${codemodName} src/ --ext .tsx,.jsx
+  yarn dlx @reapit/elements codemod apply ${codemodName} src/ --facade-package @company/ui-components
 `)
 }
 
@@ -126,10 +128,13 @@ export async function run({ transform, codemodName, args }: RunOptions): Promise
   const extIndex = args.indexOf('--ext')
   const extensions = extIndex !== -1 ? args[extIndex + 1].split(',') : ['.tsx', '.ts', '.jsx', '.js']
   const patterns = extensions.map((ext) => `*${ext}`)
+  const facadePackageIndex = args.indexOf('--facade-package')
+  const facadePackage = facadePackageIndex !== -1 ? args[facadePackageIndex + 1] : undefined
 
   // Get directory argument (first non-flag argument, excluding --ext value if present)
   const extValue = extIndex !== -1 ? args[extIndex + 1] : null
-  const directory = args.find((arg) => !arg.startsWith('-') && arg !== extValue)
+  const facadePackageValue = facadePackageIndex !== -1 ? args[facadePackageIndex + 1] : null
+  const directory = args.find((arg) => !arg.startsWith('-') && arg !== extValue && arg !== facadePackageValue)
 
   if (!directory) {
     console.error('Error: No directory provided')
@@ -170,7 +175,7 @@ export async function run({ transform, codemodName, args }: RunOptions): Promise
   for (const filePath of files) {
     try {
       const source = readFileSync(filePath, 'utf-8')
-      const result = transform(source, filePath)
+      const result = transform(source, filePath, facadePackage ? { facadePackage } : undefined)
 
       if (result !== source) {
         transformedCount++

@@ -203,3 +203,188 @@ function Component() {
     expect(atAGlanceMatches.length).toBe(2)
   })
 })
+
+describe('facade package support', () => {
+  test('transforms components imported from a facade package', () => {
+    const input = `import { AtAGlanceCard } from '@company/ui-components'
+
+function Component() {
+  return <AtAGlanceCard displayValue="42" label="Total" />
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/ui-components',
+    })
+    expect(output).toContain('import { AtAGlance }')
+    expect(output).toContain('<AtAGlance.ArticleCard')
+    expect(output).not.toContain('AtAGlanceCard')
+  })
+
+  test('removes AtAGlanceCard import and adds AtAGlance import for facade packages', () => {
+    const input = `import { AtAGlanceCard } from '@company/ui-components'
+
+function Component() {
+  return <AtAGlanceCard displayValue="42" label="Total" />
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/ui-components',
+    })
+    expect(output).toContain("import { AtAGlance } from '@company/ui-components'")
+    expect(output).not.toContain('AtAGlanceCard')
+  })
+
+  test('does not transform non-facade packages', () => {
+    const input = `import { AtAGlanceCard } from '@other/package'
+
+function Component() {
+  return <AtAGlanceCard displayValue="42" label="Total" />
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/ui-components',
+    })
+    expect(output).toBe(input) // No transformation
+  })
+
+  test('works without facade package parameter (backward compatible)', () => {
+    const input = `import { AtAGlanceCard } from '@reapit/elements'
+
+function Component() {
+  return <AtAGlanceCard displayValue="42" label="Total" />
+}`
+    const output = transform(input)
+    expect(output).toContain('<AtAGlance.ArticleCard')
+  })
+
+  test('handles facade package alongside direct @reapit/elements imports', () => {
+    const input = `import { Button } from '@reapit/elements'
+import { AtAGlanceCard } from '@company/ui-components'
+
+function Component() {
+  return <AtAGlanceCard displayValue="42" label="Total" />
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/ui-components',
+    })
+    expect(output).toContain("import { AtAGlance } from '@company/ui-components'")
+    expect(output).toContain('<AtAGlance.ArticleCard')
+    expect(output).toContain("import { Button } from '@reapit/elements'")
+  })
+
+  test('transforms namespaced AtAGlance.Card with facade package', () => {
+    const input = `import { AtAGlance } from '@company/ui-components'
+
+function Component() {
+  return <AtAGlance.Card displayValue="42" label="Total" />
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/ui-components',
+    })
+    expect(output).toContain('<AtAGlance.ArticleCard')
+    expect(output).toContain("import { AtAGlance } from '@company/ui-components'")
+  })
+
+  test('handles aliased imports from facade packages', () => {
+    const input = `import { AtAGlanceCard as Card } from '@company/ui-components'
+
+function Component() {
+  return <Card displayValue="42" label="Total" />
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/ui-components',
+    })
+    expect(output).toContain('<AtAGlance.ArticleCard')
+    expect(output).not.toContain('<Card')
+    expect(output).toContain('import { AtAGlance }')
+  })
+
+  test('does not transform AtAGlanceCard with new API from facade package', () => {
+    const input = `import { AtAGlanceCard } from '@company/ui-components'
+
+function Component() {
+  return <AtAGlanceCard grid="auto"><span>Content</span></AtAGlanceCard>
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/ui-components',
+    })
+    expect(output).toBe(input) // No transformation for new API
+  })
+
+  test('transforms multiple uses of AtAGlanceCard from facade package', () => {
+    const input = `import { AtAGlanceCard } from '@company/ui-components'
+
+function Component() {
+  return (
+    <>
+      <AtAGlanceCard displayValue="10" label="First" />
+      <AtAGlanceCard displayValue="20" label="Second" />
+    </>
+  )
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/ui-components',
+    })
+    expect(output).toContain('<AtAGlance.ArticleCard displayValue="10" label="First" />')
+    expect(output).toContain('<AtAGlance.ArticleCard displayValue="20" label="Second" />')
+    expect(output).not.toContain('AtAGlanceCard')
+  })
+
+  test('transforms imports from facade package subpaths using prefix matching', () => {
+    const input = `import { AtAGlanceCard } from '@company/design-system/elements'
+
+function Component() {
+  return <AtAGlanceCard displayValue="42" label="Total" />
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/design-system',
+    })
+    expect(output).toContain("import { AtAGlance } from '@company/design-system/elements'")
+    expect(output).toContain('<AtAGlance.ArticleCard')
+    expect(output).not.toContain('AtAGlanceCard')
+  })
+
+  test('transforms imports from multiple subpaths of the same facade package', () => {
+    const input = `import { Button } from '@company/design-system/core'
+import { AtAGlanceCard } from '@company/design-system/elements'
+
+function Component() {
+  return (
+    <>
+      <Button>Click</Button>
+      <AtAGlanceCard displayValue="42" label="Total" />
+    </>
+  )
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/design-system',
+    })
+    expect(output).toContain("import { AtAGlance } from '@company/design-system/elements'")
+    expect(output).toContain('<AtAGlance.ArticleCard')
+    expect(output).toContain("import { Button } from '@company/design-system/core'")
+    expect(output).not.toContain('AtAGlanceCard')
+  })
+
+  test('does not transform packages that start with similar prefix but are different', () => {
+    const input = `import { AtAGlanceCard } from '@company/design-system-v2/elements'
+
+function Component() {
+  return <AtAGlanceCard displayValue="42" label="Total" />
+}`
+    const output = transform(input, 'file.tsx', {
+      facadePackage: '@company/design-system',
+    })
+    expect(output).toBe(input) // Should not transform - different package
+  })
+})
+
+describe('default @reapit/elements prefix matching', () => {
+  test('transforms imports from @reapit/elements subpaths without facade package', () => {
+    const input = `import { AtAGlanceCard } from '@reapit/elements/core/at-a-glance'
+
+function Component() {
+  return <AtAGlanceCard displayValue="42" label="Total" />
+}`
+    const output = transform(input)
+    expect(output).toContain("import { AtAGlance } from '@reapit/elements/core/at-a-glance'")
+    expect(output).toContain('<AtAGlance.ArticleCard')
+    expect(output).not.toContain('AtAGlanceCard')
+  })
+})
