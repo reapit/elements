@@ -14,7 +14,8 @@ env:
 jobs:
   publish-code-connect:
     name: Publish Code Connect
-    runs-on: ubuntu-latest
+    runs-on:
+      group: rpt-gbl-linux-x64
     steps:
       - name: Checkout
         uses: actions/checkout@v5
