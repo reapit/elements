@@ -1623,8 +1623,7 @@ __metadata:
     react: ">=18.0.2"
     react-dom: ">=18.0.2"
   bin:
-    codemod: ./codemods/bin.cjs
-    elements-deploy: ./scripts/cdk/bin/rpt-cdk.cjs
+    elements: ./bin/elements.cjs
   languageName: unknown
   linkType: soft
 

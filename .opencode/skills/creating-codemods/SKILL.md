@@ -187,10 +187,10 @@ Test against real code before committing:
 
 ```bash
 # Dry run to preview changes
-node --experimental-strip-types codemods/bin.ts apply [name] /path/to/test/project --dry-run
+yarn dlx @reapit/elements@beta codemod apply [name] /path/to/test/project --dry-run
 
 # Apply changes to test project
-node --experimental-strip-types codemods/bin.ts apply [name] /path/to/test/project
+yarn dlx @reapit/elements@beta codemod apply [name] /path/to/test/project
 ```
 
 **Local testing checklist:**

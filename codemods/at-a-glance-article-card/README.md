@@ -10,19 +10,19 @@ Migrates old `AtAGlance.Card` usage to the new `AtAGlance.ArticleCard` component
 
 ```bash
 # List available codemods
-yarn codemod list
+yarn dlx @reapit/elements@beta codemod list
 
 # Show detailed info about this codemod
-yarn codemod info at-a-glance-article-card
+yarn dlx @reapit/elements@beta codemod info at-a-glance-article-card
 
 # Run on a directory
-yarn codemod apply at-a-glance-article-card src/
+yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/
 
 # Preview changes without writing files
-yarn codemod apply at-a-glance-article-card src/ --dry-run
+yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --dry-run
 
 # Specify file extensions
-yarn codemod apply at-a-glance-article-card src/ --ext .tsx,.jsx
+yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --ext .tsx,.jsx
 ```
 
 ### Facade Package Support
@@ -30,7 +30,7 @@ yarn codemod apply at-a-glance-article-card src/ --ext .tsx,.jsx
 If your project re-exports `@reapit/elements` through an internal facade package, use the `--facade-package` flag:
 
 ```bash
-yarn codemod apply at-a-glance-article-card src/ --facade-package @company/ui-components
+yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --facade-package @company/ui-components
 ```
 
 The codemod uses **prefix matching**, so specifying a base package will match all its subpaths:
@@ -41,14 +41,14 @@ The codemod uses **prefix matching**, so specifying a base package will match al
 # - @company/design-system/core
 # - @company/design-system/utils
 # - etc.
-yarn codemod apply at-a-glance-article-card src/ --facade-package @company/design-system
+yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --facade-package @company/design-system
 ```
 
 If you have multiple unrelated facade packages, run the codemod once for each package:
 
 ```bash
-yarn codemod apply at-a-glance-article-card src/ --facade-package @company/ui
-yarn codemod apply at-a-glance-article-card src/ --facade-package @another/design-lib
+yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --facade-package @company/ui
+yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --facade-package @another/design-lib
 ```
 
 **Example with facade package:**

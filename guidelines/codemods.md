@@ -91,19 +91,19 @@ Full description of what this codemod does and why it exists.
 
 # List available codemods
 
-yarn codemod list
+yarn dlx @reapit/elements@beta codemod list
 
 # Show detailed info about this codemod
 
-yarn codemod info my-codemod-name
+yarn dlx @reapit/elements@beta codemod info my-codemod-name
 
 # Run on a directory
 
-yarn codemod apply my-codemod-name src/
+yarn dlx @reapit/elements@beta codemod apply my-codemod-name src/
 
 # Preview changes without writing files
 
-yarn codemod apply my-codemod-name src/ --dry-run
+yarn dlx @reapit/elements@beta codemod apply my-codemod-name src/ --dry-run
 \`\`\`
 
 ## Background
@@ -200,10 +200,10 @@ Test your codemod against real code:
 
 ```bash
 # Dry run to preview changes
-node --experimental-strip-types codemods/bin.ts apply my-codemod-name /path/to/test/project --dry-run
+yarn dlx @reapit/elements@beta codemod apply my-codemod-name /path/to/test/project --dry-run
 
 # Apply changes
-node --experimental-strip-types codemods/bin.ts apply my-codemod-name /path/to/test/project
+yarn dlx @reapit/elements@beta codemod apply my-codemod-name /path/to/test/project
 ```
 
 **Testing checklist:**
@@ -342,7 +342,7 @@ mkdir -p /tmp/codemod-test/src
 echo '<OldComponent />' > /tmp/codemod-test/src/App.tsx
 
 # Run codemod
-node --experimental-strip-types codemods/bin.ts apply my-codemod-name /tmp/codemod-test/src --dry-run
+yarn dlx @reapit/elements@beta codemod apply my-codemod-name /tmp/codemod-test/src --dry-run
 ```
 
 ### Manual Verification

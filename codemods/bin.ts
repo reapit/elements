@@ -4,7 +4,7 @@ import { parseFrontMatter } from './readme-parser.ts'
 
 function printHelp(): void {
   console.log(`
-Usage: codemod <command> [options]
+Usage: yarn dlx @reapit/elements@beta codemod <command> [options]
 
 Commands:
   list                    List available codemods
@@ -15,16 +15,16 @@ Options:
   --help, -h              Show this help message
 
 Examples:
-  yarn codemod list
-  yarn codemod info at-a-glance
-  yarn codemod apply at-a-glance src/
-  yarn codemod apply at-a-glance src/ --dry-run
+  yarn dlx @reapit/elements@beta codemod list
+  yarn dlx @reapit/elements@beta codemod info at-a-glance-article-card
+  yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/
+  yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --dry-run
 `)
 }
 
 function printApplyHelp(codemodName: string): void {
   console.log(`
-Usage: codemod apply ${codemodName} <directory> [options]
+Usage: yarn dlx @reapit/elements@beta codemod apply ${codemodName} <directory> [options]
 
 Arguments:
   <directory>             Directory to search for files to transform
@@ -36,10 +36,10 @@ Options:
   --help, -h              Show this help message
 
 Examples:
-  yarn codemod apply ${codemodName} src/
-  yarn codemod apply ${codemodName} src/ --dry-run
-  yarn codemod apply ${codemodName} src/ --ext .tsx,.jsx
-  yarn codemod apply ${codemodName} src/ --facade-package @company/ui-components
+  yarn dlx @reapit/elements@beta codemod apply ${codemodName} src/
+  yarn dlx @reapit/elements@beta codemod apply ${codemodName} src/ --dry-run
+  yarn dlx @reapit/elements@beta codemod apply ${codemodName} src/ --ext .tsx,.jsx
+  yarn dlx @reapit/elements@beta codemod apply ${codemodName} src/ --facade-package @company/ui-components
 `)
 }
 
@@ -66,7 +66,7 @@ function printList(): void {
     }
   }
 
-  console.log("\nRun 'codemod info <name>' for more details.")
+  console.log("\nRun 'yarn dlx @reapit/elements@beta codemod info <name>' for more details.")
 }
 
 function printInfo(name: string): void {
@@ -122,8 +122,8 @@ async function handleApply(args: string[]): Promise<void> {
 
   if (!codemodName || codemodName.startsWith('-')) {
     console.error('Error: No codemod name provided')
-    console.log('\nUsage: codemod apply <name> <directory> [options]')
-    console.log("\nRun 'codemod list' to see available codemods.")
+    console.log('\nUsage: yarn dlx @reapit/elements@beta codemod apply <name> <directory> [options]')
+    console.log("\nRun 'yarn dlx @reapit/elements@beta codemod list' to see available codemods.")
     process.exit(1)
   }
 
@@ -180,8 +180,8 @@ async function main(): Promise<void> {
       const name = args[1]
       if (!name || name.startsWith('-')) {
         console.error('Error: No codemod name provided')
-        console.log('\nUsage: codemod info <name>')
-        console.log("\nRun 'codemod list' to see available codemods.")
+        console.log('\nUsage: yarn dlx @reapit/elements@beta codemod info <name>')
+        console.log("\nRun 'yarn dlx @reapit/elements@beta codemod list' to see available codemods.")
         process.exit(1)
       }
       printInfo(name)

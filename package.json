@@ -7,10 +7,7 @@
     "url": "https://github.com/reapit/elements/issues"
   },
   "type": "module",
-  "bin": {
-    "codemod": "./codemods/bin.cjs",
-    "elements-deploy": "./scripts/cdk/bin/rpt-cdk.cjs"
-  },
+  "bin": "./bin/elements.cjs",
   "engines": {
     "node": ">=22.18.0"
   },
@@ -74,6 +71,7 @@
     "dist/",
     "assets/",
     "coverage/badges",
+    "bin/",
     "codemods/"
   ],
   "scripts": {
@@ -98,7 +96,7 @@
     "check:lint:es": "eslint --cache --ext=ts,tsx,js src",
     "make-badge": "coverage-badges --type ${0} --source coverage/report/coverage-summary.json --output coverage/badges/badge-${0}.svg --jsonPath total.${0}.pct",
     "publish": "yarn npm publish --access public",
-    "deploy": "elements-deploy deploy",
+    "deploy": "yarn node scripts/cdk/bin/rpt-cdk.cjs deploy",
     "start": "storybook dev -p 6006",
     "test": "vitest",
     "visual-test": "yarn build:storybook && yarn playwright test"
