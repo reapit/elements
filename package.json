@@ -75,7 +75,7 @@
   "scripts": {
     "build": "yarn build:types && yarn build:lib && yarn build:codemods && yarn build:storybook",
     "build:codemods": "yarn build:codemods:compile && yarn build:codemods:manifest",
-    "build:codemods:compile": "tsc --project tsconfig.codemods.json",
+    "build:codemods:compile": "node --experimental-strip-types codemods/build.ts",
     "build:codemods:manifest": "node --experimental-strip-types codemods/generate-manifest.ts",
     "build:storybook": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
     "build:lib": "vite build",
@@ -141,6 +141,7 @@
     "constructs": "10.3.0",
     "coverage-badges-cli": "2.2.0",
     "dashify": "2.0.0",
+    "esbuild": "^0.27.2",
     "eslint": "8.57.1",
     "eslint-config-prettier": "9.1.2",
     "eslint-plugin-prettier": "5.5.5",
