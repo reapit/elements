@@ -51,12 +51,17 @@ async function build() {
       format: 'esm',
       outdir: 'dist/codemods',
       outExtension: { '.js': '.js' },
-      // Bundle all dependencies including ts-morph
-      // By not specifying 'external', all node_modules are bundled
-      external: [
-        // Only externalize Node.js built-in modules
-        'node:*',
-      ],
+      // Inject polyfills for CommonJS globals that bundled dependencies expect
+      banner: {
+        js: [
+          `import { createRequire } from 'module';`,
+          `import { fileURLToPath } from 'url';`,
+          `import { dirname } from 'path';`,
+          `const require = createRequire(import.meta.url);`,
+          `const __filename = fileURLToPath(import.meta.url);`,
+          `const __dirname = dirname(__filename);`,
+        ].join('\n'),
+      },
       // No minification for easier debugging
       minify: false,
       // No source maps to keep bundle size smaller
