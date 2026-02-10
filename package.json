@@ -70,12 +70,13 @@
   "files": [
     "dist/",
     "assets/",
-    "coverage/badges",
-    "bin/",
-    "codemods/"
+    "bin/"
   ],
   "scripts": {
-    "build": "yarn build:types && yarn build:lib && yarn build:storybook",
+    "build": "yarn build:types && yarn build:lib && yarn build:codemods && yarn build:storybook",
+    "build:codemods": "yarn build:codemods:compile && yarn build:codemods:manifest",
+    "build:codemods:compile": "tsc --project tsconfig.codemods.json",
+    "build:codemods:manifest": "node --experimental-strip-types codemods/generate-manifest.ts",
     "build:storybook": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
     "build:lib": "vite build",
     "build:types": "tsc --project tsconfig.build.json",

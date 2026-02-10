@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "NodeNext",
+    "target": "ES2022",
+    "outDir": "dist/codemods",
+    "rootDir": "codemods",
+    "emitDeclarationOnly": false,
+    "allowImportingTsExtensions": false,
+    "types": ["node", "vitest/globals"],
+    "lib": ["ES2022"],
+  },
+  "include": ["codemods"],
+  "exclude": ["codemods/**/*.test.ts", "codemods/generate-manifest.ts", "codemods/readme-parser.ts"],
+}

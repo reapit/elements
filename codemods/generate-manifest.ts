@@ -1,6 +1,6 @@
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { readdirSync, readFileSync, statSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
 import { parseFrontMatter } from './readme-parser.ts'
 import { styleText } from 'node:util'
 
@@ -94,25 +94,40 @@ function generateManifestContent(codemods: CodemodMetadata[]): string {
  * Main function to generate the manifest file.
  */
 function main(): void {
+  // Always read from the script's own directory (codemods/)
+  const sourceDir = __dirname
+
+  // Write to both source and dist directories
+  const outputDirs = [
+    sourceDir, // codemods/manifest.json (for development and tests)
+    join(__dirname, '..', 'dist', 'codemods'), // dist/codemods/manifest.json (for built package)
+  ]
+
   console.log('Generating codemod manifest...')
 
-  // Discover available codemods
-  const codemodNames = discoverCodemods(__dirname)
+  // Discover available codemods (read from source)
+  const codemodNames = discoverCodemods(sourceDir)
   console.log(`Found ${codemodNames.length} codemod(s): ${codemodNames.join(', ')}`)
 
   // Get metadata for each codemod
-  const codemods = codemodNames.map((name) => getCodemodMetadata(__dirname, name))
+  const codemods = codemodNames.map((name) => getCodemodMetadata(sourceDir, name))
 
   // Generate manifest content
   const manifestContent = generateManifestContent(codemods)
 
-  // Write to file
-  const outputPath = join(__dirname, 'manifest.json')
-  writeFileSync(outputPath, manifestContent, 'utf-8')
+  // Write to all output directories
+  for (const outputDir of outputDirs) {
+    // Ensure output directory exists
+    if (!existsSync(outputDir)) {
+      mkdirSync(outputDir, { recursive: true })
+    }
 
-  console.log(styleText('green', `✓ Generated manifest at ${outputPath}`))
+    const outputPath = join(outputDir, 'manifest.json')
+    writeFileSync(outputPath, manifestContent, 'utf-8')
+    console.log(styleText('green', `✓ Generated manifest at ${outputPath}`))
+  }
+
   console.log(`  ${codemods.length} codemod(s) registered`)
-  console.log('\nTo regenerate this file, run: yarn generate:codemod-manifest')
 }
 
 if (import.meta.main) {

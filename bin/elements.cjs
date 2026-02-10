@@ -35,11 +35,9 @@ For more information, visit: https://github.com/reapit/elements
 }
 
 function handleCodemod(codemodArgs) {
-  const child = spawn(
-    process.execPath,
-    ['--experimental-strip-types', '--no-warnings', join(__dirname, '..', 'codemods', 'bin.ts'), ...codemodArgs],
-    { stdio: 'inherit' },
-  )
+  const child = spawn(process.execPath, [join(__dirname, '..', 'dist', 'codemods', 'bin.js'), ...codemodArgs], {
+    stdio: 'inherit',
+  })
 
   child.on('exit', (code) => {
     process.exit(code ?? 0)

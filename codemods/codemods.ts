@@ -1,10 +1,4 @@
-import { readFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-
-// Get current directory for loading manifest
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
+import manifest from './manifest.json' with { type: 'json' }
 
 // Type definitions for the manifest
 export interface CodemodMetadata {
@@ -16,12 +10,8 @@ interface Manifest {
   codemods: CodemodMetadata[]
 }
 
-// Load manifest from JSON file
-const manifestPath = join(__dirname, 'manifest.json')
-const manifestData = JSON.parse(readFileSync(manifestPath, 'utf-8')) as Manifest
-
-export const AVAILABLE_CODEMODS: readonly CodemodMetadata[] = manifestData.codemods
-export const CODEMOD_NAMES: readonly string[] = manifestData.codemods.map((c) => c.name)
+export const AVAILABLE_CODEMODS: readonly CodemodMetadata[] = (manifest as Manifest).codemods
+export const CODEMOD_NAMES: readonly string[] = (manifest as Manifest).codemods.map((c) => c.name)
 export type CodemodName = (typeof CODEMOD_NAMES)[number]
 
 /**
@@ -31,25 +21,6 @@ export type CodemodName = (typeof CODEMOD_NAMES)[number]
  */
 export function listCodemods(): string[] {
   return CODEMOD_NAMES.slice() // Return copy to prevent mutation
-}
-
-/**
- * Retrieves the README content for a specific codemod.
- * SECURITY: This function should only be called with a validated CodemodName from validateCodemodName().
- * The name parameter is guaranteed to be from the static manifest, preventing path traversal.
- *
- * @param name - The validated codemod name (must come from validateCodemodName())
- * @returns The README content, or null if not found
- */
-export function getCodemodReadme(name: CodemodName | string): string | null {
-  try {
-    // SECURITY NOTE: The 'name' parameter has been validated against the static manifest
-    // via validateCodemodName() before reaching this function. Only names from CODEMOD_NAMES
-    // (a compile-time constant array) can be passed here, preventing path traversal attacks.
-    return readFileSync(join(__dirname, name, 'README.md'), 'utf-8')
-  } catch {
-    return null
-  }
 }
 
 /**

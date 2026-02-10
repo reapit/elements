@@ -1,6 +1,5 @@
-import { run } from './runner.ts'
-import { listCodemods, getCodemodDescription, getCodemodReadme, validateCodemodName } from './codemods.ts'
-import { parseFrontMatter } from './readme-parser.ts'
+import { run } from './runner.js'
+import { listCodemods, getCodemodDescription, validateCodemodName } from './codemods.js'
 
 function printHelp(): void {
   console.log(`
@@ -8,7 +7,6 @@ Usage: yarn dlx @reapit/elements@beta codemod <command> [options]
 
 Commands:
   list                    List available codemods
-  info <name>             Show detailed info about a codemod
   apply <name> <dir>      Apply a codemod to a directory
 
 Options:
@@ -16,7 +14,6 @@ Options:
 
 Examples:
   yarn dlx @reapit/elements@beta codemod list
-  yarn dlx @reapit/elements@beta codemod info at-a-glance-article-card
   yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/
   yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --dry-run
 `)
@@ -66,32 +63,7 @@ function printList(): void {
     }
   }
 
-  console.log("\nRun 'yarn dlx @reapit/elements@beta codemod info <name>' for more details.")
-}
-
-function printInfo(name: string): void {
-  // Security: Validate codemod name against manifest before any operations
-  // This prevents path traversal attacks by ensuring only known codemods are accessed
-  // validateCodemodName() checks against CODEMOD_NAMES, a compile-time constant array
-  const sanitizedName = validateCodemodName(name)
-
-  if (!sanitizedName) {
-    console.error(`Error: Unknown codemod '${name}'`)
-    printAvailableCodemods()
-    process.exit(1)
-  }
-
-  // SECURITY: sanitizedName is guaranteed to be a valid CodemodName from the static manifest
-  // It cannot contain path traversal sequences (e.g., '../') as it's validated against CODEMOD_NAMES
-  const readme = getCodemodReadme(sanitizedName)
-
-  if (!readme) {
-    console.log(`No documentation available for codemod '${sanitizedName}'.`)
-    return
-  }
-
-  const { body } = parseFrontMatter(readme)
-  console.log(body)
+  console.log()
 }
 
 function printAvailableCodemods(): void {
@@ -146,7 +118,7 @@ async function handleApply(args: string[]): Promise<void> {
   }
 
   // Load and run the codemod
-  const codemodModule = await import(`./${sanitizedCodemodName}/transform.ts`)
+  const codemodModule = await import(`./${sanitizedCodemodName}/transform.js`)
   const transform = codemodModule.default
 
   if (typeof transform !== 'function') {
@@ -175,18 +147,6 @@ async function main(): Promise<void> {
     case 'list':
       printList()
       break
-
-    case 'info': {
-      const name = args[1]
-      if (!name || name.startsWith('-')) {
-        console.error('Error: No codemod name provided')
-        console.log('\nUsage: yarn dlx @reapit/elements@beta codemod info <name>')
-        console.log("\nRun 'yarn dlx @reapit/elements@beta codemod list' to see available codemods.")
-        process.exit(1)
-      }
-      printInfo(name)
-      break
-    }
 
     case 'apply':
       await handleApply(args.slice(1))

@@ -1,11 +1,4 @@
-import { writeFileSync } from 'node:fs'
-import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import { listCodemods, getCodemodReadme, getCodemodDescription, validateCodemodName } from '../codemods'
-
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = dirname(__filename)
-const codemodDir = join(__dirname, '..')
+import { listCodemods, getCodemodDescription, validateCodemodName } from '../codemods'
 
 describe('listCodemods', () => {
   test('returns codemods from manifest', () => {
@@ -22,32 +15,6 @@ describe('listCodemods', () => {
 
     expect(result1).toEqual(result2)
     expect(result1).not.toBe(result2) // Different array instances
-  })
-})
-
-describe('getCodemodReadme', () => {
-  test('returns README content when it exists', () => {
-    const result = getCodemodReadme('at-a-glance-article-card')
-
-    expect(result).not.toBeNull()
-    expect(typeof result).toBe('string')
-    expect(result!.length).toBeGreaterThan(0)
-  })
-
-  test('returns null when README does not exist', () => {
-    const result = getCodemodReadme('nonexistent-codemod' as any)
-
-    expect(result).toBeNull()
-  })
-
-  test('reads complete README with front matter and body', () => {
-    const result = getCodemodReadme('at-a-glance-article-card')
-
-    expect(result).not.toBeNull()
-    // Check for front matter markers
-    expect(result).toContain('---')
-    // Check for typical README content
-    expect(result).toMatch(/[#\s]/i)
   })
 })
 
@@ -165,10 +132,6 @@ describe('integration tests', () => {
     for (const name of codemods) {
       const validated = validateCodemodName(name)
       expect(validated).toBe(name)
-
-      // Should be able to get README (or null if missing, which is OK)
-      const readme = getCodemodReadme(name)
-      expect(readme === null || typeof readme === 'string').toBe(true)
 
       // Should be able to get description from manifest
       const description = getCodemodDescription(name)
