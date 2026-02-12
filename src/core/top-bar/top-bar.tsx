@@ -13,6 +13,7 @@ import {
 import { TopBarAvatarAnchor, TopBarAvatarButton } from './avatar'
 import { TopBarAvatarMenu } from './avatar-menu'
 import { TopBarMainNav } from './main-nav'
+import { TopBarMenuDrawer } from './menu-drawer'
 import { TopBarNavSearch } from './nav-search'
 import { TopBarSecondaryNav } from './secondary-nav'
 
@@ -64,7 +65,7 @@ export namespace TopBar {
  * - **Main navigation:** [TopBar.MainNav](/docs/core-topbar-mainnav--docs),
  *   [TopBar.NavItem](/docs/core-topbar-navitem--docs),
  *   [TopBar.NavMenuItem](/docs/core-topbar-navmenuitem--docs)
- * - **Menu:** TODO
+ * - **Menu:** [TopBar.MenuDrawer](/docs/core-topbar-menudrawer--docs)
  * - **Search:** [TopBar.NavSearch](/docs/core-topbar-navsearch--docs),
  *   [TopBar.NavSearchButton](/docs/core-topbar-navsearchbutton--docs),
  *   [TopBar.NavSearchIconItem](/docs/core-topbar-navsearchiconitem--docs)
@@ -108,3 +109,6 @@ TopBar.NavSearchIconItem = TopBarNavSearch.IconItem
 TopBar.AvatarAnchor = TopBarAvatarAnchor
 TopBar.AvatarButton = TopBarAvatarButton
 TopBar.AvatarMenu = TopBarAvatarMenu
+
+TopBar.MenuDrawer = TopBarMenuDrawer
+TopBar.MenuDrawerHeader = TopBarMenuDrawer.Header
