@@ -2,6 +2,8 @@ import { cx } from '@linaria/core'
 import { elTopBarMenuDrawer } from './styles'
 import { getClosestDialogElement, HTMLDialog, useDialogOpenController } from '#src/utils/dialog'
 import { TopBarMenuDrawerHeader } from './header'
+import { TopBarMenuDrawerMenuList } from './menu-list'
+import { TopBarMenuDrawerSubmenu } from './submenu'
 
 import type { DialogHTMLAttributes, ReactNode } from 'react'
 
@@ -11,6 +13,16 @@ import type { DialogHTMLAttributes, ReactNode } from 'react'
 type AttributesToOmit = 'open'
 
 export namespace TopBarMenuDrawer {
+  export interface HeaderProps extends TopBarMenuDrawerHeader.Props {}
+  export interface MenuListProps extends TopBarMenuDrawerMenuList.Props {}
+  export interface MenuItemProps extends TopBarMenuDrawerMenuList.ItemProps {}
+  export interface MenuItemButtonProps extends TopBarMenuDrawerMenuList.ItemButtonProps {}
+  export interface MenuGroupProps extends TopBarMenuDrawerMenuList.GroupProps {}
+  export interface MenuGroupSummaryProps extends TopBarMenuDrawerMenuList.GroupSummaryProps {}
+  export interface SubmenuProps extends TopBarMenuDrawerSubmenu.Props {}
+  export interface SubmenuItemProps extends TopBarMenuDrawerSubmenu.ItemProps {}
+  export interface SubmenuItemButtonProps extends TopBarMenuDrawerSubmenu.ItemButtonProps {}
+
   export interface Props extends Omit<DialogHTMLAttributes<HTMLDialogElement>, AttributesToOmit> {
     /** The menu content */
     children: ReactNode
@@ -88,8 +100,17 @@ export function TopBarMenuDrawer({
   )
 }
 
-TopBarMenuDrawer.Header = TopBarMenuDrawerHeader
 TopBarMenuDrawer.getClosestDialogElement = getClosestDialogElement
+
+TopBarMenuDrawer.Header = TopBarMenuDrawerHeader
+TopBarMenuDrawer.MenuList = TopBarMenuDrawerMenuList
+TopBarMenuDrawer.MenuItem = TopBarMenuDrawerMenuList.Item
+TopBarMenuDrawer.MenuItemButton = TopBarMenuDrawerMenuList.ItemButton
+TopBarMenuDrawer.MenuGroup = TopBarMenuDrawerMenuList.Group
+TopBarMenuDrawer.MenuGroupSummary = TopBarMenuDrawerMenuList.GroupSummary
+TopBarMenuDrawer.Submenu = TopBarMenuDrawerSubmenu
+TopBarMenuDrawer.SubmenuItem = TopBarMenuDrawerSubmenu.Item
+TopBarMenuDrawer.SubmenuItemButton = TopBarMenuDrawerSubmenu.ItemButton
 
 TopBarMenuDrawer.displayName = 'TopBar.MenuDrawer'
 

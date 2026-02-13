@@ -7,7 +7,7 @@ import {
   ElSideBarMenuGroupSummaryDropdownIcon,
 } from './styles'
 import { elSideBarMenuItem } from '../menu-item'
-import { shouldBeOpen } from './should-be-open'
+import { shouldSideBarMenuGroupBeOpen } from './should-be-open'
 import { Tooltip } from '#src/core/tooltip'
 import { useCallback, useId } from 'react'
 import { useSideBarMenuGroupLabelIdContext } from './menu-group-label-id-context'
@@ -62,7 +62,7 @@ export function SideBarMenuGroupSummary({
 
       const detailsElement = event.currentTarget.closest('details')
 
-      if (detailsElement && shouldBeOpen(detailsElement)) {
+      if (detailsElement && shouldSideBarMenuGroupBeOpen(detailsElement)) {
         event.preventDefault()
       }
     },

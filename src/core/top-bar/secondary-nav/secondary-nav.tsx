@@ -6,6 +6,10 @@ import { TopBarSecondaryNavMenuListItem } from './secondary-nav-menu-list-item'
 import type { ComponentProps, ReactNode } from 'react'
 
 export namespace TopBarSecondaryNav {
+  export interface ItemProps extends TopBarSecondaryNavListItem.Props {}
+  export interface ItemButtonProps extends TopBarSecondaryNavListItemButton.Props {}
+  export interface MenuItemProps extends TopBarSecondaryNavMenuListItem.Props {}
+
   export interface Props extends ComponentProps<typeof ElTopBarSecondaryNav> {
     /**
      * The accessible name for the secondary navigation.

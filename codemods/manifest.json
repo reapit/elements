@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-02-10T10:24:11.717Z",
+  "generated": "2026-02-12T02:27:11.804Z",
   "codemods": [
     {
       "name": "at-a-glance-article-card",

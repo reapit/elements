@@ -1,4 +1,4 @@
-import { shouldBeOpen } from './menu-group'
+import { shouldSideBarMenuGroupBeOpen } from './menu-group'
 import { useEffect, useRef } from 'react'
 
 import type { useSideBar } from './use-side-bar'
@@ -35,7 +35,7 @@ export function useSideBarController(sideBarState: useSideBar.State) {
           // This is why we only target open menu groups. Any closed menu groups will open themselves
           // if one of their children is now the current page.
           if (menuGroup.open) {
-            menuGroup.open = shouldBeOpen(menuGroup)
+            menuGroup.open = shouldSideBarMenuGroupBeOpen(menuGroup)
           }
         })
       })

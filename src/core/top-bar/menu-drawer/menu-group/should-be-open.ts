@@ -1,4 +1,4 @@
-export function shouldSideBarMenuGroupBeOpen(detailsElement: HTMLDetailsElement): boolean {
+export function shouldTopBarMenuGroupBeOpen(detailsElement: HTMLDetailsElement): boolean {
   // If the details element is active or has a descendant representing the current page, it should be open.
   return isActive(detailsElement) || hasCurrentPageElement(detailsElement)
 }

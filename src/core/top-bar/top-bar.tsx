@@ -51,6 +51,31 @@ export namespace TopBar {
      */
     secondaryNav?: ReactNode
   }
+
+  export interface BrandLogoProps extends BrandLogo.Props {}
+  export interface MainNavProps extends TopBarMainNav.Props {}
+  export interface NavItemProps extends TopBarMainNav.ItemProps {}
+  export interface NavMenuItemProps extends TopBarMainNav.MenuItemProps {}
+  export interface SecondaryNavProps extends TopBarSecondaryNav.Props {}
+  export interface NavIconItemProps extends TopBarSecondaryNav.ItemProps {}
+  export interface NavIconItemButtonProps extends TopBarSecondaryNav.ItemButtonProps {}
+  export interface NavIconMenuItemProps extends TopBarSecondaryNav.MenuItemProps {}
+  export interface NavSearchProps extends TopBarNavSearch.Props {}
+  export interface NavSearchButtonProps extends TopBarNavSearch.ButtonProps {}
+  export interface NavSearchIconItemProps extends TopBarNavSearch.IconItemProps {}
+  export interface AvatarAnchorProps extends TopBarAvatarAnchor.Props {}
+  export interface AvatarButtonProps extends TopBarAvatarButton.Props {}
+  export interface AvatarMenuProps extends TopBarAvatarMenu.Props {}
+  export interface MenuDrawerProps extends TopBarMenuDrawer.Props {}
+  export interface MenuDrawerHeaderProps extends TopBarMenuDrawer.HeaderProps {}
+  export interface MenuListProps extends TopBarMenuDrawer.MenuListProps {}
+  export interface MenuItemProps extends TopBarMenuDrawer.MenuItemProps {}
+  export interface MenuItemButtonProps extends TopBarMenuDrawer.MenuItemButtonProps {}
+  export interface MenuGroupProps extends TopBarMenuDrawer.MenuGroupProps {}
+  export interface MenuGroupSummaryProps extends TopBarMenuDrawer.MenuGroupSummaryProps {}
+  export interface SubmenuProps extends TopBarMenuDrawer.SubmenuProps {}
+  export interface SubmenuItemProps extends TopBarMenuDrawer.SubmenuItemProps {}
+  export interface SubmenuItemButtonProps extends TopBarMenuDrawer.SubmenuItemButtonProps {}
 }
 
 /**
@@ -112,3 +137,11 @@ TopBar.AvatarMenu = TopBarAvatarMenu
 
 TopBar.MenuDrawer = TopBarMenuDrawer
 TopBar.MenuDrawerHeader = TopBarMenuDrawer.Header
+TopBar.MenuList = TopBarMenuDrawer.MenuList
+TopBar.MenuItem = TopBarMenuDrawer.MenuItem
+TopBar.MenuItemButton = TopBarMenuDrawer.MenuItemButton
+TopBar.MenuGroup = TopBarMenuDrawer.MenuGroup
+TopBar.MenuGroupSummary = TopBarMenuDrawer.MenuGroupSummary
+TopBar.Submenu = TopBarMenuDrawer.Submenu
+TopBar.SubmenuItem = TopBarMenuDrawer.SubmenuItem
+TopBar.SubmenuItemButton = TopBarMenuDrawer.SubmenuItemButton

@@ -5,6 +5,9 @@ import { TopBarNavSearchIconItem } from '../nav-search-icon-item'
 import type { ComponentProps, ReactNode } from 'react'
 
 export namespace TopBarNavSearch {
+  export interface ButtonProps extends TopBarNavSearchButton.Props {}
+  export interface IconItemProps extends TopBarNavSearchIconItem.Props {}
+
   export interface Props extends ComponentProps<typeof ElTopBarNavSearch> {
     /**
      * The button to display on tablet devices and wider. Will typically be a `TopBar.NavSearchButton`.

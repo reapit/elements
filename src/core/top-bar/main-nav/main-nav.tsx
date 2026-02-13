@@ -5,6 +5,9 @@ import { TopBarMainNavMenuListItem } from './main-nav-menu-list-item'
 import type { ComponentProps, ReactNode } from 'react'
 
 export namespace TopBarMainNav {
+  export interface ItemProps extends TopBarMainNavListItem.Props {}
+  export interface MenuItemProps extends TopBarMainNavMenuListItem.Props {}
+
   export interface Props extends ComponentProps<typeof ElTopBarMainNav> {
     /**
      * The accessible name for the main navigation.

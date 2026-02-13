@@ -1,5 +1,5 @@
+import { shouldSideBarMenuGroupBeOpen } from './should-be-open'
 import { useLayoutEffect, useRef } from 'react'
-import { shouldBeOpen } from './should-be-open'
 
 import type { RefObject } from 'react'
 import type { useSideBar } from '../use-side-bar'
@@ -21,7 +21,7 @@ export function useSideBarMenuGroupController(sideBarState: useSideBar.State): R
       } else {
         // If the sidebar is expanded, and an element representing the current page is within this menu group, we
         // want the group to be open.
-        if (shouldBeOpen(ref.current)) {
+        if (shouldSideBarMenuGroupBeOpen(ref.current)) {
           ref.current.open = true
         }
 
@@ -52,7 +52,7 @@ export function useSideBarMenuGroupController(sideBarState: useSideBar.State): R
 function createDataIsActiveObserver(detailsElement: HTMLDetailsElement): MutationObserver {
   const observer = new MutationObserver(() => {
     // When we observe changes to the `aria-current` attribute, we want to open or close the menu element.
-    detailsElement.open = shouldBeOpen(detailsElement)
+    detailsElement.open = shouldSideBarMenuGroupBeOpen(detailsElement)
   })
 
   // We want to observe changes to the details element's subtree, but only changes to the `data-is-active` attribute.
@@ -70,7 +70,7 @@ function createDataIsActiveObserver(detailsElement: HTMLDetailsElement): Mutatio
 function createAriaCurrentObserver(detailsElement: HTMLDetailsElement): MutationObserver {
   const observer = new MutationObserver(() => {
     // When we observe changes to the `aria-current` attribute, we want to open or close the menu element.
-    detailsElement.open = shouldBeOpen(detailsElement)
+    detailsElement.open = shouldSideBarMenuGroupBeOpen(detailsElement)
   })
 
   // We want to observe changes to the details element's subtree, but only changes to the `aria-current` attribute.
