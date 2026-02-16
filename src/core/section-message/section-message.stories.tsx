@@ -127,6 +127,7 @@ export const NoIcon: Story = {
 export const Dismissible: Story = {
   args: {
     ...Example.args,
+    icon: 'None',
     onDismiss: fn(),
   },
 }

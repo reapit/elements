@@ -6,6 +6,7 @@ import {
   ElSectionMessageTitle,
   ElSectionMessageDescription,
   ElSectionMessageActions,
+  elSectionMessageDismissButton,
 } from './styles'
 import { LineClamp } from '#src/utils/line-clamp/line-clamp'
 import { useId } from 'react'
@@ -81,10 +82,11 @@ export function SectionMessage({
 
   return (
     <ElSectionMessage {...rest} data-variant={variant} aria-labelledby={title ? titleId : undefined}>
-      {/* Dimiss button is first so it is earlier in the tab sequence than the rest of the content */}
+      {/* Dismiss button is first so it is earlier in the tab sequence than the rest of the content */}
       {onDismiss && (
         <Button
           aria-label="Dismiss message"
+          className={elSectionMessageDismissButton}
           hasNoPadding
           iconLeft={<CloseIcon aria-hidden />}
           onClick={onDismiss}

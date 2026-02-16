@@ -1,5 +1,6 @@
-import { styled } from '@linaria/react'
+import { css } from '@linaria/core'
 import { font } from '#src/core/text'
+import { styled } from '@linaria/react'
 
 interface ElSectionMessageProps {
   'data-variant': 'error' | 'warning' | 'info' | 'success' | 'neutral-light' | 'neutral-dark'
@@ -57,6 +58,10 @@ export const ElSectionMessage = styled.div<ElSectionMessageProps>`
     --section-message-border-colour: var(--colour-border-neutral-light_darker);
     --section-message-icon-colour: var(--colour-icon-primary);
   }
+`
+
+export const elSectionMessageDismissButton = css`
+  grid-area: dismiss;
 `
 
 export const ElSectionMessageIconContainer = styled.div`
