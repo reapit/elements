@@ -1,4 +1,3 @@
-import { Button } from '#src/core/button'
 import { ButtonGroup } from './button-group'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -13,44 +12,30 @@ const meta = {
       mapping: {
         Secondary: (
           <>
-            <Button size="medium" variant="secondary">
-              Button 1
-            </Button>
-            <Button size="medium" variant="secondary">
-              Button 2
-            </Button>
-            <Button size="medium" variant="secondary">
-              Button 3
-            </Button>
+            <ButtonGroup.Item variant="secondary">Button 1</ButtonGroup.Item>
+            <ButtonGroup.Item variant="secondary">Button 2</ButtonGroup.Item>
+            <ButtonGroup.Item variant="secondary">Button 3</ButtonGroup.Item>
           </>
         ),
         'Primary action': (
           <>
-            <Button size="medium" variant="secondary">
-              Button 1
-            </Button>
-            <Button size="medium" variant="secondary">
-              Button 2
-            </Button>
-            <Button size="medium" variant="primary">
-              Button 3
-            </Button>
+            <ButtonGroup.Item variant="secondary">Button 1</ButtonGroup.Item>
+            <ButtonGroup.Item variant="secondary">Button 2</ButtonGroup.Item>
+            <ButtonGroup.Item variant="primary">Button 3</ButtonGroup.Item>
           </>
         ),
         'Mixed buttons': (
           <>
-            <Button size="medium" variant="tertiary">
-              Button 1
-            </Button>
-            <Button size="medium" variant="secondary">
-              Button 2
-            </Button>
-            <Button size="medium" variant="primary">
-              Button 3
-            </Button>
+            <ButtonGroup.Item variant="tertiary">Button 1</ButtonGroup.Item>
+            <ButtonGroup.Item variant="secondary">Button 2</ButtonGroup.Item>
+            <ButtonGroup.Item variant="primary">Button 3</ButtonGroup.Item>
           </>
         ),
       },
+    },
+    size: {
+      control: 'radio',
+      options: ['small', 'medium', 'large'],
     },
   },
 } satisfies Meta<typeof ButtonGroup>
@@ -61,11 +46,12 @@ type Story = StoryObj<typeof ButtonGroup>
 /**
  * Quite often, all buttons within the button group will be the same variant, but this is not strictly
  * required. What is strictly required is that button groups have at least one button, and all buttons
- * with the group share the same size.
+ * within the group share the same size.
  */
 export const Example: Story = {
   args: {
     children: 'Secondary',
+    size: 'medium',
   },
 }
 
@@ -76,6 +62,7 @@ export const Example: Story = {
 export const Primary = {
   args: {
     children: 'Primary action',
+    size: 'medium',
   },
 }
 
@@ -85,5 +72,16 @@ export const Primary = {
 export const Mixed = {
   args: {
     children: 'Mixed buttons',
+    size: 'medium',
+  },
+}
+
+/**
+ * The size of all buttons in the group can be controlled using the `size` prop.
+ */
+export const Size: Story = {
+  args: {
+    children: 'Secondary',
+    size: 'small',
   },
 }

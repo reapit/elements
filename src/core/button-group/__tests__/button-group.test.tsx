@@ -1,18 +1,53 @@
-import { render } from '@testing-library/react'
+import { render, screen } from '@testing-library/react'
 import { ButtonGroup } from '../button-group'
-import { DeprecatedButton } from '#src/deprecated/button/index'
+import { expect, test } from 'vitest'
 
-describe('ButtonGroup', () => {
-  test('renders its children horizontally with a gap of --spacing-2', () => {
-    const { asFragment } = render(
-      <ButtonGroup>
-        <DeprecatedButton>Button 1</DeprecatedButton>
-        <DeprecatedButton>Button 2</DeprecatedButton>
-        <DeprecatedButton>Button 3</DeprecatedButton>
-      </ButtonGroup>,
-    )
-    // NOTE: We do not currently assert the children are laid out horizontally
-    // with the correct gap because that behaviour is defined within CSS.
-    expect(asFragment()).toMatchSnapshot()
-  })
+test('renders its children', () => {
+  render(
+    <ButtonGroup>
+      <ButtonGroup.Item>Button 1</ButtonGroup.Item>
+      <ButtonGroup.Item>Button 2</ButtonGroup.Item>
+      <ButtonGroup.Item>Button 3</ButtonGroup.Item>
+    </ButtonGroup>,
+  )
+
+  expect(screen.getByRole('button', { name: 'Button 1' })).toBeVisible()
+  expect(screen.getByRole('button', { name: 'Button 2' })).toBeVisible()
+  expect(screen.getByRole('button', { name: 'Button 3' })).toBeVisible()
+})
+
+test('provides context to child buttons', () => {
+  expect.assertions(1)
+  render(
+    <ButtonGroup size="large">
+      <ButtonGroup.Context.Consumer>
+        {(context) => {
+          expect(context).toMatchInlineSnapshot(`
+            {
+              "size": "large",
+            }
+          `)
+          return null
+        }}
+      </ButtonGroup.Context.Consumer>
+    </ButtonGroup>,
+  )
+})
+
+test('defaults size to medium in context when not specified', () => {
+  expect.assertions(1)
+  render(
+    <ButtonGroup>
+      <ButtonGroup.Context.Consumer>
+        {(context) => {
+          expect(context).toMatchInlineSnapshot(`
+            {
+              "size": "medium",
+            }
+          `)
+          return null
+        }}
+      </ButtonGroup.Context.Consumer>
+    </ButtonGroup>,
+  )
 })
