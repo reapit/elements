@@ -17,6 +17,8 @@ export const elTopBarMenuDrawer = css`
   border: none;
   padding: 0;
 
+  overscroll-behavior: none;
+
   /* Grow to fill available space, but max out at dynamic viewport width on XS. */
   width: 100%;
   max-width: 100dvw;

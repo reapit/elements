@@ -10,10 +10,10 @@ export const ElTopBarMenuDrawerMenuList = styled.ul`
   padding: var(--spacing-3);
   width: 100%;
 
-  border-bottom: var(--border-width-default) solid var(--comp-navigation-colour-border-mobile_nav);
+  border-top: var(--border-width-default) solid var(--comp-navigation-colour-border-mobile_nav);
 
-  &:last-of-type {
-    border-bottom: none;
+  &:first-of-type {
+    border-top: none;
   }
 `
 

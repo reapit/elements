@@ -17,6 +17,9 @@ export namespace TopBarMenuDrawerMenuList {
 /**
  * Main menu list for the `TopBar.MenuDrawer`. Typically provided a collection of `TopBar.MenuItem` and
  * `TopBar.MenuGroup` components as children.
+ *
+ * `TopBar.MenuMainNav`, `TopBar.MenuSecondaryNav`, and `TopBar.MenuProfileNav` should be preferred over
+ * direct usage of this component as they all provide automatic display handling.
  */
 export function TopBarMenuDrawerMenuList({ children, ...rest }: TopBarMenuDrawerMenuList.Props) {
   return <ElTopBarMenuDrawerMenuList {...rest}>{children}</ElTopBarMenuDrawerMenuList>

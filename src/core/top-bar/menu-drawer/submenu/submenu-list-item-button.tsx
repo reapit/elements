@@ -9,7 +9,7 @@ export namespace TopBarMenuDrawerSubmenuListItemButton {
 
 /**
  * A thin wrapper around `TopBarMenuDrawerSubmenuItemButton` that ensures it is contained within a
- * list item (`<li>`) for correct semantics and accessibility when used with `TopBar.SubmenuItemButton`.
+ * list item (`<li>`) for correct semantics and accessibility when used with `TopBar.MenuSubmenuItemButton`.
  *
  * All props are passed through to `TopBarMenuDrawerSubmenuItemButton`.
  */
@@ -21,4 +21,4 @@ export function TopBarMenuDrawerSubmenuListItemButton(props: TopBarMenuDrawerSub
   )
 }
 
-TopBarMenuDrawerSubmenuListItemButton.displayName = 'TopBar.SubmenuItemButton'
+TopBarMenuDrawerSubmenuListItemButton.displayName = 'TopBar.MenuSubmenuItemButton'

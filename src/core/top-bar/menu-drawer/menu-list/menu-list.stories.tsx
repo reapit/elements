@@ -46,7 +46,7 @@ export const SelectedItem: Story = {
 /**
  * Likewise, if a submenu item represents the current page, it should be marked as "selected". This will
  * automatically cause the parent `TopBar.MenuGroup` to be displayed as "selected" itself. See the
- * `TopBar.SubmenuItem` documentation for details on how.
+ * `TopBar.MenuSubmenuItem` documentation for details on how.
  */
 export const SelectedSubmenuItem: Story = {
   args: {

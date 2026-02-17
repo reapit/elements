@@ -5,6 +5,10 @@ export const ElTopBarMenuDrawerHeader = styled.header`
   align-items: center;
   justify-content: flex-end;
 
+  position: sticky;
+  top: 0;
+  z-index: var(--z-index-sticky);
+
   background: var(--comp-navigation-colour-fill-top_bar, var(--colour-fill-white));
   border-block-end: var(--border-width-default) solid var(--comp-navigation-colour-border-mobile_nav);
 

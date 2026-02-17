@@ -1,11 +1,17 @@
 import { cx } from '@linaria/core'
 import { elTopBarMenuDrawer } from './styles'
 import { getClosestDialogElement, HTMLDialog, useDialogOpenController } from '#src/utils/dialog'
+import { TopBarMenuDrawerContent } from './content'
 import { TopBarMenuDrawerHeader } from './header'
+import { TopBarMenuDrawerMainNav } from './main-nav'
+import { TopBarMenuDrawerSecondaryNav } from './secondary-nav'
+import { TopBarMenuDrawerProfileNav } from './profile-nav'
 import { TopBarMenuDrawerMenuList } from './menu-list'
 import { TopBarMenuDrawerSubmenu } from './submenu'
+import { useTopBarMenuDrawerKeyboardNavigation } from './use-keyboard-navigation'
 
 import type { DialogHTMLAttributes, ReactNode } from 'react'
+import { useCloseTopBarMenuDrawerOnClick } from './use-close-menu-on-click'
 
 // NOTE: we omit 'open' because we do not want React consumers to use it directly as it results in a
 // non-modal experience. Instead, our React `TopBarMenuDrawer` component provides an `isOpen` prop that ensures
@@ -13,7 +19,11 @@ import type { DialogHTMLAttributes, ReactNode } from 'react'
 type AttributesToOmit = 'open'
 
 export namespace TopBarMenuDrawer {
+  export interface ContentProps extends TopBarMenuDrawerContent.Props {}
   export interface HeaderProps extends TopBarMenuDrawerHeader.Props {}
+  export interface MainNavProps extends TopBarMenuDrawerMainNav.Props {}
+  export interface SecondaryNavProps extends TopBarMenuDrawerSecondaryNav.Props {}
+  export interface ProfileNavProps extends TopBarMenuDrawerProfileNav.Props {}
   export interface MenuListProps extends TopBarMenuDrawerMenuList.Props {}
   export interface MenuItemProps extends TopBarMenuDrawerMenuList.ItemProps {}
   export interface MenuItemButtonProps extends TopBarMenuDrawerMenuList.ItemButtonProps {}
@@ -48,6 +58,8 @@ export namespace TopBarMenuDrawer {
      *
      * **Note:** Safari does not currently support `closedBy`. `TopBarMenuDrawer` attempts to polyfill its behaviour,
      * but it's not perfect. Namely, "back" or "dismiss" gestures on mobile platforms are not supported.
+     *
+     * @default 'any'
      */
     closedBy?: 'any' | 'closerequest' | 'none'
     /** Indicates whether the drawer is open or not */
@@ -65,13 +77,16 @@ export namespace TopBarMenuDrawer {
  * section of MDN's `<dialog>` documentation.
  *
  * The drawer is full width on mobile (XS breakpoint) and fixed width on larger screens.
+ *
+ * Typically, `TopBar.Menu` should be used, as it comes with a pre-built nav icon item that opens the
+ * menu drawer for use in the top bar's secondary nav region.
  */
 export function TopBarMenuDrawer({
   'aria-label': ariaLabel,
   'aria-labelledby': ariaLabelledBy,
   children,
   className,
-  closedBy = 'closerequest',
+  closedBy = 'any',
   isOpen: isOpenProp,
   onCancel,
   onClick,
@@ -80,6 +95,8 @@ export function TopBarMenuDrawer({
 }: TopBarMenuDrawer.Props) {
   // We need to imperatively show or close the dialog element when the `isOpen` prop changes.
   const ref = useDialogOpenController(isOpenProp)
+  const handleKeyboardNavigation = useTopBarMenuDrawerKeyboardNavigation()
+  const closeOnClick = useCloseTopBarMenuDrawerOnClick()
 
   return (
     <HTMLDialog
@@ -95,14 +112,20 @@ export function TopBarMenuDrawer({
       onClick={onClick}
       onClose={onClose}
     >
-      {children}
+      <div onClick={closeOnClick} onKeyDown={handleKeyboardNavigation}>
+        {children}
+      </div>
     </HTMLDialog>
   )
 }
 
 TopBarMenuDrawer.getClosestDialogElement = getClosestDialogElement
 
+TopBarMenuDrawer.Content = TopBarMenuDrawerContent
 TopBarMenuDrawer.Header = TopBarMenuDrawerHeader
+TopBarMenuDrawer.MainNav = TopBarMenuDrawerMainNav
+TopBarMenuDrawer.SecondaryNav = TopBarMenuDrawerSecondaryNav
+TopBarMenuDrawer.ProfileNav = TopBarMenuDrawerProfileNav
 TopBarMenuDrawer.MenuList = TopBarMenuDrawerMenuList
 TopBarMenuDrawer.MenuItem = TopBarMenuDrawerMenuList.Item
 TopBarMenuDrawer.MenuItemButton = TopBarMenuDrawerMenuList.ItemButton

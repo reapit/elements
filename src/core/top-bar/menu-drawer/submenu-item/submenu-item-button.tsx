@@ -16,7 +16,7 @@ export namespace TopBarMenuDrawerSubmenuItemButton {
 /**
  * A simple button-based submenu item for use in TopBar MenuDrawer submenus.
  *
- * **Important:** ⚠️ This component should rarely be used directly. Instead, use `TopBar.SubmenuItemButton`
+ * **Important:** ⚠️ This component should rarely be used directly. Instead, use `TopBar.MenuSubmenuItemButton`
  * as it wraps the button element in a list item (`<li>`) to ensure good semantics and accessibility.
  */
 export function TopBarMenuDrawerSubmenuItemButton({

@@ -25,7 +25,7 @@ export function TopBarMenuDrawerSubmenu({ children, ...rest }: TopBarMenuDrawerS
   return <ElTopBarMenuDrawerSubmenuList {...rest}>{children}</ElTopBarMenuDrawerSubmenuList>
 }
 
-TopBarMenuDrawerSubmenu.displayName = 'TopBar.MenuDrawer.Submenu'
+TopBarMenuDrawerSubmenu.displayName = 'TopBar.MenuSubmenu'
 
 TopBarMenuDrawerSubmenu.Item = TopBarMenuDrawerSubmenuListItem
 TopBarMenuDrawerSubmenu.ItemButton = TopBarMenuDrawerSubmenuListItemButton

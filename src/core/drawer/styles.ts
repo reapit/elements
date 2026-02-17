@@ -19,6 +19,8 @@ export const elDrawer = css`
   border: none;
   padding: 0;
 
+  overscroll-behavior: none;
+
   /* Grow to fill available space, but max out at dynamic viewport width.
    * Never shrink below XS drawer width. */
   width: 100%;

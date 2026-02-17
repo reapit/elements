@@ -2,12 +2,10 @@ import { AppSwitcher } from '../app-switcher'
 import { DeprecatedMenu } from '#src/deprecated/menu'
 import { elTopBarMenuPopover } from './styles'
 import { HelpIcon } from '#src/icons/help'
-import { MenuAltIcon } from '#src/icons/menu-alt'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
 import { supportedAppNames } from './brand-logo'
 import { TopBar } from './top-bar'
-import { TopBarNavIconItemButton } from './nav-icon-item'
 
 import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
@@ -200,8 +198,56 @@ export const Example: Story = {
     logo: 'Reapit',
     mainNav: 'Many',
     menu: (
-      // TODO: replace this with the proper TopBarMenu component when it is available
-      <TopBarNavIconItemButton aria-label="Overflow menu" icon={<MenuAltIcon />} onClick={() => void 0} />
+      <TopBar.Menu>
+        <TopBar.MenuContent>
+          <TopBar.MenuMainNav>
+            <TopBar.MenuGroup summary={<TopBar.MenuGroupSummary>Properties</TopBar.MenuGroupSummary>}>
+              <TopBar.MenuSubmenu>
+                <TopBar.MenuSubmenuItem aria-current="page" href="#">
+                  Residential
+                </TopBar.MenuSubmenuItem>
+                <TopBar.MenuSubmenuItem aria-current={false} href="#">
+                  Commercial
+                </TopBar.MenuSubmenuItem>
+                <TopBar.MenuSubmenuItem aria-current={false} href="#">
+                  Other
+                </TopBar.MenuSubmenuItem>
+              </TopBar.MenuSubmenu>
+            </TopBar.MenuGroup>
+            <TopBar.MenuGroup summary={<TopBar.MenuGroupSummary>Contacts</TopBar.MenuGroupSummary>}>
+              <TopBar.MenuSubmenu>
+                <TopBar.MenuSubmenuItem aria-current={false} href="#">
+                  Tenants
+                </TopBar.MenuSubmenuItem>
+                <TopBar.MenuSubmenuItem aria-current={false} href="#">
+                  Owners
+                </TopBar.MenuSubmenuItem>
+                <TopBar.MenuSubmenuItem aria-current={false} href="#">
+                  Creditors
+                </TopBar.MenuSubmenuItem>
+              </TopBar.MenuSubmenu>
+            </TopBar.MenuGroup>
+            <TopBar.MenuItem aria-current={false} href="#">
+              Settings
+            </TopBar.MenuItem>
+          </TopBar.MenuMainNav>
+          <TopBar.MenuSecondaryNav>
+            <TopBar.MenuItem aria-current={false} href="#">
+              Help
+            </TopBar.MenuItem>
+            <TopBar.MenuItem aria-current={false} href="#">
+              Conversations
+            </TopBar.MenuItem>
+            <TopBar.MenuItemButton>Notifications</TopBar.MenuItemButton>
+          </TopBar.MenuSecondaryNav>
+          <TopBar.MenuProfileNav>
+            <TopBar.MenuItem aria-current={false} href="#">
+              Profile
+            </TopBar.MenuItem>
+            <TopBar.MenuItemButton>Sign out</TopBar.MenuItemButton>
+          </TopBar.MenuProfileNav>
+        </TopBar.MenuContent>
+      </TopBar.Menu>
     ),
     search: (
       <TopBar.NavSearch

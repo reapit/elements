@@ -13,6 +13,8 @@ export const elTopBarMenuDrawerMenuItem = css`
   padding: var(--spacing-2) var(--spacing-4);
   width: 100%;
 
+  cursor: pointer;
+
   text-decoration: none;
   border: none;
   background: transparent;

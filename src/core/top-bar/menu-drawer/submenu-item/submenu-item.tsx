@@ -24,7 +24,7 @@ export namespace TopBarMenuDrawerSubmenuItem {
 /**
  * A simple anchor-based submenu item for use in TopBar MenuDrawer submenus.
  *
- * **Important:** ⚠️ This component should rarely be used directly. Instead, use `TopBar.SubmenuItem`
+ * **Important:** ⚠️ This component should rarely be used directly. Instead, use `TopBar.MenuSubmenuItem`
  * as it wraps the anchor element in a list item (`<li>`) to ensure good semantics and accessibility.
  */
 export function TopBarMenuDrawerSubmenuItem({
