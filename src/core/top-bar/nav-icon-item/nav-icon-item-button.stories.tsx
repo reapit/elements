@@ -1,9 +1,10 @@
 import { ContactIcon } from '#src/icons/contact'
 import { HelpIcon } from '#src/icons/help'
+import { Menu } from '#src/core/menu'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
-import { DeprecatedMenu } from '#src/deprecated/menu'
 import { TopBarNavIconItemButton } from './nav-icon-item-button'
+import { useId } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -73,19 +74,20 @@ export const WithMenu: Story = {
     ),
   ],
   render: (args) => {
+    const triggerId = useId()
+    const menuId = useId()
     return (
-      <DeprecatedMenu>
-        <DeprecatedMenu.Trigger>
-          {({ getTriggerProps }) => <TopBarNavIconItemButton {...args} {...getTriggerProps()} />}
-        </DeprecatedMenu.Trigger>
-        <DeprecatedMenu.Popover>
-          <DeprecatedMenu.List>
-            <DeprecatedMenu.Item label="Menu Item 1" />
-            <DeprecatedMenu.Item label="Menu Item 2" />
-            <DeprecatedMenu.Item label="Menu Item 3" />
-          </DeprecatedMenu.List>
-        </DeprecatedMenu.Popover>
-      </DeprecatedMenu>
+      <>
+        <TopBarNavIconItemButton
+          {...args}
+          {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        />
+        <Menu aria-labelledby={triggerId} id={menuId} placement="bottom-end">
+          <Menu.Item>Menu Item 1</Menu.Item>
+          <Menu.Item>Menu Item 2</Menu.Item>
+          <Menu.Item>Menu Item 3</Menu.Item>
+        </Menu>
+      </>
     )
   },
 }

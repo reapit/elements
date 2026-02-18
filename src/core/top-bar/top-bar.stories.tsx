@@ -1,7 +1,6 @@
 import { AppSwitcher } from '../app-switcher'
-import { DeprecatedMenu } from '#src/deprecated/menu'
-import { elTopBarMenuPopover } from './styles'
 import { HelpIcon } from '#src/icons/help'
+import { Menu } from '#src/core/menu'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
 import { supportedAppNames } from './brand-logo'
@@ -50,22 +49,11 @@ const meta = {
       mapping: {
         None: null,
         'Avatar Menu': (
-          <DeprecatedMenu data-alignment="right">
-            <DeprecatedMenu.Trigger>
-              {({ getTriggerProps, isOpen }) => (
-                <TopBar.AvatarButton {...getTriggerProps()} isOpen={isOpen}>
-                  AD
-                </TopBar.AvatarButton>
-              )}
-            </DeprecatedMenu.Trigger>
-            <DeprecatedMenu.Popover className={elTopBarMenuPopover}>
-              <DeprecatedMenu.List>
-                <DeprecatedMenu.Item label="User menu 1" />
-                <DeprecatedMenu.Item label="User menu 2" />
-                <DeprecatedMenu.Item label="User menu 3" />
-              </DeprecatedMenu.List>
-            </DeprecatedMenu.Popover>
-          </DeprecatedMenu>
+          <TopBar.AvatarMenu initials="AB">
+            <Menu.Item>User menu 1</Menu.Item>
+            <Menu.Item>User menu 2</Menu.Item>
+            <Menu.Item>User menu 3</Menu.Item>
+          </TopBar.AvatarMenu>
         ),
       },
     },
@@ -124,9 +112,9 @@ const meta = {
               Button 5
             </TopBar.NavItem>
             <TopBar.NavMenuItem label="More">
-              <DeprecatedMenu.Item label="Button 6" />
-              <DeprecatedMenu.Item label="Button 7" />
-              <DeprecatedMenu.Item label="Button 8" />
+              <Menu.Item>Button 6</Menu.Item>
+              <Menu.Item>Button 7</Menu.Item>
+              <Menu.Item>Button 8</Menu.Item>
             </TopBar.NavMenuItem>
           </TopBar.MainNav>
         ),
@@ -146,9 +134,9 @@ const meta = {
         Some: (
           <TopBar.SecondaryNav>
             <TopBar.NavIconMenuItem aria-label="Nav icon item 1" icon={<HelpIcon />}>
-              <DeprecatedMenu.Item label="Menu item 1" />
-              <DeprecatedMenu.Item label="Menu item 2" />
-              <DeprecatedMenu.Item label="Menu item 3" />
+              <Menu.Item>Menu item 1</Menu.Item>
+              <Menu.Item>Menu item 2</Menu.Item>
+              <Menu.Item>Menu item 3</Menu.Item>
             </TopBar.NavIconMenuItem>
             <TopBar.NavIconItem
               aria-current={false}

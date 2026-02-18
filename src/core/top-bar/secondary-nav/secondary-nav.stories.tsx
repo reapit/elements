@@ -1,6 +1,6 @@
 import { StarIcon } from '#src/icons/star'
 import { HelpIcon } from '#src/icons/help'
-import { DeprecatedMenu } from '#src/deprecated/menu'
+import { Menu } from '#src/core/menu'
 import { TopBarSecondaryNav } from './secondary-nav'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
@@ -77,9 +77,9 @@ function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
     />,
     type === 'With menu' && (
       <TopBarSecondaryNav.MenuItem key="3" icon={<HelpIcon />} aria-label="Help menu">
-        <DeprecatedMenu.Item label="Menu item 1" />
-        <DeprecatedMenu.Item label="Menu item 2" />
-        <DeprecatedMenu.Item label="Menu item 3" />
+        <Menu.Item>Menu item 1</Menu.Item>
+        <Menu.Item>Menu item 2</Menu.Item>
+        <Menu.Item>Menu item 3</Menu.Item>
       </TopBarSecondaryNav.MenuItem>
     ),
   ]

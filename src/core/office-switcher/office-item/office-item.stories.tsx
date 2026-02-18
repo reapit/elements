@@ -56,7 +56,7 @@ export const Selected: Story = {
  * Badges provide additional context. Place them after the office label.
  */
 export const WithBadge: Story = {
-  storyName: 'Badge',
+  name: 'Badge',
   args: {
     ...Example.args,
     badge: 'Badge',

@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { TopBarNavDropdownButton } from '.'
-import { DeprecatedMenu } from '#src/deprecated/menu'
+import { Menu } from '#src/core/menu'
+import { useId } from 'react'
 
 const meta: Meta<typeof TopBarNavDropdownButton> = {
   title: 'Core/TopBar/NavDropdownButton',
@@ -41,18 +42,7 @@ export const Overflow: Story = {
 }
 
 /**
- * The following example demonstrates the use of `TopBar.NavDropdownButton` with the `Menu` component. The code
- * snippet does not work well with the `Menu.Trigger` component's render-prop, but it works as follows:
- *
- * ```tsx
- * <Menu.Trigger>
- *  {({ getTriggerProps }) => (
- *    <TopBar.NavDropdownButton {...getTriggerProps()}>
- *      More
- *    </TopBar.NavDropdownButton>
- *  )}
- * </Menu.Trigger>
- * ```
+ * The following example demonstrates the use of `TopBar.NavDropdownButton` with the `Menu` component.
  */
 export const WithAMenu: Story = {
   name: 'With a Menu',
@@ -71,18 +61,22 @@ export const WithAMenu: Story = {
       </div>
     ),
   ],
-  render: ({ children }) => (
-    <DeprecatedMenu>
-      <DeprecatedMenu.Trigger>
-        {({ getTriggerProps }) => <TopBarNavDropdownButton {...getTriggerProps()}>{children}</TopBarNavDropdownButton>}
-      </DeprecatedMenu.Trigger>
-      <DeprecatedMenu.Popover>
-        <DeprecatedMenu.List>
-          <DeprecatedMenu.Item label="Menu Item 1" />
-          <DeprecatedMenu.Item label="Menu Item 2" />
-          <DeprecatedMenu.Item label="Menu Item 3" />
-        </DeprecatedMenu.List>
-      </DeprecatedMenu.Popover>
-    </DeprecatedMenu>
-  ),
+  render: ({ children }) => {
+    const triggerId = useId()
+    const menuId = useId()
+    return (
+      <>
+        <TopBarNavDropdownButton
+          {...Menu.getTriggerProps({ id: triggerId, popoverTarget: menuId, popoverTargetAction: 'toggle' })}
+        >
+          {children}
+        </TopBarNavDropdownButton>
+        <Menu aria-labelledby={triggerId} id={menuId} placement="bottom-start">
+          <Menu.Item>Menu Item 1</Menu.Item>
+          <Menu.Item>Menu Item 2</Menu.Item>
+          <Menu.Item>Menu Item 3</Menu.Item>
+        </Menu>
+      </>
+    )
+  },
 }
