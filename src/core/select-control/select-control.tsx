@@ -72,6 +72,7 @@ export function SelectControl({
           aria-errormessage={errorText ? errorTextId : undefined}
           aria-invalid={errorText ? true : undefined}
           aria-labelledby={label ? labelId : undefined}
+          disabled={disabled}
           id={selectId}
           multiple={multiple}
           required={required}

@@ -93,6 +93,20 @@ test('associates the label with the autocomplete button', () => {
   expect(screen.getByLabelText('Fruit')).toBe(screen.getByRole('combobox'))
 })
 
+test('applies the disabled attribute to the autocomplete', () => {
+  render(
+    <AutocompleteControl label="Label" disabled>
+      <Autocomplete.Button />
+      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
+        <Autocomplete.Listbox>
+          <Autocomplete.Option value="1">Option 1</Autocomplete.Option>
+        </Autocomplete.Listbox>
+      </Autocomplete.Popup>
+    </AutocompleteControl>,
+  )
+  expect(screen.getByRole('combobox')).toBeDisabled()
+})
+
 test('applies the required attribute to the autocomplete', () => {
   render(
     <AutocompleteControl label="Label" required>

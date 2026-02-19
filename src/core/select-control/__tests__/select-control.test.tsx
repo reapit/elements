@@ -125,6 +125,20 @@ test('associates the label with the select button', () => {
   expect(screen.getByLabelText('Fruit')).toBe(screen.getByRole('combobox'))
 })
 
+test('applies the disabled attribute to the select', () => {
+  render(
+    <SelectControl label="Label" disabled>
+      <Select.Button />
+      <Select.Popup>
+        <Select.Listbox>
+          <Select.Option value="apple">Apple</Select.Option>
+        </Select.Listbox>
+      </Select.Popup>
+    </SelectControl>,
+  )
+  expect(screen.getByRole('combobox')).toBeDisabled()
+})
+
 test('applies the required attribute to the select', () => {
   render(
     <SelectControl label="Label" required>
