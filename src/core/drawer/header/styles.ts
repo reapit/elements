@@ -6,6 +6,10 @@ import { styled } from '@linaria/react'
 export const DRAWER_HEADER_CSS_CONTAINER_NAME = 'drawer-header'
 
 export const ElDrawerHeader = styled.header`
+  /* The header content container has a bottom border by default. */
+  --drawer-header-content-container-border-block-end: var(--border-default) solid
+    var(--colour-border-neutral-light_default);
+
   position: sticky;
   inset-block-start: 0;
   z-index: var(--z-index-sticky);
@@ -15,9 +19,10 @@ export const ElDrawerHeader = styled.header`
   container-type: scroll-state;
   container-name: ${DRAWER_HEADER_CSS_CONTAINER_NAME};
 
-  /* When the drawer has a footer, the header should NOT be sticky. */
+  /* When the drawer has a footer, the header is not sticky and has no border. */
   &:has(~ ${ElDrawerFooter}) {
     position: static;
+    --drawer-header-content-container-border-block-end: none;
   }
 `
 
@@ -43,25 +48,16 @@ export const ElDrawerHeaderContentContainer = styled.div`
     'main' minmax(0, auto)
     'tabs' minmax(0, auto) / 100%;
 
-  /* If the browser does not support scroll-state queries, we always show a border when there's no footer. */
-  @supports not (container-type: scroll-state) {
-    &:not(:has(~ ${ElDrawerFooter})) {
-      border-block-end: var(--border-default) solid var(--colour-border-neutral-light_default);
-    }
-  }
+  border-block-end: var(--drawer-header-content-container-border-block-end);
 
-  /* If the browser supports scroll-state queries, we only show a border when the header is stuck to the top of
-   * the drawer. This only happens when the header is sticky positioned, which only occurs when there's no footer. */
-  @supports (container-type: scroll-state) {
-    @container ${DRAWER_HEADER_CSS_CONTAINER_NAME} scroll-state(stuck: top) {
-      border-block-end: var(--border-default) solid var(--colour-border-neutral-light_default);
+  /* When there are no tabs, we remove the border for sticky headers when they are not stuck to the top.
+   * The header is only sticky when there is no footer. */
+  &:not(:has(${ElDrawerHeaderTabsContainer})) {
+    @supports (container-type: scroll-state) {
+      @container ${DRAWER_HEADER_CSS_CONTAINER_NAME} not scroll-state(stuck: top) {
+        --drawer-header-content-container-border-block-end: none;
+      }
     }
-  }
-
-  /* When the drawer has tabs, we need to add a border to this container (at all times) because the tabs own
-   * border will not stretch to the left edge of the drawer. */
-  &:has(> ${ElDrawerHeaderTabsContainer}) {
-    border-block-end: var(--border-default) solid var(--colour-border-neutral-light_default);
   }
 `
 
