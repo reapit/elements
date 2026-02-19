@@ -8,6 +8,7 @@ export const DRAWER_HEADER_CSS_CONTAINER_NAME = 'drawer-header'
 export const ElDrawerHeader = styled.header`
   position: sticky;
   inset-block-start: 0;
+  z-index: var(--z-index-sticky);
 
   background: var(--fill-white);
 
