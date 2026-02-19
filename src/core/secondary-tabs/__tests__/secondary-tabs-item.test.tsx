@@ -39,6 +39,6 @@ test('includes an ARIA hidden separator', () => {
   )
 
   const listItem = screen.getByRole('listitem')
-  const separator = listItem.querySelector('> span')
+  const separator = listItem.querySelector('li > span')
   expect(separator).toHaveAttribute('aria-hidden', 'true')
 })
