@@ -64,6 +64,34 @@ test('uses the ID prop if supplied', () => {
   expect(screen.getByTestId('summary')).toHaveAttribute('id', 'custom-id')
 })
 
+test('does not render badge when hasBadge is false', () => {
+  render(
+    <details>
+      <TopBarMenuDrawerMenuGroupSummary>Settings</TopBarMenuDrawerMenuGroupSummary>
+    </details>,
+    { wrapper },
+  )
+
+  const summary = screen.getByText('Settings').closest('summary')
+  const spans = summary?.querySelectorAll('span') ?? []
+  // Should have label span and dropdown icon span, but not badge span
+  expect(spans.length).toBe(2)
+})
+
+test('renders badge when hasBadge is true', () => {
+  render(
+    <details>
+      <TopBarMenuDrawerMenuGroupSummary hasBadge>Settings</TopBarMenuDrawerMenuGroupSummary>
+    </details>,
+    { wrapper },
+  )
+
+  const summary = screen.getByText('Settings').closest('summary')
+  const spans = summary?.querySelectorAll('span') ?? []
+  // Should have label span, badge span, and dropdown icon span
+  expect(spans.length).toBe(3)
+})
+
 function wrapper({ children }: { children: ReactNode }) {
   return (
     <TopBarMenuDrawerMenuGroupLabelIdContext.Provider value="test-label-id">

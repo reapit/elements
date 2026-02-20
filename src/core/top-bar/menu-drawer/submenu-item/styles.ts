@@ -6,10 +6,9 @@ export const elTopBarMenuDrawerSubmenuItem = css`
   display: grid;
   align-items: center;
   justify-content: start;
-  grid-template-areas: 'label';
-  grid-template-columns: 1fr;
+  grid-template-areas: 'label badge';
+  grid-template-columns: 1fr minmax(0, auto);
 
-  gap: var(--spacing-2);
   padding: var(--spacing-2) var(--spacing-4);
   width: 100%;
 

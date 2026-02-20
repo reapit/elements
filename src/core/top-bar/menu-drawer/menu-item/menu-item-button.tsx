@@ -10,6 +10,10 @@ export namespace TopBarMenuDrawerMenuItemButton {
      * The label of the menu item.
      */
     children: ReactNode
+    /**
+     * Whether the menu item has a notification badge.
+     */
+    hasBadge?: boolean
   }
 }
 
@@ -20,12 +24,13 @@ export namespace TopBarMenuDrawerMenuItemButton {
 export function TopBarMenuDrawerMenuItemButton({
   children,
   className,
+  hasBadge,
   type = 'button',
   ...rest
 }: TopBarMenuDrawerMenuItemButton.Props) {
   return (
     <button {...rest} type={type} className={cx(elTopBarMenuDrawerMenuItem, className)}>
-      <TopBarMenuDrawerMenuItemBase>{children}</TopBarMenuDrawerMenuItemBase>
+      <TopBarMenuDrawerMenuItemBase hasBadge={hasBadge}>{children}</TopBarMenuDrawerMenuItemBase>
     </button>
   )
 }

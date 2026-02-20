@@ -2,8 +2,9 @@ import { ChevronDownIcon } from '#src/icons/chevron-down'
 import { cx } from '@linaria/core'
 import {
   elTopBarMenuDrawerMenuGroupSummary,
-  ElTopBarMenuDrawerMenuGroupSummaryLabel,
+  ElTopBarMenuDrawerMenuGroupSummaryBadge,
   ElTopBarMenuDrawerMenuGroupSummaryDropdownIcon,
+  ElTopBarMenuDrawerMenuGroupSummaryLabel,
 } from './styles'
 import { elTopBarMenuDrawerMenuItem } from '../menu-item'
 import { shouldTopBarMenuGroupBeOpen } from './should-be-open'
@@ -18,6 +19,10 @@ export namespace TopBarMenuDrawerMenuGroupSummary {
      * The label for the menu group.
      */
     children: ReactNode
+    /**
+     * Whether the menu group has a badge.
+     */
+    hasBadge?: boolean
   }
 }
 
@@ -32,6 +37,7 @@ export namespace TopBarMenuDrawerMenuGroupSummary {
 export function TopBarMenuDrawerMenuGroupSummary({
   children,
   className,
+  hasBadge,
   id,
   onClick,
   ...props
@@ -64,6 +70,7 @@ export function TopBarMenuDrawerMenuGroupSummary({
       onClick={handleClick}
     >
       <ElTopBarMenuDrawerMenuGroupSummaryLabel>{children}</ElTopBarMenuDrawerMenuGroupSummaryLabel>
+      {hasBadge && <ElTopBarMenuDrawerMenuGroupSummaryBadge aria-hidden />}
       <ElTopBarMenuDrawerMenuGroupSummaryDropdownIcon aria-hidden>
         <ChevronDownIcon />
       </ElTopBarMenuDrawerMenuGroupSummaryDropdownIcon>

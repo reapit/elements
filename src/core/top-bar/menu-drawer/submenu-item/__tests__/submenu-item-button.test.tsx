@@ -5,14 +5,14 @@ import * as stories from '../submenu-item-button.stories'
 const SubmenuItemButtonStories = composeStories(stories)
 
 test('renders a button', () => {
-  render(<SubmenuItemButtonStories.Default>Logout</SubmenuItemButtonStories.Default>)
+  render(<SubmenuItemButtonStories.Example>Logout</SubmenuItemButtonStories.Example>)
   expect(screen.getByRole('button', { name: 'Logout' })).toBeVisible()
 })
 
 test('triggers onClick handler when clicked', () => {
   const handleClick = vi.fn()
 
-  render(<SubmenuItemButtonStories.Default onClick={handleClick} />)
+  render(<SubmenuItemButtonStories.Example onClick={handleClick} />)
 
   fireEvent.click(screen.getByRole('button'))
 
@@ -20,6 +20,22 @@ test('triggers onClick handler when clicked', () => {
 })
 
 test('has type="button" by default', () => {
-  render(<SubmenuItemButtonStories.Default />)
+  render(<SubmenuItemButtonStories.Example />)
   expect(screen.getByRole('button')).toHaveAttribute('type', 'button')
+})
+
+test('does not render badge when hasBadge is false', () => {
+  render(<SubmenuItemButtonStories.Example />)
+  const button = screen.getByRole('button')
+  const spans = button.querySelectorAll('span')
+  // Should only have the label span, not the badge span
+  expect(spans.length).toBe(1)
+})
+
+test('renders badge when hasBadge is true', () => {
+  render(<SubmenuItemButtonStories.Badge />)
+  const button = screen.getByRole('button')
+  const spans = button.querySelectorAll('span')
+  // Should have both label and badge spans
+  expect(spans.length).toBe(2)
 })

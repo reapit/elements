@@ -6,10 +6,9 @@ export const elTopBarMenuDrawerMenuItem = css`
   display: grid;
   align-items: center;
   justify-content: start;
-  grid-template-areas: 'label';
-  grid-template-columns: 1fr;
+  grid-template-areas: 'label badge';
+  grid-template-columns: 1fr minmax(0, auto);
 
-  gap: var(--spacing-2);
   padding: var(--spacing-2) var(--spacing-4);
   width: 100%;
 
@@ -46,4 +45,17 @@ export const ElTopBarMenuDrawerMenuItemLabel = styled.span`
     ${font('base', 'medium')}
     color: var(--comp-navigation-colour-text-mobile_nav-select);
   }
+`
+
+// TODO: This should be handled by a Badge component. All our menu item should be responsible for is
+// positioning the badge correctly.
+export const ElTopBarMenuDrawerMenuItemBadge = styled.span`
+  grid-area: badge;
+
+  width: var(--size-2);
+  height: var(--size-2);
+  background-color: var(--comp-navigation-colour-fill-notification_badge);
+  border-radius: 100%;
+  /* Use margin instead of padding to keep the badge's content box square */
+  margin-inline-start: var(--spacing-2);
 `

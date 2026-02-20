@@ -29,3 +29,20 @@ test('has correct href attribute', () => {
   render(<MenuItemStories.Example href="/test" />)
   expect(screen.getByRole('link')).toHaveAttribute('href', '/test')
 })
+
+test('does not render badge when hasBadge is false', () => {
+  render(<MenuItemStories.Example />)
+  // Badge spans have 2 children: label and potentially badge
+  const link = screen.getByRole('link')
+  const spans = link.querySelectorAll('span')
+  // Should only have the label span, not the badge span
+  expect(spans.length).toBe(1)
+})
+
+test('renders badge when hasBadge is true', () => {
+  render(<MenuItemStories.Badge />)
+  const link = screen.getByRole('link')
+  const spans = link.querySelectorAll('span')
+  // Should have both label and badge spans
+  expect(spans.length).toBe(2)
+})

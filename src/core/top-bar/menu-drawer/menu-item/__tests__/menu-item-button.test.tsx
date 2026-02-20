@@ -29,3 +29,19 @@ test('has type="button" by default', () => {
   render(<MenuItemButtonStories.Example />)
   expect(screen.getByRole('button')).toHaveAttribute('type', 'button')
 })
+
+test('does not render badge when hasBadge is false', () => {
+  render(<MenuItemButtonStories.Example />)
+  const button = screen.getByRole('button')
+  const spans = button.querySelectorAll('span')
+  // Should only have the label span, not the badge span
+  expect(spans.length).toBe(1)
+})
+
+test('renders badge when hasBadge is true', () => {
+  render(<MenuItemButtonStories.Badge />)
+  const button = screen.getByRole('button')
+  const spans = button.querySelectorAll('span')
+  // Should have both label and badge spans
+  expect(spans.length).toBe(2)
+})

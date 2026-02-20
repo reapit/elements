@@ -46,7 +46,7 @@ export const Example: Story = {
  */
 export const Selected: Story = {
   args: {
-    summary: <TopBarMenuDrawerMenuGroupSummary>Settings</TopBarMenuDrawerMenuGroupSummary>,
+    ...Example.args,
     children: (
       <TopBarMenuDrawerSubmenu>
         <TopBarMenuDrawerSubmenu.Item href="/settings/profile" aria-current="page">
@@ -69,4 +69,45 @@ export const ManuallyActive: Story = {
     ...Example.args,
     isActive: true,
   },
+}
+
+/**
+ * If an item within the group has a notification badge, a badge can also be displayed on the group
+ * summary when closed. The summary's badge will automatically hide when the group is expanded.
+ */
+export const Badge: Story = {
+  args: {
+    ...Example.args,
+    children: (
+      <TopBarMenuDrawerSubmenu>
+        <TopBarMenuDrawerSubmenu.Item hasBadge href="/settings/profile" aria-current={false}>
+          Profile
+        </TopBarMenuDrawerSubmenu.Item>
+        <TopBarMenuDrawerSubmenu.Item href="/settings/preferences" aria-current={false}>
+          Preferences
+        </TopBarMenuDrawerSubmenu.Item>
+      </TopBarMenuDrawerSubmenu>
+    ),
+    summary: <TopBarMenuDrawerMenuGroupSummary hasBadge>Settings</TopBarMenuDrawerMenuGroupSummary>,
+  },
+}
+
+/**
+ * Menu groups should have concise labels. In cases where the label is too long, it will truncate.
+ * Care should be taken to ensure this does not happen.
+ */
+export const Truncation: Story = {
+  args: {
+    ...Badge.args,
+    summary: (
+      <TopBarMenuDrawerMenuGroupSummary hasBadge>All your base are belong to me</TopBarMenuDrawerMenuGroupSummary>
+    ),
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ border: '1px solid #FA00FF', width: '200px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 }

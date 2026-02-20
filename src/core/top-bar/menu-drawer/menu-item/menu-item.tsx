@@ -15,6 +15,10 @@ export namespace TopBarMenuDrawerMenuItem {
      */
     children: ReactNode
     /**
+     * Whether the menu item has a notification badge.
+     */
+    hasBadge?: boolean
+    /**
      * The URL to navigate to when this item is activated.
      */
     href: string
@@ -29,11 +33,12 @@ export function TopBarMenuDrawerMenuItem({
   'aria-current': ariaCurrent,
   children,
   className,
+  hasBadge,
   ...rest
 }: TopBarMenuDrawerMenuItem.Props) {
   return (
     <a {...rest} aria-current={ariaCurrent} className={cx(elTopBarMenuDrawerMenuItem, className)}>
-      <TopBarMenuDrawerMenuItemBase>{children}</TopBarMenuDrawerMenuItemBase>
+      <TopBarMenuDrawerMenuItemBase hasBadge={hasBadge}>{children}</TopBarMenuDrawerMenuItemBase>
     </a>
   )
 }
