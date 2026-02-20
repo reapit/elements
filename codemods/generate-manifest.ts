@@ -77,10 +77,10 @@ export function getCodemodMetadata(codemodDir: string, name: string): CodemodMet
 /**
  * Generates the JSON manifest content.
  */
-function generateManifestContent(codemods: CodemodMetadata[]): string {
+function generateManifestContent(codemods: CodemodMetadata[], timestamp: string): string {
   const manifest = {
     $schema: './manifest.schema.json',
-    generated: new Date().toISOString(),
+    generated: timestamp,
     codemods: codemods.map((c) => ({
       name: c.name,
       description: c.description,
@@ -91,17 +91,63 @@ function generateManifestContent(codemods: CodemodMetadata[]): string {
 }
 
 /**
+ * Checks if codemods have changed compared to existing manifest.
+ * Exported for testing.
+ *
+ * @param manifestPath - Path to the existing manifest file
+ * @param newCodemods - New codemods to compare
+ * @returns true if codemods have changed or manifest doesn't exist
+ */
+export function hasCodemodsChanged(manifestPath: string, newCodemods: CodemodMetadata[]): boolean {
+  try {
+    const existingContent = readFileSync(manifestPath, 'utf-8')
+    const existingManifest = JSON.parse(existingContent)
+
+    // Compare the codemods arrays (excluding timestamp)
+    const existingCodemods: CodemodMetadata[] = existingManifest.codemods || []
+
+    // Quick length check to detect obvious differences
+    if (existingCodemods.length !== newCodemods.length) {
+      return true
+    }
+
+    // Order-independent deep comparison of codemods by name
+    const toMap = (arr: CodemodMetadata[]): Map<string, string | null> =>
+      new Map(arr.map((c) => [c.name, c.description ?? null]))
+
+    const existingMap = toMap(existingCodemods)
+    const newMap = toMap(newCodemods)
+
+    if (existingMap.size !== newMap.size) {
+      return true
+    }
+
+    for (const [name, description] of newMap) {
+      if (!existingMap.has(name)) {
+        return true
+      }
+      if (existingMap.get(name) !== description) {
+        return true
+      }
+    }
+
+    return false
+  } catch {
+    // If manifest doesn't exist or can't be read, consider it changed
+    return true
+  }
+}
+
+/**
  * Main function to generate the manifest file.
  */
 function main(): void {
   // Always read from the script's own directory (codemods/)
   const sourceDir = __dirname
 
-  // Write to both source and dist directories
-  const outputDirs = [
-    sourceDir, // codemods/manifest.json (for development and tests)
-    join(__dirname, '..', 'dist', 'codemods'), // dist/codemods/manifest.json (for built package)
-  ]
+  // Define output paths
+  const sourceManifestPath = join(sourceDir, 'manifest.json')
+  const distManifestPath = join(__dirname, '..', 'dist', 'codemods', 'manifest.json')
 
   console.log('Generating codemod manifest...')
 
@@ -112,20 +158,46 @@ function main(): void {
   // Get metadata for each codemod
   const codemods = codemodNames.map((name) => getCodemodMetadata(sourceDir, name))
 
-  // Generate manifest content
-  const manifestContent = generateManifestContent(codemods)
+  // Check if source manifest needs updating based on codemod changes
+  const sourceNeedsUpdate = hasCodemodsChanged(sourceManifestPath, codemods)
 
-  // Write to all output directories
-  for (const outputDir of outputDirs) {
-    // Ensure output directory exists
-    if (!existsSync(outputDir)) {
-      mkdirSync(outputDir, { recursive: true })
+  if (!sourceNeedsUpdate) {
+    console.log('No changes detected. Source manifest is up to date.')
+
+    // Still write dist manifest if it doesn't exist, copying from source
+    try {
+      const sourceContent = readFileSync(sourceManifestPath, 'utf-8')
+      const distDir = dirname(distManifestPath)
+
+      if (!existsSync(distManifestPath)) {
+        if (!existsSync(distDir)) {
+          mkdirSync(distDir, { recursive: true })
+        }
+        writeFileSync(distManifestPath, sourceContent, 'utf-8')
+        console.log(styleText('green', `✓ Copied manifest to ${distManifestPath}`))
+      }
+    } catch (error) {
+      console.warn(styleText('yellow', `Warning: Could not sync dist manifest: ${(error as Error).message}`))
     }
 
-    const outputPath = join(outputDir, 'manifest.json')
-    writeFileSync(outputPath, manifestContent, 'utf-8')
-    console.log(styleText('green', `✓ Generated manifest at ${outputPath}`))
+    console.log(`  ${codemods.length} codemod(s) registered`)
+    return
   }
+
+  // Generate new manifest content with current timestamp
+  const manifestContent = generateManifestContent(codemods, new Date().toISOString())
+
+  // Write to source directory
+  writeFileSync(sourceManifestPath, manifestContent, 'utf-8')
+  console.log(styleText('green', `✓ Generated manifest at ${sourceManifestPath}`))
+
+  // Write to dist directory
+  const distDir = dirname(distManifestPath)
+  if (!existsSync(distDir)) {
+    mkdirSync(distDir, { recursive: true })
+  }
+  writeFileSync(distManifestPath, manifestContent, 'utf-8')
+  console.log(styleText('green', `✓ Generated manifest at ${distManifestPath}`))
 
   console.log(`  ${codemods.length} codemod(s) registered`)
 }

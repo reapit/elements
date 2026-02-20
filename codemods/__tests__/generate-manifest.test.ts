@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync, rmSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
-import { discoverCodemods, getCodemodMetadata } from '../generate-manifest'
+import { discoverCodemods, getCodemodMetadata, hasCodemodsChanged } from '../generate-manifest'
 
 let testDir: string
 
@@ -236,5 +236,166 @@ description: My awesome codemod
       { name: 'another-codemod', description: null },
       { name: 'my-codemod', description: 'My awesome codemod' },
     ])
+  })
+})
+
+describe('hasCodemodsChanged', () => {
+  let manifestPath: string
+
+  beforeEach(() => {
+    manifestPath = join(testDir, 'manifest.json')
+  })
+
+  test('returns false when codemods are identical', () => {
+    const codemods = [
+      { name: 'codemod-a', description: 'Description A' },
+      { name: 'codemod-b', description: 'Description B' },
+      { name: 'codemod-c', description: null },
+    ]
+
+    const manifest = {
+      $schema: './manifest.schema.json',
+      generated: '2024-01-01T00:00:00.000Z',
+      codemods,
+    }
+
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+
+    const result = hasCodemodsChanged(manifestPath, codemods)
+
+    expect(result).toBe(false)
+  })
+
+  test('returns true when a codemod is added', () => {
+    const existingCodemods = [
+      { name: 'codemod-a', description: 'Description A' },
+      { name: 'codemod-b', description: 'Description B' },
+    ]
+
+    const newCodemods = [
+      { name: 'codemod-a', description: 'Description A' },
+      { name: 'codemod-b', description: 'Description B' },
+      { name: 'codemod-c', description: 'Description C' },
+    ]
+
+    const manifest = {
+      $schema: './manifest.schema.json',
+      generated: '2024-01-01T00:00:00.000Z',
+      codemods: existingCodemods,
+    }
+
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+
+    const result = hasCodemodsChanged(manifestPath, newCodemods)
+
+    expect(result).toBe(true)
+  })
+
+  test('returns true when a codemod is removed', () => {
+    const existingCodemods = [
+      { name: 'codemod-a', description: 'Description A' },
+      { name: 'codemod-b', description: 'Description B' },
+      { name: 'codemod-c', description: 'Description C' },
+    ]
+
+    const newCodemods = [
+      { name: 'codemod-a', description: 'Description A' },
+      { name: 'codemod-b', description: 'Description B' },
+    ]
+
+    const manifest = {
+      $schema: './manifest.schema.json',
+      generated: '2024-01-01T00:00:00.000Z',
+      codemods: existingCodemods,
+    }
+
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+
+    const result = hasCodemodsChanged(manifestPath, newCodemods)
+
+    expect(result).toBe(true)
+  })
+
+  test('returns true when a description changes', () => {
+    const existingCodemods = [
+      { name: 'codemod-a', description: 'Old Description' },
+      { name: 'codemod-b', description: 'Description B' },
+    ]
+
+    const newCodemods = [
+      { name: 'codemod-a', description: 'New Description' },
+      { name: 'codemod-b', description: 'Description B' },
+    ]
+
+    const manifest = {
+      $schema: './manifest.schema.json',
+      generated: '2024-01-01T00:00:00.000Z',
+      codemods: existingCodemods,
+    }
+
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+
+    const result = hasCodemodsChanged(manifestPath, newCodemods)
+
+    expect(result).toBe(true)
+  })
+
+  test('returns false when codemods are in different order (order-independent)', () => {
+    const existingCodemods = [
+      { name: 'codemod-c', description: 'Description C' },
+      { name: 'codemod-a', description: 'Description A' },
+      { name: 'codemod-b', description: 'Description B' },
+    ]
+
+    const newCodemods = [
+      { name: 'codemod-a', description: 'Description A' },
+      { name: 'codemod-b', description: 'Description B' },
+      { name: 'codemod-c', description: 'Description C' },
+    ]
+
+    const manifest = {
+      $schema: './manifest.schema.json',
+      generated: '2024-01-01T00:00:00.000Z',
+      codemods: existingCodemods,
+    }
+
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+
+    const result = hasCodemodsChanged(manifestPath, newCodemods)
+
+    expect(result).toBe(false)
+  })
+
+  test('returns true when manifest does not exist', () => {
+    const nonExistentPath = join(testDir, 'non-existent-manifest.json')
+    const codemods = [{ name: 'codemod-a', description: 'Description A' }]
+
+    const result = hasCodemodsChanged(nonExistentPath, codemods)
+
+    expect(result).toBe(true)
+  })
+
+  test('returns true when manifest is malformed JSON', () => {
+    writeFileSync(manifestPath, '{ this is not valid JSON }')
+
+    const codemods = [{ name: 'codemod-a', description: 'Description A' }]
+
+    const result = hasCodemodsChanged(manifestPath, codemods)
+
+    expect(result).toBe(true)
+  })
+
+  test('returns false when both have empty codemods arrays', () => {
+    const manifest = {
+      $schema: './manifest.schema.json',
+      generated: '2024-01-01T00:00:00.000Z',
+      codemods: [],
+    }
+
+    writeFileSync(manifestPath, JSON.stringify(manifest, null, 2))
+
+    const result = hasCodemodsChanged(manifestPath, [])
+
+    expect(result).toBe(false)
   })
 })

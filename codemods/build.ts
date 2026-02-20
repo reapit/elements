@@ -51,6 +51,12 @@ async function build() {
       format: 'esm',
       outdir: 'dist/codemods',
       outExtension: { '.js': '.js' },
+      // Suppress the empty-glob warning for dynamic imports
+      // We intentionally use dynamic imports with variables, and handle bundling
+      // via explicit entry points + post-processing (see lines 81-125)
+      logOverride: {
+        'empty-glob': 'silent',
+      },
       // Inject polyfills for CommonJS globals that bundled dependencies expect
       banner: {
         js: [
