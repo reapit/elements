@@ -459,11 +459,11 @@ function MyComponent() {
 `
     const output = transform(input)
     expect(output).toContain('import { Button as MyBtn }')
-    expect(output).toContain('<Button')
-    expect(output).toContain('</Button>')
+    expect(output).toContain('<MyBtn')
+    expect(output).toContain('</MyBtn>')
     expect(output).toContain('isDestructive={true}')
-    expect(output).not.toContain('<MyBtn')
-    expect(output).not.toContain('</MyBtn>')
+    expect(output).not.toContain('<Button')
+    expect(output).not.toContain('</Button>')
     expect(output).not.toContain('variant="destructive"')
   })
 
@@ -477,9 +477,9 @@ function MyComponent() {
 `
     const output = transform(input)
     expect(output).toContain('import { Button as CustomButton }')
-    expect(output).toContain('<Button')
+    expect(output).toContain('<CustomButton')
     expect(output).toContain('aria-disabled')
-    expect(output).not.toContain('<CustomButton')
+    expect(output).not.toContain('<Button')
     expect(output).not.toContain('isDisabled')
   })
 
@@ -493,9 +493,9 @@ function MyComponent() {
 `
     const output = transform(input)
     expect(output).toContain('import { Button as Btn }')
-    expect(output).toContain('<Button')
+    expect(output).toContain('<Btn')
     expect(output).toContain('isBusy={true}')
-    expect(output).not.toContain('<Btn')
+    expect(output).not.toContain('<Button')
     expect(output).not.toContain('variant="busy"')
   })
 })

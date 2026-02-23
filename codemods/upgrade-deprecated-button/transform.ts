@@ -319,10 +319,12 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
       continue
     }
 
-    // Rename element to Button
-    // Note: The actual component name (Button vs AnchorButton) is determined at runtime
-    // based on the presence of href prop, but the JSX always uses <Button>
-    tagName.replaceWithText('Button')
+    // Rename element to Button only if it's the non-aliased 'DeprecatedButton'
+    // If an alias was used (e.g., MyBtn), we preserve it because the import
+    // transformation already renamed "DeprecatedButton as MyBtn" -> "Button as MyBtn"
+    if (tagNameText === 'DeprecatedButton') {
+      tagName.replaceWithText('Button')
+    }
 
     // Transform props
     const attributes = element.getAttributes()
@@ -435,8 +437,8 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
         const closingElement = parent.asKind(SyntaxKind.JsxElement)?.getClosingElement()
         if (closingElement) {
           const closingTagName = closingElement.getTagNameNode()
-          // Check if closing tag matches any of the aliases
-          if (aliases.has(closingTagName.getText())) {
+          // Only rename closing tag if it's the non-aliased 'DeprecatedButton'
+          if (closingTagName.getText() === 'DeprecatedButton') {
             closingTagName.replaceWithText('Button')
           }
         }
