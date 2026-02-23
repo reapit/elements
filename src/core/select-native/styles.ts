@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { font } from '../text'
+import { font } from '#src/utils/font'
 
 import type { CSSProperties } from 'react'
 

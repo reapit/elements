@@ -5,7 +5,7 @@ import { StarIcon } from '#src/icons/star'
 import { SupplementaryInfo } from '#src/core/supplementary-info'
 import { TableCellDoubleLineLayout } from './double-line-layout'
 import { TableCellPrimaryData } from '../primary-data'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'

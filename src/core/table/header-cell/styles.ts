@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { elTableCellSortButton } from '../sort-button'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 
 // NOTE: This is a plain class so that we have an exportable class name
 // available for consumers that want table cell styling on an element not

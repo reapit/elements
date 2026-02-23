@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 
 export const elTableCellSortButton = css`
   display: inline-grid;

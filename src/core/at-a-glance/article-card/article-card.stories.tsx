@@ -1,6 +1,6 @@
 import { AtAGlanceArticleCard } from './article-card'
 import { SproutIcon } from '#src/icons/sprout'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'

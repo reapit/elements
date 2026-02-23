@@ -1,6 +1,7 @@
 import { css } from '@linaria/core'
-import { font } from './font'
-import { fontSizes, fontWeights, textColours } from './types'
+import { font } from '#src/utils/font'
+import { fontSizes, fontWeights } from '#src/utils/font'
+import { textColours } from './types'
 
 export const elText = css`
   /* NOTE: We use :where instead of :is because we want these styles to have lower precedence than

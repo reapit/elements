@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { ElDeprecatedIcon } from '../../../deprecated/icon'
-import { font } from '#src/core/text/index'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 // NOTE: We can't use styled.button here because Linaria's styled elements silently drop

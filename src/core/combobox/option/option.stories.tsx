@@ -1,7 +1,7 @@
 import { Badge } from '#src/core/badge'
 import { ComboboxOption } from './option'
 import { StarIcon } from '#src/icons/star'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'

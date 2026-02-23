@@ -1,4 +1,4 @@
-import { font } from '#src/core/text/index'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 // If we don't have the transparent border, the component will move a slight bit, which is not what we want

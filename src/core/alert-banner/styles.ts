@@ -1,6 +1,6 @@
 import { Button } from '#src/core/button'
 import { styled } from '@linaria/react'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 import { isWidthAtOrAbove } from '#src/utils/index'
 import type { AlertBanner } from './alert-banner'
 

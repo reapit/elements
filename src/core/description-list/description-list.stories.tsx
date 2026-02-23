@@ -1,7 +1,7 @@
 import { DescriptionList } from './description-list'
 import { Features } from '#src/core/features'
 import { LineClamp } from '#src/utils/line-clamp'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 

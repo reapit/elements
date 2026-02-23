@@ -1,5 +1,6 @@
 import { css } from '@linaria/core'
-import { fontSizes, fontWeights, textColours } from './types'
+import { fontSizes, fontWeights } from '#src/utils/font'
+import { textColours } from './types'
 import { Text } from './text'
 
 import type { FontStyle } from './types'
@@ -16,7 +17,7 @@ const fontStyles = [
 ] satisfies FontStyle[]
 
 const meta = {
-  title: 'Core/Text',
+  title: 'Utils/Text',
   component: Text,
   argTypes: {
     as: {

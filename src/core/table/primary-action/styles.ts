@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 import { TABLE_ROW_PRIMARY_ACTION_Z_INDEX } from '../constants'
 
 export const elTableRowPrimaryAction = css`

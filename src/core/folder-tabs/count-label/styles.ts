@@ -1,5 +1,5 @@
 import { FOLDER_TABS_LARGE_CONTAINER_QUERY } from '../constants'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 export const ElFolderTabCountContainer = styled.span`

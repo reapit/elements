@@ -1,6 +1,6 @@
 import { getNextSortDirection } from './sort-direction'
 import { TableCellSortButton } from './sort-button'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 import { useArgs } from 'storybook/preview-api'
 

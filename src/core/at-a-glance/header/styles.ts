@@ -1,5 +1,5 @@
 import { styled } from '@linaria/react'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 
 export const ElAtAGlanceHeader = styled.header`
   display: flex;

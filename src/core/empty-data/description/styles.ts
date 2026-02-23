@@ -1,4 +1,4 @@
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 export const ElEmptyDataDescription = styled.div`

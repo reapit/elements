@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 interface ElSectionMessageProps {

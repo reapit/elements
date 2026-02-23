@@ -1,6 +1,6 @@
 import { ComboboxSelectionChips } from './selection-chips'
 import { Listbox } from '#src/utils/listbox'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'

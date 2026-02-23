@@ -5,7 +5,7 @@ import { ErrorIcon } from '#src/icons/error'
 import { fn } from 'storybook/test'
 import { InfoIcon } from '#src/icons/info'
 import { StarIcon } from '#src/icons/star'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 import { useState } from 'react'
 import { WarningIcon } from '#src/icons/warning'
 

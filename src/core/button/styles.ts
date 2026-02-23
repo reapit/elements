@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { font } from '../text'
+import { font } from '#src/utils/font'
 
 export const elButton = css`
   display: inline-flex;

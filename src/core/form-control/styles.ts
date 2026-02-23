@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 
 export const elFormControl = css`
   /* <legend> elements will not participate in this flex layout. FormControl.Label will apply its own

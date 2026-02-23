@@ -1,7 +1,7 @@
 import { Badge } from '#src/core/badge'
 import { ComboboxOptgroup } from './optgroup'
 import { ComboboxOption } from '../option'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'

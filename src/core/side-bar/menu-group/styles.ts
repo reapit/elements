@@ -2,7 +2,7 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 import { ElDeprecatedIcon } from '../../../deprecated/icon'
 import { ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from '../menu-item'
-import { font } from '#src/core/text/index'
+import { font } from '#src/utils/font'
 
 export const elSideBarMenuGroup = css`
   border-radius: var(--comp-navigation-border-radius-menu_item);

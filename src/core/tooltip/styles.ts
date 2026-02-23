@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 
 export const elTooltip = css`
   border-radius: var(--comp-tooltip-border-radius);

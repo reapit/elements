@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { ElTopBarMenuDrawerMenuItemBadge, ElTopBarMenuDrawerMenuItemLabel } from '../menu-item'
-import { font } from '#src/core/text/index'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 export const elTopBarMenuDrawerMenuGroup = css`

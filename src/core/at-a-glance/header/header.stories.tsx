@@ -2,7 +2,7 @@ import { AtAGlanceHeader } from './header'
 import { Button } from '#src/core/button'
 import { SettingsAltIcon } from '#src/icons/settings-alt'
 import { Switch } from '#src/core/switch'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'

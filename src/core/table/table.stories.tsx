@@ -3,7 +3,7 @@ import { Menu } from '#src/core/menu'
 import { Table } from './table'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Text } from '../text'
+import { Text } from '#src/utils/text'
 
 const href = globalThis.top?.location.href!
 

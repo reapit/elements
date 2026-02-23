@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { font } from '#src/core/text/index'
+import { font } from '#src/utils/font'
 
 export const elTopBarMenuDrawerMenuItem = css`
   display: grid;

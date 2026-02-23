@@ -1,4 +1,4 @@
-import { font } from '#src/core/text/index'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 import { elDeprecatedIcon } from '../../deprecated/button'
 

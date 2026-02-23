@@ -1,7 +1,7 @@
 import { TableHeaderCell } from './header-cell'
 import { TableCellCheckbox } from '../checkbox'
 import { TableCellSortButton } from '../sort-button'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 

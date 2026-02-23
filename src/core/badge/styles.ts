@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 import { ElDeprecatedIcon } from '../../deprecated/icon'
-import { font } from '../text'
+import { font } from '#src/utils/font'
 
 export const badgeColours = [
   'neutral',

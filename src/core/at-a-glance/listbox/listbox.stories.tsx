@@ -1,7 +1,7 @@
 import { AtAGlance } from '../at-a-glance'
 import { Badge } from '#src/core/badge'
 import { buildCards } from '../__story__/build-cards'
-import { Text } from '#src/core/text'
+import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'

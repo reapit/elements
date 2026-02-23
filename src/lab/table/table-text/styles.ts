@@ -1,5 +1,5 @@
 import { ElDeprecatedIcon } from '../../../deprecated/icon'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 export const ElExperimentalTableTextIcon = styled.span`

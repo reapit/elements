@@ -1,5 +1,5 @@
 import { Button } from '#src/core/button'
-import { font } from '#src/core/text/index'
+import { font } from '#src/utils/font'
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 

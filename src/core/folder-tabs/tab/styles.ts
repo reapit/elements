@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { FOLDER_TABS_LARGE_CONTAINER_QUERY, FOLDER_TABS_SMALL_CONTAINER_QUERY } from '../constants'
-import { font } from '#src/core/text'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 interface ElFolderTabProps {

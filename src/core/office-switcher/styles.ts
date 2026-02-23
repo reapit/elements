@@ -1,4 +1,4 @@
-import { font } from '../text'
+import { font } from '#src/utils/font'
 import { isWidthAtOrAbove } from '#src/utils/index'
 import { styled } from '@linaria/react'
 

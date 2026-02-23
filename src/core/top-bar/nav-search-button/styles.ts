@@ -1,4 +1,4 @@
-import { font } from '#src/core/text/index'
+import { font } from '#src/utils/font'
 import SearchIcon from './icons/search-icon.svg?react'
 import { styled } from '@linaria/react'
 

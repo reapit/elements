@@ -1,4 +1,4 @@
-import { font } from '../text'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 import separatorDotUrl from './separator-dot.svg?inline'
 

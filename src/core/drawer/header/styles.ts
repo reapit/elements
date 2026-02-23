@@ -1,6 +1,6 @@
 import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL } from '../constants'
 import { ElDrawerFooter } from '../footer'
-import { font } from '../../text'
+import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 export const DRAWER_HEADER_CSS_CONTAINER_NAME = 'drawer-header'
