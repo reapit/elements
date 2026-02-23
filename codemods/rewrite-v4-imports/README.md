@@ -2,7 +2,7 @@
 description: Rewrites imports to use deprecated component aliases for v4 to v5 migration
 ---
 
-# Deprecated Import Rewrite Codemod
+# Rewrite v4 Imports Codemod
 
 Rewrites `@reapit/elements` imports to use the `Deprecated*` versions of components while aliasing them back to their original names. This allows v4 consumers to upgrade to v5 with minimal code changes.
 
@@ -13,16 +13,16 @@ Rewrites `@reapit/elements` imports to use the `Deprecated*` versions of compone
 yarn dlx @reapit/elements@beta codemod list
 
 # Show detailed info about this codemod
-yarn dlx @reapit/elements@beta codemod info deprecated-import-rewrite
+yarn dlx @reapit/elements@beta codemod info rewrite-v4-imports
 
 # Run on a directory
-yarn dlx @reapit/elements@beta codemod apply deprecated-import-rewrite src/
+yarn dlx @reapit/elements@beta codemod apply rewrite-v4-imports src/
 
 # Preview changes without writing files
-yarn dlx @reapit/elements@beta codemod apply deprecated-import-rewrite src/ --dry-run
+yarn dlx @reapit/elements@beta codemod apply rewrite-v4-imports src/ --dry-run
 
 # Specify file extensions
-yarn dlx @reapit/elements@beta codemod apply deprecated-import-rewrite src/ --ext .tsx,.jsx
+yarn dlx @reapit/elements@beta codemod apply rewrite-v4-imports src/ --ext .tsx,.jsx
 ```
 
 ### Facade Package Support
@@ -30,7 +30,7 @@ yarn dlx @reapit/elements@beta codemod apply deprecated-import-rewrite src/ --ex
 If your project re-exports `@reapit/elements` through an internal facade package, use the `--facade-package` flag:
 
 ```bash
-yarn dlx @reapit/elements@beta codemod apply deprecated-import-rewrite src/ --facade-package @company/ui-components
+yarn dlx @reapit/elements@beta codemod apply rewrite-v4-imports src/ --facade-package @company/ui-components
 ```
 
 The codemod uses **prefix matching**, so specifying a base package will match all its subpaths:
@@ -41,14 +41,14 @@ The codemod uses **prefix matching**, so specifying a base package will match al
 # - @company/design-system/core
 # - @company/design-system/utils
 # - etc.
-yarn dlx @reapit/elements@beta codemod apply deprecated-import-rewrite src/ --facade-package @company/design-system
+yarn dlx @reapit/elements@beta codemod apply rewrite-v4-imports src/ --facade-package @company/design-system
 ```
 
 If you have multiple unrelated facade packages, run the codemod once for each package:
 
 ```bash
-yarn dlx @reapit/elements@beta codemod apply deprecated-import-rewrite src/ --facade-package @company/ui
-yarn dlx @reapit/elements@beta codemod apply deprecated-import-rewrite src/ --facade-package @another/design-lib
+yarn dlx @reapit/elements@beta codemod apply rewrite-v4-imports src/ --facade-package @company/ui
+yarn dlx @reapit/elements@beta codemod apply rewrite-v4-imports src/ --facade-package @another/design-lib
 ```
 
 **Example with facade package:**

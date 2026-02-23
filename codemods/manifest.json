@@ -7,7 +7,7 @@
       "description": "Migrates AtAGlance.Card to AtAGlance.ArticleCard"
     },
     {
-      "name": "deprecated-import-rewrite",
+      "name": "rewrite-v4-imports",
       "description": "Rewrites imports to use deprecated component aliases for v4 to v5 migration"
     },
     {
