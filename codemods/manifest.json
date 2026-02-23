@@ -1,18 +1,22 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-02-23T03:34:10.114Z",
+  "generated": "2026-02-23T04:58:24.810Z",
   "codemods": [
     {
       "name": "at-a-glance-article-card",
       "description": "Migrates AtAGlance.Card to AtAGlance.ArticleCard"
     },
     {
-      "name": "rewrite-v4-imports",
-      "description": "Rewrites imports to use deprecated component aliases for v4 to v5 migration"
+      "name": "upgrade-deprecated-button",
+      "description": "Upgrades DeprecatedButton to the new Button component for v5 API adoption"
     },
     {
       "name": "rewrite-text-font-imports",
       "description": "Migrates Text and font imports from core/text to utils/text and utils/font"
+    },
+    {
+      "name": "rewrite-v4-imports",
+      "description": "Rewrites imports to use deprecated component aliases for v4 to v5 migration"
     }
   ]
 }
