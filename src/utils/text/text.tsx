@@ -1,4 +1,5 @@
 import { cx } from '@linaria/core'
+import { parseFont } from '../font'
 import { elText } from './styles'
 
 import type { FontStyle, FontSize, FontWeight, TextColour } from './types'
@@ -110,30 +111,4 @@ export function Text({
       {...(rest as HTMLAttributes<HTMLElement>)}
     />
   )
-}
-
-type InferFontSize<T extends FontStyle> = T extends `text-${infer Size}/${string}` ? Size : 'inherit'
-type InferFontWeight<T extends FontStyle> = T extends `text-${string}/${infer Weight}` ? Weight : 'inherit'
-
-interface ParseFontResult<T extends FontStyle> {
-  size: InferFontSize<T>
-  weight: InferFontWeight<T>
-}
-
-/**
- * Parses a font style string like "text-base/regular" into its size and weight components.
- *
- * @example
- * const { size, weight } = parseFont('text-base/regular')
- * // size === 'base' and weight === 'regular'
- */
-function parseFont<T extends FontStyle>(font: T): ParseFontResult<T> {
-  if (font === 'inherit') {
-    return { size: 'inherit', weight: 'inherit' } as ParseFontResult<T>
-  }
-
-  const [textSize, weight] = font.split('/')
-  const size = textSize.replace('text-', '')
-
-  return { size, weight } as ParseFontResult<T>
 }

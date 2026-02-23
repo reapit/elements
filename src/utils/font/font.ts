@@ -1,4 +1,4 @@
-import type { FontSize, FontWeight } from './types'
+import type { FontSize, FontStyle, FontWeight } from './types'
 
 /**
  * A helper function for generating a collection of font-related CSS properties for a given font size and
@@ -25,4 +25,30 @@ export function font(size: FontSize, weight: FontWeight) {
     font: ${fontWeight} ${fontSize}/${lineHeight} ${fontFamily};
     letter-spacing: ${letterSpacing};
   `
+}
+
+export type InferFontSize<T extends FontStyle> = T extends `text-${infer Size}/${string}` ? Size : 'inherit'
+export type InferFontWeight<T extends FontStyle> = T extends `text-${string}/${infer Weight}` ? Weight : 'inherit'
+
+export interface ParseFontResult<T extends FontStyle> {
+  size: InferFontSize<T>
+  weight: InferFontWeight<T>
+}
+
+/**
+ * Parses a font style string like "text-base/regular" into its size and weight components.
+ *
+ * @example
+ * const { size, weight } = parseFont('text-base/regular')
+ * // size === 'base' and weight === 'regular'
+ */
+export function parseFont<T extends FontStyle>(font: T): ParseFontResult<T> {
+  if (font === 'inherit') {
+    return { size: 'inherit', weight: 'inherit' } as ParseFontResult<T>
+  }
+
+  const [textSize, weight] = font.split('/')
+  const size = textSize.replace('text-', '')
+
+  return { size, weight } as ParseFontResult<T>
 }
