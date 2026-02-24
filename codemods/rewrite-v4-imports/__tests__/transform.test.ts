@@ -429,3 +429,109 @@ describe('formatting edge cases', () => {
     expect(output).toContain('DeprecatedBadge as Badge')
   })
 })
+
+describe('v5 subpath imports', () => {
+  test('does not transform v5 Button import from core/button', () => {
+    const input = `import { Button } from '@reapit/elements/core/button'`
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+
+  test('does not transform v5 Input import from core/input', () => {
+    const input = `import { Input } from '@reapit/elements/core/input'`
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+
+  test('does not transform v5 type imports from subpaths', () => {
+    const input = `import type { ButtonProps } from '@reapit/elements/core/button'`
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+
+  test('does not transform v5 inline type imports from subpaths', () => {
+    const input = `import { Button, type ButtonProps } from '@reapit/elements/core/button'`
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+
+  test('does not transform multiple v5 imports from same subpath', () => {
+    const input = `import { Button, ButtonProps } from '@reapit/elements/core/button'`
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+
+  test('handles mixed v4 and v5 imports in same file', () => {
+    const input = `import { Badge } from '@reapit/elements'
+import { Button } from '@reapit/elements/core/button'`
+    const output = transform(input)
+    expect(output).toContain(`import { DeprecatedBadge as Badge } from '@reapit/elements'`)
+    expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
+  })
+
+  test('handles mixed v4 and v5 imports with types', () => {
+    const input = `import { Badge, type BadgeProps } from '@reapit/elements'
+import { Button, type ButtonProps } from '@reapit/elements/core/button'
+import { useState } from 'react'`
+    const output = transform(input)
+    expect(output).toContain(
+      `import { DeprecatedBadge as Badge, type DeprecatedBadgeProps as BadgeProps } from '@reapit/elements'`,
+    )
+    expect(output).toContain(`import { Button, type ButtonProps } from '@reapit/elements/core/button'`)
+    expect(output).toContain(`import { useState } from 'react'`)
+  })
+
+  test('handles complex file with both v4 and v5 imports', () => {
+    const input = `import { Badge, DeprecatedIcon as Icon, elMainContainer } from '@reapit/elements'
+import { Button } from '@reapit/elements/core/button'
+import { useState } from 'react'
+
+export const MyComponent = () => {
+  return (
+    <div className={elMainContainer}>
+      <Badge>v4 Badge</Badge>
+      <Button>v5 Button</Button>
+      <Icon icon="home" />
+    </div>
+  )
+}`
+    const output = transform(input)
+    expect(output).toContain(
+      `import { DeprecatedBadge as Badge, DeprecatedIcon as Icon, elDeprecatedMainContainer as elMainContainer } from '@reapit/elements'`,
+    )
+    expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
+    expect(output).toContain(`import { useState } from 'react'`)
+    expect(output).toContain('<Badge>v4 Badge</Badge>')
+    expect(output).toContain('<Button>v5 Button</Button>')
+  })
+
+  test('does not transform v5 imports from any subpath pattern', () => {
+    const input = `import { Dialog } from '@reapit/elements/core/dialog'
+import { Toast } from '@reapit/elements/core/toast'
+import { Tooltip } from '@reapit/elements/core/tooltip'`
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+
+  test('does not transform v5 imports with custom aliases', () => {
+    const input = `import { Button as V5Button } from '@reapit/elements/core/button'`
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+
+  test('facade package still supports subpath imports', () => {
+    const input = `import { Button } from '@company/design-system/elements'`
+    const output = transform(input, 'test.tsx', { facadePackage: '@company/design-system' })
+    expect(output).toBe(`import { DeprecatedButton as Button } from '@company/design-system/elements'`)
+  })
+
+  test('transforms v4 elements but not v5 when using facade package', () => {
+    const input = `import { Badge } from '@reapit/elements'
+import { Button } from '@reapit/elements/core/button'
+import { Icon } from '@company/ui-components'`
+    const output = transform(input, 'test.tsx', { facadePackage: '@company/ui-components' })
+    expect(output).toContain(`import { DeprecatedBadge as Badge } from '@reapit/elements'`)
+    expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
+    expect(output).toContain(`import { DeprecatedIcon as Icon } from '@company/ui-components'`)
+  })
+})

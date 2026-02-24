@@ -200,13 +200,19 @@ function matchesPackage(moduleSpecifier: string, packageName: string): boolean {
 }
 
 /**
- * Checks if a module specifier is an import from @reapit/elements or a facade package.
+ * Checks if a module specifier is a v4-style import from @reapit/elements or a facade package.
+ * v4 imports are bare package imports without subpaths (e.g., '@reapit/elements')
+ * v5 imports use subpaths (e.g., '@reapit/elements/core/button') and should NOT be transformed.
  */
 function isElementsImport(moduleSpecifier: string, facadePackage?: string): boolean {
-  return (
-    matchesPackage(moduleSpecifier, '@reapit/elements') ||
-    (facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage))
-  )
+  // For @reapit/elements, only match the exact package name (v4 style)
+  // Do NOT match subpath imports like '@reapit/elements/core/button' (v5 style)
+  const isV4ElementsImport = moduleSpecifier === '@reapit/elements'
+  
+  // For facade packages, match both exact and subpath imports
+  const isFacadeImport = facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage)
+  
+  return isV4ElementsImport || isFacadeImport
 }
 
 /**
