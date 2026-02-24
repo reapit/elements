@@ -208,6 +208,73 @@ function MyComponent() {
 })
 
 describe('edge cases', () => {
+  test('does not transform Button import from core/button (already upgraded)', () => {
+    const input = `import { Button } from '@reapit/elements/core/button'`
+    const output = transform(input)
+    expect(normalize(output)).toBe(`import { Button } from '@reapit/elements/core/button'`)
+    expect(output).not.toContain('DeprecatedButton')
+  })
+
+  test('does not transform Button as CustomName import from core/button', () => {
+    const input = `import { Button as CustomButton } from '@reapit/elements/core/button'`
+    const output = transform(input)
+    expect(normalize(output)).toBe(`import { Button as CustomButton } from '@reapit/elements/core/button'`)
+    expect(output).not.toContain('DeprecatedButton')
+  })
+
+  test('handles mixed imports: Button from core/button + DeprecatedButton from elements', () => {
+    const input = `
+import { Button } from '@reapit/elements/core/button'
+import { DeprecatedButton } from '@reapit/elements'
+`
+    const output = transform(input)
+    expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
+    expect(output).not.toContain('DeprecatedButton')
+    // Should only have one Button import, not two
+    const buttonImportMatches = output.match(/import.*Button.*from/g)
+    expect(buttonImportMatches?.length).toBe(1)
+  })
+
+  test('handles type Button from core/button + type DeprecatedButton from elements', () => {
+    const input = `
+import { type Button } from '@reapit/elements/core/button'
+import { type DeprecatedButton } from '@reapit/elements'
+`
+    const output = transform(input)
+    expect(output).not.toContain('DeprecatedButton')
+    // Should only have one type Button import after transformation
+    expect(output).toContain(`import { type Button } from '@reapit/elements/core/button'`)
+    const buttonImportMatches = output.match(/import.*Button.*from/g)
+    expect(buttonImportMatches?.length).toBe(1)
+  })
+
+  test('handles type Button from core/button + non-type DeprecatedButton from elements', () => {
+    const input = `
+import { type Button } from '@reapit/elements/core/button'
+import { DeprecatedButton } from '@reapit/elements'
+`
+    const output = transform(input)
+    expect(output).not.toContain('DeprecatedButton')
+    // Should upgrade the type-only import to a value import since we need it for JSX
+    expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
+    expect(output).not.toContain(`import { type Button }`)
+    const buttonImportMatches = output.match(/import.*Button.*from/g)
+    expect(buttonImportMatches?.length).toBe(1)
+  })
+
+  test('handles non-type Button from core/button + type DeprecatedButton from elements', () => {
+    const input = `
+import { Button } from '@reapit/elements/core/button'
+import { type DeprecatedButton } from '@reapit/elements'
+`
+    const output = transform(input)
+    expect(output).not.toContain('DeprecatedButton')
+    // Value import already exists and can be used for types too, so no need to add type import
+    expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
+    const buttonImportMatches = output.match(/import.*Button.*from/g)
+    expect(buttonImportMatches?.length).toBe(1)
+  })
+
   test('handles empty file', () => {
     const input = ``
     const output = transform(input)
