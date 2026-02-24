@@ -76,6 +76,7 @@ const moduleTransformations: Record<string, string> = {
   NavItem: 'DeprecatedNavItem',
   NavResponsive: 'DeprecatedNavResponsive',
   NavResponsiveAvatar: 'DeprecatedNavResponsiveAvatar',
+  NavResponsiveOption: 'DeprecatedNavResponsiveOption',
   NavSubNav: 'DeprecatedNavSubNav',
   NavSubNavItem: 'DeprecatedNavSubNavItem',
 
