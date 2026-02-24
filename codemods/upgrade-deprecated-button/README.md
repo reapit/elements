@@ -95,12 +95,12 @@ JSX elements are renamed and their props are transformed:
 
 ```tsx
 // Before
-<DeprecatedButton variant="destructive" isDisabled>
+<DeprecatedButton intent="danger" loading={true} size={3} isDisabled>
   Delete
 </DeprecatedButton>
 
 // After
-<Button isDestructive={true} disabled>
+<Button variant="primary" isDestructive={true} isBusy={true} size="large" disabled>
   Delete
 </Button>
 ```
@@ -109,18 +109,26 @@ JSX elements are renamed and their props are transformed:
 
 The following prop transformations are applied automatically:
 
-| Before                  | After                  | Notes                                        |
-| ----------------------- | ---------------------- | -------------------------------------------- |
-| `isDisabled`            | `disabled`             | For `<button>` elements                      |
-| `isDisabled`            | `aria-disabled`        | For `<a>` elements (detected by `href` prop) |
-| `isDisabled={false}`    | _removed_              | `false` is the default value                 |
-| `variant="destructive"` | `isDestructive={true}` | Variant prop removed                         |
-| `variant="busy"`        | `isBusy={true}`        | Variant prop removed                         |
-| `variant="primary"`     | `variant="primary"`    | Standard variants preserved                  |
-| `variant="secondary"`   | `variant="secondary"`  | Standard variants preserved                  |
-| `variant="tertiary"`    | `variant="tertiary"`   | Standard variants preserved                  |
+| Before                  | After                             | Notes                                        |
+| ----------------------- | --------------------------------- | -------------------------------------------- |
+| `intent="primary"`      | `variant="primary"`               | Intent mapped to variant                     |
+| `intent="default"`      | `variant="secondary"`             | Default intent becomes secondary variant     |
+| `intent="danger"`       | `variant="primary"` + `isDestructive={true}` | Danger intent becomes destructive primary |
+| `loading={true}`        | `isBusy={true}`                   | Loading state renamed                        |
+| `loading={false}`       | _removed_                         | `false` is the default value                 |
+| `size={1}`              | `size="small"`                    | Numeric sizes converted to strings           |
+| `size={2}`              | `size="medium"`                   | Numeric sizes converted to strings           |
+| `size={3}` or `size={4}`| `size="large"`                    | Numeric sizes converted to strings           |
+| `isDisabled`            | `disabled`                        | For `<button>` elements                      |
+| `isDisabled`            | `aria-disabled`                   | For `<a>` elements (detected by `href` prop) |
+| `isDisabled={false}`    | _removed_                         | `false` is the default value                 |
+| `variant="destructive"` | `isDestructive={true}`            | Variant prop removed                         |
+| `variant="busy"`        | `isBusy={true}`                   | Variant prop removed                         |
+| `variant="primary"`     | `variant="primary"`               | Standard variants preserved                  |
+| `variant="secondary"`   | `variant="secondary"`             | Standard variants preserved                  |
+| `variant="tertiary"`    | `variant="tertiary"`              | Standard variants preserved                  |
 
-**Other props** (size, className, onClick, iconLeft, iconRight, hasNoPadding, useLinkStyle, etc.) are **preserved unchanged**.
+**Other props** (className, onClick, iconLeft, iconRight, hasNoPadding, useLinkStyle, etc.) are **preserved unchanged**.
 
 ### DeprecatedIcon Auto-import
 
@@ -184,10 +192,17 @@ jest.mock('@reapit/elements/core/button', () => ({
 
 2. **Dynamic/spread props**: Props set via spread or computed values require manual review.
 
-3. **Complex expressions**: Conditional props or props with complex expressions may require manual review:
+3. **Complex expressions**: Conditional props or props with complex expressions may require manual review. The codemod will transform prop names but cannot safely transform conditional values:
 
    ```tsx
-   <DeprecatedButton variant={condition ? 'destructive' : 'primary'}>
+   // Before
+   <DeprecatedButton intent={active ? 'danger' : 'primary'}>
+   
+   // After (requires manual fix)
+   <Button variant={active ? 'danger' : 'primary'}>
+   
+   // Manual fix needed - 'danger' is not a valid variant
+   <Button variant="primary" isDestructive={active}>
    ```
 
 4. **Comments preservation**: While the codemod attempts to preserve comments, some formatting may change due to AST manipulation.
@@ -230,16 +245,18 @@ export const DeleteButton: React.FC<Props> = ({ onConfirm, ...rest }) => {
   return (
     <>
       <DeprecatedButton
-        variant="destructive"
+        intent="danger"
         isDisabled={isDeleting}
+        loading={isDeleting}
+        size={3}
         onClick={handleClick}
         iconLeft={<DeprecatedIcon icon="trash" />}
         {...rest}
       >
         Delete Item
       </DeprecatedButton>
-      <DeprecatedButton variant="busy" isDisabled={isDeleting}>
-        Processing...
+      <DeprecatedButton intent="default" size={2}>
+        Cancel
       </DeprecatedButton>
     </>
   )
@@ -268,16 +285,19 @@ export const DeleteButton: React.FC<Props> = ({ onConfirm, ...rest }) => {
   return (
     <>
       <Button
+        variant="primary"
         isDestructive={true}
         disabled={isDeleting}
+        isBusy={isDeleting}
+        size="large"
         onClick={handleClick}
         iconLeft={<DeprecatedIcon icon="trash" />}
         {...rest}
       >
         Delete Item
       </Button>
-      <Button isBusy={true} disabled={isDeleting}>
-        Processing...
+      <Button variant="secondary" size="medium">
+        Cancel
       </Button>
     </>
   )
@@ -292,9 +312,12 @@ Understanding these differences helps with manual review:
 | ---------------------- | ---------------------------- | --------------------------------------------------------------------------------------------------------------------- |
 | **Import path**        | `@reapit/elements`           | `@reapit/elements/core/button`                                                                                        |
 | **Type pattern**       | `DeprecatedButtonProps`      | `Button.Props` (namespace)                                                                                            |
+| **Intent prop**        | `intent` (primary, default, danger) | `variant` (primary, secondary, tertiary)                                                                    |
+| **Loading prop**       | `loading`                    | `isBusy`                                                                                                              |
+| **Size prop**          | Numeric (1-4) or string      | String only ("small", "medium", "large")                                                                              |
 | **Disabled prop**      | `isDisabled`                 | `disabled` (button) or `aria-disabled` (anchor)                                                                       |
-| **Destructive state**  | `variant="destructive"`      | `isDestructive={true}`                                                                                                |
-| **Busy state**         | `variant="busy"`             | `isBusy={true}`                                                                                                       |
+| **Destructive state**  | `variant="destructive"` or `intent="danger"` | `isDestructive={true}`                                                                                  |
+| **Busy state**         | `variant="busy"` or `loading={true}` | `isBusy={true}`                                                                                         |
 | **Component variants** | Single polymorphic component | `Button` (for `<button>`) and `AnchorButton` (for `<a>`) - though both are supported through the polymorphic `Button` |
 
 ## Migration Checklist

@@ -498,4 +498,293 @@ function MyComponent() {
     expect(output).not.toContain('<Button')
     expect(output).not.toContain('variant="busy"')
   })
+
+  test('transforms intent="primary" to variant="primary"', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton intent="primary">Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('variant="primary"')
+    expect(output).not.toContain('intent=')
+  })
+
+  test('transforms intent="default" to variant="secondary"', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton intent="default">Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('variant="secondary"')
+    expect(output).not.toContain('intent=')
+    expect(output).not.toContain('"default"')
+  })
+
+  test('transforms intent="danger" to variant="primary" and adds isDestructive', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton intent="danger">Delete</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('variant="primary"')
+    expect(output).toContain('isDestructive={true}')
+    expect(output).not.toContain('intent=')
+    expect(output).not.toContain('"danger"')
+  })
+
+  test('transforms intent={\"primary\"} JSX expression', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton intent={"primary"}>Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('variant=')
+    expect(output).toContain('primary')
+    expect(output).not.toContain('intent=')
+  })
+
+  test('transforms loading={true} to isBusy={true}', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton loading={true}>Loading</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('isBusy={true}')
+    expect(output).not.toContain('loading=')
+  })
+
+  test('removes loading={false}', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton loading={false}>Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).not.toContain('loading')
+    expect(output).not.toContain('isBusy')
+  })
+
+  test('transforms loading with variable expression', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton loading={isLoading}>Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('isBusy={isLoading}')
+    expect(output).not.toContain('loading=')
+  })
+
+  test('transforms size={1} to size="small"', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton size={1}>Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('size="small"')
+    expect(output).not.toContain('size={1}')
+  })
+
+  test('transforms size={2} to size="medium"', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton size={2}>Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('size="medium"')
+    expect(output).not.toContain('size={2}')
+  })
+
+  test('transforms size={3} to size="large"', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton size={3}>Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('size="large"')
+    expect(output).not.toContain('size={3}')
+  })
+
+  test('transforms size={4} to size="large"', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton size={4}>Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('size="large"')
+    expect(output).not.toContain('size={4}')
+  })
+
+  test('preserves size with string value', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton size="small">Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('size="small"')
+  })
+
+  test('handles multiple new prop transformations together', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton intent="danger" loading={true} size={3}>Delete</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('variant="primary"')
+    expect(output).toContain('isDestructive={true}')
+    expect(output).toContain('isBusy={true}')
+    expect(output).toContain('size="large"')
+    expect(output).not.toContain('intent=')
+    expect(output).not.toContain('loading=')
+    expect(output).not.toContain('size={3}')
+  })
+})
+
+describe('edge cases and duplicate props', () => {
+  test('transforms intent without value to variant="secondary"', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton intent>Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    expect(output).toContain('variant="secondary"')
+    expect(output).not.toContain('intent')
+  })
+
+  test('removes intent when variant already exists', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton variant="primary" intent="danger">Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    // Should remove intent to avoid duplicate variant attributes
+    expect(output).toContain('variant="primary"')
+    expect(output).not.toContain('intent')
+    // Count variant occurrences - should only have one
+    const variantMatches = output.match(/variant=/g)
+    expect(variantMatches?.length).toBe(1)
+  })
+
+  test('does not add duplicate isDestructive when already present (intent="danger")', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton intent="danger" isDestructive>Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    // Count occurrences of isDestructive - should only appear once
+    const matches = output.match(/isDestructive/g)
+    expect(matches?.length).toBe(1)
+    expect(output).toContain('variant="primary"')
+  })
+
+  test('handles intent="danger" with variant="destructive" (both add isDestructive)', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton intent="danger" variant="destructive">Delete</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    // Should remove intent when variant exists
+    expect(output).not.toContain('intent')
+    expect(output).not.toContain('variant=')
+    // Should only have one isDestructive
+    const matches = output.match(/isDestructive/g)
+    expect(matches?.length).toBe(1)
+  })
+
+  test('handles variant="destructive" before intent="danger" (order dependency test)', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton variant="destructive" intent="danger">Delete</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    // Should remove intent when variant exists, regardless of attribute order
+    expect(output).not.toContain('intent')
+    expect(output).not.toContain('variant=')
+    // Should only have one isDestructive
+    const matches = output.match(/isDestructive/g)
+    expect(matches?.length).toBe(1)
+  })
+
+  test('removes loading={false} with whitespace variations', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton loading={ false }>Click</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    // Should remove loading={false} even with whitespace
+    expect(output).not.toContain('loading')
+    expect(output).not.toContain('isBusy')
+  })
+
+  test('does not add duplicate isBusy when loading prop and variant="busy" are both used', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+
+function MyComponent() {
+  return <DeprecatedButton loading={isLoading} variant="busy">Submit</DeprecatedButton>
+}
+`
+    const output = transform(input)
+    // Count occurrences of isBusy - should only appear once
+    const matches = output.match(/isBusy/g)
+    expect(matches?.length).toBe(1)
+    // Should not have variant="busy" anymore
+    expect(output).not.toContain('variant=')
+    expect(output).not.toContain('loading')
+  })
 })

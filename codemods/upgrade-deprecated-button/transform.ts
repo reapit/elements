@@ -6,23 +6,45 @@ import { Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
  * This codemod transforms imports of DeprecatedButton to use the new v5 Button
  * component from @reapit/elements/core/button. It handles:
  *
- * Transformations:
+ * Import Transformations:
  * - DeprecatedButton → Button (from @reapit/elements/core/button)
  * - DeprecatedButtonProps → Button.Props (namespace pattern)
- * - Type references: DeprecatedButtonProps → Button.Props
- * - Interface extensions: extends DeprecatedButtonProps → extends Button.Props
- * - Generics: Generic<DeprecatedButtonProps> → Generic<Button.Props>
  * - DeprecatedButton as CustomName → Button as CustomName
  * - Adds DeprecatedIcon import when needed (if file uses DeprecatedIcon in JSX)
  * - Handles facade packages via --facade-package flag
+ *
+ * Type Transformations:
+ * - Type references: DeprecatedButtonProps → Button.Props
+ * - Interface extensions: extends DeprecatedButtonProps → extends Button.Props
+ * - Generics: Generic<DeprecatedButtonProps> → Generic<Button.Props>
+ *
+ * JSX Element Transformations:
+ * - Element name: <DeprecatedButton> → <Button>
+ * - Preserves custom aliases
+ *
+ * Props Transformations:
+ * - intent → variant
+ *   - intent="primary" → variant="primary"
+ *   - intent="default" → variant="secondary"
+ *   - intent="danger" → variant="primary" + isDestructive={true}
+ * - loading → isBusy
+ *   - loading={true} → isBusy={true}
+ *   - loading={false} → removed (default)
+ * - size (number) → size (string)
+ *   - size={1} → size="small"
+ *   - size={2} → size="medium"
+ *   - size={3} or size={4} → size="large"
+ * - isDisabled → disabled (for button) or aria-disabled (for anchor)
+ *   - isDisabled={true} → disabled={true} (or aria-disabled for anchors)
+ *   - isDisabled={false} → removed (default)
+ * - variant="destructive" → isDestructive={true} + removes variant
+ * - variant="busy" → isBusy={true} + removes variant
  *
  * Preserves:
  * - Custom aliases: DeprecatedButton as MyBtn → Button as MyBtn
  * - Type-only imports: type DeprecatedButtonProps → type Button.Props
  * - Non-elements imports: Unchanged
- *
- * Note: This codemod handles import, type, JSX element, and props transformations,
- * including JSX element renaming and props such as isDisabled and variant values.
+ * - All other props (onClick, type, className, etc.)
  */
 
 /**
@@ -297,6 +319,9 @@ function getDeprecatedButtonAliases(sourceFile: SourceFile, facadePackage?: stri
  * Handles:
  * - Element name: DeprecatedButton → Button (name determined by import alias)
  * - Props transformations:
+ *   - intent → variant (with value mapping)
+ *   - loading → isBusy
+ *   - size (number) → size (string)
  *   - isDisabled → disabled (for button) or aria-disabled (for anchor)
  *   - variant="destructive" → isDestructive={true}, remove variant
  *   - variant="busy" → isBusy={true}, remove variant
@@ -332,6 +357,9 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
     let hasHref = false
     let isDisabledValue: string | undefined
     let variantValue: string | undefined
+    let intentValue: string | undefined
+    let loadingValue: string | undefined
+    let sizeValue: string | undefined
 
     // First pass: collect information about props
     for (const attr of attributes) {
@@ -352,38 +380,31 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
           // isDisabled without value means isDisabled={true}
           isDisabledValue = '{true}'
         }
+      } else if (name === 'intent') {
+        const init = jsxAttr.getInitializer()
+        if (init) {
+          intentValue = extractStringOrExpressionValue(init)
+        } else {
+          // intent without value defaults to 'default' which maps to 'secondary'
+          intentValue = 'default'
+        }
+      } else if (name === 'loading') {
+        const init = jsxAttr.getInitializer()
+        if (init) {
+          loadingValue = init.getText()
+        } else {
+          // loading without value means loading={true}
+          loadingValue = '{true}'
+        }
+      } else if (name === 'size') {
+        const init = jsxAttr.getInitializer()
+        if (init) {
+          sizeValue = init.getText()
+        }
       } else if (name === 'variant') {
         const init = jsxAttr.getInitializer()
         if (init) {
-          // Use AST-based extraction for robust variant value parsing
-          const kind = init.getKind()
-
-          if (kind === SyntaxKind.StringLiteral) {
-            // Direct string literal: variant="destructive"
-            const stringLiteral = init.asKind(SyntaxKind.StringLiteral)
-            if (stringLiteral) {
-              variantValue = stringLiteral.getLiteralText()
-            }
-          } else if (kind === SyntaxKind.JsxExpression) {
-            // JSX expression: variant={"destructive"} or variant={'busy'}
-            const jsxExpr = init.asKind(SyntaxKind.JsxExpression)
-            if (jsxExpr) {
-              const expression = jsxExpr.getExpression()
-              if (expression) {
-                const exprKind = expression.getKind()
-                if (exprKind === SyntaxKind.StringLiteral) {
-                  // variant={"destructive"} or variant={'busy'}
-                  const stringLiteral = expression.asKind(SyntaxKind.StringLiteral)
-                  if (stringLiteral) {
-                    variantValue = stringLiteral.getLiteralText()
-                  }
-                } else {
-                  // Fallback for non-string expressions (e.g., identifiers, computed values)
-                  variantValue = expression.getText()
-                }
-              }
-            }
-          }
+          variantValue = extractStringOrExpressionValue(init)
         }
       }
     }
@@ -397,8 +418,146 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
       const jsxAttr = attr.asKind(SyntaxKind.JsxAttribute)!
       const name = jsxAttr.getNameNode().getText()
 
+      // Transform intent → variant
+      if (name === 'intent') {
+        // Check if variant was present in the first pass using the captured variantValue
+        // This avoids order-dependent behavior when variant is processed before intent
+        if (variantValue) {
+          // If variant already exists, remove intent to avoid duplicate variant attributes
+          // Manual review may be needed to ensure the correct variant value is used
+          jsxAttr.remove()
+          continue
+        }
+
+        jsxAttr.getNameNode().replaceWithText('variant')
+        
+        // If intent had no initializer, set default value to "secondary"
+        if (!jsxAttr.getInitializer()) {
+          jsxAttr.setInitializer('"secondary"')
+        }
+        
+        // Map intent values to variant values
+        if (intentValue === 'default') {
+          // default → secondary
+          const init = jsxAttr.getInitializer()
+          if (init) {
+            const kind = init.getKind()
+            if (kind === SyntaxKind.StringLiteral) {
+              const stringLiteral = init.asKind(SyntaxKind.StringLiteral)
+              if (stringLiteral) {
+                stringLiteral.setLiteralValue('secondary')
+              }
+            } else if (kind === SyntaxKind.JsxExpression) {
+              const jsxExpr = init.asKind(SyntaxKind.JsxExpression)
+              if (jsxExpr) {
+                const expression = jsxExpr.getExpression()
+                if (expression && expression.getKind() === SyntaxKind.StringLiteral) {
+                  const stringLiteral = expression.asKind(SyntaxKind.StringLiteral)
+                  if (stringLiteral) {
+                    stringLiteral.setLiteralValue('secondary')
+                  }
+                }
+              }
+            }
+          }
+        } else if (intentValue === 'danger') {
+          // danger → primary + isDestructive
+          const init = jsxAttr.getInitializer()
+          if (init) {
+            const kind = init.getKind()
+            if (kind === SyntaxKind.StringLiteral) {
+              const stringLiteral = init.asKind(SyntaxKind.StringLiteral)
+              if (stringLiteral) {
+                stringLiteral.setLiteralValue('primary')
+              }
+            } else if (kind === SyntaxKind.JsxExpression) {
+              const jsxExpr = init.asKind(SyntaxKind.JsxExpression)
+              if (jsxExpr) {
+                const expression = jsxExpr.getExpression()
+                if (expression && expression.getKind() === SyntaxKind.StringLiteral) {
+                  const stringLiteral = expression.asKind(SyntaxKind.StringLiteral)
+                  if (stringLiteral) {
+                    stringLiteral.setLiteralValue('primary')
+                  }
+                }
+              }
+            }
+          }
+          // Add isDestructive={true} if not already present
+          const existingIsDestructiveAttr = element.getAttribute('isDestructive')
+          if (!existingIsDestructiveAttr) {
+            element.addAttribute({
+              name: 'isDestructive',
+              initializer: '{true}',
+            })
+          }
+        }
+        // primary stays primary, so no transformation needed for that case
+      }
+
+      // Transform loading → isBusy
+      else if (name === 'loading') {
+        // Check if loading={false} using AST inspection (handles whitespace variations)
+        const init = jsxAttr.getInitializer()
+        let shouldRemove = false
+        
+        if (init) {
+          const kind = init.getKind()
+          if (kind === SyntaxKind.JsxExpression) {
+            const jsxExpr = init.asKind(SyntaxKind.JsxExpression)
+            const expression = jsxExpr?.getExpression()
+            if (expression?.getKind() === SyntaxKind.FalseKeyword) {
+              // It's loading={false}, remove it
+              shouldRemove = true
+            }
+          }
+        }
+        
+        if (shouldRemove) {
+          jsxAttr.remove()
+        } else {
+          // Check if isBusy already exists before renaming
+          const existingIsBusyAttr = element.getAttribute('isBusy')
+          if (existingIsBusyAttr) {
+            // isBusy already exists, remove the loading prop to avoid duplicate
+            jsxAttr.remove()
+          } else {
+            jsxAttr.getNameNode().replaceWithText('isBusy')
+          }
+        }
+      }
+
+      // Transform size={number} → size="string"
+      else if (name === 'size' && sizeValue) {
+        const init = jsxAttr.getInitializer()
+        if (init && init.getKind() === SyntaxKind.JsxExpression) {
+          const jsxExpr = init.asKind(SyntaxKind.JsxExpression)
+          if (jsxExpr) {
+            const expression = jsxExpr.getExpression()
+            if (expression) {
+              const exprText = expression.getText()
+              // Map numeric sizes to string sizes
+              // Based on common patterns: 1=small, 2=medium, 3=large
+              let newSize: string | undefined
+              if (exprText === '1') {
+                newSize = 'small'
+              } else if (exprText === '2') {
+                newSize = 'medium'
+              } else if (exprText === '3' || exprText === '4') {
+                newSize = 'large'
+              }
+              
+              if (newSize) {
+                jsxAttr.setInitializer(`"${newSize}"`)
+              }
+              // If it's already a string or unknown number, leave it unchanged
+            }
+          }
+        }
+      }
+
       // Transform isDisabled → disabled or aria-disabled
-      if (name === 'isDisabled') {
+      else if (name === 'isDisabled') {
         if (isDisabledValue === '{false}' || isDisabledValue === 'false') {
           // Remove isDisabled={false} (false is default)
           jsxAttr.remove()
@@ -412,21 +571,27 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
       // Transform variant="destructive" → isDestructive={true}
       else if (name === 'variant' && variantValue === 'destructive') {
         jsxAttr.remove()
-        // Add isDestructive={true} after removing variant
-        element.addAttribute({
-          name: 'isDestructive',
-          initializer: '{true}',
-        })
+        // Add isDestructive={true} after removing variant, if not already present
+        const existingIsDestructiveAttr = element.getAttribute('isDestructive')
+        if (!existingIsDestructiveAttr) {
+          element.addAttribute({
+            name: 'isDestructive',
+            initializer: '{true}',
+          })
+        }
       }
 
       // Transform variant="busy" → isBusy={true}
       else if (name === 'variant' && variantValue === 'busy') {
         jsxAttr.remove()
-        // Add isBusy={true} after removing variant
-        element.addAttribute({
-          name: 'isBusy',
-          initializer: '{true}',
-        })
+        // Add isBusy={true} after removing variant, if not already present
+        const existingIsBusyAttr = element.getAttribute('isBusy')
+        if (!existingIsBusyAttr) {
+          element.addAttribute({
+            name: 'isBusy',
+            initializer: '{true}',
+          })
+        }
       }
     }
 
@@ -445,6 +610,41 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
       }
     }
   }
+}
+
+/**
+ * Helper function to extract string or expression value from JSX attribute initializer
+ */
+function extractStringOrExpressionValue(init: any): string | undefined {
+  const kind = init.getKind()
+
+  if (kind === SyntaxKind.StringLiteral) {
+    // Direct string literal: prop="value"
+    const stringLiteral = init.asKind(SyntaxKind.StringLiteral)
+    if (stringLiteral) {
+      return stringLiteral.getLiteralText()
+    }
+  } else if (kind === SyntaxKind.JsxExpression) {
+    // JSX expression: prop={"value"} or prop={'value'} or prop={variable}
+    const jsxExpr = init.asKind(SyntaxKind.JsxExpression)
+    if (jsxExpr) {
+      const expression = jsxExpr.getExpression()
+      if (expression) {
+        const exprKind = expression.getKind()
+        if (exprKind === SyntaxKind.StringLiteral) {
+          const stringLiteral = expression.asKind(SyntaxKind.StringLiteral)
+          if (stringLiteral) {
+            return stringLiteral.getLiteralText()
+          }
+        } else {
+          // Fallback for non-string expressions (e.g., identifiers, computed values)
+          return expression.getText()
+        }
+      }
+    }
+  }
+  
+  return undefined
 }
 
 export default function transform(
