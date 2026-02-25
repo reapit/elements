@@ -1,4 +1,7 @@
-import { listCodemods, getCodemodDescription, validateCodemodName } from '../codemods'
+import { listCodemods, getCodemodDescription, validateCodemodName, AVAILABLE_CODEMODS } from '../codemods'
+import { existsSync } from 'node:fs'
+import { join, dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 describe('listCodemods', () => {
   test('returns codemods from manifest', () => {
@@ -43,46 +46,46 @@ describe('getCodemodDescription', () => {
 })
 
 describe('validateCodemodName', () => {
-  test('returns name when codemod exists in manifest', () => {
+  test('returns true when codemod exists in manifest', () => {
     const result = validateCodemodName('at-a-glance-article-card')
 
-    expect(result).toBe('at-a-glance-article-card')
+    expect(result).toBe(true)
   })
 
-  test('returns null when codemod does not exist', () => {
+  test('returns false when codemod does not exist', () => {
     const result = validateCodemodName('nonexistent-codemod')
 
-    expect(result).toBeNull()
+    expect(result).toBe(false)
   })
 
   test('prevents path traversal attacks with ../', () => {
     const result = validateCodemodName('../../../etc/passwd')
 
-    expect(result).toBeNull()
+    expect(result).toBe(false)
   })
 
   test('prevents path traversal attacks with absolute paths', () => {
     const result = validateCodemodName('/etc/passwd')
 
-    expect(result).toBeNull()
+    expect(result).toBe(false)
   })
 
   test('prevents path traversal with encoded characters', () => {
     const result = validateCodemodName('..%2F..%2Fetc%2Fpasswd')
 
-    expect(result).toBeNull()
+    expect(result).toBe(false)
   })
 
   test('prevents path components in name', () => {
     const result = validateCodemodName('at-a-glance-article-card/index.ts')
 
-    expect(result).toBeNull()
+    expect(result).toBe(false)
   })
 
   test('case-sensitive validation', () => {
     const result = validateCodemodName('AT-A-GLANCE-ARTICLE-CARD')
 
-    expect(result).toBeNull()
+    expect(result).toBe(false)
   })
 
   test('validates all codemods from manifest correctly', () => {
@@ -90,7 +93,7 @@ describe('validateCodemodName', () => {
 
     for (const name of codemods) {
       const validated = validateCodemodName(name)
-      expect(validated).toBe(name)
+      expect(validated).toBe(true)
     }
   })
 })
@@ -104,10 +107,10 @@ describe('integration tests', () => {
 
     // Validate a known codemod
     const validated = validateCodemodName('at-a-glance-article-card')
-    expect(validated).toBe('at-a-glance-article-card')
+    expect(validated).toBe(true)
 
     // Get description
-    const description = getCodemodDescription(validated!)
+    const description = getCodemodDescription('at-a-glance-article-card')
     expect(description).toBe('Migrates AtAGlance.Card to AtAGlance.ArticleCard')
   })
 
@@ -118,7 +121,7 @@ describe('integration tests', () => {
 
     // Attempt to validate malicious input
     const validated = validateCodemodName('../../etc/passwd')
-    expect(validated).toBeNull()
+    expect(validated).toBe(false)
 
     // No description accessible for invalid name
     const description = getCodemodDescription('../../etc/passwd')
@@ -131,11 +134,20 @@ describe('integration tests', () => {
     // All codemods in manifest should have their directories accessible
     for (const name of codemods) {
       const validated = validateCodemodName(name)
-      expect(validated).toBe(name)
+      expect(validated).toBe(true)
 
       // Should be able to get description from manifest
       const description = getCodemodDescription(name)
       expect(description === null || typeof description === 'string').toBe(true)
+    }
+  })
+
+  test('filesystem parity: each manifest entry has a corresponding transform.ts', () => {
+    const codemodDir = dirname(dirname(fileURLToPath(import.meta.url)))
+
+    for (const { name } of AVAILABLE_CODEMODS) {
+      const transformPath = join(codemodDir, name, 'transform.ts')
+      expect(existsSync(transformPath), `Expected transform.ts to exist for codemod '${name}' at ${transformPath}`).toBe(true)
     }
   })
 })

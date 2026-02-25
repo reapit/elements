@@ -1,7 +1,7 @@
 import { existsSync, mkdirSync, writeFileSync, rmSync } from 'node:fs'
 import { join } from 'node:path'
 import { tmpdir } from 'node:os'
-import { discoverCodemods, getCodemodMetadata, hasCodemodsChanged } from '../generate-manifest'
+import { discoverCodemods, getCodemodMetadata, hasCodemodsChanged, generateTransformsContent, hasTransformsChanged } from '../generate-manifest'
 
 let testDir: string
 
@@ -397,5 +397,70 @@ describe('hasCodemodsChanged', () => {
     const result = hasCodemodsChanged(manifestPath, [])
 
     expect(result).toBe(false)
+  })
+})
+
+describe('generateTransformsContent', () => {
+  test('returns correct import for a single codemod', () => {
+    const result = generateTransformsContent(['my-codemod'])
+
+    expect(result).toContain("import type { Transform } from './runner.js'")
+    expect(result).toContain('export const transforms = {')
+    expect(result).toContain('  "my-codemod": () => import("./my-codemod/transform.js"),')
+    expect(result).toContain('} satisfies Record<string, () => Promise<{ default: Transform }>>')
+  })
+
+  test('returns correct imports for multiple codemods', () => {
+    const result = generateTransformsContent(['alpha', 'beta', 'gamma'])
+
+    expect(result).toContain('  "alpha": () => import("./alpha/transform.js"),')
+    expect(result).toContain('  "beta": () => import("./beta/transform.js"),')
+    expect(result).toContain('  "gamma": () => import("./gamma/transform.js"),')
+  })
+
+  test('returns empty object for empty array', () => {
+    const result = generateTransformsContent([])
+
+    expect(result).toContain('export const transforms = {')
+    expect(result).toContain('} satisfies Record<string, () => Promise<{ default: Transform }>>')
+    expect(result).not.toMatch(/import\('\.\//)
+  })
+
+  test('output ends with a newline', () => {
+    const result = generateTransformsContent(['foo'])
+
+    expect(result.endsWith('\n')).toBe(true)
+  })
+})
+
+describe('hasTransformsChanged', () => {
+  let transformsPath: string
+
+  beforeEach(() => {
+    transformsPath = join(testDir, 'transforms.ts')
+  })
+
+  test('returns false when file content matches', () => {
+    writeFileSync(transformsPath, 'content-a')
+
+    const result = hasTransformsChanged(transformsPath, 'content-a')
+
+    expect(result).toBe(false)
+  })
+
+  test('returns true when file content differs', () => {
+    writeFileSync(transformsPath, 'content-a')
+
+    const result = hasTransformsChanged(transformsPath, 'content-b')
+
+    expect(result).toBe(true)
+  })
+
+  test('returns true when file does not exist', () => {
+    const nonExistentPath = join(testDir, 'does-not-exist.ts')
+
+    const result = hasTransformsChanged(nonExistentPath, 'any content')
+
+    expect(result).toBe(true)
   })
 })

@@ -208,10 +208,10 @@ function isElementsImport(moduleSpecifier: string, facadePackage?: string): bool
   // For @reapit/elements, only match the exact package name (v4 style)
   // Do NOT match subpath imports like '@reapit/elements/core/button' (v5 style)
   const isV4ElementsImport = moduleSpecifier === '@reapit/elements'
-  
+
   // For facade packages, match both exact and subpath imports
   const isFacadeImport = facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage)
-  
+
   return isV4ElementsImport || isFacadeImport
 }
 

@@ -171,11 +171,13 @@ test('handles edge case with children', () => {
 
 ### Step 5: Generate Manifest
 
-**Critical step - do not skip:**
+**Critical step - do not skip.**
 
 ```bash
 yarn generate:codemod-manifest
 ```
+
+This regenerates `codemods/manifest.json` and `codemods/transforms.ts` from the filesystem. No other files need to be updated manually.
 
 - [ ] Manifest regenerated
 - [ ] `codemods/manifest.json` updated with new codemod metadata
@@ -204,16 +206,18 @@ yarn dlx @reapit/elements@beta codemod apply [name] /path/to/test/project
 
 ### Step 7: Commit
 
-Commit both codemod and manifest together:
+Commit the codemod and generated files together:
 
 ```bash
 git add codemods/[name]/
 git add codemods/manifest.json
+git add codemods/transforms.ts
 git commit -m "Add codemod for [migration description]"
 ```
 
 - [ ] Codemod directory added
 - [ ] Manifest included in commit
+- [ ] `codemods/transforms.ts` included in commit
 - [ ] Commit message describes the migration
 
 ---
@@ -228,7 +232,7 @@ Before considering the codemod complete:
 - [ ] Limitations are documented
 - [ ] No overly aggressive transformations
 - [ ] Performance optimised (early returns)
-- [ ] Manifest generated and committed
+- [ ] Manifest and transforms generated and committed
 
 ---
 

@@ -1,5 +1,6 @@
 import { run } from './runner.js'
 import { listCodemods, getCodemodDescription, validateCodemodName } from './codemods.js'
+import { transforms } from './transforms.js'
 
 function printHelp(): void {
   console.log(`
@@ -7,6 +8,7 @@ Usage: yarn dlx @reapit/elements@beta codemod <command> [options]
 
 Commands:
   list                    List available codemods
+  info <name>             Show information about a specific codemod
   apply <name> <dir>      Apply a codemod to a directory
 
 Options:
@@ -14,6 +16,7 @@ Options:
 
 Examples:
   yarn dlx @reapit/elements@beta codemod list
+  yarn dlx @reapit/elements@beta codemod info at-a-glance-article-card
   yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/
   yarn dlx @reapit/elements@beta codemod apply at-a-glance-article-card src/ --dry-run
 `)
@@ -40,7 +43,7 @@ Examples:
 `)
 }
 
-function printList(): void {
+function printList({ trailingNewline = false }: { trailingNewline?: boolean } = {}): void {
   const codemods = listCodemods()
 
   if (codemods.length === 0) {
@@ -63,33 +66,45 @@ function printList(): void {
     }
   }
 
+  if (trailingNewline) {
+    console.log()
+  }
+}
+
+function printInfo(name: string): void {
+  const description = getCodemodDescription(name)
+
+  console.log(`\nCodemod: ${name}`)
+  if (description) {
+    console.log(`Description: ${description}`)
+  }
+  console.log(`\nTo apply this codemod, run:`)
+  console.log(`  yarn dlx @reapit/elements@beta codemod apply ${name} <directory>`)
+  console.log(`\nFor full options, run:`)
+  console.log(`  yarn dlx @reapit/elements@beta codemod apply ${name} --help`)
   console.log()
 }
 
-function printAvailableCodemods(): void {
-  const codemods = listCodemods()
+export function handleInfo(args: string[]): void {
+  const codemodName = args[0]
 
-  if (codemods.length === 0) {
-    console.log('No codemods available.')
-    return
+  if (!codemodName || codemodName.startsWith('-')) {
+    console.error('Error: No codemod name provided')
+    console.log('\nUsage: yarn dlx @reapit/elements@beta codemod info <name>')
+    console.log("\nRun 'yarn dlx @reapit/elements@beta codemod list' to see available codemods.")
+    process.exit(1)
   }
 
-  console.log('\nAvailable codemods:')
-
-  const maxNameLength = Math.max(...codemods.map((name) => name.length))
-
-  for (const name of codemods) {
-    const description = getCodemodDescription(name)
-    const padding = ' '.repeat(maxNameLength - name.length + 4)
-    if (description) {
-      console.log(`  ${name}${padding}${description}`)
-    } else {
-      console.log(`  ${name}`)
-    }
+  if (!validateCodemodName(codemodName)) {
+    console.error(`Error: Unknown codemod '${codemodName}'`)
+    printList()
+    process.exit(1)
   }
+
+  printInfo(codemodName)
 }
 
-async function handleApply(args: string[]): Promise<void> {
+export async function handleApply(args: string[]): Promise<void> {
   const codemodName = args[0]
 
   if (!codemodName || codemodName.startsWith('-')) {
@@ -99,13 +114,10 @@ async function handleApply(args: string[]): Promise<void> {
     process.exit(1)
   }
 
-  // Security: Sanitize codemod name by validating it against the allowlist
-  // This prevents path traversal attacks in the dynamic import below
-  const sanitizedCodemodName = validateCodemodName(codemodName)
-
-  if (!sanitizedCodemodName) {
+  // Validate codemod name against the allowlist before looking up in transforms
+  if (!validateCodemodName(codemodName)) {
     console.error(`Error: Unknown codemod '${codemodName}'`)
-    printAvailableCodemods()
+    printList()
     process.exit(1)
   }
 
@@ -113,12 +125,17 @@ async function handleApply(args: string[]): Promise<void> {
 
   // Handle help for specific codemod
   if (remainingArgs.includes('--help') || remainingArgs.includes('-h')) {
-    printApplyHelp(sanitizedCodemodName)
+    printApplyHelp(codemodName)
     process.exit(0)
   }
 
   // Load and run the codemod
-  const codemodModule = await import(`./${sanitizedCodemodName}/transform.js`)
+  const loader = transforms[codemodName]
+  if (!loader) {
+    console.error(`Error: No transform found for codemod '${codemodName}'`)
+    process.exit(1)
+  }
+  const codemodModule = await loader()
   const transform = codemodModule.default
 
   if (typeof transform !== 'function') {
@@ -128,7 +145,7 @@ async function handleApply(args: string[]): Promise<void> {
 
   await run({
     transform,
-    codemodName: sanitizedCodemodName,
+    codemodName: codemodName,
     args: remainingArgs,
   })
 }
@@ -145,7 +162,11 @@ async function main(): Promise<void> {
 
   switch (command) {
     case 'list':
-      printList()
+      printList({ trailingNewline: true })
+      break
+
+    case 'info':
+      handleInfo(args.slice(1))
       break
 
     case 'apply':

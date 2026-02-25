@@ -357,6 +357,146 @@ describe('run', () => {
     expect(tsContent).toBe('OLD_CODE') // Not transformed
   })
 
+  test('exits with error when --ext flag has no value', async () => {
+    process.chdir(testDir)
+
+    const transform: Transform = (source) => source
+
+    await expect(
+      run({
+        transform,
+        codemodName: 'test-codemod',
+        args: ['src', '--ext'],
+      }),
+    ).rejects.toThrow('process.exit(1)')
+
+    expect(exitCode).toBe(1)
+    expect(consoleOutput.join('\n')).toContain('--ext flag requires a value')
+  })
+
+  test('exits with error when --facade-package flag has no value', async () => {
+    process.chdir(testDir)
+
+    const transform: Transform = (source) => source
+
+    await expect(
+      run({
+        transform,
+        codemodName: 'test-codemod',
+        args: ['src', '--facade-package'],
+      }),
+    ).rejects.toThrow('process.exit(1)')
+
+    expect(exitCode).toBe(1)
+    expect(consoleOutput.join('\n')).toContain('--facade-package flag requires a non-empty value')
+  })
+
+  test('exits with error when --ext value starts with a dash', async () => {
+    process.chdir(testDir)
+
+    const transform: Transform = (source) => source
+
+    await expect(
+      run({
+        transform,
+        codemodName: 'test-codemod',
+        args: ['src', '--ext', '--dry-run'],
+      }),
+    ).rejects.toThrow('process.exit(1)')
+
+    expect(exitCode).toBe(1)
+    expect(consoleOutput.join('\n')).toContain('--ext flag requires a value')
+  })
+
+  test('exits with error when --facade-package value starts with a dash', async () => {
+    process.chdir(testDir)
+
+    const transform: Transform = (source) => source
+
+    await expect(
+      run({
+        transform,
+        codemodName: 'test-codemod',
+        args: ['src', '--facade-package', '--dry-run'],
+      }),
+    ).rejects.toThrow('process.exit(1)')
+
+    expect(exitCode).toBe(1)
+    expect(consoleOutput.join('\n')).toContain('--facade-package flag requires a non-empty value')
+  })
+
+  test('exits with error when --ext value contains an empty segment (trailing comma)', async () => {
+    process.chdir(testDir)
+
+    const transform: Transform = (source) => source
+
+    await expect(
+      run({
+        transform,
+        codemodName: 'test-codemod',
+        args: ['src', '--ext', '.ts,'],
+      }),
+    ).rejects.toThrow('process.exit(1)')
+
+    expect(exitCode).toBe(1)
+    expect(consoleOutput.join('\n')).toContain('--ext flag must not contain empty extensions')
+  })
+
+  test('exits with error when --ext value is only a comma', async () => {
+    process.chdir(testDir)
+
+    const transform: Transform = (source) => source
+
+    await expect(
+      run({
+        transform,
+        codemodName: 'test-codemod',
+        args: ['src', '--ext', ','],
+      }),
+    ).rejects.toThrow('process.exit(1)')
+
+    expect(exitCode).toBe(1)
+    expect(consoleOutput.join('\n')).toContain('--ext flag must not contain empty extensions')
+  })
+
+  test('exits with error when --facade-package value is empty whitespace', async () => {
+    process.chdir(testDir)
+
+    const transform: Transform = (source) => source
+
+    await expect(
+      run({
+        transform,
+        codemodName: 'test-codemod',
+        args: ['src', '--facade-package', '   '],
+      }),
+    ).rejects.toThrow('process.exit(1)')
+
+    expect(exitCode).toBe(1)
+    expect(consoleOutput.join('\n')).toContain('--facade-package flag requires a non-empty value')
+  })
+
+  test('exits with code 1 when no matching files found', async () => {
+    process.chdir(testDir)
+
+    const srcDir = join(testDir, 'src')
+    mkdirSync(srcDir)
+
+    writeFileSync(join(srcDir, 'file.txt'), 'content')
+
+    const transform: Transform = (source) => source
+
+    await expect(
+      run({
+        transform,
+        codemodName: 'test-codemod',
+        args: ['src'],
+      }),
+    ).rejects.toThrow('process.exit(1)')
+
+    expect(exitCode).toBe(1)
+  })
+
   test('exits with error when directory not found', async () => {
     process.chdir(testDir)
 
@@ -478,7 +618,7 @@ describe('run', () => {
         codemodName: 'test-codemod',
         args: ['src'],
       }),
-    ).rejects.toThrow('process.exit(0)')
+    ).rejects.toThrow('process.exit(1)')
 
     expect(consoleOutput.join('\n')).toContain('No matching files found')
   })

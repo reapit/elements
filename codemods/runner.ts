@@ -126,10 +126,35 @@ export async function run({ transform, codemodName, args }: RunOptions): Promise
 
   const dryRun = args.includes('--dry-run') || args.includes('-d')
   const extIndex = args.indexOf('--ext')
-  const extensions = extIndex !== -1 ? args[extIndex + 1].split(',') : ['.tsx', '.ts', '.jsx', '.js']
+  if (extIndex !== -1 && (extIndex + 1 >= args.length || args[extIndex + 1].startsWith('-'))) {
+    console.error('Error: --ext flag requires a value (e.g. --ext .tsx,.ts)')
+    process.exit(1)
+  }
+  let extensions: string[]
+  if (extIndex !== -1) {
+    const rawExtensions = args[extIndex + 1].split(',')
+    const trimmedExtensions = rawExtensions.map((ext) => ext.trim())
+    if (trimmedExtensions.some((ext) => ext.length === 0)) {
+      console.error(
+        'Error: --ext flag must not contain empty extensions (e.g. use "--ext .tsx,.ts" instead of "--ext .tsx," or "--ext ,")',
+      )
+      process.exit(1)
+    }
+    extensions = trimmedExtensions
+  } else {
+    extensions = ['.tsx', '.ts', '.jsx', '.js']
+  }
   const patterns = extensions.map((ext) => `*${ext}`)
   const facadePackageIndex = args.indexOf('--facade-package')
-  const facadePackage = facadePackageIndex !== -1 ? args[facadePackageIndex + 1] : undefined
+  if (facadePackageIndex !== -1) {
+    const facadeNextIndex = facadePackageIndex + 1
+    const facadeRaw = facadeNextIndex < args.length ? args[facadeNextIndex] : undefined
+    if (!facadeRaw || facadeRaw.startsWith('-') || facadeRaw.trim() === '') {
+      console.error('Error: --facade-package flag requires a non-empty value (e.g. --facade-package @company/ui)')
+      process.exit(1)
+    }
+  }
+  const facadePackage = facadePackageIndex !== -1 ? args[facadePackageIndex + 1].trim() : undefined
 
   // Get directory argument (first non-flag argument, excluding --ext value if present)
   const extValue = extIndex !== -1 ? args[extIndex + 1] : null
@@ -164,8 +189,8 @@ export async function run({ transform, codemodName, args }: RunOptions): Promise
   const files = findFiles(resolvedDir, patterns)
 
   if (files.length === 0) {
-    console.log('No matching files found')
-    process.exit(0)
+    console.error('Error: No matching files found')
+    process.exit(1)
   }
 
   console.log(`Found ${files.length} file(s) to process${dryRun ? ' (dry run)' : ''}...\n`)
@@ -179,7 +204,7 @@ export async function run({ transform, codemodName, args }: RunOptions): Promise
 
       if (result !== source) {
         transformedCount++
-        const relativePath = filePath.replace(process.cwd() + '/', '')
+        const relativePath = relative(process.cwd(), filePath)
         console.log(`  ${dryRun ? 'Would transform' : 'Transformed'}: ${relativePath}`)
 
         if (!dryRun) {
@@ -187,7 +212,7 @@ export async function run({ transform, codemodName, args }: RunOptions): Promise
         }
       }
     } catch (error) {
-      const relativePath = filePath.replace(process.cwd() + '/', '')
+      const relativePath = relative(process.cwd(), filePath)
       console.error(`  Error processing ${relativePath}: ${(error as Error).message}`)
     }
   }
