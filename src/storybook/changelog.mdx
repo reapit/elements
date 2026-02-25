@@ -23,6 +23,7 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 - **feat:** Add `upgrade-deprecated-button` codemod to help migrate from v5 `DeprecatedButton` components to the new v5 `Button`.
 - **feat:** Add `Heading` utility component. Like `Text`, it is primarily intended as an escape hatch when prototyping UI that is not yet supported by the Design System.
 - **chore!:** Remove CJS build output. The package now ships ES modules only. Consumers using `require('@reapit/elements')` or any CJS subpath import must migrate to `import`.
+- **fix!:** Add missing entry points to the Vite build config for deprecated units of code with `index.tsx` modules instead of `index.ts` modules. This allows them to be imported from the `@reapit/elements/deprecated/*` subpath.
 
 ### **5.0.0-beta.75 - 20/02/2026**
 

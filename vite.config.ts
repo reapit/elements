@@ -28,7 +28,7 @@ const lab = Object.fromEntries(
 // We dynamically discover all "first-level" barrel files in the `src/deprecated` directory and add them as
 // individual entry points for our build.
 const deprecated = Object.fromEntries(
-  fs.globSync('src/deprecated/*/index.ts', { withFileTypes: true }).map((file) => [
+  fs.globSync('src/deprecated/*/index.{ts,tsx}', { withFileTypes: true }).map((file) => [
     path.join('deprecated', path.basename(file.parentPath)), // e.g. `deprecated/button`
     path.join(file.parentPath, file.name), // e.g. `src/deprecated/button/index.ts`
   ]),
