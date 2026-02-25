@@ -7,7 +7,7 @@
     "url": "https://github.com/reapit/elements/issues"
   },
   "type": "module",
-  "bin": "./bin/elements.cjs",
+  "bin": "./bin/elements.js",
   "engines": {
     "node": ">=22.18.0"
   },
@@ -28,38 +28,31 @@
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
-      "import": "./dist/js/index.js",
-      "require": "./dist/js/index.cjs"
+      "import": "./dist/js/index.js"
     },
     "./core/*": {
       "types": "./dist/types/core/*/index.d.ts",
-      "import": "./dist/js/core/*.js",
-      "require": "./dist/js/core/*.cjs"
+      "import": "./dist/js/core/*.js"
     },
     "./deprecated/*": {
       "types": "./dist/types/deprecated/*/index.d.ts",
-      "import": "./dist/js/deprecated/*.js",
-      "require": "./dist/js/deprecated/*.cjs"
+      "import": "./dist/js/deprecated/*.js"
     },
     "./icons/*": {
       "types": "./dist/types/icons/*.d.ts",
-      "import": "./dist/js/icons/*.js",
-      "require": "./dist/js/icons/*.cjs"
+      "import": "./dist/js/icons/*.js"
     },
     "./lab/*": {
       "types": "./dist/types/lab/*/index.d.ts",
-      "import": "./dist/js/lab/*.js",
-      "require": "./dist/js/lab/*.cjs"
+      "import": "./dist/js/lab/*.js"
     },
     "./polyfills/*": {
       "types": "./dist/types/polyfills/*/index.d.ts",
-      "import": "./dist/js/polyfills/*.js",
-      "require": "./dist/js/polyfills/*.cjs"
+      "import": "./dist/js/polyfills/*.js"
     },
     "./utils/*": {
       "types": "./dist/types/utils/*/index.d.ts",
-      "import": "./dist/js/utils/*.js",
-      "require": "./dist/js/utils/*.cjs"
+      "import": "./dist/js/utils/*.js"
     },
     "./reset.css": "./assets/reset.css",
     "./styles.css": "./dist/js/style.css",

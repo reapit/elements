@@ -1,13 +1,13 @@
 #!/usr/bin/env node
-const { spawn } = require('node:child_process')
-const { join } = require('node:path')
-const { readFileSync } = require('node:fs')
+import { spawn } from 'node:child_process'
+import { join } from 'node:path'
+import { readFileSync } from 'node:fs'
 
 const args = process.argv.slice(2)
 const command = args[0]
 
 function getVersion() {
-  const packageJsonPath = join(__dirname, '..', 'package.json')
+  const packageJsonPath = join(import.meta.dirname, '..', 'package.json')
   const packageJson = JSON.parse(readFileSync(packageJsonPath, 'utf8'))
   return packageJson.version
 }
@@ -35,9 +35,13 @@ For more information, visit: https://github.com/reapit/elements
 }
 
 function handleCodemod(codemodArgs) {
-  const child = spawn(process.execPath, [join(__dirname, '..', 'dist', 'codemods', 'bin.js'), ...codemodArgs], {
-    stdio: 'inherit',
-  })
+  const child = spawn(
+    process.execPath,
+    [join(import.meta.dirname, '..', 'dist', 'codemods', 'bin.js'), ...codemodArgs],
+    {
+      stdio: 'inherit',
+    },
+  )
 
   child.on('exit', (code) => {
     process.exit(code ?? 0)

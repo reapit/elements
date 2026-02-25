@@ -72,7 +72,7 @@ export default defineConfig({
         ...utils,
         ...polyfillPreloads,
       },
-      formats: ['es', 'cjs'],
+      formats: ['es'],
     },
     outDir: 'dist/js',
     rollupOptions: {

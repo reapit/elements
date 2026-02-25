@@ -2587,7 +2587,7 @@ __metadata:
     react: ">=18.0.2"
     react-dom: ">=18.0.2"
   bin:
-    elements: ./bin/elements.cjs
+    elements: ./bin/elements.js
   languageName: unknown
   linkType: soft
 
