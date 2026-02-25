@@ -73,42 +73,48 @@ describe('namespaced component usage (AtAGlance.Card)', () => {
 
 describe('direct component usage (AtAGlanceCard)', () => {
   test('converts AtAGlanceCard to AtAGlance.ArticleCard when using old props-based API', () => {
-    const input = '<AtAGlanceCard displayValue="42" label="Total" />'
+    const input = `import { AtAGlanceCard } from '@reapit/elements'
+<AtAGlanceCard displayValue="42" label="Total" />`
     const output = transform(input)
-    expect(output).toBe('<AtAGlance.ArticleCard displayValue="42" label="Total" />')
+    expect(output).toContain('<AtAGlance.ArticleCard displayValue="42" label="Total" />')
   })
 
   test('does not rename AtAGlanceCard when using grid prop', () => {
-    const input = '<AtAGlanceCard grid="auto / 1fr 1fr"><AtAGlanceCardLabel>Label</AtAGlanceCardLabel></AtAGlanceCard>'
+    const input = `import { AtAGlanceCard } from '@reapit/elements'
+<AtAGlanceCard grid="auto / 1fr 1fr"><AtAGlanceCardLabel>Label</AtAGlanceCardLabel></AtAGlanceCard>`
     const output = transform(input)
-    expect(output).toBe(input)
+    expect(output).toContain('<AtAGlanceCard grid="auto / 1fr 1fr">')
   })
 
   test('does not rename AtAGlanceCard when it has children', () => {
-    const input = '<AtAGlanceCard><AtAGlanceCardLabel>Label</AtAGlanceCardLabel></AtAGlanceCard>'
+    const input = `import { AtAGlanceCard } from '@reapit/elements'
+<AtAGlanceCard><AtAGlanceCardLabel>Label</AtAGlanceCardLabel></AtAGlanceCard>`
     const output = transform(input)
-    expect(output).toBe(input)
+    expect(output).toContain('<AtAGlanceCard>')
   })
 
   test('does not modify AtAGlanceAnchorCard', () => {
-    const input = '<AtAGlanceAnchorCard href="/dashboard" displayValue="42" label="Total" />'
+    const input = `import { AtAGlanceAnchorCard } from '@reapit/elements'
+<AtAGlanceAnchorCard href="/dashboard" displayValue="42" label="Total" />`
     const output = transform(input)
-    expect(output).toBe(input)
+    expect(output).toContain('<AtAGlanceAnchorCard href="/dashboard"')
+    expect(output).not.toContain('ArticleCard')
   })
 
   test('does not modify AtAGlanceButtonCard', () => {
-    const input = '<AtAGlanceButtonCard onClick={handleClick} displayValue="42" label="Total" />'
+    const input = `import { AtAGlanceButtonCard } from '@reapit/elements'
+<AtAGlanceButtonCard onClick={handleClick} displayValue="42" label="Total" />`
     const output = transform(input)
-    expect(output).toBe(input)
+    expect(output).toContain('<AtAGlanceButtonCard onClick={handleClick}')
+    expect(output).not.toContain('ArticleCard')
   })
 
   test('converts both namespaced and direct usage to AtAGlance.ArticleCard', () => {
-    const input =
-      '<><AtAGlance.Card displayValue="42" label="Namespaced" /><AtAGlanceCard displayValue="100" label="Direct" /></>'
+    const input = `import { AtAGlanceCard } from '@reapit/elements'
+<><AtAGlance.Card displayValue="42" label="Namespaced" /><AtAGlanceCard displayValue="100" label="Direct" /></>`
     const output = transform(input)
-    expect(output).toBe(
-      '<><AtAGlance.ArticleCard displayValue="42" label="Namespaced" /><AtAGlance.ArticleCard displayValue="100" label="Direct" /></>',
-    )
+    expect(output).toContain('<AtAGlance.ArticleCard displayValue="42" label="Namespaced" />')
+    expect(output).toContain('<AtAGlance.ArticleCard displayValue="100" label="Direct" />')
   })
 })
 

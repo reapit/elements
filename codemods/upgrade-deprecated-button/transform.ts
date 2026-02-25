@@ -1,4 +1,15 @@
-import { Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
+import {
+  Project,
+  QuoteKind,
+  SourceFile,
+  SyntaxKind,
+  StringLiteral,
+  JsxExpression,
+  JsxElement,
+  JsxFragment,
+  JsxSelfClosingElement,
+} from 'ts-morph'
+import { isElementsImport } from '../shared/elements-import.js'
 
 /**
  * Codemod to upgrade DeprecatedButton to the new Button component.
@@ -46,28 +57,6 @@ import { Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
  * - Non-elements imports: Unchanged
  * - All other props (onClick, type, className, etc.)
  */
-
-/**
- * Checks if a module specifier matches a package name.
- * Handles both exact matches and subpath imports.
- * @example
- * matchesPackage('@company/ui', '@company/ui') // true
- * matchesPackage('@company/ui/elements', '@company/ui') // true
- * matchesPackage('@company/ui-v2', '@company/ui') // false
- */
-function matchesPackage(moduleSpecifier: string, packageName: string): boolean {
-  return moduleSpecifier === packageName || moduleSpecifier.startsWith(packageName + '/')
-}
-
-/**
- * Checks if a module specifier is an import from @reapit/elements or a facade package.
- */
-function isElementsImport(moduleSpecifier: string, facadePackage?: string): boolean {
-  return (
-    matchesPackage(moduleSpecifier, '@reapit/elements') ||
-    (facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage))
-  )
-}
 
 /**
  * Checks if the source file uses DeprecatedIcon in JSX.
@@ -664,7 +653,9 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
 /**
  * Helper function to extract string or expression value from JSX attribute initializer
  */
-function extractStringOrExpressionValue(init: any): string | undefined {
+function extractStringOrExpressionValue(
+  init: StringLiteral | JsxExpression | JsxElement | JsxFragment | JsxSelfClosingElement,
+): string | undefined {
   const kind = init.getKind()
 
   if (kind === SyntaxKind.StringLiteral) {

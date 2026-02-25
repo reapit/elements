@@ -1,4 +1,5 @@
 import { Project, SyntaxKind, JsxOpeningElement, JsxSelfClosingElement, SourceFile } from 'ts-morph'
+import { isElementsImport } from '../shared/elements-import.js'
 
 /**
  * Codemod to migrate AtAGlance.Card to the new AtAGlance.ArticleCard.
@@ -20,28 +21,6 @@ import { Project, SyntaxKind, JsxOpeningElement, JsxSelfClosingElement, SourceFi
  */
 
 type JsxElementWithTag = JsxOpeningElement | JsxSelfClosingElement
-
-/**
- * Checks if a module specifier matches a package name.
- * Handles both exact matches and subpath imports.
- * @example
- * matchesPackage('@company/ui', '@company/ui') // true
- * matchesPackage('@company/ui/elements', '@company/ui') // true
- * matchesPackage('@company/ui-v2', '@company/ui') // false
- */
-function matchesPackage(moduleSpecifier: string, packageName: string): boolean {
-  return moduleSpecifier === packageName || moduleSpecifier.startsWith(packageName + '/')
-}
-
-/**
- * Checks if a module specifier is an import from @reapit/elements or a facade package.
- */
-function isElementsImport(moduleSpecifier: string, facadePackage?: string): boolean {
-  return (
-    matchesPackage(moduleSpecifier, '@reapit/elements') ||
-    (facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage))
-  )
-}
 
 function getTagName(element: JsxElementWithTag): string {
   return element.getTagNameNode().getText()
@@ -174,11 +153,6 @@ function getAtAGlanceCardAliases(sourceFile: SourceFile, facadePackage?: string)
         aliases.add(alias ?? 'AtAGlanceCard')
       }
     }
-  }
-
-  // Add default only if file has NO imports at all (handles test snippets without imports)
-  if (aliases.size === 0 && sourceFile.getImportDeclarations().length === 0) {
-    aliases.add('AtAGlanceCard')
   }
 
   return aliases

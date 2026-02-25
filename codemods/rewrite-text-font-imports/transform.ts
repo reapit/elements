@@ -1,4 +1,5 @@
-import { Project, QuoteKind, SourceFile } from 'ts-morph'
+import { Project, QuoteKind, SourceFile, ImportDeclaration } from 'ts-morph'
+import { isElementsImport } from '../shared/elements-import.js'
 
 /**
  * Codemod to migrate Text and font imports from @reapit/elements/core/text to their new locations.
@@ -17,24 +18,6 @@ import { Project, QuoteKind, SourceFile } from 'ts-morph'
 const TEXT_EXPORTS = new Set(['Text', 'TextColour', 'textColours', 'elText'])
 
 const FONT_EXPORTS = new Set(['font', 'FontSize', 'FontWeight', 'FontStyle', 'fontSizes', 'fontWeights'])
-
-/**
- * Checks if a module specifier matches a package name.
- * Handles both exact matches and subpath imports.
- */
-function matchesPackage(moduleSpecifier: string, packageName: string): boolean {
-  return moduleSpecifier === packageName || moduleSpecifier.startsWith(packageName + '/')
-}
-
-/**
- * Checks if a module specifier is an import from @reapit/elements or a facade package.
- */
-function isElementsImport(moduleSpecifier: string, facadePackage?: string): boolean {
-  return (
-    matchesPackage(moduleSpecifier, '@reapit/elements') ||
-    (facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage))
-  )
-}
 
 /**
  * Checks if a module specifier is importing from the old core/text path.
@@ -66,7 +49,7 @@ interface ImportGroups {
 /**
  * Groups named imports from a single import declaration into text and font categories.
  */
-function groupImportsFromDeclaration(importDecl: any): ImportGroups {
+function groupImportsFromDeclaration(importDecl: ImportDeclaration): ImportGroups {
   const textImports: string[] = []
   const fontImports: string[] = []
 
@@ -165,13 +148,16 @@ export default function transform(
 
   transformImports(sourceFile, options?.facadePackage)
 
-  // Get the transformed text and normalize formatting
   let result = sourceFile.getFullText()
 
-  // Replace double quotes with single quotes in import statements
-  result = result.replace(/from "([^"]+)"/g, "from '$1'")
-
-  // Remove semicolons from import statements
+  // ts-morph's addImportDeclaration() always appends a semicolon to the generated
+  // statement regardless of the source file's existing style. There is no option in
+  // ManipulationSettings to disable this behaviour (the interface only exposes
+  // quoteKind, indentationText, newLineKind, useTrailingCommas, and
+  // usePrefixAndSuffixTextForRename). The original source files in this codebase do
+  // not use semicolons, so we strip them from the newly-added import lines to keep
+  // the output consistent. Removing this replacement would cause all transformed
+  // import lines to gain a trailing semicolon that wasn't in the original source.
   result = result.replace(/^(import\s+.*?from\s+'[^']+');$/gm, '$1')
 
   return result

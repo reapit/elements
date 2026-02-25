@@ -1,4 +1,18 @@
-import { Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
+import {
+  Project,
+  QuoteKind,
+  SourceFile,
+  SyntaxKind,
+  JsxAttribute,
+  JsxElement,
+  JsxExpression,
+  JsxFragment,
+  JsxOpeningElement,
+  JsxSelfClosingElement,
+  Node,
+  StringLiteral,
+} from 'ts-morph'
+import { isElementsImport } from '../shared/elements-import.js'
 
 /**
  * Codemod to upgrade DeprecatedIcon to individual v5 icon components.
@@ -25,24 +39,6 @@ import { Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
  * - className, onClick, other HTML props
  * - Custom styles (with TODO comment if merged)
  */
-
-/**
- * Checks if a module specifier matches a package name.
- * Handles both exact matches and subpath imports.
- */
-function matchesPackage(moduleSpecifier: string, packageName: string): boolean {
-  return moduleSpecifier === packageName || moduleSpecifier.startsWith(packageName + '/')
-}
-
-/**
- * Checks if a module specifier is an import from @reapit/elements or a facade package.
- */
-function isElementsImport(moduleSpecifier: string, facadePackage?: string): boolean {
-  return (
-    matchesPackage(moduleSpecifier, '@reapit/elements') ||
-    (facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage))
-  )
-}
 
 /**
  * Finds the alias used for DeprecatedIcon in imports, if any.
@@ -188,7 +184,9 @@ function mapIntentToColor(intent: string): string {
 /**
  * Extracts string literal value from JSX attribute initializer.
  */
-function extractStringLiteral(initializer: any): string | null {
+function extractStringLiteral(
+  initializer: StringLiteral | JsxExpression | JsxElement | JsxFragment | JsxSelfClosingElement,
+): string | null {
   const kind = initializer.getKind()
 
   if (kind === SyntaxKind.StringLiteral) {
@@ -211,7 +209,9 @@ function extractStringLiteral(initializer: any): string | null {
 /**
  * Checks if an expression is a static string literal (not dynamic).
  */
-function isStaticStringLiteral(initializer: any): boolean {
+function isStaticStringLiteral(
+  initializer: StringLiteral | JsxExpression | JsxElement | JsxFragment | JsxSelfClosingElement,
+): boolean {
   return extractStringLiteral(initializer) !== null
 }
 
@@ -374,11 +374,14 @@ function transformJsxElements(
     if (!validTagNames.includes(tagNameText)) continue
 
     const attributes = element.getAttributes()
-    let iconAttr: any = null
+    let iconAttr: JsxAttribute | null = null
     let iconValue: string | null = null
-    const propsToTransform: Map<string, { value: string; init: any }> = new Map()
-    const propsToRemove: any[] = []
-    const propsToPreserve: Map<string, any> = new Map()
+    const propsToTransform: Map<
+      string,
+      { value: string; init: StringLiteral | JsxExpression | JsxElement | JsxFragment | JsxSelfClosingElement }
+    > = new Map()
+    const propsToRemove: JsxAttribute[] = []
+    const propsToPreserve: Map<string, JsxAttribute> = new Map()
 
     // First pass: collect all props
     for (const attr of attributes) {
@@ -662,8 +665,8 @@ function addTodoComments(output: string, todosNeeded: Map<string, Set<string>>):
  * Checks if a JSX element is inside JSX content vs JavaScript expression context.
  * Returns true if we should use JSX comment syntax, false if we should use JS comment syntax.
  */
-function shouldUseJsxComment(element: any): boolean {
-  let parent = element.getParent()
+function shouldUseJsxComment(element: JsxSelfClosingElement | JsxOpeningElement): boolean {
+  let parent: Node | undefined = element.getParent()
 
   // Walk up the tree to find the context
   while (parent) {
@@ -699,10 +702,15 @@ function shouldUseJsxComment(element: any): boolean {
 }
 
 /**
- * Adds TODO comments for DeprecatedIcon elements that cannot be migrated.
+ * Collects the positions and text for TODO comments for DeprecatedIcon elements
+ * that cannot be migrated (dynamic icon props or removed icons).
+ * Returns an array of {position, text} insertions to apply, without applying them.
+ * Positions are sourced from the AST snapshot captured before any string insertions.
  */
-function addDeprecatedIconTodos(output: string, sourceFile: SourceFile, alias: string | null): string {
-  let result = output
+function collectDeprecatedIconTodoInsertions(
+  sourceFile: SourceFile,
+  alias: string | null,
+): Array<{ position: number; text: string; message: string }> {
   const jsxElements = [
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement),
     ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement),
@@ -760,49 +768,29 @@ function addDeprecatedIconTodos(output: string, sourceFile: SourceFile, alias: s
     }
   }
 
-  // Add TODO comments for elements that couldn't be migrated
-  // Sort by position in reverse order so we can insert from end to beginning
-  // This prevents position shifts from affecting subsequent insertions
-  elementsNeedingComments.sort((a, b) => b.position - a.position)
-
-  for (const { position, message, useJsxComment } of elementsNeedingComments) {
-    // Check if a TODO comment already exists before this position (idempotency)
-    const before = result.substring(0, position)
-    const after = result.substring(position)
-
-    // Look for existing TODO comment in the previous ~200 characters
-    const lookbackStart = Math.max(0, position - 200)
-    const lookback = result.substring(lookbackStart, position)
-
-    // Check if this exact message already exists nearby
-    if (lookback.includes(message)) {
-      continue // Skip adding duplicate comment
-    }
-
-    if (useJsxComment) {
-      // Use JSX comment for elements in JSX content
-      result = `${before}{/* ${message} */}\n${after}`
-    } else {
-      // Use JS comment for elements in JS expressions
-      result = `${before}// ${message}\n${after}`
-    }
-  }
-
-  return result
+  return elementsNeedingComments.map(({ position, message, useJsxComment }) => ({
+    position,
+    text: useJsxComment ? `{/* ${message} */}\n` : `// ${message}\n`,
+    message,
+  }))
 }
 
 /**
- * Adds TODO comments for DeprecatedIcon used as values (not JSX tags).
- * E.g., styled(DeprecatedIcon), passed as props, etc.
+ * Collects the positions and text for TODO comments for DeprecatedIcon used as
+ * values (not JSX tags) — e.g., styled(DeprecatedIcon), passed as props, etc.
+ * Returns an array of {position, text} insertions to apply, without applying them.
+ * Positions are sourced from the AST snapshot captured before any string insertions.
  */
-function addNonJsxUsageTodos(output: string, sourceFile: SourceFile, alias: string | null): string {
+function collectNonJsxUsageTodoInsertions(
+  sourceFile: SourceFile,
+): Array<{ position: number; text: string; message: string }> {
   // Find the import to get the actual imported name (accounting for aliases)
   const deprecatedIconImport = sourceFile
     .getImportDeclarations()
     .flatMap((imp) => imp.getNamedImports())
     .find((named) => named.getName() === 'DeprecatedIcon')
 
-  if (!deprecatedIconImport) return output
+  if (!deprecatedIconImport) return []
 
   // Get the actual name used in the code (alias if present, otherwise 'DeprecatedIcon')
   const actualName = deprecatedIconImport.getAliasNode()?.getText() || deprecatedIconImport.getName()
@@ -822,29 +810,42 @@ function addNonJsxUsageTodos(output: string, sourceFile: SourceFile, alias: stri
     )
   })
 
-  if (nonJsxUsages.length === 0) return output
+  const message = 'TODO: DeprecatedIcon used as value - needs manual migration'
+  return nonJsxUsages.map((usage) => ({
+    position: usage.getStart(),
+    text: `// ${message}\n`,
+    message,
+  }))
+}
 
-  // Sort by position (descending) to insert from bottom-up (preserves positions)
-  const sortedUsages = nonJsxUsages.sort((a, b) => b.getStart() - a.getStart())
-
+/**
+ * Applies a list of text insertions to a string.
+ *
+ * All insertions must be sorted in descending position order before calling this
+ * function. Applying in descending order ensures that each insertion does not shift
+ * the position of subsequent (lower-position) insertions, so the AST positions
+ * captured before any mutation remain valid throughout the pass.
+ *
+ * Duplicate insertions (same message already present in the 200-char lookback
+ * window) are skipped for idempotency.
+ */
+function applyInsertions(
+  output: string,
+  insertions: Array<{ position: number; text: string; message: string }>,
+): string {
+  // Insertions must already be sorted descending by position
   let result = output
-  for (const usage of sortedUsages) {
-    const position = usage.getStart()
-
+  for (const { position, text, message } of insertions) {
     // Check if a TODO comment already exists before this position (idempotency)
     const lookbackStart = Math.max(0, position - 200)
     const lookback = result.substring(lookbackStart, position)
-    const message = 'TODO: DeprecatedIcon used as value - needs manual migration'
 
-    // Skip if comment already exists nearby
     if (lookback.includes(message)) {
-      continue
+      continue // Skip adding duplicate comment
     }
 
-    const comment = `// ${message}\n`
-    result = result.slice(0, position) + comment + result.slice(position)
+    result = result.slice(0, position) + text + result.slice(position)
   }
-
   return result
 }
 
@@ -888,12 +889,15 @@ export default function transform(
   // Get transformed output
   let output = sourceFile.getFullText()
 
-  // Add TODO comments for un-transformed DeprecatedIcon elements (dynamic props, removed icons)
-  // IMPORTANT: Do position-based insertions BEFORE string-based insertions to maintain correct positions
-  output = addDeprecatedIconTodos(output, sourceFile, alias)
-
-  // Add TODO comments for non-JSX usage (styled, props, etc.)
-  output = addNonJsxUsageTodos(output, sourceFile, alias)
+  // Collect all position-based TODO insertions from both sources.
+  // Positions are sourced from the AST snapshot before any string insertions, so
+  // they must all be merged and applied in a single descending pass via applyInsertions().
+  const deprecatedIconInsertions = collectDeprecatedIconTodoInsertions(sourceFile, alias)
+  const nonJsxInsertions = collectNonJsxUsageTodoInsertions(sourceFile)
+  const allInsertions = [...deprecatedIconInsertions, ...nonJsxInsertions].sort(
+    (a, b) => b.position - a.position,
+  )
+  output = applyInsertions(output, allInsertions)
 
   // Add TODO comments for transformed elements (style merging cases, dynamic props)
   if (todosNeeded.size > 0) {

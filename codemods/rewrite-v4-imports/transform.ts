@@ -203,6 +203,14 @@ function matchesPackage(moduleSpecifier: string, packageName: string): boolean {
  * Checks if a module specifier is a v4-style import from @reapit/elements or a facade package.
  * v4 imports are bare package imports without subpaths (e.g., '@reapit/elements')
  * v5 imports use subpaths (e.g., '@reapit/elements/core/button') and should NOT be transformed.
+ *
+ * INTENTIONAL DIVERGENCE from codemods/shared/elements-import.ts:
+ * The shared isElementsImport helper matches BOTH the bare package name and any subpath
+ * (e.g. '@reapit/elements/core/button'). This codemod deliberately does NOT use the shared
+ * version because its job is to rewrite v4-style barrel imports. If we matched subpath
+ * imports here we would incorrectly transform v5 import statements, breaking already-migrated
+ * code. This local version restricts @reapit/elements matching to the exact bare package name
+ * only; facade packages still use prefix matching (they may legitimately use subpaths in v4).
  */
 function isElementsImport(moduleSpecifier: string, facadePackage?: string): boolean {
   // For @reapit/elements, only match the exact package name (v4 style)

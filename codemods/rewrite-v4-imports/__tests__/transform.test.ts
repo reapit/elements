@@ -1,4 +1,5 @@
 import transform from '../transform'
+import { isElementsImport as sharedIsElementsImport } from '../../shared/elements-import'
 
 describe('basic component imports', () => {
   test('transforms simple component import', () => {
@@ -533,5 +534,44 @@ import { Icon } from '@company/ui-components'`
     expect(output).toContain(`import { DeprecatedBadge as Badge } from '@reapit/elements'`)
     expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
     expect(output).toContain(`import { DeprecatedIcon as Icon } from '@company/ui-components'`)
+  })
+})
+
+describe('local isElementsImport divergence from shared helper', () => {
+  // The shared isElementsImport in codemods/shared/elements-import.ts matches
+  // BOTH bare package imports and subpath imports. The local copy in this
+  // codemod's transform intentionally only matches bare '@reapit/elements'
+  // (not subpaths) to avoid transforming v5-style imports.
+  //
+  // These tests verify that contract: the shared helper matches subpaths,
+  // but the transform does NOT act on them.
+
+  test('shared isElementsImport matches @reapit/elements subpath imports', () => {
+    expect(sharedIsElementsImport('@reapit/elements/core/button')).toBe(true)
+    expect(sharedIsElementsImport('@reapit/elements/core/dialog')).toBe(true)
+    expect(sharedIsElementsImport('@reapit/elements')).toBe(true)
+  })
+
+  test('transform does not act on @reapit/elements subpath imports', () => {
+    const input = `import { Button } from '@reapit/elements/core/button'`
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+
+  test('transform acts on bare @reapit/elements imports', () => {
+    const input = `import { Button } from '@reapit/elements'`
+    const output = transform(input)
+    expect(output).toBe(`import { DeprecatedButton as Button } from '@reapit/elements'`)
+  })
+
+  test('shared isElementsImport matches facade package subpath imports', () => {
+    expect(sharedIsElementsImport('@company/ui/elements', '@company/ui')).toBe(true)
+    expect(sharedIsElementsImport('@company/ui', '@company/ui')).toBe(true)
+  })
+
+  test('transform acts on facade package subpath imports (v4 facade behaviour)', () => {
+    const input = `import { Button } from '@company/ui/elements'`
+    const output = transform(input, 'test.tsx', { facadePackage: '@company/ui' })
+    expect(output).toBe(`import { DeprecatedButton as Button } from '@company/ui/elements'`)
   })
 })
