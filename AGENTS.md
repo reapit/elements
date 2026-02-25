@@ -1,17 +1,6 @@
 # AGENTS.md
 
-## Project Overview
-
-**Reapit Elements** is a TypeScript-based React UI component library for the Reapit Design System. It provides reusable, cross-platform components distributed via NPM.
-
-## Project Structure
-
-- **Language**: TypeScript with React
-- **Build Tool**: Vite
-- **Package Manager**: Yarn
-- **Testing**: Vitest + Playwright for visual regression
-- **Styling**: Linaria (compile-time CSS-in-JS)
-- **Documentation**: Storybook
+**Package Manager**: Yarn
 
 ## Core Directories
 
@@ -21,34 +10,6 @@
 - `src/utils/` - Utility functions and helpers
 - `src/deprecated/` - Legacy components (avoid modifying)
 - `src/lab/` - Experimental components
-
-## Development Commands
-
-```bash
-yarn start           # Start Storybook dev server
-yarn build           # Build library and Storybook
-yarn test            # Run unit tests
-yarn visual-test     # Run Playwright visual tests
-yarn check           # Check TS types
-yarn lint            # Lint JS & CSS
-yarn generate:icons  # Generate SVG icon components
-yarn generate:tokens # Generate CSS variables
-```
-
-## Component Architecture
-
-- Each component occupies its own directory containing `index.ts`, component file, and tests
-- Styled with Linaria (CSS-in-JS)
-- Built on atomic design principles
-- Typed with TypeScript
-- Exported as individual components and bundled library
-
-## Requirements and Features
-
-- Requires Node.js >= 22.18.0
-- Components use design tokens from `src/tokens/`
-- Visual regression tests ensure UI consistency
-- Supports ESM and CJS exports
 
 ## Lab Components (`src/lab/`)
 
