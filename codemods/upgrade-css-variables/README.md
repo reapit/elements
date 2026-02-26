@@ -37,16 +37,6 @@ These variables have clear v5 equivalents and are replaced silently:
 
 | Legacy variable                | v5 replacement         |
 | ------------------------------ | ---------------------- |
-| `var(--font-sans-serif)`       | `var(--font-family)`   |
-| `var(--font-size-heading)`     | `var(--font-size-2xl)` |
-| `var(--font-size-subheading)`  | `var(--font-size-xl)`  |
-| `var(--font-size-small-subheading)` | `var(--font-size-lg)` |
-| `var(--font-size-default)`     | `var(--font-size-base)` |
-| `var(--font-size-small)`       | `var(--font-size-sm)`  |
-| `var(--font-size-smallest)`    | `var(--font-size-xs)`  |
-| `var(--font-weight-default)`   | `var(--font-weight-regular)` |
-| `var(--font-weight-medium)`    | `var(--font-weight-medium)` |
-| `var(--font-weight-bold)`      | `var(--font-weight-semibold)` |
 | `var(--layout-size-base)`      | `var(--spacing-4)`     |
 | `var(--layout-size-molecule)`  | `var(--spacing-5)`     |
 | `var(--layout-size-atom)`      | `var(--spacing-3)`     |
@@ -79,21 +69,46 @@ Best-effort categories:
 - **Neutral aliases**: `--white`, `--black`, `--neutral-darkest`, `--neutral-dark`, `--neutral-medium`, `--neutral-light`, `--neutral-lightest`
 - **Draft `--color-*` palette variables**: `--color-grey-*`, `--color-purple-*`, `--color-blue-*`, `--color-green-*`, `--color-yellow-*`, `--color-orange-*`, `--color-red-*`
 
+### Inline mappings
+
+These variables have no v5 equivalent, but their resolved concrete values are known and stable. The `var()` call is replaced with the concrete value and a `/* was var(--name) */` comment. Any existing fallback inside the `var()` is dropped.
+
+**Example output:**
+
+```css
+/* Before */
+background: var(--component-input-bg);
+
+/* After */
+background: #ffffff /* was var(--component-input-bg) */;
+```
+
+Inline categories:
+
+- **Font family**: `--font-sans-serif` → `'Inter', Helvetica, Arial, sans-serif`
+- **Font monospace**: `--font-monospace` → `'Source Code Pro', monospace`
+- **Font sizes**: `--font-size-heading` → `1.5rem`, `--font-size-subheading` → `1.25rem`, `--font-size-small-subheading` → `1.125rem`, `--font-size-default` → `0.9375rem`, `--font-size-small` → `0.875rem`, `--font-size-smallest` → `0.8125rem`
+- **Font weights**: `--font-weight-default` → `400`, `--font-weight-medium` → `500`, `--font-weight-bold` → `600`
+- **`--default-border-radius`** → `0.25rem`
+- **Component input tokens**: `--component-input-bg`, `--component-input-focus-bg`, `--component-input-shadow`, `--component-input-border`, `--component-input-border-focus`, `--component-input-border-bottom`, `--component-input-border-bottom-focus`
+- **Component tokens**: `--component-steps-gutter-width`, `--component-table-min-column-width`
+- **Nav tokens**: `--nav-menu-background-dark`, `--nav-menu-background-accent`, `--nav-menu-text`, `--nav-menu-text-hover`, `--nav-menu-icon-primary-accent`, `--nav-menu-icon-secondary-accent`, `--nav-brand-height`
+- **Page header tokens**: `--page-header-bg`, `--page-header-border`
+- **Pagination tokens**: `--pagination-bg`
+- **Utility tokens**: `--util-border-grey`, `--util-border-purple`, `--util-border-radius`, `--util-box-shadow`, `--util-screen-width`, `--util-screen-height`, `--util-0`, `--util-auto`, `--util-percentage-1` through `--util-percentage-12`, `--util-rems-1` through `--util-rems-12`
+- **Fractional layout sizes**: `--layout-size-1_3`, `--layout-size-2_3`
+
 ### Unmapped variables
 
-The following variable families have no reliable v5 equivalent and are left unchanged:
+The following variables are left completely unchanged:
 
-- `--component-input-*` — component-specific input tokens
-- `--nav-menu-*` — navigation component tokens
-- `--page-header-*` — page header tokens
-- `--util-*` — utility layout tokens
-- `--z-index-*` — z-index layering tokens
-- `--default-border-radius` — no direct v5 equivalent
-- `--font-monospace` — no direct v5 equivalent
+- `--z-index-*` — z-index layering tokens; these are still defined in v5 with identical names and values, so no transformation is needed
 
 ## Fallback values
 
-Existing fallback values inside `var()` are always preserved unchanged. This codemod never adds new fallback values.
+For **direct** and **best-effort** mappings, existing fallback values inside `var()` are always preserved unchanged. This codemod never adds new fallback values.
+
+For **inline** mappings, any existing fallback is dropped — it is redundant once the value is resolved to a concrete literal.
 
 ```css
 /* Input */
@@ -115,4 +130,4 @@ The `--facade-package` flag is accepted but has no effect on this codemod. CSS c
 
 3. **Remove TODO comments**: Once you have verified each replacement, remove the inline comments.
 
-4. **Handle unmapped variables**: For variables that were not changed (see _Unmapped variables_ above), decide on the appropriate v5 replacement or refactor to remove the dependency.
+4. **Review inlined values**: Variables replaced with concrete values (see _Inline mappings_ above) are marked with `/* was var(--name) */` comments. Search for `/* was var(` to find them. Once you have confirmed the inlined value is appropriate, you may remove the comment.

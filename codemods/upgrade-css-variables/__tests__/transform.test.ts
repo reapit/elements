@@ -17,53 +17,53 @@ describe('early exit', () => {
 })
 
 // ---------------------------------------------------------------------------
-// Direct mappings — font
+// Inline mappings — font
 // ---------------------------------------------------------------------------
 
-describe('direct mapping — font family', () => {
-  test('replaces --font-sans-serif with --font-family', () => {
+describe('inline mapping — font family', () => {
+  test('inlines --font-sans-serif with full font stack', () => {
     const input = 'font-family: var(--font-sans-serif);'
-    expect(transform(input)).toBe('font-family: var(--font-family);')
+    expect(transform(input)).toBe(`font-family: 'Inter', Helvetica, Arial, sans-serif /* was --font-sans-serif */;`)
   })
 })
 
-describe('direct mapping — font sizes', () => {
-  test('replaces --font-size-heading with --font-size-2xl', () => {
-    expect(transform('font-size: var(--font-size-heading);')).toBe('font-size: var(--font-size-2xl);')
+describe('inline mapping — font sizes', () => {
+  test('inlines --font-size-heading with 1.5rem', () => {
+    expect(transform('font-size: var(--font-size-heading);')).toBe(`font-size: 1.5rem /* was --font-size-heading */;`)
   })
 
-  test('replaces --font-size-subheading with --font-size-xl', () => {
-    expect(transform('font-size: var(--font-size-subheading);')).toBe('font-size: var(--font-size-xl);')
+  test('inlines --font-size-subheading with 1.25rem', () => {
+    expect(transform('font-size: var(--font-size-subheading);')).toBe(`font-size: 1.25rem /* was --font-size-subheading */;`)
   })
 
-  test('replaces --font-size-small-subheading with --font-size-lg', () => {
-    expect(transform('font-size: var(--font-size-small-subheading);')).toBe('font-size: var(--font-size-lg);')
+  test('inlines --font-size-small-subheading with 1.125rem', () => {
+    expect(transform('font-size: var(--font-size-small-subheading);')).toBe(`font-size: 1.125rem /* was --font-size-small-subheading */;`)
   })
 
-  test('replaces --font-size-default with --font-size-base', () => {
-    expect(transform('font-size: var(--font-size-default);')).toBe('font-size: var(--font-size-base);')
+  test('inlines --font-size-default with 0.9375rem', () => {
+    expect(transform('font-size: var(--font-size-default);')).toBe(`font-size: 0.9375rem /* was --font-size-default */;`)
   })
 
-  test('replaces --font-size-small with --font-size-sm', () => {
-    expect(transform('font-size: var(--font-size-small);')).toBe('font-size: var(--font-size-sm);')
+  test('inlines --font-size-small with 0.875rem', () => {
+    expect(transform('font-size: var(--font-size-small);')).toBe(`font-size: 0.875rem /* was --font-size-small */;`)
   })
 
-  test('replaces --font-size-smallest with --font-size-xs', () => {
-    expect(transform('font-size: var(--font-size-smallest);')).toBe('font-size: var(--font-size-xs);')
+  test('inlines --font-size-smallest with 0.8125rem', () => {
+    expect(transform('font-size: var(--font-size-smallest);')).toBe(`font-size: 0.8125rem /* was --font-size-smallest */;`)
   })
 })
 
-describe('direct mapping — font weights', () => {
-  test('replaces --font-weight-default with --font-weight-regular', () => {
-    expect(transform('font-weight: var(--font-weight-default);')).toBe('font-weight: var(--font-weight-regular);')
+describe('inline mapping — font weights', () => {
+  test('inlines --font-weight-default with 400', () => {
+    expect(transform('font-weight: var(--font-weight-default);')).toBe(`font-weight: 400 /* was --font-weight-default */;`)
   })
 
-  test('replaces --font-weight-bold with --font-weight-semibold', () => {
-    expect(transform('font-weight: var(--font-weight-bold);')).toBe('font-weight: var(--font-weight-semibold);')
+  test('inlines --font-weight-bold with 600', () => {
+    expect(transform('font-weight: var(--font-weight-bold);')).toBe(`font-weight: 600 /* was --font-weight-bold */;`)
   })
 
-  test('replaces --font-weight-medium with --font-weight-medium (unchanged)', () => {
-    expect(transform('font-weight: var(--font-weight-medium);')).toBe('font-weight: var(--font-weight-medium);')
+  test('inlines --font-weight-medium with 500', () => {
+    expect(transform('font-weight: var(--font-weight-medium);')).toBe(`font-weight: 500 /* was --font-weight-medium */;`)
   })
 })
 
@@ -234,10 +234,10 @@ describe('best-effort mapping — deprecated intent aliases', () => {
 // ---------------------------------------------------------------------------
 
 describe('fallback value preservation', () => {
-  test('preserves existing fallback for direct mapping', () => {
+  test('drops fallback and inlines value for inline mapping', () => {
     const input = 'font-size: var(--font-size-heading, 1.5rem);'
     const output = transform(input)
-    expect(output).toBe('font-size: var(--font-size-2xl, 1.5rem);')
+    expect(output).toBe('font-size: 1.5rem /* was --font-size-heading */;')
   })
 
   test('preserves existing fallback for best-effort mapping', () => {
@@ -265,34 +265,118 @@ describe('fallback value preservation', () => {
 // ---------------------------------------------------------------------------
 
 describe('unmapped variables', () => {
-  test('leaves --component-input-bg unchanged', () => {
-    const input = 'background: var(--component-input-bg);'
-    expect(transform(input)).toBe(input)
-  })
-
-  test('leaves --nav-menu-text unchanged', () => {
-    const input = 'color: var(--nav-menu-text);'
-    expect(transform(input)).toBe(input)
-  })
-
   test('leaves --z-index-sticky unchanged', () => {
     const input = 'z-index: var(--z-index-sticky);'
-    expect(transform(input)).toBe(input)
-  })
-
-  test('leaves --util-border-grey unchanged', () => {
-    const input = 'border: var(--util-border-grey);'
-    expect(transform(input)).toBe(input)
-  })
-
-  test('leaves --default-border-radius unchanged', () => {
-    const input = 'border-radius: var(--default-border-radius);'
     expect(transform(input)).toBe(input)
   })
 
   test('leaves v5 tokens unchanged', () => {
     const input = 'color: var(--colour-text-primary);'
     expect(transform(input)).toBe(input)
+  })
+})
+
+// ---------------------------------------------------------------------------
+// Inline mappings — variables with no v5 equivalent but a known concrete value
+// ---------------------------------------------------------------------------
+
+describe('inline mapping — component input tokens', () => {
+  test('inlines --component-input-bg', () => {
+    const input = 'background: var(--component-input-bg);'
+    expect(transform(input)).toBe(`background: #ffffff /* was --component-input-bg */;`)
+  })
+
+  test('inlines --component-input-border', () => {
+    const input = 'border: var(--component-input-border);'
+    expect(transform(input)).toBe(`border: 1px solid #d8dee4 /* was --component-input-border */;`)
+  })
+
+  test('inlines --component-input-border-focus', () => {
+    const input = 'border: var(--component-input-border-focus);'
+    expect(transform(input)).toBe(`border: 1px solid #4e56ea /* was --component-input-border-focus */;`)
+  })
+
+  test('inlines --component-input-shadow', () => {
+    const input = 'box-shadow: var(--component-input-shadow);'
+    expect(transform(input)).toBe(`box-shadow: inset 0 -1px 0 #ffffff /* was --component-input-shadow */;`)
+  })
+})
+
+describe('inline mapping — nav and page tokens', () => {
+  test('inlines --nav-menu-text', () => {
+    const input = 'color: var(--nav-menu-text);'
+    expect(transform(input)).toBe(`color: #798da1 /* was --nav-menu-text */;`)
+  })
+
+  test('inlines --page-header-border', () => {
+    const input = 'border-bottom: var(--page-header-border);'
+    expect(transform(input)).toBe(`border-bottom: 1px solid #e5e9ed /* was --page-header-border */;`)
+  })
+
+  test('inlines --nav-brand-height', () => {
+    const input = 'height: var(--nav-brand-height);'
+    expect(transform(input)).toBe(`height: 1.5rem /* was --nav-brand-height */;`)
+  })
+})
+
+describe('inline mapping — utility tokens', () => {
+  test('inlines --util-border-grey', () => {
+    const input = 'border: var(--util-border-grey);'
+    expect(transform(input)).toBe(`border: 1px solid #e5e9ed /* was --util-border-grey */;`)
+  })
+
+  test('inlines --util-border-purple', () => {
+    const input = 'border: var(--util-border-purple);'
+    expect(transform(input)).toBe(`border: 1px solid #7e9bfa /* was --util-border-purple */;`)
+  })
+
+  test('inlines --util-box-shadow', () => {
+    const input = 'box-shadow: var(--util-box-shadow);'
+    expect(transform(input)).toBe(`box-shadow: 0 2px 9px rgb(0 0 0 / 0.08) /* was --util-box-shadow */;`)
+  })
+
+  test('inlines --util-rems-6', () => {
+    const input = 'padding: var(--util-rems-6);'
+    expect(transform(input)).toBe(`padding: 1rem /* was --util-rems-6 */;`)
+  })
+
+  test('inlines --util-percentage-6', () => {
+    const input = 'width: var(--util-percentage-6);'
+    expect(transform(input)).toBe(`width: 50% /* was --util-percentage-6 */;`)
+  })
+
+  test('inlines --util-screen-width', () => {
+    const input = 'width: var(--util-screen-width);'
+    expect(transform(input)).toBe(`width: 100vw /* was --util-screen-width */;`)
+  })
+})
+
+describe('inline mapping — other tokens', () => {
+  test('inlines --default-border-radius', () => {
+    const input = 'border-radius: var(--default-border-radius);'
+    expect(transform(input)).toBe(`border-radius: 0.25rem /* was --default-border-radius */;`)
+  })
+
+  test('inlines --font-monospace', () => {
+    const input = "font-family: var(--font-monospace);"
+    expect(transform(input)).toBe(`font-family: 'Source Code Pro', monospace /* was --font-monospace */;`)
+  })
+
+  test('inlines --layout-size-1_3', () => {
+    const input = 'margin: var(--layout-size-1_3);'
+    expect(transform(input)).toBe(`margin: calc(1rem / 3) /* was --layout-size-1_3 */;`)
+  })
+})
+
+describe('inline mapping — fallback is dropped', () => {
+  test('drops fallback when inlining --component-input-bg', () => {
+    const input = 'background: var(--component-input-bg, white);'
+    expect(transform(input)).toBe(`background: #ffffff /* was --component-input-bg */;`)
+  })
+
+  test('drops nested var() fallback when inlining', () => {
+    const input = 'background: var(--component-input-bg, var(--some-other));'
+    expect(transform(input)).toBe(`background: #ffffff /* was --component-input-bg */;`)
   })
 })
 
@@ -308,19 +392,22 @@ describe('multiple replacements', () => {
       padding: var(--layout-size-base);
     `
     const output = transform(input)
-    expect(output).toContain('var(--font-family)')
-    expect(output).toContain('var(--font-size-base)')
+    expect(output).toContain("'Inter', Helvetica, Arial, sans-serif /* was --font-sans-serif */")
+    expect(output).toContain('0.9375rem /* was --font-size-default */')
     expect(output).toContain('var(--spacing-4)')
-    expect(output).not.toContain('var(--font-sans-serif)')
-    expect(output).not.toContain('var(--font-size-default)')
+    expect(output).not.toMatch(/(?<!was )var\(--font-sans-serif\)/)
+    expect(output).not.toMatch(/(?<!was )var\(--font-size-default\)/)
     expect(output).not.toContain('var(--layout-size-base)')
   })
 
-  test('handles a mix of mapped and unmapped variables', () => {
-    const input = 'color: var(--intent-primary); z-index: var(--z-index-sticky);'
+  test('handles a mix of mapped, inline, and unmapped variables', () => {
+    const input = 'color: var(--intent-primary); background: var(--component-input-bg); z-index: var(--z-index-sticky);'
     const output = transform(input)
     expect(output).toContain('var(--colour-fill-action-dark)')
+    expect(output).toContain('#ffffff /* was --component-input-bg */')
     expect(output).toContain('var(--z-index-sticky)')
+    // The original var() call should be gone; only the comment reference remains.
+    expect(output).not.toMatch(/(?<!was )var\(--component-input-bg\)/)
   })
 
   test('replaces multiple occurrences of the same variable', () => {
@@ -352,7 +439,7 @@ describe('file type variety', () => {
     `
     const output = transform(input)
     expect(output).toContain('var(--colour-fill-info-dark)')
-    expect(output).toContain('var(--font-size-base)')
+    expect(output).toContain('0.9375rem /* was --font-size-default */')
   })
 
   test('transforms inline style strings in TSX', () => {
@@ -409,9 +496,9 @@ describe('draft --color-* palette variables', () => {
 // ---------------------------------------------------------------------------
 
 describe('nested parentheses in fallback values', () => {
-  test('preserves rgba() fallback for a direct mapping', () => {
+  test('drops fallback with nested parens and inlines value for inline mapping', () => {
     const input = 'font-size: var(--font-size-heading, calc(1rem + 2px));'
-    expect(transform(input)).toBe('font-size: var(--font-size-2xl, calc(1rem + 2px));')
+    expect(transform(input)).toBe('font-size: 1.5rem /* was --font-size-heading */;')
   })
 
   test('preserves rgba() function fallback', () => {
@@ -442,5 +529,43 @@ describe('facade package option', () => {
     const withFacade = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
     const withoutFacade = transform(input)
     expect(withFacade).toBe(withoutFacade)
+  })
+})
+
+// ---------------------------------------------------------------------------
+// Idempotency — running the transform twice must produce the same result
+// ---------------------------------------------------------------------------
+
+describe('idempotency', () => {
+  test('inline mapping: second pass is a no-op', () => {
+    const input = 'font-size: var(--font-size-heading);'
+    const firstPass = transform(input)
+    const secondPass = transform(firstPass)
+    expect(secondPass).toBe(firstPass)
+  })
+
+  test('best-effort mapping: second pass is a no-op', () => {
+    const input = 'color: var(--intent-primary);'
+    const firstPass = transform(input)
+    const secondPass = transform(firstPass)
+    expect(secondPass).toBe(firstPass)
+  })
+
+  test('direct mapping: second pass is a no-op', () => {
+    const input = 'padding: var(--layout-size-base);'
+    const firstPass = transform(input)
+    const secondPass = transform(firstPass)
+    expect(secondPass).toBe(firstPass)
+  })
+
+  test('mixed inline and best-effort: second pass is a no-op', () => {
+    const input = `
+      font-family: var(--font-sans-serif);
+      color: var(--intent-primary);
+      border: var(--util-border-purple);
+    `
+    const firstPass = transform(input)
+    const secondPass = transform(firstPass)
+    expect(secondPass).toBe(firstPass)
   })
 })

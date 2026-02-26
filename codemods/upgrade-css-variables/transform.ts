@@ -1,4 +1,4 @@
-import { CSS_VARIABLE_MAP, bestEffortComment } from './css-variable-map.js'
+import { CSS_VARIABLE_MAP, bestEffortComment, inlineComment } from './css-variable-map.js'
 
 /**
  * Codemod to migrate legacy v4 CSS custom properties to their v5 equivalents.
@@ -10,10 +10,14 @@ import { CSS_VARIABLE_MAP, bestEffortComment } from './css-variable-map.js'
  * - Direct (1-to-1) mappings: variable name is replaced silently.
  * - Best-effort mappings: variable name is replaced AND an inline TODO comment
  *   is appended to flag the replacement for manual review.
- * - Unmapped variables (e.g. --component-input-*, --nav-menu-*, --z-index-*):
- *   left unchanged with no modification.
+ * - Inline mappings: var(--name) is replaced with the fully-resolved concrete
+ *   value and a "was var(--name)" comment. Any fallback is dropped.
+ * - --z-index-* variables (and any other truly unmapped variables): left
+ *   unchanged with no modification.
  *
- * Existing fallback values inside var() are always preserved unchanged.
+ * Existing fallback values inside var() are preserved unchanged for direct and
+ * best-effort mappings. For inline mappings the fallback is dropped — it is
+ * redundant once the value is resolved to a concrete literal.
  * New fallback values are never added.
  *
  * Uses a parenthesis-aware parser rather than a regex so that fallback values
@@ -115,12 +119,19 @@ function replaceCssVarCalls(source: string): string {
       continue
     }
 
-    const replacement = `var(${mapping.v5}${fallback})`
-
-    if (mapping.kind === 'best_effort') {
-      result += `${replacement} ${bestEffortComment(varName)}`
+    if (mapping.kind === 'inline') {
+      // Replace the entire var() call (including any fallback) with the
+      // resolved concrete value. Fallback is dropped — it's moot once the
+      // value is inlined.
+      result += `${mapping.inlinedValue} ${inlineComment(varName)}`
     } else {
-      result += replacement
+      const replacement = `var(${mapping.v5}${fallback})`
+
+      if (mapping.kind === 'best_effort') {
+        result += `${replacement} ${bestEffortComment(varName)}`
+      } else {
+        result += replacement
+      }
     }
 
     index = end + 1

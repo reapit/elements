@@ -4,17 +4,41 @@
  * DIRECT mappings: unambiguous 1-to-1 replacements applied silently.
  * BEST_EFFORT mappings: applied with an inline TODO comment because the correct
  *   v5 token may depend on usage context (e.g. fill vs. text vs. border).
- * UNMAPPED variables are left untouched with no comment (they have no v5
- *   equivalent or are component-scoped tokens that should be handled manually).
+ * INLINE mappings: the var() call is replaced with the fully-resolved concrete
+ *   value and a "was var(--name)" comment. Used for variables that have
+ *   no v5 equivalent but whose resolved value is known and stable.
+ * --z-index-* variables are left completely untouched — no transformation at all.
  */
 
-export type MappingKind = 'direct' | 'best_effort'
-
-export interface VariableMapping {
+/** A direct 1-to-1 replacement with a known v5 token. Applied silently. */
+export interface DirectMapping {
+  kind: 'direct'
   /** The v5 CSS custom property name to replace the legacy variable with. */
   v5: string
-  kind: MappingKind
 }
+
+/**
+ * A best-effort replacement where the correct v5 token is context-dependent.
+ * Applied with an inline TODO comment to flag for manual review.
+ */
+export interface BestEffortMapping {
+  kind: 'best_effort'
+  /** The v5 CSS custom property name to replace the legacy variable with. */
+  v5: string
+}
+
+/**
+ * An inline replacement for variables with no v5 equivalent.
+ * The var() call is replaced with `inlinedValue` plus a `/* was --name *\/` comment.
+ * Any existing fallback inside the var() is dropped.
+ */
+export interface InlineMapping {
+  kind: 'inline'
+  /** The fully-resolved concrete value to substitute in place of the var() call. */
+  inlinedValue: string
+}
+
+export type VariableMapping = DirectMapping | BestEffortMapping | InlineMapping
 
 /**
  * A record of legacy CSS variable names (without `var()`, without `--`) mapped
@@ -23,26 +47,39 @@ export interface VariableMapping {
 export const CSS_VARIABLE_MAP: Record<string, VariableMapping> = {
   // ---------------------------------------------------------------------------
   // Font family / monospace
+  // These variables exist only in legacy-reapit/tokens.css, not in reapit.css.
+  // Inline the concrete values so consumers have no dependency on legacy tokens.
   // ---------------------------------------------------------------------------
-  'font-sans-serif': { v5: '--font-family', kind: 'direct' },
-  // --font-monospace has no direct v5 equivalent in reapit.css; leave unmapped.
+  'font-sans-serif': { kind: 'inline', inlinedValue: `'Inter', Helvetica, Arial, sans-serif` },
+  'font-monospace': { kind: 'inline', inlinedValue: `'Source Code Pro', monospace` },
 
   // ---------------------------------------------------------------------------
   // Font sizes
+  // The v5 reapit.css uses composite tokens (--font-sm-regular-size etc.) with
+  // no simple --font-size-* equivalents. Inline the legacy rem values so
+  // consumers are not left pointing at legacy-reapit/ tokens.
+  //   --font-size-heading:       1.5rem    (was --font-size-2xl)
+  //   --font-size-subheading:    1.25rem   (was --font-size-xl)
+  //   --font-size-small-subheading: 1.125rem (was --font-size-lg)
+  //   --font-size-default:       0.9375rem (was --font-size-base)
+  //   --font-size-small:         0.875rem  (was --font-size-sm)
+  //   --font-size-smallest:      0.8125rem (was --font-size-xs)
   // ---------------------------------------------------------------------------
-  'font-size-heading': { v5: '--font-size-2xl', kind: 'direct' },
-  'font-size-subheading': { v5: '--font-size-xl', kind: 'direct' },
-  'font-size-small-subheading': { v5: '--font-size-lg', kind: 'direct' },
-  'font-size-default': { v5: '--font-size-base', kind: 'direct' },
-  'font-size-small': { v5: '--font-size-sm', kind: 'direct' },
-  'font-size-smallest': { v5: '--font-size-xs', kind: 'direct' },
+  'font-size-heading': { kind: 'inline', inlinedValue: '1.5rem' },
+  'font-size-subheading': { kind: 'inline', inlinedValue: '1.25rem' },
+  'font-size-small-subheading': { kind: 'inline', inlinedValue: '1.125rem' },
+  'font-size-default': { kind: 'inline', inlinedValue: '0.9375rem' },
+  'font-size-small': { kind: 'inline', inlinedValue: '0.875rem' },
+  'font-size-smallest': { kind: 'inline', inlinedValue: '0.8125rem' },
 
   // ---------------------------------------------------------------------------
   // Font weights
+  // The v5 reapit.css uses composite tokens with no simple --font-weight-*
+  // equivalents. Inline the numeric values.
   // ---------------------------------------------------------------------------
-  'font-weight-default': { v5: '--font-weight-regular', kind: 'direct' },
-  'font-weight-medium': { v5: '--font-weight-medium', kind: 'direct' },
-  'font-weight-bold': { v5: '--font-weight-semibold', kind: 'direct' },
+  'font-weight-default': { kind: 'inline', inlinedValue: '400' },
+  'font-weight-medium': { kind: 'inline', inlinedValue: '500' },
+  'font-weight-bold': { kind: 'inline', inlinedValue: '600' },
 
   // ---------------------------------------------------------------------------
   // Layout sizes  (legacy rem-based spacing → v5 spacing scale)
@@ -65,6 +102,12 @@ export const CSS_VARIABLE_MAP: Record<string, VariableMapping> = {
   'layout-size-3_4': { v5: '--spacing-3', kind: 'direct' },
   'layout-size-2': { v5: '--spacing-8', kind: 'direct' },
   'layout-size-3': { v5: '--spacing-12', kind: 'direct' },
+
+  // ---------------------------------------------------------------------------
+  // Layout sizes — fractional (no v5 equivalent; inline concrete values)
+  // ---------------------------------------------------------------------------
+  'layout-size-1_3': { kind: 'inline', inlinedValue: 'calc(1rem / 3)' },
+  'layout-size-2_3': { kind: 'inline', inlinedValue: 'calc(2rem / 3)' },
 
   // ---------------------------------------------------------------------------
   // Neutral colours  (bare aliases defined in globals.ts)
@@ -231,6 +274,90 @@ export const CSS_VARIABLE_MAP: Record<string, VariableMapping> = {
   'color-red-700': { v5: '--colour-fill-error-dark', kind: 'best_effort' },
   'color-red-800': { v5: '--colour-fill-error-dark', kind: 'best_effort' },
   'color-red-900': { v5: '--colour-fill-error-dark', kind: 'best_effort' },
+
+  // ---------------------------------------------------------------------------
+  // Border radius
+  // ---------------------------------------------------------------------------
+  'default-border-radius': { kind: 'inline', inlinedValue: '0.25rem' },
+
+  // ---------------------------------------------------------------------------
+  // Component — input tokens
+  // ---------------------------------------------------------------------------
+  'component-input-bg': { kind: 'inline', inlinedValue: '#ffffff' },
+  'component-input-focus-bg': { kind: 'inline', inlinedValue: '#e5e9ed' },
+  'component-input-shadow': { kind: 'inline', inlinedValue: 'inset 0 -1px 0 #ffffff' },
+  'component-input-border': { kind: 'inline', inlinedValue: '1px solid #d8dee4' },
+  'component-input-border-focus': { kind: 'inline', inlinedValue: '1px solid #4e56ea' },
+  'component-input-border-bottom': { kind: 'inline', inlinedValue: '1px solid #d8dee4' },
+  'component-input-border-bottom-focus': { kind: 'inline', inlinedValue: '1px solid #000000' },
+
+  // ---------------------------------------------------------------------------
+  // Component — steps
+  // ---------------------------------------------------------------------------
+  'component-steps-gutter-width': { kind: 'inline', inlinedValue: '12px' },
+
+  // ---------------------------------------------------------------------------
+  // Component — table
+  // ---------------------------------------------------------------------------
+  'component-table-min-column-width': { kind: 'inline', inlinedValue: '3rem' },
+
+  // ---------------------------------------------------------------------------
+  // Nav menu tokens
+  // ---------------------------------------------------------------------------
+  'nav-menu-background-dark': { kind: 'inline', inlinedValue: '#ffffff' },
+  'nav-menu-background-accent': { kind: 'inline', inlinedValue: '#ffffff' },
+  'nav-menu-text': { kind: 'inline', inlinedValue: '#798da1' },
+  'nav-menu-text-hover': { kind: 'inline', inlinedValue: '#607890' },
+  'nav-menu-icon-primary-accent': { kind: 'inline', inlinedValue: '#506478' },
+  'nav-menu-icon-secondary-accent': { kind: 'inline', inlinedValue: '#798da1' },
+  'nav-brand-height': { kind: 'inline', inlinedValue: '1.5rem' },
+
+  // ---------------------------------------------------------------------------
+  // Page header tokens
+  // ---------------------------------------------------------------------------
+  'page-header-bg': { kind: 'inline', inlinedValue: '#ffffff' },
+  'page-header-border': { kind: 'inline', inlinedValue: '1px solid #e5e9ed' },
+
+  // ---------------------------------------------------------------------------
+  // Pagination tokens
+  // ---------------------------------------------------------------------------
+  'pagination-bg': { kind: 'inline', inlinedValue: '#ffffff' },
+
+  // ---------------------------------------------------------------------------
+  // Utility tokens
+  // ---------------------------------------------------------------------------
+  'util-border-grey': { kind: 'inline', inlinedValue: '1px solid #e5e9ed' },
+  'util-border-purple': { kind: 'inline', inlinedValue: '1px solid #7e9bfa' },
+  'util-border-radius': { kind: 'inline', inlinedValue: '0.25rem' },
+  'util-box-shadow': { kind: 'inline', inlinedValue: '0 2px 9px rgb(0 0 0 / 0.08)' },
+  'util-screen-width': { kind: 'inline', inlinedValue: '100vw' },
+  'util-screen-height': { kind: 'inline', inlinedValue: '100vh' },
+  'util-0': { kind: 'inline', inlinedValue: '0' },
+  'util-auto': { kind: 'inline', inlinedValue: 'auto' },
+  'util-percentage-1': { kind: 'inline', inlinedValue: '8.3333%' },
+  'util-percentage-2': { kind: 'inline', inlinedValue: '16.6667%' },
+  'util-percentage-3': { kind: 'inline', inlinedValue: '25%' },
+  'util-percentage-4': { kind: 'inline', inlinedValue: '33.3333%' },
+  'util-percentage-5': { kind: 'inline', inlinedValue: '41.6667%' },
+  'util-percentage-6': { kind: 'inline', inlinedValue: '50%' },
+  'util-percentage-7': { kind: 'inline', inlinedValue: '58.3333%' },
+  'util-percentage-8': { kind: 'inline', inlinedValue: '66.6667%' },
+  'util-percentage-9': { kind: 'inline', inlinedValue: '75%' },
+  'util-percentage-10': { kind: 'inline', inlinedValue: '83.3333%' },
+  'util-percentage-11': { kind: 'inline', inlinedValue: '91.6667%' },
+  'util-percentage-12': { kind: 'inline', inlinedValue: '100%' },
+  'util-rems-1': { kind: 'inline', inlinedValue: '0.25rem' },
+  'util-rems-2': { kind: 'inline', inlinedValue: '0.375rem' },
+  'util-rems-3': { kind: 'inline', inlinedValue: '0.5rem' },
+  'util-rems-4': { kind: 'inline', inlinedValue: '0.625rem' },
+  'util-rems-5': { kind: 'inline', inlinedValue: '0.75rem' },
+  'util-rems-6': { kind: 'inline', inlinedValue: '1rem' },
+  'util-rems-7': { kind: 'inline', inlinedValue: '1.25rem' },
+  'util-rems-8': { kind: 'inline', inlinedValue: '1.5rem' },
+  'util-rems-9': { kind: 'inline', inlinedValue: '2rem' },
+  'util-rems-10': { kind: 'inline', inlinedValue: '2.25rem' },
+  'util-rems-11': { kind: 'inline', inlinedValue: '2.5rem' },
+  'util-rems-12': { kind: 'inline', inlinedValue: '3rem' },
 }
 
 /**
@@ -238,4 +365,11 @@ export const CSS_VARIABLE_MAP: Record<string, VariableMapping> = {
  */
 export function bestEffortComment(legacyVar: string): string {
   return `/* TODO: ${legacyVar} has no direct v5 equivalent — verify this replacement is correct for your context */`
+}
+
+/**
+ * Returns the inline comment to append for an inline mapping.
+ */
+export function inlineComment(legacyVar: string): string {
+  return `/* was ${legacyVar} */`
 }
