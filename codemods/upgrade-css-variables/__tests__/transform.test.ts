@@ -569,3 +569,60 @@ describe('idempotency', () => {
     expect(secondPass).toBe(firstPass)
   })
 })
+
+// ---------------------------------------------------------------------------
+// Bare palette variables (without `color-` prefix)
+// ---------------------------------------------------------------------------
+
+describe('best-effort mapping — bare palette variables', () => {
+  const TODO_SUFFIX = (varName: string) =>
+    `/* TODO: ${varName} has no direct v5 equivalent — verify this replacement is correct for your context */`
+
+  test('replaces --purple-050 and adds TODO comment', () => {
+    const output = transform('background: var(--purple-050);')
+    expect(output).toContain('var(--colour-fill-action-lightest)')
+    expect(output).toContain(TODO_SUFFIX('--purple-050'))
+  })
+
+  test('replaces --purple-300 and adds TODO comment', () => {
+    const output = transform('color: var(--purple-300);')
+    expect(output).toContain('var(--colour-fill-action-light)')
+    expect(output).toContain(TODO_SUFFIX('--purple-300'))
+  })
+
+  test('replaces --purple-500 and adds TODO comment', () => {
+    const output = transform('color: var(--purple-500);')
+    expect(output).toContain('var(--colour-fill-action-dark)')
+    expect(output).toContain(TODO_SUFFIX('--purple-500'))
+  })
+
+  test('replaces --green-600 and adds TODO comment', () => {
+    const output = transform('color: var(--green-600);')
+    expect(output).toContain('var(--colour-fill-success-dark)')
+    expect(output).toContain(TODO_SUFFIX('--green-600'))
+  })
+
+  test('replaces --yellow-600 and adds TODO comment', () => {
+    const output = transform('color: var(--yellow-600);')
+    expect(output).toContain('var(--colour-fill-pending-dark)')
+    expect(output).toContain(TODO_SUFFIX('--yellow-600'))
+  })
+
+  test('replaces --orange-600 and adds TODO comment', () => {
+    const output = transform('color: var(--orange-600);')
+    expect(output).toContain('var(--colour-fill-warning-dark)')
+    expect(output).toContain(TODO_SUFFIX('--orange-600'))
+  })
+
+  test('replaces --red-100 and adds TODO comment', () => {
+    const output = transform('background: var(--red-100);')
+    expect(output).toContain('var(--colour-fill-error-lightest)')
+    expect(output).toContain(TODO_SUFFIX('--red-100'))
+  })
+
+  test('replaces --blue-500 and adds TODO comment', () => {
+    const output = transform('color: var(--blue-500);')
+    expect(output).toContain('var(--colour-fill-info-dark)')
+    expect(output).toContain(TODO_SUFFIX('--blue-500'))
+  })
+})

@@ -276,6 +276,84 @@ export const CSS_VARIABLE_MAP: Record<string, VariableMapping> = {
   'color-red-900': { v5: '--colour-fill-error-dark', kind: 'best_effort' },
 
   // ---------------------------------------------------------------------------
+  // Bare palette aliases (without `color-` prefix)
+  // Legacy code uses e.g. `--purple-050` directly (not `--color-purple-050`).
+  // These are identical mappings to the `color-*` entries above.
+  // ---------------------------------------------------------------------------
+
+  // Purples
+  'purple-050': { v5: '--colour-fill-action-lightest', kind: 'best_effort' },
+  'purple-100': { v5: '--colour-fill-action-lightest', kind: 'best_effort' },
+  'purple-200': { v5: '--colour-fill-action-light', kind: 'best_effort' },
+  'purple-300': { v5: '--colour-fill-action-light', kind: 'best_effort' },
+  'purple-400': { v5: '--colour-fill-action-dark', kind: 'best_effort' },
+  'purple-500': { v5: '--colour-fill-action-dark', kind: 'best_effort' },
+  'purple-600': { v5: '--colour-fill-action-dark', kind: 'best_effort' },
+  'purple-700': { v5: '--colour-fill-action-dark', kind: 'best_effort' },
+  'purple-800': { v5: '--colour-fill-action-dark', kind: 'best_effort' },
+  'purple-900': { v5: '--colour-fill-action-dark', kind: 'best_effort' },
+
+  // Blues
+  'blue-050': { v5: '--colour-fill-info-lightest', kind: 'best_effort' },
+  'blue-100': { v5: '--colour-fill-info-lightest', kind: 'best_effort' },
+  'blue-200': { v5: '--colour-fill-info-light', kind: 'best_effort' },
+  'blue-300': { v5: '--colour-fill-info-light', kind: 'best_effort' },
+  'blue-400': { v5: '--colour-fill-info-dark', kind: 'best_effort' },
+  'blue-500': { v5: '--colour-fill-info-dark', kind: 'best_effort' },
+  'blue-600': { v5: '--colour-fill-info-dark', kind: 'best_effort' },
+  'blue-700': { v5: '--colour-fill-info-dark', kind: 'best_effort' },
+  'blue-800': { v5: '--colour-fill-info-dark', kind: 'best_effort' },
+  'blue-900': { v5: '--colour-fill-info-dark', kind: 'best_effort' },
+
+  // Greens
+  'green-050': { v5: '--colour-fill-success-lightest', kind: 'best_effort' },
+  'green-100': { v5: '--colour-fill-success-lightest', kind: 'best_effort' },
+  'green-200': { v5: '--colour-fill-success-light', kind: 'best_effort' },
+  'green-300': { v5: '--colour-fill-success-light', kind: 'best_effort' },
+  'green-400': { v5: '--colour-fill-success-dark', kind: 'best_effort' },
+  'green-500': { v5: '--colour-fill-success-dark', kind: 'best_effort' },
+  'green-600': { v5: '--colour-fill-success-dark', kind: 'best_effort' },
+  'green-700': { v5: '--colour-fill-success-dark', kind: 'best_effort' },
+  'green-800': { v5: '--colour-fill-success-dark', kind: 'best_effort' },
+  'green-900': { v5: '--colour-fill-success-dark', kind: 'best_effort' },
+
+  // Yellows
+  'yellow-050': { v5: '--colour-fill-pending-lightest', kind: 'best_effort' },
+  'yellow-100': { v5: '--colour-fill-pending-lightest', kind: 'best_effort' },
+  'yellow-200': { v5: '--colour-fill-pending-light', kind: 'best_effort' },
+  'yellow-300': { v5: '--colour-fill-pending-light', kind: 'best_effort' },
+  'yellow-400': { v5: '--colour-fill-pending-dark', kind: 'best_effort' },
+  'yellow-500': { v5: '--colour-fill-pending-dark', kind: 'best_effort' },
+  'yellow-600': { v5: '--colour-fill-pending-dark', kind: 'best_effort' },
+  'yellow-700': { v5: '--colour-fill-pending-dark', kind: 'best_effort' },
+  'yellow-800': { v5: '--colour-fill-pending-dark', kind: 'best_effort' },
+  'yellow-900': { v5: '--colour-fill-pending-dark', kind: 'best_effort' },
+
+  // Oranges
+  'orange-050': { v5: '--colour-fill-warning-lightest', kind: 'best_effort' },
+  'orange-100': { v5: '--colour-fill-warning-lightest', kind: 'best_effort' },
+  'orange-200': { v5: '--colour-fill-warning-light', kind: 'best_effort' },
+  'orange-300': { v5: '--colour-fill-warning-light', kind: 'best_effort' },
+  'orange-400': { v5: '--colour-fill-warning-dark', kind: 'best_effort' },
+  'orange-500': { v5: '--colour-fill-warning-dark', kind: 'best_effort' },
+  'orange-600': { v5: '--colour-fill-warning-dark', kind: 'best_effort' },
+  'orange-700': { v5: '--colour-fill-warning-dark', kind: 'best_effort' },
+  'orange-800': { v5: '--colour-fill-warning-dark', kind: 'best_effort' },
+  'orange-900': { v5: '--colour-fill-warning-dark', kind: 'best_effort' },
+
+  // Reds
+  'red-050': { v5: '--colour-fill-error-lightest', kind: 'best_effort' },
+  'red-100': { v5: '--colour-fill-error-lightest', kind: 'best_effort' },
+  'red-200': { v5: '--colour-fill-error-light', kind: 'best_effort' },
+  'red-300': { v5: '--colour-fill-error-light', kind: 'best_effort' },
+  'red-400': { v5: '--colour-fill-error-dark', kind: 'best_effort' },
+  'red-500': { v5: '--colour-fill-error-dark', kind: 'best_effort' },
+  'red-600': { v5: '--colour-fill-error-dark', kind: 'best_effort' },
+  'red-700': { v5: '--colour-fill-error-dark', kind: 'best_effort' },
+  'red-800': { v5: '--colour-fill-error-dark', kind: 'best_effort' },
+  'red-900': { v5: '--colour-fill-error-dark', kind: 'best_effort' },
+
+  // ---------------------------------------------------------------------------
   // Border radius
   // ---------------------------------------------------------------------------
   'default-border-radius': { kind: 'inline', inlinedValue: '0.25rem' },
