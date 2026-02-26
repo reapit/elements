@@ -67,7 +67,8 @@
   ],
   "scripts": {
     "build": "yarn build:types && yarn build:lib && yarn build:codemods && yarn build:storybook",
-    "build:codemods": "yarn build:codemods:compile && yarn build:codemods:manifest",
+    "build:codemods": "yarn build:codemods:export-map && yarn build:codemods:compile && yarn build:codemods:manifest",
+    "build:codemods:export-map": "node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts",
     "build:codemods:compile": "node --experimental-strip-types codemods/build.ts",
     "build:codemods:manifest": "node --experimental-strip-types codemods/generate-manifest.ts",
     "build:storybook": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
