@@ -22,7 +22,7 @@ export const ElInputGroup = styled.div`
 
   ${ElDeprecatedIcon} {
     color: var(--neutral-400);
-    border: var(--component-input-border);
+    border: 1px solid #d8dee4 /* was --component-input-border */;
     border-right: none;
     border-radius: 0.125rem 0 0 0.125rem;
     padding-left: 0.5rem;
@@ -31,7 +31,7 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElInputAddOn} {
-    border: var(--component-input-border);
+    border: 1px solid #d8dee4 /* was --component-input-border */;
     border-left: none;
     padding-right: 0.5rem;
     align-items: center;
@@ -70,11 +70,11 @@ export const ElInputGroup = styled.div`
 
     &:checked {
       ~ ${ElDeprecatedIcon}, ~ ${ElDeprecatedLabel}, ~ ${ElInputAddOn} {
-        background: var(--white);
+        background: var(--colour-fill-white);
       }
 
       ~ ${ElInputAddOn} {
-        color: var(--black);
+        color: var(--colour-text-primary);
       }
     }
   }
@@ -117,14 +117,14 @@ export const ElInputGroup = styled.div`
   ${ElInput}:not([type='checkbox']):not([type='radio']) {
     &:focus {
       ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {
-        border-color: var(--intent-primary);
+        border-color: var(--colour-fill-action-dark);
       }
     }
 
     &.${elHasInputError} {
       ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {
-        border-color: var(--intent-danger);
-        background-color: var(--red-100);
+        border-color: var(--colour-fill-error-dark);
+        background-color: var(--colour-fill-error-lightest);
       }
     }
 

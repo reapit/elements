@@ -13,7 +13,7 @@ export const ElProgressBarContainer = styled.div`
 
 /** @deprecated */
 export const ElProgressBarLabel = styled.div`
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
   flex-shrink: 0;
   margin-top: 0.5rem;
 `
@@ -30,7 +30,7 @@ export const ElProgressBarInner = styled.div`
 export const ElProgressBarItem = styled.div`
   width: 100%;
   height: 3px;
-  background-color: var(--purple-500);
+  background-color: var(--colour-fill-action-dark);
 `
 
 /** @deprecated */

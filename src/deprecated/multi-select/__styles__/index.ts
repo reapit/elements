@@ -25,9 +25,9 @@ export const ElMultiSelectCheckbox = styled.input`
   position: absolute;
 
   &:checked + label {
-    background: var(--white);
+    background: var(--colour-fill-white);
     padding: 0.2rem 2rem 0.2rem 1rem;
-    color: var(--black);
+    color: var(--colour-text-primary);
 
     &::before {
       content: '';
@@ -48,7 +48,7 @@ export const ElMultiSelectCheckbox = styled.input`
     }
 
     &.${elHasGreyChips} {
-      background: var(--purple-050);
+      background: var(--colour-fill-action-lightest);
     }
   }
 
@@ -77,12 +77,12 @@ export const ElMultiSelectLabel = styled.label`
   width: auto;
   margin: 0.25rem 0.375rem;
   height: 28px;
-  background: var(--white);
+  background: var(--colour-fill-white);
   border-radius: 1rem;
   border: 1px solid var(--neutral-150);
   padding: 0.2rem 1.5rem;
   position: relative;
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
   transition: all 0.2s linear;
   display: flex;
   align-items: center;
@@ -90,12 +90,12 @@ export const ElMultiSelectLabel = styled.label`
   color: var(--neutral-500);
 
   &.${elHasGreyChips} {
-    background: var(--purple-050);
-    border: 1px solid var(--purple-050);
+    background: var(--colour-fill-action-lightest);
+    border: 1px solid var(--colour-fill-action-lightest);
   }
 
   &:hover {
-    color: var(--black);
+    color: var(--colour-text-primary);
   }
 `
 
@@ -103,7 +103,7 @@ export const ElMultiSelectLabel = styled.label`
 export const ElMultiSelect = styled.div`
   display: flex;
   flex-wrap: wrap;
-  background-color: var(--white);
+  background-color: var(--colour-fill-white);
   padding: 0.25rem 0.5rem;
   position: relative;
 `
@@ -113,7 +113,7 @@ export const ElMultiSelectSelected = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  background-color: var(--white);
+  background-color: var(--colour-fill-white);
   border: 1px solid var(--neutral-150);
   border-radius: 2px 2px 0 0;
   min-height: 3rem;
@@ -122,7 +122,7 @@ export const ElMultiSelectSelected = styled.div`
 
   p {
     margin-left: 0.375rem;
-    font-size: var(--font-size-small);
+    font-size: 0.875rem /* was --font-size-small */;
     color: var(--neutral-500);
   }
 `
@@ -131,7 +131,7 @@ export const ElMultiSelectSelected = styled.div`
 export const ElMultiSelectUnSelected = styled.div`
   display: flex;
   flex-wrap: wrap;
-  background-color: var(--white);
+  background-color: var(--colour-fill-white);
   border: 1px solid var(--neutral-150);
   border-top: none;
   border-radius: 0 0 4px 4px;

@@ -40,7 +40,7 @@ export const ElMobileControls = styled.div`
 
   ${ElDeprecatedIcon} {
     &.${elIntentDefault} {
-      color: var(--white);
+      color: var(--colour-text-white);
     }
   }
 
@@ -56,13 +56,17 @@ export const ElMobileControls = styled.div`
 /** @deprecated */
 export const ElMobileControlItem = styled.a`
   padding: 0.5rem 1rem;
-  background: var(--white);
+  background: var(--colour-fill-white);
   text-decoration: none;
-  border-radius: var(--default-border-radius);
+  border-radius: 0.25rem /* was --default-border-radius */;
   border: 1px solid var(--neutral-100);
-  font-size: var(--font-size-small);
-  font-family: var(--font-sans-serif);
-  font-weight: var(--font-weight-medium);
+  font-size: 0.875rem /* was --font-size-small */;
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  font-weight: 500 /* was --font-weight-medium */;
   color: var(--neutral-400);
   margin: 0 0.5rem 0.25rem 0;
   display: none;

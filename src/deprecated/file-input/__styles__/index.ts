@@ -6,7 +6,11 @@ import { styled } from '@linaria/react'
 /** @deprecated */
 export const ElFileInput = styled.input`
   &[type='file'] {
-    font-family: var(--font-sans-serif);
+    font-family:
+      'Inter',
+      Helvetica,
+      Arial,
+      sans-serif /* was --font-sans-serif */;
     position: absolute;
     height: 34px;
     width: 5.5rem;
@@ -43,8 +47,8 @@ export const ElFileInputIconContainer = styled.div`
   height: 34px;
 
   ${ElDeprecatedIcon} {
-    background: var(--white);
-    border: 1px solid var(--component-input-focus-bg);
+    background: var(--colour-fill-white);
+    border: 1px solid #e5e9ed /* was --component-input-focus-bg */;
     border-radius: 0.25rem;
     height: 100%;
     width: 34px;

@@ -40,7 +40,7 @@ export const ElDeprecatedNavContainer = styled.nav`
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-  background-color: var(--white);
+  background-color: var(--colour-fill-white);
   width: 100%;
   position: sticky;
   top: 0;
@@ -60,7 +60,7 @@ export const ElDeprecatedNavContainer = styled.nav`
 
 /** @deprecated */
 export const ElDeprecatedNavSubContainer = styled.div`
-  background-color: var(--nav-menu-background-accent);
+  background-color: #ffffff /* was --nav-menu-background-accent */;
   width: 100%;
 
   @media screen and (min-width: 768px) {
@@ -75,9 +75,13 @@ export const elDeprecatedNavItemSecondary = css`
 
 /** @deprecated */
 export const ElDeprecatedNavItem = styled.a`
-  font-family: var(--font-sans-serif);
-  font-size: var(--font-size-small);
-  font-weight: var(--font-weight-medium);
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  font-size: 0.875rem /* was --font-size-small */;
+  font-weight: 500 /* was --font-weight-medium */;
   color: var(--neutral-400);
   display: flex;
   text-align: center;
@@ -88,7 +92,7 @@ export const ElDeprecatedNavItem = styled.a`
   opacity: 1;
   flex: 1 0 100%;
   width: 100%;
-  border-left: 3px solid var(--white);
+  border-left: 3px solid var(--colour-fill-white);
   text-decoration: none;
 
   &:hover {
@@ -98,7 +102,7 @@ export const ElDeprecatedNavItem = styled.a`
 
   &:first-child {
     opacity: 1;
-    background-color: var(--white);
+    background-color: var(--colour-fill-white);
     margin-right: auto;
     width: 100%;
     padding: 0 1.25rem;
@@ -111,14 +115,14 @@ export const ElDeprecatedNavItem = styled.a`
   }
 
   &:hover:not(:first-child) {
-    border-left: 3px solid var(--purple-300);
+    border-left: 3px solid var(--colour-fill-action-light);
   }
 
   @media screen and (min-width: 768px) {
     height: 3.5rem;
     flex: 0 0 auto;
     justify-content: center;
-    font-size: var(--font-size-default);
+    font-size: 0.9375rem /* was --font-size-default */;
     padding: 0 0.75rem;
     width: auto;
     border-left: none;
@@ -152,15 +156,15 @@ export const ElDeprecatedNavItem = styled.a`
 /** @deprecated */
 export const elDeprecatedNavItemActive = css`
   &:not(:first-child) {
-    background-color: var(--purple-050);
-    border-left: 3px solid var(--purple-500);
-    color: var(--purple-500);
+    background-color: var(--colour-fill-action-lightest);
+    border-left: 3px solid var(--colour-fill-action-dark);
+    color: var(--colour-text-action);
   }
 
   @media screen and (min-width: 768px) {
     &:not(:first-child) {
-      --nav-menu-icon-primary-accent: var(--purple-500);
-      --nav-menu-icon-secondary-accent: var(--purple-300);
+      --nav-menu-icon-primary-accent: var(--colour-fill-action-dark);
+      --nav-menu-icon-secondary-accent: var(--colour-fill-action-light);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
       background-color: var(--neutral-050);
@@ -198,8 +202,12 @@ export const elDeprecatedNavItemIcon = css`
 /** @deprecated */
 export const ElDeprecatedNavSubItem = styled.a`
   height: 0;
-  font-family: var(--font-sans-serif);
-  font-size: var(--font-size-small);
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  font-size: 0.875rem /* was --font-size-small */;
   color: var(--neutral-400);
   opacity: 0;
   display: flex;
@@ -207,7 +215,7 @@ export const ElDeprecatedNavSubItem = styled.a`
   justify-content: flex-start;
   align-items: center;
   transition: all 0.3s linear;
-  border-left: 3px solid var(--white);
+  border-left: 3px solid var(--colour-fill-white);
 
   @media screen and (min-width: 768px) {
     display: none;
@@ -225,14 +233,14 @@ export const elDeprecatedNavSubItemExpanded = css`
     margin-left: 1rem;
 
     &:hover {
-      color: var(--purple-300);
+      color: var(--colour-text-action);
     }
   }
 `
 
 /** @deprecated */
 export const elDeprecatedNavSubItemActive = css`
-  color: var(--purple-500);
+  color: var(--colour-text-action);
   margin-left: 1rem;
 `
 
@@ -257,8 +265,8 @@ export const ElDeprecatedNavMenu = styled.div`
   position: absolute;
   top: 44px;
   right: 0;
-  background-color: var(--white);
-  color: var(--black);
+  background-color: var(--colour-fill-white);
+  color: var(--colour-text-primary);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -275,12 +283,12 @@ export const ElDeprecatedNavMenuOption = styled.div`
   align-items: center;
   cursor: pointer;
   padding: 0.875rem 1rem;
-  font-weight: var(--font-weight-default);
+  font-weight: 400 /* was --font-weight-default */;
   width: 100%;
   height: 36px;
 
   &:hover {
-    color: var(--intent-primary);
+    color: var(--colour-text-action);
   }
 
   svg,
@@ -304,21 +312,21 @@ export const ElDeprecatedNavResponsiveAvatarWrap = styled.div`
   position: relative;
   display: flex;
   align-items: center;
-  font-size: var(--font-size-smallest);
-  font-weight: var(--font-weight-bold);
-  color: var(--intent-primary);
+  font-size: 0.8125rem /* was --font-size-smallest */;
+  font-weight: 600 /* was --font-weight-bold */;
+  color: var(--colour-text-action);
   margin-right: 0.25rem;
   cursor: pointer;
 
   ${ElDeprecatedAvatar} {
     height: 2rem;
     width: 2rem;
-    background-color: var(--intent-primary-lightest);
+    background-color: var(--colour-fill-action-lightest);
   }
 
   &:hover {
     ${ElDeprecatedAvatar} {
-      background-color: var(--purple-100);
+      background-color: var(--colour-fill-action-lightest);
     }
   }
 
@@ -338,7 +346,7 @@ export const elAppSwitcherOpen = css`
 export const ElNavResponsiveAppSwitcherWrap = styled.div`
   position: relative;
   display: flex;
-  font-size: var(--font-size-smallest);
+  font-size: 0.8125rem /* was --font-size-smallest */;
   cursor: pointer;
 
   ${ElDeprecatedNavMenu} {
@@ -357,9 +365,9 @@ export const ElNavResponsiveAppSwitcherIconWrap = styled.div`
   margin-right: 0.5rem;
 
   &.${elAppSwitcherOpen} {
-    background-color: var(--intent-primary-lightest);
+    background-color: var(--colour-fill-action-lightest);
     rect {
-      fill: var(--intent-primary-lightest);
+      fill: var(--colour-fill-action-lightest);
     }
   }
 `

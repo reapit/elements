@@ -60,8 +60,12 @@ export const elHasUpperCasedText = css`
 
 /** @deprecated */
 export const elTextBase = css`
-  font-family: var(--font-sans-serif);
-  color: var(--black);
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  color: var(--colour-text-primary);
   font-size: 15px;
   line-height: 24px;
   font-weight: 400;
@@ -79,15 +83,15 @@ export const elTextBase = css`
   }
 
   &.${elHasRegularText} {
-    font-weight: var(--font-weight-default);
+    font-weight: 400 /* was --font-weight-default */;
   }
 
   &.${elHasMediumText} {
-    font-weight: var(--font-weight-medium);
+    font-weight: 500 /* was --font-weight-medium */;
   }
 
   &.${elHasBoldText} {
-    font-weight: var(--font-weight-bold);
+    font-weight: 600 /* was --font-weight-bold */;
   }
 
   &.${elHasCenteredText} {
@@ -119,31 +123,31 @@ export const elTextBase = css`
   }
 
   &.${elIntentPrimary} {
-    color: var(--intent-primary);
+    color: var(--colour-text-action);
   }
 
   &.${elIntentNeutral} {
-    color: var(--intent-neutral);
+    color: var(--colour-text-info);
   }
 
   &.${elIntentSuccess} {
-    color: var(--intent-success);
+    color: var(--colour-text-success);
   }
 
   &.${elIntentPending} {
-    color: var(--intent-pending);
+    color: var(--colour-text-pending);
   }
 
   &.${elIntentWarning} {
-    color: var(--intent-warning);
+    color: var(--colour-text-warning);
   }
 
   &.${elIntentDanger} {
-    color: var(--intent-danger);
+    color: var(--colour-text-error);
   }
 
   &.${elIntentDefault} {
-    color: var(--intent-default);
+    color: var(--colour-text-neutral);
   }
 `
 
@@ -191,10 +195,14 @@ export const elText2XS = css`
 
 /** @deprecated */
 export const elTitle = css`
-  font-family: var(--font-sans-serif);
-  font-weight: var(--font-weight-bold);
-  color: var(--black);
-  font-size: var(--font-size-heading);
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  font-weight: 600 /* was --font-weight-bold */;
+  color: var(--colour-text-primary);
+  font-size: 1.5rem /* was --font-size-heading */;
   line-height: 2.25rem;
   letter-spacing: 0%;
   margin-bottom: 1rem;
@@ -212,11 +220,11 @@ export const elTitle = css`
   }
 
   &.${elHasBoldText} {
-    font-weight: var(--font-weight-bold);
+    font-weight: 600 /* was --font-weight-bold */;
   }
 
   &.${elHasMediumText} {
-    font-weight: var(--font-weight-medium);
+    font-weight: 500 /* was --font-weight-medium */;
   }
 
   &.${elHasItalicText} {
@@ -244,40 +252,44 @@ export const elTitle = css`
   }
 
   &.${elIntentPrimary} {
-    color: var(--intent-primary);
+    color: var(--colour-text-action);
   }
 
   &.${elIntentNeutral} {
-    color: var(--intent-neutral);
+    color: var(--colour-text-info);
   }
 
   &.${elIntentSuccess} {
-    color: var(--intent-success);
+    color: var(--colour-text-success);
   }
 
   &.${elIntentPending} {
-    color: var(--intent-pending);
+    color: var(--colour-text-pending);
   }
 
   &.${elIntentWarning} {
-    color: var(--intent-warning);
+    color: var(--colour-text-warning);
   }
 
   &.${elIntentDanger} {
-    color: var(--intent-danger);
+    color: var(--colour-text-error);
   }
 
   &.${elIntentDefault} {
-    color: var(--intent-default);
+    color: var(--colour-text-neutral);
   }
 `
 
 /** @deprecated */
 export const elSubtitle = css`
-  font-family: var(--font-sans-serif);
-  font-weight: var(--font-weight-default);
-  color: var(--black);
-  font-size: var(--font-size-subheading);
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  font-weight: 400 /* was --font-weight-default */;
+  color: var(--colour-text-primary);
+  font-size: 1.25rem /* was --font-size-subheading */;
   line-height: 1.5rem;
   letter-spacing: 0%;
   margin-bottom: 0.75rem;
@@ -295,11 +307,11 @@ export const elSubtitle = css`
   }
 
   &.${elHasBoldText} {
-    font-weight: var(--font-weight-bold);
+    font-weight: 600 /* was --font-weight-bold */;
   }
 
   &.${elHasMediumText} {
-    font-weight: var(--font-weight-medium);
+    font-weight: 500 /* was --font-weight-medium */;
   }
 
   &.${elHasItalicText} {
@@ -327,40 +339,44 @@ export const elSubtitle = css`
   }
 
   &.${elIntentPrimary} {
-    color: var(--intent-primary);
+    color: var(--colour-text-action);
   }
 
   &.${elIntentNeutral} {
-    color: var(--intent-neutral);
+    color: var(--colour-text-info);
   }
 
   &.${elIntentSuccess} {
-    color: var(--intent-success);
+    color: var(--colour-text-success);
   }
 
   &.${elIntentPending} {
-    color: var(--intent-pending);
+    color: var(--colour-text-pending);
   }
 
   &.${elIntentWarning} {
-    color: var(--intent-warning);
+    color: var(--colour-text-warning);
   }
 
   &.${elIntentDanger} {
-    color: var(--intent-danger);
+    color: var(--colour-text-error);
   }
 
   &.${elIntentDefault} {
-    color: var(--intent-default);
+    color: var(--colour-text-neutral);
   }
 `
 
 /** @deprecated */
 export const elBodyText = css`
-  font-family: var(--font-sans-serif);
-  font-weight: var(--font-weight-default);
-  color: var(--black);
-  font-size: var(--font-size-default);
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  font-weight: 400 /* was --font-weight-default */;
+  color: var(--colour-text-primary);
+  font-size: 0.9375rem /* was --font-size-default */;
   line-height: 1.25rem;
   letter-spacing: -1%;
   margin-bottom: 0.5rem;
@@ -378,11 +394,11 @@ export const elBodyText = css`
   }
 
   &.${elHasBoldText} {
-    font-weight: var(--font-weight-bold);
+    font-weight: 600 /* was --font-weight-bold */;
   }
 
   &.${elHasMediumText} {
-    font-weight: var(--font-weight-medium);
+    font-weight: 500 /* was --font-weight-medium */;
   }
 
   &.${elHasItalicText} {
@@ -410,40 +426,44 @@ export const elBodyText = css`
   }
 
   &.${elIntentPrimary} {
-    color: var(--intent-primary);
+    color: var(--colour-text-action);
   }
 
   &.${elIntentNeutral} {
-    color: var(--intent-neutral);
+    color: var(--colour-text-info);
   }
 
   &.${elIntentSuccess} {
-    color: var(--intent-success);
+    color: var(--colour-text-success);
   }
 
   &.${elIntentPending} {
-    color: var(--intent-pending);
+    color: var(--colour-text-pending);
   }
 
   &.${elIntentWarning} {
-    color: var(--intent-warning);
+    color: var(--colour-text-warning);
   }
 
   &.${elIntentDanger} {
-    color: var(--intent-danger);
+    color: var(--colour-text-error);
   }
 
   &.${elIntentDefault} {
-    color: var(--intent-default);
+    color: var(--colour-text-neutral);
   }
 `
 
 /** @deprecated */
 export const elSmallText = css`
-  font-family: var(--font-sans-serif);
-  font-weight: var(--font-weight-default);
-  color: var(--black);
-  font-size: var(--font-size-small);
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  font-weight: 400 /* was --font-weight-default */;
+  color: var(--colour-text-primary);
+  font-size: 0.875rem /* was --font-size-small */;
   line-height: 1.125rem;
   letter-spacing: 0%;
   margin-bottom: 0.5rem;
@@ -461,11 +481,11 @@ export const elSmallText = css`
   }
 
   &.${elHasBoldText} {
-    font-weight: var(--font-weight-bold);
+    font-weight: 600 /* was --font-weight-bold */;
   }
 
   &.${elHasMediumText} {
-    font-weight: var(--font-weight-medium);
+    font-weight: 500 /* was --font-weight-medium */;
   }
 
   &.${elHasItalicText} {
@@ -493,30 +513,30 @@ export const elSmallText = css`
   }
 
   &.${elIntentPrimary} {
-    color: var(--intent-primary);
+    color: var(--colour-text-action);
   }
 
   &.${elIntentNeutral} {
-    color: var(--intent-neutral);
+    color: var(--colour-text-info);
   }
 
   &.${elIntentSuccess} {
-    color: var(--intent-success);
+    color: var(--colour-text-success);
   }
 
   &.${elIntentPending} {
-    color: var(--intent-pending);
+    color: var(--colour-text-pending);
   }
 
   &.${elIntentWarning} {
-    color: var(--intent-warning);
+    color: var(--colour-text-warning);
   }
 
   &.${elIntentDanger} {
-    color: var(--intent-danger);
+    color: var(--colour-text-error);
   }
 
   &.${elIntentDefault} {
-    color: var(--intent-default);
+    color: var(--colour-text-neutral);
   }
 `

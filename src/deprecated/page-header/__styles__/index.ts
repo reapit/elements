@@ -73,11 +73,11 @@ export const ElDeprecatedPageHeaderWrapInner = styled.div`
 export const ElDeprecatedPageHeaderWrap = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: var(--page-header-bg);
+  background-color: #ffffff /* was --page-header-bg */;
   width: calc(100% + 2.5rem);
   translate: -1.25rem -0.5rem;
   padding: 0 1.25rem;
-  border-bottom: var(--page-header-border);
+  border-bottom: 1px solid #e5e9ed /* was --page-header-border */;
   margin-bottom: 0.5rem;
 
   ${ElDeprecatedAvatarImage} {

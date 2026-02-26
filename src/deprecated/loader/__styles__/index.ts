@@ -19,7 +19,7 @@ export const ElLoaderContainer = styled.div`
 /** @deprecated */
 export const ElLoaderLabel = styled.p`
   margin-right: 0.75rem;
-  font-size: var(--font-size-default);
+  font-size: 0.9375rem /* was --font-size-default */;
   color: var(--neutral-500);
 `
 
@@ -36,7 +36,7 @@ export const ElLoaderMovingBar = styled.div`
   position: absolute;
   height: 100%;
   width: 0;
-  background: var(--purple-500);
+  background: var(--colour-fill-action-dark);
   animation: moveDarkBlueBar ${ANIM_TIME}s infinite linear;
   z-index: 3;
 

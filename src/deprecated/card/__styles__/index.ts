@@ -5,7 +5,7 @@ import { ElDeprecatedAvatar } from '../../avatar'
 
 /** @deprecated */
 export const elCardFocussed = css`
-  background-color: var(--purple-050);
+  background-color: var(--colour-fill-action-lightest);
 `
 
 /** @deprecated */
@@ -13,7 +13,7 @@ export const ElCardWrap = styled.div`
   padding: 1rem;
   border-radius: 0.25rem;
   box-shadow: 2px 4px 20px rgb(0 0 0 / 0.03);
-  background: var(--white);
+  background: var(--colour-fill-white);
   position: relative;
 
   ${isTablet} {
@@ -22,7 +22,7 @@ export const ElCardWrap = styled.div`
   }
 
   &.${elCardFocussed} {
-    background-color: var(--purple-050);
+    background-color: var(--colour-fill-action-lightest);
   }
 `
 
@@ -67,7 +67,7 @@ export const ElCardHeading = styled.h5`
   white-space: normal;
   margin-bottom: 0.25rem;
   width: 100%;
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
 `
 
 /** @deprecated */
@@ -76,7 +76,7 @@ export const ElCardSubHeading = styled.h6`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: var(--font-size-smallest);
+  font-size: 0.8125rem /* was --font-size-smallest */;
 `
 
 export const elCardSubHeadingAdditionalExpanded = css`
@@ -86,8 +86,8 @@ export const elCardSubHeadingAdditionalExpanded = css`
 /** @deprecated */
 export const ElCardSubHeadingAdditional = styled.h6`
   color: var(--neutral-500);
-  font-size: var(--font-size-smallest);
-  font-weight: var(--font-weight-medium);
+  font-size: 0.8125rem /* was --font-size-smallest */;
+  font-weight: 500 /* was --font-weight-medium */;
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
@@ -102,20 +102,20 @@ export const elCardBodyWrapExpanded = css`
 /** @deprecated */
 export const ElCardBodyWrap = styled.div`
   width: 100%;
-  color: var(--black);
+  color: var(--colour-text-primary);
   display: -webkit-box;
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
   white-space: normal;
   height: 3rem;
-  font-size: var(--font-size-smallest);
+  font-size: 0.8125rem /* was --font-size-smallest */;
   transition: margin-bottom 0.2s linear;
   margin-top: 0.5rem;
 
   ${isTablet} {
     height: 3.25rem;
-    font-size: var(--font-size-small);
+    font-size: 0.875rem /* was --font-size-small */;
   }
 `
 
@@ -178,13 +178,13 @@ export const ElCardListHeading = styled.h5`
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
   margin-bottom: 0.25rem;
 `
 
 /** @deprecated */
 export const ElCardListSubHeading = styled.h6`
-  font-size: var(--font-size-smallest);
+  font-size: 0.8125rem /* was --font-size-smallest */;
   color: var(--neutral-500);
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -216,7 +216,7 @@ export const ElCardListItem = styled.div`
 
 /** @deprecated */
 export const ElCardListItemTextWrap = styled.div`
-  font-size: var(--font-size-smallest);
+  font-size: 0.8125rem /* was --font-size-smallest */;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -225,13 +225,13 @@ export const ElCardListItemTextWrap = styled.div`
 
 /** @deprecated */
 export const ElCardListItemTextPrimary = styled.div`
-  color: var(--black);
+  color: var(--colour-text-primary);
 `
 
 /** @deprecated */
 export const ElCardListItemTextSecondary = styled.div`
-  font-size: var(--font-size-smallest);
-  color: var(--intent-primary);
+  font-size: 0.8125rem /* was --font-size-smallest */;
+  color: var(--colour-text-action);
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 1;

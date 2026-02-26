@@ -21,7 +21,7 @@ const baseStyles = `
   }
 
   &:focus-visible {
-    border: 4px solid var(--purple-300);
+    border: 4px solid var(--colour-fill-action-light);
   }
 
   &:active,

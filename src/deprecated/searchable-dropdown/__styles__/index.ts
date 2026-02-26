@@ -10,7 +10,7 @@ export const ElSearchableDropdownContainer = styled.div`
   display: flex;
   position: relative;
   flex-grow: 1;
-  color: var(--black);
+  color: var(--colour-text-primary);
 `
 
 /** @deprecated */
@@ -20,11 +20,11 @@ export const ElSearchableDropdownResult = styled.div`
   flex-direction: column;
   justify-content: center;
   height: 2rem;
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
 
   &:hover {
-    background-color: var(--intent-primary);
-    color: var(--white);
+    background-color: var(--colour-fill-action-dark);
+    color: var(--colour-text-white);
     cursor: pointer;
   }
 `
@@ -41,7 +41,7 @@ export const ElSearchableDropdownResultsContainer = styled.div`
   border: 1px solid #cccccc;
   border-top: none;
   border-radius: 4px;
-  background: var(--white);
+  background: var(--colour-fill-white);
   box-shadow: 0 4px 16px 0 rgb(34 43 51 / 0.16);
 `
 
@@ -56,7 +56,7 @@ export const ElSearchableDropdownSearchInputAddOn = styled(InputAddOn)`
 export const ElSearchableDropdownCloseButton = styled(DeprecatedIcon)`
   position: absolute;
   font-size: 1rem;
-  color: var(--intent-default);
+  color: var(--colour-text-primary);
   right: 0;
   padding: 9px;
   cursor: pointer;

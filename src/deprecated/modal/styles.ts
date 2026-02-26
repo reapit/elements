@@ -30,7 +30,7 @@ export const ElModal = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   box-shadow: 0 4px 16px 0 rgb(34 43 51 / 0.16);
-  border-radius: var(--default-border-radius);
+  border-radius: 0.25rem /* was --default-border-radius */;
   background: white;
   z-index: 99;
   width: 65%;
@@ -50,10 +50,14 @@ export const ElModal = styled.div`
  * @deprecated
  */
 export const ElModalHeader = styled.div`
-  color: var(--black);
-  font-family: var(--font-sans-serif);
-  font-weight: var(--font-weight-default);
-  font-size: var(--font-size-subheading);
+  color: var(--colour-text-primary);
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  font-weight: 400 /* was --font-weight-default */;
+  font-size: 1.25rem /* was --font-size-subheading */;
   margin-bottom: 1rem;
   text-align: left;
 
@@ -70,5 +74,5 @@ export const ElModalHeader = styled.div`
  * @deprecated
  */
 export const ElModalBody = styled.div`
-  font-size: var(--font-size-default);
+  font-size: 0.9375rem /* was --font-size-default */;
 `

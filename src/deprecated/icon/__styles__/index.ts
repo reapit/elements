@@ -15,30 +15,30 @@ export const ElDeprecatedIcon = styled.span`
   font-size: 1.5rem;
 
   &.${elIntentPrimary} {
-    color: var(--intent-primary);
+    color: var(--colour-text-action);
   }
 
   &.${elIntentNeutral} {
-    color: var(--intent-neutral);
+    color: var(--colour-text-info);
   }
 
   &.${elIntentSuccess} {
-    color: var(--intent-success);
+    color: var(--colour-text-success);
   }
 
   &.${elIntentPending} {
-    color: var(--intent-pending);
+    color: var(--colour-text-pending);
   }
 
   &.${elIntentWarning} {
-    color: var(--intent-warning);
+    color: var(--colour-text-warning);
   }
 
   &.${elIntentDanger} {
-    color: var(--intent-danger);
+    color: var(--colour-text-error);
   }
 
   &.${elIntentDefault} {
-    color: var(--intent-default);
+    color: var(--colour-text-primary);
   }
 `

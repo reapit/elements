@@ -11,34 +11,34 @@ import {
 
 /** @deprecated */
 export const ElInputAddOn = styled.span`
-  font-size: var(--font-size-default);
+  font-size: 0.9375rem /* was --font-size-default */;
   color: var(--neutral-400);
 
   &.${elIntentPrimary} {
-    color: var(--intent-primary);
+    color: var(--colour-text-action);
   }
 
   &.${elIntentNeutral} {
-    color: var(--intent-neutral);
+    color: var(--colour-text-info);
   }
 
   &.${elIntentSuccess} {
-    color: var(--intent-success);
+    color: var(--colour-text-success);
   }
 
   &.${elIntentPending} {
-    color: var(--intent-pending);
+    color: var(--colour-text-pending);
   }
 
   &.${elIntentWarning} {
-    color: var(--intent-warning);
+    color: var(--colour-text-warning);
   }
 
   &.${elIntentDanger} {
-    color: var(--intent-danger);
+    color: var(--colour-text-error);
   }
 
   &.${elIntentDefault} {
-    color: var(--intent-default);
+    color: var(--colour-text-neutral);
   }
 `

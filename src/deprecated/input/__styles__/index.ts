@@ -9,12 +9,16 @@ export const elHasInputError = css`
 /** @deprecated */
 export const ElInput = styled.input`
   display: flex;
-  color: var(--black);
-  background: var(--component-input-bg);
+  color: var(--colour-text-primary);
+  background: #ffffff /* was --component-input-bg */;
   padding: 0.5rem 0.6875rem;
   margin: 0;
-  font-family: var(--font-sans-serif);
-  font-size: var(--font-size-small);
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  font-size: 0.875rem /* was --font-size-small */;
 
   &:focus {
     outline: none;
@@ -22,8 +26,12 @@ export const ElInput = styled.input`
 
   &::placeholder {
     color: var(--neutral-400);
-    font-family: var(--font-sans-serif);
-    font-size: var(--font-size-small);
+    font-family:
+      'Inter',
+      Helvetica,
+      Arial,
+      sans-serif /* was --font-sans-serif */;
+    font-size: 0.875rem /* was --font-size-small */;
   }
 
   &:disabled {
@@ -39,17 +47,17 @@ export const ElInput = styled.input`
   &:not([type='checkbox']):not([type='radio']) {
     flex-grow: 1;
     border-radius: 0.125rem;
-    border: var(--component-input-border);
+    border: 1px solid #d8dee4 /* was --component-input-border */;
     height: 2.25rem;
     min-width: 0;
 
     &:focus {
-      border: var(--component-input-border-focus);
+      border: 1px solid #4e56ea /* was --component-input-border-focus */;
     }
 
     &.${elHasInputError} {
-      border: 1px solid var(--intent-danger);
-      background-color: var(--red-100);
+      border: 1px solid var(--colour-fill-error-dark);
+      background-color: var(--colour-fill-error-lightest);
     }
   }
 
@@ -59,14 +67,14 @@ export const ElInput = styled.input`
 
   &[type='checkbox'] {
     appearance: none;
-    border: var(--component-input-border);
-    background-color: var(--white);
+    border: 1px solid #d8dee4 /* was --component-input-border */;
+    background-color: var(--colour-fill-white);
     border-radius: 0.125rem;
     width: 1.5rem;
     height: 1.5rem;
 
     &:focus {
-      border: var(--component-input-border-focus);
+      border: 1px solid #4e56ea /* was --component-input-border-focus */;
     }
 
     &:checked {
@@ -74,21 +82,21 @@ export const ElInput = styled.input`
       background-position: center center;
       background-repeat: no-repeat;
       background-size: 0.75rem;
-      background-color: var(--intent-primary);
-      border: 1px solid var(--intent-primary);
+      background-color: var(--colour-fill-action-dark);
+      border: 1px solid var(--colour-fill-action-dark);
     }
 
     &:disabled {
       background-color: var(--neutral-100);
-      border: var(--component-input-border);
+      border: 1px solid #d8dee4 /* was --component-input-border */;
       cursor: not-allowed;
     }
   }
 
   &[type='radio'] {
     appearance: none;
-    border: var(--component-input-border);
-    background-color: var(--white);
+    border: 1px solid #d8dee4 /* was --component-input-border */;
+    background-color: var(--colour-fill-white);
     border-radius: 100%;
     width: 1.5rem;
     height: 1.5rem;
@@ -97,12 +105,12 @@ export const ElInput = styled.input`
     margin-right: 0.375rem;
 
     &:focus {
-      border: var(--component-input-border-focus);
+      border: 1px solid #4e56ea /* was --component-input-border-focus */;
     }
 
     &:disabled {
-      background-color: var(--white);
-      border: var(--component-input-border);
+      background-color: var(--colour-fill-white);
+      border: 1px solid #d8dee4 /* was --component-input-border */;
       cursor: not-allowed;
     }
 
@@ -112,8 +120,8 @@ export const ElInput = styled.input`
         display: block;
         position: absolute;
         border-radius: 100%;
-        border: 1px solid var(--intent-primary);
-        background-color: var(--intent-primary);
+        border: 1px solid var(--colour-fill-action-dark);
+        background-color: var(--colour-fill-action-dark);
         width: 0.75rem;
         height: 0.75rem;
         left: 50%;
@@ -122,17 +130,21 @@ export const ElInput = styled.input`
       }
 
       &:disabled {
-        background-color: var(--white);
+        background-color: var(--colour-fill-white);
         &::after {
           background-color: var(--neutral-300);
-          border: var(--component-input-border);
+          border: 1px solid #d8dee4 /* was --component-input-border */;
         }
       }
     }
   }
 
   &[type='file'] {
-    font-family: var(--font-sans-serif);
+    font-family:
+      'Inter',
+      Helvetica,
+      Arial,
+      sans-serif /* was --font-sans-serif */;
     &::file-selector-button {
       visibility: hidden;
       width: 0;

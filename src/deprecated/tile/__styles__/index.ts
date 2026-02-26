@@ -16,7 +16,7 @@ export const ElTile = styled.div`
   border-radius: 0.5rem;
   border: 1px solid var(--neutral-100);
   padding: 1.5rem;
-  background-color: var(--white);
+  background-color: var(--colour-fill-white);
 
   &.${elTilePaddingSmall} {
     padding: 1rem;

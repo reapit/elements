@@ -11,19 +11,19 @@ export const ElSecondaryNav = styled.div`
 export const ElSecondaryNavItem = styled.div`
   padding: 0.625rem 1.5rem;
   color: var(--neutral-400);
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
   cursor: pointer;
   position: relative;
-  border-left: 3px solid var(--white);
+  border-left: 3px solid var(--colour-fill-white);
 
   &.${elIsActive} {
-    border-left: 3px solid var(--purple-500);
-    background-color: var(--purple-050);
-    color: var(--purple-500);
+    border-left: 3px solid var(--colour-fill-action-dark);
+    background-color: var(--colour-fill-action-lightest);
+    color: var(--colour-text-action);
   }
 
   &:hover {
-    border-left: 3px solid var(--purple-500);
-    background-color: var(--purple-050);
+    border-left: 3px solid var(--colour-fill-action-dark);
+    background-color: var(--colour-fill-action-lightest);
   }
 `

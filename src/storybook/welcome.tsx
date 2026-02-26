@@ -4,7 +4,7 @@ import { isTablet } from '../styles/deprecated-media'
 import ReapitLogoInfographic from '../../assets/icons/reapitLogo.svg?react'
 
 const WelcomeWrapper = styled.div`
-  background-color: var(--white);
+  background-color: var(--colour-fill-white);
   width: 100%;
   box-shadow: 0 4px 30px rgb(0 0 0 / 0.1);
   border-top-left-radius: 1rem;
@@ -24,7 +24,7 @@ const WelcomeWrapper = styled.div`
 
 const WelcomeTitle = styled.h1`
   font-size: 2.5rem;
-  color: var(--black);
+  color: var(--colour-text-primary);
 
   ${isTablet} {
     width: 65%;
@@ -42,7 +42,7 @@ const WelcomeFooter = styled.div`
 const WelcomeFooterItem = styled.div`
   width: 50%;
   box-sizing: border-box;
-  color: var(--black);
+  color: var(--colour-text-primary);
   display: flex;
   flex-direction: column;
   padding: 2rem;
@@ -59,7 +59,7 @@ const WelcomeFooterItem = styled.div`
 export const WelcomeFooterTitle = styled.div`
   font-size: 1.3rem;
   font-weight: 400;
-  color: var(--black);
+  color: var(--colour-text-primary);
   margin-bottom: 1rem;
 `
 

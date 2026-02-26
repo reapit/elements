@@ -14,9 +14,9 @@ export const ElDeprecatedChipCheckbox = styled.input`
 
   &:checked + label,
   &:hover + label {
-    background: var(--purple-050);
+    background: var(--colour-fill-action-lightest);
     padding: 0.2rem 2rem 0.2rem 1rem;
-    color: var(--black);
+    color: var(--colour-text-primary);
 
     &::before {
       content: '';
@@ -37,12 +37,12 @@ export const ElDeprecatedChipLabel = styled.label`
   cursor: pointer;
   width: auto;
   height: 28px;
-  background: var(--purple-050);
-  border: 1px solid var(--purple-050);
+  background: var(--colour-fill-action-lightest);
+  border: 1px solid var(--colour-fill-action-lightest);
   border-radius: 1rem;
   padding: 0.2rem 1.5rem;
   position: relative;
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
   transition: all 0.2s linear;
   display: flex;
   align-items: center;

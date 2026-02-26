@@ -32,11 +32,11 @@ export const elPnIcon = css`
   padding-left: 0.75rem;
   display: flex;
   align-items: center;
-  border-radius: var(--default-border-radius) 0 0 var(--default-border-radius);
+  border-radius: 0.25rem /* was --default-border-radius */ 0 0 0.25rem /* was --default-border-radius */;
   cursor: pointer;
 
   ${ElDeprecatedIcon} {
-    color: var(--white);
+    color: var(--colour-text-white);
   }
 `
 
@@ -45,8 +45,8 @@ export const elPnContent = css`
   padding: 0.75rem;
   transition: 0.5s;
   width: 100%;
-  color: var(--black);
-  font-size: var(--font-size-default);
+  color: var(--colour-text-primary);
+  font-size: 0.9375rem /* was --font-size-default */;
 `
 
 /** @deprecated */
@@ -58,7 +58,7 @@ export const ElPersistentNotification = styled.div`
   transform: translateX(calc(100% - 2.5rem));
   transition: 0.5s;
   z-index: 10;
-  font-size: var(--font-size-default);
+  font-size: 0.9375rem /* was --font-size-default */;
 
   &.${elIsActive} {
     right: 0;
@@ -79,106 +79,106 @@ export const ElPersistentNotification = styled.div`
   &.${elPnIsInline} {
     z-index: auto;
     position: relative;
-    background: var(--white);
+    background: var(--colour-fill-white);
     .${elPnContent} {
-      border-radius: 0 var(--default-border-radius) var(--default-border-radius) 0;
+      border-radius: 0 0.25rem /* was --default-border-radius */ 0.25rem /* was --default-border-radius */ 0;
     }
   }
 
   &.${elIntentPrimary} {
     .${elPnContent} {
-      background: var(--intent-primary-lightest);
+      background: var(--colour-fill-action-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-primary-lightest);
+      background: var(--colour-fill-action-lightest);
 
       svg {
-        color: var(--intent-primary);
+        color: var(--colour-text-action);
       }
     }
   }
 
   &.${elIntentNeutral} {
     .${elPnContent} {
-      background: var(--intent-neutral-lightest);
+      background: var(--colour-fill-info-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-neutral-lightest);
+      background: var(--colour-fill-info-lightest);
 
       svg {
-        color: var(--intent-neutral);
+        color: var(--colour-text-info);
       }
     }
   }
 
   &.${elIntentSuccess} {
     .${elPnContent} {
-      background: var(--intent-success-lightest);
+      background: var(--colour-fill-success-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-success-lightest);
+      background: var(--colour-fill-success-lightest);
 
       svg {
-        color: var(--intent-success);
+        color: var(--colour-text-success);
       }
     }
   }
 
   &.${elIntentPending} {
     .${elPnContent} {
-      background: var(--intent-pending-lightest);
+      background: var(--colour-fill-pending-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-pending-lightest);
+      background: var(--colour-fill-pending-lightest);
 
       svg {
-        color: var(--intent-pending);
+        color: var(--colour-text-pending);
       }
     }
   }
 
   &.${elIntentWarning} {
     .${elPnContent} {
-      background: var(--intent-warning-lightest);
+      background: var(--colour-fill-warning-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-warning-lightest);
+      background: var(--colour-fill-warning-lightest);
 
       svg {
-        color: var(--intent-warning);
+        color: var(--colour-text-warning);
       }
     }
   }
 
   &.${elIntentDanger} {
     .${elPnContent} {
-      background: var(--intent-danger-lightest);
+      background: var(--colour-fill-error-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-danger-lightest);
+      background: var(--colour-fill-error-lightest);
 
       svg {
-        color: var(--intent-danger);
+        color: var(--colour-text-error);
       }
     }
   }
 
   &.${elIntentDefault} {
     .${elPnContent} {
-      background: var(--intent-default-lightest);
+      background: var(--colour-fill-neutral-lightest);
     }
 
     .${elPnIcon} {
-      background: var(--intent-default-lightest);
+      background: var(--colour-fill-neutral-lightest);
 
       svg {
-        color: var(--intent-default);
+        color: var(--colour-text-primary);
       }
     }
   }

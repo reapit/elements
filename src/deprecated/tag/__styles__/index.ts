@@ -13,44 +13,44 @@ import {
 export const ElDeprecatedTag = styled.span`
   border-radius: 3rem;
   display: inline-block;
-  font-size: var(--font-size-smallest);
+  font-size: 0.8125rem /* was --font-size-smallest */;
   padding: 0.25rem 1rem;
   background: var(--neutral-400);
-  color: var(--white);
+  color: var(--colour-text-white);
 
   &.${elIntentPrimary} {
-    background-image: linear-gradient(to right, var(--intent-primary), var(--intent-primary));
-    outline-color: var(--intent-primary-dark);
+    background-image: linear-gradient(to right, var(--colour-fill-action-dark), var(--colour-fill-action-dark));
+    outline-color: var(--colour-text-action);
   }
 
   &.${elIntentNeutral} {
-    background-image: linear-gradient(to right, var(--intent-neutral), var(--intent-neutral));
-    outline-color: var(--intent-neutral-dark);
+    background-image: linear-gradient(to right, var(--colour-fill-info-dark), var(--colour-fill-info-dark));
+    outline-color: var(--colour-fill-info-dark);
   }
 
   &.${elIntentSuccess} {
-    background-image: linear-gradient(to right, var(--intent-success), var(--intent-success));
-    outline-color: var(--intent-success-dark);
+    background-image: linear-gradient(to right, var(--colour-fill-success-dark), var(--colour-fill-success-dark));
+    outline-color: var(--colour-fill-success-dark);
   }
 
   &.${elIntentPending} {
-    background-image: linear-gradient(to right, var(--intent-pending), var(--intent-pending));
-    outline-color: var(--intent-pending-dark);
+    background-image: linear-gradient(to right, var(--colour-fill-pending-dark), var(--colour-fill-pending-dark));
+    outline-color: var(--colour-fill-pending-dark);
   }
 
   &.${elIntentWarning} {
-    background-image: linear-gradient(to right, var(--intent-warning), var(--intent-warning));
-    outline-color: var(--intent-warning-dark);
+    background-image: linear-gradient(to right, var(--colour-fill-warning-dark), var(--colour-fill-warning-dark));
+    outline-color: var(--colour-fill-warning-dark);
   }
 
   &.${elIntentDanger} {
-    background-image: linear-gradient(to right, var(--intent-danger), var(--intent-danger));
-    outline-color: var(--intent-danger-dark);
+    background-image: linear-gradient(to right, var(--colour-fill-error-dark), var(--colour-fill-error-dark));
+    outline-color: var(--colour-fill-error-dark);
   }
 
   &.${elIntentDefault} {
-    background-image: linear-gradient(to right, var(--intent-default), var(--intent-default));
-    outline-color: var(--intent-default-dark);
+    background-image: linear-gradient(to right, var(--colour-fill-neutral-dark), var(--colour-fill-neutral-dark));
+    outline-color: var(--colour-fill-neutral-dark);
   }
 `
 

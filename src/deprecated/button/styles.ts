@@ -230,7 +230,7 @@ const baseButtonStyles = `
   &:focus-visible {
     box-shadow:
       0 0 0 1px white,
-      0px 0px 0px 4px var(--purple-300);
+      0px 0px 0px 4px var(--colour-fill-action-light);
     outline: 0;
   }
 
@@ -265,7 +265,7 @@ const baseButtonStyles = `
 
     &[data-variant='destructive'], &[data-variant='primary'] {
       > .${elDeprecatedIcon} {
-        color: var(--white);
+        color: var(--colour-text-white);
       }
     }
 

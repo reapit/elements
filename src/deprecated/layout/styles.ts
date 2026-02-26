@@ -18,7 +18,7 @@ export const elDeprecatedMainContainer = css`
   width: 100%;
   height: 100%;
   overflow: hidden visible;
-  background: var(--white);
+  background: var(--colour-fill-white);
 
   &.${elHasGreyBackground} {
     background: var(--neutral-050);
@@ -37,7 +37,7 @@ export const elPageContainer = css`
   width: 100%;
   height: 100%;
   overflow: hidden scroll;
-  background-color: var(--white);
+  background-color: var(--colour-fill-white);
 
   ${isTablet} {
     padding: 2.5rem 1.5rem;
@@ -65,7 +65,7 @@ export const elSecondaryNavContainer = css`
   padding: 1.5rem;
   overflow: hidden scroll;
   scrollbar-width: none;
-  background: var(--white);
+  background: var(--colour-fill-white);
   border-right: 1px solid var(--neutral-050);
 
   &::-webkit-scrollbar {

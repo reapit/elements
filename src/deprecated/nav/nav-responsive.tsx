@@ -259,7 +259,7 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
                   <img
                     src={brandOptions.logoUrl}
                     alt={`Brand icon with url ${brandOptions.logoUrl}`}
-                    style={{ maxHeight: 'var(--nav-brand-height)' }}
+                    style={{ maxHeight: '1.5rem' /* was --nav-brand-height */ }}
                     onClick={brandOptions?.callback}
                     onKeyDown={handleKeyboardEvent('Enter', brandOptions?.callback as () => void)}
                     role="button"
@@ -269,7 +269,7 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
                   <DeprecatedIcon
                     onClick={brandOptions?.callback}
                     onKeyDown={handleKeyboardEvent('Enter', brandOptions?.callback as () => void)}
-                    style={{ maxHeight: 'var(--nav-brand-height)' }}
+                    style={{ maxHeight: '1.5rem' /* was --nav-brand-height */ }}
                     width="100px"
                     icon="reapitLogo"
                     role="button"

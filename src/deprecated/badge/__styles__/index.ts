@@ -13,45 +13,45 @@ import {
 export const ElDeprecatedBadge = styled.span`
   border-radius: 0.75rem;
   display: inline-block;
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
   padding: 0.1rem 0.375rem;
   line-height: 20px;
-  background: var(--intent-default-lightest);
-  color: var(--intent-default);
+  background: var(--colour-fill-neutral-lightest);
+  color: var(--colour-text-primary);
 
   &.${elIntentPrimary} {
-    color: var(--intent-primary);
-    background: var(--intent-primary-lightest);
+    color: var(--colour-text-action);
+    background: var(--colour-fill-action-lightest);
   }
 
   &.${elIntentNeutral} {
-    color: var(--intent-neutral);
-    background: var(--intent-neutral-lightest);
+    color: var(--colour-text-info);
+    background: var(--colour-fill-info-lightest);
   }
 
   &.${elIntentSuccess} {
-    color: var(--green-600);
-    background: var(--intent-success-lightest);
+    color: var(--colour-text-success);
+    background: var(--colour-fill-success-lightest);
   }
 
   &.${elIntentPending} {
-    color: var(--yellow-600);
-    background: var(--intent-pending-lightest);
+    color: var(--colour-text-pending);
+    background: var(--colour-fill-pending-lightest);
   }
 
   &.${elIntentWarning} {
-    color: var(--orange-600);
-    background: var(--intent-warning-lightest);
+    color: var(--colour-text-warning);
+    background: var(--colour-fill-warning-lightest);
   }
 
   &.${elIntentDanger} {
-    color: var(--intent-danger);
-    background: var(--intent-danger-lightest);
+    color: var(--colour-text-error);
+    background: var(--colour-fill-error-lightest);
   }
 
   &.${elIntentDefault} {
-    color: var(--intent-default);
-    background: var(--intent-default-lightest);
+    color: var(--colour-text-primary);
+    background: var(--colour-fill-neutral-lightest);
   }
 `
 

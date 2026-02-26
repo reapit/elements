@@ -163,7 +163,7 @@ export const elTableCellHasDarkText = css`
 
 /** @deprecated */
 export const elTableRowFocused = css`
-  background: var(--purple-050);
+  background: var(--colour-fill-action-lightest);
 `
 
 // molecules
@@ -183,7 +183,7 @@ export const ElDeprecatedTableHeadersRow = styled.div`
    * people using this table could put any number of columns in. Unless the CSS is
    * explicitly told the number of columns, it doesn't know. */
 
-  /* - minmax(var(--component-table-min-column-width), 1fr)) - this sets the width
+  /* - minmax(3rem, 1fr)) - this sets the width
    * of each column. The columns will be a minimum of the variable and a maximum
    * of 1fr (i.e. equal column widths) */
 
@@ -198,7 +198,7 @@ export const ElDeprecatedTableHeadersRow = styled.div`
    * the column that has the button to trigger the expandable row. */
 
   grid-template-columns:
-    repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
+    repeat(var(--component-table-num-columns, auto-fit), minmax(3rem /* was --component-table-min-column-width */, 1fr))
     var(--component-table-expandable-trigger-width, 0);
   border-bottom: 1px solid var(--neutral-100);
 
@@ -216,8 +216,8 @@ export const ElDeprecatedTableHeader = styled.div`
   height: ${MAX_HEADER_HEIGHT};
   overflow: hidden;
   text-overflow: ellipsis;
-  font-size: var(--font-size-smallest);
-  font-weight: var(--font-weight-bold);
+  font-size: 0.8125rem /* was --font-size-smallest */;
+  font-weight: 600 /* was --font-weight-bold */;
   text-transform: uppercase;
 
   ${cellOrders}
@@ -228,9 +228,9 @@ export const ElDeprecatedTableRow = styled.div`
   display: grid;
   /* see above for the explanation of this line */
   grid-template-columns:
-    repeat(var(--component-table-num-columns, auto-fit), minmax(var(--component-table-min-column-width), 1fr))
+    repeat(var(--component-table-num-columns, auto-fit), minmax(3rem /* was --component-table-min-column-width */, 1fr))
     var(--component-table-expandable-trigger-width, 0);
-  background: var(--white);
+  background: var(--colour-fill-white);
   border-bottom: 1px solid var(--neutral-100);
 
   ${isNarrow} {
@@ -240,7 +240,7 @@ export const ElDeprecatedTableRow = styled.div`
 
 /** @deprecated */
 export const ElTableCtaCell = styled.div`
-  background: var(--white);
+  background: var(--colour-fill-white);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -266,7 +266,7 @@ export const ElDeprecatedTableCell = styled.div`
   color: var(--neutral-500);
   /* margin-right: 2px; */
   overflow-wrap: anywhere;
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
 
   &:last-child {
     margin-right: 0;
@@ -279,7 +279,7 @@ export const ElDeprecatedTableCell = styled.div`
   }
 
   &.${elTableCellHasDarkText} {
-    color: var(--black);
+    color: var(--colour-text-neutral);
   }
 `
 
@@ -291,8 +291,8 @@ export const ElTableCellSplitWrap = styled.div`
 
 /** @deprecated */
 export const ElTableCellSplitData = styled.div`
-  font-size: var(--font-size-small);
-  color: var(--black);
+  font-size: 0.875rem /* was --font-size-small */;
+  color: var(--colour-text-primary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -300,7 +300,7 @@ export const ElTableCellSplitData = styled.div`
 
 /** @deprecated */
 export const ElTableCellSplitSubData = styled.div`
-  font-size: var(--font-size-smallest);
+  font-size: 0.8125rem /* was --font-size-smallest */;
   color: var(--neutral-500);
   white-space: nowrap;
   overflow: hidden;
@@ -327,18 +327,18 @@ export const ElTableExpandableRowTriggerCell = styled.div`
 export const ElDeprecatedTableRowContainer = styled.div`
   &:focus,
   &.${elIsActive}, .${elTableRowFocused} {
-    background: var(--purple-050);
+    background: var(--colour-fill-action-lightest);
 
     ${ElDeprecatedTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElDeprecatedTableRow}, ${ElTableCtaCell} {
-      background: var(--purple-050);
+      background: var(--colour-fill-action-lightest);
     }
   }
 
   &:not(.${elIsActive}) {
-    background: var(--white);
+    background: var(--colour-fill-white);
 
     ${ElDeprecatedTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElDeprecatedTableRow}, ${ElTableCtaCell} {
-      background: var(--white);
+      background: var(--colour-fill-white);
     }
   }
 
@@ -367,7 +367,7 @@ export const ElDeprecatedTableCellContent = styled.div`
       display: block;
       content: attr(data-narrow-label);
       width: 100%;
-      color: var(--black);
+      color: var(--colour-text-primary);
     }
   }
 `
@@ -382,7 +382,7 @@ export const ElTableCtaIconContainer = styled.div`
 /** @deprecated */
 export const ElTableExpandableRow = styled.div`
   height: 0;
-  background: var(--white);
+  background: var(--colour-fill-white);
   opacity: 0;
   border: none;
   overflow-y: scroll;
@@ -426,7 +426,7 @@ export const ElDeprecatedTable = styled.div`
         display: block;
         content: attr(data-narrow-label);
         width: 100%;
-        color: var(--black);
+        color: var(--colour-text-primary);
       }
     }
 

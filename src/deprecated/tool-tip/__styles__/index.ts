@@ -5,10 +5,10 @@ import { css } from '@linaria/core'
 export const ElDeprecatedToolTipChild = styled.div`
   position: absolute;
   padding: 0.5rem;
-  background: var(--black);
+  background: var(--colour-fill-neutral-darkest);
   border-radius: 0.5rem;
-  font-size: var(--font-size-small);
-  color: var(--white);
+  font-size: 0.875rem /* was --font-size-small */;
+  color: var(--colour-text-white);
   top: calc(-35px + -0.25rem);
   display: none;
   left: auto;
@@ -19,7 +19,7 @@ export const ElDeprecatedToolTipChild = styled.div`
     bottom: -0.5rem;
     left: calc(50% - 0.25rem);
     border: 0.25rem solid transparent;
-    border-top-color: var(--black);
+    border-top-color: var(--colour-fill-neutral-darkest);
     content: '';
   }
 `

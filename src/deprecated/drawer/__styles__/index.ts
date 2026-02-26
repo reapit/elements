@@ -58,14 +58,14 @@ export const ElDeprecatedDrawerHeader = styled.div`
 /** @deprecated */
 export const ElDeprecatedDrawerSubtitle = styled.div`
   color: var(--neutral-500);
-  font-size: var(--font-size-default);
+  font-size: 0.9375rem /* was --font-size-default */;
 `
 
 /** @deprecated */
 export const ElDeprecatedDrawerTitle = styled.div`
-  color: var(--black);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-small-subheading);
+  color: var(--colour-text-primary);
+  font-weight: 600 /* was --font-weight-bold */;
+  font-size: 1.125rem /* was --font-size-small-subheading */;
 
   &:has(~ ${ElDeprecatedDrawerSubtitle}) {
     margin-bottom: 0.25rem;

@@ -11,8 +11,8 @@ export const ElSteps = styled.div`
 export const ElStep = styled.div`
   background-color: var(--neutral-100);
   color: var(--neutral-500);
-  font-weight: var(--font-weight-bold);
-  font-size: var(--font-size-default);
+  font-weight: 600 /* was --font-weight-bold */;
+  font-size: 0.9375rem /* was --font-size-default */;
   border-radius: 100%;
   width: 2rem;
   height: 2rem;
@@ -20,7 +20,7 @@ export const ElStep = styled.div`
   align-items: center;
   justify-content: center;
   position: relative;
-  margin: 0 var(--component-steps-gutter-width);
+  margin: 0 12px /* was --component-steps-gutter-width */;
   margin-top: 0.25rem;
   transition: 0.3s;
   transform-origin: top;
@@ -34,8 +34,8 @@ export const ElStep = styled.div`
   }
 
   &.${elIsActive} {
-    color: var(--white);
-    background-color: var(--intent-primary);
+    color: var(--colour-text-white);
+    background-color: var(--colour-fill-action-dark);
   }
 
   &::before,
@@ -44,17 +44,17 @@ export const ElStep = styled.div`
     display: block;
     position: absolute;
     top: 50%;
-    width: var(--component-steps-gutter-width);
+    width: 12px /* was --component-steps-gutter-width */;
     height: 1.5px;
     background: var(--neutral-100);
   }
 
   &::before {
-    left: calc(var(--component-steps-gutter-width) * -1);
+    left: calc(12px /* was --component-steps-gutter-width */ * -1);
   }
 
   &::after {
-    right: calc(var(--component-steps-gutter-width) * -1);
+    right: calc(12px /* was --component-steps-gutter-width */ * -1);
   }
 
   &:first-child {

@@ -3,7 +3,7 @@ import { elIsActive } from '../../styles/deprecated-states'
 
 /** @deprecated */
 export const ElDeprecatedAccordionContainer = styled.div`
-  background-color: var(--white);
+  background-color: var(--colour-fill-white);
   height: auto;
   display: flex;
   flex-direction: column;
@@ -36,9 +36,9 @@ export const ElDeprecatedAccordionItem = styled.a`
 `
 /** @deprecated */
 export const ElDeprecatedAccordionTitle = styled.div`
-  color: var(--black);
-  font-size: var(--font-size-small);
-  font-weight: var(--font-weight-medium);
+  color: var(--colour-text-primary);
+  font-size: 0.875rem /* was --font-size-small */;
+  font-weight: 500 /* was --font-weight-medium */;
 `
 
 /** @deprecated */
@@ -48,7 +48,7 @@ export const ElDeprecatedAccordionTitleContentWrapper = styled.div`
 
 /** @deprecated */
 export const ElDeprecatedAccordionTitleContent = styled.div`
-  font-size: var(--font-size-smallest);
+  font-size: 0.8125rem /* was --font-size-smallest */;
   display: flex;
   align-items: center;
   margin-right: 0.5rem;
@@ -67,7 +67,7 @@ export const ElDeprecatedAccordionTitleContent = styled.div`
 export const ElDeprecatedAccordionContent = styled.div`
   height: 0;
   overflow: hidden;
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
 
   &.${elIsActive} {
     height: auto;

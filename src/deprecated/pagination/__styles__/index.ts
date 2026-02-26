@@ -11,22 +11,26 @@ export const ElDeprecatedPaginationWrap = styled.div`
 /** @deprecated */
 export const ElDeprecatedPaginationText = styled.div`
   margin: 0 0.5rem;
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
 `
 /** @deprecated */
 export const ElDeprecatedPaginationInput = styled.input`
-  font-size: var(--font-size-small);
+  font-size: 0.875rem /* was --font-size-small */;
   text-align: center;
-  font-weight: var(--font-weight-bold);
+  font-weight: 600 /* was --font-weight-bold */;
   margin: 0;
-  font-family: var(--font-sans-serif);
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
   border-radius: 0.2rem;
   width: 2rem;
   height: 2rem;
-  border: var(--component-input-border);
+  border: 1px solid #d8dee4 /* was --component-input-border */;
 
   &:focus {
-    border: var(--component-input-border-focus);
+    border: 1px solid #4e56ea /* was --component-input-border-focus */;
   }
 `
 /** @deprecated */
@@ -34,7 +38,7 @@ export const ElDeprecatedPaginationButton = styled.button`
   width: 2rem;
   height: 2rem;
   border: none;
-  background: var(--pagination-bg);
+  background: #ffffff /* was --pagination-bg */;
   border-radius: 0.2rem;
   display: flex;
   justify-content: center;
@@ -54,6 +58,6 @@ export const ElDeprecatedPaginationButton = styled.button`
 export const elDeprecatedPaginationPrimary = css`
   cursor: pointer;
   svg {
-    color: var(--intent-primary);
+    color: var(--colour-text-action);
   }
 `
