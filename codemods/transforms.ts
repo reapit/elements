@@ -7,6 +7,7 @@ export const transforms = {
   "rewrite-text-font-imports": () => import("./rewrite-text-font-imports/transform.js"),
   "rewrite-v4-imports": () => import("./rewrite-v4-imports/transform.js"),
   "rewrite-v5-imports": () => import("./rewrite-v5-imports/transform.js"),
+  "upgrade-css-variables": () => import("./upgrade-css-variables/transform.js"),
   "upgrade-deprecated-button": () => import("./upgrade-deprecated-button/transform.js"),
   "upgrade-deprecated-icon": () => import("./upgrade-deprecated-icon/transform.js"),
 } satisfies Record<string, () => Promise<{ default: Transform }>>
