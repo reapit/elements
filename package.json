@@ -1,7 +1,7 @@
 {
   "name": "@reapit/elements",
   "version": "5.0.0-beta.76",
-  "description": "A collection of React components and utilities for building apps for Reapit Marketplace",
+  "description": "A React implementation of Reapit's Design System",
   "homepage": "https://github.com/reapit/elements#readme",
   "bugs": {
     "url": "https://github.com/reapit/elements/issues"
@@ -80,7 +80,6 @@
     "generate:tokens": "yarn generate:tokens:preprocess && yarn generate:tokens:css",
     "generate:tokens:css": "yarn node --experimental-strip-types ./src/tokens/build.ts",
     "generate:tokens:preprocess": "yarn node ./src/tokens/preprocess.js",
-    "generate:codemod-manifest": "yarn node --experimental-strip-types codemods/generate-manifest.ts",
     "lint": "yarn lint:es && yarn lint:css",
     "lint:css": "stylelint \"src/**/*.{ts,tsx,js,jsx,css}\"",
     "lint:es": "eslint --fix --cache --ext=ts,tsx,js src",

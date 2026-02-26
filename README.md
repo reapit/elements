@@ -1,6 +1,6 @@
 # Reapit Elements
 
-A React UI toolkit for cross-platform web applications in the Reapit Foundations ecosystem. Written in TypeScript, it exports React Components and a CSS Stylesheet. Distributed via NPM [here](https://www.npmjs.com/package/@reapit/elements).
+A React implementation of Reapit's Design System for cross-platform web applications. Distributed via NPM [here](https://www.npmjs.com/package/@reapit/elements).
 
 ![lines](/coverage/badges/badge-lines.svg) ![functions](/coverage/badges/badge-functions.svg) ![branches](/coverage/badges/badge-branches.svg) ![statements](/coverage/badges/badge-statements.svg)
 
@@ -11,16 +11,10 @@ A React UI toolkit for cross-platform web applications in the Reapit Foundations
 
 ## Documentation
 
-View the React Component Storybook and documentation [here](https://elements.reapit.cloud).
+Components and utilities are documented via Storybook and can be accessed via the following links:
 
-Imported from the Reapit Foundations Monorepo at version 4.0.2. View the original commit history [here](https://github.com/reapit/foundations/tree/%40reapit/elements_v4.0.2).
-
-- View detailed Foundations platform documentation [at this external link](https://foundations-documentation.reapit.cloud).
-- Learn what we are building in Elements on the [discussions page here](https://github.com/reapit/elements/discussions).
-- Request features or report bugs by opening an issue [here](https://github.com/reapit/elements/issues/new/choose). When accepted for development, track its progress on our [backlog board](https://github.com/orgs/reapit/projects/16)
-- View our future roadmap [here](https://github.com/orgs/reapit/projects/16/views/2).
-
-Please read our [disclaimer](./DISCLAIMER.md) before proceeding.
+- [v4 documentation](https://elements.prod.paas.reapit.cloud); v4 is considered end-of-life.
+- [v5 documentation](https://elements-beta.prod.paas.reapit.cloud).
 
 ## For Contributors & AI Agents
 
