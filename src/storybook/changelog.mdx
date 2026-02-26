@@ -25,7 +25,7 @@ Beta versions should be relatively stable but subject to occassional breaking ch
 - **chore!:** Remove CJS build output. The package now ships ES modules only. Consumers using `require('@reapit/elements')` or any CJS subpath import must migrate to `import`.
 - **fix!:** Add missing entry points to the Vite build config for deprecated units of code with `index.tsx` modules instead of `index.ts` modules. This allows them to be imported from the `@reapit/elements/deprecated/*` subpath.
 - **feat:** Add `rewrite-v5-imports` codemod to help migrate from barrel imports to v5's subpath imports.
-- **feat:** Add `rewrite-css-variables` codemod to help migrates legacy CSS custom properties to v5 equivalents.
+- **feat:** Add `upgrade-css-variables` codemod to help migrates legacy CSS custom properties to v5 equivalents.
 
 ### **5.0.0-beta.75 - 20/02/2026**
 
