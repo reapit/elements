@@ -83,6 +83,7 @@ Checks if the browser natively supports CSS anchor positioning.
 ## Browser Support
 
 Works in all modern browsers supporting:
+
 - CSS `position: absolute` or `position: fixed`
 - JavaScript ES2020+
 - CSS custom properties

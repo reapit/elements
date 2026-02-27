@@ -1,7 +1,5 @@
 import { Dispatch, FC, SetStateAction, useEffect, useState } from 'react'
 import { Source, SourceProps } from '@storybook/addon-docs/blocks'
-import prettier from 'prettier'
-import htmlParser from 'prettier/plugins/html'
 import type { Args, StoryContext } from '@storybook/react-vite'
 import { DeprecatedAccordion } from '../deprecated/accordion'
 import { Tile } from '../deprecated/tile'
@@ -23,18 +21,7 @@ const handleGetRawHTML = (storyContext: StoryContext<Args> | null, setRaw: Dispa
 }
 
 const handleFormatHTML = (raw: string | null, setHtml: Dispatch<SetStateAction<string>>) => () => {
-  const format = async () => {
-    if (!raw) return
-
-    const formatted = await prettier.format(raw, {
-      parser: 'html',
-      plugins: [htmlParser],
-    })
-
-    setHtml(formatted)
-  }
-
-  format()
+  if (raw) setHtml(raw)
 }
 
 /** @deprecated */

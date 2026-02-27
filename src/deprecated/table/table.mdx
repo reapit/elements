@@ -143,7 +143,8 @@ For `expandableContent` and `ctaContent` the interface is the same;
 
 **Only one of `expandableContent` and `ctaContent` should be used - the table will only expect one to be supplied**
 
-<Source code={`
+<Source
+  code={`
 export interface RowActionProps {
   content?: ReactNode // The main content for an expandable cell, not relevant to a CTA
   cellContent?: ReactNode // The trigger cell's content - defaults to an icon
@@ -152,7 +153,9 @@ export interface RowActionProps {
   className?: string // Any custom css class for the cell
   icon?: IconNames // An icon to render in the cell if no cell content supplied
 }
-`} language="tsx" />
+`}
+  language="tsx"
+/>
 
 <Canvas of={TableStories.ReactShorthandUsage} />
 

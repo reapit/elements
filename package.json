@@ -1,20 +1,25 @@
 {
   "name": "@reapit/elements",
   "version": "5.0.0-beta.76",
+  "stableVersion": "5.0.0-beta.5",
   "description": "A React implementation of Reapit's Design System",
   "homepage": "https://github.com/reapit/elements#readme",
   "bugs": {
     "url": "https://github.com/reapit/elements/issues"
   },
-  "type": "module",
-  "bin": "./bin/elements.js",
-  "engines": {
-    "node": ">=22.18.0"
-  },
+  "license": "MIT",
+  "author": "Will McVay <wmcvay@reapit.com>",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/reapit/elements.git"
   },
+  "bin": "./bin/elements.js",
+  "files": [
+    "dist/",
+    "assets/",
+    "bin/"
+  ],
+  "type": "module",
   "imports": {
     "#src/*": {
       "types": [
@@ -58,13 +63,6 @@
     "./styles.css": "./dist/js/style.css",
     "./dist/index.css": "./dist/js/style.css"
   },
-  "license": "MIT",
-  "author": "Will McVay <wmcvay@reapit.com>",
-  "files": [
-    "dist/",
-    "assets/",
-    "bin/"
-  ],
   "scripts": {
     "build": "yarn build:types && yarn build:lib && yarn build:codemods && yarn build:storybook",
     "build:codemods": "yarn build:codemods:export-map && yarn build:codemods:compile && yarn build:codemods:manifest",
@@ -80,14 +78,16 @@
     "generate:tokens": "yarn generate:tokens:preprocess && yarn generate:tokens:css",
     "generate:tokens:css": "yarn node --experimental-strip-types ./src/tokens/build.ts",
     "generate:tokens:preprocess": "yarn node ./src/tokens/preprocess.js",
-    "lint": "yarn lint:es && yarn lint:css",
+    "lint": "yarn lint:es && yarn lint:css && yarn lint:fmt",
     "lint:css": "stylelint \"src/**/*.{ts,tsx,js,jsx,css}\"",
-    "lint:es": "eslint --fix --cache --ext=ts,tsx,js src",
+    "lint:es": "oxlint --fix src",
+    "lint:fmt": "oxfmt",
     "check": "yarn check:types && yarn check:lint",
     "check:types": "tsc --noEmit",
-    "check:lint": "yarn check:lint:css && yarn check:lint:es",
+    "check:lint": "yarn check:lint:css && yarn check:lint:es && yarn check:lint:fmt",
     "check:lint:css": "stylelint \"src/**/*.{ts,tsx,js,jsx,css}\"",
-    "check:lint:es": "eslint --cache --ext=ts,tsx,js src",
+    "check:lint:es": "oxlint src",
+    "check:lint:fmt": "oxfmt --check",
     "make-badge": "coverage-badges --type ${0} --source coverage/report/coverage-summary.json --output coverage/badges/badge-${0}.svg --jsonPath total.${0}.pct",
     "publish": "yarn npm publish --access public",
     "deploy": "yarn node scripts/cdk/bin/rpt-cdk.cjs deploy",
@@ -120,8 +120,6 @@
     "@types/react": "18.3.27",
     "@types/react-dom": "18.3.7",
     "@types/react-syntax-highlighter": "15.5.13",
-    "@typescript-eslint/eslint-plugin": "7.18.0",
-    "@typescript-eslint/parser": "7.18.0",
     "@vitejs/plugin-react": "5.1.4",
     "@vitest/coverage-v8": "^4.0.18",
     "@wyw-in-js/babel-preset": "1.0.6",
@@ -135,16 +133,11 @@
     "coverage-badges-cli": "2.2.0",
     "dashify": "2.0.0",
     "esbuild": "^0.27.2",
-    "eslint": "8.57.1",
-    "eslint-config-prettier": "9.1.2",
-    "eslint-plugin-prettier": "5.5.5",
-    "eslint-plugin-react": "7.37.5",
-    "eslint-plugin-react-hooks": "4.6.2",
-    "eslint-plugin-storybook": "10.2.10",
     "happy-dom": "^20.7.0",
     "http-server": "^14.1.1",
+    "oxfmt": "latest",
+    "oxlint": "latest",
     "postcss": "8.5.6",
-    "prettier": "3.8.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
     "react-syntax-highlighter": "15.6.6",
@@ -164,10 +157,12 @@
     "react": ">=18.0.2",
     "react-dom": ">=18.0.2"
   },
-  "snyk": true,
-  "packageManager": "yarn@4.12.0",
-  "stableVersion": "5.0.0-beta.5",
   "resolutions": {
     "brace-expansion": "^2.0.2"
-  }
+  },
+  "engines": {
+    "node": ">=22.18.0"
+  },
+  "packageManager": "yarn@4.12.0",
+  "snyk": true
 }

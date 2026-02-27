@@ -19,4 +19,4 @@ Components and utilities are documented via Storybook and can be accessed via th
 ## For Contributors & AI Agents
 
 - **[AGENTS.md](./AGENTS.md)** - Essential guide for AI agents working on this project
-- **[guidelines/*](./guidelines)** - Guidelines concerning code style, patterns, and best practices
+- **[guidelines/\*](./guidelines)** - Guidelines concerning code style, patterns, and best practices

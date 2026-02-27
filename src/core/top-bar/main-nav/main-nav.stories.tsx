@@ -59,7 +59,7 @@ function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
       Nav item 2
     </TopBarMainNav.Item>,
     type === 'With menu' && (
-      <TopBarMainNav.MenuItem label="More">
+      <TopBarMainNav.MenuItem key="with-menu-item" label="More">
         <Menu.Item>Menu Item 1</Menu.Item>
         <Menu.Item>Menu Item 2</Menu.Item>
         <Menu.Item>Menu Item 3</Menu.Item>

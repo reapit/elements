@@ -33,15 +33,21 @@ describe('inline mapping — font sizes', () => {
   })
 
   test('inlines --font-size-subheading with 1.25rem', () => {
-    expect(transform('font-size: var(--font-size-subheading);')).toBe(`font-size: 1.25rem /* was --font-size-subheading */;`)
+    expect(transform('font-size: var(--font-size-subheading);')).toBe(
+      `font-size: 1.25rem /* was --font-size-subheading */;`,
+    )
   })
 
   test('inlines --font-size-small-subheading with 1.125rem', () => {
-    expect(transform('font-size: var(--font-size-small-subheading);')).toBe(`font-size: 1.125rem /* was --font-size-small-subheading */;`)
+    expect(transform('font-size: var(--font-size-small-subheading);')).toBe(
+      `font-size: 1.125rem /* was --font-size-small-subheading */;`,
+    )
   })
 
   test('inlines --font-size-default with 0.9375rem', () => {
-    expect(transform('font-size: var(--font-size-default);')).toBe(`font-size: 0.9375rem /* was --font-size-default */;`)
+    expect(transform('font-size: var(--font-size-default);')).toBe(
+      `font-size: 0.9375rem /* was --font-size-default */;`,
+    )
   })
 
   test('inlines --font-size-small with 0.875rem', () => {
@@ -49,13 +55,17 @@ describe('inline mapping — font sizes', () => {
   })
 
   test('inlines --font-size-smallest with 0.8125rem', () => {
-    expect(transform('font-size: var(--font-size-smallest);')).toBe(`font-size: 0.8125rem /* was --font-size-smallest */;`)
+    expect(transform('font-size: var(--font-size-smallest);')).toBe(
+      `font-size: 0.8125rem /* was --font-size-smallest */;`,
+    )
   })
 })
 
 describe('inline mapping — font weights', () => {
   test('inlines --font-weight-default with 400', () => {
-    expect(transform('font-weight: var(--font-weight-default);')).toBe(`font-weight: 400 /* was --font-weight-default */;`)
+    expect(transform('font-weight: var(--font-weight-default);')).toBe(
+      `font-weight: 400 /* was --font-weight-default */;`,
+    )
   })
 
   test('inlines --font-weight-bold with 600', () => {
@@ -63,7 +73,9 @@ describe('inline mapping — font weights', () => {
   })
 
   test('inlines --font-weight-medium with 500', () => {
-    expect(transform('font-weight: var(--font-weight-medium);')).toBe(`font-weight: 500 /* was --font-weight-medium */;`)
+    expect(transform('font-weight: var(--font-weight-medium);')).toBe(
+      `font-weight: 500 /* was --font-weight-medium */;`,
+    )
   })
 })
 
@@ -358,7 +370,7 @@ describe('inline mapping — other tokens', () => {
   })
 
   test('inlines --font-monospace', () => {
-    const input = "font-family: var(--font-monospace);"
+    const input = 'font-family: var(--font-monospace);'
     expect(transform(input)).toBe(`font-family: 'Source Code Pro', monospace /* was --font-monospace */;`)
   })
 

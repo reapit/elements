@@ -69,9 +69,9 @@ Reapit Elements v5 introduced individual icon components to replace the single `
 
 Imports are rewritten to use individual icon components from dedicated import paths:
 
-| Before                                                | After                                                                                                |
-| ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| `import { DeprecatedIcon } from '@reapit/elements'`   | `import { ChevronRightIcon } from '@reapit/elements/icons/chevron-right'`                            |
+| Before                                                     | After                                                                                                                    |
+| ---------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| `import { DeprecatedIcon } from '@reapit/elements'`        | `import { ChevronRightIcon } from '@reapit/elements/icons/chevron-right'`                                                |
 | `import { DeprecatedIcon, Input } from '@reapit/elements'` | `import { Input } from '@reapit/elements'`<br/>`import { ChevronRightIcon } from '@reapit/elements/icons/chevron-right'` |
 
 **Note**: The DeprecatedIcon import is automatically removed if all static icon usages are successfully migrated.
@@ -84,21 +84,21 @@ Icon names are transformed from camelCase to kebab-case and converted to compone
 
 Most icons follow a standard camelCase → kebab-case conversion:
 
-| DeprecatedIcon Name | v5 Component       | Import Path                             |
-| ------------------- | ------------------ | --------------------------------------- |
-| `chevronRight`      | `ChevronRightIcon` | `@reapit/elements/icons/chevron-right`  |
-| `homeSystem`        | `HomeSystemIcon`   | `@reapit/elements/icons/home-system`    |
-| `addSystem`         | `AddSystemIcon`    | `@reapit/elements/icons/add-system`     |
-| `check`             | `CheckIcon`        | `@reapit/elements/icons/check`          |
+| DeprecatedIcon Name | v5 Component       | Import Path                            |
+| ------------------- | ------------------ | -------------------------------------- |
+| `chevronRight`      | `ChevronRightIcon` | `@reapit/elements/icons/chevron-right` |
+| `homeSystem`        | `HomeSystemIcon`   | `@reapit/elements/icons/home-system`   |
+| `addSystem`         | `AddSystemIcon`    | `@reapit/elements/icons/add-system`    |
+| `check`             | `CheckIcon`        | `@reapit/elements/icons/check`         |
 
 #### Special Mappings
 
 Some icons have custom name mappings:
 
-| DeprecatedIcon Name | v5 Component  | Import Path                       | Notes                        |
-| ------------------- | ------------- | --------------------------------- | ---------------------------- |
-| `exportIcon`        | `ExportIcon`  | `@reapit/elements/icons/export`   | Removes "Icon" suffix        |
-| `elipsis`           | `MoreIcon`    | `@reapit/elements/icons/more`     | Corrected spelling and name  |
+| DeprecatedIcon Name | v5 Component | Import Path                     | Notes                       |
+| ------------------- | ------------ | ------------------------------- | --------------------------- |
+| `exportIcon`        | `ExportIcon` | `@reapit/elements/icons/export` | Removes "Icon" suffix       |
+| `elipsis`           | `MoreIcon`   | `@reapit/elements/icons/more`   | Corrected spelling and name |
 
 #### Removed Icons
 
@@ -118,16 +118,16 @@ The following icons have been removed with no replacement:
 
 The `fontSize` prop is transformed to the `size` prop with token-based values:
 
-| fontSize Value | size Value | Notes                             |
-| -------------- | ---------- | --------------------------------- |
-| `12px`         | `xs`       | Maps to extra small               |
-| `0.75rem`      | `xs`       | Maps to extra small               |
-| `16px`         | `sm`       | Maps to small (default)           |
-| `1rem`         | `sm`       | Maps to small (default)           |
-| `20px`         | `md`       | Maps to medium                    |
-| `1.25rem`      | `md`       | Maps to medium                    |
-| `24px`         | `lg`       | Maps to large                     |
-| `1.5rem`       | `lg`       | Maps to large                     |
+| fontSize Value | size Value | Notes                   |
+| -------------- | ---------- | ----------------------- |
+| `12px`         | `xs`       | Maps to extra small     |
+| `0.75rem`      | `xs`       | Maps to extra small     |
+| `16px`         | `sm`       | Maps to small (default) |
+| `1rem`         | `sm`       | Maps to small (default) |
+| `20px`         | `md`       | Maps to medium          |
+| `1.25rem`      | `md`       | Maps to medium          |
+| `24px`         | `lg`       | Maps to large           |
+| `1.5rem`       | `lg`       | Maps to large           |
 
 **Unmapped values**: If `fontSize` has a value not in the mapping table, it's added to the `style` prop with a TODO comment.
 
@@ -135,18 +135,18 @@ The `fontSize` prop is transformed to the `size` prop with token-based values:
 
 The `intent` prop is transformed to the `color` prop with updated colour names:
 
-| intent Value | color Value | Notes                        |
-| ------------ | ----------- | ---------------------------- |
-| `critical`   | `secondary` | Semantic mapping             |
-| `danger`     | `error`     | Renamed for clarity          |
-| `default`    | `secondary` | Default colour mapping       |
-| `low`        | `secondary` | Low priority mapping         |
-| `neutral`    | `info`      | Neutral state mapping        |
-| `pending`    | `pending`   | Preserved                    |
-| `success`    | `success`   | Preserved                    |
-| `primary`    | `action`    | Renamed to action            |
-| `secondary`  | `secondary` | Preserved                    |
-| `warning`    | `warning`   | Preserved                    |
+| intent Value | color Value | Notes                  |
+| ------------ | ----------- | ---------------------- |
+| `critical`   | `secondary` | Semantic mapping       |
+| `danger`     | `error`     | Renamed for clarity    |
+| `default`    | `secondary` | Default colour mapping |
+| `low`        | `secondary` | Low priority mapping   |
+| `neutral`    | `info`      | Neutral state mapping  |
+| `pending`    | `pending`   | Preserved              |
+| `success`    | `success`   | Preserved              |
+| `primary`    | `action`    | Renamed to action      |
+| `secondary`  | `secondary` | Preserved              |
+| `warning`    | `warning`   | Preserved              |
 
 **Unmapped values**: If `intent` has a value not in the mapping table, it defaults to `inherit`.
 
@@ -155,10 +155,12 @@ The `intent` prop is transformed to the `color` prop with updated colour names:
 Dimension props are handled based on whether they're square and mappable:
 
 **Square dimensions (width === height):**
+
 - If the dimension matches a `fontSize` mapping → transformed to `size` prop
 - If the dimension doesn't match → added to `style` prop with TODO comment
 
 **Non-square dimensions (width !== height):**
+
 - Always added to `style` prop with TODO comment for manual review
 
 ### Style Merging
@@ -166,23 +168,29 @@ Dimension props are handled based on whether they're square and mappable:
 When unmapped dimensions or fontSize values need to be added to the `style` prop:
 
 **No existing style prop:**
+
 ```tsx
 // Before
-<DeprecatedIcon icon="home" width="32px" height="32px" />
+;<DeprecatedIcon icon="home" width="32px" height="32px" />
 
 // After
-{/* TODO: Review unmapped dimensions for manual verification */}
-<HomeIcon style={{ width: '32px', height: '32px' }} />
+{
+  /* TODO: Review unmapped dimensions for manual verification */
+}
+;<HomeIcon style={{ width: '32px', height: '32px' }} />
 ```
 
 **Existing style prop:**
+
 ```tsx
 // Before
-<DeprecatedIcon icon="home" fontSize="14px" style={{ margin: 10 }} />
+;<DeprecatedIcon icon="home" fontSize="14px" style={{ margin: 10 }} />
 
 // After
-{/* TODO: Review merged style prop for manual verification */}
-<HomeIcon style={{ ...{ margin: 10 }, fontSize: '14px' }} />
+{
+  /* TODO: Review merged style prop for manual verification */
+}
+;<HomeIcon style={{ ...{ margin: 10 }, fontSize: '14px' }} />
 ```
 
 ### JSX Element Transformations
@@ -215,11 +223,13 @@ Complete examples showing element transformation:
 
 ```tsx
 // Before: With unmapped dimensions
-<DeprecatedIcon icon="close" width="18px" height="18px" />
+;<DeprecatedIcon icon="close" width="18px" height="18px" />
 
 // After
-{/* TODO: Review unmapped dimensions for manual verification */}
-<CloseIcon style={{ width: '18px', height: '18px' }} />
+{
+  /* TODO: Review unmapped dimensions for manual verification */
+}
+;<CloseIcon style={{ width: '18px', height: '18px' }} />
 ```
 
 ```tsx
@@ -260,11 +270,13 @@ Icons that have been removed in v5 are preserved with a TODO comment:
 
 ```tsx
 // Before
-<DeprecatedIcon icon="reapitLogo" />
+;<DeprecatedIcon icon="reapitLogo" />
 
 // After (TODO comment added, no transformation)
-{/* TODO: Icon "reapitLogo" has been removed in v5 and has no replacement */}
-<DeprecatedIcon icon="reapitLogo" />
+{
+  /* TODO: Icon "reapitLogo" has been removed in v5 and has no replacement */
+}
+;<DeprecatedIcon icon="reapitLogo" />
 ```
 
 **Manual migration required**: Replace with custom SVG or alternative icon.
@@ -321,14 +333,7 @@ export const Navigation = () => {
 import { DeprecatedIcon } from '@reapit/elements'
 
 export const StatusIcon = () => {
-  return (
-    <DeprecatedIcon
-      icon="check"
-      fontSize="24px"
-      intent="success"
-      className="status-icon"
-    />
-  )
+  return <DeprecatedIcon icon="check" fontSize="24px" intent="success" className="status-icon" />
 }
 ```
 
@@ -338,13 +343,7 @@ export const StatusIcon = () => {
 import { CheckIcon } from '@reapit/elements/icons/check'
 
 export const StatusIcon = () => {
-  return (
-    <CheckIcon
-      size="lg"
-      color="success"
-      className="status-icon"
-    />
-  )
+  return <CheckIcon size="lg" color="success" className="status-icon" />
 }
 ```
 
@@ -392,12 +391,7 @@ export const Toolbar = () => {
 import { DeprecatedIcon } from '@reapit/elements'
 
 export const DynamicIcon = ({ isOpen }: { isOpen: boolean }) => {
-  return (
-    <DeprecatedIcon
-      icon={isOpen ? 'chevronDown' : 'chevronRight'}
-      fontSize="16px"
-    />
-  )
+  return <DeprecatedIcon icon={isOpen ? 'chevronDown' : 'chevronRight'} fontSize="16px" />
 }
 ```
 
@@ -530,14 +524,14 @@ grep -r "TODO.*DeprecatedIcon\|TODO.*Review.*style" src/
 
 Understanding these differences helps with manual review:
 
-| Aspect                  | DeprecatedIcon                 | v5 Individual Icons                    |
-| ----------------------- | ------------------------------ | -------------------------------------- |
-| **Import path**         | `@reapit/elements`             | `@reapit/elements/icons/{icon-name}`   |
-| **Icon selection**      | `icon` prop (string)           | Component name (type-safe)             |
-| **Size prop**           | `fontSize` (px/rem)            | `size` (token: xs/sm/md/lg)            |
-| **Colour prop**         | `intent`                       | `color`                                |
-| **Dimensions**          | `width`/`height` (any value)   | `size` (token) or `style`              |
-| **Tree-shaking**        | Imports all icons              | Imports only used icons                |
+| Aspect             | DeprecatedIcon               | v5 Individual Icons                  |
+| ------------------ | ---------------------------- | ------------------------------------ |
+| **Import path**    | `@reapit/elements`           | `@reapit/elements/icons/{icon-name}` |
+| **Icon selection** | `icon` prop (string)         | Component name (type-safe)           |
+| **Size prop**      | `fontSize` (px/rem)          | `size` (token: xs/sm/md/lg)          |
+| **Colour prop**    | `intent`                     | `color`                              |
+| **Dimensions**     | `width`/`height` (any value) | `size` (token) or `style`            |
+| **Tree-shaking**   | Imports all icons            | Imports only used icons              |
 
 ## Support
 

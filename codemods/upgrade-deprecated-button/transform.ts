@@ -268,42 +268,42 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
       const existingImport = buttonImportDecl!.getNamedImports().find((namedImport) => {
         const importName = namedImport.getName()
         const importAlias = namedImport.getAliasNode()?.getText()
-        
+
         // Check if the name matches
         if (importName !== name) {
           return false
         }
-        
+
         // Check if the alias matches (both undefined or same value)
         if (alias !== importAlias) {
           return false
         }
-        
+
         return true
       })
-      
+
       if (existingImport) {
         const existingIsTypeOnly = existingImport.isTypeOnly()
-        
+
         // If both are the same kind (both type-only or both value imports), nothing to do.
         if (existingIsTypeOnly === isTypeOnly) {
           return
         }
-        
+
         // If we need a value import but only a type-only import exists,
         // upgrade the existing import to a value import so it can be used in JSX.
         if (existingIsTypeOnly && !isTypeOnly) {
           existingImport.setIsTypeOnly(false)
           return
         }
-        
+
         // If a value import already exists and we want a type-only import,
         // the value import is sufficient for type positions; no extra import needed.
         if (!existingIsTypeOnly && isTypeOnly) {
           return
         }
       }
-      
+
       // Only use alias syntax if the alias is different from the name
       if (alias && alias !== name) {
         const typePrefix = isTypeOnly ? 'type ' : ''
@@ -468,12 +468,12 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
         }
 
         jsxAttr.getNameNode().replaceWithText('variant')
-        
+
         // If intent had no initializer, set default value to "secondary"
         if (!jsxAttr.getInitializer()) {
           jsxAttr.setInitializer('"secondary"')
         }
-        
+
         // Map intent values to variant values
         if (intentValue === 'default') {
           // default → secondary
@@ -538,7 +538,7 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
         // Check if loading={false} using AST inspection (handles whitespace variations)
         const init = jsxAttr.getInitializer()
         let shouldRemove = false
-        
+
         if (init) {
           const kind = init.getKind()
           if (kind === SyntaxKind.JsxExpression) {
@@ -550,7 +550,7 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
             }
           }
         }
-        
+
         if (shouldRemove) {
           jsxAttr.remove()
         } else {
@@ -584,7 +584,7 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
               } else if (exprText === '3' || exprText === '4') {
                 newSize = 'large'
               }
-              
+
               if (newSize) {
                 jsxAttr.setInitializer(`"${newSize}"`)
               }
@@ -683,7 +683,7 @@ function extractStringOrExpressionValue(
       }
     }
   }
-  
+
   return undefined
 }
 

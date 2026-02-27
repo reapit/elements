@@ -115,11 +115,7 @@ Multi-line import statements are fully supported and automatically reformatted:
 **Before:**
 
 ```tsx
-import {
-  Text,
-  font,
-  FontSize,
-} from '@reapit/elements/core/text'
+import { Text, font, FontSize } from '@reapit/elements/core/text'
 ```
 
 **After:**

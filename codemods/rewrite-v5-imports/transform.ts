@@ -62,10 +62,7 @@ function serialiseNamedImport(info: NamedImportInfo): string {
  * Processes a single barrel import declaration, replacing it with one or more
  * subpath imports plus an optional residual barrel import for root-only exports.
  */
-function transformDeclaration(
-  sourceFile: SourceFile,
-  importDecl: ImportDeclaration,
-): void {
+function transformDeclaration(sourceFile: SourceFile, importDecl: ImportDeclaration): void {
   const moduleSpecifier = importDecl.getModuleSpecifierValue()
   const isDeclarationTypeOnly = importDecl.isTypeOnly()
 
@@ -107,8 +104,7 @@ function transformDeclaration(
 
   // Add a new import for each bucket
   for (const [key, infos] of buckets) {
-    const newSpecifier =
-      key === 'root' ? moduleSpecifier : buildSubpathSpecifier(key)
+    const newSpecifier = key === 'root' ? moduleSpecifier : buildSubpathSpecifier(key)
 
     // If the original declaration was `import type { ... }`, the whole new statement
     // should be type-only. Otherwise use per-specifier inline `type` markers.
@@ -127,23 +123,16 @@ function transformImports(sourceFile: SourceFile): void {
   // Snapshot the list before any mutations
   const importDeclarations = sourceFile.getImportDeclarations()
 
-  const barrelImports = importDeclarations.filter((decl) =>
-    isBarrelImport(decl.getModuleSpecifierValue()),
-  )
+  const barrelImports = importDeclarations.filter((decl) => isBarrelImport(decl.getModuleSpecifierValue()))
 
   for (const decl of barrelImports) {
     transformDeclaration(sourceFile, decl)
   }
 }
 
-export default function transform(
-  source: string,
-  filePath: string = 'file.tsx',
-): string {
+export default function transform(source: string, filePath: string = 'file.tsx'): string {
   // Early return: skip files with no barrel imports
-  const hasBarrelImport =
-    source.includes("'@reapit/elements'") ||
-    source.includes('"@reapit/elements"')
+  const hasBarrelImport = source.includes("'@reapit/elements'") || source.includes('"@reapit/elements"')
 
   if (!hasBarrelImport) {
     return source

@@ -894,9 +894,7 @@ export default function transform(
   // they must all be merged and applied in a single descending pass via applyInsertions().
   const deprecatedIconInsertions = collectDeprecatedIconTodoInsertions(sourceFile, alias)
   const nonJsxInsertions = collectNonJsxUsageTodoInsertions(sourceFile)
-  const allInsertions = [...deprecatedIconInsertions, ...nonJsxInsertions].sort(
-    (a, b) => b.position - a.position,
-  )
+  const allInsertions = [...deprecatedIconInsertions, ...nonJsxInsertions].sort((a, b) => b.position - a.position)
   output = applyInsertions(output, allInsertions)
 
   // Add TODO comments for transformed elements (style merging cases, dynamic props)

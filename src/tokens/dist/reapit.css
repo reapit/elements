@@ -2,7 +2,8 @@
  * Do not edit directly, this file was auto-generated.
  */
 
-:root, :root[data-theme="reapit"] {
+:root,
+:root[data-theme='reapit'] {
   --border-radius-2xl: 16px;
   --border-radius-3xl: 24px;
   --border-radius-l: 8px;

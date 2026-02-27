@@ -35,16 +35,16 @@ Reapit Elements v5 introduced a new design token system with semantic naming con
 
 These variables have clear v5 equivalents and are replaced silently:
 
-| Legacy variable                | v5 replacement         |
-| ------------------------------ | ---------------------- |
-| `var(--layout-size-base)`      | `var(--spacing-4)`     |
-| `var(--layout-size-molecule)`  | `var(--spacing-5)`     |
-| `var(--layout-size-atom)`      | `var(--spacing-3)`     |
-| `var(--layout-size-1_2)`       | `var(--spacing-2)`     |
-| `var(--layout-size-1_4)`       | `var(--spacing-1)`     |
-| `var(--layout-size-3_4)`       | `var(--spacing-3)`     |
-| `var(--layout-size-2)`         | `var(--spacing-8)`     |
-| `var(--layout-size-3)`         | `var(--spacing-12)`    |
+| Legacy variable               | v5 replacement      |
+| ----------------------------- | ------------------- |
+| `var(--layout-size-base)`     | `var(--spacing-4)`  |
+| `var(--layout-size-molecule)` | `var(--spacing-5)`  |
+| `var(--layout-size-atom)`     | `var(--spacing-3)`  |
+| `var(--layout-size-1_2)`      | `var(--spacing-2)`  |
+| `var(--layout-size-1_4)`      | `var(--spacing-1)`  |
+| `var(--layout-size-3_4)`      | `var(--spacing-3)`  |
+| `var(--layout-size-2)`        | `var(--spacing-8)`  |
+| `var(--layout-size-3)`        | `var(--spacing-12)` |
 
 > **Note on spacing scale**: The v4 spacing tokens used `rem` values while the v5 tokens use `px`. The mappings above are based on the closest equivalent values (e.g. `1rem` → `--spacing-4` which is `16px`).
 
@@ -59,7 +59,8 @@ These variables are replaced with the most likely v5 equivalent, but an inline `
 color: var(--intent-primary);
 
 /* After */
-color: var(--colour-fill-action-dark) /* TODO: --intent-primary has no direct v5 equivalent — verify this replacement is correct for your context */;
+color: var(--colour-fill-action-dark)
+  /* TODO: --intent-primary has no direct v5 equivalent — verify this replacement is correct for your context */;
 ```
 
 Best-effort categories:

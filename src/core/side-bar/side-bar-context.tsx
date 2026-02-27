@@ -13,7 +13,7 @@ interface SideBarContextPublisherProps extends SideBarContextValue {
 
 export function SideBarContextPublisher(props: SideBarContextPublisherProps) {
   const contextValue = useMemo(() => {
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars -- we need to drop `children` */
+    // oxlint-disable-next-line typescript/no-unused-vars -- we need to drop `children` */
     const { children: _children, ...contextValue } = props
     return contextValue
   }, [props])

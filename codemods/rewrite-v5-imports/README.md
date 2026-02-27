@@ -33,12 +33,12 @@ yarn dlx @reapit/elements@beta codemod apply rewrite-v5-imports src/ --ext .tsx,
 
 Each named export is moved to its dedicated subpath entry point:
 
-| Before | After |
-| --- | --- |
-| `import { Button } from '@reapit/elements'` | `import { Button } from '@reapit/elements/core/button'` |
+| Before                                              | After                                                               |
+| --------------------------------------------------- | ------------------------------------------------------------------- |
+| `import { Button } from '@reapit/elements'`         | `import { Button } from '@reapit/elements/core/button'`             |
 | `import { DeprecatedIcon } from '@reapit/elements'` | `import { DeprecatedIcon } from '@reapit/elements/deprecated/icon'` |
-| `import { Popover } from '@reapit/elements'` | `import { Popover } from '@reapit/elements/utils/popover'` |
-| `import { MoreIcon } from '@reapit/elements'` | `import { MoreIcon } from '@reapit/elements/icons/more'` |
+| `import { Popover } from '@reapit/elements'`        | `import { Popover } from '@reapit/elements/utils/popover'`          |
+| `import { MoreIcon } from '@reapit/elements'`       | `import { MoreIcon } from '@reapit/elements/icons/more'`            |
 
 ### Multiple exports — same module
 

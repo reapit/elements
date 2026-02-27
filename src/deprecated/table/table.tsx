@@ -71,9 +71,17 @@ export const handleToggleExpandedRow =
   ) =>
   () => {
     if (indexExpandedRow !== undefined && setIndexExpandedRow) {
-      indexExpandedRow === index ? setIndexExpandedRow(null) : setIndexExpandedRow(index)
+      if (indexExpandedRow === index) {
+        setIndexExpandedRow(null)
+      } else {
+        setIndexExpandedRow(index)
+      }
     } else {
-      expandedRow === index ? setExpandedRow(null) : setExpandedRow(index)
+      if (expandedRow === index) {
+        setExpandedRow(null)
+      } else {
+        setExpandedRow(index)
+      }
     }
   }
 

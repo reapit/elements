@@ -41,8 +41,8 @@ As per above if you use a `SecondaryNav` component, you will need to add these o
 
 The `useNavState` hook will track the currrent state of the Nav and return both, the `navState` and a `setNavState` function. See the below inteface for `DeprecatedNavResponsiveOption` for an explanation of the code.
 
-
-<Source code={`
+<Source
+  code={`
 export interface DeprecatedNavResponsiveOption {
   itemIndex: number
   callback?: () => void
@@ -50,7 +50,9 @@ export interface DeprecatedNavResponsiveOption {
   href?: string
   subItems?: DeprecatedNavResponsiveOption[]
 }
-`} language="tsx" />
+`}
+  language="tsx"
+/>
 
 Practically the callback will be a dispatch to React Router, an update to `window.history` object or similar client side routing function. You may also wish to bind the callback to an application action for example below, we pass a `logout` function to the logout nav item.
 

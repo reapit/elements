@@ -3,6 +3,7 @@
 Please enhance the GitHub-generated release notes with a "Notable Changes" section at the top.
 
 ## Input Materials
+
 1. GitHub's automatically generated release notes (from the PR list)
 2. The `src/storybook/changelog.mdx` file for additional context about changes
 

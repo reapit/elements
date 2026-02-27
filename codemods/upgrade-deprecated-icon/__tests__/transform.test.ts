@@ -1316,4 +1316,3 @@ function MyComponent({ size }) {
     expect(output).toContain('{/* TODO: Migrate dynamic props manually */}')
   })
 })
-

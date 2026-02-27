@@ -41,8 +41,8 @@ blob-report/
 playwright/.cache/
 .visual-test/**
 
-# ESLint
-.eslintcache
+# oxlint
+.oxlintcache
 
 # Stylelint
 .stylelintcache

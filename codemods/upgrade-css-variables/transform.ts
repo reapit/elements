@@ -77,10 +77,19 @@ function replaceCssVarCalls(source: string): string {
         continue
       }
 
-      if (ch === "'") { inSingleQuote = true; continue }
-      if (ch === '"') { inDoubleQuote = true; continue }
+      if (ch === "'") {
+        inSingleQuote = true
+        continue
+      }
+      if (ch === '"') {
+        inDoubleQuote = true
+        continue
+      }
 
-      if (ch === '(') { depth++; continue }
+      if (ch === '(') {
+        depth++
+        continue
+      }
 
       if (ch === ')') {
         depth--
@@ -140,11 +149,7 @@ function replaceCssVarCalls(source: string): string {
   return result
 }
 
-export default function transform(
-  source: string,
-  _filePath?: string,
-  _options?: { facadePackage?: string },
-): string {
+export default function transform(source: string, _filePath?: string, _options?: { facadePackage?: string }): string {
   // Early exit when there are definitely no CSS variable references to process.
   if (!source.includes('var(--')) {
     return source

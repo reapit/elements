@@ -16,7 +16,7 @@ const SRC_DIR = resolve(__dirname, '..', '..', '..', 'src')
 describe('generateFileContent', () => {
   test('produces a valid TypeScript export const declaration', () => {
     const content = generateFileContent({ Button: 'core/button' })
-    expect(content).toContain("export const EXPORT_MAP: Record<string, string> = {")
+    expect(content).toContain('export const EXPORT_MAP: Record<string, string> = {')
     expect(content).toContain("  Button: 'core/button',")
     expect(content).toContain('}')
   })

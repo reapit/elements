@@ -1,5 +1,5 @@
 import { ElSideBarSubmenuListItem } from './styles'
-import { SideBarSubmenuItem as SideBarSubmenuItem } from '../submenu-item'
+import { SideBarSubmenuItem } from '../submenu-item'
 
 import type { ComponentProps } from 'react'
 

@@ -106,7 +106,7 @@ export const InvokerCommands: Story = {
   render: function Example(args) {
     return (
       <>
-        {/* eslint-disable-next-line react/no-unknown-property -- NOTE: React 18 does not have types for these
+        {/* oxlint-disable-next-line react/no-unknown-property -- NOTE: React 18 does not have types for these
          * attributes (though they are still forwarded to the DOM element) and they do not yet have full browser
          * support. As such, this example is demonstrative of our forward compatibility, not indicative of how
          * dialog's should be opened/closed right now.

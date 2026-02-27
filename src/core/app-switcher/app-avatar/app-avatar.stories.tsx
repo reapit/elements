@@ -52,7 +52,7 @@ export const AllProducts: Story = {
       control: false,
     },
   },
-  /* eslint-disable-next-line @typescript-eslint/no-unused-vars -- if we don't have args here, our code
+  /* oxlint-disable-next-line typescript/no-unused-vars -- if we don't have args here, our code
    * snippet for this story will be borked. */
   render: (_args) => (
     <div

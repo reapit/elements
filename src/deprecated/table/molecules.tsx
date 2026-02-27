@@ -161,7 +161,7 @@ export const DeprecatedTableCell: FC<DeprecatedTableCellProps> = ({
 
 /** @deprecated */
 export const handleTableCtaClick = (onClick?: (event?: any) => void) => () => {
-  onClick && onClick()
+  if (onClick) onClick()
 }
 
 /** @deprecated */

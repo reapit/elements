@@ -147,7 +147,10 @@ describe('integration tests', () => {
 
     for (const { name } of AVAILABLE_CODEMODS) {
       const transformPath = join(codemodDir, name, 'transform.ts')
-      expect(existsSync(transformPath), `Expected transform.ts to exist for codemod '${name}' at ${transformPath}`).toBe(true)
+      expect(
+        existsSync(transformPath),
+        `Expected transform.ts to exist for codemod '${name}' at ${transformPath}`,
+      ).toBe(true)
     }
   })
 })

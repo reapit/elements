@@ -4,7 +4,7 @@ import { TableRowPrimaryAction } from '../primary-action'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const href = globalThis.top?.location?.href!
+const href = globalThis.top?.location?.href ?? ''
 
 const meta = {
   title: 'Core/Table/MoreActions',

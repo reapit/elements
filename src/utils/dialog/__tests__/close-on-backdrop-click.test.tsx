@@ -126,7 +126,7 @@ function TestComponent({ closedBy, closeSpy }: TestComponentProps) {
 
   return (
     <dialog
-      /* eslint-disable-next-line react/no-unknown-property */
+      /* oxlint-disable-next-line react/no-unknown-property */
       {...(closedBy !== undefined && { closedby: closedBy })}
       open
       onClick={handleClick}

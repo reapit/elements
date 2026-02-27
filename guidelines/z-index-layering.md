@@ -145,7 +145,7 @@ z-index: var(--z-index-sticky);
 
 ### Using Z-Index for Overlays
 
-```typescript
+```tsx
 // ❌ Wrong: Using z-index for modal/overlay components
 export const ElModal = styled.div`
   position: fixed;
@@ -154,7 +154,7 @@ export const ElModal = styled.div`
 
 // ✅ Correct: Use native browser APIs
 export function Modal({ children }: Modal.Props) {
-  return <dialog>{children}</dialog> // Automatically in top-layer
+  return <dialog>{children}</dialog> // Automatically in top - layer
 }
 ```
 

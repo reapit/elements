@@ -44,7 +44,7 @@ export const HTMLDialog = forwardRef<HTMLDialogElement, HTMLDialog.Props>(
       <dialog
         {...rest}
         ref={ref}
-        /* eslint-disable-next-line react/no-unknown-property -- closedby not yet in React types */
+        /* oxlint-disable-next-line react/no-unknown-property -- closedby not yet in React types */
         closedby={closedBy}
         onCancel={handleCancel}
         onClose={handleClose}

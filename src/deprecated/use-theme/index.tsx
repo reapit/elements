@@ -58,7 +58,7 @@ export const useDeprecatedTheme = ({
     }
 
     themeRef.current = theme
-    localStorage && localStorage.setItem(THEME_LOCAL_STOREAGE_KEY, JSON.stringify({ theme }))
+    if (localStorage) localStorage.setItem(THEME_LOCAL_STOREAGE_KEY, JSON.stringify({ theme }))
   }, [theme])
 
   const toggleTheme = (theme) => setTheme(theme)

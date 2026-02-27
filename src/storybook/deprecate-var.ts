@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 
-export const deprecateVar = (variables: Object, component: string) => {
+export const deprecateVar = (variables: object, component: string) => {
   Object.keys(variables).forEach((key) => {
     if (variables[key] !== undefined) {
       console.info(`Prop ${key} longer supported for ${component} component and will be removed at v5 release.`)
@@ -8,7 +8,7 @@ export const deprecateVar = (variables: Object, component: string) => {
   })
 }
 
-export const useDeprecateVar = (variables: Object, component: string) => {
+export const useDeprecateVar = (variables: object, component: string) => {
   useEffect(() => {
     deprecateVar(variables, component)
   }, [])

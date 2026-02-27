@@ -35,7 +35,7 @@ export interface StepsVerticalProps extends HTMLAttributes<HTMLDivElement> {
 
 /** @deprecated */
 export const handleStepClick = (step: string, onStepClick?: (step: string) => void) => () => {
-  onStepClick && onStepClick(step)
+  if (onStepClick) onStepClick(step)
 }
 
 /** @deprecated */

@@ -50,7 +50,7 @@ export function useListboxSelectionObserver(
   // the initially selected options to let consumers act on that state immediately.
   useEffect(function observeInitialSelection() {
     observeSelectedOptions()
-    /* eslint-disable-next-line react-hooks/exhaustive-deps -- won't be necessary once we have useEffectEvent */
+    /* oxlint-disable-next-line react/exhaustive-deps -- won't be necessary once we have useEffectEvent */
   }, [])
 
   useMutationObserver(listboxId, observeSelectedOptions, listboxObserverOptions)

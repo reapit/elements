@@ -22,6 +22,7 @@ extractPathParams(pattern, pathname)
 Returns an object containing the extracted path parameters if the pattern matches the pathname, or `null` if no match is found.
 
 The returned object type is automatically inferred from the pattern:
+
 - Named parameters (`:paramName`) become required string properties
 - Splat parameters (`*`) become a `'*'` property containing the captured path segment
 - If no parameters are defined in the pattern, returns an empty object `{}`
