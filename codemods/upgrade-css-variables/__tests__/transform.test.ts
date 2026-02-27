@@ -746,3 +746,90 @@ describe('legacy-reapit/tokens.css mappings', () => {
     expect(output).toContain('/* was --text-button_reversed-secondary-label-default */')
   })
 })
+
+// ---------------------------------------------------------------------------
+// Template literal boundary safety (.tsx/.ts files)
+// ---------------------------------------------------------------------------
+
+describe('template literal boundary safety', () => {
+  test('transforms a var() in a simple template literal without corrupting surrounding text', () => {
+    const input = 'const El = styled.div`\n  color: var(--neutral-500);\n`'
+    const output = transform(input)
+    // The replacement should appear inside the template literal
+    expect(output).toContain('--colour-fill-neutral-dark')
+    // The template literal delimiters must be intact
+    expect(output).toMatch(/^const El = styled\.div`/)
+    expect(output).toMatch(/`$/)
+  })
+
+  test('does not merge two adjacent styled-component declarations', () => {
+    const input = [
+      'export const ElA = styled.div`',
+      '  color: var(--neutral-500);',
+      '`',
+      '',
+      'export const ElB = styled.div`',
+      '  background: var(--neutral-050);',
+      '`',
+    ].join('\n')
+
+    const output = transform(input)
+
+    // Both declarations must remain as separate exports
+    expect(output).toContain('export const ElA')
+    expect(output).toContain('export const ElB')
+
+    // Both replacements must be present
+    expect(output).toContain('--colour-fill-neutral-dark') // --neutral-500
+    expect(output).toContain('--colour-fill-neutral-lightest') // --neutral-050
+
+    // The closing backtick of ElA must come BEFORE the declaration of ElB
+    const closingBacktickOfElA = output.indexOf('`\n\nexport const ElB')
+    expect(closingBacktickOfElA).toBeGreaterThan(-1)
+  })
+
+  test('does not corrupt a styled-component with a JS interpolation containing parentheses', () => {
+    // This pattern exists in real component files and was the original trigger
+    // for the template-literal boundary corruption bug.
+    const input = [
+      'const El = styled.li<{ isActive?: boolean }>`',
+      '  ${({ isActive }) => isActive && css`color: red;`}',
+      '  border-bottom: var(--outline-default);',
+      '`',
+    ].join('\n')
+
+    const output = transform(input)
+
+    // The interpolation block must survive intact
+    expect(output).toContain('${({ isActive }) => isActive && css`color: red;`}')
+
+    // The var() inside the main template literal must be transformed
+    expect(output).toContain('--colour-border-neutral-light_default')
+
+    // There must be exactly one styled-component declaration
+    const count = (output.match(/styled\.li/g) ?? []).length
+    expect(count).toBe(1)
+  })
+
+  test('leaves a var() containing a backtick in its inner content unchanged', () => {
+    // Pathological case: a var( whose content somehow contains a backtick.
+    // The scanner cannot safely parse this — it must emit the call unchanged.
+    const input = 'color: var(--`weird);'
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+
+  test('emits an unparseable var() inside a template literal unchanged and still transforms later vars', () => {
+    const input = ['const El = styled.div`', '  color: var(--`weird);', '  background: var(--neutral-500);', '`'].join(
+      '\n',
+    )
+
+    const output = transform(input)
+
+    // The unparseable var() containing a backtick must be left as-is
+    expect(output).toContain('color: var(--`weird);')
+
+    // The later valid var(--neutral-500) must still be transformed
+    expect(output).toContain('--colour-fill-neutral-dark')
+  })
+})

@@ -37,7 +37,7 @@ function replaceCssVarCalls(source: string): string {
   let result = ''
   let index = 0
 
-  while (index < source.length) {
+  outer: while (index < source.length) {
     const start = source.indexOf('var(', index)
 
     if (start === -1) {
@@ -84,6 +84,18 @@ function replaceCssVarCalls(source: string): string {
       if (ch === '"') {
         inDoubleQuote = true
         continue
+      }
+
+      // A backtick marks a template-literal boundary in .tsx/.ts source files.
+      // If we encounter one while scanning for the closing ')' of a var() call,
+      // the var( is either malformed or sits in a JS context we cannot safely
+      // parse. Emit the var( span unchanged up to (but not including) the
+      // backtick, then resume scanning from the backtick so that subsequent
+      // var() calls in the same file are still processed.
+      if (ch === '`') {
+        result += source.slice(start, i)
+        index = i
+        continue outer
       }
 
       if (ch === '(') {
