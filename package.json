@@ -158,7 +158,7 @@
     "react-dom": ">=18.0.2"
   },
   "resolutions": {
-    "brace-expansion": "^2.0.2"
+    "brace-expansion@npm:^1.1.7": "^2.0.2"
   },
   "engines": {
     "node": ">=22.18.0"
