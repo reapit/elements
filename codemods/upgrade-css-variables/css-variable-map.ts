@@ -436,6 +436,203 @@ export const CSS_VARIABLE_MAP: Record<string, VariableMapping> = {
   'util-rems-10': { kind: 'inline', inlinedValue: '2.25rem' },
   'util-rems-11': { kind: 'inline', inlinedValue: '2.5rem' },
   'util-rems-12': { kind: 'inline', inlinedValue: '3rem' },
+
+  // ---------------------------------------------------------------------------
+  // Semantic text colour tokens  (legacy-reapit/tokens.css → v5 reapit.css)
+  // All are exact 1-to-1 renames: prefix legacy `--text-*` tokens with `--colour-`
+  //   (for example, `--text-primary` → `--colour-text-primary`).
+  // ---------------------------------------------------------------------------
+  'text-primary': { v5: '--colour-text-primary', kind: 'direct' },
+  'text-secondary': { v5: '--colour-text-secondary', kind: 'direct' },
+  'text-tertiary': { v5: '--colour-text-tertiary', kind: 'direct' },
+  'text-placeholder': { v5: '--colour-text-placeholder', kind: 'direct' },
+  'text-action': { v5: '--colour-text-action', kind: 'direct' },
+  'text-error': { v5: '--colour-text-error', kind: 'direct' },
+  'text-success': { v5: '--colour-text-success', kind: 'direct' },
+  'text-warning': { v5: '--colour-text-warning', kind: 'direct' },
+  'text-info': { v5: '--colour-text-info', kind: 'direct' },
+  'text-white': { v5: '--colour-text-white', kind: 'direct' },
+  'text-pending': { v5: '--colour-text-pending', kind: 'direct' },
+  'text-accent_1': { v5: '--colour-text-accent_1', kind: 'direct' },
+  'text-accent_2': { v5: '--colour-text-accent_2', kind: 'direct' },
+  // These two component-specific tokens changed value in v5 (reversed button
+  // now uses alpha-blended white). Inline the legacy hex so consumers preserve
+  // the old visual appearance.
+  'text-button_reversed-secondary-label-default': { kind: 'inline', inlinedValue: '#e5e9ed' },
+  'text-button_reversed-secondary-label-disabled': { kind: 'inline', inlinedValue: '#798da1' },
+
+  // ---------------------------------------------------------------------------
+  // Semantic fill colour tokens  (legacy-reapit/tokens.css → v5 reapit.css)
+  // ---------------------------------------------------------------------------
+  // 'default' category renamed to 'neutral' in v5.
+  'fill-default-lightest': { v5: '--colour-fill-neutral-lightest', kind: 'direct' },
+  'fill-default-light': { v5: '--colour-fill-neutral-light', kind: 'direct' },
+  'fill-default-medium': { v5: '--colour-fill-neutral-medium', kind: 'direct' },
+  'fill-default-dark': { v5: '--colour-fill-neutral-dark', kind: 'direct' },
+  'fill-default-darkest': { v5: '--colour-fill-neutral-darkest', kind: 'direct' },
+  // Exact renames: add '--colour-' prefix.
+  'fill-white': { v5: '--colour-fill-white', kind: 'direct' },
+  'fill-action-lightest': { v5: '--colour-fill-action-lightest', kind: 'direct' },
+  'fill-action-light': { v5: '--colour-fill-action-light', kind: 'direct' },
+  'fill-action-dark': { v5: '--colour-fill-action-dark', kind: 'direct' },
+  'fill-success-lightest': { v5: '--colour-fill-success-lightest', kind: 'direct' },
+  'fill-success-light': { v5: '--colour-fill-success-light', kind: 'direct' },
+  'fill-success-dark': { v5: '--colour-fill-success-dark', kind: 'direct' },
+  'fill-warning-lightest': { v5: '--colour-fill-warning-lightest', kind: 'direct' },
+  'fill-warning-light': { v5: '--colour-fill-warning-light', kind: 'direct' },
+  'fill-warning-dark': { v5: '--colour-fill-warning-dark', kind: 'direct' },
+  'fill-error-lightest': { v5: '--colour-fill-error-lightest', kind: 'direct' },
+  'fill-error-light': { v5: '--colour-fill-error-light', kind: 'direct' },
+  'fill-error-dark': { v5: '--colour-fill-error-dark', kind: 'direct' },
+  'fill-info-lightest': { v5: '--colour-fill-info-lightest', kind: 'direct' },
+  'fill-info-light': { v5: '--colour-fill-info-light', kind: 'direct' },
+  'fill-info-dark': { v5: '--colour-fill-info-dark', kind: 'direct' },
+  'fill-pending-lightest': { v5: '--colour-fill-pending-lightest', kind: 'direct' },
+  'fill-pending-light': { v5: '--colour-fill-pending-light', kind: 'direct' },
+  'fill-pending-dark': { v5: '--colour-fill-pending-dark', kind: 'direct' },
+  'fill-accent_1-lightest': { v5: '--colour-fill-accent_1-lightest', kind: 'direct' },
+  'fill-accent_1-light': { v5: '--colour-fill-accent_1-light', kind: 'direct' },
+  'fill-accent_1-dark': { v5: '--colour-fill-accent_1-dark', kind: 'direct' },
+  'fill-accent_2-lightest': { v5: '--colour-fill-accent_2-lightest', kind: 'direct' },
+  'fill-accent_2-light': { v5: '--colour-fill-accent_2-light', kind: 'direct' },
+  'fill-accent_2-dark': { v5: '--colour-fill-accent_2-dark', kind: 'direct' },
+  // Component-specific fill tokens that moved to --comp-* level in v5 (no
+  // semantic equivalent). Inline the legacy hex values to preserve appearance.
+  'fill-button-primary-hover': { kind: 'inline', inlinedValue: '#4036c8' },
+  'fill-button-danger-hover': { kind: 'inline', inlinedValue: '#a21020' },
+  'fill-switch-hover': { kind: 'inline', inlinedValue: '#4036c8' },
+  // Value changed in v5 (reversed button now uses alpha-blended white).
+  'fill-reversed_button-secondary-disabled': { kind: 'inline', inlinedValue: '#415161' },
+
+  // ---------------------------------------------------------------------------
+  // Semantic icon colour tokens  (legacy-reapit/tokens.css → v5 reapit.css)
+  // ---------------------------------------------------------------------------
+  // Exact renames: add '--colour-' prefix.
+  'icon-primary': { v5: '--colour-icon-primary', kind: 'direct' },
+  'icon-secondary': { v5: '--colour-icon-secondary', kind: 'direct' },
+  'icon-disabled': { v5: '--colour-icon-disabled', kind: 'direct' },
+  'icon-action': { v5: '--colour-icon-action', kind: 'direct' },
+  'icon-error': { v5: '--colour-icon-error', kind: 'direct' },
+  'icon-success': { v5: '--colour-icon-success', kind: 'direct' },
+  'icon-warning': { v5: '--colour-icon-warning', kind: 'direct' },
+  'icon-info': { v5: '--colour-icon-info', kind: 'direct' },
+  'icon-white': { v5: '--colour-icon-white', kind: 'direct' },
+  'icon-star': { v5: '--colour-icon-star', kind: 'direct' },
+  'icon-pending': { v5: '--colour-icon-pending', kind: 'direct' },
+  'icon-accent_1': { v5: '--colour-icon-accent_1', kind: 'direct' },
+  'icon-accent_2': { v5: '--colour-icon-accent_2', kind: 'direct' },
+  // Checkbox and radio hover icons were consolidated into a single generic
+  // hover token in v5.
+  'icon-checkbox-hover': { v5: '--colour-icon-hover', kind: 'direct' },
+  'icon-radio_button-hover': { v5: '--colour-icon-hover', kind: 'direct' },
+  // Component-specific icon tokens that moved to --comp-* level (or had their
+  // values changed) in v5. Inline legacy hex values to preserve appearance.
+  'icon-app_bar-default': { kind: 'inline', inlinedValue: '#798da1' },
+  'icon-button_primary-default': { kind: 'inline', inlinedValue: '#d6e1ff' },
+  'icon-button_primary-hover': { kind: 'inline', inlinedValue: '#7e9bfa' },
+  'icon-button_danger-default': { kind: 'inline', inlinedValue: '#fcd9dd' },
+  'icon-button_danger-hover': { kind: 'inline', inlinedValue: '#f67482' },
+  // Value changed in v5 (reversed button icons now use alpha-blended white).
+  'icon-reversed_button-hover': { kind: 'inline', inlinedValue: '#607890' },
+  'icon-reversed_button-disabled': { kind: 'inline', inlinedValue: '#798da1' },
+  'icon-split_button-secondary-hover': { kind: 'inline', inlinedValue: '#415161' },
+
+  // ---------------------------------------------------------------------------
+  // Semantic outline / border tokens  (legacy-reapit/tokens.css → v5 reapit.css)
+  // 'outline' category renamed to 'border' in v5; status tokens gained '-default' suffix.
+  // ---------------------------------------------------------------------------
+  'outline-primary': { v5: '--colour-border-action-default', kind: 'direct' },
+  'outline-warning': { v5: '--colour-border-warning-default', kind: 'direct' },
+  'outline-error': { v5: '--colour-border-error-default', kind: 'direct' },
+  'outline-info': { v5: '--colour-border-info-default', kind: 'direct' },
+  'outline-success': { v5: '--colour-border-success-default', kind: 'direct' },
+  'outline-white': { v5: '--colour-border-white', kind: 'direct' },
+  'outline-pending': { v5: '--colour-border-pending-default', kind: 'direct' },
+  'outline-accent_1': { v5: '--colour-border-accent_1-default', kind: 'direct' },
+  'outline-accent_2': { v5: '--colour-border-accent_2-default', kind: 'direct' },
+  'outline-input_chip-orange': { v5: '--colour-border-warning-light', kind: 'direct' },
+  // The semantic name in v5 is different enough that manual review is warranted.
+  'outline-default': { v5: '--colour-border-neutral-light_default', kind: 'best_effort' },
+  'outline-dashed': { v5: '--colour-border-neutral-light_darker', kind: 'best_effort' },
+  'outline-text_input-default': { v5: '--colour-border-neutral-light_darker', kind: 'best_effort' },
+  'outline-button-secondary-hover': { v5: '--colour-fill-neutral-medium', kind: 'best_effort' },
+  // These values changed in v5. Inline the legacy hex to preserve appearance.
+  'outline-text_input-focus': { kind: 'inline', inlinedValue: '#0080ff' },
+  'outline-button_reversed-secondary-default': { kind: 'inline', inlinedValue: '#415161' },
+
+  // ---------------------------------------------------------------------------
+  // Raw neutral palette  (legacy-reapit/tokens.css)
+  // v5 exposes no raw palette scale — map to the nearest semantic token.
+  // All are best_effort because the correct semantic token is context-dependent.
+  // ---------------------------------------------------------------------------
+  'neutral-900': { v5: '--colour-text-primary', kind: 'best_effort' },
+  // #323e4b was removed from the v5 palette entirely — inline the hex value.
+  'neutral-800': { kind: 'inline', inlinedValue: '#323e4b' },
+  'neutral-700': { v5: '--colour-text-tertiary', kind: 'best_effort' },
+  // #506478 has no semantic v5 equivalent — inline the hex value.
+  'neutral-600': { kind: 'inline', inlinedValue: '#506478' },
+  'neutral-500': { v5: '--colour-fill-neutral-dark', kind: 'best_effort' },
+  'neutral-400': { v5: '--colour-fill-neutral-medium', kind: 'best_effort' },
+  'neutral-300': { v5: '--colour-fill-neutral-medium', kind: 'best_effort' },
+  // #c5ced6 has no semantic v5 equivalent — inline the hex value.
+  'neutral-200': { kind: 'inline', inlinedValue: '#c5ced6' },
+  'neutral-150': { v5: '--colour-border-neutral-light_darker', kind: 'best_effort' },
+  'neutral-100': { v5: '--colour-fill-neutral-light', kind: 'best_effort' },
+  'neutral-050': { v5: '--colour-fill-neutral-lightest', kind: 'best_effort' },
+
+  // ---------------------------------------------------------------------------
+  // Corner radius tokens  (legacy-reapit/tokens.css → v5 reapit.css)
+  // 'corner' category renamed to 'border-radius' in v5.
+  // Tier names: none→none, sm→s, default→m, lg→l, xl→xl, 2xl→2xl, 3xl→3xl.
+  // ---------------------------------------------------------------------------
+  'corner-none': { v5: '--border-radius-none', kind: 'direct' },
+  'corner-sm': { v5: '--border-radius-s', kind: 'direct' },
+  'corner-default': { v5: '--border-radius-m', kind: 'direct' },
+  'corner-lg': { v5: '--border-radius-l', kind: 'direct' },
+  'corner-xl': { v5: '--border-radius-xl', kind: 'direct' },
+  'corner-2xl': { v5: '--border-radius-2xl', kind: 'direct' },
+  'corner-3xl': { v5: '--border-radius-3xl', kind: 'direct' },
+
+  // ---------------------------------------------------------------------------
+  // Typography scale tokens  (legacy-reapit/tokens.css → v5 composite tokens)
+  // v5 uses --font-{tier}-{weight}-{property} composites. Map to the 'regular'
+  // weight variant as the baseline. Weight-specific usages should be updated
+  // by hand. Tier names are preserved; only the token structure changes.
+  // ---------------------------------------------------------------------------
+  // Font sizes
+  'font-size-3xl': { v5: '--font-3xl-regular-size', kind: 'direct' },
+  'font-size-2xl': { v5: '--font-2xl-regular-size', kind: 'direct' },
+  'font-size-xl': { v5: '--font-xl-regular-size', kind: 'direct' },
+  'font-size-lg': { v5: '--font-lg-regular-size', kind: 'direct' },
+  'font-size-base': { v5: '--font-base-regular-size', kind: 'direct' },
+  'font-size-sm': { v5: '--font-sm-regular-size', kind: 'direct' },
+  'font-size-xs': { v5: '--font-xs-regular-size', kind: 'direct' },
+  'font-size-2xs': { v5: '--font-2xs-regular-size', kind: 'direct' },
+  'font-size-3xs': { v5: '--font-3xs-regular-size', kind: 'direct' },
+  // Line heights
+  'line-height-3xl': { v5: '--font-3xl-regular-line_height', kind: 'direct' },
+  'line-height-2xl': { v5: '--font-2xl-regular-line_height', kind: 'direct' },
+  'line-height-xl': { v5: '--font-xl-regular-line_height', kind: 'direct' },
+  'line-height-lg': { v5: '--font-lg-regular-line_height', kind: 'direct' },
+  'line-height-base': { v5: '--font-base-regular-line_height', kind: 'direct' },
+  'line-height-sm': { v5: '--font-sm-regular-line_height', kind: 'direct' },
+  'line-height-xs': { v5: '--font-xs-regular-line_height', kind: 'direct' },
+  'line-height-2xs': { v5: '--font-2xs-regular-line_height', kind: 'direct' },
+  // Letter spacings
+  'letter-spacing-3xl': { v5: '--font-3xl-regular-letter_spacing', kind: 'direct' },
+  'letter-spacing-2xl': { v5: '--font-2xl-regular-letter_spacing', kind: 'direct' },
+  'letter-spacing-xl': { v5: '--font-xl-regular-letter_spacing', kind: 'direct' },
+  'letter-spacing-lg': { v5: '--font-lg-regular-letter_spacing', kind: 'direct' },
+  'letter-spacing-base': { v5: '--font-base-regular-letter_spacing', kind: 'direct' },
+  'letter-spacing-sm': { v5: '--font-sm-regular-letter_spacing', kind: 'direct' },
+  'letter-spacing-xs': { v5: '--font-xs-regular-letter_spacing', kind: 'direct' },
+  'letter-spacing-2xs': { v5: '--font-2xs-regular-letter_spacing', kind: 'direct' },
+  // Font family and weights — no standalone v5 tokens; inline concrete values.
+  'font-family': { kind: 'inline', inlinedValue: 'Inter' },
+  'font-weight-regular': { kind: 'inline', inlinedValue: '400' },
+  // Legacy Reapit only exposes standalone font-weight tokens for regular and semibold here;
+  // the medium weight is already mapped earlier in this file via the globals.ts tokens.
+  'font-weight-semibold': { kind: 'inline', inlinedValue: '600' },
 }
 
 /**

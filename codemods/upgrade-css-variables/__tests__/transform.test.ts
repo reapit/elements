@@ -638,3 +638,111 @@ describe('best-effort mapping — bare palette variables', () => {
     expect(output).toContain(TODO_SUFFIX('--blue-500'))
   })
 })
+
+// ---------------------------------------------------------------------------
+// legacy-reapit/tokens.css mappings
+// ---------------------------------------------------------------------------
+
+describe('legacy-reapit/tokens.css mappings', () => {
+  const TODO_SUFFIX = (varName: string) =>
+    `/* TODO: ${varName} has no direct v5 equivalent — verify this replacement is correct for your context */`
+
+  // Semantic text colour tokens — direct renames
+  test('replaces --text-primary with --colour-text-primary', () => {
+    expect(transform('color: var(--text-primary);')).toBe('color: var(--colour-text-primary);')
+  })
+
+  // Semantic fill colour tokens — direct renames
+  test('replaces --fill-default-lightest with --colour-fill-neutral-lightest', () => {
+    expect(transform('background: var(--fill-default-lightest);')).toBe(
+      'background: var(--colour-fill-neutral-lightest);',
+    )
+  })
+
+  test('replaces --fill-white with --colour-fill-white', () => {
+    expect(transform('background: var(--fill-white);')).toBe('background: var(--colour-fill-white);')
+  })
+
+  // Semantic icon colour tokens — direct renames
+  test('replaces --icon-primary with --colour-icon-primary', () => {
+    expect(transform('color: var(--icon-primary);')).toBe('color: var(--colour-icon-primary);')
+  })
+
+  test('replaces --icon-checkbox-hover with consolidated --colour-icon-hover', () => {
+    expect(transform('color: var(--icon-checkbox-hover);')).toBe('color: var(--colour-icon-hover);')
+  })
+
+  // Semantic outline / border tokens — direct renames
+  test('replaces --outline-primary with --colour-border-action-default', () => {
+    expect(transform('border-color: var(--outline-primary);')).toBe(
+      'border-color: var(--colour-border-action-default);',
+    )
+  })
+
+  // Outline tokens — best-effort (require manual review)
+  test('replaces --outline-default with --colour-border-neutral-light_default and adds TODO comment', () => {
+    const output = transform('border: var(--outline-default);')
+    expect(output).toContain('var(--colour-border-neutral-light_default)')
+    expect(output).toContain(TODO_SUFFIX('--outline-default'))
+  })
+
+  // Raw neutral palette — best-effort
+  test('replaces --neutral-500 with --colour-fill-neutral-dark and adds TODO comment', () => {
+    const output = transform('background: var(--neutral-500);')
+    expect(output).toContain('var(--colour-fill-neutral-dark)')
+    expect(output).toContain(TODO_SUFFIX('--neutral-500'))
+  })
+
+  // Raw neutral palette — inline (no v5 equivalent)
+  test('inlines --neutral-800 with legacy hex value', () => {
+    const output = transform('color: var(--neutral-800);')
+    expect(output).toContain('#323e4b')
+    expect(output).toContain('/* was --neutral-800 */')
+  })
+
+  // Corner radius tokens — direct renames
+  test('replaces --corner-none with --border-radius-none', () => {
+    expect(transform('border-radius: var(--corner-none);')).toBe('border-radius: var(--border-radius-none);')
+  })
+
+  test('replaces --corner-lg with --border-radius-l', () => {
+    expect(transform('border-radius: var(--corner-lg);')).toBe('border-radius: var(--border-radius-l);')
+  })
+
+  // Typography scale tokens — direct renames to v5 composite format
+  test('replaces --font-size-base with --font-base-regular-size', () => {
+    expect(transform('font-size: var(--font-size-base);')).toBe('font-size: var(--font-base-regular-size);')
+  })
+
+  test('replaces --line-height-2xs with --font-2xs-regular-line_height', () => {
+    expect(transform('line-height: var(--line-height-2xs);')).toBe('line-height: var(--font-2xs-regular-line_height);')
+  })
+
+  // Font family — inline (no v5 token)
+  test('inlines --font-family with concrete Inter value', () => {
+    const output = transform('font-family: var(--font-family);')
+    expect(output).toContain('Inter')
+    expect(output).toContain('/* was --font-family */')
+  })
+
+  // Font weight — inline
+  test('inlines --font-weight-semibold with 600', () => {
+    expect(transform('font-weight: var(--font-weight-semibold);')).toBe(
+      'font-weight: 600 /* was --font-weight-semibold */;',
+    )
+  })
+
+  // Component fill tokens — inline (moved to --comp-* level in v5)
+  test('inlines --fill-button-primary-hover with legacy hex value', () => {
+    const output = transform('background: var(--fill-button-primary-hover);')
+    expect(output).toContain('#4036c8')
+    expect(output).toContain('/* was --fill-button-primary-hover */')
+  })
+
+  // Component text tokens — inline (value changed in v5)
+  test('inlines --text-button_reversed-secondary-label-default with legacy hex value', () => {
+    const output = transform('color: var(--text-button_reversed-secondary-label-default);')
+    expect(output).toContain('#e5e9ed')
+    expect(output).toContain('/* was --text-button_reversed-secondary-label-default */')
+  })
+})

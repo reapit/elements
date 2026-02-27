@@ -132,3 +132,40 @@ The `--facade-package` flag is accepted but has no effect on this codemod. CSS c
 3. **Remove TODO comments**: Once you have verified each replacement, remove the inline comments.
 
 4. **Review inlined values**: Variables replaced with concrete values (see _Inline mappings_ above) are marked with `/* was var(--name) */` comments. Search for `/* was var(` to find them. Once you have confirmed the inlined value is appropriate, you may remove the comment.
+
+## Legacy-reapit token mappings
+
+The codemod also handles tokens from the legacy `src/tokens/legacy-reapit/tokens.css` file that was removed in v5.
+
+### Semantic colour tokens
+
+- `--text-*` → `--colour-text-*` (exact renames; e.g. `--text-primary` → `--colour-text-primary`)
+- `--fill-*` → `--colour-fill-*` (exact renames; `--fill-default-*` → `--colour-fill-neutral-*` because the `default` category was renamed to `neutral` in v5)
+- `--icon-*` → `--colour-icon-*` (exact renames; `--icon-checkbox-hover` and `--icon-radio_button-hover` are both consolidated into `--colour-icon-hover`)
+- `--outline-*` → `--colour-border-*` (status tokens gain a `-default` suffix; e.g. `--outline-primary` → `--colour-border-action-default`)
+
+A small number of component-specific tokens within each category changed value in v5 (e.g. reversed-button tokens). These are replaced with their legacy hex values and marked with `/* was --name */` comments.
+
+### Raw neutral palette
+
+`--neutral-050` through `--neutral-900` are mapped to the nearest semantic token with a `TODO` comment for manual review, since the correct replacement is context-dependent. A handful of shades (`--neutral-800`, `--neutral-600`, `--neutral-200`) were removed from the v5 palette entirely and are inlined with their legacy hex values.
+
+### Corner radius
+
+`--corner-*` → `--border-radius-*`, with tier name adjustments:
+
+| Legacy             | v5                     |
+| ------------------ | ---------------------- |
+| `--corner-none`    | `--border-radius-none` |
+| `--corner-sm`      | `--border-radius-s`    |
+| `--corner-default` | `--border-radius-m`    |
+| `--corner-lg`      | `--border-radius-l`    |
+| `--corner-xl`      | `--border-radius-xl`   |
+| `--corner-2xl`     | `--border-radius-2xl`  |
+| `--corner-3xl`     | `--border-radius-3xl`  |
+
+### Typography
+
+`--font-size-*`, `--line-height-*`, and `--letter-spacing-*` map to the v5 composite token format `--font-{tier}-regular-{property}` (e.g. `--font-size-base` → `--font-base-regular-size`, `--line-height-2xs` → `--font-2xs-regular-line_height`). These are direct mappings using the `regular` weight variant as the baseline; weight-specific usages should be reviewed by hand.
+
+`--font-family` and `--font-weight-*` have no standalone v5 token equivalents and are inlined with their concrete values (`Inter`, `400`, `600`).
