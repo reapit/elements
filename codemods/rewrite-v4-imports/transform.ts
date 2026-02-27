@@ -11,6 +11,7 @@ import { Project, SourceFile } from 'ts-morph'
  * - Button -> DeprecatedButton as Button
  * - ButtonProps -> DeprecatedButtonProps as ButtonProps
  * - type ButtonProps -> type DeprecatedButtonProps as ButtonProps
+ * - TextArea -> Textarea as TextArea
  * - Handles facade packages via --facade-package flag
  *
  * Preserves:
@@ -41,6 +42,9 @@ const moduleTransformations: Record<string, string> = {
   Table: 'DeprecatedTable',
   Tag: 'DeprecatedTag',
   ToolTip: 'DeprecatedToolTip',
+
+  // Textarea (renamed in v5, no deprecated alias available)
+  TextArea: 'Textarea',
 
   // Sub-components - Accordion
   AccordionContainer: 'DeprecatedAccordionContainer',

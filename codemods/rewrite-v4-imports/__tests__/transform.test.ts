@@ -575,3 +575,59 @@ describe('local isElementsImport divergence from shared helper', () => {
     expect(output).toBe(`import { DeprecatedButton as Button } from '@company/ui/elements'`)
   })
 })
+
+describe('TextArea to Textarea rename', () => {
+  test('renames TextArea import to Textarea with alias', () => {
+    const input = `import { TextArea } from '@reapit/elements'`
+    const output = transform(input)
+    expect(output).toBe(`import { Textarea as TextArea } from '@reapit/elements'`)
+  })
+
+  test('renames TextAreaProps to TextareaProps with alias', () => {
+    const input = `import type { TextAreaProps } from '@reapit/elements'`
+    const output = transform(input)
+    expect(output).toBe(`import type { TextareaProps as TextAreaProps } from '@reapit/elements'`)
+  })
+
+  test('renames inline type TextAreaProps', () => {
+    const input = `import { TextArea, type TextAreaProps } from '@reapit/elements'`
+    const output = transform(input)
+    expect(output).toBe(`import { Textarea as TextArea, type TextareaProps as TextAreaProps } from '@reapit/elements'`)
+  })
+
+  test('preserves custom alias on TextArea', () => {
+    const input = `import { TextArea as MyTextArea } from '@reapit/elements'`
+    const output = transform(input)
+    expect(output).toBe(`import { Textarea as MyTextArea } from '@reapit/elements'`)
+  })
+
+  test('does not transform already-renamed Textarea import', () => {
+    const input = `import { Textarea } from '@reapit/elements'`
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+
+  test('renames TextArea together with other v4 components', () => {
+    const input = `import { Button, TextArea } from '@reapit/elements'`
+    const output = transform(input)
+    expect(output).toBe(`import { DeprecatedButton as Button, Textarea as TextArea } from '@reapit/elements'`)
+  })
+
+  test('renames TextArea from facade package', () => {
+    const input = `import { TextArea } from '@company/ui-components'`
+    const output = transform(input, 'test.tsx', { facadePackage: '@company/ui-components' })
+    expect(output).toBe(`import { Textarea as TextArea } from '@company/ui-components'`)
+  })
+
+  test('renames TextArea from facade package subpath', () => {
+    const input = `import { TextArea } from '@company/design-system/elements'`
+    const output = transform(input, 'test.tsx', { facadePackage: '@company/design-system' })
+    expect(output).toBe(`import { Textarea as TextArea } from '@company/design-system/elements'`)
+  })
+
+  test('does not rename TextArea from v5 subpath import', () => {
+    const input = `import { TextArea } from '@reapit/elements/core/textarea'`
+    const output = transform(input)
+    expect(output).toBe(input)
+  })
+})
