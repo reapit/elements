@@ -12,7 +12,7 @@ import {
 /** @deprecated */
 export const ElInputAddOn = styled.span`
   font-size: 0.9375rem /* was --font-size-default */;
-  color: var(--neutral-400);
+  color: var(--colour-text-secondary);
 
   &.${elIntentPrimary} {
     color: var(--colour-text-action);

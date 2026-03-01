@@ -11,6 +11,6 @@ export const ElEmptyData = styled.div`
   overflow: hidden;
 
   padding: var(--spacing-6);
-  border-radius: var(--corner-lg);
-  background: var(--fill-default-lightest);
+  border-radius: var(--border-radius-l);
+  background: var(--colour-fill-neutral-lightest);
 `

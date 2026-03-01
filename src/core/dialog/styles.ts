@@ -10,7 +10,7 @@ const DIALOG_IN_DELAY = BACKDROP_DURATION
 export const elDialog = css`
   overflow: auto;
   border: none;
-  border-radius: var(--corner-radius-corner-lg, 8px);
+  border-radius: var(--border-radius-l);
 
   container-name: dialog;
   container-type: inline-size;

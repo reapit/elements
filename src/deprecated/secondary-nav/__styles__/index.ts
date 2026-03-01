@@ -10,7 +10,7 @@ export const ElSecondaryNav = styled.div`
 /** @deprecated */
 export const ElSecondaryNavItem = styled.div`
   padding: 0.625rem 1.5rem;
-  color: var(--neutral-400);
+  color: var(--colour-text-secondary);
   font-size: 0.875rem /* was --font-size-small */;
   cursor: pointer;
   position: relative;

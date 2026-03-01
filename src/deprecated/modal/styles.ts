@@ -12,7 +12,7 @@ export const ElModalBg = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: var(--neutral-500);
+  background: var(--colour-fill-neutral-dark);
   opacity: 0.2;
 
   &.${elIsActive} {

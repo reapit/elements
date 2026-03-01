@@ -2,19 +2,15 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 /** @deprecated */
-export const elTilePaddingSmall = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elTilePaddingSmall = css``
 
 /** @deprecated */
-export const elTilePaddingNone = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elTilePaddingNone = css``
 
 /** @deprecated */
 export const ElTile = styled.div`
   border-radius: 0.5rem;
-  border: 1px solid var(--neutral-100);
+  border: 1px solid var(--colour-border-neutral-light_default);
   padding: 1.5rem;
   background-color: var(--colour-fill-white);
 

@@ -11,9 +11,7 @@ const dot = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" wid
 `
 
 /** @deprecated */
-export const elDeprecatedPageHeaderMaxWidth = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedPageHeaderMaxWidth = css``
 
 /** @deprecated */
 export const ElDeprecatedPageHeaderContainer = styled.div`
@@ -121,7 +119,7 @@ export const ElDeprecatedPageHeaderSeparator = styled.span`
   height: 1.5rem;
   width: 1.5rem;
   position: relative;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
 
   &::before {
     content: '';

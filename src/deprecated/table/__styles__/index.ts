@@ -157,9 +157,7 @@ export const elTableNarrowCellIsFullWidth = css`
 `
 
 /** @deprecated */
-export const elTableCellHasDarkText = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elTableCellHasDarkText = css``
 
 /** @deprecated */
 export const elTableRowFocused = css`
@@ -200,7 +198,7 @@ export const ElDeprecatedTableHeadersRow = styled.div`
   grid-template-columns:
     repeat(var(--component-table-num-columns, auto-fit), minmax(3rem /* was --component-table-min-column-width */, 1fr))
     var(--component-table-expandable-trigger-width, 0);
-  border-bottom: 1px solid var(--neutral-100);
+  border-bottom: 1px solid var(--colour-border-neutral-light_default);
 
   ${isNarrow} {
     display: none;
@@ -209,7 +207,7 @@ export const ElDeprecatedTableHeadersRow = styled.div`
 
 /** @deprecated */
 export const ElDeprecatedTableHeader = styled.div`
-  color: var(--neutral-400);
+  color: var(--colour-text-secondary);
   padding: 1rem 0.5rem;
   display: flex;
   align-items: center;
@@ -231,7 +229,7 @@ export const ElDeprecatedTableRow = styled.div`
     repeat(var(--component-table-num-columns, auto-fit), minmax(3rem /* was --component-table-min-column-width */, 1fr))
     var(--component-table-expandable-trigger-width, 0);
   background: var(--colour-fill-white);
-  border-bottom: 1px solid var(--neutral-100);
+  border-bottom: 1px solid var(--colour-border-neutral-light_default);
 
   ${isNarrow} {
     grid-template-columns: 1fr 1fr;
@@ -263,7 +261,7 @@ export const ElDeprecatedTableCell = styled.div`
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
   /* margin-right: 2px; */
   overflow-wrap: anywhere;
   font-size: 0.875rem /* was --font-size-small */;
@@ -301,7 +299,7 @@ export const ElTableCellSplitData = styled.div`
 /** @deprecated */
 export const ElTableCellSplitSubData = styled.div`
   font-size: 0.8125rem /* was --font-size-smallest */;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -343,10 +341,10 @@ export const ElDeprecatedTableRowContainer = styled.div`
   }
 
   &:hover:not(.${elIsActive}) {
-    background-color: var(--neutral-100);
+    background-color: var(--colour-fill-neutral-light);
 
     ${ElDeprecatedTableCell}, ${ElTableExpandableRowTriggerCell}, ${ElDeprecatedTableRow}, ${ElTableCtaCell} {
-      background-color: var(--neutral-100);
+      background-color: var(--colour-fill-neutral-light);
     }
   }
 `
@@ -397,7 +395,7 @@ export const ElTableExpandableRow = styled.div`
 /** @deprecated */
 export const ElTableExpandableContainer = styled.div`
   padding: 1rem 0.5rem;
-  border-bottom: 1px solid var(--neutral-100);
+  border-bottom: 1px solid var(--colour-border-neutral-light_default);
 `
 
 /** @deprecated */

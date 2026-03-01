@@ -8,7 +8,7 @@ export const ElProgressBarContainer = styled.div`
   justify-content: flex-start;
   width: 100%;
   height: 3px;
-  background-color: var(--neutral-100);
+  background-color: var(--colour-fill-neutral-light);
 `
 
 /** @deprecated */

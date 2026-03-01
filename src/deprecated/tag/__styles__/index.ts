@@ -15,7 +15,7 @@ export const ElDeprecatedTag = styled.span`
   display: inline-block;
   font-size: 0.8125rem /* was --font-size-smallest */;
   padding: 0.25rem 1rem;
-  background: var(--neutral-400);
+  background: var(--colour-fill-neutral-medium);
   color: var(--colour-text-white);
 
   &.${elIntentPrimary} {

@@ -35,7 +35,7 @@ export const ElExperimentalTableHeaderCellContent = styled.div<ElExperimentalTab
   width: auto;
   padding: var(--spacing-2) 0;
   gap: var(--spacing-1);
-  color: var(--text-secondary);
+  color: var(--colour-text-secondary);
   flex: auto;
   align-items: center;
   flex-wrap: wrap;

@@ -3,13 +3,9 @@ import { elHFull } from '../../styles/deprecated-sizing'
 import { css } from '@linaria/core'
 
 /** @deprecated */
-export const elHasGreyBackground = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasGreyBackground = css``
 /** @deprecated */
-export const elHasMaxWidth = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasMaxWidth = css``
 
 /** @deprecated */
 export const elDeprecatedMainContainer = css`
@@ -21,7 +17,7 @@ export const elDeprecatedMainContainer = css`
   background: var(--colour-fill-white);
 
   &.${elHasGreyBackground} {
-    background: var(--neutral-050);
+    background: var(--colour-fill-neutral-lightest);
   }
 
   &.${elHasMaxWidth} {
@@ -48,7 +44,7 @@ export const elPageContainer = css`
   }
 
   &.${elHasGreyBackground} {
-    background: var(--neutral-050);
+    background: var(--colour-fill-neutral-lightest);
   }
 
   &.${elHasMaxWidth} {
@@ -66,7 +62,7 @@ export const elSecondaryNavContainer = css`
   overflow: hidden scroll;
   scrollbar-width: none;
   background: var(--colour-fill-white);
-  border-right: 1px solid var(--neutral-050);
+  border-right: 1px solid var(--colour-border-neutral-light_default);
 
   &::-webkit-scrollbar {
     display: none;
@@ -84,7 +80,7 @@ export const elFlexContainer = css`
   min-width: 0;
 
   &.${elHasGreyBackground} {
-    background: var(--neutral-050);
+    background: var(--colour-fill-neutral-lightest);
   }
 
   &.${elHasMaxWidth} {

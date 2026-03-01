@@ -17,7 +17,7 @@ const baseStyles = `
   text-decoration: none;
 
   &:hover {
-    background: var(--fill-default-light);
+    background: var(--colour-fill-neutral-light);
   }
 
   &:focus-visible {
@@ -27,7 +27,7 @@ const baseStyles = `
   &:active,
   &[aria-current='true'],
   &[aria-current='page'] {
-    color: var(--text-action);
+    color: var(--colour-text-action);
     ${font('base', 'medium')}
   }
 `
@@ -44,7 +44,7 @@ export const ElExperimentalMobileNavItemExpanderButton = styled.button`
   ${baseStyles}
 
   ${ElDeprecatedIcon} {
-    color: var(--icon-primary);
+    color: var(--colour-icon-primary);
   }
 `
 
@@ -60,7 +60,7 @@ export const ElExperimentalMobileNavItemBadge = styled.span`
   display: block;
   width: var(--size-2);
   height: var(--size-2);
-  background-color: var(--icon-error);
+  background-color: var(--colour-icon-error);
   border-radius: 100%;
 `
 
@@ -84,25 +84,25 @@ export const ElExperimentalMobileNavItemListItem = styled.li`
   flex-direction: column;
   align-self: stretch;
   align-items: flex-start;
-  background: var(--fill-white);
-  border-radius: var(--corner-lg);
+  background: var(--colour-fill-white);
+  border-radius: var(--border-radius-l);
 
   &[data-is-expanded='true'] {
-    background: var(--fill-default-lightest);
+    background: var(--colour-fill-neutral-lightest);
 
     > ${ElExperimentalMobileNavItemExpanderButton} {
-      border-radius: var(--corner-lg) var(--corner-lg) var(--corner-none) var(--corner-none);
+      border-radius: var(--border-radius-l) var(--border-radius-l) var(--border-radius-none) var(--border-radius-none);
     }
     ${ElExperimentalMobileNavSubItemUnorderedList} > * {
-      background: var(--fill-default-lightest);
-      border-radius: var(--corner-none);
+      background: var(--colour-fill-neutral-lightest);
+      border-radius: var(--border-radius-none);
     }
     ${ElExperimentalMobileNavSubItemUnorderedList} > :last-child {
-      border-radius: var(--corner-none) var(--corner-none) var(--corner-lg) var(--corner-lg);
+      border-radius: var(--border-radius-none) var(--border-radius-none) var(--border-radius-l) var(--border-radius-l);
     }
     ${ElExperimentalMobileNavItemAnchor}, ${ElExperimentalMobileNavItemExpanderButton} {
       &:hover {
-        background: var(--fill-default-light);
+        background: var(--colour-fill-neutral-light);
       }
     }
   }

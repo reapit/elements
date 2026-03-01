@@ -5,7 +5,7 @@ export const ElExperimentalRadioGroupLegend = styled.span`
   display: flex;
   align-items: center;
   gap: var(--spacing-1);
-  color: var(--text-colour-text-secondary);
+  color: var(--colour-text-secondary);
   ${font('xs', 'regular')}
 `
 

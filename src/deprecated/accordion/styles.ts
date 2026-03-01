@@ -28,7 +28,7 @@ export const ElDeprecatedAccordionItem = styled.a`
   justify-content: space-between;
   align-items: center;
   padding: 0.875rem 0;
-  border-bottom: 1px solid var(--neutral-100);
+  border-bottom: 1px solid var(--colour-border-neutral-light_default);
 
   &:has(+ .${elIsActive}) {
     border-bottom: none;
@@ -55,7 +55,7 @@ export const ElDeprecatedAccordionTitleContent = styled.div`
 
   svg {
     font-size: 1rem;
-    color: var(--neutral-300);
+    color: var(--colour-icon-primary);
   }
 
   &:last-child {
@@ -72,6 +72,6 @@ export const ElDeprecatedAccordionContent = styled.div`
   &.${elIsActive} {
     height: auto;
     padding: 1.5rem 0;
-    border-bottom: 1px solid var(--neutral-100);
+    border-bottom: 1px solid var(--colour-border-neutral-light_default);
   }
 `

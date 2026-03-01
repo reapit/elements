@@ -146,14 +146,6 @@ export const ElChipSelectChipLabelText = styled.span<ElChipSelectChipLabelTextPr
   text-overflow: ellipsis;
   white-space: nowrap;
 
-  input:checked ~ * & {
-    color: var(--neutral-700);
-  }
-
-  input:is(:disabled, [readonly]) ~ * & {
-    color: var(--neutral-400);
-  }
-
   [data-size='small'] &,
   [data-size='medium'] & {
     ${font('sm', 'medium')}

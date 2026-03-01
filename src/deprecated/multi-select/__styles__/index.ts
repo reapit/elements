@@ -13,9 +13,7 @@ const dismiss = (fill: string) =>
   )}"/></svg>`
 
 /** @deprecated */
-export const elHasGreyChips = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasGreyChips = css``
 
 /** @deprecated */
 export const ElMultiSelectCheckbox = styled.input`
@@ -79,7 +77,7 @@ export const ElMultiSelectLabel = styled.label`
   height: 28px;
   background: var(--colour-fill-white);
   border-radius: 1rem;
-  border: 1px solid var(--neutral-150);
+  border: 1px solid var(--colour-border-neutral-light_darker);
   padding: 0.2rem 1.5rem;
   position: relative;
   font-size: 0.875rem /* was --font-size-small */;
@@ -87,7 +85,7 @@ export const ElMultiSelectLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
 
   &.${elHasGreyChips} {
     background: var(--colour-fill-action-lightest);
@@ -114,7 +112,7 @@ export const ElMultiSelectSelected = styled.div`
   align-items: center;
   flex-wrap: wrap;
   background-color: var(--colour-fill-white);
-  border: 1px solid var(--neutral-150);
+  border: 1px solid var(--colour-border-neutral-light_darker);
   border-radius: 2px 2px 0 0;
   min-height: 3rem;
   padding: 0.25rem 0.5rem;
@@ -123,7 +121,7 @@ export const ElMultiSelectSelected = styled.div`
   p {
     margin-left: 0.375rem;
     font-size: 0.875rem /* was --font-size-small */;
-    color: var(--neutral-500);
+    color: var(--colour-text-secondary);
   }
 `
 
@@ -132,7 +130,7 @@ export const ElMultiSelectUnSelected = styled.div`
   display: flex;
   flex-wrap: wrap;
   background-color: var(--colour-fill-white);
-  border: 1px solid var(--neutral-150);
+  border: 1px solid var(--colour-border-neutral-light_darker);
   border-top: none;
   border-radius: 0 0 4px 4px;
   padding: 0.25rem 0.5rem;

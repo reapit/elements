@@ -10,7 +10,7 @@ export const ElDeprecatedDrawerBg = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: var(--neutral-500);
+  background: var(--colour-fill-neutral-dark);
   opacity: 0.2;
 
   &.${elIsActive} {
@@ -49,7 +49,7 @@ export const ElDeprecatedDrawer = styled.div`
 /** @deprecated */
 export const ElDeprecatedDrawerHeader = styled.div`
   padding: 1.5rem 2rem;
-  border-bottom: 1px solid var(--neutral-100);
+  border-bottom: 1px solid var(--colour-border-neutral-light_default);
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
@@ -57,7 +57,7 @@ export const ElDeprecatedDrawerHeader = styled.div`
 
 /** @deprecated */
 export const ElDeprecatedDrawerSubtitle = styled.div`
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
   font-size: 0.9375rem /* was --font-size-default */;
 `
 
@@ -80,6 +80,6 @@ export const ElDeprecatedDrawerBody = styled.div`
 
 /** @deprecated */
 export const ElDeprecatedDrawerFooter = styled.div`
-  border-top: 1px solid var(--neutral-100);
+  border-top: 1px solid var(--colour-border-neutral-light_default);
   padding: 0.875rem 2rem;
 `

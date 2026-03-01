@@ -16,9 +16,9 @@ export const ElLabelText = styled.span`
   }
 
   &[data-variant='soft'] {
-    color: var(--neutral-500);
+    color: var(--colour-text-secondary);
   }
   &[data-variant='strong'] {
-    color: var(--text-primary);
+    color: var(--colour-text-primary);
   }
 `

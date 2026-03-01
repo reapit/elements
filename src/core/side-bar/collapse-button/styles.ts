@@ -9,12 +9,12 @@ export const ElSideBarCollapseButton = styled.button`
   width: 100%;
   cursor: pointer;
 
-  background: var(--fill-white);
+  background: var(--colour-fill-white);
   border: none;
   border-radius: var(--comp-navigation-border-radius-menu_item);
 
   &:hover {
-    background: var(--fill-default-lightest);
+    background: var(--colour-fill-neutral-lightest);
   }
 
   &:focus-visible {

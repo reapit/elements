@@ -16,8 +16,6 @@ export const ElAvatar = styled.span<ElAvatarProps>`
   justify-content: center;
   align-items: center;
 
-  ${font('base', 'bold')}
-
   /** Colour styles */
   &[data-colour='default'] {
     background: var(--colour-fill-neutral-medium);
@@ -46,21 +44,19 @@ export const ElAvatar = styled.span<ElAvatarProps>`
   &[data-size='small'] {
     width: var(--size-8);
     height: var(--size-8);
-    font-size: var(--font-size-2xs);
-    line-height: var(--line-height-2xs);
-    letter-spacing: var(--letter-spacing-2xs);
+
+    ${font('2xs', 'bold')}
 
     .${elDeprecatedIcon} {
       font-size: var(--icon_size-s);
     }
   }
 
+  &,
   &[data-size='medium'] {
     width: var(--size-10);
     height: var(--size-10);
-    font-size: var(--font-size-base);
-    line-height: var(--line-height-base);
-    letter-spacing: var(--letter-spacing-base);
+    ${font('base', 'bold')}
 
     .${elDeprecatedIcon} {
       font-size: var(--icon_size-m);

@@ -4,7 +4,7 @@ import { styled } from '@linaria/react'
 
 export const ElDrawerBody = styled.article`
   grid-area: body;
-  background: var(--fill-white);
+  background: var(--colour-fill-white);
   height: 100%;
 
   padding-block: var(--spacing-5);

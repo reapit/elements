@@ -46,7 +46,7 @@ export const ElDeprecatedPaginationButton = styled.button`
   margin: 0 0.25rem;
 
   svg {
-    color: var(--neutral-500);
+    color: var(--colour-text-secondary);
     font-size: 1rem;
   }
 

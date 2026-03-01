@@ -76,7 +76,7 @@ interface ElChipLabelProps {
 }
 
 export const ElChipLabel = styled.span<ElChipLabelProps>`
-  color: var(--text-primary);
+  color: var(--colour-text-primary);
 
   /* Allows long words to be broken and wrapped onto the next line. */
   overflow-wrap: anywhere;
@@ -93,7 +93,7 @@ export const ElChipLabel = styled.span<ElChipLabelProps>`
 
   :disabled &,
   [aria-disabled='true'] & {
-    color: var(--text-placeholder);
+    color: var(--colour-text-placeholder);
   }
 `
 

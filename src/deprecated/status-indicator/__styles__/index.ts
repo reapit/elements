@@ -13,9 +13,7 @@ import {
 /**
  * @deprecated
  */
-export const elDeprecatedShapeTag = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedShapeTag = css``
 
 /**
  * @deprecated
@@ -26,7 +24,7 @@ export const ElDeprecatedStatusIndicator = styled.span`
   width: 0.75rem;
   height: 0.75rem;
   margin: 0 0.25rem;
-  background: var(--neutral-400);
+  background: var(--colour-fill-neutral-medium);
   color: var(--colour-text-primary);
 
   &.${elIntentPrimary} {

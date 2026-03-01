@@ -85,7 +85,7 @@ export const ElExperimentalSecondLine = styled.div`
 export const ElExperimentalTableCellContent = styled.div<ElExperimentalTableCellContentProps>`
   width: auto;
   gap: var(--spacing-1);
-  color: var(--text-primary);
+  color: var(--colour-text-primary);
   flex: auto;
   display: flex;
   flex-wrap: wrap;

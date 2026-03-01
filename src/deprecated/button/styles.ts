@@ -3,51 +3,29 @@ import { styled } from '@linaria/react'
 import { isMobile } from '#src/styles/deprecated-media'
 
 /** @deprecated */
-export const elDeprecatedButtonSizeSmall = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedButtonSizeSmall = css``
 /** @deprecated */
-export const elDeprecatedButtonSizeMedium = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedButtonSizeMedium = css``
 /** @deprecated */
-export const elDeprecatedButtonSizeLarge = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedButtonSizeLarge = css``
 
 /** @deprecated */
-export const elDeprecatedButtonLabel = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedButtonLabel = css``
 /** @deprecated */
-export const elDeprecatedIcon = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedIcon = css``
 /** @deprecated */
-export const elDeprecatedButtonIconOnly = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedButtonIconOnly = css``
 /** @deprecated */
-export const elDeprecatedButtonSpinner = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedButtonSpinner = css``
 
 /** @deprecated - Will be removed from future version */
-export const elDeprecatedFloatingButton = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedFloatingButton = css``
 /** @deprecated */
-export const elDeprecatedButtonGroupAlignLeft = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedButtonGroupAlignLeft = css``
 /** @deprecated */
-export const elDeprecatedButtonGroupAlignRight = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedButtonGroupAlignRight = css``
 /** @deprecated */
-export const elDeprecatedButtonGroupAlignCenter = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedButtonGroupAlignCenter = css``
 
 /** @deprecated */
 export const ElDeprecatedButtonSpinner = styled.div`
@@ -256,10 +234,10 @@ const baseButtonStyles = `
     }
 
     ${elDeprecatedIcon} {
-      color: var(--neutral-400);
+      color: var(--colour-text-secondary);
 
       &:hover {
-        color: var(--neutral-700);
+        color: var(--colour-text-tertiary);
       }
     }
 

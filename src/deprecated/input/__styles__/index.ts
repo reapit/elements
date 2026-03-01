@@ -2,9 +2,7 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
 /** @deprecated */
-export const elHasInputError = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasInputError = css``
 
 /** @deprecated */
 export const ElInput = styled.input`
@@ -25,7 +23,7 @@ export const ElInput = styled.input`
   }
 
   &::placeholder {
-    color: var(--neutral-400);
+    color: var(--colour-text-placeholder);
     font-family:
       'Inter',
       Helvetica,
@@ -35,12 +33,12 @@ export const ElInput = styled.input`
   }
 
   &:disabled {
-    background-color: var(--neutral-100);
-    color: var(--neutral-300);
+    background-color: var(--colour-fill-neutral-light);
+    color: var(--colour-text-secondary);
     cursor: not-allowed;
 
     ::placeholder {
-      color: var(--neutral-300);
+      color: var(--colour-text-secondary);
     }
   }
 
@@ -87,7 +85,7 @@ export const ElInput = styled.input`
     }
 
     &:disabled {
-      background-color: var(--neutral-100);
+      background-color: var(--colour-fill-neutral-light);
       border: 1px solid #d8dee4 /* was --component-input-border */;
       cursor: not-allowed;
     }
@@ -132,7 +130,7 @@ export const ElInput = styled.input`
       &:disabled {
         background-color: var(--colour-fill-white);
         &::after {
-          background-color: var(--neutral-300);
+          background-color: var(--colour-fill-neutral-medium);
           border: 1px solid #d8dee4 /* was --component-input-border */;
         }
       }

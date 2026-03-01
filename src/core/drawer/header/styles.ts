@@ -14,7 +14,7 @@ export const ElDrawerHeader = styled.header`
   inset-block-start: 0;
   z-index: var(--z-index-sticky);
 
-  background: var(--fill-white);
+  background: var(--colour-fill-white);
 
   container-type: scroll-state;
   container-name: ${DRAWER_HEADER_CSS_CONTAINER_NAME};
@@ -84,20 +84,20 @@ export const ElDrawerHeaderTitleContainer = styled.div`
 export const ElDrawerHeaderAction = styled.div`
   grid-area: close;
   align-self: start;
-  color: var(--text-secondary);
+  color: var(--colour-text-secondary);
 `
 
 export const ElDrawerHeaderOverline = styled.div`
   grid-area: overline;
 
-  color: var(--text-secondary);
+  color: var(--colour-text-secondary);
   padding-block-end: var(--spacing-1);
 
   ${font('xs', 'regular')}
 `
 
 export const ElDrawerHeaderTitle = styled.h2`
-  color: var(--text-primary);
+  color: var(--colour-text-primary);
   grid-area: title;
 
   ${font('xl', 'bold')}
@@ -109,7 +109,7 @@ export const ElDrawerHeaderTitle = styled.h2`
 export const ElDrawerHeaderSupplementaryInfo = styled.div`
   grid-area: supplementary-info;
 
-  color: var(--text-secondary);
+  color: var(--colour-text-secondary);
   padding-block-start: var(--spacing-1);
 
   ${font('base', 'regular')}

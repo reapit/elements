@@ -2,9 +2,7 @@ import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
 
 /** @deprecated */
-export const elAvatarSmall = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elAvatarSmall = css``
 
 /** @deprecated will be replaced by new v5 ElAvatarRectangle */
 export const ElDeprecatedAvatar = styled.div`
@@ -13,7 +11,7 @@ export const ElDeprecatedAvatar = styled.div`
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  background-color: var(--neutral-100);
+  background-color: var(--colour-fill-neutral-light);
   border-radius: 50%;
   overflow: hidden;
   width: 2.5rem;

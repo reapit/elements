@@ -11,7 +11,7 @@ export const ElDeprecatedNavBg = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: var(--neutral-500);
+  background: var(--colour-fill-neutral-dark);
   opacity: 0.2;
 
   &.${elIsActive} {
@@ -54,7 +54,7 @@ export const ElDeprecatedNavContainer = styled.nav`
     flex: 0 0 3.5rem;
     flex-wrap: nowrap;
     justify-content: space-between;
-    border-bottom: 1px solid var(--neutral-100);
+    border-bottom: 1px solid var(--colour-border-neutral-light_default);
   }
 `
 
@@ -69,9 +69,7 @@ export const ElDeprecatedNavSubContainer = styled.div`
 `
 
 /** @deprecated */
-export const elDeprecatedNavItemSecondary = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elDeprecatedNavItemSecondary = css``
 
 /** @deprecated */
 export const ElDeprecatedNavItem = styled.a`
@@ -82,7 +80,7 @@ export const ElDeprecatedNavItem = styled.a`
     sans-serif /* was --font-sans-serif */;
   font-size: 0.875rem /* was --font-size-small */;
   font-weight: 500 /* was --font-weight-medium */;
-  color: var(--neutral-400);
+  color: var(--colour-text-secondary);
   display: flex;
   text-align: center;
   justify-content: flex-start;
@@ -96,8 +94,8 @@ export const ElDeprecatedNavItem = styled.a`
   text-decoration: none;
 
   &:hover {
-    color: var(--neutral-500);
-    background-color: var(--neutral-050);
+    color: var(--colour-text-secondary);
+    background-color: var(--colour-fill-neutral-lightest);
   }
 
   &:first-child {
@@ -106,7 +104,7 @@ export const ElDeprecatedNavItem = styled.a`
     margin-right: auto;
     width: 100%;
     padding: 0 1.25rem;
-    border-bottom: 1px solid var(--neutral-100);
+    border-bottom: 1px solid var(--colour-border-neutral-light_default);
   }
 
   &:not(:first-child) {
@@ -147,7 +145,7 @@ export const ElDeprecatedNavItem = styled.a`
     }
 
     &:hover:not(:first-child) {
-      background-color: var(--neutral-050);
+      background-color: var(--colour-fill-neutral-lightest);
       border-left: none;
     }
   }
@@ -167,7 +165,7 @@ export const elDeprecatedNavItemActive = css`
       --nav-menu-icon-secondary-accent: var(--colour-fill-action-light);
       padding: 0.375rem 0.75rem;
       border-radius: 0.25rem;
-      background-color: var(--neutral-050);
+      background-color: var(--colour-fill-neutral-lightest);
       border-left: none;
       height: 2rem;
     }
@@ -187,7 +185,7 @@ export const elDeprecatedNavItemExpanded = css`
     height: auto;
 
     &:last-child {
-      border-bottom: 1px solid var(--neutral-100);
+      border-bottom: 1px solid var(--colour-border-neutral-light_default);
     }
   }
 `
@@ -208,7 +206,7 @@ export const ElDeprecatedNavSubItem = styled.a`
     Arial,
     sans-serif /* was --font-sans-serif */;
   font-size: 0.875rem /* was --font-size-small */;
-  color: var(--neutral-400);
+  color: var(--colour-text-secondary);
   opacity: 0;
   display: flex;
   text-align: flex-start;
@@ -303,7 +301,7 @@ export const ElDeprecatedNavMenuOption = styled.div`
 export const ElDeprecatedNavMenuOptionDivider = styled.div`
   height: 0;
   width: 100%;
-  border-bottom: 1px solid var(--neutral-100);
+  border-bottom: 1px solid var(--colour-border-neutral-light_default);
   margin: 0.5rem 0;
 `
 
@@ -339,9 +337,7 @@ export const ElDeprecatedNavResponsiveAvatarWrap = styled.div`
   }
 `
 
-export const elAppSwitcherOpen = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elAppSwitcherOpen = css``
 
 export const ElNavResponsiveAppSwitcherWrap = styled.div`
   position: relative;

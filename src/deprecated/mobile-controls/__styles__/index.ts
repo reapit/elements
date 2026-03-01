@@ -18,7 +18,7 @@ export const ElMobileControlsBg = styled.div`
   height: 100%;
   top: 0;
   left: 0;
-  background: var(--neutral-500);
+  background: var(--colour-fill-neutral-dark);
   opacity: 0.2;
 
   &.${elIsActive} {
@@ -59,7 +59,7 @@ export const ElMobileControlItem = styled.a`
   background: var(--colour-fill-white);
   text-decoration: none;
   border-radius: 0.25rem /* was --default-border-radius */;
-  border: 1px solid var(--neutral-100);
+  border: 1px solid var(--colour-border-neutral-light_default);
   font-size: 0.875rem /* was --font-size-small */;
   font-family:
     'Inter',
@@ -67,7 +67,7 @@ export const ElMobileControlItem = styled.a`
     Arial,
     sans-serif /* was --font-sans-serif */;
   font-weight: 500 /* was --font-weight-medium */;
-  color: var(--neutral-400);
+  color: var(--colour-text-secondary);
   margin: 0 0.5rem 0.25rem 0;
   display: none;
   opacity: 1;
@@ -81,7 +81,7 @@ export const ElMobileControlItem = styled.a`
   }
 
   &:hover {
-    border: 1px solid var(--neutral-400);
-    color: var(--neutral-700);
+    border: 1px solid var(--colour-border-neutral-light_darker);
+    color: var(--colour-text-tertiary);
   }
 `

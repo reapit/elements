@@ -819,17 +819,24 @@ describe('template literal boundary safety', () => {
     expect(output).toBe(input)
   })
 
-  test('emits an unparseable var() inside a template literal unchanged and still transforms later vars', () => {
+  test('continues transforming subsequent var() calls after an unparseable var() with a backtick', () => {
+    // Regression-safety test: an unparseable var() must be left intact, but
+    // later valid var() calls in the same source string must still be
+    // transformed.
     const input = ['const El = styled.div`', '  color: var(--`weird);', '  background: var(--neutral-500);', '`'].join(
       '\n',
     )
 
     const output = transform(input)
 
-    // The unparseable var() containing a backtick must be left as-is
+    // The malformed var() must remain unchanged.
     expect(output).toContain('color: var(--`weird);')
 
-    // The later valid var(--neutral-500) must still be transformed
+    // The subsequent valid var() must still be transformed.
     expect(output).toContain('--colour-fill-neutral-dark')
+
+    // The template literal delimiters must remain intact.
+    expect(output).toMatch(/^const El = styled\.div`/)
+    expect(output).toMatch(/`$/)
   })
 })

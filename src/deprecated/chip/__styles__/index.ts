@@ -47,10 +47,10 @@ export const ElDeprecatedChipLabel = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
 
   &:hover {
-    color: var(--neutral-700);
+    color: var(--colour-text-tertiary);
   }
 `
 

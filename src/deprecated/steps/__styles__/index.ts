@@ -9,8 +9,8 @@ export const ElSteps = styled.div`
 
 /** @deprecated */
 export const ElStep = styled.div`
-  background-color: var(--neutral-100);
-  color: var(--neutral-500);
+  background-color: var(--colour-fill-neutral-light);
+  color: var(--colour-text-secondary);
   font-weight: 600 /* was --font-weight-bold */;
   font-size: 0.9375rem /* was --font-size-default */;
   border-radius: 100%;
@@ -29,7 +29,7 @@ export const ElStep = styled.div`
   &.${elIsUsed} {
     &::before,
     &::after {
-      background: var(--neutral-100);
+      background: var(--colour-fill-neutral-light);
     }
   }
 
@@ -46,7 +46,7 @@ export const ElStep = styled.div`
     top: 50%;
     width: 12px /* was --component-steps-gutter-width */;
     height: 1.5px;
-    background: var(--neutral-100);
+    background: var(--colour-fill-neutral-light);
   }
 
   &::before {

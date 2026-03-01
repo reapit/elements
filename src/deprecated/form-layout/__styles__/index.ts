@@ -3,9 +3,7 @@ import { styled } from '@linaria/react'
 import { isDesktop, isWideScreen, isTablet, isSuperWideScreen } from '../../../styles/deprecated-media'
 
 /** @deprecated */
-export const elFormLayoutHasMargin = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elFormLayoutHasMargin = css``
 
 /** @deprecated */
 export const ElFormLayout = styled.div`
@@ -37,7 +35,7 @@ export const ElFormLayout = styled.div`
 /** @deprecated */
 export const ElFormSectionDivider = styled.div`
   margin: 1.5rem 0;
-  border-bottom: 1px solid var(--neutral-100);
+  border-bottom: 1px solid var(--colour-border-neutral-light_default);
 `
 
 /** @deprecated */

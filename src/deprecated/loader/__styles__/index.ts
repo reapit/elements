@@ -20,13 +20,13 @@ export const ElLoaderContainer = styled.div`
 export const ElLoaderLabel = styled.p`
   margin-right: 0.75rem;
   font-size: 0.9375rem /* was --font-size-default */;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
 `
 
 /** @deprecated */
 export const ElLoader = styled.div`
   position: relative;
-  background: var(--neutral-100);
+  background: var(--colour-fill-neutral-light);
   height: 3px;
   width: 80px;
 `

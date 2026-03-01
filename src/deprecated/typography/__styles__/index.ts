@@ -10,53 +10,40 @@ import {
 } from '../../../styles/deprecated-intent'
 
 /** @deprecated */
-export const elHasGreyText = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasGreyText = css``
+
 /** @deprecated */
-export const elHasNoMargin = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasNoMargin = css``
+
 /** @deprecated */
-export const elHasRegularText = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasRegularText = css``
+
 /** @deprecated */
-export const elHasBoldText = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasBoldText = css``
+
 /** @deprecated */
-export const elHasMediumText = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasMediumText = css``
+
 /** @deprecated */
-export const elHasMargin = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasMargin = css``
+
 /** @deprecated */
-export const elHasItalicText = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasItalicText = css``
+
 /** @deprecated */
-export const elHasCenteredText = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasCenteredText = css``
+
 /** @deprecated */
-export const elHasSectionMargin = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasSectionMargin = css``
+
 /** @deprecated */
-export const elHasDisabledText = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasDisabledText = css``
+
 /** @deprecated */
-export const elHasCapitalisedText = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasCapitalisedText = css``
+
 /** @deprecated */
-export const elHasUpperCasedText = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasUpperCasedText = css``
 
 /** @deprecated */
 export const elTextBase = css`
@@ -71,14 +58,14 @@ export const elTextBase = css`
   font-weight: 400;
 
   &.${elHasGreyText} {
-    color: var(--neutral-500);
+    color: var(--colour-text-secondary);
   }
 
   &.${elHasDisabledText} {
-    color: var(--neutral-400);
+    color: var(--colour-text-placeholder);
 
     a {
-      color: var(--neutral-400);
+      color: var(--colour-text-placeholder);
     }
   }
 
@@ -208,14 +195,14 @@ export const elTitle = css`
   margin-bottom: 1rem;
 
   &.${elHasGreyText} {
-    color: var(--neutral-500);
+    color: var(--colour-text-secondary);
   }
 
   &.${elHasDisabledText} {
-    color: var(--neutral-400);
+    color: var(--colour-text-placeholder);
 
     a {
-      color: var(--neutral-400);
+      color: var(--colour-text-placeholder);
     }
   }
 
@@ -295,14 +282,14 @@ export const elSubtitle = css`
   margin-bottom: 0.75rem;
 
   &.${elHasGreyText} {
-    color: var(--neutral-500);
+    color: var(--colour-text-secondary);
   }
 
   &.${elHasDisabledText} {
-    color: var(--neutral-400);
+    color: var(--colour-text-placeholder);
 
     a {
-      color: var(--neutral-400);
+      color: var(--colour-text-placeholder);
     }
   }
 
@@ -382,14 +369,14 @@ export const elBodyText = css`
   margin-bottom: 0.5rem;
 
   &.${elHasGreyText} {
-    color: var(--neutral-500);
+    color: var(--colour-text-secondary);
   }
 
   &.${elHasDisabledText} {
-    color: var(--neutral-400);
+    color: var(--colour-text-placeholder);
 
     a {
-      color: var(--neutral-400);
+      color: var(--colour-text-placeholder);
     }
   }
 
@@ -469,14 +456,14 @@ export const elSmallText = css`
   margin-bottom: 0.5rem;
 
   &.${elHasGreyText} {
-    color: var(--neutral-500);
+    color: var(--colour-text-secondary);
   }
 
   &.${elHasDisabledText} {
-    color: var(--neutral-400);
+    color: var(--colour-text-placeholder);
 
     a {
-      color: var(--neutral-400);
+      color: var(--colour-text-placeholder);
     }
   }
 

@@ -1,36 +1,22 @@
 import { css } from '@linaria/core'
 
 /** @deprecated */
-export const elIntentPrimary = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elIntentPrimary = css``
 
 /** @deprecated */
-export const elIntentNeutral = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elIntentNeutral = css``
 
 /** @deprecated */
-export const elIntentSuccess = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elIntentSuccess = css``
 
 /** @deprecated */
-export const elIntentPending = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elIntentPending = css``
 
 /** @deprecated */
-export const elIntentWarning = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elIntentWarning = css``
 
 /** @deprecated */
-export const elIntentDanger = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elIntentDanger = css``
 
 /** @deprecated */
-export const elIntentDefault = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elIntentDefault = css``

@@ -21,7 +21,7 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElDeprecatedIcon} {
-    color: var(--neutral-400);
+    color: var(--colour-icon-default);
     border: 1px solid #d8dee4 /* was --component-input-border */;
     border-right: none;
     border-radius: 0.125rem 0 0 0.125rem;

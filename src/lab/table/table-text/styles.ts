@@ -55,7 +55,7 @@ export const ElExperimentalTableText = styled.div`
 
   &[data-variant='secondary'] {
     ${ElExperimentalTableTextIcon} {
-      color: var(--icon-secondary);
+      color: var(--colour-icon-secondary);
     }
     ${ElExperimentalTableTextContent} {
       color: var(--colour-text-secondary);
@@ -67,7 +67,7 @@ export const ElExperimentalTableText = styled.div`
       color: var(--colour-text-info);
     }
     ${ElExperimentalTableTextIcon} {
-      color: var(--icon-info);
+      color: var(--colour-icon-info);
     }
   }
 
@@ -76,7 +76,7 @@ export const ElExperimentalTableText = styled.div`
       color: var(--colour-text-success);
     }
     ${ElExperimentalTableTextIcon} {
-      color: var(--icon-success);
+      color: var(--colour-icon-success);
     }
   }
 
@@ -85,7 +85,7 @@ export const ElExperimentalTableText = styled.div`
       color: var(--colour-text-pending);
     }
     ${ElExperimentalTableTextIcon} {
-      color: var(--icon-pending);
+      color: var(--colour-icon-pending);
     }
   }
 
@@ -94,7 +94,7 @@ export const ElExperimentalTableText = styled.div`
       color: var(--colour-text-warning);
     }
     ${ElExperimentalTableTextIcon} {
-      color: var(--icon-warning);
+      color: var(--colour-icon-warning);
     }
   }
 
@@ -103,7 +103,7 @@ export const ElExperimentalTableText = styled.div`
       color: var(--colour-text-error);
     }
     ${ElExperimentalTableTextIcon} {
-      color: var(--icon-error);
+      color: var(--colour-icon-error);
     }
   }
 
@@ -112,7 +112,7 @@ export const ElExperimentalTableText = styled.div`
       color: var(--colour-text-accent_1);
     }
     ${ElExperimentalTableTextIcon} {
-      color: var(--icon-accent_1);
+      color: var(--colour-icon-accent_1);
     }
   }
 
@@ -121,7 +121,7 @@ export const ElExperimentalTableText = styled.div`
       color: var(--colour-text-accent_2);
     }
     ${ElExperimentalTableTextIcon} {
-      color: var(--icon-accent_2);
+      color: var(--colour-icon-accent_2);
     }
   }
 
@@ -130,7 +130,7 @@ export const ElExperimentalTableText = styled.div`
       color: var(--colour-text-action);
     }
     ${ElExperimentalTableTextIcon} {
-      color: var(--icon-action);
+      color: var(--colour-icon-action);
     }
   }
 `

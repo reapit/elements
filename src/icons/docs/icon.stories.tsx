@@ -74,7 +74,7 @@ export const Colours: StoryObj = {
         style={{
           color: '#FA00FF',
           display: 'grid',
-          fontSize: 'var(--font-size-sm)',
+          fontSize: 'var(--font-sm-regular-size)',
           alignItems: 'center',
           gridTemplateColumns: 'min-content min-content',
           gap: 'var(--spacing-6)',
@@ -106,7 +106,7 @@ export const Sizes: Story = {
         style={{
           color: '#FA00FF',
           display: 'grid',
-          fontSize: 'var(--font-size-sm)',
+          fontSize: 'var(--font-sm-regular-size)',
           alignItems: 'center',
           gridTemplateColumns: 'min-content var(--icon_size-l)',
           gap: 'var(--spacing-6)',

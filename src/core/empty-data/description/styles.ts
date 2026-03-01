@@ -11,7 +11,7 @@ export const ElEmptyDataDescription = styled.div`
 `
 
 export const ElEmptyDataDescriptionTitle = styled.h3`
-  color: var(--text-primary);
+  color: var(--colour-text-primary);
   ${font('base', 'regular')}
 
   margin: 0;
@@ -19,7 +19,7 @@ export const ElEmptyDataDescriptionTitle = styled.h3`
 `
 
 export const ElEmptyDataDescriptionSecondaryText = styled.p`
-  color: var(--text-secondary);
+  color: var(--colour-text-secondary);
   ${font('sm', 'regular')}
 
   margin: 0;

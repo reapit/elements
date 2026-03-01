@@ -27,9 +27,7 @@ export const ElCardWrap = styled.div`
 `
 
 /** @deprecated */
-export const elCardSubHeadingWrapAvatar = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elCardSubHeadingWrapAvatar = css``
 
 /** @deprecated */
 export const ElCardHeadingWrap = styled.div`
@@ -72,20 +70,18 @@ export const ElCardHeading = styled.h5`
 
 /** @deprecated */
 export const ElCardSubHeading = styled.h6`
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;
   font-size: 0.8125rem /* was --font-size-smallest */;
 `
 
-export const elCardSubHeadingAdditionalExpanded = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elCardSubHeadingAdditionalExpanded = css``
 
 /** @deprecated */
 export const ElCardSubHeadingAdditional = styled.h6`
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
   font-size: 0.8125rem /* was --font-size-smallest */;
   font-weight: 500 /* was --font-weight-medium */;
   text-overflow: ellipsis;
@@ -95,9 +91,7 @@ export const ElCardSubHeadingAdditional = styled.h6`
   justify-content: space-between;
 `
 
-export const elCardBodyWrapExpanded = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elCardBodyWrapExpanded = css``
 
 /** @deprecated */
 export const ElCardBodyWrap = styled.div`
@@ -131,7 +125,7 @@ export const ElCardAvatarWrap = styled.div`
   flex-shrink: 0;
   align-items: center;
   justify-content: center;
-  background-color: var(--neutral-100);
+  background-color: var(--colour-fill-neutral-light);
   margin-right: 0.5rem;
   border-radius: 50%;
   width: 2.5rem;
@@ -161,9 +155,7 @@ export const ElCardList = styled.div`
 `
 
 /** @deprecated */
-export const elCardListMainWrapExpanded = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elCardListMainWrapExpanded = css``
 
 /** @deprecated */
 export const ElCardListMainWrap = styled.div`
@@ -185,7 +177,7 @@ export const ElCardListHeading = styled.h5`
 /** @deprecated */
 export const ElCardListSubHeading = styled.h6`
   font-size: 0.8125rem /* was --font-size-smallest */;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
   text-overflow: ellipsis;
   white-space: nowrap;
   overflow: hidden;

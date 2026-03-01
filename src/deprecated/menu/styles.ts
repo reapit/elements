@@ -155,13 +155,13 @@ export const ElDeprecatedMenuItemAnchor = styled.a`
 
 /** @deprecated */
 export const ElDeprecatedMenuItemGroupTitle = styled.div`
-  font-family: var(--font-family);
-  font-size: var(--font-size-2xs);
+  font-family: Inter /* was --font-family */;
+  font-size: var(--font-2xs-medium-size);
   font-style: normal;
-  font-weight: var(--font-weight-semibold);
-  line-height: var(--line-height-2xs);
-  letter-spacing: var(--letter-spacing-2xs);
-  color: var(--text-placeholder);
+  font-weight: 600 /* was --font-weight-semibold */;
+  line-height: var(--font-2xs-medium-line_height);
+  letter-spacing: var(--font-2xs-medium-letter_spacing);
+  color: var(--colour-text-placeholder);
   text-transform: uppercase;
   display: flex;
   height: 32px;
@@ -186,8 +186,8 @@ export const ElDeprecatedMenuItemGroupList = styled.div`
 export const ElDeprecatedMenuList = styled.div`
   width: max-content;
   padding: var(--spacing-2) 0;
-  border-radius: var(--corner-default);
-  background-color: var(--fill-white);
+  border-radius: var(--border-radius-m);
+  background-color: var(--colour-fill-white);
   box-shadow: 0 4px 16px 0 #222b3329;
   overflow: auto;
 

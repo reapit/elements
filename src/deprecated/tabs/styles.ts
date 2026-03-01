@@ -14,7 +14,7 @@ export const ElTabsItem = styled.span`
   white-space: nowrap;
   font-size: 0.9375rem /* was --font-size-default */;
   font-weight: 500 /* was --font-weight-medium */;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
 `
 
 /** @deprecated */
@@ -24,9 +24,7 @@ export const elTabsFullWidth = css`
 `
 
 /** @deprecated */
-export const elTabsHasNoBorder = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elTabsHasNoBorder = css``
 
 /** @deprecated */
 export const ElTab = styled.input`
@@ -97,7 +95,7 @@ export const ElTabsOptionsWrap = styled.div`
 export const ElTabsFooter = styled.div`
   width: 100%;
   height: 1.125rem;
-  border-top: 1px solid var(--neutral-100);
+  border-top: 1px solid var(--colour-border-neutral-light_default);
 
   &.${elTabsFullWidth} {
     width: 100%;

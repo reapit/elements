@@ -23,7 +23,7 @@ export const ElDialogHeaderContentContainer = styled.div`
   grid-template: 'title close' auto / 1fr auto;
   align-items: center;
 
-  background: var(--fill-white);
+  background: var(--colour-fill-white);
   padding-block: 0;
 
   @container dialog-header scroll-state(stuck: top) {
@@ -42,11 +42,11 @@ export const ElDialogHeaderContentContainer = styled.div`
 
 export const ElDialogHeaderAction = styled.div`
   grid-area: close;
-  color: var(--text-secondary);
+  color: var(--colour-text-secondary);
 `
 
 export const ElDialogHeaderTitle = styled.h2`
-  color: var(--text-primary);
+  color: var(--colour-text-primary);
   grid-area: title;
 
   ${font('xl', 'bold')}

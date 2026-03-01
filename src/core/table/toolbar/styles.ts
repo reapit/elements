@@ -10,7 +10,7 @@ export const ElTableToolbar = styled.div`
 
   padding: 0;
 
-  background: var(--fill-white);
+  background: var(--colour-fill-white);
 `
 
 export const ElTableToolbarLeftContent = styled.div`

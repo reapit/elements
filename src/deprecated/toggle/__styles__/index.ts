@@ -2,9 +2,7 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
 /** @deprecated */
-export const elHasGreyBg = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elHasGreyBg = css``
 
 /** @deprecated */
 export const ElToggleItem = styled.span`
@@ -17,7 +15,7 @@ export const ElToggleItem = styled.span`
   justify-content: center;
   align-items: center;
   padding: 0.25rem 0.75rem;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
 `
 
 /** @deprecated */
@@ -45,7 +43,7 @@ export const ElToggleCheckbox = styled.input`
   width: 0;
   visibility: hidden;
   position: absolute;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
 
   + label ${ElToggleItem} {
     transition: all 0.2s linear;
@@ -99,7 +97,7 @@ export const ElToggleRadio = styled.input`
   width: 0;
   visibility: hidden;
   position: absolute;
-  color: var(--neutral-500);
+  color: var(--colour-text-secondary);
 
   + label ${ElToggleRadioItem} {
     transition: all 0.2s linear;

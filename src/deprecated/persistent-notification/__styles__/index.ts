@@ -13,19 +13,13 @@ import {
 } from '../../../styles/deprecated-intent'
 
 /** @deprecated */
-export const elPnIsFullWidth = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elPnIsFullWidth = css``
 
 /** @deprecated */
-export const elPnIsFixed = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elPnIsFixed = css``
 
 /** @deprecated */
-export const elPnIsInline = css`
-  /* https://github.com/Anber/wyw-in-js/issues/144 */
-`
+export const elPnIsInline = css``
 
 /** @deprecated */
 export const elPnIcon = css`

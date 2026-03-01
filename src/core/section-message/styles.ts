@@ -76,7 +76,7 @@ export const ElSectionMessageIconContainer = styled.div`
 export const ElSectionMessageTitle = styled.div`
   ${font('sm', 'bold')}
   grid-area: title;
-  color: var(--text-primary);
+  color: var(--colour-text-primary);
   margin: 0;
   min-width: 0;
   padding-bottom: var(--spacing-1);
@@ -85,7 +85,7 @@ export const ElSectionMessageTitle = styled.div`
 export const ElSectionMessageDescription = styled.div`
   ${font('sm', 'regular')}
   grid-area: description;
-  color: var(--text-primary);
+  color: var(--colour-text-primary);
 `
 
 export const ElSectionMessageActions = styled.div`
