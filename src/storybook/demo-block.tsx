@@ -42,7 +42,7 @@ export const GridDemoBlockSizing = styled.div`
 `
 
 export const GridDemoBorders = styled.div`
-  background-color: var(--neutral-100);
+  background-color: var(--colour-fill-neutral-light);
   color: var(--colour-text-primary);
   padding: 1rem;
   width: 100%;
