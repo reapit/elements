@@ -1,0 +1,8 @@
+{
+  "mode": "pre",
+  "tag": "beta",
+  "initialVersions": {
+    "@reapit/elements": "5.0.0-beta.75"
+  },
+  "changesets": []
+}

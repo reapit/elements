@@ -1,0 +1,46 @@
+name: Deploy Storybook (Dev)
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  CI: true
+  APP_STAGE: 'development'
+
+jobs:
+  deploy-storybook-dev:
+    name: Deploy Storybook (Dev)
+    runs-on:
+      group: rpt-gbl-linux-x64
+    steps:
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v3
+        with:
+          role-to-assume: ${{ secrets.AWS_OIDC_ARN_DEV }}
+          role-session-name: AWS_OIDC_ARN_DEV
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22.x'
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Build Storybook
+        run: yarn build:storybook
+
+      - name: Deploy
+        run: yarn deploy

@@ -1,0 +1,65 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  id-token: write
+  pull-requests: write
+
+env:
+  NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  CI: true
+
+jobs:
+  release:
+    name: Release
+    runs-on:
+      group: rpt-gbl-linux-x64
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Set Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22.x'
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Check
+        run: yarn check
+
+      - name: Test
+        run: yarn test run --passWithNoTests
+
+      - name: Build
+        run: yarn build:types && yarn build:lib && yarn build:codemods
+
+      - name: Create Release Pull Request or Publish
+        id: changesets
+        uses: changesets/action@6a0a831ff30acef54f2c6aa1cbbc1096b066edaf # v1.7.0
+        with:
+          version: yarn changeset version
+          publish: yarn changeset publish
+          title: 'chore: version packages'
+          commit: 'chore: version packages'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+  deploy-storybook-prod:
+    name: Deploy Storybook (Prod)
+    needs: release
+    if: needs.release.outputs.published == 'true'
+    uses: ./.github/workflows/deploy-storybook-prod.yml
+    secrets: inherit
