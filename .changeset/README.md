@@ -48,9 +48,15 @@ You can skip a changeset for:
 
 ## CI Enforcement
 
-All PRs are checked for a changeset via `yarn changeset status --since=origin/main`. This check is self-gating: if none of the package files have changed, it passes automatically. This means PRs that genuinely don't touch the package (e.g., pure CI or documentation changes) will pass without a changeset.
+All PRs are required to introduce a changeset file via their own commits. This is enforced by checking whether any `.changeset/*.md` file appears in the diff between the PR branch and `main`:
 
-If your PR does touch package code but you are confident it has no user-facing impact, create an empty changeset to make the intent explicit:
+```sh
+git diff --name-only origin/main...HEAD | grep -q '^\.changeset/.*\.md$'
+```
+
+Unlike `changeset status --since=origin/main`, this check is not satisfied by changeset files introduced by other PRs — the current PR must add one itself.
+
+If your PR has no user-facing impact, create an empty changeset to make that intent explicit:
 
 ```bash
 yarn changeset --empty
