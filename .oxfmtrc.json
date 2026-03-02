@@ -5,5 +5,5 @@
   "singleQuote": true,
   "printWidth": 120,
   "tabWidth": 2,
-  "ignorePatterns": ["codemods/transforms.ts"]
+  "ignorePatterns": ["codemods/transforms.ts", "CHANGELOG.md", ".changeset/pre.json"]
 }
