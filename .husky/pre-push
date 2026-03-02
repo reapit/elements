@@ -1,9 +1,12 @@
 #!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
-
-BRANCH="$(git rev-parse --abbrev-ref HEAD)"
-
-if [[ `git status --porcelain` ]]; then
-  git add . && git commit -m 'chore: pre-push fixes'
+# Check for a changeset on non-main branches
+BRANCH=$(git rev-parse --abbrev-ref HEAD)
+if [ "$BRANCH" != "main" ] && [ "$BRANCH" != "master" ]; then
+  yarn changeset status --since=main 2>/dev/null || {
+    echo ""
+    echo "No changeset found for this branch."
+    echo "Run 'yarn changeset' to add one before pushing."
+    echo ""
+    exit 1
+  }
 fi
-

@@ -136,6 +136,8 @@
     "esbuild": "^0.27.2",
     "happy-dom": "^20.7.0",
     "http-server": "^14.1.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.3.1",
     "oxfmt": "latest",
     "oxlint": "latest",
     "postcss": "8.5.6",
