@@ -8,21 +8,30 @@ import * as ThemingStories from './deprecated-theming.stories'
 
 ⚠️ The approach to theming described here is deprecated. See `ThemeProvider` instead.
 
+> **Breaking change in v5:** The `legacy-reapit/tokens.css` file has been removed. The `intent*` JavaScript
+> constants (`intentPrimary`, `intentDefault`, `intentSuccess`, etc.) exported from `@reapit/elements` have
+> also been removed. If your codebase references either of these, run the `upgrade-css-variables` codemod to
+> migrate CSS variable usages automatically:
+>
+> ```sh
+> yarn dlx @reapit/elements@beta codemod apply upgrade-css-variables ./src
+> ```
+
 ---
 
 We have achieved global and local theming on the project by using CSS Variables throughout that are loaded globally on the `:root` selector when importing the Elements stylesheet into your code (see getting started).
 
 CSS Variables rely on the same rules of specificity as all CSS selectors, so you are able to theme your project globally, by adding a more specific class or id to the root selector of your project and in a CSS file, just override the pre-defined variables.
 
-We are adding to the variable list all the time and the aim is to make the project fully themable in v5. For now, we should have a good base to get you started - see [here](https://github.com/reapit/elements/blob/main/src/styles/globals.ts#L189) for the full variable list.
+For the full list of available v5 design tokens, see the token CSS files in the Elements repository (for example, `src/tokens/dist/*.css`).
 
-There are two methods for theming - the compile time, `linaria` method we use when bundling the library and the provider method, that sets variables at runtime which is less efficient but more granular.
+There are two methods for theming — the compile-time, `linaria` method we use when bundling the library and the provider method, that sets variables at runtime which is less efficient but more granular.
 
 ## Global Themes
 
-Here we are overriding the `--intent-primary`, `--intent-primary-dark` and `--font-size-small` variables by wrapping the component in a provider that uses the `css` function from `linaria` to set the global variables. This changes the default primary button globally from blue to green (along with anything else using those variables), and increases the text size.
+Here we are overriding the `--comp-button-colour-fill-primary-default` and `--font-base-regular-size` variables by wrapping the component in a provider that uses the `css` function from `linaria` to set the global variables. This changes the default primary button fill colour globally and increases the base font size.
 
-Because the transformation is happening at compile time, we can't supply a component that performs this action so you will need to maintain your own version of the source code below, wrapping your react app in the provider.
+Because the transformation is happening at compile time, we can't supply a component that performs this action so you will need to maintain your own version of the source code below, wrapping your React app in the provider.
 
 > You can also just import a plain old CSS file at the root of your project with the declared root variable list.
 
@@ -32,9 +41,9 @@ export const GlobalThemeProvider: FC<PropsWithChildren> = ({ children }) => {
   const globalTheme = css'
     :global() {
       :root {
-        --intent-primary: #a0c862;
-        --intent-primary-dark: #7f9c4b;
-        --font-size-small: 24px;
+        --comp-button-colour-fill-primary-default: #a0c862;
+        --comp-button-colour-fill-primary-hover: #7f9c4b;
+        --font-base-regular-size: 18px;
       }
     }
   '
