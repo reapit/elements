@@ -13,9 +13,11 @@ yarn changeset
 This will prompt you to answer a few questions:
 
 1. **What type of change is this?**
-   - `patch` - Bug fixes, documentation updates, minor tweaks (5.0.0-beta.76 → 5.0.0-beta.77)
-   - `minor` - New features, enhancements (5.0.0-beta.76 → 5.0.0-beta.77)
-   - `major` - Breaking changes (5.0.0-beta.76 → 5.0.0-beta.77) _Note: In prerelease mode, all bumps increment the prerelease number_
+   - `patch` - Bug fixes, documentation updates, minor tweaks (e.g. `1.2.3 → 1.2.4`)
+   - `minor` - New features, enhancements (e.g. `1.2.3 → 1.3.0`)
+   - `major` - Breaking changes (e.g. `1.2.3 → 2.0.0`)
+
+   _Note: In prerelease mode, all bump types increment the prerelease number regardless of type (e.g. `5.0.0-beta.76 → 5.0.0-beta.77`). The bump type is recorded and applied when exiting prerelease mode._
 
 2. **Write a summary of your changes**
    - Be concise but descriptive
@@ -39,24 +41,19 @@ Add a changeset for:
 - ✅ Deprecations
 - ✅ New or updated codemods
 
-You can skip a changeset for:
+For PRs with no user-facing change, use an empty changeset to make the intent explicit (see [CI Enforcement](#ci-enforcement)):
 
-- ❌ Documentation-only changes (outside of component stories)
+- ❌ Documentation-only changes (outside of component stories, which don't affect the published package)
 - ❌ Test-only changes
-- ❌ CI / build configuration changes with no user-facing impact
 - ❌ Internal refactors with no user-facing impact
+
+PRs that only touch dot-directory paths (e.g. `.github/`, `.husky/`) pass CI automatically without a changeset — see [CI Enforcement](#ci-enforcement) for why.
 
 ## CI Enforcement
 
-All PRs are required to introduce a changeset file via their own commits. This is enforced by checking whether any `.changeset/*.md` file appears in the diff between the PR branch and `main`:
+All PRs are checked for a changeset via `yarn changeset status --since=origin/main`. Files under dot-prefixed directories (`.github/`, `.husky/`, `.changeset/`, etc.) are not considered by the check, so a PR that only touches those paths will pass without a changeset.
 
-```sh
-git diff --name-only origin/main...HEAD | grep -q '^\.changeset/.*\.md$'
-```
-
-Unlike `changeset status --since=origin/main`, this check is not satisfied by changeset files introduced by other PRs — the current PR must add one itself.
-
-If your PR has no user-facing impact, create an empty changeset to make that intent explicit:
+Any change outside a dot-prefixed directory is treated as a package change, and the check will fail unless a changeset is present. If your PR has no user-facing impact but does touch non-dot paths (e.g. `src/`, `scripts/`), create an empty changeset to make the intent explicit:
 
 ```bash
 yarn changeset --empty

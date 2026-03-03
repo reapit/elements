@@ -104,5 +104,15 @@ jobs:
         with:
           fetch-depth: 0
 
+      - name: Set Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+          cache: 'yarn'
+
+      - name: Install
+        run: yarn install --immutable
+
       - name: Check for changeset
-        run: git diff --name-only origin/main...HEAD | grep -q '^\.changeset/.*\.md$'
+        # Use origin/main here because main won't be setup as a local branch by actions/checkout
+        run: yarn changeset status --since=origin/main
