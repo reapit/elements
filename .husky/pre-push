@@ -5,7 +5,7 @@
 # Check for a changeset on non-main branches
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 if [ "$BRANCH" != "main" ]; then
-  yarn changeset status --since=main 2>/dev/null || {
+  yarn changeset status --since=main 2>&1 || {
     echo ""
     echo "No changeset found for this branch."
     echo "Run 'yarn changeset' to add one before pushing."
