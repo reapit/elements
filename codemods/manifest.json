@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-02-27T01:07:16.593Z",
+  "generated": "2026-03-03T01:28:13.413Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -33,6 +33,10 @@
     {
       "name": "upgrade-deprecated-icon",
       "description": "Upgrades DeprecatedIcon to individual v5 icon components"
+    },
+    {
+      "name": "upgrade-deprecated-use-media-query",
+      "description": "Migrates deprecated useMediaQuery and related exports to the new breakpoint utilities"
     }
   ]
 }
