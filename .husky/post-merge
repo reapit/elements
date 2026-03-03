@@ -1,0 +1,3 @@
+#!/bin/sh
+[ "$CI" = "true" ] && exit 0
+yarn install
