@@ -16,10 +16,10 @@ describe('single subpath-eligible imports', () => {
     expect(output).toBe(`import { Link } from '@reapit/elements/core/link'\n`)
   })
 
-  test('transforms DeprecatedIcon import to deprecated/icon', () => {
-    const input = `import { DeprecatedIcon } from '@reapit/elements'`
+  test('transforms DeprecatedLabel import to deprecated/label', () => {
+    const input = `import { DeprecatedLabel } from '@reapit/elements'`
     const output = transform(input, 'test.tsx')
-    expect(output).toBe(`import { DeprecatedIcon } from '@reapit/elements/deprecated/icon'\n`)
+    expect(output).toBe(`import { DeprecatedLabel } from '@reapit/elements/deprecated/label'\n`)
   })
 
   test('transforms Popover import to utils/popover', () => {
@@ -67,12 +67,12 @@ describe('multiple exports from different subpaths', () => {
     expect(output).toContain(`import { Link } from '@reapit/elements/core/link'`)
   })
 
-  test('splits Button, DeprecatedIcon, Popover, and MoreIcon into four imports', () => {
-    const input = `import { Button, Link, DeprecatedIcon, Popover, MoreIcon } from '@reapit/elements'`
+  test('splits Button, DeprecatedLabel, Popover, and MoreIcon into four imports', () => {
+    const input = `import { Button, Link, DeprecatedLabel, Popover, MoreIcon } from '@reapit/elements'`
     const output = transform(input, 'test.tsx')
     expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
     expect(output).toContain(`import { Link } from '@reapit/elements/core/link'`)
-    expect(output).toContain(`import { DeprecatedIcon } from '@reapit/elements/deprecated/icon'`)
+    expect(output).toContain(`import { DeprecatedLabel } from '@reapit/elements/deprecated/label'`)
     expect(output).toContain(`import { Popover } from '@reapit/elements/utils/popover'`)
     expect(output).toContain(`import { MoreIcon } from '@reapit/elements/icons/more'`)
     // Original barrel import must be gone
@@ -289,7 +289,7 @@ describe('multi-line imports', () => {
 
 describe('real-world scenarios', () => {
   test('transforms a typical component file', () => {
-    const input = `import { Button, Link, DeprecatedIcon, Popover, MoreIcon } from '@reapit/elements'
+    const input = `import { Button, Link, DeprecatedLabel, Popover, MoreIcon } from '@reapit/elements'
 import { useState } from 'react'
 
 export const MyComponent = () => {
@@ -298,7 +298,7 @@ export const MyComponent = () => {
     const output = transform(input, 'test.tsx')
     expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
     expect(output).toContain(`import { Link } from '@reapit/elements/core/link'`)
-    expect(output).toContain(`import { DeprecatedIcon } from '@reapit/elements/deprecated/icon'`)
+    expect(output).toContain(`import { DeprecatedLabel } from '@reapit/elements/deprecated/label'`)
     expect(output).toContain(`import { Popover } from '@reapit/elements/utils/popover'`)
     expect(output).toContain(`import { MoreIcon } from '@reapit/elements/icons/more'`)
     expect(output).toContain(`import { useState } from 'react'`)

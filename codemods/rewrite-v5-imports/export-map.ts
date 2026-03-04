@@ -6,7 +6,7 @@
  * utils/*, icons/*). Root-only exports (styles, helpers/intent, tokens) are
  * intentionally excluded.
  *
- * Total exports: 1676
+ * Total exports: 1670
  *
  * DO NOT EDIT — regenerate with:
  *   node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts
@@ -273,8 +273,6 @@ export const EXPORT_MAP: Record<string, string> = {
   deprecatedHandlePageChange: 'deprecated/pagination',
   deprecatedHandlePageInput: 'deprecated/pagination',
   deprecatedHandlePageInputChange: 'deprecated/pagination',
-  DeprecatedIcon: 'deprecated/icon',
-  DeprecatedIconProps: 'deprecated/icon',
   DeprecatedLabel: 'deprecated/label',
   DeprecatedLabelProps: 'deprecated/label',
   DeprecatedLogoIcon: 'deprecated/nav',
@@ -554,7 +552,6 @@ export const EXPORT_MAP: Record<string, string> = {
   ElDeprecatedDrawerTitle: 'deprecated/drawer',
   elDeprecatedFloatingButton: 'deprecated/button',
   elDeprecatedIcon: 'deprecated/button',
-  ElDeprecatedIcon: 'deprecated/icon',
   ElDeprecatedLabel: 'deprecated/label',
   elDeprecatedMainContainer: 'deprecated/layout',
   ElDeprecatedMenu: 'deprecated/menu',
@@ -819,7 +816,6 @@ export const EXPORT_MAP: Record<string, string> = {
   elRowGap4: 'deprecated/grid',
   elRowGap6: 'deprecated/grid',
   elRowGap8: 'deprecated/grid',
-  ElSearchableDropdownCloseButton: 'deprecated/searchable-dropdown',
   ElSearchableDropdownContainer: 'deprecated/searchable-dropdown',
   ElSearchableDropdownResult: 'deprecated/searchable-dropdown',
   ElSearchableDropdownResultsContainer: 'deprecated/searchable-dropdown',
@@ -1169,8 +1165,6 @@ export const EXPORT_MAP: Record<string, string> = {
   Heading: 'utils/heading',
   HelpIcon: 'icons/help',
   HTMLDialog: 'utils/dialog',
-  IconNames: 'deprecated/icon',
-  iconSet: 'deprecated/icons',
   ImageUploadModel: 'deprecated/file-input',
   InferFontSize: 'utils/font',
   InferFontWeight: 'utils/font',
