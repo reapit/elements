@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-03-03T01:28:13.413Z",
+  "generated": "2026-03-03T22:38:03.147Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -33,6 +33,10 @@
     {
       "name": "upgrade-deprecated-icon",
       "description": "Upgrades DeprecatedIcon to individual v5 icon components"
+    },
+    {
+      "name": "upgrade-deprecated-split-button",
+      "description": "Upgrades DeprecatedSplitButton to the new SplitButton component"
     },
     {
       "name": "upgrade-deprecated-use-media-query",
