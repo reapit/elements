@@ -27,6 +27,10 @@
       "description": "Migrates legacy CSS custom properties to their v5 equivalents"
     },
     {
+      "name": "upgrade-deprecated-badge",
+      "description": "Upgrades DeprecatedBadge to the new Badge component for v5 API adoption"
+    },
+    {
       "name": "upgrade-deprecated-button",
       "description": "Upgrades DeprecatedButton to the new Button component for v5 API adoption"
     },
