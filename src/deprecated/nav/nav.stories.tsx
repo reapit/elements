@@ -2,7 +2,6 @@ import { cx } from '@linaria/core'
 import { DeprecatedNav, DeprecatedNavItem } from './index'
 import { elDeprecatedNavItemActive, elDeprecatedNavItemHideDesktop, elDeprecatedNavItemExpanded } from './__styles__'
 import { NavStateProvider } from '../use-nav-state'
-import { MediaStateProvider } from '../use-media-query'
 import { elMlAuto, elMr2 } from '../../styles/deprecated-spacing'
 import { DeprecatedNavResponsive } from './nav-responsive'
 import { MoreIcon } from '#src/icons/more'
@@ -68,88 +67,86 @@ export const BasicExampleMobileMenuOpen = {
 export const ReactUsage = {
   render: ({}) => (
     <NavStateProvider>
-      <MediaStateProvider>
-        <DeprecatedNavResponsive
-          defaultNavIndex={1}
-          appSwitcherOptions={[
-            {
-              text: 'AppMarket',
-              callback: () => console.log('Navigating'),
-            },
-            {
-              text: 'DevPortal',
-              callback: () => console.log('Navigating'),
-            },
-          ]}
-          avatarText="JD"
-          avatarOptions={[
-            {
-              text: 'Settings',
-              callback: () => console.log('Navigating'),
-            },
-            {
-              text: 'Profile',
-              callback: () => console.log('Navigating'),
-            },
-            {
-              text: 'Log Out',
-              callback: () => console.log('Navigating'),
-            },
-          ]}
-          options={[
-            {
-              itemIndex: 0,
-              callback: () => console.log('Navigating'),
-            },
-            {
-              itemIndex: 1,
-              callback: () => console.log('Navigating'),
-              text: 'Apps',
+      <DeprecatedNavResponsive
+        defaultNavIndex={1}
+        appSwitcherOptions={[
+          {
+            text: 'AppMarket',
+            callback: () => console.log('Navigating'),
+          },
+          {
+            text: 'DevPortal',
+            callback: () => console.log('Navigating'),
+          },
+        ]}
+        avatarText="JD"
+        avatarOptions={[
+          {
+            text: 'Settings',
+            callback: () => console.log('Navigating'),
+          },
+          {
+            text: 'Profile',
+            callback: () => console.log('Navigating'),
+          },
+          {
+            text: 'Log Out',
+            callback: () => console.log('Navigating'),
+          },
+        ]}
+        options={[
+          {
+            itemIndex: 0,
+            callback: () => console.log('Navigating'),
+          },
+          {
+            itemIndex: 1,
+            callback: () => console.log('Navigating'),
+            text: 'Apps',
 
-              subItems: [
-                {
-                  itemIndex: 0,
-                  callback: () => console.log('Navigating'),
-                  text: 'App List',
-                },
-                {
-                  itemIndex: 1,
-                  callback: () => console.log('Navigating'),
-                  text: 'Create App',
-                },
-              ],
-            },
-            {
-              itemIndex: 2,
-              callback: () => console.log('Navigating'),
-              text: 'Analytics',
+            subItems: [
+              {
+                itemIndex: 0,
+                callback: () => console.log('Navigating'),
+                text: 'App List',
+              },
+              {
+                itemIndex: 1,
+                callback: () => console.log('Navigating'),
+                text: 'Create App',
+              },
+            ],
+          },
+          {
+            itemIndex: 2,
+            callback: () => console.log('Navigating'),
+            text: 'Analytics',
 
-              subItems: [
-                {
-                  itemIndex: 2,
-                  callback: () => console.log('Navigating'),
-                  text: 'Hits Per Day',
-                },
-                {
-                  itemIndex: 3,
-                  callback: () => console.log('Navigating'),
-                  text: 'Weekly Hits',
-                },
-              ],
-            },
-            {
-              itemIndex: 3,
-              href: 'https://marketplace.reapit.cloud',
-              text: 'Marketplace',
-            },
-            {
-              itemIndex: 4,
-              callback: () => console.log('Logging out'),
-              text: 'Logout',
-            },
-          ]}
-        />
-      </MediaStateProvider>
+            subItems: [
+              {
+                itemIndex: 2,
+                callback: () => console.log('Navigating'),
+                text: 'Hits Per Day',
+              },
+              {
+                itemIndex: 3,
+                callback: () => console.log('Navigating'),
+                text: 'Weekly Hits',
+              },
+            ],
+          },
+          {
+            itemIndex: 3,
+            href: 'https://marketplace.reapit.cloud',
+            text: 'Marketplace',
+          },
+          {
+            itemIndex: 4,
+            callback: () => console.log('Logging out'),
+            text: 'Logout',
+          },
+        ]}
+      />
     </NavStateProvider>
   ),
 }
@@ -157,92 +154,90 @@ export const ReactUsage = {
 export const ReactUsageWithCustomBrand = {
   render: ({}) => (
     <NavStateProvider>
-      <MediaStateProvider>
-        <DeprecatedNavResponsive
-          defaultNavIndex={1}
-          brandOptions={{
-            logoUrl: 'https://uk.payprop.com/res/assets/img/pp_logo.svg',
-            callback: () => console.log('Clicking'),
-          }}
-          appSwitcherOptions={[
-            {
-              text: 'AppMarket',
-              callback: () => console.log('Navigating'),
-            },
-            {
-              text: 'DevPortal',
-              callback: () => console.log('Navigating'),
-            },
-          ]}
-          avatarText="JD"
-          avatarOptions={[
-            {
-              text: 'Settings',
-              callback: () => console.log('Navigating'),
-            },
-            {
-              text: 'Profile',
-              callback: () => console.log('Navigating'),
-            },
-            {
-              text: 'Log Out',
-              callback: () => console.log('Navigating'),
-            },
-          ]}
-          options={[
-            {
-              itemIndex: 0,
-              callback: () => console.log('Navigating'),
-            },
-            {
-              itemIndex: 1,
-              callback: () => console.log('Navigating'),
-              text: 'Apps',
+      <DeprecatedNavResponsive
+        defaultNavIndex={1}
+        brandOptions={{
+          logoUrl: 'https://uk.payprop.com/res/assets/img/pp_logo.svg',
+          callback: () => console.log('Clicking'),
+        }}
+        appSwitcherOptions={[
+          {
+            text: 'AppMarket',
+            callback: () => console.log('Navigating'),
+          },
+          {
+            text: 'DevPortal',
+            callback: () => console.log('Navigating'),
+          },
+        ]}
+        avatarText="JD"
+        avatarOptions={[
+          {
+            text: 'Settings',
+            callback: () => console.log('Navigating'),
+          },
+          {
+            text: 'Profile',
+            callback: () => console.log('Navigating'),
+          },
+          {
+            text: 'Log Out',
+            callback: () => console.log('Navigating'),
+          },
+        ]}
+        options={[
+          {
+            itemIndex: 0,
+            callback: () => console.log('Navigating'),
+          },
+          {
+            itemIndex: 1,
+            callback: () => console.log('Navigating'),
+            text: 'Apps',
 
-              subItems: [
-                {
-                  itemIndex: 0,
-                  callback: () => console.log('Navigating'),
-                  text: 'App List',
-                },
-                {
-                  itemIndex: 1,
-                  callback: () => console.log('Navigating'),
-                  text: 'Create App',
-                },
-              ],
-            },
-            {
-              itemIndex: 2,
-              callback: () => console.log('Navigating'),
-              text: 'Analytics',
+            subItems: [
+              {
+                itemIndex: 0,
+                callback: () => console.log('Navigating'),
+                text: 'App List',
+              },
+              {
+                itemIndex: 1,
+                callback: () => console.log('Navigating'),
+                text: 'Create App',
+              },
+            ],
+          },
+          {
+            itemIndex: 2,
+            callback: () => console.log('Navigating'),
+            text: 'Analytics',
 
-              subItems: [
-                {
-                  itemIndex: 2,
-                  callback: () => console.log('Navigating'),
-                  text: 'Hits Per Day',
-                },
-                {
-                  itemIndex: 3,
-                  callback: () => console.log('Navigating'),
-                  text: 'Weekly Hits',
-                },
-              ],
-            },
-            {
-              itemIndex: 3,
-              href: 'https://marketplace.reapit.cloud',
-              text: 'Marketplace',
-            },
-            {
-              itemIndex: 4,
-              callback: () => console.log('Logging out'),
-              text: 'Logout',
-            },
-          ]}
-        />
-      </MediaStateProvider>
+            subItems: [
+              {
+                itemIndex: 2,
+                callback: () => console.log('Navigating'),
+                text: 'Hits Per Day',
+              },
+              {
+                itemIndex: 3,
+                callback: () => console.log('Navigating'),
+                text: 'Weekly Hits',
+              },
+            ],
+          },
+          {
+            itemIndex: 3,
+            href: 'https://marketplace.reapit.cloud',
+            text: 'Marketplace',
+          },
+          {
+            itemIndex: 4,
+            callback: () => console.log('Logging out'),
+            text: 'Logout',
+          },
+        ]}
+      />
     </NavStateProvider>
   ),
 }

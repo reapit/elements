@@ -1,7 +1,6 @@
 import { GridDemoBlock } from '../../storybook/demo-block'
 import { Grid, Col, ColHalf, ColQuarter, ColSplit, ColSplitThird, ColSplitTwoThirds, GridThirds } from './grid'
 import { GridResponsive, ColResponsive } from './grid-responsive'
-import { MediaStateProvider } from '../use-media-query'
 import { cx } from '@linaria/core'
 import { elColGap2, elRowGap3, elSpan12, elSpan8, elSpan4, elOffset4, elOffset8 } from './__styles__/units'
 
@@ -118,123 +117,121 @@ export const CustomUsage = {
 
 export const ReactExampleResponsiveCustomisation = {
   render: ({}) => (
-    <MediaStateProvider>
-      <GridResponsive
-        colGapMobile={1}
-        colGapTablet={2}
-        colGapDesktop={3}
-        colGapWideScreen={4}
-        colGapSuperWideScreen={6}
-        colGap4KScreen={8}
-        rowGapMobile={1}
-        rowGapTablet={2}
-        rowGapDesktop={3}
-        rowGapWideScreen={4}
-        rowGapSuperWideScreen={6}
-        rowGap4KScreen={8}
+    <GridResponsive
+      colGapMobile={1}
+      colGapTablet={2}
+      colGapDesktop={3}
+      colGapWideScreen={4}
+      colGapSuperWideScreen={6}
+      colGap4KScreen={8}
+      rowGapMobile={1}
+      rowGapTablet={2}
+      rowGapDesktop={3}
+      rowGapWideScreen={4}
+      rowGapSuperWideScreen={6}
+      rowGap4KScreen={8}
+    >
+      <ColResponsive
+        spanMobile={2}
+        spanTablet={2}
+        spanDesktop={2}
+        spanWideScreen={2}
+        spanSuperWideScreen={2}
+        span4KScreen={2}
       >
-        <ColResponsive
-          spanMobile={2}
-          spanTablet={2}
-          spanDesktop={2}
-          spanWideScreen={2}
-          spanSuperWideScreen={2}
-          span4KScreen={2}
-        >
-          <GridDemoBlock />
-        </ColResponsive>
-        <ColResponsive
-          spanMobile={2}
-          spanTablet={2}
-          spanDesktop={2}
-          spanWideScreen={2}
-          spanSuperWideScreen={2}
-          span4KScreen={2}
-        >
-          <GridDemoBlock />
-        </ColResponsive>
-        <ColResponsive
-          spanMobile={2}
-          spanTablet={2}
-          spanDesktop={2}
-          spanWideScreen={2}
-          spanSuperWideScreen={2}
-          span4KScreen={2}
-        >
-          <GridDemoBlock />
-        </ColResponsive>
-        <ColResponsive
-          spanMobile={2}
-          spanTablet={2}
-          spanDesktop={2}
-          spanWideScreen={2}
-          spanSuperWideScreen={2}
-          span4KScreen={2}
-        >
-          <GridDemoBlock />
-        </ColResponsive>
-        <ColResponsive
-          spanMobile={2}
-          spanTablet={2}
-          spanDesktop={2}
-          spanWideScreen={2}
-          spanSuperWideScreen={2}
-          span4KScreen={2}
-        >
-          <GridDemoBlock />
-        </ColResponsive>
-        <ColResponsive
-          spanMobile={2}
-          spanTablet={2}
-          spanDesktop={2}
-          spanWideScreen={2}
-          spanSuperWideScreen={2}
-          span4KScreen={2}
-        >
-          <GridDemoBlock />
-        </ColResponsive>
-        <ColResponsive
-          spanMobile={2}
-          spanTablet={2}
-          spanDesktop={2}
-          spanWideScreen={2}
-          spanSuperWideScreen={2}
-          span4KScreen={2}
-        >
-          <GridDemoBlock />
-        </ColResponsive>
-        <ColResponsive
-          spanMobile={2}
-          spanTablet={2}
-          spanDesktop={2}
-          spanWideScreen={2}
-          spanSuperWideScreen={2}
-          span4KScreen={2}
-        >
-          <GridDemoBlock />
-        </ColResponsive>
-        <ColResponsive
-          spanMobile={2}
-          spanTablet={2}
-          spanDesktop={2}
-          spanWideScreen={2}
-          spanSuperWideScreen={2}
-          span4KScreen={2}
-        >
-          <GridDemoBlock />
-        </ColResponsive>
-        <ColResponsive
-          spanMobile={2}
-          spanTablet={2}
-          spanDesktop={2}
-          spanWideScreen={2}
-          spanSuperWideScreen={2}
-          span4KScreen={2}
-        >
-          <GridDemoBlock />
-        </ColResponsive>
-      </GridResponsive>
-    </MediaStateProvider>
+        <GridDemoBlock />
+      </ColResponsive>
+      <ColResponsive
+        spanMobile={2}
+        spanTablet={2}
+        spanDesktop={2}
+        spanWideScreen={2}
+        spanSuperWideScreen={2}
+        span4KScreen={2}
+      >
+        <GridDemoBlock />
+      </ColResponsive>
+      <ColResponsive
+        spanMobile={2}
+        spanTablet={2}
+        spanDesktop={2}
+        spanWideScreen={2}
+        spanSuperWideScreen={2}
+        span4KScreen={2}
+      >
+        <GridDemoBlock />
+      </ColResponsive>
+      <ColResponsive
+        spanMobile={2}
+        spanTablet={2}
+        spanDesktop={2}
+        spanWideScreen={2}
+        spanSuperWideScreen={2}
+        span4KScreen={2}
+      >
+        <GridDemoBlock />
+      </ColResponsive>
+      <ColResponsive
+        spanMobile={2}
+        spanTablet={2}
+        spanDesktop={2}
+        spanWideScreen={2}
+        spanSuperWideScreen={2}
+        span4KScreen={2}
+      >
+        <GridDemoBlock />
+      </ColResponsive>
+      <ColResponsive
+        spanMobile={2}
+        spanTablet={2}
+        spanDesktop={2}
+        spanWideScreen={2}
+        spanSuperWideScreen={2}
+        span4KScreen={2}
+      >
+        <GridDemoBlock />
+      </ColResponsive>
+      <ColResponsive
+        spanMobile={2}
+        spanTablet={2}
+        spanDesktop={2}
+        spanWideScreen={2}
+        spanSuperWideScreen={2}
+        span4KScreen={2}
+      >
+        <GridDemoBlock />
+      </ColResponsive>
+      <ColResponsive
+        spanMobile={2}
+        spanTablet={2}
+        spanDesktop={2}
+        spanWideScreen={2}
+        spanSuperWideScreen={2}
+        span4KScreen={2}
+      >
+        <GridDemoBlock />
+      </ColResponsive>
+      <ColResponsive
+        spanMobile={2}
+        spanTablet={2}
+        spanDesktop={2}
+        spanWideScreen={2}
+        spanSuperWideScreen={2}
+        span4KScreen={2}
+      >
+        <GridDemoBlock />
+      </ColResponsive>
+      <ColResponsive
+        spanMobile={2}
+        spanTablet={2}
+        spanDesktop={2}
+        spanWideScreen={2}
+        spanSuperWideScreen={2}
+        span4KScreen={2}
+      >
+        <GridDemoBlock />
+      </ColResponsive>
+    </GridResponsive>
   ),
   name: 'React Example - Responsive Customisation',
 }

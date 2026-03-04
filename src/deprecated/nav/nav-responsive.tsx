@@ -1,7 +1,8 @@
 import { cx } from '@linaria/core'
 import { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState, MouseEvent } from 'react'
 import { useNavState } from '../use-nav-state'
-import { useMediaQuery } from '../use-media-query'
+import { isWidthBelow } from '#src/utils/breakpoints'
+import { useMatchMedia } from '#src/utils/match-media'
 import { DeprecatedNav, DeprecatedNavItem, DeprecatedNavSubNav, DeprecatedNavSubNavItem } from './nav'
 import {
   ElDeprecatedNavBg,
@@ -230,7 +231,7 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
 }) => {
   const { navState, setNavState } = useNavState(defaultNavIndex, defaultNavSubIndex)
 
-  const { isMobile } = useMediaQuery()
+  const isMobile = useMatchMedia(isWidthBelow('SM'))
   const { navItemIndex, navSubItemIndex, navMenuOpen } = navState
 
   return (

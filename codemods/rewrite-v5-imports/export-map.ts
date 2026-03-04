@@ -6,7 +6,7 @@
  * utils/*, icons/*). Root-only exports (styles, helpers/intent, tokens) are
  * intentionally excluded.
  *
- * Total exports: 1670
+ * Total exports: 1661
  *
  * DO NOT EDIT — regenerate with:
  *   node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts
@@ -344,7 +344,6 @@ export const EXPORT_MAP: Record<string, string> = {
   DescriptionList: 'core/description-list',
   DescriptionListContext: 'core/description-list',
   DescriptionListItem: 'core/description-list',
-  DESKTOP_BREAKPOINT: 'deprecated/use-media-query',
   determineNextControlledState: 'core/chip-select',
   determineSideBarStateFromViewport: 'core/side-bar',
   Dialog: 'core/dialog',
@@ -1230,9 +1229,6 @@ export const EXPORT_MAP: Record<string, string> = {
   matchPath: 'utils/path',
   maybeCloseOnBackdropClick: 'utils/dialog',
   maybeCloseOnSelection: 'core/combobox',
-  MediaStateContext: 'deprecated/use-media-query',
-  MediaStateProvider: 'deprecated/use-media-query',
-  MediaType: 'deprecated/use-media-query',
   Menu: 'core/menu',
   MenuAltIcon: 'icons/menu-alt',
   MenuAnchorItemProps: 'core/menu',
@@ -1254,7 +1250,6 @@ export const EXPORT_MAP: Record<string, string> = {
   MicOffIcon: 'icons/mic-off',
   MicOnIcon: 'icons/mic-on',
   MinusIcon: 'icons/minus',
-  MOBILE_BREAKPOINT: 'deprecated/use-media-query',
   MobileControlItem: 'deprecated/mobile-controls',
   MobileControls: 'deprecated/mobile-controls',
   MobileControlsProps: 'deprecated/mobile-controls',
@@ -1467,7 +1462,6 @@ export const EXPORT_MAP: Record<string, string> = {
   StepsVerticalProps: 'deprecated/steps',
   StepsVerticalStep: 'deprecated/steps',
   Subtitle: 'deprecated/typography',
-  SUPER_WIDESCREEN_BREAKPOINT: 'deprecated/use-media-query',
   SupplementaryInfo: 'core/supplementary-info',
   SupplementaryInfoColour: 'core/supplementary-info',
   SupplementaryInfoItem: 'core/supplementary-info',
@@ -1517,7 +1511,6 @@ export const EXPORT_MAP: Record<string, string> = {
   TableRowMoreActionsProps: 'core/table',
   TableRowPrimaryAction: 'core/table',
   TableRowPrimaryActionProps: 'core/table',
-  TABLET_BREAKPOINT: 'deprecated/use-media-query',
   TableToolbar: 'core/table',
   TableToolbarProps: 'core/table',
   Tabs: 'deprecated/tabs',
@@ -1650,7 +1643,6 @@ export const EXPORT_MAP: Record<string, string> = {
   useDrawerContext: 'core/drawer',
   useFocusedLayoutContext: 'core/focused-layout',
   useMatchMedia: 'utils/match-media',
-  useMediaQuery: 'deprecated/use-media-query',
   useModal: 'deprecated/use-modal',
   UseModal: 'deprecated/use-modal',
   useNavState: 'deprecated/use-nav-state',
@@ -1681,6 +1673,5 @@ export const EXPORT_MAP: Record<string, string> = {
   WarningIcon: 'icons/warning',
   WarningOutlineIcon: 'icons/warning-outline',
   WebIcon: 'icons/web',
-  WIDESCREEN_BREAKPOINT: 'deprecated/use-media-query',
   WorkflowIcon: 'icons/workflow',
 }

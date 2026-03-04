@@ -2,67 +2,64 @@ import React, { MouseEvent } from 'react'
 import { render } from '@testing-library/react'
 import { clickNavEventHandler, DeprecatedNavResponsive } from '../nav-responsive'
 import { NavStateProvider } from '../../use-nav-state'
-import { MediaStateProvider } from '../../use-media-query'
 
 describe('NavResponsive component', () => {
   it('should match a snapshot', () => {
     const wrapper = render(
       <NavStateProvider>
-        <MediaStateProvider>
-          <DeprecatedNavResponsive
-            defaultNavIndex={1}
-            options={[
-              {
-                itemIndex: 0,
-                callback: () => console.log('Navigating'),
-              },
-              {
-                itemIndex: 1,
-                callback: () => console.log('Navigating'),
-                text: 'Apps',
-                subItems: [
-                  {
-                    itemIndex: 0,
-                    callback: () => console.log('Navigating'),
-                    text: 'App List',
-                  },
-                  {
-                    itemIndex: 1,
-                    callback: () => console.log('Navigating'),
-                    text: 'Create App',
-                  },
-                ],
-              },
-              {
-                itemIndex: 2,
-                callback: () => console.log('Navigating'),
-                text: 'Analytics',
-                subItems: [
-                  {
-                    itemIndex: 2,
-                    callback: () => console.log('Navigating'),
-                    text: 'Hits Per Day',
-                  },
-                  {
-                    itemIndex: 3,
-                    callback: () => console.log('Navigating'),
-                    text: 'Weekly Hits',
-                  },
-                ],
-              },
-              {
-                itemIndex: 3,
-                href: 'https://marketplace.reapit.cloud',
-                text: 'Marketplace',
-              },
-              {
-                itemIndex: 4,
-                callback: () => console.log('Logging out'),
-                text: 'Logout',
-              },
-            ]}
-          />
-        </MediaStateProvider>
+        <DeprecatedNavResponsive
+          defaultNavIndex={1}
+          options={[
+            {
+              itemIndex: 0,
+              callback: () => console.log('Navigating'),
+            },
+            {
+              itemIndex: 1,
+              callback: () => console.log('Navigating'),
+              text: 'Apps',
+              subItems: [
+                {
+                  itemIndex: 0,
+                  callback: () => console.log('Navigating'),
+                  text: 'App List',
+                },
+                {
+                  itemIndex: 1,
+                  callback: () => console.log('Navigating'),
+                  text: 'Create App',
+                },
+              ],
+            },
+            {
+              itemIndex: 2,
+              callback: () => console.log('Navigating'),
+              text: 'Analytics',
+              subItems: [
+                {
+                  itemIndex: 2,
+                  callback: () => console.log('Navigating'),
+                  text: 'Hits Per Day',
+                },
+                {
+                  itemIndex: 3,
+                  callback: () => console.log('Navigating'),
+                  text: 'Weekly Hits',
+                },
+              ],
+            },
+            {
+              itemIndex: 3,
+              href: 'https://marketplace.reapit.cloud',
+              text: 'Marketplace',
+            },
+            {
+              itemIndex: 4,
+              callback: () => console.log('Logging out'),
+              text: 'Logout',
+            },
+          ]}
+        />
       </NavStateProvider>,
     )
     expect(wrapper.asFragment()).toMatchSnapshot()

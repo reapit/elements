@@ -1,8 +1,27 @@
 import React, { FC, HTMLAttributes } from 'react'
 import { cx } from '@linaria/core'
 import { ElGrid, ElCol } from './__styles__'
-import { MediaType, useMediaQuery } from '../use-media-query'
+import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/breakpoints'
+import { useMatchMedia } from '#src/utils/match-media'
 import * as units from './__styles__/units'
+
+interface BreakpointFlags {
+  isMobile: boolean
+  isTablet: boolean
+  isDesktop: boolean
+  isWideScreen: boolean
+  isSuperWideScreen: boolean
+  is4KScreen: boolean
+}
+
+const useBreakpointFlags = (): BreakpointFlags => ({
+  isMobile: useMatchMedia(isWidthBelow('SM')),
+  isTablet: useMatchMedia(`${isWidthAtOrAbove('SM')} and ${isWidthBelow('MD')}`),
+  isDesktop: useMatchMedia(`${isWidthAtOrAbove('MD')} and ${isWidthBelow('LG')}`),
+  isWideScreen: useMatchMedia(`${isWidthAtOrAbove('LG')} and ${isWidthBelow('XL')}`),
+  isSuperWideScreen: useMatchMedia(`${isWidthAtOrAbove('XL')} and ${isWidthBelow('2XL')}`),
+  is4KScreen: useMatchMedia(isWidthAtOrAbove('2XL')),
+})
 
 /** @deprecated */
 export type GridUnitType = 0 | 1 | 2 | 3 | 4 | 6 | 8 | 12
@@ -42,7 +61,7 @@ export interface ColResponsiveProps extends HTMLAttributes<HTMLElement> {
 }
 
 /** @deprecated */
-export const getGridClasses = (props: GridResponsiveProps, mediaType: MediaType): string | null => {
+export const getGridClasses = (props: GridResponsiveProps, mediaType: BreakpointFlags): string | null => {
   const {
     colGapMobile,
     colGapTablet,
@@ -97,7 +116,7 @@ export const getGridClasses = (props: GridResponsiveProps, mediaType: MediaType)
 }
 
 /** @deprecated */
-export const getColClasses = (props: ColResponsiveProps, mediaType: MediaType): string | null => {
+export const getColClasses = (props: ColResponsiveProps, mediaType: BreakpointFlags): string | null => {
   const {
     spanMobile,
     spanTablet,
@@ -151,7 +170,7 @@ export const getColClasses = (props: ColResponsiveProps, mediaType: MediaType): 
 /** @deprecated */
 export const GridResponsive: FC<GridResponsiveProps> = (props: GridResponsiveProps) => {
   const { className, children, ...rest } = props
-  const mediaType = useMediaQuery()
+  const mediaType = useBreakpointFlags()
   const gridClasses = getGridClasses(props, mediaType)
   return (
     <ElGrid className={cx(gridClasses, className)} {...rest}>
@@ -163,7 +182,7 @@ export const GridResponsive: FC<GridResponsiveProps> = (props: GridResponsivePro
 /** @deprecated */
 export const ColResponsive: FC<ColResponsiveProps> = (props: ColResponsiveProps) => {
   const { className, children, ...rest } = props
-  const mediaType = useMediaQuery()
+  const mediaType = useBreakpointFlags()
   const colClasses = getColClasses(props, mediaType)
   return (
     <ElCol className={cx(colClasses, className)} {...rest}>
