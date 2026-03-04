@@ -72,6 +72,9 @@ Thumbs.db
 # AWS CDK
 cdk.out
 
+# Git worktrees
+.worktrees/
+
 # Exceptions
 !src/tokens/dist
 !output.cts
