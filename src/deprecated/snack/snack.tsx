@@ -1,12 +1,12 @@
-import React, { FC, HTMLAttributes } from 'react'
+import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import { cx } from '@linaria/core'
 import { ElSnack, elSnackIcon, elSnackCloseIcon, ElSnackHolder } from './__styles__'
-import { DeprecatedIcon, IconNames } from '../icon'
 import { Intent, getIntentClassName } from '../../helpers/intent'
+import { CloseIcon } from '#src/icons/close'
 
 /** @deprecated */
 export interface SnackProps extends HTMLAttributes<HTMLDivElement> {
-  icon?: IconNames
+  icon?: ReactNode
   intent?: Intent
   className?: string
   onRemove?: () => void // onRemove callback added by the SnackHolder component
@@ -41,17 +41,9 @@ export const Snack: FC<SnackProps> = ({ icon, intent = 'primary', className, onR
 
   return (
     <ElSnack className={combinedClassName} role="status" aria-live="polite" {...rest}>
-      {icon && <DeprecatedIcon fontSize="1.25rem" className={elSnackIcon} intent={intent} icon={icon} />}
+      {icon && icon}
       {children}
-      {onRemove && (
-        <DeprecatedIcon
-          fontSize="1.25rem"
-          className={elSnackCloseIcon}
-          data-testid="close-icon"
-          onClick={onRemove}
-          icon="close"
-        />
-      )}
+      {onRemove && <CloseIcon className={elSnackCloseIcon} data-testid="close-icon" onClick={onRemove} size="md" />}
     </ElSnack>
   )
 }

@@ -1,7 +1,7 @@
 import { FC } from 'react'
-import { DeprecatedIcon } from '#src/deprecated/icon'
 import { DeprecatedButtonProps } from '#src/deprecated/button'
 import { ElDeprecatedSplitButtonActionButton, ElDeprecatedSplitButtonMenuButton } from './styles'
+import { ChevronDownIcon } from '#src/icons/chevron-down'
 
 type SplitButtonVariant = 'primary' | 'secondary' | 'busy'
 
@@ -41,9 +41,6 @@ export const DeprecatedActionButton: FC<DeprecatedSplitButtonProps> = (props) =>
 export const DeprecatedMenuButton: FC<DeprecatedSplitButtonProps> = (props) => {
   const { ...rest } = props
   return (
-    <ElDeprecatedSplitButtonMenuButton
-      {...rest}
-      iconLeft={<DeprecatedIcon icon="chevronDown" />}
-    ></ElDeprecatedSplitButtonMenuButton>
+    <ElDeprecatedSplitButtonMenuButton {...rest} iconLeft={<ChevronDownIcon />}></ElDeprecatedSplitButtonMenuButton>
   )
 }

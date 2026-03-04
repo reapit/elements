@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../deprecated/icon'
 import { font } from '#src/utils/font'
 
 export const badgeColours = [
@@ -77,13 +76,6 @@ export const ElBadgeIconContainer = styled.span`
 
   width: var(--icon_size-xs);
   height: var(--icon_size-xs);
-
-  ${ElDeprecatedIcon} {
-    color: inherit;
-    font-size: var(--icon_size-xs);
-    width: inherit;
-    height: inherit;
-  }
 
   ${badgeColours.map((colour) => generateElBadgeIconContainerColourStyles(colour)).join('\n')}
 `

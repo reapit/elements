@@ -2,8 +2,8 @@ import { useState } from 'react'
 import type { FC, ReactNode, MouseEventHandler } from 'react'
 
 import { useId } from '../../storybook/random-id'
-
-import { DeprecatedIcon } from '../../deprecated/icon'
+import { ChevronUpIcon } from '#src/icons/chevron-up'
+import { ChevronDownIcon } from '#src/icons/chevron-down'
 
 import {
   ElExperimentalMobileNavItemAnchor,
@@ -97,7 +97,7 @@ export const MobileNavItemExpandable: FC<MobileNavItemExpandableProps> = (props)
           {hasBadge && <ElExperimentalMobileNavItemBadge />}
         </ElExperimentalMobileNavItemContent>
 
-        <DeprecatedIcon icon={isExpanded ? 'chevronUp' : 'chevronDown'} fontSize="16px" />
+        {isExpanded ? <ChevronUpIcon size="sm" /> : <ChevronDownIcon size="sm" />}
       </ElExperimentalMobileNavItemExpanderButton>
 
       <ElExperimentalMobileNavSubItemUnorderedList id={panelId} aria-hidden={!isExpanded}>

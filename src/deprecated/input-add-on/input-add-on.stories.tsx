@@ -1,5 +1,5 @@
 import { InputAddOn } from './index'
-import { DeprecatedIcon } from '../icon'
+import { AsteriskIcon } from '#src/icons/asterisk'
 
 export default {
   title: 'Deprecated/InputAddOn',
@@ -13,7 +13,7 @@ export const BasicUsage = {
 export const WithIcon = {
   render: ({}) => (
     <InputAddOn>
-      <DeprecatedIcon icon="asterisk" />
+      <AsteriskIcon />
     </InputAddOn>
   ),
 }

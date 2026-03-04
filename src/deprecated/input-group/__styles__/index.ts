@@ -1,5 +1,4 @@
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../icon/__styles__'
 import { ElDeprecatedLabel } from '../../label/__styles__'
 import { ElInput, elHasInputError } from '../../input/__styles__'
 import { ElTextarea } from '../../../core/textarea'
@@ -20,16 +19,6 @@ export const ElInputGroup = styled.div`
     padding: 0 0.5rem 0.5rem 0;
   }
 
-  ${ElDeprecatedIcon} {
-    color: var(--colour-icon-default);
-    border: 1px solid #d8dee4 /* was --component-input-border */;
-    border-right: none;
-    border-radius: 0.125rem 0 0 0.125rem;
-    padding-left: 0.5rem;
-    align-items: center;
-    order: 2;
-  }
-
   ${ElInputAddOn} {
     border: 1px solid #d8dee4 /* was --component-input-border */;
     border-left: none;
@@ -37,12 +26,6 @@ export const ElInputGroup = styled.div`
     align-items: center;
     display: flex;
     order: 4;
-  }
-
-  ${ElMultiSelectInputWrapper} ${ElDeprecatedIcon} {
-    border: none;
-    order: 0;
-    padding-left: 0;
   }
 
   ${ElInput}, ${ElTextarea}, ${ElDeprecatedSelect} {
@@ -55,13 +38,6 @@ export const ElInputGroup = styled.div`
   }
 
   ${ElInput}[type='checkbox'], ${ElInput}[type='radio'] {
-    ~ ${ElDeprecatedIcon} {
-      box-shadow: none;
-      padding-left: 0;
-      padding-right: 0.5rem;
-      border: none;
-    }
-
     ~ ${ElInputAddOn} {
       box-shadow: none;
       padding-left: 0.5rem;
@@ -69,7 +45,7 @@ export const ElInputGroup = styled.div`
     }
 
     &:checked {
-      ~ ${ElDeprecatedIcon}, ~ ${ElDeprecatedLabel}, ~ ${ElInputAddOn} {
+      ~ ${ElDeprecatedLabel}, ~ ${ElInputAddOn} {
         background: var(--colour-fill-white);
       }
 
@@ -116,28 +92,22 @@ export const ElInputGroup = styled.div`
   ${ElDeprecatedSelect},
   ${ElInput}:not([type='checkbox']):not([type='radio']) {
     &:focus {
-      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {
+      ~ ${ElInputAddOn} {
         border-color: var(--colour-fill-action-dark);
       }
     }
 
     &.${elHasInputError} {
-      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn} {
+      ~ ${ElInputAddOn} {
         border-color: var(--colour-fill-error-dark);
         background-color: var(--colour-fill-error-lightest);
       }
     }
 
     &:disabled {
-      ~ ${ElDeprecatedIcon}, ~ ${ElInputAddOn}, ~ ${ElDeprecatedLabel} {
+      ~ ${ElInputAddOn}, ~ ${ElDeprecatedLabel} {
         color: rgb(100 100 100 / 0.35);
       }
     }
-  }
-
-  ${ElInput}:not([type='checkbox']):not([type='radio']):has(~ ${ElDeprecatedIcon}) {
-    border-left: none;
-    border-top-left-radius: 0;
-    border-bottom-left-radius: 0;
   }
 `

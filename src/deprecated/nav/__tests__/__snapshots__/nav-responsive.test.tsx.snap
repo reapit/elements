@@ -3,101 +3,89 @@
 exports[`NavResponsive component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-1 el-deprecated-nav-bg"
+    class="mocked-styled-0 el-deprecated-nav-bg"
   />
   <nav
-    class="mocked-styled-3 el-deprecated-nav-container"
+    class="mocked-styled-2 el-deprecated-nav-container"
   >
     <a
-      class="mocked-styled-5 el-deprecated-nav-item"
+      class="mocked-styled-4 el-deprecated-nav-item"
+    />
+    <a
+      aria-label="Go to Reapit"
+      class="mocked-styled-14 el-brand-logo"
+      href="/"
     >
-      <span
-        class="mocked-styled-0 el-deprecated-icon"
-        role="button"
-        style="width: 100px;"
-        tabindex="0"
+      <svg
+        aria-label="Reapit"
+        fill="none"
+        height="24"
+        viewBox="0 0 96 24"
+        width="96"
+        xmlns="http://www.w3.org/2000/svg"
       >
-        <svg
-          fill="none"
-          height="1em"
-          role="img"
-          style="width: 100px;"
-          title="Icon image with name reapitLogo"
-          viewBox="0 0 382 80"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M140.403 12.9339H158.607C166.391 12.9339 169.864 18.3232 169.864 23.5926C169.864 28.8621 166.391 34.2513 158.607 34.2513H140.403V12.9339ZM152.978 42.6345L170.343 62.5148H181.72L163.157 41.5567L164.834 41.1974C177.289 38.6824 179.205 28.8621 179.205 23.3531C179.205 10.419 168.547 4.5507 158.607 4.43094H131.181V62.5148H140.523V42.395H152.858L152.978 42.6345Z"
-            fill="#222B33"
-          />
-          <path
-            d="M193.696 38.4429L194.056 37.1255C195.613 31.4968 200.403 28.1435 206.87 28.1435C213.816 28.1435 218.127 31.4968 218.846 37.2453L218.966 38.4429H193.696ZM222.199 26.8261C218.726 22.9938 213.337 20.9579 206.63 20.9579C193.816 20.9579 185.193 29.4609 185.193 42.0357C185.193 55.3291 193.696 63.5926 207.469 63.5926C213.936 63.5926 220.283 61.3172 224.235 57.7243L218.966 52.5746C215.972 54.9699 211.062 56.1675 207.708 56.1675C200.163 56.1675 194.894 52.3351 194.056 46.2273L193.936 45.0297H227.229C227.589 37.2453 225.912 30.898 222.199 26.8261Z"
-            fill="#222B33"
-          />
-          <path
-            d="M343.756 22.0357H335.373V62.5148H343.756V22.0357Z"
-            fill="#222B33"
-          />
-          <path
-            d="M363.756 59.6405C366.152 61.916 369.744 63.1136 373.936 62.9938C376.69 62.8741 378.846 62.5148 381.361 61.5567L379.086 54.6106C377.649 55.2094 375.972 55.5687 374.655 55.5687C370.583 55.5687 368.187 52.9339 368.187 48.5028V29.2214H379.924V22.2753H368.307V10.419L359.924 11.2573V22.2753H352.02V29.2214H359.924V48.5028C359.924 53.413 361.241 57.1256 363.756 59.6405Z"
-            fill="#222B33"
-          />
-          <path
-            d="M254.295 55.6884C246.99 55.6884 241.122 49.7004 241.122 42.5148C241.122 35.3291 247.11 29.3411 254.295 29.3411C261.481 29.3411 267.469 35.3291 267.469 42.5148C267.469 49.7004 261.601 55.6884 254.295 55.6884ZM275.972 62.395V22.1555H267.828V25.7483L266.87 25.0297C263.158 22.395 258.846 20.9579 254.295 20.9579C242.439 20.9579 232.858 30.5387 232.858 42.395C232.858 54.2513 242.439 63.8321 254.295 63.8321C258.846 63.8321 263.158 62.395 266.87 59.7603L267.828 59.0417V62.395H275.972Z"
-            fill="#222B33"
-          />
-          <path
-            d="M306.511 28.9818C313.816 28.9818 319.684 34.9698 319.684 42.1555C319.684 49.3411 313.696 55.3291 306.511 55.3291C299.325 55.3291 293.337 49.3411 293.337 42.1555C293.337 34.9698 299.205 28.9818 306.511 28.9818ZM306.511 63.5926C318.367 63.5926 327.948 54.0118 327.948 42.1555C327.948 30.2992 318.367 20.7183 306.511 20.7183C301.96 20.7183 297.649 22.1555 293.936 24.7902L292.978 25.5088V22.1555H284.834V79.5207H292.978V58.8022L293.936 59.5207C297.649 62.1555 301.96 63.5926 306.511 63.5926Z"
-            fill="#222B33"
-          />
-          <path
-            d="M339.565 4.19141C337.05 4.19141 334.415 5.74829 334.415 9.34111C334.415 12.9339 337.05 14.4908 339.565 14.4908C342.08 14.4908 344.714 12.9339 344.714 9.34111C344.714 5.74829 342.08 4.19141 339.565 4.19141Z"
-            fill="#222B33"
-          />
-          <path
-            d="M96.4469 0L58.1235 0.11976L77.1655 12.5749V40L96.4469 27.0659V0Z"
-            fill="#98C1C2"
-          />
-          <path
-            d="M77.1662 40L38.9626 40.1198L57.8848 52.5749V80L77.1662 67.0659V40Z"
-            fill="#D1263D"
-          />
-          <path
-            d="M38.9625 13.0542L0.63916 13.174L19.6811 25.7488V53.0542L38.9625 40.1201V13.0542Z"
-            fill="#FD9E1D"
-          />
-        </svg>
-      </span>
-      <span
-        class="el-ml-auto el-mr4 el-deprecated-nav-item-hide-desktop el-intent-default el-deprecated-icon"
-        role="button"
-        tabindex="0"
-      >
-        <svg
-          fill="none"
-          height="1em"
-          role="img"
-          title="Icon image with name more"
-          viewBox="0 0 24 24"
-          width="1em"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M7 12C7 13.1046 6.10457 14 5 14C3.89543 14 3 13.1046 3 12C3 10.8954 3.89543 10 5 10C6.10457 10 7 10.8954 7 12Z"
-            fill="currentColor"
-          />
-          <path
-            d="M12 14C13.1046 14 14 13.1046 14 12C14 10.8954 13.1046 10 12 10C10.8954 10 10 10.8954 10 12C10 13.1046 10.8954 14 12 14Z"
-            fill="currentColor"
-          />
-          <path
-            d="M19 14C20.1046 14 21 13.1046 21 12C21 10.8954 20.1046 10 19 10C17.8954 10 17 10.8954 17 12C17 13.1046 17.8954 14 19 14Z"
-            fill="currentColor"
-          />
-        </svg>
-      </span>
+        <path
+          d="M14.4062 2L19.1877 5.14371V12L23.9991 8.76645V2H14.4062Z"
+          fill="#98C1C2"
+        />
+        <path
+          d="M9.5918 12L14.3733 15.1437V22L19.1846 18.7665V12H9.5918Z"
+          fill="#D1263D"
+        />
+        <path
+          d="M0 5.2334L4.78148 8.3771V15.2334L9.59285 11.9999V5.2334H0Z"
+          fill="#FD9E1D"
+        />
+        <path
+          d="M35.3051 5.18536H39.8554C41.8013 5.18536 42.6695 6.5325 42.6695 7.8497C42.6695 9.1669 41.8013 10.514 39.8554 10.514H35.3051V5.18536ZM38.4484 12.6096L42.7892 17.579H45.6332L40.993 12.3402L41.4121 12.2504C44.5255 11.6217 45.0045 9.1669 45.0045 7.78983C45.0045 4.5567 42.3402 3.08981 39.8554 3.05988H33V17.579H35.335V12.5497H38.4185L38.4484 12.6096Z"
+          fill="#222B33"
+        />
+        <path
+          d="M48.6268 11.5618L48.7166 11.2325C49.1058 9.8255 50.3032 8.98728 51.9198 8.98728C53.6561 8.98728 54.7338 9.8255 54.9134 11.2625L54.9434 11.5618H48.6268ZM55.7517 8.65798C54.8835 7.70002 53.5364 7.1911 51.8599 7.1911C48.6567 7.1911 46.5013 9.31658 46.5013 12.4599C46.5013 15.7828 48.6268 17.8485 52.0695 17.8485C53.6861 17.8485 55.2727 17.2797 56.2606 16.3816L54.9434 15.0943C54.195 15.693 52.9676 15.9924 52.1294 15.9924C50.2434 15.9924 48.9262 15.0344 48.7166 13.5077L48.6867 13.2083H57.009C57.0988 11.2624 56.6797 9.67582 55.7517 8.65798Z"
+          fill="#222B33"
+        />
+        <path
+          d="M86.1371 7.46053H84.0416V17.579H86.1371V7.46053Z"
+          fill="#222B33"
+        />
+        <path
+          d="M91.1365 16.8606C91.7353 17.4294 92.6333 17.7287 93.6811 17.6988C94.3697 17.6688 94.9085 17.579 95.5372 17.3395L94.9684 15.6032C94.6091 15.7529 94.19 15.8427 93.8607 15.8427C92.8429 15.8427 92.2442 15.1841 92.2442 14.0765V9.25671H95.1779V7.5204H92.2741V4.5567L90.1786 4.76625V7.5204H88.2028V9.25671H90.1786V14.0765C90.1786 15.3039 90.5079 16.2319 91.1365 16.8606Z"
+          fill="#222B33"
+        />
+        <path
+          d="M63.7746 15.8727C61.9485 15.8727 60.4816 14.3758 60.4816 12.5797C60.4816 10.7835 61.9785 9.28665 63.7746 9.28665C65.5708 9.28665 67.0676 10.7835 67.0676 12.5797C67.0676 14.3758 65.6008 15.8727 63.7746 15.8727ZM69.1931 17.5491V7.49046H67.1575V8.38855L66.918 8.20894C65.9899 7.55033 64.9122 7.1911 63.7746 7.1911C60.8109 7.1911 58.416 9.58601 58.416 12.5497C58.416 15.5134 60.8109 17.9083 63.7746 17.9083C64.9122 17.9083 65.9899 17.5491 66.918 16.8905L67.1575 16.7109V17.5491H69.1931Z"
+          fill="#222B33"
+        />
+        <path
+          d="M76.8269 9.19683C78.653 9.19683 80.1199 10.6937 80.1199 12.4898C80.1199 14.286 78.6231 15.7828 76.8269 15.7828C75.0307 15.7828 73.5339 14.286 73.5339 12.4898C73.5339 10.6937 75.0008 9.19683 76.8269 9.19683ZM76.8269 17.8485C79.7906 17.8485 82.1855 15.4535 82.1855 12.4898C82.1855 9.52613 79.7906 7.13122 76.8269 7.13122C75.6893 7.13122 74.6116 7.49046 73.6836 8.14906L73.4441 8.32868V7.49046H71.4084V21.83H73.4441V16.651L73.6836 16.8306C74.6116 17.4892 75.6893 17.8485 76.8269 17.8485Z"
+          fill="#222B33"
+        />
+        <path
+          d="M85.0894 3C84.4607 3 83.8021 3.38917 83.8021 4.28727C83.8021 5.18536 84.4607 5.57453 85.0894 5.57453C85.718 5.57453 86.3766 5.18536 86.3766 4.28727C86.3766 3.38917 85.718 3 85.0894 3Z"
+          fill="#222B33"
+        />
+      </svg>
     </a>
+    <span
+      class="el-ml-auto el-mr4 el-deprecated-nav-item-hide-desktop"
+      role="button"
+      tabindex="0"
+    >
+      <svg
+        class="el-icon"
+        color="inherit"
+        data-size="100%"
+        fill="currentColor"
+        height="24"
+        viewBox="0 0 24 24"
+        width="24"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm5 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm7 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+        />
+      </svg>
+    </span>
     <a
       class="el-deprecated-nav-item-active el-deprecated-nav-item"
       role="button"
@@ -106,17 +94,17 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       Apps
     </a>
     <div
-      class="mocked-styled-4 el-deprecated-nav-sub-container"
+      class="mocked-styled-3 el-deprecated-nav-sub-container"
     >
       <a
-        class="mocked-styled-6 el-deprecated-nav-sub-item"
+        class="mocked-styled-5 el-deprecated-nav-sub-item"
       >
         <span>
           App List
         </span>
       </a>
       <a
-        class="mocked-styled-6 el-deprecated-nav-sub-item"
+        class="mocked-styled-5 el-deprecated-nav-sub-item"
       >
         <span>
           Create App
@@ -124,24 +112,24 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       </a>
     </div>
     <a
-      class="mocked-styled-5 el-deprecated-nav-item"
+      class="mocked-styled-4 el-deprecated-nav-item"
       role="button"
       tabindex="0"
     >
       Analytics
     </a>
     <div
-      class="mocked-styled-4 el-deprecated-nav-sub-container"
+      class="mocked-styled-3 el-deprecated-nav-sub-container"
     >
       <a
-        class="mocked-styled-6 el-deprecated-nav-sub-item"
+        class="mocked-styled-5 el-deprecated-nav-sub-item"
       >
         <span>
           Hits Per Day
         </span>
       </a>
       <a
-        class="mocked-styled-6 el-deprecated-nav-sub-item"
+        class="mocked-styled-5 el-deprecated-nav-sub-item"
       >
         <span>
           Weekly Hits
@@ -149,7 +137,7 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       </a>
     </div>
     <a
-      class="mocked-styled-5 el-deprecated-nav-item"
+      class="mocked-styled-4 el-deprecated-nav-item"
       href="https://marketplace.reapit.cloud"
       role="button"
       tabindex="0"
@@ -157,7 +145,7 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       Marketplace
     </a>
     <a
-      class="mocked-styled-5 el-deprecated-nav-item"
+      class="mocked-styled-4 el-deprecated-nav-item"
       role="button"
       tabindex="0"
     >

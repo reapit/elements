@@ -1,6 +1,5 @@
 import { SingleLineCell } from './single-line-cell'
 import { TableText } from '../table-text'
-import { DeprecatedIcon } from '#src/deprecated/icon'
 import { Skeleton } from '#src/core/skeleton'
 import { Badge } from '#src/core/badge'
 import { Features, FeatureItem } from '#src/core/features'
@@ -17,6 +16,13 @@ import { TableBody } from '../table-body'
 import { TableRow } from '../table-row'
 import { Input } from '#src/deprecated/input'
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { AddIcon } from '#src/icons/add'
+import { ChevronDownIcon } from '#src/icons/chevron-down'
+import { BedIcon } from '#src/icons/bed'
+import { BathIcon } from '#src/icons/bath'
+import { CarIcon } from '#src/icons/car'
+import { AppSwitcherIcon } from '#src/icons/app-switcher'
+import { StarIcon } from '#src/icons/star'
 
 const CHILDREN_OPTIONS = [
   'Alphanumeric',
@@ -46,11 +52,7 @@ const meta = {
         }
         if (itemName === 'Badge') {
           acc[itemName] = (
-            <Badge
-              iconLeft={<DeprecatedIcon icon="add" fontSize="1rem" />}
-              iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
-              colour="success"
-            >
+            <Badge iconLeft={<AddIcon size="sm" />} iconRight={<ChevronDownIcon size="sm" />} colour="success">
               Label
             </Badge>
           )
@@ -58,19 +60,16 @@ const meta = {
         if (itemName === 'Features') {
           acc[itemName] = (
             <Features size="xs">
-              <FeatureItem label="Bedrooms" icon={<DeprecatedIcon icon="bed" />} value="1" />
-              <FeatureItem label="Bathooms" icon={<DeprecatedIcon icon="bath" />} value="2" />
-              <FeatureItem label="Cars" icon={<DeprecatedIcon icon="car" />} value="5" />
-              <FeatureItem label="Areas" icon={<DeprecatedIcon icon="appSwitcher" />} value="850 sqm" />
+              <FeatureItem label="Bedrooms" icon={<BedIcon />} value="1" />
+              <FeatureItem label="Bathooms" icon={<BathIcon />} value="2" />
+              <FeatureItem label="Cars" icon={<CarIcon />} value="5" />
+              <FeatureItem label="Areas" icon={<AppSwitcherIcon />} value="850 sqm" />
             </Features>
           )
         }
         if (itemName === 'Icon with Value') {
           acc[itemName] = (
-            <TableText
-              iconLeft={<DeprecatedIcon icon="star" fontSize="1rem" />}
-              iconRight={<DeprecatedIcon icon="star" fontSize="1rem" />}
-            >
+            <TableText iconLeft={<StarIcon size="sm" />} iconRight={<StarIcon size="sm" />}>
               Value
             </TableText>
           )

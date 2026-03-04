@@ -11,7 +11,6 @@ import {
   TableCtaTriggerCell,
   TableCellSplit,
 } from './molecules'
-import { DeprecatedIcon } from '../icon'
 import { elSpan2, elSpan3 } from '../grid'
 import { InputGroup } from '../input-group'
 import { DeprecatedButton, DeprecatedButtonGroup } from '../button'
@@ -22,6 +21,7 @@ import { elIsActive } from '../../styles/deprecated-states'
 import { DeprecatedAvatar } from '../avatar'
 import { Input } from '../input'
 import { TextBase } from '../typography'
+import { EditIcon } from '#src/icons/edit'
 
 export default {
   title: 'Deprecated/DeprecatedTable',
@@ -212,7 +212,7 @@ export const ExpandableContent = {
         <DeprecatedTableHeader>Amount</DeprecatedTableHeader>
         <DeprecatedTableHeader>Payment Status</DeprecatedTableHeader>
         <DeprecatedTableHeader>
-          <DeprecatedIcon icon="edit" intent="default" />
+          <EditIcon color="secondary" />
         </DeprecatedTableHeader>
       </DeprecatedTableHeadersRow>
       <DeprecatedTableRowContainer className={elIsActive}>

@@ -1,6 +1,5 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../../deprecated/icon'
 import { font } from '#src/utils/font'
 
 // NOTE: This class is used as the basis for the menu group's summary element as well. Changes here
@@ -65,12 +64,5 @@ export const ElSideBarMenuItemIcon = styled.span`
   color: var(--comp-navigation-colour-icon-sidebar-default);
   [aria-current='page'] > & {
     color: var(--comp-navigation-colour-icon-sidebar-select);
-  }
-
-  /* TODO: remove this when DeprecatedIcon is removed. */
-  ${ElDeprecatedIcon} {
-    color: inherit;
-    width: inherit;
-    height: inherit;
   }
 `

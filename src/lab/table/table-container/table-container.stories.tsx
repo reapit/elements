@@ -4,7 +4,7 @@ import { TableToolbar } from '../table-toolbar'
 import { DeprecatedMenu, DeprecatedMenuItem, DeprecatedMenuItemGroup, DeprecatedMenuList } from '#src/deprecated/menu'
 import { DeprecatedMenuPopover, DeprecatedMenuTrigger } from '#src/deprecated/menu/menu-popover'
 import { DeprecatedButton } from '#src/deprecated/button'
-import { DeprecatedIcon } from '#src/deprecated/icon'
+import { ChevronDownIcon } from '#src/icons/chevron-down'
 
 const meta: Meta<typeof TableContainer> = {
   title: 'Lab/TableContainer',
@@ -27,7 +27,7 @@ export const BasicUsage = {
                   variant="tertiary"
                   size="small"
                   {...getTriggerProps()}
-                  iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
+                  iconRight={<ChevronDownIcon size="sm" />}
                 >
                   Page size: 25
                 </DeprecatedButton>

@@ -1,4 +1,3 @@
-import { ElDeprecatedIcon } from '#src/deprecated/icon'
 import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
@@ -42,10 +41,6 @@ export const ElExperimentalMobileNavItemButton = styled.button`
 
 export const ElExperimentalMobileNavItemExpanderButton = styled.button`
   ${baseStyles}
-
-  ${ElDeprecatedIcon} {
-    color: var(--colour-icon-primary);
-  }
 `
 
 export const ElExperimentalMobileNavItemContent = styled.span`

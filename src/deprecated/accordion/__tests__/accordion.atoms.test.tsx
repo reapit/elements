@@ -7,7 +7,10 @@ import {
   DeprecatedAccordionTitleContent,
   DeprecatedAccordionContent,
 } from '../accordion.atoms'
-import { DeprecatedIcon } from '../../icon'
+import { CarIcon } from '#src/icons/car'
+import { UserIcon } from '#src/icons/user'
+import { ChevronUpIcon } from '#src/icons/chevron-up'
+import { ChevronDownIcon } from '#src/icons/chevron-down'
 import { elMr1 } from '../../../styles/deprecated-spacing'
 import { elIsActive } from '../../../styles/deprecated-states'
 
@@ -19,13 +22,13 @@ describe('Accordion basic usage', () => {
           <DeprecatedAccordionTitle>Accordion Item 1</DeprecatedAccordionTitle>
           <DeprecatedAccordionTitleContentWrapper>
             <DeprecatedAccordionTitleContent>
-              <DeprecatedIcon className={elMr1} icon="car" />2
+              <CarIcon className={elMr1} />2
             </DeprecatedAccordionTitleContent>
             <DeprecatedAccordionTitleContent>
-              <DeprecatedIcon className={elMr1} icon="user" />5
+              <UserIcon className={elMr1} />5
             </DeprecatedAccordionTitleContent>
             <DeprecatedAccordionTitleContent>
-              <DeprecatedIcon icon="chevronUp" />
+              <ChevronUpIcon />
             </DeprecatedAccordionTitleContent>
           </DeprecatedAccordionTitleContentWrapper>
         </DeprecatedAccordionItem>
@@ -34,13 +37,13 @@ describe('Accordion basic usage', () => {
           <DeprecatedAccordionTitle>Accordion Item 2</DeprecatedAccordionTitle>
           <DeprecatedAccordionTitleContentWrapper>
             <DeprecatedAccordionTitleContent>
-              <DeprecatedIcon className={elMr1} icon="car" />2
+              <CarIcon className={elMr1} />2
             </DeprecatedAccordionTitleContent>
             <DeprecatedAccordionTitleContent>
-              <DeprecatedIcon className={elMr1} icon="user" />5
+              <UserIcon className={elMr1} />5
             </DeprecatedAccordionTitleContent>
             <DeprecatedAccordionTitleContent>
-              <DeprecatedIcon icon="chevronDown" />
+              <ChevronDownIcon />
             </DeprecatedAccordionTitleContent>
           </DeprecatedAccordionTitleContentWrapper>
         </DeprecatedAccordionItem>

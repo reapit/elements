@@ -1,5 +1,4 @@
 import { css } from '@linaria/core'
-import { ElDeprecatedIcon } from '../../../deprecated/icon'
 import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
@@ -33,12 +32,6 @@ export const elTopBarNavDropdownButton = css`
   &:hover {
     border-radius: var(--comp-navigation-border-radius-nav_item-desktop);
     background: var(--comp-navigation-colour-fill-nav_item-hover);
-  }
-
-  /* TODO: Remove this when DeprecatedIcon is removed. */
-  ${ElDeprecatedIcon} {
-    pointer-events: none;
-    margin-left: 0;
   }
 `
 

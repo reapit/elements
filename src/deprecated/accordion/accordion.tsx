@@ -1,7 +1,6 @@
 import { Dispatch, FC, Fragment, SetStateAction, useState, useId } from 'react'
 import { cx } from '@linaria/core'
 import { elIsActive } from '../../styles/deprecated-states'
-import { DeprecatedIcon } from '../icon'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 import { DeprecatedAccordionProps } from './types'
 import {
@@ -12,6 +11,8 @@ import {
   DeprecatedAccordionTitleContent,
   DeprecatedAccordionTitleContentWrapper,
 } from './accordion.atoms'
+import { ChevronUpIcon } from '#src/icons/chevron-up'
+import { ChevronDownIcon } from '#src/icons/chevron-down'
 
 export const handleSetOpenItem =
   (openItem: number, setOpenItem: Dispatch<SetStateAction<number | null>>, onClick?: () => void) => () => {
@@ -53,11 +54,11 @@ export const DeprecatedAccordion: FC<DeprecatedAccordionProps> = ({ items, class
                   <DeprecatedAccordionTitleContent key={innerIndex}>{titleItem}</DeprecatedAccordionTitleContent>
                 ))}
               <DeprecatedAccordionTitleContent>
-                <DeprecatedIcon
-                  fontSize="1.25rem"
-                  intent="default"
-                  icon={openItem === index ? 'chevronUp' : 'chevronDown'}
-                />
+                {openItem === index ? (
+                  <ChevronUpIcon size="md" color="secondary" />
+                ) : (
+                  <ChevronDownIcon size="md" color="secondary" />
+                )}
               </DeprecatedAccordionTitleContent>
             </DeprecatedAccordionTitleContentWrapper>
           </DeprecatedAccordionItem>

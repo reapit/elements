@@ -1,6 +1,5 @@
-import React, { FC, forwardRef, HTMLAttributes, useEffect, useId } from 'react'
+import React, { FC, forwardRef, HTMLAttributes, ReactNode, useEffect, useId } from 'react'
 import {
-  ElSearchableDropdownCloseButton,
   ElSearchableDropdownContainer,
   ElSearchableDropdownResult,
   ElSearchableDropdownResultsContainer,
@@ -9,20 +8,22 @@ import {
   ElSearchableDropdownSearchLabel,
   ElSearchableDropdownSearchLoader,
 } from './__styles__'
-import { DeprecatedIcon, IconNames } from '../icon'
 import { handleSetNativeInput } from '../multi-select'
 import { generateRandomId } from '../../storybook/random-id'
 import { DeprecatedLabel } from '../label'
 import { elMb3 } from '../../styles/deprecated-spacing'
 import { elFlex } from '../../styles/deprecated-flexbox'
 import { cx } from '@linaria/core'
+import { SearchIcon } from '#src/icons/search'
+import { CloseIcon } from '#src/icons/close'
+import { Button } from '#src/core/button'
 
 /** @deprecated */
 export interface SearchableDropdownProps<T> extends React.InputHTMLAttributes<HTMLInputElement> {
   getResults: (query: string) => Promise<T[]>
   getResultValue: (result: T) => string
   getResultLabel: (result: T) => string
-  icon?: IconNames
+  icon?: ReactNode
   defaultVal?: T
   label?: string
 }
@@ -36,7 +37,7 @@ export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAtt
   resultsList: { label: string; result: T }[]
   onResultClick: (result: { label: string; result: T }) => void
   onClear: () => void
-  icon?: IconNames
+  icon?: ReactNode
   label?: string
 }
 
@@ -44,7 +45,7 @@ export interface ControlledSearchableDropdownProps<T> extends React.InputHTMLAtt
 export const SearchableDropdownControlledInner = <T extends unknown>(
   {
     isResultsListVisible,
-    icon = 'search',
+    icon = <SearchIcon />,
     loading,
     resultsList,
     onResultClick,
@@ -73,9 +74,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
         aria-haspopup="listbox"
       >
         <input id={id} style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
-        <ElSearchableDropdownSearchInputAddOn>
-          <DeprecatedIcon icon={icon} fontSize="1rem" intent="default" />
-        </ElSearchableDropdownSearchInputAddOn>
+        <ElSearchableDropdownSearchInputAddOn>{icon}</ElSearchableDropdownSearchInputAddOn>
         <ElSearchableDropdownSearchInput data-testid="search-input" value={value} {...inputProps} />
         {isResultsListVisible && (
           <ElSearchableDropdownResultsContainer role="listbox" id={listId}>
@@ -95,7 +94,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
           </ElSearchableDropdownResultsContainer>
         )}
         {loading && <ElSearchableDropdownSearchLoader />}
-        {isClearVisible && <ElSearchableDropdownCloseButton icon="close" onClick={onClear} />}
+        {isClearVisible && <Button variant="tertiary" hasNoPadding iconLeft={<CloseIcon />} onClick={onClear} />}
       </ElSearchableDropdownContainer>
     </>
   )
@@ -178,7 +177,7 @@ export const SearchableDropdownInner = <T extends unknown>(
       value={value}
       ref={ref}
       isResultsListVisible={resultsVisible}
-      icon={icon || 'search'}
+      icon={icon || <SearchIcon />}
       loading={loading}
       resultsList={resultsList.map((result) => ({
         label: getResultLabel(result),

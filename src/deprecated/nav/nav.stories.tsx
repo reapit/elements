@@ -3,9 +3,9 @@ import { DeprecatedNav, DeprecatedNavItem } from './index'
 import { elDeprecatedNavItemActive, elDeprecatedNavItemHideDesktop, elDeprecatedNavItemExpanded } from './__styles__'
 import { NavStateProvider } from '../use-nav-state'
 import { MediaStateProvider } from '../use-media-query'
-import { DeprecatedIcon } from '../icon'
 import { elMlAuto, elMr2 } from '../../styles/deprecated-spacing'
 import { DeprecatedNavResponsive } from './nav-responsive'
+import { MoreIcon } from '#src/icons/more'
 
 export default {
   title: 'Deprecated/DeprecatedNav',
@@ -16,12 +16,11 @@ export const BasicExample = {
   render: ({}) => (
     <DeprecatedNav>
       <DeprecatedNavItem>
-        <DeprecatedIcon height="24px" width="100px" icon="reapitLogo" />
-        <DeprecatedIcon
+        <span>Reapit</span>
+        <MoreIcon
           className={cx(elMlAuto, elMr2, elDeprecatedNavItemHideDesktop)}
-          icon="more"
-          intent="default"
           onClick={() => console.log('Toggle Menu')}
+          color="secondary"
         />
       </DeprecatedNavItem>
       <DeprecatedNavItem className={elDeprecatedNavItemActive} href="https://marketplace.reapit.cloud/apps">
@@ -37,12 +36,11 @@ export const BasicExampleMobileMenuOpen = {
   render: ({}) => (
     <DeprecatedNav>
       <DeprecatedNavItem>
-        <DeprecatedIcon height="24px" width="100px" icon="reapitLogo" />
-        <DeprecatedIcon
+        <span>Reapit</span>
+        <MoreIcon
           className={cx(elMlAuto, elMr2, elDeprecatedNavItemHideDesktop)}
-          icon="more"
-          intent="default"
           onClick={() => console.log('Toggle Menu')}
+          color="secondary"
         />
       </DeprecatedNavItem>
       <DeprecatedNavItem

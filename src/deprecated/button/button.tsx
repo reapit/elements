@@ -24,7 +24,6 @@ import {
   elDeprecatedButtonGroupAlignCenter,
   ElDeprecatedButtonLabel,
 } from './styles'
-import { DeprecatedIcon, IconNames } from '../icon'
 import { cx } from '@linaria/core'
 
 /** @deprecated */
@@ -99,7 +98,7 @@ function isButtonAsButtonElement(props: DeprecatedButtonProps): props is Depreca
 
 /** @deprecated */
 export type DeprecatedFloatingButtonProps = DeprecatedButtonAsButtonElementProps & {
-  icon: IconNames
+  icon: ReactNode
 }
 
 /** @deprecated */
@@ -223,11 +222,5 @@ export const DeprecatedButtonGroup: FC<DeprecatedButtonGroupProps> = ({ children
 /** @deprecated */
 // Removing ClassName fixes the issue with different UI, lets look into this
 export const DeprecatedFloatingButton: FC<DeprecatedFloatingButtonProps> = ({ className, icon, ...rest }) => {
-  return (
-    <DeprecatedButton
-      className={cx(className, elDeprecatedFloatingButton)}
-      iconLeft={<DeprecatedIcon icon={icon} />}
-      {...rest}
-    />
-  )
+  return <DeprecatedButton className={cx(className, elDeprecatedFloatingButton)} iconLeft={icon} {...rest} />
 }

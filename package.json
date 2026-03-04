@@ -15,7 +15,7 @@
   "bin": "./bin/elements.js",
   "files": [
     "dist/",
-    "assets/",
+    "assets/reset.css",
     "bin/"
   ],
   "type": "module",

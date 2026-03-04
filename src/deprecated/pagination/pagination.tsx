@@ -9,7 +9,6 @@ import React, {
   useState,
   useEffect,
 } from 'react'
-import { DeprecatedIcon } from '../icon'
 import {
   ElDeprecatedPaginationButton,
   elDeprecatedPaginationPrimary,
@@ -17,6 +16,8 @@ import {
   ElDeprecatedPaginationWrap,
   ElDeprecatedPaginationInput,
 } from './__styles__'
+import { ChevronLeftIcon } from '#src/icons/chevron-left'
+import { ChevronRightIcon } from '#src/icons/chevron-right'
 
 /** @deprecated */
 export interface DeprecatedPaginationProps extends HTMLAttributes<HTMLDivElement> {
@@ -121,7 +122,7 @@ export const DeprecatedPagination: FC<DeprecatedPaginationProps> = ({
         data-testid="back-button"
         onClick={deprecatedHandlePageChange(prevPage, callback, setInputValue)}
       >
-        <DeprecatedIcon icon="chevronLeft" className={cx(prevPage && elDeprecatedPaginationPrimary)} />
+        <ChevronLeftIcon className={cx(prevPage && elDeprecatedPaginationPrimary)} />
       </DeprecatedPaginationButton>
       {hasStartButton && (
         <DeprecatedPaginationButton
@@ -130,8 +131,8 @@ export const DeprecatedPagination: FC<DeprecatedPaginationProps> = ({
           data-testid="back-button"
           onClick={deprecatedHandlePageChange(1, callback, setInputValue)}
         >
-          <DeprecatedIcon icon="chevronLeft" className={cx(currentPage !== 1 && elDeprecatedPaginationPrimary)} />
-          <DeprecatedIcon icon="chevronLeft" className={cx(currentPage !== 1 && elDeprecatedPaginationPrimary)} />
+          <ChevronLeftIcon className={cx(currentPage !== 1 && elDeprecatedPaginationPrimary)} />
+          <ChevronLeftIcon className={cx(currentPage !== 1 && elDeprecatedPaginationPrimary)} />
         </DeprecatedPaginationButton>
       )}
       <DeprecatedPaginationText>
@@ -149,14 +150,8 @@ export const DeprecatedPagination: FC<DeprecatedPaginationProps> = ({
           data-testid="back-button"
           onClick={deprecatedHandlePageChange(numberPages, callback, setInputValue)}
         >
-          <DeprecatedIcon
-            icon="chevronRight"
-            className={cx(currentPage !== numberPages && elDeprecatedPaginationPrimary)}
-          />
-          <DeprecatedIcon
-            icon="chevronRight"
-            className={cx(currentPage !== numberPages && elDeprecatedPaginationPrimary)}
-          />
+          <ChevronRightIcon className={cx(currentPage !== numberPages && elDeprecatedPaginationPrimary)} />
+          <ChevronRightIcon className={cx(currentPage !== numberPages && elDeprecatedPaginationPrimary)} />
         </DeprecatedPaginationButton>
       )}
       <DeprecatedPaginationButton
@@ -165,7 +160,7 @@ export const DeprecatedPagination: FC<DeprecatedPaginationProps> = ({
         data-testid="forward-button"
         onClick={deprecatedHandlePageChange(nextPage, callback, setInputValue)}
       >
-        <DeprecatedIcon icon="chevronRight" className={cx(nextPage && elDeprecatedPaginationPrimary)} />
+        <ChevronRightIcon className={cx(nextPage && elDeprecatedPaginationPrimary)} />
       </DeprecatedPaginationButton>
     </DeprecatedPaginationWrap>
   )

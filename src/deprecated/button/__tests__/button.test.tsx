@@ -1,6 +1,7 @@
 import { render, fireEvent, screen } from '@testing-library/react'
 import { DeprecatedButton, DeprecatedButtonGroup, DeprecatedFloatingButton } from '../index'
-import { DeprecatedIcon } from '#src/deprecated/icon/index'
+import { StarIcon } from '#src/icons/star'
+import { AddIcon } from '#src/icons/add'
 
 describe('Button', () => {
   test('should match snapshot', () => {
@@ -10,11 +11,7 @@ describe('Button', () => {
 
   test('should match snapshot with variant and icons', () => {
     const { asFragment } = render(
-      <DeprecatedButton
-        variant="primary"
-        iconLeft={<DeprecatedIcon icon="star" />}
-        iconRight={<DeprecatedIcon icon="star" />}
-      >
+      <DeprecatedButton variant="primary" iconLeft={<StarIcon />} iconRight={<StarIcon />}>
         Button
       </DeprecatedButton>,
     )
@@ -22,7 +19,7 @@ describe('Button', () => {
   })
 
   test('should match snapshot for icon-only button', () => {
-    const { asFragment } = render(<DeprecatedButton variant="primary" iconLeft={<DeprecatedIcon icon="star" />} />)
+    const { asFragment } = render(<DeprecatedButton variant="primary" iconLeft={<StarIcon />} />)
     expect(asFragment()).toMatchSnapshot()
   })
 
@@ -40,12 +37,7 @@ describe('Button', () => {
 
   test('should match snapshot for <ElAnchorButton> as a link button', () => {
     const { asFragment } = render(
-      <DeprecatedButton
-        href="https://example.com"
-        iconLeft={<DeprecatedIcon icon="add" />}
-        target="_blank"
-        rel="noOpener noReferrer"
-      />,
+      <DeprecatedButton href="https://example.com" iconLeft={<AddIcon />} target="_blank" rel="noOpener noReferrer" />,
     )
     expect(asFragment()).toMatchSnapshot()
   })

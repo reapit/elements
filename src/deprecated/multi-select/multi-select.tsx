@@ -23,9 +23,9 @@ import {
   ElMultiSelectInputWrapper,
 } from './__styles__/index'
 import { useId } from '../../storybook/random-id'
-import { DeprecatedIcon } from '../icon'
 import { elMl2 } from '../../styles/deprecated-spacing'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
+import { TaskIcon } from '#src/icons/task'
 
 /** @deprecated */
 export interface MultiSelectProps extends HTMLAttributes<HTMLDivElement> {}
@@ -218,7 +218,7 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
             })
           ) : (
             <>
-              <DeprecatedIcon className={elMl2} icon="task" intent="default" />
+              <TaskIcon className={elMl2} color="secondary" />
               <p>{noneSelectedLabel ? noneSelectedLabel : 'Please select from the options below'}</p>
             </>
           )}

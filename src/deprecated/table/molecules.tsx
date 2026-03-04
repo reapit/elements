@@ -31,17 +31,19 @@ import {
   ElTableCellSplitData,
   ElTableCellSplitSubData,
 } from './__styles__'
-import { DeprecatedIcon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/deprecated-states'
 import { FlexContainer } from '../layout'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
+import { MoreIcon } from '#src/icons/more'
+import { SortAscendIcon } from '#src/icons/sort-ascend'
+import { SortDescendIcon } from '#src/icons/sort-descend'
 
 /** @deprecated */
 export type NarrowOrderType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
 
 /** @deprecated */
 export interface DeprecatedTableCellProps extends HTMLAttributes<HTMLDivElement> {
-  icon?: IconNames
+  icon?: ReactNode
   darkText?: boolean
   narrowLabel?: string
   narrowIsFullWidth?: boolean
@@ -74,7 +76,7 @@ export interface DeprecatedTableRowContainerProps extends HTMLAttributes<HTMLDiv
 
 /** @deprecated */
 export interface TableCtaTriggerCellProps extends HTMLAttributes<HTMLDivElement> {
-  icon?: IconNames
+  icon?: ReactNode
 }
 
 /** @deprecated */
@@ -153,7 +155,7 @@ export const DeprecatedTableCell: FC<DeprecatedTableCellProps> = ({
   )
   return (
     <ElDeprecatedTableCell className={combinedClassname} {...rest}>
-      {icon && <DeprecatedIcon intent="default" icon={icon} fontSize="1.25rem" />}
+      {icon && icon}
       <ElDeprecatedTableCellContent data-narrow-label={narrowLabel}>{children}</ElDeprecatedTableCellContent>
     </ElDeprecatedTableCell>
   )
@@ -182,7 +184,11 @@ export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProp
       className={cx(className, narrowIsFullWidth && elTableNarrowCellIsFullWidth)}
       {...rest}
     >
-      {children ? children : <DeprecatedIcon intent={isOpen ? 'primary' : 'default'} icon="more" />}
+      {children ? (
+        children // TODO: Migrate dynamic props manually
+      ) : (
+        <MoreIcon />
+      )}
     </ElTableExpandableRowTriggerCell>
   )
 }
@@ -197,15 +203,7 @@ export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, childr
       onKeyDown={handleKeyboardEvent('Enter', handleTableCtaClick(onClick))}
       {...rest}
     >
-      {children ? (
-        children
-      ) : icon ? (
-        <ElTableCtaIconContainer>
-          <DeprecatedIcon icon={icon} intent="default" />
-        </ElTableCtaIconContainer>
-      ) : (
-        ''
-      )}
+      {children ? children : icon ? <ElTableCtaIconContainer>{icon}</ElTableCtaIconContainer> : ''}
     </ElTableCtaCell>
   )
 }
@@ -241,8 +239,8 @@ export const DeprecatedTableSortHeader: FC<DeprecatedTableSortHeaderProps> = ({ 
       <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
         {children}
         <FlexContainer>
-          <DeprecatedIcon icon="sortAscend" intent="default" />
-          <DeprecatedIcon icon="sortDescend" intent="default" />
+          <SortAscendIcon color="secondary" />
+          <SortDescendIcon color="secondary" />
         </FlexContainer>
       </FlexContainer>
     </ElDeprecatedTableSortHeader>

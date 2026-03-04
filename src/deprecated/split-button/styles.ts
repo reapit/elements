@@ -5,7 +5,6 @@ import {
   elDeprecatedButtonSizeSmall,
   ElDeprecatedButtonSpinner,
 } from '#src/deprecated/button'
-import { ElDeprecatedIcon } from '#src/deprecated/icon'
 
 /** @deprecated */
 export const ElDeprecatedSplitButtonActionButton = styled(DeprecatedButton)``
@@ -25,7 +24,7 @@ export const ElDeprecatedSplitButton = styled.div`
     border-right: var(--comp-button-border-width-none) solid var(--comp-button-colour-border-secondary-default);
 
     /* Added this style to hide the iconRight from split action button */
-    .el-button-label + ${ElDeprecatedIcon} {
+    .el-button-label + svg {
       display: none;
     }
 
@@ -55,20 +54,17 @@ export const ElDeprecatedSplitButton = styled.div`
       pointer-events: none;
     }
 
-    ${ElDeprecatedIcon} {
+    svg {
       display: contents;
       color: inherit;
       align-items: center;
       padding: var(--spacing-none);
-
-      svg {
-        width: var(--icon_size-s);
-        height: var(--icon_size-s);
-      }
+      width: var(--icon_size-s);
+      height: var(--icon_size-s);
     }
 
     /* Added this style to hide the iconRight from split menu button */
-    & > ${ElDeprecatedButtonSpinner} + ${ElDeprecatedIcon} + ${ElDeprecatedIcon} {
+    & > ${ElDeprecatedButtonSpinner} + svg + svg {
       display: none;
     }
 
@@ -104,7 +100,7 @@ export const ElDeprecatedSplitButton = styled.div`
       width: var(--size-10);
       height: var(--size-10);
 
-      ${ElDeprecatedIcon} svg {
+      svg {
         width: var(--icon_size-m);
         height: var(--icon_size-m);
       }

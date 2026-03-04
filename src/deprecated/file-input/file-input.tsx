@@ -12,7 +12,6 @@ import React, {
 import { useId } from '../../storybook/random-id'
 import { elMl3, elMr4 } from '../../styles/deprecated-spacing'
 import { DeprecatedButton } from '../../deprecated/button'
-import { DeprecatedIcon } from '../../deprecated/icon'
 import { DeprecatedLabel } from '../../deprecated/label'
 import { FlexContainer } from '../../deprecated/layout'
 import { handleSetNativeInput } from '../../deprecated/multi-select'
@@ -25,6 +24,8 @@ import {
 } from './__styles__'
 import { PlaceholderImage } from '../../deprecated/placeholder-image'
 import { TextSM } from '../../deprecated/typography'
+import { ViewIcon } from '#src/icons/view'
+import { CloseIcon } from '#src/icons/close'
 
 /** @deprecated */
 export interface FileInputProps extends React.InputHTMLAttributes<HTMLInputElement> {
@@ -164,23 +165,13 @@ export const FileInput: FileInputWrapped = forwardRef(
           {fileUrl ? (
             <ElFileInputIconContainer>
               {onFileView && (
-                <DeprecatedIcon
-                  role="button"
-                  onClick={handleFileView(onFileView, fileUrl)}
-                  className={elMr4}
-                  intent="primary"
-                  icon="view"
-                  fontSize="1rem"
-                />
+                <span role="button" onClick={handleFileView(onFileView, fileUrl)} className={elMr4}>
+                  <ViewIcon size="sm" color="action" />
+                </span>
               )}
-              <DeprecatedIcon
-                role="button"
-                onClick={handleFileClear(setFileName)}
-                className={elMr4}
-                intent="primary"
-                icon="close"
-                fontSize="1rem"
-              />
+              <span role="button" onClick={handleFileClear(setFileName)} className={elMr4}>
+                <CloseIcon size="sm" color="action" />
+              </span>
             </ElFileInputIconContainer>
           ) : (
             <TextSM className={elMl3} hasGreyText hasNoMargin>

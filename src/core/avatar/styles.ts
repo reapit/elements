@@ -1,6 +1,5 @@
 import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
-import { elDeprecatedIcon } from '../../deprecated/button'
 
 interface ElAvatarProps {
   'data-colour': 'default' | 'primary'
@@ -46,10 +45,6 @@ export const ElAvatar = styled.span<ElAvatarProps>`
     height: var(--size-8);
 
     ${font('2xs', 'bold')}
-
-    .${elDeprecatedIcon} {
-      font-size: var(--icon_size-s);
-    }
   }
 
   &,
@@ -57,9 +52,5 @@ export const ElAvatar = styled.span<ElAvatarProps>`
     width: var(--size-10);
     height: var(--size-10);
     ${font('base', 'bold')}
-
-    .${elDeprecatedIcon} {
-      font-size: var(--icon_size-m);
-    }
   }
 `

@@ -1,7 +1,6 @@
 import { css } from '@linaria/core'
 import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../../deprecated/icon'
 
 export const elBottomBarItem = css`
   position: relative;
@@ -38,13 +37,6 @@ export const ElBottomBarItemIcon = styled.span`
   color: var(--comp-navigation-colour-icon-bottom_bar-default);
   width: var(--icon_size-l);
   height: var(--icon_size-l);
-
-  ${ElDeprecatedIcon} {
-    color: inherit;
-    font-size: var(--icon_size-l);
-    width: inherit;
-    height: inherit;
-  }
 
   /* NOTE: we only apply the current page styles to anchor-based items. */
   :is(a)[aria-current='page'] & {

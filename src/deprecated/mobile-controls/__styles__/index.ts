@@ -2,7 +2,6 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 import { isTablet } from '../../../styles/deprecated-media'
 import { elIsActive } from '../../../styles/deprecated-states'
-import { ElDeprecatedIcon } from '../../icon/__styles__'
 import { elIntentDefault } from '../../../styles/deprecated-intent'
 
 /** @deprecated */
@@ -37,12 +36,6 @@ export const ElMobileControls = styled.div`
   bottom: 0.75rem;
   right: 0.75rem;
   z-index: 99;
-
-  ${ElDeprecatedIcon} {
-    &.${elIntentDefault} {
-      color: var(--colour-text-white);
-    }
-  }
 
   ${isTablet} {
     display: none;

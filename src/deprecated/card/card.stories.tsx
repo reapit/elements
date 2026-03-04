@@ -16,11 +16,12 @@ import {
   CardListMainWrap,
 } from './card'
 import { elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
-import { DeprecatedIcon } from '../icon'
 import { elMb5 } from '../../styles/deprecated-spacing'
 import { Card } from './card-components'
 import { MediaStateProvider } from '../use-media-query'
 import { DeprecatedAvatar } from '../avatar'
+import { PropertyIcon } from '#src/icons/property'
+import { ContactIcon } from '#src/icons/contact'
 
 export default {
   title: 'Deprecated/Card',
@@ -107,7 +108,7 @@ export const CardWithList = {
       </CardListMainWrap>
       <CardListItem>
         <CardListIcon>
-          <DeprecatedIcon intent="primary" icon="property" />
+          <PropertyIcon color="action" />
         </CardListIcon>
         <CardListItemTextWrap>
           <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
@@ -116,7 +117,7 @@ export const CardWithList = {
       </CardListItem>
       <CardListItem>
         <CardListIcon>
-          <DeprecatedIcon intent="primary" icon="contact" />
+          <ContactIcon color="action" />
         </CardListIcon>
         <CardListItemTextWrap>
           <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
@@ -150,7 +151,7 @@ export const CardCompleteExample = {
       </CardListMainWrap>
       <CardListItem>
         <CardListIcon>
-          <DeprecatedIcon intent="primary" icon="property" />
+          <PropertyIcon color="action" />
         </CardListIcon>
         <CardListItemTextWrap>
           <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>
@@ -159,7 +160,7 @@ export const CardCompleteExample = {
       </CardListItem>
       <CardListItem>
         <CardListIcon>
-          <DeprecatedIcon intent="primary" icon="contact" />
+          <ContactIcon color="action" />
         </CardListIcon>
         <CardListItemTextWrap>
           <CardListItemTextPrimary>Item Title</CardListItemTextPrimary>

@@ -1,6 +1,5 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../../deprecated/icon'
 import { ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from '../menu-item'
 import { font } from '#src/utils/font'
 
@@ -53,12 +52,6 @@ export const ElSideBarMenuGroupSummaryDropdownIcon = styled.span`
 
   width: var(--icon_size-s);
   height: var(--icon_size-s);
-
-  /* TODO: remove this when DeprecatedIcon is removed. */
-  ${ElDeprecatedIcon} {
-    width: inherit;
-    height: inherit;
-  }
 
   details:open & {
     transform: rotate(180deg);

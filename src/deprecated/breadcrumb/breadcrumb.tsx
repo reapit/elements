@@ -1,9 +1,9 @@
 import React, { Dispatch, FC, HTMLAttributes, MouseEvent, SetStateAction, useState } from 'react'
 import { ElDeprecatedBreadCrumbItem, ElDeprecatedBreadCrumbContainer } from './__styles__'
-import { DeprecatedIcon } from '../icon'
 import { elMr2 } from '../../styles/deprecated-spacing'
 import { FlexContainer } from '../layout'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
+import { ChevronRightIcon } from '#src/icons/chevron-right'
 
 /** @deprecated */
 export interface DeprecatedBreadCrumbItem extends HTMLAttributes<HTMLAnchorElement> {
@@ -37,9 +37,7 @@ export const DeprecatedBreadCrumb: FC<DeprecatedBreadCrumbProps> = ({ items, def
 
         return (
           <FlexContainer isFlexAlignCenter key={index}>
-            {Boolean(index) && (
-              <DeprecatedIcon className={elMr2} icon="chevronRight" intent="default" fontSize="12px" />
-            )}
+            {Boolean(index) && <ChevronRightIcon className={elMr2} size="xs" color="secondary" />}
             <ElDeprecatedBreadCrumbItem
               aria-current={active === index ? 'page' : 'false'}
               role="button"

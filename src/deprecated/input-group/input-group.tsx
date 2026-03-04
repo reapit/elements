@@ -1,7 +1,6 @@
-import React, { forwardRef } from 'react'
+import React, { forwardRef, ReactNode } from 'react'
 import { ElInputGroup } from './__styles__'
 import { Input } from '../input'
-import { DeprecatedIcon, IconNames } from '../icon'
 import { DeprecatedLabel } from '../label'
 import { InputAddOn } from '../input-add-on'
 import { Intent } from '../../helpers/intent'
@@ -10,7 +9,7 @@ import { InputError } from '../input-error'
 
 /** @deprecated */
 export interface InputGroupProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  icon?: IconNames | null
+  icon?: ReactNode
   label?: string
   inputAddOnText?: string
   hasError?: boolean
@@ -50,7 +49,7 @@ export const InputGroup: InputGroupWrapped = forwardRef(
       return (
         <ElInputGroup className={className}>
           <Input hasError={errorState} id={groupId} {...rest} ref={ref} />
-          {icon && <DeprecatedIcon fontSize="1rem" intent={errorState ? 'danger' : intent} icon={icon} />}
+          {icon && icon}
           {label && <DeprecatedLabel htmlFor={groupId}>{label}</DeprecatedLabel>}
           {inputAddOnText && <InputAddOn intent={errorState ? 'danger' : intent}>{inputAddOnText}</InputAddOn>}
           {errorMessage && <InputError message={errorMessage} />}

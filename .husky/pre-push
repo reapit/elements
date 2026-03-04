@@ -5,6 +5,7 @@
 # Check for a changeset on non-main branches
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
 if [ "$BRANCH" != "main" ]; then
+  unset GIT_DIR GIT_INDEX_FILE
   yarn changeset status --since=main 2>&1 || {
     echo ""
     echo "No changeset found for this branch."

@@ -1,13 +1,14 @@
 import { Meta } from '@storybook/react-vite'
 import { TableToolbar } from './table-toolbar.js'
 import { DeprecatedButton } from '#src/deprecated/button/button'
-import { DeprecatedIcon } from '#src/deprecated/icon/icon-component'
 import { DeprecatedMenu } from '#src/deprecated/menu'
 import { DeprecatedMenuPopover, DeprecatedMenuTrigger } from '#src/deprecated/menu/menu-popover'
 import { DeprecatedMenuItemGroup, DeprecatedMenuList } from '#src/deprecated/menu/menu.atoms'
 import { ButtonGroup } from '#src/core/button-group/button-group'
 import { Skeleton } from '#src/core/skeleton/skeleton'
 import { DeprecatedMenuItem } from '#src/deprecated/menu/menu.molecules'
+import { ChevronDownIcon } from '#src/icons/chevron-down'
+import { MoreIcon } from '#src/icons/more'
 
 const meta: Meta<typeof TableToolbar> = {
   title: 'Lab/TableToolbar',
@@ -33,7 +34,7 @@ export const BasicUsage = {
                 variant="tertiary"
                 size="small"
                 {...getTriggerProps()}
-                iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
+                iconRight={<ChevronDownIcon size="sm" />}
               >
                 Page size: 25
               </DeprecatedButton>
@@ -70,11 +71,7 @@ export const WithBulkActions = {
           <DeprecatedMenu>
             <DeprecatedMenuTrigger>
               {({ getTriggerProps }) => (
-                <DeprecatedButton
-                  {...getTriggerProps()}
-                  size="small"
-                  iconRight={<DeprecatedIcon icon="more" fontSize="1rem" />}
-                />
+                <DeprecatedButton {...getTriggerProps()} size="small" iconRight={<MoreIcon size="sm" />} />
               )}
             </DeprecatedMenuTrigger>
             <DeprecatedMenuPopover>
@@ -110,7 +107,7 @@ export const ToolbarSkeleton = {
                 variant="tertiary"
                 size="small"
                 {...getTriggerProps()}
-                iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
+                iconRight={<ChevronDownIcon size="sm" />}
               >
                 Page size: 25
               </DeprecatedButton>

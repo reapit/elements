@@ -1,7 +1,6 @@
 import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import { cx } from '@linaria/core'
 import { ElKeyValueIconWrap, ElKeyValueListWrap } from './__styles__'
-import { IconNames, DeprecatedIcon } from '../icon'
 import { ColHalf, Col, Grid } from '../grid'
 import { TextSM, TextXS } from '../typography'
 import { FlexContainer } from '../layout'
@@ -12,7 +11,7 @@ import { elTextEllipsis } from '../../styles/deprecated-typography'
 export interface KeyValueItem {
   key: string
   value: ReactNode
-  iconName?: IconNames
+  iconName?: ReactNode
   icon?: ReactNode
   intent?: Intent
   colSize?: 'half' | 'full'
@@ -49,15 +48,7 @@ export const KeyValueContent: FC<KeyValueContentProps> = ({
   item: { intent, iconName, icon, value, key, textEllipsis },
 }) => (
   <>
-    <KeyValueIconWrap>
-      {icon ? (
-        icon
-      ) : iconName ? (
-        <DeprecatedIcon intent={intent ?? 'primary'} icon={iconName} />
-      ) : (
-        <DeprecatedIcon icon="placeholderSmall" />
-      )}
-    </KeyValueIconWrap>
+    <KeyValueIconWrap>{icon ? icon : iconName ? iconName : ''}</KeyValueIconWrap>
     <FlexContainer isFlexColumn>
       <TextXS className={cx(textEllipsis && elTextEllipsis)} hasGreyText>
         {key}

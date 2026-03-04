@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react'
 import { DeprecatedAccordion, handleSetOpenItem } from '../accordion'
-import { DeprecatedIcon } from '../../icon'
+import { CarIcon } from '#src/icons/car'
+import { UserIcon } from '#src/icons/user'
 import { elMr1 } from '../../../styles/deprecated-spacing'
 
 describe('Accordion react shorthand', () => {
@@ -13,10 +14,10 @@ describe('Accordion react shorthand', () => {
             content: 'Accordion Content 1',
             titleItems: [
               <>
-                <DeprecatedIcon className={elMr1} icon="car" />2
+                <CarIcon className={elMr1} />2
               </>,
               <>
-                <DeprecatedIcon className={elMr1} icon="user" />5
+                <UserIcon className={elMr1} />5
               </>,
             ],
           },
@@ -25,10 +26,10 @@ describe('Accordion react shorthand', () => {
             content: 'Accordion Content 2',
             titleItems: [
               <>
-                <DeprecatedIcon className={elMr1} icon="car" />2
+                <CarIcon className={elMr1} />2
               </>,
               <>
-                <DeprecatedIcon className={elMr1} icon="user" />5
+                <UserIcon className={elMr1} />5
               </>,
             ],
           },

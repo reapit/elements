@@ -1,7 +1,8 @@
 import { expect, test } from 'vitest'
 import { render, screen } from '@testing-library/react'
 import { TableText } from '..'
-import { DeprecatedIcon } from '#src/deprecated/icon/index'
+import { AddIcon } from '#src/icons/add'
+import { ChevronDownIcon } from '#src/icons/chevron-down'
 
 describe('TableText', () => {
   test('should match snapshot', () => {
@@ -23,10 +24,7 @@ describe('TableText', () => {
 
   test('should match snapshot with icons and label', () => {
     const { asFragment } = render(
-      <TableText
-        iconLeft={<DeprecatedIcon icon="add" fontSize="1rem" />}
-        iconRight={<DeprecatedIcon icon="chevronDown" fontSize="1rem" />}
-      >
+      <TableText iconLeft={<AddIcon size="sm" />} iconRight={<ChevronDownIcon size="sm" />}>
         Value
       </TableText>,
     )
@@ -34,7 +32,7 @@ describe('TableText', () => {
   })
 
   test('should match snapshot with icon only', () => {
-    const { asFragment } = render(<TableText iconLeft={<DeprecatedIcon icon="add" fontSize="1rem" />}></TableText>)
+    const { asFragment } = render(<TableText iconLeft={<AddIcon size="sm" />}></TableText>)
     expect(asFragment()).toMatchSnapshot()
   })
 })

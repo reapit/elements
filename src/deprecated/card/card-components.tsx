@@ -18,7 +18,6 @@ import {
   CardListMainWrap,
 } from './card'
 import { elCardFocussed, elCardSubHeadingWrapAvatar } from './__styles__'
-import { DeprecatedIcon, IconNames } from '../icon'
 import { elMb5, elMt5 } from '../../styles/deprecated-spacing'
 import { Intent } from '../../helpers/intent'
 import { DeprecatedAvatar } from '../avatar'
@@ -28,13 +27,13 @@ export interface CardListItemProps {
   // Card list items have a heading, a sub heading an icon name from our icon list and an onClick action
   listCardItemHeading?: ReactNode
   listCardItemSubHeading?: ReactNode
-  listCardItemIcon?: IconNames
+  listCardItemIcon?: ReactNode
   onClick?: () => void
 }
 
 /** @deprecated */
 export interface ContextMenuItem {
-  icon: IconNames
+  icon: ReactNode
   onClick: () => void
   intent?: Intent
 }
@@ -120,11 +119,7 @@ export const Card: FC<CardProps> = ({
           {listCardItems &&
             listCardItems.map(({ listCardItemHeading, listCardItemSubHeading, listCardItemIcon, onClick }, index) => (
               <CardListItem key={index} onClick={onClick}>
-                {listCardItemIcon && (
-                  <CardListIcon>
-                    <DeprecatedIcon intent="primary" icon={listCardItemIcon} />
-                  </CardListIcon>
-                )}
+                {listCardItemIcon && <CardListIcon>{listCardItemIcon}</CardListIcon>}
                 <CardListItemTextWrap>
                   <CardListItemTextPrimary>{listCardItemHeading}</CardListItemTextPrimary>
                   <CardListItemTextSecondary>{listCardItemSubHeading}</CardListItemTextSecondary>

@@ -223,10 +223,6 @@ describe('buildExportMap (integration, against real source)', { timeout: 30_000 
     expect(exportMap['MoreIcon']).toBe('icons/more')
   })
 
-  test('maps DeprecatedIcon to deprecated/icon', () => {
-    expect(exportMap['DeprecatedIcon']).toBe('deprecated/icon')
-  })
-
   test('maps Popover to utils/popover', () => {
     expect(exportMap['Popover']).toBe('utils/popover')
   })

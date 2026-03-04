@@ -1,9 +1,6 @@
 import { TableText } from './table-text'
-import { DeprecatedIcon, IconNames } from '#src/deprecated/icon'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const ICON_OPTIONS: IconNames[] = ['star', 'add', 'chevronDown', 'chevronLeft', 'chevronRight']
 
 const meta = {
   title: 'Lab/TableText',
@@ -35,22 +32,12 @@ const meta = {
       description: 'Defines the Table Text size.',
     },
     iconLeft: {
-      control: 'select',
-      options: ICON_OPTIONS,
+      control: false,
       description: 'The icon displayed on the left side of the badge.',
-      mapping: ICON_OPTIONS.reduce((acc, iconName) => {
-        acc[iconName] = <DeprecatedIcon icon={iconName} fontSize="1rem" />
-        return acc
-      }, {}),
     },
     iconRight: {
-      control: 'select',
-      options: ICON_OPTIONS,
+      control: false,
       description: 'The icon displayed on the right side of the badge.',
-      mapping: ICON_OPTIONS.reduce((acc, iconName) => {
-        acc[iconName] = <DeprecatedIcon icon={iconName} fontSize="1rem" />
-        return acc
-      }, {}),
     },
   },
 } satisfies Meta<typeof TableText>

@@ -1,6 +1,5 @@
 import React, { Dispatch, FC, HTMLAttributes, ReactNode, SetStateAction, useState } from 'react'
 import { ElDeprecatedTable } from './__styles__'
-import { DeprecatedIcon, IconNames } from '../icon'
 import {
   DeprecatedTableHeadersRow,
   DeprecatedTableHeader,
@@ -13,6 +12,7 @@ import {
   TableCtaTriggerCell,
 } from './molecules'
 import { Intent } from '../../helpers/intent'
+import { SettingsIcon } from '#src/icons/settings'
 
 /** @deprecated */
 export type NarrowOptionsType = {
@@ -28,7 +28,7 @@ export interface DeprecatedCellProps {
   onLabelClick?: (event: React.MouseEvent) => void
   value?: ReactNode
   children?: ReactNode
-  icon?: IconNames
+  icon?: ReactNode
   className?: string
   statusCircleIntent?: Intent
   cellHasDarkText?: boolean
@@ -42,7 +42,7 @@ export interface RowActionProps {
   headerContent?: ReactNode
   onClick?: () => void
   className?: string
-  icon?: IconNames
+  icon?: ReactNode
 }
 
 /** @deprecated */
@@ -139,7 +139,7 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
             {firstRow.expandableContent?.headerContent ? (
               <>{firstRow.expandableContent?.headerContent}</>
             ) : (
-              <DeprecatedIcon icon="settings" intent="default" />
+              <SettingsIcon color="secondary" />
             )}
           </DeprecatedTableHeader>
         )}
@@ -148,7 +148,7 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
             {firstRow.ctaContent?.headerContent ? (
               <>{firstRow.ctaContent?.headerContent}</>
             ) : (
-              <DeprecatedIcon icon="settings" intent="default" />
+              <SettingsIcon color="secondary" />
             )}
           </DeprecatedTableHeader>
         )}

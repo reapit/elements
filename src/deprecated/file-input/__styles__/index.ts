@@ -1,5 +1,4 @@
 import { ElDeprecatedLabel } from '../../../deprecated/label/__styles__/index'
-import { ElDeprecatedIcon } from '../../../deprecated/icon/__styles__/index'
 import { ElDeprecatedButton } from '../../../deprecated/button/styles'
 import { styled } from '@linaria/react'
 
@@ -45,18 +44,6 @@ export const ElFileInputWrap = styled.div`
 export const ElFileInputIconContainer = styled.div`
   display: flex;
   height: 34px;
-
-  ${ElDeprecatedIcon} {
-    background: var(--colour-fill-white);
-    border: 1px solid #e5e9ed /* was --component-input-focus-bg */;
-    border-radius: 0.25rem;
-    height: 100%;
-    width: 34px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-  }
 `
 
 /** @deprecated */

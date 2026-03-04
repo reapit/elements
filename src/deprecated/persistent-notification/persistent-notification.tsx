@@ -1,5 +1,5 @@
 import { cx } from '@linaria/core'
-import React, { FC, HTMLAttributes } from 'react'
+import React, { FC, HTMLAttributes, ReactNode } from 'react'
 import {
   ElPersistentNotification,
   elPnIcon,
@@ -8,13 +8,13 @@ import {
   elPnIsFixed,
   elPnIsInline,
 } from './__styles__'
-import { DeprecatedIcon, IconNames } from '../icon'
 import { elIsActive } from '../../styles/deprecated-states'
 import { Intent, getIntentClassName } from '../../helpers/intent'
+import { InfoIcon } from '#src/icons/info'
 
 /** @deprecated */
 export interface PersistentNotificationProps extends HTMLAttributes<HTMLDivElement> {
-  icon?: IconNames
+  icon?: ReactNode
   intent?: Intent
   className?: string
   isExpanded?: boolean
@@ -26,7 +26,7 @@ export interface PersistentNotificationProps extends HTMLAttributes<HTMLDivEleme
 
 /** @deprecated */
 export const PersistentNotification: FC<PersistentNotificationProps> = ({
-  icon = 'info',
+  icon = <InfoIcon />,
   intent = 'primary',
   className,
   isExpanded = false,
@@ -54,7 +54,7 @@ export const PersistentNotification: FC<PersistentNotificationProps> = ({
         data-testid="close-icon"
         onClick={() => onExpansionToggle && onExpansionToggle(!isExpanded)}
       >
-        <DeprecatedIcon fontSize="1.25rem" icon={icon} />
+        {icon}
       </div>
       <div aria-live="polite" className={elPnContent}>
         {children}

@@ -1,6 +1,5 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../icon/__styles__'
 import { elIsActive } from '../../../styles/deprecated-states'
 
 /** @deprecated */
@@ -271,10 +270,6 @@ export const ElDeprecatedTableCell = styled.div`
   }
 
   ${cellOrders}
-
-  ${ElDeprecatedIcon} {
-    margin-right: 0.75rem;
-  }
 
   &.${elTableCellHasDarkText} {
     color: var(--colour-text-neutral);

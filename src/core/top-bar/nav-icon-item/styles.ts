@@ -1,6 +1,5 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElDeprecatedIcon } from '../../../deprecated/icon'
 
 export const elTopBarNavIconItem = css`
   position: relative;
@@ -35,14 +34,6 @@ export const ElTopBarNavIconItemIcon = styled.span`
   color: inherit;
   width: var(--icon_size-l);
   height: var(--icon_size-l);
-
-  /* TODO: Remove this when DeprecatedIcon is removed. */
-  ${ElDeprecatedIcon} {
-    color: inherit;
-    font-size: var(--icon_size-l);
-    width: inherit;
-    height: inherit;
-  }
 `
 
 // TODO: This should be handled by a Badge component. All our NavIconItem should be responsible for is

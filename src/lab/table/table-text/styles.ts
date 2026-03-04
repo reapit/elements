@@ -1,4 +1,3 @@
-import { ElDeprecatedIcon } from '../../../deprecated/icon'
 import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
@@ -22,11 +21,6 @@ export const ElExperimentalTableText = styled.div`
 
   ${ElExperimentalTableTextIcon} {
     color: var(--colour-icon-primary);
-    ${ElDeprecatedIcon} {
-      width: var(--icon_size-s);
-      height: var(--icon_size-s);
-      color: inherit;
-    }
   }
 
   &[data-size='extra-small'] {

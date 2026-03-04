@@ -1,6 +1,5 @@
 import { DoubleLineCell } from './double-line-cell'
 import { TableText } from '../table-text'
-import { DeprecatedIcon } from '#src/deprecated/icon'
 import { Skeleton } from '#src/core/skeleton'
 import { Avatar } from '#src/core/avatar'
 
@@ -14,6 +13,7 @@ import { TableRow } from '../table-row'
 import { Input } from '#src/deprecated/input'
 import { SingleLineCell } from './single-line-cell'
 import type { Meta, StoryObj } from '@storybook/react-vite'
+import { StarIcon } from '#src/icons/star'
 
 const MEDIA_OPTIONS = ['Image', 'Avatar', 'Empty', 'Image Skeleton', 'Avatar Skeleton']
 const FIRST_LINE_OPTIONS = ['Address', 'Name', 'Text', 'Skeleton']
@@ -62,9 +62,9 @@ const meta = {
         if (itemName === 'Text') {
           acc[itemName] = (
             <>
-              <DeprecatedIcon icon="star" fontSize="1rem" />
+              <StarIcon size="sm" />
               <TableText>Alphanumeric value</TableText>
-              <DeprecatedIcon icon="star" fontSize="1rem" />
+              <StarIcon size="sm" />
             </>
           )
         }

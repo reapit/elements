@@ -2,7 +2,6 @@ import { cx } from '@linaria/core'
 import { Dispatch, FC, Fragment, HTMLAttributes, ReactNode, SetStateAction, useState, MouseEvent } from 'react'
 import { useNavState } from '../use-nav-state'
 import { useMediaQuery } from '../use-media-query'
-import { DeprecatedIcon } from '../icon'
 import { DeprecatedNav, DeprecatedNavItem, DeprecatedNavSubNav, DeprecatedNavSubNavItem } from './nav'
 import {
   ElDeprecatedNavBg,
@@ -27,6 +26,11 @@ import { DeprecatedAvatar } from '../avatar'
 import { Text2XS } from '../typography'
 import { elIsActive } from '../../styles/deprecated-states'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
+import { AppSwitcherIcon } from '#src/icons/app-switcher'
+import { MoreIcon } from '#src/icons/more'
+import { BrandLogo } from '../../core/top-bar/brand-logo'
+import { ChevronUpIcon } from '#src/icons/chevron-up'
+import { ChevronDownIcon } from '#src/icons/chevron-down'
 
 export type DeprecatedNavResponsiveItemType = 'ICON' | 'ITEM' | 'SECONDARY'
 
@@ -120,7 +124,7 @@ export const DeprecatedNavResponsiveAvatar: FC<DeprecatedNavResponsiveAvatarProp
         </DeprecatedAvatar>
         {Boolean(options.length) && (
           <>
-            <DeprecatedIcon intent="default" icon={avatarOpen ? 'chevronUp' : 'chevronDown'} />
+            {avatarOpen ? <ChevronUpIcon color="secondary" /> : <ChevronDownIcon color="secondary" />}
             {avatarOpen && (
               <ElDeprecatedNavMenu>
                 {options.map(({ callback, text }, index) => (
@@ -171,7 +175,7 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
         className={className}
       >
         <ElNavResponsiveAppSwitcherIconWrap className={cx(appSwitcherOpen && elAppSwitcherOpen)}>
-          <DeprecatedIcon intent="default" icon="appSwitcher" />
+          <AppSwitcherIcon color="secondary" />
         </ElNavResponsiveAppSwitcherIconWrap>
         {appSwitcherOpen && (
           <ElDeprecatedNavMenu>
@@ -266,20 +270,11 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
                     tabIndex={0}
                   />
                 ) : (
-                  <DeprecatedIcon
-                    onClick={brandOptions?.callback}
-                    onKeyDown={handleKeyboardEvent('Enter', brandOptions?.callback as () => void)}
-                    style={{ maxHeight: '1.5rem' /* was --nav-brand-height */ }}
-                    width="100px"
-                    icon="reapitLogo"
-                    role="button"
-                    tabIndex={0}
-                  />
+                  <BrandLogo appName="Reapit" />
                 )}
-                <DeprecatedIcon
+                {/* TODO: Migrate dynamic props manually */}
+                <span
                   className={cx(elMlAuto, elMr4, elDeprecatedNavItemHideDesktop)}
-                  icon="more"
-                  intent={navMenuOpen ? 'primary' : 'default'}
                   onClick={setNavState({
                     navMenuOpen: !navMenuOpen,
                   })}
@@ -291,7 +286,9 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
                   )}
                   role="button"
                   tabIndex={0}
-                />
+                >
+                  <MoreIcon />
+                </span>
                 {(avatarOptions || avatarText) && (
                   <DeprecatedNavResponsiveAvatar isHidden={!isMobile} options={avatarOptions ?? []} text={avatarText} />
                 )}
@@ -330,13 +327,13 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
                 )}
               >
                 {text}
-                {hasSubItems && isMobile && (
-                  <DeprecatedIcon
-                    className={elMlAuto}
-                    intent="default"
-                    icon={navMenuOpen && navItemIndex === itemIndex ? 'chevronUp' : 'chevronDown'}
-                  />
-                )}
+                {hasSubItems &&
+                  isMobile &&
+                  (navMenuOpen && navItemIndex === itemIndex ? (
+                    <ChevronUpIcon className={elMlAuto} color="secondary" />
+                  ) : (
+                    <ChevronDownIcon className={elMlAuto} color="secondary" />
+                  ))}
               </DeprecatedNavItem>
               {hasSubItems && (
                 <DeprecatedNavSubNav key={generateRandomId()}>

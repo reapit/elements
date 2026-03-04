@@ -1,6 +1,5 @@
 import { styled } from '@linaria/react'
 import { elIsActive } from '../../styles/deprecated-states'
-import { ElDeprecatedIcon } from '../icon/__styles__'
 
 /**
  * @deprecated
@@ -60,14 +59,6 @@ export const ElModalHeader = styled.div`
   font-size: 1.25rem /* was --font-size-subheading */;
   margin-bottom: 1rem;
   text-align: left;
-
-  ${ElDeprecatedIcon} {
-    position: absolute;
-    right: 0;
-    top: 0;
-    padding: 0.5rem;
-    cursor: pointer;
-  }
 `
 
 /**
