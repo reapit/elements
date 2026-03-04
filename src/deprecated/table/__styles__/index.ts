@@ -274,6 +274,10 @@ export const ElDeprecatedTableCell = styled.div`
   &.${elTableCellHasDarkText} {
     color: var(--colour-text-neutral);
   }
+
+  > svg {
+    margin-right: 0.75rem;
+  }
 `
 
 /** @deprecated */

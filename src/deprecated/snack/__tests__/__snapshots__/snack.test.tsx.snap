@@ -17,7 +17,11 @@ exports[`Snack component > should match a snapshot if an icon is supplied 1`] = 
     class="el-intent-primary el-snack"
     role="status"
   >
-    email
+    <span
+      class="el-snack-icon"
+    >
+      email
+    </span>
   </div>
 </DocumentFragment>
 `;
@@ -32,7 +36,12 @@ exports[`SnackHolder component > should match a snapshot 1`] = `
       class="el-intent-primary el-snack"
       role="status"
     >
-      infoi am a snack
+      <span
+        class="el-snack-icon"
+      >
+        info
+      </span>
+      i am a snack
       <svg
         class="el-icon el-snack-close-icon"
         color="inherit"
