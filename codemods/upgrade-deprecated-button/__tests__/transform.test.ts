@@ -184,7 +184,7 @@ describe('facade package support', () => {
   test('transforms with facade package', () => {
     const input = `import { DeprecatedButton } from '@company/ui'`
     const output = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
-    expect(normalize(output)).toBe(`import { Button } from '@company/ui/core/button'`)
+    expect(normalize(output)).toBe(`import { Button } from '@company/ui'`)
   })
 
   test('adds DeprecatedIcon import with facade package', () => {
@@ -196,14 +196,25 @@ function MyComponent() {
 }
 `
     const output = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
-    expect(output).toContain(`import { DeprecatedIcon } from '@company/ui'`)
-    expect(output).toContain(`import { Button } from '@company/ui/core/button'`)
+    expect(output).toContain(`import { Button, DeprecatedIcon } from '@company/ui'`)
   })
 
   test('handles facade package with subpath', () => {
     const input = `import { DeprecatedButton } from '@company/ui/elements'`
     const output = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
-    expect(normalize(output)).toBe(`import { Button } from '@company/ui/core/button'`)
+    expect(normalize(output)).toBe(`import { Button } from '@company/ui/elements'`)
+  })
+
+  test('handles mixed @reapit/elements and facade package imports in the same file', () => {
+    const input = `
+import { DeprecatedButton } from '@reapit/elements'
+import { DeprecatedButton as FacadeButton } from '@company/ui'
+`
+    const output = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
+    // @reapit/elements import is redirected to the /core/button subpath
+    expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
+    // Facade import keeps its original specifier
+    expect(output).toContain(`import { Button as FacadeButton } from '@company/ui'`)
   })
 })
 

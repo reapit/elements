@@ -9,7 +9,7 @@ import {
   JsxFragment,
   JsxSelfClosingElement,
 } from 'ts-morph'
-import { isElementsImport } from '../shared/elements-import.js'
+import { isElementsImport, matchesPackage } from '../shared/elements-import.js'
 
 /**
  * Codemod to upgrade DeprecatedButton to the new Button component.
@@ -174,13 +174,23 @@ function transformTypeReferences(sourceFile: SourceFile): void {
  * Transforms DeprecatedButton imports to use the new Button component.
  */
 function transformImports(sourceFile: SourceFile, facadePackage?: string): void {
-  const buttonImportsToAdd: Array<{ name: string; alias?: string; isTypeOnly: boolean }> = []
+  const buttonImportsToAdd: Array<{
+    name: string
+    alias?: string
+    isTypeOnly: boolean
+    sourceModuleSpecifier: string
+  }> = []
 
   // Get all import declarations up front (we'll be modifying them)
   const importDeclarations = sourceFile.getImportDeclarations().slice()
 
-  const basePath = facadePackage ?? '@reapit/elements'
-  const targetModuleSpecifier = `${basePath}/core/button`
+  // For @reapit/elements imports, the target is always /core/button.
+  // For facade package imports, the original specifier is preserved (path unchanged).
+  const elementsTargetSpecifier = '@reapit/elements/core/button'
+
+  // Pre-compute the facade target specifier only to use as a skip guard —
+  // facade imports are skipped if they are already at their own /core/button path.
+  const facadeTargetSpecifier = facadePackage ? `${facadePackage}/core/button` : null
 
   for (const importDecl of importDeclarations) {
     // Skip if this import was already removed
@@ -195,9 +205,9 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
       continue
     }
 
-    // Skip imports that are already from the target path (core/button)
-    // These are already using the new Button component, not DeprecatedButton
-    if (moduleSpecifier === targetModuleSpecifier) {
+    // Skip imports that are already from the target path (core/button).
+    // These are already using the new Button component, not DeprecatedButton.
+    if (moduleSpecifier === elementsTargetSpecifier || moduleSpecifier === facadeTargetSpecifier) {
       continue
     }
 
@@ -215,11 +225,13 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
         // Check if this is an inline type import
         const isTypeOnly = namedImport.isTypeOnly()
 
-        // Track this import for adding to the new Button import
+        // Track this import for adding to the new Button import.
+        // Store the source specifier so we can determine the correct target below.
         buttonImportsToAdd.push({
           name: 'Button',
           alias: existingAlias, // undefined if no alias
           isTypeOnly,
+          sourceModuleSpecifier: moduleSpecifier,
         })
 
         // Mark for removal from current import
@@ -242,81 +254,95 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
     }
   }
 
-  // Add new Button import if we found DeprecatedButton imports
+  // Add new Button import if we found DeprecatedButton imports.
+  // Group by target specifier: @reapit/elements imports go to /core/button; facade
+  // imports stay at their original specifier (path is not changed, only the identifier).
   if (buttonImportsToAdd.length > 0) {
-    const basePath = facadePackage ?? '@reapit/elements'
-    const newModuleSpecifier = `${basePath}/core/button`
+    // Group entries by the specifier they should be added to
+    const bySpecifier = new Map<string, Array<{ name: string; alias?: string; isTypeOnly: boolean }>>()
+
+    for (const { name, alias, isTypeOnly, sourceModuleSpecifier } of buttonImportsToAdd) {
+      const isFacadeImport = facadePackage !== undefined && matchesPackage(sourceModuleSpecifier, facadePackage)
+      const targetSpecifier = isFacadeImport ? sourceModuleSpecifier : elementsTargetSpecifier
+
+      if (!bySpecifier.has(targetSpecifier)) {
+        bySpecifier.set(targetSpecifier, [])
+      }
+      bySpecifier.get(targetSpecifier)!.push({ name, alias, isTypeOnly })
+    }
 
     // Get fresh list of import declarations after removals
     const currentImportDeclarations = sourceFile.getImportDeclarations()
 
-    // Check if an import from this path already exists
-    let buttonImportDecl = currentImportDeclarations.find(
-      (importDecl) => importDecl.getModuleSpecifierValue() === newModuleSpecifier,
-    )
+    for (const [newModuleSpecifier, entries] of bySpecifier) {
+      // Check if an import from this path already exists
+      let buttonImportDecl = currentImportDeclarations.find(
+        (importDecl) => importDecl.getModuleSpecifierValue() === newModuleSpecifier,
+      )
 
-    if (!buttonImportDecl) {
-      // Create new import statement
-      buttonImportDecl = sourceFile.addImportDeclaration({
-        moduleSpecifier: newModuleSpecifier,
+      if (!buttonImportDecl) {
+        // Create new import statement
+        buttonImportDecl = sourceFile.addImportDeclaration({
+          moduleSpecifier: newModuleSpecifier,
+        })
+      }
+
+      // Add each Button import
+      entries.forEach(({ name, alias, isTypeOnly }) => {
+        // Check if this import already exists in the target import declaration
+        const existingImport = buttonImportDecl!.getNamedImports().find((namedImport) => {
+          const importName = namedImport.getName()
+          const importAlias = namedImport.getAliasNode()?.getText()
+
+          // Check if the name matches
+          if (importName !== name) {
+            return false
+          }
+
+          // Check if the alias matches (both undefined or same value)
+          if (alias !== importAlias) {
+            return false
+          }
+
+          return true
+        })
+
+        if (existingImport) {
+          const existingIsTypeOnly = existingImport.isTypeOnly()
+
+          // If both are the same kind (both type-only or both value imports), nothing to do.
+          if (existingIsTypeOnly === isTypeOnly) {
+            return
+          }
+
+          // If we need a value import but only a type-only import exists,
+          // upgrade the existing import to a value import so it can be used in JSX.
+          if (existingIsTypeOnly && !isTypeOnly) {
+            existingImport.setIsTypeOnly(false)
+            return
+          }
+
+          // If a value import already exists and we want a type-only import,
+          // the value import is sufficient for type positions; no extra import needed.
+          if (!existingIsTypeOnly && isTypeOnly) {
+            return
+          }
+        }
+
+        // Only use alias syntax if the alias is different from the name
+        if (alias && alias !== name) {
+          const typePrefix = isTypeOnly ? 'type ' : ''
+          buttonImportDecl!.addNamedImport(`${typePrefix}${name} as ${alias}`)
+        } else {
+          // No alias needed
+          if (isTypeOnly) {
+            buttonImportDecl!.addNamedImport({ name, isTypeOnly: true })
+          } else {
+            buttonImportDecl!.addNamedImport(name)
+          }
+        }
       })
     }
-
-    // Add each Button import
-    buttonImportsToAdd.forEach(({ name, alias, isTypeOnly }) => {
-      // Check if this import already exists in the target import declaration
-      const existingImport = buttonImportDecl!.getNamedImports().find((namedImport) => {
-        const importName = namedImport.getName()
-        const importAlias = namedImport.getAliasNode()?.getText()
-
-        // Check if the name matches
-        if (importName !== name) {
-          return false
-        }
-
-        // Check if the alias matches (both undefined or same value)
-        if (alias !== importAlias) {
-          return false
-        }
-
-        return true
-      })
-
-      if (existingImport) {
-        const existingIsTypeOnly = existingImport.isTypeOnly()
-
-        // If both are the same kind (both type-only or both value imports), nothing to do.
-        if (existingIsTypeOnly === isTypeOnly) {
-          return
-        }
-
-        // If we need a value import but only a type-only import exists,
-        // upgrade the existing import to a value import so it can be used in JSX.
-        if (existingIsTypeOnly && !isTypeOnly) {
-          existingImport.setIsTypeOnly(false)
-          return
-        }
-
-        // If a value import already exists and we want a type-only import,
-        // the value import is sufficient for type positions; no extra import needed.
-        if (!existingIsTypeOnly && isTypeOnly) {
-          return
-        }
-      }
-
-      // Only use alias syntax if the alias is different from the name
-      if (alias && alias !== name) {
-        const typePrefix = isTypeOnly ? 'type ' : ''
-        buttonImportDecl!.addNamedImport(`${typePrefix}${name} as ${alias}`)
-      } else {
-        // No alias needed
-        if (isTypeOnly) {
-          buttonImportDecl!.addNamedImport({ name, isTypeOnly: true })
-        } else {
-          buttonImportDecl!.addNamedImport(name)
-        }
-      }
-    })
   }
 
   // Add DeprecatedIcon import if the file uses it
