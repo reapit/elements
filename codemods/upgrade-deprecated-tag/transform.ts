@@ -654,11 +654,10 @@ export default function transform(
   transformIdentifierReferences(sourceFile)
 
   // Phase 4 -- transform JSX elements
-  // Important: transform tag group elements first so that isInsideTagGroup checks
-  // still work based on the original tag names captured in aliases.
-  // Actually, we need to transform Tags first since isInsideTagGroup checks the
-  // *current* parent tag name against the alias set. We must do tag transforms
-  // while the parent DeprecatedTagGroup names are still present.
+  // Tags are transformed before tag groups so that isInsideTagGroup checks can
+  // still walk the *original* parent tag names (captured in aliases) when
+  // deciding how to rewrite each Tag.  Once all Tags are rewritten the parent
+  // TagGroup names are no longer needed and are safe to transform.
   transformTagElements(sourceFile, tagAliases, tagGroupAliases)
   transformTagGroupElements(sourceFile, tagGroupAliases)
 

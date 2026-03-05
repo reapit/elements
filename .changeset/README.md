@@ -22,13 +22,53 @@ This will prompt you to answer a few questions:
 2. **Write a summary of your changes**
    - Be concise but descriptive
    - Focus on the "what" and "why" for users
+   - Start with a recognised prefix to control the changelog category (see [Changelog categories](#changelog-categories))
    - Examples:
-     - ✅ "Added `Combobox.Card` component for card-based display of selected options"
-     - ✅ "Fixed `Drawer` sizing on small viewports"
+     - ✅ `Added: Combobox.Card component for card-based display of selected options`
+     - ✅ `Fixed: Correct Drawer sizing on small viewports`
+     - ✅ `Removed: CJS build output — consumers must migrate to ESM imports`
      - ❌ "Updated code" (too vague)
      - ❌ "Changed line 42 in button.tsx" (too technical)
 
 The changeset will be saved as a markdown file in `.changeset/` and should be committed with your changes.
+
+## Changelog categories
+
+The changelog format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Each entry is tagged with a category derived from your changeset summary.
+
+### Using a prefix (recommended)
+
+Start your summary with one of these prefixes to set the category explicitly. The prefix is stripped from the published changelog entry.
+
+| Prefix        | Category       |
+| ------------- | -------------- |
+| `Added:`      | **Added**      |
+| `Fixed:`      | **Fixed**      |
+| `Changed:`    | **Changed**    |
+| `Deprecated:` | **Deprecated** |
+| `Removed:`    | **Removed**    |
+| `Security:`   | **Security**   |
+| `Internal:`   | **Internal**   |
+
+The prefix should also guide your choice of bump type:
+
+- `Added:` → `minor` (new functionality)
+- `Deprecated:` → `minor` (signals upcoming removal; consumers need to act)
+- `Changed:` → `minor` or `patch` depending on impact (non-breaking behaviour change vs. cosmetic tweak)
+- `Fixed:` / `Security:` / `Internal:` → `patch`
+- `Removed:` → `major` (breaking change)
+
+### Fallback (no prefix)
+
+If your summary has no recognised prefix, the category is inferred from the semver bump type:
+
+| Bump type | Default category |
+| --------- | ---------------- |
+| `major`   | **Removed**      |
+| `minor`   | **Added**        |
+| `patch`   | **Fixed**        |
+
+The fallback is correct for the majority of changes. Use an explicit prefix when the inferred category would mislead readers (for example, a `patch` bump that documents a `change:` rather than a bug fix).
 
 ## When to Add a Changeset
 
