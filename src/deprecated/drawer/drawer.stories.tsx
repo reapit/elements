@@ -1,6 +1,7 @@
 import { useDrawer } from '../use-drawer'
 import { DeprecatedDrawer as Drawer, DeprecatedDrawerBg as DrawerBg } from './drawer'
-import { DeprecatedButton, DeprecatedButtonGroup } from '../button'
+import { Button } from '../../core/button'
+import { ButtonGroup } from '../../core/button-group'
 import { FormLayout, InputWrapFull, InputWrapHalf } from '../../deprecated/form-layout'
 import { InputGroup } from '../input-group'
 import { DeprecatedLabel } from '../label'
@@ -24,16 +25,16 @@ export const ReactUsage = {
 
     return (
       <>
-        <DeprecatedButton variant="primary" onClick={openDrawer}>
+        <Button variant="primary" onClick={openDrawer}>
           Open Drawer
-        </DeprecatedButton>
+        </Button>
         <ExampleDrawer
           title="Demo Drawer Title"
           subtitle="Demo Drawer Subtitle"
           footerItems={
-            <DeprecatedButtonGroup alignment="right">
-              <DeprecatedButton onClick={closeDrawer}>Close the Drawer</DeprecatedButton>
-            </DeprecatedButtonGroup>
+            <ButtonGroup>
+              <Button onClick={closeDrawer}>Close the Drawer</Button>
+            </ButtonGroup>
           }
         >
           <TextBase>Here&apos;s some nice content for the inside of the drawer.</TextBase>
@@ -49,16 +50,16 @@ export const ReactUsageWithForm = {
 
     return (
       <>
-        <DeprecatedButton variant="primary" onClick={openDrawer}>
+        <Button variant="primary" onClick={openDrawer}>
           Open Drawer
-        </DeprecatedButton>
+        </Button>
         <ExampleDrawer
           title="Demo Drawer Title"
           subtitle="Demo Drawer Subtitle"
           footerItems={
-            <DeprecatedButtonGroup alignment="right">
-              <DeprecatedButton onClick={closeDrawer}>Close the Drawer</DeprecatedButton>
-            </DeprecatedButtonGroup>
+            <ButtonGroup>
+              <Button onClick={closeDrawer}>Close the Drawer</Button>
+            </ButtonGroup>
           }
         >
           <FormLayout>
@@ -99,17 +100,17 @@ export const ReactUsageCanDismiss = {
 
     return (
       <>
-        <DeprecatedButton variant="primary" onClick={openDrawer}>
+        <Button variant="primary" onClick={openDrawer}>
           Open Drawer
-        </DeprecatedButton>
+        </Button>
         <ExampleDrawer
           title="Demo Drawer Title"
           subtitle="Demo Drawer Subtitle"
           canDismiss
           footerItems={
-            <DeprecatedButtonGroup alignment="right">
-              <DeprecatedButton onClick={closeDrawer}>Close the Drawer</DeprecatedButton>
-            </DeprecatedButtonGroup>
+            <ButtonGroup>
+              <Button onClick={closeDrawer}>Close the Drawer</Button>
+            </ButtonGroup>
           }
         >
           <TextBase>Here&apos;s some nice content for the inside of the drawer.</TextBase>

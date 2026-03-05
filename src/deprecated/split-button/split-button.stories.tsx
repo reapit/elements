@@ -76,8 +76,8 @@ export const SplitButtonBusy = {
   },
   render: (props: any) => (
     <DeprecatedSplitButton>
-      <DeprecatedSplitButton.Action variant="busy">{props.children}</DeprecatedSplitButton.Action>
-      <DeprecatedSplitButton.Menu variant="busy" />
+      <DeprecatedSplitButton.Action isBusy>{props.children}</DeprecatedSplitButton.Action>
+      <DeprecatedSplitButton.Menu isBusy />
     </DeprecatedSplitButton>
   ),
 }
@@ -88,8 +88,8 @@ export const SplitButtonDisabled = {
   },
   render: (props: any) => (
     <DeprecatedSplitButton>
-      <DeprecatedSplitButton.Action isDisabled>{props.children}</DeprecatedSplitButton.Action>
-      <DeprecatedSplitButton.Menu isDisabled />
+      <DeprecatedSplitButton.Action disabled>{props.children}</DeprecatedSplitButton.Action>
+      <DeprecatedSplitButton.Menu disabled />
     </DeprecatedSplitButton>
   ),
 }
@@ -115,7 +115,7 @@ export const SplitButtonDisabledWithMenu = {
   ],
   render: (props: any) => (
     <DeprecatedSplitButton>
-      <DeprecatedSplitButton.Action isDisabled onClick={console.log}>
+      <DeprecatedSplitButton.Action disabled onClick={console.log}>
         {props.children}
       </DeprecatedSplitButton.Action>
       <DeprecatedMenu data-alignment="right">

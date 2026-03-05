@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Steps, StepsVertical } from './index'
-import { DeprecatedButton, DeprecatedButtonGroup } from '../button'
+import { Button } from '../../core/button'
+import { ButtonGroup } from '../../core/button-group'
 
 export default {
   title: 'Deprecated/Steps',
@@ -60,8 +61,8 @@ export const StepsVerticalUsage = {
     return (
       <>
         <StepsVertical steps={steps} selectedStep={selectedStep} onStepClick={setSelectedStep} />
-        <DeprecatedButtonGroup>
-          <DeprecatedButton
+        <ButtonGroup>
+          <Button
             variant="primary"
             onClick={() =>
               setSelectedStep((currentStep) => {
@@ -72,8 +73,8 @@ export const StepsVerticalUsage = {
             }
           >
             Next
-          </DeprecatedButton>
-        </DeprecatedButtonGroup>
+          </Button>
+        </ButtonGroup>
       </>
     )
   },

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import { FileInput, FilePreviewImage } from './index'
 import { useModal } from '../use-modal'
 import { FlexContainer } from '../../deprecated/layout'
-import { DeprecatedButton, DeprecatedButtonGroup } from '../../deprecated/button'
+import { Button } from '../../core/button'
+import { ButtonGroup } from '../../core/button-group'
 
 export default {
   title: 'Deprecated/FileInput',
@@ -32,9 +33,9 @@ export const AdvancedUsage = {
           <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
             <FilePreviewImage src={fileUrl} />
           </FlexContainer>
-          <DeprecatedButtonGroup alignment="right">
-            <DeprecatedButton onClick={closeModal}>Close</DeprecatedButton>
-          </DeprecatedButtonGroup>
+          <ButtonGroup>
+            <Button onClick={closeModal}>Close</Button>
+          </ButtonGroup>
         </Modal>
       </div>
     )

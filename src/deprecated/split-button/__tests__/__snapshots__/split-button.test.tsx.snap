@@ -3,44 +3,43 @@
 exports[`DeprecatedSplitButton > should match snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-8 el-deprecated-split-button"
+    class="mocked-styled-3 el-deprecated-split-button"
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-6 el-deprecated-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
-      role="button"
+      class="el-button mocked-styled-1 el-deprecated-split-button-action-button"
+      data-is-icon-only="false"
+      data-size="medium"
+      data-variant="secondary"
     >
-      <div
-        class="mocked-styled-0 el-deprecated-button-spinner"
-      />
-      <span
-        class="mocked-styled-1 el-deprecated-button-label"
-      >
-        Button
-      </span>
+      Button
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-7 el-deprecated-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
-      role="button"
+      class="el-button mocked-styled-2 el-deprecated-split-button-menu-button"
+      data-is-icon-only="true"
+      data-size="medium"
+      data-variant="secondary"
     >
-      <div
-        class="mocked-styled-0 el-deprecated-button-spinner"
-      />
-      <svg
-        class="el-icon"
-        color="inherit"
-        data-size="100%"
-        fill="currentColor"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <span
+        aria-hidden="true"
+        class="mocked-styled-0 el-button-icon-container"
       >
-        <path
-          d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
-        />
-      </svg>
+        <svg
+          class="el-icon"
+          color="inherit"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
+          />
+        </svg>
+      </span>
     </button>
   </div>
 </DocumentFragment>
@@ -49,45 +48,44 @@ exports[`DeprecatedSplitButton > should match snapshot 1`] = `
 exports[`DeprecatedSplitButton > should match snapshot with large size 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-8 el-deprecated-split-button"
+    class="mocked-styled-3 el-deprecated-split-button"
     data-size="large"
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-6 el-deprecated-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
-      role="button"
+      class="el-button mocked-styled-1 el-deprecated-split-button-action-button"
+      data-is-icon-only="false"
+      data-size="medium"
+      data-variant="secondary"
     >
-      <div
-        class="mocked-styled-0 el-deprecated-button-spinner"
-      />
-      <span
-        class="mocked-styled-1 el-deprecated-button-label"
-      >
-        Button
-      </span>
+      Button
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-7 el-deprecated-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
-      role="button"
+      class="el-button mocked-styled-2 el-deprecated-split-button-menu-button"
+      data-is-icon-only="true"
+      data-size="medium"
+      data-variant="secondary"
     >
-      <div
-        class="mocked-styled-0 el-deprecated-button-spinner"
-      />
-      <svg
-        class="el-icon"
-        color="inherit"
-        data-size="100%"
-        fill="currentColor"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <span
+        aria-hidden="true"
+        class="mocked-styled-0 el-button-icon-container"
       >
-        <path
-          d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
-        />
-      </svg>
+        <svg
+          class="el-icon"
+          color="inherit"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
+          />
+        </svg>
+      </span>
     </button>
   </div>
 </DocumentFragment>
@@ -96,45 +94,44 @@ exports[`DeprecatedSplitButton > should match snapshot with large size 1`] = `
 exports[`DeprecatedSplitButton > should match snapshot with secondary variant 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-8 el-deprecated-split-button"
+    class="mocked-styled-3 el-deprecated-split-button"
     data-variant="secondary"
   >
     <button
       aria-disabled="false"
-      class="mocked-styled-6 el-deprecated-split-button-action-button el-deprecated-button-size-medium el-deprecated-button"
-      role="button"
+      class="el-button mocked-styled-1 el-deprecated-split-button-action-button"
+      data-is-icon-only="false"
+      data-size="medium"
+      data-variant="secondary"
     >
-      <div
-        class="mocked-styled-0 el-deprecated-button-spinner"
-      />
-      <span
-        class="mocked-styled-1 el-deprecated-button-label"
-      >
-        Button
-      </span>
+      Button
     </button>
     <button
       aria-disabled="false"
-      class="mocked-styled-7 el-deprecated-split-button-menu-button el-deprecated-button-size-medium el-deprecated-button-icon-only el-deprecated-button"
-      role="button"
+      class="el-button mocked-styled-2 el-deprecated-split-button-menu-button"
+      data-is-icon-only="true"
+      data-size="medium"
+      data-variant="secondary"
     >
-      <div
-        class="mocked-styled-0 el-deprecated-button-spinner"
-      />
-      <svg
-        class="el-icon"
-        color="inherit"
-        data-size="100%"
-        fill="currentColor"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <span
+        aria-hidden="true"
+        class="mocked-styled-0 el-button-icon-container"
       >
-        <path
-          d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
-        />
-      </svg>
+        <svg
+          class="el-icon"
+          color="inherit"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M12 16.504a.999.999 0 0 1-.71-.29l-6.996-7a1.004 1.004 0 0 1 1.42-1.42l6.286 6.3 6.287-6.3a1.003 1.003 0 1 1 1.42 1.42l-6.997 7a.999.999 0 0 1-.71.29Z"
+          />
+        </svg>
+      </span>
     </button>
   </div>
 </DocumentFragment>

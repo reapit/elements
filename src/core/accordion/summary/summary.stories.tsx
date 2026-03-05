@@ -1,7 +1,7 @@
 import { AccordionContext } from '../context'
 import { AccordionSummary } from './summary'
 import { BathIcon } from '#src/icons/bath'
-import { DeprecatedButton } from '#src/deprecated/button/button'
+import { Button } from '#src/core/button/button'
 import { BedIcon } from '#src/icons/bed'
 import { CarIcon } from '#src/icons/car'
 import { Features } from '#src/core/features/index'
@@ -26,9 +26,9 @@ const meta = {
         ),
         Value: '2',
         'Clear Button': (
-          <DeprecatedButton variant="tertiary" hasNoPadding>
+          <Button variant="tertiary" hasNoPadding>
             Clear
-          </DeprecatedButton>
+          </Button>
         ),
       },
     },
@@ -81,9 +81,6 @@ export const WithFeatures: Story = {
  * The `rightInfo` prop also allows for an action to be displayed. This is typically used when the accordion
  * represents a filter. The action in this case is typically a clear button that allows the user to clear any
  * currently active filters related to the accordion.
- *
- * **Note:** ⚠️ Our `Button` component does not currently support the Design System's `linkStyle` property, so
- * the visual outcome in this story is not as expected.
  */
 export const WithClearButton: Story = {
   args: {

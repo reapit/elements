@@ -13,7 +13,8 @@ import {
 } from './molecules'
 import { elSpan2, elSpan3 } from '../grid'
 import { InputGroup } from '../input-group'
-import { DeprecatedButton, DeprecatedButtonGroup } from '../button'
+import { Button } from '../../core/button'
+import { ButtonGroup } from '../../core/button-group'
 import { DeprecatedStatusIndicator } from '../status-indicator'
 import { elMlAuto } from '../../styles/deprecated-spacing'
 import { FormLayout, InputWrap } from '../form-layout'
@@ -252,9 +253,9 @@ export const ExpandableContent = {
             </InputWrap>
             <InputWrap />
             <InputWrap>
-              <DeprecatedButtonGroup className={elMlAuto}>
-                <DeprecatedButton variant="primary">Send</DeprecatedButton>
-              </DeprecatedButtonGroup>
+              <ButtonGroup className={elMlAuto}>
+                <Button variant="primary">Send</Button>
+              </ButtonGroup>
             </InputWrap>
           </FormLayout>
         </TableExpandableRow>

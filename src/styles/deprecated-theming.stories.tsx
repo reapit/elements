@@ -1,4 +1,4 @@
-import { DeprecatedButton } from '../deprecated/button'
+import { Button } from '../core/button'
 import { DeprecatedElementsThemeProvider } from './deprecated-theme-provider'
 
 export default {
@@ -14,7 +14,7 @@ export const DeprecatedThemingProvider = {
         fontSizeSmall: '0.875rem',
       }}
     >
-      <DeprecatedButton variant="primary">Button Text</DeprecatedButton>
+      <Button variant="primary">Button Text</Button>
     </DeprecatedElementsThemeProvider>
   ),
 }

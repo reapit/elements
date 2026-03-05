@@ -3,7 +3,7 @@ import { TableContainer } from './table-container'
 import { TableToolbar } from '../table-toolbar'
 import { DeprecatedMenu, DeprecatedMenuItem, DeprecatedMenuItemGroup, DeprecatedMenuList } from '#src/deprecated/menu'
 import { DeprecatedMenuPopover, DeprecatedMenuTrigger } from '#src/deprecated/menu/menu-popover'
-import { DeprecatedButton } from '#src/deprecated/button'
+import { Button } from '#src/core/button'
 import { ChevronDownIcon } from '#src/icons/chevron-down'
 
 const meta: Meta<typeof TableContainer> = {
@@ -22,15 +22,14 @@ export const BasicUsage = {
           <DeprecatedMenu>
             <DeprecatedMenuTrigger>
               {({ getTriggerProps }) => (
-                // To do: Once Button component is update with more props for no-padding, please make updates here
-                <DeprecatedButton
+                <Button
                   variant="tertiary"
                   size="small"
                   {...getTriggerProps()}
                   iconRight={<ChevronDownIcon size="sm" />}
                 >
                   Page size: 25
-                </DeprecatedButton>
+                </Button>
               )}
             </DeprecatedMenuTrigger>
             <DeprecatedMenuPopover>

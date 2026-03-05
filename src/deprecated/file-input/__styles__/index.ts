@@ -1,5 +1,5 @@
 import { ElDeprecatedLabel } from '../../../deprecated/label/__styles__/index'
-import { ElDeprecatedButton } from '../../../deprecated/button/styles'
+import { elButton } from '../../../core/button/styles'
 import { styled } from '@linaria/react'
 
 /** @deprecated */
@@ -29,7 +29,7 @@ export const ElFileInputWrap = styled.div`
   display: inline-block;
   position: relative;
 
-  ${ElDeprecatedButton} {
+  .${elButton} {
     height: 34px;
     padding: 1rem;
   }

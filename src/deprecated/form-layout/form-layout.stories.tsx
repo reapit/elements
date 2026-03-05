@@ -3,7 +3,8 @@ import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall, For
 import { Toggle, ToggleRadio, ElToggleItem } from '../../deprecated/toggle'
 import { Textarea } from '../../core/textarea'
 import { MultiSelectInput } from '../../deprecated/multi-select'
-import { DeprecatedButton, DeprecatedButtonGroup } from '../../deprecated/button'
+import { Button } from '../../core/button'
+import { ButtonGroup } from '../../core/button-group'
 import { DeprecatedLabel } from '../../deprecated/label'
 import { DeprecatedSelect } from '../../deprecated/select'
 import { TextBase, TextSM } from '../../deprecated/typography'
@@ -82,10 +83,10 @@ export const BasicForm = {
           </InputGroup>
         </InputWrapFull>
       </FormLayout>
-      <DeprecatedButtonGroup alignment="left">
-        <DeprecatedButton>Cancel</DeprecatedButton>
-        <DeprecatedButton variant="primary">Submit</DeprecatedButton>
-      </DeprecatedButtonGroup>
+      <ButtonGroup>
+        <Button>Cancel</Button>
+        <Button variant="primary">Submit</Button>
+      </ButtonGroup>
     </form>
   ),
 }
@@ -201,10 +202,10 @@ export const ComplexForm = {
           </InputGroup>
         </InputWrapFull>
       </FormLayout>
-      <DeprecatedButtonGroup alignment="left">
-        <DeprecatedButton>Cancel</DeprecatedButton>
-        <DeprecatedButton variant="primary">Submit</DeprecatedButton>
-      </DeprecatedButtonGroup>
+      <ButtonGroup>
+        <Button>Cancel</Button>
+        <Button variant="primary">Submit</Button>
+      </ButtonGroup>
     </form>
   ),
 }

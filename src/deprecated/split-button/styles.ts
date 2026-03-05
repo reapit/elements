@@ -1,16 +1,12 @@
 import { styled } from '@linaria/react'
-import {
-  DeprecatedButton,
-  elDeprecatedButtonSizeLarge,
-  elDeprecatedButtonSizeSmall,
-  ElDeprecatedButtonSpinner,
-} from '#src/deprecated/button'
+import { Button } from '#src/core/button'
+import { ElButtonIconContainer, elButtonSpinner } from '#src/core/button/styles'
 
 /** @deprecated */
-export const ElDeprecatedSplitButtonActionButton = styled(DeprecatedButton)``
+export const ElDeprecatedSplitButtonActionButton = styled(Button)``
 
 /** @deprecated */
-export const ElDeprecatedSplitButtonMenuButton = styled(DeprecatedButton)``
+export const ElDeprecatedSplitButtonMenuButton = styled(Button)``
 
 /** @deprecated */
 export const ElDeprecatedSplitButton = styled.div`
@@ -64,7 +60,7 @@ export const ElDeprecatedSplitButton = styled.div`
     }
 
     /* Added this style to hide the iconRight from split menu button */
-    & > ${ElDeprecatedButtonSpinner} + svg + svg {
+    & > ${ElButtonIconContainer}.${elButtonSpinner} + svg + svg {
       display: none;
     }
 
@@ -91,7 +87,7 @@ export const ElDeprecatedSplitButton = styled.div`
     }
   }
 
-  ${elDeprecatedButtonSizeLarge} {
+  &[data-size='large'] {
     &${ElDeprecatedSplitButtonActionButton} {
       height: var(--size-10);
     }
@@ -107,7 +103,7 @@ export const ElDeprecatedSplitButton = styled.div`
     }
   }
 
-  ${elDeprecatedButtonSizeSmall} {
+  &[data-size='small'] {
     &${ElDeprecatedSplitButtonMenuButton} {
       width: var(--size-8);
       height: var(--size-8);

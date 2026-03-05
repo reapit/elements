@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useEffect, type ComponentProps } from 'react'
 import { DeprecatedMenu, useDeprecatedMenuContext } from '.'
-import { DeprecatedButton } from '../button'
+import { Button } from '../../core/button'
 import { FlexContainer, DeprecatedMainContainer } from '../layout'
 import { elHScreen } from '../../styles/deprecated-sizing'
 import { Badge } from '../../core/badge'
@@ -21,7 +21,7 @@ export const Default: StoryObj = {
     return (
       <DeprecatedMenu>
         <DeprecatedMenu.Trigger>
-          {({ getTriggerProps }) => <DeprecatedButton {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
+          {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
         </DeprecatedMenu.Trigger>
         <DeprecatedMenu.Popover>
           <DeprecatedMenu.List>
@@ -43,7 +43,7 @@ export const WithCompleteFeatures: StoryObj = {
     return (
       <DeprecatedMenu>
         <DeprecatedMenu.Trigger>
-          {({ getTriggerProps }) => <DeprecatedButton {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
+          {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
         </DeprecatedMenu.Trigger>
         <DeprecatedMenu.Popover>
           <DeprecatedMenu.List maxWidth="--size-80" maxHeight="--size-80">
@@ -58,7 +58,7 @@ export const WithCompleteFeatures: StoryObj = {
               />
               <DeprecatedMenu.Item
                 label="Menu Item anchor with long example text"
-                supplementaryInfo="Secondary info long description that won’t fit in one line"
+                supplementaryInfo="Secondary info long description that won't fit in one line"
                 badge={<Badge colour="neutral">Badge</Badge>}
                 href="/#"
                 leftIcon={<PropertyIcon />}
@@ -105,7 +105,7 @@ export const WithCustomAlignment: Story = {
       <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
         <DeprecatedMenu data-alignment="right">
           <DeprecatedMenu.Trigger>
-            {({ getTriggerProps }) => <DeprecatedButton {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
+            {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
           </DeprecatedMenu.Trigger>
           <DeprecatedMenu.Popover yOffset={10}>
             <DeprecatedMenu.List>
@@ -133,9 +133,9 @@ export const MoreComplexUsageExample: Story = {
         <DeprecatedMenu {...props}>
           <DeprecatedMenu.Trigger>
             {({ getTriggerProps }) => (
-              <DeprecatedButton {...getTriggerProps()} {...props} iconRight={<MoreIcon size="sm" />}>
+              <Button {...getTriggerProps()} {...props} iconRight={<MoreIcon size="sm" />}>
                 More
-              </DeprecatedButton>
+              </Button>
             )}
           </DeprecatedMenu.Trigger>
           <DeprecatedMenu.Popover yOffset={yOffset}>
@@ -221,7 +221,7 @@ export const WithIframe: Story = {
       <DeprecatedMainContainer className={elHScreen}>
         <DeprecatedMenu>
           <DeprecatedMenu.Trigger>
-            {({ getTriggerProps }) => <DeprecatedButton {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
+            {({ getTriggerProps }) => <Button {...getTriggerProps()} iconLeft={<MoreIcon size="sm" />} />}
           </DeprecatedMenu.Trigger>
           <DeprecatedMenu.Popover>
             <IframeHandler />

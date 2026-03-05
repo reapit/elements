@@ -12,7 +12,7 @@ import { Text2XL, TextL, TextBase, TypographyProps } from '../typography'
 import { FlexContainer } from '../layout'
 import { DeprecatedAvatar, DeprecatedAvatarProps } from '../avatar'
 import { DeprecatedTag, DeprecatedTagGroup, DeprecatedTagProps } from '../tag'
-import { DeprecatedButton, DeprecatedButtonGroup, DeprecatedButtonProps } from '../button'
+import { Button } from '#src/core/button'
 import { DeprecatedBreadCrumb, DeprecatedBreadCrumbProps } from '../breadcrumb'
 import { elMb3, elMb6, elMr3 } from '../../styles/deprecated-spacing'
 import { Tabs, TabsProps } from '../tabs'
@@ -25,7 +25,7 @@ export interface DeprecatedPageHeaderProps extends HTMLAttributes<HTMLDivElement
   pageInfo?: TypographyProps[]
   breadcrumb?: DeprecatedBreadCrumbProps
   tags?: DeprecatedTagProps[]
-  buttons?: DeprecatedButtonProps[]
+  buttons?: Button.Props[]
   tabs?: TabsProps
   hasMaxWidth?: boolean
 }
@@ -109,13 +109,13 @@ export const DeprecatedPageHeader: FC<DeprecatedPageHeaderProps> = ({
             </FlexContainer>
           </DeprecatedPageHeaderContainer>
           {buttons && (
-            <DeprecatedButtonGroup className={cx(!tabs && elMb3)}>
+            <div className={cx(!tabs && elMb3)}>
               {buttons.map(({ children, ...rest }, index) => (
-                <DeprecatedButton size="small" key={index} {...rest}>
+                <Button size="small" key={index} {...rest}>
                   {children}
-                </DeprecatedButton>
+                </Button>
               ))}
-            </DeprecatedButtonGroup>
+            </div>
           )}
         </DeprecatedPageHeaderContainer>
         {tabs && <Tabs {...tabs} />}

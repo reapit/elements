@@ -1,9 +1,9 @@
 import { FC } from 'react'
-import { DeprecatedButtonProps } from '#src/deprecated/button'
+import { Button } from '#src/core/button'
 import { ElDeprecatedSplitButtonActionButton, ElDeprecatedSplitButtonMenuButton } from './styles'
 import { ChevronDownIcon } from '#src/icons/chevron-down'
 
-type SplitButtonVariant = 'primary' | 'secondary' | 'busy'
+type SplitButtonVariant = 'primary' | 'secondary'
 
 /**
  * Interface for the SplitButton component props.
@@ -17,7 +17,7 @@ type SplitButtonVariant = 'primary' | 'secondary' | 'busy'
  *
  * @deprecated
  */
-export type DeprecatedSplitButtonProps = DeprecatedButtonProps & {
+export type DeprecatedSplitButtonProps = Button.Props & {
   variant?: SplitButtonVariant
   iconRight?: never
 }
