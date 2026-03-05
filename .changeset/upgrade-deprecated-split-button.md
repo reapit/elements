@@ -1,5 +1,5 @@
 ---
-'@reapit/elements': patch
+'@reapit/elements': major
 ---
 
-Add `upgrade-deprecated-split-button` codemod to migrate `DeprecatedSplitButton`, `DeprecatedActionButton`, and `DeprecatedMenuButton` imports and JSX usage to the new `SplitButton` API
+Remove `DeprecatedSplitButton`, `DeprecatedActionButton`, and `DeprecatedMenuButton`. Use the `upgrade-deprecated-split-button` codemod to migrate to the new `SplitButton` API.
