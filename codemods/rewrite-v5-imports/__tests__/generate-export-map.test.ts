@@ -40,12 +40,6 @@ describe('generateFileContent', () => {
     expect(content).toContain('node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts')
   })
 
-  test('includes total export count in header comment', () => {
-    const map = { A: 'core/a', B: 'core/b', C: 'core/c' }
-    const content = generateFileContent(map)
-    expect(content).toContain('Total exports: 3')
-  })
-
   test('includes a DO NOT EDIT notice', () => {
     const content = generateFileContent({})
     expect(content).toContain('DO NOT EDIT')
@@ -58,7 +52,6 @@ describe('generateFileContent', () => {
 
   test('handles an empty map (no entries)', () => {
     const content = generateFileContent({})
-    expect(content).toContain('Total exports: 0')
     expect(content).toContain('export const EXPORT_MAP: Record<string, string> = {')
   })
 })

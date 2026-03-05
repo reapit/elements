@@ -6,8 +6,6 @@
  * utils/*, icons/*). Root-only exports (styles, helpers/intent, tokens) are
  * intentionally excluded.
  *
- * Total exports: 1639
- *
  * DO NOT EDIT — regenerate with:
  *   node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts
  */

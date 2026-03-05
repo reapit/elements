@@ -160,8 +160,6 @@ export function generateFileContent(exportMap: Record<string, string>): string {
     ' * utils/*, icons/*). Root-only exports (styles, helpers/intent, tokens) are',
     ' * intentionally excluded.',
     ' *',
-    ` * Total exports: ${sortedEntries.length}`,
-    ' *',
     ' * DO NOT EDIT — regenerate with:',
     ' *   node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts',
     ' */',
