@@ -14,13 +14,9 @@ export namespace DrawerContext {
 export const DrawerContext = createContext<DrawerContext.Value | null>(null)
 
 /**
- * Returns the current `DrawerContext` value.
- * @throws an error if the context is not defined.
+ * Returns the current `DrawerContext` value, or `null` if no `Drawer` ancestor
+ * provides the context.
  */
-export function useDrawerContext(): DrawerContext.Value {
-  const context = useContext(DrawerContext)
-  if (!context) {
-    throw new Error('useDrawerContext requires a Drawer ancestor')
-  }
-  return context
+export function useDrawerContext(): DrawerContext.Value | null {
+  return useContext(DrawerContext)
 }

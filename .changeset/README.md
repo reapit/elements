@@ -54,7 +54,7 @@ The prefix should also guide your choice of bump type:
 
 - `Added:` → `minor` (new functionality)
 - `Deprecated:` → `minor` (signals upcoming removal; consumers need to act)
-- `Changed:` → `minor` or `patch` depending on impact (non-breaking behaviour change vs. cosmetic tweak)
+- `Changed:` → `major`, `minor`, or `patch` depending on impact (breaking behaviour change, non-breaking behaviour change, or cosmetic tweak)
 - `Fixed:` / `Security:` / `Internal:` → `patch`
 - `Removed:` → `major` (breaking change)
 

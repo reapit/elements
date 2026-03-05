@@ -34,6 +34,12 @@ test('forwards additional props to the header element', () => {
   expect(screen.getByTestId('test-id')).toBeVisible()
 })
 
+test('renders without a DrawerContext provider', () => {
+  render(<DrawerHeader>Standalone Title</DrawerHeader>)
+  expect(screen.getByText('Standalone Title')).toBeVisible()
+  expect(screen.getByText('Standalone Title')).not.toHaveAttribute('id')
+})
+
 function wrapper({ children }: { children: ReactNode }) {
   return <DrawerContext.Provider value={{ titleId: 'test-title-id' }}>{children}</DrawerContext.Provider>
 }

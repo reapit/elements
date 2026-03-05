@@ -16,7 +16,7 @@ Invoke this skill when:
 
 ## Required Pattern
 
-All React contexts **MUST** follow this structure:
+All React contexts **MUST** follow this structure. The custom hook **throws by default**; see [Optional context hook](#optional-context-hook) for when a nullable return is appropriate instead.
 
 ```typescript
 import { createContext, useContext } from 'react'
@@ -126,7 +126,9 @@ export const DialogContext = createContext<DialogContext.Value | null>(null)
 
 ### 3. Custom Hook
 
-**Checklist:**
+The hook should throw by default. Only return a nullable value when the context is intentionally optional — see [Optional context hook](#optional-context-hook).
+
+**Checklist (required context — default):**
 
 - [ ] Hook named `useComponentNameContext`
 - [ ] Returns non-null context value (not nullable)
@@ -150,10 +152,10 @@ export function useDialogContext(): DialogContext.Value {
 }
 ```
 
-**Common mistakes:**
+**Common mistakes (required context):**
 
 ```typescript
-// ❌ Wrong: Returns nullable (forces null checks everywhere)
+// ❌ Wrong: Returns nullable for a required context (forces null checks everywhere)
 export function useDialogContext(): DialogContext.Value | null {
   return useContext(DialogContext)
 }
@@ -180,6 +182,37 @@ export function useDialogContext(): DialogContext.Value {
   }
   return context
 }
+```
+
+### Optional context hook
+
+Use a nullable return when a component can render meaningfully without a parent provider. This is appropriate when a child component is designed to work both standalone and nested — for example, a header component that can render inside or outside a drawer.
+
+**Checklist (optional context):**
+
+- [ ] Hook named `useComponentNameContext`
+- [ ] Returns `ComponentNameContext.Value | null`
+- [ ] Does **not** throw when context is absent
+- [ ] JSDoc states the hook returns `null` when no ancestor provides the context
+- [ ] Consumers handle the `null` case explicitly (e.g. `useDrawerContext() ?? {}`)
+
+**Example:**
+
+```typescript
+/**
+ * Returns the current DrawerContext value, or null if no Drawer ancestor
+ * provides the context.
+ */
+export function useDrawerContext(): DrawerContext.Value | null {
+  return useContext(DrawerContext)
+}
+```
+
+**Consumer pattern:**
+
+```typescript
+// The consumer handles the null case explicitly
+const { titleId } = useDrawerContext() ?? {}
 ```
 
 ## Context Value Examples
@@ -306,19 +339,19 @@ export function ChildComponent() {
 2. [ ] Define namespace with `Value` interface
 3. [ ] Document all properties with JSDoc
 4. [ ] Create context with `| null` union type
-5. [ ] Write custom hook with error handling
+5. [ ] Write custom hook — throwing (default) or nullable (optional context)
 6. [ ] Export from component's `index.ts`
 7. [ ] Use context in main component file
-8. [ ] Write tests for error case
+8. [ ] Write tests: error case for required contexts; no-provider case for optional contexts
 
 ### Reviewing Existing Context
 
 1. [ ] Verify namespace follows `ComponentNameContext` pattern
 2. [ ] Check `Value` interface has JSDoc for all properties
-3. [ ] Verify context initializes with `null`
-4. [ ] Check custom hook throws descriptive error
-5. [ ] Verify error message specifies hook and required ancestor
-6. [ ] Ensure hook returns non-nullable type
+3. [ ] Verify context initialises with `null`
+4. [ ] Determine whether context is required or optional
+5. [ ] For required contexts: hook throws a descriptive error; error message specifies hook and required ancestor; hook returns non-nullable type
+6. [ ] For optional contexts: hook returns `ComponentNameContext.Value | null`; consumers handle the `null` case explicitly
 7. [ ] Check file structure matches pattern
 
 ### Migrating Context
@@ -327,21 +360,32 @@ export function ChildComponent() {
 2. [ ] Create namespace if missing
 3. [ ] Move/create `Value` interface in namespace
 4. [ ] Update context type to `Value | null`
-5. [ ] Create/update custom hook with error handling
-6. [ ] Update all consumers to use custom hook
-7. [ ] Update imports throughout codebase
-8. [ ] Add tests for error case
-9. [ ] Verify all tests pass
+5. [ ] Determine whether context is required or optional
+6. [ ] Create/update custom hook accordingly (throwing for required; nullable for optional)
+7. [ ] Update all consumers to use custom hook
+8. [ ] Update imports throughout codebase
+9. [ ] Add tests: error case for required contexts; no-provider case for optional contexts
+10. [ ] Verify all tests pass
 
 ## Testing Context
 
-### Test Error Handling
+### Test error handling (required context)
 
 ```typescript
 test('throws error when rendered outside context', () => {
   expect(() => {
     render(<ComponentRequiringContext />)
   }).toThrow('useComponentContext requires a Component ancestor')
+})
+```
+
+### Test no-provider rendering (optional context)
+
+```typescript
+test('renders without a provider', () => {
+  expect(() => {
+    render(<ComponentWithOptionalContext />)
+  }).not.toThrow()
 })
 ```
 
@@ -366,12 +410,12 @@ When reviewing context implementations:
 - [ ] Interface exports `Value` from namespace
 - [ ] All properties include JSDoc
 - [ ] Context uses `| null` union type with `null` initial value
-- [ ] Custom hook throws descriptive error on null context
-- [ ] Error message specifies hook name and required ancestor
-- [ ] Hook returns non-nullable context value
+- [ ] Hook intent is clear: required (throws) or optional (nullable)
+- [ ] Required context: hook throws a descriptive error; error message specifies hook name and required ancestor; hook returns non-nullable type
+- [ ] Optional context: hook returns `ComponentNameContext.Value | null`; consumers handle `null` explicitly
 - [ ] File follows directory structure (`context.tsx`)
 - [ ] Context exported from `index.ts`
-- [ ] Tests cover error case
+- [ ] Tests cover error case (required) or no-provider case (optional)
 
 ## Common Mistakes
 
@@ -388,19 +432,26 @@ export namespace ButtonContext {}
 
 ### Missing Error Handling
 
+For required contexts, returning the raw `useContext` result without a null check is wrong — it silently passes `null` to consumers.
+
 ```typescript
-// ❌ Wrong: No error handling
+// ❌ Wrong: No null check for a required context
 export function useDialogContext() {
   return useContext(DialogContext)
 }
 
-// ✅ Correct: Throws descriptive error
+// ✅ Correct: Throws descriptive error for a required context
 export function useDialogContext(): DialogContext.Value {
   const context = useContext(DialogContext)
   if (!context) {
     throw new Error('useDialogContext requires a Dialog ancestor')
   }
   return context
+}
+
+// ✅ Also correct: Nullable return for an optional context
+export function useDrawerContext(): DrawerContext.Value | null {
+  return useContext(DrawerContext)
 }
 ```
 
