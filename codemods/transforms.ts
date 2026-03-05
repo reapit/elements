@@ -14,5 +14,6 @@ export const transforms = {
   "upgrade-deprecated-button-group": () => import("./upgrade-deprecated-button-group/transform.js"),
   "upgrade-deprecated-icon": () => import("./upgrade-deprecated-icon/transform.js"),
   "upgrade-deprecated-split-button": () => import("./upgrade-deprecated-split-button/transform.js"),
+  "upgrade-deprecated-tag": () => import("./upgrade-deprecated-tag/transform.js"),
   "upgrade-deprecated-use-media-query": () => import("./upgrade-deprecated-use-media-query/transform.js"),
 } satisfies Record<string, () => Promise<{ default: Transform }>>
