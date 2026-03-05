@@ -6,6 +6,9 @@ const meta = {
   title: 'Core/ButtonGroup',
   component: ButtonGroup,
   argTypes: {
+    autoFlow: {
+      control: 'radio',
+    },
     children: {
       control: 'radio',
       options: ['Secondary', 'Primary action', 'Mixed buttons'],
@@ -33,9 +36,11 @@ const meta = {
         ),
       },
     },
+    justifyContent: {
+      control: 'radio',
+    },
     size: {
       control: 'radio',
-      options: ['small', 'medium', 'large'],
     },
   },
 } satisfies Meta<typeof ButtonGroup>
@@ -50,7 +55,9 @@ type Story = StoryObj<typeof ButtonGroup>
  */
 export const Example: Story = {
   args: {
+    autoFlow: 'column',
     children: 'Secondary',
+    justifyContent: 'start',
     size: 'medium',
   },
 }
@@ -61,6 +68,7 @@ export const Example: Story = {
  */
 export const Primary = {
   args: {
+    ...Example.args,
     children: 'Primary action',
     size: 'medium',
   },
@@ -71,6 +79,7 @@ export const Primary = {
  */
 export const Mixed = {
   args: {
+    ...Example.args,
     children: 'Mixed buttons',
     size: 'medium',
   },
@@ -81,7 +90,22 @@ export const Mixed = {
  */
 export const Size: Story = {
   args: {
+    ...Example.args,
     children: 'Secondary',
     size: 'small',
+  },
+}
+
+/**
+ * Use `autoFlow` to control the direction buttons are laid out, and `justifyContent` to control
+ * their alignment along the inline axis.
+ */
+export const Layout: Story = {
+  args: {
+    ...Example.args,
+    autoFlow: 'row',
+    children: 'Secondary',
+    justifyContent: 'end',
+    size: 'medium',
   },
 }

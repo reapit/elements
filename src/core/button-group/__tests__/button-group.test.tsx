@@ -51,3 +51,53 @@ test('defaults size to medium in context when not specified', () => {
     </ButtonGroup>,
   )
 })
+
+test('sets data-auto-flow attribute when autoFlow prop is provided', () => {
+  const { container } = render(
+    <ButtonGroup autoFlow="column">
+      <ButtonGroup.Item>Button</ButtonGroup.Item>
+    </ButtonGroup>,
+  )
+
+  expect(container.firstElementChild).toHaveAttribute('data-auto-flow', 'column')
+})
+
+test('sets data-auto-flow to row when autoFlow="row"', () => {
+  const { container } = render(
+    <ButtonGroup autoFlow="row">
+      <ButtonGroup.Item>Button</ButtonGroup.Item>
+    </ButtonGroup>,
+  )
+
+  expect(container.firstElementChild).toHaveAttribute('data-auto-flow', 'row')
+})
+
+test('does not set data-auto-flow attribute when autoFlow prop is omitted', () => {
+  const { container } = render(
+    <ButtonGroup>
+      <ButtonGroup.Item>Button</ButtonGroup.Item>
+    </ButtonGroup>,
+  )
+
+  expect(container.firstElementChild).not.toHaveAttribute('data-auto-flow')
+})
+
+test('sets data-justify-content attribute when justifyContent prop is provided', () => {
+  const { container } = render(
+    <ButtonGroup justifyContent="end">
+      <ButtonGroup.Item>Button</ButtonGroup.Item>
+    </ButtonGroup>,
+  )
+
+  expect(container.firstElementChild).toHaveAttribute('data-justify-content', 'end')
+})
+
+test('does not set data-justify-content attribute when justifyContent prop is omitted', () => {
+  const { container } = render(
+    <ButtonGroup>
+      <ButtonGroup.Item>Button</ButtonGroup.Item>
+    </ButtonGroup>,
+  )
+
+  expect(container.firstElementChild).not.toHaveAttribute('data-justify-content')
+})
