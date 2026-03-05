@@ -115,6 +115,15 @@ export const ElDeprecatedPageHeaderWrap = styled.div`
 `
 
 /** @deprecated */
+export const ElDeprecatedPageHeaderButtons = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  width: fit-content;
+  height: fit-content;
+`
+
+/** @deprecated */
 export const ElDeprecatedPageHeaderSeparator = styled.span`
   height: 1.5rem;
   width: 1.5rem;

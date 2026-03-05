@@ -6,7 +6,7 @@
  * utils/*, icons/*). Root-only exports (styles, helpers/intent, tokens) are
  * intentionally excluded.
  *
- * Total exports: 1661
+ * Total exports: 1639
  *
  * DO NOT EDIT — regenerate with:
  *   node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts
@@ -265,8 +265,6 @@ export const EXPORT_MAP: Record<string, string> = {
   deprecatedHandlePageChange: 'deprecated/pagination',
   deprecatedHandlePageInput: 'deprecated/pagination',
   deprecatedHandlePageInputChange: 'deprecated/pagination',
-  DeprecatedIcon: 'deprecated/icon',
-  DeprecatedIconProps: 'deprecated/icon',
   DeprecatedLabel: 'deprecated/label',
   DeprecatedLabelProps: 'deprecated/label',
   DeprecatedLogoIcon: 'deprecated/nav',
@@ -511,7 +509,6 @@ export const EXPORT_MAP: Record<string, string> = {
   ElDeprecatedAccordionTitle: 'deprecated/accordion',
   ElDeprecatedAccordionTitleContent: 'deprecated/accordion',
   ElDeprecatedAccordionTitleContentWrapper: 'deprecated/accordion',
-  ElDeprecatedAnchorButton: 'deprecated/button',
   ElDeprecatedAvatar: 'deprecated/avatar',
   ElDeprecatedAvatarImage: 'deprecated/avatar',
   ElDeprecatedBadge: 'deprecated/badge',
@@ -519,19 +516,6 @@ export const EXPORT_MAP: Record<string, string> = {
   ElDeprecatedBadgeGroupInner: 'deprecated/badge',
   ElDeprecatedBreadCrumbContainer: 'deprecated/breadcrumb',
   ElDeprecatedBreadCrumbItem: 'deprecated/breadcrumb',
-  ElDeprecatedButton: 'deprecated/button',
-  elDeprecatedButtonGroupAlignCenter: 'deprecated/button',
-  elDeprecatedButtonGroupAlignLeft: 'deprecated/button',
-  elDeprecatedButtonGroupAlignRight: 'deprecated/button',
-  ElDeprecatedButtonGroupInner: 'deprecated/button',
-  elDeprecatedButtonIconOnly: 'deprecated/button',
-  elDeprecatedButtonLabel: 'deprecated/button',
-  ElDeprecatedButtonLabel: 'deprecated/button',
-  elDeprecatedButtonSizeLarge: 'deprecated/button',
-  elDeprecatedButtonSizeMedium: 'deprecated/button',
-  elDeprecatedButtonSizeSmall: 'deprecated/button',
-  elDeprecatedButtonSpinner: 'deprecated/button',
-  ElDeprecatedButtonSpinner: 'deprecated/button',
   ElDeprecatedChipCheckbox: 'deprecated/chip',
   ElDeprecatedChipGroup: 'deprecated/chip',
   ElDeprecatedChipGroupInner: 'deprecated/chip',
@@ -543,8 +527,6 @@ export const EXPORT_MAP: Record<string, string> = {
   ElDeprecatedDrawerHeader: 'deprecated/drawer',
   ElDeprecatedDrawerSubtitle: 'deprecated/drawer',
   ElDeprecatedDrawerTitle: 'deprecated/drawer',
-  elDeprecatedFloatingButton: 'deprecated/button',
-  elDeprecatedIcon: 'deprecated/button',
   ElDeprecatedLabel: 'deprecated/label',
   elDeprecatedMainContainer: 'deprecated/layout',
   ElDeprecatedMenu: 'deprecated/menu',
@@ -579,6 +561,7 @@ export const EXPORT_MAP: Record<string, string> = {
   ElDeprecatedNavSubItem: 'deprecated/nav',
   elDeprecatedNavSubItemActive: 'deprecated/nav',
   elDeprecatedNavSubItemExpanded: 'deprecated/nav',
+  ElDeprecatedPageHeaderButtons: 'deprecated/page-header',
   ElDeprecatedPageHeaderContainer: 'deprecated/page-header',
   elDeprecatedPageHeaderMaxWidth: 'deprecated/page-header',
   ElDeprecatedPageHeaderSeparator: 'deprecated/page-header',
@@ -709,6 +692,7 @@ export const EXPORT_MAP: Record<string, string> = {
   ElMobileControlItem: 'deprecated/mobile-controls',
   ElMobileControls: 'deprecated/mobile-controls',
   ElMobileControlsBg: 'deprecated/mobile-controls',
+  elMobileControlsFloatingButton: 'deprecated/mobile-controls',
   elMobileControlsVisible: 'deprecated/mobile-controls',
   elMobileListToggle: 'deprecated/card',
   ElModal: 'deprecated/modal',

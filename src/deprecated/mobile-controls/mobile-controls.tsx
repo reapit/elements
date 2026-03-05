@@ -1,8 +1,15 @@
 import React, { Dispatch, FC, HTMLAttributes, MouseEvent, ReactNode, SetStateAction, useState, useId } from 'react'
-import { ElMobileControlItem, ElMobileControls, ElMobileControlsBg, elMobileControlsVisible } from './__styles__'
+import {
+  ElMobileControlItem,
+  ElMobileControls,
+  ElMobileControlsBg,
+  elMobileControlsVisible,
+  elMobileControlsFloatingButton,
+} from './__styles__'
 import { MenuIcon } from '#src/icons/menu'
 import { cx } from '@linaria/core'
 import { elIsActive } from '../../styles/deprecated-states'
+import { Button } from '#src/core/button'
 
 /** @deprecated */
 export interface MobileControlItem extends HTMLAttributes<HTMLAnchorElement> {
@@ -68,9 +75,12 @@ export const MobileControls: FC<MobileControlsProps> = ({
             {label}
           </ElMobileControlItem>
         ))}
-        <button aria-controls={id} data-variant="primary">
-          {buttonIcon ?? <MenuIcon />}
-        </button>
+        <Button
+          aria-controls={id}
+          variant="primary"
+          iconLeft={buttonIcon ?? <MenuIcon />}
+          className={elMobileControlsFloatingButton}
+        />
       </ElMobileControls>
     </>
   )

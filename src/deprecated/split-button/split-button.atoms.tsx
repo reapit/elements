@@ -9,7 +9,7 @@ type SplitButtonVariant = 'primary' | 'secondary'
  * Interface for the SplitButton component props.
  *
  * Optional variant to change the UI of the split button.
- * If can be primary, secondary (default), or busy.
+ * It can be primary or secondary (default).
  *
  * Optional iconRight is set to never as SplitButton won't facilitate iconRight.
  *

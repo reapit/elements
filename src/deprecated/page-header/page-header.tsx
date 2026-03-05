@@ -7,6 +7,7 @@ import {
   ElDeprecatedPageHeaderWrap,
   ElDeprecatedPageHeaderWrapInner,
   elDeprecatedPageHeaderMaxWidth,
+  ElDeprecatedPageHeaderButtons,
 } from './__styles__'
 import { Text2XL, TextL, TextBase, TypographyProps } from '../typography'
 import { FlexContainer } from '../layout'
@@ -109,13 +110,13 @@ export const DeprecatedPageHeader: FC<DeprecatedPageHeaderProps> = ({
             </FlexContainer>
           </DeprecatedPageHeaderContainer>
           {buttons && (
-            <div className={cx(!tabs && elMb3)}>
+            <ElDeprecatedPageHeaderButtons className={cx(!tabs && elMb3)}>
               {buttons.map(({ children, ...rest }, index) => (
                 <Button size="small" key={index} {...rest}>
                   {children}
                 </Button>
               ))}
-            </div>
+            </ElDeprecatedPageHeaderButtons>
           )}
         </DeprecatedPageHeaderContainer>
         {tabs && <Tabs {...tabs} />}

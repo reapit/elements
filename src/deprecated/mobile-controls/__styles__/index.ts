@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
-import { isTablet } from '../../../styles/deprecated-media'
+import { isMobile, isTablet } from '../../../styles/deprecated-media'
 import { elIsActive } from '../../../styles/deprecated-states'
 import { elIntentDefault } from '../../../styles/deprecated-intent'
 
@@ -43,6 +43,25 @@ export const ElMobileControls = styled.div`
     &.${elMobileControlsVisible} {
       display: flex;
     }
+  }
+`
+
+/** @deprecated */
+export const elMobileControlsFloatingButton = css`
+  border-radius: 100%;
+  height: 3.75rem;
+  width: 3.75rem;
+  margin: 0.5rem;
+  max-height: unset;
+  padding: 0.4rem;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  ${isMobile} {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin: 0.5rem;
   }
 `
 
