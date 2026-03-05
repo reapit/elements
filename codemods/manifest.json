@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-03-03T22:38:03.147Z",
+  "generated": "2026-03-05T01:52:42.648Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -33,6 +33,10 @@
     {
       "name": "upgrade-deprecated-button",
       "description": "Upgrades DeprecatedButton to the new Button component for v5 API adoption"
+    },
+    {
+      "name": "upgrade-deprecated-button-group",
+      "description": "Upgrades DeprecatedButtonGroup to the new ButtonGroup component for v5 API adoption"
     },
     {
       "name": "upgrade-deprecated-icon",
