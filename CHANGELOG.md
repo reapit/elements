@@ -1,5 +1,64 @@
 # @reapit/elements
 
+## 5.0.0-beta.77
+
+### Major Changes
+
+- **[Changed]** `useDrawerContext` now returns `DrawerContext.Value | null` instead of throwing when called outside a `Drawer`. ([#1141](https://github.com/reapit-global/gbl-ds-elements/pull/1141), [`4e6232e`](https://github.com/reapit-global/gbl-ds-elements/commit/4e6232e01e39a8aed463bd6a6a811ea2130d48d2), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Removed]** Remove `DeprecatedIcon` component and associated icon assets. ([#1119](https://github.com/reapit-global/gbl-ds-elements/pull/1119), [`f538546`](https://github.com/reapit-global/gbl-ds-elements/commit/f5385461de5bb02d8108ef1522b516dc65b6def7), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  **Breaking changes**
+
+  - Removed the `DeprecatedIcon` component (`src/deprecated/icon`). Use icon components from `src/icons` instead (e.g. `SearchIcon`, `CloseIcon`, `InfoIcon`).
+  - Removed the `DeprecatedIcons` constants (`src/deprecated/icons`).
+  - Removed legacy icon SVG assets from `assets/icons/` and placeholder images from `assets/placeholder-images/`.
+
+  Use the `upgrade-deprecated-icon` codemod to migrate usages automatically.
+
+- **[Removed]** Removed `DeprecatedButton`, `DeprecatedButtonGroup`, and `DeprecatedFloatingButton` and all associated types and styles. Run the `upgrade-deprecated-button` codemod to migrate `DeprecatedButton` usages to the `Button` API before upgrading. Run the `upgrade-deprecated-button-group` codemod to migrate `DeprecatedButtonGroup` usages. `DeprecatedFloatingButton` usages must be migrated manually. ([#1126](https://github.com/reapit-global/gbl-ds-elements/pull/1126), [`b99b895`](https://github.com/reapit-global/gbl-ds-elements/commit/b99b89573123684c3808ec54ae89340a85c04de8), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Removed]** Remove the deprecated `useMediaQuery` hook and related exports. ([#1131](https://github.com/reapit-global/gbl-ds-elements/pull/1131), [`1480122`](https://github.com/reapit-global/gbl-ds-elements/commit/148012285540b1c2482c328284dceae3443e9c34), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  **Breaking changes**
+
+  - Removed `useMediaQuery`, `MediaType`, `MediaStateContext`, `MediaStateProvider`, `MOBILE_BREAKPOINT`, `TABLET_BREAKPOINT`, `DESKTOP_BREAKPOINT`, `WIDESCREEN_BREAKPOINT`, and `SUPER_WIDESCREEN_BREAKPOINT` from `src/deprecated/use-media-query`.
+
+  Use the `upgrade-deprecated-use-media-query` codemod to migrate usages automatically.
+
+- **[Removed]** `DeprecatedSplitButton`, `DeprecatedActionButton`, and `DeprecatedMenuButton`. Use the `upgrade-deprecated-split-button` codemod to migrate to the new `SplitButton` API. ([#1124](https://github.com/reapit-global/gbl-ds-elements/pull/1124), [`e82bba3`](https://github.com/reapit-global/gbl-ds-elements/commit/e82bba3de72891517520b5379a30f4255fb8b468), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Minor Changes
+
+- **[Added]** Add `autoFlow` and `justifyContent` props to `ButtonGroup`. ([#1135](https://github.com/reapit-global/gbl-ds-elements/pull/1135), [`47edd34`](https://github.com/reapit-global/gbl-ds-elements/commit/47edd348b87aeadcea483d7a6b80859b92ee19c4), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  `ButtonGroup` now uses `display: grid` internally. Two new props control the grid layout:
+
+  - `autoFlow?: 'row' | 'column'` — maps to the CSS `grid-auto-flow` property.
+  - `justifyContent?: 'start' | 'end' | 'center' | 'stretch'` — maps to the CSS `justify-content` property.
+
+  The default grid layout (`grid-auto-flow: column`) preserves the existing horizontal button arrangement.
+
+- **[Added]** `upgrade-deprecated-badge` codemod to migrate from `DeprecatedBadge` to the new `Badge`, mapping `intent` to `colour` and replacing `DeprecatedBadgeGroup` with an equivalent `div` layout. ([#1123](https://github.com/reapit-global/gbl-ds-elements/pull/1123), [`e870e51`](https://github.com/reapit-global/gbl-ds-elements/commit/e870e510850adfab5ee5788bb9c34e324083dc03), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `upgrade-deprecated-button-group` codemod to migrate from `DeprecatedButtonGroup` to the new `ButtonGroup`, mapping `alignment` to `justifyContent` and wrapping static children in `<ButtonGroup.Item>`. ([#1136](https://github.com/reapit-global/gbl-ds-elements/pull/1136), [`16e7a55`](https://github.com/reapit-global/gbl-ds-elements/commit/16e7a5528da098169189e1cc20e76ee471b0bdb4), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `upgrade-deprecated-use-media-query` codemod to migrate deprecated `useMediaQuery` and related exports to individual `useMatchMedia` calls and breakpoint utilities ([#1120](https://github.com/reapit-global/gbl-ds-elements/pull/1120), [`60f7be8`](https://github.com/reapit-global/gbl-ds-elements/commit/60f7be82e94283d83551767b7fbd113dd3b68b96), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Patch Changes
+
+- **[Fixed]** Add `upgrade-deprecated-tag` codemod to migrate `DeprecatedTag` and `DeprecatedTagGroup` imports and JSX usage to the new `Tag` and `TagGroup` components, removing `intent` props and rewriting `DeprecatedTagProps` type references to `Tag.Props`. ([#1138](https://github.com/reapit-global/gbl-ds-elements/pull/1138), [`cf0eb9a`](https://github.com/reapit-global/gbl-ds-elements/commit/cf0eb9a880b631cec37c9388d2557cfe395a7905), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Add custom Keep a Changelog-inspired formatter for changesets. Each entry is tagged with a category derived from a prefix in the summary (e.g. `Fixed:`, `Added:`) or inferred from the semver bump type. Entries include GitHub PR, commit, and author links. ([#1140](https://github.com/reapit-global/gbl-ds-elements/pull/1140), [`a551e87`](https://github.com/reapit-global/gbl-ds-elements/commit/a551e8795416f11fad890370c2ee1e60371cd212), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Fixed]** Fix icon spacing in deprecated `Snack` and `TableCell` components after `DeprecatedIcon` removal ([#1128](https://github.com/reapit-global/gbl-ds-elements/pull/1128), [`78374fc`](https://github.com/reapit-global/gbl-ds-elements/commit/78374fc626661ff982884bca6cc15a7fe21d8d91), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Fixed]** Fix `upgrade-deprecated-button` codemod incorrectly rewriting facade package import paths to subpaths ([#1125](https://github.com/reapit-global/gbl-ds-elements/pull/1125), [`f084c71`](https://github.com/reapit-global/gbl-ds-elements/commit/f084c71af390fcdc6af24a847b60c8cde4d80006), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Add pre-commit and pre-push git hooks (Husky v9 + lint-staged) ([#1112](https://github.com/reapit-global/gbl-ds-elements/pull/1112), [`c28c285`](https://github.com/reapit-global/gbl-ds-elements/commit/c28c285e65934c33530d8a8cda41208bf66e14b0), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Fixed]** Update the export map for the `rewrite-v5-imports` codemod post-removal of `DeprecatedIcon` ([#1130](https://github.com/reapit-global/gbl-ds-elements/pull/1130), [`a71ed2b`](https://github.com/reapit-global/gbl-ds-elements/commit/a71ed2b00dc9cd527369cb473c2546fb3ff259c7), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
 ## 5.0.0-beta.76
 
 ### Major Changes

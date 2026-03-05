@@ -5,8 +5,24 @@
     "@reapit/elements": "5.0.0-beta.75"
   },
   "changesets": [
+    "blue-results-cheer",
+    "bold-pillows-stare",
+    "button-group-grid-layout",
     "catch-up-beta-76",
+    "custom-changelog-formatter",
+    "drawer-context-optional-hook",
+    "fix-deprecated-icon-spacing",
+    "fix-upgrade-deprecated-button-facade-paths",
+    "funny-socks-make",
     "gentle-walls-take",
-    "migrate-to-changesets"
+    "kind-hands-divide",
+    "migrate-to-changesets",
+    "ninety-turtles-rescue",
+    "remove-deprecated-use-media-query",
+    "two-bugs-go",
+    "upgrade-deprecated-badge-codemod",
+    "upgrade-deprecated-button-group",
+    "upgrade-deprecated-split-button",
+    "upgrade-deprecated-use-media-query"
   ]
 }
