@@ -50,6 +50,7 @@ export function AutocompleteControl({
   multiple,
   renderChips,
   required,
+  showValidity,
   size = 'medium',
   ...rest
 }: AutocompleteControl.Props) {
@@ -77,6 +78,7 @@ export function AutocompleteControl({
           id={autocompleteId}
           multiple={multiple}
           required={required}
+          showValidity={showValidity ?? !!errorText}
           size={size}
         >
           {children}

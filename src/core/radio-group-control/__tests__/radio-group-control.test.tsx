@@ -106,3 +106,30 @@ test('does not set aria-describedby when error text is present', () => {
   )
   expect(screen.getByRole('group')).not.toHaveAttribute('aria-describedby')
 })
+
+test('sets data-show-validity="true" on option inputs when error text is present', () => {
+  render(
+    <RadioGroupControl errorText="Error text">
+      <RadioGroupControl.Option label="Option" value="a" />
+    </RadioGroupControl>,
+  )
+  expect(screen.getByRole('radio')).toHaveAttribute('data-show-validity', 'true')
+})
+
+test('does not set data-show-validity="true" on option inputs when no error text is present', () => {
+  render(
+    <RadioGroupControl>
+      <RadioGroupControl.Option label="Option" value="a" />
+    </RadioGroupControl>,
+  )
+  expect(screen.getByRole('radio')).not.toHaveAttribute('data-show-validity', 'true')
+})
+
+test('respects an explicit showValidity={false} override even when error text is present', () => {
+  render(
+    <RadioGroupControl errorText="Error text" showValidity={false}>
+      <RadioGroupControl.Option label="Option" value="a" />
+    </RadioGroupControl>,
+  )
+  expect(screen.getByRole('radio')).toHaveAttribute('data-show-validity', 'false')
+})

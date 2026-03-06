@@ -83,7 +83,7 @@ export const Example: Story = {
     placeholder: '',
     readOnly: false,
     required: false,
-    showValidity: false,
+    showValidity: undefined,
     size: 'medium',
     suffix: '',
     trailingIcon: 'None',
@@ -174,6 +174,9 @@ export const Affixes: Story = {
  * invalid state when it's value does not meet the validation constraints applied to it, such as being
  * required, and it `showValidity` is true. Typically, `showValidity` will be true when the control has
  * been touched (interacted with).
+ *
+ * If `showValidity` is not explicitly provided, the control will show validity based on the presence of
+ * `errorText`.
  */
 export const Invalid: Story = {
   args: {

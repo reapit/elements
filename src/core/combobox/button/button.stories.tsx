@@ -118,6 +118,27 @@ export const Invalid: Story = {
 }
 
 /**
+ * The combobox button also reflects an invalid state when `aria-invalid="true"` and
+ * `data-show-validity="true"` are set on the parent combobox container — for example, via custom
+ * logic that does not use the browser's constraint validation API. This behaviour is manually shown
+ * here.
+ */
+export const AriaInvalid: Story = {
+  name: 'Aria Invalid',
+  args: {
+    ...Placeholder.args,
+  },
+  decorators: [
+    (Story) => (
+      <ElCombobox data-show-validity="true">
+        <button aria-invalid hidden />
+        <Story />
+      </ElCombobox>
+    ),
+  ],
+}
+
+/**
  * By default, combobox buttons will fill their parent's width. This can be constrained by providing
  * a `maxWidth` to the combobox.
  */

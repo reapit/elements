@@ -49,6 +49,7 @@ export function SelectControl({
   multiple,
   renderChips,
   required,
+  showValidity,
   size = 'medium',
   ...rest
 }: SelectControl.Props) {
@@ -76,6 +77,7 @@ export function SelectControl({
           id={selectId}
           multiple={multiple}
           required={required}
+          showValidity={showValidity ?? !!errorText}
           size={size}
         >
           {children}

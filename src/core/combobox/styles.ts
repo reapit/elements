@@ -28,8 +28,10 @@ export const ElCombobox = styled.div<ElComboboxProps>`
   --combobox-text-colour: var(--comp-input-colour-text-default-input);
 
   /* Error state: When the combobox contains an invalid select and showValidity is enabled,
-   * override theme variables to display error styling. */
-  &:has(select:invalid, select:user-invalid):where([data-show-validity='true']) {
+   * override theme variables to display error styling. aria-invalid="true", when present on
+   * the combobox element (the button) is also supported. */
+  &:has(select:invalid, select:user-invalid):where([data-show-validity='true']),
+  &:has(button[aria-invalid='true']):where([data-show-validity='true']) {
     --combobox-background: var(--comp-input-colour-fill-error-background);
     --combobox-border-colour: var(--comp-input-colour-border-error);
     --combobox-icon-colour: var(--comp-input-colour-icon-error);

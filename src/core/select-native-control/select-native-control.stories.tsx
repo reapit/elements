@@ -67,7 +67,7 @@ export const Example: Story = {
     maxWidth: undefined,
     name: 'mySelect',
     required: false,
-    showValidity: false,
+    showValidity: undefined,
     size: 'medium',
     value: undefined,
   },
@@ -126,6 +126,9 @@ export const OptionGroups: Story = {
  * does not meet the validation constraints applied to it, such as being required, and when
  * `showValidity` is set to true. Typically `showValidity` will be true when the control has been
  * touched (interacted with).
+ *
+ * If `showValidity` is not explicitly provided, the control will show validity based on the presence of
+ * `errorText`.
  */
 export const Invalid: Story = {
   args: {

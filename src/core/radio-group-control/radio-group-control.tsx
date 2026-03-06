@@ -88,7 +88,9 @@ export function RadioGroupControl({
         </FormControl.Label>
       )}
       <ElRadioGroup data-orientation={orientation}>
-        <RadioGroupControlContext.Provider value={{ disabled, form, name, required, showValidity }}>
+        <RadioGroupControlContext.Provider
+          value={{ disabled, form, name, required, showValidity: showValidity ?? !!errorText }}
+        >
           {children}
         </RadioGroupControlContext.Provider>
       </ElRadioGroup>

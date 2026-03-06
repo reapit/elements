@@ -46,7 +46,7 @@ export const Example: Story = {
     name: 'options',
     orientation: 'vertical',
     required: false,
-    showValidity: false,
+    showValidity: undefined,
   },
 }
 
@@ -94,6 +94,9 @@ export const Required: Story = {
 /**
  * When a validation constraint has not been met, an error message can be displayed. The error message
  * will replace any help text that may be present.
+ *
+ * If `showValidity` is not explicitly provided, the control will show validity based on the presence of
+ * `errorText`.
  */
 export const Invalid: Story = {
   args: {

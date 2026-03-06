@@ -325,3 +325,45 @@ test('does not set aria-describedby when error text is present', () => {
   )
   expect(screen.getByRole('combobox')).not.toHaveAttribute('aria-describedby')
 })
+
+test('sets data-show-validity="true" on the autocomplete when error text is present', () => {
+  render(
+    <AutocompleteControl label="Label" errorText="Error text">
+      <Autocomplete.Button />
+      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
+        <Autocomplete.Listbox>
+          <Autocomplete.Option value="1">Option 1</Autocomplete.Option>
+        </Autocomplete.Listbox>
+      </Autocomplete.Popup>
+    </AutocompleteControl>,
+  )
+  expect(screen.getByRole('combobox').closest('[data-show-validity]')).toHaveAttribute('data-show-validity', 'true')
+})
+
+test('does not set data-show-validity="true" on the autocomplete when no error text is present', () => {
+  render(
+    <AutocompleteControl label="Label">
+      <Autocomplete.Button />
+      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
+        <Autocomplete.Listbox>
+          <Autocomplete.Option value="1">Option 1</Autocomplete.Option>
+        </Autocomplete.Listbox>
+      </Autocomplete.Popup>
+    </AutocompleteControl>,
+  )
+  expect(screen.getByRole('combobox').closest('[data-show-validity]')).not.toHaveAttribute('data-show-validity', 'true')
+})
+
+test('respects an explicit showValidity={false} override even when error text is present', () => {
+  render(
+    <AutocompleteControl label="Label" errorText="Error text" showValidity={false}>
+      <Autocomplete.Button />
+      <Autocomplete.Popup search={<Autocomplete.SearchInput aria-label="Search" />}>
+        <Autocomplete.Listbox>
+          <Autocomplete.Option value="1">Option 1</Autocomplete.Option>
+        </Autocomplete.Listbox>
+      </Autocomplete.Popup>
+    </AutocompleteControl>,
+  )
+  expect(screen.getByRole('combobox').closest('[data-show-validity]')).toHaveAttribute('data-show-validity', 'false')
+})

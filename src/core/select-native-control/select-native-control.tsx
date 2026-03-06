@@ -29,6 +29,7 @@ export function SelectNativeControl({
   label,
   maxWidth,
   required,
+  showValidity,
   size,
   ...rest
 }: SelectNativeControl.Props) {
@@ -51,6 +52,7 @@ export function SelectNativeControl({
         aria-invalid={errorText ? true : undefined}
         id={inputId}
         required={required}
+        showValidity={showValidity ?? !!errorText}
         size={size}
       />
       {errorText ? (

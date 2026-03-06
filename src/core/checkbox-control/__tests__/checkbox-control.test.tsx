@@ -35,3 +35,18 @@ test('does not set aria-errormessage when error text is not present', () => {
   render(<CheckboxControl label="Label" />)
   expect(screen.getByRole('checkbox')).not.toHaveAttribute('aria-errormessage')
 })
+
+test('sets data-show-validity="true" on the input when error text is present', () => {
+  render(<CheckboxControl label="Label" errorText="Error text" />)
+  expect(screen.getByRole('checkbox')).toHaveAttribute('data-show-validity', 'true')
+})
+
+test('does not set data-show-validity="true" on the input when no error text is present', () => {
+  render(<CheckboxControl label="Label" />)
+  expect(screen.getByRole('checkbox')).not.toHaveAttribute('data-show-validity', 'true')
+})
+
+test('respects an explicit showValidity={false} override even when error text is present', () => {
+  render(<CheckboxControl label="Label" errorText="Error text" showValidity={false} />)
+  expect(screen.getByRole('checkbox')).toHaveAttribute('data-show-validity', 'false')
+})

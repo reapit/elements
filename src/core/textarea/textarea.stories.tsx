@@ -78,6 +78,20 @@ export const Invalid: Story = {
 }
 
 /**
+ * The textarea also displays in an invalid state when `aria-invalid="true"` and `showValidity` is
+ * true. This supports usage where the element is not natively invalid — for example, via custom
+ * logic that does not use the browser's constraint validation API.
+ */
+export const AriaInvalid: Story = {
+  name: 'Aria Invalid',
+  args: {
+    'aria-invalid': true,
+    placeholder: 'Description',
+    showValidity: true,
+  },
+}
+
+/**
  * A Text area can be disabled in forms to prevent their use. When disabled, the text area cannot be focused and its
  * value will not be submitted with the form.
  */

@@ -33,6 +33,7 @@ export function TextControl({
   label,
   maxWidth,
   required,
+  showValidity,
   size = 'medium',
   ...rest
 }: TextControl.Props) {
@@ -55,6 +56,7 @@ export function TextControl({
         aria-invalid={errorText ? true : undefined}
         id={inputId}
         required={required}
+        showValidity={showValidity ?? !!errorText}
         size={size}
       />
       {errorText ? (

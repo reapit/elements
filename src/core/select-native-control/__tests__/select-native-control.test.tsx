@@ -123,3 +123,30 @@ test('does not set aria-describedby when error text is present', () => {
   )
   expect(screen.getByRole('combobox')).not.toHaveAttribute('aria-describedby')
 })
+
+test('sets data-show-validity="true" on the select when error text is present', () => {
+  render(
+    <SelectNativeControl label="Label" errorText="Error text" size="medium">
+      <option value="option1">Option 1</option>
+    </SelectNativeControl>,
+  )
+  expect(screen.getByRole('combobox')).toHaveAttribute('data-show-validity', 'true')
+})
+
+test('does not set data-show-validity="true" on the select when no error text is present', () => {
+  render(
+    <SelectNativeControl label="Label" size="medium">
+      <option value="option1">Option 1</option>
+    </SelectNativeControl>,
+  )
+  expect(screen.getByRole('combobox')).not.toHaveAttribute('data-show-validity', 'true')
+})
+
+test('respects an explicit showValidity={false} override even when error text is present', () => {
+  render(
+    <SelectNativeControl label="Label" errorText="Error text" showValidity={false} size="medium">
+      <option value="option1">Option 1</option>
+    </SelectNativeControl>,
+  )
+  expect(screen.getByRole('combobox')).toHaveAttribute('data-show-validity', 'false')
+})

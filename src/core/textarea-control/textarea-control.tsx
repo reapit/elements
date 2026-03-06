@@ -40,6 +40,7 @@ export function TextareaControl({
   label,
   maxWidth,
   required,
+  showValidity,
   size = 'medium',
   ...rest
 }: TextareaControl.Props) {
@@ -62,6 +63,7 @@ export function TextareaControl({
         aria-invalid={errorText ? true : undefined}
         id={inputId}
         required={required}
+        showValidity={showValidity ?? !!errorText}
         size={size}
       />
       {errorText ? (

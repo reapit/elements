@@ -33,6 +33,7 @@ export const Example: Story = {
     isIndeterminate: false,
     label: 'Label',
     required: false,
+    showValidity: undefined,
     supplementaryInfo: 'Supplementary Info',
   },
 }
@@ -50,12 +51,16 @@ export const Required: Story = {
 
 /**
  * When a validation constraint has not been met, an error message can be displayed.
- * The error message is displayed in addition to any supplementaryInfo that may be present.
+ * The error message is displayed in addition to any `supplementaryInfo` that may be present.
+ *
+ * If `showValidity` is not explicitly provided, the control will show validity based on the presence of
+ * `errorText`.
  */
 export const Invalid: Story = {
   args: {
     ...Required.args,
     errorText: 'Error message',
+    showValidity: true,
   },
 }
 

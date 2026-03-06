@@ -88,7 +88,9 @@ export function CheckboxGroupControl({
         </FormControl.Label>
       )}
       <ElCheckboxGroup data-orientation={orientation}>
-        <CheckboxGroupControlContext.Provider value={{ disabled, form, name, required, showValidity }}>
+        <CheckboxGroupControlContext.Provider
+          value={{ disabled, form, name, required, showValidity: showValidity ?? !!errorText }}
+        >
           {children}
         </CheckboxGroupControlContext.Provider>
       </ElCheckboxGroup>

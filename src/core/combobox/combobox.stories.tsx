@@ -12,6 +12,9 @@ const meta = {
   title: 'Core/Combobox',
   component: Combobox,
   argTypes: {
+    'aria-invalid': {
+      control: 'boolean',
+    },
     children: {
       control: false,
     },
@@ -31,6 +34,7 @@ type Story = StoryObj<typeof meta>
  */
 export const Example: Story = {
   args: {
+    'aria-invalid': undefined,
     children: [
       <DemoButton key="button" />,
       <Combobox.Popup key="popup" variant="popover">
@@ -44,6 +48,57 @@ export const Example: Story = {
     disabled: false,
     required: false,
     showValidity: false,
+    size: 'medium',
+  },
+}
+
+/**
+ * Like all form controls that visually communicate their validity, the combobox will display in an
+ * invalid state when it's value does not meet the validation constraints applied to it, such as being
+ * required, and `showValidity` is true. Typically, `showValidity` will be true when the control has
+ * been touched (interacted with).
+ */
+export const Invalid: Story = {
+  args: {
+    children: [
+      <DemoButton key="button" />,
+      <Combobox.Popup key="popup" variant="popover">
+        <Combobox.Listbox>
+          <Combobox.Option value="option1">Option 1</Combobox.Option>
+          <Combobox.Option value="option2">Option 2</Combobox.Option>
+          <Combobox.Option value="option3">Option 3</Combobox.Option>
+        </Combobox.Listbox>
+      </Combobox.Popup>,
+    ],
+    disabled: false,
+    required: true,
+    showValidity: true,
+    size: 'medium',
+  },
+}
+
+/**
+ * The combobox also displays in an invalid state when `aria-invalid="true"` and `showValidity` is true.
+ * This supports usage where the element is not natively invalid — for example, via custom logic
+ * that does not use the browser's constraint validation API.
+ */
+export const AriaInvalid: Story = {
+  name: 'Aria Invalid',
+  args: {
+    'aria-invalid': true,
+    children: [
+      <DemoButton key="button" />,
+      <Combobox.Popup key="popup" variant="popover">
+        <Combobox.Listbox>
+          <Combobox.Option value="option1">Option 1</Combobox.Option>
+          <Combobox.Option value="option2">Option 2</Combobox.Option>
+          <Combobox.Option value="option3">Option 3</Combobox.Option>
+        </Combobox.Listbox>
+      </Combobox.Popup>,
+    ],
+    disabled: false,
+    required: false,
+    showValidity: true,
     size: 'medium',
   },
 }

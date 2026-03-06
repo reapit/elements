@@ -280,3 +280,45 @@ test('does not set aria-describedby when error text is present', () => {
   )
   expect(screen.getByRole('combobox')).not.toHaveAttribute('aria-describedby')
 })
+
+test('sets data-show-validity="true" on the select when error text is present', () => {
+  render(
+    <SelectControl label="Label" errorText="Error text">
+      <Select.Button />
+      <Select.Popup>
+        <Select.Listbox>
+          <Select.Option value="apple">Apple</Select.Option>
+        </Select.Listbox>
+      </Select.Popup>
+    </SelectControl>,
+  )
+  expect(screen.getByRole('combobox').closest('[data-show-validity]')).toHaveAttribute('data-show-validity', 'true')
+})
+
+test('does not set data-show-validity="true" on the select when no error text is present', () => {
+  render(
+    <SelectControl label="Label">
+      <Select.Button />
+      <Select.Popup>
+        <Select.Listbox>
+          <Select.Option value="apple">Apple</Select.Option>
+        </Select.Listbox>
+      </Select.Popup>
+    </SelectControl>,
+  )
+  expect(screen.getByRole('combobox').closest('[data-show-validity]')).not.toHaveAttribute('data-show-validity', 'true')
+})
+
+test('respects an explicit showValidity={false} override even when error text is present', () => {
+  render(
+    <SelectControl label="Label" errorText="Error text" showValidity={false}>
+      <Select.Button />
+      <Select.Popup>
+        <Select.Listbox>
+          <Select.Option value="apple">Apple</Select.Option>
+        </Select.Listbox>
+      </Select.Popup>
+    </SelectControl>,
+  )
+  expect(screen.getByRole('combobox').closest('[data-show-validity]')).toHaveAttribute('data-show-validity', 'false')
+})

@@ -80,3 +80,18 @@ test('does not set aria-describedby when error text is present', () => {
   render(<DateTimeControl label="Label" helpText="Help text" errorText="Error text" />)
   expect(screen.getByLabelText('Label')).not.toHaveAttribute('aria-describedby')
 })
+
+test('sets data-show-validity="true" on the input when error text is present', () => {
+  render(<DateTimeControl label="Label" errorText="Error text" />)
+  expect(screen.getByLabelText('Label')).toHaveAttribute('data-show-validity', 'true')
+})
+
+test('does not set data-show-validity="true" on the input when no error text is present', () => {
+  render(<DateTimeControl label="Label" />)
+  expect(screen.getByLabelText('Label')).not.toHaveAttribute('data-show-validity', 'true')
+})
+
+test('respects an explicit showValidity={false} override even when error text is present', () => {
+  render(<DateTimeControl label="Label" errorText="Error text" showValidity={false} />)
+  expect(screen.getByLabelText('Label')).toHaveAttribute('data-show-validity', 'false')
+})

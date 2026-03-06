@@ -99,8 +99,12 @@ export const ElTextarea = styled.textarea<ElTextareaProps>`
     resize: both;
   }
 
+  /* NOTE: aria-invalid="true" is also supported as an alternative to the native :invalid
+   * pseudo-class, for cases where the element is not natively invalid (e.g. server-side
+   * validation). */
   &:invalid:where([data-show-validity='true']),
-  &:user-invalid:where([data-show-validity='true']) {
+  &:user-invalid:where([data-show-validity='true']),
+  &:where([aria-invalid='true'][data-show-validity='true']) {
     --textarea-colour: var(--comp-input-colour-text-error-input);
     --textarea-background-colour: var(--comp-input-colour-fill-error-background);
     --textarea-border-colour: var(--comp-input-colour-border-error);

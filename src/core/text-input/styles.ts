@@ -59,9 +59,12 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
 
   /* NOTE: we only use the invalid styles if the input is invalid AND has the data-show-validity
    * attribute set to true. Further, we use :where to ensure data-show-validity does not increase
-   * the specificity of our selector, otherwise these styles would override our focus styles. */
+   * the specificity of our selector, otherwise these styles would override our focus styles.
+   * aria-invalid="true" is also supported as an alternative to the native :invalid pseudo-class,
+   * for cases where the element is not natively invalid (e.g. server-side validation). */
   &:has(input:invalid:where([data-show-validity='true'])),
-  &:has(input:user-invalid:where([data-show-validity='true'])) {
+  &:has(input:user-invalid:where([data-show-validity='true'])),
+  &:has(input:where([aria-invalid='true'][data-show-validity='true'])) {
     background: var(--comp-input-colour-fill-error-background);
     border-color: var(--comp-input-colour-border-error);
     --input-affix-colour: var(--comp-input-colour-text-error-placeholder);

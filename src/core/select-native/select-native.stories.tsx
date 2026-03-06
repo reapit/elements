@@ -113,6 +113,20 @@ export const Invalid: Story = {
 }
 
 /**
+ * The select also displays in an invalid state when `aria-invalid="true"` and `showValidity` is
+ * true. This supports usage where the element is not natively invalid — for example, via custom
+ * logic that does not use the browser's constraint validation API.
+ */
+export const AriaInvalid: Story = {
+  name: 'Aria Invalid',
+  args: {
+    ...Example.args,
+    'aria-invalid': true,
+    showValidity: true,
+  },
+}
+
+/**
  * The initial value of the select, when it's value is not controlled, can be provided using `defaultValue`.
  */
 export const DefaultValue: Story = {

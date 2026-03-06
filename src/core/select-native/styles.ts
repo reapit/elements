@@ -47,9 +47,12 @@ export const ElSelectNative = styled.select<ElSelectNativeProps>`
   /* NOTE: Invalid styles should only be used if data-show-validity is true. We use :where to avoid
    * the presence of the data-show-validity attribute increasing the selector's specificity and,
    * therefore, overriding our focus styles. When a touched and invalid field is focused, we want the
-   * focus styles to take precedence. */
+   * focus styles to take precedence. aria-invalid="true" is also supported as an alternative to the
+   * native :invalid pseudo-class, for cases where the element is not natively invalid (e.g.
+   * server-side validation). */
   &:where([data-show-validity='true']):invalid,
-  &:where([data-show-validity='true']):user-invalid {
+  &:where([data-show-validity='true']):user-invalid,
+  &:where([aria-invalid='true'][data-show-validity='true']) {
     border-color: var(--comp-input-colour-border-error);
     background: var(--comp-input-colour-fill-error-background);
   }

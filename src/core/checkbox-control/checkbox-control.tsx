@@ -16,7 +16,7 @@ export namespace CheckboxControl {
  * A pre-baked `Checkbox` + `FormControl`. Used when you need to display validation errors
  * for a solitary checkbox.
  */
-export function CheckboxControl({ errorText, label, required, ...rest }: CheckboxControl.Props) {
+export function CheckboxControl({ errorText, label, required, showValidity, ...rest }: CheckboxControl.Props) {
   const errorTextId = useId()
 
   return (
@@ -26,6 +26,7 @@ export function CheckboxControl({ errorText, label, required, ...rest }: Checkbo
         aria-errormessage={errorText ? errorTextId : undefined}
         aria-invalid={errorText ? true : undefined}
         label={<LabelText isRequired={required}>{label}</LabelText>}
+        showValidity={showValidity ?? !!errorText}
       />
       {errorText && <FormControl.ErrorText id={errorTextId}>{errorText}</FormControl.ErrorText>}
     </FormControl>

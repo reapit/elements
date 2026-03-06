@@ -165,6 +165,20 @@ export const Invalid: Story = {
 }
 
 /**
+ * The input also displays in an invalid state when `aria-invalid="true"` and `showValidity` is true.
+ * This supports usage where the element is not natively invalid — for example, via custom logic
+ * that does not use the browser's constraint validation API.
+ */
+export const AriaInvalid: Story = {
+  name: 'Aria Invalid',
+  args: {
+    ...Example.args,
+    'aria-invalid': true,
+    showValidity: true,
+  },
+}
+
+/**
  * By default, date/time inputs will fill their parent's width. This can be constrained by providing
  * a `maxWidth`.
  */

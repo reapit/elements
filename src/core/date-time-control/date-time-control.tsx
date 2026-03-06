@@ -33,6 +33,7 @@ export function DateTimeControl({
   label,
   maxWidth,
   required,
+  showValidity,
   size = 'medium',
   ...rest
 }: DateTimeControl.Props) {
@@ -55,6 +56,7 @@ export function DateTimeControl({
         aria-invalid={errorText ? true : undefined}
         id={inputId}
         required={required}
+        showValidity={showValidity ?? !!errorText}
         size={size}
       />
       {errorText ? (

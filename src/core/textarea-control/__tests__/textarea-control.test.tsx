@@ -94,3 +94,18 @@ test('does not set aria-describedby when error text is present', () => {
   render(<TextareaControl label="Label" fieldSizing="content" helpText="Help text" errorText="Error text" />)
   expect(screen.getByRole('textbox')).not.toHaveAttribute('aria-describedby')
 })
+
+test('sets data-show-validity="true" on the textarea when error text is present', () => {
+  render(<TextareaControl label="Label" fieldSizing="content" errorText="Error text" />)
+  expect(screen.getByRole('textbox')).toHaveAttribute('data-show-validity', 'true')
+})
+
+test('does not set data-show-validity="true" on the textarea when no error text is present', () => {
+  render(<TextareaControl label="Label" fieldSizing="content" />)
+  expect(screen.getByRole('textbox')).not.toHaveAttribute('data-show-validity', 'true')
+})
+
+test('respects an explicit showValidity={false} override even when error text is present', () => {
+  render(<TextareaControl label="Label" fieldSizing="content" errorText="Error text" showValidity={false} />)
+  expect(screen.getByRole('textbox')).toHaveAttribute('data-show-validity', 'false')
+})

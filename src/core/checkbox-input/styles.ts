@@ -58,9 +58,12 @@ export const elCheckboxInputIcon = css`
 
   /* NOTE: we only use the invalid styles if the input is invalid AND has the data-show-validity
    * attribute set to true. This allows consumers to control when the invalid styles are applied,
-   * such as only when the form control has been "touched" */
+   * such as only when the form control has been "touched". aria-invalid="true" is also supported
+   * as an alternative to the native :invalid pseudo-class, for cases where the element is not
+   * natively invalid (e.g. server-side validation). */
   input:invalid:where([data-show-validity='true']) ~ &,
-  input:user-invalid:where([data-show-validity='true']) ~ & {
+  input:user-invalid:where([data-show-validity='true']) ~ &,
+  input:where([aria-invalid='true'][data-show-validity='true']) ~ & {
     color: var(--comp-select-colour-icon-error-unchecked);
   }
 
@@ -91,7 +94,8 @@ export const elCheckboxInputIcon = css`
   }
 
   input:invalid:where([data-show-validity='true']):is(:checked, :indeterminate) ~ &,
-  input:user-invalid:where([data-show-validity='true']):is(:checked, :indeterminate) ~ & {
+  input:user-invalid:where([data-show-validity='true']):is(:checked, :indeterminate) ~ &,
+  input:where([aria-invalid='true'][data-show-validity='true']):is(:checked, :indeterminate) ~ & {
     color: var(--comp-select-colour-icon-error-checked);
   }
 
