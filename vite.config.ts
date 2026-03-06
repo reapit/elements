@@ -37,10 +37,13 @@ const deprecated = Object.fromEntries(
 // We dynamically discover all icons in the `src/icons` directory and add them as individual entry points
 // for our build.
 const icons = Object.fromEntries(
-  fs.globSync('src/icons/*.tsx', { withFileTypes: true }).map((file) => [
-    path.join('icons', path.basename(file.name, path.extname(file.name))), // e.g. `icons/add`
-    path.join(file.parentPath, file.name), // e.g. `src/icons/add.tsx`
-  ]),
+  fs
+    .globSync('src/icons/*.tsx', { withFileTypes: true })
+    .filter((file) => !file.name.endsWith('.figma.tsx'))
+    .map((file) => [
+      path.join('icons', path.basename(file.name, path.extname(file.name))), // e.g. `icons/add`
+      path.join(file.parentPath, file.name), // e.g. `src/icons/add.tsx`
+    ]),
 )
 
 // We dynamically discover all "first-level" barrel files in the `src/utils` directory and add them as individual
