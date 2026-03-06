@@ -194,7 +194,7 @@ const el = <BtnGroup><button>Save</button></BtnGroup>
   })
 
   describe('child wrapping', () => {
-    test('wraps a single static JSX child in ButtonGroup.Item', () => {
+    test('leaves a single static JSX child unchanged', () => {
       const input = `
 const el = (
   <DeprecatedButtonGroup>
@@ -203,10 +203,11 @@ const el = (
 )
 `
       const output = transform(input, 'test.tsx')
-      expect(output).toContain('<ButtonGroup.Item><button>Save</button></ButtonGroup.Item>')
+      expect(output).toContain('<button>Save</button>')
+      expect(output).not.toContain('ButtonGroup.Item')
     })
 
-    test('wraps multiple static JSX children independently', () => {
+    test('leaves multiple static JSX children unchanged', () => {
       const input = `
 const el = (
   <DeprecatedButtonGroup>
@@ -217,24 +218,13 @@ const el = (
 )
 `
       const output = transform(input, 'test.tsx')
-      const matches = output.match(/<ButtonGroup\.Item>/g)
-      expect(matches).toHaveLength(3)
+      expect(output).not.toContain('ButtonGroup.Item')
+      expect(output).toContain('<button>Save</button>')
+      expect(output).toContain('<button>Cancel</button>')
+      expect(output).toContain('<button>Reset</button>')
     })
 
-    test('does not double-wrap a child that is already a ButtonGroup.Item', () => {
-      const input = `
-const el = (
-  <DeprecatedButtonGroup>
-    <ButtonGroup.Item><button>Save</button></ButtonGroup.Item>
-  </DeprecatedButtonGroup>
-)
-`
-      const output = transform(input, 'test.tsx')
-      const matches = output.match(/<ButtonGroup\.Item>/g)
-      expect(matches).toHaveLength(1)
-    })
-
-    test('inserts TODO comment before dynamic JSX expression children', () => {
+    test('leaves dynamic JSX expression children unchanged', () => {
       const input = `
 const el = (
   <DeprecatedButtonGroup>
@@ -243,12 +233,11 @@ const el = (
 )
 `
       const output = transform(input, 'test.tsx')
-      expect(output).toContain('TODO')
-      // The expression itself is left unchanged
+      expect(output).not.toContain('ButtonGroup.Item')
       expect(output).toContain('buttons.map')
     })
 
-    test('handles mixed static and dynamic children', () => {
+    test('leaves mixed static and dynamic children unchanged', () => {
       const input = `
 const el = (
   <DeprecatedButtonGroup>
@@ -258,14 +247,12 @@ const el = (
 )
 `
       const output = transform(input, 'test.tsx')
-      // Static child is wrapped
-      expect(output).toContain('<ButtonGroup.Item><button>Save</button></ButtonGroup.Item>')
-      // Dynamic child has a TODO comment
-      expect(output).toContain('TODO')
+      expect(output).not.toContain('ButtonGroup.Item')
+      expect(output).toContain('<button>Save</button>')
       expect(output).toContain('extra &&')
     })
 
-    test('self-closing element has no children to wrap', () => {
+    test('self-closing element has no children to transform', () => {
       const input = `const el = <DeprecatedButtonGroup />`
       const output = transform(input, 'test.tsx')
       expect(output).toContain('<ButtonGroup />')
@@ -292,37 +279,6 @@ const el = (
       // DeprecatedButton is left alone
       expect(output).toContain('DeprecatedButton')
       expect(output).toContain('<DeprecatedButton>Save</DeprecatedButton>')
-    })
-  })
-
-  describe('aliased import — child wrapping uses alias', () => {
-    test('wraps children in <BtnGroup.Item> when DeprecatedButtonGroup is aliased as BtnGroup', () => {
-      const input = `
-import { DeprecatedButtonGroup as BtnGroup } from '@reapit/elements'
-const el = (
-  <BtnGroup>
-    <button>Save</button>
-  </BtnGroup>
-)
-`
-      const output = transform(input, 'test.tsx')
-      expect(output).toContain('<BtnGroup.Item><button>Save</button></BtnGroup.Item>')
-      // Must not reference ButtonGroup.Item (ButtonGroup is only in scope as BtnGroup)
-      expect(output).not.toContain('<ButtonGroup.Item>')
-    })
-
-    test('does not double-wrap a child already tagged <BtnGroup.Item> under alias', () => {
-      const input = `
-import { DeprecatedButtonGroup as BtnGroup } from '@reapit/elements'
-const el = (
-  <BtnGroup>
-    <BtnGroup.Item><button>Save</button></BtnGroup.Item>
-  </BtnGroup>
-)
-`
-      const output = transform(input, 'test.tsx')
-      const matches = output.match(/<BtnGroup\.Item>/g)
-      expect(matches).toHaveLength(1)
     })
   })
 

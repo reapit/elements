@@ -1,13 +1,4 @@
-import {
-  JsxElement,
-  JsxOpeningElement,
-  JsxSelfClosingElement,
-  Node,
-  Project,
-  QuoteKind,
-  SourceFile,
-  SyntaxKind,
-} from 'ts-morph'
+import { JsxOpeningElement, JsxSelfClosingElement, Node, Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
 import { isElementsImport } from '../shared/elements-import.js'
 
 /**
@@ -29,14 +20,12 @@ import { isElementsImport } from '../shared/elements-import.js'
  *
  * JSX Element Transformations:
  * - Element name: <DeprecatedButtonGroup> → <ButtonGroup>
- * - Static JSX children are wrapped in <ButtonGroup.Item>
+ * - Children are left unchanged (ButtonGroup.Item is itself a button)
  * - alignment prop is mapped to justifyContent:
  *   - alignment="left"   → justifyContent="start"
  *   - alignment="right"  → justifyContent="end"
  *   - alignment="center" → justifyContent="center"
  *   - alignment={dynamic} → prop removed, TODO comment inserted
- * - Dynamic children expressions (maps, conditionals) are left unchanged
- *   with a TODO comment inserted before them
  */
 
 /** Maps deprecated alignment values to the new justifyContent values. */
@@ -50,7 +39,6 @@ const TODO_DYNAMIC_ALIGNMENT_JSX =
   '{/* TODO: DeprecatedButtonGroup had a dynamic alignment prop that cannot be migrated automatically */}'
 const TODO_DYNAMIC_ALIGNMENT_JS =
   '// TODO: DeprecatedButtonGroup had a dynamic alignment prop that cannot be migrated automatically'
-const TODO_DYNAMIC_CHILDREN = '{/* TODO: wrap each button in this expression in <ButtonGroup.Item> manually */}'
 
 /**
  * Returns true if JSX comment syntax should be used ({/* ... *\/}), false for JS line comment (//).
@@ -250,13 +238,11 @@ function transformTypeReferences(sourceFile: SourceFile): boolean {
  *
  * - Renames opening and closing tags.
  * - Maps alignment prop to justifyContent.
- * - Wraps static JSX children in <{localName}.Item>.
- * - Inserts TODO comments before dynamic children expressions.
  *
  * Comment insertions use sourceFile.insertText() in reverse position order so
  * that earlier positions remain valid after each insertion.
  */
-function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>, localName: string): void {
+function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): void {
   // Positions where TODO comments should be inserted, collected during AST mutation
   // so that sourceFile.insertText() can be called in a single reverse-order pass.
   const commentInsertions: Array<{ pos: number; text: string }> = []
@@ -278,7 +264,7 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>, loca
     transformAlignmentProp(element, commentInsertions)
   }
 
-  // Process opening elements (may have children to wrap)
+  // Process opening elements
   for (const element of openingElements) {
     if (element.wasForgotten()) continue
     const tagName = element.getTagNameNode()
@@ -298,9 +284,6 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>, loca
       if (closingTag.getTagNameNode().getText() === 'DeprecatedButtonGroup') {
         closingTag.getTagNameNode().replaceWithText('ButtonGroup')
       }
-
-      // Wrap direct JSX children in <{localName}.Item>
-      wrapChildren(jsxElement, commentInsertions, localName)
     }
   }
 
@@ -365,48 +348,6 @@ function transformAlignmentProp(
   }
 }
 
-/**
- * Wraps direct JSX element children in <{localName}.Item>.
- * Inserts a TODO comment before dynamic JSX expression children.
- * Uses `localName` (the alias or 'ButtonGroup') so aliased imports emit e.g. <BtnGroup.Item>.
- */
-function wrapChildren(
-  jsxElement: JsxElement,
-  commentInsertions: Array<{ pos: number; text: string }>,
-  localName: string,
-): void {
-  const itemTag = `${localName}.Item`
-  const children = jsxElement.getJsxChildren()
-
-  for (const child of children) {
-    const kind = child.getKind()
-
-    if (kind === SyntaxKind.JsxText) {
-      // Whitespace/newlines — leave unchanged
-      continue
-    }
-
-    if (kind === SyntaxKind.JsxElement || kind === SyntaxKind.JsxSelfClosingElement) {
-      // Check if already wrapped in {localName}.Item — avoid double-wrapping
-      const tagText =
-        kind === SyntaxKind.JsxElement
-          ? child.asKind(SyntaxKind.JsxElement)!.getOpeningElement().getTagNameNode().getText()
-          : child.asKind(SyntaxKind.JsxSelfClosingElement)!.getTagNameNode().getText()
-
-      if (tagText === itemTag) continue
-
-      const childText = child.getText()
-      child.replaceWithText(`<${itemTag}>${childText}</${itemTag}>`)
-      continue
-    }
-
-    if (kind === SyntaxKind.JsxExpression) {
-      // Dynamic expression — leave unchanged, insert TODO comment before it
-      commentInsertions.push({ pos: child.getStart(), text: TODO_DYNAMIC_CHILDREN })
-    }
-  }
-}
-
 export default function transform(
   source: string,
   filePath: string = 'file.tsx',
@@ -449,9 +390,7 @@ export default function transform(
     }
   }
 
-  // Use the resolved local name (alias or 'ButtonGroup') for child wrapping
-  const localName = importLocalName ?? 'ButtonGroup'
-  transformJsxElements(sourceFile, aliases, localName)
+  transformJsxElements(sourceFile, aliases)
 
   return sourceFile.getFullText()
 }

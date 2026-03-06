@@ -59,13 +59,13 @@ Reapit Elements v5 introduced a new `ButtonGroup` component with a redesigned AP
 
 The key API differences are:
 
-| Aspect           | DeprecatedButtonGroup           | New ButtonGroup                                     |
-| ---------------- | ------------------------------- | --------------------------------------------------- |
-| **Import path**  | `@reapit/elements`              | `@reapit/elements/core/button-group`                |
-| **Type pattern** | `DeprecatedButtonGroupProps`    | `ButtonGroup.Props` (namespace)                     |
-| **Alignment**    | `alignment="left/right/center"` | `justifyContent="start/end/center"`                 |
-| **Children**     | Any `ReactNode` (flat)          | Must be wrapped in `<ButtonGroup.Item>`             |
-| **Size**         | Not supported                   | `size="small/medium/large"` (optional, via context) |
+| Aspect           | DeprecatedButtonGroup           | New ButtonGroup                                                                          |
+| ---------------- | ------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Import path**  | `@reapit/elements`              | `@reapit/elements/core/button-group`                                                     |
+| **Type pattern** | `DeprecatedButtonGroupProps`    | `ButtonGroup.Props` (namespace)                                                          |
+| **Alignment**    | `alignment="left/right/center"` | `justifyContent="start/end/center"`                                                      |
+| **Children**     | Any `ReactNode` (flat)          | Each button rendered as a `<ButtonGroup.Item>` (children left unchanged by this codemod) |
+| **Size**         | Not supported                   | `size="small/medium/large"` (optional, via context)                                      |
 
 ## Transformations
 
@@ -103,24 +103,6 @@ The key API differences are:
 | `<DeprecatedButtonGroup alignment="center">`       | `<ButtonGroup justifyContent="center">`                                   |
 | `<DeprecatedButtonGroup alignment={dynamicValue}>` | `<ButtonGroup>` _(prop removed, TODO comment inserted — see Limitations)_ |
 
-### JSX — Child Wrapping
-
-The new `ButtonGroup` requires each button to be wrapped in a `<ButtonGroup.Item>`. The codemod wraps static JSX element children automatically:
-
-```tsx
-// Before
-<DeprecatedButtonGroup>
-  <Button variant="secondary">Cancel</Button>
-  <Button variant="primary">Save</Button>
-</DeprecatedButtonGroup>
-
-// After
-<ButtonGroup>
-  <ButtonGroup.Item><Button variant="secondary">Cancel</Button></ButtonGroup.Item>
-  <ButtonGroup.Item><Button variant="primary">Save</Button></ButtonGroup.Item>
-</ButtonGroup>
-```
-
 ## Limitations
 
 ### `DeprecatedButtonGroupAlignment` type
@@ -142,30 +124,9 @@ When the `alignment` prop uses a dynamic value (a variable or expression), the c
 ;<ButtonGroup>...</ButtonGroup>
 ```
 
-### Dynamic children
-
-When children of `<DeprecatedButtonGroup>` come from a dynamic expression (for example `Array.map`, a conditional, or a variable), the codemod cannot wrap each item in `<ButtonGroup.Item>`. The expression is left unchanged and a TODO comment is inserted before it:
-
-```tsx
-// Before
-<DeprecatedButtonGroup>
-  {actions.map((action) => (
-    <Button key={action.id}>{action.label}</Button>
-  ))}
-</DeprecatedButtonGroup>
-
-// After
-<ButtonGroup>
-  {/* TODO: wrap each button in this expression in <ButtonGroup.Item> manually */}
-  {actions.map((action) => (
-    <Button key={action.id}>{action.label}</Button>
-  ))}
-</ButtonGroup>
-```
-
 ### Children passed as props or render props
 
-When button children originate outside the component (via props, render props, or `React.Children`), the codemod has no visibility into them and cannot wrap them. Each case must be handled manually.
+When button children originate outside the component (via props, render props, or `React.Children`), the codemod has no visibility into them. Each case must be handled manually.
 
 ## Running Alongside `upgrade-deprecated-button`
 
@@ -181,5 +142,5 @@ The two codemods are independent and safe to run in either order.
 ## Next Steps After Running This Codemod
 
 1. **Fix TypeScript errors** — Any remaining `DeprecatedButtonGroupAlignment` usages will produce errors. Remove or replace them manually.
-2. **Review TODO comments** — Search for `TODO` in your codebase and address dynamic `alignment` props and dynamic children that could not be migrated automatically.
+2. **Review TODO comments** — Search for `TODO` in your codebase and address any dynamic `alignment` props that could not be migrated automatically.
 3. **Run tests** — Verify your application still works correctly after the migration.
