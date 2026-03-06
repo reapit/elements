@@ -88,7 +88,6 @@
     "check:lint:es": "oxlint src",
     "check:lint:fmt": "oxfmt --check",
     "make-badge": "coverage-badges --type ${0} --source coverage/report/coverage-summary.json --output coverage/badges/badge-${0}.svg --jsonPath total.${0}.pct",
-    "publish": "yarn npm publish --access public",
     "deploy": "yarn node scripts/cdk/bin/rpt-cdk.cjs deploy",
     "start": "storybook dev -p 6006",
     "test": "vitest",
