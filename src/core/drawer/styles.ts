@@ -16,7 +16,10 @@ export const elDrawer = css`
   container-type: inline-size;
 
   background: var(--colour-fill-white);
+  /* Use content-box sizing so the border doesn't impact our container size. */
+  box-sizing: content-box;
   border: none;
+  border-inline-start: var(--border-width-default) solid var(--colour-border-neutral-light_default);
   padding: 0;
 
   overscroll-behavior: none;
@@ -28,6 +31,8 @@ export const elDrawer = css`
   min-width: ${DRAWER_WIDTH_XS};
 
   @media ${isWidthAtOrAbove('SM')} {
+    border-inline-start: none;
+
     /* For SM and above, max out at SM-2XL drawer width.
      * Never shrink below SM-2XL drawer width. */
     max-width: ${DRAWER_WIDTH_SM_2XL};
@@ -63,8 +68,11 @@ export const elDrawer = css`
       'body' 1fr
       'footer' auto / 100%;
 
-    &::backdrop {
-      background-color: var(--overlay-50);
+    /* Backdrop darkens on SM+ breakpoints only; i.e it stays transparent on XS breakpoints */
+    @media screen and ${isWidthAtOrAbove('SM')} {
+      &::backdrop {
+        background-color: var(--overlay-50);
+      }
     }
   }
 
