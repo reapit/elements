@@ -1,5 +1,23 @@
 # @reapit/elements
 
+## 5.0.0-beta.78
+
+### Patch Changes
+
+- **[Internal]** Upgrade development-only dependencies ([#1149](https://github.com/reapit-global/gbl-ds-elements/pull/1149), [`efbddbc`](https://github.com/reapit-global/gbl-ds-elements/commit/efbddbcbd9994f1d2b9b42b14bf156b0f6d1060f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Security]** pin `@isaacs/brace-expansion` to 5.0.1 to resolve GHSA-7h2j-956f-4vf2 (Uncontrolled Resource Consumption via unbounded brace range expansion). This is a dev-only dependency and does not affect the published package. ([#1144](https://github.com/reapit-global/gbl-ds-elements/pull/1144), [`9c37ed7`](https://github.com/reapit-global/gbl-ds-elements/commit/9c37ed7581e1cf4dc7a05d28922cc4e22d34223c), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Fixed]** Fix: `Drawer` backdrop is now transparent on XS breakpoints ([#1146](https://github.com/reapit-global/gbl-ds-elements/pull/1146), [`7cc55f5`](https://github.com/reapit-global/gbl-ds-elements/commit/7cc55f51c4868f681848fc87b6892e2333372d14), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Fixed]** Fix: `upgrade-deprecated-button-group` codemod no longer wraps children in `<ButtonGroup.Item>`, which is itself a button ([#1148](https://github.com/reapit-global/gbl-ds-elements/pull/1148), [`16ea8a7`](https://github.com/reapit-global/gbl-ds-elements/commit/16ea8a772def96a326ffe688d2706826464ecfb0), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** restrict the `post-checkout` hook to run only in linked worktrees so that `yarn install` runs automatically when a new linked worktree is created or when checking out a branch within a linked worktree, but is skipped in the main working tree. ([#1142](https://github.com/reapit-global/gbl-ds-elements/pull/1142), [`f28b29b`](https://github.com/reapit-global/gbl-ds-elements/commit/f28b29b87ce31e13138f8e147a47f95bbdf6d4e3), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Fix release workflow failing to create git tag and GitHub release after publishing to npm. ([#1147](https://github.com/reapit-global/gbl-ds-elements/pull/1147), [`90b464a`](https://github.com/reapit-global/gbl-ds-elements/commit/90b464aa9a1c65366802c8ec2ef3b0de7dca387b), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Update browserslist db ([#1145](https://github.com/reapit-global/gbl-ds-elements/pull/1145), [`6830293`](https://github.com/reapit-global/gbl-ds-elements/commit/6830293ad91420f325ac5daabb83aeee74232cc2), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
 ## 5.0.0-beta.77
 
 ### Major Changes
