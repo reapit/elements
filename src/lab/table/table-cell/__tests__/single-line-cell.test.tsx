@@ -3,7 +3,15 @@ import { SingleLineCell } from '../index'
 
 describe('TableCell', () => {
   test('should match snapshot', () => {
-    const { asFragment } = render(<SingleLineCell>td</SingleLineCell>)
+    const { asFragment } = render(
+      <table>
+        <tbody>
+          <tr>
+            <SingleLineCell>td</SingleLineCell>
+          </tr>
+        </tbody>
+      </table>,
+    )
     expect(asFragment()).toMatchSnapshot()
   })
 })

@@ -29,7 +29,7 @@ import { elIsActive } from '../../styles/deprecated-states'
 import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 import { AppSwitcherIcon } from '#src/icons/app-switcher'
 import { MoreIcon } from '#src/icons/more'
-import { BrandLogo } from '../../core/top-bar/brand-logo'
+import { AppLogo } from '../../core/top-bar/brand-logo/app-logo'
 import { ChevronUpIcon } from '#src/icons/chevron-up'
 import { ChevronDownIcon } from '#src/icons/chevron-down'
 
@@ -271,7 +271,7 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
                     tabIndex={0}
                   />
                 ) : (
-                  <BrandLogo appName="Reapit" />
+                  <AppLogo appName="Reapit" />
                 )}
                 {/* TODO: Migrate dynamic props manually */}
                 <span

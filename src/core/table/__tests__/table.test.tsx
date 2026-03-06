@@ -13,7 +13,7 @@ test('renders as a table element by default', () => {
 test('can render as a div with no implicit role', () => {
   const { container } = render(
     <Table as="div" columns="1fr">
-      <tbody />
+      <div />
     </Table>,
   )
   expect(container.firstElementChild?.tagName).toBe('DIV')

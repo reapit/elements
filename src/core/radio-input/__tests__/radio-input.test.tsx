@@ -24,7 +24,7 @@ test('displays an ARIA hidden unchecked icon with `data-show-when="unchecked"` a
 })
 
 test('displays an ARIA hidden checked icon with `data-show-when="checked"` attribute', () => {
-  const { container } = render(<RadioInput checked />)
+  const { container } = render(<RadioInput checked readOnly />)
   const checkedIcon = container.querySelector('[data-show-when="checked"]')
   expect(checkedIcon).toBeInTheDocument()
   expect(checkedIcon).toHaveAttribute('aria-hidden', 'true')

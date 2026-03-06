@@ -3,7 +3,15 @@ import { DoubleLineCell } from '../index'
 
 describe('TableCell', () => {
   test('should match snapshot', () => {
-    const { asFragment } = render(<DoubleLineCell>td</DoubleLineCell>)
+    const { asFragment } = render(
+      <table>
+        <tbody>
+          <tr>
+            <DoubleLineCell>td</DoubleLineCell>
+          </tr>
+        </tbody>
+      </table>,
+    )
     expect(asFragment()).toMatchSnapshot()
   })
 })

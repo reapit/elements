@@ -3,6 +3,16 @@ import { Modal, handleModalFocus } from '../modal'
 import { createRef } from 'react'
 
 describe('Modal component', () => {
+  let consoleWarn: ReturnType<typeof vi.spyOn>
+
+  beforeEach(() => {
+    consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+  })
+
+  afterEach(() => {
+    consoleWarn.mockRestore()
+  })
+
   it('should match a snapshot when closed', () => {
     const wrapper = render(
       <Modal isOpen={false} onModalClose={() => {}} title="test">

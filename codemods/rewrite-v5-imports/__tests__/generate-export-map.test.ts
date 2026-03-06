@@ -1,4 +1,4 @@
-import { describe, test, expect, beforeAll } from 'vitest'
+import { describe, test, expect, beforeAll, vi } from 'vitest'
 import { Project } from 'ts-morph'
 import { getModuleEntries, getExportedNames, buildExportMap, generateFileContent } from '../generate-export-map'
 import { resolve } from 'node:path'
@@ -196,8 +196,12 @@ describe('buildExportMap (integration, against real source)', { timeout: 30_000 
 
   // buildExportMap internally creates a ts-morph Project and processes every
   // source file; give the hook the same 30 s budget as the tests.
+  // Suppress the expected duplicate-export console.warn — the duplicates are a
+  // known property of the source barrel structure, not a test failure.
   beforeAll(() => {
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     exportMap = buildExportMap(SRC_DIR)
+    consoleWarn.mockRestore()
   }, 30_000)
 
   test('produces a non-empty map', () => {

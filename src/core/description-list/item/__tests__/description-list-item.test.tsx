@@ -138,9 +138,12 @@ test('forwards additional props to the underlying element', () => {
 })
 
 test('throws error when rendered outside DescriptionList context', () => {
+  const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
   expect(() => {
     render(<DescriptionList.Item label="Test">Content</DescriptionList.Item>)
   }).toThrow('useDescriptionListContext requires a DescriptionList ancestor')
+
+  consoleError.mockRestore()
 })
 
 interface WrapperProps {

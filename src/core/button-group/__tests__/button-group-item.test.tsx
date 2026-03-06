@@ -48,7 +48,10 @@ test('defaults to medium size when context does not specify size', () => {
 })
 
 test('throws error when used outside ButtonGroup context', () => {
+  const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
   expect(() => {
     render(<ButtonGroupItem>Label</ButtonGroupItem>)
   }).toThrow('useButtonGroupContext requires a ButtonGroup ancestor')
+
+  consoleError.mockRestore()
 })

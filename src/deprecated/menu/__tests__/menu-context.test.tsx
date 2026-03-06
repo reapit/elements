@@ -8,6 +8,7 @@ describe('MenuProvider and useMenuContext', () => {
   })
 
   it('should throw an error when useMenuContext is used outside of MenuProvider', () => {
+    const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
     const TestErrorComponent = () => {
       useDeprecatedMenuContext()
       return null
@@ -15,5 +16,6 @@ describe('MenuProvider and useMenuContext', () => {
     const renderWithoutProvider = () => render(<TestErrorComponent />)
 
     expect(renderWithoutProvider).toThrow('useMenuContext must be used within a MenuProvider')
+    consoleError.mockRestore()
   })
 })

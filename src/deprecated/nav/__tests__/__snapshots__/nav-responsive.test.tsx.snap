@@ -10,11 +10,6 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
   >
     <a
       class="mocked-styled-4 el-deprecated-nav-item"
-    />
-    <a
-      aria-label="Go to Reapit"
-      class="mocked-styled-14 el-brand-logo"
-      href="/"
     >
       <svg
         aria-label="Reapit"
@@ -65,27 +60,27 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
           fill="#222B33"
         />
       </svg>
-    </a>
-    <span
-      class="el-ml-auto el-mr4 el-deprecated-nav-item-hide-desktop"
-      role="button"
-      tabindex="0"
-    >
-      <svg
-        class="el-icon"
-        color="inherit"
-        data-size="100%"
-        fill="currentColor"
-        height="24"
-        viewBox="0 0 24 24"
-        width="24"
-        xmlns="http://www.w3.org/2000/svg"
+      <span
+        class="el-ml-auto el-mr4 el-deprecated-nav-item-hide-desktop"
+        role="button"
+        tabindex="0"
       >
-        <path
-          d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm5 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm7 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
-        />
-      </svg>
-    </span>
+        <svg
+          class="el-icon"
+          color="inherit"
+          data-size="100%"
+          fill="currentColor"
+          height="24"
+          viewBox="0 0 24 24"
+          width="24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M7 12a2 2 0 1 1-4 0 2 2 0 0 1 4 0Zm5 2a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm7 0a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"
+          />
+        </svg>
+      </span>
+    </a>
     <a
       class="el-deprecated-nav-item-active el-deprecated-nav-item"
       role="button"

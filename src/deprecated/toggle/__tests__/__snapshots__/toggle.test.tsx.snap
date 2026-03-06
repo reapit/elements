@@ -30,7 +30,7 @@ exports[`Toggle > should match a snapshot and render children 1`] = `
 exports[`ToggleRadio > should match a snapshot and render children 1`] = `
 <DocumentFragment>
   <div
-    class="el-toggle-full-width el-toggle-radio-wrap"
+    class="mocked-styled-6 el-toggle-radio-wrap"
   >
     <input
       checked=""
@@ -41,7 +41,7 @@ exports[`ToggleRadio > should match a snapshot and render children 1`] = `
       value="option-1"
     />
     <label
-      class="el-toggle-full-width el-toggle-radio-label"
+      class="mocked-styled-5 el-toggle-radio-label"
       for="option-1"
       role="button"
       tabindex="0"
@@ -60,7 +60,7 @@ exports[`ToggleRadio > should match a snapshot and render children 1`] = `
       value="option-2"
     />
     <label
-      class="el-toggle-full-width el-toggle-radio-label"
+      class="mocked-styled-5 el-toggle-radio-label"
       for="option-2"
       role="button"
       tabindex="0"
@@ -79,7 +79,7 @@ exports[`ToggleRadio > should match a snapshot and render children 1`] = `
       value="option-3"
     />
     <label
-      class="el-toggle-full-width el-toggle-radio-label"
+      class="mocked-styled-5 el-toggle-radio-label"
       for="option-3"
       role="button"
       tabindex="0"

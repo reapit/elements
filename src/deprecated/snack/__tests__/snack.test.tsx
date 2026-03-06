@@ -22,7 +22,9 @@ describe('Snack component', () => {
 
 describe('SnackHolder component', () => {
   it('should match a snapshot', () => {
-    const wrapper = render(<SnackHolder snacks={[{ text: 'i am a snack', intent: 'primary', icon: 'info' }]} />)
+    const wrapper = render(
+      <SnackHolder snacks={[{ _id: 'snack-1', text: 'i am a snack', intent: 'primary', icon: 'info' }]} />,
+    )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 })

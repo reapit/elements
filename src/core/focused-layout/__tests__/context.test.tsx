@@ -4,9 +4,11 @@ import { renderHook } from '@testing-library/react'
 import type { ReactNode } from 'react'
 
 test('throws when called outside a FocusedLayout', () => {
+  const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
   expect(() => {
     renderHook(() => useFocusedLayoutContext())
   }).toThrow('useFocusedLayoutContext requires a FocusedLayout ancestor')
+  consoleError.mockRestore()
 })
 
 test('returns the context value', () => {

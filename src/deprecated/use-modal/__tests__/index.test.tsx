@@ -4,6 +4,7 @@ import { renderHook, act } from '@testing-library/react'
 
 describe('useModal', () => {
   it('should return UseModal type correctly', async () => {
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     const { result } = renderHook(() => useModal('some-div'))
 
     expect(render(<result.current.Modal />).asFragment()).toMatchSnapshot()
@@ -19,5 +20,6 @@ describe('useModal', () => {
     })
 
     expect(result.current.modalIsOpen).toBe(false)
+    consoleWarn.mockRestore()
   })
 })

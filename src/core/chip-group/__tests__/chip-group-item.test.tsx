@@ -46,7 +46,10 @@ test('props from ChipGroupContext can be overridden', () => {
 })
 
 test('throws error when used outside ChipGroup context', () => {
+  const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
   expect(() => {
     render(<ChipGroupItem>Label</ChipGroupItem>)
   }).toThrow('useChipGroupContext requires a ChipGroup ancestor')
+
+  consoleError.mockRestore()
 })

@@ -9,6 +9,7 @@ describe('Tabs', () => {
         name="my-cool-toggle-radio"
         isFullWidth
         isControlled
+        onChange={() => void 0}
         options={[
           {
             id: 'option-1',

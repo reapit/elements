@@ -1,5 +1,5 @@
 import { createRef } from 'react'
-import { render, fireEvent, waitFor } from '@testing-library/react'
+import { render, fireEvent, waitFor, act } from '@testing-library/react'
 import { screen } from '@testing-library/dom'
 import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from '../searchable-dropdown'
 
@@ -16,7 +16,7 @@ describe('SearchableDropdown component', () => {
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
 
-  it('should get results from the given function, passing the value of the search box', () => {
+  it('should get results from the given function, passing the value of the search box', async () => {
     const getResults = vi.fn().mockResolvedValue([{ id: '1', name: 'one' }])
 
     render(
@@ -29,7 +29,9 @@ describe('SearchableDropdown component', () => {
       />,
     )
 
-    fireEvent.change(screen.getByTestId('search-input'), { target: { value: 'test' } })
+    await act(async () => {
+      fireEvent.change(screen.getByTestId('search-input'), { target: { value: 'test' } })
+    })
 
     expect(getResults).toHaveBeenCalledWith('test')
   })

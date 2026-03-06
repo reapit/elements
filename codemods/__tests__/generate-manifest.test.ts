@@ -150,7 +150,9 @@ Body content.`
     const codemodDir = join(testDir, 'test-codemod')
     mkdirSync(codemodDir)
 
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     const result = getCodemodMetadata(testDir, 'test-codemod')
+    consoleWarn.mockRestore()
 
     expect(result).toEqual({
       name: 'test-codemod',
@@ -231,12 +233,16 @@ description: My awesome codemod
 
     writeFileSync(join(codemod2Dir, 'transform.ts'), 'export default function() {}')
 
+    const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
+
     // Discover codemods
     const codemods = discoverCodemods(testDir)
     expect(codemods).toEqual(['another-codemod', 'my-codemod'])
 
     // Get metadata for each
     const metadata = codemods.map((name) => getCodemodMetadata(testDir, name))
+
+    consoleWarn.mockRestore()
 
     expect(metadata).toEqual([
       { name: 'another-codemod', description: null },

@@ -42,9 +42,12 @@ test('applies custom className', () => {
 })
 
 test('throws error when rendered outside context', () => {
+  const consoleError = vi.spyOn(console, 'error').mockImplementation(() => {})
   expect(() => {
     render(<AtAGlanceCardDescription>Test Description</AtAGlanceCardDescription>)
   }).toThrow('useAtAGlanceCardContext requires an AtAGlance.Card ancestor')
+
+  consoleError.mockRestore()
 })
 
 interface WrapperProps {

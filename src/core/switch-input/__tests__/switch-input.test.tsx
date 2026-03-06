@@ -12,7 +12,7 @@ test('is always a as type="checkbox" input', () => {
 })
 
 test('can be checked', () => {
-  render(<SwitchInput checked />)
+  render(<SwitchInput checked onChange={() => void 0} />)
   expect(screen.getByRole('switch')).toBeChecked()
 })
 
