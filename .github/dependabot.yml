@@ -1,0 +1,33 @@
+version: 2
+updates:
+  - package-ecosystem: 'npm'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    groups:
+      prod-dependencies:
+        dependency-type: 'production'
+        update-types:
+          - 'minor'
+          - 'patch'
+      dev-dependencies:
+        dependency-type: 'development'
+        update-types:
+          - 'minor'
+          - 'patch'
+    commit-message:
+      prefix: 'chore' # Add "chore: " to the start of the commit and PR title
+    pull-request-branch-name:
+      separator: '-' # Change default separator (/) to a hyphen (-)
+
+  - package-ecosystem: 'github-actions'
+    directory: '/'
+    schedule:
+      interval: 'weekly'
+    groups:
+      all-actions:
+        patterns: ['*']
+    commit-message:
+      prefix: 'chore' # Add "chore: " to the start of the commit and PR title
+    pull-request-branch-name:
+      separator: '-' # Change default separator (/) to a hyphen (-)
