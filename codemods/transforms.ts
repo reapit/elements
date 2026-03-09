@@ -5,6 +5,7 @@ import type { Transform } from './runner.js'
 export const transforms = {
   "apply-textarea-field-sizing": () => import("./apply-textarea-field-sizing/transform.js"),
   "at-a-glance-article-card": () => import("./at-a-glance-article-card/transform.js"),
+  "inline-use-click-outside": () => import("./inline-use-click-outside/transform.js"),
   "rewrite-text-font-imports": () => import("./rewrite-text-font-imports/transform.js"),
   "rewrite-v4-imports": () => import("./rewrite-v4-imports/transform.js"),
   "rewrite-v5-imports": () => import("./rewrite-v5-imports/transform.js"),

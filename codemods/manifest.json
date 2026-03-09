@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-03-05T03:40:10.112Z",
+  "generated": "2026-03-08T23:38:10.340Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -9,6 +9,10 @@
     {
       "name": "at-a-glance-article-card",
       "description": "Migrates AtAGlance.Card to AtAGlance.ArticleCard"
+    },
+    {
+      "name": "inline-use-click-outside",
+      "description": "Inlines deprecated useClickOutside calls and removes Elements imports"
     },
     {
       "name": "rewrite-text-font-imports",
