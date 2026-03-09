@@ -15,6 +15,10 @@
       "description": "Inlines deprecated useClickOutside calls and removes Elements imports"
     },
     {
+      "name": "replace-deprecated-label",
+      "description": "Replaces DeprecatedLabel and DeprecatedLabelProps with LabelText and LabelText.Props"
+    },
+    {
       "name": "rewrite-text-font-imports",
       "description": "Migrates Text and font imports from core/text to utils/text and utils/font"
     },
