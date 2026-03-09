@@ -28,12 +28,12 @@ jobs:
       group: rpt-gbl-linux-x64
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
       - name: Set Node
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v6
         with:
           node-version: '22.x'
 
@@ -49,7 +49,7 @@ jobs:
 
       - name: Set up cache
         id: cache
-        uses: actions/cache@v4
+        uses: actions/cache@v5
         with:
           key: cache/${{github.repository}}/${{github.ref}}
           restore-keys: cache/${{github.repository}}/refs/heads/main
@@ -62,7 +62,7 @@ jobs:
       - name: Run Playwright tests
         run: yarn playwright test
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: always()
         with:
           name: playwright-report

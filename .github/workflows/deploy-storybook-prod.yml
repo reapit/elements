@@ -19,14 +19,14 @@ jobs:
       group: rpt-gbl-linux-x64
     steps:
       - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v3
+        uses: aws-actions/configure-aws-credentials@v6
         with:
           role-to-assume: ${{ secrets.AWS_OIDC_ARN_PROD }}
           role-session-name: AWS_OIDC_ARN_PROD
           aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Checkout
-        uses: actions/checkout@v5
+        uses: actions/checkout@v6
         with:
           fetch-depth: 0
 
