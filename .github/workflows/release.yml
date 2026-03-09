@@ -74,5 +74,7 @@ jobs:
     name: Deploy Storybook (Prod)
     needs: release
     if: needs.release.outputs.published == 'true'
-    uses: ./.github/workflows/deploy-storybook-prod.yml
+    uses: ./.github/workflows/deploy-storybook.yml
+    with:
+      target: production
     secrets: inherit

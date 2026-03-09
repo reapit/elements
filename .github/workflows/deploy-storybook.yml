@@ -1,0 +1,104 @@
+# Deploy Storybook to development or production.
+#
+# Triggers:
+#   push to main  → always deploys development (inputs are undefined, defaults apply)
+#   workflow_call  → caller specifies target (used by release.yml for production)
+#   workflow_dispatch → manual deploy with a target dropdown
+#
+# APP_STAGE must be exported as a real environment variable because
+# scripts/cdk/cdk-stack.cts reads process.env.APP_STAGE to decide
+# which site config (development or production) to deploy via CDK.
+
+name: Deploy Storybook
+
+on:
+  push:
+    branches:
+      - main
+  workflow_call:
+    inputs:
+      target:
+        description: 'Deploy target. Valid values: development, production'
+        type: string
+        default: 'development'
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Deploy target'
+        type: choice
+        options:
+          - development
+          - production
+        default: 'development'
+
+permissions:
+  contents: read
+  id-token: write
+
+env:
+  CI: true
+
+jobs:
+  deploy-storybook:
+    name: Deploy Storybook (${{ inputs.target || 'development' }})
+    runs-on:
+      group: rpt-gbl-linux-x64
+    steps:
+      # Fail fast with a clear message if someone manually triggers a
+      # production deploy from a non-main branch. This only fires for
+      # workflow_dispatch — push events don't have inputs.target set,
+      # and workflow_call callers (e.g. release.yml) are expected to
+      # enforce their own branch restrictions.
+      - name: Guard production deploy
+        if: >-
+          github.event_name == 'workflow_dispatch'
+          && inputs.target == 'production'
+          && github.ref != 'refs/heads/main'
+        run: |
+          echo "::error::Production deploys are only permitted from the main branch."
+          exit 1
+
+      # Centralise target resolution in a single step so the rest of the
+      # workflow reads from one source of truth. This avoids duplicating
+      # ternary expressions across APP_STAGE, role-to-assume, and
+      # role-session-name — where a mismatch could deploy development
+      # config with production credentials or vice versa.
+      #
+      # On push events, inputs.target is undefined, so the fallback
+      # defaults to development.
+      - name: Resolve target
+        id: target
+        run: |
+          TARGET="${{ inputs.target || 'development' }}"
+          if [ "$TARGET" != "development" ] && [ "$TARGET" != "production" ]; then
+            echo "::error::Invalid target '$TARGET'. Valid values are 'development' or 'production'."
+            exit 1
+          fi
+          echo "target=$TARGET" >> "$GITHUB_OUTPUT"
+          echo "APP_STAGE=$TARGET" >> "$GITHUB_ENV"
+
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v6
+        with:
+          role-to-assume: ${{ steps.target.outputs.target == 'production' && secrets.AWS_OIDC_ARN_PROD || secrets.AWS_OIDC_ARN_DEV }}
+          role-session-name: ${{ steps.target.outputs.target == 'production' && 'AWS_OIDC_ARN_PROD' || 'AWS_OIDC_ARN_DEV' }}
+          aws-region: ${{ secrets.AWS_REGION }}
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Set Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: '22.x'
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Build Storybook
+        run: yarn build:storybook
+
+      - name: Deploy
+        run: yarn deploy
