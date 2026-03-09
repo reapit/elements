@@ -89,26 +89,3 @@ jobs:
 
       - name: Build
         run: yarn build
-
-  changeset:
-    name: Check for changeset
-    runs-on:
-      group: rpt-gbl-linux-x64
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-
-      - name: Set Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 22
-          cache: 'yarn'
-
-      - name: Install
-        run: yarn install --immutable
-
-      - name: Check for changeset
-        # Use origin/main here because main won't be setup as a local branch by actions/checkout
-        run: yarn changeset status --since=origin/main
