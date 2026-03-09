@@ -1,6 +1,6 @@
 import { InputGroup } from './index'
+import { ElInputGroupLabel } from './__styles__'
 import { Input } from '../input'
-import { DeprecatedLabel } from '../label'
 import { InputAddOn } from '../input-add-on'
 import { UserIcon } from '#src/icons/user'
 import { PhoneIcon } from '#src/icons/phone'
@@ -15,7 +15,7 @@ export const CompleteExample = {
     <InputGroup>
       <Input id="myId" type="text" />
       <UserIcon size="sm" />
-      <DeprecatedLabel htmlFor="myId">Enter your username</DeprecatedLabel>
+      <ElInputGroupLabel htmlFor="myId">Enter your username</ElInputGroupLabel>
       <InputAddOn>Required</InputAddOn>
     </InputGroup>
   ),
@@ -36,7 +36,7 @@ export const WithLabelOnly = {
   render: ({}) => (
     <InputGroup>
       <Input id="myId3" type="email" />
-      <DeprecatedLabel htmlFor="myId3">Email address</DeprecatedLabel>
+      <ElInputGroupLabel htmlFor="myId3">Email address</ElInputGroupLabel>
     </InputGroup>
   ),
   name: 'With Label only',

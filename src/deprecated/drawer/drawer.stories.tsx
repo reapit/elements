@@ -4,7 +4,7 @@ import { Button } from '../../core/button'
 import { ButtonGroup } from '../../core/button-group'
 import { FormLayout, InputWrapFull, InputWrapHalf } from '../../deprecated/form-layout'
 import { InputGroup } from '../input-group'
-import { DeprecatedLabel } from '../label'
+import { ElInputGroupLabel } from '../input-group/__styles__'
 import { DeprecatedSelect } from '../select'
 import { Textarea } from '../../core/textarea'
 import { TextBase } from '../typography'
@@ -74,7 +74,7 @@ export const ReactUsageWithForm = {
             </InputWrapHalf>
             <InputWrapHalf>
               <InputGroup>
-                <DeprecatedLabel>Under 18?</DeprecatedLabel>
+                <ElInputGroupLabel>Under 18?</ElInputGroupLabel>
                 <DeprecatedSelect>
                   <option>Yes</option>
                   <option>No</option>
@@ -83,7 +83,7 @@ export const ReactUsageWithForm = {
             </InputWrapHalf>
             <InputWrapFull>
               <InputGroup>
-                <DeprecatedLabel>Notes</DeprecatedLabel>
+                <ElInputGroupLabel>Notes</ElInputGroupLabel>
                 <Textarea fieldSizing="content" />
               </InputGroup>
             </InputWrapFull>

@@ -3,6 +3,7 @@ import {
   ElSearchableDropdownContainer,
   ElSearchableDropdownResult,
   ElSearchableDropdownResultsContainer,
+  ElSearchableDropdownLabel,
   ElSearchableDropdownSearchInput,
   ElSearchableDropdownSearchInputAddOn,
   ElSearchableDropdownSearchLabel,
@@ -10,7 +11,6 @@ import {
 } from './__styles__'
 import { handleSetNativeInput } from '../multi-select'
 import { generateRandomId } from '../../storybook/random-id'
-import { DeprecatedLabel } from '../label'
 import { elMb3 } from '../../styles/deprecated-spacing'
 import { elFlex } from '../../styles/deprecated-flexbox'
 import { cx } from '@linaria/core'
@@ -63,9 +63,9 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
   return (
     <>
       {label && (
-        <DeprecatedLabel className={cx(elFlex, elMb3)} htmlFor={id}>
+        <ElSearchableDropdownLabel className={cx(elFlex, elMb3)} htmlFor={id}>
           {label}
-        </DeprecatedLabel>
+        </ElSearchableDropdownLabel>
       )}
       <ElSearchableDropdownContainer
         role="combobox"

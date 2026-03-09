@@ -1,7 +1,6 @@
 import React, { forwardRef, ReactNode } from 'react'
-import { ElInputGroup } from './__styles__'
+import { ElInputGroup, ElInputGroupLabel } from './__styles__'
 import { Input } from '../input'
-import { DeprecatedLabel } from '../label'
 import { InputAddOn } from '../input-add-on'
 import { Intent } from '../../helpers/intent'
 import { useId } from '../../storybook/random-id'
@@ -50,7 +49,7 @@ export const InputGroup: InputGroupWrapped = forwardRef(
         <ElInputGroup className={className}>
           <Input hasError={errorState} id={groupId} {...rest} ref={ref} />
           {icon && icon}
-          {label && <DeprecatedLabel htmlFor={groupId}>{label}</DeprecatedLabel>}
+          {label && <ElInputGroupLabel htmlFor={groupId}>{label}</ElInputGroupLabel>}
           {inputAddOnText && <InputAddOn intent={errorState ? 'danger' : intent}>{inputAddOnText}</InputAddOn>}
           {errorMessage && <InputError message={errorMessage} />}
         </ElInputGroup>

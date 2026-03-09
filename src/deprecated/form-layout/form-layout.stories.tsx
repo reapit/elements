@@ -5,9 +5,9 @@ import { Textarea } from '../../core/textarea'
 import { MultiSelectInput } from '../../deprecated/multi-select'
 import { Button } from '../../core/button'
 import { ButtonGroup } from '../../core/button-group'
-import { DeprecatedLabel } from '../../deprecated/label'
 import { DeprecatedSelect } from '../../deprecated/select'
 import { TextBase, TextSM } from '../../deprecated/typography'
+import { ElInputGroupLabel } from '../input-group/__styles__'
 
 export default {
   title: 'Deprecated/FormLayout',
@@ -45,7 +45,7 @@ export const BasicForm = {
               <ElToggleItem>On</ElToggleItem>
               <ElToggleItem>Off</ElToggleItem>
             </Toggle>
-            <DeprecatedLabel>Active</DeprecatedLabel>
+            <ElInputGroupLabel>Active</ElInputGroupLabel>
           </InputGroup>
         </InputWrapSmall>
         <InputWrap>
@@ -73,13 +73,13 @@ export const BasicForm = {
                 },
               ]}
             />
-            <DeprecatedLabel>Options</DeprecatedLabel>
+            <ElInputGroupLabel>Options</ElInputGroupLabel>
           </InputGroup>
         </InputWrap>
         <InputWrapFull>
           <InputGroup>
             <Textarea fieldSizing="content" placeholder="A placeholder" />
-            <DeprecatedLabel>Long Description</DeprecatedLabel>
+            <ElInputGroupLabel>Long Description</ElInputGroupLabel>
           </InputGroup>
         </InputWrapFull>
       </FormLayout>
@@ -112,7 +112,7 @@ export const ComplexForm = {
         </InputWrap>
         <InputWrap>
           <InputGroup>
-            <DeprecatedLabel>Select Option</DeprecatedLabel>
+            <ElInputGroupLabel>Select Option</ElInputGroupLabel>
             <DeprecatedSelect>
               <option value="1">Option 1</option>
               <option value="2">Option 2</option>
@@ -129,7 +129,7 @@ export const ComplexForm = {
               <ElToggleItem>On</ElToggleItem>
               <ElToggleItem>Off</ElToggleItem>
             </Toggle>
-            <DeprecatedLabel>Active</DeprecatedLabel>
+            <ElInputGroupLabel>Active</ElInputGroupLabel>
           </InputGroup>
         </InputWrapSmall>
         <InputWrap>
@@ -157,13 +157,13 @@ export const ComplexForm = {
                 },
               ]}
             />
-            <DeprecatedLabel>Options</DeprecatedLabel>
+            <ElInputGroupLabel>Options</ElInputGroupLabel>
           </InputGroup>
         </InputWrap>
         <InputWrapFull>
           <InputGroup>
             <Textarea fieldSizing="content" placeholder="A placeholder" />
-            <DeprecatedLabel>Long Description</DeprecatedLabel>
+            <ElInputGroupLabel>Long Description</ElInputGroupLabel>
           </InputGroup>
         </InputWrapFull>
       </FormLayout>
@@ -198,7 +198,7 @@ export const ComplexForm = {
               ]}
               defaultValues={['item-one']}
             />
-            <DeprecatedLabel>Select Items</DeprecatedLabel>
+            <ElInputGroupLabel>Select Items</ElInputGroupLabel>
           </InputGroup>
         </InputWrapFull>
       </FormLayout>

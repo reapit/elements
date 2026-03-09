@@ -3,11 +3,11 @@
 exports[`InputGroup component > should match a snapshot when used in explicit mode 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-0 el-input-group"
+    class="mocked-styled-1 el-input-group"
   >
     <input
       aria-label="Input type undefined"
-      class="mocked-styled-1 el-input"
+      class="mocked-styled-2 el-input"
     />
     <svg
       class="el-icon"
@@ -24,7 +24,7 @@ exports[`InputGroup component > should match a snapshot when used in explicit mo
       />
     </svg>
     <label
-      class="mocked-styled-2 el-deprecated-label"
+      class="mocked-styled-0 el-input-group-label"
     >
       Please enter a username
     </label>
@@ -35,11 +35,11 @@ exports[`InputGroup component > should match a snapshot when used in explicit mo
 exports[`InputGroup component > should match a snapshot when used in react shorthand mode 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-0 el-input-group"
+    class="mocked-styled-1 el-input-group"
   >
     <input
       aria-label="Input type undefined"
-      class="mocked-styled-1 el-input"
+      class="mocked-styled-2 el-input"
       id="myId"
     />
   </div>
@@ -49,15 +49,15 @@ exports[`InputGroup component > should match a snapshot when used in react short
 exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with a label 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-0 el-input-group"
+    class="mocked-styled-1 el-input-group"
   >
     <input
       aria-label="Input type undefined"
-      class="mocked-styled-1 el-input"
+      class="mocked-styled-2 el-input"
       id="myId"
     />
     <label
-      class="mocked-styled-2 el-deprecated-label"
+      class="mocked-styled-0 el-input-group-label"
       for="myId"
     >
       Enter your username
@@ -69,11 +69,11 @@ exports[`InputGroup component > should match a snapshot when used in react short
 exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with an icon 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-0 el-input-group"
+    class="mocked-styled-1 el-input-group"
   >
     <input
       aria-label="Input type undefined"
-      class="mocked-styled-1 el-input"
+      class="mocked-styled-2 el-input"
       id="myId"
     />
     email
@@ -84,16 +84,16 @@ exports[`InputGroup component > should match a snapshot when used in react short
 exports[`InputGroup component > should match a snapshot when used in react shorthand mode, with an icon and a label 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-0 el-input-group"
+    class="mocked-styled-1 el-input-group"
   >
     <input
       aria-label="Input type undefined"
-      class="mocked-styled-1 el-input"
+      class="mocked-styled-2 el-input"
       id="myId"
     />
     email
     <label
-      class="mocked-styled-2 el-deprecated-label"
+      class="mocked-styled-0 el-input-group-label"
       for="myId"
     >
       Enter your username

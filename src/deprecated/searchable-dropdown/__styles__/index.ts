@@ -2,7 +2,12 @@ import { styled } from '@linaria/react'
 import { InputAddOn } from '../../input-add-on'
 import { Input } from '../../input'
 import { Loader } from '../../loader'
-import { DeprecatedLabel } from '../../label'
+
+/** @deprecated */
+export const ElSearchableDropdownLabel = styled.label`
+  font-size: 0.875rem /* was --font-size-small */;
+  color: var(--colour-text-secondary);
+`
 
 /** @deprecated */
 export const ElSearchableDropdownContainer = styled.div`
@@ -57,7 +62,7 @@ export const ElSearchableDropdownSearchInput = styled(Input)`
 `
 
 /** @deprecated */
-export const ElSearchableDropdownSearchLabel = styled(DeprecatedLabel)`
+export const ElSearchableDropdownSearchLabel = styled(ElSearchableDropdownLabel)`
   margin-left: 0.25rem;
   margin-bottom: 0.125rem;
   display: inline-block;

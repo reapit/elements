@@ -12,13 +12,13 @@ import React, {
 import { useId } from '../../storybook/random-id'
 import { elMl3, elMr4 } from '../../styles/deprecated-spacing'
 import { Button } from '#src/core/button'
-import { DeprecatedLabel } from '../../deprecated/label'
 import { FlexContainer } from '../../deprecated/layout'
 import { handleSetNativeInput } from '../../deprecated/multi-select'
 import {
   ElFileInput,
   ElFileInputHidden,
   ElFileInputIconContainer,
+  ElFileInputLabel,
   ElFileInputWrap,
   ElFilePreviewImage,
 } from './__styles__'
@@ -143,7 +143,7 @@ export const FileInput: FileInputWrapped = forwardRef(
 
     return (
       <ElFileInputWrap>
-        {label && <DeprecatedLabel>{label}</DeprecatedLabel>}
+        {label && <ElFileInputLabel>{label}</ElFileInputLabel>}
         <FlexContainer isFlexAlignCenter>
           <Button className={elMr4} type="button">
             {fileUrl ? 'Change' : 'Upload'}

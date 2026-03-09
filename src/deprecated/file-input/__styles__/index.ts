@@ -1,6 +1,11 @@
-import { ElDeprecatedLabel } from '../../../deprecated/label/__styles__/index'
 import { elButton } from '../../../core/button/styles'
 import { styled } from '@linaria/react'
+
+/** @deprecated */
+export const ElFileInputLabel = styled.label`
+  font-size: 0.875rem /* was --font-size-small */;
+  color: var(--colour-text-secondary);
+`
 
 /** @deprecated */
 export const ElFileInput = styled.input`
@@ -34,7 +39,7 @@ export const ElFileInputWrap = styled.div`
     padding: 1rem;
   }
 
-  ${ElDeprecatedLabel} {
+  ${ElFileInputLabel} {
     height: 1.25rem;
     display: block;
   }
