@@ -12,11 +12,17 @@ import {
 import { Text2XL, TextL, TextBase, TypographyProps } from '../typography'
 import { FlexContainer } from '../layout'
 import { DeprecatedAvatar, DeprecatedAvatarProps } from '../avatar'
-import { DeprecatedTag, DeprecatedTagGroup, DeprecatedTagProps } from '../tag'
+import { Tag } from '#src/core/tag'
+import { TagGroup } from '#src/core/tag-group'
 import { Button } from '#src/core/button'
 import { DeprecatedBreadCrumb, DeprecatedBreadCrumbProps } from '../breadcrumb'
 import { elMb3, elMb6, elMr3 } from '../../styles/deprecated-spacing'
 import { Tabs, TabsProps } from '../tabs'
+import { getIntentClassName, Intent } from '../../helpers/intent'
+
+interface DeprecatedPageHeaderTagProps extends Tag.Props {
+  intent?: Intent
+}
 
 /** @deprecated */
 export interface DeprecatedPageHeaderProps extends HTMLAttributes<HTMLDivElement> {
@@ -25,7 +31,7 @@ export interface DeprecatedPageHeaderProps extends HTMLAttributes<HTMLDivElement
   pageSubtitle?: TypographyProps
   pageInfo?: TypographyProps[]
   breadcrumb?: DeprecatedBreadCrumbProps
-  tags?: DeprecatedTagProps[]
+  tags?: DeprecatedPageHeaderTagProps[]
   buttons?: Button.Props[]
   tabs?: TabsProps
   hasMaxWidth?: boolean
@@ -87,13 +93,17 @@ export const DeprecatedPageHeader: FC<DeprecatedPageHeaderProps> = ({
               <DeprecatedPageHeaderTitleContainer>
                 {pageTitle && <Text2XL className={elMr3} tag="h1" hasBoldText {...pageTitle} />}
                 {tags && (
-                  <DeprecatedTagGroup>
-                    {tags.map(({ children, ...rest }, index) => (
-                      <DeprecatedTag key={index} {...rest}>
+                  <TagGroup>
+                    {tags.map(({ children, intent, className, ...rest }, index) => (
+                      <TagGroup.Item
+                        key={index}
+                        className={cx(intent && getIntentClassName(intent), className)}
+                        {...rest}
+                      >
                         {children}
-                      </DeprecatedTag>
+                      </TagGroup.Item>
                     ))}
-                  </DeprecatedTagGroup>
+                  </TagGroup>
                 )}
               </DeprecatedPageHeaderTitleContainer>
               {pageSubtitle && <TextL tag="h2" hasBoldText {...pageSubtitle} />}

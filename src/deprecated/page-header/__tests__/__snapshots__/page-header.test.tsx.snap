@@ -17,7 +17,7 @@ exports[`DeprecatedPageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Home"
-            class="mocked-styled-12 el-deprecated-bread-crumb-item"
+            class="mocked-styled-13 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -44,7 +44,7 @@ exports[`DeprecatedPageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Level 1"
-            class="mocked-styled-12 el-deprecated-bread-crumb-item"
+            class="mocked-styled-13 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -71,7 +71,7 @@ exports[`DeprecatedPageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="false"
             aria-label="Breadcrumb item hit return to navigate to Level 2"
-            class="mocked-styled-12 el-deprecated-bread-crumb-item"
+            class="mocked-styled-13 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -98,7 +98,7 @@ exports[`DeprecatedPageHeader component > should match a snapshot 1`] = `
           <a
             aria-current="page"
             aria-label="Breadcrumb item hit return to navigate to Level 3"
-            class="mocked-styled-12 el-deprecated-bread-crumb-item"
+            class="mocked-styled-13 el-deprecated-bread-crumb-item"
             role="button"
             tabindex="0"
           >
@@ -133,24 +133,38 @@ exports[`DeprecatedPageHeader component > should match a snapshot 1`] = `
               >
                 Page Title
               </h1>
-              <div
-                class="mocked-styled-9 el-deprecated-tag-group"
+              <ul
+                class="mocked-styled-8 el-tag-group-list"
+                data-flow="wrap"
+                data-overflow="visible"
               >
-                <div
-                  class="mocked-styled-10 el-deprecated-tag-group-inner"
+                <li
+                  class="mocked-styled-9 el-tag-group-list-item"
                 >
                   <span
-                    class="el-intent-primary el-deprecated-tag"
+                    class="el-intent-primary el-tag"
                   >
-                    Tag 1
+                    <span
+                      class="mocked-styled-11 el-tag-label"
+                    >
+                      Tag 1
+                    </span>
                   </span>
+                </li>
+                <li
+                  class="mocked-styled-9 el-tag-group-list-item"
+                >
                   <span
-                    class="el-intent-primary el-deprecated-tag"
+                    class="el-intent-primary el-tag"
                   >
-                    Tag 2
+                    <span
+                      class="mocked-styled-11 el-tag-label"
+                    >
+                      Tag 2
+                    </span>
                   </span>
-                </div>
-              </div>
+                </li>
+              </ul>
             </div>
             <h2
               class="el-text-base el-text-l el-has-bold-text"
@@ -211,66 +225,66 @@ exports[`DeprecatedPageHeader component > should match a snapshot 1`] = `
         class="el-tabs-full-width el-tabs-wrap"
       >
         <div
-          class="mocked-styled-18 el-tabs-options-wrap"
+          class="mocked-styled-19 el-tabs-options-wrap"
           role="tablist"
         >
           <input
             aria-selected="true"
             checked=""
-            class="mocked-styled-15 el-tab"
+            class="mocked-styled-16 el-tab"
             id="tab-1-fw"
             name="my-cool-tabs-full-width"
             type="radio"
             value="tab-1-fw"
           />
           <label
-            class="mocked-styled-16 el-tabs-label"
+            class="mocked-styled-17 el-tabs-label"
             for="tab-1-fw"
             role="tab"
             tabindex="0"
           >
             <span
-              class="mocked-styled-14 el-tabs-item"
+              class="mocked-styled-15 el-tabs-item"
             >
               Tab Content 1
             </span>
           </label>
           <input
             aria-selected="false"
-            class="mocked-styled-15 el-tab"
+            class="mocked-styled-16 el-tab"
             id="tab-2-fw"
             name="my-cool-tabs-full-width"
             type="radio"
             value="tab-2-fw"
           />
           <label
-            class="mocked-styled-16 el-tabs-label"
+            class="mocked-styled-17 el-tabs-label"
             for="tab-2-fw"
             role="tab"
             tabindex="0"
           >
             <span
-              class="mocked-styled-14 el-tabs-item"
+              class="mocked-styled-15 el-tabs-item"
             >
               Tab Content 2
             </span>
           </label>
           <input
             aria-selected="false"
-            class="mocked-styled-15 el-tab"
+            class="mocked-styled-16 el-tab"
             id="tab-3-fw"
             name="my-cool-tabs-full-width"
             type="radio"
             value="tab-3-fw"
           />
           <label
-            class="mocked-styled-16 el-tabs-label"
+            class="mocked-styled-17 el-tabs-label"
             for="tab-3-fw"
             role="tab"
             tabindex="0"
           >
             <span
-              class="mocked-styled-14 el-tabs-item"
+              class="mocked-styled-15 el-tabs-item"
             >
               Tab Content 3
             </span>
