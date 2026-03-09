@@ -1,5 +1,33 @@
 # @reapit/elements
 
+## 5.0.0-beta.79
+
+### Major Changes
+
+- **[Removed]** `DeprecatedBadge`, `DeprecatedBadgeGroup`, `DeprecatedBadgeProps`, `ElDeprecatedBadge`, `ElDeprecatedBadgeGroup`, and `ElDeprecatedBadgeGroupInner` from `src/deprecated/badge`. ([#1155](https://github.com/reapit-global/gbl-ds-elements/pull/1155), [`cd7a6cf`](https://github.com/reapit-global/gbl-ds-elements/commit/cd7a6cfa72f034373e8c8a7c72c92791c90e7f6b), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  Use the `upgrade-deprecated-badge` codemod to migrate to `Badge` from `@reapit/elements/core/badge`.
+
+- **[Removed]** `DeprecatedTag`, `DeprecatedTagGroup`, `DeprecatedTagProps`, `ElDeprecatedTag`, `ElDeprecatedTagGroup`, and `ElDeprecatedTagGroupInner` — run the `upgrade-deprecated-tag` codemod before upgrading to migrate to `Tag` and `TagGroup`. ([#1163](https://github.com/reapit-global/gbl-ds-elements/pull/1163), [`f82b10d`](https://github.com/reapit-global/gbl-ds-elements/commit/f82b10d514a4169a4a8dffb52d8c46aa270a86b2), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  `DeprecatedPageHeader.tags` now renders via `TagGroup` and `Tag`, with legacy `intent` values mapped to deprecated intent classes for migration compatibility.
+
+### Minor Changes
+
+- **[Added]** `TextInput`, `Textarea`, `SelectNative`, `Combobox`, `CheckboxInput`, `RadioInput`, and `DateTimeInput` now trigger error styling when `aria-invalid="true"` and `data-show-validity="true"` are both set, even when the DOM element carries no native invalid state. ([#1151](https://github.com/reapit-global/gbl-ds-elements/pull/1151), [`b9dfa21`](https://github.com/reapit-global/gbl-ds-elements/commit/b9dfa212a9ea3430ad183ab515b710c5802c15e3), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  `TextControl`, `TextareaControl`, `SelectNativeControl`, `SelectControl`, `AutocompleteControl`, `DateTimeControl`, `CheckboxControl`, `CheckboxGroupControl`, and `RadioGroupControl` now default `showValidity` to `true` when `errorText` is provided. Pass `showValidity={false}` explicitly to override.
+
+- **[Added]** New `replace-deprecated-label` codemod that migrates `DeprecatedLabel` and `DeprecatedLabelProps` to `LabelText` and `LabelText.Props`, including import-path rewrites from deprecated and barrel imports to `core/label-text`. ([#1166](https://github.com/reapit-global/gbl-ds-elements/pull/1166), [`d0dad83`](https://github.com/reapit-global/gbl-ds-elements/commit/d0dad83f2b88922975646bbf42d07223573f887a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `inline-use-click-outside` codemod to replace deprecated `useClickOutside` calls with inline `useEffect` logic and remove Elements or facade imports. ([#1161](https://github.com/reapit-global/gbl-ds-elements/pull/1161), [`0df6796`](https://github.com/reapit-global/gbl-ds-elements/commit/0df6796e243c74ea878d2dded9197a941a0a847f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Patch Changes
+
+- **[Fixed]** Exclude `.figma.tsx` files from the Vite library build's icon entry point glob. The `src/icons/*.tsx` pattern previously matched Figma Code Connect files alongside regular icon components, causing `@figma/code-connect` and its transitive dependencies (including `undici`, `jsdom`, and other Node.js-oriented packages) to be bundled into the build output. This produced Vite warnings about externalised Node.js imports and added a ~741 kB shared chunk to the artefact. This is an internal build fix and does not affect the published package API. ([#1153](https://github.com/reapit-global/gbl-ds-elements/pull/1153), [`0c0fef6`](https://github.com/reapit-global/gbl-ds-elements/commit/0c0fef6714f9515763b63c7a1a8ac83e708f6448), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Fixed]** replace nested `<a>` with `<svg>` in `DeprecatedNavResponsive` logo to resolve invalid DOM nesting, and fix console warnings across the test suite. ([#1150](https://github.com/reapit-global/gbl-ds-elements/pull/1150), [`b7f178f`](https://github.com/reapit-global/gbl-ds-elements/commit/b7f178ffee0b9af5ebe13cd721f093659d5ff91f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
 ## 5.0.0-beta.78
 
 ### Patch Changes
