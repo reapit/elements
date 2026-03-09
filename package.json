@@ -128,7 +128,6 @@
     "aws-cdk-lib": "2.137.0",
     "aws-sdk": "2.1597.0",
     "colord": "2.9.3",
-    "concurrently": "8.2.2",
     "constructs": "10.3.0",
     "coverage-badges-cli": "2.2.0",
     "dashify": "2.0.0",
