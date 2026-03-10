@@ -1,5 +1,4 @@
-import { type FC, type HTMLAttributes, useLayoutEffect, useRef, useState } from 'react'
-import { useClickOutside } from '../use-click-outside'
+import { type FC, type HTMLAttributes, useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { useDeprecatedMenuContext } from './menu-context'
 import { ElDeprecatedMenuPopover } from './styles'
 
@@ -40,7 +39,20 @@ export const DeprecatedMenuPopover: FC<
     position: 'absolute',
   })
 
-  useClickOutside(popoverRef, closeMenu)
+  useEffect(() => {
+    const controller = new AbortController()
+    const handleClickOutside = (event: MouseEvent) => {
+      const outside = popoverRef.current?.parentElement
+      const target = event.target
+      if (outside && target instanceof Node && !outside.contains(target)) {
+        closeMenu()
+      }
+    }
+    document.addEventListener('mousedown', handleClickOutside, { signal: controller.signal })
+    return () => {
+      controller.abort()
+    }
+  }, [closeMenu])
 
   useLayoutEffect(() => {
     const container = popoverRef.current?.parentElement

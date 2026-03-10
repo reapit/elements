@@ -19,9 +19,13 @@ function Example() {
     expect(output).not.toContain('useClickOutside } from')
     expect(output).toContain('const __inlineUseClickOutsideRef1 = popoverRef')
     expect(output).toContain('const __inlineUseClickOutsideOnClickOutside1 = closeMenu')
-    expect(output).toContain('const handleClickOutside = (event) =>')
+    expect(output).toContain('const handleClickOutside = (event: MouseEvent) =>')
     expect(output).toContain(
       'const outsideParentElementForClickOutside = __inlineUseClickOutsideRef1.current?.parentElement',
+    )
+    expect(output).toContain('const target = event.target')
+    expect(output).toContain(
+      'if (outsideParentElementForClickOutside && target instanceof Node && !outsideParentElementForClickOutside.contains(target))',
     )
     expect(output).toContain('(__inlineUseClickOutsideOnClickOutside1)()')
     expect(output).toContain('}, [__inlineUseClickOutsideRef1, __inlineUseClickOutsideOnClickOutside1])')
@@ -99,6 +103,26 @@ function Example() {
 
     expect(reactImportMatches).toHaveLength(1)
     expect(output).toContain("import { useEffect, useRef } from 'react'")
+  })
+
+  test('uses aliased useEffect identifier when useEffect is imported with an alias', () => {
+    const input = `import { useEffect as ue, useRef } from 'react'
+import { useClickOutside } from '@reapit/elements'
+
+function Example() {
+  const ref = useRef<HTMLDivElement | null>(null)
+  const onClose = () => {}
+  useClickOutside(ref, onClose)
+  return null
+}
+`
+
+    const output = transform(input, 'example.tsx')
+
+    expect(output).toContain('ue(() =>')
+    expect(output).not.toContain('useEffect(() =>')
+    const reactImportMatches = output.match(/from 'react'/g) ?? []
+    expect(reactImportMatches).toHaveLength(1)
   })
 
   test('adds a value useEffect import when only type-only react import exists', () => {

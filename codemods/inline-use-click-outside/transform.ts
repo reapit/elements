@@ -124,9 +124,10 @@ const ${callbackConst} = ${callbackArgText}
 
 ${useEffectIdentifier}(() => {
   const controller = new AbortController()
-  const handleClickOutside = (event) => {
+  const handleClickOutside = (event: MouseEvent) => {
     const outsideParentElementForClickOutside = ${refConst}.current?.parentElement
-    if (outsideParentElementForClickOutside && !outsideParentElementForClickOutside.contains(event?.target)) {
+    const target = event.target
+    if (outsideParentElementForClickOutside && target instanceof Node && !outsideParentElementForClickOutside.contains(target)) {
       (${callbackConst})()
     }
   }

@@ -1,4 +1,4 @@
-import { fireEvent, render } from '@testing-library/react'
+import { fireEvent, render, screen } from '@testing-library/react'
 import { DeprecatedMenu } from '../menu'
 import { calculatePopoverPosition } from '../menu-popover'
 
@@ -33,6 +33,16 @@ describe('Menu Popover component', () => {
     fireEvent.click(getByText('Trigger'))
     fireEvent.click(getByText('Non closing Menu Item'))
     expect(asFragment()).toEqual(openedMenu)
+  })
+
+  test('closes the popover when mousedown fires outside the menu', () => {
+    render(<MockMenuPopoverComponent />)
+
+    fireEvent.click(screen.getByText('Trigger'))
+    expect(screen.getByText('Menu Item')).toBeVisible()
+
+    fireEvent.mouseDown(document.body)
+    expect(screen.queryByText('Menu Item')).toBeNull()
   })
 
   describe('calculatePopoverPosition', () => {
