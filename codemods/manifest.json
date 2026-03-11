@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-03-08T23:38:10.340Z",
+  "generated": "2026-03-10T05:04:55.176Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -17,6 +17,10 @@
     {
       "name": "replace-deprecated-label",
       "description": "Replaces DeprecatedLabel and DeprecatedLabelProps with LabelText and LabelText.Props"
+    },
+    {
+      "name": "replace-lab-radio-group",
+      "description": "Migrates RadioGroup from lab/radio-group to RadioGroupControl from core/radio-group-control"
     },
     {
       "name": "rewrite-text-font-imports",
