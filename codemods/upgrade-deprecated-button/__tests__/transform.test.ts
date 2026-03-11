@@ -619,7 +619,7 @@ function MyComponent() {
     expect(output).not.toContain('"danger"')
   })
 
-  test('transforms intent={\"primary\"} JSX expression', () => {
+  test('transforms intent={"primary"} JSX expression', () => {
     const input = `
 import { DeprecatedButton } from '@reapit/elements'
 
