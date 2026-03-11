@@ -1,6 +1,6 @@
 import { SelectButton } from './select-button'
 import { SelectPopup } from './select-popup'
-import { Combobox } from '#src/core/combobox'
+import { Combobox } from '#src/utils/combobox'
 
 export namespace Select {
   export interface ButtonProps extends SelectButton.Props {}

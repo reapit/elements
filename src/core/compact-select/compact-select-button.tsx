@@ -1,5 +1,5 @@
 import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { Combobox } from '#src/core/combobox'
+import { Combobox } from '#src/utils/combobox'
 import { ElCompactSelectButton, ElCompactSelectButtonLabelText, ElCompactSelectIconContainer } from './styles'
 import { Tooltip } from '#src/core/tooltip'
 import { useId } from 'react'

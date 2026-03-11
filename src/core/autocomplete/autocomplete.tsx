@@ -1,6 +1,6 @@
 import { AutocompleteButton } from './autocomplete-button'
 import { AutocompletePopup } from './autocomplete-popup'
-import { Combobox } from '#src/core/combobox'
+import { Combobox } from '#src/utils/combobox'
 
 export namespace Autocomplete {
   export interface ButtonProps extends AutocompleteButton.Props {}

@@ -8,7 +8,7 @@ import { useId } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/Combobox/Popup',
+  title: 'Utils/Combobox/Popup',
   component: ComboboxPopupDialog,
   argTypes: {
     'aria-labelledby': {

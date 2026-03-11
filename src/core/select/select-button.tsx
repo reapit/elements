@@ -1,5 +1,5 @@
-import { Combobox } from '#src/core/combobox'
-import { useComboboxButton } from '#src/core/combobox/use-button'
+import { Combobox } from '#src/utils/combobox'
+import { useComboboxButton } from '#src/utils/combobox/use-button'
 
 type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 'size'
 

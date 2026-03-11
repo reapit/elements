@@ -7,7 +7,7 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/Combobox/Option',
+  title: 'Utils/Combobox/Option',
   component: ComboboxOption,
   argTypes: {
     'aria-checked': {

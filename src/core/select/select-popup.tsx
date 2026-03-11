@@ -1,4 +1,4 @@
-import { Combobox } from '#src/core/combobox'
+import { Combobox } from '#src/utils/combobox'
 
 // We omit `preserveSearchOnClose` and `search` because Select's should never have a search input.
 type AttributesToOmit = 'preserveSearchOnClose' | 'search'

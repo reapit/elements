@@ -23,6 +23,10 @@
       "description": "Migrates RadioGroup from lab/radio-group to RadioGroupControl from core/radio-group-control"
     },
     {
+      "name": "rewrite-combobox-imports",
+      "description": "Migrates Combobox imports from core/combobox to utils/combobox"
+    },
+    {
       "name": "rewrite-text-font-imports",
       "description": "Migrates Text and font imports from core/text to utils/text and utils/font"
     },

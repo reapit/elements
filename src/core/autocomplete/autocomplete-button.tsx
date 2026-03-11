@@ -1,4 +1,4 @@
-import { Combobox } from '#src/core/combobox'
+import { Combobox } from '#src/utils/combobox'
 import { SearchIcon } from '#src/icons/search'
 
 type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 'size'

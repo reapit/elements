@@ -6,7 +6,7 @@ import type { ChangeEventHandler } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/Combobox/Listbox',
+  title: 'Utils/Combobox/Listbox',
   component: ComboboxListbox,
   argTypes: {
     children: {

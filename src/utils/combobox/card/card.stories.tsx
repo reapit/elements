@@ -2,13 +2,13 @@ import { ComboboxButtonClearButton } from '../button'
 import { ComboboxCard } from './card'
 import { ComboboxCardDefaultContent } from '../card-default-content'
 import { ElCombobox } from '../styles'
-import { SupplementaryInfo } from '../../supplementary-info'
+import { SupplementaryInfo } from '#src/core/supplementary-info'
 
 import type { CSSProperties } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/Combobox/Card',
+  title: 'Utils/Combobox/Card',
   component: ComboboxCard,
   argTypes: {
     action: {

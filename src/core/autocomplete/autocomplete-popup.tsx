@@ -1,4 +1,4 @@
-import { Combobox } from '#src/core/combobox'
+import { Combobox } from '#src/utils/combobox'
 import type { ReactNode } from 'react'
 
 export namespace AutocompletePopup {

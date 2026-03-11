@@ -4,7 +4,7 @@ import { SupplementaryInfo } from '#src/core/supplementary-info'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/Combobox/CardDefaultContent',
+  title: 'Utils/Combobox/CardDefaultContent',
   component: ComboboxCardDefaultContent,
   argTypes: {
     children: {

@@ -1,4 +1,4 @@
-import { Combobox } from '#src/core/combobox/combobox'
+import { Combobox } from '#src/utils/combobox/combobox'
 import { CompactSelectButton } from './compact-select-button'
 import { CompactSelectPopup } from './compact-select-popup'
 import type { Dispatch, SetStateAction } from 'react'

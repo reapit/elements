@@ -4,7 +4,7 @@ import { ComboboxSearchInput } from './search-input'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/Combobox/SearchInput',
+  title: 'Utils/Combobox/SearchInput',
   component: ComboboxSearchInput,
   decorators: [
     (Story, { parameters }) => (

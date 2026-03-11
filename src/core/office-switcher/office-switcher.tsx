@@ -1,4 +1,4 @@
-import { Combobox } from '#src/core/combobox'
+import { Combobox } from '#src/utils/combobox'
 import { CompactSelect } from '#src/core/compact-select'
 import { ElOfficeSwitcher } from './styles'
 import { OfficeSwitcherPopup } from './office-switcher-popup'

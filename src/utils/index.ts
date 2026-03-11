@@ -1,4 +1,5 @@
 export * from './breakpoints'
+export * from './combobox'
 export * from './css-container-query'
 export * from './dialog'
 export * from './font'

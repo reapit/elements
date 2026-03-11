@@ -1,4 +1,4 @@
-import { ComboboxContext } from '#src/core/combobox/context'
+import { ComboboxContext } from '#src/utils/combobox/context'
 import { OfficeSwitcherSelectOption } from '../office-switcher-select-option'
 import { ListboxContext, ListboxRenderContext } from '#src/utils/listbox'
 import { render, screen } from '@testing-library/react'

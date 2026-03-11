@@ -6,7 +6,7 @@ import type { CSSProperties } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/Combobox/Button',
+  title: 'Utils/Combobox/Button',
   component: ComboboxButton,
   argTypes: {
     'aria-controls': {

@@ -1,7 +1,7 @@
 import { Combobox } from './combobox'
 import { ComboboxButton } from './button'
 import { getComboboxListboxId } from './get-listbox-id'
-import { SupplementaryInfo } from '../supplementary-info'
+import { SupplementaryInfo } from '#src/core/supplementary-info'
 import { useComboboxButton } from './use-button'
 import { useComboboxContext } from './context'
 import { useState } from 'react'
@@ -9,7 +9,7 @@ import { useState } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const meta = {
-  title: 'Core/Combobox',
+  title: 'Utils/Combobox',
   component: Combobox,
   argTypes: {
     'aria-invalid': {
