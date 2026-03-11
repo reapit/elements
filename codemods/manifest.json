@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-03-10T05:04:55.176Z",
+  "generated": "2026-03-11T05:57:16.604Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -17,6 +17,10 @@
     {
       "name": "replace-deprecated-use-click-outside",
       "description": "Inlines deprecated useClickOutside calls and removes Elements imports"
+    },
+    {
+      "name": "replace-lab-radio",
+      "description": "Migrates Radio from lab/radio to RadioButton from core/radio-group-control"
     },
     {
       "name": "replace-lab-radio-group",
