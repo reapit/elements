@@ -11,12 +11,12 @@
       "description": "Migrates AtAGlance.Card to AtAGlance.ArticleCard"
     },
     {
-      "name": "inline-use-click-outside",
-      "description": "Inlines deprecated useClickOutside calls and removes Elements imports"
-    },
-    {
       "name": "replace-deprecated-label",
       "description": "Replaces DeprecatedLabel and DeprecatedLabelProps with LabelText and LabelText.Props"
+    },
+    {
+      "name": "replace-deprecated-use-click-outside",
+      "description": "Inlines deprecated useClickOutside calls and removes Elements imports"
     },
     {
       "name": "replace-lab-radio-group",

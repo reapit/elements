@@ -2,7 +2,7 @@
 description: Inlines deprecated useClickOutside calls and removes Elements imports
 ---
 
-# Inline useClickOutside Codemod
+# Replace Deprecated useClickOutside Codemod
 
 Automates migration away from the deprecated `useClickOutside` hook by replacing each supported call with an inline `useEffect` implementation in consumer code.
 
@@ -13,16 +13,16 @@ Automates migration away from the deprecated `useClickOutside` hook by replacing
 yarn dlx @reapit/elements@beta codemod list
 
 # Show detailed info about this codemod
-yarn dlx @reapit/elements@beta codemod info inline-use-click-outside
+yarn dlx @reapit/elements@beta codemod info replace-deprecated-use-click-outside
 
 # Run on a directory
-yarn dlx @reapit/elements@beta codemod apply inline-use-click-outside src/
+yarn dlx @reapit/elements@beta codemod apply replace-deprecated-use-click-outside src/
 
 # Preview changes without writing files
-yarn dlx @reapit/elements@beta codemod apply inline-use-click-outside src/ --dry-run
+yarn dlx @reapit/elements@beta codemod apply replace-deprecated-use-click-outside src/ --dry-run
 
 # Specify file extensions
-yarn dlx @reapit/elements@beta codemod apply inline-use-click-outside src/ --ext .tsx,.jsx,.ts
+yarn dlx @reapit/elements@beta codemod apply replace-deprecated-use-click-outside src/ --ext .tsx,.jsx,.ts
 ```
 
 ### Facade package support
@@ -30,7 +30,7 @@ yarn dlx @reapit/elements@beta codemod apply inline-use-click-outside src/ --ext
 If your project re-exports `@reapit/elements` through an internal facade package, pass `--facade-package`:
 
 ```bash
-yarn dlx @reapit/elements@beta codemod apply inline-use-click-outside src/ --facade-package @company/ui-components
+yarn dlx @reapit/elements@beta codemod apply replace-deprecated-use-click-outside src/ --facade-package @company/ui-components
 ```
 
 ## Background

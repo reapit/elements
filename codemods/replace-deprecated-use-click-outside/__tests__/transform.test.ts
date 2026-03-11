@@ -1,6 +1,6 @@
 import transform from '../transform'
 
-describe('inline-use-click-outside codemod', () => {
+describe('replace-deprecated-use-click-outside codemod', () => {
   test('inlines hook call and removes elements import', () => {
     const input = `import { useRef } from 'react'
 import { useClickOutside } from '@reapit/elements'
