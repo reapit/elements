@@ -1,5 +1,41 @@
 # @reapit/elements
 
+## 5.0.0-beta.80
+
+### Major Changes
+
+- **[Changed]** Move `Combobox` from `@reapit/elements/core/combobox` to `@reapit/elements/utils/combobox`. ([#1173](https://github.com/reapit-global/gbl-ds-elements/pull/1173), [`f959fc3`](https://github.com/reapit-global/gbl-ds-elements/commit/f959fc3ff6f3185315394cf947b8deeb29b38477), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  The component is also available from the `@reapit/elements/utils` barrel. Run the `rewrite-combobox-imports` codemod to migrate automatically:
+
+  ```bash
+  yarn dlx @reapit/elements@beta codemod apply rewrite-combobox-imports src/
+  ```
+
+- **[Removed]** `DeprecatedLabel`, `DeprecatedLabelProps`, and `ElDeprecatedLabel` from `src/deprecated/label`; run the existing `replace-deprecated-label` codemod before upgrading to migrate to `LabelText` and `LabelText.Props`. ([#1169](https://github.com/reapit-global/gbl-ds-elements/pull/1169), [`3b1fec4`](https://github.com/reapit-global/gbl-ds-elements/commit/3b1fec43942f69da5aa6f5b0d6fbae94ddba6d1e), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Removed]** the deprecated `useClickOutside` hook, previously importable as: ([#1172](https://github.com/reapit-global/gbl-ds-elements/pull/1172), [`abcb7e7`](https://github.com/reapit-global/gbl-ds-elements/commit/abcb7e7fb8bf96b7bf236fc28e56cdfbd2265376), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  ```ts
+  import { useClickOutside } from "@reapit/elements";
+  // OR
+  import { useClickOutside } from "@reapit/elements/deprecated/use-click-outside";
+  ```
+
+  To migrate, replace usages with an inline `useEffect` that implements equivalent `AbortController`/`mousedown` logic, or run the `inline-use-click-outside` codemod to automate this change.
+
+- **[Removed]** the experimental `RadioGroup` component (`@reapit/elements/lab/radio-group`). Use the `replace-lab-radio-group` codemod to migrate to the stable `RadioGroupControl`. ([#1176](https://github.com/reapit-global/gbl-ds-elements/pull/1176), [`d44ac7c`](https://github.com/reapit-global/gbl-ds-elements/commit/d44ac7c7d0c1cf37ad31e8fcf28fbb1c45199913), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Removed]** the experimental `Radio` component (`@reapit/elements/lab/radio`). Use the `replace-lab-radio` codemod to migrate to the stable `RadioButton`. ([#1181](https://github.com/reapit-global/gbl-ds-elements/pull/1181), [`24ed176`](https://github.com/reapit-global/gbl-ds-elements/commit/24ed1767fa7b1735a3681098e6b23b9f0cc8cc8a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Minor Changes
+
+- **[Added]** `Image` utility component. Supports fallback UI. On load failure, `Image` announces fallback text for meaningful images and keeps decorative images non-announcing. ([#1180](https://github.com/reapit-global/gbl-ds-elements/pull/1180), [`2ad8ef1`](https://github.com/reapit-global/gbl-ds-elements/commit/2ad8ef1ea3d0861d34294518e2f5d4e738c84e94), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `replace-lab-radio` codemod to migrate from the experimental `Radio` component to the stable `RadioButton`, renaming the `isRequired` prop to `required` and removing the `hasError` prop. ([#1177](https://github.com/reapit-global/gbl-ds-elements/pull/1177), [`907b938`](https://github.com/reapit-global/gbl-ds-elements/commit/907b93830293f0c07d181d8d3448c2f99abf43f8), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `replace-lab-radio-group` codemod to migrate from the experimental `RadioGroup` to the stable `RadioGroupControl`, renaming the `isRequired` and `errorMessage` props to `required` and `errorText`. ([#1174](https://github.com/reapit-global/gbl-ds-elements/pull/1174), [`777fb1b`](https://github.com/reapit-global/gbl-ds-elements/commit/777fb1bca83fd87c356846c98c4649855076cf33), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
 ## 5.0.0-beta.79
 
 ### Major Changes
