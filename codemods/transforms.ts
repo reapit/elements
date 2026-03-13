@@ -9,6 +9,7 @@ export const transforms = {
   "replace-deprecated-use-click-outside": () => import("./replace-deprecated-use-click-outside/transform.js"),
   "replace-lab-radio": () => import("./replace-lab-radio/transform.js"),
   "replace-lab-radio-group": () => import("./replace-lab-radio-group/transform.js"),
+  "replace-lab-table": () => import("./replace-lab-table/transform.js"),
   "rewrite-combobox-imports": () => import("./rewrite-combobox-imports/transform.js"),
   "rewrite-text-font-imports": () => import("./rewrite-text-font-imports/transform.js"),
   "rewrite-v4-imports": () => import("./rewrite-v4-imports/transform.js"),

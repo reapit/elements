@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-03-11T05:57:16.604Z",
+  "generated": "2026-03-12T23:19:24.131Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -25,6 +25,10 @@
     {
       "name": "replace-lab-radio-group",
       "description": "Migrates RadioGroup from lab/radio-group to RadioGroupControl from core/radio-group-control"
+    },
+    {
+      "name": "replace-lab-table",
+      "description": "Migrates lab/table components to the stable core Table compound API"
     },
     {
       "name": "rewrite-combobox-imports",
