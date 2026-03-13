@@ -11,8 +11,9 @@ import PMDemo from './logos/pm-demo.svg?react'
 import PMSales from './logos/pm-sales.svg?react'
 import PMInspect from './logos/pm-inspect.svg?react'
 import ReapitForms from './logos/reapit-forms.svg?react'
-import ReapitWebsites from './logos/reapit-websites.svg?react'
 import ReapitProposals from './logos/reapit-proposals.svg?react'
+import ReapitVerify from './logos/reapit-verify.svg?react'
+import ReapitWebsites from './logos/reapit-websites.svg?react'
 import KeyWhere from './logos/key-where.svg?react'
 import AutoResponder from './logos/auto-responder.svg?react'
 
@@ -30,8 +31,9 @@ export const supportedAppNames = [
   'PM Sales',
   'PM Inspect',
   'Reapit Forms',
-  'Reapit Websites',
   'Reapit Proposals',
+  'Reapit Verify',
+  'Reapit Websites',
   'KeyWhere',
   'Auto Responder',
 ] as const
@@ -77,6 +79,8 @@ export function AppLogo({ appName }: AppLogo.Props) {
       return <ReapitForms aria-label={appName} />
     case 'Reapit Proposals':
       return <ReapitProposals aria-label={appName} />
+    case 'Reapit Verify':
+      return <ReapitVerify aria-label={appName} />
     case 'Reapit Websites':
       return <ReapitWebsites aria-label={appName} />
     case 'KeyWhere':

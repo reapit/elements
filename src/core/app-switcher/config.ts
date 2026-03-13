@@ -13,6 +13,7 @@ export type SupportedProductId =
   | 'reapitforms'
   | 'reapitProposals'
   | 'reapitWebsites'
+  | 'verifyweb'
 
 export interface ProductConfig {
   appName: string
@@ -53,13 +54,17 @@ export const productConfigs = {
     appName: 'Reapit Forms',
     supplementaryInfo: 'Documents & digital signing',
   },
+  reapitProposals: {
+    appName: 'Reapit Proposals',
+    supplementaryInfo: 'Interactive digital proposals',
+  },
   reapitWebsites: {
     appName: 'Reapit Websites',
     supplementaryInfo: 'Website builder',
   },
-  reapitProposals: {
-    appName: 'Reapit Proposals',
-    supplementaryInfo: 'Interactive digital proposals',
+  verifyweb: {
+    appName: 'Reapit Verify',
+    supplementaryInfo: 'AML/CTF compliance',
   },
 } as const satisfies Record<SupportedProductId, ProductConfig>
 

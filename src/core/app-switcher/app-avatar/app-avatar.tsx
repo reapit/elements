@@ -14,6 +14,8 @@ import ReapitProposalsDisabled from './icons/reapit-proposals-disabled.svg?url'
 import ReapitProposals from './icons/reapit-proposals.svg?url'
 import ReapitSalesDisabled from './icons/reapit-sales-disabled.svg?url'
 import ReapitSales from './icons/reapit-sales.svg?url'
+import ReapitVerifyDisabled from './icons/reapit-verify-disabled.svg?url'
+import ReapitVerify from './icons/reapit-verify.svg?url'
 import ReapitWebsitesDisabled from './icons/reapit-websites-disabled.svg?url'
 import ReapitWebsites from './icons/reapit-websites.svg?url'
 import LettingsBDM from './icons/lettings-bdm.svg?url'
@@ -50,11 +52,13 @@ export function AppAvatar({ hasAccess, productId }: AppAvatar.Props) {
       return hasAccess ? <img src={MoveMeIn} /> : <img src={MoveMeInDisabled} />
     case 'reapitforms':
       return hasAccess ? <img src={ReapitForms} /> : <img src={ReapitFormsDisabled} />
-    case 'reapitWebsites':
-      return hasAccess ? <img src={ReapitWebsites} /> : <img src={ReapitWebsitesDisabled} />
     case 'reapitProposals':
       return hasAccess ? <img src={ReapitProposals} /> : <img src={ReapitProposalsDisabled} />
+    case 'reapitWebsites':
+      return hasAccess ? <img src={ReapitWebsites} /> : <img src={ReapitWebsitesDisabled} />
     case 'keyWhere':
       return hasAccess ? <img src={KeyWhere} /> : <img src={KeyWhereDisabled} />
+    case 'verifyweb':
+      return hasAccess ? <img src={ReapitVerify} /> : <img src={ReapitVerifyDisabled} />
   }
 }

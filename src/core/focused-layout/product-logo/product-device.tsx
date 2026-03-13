@@ -7,6 +7,7 @@ import ReapitLettingsBDM from './devices/reapit-lettings-bdm.svg?react'
 import ReapitPM from './devices/reapit-pm.svg?react'
 import ReapitProposals from './devices/reapit-proposals.svg?react'
 import ReapitSales from './devices/reapit-sales.svg?react'
+import ReapitVerify from './devices/reapit-verify.svg?react'
 import ReapitWebsites from './devices/reapit-websites.svg?react'
 
 export const supportedProductLogos = [
@@ -17,6 +18,7 @@ export const supportedProductLogos = [
   'Reapit PM',
   'Reapit Proposals',
   'Reapit Sales',
+  'Reapit Verify',
   'Reapit Websites',
   'Autoresponder',
   'KeyWhere',
@@ -54,6 +56,8 @@ export function ProductDevice({ product }: ProductDevice.Props) {
       return <ReapitProposals />
     case 'Reapit Sales':
       return <ReapitSales />
+    case 'Reapit Verify':
+      return <ReapitVerify />
     case 'Reapit Websites':
       return <ReapitWebsites />
   }

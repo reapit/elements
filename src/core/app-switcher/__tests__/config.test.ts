@@ -51,6 +51,10 @@ test('product configs should not change without updating this test', () => {
         "appName": "Reapit Forms",
         "supplementaryInfo": "Documents & digital signing",
       },
+      "verifyweb": {
+        "appName": "Reapit Verify",
+        "supplementaryInfo": "AML/CTF compliance",
+      },
     }
   `)
 })
