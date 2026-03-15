@@ -12,7 +12,8 @@ export const ElFocusedLayoutTopBar = styled.header`
   padding: var(--spacing-2) var(--spacing-5);
 
   background: var(--comp-focused_overlay-colour-fill-top_bar);
-  border-bottom: var(--comp-focused_overlay-border-width-top_bar) solid var(--comp-focused_overlay-colour-border-top_bar);
+  border-bottom: var(--comp-focused_overlay-border-width-top_bar) solid
+    var(--comp-focused_overlay-colour-border-top_bar);
 
   /* Sticky when top bar contains action elements */
   &:has(button, a) {
