@@ -113,6 +113,9 @@ export default defineConfig({
     react(),
     svgr(),
     wyw({
+      // NOTE: We only want to run wyw-in-js on components, not our codemods, because the wyw
+      // plugin does not currently support import attributes, which are used in our codemods
+      include: ['src/**/*.ts', 'src/**/*.tsx'],
       babelOptions: {
         presets: ['@babel/preset-typescript', '@babel/preset-react'],
       },
