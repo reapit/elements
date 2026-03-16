@@ -1,5 +1,23 @@
 # @reapit/elements
 
+## 5.0.0-beta.81
+
+### Major Changes
+
+- **[Removed]** the experimental lab table components — `Table`, `TableBody`, `TableHead`, `TableHeaderCell`, `TableRow`, `SingleLineCell`, `DoubleLineCell`, `TableContainer`, `TableText`, and `TableToolbar`. Use the `replace-lab-table` codemod to migrate to the stable core `Table` API. The `TableProvider` and `useTableContext`, `TableRowSelection`, and `useRowSelection` exports are unaffected. ([#1193](https://github.com/reapit-global/gbl-ds-elements/pull/1193), [`ef3dad9`](https://github.com/reapit-global/gbl-ds-elements/commit/ef3dad9e9b2ca3e7d54467cc61d432bdae6b028f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Minor Changes
+
+- **[Added]** `replace-lab-table` codemod to migrate supported `lab/table` components to the stable core `Table` API, including import rewrites, prop renames, and TODO comments for manual review points. ([#1183](https://github.com/reapit-global/gbl-ds-elements/pull/1183), [`0e32505`](https://github.com/reapit-global/gbl-ds-elements/commit/0e32505a5b6b75f485344414aa2fe5c907a798b0), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** Reapit Verify branding assets now supported by `AppSwitcher`, `FocusedLayout`, and `TopBar` ([#1185](https://github.com/reapit-global/gbl-ds-elements/pull/1185), [`a2b60ab`](https://github.com/reapit-global/gbl-ds-elements/commit/a2b60ab8cbfbfd3a80c6f7d65af640c4032c7088), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Patch Changes
+
+- **[Security]** pin minimatch resolutions to patched releases to mitigate known ReDoS vulnerabilities, including GHSA-7r86-cg39-jmmj. ([#1182](https://github.com/reapit-global/gbl-ds-elements/pull/1182), [`6d5d9d7`](https://github.com/reapit-global/gbl-ds-elements/commit/6d5d9d73552672956a094215f8f393660ee588d1), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Fixed]** broken import in deprecated `FormLayout` docs ([#1191](https://github.com/reapit-global/gbl-ds-elements/pull/1191), [`fc24161`](https://github.com/reapit-global/gbl-ds-elements/commit/fc241614c51554d6776b308fc3895eaccdce7b71), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
 ## 5.0.0-beta.80
 
 ### Major Changes
