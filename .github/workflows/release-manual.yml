@@ -1,0 +1,172 @@
+name: Release (Manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Git ref (SHA, branch, or tag) to check out and release from. For recovery, use the full commit SHA of the version-bump merge commit.'
+        type: string
+        required: true
+      tag:
+        description: 'Git tag to create. Leave blank to derive automatically from package.json at the specified ref (e.g. v5.0.0-beta.81). Provide an explicit value only to override the default format.'
+        type: string
+        required: false
+      create_github_release:
+        description: 'Create a GitHub Release using release notes extracted from CHANGELOG.md. Skipped if the release already exists.'
+        type: boolean
+        required: false
+        default: true
+      publish_npm:
+        description: 'Publish to npm. Skipped if the version is already present on npm.'
+        type: boolean
+        required: false
+        default: true
+
+permissions:
+  contents: write
+  id-token: write
+
+env:
+  CI: true
+
+jobs:
+  release-manual:
+    name: Release (Manual)
+    runs-on:
+      group: rpt-gbl-linux-x64
+    steps:
+      - name: Generate App Token
+        uses: actions/create-github-app-token@f8d387b68d61c58ab83c6c016672934102569859 # v3.0.0
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        id: checkout
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Set up Node
+        uses: actions/setup-node@v6
+        id: setup-node
+        with:
+          node-version: '22.x'
+
+      - name: Install
+        id: install
+        run: yarn install --immutable
+
+      - name: Derive Version and Tag
+        id: derive-tag
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [ -n "${{ inputs.tag }}" ]; then
+            TAG="${{ inputs.tag }}"
+          else
+            TAG="v${VERSION}"
+          fi
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "Derived version: ${VERSION}"
+          echo "Derived tag: ${TAG}"
+
+      - name: Validate Tag
+        id: validate-tag
+        run: |
+          TAG="${{ steps.derive-tag.outputs.tag }}"
+          HEAD_SHA=$(git rev-parse HEAD)
+          # Prefer the peeled commit SHA (refs/tags/<tag>^{}) so annotated tags
+          # resolve correctly; fall back to the raw ref SHA for lightweight tags.
+          PEELED=$(git ls-remote --tags origin "refs/tags/${TAG}^{}" | awk '{print $1}')
+          RAW=$(git ls-remote --tags origin "refs/tags/${TAG}" | awk '{print $1}')
+          REMOTE_SHA="${PEELED:-$RAW}"
+
+          if [ -z "${REMOTE_SHA}" ]; then
+            echo "Tag ${TAG} does not exist yet — will create."
+            exit 0
+          fi
+
+          if [ "${REMOTE_SHA}" = "${HEAD_SHA}" ]; then
+            echo "Tag ${TAG} already exists at this ref — skipping tag creation."
+            echo "skip_tag=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Error: Tag ${TAG} already exists and points to ${REMOTE_SHA}, not ${{ inputs.ref }}. Aborting to prevent tagging the wrong commit."
+          exit 1
+
+      - name: Check
+        id: check
+        run: yarn check
+
+      - name: Test
+        id: test
+        run: yarn test run --passWithNoTests
+
+      - name: Build
+        id: build
+        run: yarn build:types && yarn build:lib && yarn build:codemods
+
+      - name: Create and Push Tag
+        id: push-tag
+        if: steps.validate-tag.outputs.skip_tag != 'true'
+        run: |
+          TAG="${{ steps.derive-tag.outputs.tag }}"
+          git tag "${TAG}"
+          git push origin "${TAG}"
+          echo "Pushed tag ${TAG}."
+
+      - name: Create GitHub Release
+        id: create-release
+        if: inputs.create_github_release
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          TAG="${{ steps.derive-tag.outputs.tag }}"
+          VERSION="${{ steps.derive-tag.outputs.version }}"
+
+          if gh release view "${TAG}" 2>/dev/null; then
+            echo "GitHub Release ${TAG} already exists — skipping."
+            exit 0
+          fi
+
+          NOTES=$(awk "/^## ${VERSION}$/{found=1; next} found && /^## /{exit} found{print}" CHANGELOG.md | sed '/^$/d')
+
+          if [ -z "${NOTES}" ]; then
+            echo "::error::No changelog entry found for version ${VERSION} in CHANGELOG.md. Aborting release creation."
+            exit 1
+          fi
+
+          PRERELEASE_FLAG=""
+          if echo "${VERSION}" | grep -q '\-'; then
+            PRERELEASE_FLAG="--prerelease"
+          fi
+
+          gh release create "${TAG}" \
+            ${PRERELEASE_FLAG} \
+            --title "${TAG}" \
+            --notes "${NOTES}" \
+            --target "${{ inputs.ref }}"
+
+          echo "Created GitHub Release ${TAG}."
+
+      - name: Publish to npm
+        id: publish-npm
+        if: inputs.publish_npm
+        env:
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          VERSION="${{ steps.derive-tag.outputs.version }}"
+
+          if echo "${VERSION}" | grep -q '\-'; then
+            DIST_TAG=$(echo "${VERSION}" | sed 's/.*-\([^.]*\)\..*/\1/')
+          else
+            DIST_TAG="latest"
+          fi
+
+          echo "Publishing version ${VERSION} with dist-tag '${DIST_TAG}'."
+          yarn npm publish --tag "${DIST_TAG}" --tolerate-republish
