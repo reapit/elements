@@ -159,9 +159,13 @@ jobs:
         if: inputs.publish_npm
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # `yarn changeset publish` shells out to the npm CLI, which does not
+          # read `.yarnrc.yml`. Set the auth token via the `NPM_CONFIG_` prefix
+          # so the npm CLI picks it up without needing a `.npmrc` file.
+          NPM_CONFIG_//registry.npmjs.org/:_authToken: ${{ secrets.NPM_TOKEN }}
+        # Use `yarn changeset publish` rather than `yarn npm publish` so that
+        # Changesets' pre-flight npm-info check handles already-published
+        # versions and new packages gracefully. `--no-git-tag` suppresses the
+        # post-publish git tagging, which this workflow manages separately.
         run: |
-          # Use `yarn changeset publish` rather than `yarn npm publish` so that
-          # Changesets' pre-flight npm-info check handles already-published
-          # versions and new packages gracefully. `--no-git-tag` suppresses the
-          # post-publish git tagging, which this workflow manages separately.
           yarn changeset publish --no-git-tag
