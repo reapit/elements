@@ -6,9 +6,8 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
   id-token: write
-  pull-requests: write
 
 env:
   CI: true
@@ -62,6 +61,59 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+
+      - name: Create production deployment record
+        if: steps.changesets.outputs.published == 'true'
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+          PUBLISHED_PACKAGES: ${{ steps.changesets.outputs.publishedPackages }}
+        run: |
+          # Pin the deployment to the exact commit that was published, so the
+          # record reflects what is on npm rather than whatever HEAD happens
+          # to be when this step runs.
+          #
+          # "production" is auto-detected by the Jira GitHub for Atlassian app
+          # as the production tier, which surfaces the deployment in the
+          # Releases hub and enables related issues to be marked as released.
+          # GitHub also creates this environment automatically on first use —
+          # no manual setup in repository settings is required.
+          #
+          # production_environment=true marks this as a production environment
+          # in GitHub's own Environments panel, giving it the production badge
+          # in the UI.
+          #
+          # auto_merge=false prevents GitHub from attempting to merge the
+          # default branch into the ref before deploying — the commit is
+          # already on main.
+          #
+          # payload is built with jq so it is sent as a structured JSON array,
+          # not a double-encoded string.
+          #
+          # required_contexts is set to an empty array to prevent the API from
+          # blocking on commit status checks — the commit is already merged and
+          # verified; we do not need external checks to gate the deployment record.
+          DEPLOYMENT_ID=$(jq -n \
+            --arg ref "${{ github.sha }}" \
+            --argjson payload "$PUBLISHED_PACKAGES" \
+            '{ref: $ref, environment: "production", payload: $payload, production_environment: true, auto_merge: false, required_contexts: []}' \
+            | gh api repos/${{ github.repository }}/deployments \
+              --method POST \
+              --input - \
+              --jq '.id')
+
+          if [ -z "${DEPLOYMENT_ID}" ] || [ "${DEPLOYMENT_ID}" = "null" ]; then
+            echo "::warning::Failed to retrieve deployment ID from GitHub API; skipping status post."
+            exit 0
+          fi
+
+          # The Jira GitHub for Atlassian app listens only to deployment_status
+          # events, not to the deployment creation itself. Posting a status is
+          # therefore required for the deployment to appear in Jira.
+          gh api repos/${{ github.repository }}/deployments/${DEPLOYMENT_ID}/statuses \
+            --method POST \
+            -f state="success" \
+            -f description="Published to npm"
 
       - name: Upload npm debug logs
         if: failure()

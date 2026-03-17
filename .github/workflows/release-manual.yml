@@ -174,3 +174,12 @@ jobs:
           # versions and new packages gracefully. `--no-git-tag` suppresses the
           # post-publish git tagging, which this workflow manages separately.
           yarn changeset publish --no-git-tag
+
+          # Note: this workflow intentionally does not create a GitHub
+          # deployment record. It exists solely as a recovery tool for when
+          # the automated release workflow fails. In that scenario the
+          # corresponding Jira release should be marked as released manually.
+          # Emitting a deployment record here would risk duplicating the
+          # automated workflow's record and could point at a different commit
+          # than the one Jira expects (since this workflow checks out an
+          # arbitrary ref rather than the HEAD of main).
