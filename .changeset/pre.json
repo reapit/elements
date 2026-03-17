@@ -19,11 +19,14 @@
     "drawer-context-optional-hook",
     "ds-108-move-combobox-to-utils",
     "ds-109-minimatch-redos",
+    "ds-112-glob-command-injection",
+    "ds-114-snack-icon-handling",
     "fix-deprecated-icon-spacing",
     "fix-figma-code-connect-in-lib-build",
     "fix-isaacs-brace-expansion-cve",
     "fix-upgrade-deprecated-button-facade-paths",
     "forty-planets-fry",
+    "frank-eyes-learn",
     "full-moles-matter",
     "funny-socks-make",
     "gentle-walls-take",
@@ -59,6 +62,7 @@
     "upgrade-deprecated-badge-codemod",
     "upgrade-deprecated-button-group",
     "upgrade-deprecated-split-button",
-    "upgrade-deprecated-use-media-query"
+    "upgrade-deprecated-use-media-query",
+    "vast-mangos-laugh"
   ]
 }
