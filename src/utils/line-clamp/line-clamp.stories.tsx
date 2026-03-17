@@ -33,6 +33,27 @@ export const Example: Story = {
 }
 
 /**
+ * Use `whiteSpace="pre-wrap"` to preserve newlines, tabs, and runs of spaces in user-authored
+ * content retrieved from an API. Here the text contains literal `\n` line breaks that are
+ * preserved in the rendered text.
+ */
+export const WhiteSpace: Story = {
+  args: {
+    children:
+      'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+    clampTo: 2,
+    whiteSpace: 'pre-wrap',
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ width: '500px' }}>
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+/**
  * The disclosure button will show and hide dynamically if a change in the element's size, content
  * or `clampTo` prop causes the content to overflow.
  */

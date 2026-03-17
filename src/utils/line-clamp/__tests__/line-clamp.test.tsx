@@ -142,7 +142,7 @@ test('calls useIsHeightTruncated with correct dependencies', () => {
 
   render(<LineClamp clampTo={clampTo}>{children}</LineClamp>)
 
-  expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), [children, clampTo])
+  expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), [children, clampTo, undefined])
 })
 
 test('re-evaluates truncation when children change', async () => {
@@ -150,7 +150,7 @@ test('re-evaluates truncation when children change', async () => {
 
   const { rerender } = render(<LineClamp clampTo={3}>Initial content</LineClamp>)
 
-  expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), ['Initial content', 3])
+  expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), ['Initial content', 3, undefined])
 
   vi.mocked(useIsHeightTruncated).mockReturnValue(true)
   rerender(<LineClamp clampTo={3}>Much longer content that causes truncation</LineClamp>)
@@ -159,6 +159,7 @@ test('re-evaluates truncation when children change', async () => {
     expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), [
       'Much longer content that causes truncation',
       3,
+      undefined,
     ])
   })
 })
@@ -168,13 +169,32 @@ test('re-evaluates truncation when clampTo changes', async () => {
 
   const { rerender } = render(<LineClamp clampTo={3}>Test content</LineClamp>)
 
-  expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), ['Test content', 3])
+  expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), ['Test content', 3, undefined])
 
   vi.mocked(useIsHeightTruncated).mockReturnValue(true)
   rerender(<LineClamp clampTo={2}>Test content</LineClamp>)
 
   await waitFor(() => {
-    expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), ['Test content', 2])
+    expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), ['Test content', 2, undefined])
+  })
+})
+
+test('re-evaluates truncation when whiteSpace changes', async () => {
+  vi.mocked(useIsHeightTruncated).mockReturnValue(false)
+
+  const { rerender } = render(<LineClamp clampTo={3}>Test content</LineClamp>)
+
+  expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), ['Test content', 3, undefined])
+
+  vi.mocked(useIsHeightTruncated).mockReturnValue(true)
+  rerender(
+    <LineClamp clampTo={3} whiteSpace="pre-wrap">
+      Test content
+    </LineClamp>,
+  )
+
+  await waitFor(() => {
+    expect(useIsHeightTruncated).toHaveBeenCalledWith(expect.any(String), ['Test content', 3, 'pre-wrap'])
   })
 })
 
@@ -205,4 +225,26 @@ test('forwards additional props to the container element', () => {
     </LineClamp>,
   )
   expect(screen.getByTestId('line-clamp')).toBe(container.firstElementChild)
+})
+
+test('does not set data-white-space attribute when whiteSpace is not provided', () => {
+  vi.mocked(useIsHeightTruncated).mockReturnValue(false)
+  render(<LineClamp clampTo={3}>Test content</LineClamp>)
+  const textElement = screen.getByText('Test content')
+  expect(textElement).not.toHaveAttribute('data-white-space')
+})
+
+test.each([
+  ['normal', 'normal'],
+  ['pre-line', 'pre-line'],
+  ['pre-wrap', 'pre-wrap'],
+] as const)('sets data-white-space to "%s" when whiteSpace is "%s"', (value, expected) => {
+  vi.mocked(useIsHeightTruncated).mockReturnValue(false)
+  render(
+    <LineClamp clampTo={3} whiteSpace={value}>
+      Test content
+    </LineClamp>,
+  )
+  const textElement = screen.getByText('Test content')
+  expect(textElement).toHaveAttribute('data-white-space', expected)
 })

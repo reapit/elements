@@ -21,6 +21,18 @@ export const elLineClampText = css`
       /* Fully transparent on bottom edge until 1lh, then hard transition to full black at 1lh. */
       linear-gradient(to top, transparent 1lh, black 1lh);
   }
+
+  &[data-white-space='normal'] {
+    white-space: normal;
+  }
+
+  &[data-white-space='pre-line'] {
+    white-space: pre-line;
+  }
+
+  &[data-white-space='pre-wrap'] {
+    white-space: pre-wrap;
+  }
 `
 
 export const elLineClampDisclosureButton = css`

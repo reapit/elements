@@ -14,6 +14,13 @@ export namespace LineClamp {
     children: ReactNode
     /** The number of lines that should be visible */
     clampTo: number | 'none'
+    /**
+     * The CSS `white-space` value to apply to the text. Use `pre-wrap` to preserve newlines,
+     * tabs, and runs of spaces (e.g. user-authored content with manual indentation). Use
+     * `pre-line` to preserve only newlines whilst collapsing spaces. Use `normal` to explicitly
+     * reset any inherited whitespace handling.
+     */
+    whiteSpace?: 'normal' | 'pre-line' | 'pre-wrap'
   }
 }
 
@@ -27,12 +34,12 @@ export namespace LineClamp {
  * use the [line-clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/line-clamp)
  * CSS property instead of this component.
  */
-export function LineClamp({ as: Element = 'p', children, clampTo, ...rest }: LineClamp.Props) {
+export function LineClamp({ as: Element = 'p', children, clampTo, whiteSpace, ...rest }: LineClamp.Props) {
   const disclosureButtonId = useId()
   const truncationTargetId = useId()
 
   const hasClamp = clampTo !== 'none'
-  const isTruncated = useIsHeightTruncated(truncationTargetId, [children, clampTo])
+  const isTruncated = useIsHeightTruncated(truncationTargetId, [children, clampTo, whiteSpace])
   const [showAll, setShowAll] = useState(false)
 
   const appliedLineClamp = showAll ? undefined : clampTo
@@ -48,6 +55,7 @@ export function LineClamp({ as: Element = 'p', children, clampTo, ...rest }: Lin
       <span
         className={elLineClampText}
         data-is-clamped={isTruncated && !showAll}
+        data-white-space={whiteSpace}
         id={truncationTargetId}
         style={{ '--line-clamp': appliedLineClamp } as CSSProperties}
       >
