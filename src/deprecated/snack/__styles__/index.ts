@@ -11,6 +11,16 @@ import {
 } from '../../../styles/deprecated-intent'
 
 /** @deprecated */
+export const elSnackIcon = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  width: var(--icon_size-m);
+  height: var(--icon_size-m);
+`
+
+/** @deprecated */
 export const ElSnack = styled.div`
   display: inline-flex;
   border-radius: 0.25rem /* was --default-border-radius */;
@@ -22,36 +32,49 @@ export const ElSnack = styled.div`
 
   &.${elIntentPrimary} {
     background: var(--colour-fill-action-lightest);
+    .${elSnackIcon} {
+      color: var(--colour-icon-action);
+    }
   }
 
   &.${elIntentNeutral} {
     background: var(--colour-fill-info-lightest);
+    .${elSnackIcon} {
+      color: var(--colour-icon-info);
+    }
   }
 
   &.${elIntentSuccess} {
     background: var(--colour-fill-success-lightest);
+    .${elSnackIcon} {
+      color: var(--colour-icon-success);
+    }
   }
 
   &.${elIntentPending} {
     background: var(--colour-fill-pending-lightest);
+    .${elSnackIcon} {
+      color: var(--colour-icon-pending);
+    }
   }
 
   &.${elIntentWarning} {
     background: var(--colour-fill-warning-lightest);
+    .${elSnackIcon} {
+      color: var(--colour-icon-warning);
+    }
   }
 
   &.${elIntentDanger} {
     background: var(--colour-fill-error-lightest);
+    .${elSnackIcon} {
+      color: var(--colour-icon-error);
+    }
   }
 
   &.${elIntentDefault} {
     background: var(--colour-fill-neutral-lightest);
   }
-`
-
-/** @deprecated */
-export const elSnackIcon = css`
-  margin-right: 1rem;
 `
 
 /** @deprecated */

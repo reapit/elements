@@ -1,6 +1,7 @@
 import { Button } from '../../core/button'
 import { useSnack } from '../use-snack'
 import { elM1 } from '../../styles/deprecated-spacing'
+import { PropertyIcon } from '#src/icons/property'
 
 /** @deprecated */
 export const UseSnackHookStory = () => {
@@ -31,7 +32,7 @@ export const UseSnackHookStory = () => {
         onClick={() =>
           custom({
             text: 'I can have anything in the interface ISnack applied as a parameter here',
-            icon: 'property',
+            icon: <PropertyIcon />,
             intent: 'success',
           })
         }

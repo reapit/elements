@@ -1,6 +1,9 @@
 import React, { createContext, useState, useRef, useContext, PropsWithChildren, FC } from 'react'
 import { SnackProps, SnackHolder } from '../snack'
 import { generateRandomId } from '../../storybook/random-id'
+import { CheckIcon } from '#src/icons/check'
+import { InfoIcon } from '#src/icons/info'
+import { WarningIcon } from '#src/icons/warning'
 
 /** @deprecated */
 export interface SnackContextProps {
@@ -57,16 +60,16 @@ export const useSnack = (): UseSnack => {
     addSnackWithTimeout(snack, timeout)
   }
   const success = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'success', icon: 'check', text }, timeout)
+    addSnackWithTimeout({ intent: 'success', icon: <CheckIcon />, text }, timeout)
   }
   const info = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'primary', icon: 'info', text }, timeout)
+    addSnackWithTimeout({ intent: 'primary', icon: <InfoIcon />, text }, timeout)
   }
   const error = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'danger', icon: 'warning', text }, timeout)
+    addSnackWithTimeout({ intent: 'danger', icon: <WarningIcon />, text }, timeout)
   }
   const warning = (text: string, timeout = DEFAULT_TIMEOUT) => {
-    addSnackWithTimeout({ intent: 'warning', icon: 'warning', text }, timeout)
+    addSnackWithTimeout({ intent: 'warning', icon: <WarningIcon />, text }, timeout)
   }
 
   return { custom, success, info, error, warning }

@@ -1,6 +1,10 @@
 import { UseSnackHookStory } from './use-snack-hook.story-component'
 import { SnackProvider } from '../use-snack'
 import { Snack } from './snack'
+import { InfoIcon } from '#src/icons/info'
+import { StatusGoodIcon } from '#src/icons/status-good'
+import { StatusUnknownIcon } from '#src/icons/status-unknown'
+import { WarningIcon } from '#src/icons/warning'
 
 export default {
   title: 'Deprecated/Snack',
@@ -12,13 +16,13 @@ export const BasicUsage = {
 }
 
 export const WithAnIcon = {
-  render: ({}) => <Snack icon="info">Message goes here</Snack>,
+  render: ({}) => <Snack icon={<InfoIcon />}>Message goes here</Snack>,
   name: 'With an icon',
 }
 
 export const IntentPrimary = {
   render: ({}) => (
-    <Snack icon="info" intent="primary">
+    <Snack icon={<InfoIcon />} intent="primary">
       Primary message goes here
     </Snack>
   ),
@@ -27,7 +31,7 @@ export const IntentPrimary = {
 
 export const IntentNeutral = {
   render: ({}) => (
-    <Snack intent="neutral" icon="info">
+    <Snack intent="neutral" icon={<InfoIcon />}>
       Neutral message goes here
     </Snack>
   ),
@@ -36,7 +40,7 @@ export const IntentNeutral = {
 
 export const IntentSuccess = {
   render: ({}) => (
-    <Snack intent="success" icon="statusGood">
+    <Snack intent="success" icon={<StatusGoodIcon />}>
       Success message goes here
     </Snack>
   ),
@@ -45,7 +49,7 @@ export const IntentSuccess = {
 
 export const IntentPending = {
   render: ({}) => (
-    <Snack intent="pending" icon="statusUnknown">
+    <Snack intent="pending" icon={<StatusUnknownIcon />}>
       Pending message goes here
     </Snack>
   ),
@@ -54,7 +58,7 @@ export const IntentPending = {
 
 export const IntentWarning = {
   render: ({}) => (
-    <Snack intent="warning" icon="warning">
+    <Snack intent="warning" icon={<WarningIcon />}>
       Warning message goes here
     </Snack>
   ),
@@ -63,7 +67,7 @@ export const IntentWarning = {
 
 export const IntentDanger = {
   render: ({}) => (
-    <Snack intent="danger" icon="warning">
+    <Snack intent="danger" icon={<WarningIcon />}>
       Danger message goes here
     </Snack>
   ),
@@ -72,7 +76,7 @@ export const IntentDanger = {
 
 export const IntentDefault = {
   render: ({}) => (
-    <Snack intent="default" icon="info">
+    <Snack intent="default" icon={<InfoIcon />}>
       Default message goes here
     </Snack>
   ),
