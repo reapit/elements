@@ -160,13 +160,8 @@ jobs:
         env:
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
-          VERSION="${{ steps.derive-tag.outputs.version }}"
-
-          if echo "${VERSION}" | grep -q '\-'; then
-            DIST_TAG=$(echo "${VERSION}" | sed 's/.*-\([^.]*\)\..*/\1/')
-          else
-            DIST_TAG="latest"
-          fi
-
-          echo "Publishing version ${VERSION} with dist-tag '${DIST_TAG}'."
-          yarn npm publish --access public --tag "${DIST_TAG}" --tolerate-republish
+          # Use `yarn changeset publish` rather than `yarn npm publish` so that
+          # Changesets' pre-flight npm-info check handles already-published
+          # versions and new packages gracefully. `--no-git-tag` suppresses the
+          # post-publish git tagging, which this workflow manages separately.
+          yarn changeset publish --no-git-tag
