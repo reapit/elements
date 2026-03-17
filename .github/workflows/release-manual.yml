@@ -169,4 +169,4 @@ jobs:
           fi
 
           echo "Publishing version ${VERSION} with dist-tag '${DIST_TAG}'."
-          yarn npm publish --tag "${DIST_TAG}" --tolerate-republish
+          yarn npm publish --access public --tag "${DIST_TAG}" --tolerate-republish
