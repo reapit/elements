@@ -1,4 +1,5 @@
 import { css } from '@linaria/core'
+import { font } from '#src/utils/font'
 
 export const elImageContainer = css`
   position: relative;
@@ -39,16 +40,19 @@ export const elImageFallbackContent = css`
   width: min(202px, 100%);
 `
 
+export const elImageFallbackIcon = css`
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--colour-icon-primary);
+`
+
 export const elImageFallbackMessage = css`
   margin: 0;
   color: var(--colour-text-placeholder);
   text-align: center;
 
-  font-family: var(--font-sm-regular-family);
-  font-size: var(--font-sm-regular-size);
-  font-weight: var(--font-sm-regular-weight);
-  line-height: var(--font-sm-regular-line_height);
-  letter-spacing: var(--font-sm-regular-letter_spacing);
+  ${font('sm', 'regular')}
 `
 
 export const elResponsiveImage = css`

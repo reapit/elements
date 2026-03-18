@@ -2,10 +2,10 @@ import { render, screen } from '@testing-library/react'
 import { PropertyIcon } from '../../../icons'
 import { ImageFallback } from '../image-fallback'
 
-test('renders the default fallback message', () => {
-  render(<ImageFallback />)
+test('renders no message when no children are provided', () => {
+  const { container } = render(<ImageFallback />)
 
-  expect(screen.getByText('The image could not be loaded')).toBeVisible()
+  expect(container.querySelector('p')).toBeNull()
 })
 
 test('renders custom fallback message content from children', () => {

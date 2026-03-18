@@ -1,14 +1,12 @@
 import { cx } from '@linaria/core'
-import { elImageFallback, elImageFallbackContent, elImageFallbackMessage } from './styles'
+import { elImageFallback, elImageFallbackContent, elImageFallbackIcon, elImageFallbackMessage } from './styles'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
 export namespace ImageFallback {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /**
-     * Message content shown in the fallback UI.
-     *
-     * @default The image could not be loaded
+     * Optional message content shown below the icon. When omitted, no message is rendered.
      */
     children?: ReactNode
 
@@ -26,8 +24,12 @@ export function ImageFallback({ children, className, icon, ...rest }: ImageFallb
   return (
     <div {...rest} className={cx(elImageFallback, className)}>
       <div className={elImageFallbackContent}>
-        {icon}
-        <p className={elImageFallbackMessage}>{children ?? 'The image could not be loaded'}</p>
+        {icon && (
+          <div aria-hidden className={elImageFallbackIcon}>
+            {icon}
+          </div>
+        )}
+        {children && <p className={elImageFallbackMessage}>{children}</p>}
       </div>
     </div>
   )

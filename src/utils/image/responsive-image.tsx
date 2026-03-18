@@ -4,7 +4,7 @@ import { elResponsiveImage } from './styles'
 import type { ImgHTMLAttributes } from 'react'
 
 export namespace ResponsiveImage {
-  export interface Props extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'alt'> {
+  export interface Props extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'alt' | 'src'> {
     /**
      * Alternative text for the image.
      *
@@ -19,6 +19,10 @@ export namespace ResponsiveImage {
      * `object-fit` property. Defaults to `contain`.
      */
     objectFit?: 'contain' | 'cover' | 'fill' | 'none' | 'scale-down'
+    /**
+     * The URL of the image to display.
+     */
+    src: string
   }
 }
 
