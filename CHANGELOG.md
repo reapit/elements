@@ -4,13 +4,13 @@
 
 ### Minor Changes
 
-- **[Added]** Feat: add `whiteSpace` prop to `LineClamp`, supporting `normal`, `pre-line`, and `pre-wrap` values to control whitespace handling for static copy and user-authored API text. ([#1205](https://github.com/reapit-global/gbl-ds-elements/pull/1205), [`5c2433d`](https://github.com/reapit-global/gbl-ds-elements/commit/5c2433dc765d8e0519ce047813075276cb981b04), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Added]** `whiteSpace` prop to `LineClamp`, supporting `normal`, `pre-line`, and `pre-wrap` values to control whitespace handling for static copy and user-authored API text. ([#1205](https://github.com/reapit-global/gbl-ds-elements/pull/1205), [`5c2433d`](https://github.com/reapit-global/gbl-ds-elements/commit/5c2433dc765d8e0519ce047813075276cb981b04), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 ### Patch Changes
 
 - **[Security]** pin glob@^10 resolutions to 10.5.0 to mitigate a command injection vulnerability in the glob CLI (GHSA-w7j8-c9jp-gg2c). ([#1195](https://github.com/reapit-global/gbl-ds-elements/pull/1195), [`ed044b1`](https://github.com/reapit-global/gbl-ds-elements/commit/ed044b1bf26643d593f9d3c89e81e286c18b64a8), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Fixed]** Fix: replace string icon props with individual icon components in the deprecated Snack stories and `useSnack` hook, restoring correct icon rendering in Storybook docs. ([#1199](https://github.com/reapit-global/gbl-ds-elements/pull/1199), [`e96c4af`](https://github.com/reapit-global/gbl-ds-elements/commit/e96c4afb87ea93b48540b365c4ef6c50fad13a29), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Fixed]** replace string icon props with individual icon components in the deprecated Snack stories and `useSnack` hook, restoring correct icon rendering in Storybook docs. ([#1199](https://github.com/reapit-global/gbl-ds-elements/pull/1199), [`e96c4af`](https://github.com/reapit-global/gbl-ds-elements/commit/e96c4afb87ea93b48540b365c4ef6c50fad13a29), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 ## 5.0.0-beta.81
 
