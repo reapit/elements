@@ -34,7 +34,7 @@ The changeset will be saved as a markdown file in `.changeset/` and should be co
 
 ## Changelog categories
 
-The changelog format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/). Each entry is tagged with a category derived from your changeset summary.
+The changelog format follows [Keep a Changelog](https://keepachangelog.com/en/1.1.0/) naming conventions. Each entry carries a bold inline category label (e.g. **[Fixed]**, **[Added]**) derived from your changeset summary.
 
 ### Using a prefix (recommended)
 
