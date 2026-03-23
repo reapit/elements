@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-03-12T23:19:24.131Z",
+  "generated": "2026-03-22T22:57:41.582Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -13,6 +13,10 @@
     {
       "name": "replace-deprecated-label",
       "description": "Replaces DeprecatedLabel and DeprecatedLabelProps with LabelText and LabelText.Props"
+    },
+    {
+      "name": "replace-deprecated-pagination",
+      "description": "Replaces DeprecatedPagination and DeprecatedPaginationProps with Pagination and Pagination.Props"
     },
     {
       "name": "replace-deprecated-use-click-outside",

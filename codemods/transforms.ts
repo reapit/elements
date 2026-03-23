@@ -6,6 +6,7 @@ export const transforms = {
   "apply-textarea-field-sizing": () => import("./apply-textarea-field-sizing/transform.js"),
   "at-a-glance-article-card": () => import("./at-a-glance-article-card/transform.js"),
   "replace-deprecated-label": () => import("./replace-deprecated-label/transform.js"),
+  "replace-deprecated-pagination": () => import("./replace-deprecated-pagination/transform.js"),
   "replace-deprecated-use-click-outside": () => import("./replace-deprecated-use-click-outside/transform.js"),
   "replace-lab-radio": () => import("./replace-lab-radio/transform.js"),
   "replace-lab-radio-group": () => import("./replace-lab-radio-group/transform.js"),
