@@ -17,6 +17,54 @@ Add a changeset for any change that affects the published package:
 - Deprecations
 - New or updated codemods
 
+**One changeset per logical change.** If a PR introduces multiple unrelated user-facing changes, create one file per change. A single file must cover exactly one change and carry exactly one prefix.
+
+Bad — one file covering an addition and two unrelated API changes:
+
+```md
+---
+'@reapit/elements': major
+---
+
+Added: `Foo` component.
+
+Changed: `Bar` prop renamed from `x` to `y`.
+
+Changed: `Baz` now accepts `string[]` instead of `string`.
+```
+
+Good — three separate files, each scoped to its own change:
+
+`add-foo-component.md`
+
+```md
+---
+'@reapit/elements': minor
+---
+
+Added: `Foo` component.
+```
+
+`change-bar-prop-rename.md`
+
+```md
+---
+'@reapit/elements': major
+---
+
+Changed: `Bar` prop renamed from `x` to `y`.
+```
+
+`change-baz-accepts-array.md`
+
+```md
+---
+'@reapit/elements': major
+---
+
+Changed: `Baz` now accepts `string[]` instead of `string`.
+```
+
 **Do not** add a changeset for:
 
 - Documentation-only changes (outside component stories)
@@ -35,6 +83,8 @@ PRs that only touch dot-prefixed directories (`.github/`, `.husky/`, `.changeset
 
 Name the file after the change in kebab-case; the CLI generates a random `adjective-animal-verb` slug by default — override it.
 
+When a PR has multiple changesets, give each file a name that makes the scope of that specific change clear in isolation. Avoid catch-all names that bundle several changes.
+
 Good names:
 
 - `add-image-utility-component.md`
@@ -46,6 +96,7 @@ Avoid:
 
 - `frank-eyes-learn.md` (random, uninformative)
 - `update.md` (too vague)
+- `update-foo-bar-baz.md` (bundles multiple changes)
 
 Create the file manually rather than relying on the CLI's auto-naming:
 
@@ -219,6 +270,7 @@ Deprecated: `SplitButton` from `@reapit/elements/core/split-button`. Use `Button
 Before committing a changeset:
 
 - [ ] File is in `.changeset/` with a descriptive kebab-case name
+- [ ] This file covers exactly one user-facing change (split into multiple files if not)
 - [ ] Frontmatter has `'@reapit/elements': <patch|minor|major>`
 - [ ] Bump type matches the impact (breaking → `major`, new feature → `minor`, fix → `patch`)
 - [ ] Summary starts with the correct prefix, or omits it intentionally
