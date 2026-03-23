@@ -5,7 +5,7 @@ import { PhotoIcon } from '../../icons'
 import { ResponsiveImage } from './responsive-image'
 import { useImage } from './use-image'
 
-import type { ReactNode } from 'react'
+import type { CSSProperties, ReactNode } from 'react'
 
 export namespace Image {
   export interface Props extends ResponsiveImage.Props {
@@ -22,6 +22,14 @@ export namespace Image {
      * Custom fallback UI shown if the image fails to load.
      */
     fallback?: ReactNode
+    /**
+     * The image's height.
+     */
+    height: string
+    /**
+     * The image's width.
+     */
+    width: string
   }
 }
 
@@ -32,14 +40,25 @@ export namespace Image {
  * container, whilst other `objectFit` values may crop or stretch the image. It
  * supports a fallback UI if the image fails to load.
  */
-export function Image({ alt, className, fallback, objectFit = 'contain', onError, onLoad, src, ...rest }: Image.Props) {
+export function Image({
+  alt,
+  className,
+  fallback,
+  height,
+  objectFit = 'contain',
+  onError,
+  onLoad,
+  src,
+  width,
+  ...rest
+}: Image.Props) {
   const { handleError, handleLoad, hasError } = useImage({ onError, onLoad })
   const isDecorative = alt === ''
   const shouldAnnounceDefaultFallback = !isDecorative && !fallback
   const defaultFallbackMessage = alt ? `The image could not be loaded: ${alt}` : 'The image could not be loaded'
 
   return (
-    <div className={elImageContainer}>
+    <div className={elImageContainer} style={{ '--image-width': width, '--image-height': height } as CSSProperties}>
       <ResponsiveImage
         {...rest}
         alt={alt}

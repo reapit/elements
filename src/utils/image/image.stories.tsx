@@ -11,20 +11,6 @@ const meta = {
     src: { control: 'text' },
     alt: { control: 'text' },
   },
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          border: '1px solid #FA00FF',
-          width: '300px',
-          height: '200px',
-          background: 'var(--colour-fill-default)',
-        }}
-      >
-        <Story />
-      </div>
-    ),
-  ],
 } satisfies Meta<typeof Image>
 
 export default meta
@@ -39,7 +25,33 @@ export const Example: Story = {
     src: 'https://picsum.photos/seed/ds-image/400/400',
     alt: 'A sample landscape photograph',
     objectFit: 'contain',
+    width: '300px',
+    height: '200px',
   },
+  decorators: [
+    (Story) => (
+      <div style={{ border: '1px solid #FF00FA', width: 'fit-content' }}>
+        <Story />
+      </div>
+    ),
+  ],
+}
+
+/**
+ * While the image accepts an explicit width and height, it is constrained to the size of its container.
+ * This allows ancestors to control the size the image is displayed at.
+ */
+export const Sizing: Story = {
+  args: {
+    ...Example.args,
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ border: '1px solid #FF00FA', width: '120px', height: '80px' }}>
+        <Story />
+      </div>
+    ),
+  ],
 }
 
 /**
@@ -61,6 +73,7 @@ export const ObjectFit: Story = {
  */
 export const Fallback: Story = {
   args: {
+    ...Example.args,
     alt: 'An image that fails to load',
     src: 'https://example.invalid/does-not-exist.jpg',
   },
@@ -71,6 +84,7 @@ export const Fallback: Story = {
  */
 export const CustomFallback: Story = {
   args: {
+    ...Example.args,
     alt: 'An image that fails to load',
     src: 'https://example.invalid/does-not-exist.jpg',
     fallback: (

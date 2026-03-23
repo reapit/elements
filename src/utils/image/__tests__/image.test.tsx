@@ -3,7 +3,7 @@ import { Image } from '../image'
 import { elImage } from '../styles'
 
 test('renders the default fallback UI when the image fails to load', () => {
-  render(<Image alt="A test image" src="https://picsum.photos/200/300" />)
+  render(<Image alt="A test image" height="300px" src="https://picsum.photos/200/300" width="200px" />)
 
   const image = screen.getByRole('img')
   fireEvent.error(image)
@@ -14,7 +14,7 @@ test('renders the default fallback UI when the image fails to load', () => {
 })
 
 test('keeps fallback non-announcing for decorative images', () => {
-  render(<Image alt="" src="https://picsum.photos/200/300" />)
+  render(<Image alt="" height="300px" src="https://picsum.photos/200/300" width="200px" />)
 
   fireEvent.error(screen.getByRole('presentation'))
 
@@ -23,7 +23,15 @@ test('keeps fallback non-announcing for decorative images', () => {
 })
 
 test('renders custom fallback content when provided', () => {
-  render(<Image alt="A test image" fallback={<p>Custom fallback</p>} src="https://picsum.photos/200/300" />)
+  render(
+    <Image
+      alt="A test image"
+      fallback={<p>Custom fallback</p>}
+      height="300px"
+      src="https://picsum.photos/200/300"
+      width="200px"
+    />,
+  )
 
   fireEvent.error(screen.getByRole('img', { hidden: true }))
 
@@ -34,19 +42,23 @@ test('renders custom fallback content when provided', () => {
 test('calls onError when the image fails to load', () => {
   const onError = vi.fn()
 
-  render(<Image alt="A test image" onError={onError} src="https://picsum.photos/200/300" />)
+  render(
+    <Image alt="A test image" height="300px" onError={onError} src="https://picsum.photos/200/300" width="200px" />,
+  )
   fireEvent.error(screen.getByRole('img', { hidden: true }))
 
   expect(onError).toHaveBeenCalledTimes(1)
 })
 
 test('keeps fallback visible until a subsequent load event', () => {
-  const { rerender } = render(<Image alt="A test image" src="https://example.com/invalid-a.jpg" />)
+  const { rerender } = render(
+    <Image alt="A test image" height="300px" src="https://example.com/invalid-a.jpg" width="200px" />,
+  )
 
   fireEvent.error(screen.getByRole('img', { hidden: true }))
   expect(screen.getByText('The image could not be loaded: A test image')).toBeVisible()
 
-  rerender(<Image alt="A test image" src="https://example.com/valid-b.jpg" />)
+  rerender(<Image alt="A test image" height="300px" src="https://example.com/valid-b.jpg" width="200px" />)
   expect(screen.getByText('The image could not be loaded: A test image')).toBeVisible()
 
   fireEvent.load(screen.getByRole('img', { hidden: true }))
@@ -56,7 +68,7 @@ test('keeps fallback visible until a subsequent load event', () => {
 })
 
 test('clears error state on image load', () => {
-  render(<Image alt="A test image" src="https://example.com/image.jpg" />)
+  render(<Image alt="A test image" height="300px" src="https://example.com/image.jpg" width="200px" />)
 
   fireEvent.error(screen.getByRole('img', { hidden: true }))
   expect(screen.getByText('The image could not be loaded: A test image')).toBeVisible()
@@ -68,7 +80,7 @@ test('clears error state on image load', () => {
 test('calls onLoad when the image loads', () => {
   const onLoad = vi.fn()
 
-  render(<Image alt="A test image" onLoad={onLoad} src="https://example.com/image.jpg" />)
+  render(<Image alt="A test image" height="300px" onLoad={onLoad} src="https://example.com/image.jpg" width="200px" />)
   fireEvent.load(screen.getByRole('img', { hidden: true }))
 
   expect(onLoad).toHaveBeenCalledTimes(1)

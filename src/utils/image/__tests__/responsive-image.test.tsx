@@ -46,20 +46,26 @@ test('forwards srcSet and sizes attributes', () => {
 
 test('forwards additional HTML attributes', () => {
   render(
+    <ResponsiveImage alt="A test image" src="https://picsum.photos/200/300" data-testid="my-image" loading="lazy" />,
+  )
+  const image = screen.getByTestId('my-image')
+
+  expect(image).toHaveAttribute('loading', 'lazy')
+})
+
+test('sets CSS custom properties for width and height', () => {
+  render(
     <ResponsiveImage
       alt="A test image"
       src="https://picsum.photos/200/300"
       data-testid="my-image"
-      width={200}
-      height={300}
-      loading="lazy"
+      width="200px"
+      height="300px"
     />,
   )
   const image = screen.getByTestId('my-image')
 
-  expect(image).toHaveAttribute('width', '200')
-  expect(image).toHaveAttribute('height', '300')
-  expect(image).toHaveAttribute('loading', 'lazy')
+  expect(image).toHaveStyle({ '--image-width': '200px', '--image-height': '300px' })
 })
 
 test('merges a custom className with the base class', () => {

@@ -75,8 +75,8 @@ export function GalleryViewerThumbnailBase({
     // NOTE: we use a type assertion here to avoid the hassle of narrowing `rest` properly
     <Element {...(rest as HTMLAttributes<HTMLElement>)} className={cx(elGalleryViewerThumbnail, className)}>
       {/* NOTE: we pin alt="" to make the image decorative because we want the parent's aria-label to be the
-       * only thing that's read */}
-      <Image alt="" fallback={fallback ?? defaultFallback} objectFit="cover" src={src} />
+       * only thing that's read. We also want the image to fill its container. */}
+      <Image alt="" fallback={fallback ?? defaultFallback} height="100%" objectFit="cover" src={src} width="100%" />
       {isVideo && (
         <ElGalleryViewerThumbnailVideoOverlay data-testid="video-overlay">
           <ElGalleryViewerThumbnailPlayIcon>

@@ -1,5 +1,5 @@
 import { cx } from '@linaria/core'
-import { elImageFallback, elImageFallbackContent, elImageFallbackIcon, elImageFallbackMessage } from './styles'
+import { elImageFallback, elImageFallbackIcon, elImageFallbackMessage } from './styles'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
@@ -23,14 +23,12 @@ export namespace ImageFallback {
 export function ImageFallback({ children, className, icon, ...rest }: ImageFallback.Props) {
   return (
     <div {...rest} className={cx(elImageFallback, className)}>
-      <div className={elImageFallbackContent}>
-        {icon && (
-          <div aria-hidden className={elImageFallbackIcon}>
-            {icon}
-          </div>
-        )}
-        {children && <p className={elImageFallbackMessage}>{children}</p>}
-      </div>
+      {icon && (
+        <div aria-hidden className={elImageFallbackIcon}>
+          {icon}
+        </div>
+      )}
+      {children && <p className={elImageFallbackMessage}>{children}</p>}
     </div>
   )
 }

@@ -20,6 +20,11 @@ const meta: Meta<typeof GalleryViewerThumbnail> = {
       control: 'text',
     },
   },
+  decorators: (Story) => (
+    <div style={{ width: '120px' }}>
+      <Story />
+    </div>
+  ),
 }
 
 export default meta

@@ -7,8 +7,9 @@ export const elGalleryViewerThumbnail = css`
   display: block;
   overflow: hidden;
 
-  width: 88px;
-  height: 56px;
+  aspect-ratio: 11 / 7;
+  inline-size: 120px;
+  block-size: auto;
 
   border-radius: var(--border-radius-m);
   background: var(--colour-fill-neutral-light);
