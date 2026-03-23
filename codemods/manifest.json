@@ -23,6 +23,10 @@
       "description": "Inlines deprecated useClickOutside calls and removes Elements imports"
     },
     {
+      "name": "replace-lab-mobile-nav-item",
+      "description": "Migrates MobileNavItem from lab/mobile-nav-item to TopBar components from core/top-bar"
+    },
+    {
       "name": "replace-lab-radio",
       "description": "Migrates Radio from lab/radio to RadioButton from core/radio-group-control"
     },

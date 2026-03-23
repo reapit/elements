@@ -8,6 +8,7 @@ export const transforms = {
   "replace-deprecated-label": () => import("./replace-deprecated-label/transform.js"),
   "replace-deprecated-pagination": () => import("./replace-deprecated-pagination/transform.js"),
   "replace-deprecated-use-click-outside": () => import("./replace-deprecated-use-click-outside/transform.js"),
+  "replace-lab-mobile-nav-item": () => import("./replace-lab-mobile-nav-item/transform.js"),
   "replace-lab-radio": () => import("./replace-lab-radio/transform.js"),
   "replace-lab-radio-group": () => import("./replace-lab-radio-group/transform.js"),
   "replace-lab-table": () => import("./replace-lab-table/transform.js"),
