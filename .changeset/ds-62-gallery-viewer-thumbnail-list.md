@@ -2,4 +2,4 @@
 '@reapit/elements': minor
 ---
 
-Added: `GalleryViewerThumbnailList` component and associated `GalleryViewerThumbnailListItem` and `GalleryViewerThumbnailListButtonItem` sub-components for rendering a wrapping list of gallery thumbnails.
+Added: `GalleryViewer.ThumbnailList` component and associated `GalleryViewer.Thumbnail` and `GalleryViewer.ThumbnailButton` sub-components for rendering a list of gallery thumbnails.
