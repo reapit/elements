@@ -1,5 +1,68 @@
 # @reapit/elements
 
+## 5.0.0-beta.83
+
+### Major Changes
+
+- **[Changed]** `Image.Fallback` no longer renders a default message when `children` is omitted. Pass `children` explicitly to display a message. ([#1217](https://github.com/reapit-global/gbl-ds-elements/pull/1217), [`f6bc9f1`](https://github.com/reapit-global/gbl-ds-elements/commit/f6bc9f191c93a46a919e035fd95c89c9735a7fe3), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Changed]** `src` is now required on `Image` and `ResponsiveImage`. ([#1217](https://github.com/reapit-global/gbl-ds-elements/pull/1217), [`f6bc9f1`](https://github.com/reapit-global/gbl-ds-elements/commit/f6bc9f191c93a46a919e035fd95c89c9735a7fe3), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Changed]** `Image` now requires `width` and `height` props. Pass explicit CSS length strings to all `Image` usages (e.g. `width="300px"` `height="200px"` for fixed dimensions, or `width="100%"` `height="100%"` to fill a container). These props set CSS custom properties and are not forwarded as HTML `img` attributes. ([#1215](https://github.com/reapit-global/gbl-ds-elements/pull/1215), [`00df546`](https://github.com/reapit-global/gbl-ds-elements/commit/00df54623c50605463ace14904f611882c3e8297), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Removed]** `DeprecatedPagination`, `DeprecatedPaginationProps`, `DeprecatedPaginationWrap`, `DeprecatedPaginationText`, `DeprecatedPaginationInput`, `DeprecatedPaginationButton`, and related exports from `src/deprecated/pagination`. Use the `Pagination` component from `@reapit/elements/core/pagination` instead. ([#1219](https://github.com/reapit-global/gbl-ds-elements/pull/1219), [`d69a604`](https://github.com/reapit-global/gbl-ds-elements/commit/d69a60460eafdbf8f9df48421dd7abd2a7bd0094), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  Run the `replace-deprecated-pagination` codemod to migrate usages of `DeprecatedPagination` and `DeprecatedPaginationProps` automatically. Subcomponents (`DeprecatedPaginationWrap`, `DeprecatedPaginationText`, `DeprecatedPaginationInput`, `DeprecatedPaginationButton`) must be updated manually.
+
+  ```bash
+  yarn dlx @reapit/elements@beta codemod apply replace-deprecated-pagination src/
+  ```
+
+- **[Removed]** the experimental `MobileNavItem` component from `@reapit/elements/lab/mobile-nav-item`. ([#1223](https://github.com/reapit-global/gbl-ds-elements/pull/1223), [`347f4cd`](https://github.com/reapit-global/gbl-ds-elements/commit/347f4cd82179136735829a1539cc00d8fda0348f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  Run the `replace-lab-mobile-nav-item` codemod to migrate to `TopBar` components:
+
+  ```bash
+  yarn dlx @reapit/elements@beta codemod apply replace-lab-mobile-nav-item src/
+  ```
+
+### Minor Changes
+
+- **[Added]** `replace-deprecated-pagination` codemod. Migrates `DeprecatedPagination` and `DeprecatedPaginationProps` to the `Pagination` component from `@reapit/elements/core/pagination`. Rewrites imports, renames JSX tags, migrates props (`callback` → `onPageChange`, `currentPage` → `pageNumber`, `numberPages` → `pageCount`), and inserts TODO comments for `hasStartButton` and `hasEndButton` props that have no direct equivalent in the new API. ([#1216](https://github.com/reapit-global/gbl-ds-elements/pull/1216), [`437fc3c`](https://github.com/reapit-global/gbl-ds-elements/commit/437fc3cbe57433f3d0e4dddc6c401190cccae471), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  Run the codemod to migrate automatically:
+
+  ```bash
+  yarn dlx @reapit/elements@beta codemod apply replace-deprecated-pagination src/
+  ```
+
+- **[Added]** `replace-lab-mobile-nav-item` codemod. Migrates `MobileNavItem` from `@reapit/elements/lab/mobile-nav-item` to the stable `TopBar` core components. ([#1218](https://github.com/reapit-global/gbl-ds-elements/pull/1218), [`971033e`](https://github.com/reapit-global/gbl-ds-elements/commit/971033e9cebfea5c4ada8f4a70d59f5d81ed121a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  - Anchor variant (`href` prop) → `TopBar.MenuItem` with `aria-current`
+  - Button variant (`onClick` prop, no `href`) → `TopBar.MenuItemButton`
+  - Expandable variant (JSX children) → `TopBar.MenuGroup` with `TopBar.MenuGroupSummary` and `TopBar.MenuSubmenu`
+  - `MobileNavItem.Props` type references → `TopBar.MenuItemProps`
+
+  Run the codemod to migrate automatically:
+
+  ```bash
+  yarn dlx @reapit/elements@beta codemod apply replace-lab-mobile-nav-item src/
+  ```
+
+- **[Added]** `replace-lab-search-input` codemod. Migrates `SearchInput` from `lab/search-input` to `SearchInput` from `core/search-input`, rewriting imports, renaming `inputSize` to `size` and `isDisabled` to `disabled`, and removing `unstable_onSearch` with a TODO comment pointing to `onChange`. ([#1224](https://github.com/reapit-global/gbl-ds-elements/pull/1224), [`9c62f31`](https://github.com/reapit-global/gbl-ds-elements/commit/9c62f31b7cbc72eee9632e4a9b3966687aa82151), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `GalleryViewerThumbnail` and `GalleryViewerThumbnailButton` components. Both render a thumbnail image with an optional video overlay. `Thumbnail` renders as an anchor for URL-driven navigation; `ThumbnailButton` renders as a button for click-handler-driven selection. ([#1207](https://github.com/reapit-global/gbl-ds-elements/pull/1207), [`0d95444`](https://github.com/reapit-global/gbl-ds-elements/commit/0d95444ffa6c5f6816848c86fc2f937f8ddf1b2f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `GalleryViewer.ThumbnailList` component and associated `GalleryViewer.Thumbnail` and `GalleryViewer.ThumbnailButton` sub-components for rendering a list of gallery thumbnails. ([#1215](https://github.com/reapit-global/gbl-ds-elements/pull/1215), [`00df546`](https://github.com/reapit-global/gbl-ds-elements/commit/00df54623c50605463ace14904f611882c3e8297), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Patch Changes
+
+- **[Fixed]** Updated export map for `rewrite-v5-imports` codemod. ([#1221](https://github.com/reapit-global/gbl-ds-elements/pull/1221), [`e5e30f1`](https://github.com/reapit-global/gbl-ds-elements/commit/e5e30f1233bcd386c10eb5a16ebe7865306877c6), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Fixed]** `ChipSelectControl` text overflow and truncation now work correctly. The `FormControl` fieldset's implicit `min-width: min-content` was preventing chips from shrinking, so long text could not truncate or wrap as expected. ([#1222](https://github.com/reapit-global/gbl-ds-elements/pull/1222), [`a8cbe79`](https://github.com/reapit-global/gbl-ds-elements/commit/a8cbe796b1dba5796d990c3f50d6f880b811fe3a), [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent))
+
+- **[Internal]** Run related unit tests for staged files in the pre-commit hook via `vitest related`. Tests run in parallel with the lint and format tasks, keeping the hook as fast as possible. ([#1220](https://github.com/reapit-global/gbl-ds-elements/pull/1220), [`511bdde`](https://github.com/reapit-global/gbl-ds-elements/commit/511bdde2599b3b603e9e36bb185202ccfe2b3985), [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent))
+
 ## 5.0.0-beta.82
 
 ### Minor Changes
