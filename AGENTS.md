@@ -34,3 +34,4 @@
 - **Codemods for breaking changes MUST follow the codemod workflow** (use `creating-codemods` skill)
 - **When addressing PR review comments, use the end-to-end review workflow** (use `reviewing-pr-comments` skill)
 - **Changesets MUST follow the changeset conventions** (use `writing-changesets` skill)
+- **PR titles and descriptions MUST follow the pull request conventions** (use `writing-pull-requests` skill)

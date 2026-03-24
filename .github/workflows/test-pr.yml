@@ -16,7 +16,7 @@ jobs:
     steps:
       - uses: seferov/pr-lint-action@v2.0.0
         with:
-          title-regex: '^(?:(?:\[WIP\] ?)?(?:build|ci|chore|docs|task|feat|fix|perf|refactor|revert|style|test)!?\:(?:\ +?#\d+?\ +?)?.*)|(?:\[Snyk\].*)'
+          title-regex: '^(?:(?:\[WIP\] ?)?(?:build|ci|chore|docs|task|feat|fix|perf|refactor|revert|style|test)!?\:(?:\ +?(?:#\d+|[A-Z]+-\d+)\ +?)?.*)|(?:\[Snyk\].*)'
           title-regex-flags: 'g'
           github-token: ${{ secrets.GITHUB_TOKEN }}
           auto-close-message: 'Closing this pull request since the title does not match %pattern% pattern. Please fix the title and re-open the pull request.'
