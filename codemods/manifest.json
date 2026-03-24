@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-03-22T22:57:41.582Z",
+  "generated": "2026-03-23T22:10:19.376Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -33,6 +33,10 @@
     {
       "name": "replace-lab-radio-group",
       "description": "Migrates RadioGroup from lab/radio-group to RadioGroupControl from core/radio-group-control"
+    },
+    {
+      "name": "replace-lab-search-input",
+      "description": "Migrates SearchInput from lab/search-input to SearchInput from core/search-input"
     },
     {
       "name": "replace-lab-table",

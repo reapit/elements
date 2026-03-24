@@ -11,6 +11,7 @@ export const transforms = {
   "replace-lab-mobile-nav-item": () => import("./replace-lab-mobile-nav-item/transform.js"),
   "replace-lab-radio": () => import("./replace-lab-radio/transform.js"),
   "replace-lab-radio-group": () => import("./replace-lab-radio-group/transform.js"),
+  "replace-lab-search-input": () => import("./replace-lab-search-input/transform.js"),
   "replace-lab-table": () => import("./replace-lab-table/transform.js"),
   "rewrite-combobox-imports": () => import("./rewrite-combobox-imports/transform.js"),
   "rewrite-text-font-imports": () => import("./rewrite-text-font-imports/transform.js"),
