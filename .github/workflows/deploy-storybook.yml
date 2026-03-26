@@ -1,13 +1,9 @@
-# Deploy Storybook to development or production.
+# Deploy Storybook to Cloudflare Workers.
 #
 # Triggers:
-#   push to main  → always deploys development (inputs are undefined, defaults apply)
-#   workflow_call  → caller specifies target (used by release.yml for production)
+#   push to main   → always deploys dev (canary.elements.reapit.com.au)
+#   workflow_call   → caller specifies target (used by release.yml for prod)
 #   workflow_dispatch → manual deploy with a target dropdown
-#
-# APP_STAGE must be exported as a real environment variable because
-# scripts/cdk/cdk-stack.cts reads process.env.APP_STAGE to decide
-# which site config (development or production) to deploy via CDK.
 
 name: Deploy Storybook
 
@@ -18,71 +14,62 @@ on:
   workflow_call:
     inputs:
       target:
-        description: 'Deploy target. Valid values: development, production'
+        description: 'Deploy target. Valid values: dev, prod, v4'
         type: string
-        default: 'development'
+        default: 'dev'
   workflow_dispatch:
     inputs:
       target:
         description: 'Deploy target'
         type: choice
         options:
-          - development
-          - production
-        default: 'development'
+          - dev
+          - prod
+          - v4
+        default: 'dev'
 
 permissions:
   contents: read
-  id-token: write
 
 env:
   CI: true
 
 jobs:
   deploy-storybook:
-    name: Deploy Storybook (${{ inputs.target || 'development' }})
+    name: Deploy Storybook (${{ inputs.target || 'dev' }})
     runs-on:
       group: rpt-gbl-linux-x64
     steps:
-      # Fail fast with a clear message if someone manually triggers a
-      # production deploy from a non-main branch. This only fires for
-      # workflow_dispatch — push events don't have inputs.target set,
-      # and workflow_call callers (e.g. release.yml) are expected to
-      # enforce their own branch restrictions.
+      # Fail fast if someone manually triggers a prod deploy from a non-main
+      # branch. Push events always target dev so this guard only fires for
+      # workflow_dispatch.
+      # Note: v4 is intentionally excluded — it must be deployable from
+      # non-main branches (e.g. the lts branch) to keep the LTS storybook
+      # up to date independently of main.
       - name: Guard production deploy
         if: >-
           github.event_name == 'workflow_dispatch'
-          && inputs.target == 'production'
+          && inputs.target == 'prod'
           && github.ref != 'refs/heads/main'
         run: |
           echo "::error::Production deploys are only permitted from the main branch."
           exit 1
 
-      # Centralise target resolution in a single step so the rest of the
-      # workflow reads from one source of truth. This avoids duplicating
-      # ternary expressions across APP_STAGE, role-to-assume, and
-      # role-session-name — where a mismatch could deploy development
-      # config with production credentials or vice versa.
-      #
-      # On push events, inputs.target is undefined, so the fallback
-      # defaults to development.
+      # Resolve the target once so every subsequent step reads from a
+      # single source of truth. On push events inputs.target is
+      # undefined, so the fallback defaults to dev.
       - name: Resolve target
         id: target
         run: |
-          TARGET="${{ inputs.target || 'development' }}"
-          if [ "$TARGET" != "development" ] && [ "$TARGET" != "production" ]; then
-            echo "::error::Invalid target '$TARGET'. Valid values are 'development' or 'production'."
-            exit 1
-          fi
+          TARGET="${{ inputs.target || 'dev' }}"
+          case "$TARGET" in
+            dev|prod|v4) ;;
+            *)
+              echo "::error::Invalid target '$TARGET'. Valid values are dev, prod, v4."
+              exit 1
+              ;;
+          esac
           echo "target=$TARGET" >> "$GITHUB_OUTPUT"
-          echo "APP_STAGE=$TARGET" >> "$GITHUB_ENV"
-
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v6
-        with:
-          role-to-assume: ${{ steps.target.outputs.target == 'production' && secrets.AWS_OIDC_ARN_PROD || secrets.AWS_OIDC_ARN_DEV }}
-          role-session-name: ${{ steps.target.outputs.target == 'production' && 'AWS_OIDC_ARN_PROD' || 'AWS_OIDC_ARN_DEV' }}
-          aws-region: ${{ secrets.AWS_REGION }}
 
       - name: Checkout
         uses: actions/checkout@v6
@@ -100,5 +87,10 @@ jobs:
       - name: Build Storybook
         run: yarn build:storybook
 
-      - name: Deploy
-        run: yarn deploy
+      - name: Deploy to Cloudflare Workers
+        uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
+          accountId: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4'
+          command: deploy --env ${{ steps.target.outputs.target }}

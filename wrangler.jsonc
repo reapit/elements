@@ -1,0 +1,49 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  "name": "gbl-ds-elements",
+  "compatibility_date": "2025-04-01",
+  "env": {
+    // Dev: every commit to main → canary.elements.reapit.com.au
+    "dev": {
+      "name": "gbl-ds-elements-dev",
+      "routes": [
+        {
+          "pattern": "canary.elements.reapit.com.au",
+          "custom_domain": true,
+        },
+      ],
+      "assets": {
+        "directory": "./public/dist",
+        "not_found_handling": "single-page-application",
+      },
+    },
+    // Prod stable: npm publish via release.yml → elements.reapit.com.au
+    "prod": {
+      "name": "gbl-ds-elements-prod",
+      "routes": [
+        {
+          "pattern": "elements.reapit.com.au",
+          "custom_domain": true,
+        },
+      ],
+      "assets": {
+        "directory": "./public/dist",
+        "not_found_handling": "single-page-application",
+      },
+    },
+    // v4: manual dispatch → v4.elements.reapit.com.au
+    "v4": {
+      "name": "gbl-ds-elements-v4",
+      "routes": [
+        {
+          "pattern": "v4.elements.reapit.com.au",
+          "custom_domain": true,
+        },
+      ],
+      "assets": {
+        "directory": "./public/dist",
+        "not_found_handling": "single-page-application",
+      },
+    },
+  },
+}

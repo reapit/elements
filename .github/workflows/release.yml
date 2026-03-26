@@ -88,5 +88,5 @@ jobs:
     if: needs.release.outputs.published == 'true'
     uses: ./.github/workflows/deploy-storybook.yml
     with:
-      target: production
+      target: prod
     secrets: inherit
