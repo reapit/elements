@@ -10,6 +10,7 @@
     "label": "React",
     "parser": "react",
     "documentUrlSubstitutions": {
+      "<ACCORDION_GROUP_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=14328-20323&m=dev",
       "<ACCORDION_HEADER_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=18266-17027&m=dev",
       "<ACCORDION_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=18266-17016&m=dev",
       "<ACCORDION_URL_DEPRECATED>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=14320-99220&m=dev",

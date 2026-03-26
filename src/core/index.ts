@@ -1,4 +1,5 @@
 export * from './accordion'
+export * from './accordion-group'
 export * from './alert-banner'
 export * from './alert-banner/outlet'
 export * from './alert-banner/portal'
