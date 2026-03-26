@@ -77,6 +77,14 @@ test('exposes GalleryViewerDialog.getClosestDialogElement', () => {
   expect(GalleryViewerDialog.getClosestDialogElement).toBeDefined()
 })
 
+test('exposes GalleryViewerDialog.Header', () => {
+  expect(GalleryViewerDialog.Header).toBeDefined()
+})
+
+test('exposes GalleryViewerDialog.Content', () => {
+  expect(GalleryViewerDialog.Content).toBeDefined()
+})
+
 function ConsumerOutsideProvider() {
   useGalleryViewerDialogContext()
   return null

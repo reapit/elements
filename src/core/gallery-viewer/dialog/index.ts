@@ -1,3 +1,5 @@
 export * from './context'
 export * from './dialog'
 export * from './styles'
+export * from './header'
+export * from './content'

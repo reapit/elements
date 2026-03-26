@@ -4,6 +4,9 @@ import { elGalleryViewerDialog } from './styles'
 import { HTMLDialog, getClosestDialogElement, useDialogOpenController, useDialogOpenState } from '#src/utils/dialog'
 import { useId } from 'react'
 
+import { GalleryViewerDialogHeader } from './header'
+import { GalleryViewerDialogContent } from './content'
+
 import type { DialogHTMLAttributes, ReactNode } from 'react'
 
 export namespace GalleryViewerDialog {
@@ -102,6 +105,9 @@ export function GalleryViewerDialog({
 
 GalleryViewerDialog.Context = GalleryViewerDialogContext
 GalleryViewerDialog.useContext = useGalleryViewerDialogContext
+
+GalleryViewerDialog.Header = GalleryViewerDialogHeader
+GalleryViewerDialog.Content = GalleryViewerDialogContent
 
 GalleryViewerDialog.getClosestDialogElement = getClosestDialogElement
 
