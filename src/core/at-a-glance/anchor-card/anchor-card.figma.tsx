@@ -35,3 +35,42 @@ figma.connect(AtAGlance.AnchorCard, '<AT_A_GLANCE_CARD_URL>', {
     </AtAGlance.GridItem>
   ),
 })
+
+//
+// Deprecated Figma component support.
+//
+
+figma.connect(AtAGlance.AnchorCard, '<AT_A_GLANCE_CARD_URL_DEPRECATED>', {
+  variant: { Variant: 'With link' },
+  props: {
+    content: figma.nestedProps('AAG card content', {
+      icon: figma.boolean('Show icon', {
+        true: figma.instance('Icon'),
+        false: undefined,
+      }),
+      description: figma.boolean('Show description', {
+        true: figma.string('Description'),
+        false: undefined,
+      }),
+      label: figma.string('Label'),
+      layout: figma.enum('Layout', {
+        Vertical: 'vertical',
+        Horizontal: 'horizontal',
+        Compact: 'compact',
+      }),
+      displayValue: figma.string('Value'),
+    }),
+  },
+  example: (props) => (
+    <AtAGlance.GridItem>
+      <AtAGlance.AnchorCard
+        href="<REPLACE ME>"
+        icon={props.content.icon}
+        description={props.content.description}
+        label={props.content.label}
+        layout={props.content.layout}
+        displayValue={props.content.displayValue}
+      />
+    </AtAGlance.GridItem>
+  ),
+})
