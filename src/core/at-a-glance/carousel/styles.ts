@@ -4,9 +4,9 @@ import { styled } from '@linaria/react'
 
 export const ElAtAGlanceCarousel = styled.div`
   --aag-carousel-left-button-opacity: 0;
-  --aag-carousel-left-button-z-index: -1;
+  --aag-carousel-left-button-pointer-events: none;
   --aag-carousel-right-button-opacity: 0;
-  --aag-carousel-right-button-z-index: -1;
+  --aag-carousel-right-button-pointer-events: none;
 
   --aag-carousel-mask: linear-gradient(
     to right,
@@ -26,11 +26,11 @@ export const ElAtAGlanceCarousel = styled.div`
     /* Show navigation buttons on hover when scrolling is possible */
     &[data-can-scroll-left='true'] {
       --aag-carousel-left-button-opacity: 1;
-      --aag-carousel-left-button-z-index: var(--z-index-elevated);
+      --aag-carousel-left-button-pointer-events: auto;
     }
     &[data-can-scroll-right='true'] {
       --aag-carousel-right-button-opacity: 1;
-      --aag-carousel-right-button-z-index: var(--z-index-elevated);
+      --aag-carousel-right-button-pointer-events: auto;
     }
   }
 
@@ -58,30 +58,31 @@ export const elAtAGlanceCarouselButton = css`
   position: absolute;
   align-self: center;
   box-shadow: 0 var(--size-1) var(--size-2) 0 rgb(0 0 0 / 0.1);
+  z-index: var(--z-index-elevated);
 
   /* Left button */
   &:first-of-type {
-    z-index: var(--aag-carousel-left-button-z-index);
+    pointer-events: var(--aag-carousel-left-button-pointer-events);
     opacity: var(--aag-carousel-left-button-opacity);
     left: var(--spacing-2);
 
     /* Show button when focused for keyboard navigation */
     &:focus-visible {
       --aag-carousel-left-button-opacity: 1;
-      --aag-carousel-left-button-z-index: var(--z-index-elevated);
+      --aag-carousel-left-button-pointer-events: auto;
     }
   }
 
   /* Right button */
   &:last-of-type {
-    z-index: var(--aag-carousel-right-button-z-index);
+    pointer-events: var(--aag-carousel-right-button-pointer-events);
     opacity: var(--aag-carousel-right-button-opacity);
     right: var(--spacing-2);
 
     /* Show button when focused for keyboard navigation */
     &:focus-visible {
       --aag-carousel-right-button-opacity: 1;
-      --aag-carousel-right-button-z-index: var(--z-index-elevated);
+      --aag-carousel-right-button-pointer-events: auto;
     }
   }
 

@@ -1,4 +1,3 @@
-export * from './constants'
 export * from './body'
 export * from './body-cell'
 export * from './body-row'

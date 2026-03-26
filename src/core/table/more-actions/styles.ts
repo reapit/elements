@@ -1,5 +1,4 @@
 import { css } from '@linaria/core'
-import { TABLE_ROW_INTERACTIVE_ELEMENT_Z_INDEX } from '../constants'
 
 // NOTE: we use `css` instead of `styled` because the latter omits the popover-related
 // attributes we need to pass to the button.
@@ -21,7 +20,7 @@ export const elTableRowMoreActionsButton = css`
   cursor: pointer;
 
   /* NOTE: This ensures the button is layered above the table row's primary action */
-  z-index: ${TABLE_ROW_INTERACTIVE_ELEMENT_Z_INDEX};
+  z-index: var(--z-index-elevated);
 
   &:focus-visible {
     outline: var(--border-width-double) solid var(--colour-border-focus);

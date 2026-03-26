@@ -1,6 +1,5 @@
 import { css } from '@linaria/core'
 import { font } from '#src/utils/font'
-import { TABLE_ROW_PRIMARY_ACTION_Z_INDEX } from '../constants'
 
 export const elTableRowPrimaryAction = css`
   display: inline-grid;
@@ -17,6 +16,11 @@ export const elTableRowPrimaryAction = css`
 
   outline: none;
 
+  /* Explicitly places the primary action (and its ::after overlay) at the base stacking
+   * level within the isolated row context. Interactive elements (checkbox, more-actions)
+   * use --z-index-elevated to sit above this overlay. */
+  z-index: var(--z-index-base);
+
   &::after {
     content: '';
     display: block;
@@ -25,10 +29,6 @@ export const elTableRowPrimaryAction = css`
   }
 
   &:focus-visible {
-    /* We increase the z-index to ensure the focus outline is above subsequent sibling table
-     * row hover styles */
-    z-index: ${TABLE_ROW_PRIMARY_ACTION_Z_INDEX};
-
     &::after {
       outline: var(--border-width-double) solid var(--colour-border-focus);
       outline-offset: var(--border-width-default);

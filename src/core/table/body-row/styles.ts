@@ -11,6 +11,11 @@ export const elTableBodyRow = css`
    * by the action rather than the row. */
   position: relative;
 
+  /* Isolation contains z-index values used by child elements (primary action, more actions,
+   * checkbox) within this row's stacking context, preventing them from overlapping
+   * elements outside the row during scrolling. */
+  isolation: isolate;
+
   display: grid;
   grid-column: 1 / -1;
   grid-template-columns: subgrid;
@@ -34,5 +39,11 @@ export const elTableBodyRow = css`
 
   &:has(.${elTableRowPrimaryAction}):hover {
     background: var(--colour-fill-neutral-lightest);
+  }
+
+  /* Raise the row's stacking context above sibling rows when the primary action is focused,
+   * ensuring the focus outline is not obscured by adjacent row hover backgrounds. */
+  &:focus-within {
+    z-index: var(--z-index-elevated);
   }
 `

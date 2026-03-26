@@ -1,23 +1,23 @@
 # Z-Index Layering
 
-This guide defines the standard pattern for managing z-index values across Reapit Elements components to prevent unintended stacking conflicts.
+Use this guide to manage z-index values consistently across Reapit Elements components and prevent unintended stacking conflicts.
 
 ## Overview
 
 Components that use z-index for internal stacking (e.g., active tabs, focus rings) can unintentionally overlap other page elements during scrolling. This pattern solves the problem through:
 
 1. **Semantic z-index tokens** — CSS custom properties for consistent values
-2. **Stacking context isolation** — Contains z-index values within their parent component
+2. **Stacking context isolation** — Contains z-index values within the parent component
 
 ## Z-Index Tokens
 
 Three z-index tokens are defined in `src/styles/globals.ts`:
 
-| Token                | Value | Purpose                                                      |
-| -------------------- | ----- | ------------------------------------------------------------ |
-| `--z-index-base`     | `0`   | Default stacking, explicit reset                             |
-| `--z-index-elevated` | `1`   | Internal component stacking (contained by isolation)         |
-| `--z-index-sticky`   | `10`  | Sticky/fixed elements that must stay above scrolling content |
+| Token                | Value | Purpose                                                                                           |
+| -------------------- | ----- | ------------------------------------------------------------------------------------------------- |
+| `--z-index-base`     | `0`   | Explicit base stacking level — use when an element must be overtly placed below elevated siblings |
+| `--z-index-elevated` | `1`   | Internal component stacking (contained by isolation)                                              |
+| `--z-index-sticky`   | `10`  | Sticky/fixed elements that must stay above scrolling content                                      |
 
 ### Why Only Three Tokens?
 
@@ -27,7 +27,7 @@ Overlay components (Dialog, Drawer, Menu, Tooltip, Combobox popups) use native b
 
 ### How It Works
 
-The CSS `isolation: isolate` property creates a new stacking context. Child z-index values become relative to that container rather than the page root. Internal z-index values stay contained within the component.
+The CSS `isolation: isolate` property creates a new stacking context. Child z-index values become relative to that container rather than the page root.
 
 ```
 Page (root stacking context)
@@ -72,6 +72,32 @@ export const ElFolderTab = styled.a`
 `
 ```
 
+### Components With Multiple Stacking Levels
+
+When a container has multiple children at different stacking levels, assign `--z-index-base` explicitly to the lower element rather than relying on DOM order. This makes the intended stacking contract readable in CSS without needing to know the DOM structure.
+
+The table row is the canonical example: the primary action's `::after` pseudo-element covers the entire row, and interactive elements (checkbox, more-actions) must sit above it.
+
+```typescript
+// ✅ Correct: Explicit base stacking on the overlay element
+export const elTableRowPrimaryAction = css`
+  /* Explicitly base-level so interactive siblings at --z-index-elevated
+   * are guaranteed above the ::after overlay, regardless of DOM order. */
+  z-index: var(--z-index-base);
+
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+`
+
+// ✅ Correct: Interactive elements explicitly elevated above the overlay
+export const elTableCellCheckbox = css`
+  z-index: var(--z-index-elevated);
+`
+```
+
 ### Sticky/Fixed Components
 
 Components that must stay above scrolling content use the sticky token:
@@ -90,10 +116,11 @@ export const elTopBar = css`
 ### For Components Using Z-Index
 
 - [ ] Container component has `isolation: isolate` if children use z-index
-- [ ] Z-index values use tokens (`--z-index-elevated`, `--z-index-sticky`)
+- [ ] Z-index values use tokens (`--z-index-base`, `--z-index-elevated`, `--z-index-sticky`)
 - [ ] Hardcoded z-index values removed (e.g., `z-index: 1`, `z-index: 100`)
 - [ ] Sticky/fixed elements use `--z-index-sticky`
 - [ ] Internal stacking uses `--z-index-elevated`
+- [ ] Elements that must sit below elevated siblings use `--z-index-base` explicitly (do not rely on DOM order)
 
 ### For New Components
 
@@ -154,7 +181,7 @@ export const ElModal = styled.div`
 
 // ✅ Correct: Use native browser APIs
 export function Modal({ children }: Modal.Props) {
-  return <dialog>{children}</dialog> // Automatically in top - layer
+  return <dialog>{children}</dialog> // Automatically in top-layer
 }
 ```
 
@@ -166,8 +193,8 @@ These components use `isolation: isolate` to contain internal z-index:
 
 - `FolderTabs` — Active tab elevation
 - `SplitButton` — Button focus states
-- `Table` — Row action stacking
-- `AtAGlance.Carousel` — Navigation button visibility
+- `Table` (body row) — Interactive element stacking above the primary action
+- `AtAGlance.Carousel` — Navigation buttons are permanently elevated above the scroll grid with `z-index: var(--z-index-elevated)`; visibility is managed via `pointer-events` and `opacity`, not z-index toggling
 
 ### Sticky Elements
 
