@@ -10,7 +10,9 @@
     "label": "React",
     "parser": "react",
     "documentUrlSubstitutions": {
-      "<ACCORDION_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=14320-99220&m=dev",
+      "<ACCORDION_HEADER_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=18266-17027&m=dev",
+      "<ACCORDION_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=18266-17016&m=dev",
+      "<ACCORDION_URL_DEPRECATED>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=14320-99220&m=dev",
       "<AUTOCOMPLETE_MULTI_SELECT_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=16580-62528&m=dev",
       "<AUTOCOMPLETE_SINGLE_SELECT_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=16578-37047&m=dev",
       "<AT_A_GLANCE_CARD_URL>": "https://www.figma.com/design/6CaivqdlTX0UkFYJkpBKDu/Reapit-DS?node-id=15854-47008&m=dev",

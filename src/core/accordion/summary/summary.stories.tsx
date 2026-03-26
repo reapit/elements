@@ -12,7 +12,7 @@ const meta = {
   title: 'Core/Accordion/Summary',
   component: AccordionSummary,
   argTypes: {
-    rightInfo: {
+    accessory: {
       control: 'radio',
       options: ['None', 'Features', 'Value', 'Clear Button'],
       mapping: {
@@ -62,30 +62,30 @@ type Story = StoryObj<typeof meta>
 export const Example: Story = {
   args: {
     children: 'Accordion Title',
-    rightInfo: 'None',
+    accessory: 'None',
   },
 }
 
 /**
- * The `rightInfo` prop allows for additional summary information to be displayed. For example, the `Features`
+ * The `accessory` prop allows for additional summary information to be displayed. For example, the `Features`
  * component can be used to display useful information about the property to which the accordion is related.
  */
 export const WithFeatures: Story = {
   args: {
     ...Example.args,
-    rightInfo: 'Features',
+    accessory: 'Features',
   },
 }
 
 /**
- * The `rightInfo` prop also allows for an action to be displayed. This is typically used when the accordion
+ * The `accessory` prop also allows for an action to be displayed. This is typically used when the accordion
  * represents a filter. The action in this case is typically a clear button that allows the user to clear any
  * currently active filters related to the accordion.
  */
 export const WithClearButton: Story = {
   args: {
     ...Example.args,
-    rightInfo: 'Clear Button',
+    accessory: 'Clear Button',
   },
 }
 

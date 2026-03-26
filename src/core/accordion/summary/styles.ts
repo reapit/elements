@@ -32,7 +32,7 @@ export const ElAccordionSummaryTitle = styled.div`
   min-width: 0;
 `
 
-export const ElAccordionSummaryRightInfo = styled.div`
+export const ElAccordionSummaryAccessory = styled.div`
   display: flex;
   align-items: center;
   justify-content: end;

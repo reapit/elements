@@ -14,6 +14,11 @@ test('renders a <summary> element', () => {
   expect(summary.tagName).toBe('SUMMARY')
 })
 
+test('accessory is visible when provided', () => {
+  render(<AccordionSummary accessory="Accessory">Accordion Title</AccordionSummary>, { wrapper })
+  expect(screen.getByText('Accessory')).toBeVisible()
+})
+
 test('right info is visible when provided', () => {
   render(<AccordionSummary rightInfo="Right Info">Accordion Title</AccordionSummary>, { wrapper })
   expect(screen.getByText('Right Info')).toBeVisible()

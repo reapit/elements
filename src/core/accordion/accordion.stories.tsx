@@ -22,7 +22,7 @@ const meta = {
         Basic: <Accordion.Summary>Accordion Title</Accordion.Summary>,
         'With Features': (
           <Accordion.Summary
-            rightInfo={
+            accessory={
               <Features size="xs">
                 <Features.Item icon={<BedIcon />} label="Bedrooms" value="3" />
                 <Features.Item icon={<BathIcon />} label="Bathrooms" value="2" />
@@ -35,7 +35,7 @@ const meta = {
         ),
         'With Clear Button': (
           <Accordion.Summary
-            rightInfo={
+            accessory={
               <Button variant="tertiary" hasNoPadding>
                 Clear
               </Button>
