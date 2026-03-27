@@ -7,8 +7,20 @@ figma.connect(DescriptionList.Item, '<DESCRIPTION_LIST_ITEM_STACKED_URL>', {
     label: figma.nestedProps('List item', {
       value: figma.string('Label'),
     }),
+    size: figma.enum('Size', {
+      base: 'base',
+      sm: 'sm',
+    }),
   },
-  example: (props) => <DescriptionList.Item label={props.label.value}>{props.description}</DescriptionList.Item>,
+  example: (props) => (
+    <DescriptionList.Item
+      label={props.label.value}
+      // TODO: Apply this size to the DescriptionList's size prop instead of each individual item
+      size={props.size}
+    >
+      {props.description}
+    </DescriptionList.Item>
+  ),
 })
 
 figma.connect(DescriptionList.Item, '<DESCRIPTION_LIST_ITEM_INLINE_URL>', {
@@ -17,6 +29,18 @@ figma.connect(DescriptionList.Item, '<DESCRIPTION_LIST_ITEM_INLINE_URL>', {
     label: figma.nestedProps('List item', {
       value: figma.string('Label'),
     }),
+    size: figma.enum('Size', {
+      base: 'base',
+      sm: 'sm',
+    }),
   },
-  example: (props) => <DescriptionList.Item label={props.label.value}>{props.description}</DescriptionList.Item>,
+  example: (props) => (
+    <DescriptionList.Item
+      label={props.label.value}
+      // TODO: Apply this size to the DescriptionList's size prop instead of each individual item
+      size={props.size}
+    >
+      {props.description}
+    </DescriptionList.Item>
+  ),
 })
