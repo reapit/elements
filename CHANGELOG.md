@@ -1,5 +1,49 @@
 # @reapit/elements
 
+## 5.0.0-beta.84
+
+### Major Changes
+
+- **[Changed]** `ElAccordionSummaryRightInfo` renamed to `ElAccordionSummaryAccessory`. Update any direct imports of this styled element. ([#1235](https://github.com/reapit-global/gbl-ds-elements/pull/1235), [`c2da4e9`](https://github.com/reapit-global/gbl-ds-elements/commit/c2da4e95ca8bf954e8f1c278cda254fea10e140a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Removed]** the experimental lab `SearchInput` component and its associated `SearchInputProps` type. Run the `replace-lab-search-input` codemod to migrate to the stable `SearchInput` in `core/search-input`: ([#1231](https://github.com/reapit-global/gbl-ds-elements/pull/1231), [`f5c15f0`](https://github.com/reapit-global/gbl-ds-elements/commit/f5c15f04d8dc39c6d7a54fd80c15c3924ba59218), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  ```bash
+  yarn dlx @reapit/elements@beta codemod apply replace-lab-search-input src/
+  ```
+
+- **[Removed]** `TABLE_ROW_PRIMARY_ACTION_Z_INDEX` and `TABLE_ROW_INTERACTIVE_ELEMENT_Z_INDEX` constants from `@reapit/elements`. These were internal implementation details and should not have been part of the public API. Remove any usages from your codebase. ([#1232](https://github.com/reapit-global/gbl-ds-elements/pull/1232), [`a9b6145`](https://github.com/reapit-global/gbl-ds-elements/commit/a9b6145b64fdd582c3d2643fcf00859ee7f318de), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Minor Changes
+
+- **[Added]** `accessory` prop to `AccordionSummary`, replacing `rightInfo` for displaying optional content alongside the accordion title. Updated Figma Code Connect to target the new Accordion header component. ([#1235](https://github.com/reapit-global/gbl-ds-elements/pull/1235), [`c2da4e9`](https://github.com/reapit-global/gbl-ds-elements/commit/c2da4e95ca8bf954e8f1c278cda254fea10e140a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Deprecated]** `rightInfo` prop on `AccordionSummary`. Use `accessory` instead. ([#1235](https://github.com/reapit-global/gbl-ds-elements/pull/1235), [`c2da4e9`](https://github.com/reapit-global/gbl-ds-elements/commit/c2da4e95ca8bf954e8f1c278cda254fea10e140a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `AccordionGroup` component. A layout wrapper that stacks multiple `Accordion` components in a vertical column. ([#1237](https://github.com/reapit-global/gbl-ds-elements/pull/1237), [`bb4abc1`](https://github.com/reapit-global/gbl-ds-elements/commit/bb4abc13f6bb410f8195b43c2fc91d780f804056), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `GalleryViewerDialog.Header` and `GalleryViewerDialog.Content` subcomponents for structured, responsive layouts. ([#1230](https://github.com/reapit-global/gbl-ds-elements/pull/1230), [`36bacce`](https://github.com/reapit-global/gbl-ds-elements/commit/36baccee61b15b837f3ddfe5660ceb328618736a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `GalleryViewerDialog` component at `src/core/gallery-viewer/dialog`. Provides a responsive full-screen dialog for gallery content — inset with a semi-transparent backdrop on large screens (≥1440px), and full-viewport on smaller screens. ([#1228](https://github.com/reapit-global/gbl-ds-elements/pull/1228), [`4314045`](https://github.com/reapit-global/gbl-ds-elements/commit/431404594583137cd0da576d6c77f7fb22dc1717), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Patch Changes
+
+- **[Internal]** Update `CheckboxGroupControl` Figma Code Connect to target the new Figma component node, retaining the deprecated node as a fallback connection ([#1238](https://github.com/reapit-global/gbl-ds-elements/pull/1238), [`7311643`](https://github.com/reapit-global/gbl-ds-elements/commit/73116430a98bf065f5868d7a9b343a8f572d68eb), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Update `DescriptionList` Figma Code Connect to target the new Figma component node, retaining the deprecated node as a fallback connection. Wire `layout` and `children` props via `figma.enum` for stacked, inline, and grid variants, and add `size` prop mapping to `DescriptionList.Item` for stacked and inline item connections ([#1242](https://github.com/reapit-global/gbl-ds-elements/pull/1242), [`b3f189b`](https://github.com/reapit-global/gbl-ds-elements/commit/b3f189b96e3ec391829a1be3e61f1a01d91102d7), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Update `Dialog` Figma Code Connect to target the new Figma component node, retaining the deprecated node as a fallback connection ([#1239](https://github.com/reapit-global/gbl-ds-elements/pull/1239), [`52ffcc6`](https://github.com/reapit-global/gbl-ds-elements/commit/52ffcc67d0dd43533698d1095ff3460ba5aec1c2), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Update `Drawer` Figma Code Connect to target the new Figma component node, retaining the deprecated node as a fallback connection ([#1240](https://github.com/reapit-global/gbl-ds-elements/pull/1240), [`2c8cf98`](https://github.com/reapit-global/gbl-ds-elements/commit/2c8cf98896a6bce5d8d72c80d67af254038ebfd2), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Update `FocusedLayout` Figma Code Connect to target the new Figma component node, retaining the deprecated node as a fallback connection. Add Code Connect for `FocusedLayout.ProductLogo` and wire the `logo` prop via `figma.children` across all breakpoint mappings ([#1241](https://github.com/reapit-global/gbl-ds-elements/pull/1241), [`d9a550d`](https://github.com/reapit-global/gbl-ds-elements/commit/d9a550d248019d2b25ab9ead4c1d39ad60cdaac8), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Add Figma Code Connect for `AtAGlance`, `AnchorCard`, `ArticleCard`, and `ListboxOption` components ([#1236](https://github.com/reapit-global/gbl-ds-elements/pull/1236), [`24fc625`](https://github.com/reapit-global/gbl-ds-elements/commit/24fc62536f886957c52a7ce1ddf870ee1c487902), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Serialise `@wyw-in-js/vite` transform calls to fix intermittent `AbortError` build failures under Vite 8. ([#1233](https://github.com/reapit-global/gbl-ds-elements/pull/1233), [`5c61956`](https://github.com/reapit-global/gbl-ds-elements/commit/5c619568f4b4effb6028611c288bdd2d664e6f84), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+  Vite 8 uses Rolldown, which invokes plugin `transform` hooks with higher parallelism than Rollup. The `@wyw-in-js/vite` plugin shares mutable state across concurrent transforms, causing a race condition where one transform supersedes another's in-flight entrypoint and triggers an unhandled `AbortError`. The sibling `@wyw-in-js/rollup` package already serialises transforms by default (PR #203), but the Vite plugin does not. This change applies the same promise-chain mutex approach via a thin wrapper in `build/with-serialised-transform.ts`.
+
 ## 5.0.0-beta.83
 
 ### Major Changes
