@@ -50,44 +50,6 @@ src/core/drawer/
     Pattern.tsx
 ```
 
-### Import order
-
-All value imports appear alphabetically in a single group, regardless of whether they are relative, `#src/` aliases, `react`, or `storybook/preview-api` imports. A blank line separates them from the type-only Storybook import, which is always last.
-
-**Checklist:**
-
-- [ ] All value imports in one alphabetically sorted group
-- [ ] Blank line between value imports and the type import
-- [ ] `import type { Meta, StoryObj } from '@storybook/react-vite'` last, as a type-only import
-- [ ] Never import from `@storybook/react` — the framework package is `@storybook/react-vite`
-
-```tsx
-// ✅ Correct — all value imports alphabetically, type import last
-import { AddIcon } from '#src/icons/add'
-import { AnchorButton } from './anchor-button'
-import { Button } from './button'
-import { ChevronDownIcon } from '#src/icons/chevron-down'
-import { StarIcon } from '#src/icons/star'
-
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-// ✅ Correct — runtime Storybook and React imports alphabetically with the rest
-import { Button } from '#src/core/button'
-import { Dialog } from './dialog'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
-import { useArgs } from 'storybook/preview-api'
-import { useState } from 'react'
-
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-// ❌ Wrong — wrong framework package
-import type { Meta, StoryObj } from '@storybook/react'
-
-// ❌ Wrong — type import should be last
-import type { Meta, StoryObj } from '@storybook/react-vite'
-import { Button } from './button'
-```
-
 ### Type alias
 
 Declare the `Story` type alias immediately after `export default meta`. This alias is referenced by every named story export.
@@ -513,7 +475,7 @@ render: function ClosedBy(args) {
 
 ### Adding autodocs tag
 
-**Do not** add `tags: ['autodocs']` to story files. It is already set globally in `preview.tsx`. Adding it again is redundant and misleading.
+**Do not** add `tags: ['autodocs']` to story files. It is already set globally in `preview.tsx`, so adding it again is redundant.
 
 ```tsx
 // ❌ Wrong — redundant
@@ -557,7 +519,7 @@ import type { Meta, StoryObj } from 'storybook'
 
 ### Exporting helper components
 
-Any named export that starts with a capital letter is treated as a story by Storybook. Ensure helper components are either unexported or placed in a `__story__/` file.
+In Storybook CSF, any named export from a `*.stories.*` file that is an object or function is treated as a story. Storybook skips exports that are listed in `excludeStories` or that are not objects or functions (for example, exported type aliases). Do not export helper components from story files; instead keep them unexported or move them into a separate helper module (for example under a `__story__/` directory).
 
 ```tsx
 // ❌ Wrong — Storybook will attempt to render this as a story
@@ -592,7 +554,6 @@ export const Disabled: Story = {
 Before committing a story file:
 
 - [ ] File named `<component>.stories.tsx`, co-located with the component
-- [ ] All value imports in one alphabetically sorted group, with the Storybook type import last
 - [ ] Types from `@storybook/react-vite` (not `@storybook/react`)
 - [ ] `satisfies Meta<typeof Component>` (not `: Meta<typeof Component>`)
 - [ ] `type Story = StoryObj<typeof meta>` declared after `export default meta`
@@ -603,20 +564,3 @@ Before committing a story file:
 - [ ] Inline flex decorator uses `var(--spacing-6)` for gaps
 - [ ] Helper components are unexported (or in `__story__/`)
 - [ ] British English in all JSDoc prose
-
-## Looking Ahead: CSF Next
-
-Storybook 10 ships a **preview** feature called [CSF Next](https://storybook.js.org/docs/api/csf/csf-next), which replaces the `Meta`/`StoryObj` type pattern with factory functions. This codebase has not yet migrated to CSF Next — all story files currently use CSF 3.
-
-When the migration happens, the key changes will be:
-
-| CSF 3                                                         | CSF Next                                                                                                                                                  |
-| ------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `import type { Meta, StoryObj } from '@storybook/react-vite'` | `import preview from '#.storybook/preview'` (requires a path alias — see the [CSF Next docs](https://storybook.js.org/docs/api/csf/csf-next#previewmeta)) |
-| `const meta = { ... } satisfies Meta<typeof Button>`          | `const meta = preview.meta({ ... })`                                                                                                                      |
-| `export default meta`                                         | (no default export needed)                                                                                                                                |
-| `type Story = StoryObj<typeof meta>`                          | (no type alias needed)                                                                                                                                    |
-| `export const Foo: Story = { ... }`                           | `export const Foo = meta.story({ ... })`                                                                                                                  |
-| `args: { ...Example.args, disabled: true }`                   | `Example.extend({ args: { disabled: true } })`                                                                                                            |
-
-Until the migration occurs, use CSF 3 as documented above.

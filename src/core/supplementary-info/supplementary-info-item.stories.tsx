@@ -6,11 +6,11 @@ import type { SupplementaryInfoColour } from './supplementary-info-item'
 const meta = {
   title: 'Core/SupplementaryInfo/Item',
   component: SupplementaryInfoItem,
-  tags: ['autodocs'],
   argTypes: {
     colour: {
       control: { type: 'select' },
       options: [
+        'inherit',
         'primary',
         'secondary',
         'neutral',
@@ -59,11 +59,18 @@ export const Style: Story = {
 /**
  * Sibling items will automatically be separated by a dot.
  */
-export const Separators: StoryObj = {
-  render: () => (
-    <>
-      <SupplementaryInfoItem>Supplementary info 1</SupplementaryInfoItem>
-      <SupplementaryInfoItem>Supplementary info 2</SupplementaryInfoItem>
-    </>
-  ),
+export const Separators: Story = {
+  args: {
+    children: (
+      <>
+        <SupplementaryInfoItem>Supplementary info 1</SupplementaryInfoItem>
+        <SupplementaryInfoItem>Supplementary info 2</SupplementaryInfoItem>
+      </>
+    ),
+  },
+  argTypes: {
+    children: {
+      control: false,
+    },
+  },
 }
