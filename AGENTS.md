@@ -35,3 +35,4 @@
 - **When addressing PR review comments, use the end-to-end review workflow** (use `reviewing-pr-comments` skill)
 - **Changesets MUST follow the changeset conventions** (use `writing-changesets` skill)
 - **PR titles and descriptions MUST follow the pull request conventions** (use `writing-pull-requests` skill)
+- **PRs with UI changes MUST include screenshots or video** (use `capturing-visual-changes` skill)

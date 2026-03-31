@@ -80,10 +80,15 @@ Keep descriptions concise. Reviewers should understand the change and its contex
 ## Breaking changes
 
 <Describe what breaks and how to migrate. Reference codemods where available.>
+
+## Visual changes
+
+<Screenshots or videos of the UI change. Drag and drop captured files here.>
 ```
 
 Omit the **Ticket** section entirely when no ticket exists.
 Omit the **Breaking changes** section entirely when the change is non-breaking.
+Omit the **Visual changes** section entirely when the change has no UI impact. Use the `capturing-visual-changes` skill to capture assets.
 
 ### Summary rules
 
@@ -188,6 +193,25 @@ component. Changes have been made to fix the overflow behaviour.
 ✅ - Add Combobox component (DS-102)
 ```
 
+## Creating PRs with `gh`
+
+When running `gh pr create`, pass the body via `--body-file` rather than
+`--body "$(cat <<'EOF'…)"`. Embedding multi-line Markdown (especially code
+fences and backticks) directly in shell command substitutions is brittle and
+easy to break with quoting/escaping mistakes, whereas `--body-file` keeps the
+Markdown content intact.
+
+```bash
+tmp=$(mktemp)
+cat > "$tmp" <<'EOF'
+## Summary
+
+- Add `Foo` component
+EOF
+gh pr create --title "feat: Add Foo" --body-file "$tmp"
+rm "$tmp"
+```
+
 ## Quick Checklist
 
 Before opening the PR:
@@ -202,6 +226,7 @@ Before opening the PR:
 - [ ] No "This PR…" or "This commit…" openers
 - [ ] Ticket section omitted when no ticket exists
 - [ ] Breaking changes section included for any breaking change, with migration notes
+- [ ] Visual changes section included when the PR has UI impact, with captured assets listed
 - [ ] British English throughout
 
 ## Reference
@@ -209,3 +234,5 @@ Before opening the PR:
 For prose style rules (active voice, omitting needless words, British English spelling), use the `writing-clear-prose` skill.
 
 For writing the accompanying changeset, use the `writing-changesets` skill.
+
+For capturing screenshots and videos of UI changes to embed in the description, use the `capturing-visual-changes` skill.
