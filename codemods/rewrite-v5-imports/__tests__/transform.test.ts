@@ -80,47 +80,61 @@ describe('multiple exports from different subpaths', () => {
   })
 })
 
-// ===== Root-only exports — stay as barrel import =====
+// ===== Formerly root-only exports — now mapped to subpaths =====
 
-describe('root-only exports remain as barrel import', () => {
-  test('leaves getIntentClassName unchanged (helpers/intent)', () => {
+describe('formerly root-only exports now map to subpaths', () => {
+  test('transforms getIntentClassName to deprecated/styles', () => {
     const input = `import { getIntentClassName } from '@reapit/elements'`
     const output = transform(input, 'test.tsx')
-    expect(output).toBe(input)
+    expect(output).toBe(`import { getIntentClassName } from '@reapit/elements/deprecated/styles'\n`)
   })
 
-  test('leaves Intent type unchanged (helpers/intent)', () => {
+  test('transforms Intent type to deprecated/styles', () => {
     const input = `import type { Intent } from '@reapit/elements'`
     const output = transform(input, 'test.tsx')
-    expect(output).toBe(input)
+    expect(output).toBe(`import type { Intent } from '@reapit/elements/deprecated/styles'\n`)
   })
 
-  test('leaves Theme type unchanged (tokens)', () => {
+  test('transforms Theme type to core/theme-provider', () => {
     const input = `import type { Theme } from '@reapit/elements'`
     const output = transform(input, 'test.tsx')
-    expect(output).toBe(input)
+    expect(output).toBe(`import type { Theme } from '@reapit/elements/core/theme-provider'\n`)
+  })
+
+  test('transforms deprecated style class to deprecated/styles', () => {
+    const input = `import { elFlex } from '@reapit/elements'`
+    const output = transform(input, 'test.tsx')
+    expect(output).toBe(`import { elFlex } from '@reapit/elements/deprecated/styles'\n`)
+  })
+
+  test('groups multiple deprecated style imports into one deprecated/styles import', () => {
+    const input = `import { elFlex, elIsActive, isMobile } from '@reapit/elements'`
+    const output = transform(input, 'test.tsx')
+    expect(output).toBe(`import { elFlex, elIsActive, isMobile } from '@reapit/elements/deprecated/styles'\n`)
   })
 })
 
-// ===== Mixed: subpath-eligible + root-only → split into subpath(s) + residual barrel =====
+// ===== Mixed: subpath-eligible exports across different subpaths =====
 
-describe('mixed subpath-eligible and root-only exports', () => {
-  test('splits Button to core/button and keeps getIntentClassName in barrel', () => {
+describe('mixed subpath-eligible exports including deprecated/styles', () => {
+  test('splits Button to core/button and getIntentClassName to deprecated/styles', () => {
     const input = `import { Button, getIntentClassName } from '@reapit/elements'`
     const output = transform(input, 'test.tsx')
     expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
-    expect(output).toContain(`import { getIntentClassName } from '@reapit/elements'`)
-    // Should not have Button in the barrel import
-    expect(output).not.toMatch(/import \{ Button.*\} from '@reapit\/elements'/)
+    expect(output).toContain(`import { getIntentClassName } from '@reapit/elements/deprecated/styles'`)
+    // No residual barrel import
+    expect(output).not.toMatch(/from '@reapit\/elements'/)
   })
 
-  test('splits multiple subpath imports and keeps residual root-only in barrel', () => {
+  test('splits across core, icons, deprecated/styles, and theme-provider', () => {
     const input = `import { Button, MoreIcon, getIntentClassName, Theme } from '@reapit/elements'`
     const output = transform(input, 'test.tsx')
     expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
     expect(output).toContain(`import { MoreIcon } from '@reapit/elements/icons/more'`)
-    // getIntentClassName and Theme are root-only; they stay in the barrel import together
-    expect(output).toContain(`import { getIntentClassName, Theme } from '@reapit/elements'`)
+    expect(output).toContain(`import { getIntentClassName } from '@reapit/elements/deprecated/styles'`)
+    expect(output).toContain(`import { Theme } from '@reapit/elements/core/theme-provider'`)
+    // No residual barrel import
+    expect(output).not.toMatch(/from '@reapit\/elements'/)
   })
 })
 
@@ -169,10 +183,10 @@ describe('aliased imports', () => {
     expect(output).toBe(`import { MoreIcon as More } from '@reapit/elements/icons/more'\n`)
   })
 
-  test('preserves alias for root-only export', () => {
+  test('preserves alias for deprecated/styles export', () => {
     const input = `import { getIntentClassName as getIntent } from '@reapit/elements'`
     const output = transform(input, 'test.tsx')
-    expect(output).toBe(input)
+    expect(output).toBe(`import { getIntentClassName as getIntent } from '@reapit/elements/deprecated/styles'\n`)
   })
 })
 

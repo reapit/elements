@@ -37,7 +37,7 @@ While both `Modal` and `Dialog` components are used to display overlay content, 
 ### Before (Modal)
 
 ```tsx
-import { Modal } from '@reapit/elements'
+import { Modal } from '@reapit/elements/deprecated/modal'
 
 const MyModal = () => {
   const [isOpen, setIsOpen] = useState(false)
@@ -49,7 +49,7 @@ const MyModal = () => {
           Open Modal
         </Button>
       </ButtonGroup>
-      <Modal isOpen={modalIsOpen} onModalClose={() => setModalIsOpen(!modalIsOpen)} title="Welcome to the demo modal">
+      <Modal isOpen={isOpen} onModalClose={() => setIsOpen(false)} title="Welcome to the demo modal">
         <TextBase>Here's some nice content for the inside of the modal.</TextBase>
         <ButtonGroup>
           <Button intent="secondary" onClick={() => setIsOpen(false)}>
@@ -68,7 +68,7 @@ const MyModal = () => {
 ### After (Dialog)
 
 ```tsx
-import { Dialog } from '@reapit/elements'
+import { Dialog } from '@reapit/elements/core/dialog'
 
 const MyDialog = () => {
   const [isOpen, setIsOpen] = useState(false)

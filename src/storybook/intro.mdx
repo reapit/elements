@@ -12,7 +12,7 @@ Within this Storybook, there are all the basic components and classes you will n
 
 ### Installation
 
-Elements is distributed via NPM as a CommonJS or ESM module. Your first step is, with NodeJS installed, to run;
+Elements is distributed via NPM as an ESM module. Your first step is, with NodeJS installed, to run;
 
 <Source
   code={`
@@ -32,16 +32,7 @@ You can then import the modules into your project in the normal way;
 
 <Source
   code={`
-import { Input } from '@reapit/elements'
-`}
-  language="typescript"
-/>
-
-#### Or for CommonJS users
-
-<Source
-  code={`
-const { Input } = require('@reapit/elements')
+import { Input } from '@reapit/elements/deprecated/input'
 `}
   language="typescript"
 />

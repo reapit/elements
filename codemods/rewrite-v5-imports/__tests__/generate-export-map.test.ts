@@ -224,16 +224,16 @@ describe('buildExportMap (integration, against real source)', { timeout: 30_000 
     expect(exportMap['Popover']).toBe('utils/popover')
   })
 
-  test('does NOT include root-only exports (getIntentClassName)', () => {
-    expect(exportMap['getIntentClassName']).toBeUndefined()
+  test('maps getIntentClassName to deprecated/styles', () => {
+    expect(exportMap['getIntentClassName']).toBe('deprecated/styles')
   })
 
-  test('does NOT include root-only exports (Intent)', () => {
-    expect(exportMap['Intent']).toBeUndefined()
+  test('maps Intent to deprecated/styles', () => {
+    expect(exportMap['Intent']).toBe('deprecated/styles')
   })
 
-  test('does NOT include root-only exports (Theme)', () => {
-    expect(exportMap['Theme']).toBeUndefined()
+  test('maps Theme to core/theme-provider', () => {
+    expect(exportMap['Theme']).toBe('core/theme-provider')
   })
 
   test('does NOT include bare Props', () => {

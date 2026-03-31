@@ -5,8 +5,8 @@
  * resolve all `export *` chains. Produces a mapping of every named export to its
  * subpath import specifier (e.g. `Button` -> `core/button`).
  *
- * Exports that should remain as root barrel imports (styles, helpers/intent, tokens)
- * are intentionally excluded from the map.
+ * Exports that should remain as root barrel imports (styles/globals) are intentionally
+ * excluded from the map because they have no dedicated subpath entry point.
  *
  * Usage:
  *   node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts
@@ -157,8 +157,7 @@ export function generateFileContent(exportMap: Record<string, string>): string {
     ' *',
     ' * Maps each named export from @reapit/elements to its subpath entry point.',
     ' * Only includes exports that have dedicated subpath imports (core/*, deprecated/*,',
-    ' * utils/*, icons/*). Root-only exports (styles, helpers/intent, tokens) are',
-    ' * intentionally excluded.',
+    ' * utils/*, icons/*). Root-only exports (styles/globals) are intentionally excluded.',
     ' *',
     ' * DO NOT EDIT — regenerate with:',
     ' *   node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts',

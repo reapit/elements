@@ -71,16 +71,37 @@ import { MoreIcon } from '@reapit/elements/icons/more'
 ### Mixed: subpath-eligible and root-only exports
 
 When a statement imports both subpath-eligible exports and root-only exports
-(styles, `helpers/intent`, `tokens`), the subpath-eligible exports are moved
+(e.g. `elGlobals` from `styles/globals`), the subpath-eligible exports are moved
 and the root-only exports remain in a residual barrel import:
 
 ```tsx
 // Before
-import { Button, getIntentClassName } from '@reapit/elements'
+import { Button, elGlobals } from '@reapit/elements'
 
 // After
 import { Button } from '@reapit/elements/core/button'
-import { getIntentClassName } from '@reapit/elements'
+import { elGlobals } from '@reapit/elements'
+```
+
+Deprecated style utilities, `Intent`, and `getIntentClassName` are now mapped to
+`@reapit/elements/deprecated/styles`:
+
+```tsx
+// Before
+import { elFlex, getIntentClassName } from '@reapit/elements'
+
+// After
+import { elFlex, getIntentClassName } from '@reapit/elements/deprecated/styles'
+```
+
+The `Theme` type is now available from `@reapit/elements/core/theme-provider`:
+
+```tsx
+// Before
+import type { Theme } from '@reapit/elements'
+
+// After
+import type { Theme } from '@reapit/elements/core/theme-provider'
 ```
 
 ### Type imports
@@ -121,10 +142,7 @@ import { Button } from '@reapit/elements/core/button' // No change
 
 The following exports are not in the subpath map and will remain as barrel imports:
 
-- **`styles/globals`** — global CSS reset/base styles
-- **`styles/deprecated-*`** — deprecated CSS utility classes
-- **`helpers/intent`** — `getIntentClassName`, `Intent` type
-- **`tokens`** — `Theme` type
+- **`styles/globals`** — global CSS reset/base styles (`elGlobals`)
 
 ## Export Map
 

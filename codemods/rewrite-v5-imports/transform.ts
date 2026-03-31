@@ -12,8 +12,7 @@ import { createProjectFromSource } from '../shared/index.js'
  * Transformations:
  * - Each named export known to EXPORT_MAP is moved to its subpath entry point
  * - Exports from the same subpath are grouped into a single import statement
- * - Exports not in EXPORT_MAP (styles, helpers/intent, tokens) remain in a residual
- *   barrel import
+ * - Exports not in EXPORT_MAP (styles/globals) remain in a residual barrel import
  * - Existing subpath imports are left untouched
  * - Type-only import declarations and inline `type` specifiers are preserved
  * - Custom aliases are preserved
