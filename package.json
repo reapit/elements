@@ -24,6 +24,7 @@
       "types": [
         "./src/*.js",
         "./src/*/index.js",
+        "./dist/types/*.d.ts",
         "./dist/types/*/index.d.ts"
       ],
       "import": "./src/*"
