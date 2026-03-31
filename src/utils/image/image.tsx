@@ -1,6 +1,7 @@
 import { cx } from '@linaria/core'
-import { elImage, elImageContainer, elImageFallbackOverlay } from './styles'
-import { ImageFallback } from './image-fallback'
+import { elImage, elImageContainer } from './styles'
+import { MediaFallback } from '../media-fallback'
+import { elMediaFallbackOverlay } from '../media-fallback/styles'
 import { PhotoIcon } from '../../icons'
 import { ResponsiveImage } from './responsive-image'
 import { useImage } from './use-image'
@@ -70,16 +71,16 @@ export function Image({
         src={src}
       />
       {hasError && (
-        <div className={elImageFallbackOverlay}>
+        <div className={elMediaFallbackOverlay}>
           {fallback ?? (
-            <ImageFallback
+            <MediaFallback
               aria-atomic={shouldAnnounceDefaultFallback ? 'true' : undefined}
               aria-live={shouldAnnounceDefaultFallback ? 'polite' : undefined}
               icon={<PhotoIcon aria-hidden color="primary" size="lg" />}
               role={shouldAnnounceDefaultFallback ? 'status' : undefined}
             >
               {defaultFallbackMessage}
-            </ImageFallback>
+            </MediaFallback>
           )}
         </div>
       )}
@@ -87,4 +88,4 @@ export function Image({
   )
 }
 
-Image.Fallback = ImageFallback
+Image.Fallback = MediaFallback

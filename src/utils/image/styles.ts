@@ -1,5 +1,4 @@
 import { css } from '@linaria/core'
-import { font } from '#src/utils/font'
 
 export const elImageContainer = css`
   position: relative;
@@ -17,44 +16,6 @@ export const elImage = css`
   &[aria-hidden='true'] {
     opacity: 0;
   }
-`
-
-export const elImageFallback = css`
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  justify-content: center;
-  gap: var(--spacing-4);
-
-  /* We fill the image container. Its size is constrained to the width and height
-   * of the image */
-  width: 100%;
-  height: 100%;
-  overflow: clip;
-
-  border-radius: var(--border-radius-l);
-  background: var(--colour-fill-neutral-light);
-  padding: var(--spacing-4);
-`
-
-export const elImageFallbackOverlay = css`
-  position: absolute;
-  inset: 0;
-`
-
-export const elImageFallbackIcon = css`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--colour-icon-primary);
-`
-
-export const elImageFallbackMessage = css`
-  margin: 0;
-  color: var(--colour-text-placeholder);
-  text-align: center;
-
-  ${font('sm', 'regular')}
 `
 
 export const elResponsiveImage = css`

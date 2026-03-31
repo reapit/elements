@@ -1,4 +1,3 @@
-export * from './image-fallback'
 export * from './image'
 export * from './responsive-image'
 export * from './styles'
