@@ -1,5 +1,5 @@
-import { Node, Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
-import { isElementsImport } from '../shared/elements-import.js'
+import { Node, SourceFile, SyntaxKind } from 'ts-morph'
+import { isElementsImport, createProjectFromSource, getNearestStatement } from '../shared/index.js'
 
 const TARGET_SPECIFIER = '@reapit/elements/core/table'
 
@@ -30,16 +30,6 @@ type Binding = {
 }
 
 type TodoMessage = typeof ROW_TODO | typeof WIDTH_TODO | typeof ALIGNMENT_TODO
-
-function getNearestStatement(node: Node): Node | undefined {
-  let current: Node | undefined = node
-  while (current) {
-    if (Node.isStatement(current)) return current
-    current = current.getParent()
-  }
-
-  return undefined
-}
 
 function addTodoForNode(
   node: Node,
@@ -546,17 +536,7 @@ export default function transform(
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2,
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
   const facadePackage = options?.facadePackage
 
   const { bindings, needsTableImport } = removeTrackedImports(sourceFile, facadePackage)

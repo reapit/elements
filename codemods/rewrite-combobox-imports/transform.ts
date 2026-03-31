@@ -1,5 +1,5 @@
-import { Project, QuoteKind, SourceFile } from 'ts-morph'
-import { isElementsImport } from '../shared/elements-import.js'
+import { SourceFile } from 'ts-morph'
+import { isElementsImport, createProjectFromSource } from '../shared/index.js'
 
 /**
  * Codemod to migrate Combobox imports from @reapit/elements/core/combobox to its new location.
@@ -50,18 +50,7 @@ export default function transform(
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-      useTrailingCommas: false,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
 
   transformImports(sourceFile, options?.facadePackage)
 

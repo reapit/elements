@@ -1,5 +1,18 @@
-import { JsxOpeningElement, JsxSelfClosingElement, Node, Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
-import { isElementsImport, matchesPackage } from '../shared/elements-import.js'
+import { SourceFile, SyntaxKind } from 'ts-morph'
+import {
+  isElementsImport,
+  createProjectFromSource,
+  getImportAliases,
+  hasJsxUsage,
+  hasIdentifierUsage,
+  addImportsToTarget,
+  resolveTargetSpecifier,
+  transformTypeReferences,
+  transformIdentifierReferences,
+  syncClosingTag,
+  shouldUseJsxComment,
+  getReExportedLocalNames,
+} from '../shared/index.js'
 
 /**
  * Codemod to replace DeprecatedPagination with the new Pagination component.
@@ -35,185 +48,11 @@ const PROP_RENAMES: Record<string, string> = {
 /** Props that have no direct equivalent and must be removed with a TODO. */
 const PROPS_WITH_NO_EQUIVALENT = new Set(['hasStartButton', 'hasEndButton'])
 
-/**
- * Returns true if JSX comment syntax should be used ({/* ... *\/}), false for JS block comment (/* *\/).
- *
- * We determine this from the *outer* JSX node:
- * - For an opening tag, that's its parent JsxElement.
- * - For a self-closing tag, that's the element itself.
- *
- * If that outer node is a direct child of a JsxElement or JsxFragment, we are
- * in JSX content and should use JSX comment syntax. Otherwise (e.g. the parent
- * is a ReturnStatement, VariableDeclaration, JsxExpression, etc.) we are in an
- * expression or statement context and must use a JS block comment.
- */
-function shouldUseJsxComment(element: JsxOpeningElement | JsxSelfClosingElement): boolean {
-  // For non-self-closing tags the opening element's immediate parent is the
-  // JsxElement wrapper. Use that as the outer node so we check *its* parent
-  // rather than the opening element's parent, which is always JsxElement.
-  const outerNode: Node =
-    element.getKind() === SyntaxKind.JsxOpeningElement ? (element.getParent() ?? element) : element
-
-  const outerParent = outerNode.getParent()
-  if (!outerParent) {
-    return false
-  }
-
-  const parentKind = outerParent.getKind()
-  return parentKind === SyntaxKind.JsxElement || parentKind === SyntaxKind.JsxFragment
-}
-
-function resolveTargetSpecifier(sourceSpecifier: string, facadePackage?: string): string {
-  if (facadePackage && matchesPackage(sourceSpecifier, facadePackage)) {
-    return sourceSpecifier
-  }
-
-  return TARGET_SPECIFIER
-}
-
-function getDeprecatedPaginationAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  const aliases = new Set<string>()
-  let foundElementsImport = false
-
-  for (const importDecl of sourceFile.getImportDeclarations()) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
-
-    foundElementsImport = true
-
-    for (const namedImport of importDecl.getNamedImports()) {
-      if (namedImport.getName() === 'DeprecatedPagination') {
-        aliases.add(namedImport.getAliasNode()?.getText() ?? 'DeprecatedPagination')
-      }
-    }
-  }
-
-  // Fallback for snippet tests that have no import declarations at all.
-  // If other imports exist but none are from Elements/facade, skip — the symbol
-  // is not from Elements and should not be transformed.
-  if (aliases.size === 0 && !foundElementsImport && sourceFile.getImportDeclarations().length === 0) {
-    aliases.add('DeprecatedPagination')
-  }
-
-  return aliases
-}
-
-function getDeprecatedPaginationPropsAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  const aliases = new Set<string>()
-  let foundElementsImport = false
-
-  for (const importDecl of sourceFile.getImportDeclarations()) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
-
-    foundElementsImport = true
-
-    for (const namedImport of importDecl.getNamedImports()) {
-      if (namedImport.getName() === 'DeprecatedPaginationProps') {
-        aliases.add(namedImport.getAliasNode()?.getText() ?? 'DeprecatedPaginationProps')
-      }
-    }
-  }
-
-  // Fallback for snippet tests that have no import declarations at all.
-  // If other imports exist but none are from Elements/facade, skip — the symbol
-  // is not from Elements and should not be transformed.
-  if (aliases.size === 0 && !foundElementsImport && sourceFile.getImportDeclarations().length === 0) {
-    aliases.add('DeprecatedPaginationProps')
-  }
-
-  return aliases
-}
-
-function hasIdentifierUsage(sourceFile: SourceFile, localNames: Set<string>): boolean {
-  for (const identifier of sourceFile.getDescendantsOfKind(SyntaxKind.Identifier)) {
-    if (!localNames.has(identifier.getText())) continue
-
-    const parent = identifier.getParent()
-    if (!parent) continue
-
-    const kind = parent.getKind()
-    if (
-      kind === SyntaxKind.ImportSpecifier ||
-      kind === SyntaxKind.ExportSpecifier ||
-      kind === SyntaxKind.JsxOpeningElement ||
-      kind === SyntaxKind.JsxSelfClosingElement ||
-      kind === SyntaxKind.JsxClosingElement
-    ) {
-      continue
-    }
-
-    // Type references (e.g. `type Props = DeprecatedPaginationProps`) are intentionally
-    // treated as usage so we keep/add the Pagination import before rewriting to Pagination.Props.
-    return true
-  }
-
-  return false
-}
-
-function hasDeprecatedPaginationJsxUsage(sourceFile: SourceFile, paginationAliases: Set<string>): boolean {
-  const elements = [
-    ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement),
-    ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement),
-  ]
-
-  return elements.some((element) => paginationAliases.has(element.getTagNameNode().getText()))
-}
-
-function addImportsToTarget(
-  sourceFile: SourceFile,
-  importsToAdd: Array<{ name: string; alias?: string; isTypeOnly: boolean }>,
-  targetSpecifier: string,
-): void {
-  if (importsToAdd.length === 0) return
-
-  const currentImportDeclarations = sourceFile.getImportDeclarations()
-
-  let targetDecl = currentImportDeclarations.find(
-    (importDecl) => importDecl.getModuleSpecifierValue() === targetSpecifier,
-  )
-
-  if (!targetDecl) {
-    targetDecl = sourceFile.addImportDeclaration({ moduleSpecifier: targetSpecifier })
-  }
-
-  for (const { name, alias, isTypeOnly } of importsToAdd) {
-    const existingImport = targetDecl.getNamedImports().find((namedImport) => {
-      return namedImport.getName() === name && namedImport.getAliasNode()?.getText() === alias
-    })
-
-    if (existingImport) {
-      if (existingImport.isTypeOnly() && !isTypeOnly) {
-        existingImport.setIsTypeOnly(false)
-      }
-      continue
-    }
-
-    if (alias && alias !== name) {
-      const typePrefix = isTypeOnly ? 'type ' : ''
-      targetDecl.addNamedImport(`${typePrefix}${name} as ${alias}`)
-    } else if (isTypeOnly) {
-      targetDecl.addNamedImport({ name, isTypeOnly: true })
-    } else {
-      targetDecl.addNamedImport(name)
-    }
-  }
-}
-
 function transformImports(sourceFile: SourceFile, needsPaginationImport: boolean, facadePackage?: string): void {
   const importsToAdd: Array<{ name: string; alias?: string; isTypeOnly: boolean; targetSpecifier: string }> = []
   const alreadyMigratedPath = facadePackage ? null : TARGET_SPECIFIER
 
-  // Collect all local names that are re-exported via `export { X }` (without a
-  // module specifier). These bindings must not be removed from their import
-  // declaration — doing so would leave the export referencing a missing binding.
-  const reExportedLocalNames = new Set<string>()
-  for (const exportDecl of sourceFile.getExportDeclarations()) {
-    if (exportDecl.hasModuleSpecifier()) continue
-    for (const spec of exportDecl.getNamedExports()) {
-      reExportedLocalNames.add(spec.getNameNode().getText())
-    }
-  }
+  const reExportedLocalNames = getReExportedLocalNames(sourceFile)
 
   for (const importDecl of sourceFile.getImportDeclarations().slice()) {
     if (importDecl.wasForgotten()) continue
@@ -237,7 +76,7 @@ function transformImports(sourceFile: SourceFile, needsPaginationImport: boolean
             name: 'Pagination',
             alias: namedImport.getAliasNode()?.getText(),
             isTypeOnly: namedImport.isTypeOnly(),
-            targetSpecifier: resolveTargetSpecifier(moduleSpecifier, facadePackage),
+            targetSpecifier: resolveTargetSpecifier(moduleSpecifier, TARGET_SPECIFIER, facadePackage),
           })
         }
         namedImportsToRemove.push(namedImport)
@@ -252,7 +91,7 @@ function transformImports(sourceFile: SourceFile, needsPaginationImport: boolean
           importsToAdd.push({
             name: 'Pagination',
             isTypeOnly: namedImport.isTypeOnly(),
-            targetSpecifier: resolveTargetSpecifier(moduleSpecifier, facadePackage),
+            targetSpecifier: resolveTargetSpecifier(moduleSpecifier, TARGET_SPECIFIER, facadePackage),
           })
         }
         namedImportsToRemove.push(namedImport)
@@ -261,7 +100,11 @@ function transformImports(sourceFile: SourceFile, needsPaginationImport: boolean
 
     namedImportsToRemove.forEach((namedImport) => namedImport.remove())
 
-    if (importDecl.getNamedImports().length === 0 && !importDecl.getDefaultImport()) {
+    if (
+      importDecl.getNamedImports().length === 0 &&
+      !importDecl.getDefaultImport() &&
+      !importDecl.getNamespaceImport()
+    ) {
       importDecl.remove()
     }
   }
@@ -283,51 +126,6 @@ function transformImports(sourceFile: SourceFile, needsPaginationImport: boolean
 
   for (const [specifier, entries] of groupedBySpecifier) {
     addImportsToTarget(sourceFile, entries, specifier)
-  }
-}
-
-function transformTypeReferences(sourceFile: SourceFile, propsAliases: Set<string>): void {
-  for (const typeRef of sourceFile.getDescendantsOfKind(SyntaxKind.TypeReference)) {
-    const typeName = typeRef.getTypeName()
-    if (propsAliases.has(typeName.getText())) {
-      typeName.replaceWithText('Pagination.Props')
-    }
-  }
-
-  for (const heritage of sourceFile.getDescendantsOfKind(SyntaxKind.ExpressionWithTypeArguments)) {
-    const expression = heritage.getExpression()
-    if (propsAliases.has(expression.getText())) {
-      expression.replaceWithText('Pagination.Props')
-    }
-  }
-}
-
-function transformIdentifierReferences(sourceFile: SourceFile, paginationAliases: Set<string>): void {
-  // Only rewrite the bare (non-aliased) name. When the user writes
-  // `import { DeprecatedPagination as DP }`, the import rewrite already emits
-  // `import { Pagination as DP }`, so value-site references to `DP` are already
-  // correct and must not be changed. Only `DeprecatedPagination` itself (the
-  // non-aliased case) needs renaming to `Pagination`.
-  if (!paginationAliases.has('DeprecatedPagination')) return
-
-  for (const identifier of sourceFile.getDescendantsOfKind(SyntaxKind.Identifier)) {
-    if (identifier.getText() !== 'DeprecatedPagination') continue
-
-    const parent = identifier.getParent()
-    if (!parent) continue
-    const parentKind = parent.getKind()
-
-    if (
-      parentKind === SyntaxKind.ImportSpecifier ||
-      parentKind === SyntaxKind.ExportSpecifier ||
-      parentKind === SyntaxKind.JsxOpeningElement ||
-      parentKind === SyntaxKind.JsxSelfClosingElement ||
-      parentKind === SyntaxKind.JsxClosingElement
-    ) {
-      continue
-    }
-
-    identifier.replaceWithText('Pagination')
   }
 }
 
@@ -398,9 +196,7 @@ function transformJsxElements(sourceFile: SourceFile, paginationAliases: Set<str
     if (removedNoEquivalentProps.length > 0) {
       const propList = removedNoEquivalentProps.join(', ')
       const verb = removedNoEquivalentProps.length === 1 ? 'has' : 'have'
-      const jsxElement =
-        element.asKind(SyntaxKind.JsxOpeningElement) ?? element.asKind(SyntaxKind.JsxSelfClosingElement)
-      const useJsx = jsxElement ? shouldUseJsxComment(jsxElement) : false
+      const useJsx = shouldUseJsxComment(element)
       const todoText = useJsx
         ? `{/* TODO: ${propList} ${verb} no equivalent in Pagination — implement navigation with leftAction and rightAction */}`
         : `// TODO: ${propList} ${verb} no equivalent in Pagination — implement navigation with leftAction and rightAction`
@@ -410,18 +206,8 @@ function transformJsxElements(sourceFile: SourceFile, paginationAliases: Set<str
     // Rename the corresponding closing tag if this is a non-self-closing element.
     // Only rename when the original tag was 'DeprecatedPagination' (non-aliased).
     // Aliased elements (e.g. <DP>...</DP>) keep their alias on both tags.
-    if (element.getKind() === SyntaxKind.JsxOpeningElement) {
-      const parent = element.getParent()
-      if (parent?.getKind() !== SyntaxKind.JsxElement) continue
-      const jsxElement = parent.asKind(SyntaxKind.JsxElement)
-      const closingTag = jsxElement?.getClosingElement()
-      if (
-        closingTag &&
-        tagNameText === 'DeprecatedPagination' &&
-        closingTag.getTagNameNode().getText() === 'DeprecatedPagination'
-      ) {
-        closingTag.getTagNameNode().replaceWithText('Pagination')
-      }
+    if (tagNameText === 'DeprecatedPagination') {
+      syncClosingTag(element, 'DeprecatedPagination', 'Pagination')
     }
   }
 
@@ -455,31 +241,29 @@ export default function transform(
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
   const facadePackage = options?.facadePackage
 
-  const paginationAliases = getDeprecatedPaginationAliases(sourceFile, facadePackage)
-  const propsAliases = getDeprecatedPaginationPropsAliases(sourceFile, facadePackage)
+  const paginationAliases = getImportAliases(sourceFile, 'DeprecatedPagination', facadePackage, {
+    fallbackToName: true,
+  })
+  const propsAliases = getImportAliases(sourceFile, 'DeprecatedPaginationProps', facadePackage, {
+    fallbackToName: true,
+  })
 
   const hasPaginationUsage =
-    hasDeprecatedPaginationJsxUsage(sourceFile, paginationAliases) || hasIdentifierUsage(sourceFile, paginationAliases)
+    hasJsxUsage(sourceFile, paginationAliases) || hasIdentifierUsage(sourceFile, paginationAliases)
   const hasPropsUsage = hasIdentifierUsage(sourceFile, propsAliases)
   const needsPaginationImport = hasPaginationUsage || hasPropsUsage
 
   transformImports(sourceFile, needsPaginationImport, facadePackage)
-  transformTypeReferences(sourceFile, propsAliases)
+  transformTypeReferences(sourceFile, propsAliases, 'Pagination.Props')
   if (needsPaginationImport) {
-    transformIdentifierReferences(sourceFile, paginationAliases)
+    // Only rewrite non-aliased 'DeprecatedPagination' references; aliased bindings
+    // were already handled correctly by the import transform.
+    if (paginationAliases.has('DeprecatedPagination')) {
+      transformIdentifierReferences(sourceFile, 'DeprecatedPagination', 'Pagination')
+    }
   }
   transformJsxElements(sourceFile, paginationAliases)
 

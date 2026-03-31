@@ -1,5 +1,5 @@
-import { Project, SyntaxKind, SourceFile } from 'ts-morph'
-import { isElementsImport } from '../shared/elements-import.js'
+import { SourceFile } from 'ts-morph'
+import { createProjectFromSource, getImportAliases, getJsxElements } from '../shared/index.js'
 
 /**
  * Codemod to add fieldSizing="manual" to Textarea components missing the prop.
@@ -25,47 +25,13 @@ import { isElementsImport } from '../shared/elements-import.js'
  */
 
 /**
- * Collects all aliases used for Textarea imports from @reapit/elements or a facade package.
- * Returns a set of names that could appear as JSX tag names in the file.
- *
- * Handles both:
- * - import { Textarea } -> alias set contains 'Textarea'
- * - import { Textarea as TextArea } -> alias set contains 'TextArea'
- */
-function getTextareaAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  const aliases = new Set<string>()
-
-  for (const importDecl of sourceFile.getImportDeclarations()) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
-
-    for (const namedImport of importDecl.getNamedImports()) {
-      if (namedImport.getName() === 'Textarea') {
-        const alias = namedImport.getAliasNode()?.getText()
-        aliases.add(alias ?? 'Textarea')
-      }
-    }
-  }
-
-  return aliases
-}
-
-/**
  * Adds fieldSizing="manual" to all Textarea JSX elements that do not already have
  * a fieldSizing prop.
  */
 function addFieldSizingProp(sourceFile: SourceFile, textareaAliases: Set<string>): void {
-  const jsxElements = [
-    ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement),
-    ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement),
-  ]
+  const jsxElements = getJsxElements(sourceFile, textareaAliases)
 
   for (const element of jsxElements) {
-    const tagName = element.getTagNameNode().getText()
-
-    if (!textareaAliases.has(tagName)) continue
-
     // Skip if fieldSizing is already set (any value)
     if (element.getAttribute('fieldSizing')) continue
 
@@ -86,16 +52,9 @@ export default function transform(
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-  })
+  const sourceFile = createProjectFromSource(source, filePath)
 
-  const sourceFile = project.createSourceFile(filePath, source)
-
-  const textareaAliases = getTextareaAliases(sourceFile, options?.facadePackage)
+  const textareaAliases = getImportAliases(sourceFile, 'Textarea', options?.facadePackage)
 
   // Nothing to do if Textarea is not imported from a recognised package
   if (textareaAliases.size === 0) {

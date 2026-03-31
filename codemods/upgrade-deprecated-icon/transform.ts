@@ -1,6 +1,4 @@
 import {
-  Project,
-  QuoteKind,
   SourceFile,
   SyntaxKind,
   JsxAttribute,
@@ -12,7 +10,7 @@ import {
   Node,
   StringLiteral,
 } from 'ts-morph'
-import { isElementsImport } from '../shared/elements-import.js'
+import { isElementsImport, createProjectFromSource } from '../shared/index.js'
 
 /**
  * Codemod to upgrade DeprecatedIcon to individual v5 icon components.
@@ -859,17 +857,7 @@ export default function transform(
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
 
   // Detect if DeprecatedIcon is imported with an alias
   const alias = getDeprecatedIconAlias(sourceFile, options?.facadePackage)

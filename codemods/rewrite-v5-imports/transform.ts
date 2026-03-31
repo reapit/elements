@@ -1,5 +1,6 @@
-import { Project, QuoteKind, SourceFile, ImportDeclaration } from 'ts-morph'
+import { SourceFile, ImportDeclaration } from 'ts-morph'
 import { EXPORT_MAP } from './export-map'
+import { createProjectFromSource } from '../shared/index.js'
 
 /**
  * Codemod to rewrite @reapit/elements barrel imports to dedicated subpath imports.
@@ -138,18 +139,7 @@ export default function transform(source: string, filePath: string = 'file.tsx')
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-      useTrailingCommas: false,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
 
   transformImports(sourceFile)
 

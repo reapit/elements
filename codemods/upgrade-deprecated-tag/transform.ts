@@ -1,5 +1,15 @@
-import { JsxOpeningElement, JsxSelfClosingElement, Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
-import { isElementsImport, matchesPackage } from '../shared/elements-import.js'
+import { JsxOpeningElement, JsxSelfClosingElement, SourceFile, SyntaxKind } from 'ts-morph'
+import {
+  isElementsImport,
+  createProjectFromSource,
+  getImportAliases,
+  addImportsToTarget,
+  resolveTargetSpecifier,
+  transformTypeReferences as sharedTransformTypeReferences,
+  transformIdentifierReferences as sharedTransformIdentifierReferences,
+  getJsxElements,
+  syncClosingTag,
+} from '../shared/index.js'
 
 /**
  * Codemod to upgrade DeprecatedTag and DeprecatedTagGroup to the new Tag and TagGroup components.
@@ -30,49 +40,14 @@ import { isElementsImport, matchesPackage } from '../shared/elements-import.js'
  * Returns the set of names that may appear as JSX tag names.
  */
 function getDeprecatedTagAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  const aliases = new Set<string>()
-
-  for (const importDecl of sourceFile.getImportDeclarations()) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
-
-    for (const namedImport of importDecl.getNamedImports()) {
-      if (namedImport.getName() === 'DeprecatedTag') {
-        aliases.add(namedImport.getAliasNode()?.getText() ?? 'DeprecatedTag')
-      }
-    }
-  }
-
-  // Fallback for snippet tests that have no import declarations
-  if (aliases.size === 0 && sourceFile.getImportDeclarations().length === 0) {
-    aliases.add('DeprecatedTag')
-  }
-
-  return aliases
+  return getImportAliases(sourceFile, 'DeprecatedTag', facadePackage, { fallbackToName: true })
 }
 
 /**
  * Collects all local aliases used for DeprecatedTagGroup in import declarations.
  */
 function getDeprecatedTagGroupAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  const aliases = new Set<string>()
-
-  for (const importDecl of sourceFile.getImportDeclarations()) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
-
-    for (const namedImport of importDecl.getNamedImports()) {
-      if (namedImport.getName() === 'DeprecatedTagGroup') {
-        aliases.add(namedImport.getAliasNode()?.getText() ?? 'DeprecatedTagGroup')
-      }
-    }
-  }
-
-  if (aliases.size === 0 && sourceFile.getImportDeclarations().length === 0) {
-    aliases.add('DeprecatedTagGroup')
-  }
-
-  return aliases
+  return getImportAliases(sourceFile, 'DeprecatedTagGroup', facadePackage, { fallbackToName: true })
 }
 
 /**
@@ -86,23 +61,6 @@ const IMPORTS_TO_REMOVE = new Set([
   'ElDeprecatedTagGroup',
   'ElDeprecatedTagGroupInner',
 ])
-
-/**
- * Resolves the target module specifier for a converted import entry.
- *
- * The rule is:
- * - If the original import came from a facade package, the migrated import stays
- *   at that same specifier (e.g. `@company/ui/elements` → `@company/ui/elements`).
- * - If the original import came from `@reapit/elements` (or a subpath of it), the
- *   migrated import goes to the canonical subpath (`@reapit/elements/core/tag` or
- *   `@reapit/elements/core/tag-group`).
- */
-function resolveTargetSpecifier(sourceSpecifier: string, canonicalSubpath: string, facadePackage?: string): string {
-  if (facadePackage && matchesPackage(sourceSpecifier, facadePackage)) {
-    return sourceSpecifier
-  }
-  return canonicalSubpath
-}
 
 /**
  * Determines whether a DeprecatedTag JSX element (identified by its alias set) is
@@ -308,7 +266,11 @@ function transformImports(
 
     importsToRemove.forEach((namedImport) => namedImport.remove())
 
-    if (importDecl.getNamedImports().length === 0 && !importDecl.getDefaultImport()) {
+    if (
+      importDecl.getNamedImports().length === 0 &&
+      !importDecl.getDefaultImport() &&
+      !importDecl.getNamespaceImport()
+    ) {
       importDecl.remove()
     }
   }
@@ -357,54 +319,6 @@ function transformImports(
 }
 
 /**
- * Adds named imports to a target module specifier, merging into existing declarations
- * where possible.
- */
-function addImportsToTarget(
-  sourceFile: SourceFile,
-  importsToAdd: Array<{ name: string; alias?: string; isTypeOnly: boolean }>,
-  targetModuleSpecifier: string,
-): void {
-  if (importsToAdd.length === 0) return
-
-  const currentImportDeclarations = sourceFile.getImportDeclarations()
-
-  let targetDecl = currentImportDeclarations.find(
-    (importDecl) => importDecl.getModuleSpecifierValue() === targetModuleSpecifier,
-  )
-
-  if (!targetDecl) {
-    targetDecl = sourceFile.addImportDeclaration({
-      moduleSpecifier: targetModuleSpecifier,
-    })
-  }
-
-  for (const { name, alias, isTypeOnly } of importsToAdd) {
-    // Avoid duplicating an import that is already in the target declaration
-    const existingImport = targetDecl.getNamedImports().find((namedImport) => {
-      return namedImport.getName() === name && namedImport.getAliasNode()?.getText() === alias
-    })
-
-    if (existingImport) {
-      // Upgrade type-only to value import if needed
-      if (existingImport.isTypeOnly() && !isTypeOnly) {
-        existingImport.setIsTypeOnly(false)
-      }
-      continue
-    }
-
-    if (alias && alias !== name) {
-      const typePrefix = isTypeOnly ? 'type ' : ''
-      targetDecl.addNamedImport(`${typePrefix}${name} as ${alias}`)
-    } else if (isTypeOnly) {
-      targetDecl.addNamedImport({ name, isTypeOnly: true })
-    } else {
-      targetDecl.addNamedImport(name)
-    }
-  }
-}
-
-/**
  * Rewrites non-JSX identifier references to the deprecated tag names so that
  * value and type usage outside JSX (e.g. `const Cmp = DeprecatedTag`,
  * `typeof DeprecatedTagGroup`, `ComponentProps<typeof DeprecatedTag>`) remains
@@ -414,56 +328,6 @@ function addImportsToTarget(
  * are rewritten here; aliased bindings are left as-is because the import transformation
  * preserves the local alias.
  */
-function transformIdentifierReferences(sourceFile: SourceFile): void {
-  const rewrites: Map<string, string> = new Map([
-    ['DeprecatedTag', 'Tag'],
-    ['DeprecatedTagGroup', 'TagGroup'],
-  ])
-
-  for (const identifier of sourceFile.getDescendantsOfKind(SyntaxKind.Identifier)) {
-    const text = identifier.getText()
-    const replacement = rewrites.get(text)
-    if (!replacement) continue
-
-    const parent = identifier.getParent()
-    if (!parent) continue
-    const parentKind = parent.getKind()
-
-    // Skip import/export declarations and JSX tag names
-    // (JSX tags are handled by transformTagElements / transformTagGroupElements)
-    if (
-      parentKind === SyntaxKind.ImportSpecifier ||
-      parentKind === SyntaxKind.ExportSpecifier ||
-      parentKind === SyntaxKind.JsxOpeningElement ||
-      parentKind === SyntaxKind.JsxSelfClosingElement ||
-      parentKind === SyntaxKind.JsxClosingElement
-    )
-      continue
-
-    identifier.replaceWithText(replacement)
-  }
-}
-
-/**
- * Rewrites DeprecatedTagProps type references to Tag.Props.
- * Covers type annotations, interface extensions (heritage clauses), and generics.
- */
-function transformTypeReferences(sourceFile: SourceFile): void {
-  for (const typeRef of sourceFile.getDescendantsOfKind(SyntaxKind.TypeReference)) {
-    const typeName = typeRef.getTypeName()
-    if (typeName.getText() === 'DeprecatedTagProps') {
-      typeName.replaceWithText('Tag.Props')
-    }
-  }
-
-  for (const heritage of sourceFile.getDescendantsOfKind(SyntaxKind.ExpressionWithTypeArguments)) {
-    const expression = heritage.getExpression()
-    if (expression.getText() === 'DeprecatedTagProps') {
-      expression.replaceWithText('Tag.Props')
-    }
-  }
-}
-
 const STANDALONE_TODO = '{/* TODO: Standalone DeprecatedTag migrated to Tag — verify this is correct */}'
 const INTENT_REMOVED_TODO =
   '{/* TODO: intent prop removed — the new Tag and TagGroup.Item have no colour/intent equivalent */}'
@@ -505,16 +369,11 @@ function transformTagElements(sourceFile: SourceFile, tagAliases: Set<string>, t
   // We do this after all AST renames to avoid offset invalidation.
   const commentInsertions: Array<{ position: number; comments: string[] }> = []
 
-  const elements = [
-    ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement),
-    ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement),
-  ]
+  const elements = getJsxElements(sourceFile, tagAliases)
 
   for (const element of elements) {
     const tagName = element.getTagNameNode()
     const tagNameText = tagName.getText()
-
-    if (!tagAliases.has(tagNameText)) continue
 
     const insideGroup = isInsideTagGroup(element, tagGroupAliases)
     const comments: string[] = []
@@ -582,32 +441,13 @@ function transformTagElements(sourceFile: SourceFile, tagAliases: Set<string>, t
  * the binding to `TagGroup as TG`, so the alias still resolves correctly.
  */
 function transformTagGroupElements(sourceFile: SourceFile, aliases: Set<string>): void {
-  // Process self-closing elements
-  for (const element of sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement)) {
+  for (const element of getJsxElements(sourceFile, aliases)) {
     const tagNameText = element.getTagNameNode().getText()
-    if (!aliases.has(tagNameText)) continue
     if (tagNameText === 'DeprecatedTagGroup') {
       element.getTagNameNode().replaceWithText('TagGroup')
     }
-  }
-
-  // Process opening elements (with children)
-  for (const element of sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement)) {
-    const tagNameText = element.getTagNameNode().getText()
-    if (!aliases.has(tagNameText)) continue
-
-    if (tagNameText === 'DeprecatedTagGroup') {
-      element.getTagNameNode().replaceWithText('TagGroup')
-    }
-
     // Rename closing tag (only for non-aliased usage)
-    const parent = element.getParent()
-    if (parent?.getKind() === SyntaxKind.JsxElement) {
-      const closingTag = parent.asKind(SyntaxKind.JsxElement)?.getClosingElement()
-      if (closingTag?.getTagNameNode().getText() === 'DeprecatedTagGroup') {
-        closingTag.getTagNameNode().replaceWithText('TagGroup')
-      }
-    }
+    syncClosingTag(element, 'DeprecatedTagGroup', 'TagGroup')
   }
 }
 
@@ -618,17 +458,7 @@ export default function transform(
 ): string {
   if (!source.includes('DeprecatedTag')) return source
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
   const facadePackage = options?.facadePackage
 
   // Phase 1 -- collect aliases before any AST mutation
@@ -647,11 +477,12 @@ export default function transform(
   transformImports(sourceFile, needsTagImport, needsTagGroup, facadePackage)
 
   // Phase 3 -- transform type references
-  transformTypeReferences(sourceFile)
+  sharedTransformTypeReferences(sourceFile, new Set(['DeprecatedTagProps']), 'Tag.Props')
 
   // Phase 3.5 -- rewrite non-JSX identifier references
   // (e.g. `const Cmp = DeprecatedTag`, `typeof DeprecatedTagGroup`)
-  transformIdentifierReferences(sourceFile)
+  sharedTransformIdentifierReferences(sourceFile, 'DeprecatedTag', 'Tag')
+  sharedTransformIdentifierReferences(sourceFile, 'DeprecatedTagGroup', 'TagGroup')
 
   // Phase 4 -- transform JSX elements
   // Tags are transformed before tag groups so that isInsideTagGroup checks can

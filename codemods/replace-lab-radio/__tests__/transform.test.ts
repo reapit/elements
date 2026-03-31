@@ -1,48 +1,26 @@
+import { createMigrationTestSuite } from '../../shared/test-helpers.js'
 import transform from '../transform'
 
-describe('no-op', () => {
-  test('returns source unchanged when Radio symbols are absent', () => {
-    const input = `import { Button } from '@reapit/elements/core/button'\n<Button>ok</Button>`
-    expect(transform(input, 'file.tsx')).toBe(input)
-  })
+createMigrationTestSuite(transform, {
+  oldName: 'Radio',
+  newName: 'RadioButton',
+  targetSpecifier: '@reapit/elements/core/radio-group-control',
+  oldPropsName: 'RadioProps',
+  newPropsType: 'RadioButton.Props',
+  propRenames: {
+    isRequired: 'required',
+  },
+  propsToRemove: ['hasError'],
+  facadePackage: '@company/ui',
+  jsxSnippet: `<Radio label="Opt" />`,
 })
 
-describe('import rewrites', () => {
-  test('rewrites Radio import from @reapit/elements to core/radio-group-control', () => {
-    const input = [`import { Radio } from '@reapit/elements'`, `<Radio label="Opt" />`].join('\n')
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain("import { RadioButton } from '@reapit/elements/core/radio-group-control'")
-    expect(output).not.toContain("from '@reapit/elements'\n")
-  })
-
+describe('import rewrites (extended)', () => {
   test('rewrites Radio import from @reapit/elements/lab/radio to core/radio-group-control', () => {
     const input = [`import { Radio } from '@reapit/elements/lab/radio'`, `<Radio label="Opt" />`].join('\n')
     const output = transform(input, 'file.tsx')
     expect(output).toContain("from '@reapit/elements/core/radio-group-control'")
     expect(output).not.toContain("from '@reapit/elements/lab/radio'")
-  })
-
-  test('rewrites RadioProps import and type references', () => {
-    const input = [`import { RadioProps } from '@reapit/elements'`, `type Props = RadioProps`].join('\n')
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain("import { RadioButton } from '@reapit/elements/core/radio-group-control'")
-    expect(output).toContain('type Props = RadioButton.Props')
-    expect(output).not.toContain('RadioProps')
-  })
-
-  test('deduplicates RadioButton import when Radio and RadioProps are imported together', () => {
-    const input = [
-      `import { Radio, RadioProps } from '@reapit/elements'`,
-      `type Props = RadioProps`,
-      `<Radio label="Opt" />`,
-    ].join('\n')
-    const output = transform(input, 'file.tsx')
-    const matches = output.match(/from '@reapit\/elements\/core\/radio-group-control'/g)
-    expect(matches).toHaveLength(1)
-    expect(output).toContain('import { RadioButton } from')
-    expect(output).toContain('type Props = RadioButton.Props')
-    expect(output).toContain('<RadioButton')
-    expect(output).not.toContain('RadioProps')
   })
 
   test('rewrites RadioProps alias-only import', () => {
@@ -54,7 +32,7 @@ describe('import rewrites', () => {
     expect(output).not.toContain('= RP')
   })
 
-  test('preserves aliases', () => {
+  test('preserves component alias alongside props alias', () => {
     const input = [
       `import { Radio as R, RadioProps as RP } from '@reapit/elements'`,
       `type Props = RP`,
@@ -66,25 +44,6 @@ describe('import rewrites', () => {
     )
     expect(output).toContain('type Props = RadioButton.Props')
     expect(output).toContain('<R')
-  })
-
-  test('preserves unrelated imports and cleans empty declaration', () => {
-    const input = [`import { Radio, Input } from '@reapit/elements'`, `<Radio label="Opt" />`].join('\n')
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain(`import { Input } from '@reapit/elements'`)
-    expect(output).toContain(`import { RadioButton } from '@reapit/elements/core/radio-group-control'`)
-    expect(output).not.toMatch(/import\s*\{\s*\}\s*from\s*'@reapit\/elements'/)
-  })
-
-  test('merges into existing radio-group-control import', () => {
-    const input = [
-      `import { RadioButton } from '@reapit/elements/core/radio-group-control'`,
-      `import { Radio } from '@reapit/elements'`,
-      `<Radio label="Opt" />`,
-    ].join('\n')
-    const output = transform(input, 'file.tsx')
-    const matches = output.match(/from '@reapit\/elements\/core\/radio-group-control'/g)
-    expect(matches).toHaveLength(1)
   })
 
   test('merges rewrites from multiple deprecated source specifiers', () => {
@@ -103,7 +62,7 @@ describe('import rewrites', () => {
   })
 })
 
-describe('export behaviour', () => {
+describe('export behaviour (extended)', () => {
   test('does not rewrite re-export declarations', () => {
     const input = `export { Radio } from '@reapit/elements/lab/radio'`
     expect(transform(input, 'file.tsx')).toBe(input)
@@ -118,21 +77,16 @@ describe('export behaviour', () => {
   })
 })
 
-describe('jsx and identifier rewrites', () => {
-  test('rewrites opening and closing JSX tags', () => {
-    const input = [`import { Radio } from '@reapit/elements'`, `<Radio label="Opt"><span /></Radio>`].join('\n')
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain('<RadioButton')
-    expect(output).toContain('</RadioButton>')
-    expect(output).not.toMatch(/<Radio[^B]/)
+describe('facade package behaviour (extended)', () => {
+  test('keeps facade subpath specifier unchanged', () => {
+    const input = [`import { Radio } from '@company/ui/lab/radio'`, `<Radio label="Opt" />`].join('\n')
+    const output = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
+    expect(output).toContain(`import { RadioButton } from '@company/ui/lab/radio'`)
+    expect(output).not.toContain('@reapit/elements/core/radio-group-control')
   })
+})
 
-  test('rewrites self-closing JSX tags', () => {
-    const input = [`import { Radio } from '@reapit/elements'`, `<Radio label="Opt" />`].join('\n')
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain('<RadioButton')
-  })
-
+describe('jsx and identifier rewrites (extended)', () => {
   test('rewrites non-JSX value references', () => {
     const input = [`import { Radio } from '@reapit/elements'`, `const R = Radio`].join('\n')
     const output = transform(input, 'file.tsx')
@@ -171,20 +125,7 @@ describe('jsx and identifier rewrites', () => {
   })
 })
 
-describe('prop renames and removals', () => {
-  test('renames isRequired to required', () => {
-    const input = [`import { Radio } from '@reapit/elements'`, `<Radio label="Opt" isRequired />`].join('\n')
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain('required')
-    expect(output).not.toContain('isRequired')
-  })
-
-  test('removes hasError prop', () => {
-    const input = [`import { Radio } from '@reapit/elements'`, `<Radio label="Opt" hasError />`].join('\n')
-    const output = transform(input, 'file.tsx')
-    expect(output).not.toContain('hasError')
-  })
-
+describe('prop renames and removals (extended)', () => {
   test('renames isRequired and removes hasError in the same element', () => {
     const input = [`import { Radio } from '@reapit/elements'`, `<Radio label="Opt" isRequired hasError />`].join('\n')
     const output = transform(input, 'file.tsx')
@@ -215,16 +156,6 @@ describe('prop renames and removals', () => {
     expect(output).toContain('required')
     expect(output).not.toContain('isRequired')
     expect(output).not.toContain('hasError')
-  })
-
-  test('does not rename props on unrelated components', () => {
-    const input = [
-      `import { SomeOtherComponent } from '@reapit/elements/core/other'`,
-      `<SomeOtherComponent isRequired hasError />`,
-    ].join('\n')
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain('isRequired')
-    expect(output).toContain('hasError')
   })
 })
 
@@ -285,24 +216,7 @@ describe('TODO comment', () => {
     const stmtLine = lines.find((l) => l.includes('const el ='))!
     expect(todoLine).toBeDefined()
     expect(stmtLine).toBeDefined()
-    // Both the comment and the statement should share the same leading indentation.
     expect(todoLine.match(/^\s*/)?.[0]).toBe(stmtLine.match(/^\s*/)?.[0])
-  })
-})
-
-describe('facade package behaviour', () => {
-  test('keeps facade package specifier unchanged', () => {
-    const input = [`import { Radio } from '@company/ui'`, `<Radio label="Opt" />`].join('\n')
-    const output = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
-    expect(output).toContain(`import { RadioButton } from '@company/ui'`)
-    expect(output).not.toContain('/core/radio-group-control')
-  })
-
-  test('keeps facade subpath specifier unchanged', () => {
-    const input = [`import { Radio } from '@company/ui/lab/radio'`, `<Radio label="Opt" />`].join('\n')
-    const output = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
-    expect(output).toContain(`import { RadioButton } from '@company/ui/lab/radio'`)
-    expect(output).not.toContain('@reapit/elements/core/radio-group-control')
   })
 })
 
@@ -313,9 +227,7 @@ describe('import safety', () => {
       `import { Radio } from '@reapit/elements'`,
       `<Radio label="Opt" />`,
     ].join('\n')
-
     const output = transform(input, 'file.tsx')
-
     expect(output).toContain(`import * as Elements from '@reapit/elements'`)
     expect(output).toContain(`import { RadioButton } from '@reapit/elements/core/radio-group-control'`)
   })

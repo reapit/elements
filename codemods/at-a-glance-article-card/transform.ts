@@ -1,5 +1,12 @@
-import { Project, SyntaxKind, JsxOpeningElement, JsxSelfClosingElement, SourceFile } from 'ts-morph'
-import { isElementsImport } from '../shared/elements-import.js'
+import { SyntaxKind, JsxOpeningElement, JsxSelfClosingElement, SourceFile } from 'ts-morph'
+import {
+  createProjectFromSource,
+  getImportAliases,
+  getJsxElements,
+  hasJsxUsage,
+  syncClosingTag,
+  isElementsImport,
+} from '../shared/index.js'
 
 /**
  * Codemod to migrate AtAGlance.Card to the new AtAGlance.ArticleCard.
@@ -90,82 +97,31 @@ function transformJsxElements(sourceFile: SourceFile, atAGlanceCardAliases: Set<
   // first, then mutating, we avoid iterator invalidation issues.
 
   // Pass 1: Process namespaced AtAGlance.Card components
-  const selfClosingElements = sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement)
-  const openingElements = sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement)
+  const pass1Elements = getJsxElements(sourceFile, new Set(['AtAGlance.Card']))
 
   // Transform namespaced AtAGlance.Card to AtAGlance.ArticleCard when using old API
-  for (const element of [...selfClosingElements, ...openingElements]) {
-    if (isNamespacedComponent(element, 'Card') && isUsingOldApi(element)) {
+  for (const element of pass1Elements) {
+    if (isUsingOldApi(element)) {
       renameTagTo(element, 'AtAGlance.ArticleCard')
-
-      // Also rename closing tag for non-self-closing elements
-      if (element.getKind() === SyntaxKind.JsxOpeningElement) {
-        const parent = element.getParent()
-        if (parent?.getKind() === SyntaxKind.JsxElement) {
-          const jsxElement = parent.asKindOrThrow(SyntaxKind.JsxElement)
-          const closingElement = jsxElement.getClosingElement()
-          if (closingElement) {
-            closingElement.getTagNameNode().replaceWithText('AtAGlance.ArticleCard')
-          }
-        }
-      }
+      syncClosingTag(element, 'AtAGlance.Card', 'AtAGlance.ArticleCard')
     }
   }
 
   // Pass 2: Re-fetch elements after Pass 1 mutations, then transform direct imports
-  const selfClosingElements2 = sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement)
-  const openingElements2 = sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement)
+  const pass2Elements = getJsxElements(sourceFile, atAGlanceCardAliases)
 
   // Transform direct AtAGlanceCard (or its aliases) to AtAGlance.ArticleCard when using old API
-  for (const element of [...selfClosingElements2, ...openingElements2]) {
+  for (const element of pass2Elements) {
     const tagName = getTagName(element)
-    if (atAGlanceCardAliases.has(tagName) && isUsingOldApi(element)) {
+    if (isUsingOldApi(element)) {
       renameTagTo(element, 'AtAGlance.ArticleCard')
-
-      // Also rename closing tag for non-self-closing elements
-      if (element.getKind() === SyntaxKind.JsxOpeningElement) {
-        const parent = element.getParent()
-        if (parent?.getKind() === SyntaxKind.JsxElement) {
-          const jsxElement = parent.asKindOrThrow(SyntaxKind.JsxElement)
-          const closingElement = jsxElement.getClosingElement()
-          if (closingElement) {
-            closingElement.getTagNameNode().replaceWithText('AtAGlance.ArticleCard')
-          }
-        }
-      }
+      syncClosingTag(element, tagName, 'AtAGlance.ArticleCard')
     }
   }
-}
-
-function getAtAGlanceCardAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  const aliases = new Set<string>()
-
-  for (const importDecl of sourceFile.getImportDeclarations()) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
-
-    for (const namedImport of importDecl.getNamedImports()) {
-      if (namedImport.getName() === 'AtAGlanceCard') {
-        // Get the alias if it exists, otherwise use the original name
-        // Only add the alias (or original name) that's actually used in the file
-        const alias = namedImport.getAliasNode()?.getText()
-        aliases.add(alias ?? 'AtAGlanceCard')
-      }
-    }
-  }
-
-  return aliases
 }
 
 function isAtAGlanceCardStillUsed(sourceFile: SourceFile, aliases: Set<string>): boolean {
-  const selfClosingElements = sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement)
-  const openingElements = sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement)
-
-  return [...selfClosingElements, ...openingElements].some((element) => {
-    const tagName = getTagName(element)
-    return aliases.has(tagName)
-  })
+  return hasJsxUsage(sourceFile, aliases)
 }
 
 function hasAtAGlanceImport(sourceFile: SourceFile, facadePackage?: string): boolean {
@@ -246,17 +202,10 @@ export default function transform(
   filePath: string = 'file.tsx',
   options?: { facadePackage?: string },
 ): string {
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
 
   // Get aliases before transforming (e.g., import { AtAGlanceCard as Card })
-  const atAGlanceCardAliases = getAtAGlanceCardAliases(sourceFile, options?.facadePackage)
+  const atAGlanceCardAliases = getImportAliases(sourceFile, 'AtAGlanceCard', options?.facadePackage)
 
   transformJsxElements(sourceFile, atAGlanceCardAliases)
   updateImports(sourceFile, atAGlanceCardAliases, options?.facadePackage)

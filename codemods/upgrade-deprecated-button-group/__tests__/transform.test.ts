@@ -83,10 +83,10 @@ import { ButtonGroup } from '@reapit/elements/core/button-group'
       expect(output).not.toContain('DeprecatedButtonGroup')
     })
 
-    test('facade package: rewrites to bare facade specifier, not subpath', () => {
+    test('facade package: keeps subpath specifier unchanged', () => {
       const input = `import { DeprecatedButtonGroup } from '@company/ui/elements'`
       const output = transform(input, 'test.tsx', { facadePackage: '@company/ui' })
-      expect(output).toContain(`import { ButtonGroup } from '@company/ui'`)
+      expect(output).toContain(`import { ButtonGroup } from '@company/ui/elements'`)
       expect(output).not.toContain('DeprecatedButtonGroup')
     })
   })

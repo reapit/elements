@@ -1,6 +1,4 @@
 import {
-  Project,
-  QuoteKind,
   SourceFile,
   SyntaxKind,
   StringLiteral,
@@ -9,7 +7,16 @@ import {
   JsxFragment,
   JsxSelfClosingElement,
 } from 'ts-morph'
-import { isElementsImport, matchesPackage } from '../shared/elements-import.js'
+import {
+  isElementsImport,
+  matchesPackage,
+  createProjectFromSource,
+  getImportAliases,
+  addImportsToTarget,
+  transformTypeReferences as sharedTransformTypeReferences,
+  getJsxElements,
+  syncClosingTag,
+} from '../shared/index.js'
 
 /**
  * Codemod to upgrade DeprecatedButton to the new Button component.
@@ -138,39 +145,6 @@ function addDeprecatedIconImportIfNeeded(sourceFile: SourceFile, facadePackage?:
 }
 
 /**
- * Transforms type references from DeprecatedButtonProps to Button.Props.
- * Handles type annotations, interface extensions, generics, and utility types.
- */
-function transformTypeReferences(sourceFile: SourceFile): void {
-  // Handle TypeReference nodes (type annotations, generics, etc.)
-  const typeReferences = sourceFile.getDescendantsOfKind(SyntaxKind.TypeReference)
-
-  for (const typeRef of typeReferences) {
-    const typeName = typeRef.getTypeName()
-    const typeNameText = typeName.getText()
-
-    // Transform DeprecatedButtonProps to Button.Props
-    if (typeNameText === 'DeprecatedButtonProps') {
-      typeName.replaceWithText('Button.Props')
-    }
-  }
-
-  // Handle heritage clauses (extends/implements)
-  // These use ExpressionWithTypeArguments instead of TypeReference
-  const heritageExpressions = sourceFile.getDescendantsOfKind(SyntaxKind.ExpressionWithTypeArguments)
-
-  for (const heritage of heritageExpressions) {
-    const expression = heritage.getExpression()
-    const expressionText = expression.getText()
-
-    // Transform DeprecatedButtonProps to Button.Props
-    if (expressionText === 'DeprecatedButtonProps') {
-      expression.replaceWithText('Button.Props')
-    }
-  }
-}
-
-/**
  * Transforms DeprecatedButton imports to use the new Button component.
  */
 function transformImports(sourceFile: SourceFile, facadePackage?: string): void {
@@ -249,7 +223,11 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
     importsToRemove.forEach((namedImport) => namedImport.remove())
 
     // If this import statement is now empty, remove it
-    if (importDecl.getNamedImports().length === 0 && !importDecl.getDefaultImport()) {
+    if (
+      importDecl.getNamedImports().length === 0 &&
+      !importDecl.getDefaultImport() &&
+      !importDecl.getNamespaceImport()
+    ) {
       importDecl.remove()
     }
   }
@@ -258,124 +236,24 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
   // Group by target specifier: @reapit/elements imports go to /core/button; facade
   // imports stay at their original specifier (path is not changed, only the identifier).
   if (buttonImportsToAdd.length > 0) {
-    // Group entries by the specifier they should be added to
     const bySpecifier = new Map<string, Array<{ name: string; alias?: string; isTypeOnly: boolean }>>()
 
     for (const { name, alias, isTypeOnly, sourceModuleSpecifier } of buttonImportsToAdd) {
       const isFacadeImport = facadePackage !== undefined && matchesPackage(sourceModuleSpecifier, facadePackage)
       const targetSpecifier = isFacadeImport ? sourceModuleSpecifier : elementsTargetSpecifier
 
-      if (!bySpecifier.has(targetSpecifier)) {
-        bySpecifier.set(targetSpecifier, [])
-      }
-      bySpecifier.get(targetSpecifier)!.push({ name, alias, isTypeOnly })
+      const group = bySpecifier.get(targetSpecifier) ?? []
+      group.push({ name, alias, isTypeOnly })
+      bySpecifier.set(targetSpecifier, group)
     }
 
-    // Get fresh list of import declarations after removals
-    const currentImportDeclarations = sourceFile.getImportDeclarations()
-
-    for (const [newModuleSpecifier, entries] of bySpecifier) {
-      // Check if an import from this path already exists
-      let buttonImportDecl = currentImportDeclarations.find(
-        (importDecl) => importDecl.getModuleSpecifierValue() === newModuleSpecifier,
-      )
-
-      if (!buttonImportDecl) {
-        // Create new import statement
-        buttonImportDecl = sourceFile.addImportDeclaration({
-          moduleSpecifier: newModuleSpecifier,
-        })
-      }
-
-      // Add each Button import
-      entries.forEach(({ name, alias, isTypeOnly }) => {
-        // Check if this import already exists in the target import declaration
-        const existingImport = buttonImportDecl!.getNamedImports().find((namedImport) => {
-          const importName = namedImport.getName()
-          const importAlias = namedImport.getAliasNode()?.getText()
-
-          // Check if the name matches
-          if (importName !== name) {
-            return false
-          }
-
-          // Check if the alias matches (both undefined or same value)
-          if (alias !== importAlias) {
-            return false
-          }
-
-          return true
-        })
-
-        if (existingImport) {
-          const existingIsTypeOnly = existingImport.isTypeOnly()
-
-          // If both are the same kind (both type-only or both value imports), nothing to do.
-          if (existingIsTypeOnly === isTypeOnly) {
-            return
-          }
-
-          // If we need a value import but only a type-only import exists,
-          // upgrade the existing import to a value import so it can be used in JSX.
-          if (existingIsTypeOnly && !isTypeOnly) {
-            existingImport.setIsTypeOnly(false)
-            return
-          }
-
-          // If a value import already exists and we want a type-only import,
-          // the value import is sufficient for type positions; no extra import needed.
-          if (!existingIsTypeOnly && isTypeOnly) {
-            return
-          }
-        }
-
-        // Only use alias syntax if the alias is different from the name
-        if (alias && alias !== name) {
-          const typePrefix = isTypeOnly ? 'type ' : ''
-          buttonImportDecl!.addNamedImport(`${typePrefix}${name} as ${alias}`)
-        } else {
-          // No alias needed
-          if (isTypeOnly) {
-            buttonImportDecl!.addNamedImport({ name, isTypeOnly: true })
-          } else {
-            buttonImportDecl!.addNamedImport(name)
-          }
-        }
-      })
+    for (const [specifier, entries] of bySpecifier) {
+      addImportsToTarget(sourceFile, entries, specifier, { promoteDeclarationTypeOnly: true })
     }
   }
 
   // Add DeprecatedIcon import if the file uses it
   addDeprecatedIconImportIfNeeded(sourceFile, facadePackage)
-}
-
-/**
- * Collects all aliases used for DeprecatedButton imports.
- * Returns a set of names that could be used in JSX (including 'DeprecatedButton' itself).
- */
-function getDeprecatedButtonAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  const aliases = new Set<string>()
-
-  for (const importDecl of sourceFile.getImportDeclarations()) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
-
-    for (const namedImport of importDecl.getNamedImports()) {
-      if (namedImport.getName() === 'DeprecatedButton') {
-        // Get the alias if it exists, otherwise use the original name
-        const alias = namedImport.getAliasNode()?.getText()
-        aliases.add(alias ?? 'DeprecatedButton')
-      }
-    }
-  }
-
-  // Add default only if file has NO imports at all (handles test snippets without imports)
-  if (aliases.size === 0 && sourceFile.getImportDeclarations().length === 0) {
-    aliases.add('DeprecatedButton')
-  }
-
-  return aliases
 }
 
 /**
@@ -394,19 +272,11 @@ function getDeprecatedButtonAliases(sourceFile: SourceFile, facadePackage?: stri
  */
 function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): void {
   // Find all DeprecatedButton JSX elements (both opening and self-closing)
-  const jsxElements = [
-    ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxOpeningElement),
-    ...sourceFile.getDescendantsOfKind(SyntaxKind.JsxSelfClosingElement),
-  ]
+  const jsxElements = getJsxElements(sourceFile, aliases)
 
   for (const element of jsxElements) {
     const tagName = element.getTagNameNode()
     const tagNameText = tagName.getText()
-
-    // Only process DeprecatedButton elements (checking against all aliases)
-    if (!aliases.has(tagNameText)) {
-      continue
-    }
 
     // Rename element to Button only if it's the non-aliased 'DeprecatedButton'
     // If an alias was used (e.g., MyBtn), we preserve it because the import
@@ -661,17 +531,7 @@ function transformJsxElements(sourceFile: SourceFile, aliases: Set<string>): voi
 
     // Find and update the closing tag if this is an opening element
     if (element.getKind() === SyntaxKind.JsxOpeningElement) {
-      const parent = element.getParent()
-      if (parent && parent.getKind() === SyntaxKind.JsxElement) {
-        const closingElement = parent.asKind(SyntaxKind.JsxElement)?.getClosingElement()
-        if (closingElement) {
-          const closingTagName = closingElement.getTagNameNode()
-          // Only rename closing tag if it's the non-aliased 'DeprecatedButton'
-          if (closingTagName.getText() === 'DeprecatedButton') {
-            closingTagName.replaceWithText('Button')
-          }
-        }
-      }
+      syncClosingTag(element, 'DeprecatedButton', 'Button')
     }
   }
 }
@@ -723,23 +583,15 @@ export default function transform(
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
 
   // Collect aliases BEFORE transforming imports (imports will be modified)
-  const deprecatedButtonAliases = getDeprecatedButtonAliases(sourceFile, options?.facadePackage)
+  const deprecatedButtonAliases = getImportAliases(sourceFile, 'DeprecatedButton', options?.facadePackage, {
+    fallbackToName: true,
+  })
 
   transformImports(sourceFile, options?.facadePackage)
-  transformTypeReferences(sourceFile)
+  sharedTransformTypeReferences(sourceFile, new Set(['DeprecatedButtonProps']), 'Button.Props')
   transformJsxElements(sourceFile, deprecatedButtonAliases)
 
   return sourceFile.getFullText()

@@ -1,20 +1,16 @@
+import { createMigrationTestSuite } from '../../shared/test-helpers.js'
 import transform from '../transform'
 
-describe('no-op', () => {
-  test('returns source unchanged when deprecated symbols are absent', () => {
-    const input = `import { Button } from '@reapit/elements/core/button'\n<Button>ok</Button>`
-    expect(transform(input, 'file.tsx')).toBe(input)
-  })
+createMigrationTestSuite(transform, {
+  oldName: 'DeprecatedLabel',
+  newName: 'LabelText',
+  targetSpecifier: '@reapit/elements/core/label-text',
+  oldPropsName: 'DeprecatedLabelProps',
+  newPropsType: 'LabelText.Props',
+  facadePackage: '@company/ui',
 })
 
-describe('import rewrites', () => {
-  test('rewrites DeprecatedLabel import from @reapit/elements to core/label-text', () => {
-    const input = `import { DeprecatedLabel } from '@reapit/elements'\n<DeprecatedLabel>Text</DeprecatedLabel>`
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain("import { LabelText } from '@reapit/elements/core/label-text'")
-    expect(output).not.toContain("from '@reapit/elements'\n")
-  })
-
+describe('import rewrites (extended)', () => {
   test('rewrites DeprecatedLabel import from deprecated/label to core/label-text', () => {
     const input = [
       `import { DeprecatedLabel } from '@reapit/elements/deprecated/label'`,
@@ -23,31 +19,6 @@ describe('import rewrites', () => {
     const output = transform(input, 'file.tsx')
     expect(output).toContain("from '@reapit/elements/core/label-text'")
     expect(output).not.toContain("from '@reapit/elements/deprecated/label'")
-  })
-
-  test('rewrites DeprecatedLabelProps import and type references', () => {
-    const input = [`import { DeprecatedLabelProps } from '@reapit/elements'`, `type Props = DeprecatedLabelProps`].join(
-      '\n',
-    )
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain("import { LabelText } from '@reapit/elements/core/label-text'")
-    expect(output).toContain('type Props = LabelText.Props')
-    expect(output).not.toContain('DeprecatedLabelProps')
-  })
-
-  test('deduplicates LabelText import when DeprecatedLabel and DeprecatedLabelProps are imported together', () => {
-    const input = [
-      `import { DeprecatedLabel, DeprecatedLabelProps } from '@reapit/elements'`,
-      `type Props = DeprecatedLabelProps`,
-      `<DeprecatedLabel>Text</DeprecatedLabel>`,
-    ].join('\n')
-    const output = transform(input, 'file.tsx')
-    const matches = output.match(/from '@reapit\/elements\/core\/label-text'/g)
-    expect(matches).toHaveLength(1)
-    expect(output).toContain('import { LabelText } from')
-    expect(output).toContain('type Props = LabelText.Props')
-    expect(output).toContain('<LabelText>Text</LabelText>')
-    expect(output).not.toContain('DeprecatedLabelProps')
   })
 
   test('rewrites DeprecatedLabelProps alias-only import', () => {
@@ -59,7 +30,7 @@ describe('import rewrites', () => {
     expect(output).not.toContain('LP')
   })
 
-  test('preserves aliases', () => {
+  test('preserves component alias alongside props alias', () => {
     const input = [
       `import { DeprecatedLabel as L, DeprecatedLabelProps as LP } from '@reapit/elements'`,
       `type Props = LP`,
@@ -69,28 +40,6 @@ describe('import rewrites', () => {
     expect(output).toContain("import { LabelText as L, LabelText } from '@reapit/elements/core/label-text'")
     expect(output).toContain('type Props = LabelText.Props')
     expect(output).toContain('<L>Label</L>')
-  })
-
-  test('preserves unrelated imports and cleans empty declaration', () => {
-    const input = [
-      `import { DeprecatedLabel, Input } from '@reapit/elements'`,
-      `<DeprecatedLabel>Text</DeprecatedLabel>`,
-    ].join('\n')
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain(`import { Input } from '@reapit/elements'`)
-    expect(output).toContain(`import { LabelText } from '@reapit/elements/core/label-text'`)
-    expect(output).not.toMatch(/import\s*\{\s*\}\s*from\s*'@reapit\/elements'/)
-  })
-
-  test('merges into existing label-text import', () => {
-    const input = [
-      `import { LabelText } from '@reapit/elements/core/label-text'`,
-      `import { DeprecatedLabel } from '@reapit/elements'`,
-      `<DeprecatedLabel>Text</DeprecatedLabel>`,
-    ].join('\n')
-    const output = transform(input, 'file.tsx')
-    const matches = output.match(/from '@reapit\/elements\/core\/label-text'/g)
-    expect(matches).toHaveLength(1)
   })
 
   test('merges rewrites from multiple deprecated source specifiers', () => {
@@ -109,27 +58,19 @@ describe('import rewrites', () => {
   })
 })
 
-describe('export behaviour', () => {
-  test('does not rewrite re-export declarations', () => {
-    const input = `export { DeprecatedLabel } from '@reapit/elements'`
-    expect(transform(input, 'file.tsx')).toBe(input)
+describe('facade package behaviour (extended)', () => {
+  test('keeps facade subpath specifier unchanged', () => {
+    const input = [
+      `import { DeprecatedLabel } from '@company/ui/elements'`,
+      `<DeprecatedLabel>Text</DeprecatedLabel>`,
+    ].join('\n')
+    const output = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
+    expect(output).toContain(`import { LabelText } from '@company/ui/elements'`)
+    expect(output).not.toContain('@reapit/elements/core/label-text')
   })
 })
 
-describe('jsx and identifier rewrites', () => {
-  test('rewrites opening and closing JSX tags', () => {
-    const input = `import { DeprecatedLabel } from '@reapit/elements'\n<DeprecatedLabel>Text</DeprecatedLabel>`
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain('<LabelText>Text</LabelText>')
-    expect(output).not.toContain('<DeprecatedLabel')
-  })
-
-  test('rewrites self-closing JSX tags', () => {
-    const input = `import { DeprecatedLabel } from '@reapit/elements'\n<DeprecatedLabel />`
-    const output = transform(input, 'file.tsx')
-    expect(output).toContain('<LabelText />')
-  })
-
+describe('jsx and identifier rewrites (extended)', () => {
   test('rewrites non-JSX value references', () => {
     const input = [`import { DeprecatedLabel } from '@reapit/elements'`, `const Label = DeprecatedLabel`].join('\n')
     const output = transform(input, 'file.tsx')
@@ -146,26 +87,5 @@ describe('jsx and identifier rewrites', () => {
     const output = transform(input, 'file.tsx')
     expect(output).toContain('interface Foo extends LabelText.Props {}')
     expect(output).toContain('type Bar = Partial<LabelText.Props>')
-  })
-})
-
-describe('facade package behaviour', () => {
-  test('keeps facade package specifier unchanged', () => {
-    const input = [`import { DeprecatedLabel } from '@company/ui'`, `<DeprecatedLabel>Text</DeprecatedLabel>`].join(
-      '\n',
-    )
-    const output = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
-    expect(output).toContain(`import { LabelText } from '@company/ui'`)
-    expect(output).not.toContain('/core/label-text')
-  })
-
-  test('keeps facade subpath specifier unchanged', () => {
-    const input = [
-      `import { DeprecatedLabel } from '@company/ui/elements'`,
-      `<DeprecatedLabel>Text</DeprecatedLabel>`,
-    ].join('\n')
-    const output = transform(input, 'file.tsx', { facadePackage: '@company/ui' })
-    expect(output).toContain(`import { LabelText } from '@company/ui/elements'`)
-    expect(output).not.toContain('@reapit/elements/core/label-text')
   })
 })

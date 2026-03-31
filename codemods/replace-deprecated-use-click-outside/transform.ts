@@ -1,5 +1,5 @@
-import { Node, Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
-import { isElementsImport } from '../shared/elements-import.js'
+import { Node, SourceFile, SyntaxKind } from 'ts-morph'
+import { isElementsImport, createProjectFromSource, getImportAliases, hasIdentifierUsage } from '../shared/index.js'
 
 /**
  * Codemod to inline deprecated useClickOutside hook calls.
@@ -16,30 +16,6 @@ import { isElementsImport } from '../shared/elements-import.js'
 
 const TODO_INLINE_MANUALLY =
   '// TODO: Inline useClickOutside manually — this call shape could not be transformed safely'
-
-function getUseClickOutsideAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  const aliases = new Set<string>()
-
-  for (const importDecl of sourceFile.getImportDeclarations()) {
-    const moduleSpecifier = importDecl.getModuleSpecifierValue()
-    if (!isElementsImport(moduleSpecifier, facadePackage)) continue
-
-    for (const namedImport of importDecl.getNamedImports()) {
-      if (namedImport.getName() === 'useClickOutside') {
-        aliases.add(namedImport.getAliasNode()?.getText() ?? 'useClickOutside')
-      }
-    }
-  }
-
-  return aliases
-}
-
-function hasIdentifierUsage(sourceFile: SourceFile, identifier: string): boolean {
-  return sourceFile
-    .getDescendantsOfKind(SyntaxKind.Identifier)
-    .filter((node) => node.getText() === identifier)
-    .some((node) => node.getParentIfKind(SyntaxKind.ImportSpecifier) === undefined)
-}
 
 function removeUnusedUseClickOutsideImports(
   sourceFile: SourceFile,
@@ -58,7 +34,7 @@ function removeUnusedUseClickOutsideImports(
       const alias = namedImport.getAliasNode()?.getText() ?? 'useClickOutside'
       if (!aliases.has(alias)) continue
 
-      if (!hasIdentifierUsage(sourceFile, alias)) {
+      if (!hasIdentifierUsage(sourceFile, new Set([alias]))) {
         namedImport.remove()
       }
     }
@@ -162,19 +138,8 @@ export default function transform(
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2,
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-      useTrailingCommas: false,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
-  const aliases = getUseClickOutsideAliases(sourceFile, options?.facadePackage)
+  const sourceFile = createProjectFromSource(source, filePath)
+  const aliases = getImportAliases(sourceFile, 'useClickOutside', options?.facadePackage)
 
   if (aliases.size === 0) {
     return source

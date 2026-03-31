@@ -1,5 +1,5 @@
-import { Project, QuoteKind, SourceFile, SyntaxKind, VariableDeclaration, ObjectBindingPattern } from 'ts-morph'
-import { isElementsImport } from '../shared/elements-import.js'
+import { SourceFile, SyntaxKind, VariableDeclaration, ObjectBindingPattern } from 'ts-morph'
+import { isElementsImport, createProjectFromSource } from '../shared/index.js'
 
 /**
  * Codemod to migrate deprecated useMediaQuery and related exports.
@@ -408,18 +408,7 @@ export default function transform(
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-      useTrailingCommas: false,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
 
   // Collect deprecated import aliases BEFORE any mutations
   const { aliases, basePackage } = collectDeprecatedImports(sourceFile, options?.facadePackage)

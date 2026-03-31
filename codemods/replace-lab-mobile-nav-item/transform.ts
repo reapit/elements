@@ -1,5 +1,5 @@
-import { Node, Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
-import { isElementsImport } from '../shared/elements-import.js'
+import { Node, SourceFile, SyntaxKind } from 'ts-morph'
+import { isElementsImport, createProjectFromSource, getImportAliases, getNearestStatement } from '../shared/index.js'
 
 /**
  * Codemod to replace the lab MobileNavItem with core TopBar components.
@@ -62,21 +62,6 @@ const TODO_SUBMENU_CHILDREN =
 const TODO_SPREAD_ONLY =
   ' TODO: MobileNavItem could not be automatically migrated. Rewrite using TopBar.MenuItem, TopBar.MenuItemButton, or TopBar.MenuGroup.'
 
-/** Collects all local names bound to MobileNavItem from elements imports. */
-function getMobileNavItemAliases(sourceFile: SourceFile, facadePackage?: string): Set<string> {
-  const aliases = new Set<string>()
-  for (const importDecl of sourceFile.getImportDeclarations()) {
-    const specifier = importDecl.getModuleSpecifierValue()
-    if (!isElementsImport(specifier, facadePackage)) continue
-    for (const namedImport of importDecl.getNamedImports()) {
-      if (namedImport.getName() === 'MobileNavItem') {
-        aliases.add(namedImport.getAliasNode()?.getText() ?? 'MobileNavItem')
-      }
-    }
-  }
-  return aliases
-}
-
 /**
  * Returns the local name that will be used for TopBar after the import rewrite.
  * If TopBar is already imported from the target specifier, use its existing local name.
@@ -130,16 +115,6 @@ function resolveIsActive(attr: import('ts-morph').JsxAttribute | undefined): IsA
   // Strip braces for a clean inner expression
   const inner = text.startsWith('{') && text.endsWith('}') ? text.slice(1, -1).trim() : text
   return { kind: 'dynamic', text: inner }
-}
-
-/** Finds the nearest Statement ancestor (or the node itself when it is a Statement). */
-function getNearestStatement(node: Node): Node | undefined {
-  let current: Node | undefined = node
-  while (current) {
-    if (Node.isStatement(current)) return current
-    current = current.getParent()
-  }
-  return undefined
 }
 
 type TodoEntry = { insertPos: number; indent: string; message: string }
@@ -711,19 +686,9 @@ export default function transform(
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
   const facadePackage = options?.facadePackage
-  const aliases = getMobileNavItemAliases(sourceFile, facadePackage)
+  const aliases = getImportAliases(sourceFile, 'MobileNavItem', facadePackage)
 
   if (aliases.size === 0) {
     return source

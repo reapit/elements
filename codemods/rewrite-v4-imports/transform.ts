@@ -1,4 +1,5 @@
-import { Project, SourceFile } from 'ts-morph'
+import { SourceFile } from 'ts-morph'
+import { matchesPackage, createProjectFromSource } from '../shared/index.js'
 
 /**
  * Codemod to rewrite @reapit/elements imports to use deprecated component aliases.
@@ -192,18 +193,6 @@ const moduleTransformations: Record<string, string> = {
 }
 
 /**
- * Checks if a module specifier matches a package name.
- * Handles both exact matches and subpath imports.
- * @example
- * matchesPackage('@company/ui', '@company/ui') // true
- * matchesPackage('@company/ui/elements', '@company/ui') // true
- * matchesPackage('@company/ui-v2', '@company/ui') // false
- */
-function matchesPackage(moduleSpecifier: string, packageName: string): boolean {
-  return moduleSpecifier === packageName || moduleSpecifier.startsWith(packageName + '/')
-}
-
-/**
  * Checks if a module specifier is a v4-style import from @reapit/elements or a facade package.
  * v4 imports are bare package imports without subpaths (e.g., '@reapit/elements')
  * v5 imports use subpaths (e.g., '@reapit/elements/core/button') and should NOT be transformed.
@@ -297,14 +286,7 @@ export default function transform(
   filePath: string = 'file.tsx',
   options?: { facadePackage?: string },
 ): string {
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
 
   transformImports(sourceFile, options?.facadePackage)
 

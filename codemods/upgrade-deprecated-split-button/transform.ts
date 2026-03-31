@@ -1,5 +1,12 @@
-import { Project, QuoteKind, SourceFile, SyntaxKind } from 'ts-morph'
-import { isElementsImport, matchesPackage } from '../shared/elements-import.js'
+import { SourceFile, SyntaxKind } from 'ts-morph'
+import {
+  isElementsImport,
+  matchesPackage,
+  createProjectFromSource,
+  addImportsToTarget,
+  transformTypeReferences,
+  syncClosingTag,
+} from '../shared/index.js'
 
 /**
  * Codemod to upgrade deprecated split-button identifiers to their core equivalents.
@@ -122,7 +129,6 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
     if (moduleSpecifier === targetModuleSpecifier) continue
 
     const isFacade = facadePackage !== undefined && matchesPackage(moduleSpecifier, facadePackage)
-    const isElements = matchesPackage(moduleSpecifier, '@reapit/elements')
 
     const namedImports = importDecl.getNamedImports()
     const importsToRemove: typeof namedImports = []
@@ -139,7 +145,7 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
       const newName = IDENTIFIER_MAP[originalName]
       if (!newName) continue
 
-      if (isFacade && !isElements) {
+      if (isFacade && !matchesPackage(moduleSpecifier, '@reapit/elements')) {
         // Facade imports: rename in-place, keep module specifier (and any alias) unchanged.
         // setName replaces only the name before `as`, so aliases are preserved automatically.
         namedImport.setName(newName)
@@ -164,82 +170,17 @@ function transformImports(sourceFile: SourceFile, facadePackage?: string): void 
     }
 
     // Clean up empty import declarations
-    if (importDecl.getNamedImports().length === 0 && !importDecl.getDefaultImport()) {
+    if (
+      importDecl.getNamedImports().length === 0 &&
+      !importDecl.getDefaultImport() &&
+      !importDecl.getNamespaceImport()
+    ) {
       importDecl.remove()
     }
   }
 
   // Add new @reapit/elements/core/split-button import if needed
-  if (elementsImportsToAdd.length > 0) {
-    const currentImportDeclarations = sourceFile.getImportDeclarations()
-
-    // Check if an import from the target path already exists
-    let splitButtonImportDecl = currentImportDeclarations.find(
-      (importDecl) => importDecl.getModuleSpecifierValue() === targetModuleSpecifier,
-    )
-
-    if (!splitButtonImportDecl) {
-      splitButtonImportDecl = sourceFile.addImportDeclaration({
-        moduleSpecifier: targetModuleSpecifier,
-      })
-    }
-
-    for (const { name, alias, isTypeOnly } of elementsImportsToAdd) {
-      // Check if this import already exists in the target declaration
-      const existingImport = splitButtonImportDecl.getNamedImports().find((namedImport) => {
-        return namedImport.getName() === name && namedImport.getAliasNode()?.getText() === alias
-      })
-
-      if (existingImport) {
-        const existingIsTypeOnly = existingImport.isTypeOnly()
-
-        if (existingIsTypeOnly === isTypeOnly) continue
-
-        // Upgrade type-only to value import if needed
-        if (existingIsTypeOnly && !isTypeOnly) {
-          existingImport.setIsTypeOnly(false)
-          continue
-        }
-
-        // Value import already covers type usage
-        if (!existingIsTypeOnly && isTypeOnly) continue
-      }
-
-      if (alias && alias !== name) {
-        const typePrefix = isTypeOnly ? 'type ' : ''
-        splitButtonImportDecl.addNamedImport(`${typePrefix}${name} as ${alias}`)
-      } else if (isTypeOnly) {
-        splitButtonImportDecl.addNamedImport({ name, isTypeOnly: true })
-      } else {
-        splitButtonImportDecl.addNamedImport(name)
-      }
-    }
-  }
-}
-
-/**
- * Transforms type references from DeprecatedSplitButtonProps to SplitButton.Props.
- * Handles TypeReference nodes (type annotations, generics) and
- * ExpressionWithTypeArguments (heritage clauses — extends/implements).
- */
-function transformTypeReferences(sourceFile: SourceFile): void {
-  const typeReferences = sourceFile.getDescendantsOfKind(SyntaxKind.TypeReference)
-
-  for (const typeRef of typeReferences) {
-    const typeName = typeRef.getTypeName()
-    if (typeName.getText() === 'DeprecatedSplitButtonProps') {
-      typeName.replaceWithText('SplitButton.Props')
-    }
-  }
-
-  const heritageExpressions = sourceFile.getDescendantsOfKind(SyntaxKind.ExpressionWithTypeArguments)
-
-  for (const heritage of heritageExpressions) {
-    const expression = heritage.getExpression()
-    if (expression.getText() === 'DeprecatedSplitButtonProps') {
-      expression.replaceWithText('SplitButton.Props')
-    }
-  }
+  addImportsToTarget(sourceFile, elementsImportsToAdd, targetModuleSpecifier, { promoteDeclarationTypeOnly: true })
 }
 
 /**
@@ -316,18 +257,7 @@ function transformJsxElements(sourceFile: SourceFile, aliasMap: Map<string, stri
     }
 
     // Rename corresponding closing tag
-    if (element.getKind() === SyntaxKind.JsxOpeningElement) {
-      const parent = element.getParent()
-      if (parent?.getKind() === SyntaxKind.JsxElement) {
-        const closingElement = parent.asKind(SyntaxKind.JsxElement)?.getClosingElement()
-        if (closingElement) {
-          const closingTagName = closingElement.getTagNameNode()
-          if (closingTagName.getText() === originalName) {
-            closingTagName.replaceWithText(newName)
-          }
-        }
-      }
-    }
+    syncClosingTag(element, originalName, newName)
   }
 
   return todoLines
@@ -379,23 +309,13 @@ export default function transform(
     return source
   }
 
-  const project = new Project({
-    useInMemoryFileSystem: true,
-    compilerOptions: {
-      jsx: 2, // JsxEmit.React
-    },
-    manipulationSettings: {
-      quoteKind: QuoteKind.Single,
-    },
-  })
-
-  const sourceFile = project.createSourceFile(filePath, source)
+  const sourceFile = createProjectFromSource(source, filePath)
 
   // Collect alias map BEFORE transforming imports (imports will be modified)
   const aliasMap = getDeprecatedAliasMap(sourceFile, options?.facadePackage)
 
   transformImports(sourceFile, options?.facadePackage)
-  transformTypeReferences(sourceFile)
+  transformTypeReferences(sourceFile, new Set(['DeprecatedSplitButtonProps']), 'SplitButton.Props')
   const todoLines = transformJsxElements(sourceFile, aliasMap)
 
   let result = sourceFile.getFullText()
