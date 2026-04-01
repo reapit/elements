@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-03-23T22:10:19.376Z",
+  "generated": "2026-04-01T06:30:25.252Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -17,6 +17,10 @@
     {
       "name": "replace-deprecated-pagination",
       "description": "Replaces DeprecatedPagination and DeprecatedPaginationProps with Pagination and Pagination.Props"
+    },
+    {
+      "name": "replace-deprecated-toggle-radio",
+      "description": "Replaces deprecated ToggleRadio with ChipSelect from core/chip-select"
     },
     {
       "name": "replace-deprecated-use-click-outside",
