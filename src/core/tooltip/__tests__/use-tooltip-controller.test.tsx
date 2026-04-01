@@ -46,7 +46,7 @@ afterEach(() => {
 
 test('calls showPopover on anchor focus when focus-visible', () => {
   // When :focus-visible match is true, the anchor was focused via keyboard navigation.
-  triggerElement.matches = vi.fn().mockReturnValue(true)
+  triggerElement.matches = vi.fn().mockReturnValue(true) as unknown as typeof triggerElement.matches
 
   renderHook(() =>
     useTooltipController({
@@ -85,7 +85,7 @@ test('calls showPopover on anchor mouseenter', () => {
 
 test('calls hidePopover on anchor mouseleave when not focus-visible', () => {
   // Mock matches to return false for :focus-visible
-  triggerElement.matches = vi.fn().mockReturnValue(false)
+  triggerElement.matches = vi.fn().mockReturnValue(false) as unknown as typeof triggerElement.matches
 
   renderHook(() =>
     useTooltipController({
@@ -101,7 +101,7 @@ test('calls hidePopover on anchor mouseleave when not focus-visible', () => {
 
 test('does not call showPopover on anchor focus when not focus-visible', () => {
   // When :focus-visible match is false, the anchor was not focused via keyboard navigation.
-  triggerElement.matches = vi.fn().mockReturnValue(false)
+  triggerElement.matches = vi.fn().mockReturnValue(false) as unknown as typeof triggerElement.matches
 
   renderHook(() =>
     useTooltipController({
@@ -117,7 +117,7 @@ test('does not call showPopover on anchor focus when not focus-visible', () => {
 
 test('does not call hidePopover on anchor mouseleave when focus-visible', () => {
   // When :focus-visible match is true, the anchor is focused via keyboard navigation.
-  triggerElement.matches = vi.fn().mockReturnValue(true)
+  triggerElement.matches = vi.fn().mockReturnValue(true) as unknown as typeof triggerElement.matches
 
   renderHook(() =>
     useTooltipController({
@@ -168,7 +168,7 @@ test('does not show tooltip when isTooltipNeeded returns false', () => {
   mockIsTooltipNeeded.mockReturnValue(false)
   // When :focus-visible match is true, the anchor is focused via keyboard navigation.
   // This is needed for the focus event to show the tooltip.
-  triggerElement.matches = vi.fn().mockReturnValue(true)
+  triggerElement.matches = vi.fn().mockReturnValue(true) as unknown as typeof triggerElement.matches
 
   renderHook(() =>
     useTooltipController({
