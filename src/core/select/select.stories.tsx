@@ -51,6 +51,34 @@ export const Example: Story = {
 }
 
 /**
+ * Use `variant="borderless"` on `Select.Button` when embedding the select in a surface that
+ * provides its own border or background, such as a table cell. This variant removes
+ * border-based validity styling; when `showValidity` is enabled, validity may still be
+ * reflected via background in accordance with the underlying `Combobox` styling.
+ */
+export const Borderless: Story = {
+  args: {
+    ...Example.args,
+    children: [
+      <Select.Button key="button" variant="borderless" />,
+      <Select.Popup key="popup">
+        <Select.Listbox>
+          <Select.Option value="apple">Apple</Select.Option>
+          <Select.Option value="apricot">Apricot</Select.Option>
+          <Select.Option value="avocado">Avocado</Select.Option>
+          <Select.Option value="banana">Banana</Select.Option>
+          <Select.Option value="blueberry">Blueberry</Select.Option>
+          <Select.Option value="cherry">Cherry</Select.Option>
+          <Select.Option value="cantaloupe">Cantaloupe</Select.Option>
+          <Select.Option value="grape">Grape</Select.Option>
+          <Select.Option value="grapefruit">Grapefruit</Select.Option>
+        </Select.Listbox>
+      </Select.Popup>,
+    ],
+  },
+}
+
+/**
  * Options can be grouped using the `CompactSelect.Optgroup`. Groups should always be separated
  * by a `CompactSelect.Divider`.
  */

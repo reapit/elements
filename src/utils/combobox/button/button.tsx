@@ -36,6 +36,9 @@ export namespace ComboboxButton {
     placeholder?: string
     /** Visual size of the button. */
     size?: 'small' | 'medium' | 'large'
+    /** Visual style of the button. Use `"borderless"` to remove the border, for example when
+     * embedding the button in a surface that provides its own border or background. */
+    variant?: 'default' | 'borderless'
   }
 }
 
@@ -57,6 +60,7 @@ export function ComboboxButton({
   placeholder = 'Select an option',
   size = 'medium',
   style,
+  variant = 'default',
   ...rest
 }: ComboboxButton.Props) {
   // Children = selected content; no children = no selected content and placeholder should be displayed
@@ -65,7 +69,7 @@ export function ComboboxButton({
   return (
     // Applies consumer class names and inline styles to the container, not the button.
     // Minimizes easy override of button styles critical to component function.
-    <ElComboboxButtonContainer className={className} data-size={size} style={style}>
+    <ElComboboxButtonContainer className={className} data-size={size} data-variant={variant} style={style}>
       <ElComboboxButton
         {...rest}
         aria-autocomplete="list"

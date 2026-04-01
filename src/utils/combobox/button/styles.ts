@@ -43,8 +43,12 @@ export const ElComboboxButtonContainer = styled.div`
 
   /* Use :focus rather than :focus-visible to provide the same visual feedback
    * as other inputs/form controls. */
-  &:has(button:focus) {
+  &:has(button:focus):not([data-variant='borderless']) {
     border: var(--comp-input-border-width) solid var(--comp-input-colour-border-focused);
+  }
+
+  &[data-variant='borderless'] {
+    border: none;
   }
 `
 

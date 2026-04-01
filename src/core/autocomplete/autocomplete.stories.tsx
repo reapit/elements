@@ -117,6 +117,50 @@ export const Preloaded: Story = {
 }
 
 /**
+ * Use `variant="borderless"` on `Autocomplete.Button` when embedding the autocomplete in a
+ * surface that provides its own border or background, such as a card. This variant removes the
+ * default border; when `showValidity` is enabled, validity is communicated via background colour
+ * rather than a border.
+ */
+export const Borderless: Story = {
+  args: {
+    ...Example.args,
+  },
+  parameters: { docs: { source: { type: 'code' } } },
+  render: (args) => {
+    const [searchText, setSearchText] = useState('')
+    const filteredOptions = filterFruit(searchText)
+
+    return (
+      <Autocomplete {...args}>
+        <Autocomplete.Button variant="borderless" />
+        <Autocomplete.Popup
+          search={
+            <Autocomplete.SearchInput
+              aria-label="Filter fruit"
+              value={searchText}
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+          }
+        >
+          <Autocomplete.Listbox>
+            {filteredOptions.length > 0 ? (
+              filteredOptions.map((option) => (
+                <Autocomplete.Option key={option.value} value={option.value}>
+                  {option.label}
+                </Autocomplete.Option>
+              ))
+            ) : (
+              <Autocomplete.Placeholder>No results found</Autocomplete.Placeholder>
+            )}
+          </Autocomplete.Listbox>
+        </Autocomplete.Popup>
+      </Autocomplete>
+    )
+  },
+}
+
+/**
  * Options can be grouped using the `CompactSelect.Optgroup`. Groups should always be separated
  * by a `CompactSelect.Divider`.
  */

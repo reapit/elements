@@ -140,3 +140,22 @@ test('exposes ComboboxButton.ClearButton', () => {
 test('exposes ComboboxButton.TogglePopupButton', () => {
   expect(ComboboxButton.OpenPopupButton).toBeDefined()
 })
+
+test('applies data-variant="default" to the container by default', () => {
+  const { container } = render(<ComboboxButton aria-controls="popup" aria-expanded={false} id="my-button" />)
+  expect(container.firstElementChild).toHaveAttribute('data-variant', 'default')
+})
+
+test('applies data-variant="default" to the container when variant="default"', () => {
+  const { container } = render(
+    <ComboboxButton aria-controls="popup" aria-expanded={false} id="my-button" variant="default" />,
+  )
+  expect(container.firstElementChild).toHaveAttribute('data-variant', 'default')
+})
+
+test('applies data-variant="borderless" to the container when variant="borderless"', () => {
+  const { container } = render(
+    <ComboboxButton aria-controls="popup" aria-expanded={false} id="my-button" variant="borderless" />,
+  )
+  expect(container.firstElementChild).toHaveAttribute('data-variant', 'borderless')
+})

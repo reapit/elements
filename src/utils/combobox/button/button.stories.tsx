@@ -49,6 +49,7 @@ export const Example: Story = {
     maxWidth: undefined,
     placeholder: 'Select an option',
     size: 'medium',
+    variant: 'default',
   },
 }
 
@@ -136,6 +137,20 @@ export const AriaInvalid: Story = {
       </ElCombobox>
     ),
   ],
+}
+
+/**
+ * When the button is embedded in a surface that provides its own border or background — such as
+ * a table cell or card — use `variant="borderless"` to remove the button's border. Border-based
+ * validity cues are not shown in this variant, although background-based validity styling may
+ * still be applied by the parent combobox when `data-show-validity="true"` is set.
+ */
+export const Borderless: Story = {
+  args: {
+    ...Placeholder.args,
+    action: 'Toggle',
+    variant: 'borderless',
+  },
 }
 
 /**
