@@ -1,5 +1,35 @@
 # @reapit/elements
 
+## 5.0.0-beta.85
+
+### Major Changes
+
+- **[Removed]** `ImageFallback` component and its `image-fallback` module. Use `MediaFallback` (exported from `@reapit/elements`) instead. ([#1253](https://github.com/reapit-global/gbl-ds-elements/pull/1253), [`c19d7d1`](https://github.com/reapit-global/gbl-ds-elements/commit/c19d7d1730f98b0217409cbcc3c524dec802d167), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Removed]** the experimental `SelectCustom` component and all its exports from `@reapit/elements/lab/select-custom` — `SelectCustom`, `ExperimentalSelectCustomOption`, `ExperimentalSelectCustomOptionGroup`, `SelectCustomProps`, `OptionProps`, `OptionGroupProps`, `useSelectKeyboardNavigation`, `useSelectCustomContext`, `SelectCustomContext`, and all associated styled element exports. Use `Select` from `@reapit/elements/core/select` as the stable replacement. ([#1261](https://github.com/reapit-global/gbl-ds-elements/pull/1261), [`927f955`](https://github.com/reapit-global/gbl-ds-elements/commit/927f9558d6ed7720a9b5694f4ac9e57e76449395), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Minor Changes
+
+- **[Added]** `@reapit/elements/deprecated/styles` subpath entry point. Re-exports `Intent`, `getIntentClassName`, and all deprecated CSS class helpers (`elIs*`, `elFlex*`, `elFade*`, etc.) that were previously only available from the top-level barrel. ([#1256](https://github.com/reapit-global/gbl-ds-elements/pull/1256), [`3a54b08`](https://github.com/reapit-global/gbl-ds-elements/commit/3a54b0842b2c1090e8f22bcf1ff7224fd96d904c), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `MediaFallback` shared utility component used internally by `Image.Fallback` and `Video.Fallback`. Accepts an optional `icon` and `children` message. ([#1253](https://github.com/reapit-global/gbl-ds-elements/pull/1253), [`c19d7d1`](https://github.com/reapit-global/gbl-ds-elements/commit/c19d7d1730f98b0217409cbcc3c524dec802d167), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `Theme` type re-exported from `@reapit/elements/core/theme-provider`. Previously only available from the top-level barrel. ([#1256](https://github.com/reapit-global/gbl-ds-elements/pull/1256), [`3a54b08`](https://github.com/reapit-global/gbl-ds-elements/commit/3a54b0842b2c1090e8f22bcf1ff7224fd96d904c), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `Video` utility component. Renders a `<video>` element styled to fill its container with configurable `objectFit` behaviour. Shows a fallback UI when the video fails to load; the default fallback announces the error to screen readers via `aria-live="polite"`. ([#1253](https://github.com/reapit-global/gbl-ds-elements/pull/1253), [`c19d7d1`](https://github.com/reapit-global/gbl-ds-elements/commit/c19d7d1730f98b0217409cbcc3c524dec802d167), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Added]** `variant` prop to `ComboboxButton`, `Select.Button`, and `Autocomplete.Button`, accepting `'default' | 'borderless'`. Use `variant="borderless"` to remove the border when embedding the button in a surface that provides its own border or background. ([#1262](https://github.com/reapit-global/gbl-ds-elements/pull/1262), [`69261e2`](https://github.com/reapit-global/gbl-ds-elements/commit/69261e21498b718758fe5b1e9c125d4d3ff3f6eb), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+### Patch Changes
+
+- **[Fixed]** Add `./dist/types/*.d.ts` to the `imports` field in `package.json` so TypeScript can resolve top-level type declarations (e.g. `dist/types/index.d.ts`) when using the `#src/*` import alias. ([#1249](https://github.com/reapit-global/gbl-ds-elements/pull/1249), [`4434e90`](https://github.com/reapit-global/gbl-ds-elements/commit/4434e90cc73b1085d0dbbb8e6586fef5ee46fc3c), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Extract shared codemod utilities into `codemods/shared/` to reduce duplication across transforms ([#1252](https://github.com/reapit-global/gbl-ds-elements/pull/1252), [`b8d4a99`](https://github.com/reapit-global/gbl-ds-elements/commit/b8d4a99564650883e68a884143bb1355c809d5a9), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Changed]** Update CSS variables and design tokens to match Figma. Adds `black-000`, `white-000`, and `neutral-025` primitive tokens, removes the `transparent` primitive, and extends semantic colour tokens with `ai` variants for button fills, borders, and tertiary states across both Reapit and PayProp themes. Adds `gallery_viewer` semantic colour tokens for both themes. Restructures toast semantic tokens: flat `--comp-toast-colour-fill-*` variables are replaced by per-variant `background` and `bar` sub-tokens, and a new `neutral` toast variant is added. ([#1260](https://github.com/reapit-global/gbl-ds-elements/pull/1260), [`192e3dd`](https://github.com/reapit-global/gbl-ds-elements/commit/192e3ddb81575b625401ef13f5cce09f757cca32), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
+- **[Internal]** Update `rewrite-v5-imports` codemod export map to cover all remaining barrel-only exports. The codemod now maps `Intent`, `getIntentClassName`, deprecated CSS class helpers, and `Theme` to their new subpath entry points. ([#1256](https://github.com/reapit-global/gbl-ds-elements/pull/1256), [`3a54b08`](https://github.com/reapit-global/gbl-ds-elements/commit/3a54b0842b2c1090e8f22bcf1ff7224fd96d904c), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+
 ## 5.0.0-beta.84
 
 ### Major Changes
