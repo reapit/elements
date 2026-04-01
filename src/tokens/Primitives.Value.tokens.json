@@ -1,4 +1,8 @@
 {
+  "black-000": {
+    "$type": "color",
+    "$value": "#00000000"
+  },
   "black-050": {
     "$type": "color",
     "$value": "#0000001a"
@@ -190,6 +194,10 @@
   "green-900": {
     "$type": "color",
     "$value": "#0b4517"
+  },
+  "neutral-025": {
+    "$type": "color",
+    "$value": "#f9f9fb"
   },
   "neutral-050": {
     "$type": "color",
@@ -487,10 +495,6 @@
     "$type": "color",
     "$value": "#00505a"
   },
-  "transparent": {
-    "$type": "color",
-    "$value": "#ffffff00"
-  },
   "unit-0": {
     "$type": "dimension",
     "$value": "0px"
@@ -646,6 +650,10 @@
   "unit-px": {
     "$type": "dimension",
     "$value": "1px"
+  },
+  "white-000": {
+    "$type": "color",
+    "$value": "#ffffff00"
   },
   "white-050": {
     "$type": "color",
