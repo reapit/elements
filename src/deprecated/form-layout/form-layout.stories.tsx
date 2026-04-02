@@ -1,6 +1,5 @@
 import { InputGroup } from '../../deprecated/input-group'
 import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall, FormSectionDivider } from './form-layout'
-import { Toggle, ToggleRadio, ElToggleItem } from '../../deprecated/toggle'
 import { Textarea } from '../../core/textarea'
 import { MultiSelectInput } from '../../deprecated/multi-select'
 import { Button } from '../../core/button'
@@ -39,43 +38,6 @@ export const BasicForm = {
         <InputWrapSmall>
           <InputGroup type="checkbox" label="Status" />
         </InputWrapSmall>
-        <InputWrapSmall>
-          <InputGroup>
-            <Toggle id="my-cool-toggle">
-              <ElToggleItem>On</ElToggleItem>
-              <ElToggleItem>Off</ElToggleItem>
-            </Toggle>
-            <ElInputGroupLabel>Active</ElInputGroupLabel>
-          </InputGroup>
-        </InputWrapSmall>
-        <InputWrap>
-          <InputGroup>
-            <ToggleRadio
-              name="my-cool-toggle-radio"
-              options={[
-                {
-                  id: 'option-1',
-                  value: 'option-1',
-                  text: 'Opt 1',
-                  isChecked: true,
-                },
-                {
-                  id: 'option-2',
-                  value: 'option-2',
-                  text: 'Opt 2',
-                  isChecked: false,
-                },
-                {
-                  id: 'option-3',
-                  value: 'option-3',
-                  text: 'Opt 3',
-                  isChecked: false,
-                },
-              ]}
-            />
-            <ElInputGroupLabel>Options</ElInputGroupLabel>
-          </InputGroup>
-        </InputWrap>
         <InputWrapFull>
           <InputGroup>
             <Textarea fieldSizing="content" placeholder="A placeholder" />
@@ -123,43 +85,6 @@ export const ComplexForm = {
         <InputWrapSmall>
           <InputGroup type="checkbox" label="Status" />
         </InputWrapSmall>
-        <InputWrapSmall>
-          <InputGroup>
-            <Toggle id="my-cool-toggle">
-              <ElToggleItem>On</ElToggleItem>
-              <ElToggleItem>Off</ElToggleItem>
-            </Toggle>
-            <ElInputGroupLabel>Active</ElInputGroupLabel>
-          </InputGroup>
-        </InputWrapSmall>
-        <InputWrap>
-          <InputGroup>
-            <ToggleRadio
-              name="my-cool-toggle-radio"
-              options={[
-                {
-                  id: 'option-1',
-                  value: 'option-1',
-                  text: 'Opt 1',
-                  isChecked: true,
-                },
-                {
-                  id: 'option-2',
-                  value: 'option-2',
-                  text: 'Opt 2',
-                  isChecked: false,
-                },
-                {
-                  id: 'option-3',
-                  value: 'option-3',
-                  text: 'Opt 3',
-                  isChecked: false,
-                },
-              ]}
-            />
-            <ElInputGroupLabel>Options</ElInputGroupLabel>
-          </InputGroup>
-        </InputWrap>
         <InputWrapFull>
           <InputGroup>
             <Textarea fieldSizing="content" placeholder="A placeholder" />
