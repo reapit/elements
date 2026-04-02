@@ -1,5 +1,29 @@
 # @reapit/elements
 
+## 5.0.0-beta.86
+
+### Major Changes
+
+- **[Removed]** `Toggle`, `ToggleRadio`, and related exports from `src/deprecated/toggle`. Run the `replace-deprecated-toggle` codemod to migrate `Toggle` to `Switch`, and the `replace-deprecated-toggle-radio` codemod to migrate `ToggleRadio` to `ChipSelect`. ([#1272](https://github.com/reapit-global/gbl-ds-elements/pull/1272))
+
+### Minor Changes
+
+- **[Added]** `GalleryViewerCarousel` compound component at `src/core/gallery-viewer/carousel`. Provides an accessible, controlled image and video carousel with `GalleryViewerCarousel.Item`, `GalleryViewerCarousel.ItemCaption`, and `GalleryViewerCarousel.Button` subcomponents. All subcomponent prop types are accessible from the parent namespace (e.g. `GalleryViewerCarousel.ItemProps`). ([#1259](https://github.com/reapit-global/gbl-ds-elements/pull/1259))
+
+- **[Added]** `GalleryViewer.MediaList` compound component. Renders a vertical `<ul>` of media items. Exposes `GalleryViewer.MediaListItem` and `GalleryViewer.MediaItemCaption`. ([#1270](https://github.com/reapit-global/gbl-ds-elements/pull/1270))
+
+- **[Added]** `replace-deprecated-toggle` codemod. Migrates usages of the deprecated `Toggle` component to `Switch`. ([#1267](https://github.com/reapit-global/gbl-ds-elements/pull/1267))
+
+- **[Added]** `replace-deprecated-toggle-radio` codemod. Migrates usages of the deprecated `ToggleRadio` component to `ChipSelect`. ([#1264](https://github.com/reapit-global/gbl-ds-elements/pull/1264))
+
+- **[Added]** `GalleryViewerCarousel` now supports dynamic filtering of carousel items. When children are added to or removed from the track at runtime, the carousel automatically observes new items and unobserves removed ones. When the currently visible item is removed, the carousel snaps instantly to the first remaining item. ([#1271](https://github.com/reapit-global/gbl-ds-elements/pull/1271))
+
+- **[Added]** `GalleryViewerMediaItem` and `GalleryViewerMediaItemCaption` components at `src/core/gallery-viewer/media-item`. ([#1259](https://github.com/reapit-global/gbl-ds-elements/pull/1259))
+
+### Patch Changes
+
+- **[Fixed]** `replace-deprecated-toggle` codemod now correctly escapes `"` and `&` characters in extracted `ElToggleItem` label text, preventing malformed JSX attribute values in the output. ([#1268](https://github.com/reapit-global/gbl-ds-elements/pull/1268))
+
 ## 5.0.0-beta.85
 
 ### Major Changes
