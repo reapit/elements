@@ -6,7 +6,7 @@
 
 - **[Removed]** `ImageFallback` component and its `image-fallback` module. Use `MediaFallback` (exported from `@reapit/elements`) instead. ([#1253](https://github.com/reapit-global/gbl-ds-elements/pull/1253), [`c19d7d1`](https://github.com/reapit-global/gbl-ds-elements/commit/c19d7d1730f98b0217409cbcc3c524dec802d167), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Removed]** the experimental `SelectCustom` component and all its exports from `@reapit/elements/lab/select-custom` — `SelectCustom`, `ExperimentalSelectCustomOption`, `ExperimentalSelectCustomOptionGroup`, `SelectCustomProps`, `OptionProps`, `OptionGroupProps`, `useSelectKeyboardNavigation`, `useSelectCustomContext`, `SelectCustomContext`, and all associated styled element exports. Use `Select` from `@reapit/elements/core/select` as the stable replacement. ([#1261](https://github.com/reapit-global/gbl-ds-elements/pull/1261), [`927f955`](https://github.com/reapit-global/gbl-ds-elements/commit/927f9558d6ed7720a9b5694f4ac9e57e76449395), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Removed]** the experimental `SelectCustom` component and related exports from `@reapit/elements/lab/select-custom`. Use `Select` from `@reapit/elements/core/select` as the stable replacement. ([#1261](https://github.com/reapit-global/gbl-ds-elements/pull/1261), [`927f955`](https://github.com/reapit-global/gbl-ds-elements/commit/927f9558d6ed7720a9b5694f4ac9e57e76449395), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 ### Minor Changes
 
@@ -22,7 +22,7 @@
 
 ### Patch Changes
 
-- **[Fixed]** Add `./dist/types/*.d.ts` to the `imports` field in `package.json` so TypeScript can resolve top-level type declarations (e.g. `dist/types/index.d.ts`) when using the `#src/*` import alias. ([#1249](https://github.com/reapit-global/gbl-ds-elements/pull/1249), [`4434e90`](https://github.com/reapit-global/gbl-ds-elements/commit/4434e90cc73b1085d0dbbb8e6586fef5ee46fc3c), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Fixed]** TypeScript path resolution for top-level type declarations when using the `#src/*` import alias. ([#1249](https://github.com/reapit-global/gbl-ds-elements/pull/1249), [`4434e90`](https://github.com/reapit-global/gbl-ds-elements/commit/4434e90cc73b1085d0dbbb8e6586fef5ee46fc3c), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Internal]** Extract shared codemod utilities into `codemods/shared/` to reduce duplication across transforms ([#1252](https://github.com/reapit-global/gbl-ds-elements/pull/1252), [`b8d4a99`](https://github.com/reapit-global/gbl-ds-elements/commit/b8d4a99564650883e68a884143bb1355c809d5a9), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -36,11 +36,7 @@
 
 - **[Changed]** `ElAccordionSummaryRightInfo` renamed to `ElAccordionSummaryAccessory`. Update any direct imports of this styled element. ([#1235](https://github.com/reapit-global/gbl-ds-elements/pull/1235), [`c2da4e9`](https://github.com/reapit-global/gbl-ds-elements/commit/c2da4e95ca8bf954e8f1c278cda254fea10e140a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Removed]** the experimental lab `SearchInput` component and its associated `SearchInputProps` type. Run the `replace-lab-search-input` codemod to migrate to the stable `SearchInput` in `core/search-input`: ([#1231](https://github.com/reapit-global/gbl-ds-elements/pull/1231), [`f5c15f0`](https://github.com/reapit-global/gbl-ds-elements/commit/f5c15f04d8dc39c6d7a54fd80c15c3924ba59218), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
-
-  ```bash
-  yarn dlx @reapit/elements@beta codemod apply replace-lab-search-input src/
-  ```
+- **[Removed]** the experimental lab `SearchInput` component and its associated `SearchInputProps` type. Run the `replace-lab-search-input` codemod to migrate to the stable `SearchInput` in `core/search-input`. ([#1231](https://github.com/reapit-global/gbl-ds-elements/pull/1231), [`f5c15f0`](https://github.com/reapit-global/gbl-ds-elements/commit/f5c15f04d8dc39c6d7a54fd80c15c3924ba59218), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Removed]** `TABLE_ROW_PRIMARY_ACTION_Z_INDEX` and `TABLE_ROW_INTERACTIVE_ELEMENT_Z_INDEX` constants from `@reapit/elements`. These were internal implementation details and should not have been part of the public API. Remove any usages from your codebase. ([#1232](https://github.com/reapit-global/gbl-ds-elements/pull/1232), [`a9b6145`](https://github.com/reapit-global/gbl-ds-elements/commit/a9b6145b64fdd582c3d2643fcf00859ee7f318de), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -82,46 +78,17 @@
 
 - **[Changed]** `Image` now requires `width` and `height` props. Pass explicit CSS length strings to all `Image` usages (e.g. `width="300px"` `height="200px"` for fixed dimensions, or `width="100%"` `height="100%"` to fill a container). These props set CSS custom properties and are not forwarded as HTML `img` attributes. ([#1215](https://github.com/reapit-global/gbl-ds-elements/pull/1215), [`00df546`](https://github.com/reapit-global/gbl-ds-elements/commit/00df54623c50605463ace14904f611882c3e8297), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Removed]** `DeprecatedPagination`, `DeprecatedPaginationProps`, `DeprecatedPaginationWrap`, `DeprecatedPaginationText`, `DeprecatedPaginationInput`, `DeprecatedPaginationButton`, and related exports from `src/deprecated/pagination`. Use the `Pagination` component from `@reapit/elements/core/pagination` instead. ([#1219](https://github.com/reapit-global/gbl-ds-elements/pull/1219), [`d69a604`](https://github.com/reapit-global/gbl-ds-elements/commit/d69a60460eafdbf8f9df48421dd7abd2a7bd0094), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Removed]** `DeprecatedPagination` and related exports from `src/deprecated/pagination`. Use the `Pagination` component from `@reapit/elements/core/pagination` instead. Run the `replace-deprecated-pagination` codemod to migrate automatically. ([#1219](https://github.com/reapit-global/gbl-ds-elements/pull/1219), [`d69a604`](https://github.com/reapit-global/gbl-ds-elements/commit/d69a60460eafdbf8f9df48421dd7abd2a7bd0094), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-  Run the `replace-deprecated-pagination` codemod to migrate usages of `DeprecatedPagination` and `DeprecatedPaginationProps` automatically. Subcomponents (`DeprecatedPaginationWrap`, `DeprecatedPaginationText`, `DeprecatedPaginationInput`, `DeprecatedPaginationButton`) must be updated manually.
-
-  ```bash
-  yarn dlx @reapit/elements@beta codemod apply replace-deprecated-pagination src/
-  ```
-
-- **[Removed]** the experimental `MobileNavItem` component from `@reapit/elements/lab/mobile-nav-item`. ([#1223](https://github.com/reapit-global/gbl-ds-elements/pull/1223), [`347f4cd`](https://github.com/reapit-global/gbl-ds-elements/commit/347f4cd82179136735829a1539cc00d8fda0348f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
-
-  Run the `replace-lab-mobile-nav-item` codemod to migrate to `TopBar` components:
-
-  ```bash
-  yarn dlx @reapit/elements@beta codemod apply replace-lab-mobile-nav-item src/
-  ```
+- **[Removed]** the experimental `MobileNavItem` component from `@reapit/elements/lab/mobile-nav-item`. Run the `replace-lab-mobile-nav-item` codemod to migrate to `TopBar` components. ([#1223](https://github.com/reapit-global/gbl-ds-elements/pull/1223), [`347f4cd`](https://github.com/reapit-global/gbl-ds-elements/commit/347f4cd82179136735829a1539cc00d8fda0348f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 ### Minor Changes
 
-- **[Added]** `replace-deprecated-pagination` codemod. Migrates `DeprecatedPagination` and `DeprecatedPaginationProps` to the `Pagination` component from `@reapit/elements/core/pagination`. Rewrites imports, renames JSX tags, migrates props (`callback` → `onPageChange`, `currentPage` → `pageNumber`, `numberPages` → `pageCount`), and inserts TODO comments for `hasStartButton` and `hasEndButton` props that have no direct equivalent in the new API. ([#1216](https://github.com/reapit-global/gbl-ds-elements/pull/1216), [`437fc3c`](https://github.com/reapit-global/gbl-ds-elements/commit/437fc3cbe57433f3d0e4dddc6c401190cccae471), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
-
-  Run the codemod to migrate automatically:
-
-  ```bash
-  yarn dlx @reapit/elements@beta codemod apply replace-deprecated-pagination src/
-  ```
+- **[Added]** `replace-deprecated-pagination` codemod. Migrates `DeprecatedPagination` to the stable `Pagination` component from `@reapit/elements/core/pagination`. ([#1216](https://github.com/reapit-global/gbl-ds-elements/pull/1216), [`437fc3c`](https://github.com/reapit-global/gbl-ds-elements/commit/437fc3cbe57433f3d0e4dddc6c401190cccae471), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Added]** `replace-lab-mobile-nav-item` codemod. Migrates `MobileNavItem` from `@reapit/elements/lab/mobile-nav-item` to the stable `TopBar` core components. ([#1218](https://github.com/reapit-global/gbl-ds-elements/pull/1218), [`971033e`](https://github.com/reapit-global/gbl-ds-elements/commit/971033e9cebfea5c4ada8f4a70d59f5d81ed121a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-  - Anchor variant (`href` prop) → `TopBar.MenuItem` with `aria-current`
-  - Button variant (`onClick` prop, no `href`) → `TopBar.MenuItemButton`
-  - Expandable variant (JSX children) → `TopBar.MenuGroup` with `TopBar.MenuGroupSummary` and `TopBar.MenuSubmenu`
-  - `MobileNavItem.Props` type references → `TopBar.MenuItemProps`
-
-  Run the codemod to migrate automatically:
-
-  ```bash
-  yarn dlx @reapit/elements@beta codemod apply replace-lab-mobile-nav-item src/
-  ```
-
-- **[Added]** `replace-lab-search-input` codemod. Migrates `SearchInput` from `lab/search-input` to `SearchInput` from `core/search-input`, rewriting imports, renaming `inputSize` to `size` and `isDisabled` to `disabled`, and removing `unstable_onSearch` with a TODO comment pointing to `onChange`. ([#1224](https://github.com/reapit-global/gbl-ds-elements/pull/1224), [`9c62f31`](https://github.com/reapit-global/gbl-ds-elements/commit/9c62f31b7cbc72eee9632e4a9b3966687aa82151), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Added]** `replace-lab-search-input` codemod. Migrates `SearchInput` from `lab/search-input` to the stable `SearchInput` from `core/search-input`. ([#1224](https://github.com/reapit-global/gbl-ds-elements/pull/1224), [`9c62f31`](https://github.com/reapit-global/gbl-ds-elements/commit/9c62f31b7cbc72eee9632e4a9b3966687aa82151), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Added]** `GalleryViewerThumbnail` and `GalleryViewerThumbnailButton` components. Both render a thumbnail image with an optional video overlay. `Thumbnail` renders as an anchor for URL-driven navigation; `ThumbnailButton` renders as a button for click-handler-driven selection. ([#1207](https://github.com/reapit-global/gbl-ds-elements/pull/1207), [`0d95444`](https://github.com/reapit-global/gbl-ds-elements/commit/0d95444ffa6c5f6816848c86fc2f937f8ddf1b2f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -169,13 +136,7 @@
 
 ### Major Changes
 
-- **[Changed]** Move `Combobox` from `@reapit/elements/core/combobox` to `@reapit/elements/utils/combobox`. ([#1173](https://github.com/reapit-global/gbl-ds-elements/pull/1173), [`f959fc3`](https://github.com/reapit-global/gbl-ds-elements/commit/f959fc3ff6f3185315394cf947b8deeb29b38477), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
-
-  The component is also available from the `@reapit/elements/utils` barrel. Run the `rewrite-combobox-imports` codemod to migrate automatically:
-
-  ```bash
-  yarn dlx @reapit/elements@beta codemod apply rewrite-combobox-imports src/
-  ```
+- **[Changed]** Move `Combobox` from `@reapit/elements/core/combobox` to `@reapit/elements/utils/combobox`. The component is also available from the `@reapit/elements/utils` barrel. Run the `rewrite-combobox-imports` codemod to migrate automatically. ([#1173](https://github.com/reapit-global/gbl-ds-elements/pull/1173), [`f959fc3`](https://github.com/reapit-global/gbl-ds-elements/commit/f959fc3ff6f3185315394cf947b8deeb29b38477), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Removed]** `DeprecatedLabel`, `DeprecatedLabelProps`, and `ElDeprecatedLabel` from `src/deprecated/label`; run the existing `replace-deprecated-label` codemod before upgrading to migrate to `LabelText` and `LabelText.Props`. ([#1169](https://github.com/reapit-global/gbl-ds-elements/pull/1169), [`3b1fec4`](https://github.com/reapit-global/gbl-ds-elements/commit/3b1fec43942f69da5aa6f5b0d6fbae94ddba6d1e), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -201,17 +162,13 @@
 
   Use the `upgrade-deprecated-badge` codemod to migrate to `Badge` from `@reapit/elements/core/badge`.
 
-- **[Removed]** `DeprecatedTag`, `DeprecatedTagGroup`, `DeprecatedTagProps`, `ElDeprecatedTag`, `ElDeprecatedTagGroup`, and `ElDeprecatedTagGroupInner` — run the `upgrade-deprecated-tag` codemod before upgrading to migrate to `Tag` and `TagGroup`. ([#1163](https://github.com/reapit-global/gbl-ds-elements/pull/1163), [`f82b10d`](https://github.com/reapit-global/gbl-ds-elements/commit/f82b10d514a4169a4a8dffb52d8c46aa270a86b2), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
-
-  `DeprecatedPageHeader.tags` now renders via `TagGroup` and `Tag`, with legacy `intent` values mapped to deprecated intent classes for migration compatibility.
+- **[Removed]** `DeprecatedTag`, `DeprecatedTagGroup`, and related exports — run the `upgrade-deprecated-tag` codemod before upgrading to migrate to `Tag` and `TagGroup`. ([#1163](https://github.com/reapit-global/gbl-ds-elements/pull/1163), [`f82b10d`](https://github.com/reapit-global/gbl-ds-elements/commit/f82b10d514a4169a4a8dffb52d8c46aa270a86b2), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 ### Minor Changes
 
-- **[Added]** `TextInput`, `Textarea`, `SelectNative`, `Combobox`, `CheckboxInput`, `RadioInput`, and `DateTimeInput` now trigger error styling when `aria-invalid="true"` and `data-show-validity="true"` are both set. ([#1151](https://github.com/reapit-global/gbl-ds-elements/pull/1151), [`b9dfa21`](https://github.com/reapit-global/gbl-ds-elements/commit/b9dfa212a9ea3430ad183ab515b710c5802c15e3), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Changed]** `TextInput`, `Textarea`, `SelectNative`, `Combobox`, `CheckboxInput`, `RadioInput`, and `DateTimeInput` now trigger error styling when `aria-invalid="true"` and `data-show-validity="true"` are both set. `TextControl`, `TextareaControl`, `SelectNativeControl`, `SelectControl`, `AutocompleteControl`, `DateTimeControl`, `CheckboxControl`, `CheckboxGroupControl`, and `RadioGroupControl` now default `showValidity` to `true` when `errorText` is provided. Pass `showValidity={false}` explicitly to override. ([#1151](https://github.com/reapit-global/gbl-ds-elements/pull/1151), [`b9dfa21`](https://github.com/reapit-global/gbl-ds-elements/commit/b9dfa212a9ea3430ad183ab515b710c5802c15e3), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-  `TextControl`, `TextareaControl`, `SelectNativeControl`, `SelectControl`, `AutocompleteControl`, `DateTimeControl`, `CheckboxControl`, `CheckboxGroupControl`, and `RadioGroupControl` now default `showValidity` to `true` when `errorText` is provided. Pass `showValidity={false}` explicitly to override.
-
-- **[Added]** New `replace-deprecated-label` codemod that migrates `DeprecatedLabel` and `DeprecatedLabelProps` to `LabelText` and `LabelText.Props`, including import-path rewrites from deprecated and barrel imports to `core/label-text`. ([#1166](https://github.com/reapit-global/gbl-ds-elements/pull/1166), [`d0dad83`](https://github.com/reapit-global/gbl-ds-elements/commit/d0dad83f2b88922975646bbf42d07223573f887a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Added]** `replace-deprecated-label` codemod. Migrates `DeprecatedLabel` and `DeprecatedLabelProps` to `LabelText` and `LabelText.Props`. ([#1166](https://github.com/reapit-global/gbl-ds-elements/pull/1166), [`d0dad83`](https://github.com/reapit-global/gbl-ds-elements/commit/d0dad83f2b88922975646bbf42d07223573f887a), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Added]** `inline-use-click-outside` codemod to replace deprecated `useClickOutside` calls with inline `useEffect` logic and remove Elements or facade imports. ([#1161](https://github.com/reapit-global/gbl-ds-elements/pull/1161), [`0df6796`](https://github.com/reapit-global/gbl-ds-elements/commit/0df6796e243c74ea878d2dded9197a941a0a847f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -229,7 +186,7 @@
 
 - **[Security]** pin `@isaacs/brace-expansion` to 5.0.1 to resolve GHSA-7h2j-956f-4vf2 (Uncontrolled Resource Consumption via unbounded brace range expansion). This is a dev-only dependency and does not affect the published package. ([#1144](https://github.com/reapit-global/gbl-ds-elements/pull/1144), [`9c37ed7`](https://github.com/reapit-global/gbl-ds-elements/commit/9c37ed7581e1cf4dc7a05d28922cc4e22d34223c), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Fixed]** Fix: `Drawer` backdrop is now transparent on XS breakpoints ([#1146](https://github.com/reapit-global/gbl-ds-elements/pull/1146), [`7cc55f5`](https://github.com/reapit-global/gbl-ds-elements/commit/7cc55f51c4868f681848fc87b6892e2333372d14), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Fixed]** `Drawer` backdrop is now transparent on XS breakpoints. ([#1146](https://github.com/reapit-global/gbl-ds-elements/pull/1146), [`7cc55f5`](https://github.com/reapit-global/gbl-ds-elements/commit/7cc55f51c4868f681848fc87b6892e2333372d14), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Fixed]** `upgrade-deprecated-button-group` codemod no longer wraps children in `<ButtonGroup.Item>`, which is itself a button. ([#1148](https://github.com/reapit-global/gbl-ds-elements/pull/1148), [`16ea8a7`](https://github.com/reapit-global/gbl-ds-elements/commit/16ea8a772def96a326ffe688d2706826464ecfb0), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -245,17 +202,9 @@
 
 - **[Changed]** `useDrawerContext` now returns `DrawerContext.Value | null` instead of throwing when called outside a `Drawer`. ([#1141](https://github.com/reapit-global/gbl-ds-elements/pull/1141), [`4e6232e`](https://github.com/reapit-global/gbl-ds-elements/commit/4e6232e01e39a8aed463bd6a6a811ea2130d48d2), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Removed]** Remove `DeprecatedIcon` component and associated icon assets. ([#1119](https://github.com/reapit-global/gbl-ds-elements/pull/1119), [`f538546`](https://github.com/reapit-global/gbl-ds-elements/commit/f5385461de5bb02d8108ef1522b516dc65b6def7), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Removed]** `DeprecatedIcon` and `DeprecatedIcons`. Use icon components from `@reapit/elements/icons` instead. Run the `upgrade-deprecated-icon` codemod to migrate usages automatically. ([#1119](https://github.com/reapit-global/gbl-ds-elements/pull/1119), [`f538546`](https://github.com/reapit-global/gbl-ds-elements/commit/f5385461de5bb02d8108ef1522b516dc65b6def7), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-  **Breaking changes**
-
-  - Removed the `DeprecatedIcon` component (`src/deprecated/icon`). Use icon components from `src/icons` instead (e.g. `SearchIcon`, `CloseIcon`, `InfoIcon`).
-  - Removed the `DeprecatedIcons` constants (`src/deprecated/icons`).
-  - Removed legacy icon SVG assets from `assets/icons/` and placeholder images from `assets/placeholder-images/`.
-
-  Use the `upgrade-deprecated-icon` codemod to migrate usages automatically.
-
-- **[Removed]** Removed `DeprecatedButton`, `DeprecatedButtonGroup`, and `DeprecatedFloatingButton` and all associated types and styles. Run the `upgrade-deprecated-button` codemod to migrate `DeprecatedButton` usages to the `Button` API before upgrading. Run the `upgrade-deprecated-button-group` codemod to migrate `DeprecatedButtonGroup` usages. `DeprecatedFloatingButton` usages must be migrated manually. ([#1126](https://github.com/reapit-global/gbl-ds-elements/pull/1126), [`b99b895`](https://github.com/reapit-global/gbl-ds-elements/commit/b99b89573123684c3808ec54ae89340a85c04de8), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Removed]** `DeprecatedButton`, `DeprecatedButtonGroup`, and `DeprecatedFloatingButton` and all associated types and styles. Run the `upgrade-deprecated-button` codemod to migrate `DeprecatedButton` usages to the `Button` API before upgrading. Run the `upgrade-deprecated-button-group` codemod to migrate `DeprecatedButtonGroup` usages. `DeprecatedFloatingButton` usages must be migrated manually. ([#1126](https://github.com/reapit-global/gbl-ds-elements/pull/1126), [`b99b895`](https://github.com/reapit-global/gbl-ds-elements/commit/b99b89573123684c3808ec54ae89340a85c04de8), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Removed]** the deprecated `useMediaQuery` hook and related exports. Use the `upgrade-deprecated-use-media-query` codemod to migrate usages automatically. ([#1131](https://github.com/reapit-global/gbl-ds-elements/pull/1131), [`1480122`](https://github.com/reapit-global/gbl-ds-elements/commit/148012285540b1c2482c328284dceae3443e9c34), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -280,9 +229,9 @@
 
 ### Patch Changes
 
-- **[Internal]** Add custom Keep a Changelog-inspired formatter for changesets. Each entry is tagged with a category derived from a prefix in the summary (e.g. `Fixed:`, `Added:`) or inferred from the semver bump type. Entries include GitHub PR, commit, and author links. ([#1140](https://github.com/reapit-global/gbl-ds-elements/pull/1140), [`a551e87`](https://github.com/reapit-global/gbl-ds-elements/commit/a551e8795416f11fad890370c2ee1e60371cd212), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Internal]** Add custom changelog formatter for changesets. ([#1140](https://github.com/reapit-global/gbl-ds-elements/pull/1140), [`a551e87`](https://github.com/reapit-global/gbl-ds-elements/commit/a551e8795416f11fad890370c2ee1e60371cd212), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Fixed]** Fix icon spacing in deprecated `Snack` and `TableCell` components after `DeprecatedIcon` removal ([#1128](https://github.com/reapit-global/gbl-ds-elements/pull/1128), [`78374fc`](https://github.com/reapit-global/gbl-ds-elements/commit/78374fc626661ff982884bca6cc15a7fe21d8d91), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Fixed]** Icon spacing in deprecated `Snack` and `TableCell` components after `DeprecatedIcon` removal. ([#1128](https://github.com/reapit-global/gbl-ds-elements/pull/1128), [`78374fc`](https://github.com/reapit-global/gbl-ds-elements/commit/78374fc626661ff982884bca6cc15a7fe21d8d91), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Fixed]** `upgrade-deprecated-button` codemod incorrectly rewriting facade package import paths to subpaths. ([#1125](https://github.com/reapit-global/gbl-ds-elements/pull/1125), [`f084c71`](https://github.com/reapit-global/gbl-ds-elements/commit/f084c71af390fcdc6af24a847b60c8cde4d80006), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 

@@ -1,4 +1,2 @@
 ---
 ---
-
-Internal: Add Dependabot config

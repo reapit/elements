@@ -2,4 +2,4 @@
 '@reapit/elements': patch
 ---
 
-Fix: `Drawer` backdrop is now transparent on XS breakpoints
+Fixed: `Drawer` backdrop is now transparent on XS breakpoints

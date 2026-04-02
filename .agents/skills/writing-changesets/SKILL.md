@@ -223,21 +223,15 @@ Good:
 
 ### Migration instructions
 
-For breaking changes, include migration guidance in the summary. Reference codemods where available.
+For breaking changes, include migration guidance in the summary. If a codemod exists, mention it by name.
 
-````md
+```md
 ---
 '@reapit/elements': major
 ---
 
-Removed: `DeprecatedBadge`, `DeprecatedBadgeGroup`, and related exports from `src/deprecated/badge`.
-
-Run the `upgrade-deprecated-badge` codemod to migrate:
-
-```bash
-yarn dlx @reapit/elements@beta codemod apply upgrade-deprecated-badge src/
+Removed: `DeprecatedBadge`, `DeprecatedBadgeGroup`, and related exports from `src/deprecated/badge`. Run the `upgrade-deprecated-badge` codemod to migrate.
 ```
-````
 
 For `Changed:` entries that break existing usage, describe the old behaviour and the new behaviour so consumers know what to update.
 
@@ -285,19 +279,13 @@ Changed: `useDrawerContext` now returns `DrawerContext.Value | null` instead of 
 
 **Major — removal with codemod:**
 
-````md
+```md
 ---
 '@reapit/elements': major
 ---
 
-Changed: Move `Combobox` from `@reapit/elements/core/combobox` to `@reapit/elements/utils/combobox`.
-
-The component is also available from the `@reapit/elements/utils` barrel. Run the `rewrite-combobox-imports` codemod to migrate automatically:
-
-```bash
-yarn dlx @reapit/elements@beta codemod apply rewrite-combobox-imports src/
+Changed: Move `Combobox` from `@reapit/elements/core/combobox` to `@reapit/elements/utils/combobox`. The component is also available from the `@reapit/elements/utils` barrel. Run the `rewrite-combobox-imports` codemod to migrate automatically.
 ```
-````
 
 **Minor — deprecation:**
 
@@ -320,6 +308,6 @@ Before committing a changeset:
 - [ ] Prefix is one of `Added:`, `Fixed:`, `Changed:`, `Deprecated:`, `Removed:`, `Security:`, or `Internal:` — not `Feat:`, `Fix:`, `Add`, or other variants
 - [ ] If the prefix is omitted, the inferred category is correct (`major` → Removed, `minor` → Added, `patch` → Fixed)
 - [ ] Component and prop names are in backticks
-- [ ] Migration guidance is included for breaking changes
+- [ ] For breaking changes with a codemod, the codemod is mentioned by name
 - [ ] British English spelling throughout
 - [ ] No needless words
