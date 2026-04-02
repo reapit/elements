@@ -26,7 +26,7 @@
 
 - **[Internal]** Extract shared codemod utilities into `codemods/shared/` to reduce duplication across transforms ([#1252](https://github.com/reapit-global/gbl-ds-elements/pull/1252), [`b8d4a99`](https://github.com/reapit-global/gbl-ds-elements/commit/b8d4a99564650883e68a884143bb1355c809d5a9), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Changed]** Update CSS variables and design tokens to match Figma. Adds `black-000`, `white-000`, and `neutral-025` primitive tokens, removes the `transparent` primitive, and extends semantic colour tokens with `ai` variants for button fills, borders, and tertiary states across both Reapit and PayProp themes. Adds `gallery_viewer` semantic colour tokens for both themes. Restructures toast semantic tokens: flat `--comp-toast-colour-fill-*` variables are replaced by per-variant `background` and `bar` sub-tokens, and a new `neutral` toast variant is added. ([#1260](https://github.com/reapit-global/gbl-ds-elements/pull/1260), [`192e3dd`](https://github.com/reapit-global/gbl-ds-elements/commit/192e3ddb81575b625401ef13f5cce09f757cca32), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Changed]** Update CSS variables and design tokens to match Figma. Adds `black-000`, `white-000`, and `neutral-025` primitive tokens, removes the `transparent` primitive, and extends semantic colour tokens with `ai` variants for button fills, borders, and tertiary states across both Reapit and PayProp themes. Adds `gallery_viewer` semantic colour tokens for both themes. Adds a new `neutral` toast variant and renames the toast colour tokens — update any direct references to `--comp-toast-colour-fill-*` variables. ([#1260](https://github.com/reapit-global/gbl-ds-elements/pull/1260), [`192e3dd`](https://github.com/reapit-global/gbl-ds-elements/commit/192e3ddb81575b625401ef13f5cce09f757cca32), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Internal]** Update `rewrite-v5-imports` codemod export map to cover all remaining barrel-only exports. The codemod now maps `Intent`, `getIntentClassName`, deprecated CSS class helpers, and `Theme` to their new subpath entry points. ([#1256](https://github.com/reapit-global/gbl-ds-elements/pull/1256), [`3a54b08`](https://github.com/reapit-global/gbl-ds-elements/commit/3a54b0842b2c1090e8f22bcf1ff7224fd96d904c), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -71,8 +71,6 @@
 - **[Internal]** Add Figma Code Connect for `AtAGlance`, `AnchorCard`, `ArticleCard`, and `ListboxOption` components ([#1236](https://github.com/reapit-global/gbl-ds-elements/pull/1236), [`24fc625`](https://github.com/reapit-global/gbl-ds-elements/commit/24fc62536f886957c52a7ce1ddf870ee1c487902), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Internal]** Serialise `@wyw-in-js/vite` transform calls to fix intermittent `AbortError` build failures under Vite 8. ([#1233](https://github.com/reapit-global/gbl-ds-elements/pull/1233), [`5c61956`](https://github.com/reapit-global/gbl-ds-elements/commit/5c619568f4b4effb6028611c288bdd2d664e6f84), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
-
-  Vite 8 uses Rolldown, which invokes plugin `transform` hooks with higher parallelism than Rollup. The `@wyw-in-js/vite` plugin shares mutable state across concurrent transforms, causing a race condition where one transform supersedes another's in-flight entrypoint and triggers an unhandled `AbortError`. The sibling `@wyw-in-js/rollup` package already serialises transforms by default (PR #203), but the Vite plugin does not. This change applies the same promise-chain mutex approach via a thin wrapper in `build/with-serialised-transform.ts`.
 
 ## 5.0.0-beta.83
 
@@ -133,7 +131,7 @@
 
 - **[Fixed]** Updated export map for `rewrite-v5-imports` codemod. ([#1221](https://github.com/reapit-global/gbl-ds-elements/pull/1221), [`e5e30f1`](https://github.com/reapit-global/gbl-ds-elements/commit/e5e30f1233bcd386c10eb5a16ebe7865306877c6), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Fixed]** `ChipSelectControl` text overflow and truncation now work correctly. The `FormControl` fieldset's implicit `min-width: min-content` was preventing chips from shrinking, so long text could not truncate or wrap as expected. ([#1222](https://github.com/reapit-global/gbl-ds-elements/pull/1222), [`a8cbe79`](https://github.com/reapit-global/gbl-ds-elements/commit/a8cbe796b1dba5796d990c3f50d6f880b811fe3a), [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent))
+- **[Fixed]** `ChipSelectControl` text overflow and truncation now work correctly. ([#1222](https://github.com/reapit-global/gbl-ds-elements/pull/1222), [`a8cbe79`](https://github.com/reapit-global/gbl-ds-elements/commit/a8cbe796b1dba5796d990c3f50d6f880b811fe3a), [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent))
 
 - **[Internal]** Run related unit tests for staged files in the pre-commit hook via `vitest related`. Tests run in parallel with the lint and format tasks, keeping the hook as fast as possible. ([#1220](https://github.com/reapit-global/gbl-ds-elements/pull/1220), [`511bdde`](https://github.com/reapit-global/gbl-ds-elements/commit/511bdde2599b3b603e9e36bb185202ccfe2b3985), [@copilot-swe-agent](https://github.com/apps/copilot-swe-agent))
 
@@ -181,15 +179,7 @@
 
 - **[Removed]** `DeprecatedLabel`, `DeprecatedLabelProps`, and `ElDeprecatedLabel` from `src/deprecated/label`; run the existing `replace-deprecated-label` codemod before upgrading to migrate to `LabelText` and `LabelText.Props`. ([#1169](https://github.com/reapit-global/gbl-ds-elements/pull/1169), [`3b1fec4`](https://github.com/reapit-global/gbl-ds-elements/commit/3b1fec43942f69da5aa6f5b0d6fbae94ddba6d1e), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Removed]** the deprecated `useClickOutside` hook, previously importable as: ([#1172](https://github.com/reapit-global/gbl-ds-elements/pull/1172), [`abcb7e7`](https://github.com/reapit-global/gbl-ds-elements/commit/abcb7e7fb8bf96b7bf236fc28e56cdfbd2265376), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
-
-  ```ts
-  import { useClickOutside } from "@reapit/elements";
-  // OR
-  import { useClickOutside } from "@reapit/elements/deprecated/use-click-outside";
-  ```
-
-  To migrate, replace usages with an inline `useEffect` that implements equivalent `AbortController`/`mousedown` logic, or run the `inline-use-click-outside` codemod to automate this change.
+- **[Removed]** the deprecated `useClickOutside` hook. Run the `inline-use-click-outside` codemod to migrate automatically. ([#1172](https://github.com/reapit-global/gbl-ds-elements/pull/1172), [`abcb7e7`](https://github.com/reapit-global/gbl-ds-elements/commit/abcb7e7fb8bf96b7bf236fc28e56cdfbd2265376), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Removed]** the experimental `RadioGroup` component (`@reapit/elements/lab/radio-group`). Use the `replace-lab-radio-group` codemod to migrate to the stable `RadioGroupControl`. ([#1176](https://github.com/reapit-global/gbl-ds-elements/pull/1176), [`d44ac7c`](https://github.com/reapit-global/gbl-ds-elements/commit/d44ac7c7d0c1cf37ad31e8fcf28fbb1c45199913), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -217,7 +207,7 @@
 
 ### Minor Changes
 
-- **[Added]** `TextInput`, `Textarea`, `SelectNative`, `Combobox`, `CheckboxInput`, `RadioInput`, and `DateTimeInput` now trigger error styling when `aria-invalid="true"` and `data-show-validity="true"` are both set, even when the DOM element carries no native invalid state. ([#1151](https://github.com/reapit-global/gbl-ds-elements/pull/1151), [`b9dfa21`](https://github.com/reapit-global/gbl-ds-elements/commit/b9dfa212a9ea3430ad183ab515b710c5802c15e3), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Added]** `TextInput`, `Textarea`, `SelectNative`, `Combobox`, `CheckboxInput`, `RadioInput`, and `DateTimeInput` now trigger error styling when `aria-invalid="true"` and `data-show-validity="true"` are both set. ([#1151](https://github.com/reapit-global/gbl-ds-elements/pull/1151), [`b9dfa21`](https://github.com/reapit-global/gbl-ds-elements/commit/b9dfa212a9ea3430ad183ab515b710c5802c15e3), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
   `TextControl`, `TextareaControl`, `SelectNativeControl`, `SelectControl`, `AutocompleteControl`, `DateTimeControl`, `CheckboxControl`, `CheckboxGroupControl`, and `RadioGroupControl` now default `showValidity` to `true` when `errorText` is provided. Pass `showValidity={false}` explicitly to override.
 
@@ -227,9 +217,9 @@
 
 ### Patch Changes
 
-- **[Fixed]** Exclude `.figma.tsx` files from the Vite library build's icon entry point glob. The `src/icons/*.tsx` pattern previously matched Figma Code Connect files alongside regular icon components, causing `@figma/code-connect` and its transitive dependencies (including `undici`, `jsdom`, and other Node.js-oriented packages) to be bundled into the build output. This produced Vite warnings about externalised Node.js imports and added a ~741 kB shared chunk to the artefact. This is an internal build fix and does not affect the published package API. ([#1153](https://github.com/reapit-global/gbl-ds-elements/pull/1153), [`0c0fef6`](https://github.com/reapit-global/gbl-ds-elements/commit/0c0fef6714f9515763b63c7a1a8ac83e708f6448), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Internal]** Exclude `.figma.tsx` files from the Vite library build's icon entry point glob. ([#1153](https://github.com/reapit-global/gbl-ds-elements/pull/1153), [`0c0fef6`](https://github.com/reapit-global/gbl-ds-elements/commit/0c0fef6714f9515763b63c7a1a8ac83e708f6448), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Fixed]** replace nested `<a>` with `<svg>` in `DeprecatedNavResponsive` logo to resolve invalid DOM nesting, and fix console warnings across the test suite. ([#1150](https://github.com/reapit-global/gbl-ds-elements/pull/1150), [`b7f178f`](https://github.com/reapit-global/gbl-ds-elements/commit/b7f178ffee0b9af5ebe13cd721f093659d5ff91f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Fixed]** Replace nested `<a>` with `<svg>` in `DeprecatedNavResponsive` logo to resolve invalid DOM nesting. ([#1150](https://github.com/reapit-global/gbl-ds-elements/pull/1150), [`b7f178f`](https://github.com/reapit-global/gbl-ds-elements/commit/b7f178ffee0b9af5ebe13cd721f093659d5ff91f), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 ## 5.0.0-beta.78
 
@@ -241,7 +231,7 @@
 
 - **[Fixed]** Fix: `Drawer` backdrop is now transparent on XS breakpoints ([#1146](https://github.com/reapit-global/gbl-ds-elements/pull/1146), [`7cc55f5`](https://github.com/reapit-global/gbl-ds-elements/commit/7cc55f51c4868f681848fc87b6892e2333372d14), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Fixed]** Fix: `upgrade-deprecated-button-group` codemod no longer wraps children in `<ButtonGroup.Item>`, which is itself a button ([#1148](https://github.com/reapit-global/gbl-ds-elements/pull/1148), [`16ea8a7`](https://github.com/reapit-global/gbl-ds-elements/commit/16ea8a772def96a326ffe688d2706826464ecfb0), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Fixed]** `upgrade-deprecated-button-group` codemod no longer wraps children in `<ButtonGroup.Item>`, which is itself a button. ([#1148](https://github.com/reapit-global/gbl-ds-elements/pull/1148), [`16ea8a7`](https://github.com/reapit-global/gbl-ds-elements/commit/16ea8a772def96a326ffe688d2706826464ecfb0), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Internal]** restrict the `post-checkout` hook to run only in linked worktrees so that `yarn install` runs automatically when a new linked worktree is created or when checking out a branch within a linked worktree, but is skipped in the main working tree. ([#1142](https://github.com/reapit-global/gbl-ds-elements/pull/1142), [`f28b29b`](https://github.com/reapit-global/gbl-ds-elements/commit/f28b29b87ce31e13138f8e147a47f95bbdf6d4e3), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -267,26 +257,18 @@
 
 - **[Removed]** Removed `DeprecatedButton`, `DeprecatedButtonGroup`, and `DeprecatedFloatingButton` and all associated types and styles. Run the `upgrade-deprecated-button` codemod to migrate `DeprecatedButton` usages to the `Button` API before upgrading. Run the `upgrade-deprecated-button-group` codemod to migrate `DeprecatedButtonGroup` usages. `DeprecatedFloatingButton` usages must be migrated manually. ([#1126](https://github.com/reapit-global/gbl-ds-elements/pull/1126), [`b99b895`](https://github.com/reapit-global/gbl-ds-elements/commit/b99b89573123684c3808ec54ae89340a85c04de8), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Removed]** Remove the deprecated `useMediaQuery` hook and related exports. ([#1131](https://github.com/reapit-global/gbl-ds-elements/pull/1131), [`1480122`](https://github.com/reapit-global/gbl-ds-elements/commit/148012285540b1c2482c328284dceae3443e9c34), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
-
-  **Breaking changes**
-
-  - Removed `useMediaQuery`, `MediaType`, `MediaStateContext`, `MediaStateProvider`, `MOBILE_BREAKPOINT`, `TABLET_BREAKPOINT`, `DESKTOP_BREAKPOINT`, `WIDESCREEN_BREAKPOINT`, and `SUPER_WIDESCREEN_BREAKPOINT` from `src/deprecated/use-media-query`.
-
-  Use the `upgrade-deprecated-use-media-query` codemod to migrate usages automatically.
+- **[Removed]** the deprecated `useMediaQuery` hook and related exports. Use the `upgrade-deprecated-use-media-query` codemod to migrate usages automatically. ([#1131](https://github.com/reapit-global/gbl-ds-elements/pull/1131), [`1480122`](https://github.com/reapit-global/gbl-ds-elements/commit/148012285540b1c2482c328284dceae3443e9c34), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Removed]** `DeprecatedSplitButton`, `DeprecatedActionButton`, and `DeprecatedMenuButton`. Use the `upgrade-deprecated-split-button` codemod to migrate to the new `SplitButton` API. ([#1124](https://github.com/reapit-global/gbl-ds-elements/pull/1124), [`e82bba3`](https://github.com/reapit-global/gbl-ds-elements/commit/e82bba3de72891517520b5379a30f4255fb8b468), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 ### Minor Changes
 
-- **[Added]** Add `autoFlow` and `justifyContent` props to `ButtonGroup`. ([#1135](https://github.com/reapit-global/gbl-ds-elements/pull/1135), [`47edd34`](https://github.com/reapit-global/gbl-ds-elements/commit/47edd348b87aeadcea483d7a6b80859b92ee19c4), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Added]** `autoFlow` and `justifyContent` props to `ButtonGroup`. ([#1135](https://github.com/reapit-global/gbl-ds-elements/pull/1135), [`47edd34`](https://github.com/reapit-global/gbl-ds-elements/commit/47edd348b87aeadcea483d7a6b80859b92ee19c4), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-  `ButtonGroup` now uses `display: grid` internally. Two new props control the grid layout:
+  - `autoFlow?: 'row' | 'column'` — controls the direction the buttons flow when they wrap.
+  - `justifyContent?: 'start' | 'end' | 'center' | 'stretch'` — controls the alignment of buttons along the main axis.
 
-  - `autoFlow?: 'row' | 'column'` — maps to the CSS `grid-auto-flow` property.
-  - `justifyContent?: 'start' | 'end' | 'center' | 'stretch'` — maps to the CSS `justify-content` property.
-
-  The default grid layout (`grid-auto-flow: column`) preserves the existing horizontal button arrangement.
+  The default behaviour preserves the existing horizontal button arrangement.
 
 - **[Added]** `upgrade-deprecated-badge` codemod to migrate from `DeprecatedBadge` to the new `Badge`, mapping `intent` to `colour` and replacing `DeprecatedBadgeGroup` with an equivalent `div` layout. ([#1123](https://github.com/reapit-global/gbl-ds-elements/pull/1123), [`e870e51`](https://github.com/reapit-global/gbl-ds-elements/commit/e870e510850adfab5ee5788bb9c34e324083dc03), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
@@ -294,15 +276,15 @@
 
 - **[Added]** `upgrade-deprecated-use-media-query` codemod to migrate deprecated `useMediaQuery` and related exports to individual `useMatchMedia` calls and breakpoint utilities ([#1120](https://github.com/reapit-global/gbl-ds-elements/pull/1120), [`60f7be8`](https://github.com/reapit-global/gbl-ds-elements/commit/60f7be82e94283d83551767b7fbd113dd3b68b96), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-### Patch Changes
+- **[Added]** `upgrade-deprecated-tag` codemod to migrate `DeprecatedTag` and `DeprecatedTagGroup` imports and JSX usage to the new `Tag` and `TagGroup` components, removing `intent` props and rewriting `DeprecatedTagProps` type references to `Tag.Props`. ([#1138](https://github.com/reapit-global/gbl-ds-elements/pull/1138), [`cf0eb9a`](https://github.com/reapit-global/gbl-ds-elements/commit/cf0eb9a880b631cec37c9388d2557cfe395a7905), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Fixed]** Add `upgrade-deprecated-tag` codemod to migrate `DeprecatedTag` and `DeprecatedTagGroup` imports and JSX usage to the new `Tag` and `TagGroup` components, removing `intent` props and rewriting `DeprecatedTagProps` type references to `Tag.Props`. ([#1138](https://github.com/reapit-global/gbl-ds-elements/pull/1138), [`cf0eb9a`](https://github.com/reapit-global/gbl-ds-elements/commit/cf0eb9a880b631cec37c9388d2557cfe395a7905), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+### Patch Changes
 
 - **[Internal]** Add custom Keep a Changelog-inspired formatter for changesets. Each entry is tagged with a category derived from a prefix in the summary (e.g. `Fixed:`, `Added:`) or inferred from the semver bump type. Entries include GitHub PR, commit, and author links. ([#1140](https://github.com/reapit-global/gbl-ds-elements/pull/1140), [`a551e87`](https://github.com/reapit-global/gbl-ds-elements/commit/a551e8795416f11fad890370c2ee1e60371cd212), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Fixed]** Fix icon spacing in deprecated `Snack` and `TableCell` components after `DeprecatedIcon` removal ([#1128](https://github.com/reapit-global/gbl-ds-elements/pull/1128), [`78374fc`](https://github.com/reapit-global/gbl-ds-elements/commit/78374fc626661ff982884bca6cc15a7fe21d8d91), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
-- **[Fixed]** Fix `upgrade-deprecated-button` codemod incorrectly rewriting facade package import paths to subpaths ([#1125](https://github.com/reapit-global/gbl-ds-elements/pull/1125), [`f084c71`](https://github.com/reapit-global/gbl-ds-elements/commit/f084c71af390fcdc6af24a847b60c8cde4d80006), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
+- **[Fixed]** `upgrade-deprecated-button` codemod incorrectly rewriting facade package import paths to subpaths. ([#1125](https://github.com/reapit-global/gbl-ds-elements/pull/1125), [`f084c71`](https://github.com/reapit-global/gbl-ds-elements/commit/f084c71af390fcdc6af24a847b60c8cde4d80006), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 
 - **[Internal]** Add pre-commit and pre-push git hooks (Husky v9 + lint-staged) ([#1112](https://github.com/reapit-global/gbl-ds-elements/pull/1112), [`c28c285`](https://github.com/reapit-global/gbl-ds-elements/commit/c28c285e65934c33530d8a8cda41208bf66e14b0), [@kdoherty_Reapit](https://github.com/kdoherty_Reapit))
 

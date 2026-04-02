@@ -177,6 +177,50 @@ Good:
 
 > `Added: Image utility component. Supports fallback UI. On load failure, Image announces fallback text for meaningful images and keeps decorative images non-announcing.`
 
+### What to leave out
+
+These categories of detail feel relevant when you are close to the implementation, but they belong in a PR description or commit message — not the changelog.
+
+**Root-cause explanations.** Describe what the consumer experiences, not why it happened internally.
+
+Bad:
+
+> Fixed: `ChipSelectControl` text overflow now works correctly. The `FormControl` fieldset's implicit `min-width: min-content` was preventing chips from shrinking, so long text could not truncate or wrap as expected.
+
+Good:
+
+> Fixed: `ChipSelectControl` text overflow and truncation now work correctly.
+
+**Exhaustive internal symbol lists.** For removals, name the exports a consumer would actually import. Omit internal constants, styled-element names, and context objects unless they were part of the documented public API.
+
+Bad:
+
+> Removed `useMediaQuery`, `MediaType`, `MediaStateContext`, `MediaStateProvider`, `MOBILE_BREAKPOINT`, `TABLET_BREAKPOINT`, `DESKTOP_BREAKPOINT`, `WIDESCREEN_BREAKPOINT`, and `SUPER_WIDESCREEN_BREAKPOINT` from `src/deprecated/use-media-query`.
+
+Good:
+
+> Removed: the deprecated `useMediaQuery` hook and related exports. Use the `upgrade-deprecated-use-media-query` codemod to migrate usages automatically.
+
+**CSS and build implementation details.** Never mention `display: grid`, CSS custom property structure, Rolldown parallelism, file glob patterns, bundle size, or other build or style internals. If a token is renamed in a way that requires consumer action, say what to update — not how the internals are restructured.
+
+Bad:
+
+> `ButtonGroup` now uses `display: grid` internally. `autoFlow` maps to `grid-auto-flow`; `justifyContent` maps to `justify-content`.
+
+Good:
+
+> Added: `autoFlow` and `justifyContent` props to `ButtonGroup`.
+
+**Manual migration paths that expose implementation mechanics.** If a codemod exists, reference only the codemod. If no codemod exists and manual migration is unavoidable, describe what to change — not how the underlying mechanism works.
+
+Bad:
+
+> To migrate, replace usages with an inline `useEffect` that implements equivalent `AbortController`/`mousedown` logic.
+
+Good:
+
+> Run the `inline-use-click-outside` codemod to migrate automatically.
+
 ### Migration instructions
 
 For breaking changes, include migration guidance in the summary. Reference codemods where available.
@@ -273,7 +317,8 @@ Before committing a changeset:
 - [ ] This file covers exactly one user-facing change (split into multiple files if not)
 - [ ] Frontmatter has `'@reapit/elements': <patch|minor|major>`
 - [ ] Bump type matches the impact (breaking → `major`, new feature → `minor`, fix → `patch`)
-- [ ] Summary starts with the correct prefix, or omits it intentionally
+- [ ] Prefix is one of `Added:`, `Fixed:`, `Changed:`, `Deprecated:`, `Removed:`, `Security:`, or `Internal:` — not `Feat:`, `Fix:`, `Add`, or other variants
+- [ ] If the prefix is omitted, the inferred category is correct (`major` → Removed, `minor` → Added, `patch` → Fixed)
 - [ ] Component and prop names are in backticks
 - [ ] Migration guidance is included for breaking changes
 - [ ] British English spelling throughout

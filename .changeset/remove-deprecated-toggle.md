@@ -2,7 +2,7 @@
 '@reapit/elements': major
 ---
 
-Removed: `Toggle`, `ToggleRadio`, `ToggleProps`, `ToggleRadioProps`, `ToggleRadioOption`, `ToggleWrapped`, `ToggleRadioWrapped`, `ElToggleItem`, `ElToggleCheckbox`, `ElToggleLabel`, `ElToggleRadio`, `ElToggleRadioItem`, `ElToggleRadioLabel`, `ElToggleRadioWrap`, `elToggleFullWidth`, `elHasGreyBg`, and `handleKeyboardToggleChange` from `src/deprecated/toggle`.
+Removed: `Toggle`, `ToggleRadio`, `ToggleProps`, `ToggleRadioProps`, `ToggleRadioOption`, `ToggleWrapped`, and `ToggleRadioWrapped` from `src/deprecated/toggle`.
 
 Run the `replace-deprecated-toggle` codemod to migrate `Toggle` to `Switch`:
 

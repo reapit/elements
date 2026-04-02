@@ -2,4 +2,4 @@
 '@reapit/elements': patch
 ---
 
-Fix `upgrade-deprecated-button` codemod incorrectly rewriting facade package import paths to subpaths
+Fixed: `upgrade-deprecated-button` codemod incorrectly rewriting facade package import paths to subpaths.
