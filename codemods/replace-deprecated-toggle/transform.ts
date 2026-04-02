@@ -40,6 +40,16 @@ function hasAriaLabelOrLabel(element: JsxOpeningElement | JsxSelfClosingElement)
 }
 
 /**
+ * Escapes raw text (e.g. from a `JsxText` node) for safe embedding in a
+ * double-quoted JSX attribute value. Assumes the input is unescaped — do not
+ * pass already entity-encoded strings or `&` will be double-encoded.
+ * Replaces `&` with `&amp;` and `"` with `&quot;` in a single pass.
+ */
+function escapeJsxAttributeValue(s: string): string {
+  return s.replace(/[&"]/g, (ch) => (ch === '&' ? '&amp;' : '&quot;'))
+}
+
+/**
  * Returns true if the tag name matches ElToggleItem or any alias ending with
  * 'ToggleItem'.
  */
@@ -123,7 +133,7 @@ function buildAttrsString(
   if (!hasExistingLabel) {
     if (labelText) {
       if (labelText.kind === 'static') {
-        parts.push(`label="${labelText.value}"`)
+        parts.push(`label="${escapeJsxAttributeValue(labelText.value)}"`)
       } else {
         parts.push(`label={${labelText.value}}`)
       }

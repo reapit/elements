@@ -160,4 +160,5 @@ When the first `ElToggleItem` contains a JSX expression, the expression is prese
 - **Direct styled component usage requires manual migration** — `ElToggleItem`, `ElToggleCheckbox`, and `ElToggleLabel` used outside `Toggle` children are not automatically migrated.
 - **Complex JSX inside `ElToggleItem` produces a fragment wrapper** — when `ElToggleItem` contains multiple children or nested elements, the `label` prop will be `label={<>...</>}`. Review these cases.
 - **`handleKeyboardToggleChange` call sites are not removed** — the import is removed, but any call sites in the file remain and will produce a TypeScript error. Remove them manually.
+- **Non-`ElToggleItem` children are silently dropped** — when a `Toggle` element contains children other than `ElToggleItem` elements (e.g., wrapping layout elements or conditional expressions), those children are discarded during conversion to a self-closing `<Switch />`. Review the output if your `Toggle` had non-standard children.
 - **Re-exports are not rewritten** — `export { Toggle } from '…'` declarations are left unchanged and require manual migration.

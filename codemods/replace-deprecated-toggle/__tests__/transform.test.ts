@@ -205,6 +205,29 @@ import { Toggle } from '@reapit/elements'
       expect(output).toContain('label="Yes"')
     })
 
+    test('escapes double quotes in extracted label text', () => {
+      // JSX text nodes can contain literal double quotes — ts-morph returns them
+      // as-is, so escapeJsxAttributeValue must convert " to &quot; to avoid
+      // producing broken JSX attribute syntax.
+      const input = `
+import { Toggle } from '@reapit/elements'
+<Toggle id="x"><ElToggleItem>Say "hello"</ElToggleItem><ElToggleItem>Off</ElToggleItem></Toggle>
+`
+      const output = transform(input, 'file.tsx')
+      expect(output).toContain('label="Say &quot;hello&quot;"')
+    })
+
+    test('escapes ampersands in extracted label text', () => {
+      // A literal & in JSX text is returned as-is by ts-morph — it must be
+      // escaped to &amp; so the JSX attribute value remains valid.
+      const input = `
+import { Toggle } from '@reapit/elements'
+<Toggle id="x"><ElToggleItem>A & B</ElToggleItem><ElToggleItem>Off</ElToggleItem></Toggle>
+`
+      const output = transform(input, 'file.tsx')
+      expect(output).toContain('label="A &amp; B"')
+    })
+
     test('handles aliased Toggle usage with text labels', () => {
       const input = `
 import { Toggle as Tog } from '@reapit/elements'
