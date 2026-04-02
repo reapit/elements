@@ -60,38 +60,32 @@ function parseCategory(summary, type) {
 /**
  * Builds the metadata suffix appended to each changelog entry.
  *
- * The format is `(PR, commit, @author)`, with any missing pieces omitted.
+ * The format is `(PR)`, omitted entirely when no PR link is available.
  *
- * @param {{ pull: string | null, commit: string | null, user: string | null }} links
+ * @param {{ pull: string | null }} links
  * @returns {string}
  */
 function buildMetaSuffix(links) {
-  const parts = [links.pull, links.commit, links.user].filter(Boolean)
-  return parts.length ? ` (${parts.join(', ')})` : ''
+  return links.pull ? ` (${links.pull})` : ''
 }
 
 /**
- * Resolves GitHub links for a changeset from either an explicit PR number
+ * Resolves the GitHub PR link for a changeset from either an explicit PR number
  * embedded in the summary or the commit hash recorded by changesets.
  *
  * Mirrors the parsing done by \@changesets/changelog-github so that authors
- * can still embed `pr: #123`, `commit: abc`, and `author: username` overrides
- * in their summaries.
+ * can still embed `pr: #123` overrides in their summaries.
  *
  * @param {string} rawSummary - Summary before prefix stripping.
  * @param {string | undefined} changesetCommit - Commit hash from changesets.
  * @param {{ repo: string, serverUrl: string }} opts
- * @returns {Promise<{ links: { pull: string | null, commit: string | null, user: string | null }, cleanedSummary: string }>}
+ * @returns {Promise<{ links: { pull: string | null }, cleanedSummary: string }>}
  */
 async function resolveLinks(rawSummary, changesetCommit, opts) {
-  const { repo, serverUrl } = opts
+  const { repo } = opts
 
   /** @type {number | undefined} */
   let prFromSummary = undefined
-  /** @type {string | undefined} */
-  let commitFromSummary = undefined
-  /** @type {string[]} */
-  let usersFromSummary = []
 
   const cleanedSummary = rawSummary
     .replace(/^\s*(?:pr|pull|pull\s+request):\s*#?(\d+)/im, (_, pr) => {
@@ -99,48 +93,22 @@ async function resolveLinks(rawSummary, changesetCommit, opts) {
       if (!isNaN(num)) prFromSummary = num
       return ''
     })
-    .replace(/^\s*commit:\s*([^\s]+)/im, (_, commit) => {
-      commitFromSummary = commit
-      return ''
-    })
-    .replace(/^\s*(?:author|user):\s*@?([^\s]+)/gim, (_, user) => {
-      usersFromSummary.push(user)
-      return ''
-    })
     .trim()
 
+  /** @type {{ pull: string | null }} */
   let resolvedLinks
 
   if (prFromSummary !== undefined) {
     const { links } = await getInfoFromPullRequest({ repo, pull: prFromSummary })
-    if (commitFromSummary) {
-      const short = /** @type {string} */ (commitFromSummary).slice(0, 7)
-      resolvedLinks = {
-        ...links,
-        commit: `[\`${short}\`](${serverUrl}/${repo}/commit/${commitFromSummary})`,
-      }
-    } else {
-      resolvedLinks = links
-    }
+    resolvedLinks = { pull: links.pull }
+  } else if (changesetCommit) {
+    const { links } = await getInfo({ repo, commit: changesetCommit })
+    resolvedLinks = { pull: links.pull }
   } else {
-    const commitToFetch = commitFromSummary ?? changesetCommit
-    if (commitToFetch) {
-      const { links } = await getInfo({ repo, commit: commitToFetch })
-      resolvedLinks = links
-    } else {
-      resolvedLinks = { pull: null, commit: null, user: null }
-    }
+    resolvedLinks = { pull: null }
   }
 
-  const user =
-    usersFromSummary.length > 0
-      ? usersFromSummary.map((u) => `[@${u}](${serverUrl}/${u})`).join(', ')
-      : resolvedLinks.user
-
-  return {
-    links: { pull: resolvedLinks.pull, commit: resolvedLinks.commit, user },
-    cleanedSummary,
-  }
+  return { links: resolvedLinks, cleanedSummary }
 }
 
 // ---------------------------------------------------------------------------
@@ -151,7 +119,7 @@ async function resolveLinks(rawSummary, changesetCommit, opts) {
  * Formats a single changeset entry for inclusion in CHANGELOG.md.
  *
  * Output format:
- *   - **[Category]** Description ([#PR](…) [`commit`](…) [@author](…))
+ *   - **[Category]** Description ([#PR](…))
  *
  * The category is determined by the prefix in the changeset summary (e.g. `fixed:`,
  * `internal:`). When no recognised prefix is present, the category is inferred from
@@ -196,7 +164,7 @@ const getReleaseLine = async (changeset, type, options) => {
  * dependency changed (i.e. they have no direct changeset of their own).
  *
  * Output format:
- *   - **[Changed]** Updated dependencies ([`commit`](…))
+ *   - **[Changed]** Updated dependencies:
  *     - package-name@x.y.z
  *
  * @type {import('@changesets/types').GetDependencyReleaseLine}
@@ -211,20 +179,7 @@ const getDependencyReleaseLine = async (changesets, dependenciesUpdated, options
     )
   }
 
-  const uniqueCommits = [...new Set(changesets.map((cs) => cs.commit).filter(Boolean))]
-
-  const commitLinks = (
-    await Promise.all(
-      uniqueCommits.map(async (commit) => {
-        const { links } = await getInfo({ repo: options.repo, commit })
-        return links.commit
-      }),
-    )
-  ).filter(Boolean)
-
-  const meta = commitLinks.length ? ` (${commitLinks.join(', ')})` : ''
-  const header = `- **[Changed]** Updated dependencies${meta}:`
-
+  const header = `- **[Changed]** Updated dependencies:`
   const depList = dependenciesUpdated.map((dep) => `  - ${dep.name}@${dep.newVersion}`)
 
   return [header, ...depList].join('\n')

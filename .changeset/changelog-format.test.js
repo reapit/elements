@@ -192,7 +192,7 @@ test('conventional commit prefix is treated as part of the description', async (
 // GitHub metadata
 // ---------------------------------------------------------------------------
 
-test('appends PR link, commit link, and author to the entry', async () => {
+test('appends only the PR link to the entry', async () => {
   vi.mocked(getInfo).mockResolvedValue(
     makeInfo({ pull: 1105, commit: 'e78c4c8234416385c2546464b2c5399bd6ace088', user: 'kdoherty_Reapit' }),
   )
@@ -204,8 +204,8 @@ test('appends PR link, commit link, and author to the entry', async () => {
   )
 
   expect(result).toContain('[#1105]')
-  expect(result).toContain('`e78c4c8`')
-  expect(result).toContain('[@kdoherty_Reapit]')
+  expect(result).not.toContain('`e78c4c8`')
+  expect(result).not.toContain('[@kdoherty_Reapit]')
   // metadata appears in parentheses after the description
   expect(result).toMatch(/Add new component \(.*\)/)
 })
@@ -223,19 +223,18 @@ test('omits metadata suffix when no GitHub info is available', async () => {
   expect(result).not.toContain('(')
 })
 
-test('omits missing metadata parts gracefully', async () => {
+test('wraps the PR link in parentheses with no extra punctuation', async () => {
   vi.mocked(getInfo).mockResolvedValue(makeInfo({ pull: 42 }))
 
   const result = await getReleaseLine(makeChangeset({ summary: 'Fix typo' }), 'patch', OPTIONS)
 
   expect(result).toContain('[#42]')
-  // No commit or user, so the suffix should not contain extra commas
-  expect(result).not.toMatch(/,\s*\)/)
-  expect(result).not.toMatch(/\(\s*,/)
+  // Suffix is exactly "(PR link)" — no trailing commas or extra content
+  expect(result).toMatch(/\(\[#42\][^)]*\)/)
 })
 
 test('uses getInfoFromPullRequest when PR number is embedded in the summary', async () => {
-  vi.mocked(getInfoFromPullRequest).mockResolvedValue(makeInfo({ pull: 999, commit: 'aabbccdd', user: 'contributor' }))
+  vi.mocked(getInfoFromPullRequest).mockResolvedValue(makeInfo({ pull: 999 }))
 
   const result = await getReleaseLine(
     makeChangeset({ summary: 'pr: #999\nFix an edge case', commit: undefined }),
@@ -326,8 +325,6 @@ test('returns an empty string when no dependencies were updated', async () => {
 })
 
 test('lists updated dependencies under a "Changed" heading', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo({ commit: 'deadbeef' }))
-
   const result = await getDependencyReleaseLine(
     [makeChangeset({ commit: 'deadbeef' })],
     [makeDep('@reapit/elements-utils', '2.1.0')],
@@ -338,19 +335,18 @@ test('lists updated dependencies under a "Changed" heading', async () => {
   expect(result).toContain('@reapit/elements-utils@2.1.0')
 })
 
-test('includes commit links in the dependency release header', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo({ commit: 'deadbeef00112233' }))
-
+test('does not include a commit link in the dependency release header', async () => {
   const result = await getDependencyReleaseLine(
     [makeChangeset({ commit: 'deadbeef00112233' })],
     [makeDep('some-package', '3.0.0')],
     OPTIONS,
   )
 
-  expect(result).toContain('`deadbee`')
+  expect(result).toContain('**[Changed]** Updated dependencies:')
+  expect(result).not.toContain('`deadbee`')
 })
 
-test('omits commit link when changeset has no commit hash', async () => {
+test('does not include a commit link when changeset has no commit hash', async () => {
   const result = await getDependencyReleaseLine(
     [makeChangeset({ commit: undefined })],
     [makeDep('some-package', '3.0.0')],
