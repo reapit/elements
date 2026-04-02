@@ -121,6 +121,18 @@ export const VideoItem: Story = {
 }
 
 /**
+ * If the carousel's `value` is controlled, but no `onChange` handler is provided, the carousel
+ * will be "read-only" and prevent scroll interaction.
+ */
+export const ReadOnly: Story = {
+  name: 'Read-only',
+  args: {
+    ...Example.args,
+    value: 'item-2',
+  },
+}
+
+/**
  * The carousel will fill its container while preserving the aspect-ratio of the media items.
  */
 export const Sizing: Story = {
