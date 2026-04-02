@@ -78,6 +78,8 @@ export function useCarouselScroll(
   )
 
   // IntersectionObserver — detect which item settles into view after a swipe.
+  // MutationObserver — keep the IntersectionObserver in sync when children are
+  // added or removed (e.g. when the consumer filters the visible items).
   useEffect(
     function detectItemInView() {
       const container = containerRef.current
@@ -97,8 +99,78 @@ export function useCarouselScroll(
         observer.observe(item)
       }
 
+      const mutationObserver = new MutationObserver((mutations) => {
+        let activeItemRemoved = false
+
+        for (const mutation of mutations) {
+          for (const node of mutation.removedNodes) {
+            if (!(node instanceof Element)) continue
+            observer.unobserve(node)
+            if ((node as HTMLElement).id === activeItemRef.current) {
+              activeItemRemoved = true
+            }
+          }
+
+          for (const node of mutation.addedNodes) {
+            if (!(node instanceof Element)) continue
+            observer.observe(node)
+          }
+        }
+
+        // When the active item is removed, snap instantly to the first remaining
+        // child and treat it as the new active item.
+        if (activeItemRemoved) {
+          const firstChild = container.firstElementChild as HTMLElement | null
+          if (!firstChild) {
+            activeItemRef.current = undefined
+            return
+          }
+
+          // Update inert state: all children except the first are inert.
+          const allItems = Array.from(container.children) as HTMLElement[]
+          for (const item of allItems) {
+            if (item === firstChild) {
+              item.removeAttribute('inert')
+            } else {
+              item.inert = true
+            }
+          }
+
+          firstChild.scrollIntoView({ behavior: 'instant', block: 'nearest', inline: 'start' })
+
+          const newId = firstChild.id
+          if (newId && newId !== activeItemRef.current) {
+            activeItemRef.current = newId
+            // Set the flag before calling onChange so that the scroll effect
+            // triggered by the controlled value update skips its scrollIntoView
+            // call and does not fight the instant snap already performed above.
+            isObserverChangeRef.current = true
+            onChange?.(newId)
+          }
+        } else {
+          // The active item is still present. Reconcile inert across all
+          // children so that any newly added off-screen items are inert
+          // immediately, rather than waiting for the IntersectionObserver to
+          // process a non-intersecting entry.
+          const activeId = activeItemRef.current
+          if (activeId) {
+            const allItems = Array.from(container.children) as HTMLElement[]
+            for (const item of allItems) {
+              if (item.id === activeId) {
+                item.removeAttribute('inert')
+              } else {
+                item.inert = true
+              }
+            }
+          }
+        }
+      })
+
+      mutationObserver.observe(container, { childList: true })
+
       return () => {
         observer.disconnect()
+        mutationObserver.disconnect()
       }
     },
     [containerRef, activeItemRef, onChange],

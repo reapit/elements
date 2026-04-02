@@ -1,8 +1,10 @@
 import { useState } from 'react'
 import { GalleryViewerCarousel } from './carousel'
+import { ChipSelect } from '#src/core/chip-select'
 import { Image } from '#src/utils/image'
 import { Video } from '#src/utils/video'
 
+import type { ChangeEventHandler } from 'react'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const EXAMPLE_IMAGES = [
@@ -177,5 +179,73 @@ export const ErrorFallback: Story = {
       </>
     ),
     defaultValue: 'item-1',
+  },
+}
+
+/**
+ * Filters applied outside the carousel can add or remove items from the track at any time.
+ * When the currently visible item is removed by a filter change, the carousel automatically
+ * snaps to the first remaining item. Use the chip select below to toggle between all items,
+ * photos only, and videos only.
+ */
+export const Filtered: Story = {
+  args: {
+    'aria-label': 'Property media',
+  },
+  parameters: {
+    docs: { source: { type: 'code' } },
+  },
+  render: function Filtered(args) {
+    const [filter, setFilter] = useState(['all'])
+    const [value, setValue] = useState('photo-1')
+
+    const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+      const option = event.currentTarget
+      setFilter((current) => ChipSelect.determineNextControlledState(current, option))
+    }
+
+    const showPhotos = filter.includes('all') || filter.includes('photos')
+    const showVideo = filter.includes('all') || filter.includes('videos')
+
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
+        <ChipSelect size="small">
+          <ChipSelect.Option checked={filter.includes('all')} onChange={onChange} value="all">
+            All
+          </ChipSelect.Option>
+          <ChipSelect.Option checked={filter.includes('photos')} onChange={onChange} value="photos">
+            Photos
+          </ChipSelect.Option>
+          <ChipSelect.Option checked={filter.includes('videos')} onChange={onChange} value="videos">
+            Videos
+          </ChipSelect.Option>
+        </ChipSelect>
+
+        <GalleryViewerCarousel {...args} onChange={setValue} value={value}>
+          <GalleryViewerCarousel.Button aria-label="Previous" direction="previous" />
+          <GalleryViewerCarousel.Track>
+            {showPhotos && (
+              <GalleryViewerCarousel.Item id="photo-1" key="photo-1">
+                <Image alt="Photo 1" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[0]} width="100%" />
+                <GalleryViewerCarousel.ItemCaption>Photo 1</GalleryViewerCarousel.ItemCaption>
+              </GalleryViewerCarousel.Item>
+            )}
+            {showPhotos && (
+              <GalleryViewerCarousel.Item id="photo-2" key="photo-2">
+                <Image alt="Photo 2" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[1]} width="100%" />
+                <GalleryViewerCarousel.ItemCaption>Photo 2</GalleryViewerCarousel.ItemCaption>
+              </GalleryViewerCarousel.Item>
+            )}
+            {showVideo && (
+              <GalleryViewerCarousel.Item id="video-1" key="video-1">
+                <Video controls height="100%" objectFit="contain" src={EXAMPLE_VIDEO_SRC} width="100%" />
+                <GalleryViewerCarousel.ItemCaption>Video 1</GalleryViewerCarousel.ItemCaption>
+              </GalleryViewerCarousel.Item>
+            )}
+          </GalleryViewerCarousel.Track>
+          <GalleryViewerCarousel.Button aria-label="Next" direction="next" />
+        </GalleryViewerCarousel>
+      </div>
+    )
   },
 }
