@@ -1,5 +1,6 @@
 export * from './carousel'
 export * from './media-item'
+export * from './media-list'
 export * from './dialog'
 export * from './thumbnail'
 export * from './thumbnail-list'

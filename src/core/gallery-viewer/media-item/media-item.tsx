@@ -20,5 +20,4 @@ export function GalleryViewerMediaItem({ className, id, ...rest }: GalleryViewer
   return <figure {...rest} className={cx(elGalleryViewerMediaItem, className)} id={id} />
 }
 
-GalleryViewerMediaItem.displayName = 'GalleryViewer.MediaItem'
 GalleryViewerMediaItem.Caption = GalleryViewerMediaItemCaption
