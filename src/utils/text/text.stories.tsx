@@ -8,7 +8,7 @@ import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const myCustomTextStyles = css`
   padding-block-end: var(--spacing-6);
-  border: 1px solid #ff00fa;
+  border: 1px solid #fa00ff;
 `
 
 const fontStyles = [

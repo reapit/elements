@@ -1,10 +1,9 @@
 import { MenuItemBase } from './item-base'
 
 import type { ButtonHTMLAttributes } from 'react'
-import type { MenuItemBase as MenuItemBaseNamespace } from './item-base'
 
 export namespace MenuItem {
-  export interface Props extends MenuItemBaseNamespace.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
+  export interface Props extends MenuItemBase.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
     /** Whether the menu item is selected/active */
     'aria-checked'?: boolean
     /**

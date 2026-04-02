@@ -129,7 +129,7 @@ export const Layout: Story = {
     ...Example.args,
   },
   decorators: (Story) => (
-    <div style={{ boxSizing: 'content-box', width: 'var(--size-64)', border: '1px solid #FF00FA' }}>
+    <div style={{ boxSizing: 'content-box', width: 'var(--size-64)', border: '1px solid #FA00FF' }}>
       <Story />
     </div>
   ),

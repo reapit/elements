@@ -12,7 +12,6 @@ export const elMediaFallback = css`
   height: 100%;
   overflow: clip;
 
-  border-radius: var(--border-radius-l);
   background: var(--colour-fill-neutral-light);
   padding: var(--spacing-4);
 `

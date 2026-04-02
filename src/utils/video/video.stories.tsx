@@ -29,7 +29,7 @@ export const Example: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ border: '1px solid #FF00FA', width: 'fit-content' }}>
+      <div style={{ border: '1px solid #FA00FF', width: 'fit-content' }}>
         <Story />
       </div>
     ),
@@ -46,7 +46,7 @@ export const Sizing: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ border: '1px solid #FF00FA', width: '200px', height: '150px' }}>
+      <div style={{ border: '1px solid #FA00FF', width: '200px', height: '150px' }}>
         <Story />
       </div>
     ),
@@ -84,7 +84,7 @@ export const Sources: Story = {
   },
   decorators: [
     (Story) => (
-      <div style={{ border: '1px solid #FF00FA', width: 'fit-content' }}>
+      <div style={{ border: '1px solid #FA00FF', width: 'fit-content' }}>
         <Story />
       </div>
     ),

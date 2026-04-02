@@ -1,11 +1,9 @@
 import { GalleryViewerThumbnailBase } from './thumbnail-base'
 
 import type { ButtonHTMLAttributes } from 'react'
-import type { GalleryViewerThumbnailBase as GalleryViewerThumbnailBaseNamespace } from './thumbnail-base'
 
 export namespace GalleryViewerThumbnailButton {
-  export interface Props
-    extends GalleryViewerThumbnailBaseNamespace.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
+  export interface Props extends GalleryViewerThumbnailBase.CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
     /**
      * The accessible name of the thumbnail. Should be action-oriented, not simply a description of
      * the thumbnail's image.

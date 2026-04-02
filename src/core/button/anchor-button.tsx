@@ -1,10 +1,9 @@
 import { ButtonBase } from './button-base'
 
 import type { AnchorHTMLAttributes } from 'react'
-import type { ButtonBase as ButtonBaseNamespace } from './button-base'
 
 export namespace AnchorButton {
-  export interface Props extends ButtonBaseNamespace.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+  export interface Props extends ButtonBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
     /** The URL to which this anchor button navigates */
     href: string
   }

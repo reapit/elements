@@ -1,10 +1,9 @@
 import { MenuItemBase } from './item-base'
 
 import type { AnchorHTMLAttributes } from 'react'
-import type { MenuItemBase as MenuItemBaseNamespace } from './item-base'
 
 export namespace AnchorMenuItem {
-  export interface Props extends MenuItemBaseNamespace.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
+  export interface Props extends MenuItemBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
     /** Whether the menu item represents the current page */
     'aria-current'?: 'page' | false
     /** The URL to which this menu anchor item navigates */
