@@ -1,16 +1,8 @@
 name: Visual Regression Tests
+
+# DS-136: Disabled — this workflow was permanently failing and costing ~USD 200/month.
+# Re-enable by restoring the push and workflow_call triggers once the root cause is fixed.
 on:
-  push:
-    branches: [main]
-
-  # Allow updating snapshots during manual runs
-  workflow_call:
-    inputs:
-      update-snapshots:
-        description: 'Update snapshots?'
-        type: boolean
-
-  # Allow updating snapshots during automatic runs
   workflow_dispatch:
     inputs:
       update-snapshots:
