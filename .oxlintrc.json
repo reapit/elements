@@ -19,7 +19,6 @@
     "eslint/no-debugger": "off",
     "eslint/no-empty-pattern": "off",
     "react/display-name": "off",
-    "react/prop-types": "off",
     "react/react-in-jsx-scope": "off",
     "react/rules-of-hooks": "off",
     "react/exhaustive-deps": "off"
