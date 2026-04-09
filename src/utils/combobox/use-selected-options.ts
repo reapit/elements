@@ -1,5 +1,5 @@
 import { getOptionLabel } from './option'
-import { useListboxSelectionObserver } from '#src/utils/listbox'
+import { useListboxSelectionObserver } from '#src/utils/listbox/use-selection-observer'
 import { useState } from 'react'
 
 export namespace useComboboxSelectedOptions {

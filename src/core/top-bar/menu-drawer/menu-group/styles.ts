@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { ElTopBarMenuDrawerMenuItemBadge, ElTopBarMenuDrawerMenuItemLabel } from '../menu-item'
+import { ElTopBarMenuDrawerMenuItemBadge, ElTopBarMenuDrawerMenuItemLabel } from '../menu-item/styles'
 import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 

@@ -6,7 +6,7 @@ import {
   ElSideBarMenuGroupSummaryLabel,
   ElSideBarMenuGroupSummaryDropdownIcon,
 } from './styles'
-import { elSideBarMenuItem } from '../menu-item'
+import { elSideBarMenuItem } from '../menu-item/styles'
 import { shouldSideBarMenuGroupBeOpen } from './should-be-open'
 import { Tooltip } from '#src/core/tooltip'
 import { useCallback, useId } from 'react'

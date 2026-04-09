@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { elTableCellSortButton } from '../sort-button'
+import { elTableCellSortButton } from '../sort-button/styles'
 import { font } from '#src/utils/font'
 
 // NOTE: This is a plain class so that we have an exportable class name

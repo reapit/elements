@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
-import { ElDivider } from '#src/core/divider'
-import { ElMenuGroup } from './group'
+import { ElDivider } from '#src/core/divider/styles'
+import { ElMenuGroup } from './group/styles'
 
 export const elMenu = css`
   background: var(--colour-fill-white);

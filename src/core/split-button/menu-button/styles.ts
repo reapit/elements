@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { ElButtonIconContainer } from '../../button'
+import { ElButtonIconContainer } from '../../button/styles'
 
 // NOTE: This class is designed to be used in conjunction with the ElButton class.
 export const elSplitButtonMenuButton = css`

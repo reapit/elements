@@ -3,7 +3,7 @@ import { fontSizes, fontWeights } from '#src/utils/font'
 import { textColours } from './types'
 import { Text } from './text'
 
-import type { FontStyle } from './types'
+import type { FontStyle } from '#src/utils/font'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const myCustomTextStyles = css`

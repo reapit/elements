@@ -1,2 +1,1 @@
 export * from './help-text'
-export * from './styles'

@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { ElAvatar } from '#src/core/avatar'
+import { ElAvatar } from '#src/core/avatar/styles'
 
 export const elTopBarAvatarBase = css`
   display: inline-block;

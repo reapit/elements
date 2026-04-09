@@ -2,7 +2,8 @@ import { cx } from '@linaria/core'
 import { parseFont } from '../font'
 import { elText } from './styles'
 
-import type { FontStyle, FontSize, FontWeight, TextColour } from './types'
+import type { FontStyle, FontSize, FontWeight } from '../font'
+import type { TextColour } from './types'
 import type { HTMLAttributes, QuoteHTMLAttributes, TimeHTMLAttributes } from 'react'
 
 export namespace Text {

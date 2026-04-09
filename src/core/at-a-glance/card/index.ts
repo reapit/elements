@@ -1,7 +1,5 @@
 export * from './card'
-export * from './context'
 export * from './description'
 export * from './icon'
 export * from './label'
-export * from './styles'
 export * from './value'

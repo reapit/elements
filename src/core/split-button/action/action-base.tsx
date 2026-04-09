@@ -1,4 +1,4 @@
-import { ButtonBase } from '#src/core/button/index'
+import { ButtonBase } from '#src/core/button/button-base'
 import { cx } from '@linaria/core'
 import { elSplitButtonAction } from './styles'
 import { useSplitButtonContext } from '../context'

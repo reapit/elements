@@ -1,6 +1,6 @@
 import { ComboboxContext } from '../../context'
 import { ComboboxListboxPlaceholder } from '../listbox-placeholder'
-import { ListboxRenderContext } from '#src/utils/listbox'
+import { ListboxRenderContext } from '#src/utils/listbox/render-context'
 import { render, screen } from '@testing-library/react'
 
 test('renders status element', () => {

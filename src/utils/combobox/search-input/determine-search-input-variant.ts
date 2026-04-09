@@ -1,4 +1,4 @@
-import type { ComboboxPopupDialogContext } from '../popup-dialog'
+import type { ComboboxPopupDialogContext } from '../popup-dialog/context'
 import type { SearchInput } from '#src/core/search-input'
 
 export namespace determineSearchInputVariant {

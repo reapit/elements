@@ -1,5 +1,5 @@
-import { elTopBarMenuDrawerMenuItem } from '../menu-item'
-import { elTopBarMenuDrawerSubmenuItem } from '../submenu-item'
+import { elTopBarMenuDrawerMenuItem } from '../menu-item/styles'
+import { elTopBarMenuDrawerSubmenuItem } from '../submenu-item/styles'
 import { handleArrowNavigation as baseHandleArrowNavigation } from '#src/utils/keyboard-navigation'
 
 import type { KeyboardEvent } from 'react'

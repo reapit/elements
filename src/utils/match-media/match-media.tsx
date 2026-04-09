@@ -12,11 +12,6 @@ export namespace MatchMedia {
 }
 
 /**
- * @deprecated Use `MatchMedia.Props` instead.
- */
-export type MatchMediaProps = MatchMedia.Props
-
-/**
  * A component that conditionally renders its children based on a media query condition. Uses the
  * [matchMedia](https://developer.mozilla.org/en-US/docs/Web/API/Window/matchMedia) Web API to determine if the
  * condition matches the current viewport.

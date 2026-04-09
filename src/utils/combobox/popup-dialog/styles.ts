@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { DRAWER_WIDTH_SM_2XL, DRAWER_WIDTH_XS } from '#src/core/drawer'
+import { DRAWER_WIDTH_SM_2XL, DRAWER_WIDTH_XS } from '#src/core/drawer/constants'
 import { styled } from '@linaria/react'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 

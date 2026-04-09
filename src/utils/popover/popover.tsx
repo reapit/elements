@@ -49,11 +49,6 @@ export namespace Popover {
 }
 
 /**
- * @deprecated Use `Popover.Props` instead.
- */
-export type PopoverProps = Popover.Props
-
-/**
  * A popover positioned relative to an anchor using
  * [CSS Anchor Positioning](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_anchor_positioning)
  * and the [popover](https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Global_attributes/popover)

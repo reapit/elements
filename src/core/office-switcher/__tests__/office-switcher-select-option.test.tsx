@@ -1,6 +1,7 @@
 import { ComboboxContext } from '#src/utils/combobox/context'
 import { OfficeSwitcherSelectOption } from '../office-switcher-select-option'
-import { ListboxContext, ListboxRenderContext } from '#src/utils/listbox'
+import { ListboxContext } from '#src/utils/listbox/context'
+import { ListboxRenderContext } from '#src/utils/listbox/render-context'
 import { render, screen } from '@testing-library/react'
 
 test('renders as an option', () => {

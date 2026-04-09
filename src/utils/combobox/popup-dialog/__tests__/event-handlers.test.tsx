@@ -1,6 +1,6 @@
 import { closeDialog } from '#src/utils/dialog'
 import { clearSearchInputOnClose, getOptionElement, maybeCloseOnSelection } from '../event-handlers'
-import { maybeCloseOnBackdropClick } from '#src/utils/dialog'
+import { maybeCloseOnBackdropClick } from '#src/utils/dialog/close-on-backdrop-click'
 import { fireEvent, render, screen } from '@testing-library/react'
 
 import type { MouseEvent, SyntheticEvent } from 'react'

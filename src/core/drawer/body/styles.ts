@@ -1,5 +1,5 @@
 import { DRAWER_CSS_CONTAINER_NAME, DRAWER_WIDTH_SM_2XL } from '../constants'
-import { ElDrawerFooter } from '../footer'
+import { ElDrawerFooter } from '../footer/styles'
 import { styled } from '@linaria/react'
 
 export const ElDrawerBody = styled.article`

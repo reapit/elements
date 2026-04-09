@@ -1,5 +1,5 @@
 import { createPortal } from 'react-dom'
-import { DEFAULT_OUTLET_ID } from '../outlet'
+import { DEFAULT_OUTLET_ID } from '../outlet/outlet'
 import { useEffect, useState } from 'react'
 
 export namespace AlertBannerPortal {

@@ -1,5 +1,5 @@
 import { fireEvent, render, screen } from '@testing-library/react'
-import { maybeCloseOnBackdropClick } from '#src/utils/dialog'
+import { maybeCloseOnBackdropClick } from '#src/utils/dialog/close-on-backdrop-click'
 
 describe('maybeCloseOnBackdropClick', () => {
   describe('when dialog does not have closedby="any"', () => {

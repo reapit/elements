@@ -6,7 +6,7 @@ import {
   ElTopBarMenuDrawerMenuGroupSummaryDropdownIcon,
   ElTopBarMenuDrawerMenuGroupSummaryLabel,
 } from './styles'
-import { elTopBarMenuDrawerMenuItem } from '../menu-item'
+import { elTopBarMenuDrawerMenuItem } from '../menu-item/styles'
 import { shouldTopBarMenuGroupBeOpen } from './should-be-open'
 import { useTopBarMenuDrawerMenuGroupLabelIdContext } from './menu-group-label-id-context'
 import { useCallback } from 'react'

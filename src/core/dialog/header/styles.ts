@@ -1,4 +1,4 @@
-import { ElDialogFooter } from '../footer'
+import { ElDialogFooter } from '../footer/styles'
 import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 

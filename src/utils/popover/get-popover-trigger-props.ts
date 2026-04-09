@@ -35,13 +35,3 @@ export namespace getPopoverTriggerProps {
     popovertargetaction: 'hide' | 'show' | 'toggle'
   }
 }
-
-/**
- * @deprecated Use `getPopoverTriggerProps.Input` instead.
- */
-export type GetPopoverTriggerPropsInput = getPopoverTriggerProps.Input
-
-/**
- * @deprecated Use `getPopoverTriggerProps.Output` instead.
- */
-export type GetPopoverTriggerPropsOutput = getPopoverTriggerProps.Output

@@ -1,5 +1,5 @@
 import { Button } from '#src/core/button'
-import { clearListboxValue } from '#src/utils/listbox'
+import { clearListboxValue } from '#src/utils/listbox/dom-helpers'
 import { CloseIcon } from '#src/icons/close'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'

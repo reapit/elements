@@ -1,5 +1,5 @@
 import { ChipGroup } from '#src/core/chip-group'
-import { setListboxOptionSelectedState } from '#src/utils/listbox'
+import { setListboxOptionSelectedState } from '#src/utils/listbox/dom-helpers'
 import { useComboboxSelectionChipsContext } from './context'
 
 export namespace ComboboxSelectionChip {

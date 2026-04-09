@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 import { ElInput, elHasInputError } from '../../input/__styles__'
-import { ElTextarea } from '../../../core/textarea'
+import { ElTextarea } from '../../../core/textarea/styles'
 import { ElDeprecatedSelect } from '../../select/__styles__'
 import { ElInputAddOn } from '../../input-add-on/__styles__'
 import { ElMultiSelectInputWrapper } from '../../multi-select/__styles__'

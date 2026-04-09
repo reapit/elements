@@ -1,6 +1,6 @@
 import { css } from '@linaria/core'
 import { styled } from '@linaria/react'
-import { ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from '../menu-item'
+import { ElSideBarMenuItemIcon, ElSideBarMenuItemLabel } from '../menu-item/styles'
 import { font } from '#src/utils/font'
 
 export const elSideBarMenuGroup = css`

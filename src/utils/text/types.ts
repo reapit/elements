@@ -1,7 +1,3 @@
-import type { FontSize, FontWeight, FontStyle } from '#src/utils/font'
-
-export type { FontSize, FontWeight, FontStyle }
-
 export const textColours = [
   'primary',
   'secondary',

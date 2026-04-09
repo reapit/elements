@@ -2,11 +2,11 @@ import { ChipGroup } from '#src/core/chip-group'
 import { ComboboxSelectionChip } from '../selection-chip'
 import { ComboboxSelectionChipsContext } from '../context'
 import { fireEvent, render, screen } from '@testing-library/react'
-import { setListboxOptionSelectedState } from '#src/utils/listbox'
+import { setListboxOptionSelectedState } from '#src/utils/listbox/dom-helpers'
 
 import type { ReactNode } from 'react'
 
-vi.mock('#src/utils/listbox')
+vi.mock('#src/utils/listbox/dom-helpers')
 
 test('renders the chip with the provided label', () => {
   render(<ComboboxSelectionChip value="apple">Apple</ComboboxSelectionChip>, { wrapper: Wrapper })

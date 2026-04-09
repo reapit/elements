@@ -1,4 +1,4 @@
-import { ElTopBarMenuDrawerMenuItemBadge } from '../menu-item'
+import { ElTopBarMenuDrawerMenuItemBadge } from '../menu-item/styles'
 import { ElTopBarMenuDrawerSubmenuItemLabel } from './styles'
 import type { ReactNode } from 'react'
 

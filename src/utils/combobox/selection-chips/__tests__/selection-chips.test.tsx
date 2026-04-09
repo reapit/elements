@@ -1,9 +1,9 @@
 import { ComboboxSelectionChips } from '../selection-chips'
 import { fireEvent, render, screen } from '@testing-library/react'
-import { setListboxOptionSelectedState } from '#src/utils/listbox'
+import { setListboxOptionSelectedState } from '#src/utils/listbox/dom-helpers'
 import { useComboboxSelectedOptions } from '../../use-selected-options'
 
-vi.mock('#src/utils/listbox')
+vi.mock('#src/utils/listbox/dom-helpers')
 vi.mock('../../use-selected-options')
 
 test('renders nothing when no options are selected', () => {

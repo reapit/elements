@@ -1,8 +1,8 @@
 import { ComboboxButtonClearButton } from '../clear-button'
-import { clearListboxValue } from '#src/utils/listbox'
+import { clearListboxValue } from '#src/utils/listbox/dom-helpers'
 import { fireEvent, render, screen } from '@testing-library/react'
 
-vi.mock('#src/utils/listbox')
+vi.mock('#src/utils/listbox/dom-helpers')
 
 test('renders a button element', () => {
   render(<ComboboxButtonClearButton aria-controls="combobox-1" />)

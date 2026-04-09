@@ -1,9 +1,9 @@
 import { renderHook, act } from '@testing-library/react'
 import { useComboboxHasSelection } from '../use-has-selection'
-import { useListboxSelectionObserver } from '#src/utils/listbox'
+import { useListboxSelectionObserver } from '#src/utils/listbox/use-selection-observer'
 import { vi } from 'vitest'
 
-vi.mock('#src/utils/listbox', () => ({
+vi.mock('#src/utils/listbox/use-selection-observer', () => ({
   useListboxSelectionObserver: vi.fn(),
 }))
 

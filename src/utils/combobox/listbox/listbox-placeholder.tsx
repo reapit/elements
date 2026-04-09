@@ -1,6 +1,6 @@
 import { ElComboboxListboxPlaceholder } from './styles'
 import { useComboboxContext } from '../context'
-import { useListboxRenderContext } from '#src/utils/listbox'
+import { useListboxRenderContext } from '#src/utils/listbox/render-context'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 

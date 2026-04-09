@@ -1,4 +1,4 @@
-import { elSideBarMenuItem } from '../../menu-item'
+import { elSideBarMenuItem } from '../../menu-item/styles'
 import { elSideBarMenuGroupSummary } from '../styles'
 import { fireEvent, render, screen } from '@testing-library/react'
 import { SideBarMenuGroupSummary } from '../menu-group-summary'

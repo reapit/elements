@@ -11,11 +11,6 @@ export namespace CSSContainerQuery {
   }
 }
 
-/**
- * @deprecated Use `CSSContainerQuery.Props` instead.
- */
-export type CSSContainerQueryProps = CSSContainerQuery.Props
-
 export const CSSContainerQuery: FC<CSSContainerQuery.Props> = ({ children, condition }) => {
   /**
    * We need to create a unique class name to allow these styles to apply to the div being rendered here.

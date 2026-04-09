@@ -2,7 +2,7 @@ import { determineSearchInputVariant } from './determine-search-input-variant'
 import { isWidthBelow } from '#src/utils/breakpoints'
 import { SearchInput } from '#src/core/search-input'
 import { useMatchMedia } from '#src/utils/match-media'
-import { useComboboxPopupDialogContext } from '../popup-dialog'
+import { useComboboxPopupDialogContext } from '../popup-dialog/context'
 
 // We omit
 // - `variant`, because it is determined automatically based on the combobox popup's variant

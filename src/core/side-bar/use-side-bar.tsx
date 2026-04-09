@@ -12,16 +12,6 @@ export namespace useSideBar {
 }
 
 /**
- * @deprecated Use `UseSideBar.State` instead
- */
-export type SideBarState = useSideBar.State
-
-/**
- * @deprecated Use `UseSideBar.Result` instead
- */
-export interface UseSideBarResult extends useSideBar.Result {}
-
-/**
  * Manages the collapsed/expanded state of the side bar and provides setters for changing that state.
  */
 export function useSideBar(initialState: useSideBar.State | (() => useSideBar.State) = 'expanded'): useSideBar.Result {

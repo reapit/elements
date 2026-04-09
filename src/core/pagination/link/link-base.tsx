@@ -1,4 +1,4 @@
-import { ButtonBase } from '#src/core/button'
+import { ButtonBase } from '#src/core/button/button-base'
 import { ChevronLeftIcon } from '#src/icons/chevron-left'
 import { ChevronRightIcon } from '#src/icons/chevron-right'
 
