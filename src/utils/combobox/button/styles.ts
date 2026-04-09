@@ -43,12 +43,20 @@ export const ElComboboxButtonContainer = styled.div`
 
   /* Use :focus rather than :focus-visible to provide the same visual feedback
    * as other inputs/form controls. */
-  &:has(button:focus):not([data-variant='borderless']) {
-    border: var(--comp-input-border-width) solid var(--comp-input-colour-border-focused);
+  &:has(button:focus) {
+    border-color: var(--comp-input-colour-border-focused);
   }
 
   &[data-variant='borderless'] {
-    border: none;
+    border-style: none;
+  }
+
+  /* NOTE: the borderless variant hides the border via border-style: none, which persists
+   * through state-based border-color changes. We restore the border only on focus so the
+   * focus ring is visible. */
+  &[data-variant='borderless']:has(button:focus) {
+    border-style: solid;
+    border-color: var(--comp-input-colour-border-focused);
   }
 `
 

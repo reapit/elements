@@ -54,7 +54,7 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
   }
 
   &[data-variant='borderless'] {
-    border: none;
+    border-style: none;
   }
 
   /* NOTE: we only use the invalid styles if the input is invalid AND has the data-show-validity
@@ -81,6 +81,13 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
     --input-icon-colour: var(--comp-input-colour-icon-focused);
     --input-placeholder-colour: var(--comp-input-colour-text-focused-placeholder);
     --input-text-colour: var(--comp-input-colour-text-focused-input);
+  }
+
+  /* NOTE: the borderless variant hides the border via border-style: none, which persists
+   * through state-based border-color changes. We restore the border only on focus so the
+   * focus ring is visible. */
+  &[data-variant='borderless']:has(input:focus-visible) {
+    border-style: solid;
   }
 
   &[aria-busy='true'] {

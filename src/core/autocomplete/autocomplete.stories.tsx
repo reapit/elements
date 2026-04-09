@@ -126,6 +126,11 @@ export const Borderless: Story = {
   args: {
     ...Example.args,
   },
+  globals: {
+    backgrounds: {
+      value: 'light',
+    },
+  },
   parameters: { docs: { source: { type: 'code' } } },
   render: (args) => {
     const [searchText, setSearchText] = useState('')
