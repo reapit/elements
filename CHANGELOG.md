@@ -1,5 +1,15 @@
 # @reapit/elements
 
+## 5.0.0-beta.87
+
+### Major Changes
+
+- **[Removed]** internal implementation details from component barrel files. Linaria styled elements, CSS class name constants, internal context objects, and internal hooks are no longer part of the public API. Only intentionally public exports remain accessible from `@reapit/elements`. ([#1276](https://github.com/reapit-global/gbl-ds-elements/pull/1276))
+
+### Patch Changes
+
+- **[Fixed]** borderless `TextInput` and `ComboboxButton` now use a transparent border instead of `border: none`, so focus styles render correctly and layout remains stable. ([#1279](https://github.com/reapit-global/gbl-ds-elements/pull/1279))
+
 ## 5.0.0-beta.86
 
 ### Major Changes
