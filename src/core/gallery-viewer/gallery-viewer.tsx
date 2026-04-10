@@ -1,8 +1,7 @@
+import { type ReactNode } from 'react'
 import { GalleryViewerCarousel } from './carousel'
 import { GalleryViewerCarouselLayout } from './carousel-layout'
 import { GalleryViewerDialog } from './dialog'
-import { GalleryViewerDialogContent } from './dialog/content'
-import { GalleryViewerDialogHeader } from './dialog/header'
 import { GalleryViewerMediaItemCaption } from './media-item-caption'
 import { GalleryViewerMediaList } from './media-list'
 import { GalleryViewerMediaListLayout } from './media-list-layout'
@@ -15,8 +14,6 @@ export namespace GalleryViewer {
   export interface CarouselItemProps extends GalleryViewerCarousel.ItemProps {}
   export interface CarouselLayoutProps extends GalleryViewerCarouselLayout.Props {}
   export interface CarouselTrackProps extends GalleryViewerCarousel.TrackProps {}
-  export interface ContentProps extends GalleryViewerDialogContent.Props {}
-  export interface HeaderProps extends GalleryViewerDialogHeader.Props {}
   export interface MediaListProps extends GalleryViewerMediaList.Props {}
   export interface MediaListItemProps extends GalleryViewerMediaList.ItemProps {}
   export interface MediaListLayoutProps extends GalleryViewerMediaListLayout.Props {}
@@ -24,15 +21,23 @@ export namespace GalleryViewer {
   export interface ThumbnailProps extends GalleryViewerThumbnailList.ItemProps {}
   export interface ThumbnailButtonProps extends GalleryViewerThumbnailList.ButtonItemProps {}
 
-  export interface Props extends GalleryViewerDialog.Props {}
+  export interface Props extends Omit<GalleryViewerDialog.Props, 'title'> {
+    /** The title rendered as the gallery viewer's heading */
+    title: ReactNode
+  }
 }
 
 /**
  * The gallery viewer component allows users to browse and view all media files
  * (images, videos, virtual tours, etc) attached to a property.
  */
-export function GalleryViewer(props: GalleryViewer.Props) {
-  return <GalleryViewerDialog {...props} />
+export function GalleryViewer({ children, title, ...rest }: GalleryViewer.Props) {
+  return (
+    <GalleryViewerDialog {...rest}>
+      <GalleryViewerDialog.Header>{title}</GalleryViewerDialog.Header>
+      <GalleryViewerDialog.Content>{children}</GalleryViewerDialog.Content>
+    </GalleryViewerDialog>
+  )
 }
 
 GalleryViewer.Caption = GalleryViewerMediaItemCaption
@@ -41,8 +46,6 @@ GalleryViewer.CarouselButton = GalleryViewerCarousel.Button
 GalleryViewer.CarouselItem = GalleryViewerCarousel.Item
 GalleryViewer.CarouselLayout = GalleryViewerCarouselLayout
 GalleryViewer.CarouselTrack = GalleryViewerCarousel.Track
-GalleryViewer.Content = GalleryViewerDialog.Content
-GalleryViewer.Header = GalleryViewerDialog.Header
 GalleryViewer.MediaList = GalleryViewerMediaList
 GalleryViewer.MediaListLayout = GalleryViewerMediaListLayout
 GalleryViewer.MediaListItem = GalleryViewerMediaList.Item

@@ -5,8 +5,6 @@ import { GalleryViewerCarouselButton } from '../carousel/carousel-button'
 import { GalleryViewerCarouselItem } from '../carousel/carousel-item'
 import { GalleryViewerCarouselLayout } from '../carousel-layout/carousel-layout'
 import { GalleryViewerCarouselTrack } from '../carousel/carousel-track'
-import { GalleryViewerDialogContent } from '../dialog/content/content'
-import { GalleryViewerDialogHeader } from '../dialog/header/header'
 import { GalleryViewerMediaItemCaption } from '../media-item-caption/media-item-caption'
 import { GalleryViewerMediaList } from '../media-list/media-list'
 import { GalleryViewerMediaListItem } from '../media-list/media-list-item'
@@ -16,7 +14,11 @@ import { GalleryViewerThumbnailListButtonItem } from '../thumbnail-list/thumbnai
 import { GalleryViewerThumbnailListItem } from '../thumbnail-list/thumbnail-list-item'
 
 test('renders a dialog element when open', async () => {
-  render(<GalleryViewer isOpen>Test content</GalleryViewer>)
+  render(
+    <GalleryViewer isOpen title="Test gallery">
+      Test content
+    </GalleryViewer>,
+  )
   await waitFor(() => expect(screen.getByRole('dialog')).toBeVisible())
 })
 
@@ -42,14 +44,6 @@ test('exposes GalleryViewer.CarouselLayout', () => {
 
 test('exposes GalleryViewer.CarouselTrack', () => {
   expect(GalleryViewer.CarouselTrack).toBe(GalleryViewerCarouselTrack)
-})
-
-test('exposes GalleryViewer.Content', () => {
-  expect(GalleryViewer.Content).toBe(GalleryViewerDialogContent)
-})
-
-test('exposes GalleryViewer.Header', () => {
-  expect(GalleryViewer.Header).toBe(GalleryViewerDialogHeader)
 })
 
 test('exposes GalleryViewer.MediaList', () => {
