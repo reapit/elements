@@ -10,7 +10,7 @@ export namespace GalleryViewerDialogContent {
 }
 
 /**
- * The content area of the gallery viewer dialog. Adjusts layout based on breakpoints.
+ * The content area of the gallery viewer dialog.
  */
 export function GalleryViewerDialogContent({ children, className, ...rest }: GalleryViewerDialogContent.Props) {
   return (
