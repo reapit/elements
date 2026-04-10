@@ -1,6 +1,6 @@
 import { FormControl } from '#src/core/form-control'
 import { TextInput } from '#src/core/text-input'
-import { useId } from 'react'
+import { forwardRef, useId } from 'react'
 
 import type { ReactNode } from 'react'
 
@@ -26,17 +26,10 @@ export namespace TextControl {
  * A pre-baked `TextInput` + `FormControl`. Used when you need a label, help text, and/or error message
  * for a plain text input.
  */
-export function TextControl({
-  errorText,
-  helpText,
-  id,
-  label,
-  maxWidth,
-  required,
-  showValidity,
-  size = 'medium',
-  ...rest
-}: TextControl.Props) {
+export const TextControl = forwardRef<HTMLInputElement, TextControl.Props>(function TextControl(
+  { errorText, helpText, id, label, maxWidth, required, showValidity, size = 'medium', ...rest },
+  ref,
+) {
   const fallbackInputId = useId()
   const inputId = id ?? fallbackInputId
   const helpTextId = useId()
@@ -55,6 +48,7 @@ export function TextControl({
         aria-errormessage={errorText ? errorTextId : undefined}
         aria-invalid={errorText ? true : undefined}
         id={inputId}
+        ref={ref}
         required={required}
         showValidity={showValidity ?? !!errorText}
         size={size}
@@ -66,4 +60,4 @@ export function TextControl({
       )}
     </FormControl>
   )
-}
+})

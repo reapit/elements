@@ -50,3 +50,9 @@ test('respects an explicit showValidity={false} override even when error text is
   render(<CheckboxControl label="Label" errorText="Error text" showValidity={false} />)
   expect(screen.getByRole('checkbox')).toHaveAttribute('data-show-validity', 'false')
 })
+
+test('forwards a ref to the underlying checkbox input element', () => {
+  const ref = { current: null }
+  render(<CheckboxControl label="Label" ref={ref} />)
+  expect(ref.current).toBe(screen.getByRole('checkbox'))
+})

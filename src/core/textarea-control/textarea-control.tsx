@@ -3,7 +3,7 @@ import { Textarea } from '#src/core/textarea'
 import { TextareaWithContentSizing } from '#src/core/textarea/content-sizing/content-sizing'
 import { TextareaWithFixedSizing } from '#src/core/textarea/fixed-sizing/fixed-sizing'
 import { TextareaWithManualSizing } from '#src/core/textarea/manual-sizing/manual-sizing'
-import { useId } from 'react'
+import { forwardRef, useId } from 'react'
 
 import type { ReactNode } from 'react'
 
@@ -33,17 +33,10 @@ export namespace TextareaControl {
  * A pre-baked `Textarea` + `FormControl`. Used when you need a label, help text, and/or error message
  * for a textarea.
  */
-export function TextareaControl({
-  errorText,
-  helpText,
-  id,
-  label,
-  maxWidth,
-  required,
-  showValidity,
-  size = 'medium',
-  ...rest
-}: TextareaControl.Props) {
+export const TextareaControl = forwardRef<HTMLTextAreaElement, TextareaControl.Props>(function TextareaControl(
+  { errorText, helpText, id, label, maxWidth, required, showValidity, size = 'medium', ...rest },
+  ref,
+) {
   const fallbackInputId = useId()
   const inputId = id ?? fallbackInputId
   const helpTextId = useId()
@@ -62,6 +55,7 @@ export function TextareaControl({
         aria-errormessage={errorText ? errorTextId : undefined}
         aria-invalid={errorText ? true : undefined}
         id={inputId}
+        ref={ref}
         required={required}
         showValidity={showValidity ?? !!errorText}
         size={size}
@@ -73,4 +67,4 @@ export function TextareaControl({
       )}
     </FormControl>
   )
-}
+})

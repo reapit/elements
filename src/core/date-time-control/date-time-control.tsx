@@ -1,6 +1,6 @@
 import { DateTimeInput } from '#src/core/date-time-input'
 import { FormControl } from '#src/core/form-control'
-import { useId } from 'react'
+import { forwardRef, useId } from 'react'
 
 import type { ReactNode } from 'react'
 
@@ -26,17 +26,10 @@ export namespace DateTimeControl {
  * A pre-baked `DateTimeInput` + `FormControl`. Used when you need a label, help text, and/or error
  * message for a date/time input.
  */
-export function DateTimeControl({
-  errorText,
-  helpText,
-  id,
-  label,
-  maxWidth,
-  required,
-  showValidity,
-  size = 'medium',
-  ...rest
-}: DateTimeControl.Props) {
+export const DateTimeControl = forwardRef<HTMLInputElement, DateTimeControl.Props>(function DateTimeControl(
+  { errorText, helpText, id, label, maxWidth, required, showValidity, size = 'medium', ...rest },
+  ref,
+) {
   const fallbackInputId = useId()
   const inputId = id ?? fallbackInputId
   const helpTextId = useId()
@@ -55,6 +48,7 @@ export function DateTimeControl({
         aria-errormessage={errorText ? errorTextId : undefined}
         aria-invalid={errorText ? true : undefined}
         id={inputId}
+        ref={ref}
         required={required}
         showValidity={showValidity ?? !!errorText}
         size={size}
@@ -66,4 +60,4 @@ export function DateTimeControl({
       )}
     </FormControl>
   )
-}
+})

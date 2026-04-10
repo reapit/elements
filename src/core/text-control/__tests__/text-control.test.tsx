@@ -105,3 +105,9 @@ test('respects an explicit showValidity={false} override even when error text is
   render(<TextControl label="Label" errorText="Error text" showValidity={false} />)
   expect(screen.getByRole('textbox')).toHaveAttribute('data-show-validity', 'false')
 })
+
+test('forwards a ref to the underlying input element', () => {
+  const ref = { current: null }
+  render(<TextControl label="Label" ref={ref} />)
+  expect(ref.current).toBe(screen.getByRole('textbox'))
+})

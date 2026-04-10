@@ -150,3 +150,13 @@ test('respects an explicit showValidity={false} override even when error text is
   )
   expect(screen.getByRole('combobox')).toHaveAttribute('data-show-validity', 'false')
 })
+
+test('forwards a ref to the underlying select element', () => {
+  const ref = { current: null }
+  render(
+    <SelectNativeControl label="Label" size="medium" ref={ref}>
+      <option value="option1">Option 1</option>
+    </SelectNativeControl>,
+  )
+  expect(ref.current).toBe(screen.getByRole('combobox'))
+})
