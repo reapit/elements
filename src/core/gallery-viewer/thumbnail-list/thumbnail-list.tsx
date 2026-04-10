@@ -5,6 +5,9 @@ import { GalleryViewerThumbnailListButtonItem } from './thumbnail-list-button-it
 import type { ComponentProps } from 'react'
 
 export namespace GalleryViewerThumbnailList {
+  export interface ItemProps extends GalleryViewerThumbnailListItem.Props {}
+  export interface ButtonItemProps extends GalleryViewerThumbnailListButtonItem.Props {}
+
   export interface Props extends ComponentProps<typeof ElGalleryViewerThumbnailList> {}
 }
 

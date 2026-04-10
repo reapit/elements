@@ -15,8 +15,7 @@ export const elGalleryViewerDialog = css`
   container-type: inline-size;
 
   background: var(--colour-fill-white);
-  overflow: clip auto;
-  overscroll-behavior: none;
+  overflow: clip;
 
   /* Full-screen below LG: no rounding, fills the entire viewport */
   border-radius: 0;

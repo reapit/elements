@@ -1,6 +1,5 @@
 import { render, screen } from '@testing-library/react'
 import { GalleryViewerMediaItem } from '../media-item'
-import { GalleryViewerMediaItemCaption } from '../media-item-caption'
 
 test('renders a figure element', () => {
   const { container } = render(<GalleryViewerMediaItem id="item-1">Content</GalleryViewerMediaItem>)
@@ -47,8 +46,4 @@ test('does not set aria-roledescription', () => {
     </GalleryViewerMediaItem>,
   )
   expect(screen.getByTestId('item')).not.toHaveAttribute('aria-roledescription')
-})
-
-test('exposes GalleryViewerMediaItem.Caption', () => {
-  expect(GalleryViewerMediaItem.Caption).toBe(GalleryViewerMediaItemCaption)
 })

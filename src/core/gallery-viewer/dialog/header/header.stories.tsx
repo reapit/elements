@@ -1,6 +1,5 @@
 import { GalleryViewerDialogContext } from '../context'
 import { GalleryViewerDialogHeader } from './header'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
@@ -54,34 +53,6 @@ export const Truncation: Story = {
         }}
       >
         <Story />
-      </div>
-    ),
-  ],
-}
-
-/**
- * By default, the gallery viewer dialog header uses `position: sticky` so that it remains
- * visible as the dialog scrolls. This ensures the title and close action are always accessible
- * when the user is viewing long content.
- */
-export const StickyPositioning: Story = {
-  args: {
-    ...Example.args,
-  },
-  decorators: [
-    (Story) => (
-      <div
-        style={{
-          containerType: 'inline-size',
-          boxSizing: 'border-box',
-          border: '1px solid #FA00FF',
-          maxHeight: '200px',
-          overflow: 'auto',
-          position: 'relative',
-        }}
-      >
-        <Story />
-        <Pattern />
       </div>
     ),
   ],

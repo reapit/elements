@@ -15,4 +15,4 @@ export function GalleryViewerMediaItemCaption({ className, ...rest }: GalleryVie
   return <figcaption {...rest} className={cx(elGalleryViewerMediaItemCaption, className)} />
 }
 
-GalleryViewerMediaItemCaption.displayName = 'GalleryViewer.MediaItemCaption'
+GalleryViewerMediaItemCaption.displayName = 'GalleryViewer.Caption'

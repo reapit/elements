@@ -3,7 +3,6 @@ import { GalleryViewerCarousel } from '../carousel'
 import { GalleryViewerCarouselButton } from '../carousel-button'
 import { GalleryViewerCarouselItem } from '../carousel-item'
 import { GalleryViewerCarouselTrack } from '../carousel-track'
-import { GalleryViewerMediaItemCaption } from '../../media-item/media-item-caption'
 import { setupBrowserStubs } from './stubs'
 
 setupBrowserStubs()
@@ -80,10 +79,6 @@ test('exposes GalleryViewerCarousel.Track', () => {
 
 test('exposes GalleryViewerCarousel.Item', () => {
   expect(GalleryViewerCarousel.Item).toBe(GalleryViewerCarouselItem)
-})
-
-test('exposes GalleryViewerCarousel.ItemCaption', () => {
-  expect(GalleryViewerCarousel.ItemCaption).toBe(GalleryViewerMediaItemCaption)
 })
 
 test('exposes GalleryViewerCarousel.Button', () => {

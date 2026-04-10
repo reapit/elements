@@ -1,5 +1,5 @@
 import { GalleryViewerMediaItem } from './media-item'
-import { GalleryViewerMediaItemCaption } from './media-item-caption'
+import { GalleryViewerMediaItemCaption } from '../media-item-caption'
 import { Image } from '#src/utils/image'
 import { Video } from '#src/utils/video'
 

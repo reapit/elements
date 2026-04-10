@@ -1,3 +1,4 @@
+import { GalleryViewerMediaItemCaption } from '../media-item-caption'
 import { GalleryViewerMediaList } from './media-list'
 import { Image } from '#src/utils/image'
 import { Video } from '#src/utils/video'
@@ -26,11 +27,11 @@ export const Example: Story = {
       <>
         <GalleryViewerMediaList.Item id="item-1">
           <Image alt="Front view" height="100%" objectFit="cover" src={EXAMPLE_IMAGE_1} width="100%" />
-          <GalleryViewerMediaList.ItemCaption>Front view</GalleryViewerMediaList.ItemCaption>
+          <GalleryViewerMediaItemCaption>Front view</GalleryViewerMediaItemCaption>
         </GalleryViewerMediaList.Item>
         <GalleryViewerMediaList.Item id="item-2">
           <Image alt="Garden view" height="100%" objectFit="cover" src={EXAMPLE_IMAGE_2} width="100%" />
-          <GalleryViewerMediaList.ItemCaption>Garden view</GalleryViewerMediaList.ItemCaption>
+          <GalleryViewerMediaItemCaption>Garden view</GalleryViewerMediaItemCaption>
         </GalleryViewerMediaList.Item>
         <GalleryViewerMediaList.Item id="item-3">
           <Image alt="Living room" height="100%" objectFit="cover" src={EXAMPLE_IMAGE_3} width="100%" />

@@ -1,12 +1,10 @@
 import { ElGalleryViewerMediaList } from './styles'
 import { GalleryViewerMediaListItem } from './media-list-item'
-import { GalleryViewerMediaItemCaption } from '../media-item'
 
 import type { ComponentProps } from 'react'
 
 export namespace GalleryViewerMediaList {
   export interface ItemProps extends GalleryViewerMediaListItem.Props {}
-  export interface ItemCaptionProps extends GalleryViewerMediaItemCaption.Props {}
   export interface Props extends ComponentProps<typeof ElGalleryViewerMediaList> {}
 }
 
@@ -21,4 +19,3 @@ export function GalleryViewerMediaList({ children, ...rest }: GalleryViewerMedia
 GalleryViewerMediaList.displayName = 'GalleryViewer.MediaList'
 
 GalleryViewerMediaList.Item = GalleryViewerMediaListItem
-GalleryViewerMediaList.ItemCaption = GalleryViewerMediaItemCaption

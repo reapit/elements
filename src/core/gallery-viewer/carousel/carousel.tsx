@@ -11,7 +11,6 @@ import type { HTMLAttributes } from 'react'
 
 export namespace GalleryViewerCarousel {
   export interface ButtonProps extends GalleryViewerCarouselButton.Props {}
-  export interface ItemCaptionProps extends GalleryViewerCarouselItem.CaptionProps {}
   export interface ItemProps extends GalleryViewerCarouselItem.Props {}
   export interface TrackProps extends GalleryViewerCarouselTrack.Props {}
 
@@ -82,5 +81,4 @@ GalleryViewerCarousel.displayName = 'GalleryViewer.Carousel'
 
 GalleryViewerCarousel.Track = GalleryViewerCarouselTrack
 GalleryViewerCarousel.Item = GalleryViewerCarouselItem
-GalleryViewerCarousel.ItemCaption = GalleryViewerCarouselItem.Caption
 GalleryViewerCarousel.Button = GalleryViewerCarouselButton

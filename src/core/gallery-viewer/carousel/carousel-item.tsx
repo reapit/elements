@@ -3,7 +3,6 @@ import { GalleryViewerMediaItem } from '../media-item'
 import { elGalleryViewerCarouselItem } from './styles'
 
 export namespace GalleryViewerCarouselItem {
-  export interface CaptionProps extends GalleryViewerMediaItem.CaptionProps {}
   export interface Props extends GalleryViewerMediaItem.Props {}
 }
 
@@ -27,4 +26,3 @@ export function GalleryViewerCarouselItem({ className, ...props }: GalleryViewer
 }
 
 GalleryViewerCarouselItem.displayName = 'GalleryViewer.CarouselItem'
-GalleryViewerCarouselItem.Caption = GalleryViewerMediaItem.Caption

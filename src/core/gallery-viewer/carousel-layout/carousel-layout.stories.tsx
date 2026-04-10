@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { GalleryViewerCarouselLayout } from './carousel-layout'
 import { GalleryViewerCarousel } from '#src/core/gallery-viewer/carousel'
+import { GalleryViewerMediaItemCaption } from '../media-item-caption'
 import { GalleryViewerThumbnailList } from '#src/core/gallery-viewer/thumbnail-list'
 import { ChipSelect } from '#src/core/chip-select'
 import { Image } from '#src/utils/image'
@@ -100,7 +101,7 @@ export const Example: Story = {
                   ) : (
                     <Video controls height="100%" objectFit="contain" src={item.src} width="100%" />
                   )}
-                  <GalleryViewerCarousel.ItemCaption>{item.label}</GalleryViewerCarousel.ItemCaption>
+                  <GalleryViewerMediaItemCaption>{item.label}</GalleryViewerMediaItemCaption>
                 </GalleryViewerCarousel.Item>
               ))}
             </GalleryViewerCarousel.Track>

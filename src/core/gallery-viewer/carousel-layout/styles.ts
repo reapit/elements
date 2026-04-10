@@ -31,4 +31,5 @@ export const elGalleryViewerCarouselLayoutSidebar = css`
   width: var(--gallery-viewer-carousel-layout-sidebar-inline-size);
   padding: var(--spacing-8);
   overflow-y: auto;
+  overscroll-behavior: none;
 `

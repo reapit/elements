@@ -1,5 +1,4 @@
 import { GalleryViewerDialog } from './dialog'
-import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { useArgs } from 'storybook/preview-api'
 import { useState } from 'react'
 
@@ -63,27 +62,6 @@ export const ClosedBy: Story = {
   },
 }
 
-/**
- * When the dialog content exceeds the available height, the dialog itself scrolls. The header
- * remains sticky at the top of the dialog viewport throughout, keeping the title and close
- * action visible at all times.
- */
-export const Scrolling: Story = {
-  args: {
-    children: <ScrollingContent />,
-    closedBy: 'any',
-  },
-  render: function Scrolling(args) {
-    const [isOpen, setIsOpen] = useState(false)
-    return (
-      <>
-        <button onClick={() => setIsOpen(true)}>Open Gallery</button>
-        <GalleryViewerDialog onClose={() => setIsOpen(false)} {...args} isOpen={isOpen} />
-      </>
-    )
-  },
-}
-
 function ExampleContent() {
   return (
     <>
@@ -103,17 +81,6 @@ function ExampleContent() {
         >
           Gallery content goes here
         </div>
-      </GalleryViewerDialog.Content>
-    </>
-  )
-}
-
-function ScrollingContent() {
-  return (
-    <>
-      <GalleryViewerDialog.Header>10 High Street, Great Horwood, Buckinghamshire, MK17 0QL</GalleryViewerDialog.Header>
-      <GalleryViewerDialog.Content>
-        <Pattern height="800px" />
       </GalleryViewerDialog.Content>
     </>
   )

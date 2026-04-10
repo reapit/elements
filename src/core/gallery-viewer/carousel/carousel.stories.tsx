@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { GalleryViewerCarousel } from './carousel'
+import { GalleryViewerMediaItemCaption } from '../media-item-caption'
 import { ChipSelect } from '#src/core/chip-select'
 import { Image } from '#src/utils/image'
 import { Video } from '#src/utils/video'
@@ -45,17 +46,17 @@ export const Example: Story = {
         <GalleryViewerCarousel.Track>
           <GalleryViewerCarousel.Item id="item-1">
             <Image alt="Photo 1" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[0]} width="100%" />
-            <GalleryViewerCarousel.ItemCaption>Photo 1</GalleryViewerCarousel.ItemCaption>
+            <GalleryViewerMediaItemCaption>Photo 1</GalleryViewerMediaItemCaption>
           </GalleryViewerCarousel.Item>
 
           <GalleryViewerCarousel.Item id="item-2">
             <Image alt="Photo 2" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[1]} width="100%" />
-            <GalleryViewerCarousel.ItemCaption>Photo 2</GalleryViewerCarousel.ItemCaption>
+            <GalleryViewerMediaItemCaption>Photo 2</GalleryViewerMediaItemCaption>
           </GalleryViewerCarousel.Item>
 
           <GalleryViewerCarousel.Item id="item-3">
             <Image alt="Photo 3" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[2]} width="100%" />
-            <GalleryViewerCarousel.ItemCaption>Photo 3</GalleryViewerCarousel.ItemCaption>
+            <GalleryViewerMediaItemCaption>Photo 3</GalleryViewerMediaItemCaption>
           </GalleryViewerCarousel.Item>
         </GalleryViewerCarousel.Track>
         <GalleryViewerCarousel.Button aria-label="Next" direction="next" />
@@ -85,9 +86,9 @@ export const Controlled: Story = {
           {EXAMPLE_IMAGES.map((src, i) => (
             <GalleryViewerCarousel.Item id={ids[i]} key={ids[i]}>
               <Image alt={`Photo ${i + 1}`} height="100%" objectFit="cover" src={src} width="100%" />
-              <GalleryViewerCarousel.ItemCaption>
+              <GalleryViewerMediaItemCaption>
                 Photo {i + 1} of {ids.length}
-              </GalleryViewerCarousel.ItemCaption>
+              </GalleryViewerMediaItemCaption>
             </GalleryViewerCarousel.Item>
           ))}
         </GalleryViewerCarousel.Track>
@@ -109,7 +110,7 @@ export const VideoItem: Story = {
         <GalleryViewerCarousel.Track>
           <GalleryViewerCarousel.Item id="photo-1">
             <Image alt="House exterior" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[0]} width="100%" />
-            <GalleryViewerCarousel.ItemCaption>Photo</GalleryViewerCarousel.ItemCaption>
+            <GalleryViewerMediaItemCaption>Photo</GalleryViewerMediaItemCaption>
           </GalleryViewerCarousel.Item>
           <GalleryViewerCarousel.Item id="video-1">
             <Video controls height="100%" objectFit="contain" src={EXAMPLE_VIDEO_SRC} width="100%" />
@@ -227,19 +228,19 @@ export const Filtered: Story = {
             {showPhotos && (
               <GalleryViewerCarousel.Item id="photo-1" key="photo-1">
                 <Image alt="Photo 1" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[0]} width="100%" />
-                <GalleryViewerCarousel.ItemCaption>Photo 1</GalleryViewerCarousel.ItemCaption>
+                <GalleryViewerMediaItemCaption>Photo 1</GalleryViewerMediaItemCaption>
               </GalleryViewerCarousel.Item>
             )}
             {showPhotos && (
               <GalleryViewerCarousel.Item id="photo-2" key="photo-2">
                 <Image alt="Photo 2" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[1]} width="100%" />
-                <GalleryViewerCarousel.ItemCaption>Photo 2</GalleryViewerCarousel.ItemCaption>
+                <GalleryViewerMediaItemCaption>Photo 2</GalleryViewerMediaItemCaption>
               </GalleryViewerCarousel.Item>
             )}
             {showVideo && (
               <GalleryViewerCarousel.Item id="video-1" key="video-1">
                 <Video controls height="100%" objectFit="contain" src={EXAMPLE_VIDEO_SRC} width="100%" />
-                <GalleryViewerCarousel.ItemCaption>Video 1</GalleryViewerCarousel.ItemCaption>
+                <GalleryViewerMediaItemCaption>Video 1</GalleryViewerMediaItemCaption>
               </GalleryViewerCarousel.Item>
             )}
           </GalleryViewerCarousel.Track>

@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { GalleryViewerMediaItemCaption } from '../media-item-caption'
 import { GalleryViewerMediaListLayout } from './media-list-layout'
 import { GalleryViewerMediaList } from '#src/core/gallery-viewer/media-list'
 import { ChipSelect } from '#src/core/chip-select'
@@ -97,7 +98,7 @@ export const Example: Story = {
               ) : (
                 <Video controls height="100%" objectFit="contain" src={item.src} width="100%" />
               )}
-              <GalleryViewerMediaList.ItemCaption>{item.label}</GalleryViewerMediaList.ItemCaption>
+              <GalleryViewerMediaItemCaption>{item.label}</GalleryViewerMediaItemCaption>
             </GalleryViewerMediaList.Item>
           ))}
         </GalleryViewerMediaList>

@@ -26,7 +26,3 @@ test('forwards additional props to the <ul> element', () => {
 test('exposes GalleryViewerMediaList.Item', () => {
   expect(GalleryViewerMediaList.Item).toBeDefined()
 })
-
-test('exposes GalleryViewerMediaList.ItemCaption', () => {
-  expect(GalleryViewerMediaList.ItemCaption).toBeDefined()
-})

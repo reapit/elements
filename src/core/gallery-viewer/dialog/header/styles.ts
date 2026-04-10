@@ -3,9 +3,6 @@ import { font } from '#src/utils/font'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 
 export const elGalleryViewerDialogHeader = css`
-  position: sticky;
-  top: 0;
-
   display: flex;
   align-items: center;
   flex-shrink: 0;
@@ -15,8 +12,6 @@ export const elGalleryViewerDialogHeader = css`
   padding: 0 var(--spacing-2) 0 var(--spacing-5);
   background: var(--colour-fill-white);
   border-bottom: var(--border-width-default) solid var(--colour-border-neutral-light-default);
-
-  z-index: var(--z-index-sticky);
 
   @container ${isWidthAtOrAbove('SM')} {
     padding-left: var(--spacing-8);
