@@ -4,7 +4,16 @@ import { GalleryViewerCarouselItem } from '../carousel-item'
 import { GalleryViewerCarouselTrack } from '../carousel-track'
 import { setupBrowserStubs } from './stubs'
 
-const { getIntersectionCallback, getMutationCallback, getObservedElements, getUnobservedElements } = setupBrowserStubs()
+const { getIntersectionCallback, getMutationCallback, getObservedElements, getUnobservedElements, fireScrollEnd } =
+  setupBrowserStubs()
+
+beforeEach(() => {
+  vi.useFakeTimers()
+})
+
+afterEach(() => {
+  vi.useRealTimers()
+})
 
 function fireIntersection(target: Element, intersectionRatio: number) {
   getIntersectionCallback()?.(
@@ -15,6 +24,12 @@ function fireIntersection(target: Element, intersectionRatio: number) {
 
 function fireMutation(mutations: { addedNodes: Node[]; removedNodes: Node[] }[]) {
   getMutationCallback()?.(mutations as unknown as MutationRecord[], {} as MutationObserver)
+}
+
+function triggerScrollEnd() {
+  // Dispatch a scroll event to start the debounce, then advance timers past 50 ms.
+  fireScrollEnd()
+  vi.runAllTimers()
 }
 
 test('removes inert from the item that enters view', () => {
@@ -51,22 +66,7 @@ test('sets inert on items not in view', () => {
   expect(screen.getByTestId('item-1')).toHaveAttribute('inert')
 })
 
-test('does not fire onChange when intersection ratio is below threshold', () => {
-  const onChange = vi.fn()
-  render(
-    <GalleryViewerCarousel aria-label="Property photos" onChange={onChange}>
-      <GalleryViewerCarouselTrack>
-        <GalleryViewerCarouselItem id="item-1" data-testid="item-1">
-          Content
-        </GalleryViewerCarouselItem>
-      </GalleryViewerCarouselTrack>
-    </GalleryViewerCarousel>,
-  )
-  fireIntersection(screen.getByTestId('item-1'), 0.4)
-  expect(onChange).not.toHaveBeenCalled()
-})
-
-test('calls onChange with the item id when a new item enters view', () => {
+test('calls onChange with the item id when the scroll settles on a new item', () => {
   const onChange = vi.fn()
   render(
     <GalleryViewerCarousel aria-label="Property photos" onChange={onChange} value="item-1">
@@ -81,10 +81,11 @@ test('calls onChange with the item id when a new item enters view', () => {
     </GalleryViewerCarousel>,
   )
   fireIntersection(screen.getByTestId('item-2'), 0.6)
+  triggerScrollEnd()
   expect(onChange).toHaveBeenCalledWith('item-2')
 })
 
-test('does not call onChange when the already-active item is re-observed', () => {
+test('does not call onChange when the scroll settles on the already-active item', () => {
   const onChange = vi.fn()
   render(
     <GalleryViewerCarousel aria-label="Property photos" onChange={onChange} value="item-1">
@@ -96,7 +97,157 @@ test('does not call onChange when the already-active item is re-observed', () =>
     </GalleryViewerCarousel>,
   )
   fireIntersection(screen.getByTestId('item-1'), 1.0)
+  triggerScrollEnd()
   expect(onChange).not.toHaveBeenCalled()
+})
+
+test('calls onChange exactly once when scrollend fires', () => {
+  const onChange = vi.fn()
+  render(
+    <GalleryViewerCarousel aria-label="Property photos" onChange={onChange} value="item-1">
+      <GalleryViewerCarouselTrack>
+        <GalleryViewerCarouselItem id="item-1" data-testid="item-1">
+          Content 1
+        </GalleryViewerCarouselItem>
+        <GalleryViewerCarouselItem id="item-2" data-testid="item-2">
+          Content 2
+        </GalleryViewerCarouselItem>
+      </GalleryViewerCarouselTrack>
+    </GalleryViewerCarousel>,
+  )
+  fireIntersection(screen.getByTestId('item-2'), 0.8)
+  triggerScrollEnd()
+  expect(onChange).toHaveBeenCalledTimes(1)
+})
+
+test('does not call onChange a second time when scrollend fires again on the same settled item', () => {
+  const onChange = vi.fn()
+  render(
+    <GalleryViewerCarousel aria-label="Property photos" onChange={onChange} value="item-1">
+      <GalleryViewerCarouselTrack>
+        <GalleryViewerCarouselItem id="item-1" data-testid="item-1">
+          Content 1
+        </GalleryViewerCarouselItem>
+        <GalleryViewerCarouselItem id="item-2" data-testid="item-2">
+          Content 2
+        </GalleryViewerCarouselItem>
+      </GalleryViewerCarouselTrack>
+    </GalleryViewerCarousel>,
+  )
+  fireIntersection(screen.getByTestId('item-2'), 0.8)
+  triggerScrollEnd()
+  expect(onChange).toHaveBeenCalledTimes(1)
+
+  // A second scrollend on the same item (e.g. scroll-snap micro-adjustment)
+  // must not fire onChange again.
+  triggerScrollEnd()
+  expect(onChange).toHaveBeenCalledTimes(1)
+})
+
+test('does not call onChange in uncontrolled mode when scroll-snap returns the user to the same item', () => {
+  const onChange = vi.fn()
+  render(
+    <GalleryViewerCarousel aria-label="Property photos" onChange={onChange}>
+      <GalleryViewerCarouselTrack>
+        <GalleryViewerCarouselItem id="item-1" data-testid="item-1">
+          Content 1
+        </GalleryViewerCarouselItem>
+        <GalleryViewerCarouselItem id="item-2" data-testid="item-2">
+          Content 2
+        </GalleryViewerCarouselItem>
+      </GalleryViewerCarouselTrack>
+    </GalleryViewerCarousel>,
+  )
+  // User swipes to item-2.
+  fireIntersection(screen.getByTestId('item-2'), 0.8)
+  triggerScrollEnd()
+  expect(onChange).toHaveBeenCalledWith('item-2')
+  expect(onChange).toHaveBeenCalledTimes(1)
+
+  // User scrolls slightly but scroll-snap returns them to item-2 — no repeat call.
+  triggerScrollEnd()
+  expect(onChange).toHaveBeenCalledTimes(1)
+})
+
+test('does not call onChange for intermediate items during a programmatic scroll — only the settled item', () => {
+  const onChange = vi.fn()
+
+  function Carousel({ value }: { value: string }) {
+    return (
+      <GalleryViewerCarousel aria-label="Property photos" onChange={onChange} value={value}>
+        <GalleryViewerCarouselTrack>
+          <GalleryViewerCarouselItem id="item-1" data-testid="item-1">
+            Content 1
+          </GalleryViewerCarouselItem>
+          <GalleryViewerCarouselItem id="item-2" data-testid="item-2">
+            Content 2
+          </GalleryViewerCarouselItem>
+          <GalleryViewerCarouselItem id="item-3" data-testid="item-3">
+            Content 3
+          </GalleryViewerCarouselItem>
+          <GalleryViewerCarouselItem id="item-4" data-testid="item-4">
+            Content 4
+          </GalleryViewerCarouselItem>
+        </GalleryViewerCarouselTrack>
+      </GalleryViewerCarousel>
+    )
+  }
+
+  const { rerender } = render(<Carousel value="item-1" />)
+
+  // Programmatic jump from item-1 to item-4.
+  rerender(<Carousel value="item-4" />)
+
+  // Simulate the smooth scroll animation: intermediate items cross the threshold.
+  fireIntersection(screen.getByTestId('item-2'), 0.6)
+  fireIntersection(screen.getByTestId('item-3'), 0.6)
+
+  // The target item arrives.
+  fireIntersection(screen.getByTestId('item-4'), 0.6)
+
+  // Scroll settles — onChange must not fire since value already equals settled item.
+  triggerScrollEnd()
+
+  expect(onChange).not.toHaveBeenCalled()
+})
+
+test('calls onChange normally for a user swipe after a programmatic scroll has settled', () => {
+  const onChange = vi.fn()
+
+  function Carousel({ value }: { value: string }) {
+    return (
+      <GalleryViewerCarousel aria-label="Property photos" onChange={onChange} value={value}>
+        <GalleryViewerCarouselTrack>
+          <GalleryViewerCarouselItem id="item-1" data-testid="item-1">
+            Content 1
+          </GalleryViewerCarouselItem>
+          <GalleryViewerCarouselItem id="item-2" data-testid="item-2">
+            Content 2
+          </GalleryViewerCarouselItem>
+          <GalleryViewerCarouselItem id="item-3" data-testid="item-3">
+            Content 3
+          </GalleryViewerCarouselItem>
+        </GalleryViewerCarouselTrack>
+      </GalleryViewerCarousel>
+    )
+  }
+
+  const { rerender } = render(<Carousel value="item-1" />)
+
+  // Programmatic jump to item-3.
+  rerender(<Carousel value="item-3" />)
+
+  // Scroll settles on target — no onChange since value already matches.
+  fireIntersection(screen.getByTestId('item-3'), 0.6)
+  triggerScrollEnd()
+  expect(onChange).not.toHaveBeenCalled()
+
+  // User swipes back to item-2.
+  fireIntersection(screen.getByTestId('item-2'), 0.6)
+  triggerScrollEnd()
+
+  expect(onChange).toHaveBeenCalledWith('item-2')
+  expect(onChange).toHaveBeenCalledTimes(1)
 })
 
 test('does not scroll when defaultValue changes after mount', () => {
@@ -125,24 +276,6 @@ test('does not scroll when defaultValue changes after mount', () => {
   rerender(<Carousel defaultValue="item-2" />)
 
   expect(scrollIntoView).not.toHaveBeenCalled()
-})
-
-test('calls onChange exactly once when the observer fires', () => {
-  const onChange = vi.fn()
-  render(
-    <GalleryViewerCarousel aria-label="Property photos" onChange={onChange} value="item-1">
-      <GalleryViewerCarouselTrack>
-        <GalleryViewerCarouselItem id="item-1" data-testid="item-1">
-          Content 1
-        </GalleryViewerCarouselItem>
-        <GalleryViewerCarouselItem id="item-2" data-testid="item-2">
-          Content 2
-        </GalleryViewerCarouselItem>
-      </GalleryViewerCarouselTrack>
-    </GalleryViewerCarousel>,
-  )
-  fireIntersection(screen.getByTestId('item-2'), 0.8)
-  expect(onChange).toHaveBeenCalledTimes(1)
 })
 
 // --- MutationObserver: dynamic item set ---

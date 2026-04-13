@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { createIntersectionCallback } from './create-intersection-callback'
+import { onScrollEnd } from './on-scroll-end'
 import { scrollToItem } from './scroll-to-item'
 
 import type { MutableRefObject, RefObject } from 'react'
@@ -25,8 +26,10 @@ export namespace useCarouselScroll {
  *
  * Responsibilities:
  * - Scrolls to `value` on mount (instant) and when `value` changes (smooth).
- * - Uses `IntersectionObserver` to detect which item has settled into view and fires `onChange`.
- * - Manages `inert` on items directly via DOM manipulation to avoid re-renders.
+ * - Uses `IntersectionObserver` to track which item is in view, manage `inert`,
+ *   and keep `activeItemRef` current.
+ * - Fires `onChange` via a `scrollend` listener once the scroll settles, naturally
+ *   skipping intermediate items without any flag management.
  * - Uses `ResizeObserver` to re-snap the container to the correct item after a resize.
  */
 export function useCarouselScroll(
@@ -40,11 +43,29 @@ export function useCarouselScroll(
   const initialDefaultValueRef = useRef(defaultValue)
   const targetValue = value ?? initialDefaultValueRef.current
 
-  // When the IntersectionObserver fires onChange, the parent may call setState,
-  // which re-renders and changes `value`, which would trigger the scroll effect
-  // below — fighting the already-in-progress snap animation. This flag lets the
-  // scroll effect skip the redundant scrollIntoView in that case.
+  // When the MutationObserver fires onChange (active item removed), the parent
+  // may call setState, which re-renders and changes `value`, which would trigger
+  // the scroll effect below — fighting the already-in-progress instant snap.
+  // This flag lets the scroll effect skip the redundant scrollIntoView.
   const isObserverChangeRef = useRef(false)
+
+  // Refs that always hold the latest props without being effect dependencies.
+  // Assigning during render (not in an effect) guarantees they are current before
+  // any effect reads them. This keeps the detectItemInView effect dependency list
+  // stable so the IntersectionObserver, MutationObserver, and scrollend listener
+  // are not torn down and recreated on every controlled value change.
+  const valueRef = useRef(value)
+  valueRef.current = value
+
+  const onChangeRef = useRef(onChange)
+  onChangeRef.current = onChange
+
+  // Tracks the last id reported via onChange. Seeded with the initial active
+  // item id (targetValue) so that a snap-back to the starting item is correctly
+  // suppressed in both uncontrolled (defaultValue) and controlled modes.
+  // Updated whenever onChange fires to prevent redundant calls when scroll-snap
+  // returns the user to an already-reported item.
+  const lastEmittedRef = useRef<string | undefined>(targetValue)
 
   // Tracks whether the initial programmatic scroll has been performed.
   // - Starts false when there is a targetValue, so the first scroll is instant.
@@ -64,8 +85,8 @@ export function useCarouselScroll(
       activeItemRef.current = targetValue
 
       // Skip programmatic scroll when the value change was triggered by the
-      // IntersectionObserver (i.e. the user swiped). The snap animation is
-      // already in progress; calling scrollIntoView would fight it.
+      // MutationObserver (active item removed). The instant snap is already done;
+      // calling scrollIntoView would fight it.
       if (isObserverChangeRef.current) {
         isObserverChangeRef.current = false
         return
@@ -77,9 +98,10 @@ export function useCarouselScroll(
     [containerRef, targetValue],
   )
 
-  // IntersectionObserver — detect which item settles into view after a swipe.
+  // IntersectionObserver — track which item is in view (inert + activeItemRef).
   // MutationObserver — keep the IntersectionObserver in sync when children are
   // added or removed (e.g. when the consumer filters the visible items).
+  // scrollend — fire onChange once the scroll settles (skips intermediates naturally).
   useEffect(
     function detectItemInView() {
       const container = containerRef.current
@@ -88,8 +110,6 @@ export function useCarouselScroll(
       const callback = createIntersectionCallback({
         container,
         activeItemRef,
-        isObserverChangeRef,
-        onChange,
       })
 
       const observer = new IntersectionObserver(callback, { root: container, threshold: 0.5 })
@@ -98,6 +118,19 @@ export function useCarouselScroll(
       for (const item of items) {
         observer.observe(item)
       }
+
+      // Fire onChange when the scroll settles. activeItemRef is kept current by
+      // the IntersectionObserver callback, so reading it here gives the item that
+      // is actually in view after the animation finishes — naturally skipping any
+      // intermediate items that momentarily crossed the 0.5 threshold during a
+      // programmatic smooth scroll.
+      const removeScrollEndListener = onScrollEnd(container, () => {
+        const settledId = activeItemRef.current
+        if (settledId && settledId !== valueRef.current && settledId !== lastEmittedRef.current) {
+          lastEmittedRef.current = settledId
+          onChangeRef.current?.(settledId)
+        }
+      })
 
       const mutationObserver = new MutationObserver((mutations) => {
         let activeItemRemoved = false
@@ -141,11 +174,12 @@ export function useCarouselScroll(
           const newId = firstChild.id
           if (newId && newId !== activeItemRef.current) {
             activeItemRef.current = newId
+            lastEmittedRef.current = newId
             // Set the flag before calling onChange so that the scroll effect
             // triggered by the controlled value update skips its scrollIntoView
             // call and does not fight the instant snap already performed above.
             isObserverChangeRef.current = true
-            onChange?.(newId)
+            onChangeRef.current?.(newId)
           }
         } else {
           // The active item is still present. Reconcile inert across all
@@ -171,9 +205,10 @@ export function useCarouselScroll(
       return () => {
         observer.disconnect()
         mutationObserver.disconnect()
+        removeScrollEndListener()
       }
     },
-    [containerRef, activeItemRef, onChange],
+    [containerRef, activeItemRef],
   )
 
   // ResizeObserver — re-snap to the current item after a container resize.
