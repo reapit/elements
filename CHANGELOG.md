@@ -1,5 +1,27 @@
 # @reapit/elements
 
+## 5.0.0-beta.88
+
+### Major Changes
+
+- **[Changed]** `GalleryViewer.Thumbnail` `aria-current` prop now accepts `"location"` instead of `"page"`. Update any usage of `aria-current="page"` to `aria-current="location"`. ([#1292](https://github.com/reapit-global/gbl-ds-elements/pull/1292))
+
+### Minor Changes
+
+- **[Added]** `GalleryViewer` component. Composes the gallery viewer subcomponents — `GalleryViewer.Header`, `GalleryViewer.Content`, `GalleryViewer.CarouselLayout`, `GalleryViewer.MediaListLayout`, `GalleryViewer.Carousel`, `GalleryViewer.MediaList`, and `GalleryViewer.Caption` — under a single import. ([#1284](https://github.com/reapit-global/gbl-ds-elements/pull/1284))
+
+- **[Added]** `GalleryViewerCarouselLayout` and `GalleryViewerMediaListLayout` layout components for the gallery viewer. `GalleryViewerCarouselLayout` provides a two-column layout; `GalleryViewerMediaListLayout` provides a single-column stacked layout. ([#1281](https://github.com/reapit-global/gbl-ds-elements/pull/1281))
+
+- **[Added]** `TextControl`, `TextareaControl`, `SelectNativeControl`, `CheckboxControl`, and `DateTimeControl` now forward refs to their underlying input elements. ([#1283](https://github.com/reapit-global/gbl-ds-elements/pull/1283))
+
+- **[Changed]** `GalleryViewerDialog.Content` no longer applies padding. Padding is now the responsibility of the layout components (`GalleryViewerCarouselLayout` and `GalleryViewerMediaListLayout`) placed inside `Content`. ([#1281](https://github.com/reapit-global/gbl-ds-elements/pull/1281))
+
+### Patch Changes
+
+- **[Fixed]** `GalleryViewer.Carousel` no longer calls `onChange` for intermediate items that cross the viewport threshold during a programmatic smooth scroll. ([#1285](https://github.com/reapit-global/gbl-ds-elements/pull/1285))
+
+- **[Fixed]** `GalleryViewer.CarouselLayout` no longer overflows the dialog height. Each layout component now manages its own scroll: `MediaListLayout` scrolls internally and `CarouselLayout` remains fully contained within the available space. ([#1284](https://github.com/reapit-global/gbl-ds-elements/pull/1284))
+
 ## 5.0.0-beta.87
 
 ### Major Changes
