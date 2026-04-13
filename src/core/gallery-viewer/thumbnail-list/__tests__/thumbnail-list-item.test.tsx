@@ -21,11 +21,11 @@ test('renders an <a> element as child of a <li>', () => {
 test('forwards additional props to the underlying GalleryViewerThumbnail', () => {
   render(
     <GalleryViewerThumbnailListItem
-      aria-current="page"
+      aria-current="location"
       aria-label="View photo 1"
       href="/gallery?image=1"
       src="https://fake.url/for/image.jpg"
     />,
   )
-  expect(screen.getByRole('link', { name: 'View photo 1' })).toHaveAttribute('aria-current', 'page')
+  expect(screen.getByRole('link', { name: 'View photo 1' })).toHaveAttribute('aria-current', 'location')
 })

@@ -29,7 +29,7 @@ export const elGalleryViewerThumbnail = css`
   }
 
   /* Selected ring */
-  &[aria-current='page'],
+  &[aria-current='location'],
   &[aria-pressed='true'] {
     outline: var(--border-width-double) solid var(--colour-border-action-default);
     outline-offset: var(--border-width-default);

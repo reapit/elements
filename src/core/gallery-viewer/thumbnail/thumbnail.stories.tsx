@@ -11,7 +11,7 @@ const meta: Meta<typeof GalleryViewerThumbnail> = {
   argTypes: {
     'aria-current': {
       control: 'radio',
-      options: ['page', false],
+      options: ['location', false],
     },
     isVideo: {
       control: 'boolean',
@@ -41,13 +41,13 @@ export const Example: Story = {
 }
 
 /**
- * When `aria-current="page"` is set, the thumbnail displays a highlighted border
+ * When `aria-current="location"` is set, the thumbnail displays a highlighted border
  * to indicate the currently selected item.
  */
 export const Selected: Story = {
   args: {
     ...Example.args,
-    'aria-current': 'page',
+    'aria-current': 'location',
   },
 }
 

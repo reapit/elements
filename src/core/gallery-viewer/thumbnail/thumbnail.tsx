@@ -6,9 +6,9 @@ export namespace GalleryViewerThumbnail {
   export interface Props extends GalleryViewerThumbnailBase.CommonProps, AnchorHTMLAttributes<HTMLAnchorElement> {
     /**
      * Indicates whether this thumbnail represents the currently selected item.
-     * Pass `"page"` when selected, `false` otherwise.
+     * Pass `"location"` when selected, `false` otherwise.
      */
-    'aria-current': 'page' | false
+    'aria-current': 'location' | false
     /**
      * The accessible name of the thumbnail. Should be action-oriented, not simply a description of
      * the thumbnail's image.

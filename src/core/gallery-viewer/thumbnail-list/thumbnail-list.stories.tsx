@@ -32,7 +32,7 @@ export const Example: Story = {
     children: (
       <>
         <GalleryViewerThumbnailList.Item
-          aria-current="page"
+          aria-current="location"
           aria-label="View photo 1"
           href="#1"
           src={EXAMPLE_IMAGE_SRC}

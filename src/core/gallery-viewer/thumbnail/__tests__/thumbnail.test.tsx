@@ -25,16 +25,16 @@ test('navigates to the provided href', () => {
   expect(screen.getByRole('link')).toHaveAttribute('href', '/gallery?image=1')
 })
 
-test('sets aria-current="page" when selected', () => {
+test('sets aria-current="location" when selected', () => {
   render(
     <GalleryViewerThumbnail
       href="/gallery?image=1"
-      aria-current="page"
+      aria-current="location"
       aria-label="View image 1"
       src="https://fake.url/for/image.jpg"
     />,
   )
-  expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'page')
+  expect(screen.getByRole('link')).toHaveAttribute('aria-current', 'location')
 })
 
 test('sets aria-current="false" when not selected', () => {

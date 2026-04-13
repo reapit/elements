@@ -36,9 +36,9 @@ export namespace GalleryViewerThumbnailBase {
     'aria-label': string
     /**
      * Indicates whether this thumbnail represents the currently selected item.
-     * Pass `"page"` when selected, `false` otherwise.
+     * Pass `"location"` when selected, `false` otherwise.
      */
-    'aria-current': 'page' | false
+    'aria-current': 'location' | false
     /** The URL this thumbnail navigates to when activated. */
     href: string
   }
