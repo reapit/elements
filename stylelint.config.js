@@ -1,7 +1,29 @@
 /** @type {import('stylelint').Config} */
 export default {
   customSyntax: '@linaria/postcss-linaria',
+  plugins: ['stylelint-no-unsupported-browser-features'],
   rules: {
+    // Zero-support violations are reported as errors. Partial-support violations are suppressed
+    // via ignorePartialSupport, because caniuse groups CSS features coarsely: a single entry can
+    // cover both fully-supported sub-properties and unsupported ones (e.g. `column-gap` within
+    // `multicolumn`, `text-decoration-style` within `text-decoration`).
+    'plugin/no-unsupported-browser-features': [
+      'error',
+      {
+        severity: 'error',
+        ignorePartialSupport: true,
+        ignore: [
+          // Touch devices have no resize handles, so the property has no effect on iOS Safari.
+          'css-resize',
+          // iOS Safari 18.2–26.1 renders unstyled scrollbars; the visual difference is acceptable.
+          // Support arrives in iOS Safari 26.2 (Baseline 2025).
+          'css-scrollbar',
+          // Touch devices have no cursor, so custom cursor values have no effect on iOS Safari.
+          'css3-cursors',
+        ],
+      },
+    ],
+
     // Prevent use of obsolete @-rules and properties
     'at-rule-no-deprecated': true,
     'declaration-property-value-keyword-no-deprecated': true,

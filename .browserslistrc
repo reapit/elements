@@ -1,2 +1,1 @@
->0.5%
-not IE 11
+extends browserslist-config-baseline/2024
