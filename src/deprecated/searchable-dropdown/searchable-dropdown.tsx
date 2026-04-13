@@ -75,7 +75,7 @@ export const SearchableDropdownControlledInner = <T extends unknown>(
       >
         <input id={id} style={{ display: 'none' }} readOnly value={selectedValue} ref={ref} />
         <ElSearchableDropdownSearchInputAddOn>{icon}</ElSearchableDropdownSearchInputAddOn>
-        <ElSearchableDropdownSearchInput data-testid="search-input" value={value} {...inputProps} />
+        <ElSearchableDropdownSearchInput aria-label="Search" data-testid="search-input" value={value} {...inputProps} />
         {isResultsListVisible && (
           <ElSearchableDropdownResultsContainer role="listbox" id={listId}>
             {resultsList.map((result, index) => (

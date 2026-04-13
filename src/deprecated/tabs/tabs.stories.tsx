@@ -11,7 +11,7 @@ import {
   Tabs,
 } from './index'
 import { TextBase } from '../typography'
-import { InputGroup } from '../input-group'
+import { TextInput } from '../../core/text-input'
 
 export default {
   title: 'Deprecated/Tabs',
@@ -174,16 +174,7 @@ export const ReactUncontrolled = {
         {tab === '1' && <TextBase hasGreyText>Tab 1 Content</TextBase>}
         {tab === '2' && <TextBase hasGreyText>Tab 2 Content</TextBase>}
         {tab === '3' && <TextBase hasGreyText>Tab 3 Content</TextBase>}
-        <InputGroup
-          value={tab}
-          label="The value of this input will change with the state, but updating the state of the input will not change the tab."
-          type="number"
-          min="1"
-          max="3"
-          onChange={(e) => {
-            setTab(e.target.value)
-          }}
-        />
+        <TextInput aria-label="Current tab value" value={tab} readOnly />
       </>
     )
   },
@@ -224,16 +215,7 @@ export const ReactControlled = {
         {tab === '1' && <TextBase hasGreyText>Tab 1 Content</TextBase>}
         {tab === '2' && <TextBase hasGreyText>Tab 2 Content</TextBase>}
         {tab === '3' && <TextBase hasGreyText>Tab 3 Content</TextBase>}
-        <InputGroup
-          value={tab}
-          label="The value of this input will change with the state and updating the input will change the tab"
-          type="number"
-          min="1"
-          max="3"
-          onChange={(e) => {
-            setTab(e.target.value)
-          }}
-        />
+        <TextInput aria-label="Current tab value" value={tab} onChange={(e) => setTab(e.target.value)} />
       </>
     )
   },

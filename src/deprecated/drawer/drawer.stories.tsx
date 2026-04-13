@@ -2,11 +2,6 @@ import { useDrawer } from '../use-drawer'
 import { DeprecatedDrawer as Drawer, DeprecatedDrawerBg as DrawerBg } from './drawer'
 import { Button } from '../../core/button'
 import { ButtonGroup } from '../../core/button-group'
-import { FormLayout, InputWrapFull, InputWrapHalf } from '../../deprecated/form-layout'
-import { InputGroup } from '../input-group'
-import { ElInputGroupLabel } from '../input-group/__styles__'
-import { DeprecatedSelect } from '../select'
-import { Textarea } from '../../core/textarea'
 import { TextBase } from '../typography'
 
 export default {
@@ -38,56 +33,6 @@ export const ReactUsage = {
           }
         >
           <TextBase>Here&apos;s some nice content for the inside of the drawer.</TextBase>
-        </ExampleDrawer>
-      </>
-    )
-  },
-}
-
-export const ReactUsageWithForm = {
-  render: ({}) => {
-    const [ExampleDrawer, openDrawer, closeDrawer] = useDrawer('portal-root')
-
-    return (
-      <>
-        <Button variant="primary" onClick={openDrawer}>
-          Open Drawer
-        </Button>
-        <ExampleDrawer
-          title="Demo Drawer Title"
-          subtitle="Demo Drawer Subtitle"
-          footerItems={
-            <ButtonGroup>
-              <Button onClick={closeDrawer}>Close the Drawer</Button>
-            </ButtonGroup>
-          }
-        >
-          <FormLayout>
-            <InputWrapHalf>
-              <InputGroup label="Forename" name="forename" />
-            </InputWrapHalf>
-            <InputWrapHalf>
-              <InputGroup label="Surname" name="surname" />
-            </InputWrapHalf>
-            <InputWrapHalf>
-              <InputGroup label="Email" name="email" type="email" />
-            </InputWrapHalf>
-            <InputWrapHalf>
-              <InputGroup>
-                <ElInputGroupLabel>Under 18?</ElInputGroupLabel>
-                <DeprecatedSelect>
-                  <option>Yes</option>
-                  <option>No</option>
-                </DeprecatedSelect>
-              </InputGroup>
-            </InputWrapHalf>
-            <InputWrapFull>
-              <InputGroup>
-                <ElInputGroupLabel>Notes</ElInputGroupLabel>
-                <Textarea fieldSizing="content" />
-              </InputGroup>
-            </InputWrapFull>
-          </FormLayout>
         </ExampleDrawer>
       </>
     )

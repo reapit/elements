@@ -1,6 +1,4 @@
 import { styled } from '@linaria/react'
-import { InputAddOn } from '../../input-add-on'
-import { Input } from '../../input'
 import { Loader } from '../../loader'
 
 /** @deprecated */
@@ -50,15 +48,56 @@ export const ElSearchableDropdownResultsContainer = styled.div`
 `
 
 /** @deprecated */
-export const ElSearchableDropdownSearchInputAddOn = styled(InputAddOn)`
+export const ElSearchableDropdownSearchInputAddOn = styled.span`
   position: absolute;
   margin-top: 10px;
   padding-left: 10px;
 `
 
 /** @deprecated */
-export const ElSearchableDropdownSearchInput = styled(Input)`
+export const ElSearchableDropdownSearchInput = styled.input`
+  display: flex;
+  flex-grow: 1;
+  color: var(--colour-text-primary);
+  background: #ffffff /* was --component-input-bg */;
+  padding: 0.5rem 0.6875rem;
   padding-left: 32px;
+  margin: 0;
+  font-family:
+    'Inter',
+    Helvetica,
+    Arial,
+    sans-serif /* was --font-sans-serif */;
+  font-size: 0.875rem /* was --font-size-small */;
+  border-radius: 0.125rem;
+  border: 1px solid #d8dee4 /* was --component-input-border */;
+  height: 2.25rem;
+  min-width: 0;
+
+  &:focus {
+    outline: none;
+    border: 1px solid #4e56ea /* was --component-input-border-focus */;
+  }
+
+  &::placeholder {
+    color: var(--colour-text-placeholder);
+    font-family:
+      'Inter',
+      Helvetica,
+      Arial,
+      sans-serif /* was --font-sans-serif */;
+    font-size: 0.875rem /* was --font-size-small */;
+  }
+
+  &:disabled {
+    background-color: var(--colour-fill-neutral-light);
+    color: var(--colour-text-secondary);
+    cursor: not-allowed;
+
+    &::placeholder {
+      color: var(--colour-text-secondary);
+    }
+  }
 `
 
 /** @deprecated */

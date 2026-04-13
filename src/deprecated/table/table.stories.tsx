@@ -12,15 +12,14 @@ import {
   TableCellSplit,
 } from './molecules'
 import { elSpan2, elSpan3 } from '../grid'
-import { InputGroup } from '../input-group'
 import { Button } from '../../core/button'
 import { ButtonGroup } from '../../core/button-group'
+import { TextInput } from '../../core/text-input'
 import { DeprecatedStatusIndicator } from '../status-indicator'
 import { elMlAuto } from '../../styles/deprecated-spacing'
 import { FormLayout, InputWrap } from '../form-layout'
 import { elIsActive } from '../../styles/deprecated-states'
 import { DeprecatedAvatar } from '../avatar'
-import { Input } from '../input'
 import { TextBase } from '../typography'
 import { EditIcon } from '#src/icons/edit'
 
@@ -42,7 +41,7 @@ export const BasicUsage = {
       <DeprecatedTableRowContainer>
         <DeprecatedTableRow>
           <DeprecatedTableCell narrowLabel="Selected">
-            <Input type="checkbox" />
+            <input type="checkbox" />
           </DeprecatedTableCell>
           <DeprecatedTableCell>First Column</DeprecatedTableCell>
           <DeprecatedTableCell narrowLabel="Image">
@@ -57,7 +56,7 @@ export const BasicUsage = {
       <DeprecatedTableRowContainer>
         <DeprecatedTableRow>
           <DeprecatedTableCell narrowLabel="Selected">
-            <Input type="checkbox" />
+            <input type="checkbox" />
           </DeprecatedTableCell>
           <DeprecatedTableCell>First Column</DeprecatedTableCell>
           <DeprecatedTableCell narrowLabel="Image">
@@ -86,7 +85,7 @@ export const ColumnWidths = {
       <DeprecatedTableRowContainer>
         <DeprecatedTableRow>
           <DeprecatedTableCell narrowLabel="Selected">
-            <Input type="checkbox" />
+            <input type="checkbox" />
           </DeprecatedTableCell>
           <DeprecatedTableCell>First Column</DeprecatedTableCell>
           <DeprecatedTableCell narrowLabel="Image">
@@ -101,7 +100,7 @@ export const ColumnWidths = {
       <DeprecatedTableRowContainer>
         <DeprecatedTableRow>
           <DeprecatedTableCell narrowLabel="Selected">
-            <Input type="checkbox" />
+            <input type="checkbox" />
           </DeprecatedTableCell>
           <DeprecatedTableCell>First Column</DeprecatedTableCell>
           <DeprecatedTableCell narrowLabel="Image">
@@ -134,7 +133,7 @@ export const BasicCustomisationTableCells = {
       <DeprecatedTableRowContainer>
         <DeprecatedTableRow>
           <DeprecatedTableCell narrowLabel="Selected">
-            <Input type="checkbox" />
+            <input type="checkbox" />
           </DeprecatedTableCell>
           <DeprecatedTableCell narrowLabel="Image">
             <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
@@ -178,7 +177,7 @@ export const ExpandingTableCellSpace = {
       <DeprecatedTableRowContainer>
         <DeprecatedTableRow>
           <DeprecatedTableCell narrowLabel="Active">
-            <Input type="checkbox" />
+            <input type="checkbox" />
           </DeprecatedTableCell>
           <DeprecatedTableCell darkText>Mt Ash Jacket Brassey Road</DeprecatedTableCell>
           <DeprecatedTableCell narrowLabel="Name Customer" icon="contact">
@@ -219,7 +218,7 @@ export const ExpandableContent = {
       <DeprecatedTableRowContainer className={elIsActive}>
         <DeprecatedTableRow>
           <DeprecatedTableCell narrowLabel="Active">
-            <Input type="checkbox" />
+            <input type="checkbox" />
           </DeprecatedTableCell>
           <DeprecatedTableCell darkText narrowIsFullWidth>
             Mt Ash Jacket Brassey Road
@@ -246,10 +245,10 @@ export const ExpandableContent = {
           </TextBase>
           <FormLayout>
             <InputWrap>
-              <InputGroup label="Please enter an address" type="text" />
+              <TextInput aria-label="Address" placeholder="Please enter an address" />
             </InputWrap>
             <InputWrap>
-              <InputGroup label="Please enter your email" type="text" />
+              <TextInput type="email" aria-label="Email" placeholder="Please enter your email" />
             </InputWrap>
             <InputWrap />
             <InputWrap>
@@ -280,7 +279,7 @@ export const CallToActionContent = {
       <DeprecatedTableRowContainer>
         <DeprecatedTableRow>
           <DeprecatedTableCell narrowLabel="Active">
-            <Input type="checkbox" />
+            <input type="checkbox" />
           </DeprecatedTableCell>
           <DeprecatedTableCell darkText narrowIsFullWidth>
             Mt Ash Jacket Brassey Road
@@ -312,7 +311,7 @@ export const ReactShorthandUsage = {
         cells: [
           {
             label: 'Is Active',
-            value: <Input type="checkbox" />,
+            value: <input type="checkbox" />,
           },
           {
             label: 'Property Image',
@@ -361,7 +360,7 @@ export const ReactShorthandUsage = {
         cells: [
           {
             label: 'Is Active',
-            value: <Input type="checkbox" />,
+            value: <input type="checkbox" />,
           },
           {
             label: 'Property Image',
@@ -434,7 +433,7 @@ export const AdvancedCustomisationReact = {
         cells: [
           {
             label: 'Is Active',
-            value: <Input type="checkbox" />,
+            value: <input type="checkbox" />,
           },
           {
             label: 'Property',
@@ -488,7 +487,7 @@ export const AdvancedCustomisationReact = {
         cells: [
           {
             label: 'Is Active',
-            value: <Input type="checkbox" />,
+            value: <input type="checkbox" />,
           },
           {
             label: 'Property',

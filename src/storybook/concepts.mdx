@@ -45,12 +45,12 @@ For non-React users, just add the classes to your markup you see in the rendered
 
 All of our components inherit via props their underlying HTML properties - we apply these using the `{...rest}` operator and for `TypeScript` users this behaviour is strongly typed.
 
-For example, if I were to import an `Input` from elements, I can apply via props, all of the native props of a react `input`, contrived example below;
+For example, if I were to import a `TextInput` from elements, I can apply via props all of the native props of a React `input`, contrived example below;
 
 <Source code={`
-import { Input } from '@reapit/elements/deprecated/input'
+import { TextInput } from '@reapit/elements/core/text-input'
 
-const MyComponent = () => <Input type="text" onChange={(e) => console.log('Pass me to your form library!', e)} />
+const MyComponent = () => <TextInput type="text" onChange={(e) => console.log('Pass me to your form library!', e)} />
 `} language="tsx" />
 
 This is a very importand concept when working with Elements as it means you can integrate our components with any additional libraries or custom behaviours you wish, using the native React API.

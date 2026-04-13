@@ -1,9 +1,0 @@
-// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
-
-exports[`InputAddOn component > should match a snapshot 1`] = `
-<DocumentFragment>
-  <span
-    class="mocked-styled-0 el-input-add-on"
-  />
-</DocumentFragment>
-`;

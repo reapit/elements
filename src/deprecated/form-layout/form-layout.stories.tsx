@@ -1,12 +1,11 @@
-import { InputGroup } from '../../deprecated/input-group'
 import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall, FormSectionDivider } from './form-layout'
 import { Textarea } from '../../core/textarea'
+import { TextInput } from '../../core/text-input'
 import { MultiSelectInput } from '../../deprecated/multi-select'
 import { Button } from '../../core/button'
 import { ButtonGroup } from '../../core/button-group'
 import { DeprecatedSelect } from '../../deprecated/select'
 import { TextBase, TextSM } from '../../deprecated/typography'
-import { ElInputGroupLabel } from '../input-group/__styles__'
 
 export default {
   title: 'Deprecated/FormLayout',
@@ -24,25 +23,22 @@ export const BasicForm = {
       </TextSM>
       <FormLayout hasMargin>
         <InputWrap>
-          <InputGroup icon="property" label="Address" type="text" />
+          <TextInput placeholder="Address" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="phone" label="Phone" type="number" />
+          <TextInput type="tel" placeholder="Phone" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="calendar" label="Date of Birth" type="date" />
+          <TextInput type="date" placeholder="Date of Birth" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="email" label="Email" type="text" />
+          <TextInput type="email" placeholder="Email" />
         </InputWrap>
         <InputWrapSmall>
-          <InputGroup type="checkbox" label="Status" />
+          <input type="checkbox" aria-label="Status" />
         </InputWrapSmall>
         <InputWrapFull>
-          <InputGroup>
-            <Textarea fieldSizing="content" placeholder="A placeholder" />
-            <ElInputGroupLabel>Long Description</ElInputGroupLabel>
-          </InputGroup>
+          <Textarea fieldSizing="content" placeholder="A placeholder" />
         </InputWrapFull>
       </FormLayout>
       <ButtonGroup>
@@ -64,32 +60,27 @@ export const ComplexForm = {
       </TextSM>
       <FormLayout hasMargin>
         <InputWrap>
-          <InputGroup icon="property" label="Address" type="text" />
+          <TextInput placeholder="Address" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="phone" label="Phone" type="number" />
+          <TextInput type="tel" placeholder="Phone" />
         </InputWrap>
         <InputWrap>
-          <InputGroup icon="calendar" label="Date of Birth" type="date" />
+          <TextInput type="date" placeholder="Date of Birth" />
         </InputWrap>
         <InputWrap>
-          <InputGroup>
-            <ElInputGroupLabel>Select Option</ElInputGroupLabel>
-            <DeprecatedSelect>
-              <option value="1">Option 1</option>
-              <option value="2">Option 2</option>
-              <option value="3">Option 3</option>
-            </DeprecatedSelect>
-          </InputGroup>
+          <label htmlFor="select-option">Select Option</label>
+          <DeprecatedSelect id="select-option">
+            <option value="1">Option 1</option>
+            <option value="2">Option 2</option>
+            <option value="3">Option 3</option>
+          </DeprecatedSelect>
         </InputWrap>
         <InputWrapSmall>
-          <InputGroup type="checkbox" label="Status" />
+          <input type="checkbox" aria-label="Status" />
         </InputWrapSmall>
         <InputWrapFull>
-          <InputGroup>
-            <Textarea fieldSizing="content" placeholder="A placeholder" />
-            <ElInputGroupLabel>Long Description</ElInputGroupLabel>
-          </InputGroup>
+          <Textarea fieldSizing="content" placeholder="A placeholder" />
         </InputWrapFull>
       </FormLayout>
       <FormSectionDivider />
@@ -101,30 +92,28 @@ export const ComplexForm = {
       </TextSM>
       <FormLayout hasMargin>
         <InputWrapMed>
-          <InputGroup icon="property" label="Really Long Address" type="text" />
+          <TextInput placeholder="Really Long Address" />
         </InputWrapMed>
         <InputWrapFull>
-          <InputGroup>
-            <MultiSelectInput
-              id="react-example"
-              options={[
-                {
-                  name: 'Item one',
-                  value: 'item-one',
-                },
-                {
-                  name: 'Item two',
-                  value: 'item-two',
-                },
-                {
-                  name: 'Item three',
-                  value: 'item-three',
-                },
-              ]}
-              defaultValues={['item-one']}
-            />
-            <ElInputGroupLabel>Select Items</ElInputGroupLabel>
-          </InputGroup>
+          <label htmlFor="react-example">Select Items</label>
+          <MultiSelectInput
+            id="react-example"
+            options={[
+              {
+                name: 'Item one',
+                value: 'item-one',
+              },
+              {
+                name: 'Item two',
+                value: 'item-two',
+              },
+              {
+                name: 'Item three',
+                value: 'item-three',
+              },
+            ]}
+            defaultValues={['item-one']}
+          />
         </InputWrapFull>
       </FormLayout>
       <ButtonGroup>
