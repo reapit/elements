@@ -37,7 +37,7 @@ jobs:
       - name: Set Node
         uses: actions/setup-node@v6
         with:
-          node-version: '22.x'
+          node-version: 24
 
       - name: Install
         run: yarn install --immutable
