@@ -6,6 +6,7 @@ interface ElChipSelectChipProps {
 }
 
 export const ElChipSelectChip = styled.label<ElChipSelectChipProps>`
+  position: relative;
   display: inline-flex;
   gap: var(--spacing-1);
 
