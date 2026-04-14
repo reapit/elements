@@ -1,5 +1,17 @@
 # @reapit/elements
 
+## 5.0.0-beta.89
+
+### Major Changes
+
+- **[Removed]** `Input`, `InputGroup`, `InputAddOn`, and `InputError` components from `@reapit/elements`. See `codemods/migrate-deprecated-input/README.md` for the migration guide. ([#1287](https://github.com/reapit-global/gbl-ds-elements/pull/1287))
+
+### Patch Changes
+
+- **[Internal]** Add Figma Code Connect for `MainContainer` and `PageLayout` components ([#1293](https://github.com/reapit-global/gbl-ds-elements/pull/1293))
+
+- **[Fixed]** `ChipSelect` no longer causes the page to scroll or appear blank when an option receives focus inside a fixed-height layout. ([#1295](https://github.com/reapit-global/gbl-ds-elements/pull/1295))
+
 ## 5.0.0-beta.88
 
 ### Major Changes
