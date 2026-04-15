@@ -30,7 +30,7 @@ type Story = StoryObj<typeof EmptyDataAction>
 export const Example: Story = {
   args: {
     children: 'No things found',
-    href: globalThis.top?.location.href!,
+    href: '#',
   },
 }
 

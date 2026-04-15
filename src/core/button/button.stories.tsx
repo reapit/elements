@@ -319,7 +319,7 @@ export const Anchors: StoryObj<Meta<typeof AnchorButton>> = {
     iconRight: 'Star',
     isBusy: false,
     isDestructive: false,
-    href: globalThis.top?.location.href!,
+    href: '#',
     size: 'medium',
     useLinkStyle: false,
     variant: 'primary',

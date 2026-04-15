@@ -15,7 +15,7 @@ export const Example: Story = {
   args: {
     'aria-current': false,
     children: 'Nav Item',
-    href: globalThis.top?.location.href!,
+    href: '#',
   },
 }
 

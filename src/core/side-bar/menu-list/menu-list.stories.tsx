@@ -5,8 +5,8 @@ import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decora
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-// Common href for all menu items that links to the current storybook page.
-const href = globalThis.top?.location.href!
+// Placeholder href for all menu items in this story.
+const href = '#'
 
 const meta = {
   title: 'Core/SideBar/MenuList',

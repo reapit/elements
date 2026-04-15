@@ -23,7 +23,7 @@ export const Example: Story = {
   args: {
     'aria-current': false,
     children: 'Submenu Item',
-    href: globalThis.top?.location.href!,
+    href: '#',
   },
 }
 

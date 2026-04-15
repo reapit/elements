@@ -4,8 +4,8 @@ import { TopBarMenuDrawerMenuList } from './menu-list'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ReactNode } from 'react'
 
-// Common href for all menu items that links to the current Storybook page.
-const href = globalThis.top?.location.href!
+// Placeholder href for all menu items in this story.
+const href = '#'
 
 const meta = {
   title: 'Core/TopBar/MenuDrawer/MenuList',

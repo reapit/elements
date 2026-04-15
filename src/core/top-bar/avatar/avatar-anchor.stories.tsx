@@ -1,7 +1,7 @@
 import { TopBarAvatarAnchor } from './avatar-anchor'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const href = globalThis.top!.location.href
+const href = '#'
 
 const meta = {
   component: TopBarAvatarAnchor,

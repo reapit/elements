@@ -17,7 +17,7 @@ export default meta
 
 type Story = StoryObj<typeof meta>
 
-const href = globalThis.top?.location.href!
+const href = '#'
 
 /**
  * The UI for the App Switcher is built by composing subcomponents like `AppSwitcher.ProductMenuItem`,

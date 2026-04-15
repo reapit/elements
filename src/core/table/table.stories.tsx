@@ -5,7 +5,7 @@ import { Table } from './table'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Text } from '#src/utils/text'
 
-const href = globalThis.top?.location.href!
+const href = '#'
 
 const meta = {
   title: 'Core/Table',

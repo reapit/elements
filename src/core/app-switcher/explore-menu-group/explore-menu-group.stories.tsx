@@ -32,7 +32,7 @@ export const Default: Story = {
   render: ({}) => {
     return (
       <AppSwitcher.ExploreMenuGroup>
-        <AppSwitcher.ProductMenuItem href={globalThis.top?.location.href!} productId="ireWeb" />
+        <AppSwitcher.ProductMenuItem href="#" productId="ireWeb" />
       </AppSwitcher.ExploreMenuGroup>
     )
   },

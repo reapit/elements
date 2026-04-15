@@ -47,7 +47,7 @@ export const Example: Story = {
     'aria-current': false,
     'aria-label': 'Nav icon item',
     hasBadge: false,
-    href: globalThis.top?.location.href!,
+    href: '#',
     icon: 'star',
   },
 }

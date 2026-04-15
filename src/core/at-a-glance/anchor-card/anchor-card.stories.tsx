@@ -30,7 +30,7 @@ const meta = {
 export default meta
 type Story = StoryObj<typeof meta>
 
-const href = globalThis.top?.location?.href ?? ''
+const href = '#'
 
 /**
  * A navigable card that links to a URL. The entire card is clickable

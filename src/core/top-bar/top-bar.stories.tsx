@@ -8,7 +8,7 @@ import { TopBar } from './top-bar'
 
 import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
 
-const href = globalThis.top?.location.href!
+const href = '#'
 
 const meta = {
   title: 'Core/TopBar',
@@ -23,20 +23,12 @@ const meta = {
           <AppSwitcher>
             <AppSwitcher.YourAppsMenuGroup>
               {AppSwitcher.getDisplayableProductsForYourAppsGroup(['consoleCloud']).map((productId) => (
-                <AppSwitcher.ProductMenuItem
-                  key={productId}
-                  href={globalThis.top?.location.href!}
-                  productId={productId}
-                />
+                <AppSwitcher.ProductMenuItem key={productId} href={href} productId={productId} />
               ))}
             </AppSwitcher.YourAppsMenuGroup>
             <AppSwitcher.ExploreMenuGroup>
               {AppSwitcher.getDisplayableProductsForExploreGroup(['consoleCloud']).map((productId) => (
-                <AppSwitcher.ProductMenuItem
-                  key={productId}
-                  href={globalThis.top?.location.href!}
-                  productId={productId}
-                />
+                <AppSwitcher.ProductMenuItem key={productId} href={href} productId={productId} />
               ))}
             </AppSwitcher.ExploreMenuGroup>
           </AppSwitcher>

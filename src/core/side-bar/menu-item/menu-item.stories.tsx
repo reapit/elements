@@ -37,7 +37,7 @@ export const Example: Story = {
   args: {
     'aria-current': false,
     children: 'Menu item',
-    href: globalThis.top?.location.href!,
+    href: '#',
     icon: 'Property',
   },
 }

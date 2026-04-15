@@ -47,7 +47,7 @@ export const Example: Story = {
   args: {
     'aria-current': false,
     children: 'Label',
-    href: globalThis.top?.location.href!,
+    href: '#',
   },
   decorators: [useFolderTabsContainerDecorator()],
 }

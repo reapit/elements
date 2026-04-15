@@ -7,7 +7,7 @@ import { TableRowPrimaryActionButton } from './primary-action-button'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const href = globalThis.top?.location.href!
+const href = '#'
 
 const meta = {
   title: 'Core/Table/PrimaryAction',

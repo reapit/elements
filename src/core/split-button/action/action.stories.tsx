@@ -162,7 +162,7 @@ export const Anchors: StoryObj<Meta<typeof SplitButtonAnchorAction>> = {
     iconLeft: 'Add',
     isBusy: false,
     isDestructive: false,
-    href: globalThis.top?.location.href!,
+    href: '#',
   },
   render: (args) => <SplitButtonAnchorAction {...args} />,
 }

@@ -158,7 +158,7 @@ export const Breakpoints: StoryObj = {
 }
 
 function ExampleSimpleLayout({ withTabs }: { withTabs?: boolean }) {
-  const href = globalThis.top?.location.href!
+  const href = '#'
 
   return (
     <>

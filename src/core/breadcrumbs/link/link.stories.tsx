@@ -18,7 +18,7 @@ type Story = StoryObj<typeof meta>
 export const Example: Story = {
   args: {
     children: 'Dashboard',
-    href: globalThis.top?.location.href!,
+    href: '#',
   },
 }
 

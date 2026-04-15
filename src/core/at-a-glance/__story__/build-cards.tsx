@@ -59,7 +59,7 @@ export function buildCards({ count = 8, layout = 'vertical', variant = 'simple' 
   })
 }
 
-const href = globalThis.top?.location.href!
+const href = '#'
 
 const cards = [
   {

@@ -32,7 +32,7 @@ export const Default: Story = {
   render: ({}) => {
     return (
       <AppSwitcher.YourAppsMenuGroup>
-        <AppSwitcher.ProductMenuItem href={globalThis.top?.location.href!} productId="agentBox" />
+        <AppSwitcher.ProductMenuItem href="#" productId="agentBox" />
       </AppSwitcher.YourAppsMenuGroup>
     )
   },

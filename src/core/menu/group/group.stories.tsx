@@ -5,7 +5,7 @@ import { StarIcon } from '#src/icons/star'
 
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const href = globalThis.top?.location.href!
+const href = '#'
 
 const meta = {
   title: 'Core/Menu/Group',
