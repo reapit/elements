@@ -1,5 +1,17 @@
 # @reapit/elements
 
+## 5.0.0-beta.90
+
+### Major Changes
+
+- **[Changed]** `MainContainer` now includes block (top and bottom) padding by default. Previously, only inline padding was applied. To restore the previous behaviour, use the new `hasNoTopPadding` and `hasNoBottomPadding` props. ([#1301](https://github.com/reapit-global/gbl-ds-elements/pull/1301))
+
+### Patch Changes
+
+- **[Internal]** Migrate anonymous `@layer {}` blocks to the named `@layer default` convention across all non-deprecated components. ([#1300](https://github.com/reapit-global/gbl-ds-elements/pull/1300))
+
+- **[Security]** Remove `globalThis.top` cross-frame access from Storybook stories, preventing CORS errors when embedding stories in external documentation ([#1297](https://github.com/reapit-global/gbl-ds-elements/pull/1297))
+
 ## 5.0.0-beta.89
 
 ### Major Changes

@@ -60,6 +60,7 @@
     "ds-148-chip-select-position-context",
     "ds-59-gallery-viewer-thumbnail",
     "ds-62-gallery-viewer-thumbnail-list",
+    "eager-parrots-hunt",
     "easy-suits-bow",
     "empty-gallery-viewer-title-prop",
     "fix-borderless-focus-styles",
@@ -70,6 +71,7 @@
     "fix-gallery-viewer-carousel-overflow",
     "fix-imports-types-path-resolution",
     "fix-isaacs-brace-expansion-cve",
+    "fix-layer-default-styles",
     "fix-replace-deprecated-toggle-label-escaping",
     "fix-reviewing-pr-comments-skill-scripts",
     "fix-upgrade-deprecated-button-facade-paths",
@@ -93,6 +95,7 @@
     "kind-hands-divide",
     "lemon-tires-stare",
     "long-socks-fall",
+    "main-container-default-block-padding",
     "migrate-to-changesets",
     "nine-shirts-beg",
     "ninety-turtles-rescue",
@@ -114,6 +117,7 @@
     "remove-deprecated-toggle",
     "remove-deprecated-use-click-outside",
     "remove-deprecated-use-media-query",
+    "remove-globalthis-top-from-stories",
     "remove-image-fallback",
     "remove-internal-exports-from-public-api",
     "remove-lab-mobile-nav-item",
@@ -141,6 +145,8 @@
     "upgrade-deprecated-button-group",
     "upgrade-deprecated-split-button",
     "upgrade-deprecated-use-media-query",
-    "vast-mangos-laugh"
+    "vast-mangos-laugh",
+    "violet-cats-tap",
+    "yellow-spiders-raise"
   ]
 }
