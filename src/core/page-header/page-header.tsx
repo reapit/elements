@@ -55,7 +55,7 @@ export function PageHeader({
   supplementaryInfo,
 }: PageHeader.Props) {
   return (
-    <MainContainer as="div" backgroundColour={backgroundColour} size={size}>
+    <MainContainer as="div" backgroundColour={backgroundColour} hasNoBottomPadding hasNoTopPadding size={size}>
       <ElPageHeader>
         {breadcrumbs && <ElPageHeaderBreadcrumbsContainer>{breadcrumbs}</ElPageHeaderBreadcrumbsContainer>}
         {leadingElement && <ElPageHeaderLeadingElementContainer>{leadingElement}</ElPageHeaderLeadingElementContainer>}
