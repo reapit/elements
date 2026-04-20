@@ -7,7 +7,7 @@ import type { FontStyle } from './types'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const myCustomHeadingStyles = css`
-  border-bottom: 2px solid var(--colour-action);
+  border: 1px solid #fa00ff;
   padding-block-end: var(--spacing-4);
 `
 

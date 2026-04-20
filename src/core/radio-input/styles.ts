@@ -9,7 +9,7 @@ export const ElRadioInputContainer = styled.div`
   /* We place these styles inside a layer to allow them to be easily overridden by a
     * consumer-supplied class that would otherwise have a lower specificity and therefore
     * have no effect or require the use of !important */
-  @layer {
+  @layer default {
     /* By default, We want the container to "shrinkwrap" its content so that the sizing is
      * determined by the radio button icons */
     width: min-content;

@@ -1,10 +1,10 @@
 import { css } from '@linaria/core'
 
 export const elPopover = css`
-  /* NOTE: we place these styled inside an anonymous layer so they can be easily
-   * overriden by the Popover's consumers even if the consumer's styles have the
+  /* NOTE: we place these styles inside a named layer so they can be easily
+   * overridden by the Popover's consumers even if the consumer's styles have the
    * same specificity. */
-  @layer {
+  @layer default {
     position: absolute;
     inset: auto;
     background: none;

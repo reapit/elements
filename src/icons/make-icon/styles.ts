@@ -9,7 +9,7 @@ export const elIcon = css`
   /* NOTE: we place these styles inside a layer to allow them to be easily overridden
    * by a consumer-supplied class that would otherwise have a lower specificity and
    * therefore have no effect, or require the use of !important */
-  @layer {
+  @layer default {
     &,
     &[color='primary'] {
       color: var(--colour-icon-primary);
