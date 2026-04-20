@@ -30,7 +30,7 @@ figma.connect(PageHeader.Title, '<PAGE_HEADER_TITLE_URL>', {
   variant: { 'Show additional info': false },
   props: {
     actions: figma.children('Button group'),
-    title: figma.textContent('Page title'),
+    title: figma.string('Page title'),
   },
   example: (props) => <PageHeader.Title actions={props.actions}>{props.title}</PageHeader.Title>,
 })
