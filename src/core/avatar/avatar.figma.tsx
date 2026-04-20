@@ -1,7 +1,34 @@
 import { Avatar } from './avatar'
 import figma from '@figma/code-connect'
 
-figma.connect(Avatar, '<AVATAR_CIRCLE_URL>', {
+figma.connect(Avatar, '<AVATAR_URL>', {
+  props: {
+    children: figma.children('*'),
+    colour: figma.enum('Colour', {
+      Default: 'default',
+      Primary: 'primary',
+    }),
+    shape: figma.enum('Shape', {
+      Circle: 'circle',
+      Square: 'square',
+    }),
+    size: figma.enum('Size', {
+      Medium: 'medium',
+      Small: 'small',
+    }),
+  },
+  example: (props) => (
+    <Avatar colour={props.colour} shape={props.shape} size={props.size}>
+      {props.children}
+    </Avatar>
+  ),
+})
+
+//
+// Deprecated Figma component support.
+//
+
+figma.connect(Avatar, '<AVATAR_CIRCLE_URL_DEPRECATED>', {
   props: {
     children: figma.children('*'),
     colour: figma.enum('Colour', {
@@ -20,7 +47,7 @@ figma.connect(Avatar, '<AVATAR_CIRCLE_URL>', {
   ),
 })
 
-figma.connect(Avatar, '<AVATAR_SQUARE_URL>', {
+figma.connect(Avatar, '<AVATAR_SQUARE_URL_DEPRECATED>', {
   props: {
     children: figma.children('*'),
     colour: figma.enum('Colour', {
