@@ -11,6 +11,10 @@ export namespace MainContainer {
     as?: 'article' | 'aside' | 'div' | 'section'
     /** The main container's background colour. */
     backgroundColour?: `--colour-fill-${string}`
+    /** Removes bottom padding. */
+    hasNoBottomPadding?: boolean
+    /** Removes top padding. */
+    hasNoTopPadding?: boolean
     /** The size of the main container. */
     size: 'fluid' | 'wide' | 'narrow'
     /** The layout template to apply to the main container's content. */
@@ -35,6 +39,8 @@ export function MainContainer({
   as = 'div',
   backgroundColour,
   children,
+  hasNoBottomPadding = false,
+  hasNoTopPadding = false,
   size = 'fluid',
   style,
   template = 'single-column',
@@ -47,7 +53,13 @@ export function MainContainer({
       data-size={size}
       style={{ ...style, ...(backgroundColour && { backgroundColor: `var(${backgroundColour})` }) }}
     >
-      <ElMainContainerContent data-template={template}>{children}</ElMainContainerContent>
+      <ElMainContainerContent
+        data-has-no-bottom-padding={hasNoBottomPadding}
+        data-has-no-top-padding={hasNoTopPadding}
+        data-template={template}
+      >
+        {children}
+      </ElMainContainerContent>
     </ElMainContainer>
   )
 }

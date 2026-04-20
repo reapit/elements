@@ -51,14 +51,22 @@ interface ElMainContainerContentProps {
 export const ElMainContainerContent = styled.div<ElMainContainerContentProps>`
   display: grid;
 
-  padding-inline: var(--spacing-5);
+  padding: var(--spacing-5);
 
   @container ${isWidthAtOrAbove('SM')} {
-    padding-inline: var(--spacing-8);
+    padding: var(--spacing-8);
   }
 
   @container ${isWidthAtOrAbove('MD')} {
-    padding-inline: var(--spacing-10);
+    padding: var(--spacing-10);
+  }
+
+  &[data-has-no-bottom-padding='true'] {
+    padding-block-end: 0;
+  }
+
+  &[data-has-no-top-padding='true'] {
+    padding-block-start: 0;
   }
 
   &,

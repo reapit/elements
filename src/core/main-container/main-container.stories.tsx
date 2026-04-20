@@ -36,6 +36,8 @@ type Story = StoryObj<typeof meta>
 export const Example: Story = {
   args: {
     backgroundColour: undefined,
+    hasNoBottomPadding: false,
+    hasNoTopPadding: false,
     children: <ContentPlaceholder />,
     size: 'fluid',
     template: 'single-column',
