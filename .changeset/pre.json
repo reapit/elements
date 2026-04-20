@@ -72,6 +72,7 @@
     "fix-imports-types-path-resolution",
     "fix-isaacs-brace-expansion-cve",
     "fix-layer-default-styles",
+    "fix-page-header-padding",
     "fix-replace-deprecated-toggle-label-escaping",
     "fix-reviewing-pr-comments-skill-scripts",
     "fix-upgrade-deprecated-button-facade-paths",

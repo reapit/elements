@@ -1,5 +1,11 @@
 # @reapit/elements
 
+## 5.0.0-beta.91
+
+### Patch Changes
+
+- **[Fixed]** `PageHeader` no longer inherits `MainContainer` block padding ([#1304](https://github.com/reapit-global/gbl-ds-elements/pull/1304))
+
 ## 5.0.0-beta.90
 
 ### Major Changes
