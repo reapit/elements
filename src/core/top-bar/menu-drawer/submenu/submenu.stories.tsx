@@ -1,7 +1,7 @@
+import preview from '#.storybook/preview'
 import { TopBarMenuDrawerSubmenu } from './submenu'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/MenuDrawer/Submenu',
   component: TopBarMenuDrawerSubmenu,
   argTypes: {
@@ -9,13 +9,9 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof TopBarMenuDrawerSubmenu>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: (
       <>
@@ -31,4 +27,4 @@ export const Example: Story = {
       </>
     ),
   },
-}
+})

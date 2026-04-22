@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { AddIcon } from '#src/icons/add'
 import { Badge } from '../badge'
 import { Breadcrumbs } from '../breadcrumbs'
@@ -13,11 +14,9 @@ import { StarIcon } from '#src/icons/star'
 import { SupplementaryInfo } from '../supplementary-info'
 import { TagGroup } from '../tag-group'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/PageHeader',
   component: PageHeader,
   argTypes: {
@@ -217,15 +216,12 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof PageHeader>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * The main purpose of the page header is to title the page.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     backgroundColour: '--colour-fill-neutral-lightest',
     leadingElement: 'None',
@@ -235,65 +231,60 @@ export const Example: Story = {
     supplementaryInfo: 'None',
     title: 'Basic',
   },
-}
+})
 
 /**
  * A key feature of the page header is the ability to provide navigation breadcrumbs. This is useful for providing
  * context for the page's location within the application's information architecture.
  */
-export const Navigation: Story = {
+export const Navigation = Example.extend({
   args: {
-    ...Example.args,
     navigation: 'Some',
   },
-}
+})
 
 /**
  * Often, a page header will contain one or more actions. These are provided as part of the page header's `title`
  * region. Often, one of these actions will be a primary action, such as "Add new". Other times there will be multiple
  * secondary actions.
  */
-export const Actions: Story = {
+export const Actions = Example.extend({
   args: {
-    ...Example.args,
     title: 'Single Action',
   },
-}
+})
 
 /**
  * The page header also supports a leading element, such as an image or product icon.
  */
-export const LeadingElement: Story = {
+export const LeadingElement = Example.extend({
   args: {
-    ...Example.args,
     subtitle: 'Basic',
     leadingElement: 'Image',
   },
-}
+})
 
 /**
  * The title can also include additional information such as tags, badges, and icons. This is useful for providing
  * additional context to the title or its subject.
  */
-export const Title: Story = {
+export const Title = Example.extend({
   args: {
-    ...Example.args,
     title: 'Additional Info',
   },
-}
+})
 
 /**
  * Sometimes a page will want to provide a subtitle for the page in addition to the title. This is useful for providing
  * extended information about the page that otherwise would not fit within the title itself, or has a lower importance
  * than the title. Like the title, the subtitle can include additional information such as tags, badges, and icons.
  */
-export const Subtitle: Story = {
+export const Subtitle = Example.extend({
   args: {
-    ...Example.args,
     subtitle: 'Additional Info',
     title: 'Multiple Actions',
   },
-}
+})
 
 /**
  * Often a page will also need to provide supplementary information within the page header. This will typically be
@@ -301,21 +292,19 @@ export const Subtitle: Story = {
  * `SupplementaryInfo` items, the property's `Features`, or a compact select component that influences the page's
  * content, such as filter high in the page's information architecture.
  */
-export const Supplementary: Story = {
+export const Supplementary = Example.extend({
   args: {
-    ...Example.args,
     supplementaryInfo: 'Summary Info',
   },
-}
+})
 
 /**
  * The page header can be sized in a similar manner to `MainContainer`, with `fluid`, `wide`, and `narrow`
  * sizes available. Beneath the MD breakpoint, all sizes will behave as `fluid`. This example demonstrates
  * the `narrow` size within SM- and MD-sized containers.
  */
-export const Size: Story = {
+export const Size = Example.extend({
   args: {
-    ...Example.args,
     size: 'narrow',
   },
   decorators: [
@@ -347,7 +336,7 @@ export const Size: Story = {
   parameters: {
     layout: 'padded',
   },
-}
+})
 
 /**
  * The page header can support alternative background colours. Typically, the background will either be
@@ -355,9 +344,8 @@ export const Size: Story = {
  * `backgroundColour` is specified) is transparent. It is strongly encouraged to only use semantic colour
  * variables defined by the Design System.
  */
-export const BackgroundColour: Story = {
+export const BackgroundColour = Example.extend({
   args: {
-    ...Example.args,
     backgroundColour: '--colour-fill-white',
   },
   globals: {
@@ -365,7 +353,7 @@ export const BackgroundColour: Story = {
       value: 'light',
     },
   },
-}
+})
 
 /**
  * The page header is designed to be responsive, and will adapt to the size of the container it is in. This is largely
@@ -373,9 +361,8 @@ export const BackgroundColour: Story = {
  * header will use container queries for its responsive behaviour; if there is no ancestral container, or container
  * queries are not supported, the page header will use media queries.
  */
-export const Breakpoints: Story = {
+export const Breakpoints = Example.extend({
   args: {
-    ...Example.args,
     leadingElement: 'Image',
     navigation: 'Many',
     subtitle: 'Additional Info',
@@ -421,18 +408,18 @@ export const Breakpoints: Story = {
   parameters: {
     layout: 'padded',
   },
-}
+})
 
 /**
  * Overflow should be avoided as much as possible, but when it is unavoidable, most of the page header's information
  * will try to avoid truncation.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     navigation: 'Many',
     subtitle: 'Additional Info',
     supplementaryInfo: 'Summary Info',
+
     title: (
       <PageHeader.Title
         actions={<Button aria-label="Add new" iconLeft={<AddIcon />} size="medium" variant="primary" />}
@@ -453,4 +440,4 @@ export const Overflow: Story = {
   parameters: {
     layout: 'padded',
   },
-}
+})

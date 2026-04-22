@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { useState } from 'react'
 import { GalleryViewerMediaItemCaption } from '../media-item-caption'
 import { GalleryViewerMediaListLayout } from './media-list-layout'
@@ -7,7 +8,6 @@ import { Image } from '#src/utils/image'
 import { Video } from '#src/utils/video'
 
 import type { ChangeEventHandler } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const EXAMPLE_VIDEO_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'
 
@@ -37,19 +37,15 @@ function imageSrc(baseSrc: string, width: number, height: number) {
   return `${baseSrc}?w=${width}&h=${height}&fit=crop`
 }
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/GalleryViewer/MediaListLayout',
   component: GalleryViewerMediaListLayout,
   argTypes: {
     children: { control: false },
   },
-} satisfies Meta<typeof GalleryViewerMediaListLayout>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: null,
   },
@@ -105,4 +101,4 @@ export const Example: Story = {
       </GalleryViewerMediaListLayout>
     )
   },
-}
+})

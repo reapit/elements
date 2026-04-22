@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { CheckIcon } from '#src/icons/check'
 import { LocationIcon } from '#src/icons/location'
 import { TextControl } from './text-control'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/TextControl',
   component: TextControl,
   argTypes: {
@@ -61,13 +60,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TextControl>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     defaultValue: '',
     disabled: false,
@@ -90,14 +85,13 @@ export const Example: Story = {
     type: 'text',
     value: undefined,
   },
-}
+})
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
  */
-export const Sizes: Story = {
+export const Sizes = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: 'Text',
   },
   argTypes: {
@@ -119,37 +113,34 @@ export const Sizes: Story = {
       <TextControl {...args} size="large" />
     </>
   ),
-}
+})
 
 /**
  * Optional help text can be provided to give more context about the text input.
  */
-export const HelpText: Story = {
+export const HelpText = Example.extend({
   args: {
-    ...Example.args,
     helpText: 'Optional help text',
   },
-}
+})
 
 /**
  * Icons can be provided at the start or end of the input.
  */
-export const Icons: Story = {
+export const Icons = Example.extend({
   args: {
-    ...Example.args,
     leadingIcon: <LocationIcon />,
     trailingIcon: <CheckIcon />,
   },
-}
+})
 
 /**
  * Likewise, prefixes or suffixes can be provided. Compared to icons, these will typically be plain text
  * such as currency symbols or units of measurement. Importantly, affixes and icons are mutually exclusive;
  * if both are provided, only the affix will be rendered.
  */
-export const Affixes: Story = {
+export const Affixes = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: '50',
     prefix: '$',
     suffix: '%',
@@ -167,7 +158,7 @@ export const Affixes: Story = {
       <TextControl {...args} prefix={undefined} />
     </>
   ),
-}
+})
 
 /**
  * Like all form controls that visually communicate their validity, the input will display in an
@@ -178,79 +169,72 @@ export const Affixes: Story = {
  * If `showValidity` is not explicitly provided, the control will show validity based on the presence of
  * `errorText`.
  */
-export const Invalid: Story = {
+export const Invalid = Icons.extend({
   args: {
-    ...Icons.args,
     errorText: 'Error message',
     required: true,
     showValidity: true,
   },
-}
+})
 
 /**
  * Text inputs can be disabled. A disabled input will not receive the `click` event, and are not submitted
  * with the form they're associated with.
  */
-export const Disabled: Story = {
+export const Disabled = Icons.extend({
   args: {
-    ...Icons.args,
     disabled: true,
   },
-}
+})
 
 /**
  * Text inputs can be marked as read-only. Unlike disabled inputs, read-only inputs will participate
  * in form submission.
  */
-export const Readonly: Story = {
+export const Readonly = Icons.extend({
   name: 'Read-only',
   args: {
-    ...Icons.args,
     readOnly: true,
   },
-}
+})
 
 /**
  * Text inputs can be marked as busy. This is particularly useful when asynchronous validation is being
  * performed on the input's value.
  */
-export const Busy: Story = {
+export const Busy = Icons.extend({
   args: {
-    ...Icons.args,
     isBusy: true,
   },
-}
+})
 
 /**
  * Placeholder text can be provided to help user's understand what the input is for. This is typically
  * used when the input has no visual label.
  */
-export const Placeholder: Story = {
+export const Placeholder = Example.extend({
   args: {
-    ...Example.args,
     placeholder: 'Placeholder',
   },
-}
+})
 
 /**
  * By default, text inputs will fill their parent's width. This can be constrained by providing a `maxWidth`.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Icons.extend({
   name: 'Max-width',
   args: {
-    ...Icons.args,
     maxWidth: 'var(--size-64)',
   },
-}
+})
 
 /**
  * The label, help text and error text will all wrap naturally when the form control does not have sufficient
  * space available for them.
  */
-export const Wrapping: Story = {
+export const Wrapping = MaxWidth.extend({
   args: {
-    ...MaxWidth.args,
     label: 'This is a long label that won’t fit on a single line',
     helpText: 'This is a long optional help text that won’t fit on a single line',
   },
-}
+})

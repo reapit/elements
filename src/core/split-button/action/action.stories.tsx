@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { AddIcon } from '#src/icons/add'
 import { SplitButtonAction } from './action'
 import { SplitButtonAnchorAction } from './anchor-action'
 import { SplitButtonContext } from '../context'
 import { StarIcon } from '#src/icons/star'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/SplitButton/Action',
   component: SplitButtonAction,
   subcomponents: {
@@ -36,12 +35,9 @@ const meta = {
       </SplitButtonContext.Provider>
     ),
   ],
-} satisfies Meta<typeof SplitButtonAction>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-disabled': false,
     children: 'Button',
@@ -50,16 +46,13 @@ export const Example: Story = {
     isBusy: false,
     isDestructive: false,
   },
-}
+})
 
 /**
  * Actions the SplitButton's chosen variant: `primary` or `secondary`. Typically, there should
  * only be one primary action in the UI at any given time.
  */
-export const Variants: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Variants = Example.extend({
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
@@ -72,16 +65,13 @@ export const Variants: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Actions also respect the SplitButton's size: `small`, `medium`, and `large`. Medium and large buttons are
  * preferred on small screens, especially touch-based devices, as they provide a larger target area for users.
  */
-export const Sizes: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sizes = Example.extend({
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
@@ -97,17 +87,16 @@ export const Sizes: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Icons can be placed on the left side of the `SplitButton.Action`.
  */
-export const Icons: Story = {
+export const Icons = Example.extend({
   args: {
-    ...Example.args,
     iconLeft: 'Star',
   },
-}
+})
 
 /**
  * Actions can be disabled using `aria-disabled` or `disabled`, just like a regular `Button`. In both
@@ -119,50 +108,31 @@ export const Icons: Story = {
  * [AnchorButton](?path=/docs/core-button--anchors)'s do not support the disabled prop; so they can only be
  * disabled using `aria-disabled="true"`.
  */
-export const Disabled: Story = {
+export const Disabled = meta.story({
   args: {
     children: 'Button',
     disabled: true,
   },
-}
+})
 
 /**
  * Actions can be busy using `isBusy`. In this case, the button will be ARIA disabled and the loading spinner
  * will be displayed.
  */
-export const Busy: Story = {
+export const Busy = meta.story({
   args: {
     children: 'Button',
     isBusy: true,
   },
-}
+})
 
 /**
  * Destructive actions are used to indicate the action performed by the button is destructive or irreversible, like
  * delete or remove.
  */
-export const Destructive: Story = {
+export const Destructive = meta.story({
   args: {
     children: 'Button',
     isDestructive: true,
   },
-}
-
-/**
- * `SplitButton.AnchorAction` is identical to `SplitButton.Action`, except it renders as an `<a>` element, which
- * allows consumers to navigate users to other pages using an element with the correct semantics.
- *
- * Importantly, anchor elements do not support the `disabled` prop; to disable an anchor-based button, use
- * `aria-disabled="true"` instead.
- */
-export const Anchors: StoryObj<Meta<typeof SplitButtonAnchorAction>> = {
-  args: {
-    'aria-disabled': false,
-    children: 'Anchor button',
-    iconLeft: 'Add',
-    isBusy: false,
-    isDestructive: false,
-    href: '#',
-  },
-  render: (args) => <SplitButtonAnchorAction {...args} />,
-}
+})

@@ -1,10 +1,10 @@
+import preview from '#.storybook/preview'
 import { SwitchInput } from './switch-input'
 import { useArgs } from 'storybook/preview-api'
 
 import type { ChangeEventHandler } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/SwitchInput',
   component: SwitchInput,
   argTypes: {
@@ -18,12 +18,9 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof SwitchInput>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': 'My switch',
     checked: undefined,
@@ -39,24 +36,22 @@ export const Example: Story = {
     }
     return <SwitchInput {...args} onChange={onChange} />
   },
-}
+})
 
 /**
  * The switch can be checked by default.
  */
-export const Checked: Story = {
+export const Checked = Example.extend({
   args: {
-    ...Example.args,
     defaultChecked: true,
   },
-}
+})
 
 /**
  * Switches can be disabled. When disabled, they do not participate in form submission.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     disabled: true,
   },
   decorators: [
@@ -72,4 +67,4 @@ export const Disabled: Story = {
       <SwitchInput {...args} checked />
     </>
   ),
-}
+})

@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { Autocomplete } from './autocomplete'
 import { SupplementaryInfo } from '../supplementary-info'
 import { useEffect, useId, useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Autocomplete',
   component: Autocomplete,
   argTypes: {
@@ -16,16 +15,12 @@ const meta = {
       options: ['small', 'medium', 'large'],
     },
   },
-} satisfies Meta<typeof Autocomplete>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Demonstrates a single-select autocomplete with dynamic options.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: null, // children are handled by the story's render function
     disabled: false,
@@ -72,16 +67,14 @@ export const Example: Story = {
       </Autocomplete>
     )
   },
-}
+})
 
 /**
  * Demonstrates an autocomplete that lets users filter preloaded options by typing in the search input.
  */
-export const Preloaded: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Preloaded = Example.extend({
   parameters: { docs: { source: { type: 'code' } } },
+
   render: (args) => {
     const [searchText, setSearchText] = useState('')
 
@@ -114,7 +107,7 @@ export const Preloaded: Story = {
       </Autocomplete>
     )
   },
-}
+})
 
 /**
  * Use `variant="borderless"` on `Autocomplete.Button` when embedding the autocomplete in a
@@ -122,16 +115,15 @@ export const Preloaded: Story = {
  * default border; when `showValidity` is enabled, validity is communicated via background colour
  * rather than a border.
  */
-export const Borderless: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Borderless = Example.extend({
   globals: {
     backgrounds: {
       value: 'light',
     },
   },
+
   parameters: { docs: { source: { type: 'code' } } },
+
   render: (args) => {
     const [searchText, setSearchText] = useState('')
     const filteredOptions = filterFruit(searchText)
@@ -163,15 +155,14 @@ export const Borderless: Story = {
       </Autocomplete>
     )
   },
-}
+})
 
 /**
  * Options can be grouped using the `CompactSelect.Optgroup`. Groups should always be separated
  * by a `CompactSelect.Divider`.
  */
-export const Groups: Story = {
+export const Groups = Example.extend({
   args: {
-    ...Example.args,
     id: 'groups-example',
   },
   render: (args) => {
@@ -196,15 +187,14 @@ export const Groups: Story = {
       </Autocomplete>
     )
   },
-}
+})
 
 /**
  * Demonstrates a multi-select autocomplete that lets users filter and select multiple preloaded options.
  */
-export const MultiSelect: Story = {
+export const MultiSelect = Example.extend({
   name: 'Multi-select',
   args: {
-    ...Example.args,
     id: 'multi-select-example',
     multiple: true,
   },
@@ -253,7 +243,7 @@ export const MultiSelect: Story = {
       </Autocomplete.DefaultOptionsContext.Provider>
     )
   },
-}
+})
 
 /**
  * When the autocomplete has one or more initial selections, the label text for those options must
@@ -262,32 +252,29 @@ export const MultiSelect: Story = {
  * This wire up can be done manually via the each component's prop interface or automatically through
  * `Autocomplete.DefaultOptionsContext`.
  */
-export const DefaultOptions: Story = {
+export const DefaultOptions = MultiSelect.extend({
   args: {
-    ...MultiSelect.args,
     id: 'default-options-example',
   },
-  render: MultiSelect.render,
   parameters: {
-    docs: { story: { source: 'code' } },
+    docs: { source: { type: 'code' } },
     defaultOptions: [
       { label: 'Banana', value: 'banana' },
       { label: 'Blueberry', value: 'blueberry' },
     ],
   },
-}
+})
 
 /**
  * Single-select autocompletes can display a card with dynamic content by providing `selectionStyle="card"`
  * and a `children` render-prop to `Autocomplete.Button`.
  */
-export const SelectionCard: Story = {
+export const SelectionCard = Preloaded.extend({
   args: {
-    ...Preloaded.args,
     id: 'selection-card-example',
   },
   parameters: {
-    docs: { story: { source: 'code' } },
+    docs: { source: { type: 'code' } },
   },
   render: (args) => {
     return (
@@ -321,7 +308,7 @@ export const SelectionCard: Story = {
       </Autocomplete>
     )
   },
-}
+})
 
 interface FruitOption {
   label: string

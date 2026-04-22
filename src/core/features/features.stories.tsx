@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { Features } from './features'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Features',
   component: Features,
   argTypes: {
@@ -35,22 +34,18 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Features>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Many',
     size: '2xs',
   },
-}
+})
 
 /** There are four sizes available: `2xs`, `xs`, `sm`, and `base`. */
-export const Sizes: Story = {
+export const Sizes = Example.extend({
   args: {
-    ...Example.args,
     size: 'base',
   },
   argTypes: {
@@ -80,12 +75,12 @@ export const Sizes: Story = {
       <Features {...args} size="base" />
     </>
   ),
-}
+})
 
 /**
  * By default, feature items will wrap if they do not have enough space.
  */
-export const Overflow: Story = {
+export const Overflow = meta.story({
   args: {
     children: 'Many',
     size: '2xs',
@@ -97,14 +92,13 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * However, wrapping can be prevented with `wrap="nowrap"`.
  */
-export const NoWrap: Story = {
+export const NoWrap = Overflow.extend({
   args: {
-    ...Overflow.args,
     wrap: 'nowrap',
   },
   decorators: [
@@ -114,4 +108,4 @@ export const NoWrap: Story = {
       </div>
     ),
   ],
-}
+})

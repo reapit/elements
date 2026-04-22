@@ -1,17 +1,13 @@
+import preview from '#.storybook/preview'
 import { AtAGlance } from '../at-a-glance'
 import { AtAGlanceCard } from './card'
 import { SproutIcon } from '#src/icons/sprout'
 import { Badge } from '#src/core/badge'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/AtAGlance/Card',
   component: AtAGlanceCard,
-} satisfies Meta<typeof AtAGlanceCard>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Card provides a composition API for building custom AtAGlance cards. The AtAGlance.CardIcon,
@@ -24,7 +20,7 @@ type Story = StoryObj<typeof meta>
  * `AtAGlance.AnchorCard`, or `AtAGlance.ButtonCard` all provide built-in accessibility for the canned
  * layouts.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {} as AtAGlanceCard.AsArticleProps,
   render: () => (
     <AtAGlance.Card layout="vertical">
@@ -36,7 +32,7 @@ export const Example: Story = {
       <AtAGlance.CardValue>32</AtAGlance.CardValue>
     </AtAGlance.Card>
   ),
-}
+})
 
 /**
  * The Card is polymorphic, supporting `a`, `article` and `button` elements via the `as` prop.
@@ -48,7 +44,7 @@ export const Example: Story = {
  * `AtAGlance.AnchorCard` and `AtAGlance.ButtonCard` take care of this internally, though they
  * only support the built-in subcomponents (description, icon, label and value).
  */
-export const Polymorphism: Story = {
+export const Polymorphism = meta.story({
   args: {} as AtAGlanceCard.AsAnchorProps,
   render: () => (
     <AtAGlance.Card aria-label="Apple: 32" as="a" href="#" layout="compact">
@@ -60,7 +56,7 @@ export const Polymorphism: Story = {
       <AtAGlance.CardValue>32</AtAGlance.CardValue>
     </AtAGlance.Card>
   ),
-}
+})
 
 /**
  * When using a custom grid layout with custom components, each component should be assigned a specific
@@ -69,7 +65,7 @@ export const Polymorphism: Story = {
  *
  * Note the need to apply inline styles (or custom classes) to descendants in order to space them out.
  */
-export const CustomLayout: Story = {
+export const CustomLayout = meta.story({
   args: {} as AtAGlanceCard.AsButtonProps,
   render: () => (
     <AtAGlance.Card
@@ -94,4 +90,4 @@ export const CustomLayout: Story = {
       </Badge>
     </AtAGlance.Card>
   ),
-}
+})

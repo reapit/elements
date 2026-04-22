@@ -1,38 +1,39 @@
+import preview from '#.storybook/preview'
 import { useState } from 'react'
 import { Steps, StepsVertical } from './index'
 import { Button } from '../../core/button'
 import { ButtonGroup } from '../../core/button-group'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/Steps',
   component: Steps,
-}
+})
 
-export const BasicStepsUsage = {
-  render: ({}) => <Steps steps={['1', '2', '3', '4', '5']} />,
-}
+export const BasicStepsUsage = meta.story({
+  render: () => <Steps steps={['1', '2', '3', '4', '5']} />,
+})
 
-export const MiddleItemSelected = {
-  render: ({}) => <Steps steps={['1', '2', '3', '4', '5']} selectedStep="3" />,
+export const MiddleItemSelected = meta.story({
+  render: () => <Steps steps={['1', '2', '3', '4', '5']} selectedStep="3" />,
   name: 'Middle item selected',
-}
+})
 
-export const LastItemSelected = {
-  render: ({}) => <Steps steps={['A', 'B', 'C', 'D']} selectedStep="D" />,
+export const LastItemSelected = meta.story({
+  render: () => <Steps steps={['A', 'B', 'C', 'D']} selectedStep="D" />,
   name: 'Last item selected',
-}
+})
 
-export const ReactExample = {
-  render: ({}) => {
+export const ReactExample = meta.story({
+  render: () => {
     const [selectedStep, setSelectedStep] = useState('1')
 
     return <Steps steps={['1', '2', '3', '4', '5']} selectedStep={selectedStep} onStepClick={setSelectedStep} />
   },
   name: 'React example',
-}
+})
 
-export const StepsVerticalUsage = {
-  render: ({}) => {
+export const StepsVerticalUsage = meta.story({
+  render: () => {
     const [selectedStep, setSelectedStep] = useState('1')
 
     const steps = [
@@ -78,4 +79,4 @@ export const StepsVerticalUsage = {
       </>
     )
   },
-}
+})

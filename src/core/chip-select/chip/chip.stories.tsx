@@ -1,10 +1,10 @@
+import type { ComponentProps } from 'react'
+import preview from '#.storybook/preview'
 import { ChipSelectChip } from './chip'
 import { SproutIcon } from '#src/icons/sprout'
 import { StarIcon } from '#src/icons/star'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/ChipSelect/Chip',
   component: ChipSelectChip,
   argTypes: {
@@ -41,17 +41,13 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof ChipSelectChip>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * In their simplest form, chips consist of a visual label. Importantly, all chips within a `ChipSelect`
  * should have the same visual style.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': undefined,
     checked: undefined,
@@ -68,47 +64,43 @@ export const Example: Story = {
     size: 'small',
     value: 'abc-123',
   },
-}
+})
 
 /**
  * Icons can be placed in front of the chip's label. Again, if one chip in the `ChipSelect` has an icon,
  * all chips should have an icon.
  */
-export const Icons: Story = {
+export const Icons = Example.extend({
   args: {
-    ...Example.args,
     icon: 'Sprout',
   },
-}
+})
 
 /**
  * When no visual label is provided, an icon and accessible label should both be considered mandatory.
  * Again, if one chip in the `ChipSelect` uses an icon-only style, all other chips should also use
  * an icon-only style.
  */
-export const IconOnly: Story = {
+export const IconOnly = Example.extend({
   name: 'Icon-only',
   args: {
-    ...Example.args,
     'aria-label': 'Label',
     children: undefined,
     icon: 'Sprout',
   },
-}
+})
 
 /**
  * There are three sizes available for chips. Like labels and icons, all chips within a `ChipSelect`
  * should have the same size.
  */
-export const Sizes: Story = {
-  args: {
-    ...Icons.args,
-  },
+export const Sizes = Icons.extend({
   argTypes: {
     size: {
       control: false,
     },
   },
+
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
@@ -116,6 +108,7 @@ export const Sizes: Story = {
       </div>
     ),
   ],
+
   render: (args) => (
     <>
       <ChipSelectChip {...args} size="small" />
@@ -123,49 +116,45 @@ export const Sizes: Story = {
       <ChipSelectChip {...args} size="large" />
     </>
   ),
-}
+})
 
 /**
  * When a chip is selected, it's checked state will be true. This can either be controlled, just like
  * any native checkbox input, or uncontrolled. This example takes an uncontrolled approach, defaulting
  * the checked state to `true` using `defaultChecked`.
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     defaultChecked: true,
   },
-}
+})
 
 /**
  * Chips can be read-only. When they are, they will still be focusable and, if checked, will participate
  * in form submission, but their checked state will not be changed when clicked or activated.
  */
-export const ReadOnly: Story = {
+export const ReadOnly = Example.extend({
   name: 'Read-only',
   args: {
-    ...Example.args,
     readOnly: true,
   },
-}
+})
 
 /**
  * Chips can also be disabled. While they look the same as readonly chips, disabled chips do not
  * participate in form submission.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     disabled: true,
   },
-}
+})
 
 /**
  * Long labels will truncate when there is not enough space available.
  */
-export const Truncation: Story = {
+export const Truncation = Example.extend({
   args: {
-    ...Example.args,
     children: 'Truncation can be applied when necessary',
     overflow: 'truncate',
   },
@@ -176,20 +165,19 @@ export const Truncation: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * In some cases, it may be necessary to limit the width of an option directly, rather than rely on
  * its parent container. This is achieved using the `maxWidth` prop.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Example.extend({
   name: 'Max-width',
   args: {
-    ...Example.args,
     children: 'This chip option has its own maximum width constraint',
     maxWidth: '--size-80',
   },
-}
+})
 
 /**
  * When multiple chips with the same name and associated with the same form are marked as "exclusive",
@@ -200,37 +188,39 @@ export const MaxWidth: Story = {
  * In cases where the checked state is controlled, it is the consumer's responsibility to facilitate
  * this behaviour.
  */
-export const SingleSelect: Story = {
-  name: 'Single-select',
-  args: {
-    ...IconOnly.args,
-    isExclusive: true,
-  },
-  argTypes: {
-    value: {
-      control: false,
-    },
-  },
-  render: (args) => {
-    return (
-      <form style={{ display: 'inline-flex', gap: 'var(--spacing-2)' }}>
-        <ChipSelectChip {...args} defaultChecked value="1" />
-        <ChipSelectChip {...args} value="2" />
-      </form>
-    )
+const selectArgTypes = {
+  value: {
+    control: false as const,
   },
 }
+
+const renderSelectChips = (args: ComponentProps<typeof ChipSelectChip>) => {
+  return (
+    <form style={{ display: 'inline-flex', gap: 'var(--spacing-2)' }}>
+      <ChipSelectChip {...args} defaultChecked value="1" />
+      <ChipSelectChip {...args} value="2" />
+    </form>
+  )
+}
+
+export const SingleSelect = IconOnly.extend({
+  name: 'Single-select',
+  args: {
+    isExclusive: true,
+  },
+  argTypes: selectArgTypes,
+  render: renderSelectChips,
+})
 
 /**
  * In contrast, when chips are NOT marked as exclusive, they behave like a normal checkbox group, where
  * multiple chips can be checked at the same time.
  */
-export const MultiSelect: Story = {
+export const MultiSelect = IconOnly.extend({
   name: 'Multi-select',
   args: {
-    ...IconOnly.args,
     isExclusive: false,
   },
-  argTypes: SingleSelect.argTypes,
-  render: SingleSelect.render,
-}
+  argTypes: selectArgTypes,
+  render: renderSelectChips,
+})

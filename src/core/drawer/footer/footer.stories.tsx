@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { Button } from '#src/core/button/index'
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
 import { DRAWER_CSS_CONTAINER_NAME } from '../constants'
 import { DrawerFooter } from './footer'
 import { Pattern } from '../__story__/Pattern'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Drawer/Footer',
   component: DrawerFooter,
   argTypes: {
@@ -28,12 +27,9 @@ const meta = {
       value: 'light',
     },
   },
-} satisfies Meta<typeof DrawerFooter>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: (
       <>
@@ -51,15 +47,12 @@ export const Example: Story = {
       </>
     ),
   },
-}
+})
 
 /**
  * The drawer footer is always sticky positioned to the bottom of its parent container when its parent overflows.
  */
-export const StickyPositioning: Story = {
-  args: {
-    ...Example.args,
-  },
+export const StickyPositioning = Example.extend({
   decorators: [
     (Story) => (
       <div
@@ -77,23 +70,23 @@ export const StickyPositioning: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Like the header and body, the drawer footer will adjust it's layout based on the inline-size of its parent
  * container. This story demonstrates the layout changes within containers that mimic the drawer's width within
  * different breakpoints.
  */
-export const DynamicLayout: StoryObj = {
+export const DynamicLayout = meta.story({
   decorators: [useDrawerBreakpointDecorator()],
   render: () => (
     <>
       <Breakpoint breakpoint="XS-SM">
-        <DrawerFooter {...Example.args} />
+        <DrawerFooter {...Example.input.args} />
       </Breakpoint>
       <Breakpoint breakpoint="MD-2XL">
-        <DrawerFooter {...Example.args} />
+        <DrawerFooter {...Example.input.args} />
       </Breakpoint>
     </>
   ),
-}
+})

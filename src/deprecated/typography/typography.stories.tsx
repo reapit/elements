@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import {
   BodyText,
   SmallText,
@@ -13,13 +14,13 @@ import {
   Title,
 } from './typography'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/Typography',
   component: TextBase,
-}
+})
 
-export const BaseScale = {
-  render: ({}) => (
+export const BaseScale = meta.story({
+  render: () => (
     <>
       <Text3XL>I am a Text3XL</Text3XL>
       <Text2XL>I am a Text2XL</Text2XL>
@@ -31,10 +32,10 @@ export const BaseScale = {
       <Text2XS>I am a Text2XS</Text2XS>
     </>
   ),
-}
+})
 
-export const TaggedTypography = {
-  render: ({}) => (
+export const TaggedTypography = meta.story({
+  render: () => (
     <>
       <Text3XL tag="h1">I am a Text3XL with an h1 tag</Text3XL>
       <Text2XL tag="h2">I am a Text2XL with an h2 tag</Text2XL>
@@ -46,10 +47,10 @@ export const TaggedTypography = {
       <Text2XS tag="span">I am a Text2XS with a span tag</Text2XS>
     </>
   ),
-}
+})
 
-export const TypographyModifiers = {
-  render: ({}) => (
+export const TypographyModifiers = meta.story({
+  render: () => (
     <>
       <TextBase hasGreyText>I am a TextBase with the hasGreyText modifier</TextBase>
       <TextBase hasItalicText>I am a TextBase with the hasItalicText modifier</TextBase>
@@ -65,10 +66,10 @@ export const TypographyModifiers = {
       <TextBase hasUpperCasedText>i am a bodytext with hasUpperCasedText modifier</TextBase>
     </>
   ),
-}
+})
 
-export const Intent = {
-  render: ({}) => (
+export const Intent = meta.story({
+  render: () => (
     <>
       <TextBase intent="primary">I am a TextBase primary</TextBase>
       <TextBase intent="neutral">I am a TextBase neutral</TextBase>
@@ -79,35 +80,35 @@ export const Intent = {
       <TextBase intent="default">I am a TextBase default</TextBase>
     </>
   ),
-}
+})
 
-export const TitleUsage = {
-  render: ({}) => <Title>I am a Title</Title>,
-}
+export const TitleUsage = meta.story({
+  render: () => <Title>I am a Title</Title>,
+})
 
-export const SubtitleUsage = {
-  render: ({}) => <Subtitle>I am a Subtitle</Subtitle>,
-}
+export const SubtitleUsage = meta.story({
+  render: () => <Subtitle>I am a Subtitle</Subtitle>,
+})
 
-export const BodyTextUsage = {
-  render: ({}) => <BodyText>I am a BodyText</BodyText>,
-}
+export const BodyTextUsage = meta.story({
+  render: () => <BodyText>I am a BodyText</BodyText>,
+})
 
-export const SmallTextUsage = {
-  render: ({}) => <SmallText>I am a SmallText</SmallText>,
-}
+export const SmallTextUsage = meta.story({
+  render: () => <SmallText>I am a SmallText</SmallText>,
+})
 
-export const TitleAndSubtitle = {
-  render: ({}) => (
+export const TitleAndSubtitle = meta.story({
+  render: () => (
     <>
       <Title>Why register for Foundations?</Title>
       <Subtitle>Why would you not want to register for Foundations?</Subtitle>
     </>
   ),
-}
+})
 
-export const SubtitleAndBodyText = {
-  render: ({}) => (
+export const SubtitleAndBodyText = meta.story({
+  render: () => (
     <>
       <Subtitle>Why register for Foundations?</Subtitle>
       <BodyText>
@@ -117,10 +118,10 @@ export const SubtitleAndBodyText = {
       </BodyText>
     </>
   ),
-}
+})
 
-export const BodyTextAndSmallText = {
-  render: ({}) => (
+export const BodyTextAndSmallText = meta.story({
+  render: () => (
     <>
       <BodyText>Have you had a look at the documentation?</BodyText>
       <SmallText>
@@ -129,4 +130,4 @@ export const BodyTextAndSmallText = {
       </SmallText>
     </>
   ),
-}
+})

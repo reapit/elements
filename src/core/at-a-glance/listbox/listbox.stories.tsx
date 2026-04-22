@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { AtAGlance } from '../at-a-glance'
 import { Badge } from '#src/core/badge'
 import { buildCards } from '../__story__/build-cards'
@@ -5,9 +6,8 @@ import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/AtAGlance/Listbox',
   component: AtAGlance.Listbox,
   argTypes: {
@@ -28,16 +28,13 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof AtAGlance.Listbox>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * A listbox allows users to select from a set of options. This example uses a carousel layout
  * for horizontal scrolling with navigation buttons.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     name: 'fruit',
     // @ts-expect-error -- TS doesn't know about the mapping we do
@@ -45,12 +42,12 @@ export const Example: Story = {
     children: 'Carousel',
     columns: '200px',
   },
-}
+})
 
 /**
  * A listbox can also use a grid layout for responsive card display.
  */
-export const Grid: Story = {
+export const Grid = meta.story({
   args: {
     name: 'fruit',
     // @ts-expect-error -- TS doesn't know about the mapping we do
@@ -58,14 +55,13 @@ export const Grid: Story = {
     children: 'Grid',
     templateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
   },
-}
+})
 
 /**
  * Controlled listbox with state management. Selection is managed externally via `value` and `onChange`.
  */
-export const Controlled: Story = {
+export const Controlled = Example.extend({
   args: {
-    ...Example.args,
     id: 'my-fruit',
   },
   render: (args) => {
@@ -86,7 +82,7 @@ export const Controlled: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * Listbox options can render as a custom card by using `as`. The custom component must
@@ -97,9 +93,8 @@ export const Controlled: Story = {
  * `AtAGlance.CardValue` subcomponents, while the last one uses the `Badge` component with some
  * custom styles.
  */
-export const Polymorphism: Story = {
+export const Polymorphism = Example.extend({
   args: {
-    ...Example.args,
     id: 'my-polymorphed-fruit',
   },
   render: (args) => {
@@ -122,7 +117,7 @@ export const Polymorphism: Story = {
       </>
     )
   },
-}
+})
 
 namespace MyCustomCardOption {
   export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {

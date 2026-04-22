@@ -1,14 +1,13 @@
+import preview from '#.storybook/preview'
 import { BottomBar } from './bottom-bar'
 import { Menu } from '#src/core/menu'
 import { Pattern } from '../drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 // Placeholder href for all menu items in this story.
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/BottomBar',
   component: BottomBar,
   argTypes: {
@@ -51,33 +50,29 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof BottomBar>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Without a scroll container ID, the bottom bar will be extended and, if it is a descendant of the
  * scroll container, will remain sticky-positioned to its bottom.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': 'Bottom navigation',
     children: 'With overflow menu',
     scrollContainerId: undefined,
   },
-}
+})
 
 /**
  * By specifying a scroll container ID, the bottom bar will dynamically retract as the user
  * scrolls down within that container, and extend as the user scrolls back up.
  */
-export const Retractable: Story = {
+export const Retractable = Example.extend({
   args: {
-    ...Example.args,
     scrollContainerId: 'scroll-container-id',
   },
-}
+})
 
 function buildMenu(type: 'No selected item' | 'Selected item' | 'With overflow menu') {
   return (

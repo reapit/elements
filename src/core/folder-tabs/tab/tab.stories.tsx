@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { FOLDER_TABS_CSS_CONTAINER_NAME } from '../constants'
 import { ElFolderTab } from './styles'
 import { FolderTab } from './tab'
 import { FolderTabCountLabel } from '../count-label'
 import { useFolderTabsContainerDecorator } from '../__story__/useFolderTabsContainerDecorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FolderTabs/Tab',
   component: FolderTab,
   argTypes: {
@@ -29,11 +28,7 @@ const meta = {
       value: 'light',
     },
   },
-} satisfies Meta<typeof FolderTab>
-
-export default meta
-
-type Story = StoryObj<typeof FolderTab>
+})
 
 /**
  * The visual appearance of a folder tab will change based on it's container's size. For small
@@ -43,14 +38,14 @@ type Story = StoryObj<typeof FolderTab>
  *
  * For solitary tabs, which will be rare in practice, the visual difference is subtle.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-current': false,
     children: 'Label',
     href: '#',
   },
   decorators: [useFolderTabsContainerDecorator()],
-}
+})
 
 /**
  * When there are multiple siblings (i.e., they all share the same parent element), tabs in larger
@@ -62,10 +57,7 @@ export const Example: Story = {
  * vertically in smaller containers. This behaviour is more clearly seen in the stories for
  * [FolderTabs](./?path=/docs/core-foldertabs--example).
  */
-export const FirstTab: Story = {
-  args: {
-    ...Example.args,
-  },
+export const FirstTab = Example.extend({
   decorators: [
     (Story) => (
       <div
@@ -85,17 +77,14 @@ export const FirstTab: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * When the tab is neither the first nor the last sibling, a "wave" will be featured on both sides in
  * larger containers. It will also have a negative right margin, though this is not visible here.
  * On smaller containers, the tab will feature a subtle top border and negative top margin.
  */
-export const MiddleTab: Story = {
-  args: {
-    ...Example.args,
-  },
+export const MiddleTab = Example.extend({
   decorators: [
     (Story) => (
       <div
@@ -115,17 +104,14 @@ export const MiddleTab: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Finally, when the tab is neither the last sibling, a "wave" will be featured on its left side in
  * larger containers. On smaller containers, the tab will feature a subtle top border and negative
  * top margin.
  */
-export const LastTab: Story = {
-  args: {
-    ...Example.args,
-  },
+export const LastTab = Example.extend({
   decorators: [
     (Story) => (
       <div
@@ -145,7 +131,7 @@ export const LastTab: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * When the tab represents the current page, `aria-current="page"` should be supplied to communicate to
@@ -153,22 +139,20 @@ export const LastTab: Story = {
  * only, will sit above all other tabs. This behaviour is more clearly seen in the stories for
  * [FolderTabs](./?path=/docs/core-foldertabs--example).
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     'aria-current': 'page',
   },
   decorators: [useFolderTabsContainerDecorator()],
-}
+})
 
 /**
  * The [FolderTabs.CountLabel](./?path=/docs/core-foldertabs-countlabel-example) component can be used to
  * display a numerical count alongside the tab label. This is typically used to indicate the number
  * of items associated with the tab, such as the number of transactions ready for processing.
  */
-export const WithCount: Story = {
+export const WithCount = Example.extend({
   args: {
-    ...Example.args,
     children: <FolderTabCountLabel count="00">Label</FolderTabCountLabel>,
   },
   argTypes: {
@@ -177,16 +161,15 @@ export const WithCount: Story = {
     },
   },
   decorators: [useFolderTabsContainerDecorator()],
-}
+})
 
 /**
  * By default, tabs can contain any content, though this will typically be plain text or a
  * [FolderTabs.CountLabel](./?path=/docs/core-foldertabs-countlabel--example). When plain text is displayed,
  * it will be truncated if it is too long to fit within the available space.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     children: 'A very very very long tab label that will need to wrap to additional lines and may even be truncated',
   },
   decorators: [
@@ -220,17 +203,16 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * When [FolderTabs.CountLabel](?path=/docs/core-foldertabs-countlabel-example) is used for the tab content,
  * the label text will still truncate if there's not enough space, but tabs in large containers will
  * allow two lines of text before truncation is applied.
  */
-export const OverflowWithCount: Story = {
+export const OverflowWithCount = Example.extend({
   name: 'Overflow w/ count',
   args: {
-    ...Example.args,
     children: (
       <FolderTabCountLabel count="00">
         A very very very long tab label that will need to wrap to additional lines and may even be truncated
@@ -268,4 +250,4 @@ export const OverflowWithCount: Story = {
       </div>
     ),
   ],
-}
+})

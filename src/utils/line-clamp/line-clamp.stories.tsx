@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { LineClamp } from './line-clamp'
 import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta: Meta<typeof LineClamp> = {
+const meta = preview.meta({
   title: 'Utils/LineClamp',
   component: LineClamp,
   argTypes: {
@@ -12,12 +11,9 @@ const meta: Meta<typeof LineClamp> = {
       control: 'text',
     },
   },
-}
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -30,14 +26,14 @@ export const Example: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Use `whiteSpace="pre-wrap"` to preserve newlines, tabs, and runs of spaces in user-authored
  * content retrieved from an API. Here the text contains literal `\n` line breaks that are
  * preserved in the rendered text.
  */
-export const WhiteSpace: Story = {
+export const WhiteSpace = meta.story({
   args: {
     children:
       'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.\n\nUt enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
@@ -51,16 +47,13 @@ export const WhiteSpace: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The disclosure button will show and hide dynamically if a change in the element's size, content
  * or `clampTo` prop causes the content to overflow.
  */
-export const Dynamic: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Dynamic = Example.extend({
   decorators: [
     (Story) => {
       const [width, setWidth] = useState(640)
@@ -97,4 +90,4 @@ export const Dynamic: Story = {
       )
     },
   ],
-}
+})

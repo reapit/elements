@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { CompactSelectNative } from './compact-select-native'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/CompactSelectNative',
   component: CompactSelectNative,
   argTypes: {
@@ -40,42 +39,35 @@ const meta = {
       options: ['small', 'medium', 'large'],
     },
   },
-} satisfies Meta<typeof CompactSelectNative>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': 'Portfolio',
     children: 'Simple',
     size: 'small',
   },
-}
+})
 
 /**
  * Options for the select can be grouped using the native `optgroup` element.
  */
-export const OptionGroups: Story = {
+export const OptionGroups = Example.extend({
   args: {
-    ...Example.args,
     children: 'With Groups',
   },
-}
+})
 
 /**
  * The compact select supports three sizes: `small`, `medium`, and `large`.
  */
-export const Sizes: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sizes = Example.extend({
   argTypes: {
     size: {
       control: false,
     },
   },
+
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)', alignItems: 'center' }}>
@@ -83,6 +75,7 @@ export const Sizes: Story = {
       </div>
     ),
   ],
+
   render: (args) => (
     <>
       <CompactSelectNative {...args} size="small" />
@@ -90,38 +83,35 @@ export const Sizes: Story = {
       <CompactSelectNative {...args} size="large" />
     </>
   ),
-}
+})
 
 /**
  * The initial value of the select, when it's value is not controlled, can be provided using `defaultValue`.
  */
-export const DefaultValue: Story = {
+export const DefaultValue = Example.extend({
   name: 'Default value',
   args: {
-    ...Example.args,
     defaultValue: 'portfolio1',
   },
-}
+})
 
 /**
  * The value of the select can be controlled by providing an explicit `value`. In this example, the select's value is
  * pinned to "Portfolio 1" and, because that controlled value is not updated when another option is selected, it does
  * not change.
  */
-export const ControlledValue: Story = {
+export const ControlledValue = Example.extend({
   name: 'Controlled value',
   args: {
-    ...Example.args,
     value: 'portfolio1',
   },
-}
+})
 
 /**
  * When the selected option is too long for the available space, it will truncate.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: 'portfolio4',
   },
   decorators: [
@@ -131,18 +121,17 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The `maxWidth` prop can also be used to limit how wide the select will grow. This can be useful
  * when we don't want to allow the select to grow as wide as its container.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Overflow.extend({
   name: 'Max-width',
   args: {
-    ...Overflow.args,
     defaultValue: 'portfolio4',
     maxWidth: '100px',
   },
-  decorators: Overflow.decorators,
-}
+  decorators: Overflow.input.decorators,
+})

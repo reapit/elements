@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { FormLayout, InputWrap, InputWrapMed, InputWrapFull, InputWrapSmall, FormSectionDivider } from './form-layout'
 import { Textarea } from '../../core/textarea'
 import { TextInput } from '../../core/text-input'
@@ -7,13 +8,13 @@ import { ButtonGroup } from '../../core/button-group'
 import { DeprecatedSelect } from '../../deprecated/select'
 import { TextBase, TextSM } from '../../deprecated/typography'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/FormLayout',
   component: FormLayout,
-}
+})
 
-export const BasicForm = {
-  render: ({}) => (
+export const BasicForm = meta.story({
+  render: () => (
     <form>
       <TextBase hasMargin hasBoldText>
         Basic Form
@@ -47,10 +48,10 @@ export const BasicForm = {
       </ButtonGroup>
     </form>
   ),
-}
+})
 
-export const ComplexForm = {
-  render: ({}) => (
+export const ComplexForm = meta.story({
+  render: () => (
     <form>
       <TextBase hasMargin hasBoldText>
         Complex Form
@@ -122,4 +123,4 @@ export const ComplexForm = {
       </ButtonGroup>
     </form>
   ),
-}
+})

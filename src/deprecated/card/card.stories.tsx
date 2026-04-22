@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import {
   CardWrap,
   CardHeading,
@@ -22,13 +23,13 @@ import { DeprecatedAvatar } from '../avatar'
 import { PropertyIcon } from '#src/icons/property'
 import { ContactIcon } from '#src/icons/contact'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/Card',
   component: Card,
-}
+})
 
-export const CardWithAvatar = {
-  render: ({}) => (
+export const CardWithAvatar = meta.story({
+  render: () => (
     <CardWrap>
       <CardMainWrap>
         <DeprecatedAvatar src="https://picsum.photos/200" />
@@ -40,10 +41,10 @@ export const CardWithAvatar = {
       </CardMainWrap>
     </CardWrap>
   ),
-}
+})
 
-export const CardWithImage = {
-  render: ({}) => (
+export const CardWithImage = meta.story({
+  render: () => (
     <CardWrap>
       <CardMainWrap>
         <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
@@ -55,10 +56,10 @@ export const CardWithImage = {
       </CardMainWrap>
     </CardWrap>
   ),
-}
+})
 
-export const CardWithBody = {
-  render: ({}) => (
+export const CardWithBody = meta.story({
+  render: () => (
     <CardWrap>
       <CardMainWrap>
         <CardHeadingWrap>
@@ -75,10 +76,10 @@ export const CardWithBody = {
       </CardBodyWrap>
     </CardWrap>
   ),
-}
+})
 
-export const CardFocussed = {
-  render: ({}) => (
+export const CardFocussed = meta.story({
+  render: () => (
     <CardWrap className={elCardFocussed}>
       <CardMainWrap>
         <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
@@ -96,10 +97,10 @@ export const CardFocussed = {
       </CardBodyWrap>
     </CardWrap>
   ),
-}
+})
 
-export const CardWithList = {
-  render: ({}) => (
+export const CardWithList = meta.story({
+  render: () => (
     <CardWrap>
       <CardListMainWrap>
         <CardListHeading>Secondary Heading</CardListHeading>
@@ -125,10 +126,10 @@ export const CardWithList = {
       </CardListItem>
     </CardWrap>
   ),
-}
+})
 
-export const CardCompleteExample = {
-  render: ({}) => (
+export const CardCompleteExample = meta.story({
+  render: () => (
     <CardWrap>
       <CardMainWrap>
         <DeprecatedAvatar type="image" src="https://picsum.photos/200/300" />
@@ -168,10 +169,10 @@ export const CardCompleteExample = {
       </CardListItem>
     </CardWrap>
   ),
-}
+})
 
-export const ReactShorthandAvatarBody = {
-  render: ({}) => (
+export const ReactShorthandAvatarBody = meta.story({
+  render: () => (
     <Card
       hasMainCard
       hasListCard
@@ -184,10 +185,10 @@ export const ReactShorthandAvatarBody = {
   ),
 
   name: 'React Shorthand Avatar & Body',
-}
+})
 
-export const ReactShorthandList = {
-  render: ({}) => (
+export const ReactShorthandList = meta.story({
+  render: () => (
     <Card
       hasListCard
       listCardHeading="List Card Heading"
@@ -208,10 +209,10 @@ export const ReactShorthandList = {
       ]}
     />
   ),
-}
+})
 
-export const ReactShorthandComplete = {
-  render: ({}) => (
+export const ReactShorthandComplete = meta.story({
+  render: () => (
     <Card
       hasMainCard
       hasListCard
@@ -238,4 +239,4 @@ export const ReactShorthandComplete = {
       ]}
     />
   ),
-}
+})

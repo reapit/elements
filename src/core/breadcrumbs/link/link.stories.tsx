@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { BreadcrumbLink } from './link'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Breadcrumbs/Link',
   component: BreadcrumbLink,
   argTypes: {
@@ -10,26 +9,22 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof BreadcrumbLink>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Dashboard',
     href: '#',
   },
-}
+})
 
 /**
  * Overflow should be avoided as much as possible. When space becomes limited, a link's text will truncate
  * with ellipses. This behaviour does depend on the parent element; in this example, the link is rendered within
  * an inline-grid container, which naturally forces the link to grow to the container's width, and no further.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     children: 'Long breadcrumb link',
   },
   decorators: [
@@ -39,4 +34,4 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})

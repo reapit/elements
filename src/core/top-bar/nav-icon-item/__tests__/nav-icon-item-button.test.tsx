@@ -1,10 +1,8 @@
-import { composeStories } from '@storybook/react-vite'
 import { render, screen } from '@testing-library/react'
-import * as stories from '../nav-icon-item-button.stories'
-
-const TopBarNavIconItemStories = composeStories(stories)
+import { StarIcon } from '#src/icons/star'
+import { TopBarNavIconItemButton } from '../nav-icon-item-button'
 
 test('renders as a button', () => {
-  render(<TopBarNavIconItemStories.Example aria-label="My Item" />)
+  render(<TopBarNavIconItemButton hasBadge={false} icon={<StarIcon />} onClick={() => void 0} aria-label="My Item" />)
   expect(screen.getByRole('button', { name: 'My Item' })).toBeVisible()
 })

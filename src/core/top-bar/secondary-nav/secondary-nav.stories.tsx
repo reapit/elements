@@ -1,13 +1,12 @@
+import preview from '#.storybook/preview'
 import { StarIcon } from '#src/icons/star'
 import { HelpIcon } from '#src/icons/help'
 import { Menu } from '#src/core/menu'
 import { TopBarSecondaryNav } from './secondary-nav'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/SecondaryNav',
   component: TopBarSecondaryNav,
   argTypes: {
@@ -21,32 +20,28 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TopBarSecondaryNav>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'No selected item',
   },
-}
+})
 
 /**
  * If a nav item represents the current page, it should be marked as "selected". See the `TopBar.NavIconItem`
  * documentation for details on how.
  */
-export const SelectedItem: Story = {
+export const SelectedItem = meta.story({
   args: {
     children: 'Selected item',
   },
-}
+})
 
 /**
  * The secondary nav can contain a mix of icon items and icon menu items.
  */
-export const WithMenu: Story = {
+export const WithMenu = meta.story({
   args: {
     children: 'With menu',
   },
@@ -57,7 +52,7 @@ export const WithMenu: Story = {
       </div>
     ),
   ],
-}
+})
 
 function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
   return [

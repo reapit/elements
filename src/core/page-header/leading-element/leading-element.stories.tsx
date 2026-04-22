@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { FakeImage } from './__story__/fake-image'
 import LogoDevice from './__story__/logo-device.svg?react'
 import { PageHeaderLeadingElement } from './leading-element'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/PageHeader/LeadingElement',
   component: PageHeaderLeadingElement,
   argTypes: {
@@ -17,21 +16,18 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof PageHeaderLeadingElement>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Image',
     type: 'image',
   },
-}
+})
 
-export const Icon: Story = {
+export const Icon = meta.story({
   args: {
     children: 'Icon',
     type: 'icon',
   },
-}
+})

@@ -1,14 +1,14 @@
+import preview from '#.storybook/preview'
 import { getNextSortDirection } from './sort-direction'
 import { TableCellSortButton } from './sort-button'
 import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 import { useArgs } from 'storybook/preview-api'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { MouseEventHandler } from 'react'
 import type { SortDirection } from './sort-direction'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/SortButton',
   component: TableCellSortButton,
   argTypes: {
@@ -20,10 +20,7 @@ const meta = {
       options: ['ascending', 'descending', 'none'] satisfies SortDirection[],
     },
   },
-} satisfies Meta<typeof TableCellSortButton>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * To indicate that no sort is active for the column, use a value of "none". To change the sort
@@ -34,7 +31,7 @@ type Story = StoryObj<typeof meta>
  * calculate what the _next_ sort direction will be. This can be acheived using the
  * `getNextSortDirection` function available from `@reapit/elements/core/table`.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Property',
     name: 'address',
@@ -47,35 +44,32 @@ export const Example: Story = {
     }
     return <TableCellSortButton {...args} onClick={updateSortDirection} />
   },
-}
+})
 
 /**
  * To indicate an ascending sort order for the column, use a value of "ascending".
  */
-export const Ascending: Story = {
+export const Ascending = Example.extend({
   args: {
-    ...Example.args,
     value: 'ascending',
   },
-}
+})
 
 /**
  * To indicate a descending sort order for the column, use a value of "descending".
  */
-export const Descending: Story = {
+export const Descending = Example.extend({
   args: {
-    ...Example.args,
     value: 'descending',
   },
-}
+})
 
 /**
  * The sort button inherits `justify-content` from its parent. This allows it to match the alignment
  * specified for the table header cell in which it resides.
  */
-export const Alignment: Story = {
+export const Alignment = Example.extend({
   args: {
-    ...Example.args,
     value: 'descending',
   },
   decorators: [
@@ -92,7 +86,7 @@ export const Alignment: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Column headers should rarely be permitted to truncate, but when it is unavoidable, it's possible
@@ -100,10 +94,10 @@ export const Alignment: Story = {
  * necessary, the tooltip should label the sort button and be displayed when the sort button is
  * hovered or focused.
  */
-export const Truncation: Story = {
+export const Truncation = Descending.extend({
   args: {
-    ...Descending.args,
     'aria-labelledby': 'tooltip',
+
     children: (
       <>
         <Text font="inherit" id="text" overflow="truncate">
@@ -114,6 +108,7 @@ export const Truncation: Story = {
         </Tooltip>
       </>
     ),
+
     id: 'sort-button',
   },
   decorators: [
@@ -129,4 +124,4 @@ export const Truncation: Story = {
       </div>
     ),
   ],
-}
+})

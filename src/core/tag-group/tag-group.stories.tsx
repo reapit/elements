@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { TagGroup } from './tag-group'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/TagGroup',
   component: TagGroup,
   argTypes: {
@@ -22,23 +21,20 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TagGroup>
+})
 
-export default meta
-type Story = StoryObj<typeof TagGroup>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Many',
     flow: 'wrap',
     overflow: 'visible',
   },
-}
+})
 
 /**
  * By default, tags within the tag group will wrap to the next line if the container is too small.
  */
-export const Wrapping: Story = {
+export const Wrapping = meta.story({
   args: {
     children: 'Many',
   },
@@ -49,31 +45,29 @@ export const Wrapping: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The default wrapping behaviour can be overridden by setting `flow="nowrap"`. This is often
  * useful when using a tag group within the context of an element that does not want its content
  * wrapping, such as a single-line table cell.
  */
-export const NoWrapping: Story = {
+export const NoWrapping = Wrapping.extend({
   args: {
-    ...Wrapping.args,
     flow: 'nowrap',
   },
-  decorators: Wrapping.decorators,
-}
+  decorators: Wrapping.input.decorators,
+})
 
 /**
  * When wrapping is disabled, the overflow behaviour can also be configured using `overflow`. By
  * default, it will be `visible`, but `auto` can be used to allow scrolling if the content does
  * overflow.
  */
-export const Overflow: Story = {
+export const Overflow = NoWrapping.extend({
   args: {
-    ...NoWrapping.args,
     flow: 'nowrap',
     overflow: 'auto',
   },
-  decorators: NoWrapping.decorators,
-}
+  decorators: NoWrapping.input.decorators,
+})

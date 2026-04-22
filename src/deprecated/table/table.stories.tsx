@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { useState } from 'react'
 import { DeprecatedTable } from './index'
 import {
@@ -23,13 +24,13 @@ import { DeprecatedAvatar } from '../avatar'
 import { TextBase } from '../typography'
 import { EditIcon } from '#src/icons/edit'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/DeprecatedTable',
   component: DeprecatedTable,
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => (
+export const BasicUsage = meta.story({
+  render: () => (
     <DeprecatedTable>
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Checkbox Header</DeprecatedTableHeader>
@@ -70,10 +71,10 @@ export const BasicUsage = {
       </DeprecatedTableRowContainer>
     </DeprecatedTable>
   ),
-}
+})
 
-export const ColumnWidths = {
-  render: ({}) => (
+export const ColumnWidths = meta.story({
+  render: () => (
     <DeprecatedTable data-num-columns-excl-action-col="8">
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Checkbox Header</DeprecatedTableHeader>
@@ -115,10 +116,10 @@ export const ColumnWidths = {
     </DeprecatedTable>
   ),
   name: 'Column widths',
-}
+})
 
-export const BasicCustomisationTableCells = {
-  render: ({}) => (
+export const BasicCustomisationTableCells = meta.story({
+  render: () => (
     <DeprecatedTable>
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Selected</DeprecatedTableHeader>
@@ -160,10 +161,10 @@ export const BasicCustomisationTableCells = {
     </DeprecatedTable>
   ),
   name: 'Basic Customisation - DeprecatedTable Cells',
-}
+})
 
-export const ExpandingTableCellSpace = {
-  render: ({}) => (
+export const ExpandingTableCellSpace = meta.story({
+  render: () => (
     <DeprecatedTable data-force-narrow-table="true">
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Is Active</DeprecatedTableHeader>
@@ -198,10 +199,10 @@ export const ExpandingTableCellSpace = {
       </DeprecatedTableRowContainer>
     </DeprecatedTable>
   ),
-}
+})
 
-export const ExpandableContent = {
-  render: ({}) => (
+export const ExpandableContent = meta.story({
+  render: () => (
     <DeprecatedTable data-num-columns-excl-action-col="7" data-has-expandable-action>
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Is Active</DeprecatedTableHeader>
@@ -261,10 +262,10 @@ export const ExpandableContent = {
       </DeprecatedTableRowContainer>
     </DeprecatedTable>
   ),
-}
+})
 
-export const CallToActionContent = {
-  render: ({}) => (
+export const CallToActionContent = meta.story({
+  render: () => (
     <DeprecatedTable data-num-columns-excl-action-col="7" data-has-call-to-action>
       <DeprecatedTableHeadersRow>
         <DeprecatedTableHeader>Is Active</DeprecatedTableHeader>
@@ -301,9 +302,9 @@ export const CallToActionContent = {
       </DeprecatedTableRowContainer>
     </DeprecatedTable>
   ),
-}
+})
 
-export const ReactShorthandUsage = {
+export const ReactShorthandUsage = meta.story({
   render: ({ rows }) => <DeprecatedTable rows={rows} />,
   args: {
     rows: [
@@ -412,9 +413,9 @@ export const ReactShorthandUsage = {
       },
     ],
   },
-}
+})
 
-export const AdvancedCustomisationReact = {
+export const AdvancedCustomisationReact = meta.story({
   render: ({ rows }) => {
     const [indexExpandedRow, setIndexExpandedRow] = useState<number | null>(0)
 
@@ -545,4 +546,4 @@ export const AdvancedCustomisationReact = {
       },
     ],
   },
-}
+})

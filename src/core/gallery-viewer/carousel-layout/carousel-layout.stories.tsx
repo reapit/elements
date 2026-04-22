@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { useState } from 'react'
 import { GalleryViewerCarouselLayout } from './carousel-layout'
 import { GalleryViewerCarousel } from '#src/core/gallery-viewer/carousel'
@@ -8,7 +9,6 @@ import { Image } from '#src/utils/image'
 import { Video } from '#src/utils/video'
 
 import type { ChangeEventHandler } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const EXAMPLE_VIDEO_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'
 
@@ -38,7 +38,7 @@ function imageSrc(baseSrc: string, width: number, height: number) {
   return `${baseSrc}?w=${width}&h=${height}&fit=crop`
 }
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/GalleryViewer/CarouselLayout',
   component: GalleryViewerCarouselLayout,
   argTypes: {
@@ -52,13 +52,9 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof GalleryViewerCarouselLayout>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     main: null,
     sidebar: null,
@@ -138,4 +134,4 @@ export const Example: Story = {
       />
     )
   },
-}
+})

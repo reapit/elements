@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
 import { DrawerHeader } from './header'
 import { DrawerFooter } from '../footer'
@@ -5,11 +6,9 @@ import { Pattern } from '../__story__/Pattern'
 import { PrimaryTabs } from '#src/core/primary-tabs/index'
 import { useDrawerContextDecorator } from '../__story__/useDrawerContextDecorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Drawer/Header',
   component: DrawerHeader,
   argTypes: {
@@ -69,19 +68,16 @@ const meta = {
     },
   },
   decorators: [useDrawerContextDecorator()],
-} satisfies Meta<typeof DrawerHeader>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     action: 'Close',
     overline: 'Optional text',
     children: 'Drawer Title',
     supplementaryInfo: 'Supplementary Info',
   },
-}
+})
 
 /**
  * Tabs can also be used within the Drawer's header. Typically, these will be
@@ -89,21 +85,17 @@ export const Example: Story = {
  * if there are too many to fit within the drawer's header, `overflow="scroll"` can be used with the `PrimaryTabs`
  * component to allow them to scroll.
  */
-export const Tabs: Story = {
+export const Tabs = Example.extend({
   args: {
-    ...Example.args,
     tabs: 'Tabs',
   },
-}
+})
 
 /**
  * By default, the drawer header will be sticky when the drawer content scrolls. This ensures the context displayed by
  * the drawer's header is always visible when viewing the content.
  */
-export const StickyPositioning: Story = {
-  args: {
-    ...Example.args,
-  },
+export const StickyPositioning = Example.extend({
   decorators: [
     (Story) => (
       <div
@@ -121,16 +113,15 @@ export const StickyPositioning: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * However, when the drawer has a footer, the header will not be sticky and it will have no bottom border. This
  * behaviour explicitly depends on the presence of the "official" drawer footer's class being a
  * [subsequent sibling](https://developer.mozilla.org/en-US/docs/Web/CSS/Subsequent-sibling_combinator) to the header.
  */
-export const StaticPositioning: Story = {
+export const StaticPositioning = Example.extend({
   args: {
-    ...Example.args,
     action: 'None',
   },
   decorators: [
@@ -151,16 +142,15 @@ export const StaticPositioning: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Like the body and footer, the drawer header will adjust it's layout based on the inline-size of its parent
  * container. This story demonstrates the layout changes within containers that mimic the drawer's width within
  * different breakpoints.
  */
-export const DynamicLayout: Story = {
+export const DynamicLayout = Example.extend({
   args: {
-    ...Example.args,
     tabs: 'Tabs',
   },
   decorators: [useDrawerBreakpointDecorator()],
@@ -174,4 +164,4 @@ export const DynamicLayout: Story = {
       </Breakpoint>
     </>
   ),
-}
+})

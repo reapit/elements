@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { ChipSelect } from '#src/core/chip-select'
 import { GalleryViewer } from './gallery-viewer'
 import { Image } from '#src/utils/image'
@@ -7,7 +8,6 @@ import { useState } from 'react'
 import { Video } from '#src/utils/video'
 
 import type { ChangeEventHandler } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const EXAMPLE_VIDEO_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'
 
@@ -37,19 +37,15 @@ function imageSrc(baseSrc: string, width: number, height: number) {
   return `${baseSrc}?w=${width}&h=${height}&fit=crop`
 }
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/GalleryViewer',
   component: GalleryViewer,
   argTypes: {
     children: { control: false },
   },
-} satisfies Meta<typeof GalleryViewer>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     id: 'gallery',
     title: '10 High Street, Great Horwood, Buckinghamshire, MK17 0QL',
@@ -166,4 +162,4 @@ export const Example: Story = {
       </>
     )
   },
-}
+})

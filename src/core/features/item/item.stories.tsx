@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { FeatureItem } from './item'
 import { BathIcon } from '#src/icons/bath'
 import { BedIcon } from '#src/icons/bed'
 import { CarIcon } from '#src/icons/car'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Features/Item',
   component: FeatureItem,
   argTypes: {
@@ -19,15 +18,12 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof FeatureItem>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     icon: <BedIcon />,
     label: 'Bedrooms',
     value: 2,
   },
-}
+})

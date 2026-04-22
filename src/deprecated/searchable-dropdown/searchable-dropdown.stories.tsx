@@ -1,12 +1,13 @@
+import preview from '#.storybook/preview'
 import { SearchableDropdown, ControlledSearchableDropdown, SearchableDropdownSearchLabel } from './index'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/SearchableDropdown',
   component: SearchableDropdown,
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => (
+export const BasicUsage = meta.story({
+  render: () => (
     <SearchableDropdown
       getResults={async () => {
         return new Promise<any>((resolve) => {
@@ -34,15 +35,15 @@ export const BasicUsage = {
       placeholder="Search"
     />
   ),
-}
+})
 
-export const UseWithALabel = {
-  render: ({}) => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
+export const UseWithALabel = meta.story({
+  render: () => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
   name: 'Use with a label',
-}
+})
 
-export const UseWithAnIcon = {
-  render: ({}) => (
+export const UseWithAnIcon = meta.story({
+  render: () => (
     <SearchableDropdown
       getResults={async () => {
         return new Promise<any>((resolve) => {
@@ -72,10 +73,10 @@ export const UseWithAnIcon = {
   ),
 
   name: 'Use with an icon',
-}
+})
 
-export const ControlledUsage = {
-  render: ({}) => (
+export const ControlledUsage = meta.story({
+  render: () => (
     <ControlledSearchableDropdown
       isResultsListVisible={true}
       isClearVisible={true}
@@ -100,8 +101,8 @@ export const ControlledUsage = {
       icon="locationAlt"
     />
   ),
-}
+})
 
-export const DefaultValue = {
-  render: ({}) => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
-}
+export const DefaultValue = meta.story({
+  render: () => <SearchableDropdownSearchLabel>Select an option</SearchableDropdownSearchLabel>,
+})

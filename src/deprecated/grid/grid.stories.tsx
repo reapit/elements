@@ -1,15 +1,16 @@
+import preview from '#.storybook/preview'
 import { GridDemoBlock } from '../../storybook/demo-block'
 import { Grid, Col, ColHalf, ColQuarter, ColSplit, ColSplitThird, ColSplitTwoThirds, GridThirds } from './grid'
 import { GridResponsive, ColResponsive } from './grid-responsive'
 import { cx } from '@linaria/core'
 import { elColGap2, elRowGap3, elSpan12, elSpan8, elSpan4, elOffset4, elOffset8 } from './__styles__/units'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/Grid',
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => (
+export const BasicUsage = meta.story({
+  render: () => (
     <Grid>
       <Col>
         <GridDemoBlock />
@@ -28,10 +29,10 @@ export const BasicUsage = {
       </Col>
     </Grid>
   ),
-}
+})
 
-export const BasicUsageQuarterAndHalves = {
-  render: ({}) => (
+export const BasicUsageQuarterAndHalves = meta.story({
+  render: () => (
     <Grid>
       <ColHalf>
         <GridDemoBlock />
@@ -66,10 +67,10 @@ export const BasicUsageQuarterAndHalves = {
     </Grid>
   ),
   name: 'Basic Usage Quarter and Halves',
-}
+})
 
-export const BasicUsageSplitScreenGrid = {
-  render: ({}) => (
+export const BasicUsageSplitScreenGrid = meta.story({
+  render: () => (
     <Grid>
       <ColSplit>
         <GridDemoBlock />
@@ -80,10 +81,10 @@ export const BasicUsageSplitScreenGrid = {
     </Grid>
   ),
   name: 'Basic Usage - Split Screen Grid',
-}
+})
 
-export const BasicUsageSplitScreenGridThirds = {
-  render: ({}) => (
+export const BasicUsageSplitScreenGridThirds = meta.story({
+  render: () => (
     <GridThirds>
       <ColSplitThird>
         <GridDemoBlock />
@@ -94,10 +95,10 @@ export const BasicUsageSplitScreenGridThirds = {
     </GridThirds>
   ),
   name: 'Basic Usage - Split Screen Grid Thirds',
-}
+})
 
-export const CustomUsage = {
-  render: ({}) => (
+export const CustomUsage = meta.story({
+  render: () => (
     <Grid className={cx(elColGap2, elRowGap3)}>
       <Col className={cx(elSpan12)}>
         <GridDemoBlock />
@@ -113,10 +114,10 @@ export const CustomUsage = {
       </Col>
     </Grid>
   ),
-}
+})
 
-export const ReactExampleResponsiveCustomisation = {
-  render: ({}) => (
+export const ReactExampleResponsiveCustomisation = meta.story({
+  render: () => (
     <GridResponsive
       colGapMobile={1}
       colGapTablet={2}
@@ -234,4 +235,4 @@ export const ReactExampleResponsiveCustomisation = {
     </GridResponsive>
   ),
   name: 'React Example - Responsive Customisation',
-}
+})

@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { BreadcrumbItem } from './item'
 import { BreadcrumbLink } from '../link'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Breadcrumbs/Item',
   component: BreadcrumbItem,
   argTypes: {
@@ -13,21 +12,18 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof BreadcrumbItem>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: <BreadcrumbLink href={href}>Properties</BreadcrumbLink>,
   },
-}
+})
 
 /**
  * When there are multiple sibling items, the separator will be displayed by all except the last item.
  */
-export const Separator: Story = {
+export const Separator = meta.story({
   args: {
     children: <BreadcrumbLink href={href}>Residential</BreadcrumbLink>,
   },
@@ -41,13 +37,13 @@ export const Separator: Story = {
       </ul>
     ),
   ],
-}
+})
 
 /**
  * Overflow should be avoided as much as possible. When space becomes limited, an item's text will truncate
  * with ellipses. Though not demonstrated here, the breadcrumb separators remain fully visible.
  */
-export const Overflow: Story = {
+export const Overflow = meta.story({
   args: {
     children: <BreadcrumbLink href={href}>Long breadcrumb link</BreadcrumbLink>,
   },
@@ -58,4 +54,4 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})

@@ -1,9 +1,8 @@
+import preview from '#.storybook/preview'
 import { Menu } from '#src/core/menu'
 import { TopBarAvatarMenu } from './avatar-menu'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta: Meta<typeof TopBarAvatarMenu> = {
+const meta = preview.meta({
   component: TopBarAvatarMenu,
   title: 'Core/TopBar/AvatarMenu',
   argTypes: {
@@ -14,13 +13,9 @@ const meta: Meta<typeof TopBarAvatarMenu> = {
   parameters: {
     layout: 'centered',
   },
-}
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     initials: 'KD',
     children: (
@@ -31,4 +26,4 @@ export const Example: Story = {
       </>
     ),
   },
-}
+})

@@ -1,9 +1,10 @@
+import type { ComponentProps } from 'react'
+
+import preview from '#.storybook/preview'
 import { EmptyDataAction } from './action'
 import { EmptyDataActionButton } from './action-button'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/EmptyData/Action',
   component: EmptyDataAction,
   subcomponents: {
@@ -17,30 +18,30 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof EmptyDataAction>
-
-export default meta
-type Story = StoryObj<typeof EmptyDataAction>
+})
 
 /**
  * In most cases, the action will navigate users to a page or drawer that allows them to create
  * the kind of entity for which the `EmptyData` component is currently communicating that none exist.
  * This is why the standard action is an `<a>` element.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'No things found',
     href: '#',
   },
-}
+})
 
 /**
  * The `EmptyData.ActionButton` is a `<button>`-based version of `EmptyData.Action`. It can be used
  * in scenarios where the action needs to occur on click rather than a simple navigation.
  */
-export const Button: StoryObj<typeof EmptyDataActionButton> = {
+export const Button = Example.extend({
   args: {
     children: 'No things found',
+    href: undefined,
   },
-  render: (args) => <EmptyDataActionButton {...args} />,
-}
+  render: ({ href: _href, ...args }) => (
+    <EmptyDataActionButton {...(args as ComponentProps<typeof EmptyDataActionButton>)} />
+  ),
+})

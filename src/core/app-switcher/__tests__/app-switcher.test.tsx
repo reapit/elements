@@ -1,11 +1,19 @@
-import { composeStories } from '@storybook/react-vite'
 import { fireEvent, render, screen } from '@testing-library/react'
-import * as stories from '../app-switcher.stories'
+import { AppSwitcher } from '../app-switcher'
 
-const AppSwitcherStories = composeStories(stories)
+const exampleChildren = [
+  <AppSwitcher.YourAppsMenuGroup key="1">
+    <AppSwitcher.ProductMenuItem href="#" productId="ireWeb" />
+  </AppSwitcher.YourAppsMenuGroup>,
+  <AppSwitcher.Divider key="2" />,
+  <AppSwitcher.ExploreMenuGroup key="3">
+    <AppSwitcher.ProductMenuItem href="#" productId="consoleCloud" />
+    <AppSwitcher.ProductMenuItem href="#" productId="keyWhere" />
+  </AppSwitcher.ExploreMenuGroup>,
+]
 
 test('app switcher button will open the menu when clicked', () => {
-  render(<AppSwitcherStories.Example />)
+  render(<AppSwitcher>{exampleChildren}</AppSwitcher>)
 
   const trigger = screen.getByRole('button', { name: 'App Switcher' })
   const menu = screen.getByRole('menu')
@@ -13,23 +21,23 @@ test('app switcher button will open the menu when clicked', () => {
 })
 
 test('menu is labelled by the trigger button', () => {
-  render(<AppSwitcherStories.Example />)
+  render(<AppSwitcher>{exampleChildren}</AppSwitcher>)
   expect(screen.getByRole('menu', { name: 'App Switcher' })).toBeVisible()
 })
 
 test('menu trigger button is visible', () => {
-  render(<AppSwitcherStories.Example />)
+  render(<AppSwitcher>{exampleChildren}</AppSwitcher>)
   expect(screen.getByRole('button', { name: 'App Switcher' })).toBeVisible()
 })
 
 test('the menu is visible when the trigger button is clicked', () => {
-  render(<AppSwitcherStories.Example />)
+  render(<AppSwitcher>{exampleChildren}</AppSwitcher>)
   const button = screen.getByRole('button')
   fireEvent.click(button)
   expect(screen.getByRole('menu')).toBeVisible()
 })
 
 test('additional props are forwarded to the trigger button', () => {
-  render(<AppSwitcherStories.Example data-testid="test-id" />)
+  render(<AppSwitcher data-testid="test-id">{exampleChildren}</AppSwitcher>)
   expect(screen.getByTestId('test-id')).toBe(screen.getByRole('button'))
 })

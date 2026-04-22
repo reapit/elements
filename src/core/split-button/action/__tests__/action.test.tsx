@@ -1,10 +1,20 @@
-import { composeStories } from '@storybook/react-vite'
 import { render, screen } from '@testing-library/react'
-import * as stories from '../action.stories'
-
-const AnchorActionStories = composeStories(stories)
+import { SplitButtonAction } from '../action'
+import { SplitButtonContext } from '../../context'
 
 test('renders a button element', () => {
-  render(<AnchorActionStories.Example />)
+  render(
+    <SplitButtonContext.Provider value={{ busy: undefined, size: 'medium', variant: 'primary' }}>
+      <SplitButtonAction
+        aria-disabled={false}
+        disabled={false}
+        iconLeft={undefined}
+        isBusy={false}
+        isDestructive={false}
+      >
+        Button
+      </SplitButtonAction>
+    </SplitButtonContext.Provider>,
+  )
   expect(screen.getByRole('button')).toBeVisible()
 })

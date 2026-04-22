@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { AtAGlanceArticleCard } from './article-card'
 import { SproutIcon } from '#src/icons/sprout'
 import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/AtAGlance/ArticleCard',
   component: AtAGlanceArticleCard,
   argTypes: {
@@ -20,16 +19,13 @@ const meta = {
     maxWidth: { control: 'text' },
     minWidth: { control: 'text' },
   },
-} satisfies Meta<AtAGlanceArticleCard.Props>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * A static article card for displaying at-a-glance information.
  * Use this component when the card is for display purposes only (not interactive).
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     description: 'Crunchy and Juicy',
     displayValue: '32',
@@ -37,7 +33,7 @@ export const Example: Story = {
     label: 'Apple',
     layout: 'vertical',
   },
-}
+})
 
 /**
  * Article cards support three layout variants:
@@ -45,10 +41,7 @@ export const Example: Story = {
  * - `compact`: Icon on left, label/description stacked, value on far right
  * - `horizontal`: Icon on left, label/description stacked, value on right
  */
-export const Layouts: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Layouts = Example.extend({
   decorators: [
     (Story, { args }) => (
       <div style={{ color: '#FA00FF', display: 'flex', gap: 'var(--spacing-6)' }}>
@@ -67,54 +60,50 @@ export const Layouts: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The icon prop is optional.
  */
-export const NoIcon: Story = {
+export const NoIcon = Example.extend({
   args: {
-    ...Example.args,
     icon: null,
   },
-}
+})
 
 /**
  * The description prop is optional.
  */
-export const NoDescription: Story = {
+export const NoDescription = Example.extend({
   args: {
-    ...Example.args,
     description: null,
   },
-}
+})
 
 /**
  * The minimum and maximum width of the card can be specified. This is useful
  * in the context of grid and carousel layouts.
  */
-export const Width: Story = {
+export const Width = meta.story({
   args: {
     displayValue: '32',
     label: 'Apple',
     layout: 'horizontal',
     maxWidth: '200px',
   },
-}
+})
 
 /**
  * Article card content is stretched to fill available space, allowing values within
  * each card to be vertically aligned when displayed in a grid.
  */
-export const Alignment: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Alignment = Example.extend({
   argTypes: {
     label: { control: false },
     description: { control: false },
     displayValue: { control: false },
   },
+
   decorators: [
     (Story: any) => {
       const [width, setWidth] = useState(900)
@@ -160,6 +149,7 @@ export const Alignment: Story = {
       )
     },
   ],
+
   render: (args) => (
     <>
       <AtAGlanceArticleCard
@@ -185,4 +175,4 @@ export const Alignment: Story = {
       />
     </>
   ),
-}
+})

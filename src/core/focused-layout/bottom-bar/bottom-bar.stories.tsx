@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { FocusedLayout } from '../focused-layout'
 import { FocusedLayoutBottomBar } from './bottom-bar'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FocusedLayout/BottomBar',
   component: FocusedLayoutBottomBar,
   argTypes: {
@@ -58,18 +57,14 @@ const meta = {
       </FocusedLayout>
     ),
   ],
-} satisfies Meta<typeof FocusedLayoutBottomBar>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * The bottom bar sticks to the bottom of the viewport and is always visible.
  * It typically contains primary action buttons.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Simple',
   },
-}
+})

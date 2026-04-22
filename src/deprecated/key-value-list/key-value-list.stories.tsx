@@ -1,12 +1,13 @@
+import preview from '#.storybook/preview'
 import { KeyValueList } from '.'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/KeyValueList',
   component: KeyValueList,
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => (
+export const BasicUsage = meta.story({
+  render: () => (
     <KeyValueList
       items={[
         {
@@ -51,10 +52,10 @@ export const BasicUsage = {
       ]}
     />
   ),
-}
+})
 
-export const UsageLargeGrid = {
-  render: ({}) => (
+export const UsageLargeGrid = meta.story({
+  render: () => (
     <KeyValueList
       hasGrid
       items={[
@@ -106,4 +107,4 @@ export const UsageLargeGrid = {
       ]}
     />
   ),
-}
+})

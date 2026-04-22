@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { GalleryViewerDialogContent } from './content'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/GalleryViewer/Dialog/Content',
   component: GalleryViewerDialogContent,
   argTypes: {
@@ -22,14 +21,10 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof GalleryViewerDialogContent>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Content area',
   },
-}
+})

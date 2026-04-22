@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { OfficeSwitcher } from './office-switcher'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/OfficeSwitcher',
   component: OfficeSwitcher,
   argTypes: {
@@ -15,26 +14,22 @@ const meta = {
       value: 'light',
     },
   },
-} satisfies Meta<typeof OfficeSwitcher>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * At its simplest, the office switcher can display a static office name. Typically, this will be used
  * for single-office users.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Brisbane South',
   },
-}
+})
 
 /**
  * For multi-office users, the office switcher can display a dropdown menu with a list of offices.
  */
-export const Selector: Story = {
+export const Selector = meta.story({
   args: {
     children: (
       <OfficeSwitcher.Select>
@@ -49,12 +44,12 @@ export const Selector: Story = {
       </OfficeSwitcher.Select>
     ),
   },
-}
+})
 
 /**
  * For multi-office users with many offices, the dropdown can be searchable.
  */
-export const Searchable: Story = {
+export const Searchable = meta.story({
   args: {
     children: (
       <OfficeSwitcher.Select>
@@ -69,12 +64,12 @@ export const Searchable: Story = {
       </OfficeSwitcher.Select>
     ),
   },
-}
+})
 
 /**
  * In some cases, offices may need to be grouped.
  */
-export const Groups: Story = {
+export const Groups = meta.story({
   args: {
     children: (
       <OfficeSwitcher.Select>
@@ -96,4 +91,4 @@ export const Groups: Story = {
       </OfficeSwitcher.Select>
     ),
   },
-}
+})

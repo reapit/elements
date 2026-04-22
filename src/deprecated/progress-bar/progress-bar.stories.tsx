@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import {
   ProgressBarPercentage,
   ProgressBarSteps,
@@ -8,13 +9,13 @@ import {
 } from './progress-bar'
 import { elProgressBarLabelRight, elProgressBarLabelLeft } from './__styles__'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/ProgressBar',
   component: ProgressBarSteps,
-}
+})
 
-export const BasicExampleProgressBarPercentage = {
-  render: ({}) => (
+export const BasicExampleProgressBarPercentage = meta.story({
+  render: () => (
     <ProgressBarContainer>
       <ProgressBarInner
         style={{
@@ -29,10 +30,10 @@ export const BasicExampleProgressBarPercentage = {
   ),
 
   name: 'Basic Example - ProgressBarPercentage',
-}
+})
 
-export const BasicExampleProgressBarSteps = {
-  render: ({}) => (
+export const BasicExampleProgressBarSteps = meta.story({
+  render: () => (
     <ProgressBarContainer>
       <ProgressBarInner
         style={{
@@ -47,14 +48,14 @@ export const BasicExampleProgressBarSteps = {
   ),
 
   name: 'Basic Example - ProgressBarSteps',
-}
+})
 
-export const ReactExampleProgressBarPercentage = {
-  render: ({}) => <ProgressBarPercentage duration={20} />,
+export const ReactExampleProgressBarPercentage = meta.story({
+  render: () => <ProgressBarPercentage duration={20} />,
   name: 'React Example - ProgressBarPercentage',
-}
+})
 
-export const ReactExampleProgressBarSteps = {
-  render: ({}) => <ProgressBarSteps currentStep={7} numberSteps={7} />,
+export const ReactExampleProgressBarSteps = meta.story({
+  render: () => <ProgressBarSteps currentStep={7} numberSteps={7} />,
   name: 'React Example - ProgressBarSteps',
-}
+})

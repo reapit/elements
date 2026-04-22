@@ -25,6 +25,8 @@ public/dist
 
 # Storybook
 storybook-static
+.storybook/preview.d.ts
+.storybook/preview.d.ts.map
 
 # Linaria
 .linaria-cache

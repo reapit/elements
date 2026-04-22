@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge'
 import { ComboboxContext } from '../context'
 import { ComboboxListbox } from '../listbox'
@@ -5,9 +6,7 @@ import { ComboboxPopupDialog } from './popup-dialog'
 import { ComboboxSearchInput } from '../search-input'
 import { useId } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Combobox/Popup',
   component: ComboboxPopupDialog,
   argTypes: {
@@ -140,18 +139,14 @@ const meta = {
       </ComboboxContext.Provider>
     )
   },
-} satisfies Meta<typeof ComboboxPopupDialog>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Many popups will function as simple popovers that present the available options to the user.
  * The popup automatically anchors to the element specified by `aria-labelledby`. By default,
  * popovers are slightly wider than their anchor element to accommodate padding.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-labelledby': 'button-id',
     children: 'Simple',
@@ -160,7 +155,7 @@ export const Example: Story = {
     maxWidth: undefined,
     variant: 'popover',
   },
-}
+})
 
 /**
  * By default, popover-style popups are slightly wider than their anchor element to accommodate
@@ -168,51 +163,47 @@ export const Example: Story = {
  * CSS variable or intrinsic size keywords (e.g., `fit-content`, `min-content`, `max-content`) will
  * typically be preferred.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Example.extend({
   name: 'Max-width',
   args: {
-    ...Example.args,
     children: 'Detailed',
     maxWidth: 'fit-content',
     variant: 'popover',
   },
-}
+})
 
 /**
  * In some cases, such as on devices with small viewports, it can be preferrable to have the popup
  * function as a drawer. This can be achieved using the `drawer` variant.
  */
-export const Drawer: Story = {
+export const Drawer = Example.extend({
   args: {
-    ...Example.args,
     variant: 'drawer',
   },
-}
+})
 
 /**
  * The `auto` variant displays as a drawer on XS breakpoint (< 768px) and as a popover on SM
  * and above. This provides a responsive experience that adapts to the viewport size.
  */
-export const Auto: Story = {
+export const Auto = Example.extend({
   args: {
-    ...Example.args,
     variant: 'auto',
   },
-}
+})
 
 /**
  * A search input can be included in the popup to allow the options to be filtered/searched.
  */
-export const Filterable: Story = {
+export const Filterable = Example.extend({
   args: {
-    ...Example.args,
     children: 'Filterable',
     search: true,
   },
   parameters: {
     multiple: true,
   },
-}
+})
 
 /**
  * For single-select comboboxes, the popup will close when a selection is made. For multi-select
@@ -222,26 +213,24 @@ export const Filterable: Story = {
  * - `always`: Always closes when the user selects an option.
  * - `never`: Never closes on selection; the user must explicitly close the popup.
  */
-export const Closing: Story = {
+export const Closing = Example.extend({
   args: {
-    ...Example.args,
     children: 'Multi-select',
     closeOnSelection: 'never',
     search: true,
     variant: 'popover',
   },
-}
+})
 
 /**
  * By default, the search input, if present, will be cleared when the popup is closed. This can be
  * prevented using `preserveSearchOnClose`.
  */
-export const PreserveSearch: Story = {
+export const PreserveSearch = Filterable.extend({
   args: {
-    ...Filterable.args,
     preserveSearchOnClose: true,
   },
   parameters: {
     multiple: true,
   },
-}
+})

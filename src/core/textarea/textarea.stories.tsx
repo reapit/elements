@@ -1,7 +1,7 @@
+import preview from '#.storybook/preview'
 import { Textarea } from './index'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Textarea',
   component: Textarea,
   argTypes: {
@@ -12,13 +12,9 @@ const meta = {
     size: { control: 'radio', options: ['small', 'medium', 'large'] },
     value: { control: 'text' },
   },
-} satisfies Meta<typeof Textarea>
+})
 
-export default meta
-
-type Story = StoryObj<typeof Textarea>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     defaultValue: undefined,
     disabled: false,
@@ -33,20 +29,18 @@ export const Example: Story = {
     size: 'medium',
     value: undefined,
   },
-}
+})
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
  */
-export const Sizes: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sizes = Example.extend({
   argTypes: {
     size: {
       control: false,
     },
   },
+
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', alignItems: 'flex-start', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
@@ -54,6 +48,7 @@ export const Sizes: Story = {
       </div>
     ),
   ],
+
   render: (args) => (
     <>
       <Textarea {...args} size="small" />
@@ -61,7 +56,7 @@ export const Sizes: Story = {
       <Textarea {...args} size="large" />
     </>
   ),
-}
+})
 
 /**
  * Like all form controls that visually communicate their validity, the input will display in an
@@ -69,49 +64,49 @@ export const Sizes: Story = {
  * required, and it `showValidity` is true. Typically, `showValidity` will be true when the control has
  * been touched (interacted with).
  */
-export const Invalid: Story = {
+export const Invalid = Example.extend({
   args: {
     placeholder: 'Description',
     required: true,
     showValidity: true,
   },
-}
+})
 
 /**
  * The textarea also displays in an invalid state when `aria-invalid="true"` and `showValidity` is
  * true. This supports usage where the element is not natively invalid — for example, via custom
  * logic that does not use the browser's constraint validation API.
  */
-export const AriaInvalid: Story = {
+export const AriaInvalid = Example.extend({
   name: 'Aria Invalid',
   args: {
     'aria-invalid': true,
     placeholder: 'Description',
     showValidity: true,
   },
-}
+})
 
 /**
  * A Text area can be disabled in forms to prevent their use. When disabled, the text area cannot be focused and its
  * value will not be submitted with the form.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
     placeholder: 'Description',
     disabled: true,
   },
-}
+})
 
 /**
  * A Text area can also be marked as read-only in forms to prevent their current value being changed. Unlike a disabled
  * text area, a read-only text area can still be focused, and its value will still be submitted with the form.
  */
-export const ReadOnly: Story = {
+export const ReadOnly = Example.extend({
   args: {
     value: "I can't be edited",
     readOnly: true,
   },
-}
+})
 
 /**
  * Text area's can automatically grow or shrink between a min and/or max row count. The min and max rows define the
@@ -124,14 +119,14 @@ export const ReadOnly: Story = {
  *
  * This example demonstrates resizing behaviour for an *uncontrolled* text area.
  */
-export const Uncontrolled: Story = {
+export const Uncontrolled = Example.extend({
   args: {
     defaultValue: '1\n2',
     placeholder: 'Type here...',
     maxRows: 5,
     minRows: 1,
   },
-}
+})
 
 /**
  * This next example demonstrates auto-sizing behaviour for a *controlled* text area.
@@ -139,26 +134,25 @@ export const Uncontrolled: Story = {
  * **Note:** to change the value of the text area, you will need to use the `value` control when viewing the
  * story individually.
  */
-export const Controlled: Story = {
+export const Controlled = Example.extend({
   args: {
-    ...Example.args,
     maxRows: 5,
     minRows: 1,
     value: '1\n2\n3',
   },
-}
+})
 
 /**
  * Importantly, when an explicit row count is specified, no resizing will occur, whether the text area's
  * value is controlled or not. This allows text areas to have a fixed size when necessary.
  */
-export const FixedSizing: Story = {
+export const FixedSizing = Example.extend({
   args: {
     fieldSizing: 'fixed',
     placeholder: 'Type here...',
     rows: 10,
   },
-}
+})
 
 /**
  * To continue using the Elements v4 `TextArea` behaviour where manual resizing was permitted, consumers can
@@ -169,9 +163,9 @@ export const FixedSizing: Story = {
  *
  * @deprecated
  */
-export const ManualSizing: Story = {
+export const ManualSizing = Example.extend({
   args: {
     fieldSizing: 'manual',
     placeholder: 'Type here...',
   },
-}
+})

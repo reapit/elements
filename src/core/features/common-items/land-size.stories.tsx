@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { FeaturesLandSizeItem } from './land-size'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Features/LandSize',
   component: FeaturesLandSizeItem,
   argTypes: {
@@ -10,12 +9,9 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof FeaturesLandSizeItem>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     value: (
       <>
@@ -23,4 +19,4 @@ export const Example: Story = {
       </>
     ),
   },
-}
+})

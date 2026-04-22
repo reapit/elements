@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { AtAGlanceHeader } from './header'
 import { Button } from '#src/core/button'
 import { SettingsAltIcon } from '#src/icons/settings-alt'
@@ -5,9 +6,7 @@ import { Switch } from '#src/core/switch'
 import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/AtAGlance/Header',
   component: AtAGlanceHeader,
   argTypes: {
@@ -29,44 +28,39 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof AtAGlanceHeader>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     accessory: 'None',
     children: 'At a glance',
   },
-}
+})
 
 /**
  * A header with an accessory button. The accessory can be a button, a selector, a switch or another
  * suitable component.
  */
-export const Accessory: Story = {
+export const Accessory = Example.extend({
   args: {
-    ...Example.args,
     accessory: 'Button',
   },
-}
+})
 
 /**
  * An accessory can be displayed without a title.
  */
-export const NoTitle: Story = {
+export const NoTitle = meta.story({
   args: {
     accessory: 'Switch',
   },
-}
+})
 
 /**
  * The header text will wrap to additional lines when there is not enough space.
  */
-export const Wrapping: Story = {
+export const Wrapping = Accessory.extend({
   args: {
-    ...Accessory.args,
     children: 'A very long title that demonstrates how the header component handles text wrapping',
   },
   decorators: [
@@ -105,4 +99,4 @@ export const Wrapping: Story = {
       )
     },
   ],
-}
+})

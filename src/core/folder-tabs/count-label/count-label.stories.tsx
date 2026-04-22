@@ -1,36 +1,30 @@
+import preview from '#.storybook/preview'
 import { FOLDER_TABS_CSS_CONTAINER_NAME } from '../constants'
 import { FolderTabCountLabel } from './count-label'
 import { useFolderTabsContainerDecorator } from '../__story__/useFolderTabsContainerDecorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FolderTabs/CountLabel',
   component: FolderTabCountLabel,
-} satisfies Meta<typeof FolderTabCountLabel>
-
-export default meta
-
-type Story = StoryObj<typeof FolderTabCountLabel>
+})
 
 /**
  * By default, the count will expand to fill the available space of it's container.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Label',
     count: '00',
   },
   decorators: [useFolderTabsContainerDecorator()],
-}
+})
 
 /**
  * While labels should be concise to avoid overflow, if there is not enough space available, the label
  * text will be permitted to wrap to a second line when the tabs container is large enough.
  */
-export const Wrapping: Story = {
+export const Wrapping = Example.extend({
   args: {
-    ...Example.args,
     children: "A long tab label that will wrap to a second line but won't truncate",
   },
   decorators: [
@@ -50,15 +44,14 @@ export const Wrapping: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * If there is not enough space, even after wrapping is permitted in large containers, the text will
  * be truncated.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     children: 'A very very very long tab label that will need to wrap to additional lines and may even be truncated',
   },
   decorators: [
@@ -91,4 +84,4 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})

@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { Breakpoint, useDrawerBreakpointDecorator } from './__story__/useDrawerBreakpointDecorator'
 import { Drawer } from './drawer'
@@ -8,9 +9,7 @@ import { useArgs } from 'storybook/preview-api'
 import { useDrawerContextDecorator } from './__story__/useDrawerContextDecorator'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Drawer',
   component: Drawer,
   argTypes: {
@@ -25,17 +24,14 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Drawer>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * At its simplest, you can open and close a drawer by controlling it's `isOpen` state. However, a drawer's open
  * state should typically be help in the URL to ensure the user is returned to the same UI state when refreshing
  * the page.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Simple',
     closedBy: 'closerequest',
@@ -50,7 +46,7 @@ export const Example: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * The `closedBy` prop specifies the types of user actions that can be used to close the drawer. It
@@ -76,9 +72,8 @@ export const Example: Story = {
  * In this example, the drawer is using `closedBy="any"`, meaning any of the three methods can be used
  * to dismiss it.
  */
-export const ClosedBy: Story = {
+export const ClosedBy = Example.extend({
   args: {
-    ...Example.args,
     closedBy: 'any',
   },
   render: function ClosedBy(args) {
@@ -90,7 +85,7 @@ export const ClosedBy: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * In future, we expect to enable the opening and closing of drawers using the new
@@ -100,7 +95,7 @@ export const ClosedBy: Story = {
  * do not yet have full browser support. As such, this example is demonstrative of our forward compatibility, not
  * indicative of how drawer's should be opened/closed right now.
  */
-export const InvokerCommands: Story = {
+export const InvokerCommands = meta.story({
   args: {
     children: 'Simple',
     closedBy: 'closerequest',
@@ -121,7 +116,7 @@ export const InvokerCommands: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * There's two main layout variations for drawer's and two sizes. The first layout has no footer and is typically
@@ -131,7 +126,7 @@ export const InvokerCommands: Story = {
  * The drawer also sizes itself based on the viewport size. This is faked in the story below by sizing the container
  * of the example drawer content to match the width the drawer will within the specified breakpoint ranges.
  */
-export const Breakpoints: StoryObj = {
+export const Breakpoints = meta.story({
   decorators: [useDrawerBreakpointDecorator(), useDrawerContextDecorator()],
   render: () => (
     <>
@@ -155,7 +150,7 @@ export const Breakpoints: StoryObj = {
       value: 'light',
     },
   },
-}
+})
 
 function ExampleSimpleLayout({ withTabs }: { withTabs?: boolean }) {
   const href = '#'

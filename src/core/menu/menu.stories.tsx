@@ -1,13 +1,12 @@
+import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge'
 import { Menu } from './menu'
 import { StarIcon } from '#src/icons/star'
 import { useId } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Menu',
   component: Menu,
   argTypes: {
@@ -124,39 +123,33 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof Menu>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-labelledby': 'anchor',
     children: 'Simple',
     id: 'menu',
   },
-}
+})
 
 /**
  * The distance, or gap, between the menu and its trigger can be customised. By default, there will be
  * a `--spacing-1`, but any `--spacing-*` value can be specified.
  */
-export const Gap: Story = {
+export const Gap = Example.extend({
   args: {
-    ...Example.args,
     gap: '--spacing-6',
   },
-}
+})
 
 /**
  * By default, a menu will grow to the width of its widest item. A maximum width can be specified to
  * constrain how wide it can grow. Menu item content that would otherwise to wider will subsequently wrap.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Example.extend({
   name: 'Max-width',
   args: {
-    ...Example.args,
     children: (
       <>
         <Menu.Item>Item 1</Menu.Item>
@@ -167,21 +160,21 @@ export const MaxWidth: Story = {
         </Menu.Item>
       </>
     ),
+
     maxWidth: '--size-40',
   },
-}
+})
 
 /**
  * By default, a menu will grow to the height of its items. A maximum height can be specified to
  * help ensure the menu does not grow beyond the viewport. If the menu exceeds this maximum height,
  * the items will scroll.
  */
-export const MaxHeight: Story = {
+export const MaxHeight = Example.extend({
   args: {
-    ...Example.args,
     maxHeight: '--size-40',
   },
-}
+})
 
 /**
  * By default, a menu will automatically close when one of its menu items are clicked. This behaviour
@@ -190,9 +183,8 @@ export const MaxHeight: Story = {
  *
  * The example below demonstrates a single, stubborn menu item that just won't let the menu close.
  */
-export const PreventingClosure: Story = {
+export const PreventingClosure = Example.extend({
   args: {
-    ...Example.args,
     children: (
       <>
         <Menu.Item onClick={(event) => event.preventDefault()}>I won&apos;t let the menu close</Menu.Item>
@@ -200,7 +192,7 @@ export const PreventingClosure: Story = {
       </>
     ),
   },
-}
+})
 
 /**
  * If a menu item prevents the automatic closure of the menu, it's likely it will need to manually close
@@ -222,9 +214,8 @@ export const PreventingClosure: Story = {
  * }
  * ```
  */
-export const ImperativeClosure: Story = {
+export const ImperativeClosure = Example.extend({
   args: {
-    ...Example.args,
     children: (
       <>
         <Menu.Item
@@ -244,4 +235,4 @@ export const ImperativeClosure: Story = {
       </>
     ),
   },
-}
+})

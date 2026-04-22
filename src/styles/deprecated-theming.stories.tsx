@@ -1,12 +1,13 @@
+import preview from '#.storybook/preview'
 import { Button } from '../core/button'
 import { DeprecatedElementsThemeProvider } from './deprecated-theme-provider'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/DeprecatedTheming',
-}
+})
 
-export const DeprecatedThemingProvider = {
-  render: ({}) => (
+export const DeprecatedThemingProvider = meta.story({
+  render: () => (
     <DeprecatedElementsThemeProvider
       theme={{
         intentPrimary: '#ffa000',
@@ -17,4 +18,4 @@ export const DeprecatedThemingProvider = {
       <Button variant="primary">Button Text</Button>
     </DeprecatedElementsThemeProvider>
   ),
-}
+})

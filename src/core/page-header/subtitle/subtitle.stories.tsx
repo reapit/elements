@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge/index'
 import { PageHeaderSubtitle } from './subtitle'
 import { StarIcon } from '#src/icons/star'
 import { TagGroup } from '#src/core/tag-group/index'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/PageHeader/Subtitle',
   component: PageHeaderSubtitle,
   argTypes: {
@@ -36,39 +35,34 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof PageHeaderSubtitle>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * At its simplest, the page header's subtitle contains just that: the page's subtitle.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     additionalInfo: 'None',
     children: 'Page Subtitle',
   },
-}
+})
 
 /**
  * Additional information can follow the subtitle. This information is typically some combination of one or more tags,
  * badges, and/or icons.
  */
-export const AdditionalInfo: Story = {
+export const AdditionalInfo = Example.extend({
   args: {
-    ...Example.args,
     additionalInfo: 'All',
   },
-}
+})
 
 /**
  * When the subtitle (and any additional information) do not have enough space to display on a single line, they will
  * wrap to additional lines.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     additionalInfo: 'All',
     children: 'This is a long subtitle that flows into the next line.',
   },
@@ -84,4 +78,4 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})

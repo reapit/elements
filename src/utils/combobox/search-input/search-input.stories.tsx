@@ -1,9 +1,8 @@
+import preview from '#.storybook/preview'
 import { ComboboxPopupDialogContext } from '../popup-dialog/context'
 import { ComboboxSearchInput } from './search-input'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Combobox/SearchInput',
   component: ComboboxSearchInput,
   decorators: [
@@ -13,16 +12,12 @@ const meta = {
       </ComboboxPopupDialogContext.Provider>
     ),
   ],
-} satisfies Meta<typeof ComboboxSearchInput>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * When the popup variant is popover, the search input uses the default bordered style.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': 'Filter options',
     placeholder: 'Search...',
@@ -30,30 +25,24 @@ export const Example: Story = {
   parameters: {
     popupVariant: 'popover',
   },
-}
+})
 
 /**
  * When the popup variant is drawer, the search input automatically uses a borderless style
  * for a seamless drawer experience.
  */
-export const Drawer: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Drawer = Example.extend({
   parameters: {
     popupVariant: 'drawer',
   },
-}
+})
 
 /**
  * When the popup variant is auto, the input style adapts based on the viewport width.
  * Below SM breakpoint (768px), it displays as borderless. At SM and above, it displays as bordered.
  */
-export const Auto: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Auto = Example.extend({
   parameters: {
     popupVariant: 'auto',
   },
-}
+})

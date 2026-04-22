@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge'
 import { Features } from '#src/core/features'
 import { Skeleton } from '#src/core/skeleton'
@@ -14,9 +15,7 @@ import { Tooltip } from '#src/core/tooltip'
 import { WarningIcon } from '#src/icons/warning'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/BodyCell',
   component: TableBodyCell,
   argTypes: {
@@ -88,48 +87,43 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TableBodyCell>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * At their simplest, body cell's will contain a single line of plain text. However, it's important
  * to understand that, without additional styles for the plain text, it will flow to additional lines
  * rather than overflow or truncate when there is insufficient space.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     as: 'td',
     children: 'Plain text',
   },
   decorators: [useTableDecorator('body-cell')],
-}
+})
 
 /**
  * Often, the cell content will include some text paired with an icon. To achieve this,
  * [Table.PrimaryData](./?path=/docs/core-table-primarydata--docs) can be used.
  */
-export const Icons: Story = {
+export const Icons = Example.extend({
   args: {
-    ...Example.args,
     children: 'Text + icons',
   },
   decorators: [useTableDecorator('body-cell')],
-}
+})
 
 /**
  * For cells that need to communicate more information than can fit on a single line,
  * [Table.DoubleLineLayout](./?path=/docs/core-table-doublelinelayout--docs) can be used.
  */
-export const DoubleLineLayout: Story = {
+export const DoubleLineLayout = Example.extend({
   name: 'Double-line layout',
   args: {
-    ...Example.args,
     children: 'Double-line layout',
   },
   decorators: [useTableDecorator('body-cell')],
-}
+})
 
 /**
  * Often it will be necessary to render a table cell as a row header, `<th>`. When you
@@ -137,14 +131,13 @@ export const DoubleLineLayout: Story = {
  * will automatically be set as `row`. Care should be taken to use a medium font weight for the cell's
  * primary content. If you need a cell to act as a column header, use `Table.HeadingCell` instead.
  */
-export const RowHeader: Story = {
+export const RowHeader = Example.extend({
   args: {
-    ...Example.args,
     as: 'th',
     children: <Text font="text-sm/medium">I&apos;m in a &lt;th&gt;</Text>,
   },
   decorators: [useTableDecorator('body-cell')],
-}
+})
 
 /**
  * Sometimes it may be necessary to render the table cell as a plain `<div>`. Providing
@@ -152,21 +145,19 @@ export const RowHeader: Story = {
  * [ARIA role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles)
  * should also be specified.
  */
-export const Divs: Story = {
+export const Divs = Example.extend({
   args: {
-    ...Example.args,
     as: 'div',
     children: "I'm in a <div>",
   },
-}
+})
 
 /**
  * In cases where the content can’t fit inside the cell due to the columns width, it will be clipped
  * to avoid overflow into the next column.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     children: (
       <Badge id="badge" colour="warning" iconLeft={<WarningIcon />}>
         A very very long badge label
@@ -182,7 +173,7 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * When possible, truncation should be preferred over clipping, with a tooltip displayed when
@@ -192,9 +183,8 @@ export const Overflow: Story = {
  *
  * This is what the single- or double-line content components assist with.
  */
-export const Truncation: Story = {
+export const Truncation = Example.extend({
   args: {
-    ...Example.args,
     children: (
       <>
         <Text font="inherit" id="text" overflow="truncate">
@@ -206,15 +196,14 @@ export const Truncation: Story = {
       </>
     ),
   },
-  decorators: Overflow.decorators,
-}
+  decorators: Overflow.input.decorators,
+})
 
 /**
  * When the cell has no data to display, it can either be blank or it can display a placeholder message.
  */
-export const EmptyCells: Story = {
+export const EmptyCells = Example.extend({
   args: {
-    ...Example.args,
     children: (
       <Text font="inherit" colour="placeholder">
         Not available
@@ -222,15 +211,14 @@ export const EmptyCells: Story = {
     ),
   },
   decorators: [useTableDecorator('body-cell')],
-}
+})
 
 /**
  * The justification of the cell's content within the cell's bounding box can be specified using
  * `justifyContent`. There are three options: `start` (default), `center`, and `end`.
  */
-export const Alignment: Story = {
+export const Alignment = DoubleLineLayout.extend({
   args: {
-    ...DoubleLineLayout.args,
     justifySelf: 'end',
   },
   decorators: [
@@ -242,7 +230,7 @@ export const Alignment: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * In some cases, the content of the cell may want to fill the full height of the row and the full
@@ -254,9 +242,8 @@ export const Alignment: Story = {
  * a fixed-width column (typically, we'd use `min-content` for a row selection column). Since
  * `Table.Checkbox` is designed to fill its parent, its hit area includes the entire cell.
  */
-export const NoPadding: Story = {
+export const NoPadding = Example.extend({
   args: {
-    ...Example.args,
     children: 'Checkbox',
     hasNoPadding: true,
   },
@@ -269,16 +256,15 @@ export const NoPadding: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * A simple loading state can be achieved by providing a [Skeleton](?path=/docs/core-skeleton--docs)
  * as the content of the cell.
  */
-export const Loading: Story = {
+export const Loading = Example.extend({
   args: {
-    ...Example.args,
     children: 'Skeleton',
   },
   decorators: [useTableDecorator('body-cell')],
-}
+})

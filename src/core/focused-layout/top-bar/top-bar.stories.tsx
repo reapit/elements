@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
@@ -5,9 +6,7 @@ import { FocusedLayout } from '../focused-layout'
 import { FocusedLayoutProductLogo, supportedProductLogos } from '../product-logo'
 import { FocusedLayoutTopBar } from './top-bar'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FocusedLayout/TopBar',
   component: FocusedLayoutTopBar,
   argTypes: {
@@ -74,40 +73,35 @@ const meta = {
       </FocusedLayout>
     ),
   ],
-} satisfies Meta<typeof FocusedLayoutTopBar>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Without any actions, the top bar will scroll away with the page content.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     logo: 'Reapit',
     title: 'Page title',
     children: 'None',
   },
-}
+})
 
 /**
  * When the top bar contains some actions, it will stick to the top of the page.
  */
-export const Sticky: Story = {
+export const Sticky = Example.extend({
   args: {
-    ...Example.args,
     children: 'Simple',
   },
-}
+})
 
 /**
  * Long titles will wrap within the top bar.
  */
-export const Wrapping: Story = {
+export const Wrapping = meta.story({
   args: {
     logo: 'Reapit',
     title: 'This is a very long page title that will wrap to additional lines when it exceeds the available space',
     children: 'Simple',
   },
-}
+})

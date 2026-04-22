@@ -1,31 +1,25 @@
+import preview from '#.storybook/preview'
 import { PrimaryTab } from './tab'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/PrimaryTabs/Tab',
   component: PrimaryTab,
-} satisfies Meta<typeof PrimaryTab>
+})
 
-export default meta
-
-type Story = StoryObj<typeof PrimaryTab>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-current': false,
     children: 'Primary tab',
     href: '#',
   },
-}
+})
 
 /**
  * When the tab represents the current page, `aria-current="page"` should be supplied to communicate to
  * visual and accessible users that the tab is currently "selected". This shows the blue bottom border.
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     'aria-current': 'page',
   },
-}
+})

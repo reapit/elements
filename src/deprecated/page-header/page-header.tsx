@@ -20,7 +20,7 @@ import { elMb3, elMb6, elMr3 } from '../../styles/deprecated-spacing'
 import { Tabs, TabsProps } from '../tabs'
 import { getIntentClassName, Intent } from '../../helpers/intent'
 
-interface DeprecatedPageHeaderTagProps extends Tag.Props {
+export interface DeprecatedPageHeaderTagProps extends Tag.Props {
   intent?: Intent
 }
 

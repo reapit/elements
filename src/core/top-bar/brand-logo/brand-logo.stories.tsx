@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { BrandLogo } from './brand-logo'
 import { supportedAppNames } from './app-logo'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/BrandLogo',
   component: BrandLogo,
   argTypes: {
@@ -14,28 +13,24 @@ const meta = {
       options: supportedAppNames,
     },
   },
-} satisfies Meta<typeof BrandLogo>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * The default story showcases the BrandLogo component with the Reapit brand.
  * The component renders SVG logos within a styled container, maintaining consistent
  * sizing and layout across all brand variants.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     appName: 'Reapit',
     href,
   },
-}
+})
 
 /**
  * This story demonstrates all supported brand logos.
  */
-export const AllBrands: StoryObj = {
+export const AllBrands = meta.story({
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', alignItems: 'start', flexDirection: 'column', gap: 'var(--spacing-6)' }}>
@@ -64,4 +59,4 @@ export const AllBrands: StoryObj = {
       <BrandLogo appName="Auto Responder" href={href} />
     </>
   ),
-}
+})

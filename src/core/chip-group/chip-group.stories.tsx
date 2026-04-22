@@ -1,9 +1,10 @@
+import preview from '#.storybook/preview'
 import { ChipGroup } from './chip-group'
 import * as ChipStories from '../chip/chip.stories'
 
-import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
+import type { Decorator } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/ChipGroup',
   component: ChipGroup,
   argTypes: {
@@ -38,11 +39,7 @@ const meta = {
       options: ['filter', 'selection'],
     },
   },
-} satisfies Meta<typeof ChipGroup>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 const useNarrowParentDecorator: Decorator = (Story) => {
   return (
@@ -55,7 +52,7 @@ const useNarrowParentDecorator: Decorator = (Story) => {
 /**
  * By default, a chip group will grow to whatever width it's parent allows.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-disabled': false,
     children: 'Fruit',
@@ -64,15 +61,14 @@ export const Example: Story = {
     overflow: 'visible',
     variant: 'filter',
   },
-}
+})
 
 /**
  * All chips in the group can be disabled. Individual chips can override the group's disabled state;
  * `aria-disabled` works the same way.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     children: [
       <ChipGroup.Item key="1">Apples</ChipGroup.Item>,
       <ChipGroup.Item key="2">Bananas</ChipGroup.Item>,
@@ -83,58 +79,53 @@ export const Disabled: Story = {
       <ChipGroup.Item key="5">Strawberries</ChipGroup.Item>,
       <ChipGroup.Item key="6">Watermelons</ChipGroup.Item>,
     ],
+
     disabled: true,
   },
-}
+})
 
 /**
  * The variant of all chips in the group can be set using `variant`.
  */
-export const Variants: Story = {
+export const Variants = Example.extend({
   args: {
-    ...Example.args,
     variant: 'selection',
   },
-}
+})
 
 /**
  * By default, chips will wrap to other lines if there is insufficient space.
  */
-export const Wrapping: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Wrapping = Example.extend({
   decorators: [useNarrowParentDecorator],
-}
+})
 
 /**
  * The default wrapping behaviour can be overridden using `flow="nowrap"`. This can be useful at
  * small breakpoints where the chip group should not occupy too much vertical space.
  */
-export const NoWrapping: Story = {
+export const NoWrapping = Example.extend({
   args: {
-    ...Example.args,
     flow: 'nowrap',
   },
   decorators: [useNarrowParentDecorator],
-}
+})
 
 /**
  * When wrapping is disabled, it will often be useful to allow the chip group to scroll horizontally.
  */
-export const Overflow: Story = {
+export const Overflow = NoWrapping.extend({
   args: {
-    ...NoWrapping.args,
     overflow: 'auto',
   },
   decorators: [useNarrowParentDecorator],
-}
+})
 
 /**
  * Whether wrapping or scrolling is used, chips will size themselves appropriately based on the
  * length of their label.
  */
-export const ChipSizing: Story = {
+export const ChipSizing = meta.story({
   argTypes: {
     children: {
       control: false,
@@ -142,34 +133,34 @@ export const ChipSizing: Story = {
   },
   args: {
     children: [
-      <ChipGroup.Item key="1" {...ChipStories.FilterChip.args}>
+      <ChipGroup.Item key="1" {...ChipStories.FilterChip.input.args}>
         Chip 1
       </ChipGroup.Item>,
-      <ChipGroup.Item key="2" {...ChipStories.Disabled.args}>
+      <ChipGroup.Item key="2" {...ChipStories.Disabled.input.args}>
         Chip 2
       </ChipGroup.Item>,
-      <ChipGroup.Item key="3" {...ChipStories.FilterChip.args}>
+      <ChipGroup.Item key="3" {...ChipStories.FilterChip.input.args}>
         Chip 3
       </ChipGroup.Item>,
-      <ChipGroup.Item key="4" {...ChipStories.FilterChip.args}>
+      <ChipGroup.Item key="4" {...ChipStories.FilterChip.input.args}>
         Chip 4
       </ChipGroup.Item>,
-      <ChipGroup.Item key="5" {...ChipStories.Truncation.args}>
+      <ChipGroup.Item key="5" {...ChipStories.Truncation.input.args}>
         Truncation can be applied to ensure a long chip label does not wrap to a second line
       </ChipGroup.Item>,
-      <ChipGroup.Item key="6" {...ChipStories.Disabled.args}>
+      <ChipGroup.Item key="6" {...ChipStories.Disabled.input.args}>
         Chip 5
       </ChipGroup.Item>,
-      <ChipGroup.Item key="7" {...ChipStories.FilterChip.args}>
+      <ChipGroup.Item key="7" {...ChipStories.FilterChip.input.args}>
         Chip 6
       </ChipGroup.Item>,
-      <ChipGroup.Item key="8" {...ChipStories.Wrapping.args}>
+      <ChipGroup.Item key="8" {...ChipStories.Wrapping.input.args}>
         Or, you can avoid truncation and allow a long chip label to wrap to multiple lines
       </ChipGroup.Item>,
-      <ChipGroup.Item key="9" {...ChipStories.LongWords.args} />,
+      <ChipGroup.Item key="9" {...ChipStories.LongWords.input.args} />,
     ],
     flow: 'wrap',
     variant: 'filter',
   },
   decorators: [useNarrowParentDecorator],
-}
+})

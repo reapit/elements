@@ -1,9 +1,8 @@
+import preview from '#.storybook/preview'
 import { GalleryViewerDialogContext } from '../context'
 import { GalleryViewerDialogHeader } from './header'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/GalleryViewer/Dialog/Header',
   component: GalleryViewerDialogHeader,
   argTypes: {
@@ -23,23 +22,19 @@ const meta = {
       </GalleryViewerDialogContext.Provider>
     ),
   ],
-} satisfies Meta<typeof GalleryViewerDialogHeader>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: '10 High Street, Great Horwood, Buckinghamshire, MK17 0QL',
   },
-}
+})
 
 /**
  * When the title text is very long and the container is constrained, the text will truncate with an ellipsis.
  */
-export const Truncation: Story = {
+export const Truncation = Example.extend({
   args: {
-    ...Example.args,
     children: '10 High Street, Great Horwood, Buckinghamshire, MK17 0QL, London, UK, Earth, Solar System',
   },
   decorators: [
@@ -56,16 +51,13 @@ export const Truncation: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The dialog header will adjust its layout based on the inline-size of the gallery viewer dialog. This story demonstrates
  * the layout changes (e.g. padding adjustments) within containers that mimic different breakpoints.
  */
-export const DynamicLayout: Story = {
-  args: {
-    ...Example.args,
-  },
+export const DynamicLayout = Example.extend({
   decorators: [
     (Story) => (
       <div
@@ -107,4 +99,4 @@ export const DynamicLayout: Story = {
       </div>
     ),
   ],
-}
+})

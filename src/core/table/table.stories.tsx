@@ -1,13 +1,13 @@
+import preview from '#.storybook/preview'
 import { Avatar } from '#src/core/avatar'
 import { Menu } from '#src/core/menu'
 import { Table } from './table'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Text } from '#src/utils/text'
 
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table',
   component: Table,
   argTypes: {
@@ -51,18 +51,15 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Table>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     as: 'table',
     children: buildTable('semantic'),
     columns: '2fr 1fr 1fr min-content',
   },
-}
+})
 
 /**
  * By default, cell content is packed flush to the start edge of its column. This can be changed using
@@ -74,12 +71,11 @@ export const Example: Story = {
  * In this example, the table uses `justifyItems="end"`, while the first column uses `justifySelf="start"`.
  * The header cell and body cells within a table column must always have the same justification.
  */
-export const Alignment: Story = {
+export const Alignment = Example.extend({
   args: {
-    ...Example.args,
     justifyItems: 'end',
   },
-}
+})
 
 /**
  * Sometimes it may be necessary to render the table row as a plain `<div>`. Providing
@@ -91,13 +87,12 @@ export const Alignment: Story = {
  * possibly with explicit ARIA roles as well. This example does not provide equivalent ARIA roles
  * and therefore has terrible accessibility.
  */
-export const Divs: Story = {
+export const Divs = Example.extend({
   args: {
-    ...Example.args,
     as: 'div',
     children: buildTable('div'),
   },
-}
+})
 
 function buildTable(as: 'semantic' | 'div') {
   return (

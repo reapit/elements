@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import React, { useState } from 'react'
 import { FileInput, FilePreviewImage } from './index'
 import { useModal } from '../use-modal'
@@ -5,17 +6,17 @@ import { FlexContainer } from '../../deprecated/layout'
 import { Button } from '../../core/button'
 import { ButtonGroup } from '../../core/button-group'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/FileInput',
   component: FileInput,
-}
+})
 
-export const DefaultUsage = {
-  render: ({}) => <FileInput label="Some Label" onFileUpload={Promise.resolve} fileName="some-file-name" />,
-}
+export const DefaultUsage = meta.story({
+  render: () => <FileInput label="Some Label" onFileUpload={Promise.resolve} fileName="some-file-name" />,
+})
 
-export const AdvancedUsage = {
-  render: ({}) => {
+export const AdvancedUsage = meta.story({
+  render: () => {
     const [fileUrl, setFileUrl] = useState('https://via.placeholder.com/150')
 
     const { Modal, openModal, closeModal } = useModal('storybook-docs')
@@ -40,4 +41,4 @@ export const AdvancedUsage = {
       </div>
     )
   },
-}
+})

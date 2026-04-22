@@ -1,6 +1,6 @@
-import type { StorybookConfig } from '@storybook/react-vite'
+import { defineMain } from '@storybook/react-vite/node'
 
-const config: StorybookConfig = {
+export default defineMain({
   framework: {
     name: '@storybook/react-vite',
     options: {},
@@ -16,6 +16,4 @@ const config: StorybookConfig = {
     // react-docgen-typescript instead to ensure the arg types are properly extracted.
     reactDocgen: 'react-docgen-typescript',
   },
-}
-
-export default config
+})

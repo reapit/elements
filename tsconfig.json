@@ -24,6 +24,6 @@
     "outDir": "dist/types",
     "rootDir": "./"
   },
-  "include": ["codemods", "src"],
+  "include": [".storybook", "codemods", "src"],
   "exclude": [".yarn", "archive", "dist", "node_modules", "public", "scripts/cdk", "storybook-static"]
 }

@@ -1,10 +1,10 @@
+import preview from '#.storybook/preview'
 import { FormControl } from './form-control'
 import { Pattern } from '../drawer/__story__/Pattern'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { ChipSelect } from '../chip-select'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/FormControl',
   component: FormControl,
   argTypes: {
@@ -22,13 +22,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof FormControl>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     as: 'div',
     children: (
@@ -41,19 +37,18 @@ export const Example: Story = {
     ),
     size: 'medium',
   },
-}
+})
 
 /**
  * By default, the form control will grow to the width of its parent. To constrain its width,
  * an explicit `maxWidth` can be specified.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Example.extend({
   name: 'Max-width',
   args: {
-    ...Example.args,
     maxWidth: '300px',
   },
-}
+})
 
 /**
  * When the form control is invalid, an error message will commonly be displayed beneath using
@@ -63,7 +58,7 @@ export const MaxWidth: Story = {
  * either it has been touched (that is, focused then blurred by the user) or submission of the
  * form has been attempted. This behaviour is up to consumers to implement themselves.
  */
-export const Invalid: Story = {
+export const Invalid = meta.story({
   args: {
     as: 'div',
     children: (
@@ -77,13 +72,13 @@ export const Invalid: Story = {
     ),
     size: 'medium',
   },
-}
+})
 
 /**
  * Some form controls require additional information. This can be provided below the form control
  * using `FormControl.HelpText`.
  */
-export const HelpText: Story = {
+export const HelpText = meta.story({
   args: {
     as: 'div',
     children: (
@@ -97,14 +92,14 @@ export const HelpText: Story = {
     ),
     size: 'medium',
   },
-}
+})
 
 /**
  * In some cases, such as with checkbox groups, radio groups and chip selects, we need to enclose
  * the form control within a `<fieldset>`. In these cases, we can set `as="fieldset"` and use
  * `FormControl.Label` with the `as="legend"`.
  */
-export const Fieldset: Story = {
+export const Fieldset = meta.story({
   args: {
     as: 'fieldset',
     children: (
@@ -132,4 +127,4 @@ export const Fieldset: Story = {
       </form>
     ),
   ],
-}
+})

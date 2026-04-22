@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { CompactSelectNative } from '#src/core/compact-select-native/index'
 import { Features } from '#src/core/features/index'
 import { PageHeaderSupplementaryInfo } from './supplementary-info'
 import { SupplementaryInfo } from '#src/core/supplementary-info/index'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/PageHeader/SupplementaryInfo',
   component: PageHeaderSupplementaryInfo,
   argTypes: {
@@ -58,25 +57,19 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof PageHeaderSupplementaryInfo>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'All',
   },
-}
+})
 
 /**
  * When there is not enough space to display all the supplementary information on a single line, they will wrap to
  * additional lines.
  */
-export const Overflow: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Overflow = Example.extend({
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', flexFlow: 'column', gap: 'var(--spacing-10)' }}>
@@ -86,4 +79,4 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})

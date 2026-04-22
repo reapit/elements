@@ -1,44 +1,35 @@
+import preview from '#.storybook/preview'
 import { TopBarNavItem } from './nav-item'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/NavItem',
   component: TopBarNavItem,
-} satisfies Meta<typeof TopBarNavItem>
+})
 
-export default meta
-
-type Story = StoryObj<typeof TopBarNavItem>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-current': false,
     children: 'Nav Item',
     href: '#',
   },
-}
+})
 
 /**
  * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
  * accessible users that the item is currently "selected".
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     'aria-current': 'page',
   },
-}
+})
 
 /**
  * When there is not enough space to display the full label, it will not wrap to a new line; rather, it will overflow
  * its container. That said, author's should typically ensure nav items have enough space in the Top Bar. As the main
  * nav's space reduces, nav items should be progressively collapsed into a `TopBar.NavDropdownButton` and its menu.
  */
-export const Overflow: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Overflow = Example.extend({
   decorators: [
     (Story) => (
       <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', width: '50px' }}>
@@ -46,4 +37,4 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})

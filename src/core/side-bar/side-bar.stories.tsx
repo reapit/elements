@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { DashboardIcon } from '#src/icons/dashboard'
 import { ContactIcon } from '#src/icons/contact'
 import { PropertyIcon } from '#src/icons/property'
@@ -5,12 +6,10 @@ import { SettingsIcon } from '#src/icons/settings'
 import { SideBar } from './side-bar'
 import { useViewportHeightDecorator } from './__story__/use-viewport-height-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 // Placeholder href for all menu items in this story.
 const href = '#'
 
-export default {
+const meta = preview.meta({
   title: 'Core/SideBar',
   component: SideBar,
   argTypes: {
@@ -34,39 +33,35 @@ export default {
       value: 'light',
     },
   },
-} as Meta<typeof SideBar>
+})
 
-type Story = StoryObj<typeof SideBar>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'No selected item',
     footer: <SideBar.CollapseButton />,
   },
-}
+})
 
 /**
  * If a menu item represents the current page, it should be marked as "selected". See the `SideBar.MenuItem`
  * documentation for details on how.
  */
-export const SelectedItem: Story = {
+export const SelectedItem = Example.extend({
   args: {
-    ...Example.args,
     children: 'Menu Item 2 selected',
   },
-}
+})
 
 /**
  * Likewise, if a submenu item represents the current page, it should be marked as "selected". This will
  * automatically cause the parent `SideBar.MenuGroup` to be displayed as "selected" itself. See the
  * `SideBar.SubmenuItem` documentation for details on how.
  */
-export const SelectedSubmenuItem: Story = {
+export const SelectedSubmenuItem = Example.extend({
   args: {
-    ...Example.args,
     children: 'Submenu Item 2 selected',
   },
-}
+})
 
 /**
  * The side bar can be resized using the `width` prop. This size only applies when the side bar is expanded. Products
@@ -75,12 +70,11 @@ export const SelectedSubmenuItem: Story = {
  *
  * By default, the side bar will size itself to `--size-64`.
  */
-export const Sizing: Story = {
+export const Sizing = SelectedItem.extend({
   args: {
-    ...SelectedItem.args,
     width: '--size-52',
   },
-}
+})
 
 function buildMenu(
   type: 'No selected item' | 'Menu Item 2 selected' | 'Submenu Item 2 selected' | 'Menu Item 4 active',

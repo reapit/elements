@@ -1,24 +1,35 @@
-import { composeStories } from '@storybook/react-vite'
 import { render, screen } from '@testing-library/react'
-import * as stories from '../item-button.stories'
-
-const TopBarNavIconItemStories = composeStories(stories)
+import { BottomBarItemButton } from '../item-button'
+import { NotificationIcon } from '#src/icons/notification'
+import { StarIcon } from '#src/icons/star'
 
 test('renders as a button with an accessible name', () => {
-  render(<TopBarNavIconItemStories.Example aria-label="My Item" />)
+  render(
+    <BottomBarItemButton icon={<StarIcon />} onClick={() => void 0} aria-label="My Item">
+      Label
+    </BottomBarItemButton>,
+  )
   expect(screen.getByRole('button', { name: 'My Item' })).toBeVisible()
 })
 
 test('forwards additional props to the button element', () => {
   const testId = 'nav-icon-item'
-  render(<TopBarNavIconItemStories.Example data-testid={testId} />)
+  render(
+    <BottomBarItemButton icon={<StarIcon />} onClick={() => void 0} data-testid={testId}>
+      Label
+    </BottomBarItemButton>,
+  )
 
   const item = screen.getByTestId(testId)
   expect(item).toBeVisible()
 })
 
 test('can display a badge', () => {
-  render(<TopBarNavIconItemStories.WithBadge onClick={() => void 0} />)
+  render(
+    <BottomBarItemButton icon={<NotificationIcon />} onClick={() => void 0} hasBadge>
+      Notifications
+    </BottomBarItemButton>,
+  )
   const button = screen.getByRole('button', { name: 'Notifications' })
   expect(button.querySelector('span')).toBeVisible()
 })

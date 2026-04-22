@@ -1,11 +1,11 @@
+import preview from '#.storybook/preview'
 import { ComboboxContext } from '../context'
 import { ComboboxListbox } from './listbox'
 import { useId } from 'react'
 
 import type { ChangeEventHandler } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Combobox/Listbox',
   component: ComboboxListbox,
   argTypes: {
@@ -39,16 +39,13 @@ const meta = {
       )
     },
   ],
-} satisfies Meta<typeof ComboboxListbox>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Renders options and option groups with a hidden `<select>` element. The hidden select submits
  * selected options in standard HTML forms.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: [
       <ComboboxListbox.Option key="1" value="1">
@@ -67,40 +64,37 @@ export const Example: Story = {
   parameters: {
     multiple: false,
   },
-}
+})
 
 /**
  * Single-select is the default. The first option is always a special "placeholder" option that the
  * native select automatically chooses when no other option is selected.
  */
-export const Single: Story = {
+export const Single = Example.extend({
   name: 'Single-select',
   args: {
-    ...Example.args,
     defaultValue: [],
   },
-}
+})
 
 /**
  * The listbox will allow multiple selections when the parent Combobox has `aria-multiselectable`.
  */
-export const Multiple: Story = {
+export const Multiple = Example.extend({
   name: 'Multi-select',
   args: {
-    ...Example.args,
     defaultValue: ['1', '2'],
   },
   parameters: {
     multiple: true,
   },
-}
+})
 
 /**
  * Group options using `Combobox.Optgroup` and `Combobox.Divider`.
  */
-export const Groups: Story = {
+export const Groups = Example.extend({
   args: {
-    ...Example.args,
     children: [
       <ComboboxListbox.Optgroup key="group-1" label="Group 1">
         <ComboboxListbox.Option value="1">Option 1</ComboboxListbox.Option>
@@ -114,9 +108,10 @@ export const Groups: Story = {
         <ComboboxListbox.Option value="6">Option 6</ComboboxListbox.Option>
       </ComboboxListbox.Optgroup>,
     ],
+
     defaultValue: ['1', '4'],
   },
-}
+})
 
 /**
  * Control the selected state like any native form control. When controlling the combobox state,
@@ -127,9 +122,8 @@ export const Groups: Story = {
  * Controlled state must always be a string array, regardless of single- or multi-select mode,
  * which is what this helper ensures.
  */
-export const Controlled: Story = {
+export const Controlled = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: undefined,
   },
   parameters: { docs: { source: { type: 'code' } } },
@@ -149,15 +143,14 @@ export const Controlled: Story = {
 
     return <ComboboxListbox {...args} onChange={handleChange} value={value} />
   },
-}
+})
 
 /**
  * Form data includes any selected options during submission. This example demonstrates submission
  * with a native HTML form.
  */
-export const Forms: Story = {
+export const Forms = Example.extend({
   args: {
-    ...Example.args,
     name: 'options',
   },
   argTypes: {
@@ -183,13 +176,13 @@ export const Forms: Story = {
   parameters: {
     multiple: true,
   },
-}
+})
 
 /**
  * Display a placeholder when no options are available. This is useful for search results or
  * filtered lists.
  */
-export const Placeholder: Story = {
+export const Placeholder = meta.story({
   args: {
     children: <ComboboxListbox.Placeholder>No results found</ComboboxListbox.Placeholder>,
     name: 'options',
@@ -201,4 +194,4 @@ export const Placeholder: Story = {
       </div>
     ),
   ],
-}
+})

@@ -1,9 +1,8 @@
+import preview from '#.storybook/preview'
 import { SearchInput } from './search-input'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/SearchInput',
   component: SearchInput,
   argTypes: {
@@ -20,12 +19,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof SearchInput>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': 'My input',
     defaultValue: '',
@@ -41,14 +37,13 @@ export const Example: Story = {
     size: 'medium',
     type: 'search',
   },
-}
+})
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
  */
-export const Sizes: Story = {
+export const Sizes = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: 'Text',
   },
   argTypes: {
@@ -70,40 +65,37 @@ export const Sizes: Story = {
       <SearchInput {...args} size="large" />
     </>
   ),
-}
+})
 
 /**
  * Search inputs can be disabled. A disabled input will not receive the `click` event, and are not submitted
  * with the form they're associated with. Further, the "Clear" button will also be disabled.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     disabled: true,
   },
-}
+})
 
 /**
  * Search inputs can be marked as read-only. When they are, the "Clear" button will be hidden.
  * Unlike disabled inputs, read-only inputs participate in form submission.
  */
-export const Readonly: Story = {
+export const Readonly = Example.extend({
   args: {
-    ...Example.args,
     readOnly: true,
   },
-}
+})
 
 /**
  * Search inputs can be marked as busy. This is particularly useful when a network request is being performed
  * off the back of the input's value changing (and the request takes long enough to warrant visual communication).
  */
-export const Busy: Story = {
+export const Busy = Example.extend({
   args: {
-    ...Example.args,
     isBusy: true,
   },
-}
+})
 
 /**
  * Like all form controls that visually communicate their validity, the input will display in an
@@ -111,20 +103,18 @@ export const Busy: Story = {
  * required, and it `showValidity` is true. Typically, `showValidity` will be true when the control has
  * been touched (interacted with).
  */
-export const Invalid: Story = {
+export const Invalid = Example.extend({
   args: {
-    ...Example.args,
     required: true,
     showValidity: true,
   },
-}
+})
 
 /**
  * Search inputs support a borderless variant for use in contexts where the default border is too visually heavy.
  */
-export const Borderless: Story = {
+export const Borderless = Example.extend({
   args: {
-    ...Example.args,
     variant: 'borderless',
   },
   globals: {
@@ -132,19 +122,18 @@ export const Borderless: Story = {
       value: 'light',
     },
   },
-}
+})
 
 /**
  * By default, search inputs will fill their parent's width. This can be constrained by providing
  * a `maxWidth`.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Example.extend({
   name: 'Max-width',
   args: {
-    ...Example.args,
     maxWidth: 'var(--size-64)',
   },
-}
+})
 
 /**
  * Search inputs will typically be controlled, especially on list pages where they are used to filter
@@ -152,9 +141,8 @@ export const MaxWidth: Story = {
  * as expected, as it results in an input event being manually dispatched from the search input, which
  * will be handled by the consumer-supplied `onChange` handler.
  */
-export const Controlled: Story = {
+export const Controlled = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: undefined,
     value: 'My search string',
   },
@@ -167,4 +155,4 @@ export const Controlled: Story = {
     const [value, setValue] = useState('My search text')
     return <SearchInput {...args} onChange={(e) => setValue(e.currentTarget.value)} value={value} />
   },
-}
+})

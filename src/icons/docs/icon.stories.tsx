@@ -1,9 +1,8 @@
+import preview from '#.storybook/preview'
 import { iconColours, iconSizes } from '../make-icon/types'
 import { StarIcon } from '../star'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Icons/Icon',
   component: StarIcon,
   argTypes: {
@@ -41,26 +40,21 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof StarIcon>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     color: 'primary',
     size: 'lg',
   },
-}
+})
 
 /**
  * There are 12 colours available. The default is `inherit`, which enables the icon to be used in the context of another
  * component that controls the icon's colour.
  */
-export const Colours: StoryObj = {
+export const Colours = Example.extend({
   args: {
-    ...Example.args,
     size: 'lg',
   },
   argTypes: {
@@ -84,15 +78,14 @@ export const Colours: StoryObj = {
       </div>
     )
   },
-}
+})
 
 /**
  * There are five sizes available. The default is `100%`, which is useful when you want the icons size to be determined
  * by its parent element. This is common in other Elements components that expect icons to be a specific size.
  */
-export const Sizes: Story = {
+export const Sizes = Example.extend({
   args: {
-    ...Example.args,
     color: 'primary',
   },
   argTypes: {
@@ -116,4 +109,4 @@ export const Sizes: Story = {
       </div>
     )
   },
-}
+})

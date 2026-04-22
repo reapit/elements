@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { CheckboxControl } from './checkbox-control'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/CheckboxControl',
   component: CheckboxControl,
   argTypes: {
@@ -16,17 +15,13 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof CheckboxControl>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * A basic checkbox with a label. The CheckboxControl component wraps a Checkbox with FormControl
  * to provide support for error messages. For help text or additional context, use the `supplementaryInfo` prop.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     disabled: false,
     errorText: '',
@@ -36,18 +31,17 @@ export const Example: Story = {
     showValidity: undefined,
     supplementaryInfo: 'Supplementary Info',
   },
-}
+})
 
 /**
  * Checkboxes can be marked as required. When they are, a required indicator is automatically shown
  * as part of the checkbox's label.
  */
-export const Required: Story = {
+export const Required = Example.extend({
   args: {
-    ...Example.args,
     required: true,
   },
-}
+})
 
 /**
  * When a validation constraint has not been met, an error message can be displayed.
@@ -56,33 +50,30 @@ export const Required: Story = {
  * If `showValidity` is not explicitly provided, the control will show validity based on the presence of
  * `errorText`.
  */
-export const Invalid: Story = {
+export const Invalid = Required.extend({
   args: {
-    ...Required.args,
     errorText: 'Error message',
     showValidity: true,
   },
-}
+})
 
 /**
  * Checkboxes can be disabled to prevent user interaction based on application state.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     disabled: true,
   },
-}
+})
 
 /**
  * Checkboxes can be in an indeterminate state, typically used to represent a partially
  * selected state in a hierarchical list or when the checkbox controls other checkboxes.
  */
-export const Indeterminate: Story = {
+export const Indeterminate = Example.extend({
   args: {
-    ...Example.args,
     label: 'Select all items',
     isIndeterminate: true,
     supplementaryInfo: 'Some items are selected',
   },
-}
+})

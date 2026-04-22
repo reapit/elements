@@ -1,11 +1,11 @@
+import preview from '#.storybook/preview'
 import { AtAGlance } from './at-a-glance'
 import { buildCards } from './__story__/build-cards'
 import { SettingsAltIcon } from '#src/icons/settings-alt'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { Button } from '../button'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/AtAGlance',
   component: AtAGlance,
   argTypes: {
@@ -53,50 +53,47 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof AtAGlance>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Grid layout displays cards in a responsive grid pattern.
  * Use this when you want cards to wrap and fill available space.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Grid',
   },
-}
+})
 
 /**
  * A header can be included to title the at-a-glance section and provide an accessory action.
  */
-export const Header: Story = {
+export const Header = meta.story({
   args: {
     children: 'Header',
   },
-}
+})
 
 /**
  * Carousel layout displays cards in a horizontal scrolling container with navigation buttons.
  * Use this when you have many cards and want to save vertical space.
  */
-export const Carousel: Story = {
+export const Carousel = meta.story({
   args: {
     children: 'Carousel',
   },
-}
+})
 
 /**
  * Linked cards allow users to navigate to other pages when clicked. They can also be used to update
  * URL search params. If the card represents the current URL, it can be marked as selected using
  * `aria-current="page"`.
  */
-export const Links: Story = {
+export const Links = meta.story({
   args: {
     children: 'Links',
   },
-}
+})
 
 /**
  * Selectable cards allow users to select options. Only single-selection is currently supported.
@@ -111,8 +108,8 @@ export const Links: Story = {
  * </AtAGlance.Listbox>
  * ```
  */
-export const Selectable: Story = {
+export const Selectable = meta.story({
   args: {
     children: 'Listbox with Carousel',
   },
-}
+})

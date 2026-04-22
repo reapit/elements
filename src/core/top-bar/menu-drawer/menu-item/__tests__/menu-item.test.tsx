@@ -1,37 +1,58 @@
-import { composeStories } from '@storybook/react-vite'
 import { render, screen } from '@testing-library/react'
-import * as stories from '../menu-item.stories'
+import { TopBarMenuDrawerMenuItem } from '../menu-item'
 import { elTopBarMenuDrawerMenuItem } from '../styles'
 
-const MenuItemStories = composeStories(stories)
-
 test('renders a link', () => {
-  render(<MenuItemStories.Example>Item</MenuItemStories.Example>)
+  render(
+    <TopBarMenuDrawerMenuItem href="/dashboard" aria-current={false}>
+      Item
+    </TopBarMenuDrawerMenuItem>,
+  )
   expect(screen.getByRole('link', { name: 'Item' })).toBeVisible()
 })
 
 test(`combines the .${elTopBarMenuDrawerMenuItem} and consumer-supplied classes correctly`, () => {
-  render(<MenuItemStories.Example className="my-custom-class" />)
+  render(
+    <TopBarMenuDrawerMenuItem href="/dashboard" aria-current={false} className="my-custom-class">
+      Dashboard
+    </TopBarMenuDrawerMenuItem>,
+  )
   expect(screen.getByRole('link')).toHaveAttribute('class', `${elTopBarMenuDrawerMenuItem} my-custom-class`)
 })
 
 test('has `aria-current="false"` attribute when it does NOT represent the current page', () => {
-  render(<MenuItemStories.Example>Item</MenuItemStories.Example>)
+  render(
+    <TopBarMenuDrawerMenuItem href="/dashboard" aria-current={false}>
+      Item
+    </TopBarMenuDrawerMenuItem>,
+  )
   expect(screen.getByRole('link', { name: 'Item' })).toHaveAttribute('aria-current', 'false')
 })
 
 test('has `aria-current="page"` attribute when it represents the current page', () => {
-  render(<MenuItemStories.Selected>Item</MenuItemStories.Selected>)
+  render(
+    <TopBarMenuDrawerMenuItem href="/dashboard" aria-current="page">
+      Item
+    </TopBarMenuDrawerMenuItem>,
+  )
   expect(screen.getByRole('link', { name: 'Item' })).toHaveAttribute('aria-current', 'page')
 })
 
 test('has correct href attribute', () => {
-  render(<MenuItemStories.Example href="/test" />)
+  render(
+    <TopBarMenuDrawerMenuItem href="/test" aria-current={false}>
+      Dashboard
+    </TopBarMenuDrawerMenuItem>,
+  )
   expect(screen.getByRole('link')).toHaveAttribute('href', '/test')
 })
 
 test('does not render badge when hasBadge is false', () => {
-  render(<MenuItemStories.Example />)
+  render(
+    <TopBarMenuDrawerMenuItem href="/dashboard" aria-current={false}>
+      Dashboard
+    </TopBarMenuDrawerMenuItem>,
+  )
   // Badge spans have 2 children: label and potentially badge
   const link = screen.getByRole('link')
   const spans = link.querySelectorAll('span')
@@ -40,7 +61,11 @@ test('does not render badge when hasBadge is false', () => {
 })
 
 test('renders badge when hasBadge is true', () => {
-  render(<MenuItemStories.Badge />)
+  render(
+    <TopBarMenuDrawerMenuItem href="/dashboard" aria-current={false} hasBadge>
+      Dashboard
+    </TopBarMenuDrawerMenuItem>,
+  )
   const link = screen.getByRole('link')
   const spans = link.querySelectorAll('span')
   // Should have both label and badge spans

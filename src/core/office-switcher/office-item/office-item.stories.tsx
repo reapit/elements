@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge'
 import { OfficeItem } from './office-item'
 import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/OfficeSwitcher/OfficeItem',
   component: OfficeItem,
   argTypes: {
@@ -27,48 +26,42 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof OfficeItem>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-selected': undefined,
     badge: 'None',
     children: 'Office name',
     value: 'office-1',
   },
-}
+})
 
 /**
  * Each office item manages its selection state internally. Office switchers use the
  * `aria-selected` attribute to mark selected offices.
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     'aria-selected': true,
   },
-}
+})
 
 /**
  * Badges provide additional context. Place them after the office label.
  */
-export const WithBadge: Story = {
+export const WithBadge = Example.extend({
   name: 'Badge',
   args: {
-    ...Example.args,
     badge: 'Badge',
   },
-}
+})
 
 /**
  * When there is insufficient space, the office name will truncate.
  */
-export const Truncation: Story = {
+export const Truncation = Example.extend({
   args: {
-    ...Example.args,
     'aria-selected': true,
     children: 'A really long office name that will be truncated',
   },
@@ -108,4 +101,4 @@ export const Truncation: Story = {
       )
     },
   ],
-}
+})

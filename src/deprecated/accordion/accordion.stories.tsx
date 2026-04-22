@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import {
   DeprecatedAccordionContainer,
   DeprecatedAccordionItem,
@@ -9,21 +10,18 @@ import {
 } from './index'
 import { elMr1 } from '../../styles/deprecated-spacing'
 import { elIsActive } from '../../styles/deprecated-states'
-import { Meta, StoryObj } from '@storybook/react-vite'
 import { CarIcon } from '#src/icons/car'
 import { BedIcon } from '#src/icons/bed'
 import { ChevronUpIcon } from '#src/icons/chevron-up'
 import { ChevronDownIcon } from '#src/icons/chevron-down'
 
-const meta: Meta<typeof DeprecatedAccordion> = {
+const meta = preview.meta({
   title: 'Deprecated/DeprecatedAccordion',
   component: DeprecatedAccordion,
-}
+})
 
-export default meta
-
-export const StylesOnlyUsage = {
-  render: ({}) => (
+export const StylesOnlyUsage = meta.story({
+  render: () => (
     <DeprecatedAccordionContainer>
       <DeprecatedAccordionItem onClick={console.log} id="item-title-1" aria-controls="item-content-1">
         <DeprecatedAccordionTitle>Accordion Item 1</DeprecatedAccordionTitle>
@@ -94,9 +92,9 @@ export const StylesOnlyUsage = {
       </DeprecatedAccordionContent>
     </DeprecatedAccordionContainer>
   ),
-}
+})
 
-export const ReactUsage: StoryObj<typeof DeprecatedAccordion> = {
+export const ReactUsage = meta.story({
   args: {
     items: [
       {
@@ -139,4 +137,4 @@ export const ReactUsage: StoryObj<typeof DeprecatedAccordion> = {
       },
     ],
   },
-}
+})

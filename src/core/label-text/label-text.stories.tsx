@@ -1,7 +1,7 @@
+import preview from '#.storybook/preview'
 import { LabelText } from './label-text'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/LabelText',
   component: LabelText,
   argTypes: {
@@ -14,16 +14,13 @@ const meta = {
       options: ['soft', 'strong'],
     },
   },
-} satisfies Meta<typeof LabelText>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: "I'm a label for a form input or something else",
     isRequired: false,
     size: 'xs',
     variant: 'soft',
   },
-}
+})

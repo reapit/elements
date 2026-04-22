@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { FocusedLayout } from '../focused-layout'
 import { FocusedLayoutContent } from './content'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FocusedLayout/Content',
   component: FocusedLayoutContent,
   parameters: {
@@ -17,11 +16,7 @@ const meta = {
       </FocusedLayout>
     ),
   ],
-} satisfies Meta<typeof FocusedLayoutContent>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * The content area is where the main page content is placed. It has responsive padding
@@ -30,8 +25,8 @@ type Story = StoryObj<typeof meta>
  * - SM: 24px vertical, 32px horizontal
  * - MD+: 32px vertical, 40px horizontal
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: <Pattern height="100px" />,
   },
-}
+})

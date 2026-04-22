@@ -1,15 +1,13 @@
+import preview from '#.storybook/preview'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
 import { Story } from '@storybook/addon-docs/blocks'
 import { TableCellPrimaryData } from '../primary-data'
 import { TableRowPrimaryAction } from './primary-action'
-import { TableRowPrimaryActionButton } from './primary-action-button'
-
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/PrimaryAction',
   component: TableRowPrimaryAction,
   argTypes: {
@@ -29,21 +27,18 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof TableRowPrimaryAction>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * The default font styling of the action has a heavier weight as the primary action should always
  * be used for the primary data of a row's header cell.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: '1 Brisbane St, Brisbane 4300',
     href,
   },
-}
+})
 
 /**
  * When using [Table.PrimaryData](./?path=/docs/core-table-tablecellprimarydata--docs), it is
@@ -53,7 +48,7 @@ export const Example: Story = {
  * accessible name. If the icon were wanted as part of the primary action's accessible name, then the
  * hierarchy can simply be inverted by using `Table.PrimaryData` as the content of `Table.PrimaryAction`.
  */
-export const PrimaryData: Story = {
+export const PrimaryData = meta.story({
   args: {
     'aria-label': 'View Mary Jane',
     children: 'Mary Jane',
@@ -69,7 +64,7 @@ export const PrimaryData: Story = {
       <TableRowPrimaryAction {...args} />
     </TableCellPrimaryData>
   ),
-}
+})
 
 /**
  * The key feature of the primary action is that its "hit area" will expand to fill the bounding box of
@@ -78,7 +73,7 @@ export const PrimaryData: Story = {
  * the patterned area shows the cursor is actually hovering the primary action. Likewise, focusing the
  * action shows the focus outline surrounding both siblings.
  */
-export const HitArea: Story = {
+export const HitArea = meta.story({
   args: {
     children: '1 Brisbane St, Brisbane 4300',
     href,
@@ -97,17 +92,4 @@ export const HitArea: Story = {
       </div>
     ),
   ],
-}
-
-/**
- * `Table.PrimaryActionButton` is identical to `Table.PrimaryAction`, except it renders as a
- * `<button>` element, which allows button semantics to be used for a table row's primary action.
- * That said, typically a row's primary action will involve navigation, such as opening a drawer
- * or navigating to another page.
- */
-export const Buttons: StoryObj<typeof TableRowPrimaryActionButton> = {
-  args: {
-    children: '1 Brisbane St, Brisbane 4300',
-  },
-  render: (args) => <TableRowPrimaryActionButton {...args} />,
-}
+})

@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { Tag } from './tag'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Tag',
   component: Tag,
   argTypes: {
@@ -21,24 +20,20 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Tag>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Tag',
     overflow: undefined,
   },
-}
+})
 
 /**
  * By default, long labels will overflow if there is not enough space is available.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     children: "This very long label will overflow because it's parent is not wide enough",
   },
   decorators: [
@@ -48,31 +43,29 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Truncation is an optional behaviour that can be enabled to prevent the label from
  * wrapping on multiple lines
  */
-export const Truncation: Story = {
+export const Truncation = Overflow.extend({
   args: {
-    ...Overflow.args,
     children: 'Truncation can be applied when necessary',
     overflow: 'truncate',
   },
-  decorators: Overflow.decorators,
-}
+  decorators: Overflow.input.decorators,
+})
 
 /**
  * In some cases, it may be necessary to limit the width of a tag directly, rather than
  * relying on its parent container. Since the default behaviour of the tag's text is to overflow,
  * specifying a maximum width also implies truncation.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Overflow.extend({
   name: 'Max-width',
   args: {
-    ...Overflow.args,
     children: 'This tag has its own maximum width constraint',
     maxWidth: '--size-64',
   },
-}
+})

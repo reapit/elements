@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { Badge } from './badge'
 import { badgeColours } from './styles'
 import { ChevronLeftIcon } from '#src/icons/chevron-left'
 import { ChevronRightIcon } from '#src/icons/chevron-right'
 import { StarIcon } from '#src/icons/star'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta: Meta<typeof Badge> = {
+const meta = preview.meta({
   title: 'Core/Badge',
   component: Badge,
   argTypes: {
@@ -45,12 +44,9 @@ const meta: Meta<typeof Badge> = {
       options: ['default', 'reversed'],
     },
   },
-}
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': '',
     children: 'Label',
@@ -59,14 +55,13 @@ export const Example: Story = {
     iconRight: 'None',
     variant: 'default',
   },
-}
+})
 
 /**
  * There are two variants of the badge: `default` and `reversed`.
  */
-export const Variants: Story = {
+export const Variants = Example.extend({
   args: {
-    ...Example.args,
     variant: 'reversed',
   },
   argTypes: {
@@ -93,14 +88,13 @@ export const Variants: Story = {
       <Badge {...args} variant="reversed" />
     </>
   ),
-}
+})
 
 /**
  * Icons can be placed on the left or right side of the badge, regardless of the badge's variant.
  */
-export const Icons: Story = {
+export const Icons = Example.extend({
   args: {
-    ...Example.args,
     iconLeft: 'ChevronLeft',
     iconRight: 'ChevronRight',
   },
@@ -118,17 +112,16 @@ export const Icons: Story = {
       <Badge {...args} />
     </>
   ),
-}
+})
 
 /**
  * When there is not enough space available, an ARIA label can be provided in place of the visual label. In this case,
  * the ARIA label will also be used as a tooltip for visual users. Either a left or right icon can be provided, but
  * not both.
  */
-export const IconOnly: Story = {
+export const IconOnly = Example.extend({
   name: 'Icon-only',
   args: {
-    ...Example.args,
     'aria-label': 'Label',
     children: null,
     iconLeft: 'Star',
@@ -151,26 +144,24 @@ export const IconOnly: Story = {
       <Badge {...args} variant="reversed" />
     </>
   ),
-}
+})
 
 /**
  * A number of semantic colours are available for the badge. The colour can be changed by setting the `colour` prop.
  */
-export const Colours: Story = {
+export const Colours = Example.extend({
   args: {
-    ...Example.args,
     colour: 'danger',
     iconLeft: 'Star',
   },
-}
+})
 
 /**
  * If there is insufficient space available for the badge's label to be fully displayed, it will
  * not wrap. It is up to the parent container to decide whether the overflow should be visible or not.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     children: 'A very long label that will overflow',
   },
   decorators: [
@@ -180,4 +171,4 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})

@@ -1,9 +1,8 @@
+import preview from '#.storybook/preview'
 import { AtAGlance } from '../at-a-glance'
 import { buildCards } from '../__story__/build-cards'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/AtAGlance/Carousel',
   component: AtAGlance.Carousel,
   argTypes: {
@@ -11,26 +10,23 @@ const meta = {
     columns: { control: 'text' },
     gap: { control: 'text' },
   },
-} satisfies Meta<typeof AtAGlance.Carousel>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: buildCards({ layout: 'horizontal', variant: 'with-link' }),
     columns: 'var(--size-60)',
     gap: undefined,
   },
-}
+})
 
 /**
  * The carousel is only scrollable, and the next/previous buttons visible, when the cards
  * overflow its containing block.
  */
-export const NoOverflow: Story = {
+export const NoOverflow = meta.story({
   args: {
     children: buildCards({ count: 2 }),
     columns: 'var(--size-60)',
   },
-}
+})

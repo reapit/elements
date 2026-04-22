@@ -1,22 +1,17 @@
-import { css } from '@linaria/core'
+import preview from '#.storybook/preview'
 import { fontSizes, fontWeights } from '#src/utils/font'
 import { textColours } from './types'
 import { Text } from './text'
+import { myCustomTextStyles } from './__story__/styles'
 
 import type { FontStyle } from '#src/utils/font'
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const myCustomTextStyles = css`
-  padding-block-end: var(--spacing-6);
-  border: 1px solid #fa00ff;
-`
 
 const fontStyles = [
   'inherit',
   ...fontWeights.flatMap((weight) => fontSizes.map((size) => `text-${size}/${weight}` as const)),
 ] satisfies FontStyle[]
 
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Text',
   component: Text,
   argTypes: {
@@ -76,13 +71,9 @@ const meta = {
       options: fontWeights,
     },
   },
-} satisfies Meta<typeof Text>
+})
 
-export default meta
-
-type Story = StoryObj<typeof Text>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     as: 'span',
     children: 'A styled span of text',
@@ -92,40 +83,37 @@ export const Example: Story = {
     size: 'base',
     weight: 'regular',
   },
-}
+})
 
 /**
  * The `as` prop allows you to render the Text component as a different inline HTML element.
  */
-export const Element: Story = {
+export const Element = Example.extend({
   args: {
-    ...Example.args,
     as: 'mark',
   },
-}
+})
 
 /**
  * The `colour` prop controls the text color. The available values are defined by the design system with the exception
  * of `inherit`, which is a special value utility value that allows the text to inherit the colour of its parent.
  */
-export const Colour: Story = {
+export const Colour = Example.extend({
   args: {
-    ...Example.args,
     colour: 'action',
   },
-}
+})
 
 /**
  * The `font` prop controls the font size and weight.
  */
-export const Font: Story = {
+export const Font = Example.extend({
   args: {
-    ...Example.args,
     font: 'text-2xl/bold',
     size: undefined,
     weight: undefined,
   },
-}
+})
 
 /**
  * Both `font` and `colour` accept "inherit" as values. This allows for nested Text usage, which is
@@ -136,9 +124,8 @@ export const Font: Story = {
  * This example shows a smaller span of text inheriting the font size and weight of its parent while
  * colouring itself differently.
  */
-export const Inheritance: Story = {
+export const Inheritance = Example.extend({
   args: {
-    ...Example.args,
     font: 'text-xs/bold',
   },
   render: (args) => (
@@ -149,7 +136,7 @@ export const Inheritance: Story = {
       </Text>
     </Text>
   ),
-}
+})
 
 /**
  * The `overflow` prop controls whether the text should be truncated with an ellipsis or remain
@@ -157,9 +144,8 @@ export const Inheritance: Story = {
  * example, the parent is a flex container, which ensures the text is sized to fit within the grid.
  * This means the text will overflow and truncate.
  */
-export const Overflow: Story = {
+export const Overflow = Inheritance.extend({
   args: {
-    ...Inheritance.args,
     overflow: 'truncate',
   },
   decorators: [
@@ -177,7 +163,7 @@ export const Overflow: Story = {
       </Text>
     </Text>
   ),
-}
+})
 
 /**
  * Additional styling can be provided via a custom class. For example, Text resets the padding and margin
@@ -186,10 +172,10 @@ export const Overflow: Story = {
  *
  * Inline styles can also be used.
  */
-export const CustomClass: Story = {
+export const CustomClass = meta.story({
   args: {
     as: 'p',
     children: 'My custom class gives me padding and border',
     className: 'Custom',
   },
-}
+})

@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Combobox } from './combobox'
 import { ComboboxButton } from './button'
 import { getComboboxListboxId } from './get-listbox-id'
@@ -6,9 +7,7 @@ import { useComboboxButton } from './use-button'
 import { useComboboxContext } from './context'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Combobox',
   component: Combobox,
   argTypes: {
@@ -23,16 +22,12 @@ const meta = {
       options: ['small', 'medium', 'large'],
     },
   },
-} satisfies Meta<typeof Combobox>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Demonstrates a basic combobox with static options using the low-level ComboboxButton primitive.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-invalid': undefined,
     children: [
@@ -50,7 +45,7 @@ export const Example: Story = {
     showValidity: false,
     size: 'medium',
   },
-}
+})
 
 /**
  * Like all form controls that visually communicate their validity, the combobox will display in an
@@ -58,7 +53,7 @@ export const Example: Story = {
  * required, and `showValidity` is true. Typically, `showValidity` will be true when the control has
  * been touched (interacted with).
  */
-export const Invalid: Story = {
+export const Invalid = meta.story({
   args: {
     children: [
       <DemoButton key="button" />,
@@ -75,14 +70,14 @@ export const Invalid: Story = {
     showValidity: true,
     size: 'medium',
   },
-}
+})
 
 /**
  * The combobox also displays in an invalid state when `aria-invalid="true"` and `showValidity` is true.
  * This supports usage where the element is not natively invalid — for example, via custom logic
  * that does not use the browser's constraint validation API.
  */
-export const AriaInvalid: Story = {
+export const AriaInvalid = meta.story({
   name: 'Aria Invalid',
   args: {
     'aria-invalid': true,
@@ -101,16 +96,15 @@ export const AriaInvalid: Story = {
     showValidity: true,
     size: 'medium',
   },
-}
+})
 
 /**
  * Demonstrates a searchable combobox that lets users filter options by typing. As the options
  * are dynamically rendered, and the combobox allows multiple selections, the selected options are
  * displayed using `Combobox.SelectionChips`.
  */
-export const DynamicOptions: Story = {
+export const DynamicOptions = Example.extend({
   args: {
-    ...Example.args,
     id: 'dynamic-options',
     multiple: true,
   },
@@ -176,15 +170,14 @@ export const DynamicOptions: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * By default, the combobox popup will switch to a drawer experience on XS breakpoints. It can also be
  * pinned to a popover or drawer using the `variant` prop.
  */
-export const Drawer: Story = {
+export const Drawer = Example.extend({
   args: {
-    ...Example.args,
     children: [
       <DemoButton key="button" />,
       <Combobox.Popup key="popup" search={<Combobox.SearchInput aria-label="Filter options" />} variant="drawer">
@@ -196,18 +189,17 @@ export const Drawer: Story = {
       </Combobox.Popup>,
     ],
   },
-}
+})
 
 /**
  * Three sizes are supported: small, medium, and large. The size impacts both the combobox button and
  * the option labels.
  */
-export const Sizes: Story = {
+export const Sizes = Example.extend({
   args: {
-    ...Example.args,
     size: 'large',
   },
-}
+})
 
 /**
  * `Combobox.Card` can be used to provide more details about the selected option in single-select
@@ -217,10 +209,10 @@ export const Sizes: Story = {
  *
  * See `Autocomplete.Button` and `Select.Button` for examples.
  */
-export const Cards: Story = {
+export const Cards = Example.extend({
   args: {
-    ...Example.args,
     id: 'card-example',
+
     children: [
       <Combobox.Card aria-controls={Combobox.getListboxId('card-example')} aria-expanded={false} key="card">
         <Combobox.SelectedContent
@@ -249,17 +241,14 @@ export const Cards: Story = {
       </Combobox.Popup>,
     ],
   },
-}
+})
 
 /**
  * The combobox's value can be controlled like any other form control. The `Combobox.useState` hook is
  * available; it has the correct type baked-in. When responding to changes, `Combobox.getListboxValue`
  * can be used to retrieve the appropriate value from the DOM element.
  */
-export const Controlled: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Controlled = Example.extend({
   render: (args) => {
     const [value, setValue] = Combobox.useState('')
 
@@ -290,16 +279,15 @@ export const Controlled: Story = {
       </div>
     )
   },
-}
+})
 
 /**
  * Three sizes are supported: small, medium, and large. The size impacts both the combobox button and
  * the option labels.
  */
-export const Forms: Story = {
-  ...DynamicOptions,
+export const Forms = DynamicOptions.extend({
+  ...DynamicOptions.input,
   args: {
-    ...DynamicOptions.args,
     id: 'form-example',
   },
   decorators: [
@@ -317,7 +305,7 @@ export const Forms: Story = {
       </form>
     ),
   ],
-}
+})
 
 /**
  * Simple demo button for stories that uses ComboboxButton primitive.

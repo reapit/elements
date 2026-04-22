@@ -20,6 +20,14 @@
   ],
   "type": "module",
   "imports": {
+    "#.storybook/*": {
+      "types": [
+        "./.storybook/*.tsx",
+        "./.storybook/*.ts",
+        "./.storybook/*"
+      ],
+      "import": "./.storybook/*"
+    },
     "#src/*": {
       "types": [
         "./src/*.js",
@@ -112,6 +120,7 @@
     "@storybook/addon-docs": "10.3.5",
     "@storybook/addon-links": "10.3.5",
     "@storybook/cli": "10.3.5",
+    "@storybook/codemod": "^10.3.5",
     "@storybook/react-vite": "10.3.5",
     "@testing-library/dom": "10.4.1",
     "@testing-library/jest-dom": "6.9.1",

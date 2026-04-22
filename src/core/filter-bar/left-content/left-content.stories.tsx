@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
 import { FilterBarLeftContent } from './left-content'
 import { FilterIcon } from '#src/icons/filter'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FilterBar/LeftContent',
   component: FilterBarLeftContent,
   argTypes: {
@@ -37,13 +36,10 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof FilterBarLeftContent>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Button',
   },
-}
+})

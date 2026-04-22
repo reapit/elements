@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { TableCellSortButton } from '../sort-button'
 import { TableHeaderCell } from '../header-cell'
 import { TableHeaderRow } from './header-row'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/HeaderRow',
   component: TableHeaderRow,
   argTypes: {
@@ -55,34 +54,31 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TableHeaderRow>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * By default, rows do not exhibit any cursor-based interactivity, such has hover styles. This is because
  * rows themselves are never interactive.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     as: 'tr',
     children: 'Static text',
   },
   decorators: [useTableDecorator('header-row')],
-}
+})
 
 /**
  * Any number of columns in the table can be sortable. In this example, two columns have sort buttons
  * that would allow users to sort the table's data.
  */
-export const SortableColumns: Story = {
+export const SortableColumns = meta.story({
   args: {
     as: 'tr',
     children: 'Sortable columns',
   },
   decorators: [useTableDecorator('header-row')],
-}
+})
 
 /**
  * Sometimes it may be necessary to render the table row as a plain `<div>`. Providing
@@ -93,7 +89,7 @@ export const SortableColumns: Story = {
  * Care must also be taken to ensure the descendant cells are also rendered as `<div>` elements,
  * possibly with explicit ARIA roles as well.
  */
-export const Divs: Story = {
+export const Divs = meta.story({
   args: {
     as: 'div',
     children: <TableHeaderCell as="div">I&apos;m all divs and no a11y 😬</TableHeaderCell>,
@@ -103,4 +99,4 @@ export const Divs: Story = {
       control: false,
     },
   },
-}
+})

@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { FormControlErrorText } from './error-text'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FormControl/ErrorText',
   component: FormControlErrorText,
   argTypes: {
@@ -17,24 +16,19 @@ const meta = {
       },
     },
   },
-} satisfies Meta<FormControlErrorText.Props>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Error text',
     id: 'my-error-text',
     size: 'medium',
   },
-}
+})
 
 /** The error text will naturally wrap to additional lines when it does not have sufficient space. */
-export const Wrapping: Story = {
+export const Wrapping = Example.extend({
   args: {
-    ...Example.args,
     children: 'This is a long error message that won’t fit in a single row',
   },
   decorators: [
@@ -44,4 +38,4 @@ export const Wrapping: Story = {
       </div>
     ),
   ],
-}
+})

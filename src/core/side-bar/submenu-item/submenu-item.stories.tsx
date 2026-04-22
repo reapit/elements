@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { SideBarSubmenuItem } from './submenu-item'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/SideBar/SubmenuItem',
   component: SideBarSubmenuItem,
   argTypes: {
@@ -13,30 +12,25 @@ const meta = {
     },
   },
   decorators: [useSideBarContextDecorator],
-} satisfies Meta<typeof SideBarSubmenuItem>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-current': false,
     children: 'Submenu Item',
     href: '#',
   },
-}
+})
 
 /**
  * When the item represents the current page, `aria-current="page"` should be supplied to communicate to visual and
  * accessible users that the item is currently "selected".
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     'aria-current': 'page',
   },
-}
+})
 
 /**
  * When there is not enough space to display the full label, it will be truncated with an ellipsis. That said,
@@ -44,27 +38,23 @@ export const Selected: Story = {
  * the `SideBar`. Importantly, when the `SideBar` is collapsed, the submenu item's label will be available in
  * the accessibility tree despite not being fully visible.
  */
-export const Truncation: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Truncation = Example.extend({
   decorators: [useSideBarWidthDecorator],
+
   parameters: {
     sideBar: { width: '100px' },
   },
-}
+})
 
 /**
  * When the `SideBar` is collapsed, the submenu item's label will be completely hidden. However, submenu's should not
  * generally be visible at all when the `SideBar` is collapsed because their parent menu group should be closed. Again
  * though, while the label is not visible, it is still available in the accessibility tree.
  */
-export const Collapsed: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Collapsed = Example.extend({
   decorators: [useSideBarWidthDecorator],
+
   parameters: {
     sideBar: { state: 'collapsed' },
   },
-}
+})

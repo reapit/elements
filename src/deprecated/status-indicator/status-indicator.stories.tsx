@@ -1,12 +1,13 @@
+import preview from '#.storybook/preview'
 import { DeprecatedStatusIndicator } from '.'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/DeprecatedStatusIndicator',
   component: DeprecatedStatusIndicator,
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => (
+export const BasicUsage = meta.story({
+  render: () => (
     <div>
       <DeprecatedStatusIndicator />
       Something is happening
@@ -14,10 +15,10 @@ export const BasicUsage = {
   ),
 
   name: 'Basic usage',
-}
+})
 
-export const IntentPrimary = {
-  render: ({}) => (
+export const IntentPrimary = meta.story({
+  render: () => (
     <div>
       <DeprecatedStatusIndicator intent="primary" />
       Primary
@@ -25,10 +26,10 @@ export const IntentPrimary = {
   ),
 
   name: 'Intent: Primary',
-}
+})
 
-export const IntentNeutral = {
-  render: ({}) => (
+export const IntentNeutral = meta.story({
+  render: () => (
     <div>
       <DeprecatedStatusIndicator intent="neutral" />
       Neutral
@@ -36,10 +37,10 @@ export const IntentNeutral = {
   ),
 
   name: 'Intent: Neutral',
-}
+})
 
-export const IntentSuccess = {
-  render: ({}) => (
+export const IntentSuccess = meta.story({
+  render: () => (
     <div>
       <DeprecatedStatusIndicator intent="success" />
       Success
@@ -47,10 +48,10 @@ export const IntentSuccess = {
   ),
 
   name: 'Intent: Success',
-}
+})
 
-export const IntentPending = {
-  render: ({}) => (
+export const IntentPending = meta.story({
+  render: () => (
     <div>
       <DeprecatedStatusIndicator intent="pending" />
       Pending
@@ -58,10 +59,10 @@ export const IntentPending = {
   ),
 
   name: 'Intent: Pending',
-}
+})
 
-export const IntentWarning = {
-  render: ({}) => (
+export const IntentWarning = meta.story({
+  render: () => (
     <div>
       <DeprecatedStatusIndicator intent="warning" />
       Warning
@@ -69,10 +70,10 @@ export const IntentWarning = {
   ),
 
   name: 'Intent: Warning',
-}
+})
 
-export const IntentDanger = {
-  render: ({}) => (
+export const IntentDanger = meta.story({
+  render: () => (
     <div>
       <DeprecatedStatusIndicator intent="danger" />
       Danger
@@ -80,10 +81,10 @@ export const IntentDanger = {
   ),
 
   name: 'Intent: Danger',
-}
+})
 
-export const IntentDefault = {
-  render: ({}) => (
+export const IntentDefault = meta.story({
+  render: () => (
     <div>
       <DeprecatedStatusIndicator intent="default" />
       Default
@@ -91,4 +92,4 @@ export const IntentDefault = {
   ),
 
   name: 'Intent: Default',
-}
+})

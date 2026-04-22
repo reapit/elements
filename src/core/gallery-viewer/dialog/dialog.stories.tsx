@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { GalleryViewerDialog } from './dialog'
 import { useArgs } from 'storybook/preview-api'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/GalleryViewer/Dialog',
   component: GalleryViewerDialog,
   argTypes: {
@@ -12,17 +11,14 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof GalleryViewerDialog>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * At its simplest, you can open and close the gallery viewer dialog by controlling its `isOpen`
  * state. The dialog is responsive: on large screens (≥1440px) it appears inset from the viewport
  * edges with a semi-transparent backdrop, whilst on smaller screens it fills the entire viewport.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: <ExampleContent />,
     closedBy: 'any',
@@ -37,7 +33,7 @@ export const Example: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * The `closedBy` prop specifies the types of user actions that can be used to close the dialog.
@@ -46,9 +42,8 @@ export const Example: Story = {
  * the backdrop, pressing `Esc`, or a developer-specified mechanism. This example uses
  * `closedBy="closerequest"` to prevent light-dismiss via the backdrop.
  */
-export const ClosedBy: Story = {
+export const ClosedBy = Example.extend({
   args: {
-    ...Example.args,
     closedBy: 'closerequest',
   },
   render: function ClosedBy(args) {
@@ -60,7 +55,7 @@ export const ClosedBy: Story = {
       </>
     )
   },
-}
+})
 
 function ExampleContent() {
   return (

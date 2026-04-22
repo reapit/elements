@@ -1,12 +1,13 @@
+import preview from '#.storybook/preview'
 import { MobileControls } from './index'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/MobileControls',
   component: MobileControls,
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => (
+export const BasicUsage = meta.story({
+  render: () => (
     <MobileControls
       isVisible
       mobileControlItems={[
@@ -25,4 +26,4 @@ export const BasicUsage = {
       ]}
     />
   ),
-}
+})

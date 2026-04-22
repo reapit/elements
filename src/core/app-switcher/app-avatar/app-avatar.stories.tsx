@@ -1,12 +1,12 @@
+import preview from '#.storybook/preview'
 import { AppAvatar } from './app-avatar'
 import { productConfigs } from '../config'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { SupportedProductId } from '../config'
 
 const productIds = Object.keys(productConfigs) as SupportedProductId[]
 
-const meta: Meta<typeof AppAvatar> = {
+const meta = preview.meta({
   title: 'Core/AppSwitcher/AppAvatar',
   component: AppAvatar,
   argTypes: {
@@ -16,45 +16,38 @@ const meta: Meta<typeof AppAvatar> = {
       options: productIds,
     },
   },
-} satisfies Meta<typeof AppAvatar>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * When the user has access to the product, the avatar will appear in the primary colour.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     productId: 'consoleCloud',
     hasAccess: true,
   },
-}
+})
 
 /**
  * When the user does not have access to the product, the avatar will be greyed out.
  */
-export const Inaccessible: Story = {
+export const Inaccessible = Example.extend({
   args: {
-    ...Example.args,
     hasAccess: false,
   },
-}
+})
 
 /**
  * All supported products are displayed here. Each product has two avatars: one for when the user has access
  * and one for when they do not.
  */
-export const AllProducts: Story = {
+export const AllProducts = meta.story({
   argTypes: {
     productId: {
       control: false,
     },
   },
-  /* oxlint-disable-next-line typescript/no-unused-vars -- if we don't have args here, our code
-   * snippet for this story will be borked. */
-  render: (_args) => (
+  render: () => (
     <div
       style={{
         alignItems: 'center',
@@ -72,4 +65,4 @@ export const AllProducts: Story = {
       ])}
     </div>
   ),
-}
+})

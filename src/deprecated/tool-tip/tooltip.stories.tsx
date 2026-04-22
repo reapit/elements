@@ -1,18 +1,19 @@
+import preview from '#.storybook/preview'
 import { DeprecatedToolTip } from './index'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/DeprecatedToolTip',
   component: DeprecatedToolTip,
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => <DeprecatedToolTip tip="Some Data">Hover here</DeprecatedToolTip>,
-}
+export const BasicUsage = meta.story({
+  render: () => <DeprecatedToolTip tip="Some Data">Hover here</DeprecatedToolTip>,
+})
 
-export const DefaultActive = {
-  render: ({}) => (
+export const DefaultActive = meta.story({
+  render: () => (
     <DeprecatedToolTip tip="Some Data" defaultActive>
       Hover here
     </DeprecatedToolTip>
   ),
-}
+})

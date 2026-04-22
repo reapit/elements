@@ -1,7 +1,7 @@
+import preview from '#.storybook/preview'
 import { CompactSelect } from './compact-select'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/CompactSelect',
   component: CompactSelect,
   argTypes: {
@@ -13,16 +13,12 @@ const meta = {
       options: ['small', 'medium', 'large'],
     },
   },
-} satisfies Meta<typeof CompactSelect>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Demonstrates a single-select Select.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: [
       <CompactSelect.Button key="button" />,
@@ -44,15 +40,14 @@ export const Example: Story = {
     disabled: false,
     size: 'medium',
   },
-}
+})
 
 /**
  * Options can be grouped using the `CompactSelect.Optgroup`. Groups should always be separated
  * by a `CompactSelect.Divider`.
  */
-export const Groups: Story = {
+export const Groups = Example.extend({
   args: {
-    ...Example.args,
     children: [
       <CompactSelect.Button key="button" />,
       <CompactSelect.Popup key="popup">
@@ -75,16 +70,15 @@ export const Groups: Story = {
       </CompactSelect.Popup>,
     ],
   },
-}
+})
 
 /**
  * The select's width can be constrained using `maxWidth`. When the label text is too long, it will
  * truncate, and a tooltip will be available on focus or hover.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Example.extend({
   name: 'Max-width',
   args: {
-    ...Example.args,
     maxWidth: '80px',
   },
-}
+})

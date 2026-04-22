@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { AppSwitcherProductMenuItem } from './product-menu-item'
 import { AppSwitcherMenuGroupHasAccessContext } from '../menu-group-has-access-context'
 import { productConfigs } from '../config'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/AppSwitcher/ProductMenuItem',
   component: AppSwitcherProductMenuItem,
   argTypes: {
@@ -23,35 +22,30 @@ const meta = {
   parameters: {
     hasAccessContextValue: true,
   },
-} satisfies Meta<typeof AppSwitcherProductMenuItem>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * When the product menu item is rendered as a child of the `AppSwitcher.YourAppsMenuGroup` (or more
  * specifically, when the nearest `HasAccessContext.Provider` has a value of `true`), its logo will
  * automatically reflect the user's access to the product.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     href: '#',
     productId: 'consoleCloud',
   },
-}
+})
 
 /**
  * When the product menu item is rendered as a child of the `AppSwitcher.ExploreMenuGroup` (or more
  * specifically, when the nearest `HasAccessContext.Provider` has a value of `false`), its logo will
  * automatically reflect the user's lack of access to the product.
  */
-export const NoAccess: Story = {
+export const NoAccess = Example.extend({
   args: {
-    ...Example.args,
     productId: 'autoResponder',
   },
   parameters: {
     hasAccessContextValue: false,
   },
-}
+})

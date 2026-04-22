@@ -1,9 +1,9 @@
+import preview from '#.storybook/preview'
 import { SupplementaryInfoItem } from './supplementary-info-item'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { SupplementaryInfoColour } from './supplementary-info-item'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/SupplementaryInfo/Item',
   component: SupplementaryInfoItem,
   argTypes: {
@@ -33,33 +33,28 @@ const meta = {
       </ul>
     ),
   ],
-} satisfies Meta<typeof SupplementaryInfoItem>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     colour: 'primary',
     children: 'Supplementary info',
   },
-}
+})
 
 /**
  * Items can be coloured to convey certain messages or to draw users' attention to certain information.
  */
-export const Style: Story = {
+export const Style = Example.extend({
   args: {
-    ...Example.args,
     colour: 'danger',
   },
-}
+})
 
 /**
  * Sibling items will automatically be separated by a dot.
  */
-export const Separators: Story = {
+export const Separators = meta.story({
   args: {
     children: (
       <>
@@ -73,4 +68,4 @@ export const Separators: Story = {
       control: false,
     },
   },
-}
+})

@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { useEffect, type ComponentProps } from 'react'
 import { DeprecatedMenu, useDeprecatedMenuContext } from '.'
 import { Button } from '../../core/button'
@@ -9,14 +9,11 @@ import { MoreIcon } from '#src/icons/more'
 import { PropertyIcon } from '#src/icons/property'
 import { ExportIcon } from '#src/icons/export'
 
-const meta: Meta<typeof DeprecatedMenu> = {
+const meta = preview.meta({
   title: 'Deprecated/DeprecatedMenu',
-}
+})
 
-export default meta
-type Story = StoryObj<typeof DeprecatedMenu>
-
-export const Default: StoryObj = {
+export const Default = meta.story({
   render: () => {
     return (
       <DeprecatedMenu>
@@ -36,9 +33,9 @@ export const Default: StoryObj = {
       </DeprecatedMenu>
     )
   },
-}
+})
 
-export const WithCompleteFeatures: StoryObj = {
+export const WithCompleteFeatures = meta.story({
   render: () => {
     return (
       <DeprecatedMenu>
@@ -97,9 +94,9 @@ export const WithCompleteFeatures: StoryObj = {
       </DeprecatedMenu>
     )
   },
-}
+})
 
-export const WithCustomAlignment: Story = {
+export const WithCustomAlignment = meta.story({
   render: () => {
     return (
       <FlexContainer isFlexAlignCenter isFlexJustifyCenter>
@@ -120,9 +117,9 @@ export const WithCustomAlignment: Story = {
       </FlexContainer>
     )
   },
-}
+})
 
-export const MoreComplexUsageExample: Story = {
+export const MoreComplexUsageExample = meta.story({
   render: (props) => {
     const NavDropdownButtonUsageExample = ({
       title,
@@ -175,9 +172,9 @@ export const MoreComplexUsageExample: Story = {
       </FlexContainer>
     )
   },
-}
+})
 
-export const WithIframe: Story = {
+export const WithIframe = meta.story({
   render: () => {
     const IFrameComponent = () => {
       return (
@@ -236,4 +233,4 @@ export const WithIframe: Story = {
       </DeprecatedMainContainer>
     )
   },
-}
+})

@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { EmptyDataDescription } from './description'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/EmptyData/Description',
   component: EmptyDataDescription,
   argTypes: {
@@ -13,17 +12,14 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof EmptyDataDescription>
-
-export default meta
-type Story = StoryObj<typeof EmptyDataDescription>
+})
 
 /**
  *
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'No things found',
     secondaryText: 'Secondary text',
   },
-}
+})

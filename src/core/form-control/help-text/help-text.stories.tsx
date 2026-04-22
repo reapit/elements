@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { FormControlHelpText } from './help-text'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FormControl/HelpText',
   component: FormControlHelpText,
   argTypes: {
@@ -17,24 +16,19 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof FormControlHelpText>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Help text',
     id: 'my-help-text',
     size: 'medium',
   },
-}
+})
 
 /** The help text will naturally wrap to additional lines when it does not have sufficient space. */
-export const Wrapping: Story = {
+export const Wrapping = Example.extend({
   args: {
-    ...Example.args,
     children: 'This is long help text that won’t fit in a single row',
   },
   decorators: [
@@ -44,4 +38,4 @@ export const Wrapping: Story = {
       </div>
     ),
   ],
-}
+})

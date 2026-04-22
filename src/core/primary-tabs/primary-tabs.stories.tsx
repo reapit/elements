@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { PrimaryTabs } from './primary-tabs'
-
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/PrimaryTabs',
   component: PrimaryTabs,
   argTypes: {
@@ -25,33 +24,29 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof PrimaryTabs>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'No selected tab',
   },
-}
+})
 
 /**
  * If a tab represents the current page/section, it should be marked as "selected" with aria-current="page".
  */
-export const SelectedTab: Story = {
+export const SelectedTab = meta.story({
   args: {
     children: 'Selected tab',
   },
-}
+})
 
 /**
  * Ideally, overflowing should be avoided as much as possible. When it can’t be avoided (e.g. small
  * breakpoints) use horizontal scrolling by providing `overflow="scroll"`. By default, tabs will simply
  * overflow the container.
  */
-export const Overflow: Story = {
+export const Overflow = meta.story({
   args: {
     children: 'Selected tab',
     overflow: 'scroll',
@@ -65,7 +60,7 @@ export const Overflow: Story = {
       )
     },
   ],
-}
+})
 
 function buildTabs(type: 'No selected tab' | 'Selected tab') {
   return [

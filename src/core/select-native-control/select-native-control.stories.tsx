@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { SelectNativeControl } from './select-native-control'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/SelectNativeControl',
   component: SelectNativeControl,
   argTypes: {
@@ -48,13 +47,9 @@ const meta = {
       options: ['small', 'medium', 'large'],
     },
   },
-} satisfies Meta<typeof SelectNativeControl>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     autoComplete: 'off',
     children: 'Simple',
@@ -71,20 +66,18 @@ export const Example: Story = {
     size: 'medium',
     value: undefined,
   },
-}
+})
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
  */
-export const Sizes: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sizes = Example.extend({
   argTypes: {
     size: {
       control: false,
     },
   },
+
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)', alignItems: 'start' }}>
@@ -92,6 +85,7 @@ export const Sizes: Story = {
       </div>
     ),
   ],
+
   render: (args) => (
     <>
       <SelectNativeControl {...args} size="small" />
@@ -99,27 +93,25 @@ export const Sizes: Story = {
       <SelectNativeControl {...args} size="large" />
     </>
   ),
-}
+})
 
 /**
  * Optional help text can be provided to give more context about the select.
  */
-export const HelpText: Story = {
+export const HelpText = Example.extend({
   args: {
-    ...Example.args,
     helpText: 'Optional help text',
   },
-}
+})
 
 /**
  * Options for the select can be grouped using the native `optgroup` element.
  */
-export const OptionGroups: Story = {
+export const OptionGroups = Example.extend({
   args: {
-    ...Example.args,
     children: 'With Groups',
   },
-}
+})
 
 /**
  * Like all form controls, the select will display in an invalid state when it's value
@@ -130,69 +122,63 @@ export const OptionGroups: Story = {
  * If `showValidity` is not explicitly provided, the control will show validity based on the presence of
  * `errorText`.
  */
-export const Invalid: Story = {
+export const Invalid = Example.extend({
   args: {
-    ...Example.args,
     errorText: 'Error message',
     required: true,
     showValidity: true,
   },
-}
+})
 
 /**
  * Selects can be disabled. A disabled select will not receive the `click` event, and are not submitted
  * with the form they're associated with.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     disabled: true,
   },
-}
+})
 
 /**
  * The initial value of the select, when it's value is not controlled, can be provided using `defaultValue`.
  */
-export const DefaultValue: Story = {
+export const DefaultValue = Example.extend({
   name: 'Default value',
   args: {
-    ...Example.args,
     defaultValue: 'residential',
   },
-}
+})
 
 /**
  * The value of the select can be controlled by providing an explicit `value`. In this example, the select's value is
  * pinned to "Commercial" and, because that controlled value is not updated when another option is selected, it does
  * not change.
  */
-export const ControlledValue: Story = {
+export const ControlledValue = Example.extend({
   name: 'Controlled value',
   args: {
-    ...Example.args,
     value: 'commercial',
   },
-}
+})
 
 /**
  * By default, selects will fill their parent's width. This can be constrained by providing a `maxWidth`.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Example.extend({
   name: 'Max-width',
   args: {
-    ...Example.args,
     maxWidth: 'var(--size-64)',
   },
-}
+})
 
 /**
  * The label, help text and error text will all wrap naturally when the form control does not have sufficient
  * space available for them.
  */
-export const Wrapping: Story = {
+export const Wrapping = MaxWidth.extend({
   args: {
-    ...MaxWidth.args,
     label: "This is a long label that won't fit on a single line",
     helpText: "This is a long optional help text that won't fit on a single line",
   },
-}
+})

@@ -1,15 +1,14 @@
+import preview from '#.storybook/preview'
 import { BottomBarContext } from '../context'
 import { BottomBarMenuList } from './menu-list'
 import { Menu } from '#src/core/menu'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 // Placeholder href for all menu items in this story.
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/BottomBar/MenuList',
   component: BottomBarMenuList,
   argTypes: {
@@ -42,27 +41,23 @@ const meta = {
       value: 'light',
     },
   },
-} satisfies Meta<typeof BottomBarMenuList>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'No selected item',
   },
-}
+})
 
 /**
  * If a menu item represents the current page, it should be marked as "selected". See the `BottomBar.Item`
  * documentation for details on how.
  */
-export const SelectedItem: Story = {
+export const SelectedItem = meta.story({
   args: {
     children: 'Selected item',
   },
-}
+})
 
 function buildMenu(type: 'No selected item' | 'Selected item') {
   return [

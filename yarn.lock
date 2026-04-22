@@ -2242,6 +2242,7 @@ __metadata:
     "@storybook/addon-docs": "npm:10.3.5"
     "@storybook/addon-links": "npm:10.3.5"
     "@storybook/cli": "npm:10.3.5"
+    "@storybook/codemod": "npm:^10.3.5"
     "@storybook/react-vite": "npm:10.3.5"
     "@testing-library/dom": "npm:10.4.1"
     "@testing-library/jest-dom": "npm:6.9.1"
@@ -2581,7 +2582,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/codemod@npm:10.3.5":
+"@storybook/codemod@npm:10.3.5, @storybook/codemod@npm:^10.3.5":
   version: 10.3.5
   resolution: "@storybook/codemod@npm:10.3.5"
   dependencies:

@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { ButtonGroup } from '#src/core/button-group'
 import { Button } from '#src/core/button'
 import { CompactSelectNative } from '#src/core/compact-select-native'
 import { Skeleton } from '#src/core/skeleton'
 import { TableToolbar } from './toolbar'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/Toolbar',
   component: TableToolbar,
   argTypes: {
@@ -49,10 +48,7 @@ const meta = {
   globals: {
     backgrounds: 'light',
   },
-} satisfies Meta<typeof TableToolbar>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * By default, the toolbar is used to display the number of items in the result set being displayed by
@@ -62,12 +58,12 @@ type Story = StoryObj<typeof meta>
  * Importantly, when the page size is changed by the user, their selection should become the default
  * page size used by all other tables in the product.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     leftContent: 'Item count',
     rightContent: 'Page size',
   },
-}
+})
 
 /**
  * Correctly formatting the item count information requires some care because languages have different
@@ -79,7 +75,7 @@ export const Example: Story = {
  * API to help with this, especially when needing to support multiple languages/locales. This example shows
  * how this API can be used in a simplistic manner (i.e., English-only).
  */
-export const PluralNouns: Story = {
+export const PluralNouns = meta.story({
   name: 'Plural nouns',
   parameters: { docs: { source: { type: 'code' } } },
   render: () => {
@@ -92,51 +88,47 @@ export const PluralNouns: Story = {
     const noun = nounMap[pluralRules.select(itemCount)]
     return <TableToolbar leftContent={`${itemCount} ${noun}`} />
   },
-}
+})
 
 /**
  * For tables that support bulk actions (actions performed on multiple items), when the user selects one
  * or more rows, the toolbar should be used to display the number of selected items as well as all the
  * bulk actions available.
  */
-export const SelectionCount: Story = {
+export const SelectionCount = Example.extend({
   args: {
-    ...Example.args,
     leftContent: 'Selection count',
     rightContent: 'Batch actions',
   },
-}
+})
 
 /**
  * In some rare cases, the toolbar may only need to display the item count.
  */
-export const LeftContentOnly: Story = {
+export const LeftContentOnly = Example.extend({
   name: 'Left content only',
   args: {
-    ...Example.args,
     rightContent: null,
   },
-}
+})
 
 /**
  * In other rare cases, the toolbar may only need to display some controls or actions.
  */
-export const RightContentOnly: Story = {
+export const RightContentOnly = Example.extend({
   name: 'Right content only',
   args: {
-    ...Example.args,
     leftContent: null,
   },
-}
+})
 
 /**
  * When the table data is still loading when the toolbar is displayed, a skeleton can be used in place of
  * the item count. Generally, the page size control should be available even when data is loading so that
  * users can interact with it immediately.
  */
-export const Loading: Story = {
+export const Loading = Example.extend({
   args: {
-    ...Example.args,
     leftContent: 'Skeleton',
   },
-}
+})

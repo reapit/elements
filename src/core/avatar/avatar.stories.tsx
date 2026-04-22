@@ -1,78 +1,71 @@
+import preview from '#.storybook/preview'
 import { Avatar } from '.'
 import { ContactIcon } from '#src/icons/contact'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-export default {
+const meta = preview.meta({
   title: 'Core/Avatar',
   component: Avatar,
   args: {
     children: 'AD',
   },
-} as Meta<typeof Avatar>
-
-type Story = StoryObj<typeof Avatar>
+})
 
 /**
  * The simplest avatar is one that displays some letters, typically the initials of the user or
  * other entity represented by the avatar.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'AB',
     colour: 'default',
     shape: 'circle',
     size: 'medium',
   },
-}
+})
 
 /**
  * The avatar can also be used to display an icon, which is useful when representing an entity whose
  * details accompany the avatar.
  */
-export const Icons: Story = {
+export const Icons = Example.extend({
   args: {
-    ...Example.args,
     children: <ContactIcon />,
   },
-}
+})
 
 /**
  * There are two colours supported by the avatar: `default` and `purple`, which is shown here.
  */
-export const Colour: Story = {
+export const Colour = Example.extend({
   args: {
-    ...Example.args,
     colour: 'primary',
   },
-}
+})
 
 /**
  * When using an icon in a coloured avatar, the icon should inherit the colour of the avatar.
  */
-export const ColouredIcons: Story = {
+export const ColouredIcons = Example.extend({
   args: {
-    ...Example.args,
     children: <ContactIcon />,
     colour: 'primary',
   },
-}
+})
 
 /**
  * There are two shapes supported by the avatar: `circle` (the default) and `square`, which is shown here.
  */
-export const Shape: Story = {
+export const Shape = Example.extend({
   args: {
-    ...Example.args,
     shape: 'square',
   },
-}
+})
 
 /**
  * There are two sizes supported by the avatar: `medium` (the default) and `small`, which is shown here.
  */
-export const Size: Story = {
+export const Size = Example.extend({
   args: {
-    ...Example.args,
     size: 'small',
   },
-}
+})

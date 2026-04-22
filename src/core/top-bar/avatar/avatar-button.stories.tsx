@@ -1,39 +1,34 @@
+import preview from '#.storybook/preview'
 import { Menu } from '#src/core/menu'
 import { TopBarAvatarButton } from './avatar-button'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta: Meta<typeof TopBarAvatarButton> = {
+const meta = preview.meta({
   component: TopBarAvatarButton,
   title: 'Core/TopBar/AvatarButton',
-}
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'KD',
   },
-}
+})
 
 /**
  * The following example demonstrates the use of `TopBar.AvatarButton` with the `Menu` component.
  */
-export const WithMenu: Story = {
+export const WithMenu = Example.extend({
   name: 'With a Menu',
-  args: {
-    ...Example.args,
-  },
+
   argTypes: {
     'aria-expanded': {
       control: false,
     },
   },
+
   parameters: {
     layout: 'centered',
   },
+
   render: ({ children }) => (
     <>
       <TopBarAvatarButton
@@ -48,4 +43,4 @@ export const WithMenu: Story = {
       </Menu>
     </>
   ),
-}
+})

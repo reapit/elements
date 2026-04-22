@@ -1,7 +1,7 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { Switch } from './switch'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Switch',
   component: Switch,
   argTypes: {
@@ -23,12 +23,9 @@ const meta = {
       options: ['start', 'end'],
     },
   },
-} satisfies Meta<typeof Switch>
+})
 
-export default meta
-type Story = StoryObj<typeof Switch>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     checked: undefined,
     defaultChecked: undefined,
@@ -36,22 +33,22 @@ export const Example: Story = {
     label: 'Label',
     labelPlacement: 'end',
   },
-}
+})
 
 /**
  * When the visual label is omitted, it is important to still provide an accessible label using
  * `aria-label` or similar. You can also use `SwitchInput` directly if do not need a visual label.
  */
-export const NoLabel: Story = {
+export const NoLabel = meta.story({
   args: {
     'aria-label': 'Label',
   },
-}
+})
 
 /**
  * The visual label can either be placed at the start or end of the control.
  */
-export const LabelPlacement: Story = {
+export const LabelPlacement = meta.story({
   args: {
     label: 'Label',
     labelPlacement: 'end',
@@ -72,24 +69,24 @@ export const LabelPlacement: Story = {
       <Switch {...args} labelPlacement="end" />
     </>
   ),
-}
+})
 
 /**
  * The switch can be checked by default.
  */
-export const Checked: Story = {
+export const Checked = meta.story({
   args: {
     label: 'Label',
     defaultChecked: true,
   },
-}
+})
 
 /**
  * Switches can be disabled. When disabled, they do not participate in form submission.
  */
-export const Disabled: Story = {
+export const Disabled = meta.story({
   args: {
     label: 'Label',
     disabled: true,
   },
-}
+})

@@ -1,22 +1,17 @@
-import { css } from '@linaria/core'
+import preview from '#.storybook/preview'
 import { fontSizes, fontWeights } from '#src/utils/font'
 import { textColours } from '#src/utils/text'
 import { Heading } from './heading'
+import { myCustomHeadingStyles } from './__story__/styles'
 
 import type { FontStyle } from './types'
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const myCustomHeadingStyles = css`
-  border: 1px solid #fa00ff;
-  padding-block-end: var(--spacing-4);
-`
 
 const fontStyles = [
   'inherit',
   ...fontWeights.flatMap((weight) => fontSizes.map((size) => `text-${size}/${weight}` as const)),
 ] satisfies FontStyle[]
 
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Heading',
   component: Heading,
   argTypes: {
@@ -64,13 +59,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Heading>
+})
 
-export default meta
-
-type Story = StoryObj<typeof Heading>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     as: 'h2',
     children: 'A styled heading',
@@ -78,42 +69,39 @@ export const Example: Story = {
     colour: 'inherit',
     font: 'inherit',
   },
-}
+})
 
 /**
  * The `as` prop allows you to render different heading levels (h1 through h6).
  * By default, the component renders an h2 element.
  */
-export const Element: Story = {
+export const Element = Example.extend({
   args: {
-    ...Example.args,
     as: 'h1',
     children: 'This is a level 1 heading',
   },
-}
+})
 
 /**
  * The `colour` prop controls the text colour. The available values are defined by the design
  * system with the exception of `inherit`, which allows the heading to inherit the colour of its parent.
  */
-export const Colour: Story = {
+export const Colour = Example.extend({
   args: {
-    ...Example.args,
     colour: 'primary',
     children: 'A heading with primary colour',
   },
-}
+})
 
 /**
  * The `font` prop controls the font size and weight.
  */
-export const Font: Story = {
+export const Font = Example.extend({
   args: {
-    ...Example.args,
     font: 'text-3xl/bold',
     children: 'A large, bold heading',
   },
-}
+})
 
 /**
  * Additional styling can be provided via a custom class. For example, Heading resets the margin
@@ -122,19 +110,18 @@ export const Font: Story = {
  *
  * Inline styles can also be used.
  */
-export const CustomClass: Story = {
+export const CustomClass = Example.extend({
   args: {
-    ...Example.args,
     as: 'h3',
     children: 'Custom styled heading',
     className: 'Custom',
   },
-}
+})
 
 /**
  * All six heading levels (h1-h6) are supported for complete semantic coverage.
  */
-export const AllLevels: Story = {
+export const AllLevels = meta.story({
   render: () => (
     <div>
       <Heading as="h1" font="text-3xl/bold">
@@ -157,4 +144,4 @@ export const AllLevels: Story = {
       </Heading>
     </div>
   ),
-}
+})

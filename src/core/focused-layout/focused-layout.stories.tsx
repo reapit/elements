@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
@@ -6,9 +7,7 @@ import { MainContainer } from '../main-container'
 import { FocusedLayout } from './focused-layout'
 import { FocusedLayoutProductLogo } from './product-logo'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FocusedLayout',
   component: FocusedLayout,
   argTypes: {
@@ -66,11 +65,7 @@ const meta = {
   parameters: {
     layout: 'fullscreen',
   },
-} satisfies Meta<typeof FocusedLayout>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * A simple focused layout with a light background. The top bar contains the logo, title, and
@@ -79,23 +74,23 @@ type Story = StoryObj<typeof meta>
  *
  * **Note:** It is up to consumers to show/hide actions across breakpoints.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     background: 'light',
     children: 'Simple',
   },
-}
+})
 
 /**
  * A focused layout with a dark (grey) background. This is suitable for complex content
  * layouts that use cards or other elevated elements.
  */
-export const Background: Story = {
+export const Background = meta.story({
   args: {
     background: 'dark',
     children: 'Simple',
   },
-}
+})
 
 /**
  * A multi-step focused layout with navigation buttons. This layout is suitable for wizards
@@ -106,12 +101,11 @@ export const Background: Story = {
  *
  * **Note:** Again, it is up to consumers to show/hide actions across breakpoints.
  */
-export const MultiStep: Story = {
+export const MultiStep = Example.extend({
   args: {
-    ...Example.args,
     children: 'MultiStep',
   },
-}
+})
 
 /**
  * If the content overflows the viewport, the page will scroll. When actions are present in the top bar,
@@ -120,9 +114,8 @@ export const MultiStep: Story = {
  *
  * **Note:** Again, it is up to consumers to show/hide actions and the bottom bar across breakpoints.
  */
-export const Scrolling: Story = {
+export const Scrolling = Example.extend({
   args: {
-    ...Example.args,
     children: [
       <FocusedLayout.TopBar key="top-bar" logo={<FocusedLayoutProductLogo product="Reapit" />} title="Page title" />,
       <FocusedLayout.Content key="content">
@@ -142,4 +135,4 @@ export const Scrolling: Story = {
       </FocusedLayout.BottomBar>,
     ],
   },
-}
+})

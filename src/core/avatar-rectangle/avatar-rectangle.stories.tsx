@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { AvatarRectangle } from '.'
 import {
   ElAvatarRectResidentialPlaceholder,
@@ -7,7 +7,7 @@ import {
   ElAvatarRectCommercialSmallPlaceholder,
 } from './styles'
 
-export default {
+const meta = preview.meta({
   title: 'Core/Avatar Rectangle',
   component: AvatarRectangle,
   args: {
@@ -25,20 +25,23 @@ export default {
       options: ['medium', 'small'],
     },
   },
-} as Meta<typeof AvatarRectangle>
-
-type Story = StoryObj<typeof AvatarRectangle>
+})
 
 /**
  * The default usage use the residential variant and medium size, each can be set using the `data-` attribute.
  */
-export const DefaultUsage: Story = {}
+export const DefaultUsage = meta.story({
+  args: {
+    variant: 'residential',
+    size: 'medium',
+  },
+})
 
-export const AvatarRectangleVariant: Story = {
+export const AvatarRectangleVariant = DefaultUsage.extend({
   args: {
     variant: 'commercial',
   },
-}
+})
 
 const placeholderStoryOptions = {
   argTypes: {
@@ -63,22 +66,22 @@ const placeholderStoryOptions = {
 /**
  * for the placeholder, there will be separate component provided for each size
  */
-export const ResidentialPlaceholder: Story = {
+export const ResidentialPlaceholder = meta.story({
   ...placeholderStoryOptions,
   render: () => <ElAvatarRectResidentialPlaceholder aria-label="Image placeholder" />,
-}
+})
 
-export const ResidentialSmallPlaceholder = {
+export const ResidentialSmallPlaceholder = meta.story({
   ...placeholderStoryOptions,
   render: () => <ElAvatarRectResidentialSmallPlaceholder aria-label="Image placeholder" />,
-}
+})
 
-export const CommercialPlaceholder = {
+export const CommercialPlaceholder = meta.story({
   ...placeholderStoryOptions,
   render: () => <ElAvatarRectCommercialPlaceholder aria-label="Image placeholder" />,
-}
+})
 
-export const CommercialSmallPlaceholder = {
+export const CommercialSmallPlaceholder = meta.story({
   ...placeholderStoryOptions,
   render: () => <ElAvatarRectCommercialSmallPlaceholder aria-label="Image placeholder" />,
-}
+})

@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { cx } from '@linaria/core'
 import { DeprecatedNav, DeprecatedNavItem } from './index'
 import { elDeprecatedNavItemActive, elDeprecatedNavItemHideDesktop, elDeprecatedNavItemExpanded } from './__styles__'
@@ -6,13 +7,13 @@ import { elMlAuto, elMr2 } from '../../styles/deprecated-spacing'
 import { DeprecatedNavResponsive } from './nav-responsive'
 import { MoreIcon } from '#src/icons/more'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/DeprecatedNav',
   component: DeprecatedNavResponsive,
-}
+})
 
-export const BasicExample = {
-  render: ({}) => (
+export const BasicExample = meta.story({
+  render: () => (
     <DeprecatedNav>
       <DeprecatedNavItem>
         <span>Reapit</span>
@@ -29,10 +30,10 @@ export const BasicExample = {
       <DeprecatedNavItem href="https://marketplace.reapit.cloud">Marketplace</DeprecatedNavItem>
     </DeprecatedNav>
   ),
-}
+})
 
-export const BasicExampleMobileMenuOpen = {
-  render: ({}) => (
+export const BasicExampleMobileMenuOpen = meta.story({
+  render: () => (
     <DeprecatedNav>
       <DeprecatedNavItem>
         <span>Reapit</span>
@@ -62,10 +63,10 @@ export const BasicExampleMobileMenuOpen = {
       </DeprecatedNavItem>
     </DeprecatedNav>
   ),
-}
+})
 
-export const ReactUsage = {
-  render: ({}) => (
+export const ReactUsage = meta.story({
+  render: () => (
     <NavStateProvider>
       <DeprecatedNavResponsive
         defaultNavIndex={1}
@@ -149,10 +150,10 @@ export const ReactUsage = {
       />
     </NavStateProvider>
   ),
-}
+})
 
-export const ReactUsageWithCustomBrand = {
-  render: ({}) => (
+export const ReactUsageWithCustomBrand = meta.story({
+  render: () => (
     <NavStateProvider>
       <DeprecatedNavResponsive
         defaultNavIndex={1}
@@ -240,4 +241,4 @@ export const ReactUsageWithCustomBrand = {
       />
     </NavStateProvider>
   ),
-}
+})

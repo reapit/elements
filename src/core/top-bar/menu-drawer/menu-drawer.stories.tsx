@@ -1,23 +1,18 @@
+import preview from '#.storybook/preview'
 import { TopBarMenuDrawer } from './menu-drawer'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/MenuDrawer',
   component: TopBarMenuDrawer,
-} satisfies Meta<typeof TopBarMenuDrawer>
-
-export default meta
-
-type Story = StoryObj<typeof TopBarMenuDrawer>
+})
 
 /**
  * At its simplest, you can open and close the menu drawer by controlling it's `isOpen` state. However,
  * you can also open and close it using the new
  * [Invoker Commands API](https://developer.mozilla.org/en-US/docs/Web/API/Invoker_Commands_API).
  */
-export const Example: Story = {
+export const Example = meta.story({
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
 
@@ -70,12 +65,12 @@ export const Example: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * If there are too many items in the drawer, it will scroll. The header will remain stuck to the top.
  */
-export const Scrolling: Story = {
+export const Scrolling = meta.story({
   render: () => {
     const [isOpen, setIsOpen] = useState(false)
 
@@ -112,4 +107,4 @@ export const Scrolling: Story = {
       </>
     )
   },
-}
+})

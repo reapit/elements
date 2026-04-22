@@ -1,12 +1,13 @@
+import preview from '#.storybook/preview'
 import { DeprecatedPageHeader } from '.'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/DeprecatedPageHeader',
   component: DeprecatedPageHeader,
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => (
+export const BasicUsage = meta.story({
+  render: () => (
     <DeprecatedPageHeader
       breadcrumb={{
         defaultActiveIndex: 3,
@@ -96,4 +97,4 @@ export const BasicUsage = {
       }}
     />
   ),
-}
+})

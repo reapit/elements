@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { ComboboxSelectionChips } from './selection-chips'
 import { Listbox } from '#src/utils/listbox'
 import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Combobox/SelectionChips',
   component: ComboboxSelectionChips,
   argTypes: {
@@ -62,41 +61,38 @@ const meta = {
       )
     },
   ],
-} satisfies Meta<typeof ComboboxSelectionChips>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Displays selection chips for selected options in a listbox. These examples use `Listbox` directly
  * rather than `Combobox` for simplicity.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     defaultOptions: undefined,
     listboxId: 'listbox-id',
   },
-}
+})
 
 /**
  * All selection chips can be disabled using `disabled`. This will typically occur when
  * the combobox itself is disabled.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     disabled: true,
+
     defaultOptions: [
       { label: 'Apple', value: 'apple' },
       { label: 'Orange', value: 'orange' },
     ],
+
     listboxId: 'disabled-example',
   },
   parameters: {
     hideListbox: true,
   },
-}
+})
 
 /**
  * Selection chips render automatically without `children`. To disable individual chips (preventing deselection),
@@ -104,7 +100,7 @@ export const Disabled: Story = {
  *
  * The default options specified in this example are also provided to the demo listbox.
  */
-export const Children: Story = {
+export const Children = meta.story({
   args: {
     children: (options) => {
       return options.map((option) => (
@@ -123,17 +119,16 @@ export const Children: Story = {
     listboxId: 'children-example',
   },
   parameters: { docs: { source: { type: 'code' } } },
-}
+})
 
 /**
  * An initial state must be provided for selection chips to be displayed on first render
  * when the listbox options are not immediately present in the DOM, such as when filtering
  * may be applied or the options are loaded asynchronously.
  */
-export const DefaultOptions: Story = {
+export const DefaultOptions = Example.extend({
   name: 'Default options',
   args: {
-    ...Example.args,
     defaultOptions: [{ label: 'Orange', value: 'orange' }],
     listboxId: 'default-options-example',
   },
@@ -141,22 +136,22 @@ export const DefaultOptions: Story = {
     enableFiltering: true,
     initialFilter: 'Apple',
   },
-}
+})
 
 /**
  * The selection chips are a standard `ChipGroup` and will, by default, allow selection chips
  * to wrap when there is not enough space to display. This behaviour can be adjusted using
  * `flow` and `overflow`.
  */
-export const Wrapping: Story = {
+export const Wrapping = Example.extend({
   args: {
-    ...Example.args,
     defaultOptions: [
       { label: 'Apple', value: 'apple' },
       { label: 'Apricot', value: 'apricot' },
       { label: 'Banana', value: 'banana' },
       { label: 'Blueberry', value: 'blueberry' },
     ],
+
     listboxId: 'wrapping-example',
   },
   decorators: [
@@ -169,7 +164,7 @@ export const Wrapping: Story = {
   parameters: {
     enableFiltering: true,
   },
-}
+})
 
 /** Simple custom listbox option component */
 function MyListboxOption(props: Listbox.OptionProps) {

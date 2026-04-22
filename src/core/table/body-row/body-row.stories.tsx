@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Avatar } from '#src/core/avatar'
 import { Menu } from '#src/core/menu'
 import { TableBodyCell } from '../body-cell'
@@ -8,11 +9,9 @@ import { TableRowPrimaryAction } from '../primary-action'
 import { TableRowMoreActions } from '../more-actions'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/BodyRow',
   component: TableBodyRow,
   argTypes: {
@@ -123,22 +122,19 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TableBodyRow>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * By default, rows do not exhibit any cursor-based interactivity, such has hover styles. This is because
  * rows themselves are never interactive.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     as: 'tr',
     children: 'Plain text',
   },
   decorators: [useTableDecorator('body-row')],
-}
+})
 
 /**
  * Rows within a table's body will often provide a number of actions to users. When there is a single
@@ -153,13 +149,12 @@ export const Example: Story = {
  * This is handled automatically by table-specific component, but if custom actions are provided, it will
  * be up to the consumer to ensure they are click accessible.
  */
-export const RowActions: Story = {
+export const RowActions = Example.extend({
   args: {
-    ...Example.args,
     children: 'Primary action',
   },
   decorators: [useTableDecorator('body-row')],
-}
+})
 
 /**
  * Rows have minimum and maximum height constraints, but within this range, they may grow to accommodate
@@ -167,38 +162,35 @@ export const RowActions: Story = {
  * [Table.DoubleLineLayout](./?path=/docs/core-table-doublelinelayout--docs) cell content will be taller
  * than a row with a single line of cell content.
  */
-export const DoubleLineContent: Story = {
+export const DoubleLineContent = Example.extend({
   name: 'Double-line content',
   args: {
-    ...Example.args,
     children: 'Double-line',
   },
   decorators: [useTableDecorator('body-row')],
-}
+})
 
 /**
  * When rows are selectable, they will have a [Table.Checkbox](./?path=/docs/core-table-checkbox--docs)
  * present in the leading column.
  */
-export const Selectable: Story = {
+export const Selectable = Example.extend({
   args: {
-    ...Example.args,
     children: 'Selectable',
   },
   decorators: [useTableDecorator('body-row', 'min-content 1fr 1fr 1fr min-content')],
-}
+})
 
 /**
  * When the row's selection checkbox is checked, the row will be visually highlighted to indicate it
  * has been selected.
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     children: 'Selected',
   },
-  decorators: Selectable.decorators,
-}
+  decorators: Selectable.input.decorators,
+})
 
 /**
  * Sometimes it may be necessary to render the table row as a plain `<div>`. Providing
@@ -209,7 +201,7 @@ export const Selected: Story = {
  * Care must also be taken to ensure the descendant cells are also rendered as `<div>` elements,
  * possibly with explicit ARIA roles as well.
  */
-export const Divs: Story = {
+export const Divs = meta.story({
   args: {
     as: 'div',
     children: (
@@ -223,4 +215,4 @@ export const Divs: Story = {
       control: false,
     },
   },
-}
+})

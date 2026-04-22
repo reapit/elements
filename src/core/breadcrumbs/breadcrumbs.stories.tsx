@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { Breadcrumbs } from './breadcrumbs'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Breadcrumbs',
   component: Breadcrumbs,
   argTypes: {
@@ -46,17 +45,13 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Breadcrumbs>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Some',
   },
-}
+})
 
 /**
  * Overflowing should be avoided as much as possible. On SM viewport or container sizes and larger, or
@@ -65,7 +60,7 @@ export const Example: Story = {
  * visible. In general, it's best to avoid this situation altogether by limiting the number of
  * breadcrumbs in the trail.
  */
-export const Overflow: Story = {
+export const Overflow = meta.story({
   args: {
     children: 'Many',
   },
@@ -76,14 +71,14 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * In XS viewport or container sizes, or when `overflow="scroll"` is specified, the breadcrumbs will be
  * horizontally scrollable, albeit without any visible scrollbar. When scrolling occurs, the focus outlines will
  * be clipped; this is expected and considered acceptable.
  */
-export const Scrolling: Story = {
+export const Scrolling = meta.story({
   args: {
     children: 'Many',
     overflow: 'scroll',
@@ -95,4 +90,4 @@ export const Scrolling: Story = {
       </div>
     ),
   ],
-}
+})

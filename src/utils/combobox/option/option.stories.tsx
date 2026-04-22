@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge'
 import { ComboboxOption } from './option'
 import { StarIcon } from '#src/icons/star'
 import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Combobox/Option',
   component: ComboboxOption,
   argTypes: {
@@ -62,12 +61,9 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof ComboboxOption>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-checked': undefined,
     'aria-selected': undefined,
@@ -77,18 +73,16 @@ export const Example: Story = {
     size: 'medium',
     value: 'option-1',
   },
-}
+})
 
 /**
  *
  */
-export const Sizes: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sizes = Example.extend({
   argTypes: {
     size: { control: false },
   },
+
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', flexFlow: 'row nowrap', alignItems: 'center', gap: 'var(--spacing-6)' }}>
@@ -96,65 +90,62 @@ export const Sizes: Story = {
       </div>
     ),
   ],
+
   render: (args) => (
     <>
       <ComboboxOption {...args} size="medium" />
       <ComboboxOption {...args} size="large" />
     </>
   ),
-}
+})
 
 /**
  * Each option manages its selection state internally. Single-select comboboxes use the
  * `aria-selected` attribute to mark selected options.
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     'aria-selected': true,
   },
-}
+})
 
 /**
  * Multi-select comboboxes use the `aria-checked` attribute to mark selected options.
  */
-export const Checked: Story = {
+export const Checked = Example.extend({
   args: {
-    ...Example.args,
     'aria-checked': true,
   },
-}
+})
 
 /**
  * Badges provide additional context. Place them after the option label or within supplementary info.
  */
-export const Badges: Story = {
+export const Badges = Example.extend({
   args: {
-    ...Example.args,
     badge: 'Badge',
   },
-}
+})
 
 /**
  * Supplementary information helps users choose the right option. Provide up to two lines, each with
  * icons, text, or badges.
  */
-export const SupplementaryInfo: Story = {
+export const SupplementaryInfo = Example.extend({
   args: {
-    ...Example.args,
     additionalInfo: 'Two lines',
   },
-}
+})
 
 /**
  * Keep labels and supplementary information concise. Text wraps to multiple lines when it exceeds
  * available space. Badges display inline or wrap to a new line as needed.
  */
-export const Wrapping: Story = {
+export const Wrapping = Selected.extend({
   args: {
-    ...Selected.args,
     badge: <Badge colour="neutral">Commercial</Badge>,
     children: '456B Heritage Boulevard, Upper Brookfield Heights, Brisbane QLD 4069',
+
     additionalInfo: [
       <ComboboxOption.AdditionalInfo key="1" badge={<Badge colour="inactive">Sales</Badge>}>
         John Smith
@@ -200,4 +191,4 @@ export const Wrapping: Story = {
       )
     },
   ],
-}
+})

@@ -1,12 +1,13 @@
+import preview from '#.storybook/preview'
 import { MultiSelect, MultiSelectChip, MultiSelectInput, elHasGreyChips } from './index'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/MultiSelect',
   component: MultiSelect,
-}
+})
 
-export const BasicExample = {
-  render: ({}) => (
+export const BasicExample = meta.story({
+  render: () => (
     <MultiSelect>
       <MultiSelectChip id="item-1">Item One</MultiSelectChip>
       <MultiSelectChip id="item-2">Item Two</MultiSelectChip>
@@ -16,10 +17,10 @@ export const BasicExample = {
       <MultiSelectChip id="item-6">Item Six</MultiSelectChip>
     </MultiSelect>
   ),
-}
+})
 
-export const GreyChips = {
-  render: ({}) => (
+export const GreyChips = meta.story({
+  render: () => (
     <MultiSelect>
       <MultiSelectChip className={elHasGreyChips} id="item-grey-1">
         Item One
@@ -41,10 +42,10 @@ export const GreyChips = {
       </MultiSelectChip>
     </MultiSelect>
   ),
-}
+})
 
-export const ReactExample = {
-  render: ({}) => (
+export const ReactExample = meta.story({
+  render: () => (
     <MultiSelectInput
       id="react-example"
       options={[
@@ -64,4 +65,4 @@ export const ReactExample = {
       defaultValues={['item-one']}
     />
   ),
-}
+})

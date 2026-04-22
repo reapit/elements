@@ -1,10 +1,10 @@
+import preview from '#.storybook/preview'
 import { Listbox } from './listbox'
 import { useId, useState } from 'react'
 
 import type { ButtonHTMLAttributes, ChangeEventHandler } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Listbox',
   component: Listbox,
   argTypes: {
@@ -26,17 +26,14 @@ const meta = {
 
     return <Listbox {...args} id={id} />
   },
-} satisfies Meta<typeof Listbox>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * At its most basic, `ListboxBaseListbox` renders the options (and option groups) provided to it alongside
  * a hidden `<select>` element. The hidden select allows the selected options to be submitted as part of
  * a standard HTML form.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-disabled': false,
     'aria-multiselectable': false,
@@ -54,42 +51,39 @@ export const Example: Story = {
       </Listbox.Option>,
     ],
   },
-}
+})
 
 /**
  * Single-select behaviour is the default. When used as a single-select, the first option of the combobox
  * will always be a special "placeholder" option that will be automatically selected by the native select
  * element when no other specific option is selected.
  */
-export const Single: Story = {
+export const Single = Example.extend({
   name: 'Single-select',
   args: {
-    ...Example.args,
     defaultValue: [],
   },
-}
+})
 
 /**
  * Multi-select behaviour can be achieved using `multiple`.
  */
-export const Multiple: Story = {
+export const Multiple = Example.extend({
   name: 'Multi-select',
   args: {
-    ...Example.args,
     'aria-multiselectable': true,
     defaultValue: ['1', '2'],
   },
-}
+})
 
 /**
  * Listbox options can be disabled.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     'aria-disabled': true,
   },
-}
+})
 
 /**
  * There are two behaviours available when selecting an option. By default, the select action will
@@ -97,21 +91,19 @@ export const Disabled: Story = {
  * preferring deselection to occur through a separate UI element. This `select-only` behaviour is
  * demonstrated here.
  */
-export const SelectAction: Story = {
+export const SelectAction = Example.extend({
   name: 'Select actions',
   args: {
-    ...Example.args,
     defaultValue: ['1'],
     selectAction: 'select',
   },
-}
+})
 
 /**
  * Options can be grouped using `Listbox.Optgroup` and `Listbox.Divider`.
  */
-export const Groups: Story = {
+export const Groups = Example.extend({
   args: {
-    ...Example.args,
     children: [
       <Listbox.Optgroup key="group-1" as={MyListboxOptgroup} label="Group 1">
         <Listbox.Option as={MyListboxOption} value="1">
@@ -137,9 +129,10 @@ export const Groups: Story = {
         </Listbox.Option>
       </Listbox.Optgroup>,
     ],
+
     defaultValue: ['1', '4'],
   },
-}
+})
 
 /**
  * Since we rely on a native select element, the selected state can be controlled in the same manner
@@ -152,9 +145,8 @@ export const Groups: Story = {
  * string values. The example here demonstrates a controlled usage of the `Listbox` via simple
  * local component state (`Listbox.useState`) and `Listbox.getValue`.
  */
-export const Controlled: Story = {
+export const Controlled = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: undefined,
   },
   parameters: { docs: { source: { type: 'code' } } },
@@ -179,7 +171,7 @@ export const Controlled: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * For multi-select listboxes, the controlled value should be an array of strings. This example
@@ -188,10 +180,9 @@ export const Controlled: Story = {
  * The `Listbox.getValue` helper returns an array for multi-select listboxes, making it easy to
  * manage the state.
  */
-export const ControlledMultiSelect: Story = {
+export const ControlledMultiSelect = Example.extend({
   name: 'Controlled (multi-select)',
   args: {
-    ...Example.args,
     'aria-multiselectable': true,
     defaultValue: undefined,
   },
@@ -217,7 +208,7 @@ export const ControlledMultiSelect: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * Clearing the listbox's selection when it's value is controlled is trivial: the value can simply be
@@ -229,10 +220,9 @@ export const ControlledMultiSelect: Story = {
  * DOM. When used, it will ensure a change event is fired (technically, it will be an input event) on the
  * underlying select element so that consumers can react appropriately to the change.
  */
-export const ClearingState: Story = {
+export const ClearingState = Example.extend({
   name: 'Clearing state',
   args: {
-    ...Example.args,
     'aria-multiselectable': true,
     defaultValue: ['1', '2'],
   },
@@ -246,7 +236,7 @@ export const ClearingState: Story = {
       </div>
     )
   },
-}
+})
 
 /**
  * As with clearing state, observing the listboxes selection state is trivial when it is controlled and
@@ -257,10 +247,9 @@ export const ClearingState: Story = {
  * the listbox, calling the provided callback with the array of selected options (the actual button
  * elements), allowing consumers to react to changes in the selection state as shown here.
  */
-export const ObservingState: Story = {
+export const ObservingState = Example.extend({
   name: 'Observing state',
   args: {
-    ...Example.args,
     'aria-multiselectable': true,
   },
   render: (args) => {
@@ -282,7 +271,7 @@ export const ObservingState: Story = {
       </div>
     )
   },
-}
+})
 
 /**
  * Any selected options will be included in the form data during submission. The following example
@@ -291,9 +280,8 @@ export const ObservingState: Story = {
  * Note: the form submission handler retrieves the "options" form value using `formData.getAll('options')`.
  * This will result in an array of selected values, whether the listbox is a single- or multi-select.
  */
-export const Forms: Story = {
+export const Forms = Example.extend({
   args: {
-    ...Example.args,
     'aria-multiselectable': true,
     name: 'options',
   },
@@ -315,7 +303,7 @@ export const Forms: Story = {
       </form>
     ),
   ],
-}
+})
 
 /** A barebones, custom listbox option component used by the listbox stories */
 function MyListboxOption(props: ButtonHTMLAttributes<HTMLButtonElement>) {

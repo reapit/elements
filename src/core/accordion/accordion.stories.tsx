@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Accordion } from './accordion'
 import { BathIcon } from '#src/icons/bath'
 import { BedIcon } from '#src/icons/bed'
@@ -6,9 +7,7 @@ import { CarIcon } from '#src/icons/car'
 import { Features } from '#src/core/features/index'
 import { Pattern } from '../drawer/__story__/Pattern'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Accordion',
   component: Accordion,
   argTypes: {
@@ -47,19 +46,15 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Accordion>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: <Pattern height="100px" />,
     open: false,
     summary: 'Basic',
   },
-}
+})
 
 /**
  * Use of the `open` prop does not result in the accordion's open state being controlled in the same way as controlled
@@ -69,21 +64,17 @@ export const Example: Story = {
  * If you need to control the open state of the accordion, you will need to handle click events on the accordion's
  * summary element and update the stateful value wired up to the `open` prop accordingly.
  */
-export const InitiallyOpen: Story = {
+export const InitiallyOpen = Example.extend({
   args: {
-    ...Example.args,
     open: true,
   },
-}
+})
 
 /**
  * Accordions are block-level elements, so multiple accordions will simply stack on top of each other. By default,
  * users should be able to open as many accordions as they want.
  */
-export const Group: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Group = Example.extend({
   render: (args) => (
     <>
       <Accordion {...args} summary={<Accordion.Summary>Accordion 1</Accordion.Summary>}>
@@ -97,4 +88,4 @@ export const Group: Story = {
       </Accordion>
     </>
   ),
-}
+})

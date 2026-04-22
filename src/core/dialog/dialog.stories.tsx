@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { Dialog } from './dialog'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { useArgs } from 'storybook/preview-api'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Dialog',
   component: Dialog,
   argTypes: {
@@ -22,10 +21,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof Dialog>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * At its simplest, you can open and close a dialog by controlling it's `isOpen` state. In some cases, a dialog's
@@ -33,7 +29,7 @@ type Story = StoryObj<typeof meta>
  * refreshing the page, however, most of the time you'll want to display a dialog in response to a user action,
  * which will simply require some local component state.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Simple',
     closedBy: 'closerequest',
@@ -49,7 +45,7 @@ export const Example: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * The `closedBy` prop specifies the types of user actions that can be used to close the dialog. It
@@ -75,9 +71,8 @@ export const Example: Story = {
  * In this example, the dialog is using `closedBy="any"`, meaning any of the three methods can be used
  * to dismiss it.
  */
-export const ClosedBy: Story = {
+export const ClosedBy = Example.extend({
   args: {
-    ...Example.args,
     closedBy: 'any',
   },
   render: function ClosedBy(args) {
@@ -89,7 +84,7 @@ export const ClosedBy: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * In future, we expect to enable the opening and closing of dialogs using the new
@@ -99,10 +94,7 @@ export const ClosedBy: Story = {
  * do not yet have full browser support. As such, this example is demonstrative of our forward compatibility, not
  * indicative of how dialog's should be opened/closed right now.
  */
-export const InvokerCommands: Story = {
-  args: {
-    ...Example.args,
-  },
+export const InvokerCommands = Example.extend({
   render: function Example(args) {
     return (
       <>
@@ -119,7 +111,7 @@ export const InvokerCommands: Story = {
       </>
     )
   },
-}
+})
 
 interface ExampleLayoutProps {
   height: string

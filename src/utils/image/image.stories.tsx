@@ -1,7 +1,7 @@
+import preview from '#.storybook/preview'
 import { Image } from './image'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Image',
   component: Image,
   argTypes: {
@@ -11,16 +11,13 @@ const meta = {
     src: { control: 'text' },
     alt: { control: 'text' },
   },
-} satisfies Meta<typeof Image>
-
-export default meta
-type Story = StoryObj<typeof Image>
+})
 
 /**
  * By default, the image uses `object-fit: contain` so the entire image is visible
  * within the container without any cropping, regardless of the image's aspect ratio.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     src: 'https://picsum.photos/seed/ds-image/400/400',
     alt: 'A sample landscape photograph',
@@ -35,16 +32,13 @@ export const Example: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * While the image accepts an explicit width and height, it is constrained to the size of its container.
  * This allows ancestors to control the size the image is displayed at.
  */
-export const Sizing: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sizing = Example.extend({
   decorators: [
     (Story) => (
       <div style={{ border: '1px solid #FA00FF', width: '120px', height: '80px' }}>
@@ -52,41 +46,39 @@ export const Sizing: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * `objectFit` determines how the image is resized to fit its container. Here, `cover` is used to
  * size the image to fill its content box while maintaining its aspect ratio.
  */
-export const ObjectFit: Story = {
+export const ObjectFit = Example.extend({
   args: {
-    ...Example.args,
     src: 'https://picsum.photos/seed/ds-image/400/400',
     objectFit: 'cover',
   },
-}
+})
 
 /**
  * If the image fails to load, a default fallback UI is shown. If the image has alt text, this fallback
  * will be announced to assistive technologies, and the alt text will be included in the message. If the
  * image is decorative (`alt=""`), the fallback will not be announced.
  */
-export const Fallback: Story = {
+export const Fallback = Example.extend({
   args: {
-    ...Example.args,
     alt: 'An image that fails to load',
     src: 'https://example.invalid/does-not-exist.jpg',
   },
-}
+})
 
 /**
  * Use `fallback` to provide custom fallback content.
  */
-export const CustomFallback: Story = {
+export const CustomFallback = Example.extend({
   args: {
-    ...Example.args,
     alt: 'An image that fails to load',
     src: 'https://example.invalid/does-not-exist.jpg',
+
     fallback: (
       <div
         style={{
@@ -104,4 +96,4 @@ export const CustomFallback: Story = {
       </div>
     ),
   },
-}
+})

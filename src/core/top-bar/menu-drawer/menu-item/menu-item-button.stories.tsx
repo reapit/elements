@@ -1,38 +1,32 @@
+import preview from '#.storybook/preview'
 import { TopBarMenuDrawerMenuItemButton } from './menu-item-button'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/MenuDrawer/MenuItemButton',
   component: TopBarMenuDrawerMenuItemButton,
-} satisfies Meta<typeof TopBarMenuDrawerMenuItemButton>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Sign Out',
   },
-}
+})
 
 /**
  * A notification badge can be displayed using `hasBadge`.
  */
-export const Badge: Story = {
+export const Badge = Example.extend({
   args: {
-    ...Example.args,
     hasBadge: true,
   },
-}
+})
 
 /**
  * Menu items should have concise labels. In cases where the label is too long, it will truncate.
  * Care should be taken to ensure this does not happen.
  */
-export const Truncation: Story = {
+export const Truncation = Example.extend({
   args: {
-    ...Example.args,
     children: 'All your base are belong to me',
   },
   decorators: [
@@ -42,4 +36,4 @@ export const Truncation: Story = {
       </div>
     ),
   ],
-}
+})

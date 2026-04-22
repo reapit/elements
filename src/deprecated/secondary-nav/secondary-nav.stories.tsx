@@ -1,14 +1,15 @@
+import preview from '#.storybook/preview'
 import { useState } from 'react'
 import { SecondaryNav, SecondaryNavItem } from './index'
 import { SecondaryNavContainer } from '../layout'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/SecondaryNav',
   component: SecondaryNav,
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => (
+export const BasicUsage = meta.story({
+  render: () => (
     <SecondaryNavContainer>
       <SecondaryNav>
         <SecondaryNavItem>App List</SecondaryNavItem>
@@ -16,10 +17,10 @@ export const BasicUsage = {
       </SecondaryNav>
     </SecondaryNavContainer>
   ),
-}
+})
 
-export const ReactExample = {
-  render: ({}) => {
+export const ReactExample = meta.story({
+  render: () => {
     const [selectedItem, setSelectedItem] = useState(1)
 
     return (
@@ -35,4 +36,4 @@ export const ReactExample = {
       </SecondaryNavContainer>
     )
   },
-}
+})

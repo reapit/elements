@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { AlertBanner } from './alert-banner'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
@@ -9,9 +10,7 @@ import { Text } from '#src/utils/text'
 import { useState } from 'react'
 import { WarningIcon } from '#src/icons/warning'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta: Meta<typeof AlertBanner> = {
+const meta = preview.meta({
   title: 'Core/AlertBanner',
   component: AlertBanner,
   argTypes: {
@@ -44,12 +43,9 @@ const meta: Meta<typeof AlertBanner> = {
       </div>
     ),
   ],
-}
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     actions: undefined,
     children:
@@ -58,74 +54,68 @@ export const Example: Story = {
     onDismiss: undefined,
     variant: 'info',
   },
-}
+})
 
 /**
  * The icon is an optional element and can be turned off. The icons colour will automatically match
  * the variant's colour and should not be changed.
  */
-export const Icons: Story = {
+export const Icons = Example.extend({
   args: {
-    ...Example.args,
     icon: 'Info',
   },
-}
+})
 
 /**
  * The warning variant is used to help users avoid errors and take the actions needed to avoid
  * potentially dangerous outcomes.
  */
-export const Warning: Story = {
+export const Warning = Example.extend({
   args: {
-    ...Example.args,
     children: 'Payment details needed. Add payment details by June 30 2025 to avoid any interruptions',
     icon: 'Warning',
     variant: 'warning',
   },
-}
+})
 
 /**
  * The error variant is used when something destructive or critical has happened, or there are access
  * or connectivity issues.
  */
-export const Error: Story = {
+export const Error = Example.extend({
   args: {
-    ...Example.args,
     children: 'Reapit PM is experiencing an incident. Check our status page for more details',
     icon: 'Error',
     variant: 'error',
   },
-}
+})
 
 /**
  * The info variant is used to show a change in state or some non-critical information.
  */
-export const Info: Story = {
+export const Info = Example.extend({
   args: {
-    ...Example.args,
     children: 'We’re making changes to our subscription plans. Check our billing page for more details',
     icon: 'Info',
     variant: 'info',
   },
-}
+})
 
 /**
  * A dismiss button appears when the `onDismiss` callback is provided. The consumer handles the actual dismissal logic.
  */
-export const Dismissible: Story = {
+export const Dismissible = Example.extend({
   args: {
-    ...Example.args,
     onDismiss: fn(),
   },
-}
+})
 
 /**
  * Actions can be provided to display interactive elements, such as buttons or links.
  * Will often be a group of tertiary buttons with `hasNoPadding`.
  */
-export const Actions: Story = {
+export const Actions = Example.extend({
   args: {
-    ...Example.args,
     actions: (
       <ButtonGroup>
         <Button variant="tertiary" size="large" hasNoPadding>
@@ -137,18 +127,19 @@ export const Actions: Story = {
       </ButtonGroup>
     ),
   },
-}
+})
 
 /**
  * Alert banners are full-width and responsive. On smaller screens (below 768px), the actions
  * stack vertically below the description. On larger screens, they appear inline.
  */
-export const Breakpoints: Story = {
+export const Breakpoints = Example.extend({
   args: {
-    ...Example.args,
     children:
       'We have released a major update to the platform. This update includes new features, performance improvements, and bug fixes.',
+
     icon: 'Info',
+
     actions: (
       <ButtonGroup>
         <Button variant="tertiary" size="large" hasNoPadding>
@@ -159,6 +150,7 @@ export const Breakpoints: Story = {
         </Button>
       </ButtonGroup>
     ),
+
     onDismiss: fn(),
   },
   decorators: [
@@ -206,7 +198,7 @@ export const Breakpoints: Story = {
       )
     },
   ],
-}
+})
 
 /**
  * When showing an announcement dynamically, like in response to a system event, use the appropriate
@@ -260,7 +252,7 @@ export const Breakpoints: Story = {
  * )}
  * ```
  */
-export const DynamicLoading: Story = {
+export const DynamicLoading = meta.story({
   args: {
     children: 'This is a dynamically loaded announcement that will be announced by screen readers.',
     variant: 'info',
@@ -268,7 +260,7 @@ export const DynamicLoading: Story = {
     role: 'status',
   },
   argTypes: {
-    ...meta.argTypes,
+    ...meta.input.argTypes,
     role: {
       control: 'select',
       options: ['alert', 'status', undefined],
@@ -290,4 +282,4 @@ export const DynamicLoading: Story = {
       </div>
     )
   },
-}
+})

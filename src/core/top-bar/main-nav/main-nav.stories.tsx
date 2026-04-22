@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { TopBarMainNav } from './main-nav'
 import { Menu } from '#src/core/menu'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/MainNav',
   component: TopBarMainNav,
   argTypes: {
@@ -19,36 +18,32 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TopBarMainNav>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'No selected item',
   },
-}
+})
 
 /**
  * If a nav item represents the current page, it should be marked as "selected". See the `TopBar.NavItem`
  * documentation for details on how.
  */
-export const SelectedItem: Story = {
+export const SelectedItem = meta.story({
   args: {
     children: 'Selected item',
   },
-}
+})
 
 /**
  * The main nav can contain a mix of nav items and menu items.
  */
-export const WithMenu: Story = {
+export const WithMenu = meta.story({
   args: {
     children: 'With menu',
   },
-}
+})
 
 function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
   return [

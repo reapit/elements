@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { TopBarNavSearchButton } from './nav-search-button'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/NavSearchButton',
   component: TopBarNavSearchButton,
   argTypes: {
@@ -13,18 +12,14 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof TopBarNavSearchButton>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     onClick: () => void 0,
     shortcut: '',
   },
-}
+})
 
 /**
  * For products that facilitate a keyboard shortcut to launch the search experience, a `shortcut` can be supplied to
@@ -35,10 +30,9 @@ export const Example: Story = {
  * [aria-keyshortcuts](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Attributes/aria-keyshortcuts)
  * attribute should also be supplied.
  */
-export const Shortcut: Story = {
+export const Shortcut = Example.extend({
   args: {
-    ...Example.args,
     'aria-keyshortcuts': 'Meta+K',
     shortcut: '⌘K',
   },
-}
+})

@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge'
 import { ComboboxOptgroup } from './optgroup'
 import { ComboboxOption } from '../option'
 import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Combobox/Optgroup',
   component: ComboboxOptgroup,
   argTypes: {
@@ -64,39 +63,33 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof ComboboxOptgroup>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * An option group containing `Combobox.Option` components.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Simple',
     label: 'Group label',
   },
-}
+})
 
 /**
  * Option groups without visual labels require an accessible label via `aria-label`.
  */
-export const NoLabel: Story = {
+export const NoLabel = Example.extend({
   args: {
-    ...Example.args,
     'aria-label': 'Group label',
     label: undefined,
   },
-}
+})
 
 /**
  * Keep group labels concise. Text wraps to multiple lines when it exceeds available space.
  */
-export const Wrapping: Story = {
+export const Wrapping = Example.extend({
   args: {
-    ...Example.args,
     label: "This is a long group title that won't fit on one line",
   },
   decorators: [
@@ -135,14 +128,13 @@ export const Wrapping: Story = {
       )
     },
   ],
-}
+})
 
 /**
  * Group labels stick to their position when the parent container scrolls.
  */
-export const StickyPositioning: Story = {
+export const StickyPositioning = Example.extend({
   args: {
-    ...Example.args,
     children: 'Fancy',
   },
   decorators: [
@@ -152,4 +144,4 @@ export const StickyPositioning: Story = {
       </div>
     ),
   ],
-}
+})

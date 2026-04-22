@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { useState } from 'react'
 import { GalleryViewerCarousel } from './carousel'
 import { GalleryViewerMediaItemCaption } from '../media-item-caption'
@@ -6,7 +7,6 @@ import { Image } from '#src/utils/image'
 import { Video } from '#src/utils/video'
 
 import type { ChangeEventHandler } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const EXAMPLE_IMAGES = [
   'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&h=600&fit=crop',
@@ -16,7 +16,7 @@ const EXAMPLE_IMAGES = [
 
 const EXAMPLE_VIDEO_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/GalleryViewer/Carousel',
   component: GalleryViewerCarousel,
   argTypes: {
@@ -27,17 +27,14 @@ const meta = {
       <Story />
     </div>
   ),
-} satisfies Meta<typeof GalleryViewerCarousel>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Uncontrolled carousel. Swipe or click the buttons to navigate between items.
  * The buttons scroll the track automatically — no `onClick` handler required.
  * The previous button is hidden on the first item and the next button is hidden on the last.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': 'Property photos',
     children: (
@@ -64,14 +61,14 @@ export const Example: Story = {
     ),
     defaultValue: 'item-1',
   },
-}
+})
 
 /**
  * Controlled carousel. `value` and `onChange` keep external state in sync with
  * the visible item. The buttons scroll the track automatically — consumers no
  * longer need to wire up `onClick` handlers or track item indices manually.
  */
-export const Controlled: Story = {
+export const Controlled = meta.story({
   args: {
     'aria-label': 'Property photos',
   },
@@ -96,12 +93,12 @@ export const Controlled: Story = {
       </GalleryViewerCarousel>
     )
   },
-}
+})
 
 /**
  * A carousel item can contain a `Video` element instead of an `Image`.
  */
-export const VideoItem: Story = {
+export const VideoItem = meta.story({
   args: {
     'aria-label': 'Property media',
     children: (
@@ -121,27 +118,23 @@ export const VideoItem: Story = {
     ),
     defaultValue: 'video-1',
   },
-}
+})
 
 /**
  * If the carousel's `value` is controlled, but no `onChange` handler is provided, the carousel
  * will be "read-only" and prevent scroll interaction.
  */
-export const ReadOnly: Story = {
+export const ReadOnly = Example.extend({
   name: 'Read-only',
   args: {
-    ...Example.args,
     value: 'item-2',
   },
-}
+})
 
 /**
  * The carousel will fill its container while preserving the aspect-ratio of the media items.
  */
-export const Sizing: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sizing = Example.extend({
   decorators: [
     (Story) => (
       <div style={{ border: '1px solid #FA00FF', width: '400px' }}>
@@ -149,14 +142,14 @@ export const Sizing: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * When an image fails to load, the `Image` component's built-in fallback is
  * displayed inside the carousel item. The second item shows a valid image for
  * comparison.
  */
-export const ErrorFallback: Story = {
+export const ErrorFallback = meta.story({
   args: {
     'aria-label': 'Property photos',
     children: (
@@ -181,7 +174,7 @@ export const ErrorFallback: Story = {
     ),
     defaultValue: 'item-1',
   },
-}
+})
 
 /**
  * Filters applied outside the carousel can add or remove items from the track at any time.
@@ -189,7 +182,7 @@ export const ErrorFallback: Story = {
  * snaps to the first remaining item. Use the chip select below to toggle between all items,
  * photos only, and videos only.
  */
-export const Filtered: Story = {
+export const Filtered = meta.story({
   args: {
     'aria-label': 'Property media',
   },
@@ -249,4 +242,4 @@ export const Filtered: Story = {
       </div>
     )
   },
-}
+})

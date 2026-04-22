@@ -1,12 +1,12 @@
+import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ChipGroup } from '#src/core/chip-group'
 import { FilterBarAppliedFilters } from './applied-filters'
 import { MatchMedia } from '#src/utils/match-media'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/index'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/FilterBar/AppliedFilters',
   component: FilterBarAppliedFilters,
   argTypes: {
@@ -60,47 +60,42 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof FilterBarAppliedFilters>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * By default, applied filters are displayed as a group of filter chips without any action buttons.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     action: 'None',
     children: 'Some Filters',
   },
-}
+})
 
 /**
  * An optional action element can be provided. Typically, this will be a "Save filters" action.
  */
-export const Action: Story = {
+export const Action = Example.extend({
   args: {
-    ...Example.args,
     action: 'Save Filters',
   },
-}
+})
 
 /**
  * When many filters are applied, the chip group will wrap to multiple lines by default.
  */
-export const Overflow: Story = {
+export const Overflow = meta.story({
   args: {
     children: 'Many Filters',
   },
-}
+})
 
 /**
  * When a chip group is configured to automatically scroll any overflowing chips, the filter bar's
  * action, if present, will remain visible.
  */
-export const Scrolling: Story = {
+export const Scrolling = Action.extend({
   args: {
-    ...Action.args,
     children: (
       <ChipGroup overflow="auto" variant="selection">
         <ChipGroup.Item>Label</ChipGroup.Item>
@@ -128,7 +123,7 @@ export const Scrolling: Story = {
       control: false,
     },
   },
-}
+})
 
 /**
  * When multiple filters are active on the XS breakpoint, a single chip should be displayed that
@@ -139,9 +134,8 @@ export const Scrolling: Story = {
  * and the [breakpoints](?path=/docs/utils-breakpoints--docs) utilities. Switch to the canvas view for
  * this story to see the behaviour at different viewport sizes.
  */
-export const Breakpoints: Story = {
+export const Breakpoints = Action.extend({
   args: {
-    ...Action.args,
     children: (
       <ChipGroup variant="filter">
         <MatchMedia condition={isWidthAtOrAbove('SM')}>
@@ -162,4 +156,4 @@ export const Breakpoints: Story = {
   globals: {
     viewport: { value: 'XS' },
   },
-}
+})

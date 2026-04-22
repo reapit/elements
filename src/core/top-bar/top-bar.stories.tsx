@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { AppSwitcher } from '../app-switcher'
 import { HelpIcon } from '#src/icons/help'
 import { Menu } from '#src/core/menu'
@@ -6,11 +7,11 @@ import { StarIcon } from '#src/icons/star'
 import { supportedAppNames } from './brand-logo'
 import { TopBar } from './top-bar'
 
-import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
+import type { Decorator } from '@storybook/react-vite'
 
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar',
   component: TopBar,
   argTypes: {
@@ -147,11 +148,7 @@ const meta = {
       value: 'light',
     },
   },
-} satisfies Meta<typeof TopBar>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 function useConstrainedWidthDecorator(width: string): Decorator {
   return (Story) => (
@@ -171,7 +168,7 @@ function useConstrainedWidthDecorator(width: string): Decorator {
  * Alternatively, if you're browser supports container queries, you can see the responsible behaviour in the stories
  * further down.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     appSwitcher: 'App Switcher',
     avatar: 'Avatar Menu',
@@ -247,48 +244,36 @@ export const Example: Story = {
   parameters: {
     layout: 'fullscreen',
   },
-}
+})
 
 /**
  * For viewports under 768px, very few of the Top Bar's sections will be visible. Most will have collapsed
  * into the overflow menu, except for the product's "global" search entry point, if one is available.
  */
-export const XS: Story = {
-  args: {
-    ...Example.args,
-  },
+export const XS = Example.extend({
   decorators: [useConstrainedWidthDecorator('375px')],
-}
+})
 
 /**
  * For viewports under between 768px and 1024px, the App Switcher will be available directly in the Top Bar
  * and the "global" search entry point have more space available to itself. The main navigation, secondary
  * navigation, and user profile menu will still be collapsed into the overflow menu.
  */
-export const SM: Story = {
-  args: {
-    ...Example.args,
-  },
+export const SM = Example.extend({
   decorators: [useConstrainedWidthDecorator('768px')],
-}
+})
 
 /**
  * For viewports between 1024px and 1440px, the user's profile menu will become available directly in the Top Bar.
  */
-export const MD: Story = {
-  args: {
-    ...SM.args,
-  },
+export const MD = SM.extend({
   decorators: [useConstrainedWidthDecorator('1024px')],
-}
+})
 
 /**
  * For viewports 1440px and wider, the Top Bar will display all of its regions.
  */
-export const LG_2XL: Story = {
+export const LG_2XL = MD.extend({
   name: 'LG–2XL',
-  args: {
-    ...MD.args,
-  },
   decorators: [useConstrainedWidthDecorator('1440px')],
-}
+})

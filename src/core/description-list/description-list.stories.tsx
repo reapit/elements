@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { DescriptionList } from './description-list'
 import { Features } from '#src/core/features'
 import { LineClamp } from '#src/utils/line-clamp'
 import { Text } from '#src/utils/text'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta: Meta<typeof DescriptionList> = {
+const meta = preview.meta({
   title: 'Core/DescriptionList',
   component: DescriptionList,
   argTypes: {
@@ -13,16 +12,12 @@ const meta: Meta<typeof DescriptionList> = {
       control: false,
     },
   },
-}
-
-export default meta
-
-type Story = StoryObj<typeof DescriptionList>
+})
 
 /**
  * By default, items will stack vertically in a one-column grid.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: [
       <DescriptionList.Item key="Property style" label="Property style">
@@ -65,7 +60,7 @@ export const Example: Story = {
     grid: undefined,
     layout: 'stacked',
   },
-}
+})
 
 /**
  * Any valid CSS grid layout can be used to control how items are placed in the description list.
@@ -73,46 +68,42 @@ export const Example: Story = {
  * [MDN's grid documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/Properties/grid)
  * for details on expected syntax.
  */
-export const Grid: Story = {
+export const Grid = Example.extend({
   args: {
-    ...Example.args,
     grid: 'auto-flow / 1fr 1fr 1fr',
   },
-}
+})
 
 /**
  * The gap between items in the grid can be adjusted using the `gap` props. It accepts any valid
  * CSS length value. By default, the gap is `var(--spacing-6)`.
  */
-export const Gap: Story = {
+export const Gap = Grid.extend({
   args: {
-    ...Grid.args,
     gap: 'var(--spacing-40)',
   },
-}
+})
 
 /**
  * In a tabular layout, each item's label and description is aligned to the description list's grid.
  * The label will occupy the first column, while the description will span the remaining columns.
  */
-export const Tabular: Story = {
+export const Tabular = Example.extend({
   args: {
-    ...Example.args,
     grid: 'auto-flow / var(--size-36) 1fr',
     layout: 'tabular',
   },
-}
+})
 
 /**
  * In an inline layout, each item's label and description are displayed inline with each other.
  */
-export const Inline: Story = {
+export const Inline = Example.extend({
   args: {
-    ...Example.args,
     grid: 'auto-flow / 1fr',
     layout: 'inline',
   },
-}
+})
 
 /**
  * An item can also be configured to span multiple columns in the description list's grid.
@@ -120,10 +111,9 @@ export const Inline: Story = {
  * [grid-column](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column) property for details
  * on the syntax.
  */
-export const SpanningColumns: Story = {
+export const SpanningColumns = Grid.extend({
   name: 'Spanning columns',
   args: {
-    ...Grid.args,
     children: [
       <DescriptionList.Item key="Property style" label="Property style">
         Detached
@@ -162,4 +152,4 @@ export const SpanningColumns: Story = {
       </DescriptionList.Item>,
     ],
   },
-}
+})

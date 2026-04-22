@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
 import { CheckIcon } from '#src/icons/check'
@@ -9,9 +10,7 @@ import { Text } from '#src/utils/text'
 import { WarningIcon } from '#src/icons/warning'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta: Meta<typeof SectionMessage> = {
+const meta = preview.meta({
   title: 'Core/SectionMessage',
   component: SectionMessage,
   argTypes: {
@@ -40,12 +39,9 @@ const meta: Meta<typeof SectionMessage> = {
       action: 'dismissed',
     },
   },
-}
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     actions: undefined,
     children: 'This is a section message that provides important information to the user.',
@@ -54,16 +50,13 @@ export const Example: Story = {
     title: 'Section Message Title',
     variant: 'info',
   },
-}
+})
 
 /**
  * Section messages support six variants: `error`, `warning`, `info`, `success`, `neutral-light`, and `neutral-dark`.
  * Each variant uses appropriate colors for the background, border, and icon.
  */
-export const Variants: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Variants = Example.extend({
   argTypes: {
     variant: {
       control: false,
@@ -72,6 +65,7 @@ export const Variants: Story = {
       control: false,
     },
   },
+
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--spacing-4)' }}>
@@ -79,6 +73,7 @@ export const Variants: Story = {
       </div>
     ),
   ],
+
   render: (args) => (
     <>
       <SectionMessage {...args} title="Error Section Message" variant="error" icon={<ErrorIcon aria-label="Error" />} />
@@ -99,45 +94,41 @@ export const Variants: Story = {
       <SectionMessage {...args} title="Neutral Dark Section Message" variant="neutral-dark" />
     </>
   ),
-}
+})
 
 /**
  * The title is optional. When not provided, only the description is displayed.
  */
-export const NoTitle: Story = {
+export const NoTitle = Example.extend({
   args: {
-    ...Example.args,
     title: undefined,
   },
-}
+})
 
 /**
  * Icons are optional and can be customized. When no icon is provided, the grid layout adjusts accordingly.
  */
-export const NoIcon: Story = {
+export const NoIcon = Example.extend({
   args: {
-    ...Example.args,
     icon: 'None',
   },
-}
+})
 
 /**
  * A dismiss button appears when the `onDismiss` callback is provided. The consumer handles the actual dismissal logic.
  */
-export const Dismissible: Story = {
+export const Dismissible = Example.extend({
   args: {
-    ...Example.args,
     icon: 'None',
     onDismiss: fn(),
   },
-}
+})
 
 /**
  * Actions can be provided to display interactive elements at the bottom of the message, such as buttons or links.
  */
-export const Actions: Story = {
+export const Actions = Example.extend({
   args: {
-    ...Example.args,
     actions: (
       <ButtonGroup>
         <Button variant="tertiary" size="medium" hasNoPadding>
@@ -149,18 +140,20 @@ export const Actions: Story = {
       </ButtonGroup>
     ),
   },
-}
+})
 
 /**
  * All features can be combined: title, description, icon, actions, and dismiss button.
  */
-export const Complete: Story = {
+export const Complete = Example.extend({
   args: {
-    ...Example.args,
     title: 'Complete Example',
+
     children:
       'This section message includes all available features: a title, description, icon, actions, and dismiss button.',
+
     icon: 'Info',
+
     actions: (
       <>
         <Button variant="tertiary" size="medium" hasNoPadding>
@@ -168,20 +161,22 @@ export const Complete: Story = {
         </Button>
       </>
     ),
+
     onDismiss: fn(),
   },
-}
+})
 
 /**
  * Section messages adapt to their container width. Text wraps when space is constrained.
  * Use the slider to see how the component responds to different widths.
  */
-export const Wrapping: Story = {
+export const Wrapping = Example.extend({
   args: {
-    ...Example.args,
     title: 'This is a longer section message title that will wrap when space is constrained',
+
     children:
       'This is a longer description that demonstrates how the section message component handles text wrapping when space is constrained.',
+
     icon: 'Info',
     onDismiss: fn(),
   },
@@ -221,19 +216,18 @@ export const Wrapping: Story = {
       )
     },
   ],
-}
+})
 
 /**
  * To help reduce space, `lineClamp` allows the description content to
  * be truncated after the specified number of lines.
  */
-export const Clamping: Story = {
+export const Clamping = Wrapping.extend({
   args: {
-    ...Wrapping.args,
     lineClamp: 1,
   },
-  decorators: Wrapping.decorators,
-}
+  decorators: Wrapping.input.decorators,
+})
 
 /**
  * When showing a message dynamically, like in response to user interaction, use the appropriate
@@ -279,7 +273,7 @@ export const Clamping: Story = {
  * )}
  * ```
  */
-export const DynamicLoading: Story = {
+export const DynamicLoading = meta.story({
   args: {
     children: 'This is a dynamically loaded message that will be announced by screen readers.',
     title: 'Dynamic Message',
@@ -288,7 +282,7 @@ export const DynamicLoading: Story = {
     role: 'status',
   },
   argTypes: {
-    ...meta.argTypes,
+    ...meta.input.argTypes,
     role: {
       control: 'select',
       options: ['alert', 'status', undefined],
@@ -308,4 +302,4 @@ export const DynamicLoading: Story = {
       </div>
     )
   },
-}
+})

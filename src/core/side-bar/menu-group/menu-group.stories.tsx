@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { PropertyIcon } from '#src/icons/property'
 import { SideBarMenuGroup } from './menu-group'
 import { SideBarSubmenu } from '../submenu'
@@ -6,9 +7,7 @@ import { useArgs } from 'storybook/preview-api'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/SideBar/MenuGroup',
   component: SideBarMenuGroup,
   argTypes: {
@@ -18,14 +17,14 @@ const meta = {
       mapping: {
         'No selected item': (
           <SideBarSubmenu>
-            <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Example.args} />
-            <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Example.args} />
+            <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Example.composed.args} />
+            <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Example.composed.args} />
           </SideBarSubmenu>
         ),
         'Selected item': (
           <SideBarSubmenu>
-            <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Example.args} />
-            <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Selected.args} />
+            <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Example.composed.args} />
+            <SideBarSubmenu.Item {...SideBarSubmenuItemStories.Selected.composed.args} />
           </SideBarSubmenu>
         ),
       },
@@ -48,19 +47,15 @@ const meta = {
       </SideBarMenuGroup>
     )
   },
-} satisfies Meta<typeof SideBarMenuGroup>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'No selected item',
     isActive: false,
     summary: <SideBarMenuGroup.Summary icon={<PropertyIcon />}>Menu group</SideBarMenuGroup.Summary>,
   },
-}
+})
 
 /**
  * When a submenu item within the group represents the current page, it should have an `aria-current="page"`
@@ -71,52 +66,43 @@ export const Example: Story = {
  * Importantly, if the `SideBar` is not collapsed, a group with an submenu item representing the current page should
  * not be closable.
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     children: 'Selected item',
     open: true,
   },
-}
+})
 
 /**
  * When the `SideBar` is collapsed, the menu group's main label will be completely hidden. Importantly, the menu
  * group's label will still be available in the accessibility tree despite not being visible.
  */
-export const Collapsed = {
-  args: {
-    ...Example.args,
-  },
+export const Collapsed = Example.extend({
   decorators: [useSideBarWidthDecorator],
+
   parameters: {
     sideBar: { state: 'collapsed' },
   },
-}
+})
 
 /**
  * Also, when the `SideBar` is collapsed, the menu group can still be selected, but it will not be expanded. Again,
  * the label will still be available in the accessibility tree. Clicking on the group will cause the `SideBar` to
  * expand, and the group to open, though this behaviour is handled by the `SideBar` component itself, not the group.
  */
-export const SelectedAndCollapsed = {
+export const SelectedAndCollapsed = Collapsed.extend({
   name: 'Selected and collapsed',
   args: {
-    ...Collapsed.args,
     children: 'Selected item',
   },
-  decorators: [useSideBarWidthDecorator],
-  parameters: {
-    ...Collapsed.parameters,
-  },
-}
+})
 
 /**
  * When a menu group needs to be open and visually active but no submenu item within a group can be uniquely identified
  * as representing the current page, the group can be forced open via the `isActive` prop.
  */
-export const ManuallyActive: Story = {
+export const ManuallyActive = Example.extend({
   args: {
-    ...Example.args,
     isActive: true,
   },
-}
+})

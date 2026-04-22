@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { OfficeSwitcher } from './office-switcher'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/OfficeSwitcher/Select',
   component: OfficeSwitcher.Select,
   argTypes: {
@@ -10,16 +9,12 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof OfficeSwitcher.Select>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * For simple use-cases, the select can display a simple list of options.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: (
       <OfficeSwitcher.Select>
@@ -34,4 +29,4 @@ export const Example: Story = {
       </OfficeSwitcher.Select>
     ),
   },
-}
+})

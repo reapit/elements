@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { DescriptionList } from '../description-list'
 import { Features } from '../../features'
 import { LineClamp } from '#src/utils/line-clamp'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta: Meta<typeof DescriptionList.Item> = {
+const meta = preview.meta({
   title: 'Core/DescriptionList/Item',
   component: DescriptionList.Item,
   argTypes: {
@@ -52,16 +51,13 @@ const meta: Meta<typeof DescriptionList.Item> = {
       options: ['base', 'sm'],
     },
   },
-}
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * A basic description list item with a label and description. By default, the label
  * and description will be stacked.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     area: undefined,
     children: 'Short',
@@ -74,14 +70,13 @@ export const Example: Story = {
       </DescriptionList>
     ),
   ],
-}
+})
 
 /**
  * The item's label and description can be displayed inline.
  */
-export const Inline: Story = {
+export const Inline = Example.extend({
   args: {
-    ...Example.args,
     layout: 'inline',
   },
   decorators: [
@@ -91,15 +86,14 @@ export const Inline: Story = {
       </DescriptionList>
     ),
   ],
-}
+})
 
 /**
  * A tabular layout can also be achieved. In this case, the item will align to their ancestor's grid.
  * The item's label will occupy the first column, and the description will span the remaining columns.
  */
-export const Tabular: Story = {
+export const Tabular = Example.extend({
   args: {
-    ...Example.args,
     children: 'Multi-line',
     layout: 'tabular',
   },
@@ -110,14 +104,13 @@ export const Tabular: Story = {
       </DescriptionList>
     ),
   ],
-}
+})
 
 /**
  * Two sizes are supported: `base` and `sm`.
  */
-export const Size: Story = {
+export const Size = Example.extend({
   args: {
-    ...Example.args,
     size: 'sm',
   },
   decorators: [
@@ -127,15 +120,14 @@ export const Size: Story = {
       </DescriptionList>
     ),
   ],
-}
+})
 
 /**
  * The description can contain content like tag groups, supplementary information lists and any other
  * [flow content](https://developer.mozilla.org/en-US/docs/Web/HTML/Guides/Content_categories#flow_content).
  */
-export const Content: Story = {
+export const Content = Example.extend({
   args: {
-    ...Example.args,
     children: 'Features',
     label: 'Property features',
   },
@@ -146,14 +138,13 @@ export const Content: Story = {
       </DescriptionList>
     ),
   ],
-}
+})
 
 /**
  * Like the description, the label content can wrap if it does not have sufficient space.
  */
-export const Wrapping: Story = {
+export const Wrapping = Example.extend({
   args: {
-    ...Example.args,
     children: 'Multi-line',
     label: 'Property description',
     layout: 'tabular',
@@ -165,7 +156,7 @@ export const Wrapping: Story = {
       </DescriptionList>
     ),
   ],
-}
+})
 
 /**
  * An item can also be configured to span multiple columns in the description list's grid.
@@ -173,10 +164,9 @@ export const Wrapping: Story = {
  * [grid-column](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column) property for details
  * on the syntax.
  */
-export const SpanningColumns: Story = {
+export const SpanningColumns = Example.extend({
   name: 'Spanning columns',
   args: {
-    ...Example.args,
     area: 'auto / span 2',
     children: 'Multi-line',
     label: 'Property description',
@@ -188,4 +178,4 @@ export const SpanningColumns: Story = {
       </DescriptionList>
     ),
   ],
-}
+})

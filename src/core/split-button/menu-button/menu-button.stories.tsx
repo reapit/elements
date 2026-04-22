@@ -1,9 +1,8 @@
+import preview from '#.storybook/preview'
 import { SplitButtonMenuButton } from './menu-button'
 import { SplitButtonContext } from '../context'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/SplitButton/MenuButton',
   component: SplitButtonMenuButton,
   argTypes: {
@@ -27,12 +26,9 @@ const meta = {
       </SplitButtonContext.Provider>
     ),
   ],
-} satisfies Meta<typeof SplitButtonMenuButton>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-disabled': false,
     'aria-expanded': false,
@@ -40,15 +36,12 @@ export const Example: Story = {
     disabled: false,
     isBusy: false,
   },
-}
+})
 
 /**
  * The MenuButton respects the SplitButton's variant: `primary` or `secondary`.
  */
-export const Variants: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Variants = Example.extend({
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
@@ -61,15 +54,12 @@ export const Variants: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The MenuButton also respects the SplitButton's size: `small`, `medium`, and `large`.
  */
-export const Sizes: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sizes = Example.extend({
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
@@ -85,7 +75,7 @@ export const Sizes: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The MenuButton can be disabled using either the `disabled` or `aria-disabled` prop. When disabled, the button is
@@ -94,21 +84,19 @@ export const Sizes: Story = {
  * Generally, disabling the menu button should be avoided, as it decreases the discoverability of the secondary
  * actions in the menu.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     disabled: true,
   },
-}
+})
 
 /**
  * If any menu items performs an asynchronous action, the menu button should be marked as busy until
  * that action is complete. This can be achieved using `isBusy`. Busy buttons are disabled to prevent
  * the action being triggered again.
  */
-export const Busy: Story = {
+export const Busy = Example.extend({
   args: {
-    ...Example.args,
     isBusy: true,
   },
-}
+})

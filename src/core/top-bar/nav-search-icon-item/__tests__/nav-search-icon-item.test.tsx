@@ -1,11 +1,8 @@
-import { composeStories } from '@storybook/react-vite'
 import { fireEvent, render, screen } from '@testing-library/react'
-import * as stories from '../nav-search-icon-item.stories'
-
-const NavSearchIconItemStories = composeStories(stories)
+import { TopBarNavSearchIconItem } from '../nav-search-icon-item'
 
 test('has a default accessible name of "Search"', () => {
-  render(<NavSearchIconItemStories.Example />)
+  render(<TopBarNavSearchIconItem onClick={() => void 0} />)
 
   const button = screen.getByRole('button', { name: 'Search' })
   expect(button).toBeVisible()
@@ -13,7 +10,7 @@ test('has a default accessible name of "Search"', () => {
 
 test('accepts a custom accessible name', () => {
   const customLabel = 'Custom Search Label'
-  render(<NavSearchIconItemStories.Example aria-label={customLabel} />)
+  render(<TopBarNavSearchIconItem onClick={() => void 0} aria-label={customLabel} />)
 
   const button = screen.getByRole('button', { name: customLabel })
   expect(button).toBeVisible()
@@ -21,7 +18,7 @@ test('accepts a custom accessible name', () => {
 
 test('calls onClick handler when clicked', () => {
   const onClick = vi.fn()
-  render(<NavSearchIconItemStories.Example onClick={onClick} />)
+  render(<TopBarNavSearchIconItem onClick={onClick} />)
 
   const button = screen.getByRole('button')
   fireEvent.click(button)
@@ -31,14 +28,14 @@ test('calls onClick handler when clicked', () => {
 
 test('forwards additional props to the button element', () => {
   const testId = 'search-button'
-  render(<NavSearchIconItemStories.Example data-testid={testId} />)
+  render(<TopBarNavSearchIconItem onClick={() => void 0} data-testid={testId} />)
 
   const button = screen.getByTestId(testId)
   expect(button).toBeVisible()
 })
 
 test('renders with search icon', () => {
-  render(<NavSearchIconItemStories.Example />)
+  render(<TopBarNavSearchIconItem onClick={() => void 0} />)
 
   const button = screen.getByRole('button')
   const icon = button.querySelector('svg')

@@ -1,6 +1,5 @@
+import preview from '#.storybook/preview'
 import { GalleryViewerThumbnailList } from './thumbnail-list'
-
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const EXAMPLE_IMAGE_SRC = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=176&h=112&fit=crop'
 const EXAMPLE_IMAGE_SRC_2 = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=176&h=112&fit=crop'
@@ -10,7 +9,7 @@ const EXAMPLE_IMAGE_SRC_5 = 'https://images.unsplash.com/photo-1580587771525-78b
 const EXAMPLE_IMAGE_SRC_6 = 'https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=176&h=112&fit=crop'
 const EXAMPLE_IMAGE_SRC_7 = 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=176&h=112&fit=crop'
 
-const meta: Meta<typeof GalleryViewerThumbnailList> = {
+const meta = preview.meta({
   title: 'Core/GalleryViewer/ThumbnailList',
   component: GalleryViewerThumbnailList,
   argTypes: {
@@ -18,16 +17,13 @@ const meta: Meta<typeof GalleryViewerThumbnailList> = {
       control: false,
     },
   },
-}
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * The default usage with anchor-based thumbnails. Wrap in a `<nav
  * aria-label="…">` when the list represents a navigation landmark.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: (
       <>
@@ -77,13 +73,13 @@ export const Example: Story = {
       </>
     ),
   },
-}
+})
 
 /**
  * Use `GalleryViewerThumbnailList.ButtonItem` when managing selection via a
  * click handler rather than URL navigation.
  */
-export const Button: Story = {
+export const Button = meta.story({
   args: {
     children: (
       <>
@@ -122,15 +118,12 @@ export const Button: Story = {
       </>
     ),
   },
-}
+})
 
-export const Layout: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Layout = Example.extend({
   decorators: (Story) => (
     <div style={{ boxSizing: 'content-box', width: 'var(--size-64)', border: '1px solid #FA00FF' }}>
       <Story />
     </div>
   ),
-}
+})

@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge'
 import { Features } from '#src/core/features'
 import { Skeleton } from '#src/core/skeleton'
@@ -8,9 +9,7 @@ import { TagGroup } from '#src/core/tag-group'
 import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/PrimaryData',
   component: TableCellPrimaryData,
   argTypes: {
@@ -57,51 +56,45 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TableCellPrimaryData>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Plain text',
     iconLeft: 'None',
     iconRight: 'None',
   },
-}
+})
 
 /**
  * Icons can be placed to the left or right of the content. When the content overflows the cell,
  * the icons should remain visible.
  */
-export const Icons: Story = {
+export const Icons = Example.extend({
   args: {
-    ...Example.args,
     iconLeft: 'Star',
     iconRight: 'Star',
   },
-}
+})
 
 /**
  * Any content can be displayed such as badges and tag groups. Typically, icons will be used
  * with textual content, but they are available regardless of what content is provided.
  */
-export const Content: Story = {
+export const Content = Example.extend({
   args: {
-    ...Example.args,
     children: 'Badge',
     iconLeft: 'Star',
     iconRight: 'Star',
   },
-}
+})
 
 /**
  * In cases where the content has insufficient space, content will be clipped while the icons remain
  * visible.
  */
-export const Clipping: Story = {
+export const Clipping = Icons.extend({
   args: {
-    ...Icons.args,
     children: 'Tag group',
   },
   decorators: [
@@ -111,15 +104,14 @@ export const Clipping: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Where possible, content should be truncated, with a tooltip used to display the unabridged content
  * when hovered. Again, the icons will remain visible.
  */
-export const Truncation: Story = {
+export const Truncation = Icons.extend({
   args: {
-    ...Icons.args,
     children: (
       <>
         <Text font="inherit" id="text" overflow="truncate">
@@ -138,7 +130,7 @@ export const Truncation: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Skeletons can used for the content and the icons to communicate a loading state. The fidelity of
@@ -146,11 +138,10 @@ export const Truncation: Story = {
  * That is, it would be sufficient in many cases to only display a skeleton for the content, even
  * if an icon may be present once loading is complete.
  */
-export const Loading: Story = {
+export const Loading = Example.extend({
   args: {
-    ...Example.args,
     children: 'Skeleton',
     iconLeft: 'Skeleton',
     iconRight: 'None',
   },
-}
+})

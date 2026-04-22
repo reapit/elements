@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { TopBarNavSearchIconItem } from './nav-search-icon-item'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/NavSearchIconItem',
   component: TopBarNavSearchIconItem,
   argTypes: {
@@ -10,14 +9,10 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof TopBarNavSearchIconItem>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     onClick: () => void 0,
   },
-}
+})

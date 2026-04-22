@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { FolderTabs } from './folder-tabs'
-
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/FolderTabs',
   component: FolderTabs,
   argTypes: {
@@ -24,24 +23,20 @@ const meta = {
       value: 'light',
     },
   },
-} satisfies Meta<typeof FolderTabs>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Many tabs',
   },
-}
+})
 
 /**
  * When the tabs are constrained by their container, they will display in a compact vertical layout
  * that is appropriate for smaller screens. This occurs when the container's inline width is less than
  * the equivalent `SM` breakpoint minimum width.
  */
-export const Breakpoints: Story = {
+export const Breakpoints = meta.story({
   args: {
     children: 'With counts',
   },
@@ -54,7 +49,7 @@ export const Breakpoints: Story = {
       )
     },
   ],
-}
+})
 
 function buildTabs(type: 'Two tabs' | 'Three tabs' | 'Many tabs' | 'With counts') {
   const renderLabel = (label: string) => {

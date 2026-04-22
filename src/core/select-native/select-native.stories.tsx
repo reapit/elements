@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { SelectNative } from './select-native'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/SelectNative',
   component: SelectNative,
   argTypes: {
@@ -39,13 +38,9 @@ const meta = {
       options: ['small', 'medium', 'large'],
     },
   },
-} satisfies Meta<typeof SelectNative>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     autoComplete: 'off',
     children: 'Simple',
@@ -58,30 +53,27 @@ export const Example: Story = {
     size: 'small',
     value: undefined,
   },
-}
+})
 
 /**
  * Options for the select can be grouped using the native `optgroup` element.
  */
-export const OptionGroups: Story = {
+export const OptionGroups = Example.extend({
   args: {
-    ...Example.args,
     children: 'With Groups',
   },
-}
+})
 
 /**
  * The compact select supports three sizes: `small`, `medium`, and `large`.
  */
-export const Sizes: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sizes = Example.extend({
   argTypes: {
     size: {
       control: false,
     },
   },
+
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)', alignItems: 'start' }}>
@@ -89,6 +81,7 @@ export const Sizes: Story = {
       </div>
     ),
   ],
+
   render: (args) => (
     <>
       <SelectNative {...args} size="small" />
@@ -96,7 +89,7 @@ export const Sizes: Story = {
       <SelectNative {...args} size="large" />
     </>
   ),
-}
+})
 
 /**
  * Like all form controls, the native select will display in an invalid state when it's value
@@ -104,58 +97,53 @@ export const Sizes: Story = {
  * `showValidity` is set to true. Typically `showValidity` will be true when the control has been
  * touched (interacted with).
  */
-export const Invalid: Story = {
+export const Invalid = Example.extend({
   args: {
-    ...Example.args,
     required: true,
     showValidity: true,
   },
-}
+})
 
 /**
  * The select also displays in an invalid state when `aria-invalid="true"` and `showValidity` is
  * true. This supports usage where the element is not natively invalid — for example, via custom
  * logic that does not use the browser's constraint validation API.
  */
-export const AriaInvalid: Story = {
+export const AriaInvalid = Example.extend({
   name: 'Aria Invalid',
   args: {
-    ...Example.args,
     'aria-invalid': true,
     showValidity: true,
   },
-}
+})
 
 /**
  * The initial value of the select, when it's value is not controlled, can be provided using `defaultValue`.
  */
-export const DefaultValue: Story = {
+export const DefaultValue = Example.extend({
   name: 'Default value',
   args: {
-    ...Example.args,
     defaultValue: 'residential',
   },
-}
+})
 
 /**
  * The value of the select can be controlled by providing an explicit `value`. In this example, the select's value is
  * pinned to "Commercial" and, because that controlled value is not updated when another option is selected, it does
  * not change.
  */
-export const ControlledValue: Story = {
+export const ControlledValue = Example.extend({
   name: 'Controlled value',
   args: {
-    ...Example.args,
     value: 'commercial',
   },
-}
+})
 
 /**
  * When the selected option is too long for the available space, it will truncate.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: 'other',
   },
   decorators: [
@@ -165,18 +153,17 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The `maxWidth` prop can also be used to limit how wide the select will grow. This can be useful
  * when we don't want to allow the select to grow as wide as its container.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Overflow.extend({
   name: 'Max-width',
   args: {
-    ...Overflow.args,
     defaultValue: 'other',
     maxWidth: '100px',
   },
-  decorators: Overflow.decorators,
-}
+  decorators: Overflow.input.decorators,
+})

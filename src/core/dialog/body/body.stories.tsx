@@ -1,9 +1,8 @@
+import preview from '#.storybook/preview'
 import { DialogBody } from './body'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Dialog/Body',
   component: DialogBody,
   argTypes: {
@@ -16,33 +15,29 @@ const meta = {
       value: 'light',
     },
   },
-} satisfies Meta<typeof DialogBody>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Dialog content',
   },
-}
+})
 
 /**
  * The dialog body will grow to the height of its content. It is the dialog itself that handles the overflow and
  * subsequent scrolling of the content.
  */
-export const LongContent: Story = {
+export const LongContent = meta.story({
   args: {
     children: <Pattern height="200px" />,
   },
-}
+})
 
 /**
  * The dialog body will also adjust its padding based on the dialog's size. In particular, the body for full-screen
  * dialogs includes block start (top) padding.
  */
-export const DynamicLayout: Story = {
+export const DynamicLayout = meta.story({
   args: {
     children: <Pattern height="200px" />,
   },
@@ -72,4 +67,4 @@ export const DynamicLayout: Story = {
       </div>
     ),
   ],
-}
+})

@@ -1,14 +1,15 @@
+import preview from '#.storybook/preview'
 import { useModal } from '.'
 import { Button } from '../../core/button'
 import { ButtonGroup } from '../../core/button-group'
 import { TextBase } from '../typography'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/useModal',
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => {
+export const BasicUsage = meta.story({
+  render: () => {
     const { Modal: ModalComponent, openModal, closeModal } = useModal('portal-root')
 
     return (
@@ -28,10 +29,10 @@ export const BasicUsage = {
       </>
     )
   },
-}
+})
 
-export const MultipleModals = {
-  render: ({}) => {
+export const MultipleModals = meta.story({
+  render: () => {
     const { Modal: ModalA, openModal: openModalA } = useModal('portal-root')
     const { Modal: ModalB, openModal: openModalB } = useModal('portal-root')
 
@@ -50,4 +51,4 @@ export const MultipleModals = {
       </>
     )
   },
-}
+})

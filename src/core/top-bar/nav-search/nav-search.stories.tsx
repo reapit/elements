@@ -1,8 +1,9 @@
+import preview from '#.storybook/preview'
 import { TopBarNavSearch } from './nav-search'
 
-import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
+import type { Decorator } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/NavSearch',
   component: TopBarNavSearch,
   argTypes: {
@@ -13,32 +14,25 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof TopBarNavSearch>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * When the parent container is at least 150px wide, the provided button will be displayed.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     button: <TopBarNavSearch.Button onClick={() => void 0} />,
     iconItem: <TopBarNavSearch.IconItem onClick={() => void 0} />,
   },
   decorators: [useConstrainedWidthDecorator('150px')],
-}
+})
 
 /**
  * When the parent container is less than 150px wide, the provided icon item will be displayed.
  */
-export const SmallWidth: Story = {
-  args: {
-    ...Example.args,
-  },
+export const SmallWidth = Example.extend({
   decorators: [useConstrainedWidthDecorator('100px')],
-}
+})
 
 function useConstrainedWidthDecorator(width: string): Decorator {
   return (Story) => (

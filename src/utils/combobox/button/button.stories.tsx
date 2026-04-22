@@ -1,11 +1,11 @@
+import preview from '#.storybook/preview'
 import { ComboboxButton } from './button'
 import { ElCombobox } from '../styles'
 import { SearchIcon } from '#src/icons/search'
 
 import type { CSSProperties } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Combobox/Button',
   component: ComboboxButton,
   argTypes: {
@@ -28,18 +28,14 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof ComboboxButton>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * The combobox button will often be styled as a button with a dropdown icon to mimic a classic select
  * control. Typically, when a value has been selected, a trailing clear button will be available in
  * place of the dropdown icon.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     action: 'Clear',
     'aria-controls': 'my-combobox',
@@ -51,43 +47,40 @@ export const Example: Story = {
     size: 'medium',
     variant: 'default',
   },
-}
+})
 
 /**
  * When the button's label matches the specified placeholder text, its text will be styled like
  * placeholder text to indicate no selection has been made. If no label text is provided, the placeholder
  * text will be displayed.
  */
-export const Placeholder: Story = {
+export const Placeholder = Example.extend({
   args: {
-    ...Example.args,
     action: 'Toggle',
     children: null,
     placeholder: 'Select an option',
   },
-}
+})
 
 /**
  * When options can be filtered or searched for, the combobox button will often be styled like a
  * search input.
  */
-export const Search: Story = {
+export const Search = Placeholder.extend({
   args: {
-    ...Placeholder.args,
     action: null,
     placeholder: 'Search...',
     leadingIcon: <SearchIcon />,
   },
-}
+})
 
 /**
  * The parent combobox provides styles to the combobox button via CSS variables. When
  * the parent combobox is disabled, it sets these CSS variables to values that visually communicate this
  * state via the combobox's button. This behaviour is manually shown here.
  */
-export const Disabled: Story = {
+export const Disabled = Placeholder.extend({
   args: {
-    ...Placeholder.args,
     disabled: true,
   },
   decorators: [
@@ -98,16 +91,13 @@ export const Disabled: Story = {
       </ElCombobox>
     ),
   ],
-}
+})
 
 /**
  * Likewise, when the parent combobox has an invalid state, it sets CSS variables to values that help
  * visually communicate its validity via the combobox button. This behaviour is manually shown here.
  */
-export const Invalid: Story = {
-  args: {
-    ...Placeholder.args,
-  },
+export const Invalid = Placeholder.extend({
   decorators: [
     (Story) => (
       <ElCombobox data-show-validity="true">
@@ -116,7 +106,7 @@ export const Invalid: Story = {
       </ElCombobox>
     ),
   ],
-}
+})
 
 /**
  * The combobox button also reflects an invalid state when `aria-invalid="true"` and
@@ -124,11 +114,9 @@ export const Invalid: Story = {
  * logic that does not use the browser's constraint validation API. This behaviour is manually shown
  * here.
  */
-export const AriaInvalid: Story = {
+export const AriaInvalid = Placeholder.extend({
   name: 'Aria Invalid',
-  args: {
-    ...Placeholder.args,
-  },
+
   decorators: [
     (Story) => (
       <ElCombobox data-show-validity="true">
@@ -137,7 +125,7 @@ export const AriaInvalid: Story = {
       </ElCombobox>
     ),
   ],
-}
+})
 
 /**
  * When the button is embedded in a surface that provides its own border or background — such as
@@ -145,22 +133,20 @@ export const AriaInvalid: Story = {
  * validity cues are not shown in this variant, although background-based validity styling may
  * still be applied by the parent combobox when `data-show-validity="true"` is set.
  */
-export const Borderless: Story = {
+export const Borderless = Placeholder.extend({
   args: {
-    ...Placeholder.args,
     action: 'Toggle',
     variant: 'borderless',
   },
-}
+})
 
 /**
  * By default, combobox buttons will fill their parent's width. This can be constrained by providing
  * a `maxWidth` to the combobox.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Placeholder.extend({
   name: 'Max-width',
   args: {
-    ...Placeholder.args,
     action: null,
     placeholder: 'Search...',
     children: 'Search...',
@@ -174,15 +160,14 @@ export const MaxWidth: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * When the label text is too long, it will be truncated.
  */
-export const Truncation: Story = {
+export const Truncation = Example.extend({
   args: {
-    ...Example.args,
     children: 'Long label text that will not fit within the available space',
   },
-  decorators: MaxWidth.decorators,
-}
+  decorators: MaxWidth.input.decorators,
+})

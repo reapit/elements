@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { ContactIcon } from '#src/icons/contact'
 import { HelpIcon } from '#src/icons/help'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
 import { TopBarNavIconItem } from './nav-icon-item'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/NavIconItem',
   component: TopBarNavIconItem,
   argTypes: {
@@ -31,18 +30,14 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TopBarNavIconItem>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Most nav icon items will be used as a link to navigate users to another page in the product. When used as a link,
  * the `aria-current` attribute must be supplied to indicate visually and accessibly that the item represents the
  * current page (or not).
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-current': false,
     'aria-label': 'Nav icon item',
@@ -50,7 +45,7 @@ export const Example: Story = {
     href: '#',
     icon: 'star',
   },
-}
+})
 
 /**
  * When the nav item represents the current page, `aria-current="page"` should be supplied. This indicates to visual
@@ -58,23 +53,21 @@ export const Example: Story = {
  *
  * **Note:** This is only applicable when the nav item is a link.
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     'aria-current': 'page',
   },
-}
+})
 
 /**
  * Nav icon items may need to visually indicate that something new has occurred that the user should be aware of. When
  * this is the case, a badge can be displayed. A common exmaple is a notification bell that shows a badge when one or
  * more unread notifications are available.
  */
-export const WithBadge: Story = {
+export const WithBadge = Example.extend({
   args: {
-    ...Example.args,
     'aria-label': 'Notifications',
     hasBadge: true,
     icon: 'notification',
   },
-}
+})

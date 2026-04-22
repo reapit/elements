@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { BottomBarItemButton } from './item-button'
 import { ContactIcon } from '#src/icons/contact'
 import { HelpIcon } from '#src/icons/help'
@@ -5,9 +6,7 @@ import { Menu } from '#src/core/menu'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/BottomBar/ItemButton',
   component: BottomBarItemButton,
   argTypes: {
@@ -22,43 +21,38 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof BottomBarItemButton>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Button-based items are typically used to group a number of related items within a dropdown menu. Unlike link-based
  * items, button-based items do not have the concept of representing the current page.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Label',
     hasBadge: false,
     icon: 'Star',
     onClick: () => void 0,
   },
-}
+})
 
 /**
  * Items may need to visually indicate that something new has occurred that the user should be aware of. When
  * this is the case, a badge can be displayed. A common exmaple is a notification bell that shows a badge when one or
  * more unread notifications are available.
  */
-export const WithBadge: Story = {
+export const WithBadge = Example.extend({
   args: {
-    ...Example.args,
     children: 'Notifications',
     hasBadge: true,
     icon: 'Notification',
   },
-}
+})
 
 /**
  * Button-based items are typically used to group a number of related items within a dropdown menu.
  */
-export const WithMenu: Story = {
+export const WithMenu = meta.story({
   args: {
     children: 'Help menu',
     icon: 'Help',
@@ -86,4 +80,4 @@ export const WithMenu: Story = {
       </>
     )
   },
-}
+})

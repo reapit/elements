@@ -1,20 +1,15 @@
+import preview from '#.storybook/preview'
 import { TopBarMenu } from './menu'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/Menu',
   component: TopBarMenu,
-} satisfies Meta<typeof TopBarMenu>
-
-export default meta
-
-type Story = StoryObj<typeof TopBarMenu>
+})
 
 /**
  * ...
  */
-export const Example: Story = {
+export const Example = meta.story({
   render: () => {
     return (
       <>
@@ -60,4 +55,4 @@ export const Example: Story = {
       </>
     )
   },
-}
+})

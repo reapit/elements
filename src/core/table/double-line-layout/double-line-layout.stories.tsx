@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Avatar } from '#src/core/avatar'
 import { AvatarRectangle } from '#src/core/avatar-rectangle'
 import { Skeleton } from '#src/core/skeleton'
@@ -8,9 +9,7 @@ import { TableCellPrimaryData } from '../primary-data'
 import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/DoubleLineLayout',
   component: TableCellDoubleLineLayout,
   argTypes: {
@@ -51,44 +50,37 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TableCellDoubleLineLayout>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * [Table.PrimaryData](./?path=/docs/core-table-primarydata--docs) will often be used to display
  * the primary data in the double-line layout, though any appropriate content can be provided.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Text + icon',
     mediaItem: 'None',
     supplementaryData: 'Supplementary info',
   },
-}
+})
 
 /**
  * Media items like avatars and images can also be displayed.
  */
-export const MediaItems: Story = {
+export const MediaItems = Example.extend({
   args: {
-    ...Example.args,
     children: 'Contact name',
     mediaItem: 'Avatar',
     supplementaryData: 'Supplementary info',
   },
-}
+})
 
 /**
  * In cases where the content has insufficient space, content will be clipped while the icons remain
  * visible. Notice that the primary data text in this example is not truncating; this is because its
  * not configured to do so, and thus is simply being clipped.
  */
-export const Clipping: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Clipping = Example.extend({
   decorators: [
     (Story) => (
       <div style={{ boxSizing: 'content-box', border: '1px solid #FA00FF', display: 'flex', width: '120px' }}>
@@ -96,15 +88,14 @@ export const Clipping: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Where possible, content should be truncated, with a tooltip used to display the unabridged content
  * when hovered. Again, the icons will remain visible and only the content will be truncated.
  */
-export const Truncation: Story = {
+export const Truncation = Example.extend({
   args: {
-    ...Example.args,
     children: (
       <>
         <Text font="inherit" id="primary-text" overflow="truncate">
@@ -115,7 +106,9 @@ export const Truncation: Story = {
         </Tooltip>
       </>
     ),
+
     mediaItem: 'Image',
+
     supplementaryData: (
       <>
         <Text font="inherit" id="supplementary-text" overflow="truncate">
@@ -139,7 +132,7 @@ export const Truncation: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Skeletons can used for the content and the icons to communicate a loading state. The fidelity of
@@ -147,11 +140,10 @@ export const Truncation: Story = {
  * That is, it would be sufficient in many cases to only display a skeleton for the content, even
  * if an icon may be present once loading is complete.
  */
-export const Loading: Story = {
+export const Loading = Example.extend({
   args: {
-    ...Example.args,
     children: 'Skeleton',
     mediaItem: 'Skeleton',
     supplementaryData: 'Skeleton',
   },
-}
+})

@@ -1,9 +1,8 @@
+import preview from '#.storybook/preview'
 import { Menu } from '#src/core/menu'
 import { SplitButton } from './split-button'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/SplitButton',
   component: SplitButton,
   argTypes: {
@@ -45,12 +44,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof SplitButton>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     action: 'Default',
     busy: undefined,
@@ -58,14 +54,13 @@ export const Example: Story = {
     size: 'medium',
     variant: 'primary',
   },
-}
+})
 
 /**
  * The `SplitButton` component supports the following button variants: `primary` and `secondary`.
  */
-export const Variants: Story = {
+export const Variants = Example.extend({
   args: {
-    ...Example.args,
     size: 'medium',
     variant: 'primary',
   },
@@ -87,14 +82,13 @@ export const Variants: Story = {
       <SplitButton {...args} variant="secondary" />
     </>
   ),
-}
+})
 
 /**
  * The `SplitButton` component supports the following button sizes: `small`, `medium`, and `large`.
  */
-export const Sizes: Story = {
+export const Sizes = Example.extend({
   args: {
-    ...Example.args,
     size: 'medium',
     variant: 'primary',
   },
@@ -117,15 +111,14 @@ export const Sizes: Story = {
       <SplitButton {...args} size="large" />
     </>
   ),
-}
+})
 
 /**
  * While the individual buttons that comprise the `SplitButton` can be disabled, try to avoid disabling the menu
  * button, as doing so will decrease the discoverability of the secondary actions in the menu.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     action: 'Disabled',
     menu: 'Disabled',
     variant: 'secondary',
@@ -155,11 +148,11 @@ export const Disabled: Story = {
   render: (args) => (
     <>
       <SplitButton {...args} />
-      <SplitButton {...args} action={meta.argTypes.action.mapping.Default} />
-      <SplitButton {...args} menu={meta.argTypes.menu.mapping.Default} />
+      <SplitButton {...args} action={meta.input.argTypes!.action!.mapping!.Default} />
+      <SplitButton {...args} menu={meta.input.argTypes!.menu!.mapping!.Default} />
     </>
   ),
-}
+})
 
 /**
  * While the individual buttons that comprise the `SplitButton` can be individually marked as busy,
@@ -171,12 +164,11 @@ export const Disabled: Story = {
  * are ARIA disabled to avoid timing issues when used to submit forms (disabled form elements are not
  * included in the submitted form data).
  */
-export const Busy: Story = {
+export const Busy = Example.extend({
   args: {
-    ...Example.args,
     busy: 'menu-item',
   },
-}
+})
 
 /**
  * When used within a form, a split button's main action and menu items will, by default, submit
@@ -188,7 +180,7 @@ export const Busy: Story = {
  * identify the button within the submitted form data. In this example, form submission will display
  * an alert dialog that shows which submit button was used.
  */
-export const Forms: Story = {
+export const Forms = meta.story({
   args: {
     action: (
       <SplitButton.Action name="action" value="send" type="submit">
@@ -222,4 +214,4 @@ export const Forms: Story = {
       </form>
     ),
   ],
-}
+})

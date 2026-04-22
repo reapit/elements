@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { AddIcon } from '#src/icons/add'
 import { Badge } from '#src/core/badge/index'
 import { Button } from '#src/core/button/index'
@@ -7,9 +8,7 @@ import { PageHeaderTitle } from './title'
 import { StarIcon } from '#src/icons/star'
 import { TagGroup } from '#src/core/tag-group/index'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/PageHeader/Title',
   component: PageHeaderTitle,
   argTypes: {
@@ -63,62 +62,55 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof PageHeaderTitle>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * At its simplest, the page header's title contains just that: the page's title.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     actions: 'None',
     additionalInfo: 'None',
     children: 'Page Title',
   },
-}
+})
 
 /**
  * Additional information can follow the title. This information is typically some combination of one or more tags,
  * badges, and/or icons.
  */
-export const AdditionalInfo: Story = {
+export const AdditionalInfo = Example.extend({
   args: {
-    ...Example.args,
     additionalInfo: 'All',
   },
-}
+})
 
 /**
  * The title can also contain a primary action for the page. If it does, this should be the only primary action
  * on the page.
  */
-export const SingleAction: Story = {
+export const SingleAction = Example.extend({
   args: {
-    ...Example.args,
     actions: 'One',
   },
-}
+})
 
 /**
  * It's also common for pages to have multiple secondary actions. When more than one action is present, a `ButtonGroup`
  * should be used.
  */
-export const MultipleActions: Story = {
+export const MultipleActions = Example.extend({
   args: {
-    ...Example.args,
     actions: 'Some',
   },
-}
+})
 
 /**
  * When the title (and any additional information) do not have enough space to display on a single line, they will
  * wrap to additional lines.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     actions: 'One',
     additionalInfo: 'All',
     children: 'This is a long title that flows into the next line.',
@@ -135,4 +127,4 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})

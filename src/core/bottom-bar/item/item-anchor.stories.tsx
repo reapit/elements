@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { BottomBarItemAnchor } from './item-anchor'
 import { ContactIcon } from '#src/icons/contact'
 import { HelpIcon } from '#src/icons/help'
 import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/BottomBar/ItemAnchor',
   component: BottomBarItemAnchor,
   argTypes: {
@@ -31,17 +30,13 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof BottomBarItemAnchor>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Items in the bottom bar will typically navigate users to another page in the product. The `aria-current`
  * attribute must be supplied to indicate visually and accessibly that the item represents the current page (or not).
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-current': false,
     children: 'Label',
@@ -49,29 +44,27 @@ export const Example: Story = {
     href: '#',
     icon: 'Star',
   },
-}
+})
 
 /**
  * When an item represents the current page, `aria-current="page"` should be supplied. This indicates to visual
  * and accessible users that the item represents the current page.
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     'aria-current': 'page',
   },
-}
+})
 
 /**
  * Items may need to visually indicate that something new has occurred that the user should be aware of. When
  * this is the case, a badge can be displayed. A common example is a notification bell that shows a badge when one or
  * more unread notifications are available.
  */
-export const WithBadge: Story = {
+export const WithBadge = Example.extend({
   args: {
-    ...Example.args,
     children: 'Notifications',
     hasBadge: true,
     icon: 'Notification',
   },
-}
+})

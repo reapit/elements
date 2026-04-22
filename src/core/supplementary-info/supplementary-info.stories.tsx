@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { SupplementaryInfo } from './supplementary-info'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/SupplementaryInfo',
   component: SupplementaryInfo,
   argTypes: {
@@ -56,47 +55,40 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof SupplementaryInfo>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Many',
     colour: 'primary',
     size: 'base',
   },
-}
+})
 
 /**
  * There's three sizes for the supplementary info: `base`, `sm` and `xs`.
  */
-export const Size: Story = {
+export const Size = Example.extend({
   args: {
-    ...Example.args,
     size: 'xs',
   },
-}
+})
 
 /**
  * Different colours can be applied to individual items to convey certain messages or to draw users'
  * attention to certain information.
  */
-export const Colour: StoryObj = {
+export const Colour = Example.extend({
   args: {
-    ...Example.args,
     children: 'All colours',
   },
-}
+})
 
 /**
  * When the parent's width is constrained, the supplementary info will wrap like normal text.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     children: [
       <SupplementaryInfo.Item key="1">Supplementary info very long text something 1</SupplementaryInfo.Item>,
       <SupplementaryInfo.Item key="2">Supp info 2</SupplementaryInfo.Item>,
@@ -110,14 +102,14 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * However, if the parent has a width smaller than the longest unbreakable text in the supplementary
  * info, the supplementary info will overflow that parent. This is because we do not want to introduce
  * breaks in the middle of words.
  */
-export const WordBreaks: Story = {
+export const WordBreaks = meta.story({
   args: {
     children: [
       <SupplementaryInfo.Item key="1">Supplementary info very long text something 1</SupplementaryInfo.Item>,
@@ -133,16 +125,15 @@ export const WordBreaks: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * It's important to note that block content within an item will break the flow of the supplementary
  * info's otherwise inline content. For this reason, care should be take to avoid block content within
  * items.
  */
-export const BlockContent: Story = {
+export const BlockContent = Example.extend({
   args: {
-    ...Example.args,
     children: [
       <SupplementaryInfo.Item key="1">
         <div style={{ border: '1px solid #FA00FF', width: '250px', textAlign: 'center' }}>
@@ -157,4 +148,4 @@ export const BlockContent: Story = {
       </SupplementaryInfo.Item>,
     ],
   },
-}
+})

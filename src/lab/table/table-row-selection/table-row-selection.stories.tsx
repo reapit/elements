@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { TableRowSelection } from './table-row-selection'
 import { useRowSelection } from './use-row-selection'
 import { TableRowSelectionProps } from './types'
@@ -10,16 +11,10 @@ import { TableBody } from '#src/core/table/body'
 import { TableBodyRow } from '#src/core/table/body-row'
 import { TableBodyCell } from '#src/core/table/body-cell'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Lab/TableRowSelection',
   component: TableRowSelection,
-} satisfies Meta<typeof TableRowSelection>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 const tableData = [
   { contactId: '12P0168', firstname: 'Danish', lastname: 'Ali' },
@@ -82,7 +77,7 @@ const RowSelectionDemo: React.FC<TableRowSelectionProps> = () => {
   )
 }
 
-export const BasicUsage: Story = {
+export const BasicUsage = meta.story({
   args: { id: '', isSelectAll: false, onChange: () => {}, checked: false },
   render: (props) => <RowSelectionDemo {...props} />,
   parameters: {
@@ -136,4 +131,4 @@ const { handleRowSelect, handleSelectAll, isRowSelected, isIndeterminate } = use
       },
     },
   },
-}
+})

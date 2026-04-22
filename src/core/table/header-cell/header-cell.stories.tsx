@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { TableHeaderCell } from './header-cell'
 import { TableCellCheckbox } from '../checkbox'
 import { TableCellSortButton } from '../sort-button'
@@ -5,9 +6,7 @@ import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/HeaderCell',
   component: TableHeaderCell,
   argTypes: {
@@ -49,24 +48,21 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TableHeaderCell>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * At their simplest, body cell's will contain a single line of plain text. However, it's important
  * to understand that, without additional styles for the plain text, it will flow to additional lines
  * rather than overflow or truncate when there is insufficient space.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-sort': undefined,
     as: 'th',
     children: 'Plain text',
   },
   decorators: [useTableDecorator('header-cell')],
-}
+})
 
 /**
  * Often, some columns in a table will be sortable. In this case,
@@ -74,23 +70,21 @@ export const Example: Story = {
  * Importantly, when the column has an active sort direction, the header cell must have an `aria-sort`
  * attribute that communicates that sort direction to assistive technologies.
  */
-export const Sortable: Story = {
+export const Sortable = Example.extend({
   args: {
-    ...Example.args,
     'aria-sort': 'descending',
     children: 'Sort button',
   },
   decorators: [useTableDecorator('header-cell')],
-}
+})
 
 /**
  * Overflow should be avoided for column header cells as the columns should generally be sized
  * to fit the content and the header. However, if it is unavoidable, truncation with a tooltip
  * should be used. The tooltip should display the unabridged content.
  */
-export const Truncation: Story = {
+export const Truncation = Example.extend({
   args: {
-    ...Example.args,
     children: (
       <>
         <Text font="inherit" id="text" overflow="truncate">
@@ -111,7 +105,7 @@ export const Truncation: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Sometimes it may be necessary to render the table cell as a plain `<div>`. Providing
@@ -119,22 +113,20 @@ export const Truncation: Story = {
  * [ARIA role](https://developer.mozilla.org/en-US/docs/Web/Accessibility/ARIA/Reference/Roles)
  * should also be specified.
  */
-export const Divs: Story = {
+export const Divs = Example.extend({
   args: {
-    ...Example.args,
     as: 'div',
     children: "I'm in a <div>",
   },
-}
+})
 
 /**
  * By default, the justification of the cell's content is determined by the table. However, individual
  * cells can also define their own justification using the `justifySelf` prop. There are three
  * options: `start`, `center`, and `end`.
  */
-export const Alignment: Story = {
+export const Alignment = Example.extend({
   args: {
-    ...Example.args,
     justifySelf: 'end',
   },
   decorators: [
@@ -145,7 +137,7 @@ export const Alignment: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * In some cases, the content of the cell may want to fill the full height of the row and the full
@@ -157,9 +149,8 @@ export const Alignment: Story = {
  * a fixed-width column (typically, we'd use `min-content` for a row selection column). Since
  * `Table.Checkbox` is designed to fill its parent, its hit area includes the entire cell.
  */
-export const NoPadding: Story = {
+export const NoPadding = Example.extend({
   args: {
-    ...Example.args,
     children: 'Checkbox',
     hasNoPadding: true,
   },
@@ -172,4 +163,4 @@ export const NoPadding: Story = {
       </div>
     ),
   ],
-}
+})

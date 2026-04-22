@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { AppSwitcherNavIconButton } from './nav-icon-button'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/AppSwitcher/NavIconButton',
   component: AppSwitcherNavIconButton,
   argTypes: {
@@ -10,26 +9,22 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof AppSwitcherNavIconButton>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     onClick: () => void 0,
   },
   render: (args) => {
     return <AppSwitcherNavIconButton {...args} />
   },
-}
+})
 
-export const Expanded: Story = {
+export const Expanded = meta.story({
   args: {
     onClick: () => void 0,
   },
   render: (args) => {
     return <AppSwitcherNavIconButton aria-expanded={true} {...args} />
   },
-}
+})

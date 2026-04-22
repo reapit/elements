@@ -51,9 +51,12 @@ test('handles element with zero clientWidth', () => {
 })
 
 test('uses instant scrolling behavior when user has reduced motion preference', () => {
-  const matchMediaSpy = vi
-    .spyOn(globalThis, 'matchMedia')
-    .mockImplementation(() => ({ matches: true }) as MediaQueryList)
+  const matchMediaSpy = vi.spyOn(globalThis, 'matchMedia').mockImplementation(
+    () =>
+      ({
+        matches: true,
+      }) as MediaQueryList,
+  )
 
   render(<div data-testid="test-id" id="instant-test" />)
 
@@ -72,9 +75,12 @@ test('uses instant scrolling behavior when user has reduced motion preference', 
 })
 
 test('uses smooth scrolling behavior when user has no reduced motion preference', () => {
-  const matchMediaSpy = vi
-    .spyOn(globalThis, 'matchMedia')
-    .mockImplementation(() => ({ matches: false }) as MediaQueryList)
+  const matchMediaSpy = vi.spyOn(globalThis, 'matchMedia').mockImplementation(
+    () =>
+      ({
+        matches: false,
+      }) as MediaQueryList,
+  )
 
   render(<div data-testid="smooth-test" id="smooth-test" />)
 

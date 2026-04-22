@@ -1,4 +1,5 @@
-import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
+import type { Decorator } from '@storybook/react-vite'
 import { AppSwitcher } from '../app-switcher'
 import { AppSwitcherExploreMenuGroup } from './explore-menu-group'
 
@@ -10,7 +11,7 @@ const useParentDecorator: Decorator = (Story) => {
   )
 }
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/AppSwitcher/ExploreMenuGroup',
   component: AppSwitcherExploreMenuGroup,
   argTypes: {
@@ -19,21 +20,17 @@ const meta = {
     },
   },
   decorators: [useParentDecorator],
-} satisfies Meta<typeof AppSwitcherExploreMenuGroup>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Default: Story = {
+export const Default = meta.story({
   args: {
     children: null,
   },
-  render: ({}) => {
+  render: () => {
     return (
       <AppSwitcher.ExploreMenuGroup>
         <AppSwitcher.ProductMenuItem href="#" productId="ireWeb" />
       </AppSwitcher.ExploreMenuGroup>
     )
   },
-}
+})

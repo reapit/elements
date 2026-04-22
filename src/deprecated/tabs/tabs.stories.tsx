@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { useState } from 'react'
 import {
   Tab,
@@ -13,12 +14,12 @@ import {
 import { TextBase } from '../typography'
 import { TextInput } from '../../core/text-input'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/Tabs',
-}
+})
 
-export const StylesOnlyUsage = {
-  render: ({}) => (
+export const StylesOnlyUsage = meta.story({
+  render: () => (
     <TabsWrap>
       <TabsOptionsWrap role="tablist">
         <Tab id="tab-1" name="my-cool-tabs" value="tab-1" type="radio" defaultChecked />
@@ -37,10 +38,10 @@ export const StylesOnlyUsage = {
       <TabsFooter />
     </TabsWrap>
   ),
-}
+})
 
-export const FullWidth = {
-  render: ({}) => (
+export const FullWidth = meta.story({
+  render: () => (
     <TabsWrap className={elTabsFullWidth}>
       <TabsOptionsWrap role="tablist">
         <Tab id="tab-1-fw" name="my-cool-tabs-full-width" value="tab-1-fw" type="radio" defaultChecked />
@@ -59,10 +60,10 @@ export const FullWidth = {
       <TabsFooter className={elTabsFullWidth} />
     </TabsWrap>
   ),
-}
+})
 
-export const NoBorder = {
-  render: ({}) => (
+export const NoBorder = meta.story({
+  render: () => (
     <TabsWrap>
       <TabsOptionsWrap role="tablist">
         <Tab id="tab-1-nb" name="my-cool-tabs-no-border" value="tab-1-nb" type="radio" defaultChecked />
@@ -81,10 +82,10 @@ export const NoBorder = {
       <TabsFooter className={elTabsHasNoBorder} />
     </TabsWrap>
   ),
-}
+})
 
-export const ReactUsage = {
-  render: ({}) => (
+export const ReactUsage = meta.story({
+  render: () => (
     <Tabs
       name="my-cool-tabs-default"
       options={[
@@ -109,10 +110,10 @@ export const ReactUsage = {
       ]}
     />
   ),
-}
+})
 
-export const ReactFullWidth = {
-  render: ({}) => (
+export const ReactFullWidth = meta.story({
+  render: () => (
     <Tabs
       name="my-cool-tabs-full-width"
       isFullWidth
@@ -138,10 +139,10 @@ export const ReactFullWidth = {
       ]}
     />
   ),
-}
+})
 
-export const ReactUncontrolled = {
-  render: ({}) => {
+export const ReactUncontrolled = meta.story({
+  render: () => {
     const [tab, setTab] = useState('1')
 
     return (
@@ -178,10 +179,10 @@ export const ReactUncontrolled = {
       </>
     )
   },
-}
+})
 
-export const ReactControlled = {
-  render: ({}) => {
+export const ReactControlled = meta.story({
+  render: () => {
     const [tab, setTab] = useState('1')
 
     return (
@@ -219,4 +220,4 @@ export const ReactControlled = {
       </>
     )
   },
-}
+})

@@ -1,11 +1,11 @@
+import preview from '#.storybook/preview'
 import { AnchorPositioning } from './anchor-positioning'
 import { placements } from './map-placement-to-css'
 import { useId } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ReactNode } from 'react'
 
-const meta = {
+const meta = preview.meta({
   title: 'Utils/AnchorPositioning',
   component: AnchorPositioning,
   argTypes: {
@@ -43,13 +43,9 @@ const meta = {
       </>
     )
   },
-} satisfies Meta<typeof AnchorPositioning>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     anchorElementId: 'anchor',
     bottom: '',
@@ -60,21 +56,19 @@ export const Example: Story = {
     right: '',
     top: '',
   },
-}
+})
 
 /**
  * A number of common positions for popovers relative to their anchor are available as simple string-based
  * placements. These are shown below.
  */
-export const Placement: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Placement = Example.extend({
   parameters: {
     controls: {
-      disabled: true,
+      disable: true,
     },
   },
+
   render: () => {
     return (
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '300px' }}>
@@ -97,19 +91,18 @@ export const Placement: Story = {
       </div>
     )
   },
-}
+})
 
 /**
  * A gap can be specified to add space between the anchor element and the positioned elements.
  * Only applies when positioning with `placement`.
  */
-export const Gap: Story = {
+export const Gap = Example.extend({
   args: {
-    ...Example.args,
     gap: 'var(--spacing-2)',
     placement: 'right',
   },
-}
+})
 
 /**
  * When the predefined placements are insufficient, inset properties, `top`, `right`, `bottom`, and
@@ -118,16 +111,15 @@ export const Gap: Story = {
  * See [Using inset properties with anchor() function values](https://developer.mozilla.org/en-US/docs/Web/CSS/Guides/Anchor_positioning/Using#using_inset_properties_with_anchor_function_values)
  * for details on how to position the popover element using this approach.
  */
-export const InsetProperties: Story = {
+export const InsetProperties = Example.extend({
   name: 'Inset properties',
   args: {
-    ...Example.args,
     placement: undefined,
     justifySelf: 'anchor-center',
     minWidth: 'calc(anchor-size(width) + var(--spacing-4))',
     bottom: 'anchor(inside)',
   },
-}
+})
 
 function Anchor({ id, width = '200px', height = '100px' }: { id: string; width?: string; height?: string }) {
   return (

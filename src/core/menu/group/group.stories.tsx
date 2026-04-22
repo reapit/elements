@@ -1,13 +1,12 @@
+import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge'
 import { MenuGroup } from './group'
 import { AnchorMenuItem, MenuItem } from '../item'
 import { StarIcon } from '#src/icons/star'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Menu/Group',
   component: MenuGroup,
   argTypes: {
@@ -66,40 +65,34 @@ const meta = {
       control: 'text',
     },
   },
-} satisfies Meta<typeof MenuGroup>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * A basic menu group with interactive menu items. Use `MenuItem` for menu items that perform
  * actions when clicked.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Simple',
     label: 'Actions',
   },
-}
+})
 
 /**
  * Menu groups can be created without a label.
  */
-export const NoLabel: Story = {
+export const NoLabel = Example.extend({
   args: {
-    ...Example.args,
     label: null,
   },
-}
+})
 
 /**
  * Menu groups should generally have short and concise labels, but the text will flow to multiple lines
  * if it cannot fit in the available space.
  */
-export const Overflow: Story = {
+export const Overflow = Example.extend({
   args: {
-    ...Example.args,
     label: "This is a long group title that won't fit on one line",
   },
   decorators: [
@@ -109,14 +102,13 @@ export const Overflow: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The menu group label will remain sticky positioned if the parent container scrolls.
  */
-export const StickyPositioning: Story = {
+export const StickyPositioning = Example.extend({
   args: {
-    ...Example.args,
     children: 'Fancy',
   },
   decorators: [
@@ -126,4 +118,4 @@ export const StickyPositioning: Story = {
       </div>
     ),
   ],
-}
+})

@@ -5,7 +5,7 @@ description: Write Storybook story files for Reapit Elements components and util
 
 # Writing Storybook Docs
 
-This project uses [Storybook 10](https://storybook.js.org/) with the `@storybook/react-vite` framework. Stories serve as live component demos and the primary documentation surface. The project enables Autodocs globally, so every story file automatically generates a documentation page.
+This project uses [Storybook](https://storybook.js.org/) with the `@storybook/react-vite` framework. Stories serve as live component demos and the primary documentation surface. The project enables Autodocs globally, so every story file automatically generates a documentation page.
 
 ## When to Use This Skill
 
@@ -18,14 +18,13 @@ Invoke this skill when:
 
 ## Environment
 
-| Setting           | Value                                                                                    |
-| ----------------- | ---------------------------------------------------------------------------------------- |
-| Storybook version | 10.3.3                                                                                   |
-| Framework         | `@storybook/react-vite`                                                                  |
-| Autodocs          | Globally enabled in `preview.tsx` — do **not** add `tags: ['autodocs']` to story files   |
-| Prop extraction   | `react-docgen-typescript` (supports namespace interface props)                           |
-| Story format      | CSF 3 (`Meta` + `StoryObj` + `satisfies`)                                                |
-| Theme wrapper     | Global `ThemeProvider` decorator in `preview.tsx` — all stories receive it automatically |
+| Setting         | Value                                                                                    |
+| --------------- | ---------------------------------------------------------------------------------------- |
+| Framework       | `@storybook/react-vite`                                                                  |
+| Autodocs        | Globally enabled in `preview.tsx` — do **not** add `tags: ['autodocs']` to story files   |
+| Prop extraction | `react-docgen-typescript` (supports namespace interface props)                           |
+| Story format    | CSF Next (`preview.meta()` + `meta.story()` + `.extend()`)                               |
+| Theme wrapper   | Global `ThemeProvider` decorator in `preview.tsx` — all stories receive it automatically |
 
 ## File Organisation
 
@@ -50,36 +49,44 @@ src/core/drawer/
     Pattern.tsx
 ```
 
-### Type alias
+### No type aliases needed
 
-Declare the `Story` type alias immediately after `export default meta`. This alias is referenced by every named story export.
+CSF Next infers all types through the factory function chain. Do **not** declare `type Story` aliases or import `Meta`/`StoryObj` types.
 
 ```tsx
-const meta = { ... } satisfies Meta<typeof Button>
+import preview from '#.storybook/preview'
+import { Button } from './button'
 
-export default meta
+const meta = preview.meta({
+  title: 'Core/Button',
+  component: Button,
+})
 
-type Story = StoryObj<typeof meta>   // ✅ References meta, not the component directly
+// ✅ No `export default meta`, no `type Story = ...`, no type imports needed
 ```
 
 ## Meta Definition
 
-### `satisfies` pattern
+### `preview.meta()` pattern
 
-Use `satisfies Meta<typeof Component>` — do **not** annotate with `: Meta<typeof Component>`. The `satisfies` keyword preserves the inferred type of the object literal while enforcing compatibility, giving better type narrowing downstream.
+Use `preview.meta({ ... })` to define component metadata. Import `preview` from `#.storybook/preview` using the subpath import. Types are inferred automatically — no type annotations or `satisfies` needed.
 
 ```tsx
 // ✅ Correct
+import preview from '#.storybook/preview'
+
+const meta = preview.meta({
+  title: 'Core/Button',
+  component: Button,
+})
+
+// ❌ Wrong — old CSF 3 pattern
+import type { Meta, StoryObj } from '@storybook/react-vite'
 const meta = {
   title: 'Core/Button',
   component: Button,
 } satisfies Meta<typeof Button>
-
-// ❌ Wrong — annotation widens the type
-const meta: Meta<typeof Button> = {
-  title: 'Core/Button',
-  component: Button,
-}
+export default meta
 ```
 
 ### Title convention
@@ -110,11 +117,11 @@ title: 'Core - Button'
 When a component has companion components that share the same documentation page, list them in `subcomponents`. This causes their prop tables to appear in the Controls panel.
 
 ```tsx
-const meta = {
+const meta = preview.meta({
   title: 'Core/Button',
   component: Button,
   subcomponents: { AnchorButton },
-} satisfies Meta<typeof Button>
+})
 ```
 
 ### ArgTypes
@@ -181,7 +188,7 @@ argTypes: {
 
 ## The Example Story
 
-Every story file must export an `Example` story as its first named export. This story is the primary interactive playground in the Controls panel. It must:
+Every story file must export an `Example` story as its first named export, created via `meta.story()`. This story is the primary interactive playground in the Controls panel. It must:
 
 - Be named `Example` exactly (this controls the URL path)
 - Provide a comprehensive `args` object covering all notable props
@@ -191,12 +198,13 @@ Every story file must export an `Example` story as its first named export. This 
 
 - [ ] Named `Example`
 - [ ] First named export in the file
+- [ ] Created with `meta.story({ ... })`
 - [ ] Covers all props users are likely to tweak in the Controls panel
 - [ ] Uses the default/non-edge-case state
 
 ```tsx
 // ✅ Correct
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': 'My input',
     disabled: false,
@@ -207,7 +215,7 @@ export const Example: Story = {
     size: 'medium',
     type: 'text',
   },
-}
+})
 ```
 
 ## Additional Stories
@@ -232,58 +240,89 @@ Every story other than `Example` must have a JSDoc comment directly above its ex
  * Buttons support three variants: `primary`, `secondary`, and `tertiary`. Typically, there should
  * only be one primary action in the UI at any given time.
  */
-export const Variants: Story = { ... }
+export const Variants = meta.story({ ... })
 
 // ❌ Wrong — no JSDoc
-export const Variants: Story = { ... }
+export const Variants = meta.story({ ... })
 
 // ❌ Wrong — vague description
 /**
  * Shows variants.
  */
-export const Variants: Story = { ... }
+export const Variants = meta.story({ ... })
 ```
 
-### Spreading args from Example
+### Extending stories with `.extend()`
 
-Use the spread operator to build additional stories on top of `Example.args`. This keeps stories DRY and ensures they inherit the baseline prop configuration.
+Use `.extend()` to build additional stories on top of `Example` or other stories. This uses smart merging: `args` are shallow merged, `parameters` are deep merged, `decorators` and `tags` are concatenated.
 
 ```tsx
-// ✅ Correct
-export const Disabled: Story = {
-  args: {
-    ...Example.args,
-    disabled: true,
-  },
-}
+// ✅ Correct — uses .extend() for smart merging
+/**
+ * Disabled buttons do not receive click events.
+ */
+export const Disabled = Example.extend({
+  args: { disabled: true },
+})
 
 // ❌ Wrong — manually restating all args
-export const Disabled: Story = {
+export const Disabled = meta.story({
   args: {
     disabled: true,
     size: 'medium',
     // ...
   },
-}
+})
 ```
 
-You may also spread from intermediate stories when the result is clearer:
+You may also extend from intermediate stories when the result is clearer:
 
 ```tsx
-export const Icons: Story = {
+export const Icons = Example.extend({
   args: {
-    ...Example.args,
     iconLeft: 'Star',
     iconRight: 'Star',
   },
-}
+})
 
-export const Disabled: Story = {
-  args: {
-    ...Icons.args, // inherits icon configuration
-    disabled: true,
+/**
+ * Disabled buttons with icons inherit both the icon configuration and the disabled state.
+ */
+export const Disabled = Icons.extend({
+  args: { disabled: true },
+})
+```
+
+When a story only extends `Example` but needs other properties (like `argTypes`, `render`, or `decorators`), use `.extend()` rather than `meta.story()` with a spread:
+
+```tsx
+// ✅ Correct
+export const Variants = Example.extend({
+  argTypes: {
+    variant: { control: false },
   },
-}
+  render: (args) => (
+    <>
+      <Button {...args} variant="primary" />
+      <Button {...args} variant="secondary" />
+    </>
+  ),
+})
+
+// ❌ Wrong — using meta.story with manual args spread
+export const Variants = meta.story({
+  args: { ...Example.input.args },
+  argTypes: { variant: { control: false } },
+  render: (args) => ( ... ),
+})
+```
+
+### Accessing story properties
+
+When you need to read a story's properties directly (e.g., spreading args into JSX within a render function), use `.input` for the direct story input:
+
+```tsx
+render: (args) => <Component {...Example.input.args} />
 ```
 
 ### Disabling controls for the demonstrated prop
@@ -291,8 +330,7 @@ export const Disabled: Story = {
 When a story demonstrates a specific prop by rendering multiple variants side by side, disable the Controls panel entry for that prop. This prevents the user from overriding the prop and breaking the visual comparison.
 
 ```tsx
-export const Variants: Story = {
-  args: { ...Example.args },
+export const Variants = Example.extend({
   argTypes: {
     variant: { control: false }, // ✅ disable the demonstrated prop
   },
@@ -303,7 +341,7 @@ export const Variants: Story = {
       <Button {...args} variant="tertiary" />
     </>
   ),
-}
+})
 ```
 
 ### Render functions for multi-variant display
@@ -311,8 +349,7 @@ export const Variants: Story = {
 Use a `render` function when a story must display multiple instances of the component simultaneously. Pair this with an inline flex decorator to lay them out side by side.
 
 ```tsx
-export const Sizes: Story = {
-  args: { ...Example.args },
+export const Sizes = Example.extend({
   argTypes: {
     size: { control: false },
   },
@@ -330,7 +367,7 @@ export const Sizes: Story = {
       <TextInput {...args} size="large" />
     </>
   ),
-}
+})
 ```
 
 When using a complex `render` function, add `parameters.docs.source.type: 'code'` when the auto-generated source panel shows the render wrapper rather than the component call, making the output misleading.
@@ -349,19 +386,19 @@ Storybook converts the export identifier to the display name using `startCase`. 
 
 ```tsx
 // ✅ Correct — 'Icon-only' and 'Read-only' need hyphens preserved
-export const IconOnly: Story = {
+export const IconOnly = Example.extend({
   name: 'Icon-only',
   ...
-}
+})
 
-export const Readonly: Story = {
+export const Readonly = Example.extend({
   name: 'Read-only',
   ...
-}
+})
 
 // Not needed — 'Variants' and 'Disabled' render fine without a name override
-export const Variants: Story = { ... }
-export const Disabled: Story = { ... }
+export const Variants = Example.extend({ ... })
+export const Disabled = Example.extend({ ... })
 ```
 
 ### Helper components
@@ -436,7 +473,7 @@ When a component has a controlled open/close state (such as `Dialog` or `Drawer`
 ```tsx
 import { useArgs } from 'storybook/preview-api'
 
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     isOpen: false,
     // ...
@@ -450,7 +487,7 @@ export const Example: Story = {
       </>
     )
   },
-}
+})
 ```
 
 Give the `render` function a name matching the story export name. This improves source panel output and stack traces.
@@ -479,17 +516,17 @@ render: function ClosedBy(args) {
 
 ```tsx
 // ❌ Wrong — redundant
-const meta = {
+const meta = preview.meta({
   title: 'Core/Button',
   component: Button,
   tags: ['autodocs'],
-} satisfies Meta<typeof Button>
+})
 
 // ✅ Correct — no tags needed
-const meta = {
+const meta = preview.meta({
   title: 'Core/Button',
   component: Button,
-} satisfies Meta<typeof Button>
+})
 ```
 
 ### Using MDX for new core components
@@ -504,17 +541,50 @@ src/core/button/button.mdx
 src/core/button/button.stories.tsx
 ```
 
+### Using old CSF 3 patterns
+
+Do **not** use the old CSF 3 patterns. Use the CSF Next factory functions instead.
+
+```tsx
+// ❌ Wrong — old CSF 3
+import type { Meta, StoryObj } from '@storybook/react-vite'
+const meta = { ... } satisfies Meta<typeof Button>
+export default meta
+type Story = StoryObj<typeof meta>
+export const Example: Story = { ... }
+
+// ✅ Correct — CSF Next
+import preview from '#.storybook/preview'
+const meta = preview.meta({ ... })
+export const Example = meta.story({ ... })
+```
+
+### Using `meta.story()` with arg spreads instead of `.extend()`
+
+When building on an existing story, always use `.extend()` rather than `meta.story()` with `...Story.input.args`.
+
+```tsx
+// ❌ Wrong — manual spread
+export const Disabled = meta.story({
+  args: { ...Example.input.args, disabled: true },
+})
+
+// ✅ Correct — .extend()
+export const Disabled = Example.extend({
+  args: { disabled: true },
+})
+```
+
 ### Importing from the wrong framework package
 
-Always import Storybook types from `@storybook/react-vite`, not `@storybook/react` or plain `storybook`.
+When you need Storybook types (e.g., `Decorator`), import them from `@storybook/react-vite`, not `@storybook/react` or plain `storybook`.
 
 ```tsx
 // ✅ Correct
-import type { Meta, StoryObj } from '@storybook/react-vite'
+import type { Decorator } from '@storybook/react-vite'
 
 // ❌ Wrong — wrong package
-import type { Meta, StoryObj } from '@storybook/react'
-import type { Meta, StoryObj } from 'storybook'
+import type { Decorator } from '@storybook/react'
 ```
 
 ### Exporting helper components
@@ -535,18 +605,18 @@ Every story except `Example` must have a JSDoc comment. Without it, the document
 
 ```tsx
 // ❌ Wrong — no JSDoc
-export const Disabled: Story = {
-  args: { ...Example.args, disabled: true },
-}
+export const Disabled = Example.extend({
+  args: { disabled: true },
+})
 
 // ✅ Correct
 /**
  * Disabled inputs will not receive click events and are not submitted with the form
  * they are associated with.
  */
-export const Disabled: Story = {
-  args: { ...Example.args, disabled: true },
-}
+export const Disabled = Example.extend({
+  args: { disabled: true },
+})
 ```
 
 ## Quick Checklist
@@ -554,11 +624,12 @@ export const Disabled: Story = {
 Before committing a story file:
 
 - [ ] File named `<component>.stories.tsx`, co-located with the component
-- [ ] Types from `@storybook/react-vite` (not `@storybook/react`)
-- [ ] `satisfies Meta<typeof Component>` (not `: Meta<typeof Component>`)
-- [ ] `type Story = StoryObj<typeof meta>` declared after `export default meta`
+- [ ] `import preview from '#.storybook/preview'` (subpath import, no type imports needed)
+- [ ] `const meta = preview.meta({ ... })` (no `satisfies`, no `export default`)
+- [ ] `export const Example = meta.story({ ... })` as the first named export
+- [ ] Additional stories use `Example.extend({ ... })` or `meta.story({ ... })`
 - [ ] No `tags: ['autodocs']` in meta
-- [ ] `Example` story is the first named export with comprehensive `args`
+- [ ] No `type Story` alias, no `StoryObj` or `Meta` imports
 - [ ] Every story except `Example` has a JSDoc comment
 - [ ] Multi-variant stories use a `render` function and disable the demonstrated prop's control
 - [ ] Inline flex decorator uses `var(--spacing-6)` for gaps

@@ -1,10 +1,10 @@
+import preview from '#.storybook/preview'
 import { RadioInput } from './radio-input'
 import { useArgs } from 'storybook/preview-api'
 
 import type { ChangeEventHandler } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/RadioInput',
   component: RadioInput,
   argTypes: {
@@ -20,15 +20,12 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof RadioInput>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Like any native input, the radio button can be controlled or uncontrolled by consumers.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': 'My radio button',
     checked: undefined,
@@ -47,18 +44,17 @@ export const Example: Story = {
     }
     return <RadioInput {...args} onChange={onChange} />
   },
-}
+})
 
 /**
  * Radio buttons can be disabled. When they are, they do not participate in form submission.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     name: 'myInput-2',
     disabled: true,
   },
-}
+})
 
 /**
  * Like all form controls that visually communicate their validity, the radio button will display in an
@@ -66,26 +62,24 @@ export const Disabled: Story = {
  * required, and the `showValidity` prop is set to true. Typically, `showValidity` will be true when the
  * control has been touched (interacted with).
  */
-export const Invalid: Story = {
+export const Invalid = Example.extend({
   args: {
-    ...Example.args,
     name: 'myInput-3',
     required: true,
     showValidity: true,
   },
-}
+})
 
 /**
  * The radio button also displays in an invalid state when `aria-invalid="true"` and `showValidity`
  * is true. This supports usage where the element is not natively invalid — for example, via custom
  * logic that does not use the browser's constraint validation API.
  */
-export const AriaInvalid: Story = {
+export const AriaInvalid = Example.extend({
   name: 'Aria Invalid',
   args: {
-    ...Example.args,
     'aria-invalid': true,
     name: 'myInput-4',
     showValidity: true,
   },
-}
+})

@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { FormControlLabel } from './label'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FormControl/Label',
   component: FormControlLabel,
   argTypes: {
@@ -20,25 +19,20 @@ const meta = {
       },
     },
   },
-} satisfies Meta<FormControlLabel.Props>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     as: 'label',
     children: 'Label',
     htmlFor: 'my-form-control',
     size: 'medium',
   },
-}
+})
 
 /** The label text will naturally wrap to additional lines when it does not have sufficient space. */
-export const Wrapping: Story = {
+export const Wrapping = Example.extend({
   args: {
-    ...Example.args,
     children: 'This is a long label that won’t fit in a single row',
   },
   decorators: [
@@ -48,16 +42,16 @@ export const Wrapping: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The label can render as a `<legend>` element. This is useful when the parent `FormControl` is rendering
  * as a `<fieldset>`.
  */
-export const Legend: Story = {
+export const Legend = meta.story({
   args: {
     as: 'legend',
     children: 'Label',
     size: 'medium',
   },
-}
+})

@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { TableCellSortButton } from '../sort-button'
 import { TableHead } from './head'
 import { TableHeaderCell } from '../header-cell'
 import { TableHeaderRow } from '../header-row'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/Head',
   component: TableHead,
   argTypes: {
@@ -34,18 +33,15 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TableHead>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     as: 'thead',
     children: 'Static text',
   },
   decorators: [useTableDecorator('head')],
-}
+})
 
 /**
  * Sometimes it may be necessary to render the table row as a plain `<div>`. Providing
@@ -56,7 +52,7 @@ export const Example: Story = {
  * Care must also be taken to ensure the descendant cells are also rendered as `<div>` elements,
  * possibly with explicit ARIA roles as well.
  */
-export const Divs: Story = {
+export const Divs = meta.story({
   args: {
     as: 'div',
     children: (
@@ -70,7 +66,7 @@ export const Divs: Story = {
       control: false,
     },
   },
-}
+})
 
 function buildRows(type: 'non-sortable' | 'sortable') {
   switch (type) {

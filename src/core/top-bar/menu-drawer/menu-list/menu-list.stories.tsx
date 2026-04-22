@@ -1,13 +1,13 @@
+import preview from '#.storybook/preview'
 import { TopBarMenuDrawerSubmenu } from '../submenu'
 import { TopBarMenuDrawerMenuList } from './menu-list'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import type { ReactNode } from 'react'
 
 // Placeholder href for all menu items in this story.
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/MenuDrawer/MenuList',
   component: TopBarMenuDrawerMenuList,
   argTypes: {
@@ -21,43 +21,39 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TopBarMenuDrawerMenuList>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'No selected item',
   },
-}
+})
 
 /**
  * If a menu item represents the current page, it should be marked as "selected". See the `TopBar.MenuItem`
  * documentation for details on how.
  */
-export const SelectedItem: Story = {
+export const SelectedItem = meta.story({
   args: {
     children: 'Selected item',
   },
-}
+})
 
 /**
  * Likewise, if a submenu item represents the current page, it should be marked as "selected". This will
  * automatically cause the parent `TopBar.MenuGroup` to be displayed as "selected" itself. See the
  * `TopBar.MenuSubmenuItem` documentation for details on how.
  */
-export const SelectedSubmenuItem: Story = {
+export const SelectedSubmenuItem = meta.story({
   args: {
     children: 'Selected submenu item',
   },
-}
+})
 
 /**
  * When there are multiple sibling menu lists, a border will automatically display between them.
  */
-export const Border: Story = {
+export const Border = meta.story({
   args: {
     children: 'No selected item',
   },
@@ -69,7 +65,7 @@ export const Border: Story = {
       </>
     ),
   ],
-}
+})
 
 function buildMenu(type: 'No selected item' | 'Selected item' | 'Selected submenu item'): ReactNode[] {
   return [

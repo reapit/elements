@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { FocusedLayoutProductLogo, supportedProductLogos } from './product-logo'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/FocusedLayout/ProductLogo',
   component: FocusedLayoutProductLogo,
   argTypes: {
@@ -11,26 +10,22 @@ const meta = {
       options: supportedProductLogos,
     },
   },
-} satisfies Meta<typeof FocusedLayoutProductLogo>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * The default story showcases the ProductLogo component with the Reapit product.
  * The component renders SVG device icons at a consistent 24x24 size.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     product: 'Reapit',
   },
-}
+})
 
 /**
  * This story demonstrates all supported product logos.
  */
-export const AllProducts: StoryObj = {
+export const AllProducts = meta.story({
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', alignItems: 'start', flexDirection: 'row', gap: 'var(--spacing-6)' }}>
@@ -45,4 +40,4 @@ export const AllProducts: StoryObj = {
       ))}
     </>
   ),
-}
+})

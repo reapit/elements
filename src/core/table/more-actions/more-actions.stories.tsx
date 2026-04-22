@@ -1,12 +1,11 @@
+import preview from '#.storybook/preview'
 import { Menu } from '#src/core/menu'
 import { TableRowMoreActions } from './more-actions'
 import { TableRowPrimaryAction } from '../primary-action'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/MoreActions',
   component: TableRowMoreActions,
   argTypes: {
@@ -17,12 +16,9 @@ const meta = {
   parameters: {
     layout: 'centered',
   },
-} satisfies Meta<typeof TableRowMoreActions>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-disabled': false,
     'aria-label': 'More actions for Mary Jane',
@@ -34,7 +30,7 @@ export const Example: Story = {
     ),
     disabled: false,
   },
-}
+})
 
 /**
  * Disabling of the more actions button should generally be avoided as it prevents the menu's actions
@@ -46,12 +42,11 @@ export const Example: Story = {
  * for example, allows tooltips to still be displayed. A `disabled` button is also `aria-disabled`,
  * regardless of the value of `aria-disabled`.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     disabled: true,
   },
-}
+})
 
 /**
  * One of the key features of `Table.MoreActions` is that it ensures the trigger button is layered above
@@ -61,10 +56,7 @@ export const Disabled: Story = {
  * layered above it. This example shows that the more button is still clickable despite the presence
  * of the primary action and its expanded hit area.
  */
-export const Layering: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Layering = Example.extend({
   decorators: [
     (Story) => (
       <div
@@ -81,7 +73,8 @@ export const Layering: Story = {
       </div>
     ),
   ],
+
   parameters: {
     layout: 'padded',
   },
-}
+})

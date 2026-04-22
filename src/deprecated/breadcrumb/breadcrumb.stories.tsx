@@ -1,12 +1,13 @@
+import preview from '#.storybook/preview'
 import { DeprecatedBreadCrumb } from './index'
 
-export default {
+const meta = preview.meta({
   title: 'Deprecated/DeprecatedBreadCrumb',
   component: DeprecatedBreadCrumb,
-}
+})
 
-export const BasicUsage = {
-  render: ({}) => (
+export const BasicUsage = meta.story({
+  render: () => (
     <DeprecatedBreadCrumb
       defaultActiveIndex={3}
       items={[
@@ -29,10 +30,10 @@ export const BasicUsage = {
       ]}
     />
   ),
-}
+})
 
-export const DefaultIndex = {
-  render: ({}) => (
+export const DefaultIndex = meta.story({
+  render: () => (
     <DeprecatedBreadCrumb
       defaultActiveIndex={3}
       items={[
@@ -55,4 +56,4 @@ export const DefaultIndex = {
       ]}
     />
   ),
-}
+})

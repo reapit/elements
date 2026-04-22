@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { StatusIndicator } from './status-indicator'
-
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
 const variants = ['neutral', 'success', 'pending', 'warning', 'danger', 'inactive', 'accent_1', 'accent_2'] as const
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/StatusIndicator',
   component: StatusIndicator,
   argTypes: {
@@ -16,22 +15,16 @@ const meta = {
       options: variants,
     },
   },
-} satisfies Meta<typeof StatusIndicator>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'Status Indicator',
     variant: 'neutral',
   },
-}
+})
 
-export const Variants: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Variants = Example.extend({
   argTypes: {
     children: {
       control: false,
@@ -40,6 +33,7 @@ export const Variants: Story = {
       control: false,
     },
   },
+
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
@@ -47,6 +41,7 @@ export const Variants: Story = {
       </div>
     ),
   ],
+
   render(args) {
     return (
       <>
@@ -56,4 +51,4 @@ export const Variants: Story = {
       </>
     )
   },
-}
+})

@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { AlertBannerOutlet } from './outlet'
 import { AlertBanner } from '../alert-banner'
 import { ErrorIcon } from '#src/icons/error'
@@ -6,10 +7,9 @@ import { Switch } from '#src/core/switch'
 import { useState } from 'react'
 import { WarningIcon } from '#src/icons/warning'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { prioritiseByVariantAndDOMOrder } from './prioritiseByVariantAndDOMOrder'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/AlertBanner/Outlet',
   component: AlertBannerOutlet,
   argTypes: {
@@ -51,38 +51,35 @@ const meta = {
       </div>
     ),
   ],
-} satisfies Meta<typeof AlertBannerOutlet>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Basic example showing a single alert banner within an outlet.
  * When only one banner is present, it will always be displayed.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: 'One',
   },
-}
+})
 
 /**
  * Demonstrates priority-based visibility when multiple banners are present.
  * The outlet automatically shows only the highest priority banner (error > warning > info).
  * In this example, the error banner is displayed while others remain hidden.
  */
-export const Many: Story = {
+export const Many = meta.story({
   args: {
     children: 'Many',
   },
-}
+})
 
 /**
  * Shows how the outlet responds to dynamic changes in banner visibility.
  * Toggle the switches to add or remove banners - the outlet will automatically
  * re-evaluate which banner to display based on priority.
  */
-export const DynamicDisplay: Story = {
+export const DynamicDisplay = meta.story({
   render: () => {
     const [showInfo, setShowInfo] = useState(false)
     const [showWarning, setShowWarning] = useState(false)
@@ -116,7 +113,7 @@ export const DynamicDisplay: Story = {
       </div>
     )
   },
-}
+})
 
 /**
  * Demonstrates how to implement a custom priority function.
@@ -124,7 +121,7 @@ export const DynamicDisplay: Story = {
  * completely overriding the default variant-based priority. The info banner is shown
  * despite an error banner being present, because it has a higher `data-priority` value.
  */
-export const Priority: Story = {
+export const Priority = meta.story({
   args: {
     children: (
       <>
@@ -168,4 +165,4 @@ export const Priority: Story = {
 
     return <AlertBannerOutlet {...args} prioritise={customPriority} />
   },
-}
+})

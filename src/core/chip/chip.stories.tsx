@@ -1,10 +1,10 @@
+import preview from '#.storybook/preview'
 import { Chip } from './chip'
 import { Tooltip } from '#src/core/tooltip'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
 import { useId } from 'react'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Chip',
   component: Chip,
   argTypes: {
@@ -30,13 +30,9 @@ const meta = {
       options: ['filter', 'selection'],
     },
   },
-} satisfies Meta<typeof Chip>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-disabled': false,
     children: 'Label',
@@ -45,29 +41,27 @@ export const Example: Story = {
     overflow: undefined,
     variant: 'filter',
   },
-}
+})
 
 /**
  * The filter chip variant is primarily used in a filter bar to indicate what
  * filters have been applied to a table
  */
-export const FilterChip: Story = {
+export const FilterChip = Example.extend({
   args: {
-    ...Example.args,
     variant: 'filter',
   },
-}
+})
 
 /**
  * The selection chip variant is used in select controls and other similar
  * components to display what selections have been made
  */
-export const SelectionChip: Story = {
+export const SelectionChip = Example.extend({
   args: {
-    ...Example.args,
     variant: 'selection',
   },
-}
+})
 
 /**
  * Chips can be disabled using `aria-disabled` or `disabled`. In both cases,
@@ -76,9 +70,8 @@ export const SelectionChip: Story = {
  * A `disabled` chip is also `aria-disabled`, regardless of the value of
  * `aria-disabled`.
  */
-export const Disabled: Story = {
+export const Disabled = FilterChip.extend({
   args: {
-    ...FilterChip.args,
     'aria-disabled': true,
   },
   render: function DisabledChipStory(args) {
@@ -95,14 +88,13 @@ export const Disabled: Story = {
       </>
     )
   },
-}
+})
 
 /**
  * By default, long labels will wrap if there is not enough space is available.
  */
-export const Wrapping: Story = {
+export const Wrapping = FilterChip.extend({
   args: {
-    ...FilterChip.args,
     children: "This very long label will wrap because it's parent is not wide enough",
   },
   decorators: [
@@ -112,42 +104,39 @@ export const Wrapping: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Line breaks within an otherwise unbreakable string are also permitted to prevent text
  * from overflowing the chip.
  */
-export const LongWords: Story = {
+export const LongWords = Wrapping.extend({
   args: {
-    ...Wrapping.args,
     children: 'Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu, NZ',
   },
-  decorators: Wrapping.decorators,
-}
+  decorators: Wrapping.input.decorators,
+})
 
 /**
  * Truncation is an optional behaviour that can be enabled to prevent the label from
  * wrapping on multiple lines
  */
-export const Truncation: Story = {
+export const Truncation = FilterChip.extend({
   args: {
-    ...FilterChip.args,
     children: 'Truncation can be applied when necessary',
     overflow: 'truncate',
   },
-  decorators: Wrapping.decorators,
-}
+  decorators: Wrapping.input.decorators,
+})
 
 /**
  * In some cases, it may be necessary to limit the width of a chip directly, rather than
  * relying on its parent container.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = FilterChip.extend({
   name: 'Max-width',
   args: {
-    ...FilterChip.args,
     children: 'This chip has its own maximum width constraint',
     maxWidth: '--size-80',
   },
-}
+})

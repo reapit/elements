@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { ChipSelectControl } from './chip-select-control'
 import { ChipSelect } from '#src/core/chip-select'
 import { StarIcon } from '#src/icons/star'
 import { useId } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/ChipSelectControl',
   component: ChipSelectControl,
   argTypes: {
@@ -38,13 +37,9 @@ const meta = {
       </>
     )
   },
-} satisfies Meta<typeof ChipSelectControl>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: [
       <ChipSelect.Option key="1" icon={<StarIcon />} value="1">
@@ -74,35 +69,32 @@ export const Example: Story = {
     required: false,
     size: 'small',
   },
-}
+})
 
 /**
  * Help text can be provided to give additional context about the chip select.
  */
-export const HelpText: Story = {
+export const HelpText = Example.extend({
   args: {
-    ...Example.args,
     helpText: 'Choose your favorite fruit',
   },
-}
+})
 
 /**
  * Chip selects can be marked as required. When they are, a required indicator is automatically shown
  * as part of the chip select's label.
  */
-export const Required: Story = {
+export const Required = Example.extend({
   args: {
-    ...Example.args,
     required: true,
   },
-}
+})
 
 /**
  * An error message can also be provided to explain why the current value is invalid.
  */
-export const Invalid: Story = {
+export const Invalid = Required.extend({
   args: {
-    ...Required.args,
     errorText: 'Error message',
   },
-}
+})

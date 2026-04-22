@@ -1,10 +1,9 @@
+import preview from '#.storybook/preview'
 import { Button } from '#src/core/button/index'
 import { DialogFooter } from './footer'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/Dialog/Footer',
   component: DialogFooter,
   argTypes: {
@@ -26,12 +25,9 @@ const meta = {
       value: 'light',
     },
   },
-} satisfies Meta<typeof DialogFooter>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: (
       <>
@@ -49,15 +45,12 @@ export const Example: Story = {
       </>
     ),
   },
-}
+})
 
 /**
  * The drawer footer actions will expand to equally share space when inside a full-screen dialog.
  */
-export const FullScreen: Story = {
-  args: {
-    ...Example.args,
-  },
+export const FullScreen = Example.extend({
   decorators: [
     (Story) => (
       <div data-size="full-screen">
@@ -65,15 +58,12 @@ export const FullScreen: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * The drawer footer is sticky positioned to the bottom of its parent when it scrolls.
  */
-export const Sticky: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sticky = Example.extend({
   decorators: [
     (Story) => (
       <div
@@ -90,4 +80,4 @@ export const Sticky: Story = {
       </div>
     ),
   ],
-}
+})

@@ -1,7 +1,7 @@
-import { Meta } from '@storybook/react-vite'
+import preview from '#.storybook/preview'
 import { Skeleton } from './skeleton'
 
-const meta: Meta<typeof Skeleton> = {
+const meta = preview.meta({
   title: 'Core/Skeleton',
   component: Skeleton,
   argTypes: {
@@ -18,9 +18,7 @@ const meta: Meta<typeof Skeleton> = {
       description: 'Defines the border-radius of the skeleton.',
     },
   },
-}
-
-export default meta
+})
 
 /**
  * The Skeleton component serves as a visual placeholder that represents the shape and structure of
@@ -30,19 +28,19 @@ export default meta
  * Designed to mimic the dimensions and layout of the final content, the Skeleton component guides users’ expectations,
  * reducing perceived wait times and improving engagement during loading states.
  */
-export const Default = {}
+export const Default = meta.story()
 
-export const SquareSkeleton = {
+export const SquareSkeleton = meta.story({
   args: {
     height: '3rem',
     width: '3rem',
   },
-}
+})
 
-export const CircleSkeleton = {
+export const CircleSkeleton = meta.story({
   args: {
     height: '3rem',
     width: '3rem',
     borderRadius: '100%',
   },
-}
+})

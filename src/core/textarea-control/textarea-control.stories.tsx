@@ -1,8 +1,7 @@
+import preview from '#.storybook/preview'
 import { TextareaControl } from './textarea-control'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/TextareaControl',
   component: TextareaControl,
   argTypes: {
@@ -44,13 +43,9 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TextareaControl>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     defaultValue: '',
     disabled: false,
@@ -70,14 +65,13 @@ export const Example: Story = {
     size: 'medium',
     value: undefined,
   },
-}
+})
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
  */
-export const Sizes: Story = {
+export const Sizes = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: 'Text content',
   },
   argTypes: {
@@ -99,43 +93,40 @@ export const Sizes: Story = {
       <TextareaControl {...args} size="large" />
     </>
   ),
-}
+})
 
 /**
  * Text areas using the `content` field sizing option will resize based on their content. Their size can
  * be constrained to a minimum and/or maximum number of rows using `minRows` and `maxRows`.
  */
-export const ContentSizing: Story = {
+export const ContentSizing = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: 'Type in me! I can dynamically resize between 2 and 8 rows.',
     fieldSizing: 'content',
     maxRows: 8,
     minRows: 2,
   },
-}
+})
 
 /**
  * Similarly, text areas can be set to a fixed number of rows using the `rows` prop.
  */
-export const FixedSizing: Story = {
+export const FixedSizing = Example.extend({
   args: {
-    ...Example.args,
     defaultValue: 'I have a fixed height of 5 rows.',
     fieldSizing: 'fixed',
     rows: 5,
   },
-}
+})
 
 /**
  * Optional help text can be provided to give more context about the textarea.
  */
-export const HelpText: Story = {
+export const HelpText = Example.extend({
   args: {
-    ...Example.args,
     helpText: 'Optional help text',
   },
-}
+})
 
 /**
  * Like all form controls that visually communicate their validity, the textarea will display in an
@@ -146,71 +137,65 @@ export const HelpText: Story = {
  * If `showValidity` is not explicitly provided, the control will show validity based on the presence of
  * `errorText`.
  */
-export const Invalid: Story = {
+export const Invalid = Example.extend({
   args: {
-    ...Example.args,
     errorText: 'Error message',
     required: true,
     showValidity: true,
   },
-}
+})
 
 /**
  * Textareas can be disabled. A disabled textarea will not receive the `click` event, and are not submitted
  * with the form they're associated with.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     disabled: true,
     defaultValue: 'Text',
   },
-}
+})
 
 /**
  * Textareas can be marked as read-only. Unlike disabled textareas, read-only textareas will participate
  * in form submission.
  */
-export const Readonly: Story = {
+export const Readonly = Example.extend({
   name: 'Read-only',
   args: {
-    ...Example.args,
     readOnly: true,
     defaultValue: 'Text',
   },
-}
+})
 
 /**
  * Placeholder text can be provided to help users understand what the textarea is for. This is typically
  * used when the textarea has no visual label.
  */
-export const Placeholder: Story = {
+export const Placeholder = Example.extend({
   args: {
-    ...Example.args,
     placeholder: 'Enter your comments here...',
   },
-}
+})
 
 /**
  * By default, text areas will fill their parent's width. This can be constrained by providing a `maxWidth`.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Example.extend({
   name: 'Max-width',
   args: {
-    ...Example.args,
     maxWidth: 'var(--size-64)',
     defaultValue: 'Text',
   },
-}
+})
 
 /**
  * The label, help text and error text will all wrap naturally when the form control does not have sufficient
  * space available for them.
  */
-export const Wrapping: Story = {
+export const Wrapping = MaxWidth.extend({
   args: {
-    ...MaxWidth.args,
     label: 'This is a long label that will not fit on a single line',
     helpText: 'This is a long optional help text that will not fit on a single line',
   },
-}
+})

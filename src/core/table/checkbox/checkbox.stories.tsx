@@ -1,11 +1,11 @@
+import preview from '#.storybook/preview'
 import { TableCellCheckbox } from './checkbox'
 import { useArgs } from 'storybook/preview-api'
 import { useEffect, useRef } from 'react'
 
 import type { ChangeEventHandler } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/Checkbox',
   component: TableCellCheckbox,
   argTypes: {
@@ -21,10 +21,7 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TableCellCheckbox>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * The checkbox is designed to fill its parent container. In the case of tables, this should mean it will
@@ -37,7 +34,7 @@ type Story = StoryObj<typeof meta>
  * [the No Padding story for Table.HeaderCell](./?path=/story/core-table-headercell--no-padding) for
  * examples on how to do this.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-label': 'Select 10 Hay St, Melbourne 3100',
     checked: undefined,
@@ -53,7 +50,7 @@ export const Example: Story = {
     }
     return <TableCellCheckbox {...args} onChange={updateSortDirection} />
   },
-}
+})
 
 /**
  * While it does not support an indeterminate prop that can be controlled by consumers, the checkbox
@@ -62,10 +59,7 @@ export const Example: Story = {
  * Like any native checkbox, this state can be activated by setting the input element's `indeterminate`
  * property programmatically.
  */
-export const Indeterminate: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Indeterminate = Example.extend({
   render: (args) => {
     const inputRef = useRef<HTMLInputElement>(null)
     useEffect(() => {
@@ -75,4 +69,4 @@ export const Indeterminate: Story = {
     }, [])
     return <TableCellCheckbox {...args} ref={inputRef} />
   },
-}
+})

@@ -1,11 +1,12 @@
+import preview from '#.storybook/preview'
 import { ChipSelect } from './chip-select'
 import { StarIcon } from '#src/icons/star'
 import { useId, useState } from 'react'
 
 import type { ChangeEventHandler } from 'react'
-import type { Decorator, Meta, StoryObj } from '@storybook/react-vite'
+import type { Decorator } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/ChipSelect',
   component: ChipSelect,
   argTypes: {
@@ -25,10 +26,7 @@ const meta = {
       </>
     )
   },
-} satisfies Meta<typeof ChipSelect>
-
-export default meta
-type Story = StoryObj<typeof meta>
+})
 
 const useNarrowParentDecorator: Decorator = (Story) => {
   return (
@@ -48,7 +46,7 @@ const useNarrowParentDecorator: Decorator = (Story) => {
  * as filters for a list or when integrated with controlled form state management libraries like Formik,
  * this single-select behaviour must be facilitated by the consumer.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: [
       <ChipSelect.Option key="1" icon={<StarIcon />} value="1">
@@ -77,20 +75,19 @@ export const Example: Story = {
     overflow: 'visible',
     size: 'small',
   },
-}
+})
 
 /**
  * Multi-select behaviour (like a standard checkbox group) can be enabled using `multiple`. This
  * behaviour will typically work out-of-the-box with any form state management library, whether it takes
  * a controlled (e.g. Formik) or uncontrolled (e.g. React Hook Form) approach.
  */
-export const MultiSelect: Story = {
+export const MultiSelect = Example.extend({
   name: 'Multi-select',
   args: {
-    ...Example.args,
     multiple: true,
   },
-}
+})
 
 /**
  * Since chips are native checkbox elements (`<input type="checkbox">`), their checked state can be
@@ -110,12 +107,10 @@ export const MultiSelect: Story = {
  * and [React Hook Form](https://codesandbox.io/p/sandbox/strange-lederberg-thzzwv)
  * are also available.
  */
-export const Controlled: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Controlled = Example.extend({
   argTypes: { children: { control: false } },
   parameters: { docs: { source: { type: 'code' } } },
+
   render: () => {
     // Our controlled state. We start with the option whose value is "1" checked.
     const [state, setState] = useState(['1'])
@@ -140,53 +135,47 @@ export const Controlled: Story = {
       </ChipSelect>
     )
   },
-}
+})
 
 /**
  * By default, chips will wrap to other lines if there is insufficient space.
  */
-export const Wrapping: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Wrapping = Example.extend({
   decorators: [useNarrowParentDecorator],
-}
+})
 
 /**
  * The default wrapping behaviour can be overridden using `flow="nowrap"`. This can be useful at
  * small breakpoints where the chip group should not occupy too much vertical space.
  */
-export const NoWrapping: Story = {
+export const NoWrapping = Example.extend({
   args: {
-    ...Example.args,
     flow: 'nowrap',
   },
   decorators: [useNarrowParentDecorator],
-}
+})
 
 /**
  * When wrapping is disabled, it will often be useful to allow the chip group to scroll horizontally.
  */
-export const Overflow: Story = {
+export const Overflow = NoWrapping.extend({
   args: {
-    ...NoWrapping.args,
     overflow: 'auto',
   },
   decorators: [useNarrowParentDecorator],
-}
+})
 
 /**
  * Whether wrapping or scrolling is used, chips will size themselves appropriately based on the
  * length of their label.
  */
-export const ChipSizing: Story = {
+export const ChipSizing = Example.extend({
   argTypes: {
     children: {
       control: false,
     },
   },
   args: {
-    ...Example.args,
     children: [
       <ChipSelect.Option key="1" icon={<StarIcon />} value="1">
         Chip 1
@@ -216,7 +205,8 @@ export const ChipSizing: Story = {
         Taumatawhakatangihangakoauauotamateaturipukakapikimaungahoronukupokaiwhenuakitanatahu, NZ
       </ChipSelect.Option>,
     ],
+
     flow: 'wrap',
   },
   decorators: [useNarrowParentDecorator],
-}
+})

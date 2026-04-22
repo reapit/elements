@@ -1,3 +1,4 @@
+import preview from '#.storybook/preview'
 import { Avatar } from '#src/core/avatar'
 import { Menu } from '#src/core/menu'
 import { TableBody } from './body'
@@ -9,11 +10,9 @@ import { TableRowPrimaryAction } from '../primary-action'
 import { TableRowMoreActions } from '../more-actions'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
 const href = '#'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Table/Body',
   component: TableBody,
   argTypes: {
@@ -41,18 +40,15 @@ const meta = {
       },
     },
   },
-} satisfies Meta<typeof TableBody>
+})
 
-export default meta
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     as: 'tbody',
     children: 'Double-line',
   },
   decorators: [useTableDecorator('body', 'min-content 1fr 1fr 1fr min-content')],
-}
+})
 
 /**
  * Sometimes it may be necessary to render the table row as a plain `<div>`. Providing
@@ -63,7 +59,7 @@ export const Example: Story = {
  * Care must also be taken to ensure the descendant cells are also rendered as `<div>` elements,
  * possibly with explicit ARIA roles as well.
  */
-export const Divs: Story = {
+export const Divs = meta.story({
   args: {
     as: 'div',
     children: (
@@ -79,7 +75,7 @@ export const Divs: Story = {
       control: false,
     },
   },
-}
+})
 
 function buildRows(type: 'single-line' | 'double-line') {
   switch (type) {

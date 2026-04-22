@@ -1,51 +1,44 @@
+import preview from '#.storybook/preview'
 import { TopBarMenuDrawerSubmenuItem } from './submenu-item'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/MenuDrawer/SubmenuItem',
   component: TopBarMenuDrawerSubmenuItem,
-} satisfies Meta<typeof TopBarMenuDrawerSubmenuItem>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     'aria-current': false,
     children: 'Profile',
     hasBadge: false,
     href: '/settings/profile',
   },
-}
+})
 
 /**
  * If the submenu item represents the current page, `aria-current` should be provided.
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     'aria-current': 'page',
   },
-}
+})
 
 /**
  * A notification badge can be displayed using `hasBadge`.
  */
-export const Badge: Story = {
+export const Badge = Example.extend({
   args: {
-    ...Example.args,
     hasBadge: true,
   },
-}
+})
 
 /**
  * Submenu items should have concise labels. In cases where the label is too long, it will truncate.
  * Care should be taken to ensure this does not happen.
  */
-export const Truncation: Story = {
+export const Truncation = Example.extend({
   args: {
-    ...Example.args,
     children: 'All your base are belong to me',
   },
   decorators: [
@@ -55,4 +48,4 @@ export const Truncation: Story = {
       </div>
     ),
   ],
-}
+})

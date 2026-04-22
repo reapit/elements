@@ -1,9 +1,9 @@
+import preview from '#.storybook/preview'
 import { Select } from './select'
 import { SupplementaryInfo } from '../supplementary-info'
 import { useId } from 'react'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/Select',
   component: Select,
   argTypes: {
@@ -15,16 +15,12 @@ const meta = {
       options: ['small', 'medium', 'large'],
     },
   },
-} satisfies Meta<typeof Select>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Demonstrates a single-select Select.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: [
       <Select.Button key="button" />,
@@ -48,7 +44,7 @@ export const Example: Story = {
     showValidity: false,
     size: 'medium',
   },
-}
+})
 
 /**
  * Use `variant="borderless"` on `Select.Button` when embedding the select in a surface that
@@ -56,9 +52,8 @@ export const Example: Story = {
  * border-based validity styling; when `showValidity` is enabled, validity may still be
  * reflected via background in accordance with the underlying `Combobox` styling.
  */
-export const Borderless: Story = {
+export const Borderless = Example.extend({
   args: {
-    ...Example.args,
     children: [
       <Select.Button key="button" variant="borderless" />,
       <Select.Popup key="popup">
@@ -76,15 +71,14 @@ export const Borderless: Story = {
       </Select.Popup>,
     ],
   },
-}
+})
 
 /**
  * Options can be grouped using the `CompactSelect.Optgroup`. Groups should always be separated
  * by a `CompactSelect.Divider`.
  */
-export const Groups: Story = {
+export const Groups = Example.extend({
   args: {
-    ...Example.args,
     children: [
       <Select.Button key="button" />,
       <Select.Popup key="popup">
@@ -103,17 +97,17 @@ export const Groups: Story = {
         </Select.Listbox>
       </Select.Popup>,
     ],
+
     id: 'groups-example',
   },
-}
+})
 
 /**
  * Demonstrates a multi-select that lets users choose multiple preloaded options.
  */
-export const MultiSelect: Story = {
+export const MultiSelect = Example.extend({
   name: 'Multi-select',
   args: {
-    ...Example.args,
     id: 'multi-select-example',
     multiple: true,
   },
@@ -151,7 +145,7 @@ export const MultiSelect: Story = {
       </Select.DefaultOptionsContext.Provider>
     )
   },
-}
+})
 
 /**
  * When the select has one or more initial selections, the label text for those options must
@@ -160,32 +154,29 @@ export const MultiSelect: Story = {
  * This wire up can be done manually via each component's prop interface or automatically through
  * `Select.DefaultOptionsContext`.
  */
-export const DefaultOptions: Story = {
+export const DefaultOptions = MultiSelect.extend({
   args: {
-    ...MultiSelect.args,
     id: 'default-options-example',
   },
-  render: MultiSelect.render,
   parameters: {
-    docs: { story: { source: 'code' } },
+    docs: { source: { type: 'code' } },
     defaultOptions: [
       { label: 'Banana', value: 'banana' },
       { label: 'Blueberry', value: 'blueberry' },
     ],
   },
-}
+})
 
 /**
  * Single-select selects can display a card with dynamic content by providing `selectionStyle="card"`
  * and a `children` render-prop to `Select.Button`.
  */
-export const SelectionCard: Story = {
+export const SelectionCard = Example.extend({
   args: {
-    ...Example.args,
     id: 'selection-card-example',
   },
   parameters: {
-    docs: { story: { source: 'code' } },
+    docs: { source: { type: 'code' } },
   },
   render: (args) => {
     return (
@@ -223,7 +214,7 @@ export const SelectionCard: Story = {
       </Select>
     )
   },
-}
+})
 
 const descriptions = {
   apple: 'Crunchy and juicy',

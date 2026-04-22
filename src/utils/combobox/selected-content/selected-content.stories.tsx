@@ -1,11 +1,10 @@
+import preview from '#.storybook/preview'
 import { ComboboxSelectedContent } from './selected-content'
 import { Listbox } from '#src/utils/listbox'
 import { Text } from '#src/utils/text'
 import { useId, useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Utils/Combobox/SelectedContent',
   component: ComboboxSelectedContent,
   argTypes: {
@@ -63,32 +62,27 @@ const meta = {
       )
     },
   ],
-} satisfies Meta<typeof ComboboxSelectedContent>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Displays selection chips for selected options in a listbox. These examples use `Listbox` directly
  * rather than `Combobox` for simplicity.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     defaultOptions: undefined,
     listboxId: 'listbox-id',
   },
-}
+})
 
 /**
  * An initial state must be provided for selection chips to be displayed on first render
  * when the listbox options are not immediately present in the DOM, such as when filtering
  * is applied or the options are loaded asynchronously.
  */
-export const DefaultOptions: Story = {
+export const DefaultOptions = Example.extend({
   name: 'Default options',
   args: {
-    ...Example.args,
     defaultOptions: [{ label: 'Orange', value: 'orange' }],
     listboxId: 'default-options-example',
   },
@@ -96,7 +90,7 @@ export const DefaultOptions: Story = {
     enableFiltering: true,
     initialFilter: 'Apple',
   },
-}
+})
 
 /**
  * Selected content renders automatically without `children`. To customise how the content is rendered,
@@ -105,9 +99,8 @@ export const DefaultOptions: Story = {
  *
  * The default options specified in this example are also provided to the demo listbox.
  */
-export const Children: Story = {
+export const Children = Example.extend({
   args: {
-    ...Example.args,
     children: (option) => {
       return (
         <Text colour="error" font="text-base/medium">
@@ -115,10 +108,11 @@ export const Children: Story = {
         </Text>
       )
     },
+
     defaultOptions: [{ label: 'Orange', value: 'orange' }],
     listboxId: 'children-example',
   },
-}
+})
 
 /** Simple custom listbox option component */
 function MyListboxOption(props: Listbox.OptionProps) {

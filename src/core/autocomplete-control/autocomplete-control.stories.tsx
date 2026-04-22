@@ -1,9 +1,8 @@
+import preview from '#.storybook/preview'
 import { AutocompleteControl } from './autocomplete-control'
 import { useState } from 'react'
 
-import type { Meta, StoryObj } from '@storybook/react-vite'
-
-const meta = {
+const meta = preview.meta({
   title: 'Core/AutocompleteControl',
   component: AutocompleteControl,
   argTypes: {
@@ -63,16 +62,12 @@ const meta = {
       </AutocompleteControl>
     )
   },
-} satisfies Meta<typeof AutocompleteControl>
-
-export default meta
-
-type Story = StoryObj<typeof meta>
+})
 
 /**
  * Demonstrates a basic autocomplete with label and form control wrapper.
  */
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: null, // handled by meta.render function
     disabled: false,
@@ -86,35 +81,33 @@ export const Example: Story = {
     size: 'medium',
   },
   parameters: { docs: { source: { type: 'code' } } },
-}
+})
 
 /**
  * When the autocomplete has one or more options initially selected, the control must be provided with
  * `defaultOptions` that define the label text to use for those options.
  */
-export const DefaultOptions: Story = {
+export const DefaultOptions = Example.extend({
   args: {
-    ...Example.args,
     defaultOptions: [
       { label: 'Apple', value: 'apple' },
       { label: 'Banana', value: 'banana' },
     ],
+
     multiple: true,
   },
-}
+})
 
 /**
  * There are three sizes available: `small`, `medium` and `large`.
  */
-export const Sizes: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Sizes = Example.extend({
   argTypes: {
     size: {
       control: false,
     },
   },
+
   decorators: [
     (Story, { args }) => (
       <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
@@ -124,17 +117,16 @@ export const Sizes: Story = {
       </div>
     ),
   ],
-}
+})
 
 /**
  * Optional help text can be provided to give more context about the autocompleteControl.
  */
-export const HelpText: Story = {
+export const HelpText = Example.extend({
   args: {
-    ...Example.args,
     helpText: 'Choose your favorite fruit',
   },
-}
+})
 
 /**
  * Like all form controls that visually communicate their validity, the autocomplete will display in an
@@ -145,56 +137,49 @@ export const HelpText: Story = {
  * If `showValidity` is not explicitly provided, the control will show validity based on the presence of
  * `errorText`.
  */
-export const Invalid: Story = {
+export const Invalid = Example.extend({
   args: {
-    ...Example.args,
     errorText: 'Please select a fruit',
     required: true,
     showValidity: true,
   },
-}
+})
 
 /**
  * Autocompletes can be disabled. A disabled autocomplete will not receive interaction events.
  */
-export const Disabled: Story = {
+export const Disabled = Example.extend({
   args: {
-    ...Example.args,
     disabled: true,
   },
-}
+})
 
 /**
  * By default, autocompletes will fill their parent's width. This can be constrained by providing a `maxWidth`.
  */
-export const MaxWidth: Story = {
+export const MaxWidth = Example.extend({
   name: 'Max-width',
   args: {
-    ...Example.args,
     maxWidth: 'var(--size-64)',
   },
-}
+})
 
 /**
  * The label, help text and error text will all wrap naturally when the form control does not have sufficient
  * space available for them.
  */
-export const Wrapping: Story = {
+export const Wrapping = MaxWidth.extend({
   args: {
-    ...MaxWidth.args,
     label: 'This is a long label that will not fit on a single line',
     helpText: 'This is a long optional help text that will not fit on a single line',
   },
-}
+})
 
 /**
  * Autocompletes can be used in forms. The name prop is required for the control to participate
  * in form submission.
  */
-export const Forms: Story = {
-  args: {
-    ...Example.args,
-  },
+export const Forms = Example.extend({
   decorators: [
     (Story) => (
       <form
@@ -210,7 +195,7 @@ export const Forms: Story = {
       </form>
     ),
   ],
-}
+})
 
 interface FruitOption {
   label: string

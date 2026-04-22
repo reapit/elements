@@ -1,9 +1,9 @@
+import preview from '#.storybook/preview'
 import { TopBarMenuDrawerMenuGroup } from './menu-group'
 import { TopBarMenuDrawerMenuGroupSummary } from './menu-group-summary'
 import { TopBarMenuDrawerSubmenu } from '../submenu'
-import type { Meta, StoryObj } from '@storybook/react-vite'
 
-const meta = {
+const meta = preview.meta({
   title: 'Core/TopBar/MenuDrawer/MenuGroup',
   component: TopBarMenuDrawerMenuGroup,
   argTypes: {
@@ -14,13 +14,9 @@ const meta = {
       control: false,
     },
   },
-} satisfies Meta<typeof TopBarMenuDrawerMenuGroup>
+})
 
-export default meta
-
-type Story = StoryObj<typeof meta>
-
-export const Example: Story = {
+export const Example = meta.story({
   args: {
     children: (
       <TopBarMenuDrawerSubmenu>
@@ -34,7 +30,7 @@ export const Example: Story = {
     ),
     summary: <TopBarMenuDrawerMenuGroupSummary>Settings</TopBarMenuDrawerMenuGroupSummary>,
   },
-}
+})
 
 /**
  * When a submenu item within the group represents the current page, it should have an `aria-current="page"`
@@ -44,9 +40,8 @@ export const Example: Story = {
  *
  * Importantly, a group with an submenu item representing the current page should not be closable.
  */
-export const Selected: Story = {
+export const Selected = Example.extend({
   args: {
-    ...Example.args,
     children: (
       <TopBarMenuDrawerSubmenu>
         <TopBarMenuDrawerSubmenu.Item href="/settings/profile" aria-current="page">
@@ -58,26 +53,24 @@ export const Selected: Story = {
       </TopBarMenuDrawerSubmenu>
     ),
   },
-}
+})
 
 /**
  * When a menu group needs to be open and visually active but no submenu item within a group can be uniquely identified
  * as representing the current page, the group can be forced open via the `isActive` prop.
  */
-export const ManuallyActive: Story = {
+export const ManuallyActive = Example.extend({
   args: {
-    ...Example.args,
     isActive: true,
   },
-}
+})
 
 /**
  * If an item within the group has a notification badge, a badge can also be displayed on the group
  * summary when closed. The summary's badge will automatically hide when the group is expanded.
  */
-export const Badge: Story = {
+export const Badge = Example.extend({
   args: {
-    ...Example.args,
     children: (
       <TopBarMenuDrawerSubmenu>
         <TopBarMenuDrawerSubmenu.Item hasBadge href="/settings/profile" aria-current={false}>
@@ -88,17 +81,17 @@ export const Badge: Story = {
         </TopBarMenuDrawerSubmenu.Item>
       </TopBarMenuDrawerSubmenu>
     ),
+
     summary: <TopBarMenuDrawerMenuGroupSummary hasBadge>Settings</TopBarMenuDrawerMenuGroupSummary>,
   },
-}
+})
 
 /**
  * Menu groups should have concise labels. In cases where the label is too long, it will truncate.
  * Care should be taken to ensure this does not happen.
  */
-export const Truncation: Story = {
+export const Truncation = Badge.extend({
   args: {
-    ...Badge.args,
     summary: (
       <TopBarMenuDrawerMenuGroupSummary hasBadge>All your base are belong to me</TopBarMenuDrawerMenuGroupSummary>
     ),
@@ -110,4 +103,4 @@ export const Truncation: Story = {
       </div>
     ),
   ],
-}
+})
