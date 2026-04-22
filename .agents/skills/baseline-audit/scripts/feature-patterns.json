@@ -1,0 +1,214 @@
+[
+  {
+    "name": "CSS anchor positioning",
+    "webFeaturesKey": "anchor-positioning",
+    "category": "css",
+    "patterns": ["anchor-name", "position-anchor", "anchor\\(", "position-try", "@position-try", "position-area"],
+    "include": "*.{ts,tsx,css}",
+    "knownPolyfill": "@oddbird/css-anchor-positioning"
+  },
+  {
+    "name": ":has() selector",
+    "webFeaturesKey": "has",
+    "category": "css",
+    "patterns": [":has\\("],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "Container queries",
+    "webFeaturesKey": "container-queries",
+    "category": "css",
+    "patterns": ["@container", "container-type", "container-name"],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "Scroll-state container queries",
+    "webFeaturesKey": "container-scroll-state-queries",
+    "category": "css",
+    "patterns": ["container-type:\\s*scroll-state", "scroll-state\\("],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "@scope",
+    "webFeaturesKey": "scope",
+    "category": "css",
+    "patterns": ["@scope\\b"],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "@starting-style",
+    "webFeaturesKey": "starting-style",
+    "category": "css",
+    "patterns": ["@starting-style"],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "text-wrap: balance",
+    "webFeaturesKey": "text-wrap-balance",
+    "category": "css",
+    "patterns": ["text-wrap:\\s*balance"],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "text-wrap: pretty",
+    "webFeaturesKey": "text-wrap-pretty",
+    "category": "css",
+    "patterns": ["text-wrap:\\s*pretty"],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "field-sizing",
+    "webFeaturesKey": "field-sizing",
+    "category": "css",
+    "patterns": ["field-sizing"],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "Subgrid",
+    "webFeaturesKey": "subgrid",
+    "category": "css",
+    "patterns": ["subgrid"],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "CSS nesting",
+    "webFeaturesKey": "nesting",
+    "category": "css",
+    "patterns": ["^\\s*&"],
+    "include": "*.css",
+    "notes": "Only relevant in plain .css files. CSS-in-JS nesting is handled by the runtime."
+  },
+  {
+    "name": "color-mix()",
+    "webFeaturesKey": "color-mix",
+    "category": "css",
+    "patterns": ["color-mix\\("],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "oklch()",
+    "webFeaturesKey": "oklch",
+    "category": "css",
+    "patterns": ["oklch\\("],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "oklab()",
+    "webFeaturesKey": "oklab",
+    "category": "css",
+    "patterns": ["oklab\\("],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "light-dark()",
+    "webFeaturesKey": "light-dark",
+    "category": "css",
+    "patterns": ["light-dark\\("],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "@property",
+    "webFeaturesKey": "at-property",
+    "category": "css",
+    "patterns": ["@property\\s"],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "View transitions",
+    "webFeaturesKey": "view-transitions",
+    "category": "css",
+    "patterns": ["view-transition-name", "::view-transition", "startViewTransition"],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": ":popover-open",
+    "webFeaturesKey": "popover",
+    "category": "css",
+    "patterns": [":popover-open"],
+    "include": "*.{ts,tsx,css}"
+  },
+  {
+    "name": "Popover API",
+    "webFeaturesKey": "popover",
+    "category": "html",
+    "patterns": ["popover=", "popover:", "popovertarget", "popovertargetaction"],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "Popover JS API",
+    "webFeaturesKey": "popover",
+    "category": "js",
+    "patterns": ["\\.showPopover\\(", "\\.hidePopover\\(", "\\.togglePopover\\("],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "Popover hint",
+    "webFeaturesKey": "popover-hint",
+    "category": "html",
+    "patterns": ["popover.*hint"],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "Dialog element",
+    "webFeaturesKey": "dialog",
+    "category": "html",
+    "patterns": ["<dialog"],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "Invoker commands",
+    "webFeaturesKey": "invoker-commands",
+    "category": "html",
+    "patterns": ["command=", "commandfor=", "command:", "commandFor"],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "Array.toSorted",
+    "webFeaturesKey": "array-to-sorted",
+    "category": "js",
+    "patterns": ["\\.toSorted\\("],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "Array.toReversed",
+    "webFeaturesKey": "array-to-reversed",
+    "category": "js",
+    "patterns": ["\\.toReversed\\("],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "Object.groupBy",
+    "webFeaturesKey": "object-groupby",
+    "category": "js",
+    "patterns": ["Object\\.groupBy\\(", "Map\\.groupBy\\("],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "URL.canParse",
+    "webFeaturesKey": "url-canparse",
+    "category": "js",
+    "patterns": ["URL\\.canParse\\("],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "Promise.withResolvers",
+    "webFeaturesKey": "promise-with-resolvers",
+    "category": "js",
+    "patterns": ["Promise\\.withResolvers\\("],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "structuredClone",
+    "webFeaturesKey": "structured-clone",
+    "category": "js",
+    "patterns": ["structuredClone\\("],
+    "include": "*.{ts,tsx}"
+  },
+  {
+    "name": "requestIdleCallback",
+    "webFeaturesKey": "requestidlecallback",
+    "category": "js",
+    "patterns": ["requestIdleCallback\\("],
+    "include": "*.{ts,tsx}"
+  }
+]
