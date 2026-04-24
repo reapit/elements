@@ -27,6 +27,7 @@ public/dist
 storybook-static
 .storybook/preview.d.ts
 .storybook/preview.d.ts.map
+.storybook/certs/
 
 # Linaria
 .linaria-cache
@@ -74,7 +75,9 @@ Thumbs.db
 # AWS CDK
 cdk.out
 
-# Git worktrees
+# Worktrees
+.claude/worktrees/
+.opencode/worktrees/
 .worktrees/
 
 # Exceptions
