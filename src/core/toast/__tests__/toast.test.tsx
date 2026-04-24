@@ -74,16 +74,6 @@ test('renders the timeout bar when duration is provided', () => {
   expect(container.querySelector(`.${elToastTimeoutBar}`)).not.toBeNull()
 })
 
-test('sets the --toast-duration CSS custom property when duration is provided', () => {
-  render(
-    <Toast variant="success" duration={3000} data-testid="toast">
-      Message
-    </Toast>,
-  )
-  const toast = screen.getByTestId('toast')
-  expect(toast.style.getPropertyValue('--toast-duration')).toBe('3000ms')
-})
-
 test('does not render the timeout bar when duration is omitted', () => {
   const { container } = render(<Toast variant="neutral">Message</Toast>)
   expect(container.querySelector(`.${elToastTimeoutBar}`)).toBeNull()

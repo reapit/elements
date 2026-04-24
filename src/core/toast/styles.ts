@@ -104,5 +104,7 @@ export const ElToastTimeoutBarProgress = styled.div`
     }
   }
 
-  animation: toast-fill var(--toast-duration) linear forwards;
+  animation-name: toast-fill;
+  animation-timing-function: linear;
+  animation-fill-mode: forwards;
 `

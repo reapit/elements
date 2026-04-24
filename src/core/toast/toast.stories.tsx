@@ -61,6 +61,7 @@ export const Truncation = Example.extend({
   args: {
     children:
       'This is a much longer message that is intended to exceed the two-line limit so that the truncation behaviour can be observed in the story.',
+    variant: 'info',
   },
 })
 
@@ -79,16 +80,33 @@ export const MaxWidth = Example.extend({
   args: {
     children:
       'This message demonstrates how the toast shrinks to fit a narrower container rather than overflowing beyond its boundaries.',
+    variant: 'error',
   },
 })
 
 /**
  * When a `duration` is provided (in milliseconds), a progress bar animates from zero to
  * full width. The animation is purely visual — DOM removal is the responsibility of the
- * toast provider.
+ * consumer.
  */
 export const TimeoutBar = Example.extend({
   args: {
     duration: 5000,
+    variant: 'warning',
+  },
+})
+
+/**
+ * When `isPaused` is `true`, the timeout bar animation is frozen in place.
+ * Particularly useful for consumers when they're responding to page visibility
+ * changes or user interactions that should pause the toast timeout.
+ *
+ * Here the bar is seeded halfway through a 10-second duration via `elapsed`.
+ */
+export const Paused = TimeoutBar.extend({
+  args: {
+    duration: 10000,
+    elapsed: 5000,
+    isPaused: true,
   },
 })

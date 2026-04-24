@@ -5,6 +5,7 @@ import { DrawerFooter } from './footer'
 import { DrawerHeader } from './header'
 import { elDrawer } from './styles'
 import { HTMLDialog, getClosestDialogElement, useDialogOpenController, useDialogOpenState } from '#src/utils/dialog'
+import { ToastOutlet } from '#src/core/toaster'
 import { useId } from 'react'
 
 import type { DialogHTMLAttributes, ReactNode } from 'react'
@@ -98,6 +99,7 @@ export function Drawer({
          */}
         {isOpen && children}
       </DrawerContext.Provider>
+      {isOpen && <ToastOutlet />}
     </HTMLDialog>
   )
 }

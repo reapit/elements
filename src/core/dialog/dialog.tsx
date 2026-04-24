@@ -5,6 +5,7 @@ import { DialogFooter } from './footer'
 import { DialogHeader } from './header'
 import { elDialog } from './styles'
 import { HTMLDialog, getClosestDialogElement, useDialogOpenController, useDialogOpenState } from '#src/utils/dialog'
+import { ToastOutlet } from '#src/core/toaster'
 import { useId } from 'react'
 
 import type { DialogHTMLAttributes, ReactNode } from 'react'
@@ -99,6 +100,7 @@ export function Dialog({
          */}
         {isOpen && children}
       </DialogContext.Provider>
+      {isOpen && <ToastOutlet />}
     </HTMLDialog>
   )
 }

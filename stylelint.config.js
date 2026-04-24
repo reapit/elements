@@ -20,6 +20,9 @@ export default {
           'css-scrollbar',
           // Touch devices have no cursor, so custom cursor values have no effect on iOS Safari.
           'css3-cursors',
+          // touch-action is used as a progressive enhancement to prevent page scroll during swipe
+          // gestures. iOS Safari ignores it, but the interaction degrades gracefully without it.
+          'css-touch-action',
         ],
       },
     ],
