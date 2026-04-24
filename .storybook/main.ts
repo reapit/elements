@@ -15,5 +15,8 @@ export default defineMain({
     // The default, react-docgen, does not support namespace-based prop types. So we use
     // react-docgen-typescript instead to ensure the arg types are properly extracted.
     reactDocgen: 'react-docgen-typescript',
+    reactDocgenTypescriptOptions: {
+      exclude: ['.storybook/preview.tsx'],
+    },
   },
 })
