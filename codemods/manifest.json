@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-04-02T02:20:45.582Z",
+  "generated": "2026-04-27T03:09:02.755Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -17,6 +17,10 @@
     {
       "name": "replace-deprecated-pagination",
       "description": "Replaces DeprecatedPagination and DeprecatedPaginationProps with Pagination and Pagination.Props"
+    },
+    {
+      "name": "replace-deprecated-snack",
+      "description": "Migrates deprecated Snack, SnackHolder, SnackProvider, and useSnack to the Toaster system"
     },
     {
       "name": "replace-deprecated-toggle",
