@@ -1,5 +1,17 @@
 # @reapit/elements
 
+## 5.0.0-beta.92
+
+### Minor Changes
+
+- **[Added]** `replace-deprecated-snack` codemod. Migrates `SnackProvider`, `useSnack`, `Snack`, `SnackHolder`, and related exports to the `Toaster` and `toast` API from `@reapit/elements/core/toaster`. Supports facade packages via `--facade-package`. ([#1317](https://github.com/reapit-global/gbl-ds-elements/pull/1317))
+
+- **[Added]** `Toast` component. A presentation-only notification supporting `error`, `info`, `neutral`, `success`, and `warning` variants with an optional animated timeout bar. ([#1307](https://github.com/reapit-global/gbl-ds-elements/pull/1307))
+
+- **[Added]** `children` prop to `Toaster`, allowing it to wrap application content in the same way as the deprecated `SnackProvider`. ([#1317](https://github.com/reapit-global/gbl-ds-elements/pull/1317))
+
+- **[Added]** `Toaster` component with `toast()` imperative API for displaying timed, dismissible toast notifications. Supports swipe-to-dismiss, auto-dismiss with configurable duration, and page-visibility-aware timer pausing. ([#1311](https://github.com/reapit-global/gbl-ds-elements/pull/1311))
+
 ## 5.0.0-beta.91
 
 ### Patch Changes
