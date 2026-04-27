@@ -288,3 +288,32 @@ export const LinkStyle = Icons.extend({
     variant: 'tertiary',
   },
 })
+
+/**
+ * `AnchorButton` is identical to `Button`, except it renders as an `<a>` element, which allows consumers to navigate
+ * users to other pages using an element with the correct semantics.
+ *
+ * Importantly, anchor elements do not support the `disabled` prop; to disable an anchor-based button, use
+ * `aria-disabled="true"` instead.
+ */
+export const Anchors = meta.story({
+  args: {
+    'aria-disabled': false,
+    children: 'Anchor button',
+    hasNoPadding: false,
+    iconLeft: 'Star',
+    iconRight: 'Star',
+    isBusy: false,
+    isDestructive: false,
+    href: '#',
+    size: 'medium',
+    useLinkStyle: false,
+    variant: 'primary',
+  },
+  argTypes: {
+    disabled: {
+      table: { disable: true },
+    },
+  },
+  render: (args) => <AnchorButton {...(args as unknown as AnchorButton.Props)} />,
+})

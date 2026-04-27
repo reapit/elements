@@ -1,11 +1,13 @@
 import preview from '#.storybook/preview'
 import { GalleryViewerThumbnail } from './thumbnail'
+import { GalleryViewerThumbnailButton } from './thumbnail-button'
 
 const EXAMPLE_IMAGE_SRC = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=176&h=112&fit=crop'
 
 const meta = preview.meta({
   title: 'Core/GalleryViewer/Thumbnail',
   component: GalleryViewerThumbnail,
+  subcomponents: { ThumbnailButton: GalleryViewerThumbnailButton },
   argTypes: {
     'aria-current': {
       control: 'radio',
@@ -64,4 +66,40 @@ export const Fallback = Example.extend({
   args: {
     src: 'https://invalid.example/does-not-exist.jpg',
   },
+})
+
+/**
+ * `GalleryViewer.ThumbnailButton` renders as a `<button>` element and uses
+ * `aria-pressed` to convey the selected state. Use this variant when managing
+ * selection via a click handler rather than URL navigation.
+ */
+export const Button = meta.story({
+  args: {
+    'aria-current': false,
+    'aria-pressed': false,
+    'aria-label': 'View photo of the pool',
+    href: '#',
+    isVideo: false,
+    src: EXAMPLE_IMAGE_SRC,
+  },
+  argTypes: {
+    'aria-current': {
+      table: { disable: true },
+    },
+    'aria-pressed': {
+      control: 'boolean',
+    },
+    href: {
+      table: { disable: true },
+    },
+    isVideo: {
+      control: 'boolean',
+    },
+    src: {
+      control: 'text',
+    },
+  },
+  render: ({ href: _, 'aria-current': __, ...args }) => (
+    <GalleryViewerThumbnailButton {...(args as unknown as GalleryViewerThumbnailButton.Props)} />
+  ),
 })

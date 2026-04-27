@@ -253,6 +253,7 @@ export const MultiSelect = Example.extend({
  * `Autocomplete.DefaultOptionsContext`.
  */
 export const DefaultOptions = MultiSelect.extend({
+  name: 'Default options',
   args: {
     id: 'default-options-example',
   },

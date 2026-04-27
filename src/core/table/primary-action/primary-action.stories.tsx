@@ -1,15 +1,16 @@
 import preview from '#.storybook/preview'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
-import { Story } from '@storybook/addon-docs/blocks'
 import { TableCellPrimaryData } from '../primary-data'
 import { TableRowPrimaryAction } from './primary-action'
+import { TableRowPrimaryActionButton } from './primary-action-button'
 
 const href = '#'
 
 const meta = preview.meta({
   title: 'Core/Table/PrimaryAction',
   component: TableRowPrimaryAction,
+  subcomponents: { PrimaryActionButton: TableRowPrimaryActionButton },
   argTypes: {
     children: {
       control: 'text',
@@ -92,4 +93,25 @@ export const HitArea = meta.story({
       </div>
     ),
   ],
+})
+
+/**
+ * `Table.PrimaryActionButton` is identical to `Table.PrimaryAction`, except it renders as a
+ * `<button>` element, which allows button semantics to be used for a table row's primary action.
+ * That said, typically a row's primary action will involve navigation, such as opening a drawer
+ * or navigating to another page.
+ */
+export const Buttons = meta.story({
+  args: {
+    children: '1 Brisbane St, Brisbane 4300',
+    href: '#',
+  },
+  argTypes: {
+    href: {
+      table: { disable: true },
+    },
+  },
+  render: ({ href: _, ...args }) => (
+    <TableRowPrimaryActionButton {...(args as unknown as TableRowPrimaryActionButton.Props)} />
+  ),
 })
