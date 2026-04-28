@@ -93,4 +93,7 @@ jobs:
           apiToken: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
           accountId: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}
           wranglerVersion: '4'
-          command: deploy --env ${{ steps.target.outputs.target }}
+          command: >-
+            ${{ steps.target.outputs.target == 'v4'
+              && 'deploy --config wrangler.v4.jsonc'
+              || format('deploy --env {0}', steps.target.outputs.target) }}

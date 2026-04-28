@@ -1,0 +1,17 @@
+{
+  "$schema": "https://unpkg.com/wrangler/config-schema.json",
+  // v4 is deployed from the LTS branch and does not include MCP support.
+  // It is kept as a separate assets-only config intentionally.
+  "name": "gbl-ds-elements-v4",
+  "compatibility_date": "2025-04-01",
+  "routes": [
+    {
+      "pattern": "v4.elements.reapit.com.au",
+      "custom_domain": true,
+    },
+  ],
+  "assets": {
+    "directory": "./public/dist",
+    "not_found_handling": "single-page-application",
+  },
+}
