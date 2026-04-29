@@ -1,5 +1,17 @@
 # @reapit/elements
 
+## 5.0.0-beta.93
+
+### Minor Changes
+
+- **[Added]** Storybook MCP endpoint hosted on `elements.reapit.com.au`. AI tools that support the Model Context Protocol can now query component stories and documentation directly. ([#1319](https://github.com/reapit-global/gbl-ds-elements/pull/1319))
+
+### Patch Changes
+
+- **[Internal]** Add Figma Code Connect for `AlertBanner` ([#1325](https://github.com/reapit-global/gbl-ds-elements/pull/1325))
+
+- **[Internal]** Rewrite barrel imports in the Storybook MCP manifest to use subpath imports (e.g. `@reapit/elements/core/button`) ([#1326](https://github.com/reapit-global/gbl-ds-elements/pull/1326))
+
 ## 5.0.0-beta.92
 
 ### Minor Changes
