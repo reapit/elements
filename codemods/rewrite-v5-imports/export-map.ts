@@ -1480,6 +1480,7 @@ export const EXPORT_MAP: Record<string, string> = {
   UseModal: 'deprecated/use-modal',
   useNavState: 'deprecated/use-nav-state',
   UseNavState: 'deprecated/use-nav-state',
+  usePageVisibility: 'utils/page-visibility',
   usePortal: 'deprecated/use-portal',
   UserIcon: 'icons/user',
   UserOutlineIcon: 'icons/user-outline',

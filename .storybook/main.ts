@@ -1,4 +1,5 @@
 import { defineMain } from '@storybook/react-vite/node'
+import { rewriteImports } from './rewrite-imports'
 
 export default defineMain({
   framework: {
@@ -21,20 +22,26 @@ export default defineMain({
   },
   // StorybookConfigRaw types experimental_manifests as a static Manifests object, but the
   // preset pipeline accepts a function (PresetValue) at runtime, exactly as the framework and
-  // addon presets that generate the manifest do. The cast is necessary because StorybookConfig
-  // doesn't expose the PresetValue<Manifests> overload for user config.
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  experimental_manifests: ((manifests: any) => {
-    const components: Record<string, { path: string }> | undefined = manifests?.components?.components
+  // addon presets that generate the manifest do. The suppression below is necessary because
+  // StorybookConfig doesn't expose the PresetValue<Manifests> overload for user config.
+  //
+  // @ts-expect-error -- StorybookConfig does not expose the PresetValue<Manifests> overload
+  experimental_manifests: (manifests: any) => {
+    const components: Record<string, { path: string; import?: string }> | undefined = manifests?.components?.components
     if (!components) return manifests
+
+    const entries = Object.entries(components)
+      // We don't want our deprecated components available via MCP, so we exclude them here
+      .filter(([, c]) => !c.path.startsWith('src/deprecated/'))
+      // We currently need to rewrite the imports for our components to ensure they use subpath imports
+      .map(([id, c]) => [id, { ...c, import: rewriteImports(c.import) }])
+
     return {
       ...manifests,
       components: {
         ...manifests.components,
-        components: Object.fromEntries(
-          Object.entries(components).filter(([, c]) => !c.path.startsWith('src/deprecated/')),
-        ),
+        components: Object.fromEntries(entries),
       },
     }
-  }) as any,
+  },
 })
