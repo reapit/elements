@@ -22,17 +22,21 @@
 
 ## Contributing Guidelines
 
-- Write components in TypeScript with proper type definitions
+- Write components in TypeScript with explicit type definitions
 - Follow existing naming conventions and file structure
 - Include Storybook stories
 - Use design tokens for consistent styling
-- Ensure accessibility compliance
-- **All components MUST follow the namespace interface pattern** (use `component-interface-pattern` skill)
-- **React contexts MUST follow the context pattern** (use `react-context-pattern` skill)
-- **Tests MUST follow testing guidelines** (use `writing-unit-tests` skill)
-- **All prose MUST use British English and follow clarity principles** (use `writing-clear-prose` skill)
-- **Codemods for breaking changes MUST follow the codemod workflow** (use `creating-codemods` skill)
-- **When addressing PR review comments, use the end-to-end review workflow** (use `reviewing-pr-comments` skill)
-- **Changesets MUST follow the changeset conventions** (use `writing-changesets` skill)
-- **PR titles and descriptions MUST follow the pull request conventions** (use `writing-pull-requests` skill)
-- **PRs with UI changes MUST include screenshots or video** (use `capturing-visual-changes` skill)
+- Make components accessible
+- All components MUST follow the namespace interface pattern
+- React contexts MUST follow the context pattern
+- Components with `z-index` MUST follow the z-index layering conventions
+- Overridable default styles MUST use the `@layer default` pattern
+- Tests MUST follow testing guidelines
+- Stories MUST follow Storybook documentation guidelines
+- All prose MUST use British English and follow clarity principles
+- Codemods for breaking changes MUST follow the codemod workflow
+- When addressing PR review comments, use the end-to-end review workflow
+- Changesets MUST follow the changeset conventions
+- PR titles and descriptions MUST follow the pull request conventions
+- PRs with UI changes MUST include screenshots or video
+- When workflow architecture changes, update `.github/CI.md` (new jobs, composite actions, job dependencies, or deployment strategy)
