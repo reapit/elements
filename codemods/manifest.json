@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-04-27T03:09:02.755Z",
+  "generated": "2026-04-30T05:31:58.918Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -9,6 +9,10 @@
     {
       "name": "at-a-glance-article-card",
       "description": "Migrates AtAGlance.Card to AtAGlance.ArticleCard"
+    },
+    {
+      "name": "rename-empty-data",
+      "description": "Renames EmptyData to EmptyState"
     },
     {
       "name": "replace-deprecated-label",

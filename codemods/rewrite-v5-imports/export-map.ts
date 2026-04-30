@@ -911,7 +911,7 @@ export const EXPORT_MAP: Record<string, string> = {
   EmailDisabledIcon: 'icons/email-disabled',
   EmailFillIcon: 'icons/email-fill',
   EmailIcon: 'icons/email',
-  EmptyData: 'core/empty-data',
+  EmptyState: 'core/empty-state',
   ErrorIcon: 'icons/error',
   EuroIcon: 'icons/euro',
   ExitIcon: 'icons/exit',

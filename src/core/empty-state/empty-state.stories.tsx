@@ -1,23 +1,23 @@
 import preview from '#.storybook/preview'
-import { EmptyData } from './empty-data'
+import { EmptyState } from './empty-state'
 
 const meta = preview.meta({
-  title: 'Core/EmptyData',
-  component: EmptyData,
+  title: 'Core/EmptyState',
+  component: EmptyState,
   argTypes: {
     children: {
       control: 'radio',
       options: ['Action only', 'Short description', 'Full description', 'Everything'],
       mapping: {
-        'Action only': <EmptyData.ActionButton>Add item</EmptyData.ActionButton>,
-        'Short description': <EmptyData.Description>No items found</EmptyData.Description>,
+        'Action only': <EmptyState.ActionButton>Add item</EmptyState.ActionButton>,
+        'Short description': <EmptyState.Description>No items found</EmptyState.Description>,
         'Full description': (
-          <EmptyData.Description secondaryText="Secondary text">No items found</EmptyData.Description>
+          <EmptyState.Description secondaryText="Secondary text">No items found</EmptyState.Description>
         ),
         Everything: (
           <>
-            <EmptyData.Description secondaryText="Secondary text">No items found</EmptyData.Description>
-            <EmptyData.ActionButton>Add item</EmptyData.ActionButton>
+            <EmptyState.Description secondaryText="Secondary text">No items found</EmptyState.Description>
+            <EmptyState.ActionButton>Add item</EmptyState.ActionButton>
           </>
         ),
       },

@@ -3,7 +3,7 @@ import { Button } from '#src/core/button'
 import type { AttributesToOmit } from './common'
 import type { ComponentProps, MouseEventHandler, ReactNode } from 'react'
 
-export namespace EmptyDataActionButton {
+export namespace EmptyStateActionButton {
   export interface Props extends Omit<ComponentProps<typeof Button>, AttributesToOmit> {
     /** The action's label. */
     children: ReactNode
@@ -13,12 +13,12 @@ export namespace EmptyDataActionButton {
 }
 
 /**
- * @deprecated Use `EmptyDataActionButton.Props` instead.
+ * @deprecated Use `EmptyStateActionButton.Props` instead.
  */
-export type EmptyDataActionButtonProps = EmptyDataActionButton.Props
+export type EmptyStateActionButtonProps = EmptyStateActionButton.Props
 
-export function EmptyDataActionButton(props: EmptyDataActionButton.Props) {
+export function EmptyStateActionButton(props: EmptyStateActionButton.Props) {
   return <Button {...props} size="medium" variant="tertiary" useLinkStyle />
 }
 
-EmptyDataActionButton.displayName = 'EmptyData.ActionButton'
+EmptyStateActionButton.displayName = 'EmptyState.ActionButton'

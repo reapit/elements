@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 
-export const ElEmptyData = styled.div`
+export const ElEmptyState = styled.div`
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;

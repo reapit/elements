@@ -1,7 +1,7 @@
 import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
-export const ElEmptyDataDescription = styled.div`
+export const ElEmptyStateDescription = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,7 +10,7 @@ export const ElEmptyDataDescription = styled.div`
   text-align: center;
 `
 
-export const ElEmptyDataDescriptionTitle = styled.h3`
+export const ElEmptyStateDescriptionTitle = styled.h3`
   color: var(--colour-text-primary);
   ${font('base', 'regular')}
 
@@ -18,7 +18,7 @@ export const ElEmptyDataDescriptionTitle = styled.h3`
   padding: 0;
 `
 
-export const ElEmptyDataDescriptionSecondaryText = styled.p`
+export const ElEmptyStateDescriptionSecondaryText = styled.p`
   color: var(--colour-text-secondary);
   ${font('sm', 'regular')}
 
