@@ -72,13 +72,14 @@
     "./dist/index.css": "./dist/js/style.css"
   },
   "scripts": {
-    "build": "yarn build:types && yarn build:lib && yarn build:codemods && yarn build:storybook",
+    "build": "yarn build:lib && yarn build:docs",
     "build:codemods": "yarn build:codemods:export-map && yarn build:codemods:compile && yarn build:codemods:manifest",
     "build:codemods:export-map": "node --experimental-strip-types codemods/rewrite-v5-imports/generate-export-map.ts",
     "build:codemods:compile": "node --experimental-strip-types codemods/build.ts",
     "build:codemods:manifest": "node --experimental-strip-types codemods/generate-manifest.ts",
-    "build:storybook": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
-    "build:lib": "vite build",
+    "build:docs": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
+    "build:js": "vite build",
+    "build:lib": "yarn build:types && yarn build:js && yarn build:codemods",
     "build:types": "tsgo --project tsconfig.build.json",
     "commit": "yarn test run --coverage --silent && yarn coverage:badges && yarn lint && yarn check",
     "coverage:badges": "yarn make-badge branches && yarn make-badge functions && yarn make-badge lines && yarn make-badge statements",
@@ -99,7 +100,7 @@
     "make-badge": "coverage-badges --type ${0} --source coverage/report/coverage-summary.json --output coverage/badges/badge-${0}.svg --jsonPath total.${0}.pct",
     "start": "storybook dev -p 6006",
     "test": "vitest",
-    "visual-test": "yarn build:storybook && yarn playwright test"
+    "visual-test": "yarn build:docs && yarn playwright test"
   },
   "dependencies": {
     "@linaria/core": "7.0.0",

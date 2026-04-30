@@ -13,8 +13,39 @@ env:
   CI: true
 
 jobs:
+  check:
+    name: Check
+    runs-on:
+      group: rpt-gbl-linux-x64
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/check
+
+  test:
+    name: Test
+    runs-on:
+      group: rpt-gbl-linux-x64
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/test
+
+  build:
+    name: Build
+    runs-on:
+      group: rpt-gbl-linux-x64
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/build-lib
+      - name: Upload build artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: dist
+          path: dist/
+          retention-days: 1
+
   release:
     name: Release
+    needs: [check, test, build]
     runs-on:
       group: rpt-gbl-linux-x64
     outputs:
@@ -31,6 +62,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
+          # fetch-depth: 0 is required here — changesets needs full history to
+          # determine which packages changed since the last release tag.
+          # The parallel check/test/build jobs use the default shallow clone.
           fetch-depth: 0
           token: ${{ steps.app-token.outputs.token }}
 
@@ -42,14 +76,11 @@ jobs:
       - name: Install
         run: yarn install --immutable
 
-      - name: Check
-        run: yarn check
-
-      - name: Test
-        run: yarn test run --passWithNoTests
-
-      - name: Build
-        run: yarn build:types && yarn build:lib && yarn build:codemods
+      - name: Download build artifacts
+        uses: actions/download-artifact@v7
+        with:
+          name: dist
+          path: dist/
 
       - name: Create Release Pull Request or Publish
         id: changesets
@@ -70,8 +101,8 @@ jobs:
           name: npm-debug-logs
           path: ~/.npm/_logs/
 
-  record-deployment:
-    name: Record Production Deployment
+  record-release:
+    name: Record Release
     needs: release
     if: needs.release.outputs.published == 'true'
     runs-on:
@@ -82,11 +113,12 @@ jobs:
         continue-on-error: true
         run: echo '${{ needs.release.outputs.publishedPackages }}' | jq .
 
-  deploy-storybook-prod:
-    name: Deploy Storybook (Prod)
+  deploy-docs:
+    name: Deploy Docs
     needs: release
-    if: needs.release.outputs.published == 'true'
-    uses: ./.github/workflows/deploy-storybook.yml
+    # Deploys to prod when packages were published, dev otherwise (version PR
+    # created or no changesets present).
+    uses: ./.github/workflows/deploy-docs.yml
     with:
-      target: prod
+      target: ${{ needs.release.outputs.published == 'true' && 'prod' || 'dev' }}
     secrets: inherit

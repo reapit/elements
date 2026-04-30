@@ -35,9 +35,9 @@ jobs:
       - name: Install Playwright Browsers
         run: yarn playwright install --with-deps
 
-      - name: Build Storybook
+      - name: Build Docs
         run: |
-          yarn build:storybook
+          yarn build:docs
 
       - name: Set up cache
         id: cache

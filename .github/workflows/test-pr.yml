@@ -5,7 +5,6 @@ on:
     types: ['opened', 'synchronize']
 
 env:
-  CODACY_PROJECT_TOKEN: ${{secrets.CODACY_PROJECT_TOKEN}}
   CI: true
 
 jobs:
@@ -22,70 +21,60 @@ jobs:
           auto-close-message: 'Closing this pull request since the title does not match %pattern% pattern. Please fix the title and re-open the pull request.'
 
   check:
-    name: Type Check
+    name: Check
     runs-on:
       group: rpt-gbl-linux-x64
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
-
-      - name: Set Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: 'yarn'
-
-      - name: Install
-        run: yarn install --immutable
-
-      - name: Check
-        run: yarn check
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/check
 
   test:
     name: Unit Tests
     runs-on:
       group: rpt-gbl-linux-x64
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/test
         with:
-          fetch-depth: 0
-
-      - name: Set Node
-        uses: actions/setup-node@v6
+          args: --coverage --silent
+      - name: Upload coverage
+        uses: actions/upload-artifact@v7
         with:
-          node-version: 24
-          cache: 'yarn'
-
-      - name: Install
-        run: yarn install --immutable
-
-      - name: Test
-        run: yarn test run --passWithNoTests --coverage --silent
-
-      - name: Codacy Checks
-        run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+          name: coverage
+          path: coverage/
+          retention-days: 1
 
   build:
     name: Build
     runs-on:
       group: rpt-gbl-linux-x64
     steps:
-      - name: Checkout
-        uses: actions/checkout@v6
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/build-lib
+
+  docs:
+    name: Docs
+    runs-on:
+      group: rpt-gbl-linux-x64
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/build-docs
+
+  codacy:
+    name: Codacy
+    needs: test
+    # Coverage is reported on PRs only — this is where it is most actionable,
+    # giving reviewers visibility over untested additions before merge.
+    continue-on-error: true
+    runs-on:
+      group: rpt-gbl-linux-x64
+    steps:
+      - name: Download coverage
+        uses: actions/download-artifact@v7
         with:
-          fetch-depth: 0
-
-      - name: Set Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          cache: 'yarn'
-
-      - name: Install
-        run: yarn install --immutable
-
-      - name: Build
-        run: yarn build
+          name: coverage
+          path: coverage/
+      - name: Upload to Codacy
+        run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
+        env:
+          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}

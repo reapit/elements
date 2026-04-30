@@ -1,16 +1,12 @@
 # Deploy Storybook to Cloudflare Workers.
 #
 # Triggers:
-#   push to main   → always deploys dev (canary.elements.reapit.com.au)
-#   workflow_call   → caller specifies target (used by release.yml for prod)
-#   workflow_dispatch → manual deploy with a target dropdown
+#   workflow_call     → caller specifies target (used by release.yml for automated dev/prod deploys)
+#   workflow_dispatch → manual deploy with a target dropdown (used for v4 and emergency deploys)
 
-name: Deploy Storybook
+name: Deploy Docs
 
 on:
-  push:
-    branches:
-      - main
   workflow_call:
     inputs:
       target:
@@ -35,14 +31,14 @@ env:
   CI: true
 
 jobs:
-  deploy-storybook:
-    name: Deploy Storybook (${{ inputs.target || 'dev' }})
+  deploy-docs:
+    name: Deploy Docs (${{ inputs.target || 'dev' }})
     runs-on:
       group: rpt-gbl-linux-x64
     steps:
       # Fail fast if someone manually triggers a prod deploy from a non-main
-      # branch. Push events always target dev so this guard only fires for
-      # workflow_dispatch.
+      # branch. workflow_call events from release.yml always originate from
+      # main so this guard only fires for workflow_dispatch.
       # Note: v4 is intentionally excluded — it must be deployable from
       # non-main branches (e.g. the lts branch) to keep the LTS storybook
       # up to date independently of main.
@@ -56,8 +52,8 @@ jobs:
           exit 1
 
       # Resolve the target once so every subsequent step reads from a
-      # single source of truth. On push events inputs.target is
-      # undefined, so the fallback defaults to dev.
+      # single source of truth. On workflow_call events inputs.target is
+      # set by the caller; on workflow_dispatch it comes from the dropdown.
       - name: Resolve target
         id: target
         run: |
@@ -71,21 +67,10 @@ jobs:
           esac
           echo "target=$TARGET" >> "$GITHUB_OUTPUT"
 
-      - name: Checkout
-        uses: actions/checkout@v6
-        with:
-          fetch-depth: 0
+      - uses: actions/checkout@v6
 
-      - name: Set Node
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-
-      - name: Install
-        run: yarn install --immutable
-
-      - name: Build Storybook
-        run: yarn build:storybook
+      - name: Build Docs
+        uses: ./.github/actions/build-docs
 
       - name: Deploy to Cloudflare Workers
         uses: cloudflare/wrangler-action@v3

@@ -105,11 +105,11 @@ jobs:
 
       - name: Test
         id: test
-        run: yarn test run --passWithNoTests
+        run: yarn test run
 
       - name: Build
         id: build
-        run: yarn build:types && yarn build:lib && yarn build:codemods
+        run: yarn build:lib
 
       - name: Create and Push Tag
         id: push-tag

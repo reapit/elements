@@ -1,0 +1,13 @@
+name: Build Lib
+description: Build the publishable package (lib)
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
+        cache: yarn
+    - run: yarn install --immutable
+      shell: bash
+    - run: yarn build:lib
+      shell: bash
