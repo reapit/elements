@@ -113,6 +113,20 @@ jobs:
         continue-on-error: true
         run: echo '${{ needs.release.outputs.publishedPackages }}' | jq .
 
+  publish-figma:
+    name: Publish Figma Code Connect
+    needs: release
+    if: needs.release.outputs.published == 'true'
+    runs-on:
+      group: rpt-gbl-linux-x64
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/publish-figma
+        with:
+          args: --exit-on-unreadable-files
+        env:
+          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+
   deploy-docs:
     name: Deploy Docs
     needs: release

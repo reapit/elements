@@ -60,6 +60,18 @@ jobs:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/build-docs
 
+  figma:
+    name: Figma Code Connect
+    runs-on:
+      group: rpt-gbl-linux-x64
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/publish-figma
+        with:
+          args: --dry-run --exit-on-unreadable-files
+        env:
+          FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
+
   codacy:
     name: Codacy
     needs: test
