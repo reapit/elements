@@ -55,6 +55,7 @@ jobs:
         id: setup-node
         with:
           node-version: 24
+          cache: yarn
 
       - name: Install
         id: install

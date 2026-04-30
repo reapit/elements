@@ -9,6 +9,10 @@ permissions:
   contents: read
   id-token: write
 
+concurrency:
+  group: release
+  cancel-in-progress: false
+
 env:
   CI: true
 
@@ -17,6 +21,7 @@ jobs:
     name: Check
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/check
@@ -25,6 +30,7 @@ jobs:
     name: Test
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/test
@@ -33,6 +39,7 @@ jobs:
     name: Build
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/build-lib
@@ -48,6 +55,7 @@ jobs:
     needs: [check, test, build]
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 15
     outputs:
       published: ${{ steps.changesets.outputs.published }}
       publishedPackages: ${{ steps.changesets.outputs.publishedPackages }}
@@ -107,6 +115,7 @@ jobs:
     if: needs.release.outputs.published == 'true'
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 5
     environment: production
     steps:
       - name: Log published packages
@@ -119,6 +128,7 @@ jobs:
     if: needs.release.outputs.published == 'true'
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/publish-figma

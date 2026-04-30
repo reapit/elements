@@ -2,7 +2,14 @@ name: Test PR
 
 on:
   pull_request:
-    types: ['opened', 'synchronize']
+    types: ['opened', 'synchronize', 'reopened']
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
 
 env:
   CI: true
@@ -12,8 +19,12 @@ jobs:
     name: Lint Title
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
     steps:
-      - uses: seferov/pr-lint-action@v2.0.0
+      - uses: seferov/pr-lint-action@cbef81c153f36262fbcd92fe97d6c6b8736d891d # v2.0.0
         with:
           title-regex: '^(?:(?:\[WIP\] ?)?(?:build|ci|chore|docs|task|feat|fix|perf|refactor|revert|style|test)!?\:(?:\ +?(?:#\d+|[A-Z]+-\d+)\ +?)?.*)|(?:\[Snyk\].*)'
           title-regex-flags: 'g'
@@ -24,6 +35,7 @@ jobs:
     name: Check
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/check
@@ -32,6 +44,7 @@ jobs:
     name: Unit Tests
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/test
@@ -48,6 +61,7 @@ jobs:
     name: Build
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/build-lib
@@ -56,6 +70,7 @@ jobs:
     name: Docs
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/build-docs
@@ -64,6 +79,7 @@ jobs:
     name: Figma Code Connect
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/publish-figma
@@ -80,6 +96,7 @@ jobs:
     continue-on-error: true
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 10
     steps:
       - name: Download coverage
         uses: actions/download-artifact@v7
@@ -87,6 +104,7 @@ jobs:
           name: coverage
           path: coverage/
       - name: Upload to Codacy
-        run: bash <(curl -Ls https://coverage.codacy.com/get.sh)
-        env:
-          CODACY_PROJECT_TOKEN: ${{ secrets.CODACY_PROJECT_TOKEN }}
+        uses: codacy/codacy-coverage-reporter-action@89d6c85cfafaec52c72b6c5e8b2878d33104c699 # v1
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: coverage/report/lcov.info

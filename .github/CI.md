@@ -56,6 +56,12 @@ Shared step bundles in `.github/actions/`. Each composite action handles Node se
 
 ## Key decisions
 
+**Why does `release.yml` use `cancel-in-progress: false` for its concurrency group?**
+Aborting a publish mid-flight leaves npm in a partially-published state that is harder to recover from than letting two runs queue. Serialising with `cancel-in-progress: false` means the second run waits rather than kills the first.
+
+**Why does `deploy-docs.yml` use `cancel-in-progress: true` for its concurrency group?**
+Unlike a publish, a Cloudflare deploy is idempotent — the most recent deployment wins. Cancelling a stale deploy and letting the newest one proceed is safe and avoids deploying an outdated build.
+
 **Why does the `release` job repeat checkout/setup/install instead of using a composite action?**
 The `release` job needs to control `actions/checkout` directly because it must use a write-scoped checkout token (from the GitHub App) so that `changesets/action` can push the version PR branch. In this repo, the shared composite actions are local actions under `.github/actions/`, so they cannot be used until after the repository has already been checked out. That means `release` cannot bundle its checkout into one of those local composite actions and instead repeats checkout/setup/install explicitly.
 

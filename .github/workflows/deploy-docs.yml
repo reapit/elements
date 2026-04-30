@@ -27,6 +27,10 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: deploy-docs-${{ inputs.target || 'dev' }}
+  cancel-in-progress: true
+
 env:
   CI: true
 
@@ -35,6 +39,7 @@ jobs:
     name: Deploy Docs (${{ inputs.target || 'dev' }})
     runs-on:
       group: rpt-gbl-linux-x64
+    timeout-minutes: 15
     steps:
       # Fail fast if someone manually triggers a prod deploy from a non-main
       # branch. workflow_call events from release.yml always originate from
@@ -73,7 +78,7 @@ jobs:
         uses: ./.github/actions/build-docs
 
       - name: Deploy to Cloudflare Workers
-        uses: cloudflare/wrangler-action@v3
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
         with:
           apiToken: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
           accountId: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}
