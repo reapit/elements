@@ -42,7 +42,7 @@ export namespace Popover {
      */
     popover?: 'auto' | 'hint' | 'manual' | null
     /**
-     * The position of the popover. Must be absolute or fixed. Default is absolute.
+     * The position of the popover. Must be absolute or fixed. Default is fixed.
      */
     position?: AnchorPositioning.Props['position']
   }
@@ -76,7 +76,7 @@ export function Popover({
   maxWidth,
   minWidth,
   placement,
-  position = 'absolute',
+  position,
   positionTryFallbacks,
   popover = 'auto',
   right,

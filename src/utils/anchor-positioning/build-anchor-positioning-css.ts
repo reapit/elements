@@ -18,7 +18,7 @@ export namespace buildAnchorPositioningCSS {
      */
     minWidth?: string
     /**
-     * The position of the element. Must be absolute or fixed. Default is absolute.
+     * The position of the element. Must be absolute or fixed. Default is fixed.
      */
     position?: 'absolute' | 'fixed'
     /**
@@ -52,7 +52,10 @@ export function buildAnchorPositioningCSS({
   maxWidth,
   minWidth,
   placement,
-  position = 'absolute',
+  // NOTE: position="absolute" leads to scrolling on the document when a popup is
+  // open in, for example, a drawer that itself has scrolled. Using fixed positioning
+  // avoids this, hence it's the default.
+  position = 'fixed',
   positionedElementId,
   positionTryFallbacks = 'none',
   right,

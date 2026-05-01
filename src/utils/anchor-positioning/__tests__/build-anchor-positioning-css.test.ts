@@ -80,6 +80,33 @@ test('handles position: fixed', () => {
   `)
 })
 
+test('defaults position to fixed when omitted', () => {
+  expect(
+    buildAnchorPositioningCSS({
+      anchorElementId: ':r1:',
+      gap: 'var(--fake-gap)',
+      placement: 'top-start',
+      positionedElementId: 'positioned-element',
+      positionTryFallbacks: 'none',
+    }),
+  ).toMatchInlineSnapshot(`
+    "
+        #\\:r1\\: {
+          anchor-name: --\\:r1\\:;
+        }
+
+        #positioned-element {
+          position: fixed;
+          position-anchor: --\\:r1\\:;
+          position-try-fallbacks: none;
+          ${'' /* max width; this is needed to prevent prettier removing the whitespace */}
+          ${'' /* min width; this is needed to prevent prettier removing the whitespace */}
+          /* mocked positioning css */
+        }
+      "
+  `)
+})
+
 test('handles undefined max and min widths', () => {
   expect(
     buildAnchorPositioningCSS({
