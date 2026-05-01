@@ -8,6 +8,7 @@ export const ElCheckbox = styled.label`
     'input supplementary-info' auto / var(--icon_size-l) auto;
   align-items: center;
   gap: 0 var(--spacing-2);
+  width: fit-content;
 
   --checkbox-label-colour: var(--comp-select-colour-text-label-active);
   --checkbox-supp_info-colour: var(--comp-select-colour-text-supp_info-active);
