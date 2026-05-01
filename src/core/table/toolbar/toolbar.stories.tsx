@@ -3,11 +3,11 @@ import { ButtonGroup } from '#src/core/button-group'
 import { Button } from '#src/core/button'
 import { CompactSelectNative } from '#src/core/compact-select-native'
 import { Skeleton } from '#src/core/skeleton'
-import { TableToolbar } from './toolbar'
+import { Table } from '../table'
 
 const meta = preview.meta({
   title: 'Core/Table/Toolbar',
-  component: TableToolbar,
+  component: Table.Toolbar,
   argTypes: {
     leftContent: {
       control: 'radio',
@@ -86,7 +86,7 @@ export const PluralNouns = meta.story({
       other: 'lemmings',
     }
     const noun = nounMap[pluralRules.select(itemCount)]
-    return <TableToolbar leftContent={`${itemCount} ${noun}`} />
+    return <Table.Toolbar leftContent={`${itemCount} ${noun}`} />
   },
 })
 

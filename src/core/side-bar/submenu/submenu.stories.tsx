@@ -1,32 +1,32 @@
 import preview from '#.storybook/preview'
-import { SideBarSubmenu } from './submenu'
+import { SideBar } from '../side-bar'
 import * as SideBarSubmenuItemStories from '../submenu-item/submenu-item.stories'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
 const meta = preview.meta({
   title: 'Core/SideBar/Submenu',
-  component: SideBarSubmenu,
+  component: SideBar.Submenu,
   argTypes: {
     children: {
       control: 'radio',
       options: ['No selected item', 'Selected item'],
       mapping: {
         'No selected item': [
-          <SideBarSubmenu.Item key="1" {...SideBarSubmenuItemStories.Example.composed.args}>
+          <SideBar.Submenu.Item key="1" {...SideBarSubmenuItemStories.Example.composed.args}>
             Submenu item 1
-          </SideBarSubmenu.Item>,
-          <SideBarSubmenu.Item key="2" {...SideBarSubmenuItemStories.Example.composed.args}>
+          </SideBar.Submenu.Item>,
+          <SideBar.Submenu.Item key="2" {...SideBarSubmenuItemStories.Example.composed.args}>
             Submenu item 2
-          </SideBarSubmenu.Item>,
+          </SideBar.Submenu.Item>,
         ],
         'Selected item': [
-          <SideBarSubmenu.Item key="1" {...SideBarSubmenuItemStories.Example.composed.args}>
+          <SideBar.Submenu.Item key="1" {...SideBarSubmenuItemStories.Example.composed.args}>
             Submenu item 1
-          </SideBarSubmenu.Item>,
-          <SideBarSubmenu.Item key="2" {...SideBarSubmenuItemStories.Selected.composed.args}>
+          </SideBar.Submenu.Item>,
+          <SideBar.Submenu.Item key="2" {...SideBarSubmenuItemStories.Selected.composed.args}>
             Submenu item 2
-          </SideBarSubmenu.Item>,
+          </SideBar.Submenu.Item>,
         ],
       },
     },

@@ -1,16 +1,15 @@
 import preview from '#.storybook/preview'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
-import { TableCellPrimaryData } from '../primary-data'
-import { TableRowPrimaryAction } from './primary-action'
-import { TableRowPrimaryActionButton } from './primary-action-button'
+import { Table } from '../table'
+import type { TableRowPrimaryActionButton } from './primary-action-button'
 
 const href = '#'
 
 const meta = preview.meta({
   title: 'Core/Table/PrimaryAction',
-  component: TableRowPrimaryAction,
-  subcomponents: { PrimaryActionButton: TableRowPrimaryActionButton },
+  component: Table.PrimaryAction,
+  subcomponents: { PrimaryActionButton: Table.PrimaryActionButton },
   argTypes: {
     children: {
       control: 'text',
@@ -61,9 +60,9 @@ export const PrimaryData = meta.story({
     },
   },
   render: (args) => (
-    <TableCellPrimaryData iconRight={<StarIcon aria-label="Preferred creditor" />}>
-      <TableRowPrimaryAction {...args} />
-    </TableCellPrimaryData>
+    <Table.PrimaryData iconRight={<StarIcon aria-label="Preferred creditor" />}>
+      <Table.PrimaryAction {...args} />
+    </Table.PrimaryData>
   ),
 })
 
@@ -112,6 +111,6 @@ export const Buttons = meta.story({
     },
   },
   render: ({ href: _, ...args }) => (
-    <TableRowPrimaryActionButton {...(args as unknown as TableRowPrimaryActionButton.Props)} />
+    <Table.PrimaryActionButton {...(args as unknown as TableRowPrimaryActionButton.Props)} />
   ),
 })

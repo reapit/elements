@@ -1,10 +1,10 @@
 import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
-import { FilterBarRightContent } from './right-content'
+import { FilterBar } from '../filter-bar'
 
 const meta = preview.meta({
   title: 'Core/FilterBar/RightContent',
-  component: FilterBarRightContent,
+  component: FilterBar.RightContent,
   argTypes: {
     children: {
       control: 'radio',

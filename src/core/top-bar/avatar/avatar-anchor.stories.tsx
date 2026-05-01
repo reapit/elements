@@ -1,10 +1,10 @@
 import preview from '#.storybook/preview'
-import { TopBarAvatarAnchor } from './avatar-anchor'
+import { TopBar } from '../top-bar'
 
 const href = '#'
 
 const meta = preview.meta({
-  component: TopBarAvatarAnchor,
+  component: TopBar.AvatarAnchor,
   title: 'Core/TopBar/AvatarAnchor',
 })
 

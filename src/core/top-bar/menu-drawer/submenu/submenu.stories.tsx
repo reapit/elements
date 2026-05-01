@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
-import { TopBarMenuDrawerSubmenu } from './submenu'
+import { TopBarMenuDrawer } from '../menu-drawer'
 
 const meta = preview.meta({
   title: 'Core/TopBar/MenuDrawer/Submenu',
-  component: TopBarMenuDrawerSubmenu,
+  component: TopBarMenuDrawer.Submenu,
   argTypes: {
     children: {
       control: false,
@@ -15,15 +15,15 @@ export const Example = meta.story({
   args: {
     children: (
       <>
-        <TopBarMenuDrawerSubmenu.Item href="#" aria-current={false}>
+        <TopBarMenuDrawer.Submenu.Item href="#" aria-current={false}>
           Item 1
-        </TopBarMenuDrawerSubmenu.Item>
-        <TopBarMenuDrawerSubmenu.Item href="#" aria-current="page">
+        </TopBarMenuDrawer.Submenu.Item>
+        <TopBarMenuDrawer.Submenu.Item href="#" aria-current="page">
           Item 2
-        </TopBarMenuDrawerSubmenu.Item>
-        <TopBarMenuDrawerSubmenu.ItemButton onClick={() => alert('Item 3 clicked!')}>
+        </TopBarMenuDrawer.Submenu.Item>
+        <TopBarMenuDrawer.Submenu.ItemButton onClick={() => alert('Item 3 clicked!')}>
           Item 3
-        </TopBarMenuDrawerSubmenu.ItemButton>
+        </TopBarMenuDrawer.Submenu.ItemButton>
       </>
     ),
   },

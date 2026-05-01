@@ -1,17 +1,16 @@
 import preview from '#.storybook/preview'
-import { DialogFooter } from '../footer'
-import { DialogHeader } from './header'
+import { Dialog } from '../dialog'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { useDialogContextDecorator } from '../__story__/useDialogContextDecorator'
 
 const meta = preview.meta({
   title: 'Core/Dialog/Header',
-  component: DialogHeader,
+  component: Dialog.Header,
   argTypes: {
     action: {
       control: 'radio',
       mapping: {
-        Close: <DialogHeader.CloseButton />,
+        Close: <Dialog.Header.CloseButton />,
         None: null,
       },
       options: ['Close', 'None'],
@@ -106,7 +105,7 @@ export const StaticPositioning = Example.extend({
       >
         <Story />
         <Pattern />
-        <DialogFooter>Footer</DialogFooter>
+        <Dialog.Footer>Footer</Dialog.Footer>
       </div>
     ),
   ],

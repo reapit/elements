@@ -1,11 +1,11 @@
 import preview from '#.storybook/preview'
 import { FakeImage } from './__story__/fake-image'
 import LogoDevice from './__story__/logo-device.svg?react'
-import { PageHeaderLeadingElement } from './leading-element'
+import { PageHeader } from '../page-header'
 
 const meta = preview.meta({
   title: 'Core/PageHeader/LeadingElement',
-  component: PageHeaderLeadingElement,
+  component: PageHeader.LeadingElement,
   argTypes: {
     children: {
       control: 'radio',

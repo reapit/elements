@@ -1,13 +1,12 @@
 import preview from '#.storybook/preview'
 import { FOLDER_TABS_CSS_CONTAINER_NAME } from '../constants'
 import { ElFolderTab } from './styles'
-import { FolderTab } from './tab'
-import { FolderTabCountLabel } from '../count-label'
+import { FolderTabs } from '../folder-tabs'
 import { useFolderTabsContainerDecorator } from '../__story__/useFolderTabsContainerDecorator'
 
 const meta = preview.meta({
   title: 'Core/FolderTabs/Tab',
-  component: FolderTab,
+  component: FolderTabs.Item,
   argTypes: {
     'aria-current': {
       options: ['page', false],
@@ -153,7 +152,7 @@ export const Selected = Example.extend({
  */
 export const WithCount = Example.extend({
   args: {
-    children: <FolderTabCountLabel count="00">Label</FolderTabCountLabel>,
+    children: <FolderTabs.CountLabel count="00">Label</FolderTabs.CountLabel>,
   },
   argTypes: {
     children: {
@@ -214,9 +213,9 @@ export const OverflowWithCount = Example.extend({
   name: 'Overflow w/ count',
   args: {
     children: (
-      <FolderTabCountLabel count="00">
+      <FolderTabs.CountLabel count="00">
         A very very very long tab label that will need to wrap to additional lines and may even be truncated
-      </FolderTabCountLabel>
+      </FolderTabs.CountLabel>
     ),
   },
   decorators: [

@@ -1,6 +1,6 @@
 import preview from '#.storybook/preview'
+import { BottomBar } from '../bottom-bar'
 import { BottomBarContext } from '../context'
-import { BottomBarMenuList } from './menu-list'
 import { Menu } from '#src/core/menu'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { StarIcon } from '#src/icons/star'
@@ -10,7 +10,7 @@ const href = '#'
 
 const meta = preview.meta({
   title: 'Core/BottomBar/MenuList',
-  component: BottomBarMenuList,
+  component: BottomBar.MenuList,
   argTypes: {
     children: {
       control: 'radio',
@@ -61,27 +61,22 @@ export const SelectedItem = meta.story({
 
 function buildMenu(type: 'No selected item' | 'Selected item') {
   return [
-    <BottomBarMenuList.Item
-      key="1"
-      aria-current={type === 'Selected item' ? 'page' : false}
-      href={href}
-      icon={<StarIcon />}
-    >
+    <BottomBar.Item key="1" aria-current={type === 'Selected item' ? 'page' : false} href={href} icon={<StarIcon />}>
       Menu item 1
-    </BottomBarMenuList.Item>,
-    <BottomBarMenuList.Item key="2" aria-current={false} href={href} icon={<StarIcon />}>
+    </BottomBar.Item>,
+    <BottomBar.Item key="2" aria-current={false} href={href} icon={<StarIcon />}>
       Menu item 2
-    </BottomBarMenuList.Item>,
-    <BottomBarMenuList.Item key="3" aria-current={false} href={href} icon={<StarIcon />}>
+    </BottomBar.Item>,
+    <BottomBar.Item key="3" aria-current={false} href={href} icon={<StarIcon />}>
       Menu item 3
-    </BottomBarMenuList.Item>,
-    <BottomBarMenuList.Item key="4" aria-current={false} href={href} icon={<StarIcon />}>
+    </BottomBar.Item>,
+    <BottomBar.Item key="4" aria-current={false} href={href} icon={<StarIcon />}>
       Menu item 4
-    </BottomBarMenuList.Item>,
-    <BottomBarMenuList.MenuItem key="5">
+    </BottomBar.Item>,
+    <BottomBar.MenuItem key="5">
       <Menu.Item>Menu item 5</Menu.Item>
       <Menu.Item>Menu item 6</Menu.Item>
       <Menu.Item>Menu item 7</Menu.Item>
-    </BottomBarMenuList.MenuItem>,
+    </BottomBar.MenuItem>,
   ]
 }

@@ -6,7 +6,7 @@ import { Badge } from '#src/core/badge'
 
 const meta = preview.meta({
   title: 'Core/AtAGlance/Card',
-  component: AtAGlanceCard,
+  component: AtAGlance.Card,
 })
 
 /**

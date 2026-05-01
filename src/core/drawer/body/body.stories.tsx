@@ -1,13 +1,12 @@
 import preview from '#.storybook/preview'
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
 import { DRAWER_CSS_CONTAINER_NAME } from '../constants'
-import { DrawerBody } from './body'
-import { DrawerFooter } from '../footer'
+import { Drawer } from '../drawer'
 import { Pattern } from '../__story__/Pattern'
 
 const meta = preview.meta({
   title: 'Core/Drawer/Body',
-  component: DrawerBody,
+  component: Drawer.Body,
   argTypes: {
     children: {
       control: 'text',
@@ -47,7 +46,7 @@ export const Footer = Example.extend({
         }}
       >
         <Story />
-        <DrawerFooter>Footer</DrawerFooter>
+        <Drawer.Footer>Footer</Drawer.Footer>
       </div>
     ),
   ],
@@ -73,10 +72,10 @@ export const DynamicLayout = meta.story({
   render: () => (
     <>
       <Breakpoint breakpoint="XS-SM">
-        <DrawerBody {...Example.input.args} />
+        <Drawer.Body {...Example.input.args} />
       </Breakpoint>
       <Breakpoint breakpoint="MD-2XL">
-        <DrawerBody {...Example.input.args} />
+        <Drawer.Body {...Example.input.args} />
       </Breakpoint>
     </>
   ),

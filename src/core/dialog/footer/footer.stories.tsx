@@ -1,11 +1,11 @@
 import preview from '#.storybook/preview'
 import { Button } from '#src/core/button/index'
-import { DialogFooter } from './footer'
+import { Dialog } from '../dialog'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 
 const meta = preview.meta({
   title: 'Core/Dialog/Footer',
-  component: DialogFooter,
+  component: Dialog.Footer,
   argTypes: {
     children: {
       control: false,

@@ -3,12 +3,11 @@ import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { FocusedLayout } from '../focused-layout'
-import { FocusedLayoutProductLogo, supportedProductLogos } from '../product-logo'
-import { FocusedLayoutTopBar } from './top-bar'
+import { supportedProductLogos } from '../product-logo'
 
 const meta = preview.meta({
   title: 'Core/FocusedLayout/TopBar',
-  component: FocusedLayoutTopBar,
+  component: FocusedLayout.TopBar,
   argTypes: {
     title: {
       control: 'text',
@@ -21,7 +20,7 @@ const meta = preview.meta({
         ...Object.fromEntries(
           supportedProductLogos.map((product) => [
             product,
-            <FocusedLayoutProductLogo key={product} product={product} />,
+            <FocusedLayout.ProductLogo key={product} product={product} />,
           ]),
         ),
       },

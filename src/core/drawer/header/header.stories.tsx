@@ -1,7 +1,6 @@
 import preview from '#.storybook/preview'
 import { Breakpoint, useDrawerBreakpointDecorator } from '../__story__/useDrawerBreakpointDecorator'
-import { DrawerHeader } from './header'
-import { DrawerFooter } from '../footer'
+import { Drawer } from '../drawer'
 import { Pattern } from '../__story__/Pattern'
 import { PrimaryTabs } from '#src/core/primary-tabs/index'
 import { useDrawerContextDecorator } from '../__story__/useDrawerContextDecorator'
@@ -10,12 +9,12 @@ const href = '#'
 
 const meta = preview.meta({
   title: 'Core/Drawer/Header',
-  component: DrawerHeader,
+  component: Drawer.Header,
   argTypes: {
     action: {
       control: 'radio',
       mapping: {
-        Close: <DrawerHeader.CloseButton />,
+        Close: <Drawer.Header.CloseButton />,
         None: null,
       },
       options: ['Close', 'None'],
@@ -138,7 +137,7 @@ export const StaticPositioning = Example.extend({
       >
         <Story />
         <Pattern />
-        <DrawerFooter>Footer</DrawerFooter>
+        <Drawer.Footer>Footer</Drawer.Footer>
       </div>
     ),
   ],
@@ -157,10 +156,10 @@ export const DynamicLayout = Example.extend({
   render: (args) => (
     <>
       <Breakpoint breakpoint="XS-SM">
-        <DrawerHeader {...args} action={<DrawerHeader.CloseButton />} tabs={null} />
+        <Drawer.Header {...args} action={<Drawer.Header.CloseButton />} tabs={null} />
       </Breakpoint>
       <Breakpoint breakpoint="MD-2XL">
-        <DrawerHeader {...args} action={<DrawerHeader.CloseButton />} />
+        <Drawer.Header {...args} action={<Drawer.Header.CloseButton />} />
       </Breakpoint>
     </>
   ),

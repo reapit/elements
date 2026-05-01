@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
-import { FeaturesLandSizeItem } from './land-size'
+import { Features } from '../features'
 
 const meta = preview.meta({
   title: 'Core/Features/LandSize',
-  component: FeaturesLandSizeItem,
+  component: Features.LandSize,
   argTypes: {
     value: {
       control: false,

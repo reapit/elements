@@ -1,6 +1,6 @@
 import preview from '#.storybook/preview'
 import { GalleryViewerMediaItemCaption } from '../media-item-caption'
-import { GalleryViewerMediaList } from './media-list'
+import { GalleryViewer } from '../gallery-viewer'
 import { Image } from '#src/utils/image'
 import { Video } from '#src/utils/video'
 
@@ -11,7 +11,7 @@ const EXAMPLE_VIDEO_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc
 
 const meta = preview.meta({
   title: 'Core/GalleryViewer/MediaList',
-  component: GalleryViewerMediaList,
+  component: GalleryViewer.MediaList,
   argTypes: {
     children: { control: false },
   },
@@ -21,20 +21,20 @@ export const Example = meta.story({
   args: {
     children: (
       <>
-        <GalleryViewerMediaList.Item id="item-1">
+        <GalleryViewer.MediaList.Item id="item-1">
           <Image alt="Front view" height="100%" objectFit="cover" src={EXAMPLE_IMAGE_1} width="100%" />
           <GalleryViewerMediaItemCaption>Front view</GalleryViewerMediaItemCaption>
-        </GalleryViewerMediaList.Item>
-        <GalleryViewerMediaList.Item id="item-2">
+        </GalleryViewer.MediaList.Item>
+        <GalleryViewer.MediaList.Item id="item-2">
           <Image alt="Garden view" height="100%" objectFit="cover" src={EXAMPLE_IMAGE_2} width="100%" />
           <GalleryViewerMediaItemCaption>Garden view</GalleryViewerMediaItemCaption>
-        </GalleryViewerMediaList.Item>
-        <GalleryViewerMediaList.Item id="item-3">
+        </GalleryViewer.MediaList.Item>
+        <GalleryViewer.MediaList.Item id="item-3">
           <Image alt="Living room" height="100%" objectFit="cover" src={EXAMPLE_IMAGE_3} width="100%" />
-        </GalleryViewerMediaList.Item>
-        <GalleryViewerMediaList.Item id="item-4">
+        </GalleryViewer.MediaList.Item>
+        <GalleryViewer.MediaList.Item id="item-4">
           <Video controls height="100%" objectFit="contain" src={EXAMPLE_VIDEO_SRC} width="100%" />
-        </GalleryViewerMediaList.Item>
+        </GalleryViewer.MediaList.Item>
       </>
     ),
   },

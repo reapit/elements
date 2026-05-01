@@ -1,5 +1,5 @@
 import preview from '#.storybook/preview'
-import { AppAvatar } from './app-avatar'
+import { AppSwitcher } from '../app-switcher'
 import { productConfigs } from '../config'
 
 import type { SupportedProductId } from '../config'
@@ -8,7 +8,7 @@ const productIds = Object.keys(productConfigs) as SupportedProductId[]
 
 const meta = preview.meta({
   title: 'Core/AppSwitcher/AppAvatar',
-  component: AppAvatar,
+  component: AppSwitcher.AppAvatar,
   argTypes: {
     productId: {
       control: { type: 'select' },
@@ -60,8 +60,8 @@ export const AllProducts = meta.story({
     >
       {productIds.map((productId) => [
         <p key={productId}>{productConfigs[productId].appName}</p>,
-        <AppAvatar key={`${productId}-has-access`} productId={productId} hasAccess={true} />,
-        <AppAvatar key={`${productId}-has-no-access`} productId={productId} hasAccess={false} />,
+        <AppSwitcher.AppAvatar key={`${productId}-has-access`} productId={productId} hasAccess={true} />,
+        <AppSwitcher.AppAvatar key={`${productId}-has-no-access`} productId={productId} hasAccess={false} />,
       ])}
     </div>
   ),

@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
-import { FeaturesBedroomsItem } from './bedrooms'
+import { Features } from '../features'
 
 const meta = preview.meta({
   title: 'Core/Features/Bedrooms',
-  component: FeaturesBedroomsItem,
+  component: Features.Bedrooms,
   argTypes: {
     value: {
       control: 'number',

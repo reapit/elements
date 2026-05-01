@@ -1,8 +1,6 @@
 import preview from '#.storybook/preview'
 import { useState } from 'react'
-import { GalleryViewerMediaItemCaption } from '../media-item-caption'
-import { GalleryViewerMediaListLayout } from './media-list-layout'
-import { GalleryViewerMediaList } from '#src/core/gallery-viewer/media-list'
+import { GalleryViewer } from '../gallery-viewer'
 import { ChipSelect } from '#src/core/chip-select'
 import { Image } from '#src/utils/image'
 import { Video } from '#src/utils/video'
@@ -39,7 +37,7 @@ function imageSrc(baseSrc: string, width: number, height: number) {
 
 const meta = preview.meta({
   title: 'Core/GalleryViewer/MediaListLayout',
-  component: GalleryViewerMediaListLayout,
+  component: GalleryViewer.MediaListLayout,
   argTypes: {
     children: { control: false },
   },
@@ -68,7 +66,7 @@ export const Example = meta.story({
     )
 
     return (
-      <GalleryViewerMediaListLayout>
+      <GalleryViewer.MediaListLayout>
         <ChipSelect size="small">
           <ChipSelect.Option checked={filter.includes('all')} onChange={onFilterChange} value="all">
             All
@@ -80,9 +78,9 @@ export const Example = meta.story({
             Videos
           </ChipSelect.Option>
         </ChipSelect>
-        <GalleryViewerMediaList>
+        <GalleryViewer.MediaList>
           {visibleItems.map((item) => (
-            <GalleryViewerMediaList.Item id={item.id} key={item.id}>
+            <GalleryViewer.MediaList.Item id={item.id} key={item.id}>
               {item.type === 'photo' ? (
                 <Image
                   alt={item.label}
@@ -94,11 +92,11 @@ export const Example = meta.story({
               ) : (
                 <Video controls height="100%" objectFit="contain" src={item.src} width="100%" />
               )}
-              <GalleryViewerMediaItemCaption>{item.label}</GalleryViewerMediaItemCaption>
-            </GalleryViewerMediaList.Item>
+              <GalleryViewer.Caption>{item.label}</GalleryViewer.Caption>
+            </GalleryViewer.MediaList.Item>
           ))}
-        </GalleryViewerMediaList>
-      </GalleryViewerMediaListLayout>
+        </GalleryViewer.MediaList>
+      </GalleryViewer.MediaListLayout>
     )
   },
 })

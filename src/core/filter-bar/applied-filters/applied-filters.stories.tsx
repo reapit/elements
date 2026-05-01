@@ -1,14 +1,14 @@
 import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ChipGroup } from '#src/core/chip-group'
-import { FilterBarAppliedFilters } from './applied-filters'
+import { FilterBar } from '../filter-bar'
 import { MatchMedia } from '#src/utils/match-media'
 
 import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/index'
 
 const meta = preview.meta({
   title: 'Core/FilterBar/AppliedFilters',
-  component: FilterBarAppliedFilters,
+  component: FilterBar.AppliedFilters,
   argTypes: {
     children: {
       control: 'radio',

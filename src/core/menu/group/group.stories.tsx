@@ -1,14 +1,13 @@
 import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge'
-import { MenuGroup } from './group'
-import { AnchorMenuItem, MenuItem } from '../item'
+import { Menu } from '../menu'
 import { StarIcon } from '#src/icons/star'
 
 const href = '#'
 
 const meta = preview.meta({
   title: 'Core/Menu/Group',
-  component: MenuGroup,
+  component: Menu.Group,
   argTypes: {
     children: {
       control: 'select',
@@ -16,14 +15,14 @@ const meta = preview.meta({
       mapping: {
         Simple: (
           <>
-            <AnchorMenuItem href={href}>Item 1</AnchorMenuItem>
-            <MenuItem>Item 2</MenuItem>
-            <MenuItem>Item 3</MenuItem>
+            <Menu.AnchorItem href={href}>Item 1</Menu.AnchorItem>
+            <Menu.Item>Item 2</Menu.Item>
+            <Menu.Item>Item 3</Menu.Item>
           </>
         ),
         Fancy: (
           <>
-            <AnchorMenuItem
+            <Menu.AnchorItem
               badge={
                 <Badge colour="success" variant="reversed">
                   Badge
@@ -34,8 +33,8 @@ const meta = preview.meta({
               supplementaryInfo="Supplementary info"
             >
               Item 1
-            </AnchorMenuItem>
-            <MenuItem
+            </Menu.AnchorItem>
+            <Menu.Item
               iconLeft={<StarIcon />}
               badge={
                 <Badge colour="success" variant="reversed">
@@ -45,8 +44,8 @@ const meta = preview.meta({
               supplementaryInfo="Supplementary info"
             >
               Item 2
-            </MenuItem>
-            <MenuItem
+            </Menu.Item>
+            <Menu.Item
               iconLeft={<StarIcon />}
               badge={
                 <Badge colour="success" variant="reversed">
@@ -56,7 +55,7 @@ const meta = preview.meta({
               supplementaryInfo="Supplementary info"
             >
               Item 3
-            </MenuItem>
+            </Menu.Item>
           </>
         ),
       },
@@ -68,7 +67,7 @@ const meta = preview.meta({
 })
 
 /**
- * A basic menu group with interactive menu items. Use `MenuItem` for menu items that perform
+ * A basic menu group with interactive menu items. Use `Menu.Item` for menu items that perform
  * actions when clicked.
  */
 export const Example = meta.story({

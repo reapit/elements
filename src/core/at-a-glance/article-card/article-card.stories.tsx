@@ -1,12 +1,12 @@
 import preview from '#.storybook/preview'
-import { AtAGlanceArticleCard } from './article-card'
+import { AtAGlance } from '../at-a-glance'
 import { SproutIcon } from '#src/icons/sprout'
 import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 const meta = preview.meta({
   title: 'Core/AtAGlance/ArticleCard',
-  component: AtAGlanceArticleCard,
+  component: AtAGlance.ArticleCard,
   argTypes: {
     description: { control: 'text' },
     displayValue: { control: 'text' },
@@ -152,21 +152,21 @@ export const Alignment = Example.extend({
 
   render: (args) => (
     <>
-      <AtAGlanceArticleCard
+      <AtAGlance.ArticleCard
         {...args}
         description="Crunchy and Juicy"
         displayValue="32"
         icon={<SproutIcon />}
         label="Apple"
       />
-      <AtAGlanceArticleCard
+      <AtAGlance.ArticleCard
         {...args}
         description="Crunchy and juicy. Some are red, others are green. Some can even be yellow, pink or dark purple. I've ran out of copy ideas."
         displayValue="32"
         icon={<SproutIcon />}
         label="Apple"
       />
-      <AtAGlanceArticleCard
+      <AtAGlance.ArticleCard
         {...args}
         description="They all mean the same thing"
         displayValue="32"

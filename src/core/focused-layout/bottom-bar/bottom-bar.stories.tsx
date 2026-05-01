@@ -3,11 +3,10 @@ import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { FocusedLayout } from '../focused-layout'
-import { FocusedLayoutBottomBar } from './bottom-bar'
 
 const meta = preview.meta({
   title: 'Core/FocusedLayout/BottomBar',
-  component: FocusedLayoutBottomBar,
+  component: FocusedLayout.BottomBar,
   argTypes: {
     children: {
       control: 'select',

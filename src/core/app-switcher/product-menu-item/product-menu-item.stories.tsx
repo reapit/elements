@@ -1,11 +1,11 @@
 import preview from '#.storybook/preview'
-import { AppSwitcherProductMenuItem } from './product-menu-item'
+import { AppSwitcher } from '../app-switcher'
 import { AppSwitcherMenuGroupHasAccessContext } from '../menu-group-has-access-context'
 import { productConfigs } from '../config'
 
 const meta = preview.meta({
   title: 'Core/AppSwitcher/ProductMenuItem',
-  component: AppSwitcherProductMenuItem,
+  component: AppSwitcher.ProductMenuItem,
   argTypes: {
     productId: {
       control: 'select',

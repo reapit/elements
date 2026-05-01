@@ -1,6 +1,6 @@
 import preview from '#.storybook/preview'
 import { useState } from 'react'
-import { GalleryViewerCarousel } from './carousel'
+import { GalleryViewer } from '../gallery-viewer'
 import { GalleryViewerMediaItemCaption } from '../media-item-caption'
 import { ChipSelect } from '#src/core/chip-select'
 import { Image } from '#src/utils/image'
@@ -18,7 +18,7 @@ const EXAMPLE_VIDEO_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc
 
 const meta = preview.meta({
   title: 'Core/GalleryViewer/Carousel',
-  component: GalleryViewerCarousel,
+  component: GalleryViewer.Carousel,
   argTypes: {
     children: { control: false },
   },
@@ -39,24 +39,24 @@ export const Example = meta.story({
     'aria-label': 'Property photos',
     children: (
       <>
-        <GalleryViewerCarousel.Button aria-label="Previous" direction="previous" />
-        <GalleryViewerCarousel.Track>
-          <GalleryViewerCarousel.Item id="item-1">
+        <GalleryViewer.Carousel.Button aria-label="Previous" direction="previous" />
+        <GalleryViewer.Carousel.Track>
+          <GalleryViewer.Carousel.Item id="item-1">
             <Image alt="Photo 1" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[0]} width="100%" />
             <GalleryViewerMediaItemCaption>Photo 1</GalleryViewerMediaItemCaption>
-          </GalleryViewerCarousel.Item>
+          </GalleryViewer.Carousel.Item>
 
-          <GalleryViewerCarousel.Item id="item-2">
+          <GalleryViewer.Carousel.Item id="item-2">
             <Image alt="Photo 2" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[1]} width="100%" />
             <GalleryViewerMediaItemCaption>Photo 2</GalleryViewerMediaItemCaption>
-          </GalleryViewerCarousel.Item>
+          </GalleryViewer.Carousel.Item>
 
-          <GalleryViewerCarousel.Item id="item-3">
+          <GalleryViewer.Carousel.Item id="item-3">
             <Image alt="Photo 3" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[2]} width="100%" />
             <GalleryViewerMediaItemCaption>Photo 3</GalleryViewerMediaItemCaption>
-          </GalleryViewerCarousel.Item>
-        </GalleryViewerCarousel.Track>
-        <GalleryViewerCarousel.Button aria-label="Next" direction="next" />
+          </GalleryViewer.Carousel.Item>
+        </GalleryViewer.Carousel.Track>
+        <GalleryViewer.Carousel.Button aria-label="Next" direction="next" />
       </>
     ),
     defaultValue: 'item-1',
@@ -77,20 +77,20 @@ export const Controlled = meta.story({
     const [value, setValue] = useState('item-1')
 
     return (
-      <GalleryViewerCarousel {...args} onChange={setValue} value={value}>
-        <GalleryViewerCarousel.Button aria-label="Previous" direction="previous" />
-        <GalleryViewerCarousel.Track>
+      <GalleryViewer.Carousel {...args} onChange={setValue} value={value}>
+        <GalleryViewer.Carousel.Button aria-label="Previous" direction="previous" />
+        <GalleryViewer.Carousel.Track>
           {EXAMPLE_IMAGES.map((src, i) => (
-            <GalleryViewerCarousel.Item id={ids[i]} key={ids[i]}>
+            <GalleryViewer.Carousel.Item id={ids[i]} key={ids[i]}>
               <Image alt={`Photo ${i + 1}`} height="100%" objectFit="cover" src={src} width="100%" />
               <GalleryViewerMediaItemCaption>
                 Photo {i + 1} of {ids.length}
               </GalleryViewerMediaItemCaption>
-            </GalleryViewerCarousel.Item>
+            </GalleryViewer.Carousel.Item>
           ))}
-        </GalleryViewerCarousel.Track>
-        <GalleryViewerCarousel.Button aria-label="Next" direction="next" />
-      </GalleryViewerCarousel>
+        </GalleryViewer.Carousel.Track>
+        <GalleryViewer.Carousel.Button aria-label="Next" direction="next" />
+      </GalleryViewer.Carousel>
     )
   },
 })
@@ -103,17 +103,17 @@ export const VideoItem = meta.story({
     'aria-label': 'Property media',
     children: (
       <>
-        <GalleryViewerCarousel.Button aria-label="Previous" direction="previous" />
-        <GalleryViewerCarousel.Track>
-          <GalleryViewerCarousel.Item id="photo-1">
+        <GalleryViewer.Carousel.Button aria-label="Previous" direction="previous" />
+        <GalleryViewer.Carousel.Track>
+          <GalleryViewer.Carousel.Item id="photo-1">
             <Image alt="House exterior" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[0]} width="100%" />
             <GalleryViewerMediaItemCaption>Photo</GalleryViewerMediaItemCaption>
-          </GalleryViewerCarousel.Item>
-          <GalleryViewerCarousel.Item id="video-1">
+          </GalleryViewer.Carousel.Item>
+          <GalleryViewer.Carousel.Item id="video-1">
             <Video controls height="100%" objectFit="contain" src={EXAMPLE_VIDEO_SRC} width="100%" />
-          </GalleryViewerCarousel.Item>
-        </GalleryViewerCarousel.Track>
-        <GalleryViewerCarousel.Button aria-label="Next" direction="next" />
+          </GalleryViewer.Carousel.Item>
+        </GalleryViewer.Carousel.Track>
+        <GalleryViewer.Carousel.Button aria-label="Next" direction="next" />
       </>
     ),
     defaultValue: 'video-1',
@@ -154,9 +154,9 @@ export const ErrorFallback = meta.story({
     'aria-label': 'Property photos',
     children: (
       <>
-        <GalleryViewerCarousel.Button aria-label="Previous" direction="previous" />
-        <GalleryViewerCarousel.Track>
-          <GalleryViewerCarousel.Item id="item-1">
+        <GalleryViewer.Carousel.Button aria-label="Previous" direction="previous" />
+        <GalleryViewer.Carousel.Track>
+          <GalleryViewer.Carousel.Item id="item-1">
             <Image
               alt="Broken image"
               height="100%"
@@ -164,12 +164,12 @@ export const ErrorFallback = meta.story({
               src="https://invalid.example/broken.jpg"
               width="100%"
             />
-          </GalleryViewerCarousel.Item>
-          <GalleryViewerCarousel.Item id="item-2">
+          </GalleryViewer.Carousel.Item>
+          <GalleryViewer.Carousel.Item id="item-2">
             <Image alt="Front view" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[0]} width="100%" />
-          </GalleryViewerCarousel.Item>
-        </GalleryViewerCarousel.Track>
-        <GalleryViewerCarousel.Button aria-label="Next" direction="next" />
+          </GalleryViewer.Carousel.Item>
+        </GalleryViewer.Carousel.Track>
+        <GalleryViewer.Carousel.Button aria-label="Next" direction="next" />
       </>
     ),
     defaultValue: 'item-1',
@@ -215,30 +215,30 @@ export const Filtered = meta.story({
           </ChipSelect.Option>
         </ChipSelect>
 
-        <GalleryViewerCarousel {...args} onChange={setValue} value={value}>
-          <GalleryViewerCarousel.Button aria-label="Previous" direction="previous" />
-          <GalleryViewerCarousel.Track>
+        <GalleryViewer.Carousel {...args} onChange={setValue} value={value}>
+          <GalleryViewer.Carousel.Button aria-label="Previous" direction="previous" />
+          <GalleryViewer.Carousel.Track>
             {showPhotos && (
-              <GalleryViewerCarousel.Item id="photo-1" key="photo-1">
+              <GalleryViewer.Carousel.Item id="photo-1" key="photo-1">
                 <Image alt="Photo 1" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[0]} width="100%" />
                 <GalleryViewerMediaItemCaption>Photo 1</GalleryViewerMediaItemCaption>
-              </GalleryViewerCarousel.Item>
+              </GalleryViewer.Carousel.Item>
             )}
             {showPhotos && (
-              <GalleryViewerCarousel.Item id="photo-2" key="photo-2">
+              <GalleryViewer.Carousel.Item id="photo-2" key="photo-2">
                 <Image alt="Photo 2" height="100%" objectFit="cover" src={EXAMPLE_IMAGES[1]} width="100%" />
                 <GalleryViewerMediaItemCaption>Photo 2</GalleryViewerMediaItemCaption>
-              </GalleryViewerCarousel.Item>
+              </GalleryViewer.Carousel.Item>
             )}
             {showVideo && (
-              <GalleryViewerCarousel.Item id="video-1" key="video-1">
+              <GalleryViewer.Carousel.Item id="video-1" key="video-1">
                 <Video controls height="100%" objectFit="contain" src={EXAMPLE_VIDEO_SRC} width="100%" />
                 <GalleryViewerMediaItemCaption>Video 1</GalleryViewerMediaItemCaption>
-              </GalleryViewerCarousel.Item>
+              </GalleryViewer.Carousel.Item>
             )}
-          </GalleryViewerCarousel.Track>
-          <GalleryViewerCarousel.Button aria-label="Next" direction="next" />
-        </GalleryViewerCarousel>
+          </GalleryViewer.Carousel.Track>
+          <GalleryViewer.Carousel.Button aria-label="Next" direction="next" />
+        </GalleryViewer.Carousel>
       </div>
     )
   },

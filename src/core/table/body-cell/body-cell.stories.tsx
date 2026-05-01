@@ -5,10 +5,7 @@ import { Skeleton } from '#src/core/skeleton'
 import { StarIcon } from '#src/icons/star'
 import { StatusIndicator } from '#src/core/status-indicator'
 import { SupplementaryInfo } from '../../supplementary-info'
-import { TableBodyCell } from './body-cell'
-import { TableCellCheckbox } from '../checkbox'
-import { TableCellDoubleLineLayout } from '../double-line-layout/double-line-layout'
-import { TableCellPrimaryData } from '../primary-data'
+import { Table } from '../table'
 import { TagGroup } from '#src/core/tag-group'
 import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
@@ -17,7 +14,7 @@ import { useTableDecorator } from '../__story__/use-table-decorator'
 
 const meta = preview.meta({
   title: 'Core/Table/BodyCell',
-  component: TableBodyCell,
+  component: Table.BodyCell,
   argTypes: {
     as: {
       control: false,
@@ -44,9 +41,9 @@ const meta = preview.meta({
       ],
       mapping: {
         'Plain text': '10 Hay St, Melbourne 3100',
-        'Text + icons': <TableCellPrimaryData iconRight={<StarIcon />}>10 Hay St, Melbourne 3100</TableCellPrimaryData>,
+        'Text + icons': <Table.PrimaryData iconRight={<StarIcon />}>10 Hay St, Melbourne 3100</Table.PrimaryData>,
         'Double-line layout': (
-          <TableCellDoubleLineLayout
+          <Table.DoubleLineLayout
             supplementaryData={
               <SupplementaryInfo size="xs">
                 <SupplementaryInfo.Item>Value 1</SupplementaryInfo.Item>
@@ -55,10 +52,10 @@ const meta = preview.meta({
               </SupplementaryInfo>
             }
           >
-            <TableCellPrimaryData iconRight={<StarIcon />}>
+            <Table.PrimaryData iconRight={<StarIcon />}>
               <time dateTime="2025-08-22T09:21:00">22 August 2025, 9:21am</time>
-            </TableCellPrimaryData>
-          </TableCellDoubleLineLayout>
+            </Table.PrimaryData>
+          </Table.DoubleLineLayout>
         ),
         Badge: <Badge colour="neutral">Label</Badge>,
         Icon: <StarIcon color="primary" size="sm" />,
@@ -77,7 +74,7 @@ const meta = preview.meta({
             <TagGroup.Item>Tag 3</TagGroup.Item>
           </TagGroup>
         ),
-        Checkbox: <TableCellCheckbox aria-label="Select Mary Jane" name="selections" value="1" />,
+        Checkbox: <Table.Checkbox aria-label="Select Mary Jane" name="selections" value="1" />,
         Skeleton: <Skeleton />,
       },
       table: {

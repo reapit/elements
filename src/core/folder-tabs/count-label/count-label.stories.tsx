@@ -1,11 +1,11 @@
 import preview from '#.storybook/preview'
 import { FOLDER_TABS_CSS_CONTAINER_NAME } from '../constants'
-import { FolderTabCountLabel } from './count-label'
+import { FolderTabs } from '../folder-tabs'
 import { useFolderTabsContainerDecorator } from '../__story__/useFolderTabsContainerDecorator'
 
 const meta = preview.meta({
   title: 'Core/FolderTabs/CountLabel',
-  component: FolderTabCountLabel,
+  component: FolderTabs.CountLabel,
 })
 
 /**

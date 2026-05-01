@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
-import { FormControlLabel } from './label'
+import { FormControl } from '../form-control'
 
 const meta = preview.meta({
   title: 'Core/FormControl/Label',
-  component: FormControlLabel,
+  component: FormControl.Label,
   argTypes: {
     as: {
       control: false,

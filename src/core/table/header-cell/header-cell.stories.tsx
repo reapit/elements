@@ -1,14 +1,12 @@
 import preview from '#.storybook/preview'
-import { TableHeaderCell } from './header-cell'
-import { TableCellCheckbox } from '../checkbox'
-import { TableCellSortButton } from '../sort-button'
+import { Table } from '../table'
 import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
 const meta = preview.meta({
   title: 'Core/Table/HeaderCell',
-  component: TableHeaderCell,
+  component: Table.HeaderCell,
   argTypes: {
     'aria-sort': {
       control: 'text',
@@ -35,11 +33,11 @@ const meta = preview.meta({
       mapping: {
         'Plain text': 'Property',
         'Sort button': (
-          <TableCellSortButton name="totalAmount" value="descending">
+          <Table.SortButton name="totalAmount" value="descending">
             Amount
-          </TableCellSortButton>
+          </Table.SortButton>
         ),
-        Checkbox: <TableCellCheckbox aria-label="Select all rows" name="selectAll" />,
+        Checkbox: <Table.Checkbox aria-label="Select all rows" name="selectAll" />,
       },
       table: {
         type: {

@@ -1,19 +1,14 @@
 import preview from '#.storybook/preview'
 import { Avatar } from '#src/core/avatar'
 import { Menu } from '#src/core/menu'
-import { TableBodyCell } from '../body-cell'
-import { TableBodyRow } from './body-row'
-import { TableCellCheckbox } from '../checkbox'
-import { TableCellDoubleLineLayout } from '../double-line-layout'
-import { TableRowPrimaryAction } from '../primary-action'
-import { TableRowMoreActions } from '../more-actions'
+import { Table } from '../table'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
 const href = '#'
 
 const meta = preview.meta({
   title: 'Core/Table/BodyRow',
-  component: TableBodyRow,
+  component: Table.BodyRow,
   argTypes: {
     as: {
       control: false,
@@ -31,87 +26,87 @@ const meta = preview.meta({
       mapping: {
         'Plain text': (
           <>
-            <TableBodyCell as="th">10 Hay St, Melbourne 3100</TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>
-              <TableRowMoreActions aria-label="More actions for 10 Hay St, Melbourne 3100">
+            <Table.BodyCell as="th">10 Hay St, Melbourne 3100</Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>
+              <Table.MoreActions aria-label="More actions for 10 Hay St, Melbourne 3100">
                 <Menu.Item>Action 1</Menu.Item>
                 <Menu.Item>Action 2</Menu.Item>
-              </TableRowMoreActions>
-            </TableBodyCell>
+              </Table.MoreActions>
+            </Table.BodyCell>
           </>
         ),
         'Primary action': (
           <>
-            <TableBodyCell as="th">
-              <TableRowPrimaryAction href={href}>10 Hay St, Melbourne 3100</TableRowPrimaryAction>
-            </TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>
-              <TableRowMoreActions aria-label="More actions for 10 Hay St, Melbourne 3100">
+            <Table.BodyCell as="th">
+              <Table.PrimaryAction href={href}>10 Hay St, Melbourne 3100</Table.PrimaryAction>
+            </Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>
+              <Table.MoreActions aria-label="More actions for 10 Hay St, Melbourne 3100">
                 <Menu.Item>Action 1</Menu.Item>
                 <Menu.Item>Action 2</Menu.Item>
-              </TableRowMoreActions>
-            </TableBodyCell>
+              </Table.MoreActions>
+            </Table.BodyCell>
           </>
         ),
         'Double-line': (
           <>
-            <TableBodyCell as="th">
-              <TableCellDoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
-                <TableRowPrimaryAction href={href}>Mary Jane</TableRowPrimaryAction>
-              </TableCellDoubleLineLayout>
-            </TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>
-              <TableRowMoreActions aria-label="More actions for Mary Jane">
+            <Table.BodyCell as="th">
+              <Table.DoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
+                <Table.PrimaryAction href={href}>Mary Jane</Table.PrimaryAction>
+              </Table.DoubleLineLayout>
+            </Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>
+              <Table.MoreActions aria-label="More actions for Mary Jane">
                 <Menu.Item>Action 1</Menu.Item>
                 <Menu.Item>Action 2</Menu.Item>
-              </TableRowMoreActions>
-            </TableBodyCell>
+              </Table.MoreActions>
+            </Table.BodyCell>
           </>
         ),
         Selectable: (
           <>
-            <TableBodyCell>
-              <TableCellCheckbox aria-label="Select Mary Jane" name="selections" value="1" />
-            </TableBodyCell>
-            <TableBodyCell as="th">
-              <TableCellDoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
-                <TableRowPrimaryAction href={href}>Mary Jane</TableRowPrimaryAction>
-              </TableCellDoubleLineLayout>
-            </TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>
-              <TableRowMoreActions aria-label="More actions for Mary Jane">
+            <Table.BodyCell>
+              <Table.Checkbox aria-label="Select Mary Jane" name="selections" value="1" />
+            </Table.BodyCell>
+            <Table.BodyCell as="th">
+              <Table.DoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
+                <Table.PrimaryAction href={href}>Mary Jane</Table.PrimaryAction>
+              </Table.DoubleLineLayout>
+            </Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>
+              <Table.MoreActions aria-label="More actions for Mary Jane">
                 <Menu.Item>Action 1</Menu.Item>
                 <Menu.Item>Action 2</Menu.Item>
-              </TableRowMoreActions>
-            </TableBodyCell>
+              </Table.MoreActions>
+            </Table.BodyCell>
           </>
         ),
         Selected: (
           <>
-            <TableBodyCell>
-              <TableCellCheckbox aria-label="Select Mary Jane" checked name="selections" value="1" />
-            </TableBodyCell>
-            <TableBodyCell as="th">
-              <TableCellDoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
-                <TableRowPrimaryAction href={href}>Mary Jane</TableRowPrimaryAction>
-              </TableCellDoubleLineLayout>
-            </TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>
-              <TableRowMoreActions aria-label="More actions for Mary Jane">
+            <Table.BodyCell>
+              <Table.Checkbox aria-label="Select Mary Jane" checked name="selections" value="1" />
+            </Table.BodyCell>
+            <Table.BodyCell as="th">
+              <Table.DoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
+                <Table.PrimaryAction href={href}>Mary Jane</Table.PrimaryAction>
+              </Table.DoubleLineLayout>
+            </Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>
+              <Table.MoreActions aria-label="More actions for Mary Jane">
                 <Menu.Item>Action 1</Menu.Item>
                 <Menu.Item>Action 2</Menu.Item>
-              </TableRowMoreActions>
-            </TableBodyCell>
+              </Table.MoreActions>
+            </Table.BodyCell>
           </>
         ),
       },
@@ -205,9 +200,9 @@ export const Divs = meta.story({
   args: {
     as: 'div',
     children: (
-      <TableBodyCell as="div">
-        <TableRowPrimaryAction href={href}>I&apos;m all divs and no a11y 😬</TableRowPrimaryAction>
-      </TableBodyCell>
+      <Table.BodyCell as="div">
+        <Table.PrimaryAction href={href}>I&apos;m all divs and no a11y 😬</Table.PrimaryAction>
+      </Table.BodyCell>
     ),
   },
   argTypes: {

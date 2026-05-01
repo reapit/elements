@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
-import { FormControlErrorText } from './error-text'
+import { FormControl } from '../form-control'
 
 const meta = preview.meta({
   title: 'Core/FormControl/ErrorText',
-  component: FormControlErrorText,
+  component: FormControl.ErrorText,
   argTypes: {
     children: {
       control: 'text',

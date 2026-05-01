@@ -1,12 +1,12 @@
 import type { ComponentProps } from 'react'
 
 import preview from '#.storybook/preview'
-import { EmptyStateAction } from './action'
+import { EmptyState } from '../empty-state'
 import { EmptyStateActionButton } from './action-button'
 
 const meta = preview.meta({
   title: 'Core/EmptyState/Action',
-  component: EmptyStateAction,
+  component: EmptyState.Action,
   subcomponents: {
     EmptyStateActionButton: EmptyStateActionButton,
   },

@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
-import { TopBarNavSearchButton } from './nav-search-button'
+import { TopBar } from '../top-bar'
 
 const meta = preview.meta({
   title: 'Core/TopBar/NavSearchButton',
-  component: TopBarNavSearchButton,
+  component: TopBar.NavSearchButton,
   argTypes: {
     onClick: {
       control: false,

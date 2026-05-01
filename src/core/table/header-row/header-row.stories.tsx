@@ -1,12 +1,10 @@
 import preview from '#.storybook/preview'
-import { TableCellSortButton } from '../sort-button'
-import { TableHeaderCell } from '../header-cell'
-import { TableHeaderRow } from './header-row'
+import { Table } from '../table'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
 const meta = preview.meta({
   title: 'Core/Table/HeaderRow',
-  component: TableHeaderRow,
+  component: Table.HeaderRow,
   argTypes: {
     as: {
       control: false,
@@ -24,26 +22,26 @@ const meta = preview.meta({
       mapping: {
         'Static text': (
           <>
-            <TableHeaderCell>Property</TableHeaderCell>
-            <TableHeaderCell>Ownership</TableHeaderCell>
-            <TableHeaderCell>Tenancy</TableHeaderCell>
-            <TableHeaderCell aria-label="Actions">{null}</TableHeaderCell>
+            <Table.HeaderCell>Property</Table.HeaderCell>
+            <Table.HeaderCell>Ownership</Table.HeaderCell>
+            <Table.HeaderCell>Tenancy</Table.HeaderCell>
+            <Table.HeaderCell aria-label="Actions">{null}</Table.HeaderCell>
           </>
         ),
         'Sortable columns': (
           <>
-            <TableHeaderCell>Property</TableHeaderCell>
-            <TableHeaderCell>
-              <TableCellSortButton name="total" value="none">
+            <Table.HeaderCell>Property</Table.HeaderCell>
+            <Table.HeaderCell>
+              <Table.SortButton name="total" value="none">
                 Amount
-              </TableCellSortButton>
-            </TableHeaderCell>
-            <TableHeaderCell aria-sort="descending">
-              <TableCellSortButton name="dueDate" value="descending">
+              </Table.SortButton>
+            </Table.HeaderCell>
+            <Table.HeaderCell aria-sort="descending">
+              <Table.SortButton name="dueDate" value="descending">
                 Due
-              </TableCellSortButton>
-            </TableHeaderCell>
-            <TableHeaderCell aria-label="Actions">{null}</TableHeaderCell>
+              </Table.SortButton>
+            </Table.HeaderCell>
+            <Table.HeaderCell aria-label="Actions">{null}</Table.HeaderCell>
           </>
         ),
       },
@@ -92,7 +90,7 @@ export const SortableColumns = meta.story({
 export const Divs = meta.story({
   args: {
     as: 'div',
-    children: <TableHeaderCell as="div">I&apos;m all divs and no a11y 😬</TableHeaderCell>,
+    children: <Table.HeaderCell as="div">I&apos;m all divs and no a11y 😬</Table.HeaderCell>,
   },
   argTypes: {
     children: {

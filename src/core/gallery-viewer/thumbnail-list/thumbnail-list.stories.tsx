@@ -1,5 +1,5 @@
 import preview from '#.storybook/preview'
-import { GalleryViewerThumbnailList } from './thumbnail-list'
+import { GalleryViewer } from '../gallery-viewer'
 
 const EXAMPLE_IMAGE_SRC = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=176&h=112&fit=crop'
 const EXAMPLE_IMAGE_SRC_2 = 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=176&h=112&fit=crop'
@@ -11,7 +11,7 @@ const EXAMPLE_IMAGE_SRC_7 = 'https://images.unsplash.com/photo-1502672260266-1c1
 
 const meta = preview.meta({
   title: 'Core/GalleryViewer/ThumbnailList',
-  component: GalleryViewerThumbnailList,
+  component: GalleryViewer.ThumbnailList,
   argTypes: {
     children: {
       control: false,
@@ -27,43 +27,43 @@ export const Example = meta.story({
   args: {
     children: (
       <>
-        <GalleryViewerThumbnailList.Item
+        <GalleryViewer.ThumbnailList.Item
           aria-current="location"
           aria-label="View photo 1"
           href="#1"
           src={EXAMPLE_IMAGE_SRC}
         />
-        <GalleryViewerThumbnailList.Item
+        <GalleryViewer.ThumbnailList.Item
           aria-current={false}
           aria-label="View photo 2"
           href="#2"
           src={EXAMPLE_IMAGE_SRC_2}
         />
-        <GalleryViewerThumbnailList.Item
+        <GalleryViewer.ThumbnailList.Item
           aria-current={false}
           aria-label="View photo 3"
           href="#3"
           src={EXAMPLE_IMAGE_SRC_3}
         />
-        <GalleryViewerThumbnailList.Item
+        <GalleryViewer.ThumbnailList.Item
           aria-current={false}
           aria-label="View photo 4"
           href="#4"
           src={EXAMPLE_IMAGE_SRC_4}
         />
-        <GalleryViewerThumbnailList.Item
+        <GalleryViewer.ThumbnailList.Item
           aria-current={false}
           aria-label="View photo 5"
           href="#5"
           src={EXAMPLE_IMAGE_SRC_5}
         />
-        <GalleryViewerThumbnailList.Item
+        <GalleryViewer.ThumbnailList.Item
           aria-current={false}
           aria-label="View photo 6"
           href="#6"
           src={EXAMPLE_IMAGE_SRC_6}
         />
-        <GalleryViewerThumbnailList.Item
+        <GalleryViewer.ThumbnailList.Item
           aria-current={false}
           aria-label="View video walkthrough"
           href="#7"
@@ -76,40 +76,40 @@ export const Example = meta.story({
 })
 
 /**
- * Use `GalleryViewerThumbnailList.ButtonItem` when managing selection via a
+ * Use `GalleryViewer.ThumbnailList.ButtonItem` when managing selection via a
  * click handler rather than URL navigation.
  */
 export const Button = meta.story({
   args: {
     children: (
       <>
-        <GalleryViewerThumbnailList.ButtonItem aria-pressed={true} aria-label="View photo 1" src={EXAMPLE_IMAGE_SRC} />
-        <GalleryViewerThumbnailList.ButtonItem
+        <GalleryViewer.ThumbnailList.ButtonItem aria-pressed={true} aria-label="View photo 1" src={EXAMPLE_IMAGE_SRC} />
+        <GalleryViewer.ThumbnailList.ButtonItem
           aria-pressed={false}
           aria-label="View photo 2"
           src={EXAMPLE_IMAGE_SRC_2}
         />
-        <GalleryViewerThumbnailList.ButtonItem
+        <GalleryViewer.ThumbnailList.ButtonItem
           aria-pressed={false}
           aria-label="View photo 3"
           src={EXAMPLE_IMAGE_SRC_3}
         />
-        <GalleryViewerThumbnailList.ButtonItem
+        <GalleryViewer.ThumbnailList.ButtonItem
           aria-pressed={false}
           aria-label="View photo 4"
           src={EXAMPLE_IMAGE_SRC_4}
         />
-        <GalleryViewerThumbnailList.ButtonItem
+        <GalleryViewer.ThumbnailList.ButtonItem
           aria-pressed={false}
           aria-label="View photo 5"
           src={EXAMPLE_IMAGE_SRC_5}
         />
-        <GalleryViewerThumbnailList.ButtonItem
+        <GalleryViewer.ThumbnailList.ButtonItem
           aria-pressed={false}
           aria-label="View photo 6"
           src={EXAMPLE_IMAGE_SRC_6}
         />
-        <GalleryViewerThumbnailList.ButtonItem
+        <GalleryViewer.ThumbnailList.ButtonItem
           aria-pressed={false}
           aria-label="View video walkthrough"
           isVideo

@@ -1,6 +1,6 @@
 import preview from '#.storybook/preview'
 import { PropertyIcon } from '#src/icons/property'
-import { SideBarMenuList } from './menu-list'
+import { SideBar } from '../side-bar'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
@@ -9,7 +9,7 @@ const href = '#'
 
 const meta = preview.meta({
   title: 'Core/SideBar/MenuList',
-  component: SideBarMenuList,
+  component: SideBar.MenuList,
   argTypes: {
     children: {
       control: 'radio',
@@ -82,26 +82,26 @@ export const Collapsed = Example.extend({
 
 function buildMenu(type: 'No selected item' | 'Selected item' | 'Selected submenu item') {
   return [
-    <SideBarMenuList.Item
+    <SideBar.MenuList.Item
       key="1"
       aria-current={type === 'Selected item' ? 'page' : false}
       href={href}
       icon={<PropertyIcon />}
     >
       Menu item 1
-    </SideBarMenuList.Item>,
-    <SideBarMenuList.Group
+    </SideBar.MenuList.Item>,
+    <SideBar.MenuList.Group
       key="2"
-      summary={<SideBarMenuList.GroupSummary icon={<PropertyIcon />}>Menu item 2</SideBarMenuList.GroupSummary>}
+      summary={<SideBar.MenuList.GroupSummary icon={<PropertyIcon />}>Menu item 2</SideBar.MenuList.GroupSummary>}
     >
-      <SideBarMenuList.Submenu>
-        <SideBarMenuList.SubmenuItem aria-current={type === 'Selected submenu item' ? 'page' : false} href={href}>
+      <SideBar.MenuList.Submenu>
+        <SideBar.MenuList.SubmenuItem aria-current={type === 'Selected submenu item' ? 'page' : false} href={href}>
           Submenu item 1
-        </SideBarMenuList.SubmenuItem>
-        <SideBarMenuList.SubmenuItem aria-current={false} href={href}>
+        </SideBar.MenuList.SubmenuItem>
+        <SideBar.MenuList.SubmenuItem aria-current={false} href={href}>
           Submenu item 2
-        </SideBarMenuList.SubmenuItem>
-      </SideBarMenuList.Submenu>
-    </SideBarMenuList.Group>,
+        </SideBar.MenuList.SubmenuItem>
+      </SideBar.MenuList.Submenu>
+    </SideBar.MenuList.Group>,
   ]
 }

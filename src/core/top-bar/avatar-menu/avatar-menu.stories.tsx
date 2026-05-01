@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
 import { Menu } from '#src/core/menu'
-import { TopBarAvatarMenu } from './avatar-menu'
+import { TopBar } from '../top-bar'
 
 const meta = preview.meta({
-  component: TopBarAvatarMenu,
+  component: TopBar.AvatarMenu,
   title: 'Core/TopBar/AvatarMenu',
   argTypes: {
     children: {

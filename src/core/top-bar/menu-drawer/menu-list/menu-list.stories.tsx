@@ -1,6 +1,5 @@
 import preview from '#.storybook/preview'
-import { TopBarMenuDrawerSubmenu } from '../submenu'
-import { TopBarMenuDrawerMenuList } from './menu-list'
+import { TopBarMenuDrawer } from '../menu-drawer'
 
 import type { ReactNode } from 'react'
 
@@ -9,7 +8,7 @@ const href = '#'
 
 const meta = preview.meta({
   title: 'Core/TopBar/MenuDrawer/MenuList',
-  component: TopBarMenuDrawerMenuList,
+  component: TopBarMenuDrawer.MenuList,
   argTypes: {
     children: {
       control: 'radio',
@@ -69,24 +68,24 @@ export const Border = meta.story({
 
 function buildMenu(type: 'No selected item' | 'Selected item' | 'Selected submenu item'): ReactNode[] {
   return [
-    <TopBarMenuDrawerMenuList.Item key="1" aria-current={type === 'Selected item' ? 'page' : false} href={href}>
+    <TopBarMenuDrawer.MenuList.Item key="1" aria-current={type === 'Selected item' ? 'page' : false} href={href}>
       Menu item 1
-    </TopBarMenuDrawerMenuList.Item>,
-    <TopBarMenuDrawerMenuList.ItemButton key="button" onClick={() => {}}>
+    </TopBarMenuDrawer.MenuList.Item>,
+    <TopBarMenuDrawer.MenuList.ItemButton key="button" onClick={() => {}}>
       Menu item button
-    </TopBarMenuDrawerMenuList.ItemButton>,
-    <TopBarMenuDrawerMenuList.Group
+    </TopBarMenuDrawer.MenuList.ItemButton>,
+    <TopBarMenuDrawer.MenuList.Group
       key="2"
-      summary={<TopBarMenuDrawerMenuList.GroupSummary>Menu item 2</TopBarMenuDrawerMenuList.GroupSummary>}
+      summary={<TopBarMenuDrawer.MenuList.GroupSummary>Menu item 2</TopBarMenuDrawer.MenuList.GroupSummary>}
     >
-      <TopBarMenuDrawerSubmenu>
-        <TopBarMenuDrawerSubmenu.Item aria-current={type === 'Selected submenu item' ? 'page' : false} href={href}>
+      <TopBarMenuDrawer.Submenu>
+        <TopBarMenuDrawer.Submenu.Item aria-current={type === 'Selected submenu item' ? 'page' : false} href={href}>
           Submenu item 1
-        </TopBarMenuDrawerSubmenu.Item>
-        <TopBarMenuDrawerSubmenu.Item aria-current={false} href={href}>
+        </TopBarMenuDrawer.Submenu.Item>
+        <TopBarMenuDrawer.Submenu.Item aria-current={false} href={href}>
           Submenu item 2
-        </TopBarMenuDrawerSubmenu.Item>
-      </TopBarMenuDrawerSubmenu>
-    </TopBarMenuDrawerMenuList.Group>,
+        </TopBarMenuDrawer.Submenu.Item>
+      </TopBarMenuDrawer.Submenu>
+    </TopBarMenuDrawer.MenuList.Group>,
   ]
 }

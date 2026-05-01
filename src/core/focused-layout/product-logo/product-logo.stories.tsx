@@ -1,9 +1,10 @@
 import preview from '#.storybook/preview'
-import { FocusedLayoutProductLogo, supportedProductLogos } from './product-logo'
+import { FocusedLayout } from '../focused-layout'
+import { supportedProductLogos } from './product-logo'
 
 const meta = preview.meta({
   title: 'Core/FocusedLayout/ProductLogo',
-  component: FocusedLayoutProductLogo,
+  component: FocusedLayout.ProductLogo,
   argTypes: {
     product: {
       control: 'select',
@@ -36,7 +37,7 @@ export const AllProducts = meta.story({
   render: () => (
     <>
       {supportedProductLogos.map((product) => (
-        <FocusedLayoutProductLogo key={product} product={product} />
+        <FocusedLayout.ProductLogo key={product} product={product} />
       ))}
     </>
   ),

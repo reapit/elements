@@ -1,5 +1,5 @@
 import preview from '#.storybook/preview'
-import { AtAGlanceHeader } from './header'
+import { AtAGlance } from '../at-a-glance'
 import { Button } from '#src/core/button'
 import { SettingsAltIcon } from '#src/icons/settings-alt'
 import { Switch } from '#src/core/switch'
@@ -8,7 +8,7 @@ import { useState } from 'react'
 
 const meta = preview.meta({
   title: 'Core/AtAGlance/Header',
-  component: AtAGlanceHeader,
+  component: AtAGlance.Header,
   argTypes: {
     accessory: {
       control: 'radio',

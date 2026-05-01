@@ -1,5 +1,5 @@
 import preview from '#.storybook/preview'
-import { TableCellCheckbox } from './checkbox'
+import { Table } from '../table'
 import { useArgs } from 'storybook/preview-api'
 import { useEffect, useRef } from 'react'
 
@@ -7,7 +7,7 @@ import type { ChangeEventHandler } from 'react'
 
 const meta = preview.meta({
   title: 'Core/Table/Checkbox',
-  component: TableCellCheckbox,
+  component: Table.Checkbox,
   argTypes: {
     checked: {
       control: 'boolean',
@@ -48,7 +48,7 @@ export const Example = meta.story({
     const updateSortDirection: ChangeEventHandler<HTMLInputElement> = (event) => {
       setArgs({ checked: event.currentTarget.checked })
     }
-    return <TableCellCheckbox {...args} onChange={updateSortDirection} />
+    return <Table.Checkbox {...args} onChange={updateSortDirection} />
   },
 })
 
@@ -67,6 +67,6 @@ export const Indeterminate = Example.extend({
         inputRef.current.indeterminate = true
       }
     }, [])
-    return <TableCellCheckbox {...args} ref={inputRef} />
+    return <Table.Checkbox {...args} ref={inputRef} />
   },
 })

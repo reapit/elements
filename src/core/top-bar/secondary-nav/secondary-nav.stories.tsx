@@ -2,13 +2,13 @@ import preview from '#.storybook/preview'
 import { StarIcon } from '#src/icons/star'
 import { HelpIcon } from '#src/icons/help'
 import { Menu } from '#src/core/menu'
-import { TopBarSecondaryNav } from './secondary-nav'
+import { TopBar } from '../top-bar'
 
 const href = '#'
 
 const meta = preview.meta({
   title: 'Core/TopBar/SecondaryNav',
-  component: TopBarSecondaryNav,
+  component: TopBar.SecondaryNav,
   argTypes: {
     children: {
       control: 'radio',
@@ -56,14 +56,14 @@ export const WithMenu = meta.story({
 
 function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
   return [
-    <TopBarSecondaryNav.Item
+    <TopBar.SecondaryNav.Item
       key="1"
       href={href}
       icon={<StarIcon />}
       aria-label="Nav icon item 1"
       aria-current={type === 'Selected item' ? 'page' : false}
     />,
-    <TopBarSecondaryNav.Item
+    <TopBar.SecondaryNav.Item
       key="2"
       href={href}
       icon={<StarIcon />}
@@ -71,11 +71,11 @@ function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
       aria-current={false}
     />,
     type === 'With menu' && (
-      <TopBarSecondaryNav.MenuItem key="3" icon={<HelpIcon />} aria-label="Help menu">
+      <TopBar.SecondaryNav.MenuItem key="3" icon={<HelpIcon />} aria-label="Help menu">
         <Menu.Item>Menu item 1</Menu.Item>
         <Menu.Item>Menu item 2</Menu.Item>
         <Menu.Item>Menu item 3</Menu.Item>
-      </TopBarSecondaryNav.MenuItem>
+      </TopBar.SecondaryNav.MenuItem>
     ),
   ]
 }

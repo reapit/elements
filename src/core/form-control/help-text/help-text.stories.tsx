@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
-import { FormControlHelpText } from './help-text'
+import { FormControl } from '../form-control'
 
 const meta = preview.meta({
   title: 'Core/FormControl/HelpText',
-  component: FormControlHelpText,
+  component: FormControl.HelpText,
   argTypes: {
     children: {
       control: 'text',

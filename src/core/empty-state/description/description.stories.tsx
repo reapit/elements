@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
-import { EmptyStateDescription } from './description'
+import { EmptyState } from '../empty-state'
 
 const meta = preview.meta({
   title: 'Core/EmptyState/Description',
-  component: EmptyStateDescription,
+  component: EmptyState.Description,
   argTypes: {
     children: {
       control: 'text',

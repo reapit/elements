@@ -1,6 +1,6 @@
 import preview from '#.storybook/preview'
 import { getNextSortDirection } from './sort-direction'
-import { TableCellSortButton } from './sort-button'
+import { Table } from '../table'
 import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 import { useArgs } from 'storybook/preview-api'
@@ -10,7 +10,7 @@ import type { SortDirection } from './sort-direction'
 
 const meta = preview.meta({
   title: 'Core/Table/SortButton',
-  component: TableCellSortButton,
+  component: Table.SortButton,
   argTypes: {
     children: {
       control: 'text',
@@ -42,7 +42,7 @@ export const Example = meta.story({
     const updateSortDirection: MouseEventHandler<HTMLButtonElement> = (event) => {
       setArgs({ value: getNextSortDirection(event.currentTarget.value) })
     }
-    return <TableCellSortButton {...args} onClick={updateSortDirection} />
+    return <Table.SortButton {...args} onClick={updateSortDirection} />
   },
 })
 

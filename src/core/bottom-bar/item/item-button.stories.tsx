@@ -1,5 +1,5 @@
 import preview from '#.storybook/preview'
-import { BottomBarItemButton } from './item-button'
+import { BottomBar } from '../bottom-bar'
 import { ContactIcon } from '#src/icons/contact'
 import { HelpIcon } from '#src/icons/help'
 import { Menu } from '#src/core/menu'
@@ -8,7 +8,7 @@ import { StarIcon } from '#src/icons/star'
 
 const meta = preview.meta({
   title: 'Core/BottomBar/ItemButton',
-  component: BottomBarItemButton,
+  component: BottomBar.ItemButton,
   argTypes: {
     icon: {
       control: 'radio',
@@ -68,7 +68,7 @@ export const WithMenu = meta.story({
   render: (args) => {
     return (
       <>
-        <BottomBarItemButton
+        <BottomBar.ItemButton
           {...args}
           {...Menu.getTriggerProps({ id: 'trigger', popoverTarget: 'menu', popoverTargetAction: 'toggle' })}
         />

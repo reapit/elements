@@ -1,12 +1,12 @@
 import preview from '#.storybook/preview'
-import { TopBarMainNav } from './main-nav'
+import { TopBar } from '../top-bar'
 import { Menu } from '#src/core/menu'
 
 const href = '#'
 
 const meta = preview.meta({
   title: 'Core/TopBar/MainNav',
-  component: TopBarMainNav,
+  component: TopBar.MainNav,
   argTypes: {
     children: {
       control: 'radio',
@@ -47,18 +47,18 @@ export const WithMenu = meta.story({
 
 function buildNav(type: 'No selected item' | 'Selected item' | 'With menu') {
   return [
-    <TopBarMainNav.Item key="1" href={href} aria-current={type === 'Selected item' ? 'page' : false}>
+    <TopBar.MainNav.Item key="1" href={href} aria-current={type === 'Selected item' ? 'page' : false}>
       Nav item 1
-    </TopBarMainNav.Item>,
-    <TopBarMainNav.Item key="2" aria-current={false} href={href}>
+    </TopBar.MainNav.Item>,
+    <TopBar.MainNav.Item key="2" aria-current={false} href={href}>
       Nav item 2
-    </TopBarMainNav.Item>,
+    </TopBar.MainNav.Item>,
     type === 'With menu' && (
-      <TopBarMainNav.MenuItem key="with-menu-item" label="More">
+      <TopBar.MainNav.MenuItem key="with-menu-item" label="More">
         <Menu.Item>Menu Item 1</Menu.Item>
         <Menu.Item>Menu Item 2</Menu.Item>
         <Menu.Item>Menu Item 3</Menu.Item>
-      </TopBarMainNav.MenuItem>
+      </TopBar.MainNav.MenuItem>
     ),
   ].filter(Boolean)
 }

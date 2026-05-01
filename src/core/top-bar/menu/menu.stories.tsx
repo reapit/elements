@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
-import { TopBarMenu } from './menu'
+import { TopBar } from '../top-bar'
 
 const meta = preview.meta({
   title: 'Core/TopBar/Menu',
-  component: TopBarMenu,
+  component: TopBar.Menu,
 })
 
 /**
@@ -13,45 +13,45 @@ export const Example = meta.story({
   render: () => {
     return (
       <>
-        <TopBarMenu>
-          <TopBarMenu.Content>
-            <TopBarMenu.MainNav>
-              <TopBarMenu.MenuGroup summary={<TopBarMenu.MenuGroupSummary>Properties</TopBarMenu.MenuGroupSummary>}>
-                <TopBarMenu.Submenu>
-                  <TopBarMenu.SubmenuItem href="#" aria-current={false}>
+        <TopBar.Menu>
+          <TopBar.Menu.Content>
+            <TopBar.Menu.MainNav>
+              <TopBar.Menu.MenuGroup summary={<TopBar.Menu.MenuGroupSummary>Properties</TopBar.Menu.MenuGroupSummary>}>
+                <TopBar.Menu.Submenu>
+                  <TopBar.Menu.SubmenuItem href="#" aria-current={false}>
                     Residential
-                  </TopBarMenu.SubmenuItem>
-                  <TopBarMenu.SubmenuItem href="#" aria-current={false}>
+                  </TopBar.Menu.SubmenuItem>
+                  <TopBar.Menu.SubmenuItem href="#" aria-current={false}>
                     Commercial
-                  </TopBarMenu.SubmenuItem>
-                  <TopBarMenu.SubmenuItem href="#" aria-current={false}>
+                  </TopBar.Menu.SubmenuItem>
+                  <TopBar.Menu.SubmenuItem href="#" aria-current={false}>
                     Other
-                  </TopBarMenu.SubmenuItem>
-                </TopBarMenu.Submenu>
-              </TopBarMenu.MenuGroup>
-              <TopBarMenu.MenuItem href="#" aria-current={false}>
+                  </TopBar.Menu.SubmenuItem>
+                </TopBar.Menu.Submenu>
+              </TopBar.Menu.MenuGroup>
+              <TopBar.Menu.MenuItem href="#" aria-current={false}>
                 Contacts
-              </TopBarMenu.MenuItem>
-              <TopBarMenu.MenuItem href="#" aria-current={false}>
+              </TopBar.Menu.MenuItem>
+              <TopBar.Menu.MenuItem href="#" aria-current={false}>
                 Settings
-              </TopBarMenu.MenuItem>
-            </TopBarMenu.MainNav>
-            <TopBarMenu.SecondaryNav>
-              <TopBarMenu.MenuItem href="#" aria-current={false}>
+              </TopBar.Menu.MenuItem>
+            </TopBar.Menu.MainNav>
+            <TopBar.Menu.SecondaryNav>
+              <TopBar.Menu.MenuItem href="#" aria-current={false}>
                 Conversations
-              </TopBarMenu.MenuItem>
-              <TopBarMenu.MenuItem href="#" aria-current={false}>
+              </TopBar.Menu.MenuItem>
+              <TopBar.Menu.MenuItem href="#" aria-current={false}>
                 Notifications
-              </TopBarMenu.MenuItem>
-            </TopBarMenu.SecondaryNav>
-            <TopBarMenu.ProfileNav>
-              <TopBarMenu.MenuItem href="#" aria-current={false}>
+              </TopBar.Menu.MenuItem>
+            </TopBar.Menu.SecondaryNav>
+            <TopBar.Menu.ProfileNav>
+              <TopBar.Menu.MenuItem href="#" aria-current={false}>
                 Profile
-              </TopBarMenu.MenuItem>
-              <TopBarMenu.MenuItemButton>Logout</TopBarMenu.MenuItemButton>
-            </TopBarMenu.ProfileNav>
-          </TopBarMenu.Content>
-        </TopBarMenu>
+              </TopBar.Menu.MenuItem>
+              <TopBar.Menu.MenuItemButton>Logout</TopBar.Menu.MenuItemButton>
+            </TopBar.Menu.ProfileNav>
+          </TopBar.Menu.Content>
+        </TopBar.Menu>
       </>
     )
   },

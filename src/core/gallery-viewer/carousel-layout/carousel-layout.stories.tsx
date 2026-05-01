@@ -1,9 +1,6 @@
 import preview from '#.storybook/preview'
 import { useState } from 'react'
-import { GalleryViewerCarouselLayout } from './carousel-layout'
-import { GalleryViewerCarousel } from '#src/core/gallery-viewer/carousel'
-import { GalleryViewerMediaItemCaption } from '../media-item-caption'
-import { GalleryViewerThumbnailList } from '#src/core/gallery-viewer/thumbnail-list'
+import { GalleryViewer } from '../gallery-viewer'
 import { ChipSelect } from '#src/core/chip-select'
 import { Image } from '#src/utils/image'
 import { Video } from '#src/utils/video'
@@ -40,7 +37,7 @@ function imageSrc(baseSrc: string, width: number, height: number) {
 
 const meta = preview.meta({
   title: 'Core/GalleryViewer/CarouselLayout',
-  component: GalleryViewerCarouselLayout,
+  component: GalleryViewer.CarouselLayout,
   argTypes: {
     main: { control: false },
     sidebar: { control: false },
@@ -79,13 +76,13 @@ export const Example = meta.story({
     )
 
     return (
-      <GalleryViewerCarouselLayout
+      <GalleryViewer.CarouselLayout
         main={
-          <GalleryViewerCarousel aria-label="Property media" onChange={setValue} value={value}>
-            <GalleryViewerCarousel.Button aria-label="Previous" direction="previous" />
-            <GalleryViewerCarousel.Track>
+          <GalleryViewer.Carousel aria-label="Property media" onChange={setValue} value={value}>
+            <GalleryViewer.Carousel.Button aria-label="Previous" direction="previous" />
+            <GalleryViewer.Carousel.Track>
               {visibleItems.map((item) => (
-                <GalleryViewerCarousel.Item id={item.id} key={item.id}>
+                <GalleryViewer.Carousel.Item id={item.id} key={item.id}>
                   {item.type === 'photo' ? (
                     <Image
                       alt={item.label}
@@ -97,12 +94,12 @@ export const Example = meta.story({
                   ) : (
                     <Video controls height="100%" objectFit="contain" src={item.src} width="100%" />
                   )}
-                  <GalleryViewerMediaItemCaption>{item.label}</GalleryViewerMediaItemCaption>
-                </GalleryViewerCarousel.Item>
+                  <GalleryViewer.Caption>{item.label}</GalleryViewer.Caption>
+                </GalleryViewer.Carousel.Item>
               ))}
-            </GalleryViewerCarousel.Track>
-            <GalleryViewerCarousel.Button aria-label="Next" direction="next" />
-          </GalleryViewerCarousel>
+            </GalleryViewer.Carousel.Track>
+            <GalleryViewer.Carousel.Button aria-label="Next" direction="next" />
+          </GalleryViewer.Carousel>
         }
         sidebar={
           <>
@@ -117,9 +114,9 @@ export const Example = meta.story({
                 Videos
               </ChipSelect.Option>
             </ChipSelect>
-            <GalleryViewerThumbnailList>
+            <GalleryViewer.ThumbnailList>
               {visibleItems.map((item) => (
-                <GalleryViewerThumbnailList.ButtonItem
+                <GalleryViewer.ThumbnailList.ButtonItem
                   aria-label={`View ${item.label.toLowerCase()}`}
                   aria-pressed={value === item.id}
                   isVideo={item.type === 'video'}
@@ -128,7 +125,7 @@ export const Example = meta.story({
                   src={item.type === 'photo' ? imageSrc(item.src, 176, 112) : imageSrc(ITEMS[0].src, 176, 112)}
                 />
               ))}
-            </GalleryViewerThumbnailList>
+            </GalleryViewer.ThumbnailList>
           </>
         }
       />

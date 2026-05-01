@@ -1,6 +1,6 @@
 import preview from '#.storybook/preview'
 import { AccordionContext } from '../context'
-import { AccordionSummary } from './summary'
+import { Accordion } from '../accordion'
 import { BathIcon } from '#src/icons/bath'
 import { Button } from '#src/core/button/button'
 import { BedIcon } from '#src/icons/bed'
@@ -9,7 +9,7 @@ import { Features } from '#src/core/features/index'
 
 const meta = preview.meta({
   title: 'Core/Accordion/Summary',
-  component: AccordionSummary,
+  component: Accordion.Summary,
   argTypes: {
     accessory: {
       control: 'radio',

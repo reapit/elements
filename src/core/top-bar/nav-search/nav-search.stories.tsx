@@ -1,11 +1,11 @@
 import preview from '#.storybook/preview'
-import { TopBarNavSearch } from './nav-search'
+import { TopBar } from '../top-bar'
 
 import type { Decorator } from '@storybook/react-vite'
 
 const meta = preview.meta({
   title: 'Core/TopBar/NavSearch',
-  component: TopBarNavSearch,
+  component: TopBar.NavSearch,
   argTypes: {
     button: {
       control: false,
@@ -21,8 +21,8 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    button: <TopBarNavSearch.Button onClick={() => void 0} />,
-    iconItem: <TopBarNavSearch.IconItem onClick={() => void 0} />,
+    button: <TopBar.NavSearch.Button onClick={() => void 0} />,
+    iconItem: <TopBar.NavSearch.IconItem onClick={() => void 0} />,
   },
   decorators: [useConstrainedWidthDecorator('150px')],
 })

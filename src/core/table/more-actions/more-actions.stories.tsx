@@ -1,13 +1,12 @@
 import preview from '#.storybook/preview'
 import { Menu } from '#src/core/menu'
-import { TableRowMoreActions } from './more-actions'
-import { TableRowPrimaryAction } from '../primary-action'
+import { Table } from '../table'
 
 const href = '#'
 
 const meta = preview.meta({
   title: 'Core/Table/MoreActions',
-  component: TableRowMoreActions,
+  component: Table.MoreActions,
   argTypes: {
     children: {
       control: false,
@@ -68,7 +67,7 @@ export const Layering = Example.extend({
           justifyContent: 'space-between',
         }}
       >
-        <TableRowPrimaryAction href={href}>Primary action</TableRowPrimaryAction>
+        <Table.PrimaryAction href={href}>Primary action</Table.PrimaryAction>
         <Story />
       </div>
     ),

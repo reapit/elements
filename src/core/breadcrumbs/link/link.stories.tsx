@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
-import { BreadcrumbLink } from './link'
+import { Breadcrumbs } from '../breadcrumbs'
 
 const meta = preview.meta({
   title: 'Core/Breadcrumbs/Link',
-  component: BreadcrumbLink,
+  component: Breadcrumbs.Link,
   argTypes: {
     children: {
       control: 'text',

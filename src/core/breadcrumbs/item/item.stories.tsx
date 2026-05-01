@@ -1,12 +1,11 @@
 import preview from '#.storybook/preview'
-import { BreadcrumbItem } from './item'
-import { BreadcrumbLink } from '../link'
+import { Breadcrumbs } from '../breadcrumbs'
 
 const href = '#'
 
 const meta = preview.meta({
   title: 'Core/Breadcrumbs/Item',
-  component: BreadcrumbItem,
+  component: Breadcrumbs.Item,
   argTypes: {
     children: {
       control: false,
@@ -16,7 +15,7 @@ const meta = preview.meta({
 
 export const Example = meta.story({
   args: {
-    children: <BreadcrumbLink href={href}>Properties</BreadcrumbLink>,
+    children: <Breadcrumbs.Link href={href}>Properties</Breadcrumbs.Link>,
   },
 })
 
@@ -25,14 +24,14 @@ export const Example = meta.story({
  */
 export const Separator = meta.story({
   args: {
-    children: <BreadcrumbLink href={href}>Residential</BreadcrumbLink>,
+    children: <Breadcrumbs.Link href={href}>Residential</Breadcrumbs.Link>,
   },
   decorators: [
     (Story) => (
       <ul style={{ listStyle: 'none', display: 'inline-flex', margin: 0, padding: 0, width: 'fit-content' }}>
-        <BreadcrumbItem>
-          <BreadcrumbLink href={href}>Properties</BreadcrumbLink>
-        </BreadcrumbItem>
+        <Breadcrumbs.Item>
+          <Breadcrumbs.Link href={href}>Properties</Breadcrumbs.Link>
+        </Breadcrumbs.Item>
         <Story />
       </ul>
     ),
@@ -45,7 +44,7 @@ export const Separator = meta.story({
  */
 export const Overflow = meta.story({
   args: {
-    children: <BreadcrumbLink href={href}>Long breadcrumb link</BreadcrumbLink>,
+    children: <Breadcrumbs.Link href={href}>Long breadcrumb link</Breadcrumbs.Link>,
   },
   decorators: [
     (Story) => (

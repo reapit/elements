@@ -1,10 +1,10 @@
 import preview from '#.storybook/preview'
 import { GalleryViewerDialogContext } from '../context'
-import { GalleryViewerDialogHeader } from './header'
+import { GalleryViewerDialog } from '../dialog'
 
 const meta = preview.meta({
   title: 'Core/GalleryViewer/Dialog/Header',
-  component: GalleryViewerDialogHeader,
+  component: GalleryViewerDialog.Header,
   argTypes: {
     children: {
       control: 'text',

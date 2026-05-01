@@ -1,12 +1,12 @@
 import preview from '#.storybook/preview'
-import { AtAGlanceAnchorCard } from './anchor-card'
+import { AtAGlance } from '../at-a-glance'
 import { SproutIcon } from '#src/icons/sprout'
 import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 const meta = preview.meta({
   title: 'Core/AtAGlance/AnchorCard',
-  component: AtAGlanceAnchorCard,
+  component: AtAGlance.AnchorCard,
   argTypes: {
     'aria-current': {
       control: 'inline-radio',
@@ -174,21 +174,21 @@ export const Alignment = Example.extend({
 
   render: (args) => (
     <>
-      <AtAGlanceAnchorCard
+      <AtAGlance.AnchorCard
         {...args}
         description="Crunchy and Juicy"
         displayValue="32"
         icon={<SproutIcon />}
         label="Apple"
       />
-      <AtAGlanceAnchorCard
+      <AtAGlance.AnchorCard
         {...args}
         description="Crunchy and juicy. Some are red, others are green. Some can even be yellow, pink or dark purple. I've ran out of copy ideas."
         displayValue="32"
         icon={<SproutIcon />}
         label="Apple"
       />
-      <AtAGlanceAnchorCard
+      <AtAGlance.AnchorCard
         {...args}
         description="They all mean the same thing"
         displayValue="32"

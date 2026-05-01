@@ -1,13 +1,12 @@
 import preview from '#.storybook/preview'
 import { AppSwitcher } from '../app-switcher'
-import { AppSwitcherMenuItem } from './menu-item'
 import { AppSwitcherMenuGroupHasAccessContext } from '../menu-group-has-access-context'
 
 import type { SupportedProductId } from '../config'
 
 const meta = preview.meta({
   title: 'Core/AppSwitcher/MenuItem',
-  component: AppSwitcherMenuItem,
+  component: AppSwitcher.MenuItem,
   argTypes: {
     avatar: {
       control: 'radio',

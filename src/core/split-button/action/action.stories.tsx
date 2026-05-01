@@ -1,15 +1,15 @@
 import preview from '#.storybook/preview'
 import { AddIcon } from '#src/icons/add'
-import { SplitButtonAction } from './action'
-import { SplitButtonAnchorAction } from './anchor-action'
+import { SplitButton } from '../split-button'
+import type { SplitButtonAnchorAction } from './anchor-action'
 import { SplitButtonContext } from '../context'
 import { StarIcon } from '#src/icons/star'
 
 const meta = preview.meta({
   title: 'Core/SplitButton/Action',
-  component: SplitButtonAction,
+  component: SplitButton.Action,
   subcomponents: {
-    AnchorAction: SplitButtonAnchorAction,
+    AnchorAction: SplitButton.AnchorAction,
   },
   argTypes: {
     'aria-disabled': {
@@ -158,5 +158,5 @@ export const Anchors = meta.story({
       table: { disable: true },
     },
   },
-  render: (args) => <SplitButtonAnchorAction {...(args as unknown as SplitButtonAnchorAction.Props)} />,
+  render: (args) => <SplitButton.AnchorAction {...(args as unknown as SplitButtonAnchorAction.Props)} />,
 })

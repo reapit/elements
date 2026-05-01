@@ -1,11 +1,10 @@
 import preview from '#.storybook/preview'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { FocusedLayout } from '../focused-layout'
-import { FocusedLayoutContent } from './content'
 
 const meta = preview.meta({
   title: 'Core/FocusedLayout/Content',
-  component: FocusedLayoutContent,
+  component: FocusedLayout.Content,
   parameters: {
     layout: 'fullscreen',
   },

@@ -1,13 +1,10 @@
 import preview from '#.storybook/preview'
-import { TableCellSortButton } from '../sort-button'
-import { TableHead } from './head'
-import { TableHeaderCell } from '../header-cell'
-import { TableHeaderRow } from '../header-row'
+import { Table } from '../table'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
 const meta = preview.meta({
   title: 'Core/Table/Head',
-  component: TableHead,
+  component: Table.Head,
   argTypes: {
     as: {
       control: false,
@@ -56,9 +53,9 @@ export const Divs = meta.story({
   args: {
     as: 'div',
     children: (
-      <TableHeaderRow as="div">
-        <TableHeaderCell as="div">I&apos;m all divs and no a11y 😬</TableHeaderCell>
-      </TableHeaderRow>
+      <Table.HeaderRow as="div">
+        <Table.HeaderCell as="div">I&apos;m all divs and no a11y 😬</Table.HeaderCell>
+      </Table.HeaderRow>
     ),
   },
   argTypes: {
@@ -72,30 +69,30 @@ function buildRows(type: 'non-sortable' | 'sortable') {
   switch (type) {
     case 'non-sortable': {
       return (
-        <TableHeaderRow>
-          <TableHeaderCell>Property</TableHeaderCell>
-          <TableHeaderCell>Ownership</TableHeaderCell>
-          <TableHeaderCell>Tenancy</TableHeaderCell>
-          <TableHeaderCell aria-label="Actions">{null}</TableHeaderCell>
-        </TableHeaderRow>
+        <Table.HeaderRow>
+          <Table.HeaderCell>Property</Table.HeaderCell>
+          <Table.HeaderCell>Ownership</Table.HeaderCell>
+          <Table.HeaderCell>Tenancy</Table.HeaderCell>
+          <Table.HeaderCell aria-label="Actions">{null}</Table.HeaderCell>
+        </Table.HeaderRow>
       )
     }
     case 'sortable': {
       return (
-        <TableHeaderRow>
-          <TableHeaderCell>Property</TableHeaderCell>
-          <TableHeaderCell>
-            <TableCellSortButton name="total" value="none">
+        <Table.HeaderRow>
+          <Table.HeaderCell>Property</Table.HeaderCell>
+          <Table.HeaderCell>
+            <Table.SortButton name="total" value="none">
               Amount
-            </TableCellSortButton>
-          </TableHeaderCell>
-          <TableHeaderCell aria-sort="descending">
-            <TableCellSortButton name="dueDate" value="descending">
+            </Table.SortButton>
+          </Table.HeaderCell>
+          <Table.HeaderCell aria-sort="descending">
+            <Table.SortButton name="dueDate" value="descending">
               Due
-            </TableCellSortButton>
-          </TableHeaderCell>
-          <TableHeaderCell aria-label="Actions">{null}</TableHeaderCell>
-        </TableHeaderRow>
+            </Table.SortButton>
+          </Table.HeaderCell>
+          <Table.HeaderCell aria-label="Actions">{null}</Table.HeaderCell>
+        </Table.HeaderRow>
       )
     }
   }

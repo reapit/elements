@@ -1,9 +1,9 @@
 import preview from '#.storybook/preview'
 import { Menu } from '#src/core/menu'
-import { TopBarAvatarButton } from './avatar-button'
+import { TopBar } from '../top-bar'
 
 const meta = preview.meta({
-  component: TopBarAvatarButton,
+  component: TopBar.AvatarButton,
   title: 'Core/TopBar/AvatarButton',
 })
 
@@ -31,11 +31,11 @@ export const WithMenu = Example.extend({
 
   render: ({ children }) => (
     <>
-      <TopBarAvatarButton
+      <TopBar.AvatarButton
         {...Menu.getTriggerProps({ id: 'trigger', popoverTarget: 'menu', popoverTargetAction: 'toggle' })}
       >
         {children}
-      </TopBarAvatarButton>
+      </TopBar.AvatarButton>
       <Menu aria-labelledby="trigger" id="menu" placement="bottom-end">
         <Menu.Item>Menu Item 1</Menu.Item>
         <Menu.Item>Menu Item 2</Menu.Item>

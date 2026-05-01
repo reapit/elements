@@ -4,14 +4,14 @@ import { Features } from '#src/core/features'
 import { Skeleton } from '#src/core/skeleton'
 import { StarIcon } from '#src/icons/star'
 import { StatusIndicator } from '#src/core/status-indicator'
-import { TableCellPrimaryData } from './primary-data'
+import { Table } from '../table'
 import { TagGroup } from '#src/core/tag-group'
 import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 
 const meta = preview.meta({
   title: 'Core/Table/PrimaryData',
-  component: TableCellPrimaryData,
+  component: Table.PrimaryData,
   argTypes: {
     children: {
       control: 'select',

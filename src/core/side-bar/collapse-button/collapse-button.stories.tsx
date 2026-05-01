@@ -1,11 +1,11 @@
 import preview from '#.storybook/preview'
-import { SideBarCollapseButton } from './collapse-button'
+import { SideBar } from '../side-bar'
 import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-decorator'
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
 const meta = preview.meta({
   title: 'Core/SideBar/CollapseButton',
-  component: SideBarCollapseButton,
+  component: SideBar.CollapseButton,
   // NOTE: decorators are applied in array order, inside-out. That is, useSideBarWidthDecorator wraps the story first,
   // then useSideBarContextDecorator wraps the result of that.
   decorators: [useSideBarWidthDecorator, useSideBarContextDecorator],

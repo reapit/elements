@@ -1,12 +1,12 @@
 import preview from '#.storybook/preview'
 import { CompactSelectNative } from '#src/core/compact-select-native/index'
 import { Features } from '#src/core/features/index'
-import { PageHeaderSupplementaryInfo } from './supplementary-info'
+import { PageHeader } from '../page-header'
 import { SupplementaryInfo } from '#src/core/supplementary-info/index'
 
 const meta = preview.meta({
   title: 'Core/PageHeader/SupplementaryInfo',
-  component: PageHeaderSupplementaryInfo,
+  component: PageHeader.SupplementaryInfo,
   argTypes: {
     children: {
       control: 'radio',

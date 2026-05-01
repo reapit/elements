@@ -1,12 +1,12 @@
 import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
-import { FilterBarLeftContent } from './left-content'
+import { FilterBar } from '../filter-bar'
 import { FilterIcon } from '#src/icons/filter'
 
 const meta = preview.meta({
   title: 'Core/FilterBar/LeftContent',
-  component: FilterBarLeftContent,
+  component: FilterBar.LeftContent,
   argTypes: {
     children: {
       control: 'radio',

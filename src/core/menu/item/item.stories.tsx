@@ -2,13 +2,13 @@ import preview from '#.storybook/preview'
 import { AnchorMenuItem } from './anchor-item'
 import { Badge } from '#src/core/badge'
 import { ExportIcon } from '#src/icons/export'
-import { MenuItem } from './item'
+import { Menu } from '../menu'
 import { PropertyIcon } from '#src/icons/property'
 import { StarIcon } from '#src/icons/star'
 
 const meta = preview.meta({
   title: 'Core/Menu/Item',
-  component: MenuItem,
+  component: Menu.Item,
   subcomponents: { AnchorMenuItem },
   argTypes: {
     'aria-checked': {

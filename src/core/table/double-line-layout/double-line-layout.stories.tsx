@@ -4,14 +4,13 @@ import { AvatarRectangle } from '#src/core/avatar-rectangle'
 import { Skeleton } from '#src/core/skeleton'
 import { StarIcon } from '#src/icons/star'
 import { SupplementaryInfo } from '#src/core/supplementary-info'
-import { TableCellDoubleLineLayout } from './double-line-layout'
-import { TableCellPrimaryData } from '../primary-data'
+import { Table } from '../table'
 import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 
 const meta = preview.meta({
   title: 'Core/Table/DoubleLineLayout',
-  component: TableCellDoubleLineLayout,
+  component: Table.DoubleLineLayout,
   argTypes: {
     children: {
       control: 'select',
@@ -19,7 +18,7 @@ const meta = preview.meta({
       mapping: {
         'Address Line 1': '10 Elizabeth St',
         'Contact name': 'Mary Jane',
-        'Text + icon': <TableCellPrimaryData iconRight={<StarIcon />}>Alphanumeric value</TableCellPrimaryData>,
+        'Text + icon': <Table.PrimaryData iconRight={<StarIcon />}>Alphanumeric value</Table.PrimaryData>,
         Skeleton: <Skeleton />,
       },
     },

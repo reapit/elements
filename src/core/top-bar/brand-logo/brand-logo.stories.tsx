@@ -1,12 +1,12 @@
 import preview from '#.storybook/preview'
-import { BrandLogo } from './brand-logo'
+import { TopBar } from '../top-bar'
 import { supportedAppNames } from './app-logo'
 
 const href = '#'
 
 const meta = preview.meta({
   title: 'Core/TopBar/BrandLogo',
-  component: BrandLogo,
+  component: TopBar.BrandLogo,
   argTypes: {
     appName: {
       control: 'select',
@@ -40,23 +40,23 @@ export const AllBrands = meta.story({
   ],
   render: () => (
     <>
-      <BrandLogo appName="Reapit" href={href} />
-      <BrandLogo appName="Console Owner" href={href} />
-      <BrandLogo appName="Console Pay" href={href} />
-      <BrandLogo appName="Console Tenant" href={href} />
-      <BrandLogo appName="Reapit Connect" href={href} />
-      <BrandLogo appName="Reapit Projector" href={href} />
-      <BrandLogo appName="Reapit Sales" href={href} />
-      <BrandLogo appName="Reapit Lettings" href={href} />
-      <BrandLogo appName="Reapit PM" href={href} />
-      <BrandLogo appName="PM Demo" href={href} />
-      <BrandLogo appName="PM Sales" href={href} />
-      <BrandLogo appName="PM Inspect" href={href} />
-      <BrandLogo appName="Reapit Forms" href={href} />
-      <BrandLogo appName="Reapit Websites" href={href} />
-      <BrandLogo appName="Reapit Proposals" href={href} />
-      <BrandLogo appName="KeyWhere" href={href} />
-      <BrandLogo appName="Auto Responder" href={href} />
+      <TopBar.BrandLogo appName="Reapit" href={href} />
+      <TopBar.BrandLogo appName="Console Owner" href={href} />
+      <TopBar.BrandLogo appName="Console Pay" href={href} />
+      <TopBar.BrandLogo appName="Console Tenant" href={href} />
+      <TopBar.BrandLogo appName="Reapit Connect" href={href} />
+      <TopBar.BrandLogo appName="Reapit Projector" href={href} />
+      <TopBar.BrandLogo appName="Reapit Sales" href={href} />
+      <TopBar.BrandLogo appName="Reapit Lettings" href={href} />
+      <TopBar.BrandLogo appName="Reapit PM" href={href} />
+      <TopBar.BrandLogo appName="PM Demo" href={href} />
+      <TopBar.BrandLogo appName="PM Sales" href={href} />
+      <TopBar.BrandLogo appName="PM Inspect" href={href} />
+      <TopBar.BrandLogo appName="Reapit Forms" href={href} />
+      <TopBar.BrandLogo appName="Reapit Websites" href={href} />
+      <TopBar.BrandLogo appName="Reapit Proposals" href={href} />
+      <TopBar.BrandLogo appName="KeyWhere" href={href} />
+      <TopBar.BrandLogo appName="Auto Responder" href={href} />
     </>
   ),
 })

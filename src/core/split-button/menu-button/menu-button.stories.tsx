@@ -1,10 +1,10 @@
 import preview from '#.storybook/preview'
-import { SplitButtonMenuButton } from './menu-button'
+import { SplitButton } from '../split-button'
 import { SplitButtonContext } from '../context'
 
 const meta = preview.meta({
   title: 'Core/SplitButton/MenuButton',
-  component: SplitButtonMenuButton,
+  component: SplitButton.MenuButton,
   argTypes: {
     disabled: {
       control: 'boolean',

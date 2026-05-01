@@ -1,12 +1,12 @@
 import preview from '#.storybook/preview'
 import { Badge } from '#src/core/badge/index'
-import { PageHeaderSubtitle } from './subtitle'
+import { PageHeader } from '../page-header'
 import { StarIcon } from '#src/icons/star'
 import { TagGroup } from '#src/core/tag-group/index'
 
 const meta = preview.meta({
   title: 'Core/PageHeader/Subtitle',
-  component: PageHeaderSubtitle,
+  component: PageHeader.Subtitle,
   argTypes: {
     additionalInfo: {
       control: 'radio',

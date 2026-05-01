@@ -1,20 +1,14 @@
 import preview from '#.storybook/preview'
 import { Avatar } from '#src/core/avatar'
 import { Menu } from '#src/core/menu'
-import { TableBody } from './body'
-import { TableBodyCell } from '../body-cell'
-import { TableBodyRow } from '../body-row'
-import { TableCellCheckbox } from '../checkbox'
-import { TableCellDoubleLineLayout } from '../double-line-layout'
-import { TableRowPrimaryAction } from '../primary-action'
-import { TableRowMoreActions } from '../more-actions'
+import { Table } from '../table'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
 const href = '#'
 
 const meta = preview.meta({
   title: 'Core/Table/Body',
-  component: TableBody,
+  component: Table.Body,
   argTypes: {
     as: {
       control: false,
@@ -63,11 +57,11 @@ export const Divs = meta.story({
   args: {
     as: 'div',
     children: (
-      <TableBodyRow as="div">
-        <TableBodyCell as="div">
-          <TableRowPrimaryAction href={href}>I&apos;m all divs and no a11y 😬</TableRowPrimaryAction>
-        </TableBodyCell>
-      </TableBodyRow>
+      <Table.BodyRow as="div">
+        <Table.BodyCell as="div">
+          <Table.PrimaryAction href={href}>I&apos;m all divs and no a11y 😬</Table.PrimaryAction>
+        </Table.BodyCell>
+      </Table.BodyRow>
     ),
   },
   argTypes: {
@@ -82,86 +76,82 @@ function buildRows(type: 'single-line' | 'double-line') {
     case 'single-line': {
       return (
         <>
-          <TableBodyRow>
-            <TableBodyCell>
-              <TableCellCheckbox aria-label="Select 10 Hay St, Melbourne 3100" name="selections" value="1" />
-            </TableBodyCell>
-            <TableBodyCell as="th">
-              <TableRowPrimaryAction href={href}>10 Hay St, Melbourne 3100</TableRowPrimaryAction>
-            </TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>
-              <TableRowMoreActions aria-label="More actions for John Smith">
+          <Table.BodyRow>
+            <Table.BodyCell>
+              <Table.Checkbox aria-label="Select 10 Hay St, Melbourne 3100" name="selections" value="1" />
+            </Table.BodyCell>
+            <Table.BodyCell as="th">
+              <Table.PrimaryAction href={href}>10 Hay St, Melbourne 3100</Table.PrimaryAction>
+            </Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>
+              <Table.MoreActions aria-label="More actions for John Smith">
                 <Menu.Item>Action 1</Menu.Item>
                 <Menu.Item>Action 2</Menu.Item>
-              </TableRowMoreActions>
-            </TableBodyCell>
-          </TableBodyRow>
+              </Table.MoreActions>
+            </Table.BodyCell>
+          </Table.BodyRow>
 
-          <TableBodyRow>
-            <TableBodyCell>
-              <TableCellCheckbox
-                aria-label="Select 45 Queen Elizabeth St, Melbourne 3100"
-                name="selections"
-                value="2"
-              />
-            </TableBodyCell>
-            <TableBodyCell as="th">
-              <TableRowPrimaryAction href={href}>45 Queen Elizabeth St, Melbourne 3100</TableRowPrimaryAction>
-            </TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>
-              <TableRowMoreActions aria-label="More actions for 45 Queen Elizabeth St, Melbourne 3100">
+          <Table.BodyRow>
+            <Table.BodyCell>
+              <Table.Checkbox aria-label="Select 45 Queen Elizabeth St, Melbourne 3100" name="selections" value="2" />
+            </Table.BodyCell>
+            <Table.BodyCell as="th">
+              <Table.PrimaryAction href={href}>45 Queen Elizabeth St, Melbourne 3100</Table.PrimaryAction>
+            </Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>
+              <Table.MoreActions aria-label="More actions for 45 Queen Elizabeth St, Melbourne 3100">
                 <Menu.Item>Action 1</Menu.Item>
                 <Menu.Item>Action 2</Menu.Item>
-              </TableRowMoreActions>
-            </TableBodyCell>
-          </TableBodyRow>
+              </Table.MoreActions>
+            </Table.BodyCell>
+          </Table.BodyRow>
         </>
       )
     }
     case 'double-line': {
       return (
         <>
-          <TableBodyRow>
-            <TableBodyCell>
-              <TableCellCheckbox aria-label="Select Mary Jane" name="selections" value="1" />
-            </TableBodyCell>
-            <TableBodyCell as="th">
-              <TableCellDoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
-                <TableRowPrimaryAction href={href}>Mary Jane</TableRowPrimaryAction>
-              </TableCellDoubleLineLayout>
-            </TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>
-              <TableRowMoreActions aria-label="More actions for Mary Jane">
+          <Table.BodyRow>
+            <Table.BodyCell>
+              <Table.Checkbox aria-label="Select Mary Jane" name="selections" value="1" />
+            </Table.BodyCell>
+            <Table.BodyCell as="th">
+              <Table.DoubleLineLayout mediaItem={<Avatar>MJ</Avatar>} supplementaryData="Engineer">
+                <Table.PrimaryAction href={href}>Mary Jane</Table.PrimaryAction>
+              </Table.DoubleLineLayout>
+            </Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>
+              <Table.MoreActions aria-label="More actions for Mary Jane">
                 <Menu.Item>Action 1</Menu.Item>
                 <Menu.Item>Action 2</Menu.Item>
-              </TableRowMoreActions>
-            </TableBodyCell>
-          </TableBodyRow>
+              </Table.MoreActions>
+            </Table.BodyCell>
+          </Table.BodyRow>
 
-          <TableBodyRow>
-            <TableBodyCell>
-              <TableCellCheckbox aria-label="Select John Smith" name="selections" value="2" />
-            </TableBodyCell>
-            <TableBodyCell as="th">
-              <TableCellDoubleLineLayout mediaItem={<Avatar>JS</Avatar>} supplementaryData="Engineer">
-                <TableRowPrimaryAction href={href}>John Smith</TableRowPrimaryAction>
-              </TableCellDoubleLineLayout>
-            </TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>Data</TableBodyCell>
-            <TableBodyCell>
-              <TableRowMoreActions aria-label="More actions for John Smith">
+          <Table.BodyRow>
+            <Table.BodyCell>
+              <Table.Checkbox aria-label="Select John Smith" name="selections" value="2" />
+            </Table.BodyCell>
+            <Table.BodyCell as="th">
+              <Table.DoubleLineLayout mediaItem={<Avatar>JS</Avatar>} supplementaryData="Engineer">
+                <Table.PrimaryAction href={href}>John Smith</Table.PrimaryAction>
+              </Table.DoubleLineLayout>
+            </Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>Data</Table.BodyCell>
+            <Table.BodyCell>
+              <Table.MoreActions aria-label="More actions for John Smith">
                 <Menu.Item>Action 1</Menu.Item>
                 <Menu.Item>Action 2</Menu.Item>
-              </TableRowMoreActions>
-            </TableBodyCell>
-          </TableBodyRow>
+              </Table.MoreActions>
+            </Table.BodyCell>
+          </Table.BodyRow>
         </>
       )
     }

@@ -112,6 +112,32 @@ title: 'core/button'
 title: 'Core - Button'
 ```
 
+### The `component` field for subcomponent stories
+
+When writing a story for a component that is accessed via a parent namespace (e.g. `Dialog.Body`, `Table.HeaderCell`), always reference it through the parent in the `component` field. Import the parent component, not the subcomponent directly from its own file.
+
+```tsx
+// ✅ Correct — reference via parent namespace
+import { Dialog } from '../dialog'
+
+const meta = preview.meta({
+  title: 'Core/Dialog/Body',
+  component: Dialog.Body,
+})
+
+// ❌ Wrong — direct import from the subcomponent file
+import { DialogBody } from './body'
+
+const meta = preview.meta({
+  title: 'Core/Dialog/Body',
+  component: DialogBody,
+})
+```
+
+The same applies to JSX used within the story: prefer `Dialog.Body` over `DialogBody` wherever possible so that the story reflects the public API.
+
+This rule applies only when the parent actually exports the subcomponent as a namespace property (e.g. `Dialog.Body = DialogBody`). If the parent does not expose the subcomponent through its namespace, import it directly.
+
 ### Subcomponents
 
 When a component has companion components that share the same documentation page, list them in `subcomponents`. This causes their prop tables to appear in the Controls panel.
@@ -575,6 +601,28 @@ export const Disabled = Example.extend({
 })
 ```
 
+### Importing a subcomponent directly instead of via the parent namespace
+
+When a component is a subcomponent (part of a parent namespace such as `Dialog.Body`), do not import it directly from its own file. Import the parent and reference the subcomponent through the namespace. This ensures the `component` field, JSX, and Figma Code Connect all reflect the public API.
+
+```tsx
+// ❌ Wrong — direct import from the subcomponent file
+import { DialogBody } from './body'
+
+const meta = preview.meta({
+  title: 'Core/Dialog/Body',
+  component: DialogBody,
+})
+
+// ✅ Correct — import parent and reference via namespace
+import { Dialog } from '../dialog'
+
+const meta = preview.meta({
+  title: 'Core/Dialog/Body',
+  component: Dialog.Body,
+})
+```
+
 ### Importing from the wrong framework package
 
 When you need Storybook types (e.g., `Decorator`), import them from `@storybook/react-vite`, not `@storybook/react` or plain `storybook`.
@@ -630,6 +678,7 @@ Before committing a story file:
 - [ ] Additional stories use `Example.extend({ ... })` or `meta.story({ ... })`
 - [ ] No `tags: ['autodocs']` in meta
 - [ ] No `type Story` alias, no `StoryObj` or `Meta` imports
+- [ ] Subcomponent stories reference `component` via the parent namespace (e.g. `Dialog.Body`, not `DialogBody`)
 - [ ] Every story except `Example` has a JSDoc comment
 - [ ] Multi-variant stories use a `render` function and disable the demonstrated prop's control
 - [ ] Inline flex decorator uses `var(--spacing-6)` for gaps

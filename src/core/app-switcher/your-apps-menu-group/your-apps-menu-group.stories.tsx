@@ -1,7 +1,6 @@
 import preview from '#.storybook/preview'
 import type { Decorator } from '@storybook/react-vite'
 import { AppSwitcher } from '../app-switcher'
-import { AppSwitcherYourAppsMenuGroup } from './your-apps-menu-group'
 
 const useParentDecorator: Decorator = (Story) => {
   return (
@@ -13,7 +12,7 @@ const useParentDecorator: Decorator = (Story) => {
 
 const meta = preview.meta({
   title: 'Core/AppSwitcher/YourAppsMenuGroup',
-  component: AppSwitcherYourAppsMenuGroup,
+  component: AppSwitcher.YourAppsMenuGroup,
   argTypes: {
     children: {
       control: false,

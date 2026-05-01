@@ -4,13 +4,13 @@ import { Badge } from '#src/core/badge/index'
 import { Button } from '#src/core/button/index'
 import { ButtonGroup } from '#src/core/button-group/index'
 import { MoreIcon } from '#src/icons/more'
-import { PageHeaderTitle } from './title'
+import { PageHeader } from '../page-header'
 import { StarIcon } from '#src/icons/star'
 import { TagGroup } from '#src/core/tag-group/index'
 
 const meta = preview.meta({
   title: 'Core/PageHeader/Title',
-  component: PageHeaderTitle,
+  component: PageHeader.Title,
   argTypes: {
     actions: {
       control: 'radio',
