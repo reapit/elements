@@ -1,18 +1,29 @@
 ---
 name: reviewing-pr-comments
 description: >
-  Work through unresolved GitHub pull request review comments end-to-end:
-  fetch threads, triage each one with full file context, present an action
-  plan for user approval, apply the approved changes, and optionally resolve
-  each thread. Use this skill whenever a user asks you to address, fix, work
-  through, or respond to PR review comments or reviewer feedback — even if
-  they just say "fix the Copilot comments" or "sort out the review".
+  Use when a user asks you to address, fix, work through, respond to, or
+  resolve GitHub pull request review comments — including phrasings like
+  "fix the Copilot comments", "sort out the review", "address reviewer
+  feedback", or "go through the PR comments". Also use when handling
+  inline review threads, suggested-change blocks, or reviewer questions
+  on a PR.
 ---
 
 # Reviewing PR Comments
 
 A skill for resolving GitHub pull request review comments end-to-end:
 fetch → triage → approve → execute → resolve.
+
+## Core principle
+
+Review feedback is a set of suggestions to evaluate, not orders to follow.
+Verify against the codebase before accepting. Push back with technical
+reasoning when a suggestion is wrong. No performative agreement — actions
+speak, the diff is the acknowledgement.
+
+This applies to all reviewers, but be especially sceptical of bot reviewers
+(Copilot, etc.) — they often miss context, suggest YAGNI features, or
+flag intentional patterns as bugs.
 
 ## Prerequisites
 
@@ -30,14 +41,14 @@ The script filters out noise bots automatically, keeping only Copilot and human
 reviewers.
 
 ```bash
-bash .opencode/skills/reviewing-pr-comments/scripts/fetch-comments.sh <PR_NUMBER>
+bash .agents/skills/reviewing-pr-comments/scripts/fetch-comments.sh <PR_NUMBER>
 ```
 
 The script accepts optional `owner` and `repo` arguments when the git remote
 cannot be inferred:
 
 ```bash
-bash .opencode/skills/reviewing-pr-comments/scripts/fetch-comments.sh <PR_NUMBER> <owner> <repo>
+bash .agents/skills/reviewing-pr-comments/scripts/fetch-comments.sh <PR_NUMBER> <owner> <repo>
 ```
 
 **Output**: a JSON array of thread objects. Each thread has this shape:
@@ -95,10 +106,21 @@ Thread:
 
 Instructions:
 1. Read the file at the path above, centred on the indicated line.
-2. Assess whether the comment is valid given the actual code.
+2. Verify the comment against codebase reality. Check:
+   - Does the suggestion apply to THIS codebase, or is the reviewer missing
+     context (project conventions, framework specifics, intentional patterns)?
+   - Would applying it break existing functionality or callers?
+   - Is there a documented or obvious reason for the current implementation
+     (compatibility, performance, deprecated path)?
+   - YAGNI: if the reviewer asks for "proper" handling of a case, grep the
+     codebase to confirm that case actually occurs. If unused, recommend
+     removing the code rather than expanding it.
 3. If the root comment contains a ```suggestion block, extract the proposed
-   replacement.
-4. Return ONLY a JSON object with this exact shape — no prose, no markdown:
+   replacement. Do not treat the block as authoritative — the file may have
+   moved on since the comment was posted.
+4. If the thread has follow-up comments, read them — the author may have
+   already addressed or rebutted the original point, which makes it `noise`.
+5. Return ONLY a JSON object with this exact shape — no prose, no markdown:
 
 {
   "threadId": "<threadId from input>",
@@ -161,13 +183,36 @@ labelling to its consumer via `ButtonHTMLAttributes`. No change needed.
 Proceed with all? Or let me know which items to skip or adjust.
 ```
 
+### Pushing back on `disagree` items
+
+For each `disagree` item, the plan should state the technical reason
+concisely — "the component already delegates labelling via X", "this branch
+is unreachable because Y", "this conflicts with the architectural decision
+in Z". Reference the working code or test that proves the point. Avoid
+defensiveness; state the fact and move on.
+
+If a `disagree` conflicts with a prior decision the user made (architectural
+direction, deliberate exception, deprecated path being removed), call it out
+explicitly in the plan and ask the user to confirm before replying.
+
 **Stop here and wait for user approval before making any changes.**
+
+If any item in the plan is unclear after triage, do **not** proceed with a
+partial set. Ask for clarification on the unclear items first — items often
+relate, and a partial implementation based on incomplete understanding leads
+to rework.
 
 ---
 
 ## Phase 4 — Execute
 
-Work through each approved item in order. For each:
+Work through approved items in this order:
+
+1. **Blocking** — `must-fix` items that affect correctness or break things.
+2. **Simple** — typos, imports, doc fixes, single-line changes.
+3. **Complex** — refactors, multi-file changes, behaviour changes.
+
+For each item:
 
 1. **Re-read the file** at `path` (the file may have changed since triage).
 2. **Apply the change** using the `Edit` tool.
@@ -176,14 +221,20 @@ Work through each approved item in order. For each:
      changed since the comment was posted.
    - If there is no suggestion block, implement the change described in
      `proposedAction`.
-3. **Invoke relevant project skills** as appropriate:
-   - Changes to component props or types → load `component-interface-pattern`.
-   - New or updated tests → load `writing-unit-tests`.
-   - Prose changes (doc comments, JSDoc, error messages) → apply
-     `writing-clear-prose` (British English, active voice, no needless words).
-   - React context changes → load `react-context-pattern`.
-4. For `disagree` or `noise` items approved for no-action, skip the edit step.
-5. For `question` items, draft a reply (see Phase 5).
+3. **Verify the change in isolation** before moving on — run the relevant
+   tests or type check for the affected file. Batching every edit and only
+   testing at the end makes regressions hard to attribute.
+4. **Invoke any applicable project skill** for the change you're making.
+   Each project skill has a triggering description; load whichever match
+   what you're editing (component types, tests, prose, contexts, z-index,
+   stories, changesets, screenshots, codemods, etc.).
+5. For `disagree` or `noise` items approved for no-action, skip the edit step.
+6. For `question` items, draft a reply (see Phase 5).
+
+If, while implementing, you discover the original `disagree` was wrong (the
+reviewer was right), correct course factually — state what you checked, that
+the reviewer was correct, and apply the fix. No long apology or
+re-justification of the earlier verdict.
 
 Do not mark any thread resolved until all edits for that thread are complete.
 
@@ -191,19 +242,57 @@ Do not mark any thread resolved until all edits for that thread are complete.
 
 ## Phase 5 — Resolve
 
-After all edits are applied, resolve each thread and optionally post a reply.
+After all edits are applied, reply to and resolve each thread **before
+pushing the commits**. Reviewers get a single notification stream; they
+should see your reply (and the resolved state) alongside the new commits,
+not after a silent force-push that leaves them wondering whether their
+feedback was read.
 
-### Post a reply (optional but recommended)
+The required order is:
 
-Use the REST API to post a reply to the root comment of each resolved thread.
-Keep replies brief — one sentence stating what was done, or why no change was
-made.
+1. Apply all edits locally (Phase 4).
+2. Post replies to every thread.
+3. Mark every thread resolved.
+4. **Then** `git push` (or `gh pr ready`, etc.).
+
+If a push has to happen first for some reason (e.g. CI must run before you
+can verify a fix), say so explicitly to the user before pushing — do not
+silently reorder these steps.
+
+### Post a reply
+
+Reply to every thread before resolving. A bare resolve is curt and leaves
+reviewers without confirmation that you read the comment. Use the REST API
+to post a reply to the root comment of each thread. Keep replies brief —
+one sentence stating what was done, or why no change was made.
 
 ```bash
 gh api repos/{owner}/{repo}/pulls/{pr}/comments/{root_comment_id}/replies \
   --method POST \
   --field body="<reply text>"
 ```
+
+#### Reply tone
+
+Replies must be factual and terse. The diff is the acknowledgement; the reply
+just labels what changed.
+
+**Do not write:**
+
+- "You're absolutely right!"
+- "Great catch!" / "Great point!" / "Good spot!"
+- "Thanks for catching that!" / "Thanks for the feedback!"
+- Any expression of gratitude or agreement-as-performance
+
+**Write instead:**
+
+- "Fixed in <file>:<line>." or "Updated to <change>."
+- "No change — <one-sentence technical reason>." (for `disagree`)
+- A direct answer to the question (for `question` items).
+
+If the reviewer was right and you initially classified as `disagree`, the
+reply states the correction factually: "Verified — you're correct, the
+branch is reachable via X. Fixed." No long apology.
 
 ### Mark a thread resolved
 
@@ -243,3 +332,18 @@ Run all resolve mutations after all replies have been posted.
   conversation history. Read them before triaging — the author may have
   already acknowledged and addressed the comment, which would make it a
   candidate for `noise`.
+
+---
+
+## Common pitfalls
+
+| Pitfall                                            | Fix                                                                                 |
+| -------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| Triaging from comment text alone                   | Read the file first — the comment may not match current code.                       |
+| Treating every Copilot suggestion as `must-fix`    | Bots miss context; verify against codebase like any reviewer.                       |
+| Adding "proper" handling for an unused branch      | YAGNI check — grep for callers; remove the dead path instead.                       |
+| Implementing a partial set when some items unclear | Stop and clarify all items first; partial = wrong implementation.                   |
+| Batching every edit and testing only at the end    | Test after each fix so regressions are easy to attribute.                           |
+| Defending a wrong `disagree` after the fact        | State factually that the reviewer was right and apply the fix.                      |
+| Performative replies ("Great catch!", "Thanks!")   | The diff is the acknowledgement. State what changed, full stop.                     |
+| Pushing commits before replying to threads         | Reply and resolve first; reviewers should read context with the push, not after it. |
