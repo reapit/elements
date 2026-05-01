@@ -1,5 +1,5 @@
 import { AppSwitcherIcon } from '#src/icons/app-switcher'
-import { TopBarNavIconItemButton } from '../../top-bar'
+import { TopBarNavIconItemButton } from '../../top-bar/nav-icon-item'
 
 import type { ButtonHTMLAttributes, MouseEventHandler } from 'react'
 

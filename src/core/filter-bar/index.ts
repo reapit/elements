@@ -1,4 +1,1 @@
-export * from './applied-filters'
 export * from './filter-bar'
-export * from './left-content'
-export * from './right-content'
