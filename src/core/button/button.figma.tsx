@@ -23,6 +23,7 @@ figma.connect(Button, '<BUTTON_URL>', {
       Medium: 'medium',
       Large: 'large',
     }),
+    useAIStyle: figma.boolean('Ai style'),
     useLinkStyle: figma.boolean('Link style'),
     variant: figma.enum('Variant', {
       Primary: 'primary',
@@ -38,6 +39,7 @@ figma.connect(Button, '<BUTTON_URL>', {
       iconRight={props.iconRight}
       isDestructive={props.isDestructive}
       size={props.size}
+      useAIStyle={props.useAIStyle}
       useLinkStyle={props.useLinkStyle}
       variant={props.variant}
     >
@@ -61,6 +63,7 @@ figma.connect(Button, '<BUTTON_URL>', {
       Medium: 'medium',
       Large: 'large',
     }),
+    useAIStyle: figma.boolean('Ai style'),
     useLinkStyle: figma.boolean('Link style'),
     variant: figma.enum('Variant', {
       Primary: 'primary',
@@ -76,6 +79,7 @@ figma.connect(Button, '<BUTTON_URL>', {
       iconLeft={props.iconLeft}
       isDestructive={props.isDestructive}
       size={props.size}
+      useAIStyle={props.useAIStyle}
       useLinkStyle={props.useLinkStyle}
       variant={props.variant}
     />

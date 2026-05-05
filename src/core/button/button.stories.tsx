@@ -47,6 +47,7 @@ export const Example = meta.story({
     iconRight: 'None',
     isBusy: false,
     isDestructive: false,
+    useAIStyle: false,
     size: 'medium',
     useLinkStyle: false,
     variant: 'primary',
@@ -63,7 +64,6 @@ export const Variants = Example.extend({
       control: false,
     },
   },
-
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
@@ -71,7 +71,6 @@ export const Variants = Example.extend({
       </div>
     ),
   ],
-
   render: (args) => (
     <>
       <Button {...args} variant="primary" />
@@ -91,7 +90,6 @@ export const Sizes = Example.extend({
       control: false,
     },
   },
-
   decorators: [
     (Story) => (
       <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
@@ -99,7 +97,6 @@ export const Sizes = Example.extend({
       </div>
     ),
   ],
-
   render: (args) => (
     <>
       <Button {...args} size="small" />
@@ -180,29 +177,10 @@ export const IconOnly = Example.extend({
  * Importantly, [AnchorButton](?path=/docs/core-button--anchors)'s do not support the `disabled` prop; so they
  * can only be disabled using `aria-disabled="true"`.
  */
-export const Disabled = Icons.extend({
+export const Disabled = Sizes.extend({
   args: {
     disabled: true,
   },
-  argTypes: {
-    size: {
-      control: false,
-    },
-  },
-  decorators: [
-    (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
-        <Story />
-      </div>
-    ),
-  ],
-  render: (args) => (
-    <>
-      <Button {...args} size="small" />
-      <Button {...args} size="medium" />
-      <Button {...args} size="large" />
-    </>
-  ),
 })
 
 /**
@@ -213,7 +191,7 @@ export const Disabled = Icons.extend({
  * We explicitly DO NOT use mark busy buttons as disabled because that can lead to timing issues with form submissions
  * (disabled form elements are not part of the submitted form data). Thus, busy buttons are only ever ARIA disabled.
  */
-export const Busy = Icons.extend({
+export const Busy = Example.extend({
   args: {
     isBusy: true,
   },
@@ -242,7 +220,7 @@ export const Busy = Icons.extend({
  * Destructive buttons are used to indicate the action performed by the button is destructive or irreversible, like
  * delete or remove.
  */
-export const Destructive = Icons.extend({
+export const Destructive = Variants.extend({
   args: {
     isDestructive: true,
   },
@@ -268,13 +246,13 @@ export const Destructive = Icons.extend({
 })
 
 /**
- * Tertiary buttons can use the `hasNoPadding` prop to remove their padding. This prop is ignored for other button
+ * Buttons can use the `useAIStyle` prop to apply an AI-themed visual style. This is available across all three
  * variants.
  */
-export const NoPadding = Icons.extend({
+export const AIStyle = Variants.extend({
+  name: 'AI style',
   args: {
-    hasNoPadding: true,
-    variant: 'tertiary',
+    useAIStyle: true,
   },
 })
 
@@ -282,9 +260,20 @@ export const NoPadding = Icons.extend({
  * Tertiary buttons can also use the `useLinkStyle` prop to have the button appear more like a link. This prop is
  * ignored for other button variants.
  */
-export const LinkStyle = Icons.extend({
+export const LinkStyle = Example.extend({
   args: {
     useLinkStyle: true,
+    variant: 'tertiary',
+  },
+})
+
+/**
+ * Tertiary buttons can use the `hasNoPadding` prop to remove their padding. This prop is ignored for other button
+ * variants.
+ */
+export const NoPadding = Example.extend({
+  args: {
+    hasNoPadding: true,
     variant: 'tertiary',
   },
 })
@@ -305,6 +294,7 @@ export const Anchors = meta.story({
     iconRight: 'Star',
     isBusy: false,
     isDestructive: false,
+    useAIStyle: false,
     href: '#',
     size: 'medium',
     useLinkStyle: false,

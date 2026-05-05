@@ -27,12 +27,23 @@ export namespace ButtonBase {
      * click events will be ignored while it is busy.
      */
     isBusy?: boolean
-    /** Whether the button represents a destructive action */
+    /**
+     * Whether the button represents a destructive action. Takes visual precedence over `useLinkStyle` and
+     * `useAIStyle` when combined.
+     */
     isDestructive?: boolean
     /** The size of the button */
     size?: 'small' | 'medium' | 'large'
-    /** Whether to use link-style appearance. Only applies to tertiary buttons. */
+    /**
+     * Whether to use link-style appearance. Only applies to tertiary buttons. Takes visual precedence over the
+     * default style, but is overridden by `useAIStyle` and `isDestructive` when combined.
+     */
     useLinkStyle?: boolean
+    /**
+     * Whether to use AI-style appearance. Applies to all variants. Takes visual precedence over `useLinkStyle`, but
+     * is overridden by `isDestructive` when combined.
+     */
+    useAIStyle?: boolean
     /** The visual variant of the button */
     variant?: 'primary' | 'secondary' | 'tertiary'
   }
@@ -66,6 +77,7 @@ export function ButtonBase({
   isDestructive,
   onClick,
   size = 'medium',
+  useAIStyle,
   useLinkStyle,
   variant = 'secondary',
   ...rest
@@ -108,6 +120,7 @@ export function ButtonBase({
       data-is-destructive={isDestructive}
       data-is-icon-only={isIconOnly}
       data-use-link-style={useLinkStyle}
+      data-use-ai-style={useAIStyle}
       onClick={handleClick}
     >
       {isBusy ? (

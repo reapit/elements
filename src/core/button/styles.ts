@@ -74,6 +74,17 @@ export const elButton = css`
       color: var(--comp-button-colour-text-primary-hover);
     }
 
+    &[data-use-ai-style='true'] {
+      background: var(--comp-button-colour-fill-primary-ai-default);
+      color: var(--comp-button-colour-text-primary-ai-default);
+
+      &:hover {
+        background: var(--comp-button-colour-fill-primary-ai-hover);
+        color: var(--comp-button-colour-text-primary-ai-hover);
+      }
+    }
+
+    /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
     &[data-is-destructive='true'] {
       background: var(--comp-button-colour-fill-primary-destructive-default);
       color: var(--comp-button-colour-text-primary-destructive-default);
@@ -104,6 +115,19 @@ export const elButton = css`
       color: var(--comp-button-colour-text-secondary-hover);
     }
 
+    &[data-use-ai-style='true'] {
+      border-color: var(--comp-button-colour-border-secondary-ai-default);
+      background: var(--comp-button-colour-fill-secondary-ai-default);
+      color: var(--comp-button-colour-text-secondary-ai-default);
+
+      &:hover {
+        border-color: var(--comp-button-colour-border-secondary-ai-hover);
+        background: var(--comp-button-colour-fill-secondary-ai-hover);
+        color: var(--comp-button-colour-text-secondary-ai-hover);
+      }
+    }
+
+    /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
     &[data-is-destructive='true'] {
       border-color: var(--comp-button-colour-border-secondary-destructive-default);
       background: var(--comp-button-colour-fill-secondary-destructive-default);
@@ -152,8 +176,18 @@ export const elButton = css`
       }
     }
 
-    /* NOTE: data-is-destructive must come after data-use-link-style to be consistent with the specificity of the same
-    * attributes on the icon container. */
+    /* NOTE: data-use-ai-style must come after data-use-link-style so it takes visual precedence. */
+    &[data-use-ai-style='true'] {
+      background: var(--comp-button-colour-fill-tertiary-ai-default);
+      color: var(--comp-button-colour-text-tertiary-ai-default);
+
+      &:hover {
+        background: var(--comp-button-colour-fill-tertiary-ai-hover);
+        color: var(--comp-button-colour-text-tertiary-ai-hover);
+      }
+    }
+
+    /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
     &[data-is-destructive='true'] {
       background: var(--comp-button-colour-fill-tertiary-destructive-default);
       color: var(--comp-button-colour-text-tertiary-destructive-default);
@@ -234,8 +268,16 @@ function generateElButtonIconContainerVariantStyles(variant: 'primary' | 'second
       : ''
   }
 
-  /* NOTE: data-is-destructive must come after data-use-link-style to be consistent with the specificity of the same
-   * attributes on the parent element. */
+  /* NOTE: data-use-ai-style must come after data-use-link-style so it takes visual precedence. */
+  [data-variant='${variant}'][data-use-ai-style='true'] & {
+    color: var(--comp-button-colour-icon-${variant}-ai-default);
+  }
+
+  [data-variant='${variant}'][data-use-ai-style='true']:hover & {
+    color: var(--comp-button-colour-icon-${variant}-ai-hover);
+  }
+
+  /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
   [data-variant='${variant}'][data-is-destructive='true'] & {
     color: var(--comp-button-colour-icon-${variant}-destructive-default);
   }
