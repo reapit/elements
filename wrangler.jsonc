@@ -10,6 +10,10 @@
       "compatibility_flags": ["nodejs_compat"],
       "routes": [
         {
+          "pattern": "canary.elements.reapit.cloud",
+          "custom_domain": true,
+        },
+        {
           "pattern": "canary.elements.reapit.com.au",
           "custom_domain": true,
         },
@@ -25,6 +29,14 @@
       "name": "gbl-ds-elements-prod",
       "compatibility_flags": ["nodejs_compat"],
       "routes": [
+        {
+          "pattern": "v5.elements.reapit.cloud",
+          "custom_domain": true,
+        },
+        {
+          "pattern": "v5.elements.reapit.com.au",
+          "custom_domain": true,
+        },
         {
           "pattern": "elements.reapit.com.au",
           "custom_domain": true,

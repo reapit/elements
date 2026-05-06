@@ -6,6 +6,10 @@
   "compatibility_date": "2025-04-01",
   "routes": [
     {
+      "pattern": "elements.reapit.cloud",
+      "custom_domain": true,
+    },
+    {
       "pattern": "v4.elements.reapit.com.au",
       "custom_domain": true,
     },
