@@ -1,5 +1,44 @@
 # @reapit/elements
 
+## 5.0.0-beta.94
+
+### Major Changes
+
+- **[Removed]** direct named exports of sub-components that are accessible via their parent component namespace. Affected components: `Accordion`, `AppSwitcher`, `AtAGlance`, `Autocomplete`, `BottomBar`, `Breadcrumbs`, `ButtonGroup`, `CheckboxGroupControl`, `ChipSelect`, `CompactSelect`, `DescriptionList`, `Drawer`, `Features`, `FilterBar`, `FocusedLayout`, `FolderTabs`, `FormControl`, `Menu`, `OfficeSwitcher`, `PageHeader`, `PageLayout`, `Pagination`, `PrimaryTabs`, `RadioGroupControl`, `SecondaryTabs`, `Select`, `SideBar`, `SplitButton`, `SupplementaryInfo`, `Table`, `TagGroup`, and `TopBar`. ([#1335](https://github.com/reapit-global/gbl-ds-elements/pull/1335))
+
+  To migrate, import the parent component and access the sub-component via the namespace. For example:
+
+  ```ts
+  // Before
+  import { AccordionSummary, DrawerBody, TableBody } from "@reapit/elements";
+
+  // After
+  import { Accordion, Drawer, Table } from "@reapit/elements";
+  // AccordionSummary → Accordion.Summary
+  // DrawerBody       → Drawer.Body
+  // TableBody        → Table.Body
+  ```
+
+- **[Changed]** `EmptyData` component and all related exports renamed to `EmptyState`. Run the `rename-empty-data` codemod to migrate automatically. ([#1328](https://github.com/reapit-global/gbl-ds-elements/pull/1328))
+
+### Minor Changes
+
+- **[Added]** `useAIStyle` prop to `Button` and `AnchorButton`. Applies an AI-themed visual style across all three variants. ([#1341](https://github.com/reapit-global/gbl-ds-elements/pull/1341))
+
+### Patch Changes
+
+- **[Fixed]** Default `position` for `buildAnchorPositioningCSS` and `Popover` is now `'fixed'` instead of `'absolute'`, preventing unexpected document scrolling when an anchored popup is open inside a scrolled container such as a `Drawer`. ([#1338](https://github.com/reapit-global/gbl-ds-elements/pull/1338))
+
+- **[Fixed]** `Checkbox` now sizes to its content width rather than stretching to fill its container. ([#1337](https://github.com/reapit-global/gbl-ds-elements/pull/1337))
+
+- **[Fixed]** Visual bugs in `DescriptionList.Item` stories for tabular layout. The `Tabular` story now uses the correct `<DescriptionList grid="...">` decorator. ([#1348](https://github.com/reapit-global/gbl-ds-elements/pull/1348))
+
+- **[Fixed]** Correct the Figma URL for the `EmptyState` component in the code connect configuration. ([#1331](https://github.com/reapit-global/gbl-ds-elements/pull/1331))
+
+- **[Fixed]** Fix MDX docs pages failing to load in production Storybook builds due to a CSF4 chunk-splitting bug in Storybook 10 ([storybookjs/storybook#34373](https://github.com/storybookjs/storybook/issues/34373))
+
+- **[Fixed]** React 19 consumers no longer see "Invalid DOM property" console warnings for Popover API attributes. ([#1346](https://github.com/reapit-global/gbl-ds-elements/pull/1346))
+
 ## 5.0.0-beta.93
 
 ### Minor Changes
