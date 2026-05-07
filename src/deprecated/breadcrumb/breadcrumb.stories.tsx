@@ -6,6 +6,8 @@ const meta = preview.meta({
   component: DeprecatedBreadCrumb,
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => (
     <DeprecatedBreadCrumb

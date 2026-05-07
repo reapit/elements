@@ -20,6 +20,8 @@ const meta = preview.meta({
   component: DeprecatedAccordion,
 })
 
+export default meta
+
 export const StylesOnlyUsage = meta.story({
   render: () => (
     <DeprecatedAccordionContainer>

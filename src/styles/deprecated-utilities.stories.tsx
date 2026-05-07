@@ -16,6 +16,8 @@ const meta = preview.meta({
   title: 'Deprecated/Utilities',
 })
 
+export default meta
+
 export const Margin = meta.story({
   render: () => (
     <>

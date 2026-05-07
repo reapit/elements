@@ -13,6 +13,8 @@ const meta = preview.meta({
   title: 'Deprecated/DeprecatedMenu',
 })
 
+export default meta
+
 export const Default = meta.story({
   render: () => {
     return (

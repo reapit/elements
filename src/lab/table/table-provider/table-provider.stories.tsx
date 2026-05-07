@@ -6,6 +6,8 @@ const meta = preview.meta({
   component: TableProvider,
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   args: {
     rows: [],

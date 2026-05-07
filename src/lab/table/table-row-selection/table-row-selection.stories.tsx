@@ -16,6 +16,8 @@ const meta = preview.meta({
   component: TableRowSelection,
 })
 
+export default meta
+
 const tableData = [
   { contactId: '12P0168', firstname: 'Danish', lastname: 'Ali' },
   { contactId: '12P0175', firstname: 'Kushal', lastname: 'Salonki' },

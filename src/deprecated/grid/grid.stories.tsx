@@ -9,6 +9,8 @@ const meta = preview.meta({
   title: 'Deprecated/Grid',
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => (
     <Grid>

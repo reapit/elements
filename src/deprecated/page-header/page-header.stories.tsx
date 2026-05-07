@@ -6,6 +6,8 @@ const meta = preview.meta({
   component: DeprecatedPageHeader,
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => (
     <DeprecatedPageHeader

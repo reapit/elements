@@ -7,6 +7,8 @@ const meta = preview.meta({
   component: PersistentNotification,
 })
 
+export default meta
+
 export const FullReactExampleFixedPosition = meta.story({
   render: () => {
     const [isExpanded, setIsExpanded] = useState(false)

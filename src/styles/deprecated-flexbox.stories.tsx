@@ -5,6 +5,8 @@ const meta = preview.meta({
   title: 'Deprecated/Flexbox',
 })
 
+export default meta
+
 export const Flex = meta.story({
   render: () => (
     <div className="el-flex">

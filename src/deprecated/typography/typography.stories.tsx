@@ -19,6 +19,8 @@ const meta = preview.meta({
   component: TextBase,
 })
 
+export default meta
+
 export const BaseScale = meta.story({
   render: () => (
     <>

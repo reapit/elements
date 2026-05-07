@@ -9,6 +9,8 @@ const meta = preview.meta({
   component: Steps,
 })
 
+export default meta
+
 export const BasicStepsUsage = meta.story({
   render: () => <Steps steps={['1', '2', '3', '4', '5']} />,
 })

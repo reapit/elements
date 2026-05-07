@@ -18,6 +18,8 @@ const meta = preview.meta({
   title: 'Deprecated/Tabs',
 })
 
+export default meta
+
 export const StylesOnlyUsage = meta.story({
   render: () => (
     <TabsWrap>

@@ -6,6 +6,8 @@ const meta = preview.meta({
   component: DeprecatedToolTip,
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => <DeprecatedToolTip tip="Some Data">Hover here</DeprecatedToolTip>,
 })

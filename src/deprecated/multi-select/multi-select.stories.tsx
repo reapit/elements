@@ -6,6 +6,8 @@ const meta = preview.meta({
   component: MultiSelect,
 })
 
+export default meta
+
 export const BasicExample = meta.story({
   render: () => (
     <MultiSelect>

@@ -6,6 +6,8 @@ const meta = preview.meta({
   component: DeprecatedStatusIndicator,
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => (
     <div>

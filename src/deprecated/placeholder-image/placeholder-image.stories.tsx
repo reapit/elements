@@ -6,6 +6,8 @@ const meta = preview.meta({
   component: PlaceholderImage,
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => <PlaceholderImage placeholder="placeholderSmall" size={120} />,
 })

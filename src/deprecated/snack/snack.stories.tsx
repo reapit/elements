@@ -12,6 +12,8 @@ const meta = preview.meta({
   component: Snack,
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => <Snack>Message goes here</Snack>,
 })

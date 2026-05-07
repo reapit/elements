@@ -12,6 +12,8 @@ const meta = preview.meta({
   component: DeprecatedNavResponsive,
 })
 
+export default meta
+
 export const BasicExample = meta.story({
   render: () => (
     <DeprecatedNav>

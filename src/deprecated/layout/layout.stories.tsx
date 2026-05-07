@@ -7,6 +7,8 @@ const meta = preview.meta({
   title: 'Deprecated/Layouts',
 })
 
+export default meta
+
 export const MainContainerUsage = meta.story({
   render: () => (
     <DeprecatedMainContainer>

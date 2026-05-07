@@ -8,6 +8,8 @@ const meta = preview.meta({
   component: SecondaryNav,
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => (
     <SecondaryNavContainer>

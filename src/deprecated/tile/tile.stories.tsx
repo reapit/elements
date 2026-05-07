@@ -9,6 +9,8 @@ const meta = preview.meta({
   component: Tile,
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => <Tile>Some Content</Tile>,
 })

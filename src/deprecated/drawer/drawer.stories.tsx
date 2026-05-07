@@ -10,6 +10,8 @@ const meta = preview.meta({
   component: Drawer,
 })
 
+export default meta
+
 export const BasicUsageClosed = meta.story({
   render: () => <DrawerBg />,
   name: 'Basic Usage - Closed',

@@ -29,6 +29,8 @@ const meta = preview.meta({
   component: DeprecatedTable,
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => (
     <DeprecatedTable>

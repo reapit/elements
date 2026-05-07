@@ -28,6 +28,8 @@ const meta = preview.meta({
   component: Card,
 })
 
+export default meta
+
 export const CardWithAvatar = meta.story({
   render: () => (
     <CardWrap>

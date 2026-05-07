@@ -6,6 +6,8 @@ const meta = preview.meta({
   component: Loader,
 })
 
+export default meta
+
 export const Inline = meta.story({
   render: () => <Loader />,
 })

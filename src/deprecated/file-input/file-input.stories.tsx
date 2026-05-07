@@ -11,6 +11,8 @@ const meta = preview.meta({
   component: FileInput,
 })
 
+export default meta
+
 export const DefaultUsage = meta.story({
   render: () => <FileInput label="Some Label" onFileUpload={Promise.resolve} fileName="some-file-name" />,
 })

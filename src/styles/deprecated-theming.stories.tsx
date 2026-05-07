@@ -6,6 +6,8 @@ const meta = preview.meta({
   title: 'Deprecated/DeprecatedTheming',
 })
 
+export default meta
+
 export const DeprecatedThemingProvider = meta.story({
   render: () => (
     <DeprecatedElementsThemeProvider

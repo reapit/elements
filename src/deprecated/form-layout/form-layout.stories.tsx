@@ -13,6 +13,8 @@ const meta = preview.meta({
   component: FormLayout,
 })
 
+export default meta
+
 export const BasicForm = meta.story({
   render: () => (
     <form>

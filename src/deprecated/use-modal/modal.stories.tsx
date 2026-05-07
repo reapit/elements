@@ -8,6 +8,8 @@ const meta = preview.meta({
   title: 'Deprecated/useModal',
 })
 
+export default meta
+
 export const BasicUsage = meta.story({
   render: () => {
     const { Modal: ModalComponent, openModal, closeModal } = useModal('portal-root')

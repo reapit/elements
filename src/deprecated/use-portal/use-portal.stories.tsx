@@ -6,6 +6,8 @@ const meta = preview.meta({
   component: Portal,
 })
 
+export default meta
+
 export const PortalUsage = meta.story({
   render: () => (
     <Portal id="docs-root">

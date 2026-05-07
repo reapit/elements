@@ -10,6 +10,8 @@ const meta = preview.meta({
   component: Modal,
 })
 
+export default meta
+
 export const StylesOnlyUsage = meta.story({
   render: () => (
     <>

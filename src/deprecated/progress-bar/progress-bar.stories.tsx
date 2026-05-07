@@ -14,6 +14,8 @@ const meta = preview.meta({
   component: ProgressBarSteps,
 })
 
+export default meta
+
 export const BasicExampleProgressBarPercentage = meta.story({
   render: () => (
     <ProgressBarContainer>
