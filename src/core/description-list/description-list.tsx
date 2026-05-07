@@ -11,7 +11,10 @@ export namespace DescriptionList {
   export interface Props extends HTMLAttributes<HTMLDListElement> {
     /** CSS `gap` value to define the gap between grid items. */
     gap?: string
-    /** CSS `grid` value to define the grid layout. When not provided, items will stack vertically. */
+    /**
+     * CSS `grid` value to define the grid layout. When not provided, items will stack vertically.
+     * Required for tabular layout.
+     */
     grid?: string
     /** The layout variant for description list items. */
     layout?: 'stacked' | 'tabular' | 'inline'

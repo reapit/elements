@@ -79,22 +79,16 @@ export const Inline = Example.extend({
   args: {
     layout: 'inline',
   },
-  decorators: [
-    (Story) => (
-      <DescriptionList>
-        <Story />
-      </DescriptionList>
-    ),
-  ],
 })
 
 /**
  * A tabular layout can also be achieved. In this case, the item will align to their ancestor's grid.
  * The item's label will occupy the first column, and the description will span the remaining columns.
  */
-export const Tabular = Example.extend({
+export const Tabular = meta.story({
   args: {
     children: 'Multi-line',
+    label: 'Description',
     layout: 'tabular',
   },
   decorators: [
@@ -113,13 +107,6 @@ export const Size = Example.extend({
   args: {
     size: 'sm',
   },
-  decorators: [
-    (Story) => (
-      <DescriptionList>
-        <Story />
-      </DescriptionList>
-    ),
-  ],
 })
 
 /**
@@ -131,19 +118,12 @@ export const Content = Example.extend({
     children: 'Features',
     label: 'Property features',
   },
-  decorators: [
-    (Story) => (
-      <DescriptionList>
-        <Story />
-      </DescriptionList>
-    ),
-  ],
 })
 
 /**
  * Like the description, the label content can wrap if it does not have sufficient space.
  */
-export const Wrapping = Example.extend({
+export const Wrapping = meta.story({
   args: {
     children: 'Multi-line',
     label: 'Property description',
@@ -164,7 +144,7 @@ export const Wrapping = Example.extend({
  * [grid-column](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column) property for details
  * on the syntax.
  */
-export const SpanningColumns = Example.extend({
+export const SpanningColumns = meta.story({
   name: 'Spanning columns',
   args: {
     area: 'auto / span 2',
