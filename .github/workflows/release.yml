@@ -50,6 +50,21 @@ jobs:
           path: dist/
           retention-days: 1
 
+  docs:
+    name: Docs
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ./.github/actions/build-docs
+      - name: Upload docs artifacts
+        uses: actions/upload-artifact@v7
+        with:
+          name: docs
+          path: public/dist/
+          retention-days: 1
+
   release:
     name: Release
     needs: [check, test, build]
@@ -139,10 +154,22 @@ jobs:
 
   deploy-docs:
     name: Deploy Docs
-    needs: release
+    needs: [release, docs]
     # Deploys to prod when packages were published, dev otherwise (version PR
     # created or no changesets present).
-    uses: ./.github/workflows/deploy-docs.yml
-    with:
-      target: ${{ needs.release.outputs.published == 'true' && 'prod' || 'dev' }}
-    secrets: inherit
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v6
+      - name: Download docs artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: docs
+          path: public/dist/
+      - uses: ./.github/actions/deploy-docs
+        with:
+          target: ${{ needs.release.outputs.published == 'true' && 'prod' || 'dev' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}

@@ -1,0 +1,61 @@
+# Deploy Storybook to Cloudflare Workers.
+#
+# Triggers:
+#   workflow_dispatch → manual deploy with a target dropdown (used for v4 and emergency deploys)
+
+name: Deploy Docs (Manual)
+
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        description: 'Deploy target'
+        type: choice
+        # Valid values must match those accepted by .github/actions/deploy-docs
+        options:
+          - dev
+          - prod
+          - v4
+        default: 'dev'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: deploy-docs-${{ inputs.target || 'dev' }}
+  cancel-in-progress: true
+
+env:
+  CI: true
+
+jobs:
+  deploy-docs:
+    name: Deploy Docs
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 15
+    steps:
+      # Fail fast if someone manually triggers a prod deploy from a non-main
+      # branch. v4 is intentionally excluded — it must be deployable from
+      # non-main branches (e.g. the lts branch) to keep the LTS storybook
+      # up to date independently of main.
+      - name: Guard production deploy
+        if: >-
+          inputs.target == 'prod'
+          && github.ref != 'refs/heads/main'
+        run: |
+          echo "::error::Production deploys are only permitted from the main branch."
+          exit 1
+
+      - uses: actions/checkout@v6
+
+      - name: Build Docs
+        uses: ./.github/actions/build-docs
+
+      - name: Deploy Docs
+        uses: ./.github/actions/deploy-docs
+        with:
+          target: ${{ inputs.target || 'dev' }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}
