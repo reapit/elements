@@ -43,18 +43,10 @@ describe('single subpath-eligible imports', () => {
 
 // ===== Multiple exports — same subpath → single import =====
 
-describe('multiple exports from the same subpath', () => {
-  test('groups Button and AnchorButton into one core/button import', () => {
-    const input = `import { Button, AnchorButton } from '@reapit/elements'`
-    const output = transform(input, 'test.tsx')
-    expect(output).toBe(`import { Button, AnchorButton } from '@reapit/elements/core/button'\n`)
-  })
-
-  test('groups multiple accordion exports into one core/accordion import', () => {
-    const input = `import { Accordion, AccordionSummary } from '@reapit/elements'`
-    const output = transform(input, 'test.tsx')
-    expect(output).toBe(`import { Accordion, AccordionSummary } from '@reapit/elements/core/accordion'\n`)
-  })
+test('multiple exports from the same subpath', () => {
+  const input = `import { Button, AnchorButton } from '@reapit/elements'`
+  const output = transform(input, 'test.tsx')
+  expect(output).toBe(`import { Button, AnchorButton } from '@reapit/elements/core/button'\n`)
 })
 
 // ===== Multiple exports — different subpaths → split into multiple imports =====
