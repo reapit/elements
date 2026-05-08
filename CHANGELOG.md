@@ -1,5 +1,17 @@
 # @reapit/elements
 
+## 5.0.0-beta.95
+
+### Minor Changes
+
+- **[Added]** `keepMounted` prop to `Accordion`. When `false`, children are unmounted when the accordion is closed, deferring rendering until first open. Defaults to `true` (existing behaviour unchanged). ([#1356](https://github.com/reapit-global/gbl-ds-elements/pull/1356))
+
+- **[Added]** `verifyweb` to the `AppSwitcher` product display order. ([#1358](https://github.com/reapit-global/gbl-ds-elements/pull/1358))
+
+### Patch Changes
+
+- **[Changed]** Updated export map used by rewrite-v5-imports codemod ([#1351](https://github.com/reapit-global/gbl-ds-elements/pull/1351))
+
 ## 5.0.0-beta.94
 
 ### Major Changes
