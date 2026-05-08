@@ -51,6 +51,7 @@ const meta = preview.meta({
 export const Example = meta.story({
   args: {
     children: <Pattern height="100px" />,
+    keepMounted: true,
     open: false,
     summary: 'Basic',
   },
