@@ -44,6 +44,7 @@ export namespace ComponentName {
 - [ ] Use `ComponentName.Props` in function signature
 - [ ] Place all API-related interfaces (props, data types) inside namespace
 - [ ] Verify namespace is exported
+- [ ] Follow [boolean prop naming conventions](../../../guidelines/interface-pattern.md#boolean-prop-naming) for boolean props
 
 **Example:**
 
@@ -293,6 +294,48 @@ export function useComboboxSelectedOptions(): readonly useComboboxSelectedOption
   // ...
 }
 ```
+
+### ❌ Wrong Boolean Prop Naming
+
+Three categories, each with its own naming rule:
+
+- **State/presence** (`is`/`has` prefix) — what a component _is_ or _has_: `isOpen`, `isBusy`, `hasBadge`
+- **Behavioural** (bare verb) — what a component _does_: `keepMounted`, `showValidity`, `useLinkStyle`
+- **Native HTML attributes** — keep unchanged: `disabled`, `open`, `required`
+
+```typescript
+// Wrong: "is" prefix on a behavioural prop
+export namespace Dialog {
+  export interface Props {
+    isKeepMounted?: boolean
+  }
+}
+
+// Correct: bare verb for behavioural booleans
+export namespace Dialog {
+  export interface Props {
+    /** Whether to keep the dialog mounted when closed */
+    keepMounted?: boolean
+  }
+}
+
+// Wrong: wrapping a native HTML attribute
+export namespace Button {
+  export interface Props {
+    isDisabled?: boolean
+  }
+}
+
+// Correct: native attribute name unchanged
+export namespace Button {
+  export interface Props {
+    /** Whether the button is disabled */
+    disabled?: boolean
+  }
+}
+```
+
+See [`guidelines/interface-pattern.md#boolean-prop-naming`](../../../guidelines/interface-pattern.md#boolean-prop-naming) for the full convention.
 
 ## Exceptions
 

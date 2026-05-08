@@ -151,6 +151,67 @@ export function useComboboxSelectedOptions(
 - Type is used primarily with one component/function
 - Type is part of the public API surface
 
+## Boolean Prop Naming
+
+Boolean props fall into three categories, each with its own naming rule.
+
+### State and presence booleans
+
+Prefix with `is` or `has`. These describe what a component _is_ or _has_.
+
+| Prefix | Use when                                           | Examples                                          |
+| ------ | -------------------------------------------------- | ------------------------------------------------- |
+| `is`   | The component is in a particular state             | `isOpen`, `isBusy`, `isDestructive`, `isSelected` |
+| `has`  | The component has a particular feature or modifier | `hasBadge`, `hasNoPadding`, `hasError`            |
+
+### Behavioural booleans
+
+Use a bare verb describing what the component _does_. Do not add `is`, `has`, or `should` prefixes.
+
+| Examples       | What they control                                  |
+| -------------- | -------------------------------------------------- |
+| `keepMounted`  | Whether the component stays in the DOM when hidden |
+| `showValidity` | Whether the component displays validation feedback |
+| `useLinkStyle` | Whether the component renders with link styling    |
+
+The prefix makes state props immediately recognisable in JSX: `<Button isDestructive>` tells you the button _is_ something. `<Dialog keepMounted>` tells the dialog to _do_ something — the verb makes the intent clear without a prefix.
+
+### Native HTML attributes
+
+Keep the native name unchanged. Do not add a prefix.
+
+| Native attribute | Used by          |
+| ---------------- | ---------------- |
+| `open`           | Accordion        |
+| `disabled`       | Button, inputs   |
+| `required`       | Inputs, Select   |
+| `checked`        | Checkbox, Switch |
+| `multiple`       | Select, Combobox |
+
+Wrapping native attributes (e.g. `isDisabled` instead of `disabled`) breaks the principle of least surprise and prevents simple prop spreading.
+
+### What not to do
+
+```typescript
+// ❌ "is" prefix on a behavioural prop — use a bare verb instead
+interface Props {
+  isKeepMounted?: boolean // ← wrong
+  keepMounted?: boolean // ← correct
+}
+
+// ❌ "should" prefix — adds indirection
+interface Props {
+  shouldShow?: boolean // ← wrong
+  showValidity?: boolean // ← correct
+}
+
+// ❌ Prefixing a native HTML attribute
+interface Props {
+  isDisabled?: boolean // ← wrong
+  disabled?: boolean // ← correct
+}
+```
+
 ## ⚖️ Exceptions to the Pattern
 
 ### Shared Base Interfaces
