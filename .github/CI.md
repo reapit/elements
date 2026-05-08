@@ -37,7 +37,7 @@ figma
 
 ## Composite actions
 
-Shared step bundles in `.github/actions/`. Most composite actions handle Node setup and `yarn install` before running their command — `deploy-docs` is an exception, as `cloudflare/wrangler-action` bundles its own Node runtime. The calling job must run `actions/checkout` first — GitHub Actions requires the repository to be present on the runner before it can locate a local composite action.
+Shared step bundles in `.github/actions/`. Each composite action handles Node setup before running its command; most also run `yarn install`. `deploy-docs` skips `yarn install` because it has no project dependencies. The calling job must run `actions/checkout` first — GitHub Actions requires the repository to be present on the runner before it can locate a local composite action.
 
 | Action          | Command                             | Used by                                                                                                |
 | --------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------ |

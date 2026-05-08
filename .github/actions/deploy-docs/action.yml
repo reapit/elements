@@ -7,8 +7,6 @@ inputs:
 runs:
   using: composite
   steps:
-    # No Node setup or yarn install needed — cloudflare/wrangler-action bundles
-    # its own Node runtime and manages all dependencies internally.
     - name: Validate target
       run: |
         case "$TARGET" in
@@ -21,6 +19,9 @@ runs:
       shell: bash
       env:
         TARGET: ${{ inputs.target }}
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
     - uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
       with:
         apiToken: ${{ env.CLOUDFLARE_API_TOKEN }}
