@@ -89,4 +89,5 @@ export const productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR
   'mmiWeb',
   'reapitforms',
   'reapitProposals',
+  'verifyweb',
 ] as const satisfies SupportedProductId[]

@@ -78,6 +78,7 @@ test('product display order should not change without updating this test', () =>
         "mmiWeb",
         "reapitforms",
         "reapitProposals",
+        "verifyweb",
       ]
     `)
 })
