@@ -39,10 +39,6 @@
     }
   },
   "exports": {
-    ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/js/index.js"
-    },
     "./core/*": {
       "types": "./dist/types/core/*/index.d.ts",
       "import": "./dist/js/core/*.js"

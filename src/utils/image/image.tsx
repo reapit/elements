@@ -2,7 +2,7 @@ import { cx } from '@linaria/core'
 import { elImage, elImageContainer } from './styles'
 import { MediaFallback } from '../media-fallback'
 import { elMediaFallbackOverlay } from '../media-fallback/styles'
-import { PhotoIcon } from '../../icons'
+import { PhotoIcon } from '../../icons/photo'
 import { ResponsiveImage } from './responsive-image'
 import { useImage } from './use-image'
 

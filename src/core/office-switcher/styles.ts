@@ -1,5 +1,5 @@
 import { font } from '#src/utils/font'
-import { isWidthAtOrAbove } from '#src/utils/index'
+import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 import { styled } from '@linaria/react'
 
 export const ElOfficeSwitcher = styled.div`

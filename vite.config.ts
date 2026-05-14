@@ -68,7 +68,6 @@ export default defineConfig({
     lib: {
       cssFileName: 'style',
       entry: {
-        index: 'src/index.ts',
         ...core,
         ...lab,
         ...deprecated,

@@ -4,7 +4,7 @@ import { ChipGroup } from '#src/core/chip-group'
 import { FilterBar } from '../filter-bar'
 import { MatchMedia } from '#src/utils/match-media'
 
-import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/index'
+import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/breakpoints'
 
 const meta = preview.meta({
   title: 'Core/FilterBar/AppliedFilters',

@@ -78,20 +78,17 @@ describe('getModuleEntries (against real source)', { timeout: 30_000 }, () => {
     project.addSourceFilesAtPaths(resolve(SRC_DIR, '**/*.{ts,tsx}'))
   }, 30_000)
 
-  test('extracts module entries from the core barrel', () => {
-    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'core', 'index.ts'))
+  test('extracts module entries from a core component barrel', () => {
+    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'core', 'button', 'index.ts'))
     const entries = getModuleEntries(barrelFile, 'core')
 
     expect(entries.length).toBeGreaterThan(0)
     // Every entry should carry the correct namespace
     expect(entries.every((e) => e.namespace === 'core')).toBe(true)
-    // The button module should be present
-    const buttonEntry = entries.find((e) => e.slug === 'button')
-    expect(buttonEntry).toBeDefined()
   })
 
   test('extracts module entries from the icons barrel', () => {
-    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'icons', 'index.ts'))
+    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'icons', 'all-icons.ts'))
     const entries = getModuleEntries(barrelFile, 'icons')
 
     expect(entries.length).toBeGreaterThan(50) // Many icons
@@ -100,16 +97,16 @@ describe('getModuleEntries (against real source)', { timeout: 30_000 }, () => {
     expect(moreEntry).toBeDefined()
   })
 
-  test('extracts module entries from the deprecated barrel', () => {
-    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'deprecated', 'index.ts'))
+  test('extracts module entries from a deprecated component barrel', () => {
+    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'deprecated', 'tabs', 'index.ts'))
     const entries = getModuleEntries(barrelFile, 'deprecated')
 
     expect(entries.length).toBeGreaterThan(0)
     expect(entries.every((e) => e.namespace === 'deprecated')).toBe(true)
   })
 
-  test('extracts module entries from the utils barrel', () => {
-    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'utils', 'index.ts'))
+  test('extracts module entries from a utils component barrel', () => {
+    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'utils', 'breakpoints', 'index.ts'))
     const entries = getModuleEntries(barrelFile, 'utils')
 
     expect(entries.length).toBeGreaterThan(0)
@@ -117,7 +114,7 @@ describe('getModuleEntries (against real source)', { timeout: 30_000 }, () => {
   })
 
   test('each entry has a resolvable filePath', () => {
-    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'core', 'index.ts'))
+    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'core', 'button', 'index.ts'))
     const entries = getModuleEntries(barrelFile, 'core')
 
     for (const entry of entries) {
@@ -183,7 +180,7 @@ describe('getExportedNames (against real source)', { timeout: 30_000 }, () => {
 
 // ─── buildExportMap ───────────────────────────────────────────────────────────
 
-// buildExportMap creates a ts-morph Project and walks every barrel and source
+// buildExportMap creates a ts-morph Project and walks every component index and source
 // file in the tree. This is the most expensive test in the file; under v8
 // coverage on CI the work regularly exceeds the default 5 s timeout.
 // Both the describe timeout (tests) and beforeAll timeout (hook) must be set —
@@ -197,7 +194,7 @@ describe('buildExportMap (integration, against real source)', { timeout: 30_000 
   // buildExportMap internally creates a ts-morph Project and processes every
   // source file; give the hook the same 30 s budget as the tests.
   // Suppress the expected duplicate-export console.warn — the duplicates are a
-  // known property of the source barrel structure, not a test failure.
+  // known property of the source structure, not a test failure.
   beforeAll(() => {
     const consoleWarn = vi.spyOn(console, 'warn').mockImplementation(() => {})
     exportMap = buildExportMap(SRC_DIR)

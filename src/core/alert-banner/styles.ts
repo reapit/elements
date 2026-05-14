@@ -1,7 +1,7 @@
 import { Button } from '#src/core/button'
 import { styled } from '@linaria/react'
 import { font } from '#src/utils/font'
-import { isWidthAtOrAbove } from '#src/utils/index'
+import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 import type { AlertBanner } from './alert-banner'
 
 interface ElAlertBannerProps {

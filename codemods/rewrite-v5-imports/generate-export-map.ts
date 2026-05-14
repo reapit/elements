@@ -1,7 +1,7 @@
 /**
  * Build-time script to generate the export map used by the rewrite-v5-imports codemod.
  *
- * Reads the source barrel files (core, deprecated, utils, icons) using ts-morph to
+ * Reads the source files for each namespace (core, deprecated, utils, icons) using ts-morph to
  * resolve all `export *` chains. Produces a mapping of every named export to its
  * subpath import specifier (e.g. `Button` -> `core/button`).
  *
@@ -13,7 +13,8 @@
  */
 
 import { writeFileSync, readFileSync } from 'node:fs'
-import { resolve, dirname } from 'node:path'
+import { globSync } from 'node:fs'
+import { resolve, dirname, basename } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { Project, SourceFile } from 'ts-morph'
 
@@ -21,8 +22,11 @@ import { Project, SourceFile } from 'ts-morph'
 const __filename = fileURLToPath(import.meta.url)
 const __dirname = dirname(__filename)
 
-/** Namespaces that have dedicated subpath entry points */
-const NAMESPACES = ['core', 'deprecated', 'utils', 'icons'] as const
+/** Namespaces that have component-level index files discovered by glob */
+const GLOB_NAMESPACES = ['core', 'deprecated', 'utils'] as const
+
+/** Namespaces that use a dedicated barrel file to enumerate their entries */
+const BARREL_NAMESPACES = ['icons'] as const
 
 /**
  * Names that should be excluded from the export map. These are generic names
@@ -109,8 +113,38 @@ export function buildExportMap(srcDir: string): Record<string, string> {
   const exportMap: Record<string, string> = {}
   const conflicts: Array<{ name: string; first: string; second: string }> = []
 
-  for (const ns of NAMESPACES) {
-    const barrelPath = resolve(srcDir, ns, 'index.ts')
+  function registerEntries(entries: ModuleEntry[]) {
+    for (const entry of entries) {
+      const names = getExportedNames(project, entry.filePath)
+      const subpath = `${entry.namespace}/${entry.slug}`
+
+      for (const name of names) {
+        if (exportMap[name]) {
+          conflicts.push({ name, first: exportMap[name], second: subpath })
+          continue
+        }
+        exportMap[name] = subpath
+      }
+    }
+  }
+
+  // For core, deprecated, and utils: discover component-level index files by glob
+  for (const ns of GLOB_NAMESPACES) {
+    const indexFiles = globSync(`src/${ns}/*/index.{ts,tsx}`, { cwd: resolve(srcDir, '..') })
+
+    const entries: ModuleEntry[] = indexFiles.map((relPath) => {
+      // relPath is e.g. 'src/core/button/index.ts'
+      const slug = relPath.split('/')[2] // the component folder name
+      const filePath = resolve(srcDir, '..', relPath)
+      return { namespace: ns, slug, filePath }
+    })
+
+    registerEntries(entries)
+  }
+
+  // For icons: use all-icons.ts barrel to enumerate entries
+  for (const ns of BARREL_NAMESPACES) {
+    const barrelPath = ns === 'icons' ? resolve(srcDir, ns, 'all-icons.ts') : resolve(srcDir, ns, 'index.ts')
     const barrelFile = project.getSourceFile(barrelPath)
 
     if (!barrelFile) {
@@ -118,21 +152,7 @@ export function buildExportMap(srcDir: string): Record<string, string> {
       continue
     }
 
-    const entries = getModuleEntries(barrelFile, ns)
-
-    for (const entry of entries) {
-      const names = getExportedNames(project, entry.filePath)
-      const subpath = `${entry.namespace}/${entry.slug}`
-
-      for (const name of names) {
-        if (exportMap[name]) {
-          // Record conflict but don't fail — first-seen wins
-          conflicts.push({ name, first: exportMap[name], second: subpath })
-          continue
-        }
-        exportMap[name] = subpath
-      }
-    }
+    registerEntries(getModuleEntries(barrelFile, ns))
   }
 
   if (conflicts.length > 0) {

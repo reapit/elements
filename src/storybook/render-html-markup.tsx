@@ -4,7 +4,7 @@ import type { Args, StoryContext } from '@storybook/react-vite'
 import { DeprecatedAccordion } from '../deprecated/accordion'
 import { Tile } from '../deprecated/tile'
 import { cx } from '@linaria/core'
-import { elMb6, elMt6 } from '..'
+import { elMb6, elMt6 } from '../styles/deprecated-spacing'
 import { createRoot } from 'react-dom/client'
 import { flushSync } from 'react-dom'
 

@@ -1,4 +1,4 @@
-import { isWidthAtOrAbove } from '#src/utils/index'
+import { isWidthAtOrAbove } from '#src/utils/breakpoints'
 import { styled } from '@linaria/react'
 
 interface ElMainContainerProps {

@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { PropertyIcon } from '../../../icons'
+import { PropertyIcon } from '../../../icons/property'
 import { MediaFallback } from '../media-fallback'
 
 test('renders no message when no children are provided', () => {

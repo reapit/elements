@@ -222,7 +222,7 @@ function writeBarrelFile(svgFiles: string[]): void {
     })
     .join('\n')
 
-  writeFileSync(join(outputDir, 'index.ts'), `${fileContent}\n`)
+  writeFileSync(join(outputDir, 'all-icons.ts'), `${fileContent}\n`)
 }
 
 /** Main script execution */
