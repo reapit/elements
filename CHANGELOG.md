@@ -1,5 +1,25 @@
 # @reapit/elements
 
+## 5.0.0-rc.1
+
+### Major Changes
+
+- **[Removed]** the `@reapit/elements` bare specifier entry point and all top-level barrel files (`src/index.ts`, `src/core/index.ts`, `src/utils/index.ts`, `src/lab/index.ts`, `src/deprecated/index.ts`). Use subpath imports such as `@reapit/elements/core/button` instead. Run the `rewrite-v5-imports` codemod to migrate automatically. ([#1368](https://github.com/reapit-global/gbl-ds-elements/pull/1368))
+
+### Minor Changes
+
+- **[Added]** `GridIcon` icon component. ([#1370](https://github.com/reapit-global/gbl-ds-elements/pull/1370))
+
+- **[Added]** `AiSparkle1Icon`, `AiSparkle2Icon`, `BuildingIcon`, `BuildingSizeIcon`, `LayersIcon`, `ListIcon`, `MapIcon`, `PhoneOutlineIcon`, `SofaIcon`, `ThumbDownIcon`, and `ThumbUpIcon` icons. ([#1365](https://github.com/reapit-global/gbl-ds-elements/pull/1365))
+
+### Patch Changes
+
+- **[Internal]** `yarn generate:icons` now fetches and processes SVG files directly from Figma, removing the need to export them manually. ([#1362](https://github.com/reapit-global/gbl-ds-elements/pull/1362))
+
+- **[Fixed]** `Table.BodyCell` Figma code connect to reference the correct Figma node and avatar layer name. ([#1366](https://github.com/reapit-global/gbl-ds-elements/pull/1366))
+
+- **[Fixed]** `Table` Figma Code Connect URLs updated to the Reapit DS file, and `Table.PrimaryData` icon props corrected to use `figma.nestedProps`. ([#1367](https://github.com/reapit-global/gbl-ds-elements/pull/1367))
+
 ## 5.0.0-beta.95
 
 ### Minor Changes
