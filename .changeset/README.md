@@ -17,7 +17,7 @@ This will prompt you to answer a few questions:
    - `minor` - New features, enhancements (e.g. `1.2.3 → 1.3.0`)
    - `major` - Breaking changes (e.g. `1.2.3 → 2.0.0`)
 
-   _Note: In prerelease mode, all bump types increment the prerelease number regardless of type (e.g. `5.0.0-beta.76 → 5.0.0-beta.77`). The bump type is recorded and applied when exiting prerelease mode._
+   _Note: In prerelease mode, all bump types increment the prerelease number regardless of type (e.g. `x.y.z-<tag>.0 → x.y.z-<tag>.1`). The bump type is recorded and applied when exiting prerelease mode._
 
 2. **Write a summary of your changes**
    - Be concise but descriptive
@@ -128,5 +128,29 @@ yarn changeset pre enter <tag>
 yarn changeset pre exit
 # → next version follows normal semver based on accumulated bump types
 ```
+
+#### Switching pre-release tags (e.g. beta → rc)
+
+Changesets does not reset the pre-release counter when switching tags. Running `pre exit` then `pre enter <new-tag>` while `package.json` is at `5.0.0-beta.95` would produce `5.0.0-rc.96` instead of `5.0.0-rc.1`.
+
+To switch correctly:
+
+1. Exit the current pre-release mode:
+
+   ```bash
+   yarn changeset pre exit
+   ```
+
+2. Re-enter with the new tag:
+
+   ```bash
+   yarn changeset pre enter <new-tag>
+   ```
+
+3. Manually set the `package.json` version to `x.y.z-<new-tag>.0` (e.g. `5.0.0-rc.0`). Do not run `yarn changeset version` — let CI handle that.
+
+4. Commit and push. When CI runs `changeset version`, it will produce `x.y.z-<new-tag>.1`.
+
+   > The first published version will be `x.y.z-<new-tag>.1`, not `.0`, since Changesets increments the counter from the current `package.json` version.
 
 For more information, see the [Changesets documentation](https://github.com/changesets/changesets).

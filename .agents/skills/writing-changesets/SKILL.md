@@ -127,7 +127,9 @@ The only package in this repo is `@reapit/elements`. Do not add other package en
 | `minor`   | New features, new props, new exports, deprecations                                   |
 | `major`   | Breaking changes: removals, renames, behaviour changes that require consumer updates |
 
-**Pre-release mode:** The repo is currently in beta (`pre.json` → `"mode": "pre"`). In pre-release mode, all bump types increment the prerelease counter (e.g. `5.0.0-beta.76 → 5.0.0-beta.77`). The bump type is still recorded and applied when exiting pre-release mode — choose it correctly regardless.
+**Pre-release mode:** When the repo is in pre-release mode (check `pre.json` for the current tag), all bump types increment the prerelease counter (e.g. `x.y.z-<tag>.0 → x.y.z-<tag>.1`). The bump type is still recorded and applied when exiting pre-release mode — choose it correctly regardless.
+
+To switch between pre-release tags (e.g. beta → rc), follow the process in `.changeset/README.md` under "Switching pre-release tags". Do not simply run `pre exit` then `pre enter <new-tag>` without also manually updating `package.json` — Changesets does not reset the pre-release counter when the tag changes.
 
 To check whether the repo is in pre-release mode:
 
