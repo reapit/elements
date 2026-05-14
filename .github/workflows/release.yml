@@ -7,7 +7,6 @@ on:
 
 permissions:
   contents: read
-  id-token: write
 
 concurrency:
   group: release
@@ -71,6 +70,10 @@ jobs:
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 15
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
     outputs:
       published: ${{ steps.changesets.outputs.published }}
       publishedPackages: ${{ steps.changesets.outputs.publishedPackages }}
@@ -115,7 +118,7 @@ jobs:
           commit: 'chore: version packages'
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: 'true'
 
       - name: Upload npm debug logs
         if: failure()

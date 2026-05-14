@@ -65,6 +65,12 @@ Aborting a publish mid-flight can leave npm in a partially-published state. Seri
 **Why does `deploy-docs-manual.yml` use `cancel-in-progress: true` for its concurrency group?**
 Unlike a publish, a Cloudflare deploy is idempotent — the most recent deployment wins. Cancelling a stale deploy and letting the newest one proceed is safe and avoids deploying an outdated build.
 
+**Why is there no `NPM_TOKEN` secret for publishing?**
+Both release workflows authenticate to npm via OIDC trusted publishing — no long-lived secret is needed. GitHub Actions mints a short-lived OIDC token, which npm exchanges for a publish token. The automated workflow also enables provenance attestation (`NPM_CONFIG_PROVENANCE=true`), linking each published package to its source commit and workflow run.
+
+**Why does the `release` job use `environment: release`?**
+The `release` environment is restricted to the `main` branch in GitHub Settings → Environments. This ensures GitHub will only mint an OIDC token for runs on `main`, providing a belt-and-braces guard on top of the `on: push: branches: [main]` trigger. It is a separate environment from `production`, which is used by the `record-release` job solely to signal a deployment event to Jira.
+
 **Why does the `release` job repeat checkout/setup/install instead of using a composite action?**
 The `release` job needs to control `actions/checkout` directly because it must use a write-scoped checkout token (from the GitHub App) so that `changesets/action` can push the version PR branch. In this repo, the shared composite actions are local actions under `.github/actions/`, so they cannot be used until after the repository has already been checked out. `release` therefore repeats checkout/setup/install explicitly rather than delegating to a composite action.
 

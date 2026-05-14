@@ -2,15 +2,15 @@
   "name": "@reapit/elements",
   "version": "5.0.0-rc.1",
   "description": "A React implementation of Reapit's Design System",
-  "homepage": "https://github.com/reapit/elements#readme",
+  "homepage": "https://github.com/reapit-global/gbl-ds-elements#readme",
   "bugs": {
-    "url": "https://github.com/reapit/elements/issues"
+    "url": "https://github.com/reapit-global/gbl-ds-elements/issues"
   },
   "license": "MIT",
   "author": "Will McVay <wmcvay@reapit.com>",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/reapit/elements.git"
+    "url": "git+https://github.com/reapit-global/gbl-ds-elements.git"
   },
   "bin": "./bin/elements.js",
   "files": [
