@@ -49,7 +49,7 @@ figma.connect(Table.BodyCell, '<TABLE_DOUBLE_LINE_CELL_URL>', {
 figma.connect(Table.BodyCell, '<TABLE_DOUBLE_LINE_CELL_URL>', {
   variant: { Data: 'Avatar' },
   props: {
-    avatar: figma.children('Avatar circle'),
+    avatar: figma.children('Avatar'),
     line1: figma.children('Row 1'),
     line2: figma.textContent('Row 2'),
   },
