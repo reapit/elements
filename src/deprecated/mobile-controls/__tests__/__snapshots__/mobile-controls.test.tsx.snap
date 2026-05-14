@@ -33,7 +33,7 @@ exports[`MobileControls component > should match a snapshot 1`] = `
           xmlns="http://www.w3.org/2000/svg"
         >
           <path
-            d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2ZM4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2Zm16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2Z"
+            d="M20 11H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2M4 7h16a1 1 0 1 0 0-2H4a1 1 0 0 0 0 2m16 10H4a1 1 0 1 0 0 2h16a1 1 0 1 0 0-2"
           />
         </svg>
       </span>

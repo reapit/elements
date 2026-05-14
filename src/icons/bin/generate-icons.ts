@@ -91,12 +91,12 @@ function processSvg(rawSvg: string): string {
         name: 'removeAttrs',
         params: { attrs: ['fill', 'stroke', 'color'] },
       },
-      // Re-apply fill and stroke as currentColor on the <svg> root so colour can be controlled
-      // via CSS. stroke="currentColor" is harmless for fill-only icons and ensures stroke-based
-      // icons render correctly if introduced in future.
+      // Re-apply fill="currentColor" to the <svg> root so colour can be controlled via CSS.
+      // Note: all icons are fill-based. If stroke-based icons are used in future, the SVGO
+      // processing will need to be updated.
       {
         name: 'addAttributesToSVGElement',
-        params: { attributes: [{ fill: 'currentColor' }, { stroke: 'currentColor' }] },
+        params: { attributes: [{ fill: 'currentColor' }] },
       },
     ],
   })

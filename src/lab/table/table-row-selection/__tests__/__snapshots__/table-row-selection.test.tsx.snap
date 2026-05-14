@@ -30,11 +30,11 @@ exports[`TableRowSelection > should match snapshot 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2Z"
+          d="M16 13H8a1 1 0 1 1 0-2h8a1 1 0 1 1 0 2"
         />
         <path
           clip-rule="evenodd"
-          d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2Zm0 18h16V4H4v16Z"
+          d="M4 2h16a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2m0 18h16V4H4z"
           fill-rule="evenodd"
         />
       </svg>
@@ -51,7 +51,7 @@ exports[`TableRowSelection > should match snapshot 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17Z"
+          d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2m-2 7.17-7.07 7.07a1 1 0 0 1-.71.3 1 1 0 0 1-.7-.3L6 12.71a1 1 0 1 1 1.41-1.42l2.83 2.83 6.36-6.36A1 1 0 0 1 18 9.17"
         />
       </svg>
       <svg
@@ -67,7 +67,7 @@ exports[`TableRowSelection > should match snapshot 1`] = `
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
-          d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2Zm0 18H4V4h16v16Z"
+          d="M20 2H4a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2m0 18H4V4h16z"
         />
       </svg>
     </div>
