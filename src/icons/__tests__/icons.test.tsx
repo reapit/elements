@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react'
-import * as icons from '../all-icons'
+import * as icons from '../docs/all-icons'
 
 const allIcons = Object.entries(icons).map(([iconName, IconComponent]) => ({
   iconName,

@@ -56,8 +56,8 @@ export function getModuleEntries(barrelFile: SourceFile, namespace: string): Mod
     const specifier = exportDecl.getModuleSpecifierValue()
     if (!specifier) continue
 
-    // The specifier is a relative path like './button' or './alert-banner/outlet'
-    const slug = specifier.replace(/^\.\//, '')
+    // The specifier is a relative path like './button', './alert-banner/outlet', or '../more'
+    const slug = specifier.replace(/^\.\.?\//, '')
 
     // Resolve the actual file path via ts-morph
     const sourceFile = exportDecl.getModuleSpecifierSourceFile()
@@ -144,7 +144,7 @@ export function buildExportMap(srcDir: string): Record<string, string> {
 
   // For icons: use all-icons.ts barrel to enumerate entries
   for (const ns of BARREL_NAMESPACES) {
-    const barrelPath = ns === 'icons' ? resolve(srcDir, ns, 'all-icons.ts') : resolve(srcDir, ns, 'index.ts')
+    const barrelPath = ns === 'icons' ? resolve(srcDir, ns, 'docs', 'all-icons.ts') : resolve(srcDir, ns, 'index.ts')
     const barrelFile = project.getSourceFile(barrelPath)
 
     if (!barrelFile) {

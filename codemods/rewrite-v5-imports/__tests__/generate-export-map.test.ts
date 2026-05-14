@@ -88,7 +88,7 @@ describe('getModuleEntries (against real source)', { timeout: 30_000 }, () => {
   })
 
   test('extracts module entries from the icons barrel', () => {
-    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'icons', 'all-icons.ts'))
+    const barrelFile = project.getSourceFileOrThrow(resolve(SRC_DIR, 'icons', 'docs', 'all-icons.ts'))
     const entries = getModuleEntries(barrelFile, 'icons')
 
     expect(entries.length).toBeGreaterThan(50) // Many icons

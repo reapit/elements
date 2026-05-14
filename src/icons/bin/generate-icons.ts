@@ -218,11 +218,11 @@ function writeBarrelFile(svgFiles: string[]): void {
   const fileContent = svgFiles
     .map((file) => {
       const baseName = basename(file, '.svg')
-      return `export * from './${baseName}'`
+      return `export * from '../${baseName}'`
     })
     .join('\n')
 
-  writeFileSync(join(outputDir, 'all-icons.ts'), `${fileContent}\n`)
+  writeFileSync(join(outputDir, 'docs', 'all-icons.ts'), `${fileContent}\n`)
 }
 
 /** Main script execution */
