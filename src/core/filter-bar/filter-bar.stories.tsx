@@ -2,6 +2,7 @@ import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
 import { ChipGroup } from '#src/core/chip-group'
+import { SearchInput } from '#src/core/search-input'
 import { FilterBar } from './filter-bar'
 import { FilterIcon } from '#src/icons/filter'
 
@@ -16,7 +17,7 @@ const meta = preview.meta({
         None: null,
         Search: (
           <FilterBar.LeftContent>
-            <input type="search" placeholder="Search" />
+            <SearchInput aria-label="Search" placeholder="Search" size="small" />
           </FilterBar.LeftContent>
         ),
         'Filter Button': (
@@ -28,7 +29,7 @@ const meta = preview.meta({
         ),
         Both: (
           <FilterBar.LeftContent>
-            <input type="search" placeholder="Search" />
+            <SearchInput aria-label="Search" placeholder="Search" size="small" />
             <ButtonGroup>
               <Button iconLeft={<FilterIcon />} size="small" variant="secondary">
                 Filter

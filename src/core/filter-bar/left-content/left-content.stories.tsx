@@ -1,6 +1,7 @@
 import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
+import { SearchInput } from '#src/core/search-input'
 import { FilterBar } from '../filter-bar'
 import { FilterIcon } from '#src/icons/filter'
 
@@ -10,11 +11,10 @@ const meta = preview.meta({
   argTypes: {
     children: {
       control: 'radio',
-      defaultValue: 'Few Filters',
+      defaultValue: 'Button',
       options: ['Search', 'Button', 'Both'],
       mapping: {
-        // TODO: Update to use new core input when available.
-        Search: <input type="search" placeholder="Search" />,
+        Search: <SearchInput aria-label="Search" placeholder="Search" size="small" />,
         Button: (
           <Button iconLeft={<FilterIcon />} size="small" variant="secondary">
             Filters
@@ -22,7 +22,7 @@ const meta = preview.meta({
         ),
         Both: (
           <>
-            <input type="search" placeholder="Search" />
+            <SearchInput aria-label="Search" placeholder="Search" size="small" />
             <ButtonGroup>
               <Button iconLeft={<FilterIcon />} size="small" variant="secondary">
                 Filters
