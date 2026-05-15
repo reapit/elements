@@ -77,6 +77,9 @@ jobs:
 
   figma:
     name: Figma Code Connect
+    # Non-main branches never publish to Figma, so validation is only
+    # meaningful for PRs targeting main.
+    if: github.base_ref == 'main'
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 10
