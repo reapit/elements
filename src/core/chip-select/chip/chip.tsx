@@ -5,7 +5,6 @@ import {
   ElChipSelectChipLabelText,
 } from './styles'
 import { forwardRef, useCallback } from 'react'
-import { maybeDeselectOtherOptions } from './maybe-deselect-other-options'
 
 import type { ChangeEventHandler, MouseEventHandler, InputHTMLAttributes, ReactNode } from 'react'
 
@@ -28,11 +27,6 @@ export namespace ChipSelectChip {
      * If there is no visual label provided via `children`, the icon should be considered mandatory.
      */
     icon?: ReactNode
-    /**
-     * Whether the chip is exclusive. That is, when it's selected, all other related chips will be
-     * deselected. Exclusive and non-exclusive chips should not be mixed in the same chip select.
-     */
-    isExclusive?: boolean
     /** The maximum width of the chip. If not provided, the chip will be as wide as its content. */
     maxWidth?: `--size-${string}`
     /** Name of the form control. Submitted with the form as part of a name/value pair. */
@@ -61,34 +55,12 @@ export type ChipSelectChipProps = ChipSelectChip.Props
  */
 export const ChipSelectChip = forwardRef<HTMLInputElement, ChipSelectChip.Props>(
   (
-    {
-      'aria-label': ariaLabel,
-      children,
-      icon,
-      isExclusive = false,
-      maxWidth,
-      onChange,
-      onClick,
-      overflow,
-      readOnly,
-      size,
-      ...rest
-    },
+    { 'aria-label': ariaLabel, children, icon, maxWidth, onChange, onClick, overflow, readOnly, size, ...rest },
     ref,
   ) => {
     const handleChange = useCallback<ChangeEventHandler<HTMLInputElement>>(
       (event) => {
-        // If the chip is read-only, do nothing.
-        if (readOnly) {
-          event.preventDefault()
-          return
-        }
-
-        // We only need to deselect other options if the one whose checked state is changing
-        // has been checked. If it has been unchecked, there's nothing to do.
-        if (event.currentTarget.checked) {
-          maybeDeselectOtherOptions(event.currentTarget)
-        }
+        if (readOnly) return
         onChange?.(event)
       },
       [onChange, readOnly],
@@ -96,9 +68,7 @@ export const ChipSelectChip = forwardRef<HTMLInputElement, ChipSelectChip.Props>
 
     const handleClick = useCallback<MouseEventHandler<HTMLLabelElement>>(
       (event) => {
-        // Since the read-only attribute has no effect on checkbox inputs, we need to manually prevent
-        // click events on chips that have been marked as read-only in order to prevent the preventDefault
-        // behaviour of changing their checked state.
+        // Native checkboxes ignore `readOnly`. Cancel the click so a read-only chip cannot be toggled.
         if (readOnly) {
           event.preventDefault()
         }
@@ -114,20 +84,10 @@ export const ChipSelectChip = forwardRef<HTMLInputElement, ChipSelectChip.Props>
         onClick={handleClick}
         style={{ maxWidth: maxWidth ? `var(${maxWidth})` : undefined }}
       >
-        <ElChipSelectChipInput
-          {...rest}
-          // NOTE: this attribute is tightly coupled to the `isExclusiveOption` helper.
-          data-exclusive={isExclusive}
-          onChange={handleChange}
-          readOnly={readOnly}
-          ref={ref}
-          type="checkbox"
-        />
+        <ElChipSelectChipInput {...rest} onChange={handleChange} readOnly={readOnly} ref={ref} type="checkbox" />
         {icon && <ElChipSelectChipIconContainer aria-hidden>{icon}</ElChipSelectChipIconContainer>}
         {children && <ElChipSelectChipLabelText data-overflow={overflow}>{children}</ElChipSelectChipLabelText>}
       </ElChipSelectChip>
     )
   },
 )
-
-ChipSelectChip.displayName = 'ChipSelectOption'

@@ -1,5 +1,4 @@
 import { ChipSelectChip } from '../chip'
-import { expect, test, vi } from 'vitest'
 import { fireEvent, render, screen } from '@testing-library/react'
 
 test('renders as checkbox element', () => {
@@ -130,14 +129,6 @@ test('applies `data-size` to the root element', () => {
   expect(container.firstElementChild).toHaveAttribute('data-size', 'large')
 })
 
-test('applies `data-exclusive` to the input element', () => {
-  const { rerender } = render(<ChipSelectChip isExclusive size="large" value="foo" />)
-  expect(screen.getByRole('checkbox')).toHaveAttribute('data-exclusive', 'true')
-
-  rerender(<ChipSelectChip size="large" value="foo" />)
-  expect(screen.getByRole('checkbox')).toHaveAttribute('data-exclusive', 'false')
-})
-
 test('applies `data-overflow="truncate"` to label text when `overflow="truncate"` is provided', () => {
   render(
     <ChipSelectChip overflow="truncate" size="small" value="foo">
@@ -174,50 +165,4 @@ test('forwards additional attributes to the checkbox', () => {
     </ChipSelectChip>,
   )
   expect(screen.getByTestId('custom-chip')).toBe(screen.getByRole('checkbox'))
-})
-
-test('prevents other chips being selected when `isExclusive`', () => {
-  render(
-    <form>
-      <ChipSelectChip isExclusive name="test" size="small" value="foo">
-        Foo
-      </ChipSelectChip>
-      <ChipSelectChip isExclusive name="test" size="small" value="bar">
-        Bar
-      </ChipSelectChip>
-    </form>,
-  )
-  expect(screen.getByRole('checkbox', { name: 'Foo' })).not.toBeChecked()
-  expect(screen.getByRole('checkbox', { name: 'Bar' })).not.toBeChecked()
-
-  fireEvent.click(screen.getByRole('checkbox', { name: 'Foo' }))
-  expect(screen.getByRole('checkbox', { name: 'Foo' })).toBeChecked()
-  expect(screen.getByRole('checkbox', { name: 'Bar' })).not.toBeChecked()
-
-  fireEvent.click(screen.getByRole('checkbox', { name: 'Bar' }))
-  expect(screen.getByRole('checkbox', { name: 'Foo' })).not.toBeChecked()
-  expect(screen.getByRole('checkbox', { name: 'Bar' })).toBeChecked()
-})
-
-test('allows other chips to be selected when NOT `isExclusive`', () => {
-  render(
-    <form>
-      <ChipSelectChip name="test" size="small" value="foo">
-        Foo
-      </ChipSelectChip>
-      <ChipSelectChip name="test" size="small" value="bar">
-        Bar
-      </ChipSelectChip>
-    </form>,
-  )
-  expect(screen.getByRole('checkbox', { name: 'Foo' })).not.toBeChecked()
-  expect(screen.getByRole('checkbox', { name: 'Bar' })).not.toBeChecked()
-
-  fireEvent.click(screen.getByRole('checkbox', { name: 'Foo' }))
-  expect(screen.getByRole('checkbox', { name: 'Foo' })).toBeChecked()
-  expect(screen.getByRole('checkbox', { name: 'Bar' })).not.toBeChecked()
-
-  fireEvent.click(screen.getByRole('checkbox', { name: 'Bar' }))
-  expect(screen.getByRole('checkbox', { name: 'Foo' })).toBeChecked()
-  expect(screen.getByRole('checkbox', { name: 'Bar' })).toBeChecked()
 })

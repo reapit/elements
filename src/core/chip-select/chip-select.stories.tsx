@@ -37,14 +37,11 @@ const useNarrowParentDecorator: Decorator = (Story) => {
 }
 
 /**
- * By default, a chip select will only permit a single selection to be made. When a chip selects'
- * options are (1) all associated with a form (either because they are a descendant or because they have
- * a valid `form` attribute); (2) all share the same `name` attribute; (3) all have a unique `value`;
- * and, (4) are all uncontrolled, this single-select behaviour will function automatically.
- *
- * In cases where the checked state of the chip select's options must be controlled, such as being used
- * as filters for a list or when integrated with controlled form state management libraries like Formik,
- * this single-select behaviour must be facilitated by the consumer.
+ * By default, a chip select permits only a single selection. For uncontrolled chip selects, this
+ * single-select behaviour functions automatically. In cases where the checked state of the chip
+ * select's options must be controlled, such as being used as filters for a list or when integrated
+ * with controlled form state management libraries like Formik, this single-select behaviour must
+ * be handled by the consumer.
  */
 export const Example = meta.story({
   args: {
@@ -90,22 +87,9 @@ export const MultiSelect = Example.extend({
 })
 
 /**
- * Since chips are native checkbox elements (`<input type="checkbox">`), their checked state can be
- * controlled in the same manner as any other checkbox. However, when controlling the checked state of
- * an option, consumers become responsible for managing the single- or multi-select behaviour of the
- * `ChipSelect`.
- *
- * When using controlled form state management libraries like Formik, the multi-select behaviour will
- * often be handled out-of-the-box, as that's the default behaviour of standard checkbox groups. For
- * single-select behaviour, however, manual intervention will be required. To assist with this, the
- * `ChipSelect.determineNextControlledState` helper is provided.
- *
- * Whether single- or multi-select behaviour is desired, the controlled state must be an array of
- * string values. The example here demonstrates a controlled usage of the `ChipSelect` via simple
- * local component state (`useState`) and `ChipSelect.determineNextControlledState`. Examples that
- * demonstrate integration with [Formik](https://codesandbox.io/p/sandbox/eloquent-julien-hkgfgy)
- * and [React Hook Form](https://codesandbox.io/p/sandbox/strange-lederberg-thzzwv)
- * are also available.
+ * When controlling the checked state of each option, the consumer is responsible for managing
+ * single- or multi-select behaviour. `ChipSelect.determineNextControlledState` handles this —
+ * pass it the current state array and the changed option to get the next state.
  */
 export const Controlled = Example.extend({
   argTypes: { children: { control: false } },

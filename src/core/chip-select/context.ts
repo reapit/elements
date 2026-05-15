@@ -1,10 +1,12 @@
 import { createContext, useContext } from 'react'
 
 import type { ChipSelectChip } from './chip'
-import type { ComponentProps } from 'react'
+import type { ComponentProps, RefObject } from 'react'
 
 export namespace ChipSelectContext {
   export interface Value {
+    /** Ref to the container element, used to query sibling options. */
+    containerRef: RefObject<HTMLElement>
     /** The ID of the form to associate chip select options with. */
     form?: string
     /** Whether the chip select allows multiple selections. */

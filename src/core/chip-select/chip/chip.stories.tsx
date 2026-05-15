@@ -1,4 +1,3 @@
-import type { ComponentProps } from 'react'
 import preview from '#.storybook/preview'
 import { ChipSelectChip } from './chip'
 import { SproutIcon } from '#src/icons/sprout'
@@ -55,7 +54,6 @@ export const Example = meta.story({
     disabled: false,
     form: undefined,
     icon: 'None',
-    isExclusive: false,
     maxWidth: undefined,
     name: 'foo',
     onChange: undefined,
@@ -177,50 +175,4 @@ export const MaxWidth = Example.extend({
     children: 'This chip option has its own maximum width constraint',
     maxWidth: '--size-80',
   },
-})
-
-/**
- * When multiple chips with the same name and associated with the same form are marked as "exclusive",
- * they will ensure all other related chips are unchecked when they themselves are checked. This results
- * in radio-group-like behaviour, only individual chips can still be unchecked.
- *
- * Importantly, this behaviour works out-of-the-box when the checked state of each chip is uncontrolled.
- * In cases where the checked state is controlled, it is the consumer's responsibility to facilitate
- * this behaviour.
- */
-const selectArgTypes = {
-  value: {
-    control: false as const,
-  },
-}
-
-const renderSelectChips = (args: ComponentProps<typeof ChipSelectChip>) => {
-  return (
-    <form style={{ display: 'inline-flex', gap: 'var(--spacing-2)' }}>
-      <ChipSelectChip {...args} defaultChecked value="1" />
-      <ChipSelectChip {...args} value="2" />
-    </form>
-  )
-}
-
-export const SingleSelect = IconOnly.extend({
-  name: 'Single-select',
-  args: {
-    isExclusive: true,
-  },
-  argTypes: selectArgTypes,
-  render: renderSelectChips,
-})
-
-/**
- * In contrast, when chips are NOT marked as exclusive, they behave like a normal checkbox group, where
- * multiple chips can be checked at the same time.
- */
-export const MultiSelect = IconOnly.extend({
-  name: 'Multi-select',
-  args: {
-    isExclusive: false,
-  },
-  argTypes: selectArgTypes,
-  render: renderSelectChips,
 })

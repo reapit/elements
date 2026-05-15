@@ -13,8 +13,8 @@ export function determineNextControlledState(
   const value = option.value
 
   if (option.checked) {
-    // If the chip select option has just been checked, it's value needs to be added to the
-    // controlled state. For exclusive options, they're value replaces the current one.
+    // If the chip select option has just been checked, its value needs to be added to the
+    // controlled state. For exclusive options, their value replaces the current one.
     // For non-exclusive options, their value is appended.
     if (isExclusiveOption(option)) {
       return [value]
@@ -22,10 +22,10 @@ export function determineNextControlledState(
       return [...currentValue, value]
     }
   } else {
-    // If the chip select option has just been unchecked, it's value needs to be removed from
+    // If the chip select option has just been unchecked, its value needs to be removed from
     // the controlled state. For exclusive options, the new controlled state is an empty array.
     // For non-exclusive options, their value is simply removed from the controlled state.
-    if (option.dataset.exclusive === 'true') {
+    if (isExclusiveOption(option)) {
       return []
     } else {
       return currentValue.filter((v) => v !== value)

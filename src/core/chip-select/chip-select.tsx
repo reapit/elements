@@ -1,7 +1,8 @@
 import { ChipSelectContext, useChipSelectContext } from './context'
 import { ChipSelectOption } from './chip-select-option'
-import { determineNextControlledState } from './chip'
+import { determineNextControlledState } from './determine-next-controlled-state'
 import { ElChipSelect } from './styles'
+import { useMemo, useRef } from 'react'
 
 import type { HTMLAttributes, ReactNode } from 'react'
 
@@ -11,8 +12,7 @@ export namespace ChipSelect {
     children: ReactNode
     /**
      * The ID of the form the chip select's options should be associated with. Will be automatically passed
-     * to each option included in the chip select. Without an associated form, or a name, single-selection
-     * behaviour will not be handled out-of-the-box.
+     * to each option included in the chip select.
      *
      * An explicit value is only necessary if the chip select is not a descendant of a form element; if it
      * is, it will be automatically associated with that ancestral form.
@@ -24,7 +24,7 @@ export namespace ChipSelect {
     multiple?: boolean
     /**
      * The name each option in the chip select should use. Will be automatically passed to each option.
-     * Without a name, or an associated form, single-selection behaviour will not be handled out-of-the-box.
+     * Used to group the options for form submission.
      */
     name?: string
     /** What overflow behaviour the chip select should exhibit. */
@@ -44,9 +44,9 @@ export type ChipSelectProps = ChipSelect.Props
 
 /**
  * The chip select allows the user to select one or more options from a list of items. It supports
- * both single-select and multi-select modes depending on the use case. Importantly, single-select
- * behaviour in controlled scenarios (that is, where the checked state of each option is controlled
- * by the consumer) must be handled by the consumers given they are responsible for the state.
+ * both single-select and multi-select modes depending on the use case. In controlled scenarios
+ * (where the checked state of each option is managed by the consumer), single-select behaviour
+ * must be handled by the consumer.
  *
  * See [ChipSelect x Formik](https://codesandbox.io/p/sandbox/eloquent-julien-hkgfgy)
  * and [ChipSelect x React Hook Form](https://codesandbox.io/p/sandbox/strange-lederberg-thzzwv)
@@ -63,11 +63,14 @@ export function ChipSelect({
   size = 'medium',
   ...rest
 }: ChipSelect.Props) {
+  const containerRef = useRef<HTMLDivElement>(null)
+  const context = useMemo(
+    () => ({ containerRef, form, multiple, name, required, size }),
+    [form, multiple, name, required, size],
+  )
   return (
-    <ElChipSelect {...rest} data-flow={flow} data-overflow={overflow}>
-      <ChipSelectContext.Provider value={{ form, multiple, name, required, size }}>
-        {children}
-      </ChipSelectContext.Provider>
+    <ElChipSelect {...rest} ref={containerRef} data-flow={flow} data-overflow={overflow}>
+      <ChipSelectContext.Provider value={context}>{children}</ChipSelectContext.Provider>
     </ElChipSelect>
   )
 }
