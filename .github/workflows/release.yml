@@ -4,6 +4,27 @@ on:
   push:
     branches:
       - main
+      - lts
+  workflow_dispatch:
+    inputs:
+      ref:
+        description: 'Git ref (SHA, branch, or tag) to check out and release from. For recovery, use the full commit SHA of the version-bump merge commit.'
+        type: string
+        required: true
+      tag:
+        description: 'Git tag to create. Omit to derive from package.json at the specified ref (e.g. v5.0.0-beta.81). Provide a value only to override the default format.'
+        type: string
+        required: false
+      create_github_release:
+        description: 'Create a GitHub Release using release notes extracted from CHANGELOG.md. Skipped if the release already exists.'
+        type: boolean
+        required: false
+        default: true
+      publish_npm:
+        description: 'Publish to npm. Skipped if the version is already present on npm.'
+        type: boolean
+        required: false
+        default: true
 
 permissions:
   contents: read
@@ -23,6 +44,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.ref || github.sha }}
       - uses: ./.github/actions/check
 
   test:
@@ -32,6 +55,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.ref || github.sha }}
       - uses: ./.github/actions/test
 
   build:
@@ -41,6 +66,8 @@ jobs:
     timeout-minutes: 15
     steps:
       - uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.ref || github.sha }}
       - uses: ./.github/actions/build-lib
       - name: Upload build artifacts
         uses: actions/upload-artifact@v7
@@ -51,6 +78,7 @@ jobs:
 
   docs:
     name: Docs
+    if: github.event_name == 'push'
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 15
@@ -66,6 +94,7 @@ jobs:
 
   release:
     name: Release
+    if: github.event_name == 'push'
     needs: [check, test, build]
     runs-on:
       group: rpt-gbl-linux-x64
@@ -127,10 +156,156 @@ jobs:
           name: npm-debug-logs
           path: ~/.npm/_logs/
 
+  release-manual:
+    name: Release (Manual)
+    if: github.event_name == 'workflow_dispatch'
+    needs: [check, test, build]
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 15
+    environment: release
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Generate app token
+        uses: actions/create-github-app-token@1b10c78c7865c340bc4f6099eb2f838309f1e8c3 # v3.1.1
+        id: app-token
+        with:
+          app-id: ${{ vars.APP_ID }}
+          private-key: ${{ secrets.APP_PRIVATE_KEY }}
+
+      - name: Checkout
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ inputs.ref }}
+          fetch-depth: 0
+          token: ${{ steps.app-token.outputs.token }}
+
+      - name: Set Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          cache: yarn
+
+      - name: Install
+        run: yarn install --immutable
+
+      - name: Download build artifacts
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: dist
+          path: dist/
+
+      - name: Derive Version and Tag
+        id: derive-tag
+        run: |
+          VERSION=$(node -p "require('./package.json').version")
+          if [ -n "${{ inputs.tag }}" ]; then
+            TAG="${{ inputs.tag }}"
+          else
+            TAG="v${VERSION}"
+          fi
+          echo "version=${VERSION}" >> "$GITHUB_OUTPUT"
+          echo "tag=${TAG}" >> "$GITHUB_OUTPUT"
+          echo "Derived version: ${VERSION}"
+          echo "Derived tag: ${TAG}"
+
+      - name: Validate Tag
+        id: validate-tag
+        run: |
+          TAG="${{ steps.derive-tag.outputs.tag }}"
+          HEAD_SHA=$(git rev-parse HEAD)
+          # Prefer the peeled commit SHA (refs/tags/<tag>^{}) so annotated tags
+          # resolve correctly; fall back to the raw ref SHA for lightweight tags.
+          PEELED=$(git ls-remote --tags origin "refs/tags/${TAG}^{}" | awk '{print $1}')
+          RAW=$(git ls-remote --tags origin "refs/tags/${TAG}" | awk '{print $1}')
+          REMOTE_SHA="${PEELED:-$RAW}"
+
+          if [ -z "${REMOTE_SHA}" ]; then
+            echo "Tag ${TAG} does not exist yet — will create."
+            exit 0
+          fi
+
+          if [ "${REMOTE_SHA}" = "${HEAD_SHA}" ]; then
+            echo "Tag ${TAG} already exists at this ref — skipping tag creation."
+            echo "skip_tag=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          echo "Error: Tag ${TAG} already exists and points to ${REMOTE_SHA}, not ${{ inputs.ref }}. Aborting to prevent tagging the wrong commit."
+          exit 1
+
+      - name: Create and Push Tag
+        if: steps.validate-tag.outputs.skip_tag != 'true'
+        run: |
+          TAG="${{ steps.derive-tag.outputs.tag }}"
+          git tag "${TAG}"
+          git push origin "${TAG}"
+          echo "Pushed tag ${TAG}."
+
+      - name: Create GitHub Release
+        if: inputs.create_github_release
+        env:
+          GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
+        run: |
+          TAG="${{ steps.derive-tag.outputs.tag }}"
+          VERSION="${{ steps.derive-tag.outputs.version }}"
+
+          if gh release view "${TAG}" 2>/dev/null; then
+            echo "GitHub Release ${TAG} already exists — skipping."
+            exit 0
+          fi
+
+          NOTES=$(awk "/^## ${VERSION}$/{found=1; next} found && /^## /{exit} found{print}" CHANGELOG.md | sed '/^$/d')
+
+          if [ -z "${NOTES}" ]; then
+            echo "::error::No changelog entry found for version ${VERSION} in CHANGELOG.md. Aborting release creation."
+            exit 1
+          fi
+
+          PRERELEASE_FLAG=""
+          if echo "${VERSION}" | grep -q '\-'; then
+            PRERELEASE_FLAG="--prerelease"
+          fi
+
+          gh release create "${TAG}" \
+            ${PRERELEASE_FLAG} \
+            --title "${TAG}" \
+            --notes "${NOTES}" \
+            --target "${{ inputs.ref }}"
+
+          echo "Created GitHub Release ${TAG}."
+
+      - name: Publish to npm
+        if: inputs.publish_npm
+        run: |
+          # Use `yarn changeset publish` rather than `yarn npm publish` so that
+          # Changesets' pre-flight npm-info check handles already-published
+          # versions and new packages gracefully. `--no-git-tag` suppresses the
+          # post-publish git tagging, which this workflow manages separately.
+          #
+          # Authentication uses OIDC trusted publishing — npm exchanges the
+          # GitHub Actions OIDC token for a short-lived publish token.
+          #
+          # Provenance attestation is intentionally disabled. The OIDC token's
+          # subject claim reflects the branch that triggered the workflow (the
+          # default branch for workflow_dispatch), not the arbitrary inputs.ref
+          # that was checked out and built. The resulting attestation would
+          # misrepresent the source of the published package.
+          yarn changeset publish --no-git-tag
+
+      - name: Upload npm debug logs
+        if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: npm-debug-logs
+          path: ~/.npm/_logs/
+
   record-release:
     name: Record Release
     needs: release
-    if: needs.release.outputs.published == 'true'
+    if: needs.release.outputs.published == 'true' && github.ref_name == 'main'
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 5
@@ -143,7 +318,7 @@ jobs:
   publish-figma:
     name: Publish Figma Code Connect
     needs: release
-    if: needs.release.outputs.published == 'true'
+    if: needs.release.outputs.published == 'true' && github.ref_name == 'main'
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 10
@@ -158,8 +333,9 @@ jobs:
   deploy-docs:
     name: Deploy Docs
     needs: [release, docs]
-    # Deploys to prod when packages were published, dev otherwise (version PR
-    # created or no changesets present).
+    # main: deploys to prod when published, dev otherwise.
+    # lts: deploys to v4 when published only; skipped otherwise.
+    if: github.ref_name == 'main' || needs.release.outputs.published == 'true'
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 15
@@ -172,7 +348,7 @@ jobs:
           path: public/dist/
       - uses: ./.github/actions/deploy-docs
         with:
-          target: ${{ needs.release.outputs.published == 'true' && 'prod' || 'dev' }}
+          target: ${{ github.ref_name == 'lts' && 'v4' || needs.release.outputs.published == 'true' && 'prod' || 'dev' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}

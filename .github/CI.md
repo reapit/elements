@@ -2,19 +2,19 @@
 
 ## Overview
 
-Three entry points drive CI and deployment:
+Three workflows drive CI and deployment:
 
 | Trigger                             | Workflow                 | Purpose                                               |
 | ----------------------------------- | ------------------------ | ----------------------------------------------------- |
 | Pull request (opened / synchronise) | `test-pr.yml`            | Validate the PR before merge                          |
 | Push to `main`                      | `release.yml`            | Run CI, create the version PR or publish, deploy docs |
+| Push to `lts`                       | `release.yml`            | Run CI, create the version PR or publish v4 LTS docs  |
+| Manual (`workflow_dispatch`)        | `release.yml`            | Recovery publish from a specific ref                  |
 | Manual (`workflow_dispatch`)        | `deploy-docs-manual.yml` | Emergency deploys and v4 LTS storybook updates        |
-
-A fourth workflow, `release-manual.yml`, recovers from situations where the automated release workflow cannot run (e.g. a failed publish mid-run).
 
 ## Workflow map
 
-`release.yml` job dependencies:
+`release.yml` job dependencies (push to `main`):
 
 ```
 check ──┐               ┌── record-release   (only if published)
@@ -22,6 +22,24 @@ test  ──┼── release ────┼── publish-figma    (only if pu
 build ──┘               └── deploy-docs      (prod if published, dev otherwise)
                             │
 docs ───────────────────────┘
+```
+
+`release.yml` job dependencies (push to `lts`):
+
+```
+check ──┐
+test  ──┼── release ────┐
+build ──┘               └── deploy-docs   (v4, only if published)
+                            │
+docs ───────────────────────┘
+```
+
+`release.yml` job dependencies (`workflow_dispatch`):
+
+```
+check ──┐
+test  ──┼── release-manual
+build ──┘
 ```
 
 `test-pr.yml` runs these jobs in parallel, with `codacy` waiting on `test`:
@@ -50,12 +68,19 @@ Shared step bundles in `.github/actions/`. Each composite action handles Node se
 
 ## Deployment strategy
 
-`release.yml` is the single source of truth for docs deployments on `main`. The `docs` job builds Storybook early in the pipeline (parallel with check, test, and build) and uploads the artifact for deployment. The `deploy-docs` job waits for both `release` and `docs` to complete, then chooses its target based on whether the release job published packages:
+`release.yml` is the single source of truth for docs deployments on `main` and `lts`. The `docs` job builds Storybook early in the pipeline (parallel with check, test, and build) and uploads the artifact for deployment. The `deploy-docs` job waits for both `release` and `docs` to complete, then chooses its target based on the branch and whether packages were published:
+
+**`main`:**
 
 - **`published == 'true'`** (version PR was merged): deploys to `prod`
 - **`published != 'true'`** (version PR created/updated, or no changesets): deploys to `dev`
 
-`deploy-docs-manual.yml` retains a `workflow_dispatch` trigger for manual deploys — primarily updating the v4 LTS storybook from the `lts` branch, which `release.yml` cannot reach.
+**`lts`:**
+
+- **`published == 'true'`**: deploys to `v4`
+- **`published != 'true'`**: skipped — no point updating the LTS storybook for a version PR that has not yet been merged
+
+`deploy-docs-manual.yml` retains a `workflow_dispatch` trigger for emergency manual deploys and out-of-band LTS storybook updates.
 
 ## Key decisions
 
@@ -66,13 +91,22 @@ Aborting a publish mid-flight can leave npm in a partially-published state. Seri
 Unlike a publish, a Cloudflare deploy is idempotent — the most recent deployment wins. Cancelling a stale deploy and letting the newest one proceed is safe and avoids deploying an outdated build.
 
 **Why is there no `NPM_TOKEN` secret for publishing?**
-Both release workflows authenticate to npm via OIDC trusted publishing — no long-lived secret is needed. GitHub Actions mints a short-lived OIDC token, which npm exchanges for a publish token. The automated workflow also enables provenance attestation (`NPM_CONFIG_PROVENANCE=true`), linking each published package to its source commit and workflow run.
+Both release paths authenticate to npm via OIDC trusted publishing — no long-lived secret is needed. GitHub Actions mints a short-lived OIDC token, which npm exchanges for a publish token. The automated path also enables provenance attestation (`NPM_CONFIG_PROVENANCE=true`), linking each published package to its source commit and workflow run.
 
 **Why does the `release` job use `environment: release`?**
-The `release` environment is restricted to the `main` branch in GitHub Settings → Environments. This ensures GitHub will only mint an OIDC token for runs on `main`, providing a belt-and-braces guard on top of the `on: push: branches: [main]` trigger. It is a separate environment from `production`, which is used by the `record-release` job solely to signal a deployment event to Jira.
+The `release` environment is restricted to the `main` and `lts` branches in GitHub Settings → Environments. This ensures GitHub mints an OIDC token only for runs on those branches, providing a belt-and-braces guard on top of the `on: push: branches: [main, lts]` trigger. Both the `release` and `release-manual` jobs use this environment. The `release` environment is separate from `production`, which the `record-release` job uses solely to signal a deployment event to Jira.
+
+**Why do `record-release` and `publish-figma` only run on `main`, not `lts`?**
+Jira is not configured to manage two release streams, so emitting a deployment record for an `lts` patch would either duplicate the `main` signal or produce a record Jira cannot act on. Figma Code Connect reflects the latest stable release — publishing from `lts` would overwrite the current version's definitions.
+
+**Why does manual dispatch skip `record-release`, `publish-figma`, and `deploy-docs`?**
+Manual dispatch exists solely as a recovery tool for failed automated releases. Creating a deployment record could duplicate the automated workflow's Jira signal or point at a different commit than Jira expects (since the dispatch checks out an arbitrary ref rather than HEAD of `main`). The dispatch skips Figma Code Connect and docs because it may target a commit other than the latest on `main`. Deploy docs independently via `deploy-docs-manual.yml` if needed.
+
+**Why is provenance attestation disabled for manual dispatches?**
+The OIDC token's subject claim reflects the branch that triggered the workflow (the default branch for `workflow_dispatch`), not the arbitrary `inputs.ref` that was checked out and built. The resulting attestation would misrepresent the source of the published package.
 
 **Why does the `release` job repeat checkout/setup/install instead of using a composite action?**
-The `release` job needs to control `actions/checkout` directly because it must use a write-scoped checkout token (from the GitHub App) so that `changesets/action` can push the version PR branch. In this repo, the shared composite actions are local actions under `.github/actions/`, so they cannot be used until after the repository has already been checked out. `release` therefore repeats checkout/setup/install explicitly rather than delegating to a composite action.
+The `release` job needs to control `actions/checkout` directly because it must use a write-scoped checkout token (from the GitHub App) so that `changesets/action` can push the version PR branch. In this repo, the shared composite actions are local actions under `.github/actions/`, so they cannot be used until the repository is checked out. `release` therefore repeats checkout, setup, and install rather than delegating to a composite action.
 
 **Why is `fetch-depth: 0` only in the `release` job?**
 `changesets/action` walks the full git history to find the last release tag and determine which packages changed. The `check`, `test`, `build`, and `docs` jobs need only a shallow clone, which is faster.
@@ -87,4 +121,4 @@ Coverage feedback is most actionable pre-merge, where reviewers can see whether 
 Dry-running in `test-pr.yml` catches broken Code Connect definitions before merge without touching Figma. The publish-figma job runs only when `published == 'true'`, keeping Figma component definitions in sync with the npm release — the job never publishes definitions for unreleased code.
 
 **Why is `deploy-docs-manual.yml` a standalone workflow rather than a reusable workflow called from `release.yml`?**
-The v4 LTS storybook must be deployable from the `lts` branch independently of `main`. A standalone `workflow_dispatch`-enabled workflow supports this without coupling v4 deploys to the release flow. In `release.yml`, the `docs` job builds Storybook and the `deploy-docs` job deploys the pre-built artifact, so docs are built only once per run.
+It provides an emergency path that bypasses the full CI pipeline — useful when docs need redeploying without a code change (e.g. after an infrastructure update or a failed deploy). In `release.yml`, the `docs` job builds Storybook and the `deploy-docs` job deploys the pre-built artifact, so docs are built only once per run.
