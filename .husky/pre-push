@@ -2,11 +2,22 @@
 # Skip in CI environments
 [ "$CI" = "true" ] && exit 0
 
-# Check for a changeset on non-main branches
+# Trunk is whichever branch `.changeset/config.json` declares as its
+# baseBranch. Reading it here keeps this hook byte-identical across
+# maintenance lines (main, lts, …) — each line carries its own trunk
+# pointer in the changesets config.
+BASE_BRANCH=$(sed -n 's/.*"baseBranch":[[:space:]]*"\([^"]*\)".*/\1/p' .changeset/config.json | head -n1)
+
+if [ -z "$BASE_BRANCH" ]; then
+  echo "pre-push: could not read baseBranch from .changeset/config.json; skipping changeset check."
+  exit 0
+fi
+
+# Check for a changeset on non-trunk branches
 BRANCH=$(git rev-parse --abbrev-ref HEAD)
-if [ "$BRANCH" != "main" ]; then
+if [ "$BRANCH" != "$BASE_BRANCH" ]; then
   unset GIT_DIR GIT_INDEX_FILE
-  yarn changeset status --since=main 2>&1 || {
+  yarn changeset status --since="$BASE_BRANCH" 2>&1 || {
     echo ""
     echo "No changeset found for this branch."
     echo "Run 'yarn changeset' to add one before pushing."
