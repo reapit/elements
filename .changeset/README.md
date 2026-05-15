@@ -81,19 +81,21 @@ Add a changeset for:
 - ✅ Deprecations
 - ✅ New or updated codemods
 
-For PRs with no user-facing change, use an empty changeset to make the intent explicit (see [CI Enforcement](#ci-enforcement)):
+For PRs with no user-facing change, use an empty changeset to make the intent explicit (see [Enforcement](#enforcement)):
 
 - ❌ Documentation-only changes (outside of component stories, which don't affect the published package)
 - ❌ Test-only changes
 - ❌ Internal refactors with no user-facing impact
 
-PRs that only touch dot-directory paths (e.g. `.github/`, `.husky/`) pass CI automatically without a changeset — see [CI Enforcement](#ci-enforcement) for why.
+PRs that only touch dot-directory paths (e.g. `.github/`, `.husky/`) pass the gate automatically without a changeset — see [Enforcement](#enforcement) for why.
 
-## CI Enforcement
+## Enforcement
 
-All PRs are checked for a changeset via `yarn changeset status --since=origin/main`. Files under dot-prefixed directories (`.github/`, `.husky/`, `.changeset/`, etc.) are not considered by the check, so a PR that only touches those paths will pass without a changeset.
+The gate is the `.husky/pre-push` hook, which runs `yarn changeset status --since=<trunk>` before every push on a non-trunk branch. The trunk branch is read from `baseBranch` in `.changeset/config.json` (so the same hook works on `main`, `lts`, and any future maintenance branch).
 
-Any change outside a dot-prefixed directory is treated as a package change, and the check will fail unless a changeset is present. If your PR has no user-facing impact but does touch non-dot paths (e.g. `src/`, `scripts/`), create an empty changeset to make the intent explicit:
+`changeset status` exits non-zero when the package has changed since `<trunk>` but no changeset accounts for those changes. Files under dot-prefixed directories (`.github/`, `.husky/`, `.changeset/`, etc.) are invisible to Changesets, so a PR that only touches those paths passes without a changeset.
+
+If your PR has no user-facing impact but does touch non-dot paths (e.g. `src/`, `scripts/`), create an empty changeset to make the intent explicit:
 
 ```bash
 yarn changeset --empty
