@@ -1,3 +1,3 @@
-export * from './app-switcher'
+export { AppSwitcher } from './app-switcher'
+export { isProductAccessible } from './is-product-accessible'
 export type { SupportedProductId, ProductConfig } from './config'
-export * from './is-product-accessible'

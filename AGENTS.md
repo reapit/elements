@@ -27,6 +27,7 @@
 - Include Storybook stories
 - Use design tokens for consistent styling
 - Make components accessible
+- Top-level barrel files MUST follow the barrel export conventions
 - All components MUST follow the namespace interface pattern
 - React contexts MUST follow the context pattern
 - Components with `z-index` MUST follow the z-index layering conventions

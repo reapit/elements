@@ -1,3 +1,2 @@
-export * from './anchor-positioning'
-export * from './build-anchor-positioning-css'
-export * from './map-placement-to-css'
+export { AnchorPositioning } from './anchor-positioning'
+export { placements, type Placement } from './map-placement-to-css'

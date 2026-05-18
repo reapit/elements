@@ -1,1 +1,1 @@
-export * from './folder-tabs'
+export { FolderTabs } from './folder-tabs'

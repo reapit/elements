@@ -1,2 +1,1 @@
-export * from './secondary-tabs'
-export * from './tab'
+export { SecondaryTabs } from './secondary-tabs'

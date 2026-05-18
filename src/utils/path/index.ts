@@ -1,4 +1,2 @@
-export * from './compile-path-pattern'
-export * from './extract-path-params'
-export * from './match-path'
-export * from './normalise-path'
+export { extractPathParams, type PathParams } from './extract-path-params'
+export { matchPath, type PathMatch } from './match-path'

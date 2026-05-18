@@ -1,1 +1,1 @@
-export * from './features'
+export { Features } from './features'

@@ -1,1 +1,1 @@
-export * from './avatar-rectangle'
+export { AvatarRectangle } from './avatar-rectangle'

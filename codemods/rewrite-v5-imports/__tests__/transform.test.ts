@@ -145,11 +145,12 @@ describe('type imports', () => {
     expect(output).toBe(`import { type Button } from '@reapit/elements/core/button'\n`)
   })
 
-  test('handles mixed value and type imports from same subpath', () => {
-    // AccordionProps is a real named export mapping to core/accordion
+  test('handles mixed value and type imports where type is not in export map', () => {
+    // AccordionProps was removed from the public API (deprecated); only Accordion remains
     const input = `import { Accordion, type AccordionProps } from '@reapit/elements'`
     const output = transform(input, 'test.tsx')
-    expect(output).toBe(`import { Accordion, type AccordionProps } from '@reapit/elements/core/accordion'\n`)
+    expect(output).toContain(`import { Accordion } from '@reapit/elements/core/accordion'`)
+    expect(output).toContain(`import { type AccordionProps } from '@reapit/elements'`)
   })
 
   test('handles type-only import declaration that splits across subpaths', () => {

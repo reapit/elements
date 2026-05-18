@@ -1,1 +1,1 @@
-export * from './label-text'
+export { LabelText } from './label-text'

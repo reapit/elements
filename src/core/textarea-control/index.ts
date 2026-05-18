@@ -1,1 +1,1 @@
-export * from './textarea-control'
+export { TextareaControl } from './textarea-control'

@@ -1,2 +1,1 @@
-export * from './use-video'
-export * from './video'
+export { Video } from './video'

@@ -1,2 +1,2 @@
-export * from './to-map'
-export * from './to-url-search-params'
+export { toMap } from './to-map'
+export { toURLSearchParams } from './to-url-search-params'

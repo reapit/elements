@@ -1,2 +1,1 @@
-export * from './is-terminal-page'
-export * from './pagination'
+export { Pagination } from './pagination'

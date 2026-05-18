@@ -1,3 +1,3 @@
-export * from './alert-banner'
-export * from './outlet'
-export * from './portal'
+export { AlertBanner } from './alert-banner'
+export { AlertBannerOutlet } from './outlet'
+export { AlertBannerPortal } from './portal'

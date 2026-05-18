@@ -1,1 +1,1 @@
-export * from './text-control'
+export { TextControl } from './text-control'

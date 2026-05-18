@@ -1,2 +1,1 @@
-export * from './radio-button'
-export * from './radio-group-control'
+export { RadioGroupControl } from './radio-group-control'

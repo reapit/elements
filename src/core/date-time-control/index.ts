@@ -1,1 +1,1 @@
-export * from './date-time-control'
+export { DateTimeControl } from './date-time-control'

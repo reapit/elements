@@ -1,2 +1,1 @@
-export * from './chip'
-export * from './chip-select'
+export { ChipSelect } from './chip-select'

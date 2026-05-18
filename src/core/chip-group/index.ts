@@ -1,1 +1,1 @@
-export * from './chip-group'
+export { ChipGroup } from './chip-group'

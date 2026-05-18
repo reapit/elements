@@ -1,1 +1,1 @@
-export * from './use-page-visibility'
+export { usePageVisibility } from './use-page-visibility'

@@ -1,2 +1,2 @@
-export * from './anchor-button'
-export * from './button'
+export { AnchorButton } from './anchor-button'
+export { Button } from './button'

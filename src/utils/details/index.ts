@@ -1,1 +1,1 @@
-export * from './use-details-open-state'
+export { useDetailsOpenState } from './use-details-open-state'

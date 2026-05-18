@@ -1,1 +1,1 @@
-export * from './css-container-query'
+export { CSSContainerQuery } from './css-container-query'

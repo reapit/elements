@@ -1,1 +1,1 @@
-export * from './select-native-control'
+export { SelectNativeControl } from './select-native-control'

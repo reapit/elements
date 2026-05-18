@@ -1,1 +1,1 @@
-export * from './tag-group'
+export { TagGroup } from './tag-group'

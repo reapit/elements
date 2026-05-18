@@ -1,2 +1,2 @@
-export * from './handle-arrow-navigation'
-export * from './handle-link-activation'
+export { handleArrowNavigation } from './handle-arrow-navigation'
+export { handleLinkActivation } from './handle-link-activation'

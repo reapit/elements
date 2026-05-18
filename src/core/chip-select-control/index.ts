@@ -1,1 +1,1 @@
-export * from './chip-select-control'
+export { ChipSelectControl } from './chip-select-control'

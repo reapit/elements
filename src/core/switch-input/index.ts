@@ -1,1 +1,1 @@
-export * from './switch-input'
+export { SwitchInput } from './switch-input'
