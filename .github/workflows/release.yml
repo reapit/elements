@@ -127,6 +127,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
+          cache: yarn
 
       - name: Install
         run: yarn install --immutable
@@ -348,6 +349,7 @@ jobs:
           path: public/dist/
       - uses: ./.github/actions/deploy-docs
         with:
+          # lts always deploys v4 docs; main deploys prod if published, otherwise dev
           target: ${{ github.ref_name == 'lts' && 'v4' || needs.release.outputs.published == 'true' && 'prod' || 'dev' }}
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
