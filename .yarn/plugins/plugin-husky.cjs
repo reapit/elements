@@ -27,7 +27,7 @@ module.exports = {
         try {
           execSync('yarn husky', { cwd: project.cwd, stdio: 'ignore' })
         } catch (error) {
-          // husky not available (e.g. CI production install) — skip silently
+          // husky not available (e.g. CI production install) — warn and continue
           console.warn('[plugin-husky] Failed to run husky:', error && error.message ? error.message : error)
         }
       },

@@ -105,7 +105,7 @@ yarn changeset --empty
 
 Changesets are automatically consumed during the release process:
 
-1. When you merge changes to `main`, CI creates or updates a `chore: version packages` PR
+1. When you merge changes to the trunk branch, CI creates or updates a `chore: version packages` PR
 2. This PR aggregates all changesets, updates the version in `package.json`, generates `CHANGELOG.md`, and deletes the consumed changeset files
 3. When the `chore: version packages` PR is merged, the package is automatically published to npm and Storybook is deployed to the production environment
 

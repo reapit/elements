@@ -8,7 +8,7 @@ Three workflows drive CI and deployment:
 
 | Trigger                             | Workflow                 | Purpose                                               |
 | ----------------------------------- | ------------------------ | ----------------------------------------------------- |
-| Pull request (opened / synchronise) | `test-pr.yml`            | Validate the PR before merge                          |
+| Pull request (opened / synchronize) | `test-pr.yml`            | Validate the PR before merge                          |
 | Push to `main`                      | `release.yml`            | Run CI, create the version PR or publish, deploy docs |
 | Push to `lts`                       | `release.yml`            | Run CI, create the version PR or publish v4 LTS docs  |
 | Manual (`workflow_dispatch`)        | `release.yml`            | Recovery publish from a specific ref                  |
