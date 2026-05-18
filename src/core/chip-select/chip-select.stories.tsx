@@ -194,3 +194,16 @@ export const ChipSizing = Example.extend({
   },
   decorators: [useNarrowParentDecorator],
 })
+
+/**
+ * When `required` is true, users cannot deselect all options — at least one must always remain
+ * selected. Attempting to deselect the last selected chip is silently prevented, matching the
+ * behaviour of a required radio button group. The same rule applies in multi-select mode: users
+ * can freely deselect chips as long as at least one remains selected. Toggle `multiple` in the
+ * controls to compare modes.
+ */
+export const Required = Example.extend({
+  args: {
+    required: true,
+  },
+})

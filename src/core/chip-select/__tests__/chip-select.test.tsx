@@ -148,3 +148,8 @@ test('forwards additional attributes to the div element', () => {
 test('exposes ChipSelectOption as ChipSelect.Option', () => {
   expect(ChipSelect.Option).toBe(ChipSelectOption)
 })
+
+test('has role="group"', () => {
+  render(<ChipSelect size="medium">Child</ChipSelect>)
+  expect(screen.getByRole('group')).toBeVisible()
+})

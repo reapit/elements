@@ -30,20 +30,73 @@ it) lives in `ChipSelectOption`, the group-aware wrapper.
 | `form`         | Form ID forwarded to each `input[form]`                     |
 | `multiple`     | Whether multi-select is enabled                             |
 | `name`         | Shared `name` attribute for form submission grouping        |
-| `required`     | Group-level required default forwarded to each option       |
+| `required`     | Whether at least one option must remain selected            |
 | `size`         | Visual size forwarded to each chip                          |
 
 ## Single-select mechanism
 
 When `multiple={false}` (the default), selecting one option should deselect all others.
-`ChipSelectOption` intercepts `onChange` and, when an exclusive chip has just been checked,
-calls `deselectOtherOptions(container, currentTarget)` — which queries the container ref for
-chip inputs (`input[data-exclusive][type="checkbox"]`) and unchecks any that are currently
-checked.
+`ChipSelectOption` intercepts `onChange` and, when a chip has just been checked in non-multiple
+mode, calls `deselectOtherOptions(container, currentTarget)` — which queries the container ref
+for chip inputs (`input[data-exclusive="true"][type="checkbox"]`) and unchecks any that are
+currently checked.
 
 Because the query is scoped to the container element rather than a form, no form association or
 shared `name` attribute is required for single-select to work. `ChipSelect` can be used anywhere
 in the tree.
+
+## Required enforcement
+
+When `required={true}` on `ChipSelect`, at least one option must always remain selected.
+`ChipSelectOption` intercepts `onChange`. When a chip is being unchecked and `groupRequired` is
+true, it queries `containerRef` for other checked chip inputs. If none remain, it reverts the
+toggle and returns early — the consumer's `onChange` is not called.
+
+The guard reverts the DOM change by setting `event.currentTarget.checked = true` and returning
+early, because `change` events on checkboxes are not cancellable per the HTML spec
+(`cancelable: false`). jsdom deviates from the spec and honours `event.preventDefault()` on
+checkbox `change` events, so approaches relying on it appear to work in tests but fail in real
+browsers.
+
+### Native form validation
+
+The `required` attribute is applied imperatively by
+`syncGroupRequired(container, groupRequired)`. Every chip carries `required` when the group is
+required and no chip is currently checked:
+
+```
+chip.required = groupRequired && !anyChipChecked
+```
+
+When at least one chip is checked, no chip carries `required` — the group constraint is
+satisfied.
+
+The helper is invoked from two places:
+
+- `ChipSelect`'s `useEffect` runs after every render, so initial state (including
+  `defaultChecked` chips), controlled-state changes, and dynamic changes to the `required` prop
+  all converge.
+- `ChipSelectOption.handleChange` runs after each `change` event in uncontrolled mode, where
+  React does not re-render.
+
+### Controlled-mode guard
+
+`ChipSelect.determineNextControlledState` provides a secondary guard: if `option.required` is
+true and `currentValue.length === 1`, the current value is returned unchanged. This handles edge
+cases where the consumer's controlled state is out of sync with the DOM.
+
+### Why imperative
+
+`required` is managed by direct DOM writes rather than a React prop because the value depends on
+whether any chip is checked — state that an individual `ChipSelectOption` cannot observe at
+render time. A declarative alternative (tracking `anyChecked` in `ChipSelect` state and
+propagating it via context) would still need a post-mount DOM read to derive the initial value
+and would re-render every option on each change. The imperative sync is contained to one helper
+(`syncGroupRequired`) invoked from one effect.
+
+SSR-rendered HTML carries incorrect `required` attributes until the client-side `useEffect`
+runs. If SSR-correct form validation becomes a requirement, a different
+design — such as a hidden sentinel input representing the group constraint — would be needed.
 
 ## Controlled vs uncontrolled
 

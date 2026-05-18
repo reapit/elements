@@ -23,7 +23,13 @@ export function determineNextControlledState(
     }
   } else {
     // If the chip select option has just been unchecked, its value needs to be removed from
-    // the controlled state. For exclusive options, the new controlled state is an empty array.
+    // the controlled state. Leave the state unchanged when the group is required and this is the
+    // last selected option. Applies to both exclusive and non-exclusive options.
+    if (option.required && currentValue.length === 1) {
+      return currentValue
+    }
+
+    // For exclusive options, the new controlled state is an empty array.
     // For non-exclusive options, their value is simply removed from the controlled state.
     if (isExclusiveOption(option)) {
       return []

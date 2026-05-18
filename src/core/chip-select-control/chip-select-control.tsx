@@ -13,10 +13,7 @@ export namespace ChipSelectControl {
     helpText?: ReactNode
     /** The label for the chip select. */
     label?: ReactNode
-    /**
-     * Whether all options in the chip select group are required by default. Individual options can override
-     * this value.
-     */
+    /** Whether at least one option in the chip select must remain selected. */
     required?: boolean
     /** The size of the chip select. */
     size?: 'small' | 'medium' | 'large'

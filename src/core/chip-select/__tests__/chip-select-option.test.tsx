@@ -105,6 +105,150 @@ test('does not deselect other chips when selected in multi-select mode', () => {
   expect(screen.getByRole('checkbox', { name: 'B' })).toBeChecked()
 })
 
+test('applies `required` to every chip when group is required and none are checked', () => {
+  render(
+    <ChipSelect name="test" required size="small">
+      <ChipSelectOption value="a">A</ChipSelectOption>
+      <ChipSelectOption value="b">B</ChipSelectOption>
+    </ChipSelect>,
+  )
+  expect(screen.getByRole('checkbox', { name: 'A' })).toHaveAttribute('required')
+  expect(screen.getByRole('checkbox', { name: 'B' })).toHaveAttribute('required')
+})
+
+test('removes `required` from every chip when one is initially checked', () => {
+  render(
+    <ChipSelect name="test" required size="small">
+      <ChipSelectOption value="a">A</ChipSelectOption>
+      <ChipSelectOption defaultChecked value="b">
+        B
+      </ChipSelectOption>
+    </ChipSelect>,
+  )
+  expect(screen.getByRole('checkbox', { name: 'A' })).not.toHaveAttribute('required')
+  expect(screen.getByRole('checkbox', { name: 'B' })).not.toHaveAttribute('required')
+})
+
+test('does not apply `required` to any chip when the group is not required', () => {
+  render(
+    <ChipSelect name="test" size="small">
+      <ChipSelectOption value="a">A</ChipSelectOption>
+      <ChipSelectOption value="b">B</ChipSelectOption>
+    </ChipSelect>,
+  )
+  expect(screen.getByRole('checkbox', { name: 'A' })).not.toHaveAttribute('required')
+  expect(screen.getByRole('checkbox', { name: 'B' })).not.toHaveAttribute('required')
+})
+
+test('prevents deselecting the last chip when `required` (single-select)', () => {
+  render(
+    <ChipSelect name="test" required size="small">
+      <ChipSelectOption value="a">A</ChipSelectOption>
+      <ChipSelectOption value="b">B</ChipSelectOption>
+    </ChipSelect>,
+  )
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  expect(screen.getByRole('checkbox', { name: 'A' })).toBeChecked()
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  expect(screen.getByRole('checkbox', { name: 'A' })).toBeChecked()
+})
+
+test('prevents deselecting the last chip when `required` (multi-select)', () => {
+  render(
+    <ChipSelect multiple name="test" required size="small">
+      <ChipSelectOption value="a">A</ChipSelectOption>
+      <ChipSelectOption value="b">B</ChipSelectOption>
+    </ChipSelect>,
+  )
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  expect(screen.getByRole('checkbox', { name: 'A' })).toBeChecked()
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  expect(screen.getByRole('checkbox', { name: 'A' })).toBeChecked()
+})
+
+test('allows deselecting a chip when others remain selected', () => {
+  render(
+    <ChipSelect multiple name="test" required size="small">
+      <ChipSelectOption value="a">A</ChipSelectOption>
+      <ChipSelectOption value="b">B</ChipSelectOption>
+    </ChipSelect>,
+  )
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  fireEvent.click(screen.getByRole('checkbox', { name: 'B' }))
+  expect(screen.getByRole('checkbox', { name: 'A' })).toBeChecked()
+  expect(screen.getByRole('checkbox', { name: 'B' })).toBeChecked()
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  expect(screen.getByRole('checkbox', { name: 'A' })).not.toBeChecked()
+  expect(screen.getByRole('checkbox', { name: 'B' })).toBeChecked()
+})
+
+test('does not call `onChange` when last-chip deselect is prevented (single-select)', () => {
+  const handleChange = vi.fn()
+  render(
+    <ChipSelect name="test" required size="small">
+      <ChipSelectOption onChange={handleChange} value="a">
+        A
+      </ChipSelectOption>
+    </ChipSelect>,
+  )
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  handleChange.mockClear()
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  expect(handleChange).not.toHaveBeenCalled()
+})
+
+test('does not call `onChange` when last-chip deselect is prevented (multi-select)', () => {
+  const handleChange = vi.fn()
+  render(
+    <ChipSelect multiple name="test" required size="small">
+      <ChipSelectOption onChange={handleChange} value="a">
+        A
+      </ChipSelectOption>
+    </ChipSelect>,
+  )
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  handleChange.mockClear()
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  expect(handleChange).not.toHaveBeenCalled()
+})
+
+test('prevents deselecting the last chip when `required` and no `name`', () => {
+  render(
+    <ChipSelect required size="small">
+      <ChipSelectOption value="a">A</ChipSelectOption>
+      <ChipSelectOption value="b">B</ChipSelectOption>
+    </ChipSelect>,
+  )
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  expect(screen.getByRole('checkbox', { name: 'A' })).toBeChecked()
+
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  expect(screen.getByRole('checkbox', { name: 'A' })).toBeChecked()
+})
+
+test('removes `required` from every chip after one is clicked to check', () => {
+  render(
+    <ChipSelect name="test" required size="small">
+      <ChipSelectOption value="a">A</ChipSelectOption>
+      <ChipSelectOption value="b">B</ChipSelectOption>
+    </ChipSelect>,
+  )
+  fireEvent.click(screen.getByRole('checkbox', { name: 'A' }))
+  expect(screen.getByRole('checkbox', { name: 'A' })).not.toHaveAttribute('required')
+  expect(screen.getByRole('checkbox', { name: 'B' })).not.toHaveAttribute('required')
+})
+
 function createWrapper(context: ChipSelectContext.Value) {
   return function Wrapper({ children }: { children: ReactNode }) {
     return <ChipSelectContext.Provider value={context}>{children}</ChipSelectContext.Provider>

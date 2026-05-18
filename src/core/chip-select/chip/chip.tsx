@@ -9,7 +9,7 @@ import { forwardRef, useCallback } from 'react'
 import type { ChangeEventHandler, MouseEventHandler, InputHTMLAttributes, ReactNode } from 'react'
 
 // We omit a few attributes from the base input element:
-// - onClick, because we want the onClick to be handled by the label, not the input
+// - onClick, because the label handles click events
 // - size, because we use this for our own sizing
 // - type, because chip select options are always checkboxes
 type AttributesToOmit = 'onClick' | 'size' | 'type'
@@ -35,7 +35,7 @@ export namespace ChipSelectChip {
     onChange?: ChangeEventHandler<HTMLInputElement>
     /** Callback called when the chip is clicked. */
     onClick?: MouseEventHandler<HTMLLabelElement>
-    /** Whether the label of the chip should be truncated if it is too long */
+    /** Whether the label of the chip should be truncated if it is too long. */
     overflow?: 'truncate'
     /** Whether the chip is read-only. */
     readOnly?: boolean
@@ -50,7 +50,7 @@ export namespace ChipSelectChip {
 export type ChipSelectChipProps = ChipSelectChip.Props
 
 /**
- * An option for a `ChipSelect`. It is a styled native checkbox input, so it's checked state can be
+ * An option for a `ChipSelect`. It is a styled native checkbox input, so its checked state can be
  * controlled (or uncontrolled) like any other native input. Typically used via `ChipSelect.Option`.
  */
 export const ChipSelectChip = forwardRef<HTMLInputElement, ChipSelectChip.Props>(

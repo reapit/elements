@@ -16,8 +16,8 @@ export namespace ChipSelectContext {
     /** The size of options in the chip select. */
     size: ComponentProps<typeof ChipSelectChip>['size']
     /**
-     * Whether all options in the group are required by default. Individual options can override
-     * this value.
+     * Whether at least one option must remain selected. Used to silently prevent deselection of
+     * the last selected chip and to drive the group's HTML `required` attribute.
      */
     required?: boolean
   }
@@ -31,7 +31,7 @@ export const ChipSelectContext = createContext<ChipSelectContext.Value | null>(n
 
 /**
  * Returns the current ChipSelectContext value.
- * @throws an error if the context is not defined.
+ * @throws when called outside a ChipSelect provider.
  */
 export function useChipSelectContext(): ChipSelectContext.Value {
   const context = useContext(ChipSelectContext)
