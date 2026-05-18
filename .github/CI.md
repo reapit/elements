@@ -1,5 +1,7 @@
 # Workflow Architecture
 
+> Setting up a new maintenance branch? See [MAINTENANCE.md](MAINTENANCE.md).
+
 ## Overview
 
 Three workflows drive CI and deployment:
