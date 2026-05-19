@@ -1,10 +1,16 @@
 import preview from '#.storybook/preview'
 import { CheckboxControl } from './checkbox-control'
+import { useArgs } from 'storybook/preview-api'
+
+import type { ChangeEventHandler } from 'react'
 
 const meta = preview.meta({
   title: 'Core/CheckboxControl',
   component: CheckboxControl,
   argTypes: {
+    checked: {
+      control: 'boolean',
+    },
     errorText: {
       control: 'text',
     },
@@ -12,6 +18,9 @@ const meta = preview.meta({
       control: 'text',
     },
     supplementaryInfo: {
+      control: 'text',
+    },
+    value: {
       control: 'text',
     },
   },
@@ -23,13 +32,24 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
+    checked: undefined,
     disabled: false,
     errorText: '',
     isIndeterminate: false,
     label: 'Label',
+    name: 'myCheckbox',
+    readOnly: false,
     required: false,
     showValidity: undefined,
     supplementaryInfo: 'Supplementary Info',
+    value: '',
+  },
+  render: (args) => {
+    const [, setArgs] = useArgs()
+    const onChange: ChangeEventHandler<HTMLInputElement> = (event) => {
+      setArgs({ checked: event.currentTarget.checked })
+    }
+    return <CheckboxControl {...args} onChange={onChange} />
   },
 })
 
