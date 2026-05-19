@@ -93,7 +93,7 @@ Aborting a publish mid-flight can leave npm in a partially-published state. Seri
 Unlike a publish, a Cloudflare deploy is idempotent — the most recent deployment wins. Cancelling a stale deploy and letting the newest one proceed is safe and avoids deploying an outdated build.
 
 **Why is there no `NPM_TOKEN` secret for publishing?**
-Both release paths authenticate to npm via OIDC trusted publishing — no long-lived secret is needed. GitHub Actions mints a short-lived OIDC token, which npm exchanges for a publish token. The automated path also enables provenance attestation (`NPM_CONFIG_PROVENANCE=true`), linking each published package to its source commit and workflow run.
+Both release paths authenticate to npm via OIDC trusted publishing — no long-lived secret is needed. GitHub Actions mints a short-lived OIDC token, which npm exchanges for a publish token.
 
 **Why does the `release` job use `environment: release`?**
 The `release` environment is restricted to the `main` and `lts` branches in GitHub Settings → Environments. This ensures GitHub mints an OIDC token only for runs on those branches, providing a belt-and-braces guard on top of the `on: push: branches: [main, lts]` trigger. Both the `release` and `release-manual` jobs use this environment. The `release` environment is separate from `production`, which the `record-release` job uses solely to signal a deployment event to Jira.
@@ -104,8 +104,8 @@ Jira is not configured to manage two release streams, so emitting a deployment r
 **Why does manual dispatch skip `record-release`, `publish-figma`, and `deploy-docs`?**
 Manual dispatch exists solely as a recovery tool for failed automated releases. Creating a deployment record could duplicate the automated workflow's Jira signal or point at a different commit than Jira expects (since the dispatch checks out an arbitrary ref rather than HEAD of `main`). The dispatch skips Figma Code Connect and docs because it may target a commit other than the latest on `main`. Deploy docs independently via `deploy-docs-manual.yml` if needed.
 
-**Why is provenance attestation disabled for manual dispatches?**
-The OIDC token's subject claim reflects the branch that triggered the workflow (the default branch for `workflow_dispatch`), not the arbitrary `inputs.ref` that was checked out and built. The resulting attestation would misrepresent the source of the published package.
+**Why is provenance attestation not enabled?**
+Sigstore provenance requires a public source repository. This repository is private, so npm rejects the attestation bundle during publish.
 
 **Why does the `release` job repeat checkout/setup/install instead of using a composite action?**
 The `release` job needs to control `actions/checkout` directly because it must use a write-scoped checkout token (from the GitHub App) so that `changesets/action` can push the version PR branch. In this repo, the shared composite actions are local actions under `.github/actions/`, so they cannot be used until the repository is checked out. `release` therefore repeats checkout, setup, and install rather than delegating to a composite action.

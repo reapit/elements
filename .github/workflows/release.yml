@@ -148,7 +148,6 @@ jobs:
           commit: 'chore: version packages'
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
-          NPM_CONFIG_PROVENANCE: 'true'
 
       - name: Upload npm debug logs
         if: failure()
