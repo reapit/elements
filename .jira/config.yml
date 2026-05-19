@@ -1,0 +1,6 @@
+deployments:
+  environmentMapping:
+    development:
+      - 'release'
+    production:
+      - 'production'
