@@ -13,6 +13,16 @@ Use this skill whenever you:
 - Draft or review a PR title or description
 - Check whether a title will pass CI lint
 
+## Ticket URL
+
+The Jira base URL for all tickets is:
+
+```
+https://reapit-global.atlassian.net/browse/
+```
+
+When the user provides a ticket key (e.g. `DS-199`), construct the full URL by appending the key to this base. Never ask the user for the full URL.
+
 ## PR Title Format
 
 PR titles follow a modified conventional commit syntax:
@@ -75,7 +85,7 @@ Keep descriptions concise. Reviewers should understand the change and its contex
 
 ## Ticket
 
-[PROJ-123](ticket-url)
+[PROJ-123](https://reapit-global.atlassian.net/browse/PROJ-123)
 
 ## Breaking changes
 
@@ -117,7 +127,7 @@ Omit the **Visual changes** section entirely when the change has no UI impact. U
 
 ## Ticket
 
-[DS-102](https://linear.app/reapit/issue/DS-102)
+[DS-102](https://reapit-global.atlassian.net/browse/DS-102)
 ```
 
 **Good — breaking change:**
@@ -129,7 +139,7 @@ Omit the **Visual changes** section entirely when the change has no UI impact. U
 
 ## Ticket
 
-[DS-450](https://linear.app/reapit/issue/DS-450)
+[DS-450](https://reapit-global.atlassian.net/browse/DS-450)
 
 ## Breaking changes
 
