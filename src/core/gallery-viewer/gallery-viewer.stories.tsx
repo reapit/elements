@@ -70,7 +70,7 @@ export const Example = meta.story({
     )
 
     const chipSelect = (
-      <ChipSelect size="small">
+      <ChipSelect required size="small">
         <ChipSelect.Option checked={filter.includes('all')} onChange={onFilterChange} value="all">
           All
         </ChipSelect.Option>
