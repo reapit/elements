@@ -1,21 +1,5 @@
 # @reapit/elements
 
-## 5.0.0-rc.2
-
-### Major Changes
-
-- **[Changed]** `ChipSelect` single-select now works without a form association or shared `name` attribute. `ChipSelectChip` is now purely presentational and no longer auto-deselects siblings when checked — that behaviour now lives in `ChipSelect.Option`. Consumers relying on the previous `ChipSelectChip` behaviour should wrap chips in `ChipSelect` with `ChipSelect.Option`, or manage selection state themselves. ([#1377](https://github.com/reapit-global/gbl-ds-elements/pull/1377))
-
-- **[Removed]** `ChipSelect.Option` no longer accepts a `required` prop. Use `required` on `ChipSelect` to enforce that at least one option remains selected. ([#1378](https://github.com/reapit-global/gbl-ds-elements/pull/1378))
-
-- **[Changed]** `ChipSelect` `required` now prevents deselecting the last selected option and applies native form validation to the group. ([#1378](https://github.com/reapit-global/gbl-ds-elements/pull/1378))
-
-- **[Removed]** internal exports from the public API surface. Top-level barrel files in `src/core`, `src/utils`, and `src/lab` now use explicit named exports instead of `export *`, removing leaked internal hooks, utilities, and sub-components that were never intended to be public. ([#1383](https://github.com/reapit-global/gbl-ds-elements/pull/1383))
-
-### Patch Changes
-
-- **[Internal]** Correct `repository`, `homepage`, and `bugs` URLs in `package.json` to point to `reapit-global/gbl-ds-elements`. ([#1357](https://github.com/reapit-global/gbl-ds-elements/pull/1357))
-
 ## 5.0.0-rc.1
 
 ### Major Changes
