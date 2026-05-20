@@ -61,6 +61,13 @@ const polyfillPreloads = {
   'polyfills/css-anchor-positioning/preload': 'src/polyfills/css-anchor-positioning/preload.ts',
 }
 
+// Standalone style entry points that exist solely to inject CSS (e.g. design tokens, resets) into
+// the combined stylesheet produced by the build. The emitted JS modules are inert side-effect-only
+// stubs; only the CSS extracted by wyw-in-js / Linaria matters.
+const globalStyles = {
+  'styles/globals': 'src/styles/globals.ts',
+}
+
 export default defineConfig({
   build: {
     copyPublicDir: false,
@@ -74,6 +81,7 @@ export default defineConfig({
         ...icons,
         ...utils,
         ...polyfillPreloads,
+        ...globalStyles,
       },
       formats: ['es'],
     },
