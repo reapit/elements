@@ -34,19 +34,7 @@ export const ElTagGroupList = styled.ul<ElTagGroupListProps>`
 
   &[data-overflow='auto'] {
     overflow: auto;
-  }
-
-  &[data-overflow='hidden'] {
-    overflow: hidden;
-  }
-
-  &[data-overflow='scroll'] {
-    overflow: scroll;
-  }
-
-  &[data-overflow='auto'],
-  &[data-overflow='scroll'] {
-    scrollbar-width: 0;
+    scrollbar-width: none;
   }
 `
 
