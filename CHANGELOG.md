@@ -1,5 +1,21 @@
 # @reapit/elements
 
+## 5.0.0-rc.3
+
+### Minor Changes
+
+- **[Changed]** Wrap all component styles in cascade layers (`@layer elements.base` and `@layer elements.main`) so that consumer-supplied classes can override defaults without needing higher specificity or `!important`. A layer order declaration (`@layer elements.base, elements.main;`) is emitted first to guarantee consistent ordering. Consumers using their own named `@layer`s should review how their layer order interacts with `elements.base` and `elements.main`. The `elFont` class is now a no-op — the font is loaded unconditionally from the global stylesheet. ([#1398](https://github.com/reapit-global/gbl-ds-elements/pull/1398))
+
+### Patch Changes
+
+- **[Internal]** Add a searchable `Icons/Gallery` story to Storybook. Each tile shows the icon name and a **Copy import** button that copies the icon's subpath import statement to the clipboard. Search matches against the icon's name or a small set of curated synonyms in `src/icons/docs/icon-synonyms.json`. ([#1403](https://github.com/reapit-global/gbl-ds-elements/pull/1403))
+
+- **[Fixed]** Icon and affix containers in `TextInput` clipped by unlayered global `box-sizing: border-box` reset overriding layered `content-box` declarations ([#1404](https://github.com/reapit-global/gbl-ds-elements/pull/1404))
+
+- **[Fixed]** `TagGroup` contained CSS selectors for `data-overflow='hidden'` and `data-overflow='scroll'` that were unreachable — the prop type only allows `'auto'` and `'visible'`. Also corrected the invalid `scrollbar-width: 0` to `scrollbar-width: none`. ([#1401](https://github.com/reapit-global/gbl-ds-elements/pull/1401))
+
+- **[Fixed]** `TextInput` affix text no longer overflows into the input region when the text is wider than the default padding. ([#1399](https://github.com/reapit-global/gbl-ds-elements/pull/1399))
+
 ## 5.0.0-rc.2
 
 ### Major Changes
