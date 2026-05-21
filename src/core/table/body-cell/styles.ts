@@ -5,31 +5,33 @@ import { font } from '#src/utils/font'
 // available for consumers that want table cell styling on an element not
 // supported by the TableBodyCell component.
 export const elTableBodyCell = css`
-  display: grid;
-  align-items: center;
+  @layer elements.main {
+    display: grid;
+    align-items: center;
 
-  ${font('sm', 'regular')}
-  text-align: var(--__table-column-justification);
+    ${font('sm', 'regular')}
+    text-align: var(--__table-column-justification);
 
-  border: none;
-  padding: var(--spacing-2);
+    border: none;
+    padding: var(--spacing-2);
 
-  overflow: hidden;
+    overflow: hidden;
 
-  &[data-has-no-padding='true'] {
-    padding: 0;
-  }
+    &[data-has-no-padding='true'] {
+      padding: 0;
+    }
 
-  &[data-justify-self='start'] {
-    --__table-column-justification: start;
-    justify-self: start;
-  }
-  &[data-justify-self='center'] {
-    --__table-column-justification: center;
-    justify-self: center;
-  }
-  &[data-justify-self='end'] {
-    --__table-column-justification: end;
-    justify-self: end;
+    &[data-justify-self='start'] {
+      --__table-column-justification: start;
+      justify-self: start;
+    }
+    &[data-justify-self='center'] {
+      --__table-column-justification: center;
+      justify-self: center;
+    }
+    &[data-justify-self='end'] {
+      --__table-column-justification: end;
+      justify-self: end;
+    }
   }
 `

@@ -2,145 +2,155 @@ import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 export const ElComboboxButtonContainer = styled.div`
-  position: relative;
+  @layer elements.main {
+    position: relative;
 
-  display: inline-flex;
-  align-items: stretch;
-  /* NOTE: Combobox sets --combobox-max-width */
-  max-width: var(--combobox-max-width, 100%);
-  width: 100%;
-  height: 100%;
+    display: inline-flex;
+    align-items: stretch;
+    /* NOTE: Combobox sets --combobox-max-width */
+    max-width: var(--combobox-max-width, 100%);
+    width: 100%;
+    height: 100%;
 
-  padding: 0;
+    padding: 0;
 
-  /* NOTE: Combobox sets --combobox-* variables. Fallbacks enable standalone demos. */
-  background: var(--combobox-background, var(--comp-input-colour-fill-background-default));
-  border-radius: var(--combobox-border-radius, var(--comp-input-border-radius));
-  border: var(--combobox-border-width, var(--comp-input-border-width)) solid
-    var(--combobox-border-colour, var(--comp-input-colour-border-default));
-  color: var(--combobox-text-colour, var(--comp-input-colour-text-default-input));
+    /* NOTE: Combobox sets --combobox-* variables. Fallbacks enable standalone demos. */
+    background: var(--combobox-background, var(--comp-input-colour-fill-background-default));
+    border-radius: var(--combobox-border-radius, var(--comp-input-border-radius));
+    border: var(--combobox-border-width, var(--comp-input-border-width)) solid
+      var(--combobox-border-colour, var(--comp-input-colour-border-default));
+    color: var(--combobox-text-colour, var(--comp-input-colour-text-default-input));
 
-  &[data-size='small'] {
-    ${font('xs', 'regular')}
-    height: var(--size-8);
-    --combobox-button-addon-padding-inline: var(--spacing-2);
-    --combobox-button-icon-size: var(--icon_size-s);
-  }
-  /* NOTE: Medium is the default size */
-  &,
-  &[data-size='medium'] {
-    ${font('sm', 'regular')}
-    height: var(--size-9);
-    --combobox-button-addon-padding-inline: var(--spacing-3);
-    --combobox-button-icon-size: var(--icon_size-s);
-  }
-  &[data-size='large'] {
-    ${font('base', 'regular')}
-    height: var(--size-10);
-    --combobox-button-addon-padding-inline: var(--spacing-3);
-    --combobox-button-icon-size: var(--icon_size-m);
-  }
+    &[data-size='small'] {
+      ${font('xs', 'regular')}
+      height: var(--size-8);
+      --combobox-button-addon-padding-inline: var(--spacing-2);
+      --combobox-button-icon-size: var(--icon_size-s);
+    }
+    /* NOTE: Medium is the default size */
+    &,
+    &[data-size='medium'] {
+      ${font('sm', 'regular')}
+      height: var(--size-9);
+      --combobox-button-addon-padding-inline: var(--spacing-3);
+      --combobox-button-icon-size: var(--icon_size-s);
+    }
+    &[data-size='large'] {
+      ${font('base', 'regular')}
+      height: var(--size-10);
+      --combobox-button-addon-padding-inline: var(--spacing-3);
+      --combobox-button-icon-size: var(--icon_size-m);
+    }
 
-  /* Use :focus rather than :focus-visible to provide the same visual feedback
-   * as other inputs/form controls. */
-  &:has(button:focus) {
-    border-color: var(--comp-input-colour-border-focused);
-  }
+    /* Use :focus rather than :focus-visible to provide the same visual feedback
+     * as other inputs/form controls. */
+    &:has(button:focus) {
+      border-color: var(--comp-input-colour-border-focused);
+    }
 
-  &[data-variant='borderless'] {
-    border-style: none;
-  }
+    &[data-variant='borderless'] {
+      border-style: none;
+    }
 
-  /* NOTE: the borderless variant hides the border via border-style: none, which persists
-   * through state-based border-color changes. We restore the border only on focus so the
-   * focus ring is visible. */
-  &[data-variant='borderless']:has(button:focus) {
-    border-style: solid;
-    border-color: var(--comp-input-colour-border-focused);
+    /* NOTE: the borderless variant hides the border via border-style: none, which persists
+     * through state-based border-color changes. We restore the border only on focus so the
+     * focus ring is visible. */
+    &[data-variant='borderless']:has(button:focus) {
+      border-style: solid;
+      border-color: var(--comp-input-colour-border-focused);
+    }
   }
 `
 
 export const ElComboboxButton = styled.button`
-  --padding-without-action: var(--spacing-3);
-  --padding-with-action: calc(
-    var(--spacing-2) + var(--combobox-button-icon-size) + var(--combobox-button-addon-padding-inline)
-  );
+  @layer elements.main {
+    --padding-without-action: var(--spacing-3);
+    --padding-with-action: calc(
+      var(--spacing-2) + var(--combobox-button-icon-size) + var(--combobox-button-addon-padding-inline)
+    );
 
-  appearance: none;
-  background: transparent;
-  border: none;
-  outline: none;
+    appearance: none;
+    background: transparent;
+    border: none;
+    outline: none;
 
-  display: inline-flex;
-  align-items: center;
-  width: 100%;
-  padding-block: 0;
-  padding-inline: var(--padding-inline-start) var(--padding-inline-end);
-  /* NOTE: ElComboboxInputContainer sets --combobox-max-width */
-  max-width: var(--combobox-max-width, 100%);
+    display: inline-flex;
+    align-items: center;
+    width: 100%;
+    padding-block: 0;
+    padding-inline: var(--padding-inline-start) var(--padding-inline-end);
+    /* NOTE: ElComboboxInputContainer sets --combobox-max-width */
+    max-width: var(--combobox-max-width, 100%);
 
-  font: inherit;
-  text-align: left;
+    font: inherit;
+    text-align: left;
 
-  color: var(--combobox-text-colour);
-  cursor: pointer;
+    color: var(--combobox-text-colour);
+    cursor: pointer;
 
-  &:disabled {
-    cursor: not-allowed;
-  }
+    &:disabled {
+      cursor: not-allowed;
+    }
 
-  /* No trailing action */
-  &:only-child {
-    --padding-inline-start: var(--padding-without-action);
-    --padding-inline-end: var(--padding-without-action);
-  }
+    /* No trailing action */
+    &:only-child {
+      --padding-inline-start: var(--padding-without-action);
+      --padding-inline-end: var(--padding-without-action);
+    }
 
-  /* Trailing action */
-  &:not(:only-child) {
-    --padding-inline-start: var(--padding-without-action);
-    --padding-inline-end: var(--padding-with-action);
+    /* Trailing action */
+    &:not(:only-child) {
+      --padding-inline-start: var(--padding-without-action);
+      --padding-inline-end: var(--padding-with-action);
+    }
   }
 `
 
 export const ElComboboxButtonIconContainer = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  @layer elements.main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  box-sizing: content-box;
-  height: var(--combobox-button-icon-size);
-  width: var(--combobox-button-icon-size);
-  padding-inline-end: var(--combobox-button-addon-padding-inline);
+    box-sizing: content-box;
+    height: var(--combobox-button-icon-size);
+    width: var(--combobox-button-icon-size);
+    padding-inline-end: var(--combobox-button-addon-padding-inline);
 
-  color: var(--combobox-icon-colour, var(--comp-input-colour-icon-default));
+    color: var(--combobox-icon-colour, var(--comp-input-colour-icon-default));
+  }
 `
 
 export const ElComboboxButtonLabelContainer = styled.span`
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  @layer elements.main {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 
-  /* Display placeholder text with muted color when no selection */
-  &[data-has-selection='false'] {
-    color: var(--combobox-placeholder-colour, var(--comp-input-colour-text-default-placeholder));
+    /* Display placeholder text with muted color when no selection */
+    &[data-has-selection='false'] {
+      color: var(--combobox-placeholder-colour, var(--comp-input-colour-text-default-placeholder));
+    }
   }
 `
 
 export const ElComboboxButtonActionContainer = styled.span`
-  /* NOTE: Absolute positioning allows the primary button to fill the container. This ensures the popup's
-   * size visually matches the container. */
-  position: absolute;
-  right: 0;
+  @layer elements.main {
+    /* NOTE: Absolute positioning allows the primary button to fill the container. This ensures the popup's
+     * size visually matches the container. */
+    position: absolute;
+    right: 0;
 
-  display: inline-flex;
-  align-self: center;
-  align-items: center;
-  justify-content: center;
+    display: inline-flex;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
 
-  box-sizing: content-box;
-  height: var(--combobox-button-icon-size);
-  width: var(--combobox-button-icon-size);
-  padding-inline-end: var(--combobox-button-addon-padding-inline);
+    box-sizing: content-box;
+    height: var(--combobox-button-icon-size);
+    width: var(--combobox-button-icon-size);
+    padding-inline-end: var(--combobox-button-addon-padding-inline);
 
-  color: var(--combobox-icon-colour, var(--comp-input-colour-icon-default));
+    color: var(--combobox-icon-colour, var(--comp-input-colour-icon-default));
+  }
 `

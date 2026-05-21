@@ -2,52 +2,56 @@ import { css } from '@linaria/core'
 import { font } from '#src/utils/font'
 
 export const elTableCellSortButton = css`
-  display: inline-grid;
-  grid-template-columns: minmax(auto, min-content) min-content;
-  grid-template-rows: subgrid;
-  align-items: center;
-  justify-content: var(--__table-column-justification);
-  gap: var(--spacing-1);
-  width: 100%;
+  @layer elements.main {
+    display: inline-grid;
+    grid-template-columns: minmax(auto, min-content) min-content;
+    grid-template-rows: subgrid;
+    align-items: center;
+    justify-content: var(--__table-column-justification);
+    gap: var(--spacing-1);
+    width: 100%;
 
-  border: none;
-  border-radius: var(--border-radius-m);
-  padding: var(--spacing-2);
+    border: none;
+    border-radius: var(--border-radius-m);
+    padding: var(--spacing-2);
 
-  background: transparent;
-  color: var(--colour-text-secondary);
+    background: transparent;
+    color: var(--colour-text-secondary);
 
-  cursor: pointer;
+    cursor: pointer;
 
-  ${font('2xs', 'bold')}
-  text-transform: uppercase;
+    ${font('2xs', 'bold')}
+    text-transform: uppercase;
 
-  &:focus-visible {
-    outline: var(--border-width-double) solid var(--colour-border-focus);
-    outline-offset: var(--border-width-default);
-  }
+    &:focus-visible {
+      outline: var(--border-width-double) solid var(--colour-border-focus);
+      outline-offset: var(--border-width-default);
+    }
 
-  &:hover {
-    background: var(--colour-fill-neutral-lightest);
+    &:hover {
+      background: var(--colour-fill-neutral-lightest);
+    }
   }
 `
 
 export const elTableCellSortButtonIcon = css`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
+  @layer elements.main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
 
-  width: var(--icon_size-s);
-  height: var(--icon_size-s);
+    width: var(--icon_size-s);
+    height: var(--icon_size-s);
 
-  color: var(--colour-icon-disabled);
+    color: var(--colour-icon-disabled);
 
-  [value='ascending'] & {
-    color: var(--colour-icon-secondary);
-    transform: rotate(180deg);
-  }
+    [value='ascending'] & {
+      color: var(--colour-icon-secondary);
+      transform: rotate(180deg);
+    }
 
-  [value='descending'] & {
-    color: var(--colour-icon-secondary);
+    [value='descending'] & {
+      color: var(--colour-icon-secondary);
+    }
   }
 `

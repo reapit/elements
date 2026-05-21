@@ -1,22 +1,28 @@
 import { styled } from '@linaria/react'
 
 export const ElTopBarNavSearch = styled.div`
-  container-name: nav-search;
-  container-type: inline-size;
+  @layer elements.main {
+    container-name: nav-search;
+    container-type: inline-size;
+  }
 `
 
 export const ElTopBarNavSearchButtonContainer = styled.div`
-  display: none;
+  @layer elements.main {
+    display: none;
 
-  @container nav-search (width >= 150px) {
-    display: block;
+    @container nav-search (width >= 150px) {
+      display: block;
+    }
   }
 `
 
 export const ElTopBarNavSearchIconItemContainer = styled.div`
-  display: block;
+  @layer elements.main {
+    display: block;
 
-  @container nav-search (width >= 150px) {
-    display: none;
+    @container nav-search (width >= 150px) {
+      display: none;
+    }
   }
 `

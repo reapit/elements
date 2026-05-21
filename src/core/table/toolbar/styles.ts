@@ -2,27 +2,33 @@ import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 export const ElTableToolbar = styled.div`
-  display: grid;
-  grid-template: 'left-content right-content' 1fr / auto 1fr;
-  align-items: center;
-  width: 100%;
-  height: var(--size-10);
+  @layer elements.main {
+    display: grid;
+    grid-template: 'left-content right-content' 1fr / auto 1fr;
+    align-items: center;
+    width: 100%;
+    height: var(--size-10);
 
-  padding: 0;
+    padding: 0;
 
-  background: var(--colour-fill-white);
+    background: var(--colour-fill-white);
+  }
 `
 
 export const ElTableToolbarLeftContent = styled.div`
-  grid-area: left-content;
-  justify-self: start;
-  color: var(--colour-text-primary);
+  @layer elements.main {
+    grid-area: left-content;
+    justify-self: start;
+    color: var(--colour-text-primary);
 
-  ${font('sm', 'regular')}
-  text-align: left;
+    ${font('sm', 'regular')}
+    text-align: left;
+  }
 `
 
 export const ElTableToolbarRightContent = styled.div`
-  grid-area: right-content;
-  justify-self: end;
+  @layer elements.main {
+    grid-area: right-content;
+    justify-self: end;
+  }
 `

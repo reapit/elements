@@ -7,11 +7,13 @@ import { font } from '#src/utils/font'
  * Color can be customized via --aag-card-value-colour CSS variable.
  */
 export const elAtAGlanceCardValue = css`
-  grid-area: value;
-  align-self: var(--aag-card-value-align-self);
-  color: var(--aag-card-value-colour, var(--colour-text-primary));
-  ${font('2xl', 'bold')}
-  white-space: nowrap;
-  margin: 0;
-  padding: var(--aag-card-value-padding);
+  @layer elements.main {
+    grid-area: value;
+    align-self: var(--aag-card-value-align-self);
+    color: var(--aag-card-value-colour, var(--colour-text-primary));
+    ${font('2xl', 'bold')}
+    white-space: nowrap;
+    margin: 0;
+    padding: var(--aag-card-value-padding);
+  }
 `

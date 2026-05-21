@@ -2,58 +2,66 @@ import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 export const ElAccordionSummary = styled.summary`
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  gap: var(--spacing-3);
-  width: 100%;
+  @layer elements.main {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    gap: var(--spacing-3);
+    width: 100%;
 
-  padding-inline: 0 var(--spacing-2);
-  padding-block: var(--spacing-4);
+    padding-inline: 0 var(--spacing-2);
+    padding-block: var(--spacing-4);
 
-  cursor: pointer;
+    cursor: pointer;
 
-  color: var(--comp-accordion-colour-text);
-  ${font('base', 'medium')}
+    color: var(--comp-accordion-colour-text);
+    ${font('base', 'medium')}
 
-  &:focus-visible {
-    outline: var(--border-width-double) solid var(--colour-border-focus);
-    outline-offset: var(--border-width-default);
-  }
+    &:focus-visible {
+      outline: var(--border-width-double) solid var(--colour-border-focus);
+      outline-offset: var(--border-width-default);
+    }
 
-  /* Ensure the user-agent disclosure marker is hidden */
-  &::marker {
-    display: none;
+    /* Ensure the user-agent disclosure marker is hidden */
+    &::marker {
+      display: none;
+    }
   }
 `
 
 export const ElAccordionSummaryTitle = styled.div`
-  flex: 1;
-  min-width: 0;
+  @layer elements.main {
+    flex: 1;
+    min-width: 0;
+  }
 `
 
 export const ElAccordionSummaryAccessory = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: end;
+  @layer elements.main {
+    display: flex;
+    align-items: center;
+    justify-content: end;
 
-  color: var(--comp-accordion-colour-text);
-  ${font('xs', 'regular')}
+    color: var(--comp-accordion-colour-text);
+    ${font('xs', 'regular')}
+  }
 `
 
 export const ElAccordionSummaryIcon = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  @layer elements.main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  width: var(--icon_size-m);
-  height: var(--icon_size-m);
+    width: var(--icon_size-m);
+    height: var(--icon_size-m);
 
-  color: var(--comp-accordion-colour-icon);
+    color: var(--comp-accordion-colour-icon);
 
-  /* We use :is because it accepts a forgiving selector list, and not all browsers
-   * support the :open selector for details elements. */
-  :is(details:open, details[open]) & {
-    transform: rotate(180deg);
+    /* We use :is because it accepts a forgiving selector list, and not all browsers
+     * support the :open selector for details elements. */
+    :is(details:open, details[open]) & {
+      transform: rotate(180deg);
+    }
   }
 `

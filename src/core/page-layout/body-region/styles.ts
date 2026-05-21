@@ -5,10 +5,12 @@ interface ElPageLayoutBodyRegionProps {
 }
 
 export const ElPageLayoutBodyRegion = styled.main<ElPageLayoutBodyRegionProps>`
-  grid-area: body;
-  container-type: inline-size;
+  @layer elements.main {
+    grid-area: body;
+    container-type: inline-size;
 
-  &[data-overflow='auto'] {
-    overflow: auto;
+    &[data-overflow='auto'] {
+      overflow: auto;
+    }
   }
 `

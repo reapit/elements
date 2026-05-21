@@ -3,54 +3,62 @@ import { styled } from '@linaria/react'
 import { css } from '@linaria/core'
 
 export const elOfficeSwitcherOfficeGroup = css`
-  width: 100%;
+  @layer elements.main {
+    width: 100%;
+  }
 `
 
 export const elOfficeSwitcherOfficeGroupSummary = css`
-  display: flex;
-  gap: var(--spacing-2);
-  align-items: center;
-  padding: var(--spacing-2) var(--spacing-3);
-  border-radius: var(--comp-office_switcher-border-radius);
+  @layer elements.main {
+    display: flex;
+    gap: var(--spacing-2);
+    align-items: center;
+    padding: var(--spacing-2) var(--spacing-3);
+    border-radius: var(--comp-office_switcher-border-radius);
 
-  cursor: pointer;
-  list-style: none;
+    cursor: pointer;
+    list-style: none;
 
-  ${font('sm', 'regular')}
-  color: var(--comp-office_switcher-colour-text-default);
+    ${font('sm', 'regular')}
+    color: var(--comp-office_switcher-colour-text-default);
 
-  &::-webkit-details-marker {
-    display: none;
-  }
+    &::-webkit-details-marker {
+      display: none;
+    }
 
-  &:hover {
-    background-color: var(--comp-office_switcher-colour-fill-hover);
-    color: var(--comp-office_switcher-colour-text-hover);
-  }
+    &:hover {
+      background-color: var(--comp-office_switcher-colour-fill-hover);
+      color: var(--comp-office_switcher-colour-text-hover);
+    }
 
-  &:focus-visible {
-    outline: var(--border-width-double) solid var(--colour-border-focus);
-    outline-offset: var(--border-width-default);
+    &:focus-visible {
+      outline: var(--border-width-double) solid var(--colour-border-focus);
+      outline-offset: var(--border-width-default);
+    }
   }
 `
 
 export const ElOfficeSwitcherOfficeGroupLabel = styled.span`
-  flex: 1 0 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  min-width: 0;
+  @layer elements.main {
+    flex: 1 0 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
 `
 
 export const ElOfficeSwitcherOfficeGroupChevron = styled.span`
-  display: inline-flex;
-  align-items: center;
+  @layer elements.main {
+    display: inline-flex;
+    align-items: center;
 
-  color: var(--comp-office_switcher-colour-icon-default);
-  width: var(--icon_size-m);
-  height: var(--icon_size-m);
+    color: var(--comp-office_switcher-colour-icon-default);
+    width: var(--icon_size-m);
+    height: var(--icon_size-m);
 
-  details:open & {
-    transform: rotate(180deg);
+    details:open & {
+      transform: rotate(180deg);
+    }
   }
 `

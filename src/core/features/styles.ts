@@ -6,19 +6,21 @@ interface ElFeaturesProps {
 }
 
 export const ElFeatures = styled.dl<ElFeaturesProps>`
-  display: inline-flex;
-  align-items: center;
-  gap: var(--spacing-3);
+  @layer elements.main {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--spacing-3);
 
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
 
-  &,
-  &[data-wrap='wrap'] {
-    flex-wrap: wrap;
-  }
+    &,
+    &[data-wrap='wrap'] {
+      flex-wrap: wrap;
+    }
 
-  &[data-wrap='nowrap'] {
-    flex-wrap: nowrap;
+    &[data-wrap='nowrap'] {
+      flex-wrap: nowrap;
+    }
   }
 `

@@ -31,7 +31,7 @@
 - All components MUST follow the namespace interface pattern
 - React contexts MUST follow the context pattern
 - Components with `z-index` MUST follow the z-index layering conventions
-- Overridable default styles MUST use the `@layer default` pattern
+- All component styles MUST use the cascade layering pattern
 - Tests MUST follow testing guidelines
 - Stories MUST follow Storybook documentation guidelines
 - All prose MUST use British English and follow clarity principles

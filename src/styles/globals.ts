@@ -1,23 +1,14 @@
-import { css } from '@linaria/core'
-
+/**
+ * Global styles entry point. Side-effect imports every stylesheet that
+ * must appear in the combined library CSS bundle but does not belong to
+ * a specific component.
+ *
+ * Registered as an explicit build entry point in `vite.config.ts`.
+ * Import order matters: `layer-order.css` must come first.
+ *
+ * See `src/styles/ARCHITECTURE.md` for the full rationale.
+ */
+import './layer-order.css'
 import '#src/tokens/dist/reapit.css'
 import '#src/tokens/dist/payprop.css'
-
-export const elGlobals = css`
-  :global() {
-    @import 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Source+Code+Pro&display=swap';
-
-    *,
-    *::after,
-    *::before {
-      box-sizing: border-box;
-    }
-
-    :root {
-      /** Z-index layering tokens */
-      --z-index-base: 0;
-      --z-index-elevated: 1;
-      --z-index-sticky: 10;
-    }
-  }
-`
+import './globals.css'

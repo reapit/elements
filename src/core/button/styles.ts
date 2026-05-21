@@ -3,245 +3,249 @@ import { styled } from '@linaria/react'
 import { font } from '#src/utils/font'
 
 export const elButton = css`
-  display: inline-flex;
-  place-items: center;
-  place-content: center;
-  gap: var(--spacing-1);
+  @layer elements.base {
+    display: inline-flex;
+    place-items: center;
+    place-content: center;
+    gap: var(--spacing-1);
 
-  border: none;
-  border-radius: var(--comp-button-border-radius-default);
+    border: none;
+    border-radius: var(--comp-button-border-radius-default);
 
-  text-decoration: none;
-  cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
 
-  /* NOTE: we don't want the button's label to wrap */
-  white-space: nowrap;
+    /* NOTE: we don't want the button's label to wrap */
+    white-space: nowrap;
 
-  &:focus-visible {
-    outline: var(--border-width-double) solid var(--colour-border-focus);
-    outline-offset: var(--border-width-default);
-  }
-
-  &:disabled,
-  &[aria-disabled='true'] {
-    cursor: not-allowed;
-  }
-
-  /* Sizes */
-  &[data-size='small'] {
-    height: var(--size-8);
-    padding-inline: var(--spacing-3);
-
-    ${font('sm', 'medium')}
-
-    &[data-is-icon-only='true'] {
-      padding: 0;
-      width: var(--size-8);
-    }
-  }
-
-  &[data-size='medium'] {
-    height: var(--size-9);
-    padding-inline: var(--spacing-4);
-
-    ${font('sm', 'medium')}
-
-    &[data-is-icon-only='true'] {
-      padding: 0;
-      width: var(--size-9);
-    }
-  }
-
-  &[data-size='large'] {
-    height: var(--size-10);
-    padding-inline: var(--spacing-4);
-
-    ${font('base', 'medium')}
-
-    &[data-is-icon-only='true'] {
-      padding: 0;
-      width: var(--size-10);
-    }
-  }
-
-  /* Variants */
-  &[data-variant='primary'] {
-    background: var(--comp-button-colour-fill-primary-default);
-    color: var(--comp-button-colour-text-primary-default);
-
-    &:hover {
-      background: var(--comp-button-colour-fill-primary-hover);
-      color: var(--comp-button-colour-text-primary-hover);
-    }
-
-    &[data-use-ai-style='true'] {
-      background: var(--comp-button-colour-fill-primary-ai-default);
-      color: var(--comp-button-colour-text-primary-ai-default);
-
-      &:hover {
-        background: var(--comp-button-colour-fill-primary-ai-hover);
-        color: var(--comp-button-colour-text-primary-ai-hover);
-      }
-    }
-
-    /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
-    &[data-is-destructive='true'] {
-      background: var(--comp-button-colour-fill-primary-destructive-default);
-      color: var(--comp-button-colour-text-primary-destructive-default);
-
-      &:hover {
-        background: var(--comp-button-colour-fill-primary-destructive-hover);
-        color: var(--comp-button-colour-text-primary-destructive-hover);
-      }
+    &:focus-visible {
+      outline: var(--border-width-double) solid var(--colour-border-focus);
+      outline-offset: var(--border-width-default);
     }
 
     &:disabled,
-    &:disabled:hover,
-    &[aria-disabled='true'],
-    &[aria-disabled='true']:hover {
-      background: var(--comp-button-colour-fill-primary-disabled);
-      color: var(--comp-button-colour-text-primary-disabled);
-    }
-  }
-
-  &[data-variant='secondary'] {
-    border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
-    background: var(--comp-button-colour-fill-secondary-default);
-    color: var(--comp-button-colour-text-secondary-default);
-
-    &:hover {
-      border-color: var(--comp-button-colour-border-secondary-hover);
-      background: var(--comp-button-colour-fill-secondary-hover);
-      color: var(--comp-button-colour-text-secondary-hover);
+    &[aria-disabled='true'] {
+      cursor: not-allowed;
     }
 
-    &[data-use-ai-style='true'] {
-      border-color: var(--comp-button-colour-border-secondary-ai-default);
-      background: var(--comp-button-colour-fill-secondary-ai-default);
-      color: var(--comp-button-colour-text-secondary-ai-default);
+    /* Sizes */
+    &[data-size='small'] {
+      height: var(--size-8);
+      padding-inline: var(--spacing-3);
 
-      &:hover {
-        border-color: var(--comp-button-colour-border-secondary-ai-hover);
-        background: var(--comp-button-colour-fill-secondary-ai-hover);
-        color: var(--comp-button-colour-text-secondary-ai-hover);
-      }
-    }
-
-    /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
-    &[data-is-destructive='true'] {
-      border-color: var(--comp-button-colour-border-secondary-destructive-default);
-      background: var(--comp-button-colour-fill-secondary-destructive-default);
-      color: var(--comp-button-colour-text-secondary-destructive-default);
-
-      &:hover {
-        border-color: var(--comp-button-colour-border-secondary-destructive-hover);
-        background: var(--comp-button-colour-fill-secondary-destructive-hover);
-        color: var(--comp-button-colour-text-secondary-destructive-hover);
-      }
-    }
-
-    &:disabled,
-    &:disabled:hover,
-    &[aria-disabled='true'],
-    &[aria-disabled='true']:hover {
-      border-color: transparent;
-      background: var(--comp-button-colour-fill-secondary-disabled);
-      color: var(--comp-button-colour-text-secondary-disabled);
-    }
-  }
-
-  &[data-variant='tertiary'] {
-    background: var(--comp-button-colour-fill-tertiary-default);
-    color: var(--comp-button-colour-text-tertiary-default);
-
-    &:hover {
-      background: var(--comp-button-colour-fill-tertiary-hover);
-      color: var(--comp-button-colour-text-tertiary-hover);
-    }
-
-    &[data-has-no-padding='true'] {
-      height: fit-content;
-      padding: 0;
+      ${font('sm', 'medium')}
 
       &[data-is-icon-only='true'] {
-        width: auto;
+        padding: 0;
+        width: var(--size-8);
       }
     }
 
-    &[data-use-link-style='true'] {
-      color: var(--comp-button-colour-text-tertiary-link);
+    &[data-size='medium'] {
+      height: var(--size-9);
+      padding-inline: var(--spacing-4);
+
+      ${font('sm', 'medium')}
+
+      &[data-is-icon-only='true'] {
+        padding: 0;
+        width: var(--size-9);
+      }
+    }
+
+    &[data-size='large'] {
+      height: var(--size-10);
+      padding-inline: var(--spacing-4);
+
+      ${font('base', 'medium')}
+
+      &[data-is-icon-only='true'] {
+        padding: 0;
+        width: var(--size-10);
+      }
+    }
+
+    /* Variants */
+    &[data-variant='primary'] {
+      background: var(--comp-button-colour-fill-primary-default);
+      color: var(--comp-button-colour-text-primary-default);
 
       &:hover {
-        color: var(--comp-button-colour-text-tertiary-link_hover);
+        background: var(--comp-button-colour-fill-primary-hover);
+        color: var(--comp-button-colour-text-primary-hover);
+      }
+
+      &[data-use-ai-style='true'] {
+        background: var(--comp-button-colour-fill-primary-ai-default);
+        color: var(--comp-button-colour-text-primary-ai-default);
+
+        &:hover {
+          background: var(--comp-button-colour-fill-primary-ai-hover);
+          color: var(--comp-button-colour-text-primary-ai-hover);
+        }
+      }
+
+      /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
+      &[data-is-destructive='true'] {
+        background: var(--comp-button-colour-fill-primary-destructive-default);
+        color: var(--comp-button-colour-text-primary-destructive-default);
+
+        &:hover {
+          background: var(--comp-button-colour-fill-primary-destructive-hover);
+          color: var(--comp-button-colour-text-primary-destructive-hover);
+        }
+      }
+
+      &:disabled,
+      &:disabled:hover,
+      &[aria-disabled='true'],
+      &[aria-disabled='true']:hover {
+        background: var(--comp-button-colour-fill-primary-disabled);
+        color: var(--comp-button-colour-text-primary-disabled);
       }
     }
 
-    /* NOTE: data-use-ai-style must come after data-use-link-style so it takes visual precedence. */
-    &[data-use-ai-style='true'] {
-      background: var(--comp-button-colour-fill-tertiary-ai-default);
-      color: var(--comp-button-colour-text-tertiary-ai-default);
+    &[data-variant='secondary'] {
+      border: var(--comp-button-border-width-default) solid var(--comp-button-colour-border-secondary-default);
+      background: var(--comp-button-colour-fill-secondary-default);
+      color: var(--comp-button-colour-text-secondary-default);
 
       &:hover {
-        background: var(--comp-button-colour-fill-tertiary-ai-hover);
-        color: var(--comp-button-colour-text-tertiary-ai-hover);
+        border-color: var(--comp-button-colour-border-secondary-hover);
+        background: var(--comp-button-colour-fill-secondary-hover);
+        color: var(--comp-button-colour-text-secondary-hover);
+      }
+
+      &[data-use-ai-style='true'] {
+        border-color: var(--comp-button-colour-border-secondary-ai-default);
+        background: var(--comp-button-colour-fill-secondary-ai-default);
+        color: var(--comp-button-colour-text-secondary-ai-default);
+
+        &:hover {
+          border-color: var(--comp-button-colour-border-secondary-ai-hover);
+          background: var(--comp-button-colour-fill-secondary-ai-hover);
+          color: var(--comp-button-colour-text-secondary-ai-hover);
+        }
+      }
+
+      /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
+      &[data-is-destructive='true'] {
+        border-color: var(--comp-button-colour-border-secondary-destructive-default);
+        background: var(--comp-button-colour-fill-secondary-destructive-default);
+        color: var(--comp-button-colour-text-secondary-destructive-default);
+
+        &:hover {
+          border-color: var(--comp-button-colour-border-secondary-destructive-hover);
+          background: var(--comp-button-colour-fill-secondary-destructive-hover);
+          color: var(--comp-button-colour-text-secondary-destructive-hover);
+        }
+      }
+
+      &:disabled,
+      &:disabled:hover,
+      &[aria-disabled='true'],
+      &[aria-disabled='true']:hover {
+        border-color: transparent;
+        background: var(--comp-button-colour-fill-secondary-disabled);
+        color: var(--comp-button-colour-text-secondary-disabled);
       }
     }
 
-    /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
-    &[data-is-destructive='true'] {
-      background: var(--comp-button-colour-fill-tertiary-destructive-default);
-      color: var(--comp-button-colour-text-tertiary-destructive-default);
+    &[data-variant='tertiary'] {
+      background: var(--comp-button-colour-fill-tertiary-default);
+      color: var(--comp-button-colour-text-tertiary-default);
 
       &:hover {
-        background: var(--comp-button-colour-fill-tertiary-destructive-hover);
-        color: var(--comp-button-colour-text-tertiary-destructive-hover);
+        background: var(--comp-button-colour-fill-tertiary-hover);
+        color: var(--comp-button-colour-text-tertiary-hover);
       }
-    }
 
-    /* NOTE: disabled styles come last so they override the other styles. This is necessary because they have the
-    * same specificity as the other styles. */
-    &:disabled,
-    &:disabled:hover,
-    &[aria-disabled='true'],
-    &[aria-disabled='true']:hover {
-      background: var(--comp-button-colour-fill-tertiary-disabled);
-      color: var(--comp-button-colour-text-tertiary-disabled);
+      &[data-has-no-padding='true'] {
+        height: fit-content;
+        padding: 0;
+
+        &[data-is-icon-only='true'] {
+          width: auto;
+        }
+      }
+
+      &[data-use-link-style='true'] {
+        color: var(--comp-button-colour-text-tertiary-link);
+
+        &:hover {
+          color: var(--comp-button-colour-text-tertiary-link_hover);
+        }
+      }
+
+      /* NOTE: data-use-ai-style must come after data-use-link-style so it takes visual precedence. */
+      &[data-use-ai-style='true'] {
+        background: var(--comp-button-colour-fill-tertiary-ai-default);
+        color: var(--comp-button-colour-text-tertiary-ai-default);
+
+        &:hover {
+          background: var(--comp-button-colour-fill-tertiary-ai-hover);
+          color: var(--comp-button-colour-text-tertiary-ai-hover);
+        }
+      }
+
+      /* NOTE: data-is-destructive must come after data-use-ai-style so it takes visual precedence. */
+      &[data-is-destructive='true'] {
+        background: var(--comp-button-colour-fill-tertiary-destructive-default);
+        color: var(--comp-button-colour-text-tertiary-destructive-default);
+
+        &:hover {
+          background: var(--comp-button-colour-fill-tertiary-destructive-hover);
+          color: var(--comp-button-colour-text-tertiary-destructive-hover);
+        }
+      }
+
+      /* NOTE: disabled styles come last so they override the other styles. This is necessary because they have the
+      * same specificity as the other styles. */
+      &:disabled,
+      &:disabled:hover,
+      &[aria-disabled='true'],
+      &[aria-disabled='true']:hover {
+        background: var(--comp-button-colour-fill-tertiary-disabled);
+        color: var(--comp-button-colour-text-tertiary-disabled);
+      }
     }
   }
 `
 
 export const ElButtonIconContainer = styled.span`
-  box-sizing: content-box;
+  @layer elements.base {
+    box-sizing: content-box;
 
-  display: flex;
-  place-items: center;
-  place-content: center;
+    display: flex;
+    place-items: center;
+    place-content: center;
 
-  /* Sizes */
-  [data-size='small'] & {
-    padding: var(--spacing-half);
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
+    /* Sizes */
+    [data-size='small'] & {
+      padding: var(--spacing-half);
+      width: var(--icon_size-s);
+      height: var(--icon_size-s);
+    }
+
+    [data-size='medium'] & {
+      padding: var(--spacing-half);
+      width: var(--icon_size-s);
+      height: var(--icon_size-s);
+    }
+
+    [data-size='large'] & {
+      padding: var(--spacing-half);
+      width: var(--icon_size-m);
+      height: var(--icon_size-m);
+    }
+
+    /* Variants */
+    ${generateElButtonIconContainerVariantStyles('primary')}
+
+    ${generateElButtonIconContainerVariantStyles('secondary')}
+
+    ${generateElButtonIconContainerVariantStyles('tertiary')}
   }
-
-  [data-size='medium'] & {
-    padding: var(--spacing-half);
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
-  }
-
-  [data-size='large'] & {
-    padding: var(--spacing-half);
-    width: var(--icon_size-m);
-    height: var(--icon_size-m);
-  }
-
-  /* Variants */
-  ${generateElButtonIconContainerVariantStyles('primary')}
-
-  ${generateElButtonIconContainerVariantStyles('secondary')}
-
-  ${generateElButtonIconContainerVariantStyles('tertiary')}
 `
 
 function generateElButtonIconContainerVariantStyles(variant: 'primary' | 'secondary' | 'tertiary') {
@@ -298,14 +302,16 @@ function generateElButtonIconContainerVariantStyles(variant: 'primary' | 'second
 }
 
 export const elButtonSpinner = css`
-  animation: spin 1s linear infinite;
+  @layer elements.base {
+    animation: spin 1s linear infinite;
 
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
     }
   }
 `

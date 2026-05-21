@@ -2,12 +2,14 @@ import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 export const ElEmptyStateDescription = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  @layer elements.main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-  text-align: center;
+    text-align: center;
+  }
 `
 
 export const ElEmptyStateDescriptionTitle = styled.h3`
@@ -19,9 +21,11 @@ export const ElEmptyStateDescriptionTitle = styled.h3`
 `
 
 export const ElEmptyStateDescriptionSecondaryText = styled.p`
-  color: var(--colour-text-secondary);
-  ${font('sm', 'regular')}
+  @layer elements.main {
+    color: var(--colour-text-secondary);
+    ${font('sm', 'regular')}
 
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+  }
 `

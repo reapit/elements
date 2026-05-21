@@ -2,28 +2,32 @@ import { font } from '#src/utils/font'
 import { styled } from '@linaria/react'
 
 export const ElBreadcrumbLink = styled.a`
-  color: var(--colour-text-secondary);
+  @layer elements.main {
+    color: var(--colour-text-secondary);
 
-  ${font('sm', 'regular')}
+    ${font('sm', 'regular')}
 
-  cursor: pointer;
-  text-decoration: none;
+    cursor: pointer;
+    text-decoration: none;
 
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 
-  &:focus-visible {
-    outline: var(--border-width-double) solid var(--colour-border-focus);
-    outline-offset: var(--border-width-default);
-  }
+    &:focus-visible {
+      outline: var(--border-width-double) solid var(--colour-border-focus);
+      outline-offset: var(--border-width-default);
+    }
 
-  &:hover {
-    text-decoration: underline;
+    &:hover {
+      text-decoration: underline;
+    }
   }
 `
 
 export const ElBreadcrumbLinkContent = styled.span`
-  color: inherit;
-  font: inherit;
+  @layer elements.main {
+    color: inherit;
+    font: inherit;
+  }
 `

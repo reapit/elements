@@ -1,16 +1,18 @@
 import { styled } from '@linaria/react'
 
 export const ElEmptyState = styled.div`
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-  gap: var(--spacing-3);
+  @layer elements.main {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-3);
 
-  width: 100%;
-  overflow: hidden;
+    width: 100%;
+    overflow: hidden;
 
-  padding: var(--spacing-6);
-  border-radius: var(--border-radius-l);
-  background: var(--colour-fill-neutral-lightest);
+    padding: var(--spacing-6);
+    border-radius: var(--border-radius-l);
+    background: var(--colour-fill-neutral-lightest);
+  }
 `

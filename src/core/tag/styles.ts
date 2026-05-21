@@ -13,18 +13,20 @@ interface ElTagProps {
 }
 
 export const ElTag = styled.span<ElTagProps>`
-  display: inline-grid;
-  align-items: center;
-  max-width: var(--tag-max_width, auto);
-  width: fit-content;
+  @layer elements.main {
+    display: inline-grid;
+    align-items: center;
+    max-width: var(--tag-max_width, auto);
+    width: fit-content;
 
-  padding: var(--spacing-half) var(--spacing-3);
+    padding: var(--spacing-half) var(--spacing-3);
 
-  border-radius: var(--comp-tag-border-radius);
-  background: var(--comp-tag-colour-fill);
-  color: var(--comp-tag-colour-text);
+    border-radius: var(--comp-tag-border-radius);
+    background: var(--comp-tag-colour-fill);
+    color: var(--comp-tag-colour-text);
 
-  ${font('xs', 'medium')}
+    ${font('xs', 'medium')}
+  }
 `
 
 interface ElTagLabelProps {
@@ -32,14 +34,16 @@ interface ElTagLabelProps {
 }
 
 export const ElTagLabel = styled.span<ElTagLabelProps>`
-  max-width: var(--tag-max_width);
+  @layer elements.main {
+    max-width: var(--tag-max_width);
 
-  font: inherit;
-  text-align: left;
-  white-space: nowrap;
+    font: inherit;
+    text-align: left;
+    white-space: nowrap;
 
-  &[data-overflow='truncate'] {
-    overflow: hidden;
-    text-overflow: ellipsis;
+    &[data-overflow='truncate'] {
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
   }
 `

@@ -2,11 +2,13 @@ import { styled } from '@linaria/react'
 import { font } from '#src/utils/font'
 
 export const ElAtAGlanceHeader = styled.header`
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: start;
-  gap: var(--spacing-2);
-  width: 100%;
+  @layer elements.main {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: start;
+    gap: var(--spacing-2);
+    width: 100%;
+  }
 `
 
 export const ElAtAGlanceHeaderTitle = styled.h1`

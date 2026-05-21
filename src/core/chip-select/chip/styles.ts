@@ -6,130 +6,136 @@ interface ElChipSelectChipProps {
 }
 
 export const ElChipSelectChip = styled.label<ElChipSelectChipProps>`
-  position: relative;
-  display: inline-flex;
-  gap: var(--spacing-1);
+  @layer elements.main {
+    position: relative;
+    display: inline-flex;
+    gap: var(--spacing-1);
 
-  width: fit-content;
-  /* NOTE: max-width can be overridden via inline styles when an explicit maxWidth prop is provided
-   * to ChipSelectOption */
-  max-width: 100%;
+    width: fit-content;
+    /* NOTE: max-width can be overridden via inline styles when an explicit maxWidth prop is provided
+     * to ChipSelectOption */
+    max-width: 100%;
 
-  background: var(--colour-white);
+    background: var(--colour-white);
 
-  align-items: center;
-  border: var(--comp-interactive_chip-border-width) solid var(--comp-interactive_chip-colour-border-default);
-  border-radius: var(--comp-interactive_chip-border-radius);
-  cursor: pointer;
+    align-items: center;
+    border: var(--comp-interactive_chip-border-width) solid var(--comp-interactive_chip-colour-border-default);
+    border-radius: var(--comp-interactive_chip-border-radius);
+    cursor: pointer;
 
-  &:hover {
-    background: var(--comp-interactive_chip-colour-fill-hover-unselected);
-    border-color: var(--comp-interactive_chip-colour-border-hover);
-  }
+    &:hover {
+      background: var(--comp-interactive_chip-colour-fill-hover-unselected);
+      border-color: var(--comp-interactive_chip-colour-border-hover);
+    }
 
-  &:has(input:checked) {
-    border-color: var(--comp-interactive_chip-colour-fill-default-selected);
-    background: var(--comp-interactive_chip-colour-fill-default-selected);
-    color: var(--comp-interactive_chip-colour-text-default-selected);
-  }
+    &:has(input:checked) {
+      border-color: var(--comp-interactive_chip-colour-fill-default-selected);
+      background: var(--comp-interactive_chip-colour-fill-default-selected);
+      color: var(--comp-interactive_chip-colour-text-default-selected);
+    }
 
-  &:has(input:focus-visible) {
-    outline: var(--border-width-double) solid var(--colour-border-focus);
-    outline-offset: var(--border-width-default);
-  }
+    &:has(input:focus-visible) {
+      outline: var(--border-width-double) solid var(--colour-border-focus);
+      outline-offset: var(--border-width-default);
+    }
 
-  &:has(input:disabled) {
-    cursor: not-allowed;
-  }
+    &:has(input:disabled) {
+      cursor: not-allowed;
+    }
 
-  &:has(input:disabled),
-  &:has(input[readonly]) {
-    background: var(--comp-interactive_chip-colour-fill-disabled-unselected);
-    border-color: var(--comp-interactive_chip-colour-fill-disabled-unselected);
-    color: var(--comp-interactive_chip-colour-text-disabled-unselected);
-  }
+    &:has(input:disabled),
+    &:has(input[readonly]) {
+      background: var(--comp-interactive_chip-colour-fill-disabled-unselected);
+      border-color: var(--comp-interactive_chip-colour-fill-disabled-unselected);
+      color: var(--comp-interactive_chip-colour-text-disabled-unselected);
+    }
 
-  &:has(input:checked:disabled),
-  &:has(input[readonly]:checked) {
-    border-color: var(--comp-interactive_chip-colour-fill-disabled-selected);
-    background: var(--comp-interactive_chip-colour-fill-disabled-selected);
-    color: var(--comp-interactive_chip-colour-text-disabled-selected);
-  }
+    &:has(input:checked:disabled),
+    &:has(input[readonly]:checked) {
+      border-color: var(--comp-interactive_chip-colour-fill-disabled-selected);
+      background: var(--comp-interactive_chip-colour-fill-disabled-selected);
+      color: var(--comp-interactive_chip-colour-text-disabled-selected);
+    }
 
-  &:has(input:checked):hover {
-    border-color: var(--comp-interactive_chip-colour-fill-hover-selected);
-    background: var(--comp-interactive_chip-colour-fill-hover-selected);
-    color: var(--comp-interactive_chip-colour-text-hover-selected);
-  }
+    &:has(input:checked):hover {
+      border-color: var(--comp-interactive_chip-colour-fill-hover-selected);
+      background: var(--comp-interactive_chip-colour-fill-hover-selected);
+      color: var(--comp-interactive_chip-colour-text-hover-selected);
+    }
 
-  &[data-size='small'] {
-    height: var(--size-8);
-    padding-inline: var(--spacing-3);
-  }
-  &[data-size='medium'] {
-    height: var(--size-9);
-    padding-inline: var(--spacing-4);
-  }
-  &[data-size='large'] {
-    height: var(--size-10);
-    padding-inline: var(--spacing-4);
+    &[data-size='small'] {
+      height: var(--size-8);
+      padding-inline: var(--spacing-3);
+    }
+    &[data-size='medium'] {
+      height: var(--size-9);
+      padding-inline: var(--spacing-4);
+    }
+    &[data-size='large'] {
+      height: var(--size-10);
+      padding-inline: var(--spacing-4);
+    }
   }
 `
 
 export const ElChipSelectChipInput = styled.input`
-  /* Visually hide the checkbox but keep it accessible */
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  outline: none;
-  border: 0;
+  @layer elements.main {
+    /* Visually hide the checkbox but keep it accessible */
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    outline: none;
+    border: 0;
+  }
 `
 
 export const ElChipSelectChipIconContainer = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex: 0 0 auto;
+  @layer elements.main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 auto;
 
-  box-sizing: content-box;
+    box-sizing: content-box;
 
-  padding: var(--spacing-half);
+    padding: var(--spacing-half);
 
-  color: var(--comp-interactive_chip-colour-icon-default-unselected);
+    color: var(--comp-interactive_chip-colour-icon-default-unselected);
 
-  [data-size='small'] &,
-  [data-size='medium'] & {
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
-  }
-  [data-size='large'] & {
-    width: var(--icon_size-m);
-    height: var(--icon_size-m);
-  }
+    [data-size='small'] &,
+    [data-size='medium'] & {
+      width: var(--icon_size-s);
+      height: var(--icon_size-s);
+    }
+    [data-size='large'] & {
+      width: var(--icon_size-m);
+      height: var(--icon_size-m);
+    }
 
-  input:checked ~ & {
-    color: var(--comp-interactive_chip-colour-icon-default-selected);
-  }
+    input:checked ~ & {
+      color: var(--comp-interactive_chip-colour-icon-default-selected);
+    }
 
-  label:hover ~ & {
-    color: var(--comp-interactive_chip-colour-icon-hover-unselected);
-  }
+    label:hover ~ & {
+      color: var(--comp-interactive_chip-colour-icon-hover-unselected);
+    }
 
-  input:is(:disabled, [readonly]) ~ & {
-    color: var(--comp-interactive_chip-colour-icon-disabled-unselected);
-  }
+    input:is(:disabled, [readonly]) ~ & {
+      color: var(--comp-interactive_chip-colour-icon-disabled-unselected);
+    }
 
-  input:is(:disabled, [readonly]):checked ~ & {
-    color: var(--comp-interactive_chip-colour-icon-disabled-selected);
-  }
+    input:is(:disabled, [readonly]):checked ~ & {
+      color: var(--comp-interactive_chip-colour-icon-disabled-selected);
+    }
 
-  label:hover:has(input:checked) ~ & {
-    color: var(--comp-interactive_chip-colour-icon-hover-selected);
+    label:hover:has(input:checked) ~ & {
+      color: var(--comp-interactive_chip-colour-icon-hover-selected);
+    }
   }
 `
 
@@ -138,20 +144,22 @@ interface ElChipSelectChipLabelTextProps {
 }
 
 export const ElChipSelectChipLabelText = styled.span<ElChipSelectChipLabelTextProps>`
-  display: inline-block;
-  padding-inline: var(--spacing-half);
+  @layer elements.main {
+    display: inline-block;
+    padding-inline: var(--spacing-half);
 
-  text-align: left;
+    text-align: left;
 
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 
-  [data-size='small'] &,
-  [data-size='medium'] & {
-    ${font('sm', 'medium')}
-  }
-  [data-size='large'] & {
-    ${font('base', 'medium')}
+    [data-size='small'] &,
+    [data-size='medium'] & {
+      ${font('sm', 'medium')}
+    }
+    [data-size='large'] & {
+      ${font('base', 'medium')}
+    }
   }
 `

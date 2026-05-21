@@ -4,6 +4,7 @@ import fs from 'node:fs'
 import react from '@vitejs/plugin-react'
 import svgr from 'vite-plugin-svgr'
 import wyw from '@wyw-in-js/vite'
+import { cascadeLayerOrder } from './build/cascade-layer-order'
 import { withSerialisedTransform } from './build/with-serialised-transform'
 import packageManifest from './package.json'
 import path from 'node:path'
@@ -120,6 +121,7 @@ export default defineConfig({
   plugins: [
     react(),
     svgr(),
+    cascadeLayerOrder(),
     withSerialisedTransform(
       wyw({
         // NOTE: We only want to run wyw-in-js on components, not our codemods, because the wyw

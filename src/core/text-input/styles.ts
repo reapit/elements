@@ -13,106 +13,108 @@ interface ElTextInputContainerProps {
 }
 
 export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
-  position: relative;
-  display: inline-flex;
-  align-items: center;
-  max-width: var(--input-max-width, 100%);
-  width: 100%;
+  @layer elements.main {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    max-width: var(--input-max-width, 100%);
+    width: 100%;
 
-  padding: 0;
+    padding: 0;
 
-  background: var(--comp-input-colour-fill-default-background);
-  border-radius: var(--comp-input-border-radius);
-  border: var(--comp-input-border-width) solid var(--comp-input-colour-border-default);
-  --input-affix-colour: var(--comp-input-colour-text-default-placeholder);
-  --input-icon-colour: var(--comp-input-colour-icon-default);
-  --input-placeholder-colour: var(--comp-input-colour-text-default-placeholder);
-  --input-text-colour: var(--comp-input-colour-text-default-input);
-
-  &[data-size='small'] {
-    ${font('xs', 'regular')}
-    height: var(--size-8);
-    /* Padding between an addon (affix text or icon) and the container border */
-    --input-addon-outer-padding: var(--spacing-2);
-    --input-icon-size: var(--icon_size-s);
-  }
-  /* NOTE: medium is the default size */
-  &,
-  &[data-size='medium'] {
-    ${font('sm', 'regular')}
-    height: var(--size-9);
-    --input-addon-outer-padding: var(--spacing-3);
-    --input-icon-size: var(--icon_size-s);
-  }
-  &[data-size='large'] {
-    ${font('base', 'regular')}
-    height: var(--size-10);
-    --input-addon-outer-padding: var(--spacing-3);
-    --input-icon-size: var(--icon_size-m);
-  }
-
-  &[data-variant='borderless'] {
-    border-style: none;
-  }
-
-  /* NOTE: we only use the invalid styles if the input is invalid AND has the data-show-validity
-   * attribute set to true. Further, we use :where to ensure data-show-validity does not increase
-   * the specificity of our selector, otherwise these styles would override our focus styles.
-   * aria-invalid="true" is also supported as an alternative to the native :invalid pseudo-class,
-   * for cases where the element is not natively invalid (e.g. server-side validation). */
-  &:has(input:invalid:where([data-show-validity='true'])),
-  &:has(input:user-invalid:where([data-show-validity='true'])),
-  &:has(input:where([aria-invalid='true'][data-show-validity='true'])) {
-    background: var(--comp-input-colour-fill-error-background);
-    border-color: var(--comp-input-colour-border-error);
-    --input-affix-colour: var(--comp-input-colour-text-error-placeholder);
-    --input-icon-colour: var(--comp-input-colour-icon-error);
-    --input-placeholder-colour: var(--comp-input-colour-text-error-placeholder);
-    --input-text-colour: var(--comp-input-colour-text-error-input);
-  }
-
-  /* NOTE: focus styles come after invalid styles to ensure they take precedence */
-  &:has(input:focus-visible) {
-    background: var(--comp-input-colour-fill-focused-background);
-    border-color: var(--comp-input-colour-border-focused);
-    --input-affix-colour: var(--comp-input-colour-text-focused-placeholder);
-    --input-icon-colour: var(--comp-input-colour-icon-focused);
-    --input-placeholder-colour: var(--comp-input-colour-text-focused-placeholder);
-    --input-text-colour: var(--comp-input-colour-text-focused-input);
-  }
-
-  /* NOTE: the borderless variant hides the border via border-style: none, which persists
-   * through state-based border-color changes. We restore the border only on focus so the
-   * focus ring is visible. */
-  &[data-variant='borderless']:has(input:focus-visible) {
-    border-style: solid;
-  }
-
-  &[aria-busy='true'] {
-    background: var(--comp-input-colour-fill-busy-background);
-    border-color: var(--comp-input-colour-border-busy);
-    --input-affix-colour: var(--comp-input-colour-text-busy-placeholder);
-    --input-icon-colour: var(--comp-input-colour-icon-busy);
-    --input-placeholder-colour: var(--comp-input-colour-text-busy-placeholder);
-    --input-text-colour: var(--comp-input-colour-text-busy-input);
-  }
-
-  &:has(input:disabled) {
-    background: var(--comp-input-colour-fill-disabled-background);
-    border-color: var(--comp-input-colour-border-disabled);
-    --input-affix-colour: var(--comp-input-colour-text-disabled-placeholder);
-    --input-icon-colour: var(--comp-input-colour-icon-disabled);
-    --input-placeholder-colour: var(--comp-input-colour-text-disabled-placeholder);
-    --input-text-colour: var(--comp-input-colour-text-disabled-input);
-  }
-
-  &:has(input:read-only:not(:disabled)) {
-    background: var(--comp-input-colour-fill-read_only-background);
-    border-color: var(--comp-input-colour-fill-read_only-background);
+    background: var(--comp-input-colour-fill-default-background);
+    border-radius: var(--comp-input-border-radius);
+    border: var(--comp-input-border-width) solid var(--comp-input-colour-border-default);
     --input-affix-colour: var(--comp-input-colour-text-default-placeholder);
-    --input-icon-colour: var(--comp-input-colour-icon-read_only);
+    --input-icon-colour: var(--comp-input-colour-icon-default);
     --input-placeholder-colour: var(--comp-input-colour-text-default-placeholder);
-    --input-text-colour: var(--comp-input-colour-text-read_only-input);
+    --input-text-colour: var(--comp-input-colour-text-default-input);
+
+    &[data-size='small'] {
+      ${font('xs', 'regular')}
+      height: var(--size-8);
+      /* Padding between an addon (affix text or icon) and the container border */
+      --input-addon-outer-padding: var(--spacing-2);
+      --input-icon-size: var(--icon_size-s);
+    }
+    /* NOTE: medium is the default size */
+    &,
+    &[data-size='medium'] {
+      ${font('sm', 'regular')}
+      height: var(--size-9);
+      --input-addon-outer-padding: var(--spacing-3);
+      --input-icon-size: var(--icon_size-s);
+    }
+    &[data-size='large'] {
+      ${font('base', 'regular')}
+      height: var(--size-10);
+      --input-addon-outer-padding: var(--spacing-3);
+      --input-icon-size: var(--icon_size-m);
+    }
+
+    &[data-variant='borderless'] {
+      border-style: none;
+    }
+
+    /* NOTE: we only use the invalid styles if the input is invalid AND has the data-show-validity
+     * attribute set to true. Further, we use :where to ensure data-show-validity does not increase
+     * the specificity of our selector, otherwise these styles would override our focus styles.
+     * aria-invalid="true" is also supported as an alternative to the native :invalid pseudo-class,
+     * for cases where the element is not natively invalid (e.g. server-side validation). */
+    &:has(input:invalid:where([data-show-validity='true'])),
+    &:has(input:user-invalid:where([data-show-validity='true'])),
+    &:has(input:where([aria-invalid='true'][data-show-validity='true'])) {
+      background: var(--comp-input-colour-fill-error-background);
+      border-color: var(--comp-input-colour-border-error);
+      --input-affix-colour: var(--comp-input-colour-text-error-placeholder);
+      --input-icon-colour: var(--comp-input-colour-icon-error);
+      --input-placeholder-colour: var(--comp-input-colour-text-error-placeholder);
+      --input-text-colour: var(--comp-input-colour-text-error-input);
+    }
+
+    /* NOTE: focus styles come after invalid styles to ensure they take precedence */
+    &:has(input:focus-visible) {
+      background: var(--comp-input-colour-fill-focused-background);
+      border-color: var(--comp-input-colour-border-focused);
+      --input-affix-colour: var(--comp-input-colour-text-focused-placeholder);
+      --input-icon-colour: var(--comp-input-colour-icon-focused);
+      --input-placeholder-colour: var(--comp-input-colour-text-focused-placeholder);
+      --input-text-colour: var(--comp-input-colour-text-focused-input);
+    }
+
+    /* NOTE: the borderless variant hides the border via border-style: none, which persists
+     * through state-based border-color changes. We restore the border only on focus so the
+     * focus ring is visible. */
+    &[data-variant='borderless']:has(input:focus-visible) {
+      border-style: solid;
+    }
+
+    &[aria-busy='true'] {
+      background: var(--comp-input-colour-fill-busy-background);
+      border-color: var(--comp-input-colour-border-busy);
+      --input-affix-colour: var(--comp-input-colour-text-busy-placeholder);
+      --input-icon-colour: var(--comp-input-colour-icon-busy);
+      --input-placeholder-colour: var(--comp-input-colour-text-busy-placeholder);
+      --input-text-colour: var(--comp-input-colour-text-busy-input);
+    }
+
+    &:has(input:disabled) {
+      background: var(--comp-input-colour-fill-disabled-background);
+      border-color: var(--comp-input-colour-border-disabled);
+      --input-affix-colour: var(--comp-input-colour-text-disabled-placeholder);
+      --input-icon-colour: var(--comp-input-colour-icon-disabled);
+      --input-placeholder-colour: var(--comp-input-colour-text-disabled-placeholder);
+      --input-text-colour: var(--comp-input-colour-text-disabled-input);
+    }
+
+    &:has(input:read-only:not(:disabled)) {
+      background: var(--comp-input-colour-fill-read_only-background);
+      border-color: var(--comp-input-colour-fill-read_only-background);
+      --input-affix-colour: var(--comp-input-colour-text-default-placeholder);
+      --input-icon-colour: var(--comp-input-colour-icon-read_only);
+      --input-placeholder-colour: var(--comp-input-colour-text-default-placeholder);
+      --input-text-colour: var(--comp-input-colour-text-read_only-input);
+    }
   }
 `
 
@@ -122,101 +124,109 @@ interface ElTextInputProps {
 }
 
 export const ElTextInput = styled.input<ElTextInputProps>`
-  flex: 1;
-  min-width: 0;
+  @layer elements.main {
+    flex: 1;
+    min-width: 0;
 
-  appearance: none;
-  background: transparent;
+    appearance: none;
+    background: transparent;
 
-  padding-inline: var(--spacing-3);
+    padding-inline: var(--spacing-3);
 
-  &:not(:first-child) {
-    padding-inline-start: 0;
-  }
-  &:not(:last-child) {
-    padding-inline-end: 0;
-  }
+    &:not(:first-child) {
+      padding-inline-start: 0;
+    }
+    &:not(:last-child) {
+      padding-inline-end: 0;
+    }
 
-  height: 100%;
-  border: none;
-  outline: none;
+    height: 100%;
+    border: none;
+    outline: none;
 
-  font: inherit;
+    font: inherit;
 
-  color: var(--input-text-colour);
-  &::placeholder {
-    color: var(--input-placeholder-colour);
-  }
+    color: var(--input-text-colour);
+    &::placeholder {
+      color: var(--input-placeholder-colour);
+    }
 
-  /* NOTE: WebKit browsers display a calendar icon for date inputs that we need to hide */
-  &::-webkit-calendar-picker-indicator,
-  &::-webkit-search-cancel-button,
-  &::-webkit-time-picker-indicator {
-    display: none;
-  }
+    /* NOTE: WebKit browsers display a calendar icon for date inputs that we need to hide */
+    &::-webkit-calendar-picker-indicator,
+    &::-webkit-search-cancel-button,
+    &::-webkit-time-picker-indicator {
+      display: none;
+    }
 
-  /* NOTE: Safari on iOS applies default styling to the internal elements of date/time inputs.
-   * We need to encourage those to inherit our preferred alignment according to data-text-align */
-  &::-webkit-date-and-time-value {
-    text-align: inherit;
-  }
+    /* NOTE: Safari on iOS applies default styling to the internal elements of date/time inputs.
+     * We need to encourage those to inherit our preferred alignment according to data-text-align */
+    &::-webkit-date-and-time-value {
+      text-align: inherit;
+    }
 
-  &,
-  &[data-text-align='left'] {
-    text-align: left;
-  }
-  &[data-text-align='right'] {
-    text-align: right;
+    &,
+    &[data-text-align='left'] {
+      text-align: left;
+    }
+    &[data-text-align='right'] {
+      text-align: right;
+    }
   }
 `
 
 export const ElTextInputIconContainer = styled.span`
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
+  @layer elements.main {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
 
-  box-sizing: content-box;
-  height: var(--input-icon-size);
-  width: var(--input-icon-size);
+    box-sizing: content-box;
+    height: var(--input-icon-size);
+    width: var(--input-icon-size);
 
-  color: var(--input-icon-colour);
+    color: var(--input-icon-colour);
 
-  &:first-child {
-    padding-inline: var(--input-addon-outer-padding) var(--spacing-2);
-  }
-  &:last-child {
-    padding-inline: var(--spacing-2) var(--input-addon-outer-padding);
+    &:first-child {
+      padding-inline: var(--input-addon-outer-padding) var(--spacing-2);
+    }
+    &:last-child {
+      padding-inline: var(--spacing-2) var(--input-addon-outer-padding);
+    }
   }
 `
 
 export const ElTextInputAffixContainer = styled.span`
-  display: inline-flex;
-  align-items: center;
-  flex-shrink: 0;
+  @layer elements.main {
+    display: inline-flex;
+    align-items: center;
+    flex-shrink: 0;
 
-  font: inherit;
-  white-space: nowrap;
+    font: inherit;
+    white-space: nowrap;
 
-  color: var(--input-affix-colour);
+    color: var(--input-affix-colour);
 
-  &:first-child {
-    padding-inline: var(--input-addon-outer-padding) var(--spacing-2);
-  }
-  &:last-child {
-    padding-inline: var(--spacing-2) var(--input-addon-outer-padding);
+    &:first-child {
+      padding-inline: var(--input-addon-outer-padding) var(--spacing-2);
+    }
+    &:last-child {
+      padding-inline: var(--spacing-2) var(--input-addon-outer-padding);
+    }
   }
 `
 
 export const elTextInputSpinner = css`
-  animation: spin 1s linear infinite;
+  @layer elements.main {
+    animation: spin 1s linear infinite;
 
-  @keyframes spin {
-    from {
-      transform: rotate(0deg);
-    }
-    to {
-      transform: rotate(360deg);
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
     }
   }
 `

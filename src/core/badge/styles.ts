@@ -20,20 +20,22 @@ interface ElBadgeProps {
 }
 
 export const ElBadge = styled.span<ElBadgeProps>`
-  display: inline-grid;
-  grid-auto-flow: column;
-  align-items: center;
-  gap: var(--spacing-half);
+  @layer elements.main {
+    display: inline-grid;
+    grid-auto-flow: column;
+    align-items: center;
+    gap: var(--spacing-half);
 
-  height: var(--size-5);
-  padding-block: var(--spacing-half);
-  padding-inline: var(--spacing-1);
-  border-radius: var(--comp-badge-border-radius);
+    height: var(--size-5);
+    padding-block: var(--spacing-half);
+    padding-inline: var(--spacing-1);
+    border-radius: var(--comp-badge-border-radius);
 
-  /* NOTE: necessary when used in an inline or inline-block layout */
-  vertical-align: middle;
+    /* NOTE: necessary when used in an inline or inline-block layout */
+    vertical-align: middle;
 
-  ${badgeColours.map((colour) => generateElBadgeColourStyles(colour)).join('\n')};
+    ${badgeColours.map((colour) => generateElBadgeColourStyles(colour)).join('\n')};
+  }
 `
 
 function generateElBadgeColourStyles(colour: BadgeColour) {
@@ -49,12 +51,14 @@ function generateElBadgeColourStyles(colour: BadgeColour) {
 }
 
 export const ElBadgeLabelContainer = styled.span`
-  ${font('xs', 'medium')}
+  @layer elements.main {
+    ${font('xs', 'medium')}
 
-  white-space: nowrap;
-  padding-inline: var(--spacing-half);
+    white-space: nowrap;
+    padding-inline: var(--spacing-half);
 
-  ${badgeColours.map((colour) => generateElBadgeLabelColourStyles(colour)).join('\n')};
+    ${badgeColours.map((colour) => generateElBadgeLabelColourStyles(colour)).join('\n')};
+  }
 `
 
 function generateElBadgeLabelColourStyles(colour: BadgeColour) {
@@ -70,14 +74,16 @@ function generateElBadgeLabelColourStyles(colour: BadgeColour) {
 }
 
 export const ElBadgeIconContainer = styled.span`
-  display: flex;
-  place-items: center;
-  place-content: center;
+  @layer elements.main {
+    display: flex;
+    place-items: center;
+    place-content: center;
 
-  width: var(--icon_size-xs);
-  height: var(--icon_size-xs);
+    width: var(--icon_size-xs);
+    height: var(--icon_size-xs);
 
-  ${badgeColours.map((colour) => generateElBadgeIconContainerColourStyles(colour)).join('\n')}
+    ${badgeColours.map((colour) => generateElBadgeIconContainerColourStyles(colour)).join('\n')}
+  }
 `
 
 function generateElBadgeIconContainerColourStyles(colour: BadgeColour) {

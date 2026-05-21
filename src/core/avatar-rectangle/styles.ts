@@ -34,61 +34,75 @@ const baseCommercialBottomImagePosition = `
 `
 
 export const ElAvatarRectBottomImage = styled(CommercialBottomImage)`
-  ${baseCommercialMediumImagesSize}
-  ${baseCommercialBottomImagePosition}
+  @layer elements.main {
+    ${baseCommercialMediumImagesSize}
+    ${baseCommercialBottomImagePosition}
+  }
 `
 export const ElAvatarRectBottomSmallPlaceholder = styled(CommercialSmallBottomImage)`
-  ${baseCommercialMediumImagesSize}
-  ${baseCommercialBottomImagePosition}
+  @layer elements.main {
+    ${baseCommercialMediumImagesSize}
+    ${baseCommercialBottomImagePosition}
+  }
 `
 
 export const ElAvatarRectangle = styled.div`
-  ${baseAvatarRectMediumSize}
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  img {
-    width: 100%;
-    height: 100%;
-  }
-
-  &[data-variant='commercial'] {
-    position: relative;
+  @layer elements.main {
+    ${baseAvatarRectMediumSize}
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
     img {
-      ${baseCommercialMediumImagesSize}
-      position: absolute;
-      top: 0;
-      left: 0;
+      width: 100%;
+      height: 100%;
     }
-  }
-
-  &[data-size='small'] {
-    ${baseAvatarRectSmallSize}
 
     &[data-variant='commercial'] {
-      img,
-      ${ElAvatarRectBottomImage}, ${ElAvatarRectBottomSmallPlaceholder} {
-        ${baseCommercialBottomSmallPlaceholderSize}
+      position: relative;
+
+      img {
+        ${baseCommercialMediumImagesSize}
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+    }
+
+    &[data-size='small'] {
+      ${baseAvatarRectSmallSize}
+
+      &[data-variant='commercial'] {
+        img,
+        ${ElAvatarRectBottomImage}, ${ElAvatarRectBottomSmallPlaceholder} {
+          ${baseCommercialBottomSmallPlaceholderSize}
+        }
       }
     }
   }
 `
 
 export const ElAvatarRectResidentialPlaceholder = styled(ResidentialPlaceholderIcon)`
-  ${baseAvatarRectMediumSize}
+  @layer elements.main {
+    ${baseAvatarRectMediumSize}
+  }
 `
 
 export const ElAvatarRectResidentialSmallPlaceholder = styled(ResidentialSmallPlaceholderIcon)`
-  ${baseAvatarRectSmallSize}
+  @layer elements.main {
+    ${baseAvatarRectSmallSize}
+  }
 `
 
 export const ElAvatarRectCommercialPlaceholder = styled(CommercialPlaceholderIcon)`
-  ${baseAvatarRectMediumSize}
+  @layer elements.main {
+    ${baseAvatarRectMediumSize}
+  }
 `
 
 export const ElAvatarRectCommercialSmallPlaceholder = styled(CommercialSmallPlaceholderIcon)`
-  ${baseAvatarRectSmallSize}
+  @layer elements.main {
+    ${baseAvatarRectSmallSize}
+  }
 `

@@ -1,5 +1,7 @@
 import { styled } from '@linaria/react'
 
 export const ElPageLayoutSideBarRegion = styled.div`
-  grid-area: side-bar;
+  @layer elements.main {
+    grid-area: side-bar;
+  }
 `

@@ -1,15 +1,12 @@
 import { css } from '@linaria/core'
 
 export const elIcon = css`
-  fill: currentColor;
+  @layer elements.main {
+    fill: currentColor;
 
-  /* NOTE: necessary when used in an inline or inline-block layout */
-  vertical-align: text-bottom;
+    /* NOTE: necessary when used in an inline or inline-block layout */
+    vertical-align: text-bottom;
 
-  /* NOTE: we place these styles inside a layer to allow them to be easily overridden
-   * by a consumer-supplied class that would otherwise have a lower specificity and
-   * therefore have no effect, or require the use of !important */
-  @layer default {
     &,
     &[color='primary'] {
       color: var(--colour-icon-primary);

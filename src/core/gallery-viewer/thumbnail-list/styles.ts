@@ -1,19 +1,23 @@
 import { styled } from '@linaria/react'
 
 export const ElGalleryViewerThumbnailList = styled.ul`
-  list-style: none;
+  @layer elements.main {
+    list-style: none;
 
-  display: flex;
-  flex-flow: row wrap;
-  gap: var(--spacing-4);
+    display: flex;
+    flex-flow: row wrap;
+    gap: var(--spacing-4);
 
-  width: 100%;
+    width: 100%;
 
-  margin-block: 0;
-  padding-inline: 0;
+    margin-block: 0;
+    padding-inline: 0;
+  }
 `
 
 export const ElGalleryViewerThumbnailListItem = styled.li`
-  display: block;
-  width: min-content;
+  @layer elements.main {
+    display: block;
+    width: min-content;
+  }
 `

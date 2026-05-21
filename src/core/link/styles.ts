@@ -11,52 +11,54 @@ interface ElLinkProps {
 }
 
 export const ElLink = styled.a<ElLinkProps>`
-  cursor: pointer;
+  @layer elements.main {
+    cursor: pointer;
 
-  &,
-  &[data-is-quiet='false'] {
-    text-decoration: underline;
-    text-decoration-style: dotted;
-    text-underline-offset: 25%;
-  }
+    &,
+    &[data-is-quiet='false'] {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 25%;
+    }
 
-  &[data-is-quiet='true'] {
-    text-decoration: none;
-  }
+    &[data-is-quiet='true'] {
+      text-decoration: none;
+    }
 
-  &,
-  &[data-size='base'] {
-    ${font('base', 'regular')}
-  }
+    &,
+    &[data-size='base'] {
+      ${font('base', 'regular')}
+    }
 
-  &[data-size='sm'] {
-    ${font('sm', 'medium')}
-  }
+    &[data-size='sm'] {
+      ${font('sm', 'medium')}
+    }
 
-  &[data-size='xs'] {
-    ${font('xs', 'medium')}
-  }
+    &[data-size='xs'] {
+      ${font('xs', 'medium')}
+    }
 
-  &,
-  &[data-variant='primary'] {
-    color: var(--colour-text-action);
-  }
+    &,
+    &[data-variant='primary'] {
+      color: var(--colour-text-action);
+    }
 
-  &[data-variant='secondary'] {
-    color: var(--colour-text-secondary);
-  }
+    &[data-variant='secondary'] {
+      color: var(--colour-text-secondary);
+    }
 
-  &[data-variant='reversed'] {
-    color: var(--colour-text-white);
-  }
+    &[data-variant='reversed'] {
+      color: var(--colour-text-white);
+    }
 
-  &:hover {
-    text-decoration: underline;
-    text-decoration-style: solid;
-  }
+    &:hover {
+      text-decoration: underline;
+      text-decoration-style: solid;
+    }
 
-  &:focus-visible {
-    outline: var(--border-width-double) solid var(--colour-border-focus);
-    outline-offset: var(--border-width-default);
+    &:focus-visible {
+      outline: var(--border-width-double) solid var(--colour-border-focus);
+      outline-offset: var(--border-width-default);
+    }
   }
 `

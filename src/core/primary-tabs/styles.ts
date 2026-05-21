@@ -5,33 +5,39 @@ export interface ElPrimaryTabsProps {
 }
 
 export const ElPrimaryTabs = styled.nav<ElPrimaryTabsProps>`
-  border-bottom: var(--border-width-default) solid var(--comp-tab-colour-border-group);
-  width: 100%;
+  @layer elements.main {
+    border-bottom: var(--border-width-default) solid var(--comp-tab-colour-border-group);
+    width: 100%;
 
-  &,
-  &[data-overflow='visible'] {
-    overflow-x: visible;
-  }
+    &,
+    &[data-overflow='visible'] {
+      overflow-x: visible;
+    }
 
-  &[data-overflow='scroll'] {
-    overflow-x: auto;
+    &[data-overflow='scroll'] {
+      overflow-x: auto;
+    }
   }
 `
 
 export const ElPrimaryTabsList = styled.menu`
-  position: relative;
+  @layer elements.main {
+    position: relative;
 
-  display: flex;
-  flex-flow: row nowrap;
-  align-items: center;
-  gap: var(--spacing-8);
-  list-style: none;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    gap: var(--spacing-8);
+    list-style: none;
 
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+  }
 `
 
 export const ElPrimaryTabsListItem = styled.li`
-  display: flex;
-  align-items: center;
+  @layer elements.main {
+    display: flex;
+    align-items: center;
+  }
 `

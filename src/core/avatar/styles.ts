@@ -8,49 +8,51 @@ interface ElAvatarProps {
 }
 
 export const ElAvatar = styled.span<ElAvatarProps>`
-  display: flex;
-  width: var(--size-10);
-  height: var(--size-10);
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-
-  /** Colour styles */
-  &[data-colour='default'] {
-    background: var(--colour-fill-neutral-medium);
-    color: var(--colour-text-white);
-  }
-
-  &[data-colour='primary'] {
-    background: var(--colour-fill-action-lightest);
-    color: var(--colour-text-action);
-  }
-
-  /** Shape styles */
-  &[data-shape='circle'] {
-    border-radius: var(--border-radius-3xl);
-  }
-
-  &[data-shape='square'] {
-    border-radius: var(--border-radius-l);
-
-    &[data-size='small'] {
-      border-radius: var(--border-radius-m);
-    }
-  }
-
-  /** Size styles */
-  &[data-size='small'] {
-    width: var(--size-8);
-    height: var(--size-8);
-
-    ${font('2xs', 'bold')}
-  }
-
-  &,
-  &[data-size='medium'] {
+  @layer elements.main {
+    display: flex;
     width: var(--size-10);
     height: var(--size-10);
-    ${font('base', 'bold')}
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /** Colour styles */
+    &[data-colour='default'] {
+      background: var(--colour-fill-neutral-medium);
+      color: var(--colour-text-white);
+    }
+
+    &[data-colour='primary'] {
+      background: var(--colour-fill-action-lightest);
+      color: var(--colour-text-action);
+    }
+
+    /** Shape styles */
+    &[data-shape='circle'] {
+      border-radius: var(--border-radius-3xl);
+    }
+
+    &[data-shape='square'] {
+      border-radius: var(--border-radius-l);
+
+      &[data-size='small'] {
+        border-radius: var(--border-radius-m);
+      }
+    }
+
+    /** Size styles */
+    &[data-size='small'] {
+      width: var(--size-8);
+      height: var(--size-8);
+
+      ${font('2xs', 'bold')}
+    }
+
+    &,
+    &[data-size='medium'] {
+      width: var(--size-10);
+      height: var(--size-10);
+      ${font('base', 'bold')}
+    }
   }
 `
