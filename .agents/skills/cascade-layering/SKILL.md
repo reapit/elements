@@ -69,6 +69,18 @@ When you encounter styles that are not yet layered, wrap them in `@layer element
 - [ ] Wrap all styles in `@layer elements.main { ... }`
 - [ ] Run tests to confirm no visual regression
 
+### Storybook and documentation styles
+
+Storybook stories, MDX pages, `__story__/` helpers, and Storybook-only `docs/` files may use plain `css` template literals without a layer wrapper. Consumers never load these styles, so the override guarantee that layering provides has no audience. Wrapping them in `@layer elements.main` adds a level of indentation that obscures the actual rules.
+
+**Checklist:**
+
+- [ ] File is a Storybook story, MDX page, `__story__/` helper, or Storybook-only `docs/` file
+- [ ] Only Storybook consumes these styles
+- [ ] Plain `css` template literals without a layer wrapper
+
+Storybook and documentation files that do use `@layer` must use `elements.main`. Anonymous layers and other layer names remain forbidden.
+
 ## Common Mistakes
 
 ### Anonymous `@layer {}`
@@ -122,6 +134,7 @@ When reviewing code that touches styles:
 - [ ] All styles wrapped in `@layer elements.main` (or `elements.base` if justified)
 - [ ] No anonymous `@layer {}` in non-deprecated code
 - [ ] No styles left outside the layer
+- [ ] Storybook and documentation files may skip layering, but must never use anonymous layers
 
 ## Reference
 

@@ -11,7 +11,7 @@
 import { basename, dirname, join } from 'node:path'
 import { client } from '@figma/code-connect'
 import { fileURLToPath } from 'node:url'
-import { mkdirSync, readdirSync, writeFileSync } from 'node:fs'
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
 import { styleText } from 'node:util'
 import { optimize } from 'svgo'
 
@@ -215,14 +215,68 @@ figma.connect(${iconComponentName}, '${figmaIconComponent.figmaUrl}')
 
 /** Create a barrel file for all icons */
 function writeBarrelFile(svgFiles: string[]): void {
-  const fileContent = svgFiles
+  const exports = svgFiles
     .map((file) => {
       const baseName = basename(file, '.svg')
       return `export * from '../${baseName}'`
     })
     .join('\n')
 
-  writeFileSync(join(outputDir, 'docs', 'all-icons.ts'), `${fileContent}\n`)
+  // Emit a PascalName → kebabName map so consumers (e.g. the icon gallery story) can
+  // recover the subpath name without parsing the export name — which is lossy for
+  // names containing digits (e.g. `W3wIcon` could derive to either `w3w` or `w-3-w`).
+  const kebabEntries = svgFiles
+    .map((file) => {
+      const baseName = basename(file, '.svg')
+      const pascalCaseName = kebabToPascalCase(baseName)
+      return `  ${pascalCaseName}Icon: '${baseName}',`
+    })
+    .join('\n')
+
+  const fileContent = `${exports}
+
+export const ICON_KEBAB_NAMES: Record<string, string> = {
+${kebabEntries}
+}
+`
+
+  writeFileSync(join(outputDir, 'docs', 'all-icons.ts'), fileContent)
+}
+
+/**
+ * Warn about entries in `icon-synonyms.json` whose icon no longer exists in Figma. These
+ * entries are orphaned and should be pruned from the JSON. Non-fatal: never throws so a
+ * regeneration is never blocked by stale synonym data.
+ */
+function warnAboutOrphanedSynonyms(svgFiles: string[]): void {
+  const synonymsPath = join(outputDir, 'docs', 'icon-synonyms.json')
+  let synonyms: Record<string, unknown>
+
+  try {
+    synonyms = JSON.parse(readFileSync(synonymsPath, 'utf8'))
+  } catch (error) {
+    console.log(styleText('yellow', `⚠️  Could not read icon-synonyms.json: ${error}`))
+    return
+  }
+
+  const liveIconNames = new Set(svgFiles.map((f) => `${kebabToPascalCase(basename(f, '.svg'))}Icon`))
+  const orphaned = Object.keys(synonyms).filter((name) => !liveIconNames.has(name))
+
+  if (orphaned.length === 0) return
+
+  console.log(
+    styleText(
+      'yellow',
+      [
+        ``,
+        `⚠️  ${orphaned.length} entry/entries in icon-synonyms.json reference icons that no longer exist:`,
+        ...orphaned.map((name) => `    - ${name}`),
+        ``,
+        `    Prune these entries from src/icons/docs/icon-synonyms.json.`,
+        ``,
+      ].join('\n'),
+    ),
+  )
 }
 
 /** Main script execution */
@@ -244,6 +298,9 @@ async function main() {
 
   // 5. Warn about any local SVGs that have no Figma counterpart
   warnAboutStaleIcons(figmaIcons, svgFiles)
+
+  // 5a. Warn about any synonym entries whose icon no longer exists
+  warnAboutOrphanedSynonyms(svgFiles)
 
   // 6. Generate React component files for all SVGs
   svgFiles.forEach(generateIconFile)
