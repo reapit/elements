@@ -2,6 +2,12 @@
 
 **Package Manager**: Yarn
 
+## Branching
+
+- Branch from `main`
+- Branch name format: `<type>/<DS-123>-<short-description>` or `<type>/<short-description>`
+- Allowed types: `feat` · `fix` · `chore` · `ci` · `docs` · `refactor` · `revert`
+
 ## Core Directories
 
 - `src/core/` - Main UI components (buttons, inputs, dialogs, etc.)
@@ -41,3 +47,7 @@
 - PR titles and descriptions MUST follow the pull request conventions
 - PRs with UI changes MUST include screenshots or video
 - When workflow architecture changes, update `.github/CI.md` (new jobs, composite actions, job dependencies, or deployment strategy)
+
+## Code Quality
+
+- Linting (`oxlint`) and formatting (`oxfmt`) run automatically on commit via git hooks and CI
