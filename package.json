@@ -185,7 +185,7 @@
     "minimatch@npm:^9.0.1": "9.0.9",
     "minimatch@npm:^9.0.3": "9.0.9",
     "minimatch@npm:^9.0.5": "9.0.9",
-    "storybook@npm:^10.3.6": "patch:storybook@npm%3A10.3.6#~/.yarn/patches/storybook-npm-10.3.6.patch"
+    "storybook@npm:^10.4.0": "patch:storybook@npm%3A10.4.0#~/.yarn/patches/storybook-npm-10.4.0-d297a68117.patch"
   },
   "engines": {
     "node": ">=24"

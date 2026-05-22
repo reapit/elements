@@ -9666,7 +9666,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:10.4.0, storybook@npm:^10.4.0":
+"storybook@npm:10.4.0":
   version: 10.4.0
   resolution: "storybook@npm:10.4.0"
   dependencies:
@@ -9699,6 +9699,42 @@ __metadata:
   bin:
     storybook: ./dist/bin/dispatcher.js
   checksum: 10/bef6d2ff347d9a6fc9a5b428d2ced86e17acddfce6849d59ab22438d4b57765a9116a30230b8dbc0512236e7a4a2be65195db0c05ea2da1d73a5d224778f8b22
+  languageName: node
+  linkType: hard
+
+"storybook@patch:storybook@npm%3A10.4.0#~/.yarn/patches/storybook-npm-10.4.0-d297a68117.patch":
+  version: 10.4.0
+  resolution: "storybook@patch:storybook@npm%3A10.4.0#~/.yarn/patches/storybook-npm-10.4.0-d297a68117.patch::version=10.4.0&hash=8057a4"
+  dependencies:
+    "@storybook/global": "npm:^5.0.0"
+    "@storybook/icons": "npm:^2.0.2"
+    "@testing-library/jest-dom": "npm:^6.9.1"
+    "@testing-library/user-event": "npm:^14.6.1"
+    "@vitest/expect": "npm:3.2.4"
+    "@vitest/spy": "npm:3.2.4"
+    "@webcontainer/env": "npm:^1.1.1"
+    esbuild: "npm:^0.18.0 || ^0.19.0 || ^0.20.0 || ^0.21.0 || ^0.22.0 || ^0.23.0 || ^0.24.0 || ^0.25.0 || ^0.26.0 || ^0.27.0"
+    open: "npm:^10.2.0"
+    oxc-parser: "npm:^0.127.0"
+    oxc-resolver: "npm:^11.19.1"
+    recast: "npm:^0.23.5"
+    semver: "npm:^7.7.3"
+    use-sync-external-store: "npm:^1.5.0"
+    ws: "npm:^8.18.0"
+  peerDependencies:
+    "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
+    prettier: ^2 || ^3
+    vite-plus: ^0.1.15
+  peerDependenciesMeta:
+    "@types/react":
+      optional: true
+    prettier:
+      optional: true
+    vite-plus:
+      optional: true
+  bin:
+    storybook: ./dist/bin/dispatcher.js
+  checksum: 10/6868d43f8ac5ffbaade0905f54e5c41c50decd30c87d4ee3716ed1107e4bcc5f7c3643d8460b8417504785071f4a7d0b0676b90243290f79566070a5087bc7cb
   languageName: node
   linkType: hard
 
