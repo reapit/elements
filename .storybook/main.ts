@@ -1,5 +1,8 @@
 import { defineMain } from '@storybook/react-vite/node'
+import fs from 'node:fs'
 import { rewriteImports } from './rewrite-imports'
+
+const layerOrder = fs.readFileSync(new URL('../src/styles/layer-order.css', import.meta.url), 'utf-8')
 
 export default defineMain({
   framework: {
@@ -8,6 +11,9 @@ export default defineMain({
   },
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: ['@storybook/addon-links', '@storybook/addon-a11y', '@storybook/addon-docs', '@storybook/addon-mcp'],
+  // Inject the cascade layer order declaration into the preview iframe's <head>
+  // before any component CSS loads. See src/styles/ARCHITECTURE.md for context.
+  previewHead: (head = '') => `<style>${layerOrder}</style>\n${head}`,
   core: {
     disableTelemetry: true,
     enableCrashReports: false,

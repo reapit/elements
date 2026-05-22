@@ -12,19 +12,23 @@ The library declares two named cascade layers, `elements.base` and
 **before** any rules that reference those layers, otherwise the browser
 falls back to declaration order and the wrong layer wins.
 
-Reaching this state in both environments takes three coordinated pieces:
+Reaching this state in both environments takes four coordinated pieces:
 
 1. **`src/styles/layer-order.css`** — the canonical `@layer` order
    declaration.
 2. **`src/styles/globals.ts`** — the entry point that pulls
    `layer-order.css`, the design tokens, and `globals.css` into the build.
 3. **`build/cascade-layer-order.ts`** — a Vite plugin that prepends the
-   layer order to the production bundle.
+   layer order to the library's production CSS bundle.
+4. **`.storybook/main.ts` (`previewHead`)** — reads `layer-order.css`
+   and injects it as an inline `<style>` tag at the top of the preview
+   iframe's `<head>`, before any component CSS loads.
 
-In Storybook, the normal import chain is enough. In the production build,
-the plugin is required because LightningCSS — the minifier Vite ships by
-default — strips standalone `@layer` order declarations during
-minification.
+In Storybook, the `previewHead` hook in `.storybook/main.ts` injects the
+layer order declaration into the preview iframe's `<head>` before any
+component CSS loads. In the production library build, the plugin is
+required because LightningCSS — the minifier Vite ships by default —
+strips standalone `@layer` order declarations during minification.
 
 ## The Pieces
 
@@ -70,9 +74,23 @@ A Vite plugin that reads `layer-order.css` from disk and prepends its
 content to the emitted CSS file during `writeBundle`. Restores the
 declaration that LightningCSS removed during minification.
 
-Only runs in production builds. Storybook does not need it: in dev mode
-no minification happens, so the `@layer` declaration imported through
-`globals.ts` survives untouched.
+Only runs in the library's production build (`vite build`). Storybook
+uses a separate mechanism (see below).
+
+### `.storybook/main.ts` (`previewHead`)
+
+The `previewHead` config hook reads `layer-order.css` from disk and
+injects its content as an inline `<style>` tag at the top of the preview
+iframe's `<head>`. This guarantees the layer order declaration appears
+before any `<link>` or `<style>` tags that Storybook injects for
+component CSS chunks.
+
+Covers both `storybook dev` and `storybook build`. The layer order
+declaration also reaches the browser through the `globals.ts` import
+chain, but that path alone is insufficient for `storybook build`:
+Storybook code-splits component CSS into separate chunks that can load
+before the globals stylesheet, so the browser would fall back to
+declaration order and reverse the intended layer priority.
 
 ## Why It Works This Way
 
@@ -103,12 +121,21 @@ and Linaria's scoping would require a `:global()` wrapper to publish
 the rules globally. A plain `.css` file expresses the intent directly
 and is processed by Vite without an extra layer of indirection.
 
-### Why doesn't Storybook need the plugin?
+### Why doesn't Storybook use the Vite plugin?
 
-Storybook runs Vite in dev mode, which does not invoke LightningCSS
-minification. The `@layer` order declaration imported through
-`globals.ts` reaches the browser intact. The plugin only matters for
-the minified production bundle.
+Storybook runs its own Vite pipeline and does not load the library's
+`vite.config.ts`. Rather than duplicating the plugin registration,
+Storybook uses the `previewHead` config hook to inject the layer order
+declaration directly into the iframe's `<head>`. This is simpler and
+works for both dev and production builds.
+
+The `previewHead` approach is necessary because `storybook build`
+code-splits component CSS into separate chunks. These chunks can load
+before the globals stylesheet, so the `@layer` declaration from the
+import chain in `globals.ts` arrives too late to establish the intended
+layer order. Without `previewHead`, the browser falls back to
+first-appearance ordering, which reverses `elements.base` and
+`elements.main`.
 
 ## Common Pitfalls
 
@@ -126,3 +153,10 @@ the minified production bundle.
 - **Disabling the Vite plugin.** The production bundle will load but
   the layer order will be missing, so `elements.base` will win over
   `elements.main` (the opposite of the intended cascade).
+- **Removing `previewHead` from `.storybook/main.ts`.** The built
+  Storybook will have reversed layer priority, causing `elements.base`
+  styles (e.g. the global `box-sizing` reset) to override
+  `elements.main` component styles.
+- **Editing `layer-order.css` during `storybook dev`.** The Storybook
+  config reads the file once at startup via `fs.readFileSync`, so edits
+  do not hot-reload — restart Storybook to pick up changes.
