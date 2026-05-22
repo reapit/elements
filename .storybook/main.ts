@@ -20,6 +20,9 @@ export default defineMain({
       exclude: ['.storybook/preview.tsx'],
     },
   },
+  features: {
+    experimentalReactComponentMeta: true,
+  },
   // StorybookConfigRaw types experimental_manifests as a static Manifests object, but the
   // preset pipeline accepts a function (PresetValue) at runtime, exactly as the framework and
   // addon presets that generate the manifest do. The suppression below is necessary because
