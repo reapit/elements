@@ -6,13 +6,13 @@
 
 Three workflows drive CI and deployment:
 
-| Trigger                             | Workflow                 | Purpose                                               |
-| ----------------------------------- | ------------------------ | ----------------------------------------------------- |
-| Pull request (opened / synchronize) | `test-pr.yml`            | Validate the PR before merge                          |
-| Push to `main`                      | `release.yml`            | Run CI, create the version PR or publish, deploy docs |
-| Push to `lts`                       | `release.yml`            | Run CI, create the version PR or publish v4 LTS docs  |
-| Manual (`workflow_dispatch`)        | `release.yml`            | Recovery publish from a specific ref                  |
-| Manual (`workflow_dispatch`)        | `deploy-docs-manual.yml` | Emergency deploys and v4 LTS storybook updates        |
+| Trigger                                      | Workflow                 | Purpose                                               |
+| -------------------------------------------- | ------------------------ | ----------------------------------------------------- |
+| Pull request (opened / synchronize / edited) | `test-pr.yml`            | Validate the PR before merge                          |
+| Push to `main`                               | `release.yml`            | Run CI, create the version PR or publish, deploy docs |
+| Push to `lts`                                | `release.yml`            | Run CI, create the version PR or publish v4 LTS docs  |
+| Manual (`workflow_dispatch`)                 | `release.yml`            | Recovery publish from a specific ref                  |
+| Manual (`workflow_dispatch`)                 | `deploy-docs-manual.yml` | Emergency deploys and v4 LTS storybook updates        |
 
 ## Workflow map
 
@@ -44,15 +44,15 @@ test  ──┼── release-manual
 build ──┘
 ```
 
-`test-pr.yml` runs these jobs in parallel, with `codacy` waiting on `test`:
+`test-pr.yml` runs these jobs in parallel, with `codacy` waiting on `test`. On `edited` events (title or description changes), only `pr-lint` runs — the other jobs are skipped via `if: github.event.action != 'edited'` guards:
 
 ```
-pr-lint
-check
-test ──── codacy
-build
-docs
-figma
+pr-lint                (always)
+check                  (not on edited)
+test ──── codacy       (not on edited)
+build                  (not on edited)
+docs                   (not on edited)
+figma                  (not on edited)
 ```
 
 ## Composite actions
