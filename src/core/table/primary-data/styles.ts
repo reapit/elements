@@ -15,9 +15,10 @@ export const ElTableCellPrimaryData = styled.div`
 export const ElTableCellPrimaryDataContentContainer = styled.div`
   @layer elements.main {
     grid-area: data;
+    grid-auto-flow: column;
     display: inline-grid;
     overflow: hidden;
-    white-space: nowrap;
+    white-space: break-spaces nowrap;
   }
 `
 
