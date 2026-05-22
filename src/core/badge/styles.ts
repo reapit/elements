@@ -27,6 +27,7 @@ export const ElBadge = styled.span<ElBadgeProps>`
     gap: var(--spacing-half);
 
     height: var(--size-5);
+    width: fit-content;
     padding-block: var(--spacing-half);
     padding-inline: var(--spacing-1);
     border-radius: var(--comp-badge-border-radius);
