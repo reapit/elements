@@ -1,5 +1,13 @@
 # @reapit/elements
 
+## 5.0.0-rc.4
+
+### Patch Changes
+
+- **[Fixed]** `Badge` no longer stretches to fill its container width. ([#1407](https://github.com/reapit-global/gbl-ds-elements/pull/1407))
+
+- **[Fixed]** `Table.PrimaryData` content container now flows children into columns and handles white-space correctly. ([#1408](https://github.com/reapit-global/gbl-ds-elements/pull/1408))
+
 ## 5.0.0-rc.3
 
 ### Minor Changes
