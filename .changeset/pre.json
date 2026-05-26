@@ -71,6 +71,7 @@
     "custom-changelog-formatter",
     "dependabot-versioning-strategy",
     "deploy-docs-to-reapit-cloud",
+    "divider-variant-orientation",
     "drawer-context-optional-hook",
     "dry-corners-tap",
     "ds-108-move-combobox-to-utils",
@@ -217,6 +218,7 @@
     "vast-dryers-jog",
     "vast-mangos-laugh",
     "violet-cats-tap",
+    "widen-common-features-value-prop",
     "yellow-spiders-raise"
   ]
 }

@@ -1,5 +1,13 @@
 # @reapit/elements
 
+## 5.0.0-rc.5
+
+### Minor Changes
+
+- **[Added]** `variant` and `aria-orientation` props to `Divider` component. Supports `'solid'` and `'dashed'` styles and both horizontal and vertical orientation. ([#1417](https://github.com/reapit-global/gbl-ds-elements/pull/1417))
+
+- **[Changed]** `Features.Bathrooms`, `Features.Bedrooms` and `Features.CarSpaces` now accept `ReactNode` values rather than `number` ([#1418](https://github.com/reapit-global/gbl-ds-elements/pull/1418))
+
 ## 5.0.0-rc.4
 
 ### Patch Changes
