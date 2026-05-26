@@ -1,5 +1,5 @@
 import { css } from '@linaria/core'
-import { ElDivider } from '#src/core/divider/styles'
+import { elDivider } from '#src/core/divider/styles'
 import { ElMenuGroup } from './group/styles'
 
 export const elMenu = css`
@@ -12,7 +12,7 @@ export const elMenu = css`
     /* NOTE: We do NOT use the immediate child selector here because we want to allow
        for dividers and menu groups to be nested within other elements. This is primarily
        to support the use of CSSContainerQuery and it's reliance on a wrapping <div> */
-    & ${ElDivider} {
+    & .${elDivider} {
       margin-inline: calc(0px - var(--spacing-2));
     }
 
