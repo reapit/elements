@@ -1,9 +1,11 @@
 import { BedIcon } from '#src/icons/bed'
 import { FeatureItem } from '../item'
 
+import type { ReactNode } from 'react'
+
 export namespace FeaturesBedroomsItem {
   export interface Props {
-    value: number
+    value: ReactNode
   }
 }
 

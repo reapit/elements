@@ -1,10 +1,12 @@
 import { CarIcon } from '#src/icons/car'
 import { FeatureItem } from '../item'
 
+import type { ReactNode } from 'react'
+
 export namespace FeaturesCarSpacesItem {
   export interface Props {
     /** The number of car spaces in the property. */
-    value: number
+    value: ReactNode
   }
 }
 

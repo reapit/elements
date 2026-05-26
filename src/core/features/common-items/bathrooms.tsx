@@ -1,10 +1,12 @@
 import { BathIcon } from '#src/icons/bath'
 import { FeatureItem } from '../item'
 
+import type { ReactNode } from 'react'
+
 export namespace FeaturesBathroomsItem {
   export interface Props {
     /** The number of bathrooms in the property. Can be a decimal. */
-    value: number
+    value: ReactNode
   }
 }
 
