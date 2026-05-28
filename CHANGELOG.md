@@ -1,5 +1,11 @@
 # @reapit/elements
 
+## 5.0.0-rc.6
+
+### Patch Changes
+
+- **[Fixed]** custom date/time picker button appearing alongside native one on Firefox. The native picker button will always be used when the browser does not support hiding it. ([#1420](https://github.com/reapit-global/gbl-ds-elements/pull/1420))
+
 ## 5.0.0-rc.5
 
 ### Minor Changes
