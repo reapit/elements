@@ -45,6 +45,13 @@ export const DateTimeInput = forwardRef<HTMLInputElement, DateTimeInput.Props>(
   ({ disabled, id, readOnly, type = 'date', ...rest }, ref) => {
     const inputId = id ?? useId()
 
+    // Firefox has no -moz alterative to -webkit-*-picker-indicator. If we detect the
+    // webkit selectors are not supported, we need to fallback to using the native picker
+    // buttons rather than our custom one.
+    const canHideNativePickerButton =
+      CSS.supports('selector(input::-webkit-calendar-picker-indicator)') &&
+      CSS.supports('selector(::-webkit-time-picker-indicator)')
+
     return (
       <TextInput
         {...rest}
@@ -53,6 +60,7 @@ export const DateTimeInput = forwardRef<HTMLInputElement, DateTimeInput.Props>(
         readOnly={readOnly}
         ref={ref}
         trailingIcon={
+          canHideNativePickerButton &&
           !readOnly && <DateTimeInputPickerButton aria-controls={inputId} disabled={disabled} variant={type} />
         }
         type={type}
