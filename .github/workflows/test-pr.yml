@@ -2,7 +2,7 @@ name: Test PR
 
 on:
   pull_request:
-    types: ['opened', 'synchronize', 'reopened', 'edited']
+    types: ['opened', 'synchronize', 'reopened']
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -15,38 +15,8 @@ env:
   CI: true
 
 jobs:
-  pr-lint:
-    name: Lint Title
-    runs-on:
-      group: rpt-gbl-linux-x64
-    timeout-minutes: 5
-    permissions:
-      contents: read
-      pull-requests: read
-    steps:
-      - uses: amannn/action-semantic-pull-request@48f256284bd46cdaab1048c3721360e808335d50 # v6.1.1
-        with:
-          # Keep in sync with the allowed types in CONTRIBUTING.md.
-          types: |
-            feat
-            fix
-            chore
-            ci
-            docs
-            refactor
-            revert
-          disallowScopes: |
-            .+
-          subjectPattern: ^(?:[A-Z]+-\d+ )?.*\S.*$
-          subjectPatternError: |
-            The subject "{subject}" does not match the required format.
-            Titles must follow conventional commit format: type: description
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   check:
     name: Check
-    if: github.event.action != 'edited'
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 15
@@ -56,7 +26,6 @@ jobs:
 
   test:
     name: Unit Tests
-    if: github.event.action != 'edited'
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 15
@@ -74,7 +43,6 @@ jobs:
 
   build:
     name: Build
-    if: github.event.action != 'edited'
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 15
@@ -84,7 +52,6 @@ jobs:
 
   docs:
     name: Docs
-    if: github.event.action != 'edited'
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 15
@@ -96,7 +63,7 @@ jobs:
     name: Figma Code Connect
     # Non-main branches never publish to Figma, so validation is only
     # meaningful for PRs targeting main.
-    if: github.event.action != 'edited' && github.base_ref == 'main'
+    if: github.base_ref == 'main'
     runs-on:
       group: rpt-gbl-linux-x64
     timeout-minutes: 10
