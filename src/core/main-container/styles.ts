@@ -7,6 +7,8 @@ interface ElMainContainerProps {
 
 export const ElMainContainer = styled.div<ElMainContainerProps>`
   @layer elements.main {
+    --main_container-max_width: 100%;
+
     display: grid;
     grid-template: auto / minmax(auto, var(--main_container-max_width, 1fr));
     justify-content: center;
@@ -74,21 +76,22 @@ export const ElMainContainerContent = styled.div<ElMainContainerContentProps>`
 
     &,
     &[data-template='single-column'] {
-      grid-template: auto / 1fr;
+      grid-template: auto / 100%;
     }
 
+    /* minmax(0, Xfr) prevents content from forcing columns wider than their fraction */
     &[data-template='two-columns-asymmetrical-start'] {
-      grid-template: auto / 2fr 1fr;
+      grid-template: auto / minmax(0, 2fr) minmax(0, 1fr);
       column-gap: var(--spacing-10);
     }
 
     &[data-template='two-columns-asymmetrical-end'] {
-      grid-template: auto / 1fr 2fr;
+      grid-template: auto / minmax(0, 1fr) minmax(0, 2fr);
       column-gap: var(--spacing-10);
     }
 
     &[data-template='two-columns-symmetrical'] {
-      grid-template: auto / 1fr 1fr;
+      grid-template: auto / minmax(0, 1fr) minmax(0, 1fr);
 
       @container ${isWidthAtOrAbove('SM')} {
         column-gap: var(--spacing-8);
@@ -100,7 +103,7 @@ export const ElMainContainerContent = styled.div<ElMainContainerContentProps>`
     }
 
     &[data-template='three-columns'] {
-      grid-template: auto / 1fr 1fr 1fr;
+      grid-template: auto / minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
       column-gap: var(--spacing-10);
     }
   }
