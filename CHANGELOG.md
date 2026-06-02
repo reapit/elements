@@ -1,5 +1,15 @@
 # @reapit/elements
 
+## 5.0.0-rc.7
+
+### Patch Changes
+
+- **[Fixed]** `AlertBanner` actions no longer stretch to match the height of wrapping description text when actions are inline with the description at wider breakpoints. ([#1427](https://github.com/reapit-global/gbl-ds-elements/pull/1427))
+
+- **[Fixed]** `ButtonGroup` buttons are now always vertically centred, including when a tertiary button with no block padding is present in the group. ([#1427](https://github.com/reapit-global/gbl-ds-elements/pull/1427))
+
+- **[Fixed]** `MainContainer` grid columns now use `minmax(0, Xfr)` to prevent content from forcing columns to grow beyond their fractional width. ([#1425](https://github.com/reapit-global/gbl-ds-elements/pull/1425))
+
 ## 5.0.0-rc.6
 
 ### Patch Changes
