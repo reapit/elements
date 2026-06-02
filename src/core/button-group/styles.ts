@@ -8,6 +8,7 @@ interface ElButtonGroupProps {
 export const ElButtonGroup = styled.div<ElButtonGroupProps>`
   @layer elements.main {
     display: grid;
+    align-items: center;
     gap: var(--spacing-2);
 
     &,

@@ -68,6 +68,7 @@ export const ElAlertBannerActions = styled.div`
     display: flex;
     padding-block-start: var(--alert-banner-actions-padding-block-start);
     flex-shrink: 0;
+    height: fit-content;
   }
 `
 
