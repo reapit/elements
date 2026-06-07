@@ -1,7 +1,7 @@
 import { css } from '@linaria/core'
 
 export const elIcon = css`
-  @layer elements.main {
+  @layer elements.base {
     fill: currentColor;
 
     /* NOTE: necessary when used in an inline or inline-block layout */

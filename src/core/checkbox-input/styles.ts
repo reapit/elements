@@ -41,7 +41,7 @@ export const ElCheckboxInput = styled.input<ElCheckboxInputProps>`
 `
 
 export const elCheckboxInputIcon = css`
-  @layer elements.base {
+  @layer elements.main {
     display: inline-flex;
     align-items: center;
     justify-content: center;
