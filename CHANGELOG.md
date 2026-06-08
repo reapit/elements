@@ -1,5 +1,11 @@
 # @reapit/elements
 
+## 5.0.0-rc.8
+
+### Patch Changes
+
+- **[Fixed]** `CheckboxInput` and `RadioInput` icons now display correctly. ([#1433](https://github.com/reapit-global/gbl-ds-elements/pull/1433))
+
 ## 5.0.0-rc.7
 
 ### Patch Changes
