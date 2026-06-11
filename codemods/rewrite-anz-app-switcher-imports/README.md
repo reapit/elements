@@ -34,6 +34,19 @@ yarn dlx @reapit/elements@beta codemod apply rewrite-anz-app-switcher-imports sr
 
 ## Transformations
 
-| Before                                                                                 | After                                                                                      |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| `import { AppSwitcher, SupportedProductId } from '@reapit/elements/core/app-switcher'` | `import { AppSwitcher, SupportedProductId } from '@reapit/elements/core/app-switcher/anz'` |
+The codemod rewrites the module specifier when any ANZ-specific symbol is detected. Import bindings are
+preserved unchanged — you do not need to update how you reference the imported names.
+
+| Trigger                                                     | Before                                        | After                                             |
+| ----------------------------------------------------------- | --------------------------------------------- | ------------------------------------------------- |
+| `SupportedProductId` named import                           | `… from '@reapit/elements/core/app-switcher'` | `… from '@reapit/elements/core/app-switcher/anz'` |
+| `ProductConfig` named import                                | `… from '@reapit/elements/core/app-switcher'` | `… from '@reapit/elements/core/app-switcher/anz'` |
+| `AppSwitcher.AppAvatar` member access                       | `… from '@reapit/elements/core/app-switcher'` | `… from '@reapit/elements/core/app-switcher/anz'` |
+| `AppSwitcher.ProductMenuItem` member access                 | `… from '@reapit/elements/core/app-switcher'` | `… from '@reapit/elements/core/app-switcher/anz'` |
+| `AppSwitcher.getDisplayableProductsForYourAppsGroup` access | `… from '@reapit/elements/core/app-switcher'` | `… from '@reapit/elements/core/app-switcher/anz'` |
+| `AppSwitcher.getDisplayableProductsForExploreGroup` access  | `… from '@reapit/elements/core/app-switcher'` | `… from '@reapit/elements/core/app-switcher/anz'` |
+
+> **Note:** The codemod only rewrites the import specifier. Uses of deprecated namespace properties such as
+> `AppSwitcher.AppAvatar` and `AppSwitcher.ProductMenuItem` will still compile after migration (the namespace
+> properties remain, marked `@deprecated`). Replacing them with the direct named exports (`AppAvatar`,
+> `AppSwitcherProductMenuItem`) is a manual step.

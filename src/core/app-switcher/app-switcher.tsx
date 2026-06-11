@@ -51,5 +51,7 @@ AppSwitcher.MenuItem = AppSwitcherMenuItem
 AppSwitcher.ProductMenuItem = AppSwitcherProductMenuItem
 AppSwitcher.YourAppsMenuGroup = AppSwitcherYourAppsMenuGroup
 
+/** @deprecated Import `getDisplayableProductsForExploreGroup` from `@reapit/elements/core/app-switcher/anz` instead. */
 AppSwitcher.getDisplayableProductsForExploreGroup = getDisplayableProductsForExploreGroup
+/** @deprecated Import `getDisplayableProductsForYourAppsGroup` from `@reapit/elements/core/app-switcher/anz` instead. */
 AppSwitcher.getDisplayableProductsForYourAppsGroup = getDisplayableProductsForYourAppsGroup

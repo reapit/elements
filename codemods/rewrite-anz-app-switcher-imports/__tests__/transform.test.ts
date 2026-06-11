@@ -53,6 +53,13 @@ describe('rewrite-anz-app-switcher-imports', () => {
       expect(result).toContain(`from '${TO}'`)
       expect(result).not.toContain(`from '${FROM}'`)
     })
+
+    test('rewrites specifier when ProductConfig is imported', () => {
+      const source = `import type { ProductConfig } from '${FROM}'`
+      const result = transform(source)
+      expect(result).toContain(`from '${TO}'`)
+      expect(result).not.toContain(`from '${FROM}'`)
+    })
   })
 
   describe('AppSwitcher member access trigger', () => {
@@ -106,6 +113,26 @@ describe('rewrite-anz-app-switcher-imports', () => {
         `<AppSwitcher.MenuItem appName="Foo" />`,
       ].join('\n')
       expect(transform(source)).toBe(source)
+    })
+
+    test('rewrites specifier when AppSwitcher.getDisplayableProductsForYourAppsGroup is used', () => {
+      const source = [
+        `import { AppSwitcher } from '${FROM}'`,
+        `const ids = AppSwitcher.getDisplayableProductsForYourAppsGroup(accessibleProductIds)`,
+      ].join('\n')
+      const result = transform(source)
+      expect(result).toContain(`from '${TO}'`)
+      expect(result).not.toContain(`from '${FROM}'`)
+    })
+
+    test('rewrites specifier when AppSwitcher.getDisplayableProductsForExploreGroup is used', () => {
+      const source = [
+        `import { AppSwitcher } from '${FROM}'`,
+        `const ids = AppSwitcher.getDisplayableProductsForExploreGroup(accessibleProductIds)`,
+      ].join('\n')
+      const result = transform(source)
+      expect(result).toContain(`from '${TO}'`)
+      expect(result).not.toContain(`from '${FROM}'`)
     })
   })
 

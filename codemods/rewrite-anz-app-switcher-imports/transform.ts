@@ -6,10 +6,15 @@ const FROM_SPECIFIER = '@reapit/elements/core/app-switcher'
 const TO_SPECIFIER = '@reapit/elements/core/app-switcher/anz'
 
 // Named imports that, on their own, identify this as an ANZ-specific import
-const ANZ_NAMED_IMPORTS = new Set(['SupportedProductId'])
+const ANZ_NAMED_IMPORTS = new Set(['SupportedProductId', 'ProductConfig'])
 
 // AppSwitcher namespace properties that identify ANZ-specific usage
-const ANZ_MEMBER_PROPERTIES = new Set(['AppAvatar', 'ProductMenuItem'])
+const ANZ_MEMBER_PROPERTIES = new Set([
+  'AppAvatar',
+  'ProductMenuItem',
+  'getDisplayableProductsForExploreGroup',
+  'getDisplayableProductsForYourAppsGroup',
+])
 
 function isAppSwitcherImport(specifier: string, facadePackage?: string): boolean {
   if (specifier === FROM_SPECIFIER) return true
@@ -33,7 +38,8 @@ function hasAnzPropertyAccess(sourceFile: ReturnType<typeof createProjectFromSou
 function transform(source: string, filePath: string = 'file.tsx', options?: { facadePackage?: string }): string {
   // Quick reject: must contain a known ANZ-specific symbol or member access pattern
   const hasAnzIndicator =
-    source.includes('SupportedProductId') || [...ANZ_MEMBER_PROPERTIES].some((prop) => source.includes(`.${prop}`))
+    [...ANZ_NAMED_IMPORTS].some((name) => source.includes(name)) ||
+    [...ANZ_MEMBER_PROPERTIES].some((prop) => source.includes(`.${prop}`))
   if (!hasAnzIndicator) return source
   if (!source.includes('app-switcher')) return source
 
