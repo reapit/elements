@@ -1,4 +1,4 @@
-import { isProductAccessible } from './is-product-accessible'
+import { isProductAccessible } from '../is-product-accessible'
 import { productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE } from './config'
 
 import type { SupportedProductId } from './config'

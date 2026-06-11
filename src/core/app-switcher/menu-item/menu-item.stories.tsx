@@ -1,45 +1,20 @@
 import preview from '#.storybook/preview'
 import { AppSwitcher } from '../app-switcher'
-import { AppSwitcherMenuGroupHasAccessContext } from '../menu-group-has-access-context'
-
-import type { SupportedProductId } from '../config'
 
 const meta = preview.meta({
   title: 'Core/AppSwitcher/MenuItem',
   component: AppSwitcher.MenuItem,
-  argTypes: {
-    avatar: {
-      control: 'radio',
-      options: ['agentBox', 'consoleCloud', 'reapitforms', 'ireWeb'] as const satisfies SupportedProductId[],
-      mapping: {
-        agentBox: <AppSwitcher.AppAvatar hasAccess productId="agentBox" />,
-        consoleCloud: <AppSwitcher.AppAvatar hasAccess productId="consoleCloud" />,
-        ireWeb: <AppSwitcher.AppAvatar hasAccess productId="ireWeb" />,
-        reapitForms: <AppSwitcher.AppAvatar hasAccess productId="reapitforms" />,
-      },
-    },
-  },
-  decorators: [
-    (Story, { parameters: { hasAccessContextValue } }) => (
-      <AppSwitcherMenuGroupHasAccessContext.Provider value={!!hasAccessContextValue}>
-        <Story />
-      </AppSwitcherMenuGroupHasAccessContext.Provider>
-    ),
-  ],
-  parameters: {
-    hasAccessContextValue: true,
-  },
 })
 
 /**
- * When the product menu item is rendered as a child of the `AppSwitcher.YourAppsMenuGroup` (or more
- * specifically, when the nearest `HasAccessContext.Provider` has a value of `true`), its logo will
- * automatically reflect the user's access to the product.
+ * A basic menu item that renders an avatar, product name, and supplementary info. All content is supplied
+ * directly as props — the avatar slot accepts any React node, allowing consumers to provide their own
+ * product logo or placeholder.
  */
 export const Example = meta.story({
   args: {
     appName: 'App name',
-    avatar: 'consoleCloud',
+    avatar: <div aria-hidden style={{ background: 'currentColor', borderRadius: 4, height: 32, width: 32 }} />,
     supplementaryInfo: 'Supplementary info',
     href: '#',
   },

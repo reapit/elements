@@ -1,3 +1,7 @@
 export { AppSwitcher } from './app-switcher'
 export { isProductAccessible } from './is-product-accessible'
-export type { SupportedProductId, ProductConfig } from './config'
+/**
+ * @deprecated Import from `@reapit/elements/core/app-switcher/anz` instead.
+ */
+export type { SupportedProductId } from './anz/config'
+export type { ProductConfig } from './anz/config'

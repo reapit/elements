@@ -1,5 +1,5 @@
 import preview from '#.storybook/preview'
-import { AppSwitcher } from '../app-switcher'
+import { AppAvatar } from './app-avatar'
 import { productConfigs } from '../config'
 
 import type { SupportedProductId } from '../config'
@@ -7,12 +7,12 @@ import type { SupportedProductId } from '../config'
 const productIds = Object.keys(productConfigs) as SupportedProductId[]
 
 const meta = preview.meta({
-  title: 'Core/AppSwitcher/AppAvatar',
-  component: AppSwitcher.AppAvatar,
+  title: 'Core/AppSwitcher/ANZ/AppAvatar',
+  component: AppAvatar,
   argTypes: {
     productId: {
       control: { type: 'select' },
-      description: 'Visual style of the avatars',
+      description: 'The ANZ product whose avatar should be displayed.',
       options: productIds,
     },
   },
@@ -38,8 +38,8 @@ export const Inaccessible = Example.extend({
 })
 
 /**
- * All supported products are displayed here. Each product has two avatars: one for when the user has access
- * and one for when they do not.
+ * All supported ANZ products are displayed here. Each product has two avatars: one for when the user has
+ * access and one for when they do not.
  */
 export const AllProducts = meta.story({
   argTypes: {
@@ -60,8 +60,8 @@ export const AllProducts = meta.story({
     >
       {productIds.map((productId) => [
         <p key={productId}>{productConfigs[productId].appName}</p>,
-        <AppSwitcher.AppAvatar key={`${productId}-has-access`} productId={productId} hasAccess={true} />,
-        <AppSwitcher.AppAvatar key={`${productId}-has-no-access`} productId={productId} hasAccess={false} />,
+        <AppAvatar key={`${productId}-has-access`} productId={productId} hasAccess={true} />,
+        <AppAvatar key={`${productId}-has-no-access`} productId={productId} hasAccess={false} />,
       ])}
     </div>
   ),

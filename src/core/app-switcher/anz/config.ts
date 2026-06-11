@@ -1,6 +1,11 @@
+export interface ProductConfig {
+  appName: string
+  supplementaryInfo: string
+}
+
 /**
- * React Connect product IDs that are supported by the App Switcher. A supported product has a logo available
- * through `AppAvatar` and a related config in the `productConfigs` object.
+ * React Connect product IDs that are supported by the ANZ App Switcher. A supported product has a logo
+ * available through `AppAvatar` and a related config in the `productConfigs` object.
  */
 export type SupportedProductId =
   | 'agentBox' // Reapit Sales
@@ -15,17 +20,14 @@ export type SupportedProductId =
   | 'reapitWebsites'
   | 'verifyweb'
 
-export interface ProductConfig {
-  appName: string
-  supplementaryInfo: string
-}
-
 /**
- * The configuration for each product that is supported by the App Switcher.
+ * The configuration for each product that is supported by the ANZ App Switcher.
  *
  * **IMPORTANT:** Products should only be added here if they are intended to be available in the App Switcher
  * in the future. Similarly, product config content for existing products should only be changed if explicitly
  * approved by the Product and Design teams.
+ *
+ * @deprecated Will be removed in a future release.
  */
 export const productConfigs = {
   autoResponder: {
@@ -69,21 +71,22 @@ export const productConfigs = {
 } as const satisfies Record<SupportedProductId, ProductConfig>
 
 /**
- * The order of products in this array determines the order they will be displayed in the App Switcher.
+ * The order of products in this array determines the order they will be displayed in the ANZ App Switcher.
  * This array also implicitly defines the subset of supported products that are also "displayable". That is,
- * the products that are permitted to be displayed in the App Switcher across all consumers of the App Switcher
- * component.
+ * the products that are permitted to be displayed in the App Switcher across all ANZ consumers.
  *
  * **IMPORTANT:** DO NOT add products to this array unless they are Reapit Connect SSO capable and the
  * product is approved for use via the App Switcher. Further, the order of the products in this array is defined
  * by the Product and Design teams and should not be changed without their explicit approval.
+ *
+ * @deprecated Will be removed in a future release.
  */
 export const productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DISPLAY_AND_SSO_CAPABLE = [
-  // Primary apps here (should be alphatically ordered by configured app name)
+  // Primary apps here (should be alphabetically ordered by configured app name)
   'ireWeb', // => Reapit Lettings
   'consoleCloud', // => Reapit PM
   'agentBox', // => Reapit Sales
-  // Secondary apps here (should be alphatically ordered by configured app name)
+  // Secondary apps here (should be alphabetically ordered by configured app name)
   'keyWhere',
   'ireBdm', // => Lettings BDM
   'mmiWeb',

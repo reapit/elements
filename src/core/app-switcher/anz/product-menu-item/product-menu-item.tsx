@@ -1,7 +1,8 @@
-import { AppSwitcher } from '../app-switcher'
-import { AppSwitcherMenuItem } from '../menu-item'
+import { AppAvatar } from '../app-avatar'
+import { AppSwitcher } from '../../app-switcher'
+import { AppSwitcherMenuItem } from '../../menu-item'
 import { productConfigs } from '../config'
-import { useAppSwitcherMenuGroupHasAccessContext } from '../menu-group-has-access-context'
+import { useAppSwitcherMenuGroupHasAccessContext } from '../../menu-group-has-access-context'
 
 import type { SupportedProductId } from '../config'
 import type { ReactNode } from 'react'
@@ -23,7 +24,7 @@ export namespace AppSwitcherProductMenuItem {
  * interact with when rendering items based on the currently logged-in user's accessible products.
  *
  * The product's logo (`AppAvatar`) will automatically reflect the user's access to the product based on whether
- * the item is rendered within the `AppSwitcher.YouAppsMenuGroup` or the `AppSwitcher.ExploreMenuGroup`.
+ * the item is rendered within the `AppSwitcher.YourAppsMenuGroup` or the `AppSwitcher.ExploreMenuGroup`.
  */
 export function AppSwitcherProductMenuItem({
   appName: appNameOverride,
@@ -39,7 +40,7 @@ export function AppSwitcherProductMenuItem({
     <AppSwitcher.MenuItem
       {...rest}
       appName={appNameOverride ?? appName}
-      avatar={avatarOverride ?? <AppSwitcher.AppAvatar hasAccess={hasAccess} productId={productId} />}
+      avatar={avatarOverride ?? <AppAvatar hasAccess={hasAccess} productId={productId} />}
       href={href}
       supplementaryInfo={supplementaryInfoOverride ?? supplementaryInfo}
     />

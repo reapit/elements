@@ -1,11 +1,11 @@
-import { AppAvatar } from './app-avatar'
+import { AppAvatar } from './anz/app-avatar'
 import { AppSwitcherExploreMenuGroup } from './explore-menu-group'
 import { AppSwitcherMenuItem } from './menu-item'
 import { AppSwitcherNavIconButton } from './nav-icon-button'
-import { AppSwitcherProductMenuItem } from './product-menu-item'
+import { AppSwitcherProductMenuItem } from './anz/product-menu-item'
 import { AppSwitcherYourAppsMenuGroup } from './your-apps-menu-group'
-import { getDisplayableProductsForYourAppsGroup } from './get-displayable-products-for-your-apps-group'
-import { getDisplayableProductsForExploreGroup } from './get-displayable-products-for-explore-group'
+import { getDisplayableProductsForYourAppsGroup } from './anz/get-displayable-products-for-your-apps-group'
+import { getDisplayableProductsForExploreGroup } from './anz/get-displayable-products-for-explore-group'
 import { Menu } from '#src/core/menu'
 import { useId } from 'react'
 
@@ -42,10 +42,12 @@ export function AppSwitcher({ children, id, ...rest }: AppSwitcher.Props) {
   )
 }
 
+/** @deprecated Import `AppAvatar` from `@reapit/elements/core/app-switcher/anz` instead. */
 AppSwitcher.AppAvatar = AppAvatar
 AppSwitcher.Divider = Menu.Divider
 AppSwitcher.ExploreMenuGroup = AppSwitcherExploreMenuGroup
 AppSwitcher.MenuItem = AppSwitcherMenuItem
+/** @deprecated Import `AppSwitcherProductMenuItem` from `@reapit/elements/core/app-switcher/anz` instead. */
 AppSwitcher.ProductMenuItem = AppSwitcherProductMenuItem
 AppSwitcher.YourAppsMenuGroup = AppSwitcherYourAppsMenuGroup
 

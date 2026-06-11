@@ -6,7 +6,6 @@ import {
 } from './styles'
 import { useId } from 'react'
 
-import type { ProductConfig } from '../config'
 import type { HTMLAttributes, ReactNode } from 'react'
 
 // The attributes we want to omit from the HTMLAnchorElement props:
@@ -15,7 +14,9 @@ import type { HTMLAttributes, ReactNode } from 'react'
 type AttributesToOmit = 'aria-labelledby' | 'aria-describedby'
 
 export namespace AppSwitcherMenuItem {
-  export interface Props extends ProductConfig, Omit<HTMLAttributes<HTMLAnchorElement>, AttributesToOmit> {
+  export interface Props extends Omit<HTMLAttributes<HTMLAnchorElement>, AttributesToOmit> {
+    appName: string
+    supplementaryInfo: string
     avatar: ReactNode
     href: string
   }

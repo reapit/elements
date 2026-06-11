@@ -15,20 +15,21 @@ exports[`renders the provided logo, app name and supplementary info 1`] = `
       class="mocked-styled-1 el-app-switcher-menu-item-avatar"
     >
       <img
-        src="data:image/svg+xml,%3csvg%20xmlns='http://www.w3.org/2000/svg'%20width='40'%20height='40'%20fill='none'%20viewBox='0%200%2040%2040'%3e%3cpath%20fill='url(%23reapit-pm__a)'%20d='M0%208a8%208%200%200%201%208-8h24a8%208%200%200%201%208%208v24a8%208%200%200%201-8%208H8a8%208%200%200%201-8-8V8Z'/%3e%3cpath%20fill='%23fff'%20d='M8.375%2013v14L20.5%2034l12.124-7v-7.737l-1.687-.975-2.806-1.62-1.082-.624v4.83l-.002%204.83H13.95V16.07l3.275-1.89%202.192-1.265%201.082-.625%203.275%201.877%202.192%201.256%201.083.62V9.782L20.5%206%208.376%2013Z'/%3e%3cdefs%3e%3clinearGradient%20id='reapit-pm__a'%20x1='20.702'%20x2='20.702'%20y1='.351'%20y2='31.228'%20gradientUnits='userSpaceOnUse'%3e%3cstop%20stop-color='%235573FD'/%3e%3cstop%20offset='.575'%20stop-color='%234E56EA'/%3e%3c/linearGradient%3e%3c/defs%3e%3c/svg%3e"
+        alt=""
+        src="/test-logo.png"
       />
     </div>
     <span
       class="mocked-styled-2 el-app-switcher-menu-item-label"
       id=":r0:"
     >
-      Reapit PM
+      Test App
     </span>
     <span
       class="mocked-styled-3 el-app-switcher-menu-item-supplementary-info"
       id=":r1:"
     >
-      Property management
+      Test supplementary info
     </span>
   </a>
 </DocumentFragment>

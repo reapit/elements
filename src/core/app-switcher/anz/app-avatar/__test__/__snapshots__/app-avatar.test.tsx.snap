@@ -163,7 +163,7 @@ exports[`renders reapitforms icon when \`hasAccess\` is true 1`] = `
 exports[`renders verifyweb icon when \`hasAccess\` is false 1`] = `
 <DocumentFragment>
   <img
-    src="/src/core/app-switcher/app-avatar/icons/reapit-verify-disabled.svg"
+    src="/src/core/app-switcher/anz/app-avatar/icons/reapit-verify-disabled.svg"
   />
 </DocumentFragment>
 `;
@@ -171,7 +171,7 @@ exports[`renders verifyweb icon when \`hasAccess\` is false 1`] = `
 exports[`renders verifyweb icon when \`hasAccess\` is true 1`] = `
 <DocumentFragment>
   <img
-    src="/src/core/app-switcher/app-avatar/icons/reapit-verify.svg"
+    src="/src/core/app-switcher/anz/app-avatar/icons/reapit-verify.svg"
   />
 </DocumentFragment>
 `;

@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-04-30T05:31:58.918Z",
+  "generated": "2026-06-08T21:44:47.041Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -57,6 +57,10 @@
     {
       "name": "replace-lab-table",
       "description": "Migrates lab/table components to the stable core Table compound API"
+    },
+    {
+      "name": "rewrite-anz-app-switcher-imports",
+      "description": "Rewrite ANZ-specific AppSwitcher imports to @reapit/elements/core/app-switcher/anz"
     },
     {
       "name": "rewrite-combobox-imports",

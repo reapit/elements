@@ -1,48 +1,29 @@
 import { render, screen } from '@testing-library/react'
-import { AppAvatar } from '../../app-avatar/app-avatar'
-import { productConfigs } from '../../config'
 import { AppSwitcherMenuItem } from '../menu-item'
 
+const defaultProps = {
+  appName: 'Test App',
+  supplementaryInfo: 'Test supplementary info',
+  avatar: <img src="/test-logo.png" alt="" />,
+  href: 'https://www.test.com',
+}
+
 test('renders the provided logo, app name and supplementary info', () => {
-  const { asFragment } = render(
-    <AppSwitcherMenuItem
-      {...productConfigs.consoleCloud}
-      avatar={<AppAvatar productId={'consoleCloud'} hasAccess />}
-      href={'https://www.test.com'}
-    />,
-  )
+  const { asFragment } = render(<AppSwitcherMenuItem {...defaultProps} />)
   expect(asFragment()).toMatchSnapshot()
 })
 
 test('renders as a link element', () => {
-  render(
-    <AppSwitcherMenuItem
-      {...productConfigs.consoleCloud}
-      avatar={<AppAvatar productId={'consoleCloud'} hasAccess />}
-      href={'https://www.test.com'}
-    />,
-  )
+  render(<AppSwitcherMenuItem {...defaultProps} />)
   expect(screen.getByRole('link')).toBeVisible()
 })
 
-test("is accessibly named by the product's name", () => {
-  render(
-    <AppSwitcherMenuItem
-      {...productConfigs.consoleCloud}
-      avatar={<AppAvatar productId={'consoleCloud'} hasAccess />}
-      href={'https://www.test.com'}
-    />,
-  )
-  expect(screen.getByRole('link', { name: 'Reapit PM' })).toBeVisible()
+test('is accessibly named by the app name', () => {
+  render(<AppSwitcherMenuItem {...defaultProps} />)
+  expect(screen.getByRole('link', { name: 'Test App' })).toBeVisible()
 })
 
-test("is accessibly described by the product's supplementary info", () => {
-  render(
-    <AppSwitcherMenuItem
-      {...productConfigs.consoleCloud}
-      avatar={<AppAvatar productId={'consoleCloud'} hasAccess />}
-      href={'https://www.test.com'}
-    />,
-  )
-  expect(screen.getByRole('link')).toHaveAccessibleDescription('Property management')
+test('is accessibly described by the supplementary info', () => {
+  render(<AppSwitcherMenuItem {...defaultProps} />)
+  expect(screen.getByRole('link')).toHaveAccessibleDescription('Test supplementary info')
 })

@@ -18,6 +18,11 @@ const core = Object.fromEntries(
   ]),
 )
 
+// Explicit entry points for barrel files that live in subdirectories not matched by the first-level globs above.
+const coreSubpaths = {
+  'core/app-switcher/anz': 'src/core/app-switcher/anz/index.ts',
+}
+
 // We dynamically discover all "first-level" barrel files in the `src/lab` directory and add them as
 // individual entry points for our build.
 const lab = Object.fromEntries(
@@ -77,6 +82,7 @@ export default defineConfig({
       cssFileName: 'style',
       entry: {
         ...core,
+        ...coreSubpaths,
         ...lab,
         ...deprecated,
         ...icons,

@@ -39,6 +39,10 @@
     }
   },
   "exports": {
+    "./core/app-switcher/anz": {
+      "types": "./dist/types/core/app-switcher/anz/index.d.ts",
+      "import": "./dist/js/core/app-switcher/anz.js"
+    },
     "./core/*": {
       "types": "./dist/types/core/*/index.d.ts",
       "import": "./dist/js/core/*.js"

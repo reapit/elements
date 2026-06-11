@@ -1,5 +1,3 @@
-import type { SupportedProductId } from './config'
-
 /**
  * Returns true if the specified product ID is included in the list of accessible product IDs
  * and false otherwise.
@@ -10,12 +8,7 @@ import type { SupportedProductId } from './config'
  * @param productId The ID of a product that can be displayed
  * @param accessibleProductIds The list of product IDs that the user has access to
  */
-export function isProductAccessible(productId: SupportedProductId, accessibleProductIds: string[]) {
-  for (const accessibleProductId of accessibleProductIds) {
-    const regex = new RegExp(`^${accessibleProductId}$`, 'i') // Must be case-insensitive
-    if (regex.test(productId)) {
-      return true
-    }
-  }
-  return false
+export function isProductAccessible(productId: string, accessibleProductIds: string[]) {
+  const productIdLower = productId.toLowerCase()
+  return accessibleProductIds.some((id) => id.toLowerCase() === productIdLower)
 }
