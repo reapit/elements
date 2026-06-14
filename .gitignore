@@ -23,6 +23,11 @@ yarn-error.log*
 dist/
 public/dist
 
+# Python
+__pycache__
+*.py[cod]
+.python-version
+
 # Storybook
 storybook-static
 .storybook/preview.d.ts
