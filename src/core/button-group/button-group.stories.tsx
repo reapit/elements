@@ -5,8 +5,14 @@ const meta = preview.meta({
   title: 'Core/ButtonGroup',
   component: ButtonGroup,
   argTypes: {
-    autoFlow: {
+    align: {
       control: 'radio',
+      options: ['start', 'end', 'center', 'stretch'],
+    },
+    // NOTE: `autoFlow` is deprecated and will be removed in a future release, but we still want to include
+    // it in the Storybook controls for now so that users are aware of its existence and deprecation status.
+    autoFlow: {
+      control: false,
     },
     children: {
       control: 'radio',
@@ -35,8 +41,14 @@ const meta = preview.meta({
         ),
       },
     },
+    // NOTE: `justifyContent` is deprecated and will be removed in a future release, but we still want to include
+    // it in the Storybook controls for now so that users are aware of its existence and deprecation status.
     justifyContent: {
+      control: false,
+    },
+    orientation: {
       control: 'radio',
+      options: ['horizontal', 'vertical'],
     },
     size: {
       control: 'radio',
@@ -51,9 +63,9 @@ const meta = preview.meta({
  */
 export const Example = meta.story({
   args: {
-    autoFlow: 'column',
+    align: 'start',
     children: 'Secondary',
-    justifyContent: 'start',
+    orientation: 'horizontal',
     size: 'medium',
   },
 })
@@ -90,14 +102,14 @@ export const Size = Example.extend({
 })
 
 /**
- * Use `autoFlow` to control the direction buttons are laid out, and `justifyContent` to control
+ * Use `orientation` to control the direction buttons are laid out, and `align` to control
  * their alignment along the inline axis.
  */
 export const Layout = Example.extend({
   args: {
-    autoFlow: 'row',
-    children: 'Secondary',
-    justifyContent: 'end',
+    align: 'start',
+    children: 'Primary action',
+    orientation: 'vertical',
     size: 'medium',
   },
 })

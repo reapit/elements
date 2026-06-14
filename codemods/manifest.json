@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-06-08T21:44:47.041Z",
+  "generated": "2026-06-12T01:22:21.644Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -13,6 +13,10 @@
     {
       "name": "rename-empty-data",
       "description": "Renames EmptyData to EmptyState"
+    },
+    {
+      "name": "replace-deprecated-button-group-layout-props",
+      "description": "Migrate deprecated ButtonGroup autoFlow and justifyContent props to orientation and align"
     },
     {
       "name": "replace-deprecated-label",

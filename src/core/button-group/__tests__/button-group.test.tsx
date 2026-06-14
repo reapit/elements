@@ -52,6 +52,47 @@ test('defaults size to medium in context when not specified', () => {
   )
 })
 
+test('sets data-orientation attribute when orientation prop is provided', () => {
+  const { container } = render(
+    <ButtonGroup orientation="vertical">
+      <ButtonGroup.Item>Button</ButtonGroup.Item>
+    </ButtonGroup>,
+  )
+
+  expect(container.firstElementChild).toHaveAttribute('data-orientation', 'vertical')
+})
+
+test('does not set data-orientation attribute when orientation prop is omitted', () => {
+  const { container } = render(
+    <ButtonGroup>
+      <ButtonGroup.Item>Button</ButtonGroup.Item>
+    </ButtonGroup>,
+  )
+
+  expect(container.firstElementChild).not.toHaveAttribute('data-orientation')
+})
+
+test('sets data-align attribute when align prop is provided', () => {
+  const { container } = render(
+    <ButtonGroup align="end">
+      <ButtonGroup.Item>Button</ButtonGroup.Item>
+    </ButtonGroup>,
+  )
+
+  expect(container.firstElementChild).toHaveAttribute('data-align', 'end')
+})
+
+test('does not set data-align attribute when align prop is omitted', () => {
+  const { container } = render(
+    <ButtonGroup>
+      <ButtonGroup.Item>Button</ButtonGroup.Item>
+    </ButtonGroup>,
+  )
+
+  expect(container.firstElementChild).not.toHaveAttribute('data-align')
+})
+
+// TODO: remove the following tests when autoFlow and justifyContent are removed
 test('sets data-auto-flow attribute when autoFlow prop is provided', () => {
   const { container } = render(
     <ButtonGroup autoFlow="column">
