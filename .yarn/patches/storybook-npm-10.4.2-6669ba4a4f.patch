@@ -1,7 +1,7 @@
-diff --git a/dist/_node-chunks/chunk-RYS45SZ5.js b/dist/_node-chunks/chunk-RYS45SZ5.js
-index b55800981fef367d96e26d4c4cd18e69047aff13..d69bb24b833ddccf125f10e2ad31977031b18402 100644
---- a/dist/_node-chunks/chunk-RYS45SZ5.js
-+++ b/dist/_node-chunks/chunk-RYS45SZ5.js
+diff --git a/dist/_node-chunks/chunk-GD4AVVJ6.js b/dist/_node-chunks/chunk-GD4AVVJ6.js
+index eebab9e7e1f24c89999f4d2a4d8a4449378dd63b..71ef35f36d324093db2d433ff90a564db8c27cac 100644
+--- a/dist/_node-chunks/chunk-GD4AVVJ6.js
++++ b/dist/_node-chunks/chunk-GD4AVVJ6.js
 @@ -1266,7 +1266,7 @@ var getValue = (obj, key) => {
  // src/csf-tools/enrichCsf.ts
  import { generate as generate4, types as t5 } from "storybook/internal/babel";
