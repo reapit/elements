@@ -1,12 +1,12 @@
 ---
+compatibility: requires gh CLI (authenticated) and python3 (3.9+)
+description: Use when a user asks you to address, fix, work through, respond to, or resolve GitHub pull request review comments — including phrasings like "fix the Copilot comments", "sort out the review", "address reviewer feedback", or "go through the PR comments". Also use when handling inline review threads, suggested-change blocks, or reviewer questions on a PR.
+metadata:
+  github-path: skills/review-pr-comments
+  github-ref: refs/heads/main
+  github-repo: https://github.com/reapit-global/anz-shared-agentic-development
+  github-tree-sha: 101abc4fcc72556ad34f9dbdac6b8f34599c41e7
 name: review-pr-comments
-description: >
-  Use when a user asks you to address, fix, work through, respond to, or
-  resolve GitHub pull request review comments — including phrasings like
-  "fix the Copilot comments", "sort out the review", "address reviewer
-  feedback", or "go through the PR comments". Also use when handling
-  inline review threads, suggested-change blocks, or reviewer questions
-  on a PR.
 ---
 
 # Reviewing PR Comments

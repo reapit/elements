@@ -1,12 +1,12 @@
 ---
+compatibility: requires gh CLI (authenticated) and python3 (3.9+)
+description: Use when the user wants to understand, survey, or prioritise PR review comments without necessarily fixing them. Trigger phrases include "triage the PR comments", "what are the review comments", "summarise the PR feedback", "show me what needs fixing". Also the fetch-and-classify phase of the full review-pr-comments workflow.
+metadata:
+  github-path: skills/triage-pr-comments
+  github-ref: refs/heads/main
+  github-repo: https://github.com/reapit-global/anz-shared-agentic-development
+  github-tree-sha: 26beed7839cafd79a4a513147060a7dc1a7efb1a
 name: triage-pr-comments
-description: >
-  Use when the user wants to understand, survey, or prioritise PR review
-  comments without necessarily fixing them. Trigger phrases include: "triage
-  the PR comments", "what are the review comments", "what did [reviewer] say",
-  "summarise the PR feedback", "show me what needs fixing", "list the review
-  comments". Also the fetch-and-classify phase of the full review-pr-comments
-  workflow.
 ---
 
 # Triage PR Comments
@@ -57,10 +57,10 @@ suspect that is the case.
 
 ## Phase 1 — Fetch
 
-Run the fetch script to retrieve unresolved, non-outdated review threads.
+Run `fetch_comments.py` (located in the `scripts/` directory alongside this skill) to retrieve unresolved, non-outdated review threads.
 
 ```bash
-python3 .agents/skills/triage-pr-comments/scripts/fetch_comments.py <PR_NUMBER> [options]
+python3 fetch_comments.py <PR_NUMBER> [options]
 ```
 
 ### Options
@@ -83,19 +83,19 @@ python3 .agents/skills/triage-pr-comments/scripts/fetch_comments.py <PR_NUMBER> 
 
 ```bash
 # All reviewers (default)
-python3 .agents/skills/triage-pr-comments/scripts/fetch_comments.py 1234
+python3 fetch_comments.py 1234
 
 # Human reviewers only
-python3 .agents/skills/triage-pr-comments/scripts/fetch_comments.py 1234 --filter humans
+python3 fetch_comments.py 1234 --filter humans
 
 # Bot reviewers only (Copilot, etc.)
-python3 .agents/skills/triage-pr-comments/scripts/fetch_comments.py 1234 --filter agents
+python3 fetch_comments.py 1234 --filter agents
 
 # Specific reviewer
-python3 .agents/skills/triage-pr-comments/scripts/fetch_comments.py 1234 --reviewer copilot-pull-request-reviewer
+python3 fetch_comments.py 1234 --reviewer copilot-pull-request-reviewer
 
 # Explicit repo (when not in a git directory)
-python3 .agents/skills/triage-pr-comments/scripts/fetch_comments.py 1234 --owner reapit --repo elements
+python3 fetch_comments.py 1234 --owner reapit --repo elements
 ```
 
 **Output**: a JSON array of thread objects. Each thread has this shape:
@@ -156,7 +156,7 @@ Instructions:
 1. Load project context before reading the comment:
    - Read `AGENTS.md` in the repository root if it exists; fall back to
      `CLAUDE.md`. Note any rules that apply to the area being commented on.
-   - Check whether `.agents/skills/` exists and list its contents. Based on
+   - Check whether a skills directory exists and list its contents. Based on
      the file path and comment text, identify any skills that govern this area
      (e.g. component patterns, z-index, barrel exports, tests). Read the
      `SKILL.md` for each relevant skill.
