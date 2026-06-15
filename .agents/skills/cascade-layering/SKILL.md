@@ -48,6 +48,7 @@ For how the layer order reaches the bundle in both Storybook and the production 
 
 - [ ] Wrap all styles in `@layer elements.main { ... }`
 - [ ] Confirm no anonymous `@layer {}` blocks
+- [ ] Confirm `@keyframes` definitions are outside the `@layer` wrapper
 - [ ] If this component provides foundation styles for other components, use `elements.base` instead (rare — check with the team first)
 
 ```typescript
@@ -67,6 +68,7 @@ When you encounter styles that are not yet layered, wrap them in `@layer element
 **Checklist:**
 
 - [ ] Wrap all styles in `@layer elements.main { ... }`
+- [ ] Confirm `@keyframes` definitions are outside the `@layer` wrapper
 - [ ] Run tests to confirm no visual regression
 
 ### Storybook and documentation styles
@@ -127,13 +129,54 @@ display: contents;
 }
 ```
 
+### Nesting `@keyframes` inside `@layer`
+
+wyw-in-js scopes `@keyframes` names by appending a suffix derived from the root class selector. Its Stylis plugin finds keyframe definitions by scanning siblings of the root element in the AST. When `@keyframes` is nested inside an `@layer` block, it becomes a child of the `@layer` node rather than a sibling of the root, so the plugin cannot match it. The `@keyframes` name is renamed but the `animation` property reference is not, producing a name mismatch that silently breaks the animation.
+
+Keep the `animation` property inside the layer (so it respects layer ordering) and place the `@keyframes` definition outside.
+
+```typescript
+// ❌ Wrong: @keyframes inside @layer — wyw-in-js cannot scope the name correctly
+export const elSpinner = css`
+  @layer elements.main {
+    animation: spin 1s linear infinite;
+
+    @keyframes spin {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(360deg);
+      }
+    }
+  }
+`
+
+// ✅ Correct: @keyframes outside @layer
+export const elSpinner = css`
+  @layer elements.main {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+`
+```
+
 ## Review Checklist
 
 When reviewing code that touches styles:
 
 - [ ] All styles wrapped in `@layer elements.main` (or `elements.base` if justified)
 - [ ] No anonymous `@layer {}` in non-deprecated code
-- [ ] No styles left outside the layer
+- [ ] No styles left outside the layer (except `@keyframes` — see Common Mistakes)
+- [ ] `@keyframes` definitions are outside the `@layer` wrapper
 - [ ] Storybook and documentation files may skip layering, but must never use anonymous layers
 
 ## Reference

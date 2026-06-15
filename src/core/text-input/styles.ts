@@ -219,14 +219,14 @@ export const ElTextInputAffixContainer = styled.span`
 export const elTextInputSpinner = css`
   @layer elements.main {
     animation: spin 1s linear infinite;
+  }
 
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 `

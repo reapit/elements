@@ -304,14 +304,14 @@ function generateElButtonIconContainerVariantStyles(variant: 'primary' | 'second
 export const elButtonSpinner = css`
   @layer elements.base {
     animation: spin 1s linear infinite;
+  }
 
-    @keyframes spin {
-      from {
-        transform: rotate(0deg);
-      }
-      to {
-        transform: rotate(360deg);
-      }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
     }
   }
 `
