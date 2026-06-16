@@ -32,6 +32,14 @@ jobs:
         with:
           node-version: 24
       - name: Delete preview Worker
+        # Wrangler unconditionally lists KV namespaces after deleting a Worker to
+        # clean up legacy Workers Sites asset namespaces. Our previews use the
+        # modern assets binding, not KV, so there is nothing to clean up — but the
+        # lookup requires Workers KV Storage permission the token lacks, causing
+        # wrangler to exit non-zero AFTER the Worker is already deleted. Tolerate
+        # the failure so the subsequent steps still run; the weekly sweep backstops
+        # any genuinely orphaned Workers.
+        continue-on-error: true
         uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
         with:
           apiToken: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
