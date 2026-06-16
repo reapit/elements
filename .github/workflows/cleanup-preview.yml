@@ -15,7 +15,7 @@ env:
 
 jobs:
   cleanup:
-    name: Cleanup
+    name: Remove PR Preview
     # Fork and Dependabot PRs run with a read-only GITHUB_TOKEN and no access to
     # secrets, so the wrangler delete and deployment updates would fail. Skip them.
     if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
@@ -80,7 +80,7 @@ jobs:
           done
 
   sweep:
-    name: Sweep Orphaned Previews
+    name: Remove Orphaned Previews
     if: github.event_name == 'schedule'
     runs-on:
       group: rpt-gbl-linux-x64
