@@ -112,11 +112,15 @@ After deployment, a sticky PR comment is posted (or updated) with the preview UR
 
 ## Key decisions
 
+### Concurrency and scheduling
+
 **Why does `release.yml` use `cancel-in-progress: false` for its concurrency group?**
 Aborting a publish mid-flight can leave npm in a partially-published state. Serialising with `cancel-in-progress: false` lets the second run wait rather than kill the first.
 
 **Why does `deploy-docs-manual.yml` use `cancel-in-progress: true` for its concurrency group?**
 Unlike a publish, a Cloudflare deploy is idempotent — the most recent deployment wins. Cancelling a stale deploy and letting the newest one proceed is safe and avoids deploying an outdated build.
+
+### Publishing and authentication
 
 **Why is there no `NPM_TOKEN` secret for publishing?**
 Both release paths authenticate to npm via OIDC trusted publishing — no long-lived secret is needed. GitHub Actions mints a short-lived OIDC token, which npm exchanges for a publish token.
@@ -124,14 +128,18 @@ Both release paths authenticate to npm via OIDC trusted publishing — no long-l
 **Why does the `release` job use `environment: release`?**
 The `release` environment is restricted to the `main` and `lts` branches in GitHub Settings → Environments. This ensures GitHub mints an OIDC token only for runs on those branches, providing a belt-and-braces guard on top of the `on: push: branches: [main, lts]` trigger. Both the `release` and `release-manual` jobs use this environment. The `release` environment is separate from `production`, which the `record-release` job uses solely to signal a deployment event to Jira.
 
+**Why is provenance attestation not enabled?**
+Sigstore provenance requires a public source repository. This repository is private, so npm rejects the attestation bundle during publish.
+
+### Release scope
+
 **Why do `record-release` and `publish-figma` only run on `main`, not `lts`?**
 Jira is not configured to manage two release streams, so emitting a deployment record for an `lts` patch would either duplicate the `main` signal or produce a record Jira cannot act on. Figma Code Connect reflects the latest stable release — publishing from `lts` would overwrite the current version's definitions.
 
 **Why does manual dispatch skip `record-release`, `publish-figma`, and `deploy-docs`?**
 Manual dispatch exists solely as a recovery tool for failed automated releases. Creating a deployment record could duplicate the automated workflow's Jira signal or point at a different commit than Jira expects (since the dispatch checks out an arbitrary ref rather than HEAD of `main`). The dispatch skips Figma Code Connect and docs because it may target a commit other than the latest on `main`. Deploy docs independently via `deploy-docs-manual.yml` if needed.
 
-**Why is provenance attestation not enabled?**
-Sigstore provenance requires a public source repository. This repository is private, so npm rejects the attestation bundle during publish.
+### Job design
 
 **Why does the `release` job repeat checkout/setup/install instead of using a composite action?**
 The `release` job needs to control `actions/checkout` directly because it must use a write-scoped checkout token (from the GitHub App) so that `changesets/action` can push the version PR branch. In this repo, the shared composite actions are local actions under `.github/actions/`, so they cannot be used until the repository is checked out. `release` therefore repeats checkout, setup, and install rather than delegating to a composite action.
@@ -151,14 +159,21 @@ Dry-running in `test-pr.yml` catches broken Code Connect definitions before merg
 **Why is `deploy-docs-manual.yml` a standalone workflow rather than a reusable workflow called from `release.yml`?**
 It provides an emergency path that bypasses the full CI pipeline — useful when docs need redeploying without a code change (e.g. after an infrastructure update or a failed deploy). In `release.yml`, the `docs` job builds Storybook and the `deploy-docs` job deploys the pre-built artifact, so docs are built only once per run.
 
+### Preview deployments
+
 **Why do preview deployments use the same `wrangler.jsonc` instead of a separate config?**
 The `preview` environment inherits the top-level `main` entry point (`workers/mcp.ts`), so the MCP endpoint is available on previews for free. A separate config would duplicate the assets configuration and risk drift. The Worker name and custom domain are overridden at deploy time via `--name` and `--domain` flags.
-
-**Why does the preview PR comment use inline `gh api` calls instead of a third-party action?**
-Third-party comment actions (`marocchino/sticky-pull-request-comment`, `peter-evans/create-or-update-comment`) introduce supply chain risk for a task achievable with eight lines of shell. The `gh` CLI is pre-installed on the runners and uses the workflow's `GITHUB_TOKEN` directly.
 
 **Why does preview cleanup use both a PR close trigger and a scheduled sweep?**
 The PR close trigger handles the normal lifecycle. The weekly sweep catches edge cases: failed cleanup runs, PRs closed while the runner was unavailable, or any other scenario that leaves an orphaned Worker behind.
 
+### Supply chain
+
+**Why does the preview PR comment use inline `gh api` calls instead of a third-party action?**
+Third-party comment actions (`marocchino/sticky-pull-request-comment`, `peter-evans/create-or-update-comment`) introduce supply-chain risk for a task achievable with eight lines of shell. The `gh` CLI is pre-installed on the runners and uses the workflow's `GITHUB_TOKEN` directly.
+
 **Why does the deployment status use inline `gh api` calls instead of `bobheadxi/deployments`?**
 The GitHub Deployments REST API requires only two calls (create deployment, post status) to surface a "View deployment" link on the pull request. The `bobheadxi/deployments` action wraps the same API but introduces a third-party dependency. Inline `gh api` calls keep the supply chain minimal, consistent with the PR comment approach.
+
+**Why are all actions pinned to commit SHAs?**
+A compromised or force-pushed tag can silently change the code a workflow executes. Pinning every action — including GitHub-owned ones — to a full commit SHA with a version comment (e.g. `actions/checkout@<sha> # v6`) locks each reference to an immutable commit. Dependabot preserves this pinning style when it proposes updates, so the next weekly PR auto-heals any reference that drifts back to a tag.

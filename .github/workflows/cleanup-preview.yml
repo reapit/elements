@@ -27,8 +27,8 @@ jobs:
       deployments: write
       pull-requests: write
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
           node-version: 24
       - name: Delete preview Worker
@@ -40,7 +40,7 @@ jobs:
         # the failure so the subsequent steps still run; the weekly sweep backstops
         # any genuinely orphaned Workers.
         continue-on-error: true
-        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
+        uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
         with:
           apiToken: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
           accountId: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}
@@ -97,8 +97,8 @@ jobs:
       contents: read
       pull-requests: read
     steps:
-      - uses: actions/checkout@v6
-      - uses: actions/setup-node@v6
+      - uses: actions/checkout@df4cb1c069e1874edd31b4311f1884172cec0e10 # v6
+      - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
         with:
           node-version: 24
       - name: Delete orphaned preview Workers

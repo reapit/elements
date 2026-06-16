@@ -11,10 +11,10 @@ outputs:
 runs:
   using: composite
   steps:
-    - uses: actions/setup-node@v6
+    - uses: actions/setup-node@48b55a011bda9f5d6aeb4c2d9c7362e8dae4041e # v6
       with:
         node-version: 24
-    - uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
+    - uses: cloudflare/wrangler-action@ebbaa1584979971c8614a24965b4405ff95890e0 # v4.0.0
       with:
         apiToken: ${{ env.CLOUDFLARE_API_TOKEN }}
         accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
