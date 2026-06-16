@@ -58,6 +58,12 @@ jobs:
     steps:
       - uses: actions/checkout@v6
       - uses: ./.github/actions/build-docs
+      - name: Upload docs artifact
+        uses: actions/upload-artifact@v7
+        with:
+          name: docs
+          path: public/dist/
+          retention-days: 1
 
   figma:
     name: Figma Code Connect
@@ -95,3 +101,122 @@ jobs:
         with:
           project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
           coverage-reports: coverage/report/lcov.info
+
+  deploy-preview:
+    name: Deploy Preview
+    # Reuses the Storybook artifact built by the `docs` job rather than rebuilding it.
+    needs: docs
+    # Fork and Dependabot PRs run with a read-only GITHUB_TOKEN and no access to
+    # secrets, so the deployment API call and wrangler deploy would fail. Skip them.
+    if: github.event.pull_request.head.repo.full_name == github.repository
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      deployments: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v6
+      - name: Download docs artifact
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          name: docs
+          path: public/dist/
+      - name: Create deployment
+        id: deployment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REF: ${{ github.event.pull_request.head.sha }}
+          ENVIRONMENT: pr-${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+
+          # required_contexts: [] creates the deployment immediately instead of
+          # gating it on other commit status checks. auto_merge: false stops the API
+          # merging the base branch into the head ref. transient_environment: true
+          # lets GitHub drop the environment from the Environments list once it is
+          # marked inactive (on PR close or supersession).
+          DEPLOYMENT_ID=$(jq -n \
+            --arg ref "$REF" \
+            --arg env "$ENVIRONMENT" \
+            '{
+              ref: $ref,
+              environment: $env,
+              description: "Storybook preview",
+              auto_merge: false,
+              transient_environment: true,
+              required_contexts: []
+            }' \
+            | gh api "repos/${{ github.repository }}/deployments" \
+              -X POST --input - --jq '.id')
+          echo "id=$DEPLOYMENT_ID" >> "$GITHUB_OUTPUT"
+      - uses: ./.github/actions/deploy-preview
+        id: deploy
+        with:
+          pr-number: ${{ github.event.pull_request.number }}
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}
+      - name: Comment on PR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+          URL: ${{ steps.deploy.outputs.url }}
+          SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          set -euo pipefail
+
+          BODY="<!-- storybook-preview -->
+          > [!TIP]
+          > ### 🚀 Storybook preview is live
+          > **[→ Open the preview](${URL})**
+          >
+          > <sub>Updated for commit \`${SHA:0:7}\`</sub>"
+
+          # Reuse the existing preview comment (found by its hidden marker) so each
+          # push updates it in place rather than posting a new one. `first // empty`
+          # returns a single id or nothing, avoiding a `head` pipe that could raise
+          # SIGPIPE under `set -o pipefail`.
+          COMMENT_ID=$(gh api "repos/${{ github.repository }}/issues/${PR}/comments" \
+            --jq '[.[] | select(.body | startswith("<!-- storybook-preview -->")) | .id] | first // empty')
+
+          if [ -n "$COMMENT_ID" ]; then
+            gh api "repos/${{ github.repository }}/issues/comments/${COMMENT_ID}" \
+              -X PATCH -f body="$BODY"
+          else
+            gh pr comment "$PR" --body "$BODY"
+          fi
+      - name: Mark deployment active
+        # Keyed to the deploy step's outcome rather than overall job success, so
+        # a failure in a later step (e.g. the PR comment) does not mislabel a
+        # successful deployment.
+        if: always() && steps.deployment.outputs.id && steps.deploy.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          URL: ${{ steps.deploy.outputs.url }}
+        run: |
+          gh api "repos/${{ github.repository }}/deployments/${{ steps.deployment.outputs.id }}/statuses" \
+            -X POST \
+            -f state=success \
+            -f environment_url="$URL" \
+            -f description="Storybook preview deployed"
+      - name: Mark deployment failed
+        if: always() && steps.deployment.outputs.id && steps.deploy.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/deployments/${{ steps.deployment.outputs.id }}/statuses" \
+            -X POST \
+            -f state=failure \
+            -f description="Storybook preview deployment failed"
+      - name: Mark deployment inactive on cancel
+        # A superseded run cancelled mid-deploy would otherwise leave the
+        # deployment pending until PR close. Deactivate it during cancellation.
+        if: cancelled() && steps.deployment.outputs.id
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api "repos/${{ github.repository }}/deployments/${{ steps.deployment.outputs.id }}/statuses" \
+            -X POST \
+            -f state=inactive

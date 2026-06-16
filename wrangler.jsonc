@@ -48,5 +48,16 @@
         "binding": "ASSETS",
       },
     },
+    // Preview: PR storybook previews → pr-<number>.elements.reapit.com.au
+    // Name and domain are overridden at deploy time via --name and --domain.
+    "preview": {
+      "name": "gbl-ds-elements-pr",
+      "compatibility_flags": ["nodejs_compat"],
+      "assets": {
+        "directory": "./public/dist",
+        "not_found_handling": "single-page-application",
+        "binding": "ASSETS",
+      },
+    },
   },
 }

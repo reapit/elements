@@ -1,3 +1,13 @@
+# Maps GitHub Deployment environment names to Jira deployment categories for
+# the GitHub for Jira integration. Names are matched case-insensitively as
+# regular expressions.
+#
+# Preview deployments (environment "pr-<number>", created in test-pr.yml) are
+# intentionally left unmapped: they are ephemeral, created on every push to a
+# PR, and deactivated on close. Mapping them would post a deployment onto the
+# linked Jira issue's timeline for each push — noise that drowns out the real
+# release and production deployments. They still deploy and work as normal;
+# they simply do not appear in Jira's deployment panel.
 deployments:
   environmentMapping:
     development:

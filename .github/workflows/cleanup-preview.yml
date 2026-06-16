@@ -1,0 +1,130 @@
+name: Cleanup Preview
+
+on:
+  pull_request:
+    types: [closed]
+  schedule:
+    # Weekly Monday 3 am UTC — sweep orphaned preview Workers.
+    - cron: '0 3 * * 1'
+
+permissions:
+  contents: read
+
+env:
+  CI: true
+
+jobs:
+  cleanup:
+    name: Cleanup
+    # Fork and Dependabot PRs run with a read-only GITHUB_TOKEN and no access to
+    # secrets, so the wrangler delete and deployment updates would fail. Skip them.
+    if: github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name == github.repository
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      deployments: write
+      pull-requests: write
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Delete preview Worker
+        uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
+        with:
+          apiToken: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
+          accountId: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}
+          wranglerVersion: '4'
+          command: delete --env preview --name gbl-ds-elements-pr-${{ github.event.pull_request.number }} --force
+      - name: Update PR comment
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+
+          BODY="<!-- storybook-preview -->
+          > [!NOTE]
+          > ### 🧹 Storybook preview removed
+          > The preview for this PR has been cleaned up."
+
+          # Find the existing preview comment by its hidden marker and update it in
+          # place. `first // empty` yields a single id (or nothing) without a `head`
+          # pipe, keeping it SIGPIPE-safe under `set -o pipefail`.
+          COMMENT_ID=$(gh api "repos/${{ github.repository }}/issues/${PR}/comments" \
+            --jq '[.[] | select(.body | startswith("<!-- storybook-preview -->")) | .id] | first // empty')
+
+          if [ -n "$COMMENT_ID" ]; then
+            gh api "repos/${{ github.repository }}/issues/comments/${COMMENT_ID}" \
+              -X PATCH -f body="$BODY"
+          fi
+      - name: Deactivate deployments
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: |
+          set -euo pipefail
+
+          # Mark every deployment for this PR inactive so the pull request no longer
+          # shows an active preview deployment once it is closed.
+          DEPLOYMENT_IDS=$(gh api "repos/${{ github.repository }}/deployments" \
+            --paginate \
+            --jq ".[] | select(.environment == \"pr-${PR}\") | .id")
+
+          for ID in $DEPLOYMENT_IDS; do
+            gh api "repos/${{ github.repository }}/deployments/${ID}/statuses" \
+              -X POST \
+              -f state=inactive
+          done
+
+  sweep:
+    name: Sweep Orphaned Previews
+    if: github.event_name == 'schedule'
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: 24
+      - name: Delete orphaned preview Workers
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.ANZ_CLOUDFLARE_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.ANZ_CLOUDFLARE_ACCOUNT_ID }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+
+          # Abort if the open-PR list can't be retrieved: an empty OPEN_PRS
+          # would make every Worker look orphaned and delete active previews.
+          if ! OPEN_PRS=$(gh pr list --state open --limit 1000 --json number --jq '.[].number'); then
+            echo "Failed to list open PRs — aborting sweep to avoid deleting active previews." >&2
+            exit 1
+          fi
+
+          # TODO: The Cloudflare API paginates at 100 results. If the account
+          # accumulates more than 100 Workers, this request will miss some.
+          RESPONSE=$(curl -f \
+            -H "Authorization: Bearer ${CLOUDFLARE_API_TOKEN}" \
+            "https://api.cloudflare.com/client/v4/accounts/${CLOUDFLARE_ACCOUNT_ID}/workers/scripts")
+          WORKERS=$(echo "$RESPONSE" | jq -r '.result[].id | select(startswith("gbl-ds-elements-pr-"))')
+
+          for WORKER in $WORKERS; do
+            # Extract the PR number from the worker name (gbl-ds-elements-pr-<number>).
+            PR_NUM="${WORKER#gbl-ds-elements-pr-}"
+
+            if echo "$OPEN_PRS" | grep -qx "$PR_NUM"; then
+              echo "Skipping ${WORKER} — PR #${PR_NUM} is still open."
+            else
+              echo "Deleting orphaned Worker ${WORKER} (PR #${PR_NUM} is closed)."
+              # Tolerate a single failed delete so one error doesn't abort the whole
+              # sweep under `set -e`; the next weekly run will retry it.
+              npx wrangler@4 delete --env preview --name "$WORKER" --force || true
+            fi
+          done

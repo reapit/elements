@@ -1,0 +1,29 @@
+name: Deploy Preview
+description: Deploy pre-built Storybook to a Cloudflare Worker for PR preview
+inputs:
+  pr-number:
+    description: 'Pull request number'
+    required: true
+outputs:
+  url:
+    description: 'Preview deployment URL'
+    value: https://pr-${{ inputs.pr-number }}.elements.reapit.com.au
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@v6
+      with:
+        node-version: 24
+    - uses: cloudflare/wrangler-action@9acf94ace14e7dc412b076f2c5c20b8ce93c79cd # v3
+      with:
+        apiToken: ${{ env.CLOUDFLARE_API_TOKEN }}
+        accountId: ${{ env.CLOUDFLARE_ACCOUNT_ID }}
+        wranglerVersion: '4'
+        # The preview env in wrangler.jsonc declares a base name and no routes, so
+        # each PR supplies its own: --name isolates the Worker per PR and --domain
+        # attaches the per-PR custom domain at deploy time.
+        command: >-
+          deploy
+          --env preview
+          --name gbl-ds-elements-pr-${{ inputs.pr-number }}
+          --domain pr-${{ inputs.pr-number }}.elements.reapit.com.au
