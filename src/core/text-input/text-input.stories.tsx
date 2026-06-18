@@ -208,3 +208,29 @@ export const MaxWidth = Icons.extend({
     maxWidth: 'var(--size-64)',
   },
 })
+
+// Defined at module level so the function reference is stable across renders.
+// formatValue must be a stable reference; an inline arrow function would
+// cause the overlay to re-sync on every render.
+function toUpperCase(value: string): string {
+  return value.toUpperCase()
+}
+
+/**
+ * The `formatValue` prop accepts a function that returns a display string for the current
+ * input value. The formatted text is shown as an overlay whilst the field is not focused;
+ * the raw value remains visible and editable when focused.
+ *
+ * For numeric input with locale-aware formatting, prefer `NumberInput` or `NumberControl`,
+ * which handle numeric filtering, precision, and validation automatically. Use `formatValue`
+ * on `TextInput` for other custom-formatting scenarios.
+ *
+ * The function must be a stable reference (defined outside the component or memoised with
+ * `useCallback`) to avoid unnecessary re-syncs.
+ */
+export const FormattingValues = Example.extend({
+  args: {
+    defaultValue: 'hello world',
+    formatValue: toUpperCase,
+  },
+})

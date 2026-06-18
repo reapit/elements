@@ -1,0 +1,169 @@
+import { resolveOverlayValue } from '../resolve-overlay'
+import type { ResolveOverlayParams } from '../resolve-overlay'
+
+// en-GB resolves to a decimal default of minimumFractionDigits: 0, maximumFractionDigits: 3.
+const enGB: ResolveOverlayParams = {
+  locale: 'en-GB',
+  formatOptions: undefined,
+  fractionBounds: { min: 0, max: 3 },
+}
+
+const withOptions = (
+  formatOptions: Intl.NumberFormatOptions,
+  fractionBounds = { min: 0, max: 3 },
+): ResolveOverlayParams => ({
+  locale: 'en-GB',
+  formatOptions,
+  fractionBounds,
+})
+
+// ---------------------------------------------------------------------------
+// Partial states — returned unchanged (overlay hidden)
+// ---------------------------------------------------------------------------
+
+test('returns an empty string unchanged', () => {
+  expect(resolveOverlayValue('', enGB)).toBe('')
+})
+
+test('returns a lone minus unchanged', () => {
+  expect(resolveOverlayValue('-', enGB)).toBe('-')
+})
+
+test('returns a lone decimal point unchanged', () => {
+  expect(resolveOverlayValue('.', enGB)).toBe('.')
+})
+
+test('returns a negative lone decimal point unchanged', () => {
+  expect(resolveOverlayValue('-.', enGB)).toBe('-.')
+})
+
+// ---------------------------------------------------------------------------
+// Non-canonical controlled values — returned unchanged (overlay hidden)
+// ---------------------------------------------------------------------------
+
+test('hides the overlay for exponent notation', () => {
+  // Number('1e5') is 100000, but the value is "1e5"; the overlay must not show "100,000".
+  expect(resolveOverlayValue('1e5', enGB)).toBe('1e5')
+})
+
+test('hides the overlay for a hex string', () => {
+  expect(resolveOverlayValue('0x10', enGB)).toBe('0x10')
+})
+
+test('hides the overlay for a numeric-separator string', () => {
+  expect(resolveOverlayValue('1_000', enGB)).toBe('1_000')
+})
+
+test('hides the overlay for Infinity', () => {
+  expect(resolveOverlayValue('Infinity', enGB)).toBe('Infinity')
+})
+
+test('hides the overlay for a leading-plus string', () => {
+  expect(resolveOverlayValue('+12', enGB)).toBe('+12')
+})
+
+test('hides the overlay for a whitespace-padded number', () => {
+  expect(resolveOverlayValue('  12  ', enGB)).toBe('  12  ')
+})
+
+test('hides the overlay for multiple decimal points', () => {
+  expect(resolveOverlayValue('1.2.3', enGB)).toBe('1.2.3')
+})
+
+// ---------------------------------------------------------------------------
+// Basic formatting
+// ---------------------------------------------------------------------------
+
+test('formats an integer with group separators', () => {
+  expect(resolveOverlayValue('1234567', enGB)).toBe('1,234,567')
+})
+
+test('formats a decimal with the locale decimal separator', () => {
+  expect(resolveOverlayValue('1234.5', { ...enGB, locale: 'de-DE' })).toBe('1.234,5')
+})
+
+test('formats a negative value', () => {
+  expect(resolveOverlayValue('-1234.5', enGB)).toBe('-1,234.5')
+})
+
+test('preserves typed trailing zeros', () => {
+  expect(resolveOverlayValue('1.50', enGB)).toBe('1.50')
+})
+
+test('formats a trailing decimal point as the integer it represents', () => {
+  expect(resolveOverlayValue('1234.', enGB)).toBe('1,234')
+})
+
+// ---------------------------------------------------------------------------
+// Precision — exact via the string overload (no rounding through Number)
+// ---------------------------------------------------------------------------
+
+test('formats an integer beyond Number.MAX_SAFE_INTEGER exactly via BigInt', () => {
+  // Number('9007199254740993') rounds to 9007199254740992; BigInt keeps it exact.
+  expect(resolveOverlayValue('9007199254740993', enGB)).toBe('9,007,199,254,740,993')
+})
+
+test('formats a large negative integer beyond Number.MAX_SAFE_INTEGER exactly', () => {
+  expect(resolveOverlayValue('-9007199254740993', enGB)).toBe('-9,007,199,254,740,993')
+})
+
+test('formats a high-precision decimal exactly via the string overload', () => {
+  // Number('9007199254740993.5') is 9007199254740994; the string overload keeps full precision.
+  // (Requires an engine with the precision-preserving string overload; Node provides it.)
+  expect(resolveOverlayValue('9007199254740993.5', enGB)).toBe('9,007,199,254,740,993.5')
+})
+
+test('formats a very long high-precision decimal without rounding', () => {
+  const raw = '1.123456789012345678901234567890'
+  expect(resolveOverlayValue(raw, enGB)).toBe('1.123456789012345678901234567890')
+})
+
+// ---------------------------------------------------------------------------
+// Intl 100-digit ceiling
+// ---------------------------------------------------------------------------
+
+test('formats a value with exactly 100 fraction digits without throwing', () => {
+  const raw = `0.${'1'.repeat(100)}`
+  expect(resolveOverlayValue(raw, enGB)).toBe(`0.${'1'.repeat(100)}`)
+})
+
+test('clamps display to 100 fraction digits for pathologically long values', () => {
+  // 150 fraction digits would exceed Intl's limit; the overlay clamps to 100 rather than throwing.
+  const raw = `0.${'1'.repeat(150)}`
+  const result = resolveOverlayValue(raw, enGB)
+  // 100 ones after the decimal point.
+  expect(result).toBe(`0.${'1'.repeat(100)}`)
+})
+
+// ---------------------------------------------------------------------------
+// Consumer fraction-digit options — padding without rounding
+// ---------------------------------------------------------------------------
+
+test('pads to minimumFractionDigits', () => {
+  expect(resolveOverlayValue('1.5', withOptions({ minimumFractionDigits: 2 }))).toBe('1.50')
+})
+
+test('does not round a value that exceeds maximumFractionDigits', () => {
+  // maximumFractionDigits: 2 but the value has 3 digits — shown verbatim, not "2.00".
+  expect(resolveOverlayValue('1.999', withOptions({ maximumFractionDigits: 2 }))).toBe('1.999')
+})
+
+test('clamps minimumFractionDigits to the actual digits when the value exceeds both bounds', () => {
+  expect(resolveOverlayValue('1.999', withOptions({ minimumFractionDigits: 2, maximumFractionDigits: 2 }))).toBe(
+    '1.999',
+  )
+})
+
+// ---------------------------------------------------------------------------
+// Currency / percent styles
+// ---------------------------------------------------------------------------
+
+test('pads an integer to the currency minimum fraction digits', () => {
+  const params = withOptions({ style: 'currency', currency: 'GBP' }, { min: 2, max: 2 })
+  expect(resolveOverlayValue('5', params)).toBe('£5.00')
+})
+
+test('preserves a typed value beyond the currency default without rounding', () => {
+  const params = withOptions({ style: 'currency', currency: 'GBP' }, { min: 2, max: 2 })
+  expect(resolveOverlayValue('5.123', params)).toBe('£5.123')
+})

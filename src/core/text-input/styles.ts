@@ -15,10 +15,22 @@ interface ElTextInputContainerProps {
 export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
   @layer elements.main {
     position: relative;
-    display: inline-flex;
+    display: inline-grid;
+    grid-template-areas: 'before input after';
+    grid-template-columns: auto 1fr auto;
     align-items: center;
     max-width: var(--input-max-width, 100%);
     width: 100%;
+
+    --input-padding-start: var(--spacing-3);
+    --input-padding-end: var(--spacing-3);
+
+    &:has(> [data-position='before']) {
+      --input-padding-start: 0;
+    }
+    &:has(> [data-position='after']) {
+      --input-padding-end: 0;
+    }
 
     padding: 0;
 
@@ -115,6 +127,18 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
       --input-placeholder-colour: var(--comp-input-colour-text-default-placeholder);
       --input-text-colour: var(--comp-input-colour-text-read_only-input);
     }
+
+    /* When a formatted overlay is present and the input is not focused,
+     * show the overlay and make the raw input text transparent. */
+    &:not(:focus-within):has([data-formatted-overlay]) {
+      [data-formatted-overlay] {
+        display: flex;
+      }
+
+      input {
+        color: transparent;
+      }
+    }
   }
 `
 
@@ -125,20 +149,13 @@ interface ElTextInputProps {
 
 export const ElTextInput = styled.input<ElTextInputProps>`
   @layer elements.main {
-    flex: 1;
+    grid-area: input;
     min-width: 0;
 
     appearance: none;
     background: transparent;
 
-    padding-inline: var(--spacing-3);
-
-    &:not(:first-child) {
-      padding-inline-start: 0;
-    }
-    &:not(:last-child) {
-      padding-inline-end: 0;
-    }
+    padding-inline: var(--input-padding-start) var(--input-padding-end);
 
     height: 100%;
     border: none;
@@ -187,10 +204,12 @@ export const ElTextInputIconContainer = styled.span`
 
     color: var(--input-icon-colour);
 
-    &:first-child {
+    &[data-position='before'] {
+      grid-area: before;
       padding-inline: var(--input-addon-outer-padding) var(--spacing-2);
     }
-    &:last-child {
+    &[data-position='after'] {
+      grid-area: after;
       padding-inline: var(--spacing-2) var(--input-addon-outer-padding);
     }
   }
@@ -207,10 +226,12 @@ export const ElTextInputAffixContainer = styled.span`
 
     color: var(--input-affix-colour);
 
-    &:first-child {
+    &[data-position='before'] {
+      grid-area: before;
       padding-inline: var(--input-addon-outer-padding) var(--spacing-2);
     }
-    &:last-child {
+    &[data-position='after'] {
+      grid-area: after;
       padding-inline: var(--spacing-2) var(--input-addon-outer-padding);
     }
   }
@@ -228,5 +249,37 @@ export const elTextInputSpinner = css`
     to {
       transform: rotate(360deg);
     }
+  }
+`
+
+interface ElTextInputOverlayProps {
+  'data-text-align': 'left' | 'right'
+}
+
+export const ElTextInputOverlay = styled.span<ElTextInputOverlayProps>`
+  @layer elements.main {
+    grid-area: input;
+    align-self: stretch;
+    min-width: 0;
+
+    display: none;
+    align-items: center;
+
+    padding-inline: var(--input-padding-start) var(--input-padding-end);
+
+    &,
+    &[data-text-align='left'] {
+      justify-content: flex-start;
+    }
+    &[data-text-align='right'] {
+      justify-content: flex-end;
+    }
+
+    font: inherit;
+    color: var(--input-text-colour);
+    pointer-events: none;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 `
