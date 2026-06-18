@@ -118,6 +118,24 @@ describe('direct mapping — layout sizes', () => {
 })
 
 // ---------------------------------------------------------------------------
+// Direct mappings — layout sizes
+// ---------------------------------------------------------------------------
+
+describe('direct mapping — v5.0.0-rc.8 -> v5.0.0-rc.9 icon sizes', () => {
+  test('replaces --icon_size-l with --icon_size-lg', () => {
+    expect(transform('padding: var(--icon_size-l);')).toBe('padding: var(--icon_size-lg);')
+  })
+
+  test('replaces --icon_size-m with --icon_size-md', () => {
+    expect(transform('padding: var(--icon_size-m);')).toBe('padding: var(--icon_size-md);')
+  })
+
+  test('replaces --icon_size-s with --icon_size-sm', () => {
+    expect(transform('padding: var(--icon_size-s);')).toBe('padding: var(--icon_size-sm);')
+  })
+})
+
+// ---------------------------------------------------------------------------
 // Best-effort mappings — intent colours
 // ---------------------------------------------------------------------------
 

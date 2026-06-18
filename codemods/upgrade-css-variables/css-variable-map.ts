@@ -633,6 +633,16 @@ export const CSS_VARIABLE_MAP: Record<string, VariableMapping> = {
   // Legacy Reapit only exposes standalone font-weight tokens for regular and semibold here;
   // the medium weight is already mapped earlier in this file via the globals.ts tokens.
   'font-weight-semibold': { kind: 'inline', inlinedValue: '600' },
+
+  // ---------------------------------------------------------------------------
+  // Icon size tokens  (v5.0.0-rc.8 -> v5.0.0-rc.9 tokens)
+  // --icon_size-l -> --icon_size-lg
+  // --icon_size-m -> --icon_size-md
+  // --icon_size-s -> --icon_size-sm
+  // ---------------------------------------------------------------------------
+  'icon_size-l': { v5: '--icon_size-lg', kind: 'direct' },
+  'icon_size-m': { v5: '--icon_size-md', kind: 'direct' },
+  'icon_size-s': { v5: '--icon_size-sm', kind: 'direct' },
 }
 
 /**
