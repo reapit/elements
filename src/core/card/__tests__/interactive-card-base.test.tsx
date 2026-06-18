@@ -177,3 +177,12 @@ test('calls onClick when aria-disabled is "false"', () => {
   fireEvent.click(screen.getByRole('link'))
   expect(onClick).toHaveBeenCalledTimes(1)
 })
+
+test('sets aria-disabled when disabled is true', () => {
+  render(
+    <InteractiveCardBase as="button" disabled>
+      Content
+    </InteractiveCardBase>,
+  )
+  expect(screen.getByRole('button')).toHaveAttribute('aria-disabled', 'true')
+})

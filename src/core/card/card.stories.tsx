@@ -130,10 +130,10 @@ export const Interactive = Example.extend({
   render: (args) => (
     <>
       <ButtonCard borderRadius={args.borderRadius} padding={args.padding}>
-        <CardContent />
+        <CardContent>{'<ButtonCard>'}</CardContent>
       </ButtonCard>
       <AnchorCard borderRadius={args.borderRadius} href="https://www.reapit.com" padding={args.padding}>
-        <CardContent />
+        <CardContent>{'<AnchorCard>'}</CardContent>
       </AnchorCard>
     </>
   ),
@@ -145,22 +145,11 @@ export const Interactive = Example.extend({
  * indicate the link represents the current page or location. In both cases the
  * card's border changes to indicate the active state.
  */
-export const Selected = Example.extend({
-  argTypes: {
-    as: { table: { disable: true } },
-    isBorderless: { table: { disable: true } },
-  },
-  decorators: [
-    (Story) => (
-      <div style={{ display: 'flex', gap: 'var(--spacing-6)' }}>
-        <Story />
-      </div>
-    ),
-  ],
+export const Selected = Interactive.extend({
   render: (args) => (
     <>
       <ButtonCard aria-pressed="true" borderRadius={args.borderRadius} padding={args.padding}>
-        <CardContent />
+        <CardContent>{'<ButtonCard>'}</CardContent>
       </ButtonCard>
       <AnchorCard
         aria-current="page"
@@ -168,7 +157,7 @@ export const Selected = Example.extend({
         href="https://www.reapit.com"
         padding={args.padding}
       >
-        <CardContent />
+        <CardContent>{'<AnchorCard>'}</CardContent>
       </AnchorCard>
     </>
   ),
