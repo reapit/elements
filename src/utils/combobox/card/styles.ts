@@ -28,19 +28,19 @@ export const ElComboboxCard = styled.div`
       /* Combobox.CardDefaultContent inherits these size-based font styles */
       ${font('xs', 'medium')}
       min-height: var(--size-8);
-      --combobox-button-icon-size: var(--icon_size-s);
+      --combobox-button-icon-size: var(--icon_size-sm);
     }
     /* NOTE: Medium is the default size */
     &,
     &[data-size='medium'] {
       ${font('sm', 'medium')}
       min-height: var(--size-9);
-      --combobox-button-icon-size: var(--icon_size-s);
+      --combobox-button-icon-size: var(--icon_size-sm);
     }
     &[data-size='large'] {
       ${font('base', 'medium')}
       min-height: var(--size-10);
-      --combobox-button-icon-size: var(--icon_size-m);
+      --combobox-button-icon-size: var(--icon_size-md);
     }
 
     /* Use :focus rather than :focus-visible to provide the same visual feedback

@@ -11,8 +11,8 @@ export const elAtAGlanceCardIcon = css`
     display: flex;
     align-items: center;
     justify-content: center;
-    width: var(--icon_size-l);
-    height: var(--icon_size-l);
+    width: var(--icon_size-lg);
+    height: var(--icon_size-lg);
     padding: var(--aag-card-icon-padding);
     color: var(--colour-icon-primary);
   }

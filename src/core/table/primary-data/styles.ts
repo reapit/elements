@@ -31,8 +31,8 @@ export const ElTableCellPrimaryDataIconContainer = styled.span<ElTableCellPrimar
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
+    width: var(--icon_size-sm);
+    height: var(--icon_size-sm);
 
     color: var(--colour-icon-primary);
 

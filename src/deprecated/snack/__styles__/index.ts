@@ -16,8 +16,8 @@ export const elSnackIcon = css`
   align-items: center;
   justify-content: center;
   margin-right: 1rem;
-  width: var(--icon_size-m);
-  height: var(--icon_size-m);
+  width: var(--icon_size-md);
+  height: var(--icon_size-md);
 `
 
 /** @deprecated */

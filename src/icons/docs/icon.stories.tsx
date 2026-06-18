@@ -101,7 +101,7 @@ export const Sizes = Example.extend({
           display: 'grid',
           fontSize: 'var(--font-sm-regular-size)',
           alignItems: 'center',
-          gridTemplateColumns: 'min-content var(--icon_size-l)',
+          gridTemplateColumns: 'min-content var(--icon_size-lg)',
           gap: 'var(--spacing-6)',
         }}
       >

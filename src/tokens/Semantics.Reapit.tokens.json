@@ -1624,10 +1624,6 @@
       "colour": {
         "fill": {
           "caption": {
-            "dark": {
-              "$type": "color",
-              "$value": "{black-500}"
-            },
             "light": {
               "$type": "color",
               "$value": "{white-800}"
@@ -1659,10 +1655,6 @@
         "text": {
           "caption": {
             "dark": {
-              "$type": "color",
-              "$value": "{white-900}"
-            },
-            "light": {
               "$type": "color",
               "$value": "{neutral-900}"
             }
@@ -4044,17 +4036,17 @@
     }
   },
   "icon_size": {
-    "l": {
+    "lg": {
       "$description": "Used only for icon sizing",
       "$type": "dimension",
       "$value": "{unit-6}"
     },
-    "m": {
+    "md": {
       "$description": "Used only for icon sizing",
       "$type": "dimension",
       "$value": "{unit-5}"
     },
-    "s": {
+    "sm": {
       "$description": "Used only for icon sizing",
       "$type": "dimension",
       "$value": "{unit-4}"

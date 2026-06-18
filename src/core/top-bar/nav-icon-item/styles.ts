@@ -35,8 +35,8 @@ export const elTopBarNavIconItem = css`
 export const ElTopBarNavIconItemIcon = styled.span`
   @layer elements.main {
     color: inherit;
-    width: var(--icon_size-l);
-    height: var(--icon_size-l);
+    width: var(--icon_size-lg);
+    height: var(--icon_size-lg);
   }
 `
 

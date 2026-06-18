@@ -38,8 +38,8 @@ export const ElBottomBarItemIcon = styled.span`
     position: relative;
 
     color: var(--comp-navigation-colour-icon-bottom_bar-default);
-    width: var(--icon_size-l);
-    height: var(--icon_size-l);
+    width: var(--icon_size-lg);
+    height: var(--icon_size-lg);
 
     /* NOTE: we only apply the current page styles to anchor-based items. */
     :is(a)[aria-current='page'] & {

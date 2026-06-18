@@ -343,14 +343,12 @@
   --comp-folder_tab-colour-text-default: #607890;
   --comp-folder_tab-colour-text-hover: #ffffff;
   --comp-folder_tab-colour-text-selected: #222b33;
-  --comp-gallery_viewer-colour-fill-caption-dark: #00000099;
   --comp-gallery_viewer-colour-fill-caption-light: #ffffffe5;
   --comp-gallery_viewer-colour-fill-gallery_button-default: #00000066;
   --comp-gallery_viewer-colour-fill-gallery_button-hover: #00000099;
   --comp-gallery_viewer-colour-icon-gallery_button-default: #ffffff;
   --comp-gallery_viewer-colour-icon-gallery_button-hover: #ffffff;
-  --comp-gallery_viewer-colour-text-caption-dark: #ffffff;
-  --comp-gallery_viewer-colour-text-caption-light: #222b33;
+  --comp-gallery_viewer-colour-text-caption-dark: #222b33;
   --comp-input-border-radius: 2px;
   --comp-input-border-width: 1px;
   --comp-input-colour-border-busy: #d8dee4;
@@ -830,9 +828,9 @@
   --font-xs-regular-line_height: 16px;
   --font-xs-regular-size: 13px;
   --font-xs-regular-weight: 400;
-  --icon_size-l: 24px; /** Used only for icon sizing */
-  --icon_size-m: 20px; /** Used only for icon sizing */
-  --icon_size-s: 16px; /** Used only for icon sizing */
+  --icon_size-lg: 24px; /** Used only for icon sizing */
+  --icon_size-md: 20px; /** Used only for icon sizing */
+  --icon_size-sm: 16px; /** Used only for icon sizing */
   --icon_size-xs: 12px; /** Used only for icon sizing */
   --overlay-50: #00000080;
   --size-1: 4px; /** Used for sizing shapes except icons. For icons use icon sizes */

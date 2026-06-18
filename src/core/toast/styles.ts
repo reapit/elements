@@ -68,8 +68,8 @@ export const ElToastIconContainer = styled.div`
     display: flex;
     align-items: center;
     flex-shrink: 0;
-    width: var(--icon_size-m);
-    height: var(--icon_size-m);
+    width: var(--icon_size-md);
+    height: var(--icon_size-md);
     color: var(--toast-icon-colour);
   }
 `

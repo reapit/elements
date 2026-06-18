@@ -17,8 +17,8 @@ export const ElFeatureItemIcon = styled.dt`
 
     color: var(--comp-features-colour-icon);
 
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
+    width: var(--icon_size-sm);
+    height: var(--icon_size-sm);
   }
 `
 

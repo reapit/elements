@@ -10,7 +10,7 @@ export const elGalleryViewerMediaItemCaption = css`
     padding: var(--spacing-1) var(--spacing-3);
     border-radius: var(--border-radius-2xl);
     background: var(--comp-gallery_viewer-colour-fill-caption-light);
-    color: var(--comp-gallery_viewer-colour-text-caption-light);
+    color: var(--comp-gallery_viewer-colour-text-caption-dark);
     ${font('sm', 'regular')}
     white-space: nowrap;
     overflow: hidden;

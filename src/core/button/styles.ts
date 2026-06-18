@@ -223,20 +223,20 @@ export const ElButtonIconContainer = styled.span`
     /* Sizes */
     [data-size='small'] & {
       padding: var(--spacing-half);
-      width: var(--icon_size-s);
-      height: var(--icon_size-s);
+      width: var(--icon_size-sm);
+      height: var(--icon_size-sm);
     }
 
     [data-size='medium'] & {
       padding: var(--spacing-half);
-      width: var(--icon_size-s);
-      height: var(--icon_size-s);
+      width: var(--icon_size-sm);
+      height: var(--icon_size-sm);
     }
 
     [data-size='large'] & {
       padding: var(--spacing-half);
-      width: var(--icon_size-m);
-      height: var(--icon_size-m);
+      width: var(--icon_size-md);
+      height: var(--icon_size-md);
     }
 
     /* Variants */

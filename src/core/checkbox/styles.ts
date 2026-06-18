@@ -5,8 +5,8 @@ export const ElCheckbox = styled.label`
   @layer elements.main {
     display: grid;
     grid-template:
-      'input label' var(--icon_size-l)
-      'input supplementary-info' auto / var(--icon_size-l) auto;
+      'input label' var(--icon_size-lg)
+      'input supplementary-info' auto / var(--icon_size-lg) auto;
     align-items: center;
     gap: 0 var(--spacing-2);
     width: fit-content;

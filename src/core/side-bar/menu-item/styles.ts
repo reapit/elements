@@ -59,12 +59,12 @@ export const ElSideBarMenuItemIcon = styled.span`
     align-items: center;
 
     /* NOTE: We don't want the padding to reduce the content size as we want the icons to be
-     * exactly --icon_size-m */
+     * exactly --icon_size-md */
     box-sizing: content-box;
     padding: var(--spacing-half);
 
-    width: var(--icon_size-m);
-    height: var(--icon_size-m);
+    width: var(--icon_size-md);
+    height: var(--icon_size-md);
 
     color: var(--comp-navigation-colour-icon-sidebar-default);
     [aria-current='page'] > & {

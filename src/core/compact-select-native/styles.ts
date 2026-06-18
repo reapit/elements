@@ -38,7 +38,7 @@ export const ElCompactSelectNative = styled.select<ElCompactSelectNativeProps>`
     }
 
     /* NOTE: We need to create space for the absolutely positioned icon. */
-    padding-inline-end: calc(var(--spacing-2) + var(--icon_size-s));
+    padding-inline-end: calc(var(--spacing-2) + var(--icon_size-sm));
 
     &:focus-visible {
       outline: var(--border-width-double) solid var(--colour-border-focus);
@@ -74,7 +74,7 @@ export const ElCompactSelectNativeIconContainer = styled.span`
 
     color: var(--comp-input-colour-icon-default);
 
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
+    width: var(--icon_size-sm);
+    height: var(--icon_size-sm);
   }
 `

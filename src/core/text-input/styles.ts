@@ -35,7 +35,7 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
       height: var(--size-8);
       /* Padding between an addon (affix text or icon) and the container border */
       --input-addon-outer-padding: var(--spacing-2);
-      --input-icon-size: var(--icon_size-s);
+      --input-icon-size: var(--icon_size-sm);
     }
     /* NOTE: medium is the default size */
     &,
@@ -43,13 +43,13 @@ export const ElTextInputContainer = styled.div<ElTextInputContainerProps>`
       ${font('sm', 'regular')}
       height: var(--size-9);
       --input-addon-outer-padding: var(--spacing-3);
-      --input-icon-size: var(--icon_size-s);
+      --input-icon-size: var(--icon_size-sm);
     }
     &[data-size='large'] {
       ${font('base', 'regular')}
       height: var(--size-10);
       --input-addon-outer-padding: var(--spacing-3);
-      --input-icon-size: var(--icon_size-m);
+      --input-icon-size: var(--icon_size-md);
     }
 
     &[data-variant='borderless'] {

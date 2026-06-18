@@ -74,8 +74,8 @@ export const ElComboboxOptionCheckIconContainer = styled.span`
 
     color: var(--combobox-option-check-icon-colour);
 
-    height: var(--icon_size-m);
-    width: var(--icon_size-m);
+    height: var(--icon_size-md);
+    width: var(--icon_size-md);
     margin-inline-start: var(--spacing-2);
   }
 `
@@ -136,7 +136,7 @@ export const ElComboboxOptionAdditionalInfoIconContainer = styled.span`
     color: var(--comp-menu-colour-icon-default-left);
 
     margin-inline-end: var(--spacing-2);
-    height: var(--icon_size-s);
-    width: var(--icon_size-s);
+    height: var(--icon_size-sm);
+    width: var(--icon_size-sm);
   }
 `

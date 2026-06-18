@@ -50,8 +50,8 @@ export const elRadioInputIcon = css`
      * to be received by the input element. */
     pointer-events: none;
 
-    width: var(--icon_size-l);
-    height: var(--icon_size-l);
+    width: var(--icon_size-lg);
+    height: var(--icon_size-lg);
 
     /* Unchecked colours */
     color: var(--comp-select-colour-icon-default-unchecked);

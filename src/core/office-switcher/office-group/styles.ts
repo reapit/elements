@@ -54,8 +54,8 @@ export const ElOfficeSwitcherOfficeGroupChevron = styled.span`
     align-items: center;
 
     color: var(--comp-office_switcher-colour-icon-default);
-    width: var(--icon_size-m);
-    height: var(--icon_size-m);
+    width: var(--icon_size-md);
+    height: var(--icon_size-md);
 
     details:open & {
       transform: rotate(180deg);

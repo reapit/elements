@@ -75,16 +75,16 @@ export const ElSupplementaryInfoItem = styled.li`
 
       &,
       [data-size='base'] & {
-        width: var(--icon_size-l);
-        height: var(--icon_size-l);
+        width: var(--icon_size-lg);
+        height: var(--icon_size-lg);
       }
       [data-size='sm'] & {
-        width: var(--icon_size-m);
-        height: var(--icon_size-m);
+        width: var(--icon_size-md);
+        height: var(--icon_size-md);
       }
       [data-size='xs'] & {
-        width: var(--icon_size-s);
-        height: var(--icon_size-s);
+        width: var(--icon_size-sm);
+        height: var(--icon_size-sm);
       }
     }
 

@@ -101,7 +101,7 @@ export const ElAlertBannerIconContainer = styled.div`
     flex-shrink: 0;
     padding: var(--spacing-half) var(--spacing-none);
     color: var(--alert-banner-icon-colour);
-    height: var(--icon_size-m);
-    width: var(--icon_size-m);
+    height: var(--icon_size-md);
+    width: var(--icon_size-md);
   }
 `

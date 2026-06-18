@@ -63,8 +63,8 @@ export const ElDeprecatedMenuItemContent = styled.div`
 export const ElDeprecatedMenuItemIcon = styled.div`
   &,
   svg {
-    width: var(--icon_size-m);
-    height: var(--icon_size-m);
+    width: var(--icon_size-md);
+    height: var(--icon_size-md);
     color: var(--comp-menu-colour-icon-default-right);
   }
 `

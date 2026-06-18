@@ -109,12 +109,12 @@ export const ElChipSelectChipIconContainer = styled.span`
 
     [data-size='small'] &,
     [data-size='medium'] & {
-      width: var(--icon_size-s);
-      height: var(--icon_size-s);
+      width: var(--icon_size-sm);
+      height: var(--icon_size-sm);
     }
     [data-size='large'] & {
-      width: var(--icon_size-m);
-      height: var(--icon_size-m);
+      width: var(--icon_size-md);
+      height: var(--icon_size-md);
     }
 
     input:checked ~ & {

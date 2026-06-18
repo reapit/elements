@@ -32,8 +32,8 @@ export const ElTopBarNavSearchButton = styled.button`
 
 export const ElTopBarNavSearchButtonIcon = styled(SearchIcon)`
   @layer elements.main {
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
+    width: var(--icon_size-sm);
+    height: var(--icon_size-sm);
     flex-shrink: 0;
     color: var(--comp-navigation-colour-icon-nav_search);
   }

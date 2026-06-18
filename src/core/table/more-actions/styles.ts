@@ -12,8 +12,8 @@ export const elTableRowMoreActionsButton = css`
     border: none;
     border-radius: var(--comp-button-border-radius-default);
     padding: var(--spacing-1);
-    width: var(--icon_size-l);
-    height: var(--icon_size-l);
+    width: var(--icon_size-lg);
+    height: var(--icon_size-lg);
 
     background: transparent;
     color: var(--colour-icon-primary);

@@ -53,8 +53,8 @@ export const ElMenuItemIconContainer = styled.span`
     align-items: center;
     justify-content: center;
 
-    width: var(--icon_size-m);
-    height: var(--icon_size-m);
+    width: var(--icon_size-md);
+    height: var(--icon_size-md);
 
     /* aka left icon */
     &:first-of-type {

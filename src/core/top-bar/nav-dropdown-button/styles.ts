@@ -50,8 +50,8 @@ export const ElTopBarNavDropdownButtonIcon = styled.span`
   @layer elements.main {
     color: var(--comp-navigation-colour-icon-nav_button-default);
 
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
+    width: var(--icon_size-sm);
+    height: var(--icon_size-sm);
 
     .${elTopBarNavDropdownButton}:has(~ :popover-open) & {
       transform: rotate(180deg);

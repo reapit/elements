@@ -107,8 +107,8 @@ export const ElChipClearIcon = styled.div`
      * does not allow consumer-supplied styles to have a higher specificity */
     color: var(--comp-chip-colour-icon-active) !important;
 
-    height: var(--icon_size-s) !important;
-    width: var(--icon_size-s) !important;
+    height: var(--icon_size-sm) !important;
+    width: var(--icon_size-sm) !important;
 
     :disabled &,
     [aria-disabled='true'] & {

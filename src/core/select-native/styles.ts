@@ -45,7 +45,7 @@ export const ElSelectNative = styled.select<ElSelectNativeProps>`
     color: var(--comp-input-colour-text-default-input);
 
     /* NOTE: We need to create space for the absolutely positioned icon. */
-    padding-inline: var(--spacing-2) calc(var(--spacing-2) + var(--icon_size-s) + var(--spacing-2));
+    padding-inline: var(--spacing-2) calc(var(--spacing-2) + var(--icon_size-sm) + var(--spacing-2));
 
     /* NOTE: Invalid styles should only be used if data-show-validity is true. We use :where to avoid
      * the presence of the data-show-validity attribute increasing the selector's specificity and,
@@ -98,7 +98,7 @@ export const ElSelectNativeIconContainer = styled.span`
 
     color: var(--comp-input-colour-icon-default);
 
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
+    width: var(--icon_size-sm);
+    height: var(--icon_size-sm);
   }
 `

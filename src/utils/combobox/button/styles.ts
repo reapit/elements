@@ -25,7 +25,7 @@ export const ElComboboxButtonContainer = styled.div`
       ${font('xs', 'regular')}
       height: var(--size-8);
       --combobox-button-addon-padding-inline: var(--spacing-2);
-      --combobox-button-icon-size: var(--icon_size-s);
+      --combobox-button-icon-size: var(--icon_size-sm);
     }
     /* NOTE: Medium is the default size */
     &,
@@ -33,13 +33,13 @@ export const ElComboboxButtonContainer = styled.div`
       ${font('sm', 'regular')}
       height: var(--size-9);
       --combobox-button-addon-padding-inline: var(--spacing-3);
-      --combobox-button-icon-size: var(--icon_size-s);
+      --combobox-button-icon-size: var(--icon_size-sm);
     }
     &[data-size='large'] {
       ${font('base', 'regular')}
       height: var(--size-10);
       --combobox-button-addon-padding-inline: var(--spacing-3);
-      --combobox-button-icon-size: var(--icon_size-m);
+      --combobox-button-icon-size: var(--icon_size-md);
     }
 
     /* Use :focus rather than :focus-visible to provide the same visual feedback

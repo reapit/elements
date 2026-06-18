@@ -84,7 +84,7 @@ export const ElOfficeItemCheckIconContainer = styled.span`
 
     color: var(--office-item-check-icon-colour);
 
-    height: var(--icon_size-m);
-    width: var(--icon_size-m);
+    height: var(--icon_size-md);
+    width: var(--icon_size-md);
   }
 `

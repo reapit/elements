@@ -55,12 +55,12 @@ export const ElSideBarMenuGroupSummaryDropdownIcon = styled.span`
     color: var(--comp-navigation-colour-icon-sidebar-default);
 
     /* NOTE: We don't want the padding to reduce the content size as we want the icons to be
-     * exactly --icon_size-s */
+     * exactly --icon_size-sm */
     box-sizing: content-box;
     padding: var(--spacing-1);
 
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
+    width: var(--icon_size-sm);
+    height: var(--icon_size-sm);
 
     details:open & {
       transform: rotate(180deg);

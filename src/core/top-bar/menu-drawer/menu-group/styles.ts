@@ -56,8 +56,8 @@ export const ElTopBarMenuDrawerMenuGroupSummaryDropdownIcon = styled.span`
 
     /* Use content-box sizing to prevent the padding from affecting the icon's size */
     box-sizing: content-box;
-    width: var(--icon_size-s);
-    height: var(--icon_size-s);
+    width: var(--icon_size-sm);
+    height: var(--icon_size-sm);
     padding-inline: var(--spacing-1) 0;
 
     details:open & {

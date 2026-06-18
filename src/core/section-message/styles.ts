@@ -74,8 +74,8 @@ export const ElSectionMessageIconContainer = styled.div`
     box-sizing: content-box;
     padding-inline-end: var(--spacing-3);
     color: var(--section-message-icon-colour);
-    height: var(--icon_size-m);
-    width: var(--icon_size-m);
+    height: var(--icon_size-md);
+    width: var(--icon_size-md);
   }
 `
 

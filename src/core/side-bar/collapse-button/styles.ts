@@ -38,8 +38,8 @@ export const ElSideBarCollapseButtonIcon = styled.span`
     svg {
       color: inherit;
       fill: currentColor;
-      width: var(--icon_size-m);
-      height: var(--icon_size-m);
+      width: var(--icon_size-md);
+      height: var(--icon_size-md);
     }
 
     [aria-expanded='false'] & {

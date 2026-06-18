@@ -58,16 +58,16 @@ export const elIcon = css`
       height: var(--icon_size-xs);
     }
     &[data-size='sm'] {
-      width: var(--icon_size-s);
-      height: var(--icon_size-s);
+      width: var(--icon_size-sm);
+      height: var(--icon_size-sm);
     }
     &[data-size='md'] {
-      width: var(--icon_size-m);
-      height: var(--icon_size-m);
+      width: var(--icon_size-md);
+      height: var(--icon_size-md);
     }
     &[data-size='lg'] {
-      width: var(--icon_size-l);
-      height: var(--icon_size-l);
+      width: var(--icon_size-lg);
+      height: var(--icon_size-lg);
     }
   }
 `

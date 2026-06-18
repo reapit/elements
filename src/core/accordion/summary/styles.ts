@@ -53,8 +53,8 @@ export const ElAccordionSummaryIcon = styled.div`
     align-items: center;
     justify-content: center;
 
-    width: var(--icon_size-m);
-    height: var(--icon_size-m);
+    width: var(--icon_size-md);
+    height: var(--icon_size-md);
 
     color: var(--comp-accordion-colour-icon);
 
