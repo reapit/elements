@@ -5,6 +5,13 @@ import type { Theme } from './types'
 
 const themes = ['payprop', 'reapit'] as const satisfies Theme[]
 
+// Maps the lowercase theme name to the title-cased segment used in the Semantics token filenames.
+// e.g. 'payprop' → 'Semantics.PayProp.tokens.json', 'reapit' → 'Semantics.Reapit.tokens.json'
+const themeFileSegment: Record<Theme, string> = {
+  payprop: 'PayProp',
+  reapit: 'Reapit',
+}
+
 StyleDictionary.registerTransform({
   name: 'name/custom-format',
   type: 'name',
@@ -31,8 +38,9 @@ function getConfig(themeName: Theme): Config {
       verbosity: 'verbose',
     },
     source: [
+      './src/tokens/effect.styles.tokens.json',
       './src/tokens/Primitives.Value.tokens.json',
-      `./src/tokens/Semantics.${themeName.toUpperCase()}.tokens.json`,
+      `./src/tokens/Semantics.${themeFileSegment[themeName]}.tokens.json`,
     ],
     platforms: {
       css: {
@@ -47,11 +55,14 @@ function getConfig(themeName: Theme): Config {
               // at play.
               const isSemanticToken = token.filePath.includes('Semantics')
 
+              // Effect tokens (e.g. shadows) are theme-agnostic and stored separately from the semantic files.
+              const isEffectToken = token.filePath.includes('effect.styles')
+
               // Further, we only want to include tokens that are not internal. This is because internal tokens are
               // for use in Figma only.
               const isInternalToken = token.path.some((pathSegment) => pathSegment === 'internal')
 
-              return isSemanticToken && !isInternalToken
+              return (isSemanticToken || isEffectToken) && !isInternalToken
             },
             format: 'css/variables',
           },
@@ -59,7 +70,7 @@ function getConfig(themeName: Theme): Config {
         options: {
           selector: themeName === 'reapit' ? ':root, :root[data-theme="reapit"]' : `:root[data-theme="${themeName}"]`,
         },
-        transforms: ['name/custom-format', 'attribute/cti'], // Apply custom transform
+        transforms: ['name/custom-format', 'attribute/cti', 'shadow/css/shorthand'],
       },
     },
   }

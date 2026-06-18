@@ -3,6 +3,19 @@
  */
 
 :root[data-theme='payprop'] {
+  --focus-state: 0px 0px 0px 4px #7e9bfa, 0px 0px 0px 1px #ffffff;
+  --shadow-down-2xl: 0px 25px 50px -12px #00000033;
+  --shadow-down-lg: 0px 10px 15px -3px #0000001a, 0px 4px 6px -4px #0000001a;
+  --shadow-down-md: 0px 4px 6px -1px #0000001a, 0px 2px 4px -2px #0000001a;
+  --shadow-down-sm: 0px 1px 3px 0px #0000001a, 0px 1px 2px -1px #0000001a;
+  --shadow-down-xl: 0px 20px 25px -5px #0000001a, 0px 8px 10px -6px #0000001a;
+  --shadow-down-xs: 0px 1px 2px 0px #0000001a;
+  --shadow-up-2xl: 0px -25px 50px -12px #00000033;
+  --shadow-up-lg: 0px -10px 15px -3px #0000001a, 0px -4px 6px -4px #0000001a;
+  --shadow-up-md: 0px -4px 6px -1px #0000001a, 0px -2px 4px -2px #0000001a;
+  --shadow-up-sm: 0px -1px 3px 0px #0000001a, 0px -1px 2px -1px #0000001a;
+  --shadow-up-xl: 0px -20px 25px -5px #0000001a, 0px -8px 10px -6px #0000001a;
+  --shadow-up-xs: 0px -1px 2px 0px #0000001a;
   --border-radius-2xl: 16px;
   --border-radius-3xl: 24px;
   --border-radius-l: 8px;
