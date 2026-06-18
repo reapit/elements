@@ -158,6 +158,26 @@ This means:
 - `maximumFractionDigits: 2`, value `"1.999"` → overlay `1.999` (actual precision exceeds consumer cap; `resolvedMax` is raised to 3, no rounding).
 - `minimumFractionDigits: 2`, value `"1.5"` → overlay `1.50` (actual precision is below consumer min; padding applied as normal).
 
+### `showNumberPartsOnly`
+
+When the `showNumberPartsOnly` prop is `true`, descriptive affix parts —
+`currency`, `percentSign`, and `unit` — are omitted from the overlay string.
+The numeric parts (grouping, decimal, fraction digits, sign) are preserved
+exactly. Any orphaned literal whitespace left by a dropped affix (e.g. the
+narrow no-break space before `€` in de-DE) is removed by a final `.trim()` on
+the joined result.
+
+This is intended for wrapper components (such as `CurrencyInput`) that render
+the symbol separately as a prefix or suffix. Without the flag, the symbol would
+appear twice: once in the formatted overlay and once as the affix. With the flag
+the overlay shows only the number (`1,234.50`) while the affix shows the symbol
+(`£`).
+
+The shared `DESCRIPTIVE_PART_TYPES` set (from `src/utils/number-format`) is the
+single source of truth for which part types are treated as descriptive — both
+`showNumberPartsOnly` and `getNumberAffix` use it, so they agree by
+construction.
+
 Consumer `minimumFractionDigits` and `maximumFractionDigits` are used as the
 baseline for `resolvedMin` and `resolvedMax` respectively, but are always
 overridden upward by `actualFractionDigits`. This means padding still works

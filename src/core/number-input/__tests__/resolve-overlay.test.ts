@@ -167,3 +167,43 @@ test('preserves a typed value beyond the currency default without rounding', () 
   const params = withOptions({ style: 'currency', currency: 'GBP' }, { min: 2, max: 2 })
   expect(resolveOverlayValue('5.123', params)).toBe('£5.123')
 })
+
+// ---------------------------------------------------------------------------
+// showNumberPartsOnly — descriptive affix parts omitted
+// ---------------------------------------------------------------------------
+
+test('showNumberPartsOnly strips the £ prefix symbol from a GBP overlay', () => {
+  const params = withOptions({ style: 'currency', currency: 'GBP' }, { min: 2, max: 2 })
+  expect(resolveOverlayValue('5', { ...params, showNumberPartsOnly: true })).toBe('5.00')
+})
+
+test('showNumberPartsOnly strips the € suffix symbol and trims the trailing space for de-DE EUR', () => {
+  const params: ResolveOverlayParams = {
+    locale: 'de-DE',
+    formatOptions: { style: 'currency', currency: 'EUR' },
+    fractionBounds: { min: 2, max: 2 },
+    showNumberPartsOnly: true,
+  }
+  expect(resolveOverlayValue('1234.5', params)).toBe('1.234,50')
+})
+
+test('showNumberPartsOnly preserves a typed value beyond the currency default without rounding', () => {
+  const params = withOptions({ style: 'currency', currency: 'GBP' }, { min: 2, max: 2 })
+  expect(resolveOverlayValue('5.123', { ...params, showNumberPartsOnly: true })).toBe('5.123')
+})
+
+test('showNumberPartsOnly strips the % suffix from a percent-style overlay', () => {
+  const params: ResolveOverlayParams = {
+    locale: 'en-GB',
+    formatOptions: { style: 'percent' },
+    fractionBounds: { min: 0, max: 0 },
+    showNumberPartsOnly: true,
+  }
+  expect(resolveOverlayValue('1', params)).toBe('100')
+})
+
+test('showNumberPartsOnly=false (default) preserves the full formatted output with symbol', () => {
+  const params = withOptions({ style: 'currency', currency: 'GBP' }, { min: 2, max: 2 })
+  // Flag absent — output identical to current .format() behaviour.
+  expect(resolveOverlayValue('5', params)).toBe('£5.00')
+})

@@ -1,4 +1,4 @@
-import { getIntlNumberFormat, getLocaleNumberSeparators } from '../number-format'
+import { getIntlNumberFormat, getLocaleNumberSeparators, getNumberAffix } from '../number-format'
 
 // ---------------------------------------------------------------------------
 // getLocaleNumberSeparators
@@ -92,4 +92,86 @@ test('formats a bigint with group separators', () => {
 
 test('formats a negative bigint', () => {
   expect(getIntlNumberFormat('en-GB').format(BigInt('-12345678901234567'))).toBe('-12,345,678,901,234,567')
+})
+
+// ---------------------------------------------------------------------------
+// getNumberAffix
+// ---------------------------------------------------------------------------
+
+test('getNumberAffix returns the £ symbol as a prefix for GBP in en-GB', () => {
+  expect(getNumberAffix(0, 'en-GB', { style: 'currency', currency: 'GBP' })).toEqual({ affix: '£', position: 'prefix' })
+})
+
+test('getNumberAffix returns the $ symbol as a prefix for USD in en-US', () => {
+  expect(getNumberAffix(0, 'en-US', { style: 'currency', currency: 'USD' })).toEqual({ affix: '$', position: 'prefix' })
+})
+
+test('getNumberAffix returns the € symbol as a suffix for EUR in de-DE', () => {
+  expect(getNumberAffix(0, 'de-DE', { style: 'currency', currency: 'EUR' })).toEqual({ affix: '€', position: 'suffix' })
+})
+
+test('getNumberAffix returns "kr" as a suffix for SEK in sv-SE', () => {
+  expect(getNumberAffix(0, 'sv-SE', { style: 'currency', currency: 'SEK' })).toEqual({
+    affix: 'kr',
+    position: 'suffix',
+  })
+})
+
+test('getNumberAffix returns the ￥ symbol as a prefix for JPY in ja-JP', () => {
+  expect(getNumberAffix(0, 'ja-JP', { style: 'currency', currency: 'JPY' })).toEqual({
+    affix: '￥',
+    position: 'prefix',
+  })
+})
+
+test('getNumberAffix respects an explicit currencyDisplay of "code"', () => {
+  const result = getNumberAffix(0, 'en-GB', { style: 'currency', currency: 'GBP', currencyDisplay: 'code' })
+  expect(result.affix).toBe('GBP')
+  expect(result.position).toBe('prefix')
+})
+
+test('getNumberAffix respects an explicit currencyDisplay of "name"', () => {
+  const result = getNumberAffix(0, 'en-US', { style: 'currency', currency: 'USD', currencyDisplay: 'name' })
+  // 'name' renders the full currency name after the number (e.g. "0.00 US dollars")
+  expect(result.position).toBe('suffix')
+})
+
+test('getNumberAffix returns the percent sign as a suffix for percent style in en-GB', () => {
+  const result = getNumberAffix(0, 'en-GB', { style: 'percent' })
+  expect(result.affix).toBe('%')
+  expect(result.position).toBe('suffix')
+})
+
+test('getNumberAffix does not throw for an invalid locale', () => {
+  expect(() => getNumberAffix(0, 'not-a-valid-locale!!', { style: 'currency', currency: 'GBP' })).not.toThrow()
+})
+
+test('getNumberAffix falls back gracefully for an invalid locale', () => {
+  const result = getNumberAffix(0, 'not-a-valid-locale!!', { style: 'currency', currency: 'GBP' })
+  // The invalid locale is discarded and the runtime default locale is used instead.
+  // Assert both affix and position match the runtime-default-locale result so this
+  // test is consistent across CI environments.
+  const fallback = getNumberAffix(0, undefined, { style: 'currency', currency: 'GBP' })
+  expect(result.affix).toBeTruthy()
+  expect(result.position).toBe(fallback.position)
+})
+
+test('getNumberAffix returns empty affix with prefix position when no descriptive part is present', () => {
+  // A plain decimal format has no currency/percent/unit part.
+  const result = getNumberAffix(0, 'en-GB', { style: 'decimal' })
+  expect(result).toEqual({ affix: '', position: 'prefix' })
+})
+
+test('getNumberAffix returns the correct position when passed NaN', () => {
+  // NaN produces a 'nan' part instead of 'integer', which would break position detection
+  // without the non-finite normalisation guard. The result must match the finite (0) result.
+  const withNaN = getNumberAffix(NaN, 'en-GB', { style: 'currency', currency: 'GBP' })
+  const withZero = getNumberAffix(0, 'en-GB', { style: 'currency', currency: 'GBP' })
+  expect(withNaN.position).toBe(withZero.position)
+})
+
+test('getNumberAffix returns the correct position when passed Infinity', () => {
+  const withInfinity = getNumberAffix(Infinity, 'en-GB', { style: 'currency', currency: 'GBP' })
+  const withZero = getNumberAffix(0, 'en-GB', { style: 'currency', currency: 'GBP' })
+  expect(withInfinity.position).toBe(withZero.position)
 })

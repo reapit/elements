@@ -1,4 +1,4 @@
-import { getIntlNumberFormat } from '#src/utils/number-format'
+import { getIntlNumberFormat, DESCRIPTIVE_PART_TYPES } from '#src/utils/number-format'
 import { CANONICAL_VALUE_PATTERN } from './resolve-input'
 
 // The maximum `maximumFractionDigits` / `minimumFractionDigits` that
@@ -23,10 +23,16 @@ export interface ResolveOverlayParams {
   locale: string | undefined
   formatOptions: Intl.NumberFormatOptions | undefined
   fractionBounds: FractionDigitDefaults
+  /**
+   * When `true`, descriptive affix parts (`currency`, `percentSign`, `unit`) are omitted
+   * from the formatted overlay, and any orphaned literal whitespace they leave is trimmed.
+   * Intended for wrappers that render the affix separately as a prefix or suffix.
+   */
+  showNumberPartsOnly?: boolean
 }
 
 /**
- * Produces the locale-formatted overlay string for a raw NumberInput value, upholding two rules:
+ * Produces the locale-formatted overlay string for a raw NumberInput value, upholding three rules:
  *
  * 1. **The overlay represents the same number as the value.** Only values matching the canonical
  *    contract shape (`{@link CANONICAL_VALUE_PATTERN}`) are formatted; anything else — `'1e5'`,
@@ -36,6 +42,10 @@ export interface ResolveOverlayParams {
  * 2. **The overlay never rounds.** `maximumFractionDigits` is always at least the number of
  *    fraction digits actually present, even when a consumer `formatOptions` cap is lower, so an
  *    over-cap controlled value is shown verbatim rather than rounded.
+ * 3. **When `showNumberPartsOnly` is set, descriptive affix parts are omitted.** The
+ *    `currency`, `percentSign`, and `unit` parts (and any orphaned literal whitespace they
+ *    leave) are stripped from the output. The numeric parts — grouping, decimal, fraction
+ *    digits, sign — are preserved exactly.
  *
  * Precision is preserved across the full numeric range:
  *
@@ -48,12 +58,13 @@ export interface ResolveOverlayParams {
  * unchanged (so the overlay is visually inert): `''` and `'-'` are short-circuited explicitly,
  * while `'.'` and `'-.'` reach the `Number()` check and yield `NaN`.
  *
- * @returns The formatted overlay string, or `raw` unchanged when the value cannot be formatted
- * faithfully (the overlay then renders the raw text, visually inert).
+ * @returns The formatted overlay string (trimmed when `showNumberPartsOnly` strips affix parts),
+ * or `raw` unchanged when the value cannot be formatted faithfully (the overlay then renders the
+ * raw text, visually inert).
  */
 export function resolveOverlayValue(
   raw: string,
-  { locale, formatOptions, fractionBounds }: ResolveOverlayParams,
+  { locale, formatOptions, fractionBounds, showNumberPartsOnly }: ResolveOverlayParams,
 ): string {
   // `Number('')` is `0`, not `NaN`, so the empty string needs an explicit short-circuit before the NaN check.
   if (raw === '' || raw === '-') return raw
@@ -107,5 +118,12 @@ export function resolveOverlayValue(
     maximumFractionDigits: resolvedMax,
   }
 
-  return getIntlNumberFormat(locale, options).format(value)
+  if (!showNumberPartsOnly) return getIntlNumberFormat(locale, options).format(value)
+
+  return getIntlNumberFormat(locale, options)
+    .formatToParts(value)
+    .filter((p) => !DESCRIPTIVE_PART_TYPES.has(p.type))
+    .map((p) => p.value)
+    .join('')
+    .trim()
 }

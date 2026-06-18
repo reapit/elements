@@ -35,6 +35,15 @@ export namespace NumberInput {
      * interacts with it. Non-numeric or absent values are treated as no maximum.
      */
     max?: number | string
+    /**
+     * When `true`, descriptive affix text (currency symbol, percent sign, unit) is omitted
+     * from the formatted overlay while all numeric formatting — grouping separators, decimal
+     * separator, fraction digits, sign — is retained. Intended for wrapper components that
+     * render the affix separately as a prefix or suffix, to avoid the symbol appearing twice.
+     *
+     * Defaults to `false`.
+     */
+    showNumberPartsOnly?: boolean
   }
 }
 
@@ -91,7 +100,7 @@ function deriveMaxFractionDigits(
  * once the field has been interacted with.
  */
 export const NumberInput = forwardRef<HTMLInputElement, NumberInput.Props>(
-  ({ locale, formatOptions, inputMode, min, max, pattern, ...rest }, ref) => {
+  ({ locale, formatOptions, inputMode, min, max, pattern, showNumberPartsOnly, ...rest }, ref) => {
     const fallbackId = useId()
     const inputId = rest.id ?? fallbackId
 
@@ -123,8 +132,8 @@ export const NumberInput = forwardRef<HTMLInputElement, NumberInput.Props>(
     }, [pattern, allowDecimal, maxFractionDigits])
 
     const formatValue = useCallback(
-      (raw: string) => resolveOverlayValue(raw, { locale, formatOptions, fractionBounds }),
-      [locale, formatOptions, fractionBounds],
+      (raw: string) => resolveOverlayValue(raw, { locale, formatOptions, fractionBounds, showNumberPartsOnly }),
+      [locale, formatOptions, fractionBounds, showNumberPartsOnly],
     )
 
     useInputFilter(inputId, { separators, allowNegative, maxFractionDigits })
