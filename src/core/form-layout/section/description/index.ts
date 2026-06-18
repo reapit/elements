@@ -1,0 +1,1 @@
+export { FormLayoutSectionDescription } from './description'

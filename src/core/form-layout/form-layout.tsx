@@ -4,6 +4,7 @@ import { FormLayoutContext } from './context'
 import { FormLayoutDescription } from './description'
 import { FormLayoutFooter } from './footer'
 import { FormLayoutHeader } from './header'
+import { FormLayoutSection } from './section'
 import { FormLayoutTitle } from './title'
 import { elFormLayout } from './styles'
 
@@ -19,6 +20,10 @@ export namespace FormLayout {
   export interface TitleProps extends FormLayoutTitle.Props {}
   export interface DescriptionProps extends FormLayoutDescription.Props {}
   export interface FooterProps extends FormLayoutFooter.Props {}
+  export interface SectionProps extends FormLayoutSection.Props {}
+  export interface SectionHeaderProps extends FormLayoutSection.HeaderProps {}
+  export interface SectionTitleProps extends FormLayoutSection.TitleProps {}
+  export interface SectionDescriptionProps extends FormLayoutSection.DescriptionProps {}
 }
 
 /**
@@ -57,3 +62,7 @@ FormLayout.Header = FormLayoutHeader
 FormLayout.Title = FormLayoutTitle
 FormLayout.Description = FormLayoutDescription
 FormLayout.Footer = FormLayoutFooter
+FormLayout.Section = FormLayoutSection
+FormLayout.SectionHeader = FormLayoutSection.Header
+FormLayout.SectionTitle = FormLayoutSection.Title
+FormLayout.SectionDescription = FormLayoutSection.Description

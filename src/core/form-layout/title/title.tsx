@@ -6,18 +6,20 @@ import type { HTMLAttributes, ReactNode } from 'react'
 
 export namespace FormLayoutTitle {
   export interface Props extends HTMLAttributes<HTMLHeadingElement> {
+    /** The heading level to render as. Defaults to `'h2'`. */
+    as?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6'
     /** The form title text. */
     children: ReactNode
   }
 }
 
-export function FormLayoutTitle({ children, className, id, ...rest }: FormLayoutTitle.Props) {
-  const context = useFormLayoutContext()
+export function FormLayoutTitle({ as: Element = 'h2', children, className, id, ...rest }: FormLayoutTitle.Props) {
+  const { titleId } = useFormLayoutContext()
 
   return (
-    <h2 {...rest} id={id ?? context?.titleId} className={cx(elFormLayoutTitle, className)}>
+    <Element {...rest} id={id ?? titleId} className={cx(elFormLayoutTitle, className)}>
       {children}
-    </h2>
+    </Element>
   )
 }
 

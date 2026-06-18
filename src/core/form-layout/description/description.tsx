@@ -12,10 +12,10 @@ export namespace FormLayoutDescription {
 }
 
 export function FormLayoutDescription({ children, className, id, ...rest }: FormLayoutDescription.Props) {
-  const context = useFormLayoutContext()
+  const { descriptionId } = useFormLayoutContext()
 
   return (
-    <p {...rest} id={id ?? context?.descriptionId} className={cx(elFormLayoutDescription, className)}>
+    <p {...rest} id={id ?? descriptionId} className={cx(elFormLayoutDescription, className)}>
       {children}
     </p>
   )

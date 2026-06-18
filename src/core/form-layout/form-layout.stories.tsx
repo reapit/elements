@@ -2,6 +2,7 @@ import preview from '#.storybook/preview'
 import { Button } from '#src/core/button'
 import { ButtonGroup } from '#src/core/button-group'
 import { Divider } from '#src/core/divider'
+import { TextControl } from '#src/core/text-control'
 import { FormLayout } from './form-layout'
 
 const meta = preview.meta({
@@ -18,9 +19,21 @@ const meta = preview.meta({
               <FormLayout.Title>Contact details</FormLayout.Title>
               <FormLayout.Description>Add the primary contact information for this record.</FormLayout.Description>
             </FormLayout.Header>
-            <ExampleContentPlaceholder label="Form fields" />
+            <FormLayout.Section>
+              <FormLayout.SectionHeader>
+                <FormLayout.SectionTitle>Personal details</FormLayout.SectionTitle>
+              </FormLayout.SectionHeader>
+              <TextControl label="First name" />
+              <TextControl label="Last name" />
+            </FormLayout.Section>
             <Divider />
-            <ExampleContentPlaceholder label="More form fields" />
+            <FormLayout.Section>
+              <FormLayout.SectionHeader>
+                <FormLayout.SectionTitle>Contact information</FormLayout.SectionTitle>
+              </FormLayout.SectionHeader>
+              <TextControl label="Email address" type="email" />
+              <TextControl label="Phone number" type="tel" />
+            </FormLayout.Section>
           </>
         ),
         'Header only': (
@@ -29,7 +42,14 @@ const meta = preview.meta({
               <FormLayout.Title>Edit property</FormLayout.Title>
               <FormLayout.Description>Update the details for this property listing.</FormLayout.Description>
             </FormLayout.Header>
-            <ExampleContentPlaceholder label="Form fields" />
+            <FormLayout.Section>
+              <FormLayout.SectionHeader>
+                <FormLayout.SectionTitle>Property details</FormLayout.SectionTitle>
+              </FormLayout.SectionHeader>
+              <TextControl label="Address line 1" />
+              <TextControl label="City" />
+              <TextControl label="Postcode" />
+            </FormLayout.Section>
           </>
         ),
         'With footer': (
@@ -40,9 +60,22 @@ const meta = preview.meta({
                 Complete the details below to set up a new tenancy agreement.
               </FormLayout.Description>
             </FormLayout.Header>
-            <ExampleContentPlaceholder label="Tenant details" />
+            <FormLayout.Section>
+              <FormLayout.SectionHeader>
+                <FormLayout.SectionTitle>Tenant details</FormLayout.SectionTitle>
+              </FormLayout.SectionHeader>
+              <TextControl label="First name" />
+              <TextControl label="Last name" />
+              <TextControl label="Email address" type="email" />
+            </FormLayout.Section>
             <Divider />
-            <ExampleContentPlaceholder label="Property details" />
+            <FormLayout.Section>
+              <FormLayout.SectionHeader>
+                <FormLayout.SectionTitle>Property details</FormLayout.SectionTitle>
+              </FormLayout.SectionHeader>
+              <TextControl label="Address line 1" />
+              <TextControl label="City" />
+            </FormLayout.Section>
             <FormLayout.Footer>
               <ButtonGroup>
                 <Button variant="secondary">Cancel</Button>
@@ -53,7 +86,13 @@ const meta = preview.meta({
         ),
         'No header': (
           <>
-            <ExampleContentPlaceholder label="Form fields" />
+            <FormLayout.Section>
+              <FormLayout.SectionHeader>
+                <FormLayout.SectionTitle>Account details</FormLayout.SectionTitle>
+              </FormLayout.SectionHeader>
+              <TextControl label="Email address" type="email" />
+              <TextControl label="Job title" />
+            </FormLayout.Section>
             <FormLayout.Footer>
               <ButtonGroup>
                 <Button variant="secondary">Cancel</Button>
@@ -72,23 +111,3 @@ export const Example = meta.story({
     children: 'Default',
   },
 })
-
-function ExampleContentPlaceholder({ label }: { label: string }) {
-  return (
-    <div
-      style={{
-        background: 'rgba(255, 0, 175, 0.05)',
-        border: '1px dashed rgba(255, 0, 175, 0.2)',
-        borderRadius: 'var(--border-radius-m)',
-        color: '#ff00af',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        height: 200,
-        width: '100%',
-      }}
-    >
-      {label}
-    </div>
-  )
-}
