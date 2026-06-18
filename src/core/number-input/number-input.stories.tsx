@@ -94,13 +94,32 @@ export const LocaleFormatting = Example.extend({
 
 /**
  * `formatOptions` accepts any `Intl.NumberFormatOptions` to control decimal places, grouping,
- * and other formatting behaviour.
+ * and other formatting behaviour. Setting `useGrouping: false` disables the thousands separator.
  */
 export const FormatOptions = Example.extend({
   args: {
-    defaultValue: '1234.5',
-    formatOptions: { minimumFractionDigits: 2, maximumFractionDigits: 2 },
+    defaultValue: '1234567.89',
   },
+  argTypes: {
+    formatOptions: { control: false },
+  },
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexFlow: 'row nowrap', gap: 'var(--spacing-6)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <NumberInput
+        {...args}
+        aria-label="Fixed decimal places"
+        formatOptions={{ minimumFractionDigits: 2, maximumFractionDigits: 2 }}
+      />
+      <NumberInput {...args} aria-label="No grouping" formatOptions={{ useGrouping: false }} />
+    </>
+  ),
 })
 
 /**
@@ -115,8 +134,49 @@ export const Numeric = Example.extend({
 })
 
 /**
- * A prefix or suffix can provide visual context for the numeric value, such as a currency
- * symbol or unit of measurement.
+ * When `formatOptions.style` is `'currency'`, `'percent'`, or `'unit'`, the localised affix
+ * (currency symbol, percent sign, or unit label) is derived automatically and placed as a
+ * prefix or suffix according to the locale. The affix is never typed into the value — the
+ * input value remains a plain numeric string — and it is omitted from the formatted overlay
+ * so the symbol never appears twice.
+ *
+ * For `style: 'percent'`, values are edited and stored as model-space decimals (e.g. `0.255`
+ * displays as `25.5%`). The default entry cap is 2 model-space fraction digits; pass an
+ * explicit `maximumFractionDigits` (in display-space) to allow more decimal precision.
+ */
+export const FormattingStyles = Example.extend({
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexFlow: 'row wrap', gap: 'var(--spacing-6)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <NumberInput
+        {...args}
+        aria-label="Currency"
+        defaultValue="1500"
+        locale="en-GB"
+        formatOptions={{ style: 'currency', currency: 'GBP' }}
+      />
+      <NumberInput {...args} aria-label="Percent" defaultValue="0.255" formatOptions={{ style: 'percent' }} />
+      <NumberInput
+        {...args}
+        aria-label="Unit"
+        defaultValue="1500"
+        formatOptions={{ style: 'unit', unit: 'kilogram' }}
+      />
+    </>
+  ),
+})
+
+/**
+ * Supplying any affix prop (`prefix`, `suffix`, `leadingIcon`, or `trailingIcon`) provides an
+ * arbitrary affix that is not tied to a formatting style — for example, a unit such as `kg` or a
+ * billing period such as `/month`. An explicit affix takes precedence over the automatic
+ * derivation from `formatOptions.style`.
  */
 export const Affixes = Example.extend({
   args: {
@@ -133,7 +193,7 @@ export const Affixes = Example.extend({
   render: (args) => (
     <>
       <NumberInput {...args} />
-      <NumberInput {...args} prefix={undefined} suffix="kg" />
+      <NumberInput {...args} prefix={undefined} suffix="/month" />
     </>
   ),
 })

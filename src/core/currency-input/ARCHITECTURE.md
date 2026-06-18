@@ -3,8 +3,9 @@
 ## Overview
 
 `CurrencyInput` is a thin wrapper over `NumberInput`. It adds one concern: given a `currency` and
-`locale`, it derives the localised currency symbol and places it in the correct affix slot
-(`prefix` or `suffix`) of the underlying input.
+`locale`, it selects the currency formatting style (`formatOptions={{ style: 'currency', ... }}`).
+`NumberInput` then derives the localised currency symbol from that style and places it in the
+correct affix slot (`prefix` or `suffix`) of the underlying input.
 
 All numeric behaviour — entry filtering, fraction-digit caps, locale-formatted overlay, value
 contract, and range validation — is delegated entirely to `NumberInput`. See
@@ -39,8 +40,7 @@ currencies differently. Position is a function of _both_:
 | `sv-SE`  | `SEK`      | 1 234,50 kr | `kr`   | suffix   |
 | `ja-JP`  | `JPY`      | ￥1,235     | `￥`   | prefix   |
 
-Note that de-DE and en-GB both use 2 decimal places (a property of EUR and GBP respectively),
-but the symbol sits on opposite sides (a property of the locale).
+Both de-DE and en-GB use 2 decimal places — a property of EUR and GBP respectively — but the symbol sits on opposite sides, a property of the locale.
 
 ## Why `currency` is required and cannot be inferred from `locale`
 
@@ -61,7 +61,7 @@ currency table would have to be maintained in userland and would silently drift 
 change their currency.
 
 The deeper asymmetry is the severity of a wrong value. A wrong `locale` only affects formatting —
-`1,234.50` vs `1.234,50`, same number, still legible. A wrong inferred `currency` changes the
+`1,234.50` vs `1.234,50`: the same number, still legible. A wrong inferred `currency` changes the
 _meaning_ of the number: displaying a GBP price in a EUR field is a silent money bug, not a
 cosmetic issue.
 
@@ -70,24 +70,32 @@ For these reasons `currency` is required, with no default, and `locale` remains 
 
 ## Affix derivation and placement
 
-The currency symbol and its position are derived in a single `Intl.NumberFormat.formatToParts`
-pass via `getNumberAffix` in `src/utils/number-format`. The function finds the first descriptive
-part (currency symbol, percent sign, or unit — classified by the shared `DESCRIPTIVE_PART_TYPES`
-set) and compares its index to the first numeric part to classify the position as `'prefix'` or
-`'suffix'`. It routes through the shared `getIntlNumberFormat` factory for graceful fallback and
-instance caching.
+`CurrencyInput` does not derive or place the currency symbol itself. It passes
+`formatOptions={{ style: 'currency', currency, currencyDisplay, currencySign }}` to `NumberInput`,
+which owns all affix wiring: whenever `formatOptions.style` is a descriptive style (`'currency'`,
+`'percent'`, or `'unit'`), `NumberInput` derives the localised symbol and its position in a single
+`Intl.NumberFormat.formatToParts` pass via `getNumberAffix` in `src/utils/number-format`. That
+function finds the first descriptive part (currency symbol, percent sign, or unit — classified by
+the shared `DESCRIPTIVE_PART_TYPES` set) and compares its index to the first numeric part to
+classify the position as `'prefix'` or `'suffix'`. It routes through the shared
+`getIntlNumberFormat` factory for graceful fallback and instance caching.
 
-The derived symbol is always used; there is no consumer override. The symbol is placed at the
-locale-correct position (prefix or suffix) — the consumer cannot control which side it sits on,
-because that is a function of `currency` and `locale` together.
+Within `CurrencyInput` the derived symbol is always used; there is no consumer override. The
+symbol is placed at the locale-correct position (prefix or suffix) — the consumer cannot control
+which side it sits on, because that is a function of `currency` and `locale` together. `NumberInput`
+itself does accept explicit `prefix`/`suffix` props (an explicit affix wins over derivation), but
+`CurrencyInput` omits them from its own `Props` (see below) so this override is not reachable
+through the currency component.
 
-`leadingIcon` and `trailingIcon` are intentionally not exposed: because the affix position is
-locale-dependent, a consumer cannot know which icon slot would be free, so icons are not
-a meaningful concept for this component.
+`leadingIcon` and `trailingIcon` are not exposed by `CurrencyInput` either: because the affix
+position is locale-dependent, a consumer cannot know which icon slot would be free, so icons are
+not a meaningful concept here. These props (along with `prefix` and `suffix`) remain available on
+the underlying `NumberInput`; `CurrencyInput` deliberately omits all four from its public `Props`,
+keeping the currency symbol fixed and derivation the only affix path.
 
 The `currencyDisplay` prop (default `'narrowSymbol'`) controls the symbol form and is forwarded
-to both `getNumberAffix` and the `formatOptions` passed to `NumberInput`, keeping the affix
-symbol and the formatted overlay consistent.
+in `formatOptions`. `NumberInput` derives the affix from those same `formatOptions`, so the affix
+symbol and the formatted overlay stay consistent.
 
 ## Overlay and the currency symbol
 
@@ -96,10 +104,11 @@ produced by `NumberInput`'s `resolveOverlayValue`. Because `CurrencyInput` passe
 `style: 'currency'` in `formatOptions`, a naïve `Intl.NumberFormat.format()` call would include
 the currency symbol in the overlay string — duplicating the symbol already rendered by the affix.
 
-`CurrencyInput` therefore passes `showNumberPartsOnly` to `NumberInput`, which causes
-`resolveOverlayValue` to use `formatToParts` and drop every part whose type is in
-`DESCRIPTIVE_PART_TYPES` (`currency`, `percentSign`, `unit`). Any orphaned literal whitespace
-left by the dropped part is removed by a final `.trim()`. The result is that:
+`NumberInput` prevents this automatically. Having derived a non-empty affix from the descriptive
+style, it sets an internal `showNumberPartsOnly` flag, which causes `resolveOverlayValue` to use
+`formatToParts` and drop every part whose type is in `DESCRIPTIVE_PART_TYPES` (`currency`,
+`percentSign`, `unit`). Any orphaned literal whitespace left by the dropped part is removed by a
+final `.trim()`. The result is that:
 
 - The **affix** renders the currency symbol once (e.g. `£` as a prefix, `€` as a suffix).
 - The **overlay** renders only the number (e.g. `1,234.50`), with all currency-aware formatting
@@ -107,7 +116,3 @@ left by the dropped part is removed by a final `.trim()`. The result is that:
 
 The `DESCRIPTIVE_PART_TYPES` set is shared between `getNumberAffix` and `resolveOverlayValue`
 so both sides classify parts consistently.
-
-> **Follow-up:** affix auto-wiring (deriving and placing the symbol automatically from
-> `formatOptions`) will move into `NumberInput` in a future change. At that point the temporary
-> divergence between `NumberInput` and `CurrencyInput` prop surfaces will be resolved.

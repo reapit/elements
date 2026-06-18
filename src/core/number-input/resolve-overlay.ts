@@ -19,10 +19,17 @@ export interface FractionDigitDefaults {
   max: number
 }
 
-export interface ResolveOverlayParams {
+export interface ResolveOverlayValueParams {
   locale: string | undefined
   formatOptions: Intl.NumberFormatOptions | undefined
   fractionBounds: FractionDigitDefaults
+  /**
+   * Model→display scale exponent. `2` for `style: 'percent'` (model `×100` = display),
+   * `0` for all other styles. Used to convert model-space `actualFractionDigits` into
+   * display-space before computing the overlay's fraction-digit floor, so the "never
+   * rounds" guarantee is upheld in the display domain.
+   */
+  scaleExponent: number
   /**
    * When `true`, descriptive affix parts (`currency`, `percentSign`, `unit`) are omitted
    * from the formatted overlay, and any orphaned literal whitespace they leave is trimmed.
@@ -64,7 +71,7 @@ export interface ResolveOverlayParams {
  */
 export function resolveOverlayValue(
   raw: string,
-  { locale, formatOptions, fractionBounds, showNumberPartsOnly }: ResolveOverlayParams,
+  { locale, formatOptions, fractionBounds, scaleExponent, showNumberPartsOnly }: ResolveOverlayValueParams,
 ): string {
   // `Number('')` is `0`, not `NaN`, so the empty string needs an explicit short-circuit before the NaN check.
   if (raw === '' || raw === '-') return raw
@@ -102,13 +109,18 @@ export function resolveOverlayValue(
     }
   }
 
-  // The overlay must never round: maximumFractionDigits is at least actualFractionDigits, even when the consumer's cap is lower.
+  // Convert model-space fraction digits to display-space for the floor calculation.
+  // For percent (scaleExponent=2), a model value of 0.255 has 3 model fraction digits but
+  // only 1 display fraction digit (25.5%), so the floor must be 1, not 3.
+  const displayActualFractionDigits = Math.max(0, actualFractionDigits - scaleExponent)
+
+  // The overlay must never round: maximumFractionDigits is at least displayActualFractionDigits.
   const resolvedMax = Math.min(
-    Math.max(actualFractionDigits, formatOptions?.maximumFractionDigits ?? fractionBounds.max),
+    Math.max(displayActualFractionDigits, formatOptions?.maximumFractionDigits ?? fractionBounds.max),
     INTL_MAX_FRACTION_DIGITS,
   )
   const resolvedMin = Math.min(
-    Math.max(actualFractionDigits, formatOptions?.minimumFractionDigits ?? fractionBounds.min),
+    Math.max(displayActualFractionDigits, formatOptions?.minimumFractionDigits ?? fractionBounds.min),
     resolvedMax,
   )
 

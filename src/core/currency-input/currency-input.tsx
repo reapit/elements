@@ -1,11 +1,10 @@
 import { NumberInput } from '#src/core/number-input'
-import { getNumberAffix } from '#src/utils/number-format'
 import { forwardRef, useMemo } from 'react'
 
 export namespace CurrencyInput {
   export interface Props extends Omit<
     NumberInput.Props,
-    'formatOptions' | 'inputMode' | 'prefix' | 'suffix' | 'leadingIcon' | 'trailingIcon' | 'showNumberPartsOnly'
+    'formatOptions' | 'inputMode' | 'prefix' | 'suffix' | 'leadingIcon' | 'trailingIcon'
   > {
     /**
      * ISO 4217 currency code (e.g. `'GBP'`, `'USD'`, `'EUR'`).
@@ -48,19 +47,7 @@ export const CurrencyInput = forwardRef<HTMLInputElement, CurrencyInput.Props>(f
     [currency, currencyDisplay, currencySign],
   )
 
-  const { affix, position } = useMemo(() => getNumberAffix(0, locale, formatOptions), [locale, formatOptions])
-
-  return (
-    <NumberInput
-      {...rest}
-      ref={ref}
-      formatOptions={formatOptions}
-      locale={locale}
-      prefix={position === 'prefix' ? affix : undefined}
-      suffix={position === 'suffix' ? affix : undefined}
-      showNumberPartsOnly
-    />
-  )
+  return <NumberInput {...rest} ref={ref} formatOptions={formatOptions} locale={locale} />
 })
 
 CurrencyInput.displayName = 'CurrencyInput'

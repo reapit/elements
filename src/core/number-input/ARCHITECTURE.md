@@ -2,21 +2,22 @@
 
 ## Overview
 
-NumberInput is a numeric input built on top of TextInput. It stores the raw
+NumberInput is a numeric input built on TextInput. It stores the raw
 numeric string (e.g. `1234567.89`) as the input's value and uses TextInput's
 formatted-value overlay to display locale-aware formatting (e.g. `1,234,567.89`
 in `en-GB` or `1.234.567,89` in `de-DE`).
 
 ## Requirements
 
-1. The input's `.value` is always canonical: empty, a defined partial state (`'-'`, `'.'`, `'-.'`), or a plain numeric string. A non-canonical controlled value is displayed verbatim and flagged via `patternMismatch`.
+1. The input's `.value` is always canonical: empty, a defined partial state (`'-'`, `'.'`, `'-.'`), or a plain numeric string; a non-canonical controlled value is displayed verbatim and flagged via `patternMismatch`.
 2. Locale affects only the overlay display, never the value. This keeps the value locale-independent, so form submission, server-side parsing, and `onChange` handlers never need to know the active locale.
 3. The overlay never rounds. It displays exactly the digits present in the value, padded to any consumer `minimumFractionDigits`. The 100-digit `Intl.NumberFormat` ceiling is the single exception.
 4. The component requires full control over value representation and entry. `type="number"` cannot provide this — see [Why `type="text"`](#why-typetext-instead-of-typenumber).
-5. By default, any number of fraction digits may be entered. When `maximumFractionDigits` is specified — or implied by a precision-bearing style such as `currency` or `percent` — entry beyond that cap is rejected.
+5. By default, the field accepts any number of fraction digits. When `maximumFractionDigits` is specified — or implied by a style with its own Intl defaults such as `currency`, `percent`, or `unit` — entry beyond that cap is rejected.
 6. All interactive input — typing, paste, and drop — must be sanitised before it reaches the value.
 7. `min` and `max` must be supported. A value outside those bounds must be marked invalid via the constraint validation API.
 8. A default `pattern` must flag values that bypass entry filtering (for example, a controlled value that exceeds the precision cap). A consumer-supplied `pattern` takes precedence.
+9. When a currency, percent, or unit format is used, the format's affix becomes the input's prefix or suffix based on locale. An explicit affix prop takes precedence.
 
 ## Value contract
 
@@ -46,8 +47,7 @@ any consumer `minimumFractionDigits` padding as normal (e.g. `'12.'` with
 
 The value **never** contains locale group/decimal separators, non-Latin digits,
 or any other character. **Locale affects only the overlay display, never the
-value.** Keeping locale out of the value means consumers always parse and submit a stable, locale-independent string, regardless of display settings. In `numeric` mode the canonical form additionally contains no `.`
-(integers only).
+value.** Keeping locale out of the value means consumers always parse and submit a stable, locale-independent string, regardless of display settings. In `numeric` mode the canonical form additionally contains no `.` (integers only).
 
 Every subsystem either **upholds** this contract or **relies on** it:
 
@@ -97,21 +97,47 @@ value an integer per the contract.
 
 ## Precision cap and display
 
+### Model-space vs display-space
+
+Some `Intl.NumberFormat` styles multiply the stored value before display.
+`style: 'percent'` multiplies by 100 (`0.255` → `25.5%`); all other styles
+(`'decimal'`, `'currency'`, `'unit'`) leave the value unchanged.
+
+NumberInput tracks this via a **scale exponent** — the base-10 exponent of the
+multiplier (percent = 2, all others = 0). The exponent is derived generically:
+format `1` with no fraction digits and inspect the integer part; `'100'` →
+length 3 → exponent 2.
+
+The value `.value` is always a model-space decimal. The scale exponent is
+applied in two places:
+
+1. **Entry cap.** `deriveMaxFractionDigits` adds the exponent to any
+   display-space cap, converting it to model-space. For `style: 'percent'`:
+   - Default display cap 0 → model cap **2** (e.g. `0.25` allowed, `0.255`
+     flagged by the pattern backstop).
+   - Explicit `maximumFractionDigits: 2` (display) → model cap **4** (e.g.
+     `0.2555` → `25.55%`).
+
+2. **Overlay floor.** `resolveOverlayValue` converts `actualFractionDigits`
+   (model-space) to `displayActualFractionDigits` before computing the
+   fraction-digit floor (`max(0, actual − scaleExponent)`), so the "never
+   rounds" guarantee is upheld in display-space.
+
 ### Entry cap (`maxFractionDigits`)
 
-The `maxFractionDigits` value controls how many fraction digits the user may
-type or paste. It is derived from props by `deriveMaxFractionDigits`:
+The `maxFractionDigits` value controls how many **model-space** fraction digits
+the user may type or paste. It is derived from props by `deriveMaxFractionDigits`:
 
-| Condition                                                            | Cap                                                       |
-| -------------------------------------------------------------------- | --------------------------------------------------------- |
-| `inputMode="numeric"` prop                                           | `0` (highest precedence)                                  |
-| Explicit `formatOptions.maximumFractionDigits`                       | That value                                                |
-| `formatOptions.style` is `'currency'` or `'percent'`                 | Resolved `maximumFractionDigits` from `Intl.NumberFormat` |
-| Everything else (bare `<NumberInput />`, `useGrouping: false`, etc.) | `Infinity` (unlimited)                                    |
+| Condition                                                            | Cap                                                                           |
+| -------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| `inputMode="numeric"` prop                                           | `0` (highest precedence)                                                      |
+| Explicit `formatOptions.maximumFractionDigits`                       | That display-space value + scale exponent (model-space)                       |
+| `formatOptions.style` is `'currency'`, `'percent'`, or `'unit'`      | Resolved display-space `maximumFractionDigits` + scale exponent (model-space) |
+| Everything else (bare `<NumberInput />`, `useGrouping: false`, etc.) | `Infinity` (unlimited)                                                        |
 
 Plain `formatOptions` without `maximumFractionDigits` and without a
-precision-bearing style (e.g. `{ useGrouping: false }`) do not cap entry, even
-though `Intl.NumberFormat` would resolve a default `max` of 3. A bare
+style that carries its own Intl defaults (e.g. `{ useGrouping: false }`) do not
+cap entry, even though `Intl.NumberFormat` would resolve a default `max` of 3. A bare
 `<NumberInput />` must accept arbitrary precision.
 
 The keystroke filter rejects a digit that would push the fractional part beyond
@@ -155,28 +181,55 @@ resolvedMax = max(actualFractionDigits, format.maximumFractionDigits)
 This means:
 
 - `style: 'currency'`, value `"5"` → overlay `£5.00` (padded to min = 2).
-- `maximumFractionDigits: 2`, value `"1.999"` → overlay `1.999` (actual precision exceeds consumer cap; `resolvedMax` is raised to 3, no rounding).
+- `maximumFractionDigits: 2`, value `"1.999"` → overlay `1.999` (actual precision exceeds consumer cap; `resolvedMax` is raised to 3; no rounding occurs).
 - `minimumFractionDigits: 2`, value `"1.5"` → overlay `1.50` (actual precision is below consumer min; padding applied as normal).
 
-### `showNumberPartsOnly`
+### Unsupported display-shaping options
 
-When the `showNumberPartsOnly` prop is `true`, descriptive affix parts —
-`currency`, `percentSign`, and `unit` — are omitted from the overlay string.
-The numeric parts (grouping, decimal, fraction digits, sign) are preserved
-exactly. Any orphaned literal whitespace left by a dropped affix (e.g. the
-narrow no-break space before `€` in de-DE) is removed by a final `.trim()` on
-the joined result.
+The following `Intl.NumberFormatOptions` keys are excluded from `formatOptions`
+at the type level and stripped at runtime (by `stripUnsupportedFormatOptions`
+before any Intl call):
 
-This is intended for wrapper components (such as `CurrencyInput`) that render
-the symbol separately as a prefix or suffix. Without the flag, the symbol would
-appear twice: once in the formatted overlay and once as the affix. With the flag
-the overlay shows only the number (`1,234.50`) while the affix shows the symbol
-(`£`).
+- **Significant-digit options:** `minimumSignificantDigits`,
+  `maximumSignificantDigits` — the fraction budget is value-dependent and
+  trailing-zero semantics are ambiguous, so they cannot soundly constrain entry.
+- **Rounding options:** `roundingIncrement`, `roundingMode`, `roundingPriority`,
+  `trailingZeroDisplay` — they would round the overlay away from the stored
+  value, violating the "overlay never rounds" guarantee.
 
-The shared `DESCRIPTIVE_PART_TYPES` set (from `src/utils/number-format`) is the
-single source of truth for which part types are treated as descriptive — both
-`showNumberPartsOnly` and `getNumberAffix` use it, so they agree by
-construction.
+Passing these options is deliberately **not an error** (graceful degradation is
+preserved). The runtime strip is a defence-in-depth backstop for callers that
+bypass TypeScript (e.g. `as any`). The `stripUnsupportedFormatOptions` helper
+returns the same object reference when no unsupported keys are present, keeping
+the format-cache key stable.
+
+### Auto-affix derivation
+
+`NumberInput` accepts the `prefix`, `suffix`, `leadingIcon`, and `trailingIcon` props inherited
+from `TextInput`, so arbitrary affixes that have no `Intl` equivalent — `'/month'`, `'px'`, a
+search icon — are fully supported.
+
+In addition, when the consumer supplies **none** of those affix props and `formatOptions.style`
+is `'currency'`, `'percent'`, or `'unit'`, `NumberInput` derives the localised affix (currency
+symbol, percent sign, or unit label) and its position from `getNumberAffix`. The derived affix is
+passed to `TextInput` as either `prefix` or `suffix` depending on the locale convention, and an
+internal `showNumberPartsOnly` flag is set to `true` to strip the same descriptive part from the
+formatted overlay, so the symbol never appears twice.
+
+The rule is a simple precedence: **an explicit affix wins.** If the consumer provides any of
+`prefix`, `suffix`, `leadingIcon`, or `trailingIcon`, no affix is derived and the overlay is
+formatted in full (the descriptive part is **not** stripped, since we did not inject it). This
+keeps the two concerns from colliding — a consumer affix is rendered verbatim, never silently
+combined with or hidden behind a derived one.
+
+When `formatOptions` has no `style`, or has a style that does not carry a descriptive affix
+(e.g. `'decimal'`), no affix is derived and the overlay is formatted in full.
+
+Thin wrapper components such as `CurrencyInput` rely on the derivation path: they set
+`formatOptions.style: 'currency'`, supply no affix prop, and let `NumberInput` handle all affix
+wiring automatically. `CurrencyInput` additionally omits the affix props from its own public
+`Props`, so a currency consumer cannot override the derived symbol — the opinion that a currency
+symbol is fixed lives in the wrapper, not in the primitive.
 
 Consumer `minimumFractionDigits` and `maximumFractionDigits` are used as the
 baseline for `resolvedMin` and `resolvedMax` respectively, but are always
@@ -186,7 +239,7 @@ occurs — the overlay always shows at least as many digits as are in the raw
 value. `resolvedMin` is additionally clamped to `resolvedMax` so it can never
 force rounding either.
 
-Note this overlay `resolvedMax` is deliberately **distinct** from the entry cap
+This overlay `resolvedMax` is deliberately **distinct** from the entry cap
 (`maxFractionDigits`): the entry cap limits what can be _typed_ and may be
 `Infinity`, whereas `resolvedMax` governs what is _displayed_ and intentionally
 exceeds the entry cap for over-cap controlled values. The two must not be
@@ -288,7 +341,7 @@ detected and `onChange` fires exactly once.
 
 ## Custom validity and `:user-invalid`
 
-Because the input uses `type="text"`, the browser's native `min`/`max` constraint validation does not apply. Out-of-range values do not trigger `:invalid` or `:user-invalid` on their own. A `useEffect` calls `setCustomValidity()` whenever the value, `min`, or `max` changes — setting a non-empty validity message when the numeric value falls outside the range, and clearing it otherwise. Partial values (`''` and `'-'`) are treated as not-yet-complete and do not trigger an error.
+Because the input uses `type="text"`, the browser's native `min`/`max` constraint validation does not apply, so out-of-range values do not trigger `:invalid` or `:user-invalid` on their own. A `useEffect` calls `setCustomValidity()` whenever the value, `min`, or `max` changes — setting a non-empty validity message when the numeric value falls outside the range, and clearing it otherwise. Partial values (`''` and `'-'`) are treated as not-yet-complete and do not trigger an error.
 
 ### Validity message tokens
 

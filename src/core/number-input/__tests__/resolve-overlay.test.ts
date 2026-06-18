@@ -1,20 +1,23 @@
 import { resolveOverlayValue } from '../resolve-overlay'
-import type { ResolveOverlayParams } from '../resolve-overlay'
+import type { ResolveOverlayValueParams } from '../resolve-overlay'
 
 // en-GB resolves to a decimal default of minimumFractionDigits: 0, maximumFractionDigits: 3.
-const enGB: ResolveOverlayParams = {
+const enGB: ResolveOverlayValueParams = {
   locale: 'en-GB',
   formatOptions: undefined,
   fractionBounds: { min: 0, max: 3 },
+  scaleExponent: 0,
 }
 
 const withOptions = (
   formatOptions: Intl.NumberFormatOptions,
   fractionBounds = { min: 0, max: 3 },
-): ResolveOverlayParams => ({
+  scaleExponent = 0,
+): ResolveOverlayValueParams => ({
   locale: 'en-GB',
   formatOptions,
   fractionBounds,
+  scaleExponent,
 })
 
 // ---------------------------------------------------------------------------
@@ -178,10 +181,11 @@ test('showNumberPartsOnly strips the £ prefix symbol from a GBP overlay', () =>
 })
 
 test('showNumberPartsOnly strips the € suffix symbol and trims the trailing space for de-DE EUR', () => {
-  const params: ResolveOverlayParams = {
+  const params: ResolveOverlayValueParams = {
     locale: 'de-DE',
     formatOptions: { style: 'currency', currency: 'EUR' },
     fractionBounds: { min: 2, max: 2 },
+    scaleExponent: 0,
     showNumberPartsOnly: true,
   }
   expect(resolveOverlayValue('1234.5', params)).toBe('1.234,50')
@@ -193,10 +197,11 @@ test('showNumberPartsOnly preserves a typed value beyond the currency default wi
 })
 
 test('showNumberPartsOnly strips the % suffix from a percent-style overlay', () => {
-  const params: ResolveOverlayParams = {
+  const params: ResolveOverlayValueParams = {
     locale: 'en-GB',
     formatOptions: { style: 'percent' },
     fractionBounds: { min: 0, max: 0 },
+    scaleExponent: 0,
     showNumberPartsOnly: true,
   }
   expect(resolveOverlayValue('1', params)).toBe('100')
@@ -206,4 +211,49 @@ test('showNumberPartsOnly=false (default) preserves the full formatted output wi
   const params = withOptions({ style: 'currency', currency: 'GBP' }, { min: 2, max: 2 })
   // Flag absent — output identical to current .format() behaviour.
   expect(resolveOverlayValue('5', params)).toBe('£5.00')
+})
+
+// ---------------------------------------------------------------------------
+// scaleExponent: 2 (percent) — "never rounds" in display-space
+// ---------------------------------------------------------------------------
+
+test('percent: 0.255 → 25.5% (1 display fraction digit)', () => {
+  const params = withOptions({ style: 'percent' }, { min: 0, max: 0 }, 2)
+  expect(resolveOverlayValue('0.255', { ...params, showNumberPartsOnly: true })).toBe('25.5')
+})
+
+test('percent: 0.5 with minimumFractionDigits: 2 → 50.00% (padded)', () => {
+  const params = withOptions({ style: 'percent', minimumFractionDigits: 2 }, { min: 2, max: 2 }, 2)
+  expect(resolveOverlayValue('0.5', { ...params, showNumberPartsOnly: true })).toBe('50.00')
+})
+
+test('percent: 0.00005 → 0.005% (3 display fraction digits)', () => {
+  const params = withOptions({ style: 'percent' }, { min: 0, max: 0 }, 2)
+  expect(resolveOverlayValue('0.00005', { ...params, showNumberPartsOnly: true })).toBe('0.005')
+})
+
+test('percent: 0.2555 with maximumFractionDigits: 2 is shown unrounded (2 display digits)', () => {
+  // displayActualFractionDigits = max(0, 4 - 2) = 2; cap = max(2, 2) = 2 → no rounding.
+  const params = withOptions({ style: 'percent', maximumFractionDigits: 2 }, { min: 0, max: 2 }, 2)
+  expect(resolveOverlayValue('0.2555', { ...params, showNumberPartsOnly: true })).toBe('25.55')
+})
+
+// ---------------------------------------------------------------------------
+// unsupported options stripped — overlay never rounds via sig-digit or rounding options
+// ---------------------------------------------------------------------------
+
+// These tests verify resolveOverlayValue's behaviour when called with ALREADY-STRIPPED
+// options, which is the only realistic call path (the component strips before calling).
+
+test('with stripped options (no maximumSignificantDigits), the overlay shows 1234.5678 unrounded', () => {
+  // Stripped { maximumSignificantDigits: 3 } → {}; plain decimal formatting applies.
+  const params = withOptions({})
+  expect(resolveOverlayValue('1234.5678', params)).toBe('1,234.5678')
+})
+
+test('with stripped options (no roundingMode), the overlay shows 1.555 unrounded', () => {
+  // Stripped { minimumFractionDigits: 2, roundingMode: 'halfExpand' } → { minimumFractionDigits: 2 };
+  // actualFractionDigits (3) raises resolvedMax to 3 so no rounding occurs.
+  const params = withOptions({ minimumFractionDigits: 2 })
+  expect(resolveOverlayValue('1.555', params)).toBe('1.555')
 })

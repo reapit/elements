@@ -448,7 +448,10 @@ test('pads an integer to the currency minimum fraction digits in the overlay', (
     <NumberInput value="5" locale="en-GB" formatOptions={{ style: 'currency', currency: 'GBP' }} />,
   )
   const overlay = container.querySelector('[data-formatted-overlay]')
-  expect(overlay).toHaveTextContent('£5.00')
+  // Symbol is rendered as a prefix affix, not inside the overlay
+  expect(overlay).toHaveTextContent('5.00')
+  expect(overlay).not.toHaveTextContent('£')
+  expect(screen.getByText('£')).toBeVisible()
 })
 
 test('preserves typed high-precision value beyond the currency default in the overlay', () => {
@@ -456,7 +459,9 @@ test('preserves typed high-precision value beyond the currency default in the ov
     <NumberInput value="5.123" locale="en-GB" formatOptions={{ style: 'currency', currency: 'GBP' }} />,
   )
   const overlay = container.querySelector('[data-formatted-overlay]')
-  expect(overlay).toHaveTextContent('£5.123')
+  // Symbol is rendered as a prefix affix, not inside the overlay
+  expect(overlay).toHaveTextContent('5.123')
+  expect(overlay).not.toHaveTextContent('£')
 })
 
 test('blocks entry of a third decimal digit in currency mode', () => {
@@ -508,7 +513,9 @@ test('flags an over-cap controlled value as invalid and shows it verbatim', () =
   )
   expect(screen.getByRole('textbox')).toHaveValue('1.999')
   const overlay = container.querySelector('[data-formatted-overlay]')
-  expect(overlay).toHaveTextContent('£1.999')
+  // Symbol is rendered as a prefix affix, not inside the overlay
+  expect(overlay).toHaveTextContent('1.999')
+  expect(overlay).not.toHaveTextContent('£')
   expect(screen.getByRole('textbox')).toBeInvalid()
 })
 
@@ -738,6 +745,116 @@ test('overlay formats a high-precision decimal exactly, without rounding through
 })
 
 // ---------------------------------------------------------------------------
+// auto-affix derivation from formatOptions.style
+// ---------------------------------------------------------------------------
+
+test('auto-wires currency symbol as a prefix for a prefix-position locale', () => {
+  render(<NumberInput locale="en-GB" formatOptions={{ style: 'currency', currency: 'GBP' }} />)
+  expect(screen.getByText('£')).toBeVisible()
+})
+
+test('auto-wires currency symbol as a suffix for a suffix-position locale', () => {
+  render(<NumberInput locale="de-DE" formatOptions={{ style: 'currency', currency: 'EUR' }} />)
+  expect(screen.getByText('€')).toBeVisible()
+})
+
+test('overlay does not contain the currency symbol when auto-affix is active', () => {
+  const { container } = render(
+    <NumberInput value="1234.5" locale="en-GB" formatOptions={{ style: 'currency', currency: 'GBP' }} />,
+  )
+  const overlay = container.querySelector('[data-formatted-overlay]')
+  expect(overlay).not.toHaveTextContent('£')
+  expect(overlay).toHaveTextContent('1,234.50')
+})
+
+test('auto-wires percent sign as a suffix', () => {
+  render(<NumberInput locale="en-GB" formatOptions={{ style: 'percent' }} />)
+  expect(screen.getByText('%')).toBeVisible()
+})
+
+test('overlay does not contain the percent sign when auto-affix is active', () => {
+  const { container } = render(<NumberInput value="0.5" locale="en-GB" formatOptions={{ style: 'percent' }} />)
+  const overlay = container.querySelector('[data-formatted-overlay]')
+  expect(overlay).not.toHaveTextContent('%')
+})
+
+test('auto-wires unit affix for style: unit', () => {
+  render(<NumberInput locale="en-GB" formatOptions={{ style: 'unit', unit: 'kilogram' }} />)
+  // 'kg' appears either as a prefix or suffix depending on locale
+  expect(screen.getByText('kg')).toBeVisible()
+})
+
+test('overlay does not contain the unit when auto-affix is active', () => {
+  const { container } = render(
+    <NumberInput value="10" locale="en-GB" formatOptions={{ style: 'unit', unit: 'kilogram' }} />,
+  )
+  const overlay = container.querySelector('[data-formatted-overlay]')
+  expect(overlay).not.toHaveTextContent('kg')
+  expect(overlay).toHaveTextContent('10')
+})
+
+test('no affix is rendered when formatOptions has no style', () => {
+  const { container } = render(<NumberInput value="1234.5" locale="en-GB" formatOptions={{ useGrouping: true }} />)
+  // No affix container (prefix or suffix) should be present — TextInput renders affixes as
+  // a span with data-position="before"/"after". No icons are rendered here, so these
+  // selectors uniquely identify an affix.
+  expect(container.querySelector('[data-position="before"]')).toBeNull()
+  expect(container.querySelector('[data-position="after"]')).toBeNull()
+  // The number is still formatted in full.
+  const overlay = container.querySelector('[data-formatted-overlay]')
+  expect(overlay).toHaveTextContent('1,234.5')
+})
+
+// ---------------------------------------------------------------------------
+// explicit affix wins over style-derived affix
+// ---------------------------------------------------------------------------
+
+test('renders an arbitrary suffix that is not tied to a formatting style', () => {
+  render(<NumberInput suffix="/month" />)
+  expect(screen.getByText('/month')).toBeVisible()
+})
+
+test('an explicit prefix takes precedence over the style-derived currency symbol', () => {
+  render(<NumberInput locale="en-GB" formatOptions={{ style: 'currency', currency: 'GBP' }} prefix="USD" />)
+  // The consumer prefix is shown; the derived '£' is not.
+  expect(screen.getByText('USD')).toBeVisible()
+  expect(screen.queryByText('£')).toBeNull()
+})
+
+test('an explicit suffix suppresses derivation even when the derived affix is a prefix', () => {
+  // GBP would derive a '£' prefix; supplying any affix prop disables derivation entirely.
+  const { container } = render(
+    <NumberInput locale="en-GB" formatOptions={{ style: 'currency', currency: 'GBP' }} suffix="net" />,
+  )
+  expect(screen.getByText('net')).toBeVisible()
+  expect(screen.queryByText('£')).toBeNull()
+  // No prefix container was added.
+  expect(container.querySelector('[data-position="before"]')).toBeNull()
+})
+
+test('the overlay keeps the currency symbol when an explicit affix overrides derivation', () => {
+  // Because the consumer supplied an affix, the overlay is formatted in full (symbol included);
+  // stripping only happens for the affix we derive ourselves.
+  const { container } = render(
+    <NumberInput value="1234.5" locale="en-GB" formatOptions={{ style: 'currency', currency: 'GBP' }} prefix="USD" />,
+  )
+  const overlay = container.querySelector('[data-formatted-overlay]')
+  expect(overlay).toHaveTextContent('£1,234.50')
+})
+
+test('a leadingIcon suppresses the derived currency affix', () => {
+  render(
+    <NumberInput
+      locale="en-GB"
+      formatOptions={{ style: 'currency', currency: 'GBP' }}
+      leadingIcon={<svg data-testid="icon" />}
+    />,
+  )
+  expect(screen.getByTestId('icon')).toBeVisible()
+  expect(screen.queryByText('£')).toBeNull()
+})
+
+// ---------------------------------------------------------------------------
 // non-canonical controlled values — overlay never diverges, flagged invalid
 // ---------------------------------------------------------------------------
 
@@ -764,4 +881,80 @@ test('does not throw when a controlled value would overflow BigInt parsing via e
   // must not throw across renders.
   const { rerender } = render(<NumberInput value="1e21" locale="en-GB" />)
   expect(() => rerender(<NumberInput value="1e21" locale="en-GB" />)).not.toThrow()
+})
+
+// ---------------------------------------------------------------------------
+// percent (style: 'percent') — model-space decimal entry, scaled overlay
+// ---------------------------------------------------------------------------
+
+test('infers inputMode="decimal" for style: "percent"', () => {
+  render(<NumberInput locale="en-GB" formatOptions={{ style: 'percent' }} />)
+  expect(screen.getByRole('textbox')).toHaveAttribute('inputMode', 'decimal')
+})
+
+test('allows the decimal separator in percent mode', () => {
+  render(<NumberInput locale="en-GB" formatOptions={{ style: 'percent' }} />)
+  const input = screen.getByRole('textbox')
+  const event = new InputEvent('beforeinput', { data: '.', cancelable: true })
+  const prevented = !input.dispatchEvent(event)
+  expect(prevented).toBe(false)
+})
+
+test('applies a model-space pattern for style: "percent" with default cap', () => {
+  render(<NumberInput locale="en-GB" formatOptions={{ style: 'percent' }} />)
+  expect(screen.getByRole('textbox')).toHaveAttribute('pattern', '-?\\d*(\\.\\d{0,2})?')
+})
+
+test('a controlled percent value within the default model cap (2 digits) is valid', () => {
+  render(<NumberInput value="0.25" locale="en-GB" formatOptions={{ style: 'percent' }} />)
+  expect(screen.getByRole('textbox')).toBeValid()
+})
+
+test('a controlled percent value exceeding the default model cap is flagged invalid', () => {
+  render(<NumberInput value="0.255" locale="en-GB" formatOptions={{ style: 'percent' }} />)
+  expect(screen.getByRole('textbox')).toBeInvalid()
+})
+
+test('percent overlay shows the scaled value without rounding (0.255 → 25.5)', () => {
+  // value is stored as model-space decimal; overlay scales to percent display-space.
+  const { container } = render(<NumberInput value="0.255" locale="en-GB" formatOptions={{ style: 'percent' }} />)
+  const overlay = container.querySelector('[data-formatted-overlay]')
+  expect(overlay).toHaveTextContent('25.5')
+  expect(overlay).not.toHaveTextContent('%')
+})
+
+test('explicit maximumFractionDigits is display-space; model cap = display cap + exponent', () => {
+  // maximumFractionDigits: 2 (display) → model cap 4; pattern reflects model cap.
+  render(<NumberInput locale="en-GB" formatOptions={{ style: 'percent', maximumFractionDigits: 2 }} />)
+  expect(screen.getByRole('textbox')).toHaveAttribute('pattern', '-?\\d*(\\.\\d{0,4})?')
+})
+
+test('percent overlay pads to minimumFractionDigits in display-space', () => {
+  const { container } = render(
+    <NumberInput value="0.5" locale="en-GB" formatOptions={{ style: 'percent', minimumFractionDigits: 2 }} />,
+  )
+  const overlay = container.querySelector('[data-formatted-overlay]')
+  expect(overlay).toHaveTextContent('50.00')
+})
+
+// ---------------------------------------------------------------------------
+// unsupported format options — stripped at runtime, overlay never rounds
+// ---------------------------------------------------------------------------
+
+test('maximumSignificantDigits does not restrict decimal entry', () => {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  render(<NumberInput formatOptions={{ maximumSignificantDigits: 3 } as any} />)
+  const input = screen.getByRole('textbox')
+  const event = new InputEvent('beforeinput', { data: '.', cancelable: true })
+  const prevented = !input.dispatchEvent(event)
+  expect(prevented).toBe(false)
+})
+
+test('maximumSignificantDigits does not round the overlay', () => {
+  const { container } = render(
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    <NumberInput value="1234.5678" locale="en-GB" formatOptions={{ maximumSignificantDigits: 3 } as any} />,
+  )
+  const overlay = container.querySelector('[data-formatted-overlay]')
+  expect(overlay).toHaveTextContent('1,234.5678')
 })

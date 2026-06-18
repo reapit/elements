@@ -132,8 +132,39 @@ export const Invalid = Example.extend({
 })
 
 /**
- * A prefix or suffix can provide visual context for the numeric value, such as a currency
- * symbol or unit of measurement.
+ * When `formatOptions.style` is `'currency'`, `'percent'`, or `'unit'`, the localised affix
+ * (currency symbol, percent sign, or unit label) is derived automatically and placed as a
+ * prefix or suffix according to the locale. The affix is never typed into the value, and it is
+ * omitted from the formatted overlay so the symbol never appears twice.
+ */
+export const FormattingStyles = Example.extend({
+  decorators: [
+    (Story) => (
+      <div style={{ display: 'flex', flexFlow: 'row wrap', gap: 'var(--spacing-6)' }}>
+        <Story />
+      </div>
+    ),
+  ],
+  render: (args) => (
+    <>
+      <NumberControl
+        {...args}
+        label="Currency"
+        defaultValue="1500"
+        locale="en-GB"
+        formatOptions={{ style: 'currency', currency: 'GBP' }}
+      />
+      <NumberControl {...args} label="Percent" defaultValue="25" formatOptions={{ style: 'percent' }} />
+      <NumberControl {...args} label="Unit" defaultValue="1500" formatOptions={{ style: 'unit', unit: 'kilogram' }} />
+    </>
+  ),
+})
+
+/**
+ * Supplying any affix prop (`prefix`, `suffix`, `leadingIcon`, or `trailingIcon`) provides an
+ * arbitrary affix that is not tied to a formatting style — for example, a unit such as `kg` or a
+ * billing period such as `/month`. An explicit affix takes precedence over the automatic
+ * derivation from `formatOptions.style`.
  */
 export const Affixes = Example.extend({
   args: {
@@ -150,7 +181,7 @@ export const Affixes = Example.extend({
   render: (args) => (
     <>
       <NumberControl {...args} />
-      <NumberControl {...args} prefix={undefined} suffix="kg" />
+      <NumberControl {...args} prefix={undefined} suffix="/month" />
     </>
   ),
 })
