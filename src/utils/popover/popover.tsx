@@ -21,7 +21,7 @@ export namespace Popover {
     /** Popover content. */
     children: ReactNode
     /** Visual elevation. Determines shadow depth. */
-    elevation?: 'none' | 'xl'
+    elevation?: 'none' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | '2xl'
     /**
      * Popover ID. Required for the trigger's `popovertarget` attribute.
      */

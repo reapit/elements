@@ -62,7 +62,7 @@ export const elAtAGlanceCarouselButton = css`
   @layer elements.main {
     position: absolute;
     align-self: center;
-    box-shadow: 0 var(--size-1) var(--size-2) 0 rgb(0 0 0 / 0.1);
+    box-shadow: var(--shadow-down-md);
     z-index: var(--z-index-elevated);
 
     /* Left button */

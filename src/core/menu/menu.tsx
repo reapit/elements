@@ -56,7 +56,7 @@ export function Menu({
       aria-labelledby={ariaLabelledBy}
       anchorId={ariaLabelledBy}
       className={cx(elMenu, className)}
-      elevation="xl"
+      elevation="lg"
       gap={`var(${gap})`}
       maxHeight={`var(${maxHeight})`}
       maxWidth={`var(${maxWidth})`}

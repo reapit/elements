@@ -16,7 +16,7 @@ export const elComboboxPopupDialog = css`
     --combobox-popup-backdrop-colour: transparent;
 
     --combobox-popup-drawer-shadow: none;
-    --combobox-popup-popover-shadow: 0 var(--size-1) var(--size-4) 0 rgb(0 0 0 / 0.2);
+    --combobox-popup-popover-shadow: var(--shadow-down-lg);
     --combobox-popup-shadow: var(--combobox-popup-popover-shadow);
 
     /* NOTE: This CSS variable is referenced in popup-dialog.tsx for width calculations */

@@ -12,6 +12,7 @@ export const elDialog = css`
     overflow: auto;
     border: none;
     border-radius: var(--border-radius-l);
+    box-shadow: var(--shadow-down-xl);
 
     container-name: dialog;
     container-type: inline-size;

@@ -17,9 +17,23 @@ export const elPopover = css`
     &[data-elevation='none'] {
       box-shadow: none;
     }
-
+    &[data-elevation='xs'] {
+      box-shadow: var(--shadow-down-xs);
+    }
+    &[data-elevation='sm'] {
+      box-shadow: var(--shadow-down-sm);
+    }
+    &[data-elevation='md'] {
+      box-shadow: var(--shadow-down-md);
+    }
+    &[data-elevation='lg'] {
+      box-shadow: var(--shadow-down-lg);
+    }
     &[data-elevation='xl'] {
-      box-shadow: 0 var(--size-1) var(--size-4) 0 rgb(0 0 0 / 0.2);
+      box-shadow: var(--shadow-down-xl);
+    }
+    &[data-elevation='2xl'] {
+      box-shadow: var(--shadow-down-2xl);
     }
   }
 `
