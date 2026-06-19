@@ -1,5 +1,51 @@
 # @reapit/elements
 
+## 5.0.0-rc.9
+
+### Minor Changes
+
+- **[Added]** `@reapit/elements/core/app-switcher/anz` subpath for ANZ-specific `AppSwitcher` exports. Run the `rewrite-anz-app-switcher-imports` codemod to migrate automatically. ([#1435](https://github.com/reapit-global/gbl-ds-elements/pull/1435))
+
+- **[Added]** `orientation` and `align` props to `ButtonGroup`. ([#1440](https://github.com/reapit-global/gbl-ds-elements/pull/1440))
+
+- **[Added]** `Card`, `ButtonCard`, and `AnchorCard` components. `Card` is a generic surface for containing related content. `ButtonCard` and `AnchorCard` are interactive variants that render as `<button>` and `<a>` elements respectively. ([#1455](https://github.com/reapit-global/gbl-ds-elements/pull/1455))
+
+- **[Added]** `CurrencyControl` component. A pre-baked `CurrencyInput` + `FormControl` for use when a currency input needs a label, help text, or error message. ([#1457](https://github.com/reapit-global/gbl-ds-elements/pull/1457))
+
+- **[Added]** `CurrencyInput` component. Builds on `NumberInput` to format a monetary value for a given `currency`, with the localised currency symbol placed automatically as a prefix or suffix based on the locale. ([#1457](https://github.com/reapit-global/gbl-ds-elements/pull/1457))
+
+- **[Added]** `FormLayout` component. Provides consistent layout and spacing for forms, with `FormLayout.Header`, `FormLayout.Title`, `FormLayout.Description`, and `FormLayout.Footer` sub-components. Renders as a `<section>` element with automatic ARIA wiring between the section and its title and description. ([#1453](https://github.com/reapit-global/gbl-ds-elements/pull/1453))
+
+- **[Added]** `FormLayout.Section` sub-component. Use `FormLayout.SectionHeader`, `FormLayout.SectionTitle`, and `FormLayout.SectionDescription` to label sections of a form layout with a heading and optional description. Also added: `as` prop on `FormLayout.Title` for configuring the heading level. ([#1451](https://github.com/reapit-global/gbl-ds-elements/pull/1451))
+
+- **[Added]** `NumberControl` component. Wraps `NumberInput` with `FormControl` for label, help text, and error text support. ([#1445](https://github.com/reapit-global/gbl-ds-elements/pull/1445))
+
+- **[Added]** `getLocaleNumberSeparators`, `getIntlNumberFormat`, `getNumberAffix`, and `DESCRIPTIVE_PART_TYPES` utilities, and the `LocaleNumberSeparators` and `NumberAffix` types, at `@reapit/elements/utils/number-format`. ([#1445](https://github.com/reapit-global/gbl-ds-elements/pull/1445))
+
+- **[Added]** `NumberInput` component. Displays locale-aware formatted numbers via an overlay whilst keeping the raw numeric value as the input value. Accepts `locale`, `formatOptions`, `inputMode`, `min`, and `max` props. When `formatOptions.style` is `'currency'`, `'percent'`, or `'unit'` and no affix prop is supplied, the localised affix is automatically derived and rendered as a prefix or suffix; supplying an explicit `prefix`, `suffix`, `leadingIcon`, or `trailingIcon` takes precedence and disables the derivation. With `style: 'percent'`, values are stored and edited as model-space decimals (e.g. `0.255` displays as `25.5%`). ([#1445](https://github.com/reapit-global/gbl-ds-elements/pull/1445))
+
+- **[Added]** `replace-deprecated-button-group-layout-props` codemod to migrate `ButtonGroup` usage from the deprecated `autoFlow` and `justifyContent` props to the new `orientation` and `align` props. ([#1440](https://github.com/reapit-global/gbl-ds-elements/pull/1440))
+
+- **[Added]** `formatValue` prop to `TextInput`. Accepts a `(value: string) => string` function that renders formatted text in an overlay while preserving the raw value in the underlying input. ([#1445](https://github.com/reapit-global/gbl-ds-elements/pull/1445))
+
+- **[Deprecated]** `SupportedProductId`, `ProductConfig`, `AppSwitcher.AppAvatar`, `AppSwitcher.ProductMenuItem`, `AppSwitcher.getDisplayableProductsForYourAppsGroup`, and `AppSwitcher.getDisplayableProductsForExploreGroup` from `@reapit/elements/core/app-switcher`. Import from `@reapit/elements/core/app-switcher/anz` instead. ([#1435](https://github.com/reapit-global/gbl-ds-elements/pull/1435))
+
+- **[Deprecated]** `autoFlow` and `justifyContent` props on `ButtonGroup`. Use `orientation` and `align` instead. Run the `replace-deprecated-button-group-layout-props` codemod to migrate automatically. ([#1440](https://github.com/reapit-global/gbl-ds-elements/pull/1440))
+
+- **[Added]** support for breaking icon size CSS variable change to upgrade-css-variables codemod ([#1460](https://github.com/reapit-global/gbl-ds-elements/pull/1460))
+
+### Patch Changes
+
+- **[Changed]** `AtAGlance.Card` now uses new core `Card`, `ButtonCard` and `AnchorCard`. ([#1462](https://github.com/reapit-global/gbl-ds-elements/pull/1462))
+
+- **[Fixed]** `TextInput` and `Button` busy spinner animations now play correctly. ([#1444](https://github.com/reapit-global/gbl-ds-elements/pull/1444))
+
+- **[Fixed]** `ButtonGroup` with `orientation="horizontal"` and `align="stretch"` now correctly stretches buttons to equal height. ([#1440](https://github.com/reapit-global/gbl-ds-elements/pull/1440))
+
+- **[Internal]** Update all component styles to reference the renamed `--icon_size` tokens (`-l` → `-lg`, `-m` → `-md`, `-s` → `-sm`) and the consolidated gallery viewer caption colour token. Use `upgrade-css-variables` codemod to migrate usage of these tokens. ([#1454](https://github.com/reapit-global/gbl-ds-elements/pull/1454))
+
+- **[Changed]** Core components now use new shadow design tokens. ([#1463](https://github.com/reapit-global/gbl-ds-elements/pull/1463))
+
 ## 5.0.0-rc.8
 
 ### Patch Changes
