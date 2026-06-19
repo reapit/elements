@@ -5,9 +5,11 @@ export const elAtAGlanceGrid = css`
   @layer elements.main {
     display: grid;
     gap: var(--aag-grid-gap, var(--spacing-4));
-    /* Ensures the card's outline does not get clipped by the scroll container */
-    padding: var(--border-width-double);
-    margin: calc(0 - var(--border-width-double));
+    /* Ensures the card's outlines and shadows do not get clipped by the scroll container */
+    padding-block: var(--spacing-1) var(--spacing-2);
+    padding-inline: var(--border-width-double);
+    margin-block: calc(0px - var(--spacing-1)) calc(0px - var(--spacing-2));
+    margin-inline: calc(0px - var(--border-width-double));
     list-style: none;
 
     &,

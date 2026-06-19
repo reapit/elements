@@ -12,6 +12,12 @@ export namespace ButtonCard {
      */
     'aria-pressed'?: boolean | 'false' | 'mixed' | 'true'
     /**
+     * Communicates a selected state to assistive technologies.
+     * Use `'true'` when the card represents an active or selected option, and `'false'`
+     * when it is not.
+     */
+    'aria-selected'?: boolean | 'false' | 'true'
+    /**
      * Whether the button is disabled. Unlike `aria-disabled`, a disabled button is not
      * focusable or interactive.
      */

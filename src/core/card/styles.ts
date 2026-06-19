@@ -50,31 +50,48 @@ export const elCard = css`
  */
 export const elInteractiveCard = css`
   @layer elements.base {
+    text-decoration: none;
     cursor: pointer;
+    padding: max(0px, calc(var(--card-padding, var(--spacing-4)) + var(--border-width-default)));
 
     @media (prefers-reduced-motion: no-preference) {
       transition: box-shadow 150ms ease-out;
     }
 
-    &:not(:disabled):not([aria-disabled='true']):hover {
+    &:not(:is(:disabled, [aria-disabled='true'])):hover {
       box-shadow: var(--shadow-down-md);
     }
 
-    &:not(:disabled):not([aria-disabled='true']):active {
+    &:not(:is(:disabled, [aria-disabled='true'])):active {
       box-shadow: var(--shadow-down-sm);
     }
 
-    &:disabled,
-    &[aria-disabled='true'] {
+    &:where(:disabled, [aria-disabled='true']) {
       cursor: not-allowed;
     }
 
-    /* button: aria-pressed */
+    /* button: aria-pressed/aria-selected */
     &[aria-pressed='true'],
+    &[aria-selected='true'],
     /* anchor: aria-current */
     &[aria-current]:not([aria-current='false']) {
-      border: var(--border-width-double) solid var(--colour-border-action-default);
-      padding: max(0px, calc(var(--card-padding, var(--spacing-4)) - var(--border-width-default)));
+      /* selection styles are split across the 1px border and an inset 1px box-shadow to avoid
+         layout shifts caused by a normal border width increasing from 1px to 2px. */
+      border-color: var(--colour-border-action-default);
+      box-shadow: inset 0 0 0 1px var(--colour-border-action-default);
+      padding: var(--card-padding, var(--spacing-4));
+
+      &:hover {
+        box-shadow:
+          inset 0 0 0 1px var(--colour-border-action-default),
+          var(--shadow-down-md);
+      }
+
+      &:active {
+        box-shadow:
+          inset 0 0 0 1px var(--colour-border-action-default),
+          var(--shadow-down-sm);
+      }
     }
   }
 `

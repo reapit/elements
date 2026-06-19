@@ -1,4 +1,5 @@
 import { AtAGlanceCardContext } from './context'
+import { Card, AnchorCard, ButtonCard } from '#src/core/card'
 import { cx } from '@linaria/core'
 import { elAtAGlanceCard } from './styles'
 
@@ -72,14 +73,16 @@ function AtAGlanceCardArticle({
 }: AtAGlanceCard.AsArticleProps) {
   return (
     <AtAGlanceCardContext.Provider value={{ as: 'article' }}>
-      <article
+      <Card
         {...rest}
-        className={cx(className, elAtAGlanceCard)}
+        as="article"
+        className={cx(elAtAGlanceCard, className)}
         data-layout={grid ? undefined : layout}
+        isBorderless={false}
         style={{ ...style, maxWidth, minWidth, grid }}
       >
         {children}
-      </article>
+      </Card>
     </AtAGlanceCardContext.Provider>
   )
 }
@@ -96,14 +99,14 @@ function AtAGlanceCardAnchor({
 }: AtAGlanceCard.AsAnchorProps) {
   return (
     <AtAGlanceCardContext.Provider value={{ as: 'a' }}>
-      <a
+      <AnchorCard
         {...rest}
         className={cx(className, elAtAGlanceCard)}
         data-layout={grid ? undefined : layout}
         style={{ ...style, maxWidth, minWidth, grid }}
       >
         {children}
-      </a>
+      </AnchorCard>
     </AtAGlanceCardContext.Provider>
   )
 }
@@ -121,7 +124,7 @@ function AtAGlanceCardButton({
 }: AtAGlanceCard.AsButtonProps) {
   return (
     <AtAGlanceCardContext.Provider value={{ as: 'button' }}>
-      <button
+      <ButtonCard
         {...rest}
         className={cx(className, elAtAGlanceCard)}
         data-layout={grid ? undefined : layout}
@@ -129,7 +132,7 @@ function AtAGlanceCardButton({
         type={type}
       >
         {children}
-      </button>
+      </ButtonCard>
     </AtAGlanceCardContext.Provider>
   )
 }

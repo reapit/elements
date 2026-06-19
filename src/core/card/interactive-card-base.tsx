@@ -13,6 +13,12 @@ import type {
 
 export namespace InteractiveCardBase {
   export interface CommonProps {
+    /**
+     * Communicates a disabled state to assistive technologies without removing the element
+     * from the focus order. Unlike the native `disabled` attribute, `aria-disabled` keeps
+     * the card focusable so tooltips and other focus-dependent interactions remain available.
+     */
+    'aria-disabled'?: boolean | 'true' | 'false'
     /** Card content. */
     children?: ReactNode
     /**
@@ -25,12 +31,6 @@ export namespace InteractiveCardBase {
      * Defaults to `--spacing-4`.
      */
     padding?: `--spacing-${string}`
-    /**
-     * Communicates a disabled state to assistive technologies without removing the element
-     * from the focus order. Unlike the native `disabled` attribute, `aria-disabled` keeps
-     * the card focusable so tooltips and other focus-dependent interactions remain available.
-     */
-    'aria-disabled'?: boolean | 'true' | 'false'
   }
 
   export interface AsButtonProps extends CommonProps, ButtonHTMLAttributes<HTMLButtonElement> {
