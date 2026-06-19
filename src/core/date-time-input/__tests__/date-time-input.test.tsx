@@ -21,14 +21,14 @@ test('applies the correct input type', () => {
 })
 
 test('displays picker button when editable and not busy', () => {
-  vi.stubGlobal('CSS', { supports: () => true }) // -webkit-*-picker-indicator selectors supported
+  vi.stubGlobal('CSS', { supports: () => true }) // -webkit-calendar-picker-indicator selectors supported
   render(<DateTimeInput type="date" />)
   expect(screen.getByRole('button', { name: 'Show date picker' })).toBeVisible()
   vi.unstubAllGlobals()
 })
 
 test('hides custon picker button when native picker button cannot be hidden', () => {
-  vi.stubGlobal('CSS', { supports: () => false }) // -webkit-*-picker-indicator selectors NOT supported (e.g. Firefox)
+  vi.stubGlobal('CSS', { supports: () => false }) // -webkit-calendar-picker-indicator selectors NOT supported (e.g. Firefox)
   render(<DateTimeInput type="date" />)
   expect(screen.queryByRole('button', { name: 'Show date picker' })).not.toBeInTheDocument()
   vi.unstubAllGlobals()

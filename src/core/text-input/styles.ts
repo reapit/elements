@@ -170,8 +170,7 @@ export const ElTextInput = styled.input<ElTextInputProps>`
 
     /* NOTE: WebKit browsers display a calendar icon for date inputs that we need to hide */
     &::-webkit-calendar-picker-indicator,
-    &::-webkit-search-cancel-button,
-    &::-webkit-time-picker-indicator {
+    &::-webkit-search-cancel-button {
       display: none;
     }
 
