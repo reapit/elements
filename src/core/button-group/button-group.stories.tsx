@@ -13,6 +13,7 @@ const meta = preview.meta({
     // it in the Storybook controls for now so that users are aware of its existence and deprecation status.
     autoFlow: {
       control: false,
+      description: '**Deprecated**. Use `orientation` instead',
     },
     children: {
       control: 'radio',
@@ -45,6 +46,7 @@ const meta = preview.meta({
     // it in the Storybook controls for now so that users are aware of its existence and deprecation status.
     justifyContent: {
       control: false,
+      description: '**Deprecated**. Use `align` instead',
     },
     orientation: {
       control: 'radio',
