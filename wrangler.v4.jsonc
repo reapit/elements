@@ -6,7 +6,7 @@
   "compatibility_date": "2025-04-01",
   "routes": [
     {
-      "pattern": "elements.reapit.cloud",
+      "pattern": "v4.elements.reapit.cloud",
       "custom_domain": true,
     },
     {
