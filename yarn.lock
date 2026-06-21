@@ -861,13 +861,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/css-calc@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "@csstools/css-calc@npm:3.2.0"
+"@csstools/css-calc@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "@csstools/css-calc@npm:3.2.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40csstools%2Fcss-calc%2F-%2Fcss-calc-3.2.1.tgz"
   peerDependencies:
     "@csstools/css-parser-algorithms": ^4.0.0
     "@csstools/css-tokenizer": ^4.0.0
-  checksum: 10/7eec51a21945a74aa6a407d1e6290d0f4c5d01829a42c01a56ce2055216398540cc3120837b15a0db38601bcb40cf97f1d991fefb3ee9d00d9cec03d67beba4c
+  checksum: 10/39042a9382cbd7c4fa241c1a6c10d64c23fa7653970fc11df532e9bc42a366a8b50c3ac3036bd5f2a77b94144e7f804f19d2b52800ad2f48bd9a3840377165d8
   languageName: node
   linkType: hard
 
@@ -902,15 +902,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@csstools/css-syntax-patches-for-csstree@npm:^1.1.3":
-  version: 1.1.3
-  resolution: "@csstools/css-syntax-patches-for-csstree@npm:1.1.3"
+"@csstools/css-syntax-patches-for-csstree@npm:^1.1.4":
+  version: 1.1.5
+  resolution: "@csstools/css-syntax-patches-for-csstree@npm:1.1.5::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40csstools%2Fcss-syntax-patches-for-csstree%2F-%2Fcss-syntax-patches-for-csstree-1.1.5.tgz"
   peerDependencies:
     css-tree: ^3.2.1
   peerDependenciesMeta:
     css-tree:
       optional: true
-  checksum: 10/1c91dc03b64ca913eed5064ca0e434da1c0be8def6ce20f932d1db10f9b478ac3830c99a033b0edf75954cf9164c7c267b220ed9faffbc3342bf320870c3bb4b
+  checksum: 10/536460c6a9e97e0a0d1f9fc3f27efd2dd805b8a4207f5c77ad732600d80d41f99504c050c906b41443542b32fda09f0de8d364962fd2bb095b3c1537efc1a596
   languageName: node
   linkType: hard
 
@@ -1035,9 +1035,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/aix-ppc64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/aix-ppc64@npm:0.28.0"
+"@esbuild/aix-ppc64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/aix-ppc64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Faix-ppc64%2F-%2Faix-ppc64-0.28.1.tgz"
   conditions: os=aix & cpu=ppc64
   languageName: node
   linkType: hard
@@ -1049,9 +1049,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/android-arm64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/android-arm64@npm:0.28.0"
+"@esbuild/android-arm64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/android-arm64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fandroid-arm64%2F-%2Fandroid-arm64-0.28.1.tgz"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
@@ -1063,9 +1063,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/android-arm@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/android-arm@npm:0.28.0"
+"@esbuild/android-arm@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/android-arm@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fandroid-arm%2F-%2Fandroid-arm-0.28.1.tgz"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
@@ -1077,9 +1077,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/android-x64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/android-x64@npm:0.28.0"
+"@esbuild/android-x64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/android-x64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fandroid-x64%2F-%2Fandroid-x64-0.28.1.tgz"
   conditions: os=android & cpu=x64
   languageName: node
   linkType: hard
@@ -1091,9 +1091,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/darwin-arm64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/darwin-arm64@npm:0.28.0"
+"@esbuild/darwin-arm64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/darwin-arm64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fdarwin-arm64%2F-%2Fdarwin-arm64-0.28.1.tgz"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
@@ -1105,9 +1105,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/darwin-x64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/darwin-x64@npm:0.28.0"
+"@esbuild/darwin-x64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/darwin-x64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fdarwin-x64%2F-%2Fdarwin-x64-0.28.1.tgz"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
@@ -1119,9 +1119,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/freebsd-arm64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/freebsd-arm64@npm:0.28.0"
+"@esbuild/freebsd-arm64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/freebsd-arm64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Ffreebsd-arm64%2F-%2Ffreebsd-arm64-0.28.1.tgz"
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
@@ -1133,9 +1133,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/freebsd-x64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/freebsd-x64@npm:0.28.0"
+"@esbuild/freebsd-x64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/freebsd-x64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Ffreebsd-x64%2F-%2Ffreebsd-x64-0.28.1.tgz"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
@@ -1147,9 +1147,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/linux-arm64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/linux-arm64@npm:0.28.0"
+"@esbuild/linux-arm64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/linux-arm64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Flinux-arm64%2F-%2Flinux-arm64-0.28.1.tgz"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
@@ -1161,9 +1161,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/linux-arm@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/linux-arm@npm:0.28.0"
+"@esbuild/linux-arm@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/linux-arm@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Flinux-arm%2F-%2Flinux-arm-0.28.1.tgz"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
@@ -1175,9 +1175,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/linux-ia32@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/linux-ia32@npm:0.28.0"
+"@esbuild/linux-ia32@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/linux-ia32@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Flinux-ia32%2F-%2Flinux-ia32-0.28.1.tgz"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
@@ -1189,9 +1189,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/linux-loong64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/linux-loong64@npm:0.28.0"
+"@esbuild/linux-loong64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/linux-loong64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Flinux-loong64%2F-%2Flinux-loong64-0.28.1.tgz"
   conditions: os=linux & cpu=loong64
   languageName: node
   linkType: hard
@@ -1203,9 +1203,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/linux-mips64el@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/linux-mips64el@npm:0.28.0"
+"@esbuild/linux-mips64el@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/linux-mips64el@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Flinux-mips64el%2F-%2Flinux-mips64el-0.28.1.tgz"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
@@ -1217,9 +1217,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/linux-ppc64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/linux-ppc64@npm:0.28.0"
+"@esbuild/linux-ppc64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/linux-ppc64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Flinux-ppc64%2F-%2Flinux-ppc64-0.28.1.tgz"
   conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
@@ -1231,9 +1231,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/linux-riscv64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/linux-riscv64@npm:0.28.0"
+"@esbuild/linux-riscv64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/linux-riscv64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Flinux-riscv64%2F-%2Flinux-riscv64-0.28.1.tgz"
   conditions: os=linux & cpu=riscv64
   languageName: node
   linkType: hard
@@ -1245,9 +1245,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/linux-s390x@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/linux-s390x@npm:0.28.0"
+"@esbuild/linux-s390x@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/linux-s390x@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Flinux-s390x%2F-%2Flinux-s390x-0.28.1.tgz"
   conditions: os=linux & cpu=s390x
   languageName: node
   linkType: hard
@@ -1259,9 +1259,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/linux-x64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/linux-x64@npm:0.28.0"
+"@esbuild/linux-x64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/linux-x64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Flinux-x64%2F-%2Flinux-x64-0.28.1.tgz"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
@@ -1273,9 +1273,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/netbsd-arm64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/netbsd-arm64@npm:0.28.0"
+"@esbuild/netbsd-arm64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/netbsd-arm64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fnetbsd-arm64%2F-%2Fnetbsd-arm64-0.28.1.tgz"
   conditions: os=netbsd & cpu=arm64
   languageName: node
   linkType: hard
@@ -1287,9 +1287,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/netbsd-x64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/netbsd-x64@npm:0.28.0"
+"@esbuild/netbsd-x64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/netbsd-x64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fnetbsd-x64%2F-%2Fnetbsd-x64-0.28.1.tgz"
   conditions: os=netbsd & cpu=x64
   languageName: node
   linkType: hard
@@ -1301,9 +1301,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/openbsd-arm64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/openbsd-arm64@npm:0.28.0"
+"@esbuild/openbsd-arm64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/openbsd-arm64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fopenbsd-arm64%2F-%2Fopenbsd-arm64-0.28.1.tgz"
   conditions: os=openbsd & cpu=arm64
   languageName: node
   linkType: hard
@@ -1315,9 +1315,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/openbsd-x64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/openbsd-x64@npm:0.28.0"
+"@esbuild/openbsd-x64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/openbsd-x64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fopenbsd-x64%2F-%2Fopenbsd-x64-0.28.1.tgz"
   conditions: os=openbsd & cpu=x64
   languageName: node
   linkType: hard
@@ -1329,9 +1329,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/openharmony-arm64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/openharmony-arm64@npm:0.28.0"
+"@esbuild/openharmony-arm64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/openharmony-arm64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fopenharmony-arm64%2F-%2Fopenharmony-arm64-0.28.1.tgz"
   conditions: os=openharmony & cpu=arm64
   languageName: node
   linkType: hard
@@ -1343,9 +1343,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/sunos-x64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/sunos-x64@npm:0.28.0"
+"@esbuild/sunos-x64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/sunos-x64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fsunos-x64%2F-%2Fsunos-x64-0.28.1.tgz"
   conditions: os=sunos & cpu=x64
   languageName: node
   linkType: hard
@@ -1357,9 +1357,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/win32-arm64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/win32-arm64@npm:0.28.0"
+"@esbuild/win32-arm64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/win32-arm64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fwin32-arm64%2F-%2Fwin32-arm64-0.28.1.tgz"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
@@ -1371,9 +1371,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/win32-ia32@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/win32-ia32@npm:0.28.0"
+"@esbuild/win32-ia32@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/win32-ia32@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fwin32-ia32%2F-%2Fwin32-ia32-0.28.1.tgz"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
@@ -1385,16 +1385,16 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild/win32-x64@npm:0.28.0":
-  version: 0.28.0
-  resolution: "@esbuild/win32-x64@npm:0.28.0"
+"@esbuild/win32-x64@npm:0.28.1":
+  version: 0.28.1
+  resolution: "@esbuild/win32-x64@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40esbuild%2Fwin32-x64%2F-%2Fwin32-x64-0.28.1.tgz"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@figma/code-connect@npm:^1.4.7":
-  version: 1.4.7
-  resolution: "@figma/code-connect@npm:1.4.7"
+"@figma/code-connect@npm:^1.4.8":
+  version: 1.4.8
+  resolution: "@figma/code-connect@npm:1.4.8::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40figma%2Fcode-connect%2F-%2Fcode-connect-1.4.8.tgz"
   dependencies:
     boxen: "npm:5.1.1"
     chalk: "npm:^4.1.2"
@@ -1420,7 +1420,7 @@ __metadata:
     zod-validation-error: "npm:^3.2.0"
   bin:
     figma: bin/figma
-  checksum: 10/978936eacd15205f8017f400b2bcab34616952a91d4642a585f21a4748c409d5ccdcc015e734e8934d488d7859f76b0c5d4ffe09068d6c3a820720b0ccb1dbd3
+  checksum: 10/2395f2beb60222b676c5d6660125f0d5f772d7ed9336c88b5910f3cabe58f74dfc341a6fce662771aa1608ffcb13c4500e06c4d85057356a852c87380542c038
   languageName: node
   linkType: hard
 
@@ -2250,268 +2250,268 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-android-arm-eabi@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-android-arm-eabi@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-android-arm-eabi%2F-%2Fbinding-android-arm-eabi-0.53.0.tgz"
+"@oxfmt/binding-android-arm-eabi@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-android-arm-eabi@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-android-arm-eabi%2F-%2Fbinding-android-arm-eabi-0.54.0.tgz"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-android-arm64@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-android-arm64@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-android-arm64%2F-%2Fbinding-android-arm64-0.53.0.tgz"
+"@oxfmt/binding-android-arm64@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-android-arm64@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-android-arm64%2F-%2Fbinding-android-arm64-0.54.0.tgz"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-darwin-arm64@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-darwin-arm64@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-darwin-arm64%2F-%2Fbinding-darwin-arm64-0.53.0.tgz"
+"@oxfmt/binding-darwin-arm64@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-darwin-arm64@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-darwin-arm64%2F-%2Fbinding-darwin-arm64-0.54.0.tgz"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-darwin-x64@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-darwin-x64@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-darwin-x64%2F-%2Fbinding-darwin-x64-0.53.0.tgz"
+"@oxfmt/binding-darwin-x64@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-darwin-x64@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-darwin-x64%2F-%2Fbinding-darwin-x64-0.54.0.tgz"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-freebsd-x64@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-freebsd-x64@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-freebsd-x64%2F-%2Fbinding-freebsd-x64-0.53.0.tgz"
+"@oxfmt/binding-freebsd-x64@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-freebsd-x64@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-freebsd-x64%2F-%2Fbinding-freebsd-x64-0.54.0.tgz"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-linux-arm-gnueabihf@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-linux-arm-gnueabihf@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-arm-gnueabihf%2F-%2Fbinding-linux-arm-gnueabihf-0.53.0.tgz"
+"@oxfmt/binding-linux-arm-gnueabihf@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-linux-arm-gnueabihf@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-arm-gnueabihf%2F-%2Fbinding-linux-arm-gnueabihf-0.54.0.tgz"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-linux-arm-musleabihf@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-linux-arm-musleabihf@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-arm-musleabihf%2F-%2Fbinding-linux-arm-musleabihf-0.53.0.tgz"
+"@oxfmt/binding-linux-arm-musleabihf@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-linux-arm-musleabihf@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-arm-musleabihf%2F-%2Fbinding-linux-arm-musleabihf-0.54.0.tgz"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-linux-arm64-gnu@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-linux-arm64-gnu@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-arm64-gnu%2F-%2Fbinding-linux-arm64-gnu-0.53.0.tgz"
+"@oxfmt/binding-linux-arm64-gnu@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-linux-arm64-gnu@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-arm64-gnu%2F-%2Fbinding-linux-arm64-gnu-0.54.0.tgz"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-linux-arm64-musl@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-linux-arm64-musl@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-arm64-musl%2F-%2Fbinding-linux-arm64-musl-0.53.0.tgz"
+"@oxfmt/binding-linux-arm64-musl@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-linux-arm64-musl@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-arm64-musl%2F-%2Fbinding-linux-arm64-musl-0.54.0.tgz"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-linux-ppc64-gnu@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-linux-ppc64-gnu@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-ppc64-gnu%2F-%2Fbinding-linux-ppc64-gnu-0.53.0.tgz"
+"@oxfmt/binding-linux-ppc64-gnu@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-linux-ppc64-gnu@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-ppc64-gnu%2F-%2Fbinding-linux-ppc64-gnu-0.54.0.tgz"
   conditions: os=linux & cpu=ppc64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-linux-riscv64-gnu@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-linux-riscv64-gnu@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-riscv64-gnu%2F-%2Fbinding-linux-riscv64-gnu-0.53.0.tgz"
+"@oxfmt/binding-linux-riscv64-gnu@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-linux-riscv64-gnu@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-riscv64-gnu%2F-%2Fbinding-linux-riscv64-gnu-0.54.0.tgz"
   conditions: os=linux & cpu=riscv64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-linux-riscv64-musl@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-linux-riscv64-musl@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-riscv64-musl%2F-%2Fbinding-linux-riscv64-musl-0.53.0.tgz"
+"@oxfmt/binding-linux-riscv64-musl@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-linux-riscv64-musl@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-riscv64-musl%2F-%2Fbinding-linux-riscv64-musl-0.54.0.tgz"
   conditions: os=linux & cpu=riscv64 & libc=musl
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-linux-s390x-gnu@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-linux-s390x-gnu@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-s390x-gnu%2F-%2Fbinding-linux-s390x-gnu-0.53.0.tgz"
+"@oxfmt/binding-linux-s390x-gnu@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-linux-s390x-gnu@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-s390x-gnu%2F-%2Fbinding-linux-s390x-gnu-0.54.0.tgz"
   conditions: os=linux & cpu=s390x & libc=glibc
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-linux-x64-gnu@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-linux-x64-gnu@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-x64-gnu%2F-%2Fbinding-linux-x64-gnu-0.53.0.tgz"
+"@oxfmt/binding-linux-x64-gnu@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-linux-x64-gnu@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-x64-gnu%2F-%2Fbinding-linux-x64-gnu-0.54.0.tgz"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-linux-x64-musl@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-linux-x64-musl@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-x64-musl%2F-%2Fbinding-linux-x64-musl-0.53.0.tgz"
+"@oxfmt/binding-linux-x64-musl@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-linux-x64-musl@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-linux-x64-musl%2F-%2Fbinding-linux-x64-musl-0.54.0.tgz"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-openharmony-arm64@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-openharmony-arm64@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-openharmony-arm64%2F-%2Fbinding-openharmony-arm64-0.53.0.tgz"
+"@oxfmt/binding-openharmony-arm64@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-openharmony-arm64@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-openharmony-arm64%2F-%2Fbinding-openharmony-arm64-0.54.0.tgz"
   conditions: os=openharmony & cpu=arm64
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-win32-arm64-msvc@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-win32-arm64-msvc@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-win32-arm64-msvc%2F-%2Fbinding-win32-arm64-msvc-0.53.0.tgz"
+"@oxfmt/binding-win32-arm64-msvc@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-win32-arm64-msvc@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-win32-arm64-msvc%2F-%2Fbinding-win32-arm64-msvc-0.54.0.tgz"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-win32-ia32-msvc@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-win32-ia32-msvc@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-win32-ia32-msvc%2F-%2Fbinding-win32-ia32-msvc-0.53.0.tgz"
+"@oxfmt/binding-win32-ia32-msvc@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-win32-ia32-msvc@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-win32-ia32-msvc%2F-%2Fbinding-win32-ia32-msvc-0.54.0.tgz"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@oxfmt/binding-win32-x64-msvc@npm:0.53.0":
-  version: 0.53.0
-  resolution: "@oxfmt/binding-win32-x64-msvc@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-win32-x64-msvc%2F-%2Fbinding-win32-x64-msvc-0.53.0.tgz"
+"@oxfmt/binding-win32-x64-msvc@npm:0.54.0":
+  version: 0.54.0
+  resolution: "@oxfmt/binding-win32-x64-msvc@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxfmt%2Fbinding-win32-x64-msvc%2F-%2Fbinding-win32-x64-msvc-0.54.0.tgz"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@oxlint/binding-android-arm-eabi@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-android-arm-eabi@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-android-arm-eabi%2F-%2Fbinding-android-arm-eabi-1.68.0.tgz"
+"@oxlint/binding-android-arm-eabi@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-android-arm-eabi@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-android-arm-eabi%2F-%2Fbinding-android-arm-eabi-1.69.0.tgz"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@oxlint/binding-android-arm64@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-android-arm64@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-android-arm64%2F-%2Fbinding-android-arm64-1.68.0.tgz"
+"@oxlint/binding-android-arm64@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-android-arm64@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-android-arm64%2F-%2Fbinding-android-arm64-1.69.0.tgz"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@oxlint/binding-darwin-arm64@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-darwin-arm64@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-darwin-arm64%2F-%2Fbinding-darwin-arm64-1.68.0.tgz"
+"@oxlint/binding-darwin-arm64@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-darwin-arm64@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-darwin-arm64%2F-%2Fbinding-darwin-arm64-1.69.0.tgz"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@oxlint/binding-darwin-x64@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-darwin-x64@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-darwin-x64%2F-%2Fbinding-darwin-x64-1.68.0.tgz"
+"@oxlint/binding-darwin-x64@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-darwin-x64@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-darwin-x64%2F-%2Fbinding-darwin-x64-1.69.0.tgz"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@oxlint/binding-freebsd-x64@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-freebsd-x64@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-freebsd-x64%2F-%2Fbinding-freebsd-x64-1.68.0.tgz"
+"@oxlint/binding-freebsd-x64@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-freebsd-x64@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-freebsd-x64%2F-%2Fbinding-freebsd-x64-1.69.0.tgz"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@oxlint/binding-linux-arm-gnueabihf@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-linux-arm-gnueabihf@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-arm-gnueabihf%2F-%2Fbinding-linux-arm-gnueabihf-1.68.0.tgz"
+"@oxlint/binding-linux-arm-gnueabihf@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-linux-arm-gnueabihf@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-arm-gnueabihf%2F-%2Fbinding-linux-arm-gnueabihf-1.69.0.tgz"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@oxlint/binding-linux-arm-musleabihf@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-linux-arm-musleabihf@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-arm-musleabihf%2F-%2Fbinding-linux-arm-musleabihf-1.68.0.tgz"
+"@oxlint/binding-linux-arm-musleabihf@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-linux-arm-musleabihf@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-arm-musleabihf%2F-%2Fbinding-linux-arm-musleabihf-1.69.0.tgz"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@oxlint/binding-linux-arm64-gnu@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-linux-arm64-gnu@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-arm64-gnu%2F-%2Fbinding-linux-arm64-gnu-1.68.0.tgz"
+"@oxlint/binding-linux-arm64-gnu@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-linux-arm64-gnu@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-arm64-gnu%2F-%2Fbinding-linux-arm64-gnu-1.69.0.tgz"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@oxlint/binding-linux-arm64-musl@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-linux-arm64-musl@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-arm64-musl%2F-%2Fbinding-linux-arm64-musl-1.68.0.tgz"
+"@oxlint/binding-linux-arm64-musl@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-linux-arm64-musl@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-arm64-musl%2F-%2Fbinding-linux-arm64-musl-1.69.0.tgz"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@oxlint/binding-linux-ppc64-gnu@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-linux-ppc64-gnu@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-ppc64-gnu%2F-%2Fbinding-linux-ppc64-gnu-1.68.0.tgz"
+"@oxlint/binding-linux-ppc64-gnu@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-linux-ppc64-gnu@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-ppc64-gnu%2F-%2Fbinding-linux-ppc64-gnu-1.69.0.tgz"
   conditions: os=linux & cpu=ppc64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@oxlint/binding-linux-riscv64-gnu@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-linux-riscv64-gnu@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-riscv64-gnu%2F-%2Fbinding-linux-riscv64-gnu-1.68.0.tgz"
+"@oxlint/binding-linux-riscv64-gnu@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-linux-riscv64-gnu@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-riscv64-gnu%2F-%2Fbinding-linux-riscv64-gnu-1.69.0.tgz"
   conditions: os=linux & cpu=riscv64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@oxlint/binding-linux-riscv64-musl@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-linux-riscv64-musl@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-riscv64-musl%2F-%2Fbinding-linux-riscv64-musl-1.68.0.tgz"
+"@oxlint/binding-linux-riscv64-musl@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-linux-riscv64-musl@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-riscv64-musl%2F-%2Fbinding-linux-riscv64-musl-1.69.0.tgz"
   conditions: os=linux & cpu=riscv64 & libc=musl
   languageName: node
   linkType: hard
 
-"@oxlint/binding-linux-s390x-gnu@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-linux-s390x-gnu@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-s390x-gnu%2F-%2Fbinding-linux-s390x-gnu-1.68.0.tgz"
+"@oxlint/binding-linux-s390x-gnu@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-linux-s390x-gnu@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-s390x-gnu%2F-%2Fbinding-linux-s390x-gnu-1.69.0.tgz"
   conditions: os=linux & cpu=s390x & libc=glibc
   languageName: node
   linkType: hard
 
-"@oxlint/binding-linux-x64-gnu@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-linux-x64-gnu@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-x64-gnu%2F-%2Fbinding-linux-x64-gnu-1.68.0.tgz"
+"@oxlint/binding-linux-x64-gnu@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-linux-x64-gnu@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-x64-gnu%2F-%2Fbinding-linux-x64-gnu-1.69.0.tgz"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@oxlint/binding-linux-x64-musl@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-linux-x64-musl@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-x64-musl%2F-%2Fbinding-linux-x64-musl-1.68.0.tgz"
+"@oxlint/binding-linux-x64-musl@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-linux-x64-musl@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-linux-x64-musl%2F-%2Fbinding-linux-x64-musl-1.69.0.tgz"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@oxlint/binding-openharmony-arm64@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-openharmony-arm64@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-openharmony-arm64%2F-%2Fbinding-openharmony-arm64-1.68.0.tgz"
+"@oxlint/binding-openharmony-arm64@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-openharmony-arm64@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-openharmony-arm64%2F-%2Fbinding-openharmony-arm64-1.69.0.tgz"
   conditions: os=openharmony & cpu=arm64
   languageName: node
   linkType: hard
 
-"@oxlint/binding-win32-arm64-msvc@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-win32-arm64-msvc@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-win32-arm64-msvc%2F-%2Fbinding-win32-arm64-msvc-1.68.0.tgz"
+"@oxlint/binding-win32-arm64-msvc@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-win32-arm64-msvc@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-win32-arm64-msvc%2F-%2Fbinding-win32-arm64-msvc-1.69.0.tgz"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@oxlint/binding-win32-ia32-msvc@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-win32-ia32-msvc@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-win32-ia32-msvc%2F-%2Fbinding-win32-ia32-msvc-1.68.0.tgz"
+"@oxlint/binding-win32-ia32-msvc@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-win32-ia32-msvc@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-win32-ia32-msvc%2F-%2Fbinding-win32-ia32-msvc-1.69.0.tgz"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@oxlint/binding-win32-x64-msvc@npm:1.68.0":
-  version: 1.68.0
-  resolution: "@oxlint/binding-win32-x64-msvc@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-win32-x64-msvc%2F-%2Fbinding-win32-x64-msvc-1.68.0.tgz"
+"@oxlint/binding-win32-x64-msvc@npm:1.69.0":
+  version: 1.69.0
+  resolution: "@oxlint/binding-win32-x64-msvc@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40oxlint%2Fbinding-win32-x64-msvc%2F-%2Fbinding-win32-x64-msvc-1.69.0.tgz"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -2544,20 +2544,20 @@ __metadata:
     "@changesets/cli": "npm:^2.31.0"
     "@changesets/get-github-info": "npm:^0.8.0"
     "@changesets/types": "npm:^6.1.0"
-    "@figma/code-connect": "npm:^1.4.7"
+    "@figma/code-connect": "npm:^1.4.8"
     "@linaria/core": "npm:7.0.0"
     "@linaria/postcss-linaria": "npm:7.0.0"
     "@linaria/react": "npm:7.0.1"
     "@oddbird/css-anchor-positioning": "npm:^0.9.0"
     "@playwright/test": "npm:1.60.0"
-    "@storybook/addon-a11y": "npm:10.4.2"
-    "@storybook/addon-docs": "npm:10.4.2"
-    "@storybook/addon-links": "npm:10.4.2"
+    "@storybook/addon-a11y": "npm:10.4.4"
+    "@storybook/addon-docs": "npm:10.4.4"
+    "@storybook/addon-links": "npm:10.4.4"
     "@storybook/addon-mcp": "npm:^0.6.0"
-    "@storybook/cli": "npm:10.4.2"
-    "@storybook/codemod": "npm:^10.4.2"
+    "@storybook/cli": "npm:10.4.4"
+    "@storybook/codemod": "npm:^10.4.4"
     "@storybook/mcp": "npm:^0.7.0"
-    "@storybook/react-vite": "npm:10.4.2"
+    "@storybook/react-vite": "npm:10.4.4"
     "@testing-library/dom": "npm:10.4.1"
     "@testing-library/jest-dom": "npm:6.9.1"
     "@testing-library/react": "npm:16.3.2"
@@ -2572,25 +2572,25 @@ __metadata:
     "@wyw-in-js/babel-preset": "npm:1.1.0"
     "@wyw-in-js/vite": "npm:1.1.0"
     browserslist-config-baseline: "npm:^0.5.0"
-    caniuse-lite: "npm:^1.0.30001797"
+    caniuse-lite: "npm:^1.0.30001799"
     colord: "npm:2.9.3"
     coverage-badges-cli: "npm:2.2.0"
     dashify: "npm:2.0.0"
-    esbuild: "npm:^0.28.0"
-    happy-dom: "npm:^20.10.1"
+    esbuild: "npm:^0.28.1"
+    happy-dom: "npm:^20.10.3"
     http-server: "npm:^14.1.1"
     husky: "npm:^9.1.7"
     lint-staged: "npm:^17.0.7"
-    oxfmt: "npm:^0.53.0"
-    oxlint: "npm:^1.68.0"
+    oxfmt: "npm:^0.54.0"
+    oxlint: "npm:^1.69.0"
     postcss: "npm:8.5.15"
     react: "npm:18.3.1"
     react-dom: "npm:18.3.1"
     rimraf: "npm:6.1.3"
     snyk: "npm:^1.1305.1"
-    storybook: "patch:storybook@npm%3A10.4.2#~/.yarn/patches/storybook-npm-10.4.2-6669ba4a4f.patch"
-    style-dictionary: "npm:5.4.3"
-    stylelint: "npm:17.12.0"
+    storybook: "patch:storybook@npm%3A10.4.4#~/.yarn/patches/storybook-npm-10.4.4-7266187b03.patch"
+    style-dictionary: "npm:5.4.4"
+    stylelint: "npm:17.13.0"
     stylelint-no-unsupported-browser-features: "npm:^8.1.1"
     svgo: "npm:^4.0.1"
     ts-morph: "npm:^28.0.0"
@@ -2801,54 +2801,54 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/addon-a11y@npm:10.4.2":
-  version: 10.4.2
-  resolution: "@storybook/addon-a11y@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Faddon-a11y%2F-%2Faddon-a11y-10.4.2.tgz"
+"@storybook/addon-a11y@npm:10.4.4":
+  version: 10.4.4
+  resolution: "@storybook/addon-a11y@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Faddon-a11y%2F-%2Faddon-a11y-10.4.4.tgz"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     axe-core: "npm:^4.2.0"
   peerDependencies:
-    storybook: ^10.4.2
-  checksum: 10/17fe9de4ad59adb303c8d79ca241fbdfc908e392530cbfdffdd563ff9ca30f394533a9e772231da268f37bf20c5cd83523372d9cbcb84d09033b6664d5b5f94e
+    storybook: ^10.4.4
+  checksum: 10/feecb922937a8c92079e1819be93e6b600e0facc13304808b2c9ed46a9f967cfc49656469f71dd948ebfadd8b9b124c0a93c80117fed206472ccc52da3f976d4
   languageName: node
   linkType: hard
 
-"@storybook/addon-docs@npm:10.4.2":
-  version: 10.4.2
-  resolution: "@storybook/addon-docs@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Faddon-docs%2F-%2Faddon-docs-10.4.2.tgz"
+"@storybook/addon-docs@npm:10.4.4":
+  version: 10.4.4
+  resolution: "@storybook/addon-docs@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Faddon-docs%2F-%2Faddon-docs-10.4.4.tgz"
   dependencies:
     "@mdx-js/react": "npm:^3.0.0"
-    "@storybook/csf-plugin": "npm:10.4.2"
+    "@storybook/csf-plugin": "npm:10.4.4"
     "@storybook/icons": "npm:^2.0.2"
-    "@storybook/react-dom-shim": "npm:10.4.2"
+    "@storybook/react-dom-shim": "npm:10.4.4"
     react: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     react-dom: "npm:^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.4.2
+    storybook: ^10.4.4
   peerDependenciesMeta:
     "@types/react":
       optional: true
-  checksum: 10/592685928bcdcebc35e9e9dab5c14230115713f1c2636923709b001ad714609c3d18b1d0b18b205546ab0808880795315fb4c5ec8b9a34106a6d0797dd1fd93f
+  checksum: 10/77d04d5c1d1d12d5cd65357d8e97c087c5bf5f63c313fa4a0d606cd4b7c8a7bae9231ca55b1ceb397c9862e77a597bea0b8480582fdf12fe98c6976fcaa3fb6e
   languageName: node
   linkType: hard
 
-"@storybook/addon-links@npm:10.4.2":
-  version: 10.4.2
-  resolution: "@storybook/addon-links@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Faddon-links%2F-%2Faddon-links-10.4.2.tgz"
+"@storybook/addon-links@npm:10.4.4":
+  version: 10.4.4
+  resolution: "@storybook/addon-links@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Faddon-links%2F-%2Faddon-links-10.4.4.tgz"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.4.2
+    storybook: ^10.4.4
   peerDependenciesMeta:
     "@types/react":
       optional: true
     react:
       optional: true
-  checksum: 10/aa8e43872bebdcdd160db9253273394aec65e8ad5a61fca503fa7e89243d2fa56d7f99662f1a766987f770fd3f53044c4367c8aca6c9c6202fcb2a68a9bb410e
+  checksum: 10/2daf644dd150d683a3d5904737c0f22bb1a717e4e1db899d70aeea53c9e5419acb403c7d9678119ee7f1885d2d578b364325d72e333c5a09267a3eca7c31e6a0
   languageName: node
   linkType: hard
 
@@ -2872,61 +2872,61 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/builder-vite@npm:10.4.2":
-  version: 10.4.2
-  resolution: "@storybook/builder-vite@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fbuilder-vite%2F-%2Fbuilder-vite-10.4.2.tgz"
+"@storybook/builder-vite@npm:10.4.4":
+  version: 10.4.4
+  resolution: "@storybook/builder-vite@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fbuilder-vite%2F-%2Fbuilder-vite-10.4.4.tgz"
   dependencies:
-    "@storybook/csf-plugin": "npm:10.4.2"
+    "@storybook/csf-plugin": "npm:10.4.4"
     ts-dedent: "npm:^2.0.0"
   peerDependencies:
-    storybook: ^10.4.2
+    storybook: ^10.4.4
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 10/cf5abc6c77efe874b7054f6a68963b64b140d5d7852b3f7f82970bddae3b6cff40454094a2a1a897e2e69aa3e076669259187e2860fbb3cdc4e1318a75b12363
+  checksum: 10/a5828edc1eee8ba2bb0ef28267624ea2bf8fbc09d3eea15dad4d199fd69cddbf7af7144684eebd0260b9092a19d034ed1abe55218678f68280263215c4e73589
   languageName: node
   linkType: hard
 
-"@storybook/cli@npm:10.4.2":
-  version: 10.4.2
-  resolution: "@storybook/cli@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fcli%2F-%2Fcli-10.4.2.tgz"
+"@storybook/cli@npm:10.4.4":
+  version: 10.4.4
+  resolution: "@storybook/cli@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fcli%2F-%2Fcli-10.4.4.tgz"
   dependencies:
-    "@storybook/codemod": "npm:10.4.2"
+    "@storybook/codemod": "npm:10.4.4"
     "@types/semver": "npm:^7.7.1"
     commander: "npm:^14.0.2"
-    create-storybook: "npm:10.4.2"
+    create-storybook: "npm:10.4.4"
     jscodeshift: "npm:^0.15.1"
-    storybook: "npm:10.4.2"
+    storybook: "npm:10.4.4"
     ts-dedent: "npm:^2.0.0"
   bin:
     cli: ./dist/bin/index.js
-  checksum: 10/807c1170b2dc42ceff01712b81d9d185b4d2468ed82b4be407633f63754add77de39f95f54a1d06604b8b5ff9e35bea40d20a6b7b2bbcd2fe6b8ea3fe5b90f55
+  checksum: 10/3a5d501afe8cef1dd2e5d4b2e99e5b5c3582613b52935ac703c27b5d90151b9e143920168aed8428444a0527acc7289bb80089982b34b9afd70e5540751f8995
   languageName: node
   linkType: hard
 
-"@storybook/codemod@npm:10.4.2, @storybook/codemod@npm:^10.4.2":
-  version: 10.4.2
-  resolution: "@storybook/codemod@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fcodemod%2F-%2Fcodemod-10.4.2.tgz"
+"@storybook/codemod@npm:10.4.4, @storybook/codemod@npm:^10.4.4":
+  version: 10.4.4
+  resolution: "@storybook/codemod@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fcodemod%2F-%2Fcodemod-10.4.4.tgz"
   dependencies:
     "@types/cross-spawn": "npm:^6.0.6"
     cross-spawn: "npm:^7.0.6"
     es-toolkit: "npm:^1.43.0"
     jscodeshift: "npm:^0.15.1"
     prettier: "npm:^3.7.1"
-    storybook: "npm:10.4.2"
+    storybook: "npm:10.4.4"
     tiny-invariant: "npm:^1.3.1"
     tinyglobby: "npm:^0.2.13"
-  checksum: 10/cb85ac96d2e022aafd91cea58ba0c5f55956563fbcf862db69446b584c6c92d4e5594c03ab6213192fa0edb43de4df76f8d220b77cca529bd916ee95f34f97d1
+  checksum: 10/77507f33102d3973f2b6261b60ddce780349afb6344bcf3b4c443dcf4b85a8ab8dd82bf021e1abc450d1fcd125e95ba86d38a34158d6a65148b3c5e775aca83b
   languageName: node
   linkType: hard
 
-"@storybook/csf-plugin@npm:10.4.2":
-  version: 10.4.2
-  resolution: "@storybook/csf-plugin@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fcsf-plugin%2F-%2Fcsf-plugin-10.4.2.tgz"
+"@storybook/csf-plugin@npm:10.4.4":
+  version: 10.4.4
+  resolution: "@storybook/csf-plugin@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Fcsf-plugin%2F-%2Fcsf-plugin-10.4.4.tgz"
   dependencies:
     unplugin: "npm:^2.3.5"
   peerDependencies:
     esbuild: "*"
     rollup: "*"
-    storybook: ^10.4.2
+    storybook: ^10.4.4
     vite: "*"
     webpack: "*"
   peerDependenciesMeta:
@@ -2938,7 +2938,7 @@ __metadata:
       optional: true
     webpack:
       optional: true
-  checksum: 10/e27bb2f21ae727f95df8e2e9c2f16f29382e046fa37ed2b6dcb55c178a055847f8d23ed9973d0d9eb2db30fcfc976b2526403c913b83c99bb170fcc05f9a9bc4
+  checksum: 10/9a285db176b621c5b681733b7cb5071059f5c54ab426f4977951071381e8071ad31de68b9eed8697322c02bedf67eb3fb72b2ebd047fe4708e5aa4bb30405c36
   languageName: node
   linkType: hard
 
@@ -2971,32 +2971,32 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@storybook/react-dom-shim@npm:10.4.2":
-  version: 10.4.2
-  resolution: "@storybook/react-dom-shim@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Freact-dom-shim%2F-%2Freact-dom-shim-10.4.2.tgz"
+"@storybook/react-dom-shim@npm:10.4.4":
+  version: 10.4.4
+  resolution: "@storybook/react-dom-shim@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Freact-dom-shim%2F-%2Freact-dom-shim-10.4.4.tgz"
   peerDependencies:
     "@types/react": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     "@types/react-dom": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.4.2
+    storybook: ^10.4.4
   peerDependenciesMeta:
     "@types/react":
       optional: true
     "@types/react-dom":
       optional: true
-  checksum: 10/c9372988275733e5b5fc009e866a5d95a39026c9d7eb3ef4c8234066a049f7772871cc6b5f8abc07f5932752eca7739da1d04e740122b26a79d1299c7c854097
+  checksum: 10/630b4e83bc96c1830fecbe0a76aaef0868d05cc9d56337771da15f81ed101a70ba5601da2a0bebb88f3829815591b877c28e0ef414f443f8a24179b5effa2443
   languageName: node
   linkType: hard
 
-"@storybook/react-vite@npm:10.4.2":
-  version: 10.4.2
-  resolution: "@storybook/react-vite@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Freact-vite%2F-%2Freact-vite-10.4.2.tgz"
+"@storybook/react-vite@npm:10.4.4":
+  version: 10.4.4
+  resolution: "@storybook/react-vite@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Freact-vite%2F-%2Freact-vite-10.4.4.tgz"
   dependencies:
     "@joshwooding/vite-plugin-react-docgen-typescript": "npm:^0.7.0"
     "@rollup/pluginutils": "npm:^5.0.2"
-    "@storybook/builder-vite": "npm:10.4.2"
-    "@storybook/react": "npm:10.4.2"
+    "@storybook/builder-vite": "npm:10.4.4"
+    "@storybook/react": "npm:10.4.4"
     empathic: "npm:^2.0.0"
     magic-string: "npm:^0.30.0"
     react-docgen: "npm:^8.0.0"
@@ -3005,18 +3005,18 @@ __metadata:
   peerDependencies:
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.4.2
+    storybook: ^10.4.4
     vite: ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 10/f70cd26e504b20d2e8f3e4b323f473d2ed57ce9887f3d017ac2fbaf4a62e01cc59eca41b7c0ef14fdd991428f7b233258811e04c8179fbcf774571bef2a7f934
+  checksum: 10/019acd517f15d78c1832a2491af913407cae9ff61f24fb317d8190d36b2e61448853f8be18f03505d8e8e691aefd2b8cdb0304853f542f8ca6626faa318c3e5b
   languageName: node
   linkType: hard
 
-"@storybook/react@npm:10.4.2":
-  version: 10.4.2
-  resolution: "@storybook/react@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Freact%2F-%2Freact-10.4.2.tgz"
+"@storybook/react@npm:10.4.4":
+  version: 10.4.4
+  resolution: "@storybook/react@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2F%40storybook%2Freact%2F-%2Freact-10.4.4.tgz"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
-    "@storybook/react-dom-shim": "npm:10.4.2"
+    "@storybook/react-dom-shim": "npm:10.4.4"
     react-docgen: "npm:^8.0.2"
     react-docgen-typescript: "npm:^2.2.2"
   peerDependencies:
@@ -3024,7 +3024,7 @@ __metadata:
     "@types/react-dom": ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
     react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0 || ^19.0.0
-    storybook: ^10.4.2
+    storybook: ^10.4.4
     typescript: ">= 4.9.x"
   peerDependenciesMeta:
     "@types/react":
@@ -3033,7 +3033,7 @@ __metadata:
       optional: true
     typescript:
       optional: true
-  checksum: 10/4e1a90058fc02ac4fb91750a1619f3a578a55e829dfef8e38da63e6c9af36e7fc17f86a3e54ee5e2d8d91698eb80db3cb22383e88e537c2987bbba69ca04c1b5
+  checksum: 10/91855d48a9a799bd69e837266739886435aa93a5679442f51944d37876d4b2d81ab16354a78acad51a56670cc37121f40c007f175678c7121b026cb357d799dd
   languageName: node
   linkType: hard
 
@@ -4428,10 +4428,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001760, caniuse-lite@npm:^1.0.30001782, caniuse-lite@npm:^1.0.30001797":
+"caniuse-lite@npm:^1.0.30001760, caniuse-lite@npm:^1.0.30001782":
   version: 1.0.30001797
   resolution: "caniuse-lite@npm:1.0.30001797::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fcaniuse-lite%2F-%2Fcaniuse-lite-1.0.30001797.tgz"
   checksum: 10/30d34d8ede7a99cedec5489cb7a4fc75b0d641afcc436d2b0986aaf9beb056d3f15391e6a08b06b0bd8a84c64793ac8197005b14a96412514706a5715be98796
+  languageName: node
+  linkType: hard
+
+"caniuse-lite@npm:^1.0.30001799":
+  version: 1.0.30001799
+  resolution: "caniuse-lite@npm:1.0.30001799::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fcaniuse-lite%2F-%2Fcaniuse-lite-1.0.30001799.tgz"
+  checksum: 10/eb90443f1e4e4ac7cfe3686d43f0d132c0b552d0d896c0520e7306f2ddf743b4dd5380a7b8adc5ca8d250247966a6cf32cb042930dbc1df452e8623ad92c57e2
   languageName: node
   linkType: hard
 
@@ -4752,15 +4759,15 @@ __metadata:
   languageName: node
   linkType: hard
 
-"create-storybook@npm:10.4.2":
-  version: 10.4.2
-  resolution: "create-storybook@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fcreate-storybook%2F-%2Fcreate-storybook-10.4.2.tgz"
+"create-storybook@npm:10.4.4":
+  version: 10.4.4
+  resolution: "create-storybook@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fcreate-storybook%2F-%2Fcreate-storybook-10.4.4.tgz"
   dependencies:
     semver: "npm:^7.7.3"
-    storybook: "npm:10.4.2"
+    storybook: "npm:10.4.4"
   bin:
     create-storybook: ./dist/bin/index.js
-  checksum: 10/7306f5d70a3acf65649ffe3bce704e049e2ec5f5f5d564ba987486b88c52a3060b2fd75b433c6d35b3d4082dde5991978f99424ac3d3dad0bc67793766f01a98
+  checksum: 10/bb17fa00267ca35fccac2d9df050ecacd799ef9eae9cbe20eded1f2a9ab64614d065eda0ddc1661bd2c0937ade3bc8edb090a290059135263101905b5ec50002
   languageName: node
   linkType: hard
 
@@ -5437,36 +5444,36 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:^0.28.0":
-  version: 0.28.0
-  resolution: "esbuild@npm:0.28.0"
+"esbuild@npm:^0.28.1":
+  version: 0.28.1
+  resolution: "esbuild@npm:0.28.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fesbuild%2F-%2Fesbuild-0.28.1.tgz"
   dependencies:
-    "@esbuild/aix-ppc64": "npm:0.28.0"
-    "@esbuild/android-arm": "npm:0.28.0"
-    "@esbuild/android-arm64": "npm:0.28.0"
-    "@esbuild/android-x64": "npm:0.28.0"
-    "@esbuild/darwin-arm64": "npm:0.28.0"
-    "@esbuild/darwin-x64": "npm:0.28.0"
-    "@esbuild/freebsd-arm64": "npm:0.28.0"
-    "@esbuild/freebsd-x64": "npm:0.28.0"
-    "@esbuild/linux-arm": "npm:0.28.0"
-    "@esbuild/linux-arm64": "npm:0.28.0"
-    "@esbuild/linux-ia32": "npm:0.28.0"
-    "@esbuild/linux-loong64": "npm:0.28.0"
-    "@esbuild/linux-mips64el": "npm:0.28.0"
-    "@esbuild/linux-ppc64": "npm:0.28.0"
-    "@esbuild/linux-riscv64": "npm:0.28.0"
-    "@esbuild/linux-s390x": "npm:0.28.0"
-    "@esbuild/linux-x64": "npm:0.28.0"
-    "@esbuild/netbsd-arm64": "npm:0.28.0"
-    "@esbuild/netbsd-x64": "npm:0.28.0"
-    "@esbuild/openbsd-arm64": "npm:0.28.0"
-    "@esbuild/openbsd-x64": "npm:0.28.0"
-    "@esbuild/openharmony-arm64": "npm:0.28.0"
-    "@esbuild/sunos-x64": "npm:0.28.0"
-    "@esbuild/win32-arm64": "npm:0.28.0"
-    "@esbuild/win32-ia32": "npm:0.28.0"
-    "@esbuild/win32-x64": "npm:0.28.0"
+    "@esbuild/aix-ppc64": "npm:0.28.1"
+    "@esbuild/android-arm": "npm:0.28.1"
+    "@esbuild/android-arm64": "npm:0.28.1"
+    "@esbuild/android-x64": "npm:0.28.1"
+    "@esbuild/darwin-arm64": "npm:0.28.1"
+    "@esbuild/darwin-x64": "npm:0.28.1"
+    "@esbuild/freebsd-arm64": "npm:0.28.1"
+    "@esbuild/freebsd-x64": "npm:0.28.1"
+    "@esbuild/linux-arm": "npm:0.28.1"
+    "@esbuild/linux-arm64": "npm:0.28.1"
+    "@esbuild/linux-ia32": "npm:0.28.1"
+    "@esbuild/linux-loong64": "npm:0.28.1"
+    "@esbuild/linux-mips64el": "npm:0.28.1"
+    "@esbuild/linux-ppc64": "npm:0.28.1"
+    "@esbuild/linux-riscv64": "npm:0.28.1"
+    "@esbuild/linux-s390x": "npm:0.28.1"
+    "@esbuild/linux-x64": "npm:0.28.1"
+    "@esbuild/netbsd-arm64": "npm:0.28.1"
+    "@esbuild/netbsd-x64": "npm:0.28.1"
+    "@esbuild/openbsd-arm64": "npm:0.28.1"
+    "@esbuild/openbsd-x64": "npm:0.28.1"
+    "@esbuild/openharmony-arm64": "npm:0.28.1"
+    "@esbuild/sunos-x64": "npm:0.28.1"
+    "@esbuild/win32-arm64": "npm:0.28.1"
+    "@esbuild/win32-ia32": "npm:0.28.1"
+    "@esbuild/win32-x64": "npm:0.28.1"
   dependenciesMeta:
     "@esbuild/aix-ppc64":
       optional: true
@@ -5522,7 +5529,7 @@ __metadata:
       optional: true
   bin:
     esbuild: bin/esbuild
-  checksum: 10/49eafc8906cc4a760a1704556bd3b301f808fcdcf2725190383f151741226bf2a2898a03da75a06a896d6217dadc4f3f3168983557ee31bae602e2e37779a83a
+  checksum: 10/aaa4a922644afffac45e735c99caf343f881e2d36abcc6b6fb53c230bd69940504a5bb6b0041bdd1a690e748ebc681d3308a7d178987c523d74c63c2c280bac8
   languageName: node
   linkType: hard
 
@@ -6163,7 +6170,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"happy-dom@npm:^20.1.0, happy-dom@npm:^20.10.1":
+"happy-dom@npm:^20.1.0":
   version: 20.10.1
   resolution: "happy-dom@npm:20.10.1::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fhappy-dom%2F-%2Fhappy-dom-20.10.1.tgz"
   dependencies:
@@ -6175,6 +6182,21 @@ __metadata:
     whatwg-mimetype: "npm:^3.0.0"
     ws: "npm:^8.18.3"
   checksum: 10/1af77c2f5fac70c9af25c77a508203507644ee19578871725b97ac39eec9b43fcc7de6a3660aada31dad130b2254d226e1fb7c37911ab7731a8a40c0fbe5ce41
+  languageName: node
+  linkType: hard
+
+"happy-dom@npm:^20.10.3":
+  version: 20.10.3
+  resolution: "happy-dom@npm:20.10.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fhappy-dom%2F-%2Fhappy-dom-20.10.3.tgz"
+  dependencies:
+    "@types/node": "npm:>=20.0.0"
+    "@types/whatwg-mimetype": "npm:^3.0.2"
+    "@types/ws": "npm:^8.18.1"
+    buffer-image-size: "npm:^0.6.4"
+    entities: "npm:^7.0.1"
+    whatwg-mimetype: "npm:^3.0.0"
+    ws: "npm:^8.21.0"
+  checksum: 10/a629833fa6e16395c18eaee724baf88835f628339285e3bfce6b95e7e074d6bd6c6ce16a3221796f114cfbe60a14d9c65fc6dddc1c9dbf2f46c99a5b32a4c09d
   languageName: node
   linkType: hard
 
@@ -8159,29 +8181,29 @@ __metadata:
   languageName: node
   linkType: hard
 
-"oxfmt@npm:^0.53.0":
-  version: 0.53.0
-  resolution: "oxfmt@npm:0.53.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Foxfmt%2F-%2Foxfmt-0.53.0.tgz"
+"oxfmt@npm:^0.54.0":
+  version: 0.54.0
+  resolution: "oxfmt@npm:0.54.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Foxfmt%2F-%2Foxfmt-0.54.0.tgz"
   dependencies:
-    "@oxfmt/binding-android-arm-eabi": "npm:0.53.0"
-    "@oxfmt/binding-android-arm64": "npm:0.53.0"
-    "@oxfmt/binding-darwin-arm64": "npm:0.53.0"
-    "@oxfmt/binding-darwin-x64": "npm:0.53.0"
-    "@oxfmt/binding-freebsd-x64": "npm:0.53.0"
-    "@oxfmt/binding-linux-arm-gnueabihf": "npm:0.53.0"
-    "@oxfmt/binding-linux-arm-musleabihf": "npm:0.53.0"
-    "@oxfmt/binding-linux-arm64-gnu": "npm:0.53.0"
-    "@oxfmt/binding-linux-arm64-musl": "npm:0.53.0"
-    "@oxfmt/binding-linux-ppc64-gnu": "npm:0.53.0"
-    "@oxfmt/binding-linux-riscv64-gnu": "npm:0.53.0"
-    "@oxfmt/binding-linux-riscv64-musl": "npm:0.53.0"
-    "@oxfmt/binding-linux-s390x-gnu": "npm:0.53.0"
-    "@oxfmt/binding-linux-x64-gnu": "npm:0.53.0"
-    "@oxfmt/binding-linux-x64-musl": "npm:0.53.0"
-    "@oxfmt/binding-openharmony-arm64": "npm:0.53.0"
-    "@oxfmt/binding-win32-arm64-msvc": "npm:0.53.0"
-    "@oxfmt/binding-win32-ia32-msvc": "npm:0.53.0"
-    "@oxfmt/binding-win32-x64-msvc": "npm:0.53.0"
+    "@oxfmt/binding-android-arm-eabi": "npm:0.54.0"
+    "@oxfmt/binding-android-arm64": "npm:0.54.0"
+    "@oxfmt/binding-darwin-arm64": "npm:0.54.0"
+    "@oxfmt/binding-darwin-x64": "npm:0.54.0"
+    "@oxfmt/binding-freebsd-x64": "npm:0.54.0"
+    "@oxfmt/binding-linux-arm-gnueabihf": "npm:0.54.0"
+    "@oxfmt/binding-linux-arm-musleabihf": "npm:0.54.0"
+    "@oxfmt/binding-linux-arm64-gnu": "npm:0.54.0"
+    "@oxfmt/binding-linux-arm64-musl": "npm:0.54.0"
+    "@oxfmt/binding-linux-ppc64-gnu": "npm:0.54.0"
+    "@oxfmt/binding-linux-riscv64-gnu": "npm:0.54.0"
+    "@oxfmt/binding-linux-riscv64-musl": "npm:0.54.0"
+    "@oxfmt/binding-linux-s390x-gnu": "npm:0.54.0"
+    "@oxfmt/binding-linux-x64-gnu": "npm:0.54.0"
+    "@oxfmt/binding-linux-x64-musl": "npm:0.54.0"
+    "@oxfmt/binding-openharmony-arm64": "npm:0.54.0"
+    "@oxfmt/binding-win32-arm64-msvc": "npm:0.54.0"
+    "@oxfmt/binding-win32-ia32-msvc": "npm:0.54.0"
+    "@oxfmt/binding-win32-x64-msvc": "npm:0.54.0"
     tinypool: "npm:2.1.0"
   peerDependencies:
     svelte: ^5.0.0
@@ -8232,33 +8254,33 @@ __metadata:
       optional: true
   bin:
     oxfmt: bin/oxfmt
-  checksum: 10/7450f4c9271351ed36b4908a9877b86b6d304330d82ba9818867966bee49f9f24efed05501cc78bbd1f54bf8343b6a566a28dc1c15fb81bd397a98591cffbcb5
+  checksum: 10/5d5147a8a707c93919c0610fec39db7a5d8dc872f8778ff3dd644922977ed7787a32668999f518f504c795938622f4957c9b7239d2a7e7430ae65bbbb1c202c0
   languageName: node
   linkType: hard
 
-"oxlint@npm:^1.68.0":
-  version: 1.68.0
-  resolution: "oxlint@npm:1.68.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Foxlint%2F-%2Foxlint-1.68.0.tgz"
+"oxlint@npm:^1.69.0":
+  version: 1.69.0
+  resolution: "oxlint@npm:1.69.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Foxlint%2F-%2Foxlint-1.69.0.tgz"
   dependencies:
-    "@oxlint/binding-android-arm-eabi": "npm:1.68.0"
-    "@oxlint/binding-android-arm64": "npm:1.68.0"
-    "@oxlint/binding-darwin-arm64": "npm:1.68.0"
-    "@oxlint/binding-darwin-x64": "npm:1.68.0"
-    "@oxlint/binding-freebsd-x64": "npm:1.68.0"
-    "@oxlint/binding-linux-arm-gnueabihf": "npm:1.68.0"
-    "@oxlint/binding-linux-arm-musleabihf": "npm:1.68.0"
-    "@oxlint/binding-linux-arm64-gnu": "npm:1.68.0"
-    "@oxlint/binding-linux-arm64-musl": "npm:1.68.0"
-    "@oxlint/binding-linux-ppc64-gnu": "npm:1.68.0"
-    "@oxlint/binding-linux-riscv64-gnu": "npm:1.68.0"
-    "@oxlint/binding-linux-riscv64-musl": "npm:1.68.0"
-    "@oxlint/binding-linux-s390x-gnu": "npm:1.68.0"
-    "@oxlint/binding-linux-x64-gnu": "npm:1.68.0"
-    "@oxlint/binding-linux-x64-musl": "npm:1.68.0"
-    "@oxlint/binding-openharmony-arm64": "npm:1.68.0"
-    "@oxlint/binding-win32-arm64-msvc": "npm:1.68.0"
-    "@oxlint/binding-win32-ia32-msvc": "npm:1.68.0"
-    "@oxlint/binding-win32-x64-msvc": "npm:1.68.0"
+    "@oxlint/binding-android-arm-eabi": "npm:1.69.0"
+    "@oxlint/binding-android-arm64": "npm:1.69.0"
+    "@oxlint/binding-darwin-arm64": "npm:1.69.0"
+    "@oxlint/binding-darwin-x64": "npm:1.69.0"
+    "@oxlint/binding-freebsd-x64": "npm:1.69.0"
+    "@oxlint/binding-linux-arm-gnueabihf": "npm:1.69.0"
+    "@oxlint/binding-linux-arm-musleabihf": "npm:1.69.0"
+    "@oxlint/binding-linux-arm64-gnu": "npm:1.69.0"
+    "@oxlint/binding-linux-arm64-musl": "npm:1.69.0"
+    "@oxlint/binding-linux-ppc64-gnu": "npm:1.69.0"
+    "@oxlint/binding-linux-riscv64-gnu": "npm:1.69.0"
+    "@oxlint/binding-linux-riscv64-musl": "npm:1.69.0"
+    "@oxlint/binding-linux-s390x-gnu": "npm:1.69.0"
+    "@oxlint/binding-linux-x64-gnu": "npm:1.69.0"
+    "@oxlint/binding-linux-x64-musl": "npm:1.69.0"
+    "@oxlint/binding-openharmony-arm64": "npm:1.69.0"
+    "@oxlint/binding-win32-arm64-msvc": "npm:1.69.0"
+    "@oxlint/binding-win32-ia32-msvc": "npm:1.69.0"
+    "@oxlint/binding-win32-x64-msvc": "npm:1.69.0"
   peerDependencies:
     oxlint-tsgolint: ">=0.22.1"
     vite-plus: "*"
@@ -8308,7 +8330,7 @@ __metadata:
       optional: true
   bin:
     oxlint: bin/oxlint
-  checksum: 10/e24ba70bb10142952a515434fcdc829c13124384eb237df52d79b983d9a44d39e06900f4203c3084db8afc88c9b71ccc2779d5a6a18607a21a031c52166e4d80
+  checksum: 10/5e1cc31e5346bc0e2aa980d9a35ebda79174eb7f422099ca9b7c2a80b0557d143aaa0f37f1257434e7d5aed57a42ac4a269768ee854c4f007bbf33950fdcbb7a
   languageName: node
   linkType: hard
 
@@ -8693,7 +8715,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"postcss@npm:8.5.15, postcss@npm:^8.4.19, postcss@npm:^8.4.32, postcss@npm:^8.5.14, postcss@npm:^8.5.15, postcss@npm:^8.5.6":
+"postcss@npm:8.5.15, postcss@npm:^8.4.19, postcss@npm:^8.4.32, postcss@npm:^8.5.15, postcss@npm:^8.5.6":
   version: 8.5.15
   resolution: "postcss@npm:8.5.15"
   dependencies:
@@ -9669,9 +9691,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"storybook@npm:10.4.2":
-  version: 10.4.2
-  resolution: "storybook@npm:10.4.2::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fstorybook%2F-%2Fstorybook-10.4.2.tgz"
+"storybook@npm:10.4.4":
+  version: 10.4.4
+  resolution: "storybook@npm:10.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fstorybook%2F-%2Fstorybook-10.4.4.tgz"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     "@storybook/icons": "npm:^2.0.2"
@@ -9701,13 +9723,13 @@ __metadata:
       optional: true
   bin:
     storybook: ./dist/bin/dispatcher.js
-  checksum: 10/d92be1bb48bdd8bf804b3f8f02ca274d160b47bf62c35b7a9652d0391c3cc00a7a634ccd1c555b531afd4f009d0467015be52dcc1641cca54d93c870d44bf1c1
+  checksum: 10/929590a41d655ca75481a4dc83151289b96c800f7c6a8638af37758d4c49fc1189043c73d69b8416c82ae649da728063af9c931890c28918a3d7152cbd87bccc
   languageName: node
   linkType: hard
 
-"storybook@patch:storybook@npm%3A10.4.2#~/.yarn/patches/storybook-npm-10.4.2-6669ba4a4f.patch":
-  version: 10.4.2
-  resolution: "storybook@patch:storybook@npm%3A10.4.2%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Fstorybook%252F-%252Fstorybook-10.4.2.tgz#~/.yarn/patches/storybook-npm-10.4.2-6669ba4a4f.patch::version=10.4.2&hash=15ba13"
+"storybook@patch:storybook@npm%3A10.4.4#~/.yarn/patches/storybook-npm-10.4.4-7266187b03.patch":
+  version: 10.4.4
+  resolution: "storybook@patch:storybook@npm%3A10.4.4%3A%3A__archiveUrl=https%253A%252F%252Fregistry.npmjs.org%252Fstorybook%252F-%252Fstorybook-10.4.4.tgz#~/.yarn/patches/storybook-npm-10.4.4-7266187b03.patch::version=10.4.4&hash=439417"
   dependencies:
     "@storybook/global": "npm:^5.0.0"
     "@storybook/icons": "npm:^2.0.2"
@@ -9737,7 +9759,7 @@ __metadata:
       optional: true
   bin:
     storybook: ./dist/bin/dispatcher.js
-  checksum: 10/0dd75964bb9714298918a141dffe766432afe21e1095d569099ae464ade0b9286cf77995bf693dbd9dd20e5bc54fc17b41e87b1417dc600f9edefc635766f085
+  checksum: 10/1a3757e6dd006439f052af73003ded8fe6ee14b590ac76f37814cc93f5aaa77f89f798373449fb076f8c5cbe61f8b711d88a1b3067292bf32e76275683f22c72
   languageName: node
   linkType: hard
 
@@ -9866,9 +9888,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"style-dictionary@npm:5.4.3":
-  version: 5.4.3
-  resolution: "style-dictionary@npm:5.4.3::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fstyle-dictionary%2F-%2Fstyle-dictionary-5.4.3.tgz"
+"style-dictionary@npm:5.4.4":
+  version: 5.4.4
+  resolution: "style-dictionary@npm:5.4.4::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fstyle-dictionary%2F-%2Fstyle-dictionary-5.4.4.tgz"
   dependencies:
     "@bundled-es-modules/deepmerge": "npm:^4.3.2"
     "@bundled-es-modules/glob": "npm:^13.0.6"
@@ -9885,7 +9907,7 @@ __metadata:
     tinycolor2: "npm:^1.6.0"
   bin:
     style-dictionary: bin/style-dictionary.js
-  checksum: 10/d6ea88ee6a5771e9687192534bf0ebdcc519dee999d6a0f3cbbfd8bdc54323a59bf6635d839a56c658b78370f76cbfcde74642fa92cd69836faf410ebab424da
+  checksum: 10/f8c5814cc1a350d6008d5c01771c9793105fd73700fdda0c8aa170c5ffe09081925084b0c3032195b2164e4afc70632e22edfef6f468a8bd10cf3565115ef677
   languageName: node
   linkType: hard
 
@@ -9909,13 +9931,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"stylelint@npm:17.12.0":
-  version: 17.12.0
-  resolution: "stylelint@npm:17.12.0"
+"stylelint@npm:17.13.0":
+  version: 17.13.0
+  resolution: "stylelint@npm:17.13.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fstylelint%2F-%2Fstylelint-17.13.0.tgz"
   dependencies:
-    "@csstools/css-calc": "npm:^3.2.0"
+    "@csstools/css-calc": "npm:^3.2.1"
     "@csstools/css-parser-algorithms": "npm:^4.0.0"
-    "@csstools/css-syntax-patches-for-csstree": "npm:^1.1.3"
+    "@csstools/css-syntax-patches-for-csstree": "npm:^1.1.4"
     "@csstools/css-tokenizer": "npm:^4.0.0"
     "@csstools/media-query-list-parser": "npm:^5.0.0"
     "@csstools/selector-resolve-nested": "npm:^4.0.0"
@@ -9939,7 +9961,7 @@ __metadata:
     micromatch: "npm:^4.0.8"
     normalize-path: "npm:^3.0.0"
     picocolors: "npm:^1.1.1"
-    postcss: "npm:^8.5.14"
+    postcss: "npm:^8.5.15"
     postcss-safe-parser: "npm:^7.0.1"
     postcss-selector-parser: "npm:^7.1.1"
     postcss-value-parser: "npm:^4.2.0"
@@ -9950,7 +9972,7 @@ __metadata:
     write-file-atomic: "npm:^7.0.1"
   bin:
     stylelint: bin/stylelint.mjs
-  checksum: 10/30b431ec9703b64d1b7487bb7db331cdbe87df94a54ac27d4664f851cba770639986aa1125cdd5adbda990da480c6c4e437f3dcc9f6e7f8b0bc07015592ad8e1
+  checksum: 10/abba5f2e96ae9ce7648019d4ceb88ed863e6b14bab640fa8a38159fade034282966352eedff417de929c7ee04e0b401a60a8d9c3fe8b5619594d9b37bd9aed9c
   languageName: node
   linkType: hard
 
@@ -11008,6 +11030,21 @@ __metadata:
     utf-8-validate:
       optional: true
   checksum: 10/26e4901e93abaf73af9f26a93707c95b4845e91a7a347ec8c569e6e9be7f9df066f6c2b817b2d685544e208207898a750b78461e6e8d810c11a370771450c31b
+  languageName: node
+  linkType: hard
+
+"ws@npm:^8.21.0":
+  version: 8.21.0
+  resolution: "ws@npm:8.21.0::__archiveUrl=https%3A%2F%2Fregistry.npmjs.org%2Fws%2F-%2Fws-8.21.0.tgz"
+  peerDependencies:
+    bufferutil: ^4.0.1
+    utf-8-validate: ">=5.0.2"
+  peerDependenciesMeta:
+    bufferutil:
+      optional: true
+    utf-8-validate:
+      optional: true
+  checksum: 10/088411956432c8f876158409d5a285cb9ad1382f593391f51d3a599bd0a5b277f876609ebd00fc3596321c4a4c9064d6fffe1ebad960e8ea7fd9ae25324f35c2
   languageName: node
   linkType: hard
 
