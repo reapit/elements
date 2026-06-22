@@ -1,5 +1,6 @@
 import preview from '#.storybook/preview'
 import { TextControl } from '#src/core/text-control'
+import { Grid } from '#src/utils/grid'
 import { FormLayout } from '../form-layout'
 
 const meta = preview.meta({
@@ -39,8 +40,8 @@ export const Example = meta.story({
  * When fields are logically paired, a CSS grid wrapper creates a two-column layout within the
  * section. Use this when horizontal space is available.
  */
-export const Grid = Example.extend({
-  render: function Grid() {
+export const TwoColumn = Example.extend({
+  render: function TwoColumn() {
     return (
       <FormLayout.Section>
         <FormLayout.SectionHeader>
@@ -49,12 +50,12 @@ export const Grid = Example.extend({
             Enter the primary contact's personal information.
           </FormLayout.SectionDescription>
         </FormLayout.SectionHeader>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: 'var(--spacing-4)' }}>
+        <Grid templateColumns="repeat(2, 1fr)" gap="--spacing-4">
           <TextControl label="First name" />
           <TextControl label="Last name" />
           <TextControl label="Email address" type="email" />
           <TextControl label="Phone number" type="tel" />
-        </div>
+        </Grid>
       </FormLayout.Section>
     )
   },
