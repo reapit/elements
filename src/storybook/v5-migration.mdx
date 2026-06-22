@@ -1,0 +1,387 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks'
+
+<Meta title="V5 Migration" />
+
+# Migrating from v4
+
+Elements v5 ships ESM-only output, removes legacy barrel imports, and replaces v4 component APIs with a new component architecture. Most v4 components are preserved as `Deprecated*` variants so you can upgrade to v5 without rewriting your application all at once.
+
+## Before you begin
+
+Check that your project meets these requirements before upgrading:
+
+- **React 18 or 19** — React 17 is no longer supported.
+- **ESM-compatible bundler** — v5 ships ES modules only. The CommonJS build has been removed. If your project uses `require('@reapit/elements')`, migrate to `import` before upgrading.
+
+## Step 1: Install v5
+
+<Source
+  code={`npm install @reapit/elements@5
+# or
+yarn add @reapit/elements@5`}
+  language="bash"
+/>
+
+## Step 2: Update the stylesheet import
+
+Replace your existing stylesheet import with the v5 path.
+
+In TypeScript or JavaScript:
+
+<Source code={`import '@reapit/elements/dist/index.css'`} language="typescript" />
+
+In a CSS file:
+
+<Source code={`@import '@reapit/elements/dist/index.css';`} language="css" />
+
+The Inter font is now loaded unconditionally from the global stylesheet. If your v4 application applied an `elFont` class to the root element to opt in to the font, you can remove it.
+
+## Step 3: Run the codemods
+
+Elements v5 ships a codemod CLI. Run each codemod in the order shown — the order matters because later codemods build on the output of earlier ones.
+
+Add `--dry-run` to any command to preview what it would change without writing files:
+
+<Source code={`yarn dlx @reapit/elements codemod apply rewrite-v4-imports src/ --dry-run`} language="bash" />
+
+---
+
+### 1. Rewrite v4 imports
+
+`rewrite-v4-imports` normalises v4 component imports to the `Deprecated*` naming scheme that the component codemods in step 2 expect. Your JSX usage is unchanged — only the import statement is rewritten.
+
+<Source code={`yarn dlx @reapit/elements codemod apply rewrite-v4-imports src/`} language="bash" />
+
+<Source
+  code={`// Before
+import { Button, Badge } from '@reapit/elements'
+
+// After
+import { DeprecatedButton as Button, DeprecatedBadge as Badge } from '@reapit/elements'`}
+language="typescript"
+/>
+
+If your project imports Elements through an internal facade package, pass `--facade-package`:
+
+<Source
+  code={`yarn dlx @reapit/elements codemod apply rewrite-v4-imports src/ --facade-package @company/ui`}
+  language="bash"
+/>
+
+The codemod also renames the v4 `TextArea` component to the v5 `Textarea` spelling. Run `apply-textarea-field-sizing` in step 3 to add the required `fieldSizing` prop.
+
+---
+
+### 2. Migrate deprecated components
+
+All v4 components carried a `Deprecated*` alias in the early v5 betas, but those aliases have since been removed. After step 1 your code contains `Deprecated*` imports that will not compile until you run the corresponding codemod for each component you use.
+
+Run each codemod that applies to your codebase:
+
+<table>
+  <thead>
+    <tr>
+      <th>
+        After <code>rewrite-v4-imports</code>
+      </th>
+      <th>v5 replacement</th>
+      <th>Codemod to run</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>DeprecatedButton</code>
+      </td>
+      <td>
+        <code>Button</code>
+      </td>
+      <td>
+        <code>upgrade-deprecated-button</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>DeprecatedButtonGroup</code>
+      </td>
+      <td>
+        <code>ButtonGroup</code>
+      </td>
+      <td>
+        <code>upgrade-deprecated-button-group</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>DeprecatedSplitButton</code>
+      </td>
+      <td>
+        <code>SplitButton</code>
+      </td>
+      <td>
+        <code>upgrade-deprecated-split-button</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>DeprecatedIcon</code>
+      </td>
+      <td>Icon components</td>
+      <td>
+        <code>upgrade-deprecated-icon</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>DeprecatedBadge</code>
+      </td>
+      <td>
+        <code>Badge</code>
+      </td>
+      <td>
+        <code>upgrade-deprecated-badge</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>DeprecatedTag</code> / <code>DeprecatedTagGroup</code>
+      </td>
+      <td>
+        <code>Tag</code> / <code>TagGroup</code>
+      </td>
+      <td>
+        <code>upgrade-deprecated-tag</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>DeprecatedLabel</code>
+      </td>
+      <td>
+        <code>LabelText</code>
+      </td>
+      <td>
+        <code>replace-deprecated-label</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>DeprecatedPagination</code>
+      </td>
+      <td>
+        <code>Pagination</code>
+      </td>
+      <td>
+        <code>replace-deprecated-pagination</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>Toggle</code>
+      </td>
+      <td>
+        <code>Switch</code>
+      </td>
+      <td>
+        <code>replace-deprecated-toggle</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>ToggleRadio</code>
+      </td>
+      <td>
+        <code>ChipSelect</code>
+      </td>
+      <td>
+        <code>replace-deprecated-toggle-radio</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>useClickOutside</code>
+      </td>
+      <td>
+        Inline <code>useEffect</code>
+      </td>
+      <td>
+        <code>replace-deprecated-use-click-outside</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>useMediaQuery</code>
+      </td>
+      <td>
+        <code>useMatchMedia</code>
+      </td>
+      <td>
+        <code>upgrade-deprecated-use-media-query</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>SnackProvider</code> / <code>useSnack</code>
+      </td>
+      <td>
+        <code>Toaster</code> / <code>toast</code>
+      </td>
+      <td>
+        <code>replace-deprecated-snack</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<Source
+  code={`yarn dlx @reapit/elements codemod apply upgrade-deprecated-button src/
+yarn dlx @reapit/elements codemod apply upgrade-deprecated-icon src/
+# … run each codemod for the deprecated components you use`}
+  language="bash"
+/>
+
+---
+
+### 3. Add the required `fieldSizing` prop to `Textarea`
+
+The v5 `Textarea` requires a `fieldSizing` prop that was absent in v4. The `apply-textarea-field-sizing` codemod adds `fieldSizing="manual"` to all `Textarea` usages missing the prop, preserving v4 sizing behaviour.
+
+<Source code={`yarn dlx @reapit/elements codemod apply apply-textarea-field-sizing src/`} language="bash" />
+
+If you prefer content-aware sizing, change `fieldSizing="manual"` to `fieldSizing="content"` on any instances where that is more appropriate.
+
+---
+
+### 4. Rewrite barrel imports to subpath imports
+
+v5 removes the `@reapit/elements` top-level barrel. `rewrite-v5-imports` converts every barrel import to its dedicated subpath, enabling tree-shaking.
+
+<Source code={`yarn dlx @reapit/elements codemod apply rewrite-v5-imports src/`} language="bash" />
+
+<Source
+  code={`// Before
+import { DeprecatedButton as Button } from '@reapit/elements'
+
+// After
+import { DeprecatedButton as Button } from '@reapit/elements/deprecated/button'`}
+language="typescript"
+/>
+
+---
+
+### 5. Upgrade CSS custom properties
+
+v5 replaces legacy CSS custom properties with a new semantic token system. The `upgrade-css-variables` codemod handles `.ts`, `.tsx`, `.css`, `.scss`, and `.less` files.
+
+<Source code={`yarn dlx @reapit/elements codemod apply upgrade-css-variables src/`} language="bash" />
+
+For tokens with context-dependent replacements, the codemod adds inline `/* TODO: … */` comments to flag them for manual review. Search for `TODO` in the diff and confirm each suggested replacement is correct for its usage context (text, fill, border, etc.).
+
+---
+
+## Manual migrations
+
+Some breaking changes cannot be automated and require code changes by hand.
+
+### `Input` and `InputGroup`
+
+The deprecated `Input`, `InputGroup`, `InputAddOn`, and `InputError` components have been removed. There is no automated codemod because the variety of usage patterns makes agent-assisted migration more reliable than a mechanical transform.
+
+See `codemods/migrate-deprecated-input/README.md` in the repository for a detailed migration guide with a decision tree, prop mapping tables, and before/after examples. The guide is written to be given directly to an AI coding assistant.
+
+The short version:
+
+<table>
+  <thead>
+    <tr>
+      <th>Deprecated component</th>
+      <th>v5 replacement</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <code>InputGroup</code> (text, email, password, …)
+      </td>
+      <td>
+        <code>TextControl</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>InputGroup</code> (date, time, datetime-local)
+      </td>
+      <td>
+        <code>DateTimeControl</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>InputGroup</code> (checkbox)
+      </td>
+      <td>
+        <code>CheckboxControl</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>InputGroup</code> (radio)
+      </td>
+      <td>
+        <code>RadioGroupControl</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <code>InputGroup</code> (textarea)
+      </td>
+      <td>
+        <code>TextareaControl</code>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Standalone <code>Input</code>
+      </td>
+      <td>
+        <code>TextInput</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+Rename `errorMessage` → `errorText`, `icon` → `leadingIcon`, and `inputAddOnText` → `suffix` on all migrated components. Remove `hasError` and `intent` — error state is now driven by the presence of `errorText`.
+
+### `Image`
+
+`Image` now requires explicit `width` and `height` props. Pass CSS length strings:
+
+<Source
+  code={`// Before
+<Image src={url} alt="Property photo" />
+
+// After (fixed dimensions)
+
+<Image src={url} alt="Property photo" width="300px" height="200px" />
+
+// After (fill a container)
+
+<Image src={url} alt="Property photo" width="100%" height="100%" />`}
+  language="tsx"
+/>
+
+### `MainContainer`
+
+`MainContainer` now applies block (top and bottom) padding by default. To restore the v4 behaviour where only inline padding was applied, use the new opt-out props:
+
+<Source code={`<MainContainer hasNoTopPadding hasNoBottomPadding>`} language="tsx" />
+
+### CSS cascade layers
+
+v5 wraps all component styles in named cascade layers (`@layer elements.base` and `@layer elements.main`). If your project declares its own `@layer` rules, review how your layer order interacts with these layers so that your overrides take effect as expected.
+
+Pass `--dry-run` to preview any codemod and `--facade-package <name>` if your project uses a facade package. To see the full list of available codemods:
+
+<Source code={`yarn dlx @reapit/elements codemod list`} language="bash" />
+
+See the [Changelog](?path=/docs/changelog--docs) for the full list of breaking changes across the v5 release cycle.
