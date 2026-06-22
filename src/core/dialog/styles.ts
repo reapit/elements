@@ -10,6 +10,7 @@ const DIALOG_IN_DELAY = BACKDROP_DURATION
 export const elDialog = css`
   @layer elements.main {
     overflow: auto;
+    isolation: isolate;
     border: none;
     border-radius: var(--border-radius-l);
     box-shadow: var(--shadow-down-xl);

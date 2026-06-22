@@ -6,12 +6,14 @@ export const ElDialogHeader = styled.header`
   @layer elements.main {
     position: sticky;
     inset-block-start: 0;
+    z-index: var(--z-index-sticky);
 
     container-type: scroll-state;
     container-name: dialog-header;
 
     &:has(~ ${ElDialogFooter}) {
       position: relative;
+      z-index: auto;
     }
   }
 `

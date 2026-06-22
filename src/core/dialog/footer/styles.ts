@@ -6,6 +6,7 @@ export const ElDialogFooter = styled.footer`
 
     position: sticky;
     inset-block-end: 0;
+    z-index: var(--z-index-sticky);
 
     background: var(--colour-fill-white);
     border-block-start: var(--border-width-default, 1px) solid var(--colour-border-neutral-light_default);
