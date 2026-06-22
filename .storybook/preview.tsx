@@ -96,7 +96,7 @@ export default definePreview({
     options: {
       storySort: {
         method: 'alphabetical',
-        order: ['Welcome', 'Introduction', 'Concepts', '*'],
+        order: ['Welcome', 'Getting Started', 'Changelog', '*'],
       },
     },
   },

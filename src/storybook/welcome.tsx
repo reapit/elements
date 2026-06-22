@@ -1,99 +1,87 @@
 import { FC } from 'react'
 import { styled } from '@linaria/react'
-import { isTablet } from '../styles/deprecated-media'
 import ReapitLogoInfographic from '../../.storybook/public/reapitLogo.svg?react'
+import heroUrl from '../../.storybook/public/elements-hero.svg?url'
 
-const WelcomeWrapper = styled.div`
-  background-color: var(--colour-fill-white);
+const WelcomeHero = styled.div`
+  background-color: #4e56ea;
   width: 100%;
-  box-shadow: 0 4px 30px rgb(0 0 0 / 0.1);
   border-top-left-radius: 1rem;
   border-top-right-radius: 1rem;
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-  align-items: space-evenly;
+  position: relative;
+  overflow: hidden;
+  min-height: 240px;
+`
 
-  svg {
-    height: 40px;
-    width: 200px;
-    display: block;
-    margin-bottom: 2rem;
+const WelcomeHeroContent = styled.div`
+  position: relative;
+  z-index: 1;
+  padding: 3rem 2.5rem;
+  max-width: 55%;
+
+  h1 {
+    color: #ffffff;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.2;
   }
 `
 
-const WelcomeTitle = styled.h1`
-  font-size: 2.5rem;
-  color: var(--colour-text-primary);
-
-  ${isTablet} {
-    width: 65%;
-  }
+const WelcomeHeroImage = styled.img`
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 50%;
+  height: 100%;
+  object-fit: contain;
+  object-position: right center;
 `
 
-const WelcomeFooter = styled.div`
-  display: flex;
-  background-color: var(--colour-fill-neutral-lightest);
-  flex-wrap: wrap;
+const WelcomeContent = styled.div`
+  background-color: var(--colour-fill-white);
   border-bottom-left-radius: 1rem;
   border-bottom-right-radius: 1rem;
-`
+  padding: 2rem 2.5rem;
 
-const WelcomeFooterItem = styled.div`
-  width: 50%;
-  box-sizing: border-box;
-  color: var(--colour-text-primary);
-  display: flex;
-  flex-direction: column;
-  padding: 2rem;
-
-  p {
-    margin-bottom: 0.5rem;
-  }
-
-  ${isTablet} {
-    width: 25%;
+  svg {
+    height: 32px;
+    width: 160px;
+    display: block;
+    margin-bottom: 1.5rem;
   }
 `
 
-export const WelcomeFooterTitle = styled.div`
-  font-size: 1.3rem;
-  font-weight: 400;
+const WelcomeDescription = styled.p`
+  color: var(--colour-text-secondary);
+  max-width: 480px;
+  margin-bottom: 1.5rem;
+`
+
+const DesignDocsLink = styled.a`
   color: var(--colour-text-primary);
-  margin-bottom: 1rem;
+  font-weight: 500;
 `
 
 export const Welcome: FC = () => {
   return (
     <>
-      <WelcomeWrapper>
+      <WelcomeHero>
+        <WelcomeHeroContent>
+          <h1>Elements UI Component Library</h1>
+        </WelcomeHeroContent>
+        <WelcomeHeroImage src={heroUrl} alt="" aria-hidden="true" />
+      </WelcomeHero>
+      <WelcomeContent>
         <ReapitLogoInfographic />
-        <WelcomeTitle>Elements UI Component Library</WelcomeTitle>
-      </WelcomeWrapper>
-      <WelcomeFooter>
-        <WelcomeFooterItem>
-          <WelcomeFooterTitle>Composable</WelcomeFooterTitle>
-          <p>Building blocks using atomic principles designed to work together</p>
-          <p>Supports theming out the box</p>
-          <p>Modifiers and custom styling options</p>
-        </WelcomeFooterItem>
-        <WelcomeFooterItem>
-          <WelcomeFooterTitle>Presentational</WelcomeFooterTitle>
-          <p>Implements the Reapit Foundations Design System</p>
-          <p>Just the UI approach - complete developer flexibility on behaviour</p>
-        </WelcomeFooterItem>
-        <WelcomeFooterItem>
-          <WelcomeFooterTitle>Agnostic</WelcomeFooterTitle>
-          <p>Add your own custom JS or TS to control behaviour</p>
-          <p>Designed to be used as React Components or as CSS classes in any web framework</p>
-        </WelcomeFooterItem>
-        <WelcomeFooterItem>
-          <WelcomeFooterTitle>Reliable</WelcomeFooterTitle>
-          <p>Excellent test coverage, strongly typed</p>
-          <p>Production hardened across the Reapit Estate</p>
-          <p>Tiny dependency footprint</p>
-        </WelcomeFooterItem>
-      </WelcomeFooter>
+        <WelcomeDescription>
+          For design guidelines, usage rules, and component rationale, see the Reapit Design System.
+        </WelcomeDescription>
+        <DesignDocsLink href="https://design.reapit.com.au" target="_blank" rel="noopener noreferrer">
+          Design System documentation →
+        </DesignDocsLink>
+      </WelcomeContent>
     </>
   )
 }

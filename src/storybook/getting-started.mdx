@@ -1,0 +1,104 @@
+import { Meta, Source } from '@storybook/addon-docs/blocks'
+
+<Meta title="Getting Started" />
+
+# Getting Started
+
+This Storybook provides full API documentation, interactive examples, and code references for every component. For design guidelines, usage rules, and component rationale, see the [Reapit Design System](https://design.reapit.com.au).
+
+## Installation
+
+Elements is an ESM-only library available for installation via NPM and your preferred package manager:
+
+<Source
+  code={`
+# npm
+npm install @reapit/elements
+
+# yarn
+
+yarn add @reapit/elements
+
+# pnpm
+
+pnpm add @reapit/elements
+
+# bun
+
+bun add @reapit/elements
+`}
+language="bash"
+/>
+
+## Importing components
+
+<Source
+  code={`
+import { Button } from '@reapit/elements/core/button'
+`}
+  language="typescript"
+/>
+
+Also import the stylesheet at your application's entry point:
+
+<Source
+  code={`
+import '@reapit/elements/dist/index.css'
+`}
+  language="typescript"
+/>
+
+Or in a CSS file:
+
+<Source
+  code={`
+@import '@reapit/elements/dist/index.css';
+`}
+  language="css"
+/>
+
+## Using components
+
+All components accept the native HTML props of their underlying element and forward them via `{...rest}`. For TypeScript users, this behaviour is strongly typed. The only peer dependencies are `react` and `react-dom`.
+
+## MCP server
+
+This Storybook exposes a [Model Context Protocol](https://modelcontextprotocol.io) server, enabling AI tools to query component documentation, props, and code examples directly.
+
+<table>
+  <thead>
+    <tr>
+      <th>Environment</th>
+      <th>Storybook</th>
+      <th>MCP</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Latest release</td>
+      <td>
+        <a href="https://elements.reapit.com.au">elements.reapit.com.au</a>
+      </td>
+      <td>
+        <code>elements.reapit.com.au/mcp</code>
+      </td>
+    </tr>
+    <tr>
+      <td>Canary</td>
+      <td>
+        <a href="https://canary.elements.reapit.com.au">canary.elements.reapit.com.au</a>
+      </td>
+      <td>
+        <code>canary.elements.reapit.com.au/mcp</code>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## Browser support
+
+Elements targets [Baseline 2024](https://web.dev/baseline). See the [Design System documentation](https://design.reapit.com.au) for details.
+
+## Migrating from v4
+
+Elements v5 removes deprecated props and CSS classes that carried `console.warn` notices in v4. Review the [Changelog](?path=/docs/changelog--docs) for the full list of breaking changes before upgrading.
