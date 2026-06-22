@@ -3,7 +3,7 @@
 exports[`FileInput component > should match a snapshot 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-2 el-file-input-wrap"
+    class="mocked-styled-3 el-file-input-wrap"
   >
     <div
       class="el-flex-container el-flex-align-center"
@@ -20,13 +20,13 @@ exports[`FileInput component > should match a snapshot 1`] = `
       </button>
       <input
         aria-label="File upload input undefined"
-        class="mocked-styled-1 el-file-input"
+        class="mocked-styled-2 el-file-input"
         data-testid="el-file-input"
         type="file"
       />
       <input
         aria-hidden="true"
-        class="mocked-styled-4 el-file-input-hidden"
+        class="mocked-styled-5 el-file-input-hidden"
         id="test-static-id"
         value=""
       />
@@ -43,7 +43,7 @@ exports[`FileInput component > should match a snapshot 1`] = `
 exports[`FileInput component > should match a snapshot for the FilePreviewImage component 1`] = `
 <DocumentFragment>
   <img
-    class="mocked-styled-5 el-file-preview-image"
+    class="mocked-styled-6 el-file-preview-image"
     src="https://mock-image.com"
   />
 </DocumentFragment>
@@ -52,10 +52,10 @@ exports[`FileInput component > should match a snapshot for the FilePreviewImage 
 exports[`FileInput component > should match a snapshot with full props 1`] = `
 <DocumentFragment>
   <div
-    class="mocked-styled-2 el-file-input-wrap"
+    class="mocked-styled-3 el-file-input-wrap"
   >
     <label
-      class="mocked-styled-0 el-file-input-label"
+      class="mocked-styled-1 el-file-input-label"
     >
       Some Label
     </label>
@@ -74,18 +74,18 @@ exports[`FileInput component > should match a snapshot with full props 1`] = `
       </button>
       <input
         aria-label="File upload input Some Text"
-        class="mocked-styled-1 el-file-input"
+        class="mocked-styled-2 el-file-input"
         data-testid="el-file-input"
         type="file"
       />
       <input
         aria-hidden="true"
-        class="mocked-styled-4 el-file-input-hidden"
+        class="mocked-styled-5 el-file-input-hidden"
         id="test-static-id"
         value="https://mock.com"
       />
       <div
-        class="mocked-styled-3 el-file-input-icon-container"
+        class="mocked-styled-4 el-file-input-icon-container"
       >
         <span
           class="el-mr4"
