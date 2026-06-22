@@ -1,5 +1,11 @@
 # @reapit/elements
 
+## 5.0.1
+
+### Patch Changes
+
+- **[Fixed]** `Dialog.Header` and `Dialog.Footer` now remain above scrolling body content when sticky. ([#1480](https://github.com/reapit-global/gbl-ds-elements/pull/1480))
+
 ## 5.0.0
 
 ### Major Changes
