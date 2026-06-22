@@ -3,7 +3,7 @@ import { OfficeSwitcherOfficeGroup } from './office-group'
 import { OfficeItem } from '../office-item'
 
 const meta = preview.meta({
-  title: 'Core/OfficeSwitcher/OfficeGroup',
+  title: 'Input and selection/OfficeSwitcher/OfficeGroup',
   component: OfficeSwitcherOfficeGroup,
   argTypes: {
     children: {

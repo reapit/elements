@@ -3,7 +3,7 @@ import { Tooltip } from './tooltip'
 import { useId } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/Tooltip',
+  title: 'Messaging/Tooltip',
   component: Tooltip,
   argTypes: {
     children: {

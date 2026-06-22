@@ -3,7 +3,7 @@ import { SplitButton } from '../split-button'
 import { SplitButtonContext } from '../context'
 
 const meta = preview.meta({
-  title: 'Core/SplitButton/MenuButton',
+  title: 'Buttons/SplitButton/MenuButton',
   component: SplitButton.MenuButton,
   argTypes: {
     disabled: {

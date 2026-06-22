@@ -6,7 +6,7 @@ import { StarIcon } from '#src/icons/star'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/Menu/Group',
+  title: 'Input and selection/Menu/Group',
   component: Menu.Group,
   argTypes: {
     children: {

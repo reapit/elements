@@ -8,7 +8,7 @@ import { useState } from 'react'
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/AtAGlance/Listbox',
+  title: 'Content display/AtAGlance/Listbox',
   component: AtAGlance.Listbox,
   argTypes: {
     children: {

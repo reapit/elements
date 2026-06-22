@@ -8,7 +8,7 @@ import { FocusedLayout } from './focused-layout'
 import { FocusedLayoutProductLogo } from './product-logo'
 
 const meta = preview.meta({
-  title: 'Core/FocusedLayout',
+  title: 'Containers and layout/FocusedLayout',
   component: FocusedLayout,
   argTypes: {
     background: {

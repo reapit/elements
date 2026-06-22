@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { TopBarMenuDrawerMenuItemButton } from './menu-item-button'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/MenuDrawer/MenuItemButton',
+  title: 'Navigation/TopBar/MenuDrawer/MenuItemButton',
   component: TopBarMenuDrawerMenuItemButton,
 })
 

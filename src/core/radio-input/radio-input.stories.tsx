@@ -5,7 +5,7 @@ import { useArgs } from 'storybook/preview-api'
 import type { ChangeEventHandler } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/RadioInput',
+  title: 'Input and selection/RadioInput',
   component: RadioInput,
   argTypes: {
     checked: {

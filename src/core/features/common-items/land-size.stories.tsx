@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { Features } from '../features'
 
 const meta = preview.meta({
-  title: 'Core/Features/LandSize',
+  title: 'Content display/Features/LandSize',
   component: Features.LandSize,
   argTypes: {
     value: {

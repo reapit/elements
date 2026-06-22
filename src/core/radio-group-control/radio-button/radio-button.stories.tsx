@@ -3,7 +3,7 @@ import { RadioButton } from './radio-button'
 import { LabelText } from '#src/core/label-text'
 
 const meta = preview.meta({
-  title: 'Core/RadioGroupControl/RadioButton',
+  title: 'Input and selection/RadioGroupControl/RadioButton',
   component: RadioButton,
   argTypes: {
     label: {

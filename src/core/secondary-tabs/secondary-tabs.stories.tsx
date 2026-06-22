@@ -4,7 +4,7 @@ import { SecondaryTabs } from './secondary-tabs'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/SecondaryTabs',
+  title: 'Navigation/SecondaryTabs',
   component: SecondaryTabs,
   argTypes: {
     children: {

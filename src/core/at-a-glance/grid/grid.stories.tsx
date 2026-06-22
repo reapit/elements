@@ -3,7 +3,7 @@ import { AtAGlance } from '../at-a-glance'
 import { buildCards } from '../__story__/build-cards'
 
 const meta = preview.meta({
-  title: 'Core/AtAGlance/Grid',
+  title: 'Content display/AtAGlance/Grid',
   component: AtAGlance.Grid,
   argTypes: {
     children: {

@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { ButtonGroup } from './button-group'
 
 const meta = preview.meta({
-  title: 'Core/ButtonGroup',
+  title: 'Buttons/ButtonGroup',
   component: ButtonGroup,
   argTypes: {
     align: {

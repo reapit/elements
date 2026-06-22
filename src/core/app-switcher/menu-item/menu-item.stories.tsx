@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { AppSwitcher } from '../app-switcher'
 
 const meta = preview.meta({
-  title: 'Core/AppSwitcher/MenuItem',
+  title: 'Navigation/AppSwitcher/MenuItem',
   component: AppSwitcher.MenuItem,
 })
 

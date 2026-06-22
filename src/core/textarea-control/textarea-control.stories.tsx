@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { TextareaControl } from './textarea-control'
 
 const meta = preview.meta({
-  title: 'Core/TextareaControl',
+  title: 'Input and selection/TextareaControl',
   component: TextareaControl,
   argTypes: {
     errorText: {

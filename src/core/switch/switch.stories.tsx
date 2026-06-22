@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { Switch } from './switch'
 
 const meta = preview.meta({
-  title: 'Core/Switch',
+  title: 'Input and selection/Switch',
   component: Switch,
   argTypes: {
     defaultChecked: {

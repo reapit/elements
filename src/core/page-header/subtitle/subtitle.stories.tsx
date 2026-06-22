@@ -5,7 +5,7 @@ import { StarIcon } from '#src/icons/star'
 import { TagGroup } from '#src/core/tag-group/index'
 
 const meta = preview.meta({
-  title: 'Core/PageHeader/Subtitle',
+  title: 'Containers and layout/PageHeader/Subtitle',
   component: PageHeader.Subtitle,
   argTypes: {
     additionalInfo: {

@@ -9,7 +9,7 @@ import { StarIcon } from '#src/icons/star'
 import { TagGroup } from '#src/core/tag-group/index'
 
 const meta = preview.meta({
-  title: 'Core/PageHeader/Title',
+  title: 'Containers and layout/PageHeader/Title',
   component: PageHeader.Title,
   argTypes: {
     actions: {

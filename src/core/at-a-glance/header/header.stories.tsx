@@ -7,7 +7,7 @@ import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/AtAGlance/Header',
+  title: 'Content display/AtAGlance/Header',
   component: AtAGlance.Header,
   argTypes: {
     accessory: {

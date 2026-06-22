@@ -6,7 +6,7 @@ import { Skeleton } from '#src/core/skeleton'
 import { Table } from '../table'
 
 const meta = preview.meta({
-  title: 'Core/Table/Toolbar',
+  title: 'Data and tables/Table/Toolbar',
   component: Table.Toolbar,
   argTypes: {
     leftContent: {

@@ -5,7 +5,7 @@ import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/AtAGlance/ButtonCard',
+  title: 'Content display/AtAGlance/ButtonCard',
   component: AtAGlance.ButtonCard,
   argTypes: {
     description: { control: 'text' },

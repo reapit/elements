@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { DateTimeInput } from './date-time-input'
 
 const meta = preview.meta({
-  title: 'Core/DateTimeInput',
+  title: 'Input and selection/DateTimeInput',
   component: DateTimeInput,
   argTypes: {
     size: {

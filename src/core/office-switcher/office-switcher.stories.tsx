@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { OfficeSwitcher } from './office-switcher'
 
 const meta = preview.meta({
-  title: 'Core/OfficeSwitcher',
+  title: 'Input and selection/OfficeSwitcher',
   component: OfficeSwitcher,
   argTypes: {
     children: {

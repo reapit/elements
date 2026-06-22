@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { Skeleton } from './skeleton'
 
 const meta = preview.meta({
-  title: 'Core/Skeleton',
+  title: 'Indicators and status/Skeleton',
   component: Skeleton,
   argTypes: {
     height: {

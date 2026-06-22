@@ -5,7 +5,7 @@ import { EmptyState } from '../empty-state'
 import { EmptyStateActionButton } from './action-button'
 
 const meta = preview.meta({
-  title: 'Core/EmptyState/Action',
+  title: 'Indicators and status/EmptyState/Action',
   component: EmptyState.Action,
   subcomponents: {
     EmptyStateActionButton: EmptyStateActionButton,

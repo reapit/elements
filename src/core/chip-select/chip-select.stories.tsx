@@ -7,7 +7,7 @@ import type { ChangeEventHandler } from 'react'
 import type { Decorator } from '@storybook/react-vite'
 
 const meta = preview.meta({
-  title: 'Core/ChipSelect',
+  title: 'Input and selection/ChipSelect',
   component: ChipSelect,
   argTypes: {
     children: {

@@ -6,7 +6,7 @@ import { ChevronDownIcon } from '#src/icons/chevron-down'
 import { StarIcon } from '#src/icons/star'
 
 const meta = preview.meta({
-  title: 'Core/Button',
+  title: 'Buttons/Button',
   component: Button,
   subcomponents: { AnchorButton },
   argTypes: {

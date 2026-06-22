@@ -5,7 +5,7 @@ import { Drawer } from '../drawer'
 import { Pattern } from '../__story__/Pattern'
 
 const meta = preview.meta({
-  title: 'Core/Drawer/Body',
+  title: 'Containers and layout/Drawer/Body',
   component: Drawer.Body,
   argTypes: {
     children: {

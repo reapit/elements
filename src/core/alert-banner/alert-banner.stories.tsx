@@ -11,7 +11,7 @@ import { useState } from 'react'
 import { WarningIcon } from '#src/icons/warning'
 
 const meta = preview.meta({
-  title: 'Core/AlertBanner',
+  title: 'Messaging/AlertBanner',
   component: AlertBanner,
   argTypes: {
     children: {

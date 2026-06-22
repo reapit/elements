@@ -6,7 +6,7 @@ import { FocusedLayout } from '../focused-layout'
 import { supportedProductLogos } from '../product-logo'
 
 const meta = preview.meta({
-  title: 'Core/FocusedLayout/TopBar',
+  title: 'Containers and layout/FocusedLayout/TopBar',
   component: FocusedLayout.TopBar,
   argTypes: {
     title: {

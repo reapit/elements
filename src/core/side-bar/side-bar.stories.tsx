@@ -10,7 +10,7 @@ import { useViewportHeightDecorator } from './__story__/use-viewport-height-deco
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/SideBar',
+  title: 'Navigation/SideBar',
   component: SideBar,
   argTypes: {
     children: {

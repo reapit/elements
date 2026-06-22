@@ -6,7 +6,7 @@ import { SettingsAltIcon } from '#src/icons/settings-alt'
 import { Button } from '../button'
 
 const meta = preview.meta({
-  title: 'Core/AtAGlance',
+  title: 'Content display/AtAGlance',
   component: AtAGlance,
   argTypes: {
     children: {

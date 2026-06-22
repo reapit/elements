@@ -5,7 +5,7 @@ import { SproutIcon } from '#src/icons/sprout'
 import { Badge } from '#src/core/badge'
 
 const meta = preview.meta({
-  title: 'Core/AtAGlance/Card',
+  title: 'Content display/AtAGlance/Card',
   component: AtAGlance.Card,
 })
 

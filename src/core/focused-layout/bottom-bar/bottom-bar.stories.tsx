@@ -5,7 +5,7 @@ import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { FocusedLayout } from '../focused-layout'
 
 const meta = preview.meta({
-  title: 'Core/FocusedLayout/BottomBar',
+  title: 'Containers and layout/FocusedLayout/BottomBar',
   component: FocusedLayout.BottomBar,
   argTypes: {
     children: {

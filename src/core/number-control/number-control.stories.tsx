@@ -4,7 +4,7 @@ import { LocationIcon } from '#src/icons/location'
 import { NumberControl } from './number-control'
 
 const meta = preview.meta({
-  title: 'Core/NumberControl',
+  title: 'Input and selection/NumberControl',
   component: NumberControl,
   argTypes: {
     errorText: {

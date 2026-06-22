@@ -4,7 +4,7 @@ import { FolderTabs } from './folder-tabs'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/FolderTabs',
+  title: 'Navigation/FolderTabs',
   component: FolderTabs,
   argTypes: {
     children: {

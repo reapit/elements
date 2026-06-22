@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { DateTimeControl } from './date-time-control'
 
 const meta = preview.meta({
-  title: 'Core/DateTimeControl',
+  title: 'Input and selection/DateTimeControl',
   component: DateTimeControl,
   argTypes: {
     errorText: {

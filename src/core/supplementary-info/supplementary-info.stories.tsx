@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { SupplementaryInfo } from './supplementary-info'
 
 const meta = preview.meta({
-  title: 'Core/SupplementaryInfo',
+  title: 'Content display/SupplementaryInfo',
   component: SupplementaryInfo,
   argTypes: {
     children: {

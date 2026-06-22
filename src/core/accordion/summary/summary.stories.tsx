@@ -8,7 +8,7 @@ import { CarIcon } from '#src/icons/car'
 import { Features } from '#src/core/features/index'
 
 const meta = preview.meta({
-  title: 'Core/Accordion/Summary',
+  title: 'Content display/Accordion/Summary',
   component: Accordion.Summary,
   argTypes: {
     accessory: {

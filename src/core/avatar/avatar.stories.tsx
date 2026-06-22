@@ -3,7 +3,7 @@ import { Avatar } from '.'
 import { ContactIcon } from '#src/icons/contact'
 
 const meta = preview.meta({
-  title: 'Core/Avatar',
+  title: 'Content display/Avatar',
   component: Avatar,
   args: {
     children: 'AD',

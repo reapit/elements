@@ -3,7 +3,7 @@ import { Menu } from '#src/core/menu'
 import { SplitButton } from './split-button'
 
 const meta = preview.meta({
-  title: 'Core/SplitButton',
+  title: 'Buttons/SplitButton',
   component: SplitButton,
   argTypes: {
     action: {

@@ -9,7 +9,7 @@ import type { MouseEventHandler } from 'react'
 import type { SortDirection } from './sort-direction'
 
 const meta = preview.meta({
-  title: 'Core/Table/SortButton',
+  title: 'Data and tables/Table/SortButton',
   component: Table.SortButton,
   argTypes: {
     children: {

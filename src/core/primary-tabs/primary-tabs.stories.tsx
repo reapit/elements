@@ -4,7 +4,7 @@ import { PrimaryTabs } from './primary-tabs'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/PrimaryTabs',
+  title: 'Navigation/PrimaryTabs',
   component: PrimaryTabs,
   argTypes: {
     children: {

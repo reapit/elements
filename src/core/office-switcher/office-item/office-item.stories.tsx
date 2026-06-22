@@ -5,7 +5,7 @@ import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/OfficeSwitcher/OfficeItem',
+  title: 'Input and selection/OfficeSwitcher/OfficeItem',
   component: OfficeItem,
   argTypes: {
     'aria-selected': {

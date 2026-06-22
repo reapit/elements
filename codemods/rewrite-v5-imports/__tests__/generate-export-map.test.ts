@@ -229,8 +229,8 @@ describe('buildExportMap (integration, against real source)', { timeout: 30_000 
     expect(exportMap['Intent']).toBe('deprecated/styles')
   })
 
-  test('maps Theme to core/theme-provider', () => {
-    expect(exportMap['Theme']).toBe('core/theme-provider')
+  test('maps Theme to utils/theme-provider', () => {
+    expect(exportMap['Theme']).toBe('utils/theme-provider')
   })
 
   test('does NOT include bare Props', () => {

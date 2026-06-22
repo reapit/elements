@@ -1,10 +1,18 @@
 import preview from '#.storybook/preview'
-import { Button } from '../button'
+import { Button } from '#src/core/button'
 import { ThemeProvider } from './theme-provider'
 
 const meta = preview.meta({
-  title: 'Core/ThemeProvider',
+  title: 'Utils/ThemeProvider',
   component: ThemeProvider,
+  parameters: {
+    docs: {
+      story: {
+        inline: false,
+        height: '80px',
+      },
+    },
+  },
   argTypes: {
     children: {
       control: false,
@@ -25,12 +33,7 @@ export const Reapit = meta.story({
   },
 })
 
-/**
- * The only other supported theme is the PayProp theme.
- *
- * **note:** This theme is not fully setup via our CSS variables yet, so this story is will not demonstrate any
- * practical difference in the rendered button at this stage.
- */
+/** The only other supported theme is the PayProp theme. */
 export const PayProp = Reapit.extend({
   args: {
     theme: 'payprop',

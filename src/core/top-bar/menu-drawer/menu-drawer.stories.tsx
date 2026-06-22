@@ -3,7 +3,7 @@ import { TopBarMenuDrawer } from './menu-drawer'
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/MenuDrawer',
+  title: 'Navigation/TopBar/MenuDrawer',
   component: TopBarMenuDrawer,
 })
 

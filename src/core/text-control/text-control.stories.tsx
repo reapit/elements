@@ -4,7 +4,7 @@ import { LocationIcon } from '#src/icons/location'
 import { TextControl } from './text-control'
 
 const meta = preview.meta({
-  title: 'Core/TextControl',
+  title: 'Input and selection/TextControl',
   component: TextControl,
   argTypes: {
     errorText: {

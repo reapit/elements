@@ -9,7 +9,7 @@ import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 
 const meta = preview.meta({
-  title: 'Core/Table/DoubleLineLayout',
+  title: 'Data and tables/Table/DoubleLineLayout',
   component: Table.DoubleLineLayout,
   argTypes: {
     children: {

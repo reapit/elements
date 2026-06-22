@@ -5,7 +5,7 @@ import { useArgs } from 'storybook/preview-api'
 import type { ChangeEventHandler } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/CheckboxControl',
+  title: 'Input and selection/CheckboxControl',
   component: CheckboxControl,
   argTypes: {
     checked: {

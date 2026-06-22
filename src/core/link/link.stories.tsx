@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { Link } from './link'
 
 const meta = preview.meta({
-  title: 'Core/Link',
+  title: 'Navigation/Link',
   component: Link,
   args: {
     children: 'Example Link',

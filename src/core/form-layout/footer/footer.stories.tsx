@@ -4,7 +4,7 @@ import { ButtonGroup } from '#src/core/button-group'
 import { FormLayout } from '../form-layout'
 
 const meta = preview.meta({
-  title: 'Core/FormLayout/Footer',
+  title: 'Containers and layout/FormLayout/Footer',
   component: FormLayout.Footer,
   parameters: {
     docs: { source: { type: 'code' } },

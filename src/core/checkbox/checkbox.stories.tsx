@@ -3,7 +3,7 @@ import { Checkbox } from './checkbox'
 import { LabelText } from '../label-text'
 
 const meta = preview.meta({
-  title: 'Core/Checkbox',
+  title: 'Input and selection/Checkbox',
   component: Checkbox,
   argTypes: {
     label: {

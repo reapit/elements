@@ -5,7 +5,7 @@ import { supportedAppNames } from './app-logo'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/BrandLogo',
+  title: 'Navigation/TopBar/BrandLogo',
   component: TopBar.BrandLogo,
   argTypes: {
     appName: {

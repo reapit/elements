@@ -8,7 +8,7 @@ import {
 } from './styles'
 
 const meta = preview.meta({
-  title: 'Core/Avatar Rectangle',
+  title: 'Content display/Avatar Rectangle',
   component: AvatarRectangle,
   args: {
     variant: 'residential',

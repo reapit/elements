@@ -5,7 +5,7 @@ import { FolderTabs } from '../folder-tabs'
 import { useFolderTabsContainerDecorator } from '../__story__/useFolderTabsContainerDecorator'
 
 const meta = preview.meta({
-  title: 'Core/FolderTabs/Tab',
+  title: 'Navigation/FolderTabs/Tab',
   component: FolderTabs.Item,
   argTypes: {
     'aria-current': {

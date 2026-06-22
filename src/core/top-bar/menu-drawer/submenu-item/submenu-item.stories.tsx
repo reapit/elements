@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { TopBarMenuDrawerSubmenuItem } from './submenu-item'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/MenuDrawer/SubmenuItem',
+  title: 'Navigation/TopBar/MenuDrawer/SubmenuItem',
   component: TopBarMenuDrawerSubmenuItem,
 })
 

@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { Features } from '../features'
 
 const meta = preview.meta({
-  title: 'Core/Features/CarSpaces',
+  title: 'Content display/Features/CarSpaces',
   component: Features.CarSpaces,
   argTypes: {
     value: {

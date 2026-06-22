@@ -4,7 +4,7 @@ import { FolderTabs } from '../folder-tabs'
 import { useFolderTabsContainerDecorator } from '../__story__/useFolderTabsContainerDecorator'
 
 const meta = preview.meta({
-  title: 'Core/FolderTabs/CountLabel',
+  title: 'Navigation/FolderTabs/CountLabel',
   component: FolderTabs.CountLabel,
 })
 

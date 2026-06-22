@@ -10,7 +10,7 @@ import { useDrawerContextDecorator } from './__story__/useDrawerContextDecorator
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/Drawer',
+  title: 'Containers and layout/Drawer',
   component: Drawer,
   argTypes: {
     children: {

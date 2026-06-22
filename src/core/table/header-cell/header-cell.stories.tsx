@@ -5,7 +5,7 @@ import { Tooltip } from '#src/core/tooltip'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
 const meta = preview.meta({
-  title: 'Core/Table/HeaderCell',
+  title: 'Data and tables/Table/HeaderCell',
   component: Table.HeaderCell,
   argTypes: {
     'aria-sort': {

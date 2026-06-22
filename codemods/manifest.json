@@ -71,6 +71,10 @@
       "description": "Migrates Combobox imports from core/combobox to utils/combobox"
     },
     {
+      "name": "rewrite-theme-provider-imports",
+      "description": "Migrates ThemeProvider imports from core/theme-provider to utils/theme-provider"
+    },
+    {
       "name": "rewrite-text-font-imports",
       "description": "Migrates Text and font imports from core/text to utils/text and utils/font"
     },

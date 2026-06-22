@@ -4,7 +4,7 @@ import { Breadcrumbs } from '../breadcrumbs'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/Breadcrumbs/Item',
+  title: 'Navigation/Breadcrumbs/Item',
   component: Breadcrumbs.Item,
   argTypes: {
     children: {

@@ -5,7 +5,7 @@ import { GalleryViewerThumbnailButton } from './thumbnail-button'
 const EXAMPLE_IMAGE_SRC = 'https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=176&h=112&fit=crop'
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer/Thumbnail',
+  title: 'Content display/GalleryViewer/Thumbnail',
   component: GalleryViewerThumbnail,
   subcomponents: { ThumbnailButton: GalleryViewerThumbnailButton },
   argTypes: {

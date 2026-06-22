@@ -8,7 +8,7 @@ import { Text } from '#src/utils/text'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/Table',
+  title: 'Data and tables/Table',
   component: Table,
   argTypes: {
     as: {

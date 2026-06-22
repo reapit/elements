@@ -11,7 +11,7 @@ import { WarningIcon } from '#src/icons/warning'
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/SectionMessage',
+  title: 'Messaging/SectionMessage',
   component: SectionMessage,
   argTypes: {
     children: {

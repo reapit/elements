@@ -13,7 +13,7 @@ import { WarningIcon } from '#src/icons/warning'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
 const meta = preview.meta({
-  title: 'Core/Table/BodyCell',
+  title: 'Data and tables/Table/BodyCell',
   component: Table.BodyCell,
   argTypes: {
     as: {

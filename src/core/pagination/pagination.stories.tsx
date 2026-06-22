@@ -4,7 +4,7 @@ import { Pagination } from './pagination'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/Pagination',
+  title: 'Navigation/Pagination',
   component: Pagination,
   argTypes: {
     leftAction: {

@@ -5,7 +5,7 @@ import { Menu } from '#src/core/menu'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/MainNav',
+  title: 'Navigation/TopBar/MainNav',
   component: TopBar.MainNav,
   argTypes: {
     children: {

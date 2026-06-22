@@ -3,7 +3,7 @@ import { GalleryViewerDialogContext } from '../context'
 import { GalleryViewerDialog } from '../dialog'
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer/Dialog/Header',
+  title: 'Content display/GalleryViewer/Dialog/Header',
   component: GalleryViewerDialog.Header,
   argTypes: {
     children: {

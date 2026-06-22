@@ -7,7 +7,7 @@ import { TopBar } from '../top-bar'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/SecondaryNav',
+  title: 'Navigation/TopBar/SecondaryNav',
   component: TopBar.SecondaryNav,
   argTypes: {
     children: {

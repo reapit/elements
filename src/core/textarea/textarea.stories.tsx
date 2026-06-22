@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { Textarea } from './index'
 
 const meta = preview.meta({
-  title: 'Core/Textarea',
+  title: 'Input and selection/Textarea',
   component: Textarea,
   argTypes: {
     defaultValue: { control: 'text' },

@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { FormLayout } from '../../form-layout'
 
 const meta = preview.meta({
-  title: 'Core/FormLayout/SectionTitle',
+  title: 'Containers and layout/FormLayout/SectionTitle',
   component: FormLayout.SectionTitle,
   argTypes: {
     as: {

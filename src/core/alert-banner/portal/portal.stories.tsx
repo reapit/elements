@@ -5,7 +5,7 @@ import { AlertBannerPortal } from './portal'
 import { InfoIcon } from '#src/icons/info'
 
 const meta = preview.meta({
-  title: 'Core/AlertBanner/Portal',
+  title: 'Messaging/AlertBanner/Portal',
   component: AlertBannerPortal,
   argTypes: {
     children: {

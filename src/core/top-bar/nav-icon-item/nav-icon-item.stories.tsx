@@ -6,7 +6,7 @@ import { StarIcon } from '#src/icons/star'
 import { TopBarNavIconItem } from './nav-icon-item'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/NavIconItem',
+  title: 'Navigation/TopBar/NavIconItem',
   component: TopBarNavIconItem,
   argTypes: {
     'aria-current': {

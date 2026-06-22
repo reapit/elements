@@ -7,7 +7,7 @@ import type { TableRowPrimaryActionButton } from './primary-action-button'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/Table/PrimaryAction',
+  title: 'Data and tables/Table/PrimaryAction',
   component: Table.PrimaryAction,
   subcomponents: { PrimaryActionButton: Table.PrimaryActionButton },
   argTypes: {

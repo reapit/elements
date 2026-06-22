@@ -10,7 +10,7 @@ import { WarningIcon } from '#src/icons/warning'
 import { prioritiseByVariantAndDOMOrder } from './prioritiseByVariantAndDOMOrder'
 
 const meta = preview.meta({
-  title: 'Core/AlertBanner/Outlet',
+  title: 'Messaging/AlertBanner/Outlet',
   component: AlertBannerOutlet,
   argTypes: {
     children: {

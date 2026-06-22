@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { CurrencyInput } from './currency-input'
 
 const meta = preview.meta({
-  title: 'Core/CurrencyInput',
+  title: 'Input and selection/CurrencyInput',
   component: CurrencyInput,
   argTypes: {
     currency: {

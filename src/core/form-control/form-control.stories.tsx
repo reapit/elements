@@ -5,7 +5,7 @@ import { Pattern } from '../drawer/__story__/Pattern'
 import { ChipSelect } from '../chip-select'
 
 const meta = preview.meta({
-  title: 'Core/FormControl',
+  title: 'Input and selection/FormControl',
   component: FormControl,
   argTypes: {
     as: {

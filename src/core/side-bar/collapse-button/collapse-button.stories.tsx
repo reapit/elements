@@ -4,7 +4,7 @@ import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-de
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
 const meta = preview.meta({
-  title: 'Core/SideBar/CollapseButton',
+  title: 'Navigation/SideBar/CollapseButton',
   component: SideBar.CollapseButton,
   // NOTE: decorators are applied in array order, inside-out. That is, useSideBarWidthDecorator wraps the story first,
   // then useSideBarContextDecorator wraps the result of that.

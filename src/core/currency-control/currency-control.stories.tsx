@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { CurrencyControl } from './currency-control'
 
 const meta = preview.meta({
-  title: 'Core/CurrencyControl',
+  title: 'Input and selection/CurrencyControl',
   component: CurrencyControl,
   argTypes: {
     currency: {

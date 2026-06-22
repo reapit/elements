@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { CheckboxGroupControl } from './checkbox-group-control'
 
 const meta = preview.meta({
-  title: 'Core/CheckboxGroupControl',
+  title: 'Input and selection/CheckboxGroupControl',
   component: CheckboxGroupControl,
   argTypes: {
     children: {

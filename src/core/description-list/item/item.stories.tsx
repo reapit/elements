@@ -4,7 +4,7 @@ import { Features } from '../../features'
 import { LineClamp } from '#src/utils/line-clamp'
 
 const meta = preview.meta({
-  title: 'Core/DescriptionList/Item',
+  title: 'Content display/DescriptionList/Item',
   component: DescriptionList.Item,
   argTypes: {
     area: {

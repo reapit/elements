@@ -5,7 +5,7 @@ import { Tooltip } from '#src/core/tooltip'
 import { useId } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/Chip',
+  title: 'Indicators and status/Chip',
   component: Chip,
   argTypes: {
     'aria-disabled': {

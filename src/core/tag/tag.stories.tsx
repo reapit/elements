@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { Tag } from './tag'
 
 const meta = preview.meta({
-  title: 'Core/Tag',
+  title: 'Indicators and status/Tag',
   component: Tag,
   argTypes: {
     children: {

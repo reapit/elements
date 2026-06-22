@@ -4,7 +4,7 @@ import { Menu } from '#src/core/menu'
 import { useId } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/NavDropdownButton',
+  title: 'Navigation/TopBar/NavDropdownButton',
   component: TopBarNavDropdownButton,
   argTypes: {
     children: {

@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { SelectNative } from './select-native'
 
 const meta = preview.meta({
-  title: 'Core/SelectNative',
+  title: 'Input and selection/SelectNative',
   component: SelectNative,
   argTypes: {
     children: {

@@ -3,7 +3,7 @@ import { SearchInput } from './search-input'
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/SearchInput',
+  title: 'Input and selection/SearchInput',
   component: SearchInput,
   argTypes: {
     size: {

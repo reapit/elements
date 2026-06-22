@@ -3,7 +3,7 @@ import { MainContainer } from '../main-container'
 import { ContentPlaceholder } from './__story__/placeholders'
 
 const meta = preview.meta({
-  title: 'Core/MainContainer',
+  title: 'Containers and layout/MainContainer',
   component: MainContainer,
   argTypes: {
     backgroundColour: {

@@ -7,7 +7,7 @@ import { MatchMedia } from '#src/utils/match-media'
 import { isWidthAtOrAbove, isWidthBelow } from '#src/utils/breakpoints'
 
 const meta = preview.meta({
-  title: 'Core/FilterBar/AppliedFilters',
+  title: 'Input and selection/FilterBar/AppliedFilters',
   component: FilterBar.AppliedFilters,
   argTypes: {
     children: {

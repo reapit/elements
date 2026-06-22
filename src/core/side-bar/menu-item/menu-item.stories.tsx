@@ -8,7 +8,7 @@ import { useSideBarContextDecorator } from '../__story__/use-side-bar-context-de
 import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decorator'
 
 const meta = preview.meta({
-  title: 'Core/SideBar/MenuItem',
+  title: 'Navigation/SideBar/MenuItem',
   component: SideBarMenuItem,
   argTypes: {
     children: {

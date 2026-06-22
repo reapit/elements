@@ -4,7 +4,7 @@ import { TopBar } from '../top-bar'
 
 const meta = preview.meta({
   component: TopBar.AvatarButton,
-  title: 'Core/TopBar/AvatarButton',
+  title: 'Navigation/TopBar/AvatarButton',
 })
 
 export const Example = meta.story({

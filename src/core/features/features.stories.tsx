@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { Features } from './features'
 
 const meta = preview.meta({
-  title: 'Core/Features',
+  title: 'Content display/Features',
   component: Features,
   argTypes: {
     children: {

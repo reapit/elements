@@ -4,7 +4,7 @@ import { useArgs } from 'storybook/preview-api'
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer/Dialog',
+  title: 'Content display/GalleryViewer/Dialog',
   component: GalleryViewerDialog,
   argTypes: {
     children: {

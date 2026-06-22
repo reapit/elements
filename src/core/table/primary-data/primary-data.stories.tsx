@@ -10,7 +10,7 @@ import { Text } from '#src/utils/text'
 import { Tooltip } from '#src/core/tooltip'
 
 const meta = preview.meta({
-  title: 'Core/Table/PrimaryData',
+  title: 'Data and tables/Table/PrimaryData',
   component: Table.PrimaryData,
   argTypes: {
     children: {

@@ -3,7 +3,7 @@ import { AtAGlance } from '../at-a-glance'
 import { buildCards } from '../__story__/build-cards'
 
 const meta = preview.meta({
-  title: 'Core/AtAGlance/Carousel',
+  title: 'Content display/AtAGlance/Carousel',
   component: AtAGlance.Carousel,
   argTypes: {
     children: { control: false },

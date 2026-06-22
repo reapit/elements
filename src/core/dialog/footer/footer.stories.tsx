@@ -4,7 +4,7 @@ import { Dialog } from '../dialog'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 
 const meta = preview.meta({
-  title: 'Core/Dialog/Footer',
+  title: 'Containers and layout/Dialog/Footer',
   component: Dialog.Footer,
   argTypes: {
     children: {

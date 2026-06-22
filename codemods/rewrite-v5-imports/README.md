@@ -94,14 +94,14 @@ import { elFlex, getIntentClassName } from '@reapit/elements'
 import { elFlex, getIntentClassName } from '@reapit/elements/deprecated/styles'
 ```
 
-The `Theme` type is now available from `@reapit/elements/core/theme-provider`:
+The `Theme` type is now available from `@reapit/elements/utils/theme-provider`:
 
 ```tsx
 // Before
 import type { Theme } from '@reapit/elements'
 
 // After
-import type { Theme } from '@reapit/elements/core/theme-provider'
+import type { Theme } from '@reapit/elements/utils/theme-provider'
 ```
 
 ### Type imports

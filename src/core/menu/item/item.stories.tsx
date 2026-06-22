@@ -7,7 +7,7 @@ import { PropertyIcon } from '#src/icons/property'
 import { StarIcon } from '#src/icons/star'
 
 const meta = preview.meta({
-  title: 'Core/Menu/Item',
+  title: 'Input and selection/Menu/Item',
   component: Menu.Item,
   subcomponents: { AnchorMenuItem },
   argTypes: {

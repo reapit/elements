@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { TopBarNavItem } from './nav-item'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/NavItem',
+  title: 'Navigation/TopBar/NavItem',
   component: TopBarNavItem,
 })
 

@@ -5,7 +5,7 @@ import * as ChipStories from '../chip/chip.stories'
 import type { Decorator } from '@storybook/react-vite'
 
 const meta = preview.meta({
-  title: 'Core/ChipGroup',
+  title: 'Indicators and status/ChipGroup',
   component: ChipGroup,
   argTypes: {
     children: {

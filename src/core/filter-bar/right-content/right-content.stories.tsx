@@ -3,7 +3,7 @@ import { Button } from '#src/core/button'
 import { FilterBar } from '../filter-bar'
 
 const meta = preview.meta({
-  title: 'Core/FilterBar/RightContent',
+  title: 'Input and selection/FilterBar/RightContent',
   component: FilterBar.RightContent,
   argTypes: {
     children: {

@@ -4,7 +4,7 @@ import LogoDevice from './__story__/logo-device.svg?react'
 import { PageHeader } from '../page-header'
 
 const meta = preview.meta({
-  title: 'Core/PageHeader/LeadingElement',
+  title: 'Containers and layout/PageHeader/LeadingElement',
   component: PageHeader.LeadingElement,
   argTypes: {
     children: {

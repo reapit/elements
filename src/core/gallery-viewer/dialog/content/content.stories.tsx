@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { GalleryViewerDialog } from '../dialog'
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer/Dialog/Content',
+  title: 'Content display/GalleryViewer/Dialog/Content',
   component: GalleryViewerDialog.Content,
   argTypes: {
     children: {

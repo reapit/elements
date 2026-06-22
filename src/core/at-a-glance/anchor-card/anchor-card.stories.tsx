@@ -5,7 +5,7 @@ import { Text } from '#src/utils/text'
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/AtAGlance/AnchorCard',
+  title: 'Content display/AtAGlance/AnchorCard',
   component: AtAGlance.AnchorCard,
   argTypes: {
     'aria-current': {

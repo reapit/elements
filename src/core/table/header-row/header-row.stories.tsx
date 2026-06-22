@@ -3,7 +3,7 @@ import { Table } from '../table'
 import { useTableDecorator } from '../__story__/use-table-decorator'
 
 const meta = preview.meta({
-  title: 'Core/Table/HeaderRow',
+  title: 'Data and tables/Table/HeaderRow',
   component: Table.HeaderRow,
   argTypes: {
     as: {

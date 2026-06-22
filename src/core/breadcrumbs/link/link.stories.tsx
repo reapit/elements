@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { Breadcrumbs } from '../breadcrumbs'
 
 const meta = preview.meta({
-  title: 'Core/Breadcrumbs/Link',
+  title: 'Navigation/Breadcrumbs/Link',
   component: Breadcrumbs.Link,
   argTypes: {
     children: {

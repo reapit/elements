@@ -3,7 +3,7 @@ import { AutocompleteControl } from './autocomplete-control'
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/AutocompleteControl',
+  title: 'Input and selection/AutocompleteControl',
   component: AutocompleteControl,
   argTypes: {
     children: {

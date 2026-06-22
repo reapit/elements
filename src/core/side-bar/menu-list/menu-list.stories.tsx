@@ -8,7 +8,7 @@ import { useSideBarWidthDecorator } from '../__story__/use-side-bar-width-decora
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/SideBar/MenuList',
+  title: 'Navigation/SideBar/MenuList',
   component: SideBar.MenuList,
   argTypes: {
     children: {

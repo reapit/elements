@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { FormControl } from '../form-control'
 
 const meta = preview.meta({
-  title: 'Core/FormControl/Label',
+  title: 'Input and selection/FormControl/Label',
   component: FormControl.Label,
   argTypes: {
     as: {

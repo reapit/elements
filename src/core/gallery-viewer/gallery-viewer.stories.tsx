@@ -38,7 +38,7 @@ function imageSrc(baseSrc: string, width: number, height: number) {
 }
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer',
+  title: 'Content display/GalleryViewer',
   component: GalleryViewer,
   argTypes: {
     children: { control: false },

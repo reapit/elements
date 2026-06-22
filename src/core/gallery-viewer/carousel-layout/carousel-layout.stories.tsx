@@ -36,7 +36,7 @@ function imageSrc(baseSrc: string, width: number, height: number) {
 }
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer/CarouselLayout',
+  title: 'Content display/GalleryViewer/CarouselLayout',
   component: GalleryViewer.CarouselLayout,
   argTypes: {
     main: { control: false },

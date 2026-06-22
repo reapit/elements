@@ -21,6 +21,7 @@ export const transforms = {
   "rewrite-anz-app-switcher-imports": () => import("./rewrite-anz-app-switcher-imports/transform.js"),
   "rewrite-combobox-imports": () => import("./rewrite-combobox-imports/transform.js"),
   "rewrite-text-font-imports": () => import("./rewrite-text-font-imports/transform.js"),
+  "rewrite-theme-provider-imports": () => import("./rewrite-theme-provider-imports/transform.js"),
   "rewrite-v4-imports": () => import("./rewrite-v4-imports/transform.js"),
   "rewrite-v5-imports": () => import("./rewrite-v5-imports/transform.js"),
   "upgrade-css-variables": () => import("./upgrade-css-variables/transform.js"),

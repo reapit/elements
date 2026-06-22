@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { RadioGroupControl } from './radio-group-control'
 
 const meta = preview.meta({
-  title: 'Core/RadioGroupControl',
+  title: 'Input and selection/RadioGroupControl',
   component: RadioGroupControl,
   argTypes: {
     children: {

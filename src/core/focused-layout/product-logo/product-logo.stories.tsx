@@ -3,7 +3,7 @@ import { FocusedLayout } from '../focused-layout'
 import { supportedProductLogos } from './product-logo'
 
 const meta = preview.meta({
-  title: 'Core/FocusedLayout/ProductLogo',
+  title: 'Containers and layout/FocusedLayout/ProductLogo',
   component: FocusedLayout.ProductLogo,
   argTypes: {
     product: {

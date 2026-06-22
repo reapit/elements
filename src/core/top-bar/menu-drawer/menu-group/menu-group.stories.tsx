@@ -4,7 +4,7 @@ import { TopBarMenuDrawerMenuGroupSummary } from './menu-group-summary'
 import { TopBarMenuDrawerSubmenu } from '../submenu'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/MenuDrawer/MenuGroup',
+  title: 'Navigation/TopBar/MenuDrawer/MenuGroup',
   component: TopBarMenuDrawerMenuGroup,
   argTypes: {
     children: {

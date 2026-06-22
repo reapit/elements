@@ -7,7 +7,7 @@ import { useTableDecorator } from '../__story__/use-table-decorator'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/Table/Body',
+  title: 'Data and tables/Table/Body',
   component: Table.Body,
   argTypes: {
     as: {

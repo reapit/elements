@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { TagGroup } from './tag-group'
 
 const meta = preview.meta({
-  title: 'Core/TagGroup',
+  title: 'Indicators and status/TagGroup',
   component: TagGroup,
   argTypes: {
     children: {

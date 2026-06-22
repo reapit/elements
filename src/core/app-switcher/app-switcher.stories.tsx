@@ -6,7 +6,7 @@ import { productDisplayOrder_DO_NOT_ADD_PRODUCTS_TO_THIS_UNLESS_APPROVED_FOR_DIS
 import type { SupportedProductId } from './anz/config'
 
 const meta = preview.type<{ args: { accessibleProductIds?: SupportedProductId[] } }>().meta({
-  title: 'Core/AppSwitcher',
+  title: 'Navigation/AppSwitcher',
   component: AppSwitcher,
   args: {
     children: undefined,

@@ -5,7 +5,7 @@ import { BedIcon } from '#src/icons/bed'
 import { CarIcon } from '#src/icons/car'
 
 const meta = preview.meta({
-  title: 'Core/Features/Item',
+  title: 'Content display/Features/Item',
   component: Features.Item,
   argTypes: {
     icon: {

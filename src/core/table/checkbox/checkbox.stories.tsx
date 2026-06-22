@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react'
 import type { ChangeEventHandler } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/Table/Checkbox',
+  title: 'Data and tables/Table/Checkbox',
   component: Table.Checkbox,
   argTypes: {
     checked: {

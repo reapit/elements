@@ -4,7 +4,7 @@ import { SupplementaryInfoItem } from './supplementary-info-item'
 import type { SupplementaryInfoColour } from './supplementary-info-item'
 
 const meta = preview.meta({
-  title: 'Core/SupplementaryInfo/Item',
+  title: 'Content display/SupplementaryInfo/Item',
   component: SupplementaryInfoItem,
   argTypes: {
     colour: {

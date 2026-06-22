@@ -12,7 +12,7 @@ import type { Decorator } from '@storybook/react-vite'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/TopBar',
+  title: 'Navigation/TopBar',
   component: TopBar,
   argTypes: {
     appSwitcher: {

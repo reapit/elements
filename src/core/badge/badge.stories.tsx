@@ -6,7 +6,7 @@ import { ChevronRightIcon } from '#src/icons/chevron-right'
 import { StarIcon } from '#src/icons/star'
 
 const meta = preview.meta({
-  title: 'Core/Badge',
+  title: 'Indicators and status/Badge',
   component: Badge,
   argTypes: {
     children: {

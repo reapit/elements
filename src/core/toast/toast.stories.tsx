@@ -3,7 +3,7 @@ import { Toast } from './toast'
 import { MessageIcon } from '#src/icons/message'
 
 const meta = preview.meta({
-  title: 'Core/Toast',
+  title: 'Messaging/Toast',
   component: Toast,
   argTypes: {
     icon: {

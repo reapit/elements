@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { FormControl } from '../form-control'
 
 const meta = preview.meta({
-  title: 'Core/FormControl/HelpText',
+  title: 'Input and selection/FormControl/HelpText',
   component: FormControl.HelpText,
   argTypes: {
     children: {

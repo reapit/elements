@@ -6,7 +6,7 @@ import { FilterBar } from '../filter-bar'
 import { FilterIcon } from '#src/icons/filter'
 
 const meta = preview.meta({
-  title: 'Core/FilterBar/LeftContent',
+  title: 'Input and selection/FilterBar/LeftContent',
   component: FilterBar.LeftContent,
   argTypes: {
     children: {

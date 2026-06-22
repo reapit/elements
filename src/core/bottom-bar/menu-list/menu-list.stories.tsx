@@ -9,7 +9,7 @@ import { StarIcon } from '#src/icons/star'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/BottomBar/MenuList',
+  title: 'Navigation/BottomBar/MenuList',
   component: BottomBar.MenuList,
   argTypes: {
     children: {

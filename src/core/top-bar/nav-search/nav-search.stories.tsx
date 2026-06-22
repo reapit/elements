@@ -4,7 +4,7 @@ import { TopBar } from '../top-bar'
 import type { Decorator } from '@storybook/react-vite'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/NavSearch',
+  title: 'Navigation/TopBar/NavSearch',
   component: TopBar.NavSearch,
   argTypes: {
     button: {

@@ -2,7 +2,7 @@ import addonDocs from '@storybook/addon-docs'
 import addonA11y from '@storybook/addon-a11y'
 import addonLinks from '@storybook/addon-links'
 import { definePreview } from '@storybook/react-vite'
-import { ThemeProvider } from '#src/core/theme-provider'
+import { ThemeProvider } from '#src/utils/theme-provider'
 import { BreakpointMinimumDimensions } from '#src/utils/breakpoints'
 
 import '../src/styles/globals'

@@ -7,7 +7,7 @@ import { useId } from 'react'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/Menu',
+  title: 'Input and selection/Menu',
   component: Menu,
   argTypes: {
     children: {

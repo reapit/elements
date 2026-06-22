@@ -6,7 +6,7 @@ import { useEffect, useRef } from 'react'
 import type { ChangeEventHandler } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/CheckboxInput',
+  title: 'Input and selection/CheckboxInput',
   component: CheckboxInput,
   argTypes: {
     checked: {

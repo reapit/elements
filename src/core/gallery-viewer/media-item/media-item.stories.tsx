@@ -8,7 +8,7 @@ const EXAMPLE_IMAGE = 'https://images.unsplash.com/photo-1564013799919-ab600027f
 const EXAMPLE_VIDEO_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer/MediaItem',
+  title: 'Content display/GalleryViewer/MediaItem',
   component: GalleryViewerMediaItem,
   argTypes: {
     children: { control: false },

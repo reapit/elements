@@ -4,7 +4,7 @@ import { SupplementaryInfo } from '../supplementary-info'
 import { useId } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/Select',
+  title: 'Input and selection/Select',
   component: Select,
   argTypes: {
     children: {

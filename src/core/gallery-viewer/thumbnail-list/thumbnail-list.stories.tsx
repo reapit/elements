@@ -10,7 +10,7 @@ const EXAMPLE_IMAGE_SRC_6 = 'https://images.unsplash.com/photo-1493809842364-788
 const EXAMPLE_IMAGE_SRC_7 = 'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=176&h=112&fit=crop'
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer/ThumbnailList',
+  title: 'Content display/GalleryViewer/ThumbnailList',
   component: GalleryViewer.ThumbnailList,
   argTypes: {
     children: {

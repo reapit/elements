@@ -5,7 +5,7 @@ import { Card } from './card'
 import { CardContent } from './__story__/card-content'
 
 const meta = preview.meta({
-  title: 'Core/Card',
+  title: 'Containers and layout/Card',
   component: Card,
   subcomponents: { ButtonCard, AnchorCard },
   argTypes: {

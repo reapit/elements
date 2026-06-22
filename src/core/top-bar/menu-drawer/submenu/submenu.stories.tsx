@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { TopBarMenuDrawer } from '../menu-drawer'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/MenuDrawer/Submenu',
+  title: 'Navigation/TopBar/MenuDrawer/Submenu',
   component: TopBarMenuDrawer.Submenu,
   argTypes: {
     children: {

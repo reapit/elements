@@ -3,7 +3,7 @@ import { PageLayout } from './page-layout'
 import { TopBarPlaceholder, SideBarPlaceholder, BodyPlaceholder, BottomBarPlaceholder } from './__story__/placeholders'
 
 const meta = preview.meta({
-  title: 'Core/PageLayout',
+  title: 'Containers and layout/PageLayout',
   component: PageLayout,
   argTypes: {
     backgroundColour: {

@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { CompactSelect } from './compact-select'
 
 const meta = preview.meta({
-  title: 'Core/CompactSelect',
+  title: 'Input and selection/CompactSelect',
   component: CompactSelect,
   argTypes: {
     children: {

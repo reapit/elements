@@ -7,7 +7,7 @@ import type { ReactNode } from 'react'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/MenuDrawer/MenuList',
+  title: 'Navigation/TopBar/MenuDrawer/MenuList',
   component: TopBarMenuDrawer.MenuList,
   argTypes: {
     children: {

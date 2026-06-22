@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { Divider } from './divider'
 
 const meta = preview.meta({
-  title: 'Core/Divider',
+  title: 'Containers and layout/Divider',
   component: Divider,
   decorators: [
     (Story) => (

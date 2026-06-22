@@ -4,7 +4,7 @@ import { StatusIndicator } from './status-indicator'
 const variants = ['neutral', 'success', 'pending', 'warning', 'danger', 'inactive', 'accent_1', 'accent_2'] as const
 
 const meta = preview.meta({
-  title: 'Core/StatusIndicator',
+  title: 'Indicators and status/StatusIndicator',
   component: StatusIndicator,
   argTypes: {
     children: {

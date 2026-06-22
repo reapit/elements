@@ -4,7 +4,7 @@ import { TopBar } from '../top-bar'
 
 const meta = preview.meta({
   component: TopBar.AvatarMenu,
-  title: 'Core/TopBar/AvatarMenu',
+  title: 'Navigation/TopBar/AvatarMenu',
   argTypes: {
     children: {
       control: false,

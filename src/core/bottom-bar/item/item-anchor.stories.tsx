@@ -6,7 +6,7 @@ import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
 
 const meta = preview.meta({
-  title: 'Core/BottomBar/ItemAnchor',
+  title: 'Navigation/BottomBar/ItemAnchor',
   component: BottomBarItemAnchor,
   argTypes: {
     'aria-current': {

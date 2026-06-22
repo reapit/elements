@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { EmptyState } from '../empty-state'
 
 const meta = preview.meta({
-  title: 'Core/EmptyState/Description',
+  title: 'Indicators and status/EmptyState/Description',
   component: EmptyState.Description,
   argTypes: {
     children: {

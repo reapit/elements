@@ -5,7 +5,7 @@ import { Table } from '../table'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/Table/MoreActions',
+  title: 'Data and tables/Table/MoreActions',
   component: Table.MoreActions,
   argTypes: {
     children: {

@@ -3,7 +3,7 @@ import { Pattern } from '#src/core/drawer/__story__/Pattern'
 import { FocusedLayout } from '../focused-layout'
 
 const meta = preview.meta({
-  title: 'Core/FocusedLayout/Content',
+  title: 'Containers and layout/FocusedLayout/Content',
   component: FocusedLayout.Content,
   parameters: {
     layout: 'fullscreen',

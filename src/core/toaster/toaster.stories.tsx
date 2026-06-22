@@ -6,7 +6,7 @@ import { toast } from './toast-fn'
 import { Toaster } from './toaster'
 
 const meta = preview.meta({
-  title: 'Core/Toaster',
+  title: 'Messaging/Toaster',
   component: Toaster,
   parameters: {
     docs: {

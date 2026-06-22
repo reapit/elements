@@ -6,7 +6,7 @@ import { useArgs } from 'storybook/preview-api'
 import { useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/Dialog',
+  title: 'Containers and layout/Dialog',
   component: Dialog,
   argTypes: {
     children: {

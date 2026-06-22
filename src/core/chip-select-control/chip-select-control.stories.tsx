@@ -5,7 +5,7 @@ import { StarIcon } from '#src/icons/star'
 import { useId } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/ChipSelectControl',
+  title: 'Input and selection/ChipSelectControl',
   component: ChipSelectControl,
   argTypes: {
     children: {

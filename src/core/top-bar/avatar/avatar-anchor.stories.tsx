@@ -5,7 +5,7 @@ const href = '#'
 
 const meta = preview.meta({
   component: TopBar.AvatarAnchor,
-  title: 'Core/TopBar/AvatarAnchor',
+  title: 'Navigation/TopBar/AvatarAnchor',
 })
 
 export const Example = meta.story({

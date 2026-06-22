@@ -4,7 +4,7 @@ import { AppSwitcherMenuGroupHasAccessContext } from '../../menu-group-has-acces
 import { productConfigs } from '../config'
 
 const meta = preview.meta({
-  title: 'Core/AppSwitcher/ANZ/ProductMenuItem',
+  title: 'Navigation/AppSwitcher/ANZ/ProductMenuItem',
   component: AppSwitcherProductMenuItem,
   argTypes: {
     productId: {

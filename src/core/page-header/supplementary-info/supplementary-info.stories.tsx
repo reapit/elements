@@ -5,7 +5,7 @@ import { PageHeader } from '../page-header'
 import { SupplementaryInfo } from '#src/core/supplementary-info/index'
 
 const meta = preview.meta({
-  title: 'Core/PageHeader/SupplementaryInfo',
+  title: 'Containers and layout/PageHeader/SupplementaryInfo',
   component: PageHeader.SupplementaryInfo,
   argTypes: {
     children: {

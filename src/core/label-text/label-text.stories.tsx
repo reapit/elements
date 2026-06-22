@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { LabelText } from './label-text'
 
 const meta = preview.meta({
-  title: 'Core/LabelText',
+  title: 'Input and selection/LabelText',
   component: LabelText,
   argTypes: {
     size: {

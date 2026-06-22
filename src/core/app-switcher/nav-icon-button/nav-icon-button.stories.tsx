@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { AppSwitcherNavIconButton } from './nav-icon-button'
 
 const meta = preview.meta({
-  title: 'Core/AppSwitcher/NavIconButton',
+  title: 'Navigation/AppSwitcher/NavIconButton',
   component: AppSwitcherNavIconButton,
   argTypes: {
     onClick: {

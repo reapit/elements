@@ -17,7 +17,7 @@ const EXAMPLE_IMAGES = [
 const EXAMPLE_VIDEO_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer/Carousel',
+  title: 'Content display/GalleryViewer/Carousel',
   component: GalleryViewer.Carousel,
   argTypes: {
     children: { control: false },

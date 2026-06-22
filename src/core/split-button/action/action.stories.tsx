@@ -6,7 +6,7 @@ import { SplitButtonContext } from '../context'
 import { StarIcon } from '#src/icons/star'
 
 const meta = preview.meta({
-  title: 'Core/SplitButton/Action',
+  title: 'Buttons/SplitButton/Action',
   component: SplitButton.Action,
   subcomponents: {
     AnchorAction: SplitButton.AnchorAction,

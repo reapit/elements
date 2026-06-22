@@ -17,7 +17,7 @@ import { TagGroup } from '../tag-group'
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/PageHeader',
+  title: 'Containers and layout/PageHeader',
   component: PageHeader,
   argTypes: {
     backgroundColour: {

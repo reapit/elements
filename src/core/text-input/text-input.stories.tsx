@@ -4,7 +4,7 @@ import { LocationIcon } from '#src/icons/location'
 import { TextInput } from './text-input'
 
 const meta = preview.meta({
-  title: 'Core/TextInput',
+  title: 'Input and selection/TextInput',
   component: TextInput,
   argTypes: {
     leadingIcon: {

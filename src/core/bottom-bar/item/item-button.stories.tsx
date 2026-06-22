@@ -7,7 +7,7 @@ import { NotificationIcon } from '#src/icons/notification'
 import { StarIcon } from '#src/icons/star'
 
 const meta = preview.meta({
-  title: 'Core/BottomBar/ItemButton',
+  title: 'Navigation/BottomBar/ItemButton',
   component: BottomBar.ItemButton,
   argTypes: {
     icon: {

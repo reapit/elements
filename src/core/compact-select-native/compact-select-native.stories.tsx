@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { CompactSelectNative } from './compact-select-native'
 
 const meta = preview.meta({
-  title: 'Core/CompactSelectNative',
+  title: 'Input and selection/CompactSelectNative',
   component: CompactSelectNative,
   argTypes: {
     children: {

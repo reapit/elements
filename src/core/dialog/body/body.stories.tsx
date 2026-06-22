@@ -3,7 +3,7 @@ import { Dialog } from '../dialog'
 import { Pattern } from '#src/core/drawer/__story__/Pattern'
 
 const meta = preview.meta({
-  title: 'Core/Dialog/Body',
+  title: 'Containers and layout/Dialog/Body',
   component: Dialog.Body,
   argTypes: {
     children: {

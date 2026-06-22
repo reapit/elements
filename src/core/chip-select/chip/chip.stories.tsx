@@ -4,7 +4,7 @@ import { SproutIcon } from '#src/icons/sprout'
 import { StarIcon } from '#src/icons/star'
 
 const meta = preview.meta({
-  title: 'Core/ChipSelect/Chip',
+  title: 'Input and selection/ChipSelect/Chip',
   component: ChipSelectChip,
   argTypes: {
     checked: {

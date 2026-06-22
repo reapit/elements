@@ -8,7 +8,7 @@ import { Features } from '#src/core/features/index'
 import { Pattern } from '../drawer/__story__/Pattern'
 
 const meta = preview.meta({
-  title: 'Core/Accordion',
+  title: 'Content display/Accordion',
   component: Accordion,
   argTypes: {
     children: {

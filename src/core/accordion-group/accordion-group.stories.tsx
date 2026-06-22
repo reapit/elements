@@ -3,7 +3,7 @@ import { Accordion } from '../accordion'
 import { AccordionGroup } from './accordion-group'
 
 const meta = preview.meta({
-  title: 'Core/AccordionGroup',
+  title: 'Content display/AccordionGroup',
   component: AccordionGroup,
   argTypes: {
     children: {

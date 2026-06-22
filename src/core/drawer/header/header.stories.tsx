@@ -8,7 +8,7 @@ import { useDrawerContextDecorator } from '../__story__/useDrawerContextDecorato
 const href = '#'
 
 const meta = preview.meta({
-  title: 'Core/Drawer/Header',
+  title: 'Containers and layout/Drawer/Header',
   component: Drawer.Header,
   argTypes: {
     action: {

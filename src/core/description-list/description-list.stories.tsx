@@ -5,7 +5,7 @@ import { LineClamp } from '#src/utils/line-clamp'
 import { Text } from '#src/utils/text'
 
 const meta = preview.meta({
-  title: 'Core/DescriptionList',
+  title: 'Content display/DescriptionList',
   component: DescriptionList,
   argTypes: {
     children: {

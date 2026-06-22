@@ -8,7 +8,7 @@ import { TopBarNavIconItemButton } from './nav-icon-item-button'
 import { useId } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/TopBar/NavIconItemButton',
+  title: 'Navigation/TopBar/NavIconItemButton',
   component: TopBarNavIconItemButton,
   argTypes: {
     icon: {

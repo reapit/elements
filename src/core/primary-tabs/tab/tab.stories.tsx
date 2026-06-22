@@ -2,7 +2,7 @@ import preview from '#.storybook/preview'
 import { PrimaryTab } from './tab'
 
 const meta = preview.meta({
-  title: 'Core/PrimaryTabs/Tab',
+  title: 'Navigation/PrimaryTabs/Tab',
   component: PrimaryTab,
 })
 

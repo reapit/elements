@@ -36,7 +36,7 @@ function imageSrc(baseSrc: string, width: number, height: number) {
 }
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer/MediaListLayout',
+  title: 'Content display/GalleryViewer/MediaListLayout',
   component: GalleryViewer.MediaListLayout,
   argTypes: {
     children: { control: false },

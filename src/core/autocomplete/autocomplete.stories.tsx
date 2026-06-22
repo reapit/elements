@@ -4,7 +4,7 @@ import { SupplementaryInfo } from '../supplementary-info'
 import { useEffect, useId, useState } from 'react'
 
 const meta = preview.meta({
-  title: 'Core/Autocomplete',
+  title: 'Input and selection/Autocomplete',
   component: Autocomplete,
   argTypes: {
     children: {

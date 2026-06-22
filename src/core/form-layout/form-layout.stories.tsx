@@ -6,7 +6,7 @@ import { TextControl } from '#src/core/text-control'
 import { FormLayout } from './form-layout'
 
 const meta = preview.meta({
-  title: 'Core/FormLayout',
+  title: 'Containers and layout/FormLayout',
   component: FormLayout,
   argTypes: {
     children: {

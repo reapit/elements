@@ -10,7 +10,7 @@ const EXAMPLE_IMAGE_3 = 'https://images.unsplash.com/photo-1512917774080-9991f1c
 const EXAMPLE_VIDEO_SRC = 'https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.webm'
 
 const meta = preview.meta({
-  title: 'Core/GalleryViewer/MediaList',
+  title: 'Content display/GalleryViewer/MediaList',
   component: GalleryViewer.MediaList,
   argTypes: {
     children: { control: false },

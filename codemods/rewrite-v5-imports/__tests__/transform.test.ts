@@ -87,10 +87,10 @@ describe('formerly root-only exports now map to subpaths', () => {
     expect(output).toBe(`import type { Intent } from '@reapit/elements/deprecated/styles'\n`)
   })
 
-  test('transforms Theme type to core/theme-provider', () => {
+  test('transforms Theme type to utils/theme-provider', () => {
     const input = `import type { Theme } from '@reapit/elements'`
     const output = transform(input, 'test.tsx')
-    expect(output).toBe(`import type { Theme } from '@reapit/elements/core/theme-provider'\n`)
+    expect(output).toBe(`import type { Theme } from '@reapit/elements/utils/theme-provider'\n`)
   })
 
   test('transforms deprecated style class to deprecated/styles', () => {
@@ -124,7 +124,7 @@ describe('mixed subpath-eligible exports including deprecated/styles', () => {
     expect(output).toContain(`import { Button } from '@reapit/elements/core/button'`)
     expect(output).toContain(`import { MoreIcon } from '@reapit/elements/icons/more'`)
     expect(output).toContain(`import { getIntentClassName } from '@reapit/elements/deprecated/styles'`)
-    expect(output).toContain(`import { Theme } from '@reapit/elements/core/theme-provider'`)
+    expect(output).toContain(`import { Theme } from '@reapit/elements/utils/theme-provider'`)
     // No residual barrel import
     expect(output).not.toMatch(/from '@reapit\/elements'/)
   })
