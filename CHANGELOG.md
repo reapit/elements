@@ -1,5 +1,13 @@
 # @reapit/elements
 
+## 5.0.2
+
+### Patch Changes
+
+- **[Fixed]** Wrap `reset.css` rules in `@layer elements.base` so the reset stylesheet participates correctly in the cascade layer order ([#1483](https://github.com/reapit-global/gbl-ds-elements/pull/1483))
+
+- **[Fixed]** User-agent default body margin is now reset in the `elements.base` cascade layer. ([#1485](https://github.com/reapit-global/gbl-ds-elements/pull/1485))
+
 ## 5.0.1
 
 ### Patch Changes
