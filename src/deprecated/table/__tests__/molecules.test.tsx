@@ -61,6 +61,16 @@ describe('DeprecatedTableCell Component', () => {
     )
     expect(wrapper.asFragment()).toMatchSnapshot()
   })
+
+  it('should render a ReactNode icon unchanged', () => {
+    const wrapper = render(<DeprecatedTableCell icon={<span data-testid="custom-icon" />} />)
+    expect(wrapper.getByTestId('custom-icon')).toBeTruthy()
+  })
+
+  it('should render nothing for an unknown icon string', () => {
+    const wrapper = render(<DeprecatedTableCell icon="doesNotExist" />)
+    expect(wrapper.asFragment()).toMatchSnapshot()
+  })
 })
 
 describe('TableExpandableRowTriggerCell Component', () => {

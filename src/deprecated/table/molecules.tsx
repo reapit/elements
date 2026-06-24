@@ -37,6 +37,16 @@ import { handleKeyboardEvent } from '../../storybook/handle-keyboard-event'
 import { MoreIcon } from '#src/icons/more'
 import { SortAscendIcon } from '#src/icons/sort-ascend'
 import { SortDescendIcon } from '#src/icons/sort-descend'
+// imports all icons to support v4 string icon names (e.g. icon="contact")
+import * as allIcons from '#src/icons/docs/all-icons'
+import type { IconProps } from '#src/icons/make-icon/make-icon'
+
+const resolveDeprecatedIcon = (icon: ReactNode): ReactNode => {
+  if (typeof icon !== 'string') return icon
+  const componentName = icon.charAt(0).toUpperCase() + icon.slice(1) + 'Icon'
+  const IconComponent = (allIcons as unknown as Record<string, FC<IconProps>>)[componentName]
+  return IconComponent ? <IconComponent size="sm" color="primary" /> : null
+}
 
 /** @deprecated */
 export type NarrowOrderType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 12
@@ -155,7 +165,7 @@ export const DeprecatedTableCell: FC<DeprecatedTableCellProps> = ({
   )
   return (
     <ElDeprecatedTableCell className={combinedClassname} {...rest}>
-      {icon && icon}
+      {icon && resolveDeprecatedIcon(icon)}
       <ElDeprecatedTableCellContent data-narrow-label={narrowLabel}>{children}</ElDeprecatedTableCellContent>
     </ElDeprecatedTableCell>
   )
@@ -203,7 +213,13 @@ export const TableCtaTriggerCell: FC<TableCtaTriggerCellProps> = ({ icon, childr
       onKeyDown={handleKeyboardEvent('Enter', handleTableCtaClick(onClick))}
       {...rest}
     >
-      {children ? children : icon ? <ElTableCtaIconContainer>{icon}</ElTableCtaIconContainer> : ''}
+      {children ? (
+        children
+      ) : icon ? (
+        <ElTableCtaIconContainer>{resolveDeprecatedIcon(icon)}</ElTableCtaIconContainer>
+      ) : (
+        ''
+      )}
     </ElTableCtaCell>
   )
 }
