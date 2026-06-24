@@ -81,6 +81,22 @@ jobs:
         env:
           FIGMA_ACCESS_TOKEN: ${{ secrets.FIGMA_ACCESS_TOKEN }}
 
+  audit-skills:
+    name: Audit Skills
+    runs-on:
+      group: rpt-gbl-linux-x64
+    timeout-minutes: 10
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
+        with:
+          fetch-depth: 0
+      - uses: ./actions/audit-skills
+        with:
+          changed-only: 'true'
+          base-ref: ${{ github.base_ref }}
+
   codacy:
     name: Codacy
     needs: test

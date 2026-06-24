@@ -60,6 +60,7 @@ test ──── codacy
 build
 docs ──── deploy-preview
 figma
+audit-skills          (scan skipped when .agents/skills unchanged)
 ```
 
 `cleanup-preview.yml` runs one of two jobs depending on the trigger:
@@ -71,17 +72,23 @@ sweep            (schedule: weekly)
 
 ## Composite actions
 
-Shared step bundles in `.github/actions/`. Each composite action handles Node setup before running its command; most also run `yarn install`. `deploy-docs` skips `yarn install` because it has no project dependencies. The calling job must run `actions/checkout` first — GitHub Actions requires the repository to be present on the runner before it can locate a local composite action.
+Shared step bundles, split across two locations:
 
-| Action           | Command                             | Used by                                                                                                |
-| ---------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------ |
-| `check`          | `yarn check`                        | `test-pr.yml` check job, `release.yml` check job                                                       |
-| `test`           | `yarn test run [args]`              | `test-pr.yml` test job (with `--coverage --silent`), `release.yml` test job                            |
-| `build-lib`      | `yarn build:lib`                    | `test-pr.yml` build job, `release.yml` build job                                                       |
-| `build-docs`     | `yarn build:docs`                   | `test-pr.yml` docs job, `release.yml` docs job, `deploy-docs-manual.yml`                               |
-| `deploy-docs`    | Cloudflare Wrangler deploy          | `release.yml` deploy-docs job, `deploy-docs-manual.yml`                                                |
-| `deploy-preview` | Cloudflare Wrangler deploy          | `test-pr.yml` deploy-preview job                                                                       |
-| `publish-figma`  | `yarn figma connect publish [args]` | `test-pr.yml` figma job (with `--dry-run --exit-on-unreadable-files`), `release.yml` publish-figma job |
+- `.github/actions/` — Node-based actions used internally by this repo's CI. Each handles Node setup before running its command; most also run `yarn install`. `deploy-docs` skips `yarn install` because it has no project dependencies.
+- `actions/` — Language-agnostic actions designed for reuse by other repos. Pin to a specific commit SHA when referencing externally: `reapit-global/gbl-ds-elements/actions/<name>@<sha>`.
+
+All calling jobs must run `actions/checkout` first — GitHub Actions requires the repository to be present on the runner before it can locate a local composite action.
+
+| Action           | Location          | Command                             | Used by                                                                                                |
+| ---------------- | ----------------- | ----------------------------------- | ------------------------------------------------------------------------------------------------------ |
+| `check`          | `.github/actions` | `yarn check`                        | `test-pr.yml` check job, `release.yml` check job                                                       |
+| `test`           | `.github/actions` | `yarn test run [args]`              | `test-pr.yml` test job (with `--coverage --silent`), `release.yml` test job                            |
+| `build-lib`      | `.github/actions` | `yarn build:lib`                    | `test-pr.yml` build job, `release.yml` build job                                                       |
+| `build-docs`     | `.github/actions` | `yarn build:docs`                   | `test-pr.yml` docs job, `release.yml` docs job, `deploy-docs-manual.yml`                               |
+| `deploy-docs`    | `.github/actions` | Cloudflare Wrangler deploy          | `release.yml` deploy-docs job, `deploy-docs-manual.yml`                                                |
+| `deploy-preview` | `.github/actions` | Cloudflare Wrangler deploy          | `test-pr.yml` deploy-preview job                                                                       |
+| `publish-figma`  | `.github/actions` | `yarn figma connect publish [args]` | `test-pr.yml` figma job (with `--dry-run --exit-on-unreadable-files`), `release.yml` publish-figma job |
+| `audit-skills`   | `actions`         | `skillspector scan`                 | `test-pr.yml` audit-skills job; available to other org repos                                           |
 
 ## Deployment strategy
 
@@ -144,8 +151,8 @@ Manual dispatch exists solely as a recovery tool for failed automated releases. 
 **Why does the `release` job repeat checkout/setup/install instead of using a composite action?**
 The `release` job needs to control `actions/checkout` directly because it must use a write-scoped checkout token (from the GitHub App) so that `changesets/action` can push the version PR branch. In this repo, the shared composite actions are local actions under `.github/actions/`, so they cannot be used until the repository is checked out. `release` therefore repeats checkout, setup, and install rather than delegating to a composite action.
 
-**Why is `fetch-depth: 0` only in the `release` job?**
-`changesets/action` walks the full git history to find the last release tag and determine which packages changed. The `check`, `test`, `build`, and `docs` jobs need only a shallow clone, which is faster.
+**Why does `fetch-depth: 0` appear in the `release` and `audit-skills` jobs but not others?**
+`changesets/action` in the `release` job walks the full git history to find the last release tag and determine which packages changed. The `audit-skills` job needs it so that `git diff origin/<base-ref>...HEAD` can reach the remote base-ref commit — a shallow clone lacks this history. The `check`, `test`, `build`, and `docs` jobs need only a shallow clone, which is faster.
 
 **Why are `dist` and `docs` artifacts passed between jobs rather than rebuilding?**
 Building twice wastes runner time and risks non-determinism. Uploading from the build job and downloading in the consumer job guarantees the same output is published or deployed.

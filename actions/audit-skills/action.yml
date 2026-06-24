@@ -1,0 +1,81 @@
+name: Audit Skills
+description: Audit Claude Code skills for security vulnerabilities using NVIDIA SkillSpector (static analysis).
+
+inputs:
+  path:
+    description: Directory of skills to scan. Each immediate subdirectory must contain a SKILL.md file.
+    default: .agents/skills
+  changed-only:
+    description: >
+      When 'true', only skills that have changed relative to base-ref are scanned.
+      Requires base-ref. When 'false', all skills in path are scanned.
+    default: 'false'
+  base-ref:
+    description: >
+      Base branch to diff against when changed-only is 'true'. Pass github.base_ref
+      in pull_request workflows. Ignored when changed-only is 'false'.
+      The calling job must use fetch-depth: 0 on its checkout step.
+    default: ''
+
+runs:
+  using: composite
+  steps:
+    - name: Detect changed skills
+      id: detect
+      if: ${{ inputs.changed-only == 'true' }}
+      env:
+        BASE_REF: ${{ inputs.base-ref }}
+        SKILLS_PATH: ${{ inputs.path }}
+      run: |
+        if [ -z "$BASE_REF" ]; then
+          echo "Error: base-ref is required when changed-only is 'true'." >&2
+          exit 1
+        fi
+        changed=$(git diff --name-only "origin/$BASE_REF...HEAD" -- "$SKILLS_PATH/" \
+          | while IFS= read -r line; do echo "${line#$SKILLS_PATH/}"; done \
+          | cut -d'/' -f1 \
+          | sort -u \
+          | tr '\n' ' ')
+        echo "skills=$changed" >> "$GITHUB_OUTPUT"
+        echo "has-changes=$([ -n "$changed" ] && echo true || echo false)" >> "$GITHUB_OUTPUT"
+      shell: bash
+    - name: Set up uv
+      if: ${{ inputs.changed-only == 'false' || steps.detect.outputs.has-changes == 'true' }}
+      uses: astral-sh/setup-uv@fac544c07dec837d0ccb6301d7b5580bf5edae39 # v8.2.0
+      with:
+        enable-cache: true
+    - name: Install SkillSpector
+      if: ${{ inputs.changed-only == 'false' || steps.detect.outputs.has-changes == 'true' }}
+      run: |
+        uv tool install "skillspector @ git+https://github.com/NVIDIA/SkillSpector.git@cb866fceb0b05aeeaae022bc1fd184bc2c267ebf" # v2.3.1
+      shell: bash
+    - name: Scan skills
+      id: scan
+      if: ${{ inputs.changed-only == 'false' || steps.detect.outputs.has-changes == 'true' }}
+      env:
+        CHANGED_ONLY: ${{ inputs.changed-only }}
+        SKILLS_PATH: ${{ inputs.path }}
+        SKILLS: ${{ steps.detect.outputs.skills }}
+      run: |
+        overall_exit=0
+        if [ "$CHANGED_ONLY" = "true" ]; then
+          set -f
+          for skill_name in $SKILLS; do
+            skill_dir="$SKILLS_PATH/$skill_name"
+            [ -f "$skill_dir/SKILL.md" ] || continue
+            skillspector scan "$skill_dir" --no-llm --format terminal || overall_exit=1
+          done
+          set +f
+        else
+          for skill_dir in "$SKILLS_PATH"/*; do
+            [ -f "$skill_dir/SKILL.md" ] || continue
+            skillspector scan "$skill_dir" --no-llm --format terminal || overall_exit=1
+          done
+        fi
+        exit $overall_exit
+      continue-on-error: true
+      shell: bash
+    - name: Fail if vulnerabilities found
+      if: ${{ steps.scan.outcome == 'failure' }}
+      run: exit 1
+      shell: bash
