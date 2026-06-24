@@ -1,5 +1,11 @@
 # @reapit/elements
 
+## 5.0.3
+
+### Patch Changes
+
+- **[Fixed]** `DeprecatedTable` now correctly renders icon names passed as strings (e.g. `icon="contact"`) as icon components rather than plain text. Icons resolved from strings default to `md` size and `primary` colour. ([#1487](https://github.com/reapit-global/gbl-ds-elements/pull/1487))
+
 ## 5.0.2
 
 ### Patch Changes
