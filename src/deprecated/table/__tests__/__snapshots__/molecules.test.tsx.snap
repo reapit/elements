@@ -8,7 +8,7 @@ exports[`DeprecatedTableCell Component > should match a snapshot with full props
     <svg
       class="el-icon"
       color="primary"
-      data-size="sm"
+      data-size="md"
       fill="currentColor"
       height="24"
       viewBox="0 0 24 24"
@@ -137,7 +137,7 @@ exports[`TableCtaTriggerCell Component > should match a snapshot with no childre
       <svg
         class="el-icon"
         color="primary"
-        data-size="sm"
+        data-size="md"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"

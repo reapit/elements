@@ -45,7 +45,7 @@ const resolveDeprecatedIcon = (icon: ReactNode): ReactNode => {
   if (typeof icon !== 'string') return icon
   const componentName = icon.charAt(0).toUpperCase() + icon.slice(1) + 'Icon'
   const IconComponent = (allIcons as unknown as Record<string, FC<IconProps>>)[componentName]
-  return IconComponent ? <IconComponent size="sm" color="primary" /> : null
+  return IconComponent ? <IconComponent size="md" color="primary" /> : null
 }
 
 /** @deprecated */

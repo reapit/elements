@@ -58,7 +58,7 @@ exports[`DeprecatedTable Component > should match a snapshot for cta content alt
             <svg
               class="el-icon"
               color="primary"
-              data-size="sm"
+              data-size="md"
               fill="currentColor"
               height="24"
               viewBox="0 0 24 24"
@@ -224,7 +224,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           <svg
             class="el-icon"
             color="primary"
-            data-size="sm"
+            data-size="md"
             fill="currentColor"
             height="24"
             viewBox="0 0 24 24"
@@ -249,7 +249,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           <svg
             class="el-icon"
             color="primary"
-            data-size="sm"
+            data-size="md"
             fill="currentColor"
             height="24"
             viewBox="0 0 24 24"
@@ -336,7 +336,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
             <svg
               class="el-icon"
               color="primary"
-              data-size="sm"
+              data-size="md"
               fill="currentColor"
               height="24"
               viewBox="0 0 24 24"
@@ -451,7 +451,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           <svg
             class="el-icon"
             color="primary"
-            data-size="sm"
+            data-size="md"
             fill="currentColor"
             height="24"
             viewBox="0 0 24 24"
@@ -476,7 +476,7 @@ exports[`DeprecatedTable Component > should match a snapshot with full props and
           <svg
             class="el-icon"
             color="primary"
-            data-size="sm"
+            data-size="md"
             fill="currentColor"
             height="24"
             viewBox="0 0 24 24"
