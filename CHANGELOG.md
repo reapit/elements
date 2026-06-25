@@ -1,5 +1,13 @@
 # @reapit/elements
 
+## 5.0.4
+
+### Patch Changes
+
+- **[Fixed]** icons in deprecated table, drawer, and nav components now render at the correct size. ([#1492](https://github.com/reapit-global/gbl-ds-elements/pull/1492))
+
+- **[Fixed]** `MultiSelectInput` empty state icon now renders at `md` size with `primary` colour. ([#1490](https://github.com/reapit-global/gbl-ds-elements/pull/1490))
+
 ## 5.0.3
 
 ### Patch Changes
