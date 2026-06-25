@@ -122,8 +122,8 @@ exports[`MultiSelectInput > should match a snapshot and render non selected mess
     >
       <svg
         class="el-icon el-ml2"
-        color="secondary"
-        data-size="100%"
+        color="primary"
+        data-size="md"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"

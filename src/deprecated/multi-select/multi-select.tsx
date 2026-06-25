@@ -218,7 +218,7 @@ export const MultiSelectInput: MultiSelectInputWrapped = forwardRef(
             })
           ) : (
             <>
-              <TaskIcon className={elMl2} color="secondary" />
+              <TaskIcon className={elMl2} size="md" color="primary" />
               <p>{noneSelectedLabel ? noneSelectedLabel : 'Please select from the options below'}</p>
             </>
           )}
