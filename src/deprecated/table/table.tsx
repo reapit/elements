@@ -139,7 +139,7 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
             {firstRow.expandableContent?.headerContent ? (
               <>{firstRow.expandableContent?.headerContent}</>
             ) : (
-              <SettingsIcon color="secondary" />
+              <SettingsIcon size="md" color="primary" />
             )}
           </DeprecatedTableHeader>
         )}
@@ -148,7 +148,7 @@ export const DeprecatedTable: FC<DeprecatedTableProps> = ({
             {firstRow.ctaContent?.headerContent ? (
               <>{firstRow.ctaContent?.headerContent}</>
             ) : (
-              <SettingsIcon color="secondary" />
+              <SettingsIcon size="md" color="primary" />
             )}
           </DeprecatedTableHeader>
         )}

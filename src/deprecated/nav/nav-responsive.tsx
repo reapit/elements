@@ -125,7 +125,7 @@ export const DeprecatedNavResponsiveAvatar: FC<DeprecatedNavResponsiveAvatarProp
         </DeprecatedAvatar>
         {Boolean(options.length) && (
           <>
-            {avatarOpen ? <ChevronUpIcon color="secondary" /> : <ChevronDownIcon color="secondary" />}
+            {avatarOpen ? <ChevronUpIcon size="md" color="primary" /> : <ChevronDownIcon size="md" color="primary" />}
             {avatarOpen && (
               <ElDeprecatedNavMenu>
                 {options.map(({ callback, text }, index) => (
@@ -176,7 +176,7 @@ export const NavResponsiveAppSwitcher: FC<NavResponsiveAppSwitcherProps> = ({ op
         className={className}
       >
         <ElNavResponsiveAppSwitcherIconWrap className={cx(appSwitcherOpen && elAppSwitcherOpen)}>
-          <AppSwitcherIcon color="secondary" />
+          <AppSwitcherIcon size="md" color="secondary" />
         </ElNavResponsiveAppSwitcherIconWrap>
         {appSwitcherOpen && (
           <ElDeprecatedNavMenu>
@@ -288,7 +288,7 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
                   role="button"
                   tabIndex={0}
                 >
-                  <MoreIcon />
+                  <MoreIcon size="md" color="primary" />
                 </span>
                 {(avatarOptions || avatarText) && (
                   <DeprecatedNavResponsiveAvatar isHidden={!isMobile} options={avatarOptions ?? []} text={avatarText} />
@@ -331,9 +331,9 @@ export const DeprecatedNavResponsive: FC<DeprecatedNavResponsiveProps> = ({
                 {hasSubItems &&
                   isMobile &&
                   (navMenuOpen && navItemIndex === itemIndex ? (
-                    <ChevronUpIcon className={elMlAuto} color="secondary" />
+                    <ChevronUpIcon className={elMlAuto} size="md" color="primary" />
                   ) : (
-                    <ChevronDownIcon className={elMlAuto} color="secondary" />
+                    <ChevronDownIcon className={elMlAuto} size="md" color="primary" />
                   ))}
               </DeprecatedNavItem>
               {hasSubItems && (

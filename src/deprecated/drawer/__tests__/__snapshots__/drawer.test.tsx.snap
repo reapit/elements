@@ -23,7 +23,7 @@ exports[`Drawer component > should match a snapshot when open 1`] = `
       <svg
         class="el-icon"
         color="secondary"
-        data-size="100%"
+        data-size="md"
         fill="currentColor"
         height="24"
         viewBox="0 0 24 24"

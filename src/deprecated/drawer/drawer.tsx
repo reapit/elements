@@ -138,7 +138,7 @@ export const DeprecatedDrawer: FC<DeprecatedDrawerProps> = ({
             {title && <ElDrawerTitle>{title}</ElDrawerTitle>}
             {subtitle && <ElDrawerSubtitle>{subtitle}</ElDrawerSubtitle>}
           </div>
-          {canDismiss && <CloseIcon onClick={onDrawerClose} color="secondary" />}
+          {canDismiss && <CloseIcon onClick={onDrawerClose} size="md" color="secondary" />}
         </ElDrawerHeader>
         <ElDrawerBody>{children}</ElDrawerBody>
         {footerItems && <ElDrawerFooter>{footerItems}</ElDrawerFooter>}

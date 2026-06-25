@@ -197,7 +197,7 @@ export const TableExpandableRowTriggerCell: FC<TableExpandableRowTriggerCellProp
       {children ? (
         children // TODO: Migrate dynamic props manually
       ) : (
-        <MoreIcon />
+        <MoreIcon size="md" color="primary" />
       )}
     </ElTableExpandableRowTriggerCell>
   )
@@ -255,8 +255,8 @@ export const DeprecatedTableSortHeader: FC<DeprecatedTableSortHeaderProps> = ({ 
       <FlexContainer isFlexAlignCenter isFlexJustifyBetween>
         {children}
         <FlexContainer>
-          <SortAscendIcon color="secondary" />
-          <SortDescendIcon color="secondary" />
+          <SortAscendIcon size="md" color="primary" />
+          <SortDescendIcon size="md" color="primary" />
         </FlexContainer>
       </FlexContainer>
     </ElDeprecatedTableSortHeader>

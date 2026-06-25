@@ -67,8 +67,8 @@ exports[`NavResponsive component > should match a snapshot 1`] = `
       >
         <svg
           class="el-icon"
-          color="inherit"
-          data-size="100%"
+          color="primary"
+          data-size="md"
           fill="currentColor"
           height="24"
           viewBox="0 0 24 24"
