@@ -5,7 +5,7 @@ metadata:
   github-path: skills/triage-pr-comments
   github-ref: refs/heads/main
   github-repo: https://github.com/reapit-global/anz-shared-agentic-development
-  github-tree-sha: 26beed7839cafd79a4a513147060a7dc1a7efb1a
+  github-tree-sha: d61138c0ddfd3e1884c8bf44773a822f8d4b9151
 name: triage-pr-comments
 permissions:
   - shell
