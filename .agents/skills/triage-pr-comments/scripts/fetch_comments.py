@@ -112,6 +112,7 @@ def resolve_repo(owner: Optional[str], repo: Optional[str]) -> tuple[str, str]:
         remote_url = subprocess.check_output(
             ["git", "remote", "get-url", "origin"],
             text=True,
+            shell=False,
             stderr=subprocess.DEVNULL,
         ).strip()
     except FileNotFoundError:
@@ -128,25 +129,19 @@ def resolve_repo(owner: Optional[str], repo: Optional[str]) -> tuple[str, str]:
 
 def run_gh_graphql(query: str, variables: dict) -> dict:
     """Run a gh api graphql call and return the parsed JSON response."""
-    args = ["gh", "api", "graphql"]
-    for key, value in variables.items():
-        if value is None:
-            args += ["-F", f"{key}=null"]
-        elif isinstance(value, bool):
-            args += ["-F", f"{key}={'true' if value else 'false'}"]
-        elif isinstance(value, int):
-            args += ["-F", f"{key}={value}"]
-        else:
-            args += ["-f", f"{key}={value}"]
-    args += ["-f", f"query={query}"]
-
+    payload = json.dumps({"query": query, "variables": variables})
     try:
-        result = subprocess.run(args, capture_output=True, text=True)
+        result = subprocess.run(
+            ["gh", "api", "graphql", "--input", "-"],
+            input=payload,
+            capture_output=True,
+            text=True,
+            shell=False,
+        )
     except FileNotFoundError:
         sys.exit("Error: gh not found. Install the GitHub CLI and authenticate with `gh auth login`.")
     if result.returncode != 0:
         sys.exit(f"Error: gh api graphql failed:\n{result.stderr.strip()}")
-
     return json.loads(result.stdout)
 
 

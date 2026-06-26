@@ -7,6 +7,8 @@ metadata:
   github-repo: https://github.com/reapit-global/anz-shared-agentic-development
   github-tree-sha: 26beed7839cafd79a4a513147060a7dc1a7efb1a
 name: triage-pr-comments
+permissions:
+  - shell
 ---
 
 # Triage PR Comments
