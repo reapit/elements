@@ -47,7 +47,7 @@ runs:
     - name: Install SkillSpector
       if: ${{ inputs.changed-only == 'false' || steps.detect.outputs.has-changes == 'true' }}
       run: |
-        uv tool install "skillspector @ git+https://github.com/NVIDIA/SkillSpector.git@cb866fceb0b05aeeaae022bc1fd184bc2c267ebf" # v2.3.1
+        uv tool install "skillspector @ git+https://github.com/NVIDIA/SkillSpector.git@ab0431ff2a9e9d75ba866f986be17f8600cfd086" # v2.3.7
       shell: bash
     - name: Scan skills
       id: scan
@@ -58,18 +58,25 @@ runs:
         SKILLS: ${{ steps.detect.outputs.skills }}
       run: |
         overall_exit=0
+        scan_skill() {
+          local skill_dir="$1"
+          local baseline_flag=""
+          [ -f "$skill_dir/.skillspector-baseline.yaml" ] && baseline_flag="--baseline $skill_dir/.skillspector-baseline.yaml"
+          # shellcheck disable=SC2086
+          skillspector scan "$skill_dir" --no-llm --format terminal --show-suppressed $baseline_flag || return 1
+        }
         if [ "$CHANGED_ONLY" = "true" ]; then
           set -f
           for skill_name in $SKILLS; do
             skill_dir="$SKILLS_PATH/$skill_name"
             [ -f "$skill_dir/SKILL.md" ] || continue
-            skillspector scan "$skill_dir" --no-llm --format terminal || overall_exit=1
+            scan_skill "$skill_dir" || overall_exit=1
           done
           set +f
         else
           for skill_dir in "$SKILLS_PATH"/*; do
             [ -f "$skill_dir/SKILL.md" ] || continue
-            skillspector scan "$skill_dir" --no-llm --format terminal || overall_exit=1
+            scan_skill "$skill_dir" || overall_exit=1
           done
         fi
         exit $overall_exit
