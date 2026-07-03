@@ -103,7 +103,6 @@ jobs:
     permissions:
       contents: read
       id-token: write
-      pull-requests: read
     outputs:
       published: ${{ steps.changesets.outputs.published }}
       publishedPackages: ${{ steps.changesets.outputs.publishedPackages }}
@@ -147,6 +146,7 @@ jobs:
           publish: yarn changeset publish
           title: 'chore: version packages'
           commit: 'chore: version packages'
+          github-token: ${{ steps.app-token.outputs.token }}
         env:
           GITHUB_TOKEN: ${{ steps.app-token.outputs.token }}
 
