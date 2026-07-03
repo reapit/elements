@@ -114,6 +114,13 @@ export namespace Listbox {
      */
     selectRef?: React.Ref<HTMLSelectElement>
     /**
+     * ARIA role for the listbox container.
+     * - `'listbox'` (default): standard listbox pattern; options have `role="option"`
+     * - `'tree'`: tree widget pattern; options have `role="treeitem"` and groups use
+     *   `<details>/<summary>` for native expand/collapse
+     */
+    role?: 'listbox' | 'tree'
+    /**
      * Selected option values for controlled mode.
      * Always an array of strings, regardless of single- or multi-select mode.
      * For single-select, uses only the first value.
@@ -174,6 +181,7 @@ export function Listbox<C extends ElementType = 'div'>({
   onKeyDown,
   onMouseDown,
   placeholder,
+  role = 'listbox',
   selectAction = 'auto',
   selectRef,
   selectionFollowsFocus = !multiple,
@@ -191,8 +199,8 @@ export function Listbox<C extends ElementType = 'div'>({
   const activeDescendantHandlers = useActiveDescendant({ activeDescendantOwnerId, onKeyDown, onMouseDown })
 
   const contextValue = useMemo(
-    () => ({ disabled, listboxId, multiple, selectAction, selectValue }),
-    [disabled, listboxId, multiple, selectAction, selectValue],
+    () => ({ disabled, listboxId, multiple, role, selectAction, selectValue }),
+    [disabled, listboxId, multiple, role, selectAction, selectValue],
   )
 
   return (
@@ -207,7 +215,7 @@ export function Listbox<C extends ElementType = 'div'>({
       data-selection-follows-focus={selectionFollowsFocus}
       className={cx(elListboxContainer, className)}
       id={listboxId}
-      role="listbox"
+      role={role}
       style={style}
       tabIndex={tabIndex}
     >

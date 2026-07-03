@@ -26,7 +26,7 @@ test('renders with dialog', () => {
   expect(screen.getByRole('dialog', { hidden: true })).toBeInTheDocument()
 })
 
-test('renders with listbox', () => {
+test('renders with tree listbox', () => {
   render(
     <OfficeSwitcherSelect>
       <OfficeSwitcher.Button />
@@ -35,7 +35,7 @@ test('renders with listbox', () => {
       </OfficeSwitcher.Popup>
     </OfficeSwitcherSelect>,
   )
-  expect(screen.getByRole('listbox', { hidden: true })).toBeInTheDocument()
+  expect(screen.getByRole('tree', { hidden: true })).toBeInTheDocument()
 })
 
 test('can be disabled', () => {

@@ -39,7 +39,13 @@ export function OfficeSwitcherOfficeGroupSummary({
   const labelId = ariaLabelledBy ?? useId()
 
   return (
-    <summary {...props} aria-labelledby={labelId} className={cx(elOfficeSwitcherOfficeGroupSummary, className)} id={id}>
+    <summary
+      {...props}
+      aria-labelledby={labelId}
+      className={cx(elOfficeSwitcherOfficeGroupSummary, className)}
+      id={id}
+      tabIndex={-1}
+    >
       <ElOfficeSwitcherOfficeGroupLabel id={labelId}>{children}</ElOfficeSwitcherOfficeGroupLabel>
       <ElOfficeSwitcherOfficeGroupChevron aria-hidden>
         <ChevronDownIcon />

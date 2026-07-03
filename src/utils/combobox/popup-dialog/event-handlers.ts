@@ -1,5 +1,6 @@
 import { clearSearchInput } from '#src/core/search-input'
 import { closeDialog } from '#src/utils/dialog'
+import { OPTION_ROLE_SELECTOR } from '#src/utils/listbox/dom-helpers'
 
 import type { MouseEvent, SyntheticEvent } from 'react'
 
@@ -72,8 +73,9 @@ export function maybeCloseOnSelection(event: MouseEvent<HTMLDialogElement>): voi
  * Finds the closest option element from a click target.
  *
  * Searches up the DOM tree from the given element to find an element with
- * `role="option"`. This allows clicks on option descendants (like icons or text)
- * to be properly handled.
+ * `role="option"` or `role="treeitem"`. This allows clicks on option descendants
+ * (like icons or text) to be properly handled, and supports both listbox and tree
+ * widget patterns.
  *
  * @param element The element to search from (typically event.target)
  * @returns The option element if found, null otherwise
@@ -86,7 +88,7 @@ export function maybeCloseOnSelection(event: MouseEvent<HTMLDialogElement>): voi
  */
 export function getOptionElement(element: unknown): HTMLElement | null {
   if (element instanceof HTMLElement) {
-    return element.closest('[role="option"]')
+    return element.closest(OPTION_ROLE_SELECTOR)
   }
   return null
 }

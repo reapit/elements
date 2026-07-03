@@ -10,11 +10,8 @@ import { useId } from 'react'
 
 import type { ButtonHTMLAttributes, ReactNode } from 'react'
 
-// Omit `role` because it must always be "option"
-type AttributesToOmit = 'role'
-
 export namespace OfficeItem {
-  export interface Props extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, AttributesToOmit> {
+  export interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
     /** Badge displayed after the label */
     badge?: ReactNode
     /** Office label text */
@@ -27,7 +24,7 @@ export namespace OfficeItem {
 /**
  * An office switcher item. Use via `OfficeSwitcher.Option`.
  */
-export function OfficeItem({ badge, children, ...rest }: OfficeItem.Props) {
+export function OfficeItem({ badge, children, role = 'option', ...rest }: OfficeItem.Props) {
   const badgeId = useId()
   const labelId = useId()
 
@@ -37,7 +34,7 @@ export function OfficeItem({ badge, children, ...rest }: OfficeItem.Props) {
   return (
     // NOTE: aria-labelledby is important as it doesn't just provide good a11y, it also provides
     // compatibility with the Combobox primitives, which this component is used with (via Select)
-    <ElOfficeItem {...rest} aria-labelledby={labelId} aria-details={ariaDetails} role="option" type="button">
+    <ElOfficeItem {...rest} aria-labelledby={labelId} aria-details={ariaDetails} role={role} type="button">
       <ElOfficeItemLeftContent>
         <ElOfficeItemTextContainer id={labelId}>{children}</ElOfficeItemTextContainer>
         {badge && <ElOfficeItemBadgeContainer id={badgeId}>{badge}</ElOfficeItemBadgeContainer>}

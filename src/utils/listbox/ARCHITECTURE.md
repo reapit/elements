@@ -12,6 +12,10 @@ DOM focus throughout, while a `data-is-active` attribute on the current option d
 state and `aria-activedescendant` on the container guides screen readers. Individual option
 elements are never focused directly (`tabIndex={-1}` on every option).
 
+`Listbox` also supports the ARIA [tree pattern](https://www.w3.org/WAI/ARIA/apg/patterns/treeview)
+as an alternative container role, via the `role` prop (`'listbox'` default, or `'tree'`) — see
+[Tree mode](#tree-mode).
+
 ## Component hierarchy
 
 ```
@@ -100,6 +104,52 @@ to navigating to it with the keyboard.
 | End           | Activates the last option                                                            |
 | Enter / Space | Clicks the active option                                                             |
 
+In **tree mode** (`role="tree"`), ArrowRight/ArrowLeft are repurposed for hierarchy instead of
+horizontal movement — see [Hierarchical navigation](#hierarchical-navigation).
+
+## Tree mode
+
+Tree mode is selected via the `role` prop (`'listbox'` default, or `'tree'`) and is used by
+`OfficeSwitcher`, whose office groups need expand/collapse semantics. Setting `role="tree"`:
+
+- Sets `role="tree"` on the listbox container instead of `role="listbox"`.
+- Makes `Listbox.Option` render `role="treeitem"` instead of `role="option"`, by reading `role`
+  off `ListboxContext`.
+
+Groups are not built with `Listbox.Optgroup` in tree mode — they use plain `<details>`/`<summary>`
+directly, with the summary given `role="treeitem"` by the consumer (see
+`OfficeSwitcherOfficeGroup`). Because `role="treeitem"` on `<summary>` overrides the element's
+implicit ARIA semantics per HTML-AAM §5.1, the consumer must also manage `aria-expanded` itself —
+native `<details>` no longer exposes it automatically once the role is overridden.
+
+### Hierarchical navigation
+
+`navigateActiveDescendant` checks `listboxElement.getAttribute('role') === 'tree'` to enable
+tree-only handling of ArrowRight/ArrowLeft (vertical orientation only — a horizontal tree is not
+supported, since the horizontal branch takes priority in the `ariaOrientation === 'horizontal'`
+check):
+
+| Key        | On a group summary                                                  | On a leaf item                     |
+| ---------- | ------------------------------------------------------------------- | ---------------------------------- |
+| ArrowRight | Expands the group if collapsed; otherwise activates its first child | No effect                          |
+| ArrowLeft  | Collapses the group if expanded                                     | Activates the parent group summary |
+
+ArrowDown/ArrowUp, Home, End, and Enter/Space need no tree-specific logic: `getVisibleOptions`
+already excludes items inside a closed `<details>`, so collapsed groups are transparently skipped
+during linear traversal.
+
+### Selectors
+
+Tree mode introduces a second option role (`treeitem`) and a second container role (`tree`), so
+`src/utils/listbox/dom-helpers/selectors.ts` exports three selector constants for different jobs —
+don't reach for the wrong one:
+
+| Constant                     | Matches                                                                        | Used for                                                                                                                                                     |
+| ---------------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `OPTION_SELECTOR`            | `button[role="option"]`, `button[role="treeitem"]`, `summary[role="treeitem"]` | `querySelectorAll` traversal (e.g. `getVisibleOptions`) — tag-specific so it only matches real option/summary elements                                       |
+| `OPTION_ROLE_SELECTOR`       | `[role="option"]`, `[role="treeitem"]`                                         | `Element.closest()` lookups (e.g. `getOptionElement` in Combobox) — tag-agnostic so it matches regardless of the element's tag                               |
+| `LISTBOX_CONTAINER_SELECTOR` | `[role="listbox"]`, `[role="tree"]`                                            | `Element.closest()` lookups for the owning container (e.g. `findListboxElement`'s fallback when an option has no `data-listbox-id`, such as a group summary) |
+
 ## Active-descendant helpers (`use-active-descendant`)
 
 Pure DOM functions and the `useActiveDescendant` hook. None of them hold React state — they
@@ -165,10 +215,10 @@ container, so form libraries see standard select element events.
 
 ## Context
 
-| Context                | Fields                                                                            |
-| ---------------------- | --------------------------------------------------------------------------------- |
-| `ListboxContext`       | `disabled`, `listboxId`, `multiple`, `role`, `selectAction`, `selectValue`        |
-| `ListboxRenderContext` | `"native"` or `"custom"` — controls which elements `Option` and `Optgroup` render |
+| Context                | Fields                                                                                               |
+| ---------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ListboxContext`       | `disabled`, `listboxId`, `multiple`, `role` (`'listbox'` \| `'tree'`), `selectAction`, `selectValue` |
+| `ListboxRenderContext` | `"native"` or `"custom"` — controls which elements `Option` and `Optgroup` render                    |
 
 ## Data attributes
 

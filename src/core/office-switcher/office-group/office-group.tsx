@@ -1,9 +1,9 @@
 import { cx } from '@linaria/core'
 import { elOfficeSwitcherOfficeGroup } from './styles'
 import { OfficeSwitcherOfficeGroupSummary } from './office-group-summary'
-import { useId } from 'react'
+import { useId, useState } from 'react'
 
-import type { DetailsHTMLAttributes, ReactNode } from 'react'
+import type { DetailsHTMLAttributes, ReactNode, SyntheticEvent } from 'react'
 
 export namespace OfficeSwitcherOfficeGroup {
   export interface Props extends DetailsHTMLAttributes<HTMLDetailsElement> {
@@ -28,12 +28,33 @@ export function OfficeSwitcherOfficeGroup({
   children,
   className,
   label,
+  onToggle,
+  open,
   ...rest
 }: OfficeSwitcherOfficeGroup.Props) {
   const summaryId = ariaLabelledBy ?? useId()
+
+  // Track open state so we can supply aria-expanded on the summary.
+  // Native <summary> would provide this mapping automatically, but role="treeitem"
+  // overrides the implicit ARIA semantics per HTML-AAM §5.1.
+  const [isOpen, setIsOpen] = useState(open ?? false)
+
+  const handleToggle = (event: SyntheticEvent<HTMLDetailsElement>) => {
+    setIsOpen(event.currentTarget.open)
+    onToggle?.(event)
+  }
+
   return (
-    <details {...rest} aria-labelledby={summaryId} className={cx(elOfficeSwitcherOfficeGroup, className)}>
-      <OfficeSwitcherOfficeGroupSummary id={summaryId}>{label}</OfficeSwitcherOfficeGroupSummary>
+    <details
+      {...rest}
+      aria-labelledby={summaryId}
+      className={cx(elOfficeSwitcherOfficeGroup, className)}
+      open={open}
+      onToggle={handleToggle}
+    >
+      <OfficeSwitcherOfficeGroupSummary aria-expanded={open ?? isOpen} id={summaryId} role="treeitem">
+        {label}
+      </OfficeSwitcherOfficeGroupSummary>
       {children}
     </details>
   )

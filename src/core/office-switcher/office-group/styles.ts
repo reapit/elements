@@ -31,7 +31,7 @@ export const elOfficeSwitcherOfficeGroupSummary = css`
       color: var(--comp-office_switcher-colour-text-hover);
     }
 
-    &:focus-visible {
+    &[data-is-active='true'] {
       outline: var(--border-width-double) solid var(--colour-border-focus);
       outline-offset: var(--border-width-default);
     }

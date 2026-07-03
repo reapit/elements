@@ -107,6 +107,14 @@ the popup:
 The handler uses `event.defaultPrevented` as an opt-out: an option can call
 `event.preventDefault()` on its click event to block the popup from closing.
 
+`getOptionElement` matches both `role="option"` and `role="treeitem"` elements (via
+`OPTION_ROLE_SELECTOR`), so a tree-mode `Combobox.Listbox` (see Listbox architecture's
+[Tree mode](../listbox/ARCHITECTURE.md#tree-mode)) follows the same close-on-selection rules as a
+standard listbox. Clicking a group's `<summary>` also matches, but since summaries don't carry
+`data-listbox-id`, `'auto'` mode's single-select lookup resolves to no listbox element and treats
+it as not-single-select, so it doesn't close the popup — which is what lets an expand/collapse
+click stay open. `'always'` mode has no such guard and closes on a summary click regardless.
+
 Keyboard selection (Enter on an active option) calls `clickOption`, which invokes `.click()` on
 the option element, so `maybeCloseOnSelection` closes the popup for keyboard-driven selection in
 the same cases as mouse-driven selection (see the comment above its `defaultPrevented` check for
@@ -132,3 +140,8 @@ within the dialog.
 `aria-disabled`, `aria-multiselectable`, `aria-required`), and from
 `ComboboxPopupDialogContext` to determine `hasSearch`. This keeps the consumer API minimal —
 consumers do not need to pass these through manually.
+
+`role` is not pinned, so a consumer can render `Combobox.Listbox` with `role="tree"` to opt into
+the Listbox utility's tree mode (see Listbox architecture's
+[Tree mode](../listbox/ARCHITECTURE.md#tree-mode)) — `OfficeSwitcher` does this via a thin
+`OfficeSwitcherListbox` wrapper that always sets `role="tree"`.

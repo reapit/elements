@@ -14,6 +14,47 @@ import {
 
 let listboxCounter = 0
 
+/**
+ * Creates a role="tree" container with one group (a <details>/<summary[role="treeitem"]>)
+ * and `itemCount` leaf items (button[role="treeitem"]).
+ *
+ * The summary intentionally omits data-listbox-id, mirroring OfficeSwitcherOfficeGroupSummary
+ * which is not rendered through ListboxOption and therefore never receives that attribute.
+ * Leaf buttons DO carry data-listbox-id, mirroring OfficeItem rendered via ListboxOption.
+ */
+function createTree(itemCount = 2) {
+  const id = `listbox-${++listboxCounter}`
+  const tree = document.createElement('div')
+  tree.setAttribute('role', 'tree')
+  tree.id = id
+
+  const select = document.createElement('select')
+  tree.appendChild(select)
+
+  const details = document.createElement('details')
+  details.open = true
+  tree.appendChild(details)
+
+  const summary = document.createElement('summary')
+  summary.setAttribute('role', 'treeitem')
+  summary.id = `${id}-summary`
+  // No data-listbox-id — summary elements are not rendered through ListboxOption.
+  details.appendChild(summary)
+
+  const items: HTMLButtonElement[] = []
+  for (let i = 1; i <= itemCount; i++) {
+    const btn = document.createElement('button')
+    btn.setAttribute('role', 'treeitem')
+    btn.id = `${id}-item-${i}`
+    btn.dataset.listboxId = id
+    details.appendChild(btn)
+    items.push(btn)
+  }
+
+  document.body.appendChild(tree)
+  return { tree, summary, items }
+}
+
 function createListbox(optionCount = 3, selectedIndex?: number, checkedIndex?: number) {
   const id = `listbox-${++listboxCounter}`
   const listbox = document.createElement('div')
@@ -42,7 +83,7 @@ function createListbox(optionCount = 3, selectedIndex?: number, checkedIndex?: n
 function createListboxWithGroup({ open, optionCount = 2 }: { open: boolean; optionCount?: number }) {
   const id = `listbox-${++listboxCounter}`
   const listbox = document.createElement('div')
-  listbox.setAttribute('role', 'listbox')
+  listbox.setAttribute('role', 'tree')
   listbox.id = id
 
   const select = document.createElement('select')
@@ -53,13 +94,14 @@ function createListboxWithGroup({ open, optionCount = 2 }: { open: boolean; opti
   listbox.appendChild(details)
 
   const summary = document.createElement('summary')
+  summary.setAttribute('role', 'treeitem')
   summary.id = `${id}-summary`
   details.appendChild(summary)
 
   const options: HTMLButtonElement[] = []
   for (let i = 1; i <= optionCount; i++) {
     const btn = document.createElement('button')
-    btn.setAttribute('role', 'option')
+    btn.setAttribute('role', 'treeitem')
     btn.id = `${id}-option-${i}`
     btn.dataset.listboxId = id
     details.appendChild(btn)
@@ -256,6 +298,30 @@ describe('activateOption', () => {
     document.body.appendChild(input)
     activateOption(input, options[0])
     expect(input.getAttribute('aria-activedescendant')).toBe(options[0].id)
+  })
+
+  describe('role="tree" container', () => {
+    test('activates a summary[role="treeitem"] that has no data-listbox-id', () => {
+      const { tree, summary } = createTree()
+      activateOption(tree, summary)
+      expect(summary.dataset.isActive).toBe('true')
+    })
+
+    test('clears a previously active leaf item when activating a summary', () => {
+      const { tree, summary, items } = createTree()
+      items[0].dataset.isActive = 'true'
+      activateOption(tree, summary)
+      expect(items[0].dataset.isActive).toBeUndefined()
+      expect(summary.dataset.isActive).toBe('true')
+    })
+
+    test('clears a previously active summary when activating a leaf item', () => {
+      const { tree, summary, items } = createTree()
+      summary.dataset.isActive = 'true'
+      activateOption(tree, items[0])
+      expect(summary.dataset.isActive).toBeUndefined()
+      expect(items[0].dataset.isActive).toBe('true')
+    })
   })
 })
 

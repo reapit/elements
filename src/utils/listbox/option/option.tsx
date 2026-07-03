@@ -91,7 +91,7 @@ export function ListboxOption<C extends ElementType = 'button'>({
       disabled={context.disabled || disabled}
       id={id ?? generatedId}
       onClick={handleClick}
-      role="option"
+      role={context.role === 'tree' ? 'treeitem' : 'option'}
       // tabIndex={-1} keeps options out of the tab sequence and prevents them receiving DOM
       // focus; keyboard navigation is driven by aria-activedescendant on the listbox
       // container/owner instead.

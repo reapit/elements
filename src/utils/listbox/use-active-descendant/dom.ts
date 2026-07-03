@@ -1,11 +1,11 @@
-import { OPTION_SELECTOR, SELECTED_OPTION_SELECTOR } from '../dom-helpers'
+import { LISTBOX_CONTAINER_SELECTOR, OPTION_SELECTOR, SELECTED_OPTION_SELECTOR } from '../dom-helpers'
 
 function findListboxElement(option: Element): HTMLElement | null {
   const listboxId = (option as HTMLElement).dataset?.listboxId
   if (listboxId) {
     return document.getElementById(listboxId)
   }
-  const ancestor = option.closest('[role="listbox"]')
+  const ancestor = option.closest(LISTBOX_CONTAINER_SELECTOR)
   return ancestor instanceof HTMLElement ? ancestor : null
 }
 
@@ -111,6 +111,7 @@ export function navigateActiveDescendant(
   { ariaOwner, listboxElement, selectionFollowsFocus = false }: NavigateActiveDescendantOptions,
 ): void {
   const ariaOrientation = listboxElement.getAttribute('aria-orientation') ?? 'vertical'
+  const isTree = listboxElement.getAttribute('role') === 'tree'
   const options = getVisibleOptions(listboxElement)
   const activeOption = listboxElement.querySelector<HTMLElement>('[data-is-active="true"]') ?? null
 
@@ -145,6 +146,19 @@ export function navigateActiveDescendant(
         activateAndMaybeSelect(
           activeOption ? getNextOption(options, activeOption) : getInitialActiveOption(listboxElement),
         )
+      } else if (isTree && activeOption) {
+        event.preventDefault()
+        if (activeOption.matches('summary[role="treeitem"]')) {
+          const details = activeOption.parentElement instanceof HTMLDetailsElement ? activeOption.parentElement : null
+          if (details) {
+            if (!details.open) {
+              details.open = true
+            } else {
+              const firstChild = getNextOption(options, activeOption)
+              if (firstChild && details.contains(firstChild)) activateAndMaybeSelect(firstChild)
+            }
+          }
+        }
       }
       break
     case 'ArrowLeft':
@@ -153,6 +167,16 @@ export function navigateActiveDescendant(
         activateAndMaybeSelect(
           activeOption ? getPrevOption(options, activeOption) : getInitialActiveOptionFromEnd(listboxElement, options),
         )
+      } else if (isTree && activeOption) {
+        event.preventDefault()
+        if (activeOption.matches('summary[role="treeitem"]')) {
+          const details = activeOption.parentElement instanceof HTMLDetailsElement ? activeOption.parentElement : null
+          if (details?.open) details.open = false
+        } else {
+          const parentDetails = activeOption.closest('details')
+          const parentSummary = parentDetails?.querySelector('summary[role="treeitem"]') ?? null
+          if (parentSummary) activateAndMaybeSelect(parentSummary)
+        }
       }
       break
     case 'Home':

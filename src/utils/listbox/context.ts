@@ -8,6 +8,8 @@ export namespace ListboxContext {
     listboxId: string
     /** Allows multiple option selection */
     multiple: boolean
+    /** ARIA role used by the listbox container */
+    role: 'listbox' | 'tree'
     /** Whether to toggle or select the option when clicked */
     selectAction: 'auto' | 'select' | 'toggle'
     /** Currently selected option values from the hidden select element */

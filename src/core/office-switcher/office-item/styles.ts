@@ -26,7 +26,7 @@ export const ElOfficeItem = styled.button`
 
     ${font('sm', 'regular')}
 
-    &:focus-visible {
+    &[data-is-active='true'] {
       outline: var(--border-width-double) solid var(--colour-border-focus);
       outline-offset: var(--border-width-default);
     }

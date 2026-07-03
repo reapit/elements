@@ -131,6 +131,7 @@ test('provides `ListboxContext` to descendants', () => {
               // We don't care about the specific ID, only that one is provided.
               listboxId: expect.any(String),
               multiple: false,
+              role: 'listbox',
               selectAction: 'auto',
               selectValue: [],
             },
@@ -139,6 +140,7 @@ test('provides `ListboxContext` to descendants', () => {
               "disabled": false,
               "listboxId": Any<String>,
               "multiple": false,
+              "role": "listbox",
               "selectAction": "auto",
               "selectValue": [],
             }

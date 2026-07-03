@@ -207,3 +207,115 @@ function Harness({
     </div>
   )
 }
+
+// ─── handleKeyDown — tree navigation ──────────────────────────────────────────
+
+/** Thin wrapper attaching `useActiveDescendant` handlers to a div in tree mode. */
+function TreeHarness({ children, groupOpen = true }: { children?: React.ReactNode; groupOpen?: boolean }) {
+  const handlers = useActiveDescendant({})
+  return (
+    <div {...handlers} id="tree" role="tree" tabIndex={0}>
+      <select aria-hidden id="tree-select" style={{ display: 'none' }} />
+      {children ?? (
+        <details open={groupOpen}>
+          <summary id="summary-1" role="treeitem">
+            Group A
+          </summary>
+          <button id="item-1" role="treeitem">
+            Item 1
+          </button>
+          <button id="item-2" role="treeitem">
+            Item 2
+          </button>
+        </details>
+      )}
+    </div>
+  )
+}
+
+describe('handleKeyDown — tree navigation', () => {
+  function renderTree({ groupOpen = true } = {}) {
+    render(<TreeHarness groupOpen={groupOpen} />)
+    const container = screen.getByRole('tree')
+    const summary = document.getElementById('summary-1') as HTMLElement
+    const item1 = document.getElementById('item-1') as HTMLElement
+    const item2 = document.getElementById('item-2') as HTMLElement
+    const details = summary.parentElement as HTMLDetailsElement
+    return { container, summary, item1, item2, details }
+  }
+
+  test('ArrowRight on a closed summary opens the group', () => {
+    const { container, summary, details } = renderTree({ groupOpen: false })
+    summary.dataset.isActive = 'true'
+    fireEvent.keyDown(container, { key: 'ArrowRight' })
+    expect(details.open).toBe(true)
+  })
+
+  test('ArrowRight on a closed summary does not move focus to child', () => {
+    const { container, summary, item1 } = renderTree({ groupOpen: false })
+    summary.dataset.isActive = 'true'
+    fireEvent.keyDown(container, { key: 'ArrowRight' })
+    expect(item1.dataset.isActive).toBeUndefined()
+    expect(summary.dataset.isActive).toBe('true')
+  })
+
+  test('ArrowRight on an open summary moves to first child', () => {
+    const { container, summary, item1 } = renderTree({ groupOpen: true })
+    summary.dataset.isActive = 'true'
+    fireEvent.keyDown(container, { key: 'ArrowRight' })
+    expect(item1.dataset.isActive).toBe('true')
+    expect(summary.dataset.isActive).toBeUndefined()
+  })
+
+  test('ArrowRight on an open summary with no children does not move focus outside the group', () => {
+    render(
+      <TreeHarness>
+        <details open>
+          <summary id="summary-1" role="treeitem">
+            Empty Group
+          </summary>
+        </details>
+        <button id="outside" role="treeitem">
+          Outside
+        </button>
+      </TreeHarness>,
+    )
+    const container = screen.getByRole('tree')
+    const summary = document.getElementById('summary-1') as HTMLElement
+    const outside = document.getElementById('outside') as HTMLElement
+    summary.dataset.isActive = 'true'
+    fireEvent.keyDown(container, { key: 'ArrowRight' })
+    expect(summary.dataset.isActive).toBe('true')
+    expect(outside.dataset.isActive).toBeUndefined()
+  })
+
+  test('ArrowLeft on an open summary closes the group', () => {
+    const { container, summary, details } = renderTree({ groupOpen: true })
+    summary.dataset.isActive = 'true'
+    fireEvent.keyDown(container, { key: 'ArrowLeft' })
+    expect(details.open).toBe(false)
+  })
+
+  test('ArrowLeft on a leaf item moves to the parent summary', () => {
+    const { container, summary, item1 } = renderTree({ groupOpen: true })
+    item1.dataset.isActive = 'true'
+    fireEvent.keyDown(container, { key: 'ArrowLeft' })
+    expect(summary.dataset.isActive).toBe('true')
+    expect(item1.dataset.isActive).toBeUndefined()
+  })
+
+  test('ArrowLeft on a leaf item with no parent group does nothing', () => {
+    render(
+      <TreeHarness>
+        <button id="standalone" role="treeitem">
+          Standalone
+        </button>
+      </TreeHarness>,
+    )
+    const container = screen.getByRole('tree')
+    const btn = document.getElementById('standalone') as HTMLElement
+    btn.dataset.isActive = 'true'
+    fireEvent.keyDown(container, { key: 'ArrowLeft' })
+    expect(btn.dataset.isActive).toBe('true')
+  })
+})

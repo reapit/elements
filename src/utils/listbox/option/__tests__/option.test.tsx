@@ -260,6 +260,7 @@ const defaultContext: ListboxContext.Value = {
   disabled: false,
   listboxId: 'my-listbox',
   multiple: false,
+  role: 'listbox',
   selectAction: 'toggle',
   selectValue: [],
 }
