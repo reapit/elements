@@ -27,9 +27,14 @@ export const ElComboboxOption = styled.button`
 
     text-align: left;
 
-    &:focus-visible {
+    &:focus-visible,
+    &[data-is-active='true'] {
       outline: var(--border-width-double) solid var(--colour-border-focus);
       outline-offset: var(--border-width-default);
+
+      /* NOTE: Options sit flush against each other, so we need to ensure the focus outline
+       * sits above subsequent options */
+      z-index: var(--z-index-elevated);
     }
 
     &:hover {

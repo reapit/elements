@@ -31,6 +31,7 @@ const meta = preview.meta({
             multiple: parameters.multiple ?? false,
             popupId: 'popup-id',
             required: false,
+            searchInputId: 'search-input-id',
             size: 'medium',
           }}
         >

@@ -1,4 +1,5 @@
 import preview from '#.storybook/preview'
+import { ComboboxContext } from '../context'
 import { ComboboxPopupDialogContext } from '../popup-dialog/context'
 import { ComboboxSearchInput } from './search-input'
 
@@ -7,9 +8,22 @@ const meta = preview.meta({
   component: ComboboxSearchInput,
   decorators: [
     (Story, { parameters }) => (
-      <ComboboxPopupDialogContext.Provider value={{ variant: parameters.popupVariant ?? 'auto' }}>
-        <Story />
-      </ComboboxPopupDialogContext.Provider>
+      <ComboboxContext.Provider
+        value={{
+          comboboxId: 'button-id',
+          disabled: false,
+          listboxId: 'listbox-id',
+          multiple: false,
+          popupId: 'popup-id',
+          required: false,
+          searchInputId: 'search-input-id',
+          size: 'medium',
+        }}
+      >
+        <ComboboxPopupDialogContext.Provider value={{ hasSearch: true, variant: parameters.popupVariant ?? 'auto' }}>
+          <Story />
+        </ComboboxPopupDialogContext.Provider>
+      </ComboboxContext.Provider>
     ),
   ],
 })

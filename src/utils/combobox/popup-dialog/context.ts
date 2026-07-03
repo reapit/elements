@@ -2,6 +2,8 @@ import { createContext, useContext } from 'react'
 
 export namespace ComboboxPopupDialogContext {
   export interface Value {
+    /** Whether the popup contains a search input (Combobox.SearchInput). */
+    hasSearch: boolean
     /**
      * Variant type:
      * - **auto**: Displays as a drawer on XS breakpoint, popover on SM and above

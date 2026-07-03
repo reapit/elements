@@ -26,6 +26,8 @@ export namespace ComboboxContext {
     popupId: string
     /** Whether the combobox is required */
     required: boolean
+    /** ID of the Combobox.SearchInput element, if rendered */
+    searchInputId: string
     /** Size of the combobox */
     size: 'small' | 'medium' | 'large'
   }

@@ -177,6 +177,7 @@ export const ElComboboxPopupDialogHeader = styled.div`
   @layer elements.main {
     grid-area: header;
     position: sticky;
+    z-index: var(--z-index-sticky);
     top: 0;
 
     display: flex;
@@ -184,7 +185,8 @@ export const ElComboboxPopupDialogHeader = styled.div`
     align-items: center;
     justify-content: end;
     gap: var(--spacing-2);
-    padding: var(--combobox-popup-padding);
+    padding-block: var(--combobox-popup-padding) calc(var(--combobox-popup-padding) / 2);
+    padding-inline: var(--combobox-popup-padding);
 
     background: inherit;
   }
@@ -193,7 +195,7 @@ export const ElComboboxPopupDialogHeader = styled.div`
 export const ElComboboxPopupDialogListboxContainer = styled.div`
   @layer elements.main {
     grid-area: listbox;
-    padding-block: 0 var(--combobox-popup-padding);
+    padding-block: calc(var(--combobox-popup-padding) / 2) var(--combobox-popup-padding);
     padding-inline: var(--combobox-popup-padding);
 
     height: 100%;

@@ -119,5 +119,6 @@ const mockContextValue: ComboboxContext.Value = {
   multiple: false,
   popupId: 'test-popup-id',
   required: false,
+  searchInputId: 'test-search-input-id',
   size: 'medium',
 }

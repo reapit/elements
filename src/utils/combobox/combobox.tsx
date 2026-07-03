@@ -11,6 +11,7 @@ import { ComboboxSelectionChips } from './selection-chips'
 import { ElCombobox } from './styles'
 import { getComboboxListboxId } from './get-listbox-id'
 import { getComboboxPopupId } from './get-popup-id'
+import { getComboboxSearchInputId } from './get-search-input-id'
 import { Listbox } from '#src/utils/listbox'
 import { useComboboxButton } from './use-button'
 import { useComboboxHasSelection } from './use-has-selection'
@@ -98,6 +99,7 @@ export function Combobox({
   const comboboxId = id ?? fallbackComboboxId
   const listboxId = getComboboxListboxId(comboboxId)
   const popupId = getComboboxPopupId(comboboxId)
+  const searchInputId = getComboboxSearchInputId(comboboxId)
 
   return (
     <ComboboxContext.Provider
@@ -112,6 +114,7 @@ export function Combobox({
         multiple,
         popupId,
         required,
+        searchInputId,
         size,
       }}
     >

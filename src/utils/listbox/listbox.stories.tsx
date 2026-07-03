@@ -1,8 +1,31 @@
 import preview from '#.storybook/preview'
 import { Listbox } from './listbox'
+import { styled } from '@linaria/react'
 import { useId, useState } from 'react'
 
-import type { ButtonHTMLAttributes, ChangeEventHandler } from 'react'
+import type { ChangeEventHandler } from 'react'
+
+/** A barebones, custom listbox option component used by the listbox stories */
+const MyListboxOption = styled.button`
+  &:where([aria-checked='true'], [aria-selected='true'])::before {
+    content: '✅ ';
+  }
+
+  &[data-is-active='true'] {
+    font-weight: bold;
+  }
+`
+
+/** A barebones, custom listbox optgroup component used by the listbox stories */
+function MyListboxOptgroup({ children, label, ...rest }: Listbox.OptgroupProps) {
+  const labelId = useId()
+  return (
+    <div {...rest} aria-labelledby={labelId}>
+      {label && <div id={labelId}>{label}</div>}
+      {children}
+    </div>
+  )
+}
 
 const meta = preview.meta({
   title: 'Utils/Listbox',
@@ -86,14 +109,27 @@ export const Disabled = Example.extend({
 })
 
 /**
- * There are two behaviours available when selecting an option. By default, the select action will
- * `toggle` the option's selected state. In some cases however, we may want clicks to only select the option,
- * preferring deselection to occur through a separate UI element. This `select-only` behaviour is
- * demonstrated here.
+ * When a listbox has no options, tabbing into it still shows a focus outline on the
+ * container itself, since there is no active option to display one instead.
+ */
+export const Empty = Example.extend({
+  args: {
+    children: [],
+  },
+})
+
+/**
+ * Clicking an option's selection behaviour is controlled by `selectAction`. The default,
+ * `'auto'`, selects the option for single-select listboxes and toggles it for multi-select
+ * listboxes. Setting `selectAction="select"`, as demonstrated here, forces select-only
+ * behaviour even for multi-select listboxes, useful when deselection should only occur
+ * through a separate UI element (e.g. a "Clear" button). Conversely, `selectAction="toggle"`
+ * forces toggle behaviour even for single-select listboxes.
  */
 export const SelectAction = Example.extend({
   name: 'Select actions',
   args: {
+    'aria-multiselectable': true,
     defaultValue: ['1'],
     selectAction: 'select',
   },
@@ -304,21 +340,3 @@ export const Forms = Example.extend({
     ),
   ],
 })
-
-/** A barebones, custom listbox option component used by the listbox stories */
-function MyListboxOption(props: ButtonHTMLAttributes<HTMLButtonElement>) {
-  const isSelected = props['aria-checked'] || props['aria-selected']
-  const fontWeight = isSelected ? 'bold' : 'normal'
-  return <button {...props} style={{ fontWeight }} />
-}
-
-/** A barebones, custom listbox optgroup component used by the listbox stories */
-function MyListboxOptgroup({ children, label, ...rest }: Listbox.OptgroupProps) {
-  const labelId = useId()
-  return (
-    <div {...rest} aria-labelledby={labelId}>
-      {label && <div id={labelId}>{label}</div>}
-      {children}
-    </div>
-  )
-}

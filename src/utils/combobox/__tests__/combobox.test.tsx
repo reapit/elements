@@ -22,6 +22,7 @@ test('provides IDs and other values over ComboboxContext', () => {
               comboboxId: expect.any(String),
               listboxId: expect.any(String),
               popupId: expect.any(String),
+              searchInputId: expect.any(String),
             },
             `
             {
@@ -35,6 +36,7 @@ test('provides IDs and other values over ComboboxContext', () => {
               "multiple": true,
               "popupId": Any<String>,
               "required": true,
+              "searchInputId": Any<String>,
               "size": "large",
             }
           `,

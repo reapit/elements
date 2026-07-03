@@ -114,7 +114,7 @@ export function ComboboxPopupDialog({
       onClick={handleClick}
       style={{ ...style, maxHeight }}
     >
-      <ComboboxPopupDialogContext.Provider value={{ variant }}>
+      <ComboboxPopupDialogContext.Provider value={{ hasSearch: !!search, variant }}>
         {needsAnchorPositioning && (
           <AnchorPositioning
             anchorElementId={ariaLabelledBy}

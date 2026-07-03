@@ -81,5 +81,12 @@ export const elAtAGlanceCard = css`
         --aag-card-background-colour: var(--aag-card-background-colour-selected);
       }
     }
+
+    /* Keyboard-active state: shown when this card is the aria-activedescendant target.
+       Uses an outline (not elevation) to communicate focus position without implying hover. */
+    &[data-is-active='true'] {
+      outline: var(--border-width-double) solid var(--colour-border-focus);
+      outline-offset: var(--border-width-default);
+    }
   }
 `

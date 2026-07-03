@@ -30,9 +30,10 @@ export type CloseOnSelection = (typeof CLOSE_ON_SELECTION)[keyof typeof CLOSE_ON
  * }
  */
 export function maybeCloseOnSelection(event: MouseEvent<HTMLDialogElement>): void {
-  // Don't close if default prevented or for programmatic clicks (like those created
-  // with element.click())
-  if (event.defaultPrevented || !event.isTrusted) {
+  // Deliberately not gated on event.isTrusted: keyboard selection drives clickOption(), which
+  // dispatches a synthetic (isTrusted: false) click, and it must close the popup the same way a
+  // real mouse click does.
+  if (event.defaultPrevented) {
     return
   }
 

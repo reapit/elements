@@ -50,6 +50,7 @@ const defaultComboboxContext: ComboboxContext.Value = {
   multiple: false,
   popupId: 'popup-id',
   required: false,
+  searchInputId: 'search-input-id',
   size: 'medium',
 }
 

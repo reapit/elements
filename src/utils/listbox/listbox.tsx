@@ -11,7 +11,9 @@ import { ListboxOption } from './option'
 import { ListboxOptgroup } from './optgroup'
 import { ListboxRenderContext, useListboxRenderContext } from './render-context'
 import { ListboxSelect } from './select'
-import { useFocusManagement } from './use-focus-management'
+import { useActiveDescendant } from './use-active-descendant'
+import { cx } from '@linaria/core'
+import { elListboxContainer } from './styles'
 import { useId, useMemo } from 'react'
 import { useListboxSelectionObserver } from './use-selection-observer'
 import { useListboxSelectState } from './use-select-state'
@@ -37,6 +39,13 @@ export namespace Listbox {
   export interface SelectProps extends ListboxSelect.Props {}
 
   export interface BaseProps extends Omit<HTMLAttributes<HTMLDivElement>, AttributesToOmit> {
+    /**
+     * ID of the element that should receive aria-activedescendant as options are navigated,
+     * instead of the listbox container itself. Use this when a different element owns focus
+     * throughout the interaction (e.g. a search input in an Autocomplete). Defaults to the
+     * listbox container.
+     */
+    activeDescendantOwnerId?: string
     /** Whether the listbox and its options are disabled. */
     'aria-disabled'?: boolean
     /**
@@ -148,6 +157,7 @@ export namespace Listbox {
  * </Listbox>
  */
 export function Listbox<C extends ElementType = 'div'>({
+  activeDescendantOwnerId,
   'aria-disabled': disabled = false,
   'aria-multiselectable': multiple = false,
   'aria-orientation': ariaOrientation = 'vertical',
@@ -162,11 +172,13 @@ export function Listbox<C extends ElementType = 'div'>({
   onChange,
   onFocus,
   onKeyDown,
+  onMouseDown,
   placeholder,
   selectAction = 'auto',
   selectRef,
   selectionFollowsFocus = !multiple,
   style,
+  tabIndex = 0,
   value,
   ...rest
 }: Listbox.Props<C>) {
@@ -176,7 +188,7 @@ export function Listbox<C extends ElementType = 'div'>({
   const listboxId = id ?? fallbackListboxId
 
   const [selectValue, handleChange] = useListboxSelectState({ defaultValue, multiple, onChange, value })
-  const focusHandlers = useFocusManagement({ onKeyDown })
+  const activeDescendantHandlers = useActiveDescendant({ activeDescendantOwnerId, onKeyDown, onMouseDown })
 
   const contextValue = useMemo(
     () => ({ disabled, listboxId, multiple, selectAction, selectValue }),
@@ -186,21 +198,18 @@ export function Listbox<C extends ElementType = 'div'>({
   return (
     <Element
       {...rest}
-      {...focusHandlers}
+      {...activeDescendantHandlers}
       aria-disabled={disabled}
       aria-multiselectable={multiple}
       aria-orientation={ariaOrientation}
       aria-required={required}
       // Whether options select automatically when focused.
       data-selection-follows-focus={selectionFollowsFocus}
-      className={className}
+      className={cx(elListboxContainer, className)}
       id={listboxId}
       role="listbox"
       style={style}
-      // Makes the listbox focusable and initially part of the document's tab sequence.
-      // NOTE: `useFocusManagement` changes the tab index in the DOM; this prop value serves
-      // only as an initial value.
-      tabIndex={0}
+      tabIndex={tabIndex}
     >
       <ListboxContext.Provider value={contextValue}>
         {/*

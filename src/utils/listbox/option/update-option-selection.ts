@@ -52,7 +52,7 @@ export function updateOptionSelection(event: MouseEvent<HTMLButtonElement>) {
   // We use typeof for the optionValue because the option may legitimately have a value of "".
   if (!listboxId || typeof optionValue !== 'string') return
 
-  // Validate and apply the selection action
+  // Validate the selection action
   if (!isValidSelectAction(selectAction)) return
 
   // Apply the appropriate selection strategy

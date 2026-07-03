@@ -5,6 +5,8 @@ import { ElComboboxListbox } from './styles'
 import { Listbox } from '#src/utils/listbox'
 import { useComboboxContext } from '../context'
 import { useComboboxDefaultOptionsContext } from '../default-options-context'
+import { ComboboxPopupDialogContext } from '../popup-dialog/context'
+import { useContext } from 'react'
 
 // We omit...
 // - as, because we pin it to our styled element
@@ -14,6 +16,8 @@ import { useComboboxDefaultOptionsContext } from '../default-options-context'
 // - aria-required, because it is set by Combobox
 // - id, because it is set by Combobox
 // - selectionFollowsFocus, because it is always false
+// - tabIndex, because it is derived internally from hasSearch, and consumer overrides would
+//   break the aria-activedescendant pattern
 type AttributesToOmit =
   | 'as'
   | 'aria-disabled'
@@ -22,6 +26,7 @@ type AttributesToOmit =
   | 'aria-required'
   | 'id'
   | 'selectionFollowsFocus'
+  | 'tabIndex'
 
 export namespace ComboboxListbox {
   export interface DividerProps extends Listbox.DividerProps {}
@@ -36,15 +41,18 @@ export namespace ComboboxListbox {
 /**
  * A listbox for a Combobox. Built on the Listbox foundation.
  */
-export function ComboboxListbox({ defaultValue: defaultValueProp, ...rest }: ComboboxListbox.Props) {
+export function ComboboxListbox({ defaultValue: defaultValueProp, onMouseDown, ...rest }: ComboboxListbox.Props) {
   const defaultOptions = useComboboxDefaultOptionsContext()
   const defaultValue = defaultOptions.map((option) => option.value)
 
-  const { disabled, listboxId, multiple, required } = useComboboxContext()
+  const { disabled, listboxId, multiple, required, searchInputId } = useComboboxContext()
+  const popupDialogContext = useContext(ComboboxPopupDialogContext)
+  const hasSearch = popupDialogContext?.hasSearch ?? false
 
   return (
     <Listbox
       {...rest}
+      activeDescendantOwnerId={hasSearch ? searchInputId : undefined}
       as={ElComboboxListbox}
       aria-disabled={disabled}
       aria-multiselectable={multiple}
@@ -53,6 +61,16 @@ export function ComboboxListbox({ defaultValue: defaultValueProp, ...rest }: Com
       defaultValue={defaultValueProp ?? defaultValue}
       id={listboxId}
       selectionFollowsFocus={false}
+      // When paired with a SearchInput, the input holds DOM focus throughout the interaction.
+      // tabIndex={-1} removes the listbox from the tab sequence so Tab moves directly from the
+      // search input to the next element outside the popup. onMouseDown preventDefault stops
+      // the listbox from stealing focus when a user clicks in the whitespace between options;
+      // the click event still fires on child option elements so selection works normally.
+      onMouseDown={(e) => {
+        onMouseDown?.(e)
+        if (hasSearch) e.preventDefault()
+      }}
+      tabIndex={hasSearch ? -1 : 0}
     />
   )
 }

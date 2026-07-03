@@ -124,6 +124,7 @@ const meta = preview.meta({
           multiple: parameters.multiple ?? false,
           popupId,
           required: false,
+          searchInputId: useId(),
           size: 'medium',
         }}
       >

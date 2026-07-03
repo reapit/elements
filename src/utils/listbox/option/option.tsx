@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import { useListboxContext } from '../context'
 import { useListboxRenderContext } from '../render-context'
 import { updateOptionSelection } from './update-option-selection'
@@ -44,6 +45,7 @@ export function ListboxOption<C extends ElementType = 'button'>({
   as,
   children,
   disabled,
+  id,
   onClick,
   value: optionValue,
   ...rest
@@ -51,6 +53,10 @@ export function ListboxOption<C extends ElementType = 'button'>({
   const Element = as || 'button'
   const context = useListboxContext()
   const renderContext = useListboxRenderContext()
+
+  // Called unconditionally before any early returns per rules of hooks.
+  // Provides a stable ID for aria-activedescendant targeting when no id prop is supplied.
+  const generatedId = useId()
 
   const isSelected =
     context.selectValue.includes(optionValue) || (optionValue === '' && context.selectValue.length === 0)
@@ -83,9 +89,12 @@ export function ListboxOption<C extends ElementType = 'button'>({
       // If the listbox is disabled, all options will also be disabled. Options can be
       // independently disabled.
       disabled={context.disabled || disabled}
+      id={id ?? generatedId}
       onClick={handleClick}
       role="option"
-      // Options stay focusable for keyboard navigation but never enter the tab sequence.
+      // tabIndex={-1} keeps options out of the tab sequence and prevents them receiving DOM
+      // focus; keyboard navigation is driven by aria-activedescendant on the listbox
+      // container/owner instead.
       tabIndex={-1}
       // Options are always plain buttons, never submit or reset buttons.
       type="button"
