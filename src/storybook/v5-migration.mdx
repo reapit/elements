@@ -24,15 +24,23 @@ yarn add @reapit/elements@5`}
 
 ## Step 2: Update the stylesheet import
 
-Replace your existing stylesheet import with the v5 path.
+Replace your existing stylesheet import with the v5 path, and add the new `reset.css` stylesheet. v5 components don't need it, but the `Deprecated*` v4 components you'll still be using mid-migration do — import it before `styles.css` and keep it in place until you've migrated off every deprecated component.
 
 In TypeScript or JavaScript:
 
-<Source code={`import '@reapit/elements/dist/index.css'`} language="typescript" />
+<Source
+  code={`import '@reapit/elements/reset.css'
+import '@reapit/elements/styles.css'`}
+  language="typescript"
+/>
 
 In a CSS file:
 
-<Source code={`@import '@reapit/elements/dist/index.css';`} language="css" />
+<Source
+  code={`@import '@reapit/elements/reset.css';
+@import '@reapit/elements/styles.css';`}
+  language="css"
+/>
 
 The Inter font is now loaded unconditionally from the global stylesheet. If your v4 application applied an `elFont` class to the root element to opt in to the font, you can remove it.
 
@@ -144,10 +152,10 @@ Run each codemod that applies to your codebase:
     </tr>
     <tr>
       <td>
-        <code>DeprecatedTag</code> / <code>DeprecatedTagGroup</code>
+        <code>DeprecatedTag / DeprecatedTagGroup</code>
       </td>
       <td>
-        <code>Tag</code> / <code>TagGroup</code>
+        <code>Tag / TagGroup</code>
       </td>
       <td>
         <code>upgrade-deprecated-tag</code>
@@ -201,9 +209,7 @@ Run each codemod that applies to your codebase:
       <td>
         <code>useClickOutside</code>
       </td>
-      <td>
-        Inline <code>useEffect</code>
-      </td>
+      <td>Inline useEffect</td>
       <td>
         <code>replace-deprecated-use-click-outside</code>
       </td>
@@ -221,10 +227,10 @@ Run each codemod that applies to your codebase:
     </tr>
     <tr>
       <td>
-        <code>SnackProvider</code> / <code>useSnack</code>
+        <code>SnackProvider / useSnack</code>
       </td>
       <td>
-        <code>Toaster</code> / <code>toast</code>
+        <code>Toaster / toast</code>
       </td>
       <td>
         <code>replace-deprecated-snack</code>
