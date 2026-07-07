@@ -2,7 +2,7 @@
 compatibility: requires gh CLI (authenticated)
 description: Use when code changes are already in place and you need to close out PR review threads — post replies, mark threads resolved, and push commits. Trigger phrases include "resolve the PR threads", "reply to the PR comments", "close out the review threads", "mark the comments resolved and push".
 metadata:
-  github-path: skills/resolve-pr-comments
+  github-path: plugins/personal/personal-kdoherty/skills/resolve-pr-comments
   github-ref: refs/heads/main
   github-repo: https://github.com/reapit-global/anz-shared-agentic-development
   github-tree-sha: 224625f5c70ed071a300959a24d81e54f42cfe57

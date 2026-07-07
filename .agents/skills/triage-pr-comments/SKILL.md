@@ -2,7 +2,7 @@
 compatibility: requires gh CLI (authenticated) and python3 (3.9+)
 description: Use when the user wants to understand, survey, or prioritise PR review comments without necessarily fixing them. Trigger phrases include "triage the PR comments", "what are the review comments", "summarise the PR feedback", "show me what needs fixing". Also the fetch-and-classify phase of the full review-pr-comments workflow.
 metadata:
-  github-path: skills/triage-pr-comments
+  github-path: plugins/personal/personal-kdoherty/skills/triage-pr-comments
   github-ref: refs/heads/main
   github-repo: https://github.com/reapit-global/anz-shared-agentic-development
   github-tree-sha: d61138c0ddfd3e1884c8bf44773a822f8d4b9151
