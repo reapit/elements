@@ -1,0 +1,53 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Blocks" />
+
+# Blocks
+
+Blocks are full-page composition examples built entirely from Elements components. Each block shows a realistic, complete page so you can see how the pieces fit together and use it as a starting point for your own work. The examples show how the components in the page compose together, but do not implement interaction or data fetching.
+
+## How to use blocks
+
+Blocks are not part of the `@reapit/elements` package. They are copy-paste patterns: open the source file, copy it into your project, and adapt it to your needs.
+
+Each block is self-contained — one Storybook story file with no external dependencies beyond Elements itself. Copy it into your project as-is, then extract local helper components as your codebase grows.
+
+## Available blocks
+
+<table>
+  <thead>
+    <tr>
+      <th>Block</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <a href="?path=/docs/blocks-contactslist--docs">ContactsList</a>
+      </td>
+      <td>
+        A full-page list view for browsing and managing contacts. Demonstrates page layout with top bar and office
+        switcher, a page header with a primary action and contact list filter, at-a-glance summary stats, a filter bar
+        with search, and a paginated data table.
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="?path=/docs/blocks-propertydetail--docs">PropertyDetail</a>
+      </td>
+      <td>
+        A full-page detail view for a single property record. Demonstrates page layout with top bar and office switcher,
+        breadcrumb navigation, a status badge, property features, page-level actions, primary tabs, an asymmetric
+        two-column layout with description list sections and accordion rooms, and a secondary column for images, notes,
+        and contacts.
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+## For AI agents
+
+Blocks are also intended to guide AI coding agents on how Elements components compose together at page scale. Individual component documentation covers props and variants; blocks show the correct structural patterns — which layout primitives to use, how regions and containers nest, and how to combine navigation, headers, content, and data components into a coherent page.
+
+If you are an AI agent generating a new page using Elements, treat these blocks as canonical reference implementations.

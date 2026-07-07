@@ -10,7 +10,7 @@ export const ElMainContainer = styled.div<ElMainContainerProps>`
     --main_container-max_width: 100%;
 
     display: grid;
-    grid-template: auto / minmax(auto, var(--main_container-max_width, 1fr));
+    grid-template: auto / minmax(0, var(--main_container-max_width, 1fr));
     justify-content: center;
 
     /* NOTE: This is a default value; it can be overridden via inline styles */
