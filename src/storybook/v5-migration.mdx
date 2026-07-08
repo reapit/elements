@@ -1,4 +1,5 @@
-import { Meta, Source } from '@storybook/addon-docs/blocks'
+import { Meta, Source, Markdown } from '@storybook/addon-docs/blocks'
+import migrationGuide from '../../codemods/migrate-deprecated-input/MIGRATION_GUIDE.md?raw'
 
 <Meta title="V5 Migration" />
 
@@ -293,7 +294,7 @@ Some breaking changes cannot be automated and require code changes by hand.
 
 The deprecated `Input`, `InputGroup`, `InputAddOn`, and `InputError` components have been removed. There is no automated codemod because the variety of usage patterns makes agent-assisted migration more reliable than a mechanical transform.
 
-See `codemods/migrate-deprecated-input/README.md` in the repository for a detailed migration guide with a decision tree, prop mapping tables, and before/after examples. The guide is written to be given directly to an AI coding assistant.
+A detailed migration guide is available below with a decision tree, prop mapping tables, and before/after examples. The guide is written to be given directly to an AI coding assistant.
 
 The short version:
 
@@ -357,6 +358,14 @@ The short version:
 </table>
 
 Rename `errorMessage` → `errorText`, `icon` → `leadingIcon`, and `inputAddOnText` → `suffix` on all migrated components. Remove `hasError` and `intent` — error state is now driven by the presence of `errorText`.
+
+<details>
+<summary><strong>Full migration guide</strong></summary>
+
+The guide below covers all migration patterns, edge cases, and can be copy-pasted directly into an AI agent for automated migration assistance.
+
+<Markdown>{migrationGuide}</Markdown>
+</details>
 
 ### `Image`
 
