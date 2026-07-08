@@ -1,4 +1,4 @@
-import { Meta, Source, Markdown } from '@storybook/addon-docs/blocks'
+import { Meta, Source } from '@storybook/addon-docs/blocks'
 import migrationGuide from '../../codemods/migrate-deprecated-input/MIGRATION_GUIDE.md?raw'
 
 <Meta title="V5 Migration" />
@@ -364,7 +364,9 @@ Rename `errorMessage` → `errorText`, `icon` → `leadingIcon`, and `inputAddOn
 
 The guide below covers all migration patterns, edge cases, and can be copy-pasted directly into an AI agent for automated migration assistance.
 
-<Markdown>{migrationGuide}</Markdown>
+<div style={{ maxHeight: 400, overflowY: 'auto' }}>
+  <Source code={migrationGuide} language="markdown" />
+</div>
 </details>
 
 ### `Image`
