@@ -3,15 +3,16 @@ import { FilterBar } from './filter-bar'
 
 figma.connect(FilterBar, '<FILTER_BAR_URL>', {
   props: {
-    appliedFilters: figma.children('Applied filters'),
-    leftContent: figma.children('Left content'),
-    rightContent: figma.children('Right content'),
+    action: figma.instance('Button'),
+    filterChips: figma.instance('Chip group'),
+    leftContent: figma.slot('Main controls slot'),
+    rightContent: figma.slot('Secondary controls slot'),
   },
   example: (props) => (
     <FilterBar
-      appliedFilters={props.appliedFilters}
-      leftContent={props.leftContent}
-      rightContent={props.rightContent}
+      appliedFilters={<FilterBar.AppliedFilters action={props.action}>{props.filterChips}</FilterBar.AppliedFilters>}
+      leftContent={<FilterBar.LeftContent>{props.leftContent}</FilterBar.LeftContent>}
+      rightContent={<FilterBar.RightContent>{props.rightContent}</FilterBar.RightContent>}
     />
   ),
 })

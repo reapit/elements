@@ -3,7 +3,7 @@ import { styled } from '@linaria/react'
 export const ElFilterBarAppliedFilters = styled.div`
   @layer elements.main {
     display: grid;
-    align-items: center;
+    align-items: start;
     grid-template: 'chips action' auto / 1fr auto;
     width: 100%;
   }

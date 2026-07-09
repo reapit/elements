@@ -17,7 +17,7 @@ const meta = preview.meta({
         None: null,
         Search: (
           <FilterBar.LeftContent>
-            <SearchInput aria-label="Search" placeholder="Search" size="small" />
+            <SearchInput aria-label="Search" maxWidth="var(--size-60)" placeholder="Search" size="small" />
           </FilterBar.LeftContent>
         ),
         'Filter Button': (
@@ -29,13 +29,10 @@ const meta = preview.meta({
         ),
         Both: (
           <FilterBar.LeftContent>
-            <SearchInput aria-label="Search" placeholder="Search" size="small" />
+            <SearchInput aria-label="Search" maxWidth="var(--size-60)" placeholder="Search" size="small" />
             <ButtonGroup>
               <Button iconLeft={<FilterIcon />} size="small" variant="secondary">
                 Filter
-              </Button>
-              <Button size="small" variant="secondary">
-                View options
               </Button>
             </ButtonGroup>
           </FilterBar.LeftContent>
@@ -117,7 +114,7 @@ const meta = preview.meta({
 
 export const Example = meta.story({
   args: {
-    leftContent: 'Filter Button',
+    leftContent: 'Both',
     rightContent: 'Buttons',
     appliedFilters: 'Some Filters',
   },

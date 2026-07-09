@@ -1,3 +1,4 @@
+import { isWidthAtOrAbove } from '#src/utils/breakpoints/conditions'
 import { styled } from '@linaria/react'
 
 // See https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/search
@@ -5,12 +6,20 @@ export const ElFilterBar = styled.search`
   @layer elements.main {
     display: grid;
     /* NOTE: We only apply a column gap, because we only want a row gap to exist if
-     * there are applied filters present. As such, the row gap is handled by the
-     * applied filters container, "ElFilterBarAppliedFiltersContainer" */
+     * there is right content or applied filters present. As such, the row gaps are
+     * handled by the right content and applied filters container elements */
     column-gap: var(--spacing-4);
+
     grid-template:
-      'left-content right-content' auto
-      'applied-filters applied-filters' minmax(0, auto) / 1fr auto;
+      'left-content' auto
+      'right-content' minmax(0, auto)
+      'applied-filters' minmax(0, auto) / 100%;
+
+    @media screen and (${isWidthAtOrAbove('SM')}) {
+      grid-template:
+        'left-content right-content' auto
+        'applied-filters applied-filters' minmax(0, auto) / 1fr auto;
+    }
   }
 `
 
@@ -30,5 +39,10 @@ export const ElFilterBarLeftContentContainer = styled.div`
 export const ElFilterBarRightContentContainer = styled.div`
   @layer elements.main {
     grid-area: right-content;
+    margin-block-start: var(--spacing-3);
+
+    @media screen and (${isWidthAtOrAbove('SM')}) {
+      margin-block-start: 0;
+    }
   }
 `
