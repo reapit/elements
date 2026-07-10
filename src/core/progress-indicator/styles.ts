@@ -1,6 +1,6 @@
 import { styled } from '@linaria/react'
 
-export const ElProgressBarTrack = styled.div`
+export const ElProgressIndicatorTrack = styled.div`
   @layer elements.main {
     position: relative;
     overflow: hidden;
@@ -10,7 +10,7 @@ export const ElProgressBarTrack = styled.div`
   }
 `
 
-export const ElProgressBarIndicator = styled.div`
+export const ElProgressIndicatorFill = styled.div`
   @layer elements.main {
     position: absolute;
     top: 0;
@@ -19,18 +19,18 @@ export const ElProgressBarIndicator = styled.div`
   }
 `
 
-export const ElDeterminateProgressBarIndicator = styled(ElProgressBarIndicator)`
+export const ElDeterminateProgressIndicatorFill = styled(ElProgressIndicatorFill)`
   @layer elements.main {
     left: 0;
     transform-origin: left;
 
     @media (prefers-reduced-motion: no-preference) {
       transition: width 200ms ease-out;
-      animation: determinate-progress-bar 300ms;
+      animation: determinate-progress-indicator 300ms;
     }
   }
 
-  @keyframes determinate-progress-bar {
+  @keyframes determinate-progress-indicator {
     0% {
       animation-timing-function: cubic-bezier(0.5, 0, 0.5, 1);
       scale: 0 1;
@@ -41,22 +41,22 @@ export const ElDeterminateProgressBarIndicator = styled(ElProgressBarIndicator)`
   }
 `
 
-export const ElIndeterminateProgressBarIndicator = styled(ElProgressBarIndicator)`
+export const ElIndeterminateProgressIndicatorFill = styled(ElProgressIndicatorFill)`
   @layer elements.main {
     width: 25%;
 
     @media (prefers-reduced-motion: no-preference) {
-      animation: indeterminate-progress-bar 1.5s ease-in-out infinite;
+      animation: indeterminate-progress-indicator 1.5s ease-in-out infinite;
     }
 
     @media (prefers-reduced-motion: reduce) {
       left: 0;
       width: 100%;
-      animation: indeterminate-progress-bar-pulse 1.5s ease-in-out infinite;
+      animation: indeterminate-progress-indicator-pulse 1.5s ease-in-out infinite;
     }
   }
 
-  @keyframes indeterminate-progress-bar {
+  @keyframes indeterminate-progress-indicator {
     0% {
       animation-timing-function: cubic-bezier(0.4, 0, 0.6, 1);
       left: -25%;
@@ -66,7 +66,7 @@ export const ElIndeterminateProgressBarIndicator = styled(ElProgressBarIndicator
     }
   }
 
-  @keyframes indeterminate-progress-bar-pulse {
+  @keyframes indeterminate-progress-indicator-pulse {
     0%,
     100% {
       opacity: 1;
