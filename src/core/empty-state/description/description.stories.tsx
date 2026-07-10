@@ -23,3 +23,12 @@ export const Example = meta.story({
     secondaryText: 'Secondary text',
   },
 })
+
+/**
+ * The title is optional. When omitted, only the secondary text is displayed.
+ */
+export const TitleOmitted = Example.extend({
+  args: {
+    children: undefined,
+  },
+})

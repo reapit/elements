@@ -5,7 +5,7 @@ import type { HTMLAttributes, ReactNode } from 'react'
 export namespace EmptyStateDescription {
   export interface Props extends HTMLAttributes<HTMLDivElement> {
     /** The empty state's title text. */
-    children: ReactNode
+    children?: ReactNode
     /** The empty state's secondary text. */
     secondaryText?: ReactNode
   }
@@ -22,7 +22,7 @@ export type EmptyStateDescriptionProps = EmptyStateDescription.Props
 export function EmptyStateDescription({ children, secondaryText, ...rest }: EmptyStateDescription.Props) {
   return (
     <ElEmptyStateDescription {...rest}>
-      <ElEmptyStateDescriptionTitle>{children}</ElEmptyStateDescriptionTitle>
+      {children && <ElEmptyStateDescriptionTitle>{children}</ElEmptyStateDescriptionTitle>}
       {secondaryText && <ElEmptyStateDescriptionSecondaryText>{secondaryText}</ElEmptyStateDescriptionSecondaryText>}
     </ElEmptyStateDescription>
   )

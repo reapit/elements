@@ -23,6 +23,8 @@ export type EmptyStateActionProps = EmptyStateAction.Props
  *
  * Use `EmptyState.Action` when you need button-like styling but want to navigate to a URL. Use
  * `EmptyState.ActionButton` when the action needs to occur on click.
+ *
+ * @deprecated Use AnchorButton directly
  */
 export function EmptyStateAction(props: EmptyStateAction.Props) {
   return <AnchorButton {...props} size="medium" variant="tertiary" useLinkStyle />

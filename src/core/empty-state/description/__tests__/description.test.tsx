@@ -12,6 +12,11 @@ test('displays the secondary text in a paragraph element', () => {
   expect(screen.getByRole('paragraph')).toHaveTextContent('Secondary text')
 })
 
+test('omits the heading element when no title is provided', () => {
+  render(<EmptyStateDescription secondaryText="Secondary text" />)
+  expect(screen.queryByRole('heading', { level: 3 })).not.toBeInTheDocument()
+})
+
 test('forwards additional props to the root element', () => {
   const { container } = render(<EmptyStateDescription data-testid="test-id">No things found</EmptyStateDescription>)
   expect(screen.getByTestId('test-id')).toBe(container.firstElementChild)

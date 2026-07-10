@@ -2,51 +2,67 @@ import { EmptyState } from './empty-state'
 import figma from '@figma/code-connect'
 
 figma.connect(EmptyState, '<EMPTY_STATE_URL>', {
-  variant: { Content: 'Description & Action' },
   props: {
-    action: figma.nestedProps('Button', {
-      label: figma.string('Label'),
+    actions: figma.boolean('Show actions', {
+      true: figma.children('Button group'),
+      false: undefined,
     }),
-    description: figma.textContent('Description'),
-    secondaryText: figma.enum('Content', {
-      'Description & Action': figma.textContent('Secondary text'),
+    background: figma.enum('Background', {
+      White: 'white',
+      Grey: 'neutral-lightest',
+      Transparent: 'transparent',
+    }),
+    illustration: figma.boolean('Show illustration', {
+      true: figma.slot('↳ Illustration slot'),
+      false: undefined,
+    }),
+    secondaryText: figma.boolean('Show description', {
+      true: figma.string('↳ Description'),
+      false: undefined,
+    }),
+    size: figma.enum('Size', {
+      Large: 'large',
+      Small: 'small',
+    }),
+    title: figma.boolean('Show title', {
+      true: figma.string('↳ Title'),
+      false: undefined,
     }),
   },
   example: (props) => (
-    <EmptyState>
-      <EmptyState.Description secondaryText={props.secondaryText}>{props.description}</EmptyState.Description>
-      {/* NOTE: for actions that should act as a button, use EmptyState.ActionButton */}
-      <EmptyState.Action href="#replace-me">{props.action.label}</EmptyState.Action>
+    <EmptyState background={props.background} size={props.size}>
+      {props.illustration}
+      <EmptyState.Description secondaryText={props.secondaryText}>{props.title}</EmptyState.Description>
+      {props.actions}
     </EmptyState>
   ),
 })
 
 figma.connect(EmptyState, '<EMPTY_STATE_URL>', {
-  variant: { Content: 'Description' },
+  variant: { 'Show title': false, 'Show description': false },
   props: {
-    description: figma.textContent('Description'),
-    secondaryText: figma.enum('Content', {
-      Description: figma.textContent('Secondary text'),
+    actions: figma.boolean('Show actions', {
+      true: figma.children('Button group'),
+      false: undefined,
+    }),
+    background: figma.enum('Background', {
+      White: 'white',
+      Grey: 'neutral-lightest',
+      Transparent: 'transparent',
+    }),
+    illustration: figma.boolean('Show illustration', {
+      true: figma.slot('↳ Illustration slot'),
+      false: undefined,
+    }),
+    size: figma.enum('Size', {
+      Large: 'large',
+      Small: 'small',
     }),
   },
   example: (props) => (
-    <EmptyState>
-      <EmptyState.Description secondaryText={props.secondaryText}>{props.description}</EmptyState.Description>
-    </EmptyState>
-  ),
-})
-
-figma.connect(EmptyState, '<EMPTY_STATE_URL>', {
-  variant: { Content: 'Action' },
-  props: {
-    action: figma.nestedProps('Button', {
-      label: figma.string('Label'),
-    }),
-  },
-  example: (props) => (
-    <EmptyState>
-      {/* NOTE: for actions that should act as a button, use EmptyState.ActionButton */}
-      <EmptyState.Action href="#replace-me">{props.action.label}</EmptyState.Action>
+    <EmptyState background={props.background} size={props.size}>
+      {props.illustration}
+      {props.actions}
     </EmptyState>
   ),
 })

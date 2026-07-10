@@ -7,23 +7,26 @@ export const ElEmptyStateDescription = styled.div`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    gap: var(--spacing-2);
 
     text-align: center;
   }
 `
 
 export const ElEmptyStateDescriptionTitle = styled.h3`
-  color: var(--colour-text-primary);
-  ${font('base', 'regular')}
+  @layer elements.main {
+    color: var(--colour-text-primary);
+    ${font('lg', 'bold')}
 
-  margin: 0;
-  padding: 0;
+    margin: 0;
+    padding: 0;
+  }
 `
 
 export const ElEmptyStateDescriptionSecondaryText = styled.p`
   @layer elements.main {
     color: var(--colour-text-secondary);
-    ${font('sm', 'regular')}
+    ${font('base', 'regular')}
 
     margin: 0;
     padding: 0;

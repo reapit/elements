@@ -17,6 +17,9 @@ export namespace EmptyStateActionButton {
  */
 export type EmptyStateActionButtonProps = EmptyStateActionButton.Props
 
+/**
+ * @deprecated Use Button directly
+ */
 export function EmptyStateActionButton(props: EmptyStateActionButton.Props) {
   return <Button {...props} size="medium" variant="tertiary" useLinkStyle />
 }
