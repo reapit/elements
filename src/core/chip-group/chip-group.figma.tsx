@@ -3,7 +3,7 @@ import figma from '@figma/code-connect'
 
 figma.connect(ChipGroup, '<CHIP_GROUP_URL>', {
   props: {
-    children: figma.children('*'),
+    children: figma.slot('Content slot'),
     firstChip: figma.nestedProps('Chip', {
       variant: figma.enum('Variant', {
         Filter: 'filter',
