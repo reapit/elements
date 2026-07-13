@@ -5,6 +5,7 @@ import { styled } from '@linaria/react'
 export const ElFilterBar = styled.search`
   @layer elements.main {
     display: grid;
+    align-items: center;
     /* NOTE: We only apply a column gap, because we only want a row gap to exist if
      * there is right content or applied filters present. As such, the row gaps are
      * handled by the right content and applied filters container elements */

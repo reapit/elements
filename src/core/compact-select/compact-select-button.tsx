@@ -8,6 +8,8 @@ type AttributesToOmit = 'aria-controls' | 'aria-expanded' | 'children' | 'id' | 
 
 export namespace CompactSelectButton {
   export interface Props extends Omit<Combobox.ButtonProps, AttributesToOmit> {
+    /** Render-prop function to customise selected content rendering. */
+    children?: Combobox.SelectedContentProps['children']
     /** Default option to display when no selections have been made. */
     defaultOptions?: Combobox.SelectedContentProps['defaultOptions']
   }
@@ -18,6 +20,7 @@ export namespace CompactSelectButton {
  * Displays placeholder text when no selection is made.
  */
 export function CompactSelectButton({
+  children,
   defaultOptions,
   onClick,
   placeholder = 'Select an option',
@@ -31,7 +34,9 @@ export function CompactSelectButton({
   const tooltipId = useId()
 
   const content = hasSelection && (
-    <Combobox.SelectedContent defaultOptions={defaultOptions} listboxId={context.listboxId} />
+    <Combobox.SelectedContent defaultOptions={defaultOptions} listboxId={context.listboxId}>
+      {children}
+    </Combobox.SelectedContent>
   )
 
   return (

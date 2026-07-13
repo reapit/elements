@@ -1,5 +1,5 @@
 import { CompactSelect } from '../compact-select'
-import { render, screen } from '@testing-library/react'
+import { render, screen, within } from '@testing-library/react'
 
 test('renders a combobox element', () => {
   render(
@@ -77,4 +77,19 @@ test('forwards additional props to underlying element', () => {
     </CompactSelect>,
   )
   expect(screen.getByTestId('my-CompactSelect-button')).toBeVisible()
+})
+
+test('renders custom content via children render-prop when an option is selected', () => {
+  render(
+    <CompactSelect>
+      <CompactSelect.Button>{(option) => <span>Custom: {option.label}</span>}</CompactSelect.Button>
+      <CompactSelect.Popup>
+        <CompactSelect.Listbox defaultValue={['apple']} name="fruit">
+          <CompactSelect.Option value="apple">Apple</CompactSelect.Option>
+        </CompactSelect.Listbox>
+      </CompactSelect.Popup>
+    </CompactSelect>,
+  )
+  const matches = within(screen.getByRole('combobox')).getAllByText('Custom: Apple')
+  expect(matches[0]).toBeVisible()
 })
