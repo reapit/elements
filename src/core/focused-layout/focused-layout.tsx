@@ -20,7 +20,7 @@ export namespace FocusedLayout {
   }
 
   export interface TopBarProps extends FocusedLayoutTopBar.Props {}
-  export interface ContentProps extends FocusedLayoutContent.Props {}
+  export type ContentProps = FocusedLayoutContent.Props | FocusedLayoutContent.DeprecatedProps
   export interface BottomBarProps extends FocusedLayoutBottomBar.Props {}
   export interface ProductLogoProps extends FocusedLayoutProductLogo.Props {}
 }

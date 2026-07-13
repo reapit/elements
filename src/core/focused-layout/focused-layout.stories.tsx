@@ -30,7 +30,7 @@ const meta = preview.meta({
               </Button>
             </ButtonGroup>
           </FocusedLayout.TopBar>,
-          <FocusedLayout.Content key="content">
+          <FocusedLayout.Content isFullBleed key="content">
             <MainContainer size="wide">
               <Pattern height="100px" />
             </MainContainer>
@@ -40,7 +40,7 @@ const meta = preview.meta({
           <FocusedLayout.TopBar key="top-bar" logo={<FocusedLayoutProductLogo product="Reapit" />} title="Page title">
             <Button aria-label="Cancel" iconLeft={<CloseIcon />} size="large" variant="tertiary" />
           </FocusedLayout.TopBar>,
-          <FocusedLayout.Content key="content">
+          <FocusedLayout.Content isFullBleed key="content">
             <MainContainer size="wide">
               <Pattern height="100px" />
             </MainContainer>
@@ -118,7 +118,7 @@ export const Scrolling = Example.extend({
   args: {
     children: [
       <FocusedLayout.TopBar key="top-bar" logo={<FocusedLayoutProductLogo product="Reapit" />} title="Page title" />,
-      <FocusedLayout.Content key="content">
+      <FocusedLayout.Content isFullBleed key="content">
         <MainContainer size="wide">
           <Pattern height="120svh" />
         </MainContainer>

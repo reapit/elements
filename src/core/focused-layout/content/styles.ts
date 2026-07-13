@@ -26,5 +26,10 @@ export const ElFocusedLayoutContent = styled.main`
     @container ${FOCUSED_LAYOUT_CSS_CONTAINER_NAME} ${isWidthAtOrAbove('MD')} {
       padding: var(--spacing-8) var(--spacing-10);
     }
+
+    &[data-is-full-bleed='true'] {
+      max-width: none;
+      padding: 0;
+    }
   }
 `

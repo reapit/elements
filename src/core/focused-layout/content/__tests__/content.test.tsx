@@ -24,3 +24,13 @@ test('forwards className to the main element', () => {
   const { container } = render(<FocusedLayoutContent className="custom-class" />)
   expect(container.firstElementChild).toHaveClass('custom-class')
 })
+
+test('does not set data-is-full-bleed by default', () => {
+  const { container } = render(<FocusedLayoutContent />)
+  expect(container.firstElementChild).not.toHaveAttribute('data-is-full-bleed')
+})
+
+test('sets data-is-full-bleed when isFullBleed is true', () => {
+  const { container } = render(<FocusedLayoutContent isFullBleed />)
+  expect(container.firstElementChild).toHaveAttribute('data-is-full-bleed', 'true')
+})

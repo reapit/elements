@@ -8,6 +8,7 @@ import { Flex } from '#src/utils/flex'
 import { FocusedLayout } from '#src/core/focused-layout'
 import { FolderTabs } from '#src/core/folder-tabs'
 import { isWidthAtOrAbove } from '#src/utils/breakpoints'
+import { MainContainer } from '#src/core/main-container'
 import { SearchInput } from '#src/core/search-input'
 import { Table } from '#src/core/table'
 import { Text } from '#src/utils/text'
@@ -116,95 +117,97 @@ export const Example = meta.story({
           )}
         </FocusedLayout.TopBar>
 
-        <FocusedLayout.Content>
-          <Flex direction="column" style={{ padding: 'var(--spacing-6) 0' }}>
-            <FolderTabs>
-              <FolderTabs.Item aria-current="page" href="#">
-                <FolderTabs.CountLabel count="87">Matched transactions</FolderTabs.CountLabel>
-              </FolderTabs.Item>
-              <FolderTabs.Item aria-current={false} href="#">
-                <FolderTabs.CountLabel count="6">Unmatched transactions</FolderTabs.CountLabel>
-              </FolderTabs.Item>
-            </FolderTabs>
+        <FocusedLayout.Content isFullBleed>
+          <MainContainer size="wide">
+            <Flex direction="column" style={{ padding: 'var(--spacing-6) 0' }}>
+              <FolderTabs>
+                <FolderTabs.Item aria-current="page" href="#">
+                  <FolderTabs.CountLabel count="87">Matched transactions</FolderTabs.CountLabel>
+                </FolderTabs.Item>
+                <FolderTabs.Item aria-current={false} href="#">
+                  <FolderTabs.CountLabel count="6">Unmatched transactions</FolderTabs.CountLabel>
+                </FolderTabs.Item>
+              </FolderTabs>
 
-            <Card borderRadius="--border-radius-none" isBorderless padding="--spacing-10">
-              <Flex direction="column" gap="--spacing-6">
-                <Flex justifyContent="flex-end">
-                  <Button size="medium" variant="primary">
-                    Allocate all
-                  </Button>
-                </Flex>
+              <Card borderRadius="--border-radius-none" isBorderless padding="--spacing-10">
+                <Flex direction="column" gap="--spacing-6">
+                  <Flex justifyContent="flex-end">
+                    <Button size="medium" variant="primary">
+                      Allocate all
+                    </Button>
+                  </Flex>
 
-                <FilterBar
-                  leftContent={
-                    <FilterBar.LeftContent>
-                      <SearchInput
-                        aria-label="Search transactions"
-                        maxWidth="var(--size-64)"
-                        placeholder="Search"
-                        size="medium"
-                      />
-                    </FilterBar.LeftContent>
-                  }
-                  rightContent={
-                    <FilterBar.RightContent>
-                      <CompactSelect size="medium">
-                        <CompactSelect.Button>
-                          {(option) => (
-                            <Text font="text-sm/regular" colour="secondary">
-                              Sort by: {option.label}
-                            </Text>
-                          )}
-                        </CompactSelect.Button>
-                        <CompactSelect.Popup>
-                          <CompactSelect.Listbox defaultValue={['relevance']} name="sortBy">
-                            <CompactSelect.Option value="relevance">Relevance</CompactSelect.Option>
-                            <CompactSelect.Option value="newest">Newest</CompactSelect.Option>
-                            <CompactSelect.Option value="oldest">Oldest</CompactSelect.Option>
-                            <CompactSelect.Option value="amount-desc">Amount (high to low)</CompactSelect.Option>
-                            <CompactSelect.Option value="amount-asc">Amount (low to high)</CompactSelect.Option>
-                          </CompactSelect.Listbox>
-                        </CompactSelect.Popup>
-                      </CompactSelect>
-                    </FilterBar.RightContent>
-                  }
-                />
+                  <FilterBar
+                    leftContent={
+                      <FilterBar.LeftContent>
+                        <SearchInput
+                          aria-label="Search transactions"
+                          maxWidth="var(--size-64)"
+                          placeholder="Search"
+                          size="medium"
+                        />
+                      </FilterBar.LeftContent>
+                    }
+                    rightContent={
+                      <FilterBar.RightContent>
+                        <CompactSelect size="medium">
+                          <CompactSelect.Button>
+                            {(option) => (
+                              <Text font="text-sm/regular" colour="secondary">
+                                Sort by: {option.label}
+                              </Text>
+                            )}
+                          </CompactSelect.Button>
+                          <CompactSelect.Popup>
+                            <CompactSelect.Listbox defaultValue={['relevance']} name="sortBy">
+                              <CompactSelect.Option value="relevance">Relevance</CompactSelect.Option>
+                              <CompactSelect.Option value="newest">Newest</CompactSelect.Option>
+                              <CompactSelect.Option value="oldest">Oldest</CompactSelect.Option>
+                              <CompactSelect.Option value="amount-desc">Amount (high to low)</CompactSelect.Option>
+                              <CompactSelect.Option value="amount-asc">Amount (low to high)</CompactSelect.Option>
+                            </CompactSelect.Listbox>
+                          </CompactSelect.Popup>
+                        </CompactSelect>
+                      </FilterBar.RightContent>
+                    }
+                  />
 
-                <Table as="table" columns={columns}>
-                  <Table.Head as="thead">
-                    <Table.HeaderRow as="tr">
-                      <Table.HeaderCell as="th" justifySelf="start">
-                        Transaction
-                      </Table.HeaderCell>
-                      {showMatchColumn && <Table.HeaderCell as="th">Match</Table.HeaderCell>}
-                      <Table.HeaderCell as="th">Date</Table.HeaderCell>
-                      <Table.HeaderCell as="th">Amount</Table.HeaderCell>
-                    </Table.HeaderRow>
-                  </Table.Head>
-                  <Table.Body as="tbody">
-                    {MATCHED_TRANSACTIONS.map((transaction) => (
-                      <Table.BodyRow as="tr" key={transaction.id}>
-                        <Table.BodyCell as="th" justifySelf="start">
-                          <Table.DoubleLineLayout supplementaryData={`Ref: ${transaction.reference}`}>
-                            <Table.PrimaryAction href="#">{transaction.payer}</Table.PrimaryAction>
-                          </Table.DoubleLineLayout>
-                        </Table.BodyCell>
-                        {showMatchColumn && (
-                          <Table.BodyCell as="td">
-                            <Table.DoubleLineLayout supplementaryData={transaction.matchDetail}>
-                              {transaction.match}
+                  <Table as="table" columns={columns}>
+                    <Table.Head as="thead">
+                      <Table.HeaderRow as="tr">
+                        <Table.HeaderCell as="th" justifySelf="start">
+                          Transaction
+                        </Table.HeaderCell>
+                        {showMatchColumn && <Table.HeaderCell as="th">Match</Table.HeaderCell>}
+                        <Table.HeaderCell as="th">Date</Table.HeaderCell>
+                        <Table.HeaderCell as="th">Amount</Table.HeaderCell>
+                      </Table.HeaderRow>
+                    </Table.Head>
+                    <Table.Body as="tbody">
+                      {MATCHED_TRANSACTIONS.map((transaction) => (
+                        <Table.BodyRow as="tr" key={transaction.id}>
+                          <Table.BodyCell as="th" justifySelf="start">
+                            <Table.DoubleLineLayout supplementaryData={`Ref: ${transaction.reference}`}>
+                              <Table.PrimaryAction href="#">{transaction.payer}</Table.PrimaryAction>
                             </Table.DoubleLineLayout>
                           </Table.BodyCell>
-                        )}
-                        <Table.BodyCell as="td">{transaction.date}</Table.BodyCell>
-                        <Table.BodyCell as="td">{transaction.amount}</Table.BodyCell>
-                      </Table.BodyRow>
-                    ))}
-                  </Table.Body>
-                </Table>
-              </Flex>
-            </Card>
-          </Flex>
+                          {showMatchColumn && (
+                            <Table.BodyCell as="td">
+                              <Table.DoubleLineLayout supplementaryData={transaction.matchDetail}>
+                                {transaction.match}
+                              </Table.DoubleLineLayout>
+                            </Table.BodyCell>
+                          )}
+                          <Table.BodyCell as="td">{transaction.date}</Table.BodyCell>
+                          <Table.BodyCell as="td">{transaction.amount}</Table.BodyCell>
+                        </Table.BodyRow>
+                      ))}
+                    </Table.Body>
+                  </Table>
+                </Flex>
+              </Card>
+            </Flex>
+          </MainContainer>
         </FocusedLayout.Content>
       </FocusedLayout>
     )
