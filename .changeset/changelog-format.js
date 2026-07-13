@@ -1,6 +1,6 @@
 // @ts-check
 
-import { getInfo, getInfoFromPullRequest } from '@changesets/get-github-info'
+import { getCommitInfo, getPullRequestInfo } from '@changesets/get-github-info'
 
 /**
  * Maps a Keep a Changelog category prefix to its category label.
@@ -99,11 +99,11 @@ async function resolveLinks(rawSummary, changesetCommit, opts) {
   let resolvedLinks
 
   if (prFromSummary !== undefined) {
-    const { links } = await getInfoFromPullRequest({ repo, pull: prFromSummary })
-    resolvedLinks = { pull: links.pull }
+    const info = await getPullRequestInfo({ repo, pull: prFromSummary })
+    resolvedLinks = { pull: info?.pull.markdownLink ?? null }
   } else if (changesetCommit) {
-    const { links } = await getInfo({ repo, commit: changesetCommit })
-    resolvedLinks = { pull: links.pull }
+    const info = await getCommitInfo({ repo, commit: changesetCommit })
+    resolvedLinks = { pull: info?.pull?.markdownLink ?? null }
   } else {
     resolvedLinks = { pull: null }
   }

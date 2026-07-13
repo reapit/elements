@@ -1,11 +1,11 @@
 // @ts-check
 
 vi.mock('@changesets/get-github-info', () => ({
-  getInfo: vi.fn(),
-  getInfoFromPullRequest: vi.fn(),
+  getCommitInfo: vi.fn(),
+  getPullRequestInfo: vi.fn(),
 }))
 
-import { getInfo, getInfoFromPullRequest } from '@changesets/get-github-info'
+import { getCommitInfo, getPullRequestInfo } from '@changesets/get-github-info'
 import { getReleaseLine, getDependencyReleaseLine } from './changelog-format.js'
 
 const REPO = 'reapit-global/gbl-ds-elements'
@@ -22,16 +22,29 @@ function makeChangeset(overrides = {}) {
   }
 }
 
-/** @returns {import('@changesets/get-github-info').Info} */
+/**
+ * @param {{ pull?: number | null, commit?: string | null, user?: string | null }} [overrides]
+ * @returns {any}
+ */
 function makeInfo({ pull = null, commit = null, user = null } = {}) {
   return {
-    pull,
-    user,
-    links: {
-      pull: pull ? `[#${pull}](https://github.com/${REPO}/pull/${pull})` : null,
-      commit: commit ? `[\`${commit.slice(0, 7)}\`](https://github.com/${REPO}/commit/${commit})` : null,
-      user: user ? `[@${user}](https://github.com/${user})` : null,
-    },
+    pull: pull
+      ? {
+          number: pull,
+          url: `https://github.com/${REPO}/pull/${pull}`,
+          markdownLink: `[#${pull}](https://github.com/${REPO}/pull/${pull})`,
+        }
+      : undefined,
+    commit: commit
+      ? {
+          sha: commit,
+          url: `https://github.com/${REPO}/commit/${commit}`,
+          markdownLink: `[\`${commit.slice(0, 7)}\`](https://github.com/${REPO}/commit/${commit})`,
+        }
+      : undefined,
+    author: user
+      ? { login: user, url: `https://github.com/${user}`, markdownLink: `[@${user}](https://github.com/${user})` }
+      : undefined,
   }
 }
 
@@ -40,7 +53,7 @@ function makeInfo({ pull = null, commit = null, user = null } = {}) {
 // ---------------------------------------------------------------------------
 
 test('infers "Added" category for a minor bump with no prefix', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(makeChangeset({ summary: 'New button variant' }), 'minor', OPTIONS)
 
@@ -49,7 +62,7 @@ test('infers "Added" category for a minor bump with no prefix', async () => {
 })
 
 test('infers "Fixed" category for a patch bump with no prefix', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(makeChangeset({ summary: 'Correct icon alignment' }), 'patch', OPTIONS)
 
@@ -58,7 +71,7 @@ test('infers "Fixed" category for a patch bump with no prefix', async () => {
 })
 
 test('infers "Removed" category for a major bump with no prefix', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(makeChangeset({ summary: 'Remove DeprecatedButton' }), 'major', OPTIONS)
 
@@ -71,7 +84,7 @@ test('infers "Removed" category for a major bump with no prefix', async () => {
 // ---------------------------------------------------------------------------
 
 test('uses "Added" category and strips "Added:" prefix', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(
     makeChangeset({ summary: 'Added: autoFlow prop to ButtonGroup' }),
@@ -85,7 +98,7 @@ test('uses "Added" category and strips "Added:" prefix', async () => {
 })
 
 test('uses "Fixed" category and strips "Fixed:" prefix', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(
     makeChangeset({ summary: 'Fixed: Correct icon spacing in Snack' }),
@@ -99,7 +112,7 @@ test('uses "Fixed" category and strips "Fixed:" prefix', async () => {
 })
 
 test('uses "Changed" category and strips "Changed:" prefix', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(
     makeChangeset({ summary: 'Changed: Default button size to medium' }),
@@ -113,7 +126,7 @@ test('uses "Changed" category and strips "Changed:" prefix', async () => {
 })
 
 test('uses "Deprecated" category and strips "Deprecated:" prefix', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(
     makeChangeset({ summary: 'Deprecated: DeprecatedIcon — use Icon instead' }),
@@ -127,7 +140,7 @@ test('uses "Deprecated" category and strips "Deprecated:" prefix', async () => {
 })
 
 test('uses "Removed" category and strips "Removed:" prefix', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(
     makeChangeset({ summary: 'Removed: CJS build output — consumers must migrate to ESM' }),
@@ -141,7 +154,7 @@ test('uses "Removed" category and strips "Removed:" prefix', async () => {
 })
 
 test('uses "Security" category and strips "Security:" prefix', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(
     makeChangeset({ summary: 'Security: Fix brace-expansion CVE-2025-5889' }),
@@ -155,7 +168,7 @@ test('uses "Security" category and strips "Security:" prefix', async () => {
 })
 
 test('uses "Internal" category and strips "Internal:" prefix', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(
     makeChangeset({ summary: 'Internal: Migrate release process to changesets' }),
@@ -169,7 +182,7 @@ test('uses "Internal" category and strips "Internal:" prefix', async () => {
 })
 
 test('prefix matching is case-insensitive', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(makeChangeset({ summary: 'ADDED: Dark mode support' }), 'patch', OPTIONS)
 
@@ -178,7 +191,7 @@ test('prefix matching is case-insensitive', async () => {
 })
 
 test('conventional commit prefix is treated as part of the description', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(makeChangeset({ summary: 'feat: Add dark mode support' }), 'patch', OPTIONS)
 
@@ -193,7 +206,7 @@ test('conventional commit prefix is treated as part of the description', async (
 // ---------------------------------------------------------------------------
 
 test('appends only the PR link to the entry', async () => {
-  vi.mocked(getInfo).mockResolvedValue(
+  vi.mocked(getCommitInfo).mockResolvedValue(
     makeInfo({ pull: 1105, commit: 'e78c4c8234416385c2546464b2c5399bd6ace088', user: 'kdoherty_Reapit' }),
   )
 
@@ -211,7 +224,7 @@ test('appends only the PR link to the entry', async () => {
 })
 
 test('omits metadata suffix when no GitHub info is available', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(
     makeChangeset({ summary: 'Add new component', commit: undefined }),
@@ -223,8 +236,20 @@ test('omits metadata suffix when no GitHub info is available', async () => {
   expect(result).not.toContain('(')
 })
 
+test('omits metadata suffix when getCommitInfo resolves undefined', async () => {
+  vi.mocked(getCommitInfo).mockResolvedValue(undefined)
+
+  const result = await getReleaseLine(
+    makeChangeset({ summary: 'Add new component', commit: 'e78c4c8234416385c2546464b2c5399bd6ace088' }),
+    'minor',
+    OPTIONS,
+  )
+
+  expect(result).not.toContain('(')
+})
+
 test('wraps the PR link in parentheses with no extra punctuation', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo({ pull: 42 }))
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo({ pull: 42 }))
 
   const result = await getReleaseLine(makeChangeset({ summary: 'Fix typo' }), 'patch', OPTIONS)
 
@@ -233,8 +258,8 @@ test('wraps the PR link in parentheses with no extra punctuation', async () => {
   expect(result).toMatch(/\(\[#42\][^)]*\)/)
 })
 
-test('uses getInfoFromPullRequest when PR number is embedded in the summary', async () => {
-  vi.mocked(getInfoFromPullRequest).mockResolvedValue(makeInfo({ pull: 999 }))
+test('omits metadata suffix when getPullRequestInfo cannot find the PR', async () => {
+  vi.mocked(getPullRequestInfo).mockResolvedValue(undefined)
 
   const result = await getReleaseLine(
     makeChangeset({ summary: 'pr: #999\nFix an edge case', commit: undefined }),
@@ -242,7 +267,21 @@ test('uses getInfoFromPullRequest when PR number is embedded in the summary', as
     OPTIONS,
   )
 
-  expect(vi.mocked(getInfoFromPullRequest)).toHaveBeenCalledWith({ repo: REPO, pull: 999 })
+  expect(vi.mocked(getPullRequestInfo)).toHaveBeenCalledWith({ repo: REPO, pull: 999 })
+  expect(result).not.toContain('(')
+  expect(result).toContain('Fix an edge case')
+})
+
+test('uses getPullRequestInfo when PR number is embedded in the summary', async () => {
+  vi.mocked(getPullRequestInfo).mockResolvedValue(makeInfo({ pull: 999 }))
+
+  const result = await getReleaseLine(
+    makeChangeset({ summary: 'pr: #999\nFix an edge case', commit: undefined }),
+    'patch',
+    OPTIONS,
+  )
+
+  expect(vi.mocked(getPullRequestInfo)).toHaveBeenCalledWith({ repo: REPO, pull: 999 })
   expect(result).toContain('[#999]')
   // The 'pr: #999' override line must not appear in the output
   expect(result).not.toContain('pr: #999')
@@ -252,12 +291,12 @@ test('respects GITHUB_SERVER_URL environment variable', async () => {
   const originalEnv = process.env.GITHUB_SERVER_URL
   process.env.GITHUB_SERVER_URL = 'https://github.example.com'
 
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   try {
     // The error path would reveal use of the server URL; instead verify no
     // exception is thrown and that the mock was called without the env URL
-    // (getInfo resolves its own URL internally). We just confirm the module
+    // (getCommitInfo resolves its own URL internally). We just confirm the module
     // does not hard-code 'https://github.com' in the error message.
     const result = await getReleaseLine(makeChangeset({ summary: 'A change' }), 'patch', OPTIONS)
     expect(result).toBeTruthy()
@@ -271,7 +310,7 @@ test('respects GITHUB_SERVER_URL environment variable', async () => {
 // ---------------------------------------------------------------------------
 
 test('preserves continuation lines with two-space indentation', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const summary =
     'Added: New icon set\n\nIncludes 24 new icons across three categories:\n- Navigation\n- Actions\n- Status'
@@ -283,7 +322,7 @@ test('preserves continuation lines with two-space indentation', async () => {
 })
 
 test('handles a single-line summary without trailing newline', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getReleaseLine(makeChangeset({ summary: 'fix: Correct focus ring colour' }), 'patch', OPTIONS)
 
@@ -358,7 +397,7 @@ test('does not include a commit link when changeset has no commit hash', async (
 })
 
 test('lists multiple updated dependencies on separate indented lines', async () => {
-  vi.mocked(getInfo).mockResolvedValue(makeInfo())
+  vi.mocked(getCommitInfo).mockResolvedValue(makeInfo())
 
   const result = await getDependencyReleaseLine(
     [makeChangeset()],
