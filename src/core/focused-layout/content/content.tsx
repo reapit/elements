@@ -4,7 +4,7 @@ import type { HTMLAttributes, ReactElement } from 'react'
 export namespace FocusedLayoutContent {
   export interface Props extends HTMLAttributes<HTMLElement> {
     /** Removes the content area's maximum width and padding. Use when nesting a `MainContainer`, which applies its own. */
-    isFullBleed?: boolean
+    isFullBleed?: true
   }
 
   /**
