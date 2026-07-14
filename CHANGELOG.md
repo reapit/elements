@@ -1,5 +1,43 @@
 # @reapit/elements
 
+## 5.1.0
+
+### Minor Changes
+
+- **[Added]** `children` render-prop to `CompactSelect.Button`, allowing consumers to customise how the selected option is rendered. ([#1518](https://github.com/reapit-global/gbl-ds-elements/pull/1518))
+
+- **[Added]** `focused-layout-content-full-bleed` codemod. Migrates `FocusedLayout.Content` to pass `isFullBleed` and nest a `MainContainer size="wide"`, adopting the future default padding and maximum width behaviour now. ([#1524](https://github.com/reapit-global/gbl-ds-elements/pull/1524))
+
+- **[Added]** `Listbox` accepts a `role` prop (`"listbox"` | `"tree"`) enabling ARIA tree widget semantics, hierarchical keyboard navigation (Arrow keys expand/collapse groups), and correct `role="treeitem"` on options and group headers. ([#1494](https://github.com/reapit-global/gbl-ds-elements/pull/1494))
+
+- **[Added]** `ProgressIndicator` component. It communicates a task's completion progress via its numeric `value` prop, or that a task is in progress when its completion progress cannot be determined, if `value` is omitted. ([#1516](https://github.com/reapit-global/gbl-ds-elements/pull/1516))
+
+- **[Deprecated]** the default padding and maximum width applied by `FocusedLayout.Content`. These will be removed in the next major version. Nest a `MainContainer` inside `FocusedLayout.Content` and pass `isFullBleed` to adopt the future default now. ([#1522](https://github.com/reapit-global/gbl-ds-elements/pull/1522))
+
+- **[Added]** `background` and `size` props to `EmptyState`, supporting `neutral-lightest`, `transparent`, and `white` backgrounds and `small` and `large` sizes. ([#1515](https://github.com/reapit-global/gbl-ds-elements/pull/1515))
+
+- **[Deprecated]** `EmptyState.Action` and `EmptyState.ActionButton`. Use `AnchorButton` and `Button` directly instead. ([#1515](https://github.com/reapit-global/gbl-ds-elements/pull/1515))
+
+- **[Deprecated]** the `height` prop on `EmptyState`. Use `style` instead. ([#1515](https://github.com/reapit-global/gbl-ds-elements/pull/1515))
+
+- **[Changed]** `Listbox` and `Combobox` keyboard navigation now uses the `aria-activedescendant` pattern — focus stays on the listbox container or search input while the active option is tracked via ARIA attributes. When a `Combobox` renders a `Combobox.SearchInput`, `aria-activedescendant` is set on the search input rather than the listbox for both keyboard and mouse interaction. ([#1493](https://github.com/reapit-global/gbl-ds-elements/pull/1493))
+
+- **[Added]** `isFullBleed` prop to `FocusedLayout.Content`, letting consumers remove its default max-width and padding together when nesting a `MainContainer`, which applies its own. ([#1522](https://github.com/reapit-global/gbl-ds-elements/pull/1522))
+
+### Patch Changes
+
+- **[Fixed]** `EmptyState.Description` no longer renders an empty heading when `children` (the title) is omitted. `children` is now optional. ([#1515](https://github.com/reapit-global/gbl-ds-elements/pull/1515))
+
+- **[Changed]** `EmptyState` and `EmptyState.Description` visual appearance to match the latest design, including title typography and spacing. The default `size` ("small") now applies a maximum width and different padding/gap than before — pass a custom `style` to override the maximum width if the previous unconstrained layout is required. ([#1515](https://github.com/reapit-global/gbl-ds-elements/pull/1515))
+
+- **[Fixed]** `FilterBar` left and right content now vertically centre when they contain controls of different heights. ([#1518](https://github.com/reapit-global/gbl-ds-elements/pull/1518))
+
+- **[Fixed]** `FilterBar` now stacks its content vertically on small viewports instead of overflowing. ([#1514](https://github.com/reapit-global/gbl-ds-elements/pull/1514))
+
+- **[Fixed]** `MainContainer` no longer overflows its parent when a child (such as a wide table) is wider than the available space. ([#1505](https://github.com/reapit-global/gbl-ds-elements/pull/1505))
+
+- **[Fixed]** `OfficeSwitcher` border styling now uses design tokens for consistent appearance. ([#1507](https://github.com/reapit-global/gbl-ds-elements/pull/1507))
+
 ## 5.0.4
 
 ### Patch Changes
