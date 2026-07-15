@@ -116,7 +116,7 @@ No WAI-ARIA APG pattern exists for file-upload/dropzone widgets — checked agai
 
 ## `formatFileSize`
 
-`src/utils/number-format/number-format.ts` (alongside `getIntlNumberFormat`/`getNumberAffix`/`getLocaleNumberSeparators`, not a new top-level util — it depends on `getIntlNumberFormat` for the numeric part). Picks a size tier (bytes/KB/MB), formats the number via `getIntlNumberFormat(locale, { maximumFractionDigits: 2 })`, and appends a fixed, non-localised `"KB"`/`"MB"` suffix with no space — matching the Figma spec's `"239.3KB"`. Deliberately does not use `Intl.NumberFormat`'s `style: 'unit'`, which would add a space and a localised/pluralised unit name.
+`src/utils/number-format/number-format.ts` (alongside `getIntlNumberFormat`/`getNumberAffix`/`getLocaleNumberSeparators`, not a new top-level util — it depends on `getIntlNumberFormat` for the numeric part). Picks a size tier (byte/kilobyte/megabyte) and formats it via `getIntlNumberFormat(locale, { style: 'unit', unit, unitDisplay: 'short', maximumFractionDigits: 2 })`, matching the Figma spec's `"3.6 MB"` in `en-GB`. Both the number and the unit are localised (e.g. `"3,6 Mo"` in `fr-FR`), since `Intl.NumberFormat`'s unit data already covers byte/kilobyte/megabyte correctly — there's no need to hand-roll a fixed suffix.
 
 ## Explicitly out of scope for v1
 

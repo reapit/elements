@@ -1,4 +1,4 @@
-import { getIntlNumberFormat, getLocaleNumberSeparators, getNumberAffix } from '../number-format'
+import { formatFileSize, getIntlNumberFormat, getLocaleNumberSeparators, getNumberAffix } from '../number-format'
 
 // ---------------------------------------------------------------------------
 // getLocaleNumberSeparators
@@ -174,4 +174,62 @@ test('getNumberAffix returns the correct position when passed Infinity', () => {
   const withInfinity = getNumberAffix(Infinity, 'en-GB', { style: 'currency', currency: 'GBP' })
   const withZero = getNumberAffix(0, 'en-GB', { style: 'currency', currency: 'GBP' })
   expect(withInfinity.position).toBe(withZero.position)
+})
+
+// ---------------------------------------------------------------------------
+// formatFileSize
+// ---------------------------------------------------------------------------
+
+test('formatFileSize formats 0 bytes with the "byte" unit', () => {
+  expect(formatFileSize(0, 'en-GB')).toBe('0 byte')
+})
+
+test('formatFileSize formats a value below the KB boundary with the "byte" unit', () => {
+  expect(formatFileSize(1023, 'en-GB')).toBe('1,023 byte')
+})
+
+test('formatFileSize formats exactly 1024 bytes with the "kB" unit', () => {
+  expect(formatFileSize(1024, 'en-GB')).toBe('1 kB')
+})
+
+test('formatFileSize matches the Figma spec example of 3.6 MB', () => {
+  expect(formatFileSize(1024 * 1024 * 3.6, 'en-GB')).toBe('3.6 MB')
+})
+
+test('formatFileSize formats a value below the MB boundary with the "kB" unit', () => {
+  expect(formatFileSize(1024 * 1024 - 1, 'en-GB')).toBe('1,024 kB')
+})
+
+test('formatFileSize formats exactly 1 MB with the "MB" unit', () => {
+  expect(formatFileSize(1024 * 1024, 'en-GB')).toBe('1 MB')
+})
+
+test('formatFileSize rounds the numeric part to a maximum of 2 fraction digits', () => {
+  expect(formatFileSize(1024 * 1024 * 2.98765, 'en-GB')).toBe('2.99 MB')
+})
+
+test('formatFileSize uses locale-specific decimal separators for the numeric part', () => {
+  expect(formatFileSize(245043, 'de-DE')).toBe('239,3 kB')
+})
+
+test('formatFileSize uses a locale-specific unit name', () => {
+  // fr-FR separates the number and unit with a narrow no-break space (U+202F), not a plain space.
+  expect(formatFileSize(1024 * 1024 * 3.6, 'fr-FR')).toBe('3,6 Mo')
+})
+
+test('formatFileSize normalises NaN to 0 rather than throwing', () => {
+  expect(() => formatFileSize(NaN)).not.toThrow()
+  expect(formatFileSize(NaN, 'en-GB')).toBe('0 byte')
+})
+
+test('formatFileSize normalises Infinity to 0 rather than throwing', () => {
+  expect(formatFileSize(Infinity, 'en-GB')).toBe('0 byte')
+})
+
+test('formatFileSize normalises negative values to 0', () => {
+  expect(formatFileSize(-1, 'en-GB')).toBe('0 byte')
+})
+
+test('formatFileSize does not throw for an invalid locale tag', () => {
+  expect(() => formatFileSize(245043, 'not-a-valid-locale!!')).not.toThrow()
 })

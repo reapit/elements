@@ -115,6 +115,37 @@ export function getNumberAffix(value: number = 0, locale?: string, options?: Int
   return { affix, position }
 }
 
+// ---------------------------------------------------------------------------
+// File size formatting
+// ---------------------------------------------------------------------------
+
+const KB = 1024
+const MB = KB * 1024
+
+/**
+ * Formats a byte count as a human-readable string with a bytes/KB/MB tier, e.g. `'3.6 MB'`.
+ *
+ * Uses {@link getIntlNumberFormat} with `style: 'unit'` (`unitDisplay: 'short'`), so both the
+ * numeric part and the unit are localised — e.g. `'3,6 Mo'` in `fr-FR`, `'239,3 kB'` in `de-DE`.
+ *
+ * @param bytes - The size in bytes. Non-finite values (`NaN`, `Infinity`, `-Infinity`) and
+ *   negative values are normalised to `0` before formatting.
+ * @param locale - BCP 47 locale tag. Defaults to the runtime locale when omitted or invalid.
+ */
+export function formatFileSize(bytes: number, locale?: string): string {
+  const size = Number.isFinite(bytes) ? Math.max(bytes, 0) : 0
+  const unitOptions = (unit: Intl.NumberFormatOptions['unit']): Intl.NumberFormatOptions => ({
+    style: 'unit',
+    unit,
+    unitDisplay: 'short',
+    maximumFractionDigits: 2,
+  })
+
+  if (size < KB) return getIntlNumberFormat(locale, unitOptions('byte')).format(size)
+  if (size < MB) return getIntlNumberFormat(locale, unitOptions('kilobyte')).format(size / KB)
+  return getIntlNumberFormat(locale, unitOptions('megabyte')).format(size / MB)
+}
+
 export interface LocaleNumberSeparators {
   decimal: string
   group: string
