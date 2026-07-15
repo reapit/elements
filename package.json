@@ -80,7 +80,7 @@
     "build:docs": "rimraf public/dist && NODE_ENV=production storybook build -o public/dist",
     "build:js": "vite build",
     "build:lib": "yarn build:types && yarn build:js && yarn build:codemods",
-    "build:types": "tsgo --project tsconfig.build.json",
+    "build:types": "tsc --project tsconfig.build.json",
     "commit": "yarn test run --coverage --silent && yarn coverage:badges && yarn lint && yarn check",
     "coverage:badges": "yarn make-badge branches && yarn make-badge functions && yarn make-badge lines && yarn make-badge statements",
     "generate:icons": "yarn node --experimental-strip-types src/icons/bin/generate-icons.ts",
@@ -92,7 +92,7 @@
     "lint:es": "oxlint --fix src",
     "lint:fmt": "oxfmt",
     "check": "yarn check:types && yarn check:lint",
-    "check:types": "tsgo --noEmit",
+    "check:types": "tsc --noEmit",
     "check:lint": "yarn check:lint:css && yarn check:lint:es && yarn check:lint:fmt",
     "check:lint:css": "stylelint \"src/**/*.{ts,tsx,js,jsx,css}\"",
     "check:lint:es": "oxlint src",
@@ -129,7 +129,6 @@
     "@types/node": "^24.12.4",
     "@types/react": "18.3.28",
     "@types/react-dom": "18.3.7",
-    "@typescript/native-preview": "beta",
     "@vitejs/plugin-react": "^6.0.3",
     "@vitest/coverage-v8": "^4.1.9",
     "@wyw-in-js/vite": "2.1.3",
@@ -156,7 +155,7 @@
     "stylelint-no-unsupported-browser-features": "^8.1.1",
     "svgo": "^4.0.1",
     "ts-morph": "^28.0.0",
-    "typescript": "^6.0.3",
+    "typescript": "^7.0.1-rc",
     "vite": "^8.1.3",
     "vite-plugin-svgr": "^5.2.0",
     "vitest": "^4.1.9"
@@ -189,6 +188,6 @@
   "engines": {
     "node": ">=24"
   },
-  "packageManager": "yarn@4.16.0",
+  "packageManager": "yarn@4.17.1",
   "snyk": true
 }
