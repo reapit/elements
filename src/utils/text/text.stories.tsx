@@ -6,9 +6,12 @@ import { myCustomTextStyles } from './__story__/styles'
 
 import type { FontStyle } from '#src/utils/font'
 
+// 'md' has no corresponding design token and isn't documented, so it's excluded from Storybook controls.
+const documentedFontSizes = fontSizes.filter((size) => size !== 'md')
+
 const fontStyles = [
   'inherit',
-  ...fontWeights.flatMap((weight) => fontSizes.map((size) => `text-${size}/${weight}` as const)),
+  ...fontWeights.flatMap((weight) => documentedFontSizes.map((size) => `text-${size}/${weight}` as const)),
 ] satisfies FontStyle[]
 
 const meta = preview.meta({
@@ -63,7 +66,7 @@ const meta = preview.meta({
     size: {
       control: 'select',
       description: '**Deprecated: use `font` instead.** The font size of the text.',
-      options: fontSizes,
+      options: documentedFontSizes,
     },
     weight: {
       control: 'select',

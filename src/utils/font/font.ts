@@ -14,11 +14,13 @@ import type { FontSize, FontStyle, FontWeight } from './types'
  * @returns A string of CSS properties for the text
  */
 export function font(size: FontSize, weight: FontWeight) {
-  const fontFamily = `var(--font-${size}-${weight}-family)`
-  const fontSize = `var(--font-${size}-${weight}-size)`
-  const fontWeight = `var(--font-${size}-${weight}-weight)`
-  const letterSpacing = `var(--font-${size}-${weight}-letter_spacing)`
-  const lineHeight = `var(--font-${size}-${weight}-line_height)`
+  // 'md' has no corresponding design token; treat it as an alias for 'base' so it resolves to real CSS variables.
+  const tokenSize = size === 'md' ? 'base' : size
+  const fontFamily = `var(--font-${tokenSize}-${weight}-family)`
+  const fontSize = `var(--font-${tokenSize}-${weight}-size)`
+  const fontWeight = `var(--font-${tokenSize}-${weight}-weight)`
+  const letterSpacing = `var(--font-${tokenSize}-${weight}-letter_spacing)`
+  const lineHeight = `var(--font-${tokenSize}-${weight}-line_height)`
 
   return `
     /* text-${size}/${weight} */

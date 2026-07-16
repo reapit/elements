@@ -147,24 +147,24 @@ exports[`font(lg, regular) returns correct CSS 1`] = `
 exports[`font(md, bold) returns correct CSS 1`] = `
 "
     /* text-md/bold */
-    font: var(--font-md-bold-weight) var(--font-md-bold-size)/var(--font-md-bold-line_height) var(--font-md-bold-family);
-    letter-spacing: var(--font-md-bold-letter_spacing);
+    font: var(--font-base-bold-weight) var(--font-base-bold-size)/var(--font-base-bold-line_height) var(--font-base-bold-family);
+    letter-spacing: var(--font-base-bold-letter_spacing);
   "
 `;
 
 exports[`font(md, medium) returns correct CSS 1`] = `
 "
     /* text-md/medium */
-    font: var(--font-md-medium-weight) var(--font-md-medium-size)/var(--font-md-medium-line_height) var(--font-md-medium-family);
-    letter-spacing: var(--font-md-medium-letter_spacing);
+    font: var(--font-base-medium-weight) var(--font-base-medium-size)/var(--font-base-medium-line_height) var(--font-base-medium-family);
+    letter-spacing: var(--font-base-medium-letter_spacing);
   "
 `;
 
 exports[`font(md, regular) returns correct CSS 1`] = `
 "
     /* text-md/regular */
-    font: var(--font-md-regular-weight) var(--font-md-regular-size)/var(--font-md-regular-line_height) var(--font-md-regular-family);
-    letter-spacing: var(--font-md-regular-letter_spacing);
+    font: var(--font-base-regular-weight) var(--font-base-regular-size)/var(--font-base-regular-line_height) var(--font-base-regular-family);
+    letter-spacing: var(--font-base-regular-letter_spacing);
   "
 `;
 

@@ -6,9 +6,12 @@ import { myCustomHeadingStyles } from './__story__/styles'
 
 import type { FontStyle } from './types'
 
+// 'md' has no corresponding design token and isn't documented, so it's excluded from Storybook controls.
+const documentedFontSizes = fontSizes.filter((size) => size !== 'md')
+
 const fontStyles = [
   'inherit',
-  ...fontWeights.flatMap((weight) => fontSizes.map((size) => `text-${size}/${weight}` as const)),
+  ...fontWeights.flatMap((weight) => documentedFontSizes.map((size) => `text-${size}/${weight}` as const)),
 ] satisfies FontStyle[]
 
 const meta = preview.meta({

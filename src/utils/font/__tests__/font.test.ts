@@ -7,3 +7,7 @@ const testCases = fontSizes.flatMap((size) => fontWeights.map((weight) => [size,
 test.each(testCases)('font(%s, %s) returns correct CSS', (size, weight) => {
   expect(font(size, weight)).toMatchSnapshot()
 })
+
+test.each(fontWeights)("font('md', %s) resolves to the same CSS variables as font('base', ...)", (weight) => {
+  expect(font('md', weight).replace('text-md', 'text-base')).toEqual(font('base', weight))
+})
