@@ -2,4 +2,4 @@
 '@reapit/elements': patch
 ---
 
-Updated: `rewrite-v5-imports` export map includes latest components.
+Fixed: `rewrite-v5-imports` codemod now rewrites imports of `Flex` and `ProgressIndicator`.
