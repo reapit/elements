@@ -9,7 +9,7 @@ figma.connect(FocusedLayout, '<FOCUSED_LAYOUT_URL>', {
       Light: 'light',
       Dark: 'dark',
     }),
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     closeButton: figma.enum('Type', {
       Simple: undefined,
       MultiStep: figma.instance('Button'),
@@ -36,7 +36,7 @@ figma.connect(FocusedLayout, '<FOCUSED_LAYOUT_URL>', {
       Light: 'light',
       Dark: 'dark',
     }),
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     closeButton: figma.enum('Type', {
       Simple: undefined,
       MultiStep: figma.instance('Button'),
@@ -63,7 +63,7 @@ figma.connect(FocusedLayout, '<FOCUSED_LAYOUT_URL>', {
       Light: 'light',
       Dark: 'dark',
     }),
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     pageTitle: figma.string('✏️ Page title'),
     logo: figma.children('Product logo'),
   },

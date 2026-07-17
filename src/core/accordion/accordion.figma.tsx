@@ -4,7 +4,7 @@ import figma from '@figma/code-connect'
 figma.connect(Accordion, '<ACCORDION_URL>', {
   props: {
     accessory: figma.children('Accordion header'),
-    content: figma.slot('Content slot'),
+    content: figma.slot('Content slot').connectedInstances,
     open: figma.boolean('Expanded'),
   },
   example: (props) => (

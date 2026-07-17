@@ -4,8 +4,8 @@ import figma from '@figma/code-connect'
 figma.connect(AtAGlance, '<AT_A_GLANCE_URL>', {
   props: {
     cards: figma.enum('Variant', {
-      Carousel: figma.slot('Carousel slot'),
-      Grid: figma.slot('Grid slot'),
+      Carousel: figma.slot('Carousel slot').connectedInstances,
+      Grid: figma.slot('Grid slot').connectedInstances,
     }),
     header: figma.boolean('Show header', {
       true: figma.children('AAG header'),

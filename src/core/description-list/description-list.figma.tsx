@@ -4,9 +4,9 @@ import figma from '@figma/code-connect'
 figma.connect(DescriptionList, '<DESCRIPTION_LIST_URL>', {
   props: {
     children: figma.enum('Variant', {
-      'Stacked list': figma.slot('Stacked content slot'),
-      'In-line list': figma.slot('In-line content slot'),
-      Grid: figma.slot('Grid content slot'),
+      'Stacked list': figma.slot('Stacked content slot').connectedInstances,
+      'In-line list': figma.slot('In-line content slot').connectedInstances,
+      Grid: figma.slot('Grid content slot').connectedInstances,
     }),
     grid: figma.enum('Variant', {
       'Stacked list': 'auto-flow / 1fr',

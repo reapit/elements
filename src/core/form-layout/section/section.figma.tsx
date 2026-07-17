@@ -5,7 +5,7 @@ figma.connect(FormLayout.Section, '<FORM_LAYOUT_SECTION_URL>', {
   variant: { 'Section header': true, '↳ Show description': true },
   props: {
     title: figma.textContent('Form title'),
-    children: figma.slot('Form body'),
+    children: figma.slot('Form body').connectedInstances,
     description: figma.textContent('Section description'),
   },
   example: (props) => (
@@ -23,7 +23,7 @@ figma.connect(FormLayout.Section, '<FORM_LAYOUT_SECTION_URL>', {
   variant: { 'Section header': true, '↳ Show description': false },
   props: {
     title: figma.textContent('Form title'),
-    children: figma.slot('Form body'),
+    children: figma.slot('Form body').connectedInstances,
   },
   example: (props) => (
     <FormLayout.Section>
@@ -38,7 +38,7 @@ figma.connect(FormLayout.Section, '<FORM_LAYOUT_SECTION_URL>', {
 figma.connect(FormLayout.Section, '<FORM_LAYOUT_SECTION_URL>', {
   variant: { 'Section header': false, '↳ Show description': false },
   props: {
-    children: figma.slot('Form body'),
+    children: figma.slot('Form body').connectedInstances,
   },
   example: (props) => <FormLayout.Section>{props.children}</FormLayout.Section>,
 })

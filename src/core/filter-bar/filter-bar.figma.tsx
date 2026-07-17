@@ -5,8 +5,8 @@ figma.connect(FilterBar, '<FILTER_BAR_URL>', {
   props: {
     action: figma.instance('Button'),
     filterChips: figma.instance('Chip group'),
-    leftContent: figma.slot('Main controls slot'),
-    rightContent: figma.slot('Secondary controls slot'),
+    leftContent: figma.slot('Main controls slot').connectedInstances,
+    rightContent: figma.slot('Secondary controls slot').connectedInstances,
   },
   example: (props) => (
     <FilterBar

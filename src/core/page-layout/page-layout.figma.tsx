@@ -4,7 +4,7 @@ import figma from '@figma/code-connect'
 figma.connect(PageLayout, '<PAGE_LAYOUT_URL>', {
   variant: { 'Show bottom bar': false },
   props: {
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     officeSwitcher: figma.children('Office switcher'),
     pageHeader: figma.children('Page header'),
     sideBar: figma.children('Side bar'),
@@ -28,7 +28,7 @@ figma.connect(PageLayout, '<PAGE_LAYOUT_URL>', {
 figma.connect(PageLayout, '<PAGE_LAYOUT_URL>', {
   variant: { 'Show bottom bar': true },
   props: {
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     pageHeader: figma.children('Page header'),
     bottomBar: figma.children('Bottom bar'),
   },

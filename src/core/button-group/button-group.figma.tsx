@@ -3,7 +3,7 @@ import figma from '@figma/code-connect'
 
 figma.connect(ButtonGroup, '<BUTTON_GROUP_URL>', {
   props: {
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     orientation: figma.enum('Orientation', {
       Horizontal: 'horizontal',
       Vertical: 'vertical',

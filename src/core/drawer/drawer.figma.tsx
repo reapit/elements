@@ -4,7 +4,7 @@ import figma from '@figma/code-connect'
 figma.connect(Drawer, '<DRAWER_URL>', {
   variant: { Variant: 'Simple' },
   props: {
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     overline: figma.string('Overline'),
     supplementaryInfo: figma.children('Supplementary info'),
     tabs: figma.children('Tabs'),
@@ -28,7 +28,7 @@ figma.connect(Drawer, '<DRAWER_URL>', {
 figma.connect(Drawer, '<DRAWER_URL>', {
   variant: { Variant: 'With footer' },
   props: {
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     footer: figma.children('Button group'),
     overline: figma.string('Overline'),
     supplementaryInfo: figma.children('Supplementary info'),

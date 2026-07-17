@@ -4,7 +4,7 @@ import figma from '@figma/code-connect'
 figma.connect(Dialog, '<DIALOG_URL>', {
   variant: { Footer: true, 'Show title': true },
   props: {
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     footer: figma.children('Button group'),
     size: figma.enum('Size', {
       Small: 'small',
@@ -26,7 +26,7 @@ figma.connect(Dialog, '<DIALOG_URL>', {
 figma.connect(Dialog, '<DIALOG_URL>', {
   variant: { Footer: true, 'Show title': false },
   props: {
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     footer: figma.children('Button group'),
     size: figma.enum('Size', {
       Small: 'small',
@@ -47,7 +47,7 @@ figma.connect(Dialog, '<DIALOG_URL>', {
 figma.connect(Dialog, '<DIALOG_URL>', {
   variant: { Footer: false, 'Show title': true },
   props: {
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     size: figma.enum('Size', {
       Small: 'small',
       Medium: 'medium',
@@ -67,7 +67,7 @@ figma.connect(Dialog, '<DIALOG_URL>', {
 figma.connect(Dialog, '<DIALOG_URL>', {
   variant: { Footer: false, 'Show title': false },
   props: {
-    children: figma.slot('Content slot'),
+    children: figma.slot('Content slot').connectedInstances,
     size: figma.enum('Size', {
       Small: 'small',
       Medium: 'medium',

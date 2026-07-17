@@ -4,8 +4,8 @@ import figma from '@figma/code-connect'
 figma.connect(CheckboxGroupControl, '<CHECKBOX_GROUP_URL>', {
   props: {
     children: figma.enum('Orientation', {
-      Horizontal: figma.slot('Horizontal content slot'),
-      Vertical: figma.slot('Vertical content slot'),
+      Horizontal: figma.slot('Horizontal content slot').connectedInstances,
+      Vertical: figma.slot('Vertical content slot').connectedInstances,
     }),
     disabled: figma.enum('State', {
       Disabled: true,

@@ -13,7 +13,7 @@ figma.connect(EmptyState, '<EMPTY_STATE_URL>', {
       Transparent: 'transparent',
     }),
     illustration: figma.boolean('Show illustration', {
-      true: figma.slot('↳ Illustration slot'),
+      true: figma.slot('↳ Illustration slot').connectedInstances,
       false: undefined,
     }),
     secondaryText: figma.boolean('Show description', {
@@ -51,7 +51,7 @@ figma.connect(EmptyState, '<EMPTY_STATE_URL>', {
       Transparent: 'transparent',
     }),
     illustration: figma.boolean('Show illustration', {
-      true: figma.slot('↳ Illustration slot'),
+      true: figma.slot('↳ Illustration slot').connectedInstances,
       false: undefined,
     }),
     size: figma.enum('Size', {

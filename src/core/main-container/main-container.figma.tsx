@@ -5,7 +5,7 @@ figma.connect(MainContainer, '<MAIN_CONTAINER_URL>', {
   variant: { Breakpoint: 'XS' },
   props: {
     layout: figma.nestedProps('Layout XS', {
-      children: figma.slot('Content slot'),
+      children: figma.slot('Content slot').connectedInstances,
     }),
     size: figma.enum('Container width', {
       Narrow: 'narrow',
@@ -39,7 +39,7 @@ figma.connect(MainContainer, '<MAIN_CONTAINER_URL>', {
   variant: { Breakpoint: 'SM' },
   props: {
     layout: figma.nestedProps('Layout SM', {
-      children: figma.slot('Content slot'),
+      children: figma.slot('Content slot').connectedInstances,
       template: figma.enum('Variant', {
         '1': 'single-column',
         '1-1': 'two-columns-symmetrical',
@@ -76,7 +76,7 @@ figma.connect(MainContainer, '<MAIN_CONTAINER_URL>', {
 figma.connect(MainContainer, '<MAIN_CONTAINER_URL>', {
   props: {
     layout: figma.nestedProps('Layout MD-2XL', {
-      children: figma.slot('Content slot'),
+      children: figma.slot('Content slot').connectedInstances,
       template: figma.enum('Variant', {
         '1': 'single-column',
         '1-1': 'two-columns-symmetrical',
