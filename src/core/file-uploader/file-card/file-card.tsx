@@ -2,8 +2,6 @@ import {
   ElFileUploaderFileCard,
   ElFileUploaderFileCardContent,
   ElFileUploaderFileCardName,
-  ElFileUploaderFileCardFileNameSegment,
-  ElFileUploaderFileCardFileExtensionSegment,
   ElFileUploaderFileCardProgressBar,
   ElFileUploaderFileCardSecondaryInfo,
   ElFileUploaderFileCardStatusText,
@@ -11,7 +9,6 @@ import {
 import { FileUploaderRemoveButton } from '../remove-button/remove-button'
 import { getFileUploaderItemStatus } from '../get-file-uploader-item-status'
 import { SeparatorDotIcon } from '#src/icons/separator-dot'
-import { splitFileName } from './split-file-name'
 
 import type { MouseEventHandler, ReactNode } from 'react'
 
@@ -19,7 +16,7 @@ export namespace FileUploaderFileCard {
   export type Status = 'queued' | 'uploading' | 'processing' | 'uploaded' | 'error'
 
   export interface Props {
-    /** The file's name, rendered with middle-truncation that always keeps the extension visible. */
+    /** The file's name, truncated with an ellipsis if it overflows. */
     fileName: string
     /** The file's size in bytes. Omit to skip rendering a size. */
     fileSize?: number
@@ -67,19 +64,13 @@ export function FileUploaderFileCard({
     errorMessage,
     locale,
   })
-  const { base, extension } = splitFileName(fileName)
   const showProgressBar = status === 'uploading' || status === 'processing'
 
   return (
     <ElFileUploaderFileCard data-status={status}>
       {leadingElement}
       <ElFileUploaderFileCardContent>
-        <ElFileUploaderFileCardName title={fileName}>
-          <ElFileUploaderFileCardFileNameSegment>{base}</ElFileUploaderFileCardFileNameSegment>
-          {extension && (
-            <ElFileUploaderFileCardFileExtensionSegment>{extension}</ElFileUploaderFileCardFileExtensionSegment>
-          )}
-        </ElFileUploaderFileCardName>
+        <ElFileUploaderFileCardName title={fileName}>{fileName}</ElFileUploaderFileCardName>
         <ElFileUploaderFileCardSecondaryInfo data-wrap={isError || undefined}>
           {sizeText && (
             <>

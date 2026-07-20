@@ -38,25 +38,11 @@ export const ElFileUploaderFileCardContent = styled.div`
 export const ElFileUploaderFileCardName = styled.p`
   @layer elements.main {
     ${font('base', 'regular')}
-    display: flex;
+    overflow: hidden;
     margin: 0;
     width: 100%;
     color: var(--colour-text-primary);
-  }
-`
-
-export const ElFileUploaderFileCardFileNameSegment = styled.span`
-  @layer elements.main {
-    overflow: hidden;
-    min-width: 0;
     text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-`
-
-export const ElFileUploaderFileCardFileExtensionSegment = styled.span`
-  @layer elements.main {
-    flex-shrink: 0;
     white-space: nowrap;
   }
 `

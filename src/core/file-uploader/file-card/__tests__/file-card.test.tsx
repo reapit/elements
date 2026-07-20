@@ -4,10 +4,9 @@ import { fireEvent, render, screen } from '@testing-library/react'
 
 const leadingElement = <FileUploaderFileCardLeadingElement type="icon" />
 
-test('renders the filename split into a base and extension', () => {
+test('renders the filename', () => {
   render(<FileUploaderFileCard fileName="Invoice.pdf" status="queued" leadingElement={leadingElement} />)
-  expect(screen.getByText('Invoice')).toBeVisible()
-  expect(screen.getByText('.pdf')).toBeVisible()
+  expect(screen.getByText('Invoice.pdf')).toBeVisible()
 })
 
 test('renders the formatted file size and status text', () => {

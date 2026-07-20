@@ -89,8 +89,7 @@ export const Error = Example.extend({
 })
 
 /**
- * When the title is too long to fit in the available space, it will be truncated. The file's extension will
- * remain visible.
+ * When the title is too long to fit in the available space, it will be truncated.
  */
 export const Truncation = Example.extend({
   args: {
