@@ -940,6 +940,28 @@ exports[`'CloudIcon' renders the correct SVG 1`] = `
 </DocumentFragment>
 `;
 
+exports[`'CloudUploadIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    color="inherit"
+    data-size="100%"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12.029 11.1q.014 0 .029.003a1 1 0 0 1 .137.018l.023.006a.9.9 0 0 1 .419.236l3 3a.901.901 0 0 1-1.274 1.274L12.9 14.174V20a.9.9 0 0 1-1.8 0v-5.826l-1.463 1.463a.9.9 0 0 1-1.274-1.274l3-3 .018-.015a.9.9 0 0 1 .346-.206A.9.9 0 0 1 12 11.1z"
+    />
+    <path
+      d="M9.06 3.118a7.5 7.5 0 0 1 6.465 2.904 7.5 7.5 0 0 1 1.283 2.587A5.398 5.398 0 0 1 18.3 19.09a.9.9 0 0 1-.6-1.697 3.6 3.6 0 0 0 1.12-6.145 3.6 3.6 0 0 0-2.32-.847c-.101 0-.196.007-.346.018a.9.9 0 0 1-.952-.752 5.69 5.69 0 1 0-8.858 5.595.9.9 0 0 1-1.027 1.478A7.49 7.49 0 0 1 9.06 3.12"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
 exports[`'ComplianceIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
@@ -3213,6 +3235,54 @@ exports[`'RestoreIcon' renders the correct SVG 1`] = `
 </DocumentFragment>
 `;
 
+exports[`'RotateLeftIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    color="inherit"
+    data-size="100%"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M14.75 13A2.75 2.75 0 0 0 12 10.25H5A2.75 2.75 0 0 0 2.25 13v7A2.75 2.75 0 0 0 5 22.75h7A2.75 2.75 0 0 0 14.75 20zm-1.5 7c0 .69-.56 1.25-1.25 1.25H5c-.69 0-1.25-.56-1.25-1.25v-7c0-.69.56-1.25 1.25-1.25h7c.69 0 1.25.56 1.25 1.25z"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M21.75 9A4.75 4.75 0 0 0 17 4.25h-4.19l1.72-1.72a.75.75 0 1 0-1.06-1.06l-3 3a.7.7 0 0 0-.118.16q-.025.041-.044.084-.02.048-.03.098-.007.02-.012.04-.002.007-.003.016a.8.8 0 0 0 0 .265l.003.016q.005.02.011.04.012.05.03.098.02.044.045.083.047.087.118.16l3 3a.75.75 0 1 0 1.06-1.06l-1.72-1.72H17A3.25 3.25 0 0 1 20.25 9v4a.75.75 0 1 0 1.5 0z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'RotateRightIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    color="inherit"
+    data-size="100%"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      clip-rule="evenodd"
+      d="M9.25 13A2.75 2.75 0 0 1 12 10.25h7A2.75 2.75 0 0 1 21.75 13v7A2.75 2.75 0 0 1 19 22.75h-7A2.75 2.75 0 0 1 9.25 20zm1.5 7c0 .69.56 1.25 1.25 1.25h7c.69 0 1.25-.56 1.25-1.25v-7c0-.69-.56-1.25-1.25-1.25h-7c-.69 0-1.25.56-1.25 1.25z"
+      fill-rule="evenodd"
+    />
+    <path
+      d="M2.25 9A4.75 4.75 0 0 1 7 4.25h4.19L9.47 2.53a.75.75 0 1 1 1.06-1.06l3 3a.7.7 0 0 1 .118.16q.025.041.044.084.02.048.03.098.007.02.012.04.002.007.003.016a.8.8 0 0 1 0 .265l-.003.016q-.005.02-.011.04-.012.05-.03.098-.02.044-.045.083a.8.8 0 0 1-.118.16l-3 3a.75.75 0 1 1-1.06-1.06l1.72-1.72H7A3.25 3.25 0 0 0 3.75 9v4a.75.75 0 1 1-1.5 0z"
+    />
+  </svg>
+</DocumentFragment>
+`;
+
 exports[`'SaleIcon' renders the correct SVG 1`] = `
 <DocumentFragment>
   <svg
@@ -4055,6 +4125,30 @@ exports[`'WandIcon' renders the correct SVG 1`] = `
         />
       </clippath>
     </defs>
+  </svg>
+</DocumentFragment>
+`;
+
+exports[`'WarningCircleOutlineIcon' renders the correct SVG 1`] = `
+<DocumentFragment>
+  <svg
+    class="el-icon"
+    color="inherit"
+    data-size="100%"
+    fill="currentColor"
+    height="24"
+    viewBox="0 0 24 24"
+    width="24"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12.034 15.6a1.2 1.2 0 1 1 0 2.4 1.2 1.2 0 0 1 0-2.4M12 5.5a1 1 0 0 1 1 1v6.1a1 1 0 1 1-2 0V6.5a1 1 0 0 1 1-1"
+    />
+    <path
+      clip-rule="evenodd"
+      d="M12 1c6.076 0 11 4.924 11 11s-4.924 11-11 11S1 18.076 1 12 5.924 1 12 1m0 2a9 9 0 0 0-9 9 9 9 0 0 0 9 9 9 9 0 0 0 9-9 9 9 0 0 0-9-9"
+      fill-rule="evenodd"
+    />
   </svg>
 </DocumentFragment>
 `;

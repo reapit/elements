@@ -42,6 +42,7 @@ export * from '../circular-remove-solid'
 export * from '../circular-remove'
 export * from '../clear'
 export * from '../close'
+export * from '../cloud-upload'
 export * from '../cloud'
 export * from '../compliance'
 export * from '../consolidate'
@@ -154,6 +155,8 @@ export * from '../reply-all'
 export * from '../reply'
 export * from '../report'
 export * from '../restore'
+export * from '../rotate-left'
+export * from '../rotate-right'
 export * from '../sale'
 export * from '../search'
 export * from '../send'
@@ -194,6 +197,7 @@ export * from '../view'
 export * from '../w3w'
 export * from '../walking'
 export * from '../wand'
+export * from '../warning-circle-outline'
 export * from '../warning-outline'
 export * from '../warning'
 export * from '../web'
@@ -244,6 +248,7 @@ export const ICON_KEBAB_NAMES: Record<string, string> = {
   CircularRemoveIcon: 'circular-remove',
   ClearIcon: 'clear',
   CloseIcon: 'close',
+  CloudUploadIcon: 'cloud-upload',
   CloudIcon: 'cloud',
   ComplianceIcon: 'compliance',
   ConsolidateIcon: 'consolidate',
@@ -356,6 +361,8 @@ export const ICON_KEBAB_NAMES: Record<string, string> = {
   ReplyIcon: 'reply',
   ReportIcon: 'report',
   RestoreIcon: 'restore',
+  RotateLeftIcon: 'rotate-left',
+  RotateRightIcon: 'rotate-right',
   SaleIcon: 'sale',
   SearchIcon: 'search',
   SendIcon: 'send',
@@ -396,6 +403,7 @@ export const ICON_KEBAB_NAMES: Record<string, string> = {
   W3wIcon: 'w3w',
   WalkingIcon: 'walking',
   WandIcon: 'wand',
+  WarningCircleOutlineIcon: 'warning-circle-outline',
   WarningOutlineIcon: 'warning-outline',
   WarningIcon: 'warning',
   WebIcon: 'web',
