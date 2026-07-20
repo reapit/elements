@@ -50,11 +50,11 @@ export const ElStep = styled.div`
   }
 
   &::before {
-    left: calc(12px /* was --component-steps-gutter-width */ * -1);
+    left: calc(12px * -1 /* was --component-steps-gutter-width */);
   }
 
   &::after {
-    right: calc(12px /* was --component-steps-gutter-width */ * -1);
+    right: calc(12px * -1 /* was --component-steps-gutter-width */);
   }
 
   &:first-child {

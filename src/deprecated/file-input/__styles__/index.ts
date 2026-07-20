@@ -12,9 +12,9 @@ export const ElFileInput = styled.input`
   &[type='file'] {
     font-family:
       'Inter',
-      Helvetica,
+      /* was --font-sans-serif */ Helvetica,
       Arial,
-      sans-serif /* was --font-sans-serif */;
+      sans-serif;
     position: absolute;
     height: 34px;
     width: 5.5rem;

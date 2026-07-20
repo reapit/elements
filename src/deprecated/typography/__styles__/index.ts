@@ -49,9 +49,9 @@ export const elHasUpperCasedText = css``
 export const elTextBase = css`
   font-family:
     'Inter',
-    Helvetica,
+    /* was --font-sans-serif */ Helvetica,
     Arial,
-    sans-serif /* was --font-sans-serif */;
+    sans-serif;
   color: var(--colour-text-primary);
   font-size: 15px;
   line-height: 24px;
@@ -184,9 +184,9 @@ export const elText2XS = css`
 export const elTitle = css`
   font-family:
     'Inter',
-    Helvetica,
+    /* was --font-sans-serif */ Helvetica,
     Arial,
-    sans-serif /* was --font-sans-serif */;
+    sans-serif;
   font-weight: 600 /* was --font-weight-bold */;
   color: var(--colour-text-primary);
   font-size: 1.5rem /* was --font-size-heading */;
@@ -271,9 +271,9 @@ export const elTitle = css`
 export const elSubtitle = css`
   font-family:
     'Inter',
-    Helvetica,
+    /* was --font-sans-serif */ Helvetica,
     Arial,
-    sans-serif /* was --font-sans-serif */;
+    sans-serif;
   font-weight: 400 /* was --font-weight-default */;
   color: var(--colour-text-primary);
   font-size: 1.25rem /* was --font-size-subheading */;
@@ -358,9 +358,9 @@ export const elSubtitle = css`
 export const elBodyText = css`
   font-family:
     'Inter',
-    Helvetica,
+    /* was --font-sans-serif */ Helvetica,
     Arial,
-    sans-serif /* was --font-sans-serif */;
+    sans-serif;
   font-weight: 400 /* was --font-weight-default */;
   color: var(--colour-text-primary);
   font-size: 0.9375rem /* was --font-size-default */;
@@ -445,9 +445,9 @@ export const elBodyText = css`
 export const elSmallText = css`
   font-family:
     'Inter',
-    Helvetica,
+    /* was --font-sans-serif */ Helvetica,
     Arial,
-    sans-serif /* was --font-sans-serif */;
+    sans-serif;
   font-weight: 400 /* was --font-weight-default */;
   color: var(--colour-text-primary);
   font-size: 0.875rem /* was --font-size-small */;

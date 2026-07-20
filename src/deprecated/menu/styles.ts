@@ -119,7 +119,8 @@ const baseMenuItemStyles = `
 /** @deprecated */
 export const ElDeprecatedMenuItemButton = styled.button`
   ${baseMenuItemStyles}
-  &[aria-current="true"], &[aria-current="page"] {
+  &[aria-current='true'],
+  &[aria-current='page'] {
     ${ElDeprecatedMenuItemLabel} {
       color: var(--comp-menu-colour-text-default-action);
     }
@@ -146,7 +147,8 @@ export const ElDeprecatedMenuItemButton = styled.button`
 /** @deprecated */
 export const ElDeprecatedMenuItemAnchor = styled.a`
   ${baseMenuItemStyles}
-  &[aria-current="true"], &[aria-current="page"] {
+  &[aria-current='true'],
+  &[aria-current='page'] {
     ${ElDeprecatedMenuItemLabel} {
       color: var(--comp-menu-colour-text-default-action) !important;
     }

@@ -195,7 +195,7 @@ export const ElDeprecatedTableHeadersRow = styled.div`
    * the column that has the button to trigger the expandable row. */
 
   grid-template-columns:
-    repeat(var(--component-table-num-columns, auto-fit), minmax(3rem /* was --component-table-min-column-width */, 1fr))
+    repeat(var(--component-table-num-columns, auto-fit), minmax(3rem, /* was --component-table-min-column-width */ 1fr))
     var(--component-table-expandable-trigger-width, 0);
   border-bottom: 1px solid var(--colour-border-neutral-light_default);
 
@@ -225,7 +225,7 @@ export const ElDeprecatedTableRow = styled.div`
   display: grid;
   /* see above for the explanation of this line */
   grid-template-columns:
-    repeat(var(--component-table-num-columns, auto-fit), minmax(3rem /* was --component-table-min-column-width */, 1fr))
+    repeat(var(--component-table-num-columns, auto-fit), minmax(3rem, /* was --component-table-min-column-width */ 1fr))
     var(--component-table-expandable-trigger-width, 0);
   background: var(--colour-fill-white);
   border-bottom: 1px solid var(--colour-border-neutral-light_default);

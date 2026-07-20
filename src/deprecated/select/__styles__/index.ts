@@ -19,9 +19,9 @@ export const ElDeprecatedSelect = styled.select`
   border-radius: 0.125rem;
   font-family:
     'Inter',
-    Helvetica,
+    /* was --font-sans-serif */ Helvetica,
     Arial,
-    sans-serif /* was --font-sans-serif */;
+    sans-serif;
   font-size: 0.875rem /* was --font-size-small */;
 
   &:focus {

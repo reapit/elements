@@ -65,9 +65,9 @@ export const ElSearchableDropdownSearchInput = styled.input`
   margin: 0;
   font-family:
     'Inter',
-    Helvetica,
+    /* was --font-sans-serif */ Helvetica,
     Arial,
-    sans-serif /* was --font-sans-serif */;
+    sans-serif;
   font-size: 0.875rem /* was --font-size-small */;
   border-radius: 0.125rem;
   border: 1px solid #d8dee4 /* was --component-input-border */;
@@ -83,9 +83,9 @@ export const ElSearchableDropdownSearchInput = styled.input`
     color: var(--colour-text-placeholder);
     font-family:
       'Inter',
-      Helvetica,
+      /* was --font-sans-serif */ Helvetica,
       Arial,
-      sans-serif /* was --font-sans-serif */;
+      sans-serif;
     font-size: 0.875rem /* was --font-size-small */;
   }
 

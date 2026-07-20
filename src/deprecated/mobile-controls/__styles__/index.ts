@@ -75,9 +75,9 @@ export const ElMobileControlItem = styled.a`
   font-size: 0.875rem /* was --font-size-small */;
   font-family:
     'Inter',
-    Helvetica,
+    /* was --font-sans-serif */ Helvetica,
     Arial,
-    sans-serif /* was --font-sans-serif */;
+    sans-serif;
   font-weight: 500 /* was --font-weight-medium */;
   color: var(--colour-text-secondary);
   margin: 0 0.5rem 0.25rem 0;

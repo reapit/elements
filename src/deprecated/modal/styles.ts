@@ -52,9 +52,9 @@ export const ElModalHeader = styled.div`
   color: var(--colour-text-primary);
   font-family:
     'Inter',
-    Helvetica,
+    /* was --font-sans-serif */ Helvetica,
     Arial,
-    sans-serif /* was --font-sans-serif */;
+    sans-serif;
   font-weight: 400 /* was --font-weight-default */;
   font-size: 1.25rem /* was --font-size-subheading */;
   margin-bottom: 1rem;

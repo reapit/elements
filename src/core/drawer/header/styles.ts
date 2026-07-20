@@ -74,8 +74,10 @@ export const ElDrawerHeaderTitleContainer = styled.div`
     grid-template:
       'overline close' minmax(0, auto)
       /* We need to use minmax for the title row because min-content and auto will consider the close button's size,
-       * which will result in a larger track height when the close button is present than when it is not. */
-      'title close' minmax(0, auto)
+       * which will result in a larger track height when the close button is present than when it is not. */ 'title close' minmax(
+        0,
+        auto
+      )
       'supplementary-info supplementary-info' minmax(0, auto) / auto min-content;
     align-items: center;
 
