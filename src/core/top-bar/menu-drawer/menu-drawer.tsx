@@ -56,8 +56,10 @@ export namespace TopBarMenuDrawer {
      *  - `none`: The drawer cannot be closed by the user (e.g. via the close button). This is what form drawers
      *    should use.
      *
-     * **Note:** Safari does not currently support `closedBy`. `TopBarMenuDrawer` attempts to polyfill its behaviour,
-     * but it's not perfect. Namely, "back" or "dismiss" gestures on mobile platforms are not supported.
+     * **Note:** Backdrop dismissal for `any` is always handled in JS rather than delegated to the browser's
+     * native light-dismiss, to avoid closing the drawer before the triggering click can be hit-tested (which
+     * would let that click also activate an element behind the backdrop). Separately, Safari does not support
+     * the `closedBy` attribute at all, so "back"/"dismiss" gestures on mobile Safari won't close the drawer.
      *
      * @default 'any'
      */

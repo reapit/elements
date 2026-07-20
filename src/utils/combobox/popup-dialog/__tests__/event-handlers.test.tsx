@@ -239,7 +239,7 @@ function TestComponent({
 }: TestComponentProps) {
   const handleClick = (event: MouseEvent<HTMLDialogElement>) => {
     maybeCloseOnSelection(event)
-    maybeCloseOnBackdropClick(event)
+    maybeCloseOnBackdropClick(event, 'any', true)
   }
 
   return (

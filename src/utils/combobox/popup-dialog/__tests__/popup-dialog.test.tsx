@@ -38,6 +38,24 @@ test('applies custom data-variant attribute', () => {
   expect(screen.getByRole('dialog')).toHaveAttribute('data-variant', 'drawer')
 })
 
+test('consumes backdrop clicks (closedby="closerequest") in drawer variant, where the backdrop is dimmed', () => {
+  render(
+    <ComboboxPopupDialog {...defaultProps} variant="drawer">
+      Content
+    </ComboboxPopupDialog>,
+  )
+  expect(screen.getByRole('dialog')).toHaveAttribute('closedby', 'closerequest')
+})
+
+test('does not consume backdrop clicks (closedby="any") in popover variant, where the backdrop is transparent', () => {
+  render(
+    <ComboboxPopupDialog {...defaultProps} variant="popover">
+      Content
+    </ComboboxPopupDialog>,
+  )
+  expect(screen.getByRole('dialog')).toHaveAttribute('closedby', 'any')
+})
+
 test('accepts maxHeight prop', () => {
   render(
     <ComboboxPopupDialog {...defaultProps} maxHeight="500px">

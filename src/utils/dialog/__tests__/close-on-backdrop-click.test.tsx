@@ -2,132 +2,126 @@ import { fireEvent, render, screen } from '@testing-library/react'
 import { maybeCloseOnBackdropClick } from '#src/utils/dialog/close-on-backdrop-click'
 
 describe('maybeCloseOnBackdropClick', () => {
-  describe('when dialog does not have closedby="any"', () => {
-    beforeEach(() => {
-      // Ensure closedBy is not defined to simulate Safari
-      // @ts-expect-error - Deleting property to simulate Safari
-      delete HTMLDialogElement.prototype.closedBy
-    })
+  test('closes the dialog when clicking backdrop, closedBy is "any" and consumeBackdropClick is true', () => {
+    const closeSpy = vi.fn()
+    render(<TestComponent closeSpy={closeSpy} closedBy="any" consumeBackdropClick />)
 
-    test('does not close the dialog when clicking backdrop', () => {
-      const closeSpy = vi.fn()
-      render(<TestComponent closeSpy={closeSpy} closedBy="closerequest" />)
+    const dialog = screen.getByRole('dialog')
+    fireEvent.click(dialog)
 
-      const dialog = screen.getByRole('dialog')
-      fireEvent.click(dialog)
-
-      expect(closeSpy).not.toHaveBeenCalled()
-    })
-
-    test('does not close the dialog when closedby is "none"', () => {
-      const closeSpy = vi.fn()
-      render(<TestComponent closeSpy={closeSpy} closedBy="none" />)
-
-      const dialog = screen.getByRole('dialog')
-      fireEvent.click(dialog)
-
-      expect(closeSpy).not.toHaveBeenCalled()
-    })
-
-    test('does not close the dialog when closedby attribute is missing', () => {
-      const closeSpy = vi.fn()
-      render(<TestComponent closeSpy={closeSpy} closedBy={undefined} />)
-
-      const dialog = screen.getByRole('dialog')
-      fireEvent.click(dialog)
-
-      expect(closeSpy).not.toHaveBeenCalled()
-    })
+    expect(closeSpy).toHaveBeenCalledTimes(1)
   })
 
-  describe('when closedBy is supported', () => {
-    beforeEach(() => {
-      Object.defineProperty(HTMLDialogElement.prototype, 'closedBy', {
-        value: 'any',
-        writable: true,
-        configurable: true,
-      })
-    })
+  test('closes the dialog when consumeBackdropClick is false and closedBy is not natively supported', () => {
+    const originalDescriptor = Object.getOwnPropertyDescriptor(HTMLDialogElement.prototype, 'closedBy')
+    delete (HTMLDialogElement.prototype as { closedBy?: unknown }).closedBy
 
-    afterEach(() => {
-      // @ts-expect-error - Deleting property for test cleanup
-      delete HTMLDialogElement.prototype.closedBy
-    })
-
-    test('does not close the dialog when clicking backdrop', () => {
+    try {
       const closeSpy = vi.fn()
-      render(<TestComponent closeSpy={closeSpy} closedBy="any" />)
-
-      const dialog = screen.getByRole('dialog')
-      fireEvent.click(dialog)
-
-      expect(closeSpy).not.toHaveBeenCalled()
-    })
-
-    test('does not close the dialog when clicking child content', () => {
-      const closeSpy = vi.fn()
-      render(<TestComponent closeSpy={closeSpy} closedBy="any" />)
-
-      const content = screen.getByText('Dialog Content')
-      fireEvent.click(content)
-
-      expect(closeSpy).not.toHaveBeenCalled()
-    })
-  })
-
-  describe('when closedBy is not supported (Safari)', () => {
-    beforeEach(() => {
-      // Ensure closedBy is not defined to simulate Safari
-      // @ts-expect-error - Deleting property to simulate Safari
-      delete HTMLDialogElement.prototype.closedBy
-    })
-
-    test('closes the dialog when clicking backdrop', () => {
-      const closeSpy = vi.fn()
-      render(<TestComponent closeSpy={closeSpy} closedBy="any" />)
+      render(<TestComponent closeSpy={closeSpy} closedBy="any" consumeBackdropClick={false} />)
 
       const dialog = screen.getByRole('dialog')
       fireEvent.click(dialog)
 
       expect(closeSpy).toHaveBeenCalledTimes(1)
-    })
+    } finally {
+      if (originalDescriptor) {
+        Object.defineProperty(HTMLDialogElement.prototype, 'closedBy', originalDescriptor)
+      }
+    }
+  })
 
-    test('does not close the dialog when clicking child content', () => {
+  test('does not close the dialog when consumeBackdropClick is false and closedBy is natively supported', () => {
+    const originalDescriptor = Object.getOwnPropertyDescriptor(HTMLDialogElement.prototype, 'closedBy')
+    Object.defineProperty(HTMLDialogElement.prototype, 'closedBy', { value: 'any', configurable: true })
+
+    try {
       const closeSpy = vi.fn()
-      render(<TestComponent closeSpy={closeSpy} closedBy="any" />)
+      render(<TestComponent closeSpy={closeSpy} closedBy="any" consumeBackdropClick={false} />)
 
-      const content = screen.getByText('Dialog Content')
-      fireEvent.click(content)
+      const dialog = screen.getByRole('dialog')
+      fireEvent.click(dialog)
 
       expect(closeSpy).not.toHaveBeenCalled()
-    })
+    } finally {
+      if (originalDescriptor) {
+        Object.defineProperty(HTMLDialogElement.prototype, 'closedBy', originalDescriptor)
+      } else {
+        delete (HTMLDialogElement.prototype as { closedBy?: unknown }).closedBy
+      }
+    }
+  })
 
-    test('does not close when event target does not match currentTarget', () => {
-      const closeSpy = vi.fn()
-      render(<TestComponent closeSpy={closeSpy} closedBy="any" />)
+  test('does not close the dialog when it is already closed', () => {
+    const closeSpy = vi.fn()
+    render(<TestComponent closeSpy={closeSpy} closedBy="any" consumeBackdropClick alreadyClosed />)
 
-      const button = screen.getByRole('button')
-      fireEvent.click(button)
+    const dialog = screen.getByRole('dialog')
+    fireEvent.click(dialog)
 
-      expect(closeSpy).not.toHaveBeenCalled()
-    })
+    expect(closeSpy).not.toHaveBeenCalled()
+  })
+
+  test('does not close the dialog when closedBy is "closerequest"', () => {
+    const closeSpy = vi.fn()
+    render(<TestComponent closeSpy={closeSpy} closedBy="closerequest" consumeBackdropClick />)
+
+    const dialog = screen.getByRole('dialog')
+    fireEvent.click(dialog)
+
+    expect(closeSpy).not.toHaveBeenCalled()
+  })
+
+  test('does not close the dialog when closedBy is "none"', () => {
+    const closeSpy = vi.fn()
+    render(<TestComponent closeSpy={closeSpy} closedBy="none" consumeBackdropClick />)
+
+    const dialog = screen.getByRole('dialog')
+    fireEvent.click(dialog)
+
+    expect(closeSpy).not.toHaveBeenCalled()
+  })
+
+  test('does not close the dialog when clicking child content', () => {
+    const closeSpy = vi.fn()
+    render(<TestComponent closeSpy={closeSpy} closedBy="any" consumeBackdropClick />)
+
+    const content = screen.getByText('Dialog Content')
+    fireEvent.click(content)
+
+    expect(closeSpy).not.toHaveBeenCalled()
+  })
+
+  test('does not close when event target does not match currentTarget', () => {
+    const closeSpy = vi.fn()
+    render(<TestComponent closeSpy={closeSpy} closedBy="any" consumeBackdropClick />)
+
+    const button = screen.getByRole('button')
+    fireEvent.click(button)
+
+    expect(closeSpy).not.toHaveBeenCalled()
   })
 })
 
 interface TestComponentProps {
-  closedBy?: 'any' | 'closerequest' | 'none'
+  closedBy: 'any' | 'closerequest' | 'none'
+  consumeBackdropClick: boolean
   closeSpy: () => void
+  alreadyClosed?: boolean
 }
 
-function TestComponent({ closedBy, closeSpy }: TestComponentProps) {
+function TestComponent({ closedBy, consumeBackdropClick, closeSpy, alreadyClosed }: TestComponentProps) {
   const handleClick = (event: React.MouseEvent<HTMLDialogElement>) => {
-    maybeCloseOnBackdropClick(event)
+    if (alreadyClosed) {
+      // Simulates a consumer closing the dialog in their own `onClick`, which fires before
+      // this handler.
+      event.currentTarget.removeAttribute('open')
+    }
+    maybeCloseOnBackdropClick(event, closedBy, consumeBackdropClick)
   }
 
   return (
     <dialog
-      /* oxlint-disable-next-line react/no-unknown-property */
-      {...(closedBy !== undefined && { closedby: closedBy })}
       open
       onClick={handleClick}
       ref={(dialog) => {

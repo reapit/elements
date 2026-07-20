@@ -30,14 +30,63 @@ test('applies closedBy attribute with default value', () => {
   expect(dialog).toHaveAttribute('closedby', 'closerequest')
 })
 
-test('applies closedBy="any" attribute', () => {
+test('renders closedby="closerequest" when closedBy="any" (consumeBackdropClick defaults to true)', () => {
   render(
     <HTMLDialog closedBy="any" data-testid="test-dialog">
       Test
     </HTMLDialog>,
   )
   const dialog = screen.getByTestId('test-dialog')
+  expect(dialog).toHaveAttribute('closedby', 'closerequest')
+})
+
+test('renders closedby="any" when closedBy="any" and consumeBackdropClick is false', () => {
+  render(
+    <HTMLDialog closedBy="any" consumeBackdropClick={false} data-testid="test-dialog">
+      Test
+    </HTMLDialog>,
+  )
+  const dialog = screen.getByTestId('test-dialog')
   expect(dialog).toHaveAttribute('closedby', 'any')
+})
+
+test('closes the dialog on backdrop click when closedBy="any" (consumeBackdropClick defaults to true)', () => {
+  render(
+    <HTMLDialog open closedBy="any" data-testid="test-dialog">
+      <button>Inside</button>
+    </HTMLDialog>,
+  )
+  const dialog = screen.getByTestId('test-dialog') as HTMLDialogElement
+  const closeSpy = vi.spyOn(dialog, 'close').mockImplementation(() => {})
+
+  fireEvent.click(dialog)
+
+  expect(closeSpy).toHaveBeenCalledTimes(1)
+})
+
+test('does not close the dialog on backdrop click when consumeBackdropClick is false and closedBy is natively supported', () => {
+  const originalDescriptor = Object.getOwnPropertyDescriptor(HTMLDialogElement.prototype, 'closedBy')
+  Object.defineProperty(HTMLDialogElement.prototype, 'closedBy', { value: 'any', configurable: true })
+
+  try {
+    render(
+      <HTMLDialog open closedBy="any" consumeBackdropClick={false} data-testid="test-dialog">
+        <button>Inside</button>
+      </HTMLDialog>,
+    )
+    const dialog = screen.getByTestId('test-dialog') as HTMLDialogElement
+    const closeSpy = vi.spyOn(dialog, 'close').mockImplementation(() => {})
+
+    fireEvent.click(dialog)
+
+    expect(closeSpy).not.toHaveBeenCalled()
+  } finally {
+    if (originalDescriptor) {
+      Object.defineProperty(HTMLDialogElement.prototype, 'closedBy', originalDescriptor)
+    } else {
+      delete (HTMLDialogElement.prototype as { closedBy?: unknown }).closedBy
+    }
+  }
 })
 
 test('applies closedBy="none" attribute', () => {

@@ -105,6 +105,10 @@ export function ComboboxPopupDialog({
       aria-labelledby={ariaLabelledBy}
       className={cx(elComboboxPopupDialog, className)}
       closedBy="any"
+      // In anchored/popover mode the backdrop is transparent, so a native pass-through click
+      // (dismiss and activate in one gesture) is expected - see `consumeBackdropClick` on
+      // `HTMLDialog` for the touch-vs-mouse caveat.
+      consumeBackdropClick={!needsAnchorPositioning}
       data-close-on-selection={closeOnSelection}
       data-preserve-search-on-close={preserveSearchOnClose}
       data-variant={variant}

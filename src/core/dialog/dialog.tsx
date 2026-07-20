@@ -39,8 +39,10 @@ export namespace Dialog {
      *  - `none`: The dialog cannot be closed by the user (e.g. via the close button). This is what form dialogs
      *    should use.
      *
-     * **note:** Safari does not currently support `closedBy`. `Dialog` attempts to polyfill its behaviour,
-     * but it's not perfect. Namely, "back" or "dismiss" gestures on mobile platforms are not supported.
+     * **note:** Backdrop dismissal for `any` is always handled in JS rather than delegated to the browser's
+     * native light-dismiss, to avoid closing the dialog before the triggering click can be hit-tested (which
+     * would let that click also activate an element behind the backdrop). Separately, Safari does not support
+     * the `closedBy` attribute at all, so "back"/"dismiss" gestures on mobile Safari won't close the dialog.
      */
     closedBy?: 'any' | 'closerequest' | 'none'
     /** Indicates whether the dialog is open or not */
