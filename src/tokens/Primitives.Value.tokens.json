@@ -3,6 +3,10 @@
     "$type": "color",
     "$value": "#00000000"
   },
+  "black-025": {
+    "$type": "color",
+    "$value": "#0000000d"
+  },
   "black-050": {
     "$type": "color",
     "$value": "#0000001a"

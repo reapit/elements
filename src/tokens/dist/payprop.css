@@ -26,6 +26,7 @@
   --border-width-default: 1px;
   --border-width-double: 2px;
   --border-width-none: 0px;
+  --border-width-triple: 4px;
   --colour-border-accent_1-default: #0096aa;
   --colour-border-accent_1-light: #8ce2ea;
   --colour-border-accent_1-lightest: #bef6fa;
@@ -98,6 +99,7 @@
   --colour-icon-secondary: #607890;
   --colour-icon-star: #ffa000;
   --colour-icon-success: #1aa135;
+  --colour-icon-tertiary: #222b33;
   --colour-icon-warning: #ff6000;
   --colour-icon-white: #ffffff;
   --colour-text-accent_1: #0096aa;
@@ -705,6 +707,11 @@
   --comp-upload_item-colour-text-loading-secondary: #9faebc;
   --comp-upload_item-colour-text-read_only-primary: #222b33;
   --comp-upload_item-colour-text-read_only-secondary: #607890;
+  --comp-uploader-colour-fill-drop_area-hover: #0000000d;
+  --comp-uploader-colour-fill-progress_bar-background: #ffffff66;
+  --comp-uploader-colour-fill-progress_bar-indicator: #ffffff;
+  --comp-uploader-colour-fill-spinner-background: #ffffff66;
+  --comp-uploader-colour-fill-spinner-indicator: #ffffff;
   --font-2xl-bold-family: Inter;
   --font-2xl-bold-letter_spacing: -0.24px;
   --font-2xl-bold-line_height: 32px;

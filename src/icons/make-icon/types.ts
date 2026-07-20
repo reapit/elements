@@ -4,6 +4,7 @@ export const iconColours = [
   'inherit',
   'primary',
   'secondary',
+  'tertiary',
   'disabled',
   'white',
   'action',

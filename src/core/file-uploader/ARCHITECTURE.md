@@ -6,7 +6,7 @@ The file-uploader family has four layers, each independently usable and independ
 
 - **`FileInput`** (`src/core/file-input/`) — the native primitive. Owns file selection mechanics only: a real `<input type="file">`, drag-and-drop, `accept`/`multiple`/`required`, custom size/count limits. No label, no help/error text, no upload orchestration, no item rendering.
 - **`FileUploadQueue`** (`src/core/file-uploader/`) — an external store class that owns the upload lifecycle for a set of files: status, progress, retry, abort. No DOM knowledge, no rendering.
-- **`FileCard` / `MediaCard`** (`src/core/file-card/`, `src/core/media-card/`) — presentational item rows. No knowledge of the queue; take plain props.
+- **`FileUploader.FileCard` / `FileUploader.MediaCard`** (private subcomponents inside `src/core/file-uploader/`, not separately exported) — presentational item rows. No knowledge of the queue; take plain props.
 - **`FileUploader`** (`src/core/file-uploader/`) — the compound composition: `FormControl` chrome + `FileInput` + `FileUploadQueue` + item rendering.
 
 This mirrors an existing pattern in this codebase: `Autocomplete` (primitive) vs. `AutocompleteControl` (primitive + `FormControl` + convenience wiring, e.g. auto-rendered `SelectionChips`). `FileInput` plays the role `Autocomplete` plays; `FileUploader` plays the role `AutocompleteControl` plays. `FileUploader` is deliberately **not** named `FileUploadControl` — that would overload this codebase's existing `*Control` meaning (primitive + `FormControl`) with a second, different meaning (queue/orchestration layering). `FileUploader` already matches the Figma component name and fills the `*Control` role without borrowing the suffix.
@@ -42,14 +42,16 @@ An external store class — same shape as the existing toaster store (`src/core/
 - `getFileId(result)` computes `item.fileId` once, at the moment `onUpload` resolves. `FileUploadQueue` also retains the raw `item.result`, for consumers who need to look up richer data by ID later (see "Native form integration").
 - The queue is **externally creatable and injectable**: `FileUploader` accepts an optional `queue` prop (an instance created via `new FileUploadQueue(...)`), defaulting to creating one internally when omitted — same controlled/uncontrolled convention as every other input in this codebase, just applied to a store instance instead of a primitive value. This is what lets a consumer's submit handler read the same instance `FileUploader` is rendering from, entirely outside React's render cycle.
 
-## `FileCard` / `MediaCard`
+## `FileUploader.FileCard` / `FileUploader.MediaCard`
 
-Two separate, independently-exported presentational components — not one component with a `variant` prop — matching the Figma subcomponent boundary directly (Figma lists "File card" and "Media card" as siblings, not variants of one wrapper). This avoids a discriminated-union rendering problem (compact row vs. thumbnail tile don't share much layout) and keeps each component small and single-purpose.
+Two separate subcomponents — not one component with a `variant` prop — matching the Figma subcomponent boundary directly (Figma lists "File card" and "Media card" as siblings, not variants of one wrapper). This avoids a discriminated-union rendering problem (compact row vs. thumbnail tile don't share much layout) and keeps each component small and single-purpose.
+
+Neither is independently exported. Both render upload-status-specific state (queued/uploading/processing/error, progress, remove) that's meaningless without an active `FileUploadQueue` behind it — confirmed with design as uploader-specific behaviour, not general-purpose file-display UI. A read-only list of already-uploaded files (e.g. documents already attached to a record, with no active uploader present) is a different UI need entirely — a gallery/carousel for media, and a lighter-weight file-row variant for documents — not these components. That rules out the standalone-export path this doc originally proposed.
 
 - `FileCard`: compact single-line row. Works for any file type — the safe universal default.
 - `MediaCard`: thumbnail-forward tile, for images/video specifically.
-- Both share small **internal, non-exported** pieces (circular progress ring, spinner, status label formatting, remove button) — implementation reuse, not a shared public interface.
-- Both are usable completely standalone, with no `FileUploader`/dropzone involved — the read-only state (no remove button) exists specifically for this, e.g. a list of already-uploaded documents on a record.
+- Both share small **internal, non-exported** status label formatting (`getFileUploaderItemStatus`) and a remove button (`FileUploaderRemoveButton`) — implementation reuse, not a shared public interface. These live directly under `src/core/file-uploader/`, since both are private to the same component family.
+- The circular progress ring and spinner are **`MediaCard`-only** — they render on its thumbnail overlay; `FileCard` has no thumbnail and shows `getFileUploaderItemStatus`'s `statusText` as plain text instead. They live under `src/core/file-uploader/media-card/`.
 
 ## `FileUploader`
 
@@ -58,16 +60,12 @@ Compound API: `<FileUploader>` composes `FormControl` (label/help-text/error-tex
 ```
 <FileUploader accept="image/*" onUpload={uploadToS3} getFileId={(result) => result.id}>
   <FileUploader.Input name="documents" multiple />
-  <FileUploader.Files name="documentIds">
-    {(items) => items.map((item) => (
-      <FileCard key={item.id} status={item.status} progress={item.progress} onRemove={...} />
-    ))}
-  </FileUploader.Files>
+  <FileUploader.Files name="documentIds" />
 </FileUploader>
 ```
 
 - **`accept` lives on `FileUploader`, not `FileUploader.Input`**: `FileUploader.Files`'s default-component decision (below) needs `accept` to pick between `FileCard`/`MediaCard`, and `Files` has no sibling access to props set on `Input`. Hoisting `accept` to `FileUploader` gives both `Input` (which forwards it to the underlying `FileInput`) and `Files` a single shared source, instead of duplicating it on both elements or reaching across siblings.
-- **`FileUploader.Files`**: default rendering (no `children`) maps queue items to `FileCard`. Defaults to `MediaCard` instead when `FileUploader`'s `accept` is exclusively image/video MIME types or extensions (`isMediaOnlyAccept` helper, co-located with `FileInput`'s `accept`-parsing) — a single uploader-level decision applied to every item, not a per-file inference. The check is deliberately conservative: anything ambiguous (mixed `accept`, unset, non-media types) falls back to `FileCard`, which is always correct even if less specific. The `children`-as-function escape hatch (`(items) => ReactNode`) always remains available for full per-item control, independent of this default.
+- **`FileUploader.Files`**: default rendering (no `children`) maps queue items to `FileCard`. Defaults to `MediaCard` instead when `FileUploader`'s `accept` is exclusively image/video MIME types or extensions (`isMediaOnlyAccept` helper, co-located with `FileInput`'s `accept`-parsing) — a single uploader-level decision applied to every item, not a per-file inference. The check is deliberately conservative: anything ambiguous (mixed `accept`, unset, non-media types) falls back to `FileCard`, which is always correct even if less specific. The `children`-as-function escape hatch (`(items) => ReactNode`) always remains available for full per-item custom rendering — since `FileCard`/`MediaCard` aren't exported, a custom `children` implementation renders its own row UI from `item.status`/`item.progress` rather than reusing them.
 - **`name` prop on `Files`**: when supplied, renders one `<input type="hidden" name={name} value={item.fileId}>` per successfully-uploaded item, alongside whichever row rendering is in use (default or custom `children`). This is native form participation with **zero JS form library required** — a plain `<form>` submit collects these via `FormData.getAll(name)`, the same mechanism grouped checkboxes already use for multi-value native fields. Removal is just React unmounting that item's hidden input; nothing needs to observe the DOM to keep `FormData` correct at submit time.
 - **`onUpload`/`getFileId` live on `FileUploader`, not `Files`**: `getFileId` is conditionally required based on `onUpload`'s resolved type —
   ```ts
@@ -126,4 +124,4 @@ No WAI-ARIA APG pattern exists for file-upload/dropzone widgets — checked agai
 
 ## Changesets
 
-Most subtasks in this feature are internal building blocks with no independently consumable surface until later subtasks land — those use `yarn changeset --empty`. Real `Added:` changesets land only where something becomes independently importable and usable: `FileInput`, `FileCard`/`MediaCard` (if exported standalone ahead of `FileUploader`), and `FileUploader` itself.
+Most subtasks in this feature are internal building blocks with no independently consumable surface until later subtasks land — those use `yarn changeset --empty`. Real `Added:` changesets land only where something becomes independently importable and usable: `FileInput` and `FileUploader` itself. `FileCard`/`MediaCard` and the shared upload-status primitives are never independently exported, so their subtasks always use an empty changeset.

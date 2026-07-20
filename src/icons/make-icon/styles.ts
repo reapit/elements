@@ -14,6 +14,9 @@ export const elIcon = css`
     &[color='secondary'] {
       color: var(--colour-icon-secondary);
     }
+    &[color='tertiary'] {
+      color: var(--colour-icon-tertiary);
+    }
     &[color='disabled'] {
       color: var(--colour-icon-disabled);
     }

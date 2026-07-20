@@ -42,6 +42,10 @@
       "none": {
         "$type": "dimension",
         "$value": "{unit-0}"
+      },
+      "triple": {
+        "$type": "dimension",
+        "$value": "{unit-1}"
       }
     }
   },
@@ -374,6 +378,10 @@
       "success": {
         "$type": "color",
         "$value": "{green-600}"
+      },
+      "tertiary": {
+        "$type": "color",
+        "$value": "{neutral-900}"
       },
       "warning": {
         "$type": "color",
@@ -3415,6 +3423,38 @@
             "secondary": {
               "$type": "color",
               "$value": "{neutral-500}"
+            }
+          }
+        }
+      }
+    },
+    "uploader": {
+      "colour": {
+        "fill": {
+          "drop_area": {
+            "hover": {
+              "$type": "color",
+              "$value": "{black-025}"
+            }
+          },
+          "progress_bar": {
+            "background": {
+              "$type": "color",
+              "$value": "{white-300}"
+            },
+            "indicator": {
+              "$type": "color",
+              "$value": "{white-900}"
+            }
+          },
+          "spinner": {
+            "background": {
+              "$type": "color",
+              "$value": "{white-300}"
+            },
+            "indicator": {
+              "$type": "color",
+              "$value": "{white-900}"
             }
           }
         }
