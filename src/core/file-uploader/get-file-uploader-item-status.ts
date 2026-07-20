@@ -1,4 +1,4 @@
-import { formatFileSize } from '#src/utils/number-format'
+import { formatFileSize, getIntlNumberFormat } from '#src/utils/number-format'
 
 import { clampPercentage } from './clamp-percentage'
 
@@ -16,7 +16,10 @@ export namespace getFileUploaderItemStatus {
     fileSize?: number
     /** The error message to surface. Only meaningful while `status` is `'error'`. */
     errorMessage?: string
-    /** BCP 47 locale tag, forwarded to `formatFileSize`. Defaults to the runtime locale when omitted. */
+    /**
+     * BCP 47 locale tag, forwarded to `formatFileSize` and used to format the upload percentage. Defaults to the
+     * runtime locale when omitted.
+     */
     locale?: string
   }
 
@@ -54,7 +57,7 @@ export function getFileUploaderItemStatus({
         return 'Queued'
       case 'uploading':
         return typeof progress === 'number' && Number.isFinite(progress)
-          ? `Uploading: ${Math.round(clampPercentage(progress))}%`
+          ? `Uploading: ${getIntlNumberFormat(locale, { style: 'percent' }).format(clampPercentage(progress) / 100)}`
           : 'Uploading'
       case 'processing':
         return 'Processing…'

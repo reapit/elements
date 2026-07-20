@@ -119,14 +119,18 @@ export function getNumberAffix(value: number = 0, locale?: string, options?: Int
 // File size formatting
 // ---------------------------------------------------------------------------
 
-const KB = 1024
-const MB = KB * 1024
+const KB = 1000
+const MB = KB * 1000
 
 /**
  * Formats a byte count as a human-readable string with a bytes/KB/MB tier, e.g. `'3.6 MB'`.
  *
+ * Uses decimal (SI) units — `1 kB` is `1,000` bytes, `1 MB` is `1,000,000` bytes — matching the
+ * `'kilobyte'`/`'megabyte'` unit names passed to `Intl.NumberFormat`, and how most operating
+ * systems and browsers report file sizes.
+ *
  * Uses {@link getIntlNumberFormat} with `style: 'unit'` (`unitDisplay: 'short'`), so both the
- * numeric part and the unit are localised — e.g. `'3,6 Mo'` in `fr-FR`, `'239,3 kB'` in `de-DE`.
+ * numeric part and the unit are localised — e.g. `'3,6 Mo'` in `fr-FR`, `'245 kB'` in `de-DE`.
  *
  * @param bytes - The size in bytes. Non-finite values (`NaN`, `Infinity`, `-Infinity`) and
  *   negative values are normalised to `0` before formatting.

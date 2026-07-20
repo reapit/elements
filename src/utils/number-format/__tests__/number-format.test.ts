@@ -185,36 +185,36 @@ test('formatFileSize formats 0 bytes with the "byte" unit', () => {
 })
 
 test('formatFileSize formats a value below the KB boundary with the "byte" unit', () => {
-  expect(formatFileSize(1023, 'en-GB')).toBe('1,023 byte')
+  expect(formatFileSize(999, 'en-GB')).toBe('999 byte')
 })
 
-test('formatFileSize formats exactly 1024 bytes with the "kB" unit', () => {
-  expect(formatFileSize(1024, 'en-GB')).toBe('1 kB')
+test('formatFileSize formats exactly 1000 bytes with the "kB" unit', () => {
+  expect(formatFileSize(1000, 'en-GB')).toBe('1 kB')
 })
 
 test('formatFileSize matches the Figma spec example of 3.6 MB', () => {
-  expect(formatFileSize(1024 * 1024 * 3.6, 'en-GB')).toBe('3.6 MB')
+  expect(formatFileSize(1000 * 1000 * 3.6, 'en-GB')).toBe('3.6 MB')
 })
 
 test('formatFileSize formats a value below the MB boundary with the "kB" unit', () => {
-  expect(formatFileSize(1024 * 1024 - 1, 'en-GB')).toBe('1,024 kB')
+  expect(formatFileSize(1000 * 1000 - 1, 'en-GB')).toBe('1,000 kB')
 })
 
 test('formatFileSize formats exactly 1 MB with the "MB" unit', () => {
-  expect(formatFileSize(1024 * 1024, 'en-GB')).toBe('1 MB')
+  expect(formatFileSize(1000 * 1000, 'en-GB')).toBe('1 MB')
 })
 
 test('formatFileSize rounds the numeric part to a maximum of 2 fraction digits', () => {
-  expect(formatFileSize(1024 * 1024 * 2.98765, 'en-GB')).toBe('2.99 MB')
+  expect(formatFileSize(1000 * 1000 * 2.98765, 'en-GB')).toBe('2.99 MB')
 })
 
 test('formatFileSize uses locale-specific decimal separators for the numeric part', () => {
-  expect(formatFileSize(245043, 'de-DE')).toBe('239,3 kB')
+  expect(formatFileSize(245043, 'de-DE')).toBe('245,04 kB')
 })
 
 test('formatFileSize uses a locale-specific unit name', () => {
   // fr-FR separates the number and unit with a narrow no-break space (U+202F), not a plain space.
-  expect(formatFileSize(1024 * 1024 * 3.6, 'fr-FR')).toBe('3,6 Mo')
+  expect(formatFileSize(1000 * 1000 * 3.6, 'fr-FR')).toBe('3,6 Mo')
 })
 
 test('formatFileSize normalises NaN to 0 rather than throwing', () => {

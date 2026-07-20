@@ -52,7 +52,7 @@ test('returns "Uploading" with no percentage when progress is NaN or Infinity', 
 })
 
 test('formats fileSize into sizeText when provided', () => {
-  const result = getFileUploaderItemStatus({ status: 'queued', fileSize: 2 * 1024 * 1024, locale: 'en-GB' })
+  const result = getFileUploaderItemStatus({ status: 'queued', fileSize: 2 * 1000 * 1000, locale: 'en-GB' })
   expect(result.sizeText).toBe('2 MB')
 })
 
