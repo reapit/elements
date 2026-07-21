@@ -27,7 +27,7 @@ Each layer solves a problem the others don't need to know about:
 - Drag-and-drop is unified into the _same_ native `change` path rather than given a second, bespoke event shape: on `drop`, the dropped `DataTransfer`'s files are assigned onto the real input's `.files`, then a genuine `change` event is dispatched on that input. Browse and drop are indistinguishable downstream — one event, one contract.
 - `accept`/`multiple`/`required` are native attributes, but **the browser does not enforce `accept`/`multiple` against drag-and-drop** — they only filter the OS picker dialog. `validateFiles` re-checks both on the drop path so behaviour doesn't differ by entry point.
 - Custom constraints (`maxFileSize`/`maxFiles`/`maxTotalSize`) are surfaced via `setCustomValidity()`, matching `number-input`'s `useRangeValidation` (`src/core/number-input/use-range-validation.ts`) — so `reportValidity()`/native submit-blocking behaves consistently whether the violation is native or custom.
-- A `children`-as-function render prop exposes `{ files, isDraggingOver, isFocused, disabled }`, letting a consumer fully replace the dropzone's rendered content (e.g. a future single-image-becomes-the-dropzone pattern, swapping the prompt for an image preview once a file is present) while still getting all of `FileInput`'s native mechanics for free. This is not yet a designed Figma pattern — it's a supported customisation, not a bespoke `SingleImageFileInput` component.
+- A `children`-as-function render prop exposes `{ files, isDraggingOver, isFocused, disabled }`, letting a consumer fully replace the dropzone's rendered content while still getting all of `FileInput`'s native mechanics (label/button semantics, drag-and-drop, validation) for free. `FileUploader`'s single-select-media composition exercises this for real — see "Single-select composition" below — and it remains available as a general escape hatch for any other bespoke dropzone content, without needing a bespoke component.
 
 ## `FileUploadQueue`
 
@@ -52,6 +52,7 @@ Neither is independently exported. Both render upload-status-specific state (que
 - `MediaCard`: thumbnail-forward tile, for images/video specifically.
 - Both share small **internal, non-exported** status label formatting (`getFileUploaderItemStatus`) and a remove button (`FileUploaderRemoveButton`) — implementation reuse, not a shared public interface. These live directly under `src/core/file-uploader/`, since both are private to the same component family.
 - The circular progress ring and spinner are **`MediaCard`-only** — they render on its thumbnail overlay; `FileCard` has no thumbnail and shows `getFileUploaderItemStatus`'s `statusText` as plain text instead. They live under `src/core/file-uploader/media-card/`.
+- `MediaCard` itself has two Figma-driven variants, not one: a **list-item** variant (thumbnail tile + filename/size caption below — used inside `Files`'s list, for multi-select and for any single-select case that doesn't hit the swap-in-place default below) and a **single-select** variant (no caption, full-bleed thumbnail, a `Replace` overlay in place of a second remove affordance, states `Default`/`Hovered`/`Error`/`Focused`/`Disabled`). Figma has no single-select equivalent of `FileCard` — the swap-in-place pattern below is media-only. See "Single-select composition".
 
 ## `FileUploader`
 
@@ -86,6 +87,15 @@ Compound API: `<FileUploader>` composes `FormControl` (label/help-text/error-tex
 
 `FileInput` and `FileUploadQueue` never reference each other directly.
 
+## Single-select composition
+
+Figma splits `FileUploader` into two separate top-level components, not one component with a variant: **multi-select** (a persistent dropzone trigger above a separate list of item rows — the composition documented above) and **single-select** (one widget whose own content swaps between the empty drag-and-drop prompt and the filled single-select `MediaCard`, which itself carries the `Replace`/remove affordances). There is no single-select `FileCard` — this pattern is media-only.
+
+- **Default rule**: `FileUploader.Input` renders the single-select `MediaCard` in place of the plain dropzone content (via its own use of `FileInput`'s `children`-as-function render prop) when both are true: `maxFiles === 1` and `isMediaOnlyAccept(accept)` — the same helper `FileUploader.Files` already uses to choose between `FileCard` and `MediaCard`. Otherwise `Input` renders only the persistent dropzone prompt and item display is left to `Files`, exactly as in the multi-select case. This covers `maxFiles === 1` with a non-media `accept` (e.g. a single PDF): plain dropzone + one `FileCard` in the list, matching that there's no single-select `FileCard` design.
+- **`Files` is simply omitted** by the consumer in the single-select-media composition — `Input` already renders the one item that exists, so also including `<FileUploader.Files />` would double-render it. This is a documented composition convention, not something `Input`/`Files` coordinate on at runtime — the same "consumer controls which pieces are composed" model this compound API already uses everywhere else.
+- **Replace, not reject**: selecting or dropping a new file while the single slot is already filled replaces the existing item — the queue removes the current item before adding the new one — rather than being rejected by `maxFiles` validation the way a second file would be in multi-select.
+- **Escape hatch**: a consumer wanting a bespoke single-select experience (a non-media single-select flow, or custom swap-in-place UI) passes their own `children` to `FileUploader.Input`, overriding the default exactly as they'd override any other default in this API — no separate prop or bespoke component needed.
+
 ## Native form integration
 
 Two distinct mechanisms, deliberately kept separate:
@@ -118,7 +128,6 @@ No WAI-ARIA APG pattern exists for file-upload/dropzone widgets — checked agai
 
 ## Explicitly out of scope for v1
 
-- **Single-image-becomes-the-dropzone.** Not a designed Figma pattern yet. Supportable later via `FileInput`'s `children`-as-function render prop without a bespoke component — see `FileInput` section above.
 - **RHF `useFieldArray` integration.** Not needed — see "Native form integration" above.
 - **Per-item custom form values beyond the file ID.** Consumers needing richer data look it up from the injected `queue` by ID in their submit handler, rather than `Files` supporting an arbitrary per-item value.
 
