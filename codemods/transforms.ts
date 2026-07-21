@@ -33,4 +33,5 @@ export const transforms = {
   "upgrade-deprecated-split-button": () => import("./upgrade-deprecated-split-button/transform.js"),
   "upgrade-deprecated-tag": () => import("./upgrade-deprecated-tag/transform.js"),
   "upgrade-deprecated-use-media-query": () => import("./upgrade-deprecated-use-media-query/transform.js"),
+  "upgrade-empty-state-action": () => import("./upgrade-empty-state-action/transform.js"),
 } satisfies Record<string, () => Promise<{ default: Transform }>>

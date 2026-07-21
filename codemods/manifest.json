@@ -1,6 +1,6 @@
 {
   "$schema": "./manifest.schema.json",
-  "generated": "2026-07-13T20:44:20.125Z",
+  "generated": "2026-07-21T12:47:54.531Z",
   "codemods": [
     {
       "name": "apply-textarea-field-sizing",
@@ -121,6 +121,10 @@
     {
       "name": "upgrade-deprecated-use-media-query",
       "description": "Migrates deprecated useMediaQuery and related exports to the new breakpoint utilities"
+    },
+    {
+      "name": "upgrade-empty-state-action",
+      "description": "Migrates EmptyState.Action / EmptyState.ActionButton to plain AnchorButton / Button usage"
     }
   ]
 }
