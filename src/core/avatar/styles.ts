@@ -46,6 +46,11 @@ export const ElAvatar = styled.span<ElAvatarProps>`
       height: var(--size-8);
 
       ${font('2xs', 'bold')}
+
+      svg {
+        width: var(--icon_size-sm);
+        height: var(--icon_size-sm);
+      }
     }
 
     &,
@@ -53,6 +58,11 @@ export const ElAvatar = styled.span<ElAvatarProps>`
       width: var(--size-10);
       height: var(--size-10);
       ${font('base', 'bold')}
+
+      svg {
+        width: var(--icon_size-md);
+        height: var(--icon_size-md);
+      }
     }
   }
 `
